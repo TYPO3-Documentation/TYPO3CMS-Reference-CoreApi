@@ -5,8 +5,8 @@ The cObject-ViewHelper is a very powerful ViewHelper. It connects
 Fluid with the options that TypoScript offers. The following line in the
 HTML template will be replaced with the referenced TypoScript object.
 
-``&lt;f:cObject typoscriptObjectPath="lib.title"
-/&gt;``
+``<f:cObject typoscriptObjectPath="lib.title"
+/>``
 
 Now we only have to define ``lib.title`` in the TypoScript
 Setup::
@@ -15,6 +15,7 @@ Setup::
 	lib.title.value = Extbase and Fluid
 
 	.. tip::
+
 		<remark>??? What is the tip</remark>
 
 	»Extbase and Fluid«<remark>TODO: Add formatting for output</remark>
@@ -50,19 +51,19 @@ count how many times it's been viewed in this example).
 
 In the Fluid template we add:
 
-``&lt;f:cObject
-typoscriptObjectPath="lib.myCounter"&gt;{post.viewCount}&lt;/f:cObject&gt;``
+``<f:cObject
+typoscriptObjectPath="lib.myCounter">{post.viewCount}</f:cObject>``
 
 Alternatively we can use a self closing tag. The data is being passed
 with the help of the ``data`` attribute.
 
-``&lt;f:cObject typoscriptObjectPath="lib.myCounter"
-data="{post.viewCount}" /&gt;``
+``<f:cObject typoscriptObjectPath="lib.myCounter"
+data="{post.viewCount}" />``
 
 Also advisable for this example is the inline notaion, because you can
 easily read it from left to right:
 
-``{post.viewCount -&gt; f:cObject(typoscriptObjectPath:
+``{post.viewCount -> f:cObject(typoscriptObjectPath:
 'lib.myCounter')}``
 
 Now we still have to evaluate the passed value in our TypoScript
@@ -74,7 +75,7 @@ example it looks like this::
 	lib.myCounter = TEXT
 	lib.myCounter {
 	current = 1
-	wrap = &lt;strong&gt; | &lt;/strong&gt;
+	wrap = <strong> | </strong>
 	}
 
 This TypoScript snippet outputs the current number of visits written
@@ -99,7 +100,7 @@ because then you can select which value to use in the TypoScript and the
 values can be concatenated. You can also pass whole objects to the
 ViewHelper in the template:
 
-``{post -&gt; f:cObject(typoscriptObjectPath:
+``{post -> f:cObject(typoscriptObjectPath:
 'lib.myCounter')}``
 
 Now, how do you access individual properties of the object in the
@@ -112,7 +113,7 @@ TypoScript-Setup? You can use the property ``field`` of
 	10.field = title
 	20 = TEXT
 	20.field = viewCount
-	wrap = (&lt;strong&gt; | &lt;/strong&gt;)
+	wrap = (<strong> | </strong>)
 	}
 
 Now we always output the title of the blog, followed by the amount of
@@ -127,7 +128,7 @@ when you want to emphazise that the value is very
 *amount of visits* is very important in our view
 counter:
 
-``{post -&gt; f:cObject(typoscriptObjectPath: 'lib.myCounter',
+``{post -> f:cObject(typoscriptObjectPath: 'lib.myCounter',
 currentValueKey: 'viewCount')}``
 
 In the TypoScript template you can now use both, ``current``
@@ -141,7 +142,7 @@ information as the previous example::
 	10.field = title
 	20 = TEXT
 	20.current = 1
-	wrap = (&lt;strong&gt; | &lt;/strong&gt;)
+	wrap = (<strong> | </strong>)
 	}
 
 The ``cObject`` ViewHelper is a powerful option to use the
