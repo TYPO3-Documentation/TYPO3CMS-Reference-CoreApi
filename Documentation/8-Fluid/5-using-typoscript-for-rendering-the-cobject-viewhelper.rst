@@ -5,8 +5,7 @@ The cObject-ViewHelper is a very powerful ViewHelper. It connects
 Fluid with the options that TypoScript offers. The following line in the
 HTML template will be replaced with the referenced TypoScript object.
 
-``<f:cObject typoscriptObjectPath="lib.title"
-/>``
+``<f:cObject typoscriptObjectPath="lib.title"/>``
 
 Now we only have to define ``lib.title`` in the TypoScript
 Setup::
@@ -14,21 +13,16 @@ Setup::
 	lib.title = TEXT
 	lib.title.value = Extbase and Fluid
 
-	.. tip::
-
-		<remark>??? What is the tip</remark>
-
-	»Extbase and Fluid«<remark>TODO: Add formatting for output</remark>
-	will be outputted in the template. Now we can output an image (e.g.
-	headlines with unusual fonts) by changing the TypoScript to::
+»Extbase and Fluid« will be outputted in the template. Now we can output an 
+image (e.g. headlines with unusual fonts) by changing the TypoScript to::
 
 	lib.title = IMAGE
-	lib.title {
-	file = GIFBUILDER
-	file {
-	10 = TEXT
-	10.value = Extbase and Fluid
-	}
+		lib.title {
+		file = GIFBUILDER
+		file {
+			10 = TEXT
+			10.value = Extbase and Fluid
+		}
 	}
 
 .. sidebar:: TypoScript
