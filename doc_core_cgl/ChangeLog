@@ -1,3 +1,61 @@
+2011-04-11  Francois Suter  <francois.suter@typo3.org>
+
+	* Corrected XCLASS declaration example, references #11119
+	* Replaced dummy text of What's new section, resolves #25862
+	* Release of TYPO3 Coding Guidelines 4.5.1
+
+2011-04-08  Francois Suter  <francois.suter@typo3.org>
+
+	* Removed the TODO file
+	* Release of TYPO3 Coding Guidelines 4.5.0
+
+2011-04-07  Francois Suter  <francois.suter@typo3.org>
+
+	* Removed appendix about IDEs setup (move to wiki), resolves #25828
+
+2011-04-01  Francois Suter  <francois.suter@typo3.org>
+
+	* Added mention that CGLs apply to TYPO3 v4, resolves #25445
+	* Changed information about ChangeLog file, resolves #25447
+	* Removed all mentions of SVN, resolves #25696
+	* Added sub-chapter heading before function information block description, resolves #10644
+	* Added section about deprecation, resolves #12766
+	* Updated information about XCLASS declarations, resolves #11119
+
+2011-03-26  Francois Suter  <francois.suter@typo3.org>
+
+	* Documented usage of $_ variable in loops where value is unused, resolves #8909
+
+2011-02-18  Francois Suter  <francois.suter@typo3.org>
+
+	* Added note about usage of self:: keyword, resolves #8128
+	* Corrected an error in a code sample, resolves #10599 (thanks to Stefano Kowalke)
+
+2010-12-19  Francois Suter  <francois.suter@typo3.org>
+
+	* Added section about array declarations, resolves #9852
+
+2010-12-10  Francois Suter  <francois.suter@typo3.org>
+
+	* Added document/extension version number on cover page
+
+2010-11-27  Francois Suter  <francois@typo3.org>
+
+	* Enhanced rules about identifiers to cover usage of acronyms, resolves #10261
+	* "Sweetened" the rule about long functions, resolves #9731
+	* Enhanced rules for usage of phpDoc, resolves #10263
+
+2010-10-23  Francois Suter  <francois@typo3.org>
+
+	* Changed section about character set, TYPO3 Core now use UTF-8, resolves #9487
+
+2010-10-19  Francois Suter  <francois@typo3.org>
+
+	* Adapted manual to the new official template, resolves #10328
+	* Added rule for NULL usage, resolves #9175
+	* Added note about comments style, resolves #8634
+	* Added rule for unit test file naming conventions, resolves #9884
+
 2010-06-07  Francois Suter  <francois@typo3.org>
 
 	* Relaxed XCLASS declaration rules
