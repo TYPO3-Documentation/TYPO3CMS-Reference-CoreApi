@@ -1,0 +1,38 @@
+--- manual-doc_core_cgl_4-0.txt	2007-02-21 02:40:45.000000000 +0100
++++ manual-doc_core_cgl_4-1.txt	2007-02-21 02:46:29.000000000 +0100
+@@ -2,7 +2,7 @@
+ 00000000
+ Project Coding Guidelines
+ Extension Key: doc_core_cgl
+-Copyright 2000-2005, Kasper Skårhøj, <kasper@typo3.com>
++Copyright 2000-2007, Kasper Skårhøj, <kasper@typo3.com>
+ 
+ This document is published under the Open Content License
+ available from http://www.opencontent.org/opl.shtml
+@@ -64,7 +64,7 @@
+ Single quotes are used every where.
+ XSS and SQL injection prevented by usage of htmlspecialchars(), $GLOBALS[?TYPO3_DB?]->addslashes(), intval()
+ All functions and classes are commented fully with parameters and return values. 
+-Classes have @package/@subpackage tags, contain a function index and have the CVS keyword $Id: doc_core_cgl.txt 1654 2006-07-26 15:31:19Z mundaun $ in the header comment of the document.
++Classes have @package/@subpackage tags, contain a function index and have the CVS keyword $Id: manual-doc_core_cgl_4-1.txt 2090 2007-02-21 01:45:57Z mundaun $ in the header comment of the document.
+ It will be possible to find deviations from this standard in the core of TYPO3 but that will be less than 1% cases and therefore there will be no doubt about the general style and standard of the code.
+ We encourage everyone to bring their code up to this standard.Extension Review Scorecard
+ For the extension review group there is a scorecard document which is listing a set of issues an extension reviewer will go through one by one. The scorecard will also be useful to read through this that is a more practical step-by-step guide to what makes an extension good.Visual formatting and naming
+@@ -144,7 +144,7 @@
+ Remember to put your own name in as copyright holder if you write something from scratch.
+ If you modify a library you must document what you have changed (GPL requirement). Add your name as author / co-author to these modifications.
+ The importance of the header is primarily to state that the code is GNU/GPL?ed. And remember only GPL?ed software is allowed to interface with TYPO3 (according to GPL itself).
+-Put in the string $Id: doc_core_cgl.txt 1654 2006-07-26 15:31:19Z mundaun $ in the header comment - in CVS this will be expanded with information about CVS version.
++Put in the string $Id: manual-doc_core_cgl_4-1.txt 2090 2007-02-21 01:45:57Z mundaun $ in the header comment - in CVS this will be expanded with information about CVS version.
+ Put in a comment with the first line containing this string: [CLASS/FUNCTION INDEX of SCRIPT] - that will make the extdeveval function create an automatically maintained index of functions and classes when ever you use that extension to insert JavaDoc comments.
+ This is an example. Notice that the standard header is followed by a file-comment in Javadoc style.
+ 
+@@ -180,7 +180,7 @@
+ * Some scripts that use this class:admin_integrity.php
+ * Depends on:Depends on loaddbgroup from t3lib/
+ *
+-* $Id: doc_core_cgl.txt 1654 2006-07-26 15:31:19Z mundaun $
++* $Id: manual-doc_core_cgl_4-1.txt 2090 2007-02-21 01:45:57Z mundaun $
+ *
+ * @authorKasper Skårhøj <kasper@typo3.com>
+ */
