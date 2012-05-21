@@ -1,3 +1,89 @@
+2010-03-21  Francois Suter  <francois@typo3.org>
+
+	* Released to TER as version 4.3.0
+
+2010-03-20  Francois Suter  <francois@typo3.org>
+
+	* Renamed the SXW file to manual.sxw
+	* Corrected some references in the code examples due to restructuring of "examples" extension
+	* Corrected some typos and fixed minor layout issues
+	* Added a note about the "examples" extension
+	* Regenerated the PDF version
+
+2010-03-15  Francois Suter  <francois@typo3.org>
+
+	* Added documentation for TYPO3_USER_SETTINGS global array (thanks to Steffen Kamper)
+	* Adjusted some page breaks, refreshed the TOC, regenerated the PDF version
+
+2010-03-12  Francois Suter  <francois@typo3.org>
+
+	* Finished updating the TCA/wizards section: refreshed screenshots, new code examples
+	* Minor changes to RTE and skinning chapters (will not be fully refreshed this time around)
+	* Added documentation for enabledControls property for appearance of inline-type fields
+	* Added section about loading 3rd-party JS libraries in the BE (thanks to Steffen Kamper)
+	* Added "file_reference" value for "internal_type" property of group-type fields
+	* Added description of linebreak feature for palettes
+	* Minor changes in Data Structures chapter
+	* Added documentation of displayCond for FlexForms
+	* Added a note about services in the description of extension types
+	* Improved description of l10n_mode
+
+2010-03-05  Francois Suter  <francois@typo3.org>
+
+	* Updated the special configuration section of TCA chapter: updated screenshots, code from the "examples" extension
+	* Corrected description of RTE configuration in special configuration (thanks to Stanislas Rolland for the help)
+	* Updated first part of TCA/wizards section: refreshed screenshots, new code examples
+	* Added suggest wizard configuration and example (thanks to Steffen Kamper)
+
+2010-02-19  Francois Suter  <francois@typo3.org>
+
+	* Finished updating the TCA/flex fields section: updated screenshots, FlexForm code from "examples" extension
+	* Updated the TCA/types and TCA/palettes sections: completely reworked examples and screenshots
+
+2010-02-07  Francois Suter  <francois@typo3.org>
+
+	* Replaced some recently modified code examples with code from the "examples" extension
+	* Refreshed the FlexForm examples with code from the "examples" extension
+
+2010-02-05  Francois Suter  <francois@typo3.org>
+
+	* Updated the major part of the "TCA" chapter: updated screenshots, cleaned some code examples, some minor corrections
+
+2010-01-29  Francois Suter  <francois@typo3.org>
+
+	* Refreshed the "TYPO3 API overview" chapter: cleaned up code examples to match CGLs, marked some functions as deprecated, updated screenshots, corrected some typos
+	* Added a new chapter about error and exception handling (thanks to Rupert Germann)
+	* Added a new sub-chapter about flash messages (thanks to Ingo Renner and Rupert Germann)
+	* Added a new sub-chapter about system registry (thanks to Ingo Renner)
+
+2010-01-23  Francois Suter  <francois@typo3.org>
+
+	* Added a paragraph about extension configuration options to the Extension architecture chapter
+	* Added a link to the Security Team's policy page
+
+2009-12-18  Francois Suter  <francois@typo3.org>
+
+	* Corrected placement of table of contents
+	* Refreshed introduction chapter
+	* Updated first chapter (TYPO3 Extension API) with new features and refreshed screenshots
+	* Fixed bug #12799: Typo in reference to neg_foreign_table (thanks to Bernhard Kraft)
+	* Replaced all occurrences of "eg." by "e.g."
+	* Fixed bug #8688: "showitem" parts need better references to further documentation
+	* Fixed bug #7395: TCA type "inline" - foreign_selector and appearance/useCombination
+	* Fixed bug #3700: Corrected path to tslib_content.php class file
+	* Fixed bug #3701: Fixed broken example in extending PHP classes
+
+2009-05-16  Francois Suter  <francois@typo3.org>
+
+	* Corrected styling of example PHP code
+
+2009-05-15  Francois Suter  <francois@typo3.org>
+
+	* Fixed bug: #10938: doc_core_api : 4.2 uploadfolder - needs more documentation. Added warning no to add trailing slash to uploadfolder value.
+	* Removed obsolete link to typo3.org (replaced with explanations on how to navigate)
+	* Fixed bug: #9353: Update description of ext_emconf.php in Core APIs
+	* Corrected typos ("depricated" to "deprecated")
+
 2008-12-01  Michael Stucki  <michael@typo3.org>
 
 	* Release of CoreDocs for TYPO3 4.2
