@@ -3,7 +3,7 @@ TYPO3 Coding Guidelines
 Extension Key: doc_core_cgl
 Language: en
 Keywords: cgl, development, reference, forDevelopers, forAdvanced
-Copyright 2000-2008, TYPO3 Core Development Team, <info@typo3.org>
+Copyright 2000-2010, TYPO3 Core Development Team, <info@typo3.org>
 
 This document is published under the Open Content License
 available from http://www.opencontent.org/opl.shtml
@@ -16,6 +16,7 @@ TYPO3 Coding Guidelines	1
 Introduction	3
 About this document	3
 Conventions used in this document	3
+Contributing	3
 Credits	3
 File system conventions	4
 TYPO3 directory structure	4
@@ -25,19 +26,20 @@ File names	5
 Namespaces	5
 PHP file formatting	7
 General requirements to PHP files	7
-File structure	7
-PHP syntax formatting	9
-Using phpDoc	13
+File structure	8
+PHP syntax formatting	10
+Using phpDoc	14
 The ChangeLog file	14
-Coding: best practices	15
-Accessing the database	15
-Singletons	15
-Localization	15
-Settings for editors	16
-Eclipse (PDT, Zend Studio, phpEclipse, etc)	16
-Komodo IDE	16
-NetBeans	16
-ChangeLog	17
+Coding: best practices	16
+Accessing the database	16
+Singletons	16
+Localization	16
+Unit tests	16
+Settings for editors	18
+Eclipse (PDT, Zend Studio, phpEclipse, etc)	18
+Komodo IDE	18
+NetBeans	18
+ChangeLog	19
 
 Introduction
 About this document
@@ -52,7 +54,9 @@ Code examples
 TYPO3 module names
 Extension keys
 TYPO3 namespaces (see page 5)
-TYPO3 Frontend and Backend are spelled with the first letter in the uppercase because they are seen as subsystems.
+TYPO3 Frontend and Backend are spelled with the first letter in uppercase because they are seen as subsystems.
+Contributing
+If you have ideas for improving this document, if you want to suggest some new topic to cover or if you've found some mistakes, the best course is to open a bug report in the dedicated bug tracker (http://forge.typo3.org/repositories/show/typo3v4-doc_core_cgl).
 Credits
 The original TYPO3 coding guidelines document was written by Kasper Skårhøj. This document is written from scratch and based on the discussion between developers held at TYPO3 Developer Days in May 2008.
 The information for this document was collected by Ingo Renner (TYPO3 core team member, release manager for TYPO3 4.2). The initial draft was produced by Dmitry Dulepov (TYPO3 core team member). The document is approved by the TYPO3 Core Team.
@@ -164,15 +168,28 @@ There must be no empty lines after the closing PHP tag. Empty lines after closin
 Line breaks
 TYPO3 uses Unix line endings (\n, PHP chr(10)). If a developer uses Windows or Mac OS X platform, the editor must be configured to use Unix line endings.
 Line length
-Line length is limited to 80 characters. Longer lines should be split to several lines. Each line fragment starting from the second must be indented with one or more tab characters. Example:
-	$rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('uid, title', 'pages',
-			'pid=' . $this->fullQuoteStr($this->pid, 'pages') .
-			$this->cObj->enableFields('pages'), '', 'title');
+Very long lines of code should be avoided for questions of readability. A line length of about 130 characters (including tabs) is fine. Longer lines should be split into several lines whenever possible. Each line fragment starting from the second must be indented with one more tab characters. Example:
+$rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('uid, title', 'pages',
+	'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'), 
+	'', 'title');
 
-In certain cases splitting lines exactly at 80 characters is not feasible. In this case lines can be longer but such practice is discouraged.
+or even better for readability:
+$rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('uid, title',
+	'pages',
+	'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'), 
+	'',
+	'title'
+);
+
+Comment lines should be kept within a limit of about 80 characters (excluding tabs) as it makes them easier to read.
+Notes:
+tabs are considered to be 4 spaces wide.
+when splitting a line, try to split it at a point that makes as much sense as possible. In the above example, the line is split between two arguments and not in the middle of one. In case of long logical expressions, put the logical operator at the beginning of the next line, e.g.:
+if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['curlUse'] == '1'
+	&& preg_match('/^(?:http|ftp)s?|s(?:ftp|cp):/', $url)) {
 Whitespace and indentation
 TYPO3 uses tab characters to indent source code. One indentation level is one tab.
-There must be no white spaces in the end of a line. This can be done manually or using a text editor that takes care of this (see section “Settings for editors” on page 16).
+There must be no white spaces in the end of a line. This can be done manually or using a text editor that takes care of this (see section “Settings for editors” on page 18).
 Spaces must be added:
 on both sides of string, arithmetic, assignment and other similar operators (for example, ., =, +, -, ?, :, *, etc)
 after commas
@@ -244,6 +261,7 @@ require_once(PATH_tslib . 'class.tslib_pibase.php');
 2.Use t3lib_extMgm::extPath() function. This function accepts two arguments: extension key and path to the included file. The second argument is optional but recommended to use. Examples:
 require_once(t3lib_extMgm::extPath('lang', 'lang.php'));
 require_once(t3lib_extMgm::extPath('lang') . 'lang.php');
+
 Always use one of these two ways to include files. This is required to include files even from the current directory. Some installations do not have the current directory in the PHP include path and require_once without a proper path will result in fatal PHP error.
 Class information block
 Class information block is similar to the file information block and describes the class in the file. Example:
@@ -254,16 +272,16 @@ Class information block is similar to the file information block and describes t
  * @author Jane Doe <jane.doe@example.com>
  */
 PHP class
-PHP class follows the Class information block. PHP code must be formatted as described in chapter “PHP syntax formatting” on page 9.
+PHP class follows the Class information block. PHP code must be formatted as described in chapter “PHP syntax formatting” on page 10.
 The class name is expected to follow some conventions. The namespace and path parts (see “Namespaces” on page 5) are all lowercase and separated by underscores (“_”). At the end comes the “true” class name which must be written in upper camel case.
 Taking again the example of file class.t3lib_cache_backend_abstractbackend.php, the PHP class declaration will look like:
 class t3lib_cache_backend_AbstractBackend {
 	…
 }
 XCLASS declaration
-The XCLASS declaration must follow the PHP class. The format of the XCLASS is very important. No spaces can be added or removed, no reformatting can be done to the declaration. If the formatting is changed, the TYPO3 Extension Manager will complain about a missing XCLASS declaration.
+The XCLASS declaration must follow the PHP class. The format of the XCLASS is very important. Please follow the example below, otherwise the TYPO3 Extension Manager will complain about a missing XCLASS declaration.
 The XCLASS declaration must include proper path to the current class file. The following example assumes that extension key is myext, file name is class.tx_myext_pi1.php and file is located in the pi1 subdirectory of the extension:
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/myext/pi1/class.tx_myext_pi1.php'])	{
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/myext/pi1/class.tx_myext_pi1.php']) {
 	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/myext/pi1/class.tx_myext_pi1.php']);
 }
 Optional module execution code
@@ -380,17 +398,17 @@ Wrong usage of ternary conditional operator:
 $result = ($useComma ? ',' : $useDot ? '.' : ';');
 
 Assignment in conditions should be avoided. However if it makes sense to do assignment in condition, it should be surrounded by the extra pair of brackets. Example:
-	if (($fields = $GLOBALS['TYPO3_DB']->sql_fetch_result($res))) {
+	if (($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
 		// Do something
 	}
 
 The following is allowed but not recommended:
-	if (FALSE !== ($fields = $GLOBALS['TYPO3_DB']->sql_fetch_result($res))) {
+	if (FALSE !== ($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
 		// Do something
 	}
 
 The following is not allowed (missing the extra pair of brackets):
-	while ($fields = $GLOBALS['TYPO3_DB']->sql_fetch_result($res)) {
+	while ($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
 		// Do something
 	}
 Switch
@@ -427,7 +445,7 @@ The following is not allowed:
 	}
 
 do and while loops must use extra brackets if assignment happens in the loop:
-	while (($fields = $GLOBALS['TYPO3_DB']->sql_fetch_result($res))) {
+	while (($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
 		// Do something
 	}
 Strings
@@ -571,10 +589,17 @@ always check the existing locallang files to see if a given localized string alr
 localized strings should never be all uppercase. If this is needed, then appropriate methods to make them uppercase should be used where needed.
 localized strings must not be split into several parts to include stuff in their middle. Rather use a single string with sprintf() markers (%s, %d, etc.).
 when a localized string contains several sprintf() markers, it must use numbered arguments (e.g. %1$d).
+punctuation marks must be included in the localized string – including trailing marks – as different punctuation marks (e.g. “?” and “¿”) may be used in various languages. Also some languages include blanks before some punctuation marks.
 localized strings are not supposed to contain HTML tags, except for CSH. They should be avoided whenever possible.
 Once a localized string appears in a released version of TYPO3, it cannot be changed (unless it needs grammar or spelling fixes). Nor can it be removed. If the label a localized string has to be changed, a new one should be introduced instead.
 Using the localized strings
 Localized string are displayed using the available API, mostly lang::getLL() when the corresponding locallang file is loaded and lang::sL() otherwise. In both these methods, the second call parameter should be left out, unless there's a compelling reason to set it to TRUE (which triggers the use of htmlspecialchars()).
+Unit tests
+Using unit tests
+Although the coverage is far from complete, there are already quite a lot of unit tests for the TYPO3 Core. Anytime something is changed in the Core, all existing unit tests must be run to ensure that nothing was broken.
+Adding unit tests
+The use of unit tests is strongly encouraged. Every time a new feature is introduced or an existing one is modified, a unit test should be added.
+
 Settings for editors
 Eclipse (PDT, Zend Studio, phpEclipse, etc)
 Open Eclipse preferences. In the “General”, “Editors”, “Text editors”:

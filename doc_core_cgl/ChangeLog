@@ -1,3 +1,28 @@
+2010-06-07  Francois Suter  <francois@typo3.org>
+
+	* Relaxed XCLASS declaration rules
+	* Release of TYPO3 Coding Guidelines 4.4.1
+
+2010-06-04  Francois Suter  <francois@typo3.org>
+
+	* Fixed bug #7887: Wrong function name in code examples (thanks to Christian Bülter)
+
+2010-05-24  Francois Suter  <francois@typo3.org>
+
+	* Updated PDF version
+	* Release of TYPO3 Coding Guidelines 4.4.0
+
+2010-05-22  Francois Suter  <francois@typo3.org>
+
+	* Added note about punctuation marks in localized strings
+	* Added a paragraph pointing to the dedicated bug tracker for feature requests, bug reports, etc.
+
+2010-05-21  Francois Suter  <francois@typo3.org>
+
+	* Relaxed rules about line length
+	* Added mention of unit testing in best practices
+	* Moved SXW file to manual.sxw (simplifies release to TER process)
+
 2010-01-10  Francois Suter  <francois@typo3.org>
 
 	* Corrected case of booleans in code examples, which did not match CGLs (thanks to Stefano Kowalke)
