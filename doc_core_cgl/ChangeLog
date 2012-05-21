@@ -1,0 +1,67 @@
+2010-01-10  Francois Suter  <francois@typo3.org>
+
+	* Corrected case of booleans in code examples, which did not match CGLs (thanks to Stefano Kowalke)
+
+2010-01-09  Francois Suter  <francois@typo3.org>
+
+	* Corrected heading level error in booleans chapter
+
+2009-10-04  Francois Suter  <francois@typo3.org>
+
+	* Reverted change of carriage returns to line break in code samples (rendering is even worse than before)
+	* Release of TYPO3 Coding Guidelines 4.3.2
+
+2009-10-03  Francois Suter  <francois@typo3.org>
+
+	* Release of TYPO3 Coding Guidelines 4.3.1
+
+2009-10-02  Francois Suter  <francois@typo3.org>
+
+	* Changed initial headers to match structure expected by TER for HTML rendering
+	* Added class name conventions
+	* Corrected names of class examples in namespaces chapter
+
+2009-09-25  Francois Suter  <francois@typo3.org>
+
+	* Added rules for booleans
+	* Added example setup for NetBeans IDE
+
+2009-09-18  Francois Suter  <francois@typo3.org>
+
+	* Added rules for localization
+	* Added note about avoiding the @author tag in function or method phpDoc comments
+	* Changed all carriage returns to line breaks inside code samples (should correct rendering errors on typo3.org)
+
+2009-07-03  Michael Stucki  <michael@typo3.org>
+
+	* Release of TYPO3 Coding Guidelines 4.3.0
+	* Added a paragraph "Credits"
+	* Changed copyright to TYPO3 Core Development Team (with permission of Dmitry Dulepov)
+
+2009-04-23  Dmitry Dulepov  <dmitry@typo3.org>
+
+	* Added information about spaces in operators and comments
+
+2009-03-04  Dmitry Dulepov  <dmitry@typo3.org>
+
+	* Fixed some errors found by Francois Suter
+
+2009-02-24  Michael Stucki  <michael@typo3.org>
+
+	* Upload draft for new CGL, written by Dmitry Dulepov
+
+2007-02-21  Michael Stucki  <michael@typo3.org>
+
+	* Release of CoreDocs for TYPO3 4.1
+
+2006-07-26  Michael Stucki  <michael@typo3.org>
+
+	* Exchanged the TYPO3 logo in the document footer
+
+2006-02-14  Michael Stucki  <michael@typo3.org>
+
+	* Moving this document to Sourceforge CVS
+
+2005-05-23  Michael Stucki  <michael@typo3.org>
+
+	* Release of TYPO3 3.8.0
