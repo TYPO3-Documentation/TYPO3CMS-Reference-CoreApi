@@ -1,0 +1,109 @@
+2008-12-01  Michael Stucki  <michael@typo3.org>
+
+	* Release of CoreDocs for TYPO3 4.2
+
+2008-11-21  Francois Suter  <francois@typo3.org>
+
+	* Applied new documentation template
+	* Corrected some typos
+
+2008-10-07  Francois Suter  <francois@typo3.org>
+
+	* Corrected a few typos in the part about wizards
+
+2008-09-02  Francois Suter  <francois@typo3.org>
+
+	* Corrected several typos in TCA chapter, in ['columns']['fieldname']['config'] / TYPE: "inline", "appearance" property
+
+2008-08-29  Francois Suter  <francois@typo3.org>
+
+	* Updated with all the new (4.2) features documented in the wiki's pending documentation page
+
+2008-01-31  Kasper Skaarhoj  <kasper2008@typo3.com>
+
+	* Updated a lot on MM relations, adding examples also
+	* Documented a new feature, versioningWS_alwaysAllowLiveEdit
+
+2007-08-29  Kasper Skaarhoj  <kasper2007@typo3.com>
+
+	* Updated documentation for versioningWS in TCA plus section about programming with workspaces. Additions are related to the new "move" feature.
+
+2007-07-12  Kasper Skaarhoj  <kasper2007@typo3.com>
+
+	* Updated documentation around t3ver_ fields (versioning)
+
+2007-04-27  Michael Stucki  <michael@typo3.org>
+
+	* Release of CoreDocs for TYPO3 4.1
+
+2007-03-22  Kasper Skaarhoj  <kasper2007@typo3.com>
+
+	* Notes to TCA about shadowing of fields for localization stuff..
+
+2007-02-21  Michael Stucki  <michael@typo3.org>
+
+	* Add "MM_match_fields", "MM_insert_fields" and "MM_table_where" to [columns][fieldname][config] / types "select" and "group" (responsible: René, Ingmar)
+	* Add new option "none" to "appearance" => "newRecordLinkPosition" in [columns][fieldname][config] / type "inline" (responsible: Oliver Hader)
+
+2007-01-23  Michael Stucki  <michael@typo3.org>
+
+	* Update copyright information
+	* Set version information to TYPO3 4.1
+	* Added "hideTable" description to $TCA[$table]['ctrl'] section (feature by Bernhard Kraft, see bug #2695)
+
+2007-01-20  Michael Stucki  <michael@typo3.org>
+
+	* Added "mm_opposite_field" description to [columns][fieldname][config] / types "select" and "group" (responsible: René, Ingmar)
+	* Added the new properties "foreign_default_sortby" and "foreign_table_field" to [columns][fieldname][config] / type "inline" (responsible: Oliver, Ingmar)
+
+2006-11-28  Kasper Skaarhoj  <kasperYYYY@typo3.com>
+
+	* Added notice to "transOrigPointerTable"
+	* Added new CTRL feature, "transForeignTable"
+
+2006-11-24  Michael Stucki  <michael@typo3.org>
+
+	* Added description to [columns][fieldname][config] / type "inline
+
+2006-07-26  Michael Stucki  <michael@typo3.org>
+
+	* Exchanged the TYPO3 logo in the document footer
+
+2006-04-17  Michael Stucki  <michael@typo3.org>
+
+	* Some symlink related changes
+	* Added "l10n_display" property to [columns][fieldname] section
+	* Added "exclusiveKeys" property to [columns][fieldname][config] / type "select"
+
+2006-04-10  Michael Stucki  <michael@typo3.org>
+
+	* Added "readOnly" to [columns][fieldname] => "config" property
+	* Added notice about custom form evaluation methods to ['columns'][fieldname]['config'] / TYPE: "input"
+
+2006-03-22  Kasper Skaarhoj  <kasperYYYY@typo3.com>
+
+	* Some versioning related changes
+
+2006-02-14  Michael Stucki  <michael@typo3.org>
+
+	* Merged all changes below into Kaspers document version (containing some additions about workspaces)
+	* Moving this document to Sourceforge CVS
+
+2006-02-10  Michael Stucki  <michael@typo3.org>
+
+	* Changed "mainpalette" in $TCA['ctrl'] section from "integer" to "list of comma-separated integer values"
+
+2006-01-26  Michael Stucki  <michael@typo3.org>
+
+	* Added "undelete" description in section "Database: t3lib_TCEmain basics"
+	* Added description of fourth parameter "title" in section "Transformations: Transformation details" right under "ts_links"
+	* Added "border" property in $TBE_STYLES API
+
+2005-12-26  Michael Stucki  <michael@typo3.org>
+
+	* Added "defaultExtras:fixed-font"
+	* Added "defaultExtras:enable-tab"
+
+2005-05-23  Michael Stucki  <michael@typo3.org>
+
+	* Release of TYPO3 3.8.0

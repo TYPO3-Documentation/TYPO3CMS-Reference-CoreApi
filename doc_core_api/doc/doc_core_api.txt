@@ -1,24 +1,17 @@
 ﻿
-
-
-
-
-
 TYPO3 Core APIs
 Extension Key: doc_core_api
-Copyright 2000-2007, Kasper Skårhøj, <kasperYYYY@typo3.com>
+Language: en
+Keywords: tsref, typoscript, reference, forDevelopers, forAdvanced
+Copyright 2000-2008, TYPO3 Core Development Team, <info@typo3.org>
 
 This document is published under the Open Content License
 available from http://www.opencontent.org/opl.shtml
 
 The content of this document is related to TYPO3 
-- a GNU/GPL CMS/Framework available from www.typo3.com
+- a GNU/GPL CMS/Framework available from www.typo3.org
 
-
-Revised for TYPO3 4.1, April 2007
-
-
-
+Revised for TYPO3 4.2, November 2008
 Table of Contents
 TYPO3 Core APIs	1
 Introduction	3
@@ -32,120 +25,122 @@ Naming conventions	7
 Import and install of extensions	7
 ext_tables.php and ext_localconf.php	8
 ext_emconf.php	9
-Extending “extensions-classes”	11
+Extending “extensions-classes”	10
 The Extension Manager (EM)	11
-Basic framework for a new extension	12
+Basic framework for a new extension	11
 TYPO3 API overview	16
 Introduction	16
 General functions	17
-High priority functions (CGL requirements)	17
-Functions typically used and nice to know	26
-Programming with workspaces in mind	32
-TYPO3 Core Engine (TCE)	35
-Introduction	35
-Database: t3lib_TCEmain basics	35
-Using t3lib_TCEmain in scripts	38
-The "tce_db.php" API	39
-Files: t3lib_extFileFunctions basics	40
-The "tce_file.php" API	41
-Hooks	42
-The concept of "hooks"	42
-Hook configuration	43
-Creating hooks	45
-Variables and Constants	46
-Constants	46
-Global variables	47
-Backend User Object	48
-Checking user access for $BE_USER from PHP	48
-Using system log	50
-The log table (sys_log)	50
-PHP Class Extension	51
-Introduction	51
-Which classes?	52
-Extending methods	54
-User defined methods in classes	55
-A few examples of extending the backend classes	55
-Warnings	56
-Various examples	57
-Introduction	57
-Rendering page trees	57
-Accessing the clipboard	58
-Adding Context Sensitive Menu items	60
-Parsing HTML: t3lib_parsehtml	62
-Links to edit records	66
-Support for custom tables in the Page module	68
-Adding elements to the Content Element Wizard	68
-Using custom permission options	70
-Table Configuration Array, $TCA	72
-Introduction	72
-What is $TCA?	72
-Extending the $TCA array	72
-Main levels in the $TCA array	73
-$TCA array reference	75
-['ctrl'] section	75
-['interface'] section	86
-['feInterface'] section	87
-['columns'][fieldname] section	87
-['columns'][fieldname]['config'] / TYPE: "input"	90
-['columns'][fieldname]['config'] / TYPE: "text"	93
-['columns'][fieldname]['config'] / TYPE: "check"	94
-['columns'][fieldname]['config'] / TYPE: "radio"	96
-['columns'][fieldname]['config'] / TYPE: "select"	97
-['columns'][fieldname]['config'] / TYPE: "group"	106
-['columns'][fieldname]['config'] / TYPE: "none"	111
-['columns'][fieldname]['config'] / TYPE: "passthrough"	112
-['columns'][fieldname]['config'] / TYPE: "user"	112
-['columns'][fieldname]['config'] / TYPE: "flex"	113
-['columns'][fieldname]['config'] / TYPE: "inline"	122
-['types'][key] section	126
-['palettes'][key] section	130
-Additional $TCA features	131
-Special Configuration introduction	131
-Special Configuration options	131
-Soft References	133
-Wizards Configuration	134
-Wizard scripts in the core	139
-$PAGES_TYPES	145
-Loading the full $TCA dynamically	146
-Benchmarks on dynamic tables:	146
-Visual style of TCEforms	147
-$TBE_STYLES entries related to TCEforms	147
-Style pointers in the "types" configuration	149
-RTE API	153
-Rich Text Editors in TYPO3 backend	153
-Introduction	153
-RTEs in Extensions	153
-API for Rich Text Editors	154
-More Examples	156
-Transformations	157
-Introduction	157
-Process illustration	158
-Transformation overview	160
-Transformation details	160
-Page TSconfig	162
-Custom transformations API	166
-Historical perspective on RTE transformations	168
+High priority functions (CGL requirements)	18
+Functions typically used and nice to know	27
+Programming with workspaces in mind	33
+TYPO3 Core Engine (TCE)	37
+Introduction	37
+Database: t3lib_TCEmain basics	37
+Using t3lib_TCEmain in scripts	41
+The "tce_db.php" API	42
+Files: t3lib_extFileFunctions basics	43
+The "tce_file.php" API	44
+Hooks	44
+The concept of "hooks"	44
+Hook configuration	45
+Creating hooks	48
+Variables and Constants	48
+Constants	48
+Global variables	49
+Backend User Object	51
+Checking user access for $BE_USER from PHP	51
+Using system log	53
+The log table (sys_log)	53
+PHP Class Extension	54
+Introduction	54
+Which classes?	55
+Extending methods	57
+User defined methods in classes	58
+A few examples of extending the backend classes	58
+Warnings	60
+AJAX in the TYPO3 Backend	60
+In-depth presentation	60
+Developing with AJAX in the TYPO3 Backend	61
+Various examples	62
+Introduction	62
+Rendering page trees	63
+Accessing the clipboard	64
+Adding Context Sensitive Menu items	66
+Parsing HTML: t3lib_parsehtml	68
+Links to edit records	72
+Support for custom tables in the Page module	74
+Adding elements to the Content Element Wizard	74
+Using custom permission options	76
+Table Configuration Array, $TCA	78
+Introduction	78
+What is $TCA?	78
+Extending the $TCA array	78
+Main levels in the $TCA array	79
+$TCA array reference	81
+['ctrl'] section	81
+['interface'] section	94
+['feInterface'] section	94
+['columns'][fieldname] section	94
+['columns'][fieldname]['config'] / TYPE: "input"	96
+['columns'][fieldname]['config'] / TYPE: "text"	100
+['columns'][fieldname]['config'] / TYPE: "check"	101
+['columns'][fieldname]['config'] / TYPE: "radio"	103
+['columns'][fieldname]['config'] / TYPE: "select"	104
+['columns'][fieldname]['config'] / TYPE: "group"	118
+['columns'][fieldname]['config'] / TYPE: "none"	125
+['columns'][fieldname]['config'] / TYPE: "passthrough"	125
+['columns'][fieldname]['config'] / TYPE: "user"	126
+['columns'][fieldname]['config'] / TYPE: "flex"	127
+['columns'][fieldname]['config'] / TYPE: "inline"	135
+['types'][key] section	140
+['palettes'][key] section	144
+Additional $TCA features	145
+Special Configuration introduction	145
+Special Configuration options	146
+Soft References	148
+Wizards Configuration	148
+Wizard scripts in the core	153
+$PAGES_TYPES	159
+Loading the full $TCA dynamically	160
+Benchmarks on dynamic tables:	161
+Visual style of TCEforms	162
+$TBE_STYLES entries related to TCEforms	162
+Style pointers in the "types" configuration	164
+RTE API	168
+Rich Text Editors in TYPO3 backend	168
 Introduction	168
-Properties and 'transformations'	168
-RTE transformations in Content Elements	168
-Skinning API	171
-$TBE_STYLES	171
-Directory structure for “skinImgAutoCfg” feature	175
-How to make your extensions compatible with skinning	175
-Finding CSS selectors for the backend documents	176
-Skinning database record icons with variations	178
-Data Formats	183
-<T3DataStructure>	183
+RTEs in Extensions	168
+API for Rich Text Editors	169
+More Examples	171
+Transformations	172
+Introduction	172
+Process illustration	174
+Transformation overview	175
+Transformation details	176
+Page TSconfig	177
+Custom transformations API	181
+Historical perspective on RTE transformations	183
 Introduction	183
-Elements	183
-Sheet references	185
-Syntax highlighting of a Data Structures	186
-Parsing a Data Structure	187
-Applications	188
-<T3locallang>	189
-Introduction	189
-Elements	189
-
+Properties and 'transformations'	183
+RTE transformations in Content Elements	183
+Skinning API	186
+$TBE_STYLES	186
+Directory structure for “skinImgAutoCfg” feature	190
+How to make your extensions compatible with skinning	190
+Finding CSS selectors for the backend documents	191
+Skinning database record icons with variations	194
+Data Formats	198
+<T3DataStructure>	198
+Introduction	198
+Elements	198
+Sheet references	200
+Syntax highlighting of a Data Structures	201
+Parsing a Data Structure	202
+Applications	204
+<T3locallang>	204
+Introduction	204
+Elements	204
 
 Introduction
 TYPO3 is known for its extendibility but until now there has not been a complete resource for information about the Core APIs in TYPO3. This document aims to provide such document, sometimes very detailed and complete, at other times only scratching the surface - but at least providing pointers into some direction.
@@ -445,42 +440,6 @@ This tells the EM to try to put the extensions as the very first in the list. De
 loadOrder
 
 
-TYPO3_version
-[version-span] 
-Defines the TYPO3 version requirements of the extension.
-
-Syntax:
-[version]-
-Extension is compliant with TYPO3 from  this version (included) and forward
--[version]
-Extension is compliant with TYPO3 until  this version (included)
-[version]-[version]
-Extension is compliant within this span of TYPO3 versions
-
-Version string syntax is [int].[int].[int][pre-release][int] where [pre-release] is “dev”, “b” or “rc” in that order.
-
-Examples (in order of precedence):
-
-4.0.0
-3.6.1
-3.6.1rc1
-3.6.0
-3.6.0rc2
-3.6.0rc1
-3.6.0b2
-3.6.0b1
-3.6.0dev2
-3.6.0dev1
-3.6.0dev (=3.6.0dev0)
-3.5.10
-3.5.0
-3.1.1
-3.1 (=3.1.0)
-3 (=3.0.0)
-PHP_version
-[version-span]
-Defines the PHP version requirements of this extension. 
-Syntax is the same as for “TYPO3_version”, see above.
 module
 list of strings
 If any subfolders to an extension contains backend modules, those foldernames should be listed here. It allows the EM to know about the existence of the module, which is important because the EM has to update the conf.php file of the module in order to set the correct TYPO3_MOD_PATH  constant.
@@ -621,7 +580,7 @@ The source is the documentation!
 
 The TYPO3 APIs are first and foremost documented inside of the source scripts. It would be impossible to maintain documentation at more than one location given the fact that things change and sometimes fast. 
 Inline documentation
-We have dedicated ourselves to document the classes and methods inside the source scripts (JavaDoc style). This means that you can use any JavaDoc compliant documentor programme to extract API documentation from the source. You can also install the extension "extdeveval" which will offer you a menu with links to the most important APIs in TYPO3 from within TYPO3:
+We have dedicated ourselves to document the classes and methods inside the source scripts (JavaDoc style). This means that you can use any JavaDoc compliant documentor program to extract API documentation from the source. You can also install the extension "extdeveval" which will offer you a menu with links to the most important APIs in TYPO3 from within TYPO3:
 
 
 Clicking a link like "extMgm" will bring up a new window with the full API of that class:
@@ -1185,7 +1144,7 @@ if ($email && t3lib_div::validEmail($email))    {
 t3lib_div::trimExplode
 t3lib_div::intExplode
 t3lib_div::revExplode
-Various flavours of exploding a string by a token.
+Various flavors of exploding a string by a token.
 
 t3lib_div::trimExplode() - Explodes a string by a token and trims the whitespace away around each item. Optionally any zero-length elements are removed. Very often used to explode strings from configuration, user input etc. where whitespace can be expected between values but is insignificant.
 
@@ -1520,7 +1479,7 @@ For usage in "ext_locallang.php" files
 t3lib_extMgm::addPItoST43($_EXTKEY);
 
 Programming with workspaces in mind
-The concept of workspaces needs attension from extension programmers. The implementation of workspaces is however made so that no critical problems can appear with old extensions; 
+The concept of workspaces needs attention from extension programmers. The implementation of workspaces is however made so that no critical problems can appear with old extensions; 
 First of all the “Live workspace” is no different from how TYPO3 has been working for years so that will be supported out of the box (except placeholder records must be filtered out in the frontend with “t3ver_state!=” , see below).
 Secondly, all permission related issues are implemented in TCEmain so the worst your users can experience is an error message.
 However, you probably want to update your extension so that in the backend the current workspace is reflected in the records shown and the preview of content in the frontend works as well. Therefore this chapter has been written with instructions and insight into the issues you are facing.
@@ -1533,7 +1492,7 @@ Challenge: How to preview elements which are disabled by “enableFields” in t
 Solution: Disable check for “enableFields”/”where_del_hidden” on live records and check for them in versionOL on input record.
 Frontend implementation guidelines
 Any place where enableFields() are not used for selecting in the frontend you must at least check that “t3ver_state!=1” so placeholders for new records are not displayed.
-Make sure never to select any record with pid = -1! (related to versioning).
+Make sure never to select any record with pid = -1! (offline records - related to versioning).
 If you need to detect preview mode for versioning and workspaces you can read these variables:
 $GLOBALS['TSFE']->sys_page->versioningPreview: If true, you are allowed to display previews of other record versions.
 $GLOBALS['TSFE']->sys_page->versioningWorkspaceId: Will tell you the id of the workspace of the current backend user. Used for preview of workspaces.
@@ -1541,7 +1500,7 @@ Use these API functions for support of version previews in the backend:
 
 Function
 Description
-$GLOBALS['TSFE']->sys_page->versionOL($table,&$row)
+$GLOBALS['TSFE']->sys_page->versionOL($table,&$row, $unsetMovePointers=FALSE)
 Versioning Preview Overlay. 
 Generally ALWAYS used when records are selected based on uid or pid. If records are selected on other fields than uid or pid (eg. "email = ....") then usage might produce undesired results and that should be evaluated on individual basis.
 
@@ -1558,6 +1517,8 @@ while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))      {
 ...
 
 When the live record is selected, call ->versionOL() and make sure to check if the input row (passed by reference) is still an array.
+
+The third argument, $unsetMovePointers=FALSE, can be set to TRUE when selecting records for display ordered by their position in the page tree. Difficult to explain easily, so only use this option if you don't get a correct preview of records that has been moved in a workspace (only for “element” type versioning)
 $GLOBALS['TSFE']->sys_page->fixVersioningPid()
 Finding online PID for offline version record. 
 Will look if the "pid" value of the input record is -1 (it is an offline version) and if the table supports versioning; if so, it will translate the -1 PID into the PID of the original record
@@ -1568,11 +1529,11 @@ Principle; Record offline! => Find online?
 Frontend scenarios impossible to preview
 These issues are not planned to be supported for preview:
 Lookups and searching for records based on other fields than uid,pid,”enableFields” will never reflect workspace content since overlays happen to online records after they are selected.
-This problem can largely be avoided for versions of new records because versions of a "New"-placeholder can mirrow certain fields down onto the placeholder record. For the "tt_content" table this is configured as 'shadowColumnsForNewPlaceholders' => 'sys_language_uid,l18n_parent,colPos,header',  so that these fields used for column position, language and header title are also updated in the placeholder thus creating a correct preview in the frontend.
+This problem can largely be avoided for versions of new records because versions of a "New"-placeholder can mirror certain fields down onto the placeholder record. For the "tt_content" table this is configured as 'shadowColumnsForNewPlaceholders' => 'sys_language_uid,l18n_parent,colPos,header',  so that these fields used for column position, language and header title are also updated in the placeholder thus creating a correct preview in the frontend.
 For versions of existing records  the problem is in reality reduced a lot because normally you don't change the column or language fields after the record is first created anyways! But in theory the preview can fail.
 When changing the type of a page (eg. from "Standard" to "External URL") the preview might fail in cases where a look up is done on the "doktype" field of the live record.
 Page shortcuts might not work properly in preview.
-Mount Points might not work propertly in preview.
+Mount Points might not work properly in preview.
 It is impossible to preview the value of “count(*)” selections since we would have to traverse all records and pass them through ->versionOL() before we would have a reliable result!
 In tslib_fe::getPageShortcut() sys_page->getMenu() is called with an additional WHERE clause which will not respect if those fields are changed for a future version. This could be the case other places where getmenu() is used (but a search shows it is not a big problem). In this case we will for now accept that a wrong shortcut destination can be experienced during previews. 
 
@@ -1654,7 +1615,11 @@ workspace > 0 = custom (projects)
 workspace -99 = none selected at all (ERROR!)
 Using TCEmain with workspaces
 Since admin-users are also restricted by the workspace it is not possible to save any live records when in a workspace. However for very special occasions you might need to bypass this and to do so, you can set the instance variable t3lib_tcemain::bypassWorkspaceRestrictions to TRUE. An example of this is when users are updating their user profile using the User > Setup module; that actually allows them to save to a live record (their user record) while in a draft workspace.
-
+Moving in workspaces
+Recently (TYPO3 4.2 and beyond) supports moving for “Element” type versions in workspaces. Technically this works by creating a new online placeholder record (like for new elements in a workspace) in the target location with “t3ver_state” = 3 (move-to placeholder) and a field, “t3ver_move_id”, holding the uid of the record to move (source record) upon publishing. In addition, a new version of the source record is made and has “t3ver_state” = 4 (move-to pointer). This version is simply necessary in order for the versioning system to have something to publish for the move operation.
+So in summary, two records are created for a move operation in a workspace: The placeholder (online, with state=3 and t3ver_move_id set) and a new version (state=4) of the online source record (the one being moved).
+When the version of the source is published a look up will be made to see if a placeholder exists for a move operation and if so the record will take over the pid / “sortby” value upon publishing.
+Preview of move operations is almost fully functional through the t3lib_page::versionOL() and t3lib_BEfunc::workspaceOL() functions. When the online placeholder is selected it simply looks up the source record, overlays any version on top and displays it. When the source record is selected it should simply be discarded in case shown in context where ordering or position matters (like in menus or column based page content). This is done in the appropriate places.
 TYPO3 Core Engine (TCE)
 Introduction
 Database
@@ -1746,6 +1711,7 @@ Additional keys, specific for “swap” action:
 [swapWith] : Indicates the uid of the record to swap current version with!
 [swapIntoWS]: Boolean, indicates that when a version is published it should be swapped into the workspace of the offline record.
 “clearWSID” : Indicates that the workspace of the record should be set to zero (0). This removes versions out of workspaces without publishing them.
+“flush” : Completely deletes a version without publishing it.
 “setStage” : Sets the stage of an element. 
 Special feature: The id-key in the array can be a comma list of ids in order to perform the stageChange over a number of records. Also, the internal variable ->generalComment (also available through tce_db.php as "&generalComment") can be used to set a default comment for all stage changes of an instance of tcemain. 
 Additional keys for this action is:
@@ -2651,7 +2617,7 @@ So, extending classes is a great option for individual projects where special "h
 
 Configuring user-classes works like this:
 1.In (ext_)localconf.php you configure for either frontend or backend that you wish to include a file with the extension of the class. This inclusion is usually done in the end of the class-file itself based on a lookup in TYPO3_CONF_VARS. 
-2.Whenever the class is instantiated as an object, the sourcecode checks if a user-extension of that class exists. If so, then that class (or an extension of the extended class) is instantiated and not the “normal” (parent) class. 
+2.Whenever the class is instantiated as an object, the source code checks if a user-extension of that class exists. If so, then that class (or an extension of the extended class) is instantiated and not the “normal” (parent) class. 
 Getting the correct instance of a class is done by using the function t3lib_div::makeInstance() instead of "new ..." when an object is created.
 
 Example
@@ -2926,11 +2892,97 @@ A  PHP class can only be extended by one extension class at a time. Thus, having
 The conclusion is that XCLASS extensions are best suited for project development where you need a quick hack of something in the core which should still stay backwards compatible with TYPO3 core upgrades.
 Check if child classes are instantiated
 Quite often people have been confused about extending for instance the "tslib_menu" class when they want to add a feature for "TMENU". But actually the class to extend is "tslib_tmenu" which is an extension of "tslib_menu". So make sure you are extending the right class name (and always make sure your extension class is included also).
-Strange opcode caching behaviours when you upgrade TYPO3 core
-When you upgrade the TYPO3 core and you have an extension which extends a core class, the upgraded core underneath might not be detected by opcode caches. In particular PHP-Accelerator is known for this behaviour producing "undefined function...." errors. The solution is: Always clear "/tmp/php_a_*" files and restart your webserver after upgrading source.
+Strange opcode caching behaviors when you upgrade TYPO3 core
+When you upgrade the TYPO3 core and you have an extension which extends a core class, the upgraded core underneath might not be detected by opcode caches. In particular PHP-Accelerator is known for this behavior producing "undefined function...." errors. The solution is: Always clear "/tmp/php_a_*" files and restart your webserver after upgrading source.
+AJAX in the TYPO3 Backend
 
+In TYPO3 4.2 a new model for writing AJAX code in the TYPO3 Backend was introduced. Although there were some parts in the TYPO3 Backend that used AJAX already, they are now unified into a single interface that handles errors and dispatches the different calls to their final locations. This way it is ensured that e.g. a BE user is logged in and all TYPO3 variables are loaded.
+The whole architecture builds on top of successful techniques developers already know. It's a mixture between the eID concept from the TYPO3 Frontend, the hooking idea we know from other places in TYPO3, piped through a single small AJAX file "typo3/ajax.php" that creates a PHP AJAX object to see if an error occurred or not. If something went wrong, the X-JSON header is set to false and the client-side AJAX request (an AJAX responder in the Prototype Javascript framework) will know that there is an error.
+In-depth presentation
+Client-Side programming
 
+On the client-side we are using the Prototype JS library (located in typo3/contrib/prototype/prototype.js). If you have used it already, you know that you can make AJAX calls with AJAX.Request, AJAX.Updater and AJAX.PeriodicalUpdater. We extended the library and hooked in these objects, or better: in the callbacks users can define. If an AJAX request is made to our server-side component (typo3/ajax.php), everything developers need to do is to call this URL and add a unique, already registered parameter for their ajaxID. Their defined "onComplete" and "onSuccess" are only rendered if the X-JSON header is set to true by the server-side script. If the X-JSON header is set to false, the Responder checks if there is a callback function named "onT3Error" and executes it instead of the “onComplete” method. If the "onT3Error" method is not defined, the default TYPO3 error handler will be displaying the error in the TYPO3 backend. If the X-JSON header is set to false, the "onSuccess" callback will not be executed as well as but an error message will be shown in the notification area. This behaviour is done automatically with every AJAX call to "ajax.php" made through Prototype's AJAX classes. This responder is also only active if "typo3/js/common.js" is added to the base script.
+Server-side programming
 
+If you look into "typo3/ajax.php", it is only a small dispatcher script. It checks for an ajaxID in the TYPO3_CONF_VARS['BE']['AJAX'] array and tries to execute the function pointer. The function has two parameters, where the first (an array) is not used yet. The second parameter is the TYPO3 AJAX Object (located in typo3/classes/typo3ajax.php) that is used to add the content that should be returned as the server-response to the Javascript part, or the error message that should be displayed. The X-JSON header will be set depending on whether "setError()" was called on this AJAX object. You can also specify if the object should return the result in a valid XML object tree, as text/html (default) or as a JSON object, see below.
+The "ajaxID" is a unique identifier and can be used to override the existing AJAX calls. Therefore you can extend existing AJAX calls that already exist in the backend by redirecting it to your function. But be aware of the side-effects of this feature: Other extensions could overwrite this function as well (similar problem as with XCLASSing or single inheritance in OOP).
+Also, for every TYPO3 request, you will now have a TYPO3_REQUESTTYPE variable that can be used for bitwise comparison. You can now check if you're in Backend or Frontend or in an valid AJAX request with
+if (TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_AJAX)
+
+to see if you're calling through the new AJAX interface.
+Different Content Formats
+
+As with every AJAX response you can send it in different response formats.
+text/html - plain text
+text/xml  - strict XML formatting
+application/json - JSON notation
+You can also specify the contentFormat in the AJAX object like this:
+$ajaxObj->setContentFormat('json');
+
+For the keyword you can choose between "plain" (default), "xml" and "json", "jsonbody" and "jsonhead".
+Here are the specifics for each format.
+Plain Text
+The content array in the backend will be concatenated and returned uninterpreted.
+The result will be available in the transport object as a string through "xhr.responseText".
+XML
+The content needs to be valid XML and will be available in javascript as "xhr.responseXML".
+JSON
+The content is put through the service in "typo3/contrib/json/json.php" and is then available in JSON notation through the second parameter in the onComplete / onSuccess methods, and additionally in the "responseText" part of the transport object ("xhr.responseText"). If it is set to "jsonbody", only the latter variable is filled, if "jsonhead" is set, it is only in the second parameter. This is useful to save traffic and you can use it with whatever format you like.
+Developing with AJAX in the TYPO3 Backend
+This is a small guide for you to use this feature in your AJAX scripts.
+How to choose the right ajaxID
+The ajaxID consists of two parts, the class name and the action name, delimited by "::" ("<class>::<action>").
+Please note that the ajaxID is just a system-wide identifier to register your AJAX handler. Even if it looks like a static function call, it won't be executed and has no technical dependencies. But it is required for all developers to use a common naming scheme as described above, since it might prevent from using identical names in different extensions.
+Some good examples for an ajaxID:
+SC_alt_db_navframe::expandCollapse
+t3lib_TCEforms_inline::processAjaxRequest
+tx_myext_module1::executeSomething
+Some bad examples for an ajaxID:
+search::findRecordByTitle
+core::reloadReferences
+inline::processAjaxRequest
+updateRecordList
+Server-Side
+
+1) Register your unique ajaxID, at best prepended with your extension ID, in the TYPO3 backend by adding the following line to your "ext_localconf.php" (this way you can also overwrite existing AJAX calls):
+$TYPO3_CONF_VARS['BE']['AJAX']['tx_myext::ajaxID'] = 'filename:object->method';
+
+A working example would be:
+$TYPO3_CONF_VARS['BE']['AJAX']['SC_alt_db_navframe::expandCollapse'] = 'typo3/alt_db_navframe.php:SC_alt_db_navframe->ajaxExpandCollapse';
+
+2) Create a target method to do the logic on the server-side: similarly to the existing hooking mechanism, as with every "callUserFunction", the target method (here: ajaxExpandCollapse) will have two function parameters. The first one is an array of params (not used right now), the second is the TYPO3 AJAX Object (see typo3/classes/class.typo3ajax.php for all available methods). You should use this to set the content you want to output or to write the error message if something went wrong. 
+public function ajaxExpandCollapse($params, &$ajaxObj) {
+    $this->init();
+    // do the logic...
+    if (empty($this->tree)) {
+        $ajaxObj->setError('An error occurred');
+    } else  {
+        // the content is an array that can be set through $key / $value pairs as parameter
+        $ajaxObj->addContent('tree', 'The tree works...');
+    }
+}
+
+So, the server-side part is now complete. Let's move over to the client-side.
+Client-part
+
+3) In order for you to use client-side AJAX Javascript you have to add these two lines of PHP code to your PHP script (available in template.php, your template document):
+$this->doc->loadJavascriptLib('contrib/prototype/prototype.js');
+$this->doc->loadJavascriptLib('js/common.js');
+
+4) With prototype on the client side, it's quite simple to add a new AJAX request in Javascript:
+new Ajax.Request('ajax.php', {
+    method: 'get',
+    parameters: 'ajaxID=SC_alt_db_navframe::expandCollapse',
+    onComplete: function(xhr, json) {
+        // display results, should be "The tree works"
+    }.bind(this),
+    onT3Error: function(xhr, json) {
+        // display error message, will be "An error occurred" if an error occurred
+    }.bind(this)
+});
+
+You can see, that it's almost the same, except that we introduce a new callback function "onT3Error", which is optional. It is called if the method "setError" on the server-side was called. Otherwise "onComplete" will be called. If you do not define "onT3Error", then the error message will be shown in the TYPO3 notification area in the backend. Our AJAX responders also work with the "onSuccess" callback, but the onT3Error is only executed with "onComplete".
+This should be all. Please note that our TYPO3 BE AJAX mechanism works best with the prototype JS library. If you want to create similar approaches for other JS frameworks, have a look at "typo3/js/common.js".
 Various examples
 Introduction
 The follow pages will present some examples of how you can use the APIs of core libraries. Remember, ultimately the source is the documentation and the only point here is to show examples. Whenever you would like to use core features that are not shown here you should search in the core and system extensions for implementations that can work as an example for you.
@@ -3535,7 +3587,7 @@ $TCA['tx_myext'] = Array (
 
 Here three tables, "pages", "tt_content" and "tt_myext" is shown as examples.
 The structure of a table entry (second/third level)
-Each table is defined by an array which configures how the system handles the table, both for display and processing in the backend (the frontend is mostly independant of the TCA except from some features in the [ctrl] section). 
+Each table is defined by an array which configures how the system handles the table, both for display and processing in the backend (the frontend is mostly independent of the TCA except from some features in the [ctrl] section). 
 On this "second level" (configuring a single table) the structure is as follows:
 
 $TCA['tablename'] = Array (
@@ -3649,10 +3701,12 @@ label
 string (fieldname)
 Required!
 Points to the fieldname of the table which should be used as the "title" when the record is displayed in the system.
+
+Note: label_userFunc overrides this property (but it is still required).
 Display
 label_alt
 string
-Commalist of fieldnames, which are holding alternative values to the value from the field pointed to by "label" (see above) if that value is empty. May not be used consistently in the system, but should apply in most cases.
+Comma-separated list of fieldnames, which are holding alternative values to the value from the field pointed to by "label" (see above) if that value is empty. May not be used consistently in the system, but should apply in most cases.
 
 Example:
 $TCA['tt_content'] = Array (
@@ -3662,11 +3716,55 @@ $TCA['tt_content'] = Array (
 
 See t3lib_BEfunc::getRecordTitle()
 Also see "label_alt_force"
+
+Note: label_userFunc overrides this property.
 Display
 label_alt_force
 boolean
 If set, then the "label_alt" fields are always shown in the title separated by comma.
 See t3lib_BEfunc::getRecordTitle()
+
+Note: label_userFunc overrides this property.
+Display
+label_userFunc
+string
+Function or method reference. This can be used whenever the label or label_alt options don't offer enough flexibility, e.g. when you want to look up another table to create your label. The result of this function overrules the “label”, “label_alt” or “label_alt_force” settings.
+
+If you want to call a function, just enter the function name. The function name must be prefixed "user_" or "tx_".
+
+If you want to call a method in a class, enter "[classname]->[methodname]". The class name must be prefixed "user_" or "tx_".
+
+Two arguments will be passed to the function/method: The first argument is an array which contains the following information about the record for which to get the title:
+
+$params['table'] = $table;
+$params['row'] = $row;
+
+The resulting title must be written to $params['title'] which is passed by reference.
+
+The second argument is a reference to the parent object.
+
+Notice: You must include the class manually on beforehand! (e.g. include it in your ext_tables.php file)
+
+Example:
+
+in ext_tables.php:
+
+include_once(t3lib_extMgm::extPath('myext').'class.tx_myext_title.php');
+
+$TCA["tx_myext_table"] = Array (
+    "ctrl" => Array (
+        'title' => 'LLL:EXT:myext/locallang_db.xml:tx_myext_table',
+        'label' => 'name',
+        'label_userFunc' => 'tx_myext_title->getRecordTitle',
+    ),
+);
+in your extension folder class.tx_myext_title.php:
+
+class tx_myext_title {
+    function getRecordTitle($params, $pObj) {
+        $params['title'] = 'Whatever...';
+    }
+}
 Display
 type
 string
@@ -3784,11 +3882,11 @@ Display
 selicon_field
 string
 (fieldname)
-Fieldname, which contains the thumbnail image used to represent the record visually whereever it is shown in TCEforms as a foreign reference selectable from a selectorbox.
-Only images of the ordinary webformat, like gif,png,jpeg,jpg, is allowed. No scaling is done.
+Fieldname, which contains the thumbnail image used to represent the record visually wherever it is shown in TCEforms as a foreign reference selectable from a selectorbox.
+Only images of the ordinary web format, like gif,png,jpeg,jpg, is allowed. No scaling is done.
 
 You should consider this a feature where you can attach an "icon" to a record which is typically selected as a reference in other records. For example a "category". In such a case this field points out the icon image which will then be shown. This feature can thus enrich the visual experience of selecting the relation in other forms.
-The feature is seldomly used.
+The feature is seldom used.
 
 Related: "selicon_field_path"
 Display
@@ -3870,7 +3968,6 @@ Proc.
 cruser_id
 string (fieldname)
 Fieldname, which is automatically set to the uid of the backend user (be_users) who originally created the record. Is never modified again.
-Typically the field name "cruser_id" is used for the time stamp value.
 Proc.
 rootLevel
 [0, 1, -1]
@@ -3890,7 +3987,7 @@ Display
 readOnly
 boolean
 Records may not be changed. This makes a table "static".
-In TYPO3 the most wellknown static table is "static_template" which contains pre-configured TypoScript code snippets. But you can also find a number of extensions which contains static table information like zip-codes, airport codes, country, currency codes etc. 
+In TYPO3 the most well-known static table is "static_template" which contains pre-configured TypoScript code snippets. But you can also find a number of extensions which contains static table information like zip-codes, airport codes, country, currency codes etc. 
 Proc. /
 Display
 adminOnly
@@ -4079,28 +4176,35 @@ Points to the table which holds translations of the records in this table. This 
 WARNING: This is still highly unsupported for all other tables than the “pages” table. If this is to work well for any table you wish to configure, some more work needs to get done!
 
 versioningWS
-boolean / keyword
-If set, versioning is enabled for this table.
+boolean / version number
+If set, versioning is enabled for this table. If integer it indicates a version number of versioning features. 
+Version 2: Support for moving elements was added. (“V2” is used to mark features)
+
 Versioning in TYPO3 is based on this scheme:
 
 [Online version, pid>=0] 1- * [Offline versions, pid=-1]
 
-Offline versions are identified by having a pid value = -1 and they refer to their online version by the field “t3ver_oid”.
-
+Offline versions are identified by having a pid value = -1 and they refer to their online version by the field “t3ver_oid”. Offline versions of the “Page” and “Branch” types (contrary to “Element” type) can have child records which points to the uid of their offline “root” version with their pid fields (as usual). These children records are typically copies of child elements of the online version of the offline root version, but are not considered “versions” of them in a technical sense, hence they don't point to them with their t3ver_oid field (and shouldn't). 
 In the backend “Offline” is labeled “Draft” while “Online” is labeled “Live”.
 
 In order for versioning to work on a table there are certain requirements; Tables supporting versioning must have these fields:
-“t3ver_oid” - Pointing back to online version
+“t3ver_oid” - For offline versions; pointing back to online version uid. For online: 0 (zero)
 “t3ver_id” - Incremental integer (version number)
 “t3ver_label” - Version label, eg. "1.1.1" or "Christmas edition"
-“t3ver_wsid” - Workspace ID. For all workspace Ids apart from 0 (zero) there can be only one version of an element per ID.
-“t3ver_state” - Contains special states of a version used when new and deleted content requires versioning. 
-For an online version with this value set to “1” it means that it is a temporary placeholder for a new element.
-For an offline (unpublished) version with this value set to “2” it means that when swapped, the page must be deleted also. 
-For an offline (unpublished) version with this value set to "-1" it is just an indication that the online version has the flag set to "1" (is a placeholder for new records.). This only affects display, not processing anywhere.
+“t3ver_wsid” - For offline versions: Workspace ID of version. For all workspace Ids apart from 0 (zero) there can be only one version of an element per ID. For online: 0 (zero) unless t3ver_state is set in which case it plays a role for previews in the backend (to no de-select placeholders for workspaces, see t3lib_BEfunc::versioningPlaceholderClause()) and for publishing of move-to-actions (see t3lib_BEfunc::getMovePlaceholder())
+“t3ver_state” - Contains special states of a version used when new, deleted, moved content requires versioning. 
+For an online version:
+“1” or “2” means that it is a temporary placeholder for a new element (which is the offline version of this record)
+“3” means it is a “move-to-location” placeholder and t3ver_move_id holds uid of online record (with an offline version) to move . Unlike for “1” and “2” there is no offline version of this record type! (V2 feature)
+If “t3ver_state” has a value >0 it should never be shown in Live workspace. 
+For an offline version:
+“1” or “2” means that when published, the element must be deleted (placeholder for delete-action). 
+"-1" means it is just an indication that the online version has the flag set to "1" (is a placeholder for new records.). This only affects display, not processing anywhere.
+“4” means this version is a “move-pointer” for the online record and an online “move-to-location” (t3ver_state=3) record exists. (V2 feature)
 “t3ver_stage” - For custom workspaces elements go through a cycle where 0 (zero) represents the editing cycle, 1 represents review cycle and 10 represents ready for publishing.
 “t3ver_count” - 0/offline=draft/never published, 0/online=current, 1/offline=archive, 1+=multiple online/offline occurences (incrementation happens when versions are swapped offline.)
 “t3ver_tstamp” - Timestamp of last swap/publish action.
+“t3ver_move_id” - For online records with t3ver_state=3 this indicates the online record to move to this location upon publishing of the offline version of the online record “t3ver_move_id” points to.
 The fields pid and uid should have "signed" attributes in MySQL (so their content can be negative!)
 
 SQL definitions:
@@ -4112,10 +4216,15 @@ SQL definitions:
   t3ver_stage tinyint(4) DEFAULT '0' NOT NULL,
   t3ver_count int(11) DEFAULT '0' NOT NULL,
   t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+  t3ver_move_id int(11) DEFAULT '0' NOT NULL,     (V2 requirement)
 
 Special “t3ver_swapmode” field for pages
 When pages are versioned it is an option whether content and even the branch of the page is versioned. This is determined by the parameter “treeLevels” set when the page is versioned. “-1” means swap only record, 0 means record and content and >0 means full branch. When the version is later published the swapping will happen accordingly.
 Proc.
+versioningWS_alwaysAllowLiveEdit
+boolean
+If set, this table can always be edited live even in a workspace and even if “live editing” is not enabled in a custom workspace. For instance this is set by default for Backend user and group records since it is assumed that administrators like the flexibility of editing backend users without having to go to the Live workspace. 
+
 versioning_followPages
 boolean
 (Only for other tables than “pages”)
@@ -4133,8 +4242,14 @@ Migration:
 The migration is very easy: Simply set “versioningWS” instead of “versioning” for your table AND upgrade the SQL fields as defined for “versioningWS”!
 
 dividers2tabs
-boolean
-If set, all “--div--” fieldnames in the types configuration will be interpreted as starting a new tab in a tab-menu for the record. The second part after “--div--” will be the title of the tab then.
+integer
+This key defines the activation of tabs, according to the following values:
+
+0: disabled (default)
+1: activated, empty tabs are removed
+2: activated, empty tabs are disabled
+
+If Tabs are activated, all “--div--” fieldnames in the types configuration will be interpreted as starting a new tab in a tab-menu for the record. The second part after “--div--” will be the title of the tab then.
 
 If you place a “--div--” field as the very first element in the types configuration it will just be used to set the title of the first tab (which is by default “General”).
 
@@ -4325,8 +4440,8 @@ List of fields allowed for editing/creation with the fe_adminLib module, see med
 ['columns'][fieldname] section
 The "columns" section contains configuration for each table field (also called "column") which can be edited by the backend.
 The configuration includes both properties for the display in the backend as well as the processing of the submitted data.
-Each field can be configured as a certain "type" (eg. checkbox, selector, iinput field, text area, file or db-relation field, user defined etc.) and for each type a separate set of additional properties applies. These properties are clearly explained below for each type.
-This table showns the keys of the ['columns'][fieldname] array:
+Each field can be configured as a certain "type" (e.g. checkbox, selector, input field, text area, file or db-relation field, user defined etc.) and for each type a separate set of additional properties applies. These properties are clearly explained below for each type.
+This table shows the keys of the ['columns'][fieldname] array:
 Key
 Datatype
 Description
@@ -4386,7 +4501,7 @@ It is also used in localization export (pending at this moment).
 Display
 config
 array
-Contains the actual configuration properties of the fields display and processing behaviour. 
+Contains the actual configuration properties of the fields display and processing behavior. 
 The possibilities for this array depend on the value of the array key "type" within the array. Each valid value for "type" is shown below in a separate table.
 
 Notice: For all configuration types, the 
@@ -4497,7 +4612,7 @@ alpha : Allows only a-zA-Z characters.
 num : Allows only 0-9 characters in the field.
 alphanum : Same as "alpha" but allows also "0-9"
 alphanum_x : Same as "alphanum" but allows also "_" and "-" chars.
-nospace : Removes all occurencies of space characters (chr(32))
+nospace : Removes all occurrences of space characters (chr(32))
 md5 : Will convert the inputted value to the md5-hash of it (The JavaScript MD5() function is found in typo3/md5.js)
 is_in : Will filter out any character in the input string which is not found in the string entered in the key "is_in" (see below). 
 password : Will show "*******" in the field after entering the value and moving to another field. Thus passwords can be protected from display in the field. Notice that the value during entering it is visible!
@@ -4609,7 +4724,7 @@ array
 [See section later for options]
 Display
 
-Now follows some codelistings as examples:
+Now follows some code listings as examples:
 Example: A "date" field
 This is the typical configuration for a date field, like "starttime":
 
@@ -4681,7 +4796,7 @@ Abstract value for the width of the <textarea> field. To set the textarea to the
 Display
 rows
 integer
-The number of rows in the textarea. May be corrected for harmonisation between browsers. Will also automatically be increased if the content in the field is found to be of a certain length, thus the field will automatically fit the content.
+The number of rows in the textarea. May be corrected for harmonization between browsers. Will also automatically be increased if the content in the field is found to be of a certain length, thus the field will automatically fit the content.
 
 Default is 5. Max value is 20.
 Display
@@ -4714,7 +4829,7 @@ array
 [See section later for options]
 Display
 
-Now follows some codelistings as examples:
+Now follows some code listings as examples:
 Example: A quite normal field
 This is the typical configuration for a textare field:
             'message' => Array (
@@ -4768,7 +4883,7 @@ Range is 1-10, 1 being default.
 Display
 showIfRTE
 boolean
-If set, this field will show only if the RTE editor is enabled (which includes correct browserversion and user-rights altogether.)
+If set, this field will show only if the RTE editor is enabled (which includes correct browser version and user-rights altogether.)
 Display
 default
 integer
@@ -4785,7 +4900,7 @@ The function/method will have an array of parameters passed to it (where the ite
 For more information, see how user-functions are specified in the section about 'wizards' some pages below here. 
 Display
 
-Now follows some codelistings as examples:
+Now follows some code listings as examples:
 Example: A single checkbox
 A totally unfancy checkbox:
             'personal' => Array (
@@ -4829,7 +4944,7 @@ array
 Required.
 
 An array of the values which can be selected.
-Each entry is in itself an array where the first entry is the title (LS) and the second entry is the value of the radiobutton.
+Each entry is in itself an array where the first entry is the title (LS) and the second entry is the value of the radio button.
 
 See example below.
 Display
@@ -4862,7 +4977,7 @@ An example of radio buttons configuration from "sys_filemounts" (see above):
 
 
 ['columns'][fieldname]['config'] / TYPE: "select"
-Selectors boxes are very common elements in forms. By the "select" type you can create selector boxes. In the most simple form this is a list of values amoung which you can chose only one. In that way it is similar to the "radio" type above.
+Selectors boxes are very common elements in forms. By the "select" type you can create selector boxes. In the most simple form this is a list of values among which you can chose only one. In that way it is similar to the "radio" type above.
 	
 
 It is also possible to configure more complex types where the values from from a look up in another database table and you can even have a type where more than one value can be selected in any given order you like.
@@ -4930,7 +5045,11 @@ Display
 iconsInOptionTags
 boolean
 If set, icons will appear in the <option> tags of the selector box. This feature seems only to work in Mozilla.
-
+Display
+noIconsBelowSelect
+boolean
+Disables the rendering of the icons after the select even when icons for the <select>s <option> tags were supplied and iconsInOptionTags was set.
+Display
 foreign_table 
 string
 (tablename)
@@ -4958,7 +5077,7 @@ You can use markers in the WHERE clause:
 ###PAGE_TSCONFIG_IDLIST### -  a value you can set from Page TSconfig dynamically.
 ###PAGE_TSCONFIG_STR### -  a value you can set from Page TSconfig dynamically.
 
-The markers are preprocessed so that the value of CURRENT_PID and PAGE_TSCONFIG_ID are always integers (default is zero), PAGE_TSCONFIG_IDLIST will always be a commalist of integers (default is zero) and PAGE_TSCONFIG_STR will be addslashes'ed before substitution (default is blank string).
+The markers are preprocessed so that the value of CURRENT_PID and PAGE_TSCONFIG_ID are always integers (default is zero), PAGE_TSCONFIG_IDLIST will always be a comma-separated list of integers (default is zero) and PAGE_TSCONFIG_STR will be addslashes'ed before substitution (default is blank string).
 Proc. / Display
 foreign_table_prefix
 string
@@ -5040,18 +5159,56 @@ MM
 string
 (table name)
 Means that the relation to the records of "foreign_table" / "new_foreign_table" is done with a M-M relation with a third "join" table. 
-That table typically has three columns: 
+That table has three columns as a minimum: 
 uid_local, uid_foreign for uids respectively. 
-sorting is a required field used for ordering the items.
+sorting is a required field used for ordering the items
+sorting_foreign is required if the relation is bidirectional (see description and example below table)
+tablenames is used if multiple tables are allowed in the relation.
+uid  (autoincremented and PRIMARY KEY) may be used if you need the “multiple” feature (which allows the same record to be references multiple times in the box. See “MM_hasUidField”
+Other fields may exist, in particular if MM_match_fields is involved in the set up.
+
+Example SQL #1 (most simple MM table):
+CREATE TABLE user_testmmrelations_one_rel_mm (
+  uid_local int(11) DEFAULT '0' NOT NULL,
+  uid_foreign int(11) DEFAULT '0' NOT NULL,
+  sorting int(11) DEFAULT '0' NOT NULL,
+  
+  KEY uid_local (uid_local),
+  KEY uid_foreign (uid_foreign)
+);
+
+Example SQL #2 (Advanced with UID field, “ident” used with MM_match_fields and sorting_foreign for bidirectional MM relations)
+#
+# Table structure for table 'user_testmmrelations_two_rel_mm'
+# 
+#
+CREATE TABLE user_testmmrelations_two_rel_mm (
+  uid int(11) NOT NULL auto_increment,
+  uid_local int(11) DEFAULT '0' NOT NULL,
+  uid_foreign int(11) DEFAULT '0' NOT NULL,
+  tablenames varchar(30) DEFAULT '' NOT NULL,
+  sorting int(11) DEFAULT '0' NOT NULL,
+  sorting_foreign int(11) DEFAULT '0' NOT NULL,
+  ident varchar(30) DEFAULT '' NOT NULL,
+
+  KEY uid_local (uid_local),
+  KEY uid_foreign (uid_foreign),
+  PRIMARY KEY (uid),
+);
 
 The fieldname of the config is not used for data-storage anymore but rather it's set to the number of records in the relation on each update, so the field should be an integer.
 Notice: Using MM relations you can ONLY store real relations for foreign tables in the list - no additional string values or non-record values.
+
+MM relations and flexforms
+MM relations has been tested to work with flexforms if not in a repeated element in a section. See example below.
 Proc.
 MM_opposite_field
 string
 (field name)
-If you want to make an mm relation editable from the foreign side of the relation as well, you need to set MM_opposite_field on the foreign side to the fieldname on the local side.
+If you want to make an mm relation editable from the foreign side (bidirectional) of the relation as well, you need to set MM_opposite_field on the foreign side to the fieldname on the local side.
 E.g. if the field "companies.employees" is your local side and you want to make the same relation editable from the foreign side of the relation in a field called persons.employers, you would need to set the MM_opposite_field value of the TCA configuration of the persons.employers field to the string "employees".
+
+Notice: Bidrectional references only gets registered once on the native side in sys_refindex
 Proc.
 MM_match_fields
 array
@@ -5064,6 +5221,10 @@ Array of field=>value pairs to insert when writing new MM relations
 MM_table_where
 string (SQL WHERE)
 Additional where clause used when reading MM relations.
+
+MM_hasUidField
+boolean
+If the “multiple” feature is used with MM relations you MUST set this value to true and include a UID field! Otherwise sorting and removing relations will be buggy.
 
 special
 string
@@ -5116,6 +5277,8 @@ Notice: “maxitems” and “minitems” are not enforced in the browser for an
 multiple
 boolean
 Allows the same item more than once in a list.
+
+If used with bidirectional MM relations it must be set for both the native and foreign field configuration. Also, with MM relations in general you must use a UID field in the join table, see description for “MM”
 Display / Proc.
 maxitems
 integer > 0
@@ -5161,6 +5324,10 @@ List of keys that exclude any other keys in a select box where multiple items co
 
 "Show at any login" of "fe_groups" (tables "pages" and "tt_content") is an example where such a configuration is used.
 
+localizeReferencesAtParentLocalization
+boolean
+Defines whether referenced records should be localized when the current record gets localized (mostly used in Inline Relational Record Editing)
+Proc.
 
 Here follow some code listings as examples:
 Example - A simple selector box: 
@@ -5343,6 +5510,113 @@ In line 10 you see how the marker "###CURRENT_PID###" is used to limit the look 
 In line 14 it is also defined that the array of options should be processed by a user defined function, namely the method "main()" in the class "tx_templavoila_handleStaticdatastructures". For this to work, the class must be included during configuration (typically in ext_localconf.php files)
 Line 15 configures that non-integer values are allowed. Normally values are restricted to integers if we are dealing with database look ups.
 Line 16 means that even if icons can be displayed for each of the records in the look up, an icon will be displayed only for the selected record (if any).
+Example – Bidrectional MM relations
+For a table, “user_testmmrelations_two”, we have a field “rel” with configured with MM relations:
+		"rel" => Array (		
+			"exclude" => 1,		
+			"label" => "Relations:",		
+			"config" => Array (
+				"type" => "select",	
+				"foreign_table" => "user_testmmrelations_one",	
+				"foreign_table_where" => "ORDER BY user_testmmrelations_one.uid",	
+				"size" => 10,	
+				"minitems" => 0,
+				"maxitems" => 10,	
+				"MM" => "user_testmmrelations_two_rel_mm",
+				'MM_match_fields' => array('ident'=>'table_two')
+			)
+		),
+
+The MM table is called “user_testmmrelations_two_rel_mm”, and the field “ident” is used to match on with the word “table_two”. Doing this enables us to use the same MM table for other fields using other keywords for the “ident” field.
+In another table “user_testmmrelations_one” a field called “rel2” constitutes the foreign side of the bidirectional relation:
+		"rel2" => Array (		
+			"label" => "Foreign relation:",		
+			"config" => Array (
+				"type" => "select",	
+				"foreign_table" => "user_testmmrelations_two",	
+				"foreign_table_where" => "ORDER BY user_testmmrelations_two.uid",	
+				"size" => 10,	
+				"minitems" => 0,
+				"maxitems" => 10,
+				"MM" => "user_testmmrelations_two_rel_mm",
+				'MM_match_fields' => array('ident'=>'table_two'),
+				"MM_opposite_field" => "rel"
+			)
+		),
+
+Notice how in both cases “ foreign_table” points to the table name of the other. Also they use the exact same set up except in the foreign side case above the field “MM_opposite_field” is set to “rel” - the name of the field in table “user_testmmrelations_two"!
+
+The SQL looks like:
+#
+# Table structure for table 'user_testmmrelations_two_rel_mm'
+# 
+#
+CREATE TABLE user_testmmrelations_two_rel_mm (
+  uid int(11) NOT NULL auto_increment,
+  uid_local int(11) DEFAULT '0' NOT NULL,
+  uid_foreign int(11) DEFAULT '0' NOT NULL,
+  tablenames varchar(30) DEFAULT '' NOT NULL,
+  sorting int(11) DEFAULT '0' NOT NULL,
+  sorting_foreign int(11) DEFAULT '0' NOT NULL,
+  ident varchar(30) DEFAULT '' NOT NULL,
+
+  KEY uid_local (uid_local),
+  KEY uid_foreign (uid_foreign),
+  PRIMARY KEY (uid),
+);
+
+In the backend the form could look like:
+
+
+So, from a record in table two (native) there are two relations made to records in table one.
+If we look at one of the records from table one we see the relation made from “TWO (1)”:
+
+
+In the database it looks like this:
+
+Example – FlexForms and MM relations
+MM relations can be used with flexforms. Here is an example:
+
+
+The flexform field configuration looks like this:
+<rel1>
+    <TCEforms>
+        <label>Relation:</label>
+        <config>
+            <type>group</type>
+            <internal_type>db</internal_type>
+            <allowed>user_testmmrelations_three</allowed>
+            <size>10</size>
+            <minitems>0</minitems>
+            <maxitems>10</maxitems>
+            <MM>user_testmmrelations_two_rel_mm</MM>
+            <MM_match_fields>
+                <ident>table_one_flex</ident>
+            </MM_match_fields>
+            <multiple>1</multiple>
+            <MM_hasUidField>1</MM_hasUidField>
+        </config>
+    </TCEforms>
+</rel1>
+
+As you can see the same element (titled “3-3 (UID-3)”) is selected twice (the “<multiple>” flag has been set) – and as a consequence <MM_hasUidField>1</MM_hasUidField> is set as well. In fact this configuration is sharing the MM table with another field (see the previous example) so the configuration 
+   		<MM_match_fields>
+                <ident>table_one_flex</ident>
+            </MM_match_fields>
+
+makes sure all MM relations for this flexform field is marked with the string “table_one_flex”.
+
+In the database the entry looks like:
+
+(The first two entries belong to that other field, see previous example).
+Of course you can specify a dedicated join table to the flexform instead of sharing it.
+What will not work in flexforms is if you put MM relation fields in elements that can get repeated, like in sections:
+
+
+Here I have added three sections and tried to add entries to each. However, when saved the two last entries are loaded for all of them. The result of the save was:
+
+
+The reason is that the fields all use the same uid (that of the record) to find the MM records. This could work when MM fields were used outside sections of flexform fields which could only occur one time per record, but here it's not possible. 
 Data format of "select" elements
 Since the "select" element allows to store references to multiple elements we might want to look at how these references are stored internally. The principle is the same  as with the "group" type (see below).
 
@@ -5366,6 +5640,7 @@ Required!
 Configures the internal type of the "group" type of element. 
 There are two options for a value: 
 "file" - this will create a field where files can be attached to the record
+“folder” - this will create a field where folders can be attached to the record
 "db" - this will create a field where database records can be attached as references.
 
 The default value is none of them - you must specify one of the values correctly!
@@ -5382,6 +5657,8 @@ For example the value could be "pages,be_users".
 Value from these tables are always the 'uid' field. 
 First table in list is understood as the default table, if a table-name is not prepended to the value. 
 If the value is '*' then all tables are allowed (in this case you should set "prepend_tname" so all tables are prepended with their table name for sure).
+
+Notice, if the field is the foreign side of a bidirectional MM relation, only the first table is used and that must be the table of the records on the native side of the relation.
 Proc. / Display
 disallowed
 string
@@ -5392,7 +5669,7 @@ Default value is '*' which means that anything file-extension which is not allow
 
 If you set this value (to for example "php,php3") AND the "allowed" key is an empty string all extensions are permitted except ".php" and ".php3" files (works like the [BE][fileExtensions] config option). 
 In other words: 
-If you want to permit only certain file-extentions, use 'allowed' and not disallowed. 
+If you want to permit only certain file-extensions, use 'allowed' and not disallowed. 
 If you want to permit all file-extensions except a few, set 'allowed' to blank ("") and enter the list of denied extensions in 'disallowed'. 
 If you wish to allow all extensions with no exceptions, set 'allowed' to '*' and disallowed to ''
 Proc. / Display
@@ -5411,34 +5688,7 @@ tablenames - is required if you use multitable-relations and this field must be 
 In case of files, the tablenames field is never used.
 sorting - is a required field used for ordering the items.
 
-The fieldname of the config is not used for data-storage any more but rather it's set to the number of records in the relation on each update, so the field should be an integer.
-
-Sample SQL table definitions for MM relations look like:
-
-#
-# Example MM table for database relations
-#
-
-CREATE TABLE example_db_mm (
-  uid_local int(11) DEFAULT '0' NOT NULL,
-  uid_foreign int(11) DEFAULT '0' NOT NULL,
-  tablenames varchar(30) DEFAULT '' NOT NULL,
-  sorting int(11) DEFAULT '0' NOT NULL,
-  KEY uid_local (uid_local),
-  KEY uid_foreign (uid_foreign)
-) TYPE=MyISAM;
-
-#
-# Example MM table for file attachments
-#
-
-CREATE TABLE example_files_mm (
-  uid_local int(11) DEFAULT '0' NOT NULL,
-  uid_foreign varchar(60) DEFAULT '' NOT NULL,
-  sorting int(11) DEFAULT '0' NOT NULL,
-  KEY uid_local (uid_local),
-  KEY uid_foreign (uid_foreign)
-) TYPE=MyISAM;
+see ['columns'][fieldname]['config'] / TYPE: "select" => MM for additional features.
 Proc.
 MM_opposite_field
 string
@@ -5456,6 +5706,10 @@ see ['columns'][fieldname]['config'] / TYPE: "select" => MM_insert_fields
 MM_table_where
 string (SQL WHERE)
 see ['columns'][fieldname]['config'] / TYPE: "select" => MM_table_where
+
+MM_hasUidField
+boolean
+see ['columns'][fieldname]['config'] / TYPE: "select" => MM_hasUidField
 
 max_size
 integer
@@ -5504,6 +5758,8 @@ Display
 multiple
 boolean
 Allows the same item more than once in a list.
+
+If used with bidirectional MM relations it must be set for both the native and foreign field configuration. Also, with MM relations in general you must use a UID field in the join table, see description for “MM”
 Display / Proc.
 maxitems
 integer > 0
@@ -5513,6 +5769,11 @@ minitems
 integer > 0
 Minimum number of items in the selector box. (Default = 0)
 Display / Proc?
+disable_controls
+string
+Disables subcontrols inside "group" control. Possible values are: browser (disabled browse button for list control), list (disables list and browse button) and upload (disables upload control). See example image below.
+
+Display / Proc.
 wizards
 array
 [See section later for options]
@@ -5582,21 +5843,17 @@ Line 7 defines the maximum kb size of files allowed.
 Line 8 defines the storage folder in the filesystem where the files are copied to when attached to the record. The path is relative to the PATH_site of TYPO3, one directory below PATH_typo3
 Data format of "group" elements
 Since the "group" element allows to store references to multiple elements we might want to look at how these references are stored internally. 
-
 Storage methods
 There are two main methods for this:
 Stored in a comma list
 Stored with a join table (MM relation)
 The default and most wide spread method is the comma list. 
-
 Reserved tokens
 In the comma list the token "," is used to separate the values. In addition the pipe sign "|" is used to separate value from label value when delivered to the interface. Therefore these tokens are not allowed in reference values, not even if the MM method is used.
-
 The "Comma list" method (default)
 When storing references as a comma list the values are simply stored one after another, separated by a comma in between (with no space around!). The database field type is normally a varchar, text or blob field in order to handle this.
 From the examples above the four Content Elements will be stored as "26,45,49,1" which is the UID values of the records. The images will be stored as their filenames in a list like "DSC_7102_background.jpg,DSC_7181.jpg,DSC_7102_background_01.jpg".
 Since "db" references can be stored for multiple tables the rule is that uid numbers without a table name prefixed are implicitly from the first table in the allowed table list! Thus the list "26,45,49,1" is implicitly understood as "tt_content_26,tt_content_45,tt_content_49,tt_content_1". That would be equally good for storage, but by default the "default" table name is not prefixed in the stored string. As an example, lets say you wanted a relation to a Content Element and a Page in the same list. That would look like "tt_content_26,pages_123" or alternatively "26,pages_123" where "26" implicitly points to a "tt_content" record given that the list of allowed tables were "tt_content,pages". 
-
 The "MM" method
 Using the MM method you have to create a new database table which you configure with the key "MM". The table must contain a field, "uid_local" which contains the reference to the uid of the record that contains the list of elements (the one you are editing). The "uid_foreign" field contains the uid of the reference record you are referring to. In addition a "tablename" and "sorting" field exists if there are references to more than one table.
 Lets take the examples from before and see how they would be stored in an MM table:
@@ -5653,10 +5910,8 @@ DSC_7102_background_01.jpg
 N/A
 3
 
-
 API for getting the reference list
 In t3lib/ the class "t3lib_loaddbgroup" is designed to transform the stored reference list values into an array where all uids are paired with the right table name. Also, this class will automatically retrieve the list of MM relations. In other words, it provides an API for getting the references from "group" elements into a PHP array regardless of storage method.
-
 Passing the list of references to TCEforms
 Regardless of storage method, the reference list has to be "enriched" with proper title values when given to TCEforms for rendering. In particular this is important for database records. Passing the list "26,45,49,1" will not give TCEforms a chance to render the titles of the records.
 The t3lib/ class "t3lib_transferdata" is doing such transformations (among other things) and this is how the transformation happens:
@@ -5675,7 +5930,6 @@ The syntax is:
 
 Values are transferred back to the database as a comma separated list of values without the labels but if labels are in the value they are automatically removed.
 Alternatively you can also submit each value as an item in an array; TCEmain will detect an array of values and implode it internally to a comma list. (This is used for the "select" type, in renderMode "singlebox" and "checkbox").
-
 Managing file references
 When a new file is attached to a record the TCE will detect the new file based on whether it has a path prefixed or not. New files are copied into the upload folder that has been configured and the final value list going into the database will contain the new filename of the copy.
 If images are removed from the list that is detected by simply comparing the original file list with the one submitted. Any files not listed anymore are deleted.
@@ -5700,7 +5954,7 @@ Datatype
 Description
 type
 string
-[Must be set to "" (blank string!)]
+[Must be set to "none"]
 pass_content
 boolean
 If set, then content from the field is directly outputted in the <div> section. Otherwise the content will be passed through htmlspecialchars() and possibly nl2br() if there is configuration for rows.
@@ -5730,7 +5984,7 @@ type
 string
 [Must be set to "passthrough"]
 
-Now follows a codelisting as example:
+Now follows a code listing as example:
 Example: 
 This field is found in a number of table, eg. the "pages" table. It is apparently used by the extension "impexp" to store some information.
         'tx_impexp_origuid' => Array('config'=>array('type'=>'passthrough')),
@@ -5763,7 +6017,7 @@ noTableWrapping
 boolean
 If set, then the output from the user function will not be wrapped in the usual table - you will have to do that yourself.
 
-Now follows a codelisting as example:
+Now follows a code listing as example:
 Example:
 This field is rended by custom PHP code:
 
@@ -5808,12 +6062,14 @@ string
 [Must be set to "flex"]
 ds_pointerField
 string
-Fieldname in the record which points to the field where the key for “ds” is found
+Fieldname(s) in the record which point to the field where the key for “ds” is found. Up to two fieldnames can be specified comma separated.
 ds
-string
+array
 Data Structure(s) defined in an array. 
 
 Each key is a value that can be pointed to by “ds_pointerField”. Default key is “default” which is what you should use if you do not have a “ds_pointerField” value of course.
+
+If you specified more than one ds_pointerField, the keys in this “ds” array should contain comma-separated value pairs where the asterisk * matches all values (see the example below). If you don't need to switch for the second ds_pointerField, it's also possible to use only the first ds_pointerField's value as a key in the "ds" array without necesserily suffixing it with ",*" for a catch-all on the second ds_pointerField.
 
 For each value in the array there are two options:
 Either enter XML directly
@@ -5821,7 +6077,7 @@ Make a reference to an external XML file
 
 Example with XML directly entered:
 
-'config' => Array (
+'config' => array(
     'type' => 'flex',
     'ds_pointerField' => 'list_type',
     'ds' => array(
@@ -5847,14 +6103,25 @@ Example with XML directly entered:
 )
 Example with XML in external file:
 (File reference is relative)
-'config' => Array (
+'config' => array(
     'type' => 'flex',
     'ds_pointerField' => 'list_type',
     'ds' => array(
         'default' => 'FILE:EXT:mininews/flexform_ds.xml',
     )
 )
+Example using two ds_pointerFields (as used for tt_content.pi_flexform since TYPO3 4.2.0):
 
+'config' => array(
+    'type' => 'flex',
+    'ds_pointerField' => 'list_type,CType',
+    'ds' => array(
+        'default' => 'FILE:...',
+	'tt_address_pi1,list' => 'FILE:EXT:tt_address/pi1/flexform.xml', // DS for list_type=tt_address_pi1 and CType=list
+	'*,table' => 'FILE:EXT:css_styled_content/flexform_ds.xml', // DS for CType=table, no matter which list_type value
+	'tx_myext_pi1' => 'FILE:EXT:myext/flexform.xml', // DS for list_type=tx_myext_pi1 without specifying a CType at all
+    )
+)
 ds_tableField
 string
 Contains the value “[table]:[fieldname]” from which to fetch Data Structure XML.
@@ -6264,6 +6531,8 @@ You can see the Danish counterparts to the default values are stored in tags nam
 NOTICE: The two localization methods are NOT compatible! You cannot suddenly change from the one method to the other without having to do some conversion of the data format. That is obvious when you look at how the two methods also require different data structures underneath!
 ['columns'][fieldname]['config'] / TYPE: "inline"
 Inline-Relational-Record-Editing (IRRE) offers a way of directly editing parent-child-relations in one backend view. New child records are created using AJAX calls to prevent a reload of the complete backend view. This type was first integrated in TYPO3 4.1.
+Please note IRRE does not work in conjunction with versioning. The parent as well as the child table of IRRE fields must not be versioning enabled, otherwise unexpected behaviour might happen.
+Note: TCAdefaults.<table>.pid = <page id> can be used to define the pid of new child records. Thus, it's possible to have special storage folders on a per-table-basis. 
 Key
 Datatype
 Description
@@ -6285,7 +6554,7 @@ Has information about the appearance of child-records, namely:
 collapseAll (boolean)
 Show all child-records collapsed (if false, all are expanded)
 expandSingle (boolean)
-Show only one child-record expanded each time. If a collapsed reocord is clicked, the currently open one collapses and the clicked one expands.
+Show only one child-record expanded each time. If a collapsed record is clicked, the currently open one collapses and the clicked one expands.
 newRecordLinkAddTitle (boolean)
 Adds the title of the foreign_table to the “New record” link.
 false: “Create new”
@@ -6297,7 +6566,27 @@ useCombination (boolean)
 This is only useful on bidirectional relations using an intermediate table with attributes. In a “combination” it is possible to edit the attributes AND the related child record itself.
 useSortable (boolean)
 Active Drag&Drop Sorting by the script.aculo.us Sortable object.
+showPossibleLocalizationRecords (boolean)
+Show unlocalized records which are in the original language, but not yet localized.
+showRemovedLocalizationRecords (boolean)
+Show records which were once localized but do not exist in the original language anymore.
+showAllLocalizationLink (boolean)
+Defines whether to show the "localize all records" link to fetch untranslated records from the original language.
+showSynchronizationLink (boolean)
+Defines whether to show a "synchronize" link to update to a 1:1 translation with the original language.
 Display
+behaviour
+array
+Has information about the behaviour of child-records, namely:
+localizationMode ('keep', 'select')
+Defines in general whether children are really localizable (set to 'select') or just taken from the default language (set to 'keep'). If this property is not set, but the affected parent and child tables were localizable, the mode 'select' is used by default.
+Mode 'keep': This is not a real localization, since the children are taken from the parent of the original language. But the children can be moved, deleted, modified etc. on the localized parent which - of course - also affects the original language.
+Mode 'select': This mode provides the possibility to have a selective localization and to compare localized data to the pendants of the original language. Furthermore this mode is extended by a 'localize all' feature, which works similar to the localization of content on pages, and a 'synchronize' feature which offers the possibility to synchronize a localization with its original language. 
+localizeChildrenAtParentLocalization (boolean)
+Defines whether children should be localized when the localization of the parent gets created.
+disableMovingChildrenWithParent (boolean)
+Disables that child records get moved along with their parent records.
+Display / Proc.
 foreign_field
 string
 The foreign_field is the field of the child record pointing to the parent record. This defines where to store the uid of the parent record.
@@ -6587,7 +6876,7 @@ string
 (list of field configuration sets)
 Required.
 Configuration of the displayed order of fields in TCEforms.
-The whole strings is divided by tokens according to a - unfortunately - complex ruleset.
+The whole string is divided by tokens according to a - unfortunately - complex ruleset.
 
 #1: Overall the value is divided by a "comma" ( , ). Each part represents the configuration for a single field.
 #2: Each of the field configurations is further divided by a semi-colon ( ; ). Each part of this division has a special significance. 
@@ -6598,7 +6887,16 @@ Part 4: Special configuration (splitted by colon ( : )), eg. 'nowrap' and 'richt
 Part 5: Form style codes (see section later)
 
 
-Notice: Instead of a real fieldname you can theoretically insert "--div--" and you will have a divider line shown. However this is not rendered by default so it has no significance.
+Notice: Instead of a real fieldname you can insert "--div--" and you should have a divider line shown. However this is not rendered by default. If you set the dividers2tabs option (see ['ctrl'] section), each –div-- will mark define a new tab. Furthermore using a value "newline" for Part 3, will start a newline with this tab.
+
+Example:
+
+'types' => array(
+    '0' => array('showitem' => '
+        --div--;Your Label,field1,field2,
+        --div--;Your Label2;newline,field3,field4
+    ')
+)
 
 Another special fieldname, '--palette--', will insert a link to a palette (of course you need to specify a palette and title then...)
 subtype_value_field
@@ -6654,7 +6952,7 @@ See "bitmask_value_field"
 
 “[+/-][bit-number]” => “[commalist of fields (from the main types-config) excluded]”
 
-Now follows a codelisting as example:
+Now follows a code listing as example:
 Example - simple configuration:
 This is a quite normal and simple configuration. In the "types" section the list of fields does not contain much additional stuff except the first entry which configures "Part 5" - the colorscheme for the whole form. 
 Basically the "showitem" list is just listing the fieldnames which will be displayed.
@@ -6888,7 +7186,7 @@ Hello World!
 outside below
 When the content of the "TEST01" field is edited the content between the markers "###TYPO3_STATICFILE_EDIT###" is updated as well.
 
-You can study a fullblown configuration of these features in the extension called "static_file_edit".
+You can study a full-blown configuration of these features in the extension called "static_file_edit".
 Soft References
 "Soft References" are references to database elements, files, email addresses, URls etc. which are found in-text in content. The <link [page_id]> tag from typical bodytext fields are an example of this. 
 The Soft Reference parsers are used by the system to find these references and process them accordingly in import/export actions and copy operations. Also, the soft references are utilized by integrity checking functions.
@@ -6950,7 +7248,7 @@ Another example of wizards are the new / edit / list links which are available f
 
 
 Configuration of wizards
-The value of the “wizards” key in the field config-array is an array. Each key is yet an array which configures the individual wizards for a field. The order of the keys determines the order the wizards are displayed. The key-values themselves play no important role (except from a few reserved words listetd in a table below).
+The value of the “wizards” key in the field config-array is an array. Each key is yet an array which configures the individual wizards for a field. The order of the keys determines the order the wizards are displayed. The key-values themselves play no important role (except from a few reserved words listed in a table below).
 The configuration for the new / edit / list links above looks like this:
    1: 'usergroup' => Array (
    2:     'label' => 'Group:',
@@ -7103,7 +7401,7 @@ Calls a function or a method in a class.
 Methods: [classname]->[methodname]
 
 Functions: [functionname]
-The function/class must be included on beforehand. This is adviced to be done within the localconf.php file.
+The function/class must be included on beforehand. This is advised to be done within the localconf.php file.
 Two parameters are passed to the function/method: 1) An array with parameters, much like the ones passed to scripts. One key is special though: the “item” key, which is passed by reference. So if you alter that value it is reflected back! 2) $this (reference to the TCEform-object).
 The content returned from the function call is inserted at the position where the the icon/title would normally go.
 Type: colorbox
@@ -7248,7 +7546,7 @@ You can use the “markers” (constants) as values instead if you wish:
 (see TCA/select for description)
 setValue
 “prepend”, “set”, “append”
-“set” = the field will be force to have the new value on return
+“set” = the field will be forced to have the new value on return
 “append”/“prepend” = the field will have the value appended/prepended.
 You must set one of these values.
 
@@ -7429,7 +7727,18 @@ This wizard is used to show a "full-screen" Rich Text Editor field. The configur
 wizard_tsconfig.php
 This wizard is used for the TSconfig fields and TypoScript Template "Setup" fields. It is specialized for that particular situations and it is not likely you will need it for anything on your own.
 browse_links.php
-The "Links" wizard is used many places where you want to insert link references. Not only in the Rich Text Editor but also in "typolink" fields:
+The "Links" wizard is used many places where you want to insert link references.
+Key
+Type
+Description
+allowedExtensions
+string
+Comma separated list of allowed file extensions. By default, all extensions are allowed.
+blindLinkOptions
+string
+Comma separated list of link options that should not be displayed. Possible values are file, mail, page, spec, and url. By default, all link options are displayed.
+
+This works not only in the Rich Text Editor but also in "typolink" fields:
 
 
 Clicking the wizard icons opens the Element Browser window:
@@ -7437,16 +7746,20 @@ Clicking the wizard icons opens the Element Browser window:
 
 
 Such a wizard can be configured like this:
-'link' => Array(
+'link' => array(
     'type' => 'popup',
     'title' => 'Link',
     'icon' => 'link_popup.gif',
     'script' => 'browse_links.php?mode=wizard',
-    'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
+    'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
+    'params' => array(
+        'allowedExtensions' => 'html,htm',
+        'blindLinkOptions' => 'mail,page,spec,url',
+    )
 )		
-Notice how the "browse_links.php" script requires an extra parameter since it has to return content back to the input field (and not the RTE for instance which it also supports).	
+Notice how the "browse_links.php" script requires an extra parameter since it has to return content back to the input field (and not the RTE for instance which it also supports).
 $PAGES_TYPES
-$PAGES_TYPES defines the various types of pages (field: doktype) the system can handle and what restrictions may apply to them. Here you can set the icon and especially you can define which tables are allowed on a certain pagetype (doktype). 
+$PAGES_TYPES defines the various types of pages (field: doktype) the system can handle and what restrictions may apply to them. Here you can set the icon and especially you can define which tables are allowed on a certain page type (doktype). 
 NOTE: The "default" entry in the $PAGES_TYPES-array is the "base" for all types, and for every type the entries simply overrides the entries in the "default" type!!
 This is the default array as set in t3lib/stddb/tables.php:
 
@@ -7849,7 +8162,7 @@ The three schemes are designed to go in pairs. It is most likely that all three 
 RTE API
 Rich Text Editors in TYPO3 backend
 Introduction
-When you configure a table in $TCA and add a field of the type “text” which is edited by a <textarea> you can choose to use a Rich Text Editor (RTE) instead of the <textarea> field. A RTE enables the users to use visual formatting aids to create bold, italic, paragraphs, tables etc. In other words; it gives normal text processing features in the webbrowser.
+When you configure a table in $TCA and add a field of the type “text” which is edited by a <textarea> you can choose to use a Rich Text Editor (RTE) instead of the <textarea> field. A RTE enables the users to use visual formatting aids to create bold, italic, paragraphs, tables etc. In other words; it gives normal text processing features in the web browser.
 
 
 It is not the scope of this section in the document to describe how you set up a text field to use an RTE. However I will give you a short hint: The quickest way is to add the key “defaultExtras” to the configuration of the column and add the string “richtext[*]” as value. This could look like this:
@@ -8138,7 +8451,7 @@ All <DIV> and <P> sections are dissolved into lines (unless align and/or class p
 Then <STRONG> and <EM> tags are remapped to <B> and <I> tags. (This is more human readable. Configurable). 
 The list of allowed tags (configurable) is preserved - all other tags discarded (thus junk-tags from pasted content will not survive into the database!). 
 The content outside the allowed tags is de-htmlspecialchar()'ed - thus converted back to human-readable text. Furthermore the nesting of tags inside of P/DIV sections is preserved. For instance this: <P>One <U><B>two</B> three</P></U> will be converted to <P>One <B>two</B> three</P>. That is the U-tags being removed, because they were falsely nested with the <P> tags.
-ts_preserve (depricated)
+ts_preserve (deprecated)
 function t3lib_parseHTML::TS_preserve_rte()
 function t3lib_parseHTML::TS_preserve_db()
 If 'proc.preserveTags' are configured those tags are converted to <SPAN specialtag=”...(the preserved tag rawurlencoded)...”>-sections. Those are supposed to be let alone by the RTE.
@@ -8322,6 +8635,13 @@ commalist of strings
 (Applies for “ts_transform” and "css_transform" only (function getKeepTags))
 
 Tags from above list to disallow.
+transformBoldAndItalicTags
+boolean
+(Applies for “ts_transform” and "css_transform" only (function getKeepTags))
+
+Default is to convert b and i tags to strong and em tags respectively in the direction of the database, and to convert back strong and em tags to b and i tags in the direction of the RTE.
+
+This transformation may be disabled by setting this property to 0.
 HTMLparser_rte
 HTMLparser_db
 ->HTMLparser
@@ -8402,6 +8722,11 @@ string
 (Applies for “ts_transform” only and "css_transform" (function TS_transform_rte))
 
 Use <DIV>-tags for sections when converting lines from database to RTE. Default is <P>. Applies only to lines which has NO tag wrapped around already.
+preserveDIVSections
+boolean
+(Applies for “ts_transform” and "css_transform" only)
+
+If set, div sections will be treated just like blockquotes. They will be treated recursively as external blocks.
 preserveTables
 boolean
 (Applies for “ts_transform”)
@@ -8579,7 +8904,7 @@ Finally images inserted are processed very intelligently because the 'magic' typ
 Also if images are inserted by a copy/paste operation from another website, the image inserted will be automatically transferred to the server when saved.
 In addition all URLs for images and links are inserted as absolute URLs and must be converted to relative URLs if they are within the current domain.
 Conclusion:
-These actions are done by so called transformations which are configured in the $TCA. Basically these transformations are admittedly very customized to the default behaviour of the TYPO3 frontend. And they are by nature “fragile” constructions because the content is transformed forth and back for each interaction between the RTE and the database and may so be erroneously processed. However they serve to keep the content stored in the database 'clean' and human readable so it may continuously be edited by non-RTE browsers and users. And furthermore it allows us to insert TYPO3-bulletlists and headers (especially graphical headers) visually by the editor while still having TYPO3 controlling the output.
+These actions are done by so called transformations which are configured in the $TCA. Basically these transformations are admittedly very customized to the default behavior of the TYPO3 frontend. And they are by nature “fragile” constructions because the content is transformed forth and back for each interaction between the RTE and the database and may so be erroneously processed. However they serve to keep the content stored in the database 'clean' and human readable so it may continuously be edited by non-RTE browsers and users. And furthermore it allows us to insert TYPO3-bulletlists and headers (especially graphical headers) visually by the editor while still having TYPO3 controlling the output.
 Skinning API
 $TBE_STYLES
 When you make skins for TYPO3 you basically set up values in the global array $TBE_STYLES which will make the system use alternative icons, stylesheets, framewidths etc.
@@ -8867,7 +9192,7 @@ If you have an extension, say, “sys_action” and wants to skin the Action dat
 
 If you look in the “icons” folder of the “skin360” extension you can also see that all the module icons are located there - but notice that they are manually referenced in the “skinImg” key!
 How to make your extensions compatible with skinning
-Basically, your extensions backend modules will be skinnable by TYPO3 as long as you use the template class to create output. This is the case in wellmade extensions so by default you should expect no problems.
+Basically, your extensions backend modules will be skinnable by TYPO3 as long as you use the template class to create output. This is the case in well-made extensions so by default you should expect no problems.
 However your usage of icons is another story. Here you have to pass all icon filenames and sizes to a function, t3lib_iconWorks::skinImg(), which will either return the input value or any alternative values should an alternative icon have been configured by a skin extension.
 There are two types of icons you can encounter:
 Database record icons
@@ -8902,7 +9227,7 @@ Lets say you want to specifically style the two elements shown in this image:
 #2 should have a dotted border around
 
 What you do is this:
-Rightclick the frame, select “Show HTML source” or whatever your browser allows you.
+Right-click the frame, select “Show HTML source” or whatever your browser allows you.
 Paste the HTML source of the script into the tool “CSS analyzer” found in the extension “extdeveval” - this will analyse the hierarchy of CSS selectors.
 Find your selector, write CSS rules!
 
@@ -9020,10 +9345,19 @@ The <ROOT> element must have a <type> tag with the value “array” and then de
 <el>
 <[application tag]>
 <sheets>
-Defines a collection of “sheets” which is like a one-dimensional list of independant Data Structures
+Defines a collection of “sheets” which is like a one-dimensional list of independent Data Structures
 <[sheet name]>
+<TCEforms>
+Contains details about visual representation of sheets. If there is only a single sheet, applies to implicit single sheet.
+<sheetTitle> <cshFile>
+<sheetTitle>
+Title of the sheet. Mandatory for any sheet except the first (which gets "General" in this case). Can be a plain string or a reference to language file using standard LLL syntax. Ignored if sheets are not defined for the flexform.
+
+<cshFile>
+CSH language file for fields inside the flexform. Refer to section on T3locallang of this document on the format of language files and to section Content Sensitive Help of "Inside TYPO3" document for information about CSH.
+
 <[sheet ident]>
-Defines an independant data structure starting with a <ROOT> tag.
+Defines an independent data structure starting with a <ROOT> tag.
 Notice: Alternatively it can be a plain value referring to another XML file which contains the <ROOT> structure. See example below.
 <ROOT>
 <el>
