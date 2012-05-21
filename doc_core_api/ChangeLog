@@ -1,3 +1,24 @@
+2012-03-23  Christopher <chrissitopher@gmx.de>
+
+	* Fixed bug #34841: Some minor corrections to doc_core_api (thanks to Oliver Salzburg)
+
+2011-11-11  Francois Suter  <francois@typo3.org>
+
+	* Added note about extracted TCA reference
+	* Released to TER as version 4.3.2
+
+2011-10-30  Francois Suter  <francois.suter@typo3.org>
+
+	* Released to TER as version 4.3.1
+
+2011-04-01  Francois Suter  <francois.suter@typo3.org>
+
+	* Moved back the $PAGES_TYPES description from doc_core_api
+
+2011-02-10  Francois Suter  <francois.suter@typo3.org>
+
+	* Moved all the TCA reference to doc_core_tca, resolves #12618
+
 2010-03-21  Francois Suter  <francois@typo3.org>
 
 	* Released to TER as version 4.3.0
@@ -128,7 +149,7 @@
 
 2007-02-21  Michael Stucki  <michael@typo3.org>
 
-	* Add "MM_match_fields", "MM_insert_fields" and "MM_table_where" to [columns][fieldname][config] / types "select" and "group" (responsible: René, Ingmar)
+	* Add "MM_match_fields", "MM_insert_fields" and "MM_table_where" to [columns][fieldname][config] / types "select" and "group" (responsible: Renï¿½, Ingmar)
 	* Add new option "none" to "appearance" => "newRecordLinkPosition" in [columns][fieldname][config] / type "inline" (responsible: Oliver Hader)
 
 2007-01-23  Michael Stucki  <michael@typo3.org>
@@ -139,7 +160,7 @@
 
 2007-01-20  Michael Stucki  <michael@typo3.org>
 
-	* Added "mm_opposite_field" description to [columns][fieldname][config] / types "select" and "group" (responsible: René, Ingmar)
+	* Added "mm_opposite_field" description to [columns][fieldname][config] / types "select" and "group" (responsible: Renï¿½, Ingmar)
 	* Added the new properties "foreign_default_sortby" and "foreign_table_field" to [columns][fieldname][config] / type "inline" (responsible: Oliver, Ingmar)
 
 2006-11-28  Kasper Skaarhoj  <kasperYYYY@typo3.com>
