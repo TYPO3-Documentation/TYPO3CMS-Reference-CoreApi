@@ -1,0 +1,144 @@
+--- manual-doc_core_cgl_3-8.txt	2007-02-21 02:40:45.000000000 +0100
++++ manual-doc_core_cgl_4-0.txt	2007-02-21 02:40:45.000000000 +0100
+@@ -2,7 +2,7 @@
+ 00000000
+ Project Coding Guidelines
+ Extension Key: doc_core_cgl
+-Copyright 2000-2004, Kasper Skårhøj, <kasper@typo3.com>
++Copyright 2000-2005, Kasper Skårhøj, <kasper@typo3.com>
+ 
+ This document is published under the Open Content License
+ available from http://www.opencontent.org/opl.shtml
+@@ -31,27 +31,28 @@
+ Naming convensions9
+ Global variables, constants and input values9
+ System/PHP Variables - the nightmare10
+-Database connectivity11
++Database connectivity and DBAL11
+ Introduction11
+ The wrapper class12
+ Using the wrapper class12
+ Note on result variables14
+ Other guidelines14
+ Supported SQL14
+-Security in your scripts14
+-Overview14
+-XSS - Cross Site Scripting14
++Security in your scripts15
++Overview15
++XSS - Cross Site Scripting15
+ SQL injection16
+-Validating paths16
+-Including files16
+-References16
++Validating paths17
++Including files17
++References17
+ Coding17
+ General PHP practices17
+ TYPO3 specific practices18
+-Cross platform issues (Windows/Unix)18
++Cross platform issues (Windows/Unix)19
+ PHP settings compliance19
+-References19
+-Revision history20
++Error code standard20
++References20
++Revision history21
+ 
+ Introduction
+ This document is intended for those who are interested in helping with the TYPO3 project by programming extensions or changes to the core.
+@@ -63,7 +64,7 @@
+ Single quotes are used every where.
+ XSS and SQL injection prevented by usage of htmlspecialchars(), $GLOBALS[?TYPO3_DB?]->addslashes(), intval()
+ All functions and classes are commented fully with parameters and return values. 
+-Classes have @package/@subpackage tags, contain a function index and have the CVS keyword $Id: manual-doc_core_cgl_3-8.txt 2086 2007-02-21 01:40:14Z mundaun $ in the header comment of the document.
++Classes have @package/@subpackage tags, contain a function index and have the CVS keyword $Id: doc_core_cgl.txt 1654 2006-07-26 15:31:19Z mundaun $ in the header comment of the document.
+ It will be possible to find deviations from this standard in the core of TYPO3 but that will be less than 1% cases and therefore there will be no doubt about the general style and standard of the code.
+ We encourage everyone to bring their code up to this standard.Extension Review Scorecard
+ For the extension review group there is a scorecard document which is listing a set of issues an extension reviewer will go through one by one. The scorecard will also be useful to read through this that is a more practical step-by-step guide to what makes an extension good.Visual formatting and naming
+@@ -143,7 +144,7 @@
+ Remember to put your own name in as copyright holder if you write something from scratch.
+ If you modify a library you must document what you have changed (GPL requirement). Add your name as author / co-author to these modifications.
+ The importance of the header is primarily to state that the code is GNU/GPL?ed. And remember only GPL?ed software is allowed to interface with TYPO3 (according to GPL itself).
+-Put in the string $Id: manual-doc_core_cgl_3-8.txt 2086 2007-02-21 01:40:14Z mundaun $ in the header comment - in CVS this will be expanded with information about CVS version.
++Put in the string $Id: doc_core_cgl.txt 1654 2006-07-26 15:31:19Z mundaun $ in the header comment - in CVS this will be expanded with information about CVS version.
+ Put in a comment with the first line containing this string: [CLASS/FUNCTION INDEX of SCRIPT] - that will make the extdeveval function create an automatically maintained index of functions and classes when ever you use that extension to insert JavaDoc comments.
+ This is an example. Notice that the standard header is followed by a file-comment in Javadoc style.
+ 
+@@ -179,7 +180,7 @@
+ * Some scripts that use this class:admin_integrity.php
+ * Depends on:Depends on loaddbgroup from t3lib/
+ *
+-* $Id: manual-doc_core_cgl_3-8.txt 2086 2007-02-21 01:40:14Z mundaun $
++* $Id: doc_core_cgl.txt 1654 2006-07-26 15:31:19Z mundaun $
+ *
+ * @authorKasper Skårhøj <kasper@typo3.com>
+ */
+@@ -462,9 +463,10 @@
+ TYPO3_REQUEST_DIR
+ [scheme]://[host][:[port]][path_dir]
+ TYPO3_SITE_URL
+-[scheme]://[host][:[port]][path_dir] of the TYPO3 websites rootDatabase connectivityIntroduction
+-TYPO3 has been designed to use MySQL from the beginning. With TYPO3 3.6.0 a database wrapper class has been introduced in all of the core and default global extensions. This means that implementation of various Database Abstraction Layers is now possible. But by default TYPO3 works only with MySQL - and still does this with priority.
+-In general you can therefore say that TYPO3 is optimized for MySQL while supporting other databases through DBALs implemented as extensions.The wrapper class
++[scheme]://[host][:[port]][path_dir] of the TYPO3 websites rootDatabase connectivity and DBALIntroduction
++TYPO3 has been designed to use MySQL from the beginning. With TYPO3 3.6.0 a database wrapper class has been introduced in all of the core and default global extensions. This means that implementation of various Database Abstraction Layers (DBAL) is now possible. But by default TYPO3 works only with MySQL - and still does this with priority.
++In general you can therefore say that TYPO3 is optimized for MySQL while supporting other databases through DBALs implemented as extensions.
++The implementation of DBAL was originally implemented in its first version by Kasper Skårhøj, but development is currently headed by Karsten Dambekalns.The wrapper class
+ The wrapper class is called t3lib_DB and is instantiated globally as $TYPO3_DB.
+ The class contains three sections of functions
+ MySQL wrapper functions: You can substitute you hardcoded MySQL calls directly with these without further modifications. This is step-1 towards database abstraction support in your extensions!
+@@ -561,10 +563,23 @@
+ // DELETE
+ $res = $GLOBALS[?TYPO3_DB?]->exec_DELETEquery(?mytable?, ?uid=123?);Note on result variables
+ Normally when you execute a MySQL query with eg. mysql_query or the like you will get a result resource pointer back. But DBAL implementations will more likely return an object to you! In most cases you can treat it the same in you programming; simply take the $res from the query and pass to the function traversing the resutl (like $GLOBALS[?TYPO3_DB?]->mysql_fetch_assoc()) and it will be the same.
+-However, there is one occasion where you should beware; if you pass the result variable to functions make sure you pass it by reference! If you don?t copies of the object will be made. This is not only slower in PHP-execution but it also means that internal result pointers might be reset in the process or otherwise lost. 
++However, there is one occasion where you should beware; if you pass the result variable to functions make sure you pass it by reference! If you don?t copies of the object will be made (under PHP4 which still must be supported!). This is not only slower in PHP-execution but it also means that internal result pointers might be reset in the process or otherwise lost. 
+ So; program your application as if the result from the query executions are objects; pass them around by reference. Other guidelines
+-Escaping quotes: Remember to pass all values in WHERE clauses through $GLOBALS[?TYPO3_DB?]->quoteStr() and add the table name as second parameter so DBAL layers can escape them correctly according to specific handlers if any.
+-Joining tables: Always prefix fieldnames in the query with the corresponding tablename. If you don?t the field mapping of DBAL extension may fail.Supported SQL
++Please follow these guidelines to make your SQL fully DBAL compliant (portable to database such as Oracle and PostGreSQL etc).
++Escaping quotes: Remember to pass all values in WHERE clauses through $GLOBALS[?TYPO3_DB?]->fullQuoteStr() and add the table name as second parameter so DBAL layers can escape them correctly according to specific handlers if any.
++Quote strings with ?? (single quote), not "" (double quote) if you use ->quoteStr() instead of ->fullQuoteStr() (which you should always do if the string is unknown!)This is needed because all databases aside from MySQL do only accept single quotes for marking literal strings. Double quotes (that can be used in MySQL for this) are used for field names in all other databases, so any other database than MySQL will look for non-existant fields if you use double quotes.The reccomendadtion clearly is to use fullQuoteStr() whereever possible!
++If you use the marker "###PAGE_TSCONFIG_STR###" anywhere, you must put it in single quotes!
++Joining tables: Always prefix fieldnames in the query with the corresponding tablename. If you don?t the field mapping of DBAL extension may fail.
++Boolean evaluation?: 
++No boolean evaluation of integers: Do not evaluate an integer field as a boolean, eg. "AND hidden". Rather "AND hidden=1" (or "AND hidden!=0" or "AND NOT(hidden=0)"). This is needed for databases that refuse to do boolean operations on numeric fields (like PostgreSQL).
++WHERE 1=1: If a where clause is needed but only to be true, you might be using a "1" (like "WHERE 1" or "WHERE ... AND 1") but this should be a comparison like "1=1" instead (like "WHERE 1=1" or "WHERE ... AND 1=1"). This is again needed because of some databases not doing boolean operations on integer types.
++Negation operator: Do not negate values with "!" like "!personal", rather use "personal=0". The ! isn?t a standard SQL operator, as such it doesn?t work on all databases.
++Aliases: 
++No AS keyword: Do not use the "AS" keyword in SQL aliases for *tables* (not fields, that is OK it seems) like "pages AS A", rather "pages A" (exclude "AS")
++Alias for COUNT(*): Use eg. "COUNT(*) AS icount" in you want to access "COUNT(*)" as an associative key in the result array. This is needed because there is not common way to name such columns in the result set, therefore providing a name is needed.
++Field definitions:
++Never use UNSIGNED attributes for 32 bit integer fields.
++In general, using tinyint, smallint etc with/without the UNSIGNED attribute is a MySQL specific definition which will work with DBAL but is depricated. 32 bit signed integers is the common denominator in DBAL.Supported SQL
+ In TYPO3 we use a subset of MySQL compliant SQL as our abstraction language. It means that the SQL is readily executed by MySQL while it may need translation if any other database is needed.
+ To make sure your SQL is compliant with the TYPO3 SQL subset you can use the class t3lib_sqlparser to parse it.
+ Generally, the SQL you can use in TYPO3 should be rather simple. Luckily TYPO3s core itself is rather conservative in the SQL usage. It turns out that 95% of all select queries are very simply, just looking up a list of fields from a certain table, having a where clause using AND, OR, =, <, >, NOT, LIKE, IN and possibly ordering the result by one or two fields and possibly applying a LIMIT in the end. This is relatively easy to translate to other databases!
+@@ -695,7 +710,8 @@
+ Using GD functions imageTTFBBox and imageTTFtext you should pass the font-size parameter through t3lib_div::freetypeDpiComp() - this will compensate the size if FreeType2 is used (and configured for in TYPO3_CONF_VARS)
+ Don?t expect ?index.php? to be a default document; Always link to ../index.php?param=... instead of ../?param=... (which may not work for some configurations)
+ http/https handling: When detecting absolute urls either use parse_url() and look for the scheme key in the array or make a ?substr($str,0,4)==http? - dont test for ?http://? unless you are certain you want to fail https:// connections!If you need to know the current scheme, subtract if from TYPO3_REQUEST_HOST or another var from t3lib_div::getIndpEnv()If you need to prefix a scheme to an un-schemed url (eg. ?www.typo3.com?) use http:// (this is the most common anyways).
+-SQL: Use general field types in MySQL. Avoid all kinds of time/date fields which are specific to MySQL. For timestamps always use an integer and insert UNIX-time. It?s not humanreadable, but it will be portable the day we implement Database Abstraction.Cross platform issues (Windows/Unix)
++SQL: Use general field types in MySQL. Avoid all kinds of time/date fields which are specific to MySQL. For timestamps always use an integer and insert UNIX-time. It?s not humanreadable, but it will be portable the day we implement Database Abstraction.
++When values/labels from the database get inserted into HTML tag attribute values or JavaScripts then they have to get quoted properly. This can be done using "t3lib_div::quoteJSvalue($value, $inScriptTags)". Set the second parameter to true when the value get?s used in <script> tags and to false if it get?s used in an attribute of a tag (onClick i.e) [- Bernhard Kraft]Cross platform issues (Windows/Unix)
+ Paths in TYPO3 are always with forward single slashes like this:
+ Relative (win/unix)path/to/a/file.phpAbsolute (unix)/my/path/to/a/file.php Absolute (win)C:/my/path/to/a/file.php (Exceptions include paths to external programs like ImageMagick (single-backslash) and uploaded files which comes with single-backslash and should NOT be changed before processing. But all internal files should follow the scheme above)
+ Check absolute paths with t3lib_div::isAbsPath($path) - this will test both Unix (/) and Windows (x:/) absolute paths.
+@@ -739,7 +755,14 @@
+ About escaped values in _GET and _POST
+ Notice that TYPO3 currently converts the HTTP_POST_VARS and HTTP_GET_VARS arrays to being escaped (or slashed if you like) if magic_quotes_gpc is off. So no matter what you do, expect these arrays to be slashed.
+ This is kind of backwards but has historical reasons; TYPO3 was simply started out at the time when PHP by default escaped all incoming input. The bad decision was made then to solve settings with unescaped values to force the values into being escaped. The result is: The values are consistently escaped (which is good) but they should rather have been consistently un-escaped (which is too late to change).
+-Despite the fact that we have a consistent situation it is strongly advised that you use the API functions t3lib_div::_GET(), t3lib_div::_POST() and t3lib_div::_GP() for accessing GET/POST content! These functions will return the values unescaped which is the state that input values should always be processed in (and strings should be escaped again with $GLOBALS[?TYPO3_DB?]->quoteStr() right before going into SQL queries). References
++Despite the fact that we have a consistent situation it is strongly advised that you use the API functions t3lib_div::_GET(), t3lib_div::_POST() and t3lib_div::_GP() for accessing GET/POST content! These functions will return the values unescaped which is the state that input values should always be processed in (and strings should be escaped again with $GLOBALS[?TYPO3_DB?]->quoteStr() right before going into SQL queries). Error code standard
++There is no official position on this but Dan Frost has suggested a practice like this (which you can follow if you like):
++
++Basically, every error message an extension / core thing throws 
++(e.g. a debug or die) has a code of the form:[your initials][Date][time]You just write this as you?re writing the code. E.g. if I was writing some code now, the error code would be:df200412240824Which I might use like:if($mustBeTrue) {        // do stuff} else {   die(?Something bad happened df200412240824?);}Then, when i see this i just grep for "df200412240824". The alternative could be "some error messgage".__LINE__.__FILE__; 
++
++The date/time format should follow ISO 8601; [year][month][day][hour-24][minute] (suggested by Andreas Otto)
++Suggestions can be discussed on the developer mailing list.References
+ Here are a few other references to coding guidelines:
+ http://www.whip3.net/whitepapers/phpguide.php
+ This guideline is generally giving good practices to follow, but at any point where it is incompatible with this document, this documents guideline will take precedence (That is the case when talking about curly braces of functions and classes for instance).
