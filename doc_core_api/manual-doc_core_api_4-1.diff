@@ -1,0 +1,2093 @@
+--- manual-doc_core_api_4-0.txt	2007-02-21 02:22:31.000000000 +0100
++++ manual-doc_core_api_4-1.txt	2007-02-21 02:23:51.000000000 +0100
+@@ -7,7 +7,7 @@
+ 
+ TYPO3 Core APIs
+ Extension Key: doc_core_api
+-Copyright 2000-2006, Kasper Skårhøj, <kasperYYYY@typo3.com>
++Copyright 2000-2007, Kasper Skårhøj, <kasperYYYY@typo3.com>
+ 
+ This document is published under the Open Content License
+ available from http://www.opencontent.org/opl.shtml
+@@ -16,7 +16,7 @@
+ - a GNU/GPL CMS/Framework available from www.typo3.com
+ 
+ 
+-Revised for TYPO3 4.0
++Revised for TYPO3 4.1, February 2007
+ 
+ Table of Contents
+ Table of Contents
+@@ -34,123 +34,123 @@
+ ext_emconf.php9
+ Extending extensions-classes11
+ The Extension Manager (EM)11
+-Basic framework for a new extension11
++Basic framework for a new extension12
+ TYPO3 API overview16
+ Introduction16
+ General functions17
+ High priority functions (CGL requirements)17
+-Functions typically used and nice to know24
+-Programming with workspaces in mind30
+-TYPO3 Core Engine (TCE)33
+-Introduction33
+-Database: t3lib_TCEmain basics33
+-Using t3lib_TCEmain in scripts36
+-The "tce_db.php" API37
+-Files: t3lib_extFileFunctions basics38
+-The "tce_file.php" API39
+-Hooks40
+-The concept of "hooks"40
+-Hook configuration41
+-Creating hooks43
+-Variables and Constants44
+-Constants44
+-Global variables45
+-Backend User Object46
+-Checking user access for $BE_USER from PHP46
+-Using system log47
+-The log table (sys_log)47
+-PHP Class Extension48
+-Introduction48
+-Which classes?50
+-Extending methods52
+-User defined methods in classes52
+-A few examples of extending the backend classes53
+-Warnings54
+-Various examples55
+-Introduction55
+-Rendering page trees55
+-Accessing the clipboard56
+-Adding Context Sensitive Menu items58
+-Parsing HTML: t3lib_parsehtml60
+-Links to edit records64
+-Support for custom tables in the Page module66
+-Adding elements to the Content Element Wizard66
+-Using custom permission options68
+-Table Configuration Array, $TCA70
+-Introduction70
+-What is $TCA?70
+-Extending the $TCA array70
+-Main levels in the $TCA array71
+-$TCA array reference73
+-[?ctrl?] section73
+-[?interface?] section82
+-[?feInterface?] section83
+-[?columns?][fieldname] section83
+-[?columns?][fieldname][?config?] / TYPE: "input"85
+-[?columns?][fieldname][?config?] / TYPE: "text"89
+-[?columns?][fieldname][?config?] / TYPE: "check"90
+-[?columns?][fieldname][?config?] / TYPE: "radio"91
+-[?columns?][fieldname][?config?] / TYPE: "select"92
+-[?columns?][fieldname][?config?] / TYPE: "group"100
+-[?columns?][fieldname][?config?] / TYPE: "none"106
+-[?columns?][fieldname][?config?] / TYPE: "passthrough"106
+-[?columns?][fieldname][?config?] / TYPE: "user"107
+-[?columns?][fieldname][?config?] / TYPE: "flex"107
+-[?types?][key] section116
+-[?palettes?][key] section119
+-Additional $TCA features120
+-Special Configuration introduction120
+-Special Configuration options121
+-Soft References123
+-Wizards Configuration124
+-Wizard scripts in the core129
+-$PAGES_TYPES134
+-Loading the full $TCA dynamically135
+-Benchmarks on dynamic tables:136
+-Visual style of TCEforms137
+-$TBE_STYLES entries related to TCEforms137
+-Style pointers in the "types" configuration139
+-RTE API142
+-Rich Text Editors in TYPO3 backend142
+-Introduction142
+-RTEs in Extensions142
+-API for Rich Text Editors143
+-More Examples145
+-Transformations146
+-Introduction146
+-Process illustration147
+-Transformation overview149
+-Transformation details149
+-Page TSconfig151
+-Custom transformations API155
+-Historical perspective on RTE transformations157
+-Introduction157
+-Properties and ?transformations?157
+-RTE transformations in Content Elements157
+-Skinning API159
+-$TBE_STYLES159
+-Directory structure for skinImgAutoCfg feature163
+-How to make your extensions compatible with skinning163
+-Finding CSS selectors for the backend documents164
+-Skinning database record icons with variations166
+-Data Formats170
+-<T3DataStructure>170
+-Introduction170
+-Elements170
+-Sheet references172
+-Syntax highlighting of a Data Structures173
+-Parsing a Data Structure173
+-Applications175
+-<T3locallang>176
+-Introduction176
+-Elements176
++Functions typically used and nice to know26
++Programming with workspaces in mind31
++TYPO3 Core Engine (TCE)35
++Introduction35
++Database: t3lib_TCEmain basics35
++Using t3lib_TCEmain in scripts38
++The "tce_db.php" API39
++Files: t3lib_extFileFunctions basics40
++The "tce_file.php" API41
++Hooks42
++The concept of "hooks"42
++Hook configuration42
++Creating hooks45
++Variables and Constants46
++Constants46
++Global variables47
++Backend User Object48
++Checking user access for $BE_USER from PHP48
++Using system log49
++The log table (sys_log)49
++PHP Class Extension51
++Introduction51
++Which classes?52
++Extending methods54
++User defined methods in classes54
++A few examples of extending the backend classes55
++Warnings56
++Various examples57
++Introduction57
++Rendering page trees57
++Accessing the clipboard58
++Adding Context Sensitive Menu items60
++Parsing HTML: t3lib_parsehtml62
++Links to edit records66
++Support for custom tables in the Page module68
++Adding elements to the Content Element Wizard68
++Using custom permission options69
++Table Configuration Array, $TCA71
++Introduction71
++What is $TCA?71
++Extending the $TCA array71
++Main levels in the $TCA array72
++$TCA array reference74
++[?ctrl?] section74
++[?interface?] section84
++[?feInterface?] section85
++[?columns?][fieldname] section85
++[?columns?][fieldname][?config?] / TYPE: "input"88
++[?columns?][fieldname][?config?] / TYPE: "text"91
++[?columns?][fieldname][?config?] / TYPE: "check"92
++[?columns?][fieldname][?config?] / TYPE: "radio"94
++[?columns?][fieldname][?config?] / TYPE: "select"94
++[?columns?][fieldname][?config?] / TYPE: "group"103
++[?columns?][fieldname][?config?] / TYPE: "none"108
++[?columns?][fieldname][?config?] / TYPE: "passthrough"109
++[?columns?][fieldname][?config?] / TYPE: "user"109
++[?columns?][fieldname][?config?] / TYPE: "flex"110
++[?columns?][fieldname][?config?] / TYPE: "inline"119
++[?types?][key] section122
++[?palettes?][key] section126
++Additional $TCA features127
++Special Configuration introduction127
++Special Configuration options128
++Soft References130
++Wizards Configuration130
++Wizard scripts in the core135
++$PAGES_TYPES141
++Loading the full $TCA dynamically142
++Benchmarks on dynamic tables:142
++Visual style of TCEforms143
++$TBE_STYLES entries related to TCEforms143
++Style pointers in the "types" configuration145
++RTE API149
++Rich Text Editors in TYPO3 backend149
++Introduction149
++RTEs in Extensions149
++API for Rich Text Editors150
++More Examples152
++Transformations153
++Introduction153
++Process illustration154
++Transformation overview156
++Transformation details156
++Page TSconfig158
++Custom transformations API162
++Historical perspective on RTE transformations164
++Introduction164
++Properties and ?transformations?164
++RTE transformations in Content Elements164
++Skinning API166
++$TBE_STYLES166
++Directory structure for skinImgAutoCfg feature170
++How to make your extensions compatible with skinning170
++Finding CSS selectors for the backend documents171
++Skinning database record icons with variations173
++Data Formats178
++<T3DataStructure>178
++Introduction178
++Elements178
++Sheet references180
++Syntax highlighting of a Data Structures181
++Parsing a Data Structure182
++Applications183
++<T3locallang>184
++Introduction184
++Elements184
+ Introduction
+ TYPO3 is known for its extendibility but until now there has not been a complete resource for information about the Core APIs in TYPO3. This document aims to provide such document, sometimes very detailed and complete, at other times only scratching the surface - but at least providing pointers into some direction.
+ This document is the second part of the "Inside TYPO3" document which contains the overall introduction to the architecture of TYPO3s core. "Inside TYPO3" also contains API descriptions to a certain degree but mostly in the form of examples and short table listings. 
+ The documents do not contain any significant information about the frontend of TYPO3. Creating templates, setting up TypoScript objects etc. is not the scope of these documents; they are about the backend part of the core only.
+ 
+-I hope these two documents, "Inside TYPO3" and "TYPO3 Core API", will finally form a complete picture of the TYPO3 Core architecture, the backend and be the reference of choice in your work with TYPO3. It has taken me more than a year to finally get these published!
+-Dedication
++I hope these two documents, "Inside TYPO3" and "TYPO3 Core API", will finally form a complete picture of the TYPO3 Core architecture, the backend and be the reference of choice in your work with TYPO3. It has taken me more than a year to finally get these published!Dedication
+ I want to dedicate this document to the people in TYPO3s community who has the discipline to do the boring job of writing documentation for their extensions or contributes to TYPO3 documentation in general. It?s great to have good coders, but it?s even more important to have coders with character to carry their work through till the end - even when it means spending days writing good documents. Go for completeness!
+ 
+ - kasper
+@@ -158,16 +158,13 @@
+ TYPO3 can be extended in nearly any direction without loosing backwards compatibility. The Extension API provides a powerful framework for easily adding, removing, installing and developing such extensions to TYPO3. This is in particular powered by the Extension Manager (EM) inside TYPO3 and the online TYPO3 Extension Repository (TER) found at typo3.org for easy sharing of extensions.
+ Extensions is a term in TYPO3 which covers two other terms, plugins and modules.
+ A plugin is something that plays a role on the website itself. Eg. a board, guestbook, shop etc. It is normally enclosed in a PHP class and invoked through a USER or USER_INT cObject from TypoScript. A plugin is an extension in the frontend.
+-A module is a backend application which has its own position in the administration menu. It requires backend login and works inside the framework of the backend. We might also call something a module if it exploits any connectivity of an existing module, that is if it simply adds itself to the function menu of existing modules. A module is an extension in the backend.
+-Extensions and the Core
++A module is a backend application which has its own position in the administration menu. It requires backend login and works inside the framework of the backend. We might also call something a module if it exploits any connectivity of an existing module, that is if it simply adds itself to the function menu of existing modules. A module is an extension in the backend.Extensions and the Core
+ Extensions are designed in a way so that extensions can supplement the core seemlessly. This means that a TYPO3 system will appear as "a whole" while actually being composed of the core application and a set of extensions providing various features. This philosophy allows TYPO3 to be developed by many individuals without loosing fine control since each developer will have a special area (typically a system extension) of responsibility which is effectively encapsulated.
+-So, in one end of the spectrum system extensions makes up what is known as "TYPO3" to the outside world. In the other end, extensions can be 100% project specific and carry only files and functionality related to a single implementation. Files and locations
+-Files
++So, in one end of the spectrum system extensions makes up what is known as "TYPO3" to the outside world. In the other end, extensions can be 100% project specific and carry only files and functionality related to a single implementation. Files and locationsFiles
+ An extension consists of 
+ a directory named by the extension key (which is a worldwide unique identification string for the extension unless prefix with user_)
+ standard files with reserved names for configuration related to TYPO3 (of which most are optional, see list below)
+-any number of additional files for the extension itself.
+-Reserved filenames
++any number of additional files for the extension itself.Reserved filenames
+ This list of filenames are all reserved filenames in the root directory of extensions. None of them are required but for example you cannot have a TYPO3 extension recognized by TYPO3 without the ext_emconf.php file etc. You can read more details like that in the table below.
+ In general, do not introduce your own files in root directory of extensions with the name prefix ext_.
+ Filename
+@@ -262,7 +259,6 @@
+ System
+ typo3/sysext/
+ This is system default extensions which cannot and should not be updated by the EM. They are distributed with TYPO3 core source code and generally understood to be a part of the core system.
+-
+ Loading precedence
+ Local extensions take precedence which means that if an extension exists both in typo3conf/ext/ and typo3/ext/ the one in typo3conf/ext/ is loaded. Likewise global extension takes precedence over system extensions. This means that extensions are loaded in the order of priority local-global-system. 
+ In effect you can therefore have - say - a stable version of an extension installed in the global dir (typo3/ext/) which is used by all your projects on a server sharing source code, but on a single experimental project you can import the same extension in a newer experimental version and for that particular project the locally available extension will be used instead.Extension key
+@@ -304,11 +300,9 @@
+ uMyShop or umyshop or ...
+ Frontend PHP classes
+ (Same as database tables and fields. Prepend class file names class. though.)
+-
+ Best practice on using underscores
+ If you study the naming conventions above closely you will find that they are complicated due to varying rules for underscores in keynames; Sometimes the underscores are stripped off, sometimes not.
+-The best practice you can follow is to not use underscores in your extensions keys at all! That will make the rules simpler. This is highly encouraged.
+-Note on old and default extensions:
++The best practice you can follow is to not use underscores in your extensions keys at all! That will make the rules simpler. This is highly encouraged.Note on old and default extensions:
+ Some the classic extensions from before the extension structure came about does not comply with these naming conventions. That is an exception made for backwards compatibility. The assignment of new keys from the TYPO3 Extension Repository will make sure that any of these old names are not accidentially reassigned to new extensions.
+ Further, some of the classic plugins (tt_board, tt_guest etc) users the user_ prefix for their classes as well. Import and install of extensions
+ There are only two (maybe three) simple steps involved in using extensions with TYPO3:
+@@ -524,19 +518,16 @@
+ The interface is really easy to use. You just click the +/- icon to the left of an extension in order to install it.Basic framework for a new extension
+ This document will not describe into details how to create extensions. It only aims to be a reference for the facts regarding the rules of how extensions register with the system.
+ To learn to create extensions you should read one of the extension tutorials that are available. They will take you through the process step by step and explain best-practices for you.
+-To start up a new extension the most popular tool is the Extension Kickstarter Wizard. From a series of menus it allows you to configure a basic set of features you want to get into your extension and a selection of default files will be created. The idea is that you continue to develop these files into your specific application.
+-Registering an extension key
++To start up a new extension the most popular tool is the Extension Kickstarter Wizard. From a series of menus it allows you to configure a basic set of features you want to get into your extension and a selection of default files will be created. The idea is that you continue to develop these files into your specific application.Registering an extension key
+ Before starting a new extension you should register an extension key on TYPO3.org (unless you plan to make an implementation specific extension of course which does not make sense to share). 
+ Go to TYPO3.org, log in with your (pre-created) username / password and enter http://typo3.org/extensions/register-extension-keys/. In the bottom of the page you can enter the key name you want to register.
+ 
+ 
+-
+ Enabling the Kickstarter Wizard (KS)
+ Before you can use the Kickstarter Wizard you will have to enable it. The "Kickstarter" is an extension like everything else (key: "extrep_wizard") so it must be installed first:
+ 
+ 
+-After the installation of the extension you will find a new menu item named "Make new extension" in the selector box menu of the Extension Manager.
+-Using the Kickstarter Wizard
++After the installation of the extension you will find a new menu item named "Make new extension" in the selector box menu of the Extension Manager.Using the Kickstarter Wizard
+ In the Kickstarter you should always fill in the General Information which includes the title, description, author name etc for the extension. But the most important thing is to enter the extension key as the very first thing!
+ 
+ 
+@@ -545,18 +536,15 @@
+ 
+ 
+ It is important that you write the extension to the correct location. Most likely that will be "Local" in your case.
+-Finally, if there already is an extension with the same extension key every file from that extension will be overwritten with the Kickstarters output! Remember: This is a kickstarter, not an editor! It is meant to kick you off with your new TYPO3 extension and nothing more! So of course it overwrites all existing files!
+-Enabling your newly created extension
++Finally, if there already is an extension with the same extension key every file from that extension will be overwritten with the Kickstarters output! Remember: This is a kickstarter, not an editor! It is meant to kick you off with your new TYPO3 extension and nothing more! So of course it overwrites all existing files!Enabling your newly created extension
+ After the extension is written to the servers harddisk you should see a message like this. Immediately you can now install the extension:
+ 
+-
+ Re-edit the extension
+ In the process of creating an extension is it rather typical to go back to the Kickstarter a few times to fine tune to base code. Experience suggests that this is especially useful to tuning the configuration of database tables and fields. 
+ If you want to load the Kickstarter with the original configuration used for your extension so you can add or edit features, just click the extension title in the list of loaded/available extensions and select "Backup/Delete" from the menu:
+ 
+ 
+-Clicking the "Start new" button will bring you back to the Kickstarter with all the original configuration used (configuration loaded from "doc/wizard_form.dat" which must still exist).
+-Warning about re-editing
++Clicking the "Start new" button will bring you back to the Kickstarter with all the original configuration used (configuration loaded from "doc/wizard_form.dat" which must still exist).Warning about re-editing
+ It is potentially dangerous to introduce this feature because it may leave you with the wrong impression of the Kickstarter. It is still not an editor for your extensions! Whatever custom changes that has been made to the scripts of your new extension will be overwritten when you write back the extension from the Kickstarter.
+ A good workflow for using the Kickstarter turns out to be this:
+ Start by setting up all the features you need for your extension and write it with the Kickstarter.
+@@ -566,15 +554,13 @@
+ The source is the documentation!
+ (General wisdom)
+ 
+-The TYPO3 APIs are first and foremost documented inside of the source scripts. It would be impossible to maintain documentation at more than one location given the fact that things change and sometimes fast. 
+-Inline documentation
++The TYPO3 APIs are first and foremost documented inside of the source scripts. It would be impossible to maintain documentation at more than one location given the fact that things change and sometimes fast. Inline documentation
+ We have dedicated ourselves to document the classes and methods inside the source scripts (JavaDoc style). This means that you can use any JavaDoc compliant documentor programme to extract API documentation from the source. You can also install the extension "extdeveval" which will offer you a menu with links to the most important APIs in TYPO3 from within TYPO3:
+ 
+ 
+ Clicking a link like "extMgm" will bring up a new window with the full API of that class:
+ 
+ 
+-
+ Pointers in the right direction
+ The point of this documentation is to help you understand which parts of the API is particularly important or useful for your TYPO3 hacking. The next pages will highlight functions and classes which you should make yourself familiar with.General functions
+ There are a few core classes in TYPO3 which contain general functionality. These classes are (typically) just a collection of individual functions you call non-instantiated, like [class name]::[method name]. 
+@@ -1068,7 +1054,6 @@
+ Return WHERE clause for filtering pages which permission mismatch for current user
+ 
+ The most typical usage of this is to call the function with the value "1". Then the WHERE clause returned will filter away all pages to which the user has no read-access.
+-
+ TYPO3 Coding Guidelines
+ You should also refer to the TYPO3 Coding Guidelines (CGL) document which is the authoritative source to know about which coding practices are required for TYPO3 core and extension programming. That document also mentions the most important API calls that you have to use and gives further insights.Functions typically used and nice to know
+ These functions are generally just nice to know. They provide functionality which you will often need in TYPO3 applications and therefore they will save you time and make your applications easier for others to understand as well since you use commonly known functions.
+@@ -1461,15 +1446,13 @@
+ The concept of workspaces needs attension from extension programmers. The implementation of workspaces is however made so that no critical problems can appear with old extensions; 
+ First of all the Live workspace is no different from how TYPO3 has been working for years so that will be supported out of the box (except placeholder records must be filtered out in the frontend with t3ver_state!= , see below).
+ Secondly, all permission related issues are implemented in TCEmain so the worst your users can experience is an error message.
+-However, you probably want to update your extension so that in the backend the current workspace is reflected in the records shown and the preview of content in the frontend works as well. Therefore this chapter has been written with instructions and insight into the issues you are facing.
+-Frontend challenges in general
++However, you probably want to update your extension so that in the backend the current workspace is reflected in the records shown and the preview of content in the frontend works as well. Therefore this chapter has been written with instructions and insight into the issues you are facing.Frontend challenges in general
+ For the frontend the challenges are mostly related to creating correct previews of content in workspaces. For most extensions this will work transparently as long as they use the API functions in TYPO3 to request records from the system.
+ The most basic form of a preview is when a live record is selected and you lookup a future version of that record belonging to the current workspace of the logged in backend user. This is very easy as long as a record is selected based on its uid or pid fields which are not subject to versioning; You simply call sys_page->versionOL() after record selection. 
+ However, when other fields are involved in the where clause it gets dirty. This happens all the time! For instance, all records displayed in the frontend must be selected with respect to enableFields configuration! What if the future version is hidden and the live version is not? Since the live version is selected first (not hidden) and then overlaid with the content of the future version (hidden) the effect of the hidden field we wanted to preview is lost unless we also check the overlaid record for its hidden field (->versionOL() actually does this). But what about the opposite; if the live record was hidden and the future version not? Since the live version is never selected the future version will never have a chance to display itself! So we must first select the live records with no regard to the hidden state, then overlay the future version and eventually check if it is hidden and if so exclude it. The same problem applies to all other enableFields, future versions with delete flags and current versions which are invisible placeholders for future records. Anyway, all that is handled by TYPO3s t3lib_page class which includes functions for enableFields and deleted so it will work out of the box for you. But as soon as you do selection based on other fields like email, username, alias etc. it will fail.
+ Summary:
+ Challenge: How to preview elements which are disabled by enableFields in the live version but not necessarily in the offline version. Also, how to filter out new live records with t3ver_state set to 1 (placeholder for new elements) but only when not previewed.
+-Solution: Disable check for enableFields/where_del_hidden on live records and check for them in versionOL on input record.
+-Frontend implementation guidelines
++Solution: Disable check for enableFields/where_del_hidden on live records and check for them in versionOL on input record.Frontend implementation guidelines
+ Any place where enableFields() are not used for selecting in the frontend you must at least check that t3ver_state!=1 so placeholders for new records are not displayed.
+ Make sure never to select any record with pid = -1! (related to versioning).
+ If you need to detect preview mode for versioning and workspaces you can read these variables:
+@@ -1502,7 +1485,6 @@
+ Used whenever you are tracking something back, like making the root line. In fact, it is currently only used by the root line function and chances are that you will not need this function often.
+ 
+ Principle; Record offline! => Find online?
+-
+ Frontend scenarios impossible to preview
+ These issues are not planned to be supported for preview:
+ Lookups and searching for records based on other fields than uid,pid,enableFields will never reflect workspace content since overlays happen to online records after they are selected.
+@@ -1514,7 +1496,6 @@
+ It is impossible to preview the value of count(*) selections since we would have to traverse all records and pass them through ->versionOL() before we would have a reliable result!
+ In tslib_fe::getPageShortcut() sys_page->getMenu() is called with an additional WHERE clause which will not respect if those fields are changed for a future version. This could be the case other places where getmenu() is used (but a search shows it is not a big problem). In this case we will for now accept that a wrong shortcut destination can be experienced during previews. 
+ 
+-
+ Backend challenges
+ The main challenge in the backend is to reflect how the system will look when the workspace gets published. To create a transparent experience for backend users we have to overlay almost every selected record with any possible new version it might have. Also when we are tracking records back to the page tree root point we will have to correct pid-values. All issues related to selecting on fields other than pid and uid also relates to the backend as they did for the frontend.
+ Workspace related API functions for backend modules
+@@ -1577,34 +1558,28 @@
+ Setting another workspace for backend user.
+ $BE_USER->setWorkspacePreview()
+ Setting frontend preview state.
+-
+ Backend module access
+ You can restrict access to backend modules by using $MCONF[?workspaces?] in the conf.php files. The variable is a list of keywords defining where the module is available:
+ $MCONF[?workspaces?] = online,offline,custom
+ 
+-You can also restrict function menu items to certain workspaces if you like. This is done by an argument sent to the function t3lib_extMgm::insertModuleFunction(). See that file for more details.
+-Detecting current workspace
++You can also restrict function menu items to certain workspaces if you like. This is done by an argument sent to the function t3lib_extMgm::insertModuleFunction(). See that file for more details.Detecting current workspace
+ You can always check what the current workspace of the backend user is by reading $GLOBALS[?BE_USER?]->workspace. If the workspace is a custom workspace you will find its record loaded in $GLOBALS[?BE_USER?]->workspaceRec.
+ The values for workspaces are as following:
+ workspace 0 = online (live)
+ workspace -1 = offline (draft)
+ workspace > 0 = custom (projects)
+-workspace -99 = none selected at all (ERROR!)
+-Using TCEmain with workspaces
++workspace -99 = none selected at all (ERROR!)Using TCEmain with workspaces
+ Since admin-users are also restricted by the workspace it is not possible to save any live records when in a workspace. However for very special occasions you might need to bypass this and to do so, you can set the instance variable t3lib_tcemain::bypassWorkspaceRestrictions to TRUE. An example of this is when users are updating their user profile using the User > Setup module; that actually allows them to save to a live record (their user record) while in a draft workspace.
+-TYPO3 Core Engine (TCE)Introduction
+-Database
++TYPO3 Core Engine (TCE)IntroductionDatabase
+ The TYPO3 Core Engine is the class that handles all data writing to database tables configured in $TCA. In addition the class handles commands such as copy, move, delete. It will handle undo/history and versioning of records as well and everything will be logged to the sys_log. And it will make sure that write permissions are evaluated correctly for the user trying to write to the database. Generally, any processing specific option in the $TCA array is handled by TCE.
+ Using TCE for manipulation of the database content in the TCA configured tables guarantees that the data integrity of TYPO3 is respected. This cannot be safely guaranteed if you write to $TCA configured database tables directly. It will also manage the relations to files and other records.
+ TCE requires a backend login to work. This is due to the fact that permissions are observed (of course) and thus TCE needs a backend user to evaluate against. This means you cannot use TCEmain from the frontend scope. Thus writing to tables (such as a guestbook) will have to be done from the frontend without TCEmain.
+-The features of the $TCA (Table Configuration Array) array are discussed in the end of this document.
+-Files
++The features of the $TCA (Table Configuration Array) array are discussed in the end of this document.Files
+ TCE also has a part for handling files. The file operations are normally performed in the File > List module where you can manage a directory on the server by copying, moving, deleting and editing files and directories. The file operations are managed by two core classes, t3lib_basicFileFunc and t3lib_extFileFunc.Database: t3lib_TCEmain basics
+ When you are using TCE from your backend applications you need to prepare two arrays of information which contain the instructions to TCEmain of what actions to perform. They fall into two categories: Data and Commands.
+ "Data" is when you want to write information to a database table or create a new record.
+ "Commands" is when you want to move, copy or delete a record in the system.
+-The data and commands are created as multidimensional arrays and to understand the API of TCEmain you simply need to understand the hierarchy of these two arrays.
+-Commands Array ($cmd):
++The data and commands are created as multidimensional arrays and to understand the API of TCEmain you simply need to understand the hierarchy of these two arrays.Commands Array ($cmd):
+ Syntax:
+ $cmd[ tablename ][ uid ][ command ] = value
+ 
+@@ -1678,12 +1653,10 @@
+ setStage : Sets the stage of an element. Special feature: The id-key in the array can be a comma list of ids in order to perform the stageChange over a number of records. Also, the internal variable ->generalComment (also available through tce_db.php as "&generalComment") can be used to set a default comment for all stage changes of an instance of tcemain. Additional keys for this action is:
+ [stageId] : Values are: -1 (rejected), 0 (editing, default), 1 (review), 10 (publish)
+ [comment] : Comment string that goes into the log.
+-
+ Examples of Commands:
+ $cmd[?tt_content?][54][?delete?] = 1;    // Deletes tt_content record with uid=54
+ $cmd[?pages?][1203][?copy?] = -303;   //Copies page id=1203 to the position after page 303
+-$cmd[?pages?][1203][?move?] = 303;  // Moves page id=1203 to the first position in p. 303
+-Data Array ($data):
++$cmd[?pages?][1203][?move?] = 303;  // Moves page id=1203 to the first position in p. 303Data Array ($data):
+ Syntax:
+ $data[ tablename ][ uid ][ fieldname ] = value
+ 
+@@ -1706,8 +1679,7 @@
+ 
+ (Always make sure $this->stripslashes_values is false before using TCEmain.)
+ 
+-Notice: For FlexForms the data array of the FlexForm field is deeper than three levels. The number of possible levels for FleFforms is infinite and defined by the data structure of the FlexForm. But FlexForm fields always end with a "regular value" of course.
+-Examples of Data submission:
++Notice: For FlexForms the data array of the FlexForm field is deeper than three levels. The number of possible levels for FleFforms is infinite and defined by the data structure of the FlexForm. But FlexForm fields always end with a "regular value" of course.Examples of Data submission:
+ This creates a new page titled "The page title" as the first page inside page id 45:
+ $data[?pages?][?NEW9823be87?] = array(
+     "title" => "The page title",
+@@ -1735,8 +1707,7 @@
+ $data[?pages?][9834] = array(
+     "title" => "New title for this page",
+     "no_cache" => "1"
+-);
+-Clear cache
++);Clear cache
+ TCE also has an API for clearing the cache tables of TYPO3:
+ Syntax:
+ $tce->clear_cacheCmd($cacheCmd);
+@@ -1758,8 +1729,7 @@
+ You can configure cache post processing with a user defined PHP function. Configuration of the hook can be done from (ext_)localconf.php. An example look like:
+ 
+ $TYPO3_CONF_VARS[?SC_OPTIONS?][?t3lib/class.t3lib_tcemain.php?][?clearCachePostProc?][]=?myext_cacheProc->proc?;
+-require_once(t3lib_extMgm::extPath(?myext?).?class.myext_cacheProc.php?);
+-Flags in TCEmain
++require_once(t3lib_extMgm::extPath(?myext?).?class.myext_cacheProc.php?);Flags in TCEmain
+ There are a few internal variables you can set prior to executing commands or data submission. These are the most significant:
+ Internal variable
+ Data type
+@@ -1797,26 +1767,22 @@
+ In your script you simply insert this line to include the class:
+ 
+ require_once (PATH_t3lib."class.t3lib_tcemain.php");
+-When that is done you can create an instance of t3lib_TCEmain. Here follows a few code listings with comments which will provide you with enough knowledge to get started. It is assumed that you have populated the $data and $cmd arrays correctly prior to these chunks of code. The syntax for these two arrays is explained on the previous pages.
+-Example: Submitting data
++When that is done you can create an instance of t3lib_TCEmain. Here follows a few code listings with comments which will provide you with enough knowledge to get started. It is assumed that you have populated the $data and $cmd arrays correctly prior to these chunks of code. The syntax for these two arrays is explained on the previous pages.Example: Submitting data
+ This is the most basic example of how to submit data into the database. It is four lines. Line 1 instantiates the class, line 2 defines that values will be provided without escaped characters (recommended!), line 3 registers the $data array inside the class and initializes the class internally! Finally line 4 will execute the data submission.
+ 1: $tce = t3lib_div::makeInstance(?t3lib_TCEmain?);
+ 2: $tce->stripslashes_values = 0;
+ 3: $tce->start($data,array());
+-4: $tce->process_datamap();
+-Example: Executing commands
++4: $tce->process_datamap();Example: Executing commands
+ The most basic way of executing commands. Line 1 creates the object, line 2 defines that values will be provided without escaped characters (recommended), line 3 registers the $cmd array inside the class and initializes the class internally! Finally line 4 will execute the commands.
+ 1: $tce = t3lib_div::makeInstance(?t3lib_TCEmain?);
+ 2: $tce->stripslashes_values=0;
+ 3: $tce->start(array(),$cmd);
+-4: $tce->process_cmdmap();
+-Example: Clearing cache
++4: $tce->process_cmdmap();Example: Clearing cache
+ In this example the clear-cache API is used. No data is submitted, no commands executed. Still you will have to initialize the class by calling the start() method (which will initialize internal variables).
+ Notice: Clearing "all" cache will be possible only for users that are "admin" or for users with specific permissions to do so. 
+ 1: $tce = t3lib_div::makeInstance(?t3lib_TCEmain?);
+ 2: $tce->start(Array(),Array());
+-3: $tce->clear_cacheCmd(?all?);
+-Example: Complex data submission
++3: $tce->clear_cacheCmd(?all?);Example: Complex data submission
+ Imagine the $data array something like this:
+ $data = array(
+     ?pages? => array(
+@@ -1838,8 +1804,7 @@
+ 4: $tce->start($data,array());
+ 5: $tce->process_datamap();
+ 6: t3lib_BEfunc::getSetUpdateSignal(?updatePageTree?);
+-7: $tce->clear_cacheCmd(?pages?);
+-Example: Both data and commands executed with alternative user object
++7: $tce->clear_cacheCmd(?pages?);Example: Both data and commands executed with alternative user object
+ In this case it is shown how you can use the same object instance to submit both data and execute commands if you like. The order will depend on the order of line 4 and 5.
+ In line 3 the start() method is called, but this time with the third possible argument which is an alternative BE_USER object. This allows you to force another backend user account to create stuff in the database. This may be useful in certain special cases. Normally you should not set this argument since you want TCE to use the global $BE_USER.
+ 1: $tce = t3lib_div::makeInstance(?t3lib_TCEmain?);
+@@ -1889,8 +1854,7 @@
+ string
+ Update Page Tree Trigger. If set and the manipulated records are pages then the update page tree signal will be set.
+ Files: t3lib_extFileFunctions basics
+-File operations in TCE is handled by the class "t3lib_extFileFunctions" which extends "t3lib_basicFileFunctions". The instructions for file manipulation is passed to this class as a multidimensional array.
+-Files Array ($file):
++File operations in TCE is handled by the class "t3lib_extFileFunctions" which extends "t3lib_basicFileFunctions". The instructions for file manipulation is passed to this class as a multidimensional array.Files Array ($file):
+ Syntax:
+ $file[ command ][ index ][ key ] = value
+ 
+@@ -1978,8 +1942,7 @@
+ 5: 
+ 6: $this->fileProcessor->start($this->file);
+ 7: $this->fileProcessor->processData();
+-Line 2 makes an instance of the class and line 3 initializes the object with the filemounts of the current user and the array of allow/deny file extensions in web-space and ftp-space (see below). Then the file operation permissions are loaded from the user object in line 4. Finally, the file command array is loaded in line 6 (and internally additional configuration takes place from $TYPO3_CONF_VARS!). In line 7 the command map is executed.
+-Web-space, Ftp-space and $TYPO3_CONF_VARS[?BE?][?fileExtensions?]
++Line 2 makes an instance of the class and line 3 initializes the object with the filemounts of the current user and the array of allow/deny file extensions in web-space and ftp-space (see below). Then the file operation permissions are loaded from the user object in line 4. Finally, the file command array is loaded in line 6 (and internally additional configuration takes place from $TYPO3_CONF_VARS!). In line 7 the command map is executed.Web-space, Ftp-space and $TYPO3_CONF_VARS[?BE?][?fileExtensions?]
+ The control of fileextensions goes in two catagories. Webspace and Ftpspace. Webspace is folders accessible from a webbrowser (below TYPO3_DOCUMENT_ROOT) and ftpspace is everything else.
+ The control is done like this: If an extension matches ?allow? then the check returns true. If not and an extension matches ?deny? then the check return false. If no match at all, returns true.
+ You list extensions comma-separated. If the value is a ?*? every extension is matched. If no fileextension, true is returned if ?allow? is ?*?, false if ?deny? is ?*? and true if none of these matches. This (default) configuration below accepts everything in ftpspace and everything in webspace except php3 or php files:
+@@ -2013,12 +1976,9 @@
+ boolean
+ If existing files should be overridden.
+ HooksThe concept of "hooks"
+-Hooks are basically places in the source code where a user function will be called for processing if a such has been configured. Hooks provide a way to extend functionality of TYPO3 and extensions easily and without blocking for others to do the same. 
+-Hooks vs. XCLASS extensions
+-Hooks are the recommended way of extending TYPO3 compared to extending the PHP classes with a child class (see "XCLASS extensions"). It is so because only one extension of a PHP class can exist at a time while hooks may allow many different user processings to occur. On the other hand hooks have to be implemented in the core before you can use them while extending a PHP class via the XCLASS method allows you to extend anything spontaneously.
+-Proposing hooks
+-If you need to extend something which have no hook yet, then you should suggest implementing a hook. Normally that is rather easily done by the author of the source you want to extend.
+-How a hook looks
++Hooks are basically places in the source code where a user function will be called for processing if a such has been configured. Hooks provide a way to extend functionality of TYPO3 and extensions easily and without blocking for others to do the same. Hooks vs. XCLASS extensions
++Hooks are the recommended way of extending TYPO3 compared to extending the PHP classes with a child class (see "XCLASS extensions"). It is so because only one extension of a PHP class can exist at a time while hooks may allow many different user processings to occur. On the other hand hooks have to be implemented in the core before you can use them while extending a PHP class via the XCLASS method allows you to extend anything spontaneously.Proposing hooks
++If you need to extend something which have no hook yet, then you should suggest implementing a hook. Normally that is rather easily done by the author of the source you want to extend.How a hook looks
+ The two codelines below is an example of how a hook is used for clear-cache post-processing. The objective of this need could be to perform additional actions whenever the cache is cleared for a specific page.
+ require_once(t3lib_extMgm::extPath(?myext?).?class.myext_cacheProc.php?);
+ $TYPO3_CONF_VARS[?SC_OPTIONS?][?t3lib/class.t3lib_tcemain.php?][?clearCachePostProc?][]=?myext_cacheProc->proc?;
+@@ -2040,8 +2000,7 @@
+ The syntax of a function reference (or object reference if t3lib_div::getUserObj is used in the hook instead) can be seen in the API documentation of t3lib_div.Hook configuration
+ There is no complete index of hooks in the core. But they are easy to search for and find. And typically it comes quite naturally since you will find the hooks in the code you want to extend - if they exists.
+ This index will list the main variable spaces for configuration of hooks. By the names of these you can easily scan the source code to find which hooks are available or might be interesting for you.
+-The index below also includes some variable spaces which does not only carry hook configuration but might be used for other purposes as well.
+-$TYPO3_CONF_VARS[?EXTCONF?]
++The index below also includes some variable spaces which does not only carry hook configuration but might be used for other purposes as well.$TYPO3_CONF_VARS[?EXTCONF?]
+ Configuration space for extensions. 
+ This will contain all kinds of configuration options for specific extensions including possible hooks in them! What options are available to you will depend on a search in the documentation for that particular extension. 
+ $TYPO3_CONF_VARS[?EXTCONF?][ extension_key ][ sub_key ] = value
+@@ -2065,8 +2024,7 @@
+ 10:             $fieldArr[$fieldName] = intval($rl[$rootLineLevel][?uid?]);
+ 11:         }
+ 12:     }
+-13: }
+-$TYPO3_CONF_VARS[?SC_OPTIONS?]
++13: }$TYPO3_CONF_VARS[?SC_OPTIONS?]
+ Configuration space for core scripts. 
+ This array is created as an adhoc space for creating hooks from any script. This will typically be used from the core scripts of TYPO3 which do not have a natural identifier like extensions have their extension keys. 
+ $TYPO3_CONF_VARS[?SC_OPTIONS?][ main_key ][ sub_key ][ index ] = function_reference
+@@ -2104,7 +2062,6 @@
+ 6:     }
+ 7: }
+ 
+-
+ $TYPO3_CONF_VARS[?TBE_MODULES_EXT?]
+ Configuration space for backend modules.
+ Among these configuration options you might find entry points for hooks in the backend. This somehow overlaps the intention of "SC_OPTIONS" above but this array is an older invention and slightly outdated. 
+@@ -2143,8 +2100,7 @@
+ There are two main methods of calling a user defined function in TYPO3. 
+ t3lib_div::callUserFunction() - The classic way. Takes a file/class/method reference as value and calls that function. The argument list is fixed to a parameter array and a parent object. So this is the limitation. The freedom is that the reference defines the function name to call. This method is mostly useful for small-scale hooks in the sources.
+ t3lib_div::getUserObject() - Create an object from a user defined file/class. The method called in the object is fixed by the hook, so this is the non-flexible part. But it is cleaner in other ways, in particular that you can even call many methods in the object and you can pass an arbitrary argument list which makes the API more beautiful. You can also define the objects to be singletons, instantiated only once in the global scope.
+-Here follows some examples.
+-Hook made with t3lib_div::getUserObj()
++Here follows some examples.Hook made with t3lib_div::getUserObj()
+ 
+     // Hook for preprocessing of the content for formmails:
+ if (is_array($this->TYPO3_CONF_VARS[?SC_OPTIONS?][?tslib/class.tslib_fe.php?][?sendFormmail-PreProcClass?]))    {
+@@ -2152,8 +2108,7 @@
+         $_procObj = &t3lib_div::getUserObj($_classRef);
+         $EMAIL_VARS = $_procObj->sendFormmail_preProcessVariables($EMAIL_VARS,$this);
+     }
+-}
+-Hook made with t3lib_div::callUserFunction()
++}Hook made with t3lib_div::callUserFunction()
+ 
+     // Call post processing function for constructor:
+ if (is_array($this->TYPO3_CONF_VARS[?SC_OPTIONS?][?tslib/class.tslib_fe.php?][?tslib_fe-PostProc?]))    {
+@@ -2398,17 +2353,14 @@
+ Backend User ObjectChecking user access for $BE_USER from PHP
+ The backend user of a session is always available to the backend scripts as the global variable $BE_USER. The object is created in init.php and is an instance of the class "t3lib_beUserAuth" (which extends "t3lib_userAuthGroup" which extends "t3lib_userAuth").
+ In addition to $BE_USER two other global variables are of interest - $WEBMOUNTS and $FILEMOUNTS, each holding an array with the DB mounts and File mounts of the $BE_USER.
+-In order to introduce how the $BE_USER object can be helpful to your backend scripts/modules, this is a few examples:
+-Checking access to current backend module
++In order to introduce how the $BE_USER object can be helpful to your backend scripts/modules, this is a few examples:Checking access to current backend module
+ $MCONF is module configuration and the key $MCONF["access"] determines the access scope for the module. This function call will check if the $BE_USER is allowed to access the module and if not, the function will exit with an error message.
+ $BE_USER->modAccess($MCONF,1);
+-
+ Checking access to any backend module
+ If you know the module key you can check if the module is included in the access list by this function call:
+ $BE_USER->check("modules","web_list");
+ 
+-Here access to the module "Web>List" is checked.
+-Access to tables and fields?
++Here access to the module "Web>List" is checked.Access to tables and fields?
+ The same function ->check() can actually check all the ->groupLists inside $BE_USER. For instance:
+ Checking modify access to the table "pages":
+ $BE_USER->check(?tables_modify?,?pages?);
+@@ -2417,39 +2369,30 @@
+ $BE_USER->check(?tables_select?,?tt_content?);
+ 
+ Checking if a table/field pair is allowed explicitly through the "Allowed Excludefields":
+-$BE_USER->check("non_exclude_fields",$table.":".$field);
+-Is "admin"?
++$BE_USER->check("non_exclude_fields",$table.":".$field);Is "admin"?
+ If you want to know if a user is an "admin" user (has complete access), just call this method:
+-$BE_USER->isAdmin();
+-Read access to a page?
++$BE_USER->isAdmin();Read access to a page?
+ This function call will return true if the user has read access to a page (represented by its database record, $pageRec):
+ $BE_USER->doesUserHaveAccess($pageRec,1);
+ 
+-Changing the "1" for other values will check other permissions. Fx. "2" will check id the user may edit the page and "4" will check if the page can be deleted. 
+-Is a page inside a DB mount?
++Changing the "1" for other values will check other permissions. Fx. "2" will check id the user may edit the page and "4" will check if the page can be deleted. Is a page inside a DB mount?
+ Access to a page should not be checked only based on page permissions but also if a page is found within a DB mount for ther user. This can be checked by this function call ($id is the page uid):
+ $BE_USER->isInWebMount($id)
+-
+ Selecting readable pages from database?
+ If you wish to make a SQL statement which selects pages from the database and you want it to be only pages that the user has read access to, you can have a proper WHERE clause returned by this function call:
+ $BE_USER->getPagePermsClause(1);
+ 
+ Again the number "1" represents the "read" permission; "2" would represent "edit" permission and "4" would be delete permission and so on. The result from the above query could be this string:
+-((pages.perms_everybody & 1 = 1)OR(pages.perms_userid = 2 AND pages.perms_user & 1 = 1)OR(pages.perms_groupid in (1) AND pages.perms_group & 1 = 1))
+-Saving module data
++((pages.perms_everybody & 1 = 1)OR(pages.perms_userid = 2 AND pages.perms_user & 1 = 1)OR(pages.perms_groupid in (1) AND pages.perms_group & 1 = 1))Saving module data
+ This stores the input variable $compareFlags (an array!) with the key "tools_beuser/index.php/compare"
+     $compareFlags = t3lib_div::GPvar("compareFlags");
+-    $BE_USER->pushModuleData("tools_beuser/index.php/compare",$compareFlags);
+-Getting module data
++    $BE_USER->pushModuleData("tools_beuser/index.php/compare",$compareFlags);Getting module data
+ This gets the module data with the key "tools_beuser/index.php/compare" (lasting only for the session)
+-    $compareFlags = $BE_USER->getModuleData("tools_beuser/index.php/compare","ses");
+-Returning object script from TSconfig
++    $compareFlags = $BE_USER->getModuleData("tools_beuser/index.php/compare","ses");Returning object script from TSconfig
+ This function can return a value from the "User TSconfig" structure of the user. In this case the value for "options.clipboardNumberPads":
+-$BE_USER->getTSConfigVal("options.clipboardNumberPads");
+-Getting the username
++$BE_USER->getTSConfigVal("options.clipboardNumberPads");Getting the username
+ The full "be_users" record of a authenticated user is available in $BE_USER->user as an array. This will return the "username":
+ $BE_USER->user["username"]
+-
+ Get User Configuration value
+ The internal ->uc array contains options which are managed by the User>Setup module (extensions "setup"). These values are accessible in the $BE_USER->uc array. This will return the current state of "Condensed mode" for the user:
+ $BE_USER->uc[?condensedMode?]
+@@ -2549,7 +2492,6 @@
+ int
+ -
+ Workspace ID
+-
+ Making logging simple
+ While it is nice to have log message categorized and numbered during development and sometimes beyond that point a simpler logging API is necessary. Therefore you can also call this function:
+ 
+@@ -2562,7 +2504,6 @@
+ Configuring user-classes works like this:
+ In (ext_)localconf.php you configure for either frontend or backend that you wish to include a file with the extension of the class. This inclusion is usually done in the end of the class-file itself based on a lookup in TYPO3_CONF_VARS. 
+ Whenever the class is instantiated as an object, the sourcecode checks if a user-extension of that class exists. If so, then that class (or an extension of the extended class) is instantiated and not the normal (parent) class. Getting the correct instance of a class is done by using the function t3lib_div::makeInstance() instead of "new ..." when an object is created.
+-
+ Example
+ Say you wish to make an addition to the stdWrap method found in the class tslib_cObj (found in the class file tslib/class.tslib_content.php). 
+ The first thing to do is to create the extension class. So you create a file in the typo3conf/ directory named class.ux_tslib_content.php. ux is a prefix meaning user-extension. This file may look like this:
+@@ -2583,12 +2524,10 @@
+ 
+ Internally "t3lib_div::makeInstance()" does this:
+ $cObj = class_exists("ux_tslib_cObj") ? new ux_tslib_cObj : new tslib_cObj;
+-
+ IMPORTANT
+ When setting up the file to include, in particular from t3lib/, notice the difference between $TYPO3_CONF_VARS["BE"]["XCLASS"][...] and $TYPO3_CONF_VARS["FE"]["XCLASS"][...]. The key FE is used when the class is included by a front-end script (those initialized by tslib/index_ts.php and tslib/showpic.php - both also known as index.php and showpic.php in the root of the website), BE is used by backend scripts (those initialized by typo3/init.php or typo3/thumbs.php). This feature allows you to include a different extension when the (t3lib/-) class is used in the frontend and in the backend.Which classes?
+ Most code in TYPO3 resides in classes and therefore anything in the system can be extended. So you should rather say to yourself: In which script (and thereby which class) is it that I?m going to extend/change something. When you know which script, you simply open it, look inside and somewhere you?ll find the lines of code which are responsible for the inclusion of the extension, typically in the bottom of the script. 
+-The exceptions to this rule is classes like "t3lib_div", "t3lib_extMgm" or "t3lib_BEfunc". These classes contain methods which are designed to be call non-instantiated, like "t3lib_div::fixed_lgd_cs()". Whether a class works on this basis is normally noted in the header of the class file. When methods in a class is called non-instantiated there is no way you can extend that method/class.
+-Example - Adding a small feature in the interface
++The exceptions to this rule is classes like "t3lib_div", "t3lib_extMgm" or "t3lib_BEfunc". These classes contain methods which are designed to be call non-instantiated, like "t3lib_div::fixed_lgd_cs()". Whether a class works on this basis is normally noted in the header of the class file. When methods in a class is called non-instantiated there is no way you can extend that method/class.Example - Adding a small feature in the interface
+ Say you wish to add a little section with help text in the bottom of the New dialog:
+ 
+ 
+@@ -2678,10 +2617,8 @@
+ Check if child classes are instantiatedQuite often people have been confused about extending for instance the "tslib_menu" class when they want to add a feature for "TMENU". But actually the class to extend is "tslib_tmenu" which is an extension of "tslib_menu". So make sure you are extending the right class name (and always make sure your extension class is included also).
+ Strange opcode caching behaviours when you upgrade TYPO3 coreWhen you upgrade the TYPO3 core and you have an extension which extends a core class, the upgraded core underneath might not be detected by opcode caches. In particular PHP-Accelerator is known for this behaviour producing "undefined function...." errors. The solution is: Always clear "/tmp/php_a_*" files and restart your webserver after upgrading source.
+ 
+-
+ Various examplesIntroduction
+-The follow pages will present some examples of how you can use the APIs of core libraries. Remember, ultimately the source is the documentation and the only point here is to show examples. Whenever you would like to use core features that are not shown here you should search in the core and system extensions for implementations that can work as an example for you.
+-Debugging with debug()
++The follow pages will present some examples of how you can use the APIs of core libraries. Remember, ultimately the source is the documentation and the only point here is to show examples. Whenever you would like to use core features that are not shown here you should search in the core and system extensions for implementations that can work as an example for you.Debugging with debug()
+ A very common tool used by TYPO3 developers is the debug() function. It basically prints out the content of a variable in a nicely formatted table. There are extensions available which extends the view from the debug() function to something more fancy. Here I will just present the basic version.
+ Use the debug() function whenever you want to look "inside" an array or parameters passed to a user processing function. Usually it makes it very easy to understand the parameters. For instance, lets say you call a script with the GET parameter string "?id=123&test[key]=A&test[key2]=B". How will the GET vars look to your application inside? Well, using the debug function makes that easy:
+ debug(t3lib_div::_GET(),?GET variables:?);
+@@ -2740,8 +2677,7 @@
+ The rendered page tree is stored in a data array inside of the tree object. We need to traverse the tree data to create the tree in HTML. This gives us the chance to organize the tree in a table for instance. That is very useful if you need to show additional information for each page.
+ Lines 24-28 renders a table row with headings for the tree.
+ Lines 29-35 traverses the tree data and for each element a table row will be rendered with the icon/title and an additional cell containing the uid.
+-Line 37 wraps the table rows in a table tag.
+-Local extensions of the page tree classes
++Line 37 wraps the table rows in a table tag.Local extensions of the page tree classes
+ If you search in the source for other places where this class is used you will often find that the class is extended locally in those scripts. This is because it is possible to override certain functions that generate for instance the icon or wraps the title in some way.Accessing the clipboard
+ You can easily access the internal clipboard in TYPO3 from your backend modules. 
+ 1: require_once(PATH_t3lib.?class.t3lib_clipboard.php?);
+@@ -2768,7 +2704,6 @@
+     debug($clipObj->elFromTable(?pages?),?Page records:?);
+ Here we first try to get all files and then all page records on the current pad (which is pad 2). Then we change to the "Normal" pad, call the elFromTable() method again and output the results. The output shows that in the first attempt we get the list of files but no page records while in the second attempt after having changed to the normal pad we will get no files but the page record on the normal pad in return:
+ 
+-
+ Setting elements on the clipboard
+ This is too complicated to describe in detail. The following codelisting is from the Web > List module where selections for the clipboard is posted from a form and registered. 
+     // Clipboard actions are handled:
+@@ -2829,7 +2764,6 @@
+ The "extra_page_cm_options" is a slightly special since it produces additional CSM elements by calls back to the parent object where rendering functions exists. This is due to historical reasons. Better examples of handcrafted menu items can be found in extensions such as "templavoila" (1st level additions for specific table) and "impexp" (2nd level addition). Finally, the best way to initiate adding elements is using the Kickstarter Wizard which contains an options for creating CSMs:
+ 
+ 
+-
+ Implementing Context Sensitive Menus
+ If you want to implement a CSM for an element in your own backend modules you have to do two things:
+ Include standard JavaScript and HTML code in the HTML document for all CSM instances.
+@@ -2850,7 +2784,6 @@
+ Line 5 adds the <div> layers in the bottom of the page:
+ <div id="contentMenu0" style="z-index:1; position:absolute;visibility:hidden"></div>
+ <div id="contentMenu1" style="z-index:2; position:absolute;visibility:hidden"></div>
+-
+ CSM for database elements
+ Linking icons to open the CSM is easy:
+     // Get icon with CSM:
+@@ -2860,15 +2793,13 @@
+ The second line wraps the icon ($icon) in a link that will open the CSM over it. This is done by calling "template::wrapClickMenuOnIcon()" with $icon HTML, table name and element uid. The fourth argument is a boolean you should set if your script is shown in the list frame of the backend. This will tell "alt_clickmenu.php" which generates the HTML content that it should be written back to the list frame and not the navigation frame for instance.
+ Result:
+ 
+-
+ CSM for files
+ Activating a CSM for a file is also easy. As for database elements it requires that the standard content is added to the HTML document. From that point you just call the same function, "template::wrapClickMenuOnIcon()" but set the second argument to the absolute path of the file (and keep the third argument, the uid, blank).
+ 
+ $GLOBALS[?SOBE?]->doc->wrapClickMenuOnIcon($theIcon,$path);
+ Notice, that in this case the document template object used is the global variable $SOBE which is normally available in backend modules as well. You might also use the default instance found in $TBE_TEMPLATE. 
+ For more information see the inline documentation of the function wrapClickMenuOnIcon(). It is found in the file "template.php" in the typo3/ folder.Parsing HTML: t3lib_parsehtml
+-This class is very handy for various processing needs of HTML. In the future it might be obsolete if the "tidy" extension becomes standard in PHP but for now there are no native features in PHP which lets us parse HTML.
+-Extracting blocks from an HTML document
++This class is very handy for various processing needs of HTML. In the future it might be obsolete if the "tidy" extension becomes standard in PHP but for now there are no native features in PHP which lets us parse HTML.Extracting blocks from an HTML document
+ In the first example it is shown how we can extract parts of an HTML document.
+ 
+ 1: require_once(PATH_t3lib.?class.t3lib_parsehtml.php?);
+@@ -2910,7 +2841,6 @@
+ 
+ As you can see the HTML source has been divided so the <div> section and the <table> is found in key 1 and 3. The keys of the extracted content is always the odd keys while the even keys are the "outside" content.
+ Notice that the table inside of the <div> section was not "found". So when you split content like this you get only elements on the same block-level in the source. You have to traverse the content recursively to find all tables - or just split on <table> only (which will not give you tables nested inside of tables though).
+-
+ Extracting single tags
+ You can split the content by tag as well. This is done in the next example. Here all <img> and <br> tags are found:
+ 
+@@ -2929,8 +2859,7 @@
+         $result[$intKey] = ?--?.$result[$intKey].?--?;
+     }
+ }
+-$newContent = implode(??,$result);
+-Cleaning HTML content
++$newContent = implode(??,$result);Cleaning HTML content
+ You can also do processing on the HTML content by the HTMLcleaner() method. This code listings shows a basic example of how you can configure it. There are a lot of features hidden in the $tagCfg array and you should refer to the inline documentation of the method in the class.
+ 34:     // Cleaning HTML:
+ 35: $tagCfg = array_flip(explode(?,?,?b,img,div,br,p?));
+@@ -2953,7 +2882,6 @@
+ Line 41-47 configures additional options for the "p" tag. In this case it just hardcodes that the attribute "class" must exist and it must have the value "bodytext".
+ Line 48 calls the HTMLcleaner() method - and notice the extra options being set where "xhtml" cleaning is enabled. This will convert all tag an attribute names to lowercase and "close" tags like <img> and <br> to <img.../> and <br />
+ This is the output:
+-
+ Advanced call back processing
+ This code listing shows how you can register call back functions for recursive processing of an HTML source:
+ 
+@@ -3052,16 +2980,12 @@
+ 19: $output.= ?<a href="#" onclick="?.htmlspecialchars(t3lib_BEfunc::editOnClick($params,$GLOBALS[?BACK_PATH?])).?">?.
+ 20:         ?Create new Content Element inside page ?.$editUid.
+ 21:         ?</a><br/>?;
+-
+ Editing a record
+ In line 5 you see the basic GET parameter you need to set up to edit a record. You need to know the database table name, record uid in advance. The syntax is "&edit[ tablename ][ uid ]=edit". You can specify as many tables and uids you like and you will get them all in one single form! The "uid" variable can even be a comma list of uids (short way of editing more records from the same table at once).
+ The lines 5-9 produces a link which shows this form:
+ 
+-
+ Editing only a few fields from a record
+-Lines 11-15 creates the same link but with additional information that only the field names "title" and "hidden" should be edited! That is done by adding the GET parameters "&columnsOnly=title,hidden". This means the form will look like this:
+-
+-Creating a form for new elements
++Lines 11-15 creates the same link but with additional information that only the field names "title" and "hidden" should be edited! That is done by adding the GET parameters "&columnsOnly=title,hidden". This means the form will look like this:Creating a form for new elements
+ Lines 17-21 creates a link which will make a new content element inside the page with "pid" 1135. The syntax for creating new records is "&edit[ table_name_of_new_record ][ pid_reference ]=new". The pid reference is special: If it is a negative value it points to another record from the same table after which the new record should be created. If it is positive or zero it just points to the page id where the record should be created (as the top element).
+ Another feature is that a custom default value for the header field is automatically passed along. This is done by the additional GET parameter "&defVals[tt_content][header]=New%20Element" and you can see how the Header field is pre-filled with this value below.
+ The result of the "create new" will be this form.
+@@ -3083,12 +3007,10 @@
+ The content element wizard helps people to select the most common kinds of content elements in a one-click operation, thus saving them to know about setting the content element type etc.
+ 
+ 
+-The script is a part of the cms extension.
+-Adding elements under the Plugins header
++The script is a part of the cms extension.Adding elements under the Plugins header
+ If you want to add elements in the wizard under the plugins header there is native support in the script for this.
+ Basically, what you do is to set content in the global variable $TBE_MODULES_EXT[?xMOD_db_new_content_el?][?addElClasses?]. The keys in this array must be class names and the values is the absolute path of the class. When the script is run the class files will be included during initialization. Then, during the building of the array of wizard elements the default wizard array is passed to the class you have configured through the method proc() in your class.
+-For details the most easy thing will be to look into the script in the function wizardArray() - this will make it clear to you how it works.
+-Example
++For details the most easy thing will be to look into the script in the function wizardArray() - this will make it clear to you how it works.Example
+ As an example of how this works from an extension you can take a look at the extension tt_guest. This extension adds itself in the plugin category by inserting these lines in its ext_tables.php file:
+ 
+ if (TYPO3_MODE=="BE")    {
+@@ -3140,8 +3062,7 @@
+     }
+ }
+ As you can see this class modifies the wizard array with an additional item. This is how you can also add / modify elements in the array using this API.Using custom permission options
+-TYPO3 (3.7.0+) offers extension developers to register their own permission options to be automatically managed by TYPO3s user group access lists. The options can be grouped in categories. A custom permission option is always a checkbox (on/off). The scope of such options is for use in the backend of TYPO3 only.
+-Registering a header and options
++TYPO3 (3.7.0+) offers extension developers to register their own permission options to be automatically managed by TYPO3s user group access lists. The options can be grouped in categories. A custom permission option is always a checkbox (on/off). The scope of such options is for use in the backend of TYPO3 only.Registering a header and options
+ You configure options in the global variable $TYPO3_CONF_VARS[?BE?][?customPermOptions?]. You can read the comment inside config_default.php regarding the syntax of the array.
+ This example shows how three options are registered under a new category:
+ 
+@@ -3167,15 +3088,13 @@
+         ?key3? => array(?Key 3 header?,?EXT:coreunittest/ext_icon.gif?),
+     )
+ )
+-...
+-Evaluating the options
++...Evaluating the options
+ Checking if a custom permission option is set you simply call this API function in the user object:
+ 
+ $BE_USER->check(?custom_options?,$catKey.?:?.$itemKey)
+ $catKey is the category in which the option resides. From the example above this would be tx_coreunittest_cat1
+ $itemKey is the key of the item in the category you are evaluating. From the example above this could be key1, key2 or key3 depending on which one of them you want to evaluated.
+-The function returns true if the option is set, otherwise false.
+-Keys in the array
++The function returns true if the option is set, otherwise false.Keys in the array
+ It is good practice to use the extension keys prefixed with tx_ on the first level of the array. This will help to make sure you do not pick a key which someone else picked as well!
+ Also you should never pick a key containing any of the characters ,:| since they are reserved delimiter characters.
+ Table Configuration Array, $TCAIntroduction
+@@ -3248,8 +3167,7 @@
+ 54: // ... and allowed to be added in the "Insert Record" content element type:
+ 55: t3lib_extMgm::addToInsertRecords("tx_mininews_news");
+ Here line 1-25 is about adding a column to the table "tt_content" which was in fact added by the extension "cms"
+-Then line 27-55 shows how a totally new table is added for the extension "mininews".Main levels in the $TCA array
+-The table entries (first level)
++Then line 27-55 shows how a totally new table is added for the extension "mininews".Main levels in the $TCA arrayThe table entries (first level)
+ On the "first level" of the $TCA array you will find key values which matches with database table names:
+ $TCA[?pages?] = Array (
+     ...
+@@ -3261,8 +3179,7 @@
+     ...
+ );
+ 
+-Here three tables, "pages", "tt_content" and "tt_myext" is shown as examples.
+-The structure of a table entry (second/third level)
++Here three tables, "pages", "tt_content" and "tt_myext" is shown as examples.The structure of a table entry (second/third level)
+ Each table is defined by an array which configures how the system handles the table, both for display and processing in the backend (the frontend is mostly independant of the TCA except from some features in the [ctrl] section). 
+ On this "second level" (configuring a single table) the structure is as follows:
+ 
+@@ -3321,7 +3238,6 @@
+ palettes
+ The palette fields order
+ A palette is just a list of fields which will be arranged horizontally side-by-side. But the main idea is that these fields can be displayed in the top-frame of the backend interface on request so they don?t display inside the main form. In this way they are kind of hidden fields which are brought forth either by clicking an icon in the main form or (more usually) when you place the cursor in a form field of the main form).
+-
+ Glossary
+ Before you read on, lets just refresh the meaning of a few concepts mentioned on the next pages:
+ TCE: Short for "TYPO3 Core Engine". Also referred to as "TCEmain". This class (class.t3lib_tcemain) should ideally handle all updates to records made in the backend of TYPO3. The class will handle all the rules which may be applied to each table correctly. It will also handle logging, versioning, history/undo features, copying/moving/deleting etc.
+@@ -3330,8 +3246,7 @@
+ record type: A record can have different types, expressed by the value of a certain field in the record. This field is defined by the [ctrl][type] value and it affects also which fields ("types"-configuration) is used to display possible form fields.
+ (LS): "LanguageSplitted" - meaning that 
+ the value can be a plain string which will be splitted by the "|" token where each part corresponds to a language as found in the constant "TYPO3_languages" (obsolete concept! Depricated!)
+-or the string can fetch a value from a locallang file by prefixing the string with "LLL:" (please see the description of [ctrl][title] for details).
+-The [ctrl] section vs. the other sections
++or the string can fetch a value from a locallang file by prefixing the string with "LLL:" (please see the description of [ctrl][title] for details).The [ctrl] section vs. the other sections
+ In almost the whole system the [ctrl] section of the $TCA entry for a table plays a crucial role. For all tables configured in $TCA this section must exist in $TCA. The other sections (except [feInterface]) can optionally be stored in another file. 
+ This feature allows scalability since hundreds of tables can be configured with their complete [ctrl]-sections while leaving a relatively small memory footprint since they don?t define all the other sections by default (eg. the "columns" section can group quite large!). Please see the [ctrl]-property "dynamicConfigFile" and the section "Loading the full $TCA dynamically" for details.
+ However this means that:
+@@ -3343,8 +3258,7 @@
+ The "ctrl" section contains properties for the table in general.
+ These properties are basically divided into two main categories:
+ properties which affect how the table is displayed and handled in the backend interface . This includes which icon, what name, which columns contains the title value, which column defines the type value etc.
+-properties which determines how it is processed by the system (TCE).This includes publishing control, "deleted" flag, if the table can only be edited by admin-users, may only exist in the tree root etc.
+-Reference for the [?ctrl?] section:
++properties which determines how it is processed by the system (TCE).This includes publishing control, "deleted" flag, if the table can only be edited by admin-users, may only exist in the tree root etc.Reference for the [?ctrl?] section:
+ Key
+ Datatype
+ Description
+@@ -3424,6 +3338,10 @@
+     )
+ The backend will select the "showitem" list for ...["types"][2] when the field "displaytype" contains the value two. And likewise when "displaytype" is 1, then the first list is used to display fields in the backend.
+ Display / Proc.
++hideTable
++boolean
++Hide this table in record listings.
++
+ requestUpdate
+ string
+ (list of fieldnames)
+@@ -3786,6 +3704,7 @@
+ string (tablename)
+ Optional table name for the table where record uids in transOrigPointerField comes from. This is needed in very rare applications where the original language is found in another table of the database. In such cases the field names must match between the tables.
+ An example of this is the pages table and pages_language_overlay.
++WARNING: This is unsupported almost everywhere except for the pages table for which it was originally invented.
+ Proc / Display
+ transOrigDiffSourceField
+ string (fieldname)
+@@ -3794,6 +3713,11 @@
+ The field type in the database should be a large text field (clob/blob).
+ You don?t have to configure this field in the columns section of TCA, but if you do, select the passthrough type. That will enable that the undo function also works on this field.
+ Proc / Display
++transForeignTable
++string (tablename)
++Points to the table which holds translations of the records in this table. This feature must be used in pair with transOrigPointerTable but on separate tables of course: transForeignTable must point to the tablename for which transOrigPointerTable is set to point to the table which has transForeignTable set. Example: The table pages has transForeignTable set to pages_language_overlay because it holds the translations for pages. The table pages_language_overlay has transOrigPointerTable set to pages.
++WARNING: This is still highly unsupported for all other tables than the pages table. If this is to work well for any table you wish to configure, some more work needs to get done!
++
+ versioningWS
+ boolean / keyword
+ If set, versioning is enabled for this table.
+@@ -3920,8 +3844,7 @@
+ Lets say you have an extension with the key "myext", then you have the right to define properties for:
+ 
+ ...[?ctrl?][?EXT?][?myext?] = ... (whatever you define)
+-Ext.
+-Examples
++Ext.Examples
+ Here are a few examples of configurations of the control section.
+ 1: $TCA[?pages?] = Array (
+ 2:     ?ctrl? => Array (
+@@ -4014,8 +3937,7 @@
+ Max number of items shown in the List module
+ maxSingleDBListItems 
+ integer
+-Max number of items shown in the List module, if this table is listed in Extended mode (listing only a single table)
+-Example
++Max number of items shown in the List module, if this table is listed in Extended mode (listing only a single table)Example
+ This is how the "pages" table is configured for these settings (in t3lib/stddb/tables.php):
+     ?interface? => Array (
+         ?showRecordFieldList? => ?doktype,title?,
+@@ -4328,8 +4250,7 @@
+ [See section later for options]
+ Display
+ 
+-Now follows some codelistings as examples:
+-Example: A "date" field
++Now follows some codelistings as examples:Example: A "date" field
+ This is the typical configuration for a date field, like "starttime":
+ 
+ 				script_ended = 0;?
+@@ -4347,8 +4268,7 @@
+                 ?checkbox? => ?0?,
+                 ?default? => ?0?
+             )
+-        ),
+-Example: A "username" field
++        ),Example: A "username" field
+ In this example the field is for entering a username (from "fe_users"). A number of requirements are imposed onto the field, namely that it must be unique within the page where the record is stored, must be in lowercase and without spaces in it:
+ 				script_ended = 0;?
+ 				function jumpToUrl(URL)	{?
+@@ -4362,8 +4282,7 @@
+                 ?max? => ?50?,
+                 ?eval? => ?nospace,lower,uniqueInPid,required?
+             )
+-        ),
+-Example: A typical input field
++        ),Example: A typical input field
+ This is just a very typical configuration which sets the size and a character limit to the field. In addition the input value is trimmed for surrounding whitespace which is a very good idea when you enter values into varchar fields.
+ 				script_ended = 0;?
+ 				function jumpToUrl(URL)	{?
+@@ -4379,7 +4298,6 @@
+                 ?max? => ?80?
+             )
+         ),
+-
+ Example: Required values
+ Here the field is required to be filled in:
+ 				script_ended = 0;?
+@@ -4448,8 +4366,7 @@
+ [See section later for options]
+ Display
+ 
+-Now follows some codelistings as examples:
+-Example: A quite normal field
++Now follows some codelistings as examples:Example: A quite normal field
+ This is the typical configuration for a textare field:
+ 				script_ended = 0;?
+ 				function jumpToUrl(URL)	{?
+@@ -4522,8 +4439,7 @@
+ For more information, see how user-functions are specified in the section about ?wizards? some pages below here. 
+ Display
+ 
+-Now follows some codelistings as examples:
+-Example: A single checkbox
++Now follows some codelistings as examples:Example: A single checkbox
+ A totally unfancy checkbox:
+ 				script_ended = 0;?
+ 				function jumpToUrl(URL)	{?
+@@ -4535,7 +4451,6 @@
+                     ?type? => ?check?
+                 )
+             )
+-
+ Example: A checkbox array
+ This is an example of a checkbox array with two checkboxes in it. The first checkbox will have bit-0 and the second bit-1. The default value is set to ?3? which means that each checkbox will be enabled by default (since the value three contains both bit-0 and bit-1):
+ 				script_ended = 0;?
+@@ -4589,7 +4504,6 @@
+ The function/method will have an array of parameters passed to it (where the item-array is passed by reference in the key ?items?). By modifying the array of items, you alter the list of items. 
+ For more information, see how user-functions are specified in the section about ?wizards? some pages below here. 
+ Display
+-
+ Example: 
+ An example of radio buttons configuration from "sys_filemounts" (see above):
+ 				script_ended = 0;?
+@@ -4797,6 +4711,24 @@
+ The fieldname of the config is not used for data-storage anymore but rather it?s set to the number of records in the relation on each update, so the field should be an integer.
+ Notice: Using MM relations you can ONLY store real relations for foreign tables in the list - no additional string values or non-record values.
+ Proc.
++MM_opposite_field
++string
++(field name)
++If you want to make an mm relation editable from the foreign side of the relation as well, you need to set MM_opposite_field on the foreign side to the fieldname on the local side.
++E.g. if the field "companies.employees" is your local side and you want to make the same relation editable from the foreign side of the relation in a field called persons.employers, you would need to set the MM_opposite_field value of the TCA configuration of the persons.employers field to the string "employees".
++Proc.
++MM_match_fields
++array
++Array of field=>value pairs to both insert and match against when writing/reading MM relations
++
++MM_insert_fields
++array
++Array of field=>value pairs to insert when writing new MM relations
++
++MM_table_where
++string (SQL WHERE)
++Additional where clause used when reading MM relations.
++
+ special
+ string
+ (any of keywords)
+@@ -4893,8 +4825,7 @@
+ "Show at any login" of "fe_groups" (tables "pages" and "tt_content") is an example where such a configuration is used.
+ 
+ 
+-Here follow some code listings as examples:
+-Example - A simple selector box: 
++Here follow some code listings as examples:Example - A simple selector box: 
+ This is the most simple selector box you can get. It contains a static set of options you can select from:
+ 
+ 
+@@ -4911,8 +4842,7 @@
+ 11:         ),
+ 12:     )
+ 13: ),
+-In the configuration the elements are configured by the "items" array. Each entry in the array contains pairs of label/value. Notice line 9; this entry is a divider. This value is not possible to select - it only helps to divide the list of options with a label indicating a new section.
+-Example - A multiple value selector with contents from a database table
++In the configuration the elements are configured by the "items" array. Each entry in the array contains pairs of label/value. Notice line 9; this entry is a divider. This value is not possible to select - it only helps to divide the list of options with a label indicating a new section.Example - A multiple value selector with contents from a database table
+ 
+ 
+ 
+@@ -4928,8 +4858,7 @@
+ 10:     )
+ 11: ),
+ This shows a simple configuration where the values are fetched from a foreign database table ordered by the title (line 5-6). Notice line 7 setting the size to 10 (the height of the selector boxes) and line 8 setting the maximum number of values you can select to 20.
+-The value stored in the database will be a comma list of uid numbers of the records selected.
+-Example - Using a look up table for single value
++The value stored in the database will be a comma list of uid numbers of the records selected.Example - Using a look up table for single value
+ In this case the selector box looks up languages in a static table from an extension "static_info_tables":
+ 
+ 
+@@ -4951,8 +4880,7 @@
+ 15:     )
+ 16: ),
+ Notice how line 4 will set a condition that this box should only be displayed if the extension it belongs to exists! That is very important since otherwise the table will not be in the database and we will get SQL errors.
+-In line 11 we see how a condition to the look up apply. Finally in line 12 and 14 it is explicitly configured that the selector box can contain only one value (line 14) and therefore should be only one row high (line 12)
+-Example - Mixing lookup values with static values
++In line 11 we see how a condition to the look up apply. Finally in line 12 and 14 it is explicitly configured that the selector box can contain only one value (line 14) and therefore should be only one row high (line 12)Example - Mixing lookup values with static values
+ This is the well known selector for frontend user group access restriction. It contains all user groups the backend user can access (here: "group") plus additional static values ("Hide at login", "Show at any login") and a divider ("__Usergroups:__")
+ 
+ 
+@@ -4970,8 +4898,7 @@
+ 11:         ),
+ 12:         ?foreign_table? => ?fe_groups?
+ 13:     )
+-14: ),
+-Example - Adding icons for selection
++14: ),Example - Adding icons for selection
+ This example shows how you can add icons to the selection choice very easily. Each icon is associated with an option in the selector box and clicking the icon will automatically select the option in the selector box and more the black arrow:
+ 
+ 
+@@ -4998,8 +4925,7 @@
+ 20:     )
+ 21: ),
+ Notice how each label/value pair contains an icon reference on the third position and how line 18 configures that the icons should be arranged in 6 columns.
+-Also, notice the default value (line 19) set to 8 meaning that the option with value "8" (line 9) will be selected by default. 
+-Example - Adding wizards
++Also, notice the default value (line 19) set to 8 meaning that the option with value "8" (line 9) will be selected by default. Example - Adding wizards
+ This example shows how wizards can be added to a selector box. The three typical wizards for a selector box is edit, add and list items. This enables the user to create new items in the look up table while being right at the selector box where he want to select them:
+ 
+ 
+@@ -5050,8 +4976,7 @@
+ 44:     )
+ 45: ),
+ From line 11 the configuration of the wizards takes place. See the wizard section in this document for more information.
+-Notice the configuration of "autoSizeMax" in line 9. This value will make the height of the selector boxes adjust themselves automatically depending on the content in them.
+-Example - User processing and advanced look ups
++Notice the configuration of "autoSizeMax" in line 9. This value will make the height of the selector boxes adjust themselves automatically depending on the content in them.Example - User processing and advanced look ups
+ In this example some more advanced features are used. On of them is that the look up for other database records is limited to the PID of the host record. In other words, all entries are records located in the same page as the record we are editing here:
+ 
+ 
+@@ -5073,8 +4998,7 @@
+ In line 10 you see how the marker "###CURRENT_PID###" is used to limit the look up to the current page id.
+ In line 14 it is also defined that the array of options should be processed by a user defined function, namely the method "main()" in the class "tx_templavoila_handleStaticdatastructures". For this to work, the class must be included during configuration (typically in ext_localconf.php files)
+ Line 15 configures that non-integer values are allowed. Normally values are restricted to integers if we are dealing with database look ups.
+-Line 16 means that even if icons can be displayed for each of the records in the look up, an icon will be displayed only for the selected record (if any).
+-Data format of "select" elements
++Line 16 means that even if icons can be displayed for each of the records in the look up, an icon will be displayed only for the selected record (if any).Data format of "select" elements
+ Since the "select" element allows to store references to multiple elements we might want to look at how these references are stored internally. The principle is the same as with the "group" type (see below).
+ [?columns?][fieldname][?config?] / TYPE: "group"
+ The group element in TYPO3 makes it possible to create references to records from multiple tables in the system. This is especially useful (compared to the "select" type) when records are scattered over the page tree and requires the Element Browser to be selected. In this example, Content Element records are attached:
+@@ -5128,7 +5052,7 @@
+ Proc. / Display
+ MM
+ string
+-(tablename)
++(table name)
+ Defines MM relation table to use.
+ 
+ Means that the relation to the files/db is done with a M-M relation through a third "join" table.
+@@ -5168,6 +5092,23 @@
+ KEY uid_foreign (uid_foreign)
+ ) TYPE=MyISAM;
+ Proc.
++MM_opposite_field
++string
++(field name)
++see [?columns?][fieldname][?config?] / TYPE: "select" => MM_opposite_field
++Proc.
++MM_match_fields
++array
++see [?columns?][fieldname][?config?] / TYPE: "select" => MM_match_fields
++
++MM_insert_fields
++array
++see [?columns?][fieldname][?config?] / TYPE: "select" => MM_insert_fields
++
++MM_table_where
++string (SQL WHERE)
++see [?columns?][fieldname][?config?] / TYPE: "select" => MM_table_where
++
+ max_size
+ integer
+ [internal_type = file ONLY]
+@@ -5229,8 +5170,7 @@
+ [See section later for options]
+ Display
+ 
+-Here follow some code listings as examples:
+-Example - References to database records
++Here follow some code listings as examples:Example - References to database records
+ In this example up to 200 references to Content Elements can be made:
+ 
+ 1: ?records? => Array (
+@@ -5247,8 +5187,7 @@
+ 12: ),
+ In line 5 it is configured that the internal type of the group field is "db" and then it follows that the allowed tables you can select from is "tt_content" (Content Elements table). This could be a list of tables which means you can mix references as you like!
+ Line 8 defines that there can be only 200 references and line 10 shows that they should be listed with their icons to the right of the selector box list.
+-In this case it wouldn?t have made sense to use a "select" type field since the situation implies that records might be found all over the system in a table which could potentially carry thousands of entries. In such a case the right thing to do is to use the "group" field so you have the Element Browser available for selector of the records.
+-Example - Reference to another page
++In this case it wouldn?t have made sense to use a "select" type field since the situation implies that records might be found all over the system in a table which could potentially carry thousands of entries. In such a case the right thing to do is to use the "group" field so you have the Element Browser available for selector of the records.Example - Reference to another page
+ You will often see "group" type fields used when a reference to another page is required. This makes sense since pages can hardly be presented effectively in a big selector box and thus the Element Browser that follows the "group" type fields is useful. An example is the "General Record Storage page" reference:
+ 
+ 
+@@ -5266,8 +5205,7 @@
+ 11:         ?show_thumbs? => ?1?
+ 12:     )
+ 13: ),
+-Notice how "maxitems" in line 9 is used to enforce that only one relation is created despite the ability of the "group" type field to create multiple references.
+-Example - Attaching images
++Notice how "maxitems" in line 9 is used to enforce that only one relation is created despite the ability of the "group" type field to create multiple references.Example - Attaching images
+ When you want to attach files to a database record it is done by the group field like this:
+ 
+ 
+@@ -5290,8 +5228,7 @@
+ Notice how line 5 defines the "group" type to contain files. 
+ In line 6 the list of allowed file extensions are defined (here, taking the default list of image types for TYPO3). 
+ Line 7 defines the maximum kb size of files allowed. 
+-Line 8 defines the storage folder in the filesystem where the files are copied to when attached to the record. The path is relative to the PATH_site of TYPO3, one directory below PATH_typo3
+-Data format of "group" elements
++Line 8 defines the storage folder in the filesystem where the files are copied to when attached to the record. The path is relative to the PATH_site of TYPO3, one directory below PATH_typo3Data format of "group" elements
+ Since the "group" element allows to store references to multiple elements we might want to look at how these references are stored internally. 
+ 
+ Storage methods
+@@ -5439,15 +5376,13 @@
+ string
+ [Must be set to "passthrough"]
+ 
+-Now follows a codelisting as example:
+-Example: 
++Now follows a codelisting as example:Example: 
+ This field is found in a number of table, eg. the "pages" table. It is apparently used by the extension "impexp" to store some information.
+ 				script_ended = 0;?
+ 				function jumpToUrl(URL)	{?
+ 					document.location = URL;?
+ 				}?
+-			        ?tx_impexp_origuid? => Array(?config?=>array(?type?=>?passthrough?)),
+-Example: 
++			        ?tx_impexp_origuid? => Array(?config?=>array(?type?=>?passthrough?)),Example: 
+ In this example the extension "direct_mail" is adding some fields to the "tt_address" table but the fields are not editable through TCEforms, just able to manipulate through TCE directly.
+ 				script_ended = 0;?
+ 				function jumpToUrl(URL)	{?
+@@ -5479,8 +5414,7 @@
+ boolean
+ If set, then the output from the user function will not be wrapped in the usual table - you will have to do that yourself.
+ 
+-Now follows a codelisting as example:
+-Example:
++Now follows a codelisting as example:Example:
+ This field is rended by custom PHP code:
+ 
+ 
+@@ -5596,17 +5530,14 @@
+ string
+ Points to a field in the rootline which may contain a pointer to the next-level template.
+ See templavoila for example - uses this for the Page Template.
+-
+ Pointing to a Data Structure
+ Basically the configuration for a FlexForm field is all about pointing to the Data Structure which will contain form rendering information in the application specific tag <TCEforms>.
+-For general information about the backbone of a Data Structure, please see the <T3DataStructure> chapter in the Data Formats section.
+-FlexForm facts
++For general information about the backbone of a Data Structure, please see the <T3DataStructure> chapter in the Data Formats section.FlexForm facts
+ FlexForms create a form-in-a-form. The content coming from this form is still stored in the associated database field - but as an XML structure (stored by t3lib_div::array2xml())!
+ The TCA information needed to generate the FlexForm fields are found inside a <T3DataStructure> XML document. When you configure a FlexForm field in a Data Structure (DS) you can use basically all column types documented here for TCA. The limitations are:
+ unique and uniqueInPid evaluation is not available
+ You cannot nest FlexForm configurations inside of FlexForms.
+-Charset follows that of the current backend (that is forceCharset or the backend users language selection)
+-<T3DataStructure> extensions for <TCEforms>
++Charset follows that of the current backend (that is forceCharset or the backend users language selection)<T3DataStructure> extensions for <TCEforms>
+ For FlexForms the DS is extended with a tag, <TCEforms> which define all settings specific to the FlexForms usage.
+ Also a few meta tag features are used.
+ Sometimes it may be necessary to reload flexform if content of the field in the flexform is changed. This is accomplished by adding <onChange>reload</onChange> inside <TCEforms>. A typical example for that is a field that defines operational modes for an extension. When the mode changes, a flexform may need to show a new set of fields. By combining the <onChange> tag for mode fields with <displayCond> tag for other fields, it is possible to create truly dynamic flexforms.
+@@ -5650,10 +5581,8 @@
+ <sheetShortDescr>
+ string
+ Specifies a short description of the sheet used in the tab-menu. Language splitted.
+-
+ Sheets and FlexForms
+-FlexForms always resolve sheet definitions in a Data Structure. If only one sheet is defined that must be the sDEF sheet (default). In that case no tab-menu for sheets will appear (see examples below).
+-FlexForm data format, <T3FlexForms>
++FlexForms always resolve sheet definitions in a Data Structure. If only one sheet is defined that must be the sDEF sheet (default). In that case no tab-menu for sheets will appear (see examples below).FlexForm data format, <T3FlexForms>
+ When saving FlexForm elements the content is stored as XML using t3lib_div::array2xml() to convert the internal PHP array to XML format. The structure is as follows:
+ Array Elements:
+ Element
+@@ -5703,8 +5632,7 @@
+ string
+ Points to the currently shown sheet in the DS.
+ 
+-For syntax highlighted example, see below.
+-Example: Simple FlexForm
++For syntax highlighted example, see below.Example: Simple FlexForm
+ The extension mininews displays a FlexForm in the Plugin type content element. The form displays a template selector box:
+ 
+ 
+@@ -5757,8 +5685,7 @@
+ If we browse the definition for the pi_flexform field in tt_content we will see this configuration:
+ 
+ 
+-As you can see two extension plugins, newloginbox_pi1 and mininews_pi1 has added pointers to their Data Structures.
+-Example: FlexForm with two sheets
++As you can see two extension plugins, newloginbox_pi1 and mininews_pi1 has added pointers to their Data Structures.Example: FlexForm with two sheets
+ In this example we create a flexform field with two sheets. Each sheet can contain a separate FlexForm structure.
+ 
+ ....[?config?] = array(
+@@ -5857,8 +5784,7 @@
+ </s_welcome>
+ </data>
+ </T3FlexForms>
+-Notice how the data of the two sheets are separated.
+-Example: Rich Text Editor in FlexForms
++Notice how the data of the two sheets are separated.Example: Rich Text Editor in FlexForms
+ Creating a RTE in FlexForms is done by adding defaultExtras content to the <TCEforms> tag:
+ <TCEforms>
+ <config>
+@@ -5868,8 +5794,7 @@
+ </config>
+ <label>Subtitle</label>
+ <defaultExtras>richtext[*]:rte_transform[mode=ts_css]</defaultExtras>
+-</TCEforms>
+-Handling languages in FlexForms
++</TCEforms>Handling languages in FlexForms
+ FlexForms allows you to handle translations of content in two ways. But before you can enable those features you have to install the extension static_info_tables which contains country names and ISO-language codes which are the ones by which FlexForms stores localized content:
+ 
+ 
+@@ -5976,9 +5901,135 @@
+ </data>
+ </T3FlexForms>
+ You can see the Danish counterparts to the default values are stored in tags named <vDA> on the same level as <vDEF> is located.
+-NOTICE: The two localization methods are NOT compatible! You cannot suddenly change from the one method to the other without having to do some conversion of the data format. That is obvious when you look at how the two methods also require different data structures underneath![?types?][key] section
+-You have to add at least one entry in the "types"-configuration before any of the configured fields from the [?columns?] section will show up in TCEforms.
+-Required configuration
++NOTICE: The two localization methods are NOT compatible! You cannot suddenly change from the one method to the other without having to do some conversion of the data format. That is obvious when you look at how the two methods also require different data structures underneath![?columns?][fieldname][?config?] / TYPE: "inline"
++Inline-Relational-Record-Editing (IRRE) offers a way of directly editing parent-child-relations in one backend view. New child records are created using AJAX calls to prevent a reload of the complete backend view. This type was first integrated in TYPO3 4.1.
++Key
++Datatype
++Description
++Scope
++type
++string
++[Must be set to "inline"]
++Display / Proc.
++foreign_table
++string
++(tablename)
++[Must be set, there is no type inline without a foreign table]The table name of the child records is defined here. The table must be configured in $TCA.
++See the other related options below.
++Display / Proc.
++appearance
++array
++Has information about the appearance of child-records, namely:
++collapseAll (boolean)Show all child-records collapsed (if false, all are expanded)
++expandSingle (boolean)Show only one child-record expanded each time. If a collapsed reocord is clicked, the currently open one collapses and the clicked one expands.
++newRecordLinkAddTitle (boolean)Adds the title of the foreign_table to the New record link.false: Create newtrue: Create new <title of foreign_table>, e.g. Create new address
++newRecordLinkPosition (string)Values: ?top?, ?bottom?, ?both?, ?none?  default: ?top?Defines where to show the New record link in relation to the child records.
++useCombination (boolean)This is only useful on bidirectional relations using an intermediate table with attributes. In a combination it is possible to edit the attributes AND the related child record itself.
++useSortable (boolean)Active Drag&Drop Sorting by the script.aculo.us Sortable object.
++Display
++foreign_field
++string
++The foreign_field is the field of the child record pointing to the parent record. This defines where to store the uid of the parent record.
++Display / Proc.
++foreign_label
++string
++If set, it overrides the label set in $TCA[<foreign_table>][?ctrl?][?label?] for the inline-view.
++Display / Proc.
++foreign_selector
++string
++A selector is used to show all possible child records that could be used to create a relation with the parent record. It will be rendered as a multi-select-box. On clicking on an item inside the selector a new relation is created.The foreign_selector points to a field of the foreign_table that is responsible for providing a selector-box  this field on the foreign_table usually has the type select and also has a foreign_table defined.
++Display / Proc.
++foreign_sortby
++string
++Define a field on the child record (or on the intermediate table) that stores the manual sorting information. It is possible to have different sortings, depending from which side of the relation we look at parent or child.
++Display / Proc.
++foreign_default_sortby
++string
++If a fieldname for foreign_sortby is defined, then this is ignored. 
++Otherwise this is used as the ORDER BY statement to sort the records in the table when listed.
++Display
++foreign_table_field
++string
++The foreign_table_field is the field of the child record pointing to the parent record. This defines where to store the tablename of the parent record. On setting this configuration key together with foreign_field, the child record knows what its parent record is  so the child record could also be used on other parent tables.This issue is also known as weak entity.Do not cnfound with foreign_table or foreign_field. It has its own behaviour.
++Display / Proc.
++foreign_unique
++string
++Field which must be unique for all children of a parent record.
++Example: Say you have two tables, products, your parent table, and prices, your child table (products) can have multiple prices. The prices table has a field called customer_group, which is a selector box. Now you want to be able to specify prices for each customer group when you edit a product, but of course you don?t want to specify contradicting prices for one product (i.e. two different prices for the same customer_group). That?s why you would set foreign_unique to the field name customer_group, to prevent that two prices for the same customer group can be created for one product.
++Display / Proc.
++MM
++string
++(table name)
++Means that the relation to the records of "foreign_table" is done with a M-M relation with a third "join" table. 
++That table typically has three columns: 
++uid_local, uid_foreign for uids respectively. 
++sorting is a required field used for ordering the items.
++
++The field which is configured as inline is not used for data-storage any more but rather it?s set to the number of records in the relation on each update, so the field should be an integer.
++Notice: Using MM relations you can ONLY store real relations for foreign tables in the list - no additional string values or non-record values (so no attributes).
++Proc.
++size
++integer
++Height of the selector box in TCEforms.
++Display
++autoSizeMax
++integer
++If set, then the height of multiple-item selector boxes (maxitem > 1) will automatically be adjusted to the number of selected elements, however never less than "size" and never larger than the integer value of "autoSizeMax" itself (takes precedence over "size"). So "autoSizeMax" is the maximum height the selector can ever reach.
++Display
++maxitems
++integer > 0
++Maximum number of items in the selector box. (Default = 1)
++Display / Proc
++minitems
++integer > 0
++Minimum number of items in the selector box. (Default = 0)
++Display
++symmetric_field
++string
++This works like foreign_field, but in case of using bidirectional symmetric relations. symmetric_field defines in which field on the foreign_table the uid of the other parent is stored.
++Display / Proc.
++symmetric_label
++string
++If set, it overrides the label set in $TCA[<foreign_table>][?ctrl?][?label?] for the inline-view and only if looking to a symmetric relation from the other side.
++Display / Proc.
++symmetric_sortby
++string
++This works like foreign_sortby, but in case of using bidirectional symmetric relations. Each side of a symmetric relation could have its own sorting, so symmetric_sortby defines a field on the foreign_table where the sorting of the other side is stored.
++Display / Proc.Example comma separated list: 
++This combines companies with persons (employees) using a comma separated list, so no foreign_field is used here.
++$TCA[?company?] = Array(
++?ctrl? => ...,
++?interface? => ...,
++?feInterface? => ...,
++?columns? => Array(
++?hidden? => ...,
++?employees? => Array(
++?exclude? => 1,
++?label? => ?LLL:EXT:myextension/locallang_db.xml:company.employees?,
++?config? => Array(
++?type? => ?inline?,
++?foreign_table? => ?person?,
++?maxitems? => 10,
++?appearance? => Array(
++?collapseAll? => 1,
++?expandSingle? => 1,
++),
++),
++),
++),
++?types? => ...
++?palettes? => ...
++);Example attributes on anti-symmetric intermediate table: 
++This example combines companies with persons (employees) using an intermediate table. It is also possible to add attributes to every relation  in this example, an attribute jobtype on the person_company table is defined. It is also possible to look at the relation from both sides (parent and child).
++$TCA[?person?] = Array( ?columns? => Array( ?employers? => Array( ?label? => ?LLL:EXT:myextension/locallang_db.xml:person.employers?, ?config? => Array( ?type? => ?inline?, ?foreign_table? => ?person_company?, ?foreign_field? => ?person?, ?foreign_label? => ?company?, ), ), ),);
++$TCA[?company?] = Array( ?columns? => Array( ?employees? => Array( ?label? => ?LLL:EXT:myextension/locallang_db.xml:company.employees?, ?config? => Array( ?type? => ?inline?, ?foreign_table? => ?person_company?, ?foreign_field? => ?company?, ?foreign_label? => ?person?, ), ), ),);
++$TCA[?person_company?] = Array( ?columns? => Array( ?person? => Array( ?label? => ?LLL:EXT:myextension/locallang_db.xml:person_company.person?, ?config? => Array( ?type? => ?select?, ?foreign_table? => ?person?, ?size? => 1, ?minitems? => 0, ?maxitems? => 1, ), ), ?company? => Array( ?label? => ?LLL:EXT:myextension/locallang_db.xml:person_company.company?, ?config? => Array( ?type? => ?select?, ?foreign_table? => ?company?, ?size? => 1, ?minitems? => 0, ?maxitems? => 1, ), ), ?jobtype? => Array( ?label? => ?LLL:EXT:myextension/locallang_db.xml:person_company.jobtype?, ?config? => Array( ?type? => ?select?, ?items? => Array( Array(?Project Manager (PM)?, ?0?), Array(?Chief Executive Officer (CEO)?, ?1?), Array(?Chief Technology Officer (CTO)?, ?2?), ), ?size? => 1, ?maxitems? => 1, ), ), ),);
++Example attributes on symmetric intermediate table: 
++This example combines two persons with each other  imagine they are married. One person on the first side is the husband, and one person on the other side is the wife (or generally spouse in the example below). Symmetric relations combine object of the same with each other and it does not depend, from which side someone is looking to the relation  so the husband knows it?s wife and the wife also know it?s husband.
++Sorting could be individually defined for each of the both sides (perhaps this should not be applied to a wife-husband-relationship in real life).
++$TCA[?person?] = Array( ?columns? => Array( ?employers? => Array( ?label? => ?LLL:EXT:myextension/locallang_db.xml:person.employers?, ?config? => Array( ?type? => ?inline?, ?foreign_table? => ?person_symmetric?, ?foreign_field? => ?person?, ?foreign_sortby? => ?sorting_person?, ?foreign_label? => ?spouse?, ?symmetric_field? => ?spouse?, ?symmetric_sortby? => ?sorting_spouse?, ?symmetric_label? => ?person?, ), ), ),);
++$TCA[?person_symmetric?] = Array( ?columns? => Array( ?person? => Array( ?label? => ?LLL:EXT:myextension/locallang_db.xml:person_symmetric.person?, ?config? => Array( ?type? => ?select?, ?foreign_table? => ?person?, ?size? => 1, ?minitems? => 0, ?maxitems? => 1, ), ), ?spouse? => Array( ?label? => ?LLL:EXT:myextension/locallang_db.xml:person_symmetric.spouse?, ?config? => Array( ?type? => ?select?, ?foreign_table? => ?person?, ?size? => 1, ?minitems? => 0, ?maxitems? => 1, ), ), ?someattribute? => Array( ?label? => ?LLL:EXT:myextension/locallang_db.xml:person_symmetric.someattribute?, ?config? => Array( ?type? => ?input?, ), ), ?sorting_person? => Array( ?config? => Array( ?type? => ?passthrough?, ), ), ?sorting_spouse? => Array( ?config? => Array( ?type? => ?passthrough?, ), ), ),);[?types?][key] section
++You have to add at least one entry in the "types"-configuration before any of the configured fields from the [?columns?] section will show up in TCEforms.Required configuration
+ For instance, if you would like a form to look like below...:
+ 
+ 
+@@ -5986,8 +6037,7 @@
+ 140:     ?types? => Array (
+ 141:         ?0? => Array(?showitem? => ?hidden;;1, type, title, test_template?),
+ 
+-The key "showitem" lists the order in which to define the fields: "hidden, type, title, test_template"
+-Optional possibilities
++The key "showitem" lists the order in which to define the fields: "hidden, type, title, test_template"Optional possibilities
+ The power of "types"-configuration is clear in the moment when you want the form composition of a record to depend on a value from the record. From the example above, lets say we want the selector box "type" to define the composition of fields in the form. This is configured like this:
+ 
+ 2:     ?ctrl? => Array (
+@@ -6030,7 +6080,6 @@
+ 
+ 
+ And "Mode 4":
+-
+ Default values
+ If no "type" field is defined the type value will default to "0" (zero). If the type value (coming from a field or being zero by default) does not point to a defined index in the "types"-configuration, the configuration for key "1" will be used by default.
+ Notice: You must not show the same field more than once in the editing form. If you do, the field will not detect the value properly.
+@@ -6109,8 +6158,7 @@
+ 
+ [+/-][bit-number] => [commalist of fields (from the main types-config) excluded]
+ 
+-Now follows a codelisting as example:
+-Example - simple configuration:
++Now follows a codelisting as example:Example - simple configuration:
+ This is a quite normal and simple configuration. In the "types" section the list of fields does not contain much additional stuff except the first entry which configures "Part 5" - the colorscheme for the whole form. 
+ Basically the "showitem" list is just listing the fieldnames which will be displayed.
+ 				script_ended = 0;?
+@@ -6123,7 +6171,6 @@
+ 
+ The result of this configuration looks like this:
+ 
+-
+ Example - semi complex configuration: 
+ This is a semi-complex example taken from the "mininews" extension. It does include configuration of the rich text editor which is the main reason for the lengthyness. Notice the "palettes" definition which the example includes. The palette has number "1" and will be triggered when the user puts the focus on the field "hidden" (according to the configuration in the "types" list).
+ 				script_ended = 0;?
+@@ -6136,7 +6183,6 @@
+     ?palettes? => Array (
+         ?1? => Array(?showitem? => ?starttime, endtime, fe_group?)
+     )
+-
+ Example - complex configuration: 
+ This is a part of the "types" definition for the "tt_content" table. This is one of the more advanced configurations, including basically all the levels of options you can use:
+ 
+@@ -6213,8 +6259,7 @@
+ 
+ 
+ 
+-The point of setting "nowrap" in the types configuration is that under other "types"-configurations the field will wrap lines. Likewise you can configure an RTE to appear for a field only if a certain type of the record is set and in other cases not.
+-Default Special Configuration (defaultExtras)
++The point of setting "nowrap" in the types configuration is that under other "types"-configurations the field will wrap lines. Likewise you can configure an RTE to appear for a field only if a certain type of the record is set and in other cases not.Default Special Configuration (defaultExtras)
+ Since "types"-configuration does not apply for FlexForms and since a feature available as special configuration is sometimes needed regardless of type value you can also configure the default value of the special configuration. This is done with a key in the [?columns?][fieldname] array. Thus, the alternative configuration for the example above could be:
+         ?TEST01? => Array (
+             ?label? => ?TEST01: Text field?,
+@@ -6227,8 +6272,7 @@
+     ),
+     ?types? => Array (
+         ?0? => Array(?showitem? => ?hidden;;1, type, title, test_template, TEST01?),
+-This works equally well.Special Configuration options
+-Keywords
++This works equally well.Special Configuration optionsKeywords
+ This table lists the options for keywords in special configuration. Each keyword is followed by a value wrapped in [] (square brackets). 
+ Keyword
+ Description
+@@ -6271,7 +6315,6 @@
+ Used to specifically enable wizards configured for a field. See option "enableByTypeConfig" in the wizard configuration.
+ wizard-key1|wizard-key2|...
+ wizards[table]
+-
+ rte_transform[] key/value pairs
+ Keyword
+ Description
+@@ -6292,7 +6335,6 @@
+ This sets an alternative path for Rich Text Editor images. Default is configured by the value TYPO3_CONF_VARS["BE"]["RTE_imageStorageDir"] (default is uploads/)
+ path relative to PATH_site, eg. uploads/rte_test/
+ 
+-
+ Example - Setting up Rich Text Editors
+ This sets up a Rich Text Editor with all possible tool bar buttons available, no transformations added or anything else:
+         ?TEST01? => Array (
+@@ -6305,8 +6347,7 @@
+ This example is from the "mininews" extension which offers a RTE for editing the content of website news. This includes a limited list of toolbar buttons and a transformation of content ("ts_css") as well as a definition of an alternative storage path for uploaded images in the RTE ("uploads/tx_mininews/rte/")
+ richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/tx_mininews/rte/]
+ The configuration for the RTE in the Content Elements is very similar regarding the enabled buttons. But the "rte_transform" values are slightly different. Here the field "rte_enabled" will disable the RTE if true (this field is a checkbox) and the transformation is "ts".
+-rte_transform[flag=rte_enabled|mode=ts]
+-static_write[] parameters
++rte_transform[flag=rte_enabled|mode=ts]static_write[] parameters
+ Keyword
+ Description
+ f1
+@@ -6323,7 +6364,6 @@
+ f5
+ The field name which will receive a status message as a short text string.
+ Optional.
+-
+ Example - Write to static file
+ This setup configures two fields in a record to point to a file and edit content in it between two markers:
+ 
+@@ -6349,8 +6389,7 @@
+ 
+ You can study a fullblown configuration of these features in the extension called "static_file_edit".Soft References
+ "Soft References" are references to database elements, files, email addresses, URls etc. which are found in-text in content. The <link [page_id]> tag from typical bodytext fields are an example of this. 
+-The Soft Reference parsers are used by the system to find these references and process them accordingly in import/export actions and copy operations. Also, the soft references are utilized by integrity checking functions.
+-Default soft reference parsers
++The Soft Reference parsers are used by the system to find these references and process them accordingly in import/export actions and copy operations. Also, the soft references are utilized by integrity checking functions.Default soft reference parsers
+ The class t3lib_softrefproc contains generic parsers for the most well-known types which are default for most TYPO3 installations. This is the list of the possible keys:
+ softref key:
+ Description:
+@@ -6391,8 +6430,7 @@
+ ?url? => ?t3lib/class.t3lib_softrefproc.php:&t3lib_softrefproc?,
+ )
+ )
+-),
+-User defined soft reference parsers
++),User defined soft reference parsers
+ Soft References can also be user defined. It is easy to set them up by simply adding new keys in $TYPO3_CONF_VARS[?SC_OPTIONS?][?GLOBAL?][?softRefParser?]. Use keynames based on the extension you put it in, eg. tx_myextensionkey.
+ The class containing the soft reference parser must have a function named findRef. Please refer to the class t3lib_softrefproc from t3lib/ for the API to use and return.Wizards Configuration
+ Wizards are configurable for some field types, namely input, text, "select" and "group" types. They provide a way to insert helper-elements, links to wizard scripts etc.
+@@ -6405,7 +6443,6 @@
+ 
+ Another example of wizards are the new / edit / list links which are available for "group" or "select" type fields:
+ 
+-
+ Configuration of wizards
+ The value of the wizards key in the field config-array is an array. Each key is yet an array which configures the individual wizards for a field. The order of the keys determines the order the wizards are displayed. The key-values themselves play no important role (except from a few reserved words listetd in a table below).
+ The configuration for the new / edit / list links above looks like this:
+@@ -6453,8 +6490,7 @@
+ 42:     )
+ 43: ),
+ The wizard configuration takes place in line 9 and throughout. Two reserved keywords are used in line 10 and 11 to set arrangement settings for the display of icons. 
+-Then a new wizard is configured in lines 12 (edit), 20 (add) and 31 (list).
+-Reserved keys
++Then a new wizard is configured in lines 12 (edit), 20 (add) and 31 (list).Reserved keys
+ Each wizard is identified by a key string. However some strings are reserved for general configuration. These are listed in this table and as a rule of thumb they are prefixed with an underscore ("_"):
+ Key
+ Type
+@@ -6482,7 +6518,6 @@
+ [any other key]
+ PHP-Array
+ Configuration of the wizard types, see below.
+-
+ General configuration options
+ This table lists the general configuration options for (almost) all wizard types. In particular the value of the "type" key is important because it denotes what additional options are available.
+ Key
+@@ -6510,7 +6545,6 @@
+ hideParent
+ array
+ If set, then the real field will not be shown (but rendered as a hidden field). In hideParent you can configure the non-editable display of the content as if it was a field of the none type. The options are the same as for the config key for none types.
+-
+ Specific wizard configuration options based on type
+ Key
+ Type
+@@ -6608,8 +6642,7 @@
+ Array("20 px","20")
+ )
+ 
+-In the next section all the default core wizard scripts are demonstrated with examples. Before that, here is a few examples of wizards that does not require an external script.
+-Example - Selector box of preset values
++In the next section all the default core wizard scripts are demonstrated with examples. Before that, here is a few examples of wizards that does not require an external script.Example - Selector box of preset values
+ You can add a selector box containing preset values next to a field:
+ 
+ 
+@@ -6629,8 +6662,7 @@
+ 12:                     array(?Label 2?, ?Value 2?),
+ 13:                     array(?Label 3?, ?Value 3?),
+ 14:                 )
+-15:             ),
+-Example - User defined wizard (processing with PHP function)
++15:             ),Example - User defined wizard (processing with PHP function)
+ The "userFunc" type of wizard allows you to render all the wizard code yourself. Theoretically, you could produce all of the other wizard kinds ("script", "popup", "colorbox" etc) with your own user function rendering the similar HTML.
+ In this example I will do two things with the wizard: 
+ show how you can manipulate the HTML code of the form field the wizard is attached to 
+@@ -6682,8 +6714,7 @@
+ Finally the wizard HTML created is returned.
+ Obviously you will have to find out what kind of information is hidden in the $PA variable. A TYPO3 specific way of doing this is to use "debug($PA);" which will output the content of the array in a nicely formatted table. In PHP there are native functions like "print_r" or "vardump".Wizard scripts in the core
+ The wizard interface allows you to use any PHP-script for your wizards but there is a useful set of default wizard scripts available in the core of TYPO3. These are found in PATH_typo3 and are all prefixed "wizard_" (except "browse_links.php").
+-Below is a description of each of them including a description of their special parameters and an example of usage.
+-wizard_add.php
++Below is a description of each of them including a description of their special parameters and an example of usage.wizard_add.php
+ This script links to a form which allows you to create a new record in a given table which may optionally be set as the value on return to the real form.
+ Key
+ Type
+@@ -6740,8 +6771,7 @@
+ 25:         )
+ 26:     )
+ 27: ),
+-Line 15 defines the type to be "script" which is set to "wizard_add.php" in line 23. The parameters that instructs the Add-wizard how to handle the creation is done in line 19-21; The table is of course fe_groups and the pid where the user is created is the Storage Folder set for the website. Of course this requires a storage folder to exist. Finally, "setValue" tells the wizard script that the uid of the new record should substitute any current value.
+-wizard_edit.php
++Line 15 defines the type to be "script" which is set to "wizard_add.php" in line 23. The parameters that instructs the Add-wizard how to handle the creation is done in line 19-21; The table is of course fe_groups and the pid where the user is created is the Storage Folder set for the website. Of course this requires a storage folder to exist. Finally, "setValue" tells the wizard script that the uid of the new record should substitute any current value.wizard_edit.php
+ The Edit wizard gives you a shortcut to edit references in "select" or "group" type form elements. 
+ 
+ 
+@@ -6755,8 +6785,7 @@
+ 7:         ?JSopenParams? => ?height=350,width=580,status=0,menubar=0,scrollbars=1?,
+ 8:     ),
+ This time the type fitting the wizard script best is the "popup" type. It could have been the "script" type as well, but it just works slightly better in this case if it is a pop-up so we don?t leave the original form.
+-There are no parameters to pass along like there were for the Add wizard.
+-wizard_list.php
++There are no parameters to pass along like there were for the Add wizard.wizard_list.php
+ This links to the Web>List module for only one table and allows the user to manipulate stuff there.
+ 
+ 
+@@ -6791,8 +6820,7 @@
+ 9:         ),
+ 10:         ?script? => ?wizard_list.php?,
+ 11:     ),
+-The type is also the "script" type. In the "params" array the table and pid passed to the script is set.
+-wizard_colorpicker.php
++The type is also the "script" type. In the "params" array the table and pid passed to the script is set.wizard_colorpicker.php
+ The colorpicker wizard allows you to select a HTML color value from a user friendly pop-up box. The wizard type is "colorbox" which will first of all add a colored box next to an input field:
+ 
+ 
+@@ -6819,8 +6847,7 @@
+ 16:         )
+ 17:     )
+ 18: ),
+-Notice the wizard type is "colorbox".
+-wizard_forms.php
++Notice the wizard type is "colorbox".wizard_forms.php
+ The forms wizard is used typically with the Content Elements, type "Mailform". It allows to edit the code-like configuration of the mail form with a nice editor. This is shown in the introduction to Wizards above. 
+ This is the available parameters:
+ Key
+@@ -6829,7 +6856,6 @@
+ xmlOutput
+ boolean
+ If set, the output from the wizard is XML instead of the strangely formatted TypoScript form-configuration code.
+-
+ The configuration used for the editor in Content Elements looks like this:
+ ?forms? => Array(
+     ?notNewRecords? => 1,
+@@ -6840,7 +6866,6 @@
+     ?script? => ?wizard_forms.php?special=formtype_mail?,
+     ?params? => array(?xmlOutput? => 0)
+ )
+-
+ wizard_table.php
+ The tables wizard is used typically with the Content Elements, type "Table". It allows to edit the code-like configuration of the tables with a nice editor. 
+ 
+@@ -6865,8 +6890,7 @@
+     ?icon? => ?wizard_table.gif?,
+     ?script? => ?wizard_table.php?,
+     ?params? => array(?xmlOutput? => 0)
+-),
+-wizard_rte.php
++),wizard_rte.php
+ This wizard is used to show a "full-screen" Rich Text Editor field. The configuration below shows an example taken from the Text field in Content Elements:
+ ?RTE? => Array(
+     ?notNewRecords? => 1,
+@@ -6875,10 +6899,8 @@
+     ?title? => ?LLL:EXT:cms/locallang_ttc.php:bodytext.W.RTE?,
+     ?icon? => ?wizard_rte2.gif?,
+     ?script? => ?wizard_rte.php?,
+-),
+-wizard_tsconfig.php
+-This wizard is used for the TSconfig fields and TypoScript Template "Setup" fields. It is specialized for that particular situations and it is not likely you will need it for anything on your own.
+-browse_links.php
++),wizard_tsconfig.php
++This wizard is used for the TSconfig fields and TypoScript Template "Setup" fields. It is specialized for that particular situations and it is not likely you will need it for anything on your own.browse_links.php
+ The "Links" wizard is used many places where you want to insert link references. Not only in the Rich Text Editor but also in "typolink" fields:
+ 
+ 
+@@ -6933,8 +6955,7 @@
+ 
+ Notice: All four options must be set for the default type while the rest can choose as they like.
+ 
+-White $PAGES_TYPES is most significant, there are a few other global variables which deserves a mention in relation to $TCA:
+-$ICON_TYPES
++White $PAGES_TYPES is most significant, there are a few other global variables which deserves a mention in relation to $TCA:$ICON_TYPES
+ With $ICON_TYPES you can assign alternative icons to pages records based on the field ?module? in pages table. Each key is a value from the "module" field of page records and the value is an array with a key/value pair, eg. "icon" => "modules_shop.gif". The file reference is on the same format "iconfile" in [ctrl] section of TCA
+ This is the configuration found in "cms" extension and setting icons for some legacy extensions:
+     // Setting ICON_TYPES
+@@ -6947,8 +6968,7 @@
+         ?approve? => Array(?icon? => ?modules_approvals.gif?)
+     );
+ 
+-Usage of $ICON_TYPES is deprecated.
+-$LANG_GENERAL_LABELS
++Usage of $ICON_TYPES is deprecated.$LANG_GENERAL_LABELS
+ Commonly used language labels which can be used in the $TCA array and elsewhere. Has become obsolete - just use the values of each entry directly.
+ For backwards compatibility $LANG_GENERAL_LABELS are still available but deprecated. This is the default values:
+ $LANG_GENERAL_LABELS = array(
+@@ -6963,8 +6983,7 @@
+ You may load table descriptions dynamically (as needed) from separate files using the function t3lib_div::loadTCA($tablename) where $tablename is the name of the table you wish to load a complete description of.
+ Dynamic tables must always be configured with a full [ctrl]-section (and [feInterface] section if needed). That is, it must be represented by $TCA[$table][?ctrl?]. If the table is dynamic, the value of [ctrl][dynamicConfigFile] points to an includefile with the full array in. 
+ The loadTCA-function determines whether a table is fully loaded based on whether $TCA[$table][columns] is an array. If it is found to be an array the function just returns - else it loads the table if there is a value for dynamicConfigFile
+-The table pages must not be dynamic. All others can be in principle. You can also define more than one table in a dynamicConfigFile - as long as the $TCA array is correctly updated with table information it doesn?t matter if a file contains configuration for more than the requested table - although the requested table should of cause always be configured, because it?s expected to be. In fact there is not much error checking; The function loadTCA simply includes the file in blind faith that this action will fully configure the table in question.
+-Locating places where t3lib_div::loadTCA call is needed
++The table pages must not be dynamic. All others can be in principle. You can also define more than one table in a dynamicConfigFile - as long as the $TCA array is correctly updated with table information it doesn?t matter if a file contains configuration for more than the requested table - although the requested table should of cause always be configured, because it?s expected to be. In fact there is not much error checking; The function loadTCA simply includes the file in blind faith that this action will fully configure the table in question.Locating places where t3lib_div::loadTCA call is needed
+ To find places in your backend code where this should probably be implemented search for:
+ "each($TCA)" - This is potentially dangerous in a construction like this:
+ while(list($table,$config)=each($TCA))
+@@ -6997,8 +7016,7 @@
+ 66 ms
+ 136 ms
+ 
+-Benchmarks on a PIII/500 MHz Linux PHP4.1.2/Apache, 256 MB RAM. PHP-Cache is PHP-accelerator. All figures are parsetimes in milliseconds.
+-Analysis: 
++Benchmarks on a PIII/500 MHz Linux PHP4.1.2/Apache, 256 MB RAM. PHP-Cache is PHP-accelerator. All figures are parsetimes in milliseconds.Analysis: 
+ What we see is, when showing a page in Web>List where all tables are loaded, the dynamic loading of tables includes a little overhead (177-173=4 ms) regardless of script-caching. This seems fair, probably due to file operations. It?s also evident that the script-caching boosts the parsing considerably in both cases, saving approximately 150 ms in parsetime!
+ The Web>Info module does not load any tables (at least not in the mode, this was tested). This is the whole point of all this - that the full table definitions are loaded only if needed (as they were by the Web>List module). Again the point of caching is clear. But the main thing to look at is, that the Web>Info module is loaded in 66/136 seconds (cache/non-cache) with dynamic loading (was later tested to 60/118 ms when tt_content was not loaded by default) which is LOWER than if the whole tables.php was included (72/174 ms).
+ At this point the performance gain is not significant but welcomed. However the mechanism of dynamic loading of tables provides the basis for much greater number of tables in TYPO3. Testing 31 duplicates of the tt_content table added to the default number of configured tables (total of 62 tables configured) gave this benchmark:
+@@ -7077,8 +7095,7 @@
+ The design of the autogenerated forms in TYPO3 (typically referred to as "TCEforms") can be controlled down to fine detail. The fifth parameter in the $TCA/types configuration is used for this. 
+ The value consists of three integer pointers seperated by a dash (-). The first parameter points to colorscheme, the second points to stylescheme for the form elements and the third points to the borderscheme for the table surrounding all form elements until the next border is defined.
+ The integer pointers refer to entries in the global $TBE_STYLES variable. Here the definitions for each pointer is configured.$TBE_STYLES entries related to TCEforms
+-The array $TBE_STYLES is a part of the skinning API in TYPO3 and therefore the full description is found in the section about skinning. However the definition of the three entries related to TCEforms will be explained in detail here below.
+-Default integer pointers
++The array $TBE_STYLES is a part of the skinning API in TYPO3 and therefore the full description is found in the section about skinning. However the definition of the three entries related to TCEforms will be explained in detail here below.Default integer pointers
+ The "[0-x]" values in the "Subkeys" column in the table below represents the integer pointers that you use in the types-configuration of $TCA. You can set up any positive integer key you like, but TYPO3s core parts already implements the keys from 0-5 with a certain meaning which you are encouraged to follow as well:
+ Int. pointer
+ Title
+@@ -7111,8 +7128,7 @@
+     ?borderschemes? => Array (
+         ?0? => array(?border:solid 1px black;?,5)
+     )
+-);
+-Reference table:
++);Reference table:
+ Key
+ Subkeys
+ Description
+@@ -7220,8 +7236,7 @@
+     ?3? => array(?border:solid 1px black;?,5),
+     ?4? => array(?border:solid 1px black;?,5),
+     ?5? => array(?border:solid 1px black;?,5)
+-);
+-Examples
++);Examples
+ First, lets look at a plain types-configuration which merely renders a list of fields:
+ ?types? => Array (
+     ?0? => Array(?showitem? => ?title;;1,photodate,description,images,fe_cruser_id?)        
+@@ -7313,13 +7328,11 @@
+ Connecting an RTE in an extension to TYPO3 is easy. 
+ Create a class file in your extensions, named class.tx_[extensionkey minus underscores]_base.php. Make the class inside an extension of the system class, t3lib_rteapi (which you should include first of course) and override functions from the parent class to the degree needed.
+ In the ext_localconf.php file you put an entry in $TYPO3_CONF_VARS[?BE?][?RTE_reg?] which registers the new RTE with the system. For example; $TYPO3_CONF_VARS[?BE?][?RTE_reg?][?myrte?] = array(?objRef? => ?EXT:myrte/class.tx_myrte_base.php:&tx_myrte_base?);
+-The object reference in objRef consists of a filename reference (for the class file) and then the name of the class prefixed with & which ensures that you get the same instance (global) of the object each time you ask for it. "myrte" is the extension key of your RTE extension (with underscores stripped).
+-class.t3lib_rteapi.php
++The object reference in objRef consists of a filename reference (for the class file) and then the name of the class prefixed with & which ensures that you get the same instance (global) of the object each time you ask for it. "myrte" is the extension key of your RTE extension (with underscores stripped).class.t3lib_rteapi.php
+ In the base class for the RTE API there are three main methods of interest:
+ function isAvailable()This method is asked for the availability of the RTE; This is where you should check for environmental requirements that is needed for your RTE. Basically the method must return TRUE if the RTE is available. If it is not, the RTE can put text entries in the internal array ->errorLog which is used to report back the reason why it was not available.
+ function drawRTE(&$pObj,$table,$field,$row,$PA,$specConf,$thisConfig,$RTEtypeVal,$RTErelPath,$thePidValue)This method draws the content for the editing form of the RTE. It is called from the t3lib_TCEforms class which also passes a reference to itself in $pObj. For details on the arguments in the method call, please see inside class.t3lib_rteapi.php.
+-function transformContent($dirRTE,$value,$table,$field,$row,$specConf,$thisConfig,$RTErelPath,$pid)This method is used both from ->drawRTE() and from t3lib_tcemain to transform the content between the database and RTE. When content is loaded from the database to the RTE (and vice versa) it may need some degree of transformation. For instance references to links and images in the database might have to be relative while the RTE requires absolute references. This is just a simple example of what transformations can do for you and why you need them. There are plenty of details on this topic later.
+-Example: The rte extension
++function transformContent($dirRTE,$value,$table,$field,$row,$specConf,$thisConfig,$RTErelPath,$pid)This method is used both from ->drawRTE() and from t3lib_tcemain to transform the content between the database and RTE. When content is loaded from the database to the RTE (and vice versa) it may need some degree of transformation. For instance references to links and images in the database might have to be relative while the RTE requires absolute references. This is just a simple example of what transformations can do for you and why you need them. There are plenty of details on this topic later.Example: The rte extension
+ The rte extension has a ext_localconf.php file which looks like this:
+ 
+ if (!defined (?TYPO3_MODE?))     die (?Access denied.?);
+@@ -7420,14 +7433,12 @@
+ 
+ 
+ rteekit - a proof-of-concept extension implementing the Ekit Java Editor which is also Open Source.
+-
+ Notice
+ There might be other very good extensions with RTEs available so the list above should not be understood as the recommended RTEs! The extension rte has a special status since that is the traditional RTE working for years on MSIE / Windows. The other two were in fact created during the creation of the RTE API in TYPO3 in order to test it.TransformationsIntroduction
+ Transformation of content between the database and an RTE is needed if the format of the content in the database is different than the format understood by an RTE. A simple example could be that bold-tags in the database <b> should be converted to <strong> tags in the RTE or that references to images in <img> tags in the database should be relative while absolute in the RTE. In such cases a transformation is needed to do the conversion both ways; From database (DB) to RTE and from RTE to DB.
+ Generally transformations are needed for two reasons:
+ Data Formats; If the agreed format of the stored content in TYPO3 is different from the HTML format the RTE produces. This could be issues like XHTML, banning of certain tags or maybe a hybrid format in the database. (See section 3 in the illustration some pages ahead)
+-RTE specifics; If the RTE has special requirements to the content before it can be edited and if that format is different from what we want to store in the database. For instance an RTE could require a full HTML document with <html>, <head> and <body> - obviously we don?t want that in the database and likewise we will have to wrap content in such a dummy-body before it can be edited. (This is the case with rteekit, see section 4 in the illustration some pages ahead).
+-Hybrid modes
++RTE specifics; If the RTE has special requirements to the content before it can be edited and if that format is different from what we want to store in the database. For instance an RTE could require a full HTML document with <html>, <head> and <body> - obviously we don?t want that in the database and likewise we will have to wrap content in such a dummy-body before it can be edited. (This is the case with rteekit, see section 4 in the illustration some pages ahead).Hybrid modes
+ The traditional challenge of incorporating an RTE in TYPO3 has been that the RTE was available only to a limited set of browsers, typically MSIE on Windows. Therefore if an RTE was supported it had to be backwards compatible with situations where content was to be edited from regular <textarea>?s with no visual formatting.
+ Among the transformations in TYPO3 there are two modes, ts_transform and css_transform, which are trying to maintain a data format that is as human readable as possible while still offering an RTE for editing if applicable.
+ To know the details of those transformations, please refer to the tables in the next section. More historical background can also be obtained later in this document. But here is a short example of a hybrid mode:
+@@ -7446,35 +7457,26 @@
+ <p align=center>This line is centered.</p>
+ <p>This line is just plain</p>
+ 
+-This process of conversion from the one format to the other is what transformations do!
+-Configuration
++This process of conversion from the one format to the other is what transformations do!Configuration
+ Transformations are mainly defined in the Special Configuration of the $TCA "types"-configuration. There is detailed description of this in the $TCA section of this document.
+-In addition transformations can be fine-tuned by Page TSconfig which means that RTE behaviour can be determined even on page branch level! Details about this are found later in this chapter about the RTE API.
+-Where transformations are performed
++In addition transformations can be fine-tuned by Page TSconfig which means that RTE behaviour can be determined even on page branch level! Details about this are found later in this chapter about the RTE API.Where transformations are performed
+ The transformations you can do with TYPO3 is done in the class t3lib_parsehtml_proc. There are typically a function for each direction; From DB to RTE (suffixed _rte) and from RTE to DB (suffixed _db).
+ The transformations are invoked in two cases:
+ Before content enters the editing form This is done by the RTE API itself, calling the method t3lib_rteapi::transformContent(). See examples of this in the extensions rte, rtehtmlarea and rteekit. In particular rteekit is interesting because it not only calls the system transformations but also does some Ekit-specific processing since a whole HTML document has to be used in Ekit Java RTE which means that the HTML document body must be wrapped/stripped off as a part of the transformation process.
+ Before content is saved in the databaseThis is done in t3lib_tcemain class and the transformation is triggered by a pseudo-field from the submitted form! This field is added by the RTE API (calling t3lib_rteapi::triggerField()). Lets say the fieldname is data[tt_content][456][bodytext] then the trigger field is named data[tt_content][456][_TRANSFORM_bodytext] and in t3lib_tcemain this pseudo-field will be detected and used to trigger the transformation process from RTE to DB. Of course the pseudo field will never go into the database (since it is not found in $TCA).
+ 
+ The concept of transformations is discussed in more detail a few pages ahead ("Historical perspective on RTE transformations").Process illustration
+-The following illustration shows the process of transformations graphically. 
+-Part 1: The RTE Applications
+-This is the various possible RTE applications. They can be based on DHTML, Active-X, Java, Flash or whatever.
+-Part 2: The RTE Specific Transformation
++The following illustration shows the process of transformations graphically. Part 1: The RTE Applications
++This is the various possible RTE applications. They can be based on DHTML, Active-X, Java, Flash or whatever.Part 2: The RTE Specific Transformation
+ Some RTEs might need to apply additional transformation of the content in addition to the general transformation. An example is "rteekit" which requires a full HTML document for editing (and which will return a full document). In that case the RTE specific transformation must add/remove this html-document wrapper.
+-RTE specific transformations is normally programmed directly into the rte-api extension class. In the case of "rteekit" that is "tx_rteekit_base" which extends "t3lib_rteapi"
+-Part 3: The Main Transformation
++RTE specific transformations is normally programmed directly into the rte-api extension class. In the case of "rteekit" that is "tx_rteekit_base" which extends "t3lib_rteapi"Part 3: The Main Transformation
+ The main transformation of content between browser format for RTEs and the database storage format. This is general for all RTEs. Normally consists of converting links and image references from absolute to relative and further HTML processing as needed. This is the kind of transformation specifically described on the coming pages!
+-The main transformations is done with "t3lib_parsehtml_proc".
+-Part 4: The Database
+-The database where the content is stored for use in both backend and frontend.
+-Part 5: Rendering the website
++The main transformations is done with "t3lib_parsehtml_proc".Part 4: The Database
++The database where the content is stored for use in both backend and frontend.Part 5: Rendering the website
+ Content from the database is processed for display on the website. Depending on the storage format this might also involve "transformation" of content. For instance the internal "<link>" tag has to be converted into an HTML <a> tag. 
+-The processing normally takes place with TypoScript Templates, the "CSS Styled Content" extension (TS object path "lib.parseFunc_RTE")
+-Part 6: The Website
++The processing normally takes place with TypoScript Templates, the "CSS Styled Content" extension (TS object path "lib.parseFunc_RTE")Part 6: The Website
+ The website made with TYPO3.
+ 
+-
+ Content Examples
+ This table gives some examples of how content will look in the RTE, in the database and on the final website. 
+ Notice: This is only examples! It might not happen exactly like that in real life since it depends on which exact transformations you apply. But it illustrates the point that the content needs to be in different states whether in the RTE, Database or Website frontend.
+@@ -7599,8 +7601,7 @@
+ -
+ There are other options to set for the RTE toplevel object. These depends on the individual RTEs though! So there can be no further reference in this table to these properties.
+ Generally the "rte" (classic MSIE RTE) will set the standard for configuration options, so you can refer to the documentation for that RTE for more details. On the top level of the RTE object you will normally find that general collections of classes, styles etc. are configured.
+-[page:RTE]
+-Configuration examples
++[page:RTE]Configuration examples
+ This configuration in "Page TSconfig" will disable the RTE altogether:
+ RTE.default.disabled = 1
+ 
+@@ -7611,8 +7612,7 @@
+ In this example the RTE is still enabled for content elements in generally but if the Content Element type is set to "Text" (text) then the RTE will be disabled again!
+ RTE.default.disabled = 1
+ RTE.config.tt_content.bodytext.disabled = 0
+-RTE.config.tt_content.bodytext.types.text.disabled = 1
+-The RTE object in Page TSconfig
++RTE.config.tt_content.bodytext.types.text.disabled = 1The RTE object in Page TSconfig
+ The RTE object contains configuration of the RTE application. There are a few properties which are used externally from the RTE. The property "disabled" will simply disable the rendering of the RTE and "proc" is reserved to contain additional configuration of transformations.
+ Property:
+ Data type:
+@@ -7629,8 +7629,7 @@
+ [individual RTE options]
+ -
+ Each RTE may use additional properties for the RTE. Typically such properties relates to the features of the RTE application. For instance you could configure which tool bar buttons are available etc.
+-[page:->RTEconf]
+-Configuration examples
++[page:->RTEconf]Configuration examples
+ 0: RTE.default >
+ 1: RTE.default {
+ 2: mainStyle_font = Arial, sans-serif
+@@ -7658,8 +7657,7 @@
+ 24: }
+ 25: disablePCexamples = 0
+ 26: }
+-In this example all the configuration except line 8-14 ("proc." configuration) is defining the RTE applications internal features. These options will vary depending on the RTE used. In this case the configuration is for the classic MSIE Active-X RTE in the extension "rte".
+-The ->PROC object
++In this example all the configuration except line 8-14 ("proc." configuration) is defining the RTE applications internal features. These options will vary depending on the RTE used. In this case the configuration is for the classic MSIE Active-X RTE in the extension "rte".The ->PROC object
+ This object contains configuration of the transformations used. These options are universal for all RTEs and used inside the class "t3lib_parsehtml_proc".
+ The main objective of these options is to allow for minor configuration of the transformations. For instance you may disable the mapping between <B>-<STRONG> and <I>-<EM> tags which is done by the ?ts_transform? transformation. Or you could disable the default transfer of images from external URL to the local server. This is all possible through the options.
+ Notice how many properties relates to specific transformations only! Also notice that the meta-transformations "ts" and "ts_css" implies other transformations like "ts_transform" and "css_transform" which means that options limited to "ts_transform" will also work for "ts" of course.
+@@ -7861,18 +7859,15 @@
+ Custom option-space for userdefined transformations.
+ See example from section about custom transformations.
+ [page:->PROC]Custom transformations API
+-Instead of using the built-in transformations of TYPO3 you can program your own. This is done by creating a PHP class with two methods for transformation. Additionally you have to define a key (like "css_transform") for your transformation so you can refer to it in the configuration of Rich Text Editors.
+-Custom transformation key
++Instead of using the built-in transformations of TYPO3 you can program your own. This is done by creating a PHP class with two methods for transformation. Additionally you have to define a key (like "css_transform") for your transformation so you can refer to it in the configuration of Rich Text Editors.Custom transformation key
+ You should pick a custom transformation key which is prefixed with either "tx_" or "user_". Use "tx_[extension key]_[suffix]" if you deliver your transformation inside an extension. 
+-Notice: If you pick one of the default transformation keys (except the meta-transformations) you will simply override it and your transformation will be called instead!
+-Registering the transformation key in the system
++Notice: If you pick one of the default transformation keys (except the meta-transformations) you will simply override it and your transformation will be called instead!Registering the transformation key in the system
+ In "ext_localconf.php" you simply set a $TYPO3_CONF_VARS variable to point to the class which contains the transformation methods:
+ 
+ $TYPO3_CONF_VARS[?SC_OPTIONS?][?t3lib/class.t3lib_parsehtml_proc.php?][?transformation?][?tx_myext?]
+     = ?EXT:myext/custom_transformation.php:user_transformation?;
+ Here the transformation key is defined to be "tx_myext" (assuming the extension has the extension key "myext") and the value points to a file inside the transformation which will contain the class "user_transformation" (instantiated by t3lib_div::getUserObj())
+-This class must contain two methods, "transform_db" and "transform_rte" for each transformation direction.
+-Code listing of "user_transformation"
++This class must contain two methods, "transform_db" and "transform_rte" for each transformation direction.Code listing of "user_transformation"
+ This code listing shows a simple transformation. When content is delivered to the RTE it will add a <hr/> tag to the end of the content. When the content is stored in the database any <hr/> tag in the end of the content will be removed and substituted with whitespace. This is of totally useless but nevertheless shows the concept of transformations between RTE and DB.
+ 
+ 0: /**
+@@ -7934,13 +7929,11 @@
+ 56: 
+ 57:         return $value;
+ 58:     }
+-59: }
+-Comments to code listing
++59: }Comments to code listing
+ The transformation methods "transform_rte" and "transform_db" takes a single argument which is the value to transform. They have to return that value again.
+ The internal variable $pObj is set to be a reference to the parent object which is an instance of "t3lib_parsehtml_proc". Inside of this object you can access the default transformation functions if you need to and in particular you can read out configuration settings.
+ The internal variable $transformationKey is automatically set to the transformation key that is active.
+-Notice that both transformation functions call initConfig() (line 33 and 51) which reads custom configuration.
+-Using the transformation
++Notice that both transformation functions call initConfig() (line 33 and 51) which reads custom configuration.Using the transformation
+ In order to use the transformation you simply use it in the list of transformations in Special Configuration. Here is an example that works:
+ 
+ 1: ?TEST01? => Array (
+@@ -7991,12 +7984,10 @@
+ 
+ Finally images inserted are processed very intelligently because the ?magic? type images are automatically post-processed to the correct size and proportions after being changed by the RTE in size. 
+ Also if images are inserted by a copy/paste operation from another website, the image inserted will be automatically transferred to the server when saved.
+-In addition all URLs for images and links are inserted as absolute URLs and must be converted to relative URLs if they are within the current domain.
+-Conclusion:
++In addition all URLs for images and links are inserted as absolute URLs and must be converted to relative URLs if they are within the current domain.Conclusion:
+ These actions are done by so called transformations which are configured in the $TCA. Basically these transformations are admittedly very customized to the default behaviour of the TYPO3 frontend. And they are by nature fragile constructions because the content is transformed forth and back for each interaction between the RTE and the database and may so be erroneously processed. However they serve to keep the content stored in the database ?clean? and human readable so it may continuously be edited by non-RTE browsers and users. And furthermore it allows us to insert TYPO3-bulletlists and headers (especially graphical headers) visually by the editor while still having TYPO3 controlling the output.Skinning API$TBE_STYLES
+ When you make skins for TYPO3 you basically set up values in the global array $TBE_STYLES which will make the system use alternative icons, stylesheets, framewidths etc.
+-You change values in $TBE_STYLES through an extension, setting the alternative values in the ext_tables.php file of the extension. For an example, see the extension skin360.
+-$TBE_STYLES API
++You change values in $TBE_STYLES through an extension, setting the alternative values in the ext_tables.php file of the extension. For an example, see the extension skin360.$TBE_STYLES API
+ The $TBE_STYLES array contains these keys
+ When the values are references to files (icons, logoes etc) the path must be relative to the TYPO3 backend dir. 
+ Key
+@@ -8274,8 +8265,7 @@
+ This is contrary to the non-skinned state which would look like this:
+ 
+ $iconImg = ?<img src="gfx/edit2.gif" width="11" height="12" title="My Icon" alt="" />?;
+-So as you can see it is the src, width and height attributes which are affected!
+-Skinning support for local extension icons
++So as you can see it is the src, width and height attributes which are affected!Skinning support for local extension icons
+ If you want to add skinning support for icons found inside the extension itself, then use this method:
+ $iconImg = ?<img?.t3lib_iconWorks::skinImg($GLOBALS[?BACK_PATH?],t3lib_extMgm::extRelPath(?templavoila?).?mod1/greenled.gif?,??).? title="Rule applies" border="0" alt="" align="absmiddle" />?;
+ The main thing to notice is that the relative path to the extension is prefixed the icon name: 
+@@ -8285,7 +8275,6 @@
+ First, create styles for main elements like BODY, H2, H3, P, PRE, INPUT etc. making the interface look as you want in general.
+ Secondly, create specific style rules for specific scripts as needed.
+ If you look inside typo3/stylesheet.css you will see that this is the way that stylesheet proceeds. In fact it might not be so bad an idea to take this stylesheet as an example for your own! In that case you can either choose to totally substitute the default stylesheet, typo3/stylesheet.css, with a new one (by $TBE_STYLES[?stylesheet?]) or simply create an additional stylesheet (set up by $TBE_STYLES[?styleSheetFile_post?]) which will be included as the last one - and in this stylesheet you override any of the previous rules you want to change (recommended method).
+-
+ Addressing specific elements in the backend
+ Lets say you want to specifically style the two elements shown in this image:
+ 
+@@ -8322,13 +8311,11 @@
+ border: dotted 1px #999999;
+ }
+ 
+-Skinning database record icons with variations
+-Introduction
++Skinning database record icons with variationsIntroduction
+ Database records in TYPO3 has and icon associated which can be shown in the interface. But the icon might change according to internal settings in the record; other icons might be used as alternatives to the default and for each possible icon certain states might reflect on how the icon look. For instance, if a record has the hidden flag set, the icon should be gray with a red cross over in order to reflect this state visually.
+ Until version 3.6.0 TYPO3 has automatically calculated new versions of database icons when needed by the system. Thus you needed to supply only one icon - all variations would be automatically generated and stored in typo3temp/. However this auto generation depended on GDlib with gif-support and that has been a well known problem for many years since not everyone has access to these features.
+ In TYPO3 3.6.0 the automatic generation is disabled (can be enabled by setting $TYPO3_CONF_VARS[?GFX?][?noIconProc?]=0) and instead most icons have their most used states shipped along pre-rendered instead.
+-This solution not only solves the last mandatory dependency on GDlib for TYPO3 but also provides a way for skinning of various icon states - since skinned icons would be too hard to do processing for!
+-Pre-rendered icon states
++This solution not only solves the last mandatory dependency on GDlib for TYPO3 but also provides a way for skinning of various icon states - since skinned icons would be too hard to do processing for!Pre-rendered icon states
+ The number of variations for an icon of a database record depends on configuration in $TCA. The most easy way to get an overview of the icons you would need to produce as variations is to use the tool Table Icon Listing in the extdeveval extension. 
+ This is an example of how that tool shows the icons for Backend Users and their variations:
+ 
+@@ -8345,8 +8332,7 @@
+ If we enable more of the render options we might eventually hit a combination of options which is not found pre-rendered though:
+ 
+ 
+-As you can see the endtime flag has no icon associated with it. 
+-Automatic creation of pre-made variations
++As you can see the endtime flag has no icon associated with it. Automatic creation of pre-made variations
+ In order to create variations for inclusion in your extensions (for the default icon) you can enable the rendering of icons if you like (in localconf.php):
+ 
+ $TYPO3_CONF_VARS[?GFX?][?noIconProc?]=0;
+@@ -8360,8 +8346,7 @@
+ And after another reload you will be assured that the icon is found correctly:
+ 
+ 
+-(Tip for code hackers: Inside ext/extdeveval/mod1/class.tx_extdeveval_iconlister.php there is a line with a function call, $this->renameIconsInTypo3Temp(); which is commented out - if you uncomment this function call it will rename icons made in typo3temp/ to filenames that can be copied directly into the extension you are making. Basically this removes icon_fb7ee.... from the temporary file!)
+-Limits to number of pre-made icons
++(Tip for code hackers: Inside ext/extdeveval/mod1/class.tx_extdeveval_iconlister.php there is a line with a function call, $this->renameIconsInTypo3Temp(); which is commented out - if you uncomment this function call it will rename icons made in typo3temp/ to filenames that can be copied directly into the extension you are making. Basically this removes icon_fb7ee.... from the temporary file!)Limits to number of pre-made icons
+ Since the number of combinations can be staggering you might often have to settle for a compromise where you define which states are the most likely to occur and then give those priority when you create variations - otherwise you might have to make hundreds of icons!
+ Thus you can find that the pages table does not have pre-made icons for all Module icons. Only the hidden state has been considered general enough to allow for a pre-made icon - enabling starttime results in a no_icon_found.gif version as you can see below:
+ 
+@@ -8381,8 +8366,7 @@
+ Parsing a Data Structure into a PHP array is incredibly easy - just pass it to t3lib_div::xml2array() (see example below)
+ DS is sometimes used as short for Data Structure
+ Elements
+-This is the elements and their nesting in the Data Structure. This could probably be expressed by a DTD or XML schema (anyone?). In this case I will just express it by an explanation of words.
+-Elements nesting other elements (Array elements):
++This is the elements and their nesting in the Data Structure. This could probably be expressed by a DTD or XML schema (anyone?). In this case I will just express it by an explanation of words.Elements nesting other elements (Array elements):
+ All elements defined here cannot contain any string value but must contain another set of elements.
+ (In a PHP array this corresponds to saying that all these elements must be arrays.)
+ Element
+@@ -8415,7 +8399,6 @@
+ <el>
+ Contains a collection of Data Structure objects
+ <[field name]>
+-
+ Elements containing values (Value elements):
+ All elements defined here must contain a string value and no other XML tags whatsoever! 
+ (In a PHP array this corresponds to saying that all these elements must be strings or integers.)
+@@ -8433,7 +8416,6 @@
+ <section>
+ Boolean, 0/1
+ Defines for an object of the type <array> that it must contain other array type objects. The meaning of this is application specific; For FlexForms it will allow the user to select between possible arrays of objects to create in the form. For TemplaVoila it will select a container element for another set of elements inside. This is quite fuzzy unless you understand the contexts.
+-
+ Example: FlexForm configuration in mininews extension
+ Simple example of a data structure used to define a FlexForm element in TCEforms. Notice the application specific section <TCEforms> (see documentation for FlexForms).
+ 
+@@ -8472,7 +8454,6 @@
+ </el>
+ </ROOT>
+ </T3DataStructure>
+-
+ Example #2
+ More complex example of a FlexForms structure, using two sheets, sDEF and s_welcome (snippet from newloginbox extension).
+ 
+@@ -8528,8 +8509,7 @@
+ </sheets>
+ </T3DataStructure>
+ Sheet references
+-If Data Structures are arranged in a collection of sheets you can choose to store one or more sheets externally in separate files. This is done by setting the value of the <[sheet ident]> tag to a relative file reference instead of being a definition of the <ROOT> element.
+-Example
++If Data Structures are arranged in a collection of sheets you can choose to store one or more sheets externally in separate files. This is done by setting the value of the <[sheet ident]> tag to a relative file reference instead of being a definition of the <ROOT> element.Example
+ Taking the Data Structure from Example #2 above we can now rearrange it in three files:
+ Main Data Structure:
+ <T3DataStructure>
+@@ -8633,8 +8613,7 @@
+ </T3DataStructure>
+ Passing this to the xml2array function and you will get an array like this (screen shot from extdeveval):
+ 
+-As you can see the format of the XML generated by t3lib_div::array2xml() is designed to reflect the array structures PHP can contain and thus the transformation to and from XML with the functions t3lib_div::array2xml() and t3lib_div::xml2array() is very easy and quick.
+-API functions for sheets
++As you can see the format of the XML generated by t3lib_div::array2xml() is designed to reflect the array structures PHP can contain and thus the transformation to and from XML with the functions t3lib_div::array2xml() and t3lib_div::xml2array() is very easy and quick.API functions for sheets
+ If you have a DS with sheets inside you might need to resolve the references:
+ 
+ <T3DataStructure>
+@@ -8657,8 +8636,7 @@
+ See "Inside TYPO3" for more details about locallang-files and the application of this format.
+ llXML files from installed extensions are translated by a backend tool (extension "llxmltranslate").
+ A "locallang-XML" file contains a set of labels in the default language (must always English!). The translated labels are located in systematically named external files in typo3conf/l10n/[language key]/. Optionally the main files can contain the translations directly but that should only be used in special cases since it constrains the translation process too much. It is also possible with a specific file reference to use other external files than the automated ones.Elements
+-This is the elements and their nesting in the locallang-XML format. 
+-Elements nesting other elements (Array elements):
++This is the elements and their nesting in the locallang-XML format. Elements nesting other elements (Array elements):
+ All elements defined here cannot contain any string value but must contain another set of elements.
+ (In a PHP array this corresponds to saying that all these elements must be arrays.)
+ Element
+@@ -8704,7 +8682,6 @@
+ Array of context descriptions of the default labels.
+ The "index" attribute contains label key
+ <label>
+-
+ Elements containing values (Value elements):
+ All elements defined here must contain a string value and no other XML tags whatsoever! 
+ All values are in utf-8.
+@@ -8749,7 +8726,6 @@
+ <csh_table>xMOD_csh_corebe</csh_table> (General Core CSH)
+ <csh_table>_MOD_tools_em</csh_table> (For Extension Mgm. module)
+ <csh_table>pages</csh_table> (For "pages" table)
+-
+ <T3locallangExt>
+ External include files contains a sub-set of the tags of the <T3locallang> format. Basically they contain the <data>, <orig_hash> and <orig_text> tags but with "<languageKey>" tags inside only for the specific language they used.
+ When the include file is read the information for the selected language key is read from each of the three tags and merged into the internal array.
+@@ -8770,7 +8746,6 @@
+ <orig_text>
+ See <data> element of <T3locallang> above.
+ 
+-
+ Example: locallang-XML file for a backend module
+ This example shows a standard locallang-XML file for a backend module. Notice how the <orig_hash> section is included which means that translators can spot if an original label changes. However the "<orig_text>" section would have been needed if translators were supposed to also see the difference. But typically that is not enabled since it takes a lot of space up.
+ <T3locallang>
+@@ -8792,8 +8767,7 @@
+ <languageKey index="dk" type="array">
+ <label index="mlang_tabs_tab" type="integer">114927868</label>
+ <label index="mlang_labels_tabdescr" type="integer">187879914</label>
+-</languageKey> </orig_hash></T3locallang>
+-Example: locallang-XML file (CSH) with reference to external include file
++</languageKey> </orig_hash></T3locallang>Example: locallang-XML file (CSH) with reference to external include file
+ The main XML file looks like this. Notice the tag "csh_table" has a value which is important for CSH content so it can be positioned in the right category. 
+ In the <data> section you can see all default labels. But notice how the value for the "dk" translation is a reference to an external file! The contents of that file is shown below this listing.
+ <T3locallang> <meta type="array">
