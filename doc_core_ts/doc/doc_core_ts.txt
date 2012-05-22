@@ -1,7 +1,7 @@
 ﻿TypoScript Syntax and In-depth Study
 Extension Key: doc_core_ts
 Language: en
-Version: 4.5.0
+Version: 4.6.0
 Keywords: typoscript, syntax, forAdmins, forIntermediates
 Copyright 2000-2011, Documentation Team, <documentation@typo3.org>
 
@@ -59,11 +59,10 @@ About this document
 This document describes the syntax of TypoScript. It also covers the nature of TypoScript and what the differences are between the various contexts in which it can be used (i.e. templates and TSconfig).
 If the concept of TypoScript itself is not clear, please read the appendix "What is TypoScript?". Otherwise feel free to ignore it.
 What's new
-This version of the manual was updated for TYPO3 4.4. The changes include a note on the new possibility to use conditions also in page and user TSconfig. Additionally all texts were checked and gently reworked.
-The manual has been moved to the new documentation template. 
+This version of the manual was updated for TYPO3 4.6. The changes include a note on a dropped limitation concerning the file size of include files. Also the new format of language files had to be taken into account. 
+In the version for TYPO3 4.5 all screenshots in this manual were updated. 
 Credits
-This document was formerly maintained by Michael Stucki and François Suter. 
-Additions have been made by Sebastian Michaelsen. 
+This document was formerly maintained by Michael Stucki and François Suter. Additions have been made by Sebastian Michaelsen. The updates for recent versions were done by Christopher Stelmaszyk.
 Feedback
 For general questions about the documentation get in touch by writing to documentation@typo3.org.
 If you find a bug in this manual, please file an issue in this manual's bug tracker: http://forge.typo3.org/projects/typo3v4-doc_core_ts/issues 
@@ -370,7 +369,7 @@ The "source" parameter points to the source of the included content. The string 
 Option
 Description
 FILE
-A reference to a file relative to PATH_site. Must be less than 100 KB. Cannot contain ".." (double periods, back path).
+A reference to a file relative to PATH_site. Cannot contain ".." (double periods, back path). Until TYPO3 4.5 had to be less than 100 KB; in newer versions this limitation was dropped. 
 If you prefix the relative path with such as "EXT:myext/directory/file.txt" then the file included will be searched for in the extension directory of extension "myext", subdirectory "directory/file.txt".
 
 TypoScript Templates
@@ -536,6 +535,12 @@ config.no_cache = 0
 
 Note that a single string is referenced (not one for the header and one for the description). This means that the localized string must contain the colon separator (":"). Example:
 <label index="config.no_cache">Global no_cache:Check to box to turn off all cache</label>
+
+In case of TYPO3 4.6 or newer translation files in XLIFF format are supported. There the label might look like this:
+<trans-unit id="config.no_cache" xml:space="preserve">
+  <source>Global no_cache:Check to box to turn off all cache</source>
+</trans-unit>
+
 TSConstantEditor.[category]
 In addition to using constants, you can also configure a category in the constant editor by a special top-level TypoScript "object" in the constants-field. The name is "TSConstantEditor" and any properties to this object will NOT be substituted like any other constant normally would.
 Property:
@@ -619,7 +624,7 @@ But TypoScript is also a concept that fits the PHP and TYPO3 configuration very 
 TypoScript was not destined to be a procedural language and it is not today! It could be compared to the Windows registration database which is a similar bunch of hierarchical configuration.
 For more on syntax and semantics, you can read this article that I found on the net.
 Where is TypoScript used?
-This question cannot be answered completely since this document only describes the syntax of TypoScript and not any of the contexts where TypoScript syntax is applied for configuration; theoretically anyone could use the TypoScript parser class in TYPO3 to generate configuration for their own local extensions using their own local "semantics" (see another chapter in this document).
+This question cannot be answered completely since this document only describes the syntax of TypoScript and not any of the contexts where TypoScript syntax is applied for configuration; theoretically anyone could use the TypoScript parser class in TYPO3 to generate configuration for their own local extensions using their own local "semantics".
 But at least we can mention the three main applications of the TypoScript syntax as used in the core parts of TYPO3:
 Page TSconfig: Customization of branches of the Page tree.
 User TSconfig: Customization of users and their groups.
