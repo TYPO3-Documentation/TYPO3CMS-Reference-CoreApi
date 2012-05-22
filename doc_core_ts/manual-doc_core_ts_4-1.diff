@@ -1,0 +1,11 @@
+--- manual-doc_core_ts_4-0.txt	2007-02-21 03:29:11.000000000 +0100
++++ manual-doc_core_ts_4-1.txt	2007-02-21 03:29:11.000000000 +0100
+@@ -2,7 +2,7 @@
+ 00000000000000000000000000000000000000000000000
+ TypoScript Syntax and In-depth Study
+ Extension Key: doc_core_ts
+-Copyright 2000-2006, kasperYYYY@typo3.com, <kasperYYYY@typo3.com>
++Copyright 2000-2007, kasperYYYY@typo3.com, <kasperYYYY@typo3.com>
+ 
+ This document is published under the Open Content License
+ available from http://www.opencontent.org/opl.shtml
