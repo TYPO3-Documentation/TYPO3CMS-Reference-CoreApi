@@ -1,7 +1,7 @@
 ﻿TypoScript Syntax and In-depth Study
 Extension Key: doc_core_ts
 Language: en
-Version: 4.4.0
+Version: 4.5.0
 Keywords: typoscript, syntax, forAdmins, forIntermediates
 Copyright 2000-2011, Documentation Team, <documentation@typo3.org>
 
@@ -29,29 +29,29 @@ Feedback	3
 Syntax	4
 Introduction	4
 Contexts	4
-TypoScript Syntax	4
+TypoScript syntax	4
 Conditions	8
 Includes	12
-TypoScript Templates	14
-Constants	14
-Using constants	14
-Declaring constants for the Constant Editor	17
-Sorting out details	22
-More about syntax, semantics and TypoScript compared to XML and XSLT	22
-Where is TypoScript used?	23
-Entering TypoScript	25
-Parsing, storing and executing TypoScript	26
-Syntax highlighting and debugging	27
-Myths, FAQ and Acknowledgments	31
-The TypoScript parser API	34
-Introduction	34
-Parsing custom TypoScript	34
-Implementing custom Conditions	36
-Implementing combined Conditions	39
-Appendix A – What is TypoScript?	44
-PHP arrays	44
-TypoScript syntax, object paths, objects and properties	44
-Next steps	47
+TypoScript Templates	13
+Constants	13
+Using constants	13
+Declaring constants for the Constant Editor	15
+Sorting out details	20
+More about syntax, semantics and TypoScript compared to XML and XSLT	20
+Where is TypoScript used?	21
+Entering TypoScript	24
+Parsing, storing and executing TypoScript	25
+Syntax highlighting and debugging	26
+Myths, FAQ and acknowledgments	29
+The TypoScript parser API	32
+Introduction	32
+Parsing custom TypoScript	32
+Implementing custom conditions	34
+Implementing combined conditions	37
+Appendix A – What is TypoScript?	42
+PHP arrays	42
+TypoScript syntax, object paths, objects and properties	42
+Next steps	45
 
 
 Introduction
@@ -84,7 +84,7 @@ Contexts
 There are two contexts where TypoScript is used: templates, where TypoScript is used to actually define what will appear in the TYPO3 frontend, and TSconfig, where it is used to configure settings of the TYPO3 backend. TSconfig is further subdivided into User TSconfig (defined for backend users or user groups) and Page TSconfig (defined for pages in the page tree).
 Some parts of TypoScript are available in both contexts, some only in one or the other. Any difference is always mentioned in this manual.
 Each context has its own chapter in this manual. It also has its own reference in a separate manual (see "Next steps" at the end of this manual).
-TypoScript Syntax
+TypoScript syntax
 TypoScript is parsed in a very simple way; line by line. This means that abstractly said each line normally contains three parts based on this formula:
 [Object Path] [Operator] [Value]
 Example:
@@ -273,7 +273,7 @@ A condition always has its own line and the line is detected by " [ " (square br
 
 As you can see from this example, the line "[GLOBAL]" also is a condition. It is built-in into TypoScript and always returns TRUE. The line "[ condition 1 ][ condition 2]" is another condition. If "[ condition 1 ][ condition 2]" is TRUE, then the TypoScript in the middle would be parsed until [GLOBAL] (or [END]) resets the conditions. After that point the TypoScript is parsed for any case again.
 Notice: The condition line "[ condition 1 ][ condition 2]" conveys the idea of two conditions being set, but from the TypoScript parsers point of view the whole line is the condition - it is in the context of TypoScript Templates that the condition line content is broken down into smaller units ("[ condition 1 ]" and "[ condition 2]") which are individually evaluated and connected by a logical OR before they return the resulting TRUE or FALSE value. (That is all done with the class t3lib_matchCondition).
-Here is an example of some TypoScript (from the context of TypoScript Templates) where another text is outputted if you use the Internet Explorer web browser (instead of for example Internet Explorer) or use Windows NT as operating system:
+Here is an example of some TypoScript (from the context of TypoScript Templates) where another text is outputted if you use the Microsoft Internet Explorer web browser (instead of for example Google Chrome) or use Windows NT as operating system:
 pageObj.10 = HTML
 pageObj.10.value = Hello World
 pageObj.10.value.case = upper
@@ -300,7 +300,7 @@ page.typeNum = 0
 page = PAGE
 page.10 = TEXT
 
-[browser=msie]
+[browser = msie]
 page.10.value = Internet Explorer
 
 [else]
@@ -317,7 +317,7 @@ The fact that you can "enable" the condition in the TypoScript Object Browser is
 
 Another example could be if you wanted to do something special in case a bunch of conditions is NOT true. There's no negate-character, but you could do this:
 
-[browser=msie][usergroup=3]
+[browser = msie][usergroup = 3]
   # Enter nothing here!
 [else]
   page.10.value = This text is only displayed if the conditions above are not TRUE!
@@ -328,7 +328,7 @@ So, this is valid:
 someObject {
   1property = 234
 }
-[browser=msie]
+[browser = msie]
 someObject {
   2property = 567
 }
@@ -336,7 +336,7 @@ someObject {
 But this is not valid:
 someObject {
   1property = 234
-  [browser=msie]
+  [browser = msie]
   2property = 567
 }
 
@@ -377,19 +377,19 @@ TypoScript Templates
 Constants
 What are constants?
 Constants are values defined in the "Constants"-field of a template. They follow the syntax of ordinary TypoScript!
-Note, reserved name: The object or property "file" is always interpreted as data type "resource".
+Note, reserved name: The object or property "file" is always interpreted as data type "resource". That means it refers to a file, which you have to upload in the resource section of your template record.
 Note: Toplevel "object" TSConstantEditor cannot be used. It's reserved for configuration of the Constant Editor module.
 Example:
-Here "bgCol" is set to "red" and "file.toplogo" is set to "logo*.gif" which is found in the resource-field of the template.
+Here "bgCol" is set to "red" and "file.toplogo" is set to "logo.gif". which is found in the resource-field of the template.
 bgCol = red
 topimg.width = 200
 topimg.file.pic2 = fileadmin/logo2.gif
-file.toplogo = logo*.gif
+file.toplogo = logo.gif
 
 This could also be defined in other ways, e.g. like this:
 bgCol = red
 file {
-  toplogo = logo*.gif
+  toplogo = logo.gif
 }
 topimg {
   width = 200
@@ -398,9 +398,8 @@ topimg {
 
 (The objects in bold are the reserved word "file" and the properties are always of data type "resource".
 
-
 Using constants
-Constants are inserted in the template-setup by performing an ordinary str_replace operation! You insert them like this:
+Constants are inserted in the template-setup by performing an ordinary str_replace operation! You insert them in the setup field like this:
 {$bgCol}
 {$topimg.width}
 {$topimg.file.pic2}
@@ -414,15 +413,14 @@ page.bodyTag = <body bgColor="{$bgCol}">
 page.10 = IMAGE
 page.10.file = {$file.toplogo}
 
-Only defined constants are substituted.
+Only constants, which are defined in the "Constants" field, are substituted. So for our example to work, we again have to define the constants from the last example in the constants field.
+Remember that in the constants field you can reference files without giving a file path (like we did for logo.gif). For the replacement to work, you must upload these files in the resources section of the template.
 Constants in included templates are also substituted as the whole template is just one large chunk of text.
 Constants are case sensitive.
 You should use a systematic naming scheme for constants. Seek inspiration in the code-examples around.
 
-
-
-Notice how the constants in the setup code are substituted. In the Object Browser, you can monitor the constants with or without substitution. Also notice that the value "logo*.gif" was resolved to the resource "uploads/tf/logo_01.gif"
-(Note: The "Constants display" function is not available if you select "Crop lines".)
+Notice how the constants in the setup code are substituted (marked in green). In the Object Browser, you can monitor the constants with or without substitution. Also notice that the value "logo.gif" was resolved to the resource "uploads/tf/logo.gif"
+(Note: The "Display constants" function is not available if you select "Crop lines".)
 Declaring constants for the Constant Editor
 You can put comments anywhere in your TypoScript. Comments are always ignored by the parser when the template is processed. But the backend module Web > Template has the ability to utilize comments in the constant editor that makes simple configuration of a template even easier than constants already make it themselves.
 
@@ -430,11 +428,11 @@ You can put comments anywhere in your TypoScript. Comments are always ignored by
 When the TypoScript "Constant Editor" parses the template, all comments before every constant-definition are registered. You can follow a certain syntax to define what category the constant should be in, which type it has and what explanation there is about the constant. This is an example containing several constant definitions:
 styles.content.textStyle {
     # cat=content/cText/1; type=; label= Bodytext font: This is the fontface used for text!
-  face = 
+  face =
     # cat=content/cText/2; type=int[1-5]; label= Bodytext size
-  size = 
+  size =
     # cat=content/cText/3; type=color; label= Bodytext color
-  color = 
+  color =
   color1 =
   color2 =
   properties =
@@ -534,7 +532,7 @@ Text string, trimmed.
 Split by the first ":" to separate a header and body of the comment. The header is displayed on it's own line in bold.
 This can be localized by using the traditional "LLL" syntax. Example:
 #cat=Site conf/cache/a; type=boolean; label=LLL:EXT:examples/locallang.xml:config.no_cache
-config.no_cache = 0 
+config.no_cache = 0
 
 Note that a single string is referenced (not one for the header and one for the description). This means that the localized string must contain the colon separator (":"). Example:
 <label index="config.no_cache">Global no_cache:Check to box to turn off all cache</label>
@@ -584,9 +582,18 @@ TSConstantEditor.basic {
   7 = contentWidth,styles.content.imgtext.maxW
   8 = page.lineCol
 }
-This example shows how the static template "BUSINESS", which you find in the system extension "statictemplates", is configured for the basic-module. This is how it looks like in TYPO3:
-User-defined (custom) constants fields
-...
+This example shows how the static template "BUSINESS", which you find in the system extension "statictemplates", is configured for the basic-module. 
+
+The Business template is framebased and has a very simple layout. It has a 2-level textual menu. You can select the properties of the font tag like the font size, color and so on. Details are in the following list. The numbers in brackets fit to the numbers in the code example above and in the screenshot below.
+You can define the background images for each frame, the left and the page frame). The width of the left frame can also be selected. (1) and (2)
+You can set the offset of the content from the left frame and from the top. (3)
+You can choose a logo for the top of the left frame. The dimensions are fixed to 150x80 pixels (normally you are free to choose the dimensions yourself). (4)
+The page titles from first level (5) and second level (none in the screenshot) (6) are displayed at the top.
+You can choose the width of the content block. (7)
+You can pick a color for the ruler at the top. (8)
+This is how it looks like in TYPO3 by default:
+
+
 Sorting out details
 More about syntax, semantics and TypoScript compared to XML and XSLT
 If you think you perfectly understand TypoScript now (you might already...), then don't bother with this section. I even risk confusing you again. But anyways, here it is - more theoretical information on TypoScript including references to the relationship between XML and XSLT:
@@ -639,7 +646,7 @@ The most (in)famous and extensive use of TypoScript is in TypoScript Templates f
 This introduction to TypoScript tries to eliminate this confusion. Therefore let us make two statements about how TYPO3 handles templates:
 No fixed template method: TYPO3 does not offer one fixed way to dealing with templates for websites; rather you are set free to choose the way you find most appealing. You can use:
 HTML templates: Configure TYPO3 to facilitate external HTML-templates with markers and subparts. Popular and familiar for most people. Please see the tutorial "Modern Template Building, Part 1".
-Fluid templates: Configure TYPO3 to use extbase and fluid (available as system extensions since TYPO3 4.3) for templating. This allows Fluid-style variables with curly braces. 
+Fluid templates: Configure TYPO3 to use extbase and fluid (available as system extensions since TYPO3 4.3) for templating. This allows to use external HTML templates, but with fluid-style variables with curly braces. Since TYPO3 4.5 a new content object "FLUIDTEMPLATE" is available, which that way lets you use fluid from inside TypoScript.
 External Templating Engines: Configure TYPO3 to use XSLT stylesheets with an XSLT processor. This is done either by an extension providing this functionality or by writing your own extension for it. 
 Custom PHP: Configure TYPO3 to call your own PHP code which generates content in any way you may prefer. This might include using third party templating engines!
 TS content objects: Build the page by the "content objects" of the Frontend Engine. These cObjects are accessible/programmable through the TypoScript syntax.
@@ -648,17 +655,16 @@ TypoScript Templates determine the method: No matter which template method (see 
 A TypoScript Template works a little like the Page TSconfig; it is a database record attaching its TypoScript content to a certain page and from that page and outwards the configuration contained in the TypoScript will affect the pages until a new template record is found which overrides properties from earlier in the tree. Thus TypoScript Template records are effectively defining which page is the root page of a website:
 
 
-TypoScript Templates contain a field for the TypoScript configuration code ("Setup" field) but a template record like the one on the picture above ("NEW typo3.org") can also contain references to other template records and files which contain predefined generally useful TypoScript code which is included and thus reusable/sharable across templates. The order of included TypoScript template records/files can be seen visually with the Template Analyzer, which you find inside the "Template" module in the backend (if it is not there, install the system extension "tstemplate_analyzer"):
+TypoScript Templates contain a field for the TypoScript configuration code ("Setup" field) but a template record like the one in the picture above ("ROOT") can also contain references to other template records and files which contain predefined generally useful TypoScript code which is included and thus reusable/sharable across templates. The order of included TypoScript template records/files can be seen visually with the Template Analyzer, which you find inside the "Template" module in the backend (if it is not there, install the system extension "tstemplate_analyzer"):
 
 
-
-To get more background knowledge about how TypoScript templates work, please read the document "TypoScript Templates". To read about all standard objects and properties you can use in building TypoScript templates you should refer to the TypoScript reference - TSref. For practical examples when you want to learn by doing, look at the Getting Started manual.
+To get more background knowledge about how TypoScript templates work, please read the document "TypoScript Templates". To read about all standard objects and properties which you can use in building TypoScript templates you should refer to the TypoScript reference - TSref. For practical examples or when you want to learn by doing, look at the Getting Started manual.
 
 Entering TypoScript
 Since TypoScript has a line-based syntax which most of all resembles what is found in simple text based configuration files, it is also authored in ordinary textarea input fields inside of TYPO3. An example is the "TSconfig" box of a regular page header:
 
 
-This is how TypoScript is typically entered - directly in form fields. Since TYPO3 4.2 a JavaScript-based editor is available for TypoScript templates only. It provides line-numbering and syntax highlighting. Since TYPO3 4.3, it also provides auto-completion.
+This is how TypoScript is typically entered - directly in form fields. Since TYPO3 4.2 a JavaScript-based editor is available for TypoScript templates. It provides line-numbering and syntax highlighting. Since TYPO3 4.3, it also provides auto-completion.
 If you don't see the code with syntax highlighting as in the screenshot above, make sure the system extension "t3editor" is loaded. Also the editor is available only when editing TypoScript from the Web > Template module (function: "Info/Modify") and not when editing the whole template record.
 Other helpful features: 
 There is the "TS wizard" icon which is often found to the right of the textarea - this can help you finding properties for the current TypoScript context.
@@ -704,7 +710,7 @@ So you can say that TypoScript offers a text-based interface for getting values 
 Since TypoScript itself contains only information(!) you cannot "execute" it. The closest you come to "executing" TypoScript is when you take the PHP array with the parsed TypoScript structure and pass it to a PHP function which then performs whatever actions according to the values found in the array. This is the syntax/semantics debate again.
 Syntax highlighting and debugging
 Syntax highlighting of TypoScript code is done by various analysis applications in TYPO3 like the Template Analyzer for TypoScript Templates or the User Admin module or Page TSconfig function in the Info module. These typically allows you to view the TypoScript in each context highlighted with syntax. 
-Here is an example from Page TSconfig:
+Here is an example from Page TSconfig as you can view it in the Info module:
 
 
 In the extension "extdeveval" you will also find a tool, "Code highlighting", which can analyze TypoScript code ad hoc. This is what you get, when you just press the TypoScript button:
@@ -729,7 +735,7 @@ Finally you will be warned if syntax errors are found and ignored data will also
 Debugging
 Debugging TypoScript for syntax errors can be done with this tool and any other place where the syntax highlighter is used. But this will only tell you if something is syntactically wrong with the code - whether you combine objects and properties semantically correctly depends on the context and cannot be told by the TypoScript parser itself. 
 The TYPO3 system extension "t3editor" offers advanced functions, which can also be useful for debugging. Its auto-completion functionality for example only offers properties to be chosen, which in fact are semantically allowed at a certain place. Currently t3editor is available when editing the Setup field of a TypoScript template – not for Page TSconfig or User TSconfig (writing summer 2011).
-Myths, FAQ and Acknowledgments
+Myths, FAQ and acknowledgments
 This section contains a few remarks and answers to questions you may still have. So here it goes:
 Myth: "TypoScript is a scripting language"
 This is misleading to say since you will think that TypoScript is like PHP or JavaScript while it is not. From the previous pages you have learned that TypoScript strictly speaking is just a syntax. However when the TypoScript syntax is applied to create TypoScript Templates then it begins to look like programming and the parallel to XSLT might also hint at that. 
@@ -949,7 +955,7 @@ echo '<table bgcolor="'.$TSparserObject->setup['colors.']['backgroundColor'].'">
 As you can see some of the TypoScript properties (or object paths) which are found in the reference tables above are implemented here. There is not much mystique about this and in fact this is how all TypoScript is used in its respective contexts; TypoScript contains simply configuration values that make our underlying PHP code act accordingly - parameters, function arguments, as you please; TypoScript is an API to instruct an underlying system.
 This also means that now we can begin to meaningfully talk about invalid information in TypoScript - it is obvious that two properties are entered in TypoScript but do not make any sense: "showAll" and "wakeMeUp". Both properties are not defined in the reference tables and therefore they should neither be implemented in the PHP code of course. However no errors are issued by the parser since the syntax used to define those properties is still right. The only problem is that they are irrelevant; it is like defining a variable in PHP and then never using it! A waste of time - and probably confusing later.
 As noted there exists only the input mode of t3editor to do "semantics-checking". However, this only works during input, not at a later time. It might be interesting and very helpful some day if we had that as well so we could also be warned if we use non-existing properties (which could just be spelling errors).
-Implementing custom Conditions
+Implementing custom conditions
 Now we know how to parse TypoScript and the only thing we still want to do is to implement support for custom conditions. As stated a few places the evaluation of a condition is external to TypoScript and all you need to do in order to have an external process deal with conditions is to pass an object as the second parameter to the parse-function. This is done in the code listing below:
 
    1: require_once(PATH_t3lib.'class.t3lib_tsparser.php');
@@ -1066,7 +1072,7 @@ Since I'm currently on an internal network with an IP number which falls into th
 
 
 ... and in fact it does!
-Implementing combined Conditions
+Implementing combined conditions
 Conditions can be combined using OR and AND. This feature already is implemented for TypoScript Templates. Here the explanation, how that was done. For an overview of the resulting possibilities see the chapter "Conditions" in TSref. It contains short information about the syntax and an overview of the available conditions.
 In the context of TypoScript Templates you can place several "conditions" in the same (real) condition:
 
@@ -1115,7 +1121,7 @@ The implementation goes as follows:
   33:       // Splitting value into a key and value based on the "=" sign
   34:     list($key, $value) = explode('=', $condStr, 2);
   35: 
-  36:     switch(trim($key))    {
+  36:     switch(trim($key)) {
   37:       case 'UserIpRange':
   38:         return t3lib_div::cmpIP(t3lib_div::getIndpEnv('REMOTE_ADDR'), trim($value)) ? TRUE : FALSE;
   39:       break;
@@ -1210,7 +1216,7 @@ The format of the condition line therefore is:
 
 where the operators have precedence as indicated by these illustrative parenthesis:
 	[ COND1 ]  ||  ( [ COND2 ] &&  ( [ COND3 ]  [ COND4 ] ) )
-(Notice: Between COND3 and COND4 the blank space is implicitly an OR.)
+(Notice: Between COND3 and COND4 the blank space implicitly is an OR.)
 
 #2: Subpart syntax:
 For each subpart (for example "[ COND 1 ]") the content is evaluated as follows:
@@ -1235,7 +1241,7 @@ net = Netscape (or any other)
 Values are evaluated against the output of the function t3lib_div::clientInfo() which can be consulted for details on the values for browsers.
 
 Note: These values are examples, which fit to the code we have built above. In current TYPO3 versions the available values have changed!
-For an overview over the values currently possible, always consult TSref! 
+For an overview of the values currently possible, always consult TSref! 
 [Browser = msie]
 
 Appendix A – What is TypoScript?

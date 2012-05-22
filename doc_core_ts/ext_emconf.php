@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "doc_core_ts".
 #
-# Auto generated 30-10-2011 20:20
+# Auto generated 02-11-2011 22:38
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => '',
 	'category' => 'doc',
 	'shy' => 0,
-	'version' => '4.4.0',
+	'version' => '4.5.0',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
@@ -41,7 +41,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'suggests' => array(
 		),
 	),
-	'_md5_values_when_last_written' => 'a:5:{s:9:"ChangeLog";s:4:"4a07";s:12:"ext_icon.gif";s:4:"7277";s:19:"doc/doc_core_ts.pdf";s:4:"870a";s:19:"doc/doc_core_ts.txt";s:4:"bf7d";s:14:"doc/manual.sxw";s:4:"2463";}',
+	'_md5_values_when_last_written' => 'a:5:{s:9:"ChangeLog";s:4:"e29e";s:12:"ext_icon.gif";s:4:"7277";s:19:"doc/doc_core_ts.pdf";s:4:"8111";s:19:"doc/doc_core_ts.txt";s:4:"90c7";s:14:"doc/manual.sxw";s:4:"baad";}',
 	'suggests' => array(
 	),
 );

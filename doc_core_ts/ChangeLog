@@ -1,3 +1,13 @@
+2011-11-02  Christopher  <chrissitopher@gmx.de>
+
+	* Fixed task #31435: Publish doc_core_ts for TYPO3 4.5
+	* Released version 4.5.0 to TER
+
+2011-10-31  Christopher  <chrissitopher@gmx.de>
+
+	* Fixed task #31422: Add a note that a cObject FLUIDTEMPLATE is available since TYPO3 4.5
+	* Fixed task #31395: Update screenshots for TYPO3 4.5
+
 2011-10-30  Christopher  <chrissitopher@gmx.de>
 
 	* Fixed task #31431: Rework the manual
