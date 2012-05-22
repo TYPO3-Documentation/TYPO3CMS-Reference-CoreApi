@@ -9,12 +9,15 @@ Welcome to TYPO3 File Abstraction Layer documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 5
+
+   Administrators/Index
+   Developers/Index
+
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
 

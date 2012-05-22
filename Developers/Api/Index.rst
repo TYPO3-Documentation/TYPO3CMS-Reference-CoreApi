@@ -9,3 +9,4 @@ This chapter provides both an overview of and an in-depth look into the architec
 
    StorageApi
    DriverApi
+   ServiceApi
