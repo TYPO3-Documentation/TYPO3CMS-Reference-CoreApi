@@ -1,3 +1,15 @@
+2011-10-30  Christopher  <chrissitopher@gmx.de>
+
+	* Fixed task #31431: Rework the manual
+	* Fixed task #31399: Point out that some of the used templates now are part of the system extension statictemplates
+	* Fixed task #27340: Conditions now also are available in Page and User TSconfig
+	* Fixed task #31427: Update statements about connecting conditions using OR and AND
+	* Fixed task #31415: Replace a broken link with an abstract of the linked document
+	* Fixed task #31426: Check functions of extdeveval
+	* Fixed task #31430: Move the manual to the new template
+	* Fixed task #31428: Publish doc_core_ts for TYPO3 4.4
+	* Released version 4.4.0 to TER
+
 2011-10-29  Christopher  <chrissitopher@gmx.de>
 
 	* Fixed task #31053: Publish doc_core_ts for TYPO3 4.3
