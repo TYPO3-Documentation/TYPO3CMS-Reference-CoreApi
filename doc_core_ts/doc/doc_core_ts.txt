@@ -1,37 +1,39 @@
 ﻿
 TypoScript Syntax and In-depth Study
 Extension Key: doc_core_ts
-Copyright 2000-2007, kasperYYYY@typo3.com, <kasperYYYY@typo3.com>
+Language: en
+Keywords: typoscript, syntax, forAdmins, forIntermediates
+Copyright 2000-2008, TYPO3 Core Development Team, <info@typo3.org>
 
 This document is published under the Open Content License
 available from http://www.opencontent.org/opl.shtml
 
-The content of this document is related to TYPO3
-- a GNU/GPL CMS/Framework available from www.typo3.com
+The content of this document is related to TYPO3 
+- a GNU/GPL CMS/Framework available from www.typo3.org
 
+Revised for TYPO3 4.2, November 2008
 Table of Contents
 TypoScript Syntax and In-depth Study	1
-Introduction	1
-What is TypoScript?	1
-TypoScript syntax, object paths, objects and properties	2
-Syntax	3
 Introduction	3
-TypoScript Syntax	4
-Conditions	7
-Includes	10
-Sorting out details	11
-More about syntax, semantics and TypoScript compared to XML and XSLT	11
-Where is TypoScript used?	11
-Entering TypoScript	13
-Parsing, Storing and Executing TypoScript	14
-Syntax highlighting and debugging	15
-Myths, FAQ and Acknowledgements	18
-The TypoScript parser  API	19
-Introduction	19
-Parsing custom TypoScript	19
-Implementing Conditions	22
-Implementing Conditions II	24
-
+What is TypoScript?	3
+TypoScript syntax, object paths, objects and properties	3
+Syntax	5
+Introduction	5
+TypoScript Syntax	5
+Conditions	9
+Includes	12
+Sorting out details	13
+More about syntax, semantics and TypoScript compared to XML and XSLT	13
+Where is TypoScript used?	13
+Entering TypoScript	15
+Parsing, Storing and Executing TypoScript	16
+Syntax highlighting and debugging	17
+Myths, FAQ and Acknowledgements	20
+The TypoScript parser  API	22
+Introduction	22
+Parsing custom TypoScript	22
+Implementing Conditions	24
+Implementing Conditions II	27
 
 Introduction
 Actually this document should have been much much shorter - after all the TypoScript syntax can be defined in a few lines. However TypoScript has a history of confusing people and therefore this introductory chapter has been dedicated to clearly define what TypoScript is so you can be sure to have the right perception.
@@ -209,10 +211,10 @@ Rules:
 Everything on the second line that comes after "{" is ignored.
 The "}"-sign must be the first non-space character on a line in order to finish the confinement. Everything after "}" is ignored.
 NOTE: You cannot use conditions inside of braces (except the [GLOBAL] condition which will be detected and reset the brace-level to zero)
-NOTE: Excessive endbraces are ignored, but issues a warning in the TypoScript parser.
+NOTE: Excessive end braces are ignored, but issues a warning in the TypoScript parser.
 
 Multiline values: The ( ) signs
-(opening/closing parenthesis) means, that you can assign a multiline value. By this method you can define values which span over several lines and thus includes linebreaks.
+(opening/closing parenthesis) means, that you can assign a multiline value. By this method you can define values which span over several lines and thus includes line breaks.
 Example:
 myObject = HTML
 myObject.value (
@@ -312,7 +314,7 @@ A condition always has it's own line and the line is detected by “ [ “ (squa
 
 So in this example the line “[GLOBAL]” is a condition (built-in, always returns true) and the line “[ condition 1 ][ condition 2]” is a condition. If “[ condition 1 ][ condition 2]” is true then the TypoScript in the middle would be parsed until [GLOBAL] (or [END]) resets the conditions and parses the TypoScript for any case again.
 Notice: The condition line “[ condition 1 ][ condition 2]” conveys the idea of two conditions being set, but from the TypoScript parsers point of view the whole line is the condition - it is in the context of TypoScript Templates that the condition line content is broken down into smaller units (“[ condition 1 ]” and “[ condition 2]”) which are individually evaluated and OR'ed together before they return the resulting true / false value. (That is all done with the class t3lib_matchCondition).
-Here is an example of some TypoScript (from the context of TypoScript Templates) where another text is outputted if you use the Netscape webbrowser (instead of for example Internet Explorer) or use Windows NT as operating system:
+Here is an example of some TypoScript (from the context of TypoScript Templates) where another text is outputted if you use the Netscape web browser (instead of for example Internet Explorer) or use Windows NT as operating system:
 pageObj.10 = HTML
 pageObj.10.value = Hello World
 pageObj.10.value.case = upper
@@ -415,7 +417,7 @@ More about syntax, semantics and TypoScript compared to XML and XSLT
 If you think you perfectly understand TypoScript now (you might already...) then don't bother with this section. I even risk confusing you again. But anyways, here it is - more theoretical information on TypoScript including references to the relationship between XML and XSLT:
 XML and TypoScript - all about syntax:
 A chunk of "TypoScript code" is like an XML document - it only contains information in a structured way, nothing else.  But in order to store information in TypoScript or XML you need to follow the syntax - rules about how the information values can be  inserted in the structure. Like the grammar for a human language defines in which order words can be combined. 
-For XML such rules include that "all tags must be ended, eg. <b>...</b> or <br />", correct nesting, using lowercase for element and attribute names etc. If you follow these rules an XML document is called "well formed". For TypoScript similar rules exist like "The = operator assigns the rest of the text string as the value to the preceeding object path" or "A line starting with # or / is a comment and therefore ignored".
+For XML such rules include that "all tags must be ended, eg. <b>...</b> or <br />", correct nesting, using lowercase for element and attribute names etc. If you follow these rules an XML document is called "well formed". For TypoScript similar rules exist like "The = operator assigns the rest of the text string as the value to the preceding object path" or "A line starting with # or / is a comment and therefore ignored".
 XSLT and "TypoScript Templates" - all about semantics (meaning, function):
 This is syntactically valid XML:
 	<asdf>qwerty</asdf>
@@ -478,7 +480,7 @@ Since TypoScript has a line-based syntax which most of all resembles what is fou
 
 
 
-This is typically how TypoScript is entered - directly in form fields. No syntax highlighting, no way of using TAB stops, no linenumber counting etc. Quite boring and rudimentary. Of course the lack of such features is not a political manifest but rather the lack of the ability to create such features with a simple textarea. Could anyone provide a nice Java-editor instead we would be happy. (In the meantime you can find TypoScript syntax highlighting for certain text editors. Ask on the mailing lists or search typo3.org).
+This is typically how TypoScript is entered - directly in form fields. No syntax highlighting, no way of using TAB stops, no line number counting etc. Quite boring and rudimentary. Of course the lack of such features is not a political manifest but rather the lack of the ability to create such features with a simple textarea. Could anyone provide a nice Java-editor instead we would be happy. (In the meantime you can find TypoScript syntax highlighting for certain text editors. Ask on the mailing lists or search typo3.org).
 However there are some helpful features: 
 a) There is the "TS wizard" icon which is often found to the right of the textarea - this can help you finding properties for the current TypoScript context
 b) there also is the ability to insert an include-tag in any TypoScript field (see later in this document) which refers to an external file which can contain TypoScript - and that file can be edited with an external editor with whatever benefits that has.
@@ -521,7 +523,7 @@ You can also print the array by an API function in TYPO3, namely t3lib_div::view
 As you see the value ("blue") of the property "backgroundColor" can be fetched by this PHP code:
 $this->setup['asdf.']['backgroundColor']
 
-So you can say that TypoScript offers a textbased interface for getting values into a multidimensional PHP array from a simple text field or file. This can be very useful if you need to take that kind of input from users without giving them direct access to PHP code - hence the reason why TypoScript came into existence.
+So you can say that TypoScript offers a text-based interface for getting values into a multidimensional PHP array from a simple text field or file. This can be very useful if you need to take that kind of input from users without giving them direct access to PHP code - hence the reason why TypoScript came into existence.
 "Executing" TypoScript
 Since TypoScript itself contains only information (!) you cannot "execute" it. The closest you come to "executing" TypoScript is when you take the PHP array with the parsed TypoScript structure and passes it to a PHP function which then  performs whatever actions according to the values found in the array. This is the syntax/semantics debate again.
 Syntax highlighting and debugging
@@ -574,7 +576,7 @@ TypoScript is simple in nature. But certainly it can quickly become complex and 
 Disciplined coding: Organize your TypoScript in a way that you can visually comprehend.
 Use the Syntax Highlighter to analyze and clean up your code - this gives you overview as well.
 Why not XML instead?
-A few times TypoScript has been compared with XML since both "languages" are frameworks for storing information. Apart from XML being a W3C standard (and TypoScript still not... :-) the main difference is that XML is great for large amounts of information with a high degree of "precision" while TypoScript is great for small amounts of "adhoc" information - like configuration values normally are. 
+A few times TypoScript has been compared with XML since both "languages" are frameworks for storing information. Apart from XML being a W3C standard (and TypoScript still not... :-) the main difference is that XML is great for large amounts of information with a high degree of "precision" while TypoScript is great for small amounts of "ad hoc" information - like configuration values normally are. 
 Actually a data structure defined in TypoScript could also have been modeled in XML. Currently you cannot use XML as an alternative to TypoScript (writing of June 2003) but this may happen at some point. Lets present this fictitious example of how a TypoScript structure could also have been implemented in "TSML" (our fictitious name for the non-existing TypoScript-Mark Up Language):
 
 styles.content.bulletlist = TEXT
@@ -702,7 +704,7 @@ false
 So these are the “objects” and “properties”  you have chosen to offer to your users of the plugin. This reference defines what information makes sense to put into the TypoScript field (semantics) because you will program your application to use this information as needed.
 
 A case story
-Now lets imagine that a user inputs this TypoScript configuration in whatever medium you have offered (eg. a textarea field):
+Now lets imagine that a user inputs this TypoScript configuration in whatever medium you have offered (e.g. a textarea field):
 
 colors {
   backgroundColor = red

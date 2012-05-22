@@ -1,0 +1,32 @@
+2008-12-01  Michael Stucki  <michael@typo3.org>
+
+	* Release of CoreDocs for TYPO3 4.2
+
+2008-11-21  Francois Suter  <francois@typo3.org>
+
+	* Applied new documentation template
+	* Corrected some typos
+
+2007-02-21  Michael Stucki  <michael@typo3.org>
+
+	* Release of CoreDocs for TYPO3 4.1
+
+2006-07-26  Michael Stucki  <michael@typo3.org>
+
+	* Exchanged the TYPO3 logo in the document footer
+
+2006-04-16  Michael Stucki  <michael@typo3.org>
+
+	* Added "prependString", "appendString" and "replaceString" properties to the "value modifications" section.
+
+2006-03-04  Michael Stucki  <michael@typo3.org>
+
+	* Added documentation about extending TypoScript object path values using the ":=" operator.
+
+2006-02-14  Michael Stucki  <michael@typo3.org>
+
+	* Moving this document to Sourceforge CVS
+
+2005-05-23  Michael Stucki  <michael@typo3.org>
+
+	* Release of TYPO3 3.8.0
