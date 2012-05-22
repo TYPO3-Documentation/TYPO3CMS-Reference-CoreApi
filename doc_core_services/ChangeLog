@@ -1,0 +1,33 @@
+2009-12-05  Francois Suter  <francois@typo3.org>
+
+	* Fixed bug #7879: Non existant function in example in Core Documentation - TYPO3 Services, 1.6 Api Description (thanks to Stefan Nolde)
+
+2009-03-27  Francois Suter  <francois@typo3.org>
+
+	* Added information about getting a specific service directly using its key
+
+2009-03-09  Francois Suter  <francois@typo3.org>
+
+	* Released version 1.0.1 to TER with manual temporarily renamed to manual.sxw
+
+2009-03-08  Francois Suter  <francois@typo3.org>
+
+	* Added PDF version to SVN
+	* Released to TER as version 1.0.0
+
+2009-03-02  Francois Suter  <francois@typo3.org>
+
+	* Minor corrections following remarks from proofreaders
+	* Updated PDF version too
+
+2009-02-20  Francois Suter  <francois@typo3.org>
+
+	* Completed first draft of rewritten manual
+
+2009-01-26  Francois Suter  <francois@typo3.org>
+
+	* First draft of rewritten manual (incomplete)
+
+2009-01-05  Michael Stucki  <michael@typo3.org>
+
+	* Add a ChangeLog, based on doc_core_services 0.2.0
