@@ -1,15 +1,23 @@
 
-***************
-The Storage API
-***************
+-----------
+Storage API
+-----------
 
-This chapter describes the internals of the *Storage* objects
+This chapter describes the public API of the ``Storage`` objects.
 
 
-File-related API
-================
+General API
+-----------
 
-**addFile**
+FIXME
+
+
+File API
+--------
+
+.. TODO check if this complete
+
+**addFile** ($localFilePath)
   Adds a local file to this storage.
 **createFile**
   Creates an empty file at the specified location.
@@ -47,5 +55,7 @@ File-related API
   asd
 
 
-Folder-related API
-==================
+Folder API
+----------
+
+FIXME
