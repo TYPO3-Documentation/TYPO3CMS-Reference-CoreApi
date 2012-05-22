@@ -1,0 +1,88 @@
+--- manual-doc_core_ts_3-8.txt	2007-02-21 03:29:11.000000000 +0100
++++ manual-doc_core_ts_4-0.txt	2007-02-21 03:29:11.000000000 +0100
+@@ -2,12 +2,12 @@
+ 00000000000000000000000000000000000000000000000
+ TypoScript Syntax and In-depth Study
+ Extension Key: doc_core_ts
+-Copyright 2000-2003, Kasper Skårhøj, <kasper@typo3.com>
++Copyright 2000-2006, kasperYYYY@typo3.com, <kasperYYYY@typo3.com>
+ 
+ This document is published under the Open Content License
+ available from http://www.opencontent.org/opl.shtml
+ 
+-The content of this document is related to Typo3 
++The content of this document is related to TYPO3
+ - a GNU/GPL CMS/Framework available from www.typo3.com
+ Table of Contents
+ Table of Contents
+@@ -20,12 +20,12 @@
+ TypoScript Syntax4
+ Conditions7
+ Includes10
+-Sorting out details10
+-More about syntax, semantics and TypoScript compared to XML and XSLT10
++Sorting out details11
++More about syntax, semantics and TypoScript compared to XML and XSLT11
+ Where is TypoScript used?11
+ Entering TypoScript13
+-Parsing, Storing and Executing TypoScript13
+-Syntax highlighting and debugging14
++Parsing, Storing and Executing TypoScript14
++Syntax highlighting and debugging15
+ Myths, FAQ and Acknowledgements18
+ The TypoScript parser API19
+ Introduction19
+@@ -124,7 +124,7 @@
+ myObject.myProperty = [value 2]
+ 
+ Object path is like the variable name in a programming language (Above: myObject.myProperty ). The object path is the first block of non-whitespace characters on a line until a "=<>{( "-character (space included) is found. Use only A-Z, a-z, 0-9, "-", "_" and periods (.) for Object Paths.
+-Operator is one of the characters =<>{( (Above: =). The significance of each is described below.
++Operator is one of the characters =<>{( (Above: =). The significance of each is described below.There is one special operator := that changes the value depending on a predefined function.
+ Value is whatever characters that proceeds the operator until the end of the line, but trimmed for whitespace (Above: [value 2]). Notice that values are not encapsulated in quotes! The value starts after the operator and ends with the linebreak.
+ Example
+ Here myObject is defined as a HTML content object and the property "value" is set (from the context of TypoScript Templates):
+@@ -161,11 +161,34 @@
+ */
+ )
+ 
+-Value assignment: The "="-sign 
++Value assignment: The "="-operator
+ assigns a value to an object path. 
+ Rules:
+ Everything after the "="-sign and to the end of the line is considered to be the value. In other words: You don?t need to quote anything! Please be aware that the value will be trimmed which means stripped for whitespace in both ends.
+ 
++Value modifications: The ":="-operator
++assigns a value to an object path by calling a predefined function which modifies the existing value of the current object path in different ways.
++This is very useful for extending lists of page IDs etc. when a value should be extended without redefining it completely again.
++Rules:
++The portion after the :=-operator and to the end of the line is split in two parts: A function and a value. The function is specified right next to the operator (trimmed) and holding the value in brackets (not trimmed).
++There are four predefined functions:
++prependString: Adds a string to the beginning of the existing value.
++appendString: Adds a string to the end of the existing value.
++removeString: Removes a string from the existing value.
++replaceString: Replaces old with new value. Separate these using |.
++addToList: Adds a comma-separated list of values to the end of a string value. There is no check for duplicate values, and the list is not sorted in any way.
++removeFromList: Removes a comma-separated list of values from a comma-separated list.
++There is a hook inside class.t3lib_tsparser.php which can be used to define more functions like this.
++Example:
++myObject = TEXT
++myObject.value = 1,2,3
++myObject.value := addToList(4,5)
++myObject.value := removeFromList(2,1)
++
++...results in the same like this:
++myObject = TEXT
++myObject.value = 3,4,5
++
+ Confinements: The { } signs
+ (opening/closing curly braces) means, that you can assign many object-properties in a simple way at once. It?s called a confinement or nesting of properties.
+ Example:
+@@ -266,7 +289,7 @@
+ Do I feel lucky today?
+ Of these examples admittedly the first few is the most realistic, in fact they are readily available in the context of TypoScript Templates. But a condition can theoretically evaluate any circumstance and return either true/false which subsequently means the parsing of the TypoScript code that follows.
+ Where conditions can be used
+-The detection of conditions is a part of the TypoScript syntax but the validation of the condition content always relies on the context where TypoScript is used. Therefore in plain syntax highlighting (no context) conditions are just highlighted and nothing more. In the context of TypoScript Templates there is a whole section of TSref [LINK] which defines the syntax of the condition contents for TypoScript Templates. For Page TSconfig and User TSconfig conditions are not implemented at all.
++The detection of conditions is a part of the TypoScript syntax but the validation of the condition content always relies on the context where TypoScript is used. Therefore in plain syntax highlighting (no context) conditions are just highlighted and nothing more. In the context of TypoScript Templates there is a whole section of TSref which defines the syntax of the condition contents for TypoScript Templates. For Page TSconfig and User TSconfig conditions are not implemented at all.
+ The syntax of conditions
+ A condition always has it?s own line and the line is detected by  [  (square bracket) being the first character on that line:
+ 
