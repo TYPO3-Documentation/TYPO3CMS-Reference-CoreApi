@@ -1,9 +1,9 @@
 ﻿TypoScript Syntax and In-depth Study
 Extension Key: doc_core_ts
 Language: en
-Version: 4.6.0
+Version: 4.7.0
 Keywords: typoscript, syntax, forAdmins, forIntermediates
-Copyright 2000-2011, Documentation Team, <documentation@typo3.org>
+Copyright 2000-2012, Documentation Team, <documentation@typo3.org>
 
 This document is published under the Open Content License
 available from http://www.opencontent.org/opl.shtml
@@ -40,7 +40,7 @@ Sorting out details	20
 More about syntax, semantics and TypoScript compared to XML and XSLT	20
 Where is TypoScript used?	21
 Entering TypoScript	24
-Parsing, storing and executing TypoScript	25
+Parsing, storing and executing TypoScript	24
 Syntax highlighting and debugging	26
 Myths, FAQ and acknowledgments	29
 The TypoScript parser API	32
@@ -59,7 +59,7 @@ About this document
 This document describes the syntax of TypoScript. It also covers the nature of TypoScript and what the differences are between the various contexts in which it can be used (i.e. templates and TSconfig).
 If the concept of TypoScript itself is not clear, please read the appendix "What is TypoScript?". Otherwise feel free to ignore it.
 What's new
-This version of the manual was updated for TYPO3 4.6. The changes include a note on a dropped limitation concerning the file size of include files. Also the new format of language files had to be taken into account. 
+This version of the manual was updated for TYPO3 4.7. The changes include updating an outdated statement about conditions. Additionally the deprecated content object "HTML" in some examples was replaced by the content object "TEXT". 
 In the version for TYPO3 4.5 all screenshots in this manual were updated. 
 Credits
 This document was formerly maintained by Michael Stucki and François Suter. Additions have been made by Sebastian Michaelsen. The updates for recent versions were done by Christopher Stelmaszyk.
@@ -97,8 +97,8 @@ When a line starts with "/" or "#" it is considered to be a comment and will be 
 Example:
 // This is a comment
 / This also is a comment (only ONE slash is needed)
-myObject = HTML
-myObject.value = <strong> HTML - code </strong>
+myObject = TEXT
+myObject.value = <strong>Some HTML code</strong>
 # This line also is a comment.
 Comment blocks
 When a line starts with "/*" or "*/" it defines the beginning or the end of a comment section respectively. Anything inside a comment section is ignored. 
@@ -111,7 +111,7 @@ Example:
  .. and this line is within that comment which...
   ends here:
 */  ... this is not parsed either though - the whole line is still within the comment
-myObject = HTML
+myObject = TEXT
 myObject.value (
   Here's a multiline value which 
   /* 
@@ -171,7 +171,7 @@ Opening and closing parenthesis are used to assign a multi-line value. With this
 Rules:
 Note: The end-parenthesis is extremely important. If it is not found, the parser considers the following lines to be part of the value and does not return to parsing TypoScript. This includes the [GLOBAL] condition which will not save you in this case! So don't miss it!
 Example:
-myObject = HTML
+myObject = TEXT
 myObject.value (
   <p class="warning"> 
     This is HTML code.
@@ -180,7 +180,7 @@ myObject.value (
 Object copying: The "<" sign 
 The "<" sign is used to copy one object path to another. The whole object is copied - both value and properties - and it overrides any old objects and values at that position. 
 Example:
-myObject = HTML
+myObject = TEXT
 myObject.value = <p class="warning">This is HTML code.</p>
 
 myOtherObject < myObject
@@ -188,7 +188,7 @@ myOtherObject < myObject
 The result of the above TypoScript is two independent sets of objects/properties which exactly the same (duplicates). They are not references to each other but actual copies:
 Another example with a copy within a code block:
 pageObj {
-	10 = HTML
+	10 = TEXT
 	10.value = <p class="warning">This is HTML code.</p>
 	20 < pageObj.10
 }
@@ -196,7 +196,7 @@ pageObj {
 Here also a copy is made, although inside the "pageObj" object. Note that the copied object is referred to with its full path ("pageObj.10"). When copying on the same level, you can just refer to the copied object's name, prepended by a dot.
 The following produces the same result as above:
 pageObj {
-	10 = HTML
+	10 = TEXT
 	10.value = <p class="warning">This is HTML code.</p>
 	20 < .10
 }
@@ -229,7 +229,7 @@ Remember: References are only available in TypoScript templates, not in TSconfig
 Object unsetting: The ">" sign:
 This is used to unset an object and all of its properties.
 Example:
-myObject = HTML
+myObject = TEXT
 myObject.value = <strong> HTML - code </strong>
 
 myObject >
@@ -273,19 +273,19 @@ A condition always has its own line and the line is detected by " [ " (square br
 As you can see from this example, the line "[GLOBAL]" also is a condition. It is built-in into TypoScript and always returns TRUE. The line "[ condition 1 ][ condition 2]" is another condition. If "[ condition 1 ][ condition 2]" is TRUE, then the TypoScript in the middle would be parsed until [GLOBAL] (or [END]) resets the conditions. After that point the TypoScript is parsed for any case again.
 Notice: The condition line "[ condition 1 ][ condition 2]" conveys the idea of two conditions being set, but from the TypoScript parsers point of view the whole line is the condition - it is in the context of TypoScript Templates that the condition line content is broken down into smaller units ("[ condition 1 ]" and "[ condition 2]") which are individually evaluated and connected by a logical OR before they return the resulting TRUE or FALSE value. (That is all done with the class t3lib_matchCondition).
 Here is an example of some TypoScript (from the context of TypoScript Templates) where another text is outputted if you use the Microsoft Internet Explorer web browser (instead of for example Google Chrome) or use Windows NT as operating system:
-pageObj.10 = HTML
+pageObj.10 = TEXT
 pageObj.10.value = Hello World
-pageObj.10.value.case = upper
+pageObj.10.case = upper
 
 [browser = msie][system = WinNT]
-pageObj.20 = HTML
+pageObj.20 = TEXT
 pageObj.20 {
   value = Hello Internet Explorer or Windows NT users!
-  value.case = upper
+  case = upper
 }
 
 [GLOBAL]
-pageObj.30 = HTML
+pageObj.30 = TEXT
 pageObj.30.value = <hr>
 
 You can now use the Object Browser to actually see the difference in the parsed object tree depending on whether the condition evaluates to TRUE or FALSE (which can be simulated with that module as you can see):
@@ -311,8 +311,7 @@ page.10.wrap = <strong>|</strong>
 Here we have one output text if the browser is Internet Explorer and another if not. Anyways the text is wrapped by <strong>|</strong> as we see, because this wrap is added outside of the condition block (here after the [END]-condition).
 
 
-
-The fact that you can "enable" the condition in the TypoScript Object Browser is a facility provided to simulate the outcome of any conditions you insert in a TypoScript Template. Whether or not the conditions correctly validate is only verified by actually getting a (in this example) Internet Explorer browser and hitting the site.
+The fact that you can "enable" the condition in the TypoScript Object Browser is a facility provided to simulate the outcome of any conditions you insert in a TypoScript Template. Whether or not the conditions validate correctly is only verified by actually getting a (in this example) Internet Explorer browser and hitting the site.
 
 Another example could be if you wanted to do something special in case a bunch of conditions is NOT true. There's no negate-character, but you could do this:
 
@@ -355,7 +354,7 @@ The reason for this is that the [GLOBAL] condition aborts the confinement starte
 So, in summary; the special [global] (or [GLOBAL]) condition will break TypoScript parsing within braces at any time and return to the global scope (unless entered in a multiline value). This is true for any TypoScript implementation whether other condition types are possible or not. Therefore you can use [GLOBAL] (put on a single line for itself) to make sure that following TypoScript is correctly parsed from the top level. This is normally done when TypoScript code from various records is combined.
 Summary
 Conditions are detected by "[" as the first line character (whitespace ignored).
-Conditions are evaluated in relation to the context where TypoScript is used. They are widely used in TypoScript Templates but not at all used with "Page TSconfig" or "User TSconfig".
+Conditions are evaluated in relation to the context where TypoScript is used. They are widely used in TypoScript Templates and can also be used in "Page TSconfig" or "User TSconfig".
 Special conditions [ELSE], [END] and [GLOBAL] exist.
 Conditions can be used outside of confinements (curly braces) only. However the [GLOBAL] condition will always break a confinement if entered inside of one.
 Includes

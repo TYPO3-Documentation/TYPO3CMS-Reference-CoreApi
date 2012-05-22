@@ -1,3 +1,11 @@
+2012-04-22  Christopher  <chrissitopher@gmx.de>
+
+	* Fixed bug #36429: Use Share font for headings
+	* Fixed bug #36427: Fix outdated statement about conditions
+	* Fixed task #36424: Do not use cObject HTML. Use cObject TEXT instead
+	* Fixed task #31524: Publish doc_core_ts for TYPO3 4.7
+	* Released version 4.7.0 to TER
+
 2011-11-03  Christopher  <chrissitopher@gmx.de>
 
 	* Fixed task #31432: Limitation "Must be less than 100KB." is no longer present since TYPO3 4.6
