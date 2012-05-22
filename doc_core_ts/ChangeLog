@@ -1,3 +1,22 @@
+2011-10-29  Christopher  <chrissitopher@gmx.de>
+
+	* Fixed task #31053: Publish doc_core_ts for TYPO3 4.3
+	* Released version 4.3.0 to TER
+
+2010-02-14  Francois Suter  <francois@typo3.org>
+
+	* Improved explanations about declaring constants for the Constant Editor (thanks to Sebastian Gebhard)
+
+2010-02-12  Francois Suter  <francois@typo3.org>
+
+	* Moved chapter about constants over from doc_core_tstemplates
+
+2009-11-20  Francois Suter  <francois@typo3.org>
+
+	* Minor text corrections
+	* Removed obsolete hyperlinks
+	* Added notes about t3editor
+
 2008-12-01  Michael Stucki  <michael@typo3.org>
 
 	* Release of CoreDocs for TYPO3 4.2

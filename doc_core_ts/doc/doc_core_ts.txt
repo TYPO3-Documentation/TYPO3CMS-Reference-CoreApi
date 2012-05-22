@@ -3,7 +3,7 @@ TypoScript Syntax and In-depth Study
 Extension Key: doc_core_ts
 Language: en
 Keywords: typoscript, syntax, forAdmins, forIntermediates
-Copyright 2000-2008, TYPO3 Core Development Team, <info@typo3.org>
+Copyright 2000-2010, TYPO3 Core Development Team, <info@typo3.org>
 
 This document is published under the Open Content License
 available from http://www.opencontent.org/opl.shtml
@@ -11,150 +11,76 @@ available from http://www.opencontent.org/opl.shtml
 The content of this document is related to TYPO3 
 - a GNU/GPL CMS/Framework available from www.typo3.org
 
-Revised for TYPO3 4.2, November 2008
+Revised for TYPO3 4.3, May 2010
 Table of Contents
 TypoScript Syntax and In-depth Study	1
 Introduction	3
-What is TypoScript?	3
-TypoScript syntax, object paths, objects and properties	3
-Syntax	5
-Introduction	5
-TypoScript Syntax	5
-Conditions	9
-Includes	12
-Sorting out details	13
-More about syntax, semantics and TypoScript compared to XML and XSLT	13
-Where is TypoScript used?	13
-Entering TypoScript	15
-Parsing, Storing and Executing TypoScript	16
-Syntax highlighting and debugging	17
-Myths, FAQ and Acknowledgements	20
-The TypoScript parser  API	22
-Introduction	22
-Parsing custom TypoScript	22
-Implementing Conditions	24
-Implementing Conditions II	27
+Syntax	4
+Introduction	4
+Contexts	4
+TypoScript Syntax	4
+Conditions	8
+Includes	11
+TypoScript Templates	12
+Constants	12
+Using constants	12
+Declaring constants for the Constant editor	14
+TSConfig	19
+Sorting out details	20
+More about syntax, semantics and TypoScript compared to XML and XSLT	20
+Where is TypoScript used?	20
+Entering TypoScript	22
+Parsing, Storing and Executing TypoScript	23
+Syntax highlighting and debugging	24
+Myths, FAQ and Acknowledgements	28
+The TypoScript parser  API	30
+Introduction	30
+Parsing custom TypoScript	30
+Implementing Conditions	32
+Implementing Conditions II	35
+Appendix A – What is TypoScript?	39
+TypoScript syntax, object paths, objects and properties	39
 
 Introduction
-Actually this document should have been much much shorter - after all the TypoScript syntax can be defined in a few lines. However TypoScript has a history of confusing people and therefore this introductory chapter has been dedicated to clearly define what TypoScript is so you can be sure to have the right perception.
-My recommendation is that you at least read the next section “What is TypoScript?” and then you can proceed to the chapter “Syntax” and read that. If you are at any time confused about the concept of TypoScript please make sure to come back and read the introduction to the end! 
-If you are confused already, please don't skip anything. Better safe than sorry.
-What is TypoScript?
-Since people are generally confused about what TypoScript (TS) is, where it can be used and has a tendency to think of it as something complex this document has been written to clearly explain these issues. 
-First lets start with some basic truths:
-TypoScript is a syntax for defining information in a hierarchical structure using simple ASCII text content.
-This means that:
-TypoScript itself does not "do" anything - it just contains information. 
-TypoScript is only transformed into function when it is passed to a program which is designed to act according to the information in a TypoScript information structure.
-So strictly speaking TypoScript has no function in itself, only when used in a certain context. Since the context is almost always to configure something you can often understand TypoScript as parameters (or function arguments) passed to a function which acts accordingly (eg. "background_color = red"). And on the contrary you will probably never see TypoScript used to store information like a database of addresses - you would use XML or SQL for that.
-PHP arrays
-In scope of its use you can also understand TypoScript as a non-strict way to enter information into a multidimensional array. In fact when TypoScript is parsed that means it is transformed into a PHP array! So when would you define static information in PHP arrays? You would do that in configuration files - but probably not build your address database!
-This can be summarized as follows:
-When TypoScript is parsed it means that the information is transformed into a PHP array from where TYPO3 applications can access it.
-So the same information could in fact be defined in TypoScript or directly in PHP; but the syntax would be different for the two of course.
-TypoScript offers convenient features which is the reason why we don't just define the information directly with PHP syntax into arrays. These features include a relaxed handling of syntax errors, definition of values with less language symbols needed and the ability of using an object/property metaphor etc.
-For more details see the bottom of the next page.
-TypoScript syntax, object paths, objects and properties
-See, that is what this document is about - the syntax of TypoScript; the rules you must obey in order to store information in this structure. Obviously I'll not explain the full syntax here but just give an example to convey the idea.
-Remember it is about storing information, so think about TypoScript as assigning values to variables: The "variables" are called "object paths" because TypoScript easily lends itself to the metaphor of "objects" and "properties". This has some  advantages as we shall see but at the same time TypoScript is designed to allow a very simple and straight forward assignment of values; simply by using the equal-sign as an operator:
-	asdf = qwerty
-
-Now the object path "asdf" contains the value "qwerty".
-Another example:
-
-	asdf.zxcvbnm = uiop
-	asdf.backgroundColor = blue
-
-Now the object path "asdf.zxcvbnm" contains the value "uiop" and "asdf.backgroundColor" contains the value "blue". According to the syntax of TypoScript this could also have been written more comfortably as:
-	asdf {
-	  zxcvbnm = uiop
-	  backgroundColor = blue
-	}
-
-What happend here is that we broke down the full object path, "asdf.zxcvbnm" into its components "asdf" and "zxcvbnm" which are separated by a period, ".", and then we used the curly brace operators, { and } , to bind them together again. To describe this relationship of the components of an object path we normally call "asdf " the object and " zxcvbnm " the property of that object.
-So although the terms objects and properties normally hint at some context (semantics) we may also use them purely to describe the various parts of an object path without considering the context and meaning. Consider this:
-	asdf {
-	  zxcvbnm = uiop
-	  backgroundColor = blue
-	  backgroundColor.transparency = 95%
-	}
-
-Here we can say that "zxcvbnm" and "backgroundColor" are properties of (the object) "asdf". Further, "transparency" is a property of (the object / the property) "backgroundColor" (or "asdf.backgroundColor"). 
-
-Note about perceived semantics:
-You may now think that "backgroundColor = blue" makes more sense than "zxcvbnm = uiop" but in reality it doesn't!  The only reason that "backgroundColor = blue" seems to make sense is that in the English language we understand the words "background color" and "blue" and automatically implies some meaning. But to a machine like a computer the word "backgroundColor" makes just as little sense as "zxcvbnm" unless it has been programmed to understand either one and take its value as the background color for something. In fact "uiop" could be an alias for blue color values and "zxcvbnm" could be programmed as the property setting the background color of something, eg. a HTML page.
-This just serves to point one thing out: Although most programming languages and TypoScript use function, method, keyword and property names which humans can often deduct some meaning from then ultimately the programming reference, DTD or XML-Schema defines the meaning.
-Note about the internal structure when parsed into a PHP array:
-As stated in the previous chapter TypoScript can be understood as a lightweight way to enter information into a multidimensional PHP array. Lets take the TypoScript from above as an example:
-        asdf {
-          zxcvbnm = uiop
-          backgroundColor = blue
-          backgroundColor.transparency = 95%
-        }
-When parsed, this information will be stored in a PHP array which could be defined as follows:
-	$TS['asdf.']['zxcvbnm'] = 'uiop';
-	$TS['asdf.']['backgroundColor'] = 'blue';
-	$TS['asdf.']['backgroundColor.']['transparency'] = '95%';
-Or alternatively you could define the information in the PHP array like this:
-
-$TS = array(
-    'asdf.' => array(
-        'zxcvbnm' => 'uiop',
-        'backgroundColor' => 'blue',
-        'backgroundColor.' => array (
-            'transparency' => '95%'
-        )
-    )
-)
-
-Personally I'm still convinced that TypoScript  is the best syntax for the job! Less symbols involved and non-technical users can safely write it (although non-techs are not meant to use TS!) without fearing PHP parsing errors which will harshly abort the execution of page generation (or whatever).
+This document describes the syntax of TypoScript. It also covers the nature of TypoScript and what are the difference between the various contexts where it can be used (i.e. templates and TSconfig).
+If the concept itself of TypoScript is not clear, please read the appendix “What is TypoScript?”. Otherwise feel free to ignore it.
 Syntax
 Introduction
-Remember, TypoScript is like a (large) multidimensional PHP array; values arranged in a hierarchy - a tree. The "branches" are indicated with periods (".") - a syntax borrowed from for example JavaScript and which conveys the idea of defining objects/properties. For more details on these metaphors you should read the introductory chapters of this document. Here we will only deal with the syntactically rules.
+TypoScript is like a (large) multidimensional PHP array (see “Appendix A – What is TypoScript?”). Values are arranged in a tree-like hierarchy. The "branches" are indicated with periods (".") - a syntax borrowed from for example JavaScript and which conveys the idea of defining objects/properties.
 Example:
 myObject = [value 1]
 myObject.myProperty = [value 2]
 myObject.myProperty.firstProperty = [value 3]
 myObject.myProperty.secondProperty = [value 4]
 
-Refering to "myObject" we might call it an "object with the value [value 1] and the property, 'myProperty' with the value [value 2]. Furthermore 'myPropery' has its own two properties, 'firstProperty' and 'secondProperty' with a value each ([value 3] and [value 4])."
-We might even call 'myProperty' for a TypoScript object in this example! This is already explained in the introduction chapter.
-Remember, TypoScript contains information and is not "executed" like a real scripting language is; therefore it doesn't report any errors if you specify non-existing objects or non-existing properties. Such an evaluation only makes sense when TypoScript is used in a context (like "TypoScript Templates" or "Page TSconfig"). However we can always evaluate TypoScript for a correct syntax (which means whether information is defined in a correct way, following the “grammatical” rules). 
-Anyways, the TypoScript above looks like this in a node-tree (the TypoScript Object Browser creates such):
-
-
+Referring to "myObject" we might call it an "object with the value [value 1] and the property, 'myProperty' with the value [value 2]. Furthermore 'myProperty' has its own two properties, 'firstProperty' and 'secondProperty' with a value each ([value 3] and [value 4])."
+The TYPO3 backend contains tools that can be used to visualize the tree structure of TypoScript. They are described in the relevant section further in this document (see “TypoScript Templates” and “TSconfig”). The above piece of TypoScript would look like this:
+Contexts
+There are two contexts where TypoScript is used: templates, where TypoScript is used to actually define what will appear in the TYPO3 frontend, and TSconfig, where it is used to configure of the TYPO3 backend. TSconfig is further subdivided into User TSconfig (defined at backend users or groups level) and Page TSconfig (defined along the page tree).
+Some parts of TypoScript are available in both contexts, some only in one or the other. Any difference is always mentioned in this manual.
+Each context has its own chapter in this manual. It also has its own reference in a separate manual (see “Further reading” at the end of this manual).
 TypoScript Syntax
 TypoScript is parsed in a very simple way; line by line. This means that each line normally contains three parts based on this formula:
 	[Object Path] [Operator] [Value]
-
 Example:
 	myObject.myProperty = [value 2]
 
-Object path is like the variable name in a programming language (Above: myObject.myProperty ). The object path is the first block of non-whitespace characters on a line until a "=<>{( "-character (space included) is found. Use only A-Z, a-z, 0-9, "-", "_" and periods (.) for Object Paths.
-Operator is one of the characters “=<>{(“ (Above: “=”). The significance of each is described below.
-There is one special operator “:=” that changes the value depending on a predefined function.
-Value is whatever characters that proceeds the operator until the end of the line, but trimmed for whitespace (Above: [value 2]). Notice that values are not encapsulated in quotes! The value starts after the operator and ends with the linebreak.
-Example
-Here myObject is defined as a HTML content object and the property "value" is set (from the context of TypoScript Templates):
-myObject = HTML
-myObject.value = <BLINK> HTML - code </BLINK>
-
-
-
-Comments: When a line starts with "/" or "#"
-...then it's considered a comment which means the line is totally ignored.
+The object path is like the variable name in a programming language (in this case “myObject.property”). The object path is the first block of non-whitespace characters on a line until a "=<>{( "-character (space included) is found. Use only A-Z, a-z, 0-9, "-", "_" and periods (.) for Object Paths.
+Operator is one of the characters “=<>{(“ (in this case “=”). The various operators are described below.
+Value is whatever characters follow the operator until the end of the line, but trimmed for whitespace (in this case “[value 2]”). Notice that values are not encapsulated in quotes! The value starts after the operator and ends with the line break.
+Comments
+When a line starts with "/" or "#" it is considered to be a comment and will be ignored.
 Example:
 // This is a comment
 / This is also a comment (only ONE slash is needed)
 myObject = HTML
 myObject.value = <BLINK> HTML - code </BLINK>
 # This line is also a comment.
-
-Comment blocks: When a line starts with "/*" or  "*/"
-... it defines the beginning or the end of a comment section respectively. Anything within a comment section is ignored. 
+Comment blocks
+When a line starts with "/*" or  "*/" it defines the beginning or the end of a comment section respectively. Anything inside a comment section is ignored. 
 Rules:
 /* and */ MUST be the very first characters of a trimmed line in order to be detected. 
-Comments are not detected inside a multiline value parenthesis.
+Comment blocks are not detected inside a multi-line value block (see parenthesis operator below).
 
 Example:
 /* This is a comment
@@ -165,130 +91,138 @@ myObject = HTML
 myObject.value (
   Here's a multiline value which 
   /* 
-    ignores comments in side, so this is parsed!
+    This is not a comment because it is inside a multi-line value block
   */
 )
-
-Value assignment: The "="-operator
-assigns a value to an object path. 
+Value assignment: The "=" operator
+This simply assigns a value to an object path. 
 Rules:
-Everything after the "="-sign and to the end of the line is considered to be the value. In other words: You don't need to quote anything! Please be aware that the value will be trimmed which means stripped for whitespace in both ends.
-
-Value modifications: The ":="-operator
-assigns a value to an object path by calling a predefined function which modifies the existing value of the current object path in different ways.
-This is very useful for extending lists of page IDs etc. when a value should be extended without redefining it completely again.
+Everything after the "=" sign and up to the end of the line is considered to be the value. In other words: You don't need to quote anything!
+Be aware that the value will be trimmed, which means stripped of whitespace at both ends.
+Value modifications: The ":=" operator
+This operator assigns a value to an object path by calling a predefined function which modifies the existing value of the current object path in different ways.
+This is very useful when a value should be modified without redefining it completely again.
 Rules:
-The portion after the “:=”-operator and to the end of the line is split in two parts: A function and a value. The function is specified right next to the operator (trimmed) and holding the value in brackets (not trimmed).
-There are four predefined functions:
+The portion after the “:=” operator and to the end of the line is split in two parts: A function and a value. The function is specified right next to the operator (trimmed) and holding the value in brackets (not trimmed).
+There are six predefined functions:
 prependString: Adds a string to the beginning of the existing value.
 appendString: Adds a string to the end of the existing value.
 removeString: Removes a string from the existing value.
 replaceString: Replaces old with new value. Separate these using “|”.
 addToList: Adds a comma-separated list of values to the end of a string value. There is no check for duplicate values, and the list is not sorted in any way.
-removeFromList: Removes a comma-separated list of values from a comma-separated list.
-There is a hook inside class.t3lib_tsparser.php which can be used to define more functions like this.
+removeFromList: Removes a comma-separated list of values from an existing comma-separated list of values.
+There is a hook inside class.t3lib_tsparser.php which can be used to define more such functions.
 Example:
 myObject = TEXT
 myObject.value = 1,2,3
 myObject.value := addToList(4,5)
 myObject.value := removeFromList(2,1)
 
-...results in the same like this:
+produces the same result as:
 myObject = TEXT
 myObject.value = 3,4,5
-
-Confinements: The { } signs
-(opening/closing curly braces) means, that you can assign many object-properties in a simple way at once. It's called a confinement or nesting of properties.
-Example:
-myObject = HTML
-myObject.value = <BLINK> HTML - code </BLINK>
-...is the same as:
-myObject = HTML
-myObject {
-  value = <BLINK> HTML - code </BLINK>
-}
+Code blocks: The { } signs
+Opening and closing curly braces are used to assign many object properties in a simple way at once. It's called a block or nesting of properties.
 Rules:
-Everything on the second line that comes after "{" is ignored.
-The "}"-sign must be the first non-space character on a line in order to finish the confinement. Everything after "}" is ignored.
+Everything on the same line as the opening brace ("{"), but that comes after it is ignored.
+The "}" sign must be the first non-space character on a line in order to close the block. Everything on the same line, but after "}" is ignored.
+Blocks can be nested. This is actually recommended for improved readability.
 NOTE: You cannot use conditions inside of braces (except the [GLOBAL] condition which will be detected and reset the brace-level to zero)
-NOTE: Excessive end braces are ignored, but issues a warning in the TypoScript parser.
+NOTE: Excessive end braces are ignored, but generate warnings in the TypoScript parser.
+Example:
+myObject = TEXT
+myObject.field = title
+myObject.ifEmpty.data = leveltitle:0
 
-Multiline values: The ( ) signs
-(opening/closing parenthesis) means, that you can assign a multiline value. By this method you can define values which span over several lines and thus includes line breaks.
+could also be written as:
+myObject = TEXT
+myObject {
+	field = title
+	ifEmpty {
+		data = leveltitle:0
+	}
+}
+Multi-line values: The ( ) signs
+Opening and closing parenthesis are used to assign a multi-line value. With this method you can define values which span several lines and thus include line breaks.
+Rules:
+NOTE: The end-parenthesis is extremely important. If it is not found, the parser does not return to parsing TypoScript. This includes the [GLOBAL] condition which will not save you in this case! So don't miss it!
 Example:
 myObject = HTML
 myObject.value (
-  <BLINK> 
-    HTML - code  
-  </BLINK>
+  <p class=”warning”> 
+    This is HTML code.
+  </p>
 )
-Rules:
-NOTE: The end-parenthesis is extremely important as if it is not found, the parser does not return to parsing TypoScript. This includes the [GLOBAL] condition which will not save you! So don't miss it!
-
 Object copying: The "<" sign 
-is used to copy one object path to another. The whole object is copied - both value and properties - and it overrides any old objects and values at that position. 
+The “<” sign is used to copy one object path to another. The whole object is copied - both value and properties - and it overrides any old objects and values at that position. 
 Example:
 myObject = HTML
-myObject.value = <BLINK> HTML - code </BLINK>
+myObject.value = <p class=”warning”>This is HTML code.</p>
 
 myOtherObject < myObject
-In this case you have two independent sets of objects/properties which exactly the same (duplicates). They are not references to each other but actually copies:
 
-
-Another example (copy from within curly brace confinement):
+The result of the above TypoScript is two independent sets of objects/properties which exactly the same (duplicates). They are not references to each other but actual copies:
+Another example with a copy within a code block:
 pageObj {
-  10 = HTML
-  10.value = <BLINK> HTML - code </BLINK>
-  20 < pageObj.10
-}
-Here you also make a copy of an object. The object is referred to from the root. You can also use a notation where the object is referenced from the same level. In this case you just write the object but add a period before it in order to denote that they are on the same level.
-This is equal to the above example:
-pageObj {
-  10 = HTML
-  10.value = <BLINK> HTML - code </BLINK>
-  20 <.10
+	10 = HTML
+	10.value = <p class=”warning”>This is HTML code.</p>
+	20 < pageObj.10
 }
 
+Here also a copy is made, although inside the “pageObj” object. Note that the copied object is referred to with its full path (“pageObj.10”). When copying on the same level, you can just refer to the copied object's name, prepended by a dot.
+The following produces the same result as above:
+pageObj {
+	10 = HTML
+	10.value = <p class=”warning”>This is HTML code.</p>
+	20 < .10
+}
 
+which – in tree view – translates to:
+Note: one thing to be careful about copies is when the original object is changed. Take a look at the following code:
+someObject = TEXT
+someObject {
+	value = Hello world!
+	wrap = <p>|<p>
+}
+anotherObject < someObject
+someObject.wrap = <h1>|<h1>
 
-Note about references to objects (in TypoScript Templates):
-When TypoScript is used in the context of TypoScript Templates you can find that content objects can sometimes be referenced instead of copied. References mean that multiple positions in an object tree can use the same object at another position without making an actual copy of the object but by simply pointing to the objects full object path.
-An example based on the above code:
-   0: myObject = HTML
-   1: myObject.value = <BLINK> HTML - code </BLINK>
-   2: 
-   3: pageObj {
-   4:   10 = < myObject
-   5: }
-Watch line 4: This looks like a feature of TypoScript but it is not!!! It is a feature implemented on the context level which means that it only works because the TypoScript Template Engine has been programmed to perceive content object names starting with “<” as a reference to the object path following the < sign.
-In fact, if we look at the parsed TypoScript in a node tree we can see that “< myObject” is nothing but the simple value of the object path “pageObj.10”:
+The value of the “wrap” property of “anotherObject” is “<p>|</p>”. It it not “<h1>|<h1>” because this change happens after the copy. This example may seem trivial, but it's easy to loose the oversight in larger pieces of TypoScript.
+References: the “=<” sign
+In the context of TypoScript Templates it is possible to create references from one object to another. References mean that multiple positions in an object tree can use the same object at another position without making an actual copy of the object but by simply pointing to the objects full object path.
+The obvious advantage is that a change of code to the original object affects all references. It avoids the risk mentioned above with the copy operator to forget that a change at a later point does not affect earlier copies. On the other hand there's the reverse risk: it is easy to forget that changing the original object will have an impact on all references. References are very convenient, but should be used with caution.
+Example:
+someObject = TEXT
+someObject {
+	value = Hello world!
+	wrap = <p>|<p>
+}
+anotherObject =< someObject
+someObject.wrap = <h1>|<h1>
 
-
-This note just served to point out this potential misconception you might get when you begin working with TypoScript in relation to template building.
+In this case, the “wrap” property of “anotherObject” will indeed by “<h1>|<h1>”. In tree view the properties of the reference are not shown. Only the reference itself:
+Remember: references are only available in TypoScript templates, not TSconfig.
 Object unsetting: The ">" sign:
-This is used to unset an object and all its properties.
-Example: 
+This is used to unset an object and all of its properties.
+Example:
 myObject = HTML
 myObject.value = <BLINK> HTML - code </BLINK>
 
 myObject >
-In this last line “myObject” is totally wiped out (removed)
-Conditions: Lines starting with “[“
-Conditions break the parsing of the TypoScript in order to evaluate the content of the condition line. If the evaluation returns true parsing continues, otherwise the following TypoScript is ignored until the next condition found where a new evaluation will be performed. The next section in this document describes conditions in more detail.
-Example:
-[browser=netscape]
-page.10.value = Netscape
 
+In this last line “myObject” is totally wiped out (removed).
+Conditions: Lines starting with “[“
+Conditions break the parsing of the TypoScript in order to evaluate the content of the condition line. If the evaluation returns true parsing continues, otherwise the following TypoScript is ignored until the next condition is found, at which point a new evaluation takes place. The next section in this document describes conditions in more details.
+Rules:
+Conditions apply only when outside of any code block (i.e. outside of any curly braces).
+Example:
+[browser = netscape]
+page.10.value = Netscape
 [else]
 page.10.value = Not a netscape browser!
-
 [end]
-
-Rules:
-Conditions can break the parsing only when outside of any confinement (curly brace levels).
-
 Conditions
-There is a possibility of using so called conditions in TypoScript. Conditions are simple control structures, that validates true or false based on some criteria (externally validated) and thereby determines whether the following TypoScript code until the next condition found should be parsed or not.
+There is a possibility of using so called conditions in TypoScript. Conditions are simple control structures, that evaluate to true or false based on some criteria (externally validated) and thereby determine whether the TypoScript code following the condition should be parsed or not (until the next condition found).
 Examples of a condition could be:
 Is the browser “Netscape”?
 Is a usergroup set for the current session?
@@ -296,11 +230,11 @@ Is it monday?
 Is the GET parameter “&language=uk” set?
 Is it my mothers birthday?
 Do I feel lucky today?
-Of these examples admittedly the first few is the most realistic, in fact they are readily available in the context of TypoScript Templates. But a condition can theoretically evaluate any circumstance and return either true/false which subsequently means the parsing of the TypoScript code that follows.
+Of these examples admittedly the first few are the most realistic. In fact they are readily available in the context of TypoScript Templates. But a condition can theoretically evaluate any circumstance and return either true/false which subsequently means the parsing of the TypoScript code that follows.
 Where conditions can be used
 The detection of conditions is a part of the TypoScript syntax but the validation of the condition content always relies on the context where TypoScript is used. Therefore in plain syntax highlighting (no context) conditions are just highlighted and nothing more. In the context of TypoScript Templates there is a whole section of TSref which defines the syntax of the condition contents for TypoScript Templates. For “Page TSconfig” and “User TSconfig” conditions are not implemented at all.
 The syntax of conditions
-A condition always has it's own line and the line is detected by “ [ “ (square bracket) being the first character on that line:
+A condition always has its own line and the line is detected by “ [ “ (square bracket) being the first character on that line:
 
 (Some TypoScript)
 
@@ -407,11 +341,209 @@ An include-instruction looks like this:
 
 It must have its own line in the TypoScript template, otherwise it's not recognized.
 It is processed BEFORE any parsing of TypoScript (contrary to conditions) and therefore does not care about the nesting of confinements within the TypoScript code.
-The “source” parameter points to the source of the included content. The string before the first “:” (in the example it is the word “FILE”) will determine which source the content is coming from. This is the options:
+The “source” parameter points to the source of the included content. The string before the first “:” (in the example it is the word “FILE”) will determine which source the content is coming from. This is the only option available:
 FILE
 A reference to a file relative to PATH_site. Must be less than 100 KB. Cannot contain “..” (double periods, back path).
 If you prefix the relative path with such as “EXT:myext/directory/file.txt” then the file included will be sought for in the extension directory of extension “myext”, subdirectory “directory/file.txt”.
 
+TypoScript Templates
+Constants
+What are constants?
+Constants are values defined in the "Constants"-field of a template. They follow the syntax of ordinary TypoScript!
+NOTE, reserved name: The object or property "file" is always interpreted as data type "resource".
+NOTE: Toplevel "object" TSConstantEditor cannot be used. It's reserved for configuration of the ConstantEditor module (Changed from beta4)
+Example:
+Here "bgCol" is set to "red" and "file.toplogo" is set to "logo*.gif" which is found in the resource-field of the template.
+bgCol = red
+topimg.width = 200
+topimg.file.pic2 = fileadmin/logo2.gif
+file.toplogo = logo*.gif
+
+This could also be defined like this:
+bgCol = red
+file {
+  toplogo = logo*.gif
+}
+topimg {
+  width = 200
+  file.pic2 = fileadmin/logo2.gif
+}
+
+(The objects in bold is the reserved word "file" and the properties are always of data type "resource"
+
+
+Using constants
+Constants are inserted in the template-setup by performing an ordinary str_replace operation! You insert them like this:
+{$bgCol}
+{$topimg.width}
+{$topimg.file.pic2}
+{$file.toplogo}
+
+Example:
+page = PAGE
+page.typeNum = 0
+
+page.bodyTag = <body bgColor="{$bgCol}">
+page.10 = IMAGE
+page.10.file = {$file.toplogo}
+
+Only defined constants are substituted.
+Constants in included templates are also substituted as the whole template is just on large chunk of text.
+Constants are case sensitive.
+You should use a systematic naming of constants. Seek inspiration in the code-examples around.
+
+
+
+Notice how the constants in the setup code is substituted. In the Object Browser, you can monitor the constants with or without substitution. Also notice that the value "logo*.gif" was resolved to the resource "uploads/tf/logo_01.gif"
+(Note: The "Constants display" function is not available if you select "Crop lines")
+Declaring constants for the Constant editor
+You can put comments anywhere in your TypoScripts. Comments are always ignored by the parser when the template is processed. But the backend module Web>TS has the ability to utilize comments in a constant-editor that makes simple configuration of a template even easier than constants in them selves make it.
+
+
+When the TS "Constant Editor" parses the template, all comments before every constant-definition are registered. In the constants you can follow a certain syntax to define what category the constant should be in, which type it has and what explanation there is about the constant. This is an example:
+styles.content.textStyle {
+    # cat=content/cText/1; type=; label= Bodytext font: This is the fontface used for text!
+  face = 
+    # cat=content/cText/2; type=int[1-5]; label= Bodytext size
+  size = 
+    # cat=content/cText/3; type=color; label= Bodytext color
+  color = 
+  color1 =
+  color2 =
+  properties =
+}
+
+It's totally optional to make the comments before your constants compliant with this system, but it's very useful lateron if you want others to make simple corrections to your template or distribute the template in a template-archive or such.
+Default values:
+The default value of a constant is determined by the value the constant has BEFORE the last template (the one you're manipulating with the module) is parsed (previous templates are typically included static_template-records!), unless the mark ###MOD_TS:EDITABLE_CONSTANTS### is found in the last template, in which case constant-definitions before this mark is also regarded default-values.
+This means that all constant values - or values after the mark ###MOD_TS:EDITABLE_CONSTANTS### if present - in the template-record you're manipulating is regarded to be your customized extensions.
+Comments:
+How the comments are perceived by the module:
+
+- All comments set on lines before the constant wherever it's found in the templates are parsed sequentially.
+- Each line is split by the ";" (semicolon) character, that separates the various parameters
+- Each parameter is split by the "=" (equal) sign to separate the parameter "key" and the "value".
+Keys:
+cat=
+- Comma-separated list of the categories (case-insensitive) that the constant is a member of. You should list only one category, because it usually turns out to be confusing for users, if a constant appears in multiple categories!
+- If category is not found among the default categories listed below, it's regarded a new category
+- If the category is empty (""), the constant is excluded by the editor!
+
+basic: 
+Constants of superior importance for the template-layout. This is dimensions, imagefiles and enabling of various features. The most basic constants, which you would almost always want to configure.
+
+menu: 
+Menu setup. This includes fontfiles, sizes, background images. Depending on the menutype.
+
+content:
+All constants related to the display of pagecontent elements
+
+page:
+General configuration like metatags, link targets
+
+advanced:
+Advanced functions, which are used very seldomly.
+Subcategories:
+There are a number of subcategories to use. Subcategories are entered after the category-name separated by a slash "/". Example: "basic/color/a"
+This will make the constant go into the "BASIC"-category, be listed under the "COLOR"-section and probably be one of the top-constants listed, because the "a" is used to sort the constants in a subcategory. If "a" was not entered, the default is "z" and thus it would be one of the last colors to select. As the third parameter here, you can choose whatever you like.
+You can use one of the predefined subcategories or define your own. If you use a non-existing subcategory, your constant will just go into the subcategory "Other". 
+Predefined Subcategories
+Standard subcategories (in the order they get listed in the Constant Editor):
+enable	Used for options that enable or disable primary functions of a template
+dims		Dimensions of all kinds; pixels, widths, heights of images, frames, cells and so on.
+file		Files like background images, fonts and so on. Other options related to the file may also enter
+typo		Typography and related constants
+color		Color setup. Many colors will be found with related options in other categories though.
+links		Links: Targets typically
+language	Language specific options.
+
+Subcategories based on the default content elements
+cheader,cheader_g,ctext,ctextpic,cimage,cbullets,ctable,cuploads,cmultimedia,cmailform,csearch,clogin,csplash,cmenu,cshortcut,clist,cscript,chtml
+These are all categories reserved for options that relate to content rendering for each type of tt_content element. See static_template "content (default)" and "styles.content (default)" for examples.
+Custom Subcategories
+To define your own Subcategory put a comment including the parameter "customsubcategory". Here's an example: 
+# customsubcategory=cache=LLL:EXT:myext/locallang.xml:cache 
+This line defines the new Subcategory "cache" which will be available for your Constants defined AFTER this line. Usage example:
+#cat=Site conf/cache/a; type=boolean; label=Global no_cache 
+config.no_cache = 0 
+
+Will look in the Constant Editor like this: 
+
+type=
+int [low-high]		integer, opt. in range "low" to "high"
+int+  			positive integer
+offset	[L1,L2,...L6]		comma-separated integers. Default is “x,y”, but as comma separated parameters in brackets you can specify up to 6 labels being comma separated! If you wish to omit one of the last 4 fields, just don't enter a label for that element.
+color				HTML color
+wrap				HTML-code that is wrapped around some content.
+options [item1,item2,...]	Selectbox with values/labels item1, item2 etc. Comma-separated. Split by "=" also and in that case, first part is label, second is value
+boolean [truevalue]		Boolean, opt. you can define the value of "true", def.=1
+comment 			Boolean, checked= "", not-checked = "#".
+file [ext-list/IMAGE_EXT]	Selectorbox with resources. Opt. list allowed extensions (no space in list!), eg. "[ttf]" or "[txt,html,htm]". You can also enter "[IMAGE_EXT]" in which case the default image-extensions are listed. (used for datatype "imgResource")
+string (the default)	Just a string value
+user	...
+label=
+Text string, trimmed.
+Split by the first ":" to separate a header and body of the comment. Header is displayed on it's own line in bold.
+Can be localized by using the traditional “LLL” syntax. Example:
+#cat=Site conf/cache/a; type=boolean; label=LLL:EXT:examples/locallang.xml:config.no_cache
+config.no_cache = 0 
+
+Note that a single string is referenced (not one for the header and one for the description). This means that the localized string must contain the colon separator (“:”). Example:
+<label index=”config.no_cache”>Global no_cache:Check to box to turn off all cache</label>
+TSConstantEditor.[category]
+In addition to using constants, you can also configure a category in the constant editor by a special top-level TypoScript "object" in the constants-field. The name is "TSConstantEditor" and any properties to this object will NOT be substituted like any other constant normally would.
+Property:
+Data type:
+Description:
+Default:
+header
+string
+Header, displayed in upper-case
+
+description
+string, break by //
+Description, enter "//" to make a linebreak
+
+bulletlist
+string, break by //
+Lines for a bulletlist, enter "//" (double-slash) in order to break to next bullet
+
+image
+image
+This is an optional image you can attach to the category. 
+The image would normally show a given configuration of the template and contain numberet marks, that indicate positions that are referred to by the constants, listed in the number-array.
+The image must be located in "gfx/" in the module path OR be a file from the resource-list of the template.
+
+Array, 1-20
+list of constant-names
+Each number refers to a number-mark on the image and all constants that are listed at each number will get a little number-icon by it's header.
+
+
+Example:
+## TSConstantsEditor Config
+TSConstantEditor.basic {
+  header = Standard Template "BUSINESS"
+  description = BUSINESS is a framebased template in a very simple layout, based on ....
+  bulletlist = Left-frame image in the top. The dimensions are fixed to ....
+  image = gfx/BUSINESS_basic.gif
+
+  1=leftFrameWidth,menu.file.bgImg,menu.bgCol
+  2=page.file.bgImg,bgCol
+  3=contentOffset
+  4=file.logo
+  5=page.L0.titleWrap
+  6=page.L1.titleWrap
+  7=contentWidth,styles.content.imgtext.maxW
+  8=page.lineCol
+}
+
+
+This example shows how the static_template BUSINESS is configured for the basic-module. This is how it looks in Typo3:
+User-defined (custom) constants fields
+...
+
+
+TSConfig
 Sorting out details
 More about syntax, semantics and TypoScript compared to XML and XSLT
 If you think you perfectly understand TypoScript now (you might already...) then don't bother with this section. I even risk confusing you again. But anyways, here it is - more theoretical information on TypoScript including references to the relationship between XML and XSLT:
@@ -429,7 +561,7 @@ And this is syntactically valid English:
 	footballs sing red
 
 But none of these examples make sense without some reference which defines how elements, values and words can be combined in order to form meaning - they need a context. This is called semantics. For human languages we have it internally because we know footballs can't sing and you can't "sing red" - we know it's nonsense while the sentence is correctly formed. For an XML document you have it by the DTD or schema which defines if the element "<asdf>" exists on that level in the document (and if not, then it's nonsense) and for TypoScript you have it by the reference document for the context where the TypoScript syntax is used to define an information hierarchy - for instance the "TSref" for TypoScript Templates or the "TSconfig" document for "Page TSconfig" or "User TSconfig".
-So an XML document makes sense only if you know the relationship of the information stored inside of the document and that is required if you want an XSLT stylesheet to transform one XML document to another document. In fact an XSLT stylesheet is like babelfish for XML - it translate one "language" of XML into another "language" of XML.
+So an XML document makes sense only if you know the relationship of the information stored inside of the document and that is required if you want an XSLT stylesheet to transform one XML document to another document. In fact an XSLT stylesheet is like a translator for XML - it translates one "language" of XML into another "language" of XML.
 Similarly TypoScript is used as the syntax to build "TypoScript Templates" (containing semantics - meaning); the information only makes sense if it follows the rules defined in the "TSref" document.
 BTW, the comparison of "TypoScript Templates" and "XSLT" is intensional since both can be described as declarational programming languages  - programming by configuring values which instructs a real procedural program  (eg. the TypoScript Frontend Engine which is written in PHP) how to output data. More is written on this issue on typo3.org.
 For more on syntax and semantics, you can read this link that I found on the net.
@@ -448,19 +580,19 @@ And likewise for the one-column website you enter this value in the TSconfig fie
 
 
 Now the "Page" module will receive the value of the property "colPos_list" when showing the page content available for any subpage of the root page where the configuration was entered. Accordingly only the configured columns will be shown.
-The objects and properties you can use here is generally defined in the document "TSConfig" in addition to local extension documents.
+The objects and properties you can use here are generally defined in the document "TSConfig" in addition to local extension documents.
 User TSconfig
 Each frontend and backend user and group has a field for input of TSconfig. The main idea with User TSconfig is that you can configure individual behavior for groups and even users themselves. The possibilities are normally settings which are on a more detailed level than what you can already set as permission settings in the main forms for users/groups. For instance you could configure how many clipboard pads a user should see or whether a "Save document and add new" button should appear for all forms for this user - stuff which is clearly too detailed for a spot in the main form for permissions and settings.
 Like with Page TSconfig the content of the TSconfig fields are accumulated in a certain order; the order of member groups and finally the users own fields settings. Thus a setting for a user will override the setting for one of his member groups.
 To mention an example of what you can do with User TSconfig for a backend user, then this line will enable the "Save document and create new" button in editing forms:
 
 
-The objects and properties you can use here is generally defined in the document "TSConfig" in addition to local extension documents.
+The objects and properties you can use here are generally defined in the document "TSConfig" in addition to local extension documents.
 TypoScript Templates
 The most (in)famous and extensive use of TypoScript is in the frontend engine where TypoScript is used to configure how the frontend engine will put together the website output. This is probably also where TypoScript clashes most with traditional ideas of template building in web design and confuses people to think of TypoScript as a programming language - with the result that they find it even more confusing. (If TYPO3 has a scripting language it is not TypoScript  but PHP!)
 This introduction to TypoScript tries to eliminate this confusion and therefore let us make two statements about how TYPO3 handles templates:
 No fixed template method: TYPO3 does not offer one fixed way to dealing with templates for websites; rather you are set free to choose the way you find most appealing. You can:
-HTML templates; configure TYPO3 to facilitate external HTML-templates with markers and subparts. Popular and familiar for most people. Please see the tutorial "Modern Template Building, Part 1".
+HTML templates: configure TYPO3 to facilitate external HTML-templates with markers and subparts. Popular and familiar for most people. Please see the tutorial "Modern Template Building, Part 1".
 Ext. Templating Engines: configure TYPO3 to use XSLT stylesheets with an XSLT processor. This is done either by an extension providing this functionality or by writing your own extension for it. 
 Custom PHP: configure TYPO3 to call your own PHP-code which generates content in any way you may prefer. This might include using third party templating engines!
 TS content objects: or build the page by the Frontend Engines "content objects" which are accessible/programmable through the TypoScript syntax.
@@ -480,8 +612,9 @@ Since TypoScript has a line-based syntax which most of all resembles what is fou
 
 
 
-This is typically how TypoScript is entered - directly in form fields. No syntax highlighting, no way of using TAB stops, no line number counting etc. Quite boring and rudimentary. Of course the lack of such features is not a political manifest but rather the lack of the ability to create such features with a simple textarea. Could anyone provide a nice Java-editor instead we would be happy. (In the meantime you can find TypoScript syntax highlighting for certain text editors. Ask on the mailing lists or search typo3.org).
-However there are some helpful features: 
+This is typically how TypoScript is entered - directly in form fields. Since TYPO3 4.2 a JavaScript-based editor is available for TypoScript templates only. It provides line-numbering and syntax highlighting. Since TYPO3 4.3, it also provides autocompletion.
+If you don't see this, make sure system extension “t3editor” is loaded. Also the editor is available only when editing TypoScript from the Web > Template module (function: “Info/Modify”) and not when editing the whole template record.
+Other helpful features: 
 a) There is the "TS wizard" icon which is often found to the right of the textarea - this can help you finding properties for the current TypoScript context
 b) there also is the ability to insert an include-tag in any TypoScript field (see later in this document) which refers to an external file which can contain TypoScript - and that file can be edited with an external editor with whatever benefits that has.
 Parsing, Storing and Executing TypoScript
@@ -1086,4 +1219,69 @@ net = Netscape (or any other)
 Values are evaluated against the output of the function t3lib_div::clientInfo() which can be consulted for details on the values for browsers.
 [Browser = msie]
 
+Appendix A – What is TypoScript?
+People are often confused about what TypoScript (TS) is, where it can be used and have a tendency to think of it as something complex. This chapter has been written in the hope of clarifying these issues. 
+First let's start with a basic truth:
+TypoScript is a syntax for defining information in a hierarchical structure using simple ASCII text content.
+This means that:
+TypoScript itself does not "do" anything - it just contains information. 
+TypoScript is only transformed into function when it is passed to a program which is designed to act according to the information in a TypoScript information structure.
+So strictly speaking TypoScript has no function in itself, only when used in a certain context. Since the context is almost always to configure something you can often understand TypoScript as parameters (or function arguments) passed to a function which acts accordingly (e.g. "background_color = red"). And on the contrary you will probably never see TypoScript used to store information like a database of addresses - you would use XML or SQL for that.
+PHP arrays
+In the scope of its use you can also understand TypoScript as a non-strict way to enter information into a multidimensional array. In fact when TypoScript is parsed, it is transformed into a PHP array! So when would you define static information in PHP arrays? You would do that in configuration files - but probably not build your address database!
+This can be summarized as follows:
+When TypoScript is parsed it means that the information is transformed into a PHP array from where TYPO3 applications can access it.
+So the same information could in fact be defined in TypoScript or directly in PHP; but the syntax would be different for the two of course.
+TypoScript offers convenient features which is the reason why we don't just define the information directly with PHP syntax into arrays. These features include a relaxed handling of syntax errors, definition of values with less language symbols needed and the ability of using an object/property metaphor, etc.
+TypoScript syntax, object paths, objects and properties
+See, that is what this document is about - the syntax of TypoScript; the rules you must obey in order to store information in this structure. Obviously I'll not explain the full syntax here but just give an example to convey the idea.
+Remember it is about storing information, so think about TypoScript as assigning values to variables: The "variables" are called "object paths" because TypoScript easily lends itself to the metaphor of "objects" and "properties". This has some  advantages as we shall see but at the same time TypoScript is designed to allow a very simple and straight forward assignment of values; simply by using the equal sign as an operator:
+	asdf = qwerty
 
+Now the object path "asdf" contains the value "qwerty".
+Another example:
+
+	asdf.zxcvbnm = uiop
+	asdf.backgroundColor = blue
+
+Now the object path "asdf.zxcvbnm" contains the value "uiop" and "asdf.backgroundColor" contains the value "blue". According to the syntax of TypoScript this could also have been written more comfortably as:
+	asdf {
+	  zxcvbnm = uiop
+	  backgroundColor = blue
+	}
+
+What happened here is that we broke down the full object path, "asdf.zxcvbnm" into its components "asdf" and "zxcvbnm" which are separated by a period, ".", and then we used the curly brace operators, { and } , to bind them together again. To describe this relationship of the components of an object path we normally call "asdf " the object and " zxcvbnm " the property of that object.
+So although the terms objects and properties normally hint at some context (semantics) we may also use them purely to describe the various parts of an object path without considering the context and meaning. Consider this:
+	asdf {
+	  zxcvbnm = uiop
+	  backgroundColor = blue
+	  backgroundColor.transparency = 95%
+	}
+
+Here we can say that "zxcvbnm" and "backgroundColor" are properties of (the object) "asdf". Further, "transparency" is a property of (the object / the property) "backgroundColor" (or "asdf.backgroundColor"). 
+
+Note about perceived semantics:
+You may now think that "backgroundColor = blue" makes more sense than "zxcvbnm = uiop" but in reality it doesn't!  The only reason that "backgroundColor = blue" seems to make sense is that in the English language we understand the words "background color" and "blue" and automatically implies some meaning. But to a machine like a computer the word "backgroundColor" makes just as little sense as "zxcvbnm" unless it has been programmed to understand either one and take its value as the background color for something. In fact "uiop" could be an alias for blue color values and "zxcvbnm" could be programmed as the property setting the background color of something, eg. a HTML page.
+This just serves to point one thing out: Although most programming languages and TypoScript use function, method, keyword and property names which humans can often deduct some meaning from then ultimately the programming reference, DTD or XML-Schema defines the meaning.
+Note about the internal structure when parsed into a PHP array:
+As stated in the previous chapter TypoScript can be understood as a lightweight way to enter information into a multidimensional PHP array. Lets take the TypoScript from above as an example:
+        asdf {
+          zxcvbnm = uiop
+          backgroundColor = blue
+          backgroundColor.transparency = 95%
+        }
+When parsed, this information will be stored in a PHP array which could be defined as follows:
+	$TS['asdf.']['zxcvbnm'] = 'uiop';
+	$TS['asdf.']['backgroundColor'] = 'blue';
+	$TS['asdf.']['backgroundColor.']['transparency'] = '95%';
+Or alternatively you could define the information in the PHP array like this:
+
+$TS = array(
+    'asdf.' => array(
+        'zxcvbnm' => 'uiop',
+        'backgroundColor' => 'blue',
+        'backgroundColor.' => array (
+            'transparency' => '95%'
+        )
+     )
+)
