@@ -1,9 +1,9 @@
 ﻿TYPO3 Security Guide
 Extension Key: doc_guide_security
 Language: en
-Version: 1.0.0
+Version: 1.0.1
 Keywords: security forEditors forAdmins forDevelopers forBeginners forIntermediates forAdvanced
-Copyright 2011, Documentation Team <documentation@typo3.org>
+Copyright 2011-2012, Documentation Team <documentation@typo3.org>
 
 This document is published under the Open Content License
 available from http://www.opencontent.org/opl.shtml
@@ -31,66 +31,67 @@ Target audience	3
 The TYPO3 Security Team	4
 Contact information	4
 Incident handling	4
-General Information	5
-TYPO3 versions and lifecycle 	5
-Difference between core and extensions	5
-Announcement of updates and security fixes	5
+General Information	6
+TYPO3 versions and lifecycle 	6
+Difference between core and extensions	6
+Announcement of updates and security fixes	6
 Security bulletins	6
-Types of Security Threats	7
-Information disclosure	7
-Identity theft	7
-SQL injection	7
-Code injection	7
-Authorization bypass	7
-Cross Site Scripting (XSS)	8
-Cross Site Request Forgery (XSRF)	8
-General Guidelines	9
-Secure passwords	9
-Operating system and browser version	9
-Communication	9
-React quickly	10
-Keep TYPO3 extensions up-to-date	10
-Guidelines for System Administrators	11
-Role definition	11
-General rules	11
-Integrity of TYPO3 packages	11
-File/directory permissions	12
-Restrict access to files on a server-level	12
-Directory indexing	12
-Database access	13
-Encrypted client/server communication	14
-Other services	15
-Further actions	16
-Guidelines for TYPO3 Integrators	17
-Role definition	17
-General rules	17
-Install Tool	17
-Encryption key	19
-Global TYPO3 configuration options	19
-Security-related warnings after login	21
-Reports and Logs	21
-Backend users and access privileges	22
-TYPO3 extensions	23
-TypoScript	25
-Content elements	27
-Guidelines for Editors	28
-Role definition	28
-General rules	28
-Backend access	28
-Restriction to required functions	31
-Secure connection	31
-Logout	31
-Backup Strategy	32
-Components included in the backups	32
-Time plan and retention time	32
-Backup location	32
-Further considerations	33
-Detect, Analyze and Repair a Hacked Site	34
-Detect a hacked website	34
-Take the website offline	35
-Analyze	36
-Repair/restore	36
-Further actions	37
+Types of Security Threats	8
+Information disclosure	8
+Identity theft	8
+SQL injection	8
+Code injection	8
+Authorization bypass	8
+Cross Site Scripting (XSS)	9
+Cross Site Request Forgery (XSRF)	9
+General Guidelines	10
+Secure passwords	10
+Operating system and browser version	10
+Communication	10
+React quickly	11
+Keep TYPO3 extensions up-to-date	11
+Use staging servers for developments and tests	11
+Guidelines for System Administrators	12
+Role definition	12
+General rules	12
+Integrity of TYPO3 packages	12
+File/directory permissions	13
+Restrict access to files on a server-level	13
+Directory indexing	13
+Database access	14
+Encrypted client/server communication	15
+Other services	16
+Further actions	17
+Guidelines for TYPO3 Integrators	18
+Role definition	18
+General rules	18
+Install Tool	18
+Encryption key	20
+Global TYPO3 configuration options	20
+Security-related warnings after login	22
+Reports and Logs	22
+Backend users and access privileges	23
+TYPO3 extensions	24
+TypoScript	26
+Content elements	28
+Guidelines for Editors	29
+Role definition	29
+General rules	29
+Backend access	29
+Restriction to required functions	32
+Secure connection	32
+Logout	32
+Backup Strategy	33
+Components included in the backups	33
+Time plan and retention time	33
+Backup location	33
+Further considerations	34
+Detect, Analyze and Repair a Hacked Site	35
+Detect a hacked website	35
+Take the website offline	36
+Analyze	37
+Repair/restore	37
+Further actions	38
 
 Introduction
 About this document
@@ -102,7 +103,7 @@ History
 In 2006 Ekkehard Guembel and Michael Hirdes published a document "TYPO3 Security Cookbook". It was a concise, technical guide for system administrators to secure TYPO3 installations.
 Over the years TYPO3 has become increasingly popular and thousands of websites worldwide are powered by TYPO3. There was a need to update and expand the Security Cookbook and to include information for non-technical users.
 Credits
-We would like to thank Ekkehard Guembel and Michael Hirdes for writing the TYPO3 Security Cookbook. Thanks to the TYPO3 Security Team for their work for the TYPO3 project. A special thank goes to Frank Esser for his books and articles on PHP security, Jochen Weiland for an initial foundation and Michael Schams for compiling the content in this document and coordinating the collaboration between several teams. He managed the whole process of getting this Security Guide to a high quality.
+We would like to thank Ekkehard Guembel and Michael Hirdes for writing the TYPO3 Security Cookbook. Thanks to the TYPO3 Security Team for their work for the TYPO3 project. A special thank goes to Stefan Esser for his books and articles on PHP security, Jochen Weiland for an initial foundation and Michael Schams for compiling the content in this document and coordinating the collaboration between several teams. He managed the whole process of getting this Security Guide to a high quality.
 Feedback
 For general questions about the documentation get in touch by writing to documentation@typo3.org.
 If you find a bug in this document, please file an issue at it's bug tracker: http://forge.typo3.org/projects/typo3v4-doc_guide_security
@@ -118,28 +119,30 @@ Please find further details about the TYPO3 Security Team at http://typo3.org/te
 Incident handling
 The next chapter provides detailed information about the differences between the TYPO3 core system and TYPO3 extensions.
 TYPO3 core system
-If the TYPO3 Security Team gains knowledge about a security issue in the TYPO3 core system, they work closely together with the developers of the appropriate component of the system, after verifying the problem. A fix for the vulnerability will be developed, carefully tested and reviewed. Together with a public security bulletin, a TYPO3 core update will be released. Please see below for further details about TYPO3 versions and security bulletins.
+If the TYPO3 Security Team gains knowledge about a security issue in the TYPO3 core system, they work closely together with the developers of the appropriate component of the system, after verifying the problem. A fix for the vulnerability will be developed, carefully tested and reviewed. Together with a public security bulletin, a TYPO3 core update will be released. Please see next chapter for further details about TYPO3 versions and security bulletins.
 TYPO3 extensions
 When the TYPO3 Security Team receives a report of a security issue in an extension, the issue will be checked in the first stage. If a security problem can be confirmed, the Security Team tries to get in touch with the extension developer and requests a fix. Then one of the following situations usually occurs:
-the developer cannot be contacted or does not react
-the developer refuses to produce a security fix (e.g. because he does not maintain the extension anymore)
-the developer acknowledges the security vulnerability but does not provide a fix
 the developer acknowledges the security vulnerability and delivers a fix
-In the case where the extension author fails to provide a security fix in an appropriate time frame, all affected versions of the extension will be removed from the TYPO3 Extension Repository (TER) and a security bulletin will be published (see below), recommending to deinstall the extension.
+the developer acknowledges the security vulnerability but does not provide a fix
+the developer refuses to produce a security fix (e.g. because he does not maintain the extension anymore)
+the developer cannot be contacted or does not react
+In the case where the extension author fails to provide a security fix in an appropriate time frame (see below), all affected versions of the extension will be removed from the TYPO3 Extension Repository (TER) and a security bulletin will be published (see below), recommending to deinstall the extension.
 If the developer provides the TYPO3 Security Team with an updated version of the extension, the team reviews the fix and checks if the problem has been solved. The Security Teams also prepares a security bulletin and coordinates the release date of the new extension version with the publication date of the bulletin.
 Extension developers must not upload the new version of the extension before they received the go-ahead from the Security Team.
 If you discover a security problem in your own extension, please follow this procedure as well and coordinate the release of the fixed version with the TYPO3 Security Team.
+Further details about the handling of security incidents and time frames can be found in the official TYPO3 Extension Security Policy at http://typo3.org/teams/security/extension-security-policy/
+
 General Information
 TYPO3 versions and lifecycle 
 TYPO3 uses a system of major, minor and revision numbers for individual releases. For example, in release 4.6.0 the major version is 4, the minor version is 6 and the revision is 0. When considering the major and minor numbers, support and security fixes are provided for the current release as well as the two preceding releases. For example, when version 4.6.x is the current release, versions 4.5.x and 4.4.x are still actively supported, including security updates.
 Major and minor releases offer new features and often a modified database structure. Also the visual appearance and handling of the backend may be changed and appropriate training for editors may be required. The content rendering may change, so that updates in TypoScript, templates or CSS code may be necessary. With major and minor releases also the system requirements (for example PHP or MySQL version) may change. For revisions within a minor release (i.e. changing from release 4.6.0 to 4.6.1) the database structure and backend will usually not change and an update will only require the new version of the source code.
-A TYPO3 version which shows two minor versions below the current release is classified as a deprecated. For example when version 4.6 is the current release, this is version 4.4.x. For users of this version an update to the latest stable version is recommended. All versions below a deprecated version are outdated and the support of these versions has ended, including security updates. Users of these versions are strongly encouraged to update their systems as soon as possible.
+A TYPO3 version which shows two minor versions below the current release is classified as a deprecated version. For example when version 4.6 is the current release, this is version 4.4.x. For users of this version an update to the latest stable version is recommended. All versions below a deprecated version are outdated and the support of these versions has ended, including security updates. Users of these versions are strongly encouraged to update their systems as soon as possible.
 Difference between core and extensions
-The TYPO3 base system is called the core. The functionality of the core can be expanded, using extensions. A small, selected number of extensions (the system extensions) are being distributed as part of the TYPO3 core. The core and its system extensions are being developed by a relatively small team (40-50 people), consisting of experienced and skilled developers. All code being submitted to the core is  reviewed for quality by other core team members.
-Currently there are more than 5300 extensions available in the TYPO3 Extension Repository (TER), written by some 2000 individual programmers. Since everybody can submit extensions to the TER, the code quality varies greatly. Some extensions show a very high level of code quality, while others have been written by amateurs. Most of the known security issues in TYPO3 have been found in these extensions, which are not part of the core system. Therefore, this does not imply that TYPO3 is insecure in general. It is possible, that none of these issues are related to TYPO3 itself but have been found in extensions.
+The TYPO3 base system is called the core. The functionality of the core can be expanded, using extensions. A small, selected number of extensions (the system extensions) are being distributed as part of the TYPO3 core. The core and its system extensions are being developed by a relatively small team (40-50 people), consisting of experienced and skilled developers. All code being submitted to the core is reviewed for quality by other core team members.
+Currently there are more than 5500 extensions available in the TYPO3 Extension Repository (TER), written by some 2000 individual programmers. Since everybody can submit extensions to the TER, the code quality varies greatly. Some extensions show a very high level of code quality, while others have been written by amateurs. Most of the known security issues in TYPO3 have been found in these extensions, which are not part of the core system.
 Announcement of updates and security fixes
 Information about new TYPO3 releases as well as security bulletins are being announced on the "TYPO3 Announce" mailing list. Every system administrator who hosts one or more TYPO3 instances, and every TYPO3 integrator who is responsible for a TYPO3 project should subscribe to this mailing list, as it contains important information. You can subscribe at http://lists.typo3.org/cgi-bin/mailman/listinfo/typo3-announce
-This is a read-only mailing list, which means that you cannot reply to a message or post your own messages. The announce list typically does not distribute more than 3 or 4 mails per month. However it is highly recommended to carefully read any message that arrives, because they contain important information about TYPO3 releases and security bulletins.
+This is a read-only mailing list, which means that you cannot reply to a message or post your own messages. The announce list typically does not distribute more than 3 or 4 mails per month. However it is highly recommended to carefully read every message that arrives, because they contain important information about TYPO3 releases and security bulletins.
 Other communication channels such as http://news.typo3.org, a RSS feed, an official Twitter account (@typo3_security), etc. can additionally be used to stay up-to-date on security advisories.
 Security bulletins
 When security updates for TYPO3 or an extension become available, they will be announced on the "TYPO3 Announce" mailing list, as described above, but also published with much more specific details on the official TYPO3 Security Team website at http://typo3.org/teams/security/security-bulletins
@@ -162,10 +165,11 @@ Individual Security Bulletin: bulletins issued for extensions that have a high n
 Collective Security Bulletins: updates for extensions with a relative small number of downloads are published in a collective bulletin. Such a bulletin may contain information about 10 or even more extensions.
 For some critical security issues the TYPO3 Security Team may decide to pre-announce a security bulletin on the "TYPO3 Announce" mailing list. This is to inform system administrators about the date and time of an upcoming important bulletin, so that they can schedule the update.
 Since 2010 the TYPO3 Security Team also publishes a CVSS rating with every security bulletin. CVSS is an open framework for communicating the characteristics and impacts of vulnerabilities in Information Technology. It enables analysts to understand and properly communicate disclosed vulnerabilities and allows responsible personnel to prioritize risks. Further details about CVSS are available at http://www.first.org/cvss/cvss-guide.html
+Security issues in the TYPO3 core which are only exploitable by users with administrator privileges (including system components that are accessible by administrators only, such as the Install Tool) are treated as normal software "bugs" and are fixed as part of the standard core review process. This implies that the development of the fix including the review and deployment is publicly visible and can be monitored by everyone.
 Types of Security Threats
 This section provides a brief overview of the most common security threats to give the reader a basic understanding of them. The sections for system administrators, TYPO3 integrators and editors explain in more detail how to secure a system against those threats.
 Information disclosure
-This means that the system will (under certain circumstances) make information available to an outside person that might use it to craft an attack against the system. Such information includes details of the file system structure or details about the installed software, such as configuration options or version numbers. An attacker could gain important information about the system configuration that makes an attack possible.
+This means that the system makes (under certain circumstances) information available to an outside person. Such information could be sensitive user data (e.g. names, addresses, customer data, credit card details, etc.) or details about the system (such as the file system structure, installed software, configuration options, version numbers, etc). An attacker could use this information to craft an attack against the system.
 There is a fine line between the protection against information disclosure and so called "security by obscurity". Latter means, that system administrators or developers try to protect their infrastructure or software by hiding or obscuring it. An example would be to not reveal that TYPO3 is used as the content management system or a specific version of TYPO3 is used. Security experts say, that "security by obscurity" is not security, simply because it does not solve the root of a problem (e.g. a security vulnerability) but tries to obscure the facts only.
 Identity theft
 Under certain conditions it may be possible that the system reveals personal data, such as customer lists, e-mail addresses, passwords, order history or financial transactions. This information can be used by criminals for fraud or financial gains. The server running a TYPO3 website should be secured so that no data can be retrieved without the consent of the owner of the website.
@@ -175,7 +179,7 @@ Code injection
 Similar to SQL injection described above, "code injection" includes commands or files from remote instances (RFI: Remote File Inclusion) or from the local file system (LFI: Local File Inclusion). The fetched code becomes part of the executing script and runs in the context of the TYPO3 site (so it has the same access privileges on a server level). Both attacks, RFI and LFI, are often triggered by improper verification and neutralization of user input.
 Local file inclusion can lead to information disclosure (see above), for example reveal system internal files which contain configuration settings, passwords, encryption keys, etc.
 Authorization bypass
-In an authorization bypass attack, the cracker exploits vulnerabilities in poorly designed applications or login forms (e.g. client-side data input validation). Authentication modules shipped with the TYPO3 core are well-tested and reviewed. However, due to the open architecture of TYPO3, this systems can be extended by alternative solutions. The code quality and security aspects may vary, see chapter "Guidelines for TYPO3 Integrators: TYPO3 extensions" for further details.
+In an authorization bypass attack, an attacker exploits vulnerabilities in poorly designed applications or login forms (e.g. client-side data input validation). Authentication modules shipped with the TYPO3 core are well-tested and reviewed. However, due to the open architecture of TYPO3, this system can be extended by alternative solutions. The code quality and security aspects may vary, see chapter "Guidelines for TYPO3 Integrators: TYPO3 extensions" for further details.
 Cross Site Scripting (XSS)
 Cross-site scripting occurs when data that is being processed by an application is not filtered for any suspicious content. It is most common with forms on websites where a user enters data which is then processed by the application. When the data is stored or sent back to the browser in an unfiltered way, malicious code may be executed. A typical example is a comment form for a blog or guest book. When the submitted data is simply stored in the database, it will be sent back to the browser of visitors if they view the blog or guest book entries. This could be as simple as the inclusion of additional text or images, but it could also contain JavaScript code of iframes that load code from a 3rd party website.
 Cross Site Request Forgery (XSRF)
@@ -189,7 +193,7 @@ It is critical that every user is using secure passwords to authenticate himself
 2. Passwords should have a mix of upper and lower case letters, numbers and special characters.
 3. Passwords should not be made up of personal information such as names, nick names, pet's names, birthdays, anniversaries, etc.
 4. Passwords should not be made out of common words that can be found in dictionaries.
-5. Do not store passwords on Post-it notes, under your desk cover, in your wallet, unencryptedly on USB sticks or somewhere else.
+5. Do not store passwords on Post-it notes, under your desk cover, in your wallet, unencrypted on USB sticks or somewhere else.
 6. Always use a different password for different logins! Never use the same password for your e-mail account, the TYPO3 backend, an online forum and so on.
 7. Change your passwords in regular intervals but not too often (this would make remembering the correct password too difficult) and avoid to re-use the last 10 passwords.
 8. Do not use the "stay logged in" feature on websites and do not store passwords in applications like FTP clients. Enter the password manually every time you log in.
@@ -201,14 +205,19 @@ Make sure that you are using up-to-date software versions of your browser and th
 It is also recommended to use appropriate tools for detecting viruses, Trojans, keyloggers, rootkits and other "malware".
 Communication
 A good communication between several roles is essential to clarify responsibilities and to coordinate the next steps when updates are required, an attacked site needs to be restored or other security-related actions need to be done as soon as possible.
-A central point of contact, for example a person or a team responsible for coordinating these actions, is generally a good idea. This also lets others (e.g. integrators, editors) know, to whom they can report issues.
+A central point of contact, for example a person or a team responsible for coordinating these actions, is generally a good idea. This also lets others (e.g. integrators, editors, end-users) know, to whom they can report issues.
 React quickly
 TYPO3 is open source software as well as all TYPO3 extensions published in the TYPO3 Extension Repository (TER). This means, everyone can download and investigate the code base. From a security perspective, this usually improves the software, simply because more people review the code, not only a few core developers. Currently, there are hundreds of developers actively involved in the TYPO3 community and if someone discovers and reports a security issue, he/she will be honored by being credited in the appropriate security bulletin.
 The open source concept also implies that everyone can compare the old version with the new version of the software after a vulnerability became public. This may give an insight to anyone who has programming knowledge, how to exploit the vulnerability and therefore it is understandable how important it is, to react quickly and fix the issue before someone else compromises it. In other words, it is not enough to receive and read the security bulletins, it is also essential to react as soon as possible and to update the software or deinstall the affected component.
 The security bulletins may also include specific advice such as configuration changes or similar. Check your individual TYPO3 instance and follow these recommendations.
 Keep TYPO3 extensions up-to-date
 Do not rely on publicly released security announcements only. Reading the official security bulletins and updating TYPO3 extensions which are listed in the bulletins is an essential task but not sufficient to have a "secure" system.
-Extension developers sometimes fix security issues in their extensions without notifying the Security Team (and maybe without mentioning it in the ChangeLog or in the upload comments). This is not the recommended way, but possible. Therefore updating extensions whenever a new version is published is a good idea in general – at least consider doing it!
+Extension developers sometimes fix security issues in their extensions without notifying the Security Team (and maybe without mentioning it in the ChangeLog or in the upload comments). This is not the recommended way, but possible. Therefore updating extensions whenever a new version is published is a good idea in general – at least investigating/reviewing the changes and assessing if an update is required.
+Also keep in mind that attackers often scan for system components that contain known security vulnerabilities to detect points of attack. These "components" can be specific software packages on a system level, scripts running on the web server but also specific TYPO3 versions or TYPO3 extensions.
+Use staging servers for developments and tests
+During the development phase of a project and also after the launch of a TYPO3 site as ongoing maintenance work, it is often required to test if new or updated extensions, PHP, TypoScript or other code meets the requirements.
+A website that is already "live" and publicly accessible should not be used for these purposes. New developments and tests should be done on so called "staging servers" which are used as a temporary stage and could be messed up without an impact on the "live" site. Only relevant/required, tested and reviewed clean code should then be implemented on the production site.
+This is not security-related on the first view but "tests" are often grossly negligent implemented, without security aspects in mind. Staging servers also help keeping the production sites slim and clean and reduce maintenance work (e.g. updating extensions which are not in use).
 Guidelines for System Administrators
 Role definition
 In this document, we define a system administrator as the person who is responsible for the system/server where the TYPO3 instance is installed. System administrators usually have full access on a server level (operating system) and install, configure and maintain the base system and hosting environment, including the database server, web server, PHP, TYPO3, as well as components such as ImageMagick, etc.
@@ -267,7 +276,7 @@ phpMyAdmin and similar tools intend to allow the administration of MySQL databas
 However, due to the fact that a properly configured TYPO3 system does not require direct access to the database for editors or TYPO3 integrators, those applications should not be used on a production site at all.
 Encrypted client/server communication
 Data classification
-It depends on the nature of the data but in general "sensitive" information could be: user logins, passwords, user details (such as names, addresses, contact details, etc.), email addresses and other data which are not public. Medical, financial data (e.g. credit card details, account numbers, access codes, etc.) and others, are confidential by their nature and must not be transmitted unencryptedly at all.
+It depends on the nature of the data but in general "sensitive" information could be: user logins, passwords, user details (such as names, addresses, contact details, etc.), email addresses and other data which are not public. Medical, financial data (e.g. credit card details, account numbers, access codes, etc.) and others, are confidential by their nature and must not be transmitted unencrypted at all.
 In most cases, a data assessment should be undertaken to classify the data according to several traits relating to use, legal requirements, and value. The outcome of this assessment can be a categorization based on a data classification model, which then defines how to protect the data.
 
 Public
@@ -312,7 +321,7 @@ TYPO3 supports a SSL encrypted backend and offers some specific configuration op
 However, the access details used for the login are transferred between the client and the server when submitting the login form only. After a successful login, a session ensures that the user remains authenticated. This results in the conclusion, that only the login procedure should be protected, not the following client/server communication necessarily – assuming no sensitive information are accessed from or stored in the backend.
 The TYPO3 core extension "rsaauth" addresses this requirement, see "security-related core extensions" in chapter "Guidelines for TYPO3 integrators".
 Other services
-An encrypted communication between client and server for other services than the TYPO3 frontend and backend should be considered, too. For example, it is highly recommended to use encrypted services such as SSH (secure shell), SFTP (SSH file transfer protocol) or FTPS (FTP-Secure) instead of FTP, where data is transferred unencryptedly.
+An encrypted communication between client and server for other services than the TYPO3 frontend and backend should be considered, too. For example, it is highly recommended to use encrypted services such as SSH (secure shell), SFTP (SSH file transfer protocol) or FTPS (FTP-Secure) instead of FTP, where data is transferred unencrypted.
 Other services
 System administrators should keep in mind that every "untrusted" script (e.g. PHP, perl, python script) or executable file inside the web server's document root is a security risk. By a correct and secure configuration, the internal security mechanisms of TYPO3 ensure that the CMS does not allow editors and other unprivileged users to place such code through the system (see chapter "Global TYPO3 configuration options" below).
 However, it is often seen that other services like FTP, SFTP, SSH, WebDAV, etc. are enabled to allow users (for example editors) to place files such as images, documents, etc. on the server, typically in the "fileadmin/" folder. It is out of question that this might be seen as a convenient way to upload files and file transfers via FTP are simpler and faster to do. The main problem with this is that to enable "other services" with write access to the document root directory, bypasses the security measures mentioned above. A malicious PHP script for example could manipulate or destroy other files – maybe TYPO3 core files. Sometimes access details of editors are stolen, intercepted or accidentally fallen into the wrong hands.
@@ -341,10 +350,10 @@ In addition, the following general rules apply for a TYPO3 integrator:
 Install Tool
 The Install Tool allows you to configure the TYPO3 system on a very low level, which means, not only the basic settings but also the most essential settings can be changed. You do not necessarily need a TYPO3 backend account to access the Install Tool, so it is clear that the Install Tool requires some special attention (and protection).
 TYPO3 already comes with a two step mechanism out-of-the-box to protect the Install Tool against unauthorized access: the first measure is a file called "ENABLE_INSTALL_TOOL" which must exist if the Install Tool should be accessible. The second mechanism is a password protection, which is independent of all backend user passwords.
-The ENABLE_INSTALL_TOOL file can be created by putting an empty file into the directory "typo3conf". You usually need write access to this directory on a server level (for example via SSH, FTP, etc.) or you can create this file as a backend user with administrator privileges. TYPO3 versions prior 4.6.0 offer this function in the "User Settings", and since TYPO3 version 4.6.0 administrators can unlock the Install Tool when accessing the module in the backend.
+The "ENABLE_INSTALL_TOOL" file can be created by putting an empty file into the directory "typo3conf". You usually need write access to this directory on a server level (for example via SSH, FTP, etc.) or you can create this file as a backend user with administrator privileges. TYPO3 versions prior 4.6.0 offer this function in the "User Settings", and since TYPO3 version 4.6.0 administrators can unlock the Install Tool when accessing the module in the backend.
 
 
-Conversely, this also means, you should delete this file as soon as you do not need to access the Install Tool any more. It should also be mentioned that TYPO3 deletes the ENABLE_INSTALL_TOOL file automatically if you logout of the Install Tool or if the file is older than 60 minutes (expiry time). Both features can be deactivated if the content of this file is "KEEP_FILE", which is understandably not recommended.
+Conversely, this also means, you should delete this file as soon as you do not need to access the Install Tool any more. It should also be mentioned that TYPO3 deletes the "ENABLE_INSTALL_TOOL" file automatically if you logout of the Install Tool or if the file is older than 60 minutes (expiry time). Both features can be deactivated if the content of this file is "KEEP_FILE", which is understandably not recommended.
 The password for accessing the Install Tool is stored as a MD5 hash in the global configuration file "typo3conf/localconf.php":
 $TYPO3_CONF_VARS['BE']['installToolPassword'] = "bacb98acf97e0b6112b1d1b650b84971";
 
@@ -367,7 +376,7 @@ displayErrors
 This configuration option controls whether PHP errors should be displayed or not (information disclosure). Possible values are: -1, 0, 1, 2 (integer) with the following meaning:
 -1 = This overrides the PHP setting "display_errors". If devIPmask matches the user's IP address the configured "debugExceptionHandler" is used for exceptions, if not "productionExceptionHandler" will be used. This is the default setting.
 0 = This suppresses any PHP error messages, overrides the value of "exceptionalErrors" and sets it to 0 (no errors are turned into exceptions), the configured "productionExceptionHandler" is used as exception handler.
-1 = This shows PHP error messages with the registered errorhandler. The configured "debugExceptionHandler" is used as exception handler.
+1 = This shows PHP error messages with the registered error handler. The configured "debugExceptionHandler" is used as exception handler.
 2 = This displays errors only if client matches "devIPmask". If devIPmask matches the user's IP address the configured "debugExceptionHandler" is used for exceptions, if not "productionExceptionHandler" will be used.
 The PHP variable reads: $TYPO3_CONF_VARS['SYS']['displayErrors']
 devIPmask
@@ -443,7 +452,7 @@ Following the guidelines listed below would improve the level of security, but t
 Do not install extensions or versions marked as "alpha" or "obsolete" (the developer classified the code as a very early version, preview, prototype, proof-of-concept and/or as not maintained – nothing you should install on a production site).
 Be very careful when using extensions or versions marked as "beta" (according to the developer, this version of the extension is still in development, so it is unlikely that any security-related tests or reviews have been undertaken so far).
 Be careful with extensions and versions marked as "stable" (but not reviewed by the TYPO3 Security Team).
-Check every extension and extension update before you install it on a production site and review it in regards to security.
+Check every extension and extension update before you install it on a production site and review it in regards to security (see chapter "Use staging servers for developments and tests").
 Remove unused extensions and other code
 TYPO3 distinguishes between "imported" and "loaded" extensions. Imported extensions exist in the system and are ready to be integrated into TYPO3 but they are not installed yet. Loaded extensions are available for being used (or are being used automatically, depending on their nature), so they are "installed".
 A dangerous and loaded extension is able to harm your system in general because it becomes part of the system (functions are integrated into the system at runtime). Even extensions which are not loaded (but only "imported") include a kind of risk because their code may contain malicious or vulnerable functions which in theory could be used to attack the system.
@@ -615,12 +624,12 @@ Further considerations
 More sophisticated backup strategies, such as incremental backups and distributed backups over several servers, geographically separated and rotating backups, etc. are also achievable but out of scope of this document.
 Due to the fact that website backups contain sensitive information (backend user details, passwords, sometimes customer details, etc.) it is highly recommended to consider the secure encryption for these files.
 Detect, Analyze and Repair a Hacked Site
-Most websites don't get hacked. If yours did, there is something wrong with it, or with the server, or with the hosing environment, or with the security on your desktop computer, your editor's computers, etc. You have to figure out how this happened so you can prevent it from happening again. It is not enough to simply restore a hacked site – it will most likely be hacked again, sooner or later.
+Most websites don't get hacked. If yours did, there is something wrong with it, or with the server, or with the hosting environment, or with the security on your desktop computer, your editors' computers, etc. You have to figure out how this happened so you can prevent it from happening again. It is not enough to simply restore a hacked site – it will most likely be hacked again, sooner or later.
 In case your server or TYPO3 website has been hacked, a number of steps should be taken to restore the system and to prevent further attacks. Some recommended actions are described in this chapter but always keep in mind: if you are already in the situation that you have to restore a hacked site, focus on the limitation of damage and do not react over-hastily.
 Detect a hacked website
 Typical signs which could indicate that a website or the server was hacked are listed below. Please note that these are common situations and examples only, others have been seen. Even if you are the victim of one of them only, it does not mean that the attacker has not gained more access or further damage (e.g. stolen user details) has been done.
 Manipulated frontpage
-One of the most obvious "hacks" are manipulated landing or home page or other pages. Someone who has compromised a system and just wants to be honored for his/her achievement, often replaces a page (typically the home page as it is usually the first entry point for most of the visitors) with other content, e.g. stating his/her nickname, etc.
+One of the most obvious "hacks" are manipulated landing or home page or other pages. Someone who has compromised a system and just wants to be honored for his/her achievement, often replaces a page (typically the home page as it is usually the first entry point for most of the visitors) with other content, e.g. stating his/her nickname or similar.
 Less obvious is manipulated page content that is only visible to specific IP addresses, browsers (or other user agents), at specific date times, etc. It depends on the nature and purpose of the hack but in this case usually an attacker tries either to target specific users or to palm keywords/content off on search engines (to manipulate a ranking for example). In addition, this might obscure the hack and makes it less obvious, because not everybody actually sees it. Therefore, it is not sufficient to just check the generated output because it is possible that the malicious code is not visible at a quick glance.
 Malicious code in the HTML source
 Malicious code (e.g. JavaScript, iframes, etc.) placed in the HTML source code (the code that the system sends to the clients) may lead to XSS attacks, display dubious content or redirect visitors to other websites. Latter could steal user data if the site which the user was redirected to convinces users to enter their access details (e.g. if it looks the same as or similar to your site).
@@ -647,7 +656,7 @@ route the domain(s) to a different server
 deactivate the web host and show a "maintenance" note
 disable the web server such as Apache (keep in mind that shutting down a web server on a system that serves virtual hosts will make all sites inaccessible)
 disconnect the server from the Internet or block access from and to the server (firewall rules)
-There a many reasons why it is important to take the whole site or server offline: in the case where the hacked site is used for distributing malicious software, a visitor who gets attacked by a virus from your site, will most likely lose the trust in your site and your services. A visitor who simply finds your site offline (or in "maintenance mode") for a while will (or at least might) come back later.
+There are many reasons why it is important to take the whole site or server offline: in the case where the hacked site is used for distributing malicious software, a visitor who gets attacked by a virus from your site, will most likely lose the trust in your site and your services. A visitor who simply finds your site offline (or in "maintenance mode") for a while will (or at least might) come back later.
 Another reason is that as long as the security vulnerability exists in your website or server, the system remains vulnerable, meaning that the attacker could continue harming the system, possibly causing more damage, while you're trying to repair it. Sometimes the "attacker" is an automated script or program, not a human.
 After the website or server is not accessible from outside, you should consider to make a full backup of the server, including all available log files (Apache log, FTP log, SSH log, MySQL log, system log). This will preserve data for a detailed analysis of the attack and allows you (and/or maybe others) to investigate the system separated from the "live" environment.
 Today, more and more servers are virtual machines, not physical hardware. This often makes creating a full backup of a virtual server very easy because system administrators or hosting providers can simply copy the image file.

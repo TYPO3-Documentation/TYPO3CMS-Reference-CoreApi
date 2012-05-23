@@ -1,3 +1,36 @@
+2012-03-22 Christopher
+
+	[TASK] Corrected some typos, fixed some wording, fixed quotation marks (references: #35018)
+	[TASK] Create PDF version (references: #35018)
+	[TASK] Release version 1.0.1 to TER (resolves: #35018)
+
+2012-03-16 Michael Schams <schams.net>
+
+	[BUGFIX] wording updated (resolves: #32321)
+	[TASK] paragraph updated: order of list reversed (resolves: #32385)
+	[TASK] paragraph updated: two sentences removed (resolves: #32389)
+	[TASK] paragraph extended: referring to TYPO3 Extension Security Policy (resolves: #32386)
+	[TASK] paragraph extended (resolves: #31850)
+	[TASK] chapter "General Guidelines -> Use staging servers for developments and tests" added (resolves: #31977)
+	[BUGFIX] typos in ChangeLog corrected (double '#')
+
+2012-03-16 Michael Schams <schams.net>
+
+	[TASK] paragraph extended (resolves: #31669)
+	[BUGFIX] paragraph updated (resolves: #32260)
+	[BUGFIX] missing word added (resolves: #32900)
+	[BUGFIX] double space corrected (resolves: #32901)
+	[BUGFIX] wording updated (resolves: #32902)
+	[BUGFIX] wording updated (resolves: #32903)
+	[BUGFIX] typo corrected (resolves: #32904)
+	[BUGFIX] wording updated (resolves: #32905)
+	[BUGFIX] wording updated (resolves: #32906)
+	[BUGFIX] inconsistant usage of font corrected (resolves: #32908)
+	[BUGFIX] typo corrected (resolves: #32910)
+	[BUGFIX] typo corrected (resolves: #32912)
+	[BUGFIX] wording updated (resolves: #32913)
+	[BUGFIX] wording updated (resolves: #32914)
+
 2011-12-06 Christopher
 
 	[TASK] Release version 1.0.0 to TER (resolves: #32113)
