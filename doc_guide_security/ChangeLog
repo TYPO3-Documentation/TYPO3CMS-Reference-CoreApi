@@ -1,0 +1,182 @@
+2011-12-06 Christopher
+
+	[TASK] Release version 1.0.0 to TER (resolves: #32113)
+
+2011-12-03 Michael Schams <schams.net>
+
+	[TASK] screenshot "Directory Index" at chapter "System Administrators" replaced (resolves: #32266)
+
+2011-12-01 Christopher
+
+	[TASK] Corrected some typos, fixed some wording, fixed quotation marks (references: #32113)
+	[TASK] Create PDF version (references: #32113)
+
+2011-11-29 Michael Schams <schams.net>
+
+	[TASK] several images reinstituted (accidentally removed at SVN revision r1096)
+	[TASK] 3x image files renamed (typo in file name)
+	[TASK] unused image files deleted
+
+2011-11-28 Francois Suter
+
+	[TASK] corrected some typos, fixed some wording (SVN revision r1096, references: #32113)
+
+2011-11-27 Michael Schams <schams.net>
+
+	[TASK] further screenshot files (images) created in several variations
+	[TASK] images integrated in document (resolves: #31675)
+
+2011-11-25 Michael Schams <schams.net>
+
+	[TASK] several corrections (typos, grammar, wording etc.) after language review (resolves: #31670)
+	[TASK] chapter "TYPO3 Integrator -> TypoScript -> Cross-site scripting (XSS)", example added (resolves: #31745)
+	[TASK] chapter "System Administrators -> Database access": passwords, usernames, privileges reworked (resolves: #30679)
+	[TASK] chapter "Introduction -> About this document" updated
+	[TASK] screenshot files (images) created in several variations (not integrated in document yet)
+
+2011-11-16 Michael Schams <schams.net>
+
+	[TASK] in several chapters: the use of FTP (and other services that bypass TYPO3) is not recommended (resolves: #30733)
+	[TASK] chapter "TYPO3 Integrator -> Content elements": "HTML element" and "RTE" clarified (resolves: #31849)
+	[TASK] chapter "Detect a hacked website -> Leaked credentials" added (resolves: #31851)
+	[TASK] chapter "Guidelines for Editors -> Notify at login" added (resolves: #31853)
+	[TASK] chapter "Guidelines for Editors -> Lock to IP address(es)" added (resolves: #31854)
+	[TASK] chapter "Detect a hacked website -> Manipulated frontpage" updated (resolves: #31858)
+
+2011-11-12 Michael Schams <schams.net>
+
+	[TASK] chapter "Types of Security Threats -> Information disclosure" extended
+	[TASK] chapter "Types of Security Threats -> Code injection" (RFI and LFI) added
+	[TASK] chapter "Types of Security Threats -> Authorization bypass" added
+	[TASK] chapter "After an Attack" completely rewritten (named "Detect, Analyze And Repair A Hacked Site" now) (resolves: #31780)
+	[TASK] chapter "Detect, Analyze And Repair A Hacked Site -> Detect a hacked website" added (resolved: #30733)
+
+2011-11-11 Michael Schams <schams.net>
+
+	[TASK] upper/lower-case for roles/positions updated to all lower-case (resolves: #31734)
+	[TASK] tabs changed to 2x space in preformatted texts (code examples)
+	[TASK] chapter "The TYPO3 Security Team -> Incident handling" re-worked (resolves: #31735 and #31736)
+	[TASK] chapter "General Information -> Differentiation between core and extensions" extended (resolves: #31738)
+	[TASK] chapter "General Information -> Announcement of updates and security fixes" extended (resolves: #31739)
+	[TASK] chapter "General Information -> Security bulletins" extended (resolves: #31740)
+	[TASK] chapter "General Guidelines -> React quickly" extended (resolves: #31741)
+	[TASK] chapter "System Administrators -> Database administration tools" updated (resolves: #31743)
+	[TASK] chapter "System Administrators -> Other services" updated (resolves: #31744)
+	[TASK] chapter "TYPO3 Integrator -> Backend users and access privileges" updated (resolves: #31730)
+	[TASK] chapter "TYPO3 Integrator -> TypoScript -> Cross-site scripting (XSS)" added (resolves: #31745)
+	[TASK] chapter "TYPO3 Integrator -> TypoScript -> External file inclusion" added
+
+2011-11-09 Michael Schams <schams.net>
+
+	[TASK] author's review: some wordings updated, typos corrected, minor changes
+
+2011-11-08 Michael Schams <schams.net>
+
+	[TASK] skeleton chapter "Guidelines for Extension Developers" removed (chapter targeted for version 1.1.0)
+	[TASK] skeleton chapter "Appendix" (including "Checklists") removed
+	[TASK] wording that reference to chapter "Guidelines for Extension Developers" updated
+	[TASK] PHP variable names in chapter "TYPO3 Integrators -> Global TYPO3 configuration options" added
+	[TASK] installation behavior of TYPO3 v4.6.0 in regards to rsaauth and saltedpasswords described
+	[TASK] some placeholders removed
+
+2011-11-04 Michael Schams <schams.net>
+
+	[TASK] several small wording updates (resolves: #30782)
+	[TASK] chapter "TYPO3 Integrators -> Content elements" added (resolves: #30791)
+	[TASK] chapter "Guidelines for Editors -> Restriction to required functions" added
+
+2011-10-30 Michael Schams <schams.net>
+
+	[TASK] chapter "General Guidelines -> Update TYPO3 extensions" added (resolves: #31257)
+	[TASK] table at chapter "TYPO3 System Administrators -> Encrypted client/server communication" updated
+	[TASK] chapter "TYPO3 Integrators -> Install tool" updated to match TYPO3 v4.6.x behaviour
+	[TASK] chapter "TYPO3 Integrators -> Global TYPO3 configuration options" updated and extended (resolves: #30790)
+	[TASK] chapter "Guidelines for Editors" added: Role definition, General rules, Backend access, Secure connection and Logout
+
+2011-10-27 Christopher Stelmaszyk
+
+	[TASK] Remove superfluous ReadMe file
+	[TASK] Add missing ext_emconf.php
+
+2011-10-23 Michael Schams <schams.net>
+
+	[TASK] chapter "TYPO3 Integrators -> Security-related warnings after login" moved to a different position
+	[TASK] chapter "TYPO3 Integrators -> Install tool" updated and extended
+	[TASK] chapter "TYPO3 Integrators -> Encryption key" added (resolves: #30785)
+	[TASK] chapter "TYPO3 Integrators -> TYPO3 extensions" update/extended (resolves: #30788)
+	[TASK] chapter "TYPO3 Integrators -> TYPO3 extensions -> Security-related core extensions" added (resolves: #30737)
+	[TASK] chapter "TYPO3 Integrators -> TYPO3 extensions -> Other security-related extensions" added (resolves: #30667)
+	[TASK] chapter "TYPO3 Integrators -> Reports and Logs" added (resolves: #30786)
+	[TASK] chapter "TYPO3 System Administrators -> Encrypted client/server communication" added
+
+2011-10-20 Michael Schams <schams.net>
+
+	[TASK] chapter "System Administrators -> Restrict access to files on a server-level" added (resolves: #30734)
+	[TASK] chapter "TYPO3 Intergrators -> Global TYPO3 configuration options" re-worked
+	[TASK] chapter "TYPO3 Intergrators -> Security-related warnings after login" added
+
+2011-10-19 Michael Schams <schams.net>
+
+	[TASK] characters styles of files and directories updated (according to instructions provided by chrissitopher)
+	[TASK] chapter "System Administrators -> Integrity of TYPO3 packages" updated/finalized (resolves: #30677)
+	[TASK] chapter "TYPO3 Integrators -> TYPO3 extensions" added
+	[TASK] chapter "TYPO3 Integrators -> TypoScript -> SQL injection" added (resolves: #30745)
+	[TASK] chapter "TYPO3 Integrators -> TYPO3 extensions" updated (resolves: #30789)
+
+2011-10-16 Michael Schams <schams.net>
+
+	[TASK] font type of files and directories updated (according to #30938/#30939)
+	[TASK] headlines for level 3 and higher updated (lower-case)
+	[TASK] chapter "System Administrators -> Further actions": explanations about PHP settings added
+
+2011-10-14 Michael Schams <schams.net>
+
+	[TASK] directories "res" and "res/images" created (in preparation for storing screenshots)
+	[TASK] chapter "The TYPO3 Security Team -> Contact Information" updated (resolves: #30784)
+	[TASK] chapter "General Guidelines -> React Quickly" recommends that people should act quickly (resolves: #30739)
+	[TASK] chapter "General Guidelines -> Communication" added
+	[TASK] Apache configuration: secure example "Options FollowSymLinks" added (resolves: #30735)
+	[TASK] chapter "System Administrators -> Further Actions" added
+	[TASK] chapter "TYPO3 Integrators -> Role Definition" added
+	[TASK] chapter "TYPO3 Integrators -> General Rules" added
+	[TASK] chapter "TYPO3 Integrators -> Install Tool" added (resolves: #30787 as part of it)
+	[TASK[ chapter "TYPO3 Integrators -> Global TYPO3 Configuration Options" started - not completed
+	[TASK] chapter "TYPO3 Integrators -> Backend Users And Access Privileges" added
+	[TASK[ chapter "TYPO3 Integrators -> ...Warnings After Login" started - not completed
+	[TASK[ chapter "TYPO3 Integrators -> TYPO3 Extensions" started - not completed
+	[TASK[ chapter "TYPO3 Integrators -> TypoScript" started - not completed
+
+2011-10-09 Michael Schams <schams.net>
+
+	[TASK] chapter "Incident Handling" extended (TYPO3 core aspects added)
+	[TASK] chapter "General Guidelines" created (includes "Secure Passwords" and "Operating System And Browser Version" now)
+	[TASK] chapter "Backups" moved and renamed to "Backup Strategy"
+	[TASK] chapter "System Administrators -> Integrity of TYPO3 Packages" updated
+	[TASK] chapter "System Administrators -> File/Directory Permissions" written
+	[TASK] chapter "System Administrators -> Directory Indexing" written (based on draft document)
+	[TASK] chapter "System Administrators -> Database Access" written (based on draft document)
+	[TASK] chapter "References" started
+
+2011-10-08 Michael Schams <schams.net>
+
+	[TASK] chapter "Security Team -> Incident Handling" updated and extended
+	[TASK] chapter "System Administrators -> Directory Indexing" compiled (from draft document)
+
+2011-10-08 Michael Schams <schams.net>
+
+	[TASK] content from TYPO3_Security_Handbook_Draft.pdf manually merged (see: #30541) - not completed
+	[TASK] chapter "Introduction -> About This Document" written
+	[TASK] chapter "Secure Passwords" compiled (predominantly from Jochen's document)
+	[TASK] chapter "System Administrators -> Integrity of TYPO3 Packages" written
+
+2011-10-07 Michael Schams <schams.net>
+
+	[TASK] irrelevant files doc/wizard_form.* removed
+	[TASK] extension icon replaced
+	[TASK] manual.sxw based on official doc template added
+	[TASK] content from TYPO3_Security_Handbook_Draft.pdf manually merged (see: #30541) - not completed
+
+2011-10-05 Michael Schams <schams.net>
+
+	[TASK] initial directory structure created
+
