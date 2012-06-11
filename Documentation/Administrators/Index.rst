@@ -1,4 +1,18 @@
-.. Note: a handy online ReST editor is available at: http://rst.ninjs.org/
+
+
+.. ==================================================
+.. FOR YOUR INFORMATION
+.. --------------------------------------------------
+.. -*- coding: utf-8 -*- with BOM.
+
+.. ==================================================
+.. DEFINE SOME TEXTROLES
+.. --------------------------------------------------
+.. role::   underline
+.. role::   typoscript(code)
+.. role::   ts(typoscript)
+   :class:  typoscript
+.. role::   php(code)
 
 ===============================
 Admin Documentation
@@ -107,7 +121,9 @@ Temporary files are now called "processedFiles" and are tracked in the database 
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 5
+   :titlesonly:
+   :glob:
 
 .. temporarily disabled -- AWo
    1-introduction
