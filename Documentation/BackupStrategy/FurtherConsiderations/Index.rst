@@ -1,0 +1,30 @@
+﻿
+
+.. ==================================================
+.. FOR YOUR INFORMATION
+.. --------------------------------------------------
+.. -*- coding: utf-8 -*- with BOM.
+
+.. ==================================================
+.. DEFINE SOME TEXTROLES
+.. --------------------------------------------------
+.. role::   underline
+.. role::   typoscript(code)
+.. role::   ts(typoscript)
+   :class:  typoscript
+.. role::   php(code)
+
+
+Further considerations
+^^^^^^^^^^^^^^^^^^^^^^
+
+More sophisticated backup strategies, such as incremental backups and
+distributed backups over several servers, geographically separated and
+rotating backups, etc. are also achievable but out of scope of this
+document.
+
+Due to the fact that website backups contain sensitive information
+(backend user details, passwords, sometimes customer details, etc.) it
+is highly recommended to consider the secure encryption for these
+files.
+

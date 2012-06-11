@@ -1,0 +1,39 @@
+﻿
+
+.. ==================================================
+.. FOR YOUR INFORMATION
+.. --------------------------------------------------
+.. -*- coding: utf-8 -*- with BOM.
+
+.. ==================================================
+.. DEFINE SOME TEXTROLES
+.. --------------------------------------------------
+.. role::   underline
+.. role::   typoscript(code)
+.. role::   ts(typoscript)
+   :class:  typoscript
+.. role::   php(code)
+
+
+Types of Security Threats
+-------------------------
+
+This section provides a brief overview of the most common security
+threats to give the reader a basic understanding of them. The sections
+for system administrators, TYPO3 integrators and editors explain in
+more detail how to secure a system against those threats.
+
+
+.. toctree::
+   :maxdepth: 5
+   :titlesonly:
+   :glob:
+
+   InformationDisclosure/Index
+   IdentityTheft/Index
+   SqlInjection/Index
+   CodeInjection/Index
+   AuthorizationBypass/Index
+   CrossSiteScripting(xss)/Index
+   CrossSiteRequestForgery(xsrf)/Index
+

@@ -1,0 +1,7 @@
+﻿.. |img-3|      image:: ../../Images/manual_html_m76b5dfc.png
+   :height: 272
+   :width: 454
+.. :align: left
+.. :border: 0
+.. :name: graphics1
+

@@ -1,0 +1,222 @@
+﻿
+
+.. ==================================================
+.. FOR YOUR INFORMATION
+.. --------------------------------------------------
+.. -*- coding: utf-8 -*- with BOM.
+
+.. ==================================================
+.. DEFINE SOME TEXTROLES
+.. --------------------------------------------------
+.. role::   underline
+.. role::   typoscript(code)
+.. role::   ts(typoscript)
+   :class:  typoscript
+.. role::   php(code)
+
+
+Encrypted client/server communication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Data classification
+"""""""""""""""""""
+
+It depends on the nature of the data but in general "sensitive"
+information could be: user logins, passwords, user details (such as
+names, addresses, contact details, etc.), email addresses and other
+data which are not public. Medical, financial data (e.g. credit card
+details, account numbers, access codes, etc.) and others, are
+confidential by their nature and must not be transmitted unencrypted
+at all.
+
+In most cases, a data assessment should be undertaken to classify the
+data according to several traits relating to use, legal requirements,
+and value. The outcome of this assessment can be a categorization
+based on a data classification model, which then defines how to
+protect the data.
+
+
+.. ### BEGIN~OF~TABLE ###
+
+.. container:: table-row
+
+   a
+   
+   
+   Public
+         Public
+   
+   Public Restricted
+         Public Restricted
+   
+   Organization Confidential
+         Organization Confidential
+   
+   Organization Secret
+         Organization Secret
+
+
+.. container:: table-row
+
+   a
+         Type
+   
+   Public
+         non-sensitive
+   
+   Public Restricted
+         externally sensitive
+   
+   Organization Confidential
+         internally sensitive
+   
+   Organization Secret
+         extremely sensitive
+
+
+.. container:: table-row
+
+   a
+         Disclosure impact
+   
+   Public
+         none
+   
+   Public Restricted
+         limited
+   
+   Organization Confidential
+         significant
+   
+   Organization Secret
+         sever
+
+
+.. container:: table-row
+
+   a
+         Access restrictions
+   
+   Public
+         none
+   
+   Public Restricted
+         low (e.g. username/password)
+   
+   Organization Confidential
+         high (e.g. public/private key + geolocation)
+   
+   Organization Secret
+         very high
+
+
+.. container:: table-row
+
+   a
+         Data transport
+   
+   Public
+         unencrypted
+   
+   Public Restricted
+         unencrypted but protected
+   
+   Organization Confidential
+         encrypted
+   
+   Organization Secret
+         highly encrypted
+
+
+.. container:: table-row
+
+   a
+         Storage requirements
+   
+   Public
+         none
+   
+   Public Restricted
+         unencrypted but protected
+   
+   Organization Confidential
+         encrypted
+   
+   Organization Secret
+         highly encrypted
+
+
+.. ###### END~OF~TABLE ######
+
+
+The secure and maybe encrypted storage of sensitive data should also
+be considered.
+
+The most secure first paradigm in most cases is: do neither transmit
+nor store any sensitive data if not absolutely required.
+
+
+Frontend
+""""""""
+
+Secure Sockets Layer (SSL) is an industry standard and the current
+security technology for establishing an encrypted link between a
+browser (client) and a web server. This protocol provides encrypted,
+authenticated communications across the Internet and ensures that all
+data passed between client and server remains private and integral. It
+is based on a public/private key technology and uses certificates
+which typically contain the domain name and details about the website
+operator (e.g. company name, address, geographical location, etc.).
+Recent discussions are questioning the organizational concept behind
+SSL certificates and the "chain of trust", but the fact is that SSL is
+the de facto standard today and still is considered secure from a
+technical perspective.
+
+Whenever sensitive data is transferred between a client (the visitor
+of the website) and the server (TYPO3 website), a SSL encrypted
+connection should be used.
+
+When using payment gateways to process payments for online shops for
+example, most financial institutions (e.g. credit card vendors)
+require appropriate security actions. Check the policies of the
+gateway operator and card issuers before you institute online payment
+solutions.
+
+
+Backend
+"""""""
+
+A risk of unencrypted client/server communication is that an attacker
+could eavesdrop the data transmission and "sniff" sensitive
+information such as access details. Unauthorized access to the TYPO3
+backend, especially with an administrator user account, has a
+significant impact on the security of your website. It is clear that
+the use of SSL for the backend of TYPO3 improves the security.
+
+TYPO3 supports a SSL encrypted backend and offers some specific
+configuration options for this purpose, see configuration option
+"lockSSL" in chapter "Guidelines for TYPO3 integrators".
+
+However, the access details used for the login are transferred between
+the client and the server when submitting the login form only. After a
+successful login, a session ensures that the user remains
+authenticated. This results in the conclusion, that only the login
+procedure should be protected, not the following client/server
+communication necessarily – assuming no sensitive information are
+accessed from or stored in the backend.
+
+The TYPO3 core extension "rsaauth" addresses this requirement, see
+"security-related core extensions" in chapter "Guidelines for TYPO3
+integrators".
+
+
+Other services
+""""""""""""""
+
+An encrypted communication between client and server for other
+services than the TYPO3 frontend and backend should be considered,
+too. For example, it is highly recommended to use encrypted services
+such as SSH (secure shell), SFTP (SSH file transfer protocol) or FTPS
+(FTP-Secure) instead of FTP, where data is transferred unencrypted.
+

@@ -1,0 +1,275 @@
+﻿.. include:: Images.txt
+
+.. ==================================================
+.. FOR YOUR INFORMATION
+.. --------------------------------------------------
+.. -*- coding: utf-8 -*- with BOM.
+
+.. ==================================================
+.. DEFINE SOME TEXTROLES
+.. --------------------------------------------------
+.. role::   underline
+.. role::   typoscript(code)
+.. role::   ts(typoscript)
+   :class:  typoscript
+.. role::   php(code)
+
+
+Backend users and access privileges
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TYPO3 offers a very sophisticated and complex access concept: you can
+define permissions on a user-level, on a group-level, on pages, on
+functions, on DB mounts, even on content elements and more. This
+concept is possibly a little bit complicated and maybe overwhelming if
+you have to configure it for the first time in your integrator life,
+but you will soon appreciate the options a lot.
+
+As the first rule, you should grant backend users only a minimal set
+of privileges, only to those functions they really need. This will not
+only make the backend easier for them to use, but also makes the
+system more secure. In most cases, an editor does not need to enter
+any PHP, JavaScript or HTML code, so these options should be disabled.
+You also should restrict access to pages, DB mounts, file mounts and
+functions as much as possible. Note that limiting access to pages by
+using DB mounts only is not the best way. In order to really deny
+access, page permissions need to be set correctly.
+
+It is always a good approach to set these permissions on a group level
+(for example use a group such as "editors"), so you can simply create
+a new user and assign this user to the appropriate group. It is not
+necessary to update the access privileges for every user if you want
+to adjust something in the future – simply update the group's
+permissions instead.
+
+When creating a new user, do not use generic usernames such as
+"editor", "webmaster", "cms" or similar. You should use real names
+instead (e.g. first name + dot + last name). Always remember the
+guidelines for choosing a secure password when you set a password for
+a new user or update a password for an existing user (set a good
+example and inform the new user about your policies).
+
+If backend users will leave the project at a known date, for example
+students or temporary contractors, you should set an expiration date
+when you create their accounts. Under certain circumstances, it
+possibly makes sense to set this "stop" date for every user in
+general, e.g. 6 months in the future. This forces the administrator
+team to review the accounts from time to time and only extend the
+users that are allowed to continue using the system.
+
+|img-6| 
+TYPO3 extensions
+^^^^^^^^^^^^^^^^
+
+As already mentioned above, most of the security issues have been
+discovered in TYPO3 extensions, not in the TYPO3 core. Due to the fact
+that everybody can publish an extension in the TYPO3 repository, you
+never know how savvy and experienced the programmer is and how the
+code was developed from a security perspective.
+
+The following sections deal with extensions in general, the risks and
+the basic countermeasures to address security related issues.
+
+
+Stable and reviewed extensions
+""""""""""""""""""""""""""""""
+
+Only a small percentage of the extensions available in the TER have
+been reviewed by the TYPO3 Security team so far. Reviewed extensions
+are marked with a checkmark next to the release state:
+
+|img-7| This does not imply that extensions without this checkmark are
+insecure, but they probably have not been checked for potential
+security issues by an independent 3rd party (such as the TYPO3
+Security Team). The status of an extension ("alpha", "beta", "stable",
+etc.) should also give you an indication in which state the developer
+thinks the extension is. However, this classification is an arbitrary
+setting by the developer and may not reflect the real status and/or
+opinions of independent parties.
+
+Always keep in mind that an extension may not perform the
+functionality that it pretends to do: an attacker could write an
+extension that contains malicious code or functions and publish it
+under a promising name. It is also possible that a well-known,
+harmless extension will be used for an attack in the future by
+introducing malicious code with an update. In a perfect world, every
+updated version would be reviewed and checked, but it is
+understandable that this approach is unlikely to be practical in most
+installations.
+
+Following the guidelines listed below would improve the level of
+security, but the trade-off would be more effort in maintaining your
+website and a delay of updating existing extensions (which would
+possibly be against the "react quickly" paradigm described above).
+Thus, it depends on the specific case and project, and the intention
+of listing the points below is more to raise the awareness of possible
+risks.
+
+- Do not install extensions or versions marked as "alpha" or "obsolete"
+  (the developer classified the code as a very early version, preview,
+  prototype, proof-of-concept and/or as not maintained – nothing you
+  should install on a production site).
+
+- Be very careful when using extensions or versions marked as "beta"
+  (according to the developer, this version of the extension is still in
+  development, so it is unlikely that any security-related tests or
+  reviews have been undertaken so far).
+
+- Be careful with extensions and versions marked as "stable" (but not
+  reviewed by the TYPO3 Security Team).
+
+- Check every extension and extension update before you install it on a
+  production site and review it in regards to security (see chapter "Use
+  staging servers for developments and tests").
+
+
+Remove unused extensions and other code
+"""""""""""""""""""""""""""""""""""""""
+
+TYPO3 distinguishes between "imported" and "loaded" extensions.
+Imported extensions exist in the system and are ready to be integrated
+into TYPO3 but they are not installed yet. Loaded extensions are
+available for being used (or are being used automatically, depending
+on their nature), so they are "installed".
+
+A dangerous and loaded extension is able to harm your system in
+general because it becomes part of the system (functions are
+integrated into the system at runtime). Even extensions which are not
+loaded (but only "imported") include a kind of risk because their code
+may contain malicious or vulnerable functions which in theory could be
+used to attack the system.
+
+As a general rule, it is highly recommended you remove all code from
+the system that is not in use. This includes TYPO3 extensions, any
+TypoScript (see below), PHP scripts as well as all other functional
+components. In regards to TYPO3 extensions, you should remove unused
+extensions from the system (not only unload/deinstall them). The
+"Extension Manager" offers an appropriate function for this:
+"Backup/Delete" - an administrator backend account is required.
+
+
+Low-level extensions
+""""""""""""""""""""
+
+So called "low-level" extensions provide "questionable" functionality
+to a level below what a standard CMS would allow you to access. This
+could be for example direct read/write access to the file system or
+direct access to the database (see chapter "Guidelines for System
+Administrators: Database access" above). If a TYPO3 integrator or a
+backend user (e.g. an editor) depends on those extensions, it is most
+likely that a misconfiguration of the system exists in general.
+
+TYPO3 extensions like "phpMyAdmin", various file browser/manager
+extensions, etc. may be a good choice for a development or test
+environment but are definitely out of place at production sites.
+
+Extensions that allow editors to include PHP code should be avoided,
+too.
+
+
+Check for extension updates regularly
+"""""""""""""""""""""""""""""""""""""
+
+The importance of the knowledge that security updates are available
+has been discussed above (see chapter: "TYPO3 security-bulletins"). It
+is also essential to know how to check for extension updates: the
+"Extension Manager" (EM) is a TYPO3 backend module accessible for
+backend users with administrator privileges (section "ADMIN TOOLS").
+In TYPO3 version 4.5.0, a completely rewritten EM was introduced and
+the usage differs a little bit between the old and the new version.
+However, the main functionality remains the same and a manual check
+for extension updates is available in both versions.
+
+The EM uses a cached version of the extension list from the TYPO3
+Extension Repository (TER) to compare the extensions currently
+installed and the latest versions available. Therefore, you should
+retrieve an up-to-date version of the extension list from TER before
+checking for updates.
+
+If extension updates are available, they are listed together with a
+short description of changes (the "upload comment" provided by the
+extension developers) and you can download/install the updates if
+desired. Please note that under certain circumstances, new versions
+may behave differently and a test/review is sometimes useful,
+depending on the nature and importance of your TYPO3 instance. Often a
+new version of an extension published by the developer is not
+security-related.
+
+The old version of the EM marks insecure extensions by a red extension
+title.
+
+Since TYPO3 version 4.5.0 a scheduler task is available that lets you
+update the extension list automatically and periodically (e.g. once a
+day). In combination with the task "System Status Update (reports)",
+it is possible to get a notification by email when extension updates
+are available.
+
+
+Security-related core extensions
+""""""""""""""""""""""""""""""""
+
+Besides the "Reports" module described above, the following two system
+extensions increase the level of security of a TYPO3 instance:
+"rsaauth" and "saltedpasswords", which became part of the TYPO3 core
+in TYPO3 version 4.3.0. Both extensions are automatically activated
+(if possible) for new installations since TYPO3 version 4.6.0. It is
+recommended to manually enable these extensions if you upgrade from
+older versions to 4.3.0 or newer.
+
+"RSA authentication" (rsaauth) adds encrypted authentication for
+frontend and backend logins to TYPO3. This is a more secure solution
+than plain text frontend authentication or superchallenged backend
+authentication because rsaauth uses a one time generated public and
+private key pair. The password is encrypted with a new public key each
+time, before it is transferred over the network – and decrypted on the
+server using a one time generated private key. The rsaauth extension
+requires either an OpenSSL PHP module or the OpenSSL binary to be
+available to TYPO3.
+
+The second extension focuses on the storage of passwords: by using the
+"Salted user password hashes" (saltedpasswords) extension, you get rid
+of plain-text passwords or MD5 password hashes for user records in
+TYPO3. Due to the fact that MD5 hashes should be considered as
+cryptographically insecure, they are unsuitable for representing
+passwords. Using rainbow tables is a widely spread practice these days
+and plain-text passwords can be restored from MD5 hashes in minutes.
+Salted hashes increase the complexity of this process drastically and
+the efforts required to restore a password by using rainbow tables
+exceed the benefit.
+
+Another advantage of the saltedpasswords extension is that it
+generates different hashes for the same password, if triggered
+multiple times.
+
+If you enable the extension on a system with existing users, the
+passwords will automatically be converted when a user record is saved
+(e.g. the next time the user logs in). TYPO3 also offers several
+solutions to update existing passwords of all users to encrypted
+values; please see the documentation of the extension for further
+details.
+
+
+Other security-related extensions
+"""""""""""""""""""""""""""""""""
+
+TYPO3 extensions which are not part of the core (and so are not
+official system extensions) are out of scope of this document, due to
+the fact that this Security Guide focuses on a TYPO3 standard setup.
+
+However, there is a wide range of very useful TYPO3 extensions
+available in the TYPO3 Extension Repository (TER) which increase the
+level of security and/or support system administrators and TYPO3
+integrators to monitor their TYPO3 installations, check for security-
+related issues, access additional reports and be notified in various
+ways.
+
+Searching for relevant keywords such as "security", "monitoring" or a
+specific technology (e.g. "intrusion detection") or a security threat
+(e.g. "XSS", "SQL injection") or similar shows some results, which
+could be reviewed and tested.
+
+Please note that these extensions are often not developed/maintained
+by TYPO3 core developers and the code quality may vary. Also, check
+for extensions reviewed by the Security Team and the date of the last
+update.
+
