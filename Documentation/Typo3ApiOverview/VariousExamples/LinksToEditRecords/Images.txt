@@ -1,0 +1,23 @@
+﻿.. |img-31|     image:: ../../../Images/manual_html_m7a57b857.png
+   :height: 87
+   :width: 372
+.. :align: left
+.. :border: 0
+.. :name: Graphic107
+
+.. |img-32|     image:: ../../../Images/manual_html_6d741966.png
+   :height: 482
+   :width: 598
+.. :align: left
+.. :border: 0
+.. :name: graphics29
+.. :vspace: 8
+
+.. |img-33|     image:: ../../../Images/manual_html_m65d3b45b.png
+   :height: 243
+   :width: 653
+.. :align: left
+.. :border: 0
+.. :name: graphics30
+.. :vspace: 8
+

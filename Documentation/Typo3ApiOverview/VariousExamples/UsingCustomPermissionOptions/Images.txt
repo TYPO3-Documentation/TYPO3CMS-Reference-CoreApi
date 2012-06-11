@@ -1,0 +1,8 @@
+﻿.. |img-36|     image:: ../../../Images/manual_html_1c80fc83.png
+   :height: 132
+   :width: 669
+.. :align: left
+.. :border: 0
+.. :name: graphics33
+.. :vspace: 8
+
