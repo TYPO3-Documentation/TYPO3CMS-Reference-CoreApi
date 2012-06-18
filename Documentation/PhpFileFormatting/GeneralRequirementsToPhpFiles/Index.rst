@@ -1,4 +1,4 @@
-﻿
+
 
 .. ==================================================
 .. FOR YOUR INFORMATION
@@ -114,10 +114,14 @@ Spaces must be added:
 
 - after asterisks in multiline comments
 
+- after conditional keywords like :code:`if (` and :code:`switch (`
+
+- before conditional keywords if the keyword is not the first
+  character like :code:`} elseif {`
+
 
 Character set
 """""""""""""
 
 All TYPO3 source files use the UTF-8 character set since version 4.5.
 Files from third-party libraries may have different encodings.
-

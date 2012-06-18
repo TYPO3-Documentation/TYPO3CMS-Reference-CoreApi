@@ -1,4 +1,4 @@
-﻿
+
 
 .. ==================================================
 .. FOR YOUR INFORMATION
@@ -179,20 +179,20 @@ The following is not allowed:
 Conditions
 """"""""""
 
-Conditions consist from if, elseifand elsekeywords. TYPO3 code must
-not use the else ifconstruct.
+Conditions consist of :code:`if`, :code:`elseif` and :code:`else` keywords. TYPO3 code must
+not use the :code:`else if` construct.
 
 The following is the correct layout for conditions:
 
 ::
 
       if ($this->processSubmission) {
-                   // Process submission here
-           } elseif ($this->internalError) {
-                   // Handle internal error
-           } else {
-                   // Something else here
-           }
+          // Process submission here
+      } elseif ($this->internalError) {
+          // Handle internal error
+      } else {
+          // Something else here
+      }
 
 Here is an example of the incorrect layout:
 
@@ -541,4 +541,3 @@ General rule is that function should fit into :sup:`2` / :sub:`3` of
 the screen. This rule allows small changes in the function without
 splitting the function further. Consider refactoring long functions
 into more classes or methods.
-
