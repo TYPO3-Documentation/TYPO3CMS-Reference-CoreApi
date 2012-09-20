@@ -26,10 +26,10 @@ Here's a description of the fields found in the sys\_registry table:
 
    Field
          Field
-   
+
    Type
          Type
-   
+
    Description
          Description
 
@@ -38,10 +38,10 @@ Here's a description of the fields found in the sys\_registry table:
 
    Field
          uid
-   
+
    Type
          int
-   
+
    Description
          Primary key, needed for replication and also usfull as an index.
 
@@ -50,15 +50,15 @@ Here's a description of the fields found in the sys\_registry table:
 
    Field
          entry\_namespace
-   
+
    Type
          varchar (128)
-   
+
    Description
          Represents an entry's namespace. In general the namespace is an
-         extension key starting with “tx\_”, a user script's prefix “user\_”,
-         or “core” for entries that belong to the core.
-         
+         extension key starting with "tx\_", a user script's prefix "user\_",
+         or "core" for entries that belong to the core.
+
          The point of namespaces is that entries with the same key can exist
          inside different namespaces.
 
@@ -67,10 +67,10 @@ Here's a description of the fields found in the sys\_registry table:
 
    Field
          entry\_key
-   
+
    Type
          varchar (255)
-   
+
    Description
          The entry's key. Together with the namespace the key is unique for the
          whole table. The key can be any string to identify the entry. It's
@@ -82,10 +82,10 @@ Here's a description of the fields found in the sys\_registry table:
 
    Field
          entry\_value
-   
+
    Type
          blob
-   
+
    Description
          The entry's actual value. The value is stored as a serialized string,
          thus you can even store arrays or objects in a registry entry – it's

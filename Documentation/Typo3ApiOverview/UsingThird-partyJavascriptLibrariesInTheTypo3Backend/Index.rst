@@ -21,7 +21,7 @@ Using third-party JavaScript libraries in the TYPO3 Backend
 Since TYPO3 4.3, it is very easy to use third-party JavaScript
 libraries in the TYPO3 BE. A simple API is provided by template class
 (which all modules use). Third-party JS libraries are those which are
-available in the “typo3/contrib” folder. Note that use of
+available in the "typo3/contrib" folder. Note that use of
 Prototype/Scriptaculous is now discouraged. Use ExtJS instead.
 Prototype/Scriptaculous support may be removed in future versions of
 TYPO3.

@@ -21,7 +21,7 @@ Elements
 This is the elements and their nesting in the locallang-XML format.
 
 
-Elements nesting other elements (“Array” elements):
+Elements nesting other elements ("Array" elements):
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 All elements defined here cannot contain any string value but  *must*
@@ -36,10 +36,10 @@ must be arrays.)
 
    Element
          Element
-   
+
    Description
          Description
-   
+
    Child elements
          Child elements
 
@@ -48,17 +48,17 @@ must be arrays.)
 
    Element
          <T3locallang>
-   
+
    Description
          Document tag
-   
+
    Child elements
          <meta>
-         
+
          <data>
-         
+
          <orig\_hash>
-         
+
          <orig\_text>
 
 
@@ -66,18 +66,18 @@ must be arrays.)
 
    Element
          <meta>
-   
+
    Description
          Contains meta data about the locallang-XML file. Used in translation,
          but not inside TYPO3 directly.
-   
+
    Child elements
          <labelContext>
-         
+
          <description>
-         
+
          <type>
-         
+
          <csh\_table>
 
 
@@ -85,14 +85,14 @@ must be arrays.)
 
    Element
          <data>
-   
+
    Description
          Contains the data for translations
-         
+
          **Notice:** The contents in the <data> tag is  *all that is needed for
          labels inside TYPO3* . Everything else is meta information for the
          translation tool!
-   
+
    Child elements
          <languageKey>
 
@@ -101,12 +101,12 @@ must be arrays.)
 
    Element
          <orig\_hash>
-   
+
    Description
          Contains hash-integers for each translated label of the default label
          at the point of translation. This is used to determine if the default
          label has changed since the translation was made.
-   
+
    Child elements
          <languageKey>
 
@@ -115,13 +115,13 @@ must be arrays.)
 
    Element
          <orig\_text>
-   
+
    Description
          Contains the text of the default label that was the basis of the
          translated version! The original text is used to show a diff between
          the original base of the translation and the new default text so a
          translator can quickly see what has changed.
-   
+
    Child elements
          <languageKey>
 
@@ -130,28 +130,28 @@ must be arrays.)
 
    Element
          <languageKey>
-   
+
    Description
          Array of labels for a language. The "index" attribute contains
          language key.
-         
-         There are two cases in the context “<data>” to note:
-         
-         - index = “default”: Array of default labels.
-         
+
+         There are two cases in the context "<data>" to note:
+
+         - index = "default": Array of default labels.
+
          - index = [language key] :
-           
+
            - If string: Pointer to external file containing translation, e.g.
-             “EXT:csh\_dk/lang/dk.locallang\_csh\_web\_info.xml”
-           
+             "EXT:csh\_dk/lang/dk.locallang\_csh\_web\_info.xml"
+
            - If array: Translations inline in main file (deprecated)
-           
+
            - [If not existing,  *recommended* ]: Translations in external default
              file typo3conf/l10n/
-   
+
    Child elements
          <label>
-         
+
          *Alternatively, when used under <data> it can be a string pointing to
          an external "include file"!*
 
@@ -160,12 +160,12 @@ must be arrays.)
 
    Element
          <labelContext>
-   
+
    Description
          Array of context descriptions of the default labels.
-         
+
          The "index" attribute contains label key
-   
+
    Child elements
          <label>
 
@@ -173,7 +173,7 @@ must be arrays.)
 .. ###### END~OF~TABLE ######
 
 
-Elements containing values (“Value” elements):
+Elements containing values ("Value" elements):
 """"""""""""""""""""""""""""""""""""""""""""""
 
 All elements defined here must contain a string value and no other XML
@@ -190,10 +190,10 @@ must be strings or integers.)
 
    Element
          Element
-   
+
    Format
          Format
-   
+
    Description
          Description
 
@@ -202,13 +202,13 @@ must be strings or integers.)
 
    Element
          <label> (under <data>)
-   
+
    Format
          string
-   
+
    Description
          Value of a original/translated label.
-         
+
          The "index" attribute contains label key.
 
 
@@ -216,13 +216,13 @@ must be strings or integers.)
 
    Element
          <label> (under <orig\_hash>)
-   
+
    Format
          integer
-   
+
    Description
          Hash of a translated label.
-         
+
          The "index" attribute contains label key.
 
 
@@ -230,14 +230,14 @@ must be strings or integers.)
 
    Element
          <label> (under <orig\_text>)
-   
+
    Format
          string
-   
+
    Description
          Original default value of a translated label used for making a diff if
          the original has changed.
-         
+
          The "index" attribute contains label key.
 
 
@@ -245,18 +245,18 @@ must be strings or integers.)
 
    Element
          <label>
-         
+
          (child of <labelContext>)
-   
+
    Format
          string
-   
+
    Description
          Description of a default labels context. This should be used where it
          cannot be clear for the translation where the default labels occur.
          Sometimes the context is important for the translator in order to
          translate correctly.
-         
+
          The "index" attribute contains label key.
 
 
@@ -264,10 +264,10 @@ must be strings or integers.)
 
    Element
          <description>
-   
+
    Format
          string
-   
+
    Description
          Description of the file contents.
 
@@ -276,17 +276,17 @@ must be strings or integers.)
 
    Element
          <type>
-   
+
    Format
          string
-   
+
    Description
          Type of content. Possible values are:
-         
+
          - "module" : Used for labels in the backend modules.
-         
+
          - "database" : Used for labels of database tables and fields.
-         
+
          - "CSH" : Used for Context Sensitive Help (both database tables, fields,
            backend modules etc.)
 
@@ -295,23 +295,23 @@ must be strings or integers.)
 
    Element
          <csh\_table>
-   
+
    Format
          string
-   
+
    Description
          (Only when the type is "CSH"!)
-         
+
          For CSH it is important to know what "table" the labels belong to. A
          "table" in the context of CSH is an identification of a group of
          labels. This can be an actual table name (containing all CSH for a
          single table) or it can be module names etc. with a prefix to
          determine type. See CSH section in "Inside TYPO3" for more details.
-         
+
          **Examples:**
-         
+
          ::
-         
+
             <csh_table>xMOD_csh_corebe</csh_table> (General Core CSH)
             <csh_table>_MOD_tools_em</csh_table> (For Extension Mgm. module)
             <csh_table>pages</csh_table> (For "pages" table)
@@ -338,10 +338,10 @@ internal array.
 
    Element
          Element
-   
+
    Description
          Description
-   
+
    Child elements
          Child elements
 
@@ -350,15 +350,15 @@ internal array.
 
    Element
          <T3locallangExt>
-   
+
    Description
          Document tag for the external include files of "<T3locallang>"
-   
+
    Child elements
          <data>
-         
+
          <orig\_hash>
-         
+
          <orig\_text>
 
 
@@ -366,10 +366,10 @@ internal array.
 
    Element
          <data>
-   
+
    Description
          *See <data> element of <T3locallang> above.*
-   
+
    Child elements
 
 
@@ -377,10 +377,10 @@ internal array.
 
    Element
          <orig\_hash>
-   
+
    Description
          *See <data> element of <T3locallang> above.*
-   
+
    Child elements
 
 
@@ -388,10 +388,10 @@ internal array.
 
    Element
          <orig\_text>
-   
+
    Description
          *See <data> element of <T3locallang> above.*
-   
+
    Child elements
 
 

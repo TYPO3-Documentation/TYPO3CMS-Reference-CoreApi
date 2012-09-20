@@ -38,22 +38,22 @@ Example - Adding a small feature in the interface
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 Say you wish to add a little section with help text in the bottom of
-the “New” dialog:
+the "New" dialog:
 
 |img-16| So this is what you do:
 
-#. Find out that the script in question is “typo3/db\_new.php” (right-
-   click frame, select “Properties” and look at URL...:-)
+#. Find out that the script in question is "typo3/db\_new.php" (right-
+   click frame, select "Properties" and look at URL...:-)
 
 #. Then examine the scripts for its classes and methods. In this case
-   you'll find two classes in the file; “localPageTree” (extends
-   t3lib\_pageTree) and “SC\_db\_new”. The class “SC\_db\_new” is the so
-   called “Script Class” - this will hold the code specifically for this
+   you'll find two classes in the file; "localPageTree" (extends
+   t3lib\_pageTree) and "SC\_db\_new". The class "SC\_db\_new" is the so
+   called "Script Class" - this will hold the code specifically for this
    script.You also find that the only code executed in the global scope
    is this:
-   
+
    ::
-   
+
          $SOBE = t3lib_div::makeInstance('SC_db_new');
          $SOBE->init();
          $SOBE->main();
@@ -65,18 +65,18 @@ the “New” dialog:
 #. Finally you find that immediately after the definition of the two
    classes there is three lines of code which will provide you with the
    final piece of knowledge you need:
-   
+
    ::
-   
+
       // Include extension?
       if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['typo3/db_new.php'])    {
           include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['typo3/db_new.php']);
       }
-   
-   So now you know that the key to use is “typo3/db\_new.php” when you
+
+   So now you know that the key to use is "typo3/db\_new.php" when you
    wish to define a script which should be included as the extension.
 
-Let's see what happens then in the extension “examples”:
+Let's see what happens then in the extension "examples":
 
 #. First we have a class that extends the SC\_db\_new
    (xclasses/class.tx\_examples\_scdbnew.php): :code:`function
@@ -90,7 +90,7 @@ Let's see what happens then in the extension “examples”:
    t3lib\_extMgm::extPath($\_EXTKEY,
    'xclasses/class.tx\_examples\_scdbnew.php');`
 
-There is no “table of extendable classes” in this document because 1)
+There is no "table of extendable classes" in this document because 1)
 all classes are extendable and 2) the number of classes will grow as
 TYPO3 is further developed and extensions are made and 3) finally you
 cannot extend a class unless you know it exists and have analyzed some
@@ -129,27 +129,27 @@ the backend:
    widely included yet, but will be as suggestions for them appears. And
    you are very welcome to give in such suggestions.I'll just give an
    example to illustrate what I mean:
-   
+
    ::
-   
+
       class SC_example {
           function main() {
               $number = 100;
               echo 'The number is ' . $number;
           }
       }
-      
-   
-   This class prints the text “The number is 100”. If you wish to do some
+
+
+   This class prints the text "The number is 100". If you wish to do some
    calculations to the $number-variable before it is printed, you are
    forced to simply include the whole original main-method in your
    extension script. Here it would be no problem because the method is 2
    lines long. But it could be 200 lines! So what you do is that you
-   suggest to the TYPO3 development to call a “harmless” dummy method in
+   suggest to the TYPO3 development to call a "harmless" dummy method in
    the main() method...
-   
+
    ::
-   
+
       class SC_example {
           function main() {
               $number = 100;
@@ -160,17 +160,17 @@ the backend:
               return $theNumber;
           }
       }
-      
-   
+
+
    ... and then you extend the class as follows: :code:`class`
    :code:`ux\_SC\_example` :code:`extends` :code:`SC\_example`
    :code:`{function` :code:`processNumber` :code:`(` :code:`$theNumber`
    :code:`){return(` :code:`$theNumber` :code:`<` :code:`100)` :code:`?`
    :code:`'less than 100'` :code:`:` :code:`'greater than 100'`
    :code:`;}}`
-   
-   ... and now the main() method would print “The number is greater than
-   100” instead.Notice that you'll have to make such suggestions for
+
+   ... and now the main() method would print "The number is greater than
+   100" instead.Notice that you'll have to make such suggestions for
    dummy method calls because we will include them only as people need
    them.
 

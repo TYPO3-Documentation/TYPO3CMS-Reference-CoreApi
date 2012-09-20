@@ -47,7 +47,7 @@ Configuring user-classes works like this:
 #. Whenever the class is instantiated as an object, the source code
    checks if a user-extension of that class exists. If so, then  *that*
    class (or an extension of the extended class) is instantiated and not
-   the “normal” (parent) class.Getting the correct instance of a class is
+   the "normal" (parent) class.Getting the correct instance of a class is
    done by using the function t3lib\_div::makeInstance() instead of "new
    ..." when an object is created.
 
@@ -59,23 +59,23 @@ Example
 ~~~~~~~
 
 Say you wish to make an addition to the stdWrap method found in the
-class “tslib\_cObj” (found in the class file
+class "tslib\_cObj" (found in the class file
 :code:`typo3/sysext/cms/tslib/class.tslib\_content.php` ).
 
 The first thing to do is to create the extension class. So you create
 a file in the typo3conf/ directory named
-“class.ux\_tslib\_content.php”. “ux” is a prefix meaning “user-
-extension”. This file may look like this:
+"class.ux\_tslib\_content.php". "ux" is a prefix meaning "user-
+extension". This file may look like this:
 
 ::
 
    <?php
-   /** 
+   /**
    * User-Extension of tslib_cObj class.
    *
    * @author    Kasper Skårhøj <kasper@typo3.com>
    */
-   
+
    class ux_tslib_cObj extends tslib_cObj {
        function stdWrap($content,$conf) {
                // Call the real stdWrap function in the parent class:
@@ -97,14 +97,14 @@ well after the original file tslib/class.tslib\_content.php:
    $TYPO3_CONF_VARS['FE']['XCLASS']['tslib/class.tslib_content.php']=
                               PATH_typo3conf . 'class.ux_tslib_content.php';
 
-So when the file “tslib/class.tslib\_content.php” is included inside
+So when the file "tslib/class.tslib\_content.php" is included inside
 of class.tslib\_pagegen.php, the extension class is included
-immediately from inside the “tslib/class.tslib\_content.php” file
+immediately from inside the "tslib/class.tslib\_content.php" file
 (this is from the bottom of the file):
 
 ::
 
-   if (defined('TYPO3_MODE') && 
+   if (defined('TYPO3_MODE') &&
           $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['tslib/class.tslib_content.php'])    {
        include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['tslib/class.tslib_content.php']);
    }
@@ -140,10 +140,10 @@ IMPORTANT
 
 When setting up the file to include, in particular from t3lib/, notice
 the difference between $TYPO3\_CONF\_VARS["BE"]["XCLASS"][...] and
-$TYPO3\_CONF\_VARS["FE"]["XCLASS"][...]. The key “FE” is used when the
+$TYPO3\_CONF\_VARS["FE"]["XCLASS"][...]. The key "FE" is used when the
 class is included by a front-end script (those initialized by
 tslib/index\_ts.php and tslib/showpic.php - both also known as
-index.php and showpic.php in the root of the website), “BE” is used by
+index.php and showpic.php in the root of the website), "BE" is used by
 backend scripts (those initialized by typo3/init.php or
 typo3/thumbs.php). This feature allows you to include a different
 extension when the (t3lib/-) class is used in the frontend and in the

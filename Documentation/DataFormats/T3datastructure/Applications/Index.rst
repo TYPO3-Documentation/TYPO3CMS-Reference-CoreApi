@@ -21,7 +21,7 @@ Applications
 For a more practical understanding of Data Structures you should study
 some of the applications of Data Structures:
 
-- FlexForms - using Data Structures as a “DTD” for rendering a
+- FlexForms - using Data Structures as a "DTD" for rendering a
   hierarchical editing form which saves the content back into XML
 
 - TemplaVoila - using Data Structures for mapping content to HTML

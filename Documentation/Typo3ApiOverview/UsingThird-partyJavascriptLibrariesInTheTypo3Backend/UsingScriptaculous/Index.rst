@@ -25,8 +25,8 @@ To load the Scriptaculous library use this syntax:
    $this->doc->loadScriptaculous();
 
 To load modules, just pass some module's name to the above call.
-Possible modules are: “builder”, “effects”, “dragdrop”, “controls”,
-“slider”.
+Possible modules are: "builder", "effects", "dragdrop", "controls",
+"slider".
 
 
 ((generated))
@@ -44,7 +44,7 @@ If a module depends on other modules, those will automatically be
 added. The calling order doesn't matter. Proper load order is taken
 care of by the API.
 
-To load all available modules, use the keyword “all”:
+To load all available modules, use the keyword "all":
 
 ::
 

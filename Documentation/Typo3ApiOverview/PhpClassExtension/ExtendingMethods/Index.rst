@@ -53,19 +53,19 @@ parent class' method, you must extend your own method call from...:
                // Call the real stdWrap method in the parent class:
            $content = parent::stdWrap($content, $conf,$ yet_a_parameter);
        ...
-   
+
 
 Also be aware of constructors. If you have a constructor in your
 extension class you must observe if there is a constructor in the
 parent class which you should call first / after. In case, you can do
-it by “parent::[original class name]”
+it by "parent::[original class name]"
 
 For instance the class tslib\_fe is instantiated into the global
 object $TSFE. This class has a constructor looking like this:
 
 ::
 
-   /** 
+   /**
     * Class constructor
     */
    function tslib_fe($TYPO3_CONF_VARS, $id, $type, $no_cache='', $cHash='', $jumpurl='') {

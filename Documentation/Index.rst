@@ -83,8 +83,8 @@ address the task at hand.
    :titlesonly:
    :glob:
 
-   Typo3CoreApis/Index
-   Typo3ExtensionApi/Index
+   Introduction/Index
+   ExtensionArchitecture/Index
    Typo3ApiOverview/Index
    TableControlArrayTca/Index
    PageTypes/Index

@@ -26,11 +26,11 @@ from general to specific. This means
 
 - Secondly, create specific style rules for specific scripts as needed.
 
-If you look inside “typo3/stylesheet.css” you will see that this is
+If you look inside "typo3/stylesheet.css" you will see that this is
 the way that stylesheet proceeds. In fact it might not be so bad an
 idea to take this stylesheet as an example for your own! In that case
 you can either choose to totally substitute the default stylesheet,
-“typo3/stylesheet.css”, with a new one (by $TBE\_STYLES['stylesheet'])
+"typo3/stylesheet.css", with a new one (by $TBE\_STYLES['stylesheet'])
 or simply create an additional stylesheet (set up by
 $TBE\_STYLES['styleSheetFile\_post']) which will be included as the
 last one - and in this stylesheet you override any of the previous
@@ -51,11 +51,11 @@ image:
 
 What you do is this:
 
-- Right-click the frame, select “Show HTML source” or whatever your
+- Right-click the frame, select "Show HTML source" or whatever your
   browser allows you.
 
-- Paste the HTML source of the script into the tool “CSS analyzer” found
-  in the extension “extdeveval” - this will analyse the hierarchy of CSS
+- Paste the HTML source of the script into the tool "CSS analyzer" found
+  in the extension "extdeveval" - this will analyse the hierarchy of CSS
   selectors.
 
 - Find your selector, write CSS rules!
@@ -67,14 +67,14 @@ of the CSS selectors inside:
 |img-43|
 
 In less than 10 seconds this has allowed me to spot that the exact
-address of the header cell is “BODY#typo3-db-list-php
-TABLE.typo3-dblist TR TD.c-headLineTable” and I can now add to my
+address of the header cell is "BODY#typo3-db-list-php
+TABLE.typo3-dblist TR TD.c-headLineTable" and I can now add to my
 stylesheet:
 
 ::
 
-   BODY#typo3-db-list-php TABLE.typo3-dblist TR TD.c-headLineTable { 
-           background-color: #ccccff; 
+   BODY#typo3-db-list-php TABLE.typo3-dblist TR TD.c-headLineTable {
+           background-color: #ccccff;
    }
 
 Likewise I could easily find that the two selector boxes were
@@ -90,7 +90,7 @@ The result was:
 
 |img-44|
 
-Now, as you can see the selector contained “BODY#typo3-db-list-php”
+Now, as you can see the selector contained "BODY#typo3-db-list-php"
 which is a specific address to the Web > List module (using its script
 ID!). If I wanted my styles to be more general so also the File >
 Filelist module would affected, then I could (in this case) remove the

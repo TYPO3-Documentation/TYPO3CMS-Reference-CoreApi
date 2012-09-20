@@ -20,7 +20,7 @@ Flash messages
 
 Since TYPO3 4.3 there is a generic system to show users that an action
 was performed successfully, or more importantly, failed. This system
-is known as “flash messages”. The screenshot below shows the various
+is known as "flash messages". The screenshot below shows the various
 severity levels of messages that can be emitted. It also shows that
 flash messages can include a header or not.
 

@@ -1,8 +1,0 @@
-﻿.. |img-4|      image:: ../../../Images/manual_html_2dc9d581.png
-   :height: 490
-   :width: 610
-.. :align: left
-.. :border: 0
-.. :name: graphics10
-.. :vspace: 19
-

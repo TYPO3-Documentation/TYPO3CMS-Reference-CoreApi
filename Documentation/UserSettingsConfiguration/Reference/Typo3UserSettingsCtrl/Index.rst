@@ -18,7 +18,7 @@
 $TYPO3\_USER\_SETTINGS['ctrl']
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Just like with the $TCA, the “ctrl” section contains some general
+Just like with the $TCA, the "ctrl" section contains some general
 options that affect the global rendering of the form.
 
 .. ### BEGIN~OF~TABLE ###
@@ -27,13 +27,13 @@ options that affect the global rendering of the form.
 
    Key
          Key
-   
+
    Datatype
          Datatype
-   
+
    Description
          Description
-   
+
    Default
          Default
 
@@ -42,19 +42,19 @@ options that affect the global rendering of the form.
 
    Key
          dividers2tabs
-   
+
    Datatype
          int
-   
+
    Description
          Render user setup with or without tabs. Possible values are:
-         
+
          - 0 = no tabs,
-         
+
          - 1 = tabs, empty tabs are hidden
-         
+
          - 2 = tabs, empty tabs are disabled
-   
+
    Default
          1
 

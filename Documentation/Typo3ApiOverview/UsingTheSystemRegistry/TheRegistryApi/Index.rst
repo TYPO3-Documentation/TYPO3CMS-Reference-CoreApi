@@ -40,10 +40,10 @@ Setting a value is easy as well by using the set() method.
 
    Method
          Method
-   
+
    Parameters
          Parameters
-   
+
    Description
          Description
 
@@ -52,33 +52,33 @@ Setting a value is easy as well by using the set() method.
 
    Method
          set
-   
+
    Parameters
          **$namespace** : namespace in which to set the value
-         
+
          **$key** : the key of the value to set
-         
+
          **$value** : the value to store
-   
+
    Description
          Represents an entry's namespace. In general the namespace is an
-         extension key starting with “tx\_”, a user script's prefix “user\_”,
-         or “core” for entries that belong to the core.
+         extension key starting with "tx\_", a user script's prefix "user\_",
+         or "core" for entries that belong to the core.
 
 
 .. container:: table-row
 
    Method
          get
-   
+
    Parameters
          **$namespace** : namespace to get the value from
-         
+
          **$key** : the key of the value to retrieve
-         
+
          **$defaultValue** : a default value if the key was not found in the
          given namespace
-   
+
    Description
          Used to get a value from the registry.
 
@@ -87,12 +87,12 @@ Setting a value is easy as well by using the set() method.
 
    Method
          remove
-   
+
    Parameters
          **$namespace** : namespace to remove the value from
-         
+
          **$key** : the key of the value to remove
-   
+
    Description
          Remove an entry from a given namespace.
 
@@ -101,10 +101,10 @@ Setting a value is easy as well by using the set() method.
 
    Method
          removeAllByNamespace
-   
+
    Parameters
          **$namespace** : namespace to empty
-   
+
    Description
          Deletes all value for a given namespace.
 

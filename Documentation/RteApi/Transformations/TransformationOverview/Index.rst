@@ -30,7 +30,7 @@ RTE again.
 
    Transformation filter
          Transformation filter:
-   
+
    Description
          Description:
 
@@ -39,37 +39,37 @@ RTE again.
 
    Transformation filter
          ts\_transform
-   
+
    Description
          Transforms the content with regard to most of the issues related to
          content elements types 'Text' and 'Text w/Image'. The mode is
-         optimized for the content rendering of the static template “content
-         (default)” which uses old <font> tag style rendering.The mode is a
-         “hybrid” mode which tries to save only the necessary HTML in the
+         optimized for the content rendering of the static template "content
+         (default)" which uses old <font> tag style rendering.The mode is a
+         "hybrid" mode which tries to save only the necessary HTML in the
          database so that content might still be easily edited without the RTE.
          For instance a text paragraph will be encapsulated in <p> tags while
          in the database it will just be a single line ended by a line break
-         character.(Supports the “cms” extension)
+         character.(Supports the "cms" extension)
 
 
 .. container:: table-row
 
    Transformation filter
          css\_transform
-   
+
    Description
-         Like “ts\_transform”, but headers and bulletlists are preserved as
+         Like "ts\_transform", but headers and bulletlists are preserved as
          <Hx> tags and <OL> / <UL> (TYPOLIST and TYPOHEAD are still converted
          to Hx and OL/UL, but not reversely...) and tables are preserved
          (PROC.preserveTables is disabled).The mode is optimized for the
-         content rendering done by “css\_styled\_content” or similar.
+         content rendering done by "css\_styled\_content" or similar.
 
 
 .. container:: table-row
 
    Transformation filter
          ts\_preserve
-   
+
    Description
          Converts the list of preserved tags - if any - to <SPAN>-tags with a
          custom parameter 'specialtag' which holds the value of the original
@@ -80,7 +80,7 @@ RTE again.
 
    Transformation filter
          ts\_images
-   
+
    Description
          Checks if any images on the page is from external URLs and if so they
          are fetched and stored in the uploads/ folder. In addition 'magic'
@@ -93,7 +93,7 @@ RTE again.
 
    Transformation filter
          ts\_links
-   
+
    Description
          Converts the absolute URLs of links to the TypoScript specific
          <LINK>-tag. This process is designed to make links in concordance with
@@ -104,7 +104,7 @@ RTE again.
 
    Transformation filter
          ts\_reglinks
-   
+
    Description
          Converts the absolute URLs of links to relative. Keeping the <A>-tag.
 
@@ -113,7 +113,7 @@ RTE again.
 
    Transformation filter
          Meta transformation:
-   
+
    Description
          Description:
 
@@ -122,11 +122,11 @@ RTE again.
 
    Transformation filter
          ts
-   
+
    Description
          Meta-mode which is basically a substitute for this list:
          ts\_transform,ts\_preserve,ts\_images,ts\_links. This is the one used
-         specifically for the two 'Text'-types of the content elements (“cms”
+         specifically for the two 'Text'-types of the content elements ("cms"
          extension).
 
 
@@ -134,9 +134,9 @@ RTE again.
 
    Transformation filter
          ts\_css
-   
+
    Description
-         Like “ts”, a meta-mode which is a substitute for the list:
+         Like "ts", a meta-mode which is a substitute for the list:
          css\_transform,ts\_images,ts\_links. It is designed to be the new,
          modern transformation used by most RTE cases, because it converts
          links between <A> and <LINK> but preserves all other content while

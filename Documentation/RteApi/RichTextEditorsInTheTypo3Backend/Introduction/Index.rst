@@ -18,7 +18,7 @@
 Introduction
 ^^^^^^^^^^^^
 
-When you configure a table in $TCA and add a field of the type “text”
+When you configure a table in $TCA and add a field of the type "text"
 which is edited by a <textarea> you can choose to use a Rich Text
 Editor (RTE) instead of the <textarea> field. A RTE enables the users
 to use visual formatting aids to create bold, italic, paragraphs,
@@ -27,8 +27,8 @@ in the web browser.
 
 |img-38| It is not within the scope of this chapter to describe how
 you set up a text field to use an RTE. As was discussed before, the
-quickest way is to add the key “defaultExtras” to the configuration of
-the column and add the string “richtext[]” as value:
+quickest way is to add the key "defaultExtras" to the configuration of
+the column and add the string "richtext[]" as value:
 
 ::
 

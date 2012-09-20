@@ -27,7 +27,7 @@ Functions:
   which can be handled by an error handler
 
 - Displays error messages as flash messages in the Backend (if
-  exceptionHandler is set to “t3lib\_error\_DebugExceptionHandler”).
+  exceptionHandler is set to "t3lib\_error\_DebugExceptionHandler").
   Since flash messages are integrated in the Backend template, PHP
   messages will not destroy the Backend layout.
 
@@ -39,7 +39,7 @@ Functions:
   t3lib\_div::syslog() offers a hook and can be extended by user-defined
   logging methods.
 
-- Logs error messages to t3lib\_div::devLog() if “enable\_errorDLOG” is
+- Logs error messages to t3lib\_div::devLog() if "enable\_errorDLOG" is
   enabled (depending on the devlog extension used, this might require an
   existing DB connection).
 

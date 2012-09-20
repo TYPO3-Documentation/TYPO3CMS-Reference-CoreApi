@@ -36,18 +36,18 @@ Anyway, here's a few simple examples:
 1) Say you wish to have the backend user time out after 30 seconds
 instead of the default 6000.
 
-#. In your extension's (named “test”) ext\_localconf.php fiel, insert:$TY
+#. In your extension's (named "test") ext\_localconf.php fiel, insert:$TY
    PO3\_CONF\_VARS['BE']['XCLASS']['t3lib/class.t3lib\_beuserauth.php']=
    t3lib\_extMgm::extPath('test') .
    'class.ux\_myBackendUserExtension.php';
 
-#. Create the file “class.ux\_myBackendUserExtension.php” in your
+#. Create the file "class.ux\_myBackendUserExtension.php" in your
    extension's folder and put this content in:
 
 ::
 
    <?php
-   
+
    class ux_t3lib_beUserAuth extends t3lib_beUserAuth {
        var $auth_timeout_field = 30;
    }
@@ -61,18 +61,18 @@ t3lib/class.t3lib\_beuserauth.php, open it and find that :code:`var`
 
 You could also easily insert an IP-filter (which is already present
 though...). Here you have to take a little adventure a bit further. As
-you see in “class.t3lib\_beuserauth.php” extends
-“t3lib\_userAuthGroup” which extends “t3lib\_userAuth” the method
+you see in "class.t3lib\_beuserauth.php" extends
+"t3lib\_userAuthGroup" which extends "t3lib\_userAuth" the method
 start() is the place where the users are authenticated. This could
 quickly be exploited to make this IP filter for the backend:
 
 ::
 
    <?php
-   
+
    class ux_t3lib_beUserAuth extends t3lib_beUserAuth {
        var $auth_timeout_field = 30;
-       
+
        function start() {
            if (!t3lib_div::cmpIP(getenv('REMOTE_ADDR'), '192.168.*.*'))    {
                die('Wrong IP, you cannot be authenticated!');
@@ -88,8 +88,8 @@ will gain access to the backend. If that is the case, notice how the
 parent start() method is called and any result is returned. Thus your
 overriding method is a wrapped for the original. Brilliant, right!
 
-2) Here's another one (from the “examples” extension, file
-“xclasses/class.tx\_examples\_tceforms.php”):
+2) Here's another one (from the "examples" extension, file
+"xclasses/class.tx\_examples\_tceforms.php"):
 
 ::
 
@@ -97,7 +97,7 @@ overriding method is a wrapped for the original. Brilliant, right!
            $size = round($size * 1.5);
            return parent::formWidth($size, $textarea);
    }
-   
+
    function printPalette($palArr) {
                    // Change all field labels in the palette to uppercase
            foreach ($palArr as $key => $palette) {

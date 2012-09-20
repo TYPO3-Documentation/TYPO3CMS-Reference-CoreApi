@@ -29,7 +29,7 @@ Functions of t3lib\_error\_DebugExceptionHandler
   logging methods.
 
 - Logs exception messages to t3lib\_div::devlog() if
-  “enable\_exceptionDLOG” is enabled (depending on the devlog extension
+  "enable\_exceptionDLOG" is enabled (depending on the devlog extension
   used, this might require an existing DB connection).
 
 - Logs exception messages to the sys\_log table. Logged errors are

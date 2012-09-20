@@ -33,20 +33,20 @@ function t3lib\_div::xml2array(). Taking the simple DS above:
          <field_templateObject>
                    <TCEforms>
                            <label>LLL:EXT:mininews/locallang_db.php:tt_content.pi_flexform.select_template</label>
-   
+
                            <config>
                                    <type>select</type>
                                    <items>
-                                           <numIndex index=”0”>
-                                                   <numIndex index=”0”></numIndex>
-                                                   <numIndex index=”1”>0</numIndex>
+                                           <numIndex index="0">
+                                                   <numIndex index="0"></numIndex>
+                                                   <numIndex index="1">0</numIndex>
                                            </numIndex>
                                    </items>
                                    <foreign_table>tx_templavoila_tmplobj</foreign_table>
                                    <foreign_table_where>
-                                           AND tx_templavoila_tmplobj.pid=###STORAGE_PID### 
-                                           AND tx_templavoila_tmplobj.datastructure="EXT:mininews/template_datastructure.xml" 
-                                           AND tx_templavoila_tmplobj.parent=0 
+                                           AND tx_templavoila_tmplobj.pid=###STORAGE_PID###
+                                           AND tx_templavoila_tmplobj.datastructure="EXT:mininews/template_datastructure.xml"
+                                           AND tx_templavoila_tmplobj.parent=0
                                            ORDER BY tx_templavoila_tmplobj.title
                                    </foreign_table_where>
                                    <size>1</size>
@@ -60,7 +60,7 @@ function t3lib\_div::xml2array(). Taking the simple DS above:
    </T3DataStructure>
 
 Passing this to the xml2array function and you will get an array like
-this (screen shot from “extdeveval”):
+this (screen shot from "extdeveval"):
 
 |img-59|
 
@@ -92,7 +92,7 @@ sheets in your file but just want to stay compatible with DS XML
 *with* sheets you should use this function. For instance these
 function calls will parse the DS into an array (screen shot above) and
 resolve the sheet definition, in this case creating a default sheet
-“sDEF” (screen shot below):
+"sDEF" (screen shot below):
 
 ::
 

@@ -18,7 +18,7 @@
 User defined methods in classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Prefix user defined methods and internal variables with “ux\_”!Thus
+Prefix user defined methods and internal variables with "ux\_"!Thus
 you don't risk to choose a method name which may later be added to the
 parent class in the TYPO3 distribution!
 
@@ -28,7 +28,7 @@ Example, continued from above:
 
    class ux_tslib_fe extends tslib_fe {
        var $ux_fLPmode = 1;    // If you "feelLuckyPunk" this is the no_cache value
-       
+
      function ux_tslib_fe($TYPO3_CONF_VARS, $id, $type, $no_cache='', $cHash='', $jumpurl='') {
                // setting no_cache?
            $no_cache=$this->ux_settingNoCache();

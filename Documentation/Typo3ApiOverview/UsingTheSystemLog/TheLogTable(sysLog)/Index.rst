@@ -32,13 +32,13 @@ Here are description of the arguments to this function call:
 
    Field
          Field
-   
+
    Type
          Type
-   
+
    Var
          Var
-   
+
    Description
          Description
 
@@ -47,45 +47,45 @@ Here are description of the arguments to this function call:
 
    Field
          type
-   
+
    Type
          tinyint
-   
+
    Var
          $type
-   
+
    Description
          Value telling which module in TYPO3 set the log entry. The type values
          are paired with an action-integer which is telling in more detail what
          the event was. Here type and action values are arranged hierarchically
          (type on first level, action on second level):
-         
-         - 1 : t3lib\_TCEmain (“TYPO3 Core Engine” where database records are
+
+         - 1 : t3lib\_TCEmain ("TYPO3 Core Engine" where database records are
            manipulated)
-           
+
            - Action values are for new, updated, copy, move, delete etc.
-         
-         - 2 : “tce\_file” (File handling in fileadmin/ and absolute filemounts)
-           
+
+         - 2 : "tce\_file" (File handling in fileadmin/ and absolute filemounts)
+
            - Action values are for various file handling types like upload, rename,
              edit etc.
-         
+
          - 3 : System (e.g. sys\_history save)
-         
+
          - 4 : Modules: This is the mode you may use for extensions having
            backend module functionality. Probably you would like to use
            BE\_USER->simplelog() for your extensions.
-         
+
          - 254 : Personal settings changed
-         
+
          - 255 : Login or Logout action
-           
+
            - 1=login
-           
+
            - 2=logout
-           
+
            - 3=failed login (+ errorcode 3)
-           
+
            - 4=failure\_warning\_email sent
 
 
@@ -93,40 +93,40 @@ Here are description of the arguments to this function call:
 
    Field
          action
-   
+
    Type
          tinyint
-   
+
    Var
          $action
-   
+
    Description
-         *See “type” above*
-         
-         When not available, use value “0”
+         *See "type" above*
+
+         When not available, use value "0"
 
 
 .. container:: table-row
 
    Field
          error
-   
+
    Type
          tinyint
-   
+
    Var
          $error
-   
+
    Description
          Error level:
-         
+
          - 0 = message, a notice of an action that happened.
-         
+
          - 1 = error, typically a permission problem for the user
-         
+
          - 2 = System Error, something which should not happen for technical
            reasons.
-         
+
          - 3 = Security notice, like login failures
 
 
@@ -134,22 +134,22 @@ Here are description of the arguments to this function call:
 
    Field
          details\_nr
-   
+
    Type
          tinyint
-   
+
    Var
          $details\_nr
-   
+
    Description
-         Number of “detail” message. This number should be unique for the
+         Number of "detail" message. This number should be unique for the
          combination of type/action
-         
+
          -1 is a temporary detail number you can use while developing and error
          messages are not fixed yet.
-         
+
          0 is a value that means the message is not supposed to be translated
-         
+
          >=1 means the message is fixed and ready for translation.
 
 
@@ -157,19 +157,19 @@ Here are description of the arguments to this function call:
 
    Field
          details
-   
+
    Type
          tinytext
-   
+
    Var
          $details
-   
+
    Description
          The log message text (in english). By identification through
          type/action/details\_nr this can be translated through the
          localization system.
-         
-         If you insert “%s” markers in the details message and set $data to an
+
+         If you insert "%s" markers in the details message and set $data to an
          array the first 5 entries (keys 0-4) from $data will substitute the
          markers sequentially (using sprintf)
 
@@ -178,15 +178,15 @@ Here are description of the arguments to this function call:
 
    Field
          log\_data
-   
+
    Type
          tinyblob
-   
+
    Var
          $data
-   
+
    Description
-         Data that follows the log entry. Can be an array. See “details” for
+         Data that follows the log entry. Can be an array. See "details" for
          more info.
 
 
@@ -194,13 +194,13 @@ Here are description of the arguments to this function call:
 
    Field
          tablename
-   
+
    Type
          varchar(40)
-   
+
    Var
          $table
-   
+
    Description
          Table name. Special field used by tce\_main.php.
 
@@ -209,13 +209,13 @@ Here are description of the arguments to this function call:
 
    Field
          recuid
-   
+
    Type
          int
-   
+
    Var
          $recuid
-   
+
    Description
          Record UID. Special field used by tce\_main.php.
 
@@ -224,13 +224,13 @@ Here are description of the arguments to this function call:
 
    Field
          recpid
-   
+
    Type
          int
-   
+
    Var
          $recpid
-   
+
    Description
          Record PID. Special field used by tce\_main.php. [OBSOLETE; not used
          anymore.]
@@ -240,13 +240,13 @@ Here are description of the arguments to this function call:
 
    Field
          event\_pid
-   
+
    Type
          int
-   
+
    Var
          $event\_pid
-   
+
    Description
          The page ID (pid) where the event occurred. Used to select log-content
          for specific pages.
@@ -256,13 +256,13 @@ Here are description of the arguments to this function call:
 
    Field
          NEWid
-   
+
    Type
          varchar(20)
-   
+
    Var
          $NEWid
-   
+
    Description
          Special field used by tce\_main.php. NEWid string of newly created
          records.
@@ -272,13 +272,13 @@ Here are description of the arguments to this function call:
 
    Field
          tstamp
-   
+
    Type
          int
-   
+
    Var
          -
-   
+
    Description
          EXEC\_TIME of event, UNIX time in seconds.
 
@@ -287,13 +287,13 @@ Here are description of the arguments to this function call:
 
    Field
          uid
-   
+
    Type
          int
-   
+
    Var
          -
-   
+
    Description
          Unique ID for log entry, automatically inserted
 
@@ -302,13 +302,13 @@ Here are description of the arguments to this function call:
 
    Field
          userid
-   
+
    Type
          int
-   
+
    Var
          -
-   
+
    Description
          User ID of backend user, automatically set for you
 
@@ -317,13 +317,13 @@ Here are description of the arguments to this function call:
 
    Field
          IP
-   
+
    Type
          varchar(39)
-   
+
    Var
          -
-   
+
    Description
          REMOTE\_ADDR of client
 
@@ -332,13 +332,13 @@ Here are description of the arguments to this function call:
 
    Field
          workspace
-   
+
    Type
          int
-   
+
    Var
          -
-   
+
    Description
          Workspace ID
 

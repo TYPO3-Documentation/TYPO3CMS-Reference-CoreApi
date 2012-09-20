@@ -19,8 +19,8 @@ Extending the error and exception handling
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you want to register your own error or exception handler, simply
-include the class and insert its name to “productionExceptionHandler”,
-“debugExceptionHandler” or “errorHandler”.
+include the class and insert its name to "productionExceptionHandler",
+"debugExceptionHandler" or "errorHandler".
 
 **Example:**
 

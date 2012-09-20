@@ -30,7 +30,7 @@ Registering a header and options
 
 You configure options in the global variable
 $TYPO3\_CONF\_VARS['BE']['customPermOptions']. You can read the
-comment inside “config\_default.php” regarding the syntax of the
+comment inside "config\_default.php" regarding the syntax of the
 array.
 
 This example shows how three options are registered under a new
@@ -81,10 +81,10 @@ function in the user object:
    $BE_USER->check('custom_options', $catKey . ':' . $itemKey);
 
 $catKey is the category in which the option resides. From the example
-above this would be “tx\_coreunittest\_cat1”
+above this would be "tx\_coreunittest\_cat1"
 
 $itemKey is the key of the item in the category you are evaluating.
-From the example above this could be “key1”, “key2” or “key3”
+From the example above this could be "key1", "key2" or "key3"
 depending on which one of them you want to evaluated.
 
 The function returns true if the option is set, otherwise false.
@@ -93,10 +93,10 @@ The function returns true if the option is set, otherwise false.
 Keys in the array
 """""""""""""""""
 
-It is good practice to use the extension keys prefixed with “tx\_” on
+It is good practice to use the extension keys prefixed with "tx\_" on
 the first level of the array. This will help to make sure you do not
 pick a key which someone else picked as well!
 
 Also you should never pick a key containing any of the characters
-“,:\|” since they are reserved delimiter characters.
+",:\|" since they are reserved delimiter characters.
 

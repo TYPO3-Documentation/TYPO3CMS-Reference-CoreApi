@@ -33,7 +33,7 @@ already registered parameter for their ajaxID. Their defined
 "onComplete" and "onSuccess" are only rendered if the X-JSON header is
 set to true by the server-side script. If the X-JSON header is set to
 false, the Responder checks if there is a callback function named
-"onT3Error" and executes it instead of the “onComplete” method. If the
+"onT3Error" and executes it instead of the "onComplete" method. If the
 "onT3Error" method is not defined, the default TYPO3 error handler
 will be displaying the error in the TYPO3 backend. If the X-JSON
 header is set to false, the "onSuccess" callback will not be executed

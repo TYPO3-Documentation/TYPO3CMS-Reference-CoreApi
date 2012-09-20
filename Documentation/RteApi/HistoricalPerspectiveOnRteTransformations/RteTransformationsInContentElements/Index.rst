@@ -37,21 +37,21 @@ happens with the content of the two Text-types when rendered by
 TypoScript for frontend display:
 
 #. All line breaks are converted to <br /> codes.
-   
+
    (Doing this enables us to edit the text in the field rather naturally
    in the backend because line breaks in the edit field comes out as line
    breaks on the page!)
 
 #. All instances of 'http://...' and 'mailto:....' are converted to
    links.
-   
+
    (This is a quick way to insert links to URLs and email address)
 
 #. The text is parsed for special tags, so called 'typotags', configured
    in TypoScript. The default typotags tags are <LINK> (making links),
    <TYPOLIST> (making bulletlists), <TYPOHEAD> (making headlines) and
    <TYPOCODE> (making monospaced formatting).
-   
+
    (The <LINK> tag is used to create links between pages inside TYPO3.
    Target and additional parameters are automatically added which makes
    it a very easy way to make sure, links are correct. <TYPOLIST> renders
@@ -66,14 +66,14 @@ TypoScript for frontend display:
 #. All other 'tags' found in the content are converted to regular text
    (with htmlspecialchars) unless the tag is found in the 'allowTags'
    list.
-   
+
    (This list includes tags like 'b' (bold) and 'i' (italics) and so
    these tags may be used and will be outputted. However tags like
    'table', 'tr' and 'td' is not in this list by default, so table-html
    code inserted will be outputted as text and not as a table!)
 
 #. Constants and search-words - if set - will be highlighted or inserted.
-   
+
    (This feature will mark up any found search words on the pages if the
    page is linked to from a search result page.)
 
@@ -93,7 +93,7 @@ mentioned above. (Numbers refer to the previous bulletlist):
    passing the content to the RTE and further we need to revert the <DIV>
    and <P> sections in addition to the <BR>-tagsto line breaks when the
    content is returned to the database from the RTE.
-   
+
    The greatest challenge here is however what to do if a <DIV> or <P>
    tag has parameters like 'class' or 'align'. In that case we can't just
    discard the tag. So the tag is preserved.
@@ -112,11 +112,11 @@ mentioned above. (Numbers refer to the previous bulletlist):
    The align/class-parameter - if set - is also preserved. When the HTML-
    tags are returned to the database they need to be reverted to the
    specific typotags.
-   
+
    Other typotags (non-standard) can be preserved by being converted to a
    <SPAN>-section and back. This must be configured through Page
    TSconfig.
-   
+
    (Update: With "css\_styled\_content" and the transformation "ts\_css"
    only the <link> typotag is left. The <typolist> and <typohead> tags
    are obsolete and regular HTML is used instead)
@@ -126,7 +126,7 @@ mentioned above. (Numbers refer to the previous bulletlist):
    problem is tables which are (currently) not allowed with the Text-
    types. The reason for this goes back to the philosophy that the field
    content should be human readable and tables are not very 'readable'.
-   
+
    (Update: With "css\_styled\_content" and the transformation "ts\_css"
    tables are allowed)
 
@@ -154,7 +154,7 @@ Conclusion:
 These actions are done by so called *transformations* which are
 configured in the $TCA. Basically these transformations are admittedly
 very customized to the default behavior of the TYPO3 frontend. And
-they are by nature “fragile” constructions because the content is
+they are by nature "fragile" constructions because the content is
 transformed back and forth for each interaction between the RTE and
 the database and may so be erroneously processed. However they serve
 to keep the content stored in the database 'clean' and human readable

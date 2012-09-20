@@ -1,0 +1,9 @@
+# Settings.yml
+
+---
+conf.py:
+  copyright: 2000-2012
+  project: Core APIs
+  version: 6.0.0
+  release: 6.0.0
+...

@@ -30,7 +30,7 @@ There are 2 optional parameters in this call:
 
    $this->doc->loadExtJS($css = TRUE, $theme = TRUE);
 
-- The first parameter is a boolean. If set to true, “ext-all.css” is
+- The first parameter is a boolean. If set to true, "ext-all.css" is
   added automatically.
 
 - The second parameter is also a boolean. If set to true, theme-grey is

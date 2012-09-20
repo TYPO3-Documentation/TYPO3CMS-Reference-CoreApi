@@ -23,7 +23,7 @@ using TSConfig. The example below describes the base method for adding
 a plugin to the list of plugins in the wizard.
 
 
-Adding elements under the “Plugins” header
+Adding elements under the "Plugins" header
 """"""""""""""""""""""""""""""""""""""""""
 
 If you want to add elements in the wizard under the plugins header
@@ -51,7 +51,7 @@ category by inserting these lines in its ext\_tables.php file:
 ::
 
    if (TYPO3_MODE=='BE')    {
-       $TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_ttguest_wizicon'] = 
+       $TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_ttguest_wizicon'] =
            t3lib_extMgm::extPath($_EXTKEY) . 'class.tx_ttguest_wizicon.php';
    }
 
@@ -62,25 +62,25 @@ looking like this:
 
    /**
     * Class, containing function for adding an element to the content element wizard.
-    * 
+    *
     * @author    Kasper Skaarhoj <kasper@typo3.com>
     * @package TYPO3
     * @subpackage tx_ttguest
     */
    class tx_ttguest_wizicon {
-   
+
        /**
         * Processing the wizard-item array from db_new_content_el.php
-        * 
+        *
         * @param    array        Wizard item array
         * @return    array        Wizard item array, processed (adding a plugin for tt_guest extension)
         */
        function proc($wizardItems) {
            global $LANG;
-   
+
                // Include the locallang information.
            $LL = $this->includeLocalLang();
-   
+
                // Adding the item:
            $wizardItems['plugins_ttguest'] = array(
                'icon' => t3lib_extMgm::extRelPath('tt_guest') . 'guestbook.gif',
@@ -88,13 +88,13 @@ looking like this:
                'description' => $LANG->getLLL('plugins_description', $LL),
                'params' => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=3&defVals[tt_content][select_key]=' . rawurlencode('GUESTBOOK, POSTFORM')
            );
-           
+
            return $wizardItems;
        }
-   
+
        /**
         * Include locallang file for the tt_guest book extension (containing the description and title for the element)
-        * 
+        *
         * @return    array        LOCAL_LANG array
         */
        function includeLocalLang()    {
