@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# TYPO3 File Abstraction Layer documentation build configuration file, created by
-# sphinx-quickstart on Thu May 17 12:07:07 2012.
+# Project name documentation build configuration file, created by
+# sphinx-quickstart on Wed May 30 17:43:23 2012.
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #
@@ -41,7 +41,7 @@ source_suffix = '.rst'
 master_doc = 'Index'
 
 # General information about the project.
-project = u'TYPO3 File Abstraction Layer'
+project   = u'TYPO3 File Abstraction Layer'
 copyright = u'2012 the TYPO3 FAL Team'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -66,8 +66,6 @@ release = '1.0.0'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 exclude_patterns = ['_make']
-exclude_trees = ['_make']
-
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
@@ -103,14 +101,6 @@ html_theme = 'default'
 
 # Add any paths that contain custom themes here, relative to this directory.
 html_theme_path = []
-
-try:
-    import t3sphinx
-    html_theme_path.insert(0, t3sphinx.themes_dir)
-    html_theme = 'typo3sphinx'
-except:
-    html_theme = 'default'
-
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -309,3 +299,75 @@ epub_copyright = u'2012, The TYPO3 FAL Team'
 # Example configuration for intersphinx: refer to the Python standard library.
 # intersphinx_mapping = {'http://docs.python.org/': None}
 intersphinx_mapping = {}
+
+
+#=================================================
+#
+# TYPO3 codeblock BEGIN:
+#
+# Insert this codeblock at the end of your Sphinx
+# builder configuration file 'conf.py'.
+# This may enable TYPO3 specific features like
+# TYPO3 themes. It makes Yaml settings files work.
+#
+#-------------------------------------------------
+
+if 1 and "TYPO3 specific":
+
+    try:
+        t3DocTeam
+    except NameError:
+        t3DocTeam = {}
+
+    try:
+        import t3sphinx
+        html_theme_path.insert(0, t3sphinx.themes_dir)
+        html_theme = 'typo3sphinx'
+    except:
+        html_theme = 'default'
+
+    t3DocTeam['conf_py_file'] = None
+    try:
+        t3DocTeam['conf_py_file'] = __file__
+    except:
+        import inspect
+        t3DocTeam['conf_py_file'] = inspect.getfile(
+            inspect.currentframe())
+
+    t3DocTeam['conf_py_package_dir'] = os.path.abspath(os.path.dirname(
+        t3DocTeam['conf_py_file']))
+    t3DocTeam['relpath_to_master_doc'] = '..'
+    t3DocTeam['relpath_to_logdir'] = '_not_versioned'
+    t3DocTeam['path_to_logdir'] = os.path.join(
+        t3DocTeam['conf_py_package_dir'],
+        t3DocTeam['relpath_to_logdir'])
+    t3DocTeam['pathToYamlSettings'] = os.path.join(
+        t3DocTeam['conf_py_package_dir'],
+        t3DocTeam['relpath_to_master_doc'], 'Settings.yml')
+    try:
+        t3DocTeam['pathToGlobalYamlSettings'] = \
+            t3sphinx.pathToGlobalYamlSettings
+    except:
+        t3DocTeam['pathToGlobalYamlSettings'] = None
+    if not t3DocTeam['pathToGlobalYamlSettings']:
+        t3DocTeam['pathToGlobalYamlSettings'] = os.path.join(
+            t3DocTeam['conf_py_package_dir'], 'GlobalSettings.yml')
+    try:
+        __function = t3sphinx.yamlsettings.processYamlSettings
+    except:
+        __function = None
+    if not __function:
+        try:
+            import yamlsettings
+            __function = yamlsettings.processYamlSettings
+        except:
+            __function = None
+    if __function:
+        __function(globals(), t3DocTeam)
+
+#-------------------------------------------------
+#
+# TYPO3 codeblock END.
+#
+#=================================================
+

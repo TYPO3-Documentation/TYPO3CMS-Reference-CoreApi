@@ -1,0 +1,10 @@
+# Settings.yml
+
+---
+conf.py:
+  copyright: 2012 the TYPO3 FAL Team
+  project: TYPO3 File Abstraction Layer
+  version: 0.0.1
+  release: 0.0.1
+...
+
