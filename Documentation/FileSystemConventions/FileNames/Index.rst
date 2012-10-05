@@ -31,8 +31,6 @@ Classes that contain PHP interfaces must have interface.prefix.
 
 One file can contain only one class or interface.
 
-File names must be all lower case.
-
 
 Unit test files
 """""""""""""""
