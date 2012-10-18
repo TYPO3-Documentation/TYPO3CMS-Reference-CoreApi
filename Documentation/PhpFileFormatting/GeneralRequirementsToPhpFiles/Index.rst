@@ -57,7 +57,7 @@ with one more tab characters. Example:
 ::
 
    $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('uid, title', 'pages',
-           'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'), 
+           'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'),
            '', 'title');
 
 or even better for readability:
@@ -66,7 +66,7 @@ or even better for readability:
 
    $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('uid, title',
            'pages',
-           'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'), 
+           'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'),
            '',
            'title'
    );
@@ -123,5 +123,5 @@ Spaces must be added:
 Character set
 """""""""""""
 
-All TYPO3 source files use the UTF-8 character set since version 4.5.
+All TYPO3 source files use the UTF-8 character set without byte order mark (BOM) since version 4.5.
 Files from third-party libraries may have different encodings.
