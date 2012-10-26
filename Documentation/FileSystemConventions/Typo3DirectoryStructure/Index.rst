@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 TYPO3 directory structure
@@ -28,7 +19,7 @@ directories:
 
    Directory
          Directory
-   
+
    Description
          Description
 
@@ -37,11 +28,11 @@ directories:
 
    Directory
          fileadmin/
-   
+
    Description
          This is a directory where users can store files. Typically images or
          HTML files appear in this directory and/or its subdirectories.
-         
+
          Often this directory is used for downloadable files. This directory is
          the only one accessible using the TYPO3 Filemodule.
 
@@ -50,7 +41,7 @@ directories:
 
    Directory
          t3lib/
-   
+
    Description
          TYPO3 library directory
 
@@ -59,10 +50,10 @@ directories:
 
    Directory
          typo3/
-   
+
    Description
          TYPO3 Backend directory. This directory contains the Backend files.
-         
+
          Additionally, it contains some extensions in the ext/(not used by the
          TYPO3 core) and sysext/directories. For example, the " :code:`cms` "
          extension contains the code for generating the Frontend website.
@@ -72,7 +63,7 @@ directories:
 
    Directory
          typo3conf/
-   
+
    Description
          TYPO3 configuration directory
 
@@ -81,7 +72,7 @@ directories:
 
    Directory
          typo3conf/ext/
-   
+
    Description
          Directory for TYPO3 extensions
 
@@ -90,7 +81,7 @@ directories:
 
    Directory
          typo3temp/
-   
+
    Description
          Directory for temporary files. It contains subdirectories for
          temporary files of extensions and TYPO3 components.
@@ -100,7 +91,7 @@ directories:
 
    Directory
          uploads/
-   
+
    Description
          Default upload directory. For example, all images uploaded with “Image
          with text” content element will be in this directory. Extensions can

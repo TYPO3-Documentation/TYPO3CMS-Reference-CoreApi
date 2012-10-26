@@ -1,18 +1,9 @@
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 PHP syntax formatting
@@ -24,30 +15,22 @@ Identifiers
 
 All identifiers must use camelCaseand start with a lower case letter.
 Underscore characters are not allowed. Abbreviations should be
-avoided. Examples of good identifiers:
-
-::
+avoided. Examples of good identifiers::
 
    $goodName
    $anotherGoodName
 
-Examples of bad identifiers:
-
-::
+Examples of bad identifiers::
 
    $BAD_name
    $unreasonablyLongNamesAreBadToo
    $noAbbrAlwd
 
-The lower camel-case rule also applies to acronyms. Thus:
-
-::
+The lower camel-case rule also applies to acronyms. Thus::
 
    $someNiceHtmlCode
 
-is correct, whereas
-
-::
+is correct, whereas ::
 
    $someNiceHTMLCode
 
@@ -61,31 +44,23 @@ traditional integer variables like $i, $j, $kin forloops. If such
 variables are used, their meaning must be absolutely clear from the
 context where they are used.
 
-The same rules apply to functions and class methods. Examples:
-
-::
+The same rules apply to functions and class methods. Examples::
 
    protected function getFeedbackForm()
    public function processSubmission()
 
-Class constants should be clear about what they define. Correct:
-
-::
+Class constants should be clear about what they define. Correct::
 
    const USERLEVEL_MEMBER = 1;
 
-Incorrect:
-
-::
+Incorrect::
 
    const UL_MEMBER = 1;
 
 Variables on the global scope may use upper case and underscore
 characters.
 
-Examples:
-
-::
+Examples::
 
    $TYPO3_CONF_VARS
    $TYPO3_DB
@@ -96,9 +71,7 @@ Comments
 
 Comments in the code are highly welcome and recommended. Inline
 comments must precede the commented line and be indented by one tab.
-Example:
-
-::
+Example::
 
    protected function processSubmission() {
                 // Check if user is logged in
@@ -111,9 +84,7 @@ Comments must start with "//". Starting with "#" is not allowed.
 
 Class constants and variable comments should follow PHP doc style and
 precede the variable. Variable type must be specified for non–trivial
-types and optional for trivial types. Example:
-
-::
+types and optional for trivial types. Example::
 
       /** Number of images submitted by user */
            protected $numberOfImages;
@@ -151,9 +122,7 @@ construction. There must be a space (not a tab!) before the opening
 brace. The opening brace is always followed by a new line.
 
 The closing curly brace must start on a new line and be indented to
-the same level as the construct with the opening brace. Example:
-
-::
+the same level as the construct with the opening brace. Example::
 
    protected function getForm() {
            if ($this->extendedForm) {
@@ -163,9 +132,7 @@ the same level as the construct with the opening brace. Example:
            }
    }
 
-The following is not allowed:
-
-::
+The following is not allowed::
 
    protected function getForm()
    {
@@ -182,9 +149,7 @@ Conditions
 Conditions consist of :code:`if`, :code:`elseif` and :code:`else` keywords. TYPO3 code must
 not use the :code:`else if` construct.
 
-The following is the correct layout for conditions:
-
-::
+The following is the correct layout for conditions::
 
       if ($this->processSubmission) {
           // Process submission here
@@ -194,9 +159,7 @@ The following is the correct layout for conditions:
           // Something else here
       }
 
-Here is an example of the incorrect layout:
-
-::
+Here is an example of the incorrect layout::
 
       if ($this->processSubmission) {
                    // Process submission here
@@ -206,9 +169,7 @@ Here is an example of the incorrect layout:
            } else // Something else here
 
 It is recommended to create conditions so that shortest block goes
-first. For example:
-
-::
+first. For example::
 
       if (!$this->processSubmission) {
                    // Generate error message, 2 lines
@@ -218,9 +179,7 @@ first. For example:
 
 If the condition is long, it must be split into several lines. Each
 condition on the line starting from the second should be indented with
-a two or more indents relative to the first line of the condition:
-
-::
+a two or more indents relative to the first line of the condition::
 
       if ($this->getSomeCodition($this->getSomeVariable()) &&
                            $this->getAnotherCondition()) {
@@ -228,39 +187,29 @@ a two or more indents relative to the first line of the condition:
            }
 
 Ternary conditional operator must be used only if it has two outcomes.
-Example:
-
-::
+Example::
 
    $result = ($useComma ? ',' : '.');
 
-Wrong usage of ternary conditional operator:
-
-::
+Wrong usage of ternary conditional operator::
 
    $result = ($useComma ? ',' : $useDot ? '.' : ';');
 
 Assignment in conditions should be avoided. However if it makes sense
 to do assignment in condition, it should be surrounded by the extra
-pair of brackets. Example:
-
-::
+pair of brackets. Example::
 
       if (($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
                    // Do something
            }
 
-The following is allowed but not recommended:
-
-::
+The following is allowed but not recommended::
 
       if (FALSE !== ($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
                    // Do something
            }
 
-The following is not allowed (missing the extra pair of brackets):
-
-::
+The following is not allowed (missing the extra pair of brackets)::
 
       while ($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
                    // Do something
@@ -281,9 +230,7 @@ breakstatement.
 If one caseblock has to pass control into another caseblock without
 having a break, there must be a comment about it in the code.
 
-Examples:
-
-::
+Examples::
 
       switch ($useType) {
                    case 'extended':
@@ -313,27 +260,21 @@ The following loops can be used:
 The use of eachis not allowed in loops.
 
 forloops must contain only variables inside (no function calls). The
-following is correct:
-
-::
+following is correct::
 
    $size = count($dataArray);
    for ($element = 0; $element < $size; $element++) {
            // Process element here
    }
 
-The following is not allowed:
-
-::
+The following is not allowed::
 
    for ($element = 0; $element < count($dataArray); $element++) {
            // Process element here
    }
 
 doand whileloops must use extra brackets if assignment happens in the
-loop:
-
-::
+loop::
 
    while (($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
            // Do something
@@ -341,9 +282,7 @@ loop:
 
 There's a special case for foreachloops when the value is not used
 inside the loop. In this case the dummy variable $\_(underscore) is
-used:
-
-::
+used::
 
    foreach ($GLOBALS['TCA'] as $table => $_) {
            // Do something with $table
@@ -359,9 +298,7 @@ Strings
 All strings must use single quotes. Double quotes are allowed only to
 create the new line character (“\n”).
 
-String concatenation operator must be surrounded by spaces. Example:
-
-::
+String concatenation operator must be surrounded by spaces. Example::
 
    $content = 'Hello ' . 'world!';
 
@@ -369,15 +306,11 @@ However the space after the concatenation operator must not be present
 if the operator is the last construction on the line. See the section
 about white spaces on page 10 for more information.
 
-Variables must not be embedded into strings. Correct:
-
-::
+Variables must not be embedded into strings. Correct::
 
       $content = 'Hello ' . $userName;
 
-Incorrect:
-
-::
+Incorrect::
 
       $content = “Hello $userName”;
 
@@ -385,9 +318,7 @@ Multiline string concatenations are allowed. Line concatenation
 operator must be at the end of the line. Lines starting from the
 second must be indented relative to the first line. It is recommended
 to indent lines one level from the start of the string on the first
-level:
-
-::
+level::
 
       $content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' .
                                    'Donec varius libero non nisi. Proin eros.';
@@ -405,9 +336,7 @@ Arrays
 """"""
 
 Array declarations use the "array" keyword in lower case, with no
-blank between it and the opening bracket. Thus:
-
-::
+blank between it and the opening bracket. Thus::
 
    $a = array();
 
@@ -416,9 +345,7 @@ indented with one more tab than the start of the declaration. The
 closing bracket is on the same indentation level as the variable.
 Every line containing an array item ends with a comma. This may be
 omitted if there are no further elements, at the developer's choice.
-Example:
-
-::
+Example::
 
    $thisIsAnArray = array(
            'foo' => 'bar',
@@ -428,13 +355,11 @@ Example:
    );
 
 Nested arrays follow the same pattern. This formatting applies even to
-very small and simple array declarations, e.g.
-
-::
+very small and simple array declarations, e.g. ::
 
    $a = array(
            0 => 'b',
-   ); 
+   );
 
 
 NULL
@@ -457,27 +382,21 @@ Class variables must use access specifier instead of :code:`var`
 keyword.
 
 Type hinting must be used when function expects array or an instance
-of a certain class. Example:
-
-::
+of a certain class. Example::
 
       protected function executeAction(tx_myext_action& $action, array $extraParameters) {
                    // Do something
            }
 
 Static functions must use statickeyword. This keyword must be the
-first keyword in the function definition:
-
-::
+first keyword in the function definition::
 
       static public function executeAction(tx_myext_action& $action, array $extraParameters) {
                    // Do something
            }
 
 abstractkeyword also must be on the first position in the function
-declaration:
-
-::
+declaration::
 
       abstract protected function render();
 
@@ -492,9 +411,7 @@ Functions
 """""""""
 
 If a function returns a value, it must always return it. The following
-is not allowed:
-
-::
+is not allowed::
 
    function extendedUse($enabled) {
            if ($enabled) {
@@ -502,9 +419,7 @@ is not allowed:
            }
    }
 
-The following is the correct behavior:
-
-::
+The following is the correct behavior::
 
    function extendedUse($enabled) {
            $content = '';
@@ -516,16 +431,14 @@ The following is the correct behavior:
 
 In general there should be a single return statement in the function
 (see the preceding example). However a function can return during
-parameter validation before it starts its main logic. Example:
-
-::
+parameter validation before it starts its main logic. Example::
 
    function extendedUse($enabled, tx_myext_useparameters $useParameters) {
            // Validation
            if (count($useParameters->urlParts) < 5) {
                    return 'Parameter validation failed';
            }
-   
+
            // Main functionality
            $content = '';
            if ($enabled) {

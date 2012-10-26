@@ -1,18 +1,9 @@
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 General requirements to PHP files
@@ -24,9 +15,7 @@ PHP tags
 
 Each PHP file in TYPO3 must use full PHP tags. There must be exactly
 one pair of opening and closing tags (no closing and opening tags in
-the middle of the file). Example:
-
-::
+the middle of the file). Example::
 
    <?php
            // File content goes here
@@ -52,17 +41,13 @@ Very long lines of code should be avoided for questions of
 readability. A line length of about 130 characters ( **including**
 tabs)is fine. Longer lines should be split into several lines whenever
 possible. Each line fragment starting from the second must be indented
-with one more tab characters. Example:
-
-::
+with one more tab characters. Example::
 
    $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('uid, title', 'pages',
            'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'),
            '', 'title');
 
-or even better for readability:
-
-::
+or even better for readability::
 
    $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('uid, title',
            'pages',
@@ -84,9 +69,7 @@ Notes
   sense as possible. In the above example, the line is split between two
   arguments and not in the middle of one. In case of long logical
   expressions, put the logical operator at the beginning of the next
-  line, e.g.:
-
-::
+  line, e.g.::
 
    if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['curlUse'] == '1'
            && preg_match('/^(?:http|ftp)s?|s(?:ftp|cp):/', $url)) {

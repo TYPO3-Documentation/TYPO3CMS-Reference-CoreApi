@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 File names
@@ -51,9 +42,7 @@ Example
 ~~~~~~~
 
 The unit test class file for
-t3lib/db/class.t3lib\_db\_preparedstatement.phpis:
-
-::
+t3lib/db/class.t3lib\_db\_preparedstatement.phpis::
 
    tests/t3lib/db/t3lib_db_preparedstatementTest.php
 

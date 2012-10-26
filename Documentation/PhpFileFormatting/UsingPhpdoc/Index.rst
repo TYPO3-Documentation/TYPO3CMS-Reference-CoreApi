@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 Using phpDoc
@@ -57,9 +49,7 @@ blameis enough for tracking changes.
 Function information block
 """"""""""""""""""""""""""
 
-Functions should have parameters and return type documented. Example:
-
-::
+Functions should have parameters and return type documented. Example::
 
    /**
     * Initializes the plugin.
@@ -67,13 +57,13 @@ Functions should have parameters and return type documented. Example:
     * Checks the configuration and substitutes defaults for missing values.
     *
     * @param array $conf Plugin configuration from TypoScript
-    * @return boolean TRUE if initialization was successful, FALSE otherwise 
+    * @return boolean TRUE if initialization was successful, FALSE otherwise
     * @see tx_myext_class:anotherFunc()
     */
    protected function initialize(array $conf) {
            // Do something
    }
-   |img-3| 
+   |img-3|
 
 **Short and long description**
 

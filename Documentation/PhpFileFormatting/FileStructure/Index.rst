@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 File structure
@@ -47,9 +38,7 @@ Copyright notice
 TYPO3 is released under the terms of GNU General Public License
 version 2 or any later version. The copyright notice with a reference
 to the GPL must be included at the top of every TYPO3 PHP class file.
-user\_files must have this copyright notice as well. Example:
-
-::
+user\_files must have this copyright notice as well. Example::
 
    <?php
    /***************************************************************
@@ -88,9 +77,7 @@ File information block
 File information block follows the copyright statement and provides
 basic information about the file. It should include file name,
 description of the file and information about the author (or authors).
-Example:
-
-::
+Example::
 
    /**
     * class.tx_myext_pi1.php
@@ -114,21 +101,17 @@ obtain the path to the included file:
 #. Use one of the predefined TYPO3 constants: PATH\_tslib, PATH\_t3lib,
    PATH\_typo3, PATH\_site. The first three contain absolute paths to the
    corresponding TYPO3 directories. The last constant contains absolute
-   path to the TYPO3 root directory. Example:
+   path to the TYPO3 root directory. Example::
 
-::
+      require_once(PATH_tslib . 'class.tslib_pibase.php');
 
-   require_once(PATH_tslib . 'class.tslib_pibase.php');
-   
 
 #. Use t3lib\_extMgm::extPath()function. This function accepts two
    arguments: extension key and path to the included file. The second
-   argument is optional but recommended to use. Examples:
+   argument is optional but recommended to use. Examples::
 
-::
-
-   require_once(t3lib_extMgm::extPath('lang', 'lang.php'));
-   require_once(t3lib_extMgm::extPath('lang') . 'lang.php');
+      require_once(t3lib_extMgm::extPath('lang', 'lang.php'));
+      require_once(t3lib_extMgm::extPath('lang') . 'lang.php');
 
 Always use one of these two ways to include files. This is required to
 include files even from the current directory. Some installations do
@@ -140,9 +123,7 @@ Class information block
 """""""""""""""""""""""
 
 Class information block is similar to the file information block and
-describes the class in the file. Example:
-
-::
+describes the class in the file. Example::
 
    /**
     * This class provides XYZ plugin implementation.
@@ -165,9 +146,7 @@ name which must be written in upper camel case.
 
 Taking again the example of file
 class.t3lib\_cache\_backend\_abstractbackend.php, the PHP class
-declaration will look like:
-
-::
+declaration will look like::
 
    class t3lib_cache_backend_AbstractBackend {
            …
@@ -185,9 +164,7 @@ declaration.
 The XCLASS declaration must include proper path to the current class
 file. The following example assumes that extension key is myext, file
 name is class.tx\_myext\_pi1.phpand file is located in the
-pi1subdirectory of the extension:
-
-::
+pi1subdirectory of the extension::
 
    if (defined('TYPO3_MODE') && isset($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/myext/pi1/class.tx_myext_pi1.php'])) {
            include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/myext/pi1/class.tx_myext_pi1.php']);
@@ -199,9 +176,7 @@ Optional module execution code
 
 Module execution code instantiates the class and runs its method(s).
 Typically this code can be found in eID scripts and old Backend
-modules. Here is how it may look like:
-
-::
+modules. Here is how it may look like::
 
    $controller = t3lib_div::makeInstance('tx_myext_ajaxcontroller');
    $controller->main();

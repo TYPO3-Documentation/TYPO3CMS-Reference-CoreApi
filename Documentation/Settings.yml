@@ -1,0 +1,9 @@
+# Settings.yml
+
+---
+conf.py:
+  copyright: 2000-2012
+  project: Manual
+  version: 0.0
+  release: 0.0.0
+...
