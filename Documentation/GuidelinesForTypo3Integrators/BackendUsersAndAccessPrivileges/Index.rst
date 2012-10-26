@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 Backend users and access privileges
@@ -57,7 +49,7 @@ general, e.g. 6 months in the future. This forces the administrator
 team to review the accounts from time to time and only extend the
 users that are allowed to continue using the system.
 
-|img-6| 
+|img-6|
 TYPO3 extensions
 ^^^^^^^^^^^^^^^^
 

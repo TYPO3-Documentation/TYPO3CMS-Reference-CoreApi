@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Analyze
@@ -34,9 +25,7 @@ the file. If you find such code, you may want to do a full search of
 the content of all files on your hard disk(s) for similar patterns.
 
 However, attackers often try to obscure their actions or the malicious
-code. An example could look like the following line:
-
-::
+code. An example could look like the following line::
 
    eval(base64_decode('dW5saW5rKCd0ZXN0LnBocCcpOw=='));
 

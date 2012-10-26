@@ -1,21 +1,21 @@
 ﻿.. |img-8|      image:: ../../Images/manual_html_5ce37a.png
-   :height: 372
-   :width: 605
+.. :height: 372
+.. :width: 605
 .. :align: left
 .. :border: 0
 .. :name: graphics6
 
 .. |img-9|      image:: ../../Images/manual_html_m6f71e108.png
-   :height: 343
-   :width: 605
+.. :height: 343
+.. :width: 605
 .. :align: left
 .. :border: 0
 .. :name: graphics10
 .. :vspace: 8
 
 .. |img-10|     image:: ../../Images/manual_html_m92f5fe2.png
-   :height: 254
-   :width: 605
+.. :height: 254
+.. :width: 605
 .. :align: left
 .. :border: 0
 .. :name: graphics9

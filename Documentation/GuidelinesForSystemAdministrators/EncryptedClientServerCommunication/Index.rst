@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Encrypted client/server communication
@@ -42,17 +33,17 @@ protect the data.
 .. container:: table-row
 
    a
-   
-   
+
+
    Public
          Public
-   
+
    Public Restricted
          Public Restricted
-   
+
    Organization Confidential
          Organization Confidential
-   
+
    Organization Secret
          Organization Secret
 
@@ -61,16 +52,16 @@ protect the data.
 
    a
          Type
-   
+
    Public
          non-sensitive
-   
+
    Public Restricted
          externally sensitive
-   
+
    Organization Confidential
          internally sensitive
-   
+
    Organization Secret
          extremely sensitive
 
@@ -79,16 +70,16 @@ protect the data.
 
    a
          Disclosure impact
-   
+
    Public
          none
-   
+
    Public Restricted
          limited
-   
+
    Organization Confidential
          significant
-   
+
    Organization Secret
          sever
 
@@ -97,16 +88,16 @@ protect the data.
 
    a
          Access restrictions
-   
+
    Public
          none
-   
+
    Public Restricted
          low (e.g. username/password)
-   
+
    Organization Confidential
          high (e.g. public/private key + geolocation)
-   
+
    Organization Secret
          very high
 
@@ -115,16 +106,16 @@ protect the data.
 
    a
          Data transport
-   
+
    Public
          unencrypted
-   
+
    Public Restricted
          unencrypted but protected
-   
+
    Organization Confidential
          encrypted
-   
+
    Organization Secret
          highly encrypted
 
@@ -133,16 +124,16 @@ protect the data.
 
    a
          Storage requirements
-   
+
    Public
          none
-   
+
    Public Restricted
          unencrypted but protected
-   
+
    Organization Confidential
          encrypted
-   
+
    Organization Secret
          highly encrypted
 

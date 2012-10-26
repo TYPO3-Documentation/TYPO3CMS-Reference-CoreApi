@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Security bulletins
@@ -48,7 +39,7 @@ The severity is an indication on how important the issue is:
 
    Severity
          Severity
-   
+
    Meaning
          Meaning
 
@@ -57,7 +48,7 @@ The severity is an indication on how important the issue is:
 
    Severity
          Critical
-   
+
    Meaning
          This is a critical security issue and action should be taken
          immediately (on the day of the release).
@@ -67,7 +58,7 @@ The severity is an indication on how important the issue is:
 
    Severity
          High
-   
+
    Meaning
          This is an important security issue and action should be taken as soon
          as possible.
@@ -77,7 +68,7 @@ The severity is an indication on how important the issue is:
 
    Severity
          Medium
-   
+
    Meaning
          Your website may be affected by this issue and you should consider
          taking action as soon as feasible.
@@ -87,7 +78,7 @@ The severity is an indication on how important the issue is:
 
    Severity
          Low
-   
+
    Meaning
          There is a good chance that your site is not affected by this issue or
          that it can be exploited only in special circumstances. However, you

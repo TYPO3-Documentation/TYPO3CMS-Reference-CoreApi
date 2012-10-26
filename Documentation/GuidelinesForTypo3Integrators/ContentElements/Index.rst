@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Content elements
@@ -39,11 +30,9 @@ also possible to enter raw code in the text mode of the RTE. Given the
 fact that HTML/CSS/JavaScript knowledge is not required, you should
 consider disabling the function by configuring the buttons shown in
 the RTE. The Page TSconfig enables you to list all buttons visible in
-the RTE by using the following TypoScript:
+the RTE by using the following TypoScript::
 
-::
-
-   RTE.default { 
+   RTE.default {
      showButtons = ...
      hideButtons = ...
    }

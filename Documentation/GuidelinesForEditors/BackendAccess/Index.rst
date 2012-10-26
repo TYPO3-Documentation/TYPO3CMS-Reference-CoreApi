@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 Backend access
@@ -36,7 +28,7 @@ password does not match the rules explained above, change your
 password to a secure one as soon as possible. You should be able to
 change your password in the "User settings" menu:
 
-|img-8| 
+|img-8|
 Administrator privileges
 """"""""""""""""""""""""
 
@@ -52,7 +44,7 @@ If you see a "Template" entry under the "WEB" menu or a section "ADMIN
 TOOLS", you definitely have the wrong permissions as an editor and you
 should get in touch with the system provider to solve this issue.
 
-|img-9| 
+|img-9|
 Notify at login
 """""""""""""""
 

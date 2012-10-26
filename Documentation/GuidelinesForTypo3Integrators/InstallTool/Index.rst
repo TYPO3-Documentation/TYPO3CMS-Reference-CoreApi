@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 Install Tool
@@ -48,9 +40,7 @@ if the content of this file is "KEEP\_FILE", which is understandably
 not recommended.
 
 The password for accessing the Install Tool is stored as a MD5 hash in
-the global configuration file "typo3conf/localconf.php":
-
-::
+the global configuration file "typo3conf/localconf.php"::
 
    $TYPO3_CONF_VARS['BE']['installToolPassword'] = "bacb98acf97e0b6112b1d1b650b84971";
 

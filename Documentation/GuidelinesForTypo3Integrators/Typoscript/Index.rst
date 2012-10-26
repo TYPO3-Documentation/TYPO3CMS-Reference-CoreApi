@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 TypoScript
@@ -31,9 +22,7 @@ language, SQL injections are also possible in TypoScript, for example
 using the CONTENT object and building the SQL query with values from
 the GET/POST request.
 
-The following code snippet gives an example:
-
-::
+The following code snippet gives an example::
 
    page = PAGE
    page.10 = CONTENT
@@ -62,9 +51,7 @@ Cross-site scripting (XSS)
 """"""""""""""""""""""""""
 
 Similar applies for XSS placed in TypoScript code. The following code
-snippet gives an example:
-
-::
+snippet gives an example::
 
    page = PAGE
    page.10 = COA
@@ -120,9 +107,7 @@ code. Some integrators appreciate the option of having TypoScript
 outside of TYPO3's backend because the files can be maintained in a
 version control system (e.g. Subversion or Git) and/or can be edited
 without the need to login to TYPO3. A typical line to include an
-external TypoScript file looks like this:
-
-::
+external TypoScript file looks like this::
 
    <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/setup/typoscript.ts">
 
@@ -133,9 +118,7 @@ or is able to guess the path/file name can access/download this file
 which often causes an information disclosure.
 
 In order to deny access to all files with the file ending ".ts", the
-following Apache configuration could be used:
-
-::
+following Apache configuration could be used::
 
    <FilesMatch "\.ts">
      deny from all

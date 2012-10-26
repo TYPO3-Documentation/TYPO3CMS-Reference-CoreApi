@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Global TYPO3 configuration options
@@ -97,9 +88,7 @@ Possible values are: 0 or 1 (boolean), where "0" deactivates the
 option and "1" enables it (default).
 
 In order to lock a specific user to the IP address 123.45.67.89, add
-the following TSconfig to the backend user's TSconfig field:
-
-::
+the following TSconfig to the backend user's TSconfig field::
 
    option.lockToIP = 123.45.67.89
 
@@ -209,9 +198,7 @@ The string configured as "IPmaskList" is a comma-separated list of IP
 addresses which are allowed to access the backend. The use of
 wildcards is also possible to specify a network. The following example
 opens the backend for users with the IP address 123.45.67.89 and from
-the network "192.168.xxx.xxx":
-
-::
+the network "192.168.xxx.xxx"::
 
    [BE][IPmaskList] = 123.45.67.89,192.168.*.*
 
