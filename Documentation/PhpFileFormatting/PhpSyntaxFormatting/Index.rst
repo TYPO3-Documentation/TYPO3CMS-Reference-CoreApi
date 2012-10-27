@@ -70,11 +70,12 @@ Comments
 """"""""
 
 Comments in the code are highly welcome and recommended. Inline
-comments must precede the commented line and be indented by one tab.
+comments must precede the commented line and be indented with
+the same number of tabs as the commented line.
 Example::
 
    protected function processSubmission() {
-                // Check if user is logged in
+        // Check if user is logged in
         if ($GLOBALS['TSFE']->fe_user->user['uid']) {
                    …
            }
