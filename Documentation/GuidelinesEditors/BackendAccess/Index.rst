@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 Backend access
@@ -28,7 +27,9 @@ password does not match the rules explained above, change your
 password to a secure one as soon as possible. You should be able to
 change your password in the "User settings" menu:
 
-|img-8|
+.. figure:: ../../Images/editor-change-password-003b.png
+   :alt: The "User Settings" menu, where you can change your password
+
 Administrator privileges
 """"""""""""""""""""""""
 
@@ -44,7 +45,9 @@ If you see a "Template" entry under the "WEB" menu or a section "ADMIN
 TOOLS", you definitely have the wrong permissions as an editor and you
 should get in touch with the system provider to solve this issue.
 
-|img-9|
+.. figure:: ../../Images/editor-admin-privileges-002b.png
+   :alt: Screenshot of a menu with the section "ADMIN TOOLS"
+
 Notify at login
 """""""""""""""
 
@@ -55,7 +58,10 @@ user settings, you will receive an email from TYPO3 each time you (or
 notification is an additional security measure because you will know
 if someone else picked up your password and uses your account.
 
-|img-10| Assuming you have activated this feature and you got a notification
+.. figure:: ../../Images/editor-notify-on-login-001b.png
+   :alt: The screen "User Settings" with the "Notify" checkbox
+
+Assuming you have activated this feature and you got a notification
 email but you have not logged in and you suspect that someone misuses
 your credentials, get in touch with the person or company who hosts
 and/or administrates the TYPO3 site immediately. You should discuss

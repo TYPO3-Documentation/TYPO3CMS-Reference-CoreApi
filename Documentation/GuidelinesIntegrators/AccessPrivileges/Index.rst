@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 Backend users and access privileges
@@ -49,7 +48,9 @@ general, e.g. 6 months in the future. This forces the administrator
 team to review the accounts from time to time and only extend the
 users that are allowed to continue using the system.
 
-|img-6|
+.. figure:: ../../Images/be-user-expiry-date-004.png
+   :alt: Screenshot showing the screen to set an expiry date for a BE user
+
 TYPO3 extensions
 ^^^^^^^^^^^^^^^^
 
@@ -70,7 +71,10 @@ Only a small percentage of the extensions available in the TER have
 been reviewed by the TYPO3 Security team so far. Reviewed extensions
 are marked with a checkmark next to the release state:
 
-|img-7| This does not imply that extensions without this checkmark are
+.. figure:: ../../Images/extension-state-001.png
+   :alt: Marker for a reviewed extension
+
+This does not imply that extensions without this checkmark are
 insecure, but they probably have not been checked for potential
 security issues by an independent 3rd party (such as the TYPO3
 Security Team). The status of an extension ("alpha", "beta", "stable",

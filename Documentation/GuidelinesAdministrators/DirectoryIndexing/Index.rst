@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 Directory indexing
@@ -16,7 +15,10 @@ enables search engines to index your file structure and possibly
 reveals sensitive data. The screenshot below shows an example of such
 data that can be retrieved with a simple HTTP request.
 
-|img-3| In this case only the list of extensions is revealed, but more
+.. figure:: ../../Images/directory-indexing-001.png
+   :alt: Screenshot of an example directory index
+
+In this case only the list of extensions is revealed, but more
 sensitive data can be found easily. The Apache configuration allows
 you to enable or disable the indexing of directories by the "Options"
 directive as shown in the following example::

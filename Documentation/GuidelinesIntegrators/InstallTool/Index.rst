@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 Install Tool
@@ -31,7 +30,10 @@ privileges. TYPO3 versions prior 4.6.0 offer this function in the
 "User Settings", and since TYPO3 version 4.6.0 administrators can
 unlock the Install Tool when accessing the module in the backend.
 
-|img-4| Conversely, this also means, you should delete this file as soon as
+.. figure:: ../../Images/enable-install-tool-001.png
+   :alt: Screen to enable the Install Tool
+
+Conversely, this also means, you should delete this file as soon as
 you do not need to access the Install Tool any more. It should also be
 mentioned that TYPO3 deletes the "ENABLE\_INSTALL\_TOOL" file
 automatically if you logout of the Install Tool or if the file is
@@ -49,7 +51,10 @@ from a system administrator, is to change this password from the
 default value ("joh316") to a new and secure one. Log-in to the
 Install Tool and change it there.
 
-|img-5| For additional security, the folder "typo3/install" can be renamed,
+.. figure:: ../../Images/change-install-tool-password-001.png
+   :alt: Screen to change the Install Tool password
+
+For additional security, the folder "typo3/install" can be renamed,
 deleted, or password protected on a server level (e.g. by a web
 server's user authentication mechanism). Please keep in mind that
 these measures have an impact on the usability of the system. If you

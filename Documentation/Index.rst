@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: Includes.txt
-.. include:: Images.txt
 
 
 ====================
@@ -21,7 +20,10 @@ TYPO3 Security Guide
       en
 
 :Description:
-      Official TYPO3 Security Guide for TYPO3 version 4.x http://forge.typo3.org/projects/typo3v4-doc_guide_security/ TYPO3 Documentation Team http://typo3.org/teams/documentation/ TYPO3 Security Team http://typo3.org/teams/security/
+      Official TYPO3 Security Guide for the TYPO3 CMS.
+
+      This document describes some typical risks and advises how to protect a
+      TYPO3 site in order to ensure it is and stays secure and stable.
 
 :Keywords:
       security forEditors forAdmins forDevelopers forBeginners forIntermediates forAdvanced
