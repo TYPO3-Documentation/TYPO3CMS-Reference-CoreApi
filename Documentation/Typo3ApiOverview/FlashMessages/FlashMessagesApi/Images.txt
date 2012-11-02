@@ -1,8 +1,0 @@
-﻿.. |img-20|     image:: ../../../Images/manual_html_m100dcb2e.png
-   :height: 118
-   :width: 596
-.. :align: left
-.. :border: 0
-.. :name: graphics35
-.. :vspace: 8
-

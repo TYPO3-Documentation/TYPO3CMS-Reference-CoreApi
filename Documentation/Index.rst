@@ -1,18 +1,12 @@
-﻿.. include:: Images.txt
+﻿.. include:: Includes.txt
 
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+
+.. _start:
 
 ===============
 TYPO3 Core APIs
@@ -34,7 +28,7 @@ TYPO3 Core APIs
       tsref, typoscript, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2000-2011
+      2000-2012
 
 :Author:
       Documentation Team
@@ -45,6 +39,9 @@ TYPO3 Core APIs
 :License:
       Open Content License available from `www.opencontent.org/opl.shtml
       <http://www.opencontent.org/opl.shtml>`_
+
+:Rendered:
+      |today|
 
 The content of this document is related to TYPO3,
 
@@ -85,8 +82,8 @@ address the task at hand.
 
    Introduction/Index
    ExtensionArchitecture/Index
-   Typo3ApiOverview/Index
-   TableControlArrayTca/Index
+   ApiOverview/Index
+   JavaScript/Index
    PageTypes/Index
    UserSettingsConfiguration/Index
    RteApi/Index

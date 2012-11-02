@@ -1,8 +1,0 @@
-﻿.. |img-19|     image:: ../../Images/manual_html_29e1fc13.png
-   :height: 476
-   :width: 600
-.. :align: left
-.. :border: 0
-.. :name: graphics34
-.. :vspace: 8
-

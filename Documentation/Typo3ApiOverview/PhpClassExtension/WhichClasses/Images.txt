@@ -1,8 +1,0 @@
-﻿.. |img-16|     image:: ../../../Images/manual_html_7583d24b.png
-   :height: 111
-   :width: 367
-.. :align: left
-.. :border: 0
-.. :name: graphics23
-.. :vspace: 8
-
