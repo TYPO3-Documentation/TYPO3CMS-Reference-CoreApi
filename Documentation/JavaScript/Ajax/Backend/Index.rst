@@ -1,19 +1,13 @@
-﻿
+﻿.. include:: ../../../Includes.txt
+
 
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
 
+.. _ajax-backend:
 
 Developing with AJAX in the TYPO3 Backend
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -21,6 +15,8 @@ Developing with AJAX in the TYPO3 Backend
 This is a small guide for you to use this feature in your AJAX
 scripts.
 
+
+.. _ajax-backend-id:
 
 How to choose the right ajaxID
 """"""""""""""""""""""""""""""
@@ -54,12 +50,14 @@ Some bad examples for an ajaxID:
 - updateRecordList
 
 
+.. _ajax-backend-server:
+
 Server-Side
 """""""""""
 
 1) Register your unique ajaxID, at best prepended with your extension
 ID, in the TYPO3 backend by adding the following line to your
-"ext\_localconf.php" (this way you can also overwrite existing AJAX
+:file:`ext_localconf.php` (this way you can also overwrite existing AJAX
 calls):
 
 ::
@@ -77,7 +75,7 @@ similarly to the existing hooking mechanism, as with every
 "callUserFunction", the target method (here: ajaxExpandCollapse) will
 have two function parameters. The first one is an array of params (not
 used right now), the second is the TYPO3 AJAX Object (see
-typo3/classes/class.typo3ajax.php for all available methods). You
+:file:`typo3/classes/class.typo3ajax.php` for all available methods). You
 should use this to set the content you want to output or to write the
 error message if something went wrong.
 
@@ -98,12 +96,14 @@ So, the server-side part is now complete. Let's move over to the
 client-side.
 
 
+.. _ajax-backend-client:
+
 Client-part
 """""""""""
 
 3) In order for you to use client-side AJAX Javascript you have to add
 these two lines of PHP code to your PHP script (available in
-template.php, your template document):
+:file:`template.php`, your template document):
 
 ::
 
@@ -137,5 +137,5 @@ but the onT3Error is only executed with "onComplete".
 This should be all. Please note that our TYPO3 BE AJAX mechanism works
 best with the prototype JS library. If you want to create similar
 approaches for other JS frameworks, have a look at
-"typo3/js/common.js".
+:file:`typo3/js/common.js`.
 

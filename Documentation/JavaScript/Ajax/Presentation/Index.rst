@@ -1,26 +1,27 @@
-﻿
+﻿.. include:: ../../../Includes.txt
+
 
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
 
+.. _ajax-presentation:
 
 In-depth presentation
 ^^^^^^^^^^^^^^^^^^^^^
 
 
+.. _ajax-client:
+
 Client-Side programming
 """""""""""""""""""""""
+
+.. note::
+   This paragraph describes obsolete processes using Prototype
+   and Scriptaculous
+
 
 On the client-side we are using the Prototype JS library (located in
 typo3/contrib/prototype/prototype.js). If you have used it already,
@@ -42,19 +43,24 @@ area. This behaviour is done automatically with every AJAX call to
 "ajax.php" made through Prototype's AJAX classes. This responder is
 also only active if "typo3/js/common.js" is added to the base script.
 
+Since TYPO3 4.4, ExtJS is used instead for AJAX calls. TYPO3 even
+supports usage of ExtDirect.
+
+
+.. _ajax-server:
 
 Server-side programming
 """""""""""""""""""""""
 
 If you look into "typo3/ajax.php", it is only a small dispatcher
-script. It checks for an ajaxID in the TYPO3\_CONF\_VARS['BE']['AJAX']
+script. It checks for an ajaxID in the :code:`$TYPO3_CONF_VARS['BE']['AJAX']`
 array and tries to execute the function pointer. The function has two
 parameters, where the first (an array) is not used yet. The second
 parameter is the TYPO3 AJAX Object (located in
-typo3/classes/typo3ajax.php) that is used to add the content that
+:file:`typo3/classes/typo3ajax.php`) that is used to add the content that
 should be returned as the server-response to the Javascript part, or
 the error message that should be displayed. The X-JSON header will be
-set depending on whether "setError()" was called on this AJAX object.
+set depending on whether :code:`setError()` was called on this AJAX object.
 You can also specify if the object should return the result in a valid
 XML object tree, as text/html (default) or as a JSON object, see
 below.
@@ -66,7 +72,7 @@ be aware of the side-effects of this feature: Other extensions could
 overwrite this function as well (similar problem as with XCLASSing or
 single inheritance in OOP).
 
-Also, for every TYPO3 request, you will now have a TYPO3\_REQUESTTYPE
+Also, for every TYPO3 request, you will now have a :code:`TYPO3_REQUESTTYPE`
 variable that can be used for bitwise comparison. You can now check if
 you're in Backend or Frontend or in an valid AJAX request with
 
@@ -76,6 +82,8 @@ you're in Backend or Frontend or in an valid AJAX request with
 
 to see if you're calling through the new AJAX interface.
 
+
+.. _ajax-formats:
 
 Different Content Formats
 """""""""""""""""""""""""
@@ -101,6 +109,8 @@ For the keyword you can choose between "plain" (default), "xml" and
 Here are the specifics for each format.
 
 
+.. _ajax-formats-plain:
+
 Plain Text
 ~~~~~~~~~~
 
@@ -111,6 +121,8 @@ The result will be available in the transport object as a string
 through "xhr.responseText".
 
 
+.. _ajax-formats-xml:
+
 XML
 ~~~
 
@@ -118,11 +130,13 @@ The content needs to be valid XML and will be available in javascript
 as "xhr.responseXML".
 
 
+.. _ajax-formats-json:
+
 JSON
 ~~~~
 
-The content is put through the service in
-"typo3/contrib/json/json.php" and is then available in JSON notation
+The content is transformed to JSON using PHP's built-in functions
+and is then available in JSON notation
 through the second parameter in the onComplete / onSuccess methods,
 and additionally in the "responseText" part of the transport object
 ("xhr.responseText"). If it is set to "jsonbody", only the latter
