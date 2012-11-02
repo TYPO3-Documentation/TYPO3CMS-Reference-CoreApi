@@ -21,8 +21,8 @@ of a data loss.
    :titlesonly:
    :glob:
 
-   ComponentsIncludedInTheBackups/Index
-   TimePlanAndRetentionTime/Index
+   Components/Index
+   TimePlan/Index
    BackupLocation/Index
    FurtherConsiderations/Index
 

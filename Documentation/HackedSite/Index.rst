@@ -29,8 +29,8 @@ react over-hastily.
    :titlesonly:
    :glob:
 
-   DetectAHackedWebsite/Index
-   TakeTheWebsiteOffline/Index
+   Detect/Index
+   TakeOffline/Index
    Analyze/Index
    RepairRestore/Index
    FurtherActions/Index

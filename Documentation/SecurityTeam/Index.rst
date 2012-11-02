@@ -6,8 +6,8 @@
 .. include:: ../Includes.txt
 
 
-Introduction
-------------
+The TYPO3 Security Team
+-----------------------
 
 
 .. toctree::
@@ -15,9 +15,6 @@ Introduction
    :titlesonly:
    :glob:
 
-   About/Index
-   History/Index
-   Credits/Index
-   Feedback/Index
-   TargetAudience/Index
+   Contact/Index
+   IncidentHandling/Index
 

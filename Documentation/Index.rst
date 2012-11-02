@@ -74,13 +74,13 @@ given task.
    :glob:
 
    Introduction/Index
-   TheTypo3SecurityTeam/Index
+   SecurityTeam/Index
    GeneralInformation/Index
-   TypesOfSecurityThreats/Index
+   TypesOfThreats/Index
    GeneralGuidelines/Index
-   GuidelinesForSystemAdministrators/Index
-   GuidelinesForTypo3Integrators/Index
-   GuidelinesForEditors/Index
-   BackupStrategy/Index
-   DetectAnalyzeAndRepairAHackedSite/Index
+   GuidelinesAdministrators/Index
+   GuidelinesIntegrators/Index
+   GuidelinesEditors/Index
+   Backups/Index
+   HackedSite/Index
 

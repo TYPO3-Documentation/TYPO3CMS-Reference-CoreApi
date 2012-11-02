@@ -20,9 +20,9 @@ for (frontend) users.
    :glob:
 
    SecurePasswords/Index
-   OperatingSystemAndBrowserVersion/Index
+   OperatingSystemAndBrowser/Index
    Communication/Index
    ReactQuickly/Index
-   KeepTypo3ExtensionsUp-to-date/Index
-   UseStagingServersForDevelopmentsAndTests/Index
+   Typo3Extensions/Index
+   StagingServers/Index
 

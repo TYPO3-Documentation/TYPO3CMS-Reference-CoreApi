@@ -6,8 +6,8 @@
 .. include:: ../Includes.txt
 
 
-Guidelines for Editors
-----------------------
+Guidelines for System Administrators
+------------------------------------
 
 
 .. toctree::
@@ -17,8 +17,12 @@ Guidelines for Editors
 
    RoleDefinition/Index
    GeneralRules/Index
-   BackendAccess/Index
-   RestrictionToRequiredFunctions/Index
-   SecureConnection/Index
-   Logout/Index
+   IntegrityOfTypo3Packages/Index
+   FileDirectoryPermissions/Index
+   RestrictAccessToFiles/Index
+   DirectoryIndexing/Index
+   DatabaseAccess/Index
+   EncryptedCommunication/Index
+   OtherServices/Index
+   FurtherActions/Index
 

@@ -15,8 +15,8 @@ General Information
    :titlesonly:
    :glob:
 
-   Typo3VersionsAndLifecycle/Index
-   DifferenceBetweenCoreAndExtensions/Index
-   AnnouncementOfUpdatesAndSecurityFixes/Index
+   Typo3Versions/Index
+   CoreAndExtensions/Index
+   AnnouncementOfUpdates/Index
    SecurityBulletins/Index
 

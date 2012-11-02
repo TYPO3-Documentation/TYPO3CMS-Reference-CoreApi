@@ -25,6 +25,6 @@ more detail how to secure a system against those threats.
    SqlInjection/Index
    CodeInjection/Index
    AuthorizationBypass/Index
-   CrossSiteScripting(xss)/Index
-   CrossSiteRequestForgery(xsrf)/Index
+   CrossSiteScripting/Index
+   CrossSiteRequestForgery/Index
 

@@ -19,10 +19,10 @@ Guidelines for TYPO3 Integrators
    GeneralRules/Index
    InstallTool/Index
    EncryptionKey/Index
-   GlobalTypo3ConfigurationOptions/Index
-   Security-relatedWarningsAfterLogin/Index
+   GlobalTypo3Options/Index
+   SecurityWarningsAfterLogin/Index
    ReportsAndLogs/Index
-   BackendUsersAndAccessPrivileges/Index
+   AccessPrivileges/Index
    Typoscript/Index
    ContentElements/Index
 

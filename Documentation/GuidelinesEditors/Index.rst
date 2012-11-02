@@ -6,8 +6,8 @@
 .. include:: ../Includes.txt
 
 
-The TYPO3 Security Team
------------------------
+Guidelines for Editors
+----------------------
 
 
 .. toctree::
@@ -15,6 +15,10 @@ The TYPO3 Security Team
    :titlesonly:
    :glob:
 
-   ContactInformation/Index
-   IncidentHandling/Index
+   RoleDefinition/Index
+   GeneralRules/Index
+   BackendAccess/Index
+   RequiredFunctions/Index
+   SecureConnection/Index
+   Logout/Index
 
