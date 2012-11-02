@@ -33,60 +33,29 @@ bulletin does not contain an exploit or a description on how to
 The severity is an indication on how important the issue is:
 
 
-.. ### BEGIN~OF~TABLE ###
+.. ### BEGIN~OF~SIMPLE~TABLE ###
 
-.. container:: table-row
+.. Note: The exact "styling" of the following table is important.
+   There may be no text in the column margin.
 
-   Severity
-         Severity
-
-   Meaning
-         Meaning
-
-
-.. container:: table-row
-
-   Severity
-         Critical
-
-   Meaning
-         This is a critical security issue and action should be taken
-         immediately (on the day of the release).
-
-
-.. container:: table-row
-
-   Severity
-         High
-
-   Meaning
-         This is an important security issue and action should be taken as soon
-         as possible.
+============   ======================================================
+Severity       Meaning
+============   ======================================================
+**Critical**   This is a critical security issue and action should be
+               taken immediately (on the day of the release).
+**High**       This is an important security issue and action should
+               be taken as soon as possible.
+**Medium**     Your website may be affected by this issue and you
+               should consider taking action as soon as feasible.
+**Low**        There is a good chance that your site is not affected
+               by this issue or that it can be exploited only in
+               special circumstances. However, you should check
+               whether your site is at risk and consider necessary
+               action.
+============   ======================================================
 
 
-.. container:: table-row
-
-   Severity
-         Medium
-
-   Meaning
-         Your website may be affected by this issue and you should consider
-         taking action as soon as feasible.
-
-
-.. container:: table-row
-
-   Severity
-         Low
-
-   Meaning
-         There is a good chance that your site is not affected by this issue or
-         that it can be exploited only in special circumstances. However, you
-         should check whether your site is at risk and consider necessary
-         action.
-
-
-.. ###### END~OF~TABLE ######
+.. ###### END~OF~SIMPLE~TABLE ######
 
 
 For TYPO3 extensions, there are two types of security bulletins:

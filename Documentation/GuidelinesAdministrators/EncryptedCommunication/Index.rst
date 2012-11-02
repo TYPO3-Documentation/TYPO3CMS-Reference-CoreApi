@@ -28,117 +28,27 @@ based on a data classification model, which then defines how to
 protect the data.
 
 
-.. ### BEGIN~OF~TABLE ###
+.. ### BEGIN~OF~SIMPLE~TABLE ###
 
-.. container:: table-row
+.. Note: The exact "styling" of the following table is important.
+   There may be no text in the column margins.
+   Indentation of each single line must be done with exactly the right
+   number of spaces. This makes changing parts of text unnecessarily hard.
+   The comment in the first cell is needed; without it the whole header
+   row would not be displayed.
 
-   a
+========================  ================  =========================  ===========================  ====================
+ .. Comment (invisible)   Public            Public Restricted          Organization Confidential    Organization Secret
+========================  ================  =========================  ===========================  ====================
+**Type**                  non-sensitive     externally sensitive       internally sensitive         extremely sensitive
+**Disclosure impact**     none              limited                    significant                  sever
+**Access restrictions**   none              low (e.g. username/        high (e.g. public/private    very high
+                                            password)                  key + geolocation)
+**Data transport**        unencrypted       unencrypted but protected  encrypted                    highly encrypted
+**Storage requirements**  none              unencrypted but protected  encrypted                    highly encrypted
+========================  ================  =========================  ===========================  ====================
 
-
-   Public
-         Public
-
-   Public Restricted
-         Public Restricted
-
-   Organization Confidential
-         Organization Confidential
-
-   Organization Secret
-         Organization Secret
-
-
-.. container:: table-row
-
-   a
-         Type
-
-   Public
-         non-sensitive
-
-   Public Restricted
-         externally sensitive
-
-   Organization Confidential
-         internally sensitive
-
-   Organization Secret
-         extremely sensitive
-
-
-.. container:: table-row
-
-   a
-         Disclosure impact
-
-   Public
-         none
-
-   Public Restricted
-         limited
-
-   Organization Confidential
-         significant
-
-   Organization Secret
-         sever
-
-
-.. container:: table-row
-
-   a
-         Access restrictions
-
-   Public
-         none
-
-   Public Restricted
-         low (e.g. username/password)
-
-   Organization Confidential
-         high (e.g. public/private key + geolocation)
-
-   Organization Secret
-         very high
-
-
-.. container:: table-row
-
-   a
-         Data transport
-
-   Public
-         unencrypted
-
-   Public Restricted
-         unencrypted but protected
-
-   Organization Confidential
-         encrypted
-
-   Organization Secret
-         highly encrypted
-
-
-.. container:: table-row
-
-   a
-         Storage requirements
-
-   Public
-         none
-
-   Public Restricted
-         unencrypted but protected
-
-   Organization Confidential
-         encrypted
-
-   Organization Secret
-         highly encrypted
-
-
-.. ###### END~OF~TABLE ######
+.. ###### END~OF~SIMPLE~TABLE ######
 
 
 The secure and maybe encrypted storage of sensitive data should also
