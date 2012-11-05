@@ -6,12 +6,16 @@
 .. include:: ../../Includes.txt
 
 
+.. _incident-handling:
+
 Incident handling
 ^^^^^^^^^^^^^^^^^
 
 The next chapter provides detailed information about the differences
 between the TYPO3 core system and TYPO3 extensions.
 
+
+.. _incident-handling-core:
 
 TYPO3 core system
 """""""""""""""""
@@ -24,6 +28,8 @@ tested and reviewed. Together with a public security bulletin, a TYPO3
 core update will be released. Please see next chapter for further
 details about TYPO3 versions and security bulletins.
 
+
+.. _incident-handling-extensions:
 
 TYPO3 extensions
 """"""""""""""""

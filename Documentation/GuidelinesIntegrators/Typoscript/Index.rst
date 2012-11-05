@@ -6,9 +6,13 @@
 .. include:: ../../Includes.txt
 
 
+.. _typoscript:
+
 TypoScript
 ^^^^^^^^^^
 
+
+.. _typoscript-sql-injection:
 
 SQL injection
 """""""""""""
@@ -46,6 +50,8 @@ As a rule, you cannot trust (and must not use) any data from a source
 you do not control without proper verification and validation (e.g.
 user input, other servers, etc.).
 
+
+.. _typoscript-xss:
 
 Cross-site scripting (XSS)
 """"""""""""""""""""""""""
@@ -98,6 +104,8 @@ This code snippet is harmless of course but it shows how malicious
 code (e.g. JavaScript) can be placed in the HTML content of a page by
 using TypoScript.
 
+
+.. _typoscript-external-file:
 
 External file inclusion
 """""""""""""""""""""""

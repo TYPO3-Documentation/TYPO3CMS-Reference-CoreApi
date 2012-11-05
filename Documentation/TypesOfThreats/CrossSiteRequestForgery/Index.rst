@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _xsrf:
+
 Cross Site Request Forgery (XSRF)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _install-tool:
+
 Install Tool
 ^^^^^^^^^^^^
 

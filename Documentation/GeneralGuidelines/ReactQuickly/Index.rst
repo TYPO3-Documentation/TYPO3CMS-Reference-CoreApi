@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _react-quickly:
+
 React quickly
 ^^^^^^^^^^^^^
 

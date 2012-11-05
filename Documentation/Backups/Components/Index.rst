@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _backup-components:
+
 Components included in the backups
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

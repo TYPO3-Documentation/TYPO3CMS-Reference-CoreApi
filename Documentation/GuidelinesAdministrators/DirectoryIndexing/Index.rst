@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _directory-indexing:
+
 Directory indexing
 ^^^^^^^^^^^^^^^^^^
 

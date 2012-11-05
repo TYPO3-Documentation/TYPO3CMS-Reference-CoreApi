@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _administrator-rules:
+
 General rules
 ^^^^^^^^^^^^^
 

@@ -6,6 +6,8 @@
 .. include:: ../Includes.txt
 
 
+.. _detect-analyze-repair:
+
 Detect, Analyze and Repair a Hacked Site
 ----------------------------------------
 

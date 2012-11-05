@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _encryption-key:
+
 Encryption key
 ^^^^^^^^^^^^^^
 

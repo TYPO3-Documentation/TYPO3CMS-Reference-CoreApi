@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _backup-location:
+
 Backup location
 ^^^^^^^^^^^^^^^
 

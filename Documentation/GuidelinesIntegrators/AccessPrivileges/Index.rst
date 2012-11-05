@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _access-privileges:
+
 Backend users and access privileges
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -51,6 +53,9 @@ users that are allowed to continue using the system.
 .. figure:: ../../Images/be-user-expiry-date-004.png
    :alt: Screenshot showing the screen to set an expiry date for a BE user
 
+
+.. _extensions:
+
 TYPO3 extensions
 ^^^^^^^^^^^^^^^^
 
@@ -63,6 +68,8 @@ code was developed from a security perspective.
 The following sections deal with extensions in general, the risks and
 the basic countermeasures to address security related issues.
 
+
+.. _exntension-state:
 
 Stable and reviewed extensions
 """"""""""""""""""""""""""""""
@@ -119,6 +126,8 @@ risks.
   staging servers for developments and tests").
 
 
+.. _extension-remove:
+
 Remove unused extensions and other code
 """""""""""""""""""""""""""""""""""""""
 
@@ -144,6 +153,8 @@ extensions from the system (not only unload/deinstall them). The
 "Backup/Delete" - an administrator backend account is required.
 
 
+.. _extension-lowlevel:
+
 Low-level extensions
 """"""""""""""""""""
 
@@ -162,6 +173,8 @@ environment but are definitely out of place at production sites.
 Extensions that allow editors to include PHP code should be avoided,
 too.
 
+
+.. _extension-updates:
 
 Check for extension updates regularly
 """""""""""""""""""""""""""""""""""""
@@ -199,6 +212,11 @@ update the extension list automatically and periodically (e.g. once a
 day). In combination with the task "System Status Update (reports)",
 it is possible to get a notification by email when extension updates
 are available.
+
+
+.. _extension-security:
+.. _rsaauth:
+.. _saltedpasswords:
 
 
 Security-related core extensions
@@ -244,6 +262,8 @@ solutions to update existing passwords of all users to encrypted
 values; please see the documentation of the extension for further
 details.
 
+
+.. _extension-other:
 
 Other security-related extensions
 """""""""""""""""""""""""""""""""

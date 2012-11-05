@@ -6,6 +6,8 @@
 .. include:: ../Includes.txt
 
 
+.. _security-team:
+
 The TYPO3 Security Team
 -----------------------
 

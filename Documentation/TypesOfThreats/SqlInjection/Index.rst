@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _sql-injection:
+
 SQL injection
 ^^^^^^^^^^^^^
 

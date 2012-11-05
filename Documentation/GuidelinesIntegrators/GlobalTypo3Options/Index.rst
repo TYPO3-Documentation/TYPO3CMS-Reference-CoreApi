@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _global-typo3-options:
+
 Global TYPO3 configuration options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -15,6 +17,8 @@ the Install Tool (recommended way) or directly in the file
 not in the order of importance (all are relevant but the usage depends
 on your specific site and requirements).
 
+
+.. _cookiesecure:
 
 cookieSecure
 """"""""""""
@@ -36,6 +40,8 @@ secure (HTTPS) connection exists.
 
 The PHP variable reads: $TYPO3\_CONF\_VARS['SYS']['cookieSecure']
 
+
+.. _displayerrors:
 
 displayErrors
 """""""""""""
@@ -65,6 +71,8 @@ devIPmask matches the user's IP address the configured
 The PHP variable reads: $TYPO3\_CONF\_VARS['SYS']['displayErrors']
 
 
+.. _devipmask:
+
 devIPmask
 """""""""
 
@@ -78,6 +86,8 @@ which means "localhost" only.
 
 The PHP variable reads: $TYPO3\_CONF\_VARS['SYS']['devIPmask']
 
+
+.. _enablebeuseriplock:
 
 enabledBeUserIPLock
 """""""""""""""""""
@@ -99,6 +109,8 @@ use the "lockToIP" option.
 The PHP variable reads:
 $TYPO3\_CONF\_VARS['BE']['enabledBeUserIPLock']
 
+
+.. _filedenypattern:
 
 fileDenyPattern
 """""""""""""""
@@ -122,6 +134,8 @@ unprivileged user account.
 
 The PHP variable reads: $TYPO3\_CONF\_VARS['BE']['fileDenyPattern']
 
+
+.. _lockip:
 
 lockIP
 """"""
@@ -161,6 +175,8 @@ $TYPO3\_CONF\_VARS['FE']['lockIP']
 $TYPO3\_CONF\_VARS['BE']['lockIP']
 
 
+.. _lockssl:
+
 lockSSL
 """""""
 
@@ -184,6 +200,8 @@ back to non-SSL-mode.
 The PHP variable reads: $TYPO3\_CONF\_VARS['BE']['lockSSL']
 
 
+.. _ipmasklist:
+
 IPmaskList
 """"""""""
 
@@ -206,6 +224,8 @@ The default value is an empty string.
 
 The PHP variable reads: $TYPO3\_CONF\_VARS['BE']['IPmaskList']
 
+
+.. _nophpscriptinclude:
 
 noPHPscriptInclude
 """"""""""""""""""

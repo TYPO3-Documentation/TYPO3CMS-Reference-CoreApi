@@ -6,6 +6,10 @@
 .. include:: ../../Includes.txt
 
 
+.. _typo3-versions:
+.. _typo3-lifecycle:
+
+
 TYPO3 versions and lifecycle
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

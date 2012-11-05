@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _information-disclosure:
+
 Information disclosure
 ^^^^^^^^^^^^^^^^^^^^^^
 

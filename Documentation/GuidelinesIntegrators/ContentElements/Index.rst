@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _content-elements:
+
 Content elements
 ^^^^^^^^^^^^^^^^
 

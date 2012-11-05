@@ -6,6 +6,8 @@
 .. include:: ../Includes.txt
 
 
+.. _editors:
+
 Guidelines for Editors
 ----------------------
 

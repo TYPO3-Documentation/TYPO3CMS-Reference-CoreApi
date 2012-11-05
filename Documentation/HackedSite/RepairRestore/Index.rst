@@ -6,6 +6,10 @@
 .. include:: ../../Includes.txt
 
 
+.. _repair-restore:
+.. _repair:
+.. _restore:
+
 Repair/restore
 ^^^^^^^^^^^^^^
 

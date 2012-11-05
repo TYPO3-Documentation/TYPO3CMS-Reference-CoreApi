@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _detect:
+
 Detect a hacked website
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -16,6 +18,8 @@ of one of them only, it does not mean that the attacker has not gained
 more access or further damage (e.g. stolen user details) has been
 done.
 
+
+.. _detect-manipulated-frontpage:
 
 Manipulated frontpage
 """""""""""""""""""""
@@ -39,6 +43,8 @@ because it is possible that the malicious code is not visible at a
 quick glance.
 
 
+.. _detect-malicious-html-code:
+
 Malicious code in the HTML source
 """""""""""""""""""""""""""""""""
 
@@ -53,6 +59,8 @@ Also see the explanations below ("Search engines warn about your
 site").
 
 
+.. _detect-embedded-elements:
+
 Embedded elements in the site's content
 """""""""""""""""""""""""""""""""""""""
 
@@ -65,6 +73,8 @@ download/execute these files.
 
 Also see the explanations below ("Reports from visitors or users").
 
+
+.. _detect-unusual-traffic:
 
 Unusual traffic increase or decrease
 """"""""""""""""""""""""""""""""""""
@@ -85,6 +95,8 @@ server traffic in general. Significant changes in this traffic
 behavior should definitely make you investigating the cause.
 
 
+.. _detect-reports:
+
 Reports from visitors or users
 """"""""""""""""""""""""""""""
 
@@ -95,6 +107,8 @@ mind that under certain circumstances the manipulated content might
 not be visible to you if you just check the generated output; see
 explanations above.
 
+
+.. _detect-warnings:
 
 Search engines or browsers warn about your site
 """""""""""""""""""""""""""""""""""""""""""""""
@@ -109,6 +123,8 @@ unwanted software).
 One example for such a warning system is Google's "Safe Browsing
 Database". This database is also used by various browsers.
 
+
+.. _detect-leaked-credentials:
 
 Leaked credentials
 """"""""""""""""""

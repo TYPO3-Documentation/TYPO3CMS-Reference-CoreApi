@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _security-team-contact:
+
 Contact information
 ^^^^^^^^^^^^^^^^^^^
 

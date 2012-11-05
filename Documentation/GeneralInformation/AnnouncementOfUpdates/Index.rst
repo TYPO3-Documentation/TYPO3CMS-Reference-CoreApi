@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _announcement-updates:
+
 Announcement of updates and security fixes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

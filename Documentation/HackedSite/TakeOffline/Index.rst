@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _take-offline:
+
 Take the website offline
 ^^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _staging-servers:
+
 Use staging servers for developments and tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

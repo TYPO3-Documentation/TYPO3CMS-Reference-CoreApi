@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _restrict-to-required-functions:
+
 Restriction to required functions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

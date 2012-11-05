@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _restrict-access-server-level:
+
 Restrict access to files on a server-level
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

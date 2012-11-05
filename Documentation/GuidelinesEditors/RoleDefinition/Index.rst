@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _editor-definition:
+
 Role definition
 ^^^^^^^^^^^^^^^
 

@@ -6,6 +6,9 @@
 .. include:: ../../Includes.txt
 
 
+.. _update-operating-system:
+.. _update-browser:
+
 Operating system and browser version
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

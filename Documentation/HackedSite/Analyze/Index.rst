@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _analyze:
+
 Analyze
 ^^^^^^^
 

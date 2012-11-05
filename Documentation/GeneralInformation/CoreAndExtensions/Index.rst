@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _difference-core-extensions:
+
 Difference between core and extensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

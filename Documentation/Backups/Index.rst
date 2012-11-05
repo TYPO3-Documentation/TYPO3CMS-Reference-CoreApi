@@ -6,6 +6,9 @@
 .. include:: ../Includes.txt
 
 
+.. _backups:
+.. _backup-strategy:
+
 Backup Strategy
 ---------------
 

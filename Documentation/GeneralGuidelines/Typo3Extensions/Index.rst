@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _extension-updates:
+
 Keep TYPO3 extensions up-to-date
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

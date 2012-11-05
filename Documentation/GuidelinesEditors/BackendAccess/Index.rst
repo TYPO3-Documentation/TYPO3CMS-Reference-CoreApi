@@ -6,9 +6,13 @@
 .. include:: ../../Includes.txt
 
 
+.. _backend-access:
+
 Backend access
 ^^^^^^^^^^^^^^
 
+
+.. _be-username:
 
 Username
 """"""""
@@ -18,6 +22,8 @@ not recommended. Shared user accounts are not recommended either:
 every person should have its own login (e.g. as first name + dot +
 last name).
 
+
+.. _be-password:
 
 Password
 """"""""
@@ -29,6 +35,9 @@ change your password in the "User settings" menu:
 
 .. figure:: ../../Images/editor-change-password-003b.png
    :alt: The "User Settings" menu, where you can change your password
+
+
+.. _administrator-privileges:
 
 Administrator privileges
 """"""""""""""""""""""""
@@ -47,6 +56,9 @@ should get in touch with the system provider to solve this issue.
 
 .. figure:: ../../Images/editor-admin-privileges-002b.png
    :alt: Screenshot of a menu with the section "ADMIN TOOLS"
+
+
+.. _notify-at-login:
 
 Notify at login
 """""""""""""""
@@ -68,6 +80,8 @@ and/or administrates the TYPO3 site immediately. You should discuss
 the situation and the next steps, possibly to change the password as
 soon as possible.
 
+
+.. _lock-to-ip:
 
 Lock to IP address(es)
 """"""""""""""""""""""

@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _authorization-bypass:
+
 Authorization bypass
 ^^^^^^^^^^^^^^^^^^^^
 

@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _security-warnings:
+
 Security-related warnings after login
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

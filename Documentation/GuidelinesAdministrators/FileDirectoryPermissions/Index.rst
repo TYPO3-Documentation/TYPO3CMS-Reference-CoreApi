@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _file-directory-permissions:
+
 File/directory permissions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 

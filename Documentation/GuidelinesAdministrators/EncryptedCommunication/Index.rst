@@ -6,9 +6,13 @@
 .. include:: ../../Includes.txt
 
 
+.. _encrypted-client-server-connection:
+
 Encrypted client/server communication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+
+.. _data-classification:
 
 Data classification
 """""""""""""""""""
@@ -58,6 +62,8 @@ The most secure first paradigm in most cases is: do neither transmit
 nor store any sensitive data if not absolutely required.
 
 
+.. _encryption-frontend:
+
 Frontend
 """"""""
 
@@ -85,6 +91,8 @@ gateway operator and card issuers before you institute online payment
 solutions.
 
 
+.. _encryption-backend:
+
 Backend
 """""""
 
@@ -111,6 +119,8 @@ The TYPO3 core extension "rsaauth" addresses this requirement, see
 "security-related core extensions" in chapter "Guidelines for TYPO3
 integrators".
 
+
+.. _encryption-other-services:
 
 Other services
 """"""""""""""

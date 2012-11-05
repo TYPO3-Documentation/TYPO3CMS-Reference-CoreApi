@@ -6,6 +6,8 @@
 .. include:: ../Includes.txt
 
 
+.. _integrators:
+
 Guidelines for TYPO3 Integrators
 --------------------------------
 

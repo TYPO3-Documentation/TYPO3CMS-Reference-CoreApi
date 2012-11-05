@@ -6,6 +6,8 @@
 .. include:: Includes.txt
 
 
+.. _start:
+
 ====================
 TYPO3 Security Guide
 ====================
@@ -88,4 +90,5 @@ given task.
    GuidelinesEditors/Index
    Backups/Index
    HackedSite/Index
+   Targets
 

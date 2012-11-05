@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _integrator-rules:
+
 General rules
 ^^^^^^^^^^^^^
 

@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _editor-rules:
+
 General rules
 ^^^^^^^^^^^^^
 

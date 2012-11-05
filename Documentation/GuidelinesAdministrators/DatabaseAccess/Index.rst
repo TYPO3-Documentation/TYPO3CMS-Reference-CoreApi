@@ -6,12 +6,18 @@
 .. include:: ../../Includes.txt
 
 
+.. _database-access:
+.. _mysql:
+
+
 Database access
 ^^^^^^^^^^^^^^^
 
 The TYPO3 database contains all data of backend and frontend users and
 therefore special care must be taken not to grant unauthorized access.
 
+
+.. _mysql-password-username:
 
 Secure passwords, usernames and minimum access privileges
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -41,6 +47,8 @@ database users and access privileges (e.g. chapter 5.4 and chapter
 12.7.1 of the MySQL documentation).
 
 
+.. _mysql-external-access:
+
 Disallow external access
 """"""""""""""""""""""""
 
@@ -53,6 +61,8 @@ If you are using MySQL, read the chapter "Server Options" in the
 manual and check for the "skip-networking" and "bind-address" options
 in particular.
 
+
+.. _mysql-administration-tools:
 
 Database administration tools
 """""""""""""""""""""""""""""

@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _identity-theft:
+
 Identity theft
 ^^^^^^^^^^^^^^
 

@@ -5,6 +5,8 @@
 
 .. include:: ../Includes.txt
 
+.. _types-of-security-threats:
+.. _security-threats:
 
 Types of Security Threats
 -------------------------

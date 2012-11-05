@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _xss:
+
 Cross Site Scripting (XSS)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 

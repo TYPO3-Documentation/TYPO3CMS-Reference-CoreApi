@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _integrity-packages:
+
 Integrity of TYPO3 packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
