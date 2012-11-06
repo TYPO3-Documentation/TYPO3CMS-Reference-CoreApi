@@ -69,7 +69,7 @@ The following sections deal with extensions in general, the risks and
 the basic countermeasures to address security related issues.
 
 
-.. _exntension-state:
+.. _extension-state:
 
 Stable and reviewed extensions
 """"""""""""""""""""""""""""""
