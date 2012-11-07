@@ -5,7 +5,6 @@
 
 .. include:: Includes.txt
 
-
 Index: Labels for Crossreferencing
 ==================================
 
