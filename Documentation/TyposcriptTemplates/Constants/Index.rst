@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 Constants
@@ -38,18 +30,14 @@ Example:
 ~~~~~~~~
 
 Here "bgCol" is set to "red" and "file.toplogo" is set to "logo.gif".
-which is found in the resource-field of the template.
-
-::
+which is found in the resource-field of the template. ::
 
    bgCol = red
    topimg.width = 200
    topimg.file.pic2 = fileadmin/logo2.gif
    file.toplogo = logo.gif
 
-This could also be defined in other ways, e.g. like this:
-
-::
+This could also be defined in other ways, e.g. like this::
 
    bgCol = red
    file {
@@ -63,14 +51,12 @@ This could also be defined in other ways, e.g. like this:
 (The objects in bold are the reserved word "file" and the properties
 are always of data type "resource".
 
-|img-11| 
+|img-11|
 Using constants
 ^^^^^^^^^^^^^^^
 
 Constants are inserted in the template-setup by performing an ordinary
-str\_replace operation! You insert them in the setup field like this:
-
-::
+str\_replace operation! You insert them in the setup field like this::
 
    {$bgCol}
    {$topimg.width}
@@ -88,7 +74,7 @@ Example:
 
    page = PAGE
    page.typeNum = 0
-   
+
    page.bodyTag = <body bgColor="{$bgCol}">
    page.10 = IMAGE
    page.10.file = {$file.toplogo}

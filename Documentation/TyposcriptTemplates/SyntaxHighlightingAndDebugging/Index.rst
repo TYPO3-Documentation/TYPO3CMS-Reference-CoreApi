@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 Syntax highlighting and debugging
@@ -49,7 +41,7 @@ code:
 |img-27| Finally you will be warned if syntax errors are found and ignored data
 will also be highlighted in green:
 
-|img-28| 
+|img-28|
 Debugging
 """""""""
 

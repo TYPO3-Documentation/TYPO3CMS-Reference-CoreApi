@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 Conditions
@@ -68,18 +60,16 @@ The syntax of conditions
 """"""""""""""""""""""""
 
 A condition always has its own line and the line is detected by " [ "
-(square bracket) being the first character on that line:
-
-::
+(square bracket) being the first character on that line::
 
    (Some TypoScript)
-   
+
    [ condition 1 ][ condition 2]
-   
+
    (Some TypoScript only parsed if condition 1 or condition 2 are met.)
-   
+
    [GLOBAL]
-   
+
    (Some TypoScript)
 
 As you can see from this example, the line " **[GLOBAL]** " also is a
@@ -102,21 +92,19 @@ done with the class t3lib\_matchCondition).
 Here is an example of some TypoScript (from the context of TypoScript
 Templates) where another text is outputted if you use the Microsoft
 Internet Explorer web browser (instead of for example Google Chrome)
-or use Windows NT as operating system:
-
-::
+or use Windows NT as operating system::
 
    pageObj.10 = TEXT
    pageObj.10.value = Hello World
    pageObj.10.case = upper
-   
+
    [browser = msie][system = WinNT]
    pageObj.20 = TEXT
    pageObj.20 {
      value = Hello Internet Explorer or Windows NT users!
      case = upper
    }
-   
+
    [GLOBAL]
    pageObj.30 = TEXT
    pageObj.30.value = <hr>
@@ -126,7 +114,7 @@ the parsed object tree depending on whether the condition evaluates to
 TRUE or FALSE (which can be simulated with that module as you can
 see):
 
-|img-7| 
+|img-7|
 The special [ELSE], [END] and [GLOBAL] conditions
 """""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -136,22 +124,20 @@ can use either [END] or [GLOBAL]. For all three conditions you can
 also use them in lower case.
 
 Here's an example of using the [ELSE]-condition (also in the context
-of TypoScript Templates):
-
-::
+of TypoScript Templates)::
 
    page.typeNum = 0
    page = PAGE
    page.10 = TEXT
-   
+
    [browser = msie]
    page.10.value = Internet Explorer
-   
+
    [else]
    page.10.value = Not an Internet Explorer browser!
-   
+
    [end]
-   
+
    page.10.wrap = <strong>|</strong>
 
 Here we have one output text if the browser is Internet Explorer and
@@ -167,9 +153,7 @@ conditions validate correctly is only verified by actually getting a
 
 Another example could be if you wanted to do something special in case
 a bunch of conditions is NOT true. There's  **no negate-character** ,
-but you could do this:
-
-::
+but you could do this::
 
    [browser = msie][usergroup = 3]
      # Enter nothing here!
@@ -183,9 +167,7 @@ Where to insert conditions in TypoScript?
 
 Conditions can be used  *outside* of confinements (curly braces) only!
 
-So, this is valid:
-
-::
+So, this is valid::
 
    someObject {
      1property = 234
@@ -195,9 +177,7 @@ So, this is valid:
      2property = 567
    }
 
-But this is  ***not valid***  **:**
-
-::
+But this is  ***not valid***  **:** ::
 
    someObject {
      1property = 234
@@ -216,9 +196,7 @@ The [GLOBAL] condition
 
 However for the special condition [GLOBAL] (which resets any previous
 condition scope), it is a bit different since that will be detected at
-*any line* except within multiline value definitions.
-
-::
+*any line* except within multiline value definitions. ::
 
    someObject {
      1property = 234

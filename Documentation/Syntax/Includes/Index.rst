@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Includes
@@ -22,9 +13,7 @@ You can also add include-instructions in TypoScript code. Availability
 depends on the context, but it works with TypoScript templates, Page
 TSconfig and User TSconfig.
 
-An include-instruction looks like this:
-
-::
+An include-instruction looks like this::
 
    <INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/html/mainmenu_typoscript.txt">
 
@@ -47,7 +36,7 @@ only option available:
 
    Option
          Option
-   
+
    Description
          Description
 
@@ -56,12 +45,12 @@ only option available:
 
    Option
          FILE
-   
+
    Description
          A reference to a file relative to PATH\_site. Cannot contain ".."
          (double periods, back path). Until TYPO3 4.5 had to be less than 100
          KB; in newer versions this limitation was dropped.
-         
+
          If you prefix the relative path with such as
          "EXT:myext/directory/file.txt" then the file included will be searched
          for in the extension directory of extension "myext", subdirectory

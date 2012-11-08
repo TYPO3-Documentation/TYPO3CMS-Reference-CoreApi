@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 Parsing, storing and executing TypoScript
@@ -46,9 +38,7 @@ is often serialized and cached in the database afterward). If you take
 the TypoScript from the introduction examples and parse it, you will
 get a result like below:
 
-First, the TypoScript:
-
-::
+First, the TypoScript::
 
    asdf = qwerty
    asdf {
@@ -60,9 +50,7 @@ First, the TypoScript:
 Then after parsing it with the function "parse()" in the
 t3lib\_tsparser class, the internal variable $this->setup in that
 class will contain a PHP array which looks like this (with the
-print\_r() PHP function):
-
-::
+print\_r() PHP function)::
 
    Array
    (
@@ -82,9 +70,7 @@ You can also print the array by an API function in TYPO3, namely
 t3lib\_div::view\_array() or just debug(). Then it looks like this:
 
 |img-23| As you see the value ("blue") of the property "backgroundColor" can be
-fetched by this PHP code:
-
-::
+fetched by this PHP code::
 
    $this->setup['asdf.']['backgroundColor']
 

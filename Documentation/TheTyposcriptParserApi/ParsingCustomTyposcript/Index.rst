@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Parsing custom TypoScript
@@ -39,13 +30,13 @@ Root level
 
    Property
          Property
-   
+
    Data type
          Data type
-   
+
    Description
          Description
-   
+
    Default
          Default
 
@@ -54,13 +45,13 @@ Root level
 
    Property
          colors
-   
+
    Data type
          ->COLORS
-   
+
    Description
          Defining colors for various elements.
-   
+
    Default
 
 
@@ -68,13 +59,13 @@ Root level
 
    Property
          adminInfo
-   
+
    Data type
          ->ADMINFO
-   
+
    Description
          Define administrator contact information for cc-emails
-   
+
    Default
 
 
@@ -82,14 +73,14 @@ Root level
 
    Property
          headerImage
-   
+
    Data type
          file-reference
-   
+
    Description
          A reference to an image file relative to the websites path
          (PATH\_site)
-   
+
    Default
 
 
@@ -107,13 +98,13 @@ Root level
 
    Property
          Property
-   
+
    Data type
          Data type
-   
+
    Description
          Description
-   
+
    Default
          Default
 
@@ -122,13 +113,13 @@ Root level
 
    Property
          backgroundColor
-   
+
    Data type
          HTML-color
-   
+
    Description
          The background color of ...
-   
+
    Default
          white
 
@@ -137,13 +128,13 @@ Root level
 
    Property
          fontColor
-   
+
    Data type
          HTML-color
-   
+
    Description
          The font color of text in ...
-   
+
    Default
          black
 
@@ -152,13 +143,13 @@ Root level
 
    Property
          popUpColor
-   
+
    Data type
          HTML-color
-   
+
    Description
          The shadow color of the pop up ...
-   
+
    Default
          #333333
 
@@ -177,13 +168,13 @@ Root level
 
    Property
          Property
-   
+
    Data type
          Data type
-   
+
    Description
          Description
-   
+
    Default
          Default
 
@@ -192,13 +183,13 @@ Root level
 
    Property
          cc\_email
-   
+
    Data type
          string
-   
+
    Description
          The email address that ...
-   
+
    Default
 
 
@@ -206,13 +197,13 @@ Root level
 
    Property
          cc\_name
-   
+
    Data type
          string
-   
+
    Description
          The name of ...
-   
+
    Default
 
 
@@ -220,13 +211,13 @@ Root level
 
    Property
          cc\_return\_adr
-   
+
    Data type
          string
-   
+
    Description
          The return address of ...
-   
+
    Default
          [servers]
 
@@ -235,13 +226,13 @@ Root level
 
    Property
          html\_emails
-   
+
    Data type
          boolean
-   
+
    Description
          If set, emails are sent in HTML.
-   
+
    Default
          false
 
@@ -264,9 +255,7 @@ Now let's imagine that a user inputs this TypoScript configuration in
 whatever medium you have offered (e.g. a textarea field). (In a syntax
 highlighted version with line numbers it would look like the listing,
 which indicates that there are no  *syntax errors* and everything is
-fine in that regard.)
-
-::
+fine in that regard.) ::
 
       0: colors {
       1:   backgroundColor = red
@@ -277,17 +266,17 @@ fine in that regard.)
       6:   cc_name = Copy Name
       7: }
       8: showAll = true
-      9: 
+      9:
      10: [UserIpRange = 123.456.*.*]
-     11: 
+     11:
      12:   headerImage = fileadmin/img1.jpg
-     13: 
+     13:
      14: [ELSE]
-     15: 
+     15:
      16:   headerImage = fileadmin/img2.jpg
-     17: 
+     17:
      18: [GLOBAL]
-     19: 
+     19:
      20:   // Wonder if this works... :-)
      21: wakeMeUp = 7:00
 
@@ -296,15 +285,13 @@ extension "extdeveval").
 
 In order to parse this TypoScript we can use the following code
 provided that the variable $tsString contains the above TypoScript as
-its value:
-
-::
+its value::
 
       3: require_once(PATH_t3lib.'class.t3lib_tsparser.php');
-      4: 
+      4:
       5: $TSparserObject = t3lib_div::makeInstance('t3lib_tsparser');
       6: $TSparserObject->parse($tsString);
-      7: 
+      7:
       8: echo '<pre>';
       9: print_r($TSparserObject->setup);
      10: echo '</pre>';
@@ -320,9 +307,7 @@ its value:
 - Line 8-10: Outputs the parsed result which is located in
   $TSparserObject->setup.
 
-The result of this code being run will be this:
-
-::
+The result of this code being run will be this::
 
    Array
    (
@@ -331,21 +316,19 @@ The result of this code being run will be this:
        [backgroundColor] => red
        [fontColor] => blue
      )
-   
+
      [adminInfo.] => Array
      (
        [cc_email] => email@email.com
        [cc_name] => Copy Name
      )
-   
+
      [showAll] => true
      [headerImage] => fileadmin/img2.jpg
      [wakeMeUp] => 7:00
    )
 
-Now your application could use this information in a manner like this:
-
-::
+Now your application could use this information in a manner like this::
 
    echo '<table bgcolor="'.$TSparserObject->setup['colors.']['backgroundColor'].'">
      <tr>

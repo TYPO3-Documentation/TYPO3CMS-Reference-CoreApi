@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 TypoScript syntax
@@ -20,9 +12,7 @@ TypoScript syntax
 
 TypoScript is parsed in a very simple way; line by line. This means
 that abstractly said each line normally contains three parts based on
-this formula:
-
-::
+this formula::
 
    [Object Path] [Operator] [Value]
 
@@ -100,8 +90,8 @@ Example:
    */  ... this is not parsed either though - the whole line is still within the comment
    myObject = TEXT
    myObject.value (
-     Here's a multiline value which 
-     /* 
+     Here's a multiline value which
+     /*
        This is not a comment because it is inside a multi-line value block
      */
    )
@@ -176,9 +166,7 @@ Example:
    myObject.value := addToList(4,5)
    myObject.value := removeFromList(2,1)
 
-produces the same result as:
-
-::
+produces the same result as::
 
    myObject = TEXT
    myObject.value = 3,4,5
@@ -222,9 +210,7 @@ Example:
    myObject.field = title
    myObject.ifEmpty.data = leveltitle:0
 
-could also be written as:
-
-::
+could also be written as::
 
    myObject = TEXT
    myObject {
@@ -260,7 +246,7 @@ Example:
 
    myObject = TEXT
    myObject.value (
-     <p class="warning"> 
+     <p class="warning">
        This is HTML code.
      </p>
    )
@@ -281,16 +267,14 @@ Example:
 
    myObject = TEXT
    myObject.value = <p class="warning">This is HTML code.</p>
-   
+
    myOtherObject < myObject
 
 The result of the above TypoScript is two independent sets of
 objects/properties which exactly the same (duplicates). They are
 *not* references to each other but actual copies:
 
-|img-4| Another example with a copy within a code block:
-
-::
+|img-4| Another example with a copy within a code block::
 
    pageObj {
            10 = TEXT
@@ -303,9 +287,7 @@ that the copied object is referred to with its full path
 ("pageObj.10"). When  **copying on the same level** , you can just
 refer to the copied object's name,  **prepended by a dot** .
 
-The following produces the same result as above:
-
-::
+The following produces the same result as above::
 
    pageObj {
            10 = TEXT
@@ -316,9 +298,7 @@ The following produces the same result as above:
 which – in tree view – translates to:
 
 |img-5| **Note:**  **When the original object is changed after copying, the
-copy does not change!** Take a look at the following code:
-
-::
+copy does not change!** Take a look at the following code::
 
    someObject = TEXT
    someObject {
@@ -386,7 +366,7 @@ Example:
 
    myObject = TEXT
    myObject.value = <strong> HTML - code </strong>
-   
+
    myObject >
 
 In this last line "myObject" is totally wiped out (removed).

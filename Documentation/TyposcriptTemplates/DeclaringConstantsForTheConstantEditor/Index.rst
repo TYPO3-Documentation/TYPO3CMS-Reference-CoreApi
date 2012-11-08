@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 Declaring constants for the Constant Editor
@@ -28,9 +20,7 @@ easier than constants already make it themselves.
 comments before every constant-definition are registered. You can
 follow a certain syntax to define what category the constant should be
 in, which type it has and what explanation there is about the
-constant. This is an example containing several constant definitions:
-
-::
+constant. This is an example containing several constant definitions::
 
    styles.content.textStyle {
        # cat=content/cText/1; type=; label= Bodytext font: This is the fontface used for text!
@@ -107,7 +97,7 @@ cat=
 
    Category
          Category
-   
+
    Description
          Description
 
@@ -116,7 +106,7 @@ cat=
 
    Category
          basic
-   
+
    Description
          Constants of superior importance for the template-layout. This is
          dimensions, imagefiles and enabling of various features. The most
@@ -127,7 +117,7 @@ cat=
 
    Category
          menu
-   
+
    Description
          Menu setup. This includes fontfiles, sizes, background images.
          Depending on the menutype.
@@ -137,7 +127,7 @@ cat=
 
    Category
          content
-   
+
    Description
          All constants related to the display of pagecontent elements.
 
@@ -146,7 +136,7 @@ cat=
 
    Category
          page
-   
+
    Description
          General configuration like metatags, link targets.
 
@@ -155,7 +145,7 @@ cat=
 
    Category
          advanced
-   
+
    Description
          Advanced functions, which are used very seldom.
 
@@ -191,7 +181,7 @@ Editor):
 
    Subcategory
          Subcategory
-   
+
    Description
          Description
 
@@ -200,7 +190,7 @@ Editor):
 
    Subcategory
          enable
-   
+
    Description
          Used for options that enable or disable primary functions of a
          template.
@@ -210,7 +200,7 @@ Editor):
 
    Subcategory
          dims
-   
+
    Description
          Dimensions of all kinds; pixels, widths, heights of images, frames,
          cells and so on.
@@ -220,7 +210,7 @@ Editor):
 
    Subcategory
          file
-   
+
    Description
          Files like background images, fonts and so on. Other options related
          to the file may also enter.
@@ -230,7 +220,7 @@ Editor):
 
    Subcategory
          typo
-   
+
    Description
          Typography and related constants.
 
@@ -239,7 +229,7 @@ Editor):
 
    Subcategory
          color
-   
+
    Description
          Color setup. Many colors will be found with related options in other
          categories though.
@@ -249,7 +239,7 @@ Editor):
 
    Subcategory
          links
-   
+
    Description
          Links: Targets typically.
 
@@ -258,7 +248,7 @@ Editor):
 
    Subcategory
          language
-   
+
    Description
          Language specific options.
 
@@ -279,23 +269,19 @@ rendering for each type of tt\_content element. See static\_template
 **Custom Subcategories**
 
 To define your own Subcategory put a comment including the parameter
-"customsubcategory". Here is an example:
+"customsubcategory". Here is an example::
 
-::
-
-   # customsubcategory=cache=LLL:EXT:myext/locallang.xml:cache 
+   # customsubcategory=cache=LLL:EXT:myext/locallang.xml:cache
 
 This line defines the new Subcategory "cache" which will be available
-for your Constants defined AFTER this line. Usage example:
+for your Constants defined AFTER this line. Usage example::
 
-::
-
-   #cat=Site conf/cache/a; type=boolean; label=Global no_cache 
-   config.no_cache = 0 
+   #cat=Site conf/cache/a; type=boolean; label=Global no_cache
+   config.no_cache = 0
 
 Will look in the Constant Editor like this:
 
-|img-14| 
+|img-14|
 type=
 ~~~~~
 
@@ -306,7 +292,7 @@ type=
 
    Type
          Type
-   
+
    Description
          Description
 
@@ -315,7 +301,7 @@ type=
 
    Type
          int [low-high]
-   
+
    Description
          Integer, opt. in range "low" to "high"
 
@@ -324,7 +310,7 @@ type=
 
    Type
          int+
-   
+
    Description
          Positive integer
 
@@ -333,7 +319,7 @@ type=
 
    Type
          offset [L1,L2,...L6]
-   
+
    Description
          Comma-separated integers. Default is "x,y", but as comma separated
          parameters in brackets you can specify up to 6 labels being comma
@@ -345,7 +331,7 @@ type=
 
    Type
          color
-   
+
    Description
          HTML color
 
@@ -354,7 +340,7 @@ type=
 
    Type
          wrap
-   
+
    Description
          HTML-code that is wrapped around some content.
 
@@ -363,7 +349,7 @@ type=
 
    Type
          options [item1,item2,...]
-   
+
    Description
          Selectbox with values/labels item1, item2 etc. Comma-separated. Split
          by "=" also and in that case, first part is label, second is value
@@ -373,7 +359,7 @@ type=
 
    Type
          boolean [truevalue]
-   
+
    Description
          Boolean, opt. you can define the value of "true", def.=1
 
@@ -382,7 +368,7 @@ type=
 
    Type
          comment
-   
+
    Description
          Boolean, checked= "", not-checked = "#".
 
@@ -391,7 +377,7 @@ type=
 
    Type
          file [ext-list/IMAGE\_EXT]
-   
+
    Description
          Selectorbox with resources. Opt. list allowed extensions (no space in
          list!), eg. "[ttf]" or "[txt,html,htm]". You can also enter
@@ -403,7 +389,7 @@ type=
 
    Type
          string (the default)
-   
+
    Description
          Just a string value
 
@@ -412,7 +398,7 @@ type=
 
    Type
          user
-   
+
    Description
          ...
 
@@ -428,30 +414,24 @@ Text string, trimmed.
 Split by the first ":" to separate a header and body of the comment.
 The header is displayed on it's own line in bold.
 
-This can be localized by using the traditional "LLL" syntax. Example:
-
-::
+This can be localized by using the traditional "LLL" syntax. Example::
 
    #cat=Site conf/cache/a; type=boolean; label=LLL:EXT:examples/locallang.xml:config.no_cache
    config.no_cache = 0
 
 Note that a single string is referenced (not one for the header and
 one for the description). This means that the localized string must
-contain the colon separator (":"). Example:
-
-::
+contain the colon separator (":"). Example::
 
    <label index="config.no_cache">Global no_cache:Check to box to turn off all cache</label>
 
 In case of TYPO3 4.6 or newer translation files in XLIFF format are
-supported. There the label might look like this:
-
-::
+supported. There the label might look like this::
 
    <trans-unit id="config.no_cache" xml:space="preserve">
      <source>Global no_cache:Check to box to turn off all cache</source>
    </trans-unit>
-   
+
 
 
 TSConstantEditor.[category]
@@ -469,13 +449,13 @@ normally would.
 
    Property
          Property:
-   
+
    Data type
          Data type:
-   
+
    Description
          Description:
-   
+
    Default
          Default:
 
@@ -484,13 +464,13 @@ normally would.
 
    Property
          header
-   
+
    Data type
          string
-   
+
    Description
          Header, displayed in upper-case.
-   
+
    Default
 
 
@@ -498,13 +478,13 @@ normally would.
 
    Property
          description
-   
+
    Data type
          string, break by //
-   
+
    Description
          Description, enter "//" to create a line break.
-   
+
    Default
 
 
@@ -512,14 +492,14 @@ normally would.
 
    Property
          bulletlist
-   
+
    Data type
          string, break by //
-   
+
    Description
          Lines for a bulletlist, enter "//" (double-slash) in order to break to
          next bullet.
-   
+
    Default
 
 
@@ -527,20 +507,20 @@ normally would.
 
    Property
          image
-   
+
    Data type
          image
-   
+
    Description
          This is an optional image you can attach to the category.
-         
+
          The image would normally show a given configuration of the template
          and contain numbered marks, that indicate positions that are referred
          to by the constants, listed in the number-array.
-         
+
          The image must be located in "gfx/" in the module path OR be a file
          from the resource-list of the template.
-   
+
    Default
 
 
@@ -548,15 +528,15 @@ normally would.
 
    Property
          Array, 1-20
-   
+
    Data type
          list of constant-names
-   
+
    Description
          Each number refers to a number-mark on the image and all constants
          that are listed at each number will get a little number-icon by it's
          header.
-   
+
    Default
 
 
@@ -576,7 +556,7 @@ Example:
      description = BUSINESS is a framebased template in a very simple layout, based on ....
      bulletlist = Left-frame image in the top. The dimensions are fixed to ....
      image = gfx/BUSINESS_basic.gif
-   
+
      1 = leftFrameWidth,menu.file.bgImg,menu.bgCol
      2 = page.file.bgImg,bgCol
      3 = contentOffset
@@ -617,7 +597,7 @@ above and in the screenshot below.
 
 This is how it looks like in TYPO3 by default:
 
-|img-15| 
+|img-15|
 Sorting out details
 -------------------
 

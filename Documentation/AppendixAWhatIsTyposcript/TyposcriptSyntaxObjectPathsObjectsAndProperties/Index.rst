@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 TypoScript syntax, object paths, objects and properties
@@ -29,17 +20,13 @@ paths" because TypoScript easily lends itself to the metaphor of
 "objects" and "properties". This has some advantages as we shall see
 but at the same time TypoScript is designed to allow a very simple and
 straight forward assignment of values; simply by using the equal sign
-as an operator:
-
-::
+as an operator::
 
    asdf = qwerty
 
 Now the object path "asdf" contains the value "qwerty".
 
-Another example:
-
-::
+Another example::
 
    asdf.zxcvbnm = uiop
    asdf.backgroundColor = blue
@@ -47,9 +34,7 @@ Another example:
 Now the object path "asdf.zxcvbnm" contains the value "uiop" and
 "asdf.backgroundColor" contains the value "blue". According to  *the
 syntax* of TypoScript this could also have been written more
-comfortably as:
-
-::
+comfortably as::
 
    asdf {
      zxcvbnm = uiop
@@ -66,9 +51,7 @@ relationship of the components of an  *object path* we normally call
 So although the terms  *objects* and  *properties* normally hint at
 some context (semantics) we may also use them purely to describe the
 various parts of an object path without considering the context and
-meaning. Consider this:
-
-::
+meaning. Consider this::
 
    asdf {
      zxcvbnm = uiop
@@ -108,9 +91,7 @@ Note about the internal structure when parsed into a PHP array
 
 As stated in the previous chapter TypoScript can be understood as a
 lightweight way to enter information into a multidimensional PHP
-array. Let’s take the TypoScript from above as an example:
-
-::
+array. Let’s take the TypoScript from above as an example::
 
    asdf {
      zxcvbnm = uiop
@@ -119,18 +100,14 @@ array. Let’s take the TypoScript from above as an example:
    }
 
 When parsed, this information will be stored in a PHP array which
-could be defined as follows:
-
-::
+could be defined as follows::
 
    $TS['asdf.']['zxcvbnm'] = 'uiop';
    $TS['asdf.']['backgroundColor'] = 'blue';
    $TS['asdf.']['backgroundColor.']['transparency'] = '95%';
 
 Or alternatively you could define the information in that PHP array
-like this:
-
-::
+like this::
 
    $TS = array(
      'asdf.' => array(

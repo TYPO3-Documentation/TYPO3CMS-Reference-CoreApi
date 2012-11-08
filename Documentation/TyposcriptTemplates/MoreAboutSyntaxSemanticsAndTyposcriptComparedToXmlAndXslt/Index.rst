@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 More about syntax, semantics and TypoScript compared to XML and XSLT
@@ -44,21 +35,15 @@ and therefore ignored".
 XSLT and "TypoScript Templates" - all about semantics (meaning,
 function):
 
-This is syntactically valid XML:
-
-::
+This is syntactically valid XML::
 
    <asdf>qwerty</asdf>
 
-And this is syntactically valid TypoScript:
-
-::
+And this is syntactically valid TypoScript::
 
    asdf = qwerty
 
-And this is syntactically valid English:
-
-::
+And this is syntactically valid English::
 
    footballs sing red
 

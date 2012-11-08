@@ -1,13 +1,13 @@
 ﻿.. |img-21|     image:: ../../Images/manual_html_m52f62a07.png
-   :height: 168
-   :width: 524
+.. :height: 168
+.. :width: 524
 .. :align: left
 .. :border: 0
 .. :name: Grafik2
 
 .. |img-22|     image:: ../../Images/manual_html_m78047c8c.png
-   :height: 259
-   :width: 493
+.. :height: 259
+.. :width: 493
 .. :align: left
 .. :border: 0
 .. :name: Grafik23

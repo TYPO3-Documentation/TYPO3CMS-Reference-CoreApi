@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Myths, FAQ and acknowledgments
@@ -117,9 +108,7 @@ modeled in XML. Currently you  *cannot* use XML as an alternative to
 TypoScript (writing of October 2011), but this may happen at some
 point. Lets present this fictitious example of how a TypoScript
 structure could also have been implemented in "TSML" (our fictitious
-name for the non-existing TypoScript Mark-Up Language):
-
-::
+name for the non-existing TypoScript Mark-Up Language)::
 
    styles.content.bulletlist = TEXT
    styles.content.bulletlist {
@@ -140,9 +129,7 @@ name for the non-existing TypoScript Mark-Up Language):
    }
 
 That was 17 lines of TypoScript code and converting this information
-into an XML structure could look like this:
-
-::
+into an XML structure could look like this::
 
    <TSML syntax="3">
      <styles>

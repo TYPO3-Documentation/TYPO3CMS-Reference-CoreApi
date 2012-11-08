@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 Implementing custom conditions
@@ -23,12 +15,10 @@ to do is to implement support for custom conditions. As stated a few
 places  *the evaluation* of a condition is external to TypoScript and
 all you need to do in order to have an external process deal with
 conditions is to pass an object as the second parameter to the parse-
-function. This is done in the code listing below:
-
-::
+function. This is done in the code listing below::
 
       1: require_once(PATH_t3lib.'class.t3lib_tsparser.php');
-      2: 
+      2:
       3: class myConditions {
       4:   function match($conditionLine) {
       5:     if ($conditionLine === '[TYPO3 IS GREAT]') {
@@ -37,10 +27,10 @@ function. This is done in the code listing below:
       8:   }
       9: }
      10: $matchObj = t3lib_div::makeInstance('myConditions');
-     11: 
+     11:
      12: $TSparserObject = t3lib_div::makeInstance('t3lib_tsparser');
      13: $TSparserObject->parse($tsString, $matchObj);
-     14: 
+     14:
      15: debug($TSparserObject->setup);
 
 Here go some notes to this listing:
@@ -63,23 +53,21 @@ Here go some notes to this listing:
   screenshot below).
 
 Anyways, let's test the custom condition class from the code listing
-above. This is done by parsing this TypoScript code:
-
-::
+above. This is done by parsing this TypoScript code::
 
       0: someOtherTS = 123
-      1: 
+      1:
       2: [TYPO3 IS GREAT]
-      3: 
+      3:
       4: message = Yes
       5: someOtherTS = 987
-      6: 
+      6:
       7: [ELSE]
-      8: 
+      8:
       9: message = No
-     10: 
+     10:
      11: [GLOBAL]
-     12: 
+     12:
      13: someTotallyOtherTS = 456
 
 With this listing we would expect to get the object path "message" set
@@ -88,13 +76,11 @@ criteria for what will return true. Lets try:
 
 |img-29| According to this output it worked!
 
-Lets try to alter line 2 to this:
+Lets try to alter line 2 to this::
 
-::
-
-      1: 
+      1:
       2: [TYPO3 IS great]
-      3: 
+      3:
 
 The parsed result is now:
 
@@ -114,18 +100,16 @@ string value. More likely you want to set up rules for a syntax and
 then parse the condition string. One example could be this modified
 condition class which will implement support for the condition seen in
 the TypoScript listings in the former section, "[UserIpRange =
-123.456.\*.\*]":
-
-::
+123.456.\*.\*]"::
 
       1: class myConditions {
       2:   function match($conditionLine) {
       3:       // Getting the value inside of the square brackets:
       4:     $insideSqrBrackets = trim(ereg_replace('\]$', '', substr($conditionLine, 1)));
-      5: 
+      5:
       6:       // Splitting value into a key and value based on the "=" sign
       7:     list($key, $value) = explode('=', $insideSqrBrackets, 2);
-      8: 
+      8:
       9:     switch(trim($key)) {
      10:       case 'UserIpRange':
      11:         return t3lib_div::cmpIP(t3lib_div::getIndpEnv('REMOTE_ADDR'), trim($value)) ? TRUE : FALSE;
@@ -150,9 +134,7 @@ This class works in this way:
   "UserIpRange" or "Browser" (the datasource pointer) and the value
   after the equal sign is of course interpreted accordingly.
 
-Lets try and parse the TypoScript listing from the former section:
-
-::
+Lets try and parse the TypoScript listing from the former section::
 
       0: colors {
       1:   backgroundColor = red
@@ -163,17 +145,17 @@ Lets try and parse the TypoScript listing from the former section:
       6:   cc_name = Copy Name
       7: }
       8: showAll = true
-      9: 
+      9:
      10: [UserIpRange = 123.456.*.*]
-     11: 
+     11:
      12:   headerImage = fileadmin/img1.jpg
-     13: 
+     13:
      14: [ELSE]
-     15: 
+     15:
      16:   headerImage = fileadmin/img2.jpg
-     17: 
+     17:
      18: [GLOBAL]
-     19: 
+     19:
      20:   // Wonder if this works... :-)
      21: wakeMeUp = 7:00
 
@@ -184,13 +166,11 @@ condition section and thus the "[UserIpRange = 123.456.\*.\*]" must
 still have evaluated to FALSE - which is actually no wonder since
 nobody can have the IP address range "123.456.\*.\*"!
 
-Lets change line 10 of the TypoScript to this:
+Lets change line 10 of the TypoScript to this::
 
-::
-
-      9: 
+      9:
      10: [UserIpRange = 192.168.*.*]
-     11: 
+     11:
 
 Since I'm currently on an internal network with an IP number which
 falls into this space, the condition should now evaluate to TRUE when
