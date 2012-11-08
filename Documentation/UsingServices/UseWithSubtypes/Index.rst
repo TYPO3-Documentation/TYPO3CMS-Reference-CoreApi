@@ -1,32 +1,21 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Use with subtypes
 ^^^^^^^^^^^^^^^^^
 
 A service can also be requested for not just a type, but a subtype
-too:
-
-::
+too::
 
       // find a service for a file type
    if (is_object($serviceObj = t3lib_div::makeInstanceService('metaExtract',$fileType))) {
            $serviceObj->setInputFile($absFile, $fileType);
-           if ($serviceObj->process('', '', array('meta' => $meta)) > 0 
+           if ($serviceObj->process('', '', array('meta' => $meta)) > 0
                            && (is_array($svmeta = $serviceObj->getOutput()))) {
                    $meta = $svmeta;
            }

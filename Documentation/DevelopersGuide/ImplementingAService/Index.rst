@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 Implementing a service
@@ -45,29 +37,27 @@ Service registration
 """"""""""""""""""""
 
 Registering a service is done inside the :code:`ext\_localconf.php`
-file. Let's look at what is inside.
-
-::
+file. Let's look at what is inside. ::
 
    <?php
    if (!defined ('TYPO3_MODE')) {
            die ('Access denied.');
    }
-   
+
    t3lib_extMgm::addService($_EXTKEY, 'textLang' /* sv type */, 'tx_babelfish_sv1' /* sv key */,
                    array(
                            'title' => 'Babelfish',
                            'description' => 'Guess alien languages by using a babelfish',
-   
+
                            'subtype' => '',
-   
+
                            'available' => true,
                            'priority' => 60,
                            'quality' => 80,
-   
+
                            'os' => '',
                            'exec' => '',
-   
+
                            'classFile' => t3lib_extMgm::extPath($_EXTKEY).'sv1/class.tx_babelfish_sv1.php',
                            'className' => 'tx_babelfish_sv1',
                    )
@@ -84,10 +74,10 @@ parameters:
 
    Parameter
          Parameter:
-   
+
    Data type
          Data type:
-   
+
    Description
          Description:
 
@@ -96,10 +86,10 @@ parameters:
 
    Parameter
          $extKey
-   
+
    Data type
          string
-   
+
    Description
          The key of the extension containing the service.
 
@@ -108,10 +98,10 @@ parameters:
 
    Parameter
          $serviceType
-   
+
    Data type
          string
-   
+
    Description
          Service type of the service.
 
@@ -120,10 +110,10 @@ parameters:
 
    Parameter
          $serviceKey
-   
+
    Data type
          string
-   
+
    Description
          Unique key for the service. By default, the Kickstarter creates the
          key as “tx\_myext\_sv1” for the first service, “tx\_myext\_sv2” for
@@ -135,10 +125,10 @@ parameters:
 
    Parameter
          $info
-   
+
    Data type
          array
-   
+
    Description
          Additional information about the service. This is described below.
 
@@ -154,13 +144,13 @@ service:
 
    Property
          Property:
-   
+
    Data type
          Data type:
-   
+
    Description
          Description:
-   
+
    Default
          Default:
 
@@ -169,13 +159,13 @@ service:
 
    Property
          title
-   
+
    Data type
          string
-   
+
    Description
          The title of the service.
-   
+
    Default
 
 
@@ -183,19 +173,19 @@ service:
 
    Property
          description
-   
+
    Data type
          string
-   
+
    Description
          The description. If it makes sense it should contain information about
-         
+
          - the quality of the service (if it's better or not than normal)
-         
+
          - the OS dependency
-         
+
          - the dependency on external programs (perl, pdftotext, etc.)
-   
+
    Default
 
 
@@ -203,20 +193,18 @@ service:
 
    Property
          subtype
-   
+
    Data type
          string / comma list
-   
+
    Description
          The subtype is not predefined. Its usage is defined by the API of the
          service type.
-         
-         **Example:**
-         
-         ::
-         
+
+         **Example:** ::
+
             'subtype' => 'jpg,tif',
-   
+
    Default
 
 
@@ -224,28 +212,26 @@ service:
 
    Property
          available
-   
+
    Data type
          boolean
-   
+
    Description
          Defines if the service is available or not. This means that the
          service will be ignored if available is set to false.
-         
+
          It makes no sense to set this to false, but it can be used to make a
          quick check if the service works on the system it installed:
-         
-         **Examples:**
-         
-         ::
-         
+
+         **Examples:** ::
+
               // is the curl extension available we need
             'available' => function_exists('curl_exec'),
-         
+
          Only quick checks are appropriate here. More extensive checks should
          be performed when the service is requested and the service class is
          initialized.
-   
+
    Default
          true
 
@@ -254,26 +240,26 @@ service:
 
    Property
          priority
-   
+
    Data type
          integer
-   
+
    Description
          The priority of the service. A service of higher priority will be
          selected first.Can be reconfigured with :code:`$TYPO3\_CONF\_VARS` .
-         
+
          Use a value from 0 to 100. Higher values are reserved for
          reconfiguration by :code:`$TYPO3\_CONF\_VARS` . The default value is
          50 which means that the service is well implemented and gives normal
          (good) results.
-         
+
          Imagine that you have two solutions, a pure PHP one and another that
          depends on an external program. The PHP solution should have a
          priority of 50 and the other solution a lower one. PHP-only solutions
          should have a higher priority since they are more convenient in terms
          of server setup. But if the external solution gives better results you
          should set both to 50 and set the quality value to a higher value.
-   
+
    Default
          50 (0-100)
 
@@ -282,24 +268,24 @@ service:
 
    Property
          quality
-   
+
    Data type
          integer/float
-   
+
    Description
          Among services with the same priority, the service with the highest
          quality by the same priority will be preferred.
-         
+
          The use of the quality range is defined by the service type. Integer
          or floats can be used. The default range is 0-100 and the default
          value for a normal (good) quality service is 50.
-         
+
          The value of the quality should represent the capacities of the
          services. Consider a service type that implements the detection of a
          language used in a text. Let's say that one service can detect 67
          languages and another one only 25. These values could be used directly
          as quality values.
-   
+
    Default
          50 (0-100)
 
@@ -308,26 +294,24 @@ service:
 
    Property
          os
-   
+
    Data type
          string
-   
+
    Description
          Defines which operating system is needed to run this service.
-         
-         **Examples:**
-         
-         ::
-         
+
+         **Examples:** ::
+
               // runs only on UNIX
             'os' => 'UNIX',
-            
+
               // runs only on Windows
             'os' => 'WIN',
-            
+
               // no special dependency
             'os' => '',
-   
+
    Default
 
 
@@ -335,24 +319,22 @@ service:
 
    Property
          exec
-   
+
    Data type
          string / comma list
-   
+
    Description
          List of external programs which are needed to run the service.
          Absolute paths are allowed but not recommended, because the programs
          are searched for automatically by t3lib\_exec. Leave empty if no
          external programs are needed.
-         
-         **Examples:**
-         
-         ::
-         
+
+         **Examples:** ::
+
             'exec' => 'perl',
-            
+
             'exec' => 'pdftotext',
-   
+
    Default
 
 
@@ -360,19 +342,17 @@ service:
 
    Property
          classFile
-   
+
    Data type
          string
-   
+
    Description
          Created by the kickstarter
-         
-         **Example:**
-         
-         ::
-         
+
+         **Example:** ::
+
             t3lib_extMgm::extPath($_EXTKEY).'sv1/class.tx_myextkey_sv1.php'
-   
+
    Default
 
 
@@ -380,19 +360,17 @@ service:
 
    Property
          className
-   
+
    Data type
          string
-   
+
    Description
          Created by the kickstarter
-         
-         **Example:**
-         
-         ::
-         
+
+         **Example:** ::
+
             'tx_myextkey_sv1'
-   
+
    Default
 
 
@@ -405,9 +383,7 @@ Skeleton service class
 The Kickstarter will generate a skeleton PHP class for each service
 defined. The example above will generate file
 :code:`sv1/class.tx\_babelfish\_sv1.php` , which contains the
-following sample code:
-
-::
+following sample code::
 
    /**
     * Service "Babelfish" for the "babelfish" extension.
@@ -420,7 +396,7 @@ following sample code:
            var $prefixId = 'tx_babelfish_sv1';             // Same as class name
            var $scriptRelPath = 'sv1/class.tx_babelfish_sv1.php';  // Path to this script relative to the extension dir.
            var $extKey = 'babelfish';      // The extension key.
-   
+
            /**
             * [Put your description here]
             *
@@ -428,17 +404,17 @@ following sample code:
             */
            function init() {
                    $available = parent::init();
-   
+
                    // Here you can initialize your class.
-   
+
                    // The class have to do a strict check if the service is available.
                    // The needed external programs are already checked in the parent class.
-   
+
                    // If there's no reason for initialization you can remove this function.
-   
+
                    return $available;
            }
-   
+
            /**
             * [Put your description here]
             * performs the service processing
@@ -449,10 +425,10 @@ following sample code:
             * @return      boolean
             */
            function process($content='', $type='', $conf=array())  {
-   
+
                    // Depending on the service type there's not a process() function.
                    // You have to implement the API of that service type.
-   
+
                    return false;
            }
    }

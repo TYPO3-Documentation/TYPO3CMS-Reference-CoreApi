@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Service type configuration
@@ -20,15 +11,11 @@ Service type configuration
 
 It may also be necessary to provide configuration options for the code
 that uses the services (and not for usage inside the services
-themselves). It is recommended to make use of the following syntax:
-
-::
+themselves). It is recommended to make use of the following syntax::
 
    $TYPO3_CONF_VARS['SVCONF'][service type]['setup'][config key] = value;
 
-Example:
-
-::
+Example::
 
    $TYPO3_CONF_VARS['SVCONF']['auth']['setup']['FE_alwaysFetchUser'] = true;
 

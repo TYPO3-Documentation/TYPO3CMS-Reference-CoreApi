@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Service API
@@ -39,7 +30,7 @@ Most of the below methods are quite obvious, except for
 
    Method
          Method:
-   
+
    Description
          Description:
 
@@ -48,7 +39,7 @@ Most of the below methods are quite obvious, except for
 
    Method
          getServiceInfo
-   
+
    Description
          Returns the array containing the service's properties
 
@@ -57,7 +48,7 @@ Most of the below methods are quite obvious, except for
 
    Method
          getServiceKey
-   
+
    Description
          Returns the service's key
 
@@ -66,7 +57,7 @@ Most of the below methods are quite obvious, except for
 
    Method
          getServiceTitle
-   
+
    Description
          Returns the service's title
 
@@ -75,7 +66,7 @@ Most of the below methods are quite obvious, except for
 
    Method
          getServiceOption
-   
+
    Description
          This method is used to retrieve the value of a service option, as
          defined in the :code:`$TYPO3\_CONF\_VARS['SVCONF']` array. It will
@@ -90,9 +81,7 @@ Imagine your service has an option called “ignoreBozo”. To retrieve it
 in a proper way, you should not access
 :code:`$TYPO3\_CONF\_VARS['SVCONF']` directly, but use
 :code:`getServiceOption()` instead. In its simplest form, it will look
-like this (inside your service's code):
-
-::
+like this (inside your service's code)::
 
    $ignoreBozo = $this->getServiceOption('ignoreBozo');
 
@@ -127,7 +116,7 @@ or any other form of permanence.
 
    Method
          Method:
-   
+
    Description
          Description:
 
@@ -136,7 +125,7 @@ or any other form of permanence.
 
    Method
          devLog
-   
+
    Description
          Writes a message to the devlog, implicitly using the service key as a
          log key. Depends on the member variable “writeDevLog” being set to
@@ -147,7 +136,7 @@ or any other form of permanence.
 
    Method
          errorPush
-   
+
    Description
          Puts a new error on top of the queue stack.
 
@@ -156,7 +145,7 @@ or any other form of permanence.
 
    Method
          errorPull
-   
+
    Description
          Removes the latest (topmost) error in the queue stack.
 
@@ -165,7 +154,7 @@ or any other form of permanence.
 
    Method
          getLastError
-   
+
    Description
          Returns the error number from the latest error in the queue, or true
          if queue is empty.
@@ -175,7 +164,7 @@ or any other form of permanence.
 
    Method
          getLastErrorMsg
-   
+
    Description
          Same as above, but returns the error message.
 
@@ -184,7 +173,7 @@ or any other form of permanence.
 
    Method
          getErrorMsgArray
-   
+
    Description
          Returns an array with the error messages of all errors in the queue.
 
@@ -193,7 +182,7 @@ or any other form of permanence.
 
    Method
          getLastErrorArray
-   
+
    Description
          Returns the latest error as an array (number and message).
 
@@ -202,7 +191,7 @@ or any other form of permanence.
 
    Method
          resetErrors
-   
+
    Description
          Empties the error queue.
 
@@ -219,7 +208,7 @@ General service functions
 
    Method
          Method:
-   
+
    Description
          Description:
 
@@ -228,13 +217,13 @@ General service functions
 
    Method
          checkExec
-   
+
    Description
          This method checks the availability of one or more executables on the
          server. A comma-separated list of excutables names is provided as a
          parameter. The method returns true if  **all** executables are
          available.
-         
+
          The method relies on :code:`t3lib\_exec::checkCommand()` to find the
          executables, so it will search through the paths defined/allowed by
          the TYPO3 configuration.
@@ -244,7 +233,7 @@ General service functions
 
    Method
          deactivateService
-   
+
    Description
          Internal method to temporarily deactivate a service at run-time, if it
          suddenly fails for some reason.
@@ -268,7 +257,7 @@ cleaning up temporary files.
 
    Method
          Method:
-   
+
    Description
          Description:
 
@@ -277,7 +266,7 @@ cleaning up temporary files.
 
    Method
          checkInputFile
-   
+
    Description
          Checks if a file exists and is readable within the paths allowed by
          the TYPO3 configuration.
@@ -287,7 +276,7 @@ cleaning up temporary files.
 
    Method
          readFile
-   
+
    Description
          Reads the content of a file and returns it as a string. Calls on
          :code:`checkInputFile()` first.
@@ -297,7 +286,7 @@ cleaning up temporary files.
 
    Method
          writeFile
-   
+
    Description
          Writes a string to a file, if writable and within allowed paths. If no
          file name is provided, the data is written to a temporary file, as
@@ -308,7 +297,7 @@ cleaning up temporary files.
 
    Method
          tempFile
-   
+
    Description
          Creates a temporary file and keeps its name in an internal registry of
          temp files.
@@ -318,7 +307,7 @@ cleaning up temporary files.
 
    Method
          registerTempFile
-   
+
    Description
          Adds a given file name to the registry of temporary files.
 
@@ -327,7 +316,7 @@ cleaning up temporary files.
 
    Method
          unlinkTempFiles
-   
+
    Description
          Deletes all the registered temporary files.
 
@@ -348,7 +337,7 @@ that the service provides – and the processed output after that.
 
    Method
          Method:
-   
+
    Description
          Description:
 
@@ -357,7 +346,7 @@ that the service provides – and the processed output after that.
 
    Method
          setInput
-   
+
    Description
          Sets the content (and optionally the type of content) to be processed.
 
@@ -366,7 +355,7 @@ that the service provides – and the processed output after that.
 
    Method
          setInputFile
-   
+
    Description
          Sets the input file from which to get the content (and optionally the
          type).
@@ -376,7 +365,7 @@ that the service provides – and the processed output after that.
 
    Method
          getInput
-   
+
    Description
          Gets the input to process. If the content is currently empty, tries to
          read it from the input file.
@@ -386,7 +375,7 @@ that the service provides – and the processed output after that.
 
    Method
          getInputFile
-   
+
    Description
          Gets the name of the input file, after putting it through
          :code:`checkInputFile()` . If no file is defined, but some content is,
@@ -398,7 +387,7 @@ that the service provides – and the processed output after that.
 
    Method
          setOutputFile
-   
+
    Description
          Sets the output file name.
 
@@ -407,7 +396,7 @@ that the service provides – and the processed output after that.
 
    Method
          getOutput
-   
+
    Description
          Gets the output content. If an output file name is defined, the
          content is gotten from that file.
@@ -417,7 +406,7 @@ that the service provides – and the processed output after that.
 
    Method
          getOutputFile
-   
+
    Description
          Gets the name of the output file. If such file is not defined, a
          temporary file is created with the output content and that file's path
@@ -440,7 +429,7 @@ important methods to implement when developing your own services.**
 
    Method
          Method:
-   
+
    Description
          Description:
 
@@ -449,19 +438,19 @@ important methods to implement when developing your own services.**
 
    Method
          init
-   
+
    Description
          This method is expected to perform any necessary initialization for
          the service. Its return value is critical. It should return false if
          the service is not available for whatever reason. Otherwise it should
          return true.
-         
+
          Note that's it's not necessary to check for OS compatibility, as this
          will already have been done by :code:`t3lib\_extMgm::addService()`
          when the service is registered.
-         
+
          Executables should be checked, though, if any.
-         
+
          The init() method is automatically called by
          :code:`t3lib\_div::makeInstanceService()` when requesting a service.
 
@@ -470,7 +459,7 @@ important methods to implement when developing your own services.**
 
    Method
          reset
-   
+
    Description
          When a service is requested by a call to
          :code:`t3lib\_div::makeInstanceService()` , the generated instance of
@@ -479,7 +468,7 @@ important methods to implement when developing your own services.**
          service is requested again during the same code run, a new instance is
          **not** created. Instead the stored instance is returned. At that
          point the :code:`reset()` method is called.
-         
+
          This method can be used to clean up data that may have been set during
          the previous use of that instance.
 
@@ -488,7 +477,7 @@ important methods to implement when developing your own services.**
 
    Method
          \_\_destruct
-   
+
    Description
          Clean up method. The base implementation calls on
          :code:`unlinkTempFiles()` to delete all temporary files.

@@ -1,27 +1,16 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Simple use
 ^^^^^^^^^^
 
 The most basic use is when you just want an object that handles a
-given service type:
-
-::
+given service type::
 
    if (is_object($serviceObj = t3lib_div::makeInstanceService('textLang'))) {
      $language = $serviceObj->guessLanguage($text);
@@ -54,9 +43,7 @@ If several services are available, the one with the highest priority
 
 It's also possible to get an instance of a specific service by
 requesting its key directly instead of just requesting a service type.
-The call would then look something like:
-
-::
+The call would then look something like::
 
    if (is_object($serviceObj = t3lib_div::makeInstanceService('tx_myservice_sv1'))) {
      // Do something with the object

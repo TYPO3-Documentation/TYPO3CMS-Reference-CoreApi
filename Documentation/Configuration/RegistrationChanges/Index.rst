@@ -1,37 +1,24 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Registration changes
 ^^^^^^^^^^^^^^^^^^^^
 
 The priority and other values of the services registration can be
-overridden in :code:`typo3conf/localconf.php` . Example:
-
-::
+overridden in :code:`typo3conf/localconf.php` . Example::
 
        // raise priority of service 'tx_example_sv1' to 110
    $TYPO3_CONF_VARS['T3_SERVICES']['auth']['tx_example_sv1']['priority'] = 110;
-   
+
        // disable service 'tx_example_sv1'
    $TYPO3_CONF_VARS['T3_SERVICES']['auth']['tx_example_sv1']['enable'] = false;
 
-The syntax is:
-
-::
+The syntax is::
 
    $TYPO3_CONF_VARS['T3_SERVICES'][service type][service key][option key] = value;
 

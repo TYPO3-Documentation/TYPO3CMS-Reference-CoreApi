@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+.. include:: Images.txt
 
 
 |img-5| Service-related API
@@ -34,7 +26,7 @@ services:
 
    Method
          Method:
-   
+
    Description
          Description:
 
@@ -43,7 +35,7 @@ services:
 
    Method
          addService
-   
+
    Description
          This method is used to register services with TYPO3. It checks for
          availability of service with regards to OS dependency (if any) and
@@ -55,12 +47,12 @@ services:
 
    Method
          findService
-   
+
    Description
          This method is used to find the appropriate service given a type and a
          subtype. It handles priority and quality rankings. It also checks for
          availability based on executables dependencies, if any.
-         
+
          This method is normally called by
          :code:`t3lib\_div::makeInstanceService()` , so you shouldn't have to
          worry about calling it directly, but it can be useful to check if
@@ -71,7 +63,7 @@ services:
 
    Method
          deactivateService
-   
+
    Description
          Marks a service as unavailable. It is called internally by
          :code:`addService()` and :code:`findService()` and should probably not
@@ -93,7 +85,7 @@ useful one, used to get an instance of a service.
 
    Method
          Method:
-   
+
    Description
          Description:
 
@@ -102,12 +94,12 @@ useful one, used to get an instance of a service.
 
    Method
          makeInstanceService
-   
+
    Description
          This method is used to get an instance of a service class of a given
          type and subtype. It calls on :code:`t3lib\_extMgm::findService()` to
          find the best possible service (in terms of priority and quality).
-         
+
          As described above it keeps a registry of all instantiated service
          classes and uses existing instances whenever possible, in effect
          turning service classes into singletons.

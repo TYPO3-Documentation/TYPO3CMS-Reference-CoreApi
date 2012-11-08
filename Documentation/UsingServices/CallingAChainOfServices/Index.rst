@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Calling a chain of services
@@ -28,16 +19,14 @@ services of a type by passing the already used service keys. Services
 will be called in order of decreasing priority and quality.
 
 The following example is an extract of the user authentication
-process:
-
-::
+process::
 
       // use 'auth' service to find the user
            // first found user will be used
    $serviceChain='';
    while (is_object($serviceObj = t3lib_div::makeInstanceService('auth', $subType, $serviceChain))) {
            $serviceChain .= ',' . $serviceObj->getServiceKey();
-   
+
            if ($tempuser = $serviceObj->getUser($info, $subType, $this)) {
                            // user found, do something and exit the chain
              ...
@@ -48,9 +37,7 @@ process:
 As you see the while loop is exited when a service gives a result.
 More sophisticated mechanisms can be imagined. In this next example –
 also taken from the authentication process – the loop is exited only
-when a certain value is returned by the method called:
-
-::
+when a certain value is returned by the method called::
 
         // use 'auth' service to authenticate the user
      // if one service returns FALSE then authentication failed
@@ -61,7 +48,7 @@ when a certain value is returned by the method called:
            $serviceChain .= ',' . $serviceObj->getServiceKey();
            $serviceObj->initAuth($subType, $loginData, $authInfo, $this);
            if (($ret = $serviceObj->authUser($tempuser))>0) {
-                           // if the service returns >=200 then no more checking is needed 
+                           // if the service returns >=200 then no more checking is needed
                      // useful for IP checking without password
                    if (intval($ret) >= 200) {
                            $authenticated = true;

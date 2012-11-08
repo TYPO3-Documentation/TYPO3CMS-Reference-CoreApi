@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../Includes.txt
 
 
 Introduction
@@ -28,18 +19,14 @@ or of the extension.
 
 Services are PHP classes inside of an extension similar to FE-plugins
 (or inside the core of TYPO3, for some base services). Usually when
-you use a class, you address it directly by creating an instance:
-
-::
+you use a class, you address it directly by creating an instance::
 
    require_once(t3lib_extMgm::extPath('some_extension').'class.tx_some_extension_class.php');
    $obj = t3lib_div::makeInstance('tx_some_extension_class');
 
 Using a service class is done by calling a function which chooses the
 right service automatically by passing only the requested service type
-name and not the class name:
-
-::
+name and not the class name::
 
    $serviceObj = t3lib_div::makeInstanceService('my_service_type');
 

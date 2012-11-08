@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 Two reasons to use services
@@ -39,9 +30,7 @@ availability or not of Perl on the server.
 
 Services are able to handle subtypes. Take the service of the type
 “fileMeta” which extracts meta data from files. It provides
-information depending on the file type for which it is implemented.
-
-::
+information depending on the file type for which it is implemented. ::
 
    if (is_object($serviceObj = t3lib_div::makeInstanceService('fileMeta', $fileExtension))) {
      $meta = serviceObj->getFileMeta($filename);
