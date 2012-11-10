@@ -1,18 +1,10 @@
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../Includes.txt
+
 
 ===============================
 Admin Documentation
@@ -35,7 +27,7 @@ The most fundamental change the introduction of FAL brings is that files are not
 For the editors, this means that:
 
 * Less disk space is used: If the same image is displayed in 4 different locations on the site, only one fourth of the disk space is needed.
-* Assets can be centrally replaced: It's possible to centrally replace a file with an updated version without having to change it in each individual place where it's used. 
+* Assets can be centrally replaced: It's possible to centrally replace a file with an updated version without having to change it in each individual place where it's used.
 * Tracking usages is possible: It's possible to identify for any asset where it is used throughout the page and display or count the references to it. This makes it technically possible to display warnings when deleting an asset to warn the user of existing references to it.
 
 Storages
@@ -70,7 +62,7 @@ When a pre-FAL installtion is migrated to FAL, this is what needs to be changes 
 
 * The media and image fields of the Content and Pages table have been changed to use proper FAL relations. This technically means that images have been copied to the fileadmin directory and proper relations made. This means that:
 
-  * For each file in fileadmin/, a sys_file record has been created (also called the "index records") 
+  * For each file in fileadmin/, a sys_file record has been created (also called the "index records")
   * For each usage of the file from a content element, a relation records has been created (table "sys_file_references") which relates the content record to the index record
 
 
@@ -98,7 +90,7 @@ When you create the Storage record for the remote Storage, you are asked for mor
 Indexing
 ******************************************
 
-TODO: Write. 
+TODO: Write.
 
 * fine-tuning
 * cron-automation

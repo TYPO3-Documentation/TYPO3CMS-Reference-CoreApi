@@ -17,3 +17,5 @@
    :class:  typoscript
 
 .. role::   php(code)
+
+.. highlight:: php

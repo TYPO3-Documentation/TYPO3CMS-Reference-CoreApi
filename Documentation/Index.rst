@@ -6,6 +6,9 @@
 .. include:: Includes.txt
 
 
+.. include:: Includes.txt
+
+
 ======================
 File Abstraction Layer
 ======================
@@ -37,6 +40,9 @@ File Abstraction Layer
 :License:
       Open Content License available from `www.opencontent.org/opl.shtml
       <http://www.opencontent.org/opl.shtml>`_
+
+:Rendered:
+      |today|
 
 The content of this document is related to TYPO3,
 
@@ -77,11 +83,4 @@ address the task at hand.
 
    Administrators/Index
    Developers/Index
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
-
+   Targets

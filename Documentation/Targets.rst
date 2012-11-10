@@ -3,20 +3,12 @@
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. include:: ../Includes.txt
+.. include:: Includes.txt
 
 
-Developers
-==========
+.. include:: Includes.txt
 
-Contents:
+Index: Labels for Crossreferencing
+==================================
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
-
-   UsingFal/Index
-   Architecture/Index
-   Api/Index
-
+.. ref-targets-list::
