@@ -44,7 +44,7 @@ area. This behaviour is done automatically with every AJAX call to
 also only active if "typo3/js/common.js" is added to the base script.
 
 Since TYPO3 4.4, ExtJS is used instead for AJAX calls. TYPO3 even
-supports usage of ExtDirect.
+supports usage of :ref:`Ext.Direct<extdirect>`.
 
 
 .. _ajax-server:

@@ -113,7 +113,7 @@ these two lines of PHP code to your PHP script (available in
 4) With prototype on the client side, it's quite simple to add a new
 AJAX request in Javascript:
 
-::
+.. code-block:: javascript
 
    new Ajax.Request('ajax.php', {
        method: 'get',

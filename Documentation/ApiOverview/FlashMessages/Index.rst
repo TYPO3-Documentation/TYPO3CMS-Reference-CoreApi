@@ -142,3 +142,25 @@ as shown in this excerpt of :file:`EXT:examples/Resources/Private/Layouts/Module
 
 Where to display the flash messages in an Extbase-based BE module is
 as simple as moving the View Helper around.
+
+
+.. _flash-messages-javascript:
+
+JavaScript-based flash messages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Flash messages can also be fired up from JavaScript, coming up
+as small pop up windows. Here is sample code taken from the
+"examples" extension:
+
+::
+
+   TYPO3.Flashmessage.display(
+   	TYPO3.Severity.ok,
+   	title,
+   	message,
+   	5
+   );
+
+The last parameter is the duration (in seconds) after which
+the message should fade out.

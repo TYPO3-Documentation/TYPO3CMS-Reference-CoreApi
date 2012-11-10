@@ -18,4 +18,5 @@ Using ExtJS
    :glob:
 
    Loading/Index
+   ExtDirect/Index
 

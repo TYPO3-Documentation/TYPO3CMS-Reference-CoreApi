@@ -587,7 +587,7 @@ real documentation is found in the source scripts (and the
 
          Creates a URL to the TYPO3 Core Engine interface provided from the
          core script, "tce\_db.php". The $params array is filled with date or
-         cmd values. For detailed list of options see :ref:`t3api:tce-core`.
+         cmd values. For detailed list of options see :ref:`tce`.
 
          Example:
 
