@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _hooks-concept:
@@ -50,9 +53,7 @@ How a hook looks
 The two lines of code below are an example of how a hook is used for
 clear-cache post-processing. The objective of this need could be to
 perform additional actions whenever the cache is cleared for a
-specific page.
-
-::
+specific page. ::
 
    $TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = 'myext_cacheProc->proc';
 
@@ -98,3 +99,4 @@ hooks can even rearrange the calling order if they dare.
 The syntax of a function reference (or object reference if
 :code:`t3lib_div::getUserObj` is used in the hook instead) can be seen in the
 API documentation of :code:`t3lib_div`.
+

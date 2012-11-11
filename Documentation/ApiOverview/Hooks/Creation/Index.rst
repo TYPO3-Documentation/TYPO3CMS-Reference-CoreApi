@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _hooks-creation:
@@ -71,3 +74,4 @@ Using with t3lib\_div::callUserFunction()
            t3lib_div::callUserFunction($_funcRef,$_params, $this);
        }
    }
+

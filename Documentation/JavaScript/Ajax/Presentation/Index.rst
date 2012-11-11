@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _ajax-presentation:
@@ -74,9 +77,7 @@ single inheritance in OOP).
 
 Also, for every TYPO3 request, you will now have a :code:`TYPO3_REQUESTTYPE`
 variable that can be used for bitwise comparison. You can now check if
-you're in Backend or Frontend or in an valid AJAX request with
-
-::
+you're in Backend or Frontend or in an valid AJAX request with ::
 
    if (TYPO3_REQUESTTYPE && TYPO3_REQUESTTYPE_AJAX)
 
@@ -97,9 +98,7 @@ formats.
 
 - application/json - JSON notation
 
-You can also specify the contentFormat in the AJAX object like this:
-
-::
+You can also specify the contentFormat in the AJAX object like this::
 
    $ajaxObj->setContentFormat('json');
 
@@ -143,4 +142,5 @@ and additionally in the "responseText" part of the transport object
 variable is filled, if "jsonhead" is set, it is only in the second
 parameter. This is useful to save traffic and you can use it with
 whatever format you like.
+
 

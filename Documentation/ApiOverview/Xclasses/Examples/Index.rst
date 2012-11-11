@@ -1,10 +1,10 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
 
 
 .. _xclasses-example:
@@ -34,9 +34,7 @@ the "New" dialog:
    :code:`t3lib_pageTree`) and :code:`SC_db_new`. The class :code:`SC_db_new` is a
    so-called "Script Class" - this will hold the code specifically for this
    script.You also find that the only code executed in the global scope
-   is this:
-
-   ::
+   is this::
 
          $SOBE = t3lib_div::makeInstance('SC_db_new');
          $SOBE->init();
@@ -48,9 +46,7 @@ the "New" dialog:
 
 #. Finally you find that immediately after the definition of the two
    classes there is three lines of code which will provide you with the
-   final piece of knowledge you need:
-
-   ::
+   final piece of knowledge you need::
 
       if (defined('TYPO3_MODE') && isset($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['typo3/db_new.php'])) {
       	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['typo3/db_new.php']);
@@ -62,9 +58,7 @@ the "New" dialog:
 Let's see what happens then in the extension "examples":
 
 #. First we have a class that extends the :code:`SC_db_new`
-   (:file:`xclasses/class.tx_examples_scdbnew.php`):
-
-   ::
+   (:file:`xclasses/class.tx_examples_scdbnew.php`)::
 
       function regularNew() {
       	parent::regularNew();
@@ -77,9 +71,7 @@ Let's see what happens then in the extension "examples":
       }
 
 #. The XCLASS is then registered in the extension's :file:`ext_localconf.php`
-   file:
-
-   ::
+   file::
 
    $TYPO3_CONF_VARS['BE']['XCLASS']['typo3/db_new.php'] = t3lib_extMgm::extPath($_EXTKEY, 'xclasses/class.tx_examples_scdbnew.php');`
 
@@ -123,9 +115,7 @@ the backend:
    general use of the parent class. Such dummy-method calls are not
    widely included yet, but will be as suggestions for them appears. And
    you are very welcome to give in such suggestions.I'll just give an
-   example to illustrate what I mean:
-
-   ::
+   example to illustrate what I mean::
 
       class SC_example {
           function main() {
@@ -141,9 +131,7 @@ the backend:
    extension script. Here it would be no problem because the method is 2
    lines long. But it could be 200 lines! So what you do is that you
    suggest to the TYPO3 development to call a "harmless" dummy method in
-   the :code:`main()` method...
-
-   ::
+   the :code:`main()` method... ::
 
       class SC_example {
           function main() {
@@ -157,9 +145,7 @@ the backend:
       }
 
 
-   ... and then you extend the class as follows:
-
-   ::
+   ... and then you extend the class as follows::
 
       class ux_SC_example extends SC_example {
       	function processNumber() {
@@ -185,9 +171,7 @@ class :code:`tslib_cObj` (found in the class file
 The first thing to do is to create the extension class. So you create
 a file in the :file:`typo3conf/` directory named
 :file:`class.ux_tslib_content.php`. :code:`ux` is a prefix meaning "user-
-extension". This file may look like this:
-
-::
+extension". This file may look like this::
 
    <?php
    /**
@@ -210,9 +194,7 @@ extension". This file may look like this:
    ?>
 
 The next thing is to configure TYPO3 to include this class file as
-well after the original file :file:`tslib/class.tslib_content.php`:
-
-::
+well after the original file :file:`tslib/class.tslib_content.php`::
 
    $TYPO3_CONF_VARS['FE']['XCLASS']['tslib/class.tslib_content.php']=
                               PATH_typo3conf . 'class.ux_tslib_content.php';
@@ -220,9 +202,7 @@ well after the original file :file:`tslib/class.tslib_content.php`:
 So when the file :file:`tslib/class.tslib_content.php` is included inside
 of :file:`class.tslib\_pagegen.php`, the extension class is included
 immediately from inside the :file:`tslib/class.tslib_content.php` file
-(this is from the bottom of the file):
-
-::
+(this is from the bottom of the file)::
 
    if (defined('TYPO3_MODE') &&
           $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['tslib/class.tslib_content.php'])    {
@@ -236,26 +216,21 @@ if :code:`ux_tslib_cObj` exists and if so, that class is instantiated
 instead!
 
 This is done by instantiating the object with
-:code:`t3lib_div::makeInstance()`:
-
-::
+:code:`t3lib_div::makeInstance()`::
 
    $cObj = t3lib_div::makeInstance('tslib_cObj');
 
-Originally it looked like this:
-
-::
+Originally it looked like this::
 
    $cObj = new tslib_cObj;
 
-Internally :code:`t3lib_div::makeInstance()` does something like:
-
-::
+Internally :code:`t3lib_div::makeInstance()` does something like::
 
    $cObj = class_exists('ux_tslib_cObj') ? new ux_tslib_cObj : new tslib_cObj;
 
 
 .. important::
+
    When setting up the file to include, in particular from :file:`t3lib/`, notice
    the difference between :code:`$TYPO3_CONF_VARS["BE"]["XCLASS"][...]` and
    :code:`$TYPO3_CONF_VARS["FE"]["XCLASS"][...]`. The key :code:`FE` is used when the
@@ -266,3 +241,4 @@ Internally :code:`t3lib_div::makeInstance()` does something like:
    :file:`typo3/thumbs.php`). This feature allows you to include a different
    extension when the (:file:`t3lib/-`) class is used in the frontend and in the
    backend.
+

@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 Elements
@@ -254,9 +245,7 @@ Example: FlexForm configuration in "mininews" extension
 
 Simple example of a data structure used to define a FlexForm element
 in TCEforms. Notice the application specific section <TCEforms> (see
-documentation for FlexForms).
-
-::
+documentation for FlexForms). ::
 
    <T3DataStructure>
            <meta>
@@ -299,9 +288,7 @@ Example #2
 ~~~~~~~~~~
 
 More complex example of a FlexForms structure, using two sheets,
-"sDEF" and "s\_welcome" (snippet from "newloginbox" extension).
-
-::
+"sDEF" and "s\_welcome" (snippet from "newloginbox" extension). ::
 
    <T3DataStructure>
      <sheets>
@@ -354,4 +341,5 @@ More complex example of a FlexForms structure, using two sheets,
        </s_welcome>
      </sheets>
    </T3DataStructure>
+
 

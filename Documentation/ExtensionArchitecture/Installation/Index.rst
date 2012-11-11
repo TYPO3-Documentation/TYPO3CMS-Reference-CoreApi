@@ -1,18 +1,10 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+
 
 .. _extension-install:
 
@@ -70,9 +62,7 @@ The loading and registration process happens in
 (`TYPO3_MODE = FE`), `$TYPO3_LOADED_EXT` contains only extensions where
 the `$EM_CONF` option (see later) "doNotLoadInFE" is not set.
 
-This is how the data structure for an extension in this array looks:
-
-::
+This is how the data structure for an extension in this array looks::
 
    $TYPO3_LOADED_EXT[extension key] = array(
            "type" =>                S, G, L for system, global or local type of availability.
@@ -96,3 +86,4 @@ course.
 
 The inclusion of `ext_tables.php` or `ext_localconf.php` files (see next chapter) is done
 by traversing (a copy of) the `$TYPO3_LOADED_EXT` array.
+

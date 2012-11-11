@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _globals-constants:
@@ -242,9 +245,7 @@ These constants are defined at various points during the bootstrap sequence.
          If defined and set true the Install Tool is activated and the script
          exits after that. Used in :file:`typo3/install/index.php`:
 
-         **Example:**
-
-         ::
+         **Example:** ::
 
             define('TYPO3_enterInstallScript', '1');
    :FE:
@@ -260,9 +261,7 @@ These constants are defined at various points during the bootstrap sequence.
          parent script *even if no backend user was authenticated!*
 
          This constant is set by for instance the :file:`index.php` script so it can
-         include :file:`init.php` and still show the login form:
-
-         ::
+         include :file:`init.php` and still show the login form::
 
             define('TYPO3_PROCEED_IF_NO_USER', 1);
             require ('init.php');
@@ -301,3 +300,4 @@ These constants are defined at various points during the bootstrap sequence.
          x.x.x-bx for beta-versions
    :FE:
          Yes
+

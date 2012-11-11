@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Directory structure for "skinImgAutoCfg" feature
@@ -41,4 +33,5 @@ alternative file for "sys\_action.gif" into the folder
 If you look in the "icons" folder of the "skin360" extension you can
 also see that all the module icons are located there - but notice that
 they are  *manually* referenced in the "skinImg" key!
+
 

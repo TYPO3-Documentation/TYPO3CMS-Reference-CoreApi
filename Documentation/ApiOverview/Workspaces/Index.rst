@@ -1,10 +1,13 @@
-﻿.. include:: ../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../Includes.txt
+
+
+
+
 
 
 .. _workspaces:
@@ -132,9 +135,7 @@ Frontend implementation guidelines
 
          This is how simple it is to use this record in your frontend plugins
          when you do queries directly (not using API functions already using
-         them):
-
-         ::
+         them)::
 
             $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(...);
             while (($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
@@ -183,9 +184,7 @@ These issues are not planned to be supported for preview:
   - This problem can largely be avoided for  *versions of new records*
     because versions of a "New"-placeholder can mirror certain fields down
     onto the placeholder record. For the :code:`tt\_content` table this is
-    configured as
-
-    ::
+    configured as ::
 
        shadowColumnsForNewPlaceholders'=> 'sys\_language\_uid,l18n\_parent,colPos,header'
 
@@ -251,9 +250,7 @@ Workspace-related API for backend modules
          have fields only from the table (no pseudo fields) and the record is
          passed by reference.
 
-         **Example:**
-
-         ::
+         **Example:** ::
 
             $result = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'pages', 'uid=' . intval($id) . $delClause);
             $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($result);
@@ -266,9 +263,7 @@ Workspace-related API for backend modules
          Gets record from table and overlays the record with workspace version
          if any.
 
-         **Example:**
-
-         ::
+         **Example:** ::
 
             $row = t3lib_BEfunc::getRecordWSOL($table, $uid);
 
@@ -314,9 +309,7 @@ Workspace-related API for backend modules
          are selected based on other fields than uid and where
          :code:`t3lib_BEfunc::deleteClause()` is used.
 
-         **Example:**
-
-         ::
+         **Example:** ::
 
             $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
                'count(*)',
@@ -392,9 +385,7 @@ Backend module access
 
 You can restrict access to backend modules by using
 :code:`$MCONF['workspaces']` in the :file:`conf.php` files. The variable is a list of
-keywords defining where the module is available:
-
-::
+keywords defining where the module is available::
 
    $MCONF['workspaces'] = online,offline,custom
 
@@ -463,3 +454,4 @@ record, overlays any version on top and displays it. When the source
 record is selected it should simply be discarded in case shown in
 context where ordering or position matters (like in menus or column
 based page content). This is done in the appropriate places.
+

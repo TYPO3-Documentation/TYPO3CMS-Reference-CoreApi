@@ -1,10 +1,9 @@
-﻿.. include:: ../../../Includes.txt
-
-
-.. ==================================================
+﻿.. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
 
 
 .. _viewport:
@@ -52,12 +51,8 @@ information box or whatever else to the navigation container of the viewport.
 This can be achieved for any backend module with a simple
 call to the registration API inside the :file:`ext_tables.php` of an extension.
 
-The registration method) takes two required parameters:
-
-# Module name
-# Component id and event name (see below for the details)
-
-::
+The registration method takes two required parameters,
+the component id and the event name (see below for the details)::
 
    t3lib_extMgm::addNavigationComponent('tools_Examples', 'typo3-navigation');
 
@@ -91,9 +86,7 @@ be declared in the options list (notice the highlighted line below):
 The directory structure is predefined. This means that there is no additional
 information to pass in the registration call. On the other hand the necessary files
 must fit the defined paths (the structure below is that of the "examples" extension
-and starts with the extension's folder):
-
-::
+and starts with the extension's folder)::
 
    - examples
    |- components
@@ -136,9 +129,7 @@ Global Navigation Components
 
 If you have written a navigation component that should be used
 by a whole group of modules sharing the same prefix like "web" or "tools",
-just register the component like this:
-
-::
+just register the component like this::
 
    t3lib_extMgm::addNavigationComponent('web', 'typo3-pagetree');
 
@@ -176,17 +167,13 @@ The next example demonstrates this by adding a collapse/expand functionality to 
 
 
 First a class must be declared to use the "render-preProcess" hook of the
-:code:`t3lib_pageRenderer` class (in the :file:`ext_localconf.php` file):
-
-::
+:code:`t3lib_pageRenderer` class (in the :file:`ext_localconf.php` file)::
 
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][] =
      'EXT:' . $_EXTKEY . '/Classes/Utilities/Viewport.php:Tx_Examples_Utilities_Viewport->renderPreProcess';
 
 
-Then here is the class itself (as usual taken from the "examples" extension):
-
-::
+Then here is the class itself (as usual taken from the "examples" extension)::
 
    public function renderPreProcess($parameters, $pageRenderer) {
    	$pageRenderer->addExtOnReadyCode('
@@ -209,9 +196,7 @@ Debug Console
 
 The debug console is located inside the debug panel position at the south of the viewport.
 It's based upon an extended ExtJS tabPanel component. A new tab can be added to the debug console
-by calling :code:`t3lib_utility_Debug::debug()`:
-
-::
+by calling :code:`t3lib_utility_Debug::debug()`::
 
    t3lib_utility_Debug::debug('New debug console message', 'Title', 'My new tab');
 

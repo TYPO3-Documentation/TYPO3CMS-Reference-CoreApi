@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Skinning database record icons with variations
@@ -93,9 +85,7 @@ Automatic creation of pre-made variations
 
 In order to create variations for inclusion in your extensions (for
 the default icon) you can enable the rendering of icons if you like
-(in localconf.php):
-
-::
+(in localconf.php)::
 
    $TYPO3_CONF_VARS['GFX']['noIconProc']=0;
 
@@ -141,4 +131,5 @@ general enough to allow for a pre-made icon - enabling starttime
 results in a "no\_icon\_found.gif" version as you can see below:
 
 |img-51|
+
 

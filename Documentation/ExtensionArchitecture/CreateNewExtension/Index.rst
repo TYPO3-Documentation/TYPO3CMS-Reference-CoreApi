@@ -1,16 +1,10 @@
-﻿.. ==================================================
+.. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+
 
 .. _extension-create-new:
 
@@ -159,3 +153,4 @@ A good workflow for using the Kickstarter would be like this:
   programming the extension itself). This is the "point-of-no-return"
   where you cannot safely return to the Kickstarter because you have now
   changed scripts manually.
+

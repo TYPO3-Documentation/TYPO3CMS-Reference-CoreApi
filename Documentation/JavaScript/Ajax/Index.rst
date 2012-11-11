@@ -1,10 +1,13 @@
-﻿.. include:: ../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../Includes.txt
+
+
+
+
 
 .. _ajax:
 
@@ -35,4 +38,5 @@ Javascript framework) will know that there is an error.
 
    Presentation/Index
    Backend/Index
+
 

@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 Transformation overview
@@ -150,4 +141,5 @@ In addition, custom transformations can be created. This allows you to
 create your own tailor made transformations with a PHP class where you
 can program how content is processed to and from the database. See
 section later.
+
 

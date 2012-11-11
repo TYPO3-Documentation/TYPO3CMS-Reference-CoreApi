@@ -1,10 +1,13 @@
-﻿.. include:: ../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../Includes.txt
+
+
+
+
 
 
 .. _syslog:
@@ -13,9 +16,7 @@ Using the system log
 --------------------
 
 Writing to the system log is done using the backend user object,
-which writes to the "sys_log" table:
-
-::
+which writes to the "sys_log" table::
 
    $this->BE_USER->writelog($type, $action, $error, $details_nr, $details, $data, $table, $recuid, $recpid,$event_pid, $NEWid);
 
@@ -259,9 +260,7 @@ Making logging simple
 
 While it is nice to have log message categorized and numbered during
 development and sometimes beyond that point a simpler logging API is
-necessary. Therefore you can also call this function:
-
-::
+necessary. Therefore you can also call this function::
 
    BE_USER->simplelog($message, $extKey='', $error=0);
 
@@ -269,3 +268,4 @@ All you need is to set :code:`$message` to store a log message. If you call it
 from an extension it is good practice to also supply the extension
 key. Finally you can add the error number (according to the table
 above) if you need to signal an error.
+

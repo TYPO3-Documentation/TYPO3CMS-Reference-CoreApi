@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 Elements
@@ -308,9 +299,7 @@ must be strings or integers.)
          single table) or it can be module names etc. with a prefix to
          determine type. See CSH section in "Inside TYPO3" for more details.
 
-         **Examples:**
-
-         ::
+         **Examples:** ::
 
             <csh_table>xMOD_csh_corebe</csh_table> (General Core CSH)
             <csh_table>_MOD_tools_em</csh_table> (For Extension Mgm. module)
@@ -406,9 +395,7 @@ Notice how the <orig\_hash> section is included which means that
 translators can spot if an original label changes. However the
 "<orig\_text>" section would have been needed if translators were
 supposed to also see the difference. But typically that is not enabled
-since it takes a lot of space up.
-
-::
+since it takes a lot of space up. ::
 
    <T3locallang>
        <meta type="array">
@@ -446,9 +433,7 @@ the right category.
 
 In the <data> section you can see all default labels. But notice how
 the value for the "dk" translation is a reference to an external file!
-The contents of that file is shown below this listing.
-
-::
+The contents of that file is shown below this listing. ::
 
    <T3locallang>
        <meta type="array">
@@ -470,9 +455,7 @@ The contents of that file is shown below this listing.
        </data>
    </T3locallang>
 
-The include file (for "dk") looks like below.
-
-::
+The include file (for "dk") looks like below. ::
 
    <T3locallangExt>
        <data type="array">
@@ -493,5 +476,6 @@ The include file (for "dk") looks like below.
    </T3locallangExt>
 
 135
+
 
 

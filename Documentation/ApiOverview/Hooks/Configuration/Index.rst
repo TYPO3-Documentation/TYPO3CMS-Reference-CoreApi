@@ -1,10 +1,10 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
 
 
 .. _hooks-configuration:
@@ -34,9 +34,7 @@ $TYPO3\_CONF\_VARS['EXTCONF']
 This will contain all kinds of configuration options for specific
 extensions including possible hooks in them! What options are
 available to you will depend on a search in the documentation for that
-particular extension.
-
-::
+particular extension. ::
 
    $TYPO3_CONF_VARS['EXTCONF'][ extension_key ][ sub_key ] = value
 
@@ -51,6 +49,7 @@ particular extension.
   see. Or the documentation of the extension, if available.
 
 .. note::
+
    :code:`$TYPO3_CONF_VARS['EXTCONF']` is the recommended place to
    put hook configuration that are available inside your extensions!
 
@@ -58,9 +57,7 @@ This example shows hooks used in the "linkvalidator" system extension.
 The code looks inside the :code:`$TYPO3_CONF_VARS['EXTCONF']` array
 for items listed under the "checkLinks" key of the "linkvalidator"
 extension itself. All found classes are stored in an array, to be instantiated
-and used at a later point.
-
-::
+and used at a later point. ::
 
 	/**
 	 * Fill hookObjectsArr with different link types and possible XClasses.
@@ -85,9 +82,7 @@ $TYPO3\_CONF\_VARS['SC\_OPTIONS']
 This array is created as an ad hoc space for creating hooks from any
 script. This will typically be used from the core scripts of TYPO3
 which do not have a natural identifier like extensions have their
-extension keys.
-
-::
+extension keys. ::
 
    $TYPO3_CONF_VARS['SC_OPTIONS'][ main_key ][ sub_key ][ index ] = function_reference
 
@@ -117,9 +112,7 @@ function returns an object instance of that class. The method name to
 call is predefined by the hook, in this case
 :code:`sendFormmail_preProcessVariables()`. This method allows to pass any
 number of variables along instead of the limited :code:`$params` and :code:`$pObj`
-variables from :code:`t3lib_div::callUserFunction()`.
-
-::
+variables from :code:`t3lib_div::callUserFunction()`. ::
 
        // Hook for preprocessing of the content for formmails:
    if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['sendFormmail-PreProcClass'])) {
@@ -134,9 +127,7 @@ RTE transformations. It is not a "hook" in the strict
 sense, but the same principles are used. In this case the "index" key
 is defined to be the transformation key name, not a random integer
 since we do not iterate over the array as usual.
-:code:`t3lib_div::getUserObj()` is also used.
-
-::
+:code:`t3lib_div::getUserObj()` is also used. ::
 
    if ($_classRef = $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation'][$cmd]) {
        $_procObj = &t3lib_div::getUserObj($_classRef);
@@ -150,9 +141,7 @@ A classic hook also from :code:`tslib_fe`. This one is based on
 along to the function via :code:`$_params`. In the user-defined function
 :code:`$_params['pObj']->content` is meant to be manipulated in some way. The
 return value is insignificant - everything works by the reference to
-the parent object.
-
-::
+the parent object. ::
 
        // Hook for post-processing of page content cached/non-cached:
    if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all'])) {
@@ -173,9 +162,7 @@ $TYPO3\_CONF\_VARS['TBE\_MODULES\_EXT']
 Among these configuration options you might find entry points for
 hooks in the backend. This somehow overlaps the intention of
 :code:`SC_OPTIONS` above but this array is an older invention and slightly
-outdated.
-
-::
+outdated. ::
 
    $TBE_MODULES_EXT[ backend_module_key ][ sub_key ] = value
 
@@ -212,9 +199,7 @@ This kind of hook is non-standard in the way it is made.
 The following code listings works in the same way. First, a list of
 class files to include is registered. Then in the second code listing
 the same array is traversed and each class is instantiated and a fixed
-function name is called for processing.
-
-::
+function name is called for processing. ::
 
        // Setting class files to include:
    if (is_array($TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses'])) {
@@ -229,3 +214,4 @@ function name is called for processing.
            $wizardItems = $modObj->proc($wizardItems);
        }
    }
+

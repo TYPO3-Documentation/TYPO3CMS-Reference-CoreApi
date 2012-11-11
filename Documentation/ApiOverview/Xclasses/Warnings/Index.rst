@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _xclasses-warnings:
@@ -40,4 +43,5 @@ There are a few warnings about using XCLASS extensions:
   behavior producing "undefined function...." errors. The solution is:
   Always clear :file:`/tmp/php_a_*` files and restart your web server after
   upgrading source.
+
 

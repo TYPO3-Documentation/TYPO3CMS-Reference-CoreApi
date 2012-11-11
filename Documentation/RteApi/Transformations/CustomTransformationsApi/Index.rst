@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 Custom transformations API
@@ -41,9 +32,7 @@ Registering the transformation key in the system
 """"""""""""""""""""""""""""""""""""""""""""""""
 
 In "ext\_localconf.php" you simply set a $TYPO3\_CONF\_VARS variable
-to point to the class which contains the transformation methods:
-
-::
+to point to the class which contains the transformation methods::
 
    $TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation']['tx_myext']
        = 'EXT:myext/custom_transformation.php:user_transformation';
@@ -65,25 +54,23 @@ delivered to the RTE it will add a <hr/> tag to the end of the
 content. When the content is stored in the database any <hr/> tag in
 the end of the content will be removed and substituted with
 whitespace. This is of totally useless but nevertheless shows the
-concept of transformations between RTE and DB.
-
-::
+concept of transformations between RTE and DB. ::
 
       0: /**
       1:  * Custom RTE transformation
       2:  */
       3: class user_transformation {
-      4: 
+      4:
       5:         // object; Reference to the parent object, t3lib_parsehtml_proc
       6:     var $pObj;
-      7: 
+      7:
       8:         // Transformation key of self.
       9:     var $transformationKey = 'tx_myext';
-     10: 
+     10:
      11:         // Will contain transformation configuration if found:
      12:     var $conf;
-     13: 
-     14: 
+     13:
+     14:
      15:     /**
      16:      * Setting specific configuration for this transformation
      17:      *
@@ -92,7 +79,7 @@ concept of transformations between RTE and DB.
      20:     function initConfig()    {
      21:         $this->conf = $this->pObj->procOptions['usertrans.'][$this->transformationKey.'.'];
      22:     }
-     23: 
+     23:
      24:     /**
      25:      * Reserved method name, called when content is transformed for DB storage
      26:      * If "proc.usertrans.tx_myext.addHrulerInRTE = 1" then a horizontal ruler in the
@@ -103,14 +90,14 @@ concept of transformations between RTE and DB.
      31:      */
      32:     function transform_db($value)    {
      33:         $this->initConfig();
-     34: 
+     34:
      35:         if ($this->conf['addHrulerInRTE'])    {
      36:             $value = eregi_replace('<hr[[:space:]]*[\/]>[[:space:]]*$','',$value);
      37:         }
-     38: 
+     38:
      39:         return $value;
      40:     }
-     41: 
+     41:
      42:     /**
      43:      * Reserved method name, called when content is transformed for RTE display
      44:      * If "proc.usertrans.tx_myext.addHrulerInRTE = 1" then a horizontal ruler
@@ -121,11 +108,11 @@ concept of transformations between RTE and DB.
      49:      */
      50:     function transform_rte($value)    {
      51:         $this->initConfig();
-     52: 
+     52:
      53:         if ($this->conf['addHrulerInRTE'])    {
      54:             $value.='<hr/>';
      55:         }
-     56: 
+     56:
      57:         return $value;
      58:     }
      59: }
@@ -155,9 +142,7 @@ Using the transformation
 
 In order to use the transformation you simply use it in the list of
 transformations in Special Configuration. Here is an example that
-works:
-
-::
+works::
 
       1: 'TEST01' => Array (
       2:     'label' => 'TEST01: Text field',
@@ -175,11 +160,10 @@ protects all non-allowed tags with htmlspecialchars().
 Now the transformations should be called correctly. Before the <hr/>
 will be added/removed we also have to configure through Page TSconfig
 (because we programmed our transformation to look for this
-configuration option):
-
-::
+configuration option)::
 
    RTE.default.proc.usertrans.tx_myext.addHrulerInRTE = 1
 
 That's all!
+
 

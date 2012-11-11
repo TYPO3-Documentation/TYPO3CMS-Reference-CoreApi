@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _t3lib-file-functions:
@@ -23,9 +26,7 @@ multidimensional array.
 Files Array
 """""""""""
 
-Syntax:
-
-::
+Syntax::
 
    $file[ command ][ index ][ key ] = value
 
@@ -258,12 +259,11 @@ You list extensions comma-separated. If the value is a '\*' every
 extension is matched. If no file extension, true is returned if
 'allow' is '\*', false if 'deny' is '\*' and true if none of these
 matches. This (default) configuration below accepts everything in
-ftpspace and everything in webspace except php files:
-
-::
+ftpspace and everything in webspace except php files::
 
    $TYPO3_CONF_VARS['BE']['fileExtensions'] = array (
        'webspace' => array('allow' => '', 'deny' => 'php'),
        'ftpspace' => array('allow' => '*', 'deny' => '')
    );
+
 

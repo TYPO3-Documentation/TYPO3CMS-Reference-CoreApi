@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 $TBE\_STYLES
@@ -136,9 +127,7 @@ must be  *relative* to the TYPO3 backend dir.
 
          - hoverColor *Link hover color*
 
-         **Example:**
-
-         ::
+         **Example:** ::
 
             $TBE_STYLES['mainColors'] = array(
                 'bgColor' => '#EDF4EB',
@@ -156,9 +145,7 @@ must be  *relative* to the TYPO3 backend dir.
          "mainColors" values shown above. Notice how they share the same name -
          but with some variations. For instance "bgColor-10" and "bgColor-20"
          is based on "bgColor" but darkend approx. 10% and 20%. Such variations
-         are available for usage when you want alternating values in a listing.
-
-         ::
+         are available for usage when you want alternating values in a listing. ::
 
             .bgColor {background-color: #F7F3EF;}
             .bgColor-10 {background-color: #ede9e5;}
@@ -310,9 +297,7 @@ must be  *relative* to the TYPO3 backend dir.
 
          - navFrameWidth *Default navigation frame width*
 
-         **Example:**
-
-         ::
+         **Example:** ::
 
                 // Alternative dimensions for frameset sizes:
             $TBE_STYLES['dims']['leftMenuFrameW']=165;
@@ -332,9 +317,7 @@ must be  *relative* to the TYPO3 backend dir.
 
    Description
          All scripts in TYPO3s backend calculates an automatic "script-id".
-         This id can be found in the HTML source:
-
-         ::
+         This id can be found in the HTML source::
 
             <html>
             <head>
@@ -350,9 +333,7 @@ must be  *relative* to the TYPO3 backend dir.
          different from the general "bgColor5". This can be done by the PHP
          line below - because the script ID 'typo3/alt\_clickmenu.php' simply
          configures the bgColor5 value differently when the alt\_clickmenu.php
-         script requests it!
-
-         ::
+         script requests it! ::
 
             $TBE_STYLES['scriptIDindex']['typo3/alt_clickmenu.php']['mainColors']['bgColor5']='#E0E7C7';
 
@@ -393,9 +374,7 @@ must be  *relative* to the TYPO3 backend dir.
            ***Notice:***  *Backend Module icons are not affected by this scaling
            factor*
 
-         **Example code listing:**
-
-         ::
+         **Example code listing:** ::
 
                 // Setting up auto detection of alternative icons:
             $TBE_STYLES['skinImgAutoCfg']=array(
@@ -449,9 +428,7 @@ must be  *relative* to the TYPO3 backend dir.
 .. ###### END~OF~TABLE ######
 
 Here is an example code listing for how most of these values can be
-set up in a "ext\_tables.php" file for an extension:
-
-::
+set up in a "ext\_tables.php" file for an extension::
 
       0:
       1:
@@ -550,4 +527,5 @@ sure that a skin also includes other extensions is shown in line 4
 where any values set in $TBE\_STYLES['skinImg'] prior to this
 extension is preserved. Thus other extensions can also autonomously
 provide support for popular skins by themselves!
+
 

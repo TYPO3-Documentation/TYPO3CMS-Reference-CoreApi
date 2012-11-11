@@ -3,17 +3,14 @@
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. include:: ../../Includes.txt
+.. include:: Includes.txt
 
 
-((generated))
--------------
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+.. _labels-for-crossreferencing:
 
-   PagesTypes/Index
+Index: Labels for Crossreferencing
+==================================
 
+.. ref-targets-list::
 

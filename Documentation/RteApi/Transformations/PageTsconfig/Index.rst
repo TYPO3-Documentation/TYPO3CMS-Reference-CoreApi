@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 Page TSconfig
@@ -96,27 +87,21 @@ like this:
 Configuration examples
 ~~~~~~~~~~~~~~~~~~~~~~
 
-This configuration in "Page TSconfig" will disable the RTE altogether:
-
-::
+This configuration in "Page TSconfig" will disable the RTE altogether::
 
    RTE.default.disabled = 1
 
 In the case below the RTE is still disabled generally, but this is
 overridden specifically for the table "tt\_content" where the RTE is
 used in the field "bodytext"; The "disabled" flag is set to false
-again which means that for Content Elements the RTE will be available.
-
-::
+again which means that for Content Elements the RTE will be available. ::
 
    RTE.default.disabled = 1
    RTE.config.tt_content.bodytext.disabled = 0
 
 In this example the RTE is still enabled for content elements in
 generally but if the Content Element type is set to "Text" (text) then
-the RTE will be disabled again!
-
-::
+the RTE will be disabled again! ::
 
    RTE.default.disabled = 1
    RTE.config.tt_content.bodytext.disabled = 0
@@ -351,9 +336,7 @@ of course.
          However the <TYPOCODE>-tag is also configured to let you define a
          section being formatted in monospace. Lets also imaging, you have
          defined a custom tag, <MYTAG>. In order to preserve these tag from
-         removal by the RTE, you should configure like this.
-
-         ::
+         removal by the RTE, you should configure like this. ::
 
             RTE.default.proc {
               preserveTags = TYPOCODE, MYTAG
@@ -896,4 +879,5 @@ of course.
 .. ###### END~OF~TABLE ######
 
 [page:->PROC]
+
 

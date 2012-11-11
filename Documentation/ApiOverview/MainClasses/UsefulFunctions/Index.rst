@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _useful-functions:
@@ -36,9 +39,7 @@ t3lib\_div
  - :Function:
          t3lib\_div::inList
    :Comments:
-         Check if an item exists in a comma-separated list of items.
-
-         ::
+         Check if an item exists in a comma-separated list of items. ::
 
             if (t3lib_div::inList('gif,jpg,png', $ext)) {//...}
 
@@ -49,9 +50,7 @@ t3lib\_div
          t3lib\_utility\_Math::forceIntegerInRange (as of TYPO3 4.6)
    :Comments:
          Forces the input variable (integer) into the boundaries of $min and
-         $max.
-
-         ::
+         $max. ::
 
             t3lib_utility_Math::forceIntegerInRange($row['priority'], 1, 5);
 
@@ -60,9 +59,7 @@ t3lib\_div
          t3lib\_div::isFirstPartOfStr
    :Comments:
          Returns true if the first part of input string matches the second
-         argument.
-
-         ::
+         argument. ::
 
             t3lib_div::isFirstPartOfStr($path, PATH_site);
 
@@ -84,16 +81,12 @@ t3lib\_div
          too long or you rather work with an integer than a string.
 
          **t3lib\_div::shortMD5()** - Creates a 10 byte short MD5 hash of input
-         string
-
-         ::
+         string ::
 
             $addQueryParams.= '&myHash=' . t3lib_div::shortMD5(serialize($myArguments));
 
          **t3lib\_div::md5int()** - Creates an integer from the first 7 hex
-         chars of the MD5 hash string
-
-         ::
+         chars of the MD5 hash string ::
 
             'mpvar_hash' => t3lib_div::md5int($GLOBALS['TSFE']->MP),
 
@@ -108,9 +101,7 @@ t3lib\_div
          **t3lib\_div::deHSCentities()** - Re-converts HTML entities if they
          have been converted by htmlspecialchars(). For instance "&amp;amp;"
          which should stay "&amp;". Or "&amp;#1234;" to "&#1234;". Or
-         "&amp;#x1b;" to "&#x1b;"
-
-         ::
+         "&amp;#x1b;" to "&#x1b;" ::
 
             $value = t3lib_div::deHSCentities(htmlspecialchars($value));
 
@@ -121,9 +112,7 @@ t3lib\_div
  - :Function:
          t3lib\_div::formatSize
    :Comments:
-         Formats a number of bytes as Kb/Mb/Gb for visual output.
-
-         ::
+         Formats a number of bytes as Kb/Mb/Gb for visual output. ::
 
             $size = ' (' . t3lib_div::formatSize(filesize($v)) . 'bytes)';
 
@@ -131,9 +120,7 @@ t3lib\_div
  - :Function:
          t3lib\_div::validEmail
    :Comments:
-         Evaluates a string as an email address.
-
-         ::
+         Evaluates a string as an email address. ::
 
             if ($email && t3lib_div::validEmail($email)) {
 
@@ -151,26 +138,20 @@ t3lib\_div
          the whitespace away around each item. Optionally any zero-length
          elements are removed. Very often used to explode strings from
          configuration, user input etc. where whitespace can be expected
-         between values but is insignificant.
-
-         ::
+         between values but is insignificant. ::
 
             array_unique(t3lib_div::trimExplode(',', $rawExtList, 1));
             t3lib_div::trimExplode(chr(10), $content);
 
          **t3lib\_div::intExplode()** - Explodes a by a token and converts each
          item to an integer value. Very useful to force integer values out of a
-         value list, for instance for an SQL query.
-
-         ::
+         value list, for instance for an SQL query. ::
 
             // Make integer list
             implode(t3lib_div::intExplode(',', $row['subgroup']), ',');
 
          **t3lib\_div::revExplode()** - Reverse explode() which allows you to
-         explode a string into X parts but from the back of the string instead.
-
-         ::
+         explode a string into X parts but from the back of the string instead. ::
 
             $p = t3lib_div::revExplode('/', $path, 2);
 
@@ -217,16 +198,12 @@ t3lib\_div
          unless the "type" attribute is set.
 
          **t3lib\_div::array2xml\_cs()** - Converts a PHP array into an XML
-         string.
-
-         ::
+         string. ::
 
             t3lib_div::array2xml_cs($this->FORMCFG['c'],'T3FormWizard');
 
          **t3lib\_div::xml2array()** - Converts an XML string to a PHP array.
-         This is the reverse function of array2xml()
-
-         ::
+         This is the reverse function of array2xml() ::
 
             if ($this->xmlStorage)    {
                 $cfgArr = t3lib_div::xml2array($row[$this->P['field']]);
@@ -242,16 +219,12 @@ t3lib\_div
 
          **t3lib\_div::getURL()** - Reads the full content of a file or URL.
          Used throughout the TYPO3 sources. Transparently takes care of Curl
-         configuration, proxy setup, etc.
-
-         ::
+         configuration, proxy setup, etc. ::
 
             $templateCode = t3lib_div::getURL($templateFile);
 
          **t3lib\_div::writeFile()** - Writes a string into an absolute
-         filename.
-
-         ::
+         filename. ::
 
             t3lib_div::writeFile($extDirPath . $theFile, $fileData['content']);
 
@@ -276,9 +249,7 @@ t3lib\_div
          Read content of file system directories.
 
          **t3lib\_div::get\_dirs()** - Returns an array with the names of
-         folders in a specific path
-
-         ::
+         folders in a specific path ::
 
             if (@is_dir($path))    {
                 $directories = t3lib_div::get_dirs($path);
@@ -290,9 +261,7 @@ t3lib\_div
             }
 
          **t3lib\_div::getFilesInDir()** - Returns an array with the names of
-         files in a specific path
-
-         ::
+         files in a specific path ::
 
             $sFiles = t3lib_div::getFilesInDir(PATH_typo3conf ,'', 1, 1);
             $files = t3lib_div::getFilesInDir($dir, 'png,jpg,gif');
@@ -302,9 +271,7 @@ t3lib\_div
 
          **t3lib\_div::removePrefixPathFromList()** - Removes the absolute part
          of all files/folders in fileArr (useful for post processing of content
-         from t3lib\_div::getAllFilesAndFoldersInPath())
-
-         ::
+         from t3lib\_div::getAllFilesAndFoldersInPath()) ::
 
                 // Get all files with absolute paths prefixed:
             $fileList_abs =
@@ -319,9 +286,7 @@ t3lib\_div
          t3lib\_div::implodeArrayForUrl
    :Comments:
          Implodes a multidimensional array into GET-parameters (e.g.
-         :code:`&param[key][key2]=value2&param[key][key3]=value3`)
-
-         ::
+         :code:`&param[key][key2]=value2&param[key][key3]=value3`) ::
 
             $pString = t3lib_div::implodeArrayForUrl('', $params);
 
@@ -335,16 +300,12 @@ t3lib\_div
 
          **t3lib\_div::get\_tag\_attributes()** - Returns an array with all
          attributes of the input HTML tag as key/value pairs. Attributes are
-         only lowercase a-z
-
-         ::
+         only lowercase a-z ::
 
             $attribs = t3lib_div::get_tag_attributes('<' . $subparts[0] . '>');
 
          **t3lib\_div::implodeAttributes()** - Implodes attributes in the array
-         $arr for an attribute list in e.g. and HTML tag (with quotes)
-
-         ::
+         $arr for an attribute list in e.g. and HTML tag (with quotes) ::
 
             $tag = '<img ' . t3lib_div::implodeAttributes($attribs, 1) . ' />';
 
@@ -369,9 +330,7 @@ t3lib\_div
 
          **t3lib\_div::callUserFunction()** - Calls a user-defined
          function/method in class. Such a function/method should look like
-         this: :code:`function proc(&$params, &$ref) {...}`
-
-         ::
+         this: :code:`function proc(&$params, &$ref) {...}` ::
 
             function procItems($items,$iArray,$config,$table,$row,$field) {
                 global $TCA;
@@ -392,9 +351,7 @@ t3lib\_div
             }
 
          **t3lib\_div::getUserObj()** - Creates and returns reference to a user
-         defined object.
-
-         ::
+         defined object. ::
 
             $_procObj = &t3lib_div::getUserObj($_classRef);
             $_procObj->pObj = &$this;
@@ -440,9 +397,7 @@ t3lib\_BEfunc
    :Comments:
          Functions for selecting records by uid or field value.
 
-         **t3lib\_BEfunc::getRecord()** - Gets record with :code:`uid=$uid` from :code:`$table`
-
-         ::
+         **t3lib\_BEfunc::getRecord()** - Gets record with :code:`uid=$uid` from :code:`$table` ::
 
               // Getting array with title field from a page:
             t3lib_BEfunc::getRecord('pages', intval($row['shortcut']), 'title');
@@ -456,9 +411,7 @@ t3lib\_BEfunc
                 );
 
          **t3lib\_BEfunc::getRecordsByField()** - Returns records from table,
-         :code:`$theTable`, where a field ($theField) equals the value, $theValue
-
-         ::
+         :code:`$theTable`, where a field ($theField) equals the value, $theValue ::
 
                 // Checking if the id-parameter is an alias.
             if (!t3lib_div::testInt($id))    {
@@ -472,9 +425,7 @@ t3lib\_BEfunc
          t3lib\_BEfunc::getRecordPath
    :Comments:
          Returns the path (visually) of a page $uid, fx. "/First page/Second
-         page/Another subpage"
-
-         ::
+         page/Another subpage" ::
 
             $label = t3lib_BEfunc::getRecordPath(
                     intval($row['shortcut']),
@@ -489,9 +440,7 @@ t3lib\_BEfunc
          Returns a page record (of page with $id) with an extra field
          :code:`_thePath` set to the record path *if* the WHERE clause,
          $perms\_clause, selects the record. Thus is works as an access check
-         that returns a page record if access was granted, otherwise not.
-
-         ::
+         that returns a page record if access was granted, otherwise not. ::
 
             $perms_clause = $GLOBALS['BE_USER']->getPagePermsClause(1);
             $pageinfo = t3lib_BEfunc::readPageAccess($id, $perms_clause);
@@ -508,24 +457,18 @@ t3lib\_BEfunc
          :code:`$TYPO3_CONF_VARS`.
 
          **t3lib\_BEfunc::date()** - Returns $tstamp formatted as "ddmmyy"
-         (According to :code:`$TYPO3_CONF_VARS['SYS']['ddmmyy']`)
-
-         ::
+         (According to :code:`$TYPO3_CONF_VARS['SYS']['ddmmyy']`) ::
 
             t3lib_BEfunc::datetime($row['crdate'])
 
          **t3lib\_BEfunc::datetime()** - Returns $tstamp formatted as "ddmmyy
          hhmm" (According to :code:`$TYPO3_CONF_VARS['SYS']['ddmmyy']` and
-         :code:`$TYPO3_CONF_VARS['SYS']['hhmm']`)
-
-         ::
+         :code:`$TYPO3_CONF_VARS['SYS']['hhmm']`) ::
 
             t3lib_BEfunc::datetime($row['item_mtime'])
 
          **t3lib\_BEfunc::calcAge()** - Returns the "age" in minutes / hours /
-         days / years of the number of :code:`$seconds` given as input.
-
-         ::
+         days / years of the number of :code:`$seconds` given as input. ::
 
             $agePrefixes = ' min| hrs| days| yrs';
             t3lib_BEfunc::calcAge(time()-$row['crdate'], $agePrefixes);
@@ -535,9 +478,7 @@ t3lib\_BEfunc
          t3lib\_BEfunc::titleAttribForPages
    :Comments:
          Returns title attribute information for a page-record informing about
-         id, alias, doktype, hidden, starttime, endtime, fe\_group etc.
-
-         ::
+         id, alias, doktype, hidden, starttime, endtime, fe\_group etc. ::
 
             $out = t3lib_BEfunc::titleAttribForPages($row, '', 0);
             $out = t3lib_BEfunc::titleAttribForPages($row, '1=1 ' . $this->clause, 0);
@@ -556,9 +497,7 @@ t3lib\_BEfunc
          you will need :code:`t3lib_BEfunc::getThumbNail()` to do the job.
 
          **t3lib\_BEfunc::getThumbNail()** - Returns single image tag to
-         thumbnail using a thumbnail script (like :file:`thumbs.php`)
-
-         ::
+         thumbnail using a thumbnail script (like :file:`thumbs.php`) ::
 
             t3lib_BEfunc::getThumbNail(
                 $this->doc->backPath . 'thumbs.php',
@@ -583,9 +522,7 @@ t3lib\_BEfunc
 
          Example of how both functions are used together; first :code:`getHash()` to
          fetch any possible content and if nothing was found how the content is
-         generated and stored in the cache:
-
-         ::
+         generated and stored in the cache::
 
                 // Parsing the user TS (or getting from cache)
             $userTS = implode($TSdataArray,chr(10) . '[GLOBAL]' . chr(10));
@@ -608,18 +545,14 @@ t3lib\_BEfunc
          t3lib\_BEfunc::getProcessedValue
    :Comments:
          **t3lib\_BEfunc::getRecordTitle()** - Returns the "title" value from
-         the input records field content.
-
-         ::
+         the input records field content. ::
 
             $line.= t3lib_BEfunc::getRecordTitle('tt_content', $row, 1);
 
          **t3lib\_BEfunc::getProcessedValue()** - Returns a human readable
          output of a value from a record. For instance a database record
          relation would be looked up to display the title-value of that record.
-         A checkbox with a "1" value would be "Yes", etc.
-
-         ::
+         A checkbox with a "1" value would be "Yes", etc. ::
 
             $outputValue = nl2br(
                 htmlspecialchars(
@@ -643,9 +576,7 @@ t3lib\_BEfunc
          Returns the Page TSconfig for page with id, $id.
 
          This example shows how an object path, :code:`mod.web_list` is extracted
-         from the Page TSconfig for page $id:
-
-         ::
+         from the Page TSconfig for page $id::
 
             $modTSconfig = $GLOBALS['BE_USER']->getTSConfig(
                 'mod.web_list',
@@ -672,9 +603,7 @@ t3lib\_extMgm
    :Comments:
          Adding fields to an existing table definition in $TCA
 
-         For usage in :file:`ext_tables.php` files
-
-         ::
+         For usage in :file:`ext_tables.php` files ::
 
                 // tt_address modified
             t3lib_div::loadTCA('tt_address');
@@ -692,9 +621,7 @@ t3lib\_extMgm
          Makes fields visible in the TCEforms by adding them to all or selected
          "types"-configurations
 
-         For usage in :file:`ext_tables.php` files
-
-         ::
+         For usage in :file:`ext_tables.php` files ::
 
             t3lib_extMgm::addToAllTCAtypes(
                 'fe_users',
@@ -708,9 +635,7 @@ t3lib\_extMgm
          Add table name to default list of allowed tables on pages (in
          $PAGES\_TYPES)
 
-         For usage in :file:`ext_tables.php` files
-
-         ::
+         For usage in :file:`ext_tables.php` files ::
 
             t3lib_extMgm::allowTableOnStandardPages('tt_board');
 
@@ -723,9 +648,7 @@ t3lib\_extMgm
          .. note::
             Extbase-based modules use a different registration API.
 
-         For usage in :file:`ext_tables.php` files
-
-         ::
+         For usage in :file:`ext_tables.php` files ::
 
             t3lib_extMgm::addModule(
                 'user',
@@ -748,9 +671,7 @@ t3lib\_extMgm
          Adds a "Function menu module" ("third level module") to an existing
          function menu for some other backend module
 
-         For usage in :file:`ext_tables.php` files
-
-         ::
+         For usage in :file:`ext_tables.php` files ::
 
             t3lib_extMgm::insertModuleFunction(
                 'web_func',
@@ -770,9 +691,7 @@ t3lib\_extMgm
          .. note::
             Extbase-based plug-ins use a different registration API.
 
-         For usage in :file:`ext_tables.php` files
-
-         ::
+         For usage in :file:`ext_tables.php` files ::
 
             t3lib_extMgm::addPlugin(
                 array(
@@ -796,8 +715,7 @@ t3lib\_extMgm
          automatically adding the necessary TypoScript for calling your plugin.
          It will also work for the extension "css\_styled\_content"
 
-         For usage in :file:`ext_localconf.php` files
-
-         ::
+         For usage in :file:`ext_localconf.php` files ::
 
             t3lib_extMgm::addPItoST43($_EXTKEY);
+

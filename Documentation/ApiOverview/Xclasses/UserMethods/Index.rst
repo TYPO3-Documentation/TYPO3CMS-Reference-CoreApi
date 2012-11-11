@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _xclasses-user-defined:
@@ -39,4 +42,5 @@ Example, continued from above:
    }
 
 User-defined methods and variables are highlighted.
+
 

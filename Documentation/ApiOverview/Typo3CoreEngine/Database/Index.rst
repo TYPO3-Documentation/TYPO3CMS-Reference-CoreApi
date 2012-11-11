@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _tce-database-basics:
@@ -33,9 +36,7 @@ hierarchy of these two arrays.
 Commands Array
 """"""""""""""
 
-Syntax:
-
-::
+Syntax::
 
    $cmd[ tablename ][ uid ][ command ] = value
 
@@ -254,9 +255,7 @@ Examples of commands:
 Data Array
 """"""""""
 
-Syntax:
-
-::
+Syntax::
 
    $data[tablename][uid][fieldname] = value
 
@@ -323,9 +322,7 @@ Examples of Data submission
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This creates a new page titled "The page title" as the first page
-inside page id 45:
-
-::
+inside page id 45::
 
    $data['pages']['NEW9823be87'] = array(
        'title' => 'The page title',
@@ -334,9 +331,7 @@ inside page id 45:
    );
 
 This creates a new page titled "The page title" right after page id 45
-in the tree:
-
-::
+in the tree::
 
    $data['pages']['NEW9823be87'] = array(
        'title' => 'The page title',
@@ -345,9 +340,7 @@ in the tree:
    );
 
 This creates two new pages right after each other, located right after
-the page id 45:
-
-::
+the page id 45::
 
    $data['pages']['NEW9823be87'] = array(
        'title' => 'Page 1',
@@ -365,9 +358,7 @@ only when the order in the array is as above since the processing
 happens in that order!
 
 This updates the page with uid=9834 to a new title, "New title for
-this page", and no\_cache checked:
-
-::
+this page", and no\_cache checked::
 
    $data['pages'][9834] = array(
        'title' => 'New title for this page',
@@ -382,9 +373,7 @@ Clear cache
 
 TCE also has an API for clearing the cache tables of TYPO3:
 
-Syntax:
-
-::
+Syntax::
 
    $tce->clear_cacheCmd($cacheCmd);
 
@@ -433,9 +422,7 @@ Hook for cache post-processing
 
 You can configure cache post-processing with a user defined PHP
 function. Configuration of the hook can be done from
-:code:`(ext_)localconf.php`. An example might look like:
-
-::
+:code:`(ext_)localconf.php`. An example might look like::
 
    $TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = 'myext_cacheProc->proc';
    require_once(t3lib_extMgm::extPath('myext') . 'class.myext_cacheProc.php');
@@ -528,3 +515,4 @@ commands or data submission. These are the most significant:
 
          Default is (currently) "1" (true) but *might be changed in the
          future!*
+

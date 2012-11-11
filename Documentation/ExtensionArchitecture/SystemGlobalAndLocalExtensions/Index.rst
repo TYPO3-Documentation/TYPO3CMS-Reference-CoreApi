@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 .. _extension-scope:
@@ -94,3 +85,4 @@ all your projects on a server sharing source code, but on a single
 experimental project you can import the same extension in a newer
 "experimental" version and for that particular project the locally
 available extension will be used instead.
+

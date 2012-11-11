@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 Introduction
@@ -41,4 +32,5 @@ Optionally the main files can contain the translations directly but
 that should only be used in special cases since it constrains the
 translation process too much. It is also possible with a specific file
 reference to use other external files than the automated ones.
+
 

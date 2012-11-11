@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 $PAGES\_TYPES
@@ -27,9 +18,7 @@ allowed on a certain page type (doktype).
 for all types, and for every type the entries simply overrides the
 entries in the "default" type!!
 
-This is the default array as set in t3lib/stddb/tables.php:
-
-::
+This is the default array as set in t3lib/stddb/tables.php::
 
    $PAGES_TYPES = array(
            '254' => array(              //  Doktype 254 is a 'sysFolder' - a general purpose storage folder
@@ -59,7 +48,7 @@ Each array has the following options available:
 
    Key
          Key
-   
+
    Description
          Description
 
@@ -68,7 +57,7 @@ Each array has the following options available:
 
    Key
          type
-   
+
    Description
          Can be "sys" or "web"
 
@@ -77,10 +66,10 @@ Each array has the following options available:
 
    Key
          icon
-   
+
    Description
          Alternative icon.
-         
+
          The file reference is on the same format "iconfile" in [ctrl] section
          of TCA
 
@@ -89,10 +78,10 @@ Each array has the following options available:
 
    Key
          allowedTables
-   
+
    Description
          The tables that may reside on pages with that "doktype".
-         
+
          Comma-separated list of tables allowed on this page doktype. "\*" =
          all
 
@@ -101,7 +90,7 @@ Each array has the following options available:
 
    Key
          onlyAllowedTables
-   
+
    Description
          Boolean. If set, the tce\_main class will not allow a shift of doktype
          if unallowed records are on the page.
@@ -112,4 +101,5 @@ Each array has the following options available:
 
 **Notice:**  *All four options* must be set for the default type while
 the rest can choose as they like.
+
 

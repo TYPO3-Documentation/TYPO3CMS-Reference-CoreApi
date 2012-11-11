@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 t3lib\_error\_DebugExceptionHandler
@@ -35,4 +26,5 @@ Functions of t3lib\_error\_DebugExceptionHandler
 - Logs exception messages to the sys\_log table. Logged errors are
   displayed in the belog extension (Tools->Log) (works only if there is
   an existing DB connection).
+
 

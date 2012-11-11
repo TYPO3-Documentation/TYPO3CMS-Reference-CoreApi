@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _extjs-loading:
@@ -12,15 +15,11 @@
 Loading ExtJS
 ^^^^^^^^^^^^^
 
-To load the ExtJS library use this syntax:
-
-::
+To load the ExtJS library use this syntax::
 
    $this->doc->loadExtJS();
 
-There are 2 optional parameters in this call:
-
-::
+There are 2 optional parameters in this call::
 
    $this->doc->loadExtJS($css = TRUE, $theme = TRUE);
 
@@ -39,9 +38,8 @@ Additionally the function takes care of:
 - adding :code:`Ext.BLANK_IMAGE_URL`
 
 To do debugging in the ExtJS library, use the following call to force
-the debug variant to be loaded:
-
-::
+the debug variant to be loaded::
 
    $this->doc->setExtJSdebug();
+
 

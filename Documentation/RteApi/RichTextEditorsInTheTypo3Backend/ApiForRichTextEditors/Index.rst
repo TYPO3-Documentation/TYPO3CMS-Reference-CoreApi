@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 API for Rich Text Editors
@@ -74,9 +65,7 @@ Example: The "rte" extension
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The "rte" extension has a "ext\_localconf.php" file which looks like
-this:
-
-::
+this::
 
    if (!defined ('TYPO3_MODE'))     die ('Access denied.');
 
@@ -85,9 +74,7 @@ this:
 As you can see it registers the API class to the system. In the class
 "tx\_rte\_base" the three methods from the list above is available.
 
-The file "class.tx\_rte\_base.php" looks like this:
-
-::
+The file "class.tx\_rte\_base.php" looks like this::
 
       4: require_once(PATH_t3lib.'class.t3lib_rteapi.php');
       5: /**
@@ -196,4 +183,5 @@ Here follows some comments:
   extension the "transformContent" method is used from the parent class,
   but if you need special transformations you can easily do so by
   overriding the function in you child class.
+
 

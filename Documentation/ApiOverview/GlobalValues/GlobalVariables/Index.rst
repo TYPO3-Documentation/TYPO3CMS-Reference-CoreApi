@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _globals-variables:
@@ -329,3 +332,4 @@ Admin Tools > Configuration module.
    :alt: The Configuration module in Admin Tools
 
    Viewing the :code:`$TCA` array using the Admin Tools > Configuration module
+

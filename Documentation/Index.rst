@@ -1,9 +1,12 @@
-﻿.. include:: Includes.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: Includes.txt
+
+
+
 
 
 .. _start:
@@ -16,7 +19,7 @@ TYPO3 Core APIs
       doc_core_api
 
 :Version:
-      4.3.2
+      4.3.2-dev (upcoming 6.0)
 
 :Language:
       en
@@ -44,7 +47,6 @@ TYPO3 Core APIs
       |today|
 
 The content of this document is related to TYPO3,
-
 a GNU/GPL CMS/Framework available from `www.typo3.org
 <http://www.typo3.org/>`_
 
@@ -90,4 +92,5 @@ address the task at hand.
    SkinningApi/Index
    ErrorAndExceptionHandling/Index
    DataFormats/Index
+   Targets
 

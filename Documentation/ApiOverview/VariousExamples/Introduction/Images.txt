@@ -1,6 +1,6 @@
 ﻿.. |img-21|     image:: ../../../Images/manual_html_155b0755.png
-   :height: 82
-   :width: 105
+.. :height: 82
+.. :width: 105
 .. :align: left
 .. :border: 0
 .. :name: Graphic99

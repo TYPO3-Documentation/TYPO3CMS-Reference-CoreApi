@@ -1,9 +1,12 @@
-﻿.. include:: ../Includes.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../Includes.txt
+
+
+
 
 
 .. _api-overview:
@@ -41,4 +44,5 @@ http://typo3.org/documentation/api/.
    Hooks/Index
    Xclasses/Index
    VariousExamples/Index
+
 

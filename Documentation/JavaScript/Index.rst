@@ -1,9 +1,12 @@
-﻿.. include:: ../Includes.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../Includes.txt
+
+
+
 
 
 .. _javascript:
@@ -32,3 +35,4 @@ APIs in that regard.
 
    Ajax/Index
    UsingExtjs/Index
+

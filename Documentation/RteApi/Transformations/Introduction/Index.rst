@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 Introduction
@@ -78,9 +69,7 @@ Generally this content will be processed before output on a page of
 course. Typically the rule will be this: "Wrap each line in a <p> tag
 which is not already wrapped in a <p> tag and convert all
 TYPO3-specific <link>-tags to real <a> tags." and thus the final
-result will be valid HTML.
-
-::
+result will be valid HTML. ::
 
    This is line number 1 with a <link 123>link</link> inside
    This is line number 2 with a <b>bold part</b> in the text
@@ -93,9 +82,7 @@ The content in the database can easily be edited as plain text thanks
 to the "hybrid-mode" used to store the content. But when the content
 above from the database has to go into the RTE it  *will not* work if
 every line is not wrapped in a <p> tag! The same is true for the
-<link> tag; it has to be converted so the RTE understands it:
-
-::
+<link> tag; it has to be converted so the RTE understands it::
 
    <p>This is line number 1 with a <a href="index.php?id=123">link</a> inside</p>
    <p>This is line number 2 with a <strong>bold part</strong> in the text</p>
@@ -151,4 +138,5 @@ The concept of transformations is discussed in more detail a few pages
 ahead (" `Historical perspective on RTE transformations
 <#Historical%20perspective%20on%20RTE%20transformations%7Coutline>`_
 ").
+
 

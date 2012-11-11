@@ -1,16 +1,10 @@
-﻿.. ==================================================
+.. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+
 
 .. _extension-options:
 
@@ -26,9 +20,7 @@ similar to the one used for TypoScript constants (see "Declaring
 constants for the Constant editor" in "TypoScript Syntax and In-depth
 Study"). This syntax applies to the comment line that should be placed
 just before the constant. Consider the following example (taken from
-system extension "rsaauth"):
-
-::
+system extension "rsaauth")::
 
    # cat=basic/enable; type=string; label=Path to the temporary directory:This directory will contain...
    temporaryDirectory =
@@ -48,3 +40,4 @@ screen, options are grouped by subcategory. At the bottom of the
 screenshot, the label – split between header and description – is
 visible. Then comes the field itself, in this case an input, because
 the option's type is "string".
+

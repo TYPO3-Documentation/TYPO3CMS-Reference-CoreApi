@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
 
 
 .. _extension-files-locations:
@@ -132,9 +123,7 @@ extensions with the name prefix "ext\_".
 
          If the extension requires static data you can dump it into a sql-file
          by this name.Example for dumping mysql data from bash (being in the
-         extension directory):
-
-         ::
+         extension directory)::
 
             mysqldump --password=[password] [database name] [tablename] --add-drop-table > ./ext_tables_static.sql
 
@@ -270,4 +259,5 @@ extensions with the name prefix "ext\_".
 
          Files in this folder can also be selected in a selector box if you set
          up Extension configuration in a "ext\_conf\_template.txt" file.
+
 

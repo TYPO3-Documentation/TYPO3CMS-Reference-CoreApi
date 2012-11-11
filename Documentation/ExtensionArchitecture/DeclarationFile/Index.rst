@@ -1,18 +1,10 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+
 
 .. _extension-declaration:
 
@@ -140,9 +132,7 @@ values in the :code:`$EM_CONF` array if needed.
          array
    :Description:
          List of requirements, suggestions or conflicts with other extensions
-         or TYPO3 or PHP version. Here's how a typical setup might look:
-
-         ::
+         or TYPO3 or PHP version. Here's how a typical setup might look::
 
             'constraints' => array(
               'dependencies' => array(
@@ -391,3 +381,4 @@ values in the :code:`$EM_CONF` array if needed.
    :Description:
          Version of the extension. Automatically managed by EM / TER. Format is
          [int].[int].[int]
+

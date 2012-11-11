@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Introduction
@@ -28,9 +20,7 @@ in the web browser.
 |img-38| It is not within the scope of this chapter to describe how
 you set up a text field to use an RTE. As was discussed before, the
 quickest way is to add the key "defaultExtras" to the configuration of
-the column and add the string "richtext[]" as value:
-
-::
+the column and add the string "richtext[]" as value::
 
    'poem' => array(
            'exclude' => 0,
@@ -44,4 +34,5 @@ the column and add the string "richtext[]" as value:
    ),
 
 This works for FlexForms too.
+
 

@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 Properties and 'transformations'
@@ -48,4 +39,5 @@ which you may further customize through Page TSconfig (local
 configuration for specific branches of the website). The issue of
 transformations is best explained by the following example from the
 table, tt\_content (the content elements).
+
 

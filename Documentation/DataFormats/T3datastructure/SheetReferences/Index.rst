@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 Sheet references
@@ -33,9 +24,7 @@ Example
 Taking the Data Structure from Example #2 above we can now rearrange
 it in three files:
 
-Main Data Structure:
-
-::
+Main Data Structure::
 
    <T3DataStructure>
      <sheets>
@@ -44,9 +33,7 @@ Main Data Structure:
      </sheets>
    </T3DataStructure>
 
-fileadmin/sheets/default\_sheet.xml
-
-::
+fileadmin/sheets/default\_sheet.xml ::
 
    <T3DataStructure>
      <ROOT>
@@ -67,9 +54,7 @@ fileadmin/sheets/default\_sheet.xml
      </ROOT>
    </T3DataStructure>
 
-fileadmin/sheets/welcome\_sheet.xml
-
-::
+fileadmin/sheets/welcome\_sheet.xml ::
 
    <T3DataStructure>
      <ROOT>
@@ -96,8 +81,9 @@ fileadmin/sheets/welcome\_sheet.xml
                                    <rows>5</rows>
                            </config>
                    </TCEforms>
-         </message>                  
+         </message>
        </el>
      </ROOT>
    </T3DataStructure>
+
 

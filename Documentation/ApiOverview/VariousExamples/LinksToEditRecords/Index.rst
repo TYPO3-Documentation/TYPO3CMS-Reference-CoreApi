@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Links to edit records
@@ -31,26 +23,24 @@ have shown the most typical options.
 
 The result of the code listing will be three links like these:
 
-|img-31| The code listing looks like this:
-
-::
+|img-31| The code listing looks like this::
 
       1: $editUid = 1135;
       2: $editTable = 'pages';
-      3: 
+      3:
       4:     // Edit whole record:
       5: $params = '&edit[' . $editTable . '][' . $editUid . ']=edit';
       6: $output.= '<a href="#" onclick="' . htmlspecialchars(t3lib_BEfunc::editOnClick($params,$GLOBALS['BACK_PATH'])) . '">' .
       7:         '<img'.t3lib_iconWorks::skinImg($GLOBALS['BACK_PATH'], 'gfx/edit2.gif', 'width="11" height="12"') . ' title="Edit me" border="0" alt="" />'.
       8:         'Edit record ' . $editUid . ' from the "' . $editTable . '" table' .
       9:         '</a><br/><br/>';
-     10: 
+     10:
      11:     // Edit only "title" and "hidden" fields from record:
      12: $params = '&edit[' . $editTable . '][' . $editUid.']=edit&columnsOnly=title,hidden';
      13: $output .= '<a href="#" onclick="' . htmlspecialchars(t3lib_BEfunc::editOnClick($params,$GLOBALS['BACK_PATH'])) . '">'.
      14:         'Edit "title" and "hidden" fields from record ' . $editUid . ' from the "' . $editTable . '" table' .
      15:         '</a><br/><br/>';
-     16: 
+     16:
      17:     // Create new "Content Element" record in PID 1135
      18: $params = '&edit[tt_content][' . $editUid . ']=new&defVals[tt_content][header]=New%20Element';
      19: $output .= '<a href="#" onclick="' . htmlspecialchars(t3lib_BEfunc::editOnClick($params,$GLOBALS['BACK_PATH'])) . '">' .
@@ -97,4 +87,5 @@ parameter "&defVals[tt\_content][header]=New%20Element" and you can
 see how the Header field is pre-filled with this value below.
 
 The result of the "create new" will be this form.
+
 

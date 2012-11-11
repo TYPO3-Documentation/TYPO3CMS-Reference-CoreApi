@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Screenshots
@@ -33,4 +25,5 @@ An exception shown by the debug exception handler:
 |img-56|
 
 Errors and exceptions shown in the devLog (using extension "devlog"):
+
 

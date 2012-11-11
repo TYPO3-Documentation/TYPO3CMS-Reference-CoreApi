@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _tce-db-api:
@@ -129,3 +132,4 @@ takes precedence. The variable names you can use are:
    :Description:
          Update Page Tree Trigger. If set and the manipulated records are pages
          then the update page tree signal will be set.
+

@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Adding Context Sensitive Menu items
@@ -22,9 +14,7 @@ When the CSM is being generated in the "alt\_clickmenu.php" script an
 array with the elements is created. Before the array is passed over to
 the final rendering function that will create the menu HTML, the array
 will be passed in turns to external processing scripts. These scripts
-are configured in this global array:
-
-::
+are configured in this global array::
 
    $GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'];
 
@@ -34,9 +24,7 @@ possible to add custom options to CSM.
 
 The extensions "extra\_page\_cm\_options" adds a lot of CSM options.
 The extension has an "ext\_tables.php" file and it contains code that
-adds an entry in the array mentioned above:
-
-::
+adds an entry in the array mentioned above::
 
    <?php
    if (!defined ('TYPO3_MODE'))     die ('Access denied.');
@@ -52,9 +40,7 @@ The value of the "path" key is pointed to the absolute path of the
 class file that contains code for manipulation of the CSM array. This
 file must contain a class by the name of "name" and inside that class
 a "main()" method that will be called for manipulation. The basic
-skeleton looks like this:
-
-::
+skeleton looks like this::
 
    /**
     * Class, adding extra context menu options
@@ -108,9 +94,7 @@ modules you have to do two things:
 The standard JavaScript and HTML can be fetched from the backend
 document template object. In a typical backend module environment this
 object is available as $this->doc and these four lines will do the
-trick:
-
-::
+trick::
 
       1:             // Setting up the context sensitive menu:
       2:         $CMparts = $this->doc->getContextMenuCode();
@@ -124,17 +108,13 @@ These lines must be executed  *before* calling
 - Line 2 asks the template object to generate the standard content. It
   is returned in an array.
 
-- Line 3 adds event handlers for the <body> tag:
-
-::
+- Line 3 adds event handlers for the <body> tag::
 
            onmousemove="GL_getMouse(event);" onload="initLayer();"
 
 - Line 4 adds JavaScript functions in the <head> of the HTML output
 
-- Line 5 adds the <div> layers in the bottom of the page:
-
-::
+- Line 5 adds the <div> layers in the bottom of the page::
 
            <div id="contentMenu0" style="z-index:1; position:absolute;visibility:hidden"></div>
            <div id="contentMenu1" style="z-index:2; position:absolute;visibility:hidden"></div>
@@ -143,9 +123,7 @@ These lines must be executed  *before* calling
 CSM for database elements
 """""""""""""""""""""""""
 
-Linking icons to open the CSM is easy:
-
-::
+Linking icons to open the CSM is easy::
 
        // Get icon with CSM:
    $icon = t3lib_iconworks::getIconImage('tx_templavoila_datastructure', $row, $GLOBALS['BACK_PATH'], 'align="top"');
@@ -174,9 +152,7 @@ requires that the standard content is added to the HTML document. From
 that point you just call the same function,
 "template::wrapClickMenuOnIcon()" but set the second argument to the
 absolute path of the file (and keep the third argument, the uid,
-blank).
-
-::
+blank). ::
 
    $GLOBALS['SOBE']->doc->wrapClickMenuOnIcon($theIcon,$path);
 
@@ -188,4 +164,5 @@ $TBE\_TEMPLATE.
 For more information see the inline documentation of the function
 wrapClickMenuOnIcon(). It is found in the file "template.php" in the
 typo3/ folder.
+
 

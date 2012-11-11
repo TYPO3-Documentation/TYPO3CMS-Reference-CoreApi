@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Introduction
@@ -40,9 +32,7 @@ or parameters passed to a user processing function. Usually it makes
 it very easy to understand the parameters. For instance, lets say you
 call a script with the GET parameter string
 "?id=123&test[key]=A&test[key2]=B". How will the GET vars look to your
-application inside? Well, using the debug function makes that easy:
-
-::
+application inside? Well, using the debug function makes that easy::
 
    debug(t3lib_div::_GET(),'GET variables:');
 
@@ -52,4 +42,5 @@ The output in the browser will look like:
 t3lib\_div::debug() and the difference is that debug() (defined in
 "t3lib/config\_default.php") will only output information if your IP
 address is within a certain range typical for internal networks.
+
 

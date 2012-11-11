@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _extdirect:
@@ -58,9 +61,7 @@ How to use Ext.Direct?
 
 First of all, the PHP method and the JavaScript function must be
 declared in order to paired together (code taken from the "examples"
-extension):
-
-::
+extension)::
 
    t3lib_extMgm::registerExtDirectComponent(
    	'TYPO3.Examples.ExtDirect',
@@ -79,9 +80,7 @@ The next step is to make sure that the Ext.Direct code is loaded
 and registered with the proper namespace. This is achieved by
 calling up the page renderer from the BE module or from a specially
 designed Fluid View Helper, when making Extbase-based modules.
-Example taken from file :file:`EXT:examples/Classes/ViewHelpers/Be/HeaderViewHelper.php`:
-
-::
+Example taken from file :file:`EXT:examples/Classes/ViewHelpers/Be/HeaderViewHelper.php`::
 
    	/** @var $pageRenderer t3lib_PageRenderer */
    $pageRenderer = $this->getDocInstance()->getPageRenderer();
@@ -95,9 +94,7 @@ Example taken from file :file:`EXT:examples/Classes/ViewHelpers/Be/HeaderViewHel
 
 On the server-side, the method is implement as any other PHP method, receiving
 the same arguments as the JavaScript function and returning whatever data it is
-expected to produce:
-
-::
+expected to produce::
 
    public function countRecords($table) {
    		// Return the count of all non-deleted records for the given table
@@ -107,9 +104,7 @@ expected to produce:
    }
 
 Here the method receives a table name and sends back the count of
-undeleted records. The corresponding JavaScript looks like:
-
-::
+undeleted records. The corresponding JavaScript looks like::
 
    TYPO3.Examples.ExtDirect.countRecords(table, function(response) {
    		// If the response contains data, display it in a JavaScript flash message
@@ -146,9 +141,7 @@ function.
 The API Generator
 """""""""""""""""
 
-Looking at what happens under the hood, the following call:
-
-::
+Looking at what happens under the hood, the following call::
 
    $pageRenderer->addExtDirectCode(
    	array('TYPO3.Examples')
@@ -161,9 +154,7 @@ an API out of it.
 
 In particular if your server-side method is expected to handle
 a form submission, it must be declared with the @formHandler annotation.
-Example taken from the Extension Manager's code:
-
-::
+Example taken from the Extension Manager's code::
 
    /**
     * Save extension configuration
@@ -175,3 +166,4 @@ Example taken from the Extension Manager's code:
    public function saveExtensionConfiguration($parameter) {
     ...
    }
+

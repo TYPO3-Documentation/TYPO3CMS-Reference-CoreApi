@@ -1,9 +1,12 @@
-﻿.. include:: ../../Includes.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../Includes.txt
+
+
+
 
 
 .. _flash-messages:
@@ -45,9 +48,7 @@ Flash messages API
 ^^^^^^^^^^^^^^^^^^
 
 Creating a flash message is achieved by simply instantiating an object
-of class :code:`t3lib_FlashMessage`:
-
-::
+of class :code:`t3lib_FlashMessage`::
 
    $message = t3lib_div::makeInstance('t3lib_FlashMessage',
    	'My message text',
@@ -79,9 +80,7 @@ module after a page refresh / the rendering of the next page request
 or render it on your own where ever you want.
 
 This example adds the flash message at the top of modules when
-rendering the next request:
-
-::
+rendering the next request::
 
    t3lib_FlashMessageQueue::addMessage($message);
 
@@ -104,9 +103,7 @@ instead of appearing at the top of the module.
 
 It is also possible to render a single message directly, instead of
 adding it to the queue. This makes it possible to display flash
-messages absolutely anywhere. Here's how this is achieved:
-
-::
+messages absolutely anywhere. Here's how this is achieved::
 
    $message->render();
 
@@ -117,9 +114,7 @@ Flash messages in Extbase
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In Extbase the standard way of issuing flash messages is to add them
-in the controller. Code from the "examples" extension:
-
-::
+in the controller. Code from the "examples" extension::
 
    $this->flashMessageContainer->add(
    	'This is a success message',
@@ -151,9 +146,7 @@ JavaScript-based flash messages
 
 Flash messages can also be fired up from JavaScript, coming up
 as small pop up windows. Here is sample code taken from the
-"examples" extension:
-
-::
+"examples" extension::
 
    TYPO3.Flashmessage.display(
    	TYPO3.Severity.ok,
@@ -164,3 +157,4 @@ as small pop up windows. Here is sample code taken from the
 
 The last parameter is the duration (in seconds) after which
 the message should fade out.
+

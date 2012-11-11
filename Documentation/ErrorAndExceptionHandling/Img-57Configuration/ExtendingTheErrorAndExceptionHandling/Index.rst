@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 Extending the error and exception handling
@@ -22,9 +13,7 @@ If you want to register your own error or exception handler, simply
 include the class and insert its name to "productionExceptionHandler",
 "debugExceptionHandler" or "errorHandler".
 
-**Example:**
-
-::
+**Example:** ::
 
    $TYPO3_CONF_VARS['SYS']['errorHandler'] = 'myOwnErrorHandler';
    $TYPO3_CONF_VARS['SYS']['debugExceptionHandler'] = 'myOwnDebugExceptionHandler';
@@ -39,9 +28,7 @@ extend it by your own functionality, simply derive your class from the
 error and exception handling classes shipped with TYPO3 and register
 this class as error (exception) handler.
 
-**Example:**
-
-::
+**Example:** ::
 
    class tx_postExceptionsOnTwitter extends t3lib_error_DebugExceptionHandler {
        function echoExceptionWeb(Exception $exception) {
@@ -53,4 +40,5 @@ this class as error (exception) handler.
    }
    $TYPO3_CONF_VARS['SYS']['debugExceptionHandler'] = 'tx_postExceptionsOnTwitter';
    $TYPO3_CONF_VARS['SYS']['productionExceptionHandler'] = 'tx_postExceptionsOnTwitter';
+
 

@@ -1,10 +1,13 @@
-﻿.. include:: ../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../Includes.txt
+
+
+
+
 
 
 .. _registry:
@@ -100,9 +103,7 @@ The registry API
 To use the registry, there's an easy to use API. Simply use
 the code below to retrieve an instance of
 the registry. The instance returned will always be the same as the
-registry is a singleton:
-
-::
+registry is a singleton::
 
    $registry = t3lib_div::makeInstance('t3lib_Registry');
 
@@ -176,18 +177,15 @@ needs.
 Examples
 """"""""
 
-Here's an example taken from the Scheduler system extension:
-
-::
+Here's an example taken from the Scheduler system extension::
 
    $registry = t3lib_div::makeInstance('t3lib_Registry');
    $runInformation = array('start' => $GLOBALS['EXEC_TIME'], 'end' => time(), 'type' => $type);
    $registry->set('tx_scheduler', 'lastRun', $runInformation);
 
-It is retrieved later using:
-
-::
+It is retrieved later using::
 
    $registry = t3lib_div::makeInstance('t3lib_Registry');
    $lastRun = $registry->get('tx_scheduler', 'lastRun');
+
 

@@ -1,9 +1,12 @@
-﻿.. include:: ../../../Includes.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
 
 
 .. _high-priority-functions:
@@ -44,9 +47,7 @@ real documentation is found in the source scripts (and the
          :code:`t3lib_div::_GP($varname)` will give you the value of either the GET
          or POST variable with priority to POST if present. This is useful if
          you don't know whether a parameter is passed as GET or POST. Many
-         scripts will use this function to read variables during initialization:
-
-         ::
+         scripts will use this function to read variables during initialization::
 
                 // Setting GPvars:
             $this->file = t3lib_div::_GP('file');
@@ -54,9 +55,7 @@ real documentation is found in the source scripts (and the
 
          :code:`t3lib_div::_GET()` will give you GET vars. For security reasons you
          should use this if you know your parameters are passed as GET
-         variables. This example gives you the whole :code:`$_GET` array:
-
-         ::
+         variables. This example gives you the whole :code:`$_GET` array::
 
             $params = t3lib_div::_GET();
 
@@ -66,9 +65,7 @@ real documentation is found in the source scripts (and the
 
          This example gives you the content of the POST variable
          TSFE\_ADMIN\_PANEL, for instance it could come from a form field like
-         :code:`<input name="TSFE_ADMIN_PANEL[command]" ..../>`
-
-         ::
+         :code:`<input name="TSFE_ADMIN_PANEL[command]" ..../>` ::
 
             $input = t3lib_div::_POST('TSFE_ADMIN_PANEL');
 
@@ -83,9 +80,7 @@ real documentation is found in the source scripts (and the
          (almost) any class in TYPO3. You **must** use this method when
          creating objects in TYPO3.
 
-         Examples:
-
-         ::
+         Examples::
 
             	// Making an instance of class "t3lib_TSparser":
             $parseObj = t3lib_div::makeInstance('t3lib_TSparser');
@@ -106,9 +101,7 @@ real documentation is found in the source scripts (and the
          web-server brand and server OS. Always use this API instead of
          :code:`$_ENV/$_SERVER` or :code:`getenv()` if possible.
 
-         Examples:
-
-         ::
+         Examples::
 
             if (t3lib_div::getIndpEnv('HTTP_ACCEPT_LANGUAGE') == $test)...
             if (t3lib_div::cmpIP(t3lib_div::getIndpEnv('REMOTE_ADDR'), $pcs[1]))...
@@ -129,9 +122,7 @@ real documentation is found in the source scripts (and the
          isn't already, you call this function.
 
          Examples of PHP code which traverses the ['columns'] part of an
-         unknown table and loads the table before.
-
-         ::
+         unknown table and loads the table before. ::
 
             t3lib_div::loadTCA($this->table);
             foreach ($TCA[$this->table]['columns'] as $fN) {
@@ -156,9 +147,7 @@ real documentation is found in the source scripts (and the
          .. note::
             In the frontend this is built into the :code:`enableFields()` method.
 
-         Example:
-
-         ::
+         Example::
 
             $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
                             'pid, uid, title, TSconfig, is_siteroot, storage_pid',
@@ -176,9 +165,7 @@ real documentation is found in the source scripts (and the
 
          Use if you just need to check if an extension is loaded in a TYPO3 installation.
 
-         Example:
-
-         ::
+         Example::
 
             	// If the extension "sys_note" is loaded, then...
             if (t3lib_extMgm::isLoaded('sys_note'))    ...
@@ -211,9 +198,7 @@ real documentation is found in the source scripts (and the
          :ref:`local, global or system extensions <t3api:extension-scope>`.
          These functions will always give you the right path.
 
-         Examples:
-
-         ::
+         Examples::
 
             	// Include a PHP file from the extension "extrep_wizard".
             	// t3lib_extMgm::extPath() returns the absolute path to the
@@ -255,9 +240,7 @@ real documentation is found in the source scripts (and the
          to files inside extensions) and checks that the file is inside the
          :code:`PATH_site` of the TYPO3 installation and implies a check with
          :code:`t3lib_div::validPathStr()`. Returns false if checks failed. Does not
-         check if the file exists.
-
-         ::
+         check if the file exists. ::
 
             	// Getting absolute path of a temporary file
             $cacheFile = t3lib_div::getFileAbsFileName('typo3temp/tempfile.tmp');
@@ -270,9 +253,7 @@ real documentation is found in the source scripts (and the
          **t3lib\_div::validPathStr()** - Checks for malicious file paths.
          Returns true if no '//', '..' or '\\' is in the $theFile. This should
          make sure that the path is not pointing 'backwards' and further
-         doesn't contain double/back slashes.
-
-         ::
+         doesn't contain double/back slashes. ::
 
 				// If the path is true and validates as a valid path string
             if ($path && t3lib_div::validPathStr($path)) {
@@ -281,9 +262,7 @@ real documentation is found in the source scripts (and the
 
          **t3lib\_div::isAbsPath()** - Checks if the input path is absolute or
          relative (detecting either '/' or 'x:/' as first part of string) and
-         returns true if so.
-
-         ::
+         returns true if so. ::
 
             	// Returns relative filename for icon:
             if (t3lib_div::isAbsPath($Ifilename)) {
@@ -294,9 +273,7 @@ real documentation is found in the source scripts (and the
          absolute, without backpath '..' and within the :code:`PATH_site` OR within
          the :code:`lockRootPath`. Contrary to :code:`t3lib_div::getFileAbsFileName()` this
          function can also validate files in filemounts outside the web-root of
-         the installation, but this is rarely used!
-
-         ::
+         the installation, but this is rarely used! ::
 
             if (@file_exists($path) && t3lib_div::isAllowedAbsPath($path)) {
                 $fI = pathinfo($path);
@@ -316,9 +293,7 @@ real documentation is found in the source scripts (and the
          should be compatible with Windows servers and safe-mode at the same
          time. So TYPO3 offers a substitution function you should always use.
 
-         Example:
-
-         ::
+         Example::
 
             $root.=$dirParts . '/';
             if (!is_dir($extDirPath . $root))    {
@@ -359,9 +334,7 @@ real documentation is found in the source scripts (and the
          this after :code:`upload_to_tempfile()` or :code:`tempnam()` from this class!
 
          This example shows how to handle an uploaded file you just want to
-         read and then delete again:
-
-         ::
+         read and then delete again::
 
                 // Read uploaded file:
             $uploadedTempFile = t3lib_div::upload_to_tempfile(
@@ -378,9 +351,7 @@ real documentation is found in the source scripts (and the
 
          In the following example it is shown how two temporary filenames are
          created for being processed with an external program (diff) after
-         which they are deleted again:
-
-         ::
+         which they are deleted again::
 
                 // Create file 1 and write string
             $file1 = t3lib_div::tempnam('diff1_');
@@ -411,9 +382,7 @@ real documentation is found in the source scripts (and the
          string assuming the character set to be the one used in the backend.
 
          It is recommended to use $BE\_USER->uc['titleLen'] for the length
-         parameter.
-
-         ::
+         parameter. ::
 
               // Limits Record title to 30 chars
             t3lib_div::fixed_lgd_cs($thisRecTitle, 30);
@@ -431,9 +400,7 @@ real documentation is found in the source scripts (and the
 
          Use this function to prepare content for <textarea> tags. Then you
          will avoid extra / stripped whitespace when the form is submitted
-         multiple times.
-
-         ::
+         multiple times. ::
 
                 // Create item:
             $item = '
@@ -451,9 +418,7 @@ real documentation is found in the source scripts (and the
          Use this to prepare redirection URLs for location-headers. It will
          convert the URL to be absolute. This is also useful in other cases
          where an absolute URL must be used, for example when passing a
-         callback URL to some third-party software. Redirection example:
-
-         ::
+         callback URL to some third-party software. Redirection example::
 
             header('Location: ' . t3lib_div::locationHeaderUrl($this->retUrl));
             exit;
@@ -478,9 +443,7 @@ real documentation is found in the source scripts (and the
          The selector box is made by this function call. It sets the
          ID variable (zero if not available), the GET var name, "SET[mode]",
          the current value from :code:`MOD_SETTINGS` and finally the array of menu
-         options, :code:`MOD_MENU['mode']`:
-
-         ::
+         options, :code:`MOD_MENU['mode']`::
 
             t3lib_BEfunc::getFuncMenu(
                 $this->id,
@@ -493,9 +456,7 @@ real documentation is found in the source scripts (and the
          set up with an array of options. This could look like this (getting
          some labels from the "locallang" system). In addition the incoming
          "SET" GET-variable must be registered in the session which is also
-         done in this listing:
-
-         ::
+         done in this listing::
 
             $this->MOD_MENU = array(
                 'mode' => array(
@@ -519,9 +480,7 @@ real documentation is found in the source scripts (and the
 
          Then the function call looks like this. Notice the fourth
          argument is gone because a checkbox does not have any information
-         about options like a selector box would have.
-
-         ::
+         about options like a selector box would have. ::
 
             t3lib_BEfunc::getFuncCheck(
                 0,
@@ -530,9 +489,7 @@ real documentation is found in the source scripts (and the
             );
 
          For checkboxes you must set the key in the :code:`MOD_MENU` array as well.
-         Otherwise the values are not registered in the user session:
-
-         ::
+         Otherwise the values are not registered in the user session::
 
             'own_member_only' => '',
 
@@ -550,9 +507,7 @@ real documentation is found in the source scripts (and the
 
          For detailed examples, see :ref:`t3api:edit-links-examples`.
 
-         Example:
-
-         ::
+         Example::
 
             $params = '&edit[pages][' . $row['uid'] . ']=edit';
             $link = '<a href="#" onclick="' .
@@ -566,9 +521,7 @@ real documentation is found in the source scripts (and the
          **Create onclick-JavaScript code that opens a page in the frontend**
 
          It will detect the correct domain name if needed and provide the link
-         with the right back path. Also it will re-use any window already open.
-
-         ::
+         with the right back path. Also it will re-use any window already open. ::
 
                 // "View page" link is added:
             $link = '<a href="#" onclick="' .
@@ -589,9 +542,7 @@ real documentation is found in the source scripts (and the
          core script, "tce\_db.php". The $params array is filled with date or
          cmd values. For detailed list of options see :ref:`tce`.
 
-         Example:
-
-         ::
+         Example::
 
                 // Delete
             $params = '&cmd[tt_content][' . $row['uid'] . '][delete]=1';
@@ -615,9 +566,7 @@ real documentation is found in the source scripts (and the
          .. figure:: ../../../Images/ContextSensitiveHelp.png
             :alt: The CSH displayed in a help bubble
 
-         **Example:**
-
-         ::
+         **Example:** ::
 
               // Setting "table name" to module name with prefix
             $tableIdentifier = '_MOD_' . $this->MCONF['name'];
@@ -640,9 +589,7 @@ real documentation is found in the source scripts (and the
          (:code:`getSpriteIconForRecord()`) or for a file (:code:`getSpriteIconForFile()`).
          For records, there needs to be a proper definition in the :ref:`$TCA <t3tca:start>`.
 
-         More information about skinning is found in the :ref:`t3skinning:start`.
-
-         ::
+         More information about skinning is found in the :ref:`t3skinning:start`. ::
 
             	// Getting default icon for the "tt_content" table
             $icon = t3lib_iconWorks::getSpriteIconForRecord(
@@ -686,9 +633,7 @@ real documentation is found in the source scripts (and the
 
          Just fill an array with "fieldname => value" pairs and pass it to
          :code:`exec_INSERTquery()` along with the table name in which it should be
-         inserted:
-
-         ::
+         inserted::
 
             $insertFields = array(
                 'md5hash' => $md5,
@@ -707,9 +652,7 @@ real documentation is found in the source scripts (and the
          :code:`exec_UPDATEquery()`. The function call is almost like inserting, but
          you need to add a WHERE clause to target the update to the record you
          want to update. It is the second argument you set to a value like
-         "uid=???".
-
-         ::
+         "uid=???". ::
 
             $fields_values = array(
                 'title' => $data['sys_todos'][$key]['title'],
@@ -726,9 +669,7 @@ real documentation is found in the source scripts (and the
          **Deleting a record:**
 
          Call :code:`exec_DELETEquery()` with the tablename *and* the WHERE clause
-         selecting the record to delete:
-
-         ::
+         selecting the record to delete::
 
             $GLOBALS['TYPO3_DB']->exec_DELETEquery(
                 'sys_todos',
@@ -740,9 +681,7 @@ real documentation is found in the source scripts (and the
          Call :code:`exec_SELECTquery()` with at least the first three arguments
          (field list to select, table name and WHERE clause). The return value
          is a result pointer (or object) which should be passed to
-         :code:`sql_fetch_assoc()` in a loop in order to traverse the result rows.
-
-         ::
+         :code:`sql_fetch_assoc()` in a loop in order to traverse the result rows. ::
 
             $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
                 '*',
@@ -795,3 +734,4 @@ TYPO3 Coding Guidelines
 You should also refer to the :ref:`TYPO3 Core Coding Guidelines (CGL) <t3cgl:start>`
 document which is the authoritative source to know about which coding
 practices are required for TYPO3 core and extension programming.
+

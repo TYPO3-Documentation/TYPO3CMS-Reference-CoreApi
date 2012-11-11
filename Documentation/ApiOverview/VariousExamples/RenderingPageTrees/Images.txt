@@ -1,6 +1,6 @@
 ﻿.. |img-22|     image:: ../../../Images/manual_html_m2c2f05aa.png
-   :height: 155
-   :width: 242
+.. :height: 155
+.. :width: 242
 .. :align: left
 .. :border: 0
 .. :name: Graphic100

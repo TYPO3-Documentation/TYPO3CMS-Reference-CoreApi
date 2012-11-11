@@ -1,6 +1,6 @@
 ﻿.. |img-57|     image:: ../../Images/manual_html_m2050234d.png
-   :height: 270
-   :width: 669
+.. :height: 270
+.. :width: 669
 .. :align: left
 .. :border: 0
 .. :name: Grafik7

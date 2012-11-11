@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 RTEs in Extensions
@@ -43,4 +34,5 @@ used. But if "rte" is loaded first then it is also asked for
 availability first; the result is that under Windows / MSIE the "rte"
 (the "traditional" RTE in TYPO3) is used while "rtehtmlarea" will be
 used in other environments.
+
 

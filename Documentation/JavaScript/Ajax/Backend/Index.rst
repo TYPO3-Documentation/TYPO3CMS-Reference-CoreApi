@@ -1,10 +1,13 @@
-﻿.. include:: ../../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../../Includes.txt
+
+
+
+
 
 
 .. _ajax-backend:
@@ -58,15 +61,11 @@ Server-Side
 1) Register your unique ajaxID, at best prepended with your extension
 ID, in the TYPO3 backend by adding the following line to your
 :file:`ext_localconf.php` (this way you can also overwrite existing AJAX
-calls):
-
-::
+calls)::
 
    $TYPO3_CONF_VARS['BE']['AJAX']['tx_myext::ajaxID'] = 'filename:object->method';
 
-A working example would be:
-
-::
+A working example would be::
 
    $TYPO3_CONF_VARS['BE']['AJAX']['SC_alt_db_navframe::expandCollapse'] = 'typo3/alt_db_navframe.php:SC_alt_db_navframe->ajaxExpandCollapse';
 
@@ -77,9 +76,7 @@ have two function parameters. The first one is an array of params (not
 used right now), the second is the TYPO3 AJAX Object (see
 :file:`typo3/classes/class.typo3ajax.php` for all available methods). You
 should use this to set the content you want to output or to write the
-error message if something went wrong.
-
-::
+error message if something went wrong. ::
 
    public function ajaxExpandCollapse($params, &$ajaxObj) {
        $this->init();
@@ -103,9 +100,7 @@ Client-part
 
 3) In order for you to use client-side AJAX Javascript you have to add
 these two lines of PHP code to your PHP script (available in
-:file:`template.php`, your template document):
-
-::
+:file:`template.php`, your template document)::
 
    $this->doc->loadJavascriptLib('contrib/prototype/prototype.js');
    $this->doc->loadJavascriptLib('js/common.js');
@@ -138,4 +133,5 @@ This should be all. Please note that our TYPO3 BE AJAX mechanism works
 best with the prototype JS library. If you want to create similar
 approaches for other JS frameworks, have a look at
 :file:`typo3/js/common.js`.
+
 

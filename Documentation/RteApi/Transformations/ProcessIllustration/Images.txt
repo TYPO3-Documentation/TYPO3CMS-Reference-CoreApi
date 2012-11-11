@@ -1,6 +1,6 @@
 ﻿.. |img-39|     image:: ../../../Images/manual_html_61bef01c.png
-   :height: 282
-   :width: 524
+.. :height: 282
+.. :width: 524
 .. :align: left
 .. :border: 0
 .. :name: Graphic96

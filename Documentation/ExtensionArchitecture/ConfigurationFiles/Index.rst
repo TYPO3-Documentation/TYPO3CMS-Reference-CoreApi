@@ -1,18 +1,10 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+
 
 .. _extension-configuration-files:
 
@@ -73,3 +65,4 @@ every request. They should therefore be optimized for speed.
     a cached script and therefore such information should be derived from
     the :code:`$TYPO3_LOADED_EXT[extension key]` array, e.g.
     :code:`$TYPO3_LOADED_EXT[$_EXTKEY]["siteRelPath"]`.
+

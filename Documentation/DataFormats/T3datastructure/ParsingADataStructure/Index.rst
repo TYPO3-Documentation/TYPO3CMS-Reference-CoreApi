@@ -1,27 +1,17 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Parsing a Data Structure
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can convert a Data Structure XML document into a PHP array by the
-function t3lib\_div::xml2array(). Taking the simple DS above:
-
-::
+function t3lib\_div::xml2array(). Taking the simple DS above::
 
    <T3DataStructure>
            <meta>
@@ -75,9 +65,7 @@ API functions for sheets
 """"""""""""""""""""""""
 
 If you have a DS with sheets inside you might need to resolve the
-references:
-
-::
+references::
 
    <T3DataStructure>
      <sheets>
@@ -92,12 +80,11 @@ sheets in your file but just want to stay compatible with DS XML
 *with* sheets you should use this function. For instance these
 function calls will parse the DS into an array (screen shot above) and
 resolve the sheet definition, in this case creating a default sheet
-"sDEF" (screen shot below):
-
-::
+"sDEF" (screen shot below)::
 
       $treeDat = t3lib_div::xml2array($inputCode);
            $treeDat = t3lib_div::resolveAllSheetsInDS($treeDat);
 
 |img-60|
+
 

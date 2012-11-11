@@ -1,30 +1,20 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Accessing the clipboard
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 You can easily access the internal clipboard in TYPO3 from your
-backend modules.
-
-::
+backend modules. ::
 
       1: require_once(PATH_t3lib . 'class.t3lib_clipboard.php');
-      2: 
+      2:
       3:     // Clipboard is initialized:
       4: $clipObj = t3lib_div::makeInstance('t3lib_clipboard');        // Start clipboard
       5: $clipObj->initializeClipboard();    // Initialize - reads the clipboard content from the user session
@@ -43,9 +33,7 @@ contain more than one element). The current clipboard (Pad 2 active)
 looks like this:
 
 |img-24| The correct way of accessing clipboard content is to the
-method, elFromTable(), in the clipboard object.
-
-::
+method, elFromTable(), in the clipboard object. ::
 
        debug($clipObj->elFromTable('_FILE'), 'Files available:');
        debug($clipObj->elFromTable('pages'), 'Page records:');
@@ -68,9 +56,7 @@ return:
 
 This is too complicated to describe in detail. The following
 codelisting is from the Web > List module where selections for the
-clipboard is posted from a form and registered.
-
-::
+clipboard is posted from a form and registered. ::
 
        // Clipboard actions are handled:
    $CB = t3lib_div::_GET('CB');    // CB is the clipboard command array
@@ -85,4 +71,5 @@ clipboard is posted from a form and registered.
    $dblist->clipObj->setCmd($CB);        // Execute commands.
    $dblist->clipObj->cleanCurrent();    // Clean up pad
    $dblist->clipObj->endClipboard();    // Save the clipboard content
+
 

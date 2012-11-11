@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Finding CSS selectors for the backend documents
@@ -69,18 +61,14 @@ of the CSS selectors inside:
 In less than 10 seconds this has allowed me to spot that the exact
 address of the header cell is "BODY#typo3-db-list-php
 TABLE.typo3-dblist TR TD.c-headLineTable" and I can now add to my
-stylesheet:
-
-::
+stylesheet::
 
    BODY#typo3-db-list-php TABLE.typo3-dblist TR TD.c-headLineTable {
            background-color: #ccccff;
    }
 
 Likewise I could easily find that the two selector boxes were
-encapsulated in a DIV section which I could address like this:
-
-::
+encapsulated in a DIV section which I could address like this::
 
    BODY#typo3-db-list-php DIV#typo3-listOptions {
            border: dotted 1px #999999;
@@ -94,13 +82,12 @@ Now, as you can see the selector contained "BODY#typo3-db-list-php"
 which is a specific address to the Web > List module (using its script
 ID!). If I wanted my styles to be more general so also the File >
 Filelist module would affected, then I could (in this case) remove the
-BODY#... part:
-
-::
+BODY#... part::
 
    DIV#typo3-listOptions {
            border: dotted 1px #999999;
    }
 
 |img-45|
+
 

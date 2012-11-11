@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Using custom permission options
@@ -34,9 +26,7 @@ comment inside "config\_default.php" regarding the syntax of the
 array.
 
 This example shows how three options are registered under a new
-category:
-
-::
+category::
 
    $TYPO3_CONF_VARS['BE']['customPermOptions'] = array(
                'tx_coreunittest_cat1' => array(
@@ -54,9 +44,7 @@ this:
 
 |img-36| You can also add icons, a description and use references to
 locallang values. Such a detailed configuration could look like this
-(also just an example):
-
-::
+(also just an example)::
 
    ...
    'tx_coreunittest_cat2' => array(
@@ -74,9 +62,7 @@ Evaluating the options
 """"""""""""""""""""""
 
 Checking if a custom permission option is set you simply call this API
-function in the user object:
-
-::
+function in the user object::
 
    $BE_USER->check('custom_options', $catKey . ':' . $itemKey);
 
@@ -99,4 +85,5 @@ pick a key which someone else picked as well!
 
 Also you should never pick a key containing any of the characters
 ",:\|" since they are reserved delimiter characters.
+
 

@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Rendering page trees
@@ -30,32 +22,30 @@ TYPO3 styles though):
 
 |img-22|
 
-The PHP code that generates this looks like:
-
-::
+The PHP code that generates this looks like::
 
       1: require_once(PATH_t3lib . 'class.t3lib_pagetree.php');
-      2: 
+      2:
       3:     // Initialize starting point of page tree:
       4: $treeStartingPoint = 1135;
       5: $treeStartingRecord = t3lib_BEfunc::getRecord('pages', $treeStartingPoint);
       6: $depth = 2;
-      7: 
+      7:
       8:     // Initialize tree object:
       9: $tree = t3lib_div::makeInstance('t3lib_pageTree');
      10: $tree->init('AND ' . $GLOBALS['BE_USER']->getPagePermsClause(1));
-     11: 
+     11:
      12:     // Creating top icon; the current page
      13: $HTML = t3lib_iconWorks::getIconImage('pages', $treeStartingRecord, $GLOBALS['BACK_PATH'], 'align="top"');
      14: $tree->tree[] = array(
      15:     'row' => $treeStartingRecord,
      16:     'HTML'=>$HTML
      17: );
-     18: 
+     18:
      19:     // Create the tree from starting point:
      20: $tree->getTree($treeStartingPoint, $depth, '');
      21: #debug($tree->tree);
-     22: 
+     22:
      23:     // Put together the tree HTML:
      24: $output = '
      25:     <tr  bgcolor="#999999">
@@ -69,7 +59,7 @@ The PHP code that generates this looks like:
      33:             <td>' . htmlspecialchars($data['row']['uid']) . '</td>
      34:         </tr>';
      35: }
-     36: 
+     36:
      37: $output = '<table border="0" cellspacing="1" cellpadding="0">' . $output . '</table>';
 
 - In line 1 the class is included.Notice how the constant "PATH\_t3lib"
@@ -105,13 +95,13 @@ The PHP code that generates this looks like:
   This gives us the chance to organize the tree in a table for instance.
   That is very useful if you need to show additional information for
   each page.
-  
+
   - Lines 24-28 renders a table row with headings for the tree.
-  
+
   - Lines 29-35 traverses the tree data and for each element a table row
     will be rendered with the icon/title and an additional cell containing
     the uid.
-  
+
   - Line 37 wraps the table rows in a table tag.
 
 
@@ -122,4 +112,5 @@ If you search in the source for other places where this class is used
 you will often find that the class is extended locally in those
 scripts. This is because it is possible to override certain functions
 that generate for instance the icon or wraps the title in some way.
+
 

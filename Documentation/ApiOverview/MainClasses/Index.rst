@@ -1,10 +1,13 @@
-﻿.. include:: ../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../Includes.txt
+
+
+
+
 
 
 .. _main-classes:
@@ -131,4 +134,5 @@ These lists also include some other methods selected for their usefulness.
 
    HighPriorityFunctions/Index
    UsefulFunctions/Index
+
 

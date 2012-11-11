@@ -1,10 +1,13 @@
-﻿.. include:: ../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../Includes.txt
+
+
+
+
 
 
 .. _xclasses:
@@ -78,4 +81,5 @@ with an XCLASS.
    ExtendingMethods/Index
    UserMethods/Index
    Warnings/Index
+
 

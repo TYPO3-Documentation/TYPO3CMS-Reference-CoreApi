@@ -1,16 +1,10 @@
-﻿.. ==================================================
+.. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../Includes.txt
+
 
 .. _extension-manager:
 
@@ -40,4 +34,5 @@ the TER (TYPO3 Extension Repository) located at typo3.org.
 The interface is really easy to use. You just click the +/- icon to
 the left of an extension in order to install it and follow the
 instructions.
+
 

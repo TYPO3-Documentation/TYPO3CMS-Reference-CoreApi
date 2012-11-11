@@ -1,9 +1,12 @@
-﻿.. include:: ../Includes.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../Includes.txt
+
+
+
 
 
 .. _introduction:
@@ -71,4 +74,5 @@ through till the end - even when it means spending days writing good
 documents. Go for completeness!
 
 \- kasper
+
 

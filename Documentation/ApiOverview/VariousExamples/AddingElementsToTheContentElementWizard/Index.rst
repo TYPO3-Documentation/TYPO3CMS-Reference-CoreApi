@@ -1,18 +1,9 @@
-﻿
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
 
 
 Adding elements to the Content Element Wizard
@@ -46,9 +37,7 @@ Example
 
 As an example of how this works from an extension you can take a look
 at the extension tt\_guest. This extension adds itself in the plugin
-category by inserting these lines in its ext\_tables.php file:
-
-::
+category by inserting these lines in its ext\_tables.php file::
 
    if (TYPO3_MODE=='BE')    {
        $TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_ttguest_wizicon'] =
@@ -56,9 +45,7 @@ category by inserting these lines in its ext\_tables.php file:
    }
 
 In the file class.tx\_ttguest\_wizicon.php you will find a class
-looking like this:
-
-::
+looking like this::
 
    /**
     * Class, containing function for adding an element to the content element wizard.
@@ -106,4 +93,5 @@ looking like this:
 As you can see this class modifies the wizard array with an additional
 item. This is how you can also add / modify elements in the array
 using this API.
+
 

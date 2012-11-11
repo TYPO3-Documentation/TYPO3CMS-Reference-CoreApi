@@ -1,10 +1,13 @@
-﻿.. include:: ../../Includes.txt
-
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../Includes.txt
+
+
+
+
 
 .. _tce:
 
@@ -67,4 +70,5 @@ and directories. The file operations are managed by two core classes,
    TceDb/Index
    Files/Index
    TceFile/Index
+
 

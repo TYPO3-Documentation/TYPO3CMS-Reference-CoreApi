@@ -1,18 +1,10 @@
-﻿.. include:: Images.txt
-
 .. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../../../Includes.txt
+.. include:: Images.txt
 
 
 Parsing HTML: t3lib\_parsehtml
@@ -28,12 +20,10 @@ Extracting blocks from an HTML document
 """""""""""""""""""""""""""""""""""""""
 
 In the first example it is shown how we can extract parts of an HTML
-document.
-
-::
+document. ::
 
       1: require_once(PATH_t3lib . 'class.t3lib_parsehtml.php');
-      2: 
+      2:
       3: $testHTML = '
       4:     <DIV>
       5:         <IMG src="welcome.gif">
@@ -55,12 +45,12 @@ document.
      21:         </tr>
      22:     </table>
      23: ';
-     24: 
+     24:
      25:     // Splitting HTML into blocks defined by <div> and <table> tags
      26: $parseObj = t3lib_div::makeInstance('t3lib_parsehtml');
      27: $result = $parseObj->splitIntoBlock('div,table', $testHTML);
      28: debug($result, 'Splitting by <div> and <table> tags');
-     29: 
+     29:
 
 - Line 1 includes the library.
 
@@ -90,23 +80,19 @@ Extracting single tags
 """"""""""""""""""""""
 
 You can split the content by tag as well. This is done in the next
-example. Here all <img> and <br> tags are found:
-
-::
+example. Here all <img> and <br> tags are found::
 
      30:     // Splitting HTML into blocks defined by <img> and <br> tags
      31: $result = $parseObj->splitTags('img,br', $testHTML);
      32: debug($result,'Extracting <img> and <br> tags');
-     33: 
+     33:
 
 Line 31 performs the splitting operation. This is the output:
 
 |img-29| Again, all the odd keys in the array contains the tags that
 were found. If you wanted to do processing on this content you just
 traverse the array, process all odd keys and implode the array again.
-A code listing for that might look like this:
-
-::
+A code listing for that might look like this::
 
    foreach($result as $intKey => $HTMLvalue)    {
            // Find all ODD keys:
@@ -124,9 +110,7 @@ You can also do processing on the HTML content by the HTMLcleaner()
 method. This code listings shows a basic example of how you can
 configure it. There are a lot of features hidden in the $tagCfg array
 and you should refer to the inline documentation of the method in the
-class.
-
-::
+class. ::
 
      34:     // Cleaning HTML:
      35: $tagCfg = array_flip(explode(',', 'b,img,div,br,p'));
@@ -172,14 +156,12 @@ This is the output:
 """"""""""""""""""""""""""""""""""""""
 
 This code listing shows how you can register call back functions for
-recursive processing of an HTML source:
-
-::
+recursive processing of an HTML source::
 
       1: class user_processing {
       2:     function process($str) {
       3:         $this->parseObj = t3lib_div::makeInstance('t3lib_parsehtml_proc');
-      4:         
+      4:
       5:         $outStr = $this->parseObj->splitIntoBlockRecursiveProc(
       6:             'div|table|blockquote|caption|tr|td|th|h1|h2|h3|h4|h5|h6|ol|ul',
       7:             $str,
@@ -187,40 +169,40 @@ recursive processing of an HTML source:
       9:             'callBackContent',
      10:             'callBackTags'
      11:         );
-     12:         
+     12:
      13:         return $outStr;
      14:     }
-     15:     
+     15:
      16:     function callBackContent($str, $level) {
      17:         if (trim($str)) {
-     18: 
+     18:
      19:                 // Fixing <P>
      20:             $pSections = $this->parseObj->splitTags('p', $str);
      21:             foreach($pSections as $k => $v)    {
      22:                 $pSections[$k] = trim(ereg_replace('[[:space:]]+', ' ', $pSections[$k]));
      23:                 if (!($k%2)) {
-     24: 
+     24:
      25:                     if ($k && !strstr(strtolower($pSections[$k]), '</p>')) {
      26:                         $pSections[$k] = trim($pSections[$k]) . '</p>';
      27:                     }
-     28: 
+     28:
      29:                     $pSections[$k].=chr(10);
      30:                 }
      31:             }
      32:             $str = implode('',$pSections);
      33:         }
-     34: 
+     34:
      35:         if (trim($str)) {
      36:             $str = $this->parseObj->indentLines(trim($str),$level) . chr(10);
      37:         } else {
      38:             $str = trim($str);
      39:         }
-     40: 
+     40:
      41:         return $str;
      42:     }
-     43: 
+     43:
      44:     function callBackTags($tags,$level) {
-     45: 
+     45:
      46:         if (substr($tags['tag_name'],0,1) == 'h') {
      47:             $tags['tag_end'] .= chr(10);
      48:             $tags['content'] = trim($tags['content']);
@@ -253,4 +235,5 @@ the call back functions.
 
 I'll not explain this listing in further detail. Explore it yourself
 if you are interested in call back processing of HTML sources.
+
 
