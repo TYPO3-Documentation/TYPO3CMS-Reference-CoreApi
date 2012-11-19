@@ -44,7 +44,12 @@ if the content of this file is "KEEP\_FILE", which is understandably
 not recommended.
 
 The password for accessing the Install Tool is stored as a MD5 hash in
-the global configuration file "typo3conf/localconf.php"::
+the global configuration file "typo3conf/LocalConfiguration.php"::
+
+   'BE' => 'installToolPassword' = 'bacb98acf97e0b6112b1d1b650b84971'
+
+Respectively in the file "typo3conf/localconf.php" in TYPO3 versions
+prior 6.0)::
 
    $TYPO3_CONF_VARS['BE']['installToolPassword'] = "bacb98acf97e0b6112b1d1b650b84971";
 

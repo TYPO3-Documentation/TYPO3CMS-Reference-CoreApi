@@ -13,7 +13,8 @@ Global TYPO3 configuration options
 
 The following configuration options are accessible and changeable via
 the Install Tool (recommended way) or directly in the file
-"typo3conf/localconf.php". The list below is in alphabetical order -
+"typo3conf/LocalConfiguration.php" (named "localconf.php" in TYPO3
+versions prior 6.0). The list below is in alphabetical order -
 not in the order of importance (all are relevant but the usage depends
 on your specific site and requirements).
 
