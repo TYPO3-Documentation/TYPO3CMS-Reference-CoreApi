@@ -11,7 +11,8 @@
 Reports and Logs
 ^^^^^^^^^^^^^^^^
 
-Two backend modules require special attention: "Reports" and "Logs":
+Two backend modules in TYPO3 CMS require special attention: "Reports"
+and "Logs":
 
 The Reports module groups several system reports and gives you a quick
 overview about important system statuses and site parameters. From a

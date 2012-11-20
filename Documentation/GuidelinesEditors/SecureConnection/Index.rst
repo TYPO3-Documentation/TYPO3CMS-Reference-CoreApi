@@ -11,10 +11,10 @@
 Secure connection
 ^^^^^^^^^^^^^^^^^
 
-Depending on the system setup, the TYPO3 backend may be available with
-an encrypted connection (SSL). If this is the case, you should always
-use the secure, encrypted connection between your computer and the
-TYPO3 backend. This is done by using the prefix "https://" instead of
+Depending on the system setup, the TYPO3 CMS backend may be available
+with an encrypted connection (SSL). If this is the case, you should
+always use the secure, encrypted connection between your computer and the
+TYPO3 CMS backend. This is done by using the prefix "https://" instead of
 "http://" at the beginning of the website address (URL).
 
 Under specific circumstances, a secure connection is technically

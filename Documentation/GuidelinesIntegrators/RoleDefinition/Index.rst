@@ -31,7 +31,7 @@ but should have basic programming skills and database knowledge.
 The TYPO3 integrator knows how to configure a TYPO3 system, handed
 over from a system administrator after the installation. An integrator
 usually consults and trains editors (end-users of the system, e.g. a
-customer) and works closely together with system administrators.
+client) and works closely together with system administrators.
 
 The role of a TYPO3 integrator often overlaps with a system
 administrator and often one person is in both roles.

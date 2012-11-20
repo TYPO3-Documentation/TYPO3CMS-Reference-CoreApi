@@ -11,7 +11,7 @@
 Backend users and access privileges
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-TYPO3 offers a very sophisticated and complex access concept: you can
+TYPO3 CMS offers a very sophisticated and complex access concept: you can
 define permissions on a user-level, on a group-level, on pages, on
 functions, on DB mounts, even on content elements and more. This
 concept is possibly a little bit complicated and maybe overwhelming if
@@ -131,7 +131,7 @@ risks.
 Remove unused extensions and other code
 """""""""""""""""""""""""""""""""""""""
 
-TYPO3 distinguishes between "imported" and "loaded" extensions.
+TYPO3 CMS distinguishes between "imported" and "loaded" extensions.
 Imported extensions exist in the system and are ready to be integrated
 into TYPO3 but they are not installed yet. Loaded extensions are
 available for being used (or are being used automatically, depending
@@ -182,12 +182,16 @@ Check for extension updates regularly
 The importance of the knowledge that security updates are available
 has been discussed above (see chapter: "TYPO3 security-bulletins"). It
 is also essential to know how to check for extension updates: the
-"Extension Manager" (EM) is a TYPO3 backend module accessible for
+"Extension Manager" (EM) is a TYPO3 CMS backend module accessible for
 backend users with administrator privileges (section "ADMIN TOOLS").
-In TYPO3 version 4.5.0, a completely rewritten EM was introduced and
+In TYPO3 CMS version 4.5.0, a completely rewritten EM was introduced and
 the usage differs a little bit between the old and the new version.
 However, the main functionality remains the same and a manual check
 for extension updates is available in both versions.
+
+TYPO3 version 6.0 comes (again) with a new version of the EM, but
+once again, the broad concept is still the same, some details might
+be slightly different.
 
 The EM uses a cached version of the extension list from the TYPO3
 Extension Repository (TER) to compare the extensions currently
@@ -200,11 +204,11 @@ short description of changes (the "upload comment" provided by the
 extension developers) and you can download/install the updates if
 desired. Please note that under certain circumstances, new versions
 may behave differently and a test/review is sometimes useful,
-depending on the nature and importance of your TYPO3 instance. Often a
-new version of an extension published by the developer is not
+depending on the nature and importance of your TYPO3 CMS instance.
+Often a new version of an extension published by the developer is not
 security-related.
 
-The old version of the EM marks insecure extensions by a red extension
+Older versions of the EM mark insecure extensions by a red extension
 title.
 
 Since TYPO3 version 4.5.0 a scheduler task is available that lets you
@@ -223,27 +227,27 @@ Security-related core extensions
 """"""""""""""""""""""""""""""""
 
 Besides the "Reports" module described above, the following two system
-extensions increase the level of security of a TYPO3 instance:
+extensions increase the level of security of a TYPO3 CMS instance:
 "rsaauth" and "saltedpasswords", which became part of the TYPO3 core
-in TYPO3 version 4.3.0. Both extensions are automatically activated
+in TYPO3 CMS version 4.3.0. Both extensions are automatically activated
 (if possible) for new installations since TYPO3 version 4.6.0. It is
 recommended to manually enable these extensions if you upgrade from
 older versions to 4.3.0 or newer.
 
 "RSA authentication" (rsaauth) adds encrypted authentication for
-frontend and backend logins to TYPO3. This is a more secure solution
+frontend and backend logins to TYPO3 CMS. This is a more secure solution
 than plain text frontend authentication or superchallenged backend
 authentication because rsaauth uses a one time generated public and
 private key pair. The password is encrypted with a new public key each
 time, before it is transferred over the network – and decrypted on the
 server using a one time generated private key. The rsaauth extension
 requires either an OpenSSL PHP module or the OpenSSL binary to be
-available to TYPO3.
+available to TYPO3 CMS.
 
 The second extension focuses on the storage of passwords: by using the
 "Salted user password hashes" (saltedpasswords) extension, you get rid
 of plain-text passwords or MD5 password hashes for user records in
-TYPO3. Due to the fact that MD5 hashes should be considered as
+TYPO3 CMS. Due to the fact that MD5 hashes should be considered as
 cryptographically insecure, they are unsuitable for representing
 passwords. Using rainbow tables is a widely spread practice these days
 and plain-text passwords can be restored from MD5 hashes in minutes.
@@ -257,7 +261,7 @@ multiple times.
 
 If you enable the extension on a system with existing users, the
 passwords will automatically be converted when a user record is saved
-(e.g. the next time the user logs in). TYPO3 also offers several
+(e.g. the next time the user logs in). TYPO3 CMS also offers several
 solutions to update existing passwords of all users to encrypted
 values; please see the documentation of the extension for further
 details.
@@ -275,9 +279,9 @@ the fact that this Security Guide focuses on a TYPO3 standard setup.
 However, there is a wide range of very useful TYPO3 extensions
 available in the TYPO3 Extension Repository (TER) which increase the
 level of security and/or support system administrators and TYPO3
-integrators to monitor their TYPO3 installations, check for security-
-related issues, access additional reports and be notified in various
-ways.
+integrators to monitor their TYPO3 installations, check for
+security-related issues, access additional reports and be notified in
+various ways.
 
 Searching for relevant keywords such as "security", "monitoring" or a
 specific technology (e.g. "intrusion detection") or a security threat

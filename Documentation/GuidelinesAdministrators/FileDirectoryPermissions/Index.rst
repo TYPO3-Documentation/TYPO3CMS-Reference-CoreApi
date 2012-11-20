@@ -14,9 +14,9 @@ File/directory permissions
 The correct and secure setup of the underlying server is an essential
 prerequisite for a secure web application. Well-considered access
 permissions on files and directories are an important part of this
-strategy. However, too strict permissions may stop TYPO3 from working
+strategy. However, too strict permissions may stop TYPO3 CMS from working
 properly and/or restrict TYPO3 integrators or editors from using all
-features of the CMS. The official TYPO3 Installation Guide provides
+features of the CMS. The official TYPO3 CMS Installation Guide provides
 further information about the install procedure:
 `http://forge.typo3.org/projects/show/typo3v4-doc\_guide\_install
 <http://forge.typo3.org/projects/show/typo3v4-doc_guide_install>`_
@@ -41,7 +41,7 @@ data, would be a typical example.
 
 Besides the strict separation between multiple virtual hosts, it is
 possible to revoke any write permissions for the web server user (e.g.
-www-data) to the TYPO3 source directory in general. In other words:
+www-data) to the TYPO3 CMS source directory in general. In other words:
 only allow write access to resources, the web server user requires to
 have write access for, such as "fileadmin", "typo3conf", "typo3temp"
 and "uploads".

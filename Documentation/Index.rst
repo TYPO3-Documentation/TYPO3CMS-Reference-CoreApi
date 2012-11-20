@@ -46,10 +46,9 @@ TYPO3 Security Guide
 :Rendered:
       |today|
 
-The content of this document is related to TYPO3,
-
-a GNU/GPL CMS/Framework available from `www.typo3.org
-<http://www.typo3.org/>`_
+The content of this document is related to TYPO3 CMS, an open source
+enterprise content management system licensed under GNU/GPL, available
+from `www.typo3.org <http://www.typo3.org/>`_
 
 
 **Official Documentation**

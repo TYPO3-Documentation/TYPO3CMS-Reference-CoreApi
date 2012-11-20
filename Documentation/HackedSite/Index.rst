@@ -11,7 +11,7 @@
 Detect, Analyze and Repair a Hacked Site
 ----------------------------------------
 
-Most websites don't get hacked. If yours did, there is something wrong
+Most websites do not get hacked. If yours did, there is something wrong
 with it, or with the server, or with the hosting environment, or with
 the security on your desktop computer, your editors' computers, etc.
 You have to figure out how this happened so you can prevent it from

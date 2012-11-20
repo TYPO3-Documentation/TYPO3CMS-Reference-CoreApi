@@ -11,13 +11,13 @@
 Install Tool
 ^^^^^^^^^^^^
 
-The Install Tool allows you to configure the TYPO3 system on a very
+The Install Tool allows you to configure the TYPO3 CMS system on a very
 low level, which means, not only the basic settings but also the most
-essential settings can be changed. You do not necessarily need a TYPO3
+essential settings can be changed. You do not necessarily need a TYPO3 CMS
 backend account to access the Install Tool, so it is clear that the
 Install Tool requires some special attention (and protection).
 
-TYPO3 already comes with a two step mechanism out-of-the-box to
+TYPO3 CMS already comes with a two step mechanism out-of-the-box to
 protect the Install Tool against unauthorized access: the first
 measure is a file called "ENABLE\_INSTALL\_TOOL" which must exist if
 the Install Tool should be accessible. The second mechanism is a
@@ -28,8 +28,8 @@ The "ENABLE\_INSTALL\_TOOL" file can be created by putting an empty
 file into the directory "typo3conf". You usually need write access to
 this directory on a server level (for example via SSH, FTP, etc.) or
 you can create this file as a backend user with administrator
-privileges. TYPO3 versions prior 4.6.0 offer this function in the
-"User Settings", and since TYPO3 version 4.6.0 administrators can
+privileges. TYPO3 CMS versions prior 4.6.0 offer this function in the
+"User Settings", and since TYPO3 CMS version 4.6.0 administrators can
 unlock the Install Tool when accessing the module in the backend.
 
 .. figure:: ../../Images/enable-install-tool-001.png
@@ -49,7 +49,7 @@ the global configuration file "typo3conf/LocalConfiguration.php"::
    'BE' => 'installToolPassword' = 'bacb98acf97e0b6112b1d1b650b84971'
 
 Respectively in the file "typo3conf/localconf.php" in TYPO3 versions
-prior 6.0)::
+prior 6.0::
 
    $TYPO3_CONF_VARS['BE']['installToolPassword'] = "bacb98acf97e0b6112b1d1b650b84971";
 

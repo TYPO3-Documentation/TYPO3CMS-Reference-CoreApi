@@ -117,7 +117,7 @@ fileDenyPattern
 """""""""""""""
 
 The "fileDenyPattern" is a perl-compatible regular expression that (if
-it matches a file name) will prevent TYPO3 from accessing or
+it matches a file name) will prevent TYPO3 CMS from accessing or
 processing this file (deny uploading, renaming, etc). For security
 reasons, PHP files as well as Apache's ".htaccess" file should be
 included in this regular expression string. The default value is:
@@ -127,10 +127,10 @@ defined in constant FILE\_DENY\_PATTERN\_DEFAULT).
 There are only a very few scenarios imaginable where it makes sense to
 allow access to those files. In most cases backend users such as
 editors must not have the option to upload/edit PHP files or other
-files which could harm the TYPO3 instance when misused. Even if you
+files which could harm the TYPO3 CMS instance when misused. Even if you
 trust your backend users, keep in mind that a less-restrictive
 "fileDenyPattern" would enable an attacker to compromise the system if
-he/she only gained access to the TYPO3 backend with a normal,
+he/she only gained access to the TYPO3 CMS backend with a normal,
 unprivileged user account.
 
 The PHP variable reads: $TYPO3\_CONF\_VARS['BE']['fileDenyPattern']
@@ -141,7 +141,7 @@ The PHP variable reads: $TYPO3\_CONF\_VARS['BE']['fileDenyPattern']
 lockIP
 """"""
 
-If a frontend or backend user logs into TYPO3, the user's session is
+If a frontend or backend user logs into TYPO3 CMS, the user's session is
 locked to his/her IP address. The "lockIP" configuration controls how
 many parts of the IP address have to match with the IP address used at
 authentication time. Possible values are: 0, 1, 2, 3 or 4 (integer)
@@ -183,7 +183,7 @@ lockSSL
 
 As described in section "encrypted client/server communication"
 (chapter "Guidelines for System Administrators") above, the use of SSL
-for the backend of TYPO3 improves the security. The "lockSSL"
+for the backend of TYPO3 CMS improves the security. The "lockSSL"
 configuration controls if the backend can only be operated from a SSL-
 encrypted connection (HTTPS). Possible values are: 0, 1, 2 or 3
 (integer) with the following meaning:
@@ -206,12 +206,12 @@ The PHP variable reads: $TYPO3\_CONF\_VARS['BE']['lockSSL']
 IPmaskList
 """"""""""
 
-Some TYPO3 instances are maintained by a selected group of integrators
+Some TYPO3 CMS instances are maintained by a selected group of integrators
 and editors who only work from a specific IP range or (in an ideal
 world) from a specific IP address only. This could be for example an
 office network with a static public IP address. In this case, or in
 any case where client's IP addresses are predictable, the "IPmaskList"
-configuration may be used to limit the access to the TYPO3 backend.
+configuration may be used to limit the access to the TYPO3 CMS backend.
 
 The string configured as "IPmaskList" is a comma-separated list of IP
 addresses which are allowed to access the backend. The use of
@@ -237,7 +237,7 @@ because they could contain malicious code which can be executed by
 TypoScript as well. The "noPHPscriptInclude" directive addresses this
 risk and offers the option to prevent the inclusion of PHP scripts,
 except if they reside in the directory
-"typo3/sysext/cms/tslib/media/scripts/" (in older TYPO3 versions:
+"typo3/sysext/cms/tslib/media/scripts/" (in older TYPO3 CMS versions:
 "media/scripts/").
 
 Possible values are: 0 or 1 (boolean), where "0" deactivates the

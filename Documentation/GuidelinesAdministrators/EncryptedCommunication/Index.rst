@@ -103,7 +103,7 @@ backend, especially with an administrator user account, has a
 significant impact on the security of your website. It is clear that
 the use of SSL for the backend of TYPO3 improves the security.
 
-TYPO3 supports a SSL encrypted backend and offers some specific
+TYPO3 CMS supports a SSL encrypted backend and offers some specific
 configuration options for this purpose, see configuration option
 "lockSSL" in chapter "Guidelines for TYPO3 integrators".
 
@@ -115,7 +115,7 @@ procedure should be protected, not the following client/server
 communication necessarily – assuming no sensitive information are
 accessed from or stored in the backend.
 
-The TYPO3 core extension "rsaauth" addresses this requirement, see
+The TYPO3 CMS core extension "rsaauth" addresses this requirement, see
 "security-related core extensions" in chapter "Guidelines for TYPO3
 integrators".
 

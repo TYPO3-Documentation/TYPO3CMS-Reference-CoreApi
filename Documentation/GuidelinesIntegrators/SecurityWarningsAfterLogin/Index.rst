@@ -14,7 +14,7 @@ Security-related warnings after login
 A TYPO3 integrator is responsible for the correct configuration of the
 TYPO3 system. Usually, an integrator has administrator privileges and
 logs in to the backend from time to time or regularly. If a user with
-administrator privileges accesses the system, TYPO3 triggers some
+administrator privileges accesses the system, TYPO3 CMS triggers some
 basic system checks and shows an error or warning message in a box
 right after the login.
 

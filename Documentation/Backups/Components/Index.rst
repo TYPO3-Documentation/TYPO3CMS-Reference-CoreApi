@@ -11,7 +11,7 @@
 Components included in the backups
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To restore a TYPO3 project you need to have a backup of at least the
+To restore a TYPO3 CMS project you need to have a backup of at least the
 following data directories:
 
 - fileadmin
@@ -21,7 +21,7 @@ following data directories:
 - uploads
 
 You do not need a backup of the "typo3temp/" directory, due to the
-fact that all files are re-generated automatically if they don't
+fact that all files are re-generated automatically if they do not
 exist. Also a backup of the TYPO3 source code is not needed (unless
 changes were made to the source code, which is not recommended). You
 can always download the TYPO3 source packages from the TYPO3 website,

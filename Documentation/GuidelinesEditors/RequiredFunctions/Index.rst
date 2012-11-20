@@ -14,7 +14,7 @@ Restriction to required functions
 Some people believe that having more access privileges in a system is
 better than having essential privileges only. This is not true from a
 security perspective due to several reasons. Every additional
-privilege causes not only new risks to the system but also requires
+privilege introduces not only new risks to the system but also requires
 more responsibility as well as security awareness from the user.
 
 In most cases editors should prefer having access to functions and

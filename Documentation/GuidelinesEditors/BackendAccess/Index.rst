@@ -63,7 +63,7 @@ should get in touch with the system provider to solve this issue.
 Notify at login
 """""""""""""""
 
-TYPO3 offers the feature to notify backend users by email, when
+TYPO3 CMS offers the feature to notify backend users by email, when
 somebody logs in from your account. If you set this option in your
 user settings, you will receive an email from TYPO3 each time you (or
 "someone") logs in using your login details. Receiving such a
@@ -87,7 +87,7 @@ Lock to IP address(es)
 """"""""""""""""""""""
 
 Some TYPO3 instances are maintained by a selected group of editors who
-only work from a specific IP range or (in an ideal world) from a
+only work from a specific IP range or (in an ideal world) from one
 specific IP address only – an office network with a static public IP
 address is a typical example.
 
@@ -98,7 +98,7 @@ someone coming from an unauthorized IP address.
 Implementing this additional login limitation is the responsibility of
 the person or company who hosts and/or administers the TYPO3 site.
 Discuss the options with him/her and keep in mind that this is usually
-a 10 minutes job for someone who knows TYPO3 (the configuration
+a 10 minutes job for someone who knows TYPO3 CMS (the configuration
 directive "enabledBeUserIPLock" does exactly this, described in this
 document, see chapter "Guidelines for TYPO3 Integrators: Global TYPO3
 configuration options").

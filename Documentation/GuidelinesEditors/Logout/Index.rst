@@ -19,7 +19,7 @@ an additional security measure, you may want to clear the browser
 cache and cookies after you have logged out and close the browser
 software.
 
-In the standard configuration of TYPO3 you will automatically be
+In the standard configuration of TYPO3 CMS you will automatically be
 logged out after 1 hour of inactivity or when you access TYPO3 with
 another IP address.
 
