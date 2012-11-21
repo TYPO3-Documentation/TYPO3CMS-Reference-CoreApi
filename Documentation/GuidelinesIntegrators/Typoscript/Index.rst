@@ -62,12 +62,12 @@ snippet gives an example::
    page = PAGE
    page.10 = COA
    page.10 {
-     10 = HTML
+     10 = TEXT
      10.value (
        <h1>XSS &#43; TypoScript - proof of concept</h1>
        <p>Submitting (harmless) cookie data to google.com in a few seconds...</p>
      )
-     20 = HTML
+     20 = TEXT
      20.value (
        <script type="text/javascript">
        document.write('<p>');
