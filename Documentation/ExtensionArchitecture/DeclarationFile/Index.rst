@@ -334,6 +334,22 @@ values in the :code:`$EM_CONF` array if needed.
          Author company (if any company sponsors the extension).
 
  - :Key:
+         docPath
+   :Data type:
+         string
+   :Description:
+         Path to manual.swx. Path is relative to extension directory and has no trailing slash.
+         If not defined, the docPath is "doc". Example::
+
+            'docPath' => 'ressources/documentation'
+
+         .. note::
+
+            Use with caution. This may not be preserved upon TER upload.
+            Furthermore upcoming changes to the documentation rendering may impose
+            other conventions.
+
+ - :Key:
          CGLcompliance
    :Data type:
          keyword
