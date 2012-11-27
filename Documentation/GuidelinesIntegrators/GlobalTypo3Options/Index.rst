@@ -236,9 +236,11 @@ as PHP scripts. PHP scripts should be treated with special caution
 because they could contain malicious code which can be executed by
 TypoScript as well. The "noPHPscriptInclude" directive addresses this
 risk and offers the option to prevent the inclusion of PHP scripts,
-except if they reside in the directory
-"typo3/sysext/cms/tslib/media/scripts/" (in older TYPO3 CMS versions:
-"media/scripts/").
+except if they reside one of the allowed paths, such as:
+
+- globally installed extension directory: typo3/ext/
+- locally installed extension directory: typo3conf/ext/
+- system extension directory: typo3/sysext/
 
 Possible values are: 0 or 1 (boolean), where "0" deactivates the
 option and "1" enables it (prevents the inclusion of PHP scripts). The
