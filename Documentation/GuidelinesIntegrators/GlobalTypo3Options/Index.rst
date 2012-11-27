@@ -248,3 +248,32 @@ default value is an empty value which reflects "0".
 
 The PHP variable reads: $TYPO3\_CONF\_VARS['FE']['noPHPscriptInclude']
 
+
+.. _warningemailaddr:
+
+warning_email_addr
+""""""""""""""""""
+
+The email address defined here will receive notifications, whenever an
+attempt to login to the Install Tool is made. TYPO3 will also send a
+warning whenever more than 3 failed backend login attempts (regardless
+of user) are detected within one hour.
+
+The default value is an empty string.
+
+The PHP variable reads: $TYPO3\_CONF\_VARS['FE']['warning_email_addr']
+
+
+.. _warningmode:
+
+warning_mode
+""""""""""""
+
+If the first bit is set to 1, warning_email_addr (see above) will be
+notified every time a backend user logs in. If the second bit is set,
+an email is also send every time an administrator backend user logs in.
+
+The default value is an empty string.
+
+The PHP variable reads: $TYPO3\_CONF\_VARS['FE']['warning_mode']
+
