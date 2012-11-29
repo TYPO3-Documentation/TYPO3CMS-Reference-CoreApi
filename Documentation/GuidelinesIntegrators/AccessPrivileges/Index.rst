@@ -50,7 +50,7 @@ general, e.g. 6 months in the future. This forces the administrator
 team to review the accounts from time to time and only extend the
 users that are allowed to continue using the system.
 
-.. figure:: ../../Images/be-user-expiry-date-004.png
+.. figure:: ../../Images/be-user-expiry-date.png
    :alt: Screenshot showing the screen to set an expiry date for a BE user
 
 

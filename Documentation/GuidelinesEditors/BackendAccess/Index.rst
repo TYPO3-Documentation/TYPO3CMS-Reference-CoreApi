@@ -33,7 +33,7 @@ password does not match the rules explained above, change your
 password to a secure one as soon as possible. You should be able to
 change your password in the "User settings" menu:
 
-.. figure:: ../../Images/editor-change-password-003b.png
+.. figure:: ../../Images/editor-change-password.png
    :alt: The "User Settings" menu, where you can change your password
 
 
@@ -54,7 +54,7 @@ If you see a "Template" entry under the "WEB" menu or a section "ADMIN
 TOOLS", you definitely have the wrong permissions as an editor and you
 should get in touch with the system provider to solve this issue.
 
-.. figure:: ../../Images/editor-admin-privileges-002b.png
+.. figure:: ../../Images/editor-admin-privileges.png
    :alt: Screenshot of a menu with the section "ADMIN TOOLS"
 
 
