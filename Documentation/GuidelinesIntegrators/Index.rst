@@ -25,6 +25,7 @@ Guidelines for TYPO3 Integrators
    SecurityWarningsAfterLogin/Index
    ReportsAndLogs/Index
    AccessPrivileges/Index
+   Extensions/Index
    Typoscript/Index
    ContentElements/Index
 
