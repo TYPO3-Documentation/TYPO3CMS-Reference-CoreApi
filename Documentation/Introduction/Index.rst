@@ -18,6 +18,7 @@ Introduction
    :glob:
 
    About/Index
+   WhatsNew/Index
    History/Index
    Credits/Index
    Feedback/Index
