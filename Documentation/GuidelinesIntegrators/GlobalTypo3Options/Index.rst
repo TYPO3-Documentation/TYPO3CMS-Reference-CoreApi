@@ -236,11 +236,11 @@ as PHP scripts. PHP scripts should be treated with special caution
 because they could contain malicious code which can be executed by
 TypoScript as well. The "noPHPscriptInclude" directive addresses this
 risk and offers the option to prevent the inclusion of PHP scripts,
-except if they reside one of the allowed paths, such as:
+except if they reside in one of the allowed paths, such as:
 
-- globally installed extension directory: typo3/ext/
-- locally installed extension directory: typo3conf/ext/
-- system extension directory: typo3/sysext/
+- the globally installed extension directory: typo3/ext/
+- the locally installed extension directory: typo3conf/ext/
+- the system extension directory: typo3/sysext/
 
 Possible values are: 0 or 1 (boolean), where "0" deactivates the
 option and "1" enables it (prevents the inclusion of PHP scripts). The
@@ -256,8 +256,8 @@ warning_email_addr
 
 The email address defined here will receive notifications, whenever an
 attempt to login to the Install Tool is made. TYPO3 will also send a
-warning whenever more than 3 failed backend login attempts (regardless
-of user) are detected within one hour.
+warning whenever more than three failed backend login attempts
+(regardless of the user) are detected within one hour.
 
 The default value is an empty string.
 
@@ -269,9 +269,11 @@ The PHP variable reads: $TYPO3\_CONF\_VARS['FE']['warning_email_addr']
 warning_mode
 """"""""""""
 
-If the first bit is set to 1, warning_email_addr (see above) will be
-notified every time a backend user logs in. If the second bit is set,
-an email is also send every time an administrator backend user logs in.
+Here you can set an integer. If the first bit is set to 1,
+warning_email_addr (see above) will be notified every time a backend
+user logs in. If the first bit is not set and the second bit is set,
+an email is only sent every time an *administrator* backend user logs
+in.
 
 The default value is an empty string.
 

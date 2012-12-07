@@ -6,7 +6,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _whatsnew:
+.. _what-s-new:
 
 What's New
 ^^^^^^^^^^
@@ -18,6 +18,6 @@ added to the Install Tool section: warning_email_addr and warning_mode might
 help to detect a hack attempt.
 
 Furthermore, this version includes some minor housekeeping tasks such as
-updating the occurance of deprecated TypoScript functions and the removal of
+updating the occurrence of deprecated TypoScript functions and the removal of
 unused images.
 

@@ -20,10 +20,10 @@ typical risks and advises on how to protect a TYPO3 site in order to
 ensure it is and stays secure and stable.
 
 The terminology "TYPO3" used in this document refers to the TYPO3 family
-including TYPO3 CMS and TYPO3 Neos. However, this version of the document
-focuses on TYPO3 CMS but a lot of information also apply to TYPO3 Neos
-and some of the general advices are also relevant for other content managed
-websites. If it is not clear from the context, to which specific project
+including TYPO3 CMS and TYPO3 Neos. This version of the document focuses
+on TYPO3 CMS. However, a lot of information also apply to TYPO3 Neos and
+some of the general advices are also relevant for other content managing
+websites. If it is not clear from the context, which specific project
 (TYPO3 CMS or TYPO3 Neos) the word "TYPO3" in this document refers to,
 please assume TYPO3 CMS.
 
