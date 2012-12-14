@@ -41,6 +41,7 @@ http://typo3.org/documentation/api/.
    SystemLog/Index
    SystemRegistry/Index
    Mail/Index
+   FormProtection/Index
    FlashMessages/Index
    Hooks/Index
    Xclasses/Index
