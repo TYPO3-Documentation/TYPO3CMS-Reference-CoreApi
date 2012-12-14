@@ -21,7 +21,7 @@ entries in the "default" type!!
 This is the default array as set in t3lib/stddb/tables.php::
 
    $PAGES_TYPES = array(
-           '254' => array(              //  Doktype 254 is a 'sysFolder' - a general purpose storage folder
+           '254' => array(              //  Doktype 254 is a 'Folder' - a general purpose storage folder
                    'type' => 'sys',
                    'icon' => 'sysf.gif',
                    'allowedTables' => '*'
