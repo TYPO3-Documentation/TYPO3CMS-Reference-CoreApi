@@ -40,6 +40,7 @@ http://typo3.org/documentation/api/.
    Workspaces/Index
    SystemLog/Index
    SystemRegistry/Index
+   Mail/Index
    FlashMessages/Index
    Hooks/Index
    Xclasses/Index
