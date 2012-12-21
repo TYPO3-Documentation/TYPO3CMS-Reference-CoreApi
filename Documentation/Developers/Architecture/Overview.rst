@@ -49,7 +49,7 @@ for the specific properties this file has in this particular usage, such as the 
 overlays for the title and description texts.
 
 Creating a reference to a file requires the file to be indexed first, as the reference is done through
-the normal record relation handling of TYPO3, which requires
+the normal record relation handling of TYPO3 CMS.
 
 .. note::
   Technically, the FileReference implements the same interface as the File itself,
