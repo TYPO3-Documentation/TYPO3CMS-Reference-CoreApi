@@ -86,6 +86,7 @@ address the task at hand.
    ExtensionArchitecture/Index
    ApiOverview/Index
    JavaScript/Index
+   CachingFramework/Index
    PageTypes/Index
    UserSettingsConfiguration/Index
    RteApi/Index

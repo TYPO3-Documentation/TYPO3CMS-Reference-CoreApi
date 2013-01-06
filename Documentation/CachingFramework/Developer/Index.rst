@@ -1,0 +1,206 @@
+.. ==================================================
+.. FOR YOUR INFORMATION
+.. --------------------------------------------------
+.. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../Includes.txt
+
+
+
+.. _caching-developer:
+
+Developer information
+^^^^^^^^^^^^^^^^^^^^^
+
+This chapter is targeted at extension authors who want to use the caching framework
+for their needs. It is about how to use the framework properly. For details about
+its inner working, please refer to the :ref:`section about architecture <caching-architecture>`.
+
+Example usages can be found throughout the TYPO3 CMS Core, in particular in
+system extension "extbase".
+
+
+.. _caching-developer-usage-46-more:
+
+Cache registration and usage (TYPO3 CMS 4.6 and above)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+If an extension is meant to support only TYPO3 4.6 CMS and above,
+cache registration and usage is very simple.
+
+Register a new cache in :file:`ext_localconf.php`. The example below just defines
+an empty sub-array in *cacheConfigurations*. Neither *frontend* nor *backend* are defined,
+meaning that the cache manager will choose the :ref:`variable frontend <caching-frontend-variable>`
+and the :ref:`database backend <caching-backend-db>` by default.
+
+.. code-block:: php
+
+   if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
+       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
+   }
+
+.. tip::
+
+   The :code:`is_array()` check is done to enable administrators to overwrite configuration of caches.
+
+If special settings are needed, for example a specific backend (like the transient memory backend),
+it can be defined with an additional line below the cache array declaration.
+
+.. tip::
+
+   Extensions should not force specific settings, therefore the selection is again encapsulated in a
+   :code:`if (!isset())` check to allow administrators to overwrite those settings.
+   It is recommended to set up a cache configuration with sane defaults,
+   but administrators should always be able to overwrite them for whatever reason.
+
+.. code-block:: php
+
+   if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'])) {
+       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = 't3lib_cache_backend_TransientMemoryBackend';
+   }
+
+To get an instance of a cache, :code:`$GLOBALS['typo3CacheManager']->getCache('cacheName')`
+should be used. The cache manager will return the fully initialized cache instance::
+
+   $myCacheInstance = $GLOBALS['typo3CacheManager']->getCache('myext_mycache');
+
+
+
+.. _caching-developer-usage-45-less:
+
+Cache registration and usage (TYPO3 CMS 4.3 to 4.5)
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+From TYPO3 CMS 4.3 to 4.5, cache registration was a somewhat more complicated process.
+If an extension must also support these versions, it should implement this other registration
+process encapsulated in a proper version check. Example::
+
+   // Register cache 'myext_mycache'
+   if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
+       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
+   }
+   // Define string frontend as default frontend, this must be set with TYPO3 4.5 and below
+   // and overrides the default variable frontend of 4.6
+   if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['frontend'])) {
+       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['frontend'] = 't3lib_cache_frontend_StringFrontend';
+   }
+   if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < '4006000') {
+       if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'])) {
+           $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = 't3lib_cache_backend_DbBackend';
+       }
+       // Define data and tags table for 4.5 and below (obsolete in 4.6)
+       if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['options'])) {
+           $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['options'] = array();
+       }
+       if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']['cacheTable'])) {
+           $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']['cacheTable'] = 'tx_myext_mycache';
+       }
+       if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']['tagsTable'])) {
+           $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']['tagsTable'] = 'tx_myext_mycache_tags';
+       }
+   }
+
+
+If the database backend is chosen, the extension must add the required tables in file
+:file:`ext_tables.sql`. Those tables will only be used in TYPO3 4.5 and below:
+
+.. code-block:: sql
+
+   #
+   # Table structure for table 'tx_myext_mycache'
+   #
+   CREATE TABLE tx_myext_mycache (
+       id int(11) unsigned NOT NULL auto_increment,
+       identifier varchar(250) DEFAULT '' NOT NULL,
+       crdate int(11) unsigned DEFAULT '0' NOT NULL,
+       content mediumblob,
+       lifetime int(11) unsigned DEFAULT '0' NOT NULL,
+       PRIMARY KEY (id),
+       KEY cache_id (identifier)
+   ) ENGINE=InnoDB;
+
+   #
+   # Table structure for table 'tx_myext_mycache_tags'
+   #
+   CREATE TABLE tx_myext_mycache_tags (
+       id int(11) unsigned NOT NULL auto_increment,
+       identifier varchar(250) DEFAULT '' NOT NULL,
+       tag varchar(250) DEFAULT '' NOT NULL,
+       PRIMARY KEY (id),
+       KEY cache_id (identifier),
+       KEY cache_tag (tag)
+   ) ENGINE=InnoDB;
+
+An extension should usually not depend on :code:`$TYPO3_CONF_VARS['SYS']['useCachingFramework']`
+being **true**. This variable is always **true** since TYPO3 CMS 4.6, but could be **false**
+in older version. It should be possible to use the caching framework in an extension even if
+it is not activated globally for the Core. To achieve this, an extension must not expect the
+:code:`cacheManager` and :code:`cacheFactory` classes to be already instantiated and available.
+Instead it should perform its own initialization. Example::
+
+   class tx_myext_myFunctionality {
+       /**
+        * @var t3lib_cache_frontend_AbstractFrontend
+        */
+       protected $cacheInstance;
+
+       /**
+        * Constructor
+        */
+       public function __construct() {
+           $this->initializeCache();
+       }
+
+       /**
+        * Initialize cache instance to be ready to use
+        *
+        * @return void
+        */
+       protected function initializeCache() {
+           t3lib_cache::initializeCachingFramework();
+           try {
+               $this->cacheInstance = $GLOBALS['typo3CacheManager']->getCache('myext_mycache');
+           } catch (t3lib_cache_exception_NoSuchCache $e) {
+               $this->cacheInstance = $GLOBALS['typo3CacheFactory']->create(
+                   'myext_mycache',
+                   $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['frontend'],
+                   $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'],
+                   $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']
+               );
+           }
+       }
+   }
+
+Calling :code:`t3lib_cache::initializeCachingFramework()` ensures that the :code:`cacheManager`
+and :code:`cacheFactory` instances are available in TYPO3 CMS 4.5 and below. After calling
+:code:`initializeCache()`, all available frontend operations like :code:`get()`,
+:code:`set()` and :code:`flushByTag()` can be executed on :code:`$this->cacheInstance`.
+
+
+.. _caching-developer-access:
+
+Cache access logic
+""""""""""""""""""
+
+Cache usage patterns are usually wrappers around the main code sections.
+Here is some example code::
+
+       protected function getCachedMagic() {
+           $cacheIdentifier = $this->calculateCacheIdentifier();
+
+           // If $entry is null, it hasn't been cached. Calculate the value and store it in the cache:
+           if (($entry = $GLOBALS['typo3CacheManager']->getCache('myCache')->get($cacheIdentifier)) === false) {
+               $entry = $this->calculateMagic();
+
+               // [calculate lifetime and assigned tags]
+
+               // Save value in cache
+               $GLOBALS['typo3CacheManager']->getCache('myCache')->set($cacheIdentifier, $entry, $tags, $lifetime);
+           }
+           return $entry;
+       }
+
+.. tip::
+
+   It isn't needed to call :code:`has()` before accessing cache entries with :code:`get()`
+   as the latter returns :code:`NULL` if no entry exists.

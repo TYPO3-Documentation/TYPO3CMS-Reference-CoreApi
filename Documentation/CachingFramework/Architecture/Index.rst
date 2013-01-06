@@ -1,0 +1,179 @@
+.. ==================================================
+.. FOR YOUR INFORMATION
+.. --------------------------------------------------
+.. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../Includes.txt
+
+
+
+.. _caching-architecture:
+
+Caching framework architecture
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. _caching-architecture-base:
+
+Basic knowhow
+"""""""""""""
+
+The caching framework can handle multiple caches with different configurations.
+A single cache consists of any number of cache entries.
+
+A single cache entry is defined by these fields:
+
+- **identifier**: A string as unique identifier within this cache. Used to store and retrieve entries.
+- **data**: The data to be cached.
+- **lifetime**: A lifetime in seconds of this cache entry.
+  The entry can not be retrieved from cache if lifetime expired.
+- **tags**: Additional tags (an array of strings) assigned to the entry.
+  Used to remove specific cache entries.
+
+.. tip::
+
+   The difference between identifier and tags is quite simple:
+   an identifier uniquely identifies a cache entry,
+   and a tag is additional data applied to an entry (used for cache eviction).
+   Thus, an identifier refers to a single cache entry, and a tag can refer to multiple cache entries.
+
+
+.. _caching-architecture-identifier:
+
+About the identifier
+~~~~~~~~~~~~~~~~~~~~
+
+The identifier is used to store ("set") and retrieve ("get") entries
+from the cache and holds all information to differentiate entries from each other.
+For performance reasons, it should be quick to calculate.
+
+Suppose there is an resource-intensive extension added as a plugin on two different pages.
+The calculated content depends on the page on which it is inserted and if a user is logged in or not.
+So, the plugin creates at maximum four different content outputs,
+which can be cached in four different cache entries:
+
+- page 1, no user logged in
+- page 1, a user is logged in
+- page 2, no user logged in
+- page 2, a user is logged in
+
+To differentiate all entries from each other, the identifier is built from the page ID
+where the plugin is located, combined with the information whether a user is logged in.
+These are concatenated and hashed. In PHP this could look like this::
+
+   $identifier = sha1((string)$this->getPageUid() . (string)$this->isUserLoggedIn());
+
+.. tip::
+
+   sha1 is a good hash algorithm in this case, as collisions are extremely unlikely.
+   It scales O(n) with the input length.
+
+When the plugin is accessed, the identifier is calculated early in the program flow.
+Next, the plugin looks up for a cache entry with this identifier.
+If there is such an entry, the plugin can return the cached content,
+else it calculates the content and stores a new cache entry with this identifier.
+
+In general the identifier is constructed from all dependencies
+which specify an unique set of data. The identifier should be based on
+information which already exist in the system at the point of its calculation.
+In the above scenario the page id and whether or not a user is logged in
+are already determined during the frontend bootstrap and can be retrieved from the system quickly.
+
+
+.. _caching-architecture-tags:
+
+About tags
+~~~~~~~~~~
+
+Tags are used to drop specific cache entries when some information they are based on
+is changed.
+
+Suppose the above plugin displays content based on different news entries.
+If one news entry is changed in the backend, all cache entries
+which are compiled from this news row must be dropped to ensure that
+the frontend renders the plugin content again and does not deliver old content
+on the next frontend call.
+
+If - for example - the plugin uses news number one and two on one page,
+and news one on another page, the related cache entries should be tagged with these tags:
+
+- page 1, tags news_1, news_2
+- page 2, tag news_1
+
+If entry 2 is changed, a simple backend logic (probably a hook in :ref:`TCEMAIN <using-tcemain>`) could be created,
+which drops all cache entries tagged with :code:`news_2`. In this case the first entry would be
+invalidated while the second entry still exists in the cache after the operation.
+
+While there is always exactly one identifier for each cache entry,
+an arbitrary number of tags can be assigned to an entry and one specific tag
+can be assigned to mulitple cache entries. All tags a cache entry has are given to
+the cache when the entry is stored ("set").
+
+
+.. _caching-architecture-core:
+
+Caches in the TYPO3 Core
+""""""""""""""""""""""""
+
+.. warning::
+   This section is only valid for TYPO3 CMS 4.6 and above.
+
+The TYPO3 core defines and uses several caching framework caches by default.
+This section gives an overview of default caches, its usage and behaviour:
+
+- cache_phpcode
+
+  - This cache uses ''PhpFrontend'' and can be used to store compiled PHP code
+    that can be retrieved directly using :code:`require()` directly.
+
+  - The core autoloader uses this cache to store a register of available classes:
+
+    - The autoloader cache file builds the cache identifier from the current TYPO3 version
+      and if the current request is a frontend or a backend request.
+      Typically, there will be two cache files: One for frontend and one for backend.
+
+    - The autoloader cache files are optimized for production use and
+      only rebuilt when upgrading TYPO3 or when installing a new extension.
+
+    - While developing, trying to use new classes that are not yet in the class index
+      can result in fatal errors. In this case, the "Clear all cache" action in the backend must be used;
+      this forces the system to repopulate the class index.
+
+.. tip::
+
+   In rare cases, for example when classes that are required during TYPO3 bootstrap are introduced
+   (usually when working on the TYPO3 core), the 'Clear all cache' request itself might throw a fatal error.
+   The solution here is to manually remove the cache files from
+   :file:`typo3temp/Cache/Code/cache_phpcode`. If this happens frequently during development,
+   you might consider to configure the 'NullBackend' for this cache.
+
+
+.. _caching-architecture-task:
+
+Garbage collection task
+"""""""""""""""""""""""
+
+TYPO3 CMS 4.5 and above provide a Scheduler task to collect the garbage of all cache backends.
+This is important for backends like the database backends that do not remove old cache entries
+and tags internally. It is highly recommended to add this Scheduler task and run it once in a while
+(maybe once a day at night) for all used backends which do not delete entries which exceeded
+their lifetime on their own to free up memory or hard disk space.
+
+
+.. _caching-architecture-api:
+
+Cache API
+"""""""""
+
+The caching framework architecture is based on the following classes:
+
+- **t3lib_cache**: Adapter class between FLOW3 cache logic and TYPO3 v4 core implementation.
+  Used by core and extensions to initialize the framework.
+  Creates instances of :code:`t3lib_cache_factory` and :code:`t3lib_cache_manager`.
+- **t3lib_cache_factory**: Factory class to instantiate cache manager and caches.
+- **t3lib_cache_manager**: Returns the cache frontend of a specific cache.
+  Implements methods to handle cache instances.
+- **t3lib_cache_frontend_Frontend**: Main interface to handle cache entries of a specific cache.
+  Different frontends exist to handle different data types.
+- **t3lib_cache_backend_Backend**: Interface for different storage strategies.
+  A set of implementations exist with different characteristics.
