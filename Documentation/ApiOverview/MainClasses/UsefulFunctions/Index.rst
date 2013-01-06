@@ -367,16 +367,6 @@ t3lib\_div
          the current URL.
 
 
- - :Function:
-         t3lib\_div::plainMailEncoded
-   :Comments:
-         Mail sending functions
-
-         **t3lib\_div::plainMailEncoded()** - Simple substitute for the PHP
-         function mail() which allows you to specify encoding and character
-         set.
-
-
 .. _useful-t3lib-befunc:
 
 t3lib\_BEfunc
