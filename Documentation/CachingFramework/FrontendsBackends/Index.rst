@@ -13,6 +13,81 @@ Cache frontends
 ^^^^^^^^^^^^^^^
 
 
+.. _caching-frontend-api:
+
+Frontend API
+""""""""""""
+
+All frontends must implement the API defined in interface :code:`TYPO3\CMS\Core\Cache\Frontend\FrontendInterface`.
+All operations on a specific cache must be done with these methods. The frontend object of a cache is the main object
+any cache manipulation is done with, usually the assigned backend object should not be used directly.
+
+.. t3-field-list-table::
+ :header-rows: 1
+
+ - :Method,30: Method
+   :Description,70: Description
+
+ - :Method:
+      getIdentifier
+   :Description:
+      Returns the cache identifier.
+
+ - :Method:
+      getBackend
+   :Description:
+      Returns the backend instance of this cache. It is seldom needed in usual code.
+
+ - :Method:
+      set
+   :Description:
+      Sets/overwrites an entry in the cache.
+
+ - :Method:
+      get
+   :Description:
+      Returns the cache entry for the given identifier.
+
+ - :Method:
+      has
+   :Description:
+      Checks for existence of a cache entry.
+      Do no use this prior to :code:`get()` since :code:`get()`
+      returns NULL if an entry does not exist.
+
+ - :Method:
+      remove
+   :Description:
+      Removes the entry for the given identifier from the cache.
+
+ - :Method:
+      flushByTag
+   :Description:
+      Flushes all cache entries which are tagged with the given tag.
+
+ - :Method:
+      collectGarbage
+   :Description:
+      Calls the garbage collection method of the backend.
+      This is important for backends which are unable to do this internally
+      (like the DB backend).
+
+ - :Method:
+      isValidEntryIdentifier
+   :Description:
+      Checks if a given identifier is valid.
+
+ - :Method:
+      isValidTag
+   :Description:
+      Checks if a given tag is valid.
+
+ - :Method:
+      requireOnce
+   :Description:
+      **PhpFrontend only** Requires a cached PHP file directly.
+
+
 .. _caching-frontend-avalaible:
 
 Available frontends
@@ -61,95 +136,15 @@ if a cache entry exists. This can be used by extensions to cache and speed up lo
 of calculated PHP code and becomes handy if a lot of reflection and
 dynamic PHP class construction is done.
 
-A backend to be used with the PHP frontend must implement the interface
-:code:`t3lib_cache_backend_PhpCapableBackend`. Currently the file backend is
-the only backend which fulfills this requirement.
+A backend to be used in combination with the PHP frontend must implement the interface
+:code:`TYPO3\CMS\Core\Cache\Backend\PhpCapableBackendInterface`. Currently the file backend and
+the simple file backend fulfill this requirement.
 
 .. note::
 
    The PHP frontend can **only** be used to cache PHP files.
    It does not work with strings, arrays or objects.
    It is **not** intended as a page content cache.
-
-
-.. _caching-frontend-api:
-
-Frontend API
-""""""""""""
-
-All frontends must implement the API defined in interface :code:`t3lib_cache_frontend`.
-All operations on a specific cache must be done with these methods.
-
-.. t3-field-list-table::
- :header-rows: 1
-
- - :Method,30: Method
-   :Description,70: Description
-
- - :Method:
-      getIdentifier
-   :Description:
-      Returns the cache identifier.
-
- - :Method:
-      getBackend
-   :Description:
-      Returns the backend instance of this cache. It is seldom needed in usual code.
-
- - :Method:
-      set
-   :Description:
-      Sets/overwrites an entry in the cache.
-
- - :Method:
-      get
-   :Description:
-      Returns the cache entry for the given identifier.
-
- - :Method:
-      has
-   :Description:
-      Checks for existence of a cache entry.
-      Do no use this prior to :code:`get()` since :code:`get()`
-      returns NULL if an entry does not exist.
-
- - :Method:
-      remove
-   :Description:
-      Removes the entry for the given identifier from the cache.
-
- - :Method:
-      flushByTag
-   :Description:
-      Flushes all cache entries which are tagged with the given tag.
-
- - :Method:
-      flushByTags
-   :Description:
-      Removes all cache entries which are tagged with one of the given tags
-      **(deprecated since TYPO3 CMS 4.6)**.
-
- - :Method:
-      collectGarbage
-   :Description:
-      Calls the garbage collection method of the backend.
-      This is important for backends which are unable to do this internally
-      (like the DB backend).
-
- - :Method:
-      isValidEntryIdentifier
-   :Description:
-      Checks if a given identifier is valid.
-
- - :Method:
-      isValidTag
-   :Description:
-      Checks if a given tag is valid.
-
- - :Method:
-      requireOnce
-   :Description:
-      *(PhpFrontend only)* Requires a cached PHP file directly.
 
 
 .. _caching-backend:
@@ -162,6 +157,82 @@ and can be used for different caching needs. The best backend depends on
 a given server setup and hardware, as well as cache type and usage.
 A backend should be chosen wisely, as a wrong decision could end up actually
 slowing down a TYPO3 installation.
+
+.. _caching_backend-api:
+
+Backend API
+""""""""""""
+
+All backends must implement at least implement interface :code:`TYPO3\CMS\Core\Cache\Backend\BackendInterface`.
+All operations on a specific cache must be done with these methods. There are several further interfaces that can be
+implemented by backends to declare additional capabilities. Usually, extension code should not handle cache backend operations
+directly, but should use the frontend object instead.
+
+.. t3-field-list-table::
+ :header-rows: 1
+
+ - :Method,30: Method
+   :Description,70: Description
+
+ - :Method:
+      setCache
+   :Description:
+      Reference to the frontend which uses the backend. This method is mostly used internally.
+
+ - :Method:
+      set
+   :Description:
+      Save data in the cache.
+
+ - :Method:
+      get
+   :Description:
+      Load data from the cache.
+
+ - :Method:
+      has
+   :Description:
+      Checks if a cache entry with the specified identifier exists.
+
+ - :Method:
+      remove
+   :Description:
+      Remove a cache entry with the specified identifier.
+
+ - :Method:
+      flush
+   :Description:
+      Remove all cache entries.
+
+ - :Method:
+      collectGarbage
+   :Description:
+      Does garabage collection.
+
+ - :Method:
+      flushByTag
+   :Description:
+      **TaggableBackendInterface only** Removes all cache entries which are tagged by the specified tag.
+
+ - :Method:
+      findIdentifiersByTag
+   :Description:
+      **TaggableBackendInterface only** Finds and returns all cache entry identifiers which are tagged by the specified tag.
+
+ - :Method:
+      requireOnce
+   :Description:
+      **PhpCapableBackendInterface only** Loads PHP code from the cache and require_onces it right away.
+
+ - :Method:
+      freeze
+   :Description:
+      **FreezableBackendInterface only** Freezes this cache backend.
+
+ - :Method:
+      isFrozen
+   :Description:
+      **FreezableBackendInterface only** Tells if this backend is frozen.
 
 
 .. _caching-backend-options:
@@ -205,12 +276,10 @@ It stores data in the configured database (usually MySQL)
 and can handle large amounts of data with reasonable performance.
 Data and tags are stored in two different tables, every cache needs its own set of tables.
 In terms of performance the database backend is already pretty well optimized
-and should be used as default backend if in doubt.
+and should be used as default backend if in doubt. This backend is the default backend if no backend
+is specifically set in the configuration.
 
-In TYPO3 CMS 4.5 and below the needed table structure had to be defined in :file:`ext_tables.sql`
-and should be copied from existing core cache tables.
-Since TYPO3 CMS 4.6 the database backend takes care of the needed table structure on its own
-and the :code:`cacheTable` and :code:`tagsTable` options are ignored.
+The core takes care of creating and updating required database tables.
 
 For caches with a lot of read and write operations, it is important to tune the MySQL setup.
 The most important setting is :code:`innodb_buffer_pool_size`. A generic goal is to give MySQL
@@ -224,7 +293,19 @@ The overhead of the compress/uncrompress operation is usually not high.
 A good candidate for a cache with enabled compression is the core pages cache:
 it is only read or written once per request and the data size is pretty large.
 The compression should not be enabled for caches which are read or written
-very often during one request.
+multiple times during one request.
+
+.. _caching-backend-db-innodb:
+
+InnoDB issues
+~~~~~~~~~~~~~
+
+The database backend for MySQL uses InnoDB tables. Due to the nature of InnoDB, deleting records
+`does not reclaim <http://bugs.mysql.com/bug.php?id=1287>`_ the actual disk space. E.g. if the cache uses 10GB,
+cleaning it will still keep 10GB allocated on the disk even though phpMyAdmin will show 0 as the cache table size.
+To reclaim the space, turn on the MySQL option file_per_table, drop the cache tables and re-create
+them using the Install tool.
+This does not by any mean that you should skip the scheduler task. Deleting records still improves performance.
 
 
 .. _caching-backend-db-options:
@@ -240,26 +321,6 @@ Options
    :Mandatory,10: Mandatory
    :Type,10: Type
    :Default,10: Default
-
- - :Option:
-      cacheTable
-   :Description:
-      Data table of this cache. Every cache needs to have its own table. **Obsolete since TYPO3 CMS 4.6**.
-   :Mandatory:
-      Yes (only TYPO3 CMS 4.5 and below)
-   :Type:
-      string
-   :Default:
-
- - :Option:
-      tagsTable
-   :Description:
-      Tags table of this cache. Every cache needs to have its own table. **Obsolete since TYPO3 CMS 4.6**.
-   :Mandatory:
-      Yes (only TYPO3 CMS 4.5 and below)
-   :Type:
-      string
-   :Default:
 
  - :Option:
       compression
@@ -338,6 +399,8 @@ the whole memcached data which might even hold non TYPO3 related entries.
 
 Because of the mentioned drawbacks, the memcached backend should be used with care
 or in situations where cache integrity is not important or if a cache has no need to use tags at all.
+Currently, the memcache backend implements the TaggableBackendInterface, so the implementation does allow tagging,
+even if it is not advised to used this backend together with heavy tagging.
 
 .. warning::
 
@@ -465,7 +528,7 @@ Options
  - :Option:
       port
    :Description:
-      Port of the Redis daemon.
+      Port of the redis daemon.
    :Mandatory:
       No
    :Type:
@@ -536,7 +599,7 @@ Options
 APC Backend
 """""""""""
 
-`APC <http://pecl.php.net/package/APC>` is mostly known as an opcode cache
+`APC <http://pecl.php.net/package/APC>`_ is mostly known as an opcode cache
 for PHP source files but can be used to store user data in shared memory as well.
 Its main advantage is that data can be shared between different PHP processes and requests.
 All calls directly access shared memory. This makes this backend lightning fast for
@@ -549,7 +612,7 @@ and suffers from the same problems if APC runs out of memory.
 Garbage collection is currently not implemented.
 In its latest version, apc will fail to store data with a `PHP warning <http://pecl.php.net/bugs/bug.php?id=16966>`_
 if it runs out of memory. This may change in the future.
-Even without using the cache backend, it is adviseable to increase
+Even without using the cache backend, it is advisable to increase
 the memory cache size of apc to at least 64MB when working with TYPO3,
 simply due to the large number of PHP files to be cached.
 A minimum of 128MB is recommended when using the additional content cache.
@@ -564,6 +627,18 @@ Cache TTL for file and user data should be set to zero (disabled) to avoid heavy
    and where no third party can read or tamper your data.
 
 
+.. _caching-backend-wincache:
+
+Wincache backend
+""""""""""""""""
+
+`Wincache <http://www.iis.net/downloads/microsoft/wincache-extension>`_ is a PHP opcode cache similar to APC, but
+dedicated to the Windows OS platform. Similar to APC, the cache can also be used as in-memory key/value cache.
+
+The cache backend implementation is nearly identical to the implementation of :ref:`APC backend <caching-backend-apc>`
+and has the same design constrains.
+
+
 .. _caching-backend-file:
 
 File Backend
@@ -572,9 +647,20 @@ File Backend
 The file backend stores every cache entry as a single file to the file system.
 The lifetime and tags are added after the data part in the same file.
 
-As main advantage the file backend is the only backend which implements the :code:`PhpCapable` interface
-and can be used in combination with the :code:`PhpFrontend`. The backend was specifically adapted to these needs
-and has low overhead for :code:`get()` and :code:`set()` operations.
+This backend is the big brother of the Simple file backend and implements additional interfaces. Like the simple file
+backend it also implements the :code:`PhpCapableInterface`, so it can be used with :code:`PhpFrontend`. In contrast to
+the simple file backend it furthermore implements :code:`TaggableInterface` and :code:`FreezableInterface`.
+
+A frozen cache does no lifetime check and has a list of all existing cache entries that is reconstituted during initialization.
+As a result, a frozen cache needs less file system look ups and calculation time if accessing cache entries. On the other
+hand, a frozen cache can not manipulate (remove, set) cache entries anymore. A frozen cache must flush the complete cache
+again to make cache entries writable again. Freezing caches is currently not used in TYPO3 CMS core. It can be an option
+for code logic that is able to calculate and set all possible cache entries during some initialization phase, to then freeze
+the cache and use those entries until the whole thing is flushed again. This can be useful especially if caching PHP code.
+
+In general, the backend was specifically optimized to cache PHP code, the :code:`get` and :code:`set` operations have low
+overhead. The file backend is not very good with tagging and does not scale well with the number of tags. Do not use this
+backend if cached data has many tags.
 
 .. warning::
 
@@ -614,15 +700,16 @@ Options
       typo3temp/cache/
 
 
+.. _caching-backend-simple-file:
 
-.. _caching-backend-wincache:
+Simple File Backend
+"""""""""""""""""""
 
-Wincache backend
-""""""""""""""""
-
-Available since TYPO3 CMS 6.0.
-
-No documentation yet, but behaves in a very similar to the :ref:`APC backend <caching-backend-apc>`.
+The simple file backend is the small brother of the :ref:`file backend <caching-backend-file>`. In contrast to most
+other backends, it does not implement the :code:`TaggableInterface`, so cache entries can not be tagged and flushed
+by tag. This improves the performance if cache entries do not need such tagging. TYPO3 CMS core uses this backend
+for its central core cache (that hold autoloader cache entries and other important cache entries). The core cache is
+usually flushed completly and does not need specific cache entry eviction.
 
 
 .. _caching-backend-pdo:
@@ -696,9 +783,14 @@ Options
 Transient Memory Backend
 """"""""""""""""""""""""
 
-The transient memory backend stores data in a PHP array. It is only valid for one request. This becomes handy if code logic needs to do expensive calculations or must look up identical information from a database over and over again during its execution. In this case it is useful to store the data in an array once and just lookup the entry from the cache for consecutive calls to get rid of the otherwise additional overhead. Since caches are available system wide and shared between core and extensions they can profit from each other if they need the same information.
+The transient memory backend stores data in a PHP array. It is only valid for one request. This becomes handy if code
+logic needs to do expensive calculations or must look up identical information from a database over and over again
+during its execution. In this case it is useful to store the data in an array once and just lookup the entry from the
+cache for consecutive calls to get rid of the otherwise additional overhead. Since caches are available system wide and
+shared between core and extensions they can profit from each other if they need the same information.
 
-Since the data is stored directly in memory, this backend is the quickest backend available. The stored data adds to the memory consumed by the PHP process and can hit the <tt>memory_limit</tt> PHP setting.
+Since the data is stored directly in memory, this backend is the quickest backend available. The stored data adds to
+the memory consumed by the PHP process and can hit the :code:`memory_limit` PHP setting.
 
 
 .. _caching-backend-null:

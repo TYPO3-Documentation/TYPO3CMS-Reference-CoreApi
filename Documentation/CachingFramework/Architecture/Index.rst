@@ -25,17 +25,14 @@ A single cache entry is defined by these fields:
 
 - **identifier**: A string as unique identifier within this cache. Used to store and retrieve entries.
 - **data**: The data to be cached.
-- **lifetime**: A lifetime in seconds of this cache entry.
-  The entry can not be retrieved from cache if lifetime expired.
-- **tags**: Additional tags (an array of strings) assigned to the entry.
-  Used to remove specific cache entries.
+- **lifetime**: A lifetime in seconds of this cache entry. An entry can not be retrieved from cache if lifetime expired.
+- **tags**: Additional tags (an array of strings) assigned to the entry. Used to remove specific cache entries.
 
 .. tip::
 
-   The difference between identifier and tags is quite simple:
-   an identifier uniquely identifies a cache entry,
-   and a tag is additional data applied to an entry (used for cache eviction).
-   Thus, an identifier refers to a single cache entry, and a tag can refer to multiple cache entries.
+   The difference between identifier and tags is quite simple: an identifier uniquely identifies a cache entry,
+   and a tag is additional data applied to an entry (used for cache eviction). Thus, an identifier refers to a
+   single cache entry to store and retrieve an entry, and a tag can refer to multiple cache entries.
 
 
 .. _caching-architecture-identifier:
@@ -70,10 +67,10 @@ These are concatenated and hashed. In PHP this could look like this::
 
 When the plugin is accessed, the identifier is calculated early in the program flow.
 Next, the plugin looks up for a cache entry with this identifier.
-If there is such an entry, the plugin can return the cached content,
+If such an entry exists, the plugin can return the cached content,
 else it calculates the content and stores a new cache entry with this identifier.
 
-In general the identifier is constructed from all dependencies
+In general, the identifier is constructed from all dependencies
 which specify an unique set of data. The identifier should be based on
 information which already exist in the system at the point of its calculation.
 In the above scenario the page id and whether or not a user is logged in
@@ -106,7 +103,7 @@ invalidated while the second entry still exists in the cache after the operation
 
 While there is always exactly one identifier for each cache entry,
 an arbitrary number of tags can be assigned to an entry and one specific tag
-can be assigned to mulitple cache entries. All tags a cache entry has are given to
+can be assigned to multiple cache entries. All tags a cache entry has are given to
 the cache when the entry is stored ("set").
 
 
@@ -115,37 +112,60 @@ the cache when the entry is stored ("set").
 Caches in the TYPO3 Core
 """"""""""""""""""""""""
 
-.. warning::
-   This section is only valid for TYPO3 CMS 4.6 and above.
-
 The TYPO3 core defines and uses several caching framework caches by default.
-This section gives an overview of default caches, its usage and behaviour:
+This section gives an overview of default caches, its usage and behaviour. If not stated otherwise,
+the default database backend with variable frontend is used.
+
+- cache_core
+
+  - Core cache for compiled php code. It should **not** be used by extensions.
+  - Uses **PhpFrontend** with the **SimpleFileBackend** for maximum performance.
+  - Stores core internal compiled PHP code like concatenated :file:`ext_tables.php` and :file:`ext_localconf.php`
+    files, autoloader and sprite configuration PHP files.
+  - This cache is instantiated very early during bootstrap and **can not** be re configured
+    by instance specific :file:`LocalConfiguration.php` or similar.
+  - Cache entries are located in directory :file:`typo3temp/Cache/Code/cache_code`. The full directory and any file
+    in this directory can be safely removed and will be re-created upon next request. This is especially useful during
+    development
+
+- cache_hash
+
+  - Stores several key value based cache entries, mostly used during frontend rendering
+
+- cache_pages
+
+  - The frontend page cache. Stores full frontend pages.
+  - Content is compressed by default to reduce database memory and storage overhead.
+
+- cache_pagesection
+
+  - Used to store "parts of a page", for example used to store typo3script snippets and
+    compiled frontend templates.
+  - Content is compressed by default to reduce database memory and storage overhead.
 
 - cache_phpcode
+  - Code cache with **PhpFrontend** and **FileBackend**.
+  - Unused by core since TYPO3 CMS 6.0.
 
-  - This cache uses ''PhpFrontend'' and can be used to store compiled PHP code
-    that can be retrieved directly using :code:`require()` directly.
+- cache_runtime
 
-  - The core autoloader uses this cache to store a register of available classes:
+  - Runtime cache to store data specific for current request.
+  - Used by several core parts during rendering to re-use already calculated data
+  - Valid for one request only
+  - Can be re-used by extensions that have similar caching needs
 
-    - The autoloader cache file builds the cache identifier from the current TYPO3 version
-      and if the current request is a frontend or a backend request.
-      Typically, there will be two cache files: One for frontend and one for backend.
+- cache_rootline
 
-    - The autoloader cache files are optimized for production use and
-      only rebuilt when upgrading TYPO3 or when installing a new extension.
+  - Cache for rootline calculations
+  - Quick and simple cache dedicated for core usage, Should **not** be re-used by extenions
 
-    - While developing, trying to use new classes that are not yet in the class index
-      can result in fatal errors. In this case, the "Clear all cache" action in the backend must be used;
-      this forces the system to repopulate the class index.
 
 .. tip::
 
    In rare cases, for example when classes that are required during TYPO3 bootstrap are introduced
    (usually when working on the TYPO3 core), the 'Clear all cache' request itself might throw a fatal error.
    The solution here is to manually remove the cache files from
-   :file:`typo3temp/Cache/Code/cache_phpcode`. If this happens frequently during development,
-   you might consider to configure the 'NullBackend' for this cache.
+   :file:`typo3temp/Cache/Code/cache_phpcode`.
 
 
 .. _caching-architecture-task:
@@ -153,10 +173,10 @@ This section gives an overview of default caches, its usage and behaviour:
 Garbage collection task
 """""""""""""""""""""""
 
-TYPO3 CMS 4.5 and above provide a Scheduler task to collect the garbage of all cache backends.
-This is important for backends like the database backends that do not remove old cache entries
+The core system provides a Scheduler task to collect the garbage of all cache backends.
+This is important for backends like the database backend that do not remove old cache entries
 and tags internally. It is highly recommended to add this Scheduler task and run it once in a while
-(maybe once a day at night) for all used backends which do not delete entries which exceeded
+(maybe once a day at night) for all used backends that do not delete entries which exceeded
 their lifetime on their own to free up memory or hard disk space.
 
 
@@ -167,13 +187,16 @@ Cache API
 
 The caching framework architecture is based on the following classes:
 
-- **t3lib_cache**: Adapter class between FLOW3 cache logic and TYPO3 v4 core implementation.
+- **TYPO3\\CMS\\Core\\Cache\\Cache**: Adapter class between TYPO3 FLOW cache logic and TYPO3 CMS core implementation.
   Used by core and extensions to initialize the framework.
-  Creates instances of :code:`t3lib_cache_factory` and :code:`t3lib_cache_manager`.
-- **t3lib_cache_factory**: Factory class to instantiate cache manager and caches.
-- **t3lib_cache_manager**: Returns the cache frontend of a specific cache.
-  Implements methods to handle cache instances.
-- **t3lib_cache_frontend_Frontend**: Main interface to handle cache entries of a specific cache.
-  Different frontends exist to handle different data types.
-- **t3lib_cache_backend_Backend**: Interface for different storage strategies.
-  A set of implementations exist with different characteristics.
+  Creates singleton instances of :code:`TYPO3\CMS\Core\Cache\CacheFactory` and :code:`TYPO3\CMS\Core\Cache\CacheManager`.
+- **TYPO3\\CMS\\Core\\Cache\\CacheManager**: Returns the cache frontend of a specific cache.
+  This is the main class used by core and extensions to access the instance of a specific cache. Handles configuration
+  settings and default configuration.
+- **TYPO3\\CMS\\Core\\Cache\\CacheFactory**: Factory class to instantiate cache manager and caches. Extensions usually do
+  not need to fiddle with this class.
+- **TYPO3\\CMS\\Core\\Cache\\Frontend\\FrontendInterface**: Main interface to handle cache entries of a specific cache.
+  Different frontends and further interfaces exist to handle different data types.
+- **TYPO3\\CMS\\Core\\Cache\\Backend\\BackendInterface**: Main interface every valid storage backend must implement.
+  Several backends und further interfaces exist to specify specific backend capabilities. Some frontends require backends
+  to implement additional interfaces.

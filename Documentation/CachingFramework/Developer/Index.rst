@@ -17,20 +17,17 @@ for their needs. It is about how to use the framework properly. For details abou
 its inner working, please refer to the :ref:`section about architecture <caching-architecture>`.
 
 Example usages can be found throughout the TYPO3 CMS Core, in particular in
-system extension "extbase".
+system extension "core" and "extbase".
 
 
-.. _caching-developer-usage-46-more:
+.. _caching-developer-usage:
 
-Cache registration and usage (TYPO3 CMS 4.6 and above)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Cache registration and usage
+""""""""""""""""""""""""""""
 
-If an extension is meant to support only TYPO3 4.6 CMS and above,
-cache registration and usage is very simple.
-
-Register a new cache in :file:`ext_localconf.php`. The example below just defines
+Registration of a new cache should be done in :file:`ext_localconf.php`. The example below just defines
 an empty sub-array in *cacheConfigurations*. Neither *frontend* nor *backend* are defined,
-meaning that the cache manager will choose the :ref:`variable frontend <caching-frontend-variable>`
+meaning that the cache manager will choose the default :ref:`variable frontend <caching-frontend-variable>`
 and the :ref:`database backend <caching-backend-db>` by default.
 
 .. code-block:: php
@@ -41,10 +38,15 @@ and the :ref:`database backend <caching-backend-db>` by default.
 
 .. tip::
 
-   The :code:`is_array()` check is done to enable administrators to overwrite configuration of caches.
+   The :code:`is_array()` check is done to enable administrators to overwrite configuration of caches
+   in :file:`LocalConfiguration.php`. During bootstrap, any :file:`ext_localconf.php` is loaded **after**
+   :file:`DefaultConfiguration.php` and :file:`AdditionalConfiguration.php` are loaded, so it is
+   important to make sure that the administrator did not already set any configuration of the
+   extensions cache.
 
 If special settings are needed, for example a specific backend (like the transient memory backend),
-it can be defined with an additional line below the cache array declaration.
+it can be defined with an additional line below the cache array declaration. The extension documentation
+should hint an integrator about specific caching needs or setups in this case.
 
 .. tip::
 
@@ -55,6 +57,9 @@ it can be defined with an additional line below the cache array declaration.
 
 .. code-block:: php
 
+   if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
+       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
+   }
    if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'])) {
        $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = 't3lib_cache_backend_TransientMemoryBackend';
    }
@@ -66,10 +71,10 @@ should be used. The cache manager will return the fully initialized cache instan
 
 
 
-.. _caching-developer-usage-45-less:
+.. _caching-developer-usage-compatibility:
 
-Cache registration and usage (TYPO3 CMS 4.3 to 4.5)
-"""""""""""""""""""""""""""""""""""""""""""""""""""
+How to keep extensions compatible with TYPO3 CMS 4.5 and 6.0 at the same time
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 From TYPO3 CMS 4.3 to 4.5, cache registration was a somewhat more complicated process.
 If an extension must also support these versions, it should implement this other registration
