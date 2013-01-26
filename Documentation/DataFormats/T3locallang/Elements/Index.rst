@@ -6,11 +6,15 @@
 .. include:: ../../../Includes.txt
 
 
+.. _locallang-elements:
+
 Elements
 ^^^^^^^^
 
 This is the elements and their nesting in the locallang-XML format.
 
+
+.. _locallang-elements-nesting:
 
 Elements nesting other elements ("Array" elements):
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -21,29 +25,19 @@ contain another set of elements.
 (In a PHP array this corresponds to saying that all these elements
 must be arrays.)
 
-.. ### BEGIN~OF~TABLE ###
+.. t3-field-list-table::
+ :header-rows: 1
 
-.. container:: table-row
-
-   Element
-         Element
-
-   Description
-         Description
-
-   Child elements
-         Child elements
+ - :Element,20: Element
+   :Description,60: Description
+   :Child elements,20: Child elements
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <T3locallang>
-
-   Description
+   :Description,:
          Document tag
-
-   Child elements
+   :Child elements:
          <meta>
 
          <data>
@@ -53,16 +47,12 @@ must be arrays.)
          <orig\_text>
 
 
-.. container:: table-row
-
-   Element
-         <meta>
-
-   Description
+ - :Element:
+          <meta>
+   :Description,:
          Contains meta data about the locallang-XML file. Used in translation,
          but not inside TYPO3 directly.
-
-   Child elements
+   :Child elements:
          <labelContext>
 
          <description>
@@ -72,57 +62,43 @@ must be arrays.)
          <csh\_table>
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <data>
-
-   Description
+   :Description,:
          Contains the data for translations
 
-         **Notice:** The contents in the <data> tag is  *all that is needed for
-         labels inside TYPO3* . Everything else is meta information for the
-         translation tool!
-
-   Child elements
+         .. note::
+            The contents in the <data> tag is *all that is needed for
+            labels inside TYPO3*. Everything else is meta information for the
+            translation tool!
+   :Child elements:
          <languageKey>
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <orig\_hash>
-
-   Description
+   :Description,:
          Contains hash-integers for each translated label of the default label
          at the point of translation. This is used to determine if the default
          label has changed since the translation was made.
-
-   Child elements
+   :Child elements:
          <languageKey>
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <orig\_text>
-
-   Description
+   :Description,:
          Contains the text of the default label that was the basis of the
          translated version! The original text is used to show a diff between
          the original base of the translation and the new default text so a
          translator can quickly see what has changed.
-
-   Child elements
+   :Child elements:
          <languageKey>
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <languageKey>
-
-   Description
+   :Description,:
          Array of labels for a language. The "index" attribute contains
          language key.
 
@@ -139,30 +115,24 @@ must be arrays.)
 
            - [If not existing,  *recommended* ]: Translations in external default
              file typo3conf/l10n/
-
-   Child elements
+   :Child elements:
          <label>
 
          *Alternatively, when used under <data> it can be a string pointing to
          an external "include file"!*
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <labelContext>
-
-   Description
+   :Description:
          Array of context descriptions of the default labels.
 
          The "index" attribute contains label key
-
-   Child elements
+   :Child elements:
          <label>
 
 
-.. ###### END~OF~TABLE ######
-
+.. _locallang-elements-value:
 
 Elements containing values ("Value" elements):
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -175,74 +145,58 @@ All values are in utf-8.
 (In a PHP array this corresponds to saying that all these elements
 must be strings or integers.)
 
-.. ### BEGIN~OF~TABLE ###
+.. t3-field-list-table::
+ :header-rows: 1
 
-.. container:: table-row
-
-   Element
-         Element
-
-   Format
-         Format
-
-   Description
-         Description
+ - :Element,20: Element
+   :Format,20: Format
+   :Description,60: Description
 
 
-.. container:: table-row
+ - :Element:
+         <label>
 
-   Element
-         <label> (under <data>)
-
-   Format
+         (under <data>)
+   :Format:
          string
-
-   Description
+   :Description:
          Value of a original/translated label.
 
          The "index" attribute contains label key.
 
 
-.. container:: table-row
+ - :Element:
+         <label>
 
-   Element
-         <label> (under <orig\_hash>)
-
-   Format
+         (under <orig\_hash>)
+   :Format:
          integer
-
-   Description
+   :Description:
          Hash of a translated label.
 
          The "index" attribute contains label key.
 
 
-.. container:: table-row
+ - :Element:
+         <label>
 
-   Element
-         <label> (under <orig\_text>)
-
-   Format
+         (under <orig\_text>)
+   :Format:
          string
-
-   Description
+   :Description:
          Original default value of a translated label used for making a diff if
          the original has changed.
 
          The "index" attribute contains label key.
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <label>
 
          (child of <labelContext>)
-
-   Format
+   :Format:
          string
-
-   Description
+   :Description:
          Description of a default labels context. This should be used where it
          cannot be clear for the translation where the default labels occur.
          Sometimes the context is important for the translator in order to
@@ -251,27 +205,19 @@ must be strings or integers.)
          The "index" attribute contains label key.
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <description>
-
-   Format
+   :Format:
          string
-
-   Description
+   :Description:
          Description of the file contents.
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <type>
-
-   Format
+   :Format:
          string
-
-   Description
+   :Description:
          Type of content. Possible values are:
 
          - "module" : Used for labels in the backend modules.
@@ -282,15 +228,11 @@ must be strings or integers.)
            backend modules etc.)
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <csh\_table>
-
-   Format
+   :Format:
          string
-
-   Description
+   :Description:
          (Only when the type is "CSH"!)
 
          For CSH it is important to know what "table" the labels belong to. A
@@ -306,8 +248,9 @@ must be strings or integers.)
             <csh_table>pages</csh_table> (For "pages" table)
 
 
-.. ###### END~OF~TABLE ######
 
+
+.. _locallang-ext:
 
 <T3locallangExt>
 """"""""""""""""
@@ -321,29 +264,19 @@ When the include file is read the information for the selected
 language key is read from each of the three tags and merged into the
 internal array.
 
-.. ### BEGIN~OF~TABLE ###
+.. t3-field-list-table::
+ :header-rows: 1
 
-.. container:: table-row
-
-   Element
-         Element
-
-   Description
-         Description
-
-   Child elements
-         Child elements
+ - :Element,20: Element
+   :Description,60: Description
+   :Child elements,20: Child elements
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <T3locallangExt>
-
-   Description
+   :Description,:
          Document tag for the external include files of "<T3locallang>"
-
-   Child elements
+   :Child elements:
          <data>
 
          <orig\_hash>
@@ -351,49 +284,37 @@ internal array.
          <orig\_text>
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <data>
-
-   Description
+   :Description,:
          *See <data> element of <T3locallang> above.*
+   :Child elements:
+         -
 
-   Child elements
 
-
-.. container:: table-row
-
-   Element
+ - :Element:
          <orig\_hash>
-
-   Description
+   :Description,:
          *See <data> element of <T3locallang> above.*
+   :Child elements:
 
-   Child elements
 
-
-.. container:: table-row
-
-   Element
+ - :Element:
          <orig\_text>
-
-   Description
+   :Description,:
          *See <data> element of <T3locallang> above.*
+   :Child elements:
 
-   Child elements
 
-
-.. ###### END~OF~TABLE ######
-
+.. _locallang-example-backend:
 
 Example: locallang-XML file for a backend module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This example shows a standard locallang-XML file for a backend module.
-Notice how the <orig\_hash> section is included which means that
+Notice how the :code:`<orig_hash>` section is included which means that
 translators can spot if an original label changes. However the
-"<orig\_text>" section would have been needed if translators were
+:code:`<orig_text>` section would have been needed if translators were
 supposed to also see the difference. But typically that is not enabled
 since it takes a lot of space up. ::
 
@@ -424,14 +345,16 @@ since it takes a lot of space up. ::
    </T3locallang>
 
 
+.. _locallang-example-csh:
+
 Example: locallang-XML file (CSH) with reference to external include file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The main XML file looks like this. Notice the tag "csh\_table" has a
+The main XML file looks like this. Notice the tag :code:`csh_table` has a
 value which is important for CSH content so it can be positioned in
 the right category.
 
-In the <data> section you can see all default labels. But notice how
+In the :code:`<data>` section you can see all default labels. But notice how
 the value for the "dk" translation is a reference to an external file!
 The contents of that file is shown below this listing. ::
 
@@ -474,8 +397,4 @@ The include file (for "dk") looks like below. ::
            </languageKey>
        </orig_text>
    </T3locallangExt>
-
-135
-
-
 

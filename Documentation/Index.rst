@@ -19,7 +19,7 @@ TYPO3 Core APIs
       doc_core_api
 
 :Version:
-      4.5.0
+      4.6.0
 
 :Language:
       en
@@ -31,7 +31,7 @@ TYPO3 Core APIs
       tsref, typoscript, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2000-2012
+      2000-2013
 
 :Author:
       Documentation Team
@@ -87,6 +87,7 @@ address the task at hand.
    ApiOverview/Index
    JavaScript/Index
    CachingFramework/Index
+   Internationalization/Index
    PageTypes/Index
    UserSettingsConfiguration/Index
    RteApi/Index
