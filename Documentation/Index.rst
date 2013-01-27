@@ -7,6 +7,8 @@
 .. include:: Images.txt
 
 
+.. _start:
+
 ====================================
 TypoScript Syntax and In-depth Study
 ====================================
@@ -27,7 +29,7 @@ TypoScript Syntax and In-depth Study
       typoscript, syntax, forAdmins, forIntermediates
 
 :Copyright:
-      2000-2012
+      2000-2013
 
 :Author:
       Documentation Team

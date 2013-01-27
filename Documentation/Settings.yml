@@ -1,9 +1,9 @@
 # Settings.yml
+
 ---
 conf.py:
-  ##==========================================
-  ## define configuration data for conf.py as
-  ## "parameter: value" pairs here:
-  ##------------------------------------------
-  exampleParameter: example value
+  copyright: 2000-2013
+  project: TypoScript Syntax and In-depth Study
+  version: 4.7.0
+  release: 4.7.0
 ...
