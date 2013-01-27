@@ -7,9 +7,11 @@
 .. include:: Images.txt
 
 
-==============
-TYPO3 Services
-==============
+.. _start:
+
+==================
+TYPO3 CMS Services
+==================
 
 :Previous Key:
       doc_core_services
@@ -27,7 +29,7 @@ TYPO3 Services
       services, development, extension, auth, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2000-2009
+      2000-2013
 
 :Author:
       Documentation Team

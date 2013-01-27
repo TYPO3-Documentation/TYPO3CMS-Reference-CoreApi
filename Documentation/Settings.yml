@@ -1,9 +1,9 @@
 # Settings.yml
+
 ---
 conf.py:
-  ##==========================================
-  ## define configuration data for conf.py as
-  ## "parameter: value" pairs here:
-  ##------------------------------------------
-  exampleParameter: example value
+  copyright: 2000-2013
+  project: TYPO3 CMS Services
+  version: 1.0.1
+  release: 1.0.1
 ...
