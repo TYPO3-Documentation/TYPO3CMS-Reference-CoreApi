@@ -7,9 +7,11 @@
 .. include:: Images.txt
 
 
-==========================
-TYPO3 v4 Coding Guidelines
-==========================
+.. _start:
+
+===========================
+TYPO3 CMS Coding Guidelines
+===========================
 
 :Previous Key:
       doc_core_cgl
@@ -27,7 +29,7 @@ TYPO3 v4 Coding Guidelines
       forDevelopers, forIntermediates
 
 :Copyright:
-      2000-2011
+      2000-2013
 
 :Author:
       Documentation Team
