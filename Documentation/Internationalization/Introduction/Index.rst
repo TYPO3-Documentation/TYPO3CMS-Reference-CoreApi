@@ -26,6 +26,9 @@ standard format for translations.
   a :code:`<source>` element to store the source text and a (non-mandatory) :code:`<target>`
   element to store the translated text.
 
+  Note that having several :code:`<file>` elements in the same XLIFF document is not
+  supported by the TYPO3 CMS Core.
+
 
 .. _xliff-basics:
 
@@ -34,7 +37,7 @@ Basics
 
 Here is a sample XLIFF file:
 
-.. code:: xml
+.. code-block:: xml
 
    <?xml version="1.0" encoding="UTF-8"?>
    <xliff version="1.0">
@@ -61,7 +64,7 @@ translated string.
 
 Here is what the translation of our sample file could look like:
 
-.. code:: xml
+.. code-block:: xml
 
    <xliff version="1.0">
    	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2011-10-18T18:20:51Z" product-name="my-ext">

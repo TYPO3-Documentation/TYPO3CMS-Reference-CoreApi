@@ -98,7 +98,7 @@ The very least you need is to translate the label containing the name of the
 language itself, so that it appears in the user preferences. In our example
 this would be in file :file:`typo3conf/l10n/de_CH/setup/mod/de_CH.locallang.xlf`.
 
-.. code:: xml
+.. code-block:: xml
 
    <?xml version='1.0' encoding='utf-8'?>
    <xliff version="1.0">
@@ -117,3 +117,10 @@ this would be in file :file:`typo3conf/l10n/de_CH/setup/mod/de_CH.locallang.xlf`
    :alt: User Settings screenshot
 
    The new language appears in the user preferences
+
+.. note::
+
+   Any language will always fall back on the default one (i.e. English) when
+   a translation is not found. A custom language will fall back on its "parent"
+   language automatically. Thus - in our example - no fallback would have to be
+   defined for "de_CH" if it were just falling back on "de".
