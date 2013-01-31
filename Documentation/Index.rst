@@ -94,5 +94,6 @@ address the task at hand.
    SkinningApi/Index
    ErrorAndExceptionHandling/Index
    DataFormats/Index
+   References
    Targets
 
