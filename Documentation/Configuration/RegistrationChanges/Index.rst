@@ -25,7 +25,6 @@ The syntax is::
 Registration options are described in more details in “Implementing a
 service” below. Any of these options may be overridden using the above
 syntax. However caution should be used depending on the options.
-“className” and “classFile” should not be overridden in such a way.
+“className” should not be overridden in such a way.
 Instead a new service should be implemented using this alternate
 class.
-
