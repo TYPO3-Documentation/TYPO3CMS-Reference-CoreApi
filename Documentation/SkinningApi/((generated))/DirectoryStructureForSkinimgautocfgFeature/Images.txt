@@ -1,7 +1,0 @@
-﻿.. |img-41|     image:: ../../../Images/manual_html_1a4c2c90.png
-.. :height: 296
-.. :width: 240
-.. :align: left
-.. :border: 0
-.. :name: Graphic21
-

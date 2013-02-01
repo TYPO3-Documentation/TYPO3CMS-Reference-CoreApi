@@ -91,7 +91,6 @@ address the task at hand.
    PageTypes/Index
    UserSettingsConfiguration/Index
    RteApi/Index
-   SkinningApi/Index
    ErrorAndExceptionHandling/Index
    DataFormats/Index
    References
