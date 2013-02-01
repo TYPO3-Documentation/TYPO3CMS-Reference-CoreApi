@@ -3,38 +3,30 @@
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. include:: ../../../Includes.txt
+.. include:: ../../Includes.txt
 
 
-$TYPO3\_USER\_SETTINGS['columns'][fieldname]
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _user-settings-columns:
+
+['columns'] section
+^^^^^^^^^^^^^^^^^^^
 
 This contains the configuration array for single fields in the user
 settings. This array allows the following configurations:
 
-.. ### BEGIN~OF~TABLE ###
+.. t3-field-list-table::
+ :header-rows: 1
 
-.. container:: table-row
-
-   Key
-         Key
-
-   Datatype
-         Datatype
-
-   Description
-         Description
+ - :Key,20: Key
+   :Data type,20: Data type
+   :Description,60: Description
 
 
-.. container:: table-row
-
-   Key
+ - :Key:
          type
-
-   Datatype
-         string
-
-   Description
+   :Data type:
+         :ref:`t3tsref:data-type-string`
+   :Description:
          Defines the type of the input field
 
          If type=user you need to define userFunc too.
@@ -51,102 +43,77 @@ settings. This array allows the following configurations:
          Allowed values: text, password, check, select, user
 
 
-.. container:: table-row
-
-   Key
+ - :Key:
          label
+   :Data type:
+         :ref:`t3tsref:data-type-string`
+   :Description:
+         Label for the input field, should be a pointer to a localized
+         label using the :code:`LLL:` syntax.
 
-   Datatype
-         string
 
-   Description
-         Label for the input field
-
-
-.. container:: table-row
-
-   Key
+ - :Key:
          csh
-
-   Datatype
-         string
-
-   Description
+   :Data type:
+         :ref:`t3tsref:data-type-string`
+   :Description:
          CSH key for the input field
 
 
-.. container:: table-row
-
-   Key
+ - :Key:
          access
-
-   Datatype
-         string
-
-   Description
+   :Data type:
+         :ref:`t3tsref:data-type-string`
+   :Description:
          Access control. At the moment only a admin-check is implemented
 
          Allowed values: admin
 
 
-.. container:: table-row
-
-   Key
+ - :Key:
          table
-
-   Datatype
-         string
-
-   Description
+   :Data type:
+         :ref:`t3tsref:data-type-string`
+   :Description:
          If the user setting is saved in a DB table, this property sets the
-         table. At the moment only be\_users is implemented.
+         table. At the moment only "be\_users" is implemented.
 
          Allowed values: be\_users
 
 
-.. container:: table-row
-
-   Key
+ - :Key:
          eval
-
-   Datatype
-         string
-
-   Description
-         Evaluates a field with a given function. Currently only md5 is
+   :Data type:
+         :ref:`t3tsref:data-type-string`
+   :Description:
+         Evaluates a field with a given function. Currently only "md5" is
          implemented, for password field.
 
          Allowed values: md5
 
+         .. note::
 
-.. container:: table-row
+            In the specific case of the password field, the "md5" value defined by default
+            in the TYPO3 CMS Core is overridden to an empty string by system extension
+            "saltedpasswords".
 
-   Key
-         items
 
-   Datatype
+ - :Key:
+         eval
+   :Data type:
          array
-
-   Description
+   :Description:
          Array of key-value pair for select items Only used by type=select.
 
 
-.. container:: table-row
-
-   Key
+ - :Key:
          itemsProcFunc
-
-   Datatype
-         string
-
-   Description
+   :Data type:
+         array
+   :Description:
          Defines an external method for rendering items of select-type fields.
          Contrary to what is done with the TCA you have to render the <select>
          tag too. Only used by type=select.
 
          Use the usual class->method syntax.
-
-
-.. ###### END~OF~TABLE ######
-
 
