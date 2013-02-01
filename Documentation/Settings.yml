@@ -2,7 +2,7 @@
 
 ---
 conf.py:
-  copyright: 2000-2012
+  copyright: 2000-2013
   project: Core APIs
   version: 4.5.0
   release: 4.5.0
