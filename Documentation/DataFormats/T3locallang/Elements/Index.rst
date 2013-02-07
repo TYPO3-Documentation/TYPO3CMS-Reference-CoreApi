@@ -35,7 +35,7 @@ must be arrays.)
 
  - :Element:
          <T3locallang>
-   :Description,:
+   :Description:
          Document tag
    :Child elements:
          <meta>
@@ -49,7 +49,7 @@ must be arrays.)
 
  - :Element:
           <meta>
-   :Description,:
+   :Description:
          Contains meta data about the locallang-XML file. Used in translation,
          but not inside TYPO3 directly.
    :Child elements:
@@ -64,7 +64,7 @@ must be arrays.)
 
  - :Element:
          <data>
-   :Description,:
+   :Description:
          Contains the data for translations
 
          .. note::
@@ -77,7 +77,7 @@ must be arrays.)
 
  - :Element:
          <orig\_hash>
-   :Description,:
+   :Description:
          Contains hash-integers for each translated label of the default label
          at the point of translation. This is used to determine if the default
          label has changed since the translation was made.
@@ -87,7 +87,7 @@ must be arrays.)
 
  - :Element:
          <orig\_text>
-   :Description,:
+   :Description:
          Contains the text of the default label that was the basis of the
          translated version! The original text is used to show a diff between
          the original base of the translation and the new default text so a
@@ -98,7 +98,7 @@ must be arrays.)
 
  - :Element:
          <languageKey>
-   :Description,:
+   :Description:
          Array of labels for a language. The "index" attribute contains
          language key.
 
@@ -274,7 +274,7 @@ internal array.
 
  - :Element:
          <T3locallangExt>
-   :Description,:
+   :Description:
          Document tag for the external include files of "<T3locallang>"
    :Child elements:
          <data>
@@ -286,7 +286,7 @@ internal array.
 
  - :Element:
          <data>
-   :Description,:
+   :Description:
          *See <data> element of <T3locallang> above.*
    :Child elements:
          -
@@ -294,14 +294,14 @@ internal array.
 
  - :Element:
          <orig\_hash>
-   :Description,:
+   :Description:
          *See <data> element of <T3locallang> above.*
    :Child elements:
 
 
  - :Element:
          <orig\_text>
-   :Description,:
+   :Description:
          *See <data> element of <T3locallang> above.*
    :Child elements:
 

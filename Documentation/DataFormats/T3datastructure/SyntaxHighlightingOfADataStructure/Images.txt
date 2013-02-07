@@ -1,7 +1,0 @@
-﻿.. |img-58|     image:: ../../../Images/manual_html_6cc83266.png
-.. :height: 453
-.. :width: 418
-.. :align: left
-.. :border: 0
-.. :name: Graphic32
-

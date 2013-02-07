@@ -6,6 +6,8 @@
 .. include:: ../../../Includes.txt
 
 
+.. _t3ds-sheet-references:
+
 Sheet references
 ^^^^^^^^^^^^^^^^
 
@@ -15,16 +17,17 @@ is done by setting the value of the <[sheet ident]> tag to a relative
 file reference instead of being a definition of the <ROOT> element.
 
 
-((generated))
-"""""""""""""
+.. _t3ds-sheet-references-example:
 
 Example
 ~~~~~~~
 
-Taking the Data Structure from Example #2 above we can now rearrange
-it in three files:
+Taking the Data Structure from the :ref:`previous example <t3ds-elements-examples-complex>`
+we can now rearrange it in three files:
 
-Main Data Structure::
+Main Data Structure:
+
+.. code-block:: xml
 
    <T3DataStructure>
      <sheets>
@@ -33,7 +36,9 @@ Main Data Structure::
      </sheets>
    </T3DataStructure>
 
-fileadmin/sheets/default\_sheet.xml ::
+:file:`fileadmin/sheets/default_sheet.xml`:
+
+.. code-block:: xml
 
    <T3DataStructure>
      <ROOT>
@@ -54,7 +59,9 @@ fileadmin/sheets/default\_sheet.xml ::
      </ROOT>
    </T3DataStructure>
 
-fileadmin/sheets/welcome\_sheet.xml ::
+:file:`fileadmin/sheets/welcome_sheet.xml`:
+
+.. code-block:: xml
 
    <T3DataStructure>
      <ROOT>
@@ -85,5 +92,3 @@ fileadmin/sheets/welcome\_sheet.xml ::
        </el>
      </ROOT>
    </T3DataStructure>
-
-

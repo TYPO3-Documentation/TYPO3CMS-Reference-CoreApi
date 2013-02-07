@@ -6,13 +6,15 @@
 .. include:: ../../../Includes.txt
 
 
+.. _t3ds-elements:
+
 Elements
 ^^^^^^^^
 
 This is the list of elements and their nesting in the Data Structure.
-This could probably be expressed by a DTD or XML schema (anyone?).
-Words will have to do for now.
 
+
+.. _t3ds-elements-array:
 
 Elements nesting other elements ("Array" elements):
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -23,53 +25,37 @@ contain another set of elements.
 (In a PHP array this corresponds to saying that all these elements
 must be arrays.)
 
-.. ### BEGIN~OF~TABLE ###
+.. t3-field-list-table::
+ :header-rows: 1
 
-.. container:: table-row
-
-   Element
-         Element
-
-   Description
-         Description
-
-   Child elements
-         Child elements
+ - :Element,20: Element
+   :Description,60: Description
+   :Child elements,20: Child elements
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <T3DataStructure>
-
-   Description
+   :Description:
          Document tag
-
-   Child elements
+   :Child elements:
          <meta>
 
-         <ROOT>  *or* <sheets>
+         <ROOT> *or* <sheets>
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <meta>
-
-   Description
+   :Description:
          Can contain application specific meta settings
+   :Child elements:
+         (depends on application)
 
-   Child elements
 
-
-.. container:: table-row
-
-   Element
+ - :Element:
          <ROOT>
 
          <[field name]>
-
-   Description
+   :Description:
          Defines an "object" in the Data Structure
 
          - <ROOT> is reserved as tag for the first element in the Data
@@ -77,8 +63,7 @@ must be arrays.)
            "array" and then define other objects nested in <el> tags.
 
          - [field name] defines the objects name
-
-   Child elements
+   :Child elements:
          <type>
 
          <section>
@@ -88,89 +73,70 @@ must be arrays.)
          <[application tag]>
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <sheets>
-
-   Description
+   :Description:
          Defines a collection of "sheets" which is like a one-dimensional list
          of independent Data Structures
-
-   Child elements
+   :Child elements:
          <[sheet name]>
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <TCEforms>
-
-   Description
+   :Description:
          Contains details about visual representation of sheets. If there is
          only a single sheet, applies to implicit single sheet.
-
-   Child elements
-         <sheetTitle> <cshFile>
-
-
-.. container:: table-row
-
-   Element
+   :Child elements:
          <sheetTitle>
 
-   Description
+         <cshFile>
+
+
+ - :Element:
+         <sheetTitle>
+   :Description:
          Title of the sheet. Mandatory for any sheet except the first (which
          gets "General" in this case). Can be a plain string or a reference to
          language file using standard LLL syntax. Ignored if sheets are not
          defined for the flexform.
+   :Child elements:
+         -
 
-   Child elements
 
-
-.. container:: table-row
-
-   Element
+ - :Element:
          <cshFile>
-
-   Description
+   :Description:
          CSH language file for fields inside the flexform. Refer to section on
          T3locallang of this document on the format of language files and to
          section Content Sensitive Help of "Inside TYPO3" document for
          information about CSH.
+   :Child elements:
+         -
 
-   Child elements
 
-
-.. container:: table-row
-
-   Element
+ - :Element:
          <[sheet ident]>
-
-   Description
+   :Description:
          Defines an independent data structure starting with a <ROOT> tag.
 
-         **Notice:** Alternatively it can be a plain value referring to another
-         XML file which contains the <ROOT> structure. See example below.
+         .. note::
 
-   Child elements
+            Alternatively it can be a plain value referring to another
+            XML file which contains the <ROOT> structure. See example later.
+   :Child elements:
          <ROOT>
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <el>
-
-   Description
+   :Description:
          Contains a collection of Data Structure "objects"
-
-   Child elements
+   :Child elements:
          <[field name]>
 
 
-.. ###### END~OF~TABLE ######
-
+.. _t3ds-elements-value:
 
 Elements containing values ("Value" elements):
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -181,31 +147,21 @@ tags whatsoever!
 (In a PHP array this corresponds to saying that all these elements
 must be strings or integers.)
 
-.. ### BEGIN~OF~TABLE ###
+.. t3-field-list-table::
+ :header-rows: 1
 
-.. container:: table-row
-
-   Element
-         Element
-
-   Format
-         Format
-
-   Description
-         Description
+ - :Element,20: Element
+   :Format,20: Format
+   :Description,60: Description
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <type>
-
-   Format
+   :Format:
          Keyword string:
 
          "array", [blank] (=default)
-
-   Description
+   :Description:
          Defines the type of object.
 
          - "array" means that the object simply contains a collection of other
@@ -216,19 +172,16 @@ must be strings or integers.)
            meaning of such an object is determined by the application using the
            data structure. For FlexForms this object would draw a form element.
 
-         **Notice:** If the object was <ROOT> this tag must have the value
-         "array"
+         .. note::
+
+            If the object was <ROOT> this tag must have the value "array"
 
 
-.. container:: table-row
-
-   Element
+ - :Element:
          <section>
-
-   Format
-         Boolean, 0/1
-
-   Description
+   :Format:
+         Boolean
+   :Description:
          Defines for an object of the type <array> that it must contain other
          "array" type objects. The meaning of this is application specific. For
          FlexForms it will allow the user to select between possible arrays of
@@ -237,15 +190,21 @@ must be strings or integers.)
          fuzzy unless you understand the contexts.
 
 
-.. ###### END~OF~TABLE ######
+.. _t3ds-elements-examples:
 
+Examples
+""""""""
 
-Example: FlexForm configuration in "mininews" extension
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _t3ds-elements-examples-mininews:
+
+FlexForm configuration in "mininews" extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Simple example of a data structure used to define a FlexForm element
 in TCEforms. Notice the application specific section <TCEforms> (see
-documentation for FlexForms). ::
+documentation for FlexForms).
+
+.. code-block:: xml
 
    <T3DataStructure>
            <meta>
@@ -284,11 +243,15 @@ documentation for FlexForms). ::
    </T3DataStructure>
 
 
-Example #2
-~~~~~~~~~~
+.. _t3ds-elements-examples-complex:
+
+Complex example
+~~~~~~~~~~~~~~~
 
 More complex example of a FlexForms structure, using two sheets,
-"sDEF" and "s\_welcome" (snippet from "newloginbox" extension). ::
+"sDEF" and "s\_welcome" (snippet from "newloginbox" extension).
+
+.. code-block:: xml
 
    <T3DataStructure>
      <sheets>
@@ -341,5 +304,3 @@ More complex example of a FlexForms structure, using two sheets,
        </s_welcome>
      </sheets>
    </T3DataStructure>
-
-
