@@ -6,10 +6,12 @@
 .. include:: ../../../Includes.txt
 
 
-t3lib\_error\_ErrorHandler
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _error-handling-error-handler:
 
-The class t3lib\_error\_ErrorHandler is the default error handler in
+Error Handler
+^^^^^^^^^^^^^
+
+Class :code:`t3lib_error_ErrorHandler` is the default error handler in
 TYPO3.
 
 Functions:
@@ -18,24 +20,22 @@ Functions:
   which can be handled by an error handler
 
 - Displays error messages as flash messages in the Backend (if
-  exceptionHandler is set to "t3lib\_error\_DebugExceptionHandler").
+  exceptionHandler is set to :code:`t3lib_error_DebugExceptionHandler`).
   Since flash messages are integrated in the Backend template, PHP
   messages will not destroy the Backend layout.
 
 - Displays errors as TsLog messages in the adminpanel.
 
-- Logs error messages to t3lib\_div::syslog() which is able to write
+- Logs error messages to :code:`t3lib_div::syslog()` which is able to write
   error messages to a file, to the web server's error\_log, the system's
   log and it can send you errors and exceptions in an email.
-  t3lib\_div::syslog() offers a hook and can be extended by user-defined
+  :code:`t3lib_div::syslog()` offers a hook and can be extended by user-defined
   logging methods.
 
-- Logs error messages to t3lib\_div::devLog() if "enable\_errorDLOG" is
+- Logs error messages to :code:`t3lib_div::devLog()` if `$TYPO3_CONF_VARS[SYS][enable_errorDLOG]` is
   enabled (depending on the devlog extension used, this might require an
   existing DB connection).
 
 - Logs error messages to the sys\_log table. Logged errors are displayed
-  in the belog extension (Tools->Log) (works only if there is an
+  in the belog extension (Admin Tools > Log) (works only if there is an
   existing DB connection).
-
-

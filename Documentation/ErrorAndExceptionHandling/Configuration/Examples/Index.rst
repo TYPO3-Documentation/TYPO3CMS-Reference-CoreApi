@@ -6,17 +6,20 @@
 .. include:: ../../../Includes.txt
 
 
+.. _error-handling-configuration-examples:
+
 Examples
 ^^^^^^^^
 
+.. _error-handling-configuration-examples-debug:
 
 Debugging and development setup
 """""""""""""""""""""""""""""""
 
-Veryverboseconfiguration which logs and displays all errors and
+Very verbose configuration which logs and displays all errors and
 exceptions.
 
-[File: localconf.php] ::
+In :file:`localconf.php`::
 
    $TYPO3_CONF_VARS['SYS']['displayErrors'] = '1';
    $TYPO3_CONF_VARS['SYS']['devIPmask'] = '*';
@@ -30,12 +33,15 @@ exceptions.
    $TYPO3_CONF_VARS['SYS']['enable_errorDLOG'] = '1';
    $TYPO3_CONF_VARS['SYS']['enable_exceptionDLOG'] = '1';
 
-[File: .htaccess] ::
+
+In :file:`.htaccess`::
 
    php_flag display_errors on
    php_flag log_errors on
    php_value error_log /path/to/php_error.log
 
+
+.. _error-handling-configuration-examples-production:
 
 Production setup
 """"""""""""""""
@@ -44,7 +50,7 @@ Example for a production configuration which displays only errors and
 exceptions if the devIPmask matches. Errors and exceptions are only
 logged if their level is at least 2 (=Warning).
 
-[File: localconf.php] ::
+In :file:`localconf.php`::
 
    $TYPO3_CONF_VARS['SYS']['displayErrors'] = '2';
    $TYPO3_CONF_VARS['SYS']['devIPmask'] = '[your.IP.address]';
@@ -56,12 +62,15 @@ logged if their level is at least 2 (=Warning).
    $TYPO3_CONF_VARS['SYS']['syslogErrorReporting'] = E_ALL ^ E_NOTICE ^ E_WARNING;
    $TYPO3_CONF_VARS['SYS']['belogErrorReporting'] = '0';
 
-[File: .htaccess] ::
+
+In :file:`.htaccess`::
 
    php_flag display_errors off
    php_flag log_errors on
    php_value error_log /path/to/php_error.log
 
+
+.. _error-handling-configuration-examples-performance:
 
 Performance setup
 """""""""""""""""
@@ -70,7 +79,7 @@ Since the error and exception handling and also the logging need some
 performance, here's an example how to disable error and exception
 handling completely.
 
-[File: localconf.php] ::
+In :file:`localconf.php`::
 
    $TYPO3_CONF_VARS['SYS']['displayErrors'] = '0';
    $TYPO3_CONF_VARS['SYS']['devIPmask'] = '';
@@ -83,9 +92,8 @@ handling completely.
    $TYPO3_CONF_VARS['SYS']['syslogErrorReporting'] = '0';
    $TYPO3_CONF_VARS['SYS']['belogErrorReporting'] = '0';
 
-[File: .htaccess] ::
+
+In :file:`.htaccess`::
 
    php_flag display_errors off
    php_flag log_errors off
-
-
