@@ -92,6 +92,8 @@ must be arrays.)
 
          <cshFile>
 
+         <displayCond>
+
 
  - :Element:
          <sheetTitle>
@@ -111,6 +113,18 @@ must be arrays.)
          T3locallang of this document on the format of language files and to
          section Content Sensitive Help of "Inside TYPO3" document for
          information about CSH.
+   :Child elements:
+         -
+
+
+ - :Element:
+         <displayCond>
+   :Description:
+         Condition that must be met in order for the sheet to be displayed.
+         If the condition is not met, the sheet is hidden.
+
+         For more details refer to the description of the "displayCond" property
+         in the :ref:`TCA Reference <t3tca:columns>`.
    :Child elements:
          -
 
