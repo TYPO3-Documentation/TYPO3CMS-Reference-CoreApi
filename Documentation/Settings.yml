@@ -4,6 +4,6 @@
 conf.py:
   copyright: 2000-2013
   project: Core APIs
-  version: 4.7.0
-  release: 4.7.0
+  version: 6.0.0
+  release: 6.0.0
 ...
