@@ -1,9 +1,8 @@
 # Settings.yml
-
 ---
 conf.py:
+  project: TYPO3 Core APIs
   copyright: 2000-2013
-  project: Core APIs
   version: 6.0.0
   release: 6.0.0
 ...
