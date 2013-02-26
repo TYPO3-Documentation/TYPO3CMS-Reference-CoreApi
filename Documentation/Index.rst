@@ -31,7 +31,7 @@ TYPO3 Security Guide
       security forEditors forAdmins forDevelopers forBeginners forIntermediates forAdvanced
 
 :Copyright:
-      2011-2012
+      2011-2013
 
 :Author:
       Documentation Team
