@@ -1,9 +1,8 @@
 # Settings.yml
 ---
 conf.py:
-  ##==========================================
-  ## define configuration data for conf.py as
-  ## "parameter: value" pairs here:
-  ##------------------------------------------
-  exampleParameter: example value
+  project: File Abstraction Layer
+  copyright: 2012-2013
+  version: 0.0.1
+  release: 0.0.1
 ...

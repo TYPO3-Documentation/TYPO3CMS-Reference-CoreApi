@@ -28,7 +28,7 @@ File Abstraction Layer
       fal, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2012
+      2012-2013
 
 :Author:
       Documentation Team
