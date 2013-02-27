@@ -64,11 +64,8 @@ str\_replace operation! You insert them in the setup field like this::
    {$file.toplogo}
 
 
-((generated))
-"""""""""""""
-
 Example:
-~~~~~~~~
+""""""""
 
 ::
 

@@ -17,11 +17,8 @@ this formula::
    [Object Path] [Operator] [Value]
 
 
-((generated))
-"""""""""""""
-
 Example:
-~~~~~~~~
+""""""""
 
 ::
 

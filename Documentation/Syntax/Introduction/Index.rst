@@ -16,11 +16,8 @@ borrowed from for example JavaScript and which conveys the idea of
 defining objects/properties.
 
 
-((generated))
-"""""""""""""
-
 Example:
-~~~~~~~~
+""""""""
 
 ::
 
