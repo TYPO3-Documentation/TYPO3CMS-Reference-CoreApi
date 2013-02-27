@@ -1,9 +1,8 @@
 # Settings.yml
-
 ---
 conf.py:
-  copyright: 2000-2013
   project: TYPO3 CMS Services
+  copyright: 2000-2013
   version: 1.0.1
   release: 1.0.1
 ...
