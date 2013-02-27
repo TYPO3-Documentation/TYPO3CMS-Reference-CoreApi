@@ -221,18 +221,6 @@ where the key denotes a type of condition from the table below:
 .. container:: table-row
 
    Key
-         Key
-
-   Description
-         Description
-
-   Example
-         Example
-
-
-.. container:: table-row
-
-   Key
          UserIpRange
 
    Description

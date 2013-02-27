@@ -29,21 +29,6 @@ Root level
 .. container:: table-row
 
    Property
-         Property
-
-   Data type
-         Data type
-
-   Description
-         Description
-
-   Default
-         Default
-
-
-.. container:: table-row
-
-   Property
          colors
 
    Data type
@@ -93,21 +78,6 @@ Root level
 """"""""
 
 .. ### BEGIN~OF~TABLE ###
-
-.. container:: table-row
-
-   Property
-         Property
-
-   Data type
-         Data type
-
-   Description
-         Description
-
-   Default
-         Default
-
 
 .. container:: table-row
 
@@ -163,21 +133,6 @@ Root level
 """""""""
 
 .. ### BEGIN~OF~TABLE ###
-
-.. container:: table-row
-
-   Property
-         Property
-
-   Data type
-         Data type
-
-   Description
-         Description
-
-   Default
-         Default
-
 
 .. container:: table-row
 

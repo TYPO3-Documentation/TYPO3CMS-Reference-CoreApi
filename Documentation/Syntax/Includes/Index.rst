@@ -35,15 +35,6 @@ only option available:
 .. container:: table-row
 
    Option
-         Option
-
-   Description
-         Description
-
-
-.. container:: table-row
-
-   Option
          FILE
 
    Description

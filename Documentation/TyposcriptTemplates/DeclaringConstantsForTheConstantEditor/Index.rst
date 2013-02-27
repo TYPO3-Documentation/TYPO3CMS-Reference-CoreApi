@@ -96,15 +96,6 @@ cat=
 .. container:: table-row
 
    Category
-         Category
-
-   Description
-         Description
-
-
-.. container:: table-row
-
-   Category
          basic
 
    Description
@@ -176,15 +167,6 @@ Editor):
 
 
 .. ### BEGIN~OF~TABLE ###
-
-.. container:: table-row
-
-   Subcategory
-         Subcategory
-
-   Description
-         Description
-
 
 .. container:: table-row
 
@@ -287,15 +269,6 @@ type=
 
 
 .. ### BEGIN~OF~TABLE ###
-
-.. container:: table-row
-
-   Type
-         Type
-
-   Description
-         Description
-
 
 .. container:: table-row
 
@@ -444,21 +417,6 @@ to this object will NOT be substituted like any other constant
 normally would.
 
 .. ### BEGIN~OF~TABLE ###
-
-.. container:: table-row
-
-   Property
-         Property:
-
-   Data type
-         Data type:
-
-   Description
-         Description:
-
-   Default
-         Default:
-
 
 .. container:: table-row
 
