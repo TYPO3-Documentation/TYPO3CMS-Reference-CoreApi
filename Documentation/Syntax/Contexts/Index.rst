@@ -7,8 +7,8 @@
 .. include:: Images.txt
 
 
-|img-3| Contexts
-^^^^^^^^^^^^^^^^
+Contexts
+^^^^^^^^
 
 There are two contexts where TypoScript is used: templates, where
 TypoScript is used to actually define what will appear in the TYPO3

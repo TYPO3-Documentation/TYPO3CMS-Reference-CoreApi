@@ -16,11 +16,6 @@ TypoScript Templates
    :glob:
 
    Constants/Index
-   DeclaringConstantsForTheConstantEditor/Index
-   MoreAboutSyntaxSemanticsAndTyposcriptComparedToXmlAndXslt/Index
-   WhereIsTyposcriptUsed/Index
-   EnteringTyposcript/Index
-   ParsingStoringAndExecutingTyposcript/Index
-   SyntaxHighlightingAndDebugging/Index
-   MythsFaqAndAcknowledgments/Index
+   UsingConstants/Index
+   TheConstantEditor/Index
 

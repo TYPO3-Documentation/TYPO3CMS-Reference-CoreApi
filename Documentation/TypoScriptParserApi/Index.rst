@@ -6,8 +6,8 @@
 .. include:: ../Includes.txt
 
 
-Syntax
-------
+The TypoScript parser API
+-------------------------
 
 
 .. toctree::
@@ -16,8 +16,7 @@ Syntax
    :glob:
 
    Introduction/Index
-   Contexts/Index
-   TypoScriptSyntax/Index
-   Conditions/Index
-   Includes/Index
+   CustomTypoScript/Index
+   CustomConditions/Index
+   CombinedConditions/Index
 

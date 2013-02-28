@@ -6,8 +6,8 @@
 .. include:: ../Includes.txt
 
 
-The TypoScript parser API
--------------------------
+Sorting out details
+-------------------
 
 
 .. toctree::
@@ -15,8 +15,10 @@ The TypoScript parser API
    :titlesonly:
    :glob:
 
-   Introduction/Index
-   ParsingCustomTyposcript/Index
-   ImplementingCustomConditions/Index
-   ImplementingCombinedConditions/Index
+   TypoScriptComparedToXmlAndXslt/Index
+   Usages/Index
+   EnteringTypoScript/Index
+   ParsingStoringExecutingTypoScript/Index
+   SyntaxHighlightingDebugging/Index
+   MythsFaqAcknowledgments/Index
 

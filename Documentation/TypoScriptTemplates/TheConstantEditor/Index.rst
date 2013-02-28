@@ -556,6 +556,4 @@ above and in the screenshot below.
 This is how it looks like in TYPO3 by default:
 
 |img-15|
-Sorting out details
--------------------
 

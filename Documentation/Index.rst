@@ -83,9 +83,10 @@ address the task at hand.
 
    Introduction/Index
    Syntax/Index
-   TyposcriptTemplates/Index
-   TheTyposcriptParserApi/Index
-   AppendixAWhatIsTyposcript/Index
+   TypoScriptTemplates/Index
+   TheDetails/Index
+   TypoScriptParserApi/Index
+   AppendixA/Index
    NextSteps/Index
    Targets
 

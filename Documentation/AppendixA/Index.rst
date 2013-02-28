@@ -42,5 +42,5 @@ database of addresses - you would use XML or SQL for that.
    :glob:
 
    PhpArrays/Index
-   TyposcriptSyntaxObjectPathsObjectsAndProperties/Index
+   SyntaxObjectPathsObjectsProperties/Index
 
