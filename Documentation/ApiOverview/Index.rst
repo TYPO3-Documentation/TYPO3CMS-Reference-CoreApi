@@ -39,6 +39,7 @@ http://typo3.org/documentation/api/.
    Typo3CoreEngine/Index
    Workspaces/Index
    SystemLog/Index
+   Logging/Index
    SystemRegistry/Index
    Mail/Index
    FormProtection/Index
