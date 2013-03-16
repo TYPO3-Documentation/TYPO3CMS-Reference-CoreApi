@@ -34,12 +34,12 @@ call a script with the GET parameter string
 "?id=123&test[key]=A&test[key2]=B". How will the GET vars look to your
 application inside? Well, using the debug function makes that easy::
 
-   debug(t3lib_div::_GET(),'GET variables:');
+   debug(\TYPO3\CMS\Core\Utility\GeneralUtility::_GET(),'GET variables:');
 
 The output in the browser will look like:
 
 |img-21| Notice that the debug() function is a wrapper for
-t3lib\_div::debug() and the difference is that debug() (defined in
+\TYPO3\CMS\Core\Utility\GeneralUtility::debug() and the difference is that debug() (defined in
 "t3lib/config\_default.php") will only output information if your IP
 address is within a certain range typical for internal networks.
 

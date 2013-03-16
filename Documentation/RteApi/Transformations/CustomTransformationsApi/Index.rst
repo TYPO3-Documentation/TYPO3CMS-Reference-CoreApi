@@ -40,7 +40,7 @@ to point to the class which contains the transformation methods::
 Here the  *transformation key* is defined to be "tx\_myext" (assuming
 the extension has the extension key "myext") and the value points to a
 file inside the transformation which will contain the class
-"user\_transformation" (instantiated by t3lib\_div::getUserObj())
+"user\_transformation" (instantiated by \TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj())
 
 This class must contain two methods, "transform\_db" and
 "transform\_rte" for each transformation direction.
@@ -61,7 +61,7 @@ concept of transformations between RTE and DB. ::
       2:  */
       3: class user_transformation {
       4:
-      5:         // object; Reference to the parent object, t3lib_parsehtml_proc
+      5:         // object; Reference to the parent object, \TYPO3\CMS\Core\Html\RteHtmlParser
       6:     var $pObj;
       7:
       8:         // Transformation key of self.
@@ -126,7 +126,7 @@ Comments to code listing
   that value again.
 
 - The internal variable $pObj is set to be a reference to the parent
-  object which is an instance of "t3lib\_parsehtml\_proc". Inside of
+  object which is an instance of :code:`\TYPO3\CMS\Core\Html\RteHtmlParser`. Inside of
   this object you can access the default transformation functions if you
   need to and in particular you can read out configuration settings.
 

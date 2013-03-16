@@ -219,7 +219,7 @@ These constants are defined at various points during the bootstrap sequence.
    :Defined:
          config\_default.php
    :Description:
-         If true, calls to :code:`t3lib_div::devLog()` can be made in both frontend
+         If true, calls to :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::devLog()` can be made in both frontend
          and backend; This is event logging which can help to track debugging
          in general.
    :FE:

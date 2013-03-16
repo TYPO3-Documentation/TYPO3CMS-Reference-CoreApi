@@ -13,7 +13,7 @@
 
 This XML format is used for "locallang-XML" (llXML) files, a format
 TYPO3 uses for storage of interface labels and translations of them.
-The format is parsed by :code:`t3lib_div::xml2array()` which means that tag-
+The format is parsed by :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::xml2array()` which means that tag-
 names and "index" attribute values are inter-related in significance.
 The content is always in utf-8.
 

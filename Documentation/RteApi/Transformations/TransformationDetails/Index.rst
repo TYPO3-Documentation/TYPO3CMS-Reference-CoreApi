@@ -10,7 +10,7 @@ Transformation details
 ^^^^^^^^^^^^^^^^^^^^^^
 
 The transformations offered by the TYPO3 core are performed by the
-class "t3lib\_parsehtml\_proc". Here follows a technical and detailed
+class :code:`\TYPO3\CMS\Core\Html\RteHtmlParser`. Here follows a technical and detailed
 description of the transformation filters available:
 
 .. ### BEGIN~OF~TABLE ###
@@ -33,10 +33,10 @@ description of the transformation filters available:
 .. container:: table-row
 
    DB -> RTE
-         function t3lib\_parseHTML::TS\_transform\_rte()
+         function :code:`\TYPO3\CMS\Core\Html\HtmlParser::TS_transform_rte()`
 
    RTE -> DB
-         function t3lib\_parseHTML::TS\_transform\_db()
+         function :code:`\TYPO3\CMS\Core\Html\HtmlParser::TS_transform_db()`
 
 
 .. container:: table-row
@@ -143,10 +143,10 @@ description of the transformation filters available:
 .. container:: table-row
 
    DB -> RTE
-         function t3lib\_parseHTML::TS\_preserve\_rte()
+         function :code:`\TYPO3\CMS\Core\Html\HtmlParser::TS_preserve_rte()`
 
    RTE -> DB
-         function t3lib\_parseHTML::TS\_preserve\_db()
+         function :code:`\TYPO3\CMS\Core\Html\HtmlParser::TS_preserve_db()`
 
 
 .. container:: table-row
@@ -171,10 +171,10 @@ description of the transformation filters available:
 .. container:: table-row
 
    DB -> RTE
-         function t3lib\_parseHTML::TS\_images\_rte()
+         function :code:`\TYPO3\CMS\Core\Html\HtmlParser::TS_images_rte()`
 
    RTE -> DB
-         function t3lib\_parseHTML::TS\_images\_db()
+         function :code:`\TYPO3\CMS\Core\Html\HtmlParser::TS_images_db()`
 
 
 .. container:: table-row
@@ -213,10 +213,10 @@ description of the transformation filters available:
 .. container:: table-row
 
    DB -> RTE
-         function t3lib\_parseHTML::TS\_links\_rte()
+         function :code:`\TYPO3\CMS\Core\Html\HtmlParser::TS_links_rte()`
 
    RTE -> DB
-         function t3lib\_parseHTML::TS\_links\_db()
+         function :code:`\TYPO3\CMS\Core\Html\HtmlParser::TS_links_db()`
 
 
 .. container:: table-row
@@ -245,10 +245,10 @@ description of the transformation filters available:
 .. container:: table-row
 
    DB -> RTE
-         function t3lib\_parseHTML::TS\_reglinks()
+         function :code:`\TYPO3\CMS\Core\Html\HtmlParser::TS_reglinks()`
 
    RTE -> DB
-         function t3lib\_parseHTML::TS\_reglinks()
+         function :code:`\TYPO3\CMS\Core\Html\HtmlParser::TS_reglinks()`
 
 
 .. container:: table-row

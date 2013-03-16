@@ -52,7 +52,7 @@ Global variables
    :Description:
          Array with all loaded extensions listed with a set of paths. You can
          check if an extension is loaded by the function
-         :code:`t3lib_extMgm::isLoaded($key)` where :code:`$key` is the extension key.
+         :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded($key)` where :code:`$key` is the extension key.
    :FE:
          Yes
 
@@ -188,7 +188,7 @@ Global variables
          t3lib/stddb/tables.php
    :Description:
          The backend main/sub-module structure. See section elsewhere plus
-         sourcecode of :file:`class.t3lib_loadmodules.php` which also includes some
+         source code of class :code:`\TYPO3\CMS\Backend\Module\ModuleLoader` which also includes some
          examples.
    :FE:
          (occasionally)
@@ -224,13 +224,13 @@ Global variables
          for use is:
 
          ['callUserFunction'] + ['callUserFunction\_classPool']: Used by
-         :code:`t3lib_div::callUserFunction` to store singleton objects.
+         :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction` to store singleton objects.
 
-         ['getUserObj'] : Used by :code:`t3lib_div::getUserObj` to store singleton
+         ['getUserObj'] : Used by :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj` to store singleton
          objects.
 
          ['RTEobj'] : Used to hold the current RTE object if any. See
-         :code:`t3lib_BEfunc`.
+         :code:`\TYPO3\CMS\Backend\Utility\BackendUtility`.
 
          ['ext'][ *extension-key* ] : Free space for extensions.
    :FE:

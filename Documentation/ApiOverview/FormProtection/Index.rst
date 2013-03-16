@@ -29,7 +29,7 @@ The name of the form element does not matter; you only need it to get the form t
 
 .. code-block:: php
 
-   $formToken = t3lib_formprotection_Factory::get()
+   $formToken = TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()
    	->generateToken('BE user setup', 'edit')
    );
    $this->content .= '<input type="hidden" name="formToken" value="' . $formToken . '" />';
@@ -43,14 +43,14 @@ For editing a tt_content record, the call could look like this:
 
 .. code-block:: php
 
-   $formToken = t3lib_formprotection_Factory::get()->generateToken('tt_content', 'edit', $uid);
+   $formToken = TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->generateToken('tt_content', 'edit', $uid);
 
 At the end of the form, you need to persist the tokens. This makes sure that generated tokens get saved,
 and also that removed tokens stay removed:
 
 .. code-block:: php
 
-   t3lib_formprotection_Factory::get()->persistTokens();
+   TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->persistTokens();
 
 In BE lists, it might be necessary to generate hundreds of tokens.
 So the tokens do not get automatically persisted after creation for performance reasons.
@@ -61,8 +61,8 @@ you can check that the form token is valid like this:
 .. code-block:: php
 
    if ($dataHasBeenSubmitted &&
-   	t3lib_formprotection_Factory::get()->validateToken(
-   		(string) t3lib_div::_POST('formToken'),
+   	TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->validateToken(
+   		(string) \TYPO3\CMS\Core\Utility\GeneralUtility::_POST('formToken'),
    		'BE user setup', 'edit'
    	) ) {
    	// processes the data

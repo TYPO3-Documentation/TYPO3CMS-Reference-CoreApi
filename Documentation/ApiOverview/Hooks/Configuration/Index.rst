@@ -66,7 +66,7 @@ and used at a later point. ::
 			// Hook to handle own checks
 		if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['linkvalidator']['checkLinks'])) {
 			foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['linkvalidator']['checkLinks'] as $key => $classRef) {
-				$this->hookObjectsArr[$key] = t3lib_div::getUserObj($classRef);
+				$this->hookObjectsArr[$key] = \TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj($classRef);
 			}
 		}
 	}
@@ -98,26 +98,27 @@ extension keys. ::
   array and uses only the value (function reference)
 
 - **function\_reference :** A function reference using the syntax of
-  :code:`t3lib_div::callUserFunction()` or :code:`t3lib_div::getUserObj()`
+  :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
+  or :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj()`
   depending on implementation of the hook.
 
 The above syntax is how a hook is typically defined but it might
 differ and it might not be a hook at all, but just configuration.
 Depends on implementation in any case.
 
-The following example shows a hook from :code:`tslib_fe`. In this case the
-function :code:`t3lib_div::getUserObj()` is used for the hook. The
+The following example shows a hook from :code:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`. In this case the
+function :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj()` is used for the hook. The
 function\_reference is referring to the class name only since the
 function returns an object instance of that class. The method name to
 call is predefined by the hook, in this case
 :code:`sendFormmail_preProcessVariables()`. This method allows to pass any
 number of variables along instead of the limited :code:`$params` and :code:`$pObj`
-variables from :code:`t3lib_div::callUserFunction()`. ::
+variables from :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`. ::
 
        // Hook for preprocessing of the content for formmails:
    if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['sendFormmail-PreProcClass'])) {
        foreach($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['sendFormmail-PreProcClass'] as $_classRef) {
-           $_procObj = &t3lib_div::getUserObj($_classRef);
+           $_procObj = \TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj($_classRef);
            $EMAIL_VARS = $_procObj->sendFormmail_preProcessVariables($EMAIL_VARS, $this);
        }
    }
@@ -127,17 +128,17 @@ RTE transformations. It is not a "hook" in the strict
 sense, but the same principles are used. In this case the "index" key
 is defined to be the transformation key name, not a random integer
 since we do not iterate over the array as usual.
-:code:`t3lib_div::getUserObj()` is also used. ::
+:code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj()` is also used. ::
 
    if ($_classRef = $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation'][$cmd]) {
-       $_procObj = &t3lib_div::getUserObj($_classRef);
+       $_procObj = \TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj($_classRef);
        $_procObj->pObj = &$this;
        $_procObj->transformationKey = $cmd;
        $value = $_procObj->transform_db($value, $this);
    }
 
-A classic hook also from :code:`tslib_fe`. This one is based on
-:code:`t3lib_div::callUserFunction()` and it passes a reference to :code:`$this`
+A classic hook also from :code:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`. This one is based on
+:code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()` and it passes a reference to :code:`$this`
 along to the function via :code:`$_params`. In the user-defined function
 :code:`$_params['pObj']->content` is meant to be manipulated in some way. The
 return value is insignificant - everything works by the reference to
@@ -147,7 +148,7 @@ the parent object. ::
    if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all'])) {
        $_params = array('pObj' => &$this);
        foreach($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all'] as $_funcRef) {
-           t3lib_div::callUserFunction($_funcRef, $_params, $this);
+           \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($_funcRef, $_params, $this);
        }
    }
 
@@ -210,7 +211,7 @@ function name is called for processing. ::
    if (is_array($TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses'])) {
        reset($TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']);
        while(list($class,$path)=each($TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses'])) {
-           $modObj = t3lib_div::makeInstance($class);
+           $modObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance($class);
            $wizardItems = $modObj->proc($wizardItems);
        }
    }

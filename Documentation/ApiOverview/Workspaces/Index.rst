@@ -67,7 +67,7 @@ then overlay the future version and eventually check if it is hidden
 and if so exclude it. The same problem applies to all other
 "enableFields", future versions with "delete" flags and current
 versions which are invisible placeholders for future records. Anyway,
-all that is handled by the :code:`t3lib_pageSelect` class which includes
+all that is handled by the :code:`\TYPO3\CMS\Frontend\Page\PageRepository` class which includes
 functions for "enableFields" and "deleted" so it will work out of the
 box for you. But as soon as you do selection based on other fields
 like email, username, alias etc. it will fail.
@@ -208,7 +208,8 @@ These issues are not planned to be supported for preview:
   we would have to traverse all records and pass them through
   :code:`->versionOL()` before we would have a reliable result!
 
-- In :code:`tslib_fe::getPageShortcut()`, :code:`sys_page->getMenu()` is called with an
+- In :code:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController::getPageShortcut()`,
+  :code:`sys_page->getMenu()` is called with an
   additional WHERE clause which will not respect if those fields are
   changed for a future version. This could be the case other places
   where getmenu() is used (but a search shows it is not a big problem).
@@ -243,7 +244,7 @@ Workspace-related API for backend modules
 
 
  - :Function:
-        t3lib\_BEfunc::workspaceOL()
+        \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::workspaceOL()
    :Description:
          Overlaying record with workspace version if any. Works like
          :code:`->sys_page->versionOL()` does, but for the backend. Input record must
@@ -254,34 +255,34 @@ Workspace-related API for backend modules
 
             $result = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'pages', 'uid=' . intval($id) . $delClause);
             $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($result);
-            t3lib_BEfunc::workspaceOL('pages', $row);
+            \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL('pages', $row);
 
 
  - :Function:
-         t3lib\_BEfunc::getRecordWSOL()
+         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getRecordWSOL()
    :Description:
          Gets record from table and overlays the record with workspace version
          if any.
 
          **Example:** ::
 
-            $row = t3lib_BEfunc::getRecordWSOL($table, $uid);
+            $row = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecordWSOL($table, $uid);
 
 
             // This is the same as:
-            $row = t3lib_BEfunc::getRecord($table, $uid);
-            t3lib_BEfunc::workspaceOL($table, $row);
+            $row = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord($table, $uid);
+            \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL($table, $row);
 
 
  - :Function:
-         t3lib\_BEfunc::fixVersioningPid()
+         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::fixVersioningPid()
    :Description:
          Translating versioning PID -1 to the pid of the live record. Same as
          :code:`sys_page->fixVersioningPid()` but for the backend.
 
 
  - :Function:
-         t3lib\_BEfunc::isPidInVersionizedBranch()
+         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::isPidInVersionizedBranch()
    :Description:
          Will fetch the rootline for the pid, then check if anywhere in the
          rootline there is a branch point. Returns either "branchpoint" (if
@@ -290,24 +291,24 @@ Workspace-related API for backend modules
 
 
  - :Function:
-         t3lib\_BEfunc::getWorkspaceVersionOfRecord()
+         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getWorkspaceVersionOfRecord()
    :Description:
          Returns offline workspace version of a record, if found.
 
 
  - :Function:
-         t3lib\_BEfunc::getLiveVersionOfRecord()
+         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getLiveVersionOfRecord()
    :Description:
          Returns live version of workspace version.
 
 
  - :Function:
-         t3lib\_BEfunc::versioningPlaceholderClause()
+         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::versioningPlaceholderClause()
    :Description:
          Returns a WHERE-clause which will deselect placeholder records from
          other workspaces. This should be implemented almost everywhere records
          are selected based on other fields than uid and where
-         :code:`t3lib_BEfunc::deleteClause()` is used.
+         :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::deleteClause()` is used.
 
          **Example:** ::
 
@@ -315,8 +316,8 @@ Workspace-related API for backend modules
                'count(*)',
                $this->table,
                $this->parentField . '=' . $GLOBALS['TYPO3_DB']->fullQuoteStr($uid, $this->table) .
-               t3lib_BEfunc::deleteClause($this->table) .
-               t3lib_BEfunc::versioningPlaceholderClause($this->table) .
+               \TYPO3\CMS\Backend\Utility\BackendUtility::deleteClause($this->table) .
+               \TYPO3\CMS\Backend\Utility\BackendUtility::versioningPlaceholderClause($this->table) .
                $this->clause
             );
 
@@ -391,7 +392,7 @@ keywords defining where the module is available::
 
 You can also restrict function menu items to certain workspaces if you
 like. This is done by an argument sent to the function
-:code:`t3lib_extMgm::insertModuleFunction()`. See that file for more details.
+:code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::insertModuleFunction()`. See that file for more details.
 
 
 .. _workspaces-detection:
@@ -417,7 +418,7 @@ Since admin users are also restricted by the workspace it is not
 possible to save any live records when in a workspace. However for
 very special occasions you might need to bypass this and to do so, you
 can set the instance variable
-:code:`t3lib_tcemain::bypassWorkspaceRestrictions` to TRUE. An example of
+:code:`\TYPO3\CMS\Core\DataHandling\DataHandler::bypassWorkspaceRestrictions` to TRUE. An example of
 this is when users are updating their user profile using the "User Tool >
 User Settings" module; that actually allows them to save to a live record
 (their user record) while in a draft workspace.
@@ -448,7 +449,8 @@ see if a placeholder exists for a move operation and if so the record
 will take over the pid / "sortby" value upon publishing.
 
 Preview of move operations is almost fully functional through the
-:code:`t3lib_page::versionOL()` and :code:`t3lib_BEfunc::workspaceOL()` functions.
+:code:`\TYPO3\CMS\Frontend\Page\PageRepository::versionOL()` and
+:code:`\TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL()` functions.
 When the online placeholder is selected it simply looks up the source
 record, overlays any version on top and displays it. When the source
 record is selected it should simply be discarded in case shown in

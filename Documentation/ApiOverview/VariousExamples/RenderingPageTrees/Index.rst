@@ -16,27 +16,27 @@ libraries in the core for making trees from records, static page trees
 or page trees that can be browsed (open/close nodes).
 
 In this simple example I will show how to get the HTML for a static
-page tree, using the class "t3lib\_pageTree" (child of
-"t3lib\_treeView"). The output will look like this (missing the normal
-TYPO3 styles though):
+page tree, using the class :code:`\TYPO3\CMS\Backend\Tree\View\PageTreeView`
+(child of :code:`\TYPO3\CMS\Backend\Tree\View\AbstractTreeView`).
+The output will look like this (missing the normal TYPO3 styles though):
 
 |img-22|
 
 The PHP code that generates this looks like::
 
-      1: require_once(PATH_t3lib . 'class.t3lib_pagetree.php');
+      1:
       2:
       3:     // Initialize starting point of page tree:
       4: $treeStartingPoint = 1135;
-      5: $treeStartingRecord = t3lib_BEfunc::getRecord('pages', $treeStartingPoint);
+      5: $treeStartingRecord = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('pages', $treeStartingPoint);
       6: $depth = 2;
       7:
       8:     // Initialize tree object:
-      9: $tree = t3lib_div::makeInstance('t3lib_pageTree');
+      9: $tree = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Tree\\View\\PageTreeView');
      10: $tree->init('AND ' . $GLOBALS['BE_USER']->getPagePermsClause(1));
      11:
      12:     // Creating top icon; the current page
-     13: $HTML = t3lib_iconWorks::getIconImage('pages', $treeStartingRecord, $GLOBALS['BACK_PATH'], 'align="top"');
+     13: $HTML = \TYPO3\CMS\Backend\Utility\IconUtility::getIconImage('pages', $treeStartingRecord, $GLOBALS['BACK_PATH'], 'align="top"');
      14: $tree->tree[] = array(
      15:     'row' => $treeStartingRecord,
      16:     'HTML'=>$HTML
@@ -62,12 +62,9 @@ The PHP code that generates this looks like::
      36:
      37: $output = '<table border="0" cellspacing="1" cellpadding="0">' . $output . '</table>';
 
-- In line 1 the class is included.Notice how the constant "PATH\_t3lib"
-  is used to set the path for "t3lib/".
-
 - Line 4-5 sets up the starting point. You need a page id for that and
   additionally you must select that page record.Notice how another
-  important API function, t3lib\_BEfunc::getRecord(), is used to get the
+  important API function, :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::getRecord()`, is used to get the
   record array for the page!
 
 - Line 6 defines that the page tree will go 2 levels down from the
@@ -75,14 +72,14 @@ The PHP code that generates this looks like::
 
 - Line 9-10 initializes the class.Notice how the BE\_USER object is
   called to get an SQL where clause that will ensure that only pages
-  that are accessible for the user will be shown in the tree!Notice how
-  t3lib\_div::makeInstance() is used to create the object. This is
+  that are accessible for the user will be shown in the tree! Notice how
+  :code`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` is used to create the object. This is
   required by the TYPO3 CGL.
 
 - Line 13-17 sets up the starting point page in the tree. This must be
   done externally if you would like your tree to include the root page
   (which is not always the case).Notice how line 13 calls the function
-  t3lib\_iconWorks::getIconImage() to get the correct icon image for the
+  :code:`\TYPO3\CMS\Backend\Utility\IconUtility::getIconImage()` to get the correct icon image for the
   pages table record! Also, $GLOBALS['BACK\_PATH'] is used to make sure
   the icon has a correct "back-path" to the location where the icon is
   on the server.

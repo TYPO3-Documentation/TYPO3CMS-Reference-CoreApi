@@ -37,7 +37,7 @@ Some other facts about Data Structures (DS):
   "<T3DataStructure>"
 
 - The XML format generally complies with what can be converted into a
-  PHP array by :code:`t3lib_div::xml2array()` - thus it directly reflects how a
+  PHP array by :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::xml2array()` - thus it directly reflects how a
   multidimensional PHP array is constructed.
 
 - A Data Structure can be arranged in a set of "sheets". The purpose of
@@ -45,7 +45,7 @@ Some other facts about Data Structures (DS):
   one-dimensional internal categorization of Data Structures.
 
 - Parsing a Data Structure into a PHP array is incredibly easy - just
-  pass it to :code:`t3lib_div::xml2array()` (see the :ref:`t3ds-parsing` section).
+  pass it to :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::xml2array()` (see the :ref:`t3ds-parsing` section).
 
 - "DS" is sometimes used as short for Data Structure
 

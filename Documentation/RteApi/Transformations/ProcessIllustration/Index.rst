@@ -31,8 +31,8 @@ a full document). In that case the RTE specific transformation must
 add/remove this html-document wrapper.
 
 RTE specific transformations is normally programmed directly into the
-rte-api extension class. In the case of "rteekit" that is
-"tx\_rteekit\_base" which extends "t3lib\_rteapi"
+rte-api extension class. In the case of "rtehtmlarea" that is
+:code:`\TYPO3\CMS\Rtehtmlarea\RteHtmlAreaBase` which extends :code:`\TYPO3\CMS\Backend\Rte\AbstractRte`.
 
 
 Part 3: The Main Transformation
@@ -44,7 +44,7 @@ consists of converting links and image references from absolute to
 relative and further HTML processing as needed.  *This is the kind of
 transformation specifically described on the coming pages* !
 
-The main transformations is done with "t3lib\_parsehtml\_proc".
+The main transformations is done with :code:`\TYPO3\CMS\Core\Html\RteHtmlParser`.
 
 
 Part 4: The Database

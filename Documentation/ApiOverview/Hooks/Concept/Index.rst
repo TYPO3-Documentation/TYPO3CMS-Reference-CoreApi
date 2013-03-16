@@ -58,7 +58,7 @@ specific page. ::
    $TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = 'myext_cacheProc->proc';
 
 This registers the class/method name from the with a
-hook inside of :code:`t3lib_TCEmain`. The hook will call the user function
+hook inside of :code:`\TYPO3\CMS\Core\DataHandling\DataHandler`. The hook will call the user function
 after the clear-cache command has been executed. The user function
 will receive parameters which allows it to see what clear-cache action
 was performed and typically also an object reference to the parent
@@ -66,7 +66,7 @@ object. Then the user function can take additional actions as needed.
 
 The class has to be declated with the TYPO3 autoloader.
 
-If we take a look inside of :code:`t3lib_TCEmain` we find the hook to be
+If we take a look inside of :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` we find the hook to be
 activated like this:
 
 .. code-block:: php
@@ -76,12 +76,12 @@ activated like this:
    if (is_array($TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'])) {
        $_params = array('cacheCmd' => $cacheCmd);
        foreach($TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'] as $_funcRef) {
-           t3lib_div::callUserFunction($_funcRef, $_params, $this);
+           \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($_funcRef, $_params, $this);
        }
    }
 
 This is how hooks are typically constructed. The main action happens
-in line 5 where the function :code:`t3lib_div::callUserFunction()` is
+in line 5 where the function :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()` is
 called. The user function is called with two arguments, an array with
 variable parameters and the parent object.
 
@@ -97,6 +97,9 @@ be called. This allows many hooks to be called at the same place. The
 hooks can even rearrange the calling order if they dare.
 
 The syntax of a function reference (or object reference if
-:code:`t3lib_div::getUserObj` is used in the hook instead) can be seen in the
-API documentation of :code:`t3lib_div`.
+:code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj` is used in the hook instead) can be seen in the
+API documentation of :code:`\TYPO3\CMS\Core\Utility\GeneralUtility`.
 
+.. note::
+   The example hook shown above refers to old class names. All these old class
+   names were left in hooks, for obvious reasons of backwards-compatibility.

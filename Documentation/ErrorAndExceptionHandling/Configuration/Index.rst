@@ -54,9 +54,10 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
    :Description:
          Classname to handle PHP errors. Leave empty to disable error handling.
 
-         Default: :code:`t3lib_error_ErrorHandler`. This class will register itself
+         Default: :code:`\TYPO3\CMS\Core\Error\ErrorHandler`. This class will register itself
          as error handler. It is able to write error messages to all available
-         logging systems in TYPO3 (:code:`t3lib_div::syslog`, :code:`t3lib_div::devlog()` and
+         logging systems in TYPO3 (:code:`\TYPO3\CMS\Core\Utility\GeneralUtility::syslog`,
+         :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::devlog()` and
          to the "sys\_log" table).
 
          Additionally the errors can be displayed as flash messages in the
@@ -103,7 +104,7 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
 
          Leave empty to disable exception handling.
 
-         Default: :code:`t3lib_error_ProductionExceptionHandler`. This
+         Default: :code:`\TYPO3\CMS\Core\Error\ProductionExceptionHandler`. This
          exception handler displays a nice error message when something went
          wrong. The error message is logged to the configured logs.
 
@@ -122,7 +123,7 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
 
          Leave empty to disable exception handling.
 
-         Default: :code:`t3lib_error_DebugExceptionHandler`. This exception
+         Default: :code:`\TYPO3\CMS\Core\Error\DebugExceptionHandler`. This exception
          handler displays the complete stack trace of any encountered
          exception. The error message and the stack trace is logged to the
          configured logs.
@@ -187,26 +188,26 @@ Values in plain text can be changed in localconf.php.
 | displayErrors | errorHandlerErrors | exceptionalErrors | errorHandler   | devIPmask | exceptionHandler | display\_errors |
 |               |                    |                   |                |           |                  |    (php\_ini)   |
 +---------------+--------------------+-------------------+----------------+-----------+------------------+-----------------+
-|     -1        | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | t3lib\_error   | match     | debugException   | Not changed     |
-|               |                    | ^ E_WARNING       | \_ErrorHandler |           | Handler          |                 |
-|               |                    | ^ E_USER\_ERROR   |                +-----------+------------------+                 |
+|     -1        | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | \TYPO3\CMS     | match     | debugException   | Not changed     |
+|               |                    | ^ E_WARNING       | \Core\Error    |           | Handler          |                 |
+|               |                    | ^ E_USER\_ERROR   | \ErrorHandler  +-----------+------------------+                 |
 |               |                    | ^ E_USER\_NOTICE  |                | no match  | production       |                 |
 |               |                    | ^ E_USER\_WARNING |                |           | ExceptionHandler |                 |
 +---------------+--------------------+-------------------+----------------+-----------+------------------+-----------------+
-|      0        | E_ALL ^ E_NOTICE   | **0**             | t3lib\_error   | Doesn't   | production       | **0 (Off)**     |
-|               |                    | **(no errors are  | \_ErrorHandler | matter    | ExceptionHandler |                 |
-|               |                    | turned into       |                |           |                  |                 |
+|      0        | E_ALL ^ E_NOTICE   | **0**             | \TYPO3\CMS     | Doesn't   | production       | **0 (Off)**     |
+|               |                    | **(no errors are  | \Core\Error    | matter    | ExceptionHandler |                 |
+|               |                    | turned into       | \ErrorHandler  |           |                  |                 |
 |               |                    | exceptions)**     |                |           |                  |                 |
 +---------------+--------------------+-------------------+----------------+-----------+------------------+-----------------+
-|      1        | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | t3lib\_error   | Doesn't   | debugException   | **1 (On)**      |
-|               |                    | ^ E_WARNING       | \_ErrorHandler | matter    | Handler          |                 |
-|               |                    | ^ E_USER\_ERROR   |                |           |                  |                 |
+|      1        | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | \TYPO3\CMS     | Doesn't   | debugException   | **1 (On)**      |
+|               |                    | ^ E_WARNING       | \Core\Error    | matter    | Handler          |                 |
+|               |                    | ^ E_USER\_ERROR   | \ErrorHandler  |           |                  |                 |
 |               |                    | ^ E_USER\_NOTICE  |                |           |                  |                 |
 |               |                    | ^ E_USER\_WARNING |                |           |                  |                 |
 +---------------+--------------------+-------------------+----------------+-----------+------------------+-----------------+
-|      2        | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | t3lib\_error   | match     | debugException   | **1 (On)**      |
-|               |                    | ^ E_WARNING       | \_ErrorHandler |           | Handler          |                 |
-|               |                    | ^ E_USER\_ERROR   |                +-----------+------------------+-----------------+
+|      2        | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | \TYPO3\CMS     | match     | debugException   | **1 (On)**      |
+|               |                    | ^ E_WARNING       | \Core\Error    |           | Handler          |                 |
+|               |                    | ^ E_USER\_ERROR   | \ErrorHandler  +-----------+------------------+-----------------+
 |               |                    | ^ E_USER\_NOTICE  |                | no match  | production       | **0 (Off)**     |
 |               |                    | ^ E_USER\_WARNING |                |           | ExceptionHandler |                 |
 +---------------+--------------------+-------------------+----------------+-----------+------------------+-----------------+

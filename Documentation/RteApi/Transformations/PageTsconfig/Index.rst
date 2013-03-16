@@ -142,7 +142,7 @@ transformations.
    Description
          If set, the editor is disabled.
 
-         This option is evaluated in t3lib\_TCEforms where it determines if the
+         This option is evaluated in :code:`\TYPO3\CMS\Backend\Form\FormEngine` where it determines if the
          RTE is rendered or not.
 
 
@@ -162,7 +162,7 @@ transformations.
          ("rte\_transform" must be set for the field in the types-definition in
          TCA.)
 
-         The "->PROC" object is processed in "t3lib\_parsehtml\_proc" and is
+         The "->PROC" object is processed in :code:`\TYPO3\CMS\Core\Html\RteHtmlParser` and is
          *independant* of the particular RTE used (like transformations
          generally is!)
 

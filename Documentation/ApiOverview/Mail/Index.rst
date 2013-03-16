@@ -86,7 +86,7 @@ This is how to generate and send a mail in TYPO3 (starting with 4.5):
 
 .. code-block:: php
 
-   $mail = t3lib_div::makeInstance('t3lib_mail_Message');
+   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Mail\\MailMessage');
    $mail->setFrom(array($email => $name))
         ->setTo(array($email => $name))
         ->setSubject($subject)
@@ -97,7 +97,7 @@ Or if you prefer, don't concatenate the calls:
 
 .. code-block:: php
 
-   $mail = t3lib_div::makeInstance('t3lib_mail_Message');
+   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Mail\\MailMessage');
    $mail->setFrom(array($email => $name));
    $mail->setTo(array($email => $name));
    $mail->setSubject($subject);
@@ -162,8 +162,8 @@ To make use of these settings in your extension, use the following code:
 
 .. code-block:: php
 
-   $from = t3lib_utility_Mail::getSystemFrom();
-   $mail = t3lib_div::makeInstance('t3lib_mail_Message');
+   $from = \TYPO3\CMS\Core\Utility\MailUtility::getSystemFrom();
+   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Mail\\MailMessage');
    $mail->setFrom($from);
    ...
 
@@ -178,15 +178,3 @@ please refer to SwiftMailer documentation, in particular:
 
 - http://swiftmailer.org/docs/messages: Content, attachments, basic headers
 - http://swiftmailer.org/docs/headers: Adding and manipulating complex or custom headers
-
-
-.. _mail-deprecated:
-
-Deprecated methods
-^^^^^^^^^^^^^^^^^^
-
-All other ways of sending emails in TYPO3 CMS have been deprecated in version 4.5,
-and have been removed in version 4.7:
-
-- class :code:`t3lib_htmlmail`
-- method :code:`t3lib_utility_Mail::mail()`

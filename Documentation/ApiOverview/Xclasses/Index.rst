@@ -49,7 +49,7 @@ Configuring user classes works like this:
    checks if a user-extension of that class exists. If so, then *that*
    class (or an extension of the extended class) is instantiated and not
    the "normal" (parent) class. Getting the correct instance of a class is
-   handled transparently by :code:`t3lib_div::makeInstance()`,
+   handled transparently by :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`,
    which is why you should never use the :code:`new` operator when
    creating an object.
 
@@ -66,8 +66,9 @@ something. When you know which script, you simply open it, look inside
 and somewhere you'll find the lines of code which are responsible for
 the inclusion of the extension, typically in the bottom of the script.
 
-The exceptions to this rule are classes like :code:`t3lib_div`,
-:code:`t3lib_extMgm` or :code:`t3lib_BEfunc`. These classes are static.
+The exceptions to this rule are classes like :code:`\TYPO3\CMS\Core\Utility\GeneralUtility`,
+:code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility` or
+:code:`\TYPO3\CMS\Backend\Utility\BackendUtility`. These classes are static.
 Since they never get instantiated, the cannot be extended
 with an XCLASS.
 

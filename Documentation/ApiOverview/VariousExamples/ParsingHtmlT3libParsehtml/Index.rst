@@ -7,10 +7,11 @@
 .. include:: Images.txt
 
 
-Parsing HTML: t3lib\_parsehtml
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Parsing HTML
+^^^^^^^^^^^^
 
-This class is very handy for various processing needs of HTML. In the
+Class :code:`\TYPO3\CMS\Core\Html\HtmlParser`
+is very handy for various processing needs of HTML. In the
 future it might be obsolete if the "tidy" extension becomes standard
 in PHP but for now there are no native features in PHP which lets us
 parse HTML.
@@ -22,7 +23,7 @@ Extracting blocks from an HTML document
 In the first example it is shown how we can extract parts of an HTML
 document. ::
 
-      1: require_once(PATH_t3lib . 'class.t3lib_parsehtml.php');
+      1: // Prepare some HTML for testing
       2:
       3: $testHTML = '
       4:     <DIV>
@@ -47,7 +48,7 @@ document. ::
      23: ';
      24:
      25:     // Splitting HTML into blocks defined by <div> and <table> tags
-     26: $parseObj = t3lib_div::makeInstance('t3lib_parsehtml');
+     26: $parseObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Html\\HtmlParser');
      27: $result = $parseObj->splitIntoBlock('div,table', $testHTML);
      28: debug($result, 'Splitting by <div> and <table> tags');
      29:
@@ -57,14 +58,16 @@ document. ::
 - Line 3-23 loads the HTML sample code into a variable.
 
 - Line 36 creates an instance of the parser-class.Notice how
-  t3lib\_div::makeInstance() is used (required).
+  :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` is used (required).
 
 - Line 27 splits the HTML content into an array dividing it by <div> or
   <table> tags.
 
 - Line 28 outputs the result array with the debug() function:
 
-|img-28| As you can see the HTML source has been divided so the <div>
+|img-28|
+
+As you can see the HTML source has been divided so the <div>
 section and the <table> is found in key 1 and 3. The keys of the
 extracted content is always the odd keys while the even keys are the
 "outside" content.
@@ -89,7 +92,9 @@ example. Here all <img> and <br> tags are found::
 
 Line 31 performs the splitting operation. This is the output:
 
-|img-29| Again, all the odd keys in the array contains the tags that
+|img-29|
+
+Again, all the odd keys in the array contains the tags that
 were found. If you wanted to do processing on this content you just
 traverse the array, process all odd keys and implode the array again.
 A code listing for that might look like this::
@@ -152,15 +157,17 @@ class. ::
 This is the output:
 
 
-|img-30| Advanced call back processing
-""""""""""""""""""""""""""""""""""""""
+|img-30|
+
+Advanced call back processing
+"""""""""""""""""""""""""""""
 
 This code listing shows how you can register call back functions for
 recursive processing of an HTML source::
 
       1: class user_processing {
       2:     function process($str) {
-      3:         $this->parseObj = t3lib_div::makeInstance('t3lib_parsehtml_proc');
+      3:         $this->parseObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Html\\RteHtmlParser');
       4:
       5:         $outStr = $this->parseObj->splitIntoBlockRecursiveProc(
       6:             'div|table|blockquote|caption|tr|td|th|h1|h2|h3|h4|h5|h6|ol|ul',

@@ -15,14 +15,14 @@
 The "tce\_db.php" API
 ^^^^^^^^^^^^^^^^^^^^^
 
-This script is a gateway for POST forms to class :code:`t3lib_TCEmain`. It
+This script is a gateway for POST forms to class :code:`\TYPO3\CMS\Core\DataHandling\DataHandler`. It
 has historically been *the* script to which data was posted when you
 wanted to update something in the database.
 
 Today it is used for editing by only a few scripts, actually only the
 "Quick Edit" module in "Web>Page" (frontend). The standard forms you
 find in TYPO3 are normally rendered and handled by :file:`alt_doc.php`
-which includes :code:`t3lib_TCEmain` on its own.
+which includes :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` on its own.
 
 For commands it is still used from various locations.
 

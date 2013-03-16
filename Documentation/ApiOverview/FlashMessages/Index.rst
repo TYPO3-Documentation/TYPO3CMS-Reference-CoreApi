@@ -14,7 +14,7 @@
 Flash messages
 --------------
 
-Since TYPO3 4.3 there is a generic system to show users that an action
+There exists a generic system to show users that an action
 was performed successfully, or more importantly, failed. This system
 is known as "flash messages". The screenshot below shows the various
 severity levels of messages that can be emitted.
@@ -48,27 +48,27 @@ Flash messages API
 ^^^^^^^^^^^^^^^^^^
 
 Creating a flash message is achieved by simply instantiating an object
-of class :code:`t3lib_FlashMessage`::
+of class :code:`\TYPO3\CMS\Core\Messaging\FlashMessage`::
 
-   $message = t3lib_div::makeInstance('t3lib_FlashMessage',
+   $message = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
    	'My message text',
    	'Message Header', // the header is optional
-   	t3lib_FlashMessage::WARNING, // the severity is optional as well and defaults to t3lib_FlashMessage::OK
-   	TRUE // optional, whether the message should be stored in the session or only in the t3lib_MessageQueue object (default is FALSE)
+   	\TYPO3\CMS\Core\Messaging\FlashMessage::WARNING, // the severity is optional as well and defaults to \TYPO3\CMS\Core\Messaging\FlashMessage::OK
+   	TRUE // optional, whether the message should be stored in the session or only in the \TYPO3\CMS\Core\Messaging\FlashMessageQueue object (default is FALSE)
    );
 
 The severity is defined by using class constants provided by
-:code:`t3lib_FlashMessage`:
+:code:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
 
-- t3lib\_FlashMessage::NOTICE for notifications
+- :code:`\TYPO3\CMS\Core\Messaging\FlashMessage::NOTICE` for notifications
 
-- t3lib\_FlashMessage::INFO for information messages
+- :code:`\TYPO3\CMS\Core\Messaging\FlashMessage::INFO` for information messages
 
-- t3lib\_FlashMessage::OK for success messages
+- :code:`\TYPO3\CMS\Core\Messaging\FlashMessage::OK` for success messages
 
-- t3lib\_FlashMessage::WARNING for warnings
+- :code:`\TYPO3\CMS\Core\Messaging\FlashMessage::WARNING` for warnings
 
-- t3lib\_FlashMessage::ERROR for errors
+- :code:`\TYPO3\CMS\Core\Messaging\FlashMessage::ERROR` for errors
 
 The fourth parameter passed to the constructor is a flag that
 indicates whether the message should be stored in session or not (the
@@ -82,10 +82,10 @@ or render it on your own where ever you want.
 This example adds the flash message at the top of modules when
 rendering the next request::
 
-   t3lib_FlashMessageQueue::addMessage($message);
+   \TYPO3\CMS\Core\Messaging\FlashMessageQueue::addMessage($message);
 
 The message is added to the queue and then the template class calls
-t3lib\_FlashMessageQueue::renderFlashMessages() which renders all
+:code:`\TYPO3\CMS\Core\Messaging\FlashMessageQueue::renderFlashMessages()` which renders all
 messages from the queue. Here's how such a message looks like in a
 module:
 
@@ -98,7 +98,7 @@ module:
 By default flash messages are shown atop the content of a
 module. However, if needed, you can change where the messages are
 shown by manipulating a module's template and inserting the
-###FLASHMESSAGES### marker. Messages will then replace that marker
+:code:`###FLASHMESSAGES###` marker. Messages will then replace that marker
 instead of appearing at the top of the module.
 
 It is also possible to render a single message directly, instead of
@@ -119,7 +119,7 @@ in the controller. Code from the "examples" extension::
    $this->flashMessageContainer->add(
    	'This is a success message',
    	'Hooray!',
-   	t3lib_FlashMessage::OK
+   	\TYPO3\CMS\Core\Messaging\FlashMessage::OK
    );
 
 

@@ -52,8 +52,7 @@ Configuration
 """""""""""""
 
 The CSM is entirely described in User TSconfig.
-The configuration is found in :file:`t3lib/config_default.php` (or
-:file:`t3lib/stddb/DefaultConfiguration.php` since TYPO3 CMS 6.0).
+The configuration is found in :file:`t3lib/stddb/DefaultConfiguration.php`.
 Here is a sample:
 
 .. code-block:: typoscript
@@ -217,7 +216,7 @@ declaring menu items:
          The syntax is similar to PHP conditions, with the usual comparison operators
          and the logical operators && and || to chain conditions. The values that can be
          used for comparison are the return values provided by the methods in the API
-         of class :code:`t3lib_tree_pagetree_Node`. If that return value is an array,
+         of class :code:`\TYPO3\CMS\Backend\Tree\Pagetree\PagetreeNode`. If that return value is an array,
          any index can be accessed using the | operator::
 
             displayCondition = getRecord|hidden = 1 && canBeDisabledAndEnabled != 0
@@ -230,8 +229,7 @@ declaring menu items:
          If both conditions evaluate to true, the context action is displayed.
 
          For more examples look up the default configuration found in
-         :file:`t3lib/config_default.php` (or :file:`t3lib/stddb/DefaultConfiguration.php`
-         since TYPO3 CMS 6.0).
+         :file:`t3lib/stddb/DefaultConfiguration.php`.
 
  - :Property:
          callbackAction
@@ -255,7 +253,7 @@ actions of the page tree component. This script must be loaded as an
 "additional backend item", using the dedicated API (in file
 :file:`ext_tables.php`::
 
-   $GLOBALS['TYPO3_CONF_VARS']['typo3/backend.php']['additionalBackendItems'][] = t3lib_extMgm::extPath($_EXTKEY, 'Ressources/Private/Php/RegisterJavaScriptForPagetreeAction.php');
+   $GLOBALS['TYPO3_CONF_VARS']['typo3/backend.php']['additionalBackendItems'][] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY, 'Ressources/Private/Php/RegisterJavaScriptForPagetreeAction.php');
 
 
 This file contains the following code:
@@ -306,9 +304,9 @@ Ext.Direct stuff
 The last step is to write the PHP code that will answer to the Ext.Direct calls.
 First the PHP class must be registered as usual::
 
-   t3lib_extMgm::registerExtDirectComponent(
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerExtDirectComponent(
    	'TYPO3.SmClearcachecm.ClickmenuAction',
-   	t3lib_extMgm::extPath($_EXTKEY) . 'Classes/Hooks/ClickmenuAction.php:Tx_SmClearcachecm_Hooks_ClickmenuAction'
+   	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Classes/Hooks/ClickmenuAction.php:Tx_SmClearcachecm_Hooks_ClickmenuAction'
    );
 
 The PHP class itself contains the methods corresponding to the Ext.Direct JavaScript methods,
@@ -317,8 +315,8 @@ which node was clicked. This information can be made into a node object, as demo
 
    public function clearPageCache($nodeData) {
       	$nodeUids = array();
-      		/* @var $node t3lib_tree_pagetree_Node */
-   	$node = t3lib_div::makeInstance('t3lib_tree_pagetree_Node', (array) $nodeData);
+      		/* @var $node \TYPO3\CMS\Backend\Tree\Pagetree\PagetreeNode */
+   	$node = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Tree\\Pagetree\\PagetreeNode', (array) $nodeData);
       		// Get uid of page
    	$nodeUids[] = $node->getId();
       		// Clear the page cache of the page
@@ -345,7 +343,7 @@ replaced with the selected page id. Example:
    720 {
    	name = someCustomeAction
    	label = LLL:EXT:extension/locallang.xml:someCustomeAction
-   	icon = ' . t3lib_div::locationHeaderUrl(t3lib_extMgm::extRelPath($_EXTKEY) . 'ext_icon.gif') . '
+   	icon = ' . \TYPO3\CMS\Core\Utility\GeneralUtility::locationHeaderUrl(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif') . '
    	spriteIcon =
    	displayCondition =
    	callbackAction = openCustomUrlInContentFrame

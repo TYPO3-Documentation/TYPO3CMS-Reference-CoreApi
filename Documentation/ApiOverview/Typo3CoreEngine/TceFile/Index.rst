@@ -13,7 +13,7 @@ The "tce\_file.php" API
 
 This script serves as the file administration part of the TYPO3 Core
 Engine. It's a gateway for TCE (TYPO3 Core Engine) file-handling
-through POST forms. It uses :code:`t3lib_extFileFunctions` for the manipulation
+through POST forms. It uses :code:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility` for the manipulation
 of the files.
 
 This script is used from the File > List module where you can rename,
@@ -36,7 +36,7 @@ takes precedence. The variable names you can use are:
          array
    :Description:
          Array of file operations. See previous information about
-         :ref:`t3lib_extFileFunctions <t3lib-file-functions>`.
+         :ref:`basic file functions <file-functions>`.
 
          This could typically be a GET var like
          :code:`&file[delete][0][data]=[absolute file path]` or a POST form field

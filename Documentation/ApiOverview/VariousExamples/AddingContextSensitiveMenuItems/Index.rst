@@ -31,7 +31,7 @@ adds an entry in the array mentioned above::
    if (TYPO3_MODE=='BE') {
        $GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'][] = array(
            'name' => 'tx_extrapagecmoptions',
-           'path' => t3lib_extMgm::extPath($_EXTKEY) . 'class.tx_extrapagecmoptions.php'
+           'path' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'class.tx_extrapagecmoptions.php'
        );
    }
    ?>
@@ -126,7 +126,7 @@ CSM for database elements
 Linking icons to open the CSM is easy::
 
        // Get icon with CSM:
-   $icon = t3lib_iconworks::getIconImage('tx_templavoila_datastructure', $row, $GLOBALS['BACK_PATH'], 'align="top"');
+   $icon = \TYPO3\CMS\Backend\Utility\IconUtility::getIconImage('tx_templavoila_datastructure', $row, $GLOBALS['BACK_PATH'], 'align="top"');
    $content .= $this->doc->wrapClickMenuOnIcon($icon, 'tx_templavoila_datastructure', $row['uid'], 1);
 
 In this example the first line creates an <img> tag with the icon of a

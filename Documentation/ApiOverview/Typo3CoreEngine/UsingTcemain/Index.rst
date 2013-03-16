@@ -12,10 +12,10 @@
 
 .. _using-tcemain:
 
-Using t3lib\_TCEmain in scripts
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Using TCEmain in scripts
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-It's really easy to use the class :code:`t3lib_TCEmain` in your own
+It's really easy to use the class :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` in your own
 scripts. All you need to do is include the class, build a $data/$cmd
 array you want to pass to the class and call a few methods.
 
@@ -51,7 +51,7 @@ submission.
 .. code-block:: php
    :linenos:
 
-   $tce = t3lib_div::makeInstance('t3lib_TCEmain');
+   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\DataHandling\\DataHandler');
    $tce->stripslashes_values = 0;
    $tce->start($data, array());
    $tce->process_datamap();
@@ -71,7 +71,7 @@ commands.
 .. code-block:: php
    :linenos:
 
-   $tce = t3lib_div::makeInstance('t3lib_TCEmain');
+   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\DataHandling\\DataHandler');
    $tce->stripslashes_values = 0;
    $tce->start(array(), $cmd);
    $tce->process_cmdmap();
@@ -93,7 +93,7 @@ calling the start() method (which will initialize internal variables).
 .. code-block:: php
    :linenos:
 
-   $tce = t3lib_div::makeInstance('t3lib_TCEmain');
+   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\DataHandling\\DataHandler');
    $tce->start(array(), array());
    $tce->clear_cacheCmd('all');
 
@@ -136,12 +136,12 @@ all pages is cleared in line 7.
 .. code-block:: php
    :linenos:
 
-   $tce = t3lib_div::makeInstance('t3lib_TCEmain');
+   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\DataHandling\\DataHandler');
    $tce->stripslashes_values = 0;
    $tce->reverseOrder = 1;
    $tce->start($data, array());
    $tce->process_datamap();
-   t3lib_BEfunc::getSetUpdateSignal('updatePageTree');
+   \TYPO3\CMS\Backend\Utility\BackendUtility::getSetUpdateSignal('updatePageTree');
    $tce->clear_cacheCmd('pages');
 
 
@@ -164,7 +164,7 @@ should not set this argument since you want TCE to use the global
 .. code-block:: php
    :linenos:
 
-   $tce = t3lib_div::makeInstance('t3lib_TCEmain');
+   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\DataHandling\\DataHandler');
    $tce->stripslashes_values = 0;
    $tce->start($data, $cmd, $alternative_BE_USER);
    $tce->process_datamap();

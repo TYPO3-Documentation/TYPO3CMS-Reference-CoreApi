@@ -61,7 +61,7 @@ should hint an integrator about specific caching needs or setups in this case.
        $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
    }
    if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'])) {
-       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = 't3lib_cache_backend_TransientMemoryBackend';
+       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = 'TYPO3\\CMS\\Core\\Cache\\Backend\\TransientMemoryBackend';
    }
 
 To get an instance of a cache, :code:`$GLOBALS['typo3CacheManager']->getCache('cacheName')`
@@ -87,7 +87,7 @@ process encapsulated in a proper version check. Example::
    // Define string frontend as default frontend, this must be set with TYPO3 4.5 and below
    // and overrides the default variable frontend of 4.6
    if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['frontend'])) {
-       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['frontend'] = 't3lib_cache_frontend_StringFrontend';
+       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['frontend'] = 'TYPO3\\CMS\\Core\\Cache\\Frontend\\StringFrontend';
    }
    if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < '4006000') {
        if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'])) {
@@ -145,7 +145,7 @@ Instead it should perform its own initialization. Example::
 
    class tx_myext_myFunctionality {
        /**
-        * @var t3lib_cache_frontend_AbstractFrontend
+        * @var \TYPO3\CMS\Core\Cache\Frontend\AbstractFrontend
         */
        protected $cacheInstance;
 
@@ -162,10 +162,10 @@ Instead it should perform its own initialization. Example::
         * @return void
         */
        protected function initializeCache() {
-           t3lib_cache::initializeCachingFramework();
+           \TYPO3\CMS\Core\Cache\Cache::initializeCachingFramework();
            try {
                $this->cacheInstance = $GLOBALS['typo3CacheManager']->getCache('myext_mycache');
-           } catch (t3lib_cache_exception_NoSuchCache $e) {
+           } catch (\TYPO3\CMS\Core\Cache\Exception\NoSuchCacheException $e) {
                $this->cacheInstance = $GLOBALS['typo3CacheFactory']->create(
                    'myext_mycache',
                    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['frontend'],
@@ -176,7 +176,7 @@ Instead it should perform its own initialization. Example::
        }
    }
 
-Calling :code:`t3lib_cache::initializeCachingFramework()` ensures that the :code:`cacheManager`
+Calling :code:`\TYPO3\CMS\Core\Cache\Cache::initializeCachingFramework()` ensures that the :code:`cacheManager`
 and :code:`cacheFactory` instances are available in TYPO3 CMS 4.5 and below. After calling
 :code:`initializeCache()`, all available frontend operations like :code:`get()`,
 :code:`set()` and :code:`flushByTag()` can be executed on :code:`$this->cacheInstance`.

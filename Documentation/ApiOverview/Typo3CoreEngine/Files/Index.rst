@@ -10,13 +10,14 @@
 
 
 
-.. _t3lib-file-functions:
+.. _file-functions:
 
-Files: t3lib\_extFileFunctions basics
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File functions basics
+^^^^^^^^^^^^^^^^^^^^^
 
 File operations in the TCE are handled by the class
-"t3lib\_extFileFunctions" which extends "t3lib\_basicFileFunctions".
+:code:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility`
+which extends :code:`\TYPO3\CMS\Core\Utility\File\BasicFileUtility`.
 The instructions for file manipulation are passed to this class as a
 multidimensional array.
 
@@ -197,7 +198,7 @@ Command keywords and values
          upload\_$id = File reference. $id must equal value of
          :code:`file[upload][...][data]`!
 
-         See :code:`t3lib_extFileFunctions::func_upload()`.
+         See :code:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility::func_upload()`.
 
 
  - :Command:
@@ -213,7 +214,7 @@ Command keywords and values
          not set, default is the same as the zip-file)
 
 It is unlikely that you will need to use this internally in your
-scripts like you will need :code:`t3lib_TCEmain`. It is fairly uncommon to
+scripts like you will need :code:`\TYPO3\CMS\Core\DataHandling\DataHandler`. It is fairly uncommon to
 need the file manipulations in own scripts unless you make a special
 application. Therefore the most typical usage of this API is from
 :ref:`tce\_file.php <tce-file-api>` and the core scripts that are activated by the "File >
@@ -226,7 +227,7 @@ of how to initialize the usage.
    :linenos:
 
        // Initializing:
-   $this->fileProcessor = t3lib_div::makeInstance('t3lib_extFileFunctions');
+   $this->fileProcessor = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Utility\\File\\ExtendedFileUtility');
    $this->fileProcessor->init($FILEMOUNTS, $TYPO3_CONF_VARS['BE']['fileExtensions']);
    $this->fileProcessor->init_actionPerms($BE_USER->user['fileoper_perms']);
 

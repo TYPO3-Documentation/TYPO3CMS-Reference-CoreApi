@@ -17,11 +17,11 @@ Backend User Object
 
 The backend user of a session is always available to the backend
 scripts as the global variable :code:`$BE_USER`. The object is created in
-init.php and is an instance of the class "t3lib\_beUserAuth" (which
-extends "t3lib\_userAuthGroup" which extends "t3lib\_userAuth").
+init.php and is an instance of the class :code:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication` (which
+extends :code:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
 
 In addition to :code:`$BE_USER` two other global variables are of interest -
-$WEBMOUNTS and $FILEMOUNTS, each holding an array with the DB mounts
+:code:`$WEBMOUNTS` and :code:`$FILEMOUNTS`, each holding an array with the DB mounts
 and File mounts of the :code:`$BE_USER`.
 
 
@@ -148,7 +148,7 @@ Saving module data
 This stores the input variable :code:`$compareFlags` (an array!) with the key
 "tools\_beuser/index.php/compare" ::
 
-       $compareFlags = t3lib_div::GPvar('compareFlags');
+       $compareFlags = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('compareFlags');
        $BE_USER->pushModuleData('tools_beuser/index.php/compare', $compareFlags);
 
 

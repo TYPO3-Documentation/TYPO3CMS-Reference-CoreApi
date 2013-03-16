@@ -21,7 +21,7 @@ include the class and insert its name into "productionExceptionHandler",
 
 
 An error or exception handler class must register an error (exception)
-handler in its constructor. Have a look at the files in :file:`t3lib/error/`
+handler in its constructor. Have a look at the files in :file:`EXT:core/Classes/Error/`
 to see how this should be done.
 
 If you want to use the built-in error and exception handling but
@@ -29,7 +29,7 @@ extend it with your own functionality, simply derive your class from the
 error and exception handling classes shipped with TYPO3 and register
 this class as error (exception) handler::
 
-   class tx_postExceptionsOnTwitter extends t3lib_error_DebugExceptionHandler {
+   class tx_postExceptionsOnTwitter extends \TYPO3\CMS\Core\Error\DebugExceptionHandler {
        function echoExceptionWeb(Exception $exception) {
            $this->postExceptionsOnTwitter($exception);
        }

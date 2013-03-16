@@ -12,13 +12,14 @@
 
 .. _tce-database-basics:
 
-Database: t3lib\_TCEmain basics
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Database: TCEmain basics
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 When you are using TCE from your backend applications you need to
 prepare two arrays of information which contain the instructions to
-TCEmain of what actions to perform. They fall into two categories:
-Data and Commands.
+TCEmain (:code:`\TYPO3\CMS\Core\DataHandling\DataHandler`)
+of what actions to perform. They fall into two categories:
+data and commands.
 
 "Data" is when you want to write information to a database table or
 create a new record.
@@ -425,7 +426,7 @@ function. Configuration of the hook can be done from
 :code:`(ext_)localconf.php`. An example might look like::
 
    $TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = 'myext_cacheProc->proc';
-   require_once(t3lib_extMgm::extPath('myext') . 'class.myext_cacheProc.php');
+   require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('myext') . 'class.myext_cacheProc.php');
 
 
 .. _tce-flags:

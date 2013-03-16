@@ -41,7 +41,7 @@ category by inserting these lines in its ext\_tables.php file::
 
    if (TYPO3_MODE=='BE')    {
        $TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_ttguest_wizicon'] =
-           t3lib_extMgm::extPath($_EXTKEY) . 'class.tx_ttguest_wizicon.php';
+           \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'class.tx_ttguest_wizicon.php';
    }
 
 In the file class.tx\_ttguest\_wizicon.php you will find a class
@@ -70,7 +70,7 @@ looking like this::
 
                // Adding the item:
            $wizardItems['plugins_ttguest'] = array(
-               'icon' => t3lib_extMgm::extRelPath('tt_guest') . 'guestbook.gif',
+               'icon' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('tt_guest') . 'guestbook.gif',
                'title' => $LANG->getLLL('plugins_title', $LL),
                'description' => $LANG->getLLL('plugins_description', $LL),
                'params' => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=3&defVals[tt_content][select_key]=' . rawurlencode('GUESTBOOK, POSTFORM')
@@ -85,7 +85,7 @@ looking like this::
         * @return    array        LOCAL_LANG array
         */
        function includeLocalLang()    {
-           include(t3lib_extMgm::extPath('tt_guest') . 'locallang.xml');
+           include(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('tt_guest') . 'locallang.xml');
            return $LOCAL_LANG;
        }
    }

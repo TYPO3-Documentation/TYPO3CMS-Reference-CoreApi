@@ -57,10 +57,6 @@ extensions with TYPO3:
 
 Loaded extensions are registered in a global variable,
 `$TYPO3_LOADED_EXT`, available in both frontend and backend of TYPO3.
-The loading and registration process happens in
-`t3lib/config_default.php`. Since TYPO3 4.3, when rendering FE content
-(`TYPO3_MODE = FE`), `$TYPO3_LOADED_EXT` contains only extensions where
-the `$EM_CONF` option (see later) "doNotLoadInFE" is not set.
 
 This is how the data structure for an extension in this array looks::
 

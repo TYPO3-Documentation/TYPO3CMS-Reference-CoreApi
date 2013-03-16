@@ -63,9 +63,9 @@ First of all, the PHP method and the JavaScript function must be
 declared in order to paired together (code taken from the "examples"
 extension)::
 
-   t3lib_extMgm::registerExtDirectComponent(
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerExtDirectComponent(
    	'TYPO3.Examples.ExtDirect',
-   	t3lib_extMgm::extPath($_EXTKEY, 'Classes/ExtDirect/Server.php:Tx_Examples_ExtDirect_Server'),
+   	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY, 'Classes/ExtDirect/Server.php:Tx_Examples_ExtDirect_Server'),
    	NULL,
    	'user,group'
    );
@@ -82,7 +82,7 @@ calling up the page renderer from the BE module or from a specially
 designed Fluid View Helper, when making Extbase-based modules.
 Example taken from file :file:`EXT:examples/Classes/ViewHelpers/Be/HeaderViewHelper.php`::
 
-   	/** @var $pageRenderer t3lib_PageRenderer */
+   	/** @var $pageRenderer \TYPO3\CMS\Core\Page\PageRenderer */
    $pageRenderer = $this->getDocInstance()->getPageRenderer();
    	// Add base Ext.Direct code
    $pageRenderer->addExtDirectCode(
@@ -99,7 +99,7 @@ expected to produce::
    public function countRecords($table) {
    		// Return the count of all non-deleted records for the given table
    	return array(
-   		'data' => $GLOBALS['TYPO3_DB']->exec_SELECTcountRows('uid', $table, '1 = 1' . t3lib_BEfunc::deleteClause($table))
+   		'data' => $GLOBALS['TYPO3_DB']->exec_SELECTcountRows('uid', $table, '1 = 1' . \TYPO3\CMS\Backend\Utility\BackendUtility::deleteClause($table))
    	);
    }
 

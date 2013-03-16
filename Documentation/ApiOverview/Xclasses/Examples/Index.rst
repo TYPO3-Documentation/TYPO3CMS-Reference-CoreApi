@@ -31,34 +31,25 @@ the "New" dialog:
 
 #. Then examine the scripts for its classes and methods. In this case
    you'll find two classes in the file; "localPageTree" (extends
-   :code:`t3lib_pageTree`) and :code:`SC_db_new`. The class :code:`SC_db_new` is a
+   :code:`\TYPO3\CMS\Backend\Tree\View\PageTreeView`)
+   and :code:`\TYPO3\CMS\Backend\Controller\NewRecordController`.
+   The class :code:`\TYPO3\CMS\Backend\Controller\NewRecordController` is a
    so-called "Script Class" - this will hold the code specifically for this
    script.You also find that the only code executed in the global scope
    is this::
 
-         $SOBE = t3lib_div::makeInstance('SC_db_new');
+         $SOBE = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Controller\\NewRecordController');
          $SOBE->init();
          $SOBE->main();
          $SOBE->printContent();
 
-#. When you examine the :code:`SC_db_new` class you find that the main() method
+#. When you examine the :code:`\TYPO3\CMS\Backend\Controller\NewRecordController` class you find that the main() method
    is the one you would like to extend.
-
-#. Finally you find that immediately after the definition of the two
-   classes there is three lines of code which will provide you with the
-   final piece of knowledge you need::
-
-      if (defined('TYPO3_MODE') && isset($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['typo3/db_new.php'])) {
-      	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['typo3/db_new.php']);
-      }
-
-   So now you know that the key to use is :code:`typo3/db_new.php` when you
-   wish to define a script which should be included as the extension.
 
 Let's see what happens then in the extension "examples":
 
-#. First we have a class that extends the :code:`SC_db_new`
-   (:file:`xclasses/class.tx_examples_scdbnew.php`)::
+#. First we have a class that extends the :code:`\TYPO3\CMS\Backend\Controller\NewRecordController`
+   (:file:`Classes/Xclass/NewRecordController.php`)::
 
       function regularNew() {
       	parent::regularNew();
@@ -73,19 +64,11 @@ Let's see what happens then in the extension "examples":
 #. The XCLASS is then registered in the extension's :file:`ext_localconf.php`
    file::
 
-   $TYPO3_CONF_VARS['BE']['XCLASS']['typo3/db_new.php'] = t3lib_extMgm::extPath($_EXTKEY, 'xclasses/class.tx_examples_scdbnew.php');`
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Backend\\Controller\\NewRecordController'] = array(
+       	'className' => 'TYPO3\\Examples\\Xclass\\NewRecordController'
+       );
 
-There is no "table of extendable classes" in this document because 1)
-all classes are extendable and 2) the number of classes will grow as
-TYPO3 is further developed and extensions are made and 3) finally you
-cannot extend a class unless you know it exists and have analyzed some
-of its internal structure (methods / variables) - so you'll have to
-dig into the source anyway!
-
-Therefore, if you wish to extend something, follow this suggestion for
-an analysis of the situation and you'll end up with the knowledge
-needed in order to extend that class and thereby extend TYPO3
-*without* loosing backwards compatibility with future updates. Great.
+All classes are thus extendable.
 
 
 .. _xclasses-sc-classes:
@@ -165,22 +148,20 @@ Extending a FE class
 """"""""""""""""""""
 
 Say you wish to make an addition to the stdWrap method found in the
-class :code:`tslib_cObj` (found in the class file
-:file:`typo3/sysext/cms/tslib/class.tslib_content.php` ).
+class :code:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`.
 
-The first thing to do is to create the extension class. So you create
-a file in the :file:`typo3conf/` directory named
-:file:`class.ux_tslib_content.php`. :code:`ux` is a prefix meaning "user-
-extension". This file may look like this::
+The first thing to do is to create the overriding class, in an extension.
+This file may look like this::
 
    <?php
+   namespace Foo\Bar\Xclass;
    /**
-    * User-Extension of tslib_cObj class.
+    * User-Extension of \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer class.
     *
     * @author    Kasper Skårhøj <kasper@typo3.com>
     */
 
-   class ux_tslib_cObj extends tslib_cObj {
+   class CustomContentObjectRenderer extends \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer {
        function stdWrap($content,$conf) {
                // Call the real stdWrap function in the parent class:
            $content = parent::stdWrap($content,$conf);
@@ -193,52 +174,23 @@ extension". This file may look like this::
    }
    ?>
 
-The next thing is to configure TYPO3 to include this class file as
-well after the original file :file:`tslib/class.tslib_content.php`::
 
-   $TYPO3_CONF_VARS['FE']['XCLASS']['tslib/class.tslib_content.php']=
-                              PATH_typo3conf . 'class.ux_tslib_content.php';
+The next thing is to configure TYPO3 to use this class to override
+:code:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`::
 
-So when the file :file:`tslib/class.tslib_content.php` is included inside
-of :file:`class.tslib\_pagegen.php`, the extension class is included
-immediately from inside the :file:`tslib/class.tslib_content.php` file
-(this is from the bottom of the file)::
-
-   if (defined('TYPO3_MODE') &&
-          $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['tslib/class.tslib_content.php'])    {
-       include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['tslib/class.tslib_content.php']);
-   }
-
-The last thing which remains is to instantiate the class
-:code:`ux_tslib_cObj` instead of :code:`tslib_cObj`. This is done automatically,
-because everywhere :code:`tslib_cObj` is instantiated, it is first examined
-if :code:`ux_tslib_cObj` exists and if so, that class is instantiated
-instead!
-
-This is done by instantiating the object with
-:code:`t3lib_div::makeInstance()`::
-
-   $cObj = t3lib_div::makeInstance('tslib_cObj');
-
-Originally it looked like this::
-
-   $cObj = new tslib_cObj;
-
-Internally :code:`t3lib_div::makeInstance()` does something like::
-
-   $cObj = class_exists('ux_tslib_cObj') ? new ux_tslib_cObj : new tslib_cObj;
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer'] = array(
+   	'className' => 'Foo\\Bar\\Xclass\\CustomContentObjectRenderer'
+   );
 
 
-.. important::
+Whenever class :code:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
+is instantiated, it will automatically be overridden by
+:code:`\Foo\Bar\Xclass\CustomContentObjectRenderer` as long as
+:code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` is used
+to create instances::
 
-   When setting up the file to include, in particular from :file:`t3lib/`, notice
-   the difference between :code:`$TYPO3_CONF_VARS["BE"]["XCLASS"][...]` and
-   :code:`$TYPO3_CONF_VARS["FE"]["XCLASS"][...]`. The key :code:`FE` is used when the
-   class is included by a front-end script (those initialized by
-   :file:`tslib/index_ts.php` and :file:`tslib/showpic.php` - both also known as
-   index.php and showpic.php in the root of the website), :code:`BE` is used by
-   backend scripts (those initialized by :file:`typo3/init.php` or
-   :file:`typo3/thumbs.php`). This feature allows you to include a different
-   extension when the (:file:`t3lib/-`) class is used in the frontend and in the
-   backend.
+   $cObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
 
+and not like this::
+
+   $cObj = new \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;

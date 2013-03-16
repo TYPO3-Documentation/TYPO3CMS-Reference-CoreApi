@@ -21,7 +21,7 @@ There are a few warnings about using XCLASS extensions:
   class can only be extended by *one* extension class at a time. Thus,
   having two extension classes set up, only the latter one will be
   enabled. There is no way to work around this technologically in PHP.
-  However :code:`t3lib_div::makeInstance()` supports "cascaded" extension
+  However :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` supports "cascaded" extension
   classes, meaning that you can do :code:`ux_ux_someclass` which will extend
   :code:`ux_someclass` but this requires an internal awareness of the
   extension class :code:`ux_someclass` in the first place.The conclusion is
@@ -30,9 +30,10 @@ There are a few warnings about using XCLASS extensions:
   backwards compatible with TYPO3 core upgrades.
 
 - **Check if child classes are instantiated** Quite often people have
-  been confused about extending for instance the :code:`tslib_menu` class
+  been confused about extending for instance the :code:`\TYPO3\CMS\Frontend\ContentObject\Menu\AbstractMenuContentObject` class
   when they want to add a feature for "TMENU". But actually the class to
-  extend is :code:`tslib_tmenu` which is an extension of :code:`tslib_menu`. So
+  extend is :code:`\TYPO3\CMS\Frontend\ContentObject\Menu\TextMenuContentObject`
+  which is an extension of :code:`\TYPO3\CMS\Frontend\ContentObject\Menu\AbstractMenuContentObject`. So
   make sure you are extending the *right* class name (and always make
   sure your extension class is included also).
 

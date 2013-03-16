@@ -109,27 +109,21 @@ Where transformations are performed
 """""""""""""""""""""""""""""""""""
 
 The transformations you can do with TYPO3 is done in the class
-"t3lib\_parsehtml\_proc". There are typically a function for each
+:code:`\TYPO3\CMS\Core\Html\RteHtmlParser`. There are typically a function for each
 direction; From DB to RTE (suffixed "\_rte") and from RTE to DB
 (suffixed "\_db").
 
 The transformations are invoked in two cases:
 
 - **Before content enters the editing form** This is done by the RTE API
-  itself, calling the method t3lib\_rteapi::transformContent(). See
-  examples of this in the extensions "rte", "rtehtmlarea" and "rteekit".
-  In particular "rteekit" is interesting because it not only calls the
-  system transformations but also does some Ekit-specific processing
-  since a whole HTML document has to be used in "Ekit" Java RTE which
-  means that the HTML document body must be wrapped/stripped off as a
-  part of the transformation process.
+  itself, calling the method :code:`\TYPO3\CMS\Backend\Rte\AbstractRte::transformContent()`.
 
 - **Before content is saved in the database** This is done in
-  t3lib\_tcemain class and the transformation is triggered by a pseudo-
+  :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` class and the transformation is triggered by a pseudo-
   field from the submitted form! This field is added by the RTE API
-  (calling t3lib\_rteapi::triggerField()). Lets say the fieldname is
+  (calling :code:`\TYPO3\CMS\Backend\Rte\AbstractRte::triggerField()`). Lets say the fieldname is
   "data[tt\_content][456][bodytext]" then the trigger field is named
-  "data[tt\_content][456][\_TRANSFORM\_bodytext]" and in t3lib\_tcemain
+  "data[tt\_content][456][\_TRANSFORM\_bodytext]" and in :code:`\TYPO3\CMS\Core\DataHandling\DataHandler`
   this pseudo-field will be detected and used to trigger the
   transformation process from RTE to DB. Of course the pseudo field will
   never go into the database (since it is not found in $TCA).

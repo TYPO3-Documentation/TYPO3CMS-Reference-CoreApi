@@ -29,7 +29,7 @@ This table lists some of the most important classes to know about in TYPO3:
    :Description,50: Description
    :Usage,30: Usage
 
- - :Class: t3lib\_DB
+ - :Class: \\TYPO3\\CMS\\Core\\Database\\DatabaseConnection
    :Description:
          **Database Abstraction Base API**
 
@@ -41,7 +41,7 @@ This table lists some of the most important classes to know about in TYPO3:
          Available as :code:`$GLOBALS['TYPO3_DB']` in both frontend and backend
 
 
- - :Class: t3lib\_cs
+ - :Class: \\TYPO3\\CMS\\Core\\Charset\\CharsetConverter
    :Description:
          **Character Set handling API**
 
@@ -55,21 +55,19 @@ This table lists some of the most important classes to know about in TYPO3:
          In the frontend, available as $GLOBALS['TSFE']->csConvObj
 
 
- - :Class: t3lib\_div
+ - :Class: \\TYPO3\\CMS\\Core\\Utility\\GeneralUtility
    :Description:
          **General Purpose Functions**
 
          A collection of multi-purpose PHP functions. Some are TYPO3 specific
          but not all.
 
-         Over time some of the code found in this class has been moved to more
-         specific utility classes. Make sure to check out the various classes
-         in `t3lib/utility`.
+         There are more specific utility classes in :file:`EXT:core/Classes/Utility`.
    :Usage:
-         Static class, call methods using :code:`t3lib_div::`
+         Static class, call methods using :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::`
 
 
- - :Class: t3lib\_BEfunc
+ - :Class: \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility
    :Description:
          **Backend Specific Functions**
 
@@ -79,10 +77,10 @@ This table lists some of the most important classes to know about in TYPO3:
 
          *This class is NOT available in the frontend!*
    :Usage:
-         Static class, call methods using :code:`t3lib_BEfunc::`
+         Static class, call methods using :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::`
 
 
- - :Class: t3lib\_extMgm
+ - :Class: \\TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility
    :Description:
          **Extension API functions**
 
@@ -91,10 +89,10 @@ This table lists some of the most important classes to know about in TYPO3:
          files of extensions. They let extensions register their features with
          the system.
    :Usage:
-         Static class, call methods using :code:`t3lib_extMgm::`
+         Static class, call methods using :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::`
 
 
- - :Class: t3lib\_iconWorks
+ - :Class: \\TYPO3\\CMS\\Backend\\Utility\\IconUtility
    :Description:
          **Icons / Part of skinning API**
 
@@ -103,7 +101,7 @@ This table lists some of the most important classes to know about in TYPO3:
 
          *This class is NOT available in the frontend!*
    :Usage:
-         Static class, call methods using :code:`t3lib_iconWorks::`
+         Static class, call methods using :code:`\TYPO3\CMS\Backend\Utility\IconUtility::`
 
 
  - :Class: template
@@ -118,7 +116,7 @@ This table lists some of the most important classes to know about in TYPO3:
          :code:`$this->doc` (inside of BE modules)
 
 These classes are always included and available in the TYPO3 backend
-and frontend (except :code:`t3lib_BEfunc::` and :code:`t3lib_iconWorks::`).
+and frontend (except :code:`\TYPO3\CMS\Backend\Utility\BackendUtility` and :code:`\TYPO3\CMS\Backend\Utility\IconUtility`).
 
 The next sections highlight a selection of methods from these classes.
 They were chosen for their general importance with regards to the whole

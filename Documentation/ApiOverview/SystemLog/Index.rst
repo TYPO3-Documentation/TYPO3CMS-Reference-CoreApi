@@ -52,7 +52,7 @@ and corresponding database fields in table "sys\_log":
          the event was. Here type and action values are arranged hierarchically
          (type on first level, action on second level):
 
-         - 1 : t3lib\_TCEmain ("TYPO3 Core Engine" where database records are
+         - 1 : :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` ("TYPO3 Core Engine" where database records are
            manipulated)
 
            - Action values are for new, updated, copy, move, delete etc.

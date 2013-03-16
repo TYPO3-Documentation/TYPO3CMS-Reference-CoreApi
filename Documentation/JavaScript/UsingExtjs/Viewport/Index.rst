@@ -54,7 +54,7 @@ call to the registration API inside the :file:`ext_tables.php` of an extension.
 The registration method takes two required parameters,
 the component id and the event name (see below for the details)::
 
-   t3lib_extMgm::addNavigationComponent('tools_Examples', 'typo3-navigation');
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addNavigationComponent('tools_Examples', 'typo3-navigation');
 
 
 
@@ -131,7 +131,7 @@ If you have written a navigation component that should be used
 by a whole group of modules sharing the same prefix like "web" or "tools",
 just register the component like this::
 
-   t3lib_extMgm::addNavigationComponent('web', 'typo3-pagetree');
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addNavigationComponent('web', 'typo3-pagetree');
 
 
 Anything else is like above. It is still possible to use more specialized navigation components
@@ -167,7 +167,7 @@ The next example demonstrates this by adding a collapse/expand functionality to 
 
 
 First a class must be declared to use the "render-preProcess" hook of the
-:code:`t3lib_pageRenderer` class (in the :file:`ext_localconf.php` file)::
+:code:`\TYPO3\CMS\Core\Page\PageRenderer` class (in the :file:`ext_localconf.php` file)::
 
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][] =
      'EXT:' . $_EXTKEY . '/Classes/Utilities/Viewport.php:Tx_Examples_Utilities_Viewport->renderPreProcess';
@@ -196,9 +196,9 @@ Debug Console
 
 The debug console is located inside the debug panel position at the south of the viewport.
 It's based upon an extended ExtJS tabPanel component. A new tab can be added to the debug console
-by calling :code:`t3lib_utility_Debug::debug()`::
+by calling :code:`\TYPO3\CMS\Core\Utility\DebugUtility::debug()`::
 
-   t3lib_utility_Debug::debug('New debug console message', 'Title', 'My new tab');
+   \TYPO3\CMS\Core\Utility\DebugUtility::debug('New debug console message', 'Title', 'My new tab');
 
 
 It seems possible to also manipulate the debug console with JavaScript, but working
