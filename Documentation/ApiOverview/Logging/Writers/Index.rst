@@ -74,8 +74,9 @@ logFile  no         Path to log file  :file:`typo3temp/logs/typo3.log`
 PhpErrorLogWriter
 ~~~~~~~~~~~~~~~~~
 
-Logs into the PHP error log.
+Logs into the PHP error log using `error_log()`_
 
+.. _error_log(): http://www.php.net/manual/en/function.error-log.php
 
 .. _logging-writers-syslog:
 
