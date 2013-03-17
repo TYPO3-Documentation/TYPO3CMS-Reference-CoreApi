@@ -59,14 +59,14 @@ which takes three parameters:
    :Description:
          One of either:
 
-         - :code:`t3lib_log_Level::EMERGENCY`
-         - :code:`t3lib_log_Level::ALERT`
-         - :code:`t3lib_log_Level::CRITICAL`
-         - :code:`t3lib_log_Level::ERROR`
-         - :code:`t3lib_log_Level::WARNING`
-         - :code:`t3lib_log_Level::NOTICE`
-         - :code:`t3lib_log_Level::INFO`
-         - :code:`t3lib_log_Level::DEBUG`
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::EMERGENCY`
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::ALERT`
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::CRITICAL`
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::ERROR`
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::WARNING`
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::NOTICE`
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::INFO`
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::DEBUG`
 
  - :Parameter: $message
    :Type: Type

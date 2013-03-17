@@ -45,9 +45,9 @@ The Log Writer configuration is read from the subkey :code:`writerConfiguration`
 
    $TYPO3_CONF_VARS['LOG']['writerConfiguration'] = array(
        // configuration for ERROR level log entries
-     t3lib_log_Level::ERROR => array(
+     \TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
          // add a FileWriter
-       't3lib_log_writer_File' => array(
+       'TYPO3\\CMS\\Core\\Log\\Writer\\FileWriter' => array(
            // configuration for the writer
          'logFile' => 'typo3temp/logs/error.log'
        )
@@ -64,9 +64,9 @@ use the following configuration:
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['Examples']['Controller']['writerConfiguration'] = array(
 		// configuration for WARNING severity, including all
 		// levels with higher severity (ERROR, CRITICAL, EMERGENCY)
-     	\TYPO3\CMS\Core\Log\LogLevel::WARNING => array(
+       \TYPO3\CMS\Core\Log\LogLevel::WARNING => array(
         // add a SyslogWriter
-     	't3lib_log_writer_Syslog' => array(),
+       'TYPO3\\CMS\\Core\\Log\\Writer\\SyslogWriter' => array(),
      ),
    );
 
@@ -85,7 +85,7 @@ An arbitrary number of writers can be added for every severity level (INFO, WARN
 The configuration based on severity levels is applied to log entries of the particular severity level
 plus all levels with a higher severity. Thus, a log messages created with :code:`$logger->warning()`
 will be affected by a :code:`writerConfiguration` for
-:code:`t3lib_log_Level::DEBUG, t3lib_log_Level::INFO, t3lib_log_Level::NOTICE and t3lib_log_Level::WARNING`.
+:code:`\TYPO3\CMS\Core\Log\LogLevel::DEBUG, \TYPO3\CMS\Core\Log\LogLevel::INFO, \TYPO3\CMS\Core\Log\LogLevel::NOTICE and \TYPO3\CMS\Core\Log\LogLevel::WARNING`.
 For the above example code that means:
 
 - Calling :code:`$logger->warning($msg);` will result in $msg being written to the computer's syslog
@@ -111,7 +111,7 @@ basis from the subkey :code:`processorConfiguration`
        // configuration for ERROR level log entries
      \TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
          // add a MemoyUsageProcessor
-       'TYPO3\CMS\Core\Log\Processor\MemoryUsage' => array(
+       'TYPO3\\CMS\\Core\\Log\\Processor\\MemoryUsage' => array(
          'formatSize' => TRUE
        )
      )
