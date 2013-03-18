@@ -4,13 +4,12 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 Conditions
 ^^^^^^^^^^
 
-There is a  *possibility* of using so called  *conditions* in
+There is a *possibility* of using so called *conditions* in
 TypoScript. Conditions are simple control structures, that evaluate to
 TRUE or FALSE based on some criteria (externally validated) and
 thereby determine, whether the TypoScript code following the condition
@@ -26,7 +25,7 @@ Examples of a condition could be:
 
 - Is the GET parameter "&language=uk" set?
 
-- Is it my mother’s birthday?
+- Is it my mother's birthday?
 
 - Do I feel lucky today?
 
@@ -40,8 +39,8 @@ of the TypoScript code that follows.
 Where conditions can be used
 """"""""""""""""""""""""""""
 
-The  *detection of conditions* is a part of the TypoScript syntax but
-the  *validation* of the condition content always relies on the
+The *detection of conditions* is a part of the TypoScript syntax but
+the *validation* of the condition content always relies on the
 context where TypoScript is used. Therefore in plain syntax
 highlighting (no context) conditions are just highlighted and nothing
 more. In the context of TypoScript Templates there is a `whole section
@@ -90,7 +89,7 @@ before they return the resulting TRUE or FALSE value. (That is all
 done with the class t3lib\_matchCondition).
 
 Here is an example of some TypoScript (from the context of TypoScript
-Templates) where another text is outputted if you use the Microsoft
+Templates) where another text is output if you use the Microsoft
 Internet Explorer web browser (instead of for example Google Chrome)
 or use Windows NT as operating system::
 
@@ -114,7 +113,11 @@ the parsed object tree depending on whether the condition evaluates to
 TRUE or FALSE (which can be simulated with that module as you can
 see):
 
-|img-7|
+.. figure:: ../../Images/ConditionsSyntax.png
+   :alt: The Object Browser showing different objects depending on whether
+         a condition is set or unset.
+
+
 The special [ELSE], [END] and [GLOBAL] conditions
 """""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -145,14 +148,17 @@ another if not. Anyways the text is wrapped by <strong>\|</strong> as
 we see, because this wrap is added outside of the condition block
 (here after the [END]-condition).
 
-|img-8| The fact that you can "enable" the condition in the TypoScript Object
+.. figure:: ../../Images/ConditionsSyntaxElse.png
+   :alt: The TypoScript object browser showing the output of an ELSE condition.
+
+The fact that you can "enable" the condition in the TypoScript Object
 Browser is a facility provided to simulate the outcome of any
 conditions you insert in a TypoScript Template. Whether or not the
 conditions validate correctly is only verified by actually getting a
 (in this example) Internet Explorer browser and hitting the site.
 
 Another example could be if you wanted to do something special in case
-a bunch of conditions is NOT true. There's  **no negate-character** ,
+a bunch of conditions is NOT true. There's **no negate-character**,
 but you could do this::
 
    [browser = msie][usergroup = 3]
@@ -165,7 +171,7 @@ but you could do this::
 Where to insert conditions in TypoScript?
 """""""""""""""""""""""""""""""""""""""""
 
-Conditions can be used  *outside* of confinements (curly braces) only!
+Conditions can be used *outside* of confinements (curly braces) only!
 
 So, this is valid::
 
@@ -177,7 +183,7 @@ So, this is valid::
      2property = 567
    }
 
-But this is  ***not valid***  **:** ::
+But this is **not valid:** ::
 
    someObject {
      1property = 234
@@ -187,7 +193,10 @@ But this is  ***not valid***  **:** ::
 
 When parsed with syntax highlighting you will see this error:
 
-|img-9| This means that the line was perceived as a regular definition of
+.. figure:: ../../Images/ConditionsSyntaxError.png
+   :alt: Error after having used a condition where it is not allowed.
+
+This means that the line was perceived as a regular definition of
 "[object path] [operator] [value]" and not as a condition.
 
 
@@ -206,7 +215,10 @@ condition scope), it is a bit different since that will be detected at
 
 But you will still get some errors if you syntax highlight it:
 
-|img-10| The reason for this is that the [GLOBAL] condition aborts the
+.. figure:: ../../Images/ConditionsSyntaxErrorGlobal.png
+   :alt: Error after having used a GLOBAL condition at thw wrong place.
+
+The reason for this is that the [GLOBAL] condition aborts the
 confinement started in the first line resulting in the first error
 ("... short of 1 end brace(s)"). The second error appears because the
 end brace is now in excess since the "brace level" was reset by

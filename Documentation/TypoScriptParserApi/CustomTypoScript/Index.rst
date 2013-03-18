@@ -197,7 +197,7 @@ Root level
 [adminInfo]
 
 So these are the "objects" and "properties" you have chosen to offer
-to your users of the plug-in. This reference defines  *what
+to your users of the plug-in. This reference defines *what
 information makes sense* to put into the TypoScript field
 (semantically), because you will program your application to use this
 information as needed.
@@ -209,7 +209,7 @@ A case story
 Now let's imagine that a user inputs this TypoScript configuration in
 whatever medium you have offered (e.g. a textarea field). (In a syntax
 highlighted version with line numbers it would look like the listing,
-which indicates that there are no  *syntax errors* and everything is
+which indicates that there are no *syntax errors* and everything is
 fine in that regard.) ::
 
       0: colors {
@@ -293,10 +293,10 @@ Now your application could use this information in a manner like this::
      </tr>
    </table>';
 
-As you can see some of the TypoScript properties (or  *object paths* )
+As you can see some of the TypoScript properties (or *object paths*)
 which are found in the reference tables above are implemented here.
 There is not much mystique about this and in fact this is how all
-TypoScript is used in its respective contexts;  **TypoScript contains
+TypoScript is used in its respective contexts; **TypoScript contains
 simply configuration values that make our underlying PHP code act
 accordingly - parameters, function arguments, as you please;
 TypoScript is an API to instruct an underlying system.**

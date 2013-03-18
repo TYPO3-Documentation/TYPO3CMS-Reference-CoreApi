@@ -49,17 +49,17 @@ claim this in comparison to PHP, JavaScript, Java or whatever
 *scripting language* .
 
 However compared to XML or PHP arrays (which also contain
-*information* ) you can say that TypoScript is a proprietary syntax
+*information*) you can say that TypoScript is a proprietary syntax
 since a PHP array or XML file could be used to contain the same
-information as TypoScript does. But this is  *not* a drawback: For
-storage and exchange of  *content* TYPO3 uses SQL (or XML if you need
-to), for storage of  *configuration values* XML is not suitable
+information as TypoScript does. But this is *not* a drawback: For
+storage and exchange of *content* TYPO3 uses SQL (or XML if you need
+to), for storage of *configuration values* XML is not suitable
 anyways - TypoScript is much better at that job (see below).
 
 To claim that TypoScript is a proprietary standard as an argument
 against TYPO3 is really unfair since the claim makes it sound like
 TypoScript is a whole new programming language or likewise. Yes, the
-TypoScript  *syntax* is proprietary but extremely useful and when you
+TypoScript *syntax* is proprietary but extremely useful and when you
 get the hang of it, it is very easy to use. In all other cases TYPO3
 uses official standards like PHP, SQL, XML, XHTML etc. for all
 *external* data storage and manipulation.
@@ -104,9 +104,9 @@ amounts of "ad hoc" information - like configuration values normally
 are.
 
 Actually a data structure defined in TypoScript could also have been
-modeled in XML. Currently you  *cannot* use XML as an alternative to
-TypoScript (writing of October 2011), but this may happen at some
-point. Lets present this fictitious example of how a TypoScript
+modeled in XML. Currently you *cannot* use XML as an alternative to
+TypoScript (writing of March 2013), but this may happen at some
+point. Let's present this fictitious example of how a TypoScript
 structure could also have been implemented in "TSML" (our fictitious
 name for the non-existing TypoScript Mark-Up Language)::
 
@@ -166,8 +166,8 @@ into an XML structure could look like this::
    </TSML>
 
 That was 33 lines of XML - the double amount of lines! And in bytes
-probably also much bigger. This example clearly demonstrates  *why not
-XML* ! XML will just get in the way, it is not handy for what
+probably also much bigger. This example clearly demonstrates *why not
+XML*! XML will just get in the way, it is not handy for what
 TypoScript normally does. But hopefully you can at least use this
 example in your understanding of what TypoScript is compared to XML.
 

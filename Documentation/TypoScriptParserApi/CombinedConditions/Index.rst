@@ -104,7 +104,7 @@ regardless of the IP range::
 This is because the conditions are read like the parenthesis levels
 show:
 
-**(** "UserIpRange = 192.168.\*.\*"  **AND** "Browser = msie" **) OR**
+**(** "UserIpRange = 192.168.\*.\*" **AND** "Browser = msie" **) OR**
 "Browser = firefox"
 
 The order of the "\|\|" and "&&" operators may be a problem now. For
@@ -122,7 +122,7 @@ be TRUE if the User IP range is 192.168.... OR if either the range is
 
 Formally, this is what I want:
 
-**(** "UserIpRange = 192.168.\*.\*"  **OR** "UserIpRange =
+**(** "UserIpRange = 192.168.\*.\*" **OR** "UserIpRange =
 212.237.\*.\*" **) AND** "Browser = msie"
 
 My solution is to implement a second way of OR'ing conditions together
@@ -257,7 +257,7 @@ where the key denotes a type of condition from the table below:
          t3lib\_div::clientInfo() which can be consulted for details on the
          values for browsers.
 
-         **Note** : These values are  **examples** , which fit to the code we
+         **Note**: These values are **examples**, which fit to the code we
          have built above. In current TYPO3 versions the available values have
          changed!
 

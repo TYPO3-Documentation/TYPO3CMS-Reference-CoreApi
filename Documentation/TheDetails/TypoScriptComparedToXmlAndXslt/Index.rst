@@ -20,7 +20,7 @@ XML and TypoScript - all about syntax:
 A chunk of "TypoScript code" is like an XML document - it only
 contains information in a structured way, nothing else. But in order
 to store information in TypoScript or XML you need to follow the
-**syntax** - rules about  *how* the information values can be inserted
+**syntax** - rules about *how* the information values can be inserted
 in the structure. The syntax is like the grammar for a human language
 defines in which order words can be combined.
 
@@ -49,13 +49,13 @@ And this is syntactically valid English::
 
 But none of these examples make sense without some reference which
 defines how elements, values and words can be combined in order to
-form  *meaning* - they need a  *context* . This is called
-**semantics** . For human languages we have it internally because we
+form *meaning* - they need a *context*. This is called
+**semantics**. For human languages we have it internally because we
 know footballs can't sing and you can't "sing red" - we know it's
 nonsense while the sentence is correctly formed. For an XML document
 you have a DTD or schema which defines if the element "<asdf>" exists
 on that level in the document (and if not, then it's nonsense) and for
-TypoScript you have a  *reference document* for the context where the
+TypoScript you have a *reference document* for the context where the
 TypoScript syntax is used to define an information hierarchy - for
 instance the "TSref" for TypoScript Templates or the "TSconfig"
 document for "Page TSconfig" or "User TSconfig".
@@ -66,13 +66,13 @@ you want an XSLT stylesheet to transform one XML document to another
 document. In fact an XSLT stylesheet is like a translator for XML - it
 translates one "language" of XML into another "language" of XML.
 
-Similarly TypoScript is used as  *the syntax* to build "TypoScript
-Templates" ( *containing semantics - meaning* ); the information only
+Similarly TypoScript is used as *the syntax* to build "TypoScript
+Templates" (*containing semantics - meaning*); the information only
 makes sense if it follows the rules defined in the "TSref" document.
 
 BTW, the comparison of "TypoScript Templates" and "XSLT" is
-intentional since both can be described as  *declarational programming
-languages* - programming by  *configuring values* which  *instructs* a
+intentional since both can be described as *declarational programming
+languages* - programming by *configuring values* which *instructs* a
 *real procedural program* (e.g. the TypoScript Frontend Engine which
 is written in PHP) how to output data.
 

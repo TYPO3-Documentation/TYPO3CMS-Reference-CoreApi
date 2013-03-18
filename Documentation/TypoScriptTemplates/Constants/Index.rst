@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 Constants
@@ -49,7 +48,8 @@ This could also be defined in other ways, e.g. like this::
    }
 
 (The objects in bold are the reserved word "file" and the properties
-are always of data type "resource".
+are always of data type "resource".)
 
-|img-11|
+.. figure:: ../../Images/TSTemplatesConstants.png
+   :alt: Overview of the defined constants.
 

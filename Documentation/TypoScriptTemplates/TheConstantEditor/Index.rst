@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 Declaring constants for the Constant Editor
@@ -16,7 +15,10 @@ module Web > Template has the ability to utilize comments in the
 constant editor that makes simple configuration of a template even
 easier than constants already make it themselves.
 
-|img-13| When the TypoScript "Constant Editor" parses the template,  *all*
+.. figure:: ../../Images/TSTemplatesConstantEditor.png
+   :alt: The Constant Editor showing some categories with constants.
+
+When the TypoScript "Constant Editor" parses the template, *all*
 comments before every constant-definition are registered. You can
 follow a certain syntax to define what category the constant should be
 in, which type it has and what explanation there is about the
@@ -79,11 +81,11 @@ cat=
 ~~~~
 
 - Comma-separated list of the categories (case-insensitive) that the
-  constant is a member of. You should  *list only one category* ,
+  constant is a member of. You should *list only one category*,
   because it usually turns out to be confusing for users, if one and the
   same constant appears in multiple categories!
 
-- If the chosen category is  *not* found among the default categories
+- If the chosen category is *not* found among the default categories
   listed below, it's regarded a new category.
 
 - If the category is empty (""), the constant is excluded from the
@@ -263,7 +265,10 @@ for your Constants defined AFTER this line. Usage example::
 
 Will look in the Constant Editor like this:
 
-|img-14|
+.. figure:: ../../Images/TSTemplatesCustomSubcategory.png
+   :alt: The Constant Editor showing a custom category.
+
+
 type=
 ~~~~~
 
@@ -555,5 +560,6 @@ above and in the screenshot below.
 
 This is how it looks like in TYPO3 by default:
 
-|img-15|
+.. figure:: ../../Images/TSTemplatesFrontendScreenshot.png
+   :alt: Annotated screenshot of a TYPO3 website.
 

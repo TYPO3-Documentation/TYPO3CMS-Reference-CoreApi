@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 Parsing, storing and executing TypoScript
@@ -33,7 +32,7 @@ for details.
 Storing parsed TypoScript
 """""""""""""""""""""""""
 
-When TypoScript has been parsed it is stored in a  *PHP array* (which
+When TypoScript has been parsed it is stored in a *PHP array* (which
 is often serialized and cached in the database afterward). If you take
 the TypoScript from the introduction examples and parse it, you will
 get a result like below:
@@ -69,13 +68,16 @@ print\_r() PHP function)::
 You can also print the array by an API function in TYPO3, namely
 t3lib\_div::view\_array() or just debug(). Then it looks like this:
 
-|img-23| As you see the value ("blue") of the property "backgroundColor" can be
+.. figure:: ../../Images/DetailsDebug.png
+   :alt: Debug output of a PHP array.
+
+As you see the value ("blue") of the property "backgroundColor" can be
 fetched by this PHP code::
 
    $this->setup['asdf.']['backgroundColor']
 
-**So you can say that TypoScript offers a text-based**
-***interface***  **for getting values into a multidimensional PHP
+**So you can say that TypoScript offers a text-based
+*interface* for getting values into a multidimensional PHP
 array from a simple text field or file.** This can be very useful if
 you need to take that kind of input from users without giving them
 direct access to PHP code - hence the reason why TypoScript came into
@@ -88,7 +90,7 @@ existence.
 Since TypoScript itself contains only information(!) you cannot
 "execute" it. The closest you come to "executing" TypoScript is when
 you take the PHP array with the parsed TypoScript structure and pass
-it to a PHP function which  *then* performs whatever actions according
+it to a PHP function which *then* performs whatever actions according
 to the values found in the array. This is the syntax/semantics debate
 again.
 

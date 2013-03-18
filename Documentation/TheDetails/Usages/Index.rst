@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 Where is TypoScript used?
@@ -52,10 +51,16 @@ and from that page and outwards use only "normal" + "border" column.
 So in the root page of the two-column website you enter this line in
 the TSconfig field:
 
-|img-16| And likewise for the one-column website you enter this value in the
+.. figure:: ../../Images/DetailsPageTSconfigColPosList2Columns.png
+   :alt: The TSconfig field of a page with a configuration for two columns.
+
+And likewise for the one-column website you enter this value in the
 TSconfig field of the root page:
 
-|img-17| For any subpage of the root page where the configuration was entered
+.. figure:: ../../Images/DetailsPageTSconfigColPosList1Column.png
+   :alt: The TSconfig field of a page with a configuration for one column.
+
+For any subpage of the root page where the configuration was entered
 the "Page" module will receive the value of the property
 "colPos\_list". Accordingly only the configured columns will be shown.
 
@@ -86,7 +91,11 @@ Here is an example of what you can do with User TSconfig for a backend
 user. This line will enable the "Save document and create new" button
 in editing forms:
 
-|img-18| The objects and properties you can use here are generally defined in
+.. figure:: ../../Images/DetailsUserTSconfigSaveDocNew.png
+   :alt: The TSconfig field of a user with a configuration to show the
+         "Save and New" button.
+
+The objects and properties you can use here are generally defined in
 the document "TSconfig" in addition to local extension documents.
 
 
@@ -100,15 +109,15 @@ output.This is probably also where TypoScript clashes most with
 traditional ideas of template building in web design and confuses
 people to think of TypoScript as a programming language - with the
 result that they find it even more confusing. (If TYPO3 has a
-scripting language it is  *not* TypoScript but PHP!)
+scripting language it is *not* TypoScript but PHP!)
 
 This introduction to TypoScript tries to eliminate this confusion.
 Therefore let us make two statements about how TYPO3 handles
 templates:
 
-- **No fixed template method:** TYPO3 does  *not* offer  *one fixed way*
-  to dealing with templates for websites; rather you are  *set free* to
-  choose the way  *you* find most appealing. You can use:
+- **No fixed template method:** TYPO3 does *not* offer *one fixed way*
+  to dealing with templates for websites; rather you are *set free* to
+  choose the way *you* find most appealing. You can use:
 
 - **HTML templates:** Configure TYPO3 to facilitate external HTML-
   templates with markers and subparts. Popular and familiar for most
@@ -131,12 +140,12 @@ templates:
   third party templating engines!
 
 - **TS content objects:** Build the page by the "content objects" of the
-  Frontend Engine. These cObjects are  *accessible/programmable* through
+  Frontend Engine. These cObjects are *accessible/programmable* through
   the TypoScript syntax.
 
-- **TypoScript Templates**  ***determine***  **the method:** No matter
+- **TypoScript Templates *determine* the method:** No matter
   which template method (see list above) you would like to use TYPO3
-  needs to be told  *which one* ! And  *this* is what the TypoScript
+  needs to be told *which one*! And *this* is what the TypoScript
   Template does first and foremost; it is used to configure basic and
   advanced behaviors of the frontend engine so that the site rendering
   gets done.
@@ -149,7 +158,10 @@ which overrides properties from earlier in the tree. Thus TypoScript
 Template records are effectively defining which page is the root page
 of a website:
 
-|img-19| TypoScript Templates contain a field for the TypoScript configuration
+.. figure:: ../../Images/DetailsTSTemplateListView.png
+   :alt: A TypoScript template as seen in the list module.
+
+TypoScript Templates contain a field for the TypoScript configuration
 code ("Setup" field) but a template record like the one in the picture
 above ("ROOT") can also contain references to other template records
 and files which contain predefined generally useful TypoScript code
@@ -159,7 +171,10 @@ visually with the Template Analyzer, which you find inside the
 "Template" module in the backend (if it is not there, install the
 system extension "tstemplate\_analyzer"):
 
-|img-20| To get more background knowledge about how TypoScript templates work,
+.. figure:: ../../Images/DetailsTSTemplateHierarchy.png
+   :alt: A hierarchy of TypoScript templates in the Template Analyzer.
+
+To get more background knowledge about how TypoScript templates work,
 please read the document "TypoScript Templates". To read about all
 standard objects and properties which you can use in building
 TypoScript templates you should refer to the TypoScript reference -

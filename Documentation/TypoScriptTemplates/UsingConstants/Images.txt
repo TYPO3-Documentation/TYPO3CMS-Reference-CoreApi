@@ -1,7 +1,0 @@
-﻿.. |img-12|     image:: ../../Images/manual_html_595c4bfa.png
-.. :height: 360
-.. :width: 430
-.. :align: left
-.. :border: 0
-.. :name: Grafik17
-

@@ -10,19 +10,19 @@ PHP arrays
 ^^^^^^^^^^
 
 In the scope of its use you can also understand TypoScript as a non-
-strict way to enter information into a  *multidimensional array* . In
-fact when TypoScript is parsed, it is  *transformed into a PHP array*
+strict way to enter information into a *multidimensional array* . In
+fact when TypoScript is parsed, it is *transformed into a PHP array*
 ! So when would you define static information in PHP arrays? You would
 do that in configuration files - but probably not to build your
 address database!
 
 This can be summarized as follows:
 
-- When TypoScript is  *parsed* it means that the information is
-  transformed into a  *PHP array* from where TYPO3 applications can
+- When TypoScript is *parsed* it means that the information is
+  transformed into a *PHP array* from where TYPO3 applications can
   access it.
 
-- So the  *same* information could in factbe defined in TypoScript  *or
+- So the *same* information could in fact be defined in TypoScript *or
   directly* in PHP; but the syntax would be different for the two of
   course.
 

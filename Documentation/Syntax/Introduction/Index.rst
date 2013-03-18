@@ -36,5 +36,6 @@ tree structure of TypoScript. They are described in the relevant
 section further in this document (see "TypoScript Templates" and
 "TSconfig"). The above piece of TypoScript would look like this:
 
-|img-3|
+.. figure:: ../../Images/SyntaxIntroduction.png
+   :alt: Example TypoScript code.
 

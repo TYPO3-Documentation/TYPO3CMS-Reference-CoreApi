@@ -35,7 +35,7 @@ updated.
 Credits
 ^^^^^^^
 
-This document was formerly maintained by Michael Stucki and François
+This document was formerly maintained by Michael Stucki and FranÃ§ois
 Suter. Additions have been made by Sebastian Michaelsen. The updates
 for recent versions were done by Christopher Stelmaszyk.
 

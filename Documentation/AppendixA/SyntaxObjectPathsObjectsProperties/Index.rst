@@ -9,7 +9,7 @@
 TypoScript syntax, object paths, objects and properties
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-See, that is what this document is about - the  *syntax* of
+See, that is what this document is about - the *syntax* of
 TypoScript; the rules you must obey in order to store information in
 this structure. Obviously I'll not explain the full syntax here again
 but just give an example to convey the idea.
@@ -32,7 +32,7 @@ Another example::
    asdf.backgroundColor = blue
 
 Now the object path "asdf.zxcvbnm" contains the value "uiop" and
-"asdf.backgroundColor" contains the value "blue". According to  *the
+"asdf.backgroundColor" contains the value "blue". According to *the
 syntax* of TypoScript this could also have been written more
 comfortably as::
 
@@ -41,14 +41,14 @@ comfortably as::
      backgroundColor = blue
    }
 
-What happened here is that we broke down the full  *object path* ,
+What happened here is that we broke down the full *object path*,
 "asdf.zxcvbnm" into its components "asdf" and "zxcvbnm" which are
 separated by a period, ".", and then we used the curly brace
 operators, { and } , to bind them together again. To describe this
-relationship of the components of an  *object path* we normally call
-"asdf "  *the object* and " zxcvbnm "  *the property* of that object.
+relationship of the components of an *object path* we normally call
+"asdf" *the object* and "zxcvbnm" *the property* of that object.
 
-So although the terms  *objects* and  *properties* normally hint at
+So although the terms *objects* and *properties* normally hint at
 some context (semantics) we may also use them purely to describe the
 various parts of an object path without considering the context and
 meaning. Consider this::
@@ -59,7 +59,7 @@ meaning. Consider this::
      backgroundColor.transparency = 95%
    }
 
-Here we can say that "zxcvbnm" and "backgroundColor" are  *properties*
+Here we can say that "zxcvbnm" and "backgroundColor" are *properties*
 of (the object) "asdf". Further, "transparency" is a property of (the
 object / the property) "backgroundColor" (or "asdf.backgroundColor").
 
@@ -68,11 +68,11 @@ Note about perceived semantics
 """"""""""""""""""""""""""""""
 
 You may now think that "backgroundColor = blue" makes more sense than
-"zxcvbnm = uiop" but having a look at the  **syntax** only it doesn't!
+"zxcvbnm = uiop" but having a look at the **syntax** only it doesn't!
 The only reason that "backgroundColor = blue" seems to make sense is
-that in the  *English language* we understand the words "background
+that in the *English language* we understand the words "background
 color" and "blue" and automatically imply some meaning. We understand
-the  **semantics** of it. But to a machine like a computer the word
+the **semantics** of it. But to a machine like a computer the word
 "backgroundColor" makes just as little sense as "zxcvbnm" unless it
 has been programmed to understand either one, e.g. to take its value
 as the background color for something. In fact "uiop" could be an
@@ -91,7 +91,7 @@ Note about the internal structure when parsed into a PHP array
 
 As stated in the previous chapter TypoScript can be understood as a
 lightweight way to enter information into a multidimensional PHP
-array. Let’s take the TypoScript from above as an example::
+array. Let's take the TypoScript from above as an example::
 
    asdf {
      zxcvbnm = uiop

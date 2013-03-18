@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 Implementing custom conditions
@@ -12,7 +11,7 @@ Implementing custom conditions
 
 Now we know how to parse TypoScript and the only thing we still want
 to do is to implement support for custom conditions. As stated a few
-places  *the evaluation* of a condition is external to TypoScript and
+places *the evaluation* of a condition is external to TypoScript and
 all you need to do in order to have an external process deal with
 conditions is to pass an object as the second parameter to the parse-
 function. This is done in the code listing below::
@@ -74,7 +73,10 @@ With this listing we would expect to get the object path "message" set
 to "Yes" since the condition line "[TYPO3 IS GREAT]" matches the
 criteria for what will return true. Lets try:
 
-|img-29| According to this output it worked!
+.. figure:: ../../Images/ParserAPIConditionDebug1.png
+   :alt: Debug output of our custom condition 1.
+
+According to this output it worked!
 
 Lets try to alter line 2 to this::
 
@@ -84,8 +86,11 @@ Lets try to alter line 2 to this::
 
 The parsed result is now:
 
-|img-30| As you can see the value of "message" is now "No" since the condition
-returned FALSE. The string "[TYPO3 IS great]" is obviously  *not* the
+.. figure:: ../../Images/ParserAPIConditionDebug2.png
+   :alt: Debug output of our custom condition 2.
+
+As you can see the value of "message" is now "No" since the condition
+returned FALSE. The string "[TYPO3 IS great]" is obviously *not* the
 same as "[TYPO3 IS GREAT]"! The value of "someOtherTS" was also
 changed to "123" which was the value set before the condition and
 since the condition was not TRUE the overriding of that former value
@@ -161,7 +166,10 @@ Lets try and parse the TypoScript listing from the former section::
 
 The result of parsing this will be an array like this:
 
-|img-31| As you can see the "headerImage" property value stems from the [ELSE]
+.. figure:: ../../Images/ParserAPIHeader2.png
+   :alt: Debug output without matching IP.
+
+As you can see the "headerImage" property value stems from the [ELSE]
 condition section and thus the "[UserIpRange = 123.456.\*.\*]" must
 still have evaluated to FALSE - which is actually no wonder since
 nobody can have the IP address range "123.456.\*.\*"!
@@ -176,5 +184,8 @@ Since I'm currently on an internal network with an IP number which
 falls into this space, the condition should now evaluate to TRUE when
 the TypoScript is parsed:
 
-|img-32| ... and in fact it does!
+.. figure:: ../../Images/ParserAPIHeader1.png
+   :alt: Debug output with matching IP.
+
+... and in fact it does!
 

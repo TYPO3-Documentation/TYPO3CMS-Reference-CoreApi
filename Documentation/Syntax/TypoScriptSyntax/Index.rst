@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 TypoScript syntax
@@ -24,18 +23,18 @@ Example:
 
    myObject.myProperty = value 2
 
-The  **object path** (in this case "myObject.myProperty")is like the
+The **object path** (in this case "myObject.myProperty") is like the
 variable name in a programming language. The object path is the first
 block of non-whitespace characters on a line until one of the
-characters "=<>{( " (space included) is found.  **Use only A-Z, a-z,
-0-9, "-", "\_" and periods (.) for Object Paths!**
+characters "=<>{( " (space included) is found. **Use only A-Z, a-z,
+0-9, "-", "\_" and periods (.) for object paths!**
 
 The **operator** (in this case it is "=") can be one of the characters
 "=<>{(". The various operators are described below.
 
-The  **value** (in this case "value 2") is whatever characters follow
+The **value** (in this case "value 2") is whatever characters follow
 the operator until the end of the line, but trimmed for whitespace at
-each end. Notice that values are  *not* encapsulated in quotes! The
+each end. Notice that values are *not* encapsulated in quotes! The
 value starts after the operator and ends with the line break.
 
 
@@ -94,8 +93,8 @@ Example:
    )
 
 
-**Value assignment: The "=" operator**
-""""""""""""""""""""""""""""""""""""""
+Value assignment: The "=" operator
+""""""""""""""""""""""""""""""""""
 
 This simply assigns a value to an object path.
 
@@ -103,7 +102,7 @@ This simply assigns a value to an object path.
 Rules:
 ~~~~~~
 
-Everything after the "=" sign and  *up*  *to the end of the line* is
+Everything after the "=" sign and *up to the end of the line* is
 considered to be the value. In other words: You don't need to quote
 anything!
 
@@ -111,8 +110,8 @@ Be aware that the value will be trimmed, which means stripped of
 whitespace at both ends.
 
 
-**Value modifications: The ":=" operator**
-""""""""""""""""""""""""""""""""""""""""""
+Value modifications: The ":=" operator
+""""""""""""""""""""""""""""""""""""""
 
 This operator assigns a value to an object path by calling a
 predefined function which modifies the existing value of the current
@@ -125,7 +124,7 @@ redefining it again.
 Rules:
 ~~~~~~
 
-The portion after the ":=" operator and  *to the end of the line* is
+The portion after the ":=" operator and *to the end of the line* is
 split in two parts: A function and a value. The function is specified
 right next to the operator (trimmed) and holding the value in brackets
 (not trimmed).
@@ -183,11 +182,11 @@ Rules:
 - Everything on the same line as the opening brace ("{"), but that comes
   *after* it is ignored.
 
-- The "}" sign  *must* be the first non-space character on a line in
+- The "}" sign *must* be the first non-space character on a line in
   order to close the block. Everything on the same line, but after "}"
   is ignored.
 
-- Blocks can be nested. This is actually recommended for  **improved
+- Blocks can be nested. This is actually recommended for **improved
   readability** .
 
 - **Note:** You cannot use conditions inside of braces (except the
@@ -221,7 +220,7 @@ could also be written as::
 Multi-line values: The ( ) signs
 """"""""""""""""""""""""""""""""
 
-Opening and closing parenthesis are used to assign a  *multi-line
+Opening and closing parenthesis are used to assign a *multi-line
 value* . With this method you can define values which span several
 lines and thus include line breaks.
 
@@ -249,8 +248,8 @@ Example:
    )
 
 
-**Object copying: The "<" sign**
-""""""""""""""""""""""""""""""""
+Object copying: The "<" sign
+""""""""""""""""""""""""""""
 
 The "<" sign is used to copy one object path to another. The whole
 object is copied - both value and properties - and it overrides any
@@ -271,7 +270,10 @@ The result of the above TypoScript is two independent sets of
 objects/properties which exactly the same (duplicates). They are
 *not* references to each other but actual copies:
 
-|img-4| Another example with a copy within a code block::
+.. figure:: ../../Images/SyntaxCopying1.png
+   :alt: An object and a copy of it.
+
+Another example with a copy within a code block::
 
    pageObj {
            10 = TEXT
@@ -281,8 +283,8 @@ objects/properties which exactly the same (duplicates). They are
 
 Here also a copy is made, although inside the "pageObj" object. Note
 that the copied object is referred to with its full path
-("pageObj.10"). When  **copying on the same level** , you can just
-refer to the copied object's name,  **prepended by a dot** .
+("pageObj.10"). When **copying on the same level**, you can just
+refer to the copied object's name, **prepended by a dot**.
 
 The following produces the same result as above::
 
@@ -294,7 +296,10 @@ The following produces the same result as above::
 
 which – in tree view – translates to:
 
-|img-5| **Note:**  **When the original object is changed after copying, the
+.. figure:: ../../Images/SyntaxCopying2.png
+   :alt: An object and a copy of it.
+
+**Note: When the original object is changed after copying, the
 copy does not change!** Take a look at the following code::
 
    someObject = TEXT
@@ -320,11 +325,11 @@ positions in an object tree can use the same object at another
 position without making an actual copy of the object but by simply
 pointing to the objects full object path.
 
-The obvious advantage is that a  **change of code to the original
-object affects all references** . It avoids the risk mentioned above
+The obvious advantage is that a **change of code to the original
+object affects all references**. It avoids the risk mentioned above
 with the copy operator to forget that a change at a later point does
 not affect earlier copies. On the other hand there's the reverse risk:
-it is easy to forget that changing theoriginal object will have an
+it is easy to forget that changing the original object will have an
 impact on all references. References are very convenient, but should
 be used with caution.
 
@@ -346,12 +351,15 @@ In this case, the "wrap" property of "anotherObject" will indeed by
 "<h1>\|<h1>". In tree view the properties of the reference are not
 shown. Only the reference itself is there:
 
-|img-6| Remember: References are only available in TypoScript templates, not
+.. figure:: ../../Images/SyntaxReferencing.png
+   :alt: An object and a reference of it.
+
+Remember: References are only available in TypoScript templates, not
 in TSconfig.
 
 
-Object unsetting: The ">" sign:
-"""""""""""""""""""""""""""""""
+Object unsetting: The ">" sign
+""""""""""""""""""""""""""""""
 
 This is used to unset an object and all of its properties.
 
@@ -383,7 +391,7 @@ details.
 Rules:
 ~~~~~~
 
-Conditions apply  *only* when outside of any code block (i.e. outside
+Conditions apply *only* when outside of any code block (i.e. outside
 of any curly braces).
 
 

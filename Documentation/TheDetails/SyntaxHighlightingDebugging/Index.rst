@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 Syntax highlighting and debugging
@@ -19,13 +18,23 @@ context highlighted with syntax.
 Here is an example from Page TSconfig as you can view it in the Info
 module:
 
-|img-24| In the extension "extdeveval" you will also find a tool, "Code
+.. figure:: ../../Images/DetailsTSconfigHighlighting.png
+   :alt: An extract from the Page TSconfig field as seen in the Info module.
+
+In the extension "extdeveval" you will also find a tool, "Code
 highlighting", which can analyze TypoScript code ad hoc. This is what
 you get, when you just press the TypoScript button:
 
-|img-25| There are various modes of display:
+.. figure:: ../../Images/DetailsExtdeveval1.png
+   :alt: The interface of extdeveval with some TypoScript code and a few
+         buttons.
 
-|img-26| The analytic mode (displayed above) colors all parts of the syntax:
+There are various modes of display:
+
+.. figure:: ../../Images/DetailsExtdevevalModes.png
+   :alt: Some of the possible modes in extdeveval.
+
+The analytic mode (displayed above) colors all parts of the syntax:
 
 - **Light blue** background: Object and property names
 
@@ -38,17 +47,25 @@ you get, when you just press the TypoScript button:
 Another mode is the "Block mode", which simply indents the TypoScript
 code:
 
-|img-27| Finally you will be warned if syntax errors are found and ignored data
+.. figure:: ../../Images/DetailsExtdeveval2.png
+   :alt: The interface of extdeveval with some more TypoScript code and a
+         few buttons.
+
+Finally you will be warned if syntax errors are found and ignored data
 will also be highlighted in green:
 
-|img-28|
+.. figure:: ../../Images/DetailsSyntaxErrorsIgnoredData.png
+   :alt: Extdeveval showing some syntax errors and some notes concerning
+         ignored data.
+
+
 Debugging
 """""""""
 
 Debugging TypoScript for syntax errors can be done with this tool and
 any other place where the syntax highlighter is used. But this will
-only tell you if something is  *syntactically* wrong with the code -
-whether you combine objects and properties  *semantically* correctly
+only tell you if something is *syntactically* wrong with the code -
+whether you combine objects and properties *semantically* correctly
 depends on the context and cannot be told by the TypoScript parser
 itself.
 
