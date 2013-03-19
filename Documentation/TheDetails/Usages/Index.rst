@@ -19,7 +19,7 @@ configuration for their own local extensions using their own local
 But at least we can mention the three main applications of the
 TypoScript syntax as used in the core parts of TYPO3:
 
-- **Page TSconfig:** Customization of branches of the Page tree.
+- **Page TSconfig:** Customization of branches of the page tree.
 
 - **User TSconfig:** Customization of users and their groups.
 
@@ -119,29 +119,29 @@ templates:
   to dealing with templates for websites; rather you are *set free* to
   choose the way *you* find most appealing. You can use:
 
-- **HTML templates:** Configure TYPO3 to facilitate external HTML-
-  templates with markers and subparts. Popular and familiar for most
-  people. Please see the tutorial "Modern Template Building, Part 1".
+  - **HTML templates:** Configure TYPO3 to facilitate external HTML-
+    templates with markers and subparts. Popular and familiar for most
+    people. Please see the tutorial "Modern Template Building, Part 1".
 
-- **Fluid templates:** Configure TYPO3 to use extbase and fluid
-  (available as system extensions since TYPO3 4.3) for templating. This
-  allows to use external HTML templates, but with fluid-style variables
-  with curly braces. Since TYPO3 4.5 a new content object
-  "FLUIDTEMPLATE" is available, which that way lets you use fluid from
-  inside TypoScript.
+  - **Fluid templates:** Configure TYPO3 to use extbase and fluid
+    (available as system extensions since TYPO3 4.3) for templating. This
+    allows to use external HTML templates, but with fluid-style variables
+    with curly braces. Since TYPO3 4.5 a new content object
+    "FLUIDTEMPLATE" is available, which that way lets you use fluid from
+    inside TypoScript.
 
-- **External Templating Engines:** Configure TYPO3 to use XSLT
-  stylesheets with an XSLT processor. This is done either by an
-  extension providing this functionality or by writing your own
-  extension for it.
+  - **External Templating Engines:** Configure TYPO3 to use XSLT
+    stylesheets with an XSLT processor. This is done either by an
+    extension providing this functionality or by writing your own
+    extension for it.
 
-- **Custom PHP:** Configure TYPO3 to call your own PHP code which
-  generates content in any way you may prefer. This might include using
-  third party templating engines!
+  - **Custom PHP:** Configure TYPO3 to call your own PHP code which
+    generates content in any way you may prefer. This might include using
+    third party templating engines!
 
-- **TS content objects:** Build the page by the "content objects" of the
-  Frontend Engine. These cObjects are *accessible/programmable* through
-  the TypoScript syntax.
+  - **TS content objects:** Build the page by the "content objects" of the
+    Frontend Engine. These cObjects are *accessible/programmable* through
+    the TypoScript syntax.
 
 - **TypoScript Templates *determine* the method:** No matter
   which template method (see list above) you would like to use TYPO3

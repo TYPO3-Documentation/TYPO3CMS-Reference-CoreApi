@@ -21,7 +21,7 @@ interpreted as data type "resource". That means it refers to a file,
 which you have to upload in the resource section of your template
 record.
 
-**Note: Toplevel "object" TSConstantEditor** cannot be used. It's
+**Note: The top-level "object" TSConstantEditor** cannot be used. It's
 reserved for configuration of the Constant Editor module.
 
 

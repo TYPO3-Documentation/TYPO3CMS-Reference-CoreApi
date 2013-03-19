@@ -214,59 +214,49 @@ as follows:
 
 [ KEY = VALUE ]
 
-where the key denotes a type of condition from the table below:
+where the key denotes a type of condition from below:
 
-.. ### BEGIN~OF~TABLE ###
+**Key: UserIpRange**
 
-.. container:: table-row
+Returns TRUE if the client's remote IP address matches the pattern
+given as value.
 
-   Key
-         UserIpRange
+The value is matched against REMOTE\_ADDR by the function
+t3lib\_div::cmpIP(), which you can consult for details on the syntax.
 
-   Description
-         Returns TRUE if the client's remote IP address matches the pattern
-         given as value.
+Example::
 
-         The value is matched against REMOTE\_ADDR by the function
-         t3lib\_div::cmpIP(), which you can consult for details on the syntax.
-
-   Example
-         [UserIpRange = 192.168.\*.\*]
+   [UserIpRange = 192.168.\*.\*]
 
 
-.. container:: table-row
+**Key: Browser**
 
-   Key
-         Browser
+Returns TRUE, if the client's browser matches one of the keywords
+below.
 
-   Description
-         Returns TRUE, if the client's browser matches one of the keywords
-         below.
+Values you can use:
 
-         Values you can use:
+**konqu** = Konqueror
 
-         **konqu** = Konqueror
+**opera** = Opera
 
-         **opera** = Opera
+**msie** = Microsoft Internet Explorer
 
-         **msie** = Microsoft Internet Explorer
+**net** = Netscape (or any other)
 
-         **net** = Netscape (or any other)
+Values are evaluated against the output of the function
+t3lib\_div::clientInfo() which can be consulted for details on the
+values for browsers.
 
-         Values are evaluated against the output of the function
-         t3lib\_div::clientInfo() which can be consulted for details on the
-         values for browsers.
+**Note**: These values are **examples**, which fit to the code we
+have built above. In current TYPO3 versions the available values have
+changed!
 
-         **Note**: These values are **examples**, which fit to the code we
-         have built above. In current TYPO3 versions the available values have
-         changed!
+**For an overview of the values currently possible, always consult
+TSref!**
 
-         **For an overview of the values currently possible, always consult
-         TSref!**
+Example::
 
-   Example
-         [Browser = msie]
+   [Browser = msie]
 
-
-.. ###### END~OF~TABLE ######
 

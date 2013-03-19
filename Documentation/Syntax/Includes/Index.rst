@@ -30,23 +30,20 @@ will determine which source the content is coming from. This is the
 only option available:
 
 
-.. ### BEGIN~OF~TABLE ###
+.. ### BEGIN~OF~SIMPLE~TABLE ###
 
-.. container:: table-row
-
-   Option
-         FILE
-
-   Description
-         A reference to a file relative to PATH\_site. Cannot contain ".."
-         (double periods, back path). Until TYPO3 4.5 had to be less than 100
-         KB; in newer versions this limitation was dropped.
+=======  ============
+Option   Description
+=======  ============
+FILE     A reference to a file relative to PATH\_site. Cannot contain ".."
+         (double periods, back path). Until TYPO3 4.5 the file size had to be
+         less than 100 KB; in newer versions this limitation was dropped.
 
          If you prefix the relative path with such as
          "EXT:myext/directory/file.txt" then the file included will be searched
          for in the extension directory of extension "myext", subdirectory
          "directory/file.txt".
+=======  ============
 
-
-.. ###### END~OF~TABLE ######
+.. ###### END~OF~SIMPLE~TABLE ######
 

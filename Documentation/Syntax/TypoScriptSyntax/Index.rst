@@ -86,7 +86,7 @@ Example:
    */  ... this is not parsed either though - the whole line is still within the comment
    myObject = TEXT
    myObject.value (
-     Here's a multiline value which
+     Here is a multiline value which
      /*
        This is not a comment because it is inside a multi-line value block
      */

@@ -37,8 +37,6 @@ Root level
    Description
          Defining colors for various elements.
 
-   Default
-
 
 .. container:: table-row
 
@@ -50,8 +48,6 @@ Root level
 
    Description
          Define administrator contact information for cc-emails
-
-   Default
 
 
 .. container:: table-row
@@ -65,8 +61,6 @@ Root level
    Description
          A reference to an image file relative to the websites path
          (PATH\_site)
-
-   Default
 
 
 .. ###### END~OF~TABLE ######
@@ -145,8 +139,6 @@ Root level
    Description
          The email address that ...
 
-   Default
-
 
 .. container:: table-row
 
@@ -158,8 +150,6 @@ Root level
 
    Description
          The name of ...
-
-   Default
 
 
 .. container:: table-row

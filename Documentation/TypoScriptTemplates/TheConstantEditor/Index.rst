@@ -93,57 +93,22 @@ cat=
 
 **Predefined Categories**
 
-.. ### BEGIN~OF~TABLE ###
+.. ### BEGIN~OF~SIMPLE~TABLE ###
 
-.. container:: table-row
+=========  ============
+Category   Description
+=========  ============
+basic      Constants of superior importance for the template-layout. This is
+           dimensions, image files and enabling of various features. The most
+           basic constants, which you would almost always want to configure.
+menu       Menu setup. This includes font files, sizes, background images.
+           Depending on the menu type.
+content    All constants related to the display of pagecontent elements.
+page       General configuration like meta tags, link targets.
+advanced   Advanced functions, which are used very seldom.
+=========  ============
 
-   Category
-         basic
-
-   Description
-         Constants of superior importance for the template-layout. This is
-         dimensions, imagefiles and enabling of various features. The most
-         basic constants, which you would almost always want to configure.
-
-
-.. container:: table-row
-
-   Category
-         menu
-
-   Description
-         Menu setup. This includes fontfiles, sizes, background images.
-         Depending on the menutype.
-
-
-.. container:: table-row
-
-   Category
-         content
-
-   Description
-         All constants related to the display of pagecontent elements.
-
-
-.. container:: table-row
-
-   Category
-         page
-
-   Description
-         General configuration like metatags, link targets.
-
-
-.. container:: table-row
-
-   Category
-         advanced
-
-   Description
-         Advanced functions, which are used very seldom.
-
-
-.. ###### END~OF~TABLE ######
+.. ###### END~OF~SIMPLE~TABLE ######
 
 **Subcategories:**
 
@@ -168,76 +133,25 @@ Standard subcategories (in the order they get listed in the Constant
 Editor):
 
 
-.. ### BEGIN~OF~TABLE ###
+.. ### BEGIN~OF~SIMPLE~TABLE ###
 
-.. container:: table-row
+===========  ============
+Subcategory  Description
+===========  ============
+enable       Used for options that enable or disable primary functions of a
+             template.
+dims         Dimensions of all kinds; pixels, widths, heights of images, frames,
+             cells and so on.
+file         Files like background images, fonts and so on. Other options related
+             to the file may also enter.
+typo         Typography and related constants.
+color        Color setup. Many colors will be found with related options in other
+             categories though.
+links        Links: Targets typically.
+language     Language specific options.
+===========  ============
 
-   Subcategory
-         enable
-
-   Description
-         Used for options that enable or disable primary functions of a
-         template.
-
-
-.. container:: table-row
-
-   Subcategory
-         dims
-
-   Description
-         Dimensions of all kinds; pixels, widths, heights of images, frames,
-         cells and so on.
-
-
-.. container:: table-row
-
-   Subcategory
-         file
-
-   Description
-         Files like background images, fonts and so on. Other options related
-         to the file may also enter.
-
-
-.. container:: table-row
-
-   Subcategory
-         typo
-
-   Description
-         Typography and related constants.
-
-
-.. container:: table-row
-
-   Subcategory
-         color
-
-   Description
-         Color setup. Many colors will be found with related options in other
-         categories though.
-
-
-.. container:: table-row
-
-   Subcategory
-         links
-
-   Description
-         Links: Targets typically.
-
-
-.. container:: table-row
-
-   Subcategory
-         language
-
-   Description
-         Language specific options.
-
-
-.. ###### END~OF~TABLE ######
+.. ###### END~OF~SIMPLE~TABLE ######
 
 
 Subcategories based on the default content elements
@@ -273,115 +187,32 @@ type=
 ~~~~~
 
 
-.. ### BEGIN~OF~TABLE ###
+.. ### BEGIN~OF~SIMPLE~TABLE ###
 
-.. container:: table-row
+==========================  ============
+Type                        Description
+==========================  ============
+integer [low-high]          Integer, opt. in range "low" to "high"
+positive integer            Positive integer
+offset [L1,L2,...L6]        Comma-separated list of integers. Default is "x,y", but as comma separated
+                            parameters in brackets you can specify up to 6 labels being comma
+                            separated! If you wish to omit one of the last 4 fields, just don't
+                            enter a label for that element.
+color                       HTML color
+wrap                        HTML code that is wrapped around some content.
+options [item1,item2,...]   Selectbox with values/labels item1, item2 etc. Comma-separated. Split
+                            by "=" also and in that case, first part is label, second is value
+boolean [truevalue]         Boolean, opt. you can define the value of "true", def.=1
+comment                     Boolean, checked= "", not-checked = "#".
+file [ext-list/IMAGE\_EXT]  Selectorbox with resources. Opt. list allowed extensions (no space in
+                            list!), e.g. "[ttf]" or "[txt,html,htm]". You can also enter
+                            "[IMAGE\_EXT]" in which case the default image-extensions are listed.
+                            (used for data type "imgResource")
+string (the default)        Just a string value
+user                        ...
+==========================  ============
 
-   Type
-         int [low-high]
-
-   Description
-         Integer, opt. in range "low" to "high"
-
-
-.. container:: table-row
-
-   Type
-         int+
-
-   Description
-         Positive integer
-
-
-.. container:: table-row
-
-   Type
-         offset [L1,L2,...L6]
-
-   Description
-         Comma-separated integers. Default is "x,y", but as comma separated
-         parameters in brackets you can specify up to 6 labels being comma
-         separated! If you wish to omit one of the last 4 fields, just don't
-         enter a label for that element.
-
-
-.. container:: table-row
-
-   Type
-         color
-
-   Description
-         HTML color
-
-
-.. container:: table-row
-
-   Type
-         wrap
-
-   Description
-         HTML-code that is wrapped around some content.
-
-
-.. container:: table-row
-
-   Type
-         options [item1,item2,...]
-
-   Description
-         Selectbox with values/labels item1, item2 etc. Comma-separated. Split
-         by "=" also and in that case, first part is label, second is value
-
-
-.. container:: table-row
-
-   Type
-         boolean [truevalue]
-
-   Description
-         Boolean, opt. you can define the value of "true", def.=1
-
-
-.. container:: table-row
-
-   Type
-         comment
-
-   Description
-         Boolean, checked= "", not-checked = "#".
-
-
-.. container:: table-row
-
-   Type
-         file [ext-list/IMAGE\_EXT]
-
-   Description
-         Selectorbox with resources. Opt. list allowed extensions (no space in
-         list!), eg. "[ttf]" or "[txt,html,htm]". You can also enter
-         "[IMAGE\_EXT]" in which case the default image-extensions are listed.
-         (used for datatype "imgResource")
-
-
-.. container:: table-row
-
-   Type
-         string (the default)
-
-   Description
-         Just a string value
-
-
-.. container:: table-row
-
-   Type
-         user
-
-   Description
-         ...
-
-
-.. ###### END~OF~TABLE ######
+.. ###### END~OF~SIMPLE~TABLE ######
 
 
 label=
@@ -401,13 +232,13 @@ Note that a single string is referenced (not one for the header and
 one for the description). This means that the localized string must
 contain the colon separator (":"). Example::
 
-   <label index="config.no_cache">Global no_cache:Check to box to turn off all cache</label>
+   <label index="config.no_cache">Global no_cache: Check the box to turn off all caches.</label>
 
 In case of TYPO3 4.6 or newer translation files in XLIFF format are
 supported. There the label might look like this::
 
    <trans-unit id="config.no_cache" xml:space="preserve">
-     <source>Global no_cache:Check to box to turn off all cache</source>
+     <source>Global no_cache: Check the box to turn off all caches.</source>
    </trans-unit>
 
 
@@ -434,8 +265,6 @@ normally would.
    Description
          Header, displayed in upper-case.
 
-   Default
-
 
 .. container:: table-row
 
@@ -447,8 +276,6 @@ normally would.
 
    Description
          Description, enter "//" to create a line break.
-
-   Default
 
 
 .. container:: table-row
@@ -462,8 +289,6 @@ normally would.
    Description
          Lines for a bulletlist, enter "//" (double-slash) in order to break to
          next bullet.
-
-   Default
 
 
 .. container:: table-row
@@ -484,8 +309,6 @@ normally would.
          The image must be located in "gfx/" in the module path OR be a file
          from the resource-list of the template.
 
-   Default
-
 
 .. container:: table-row
 
@@ -493,14 +316,12 @@ normally would.
          Array, 1-20
 
    Data type
-         list of constant-names
+         list of constant names
 
    Description
          Each number refers to a number-mark on the image and all constants
          that are listed at each number will get a little number-icon by it's
          header.
-
-   Default
 
 
 .. ###### END~OF~TABLE ######
@@ -516,7 +337,7 @@ Example:
    ## TSConstantEditor Configuration
    TSConstantEditor.basic {
      header = Standard Template "BUSINESS"
-     description = BUSINESS is a framebased template in a very simple layout, based on ....
+     description = BUSINESS is a frame-based template in a very simple layout, based on ....
      bulletlist = Left-frame image in the top. The dimensions are fixed to ....
      image = gfx/BUSINESS_basic.gif
 
@@ -532,9 +353,9 @@ Example:
 
 This example shows how the static template "BUSINESS", which you find
 in the system extension "statictemplates", is configured for the
-**basic** -module.
+**basic**-module.
 
-The Business template is framebased and has a very simple layout. It
+The Business template is frame-based and has a very simple layout. It
 has a 2-level textual menu. You can select the properties of the font
 tag like the font size, color and so on. Details are in the following
 list. The numbers in brackets fit to the numbers in the code example

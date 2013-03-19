@@ -26,10 +26,10 @@ Example:
    myObject.myProperty.firstProperty = [value 3]
    myObject.myProperty.secondProperty = [value 4]
 
-Referring to "myObject" we might call it an " *object with the value
+Referring to "myObject" we might call it an "*object with the value
 [value 1] and the property, 'myProperty' with the value [value 2].
 Furthermore 'myProperty' has its own two properties, 'firstProperty'
-and 'secondProperty' with a value each ([value 3] and [value 4]).* "
+and 'secondProperty' with a value each ([value 3] and [value 4]).*"
 
 The TYPO3 backend contains tools that can be used to visualize the
 tree structure of TypoScript. They are described in the relevant
