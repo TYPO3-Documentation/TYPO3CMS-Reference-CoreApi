@@ -44,15 +44,13 @@ the *validation* of the condition content always relies on the
 context where TypoScript is used. Therefore in plain syntax
 highlighting (no context) conditions are just highlighted and nothing
 more. In the context of TypoScript Templates there is a `whole section
-of TSref <http://typo3.org/documentation/document-library/core-
-documentation/doc_core_tsref/4.5.1/view/1/4/>`_ which defines the
+of :ref:`TSref <t3tsref:conditions>` which defines the
 syntax of the condition contents for TypoScript Templates. For "Page
 TSconfig" and "User TSconfig" conditions are implemented since TYPO3
 4.3. Basically they work the same way as conditions in TypoScript
 templates do, but there are some small differences. For details see
-the according `section "Conditions" in TSconfig
-<http://typo3.org/documentation/document-library/core-
-documentation/doc_core_tsconfig/4.6.0/view/1/2/>`_ .
+the according `section "Conditions" in :ref:`TSconfig
+<t3tsconfig:conditions>`.
 
 
 The syntax of conditions

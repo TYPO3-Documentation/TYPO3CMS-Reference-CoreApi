@@ -95,9 +95,9 @@ cat=
 
 .. ### BEGIN~OF~SIMPLE~TABLE ###
 
-=========  ============
+=========  ======================================================================
 Category   Description
-=========  ============
+=========  ======================================================================
 basic      Constants of superior importance for the template-layout. This is
            dimensions, image files and enabling of various features. The most
            basic constants, which you would almost always want to configure.
@@ -106,7 +106,7 @@ menu       Menu setup. This includes font files, sizes, background images.
 content    All constants related to the display of pagecontent elements.
 page       General configuration like meta tags, link targets.
 advanced   Advanced functions, which are used very seldom.
-=========  ============
+=========  ======================================================================
 
 .. ###### END~OF~SIMPLE~TABLE ######
 
@@ -189,28 +189,28 @@ type=
 
 .. ### BEGIN~OF~SIMPLE~TABLE ###
 
-==========================  ============
-Type                        Description
-==========================  ============
-integer [low-high]          Integer, opt. in range "low" to "high"
-positive integer            Positive integer
-offset [L1,L2,...L6]        Comma-separated list of integers. Default is "x,y", but as comma separated
-                            parameters in brackets you can specify up to 6 labels being comma
-                            separated! If you wish to omit one of the last 4 fields, just don't
-                            enter a label for that element.
-color                       HTML color
-wrap                        HTML code that is wrapped around some content.
-options [item1,item2,...]   Selectbox with values/labels item1, item2 etc. Comma-separated. Split
-                            by "=" also and in that case, first part is label, second is value
-boolean [truevalue]         Boolean, opt. you can define the value of "true", def.=1
-comment                     Boolean, checked= "", not-checked = "#".
-file [ext-list/IMAGE\_EXT]  Selectorbox with resources. Opt. list allowed extensions (no space in
-                            list!), e.g. "[ttf]" or "[txt,html,htm]". You can also enter
-                            "[IMAGE\_EXT]" in which case the default image-extensions are listed.
-                            (used for data type "imgResource")
-string (the default)        Just a string value
-user                        ...
-==========================  ============
+===========================  ============================================================================
+Type                         Description
+===========================  ============================================================================
+integer [low-high]           Integer, opt. in range "low" to "high"
+positive integer             Positive integer
+offset [L1,L2,...L6]         Comma-separated list of integers. Default is "x,y", but as comma separated
+                             parameters in brackets you can specify up to 6 labels being comma
+                             separated! If you wish to omit one of the last 4 fields, just don't
+                             enter a label for that element.
+color                        HTML color
+wrap                         HTML code that is wrapped around some content.
+options [item1,item2,...]    Selectbox with values/labels item1, item2 etc. Comma-separated. Split
+                             by "=" also and in that case, first part is label, second is value
+boolean [truevalue]          Boolean, opt. you can define the value of "true", def.=1
+comment                      Boolean, checked= "", not-checked = "#".
+file [ext-list/IMAGE\_EXT]   Selectorbox with resources. Opt. list allowed extensions (no space in
+                             list!), e.g. "[ttf]" or "[txt,html,htm]". You can also enter
+                             "[IMAGE\_EXT]" in which case the default image-extensions are listed.
+                             (used for data type "imgResource")
+string (the default)         Just a string value
+user                         ...
+===========================  ============================================================================
 
 .. ###### END~OF~SIMPLE~TABLE ######
 

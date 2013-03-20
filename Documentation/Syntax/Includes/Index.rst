@@ -32,9 +32,9 @@ only option available:
 
 .. ### BEGIN~OF~SIMPLE~TABLE ###
 
-=======  ============
+=======  ========================================================================
 Option   Description
-=======  ============
+=======  ========================================================================
 FILE     A reference to a file relative to PATH\_site. Cannot contain ".."
          (double periods, back path). Until TYPO3 4.5 the file size had to be
          less than 100 KB; in newer versions this limitation was dropped.
@@ -43,7 +43,7 @@ FILE     A reference to a file relative to PATH\_site. Cannot contain ".."
          "EXT:myext/directory/file.txt" then the file included will be searched
          for in the extension directory of extension "myext", subdirectory
          "directory/file.txt".
-=======  ============
+=======  ========================================================================
 
 .. ###### END~OF~SIMPLE~TABLE ######
 
