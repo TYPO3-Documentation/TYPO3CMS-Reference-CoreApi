@@ -14,7 +14,7 @@
 TYPO3 API overview
 ==================
 
-    *The source is the documentation! (General wisdom)*
+   The source is the documentation! (General wisdom)
 
 The TYPO3 APIs are first and foremost documented inside of the source
 scripts. It would be impossible to maintain documentation at more than
@@ -33,6 +33,7 @@ http://typo3.org/documentation/api/.
    :titlesonly:
    :glob:
 
+   Namespaces/Index
    MainClasses/Index
    GlobalValues/Index
    BackendUserObject/Index

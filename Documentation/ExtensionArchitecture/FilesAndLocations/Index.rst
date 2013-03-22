@@ -236,6 +236,40 @@ extensions with the name prefix "ext\_".
          tools found in the extension "extdeveval" (Extension Development
          Evaluator)
 
+
+.. _extension-reserved-folders:
+
+Reserved folders
+""""""""""""""""
+
+The current standard for files location - except for the special files mentioned
+above - is inspired by TYPO3 Flow. It is necessary to use such structure in Extbase-based
+extensions and recommended for all extensions anyway.
+
+In order to use :ref:`namespaces`, class files **must** be located in a
+:file:`Classes` folder.
+
+Refer to the :ref:`Extbase and Fluid <t3extbasebook:start>` book for more information
+on extension structure. Also look at the "examples" extension.
+
+The `Extension Builder extension <http://typo3.org/extensions/repository/view/extension_builder>`_
+will create the right structure for you.
+
+
+.. _extension-reserved-folders-legacy:
+
+Legacy structure
+~~~~~~~~~~~~~~~~
+
+The structure of older extensions was not so clearly defined, but it generally
+adhered to the following conventions:
+
+.. t3-field-list-table::
+ :header-rows: 1
+
+ - :Filename,20:    Filename
+   :Description,80: Description
+
  - :Filename: pi\*/
    :Description:
          Typical folder for a frontend plugin class.
@@ -259,5 +293,3 @@ extensions with the name prefix "ext\_".
 
          Files in this folder can also be selected in a selector box if you set
          up Extension configuration in a "ext\_conf\_template.txt" file.
-
-
