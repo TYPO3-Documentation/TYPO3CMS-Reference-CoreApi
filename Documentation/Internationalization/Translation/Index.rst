@@ -58,12 +58,43 @@ override both locallang-XML and XLIFF files. Actually this is not just about tra
 Default language files can also be overridden. In the case of XLIFF files, the
 syntax is as follows::
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['path/to/originalTranslationFile.xlf'][] = 'path/to/otherTranslationFile.xlf';
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['fr']['path/to/originalTranslationFile.xlf'][] = 'other/path/to/fr.otherTranslationFile.xlf';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/custom.xlf';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/de.custom.xlf';
 
 The first line shows how to override a file in the default language,
-the second how to override a French ("fr") translation.
+the second how to override a German ("de") translation. The German language file
+looks like this:
 
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+   <xliff version="1.0">
+   	<file source-language="en" datatype="plaintext" original="messages" date="2013-03-09T18:44:59Z" product-name="examples">
+   		<header/>
+   		<body>
+   			<trans-unit id="pages.title_formlabel" xml:space="preserve">
+   				<source>Most important tile</source>
+   				<target>Wichtigster Titel</target>
+   			</trans-unit>
+   		</body>
+   	</file>
+   </xliff>
+
+
+and the result can be easily seen in the backend:
+
+.. figure:: ../../Images/LabelOverride.png
+   :alt: Custom label
+
+   Custom translation in the TYPO3 backend
+
+
+.. important::
+   - The path to the file to override must be expressed as :code:`EXT:foo/bar/...`. For the
+     extension "xlf" or "xml" can be used interchangeably. The TYPO3 Core will try both anyway,
+     but using "xlf" is more correct and future-proof.
+   - The files containing the custom labels must be located inside an extension. Other locations
+     will not be considered (this is a bug, but must be taken as a constraint for now).
 
 .. _xliff-translating-languages:
 
