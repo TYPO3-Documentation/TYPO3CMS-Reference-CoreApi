@@ -130,7 +130,8 @@ templates:
 
   - **HTML templates:** Configure TYPO3 to facilitate external HTML-
     templates with markers and subparts. Popular and familiar for most
-    people. Please see the tutorial "Modern Template Building, Part 1".
+    people. Please see the ":ref:`Templating Tutorial
+    <t3templating:start>`".
 
   - **Fluid templates:** Configure TYPO3 to use extbase and fluid
     (available as system extensions since TYPO3 4.3) for templating. This
