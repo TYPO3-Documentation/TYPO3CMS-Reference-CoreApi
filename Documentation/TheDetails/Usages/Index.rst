@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _typoscript-usages:
+
 Where is TypoScript used?
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -26,6 +28,8 @@ TypoScript syntax as used in the core parts of TYPO3:
 - **TypoScript Templates:** Definition and customization of each website
   found in the page tree.
 
+
+.. _details-page-tsconfig:
 
 Page TSconfig
 """""""""""""
@@ -68,6 +72,8 @@ The objects and properties you can use here are generally defined in
 the document "TSconfig" in addition to local extension documents.
 
 
+.. _details-user-tsconfig:
+
 User TSconfig
 """""""""""""
 
@@ -96,8 +102,11 @@ in editing forms:
          "Save and New" button.
 
 The objects and properties you can use here are generally defined in
-the document "TSconfig" in addition to local extension documents.
+the document ":ref:`TSconfig <t3tsconfig:start>`" in addition to local
+extension documents.
 
+
+.. _details-typoscript-templates:
 
 TypoScript Templates
 """"""""""""""""""""

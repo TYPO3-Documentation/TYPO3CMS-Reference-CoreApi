@@ -6,6 +6,8 @@
 .. include:: ../Includes.txt
 
 
+.. _what-is-typoscript:
+
 Appendix A – What is TypoScript?
 --------------------------------
 

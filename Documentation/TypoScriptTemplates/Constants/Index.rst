@@ -6,9 +6,13 @@
 .. include:: ../../Includes.txt
 
 
+.. _constants:
+
 Constants
 ^^^^^^^^^
 
+
+.. _what-are-constants:
 
 What are constants?
 """""""""""""""""""

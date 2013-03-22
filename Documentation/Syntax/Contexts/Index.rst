@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _typoscript-contexts:
+
 Contexts
 ^^^^^^^^
 
@@ -20,6 +22,6 @@ Some parts of TypoScript are available in both contexts, some only in
 one or the other. Any difference is always mentioned in this manual.
 
 Each context has its own chapter in this manual. It also has its own
-reference in a separate manual (see "Next steps" at the end of this
-manual).
+reference in a separate manual (see ":ref:`next-steps`" at the end of
+this manual).
 

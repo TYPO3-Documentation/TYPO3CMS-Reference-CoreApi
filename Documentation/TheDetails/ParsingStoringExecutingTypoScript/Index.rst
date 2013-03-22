@@ -6,9 +6,12 @@
 .. include:: ../../Includes.txt
 
 
+.. _parsing-storing-executing-typoscript:
+
 Parsing, storing and executing TypoScript
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. _parsing-typoscript:
 
 Parsing TypoScript
 """"""""""""""""""
@@ -28,6 +31,8 @@ The class "t3lib\_tsparser" is used to parse TypoScript content.
 Please see the appendix "The TypoScript parser API" in this document
 for details.
 
+
+.. _storing-typoscript:
 
 Storing parsed TypoScript
 """""""""""""""""""""""""
@@ -83,6 +88,8 @@ you need to take that kind of input from users without giving them
 direct access to PHP code - hence the reason why TypoScript came into
 existence.
 
+
+.. _executing-typoscript:
 
 "Executing" TypoScript
 """"""""""""""""""""""

@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _syntax-introduction:
+
 Introduction
 ^^^^^^^^^^^^
 
@@ -15,6 +17,8 @@ hierarchy. The "branches" are indicated with periods (".") - a syntax
 borrowed from for example JavaScript and which conveys the idea of
 defining objects/properties.
 
+
+.. _syntax-example:
 
 Example:
 """"""""

@@ -6,6 +6,8 @@
 .. include:: ../Includes.txt
 
 
+.. _details:
+
 Sorting out details
 -------------------
 

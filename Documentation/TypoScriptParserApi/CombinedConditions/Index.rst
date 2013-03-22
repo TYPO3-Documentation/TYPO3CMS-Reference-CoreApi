@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _implementing-combined-conditions:
+
 Implementing combined conditions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -180,6 +182,8 @@ as follows::
 
 That's it.
 
+
+.. _example-reference:
 
 Addendum to the reference for our application
 """""""""""""""""""""""""""""""""""""""""""""

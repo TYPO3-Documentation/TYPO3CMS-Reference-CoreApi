@@ -6,6 +6,8 @@
 .. include:: ../Includes.txt
 
 
+.. _typoscript-templates:
+
 TypoScript Templates
 --------------------
 

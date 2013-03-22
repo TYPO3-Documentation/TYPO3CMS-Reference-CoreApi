@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _conditions:
+
 Conditions
 ^^^^^^^^^^
 
@@ -36,6 +38,8 @@ and return either TRUE or FALSE which subsequently means the parsing
 of the TypoScript code that follows.
 
 
+.. _conditions-usage:
+
 Where conditions can be used
 """"""""""""""""""""""""""""
 
@@ -52,6 +56,8 @@ templates do, but there are some small differences. For details see
 the according `section "Conditions" in :ref:`TSconfig
 <t3tsconfig:conditions>`.
 
+
+.. _conditions-syntax:
 
 The syntax of conditions
 """"""""""""""""""""""""
@@ -116,6 +122,10 @@ see):
          a condition is set or unset.
 
 
+.. _else-condition:
+.. _end-condition:
+.. _global-condition:
+
 The special [ELSE], [END] and [GLOBAL] conditions
 """""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -166,6 +176,9 @@ but you could do this::
    [end]
 
 
+.. _conditions-confinements:
+.. _conditions-braces:
+
 Where to insert conditions in TypoScript?
 """""""""""""""""""""""""""""""""""""""""
 
@@ -197,6 +210,8 @@ When parsed with syntax highlighting you will see this error:
 This means that the line was perceived as a regular definition of
 "[object path] [operator] [value]" and not as a condition.
 
+
+.. _the-global-condition:
 
 The [GLOBAL] condition
 """"""""""""""""""""""
@@ -231,6 +246,8 @@ for itself) to make sure that following TypoScript is correctly parsed
 from the top level. This is normally done when TypoScript code from
 various records is combined.
 
+
+.. _conditions-summary:
 
 Summary
 """""""

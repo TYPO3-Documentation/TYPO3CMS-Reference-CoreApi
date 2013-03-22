@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _constant-editor:
+
 Declaring constants for the Constant Editor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -42,6 +44,8 @@ others to make simple corrections to your template or distribute the
 template in a template-archive or such.
 
 
+.. _constant-editor-default-values:
+
 Default values:
 """""""""""""""
 
@@ -58,6 +62,8 @@ This means that all constant values - or values after the mark
 you're manipulating are regarded to be your customized extensions.
 
 
+.. _constant-editor-comments:
+
 Comments:
 """""""""
 
@@ -72,6 +78,8 @@ How the comments are perceived by the module:
 - Each parameter is split by the "=" (equal) sign to separate the
   parameter "key" and the "value".
 
+
+.. _constant-editor-keys:
 
 Keys:
 """""
@@ -242,6 +250,7 @@ supported. There the label might look like this::
    </trans-unit>
 
 
+.. _constant-editor-categories:
 
 TSConstantEditor.[category]
 """""""""""""""""""""""""""

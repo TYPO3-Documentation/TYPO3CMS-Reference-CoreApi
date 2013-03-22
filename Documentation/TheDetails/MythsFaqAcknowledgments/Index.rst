@@ -6,12 +6,18 @@
 .. include:: ../../Includes.txt
 
 
+.. _myths:
+.. _faq:
+.. _acknowledgements:
+
 Myths, FAQ and acknowledgments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section contains a few remarks and answers to questions you may
 still have. So here it goes:
 
+
+.. _myth-scripting-language:
 
 Myth: "TypoScript is a scripting language"
 """"""""""""""""""""""""""""""""""""""""""
@@ -32,6 +38,8 @@ Finally the name "TypoScript" is misleading as well. We are sorry
 about that; too late to change that now.
 
 
+.. _myth-javascript:
+
 Myth: "TypoScript has the same syntax as JavaScript"
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -40,6 +48,8 @@ the syntax looks like JavaScript objects to some degree. But again; it
 is very dangerous to say this since it all stops with the syntax -
 TypoScript is still not a procedural programming language!
 
+
+.. _myth-proprietary:
 
 Myth: "TypoScript is a proprietary standard"
 """"""""""""""""""""""""""""""""""""""""""""
@@ -78,6 +88,8 @@ time it would take to learn about them would not be eliminated, if
 TypoScript was not invented!
 
 
+.. _myth-complex:
+
 Myth: "TypoScript is very complex"
 """"""""""""""""""""""""""""""""""
 
@@ -91,6 +103,8 @@ This can partly be solved by:
 - Use the Syntax Highlighter to analyze and clean up your code - this
   gives you overview as well.
 
+
+.. _xml:
 
 Why not XML instead?
 """"""""""""""""""""

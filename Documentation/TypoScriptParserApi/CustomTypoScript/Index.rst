@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _custom-typoscript:
+
 Parsing custom TypoScript
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 

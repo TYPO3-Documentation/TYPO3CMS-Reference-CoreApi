@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _using-constants:
+
 Using constants
 ^^^^^^^^^^^^^^^
 

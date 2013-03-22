@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _typoscript-syntax:
+
 TypoScript syntax
 ^^^^^^^^^^^^^^^^^
 
@@ -38,6 +40,8 @@ each end. Notice that values are *not* encapsulated in quotes! The
 value starts after the operator and ends with the line break.
 
 
+.. _syntax-comments:
+
 Comments
 """"""""
 
@@ -56,6 +60,8 @@ Example:
    myObject.value = <strong>Some HTML code</strong>
    # This line also is a comment.
 
+
+.. _syntax-comment-blocks:
 
 Comment blocks
 """"""""""""""
@@ -93,6 +99,9 @@ Example:
    )
 
 
+.. _syntax-equal-operator:
+.. _syntax-value-assignment:
+
 Value assignment: The "=" operator
 """"""""""""""""""""""""""""""""""
 
@@ -109,6 +118,9 @@ anything!
 Be aware that the value will be trimmed, which means stripped of
 whitespace at both ends.
 
+
+.. _syntax-colon-equal-operator:
+.. _syntax-value-modification:
 
 Value modifications: The ":=" operator
 """"""""""""""""""""""""""""""""""""""
@@ -168,6 +180,9 @@ produces the same result as::
    myObject.value = 3,4,5
 
 
+.. _syntax-code-blocks:
+.. _syntax-curly-brackets:
+
 Code blocks: The { } signs
 """"""""""""""""""""""""""
 
@@ -187,7 +202,7 @@ Rules:
   is ignored.
 
 - Blocks can be nested. This is actually recommended for **improved
-  readability** .
+  readability**.
 
 - **Note:** You cannot use conditions inside of braces (except the
   [GLOBAL] condition which will be detected and reset the brace-level to
@@ -216,6 +231,9 @@ could also be written as::
            }
    }
 
+
+.. _syntax-round-brackets:
+.. _syntax-multiline-values:
 
 Multi-line values: The ( ) signs
 """"""""""""""""""""""""""""""""
@@ -247,6 +265,9 @@ Example:
      </p>
    )
 
+
+.. _syntax-smaller-than-operator:
+.. _syntax-object-copying:
 
 Object copying: The "<" sign
 """"""""""""""""""""""""""""
@@ -316,6 +337,9 @@ copying. This example may seem trivial, but it's easy to loose the
 oversight in larger pieces of TypoScript.
 
 
+.. _syntax-equal-smaller-than-operator:
+.. _syntax-object-referencing:
+
 References: the "=<" sign
 """""""""""""""""""""""""
 
@@ -358,7 +382,10 @@ Remember: References are only available in TypoScript templates, not
 in TSconfig.
 
 
-Object unsetting: The ">" sign
+.. _syntax-bigger-than-operator:
+.. _syntax-unsetting-operator:
+
+Object unsetting: The ">" Sign
 """"""""""""""""""""""""""""""
 
 This is used to unset an object and all of its properties.
@@ -376,6 +403,9 @@ Example:
 
 In this last line "myObject" is totally wiped out (removed).
 
+
+.. _syntax-square-brackets:
+.. _syntax-conditions:
 
 Conditions: Lines starting with "["
 """""""""""""""""""""""""""""""""""

@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _syntax-highlighting-debugging:
+
 Syntax highlighting and debugging
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -58,6 +60,8 @@ will also be highlighted in green:
    :alt: Extdeveval showing some syntax errors and some notes concerning
          ignored data.
 
+
+.. _debugging:
 
 Debugging
 """""""""

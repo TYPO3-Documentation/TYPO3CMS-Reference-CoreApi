@@ -6,8 +6,12 @@
 .. include:: ../Includes.txt
 
 
+.. _introduction:
+
 Introduction
 ------------
+
+.. _about:
 
 About this document
 ^^^^^^^^^^^^^^^^^^^
@@ -19,6 +23,8 @@ contexts in which it can be used (i.e. templates and TSconfig).
 If the concept of TypoScript itself is not clear, please read the
 appendix "What is TypoScript?". Otherwise feel free to ignore it.
 
+
+.. _what-s-new:
 
 What's new
 ^^^^^^^^^^
@@ -32,6 +38,8 @@ In the version for TYPO3 4.5 all screenshots in this manual were
 updated.
 
 
+.. _credits:
+
 Credits
 ^^^^^^^
 
@@ -39,6 +47,8 @@ This document was formerly maintained by Michael Stucki and François
 Suter. Additions have been made by Sebastian Michaelsen. The updates
 for recent versions were done by Christopher Stelmaszyk.
 
+
+.. _feedback:
 
 Feedback
 ^^^^^^^^

@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _implementing-custom-conditions:
+
 Implementing custom conditions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -96,6 +98,8 @@ changed to "123" which was the value set before the condition and
 since the condition was not TRUE the overriding of that former value
 did not happen like in the first case.
 
+
+.. _custom-conditions-example:
 
 A realistic example
 """""""""""""""""""

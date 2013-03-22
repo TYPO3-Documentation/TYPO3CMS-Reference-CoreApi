@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _comparison-to-xml:
+
 More about syntax, semantics and TypoScript compared to XML and XSLT
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

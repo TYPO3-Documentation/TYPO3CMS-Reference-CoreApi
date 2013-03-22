@@ -6,6 +6,10 @@
 .. include:: ../../Includes.txt
 
 
+.. _object-paths:
+.. _objects:
+.. _properties:
+
 TypoScript syntax, object paths, objects and properties
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -64,6 +68,8 @@ of (the object) "asdf". Further, "transparency" is a property of (the
 object / the property) "backgroundColor" (or "asdf.backgroundColor").
 
 
+.. _semantics:
+
 Note about perceived semantics
 """"""""""""""""""""""""""""""
 
@@ -85,6 +91,8 @@ property names which humans can often deduct some meaning from, it
 ultimately is the programming reference, DTD or XML-Schema which
 defines the meaning.
 
+
+.._parsed-php-array:
 
 Note about the internal structure when parsed into a PHP array
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

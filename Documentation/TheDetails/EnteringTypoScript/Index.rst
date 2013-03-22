@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _entering-typoscript:
+
 Entering TypoScript
 ^^^^^^^^^^^^^^^^^^^
 
