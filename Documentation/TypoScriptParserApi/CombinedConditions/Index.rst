@@ -42,46 +42,52 @@ The implementation goes as follows::
       3:   /**
       4:    * Splits the input condition line into AND and OR parts
       5:    * which are evaluated separately and logically combined to the final output.
-      6:    */
-      7:   public function match($conditionLine) {
-      8:     // Getting the value from inside of the wrapping
-      9:     // square brackets of the condition line:
-     10:     $insideSqrBrackets = trim(ereg_replace('\]$', '', substr($conditionLine, 1)));
-     11:
-     12:     // The "weak" operator, OR, takes precedence:
-     13:     $ORparts = split('\][[:space:]]*\|\|[[:space:]]*\[', $insideSqrBrackets);
-     14:     foreach($ORparts as $andString) {
-     15:       $resBool = FALSE;
-     16:
-     17:       // Splits by the "&&" and operator:
-     18:       $ANDparts = split('\][[:space:]]*\&\&[[:space:]]*\[', $andString);
-     19:       foreach($ANDparts as $condStr) {
-     20:         $resBool = $this->evalConditionStr($condStr) ? TRUE : FALSE;
-     21:         if (!$resBool) break;
-     22:       }
-     23:
-     24:       if ($resBool) break;
-     25:     }
-     26:     return $resBool;
-     27:   }
-     28:
-     29:   /**
-     30:    * Evaluates the inner part of the conditions.
-     31:    */
-     32:   public function evalConditionStr($condStr) {
-     33:     // Splitting value into a key and value based on the "=" sign
-     34:     list($key, $value) = explode('=', $condStr, 2);
-     35:
-     36:     switch(trim($key)) {
-     37:       case 'UserIpRange':
-     38:         return GeneralUtility::cmpIP(GeneralUtility::getIndpEnv('REMOTE_ADDR'), trim($value)) ? TRUE : FALSE;
-     39:       break;
-     40:       case 'Browser':
-     41:         return $GLOBALS['CLIENT']['BROWSER'] == trim($value);
-     42:       break;
-     43:     }
-     44:   }
-     45: }
+      6:    *
+      7:    * @param string $conditionLine The condition line
+      8:    * @return boolean value
+      9:    */
+     10:   public function match($conditionLine) {
+     11:     // Getting the value from inside of the wrapping; take away the very outer
+     12:     // square brackets of the condition line:
+     13:     $insideSqrBrackets = trim(preg_replace('/\]$/', '', substr($conditionLine, 1)));
+     14:
+     15:     // The "weak" operator, OR, takes precedence:
+     16:     $ORparts = preg_split('/\]\s*\|\|\s*\[/', $insideSqrBrackets);
+     17:     foreach($ORparts as $andString) {
+     18:       $resBool = FALSE;
+     19:
+     20:       // Splits by the "&&" and operator:
+     21:       $ANDparts = preg_split('/\]\s*\&\&\s*\[/', $andString);
+     22:       foreach($ANDparts as $condStr) {
+     23:         $resBool = $this->evalConditionStr($condStr) ? TRUE : FALSE;
+     24:         if (!$resBool) break;
+     25:       }
+     26:
+     27:       if ($resBool) break;
+     28:     }
+     29:     return $resBool;
+     30:   }
+     31:
+     32:   /**
+     33:    * Evaluates the inner part of the conditions.
+     34:    *
+     35:    * @param string $condStr The text of one single condition
+     36:    * @return boolean The return value of the according condition
+     37:    */
+     38:   public function evalConditionStr($condStr) {
+     39:     // Splitting value into a key and value based on the "=" sign
+     40:     list($key, $value) = explode('=', $condStr, 2);
+     41:
+     42:     switch(trim($key)) {
+     43:       case 'UserIpRange':
+     44:         return GeneralUtility::cmpIP(GeneralUtility::getIndpEnv('REMOTE_ADDR'), trim($value)) ? TRUE : FALSE;
+     45:       break;
+     46:       case 'Browser':
+     47:         return $GLOBALS['CLIENT']['BROWSER'] == trim($value);
+     48:       break;
+     49:     }
+     50:   }
+     51: }
 
 With this implementation I can make a condition line like this::
 
@@ -147,38 +153,41 @@ as follows::
       1:   /**
       2:    * Splits the input condition line into AND and OR parts
       3:    * which are separately evaluated and logically combined to the final output.
-      4:    */
-      5:   public function match($conditionLine) {
-      6:     // Getting the value from inside of the wrapping
-      7:     // square brackets of the condition line:
-      8:     $insideSqrBrackets = trim(ereg_replace('\]$', '', substr($conditionLine, 1)));
-      9:
-     10:     // The "weak" operator, OR, takes precedence:
-     11:     $ORparts = split('\][[:space:]]*\|\|[[:space:]]*\[', $insideSqrBrackets);
-     12:     foreach($ORparts as $andString) {
-     13:       $resBool = FALSE;
-     14:
-     15:       // Splits by the "&&" and operator:
-     16:       $ANDparts = split('\][[:space:]]*\&\&[[:space:]]*\[', $andString);
-     17:       foreach($ANDparts as $subOrStr) {
-     18:
-     19:         // Split by no operator between ] and [ (sub-OR)
-     20:         $subORparts = split('\][[:space:]]*\[', $subOrStr);
-     21:         $resBool = FALSE;
-     22:         foreach($subORparts as $condStr) {
-     23:           if ($this->evalConditionStr($condStr)) {
-     24:             $resBool = TRUE;
-     25:             break;
-     26:           }
-     27:         }
-     28:
-     29:         if (!$resBool) break;
-     30:       }
+      4:    *
+      5:    * @param string $conditionLine The condition line
+      6:    * @return boolean value
+      7:    */
+      8:   public function match($conditionLine) {
+      9:     // Getting the value from inside of the wrapping; take away the very outer
+     10:     // square brackets of the condition line:
+     11:     $insideSqrBrackets = trim(preg_replace('/\]$/', '', substr($conditionLine, 1)));
+     12:
+     13:     // The "weak" operator, OR, takes precedence:
+     14:     $ORparts = preg_split('/\]\s*\|\|\s*\[/', $insideSqrBrackets);
+     15:     foreach($ORparts as $andString) {
+     16:       $resBool = FALSE;
+     17:
+     18:       // Splits by the "&&" and operator:
+     19:       $ANDparts = preg_split('/\]\s*\&\&\s*\[/', $andString);
+     20:       foreach($ANDparts as $subOrStr) {
+     21:
+     22:         // Split by no operator between ] and [ (sub-OR)
+     23:         $subORparts = preg_split('/\]\s*\[/', $subOrStr);
+     24:         $resBool = FALSE;
+     25:         foreach($subORparts as $condStr) {
+     26:           if ($this->evalConditionStr($condStr)) {
+     27:             $resBool = TRUE;
+     28:             break;
+     29:           }
+     30:         }
      31:
-     32:       if ($resBool) break;
-     33:     }
-     34:     return $resBool;
-     35:   }
+     32:         if (!$resBool) break;
+     33:       }
+     34:
+     35:       if ($resBool) break;
+     36:     }
+     37:     return $resBool;
+     38:   }
 
 That's it.
 

@@ -21,22 +21,28 @@ function. This is done in the code listing below::
       1: require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('core') . 'Classes/TypoScript/Parser/TypoScriptParser.php');
       2:
       3: class myConditions {
-      4:   public function match($conditionLine) {
-      5:     if ($conditionLine === '[TYPO3 IS GREAT]') {
-      6:       return TRUE;
-      7:     }
-      8:   }
-      9: }
-     10: $matchObj = GeneralUtility::makeInstance('myConditions');
-     11:
-     12: $TSparserObject = GeneralUtility::makeInstance('TypoScriptParser');
-     13: $TSparserObject->parse($tsString, $matchObj);
-     14:
-     15: debug($TSparserObject->setup);
+      4:  /**
+      5:   * Evaluates, if the condition line was "[TYPO3 IS GREAT]".
+      6:   *
+      7:   * @param string $conditionLine The condition line
+      8:   * @return boolean value
+      9:   */
+     10:   public function match($conditionLine) {
+     11:     if ($conditionLine === '[TYPO3 IS GREAT]') {
+     12:       return TRUE;
+     13:     }
+     14:   }
+     15: }
+     16: $matchObj = GeneralUtility::makeInstance('myConditions');
+     17:
+     18: $TSparserObject = GeneralUtility::makeInstance('TypoScriptParser');
+     19: $TSparserObject->parse($tsString, $matchObj);
+     20:
+     21: debug($TSparserObject->setup);
 
 Here go some notes to this listing:
 
-- Lines 3-10 define a very simple class with a function, match(),
+- Lines 3-15 define a very simple class with a function, match(),
   inside.The function "match()" must exist and take a string as its
   argument and the match function must also return a boolean value. This
   function should be programmed to evaluate the condition line according
@@ -44,10 +50,10 @@ Here go some notes to this listing:
   value "[TYPO3 IS GREAT]" then the condition will evaluate to true and
   the subsequent TypoScript will be parsed.
 
-- Line 13: Here the instantiated object, $matchObj, of the
+- Line 19: Here the instantiated object, $matchObj, of the
   "myConditions" class is passed to the parser.
 
-- Line 15: Just a little side note: Instead of using PHPs "print\_r()"
+- Line 21: Just a little side note: Instead of using PHPs "print\_r()"
   function we use the classic debug() function in TYPO3 which prints an
   array in an HTML table - some of us think this is the nicest way to
   look into the content of an array (make your own opinion from the
@@ -73,14 +79,14 @@ above. This is done by parsing this TypoScript code::
 
 With this listing we would expect to get the object path "message" set
 to "Yes" since the condition line "[TYPO3 IS GREAT]" matches the
-criteria for what will return true. Lets try:
+criteria for what will return true. Let's try:
 
 .. figure:: ../../Images/ParserAPIConditionDebug1.png
    :alt: Debug output of our custom condition 1.
 
 According to this output it worked!
 
-Lets try to alter line 2 to this::
+Let's try to alter line 2 to this::
 
       1:
       2: [TYPO3 IS great]
@@ -114,7 +120,7 @@ the TypoScript listings in the former section, "[UserIpRange =
       1: class myConditions {
       2:   public function match($conditionLine) {
       3:     // Getting the value inside of the square brackets:
-      4:     $insideSqrBrackets = trim(ereg_replace('\]$', '', substr($conditionLine, 1)));
+      4:     $insideSqrBrackets = trim(preg_replace('/\]$/', '', substr($conditionLine, 1)));
       5:
       6:     // Splitting value into a key and value based on the "=" sign
       7:     list($key, $value) = explode('=', $insideSqrBrackets, 2);
@@ -133,7 +139,7 @@ the TypoScript listings in the former section, "[UserIpRange =
 This class works in this way:
 
 - Line 4: The square brackets in the start (and possibly end as well) of
-  the condition line is removed.
+  the condition line are removed.
 
 - Line 7: The condition line without square brackets is exploded into a
   key and a value separated by the "=" sign; we are trying to implement
@@ -143,7 +149,7 @@ This class works in this way:
   "UserIpRange" or "Browser" (the datasource pointer) and the value
   after the equal sign is of course interpreted accordingly.
 
-Lets try and parse the TypoScript listing from the former section::
+Let's try and parse the TypoScript listing from the former section::
 
       0: colors {
       1:   backgroundColor = red
@@ -178,7 +184,7 @@ condition section and thus the "[UserIpRange = 123.456.\*.\*]" must
 still have evaluated to FALSE - which is actually no wonder since
 nobody can have the IP address range "123.456.\*.\*"!
 
-Lets change line 10 of the TypoScript to this::
+Let's change line 10 of the TypoScript to this::
 
       9:
      10: [UserIpRange = 192.168.*.*]

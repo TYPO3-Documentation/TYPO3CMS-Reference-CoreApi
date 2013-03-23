@@ -11,7 +11,7 @@
 Parsing custom TypoScript
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Lets imagine that you have created an application in TYPO3, for
+Let's imagine that you have created an application in TYPO3, for
 example a plug-in. You have defined certain parameters editable
 directly in the form fields of the plug-in content element. However
 you want advanced users to be able to set up more detailed parameters.
