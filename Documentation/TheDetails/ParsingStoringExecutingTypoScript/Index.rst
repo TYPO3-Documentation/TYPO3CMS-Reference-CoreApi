@@ -27,9 +27,9 @@ internally while it will continue to parse the TypoScript code. Syntax
 errors can therefore be seen only with a tool that analyzes the syntax
 - like the syntax highlighter does.
 
-The class "t3lib\_tsparser" is used to parse TypoScript content.
-Please see the appendix "The TypoScript parser API" in this document
-for details.
+The class "TypoScriptParser" ("t3lib\_tsparser") is used to parse
+TypoScript content. Please see the section ":ref:`typoscript-parser-api`"
+in this document for details.
 
 
 .. _storing-typoscript:
@@ -51,8 +51,8 @@ First, the TypoScript::
      backgroundColor.transparency = 95%
    }
 
-Then after parsing it with the function "parse()" in the
-t3lib\_tsparser class, the internal variable $this->setup in that
+Then after parsing it with the function "parse()" in the TypoScriptParser
+class (t3lib\_tsparser), the internal variable $this->setup in that
 class will contain a PHP array which looks like this (with the
 print\_r() PHP function)::
 
@@ -71,7 +71,7 @@ print\_r() PHP function)::
    )
 
 You can also print the array by an API function in TYPO3, namely
-t3lib\_div::view\_array() or just debug(). Then it looks like this:
+GeneralUtility::view\_array() or just debug(). Then it looks like this:
 
 .. figure:: ../../Images/DetailsDebug.png
    :alt: Debug output of a PHP array.

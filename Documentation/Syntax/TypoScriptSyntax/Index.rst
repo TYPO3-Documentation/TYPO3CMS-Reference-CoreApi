@@ -160,8 +160,8 @@ There are six predefined functions:
 - **removeFromList:** Removes a comma-separated list of values from an
   existing comma-separated list of values.
 
-There is a hook inside class.t3lib\_tsparser.php which can be used to
-define more such functions.
+There is a hook inside class TypoScriptParser (formerly
+class.t3lib\_tsparser.php), which can be used to define more such functions.
 
 
 Example:

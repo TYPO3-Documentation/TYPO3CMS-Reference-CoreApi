@@ -90,7 +90,7 @@ context of TypoScript Templates that the condition line content is
 broken down into smaller units ("[ condition 1 ]" and "[ condition
 2]") which are individually evaluated and connected by a logical OR
 before they return the resulting TRUE or FALSE value. (That is all
-done with the class t3lib\_matchCondition).
+done with the class AbstractConditionMatcher (t3lib\_matchCondition)).
 
 Here is an example of some TypoScript (from the context of TypoScript
 Templates) where another text is output if you use the Microsoft

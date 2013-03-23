@@ -18,18 +18,18 @@ all you need to do in order to have an external process deal with
 conditions is to pass an object as the second parameter to the parse-
 function. This is done in the code listing below::
 
-      1: require_once(PATH_t3lib.'class.t3lib_tsparser.php');
+      1: require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('core') . 'Classes/TypoScript/Parser/TypoScriptParser.php');
       2:
       3: class myConditions {
-      4:   function match($conditionLine) {
+      4:   public function match($conditionLine) {
       5:     if ($conditionLine === '[TYPO3 IS GREAT]') {
       6:       return TRUE;
       7:     }
       8:   }
       9: }
-     10: $matchObj = t3lib_div::makeInstance('myConditions');
+     10: $matchObj = GeneralUtility::makeInstance('myConditions');
      11:
-     12: $TSparserObject = t3lib_div::makeInstance('t3lib_tsparser');
+     12: $TSparserObject = GeneralUtility::makeInstance('TypoScriptParser');
      13: $TSparserObject->parse($tsString, $matchObj);
      14:
      15: debug($TSparserObject->setup);
@@ -40,7 +40,7 @@ Here go some notes to this listing:
   inside.The function "match()" must exist and take a string as its
   argument and the match function must also return a boolean value. This
   function should be programmed to evaluate the condition line according
-  to your specifications.Currently, if a condition line contains the
+  to your specifications. Currently, if a condition line contains the
   value "[TYPO3 IS GREAT]" then the condition will evaluate to true and
   the subsequent TypoScript will be parsed.
 
@@ -112,16 +112,16 @@ the TypoScript listings in the former section, "[UserIpRange =
 123.456.\*.\*]"::
 
       1: class myConditions {
-      2:   function match($conditionLine) {
-      3:       // Getting the value inside of the square brackets:
+      2:   public function match($conditionLine) {
+      3:     // Getting the value inside of the square brackets:
       4:     $insideSqrBrackets = trim(ereg_replace('\]$', '', substr($conditionLine, 1)));
       5:
-      6:       // Splitting value into a key and value based on the "=" sign
+      6:     // Splitting value into a key and value based on the "=" sign
       7:     list($key, $value) = explode('=', $insideSqrBrackets, 2);
       8:
       9:     switch(trim($key)) {
      10:       case 'UserIpRange':
-     11:         return t3lib_div::cmpIP(t3lib_div::getIndpEnv('REMOTE_ADDR'), trim($value)) ? TRUE : FALSE;
+     11:         return GeneralUtility::cmpIP(GeneralUtility::getIndpEnv('REMOTE_ADDR'), trim($value)) ? TRUE : FALSE;
      12:       break;
      13:       case 'Browser':
      14:         return $GLOBALS['CLIENT']['BROWSER'] == trim($value);
@@ -165,7 +165,7 @@ Lets try and parse the TypoScript listing from the former section::
      17:
      18: [GLOBAL]
      19:
-     20:   // Wonder if this works... :-)
+     20: // Wonder if this works... :-)
      21: wakeMeUp = 7:00
 
 The result of parsing this will be an array like this:

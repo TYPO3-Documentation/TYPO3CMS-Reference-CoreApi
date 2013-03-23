@@ -25,9 +25,9 @@ In the context of TypoScript Templates you can place several
    [GLOBAL]
 
 They are evaluated by OR-ing the result of each sub-condition (done in
-the class t3lib\_matchCondition). We could implement something alike
-and maybe even better. For instance we could implement a syntax like
-this::
+the class AbstractConditionMatcher (formerly t3lib\_matchCondition)). We
+could implement something alike and maybe even better. For instance we could
+implement a syntax like this::
 
    [ CON 1 ] && [ CON 2 ] || [ CON 3 ]
 
@@ -41,19 +41,19 @@ The implementation goes as follows::
       2:
       3:   /**
       4:    * Splits the input condition line into AND and OR parts
-      5:    * which are separately evaluated and logically combined to the final output.
+      5:    * which are evaluated separately and logically combined to the final output.
       6:    */
-      7:   function match($conditionLine) {
-      8:       // Getting the value from inside of the wrapping
-      9:       // square brackets of the condition line:
+      7:   public function match($conditionLine) {
+      8:     // Getting the value from inside of the wrapping
+      9:     // square brackets of the condition line:
      10:     $insideSqrBrackets = trim(ereg_replace('\]$', '', substr($conditionLine, 1)));
      11:
-     12:       // The "weak" operator, OR, takes precedence:
+     12:     // The "weak" operator, OR, takes precedence:
      13:     $ORparts = split('\][[:space:]]*\|\|[[:space:]]*\[', $insideSqrBrackets);
      14:     foreach($ORparts as $andString) {
      15:       $resBool = FALSE;
      16:
-     17:         // Splits by the "&&" and operator:
+     17:       // Splits by the "&&" and operator:
      18:       $ANDparts = split('\][[:space:]]*\&\&[[:space:]]*\[', $andString);
      19:       foreach($ANDparts as $condStr) {
      20:         $resBool = $this->evalConditionStr($condStr) ? TRUE : FALSE;
@@ -68,16 +68,16 @@ The implementation goes as follows::
      29:   /**
      30:    * Evaluates the inner part of the conditions.
      31:    */
-     32:   function evalConditionStr($condStr) {
-     33:       // Splitting value into a key and value based on the "=" sign
+     32:   public function evalConditionStr($condStr) {
+     33:     // Splitting value into a key and value based on the "=" sign
      34:     list($key, $value) = explode('=', $condStr, 2);
      35:
      36:     switch(trim($key)) {
      37:       case 'UserIpRange':
-     38:         return t3lib_div::cmpIP(t3lib_div::getIndpEnv('REMOTE_ADDR'), trim($value)) ? TRUE : FALSE;
+     38:         return GeneralUtility::cmpIP(GeneralUtility::getIndpEnv('REMOTE_ADDR'), trim($value)) ? TRUE : FALSE;
      39:       break;
      40:       case 'Browser':
-     41:         return $GLOBALS['CLIENT']['BROWSER']==trim($value);
+     41:         return $GLOBALS['CLIENT']['BROWSER'] == trim($value);
      42:       break;
      43:     }
      44:   }
@@ -148,21 +148,21 @@ as follows::
       2:    * Splits the input condition line into AND and OR parts
       3:    * which are separately evaluated and logically combined to the final output.
       4:    */
-      5:   function match($conditionLine) {
-      6:       // Getting the value from inside of the wrapping
-      7:       // square brackets of the condition line:
+      5:   public function match($conditionLine) {
+      6:     // Getting the value from inside of the wrapping
+      7:     // square brackets of the condition line:
       8:     $insideSqrBrackets = trim(ereg_replace('\]$', '', substr($conditionLine, 1)));
       9:
-     10:       // The "weak" operator, OR, takes precedence:
+     10:     // The "weak" operator, OR, takes precedence:
      11:     $ORparts = split('\][[:space:]]*\|\|[[:space:]]*\[', $insideSqrBrackets);
      12:     foreach($ORparts as $andString) {
      13:       $resBool = FALSE;
      14:
-     15:         // Splits by the "&&" and operator:
+     15:       // Splits by the "&&" and operator:
      16:       $ANDparts = split('\][[:space:]]*\&\&[[:space:]]*\[', $andString);
      17:       foreach($ANDparts as $subOrStr) {
      18:
-     19:           // Split by no operator between ] and [ (sub-OR)
+     19:         // Split by no operator between ] and [ (sub-OR)
      20:         $subORparts = split('\][[:space:]]*\[', $subOrStr);
      21:         $resBool = FALSE;
      22:         foreach($subORparts as $condStr) {
@@ -226,7 +226,8 @@ Returns TRUE if the client's remote IP address matches the pattern
 given as value.
 
 The value is matched against REMOTE\_ADDR by the function
-t3lib\_div::cmpIP(), which you can consult for details on the syntax.
+GeneralUtility::cmpIP() (formerly t3lib\_div::cmpIP()), which you can
+consult for details on the syntax.
 
 Example::
 
@@ -249,8 +250,8 @@ Values you can use:
 **net** = Netscape (or any other)
 
 Values are evaluated against the output of the function
-t3lib\_div::clientInfo() which can be consulted for details on the
-values for browsers.
+GeneralUtility::clientInfo() (formerly t3lib\_div::clientInfo())
+which can be consulted for details on the values for browsers.
 
 **Note**: These values are **examples**, which fit to the code we
 have built above. In current TYPO3 versions the available values have

@@ -224,7 +224,7 @@ fine in that regard.) ::
      17:
      18: [GLOBAL]
      19:
-     20:   // Wonder if this works... :-)
+     20: // Wonder if this works... :-)
      21: wakeMeUp = 7:00
 
 (Syntax highlighting of TS (and XML and PHP) can be done with the
@@ -234,9 +234,9 @@ In order to parse this TypoScript we can use the following code
 provided that the variable $tsString contains the above TypoScript as
 its value::
 
-      3: require_once(PATH_t3lib.'class.t3lib_tsparser.php');
+      3: require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('core') . 'Classes/TypoScript/Parser/TypoScriptParser.php');
       4:
-      5: $TSparserObject = t3lib_div::makeInstance('t3lib_tsparser');
+      5: $TSparserObject = GeneralUtility::makeInstance('TypoScriptParser');
       6: $TSparserObject->parse($tsString);
       7:
       8: echo '<pre>';
