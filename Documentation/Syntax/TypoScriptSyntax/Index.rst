@@ -332,7 +332,7 @@ copy does not change!** Take a look at the following code::
    someObject.wrap = <h1>|<h1>
 
 The value of the "wrap" property of "anotherObject" is "<p>\|</p>". It
-it **not** "<h1>\|<h1>" because this change happens **after** the
+is **not** "<h1>\|<h1>" because this change happens **after** the
 copying. This example may seem trivial, but it's easy to loose the
 oversight in larger pieces of TypoScript.
 
@@ -353,7 +353,7 @@ The obvious advantage is that a **change of code to the original
 object affects all references**. It avoids the risk mentioned above
 with the copy operator to forget that a change at a later point does
 not affect earlier copies. On the other hand there's the reverse risk:
-it is easy to forget that changing the original object will have an
+It is easy to forget that changing the original object will have an
 impact on all references. References are very convenient, but should
 be used with caution.
 
@@ -411,7 +411,7 @@ Conditions: Lines starting with "["
 """""""""""""""""""""""""""""""""""
 
 Conditions break the parsing of TypoScript in order to evaluate the
-content of the condition line. If the evaluation returns true parsing
+content of the condition line. If the evaluation returns true, parsing
 continues, otherwise the following TypoScript is ignored until the
 next condition is found, at which point a new evaluation takes place.
 The next section in this document describes conditions in more
@@ -432,7 +432,7 @@ Example:
 
    [browser = msie]
    page.10.value = Internet Explorer
-   [else]
+   [ELSE]
    page.10.value = Not an Internet Explorer browser!
-   [end]
+   [END]
 

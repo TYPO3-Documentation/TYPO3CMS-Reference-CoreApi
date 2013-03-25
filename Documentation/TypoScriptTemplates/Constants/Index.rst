@@ -37,7 +37,7 @@ Here "bgCol" is set to "red", "file.toplogo" is set to
 "fileadmin/logo2.gif"; these files must be uploaded in your
 installation.
 
-.. code-block::
+.. code-block:: ts
    :emphasize-lines: 3,4
 
    bgCol = red
@@ -47,7 +47,7 @@ installation.
 
 This could also be defined in other ways, e.g. like this:
 
-.. code-block::
+.. code-block:: ts
    :emphasize-lines: 2,7
 
    bgCol = red

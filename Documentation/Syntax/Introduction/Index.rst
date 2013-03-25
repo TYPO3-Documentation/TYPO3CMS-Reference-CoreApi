@@ -11,8 +11,8 @@
 Introduction
 ^^^^^^^^^^^^
 
-TypoScript is like a (large) multidimensional PHP array (see "Appendix
-A – What is TypoScript?"). Values are arranged in a tree-like
+TypoScript is like a (large) multidimensional PHP array (see
+":ref:`what-is-typoscript`"). Values are arranged in a tree-like
 hierarchy. The "branches" are indicated with periods (".") - a syntax
 borrowed from for example JavaScript and which conveys the idea of
 defining objects/properties.

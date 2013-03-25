@@ -62,7 +62,7 @@ the according `section "Conditions" in :ref:`TSconfig
 The syntax of conditions
 """"""""""""""""""""""""
 
-A condition always has its own line and the line is detected by " [ "
+A condition always has its own line and the line is detected by "["
 (square bracket) being the first character on that line::
 
    (Some TypoScript)
@@ -75,7 +75,7 @@ A condition always has its own line and the line is detected by " [ "
 
    (Some TypoScript)
 
-As you can see from this example, the line " **[GLOBAL]** " also is a
+As you can see from this example, the line "**[GLOBAL]**" also is a
 condition. It is built-in into TypoScript and always returns TRUE. The
 line "[ condition 1 ][ condition 2]" is another condition. If "[
 condition 1 ][ condition 2]" is TRUE, then the TypoScript in the
@@ -144,10 +144,10 @@ of TypoScript Templates)::
    [browser = msie]
    page.10.value = Internet Explorer
 
-   [else]
+   [ELSE]
    page.10.value = Not an Internet Explorer browser!
 
-   [end]
+   [END]
 
    page.10.wrap = <strong>|</strong>
 
@@ -171,9 +171,9 @@ but you could do this::
 
    [browser = msie][usergroup = 3]
      # Enter nothing here!
-   [else]
+   [ELSE]
      page.10.value = This text is only displayed if the conditions above are not TRUE!
-   [end]
+   [END]
 
 
 .. _conditions-confinements:

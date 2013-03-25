@@ -173,11 +173,11 @@ of a website:
 
 TypoScript Templates contain a field for the TypoScript configuration
 code ("Setup" field) but a template record like the one in the picture
-above ("ROOT") can also contain references to other template records
-and files which contain predefined generally useful TypoScript code
-which is included and thus reusable/sharable across templates. The
-order of included TypoScript template records/files can be seen
-visually with the Template Analyzer, which you find inside the
+above ("Introduction Package") can also contain references to other
+template records and files which contain predefined generally useful
+TypoScript code which is included and thus reusable/sharable across
+templates. The order of included TypoScript template records/files can
+be seen visually with the Template Analyzer, which you find inside the
 "Template" module in the backend (if it is not there, install the
 system extension "tstemplate\_analyzer"):
 
@@ -185,8 +185,8 @@ system extension "tstemplate\_analyzer"):
    :alt: A hierarchy of TypoScript templates in the Template Analyzer.
 
 To get more background knowledge about how TypoScript templates work,
-please read the document "TypoScript Templates". To read about all
-standard objects and properties which you can use in building
+please read the section ":ref:`typoscript-templates`". To read about
+all standard objects and properties which you can use in building
 TypoScript templates you should refer to the TypoScript reference -
 TSref. For practical examples or when you want to learn by doing, look
 at the Getting Started manual.
