@@ -30,13 +30,13 @@ feel free to ignore it.
 What's new
 ^^^^^^^^^^
 
-This version of the manual was updated for TYPO3 4.7. The changes
-include updating an outdated statement about conditions. Additionally
-the deprecated content object "HTML" in some examples was replaced by
-the content object "TEXT".
+This version of the manual was updated for TYPO3 CMS 6.0. The changes
+include updating the information on the "Resource" field of TypoScript
+templates (which has been removed). Also information on old file names
+and classes were refreshed and some deprecated PHP functions were
+replaced by their recommended replacements.
 
-In the version for TYPO3 4.5 all screenshots in this manual were
-updated.
+The screenshots were updated.
 
 
 .. _credits:
