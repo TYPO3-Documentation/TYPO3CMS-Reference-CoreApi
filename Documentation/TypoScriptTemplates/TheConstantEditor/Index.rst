@@ -315,8 +315,7 @@ normally would.
          and contain numbered marks, that indicate positions that are referred
          to by the constants, listed in the number-array.
 
-         The image must be located in "gfx/" in the module path OR be a file
-         from the resource-list of the template.
+         The image must be located in "gfx/" in the module path.
 
 
 .. container:: table-row
