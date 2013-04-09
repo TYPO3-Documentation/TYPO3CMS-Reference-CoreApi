@@ -44,32 +44,30 @@ TypoScript settings in TSconfig fields of outer pages can override
 those settings of pages closer to the root.
 
 For instance you may have two separate websites located in separate
-branches of the page tree. The one website might support content from
-only the "normal" column while the other website supports it for both
-the "normal" and "border" column. Since the Page module by default
-shows all four possible columns you may want to instruct the page
-module to show only the normal column and normal + border column
-respectively. But this will only be possible if you can somehow tell
-the system that from this page and outwards, use only "normal" column
-and from that page and outwards use only "normal" + "border" column.
-So in the root page of the two-column website you enter this line in
-the TSconfig field:
+branches of the page tree. The one website should show the search box
+below the columns of the page module while the other website should not
+show it. To get this result, you somehow have to tell the system that
+from this page and outwards, the search box should be shown and from
+that page and outwards it should be hidden. So in the root page of the
+website with activated search box you enter this line in the TSconfig
+field:
 
-.. figure:: ../../Images/DetailsPageTSconfigColPosList2Columns.png
-   :alt: The TSconfig field of a page with a configuration for two columns.
+.. figure:: ../../Images/DetailsPageTSconfigSearchBoxEnabled.png
+   :alt: The TSconfig field of a page with activated search box.
 
-And likewise for the one-column website you enter this value in the
-TSconfig field of the root page:
+And likewise for the website with deactivated search box you enter this
+value in the TSconfig field of the root page:
 
-.. figure:: ../../Images/DetailsPageTSconfigColPosList1Column.png
-   :alt: The TSconfig field of a page with a configuration for one column.
+.. figure:: ../../Images/DetailsPageTSconfigSearchBoxDisabled.png
+   :alt: The TSconfig field of a page with deactivated search box.
 
 For any subpage of the root page where the configuration was entered
 the "Page" module will receive the value of the property
-"colPos\_list". Accordingly only the configured columns will be shown.
+"disableSearchBox". Accordingly the search box will be shown or hidden.
 
 The objects and properties you can use here are generally defined in
-the document "TSconfig" in addition to local extension documents.
+the document ":ref:`TSconfig <t3tsconfig:start>`" in addition to local
+extension documents.
 
 
 .. _details-user-tsconfig:
