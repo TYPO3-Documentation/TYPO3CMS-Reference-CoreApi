@@ -160,6 +160,26 @@ There are six predefined functions:
 - **removeFromList:** Removes a comma-separated list of values from an
   existing comma-separated list of values.
 
+- **uniqueList:** Removes duplicate entries from a comma-separated list
+  of values.
+
+- **reverseList:** Reverses the order of entries in a comma-separated
+  list of values.
+
+- **sortList:** Sorts the entries in a comma-separated list of values.
+
+  Optional parameters are
+
+  - **ascending:** Sort the items in ascending order: First numbers
+    from small to big, then letters in alphabetical order. This is the
+    default method.
+  - **descending:** Sort the items in descending order: First letters
+    in descending order, then numbers from big to small.
+  - **numeric:** Apply numeric sorting: Numbers from small to big,
+    letters sorted after "0".
+
+  Multiple parameters are separated by comma.
+
 There is a hook inside class TypoScriptParser (formerly
 class.t3lib\_tsparser.php), which can be used to define more such functions.
 
