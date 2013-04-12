@@ -71,7 +71,7 @@ use the following configuration:
    );
 
 This overwrites the default configuration shown in the first example for classes
-located in the namespace "\TYPO3\Examples\Controller".
+located in the namespace "\Documentation\Examples\Controller".
 
 For extension "foo" with key "tx_foo" (not using namespaces), the configuration would be located at:
 

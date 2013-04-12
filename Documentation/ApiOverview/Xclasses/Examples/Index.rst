@@ -65,7 +65,7 @@ Let's see what happens then in the extension "examples":
    file::
 
        $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Backend\\Controller\\NewRecordController'] = array(
-       	'className' => 'TYPO3\\Examples\\Xclass\\NewRecordController'
+       	'className' => 'Documentation\\Examples\\Xclass\\NewRecordController'
        );
 
 All classes are thus extendable.
