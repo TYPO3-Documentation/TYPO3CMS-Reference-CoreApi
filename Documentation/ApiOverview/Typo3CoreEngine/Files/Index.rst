@@ -191,7 +191,7 @@ Command keywords and values
          upload\_$id
    :Value:
          "data" = ID-number (points to the global var that holds the filename-
-         ref (:code:`$GLOBALS["HTTP_POST_FILES"]["upload_" . $id]["name"]`).
+         ref (:code:`$_FILES["upload_" . $id]["name"]`).
 
          "target" = Absolute path to the target folder (destination)
 

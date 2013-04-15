@@ -263,7 +263,7 @@ real documentation is found in the source scripts (and the
 
                 // Read uploaded file:
             $uploadedTempFile = \TYPO3\CMS\Core\Utility\GeneralUtility::upload_to_tempfile(
-                $GLOBALS['HTTP_POST_FILES']['upload_ext_file']['tmp_name']
+                $_FILES['upload_ext_file']['tmp_name']
             );
             $fileContent = \TYPO3\CMS\Core\Utility\GeneralUtility::getUrl($uploadedTempFile);
             \TYPO3\CMS\Core\Utility\GeneralUtility::unlink_tempfile($uploadedTempFile);
