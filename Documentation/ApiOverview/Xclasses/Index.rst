@@ -21,66 +21,119 @@ Extending classes (XCLASSes)
 Introduction
 ^^^^^^^^^^^^
 
-Practically all classes used in TYPO3 -
-both frontend and backend - can be extended by user-defined classes.
-Extension of TYPO3 PHP classes is often referred to as an "XCLASS
-extension".
+XCLASSing is a mechanism in TYPO3 CMS to extend classes or overwrite methods from the Core or extensions
+with one's own code. This enables a developer to easily change a given functionality,
+if other options like :ref:`hooks <hooks>`, signals or the extbase dependency injection mechanisms
+do not work or do not exist.
 
-Extending TYPO3 PHP classes is recommended mostly for special needs
-in individual projects. This is due to the limitation that a class can
-only be extended once. Thus, if many extensions try to extend the same
-class, only one of them will succeed and in turn the others will not
-function correctly.
+However there are :ref:`several limitations <xclasses-limitations>`.
 
-So, extending classes is a great option for individual projects where
-special "hacks" are needed. But generally it is a poor way of
-programming TYPO3 extensions in which case you should look for a
-system hook or request a system hook to be made for your purpose if
-generally meaningful.
+.. note::
 
-Configuring user classes works like this:
-
-#. In :file:`(ext_)localconf.php` you configure for either frontend or backend
-   that you wish to include a file with the extension of the class. This
-   inclusion is usually done in the end of the class-file itself based on
-   a lookup in :code:`$TYPO3_CONF_VARS`.
-
-#. Whenever the class is instantiated as an object, the source code
-   checks if a user-extension of that class exists. If so, then *that*
-   class (or an extension of the extended class) is instantiated and not
-   the "normal" (parent) class. Getting the correct instance of a class is
-   handled transparently by :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`,
-   which is why you should never use the :code:`new` operator when
-   creating an object.
+   If you need a hook or a signal that does not exist, feel free to submit
+   a feature request and - even better - a patch.
 
 
-.. _xclasses-which-classes:
+.. _xclasses-mechanism:
 
-Which classes?
-^^^^^^^^^^^^^^
+How does it work?
+^^^^^^^^^^^^^^^^^
 
-Most code in TYPO3 resides in classes and therefore anything in the
-system can be extended. So you should rather say to yourself: In which
-script (and thereby which class) is it that I'm going to extend/change
-something. When you know which script, you simply open it, look inside
-and somewhere you'll find the lines of code which are responsible for
-the inclusion of the extension, typically in the bottom of the script.
-
-The exceptions to this rule are classes like :code:`\TYPO3\CMS\Core\Utility\GeneralUtility`,
-:code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility` or
-:code:`\TYPO3\CMS\Backend\Utility\BackendUtility`. These classes are static.
-Since they never get instantiated, the cannot be extended
-with an XCLASS.
+In general every class instance in the Core and in extensions that stick to
+the recommended :ref:`TYPO3 coding guidelines <t3cgl:start>` is created with the API call
+:code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`.
+The methods takes care of singletons and also searches for existing XCLASSes.
+If there is an XCLASS registered for the specific class that should be instantiated,
+an instance of that XCLASS is returned instead of an instance of the original class.
 
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+.. _xclasses-limitations:
 
-   Examples/Index
-   ExtendingMethods/Index
-   UserMethods/Index
-   Warnings/Index
+Limitations
+^^^^^^^^^^^
+
+- Using XCLASSes is risky: neither the core, nor extensions authors
+  can guarantee that XCLASSes will not break if the underlying code changes
+  (for example during upgrades). Be aware that your XCLASS can easily break
+  and has to be maintained and fixed if the underlying code changes.
+  If possible, you should use a hook instead of an XCLASS.
+
+- XCLASSes do **not** work for static classes, static methods or final classes.
+
+- There can be **only one** XCLASS per base class, but an XCLASS can be XCLASSed again.
+  Be aware that such a construct is even more risky and definitely not advisable.
+
+- A small number of Core classes are required very early during bootstrap
+  before configuration and other things are loaded. XCLASSing those classes will fail if they are singletons
+  or might have unexpected side-effects.
 
 
+.. _xclasses-declaration:
+
+Declaration
+^^^^^^^^^^^
+
+The :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']` global array acts as a registry
+of overloaded (XCLASSed) classes.
+
+The syntax is as follows and is commonly located in an extension's :file:`ext_localconf.php` file::
+
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Backend\\Controller\\NewRecordController'] = array(
+       	'className' => 'Documentation\\Examples\\Xclass\\NewRecordController'
+       );
+
+
+In this example, we declare that the :code:`\TYPO3\CMS\Backend\Controller\NewRecordController` class
+will be overridden by the :code:`\Documentation\Examples\Xclass\NewRecordController` class, the
+latter being part of the "examples" extension.
+
+.. note::
+
+   In the above declaration, namespaced classes are entered without the leading
+   backslash.
+
+When XCLASSing a class that does not use namespaces, simply use that class' name
+in the declaration.
+
+.. note::
+
+   To be compatible with older versions of TYPO3 CMS, you need to also add old-style
+   XCLASS declarations. Please refer to older versions of this document for more
+   information.
+
+
+.. _xclasses-coding:
+
+Coding practices
+^^^^^^^^^^^^^^^^
+
+The recommended way of writing an XCLASS is to **extend** the original class and
+overwrite only the methods where a change is needed. This lowers the chances of the
+XCLASS breaking after a code update.
+
+.. tip::
+
+   You're even safer if you can do your changes before or after the parent method
+   and just call the latter with :code:`parent::`.
+
+The example below extends the new record wizard screen. It first calls the original
+method and then adds its own content::
+
+   class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController {
+      function regularNew() {
+      	parent::regularNew();
+      	$this->code .= $this->doc->section(
+      		$GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:help'),
+      		$GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:make_choice'),
+      		0,
+      		1
+      	);
+      }
+   }
+
+The result can be seen here:
+
+.. figure:: ../../Images/XclassNewElementWizard.png
+   :alt: Adding an element to the new record wizard
+
+   A help section is added at the bottom of the new record wizard.
