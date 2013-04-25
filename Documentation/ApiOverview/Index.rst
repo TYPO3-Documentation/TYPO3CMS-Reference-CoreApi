@@ -47,6 +47,6 @@ http://typo3.org/documentation/api/.
    FlashMessages/Index
    Hooks/Index
    Xclasses/Index
-   VariousExamples/Index
+   Examples/Index
 
 

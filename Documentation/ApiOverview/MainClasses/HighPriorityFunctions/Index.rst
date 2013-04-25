@@ -469,7 +469,7 @@ real documentation is found in the source scripts (and the
          actual editing command is passed to "alt\_doc.php" through the GET
          parameter "&edit".
 
-         For detailed examples, see :ref:`t3api:edit-links-examples`.
+         For detailed examples, see :ref:`edit-links`.
 
          Example::
 

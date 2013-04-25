@@ -15,7 +15,7 @@ Page tree
 ^^^^^^^^^
 
 Since TYPO3 4.5, the page tree is powered by ExtJS. It is implemented in the
-global viewport as a :ref:`navigation component<viewport-navigation>`.
+global viewport as a :ref:`navigation component <viewport-navigation>`.
 
 .. figure:: ../../../Images/PageTreeUmlDiagram.png
    :alt: UML class diagram for the TYPO3 Page Tree
@@ -44,6 +44,11 @@ Context-sensitive menus
 
 With the new page tree the implementation of the context-sensitive menu (CSM) items
 was made more flexible and easier to configure.
+
+.. warning::
+
+   The section below applies only to the CSM for the page tree. Other CSM still
+   use the :ref:`old way of doing things <csm>`.
 
 
 .. _context-menu-configuration:
