@@ -19,7 +19,7 @@ TYPO3 Core APIs
       doc_core_api
 
 :Version:
-      4.6.0
+      4.7.0
 
 :Language:
       en
