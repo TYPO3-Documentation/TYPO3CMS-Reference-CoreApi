@@ -52,13 +52,13 @@ Default values:
 The default value of a constant is determined by the value the
 constant has BEFORE the last template (the one you're manipulating
 with the module) is parsed (previous templates are typically included
-static\_template-records!), unless the mark
+static\_template records!), unless the mark
 ###MOD\_TS:EDITABLE\_CONSTANTS### is found in the last template, in
 which case constant-definitions before this mark are also regarded
 default-values.
 
 This means that all constant values - or values after the mark
-###MOD\_TS:EDITABLE\_CONSTANTS### if present - in the template-record
+###MOD\_TS:EDITABLE\_CONSTANTS### if present - in the template record
 you're manipulating are regarded to be your customized extensions.
 
 
@@ -170,7 +170,7 @@ timedia,cmailform,csearch,clogin,csplash,cmenu,cshortcut,clist,cscript
 
 These are all categories reserved for options that relate to content
 rendering for each type of tt\_content element. See static\_template
-"content (default)" and "styles.content (default)" for examples.
+"css_styled_content" for examples.
 
 **Custom Subcategories**
 
@@ -360,7 +360,7 @@ Example:
    }
 
 This example shows how the static template "BUSINESS", which you find
-in the system extension "statictemplates", is configured for the
+in the extension "statictemplates", is configured for the
 **basic**-module.
 
 The Business template is frame-based and has a very simple layout. It

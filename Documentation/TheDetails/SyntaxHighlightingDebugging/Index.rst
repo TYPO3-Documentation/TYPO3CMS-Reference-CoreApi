@@ -78,5 +78,5 @@ can also be useful for debugging. Its auto-completion functionality
 for example only offers properties to be chosen, which in fact are
 semantically allowed at a certain place. Currently t3editor is
 available when editing the Setup field of a TypoScript template – not
-for Page TSconfig or User TSconfig (writing March 2013).
+for Page TSconfig or User TSconfig (writing May 2013).
 

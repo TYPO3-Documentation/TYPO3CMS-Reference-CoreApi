@@ -88,7 +88,7 @@ processors.
 But TypoScript is also a concept that fits the PHP and TYPO3
 configuration very well (although it has been taken very far in
 certain areas). TypoScript is basically a large object-like structure
-of information which can be set from text-files (DB -records...) and
+of information which can be set from text-files (DB records...) and
 the TYPO3 default PHP frontend code just reacts to the settings in
 TypoScript.
 

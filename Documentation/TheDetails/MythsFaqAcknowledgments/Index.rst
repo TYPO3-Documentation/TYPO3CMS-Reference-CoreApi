@@ -119,7 +119,7 @@ are.
 
 Actually a data structure defined in TypoScript could also have been
 modeled in XML. Currently you *cannot* use XML as an alternative to
-TypoScript (writing of March 2013), but this may happen at some
+TypoScript (writing of May 2013), but this may happen at some
 point. Let's present this fictitious example of how a TypoScript
 structure could also have been implemented in "TSML" (our fictitious
 name for the non-existing TypoScript Mark-Up Language)::
