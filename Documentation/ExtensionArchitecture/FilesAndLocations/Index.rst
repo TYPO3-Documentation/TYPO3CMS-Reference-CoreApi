@@ -225,7 +225,7 @@ extensions with the name prefix "ext\_".
          Since TYPO3 4.3, it is possible to declare classes in this file so
          that they will be automatically detected by the TYPO3 autoloader. This
          means that it is not necessary to require the related class files
-         anymore. See the "Autoloading" chapter for more details.
+         anymore. See the :ref:`autoload` chapter for more details.
 
  - :Filename: ext\_api\_php.dat
    :Description:

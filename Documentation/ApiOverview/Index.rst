@@ -34,6 +34,7 @@ http://typo3.org/documentation/api/.
    :glob:
 
    Namespaces/Index
+   Autoloading/Index
    MainClasses/Index
    GlobalValues/Index
    BackendUserObject/Index
