@@ -204,117 +204,97 @@ must be strings or integers.)
          fuzzy unless you understand the contexts.
 
 
-.. _t3ds-elements-examples:
+.. _t3ds-elements-example:
 
-Examples
-""""""""
+Example
+"""""""
 
-.. _t3ds-elements-examples-mininews:
-
-FlexForm configuration in "mininews" extension
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Simple example of a data structure used to define a FlexForm element
-in TCEforms. Notice the application specific section <TCEforms> (see
-documentation for FlexForms).
+Below is the (truncated) structure for the plugin options of
+system extension "felogin". It shows an example of relative complex
+data structure used in a FlexForm. More information about such usage
+of FlexForms can be found in the :ref:`relevant section of the TCA reference <t3tca:columns-flex>`.
 
 .. code-block:: xml
 
-   <T3DataStructure>
-           <meta>
-                   <langDisable>1</langDisable>
-           </meta>
-     <ROOT>
-       <type>array</type>
-       <el>
-         <field_templateObject>
-                   <TCEforms>
-                           <label>LLL:EXT:mininews/locallang_db.php:tt_content.pi_flexform.select_template</label>
-
-                           <config>
-                                   <type>select</type>
-                                   <items>
-                                           <numIndex index="0">
-                                                   <numIndex index="0"></numIndex>
-                                                   <numIndex index="1">0</numIndex>
-                                           </numIndex>
-                                   </items>
-                                   <foreign_table>tx_templavoila_tmplobj</foreign_table>
-                                   <foreign_table_where>
-                                           AND tx_templavoila_tmplobj.pid=###STORAGE_PID###
-                                           AND tx_templavoila_tmplobj.datastructure="EXT:mininews/template_datastructure.xml"
-                                           AND tx_templavoila_tmplobj.parent=0
-                                           ORDER BY tx_templavoila_tmplobj.title
-                                   </foreign_table_where>
-                                   <size>1</size>
-                                   <minitems>0</minitems>
-                                   <maxitems>1</maxitems>
-                           </config>
-                   </TCEforms>
-         </field_templateObject>
-       </el>
-     </ROOT>
-   </T3DataStructure>
-
-
-.. _t3ds-elements-examples-complex:
-
-Complex example
-~~~~~~~~~~~~~~~
-
-More complex example of a FlexForms structure, using two sheets,
-"sDEF" and "s\_welcome" (snippet from "newloginbox" extension).
-
-.. code-block:: xml
-
-   <T3DataStructure>
-     <sheets>
-           <sDEF>
-             <ROOT>
-                   <TCEforms>
-                           <sheetTitle>LLL:EXT:newloginbox/locallang_db.php:tt_content.pi_flexform.sheet_general</sheetTitle>
-                   </TCEforms>
-               <type>array</type>
-               <el>
-                 <show_forgot_password>
-                           <TCEforms>
-                                   <label>LLL:EXT:newloginbox/locallang_db.php:tt_content.pi_flexform.show_forgot_password</label>
-                                   <config>
-                                           <type>check</type>
-                                   </config>
-                           </TCEforms>
-                 </show_forgot_password>
-               </el>
-             </ROOT>
-       </sDEF>
-       <s_welcome>
-             <ROOT>
-                   <TCEforms>
-                           <sheetTitle>LLL:EXT:newloginbox/locallang_db.php:tt_content.pi_flexform.sheet_welcome</sheetTitle>
-                   </TCEforms>
-               <type>array</type>
-               <el>
-                 <header>
-                           <TCEforms>
-                                   <label>LLL:EXT:newloginbox/locallang_db.php:tt_content.pi_flexform.header</label>
-                                   <config>
-                                           <type>input</type>
-                                           <size>30</size>
-                                   </config>
-                           </TCEforms>
-                 </header>
-                 <message>
-                           <TCEforms>
-                                   <label>LLL:EXT:newloginbox/locallang_db.php:tt_content.pi_flexform.message</label>
-                                   <config>
-                                           <type>text</type>
-                                           <cols>30</cols>
-                                           <rows>5</rows>
-                                   </config>
-                           </TCEforms>
-                 </message>
-               </el>
-             </ROOT>
-       </s_welcome>
-     </sheets>
-   </T3DataStructure>
+	<T3DataStructure>
+		<meta>
+			<langDisable>1</langDisable>
+		</meta>
+		<sheets>
+			<sDEF>
+				<ROOT>
+					<TCEforms>
+						<sheetTitle>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.sheet_general</sheetTitle>
+					</TCEforms>
+					<type>array</type>
+					<el>
+						<showForgotPassword>
+							<TCEforms>
+								<label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.show_forgot_password</label>
+								<config>
+									<type>check</type>
+									<items type="array">
+										<numIndex index="1" type="array">
+											<numIndex index="0">LLL:EXT:lang/locallang_core.xml:labels.enabled</numIndex>
+											<numIndex index="1">1</numIndex>
+										</numIndex>
+									</items>
+								</config>
+							</TCEforms>
+						</showForgotPassword>
+						<showPermaLogin>
+							<TCEforms>
+								<label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.show_permalogin</label>
+								<config>
+									<default>1</default>
+									<type>check</type>
+									<items type="array">
+										<numIndex index="1" type="array">
+											<numIndex index="0">LLL:EXT:lang/locallang_core.xml:labels.enabled</numIndex>
+											<numIndex index="1">1</numIndex>
+										</numIndex>
+									</items>
+								</config>
+							</TCEforms>
+						</showPermaLogin>
+						...
+					</el>
+				</ROOT>
+			</sDEF>
+			<s_redirect>
+				<ROOT>
+					<TCEforms>
+						<sheetTitle>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.sheet_redirect</sheetTitle>
+					</TCEforms>
+					<type>array</type>
+					<el>
+						<redirectMode>
+							<TCEforms>
+								<label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode</label>
+								<config>
+									<type>select</type>
+									<items type="array">
+										<numIndex index="0" type="array">
+											<numIndex index="0">LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode.I.0</numIndex>
+											<numIndex index="1">groupLogin</numIndex>
+										</numIndex>
+										<numIndex index="1" type="array">
+											<numIndex index="0">LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode.I.1</numIndex>
+											<numIndex index="1">userLogin</numIndex>
+										</numIndex>
+										...
+									</items>
+									<size>8</size>
+									<minitems>0</minitems>
+									<maxitems>8</maxitems>
+								</config>
+							</TCEforms>
+						</redirectMode>
+					</el>
+				</ROOT>
+			</s_redirect>
+			<s_messages>
+				...
+			</s_messages>
+		</sheets>
+	</T3DataStructure>
