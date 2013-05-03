@@ -110,7 +110,7 @@ must be arrays.)
          <cshFile>
    :Description:
          CSH language file for fields inside the flexform. Refer to section on
-         T3locallang of this document on the format of language files and to
+         :ref:`T3locallang <locallang>` for the format of language files and to
          section Content Sensitive Help of "Inside TYPO3" document for
          information about CSH.
    :Child elements:
@@ -179,7 +179,7 @@ must be strings or integers.)
          Defines the type of object.
 
          - "array" means that the object simply contains a collection of other
-           objects defined inside the <el> tag on the same levelIf the value is
+           objects defined inside the <el> tag on the same level. If the value is
            "array" you can use the boolean "<section>". See below.
 
          - Default value means that the object does not contain sub objects. The
@@ -197,7 +197,7 @@ must be strings or integers.)
          Boolean
    :Description:
          Defines for an object of the type <array> that it must contain other
-         "array" type objects. The meaning of this is application specific. For
+         "array" type objects in each item of <el>. The meaning of this is application specific. For
          FlexForms it will allow the user to select between possible arrays of
          objects to create in the form. For TemplaVoila it will select a
          "container" element for another set of elements inside. This is quite
