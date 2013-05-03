@@ -90,9 +90,10 @@ address the task at hand.
    Internationalization/Index
    PageTypes/Index
    UserSettingsConfiguration/Index
-   RteApi/Index
+   Rte/Index
    ErrorAndExceptionHandling/Index
    DataFormats/Index
    References
+   Appendices/Index
    Targets
 

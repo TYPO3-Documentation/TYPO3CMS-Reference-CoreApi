@@ -1,8 +1,0 @@
-﻿.. |img-38|     image:: ../../../Images/manual_html_m7f4104b6.png
-.. :height: 403
-.. :width: 579
-.. :align: left
-.. :border: 0
-.. :name: graphics105
-.. :vspace: 8
-

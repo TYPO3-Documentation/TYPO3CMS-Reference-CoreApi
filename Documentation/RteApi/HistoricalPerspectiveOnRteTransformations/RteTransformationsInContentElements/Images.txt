@@ -1,6 +1,0 @@
-﻿.. |img-40|     image:: ../../../Images/manual_html_73945d2b.png
-.. :align: left
-.. :border: 0
-.. :name: Graphic48
-.. :width: 100%
-
