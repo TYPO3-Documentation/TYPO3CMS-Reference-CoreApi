@@ -4,7 +4,6 @@
 .. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
-.. include:: Images.txt
 
 
 Using phpDoc
@@ -38,12 +37,12 @@ For more information on phpDoc see the phpDoc web site at
 
 TYPO3 requires that each class, function and method be documented with
 phpDoc. For information on phpDoc use for classes declarations see
-“Class information block” on page 12.
+"Class information block" on page 12.
 
-Note that the @authortag should  **not** be used in function or method
+Note that the @author tag should  **not** be used in function or method
 phpDoc comment blocks – only at class level – because it is too liable
-to change frequently and authors would accumulate indefinitely.git
-blameis enough for tracking changes.
+to change frequently and authors would accumulate indefinitely. git
+blame is enough for tracking changes.
 
 
 Function information block
@@ -63,7 +62,6 @@ Functions should have parameters and return type documented. Example::
    protected function initialize(array $conf) {
            // Do something
    }
-   |img-3|
 
 **Short and long description**
 
@@ -72,6 +70,6 @@ short description is the first piece of text inside the phpDoc block.
 It ends with the next blank line. Any additional text after that line
 and before the first tag is the long description.
 
-Use  `@return <mailto:v@return>`_ voidwhen a function does not return
+Use  `@return <mailto:v@return>`_ void when a function does not return
 a value.
 
