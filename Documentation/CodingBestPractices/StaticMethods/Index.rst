@@ -10,7 +10,7 @@ Static methods
 ^^^^^^^^^^^^^^
 
 When a given class calls one of its own static methods (or from one of
-its parents), the code should use the selfkeyword instead of the class
+its parents), the code should use the self keyword instead of the class
 name.
 
 
@@ -23,10 +23,10 @@ Example
 ::
 
    class tx_myext_MyClass {
-       public static function methodA() {
+       static public function methodA() {
          //...
        }
-       public static function methodB() {
+       static public function methodB() {
          self::methodA(); // instead of tx_myext_MyClass::methodA();
        }
    }
