@@ -9,9 +9,9 @@
 Conventions used in this document
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Monospacefont is used for:
+:code:`Monospace font` is used for:
 
-- File names and directories. Directories have slash ( :code:`/` ) in
+- File names and directories. Directories have slash (:code:`/`) in
   the end of the directory name.
 
 - Code examples
@@ -20,7 +20,7 @@ Monospacefont is used for:
 
 - Extension keys
 
-- TYPO3 namespaces (see page 8)
+- TYPO3 namespaces
 
 TYPO3 Frontend and Backend are spelled with the first letter in
 uppercase because they are seen as subsystems.

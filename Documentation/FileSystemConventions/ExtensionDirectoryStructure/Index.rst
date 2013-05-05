@@ -26,26 +26,26 @@ An extension directory contains the following files and directories:
 .. container:: table-row
 
    Name
-         ext\_emconf.php
+         :code:`ext\_emconf.php`
 
    Description
          This is the only mandatory file in the extension. It describes
-         extension to the rest of TYPO3.
+         the extension for the rest of TYPO3.
 
 
 .. container:: table-row
 
    Name
-         ext\_icon.gif
+         :code:`ext\_icon.gif`
 
    Description
-         This is icon of the extension. The name may not be changed.
+         This is the icon of the extension. The name may not be changed.
 
 
 .. container:: table-row
 
    Name
-         ext\_localconf.php
+         :code:`ext\_localconf.php`
 
    Description
          This file contains hook definitions and plugin configuration. The name
@@ -55,18 +55,18 @@ An extension directory contains the following files and directories:
 .. container:: table-row
 
    Name
-         ext\_tables.php
+         :code:`ext\_tables.php`
 
    Description
          This file contains table declarations. For more information about
-         table declarations and definitions see the “TYPO3 Core API” document.
+         table declarations and definitions see the "TYPO3 Core API" document.
          The name may not be changed.
 
 
 .. container:: table-row
 
    Name
-         ext\_tables.sql
+         :code:`ext\_tables.sql`
 
    Description
          This files contains definitions for extension tables. The name may not
@@ -74,33 +74,34 @@ An extension directory contains the following files and directories:
 
          The file may contain either a full table definition or a partial
          table. The full table definition declares extension's tables. It looks
-         like a normal SQL CREATE TABLEstatement.
+         like a normal SQL :code:`CREATE TABLE` statement.
 
          The partial table definition contains a list of the fields that will
-         be added to the existing table. Here is an example::
+         be added to an existing table. Here is an example::
 
             CREATE TABLE pages (
                    tx_myext_field int(11) DEFAULT '0' NOT NULL,
             );
 
          Notice the comma after the field. In the full table definition it will
-         be a error but in the partial table definition it is required. TYPO3
+         be an error, but in the partial table definition it is required. TYPO3
          will merge this table definition to the existing table definition when
          comparing expected and actual table definitions. Partial definitions
          can also contain indexes and other directives. They can also change
-         existing table fields though it is not recommended because it may
+         existing table fields though that is not recommended, because it may
          create problems with the TYPO3 core and/or other extensions.
 
-         TYPO3 parses ext\_tables.sqlfiles. TYPO3 expects that all table
+         TYPO3 parses :code:`ext\_tables.sql` files. TYPO3 expects that all table
          definitions in this file look like the ones produced by the
-         mysqldumputility. Incorrect definitions may not be recognized by the
-         TYPO3 SQL parser.
+         :code:`mysqldump` utility. Incorrect definitions may not be recognized by the
+         TYPO3 SQL parser or may lead to MySQL errors, when TYPO3 tries to apply
+         them.
 
 
 .. container:: table-row
 
    Name
-         tca.php
+         :code:`tca.php`
 
    Description
          This file contains full table definitions for extension tables.
@@ -109,17 +110,17 @@ An extension directory contains the following files and directories:
 .. container:: table-row
 
    Name
-         locallang\*.xml
+         :code:`locallang\*.xml`
 
    Description
-         These files contains localizable labels. They can also appear in
+         These files contain localizable labels. They can also appear in
          subdirectories.
 
 
 .. container:: table-row
 
    Name
-         doc/
+         :code:`doc/`
 
    Description
          This directory contains the extension manual. The name may not be
@@ -129,56 +130,57 @@ An extension directory contains the following files and directories:
 .. container:: table-row
 
    Name
-         doc/manual.sxw
+         :code:`doc/manual.sxw`
 
    Description
          This file contains extension manual in OpenOffice 1.0 format. The name
-         or file format may not be changed. See the “Documentation template”
-         document on typo3.orgfor more information about extension manuals.
+         or file format may not be changed. See the extension "doc_template
+         ("Documentation template") on typo3.org for more information about
+         extension manuals.
 
 
 .. container:: table-row
 
    Name
-         piX/
+         :code:`piX/`
 
    Description
-         These directories contain Frontend plugins. If extension is generated
-         by the Kickstarter, :code:`*X*` will be a number. It is recommended to
-         give more meaningful names to Frontend plugin directories.
+         These directories contain Frontend plugins. If an extension is generated
+         by the extension :code:`kickstarter`, :code:`*X*` will be a number. It is
+         recommended to give more meaningful names to Frontend plugin directories.
 
 
 .. container:: table-row
 
    Name
-         svX/
+         :code:`svX/`
 
    Description
-         These directories contain TYPO3 services. If extension is generated by
-         the Kickstarter, :code:`*X*` will be a number. It is recommended to
-         give more meaningful names to service directories.
+         These directories contain TYPO3 services. If an extension is generated by
+         the extension :code:`kickstarter`, :code:`*X*` will be a number. It is
+         recommended to give more meaningful names to service directories.
 
 
 .. container:: table-row
 
    Name
-         modX/
+         :code:`modX/`
 
    Description
-         These directories commonly contain Backend modules. If extension is
-         generated by the Kickstarter, :code:`*X*` will be substituted with a
-         number. It is recommended to give more meaningful names to Backend
+         These directories commonly contain Backend modules. If an extension is
+         generated by the :code:`kickstarter`, :code:`*X*` will be substituted
+         with a number. It is recommended to give more meaningful names to Backend
          module directories.
 
 
 .. container:: table-row
 
    Name
-         modfuncX/
+         :code:`modfuncX/`
 
    Description
          These directories commonly contain Backend submodules (embedded into
-         other modules). If extension is generated by the Kickstarter,
+         other modules). If an extension is generated by the :code:`kickstarter`,
          :code:`*X*` will be a number. It is recommended to give more
          meaningful names to these directories.
 
@@ -186,19 +188,19 @@ An extension directory contains the following files and directories:
 .. container:: table-row
 
    Name
-         lib/
+         :code:`lib/`
 
    Description
-         Directory for non–TYPO3 files supplied with extension. TYPO3 is
+         Directory for non–TYPO3 files supplied with the extension. TYPO3 is
          licensed under GPL version or 2 or any later version. Any non–TYPO3
          code must be compatible with GPL version 2 or any later version. Note:
-         this name is not mandatory but recommended.
+         this name is not mandatory, but recommended.
 
 
 .. ###### END~OF~TABLE ######
 
 
-This directory structure is  **strongly**  **recommended** .
+This directory structure is **strongly recommended**.
 Extensions may create their own directories (for example, move all
 language files into other directories).
 

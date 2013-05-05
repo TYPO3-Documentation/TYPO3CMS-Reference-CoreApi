@@ -16,6 +16,6 @@ declarations and the use of UTF-8 encoding in the source code. Also
 mentioned are more recent changes, like the switch to Git.
 
 Furthermore the appendix which described how to properly set up
-various IDEs for working with the TYPO3 v4 Core has been move to the
+various IDEs for working with the TYPO3 CMS Core has been moved to the
 wiki: http://wiki.typo3.org/PHP\_Editors\_/\_IDE\_for\_TYPO3
 

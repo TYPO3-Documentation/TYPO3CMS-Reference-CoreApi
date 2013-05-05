@@ -9,8 +9,8 @@
 The ChangeLog file
 ^^^^^^^^^^^^^^^^^^
 
-The TYPO3 core comes with a ChangeLogfile where all changes are
-recorded. This used to be maintained manually, but will be generated
-automatically since the move to the Git version-control system of
-March 1, 2011.
+The TYPO3 core comes with a :code:`ChangeLog` file in which all changes
+are recorded. This used to be maintained manually in the past and is
+generated automatically since the move to the :code:`Git`
+version-control system of March 1, 2011.
 
