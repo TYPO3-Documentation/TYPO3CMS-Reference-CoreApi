@@ -20,13 +20,9 @@ the following phpDoc keywords:
 
 - :code:`@param`
 
-- :code:`@package`
-
 - :code:`@return`
 
 - :code:`@see`
-
-- :code:`@subpackage`
 
 - :code:`@var`
 
