@@ -40,9 +40,9 @@ In particular the abbreviations "FE" and "BE" should be avoided and
 the full "Frontend" and "Backend" words used instead.
 
 Identifier names must be descriptive. However it is allowed to use
-traditional integer variables like :code:`$i, :code:`$j, :code:`$kin for loops. If such
-variables are used, their meaning must be absolutely clear from the
-context where they are used.
+traditional integer variables like :code:`$i`, :code:`$j`, :code:`$kin`
+for loops. If such variables are used, their meaning must be absolutely
+clear from the context where they are used.
 
 The same rules apply to functions and class methods. Examples::
 

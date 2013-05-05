@@ -14,11 +14,8 @@ of its parents), the code should use the :code:`self` keyword instead
 of the class name.
 
 
-((generated))
-"""""""""""""
-
 Example
-~~~~~~~
+"""""""
 
 ::
 
