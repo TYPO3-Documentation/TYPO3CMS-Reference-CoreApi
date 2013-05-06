@@ -21,27 +21,33 @@ Defining localized strings
 Here are some rules to respect when working with labels in :code:`locallang`
 files:
 
-- always check the existing locallang files to see if a given localized
+- Always check the existing locallang files to see if a given localized
   string already exists, in particular :code:`EXT:lang/locallang\_common.xml`
   and :code:`EXT:lang/locallang\_core.xml`.
 
-- localized strings should never be all uppercase. If uppercase is needed,
+- Localized strings should never be all uppercase. If uppercase is needed,
   then appropriate methods should be used to transform them to uppercase.
 
-- localized strings must not be split into several parts to include
+- Localized strings must not be split into several parts to include
   stuff in their middle. Rather use a single string with
   :code:`sprintf()` markers (:code:`%s`, :code:`%d`, etc.).
 
-- when a localized string contains several :code:`sprintf()` markers, it
+- When a localized string contains several :code:`sprintf()` markers, it
   **must** use numbered arguments (e.g. :code:`%1$d`).
 
-- punctuation marks **must** be included in the localized string –
+- Localized strings should never contain configuration options (e.g.
+  :code:`index_config:timer_frequency` (which would display a link) or
+  :code:`EXT:wizard_crpages/cshimages/wizards_1.png` (which would show
+  an image). Configuration like this does not belong in language
+  labels, but in TypoScript.
+
+- Localized strings are not supposed to contain HTML tags, except for
+  CSH. They should be avoided whenever possible.
+
+- Punctuation marks **must** be included in the localized string –
   including trailing marks – as different punctuation marks (e.g. "?"
   and "¿") may be used in various languages. Also some languages include
   blanks before some punctuation marks.
-
-- localized strings are not supposed to contain HTML tags, except for
-  CSH. They should be avoided whenever possible.
 
 Once a localized string appears in a released version of TYPO3, it
 cannot be changed (unless it needs grammar or spelling fixes). Nor can
