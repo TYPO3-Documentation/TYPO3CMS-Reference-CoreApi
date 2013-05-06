@@ -20,8 +20,13 @@ Global variables
    inclusion of :file:`init.php` so they are optional.
 
 .. note::
-   The variables from :file:`t3lib/stddb/tables.php` are only
-   available in the frontend occasionally or partly.
+
+   To make the table below a bit more compact, namespaces were left out. Here
+   are the fully qualified class names referred to below:
+
+   - "SystemEnvironmentBuilder" = :code:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder`
+   - "Bootstrap" = :code:`\TYPO3\CMS\Core\Core\Bootstrap`
+
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -35,12 +40,11 @@ Global variables
  - :Variable:
          $TYPO3\_CONF\_VARS
    :Defined:
-         config\_default.php
+         :file:`t3lib/stddb/DefaultConfiguration.php`
    :Description:
-         TYPO3 configuration array. Please refer to the source code of
-         :file:`t3lib/config_default.php` where each option is described in detail
+         TYPO3 configuration array. Please refer to mentioned file where each option is described in detail
          as comments. The same comments are also available in the Install Tool
-         under the menu "All Configuration"
+         under the menu "All Configuration".
    :FE:
          Yes
 
@@ -48,7 +52,7 @@ Global variables
  - :Variable:
          $TYPO3\_LOADED\_EXT
    :Defined:
-         config\_default.php
+         Bootstrap::populateTypo3LoadedExtGlobal()
    :Description:
          Array with all loaded extensions listed with a set of paths. You can
          check if an extension is loaded by the function
@@ -60,13 +64,13 @@ Global variables
  - :Variable:
          $TYPO3\_DB
    :Defined:
-         init.php
+         Bootstrap::initializeTypo3DbGlobal()
    :Description:
-         An instance of the TYPO3 DB wrapper class, :code:`t3lib_db`.
+         An instance of the TYPO3 DB wrapper class, :code:`\TYPO3\CMS\Core\Database\DatabaseConnection`.
 
          You have to use this object for all interaction with the database.
 
-         :code:`t3lib_db` contains mysql wrapper functions so you easily swap all
+         :code:`\TYPO3\CMS\Core\Database\DatabaseConnection` contains MySQL wrapper functions so you easily swap all
          hardcoded MySQL calls with function calls to :code:`$GLOBALS['TYPO3_DB']->`.
    :FE:
          Yes
@@ -75,7 +79,7 @@ Global variables
  - :Variable:
          $EXEC\_TIME
    :Defined:
-         config\_default.php
+         SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()
    :Description:
          Is set to :code:`time()` so that the rest of the script has a common value
          for the script execution time.
@@ -86,7 +90,7 @@ Global variables
  - :Variable:
          $SIM\_EXEC\_TIME
    :Defined:
-         config\_default.php
+         SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()
    :Description:
          Is set to :code:`$EXEC_TIME` but can be altered later in the script if we
          want to simulate another execution-time when selecting from e.g. a
@@ -96,17 +100,17 @@ Global variables
 
 
  - :Variable:
-         $TYPO\_VERSION
+         $PARSETIME\_START
    :Defined:
-         config\_default.php
+         SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()
    :Description:
-         *Deprecated - used constant "TYPO3\_version" instead!*
+         Time in milliseconds right after inclusion of the configuration.
    :FE:
-         Yes
+         No
 
 
  - :Variable:
-         $TYPO3\_AJAX
+         *$TYPO3\_AJAX*
    :Defined:
          ajax.php
    :Description:
@@ -118,7 +122,7 @@ Global variables
  - :Variable:
          $CLIENT
    :Defined:
-         init.php
+         SystemEnvironmentBuilder::initializeGlobalVariables()
    :Description:
          Array with browser information (based on HTTP\_USER\_AGENT). Array
          keys:
@@ -133,41 +137,11 @@ Global variables
 
 
  - :Variable:
-         $PARSETIME\_START
-   :Defined:
-         init.php
-   :Description:
-         Time in milliseconds right after inclusion of the configuration.
-   :FE:
-         No
-
-
- - :Variable:
          $PAGES\_TYPES
    :Defined:
          t3lib/stddb/tables.php
    :Description:
-         See :ref:`TCA Reference<t3tca:start>`
-   :FE:
-         (occasionally)
-
-
- - :Variable:
-         $ICON\_TYPES
-   :Defined:
-         t3lib/stddb/tables.php
-   :Description:
-         See :ref:`TCA Reference<t3tca:start>`
-   :FE:
-         (occasionally)
-
-
- - :Variable:
-         $LANG\_GENERAL\_LABELS
-   :Defined:
-         t3lib/stddb/tables.php
-   :Description:
-         See :ref:`TCA Reference<t3tca:start>`
+         See :ref:`page-types`
    :FE:
          (occasionally)
 
@@ -175,7 +149,7 @@ Global variables
  - :Variable:
          $TCA
    :Defined:
-         t3lib/stddb/tables.php
+         Bootstrap::loadExtensionTables()
    :Description:
          See :ref:`TCA Reference<t3tca:start>`
    :FE:
@@ -207,7 +181,7 @@ Global variables
  - :Variable:
          $T3\_SERVICES
    :Defined:
-         t3lib/stddb/tables.php
+         SystemEnvironmentBuilder::initializeGlobalVariables()
    :Description:
          Global registration of services.
    :FE:
@@ -217,7 +191,7 @@ Global variables
  - :Variable:
          $T3\_VAR
    :Defined:
-         config\_default.php
+         SystemEnvironmentBuilder::initializeGlobalVariables()
    :Description:
          Space for various internal global data storage in TYPO3. Each key in
          this array is a data space for an application. Keys currently defined
@@ -251,7 +225,7 @@ Global variables
  - :Variable:
          $WEBMOUNTS
    :Defined:
-         init.php
+         Bootstrap::initializeBackendUserMounts()
    :Description:
          Array of uid's to be mounted in the page-tree.
    :FE:
@@ -261,7 +235,7 @@ Global variables
  - :Variable:
          $FILEMOUNTS
    :Defined:
-         init.php
+         Bootstrap::initializeBackendUserMounts()
    :Description:
          Array of filepaths on the server to be mounted in the directory tree.
    :FE:
@@ -271,22 +245,11 @@ Global variables
  - :Variable:
          $BE\_USER
    :Defined:
-         init.php
+         Bootstrap::initializeBackendUser()
    :Description:
          Backend user object. See :ref:`be-user`.
    :FE:
          (depends)
-
-
- - :Variable:
-         $temp\_\*
-   :Defined:
-         -
-   :Description:
-         Various temporary variables are allowed to use global variables
-         prefixed :code:`$temp_`.
-   :FE:
-         -
 
 
  - :Variable:
@@ -297,8 +260,6 @@ Global variables
          Used to store information about modules from extensions that should be
          included in "function menus" of real modules. See the Extension API
          for details.
-
-         Unset in :code:`config_default.php`.
    :FE:
          (occasionally)
 
@@ -309,9 +270,7 @@ Global variables
          [tables.php files]
    :Description:
          Can be set to contain file references to local lang files containing
-         TCA\_DESCR labels. See section about Context Sensitive Help.
-
-         Unset in :code:`config_default.php`.
+         :code:`TCA_DESCR` labels. See section about Context Sensitive Help.
    :FE:
          No
 

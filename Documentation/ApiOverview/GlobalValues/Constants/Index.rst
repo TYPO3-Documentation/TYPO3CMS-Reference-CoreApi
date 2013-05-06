@@ -21,24 +21,22 @@ why constants are used for such vital information.
 
 These constants are defined at various points during the bootstrap sequence.
 
+.. note::
+
+   To make the table below a bit more compact, namespaces were left out. Here
+   are the fully qualified class names referred to below:
+
+   - "SystemEnvironmentBuilder" = :code:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder`
+   - "Bootstrap" = :code:`\TYPO3\CMS\Core\Core\Bootstrap`
+
+
 .. t3-field-list-table::
  :header-rows: 1
 
  - :Constant,20: Constant
-   :Defined,20: Defined in
-   :Description,50: Description
+   :Defined,30: Defined in
+   :Description,40: Description
    :FE,10: Avail. in FE
-
-
- - :Constant:
-         TYPO3\_OS
-   :Defined:
-         init.php
-   :Description:
-         Operating systen; Windows = "WIN", other = "" (presumed to be some
-         sort of Unix)
-   :FE:
-         Yes
 
 
  - :Constant:
@@ -47,7 +45,7 @@ These constants are defined at various points during the bootstrap sequence.
          init.php
    :Description:
          Mode of TYPO3: Set to either "FE" or "BE" depending on frontend or
-         backend execution. So in :file:`init.php` and file:`thumbs.php` this value is
+         backend execution. So in :file:`init.php` and :file:`thumbs.php` this value is
          "BE".
    :FE:
          Yes
@@ -56,9 +54,20 @@ These constants are defined at various points during the bootstrap sequence.
 
 
  - :Constant:
+         TYPO3\_OS
+   :Defined:
+         SystemEnvironmentBuilder::getTypo3Os()
+   :Description:
+         Operating systen; Windows = "WIN", other = "" (presumed to be some
+         sort of Unix)
+   :FE:
+         Yes
+
+
+ - :Constant:
          PATH\_thisScript
    :Defined:
-         init.php
+         SystemEnvironmentBuilder::definePaths()
    :Description:
          Abs. path to current script.
    :FE:
@@ -68,7 +77,7 @@ These constants are defined at various points during the bootstrap sequence.
  - :Constant:
          TYPO3\_mainDir
    :Defined:
-         init.php
+         SystemEnvironmentBuilder::definePaths()
    :Description:
          This is the directory of the backend administration for the sites of
          this TYPO3 installation. Hardcoded to :code:`typo3/`. Must be a subdirectory
@@ -81,7 +90,7 @@ These constants are defined at various points during the bootstrap sequence.
  - :Constant:
          PATH\_typo3
    :Defined:
-         init.php
+         SystemEnvironmentBuilder::definePaths()
    :Description:
          Abs. path of the TYPO3 admin dir (:code:`PATH_site + TYPO3_mainDir`).
    :FE:
@@ -91,7 +100,7 @@ These constants are defined at various points during the bootstrap sequence.
  - :Constant:
          PATH\_typo3\_mod
    :Defined:
-         init.php
+         SystemEnvironmentBuilder::definePaths()
    :Description:
          Relative path (from the :code:`PATH_typo3`) to a properly configured module.
          Based on :code:`TYPO3_MOD_PATH`.
@@ -102,7 +111,7 @@ These constants are defined at various points during the bootstrap sequence.
  - :Constant:
          PATH\_site
    :Defined:
-         init.php
+         SystemEnvironmentBuilder::definePaths()
    :Description:
          Absolute path to directory with the frontend (one directory above
          :code:`PATH_typo3`)
@@ -113,7 +122,7 @@ These constants are defined at various points during the bootstrap sequence.
  - :Constant:
          PATH\_t3lib
    :Defined:
-         init.php
+         SystemEnvironmentBuilder::definePaths()
    :Description:
          Absolute path to :file:`t3lib/` (general TYPO3 library) within the TYPO3 admin
          directory.
@@ -124,11 +133,9 @@ These constants are defined at various points during the bootstrap sequence.
  - :Constant:
          PATH\_typo3conf
    :Defined:
-         init.php
+         SystemEnvironmentBuilder::definePaths()
    :Description:
-         Absolute TYPO3 configuration path (local, not part of source)
-
-         Must be defined in order for :file:`t3lib/config_default.php` to return!
+         Absolute TYPO3 configuration path (local, not part of source).
    :FE:
          Yes
 
@@ -136,10 +143,10 @@ These constants are defined at various points during the bootstrap sequence.
  - :Constant:
          TYPO3\_db
    :Defined:
-         config\_default.php
+         Bootstrap::populateLocalConfiguration()
    :Description:
          Name of the database, for example "t3\_coreinstall". Is defined after
-         the inclusion of :file:`typo3conf/localconf.php` (same for the other
+         the inclusion of :file:`typo3conf/LocalConfiguration.php` (same for the other
          :code:`TYPO3_*` constants below.
    :FE:
          Yes
@@ -148,7 +155,7 @@ These constants are defined at various points during the bootstrap sequence.
  - :Constant:
          TYPO3\_db\_username
    :Defined:
-         config\_default.php
+         Bootstrap::populateLocalConfiguration()
    :Description:
          Database username
    :FE:
@@ -158,7 +165,7 @@ These constants are defined at various points during the bootstrap sequence.
  - :Constant:
          TYPO3\_db\_password
    :Defined:
-         config\_default.php
+         Bootstrap::populateLocalConfiguration()
    :Description:
          Database password
    :FE:
@@ -168,7 +175,7 @@ These constants are defined at various points during the bootstrap sequence.
  - :Constant:
          TYPO3\_db\_host
    :Defined:
-         config\_default.php
+         Bootstrap::populateLocalConfiguration()
    :Description:
          Database hostname, e.g. "localhost"
    :FE:
@@ -176,24 +183,9 @@ These constants are defined at various points during the bootstrap sequence.
 
 
  - :Constant:
-         TYPO3\_tables\_script
-   :Defined:
-         config\_default.php
-   :Description:
-         By default :file:`t3lib/stddb/tables.php` is included as the main table
-         definition file. Alternatively this constant can be set to the
-         filename of an alternative :file:`tables.php` file. Must be located in
-         :file:`typo3conf/`.
-
-         **Deprecated** . Make Extensions instead.
-   :FE:
-         Yes
-
-
- - :Constant:
          TYPO3\_extTableDef\_script
    :Defined:
-         config\_default.php
+         Bootstrap::populateLocalConfiguration()
    :Description:
          Name of a php-include script found in "typo3conf/" that contains PHP
          code that further modifies the variables set by
@@ -205,19 +197,9 @@ These constants are defined at various points during the bootstrap sequence.
 
 
  - :Constant:
-         TYPO3\_languages
-   :Defined:
-         config\_default.php
-   :Description:
-         Defines the system language keys in TYPO3 backend.
-   :FE:
-         Yes
-
-
- - :Constant:
          TYPO3\_DLOG
    :Defined:
-         config\_default.php
+         Bootstrap::defineLoggingAndExceptionConstants()
    :Description:
          If true, calls to :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::devLog()` can be made in both frontend
          and backend; This is event logging which can help to track debugging
@@ -257,10 +239,10 @@ These constants are defined at various points during the bootstrap sequence.
    :Defined:
          [prior to init.php]
    :Description:
-         If defined and set true the :file:`init.php` script will return to the
+         If defined and set true the bootstrapping process will return to the
          parent script *even if no backend user was authenticated!*
 
-         This constant is set by for instance the :file:`index.php` script so it can
+         For example, this constant is set by the :file:`index.php` script so it can
          include :file:`init.php` and still show the login form::
 
             define('TYPO3_PROCEED_IF_NO_USER', 1);
@@ -281,7 +263,7 @@ These constants are defined at various points during the bootstrap sequence.
          want a shell executable PHP script to initialize a TYPO3 backend.
 
          For more details see :ref:`Initializing TYPO3 backend in a PHP
-         shell script<t3inside:initialize-cli-mode>` in :ref:`Inside TYPO3<t3inside:start>`.
+         shell script <t3inside:initialize-cli-mode>` in :ref:`Inside TYPO3 <t3inside:start>`.
    :FE:
          No
 
@@ -289,15 +271,10 @@ These constants are defined at various points during the bootstrap sequence.
  - :Constant:
          *TYPO3\_version*
    :Defined:
-         config\_default.php
+         SystemEnvironmentBuilder::defineBaseConstants()
    :Description:
-         The TYPO3 version:
-
-         x.x.x for released versions,
-
-         x.x.x-dev for development versions leading up to releases
-
-         x.x.x-bx for beta-versions
+         The TYPO3 version, as a "x.y.z" number. Development versions will be either
+         "x.y.z-dev" for stable versions or "x.y-dev" for the current master.
    :FE:
          Yes
 

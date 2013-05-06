@@ -35,6 +35,7 @@ http://typo3.org/documentation/api/.
 
    Namespaces/Index
    Autoloading/Index
+   Bootstrapping/Index
    MainClasses/Index
    GlobalValues/Index
    BackendUserObject/Index

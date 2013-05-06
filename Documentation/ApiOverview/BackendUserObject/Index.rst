@@ -17,8 +17,9 @@ Backend User Object
 
 The backend user of a session is always available to the backend
 scripts as the global variable :code:`$BE_USER`. The object is created in
-init.php and is an instance of the class :code:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication` (which
-extends :code:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
+:code:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
+and is an instance of the class :code:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
+(which extends :code:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
 
 In addition to :code:`$BE_USER` two other global variables are of interest -
 :code:`$WEBMOUNTS` and :code:`$FILEMOUNTS`, each holding an array with the DB mounts
