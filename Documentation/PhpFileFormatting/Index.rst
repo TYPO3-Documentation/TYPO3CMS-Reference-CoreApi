@@ -15,7 +15,7 @@ PHP file formatting
    :titlesonly:
    :glob:
 
-   GeneralRequirementsToPhpFiles/Index
+   GeneralRequirementsForPhpFiles/Index
    FileStructure/Index
    PhpSyntaxFormatting/Index
    UsingPhpdoc/Index
