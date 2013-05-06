@@ -14,8 +14,9 @@ Identifiers
 """""""""""
 
 All identifiers must use camelCase and start with a lowercase letter.
-Underscore characters are not allowed. Abbreviations should be
-avoided. Examples of good identifiers::
+Underscore characters are not allowed. Hungarian notation is not
+encouraged. Abbreviations should be avoided. Examples of good
+identifiers::
 
    $goodName
    $anotherGoodName
