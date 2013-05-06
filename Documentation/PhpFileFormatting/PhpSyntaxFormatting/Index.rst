@@ -155,43 +155,48 @@ keywords. TYPO3 code must not use the :code:`else if` construct.
 
 The following is the correct layout for conditions::
 
-      if ($this->processSubmission) {
-          // Process submission here
-      } elseif ($this->internalError) {
-          // Handle internal error
-      } else {
-          // Something else here
-      }
+   if ($this->processSubmission) {
+       // Process submission here
+   } elseif ($this->internalError) {
+       // Handle internal error
+   } else {
+       // Something else here
+   }
 
 Here is an example of the incorrect layout::
 
-      if ($this->processSubmission) {
-          // Process submission here
-      }
-      elseif ($this->internalError) {
-          // Handle internal error
-      } else // Something else here
+   if ($this->processSubmission) {
+       // Process submission here
+   }
+   elseif ($this->internalError) {
+       // Handle internal error
+   } else // Something else here
 
-It is recommended to create conditions so that the shortest block goes
-first. For example::
+It is recommended to create conditions so that the shortest block of
+code goes first. For example::
 
-      if (!$this->processSubmission) {
-          // Generate error message, 2 lines
-      } else {
-          // Process submission, 30 lines
-      }
+   if (!$this->processSubmission) {
+       // Generate error message, 2 lines
+   } else {
+       // Process submission, 30 lines
+   }
 
-If the condition is long, it must be split into several lines. Each
-condition on the line starting from the second should be indented with
-two or more indents relatively to the first line of the condition::
+If the condition is long, it must be split into several lines. The
+first condition should be on a new line, indented one tab more than the
+":code:`if (`". The logical operators must be put in front of the next
+condition and be indented to the same level as the first condition. The
+closing round and opening curly bracket after the last condition should
+be on a new line, indented to the same level as the :code:`if`::
 
-      if ($this->getSomeCodition($this->getSomeVariable()) &&
-                      $this->getAnotherCondition()) {
-              // Code follows here
-      }
+   if (
+       $this->getSomeCondition($this->getSomeVariable())
+       && $this->getAnotherCondition()
+   ) {
+       // Code follows here
+   }
 
-The ternary conditional operator must be used only, if it has two
-outcomes. Example::
+The ternary conditional operator :code:`? :` must be used only, if it
+has exactly two outcomes. Example::
 
    $result = ($useComma ? ',' : '.');
 
@@ -203,21 +208,21 @@ Assignment in conditions should be avoided. However if it makes sense
 to do an assignment in a condition, it should be surrounded by the
 extra pair of brackets. Example::
 
-      if (($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
-          // Do something
-      }
+   if (($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
+       // Do something
+   }
 
 The following is allowed, but not recommended::
 
-      if (FALSE !== ($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
-          // Do something
-      }
+   if (FALSE !== ($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
+       // Do something
+   }
 
 The following is not allowed (missing the extra pair of brackets)::
 
-      while ($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
-          // Do something
-      }
+   while ($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
+       // Do something
+   }
 
 
 Switch
@@ -238,16 +243,16 @@ in the code.
 
 Examples::
 
-      switch ($useType) {
-          case 'extended':
-              $content .= $this->extendedUse();
-              // Fall through
-          case 'basic':
-              $content .= $this->basicUse();
-              break;
-          default:
-              $content .= $this->errorUse();
-      }
+   switch ($useType) {
+       case 'extended':
+           $content .= $this->extendedUse();
+           // Fall through
+       case 'basic':
+           $content .= $this->basicUse();
+           break;
+       default:
+           $content .= $this->errorUse();
+   }
 
 
 Loops
@@ -270,20 +275,20 @@ calls). The following is correct::
 
    $size = count($dataArray);
    for ($element = 0; $element < $size; $element++) {
-           // Process element here
+       // Process element here
    }
 
 The following is not allowed::
 
    for ($element = 0; $element < count($dataArray); $element++) {
-           // Process element here
+       // Process element here
    }
 
 :code:`do` and :code:`while` loops must use extra brackets, if an
 assignment happens in the loop::
 
    while (($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
-           // Do something
+       // Do something
    }
 
 There's a special case for :code:`foreach` loops when the value is not
@@ -291,7 +296,7 @@ used inside the loop. In this case the dummy variable :code:`$\_`
 (underscore) is used::
 
    foreach ($GLOBALS['TCA'] as $table => $_) {
-           // Do something with $table
+       // Do something with $table
    }
 
 This is done for performance reasons, as it is faster than calling
@@ -314,11 +319,11 @@ about white spaces for more information.
 
 Variables must not be embedded into strings. Correct::
 
-      $content = 'Hello ' . $userName;
+   $content = 'Hello ' . $userName;
 
 Incorrect::
 
-      $content = "Hello $userName";
+   $content = "Hello $userName";
 
 Multiline string concatenations are allowed. The line concatenation
 operator must be at the end of the line. Lines starting from the
@@ -326,8 +331,8 @@ second must be indented relatively to the first line. It is recommended
 to indent lines one level from the start of the string on the first
 level::
 
-      $content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' .
-                      'Donec varius libero non nisi. Proin eros.';
+   $content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' .
+                   'Donec varius libero non nisi. Proin eros.';
 
 
 Booleans

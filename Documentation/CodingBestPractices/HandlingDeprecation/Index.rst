@@ -32,10 +32,9 @@ phpDoc :code:`@deprecated` parameter::
     * @deprecated since TYPO3 6.X - is not used anymore, use FUNCNAME instead
     */
 
-In the deprecated function you should add a call to
+At the beginning of the deprecated function you should add a call to
 :code:`GeneralUtility::logDeprecatedFunction()` and provide a helpful
 deprecation message::
-
 
    \TYPO3\CMS\Core\Utility\GeneralUtility::logDeprecatedFunction('This function is deprecated since TYPO3 6.X. Please use xyz instead by doing...');
 
