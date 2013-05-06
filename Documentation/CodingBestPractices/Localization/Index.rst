@@ -36,8 +36,8 @@ files:
   **must** use numbered arguments (e.g. :code:`%1$d`).
 
 - Localized strings should never contain configuration options (e.g.
-  :code:`index_config:timer_frequency` (which would display a link) or
-  :code:`EXT:wizard_crpages/cshimages/wizards_1.png` (which would show
+  :code:`index_config:timer_frequency`, which would display a link or
+  :code:`EXT:wizard_crpages/cshimages/wizards_1.png`, which would show
   an image). Configuration like this does not belong in language
   labels, but in TypoScript.
 

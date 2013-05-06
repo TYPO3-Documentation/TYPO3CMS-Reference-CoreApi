@@ -108,5 +108,9 @@ Character set
 """""""""""""
 
 All TYPO3 source files use the UTF-8 character set without byte order
-mark (BOM) since version 4.5. Files from third-party libraries may have
+mark (BOM) since version 4.5. Encoding declarations like
+:code:`declare(encoding = 'utf-8');` must not be used. They might lead
+to problems, especially in :code:`ext_tables.php` and
+:code:`ext_localconf.php` files of extensions, which are merged
+internally in TYPO3 CMS. Files from third-party libraries may have
 different encodings.

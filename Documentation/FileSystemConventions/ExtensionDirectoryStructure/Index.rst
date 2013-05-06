@@ -39,7 +39,7 @@ An extension directory contains the following files and directories:
          :code:`ext\_icon.gif`
 
    Description
-         This is the icon of the extension. The name may not be changed.
+         This is the icon of the extension. The filename may not be changed.
 
 
 .. container:: table-row
@@ -48,8 +48,9 @@ An extension directory contains the following files and directories:
          :code:`ext\_localconf.php`
 
    Description
-         This file contains hook definitions and plugin configuration. The name
-         may not be changed.
+         This file contains hook definitions and plugin configuration. It must
+         not contain a PHP encoding declaration. The filename may not be
+         changed.
 
 
 .. container:: table-row
@@ -58,9 +59,10 @@ An extension directory contains the following files and directories:
          :code:`ext\_tables.php`
 
    Description
-         This file contains table declarations. For more information about
-         table declarations and definitions see the "TYPO3 Core API" document.
-         The name may not be changed.
+         This file contains table declarations. It must not contain a PHP
+         encoding declaration. For more information about table declarations
+         and definitions see the "TYPO3 Core API" document. The filename may
+         not be changed.
 
 
 .. container:: table-row
@@ -69,8 +71,8 @@ An extension directory contains the following files and directories:
          :code:`ext\_tables.sql`
 
    Description
-         This files contains definitions for extension tables. The name may not
-         be changed.
+         This files contains SQL definitions for extension tables. The filename
+         may not be changed.
 
          The file may contain either a full table definition or a partial
          table. The full table definition declares extension's tables. It looks
@@ -123,8 +125,8 @@ An extension directory contains the following files and directories:
          :code:`doc/`
 
    Description
-         This directory contains the extension manual. The name may not be
-         changed.
+         This directory contains the extension manual. The filename may not
+         be changed.
 
 
 .. container:: table-row
@@ -134,9 +136,9 @@ An extension directory contains the following files and directories:
 
    Description
          This file contains extension manual in OpenOffice 1.0 format. The name
-         or file format may not be changed. See the extension "doc_template
-         ("Documentation template") on typo3.org for more information about
-         extension manuals.
+         or format of the file may not be changed. See the extension
+         "doc_template" ("Documentation template") on typo3.org for more
+         information about extension manuals.
 
 
 .. container:: table-row
