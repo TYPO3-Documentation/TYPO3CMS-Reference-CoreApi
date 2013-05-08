@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _unit-tests:
+
 Unit tests
 ^^^^^^^^^^
 

@@ -6,7 +6,9 @@
 .. include:: ../Includes.txt
 
 
-Coding: best practices
+.. _best-practices:
+
+Coding: Best practices
 ----------------------
 
 This section documents best practices when developing for TYPO3.

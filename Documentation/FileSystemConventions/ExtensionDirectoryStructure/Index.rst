@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _extension-directory-structure:
+
 Extension directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

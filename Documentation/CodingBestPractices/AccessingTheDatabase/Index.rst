@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _database-access:
+
 Accessing the database
 ^^^^^^^^^^^^^^^^^^^^^^
 

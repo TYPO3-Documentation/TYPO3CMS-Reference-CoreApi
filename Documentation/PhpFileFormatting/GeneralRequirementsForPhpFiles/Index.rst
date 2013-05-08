@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _general-requirements-for-php-files:
+
 General requirements for PHP files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

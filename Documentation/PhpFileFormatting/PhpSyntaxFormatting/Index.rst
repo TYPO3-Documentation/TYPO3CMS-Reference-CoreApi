@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _php-syntax-formatting:
+
 PHP syntax formatting
 ^^^^^^^^^^^^^^^^^^^^^
 

@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _using-phpdoc:
+
 Using phpDoc
 ^^^^^^^^^^^^
 

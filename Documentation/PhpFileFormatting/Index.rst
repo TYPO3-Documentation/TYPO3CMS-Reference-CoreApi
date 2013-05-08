@@ -6,6 +6,8 @@
 .. include:: ../Includes.txt
 
 
+.. _php-file-formatting:
+
 PHP file formatting
 -------------------
 

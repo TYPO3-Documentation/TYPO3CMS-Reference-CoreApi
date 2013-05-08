@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _file-structure:
+
 File structure
 ^^^^^^^^^^^^^^
 

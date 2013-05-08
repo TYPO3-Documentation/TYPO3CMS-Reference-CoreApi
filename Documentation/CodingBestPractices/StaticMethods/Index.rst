@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _static-methods:
+
 Static methods
 ^^^^^^^^^^^^^^
 

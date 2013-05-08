@@ -6,6 +6,8 @@
 .. include:: ../Includes.txt
 
 
+.. _file-system-conventions:
+
 File system conventions
 -----------------------
 

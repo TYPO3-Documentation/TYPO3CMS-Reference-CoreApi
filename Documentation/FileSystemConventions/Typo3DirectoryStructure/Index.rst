@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _typo3-directory-structure:
+
 TYPO3 directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 

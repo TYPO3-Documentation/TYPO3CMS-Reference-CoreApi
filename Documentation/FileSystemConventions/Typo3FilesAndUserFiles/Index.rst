@@ -6,6 +6,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _typo3-user-files:
+
 TYPO3 files and user files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
