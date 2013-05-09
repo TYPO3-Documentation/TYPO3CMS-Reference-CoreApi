@@ -28,6 +28,17 @@ An extension directory contains the following files and directories:
 .. container:: table-row
 
    Name
+         :code:`ext\_autoload.php`
+
+   Description
+         This file contains an array. This array maps class names to file
+         paths. It gets loaded by the autoloader when the autoloader is
+         initialized.
+
+
+.. container:: table-row
+
+   Name
          :code:`ext\_emconf.php`
 
    Description
