@@ -13,8 +13,8 @@ Localization
 
 TYPO3 is designed to be fully localizable. Hard-coded strings should
 thus be avoided unless there are some technical limitations (e.g. some
-early or low-level stuff where a :code:`lang` object is not yet
-available).
+very early or low-level stuff where a :code:`$GLOBALS['LANG']` object
+is not yet available).
 
 
 Defining localized strings
@@ -24,8 +24,8 @@ Here are some rules to respect when working with labels in :code:`locallang`
 files:
 
 - Always check the existing locallang files to see if a given localized
-  string already exists, in particular :code:`EXT:lang/locallang\_common.xml`
-  and :code:`EXT:lang/locallang\_core.xml`.
+  string already exists, in particular :code:`EXT:lang/locallang\_common.xlf`
+  and :code:`EXT:lang/locallang\_core.xlf`.
 
 - Localized strings should never be all uppercase. If uppercase is needed,
   then appropriate methods should be used to transform them to uppercase.
@@ -60,9 +60,10 @@ new one should be introduced instead.
 Using localized strings
 """""""""""""""""""""""
 
-Localized string are displayed using the available API: mostly
-:code:`lang::getLL()` when the corresponding locallang file is loaded,
-:code:`lang::sL()` otherwise. In both these methods, the second call
-parameter should be left out, unless there's a compelling reason to set
-it to :code:`TRUE` (which triggers the use of htmlspecialchars()).
+Localized strings are displayed using the available API: Mostly
+:code:`$GLOBALS['LANG']::getLL()` when the corresponding locallang file
+is loaded, :code:`$GLOBALS['LANG']::sL()` otherwise. In both these
+methods, the second call parameter should be left out, unless there's a
+compelling reason to set it to :code:`TRUE` (which triggers the use of
+:code:`htmlspecialchars()`).
 

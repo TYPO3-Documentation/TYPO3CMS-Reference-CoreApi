@@ -95,11 +95,11 @@ An extension directory contains the following files and directories:
          existing table fields though that is not recommended, because it may
          create problems with the TYPO3 core and/or other extensions.
 
-         TYPO3 parses :code:`ext\_tables.sql` files. TYPO3 expects that all table
-         definitions in this file look like the ones produced by the
-         :code:`mysqldump` utility. Incorrect definitions may not be recognized by the
-         TYPO3 SQL parser or may lead to MySQL errors, when TYPO3 tries to apply
-         them.
+         TYPO3 parses :code:`ext\_tables.sql` files. TYPO3 expects that all
+         table definitions in this file look like the ones produced by the
+         :code:`mysqldump` utility. Incorrect definitions may not be recognized
+         by the TYPO3 SQL parser or may lead to MySQL errors, when TYPO3 tries
+         to apply them.
 
 
 .. container:: table-row
@@ -114,11 +114,23 @@ An extension directory contains the following files and directories:
 .. container:: table-row
 
    Name
+         :code:`locallang\*.xlf`
+
+   Description
+         These files contain localizable labels in standard XLIFF format, one
+         language per file. They can also appear in subdirectories.
+
+
+.. container:: table-row
+
+   Name
          :code:`locallang\*.xml`
 
    Description
-         These files contain localizable labels. They can also appear in
-         subdirectories.
+         These files contain localizable labels in a custom XML based format,
+         possibly multiple languages per file. They can also appear in
+         subdirectories. Deprecated since TYPO3 4.6; use
+         :code:`locallang\*.xlf` files instead.
 
 
 .. container:: table-row
@@ -137,8 +149,8 @@ An extension directory contains the following files and directories:
          :code:`doc/manual.sxw`
 
    Description
-         This file contains extension manual in OpenOffice 1.0 format. The name
-         or format of the file may not be changed. See the extension
+         This file contains the extension manual in OpenOffice 1.0 format. The
+         name or format of the file may not be changed. See the extension
          "doc_template" ("Documentation template") on typo3.org for more
          information about extension manuals.
 
