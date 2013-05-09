@@ -39,13 +39,15 @@ What's new
 
 The latest version of the CGLs mostly contains more complete and
 precise information about already existing guidelines. It also reflects
-changes in the coding of TYPO3 CMS 6.0: Filenames of PHP files are no
-longer required to be all lowercase. :code:`@package` and
-:code:`@subpackage` annotations have been removed. Inline comments are
-now no longer indented with one additional tab compared to the line
-which they belong to. The coding style of long conditions has been
-changed to improve readability. Finally it is made more clear that also
-configuration files should follow the CGL.
+changes in the coding of TYPO3 CMS 6.0: Information about ext_icon.png
+(as opposed to ext_icon.gif) and notes on documentation in ReST format
+has been added. Filenames of PHP files are no longer required to be all
+lowercase. :code:`@package` and :code:`@subpackage` annotations have
+been removed. Inline comments are now no longer indented with one
+additional tab compared to the line which they belong to. The coding
+style of long conditions has been changed to improve readability.
+Finally it is made more clear that also configuration files should
+follow the CGL.
 
 Furthermore the appendix which described how to properly set up
 various IDEs for working with the TYPO3 CMS Core has been moved to the

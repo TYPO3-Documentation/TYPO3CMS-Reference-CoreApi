@@ -49,7 +49,7 @@ An extension directory contains the following files and directories:
 .. container:: table-row
 
    Name
-         :code:`ext_icon.gif`
+         :code:`ext_icon.gif` or :code:`ext_icon.png`
 
    Description
          This is the icon of the extension. The filename may not be changed.
@@ -150,8 +150,8 @@ An extension directory contains the following files and directories:
          :code:`doc/`
 
    Description
-         This directory contains the extension manual. The filename may not
-         be changed.
+         This directory contains the extension manual in OpenOffice format. The
+         filename may not be changed.
 
 
 .. container:: table-row
@@ -162,8 +162,35 @@ An extension directory contains the following files and directories:
    Description
          This file contains the extension manual in OpenOffice 1.0 format. The
          name or format of the file may not be changed. See the extension
-         "doc_template" ("Documentation template") on typo3.org for more
-         information about extension manuals.
+         "doc_template" ("Official Doc Extension Template") on typo3.org for
+         more information about extension manuals. Deprecated, provide your
+         manual in ReST format instead.
+
+
+.. container:: table-row
+
+   Name
+         :code:`Documentation/`
+
+   Description
+         This directory contains the extension manual in ReST format.
+         :code:`Documentation/` and its subfolders may contain several ReST
+         files, images and other resources.
+
+
+.. container:: table-row
+
+   Name
+         :code:`Documentation/Index.rst`
+
+   Description
+         This file contains the cover page of the extension manual in ReST
+         format. The name or format of the file may not be changed. You may
+         include other ReST files as you like. See the
+         `"Extension Template" on docs.typo3.org`_ for more information about
+         structure and syntax of extension manuals.
+
+         .. _"Extension Template" on docs.typo3.org: http://docs.typo3.org/typo3cms/ExtensionManualExample/
 
 
 .. container:: table-row
