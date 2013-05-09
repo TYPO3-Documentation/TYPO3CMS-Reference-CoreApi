@@ -97,8 +97,9 @@ directories:
    Description
          Default upload directory. For example, all images uploaded with the
          "Image with text" content element will be stored in this directory.
-         Extensions can use the :code:`uploadfolder` setting in the :code:`ext\_emconf.php` to
-         specify a subdirectory of :code:`uploads/` for this extension.
+         Extensions can use the :code:`uploadfolder` setting in the
+         :code:`ext_emconf.php` to specify a subdirectory of :code:`uploads/`
+         for this extension.
 
 
 .. ###### END~OF~TABLE ######

@@ -24,8 +24,8 @@ Here are some rules to respect when working with labels in :code:`locallang`
 files:
 
 - Always check the existing locallang files to see if a given localized
-  string already exists, in particular :code:`EXT:lang/locallang\_common.xlf`
-  and :code:`EXT:lang/locallang\_core.xlf`.
+  string already exists, in particular :code:`EXT:lang/locallang_common.xlf`
+  and :code:`EXT:lang/locallang_core.xlf`.
 
 - Localized strings should never be all uppercase. If uppercase is needed,
   then appropriate methods should be used to transform them to uppercase.

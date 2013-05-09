@@ -44,7 +44,7 @@ Example
 ~~~~~~~
 
 The unit test class file for
-:code:`t3lib/db/class.t3lib\_db\_preparedstatement.php` is::
+:code:`t3lib/db/class.t3lib_db_preparedstatement.php` is::
 
    tests/t3lib/db/t3lib_db_preparedstatementTest.php
 

@@ -51,7 +51,7 @@ Copyright notice
 TYPO3 is released under the terms of GNU General Public License
 version 2 or any later version. The copyright notice with a reference
 to the GPL must be included at the top of every TYPO3 PHP class file.
-:code:`user\_` files must have this copyright notice as well. Example::
+:code:`user_` files must have this copyright notice as well. Example::
 
    <?php
    /***************************************************************
@@ -104,19 +104,19 @@ Example::
 Included files
 """"""""""""""
 
-Files are included using the :code:`require\_once()` function. All TYPO3
-files must use absolute paths in calls to :code:`require\_once()`. There
+Files are included using the :code:`require_once()` function. All TYPO3
+files must use absolute paths in calls to :code:`require_once()`. There
 are two ways to obtain the path to the included file:
 
-#. Use one of the predefined TYPO3 constants: :code:`PATH\_tslib`, :code:`PATH\_t3lib`,
-   :code:`PATH\_typo3` or :code:`PATH\_site`. The first three contain absolute paths to the
+#. Use one of the predefined TYPO3 constants: :code:`PATH_tslib`, :code:`PATH_t3lib`,
+   :code:`PATH_typo3` or :code:`PATH_site`. The first three contain absolute paths to the
    corresponding TYPO3 directories. The last constant contains the
    absolute path to the TYPO3 root directory. Example::
 
       require_once(PATH_tslib . 'class.tslib_pibase.php');
 
 
-#. Use :code:`t3lib\_extMgm::extPath()` function. This function accepts two
+#. Use :code:`t3lib_extMgm::extPath()` function. This function accepts two
    arguments: first the extension key and second the path to the included
    file inside the extension. The second argument is optional but recommended
    to use. Examples::
@@ -127,7 +127,7 @@ are two ways to obtain the path to the included file:
 Always use one of these two ways to include files. This is required to
 include files even from the current directory. Some installations do
 not have the current directory in the PHP :code:`include path` and
-:code:`require\_once()` without a proper path will result in a fatal
+:code:`require_once()` without a proper path will result in a fatal
 PHP error.
 
 
@@ -152,12 +152,12 @@ The PHP class follows the Class information block. PHP code must be
 formatted as described in chapter "PHP syntax formatting".
 
 The class name is expected to follow some conventions. The namespace
-and path parts are all lowercase and separated by underscores (":code:`\_`").
+and path parts are all lowercase and separated by underscores (":code:`_`").
 At the end comes the "true" class name which must be written in upper
 camel case.
 
 Taking again the example of file
-:code:`class.t3lib\_cache\_backend\_abstractbackend.php`, the PHP class
+:code:`class.t3lib_cache_backend_abstractbackend.php`, the PHP class
 declaration will look like::
 
    class t3lib_cache_backend_AbstractBackend {
@@ -175,7 +175,7 @@ declaration.
 
 The XCLASS declaration must include the proper path to the current
 class file. The following example assumes that extension key is
-:code:`myext`, the file name is :code:`class.tx\_myext\_pi1.php` and
+:code:`myext`, the file name is :code:`class.tx_myext_pi1.php` and
 the file is located in the :code:`pi1` subdirectory of the extension::
 
    if (defined('TYPO3_MODE') && isset($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/myext/pi1/class.tx_myext_pi1.php'])) {

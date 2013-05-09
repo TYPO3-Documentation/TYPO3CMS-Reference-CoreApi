@@ -84,8 +84,8 @@ Example::
        }
    }
 
-Comments must start with ":code:`//`". Starting with ":code:`#`" is not
-allowed.
+Comments must start with ":code:`//`". Starting comments with
+":code:`#`" is not allowed.
 
 Class constants and variable comments should follow PHP doc style and
 precede the variable. The variable type must be specified for
@@ -112,7 +112,7 @@ Debug output
 """"""""""""
 
 During development it is allowed to use :code:`debug()` or
-:code:`t3lib\_div::debug()` function calls to produce debug output.
+:code:`t3lib_div::debug()` function calls to produce debug output.
 However all debug statements must be removed (not only commented!) before
 pushing the code to the Git repository.
 
@@ -295,7 +295,7 @@ assignment happens in the loop::
    }
 
 There's a special case for :code:`foreach` loops when the value is not
-used inside the loop. In this case the dummy variable :code:`$\_`
+used inside the loop. In this case the dummy variable :code:`$_`
 (underscore) is used::
 
    foreach ($GLOBALS['TCA'] as $table => $_) {
@@ -303,7 +303,7 @@ used inside the loop. In this case the dummy variable :code:`$\_`
    }
 
 This is done for performance reasons, as it is faster than calling
-:code:`array\_keys()` and looping on its result.
+:code:`array_keys()` and looping on its result.
 
 
 Strings

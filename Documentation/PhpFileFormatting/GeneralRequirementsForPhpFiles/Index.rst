@@ -91,8 +91,8 @@ manually or using a text editor that takes care of this.
 Spaces must be added:
 
 - on both sides of string, arithmetic, assignment and other similar
-  operators (for example, :code:`.`, :code:`=`, :code:`+`, :code:`-`,
-  :code:`?`, :code:`:`, :code:`\*`, etc)
+  operators (for example :code:`.`, :code:`=`, :code:`+`, :code:`-`,
+  :code:`?`, :code:`:`, :code:`*`, etc)
 
 - after commas
 
