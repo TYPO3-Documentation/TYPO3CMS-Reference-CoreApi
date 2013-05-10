@@ -258,3 +258,6 @@ This directory structure is **strongly recommended**.
 Extensions may create their own directories (for example, move all
 language files into other directories).
 
+For the class names in extension files see the chapter "Class names of
+user files".
+

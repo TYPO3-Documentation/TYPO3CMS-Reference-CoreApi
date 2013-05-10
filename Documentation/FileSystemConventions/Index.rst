@@ -27,5 +27,4 @@ below.
    Typo3FilesAndUserFiles/Index
    ExtensionDirectoryStructure/Index
    FileNames/Index
-   Namespaces/Index
 

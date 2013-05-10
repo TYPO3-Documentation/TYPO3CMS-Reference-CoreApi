@@ -61,11 +61,12 @@ directories:
          coming with the TYPO3 Core. The files are arranged logically in the
          different system extensions in the :code:`sysext/` directory,
          according to the application area of the particular file. For example,
-         the ":code:`frontend`" extension contains the code for generating the
-         Frontend website. In each system extension the PHP files are located
-         in the folder :code:`Classes/`. Additionally, :code:`typo3/` can
-         contain some global extensions in the :code:`ext/` directory (which is
-         not used by the TYPO3 core itself).
+         the ":code:`frontend`" extension amongst other things contains the
+         "TypoScript library", the code for generating the Frontend website. In
+         each system extension the PHP files are located in the folder
+         :code:`Classes/`. Additionally, :code:`typo3/` can contain some global
+         extensions in the :code:`ext/` directory (which is not used by the
+         TYPO3 core itself).
 
 
 .. container:: table-row

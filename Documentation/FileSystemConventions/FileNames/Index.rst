@@ -21,7 +21,8 @@ It is recommended to use only PHP classes and avoid non-class files.
 Files that contain PHP interfaces must have the file name end on
 "Interface", e.g. :code:`FileListEditIconHookInterface.php`.
 
-For information on namespaces, see the next section of this document.
+For information on class names for user files, see the according
+section of this document.
 
 One file can contain only one class or interface.
 

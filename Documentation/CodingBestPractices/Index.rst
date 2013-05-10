@@ -25,4 +25,5 @@ This section documents best practices when developing for TYPO3.
    Localization/Index
    UnitTests/Index
    HandlingDeprecation/Index
+   ClassNamesOfUserFiles/Index
 

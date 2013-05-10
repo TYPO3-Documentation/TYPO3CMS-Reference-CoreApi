@@ -19,7 +19,7 @@ TYPO3 files use the following structure:
 
 #. Copyright notice
 
-#. File information block (with optional function index) in phpDoc format
+#. File information block in phpDoc format
 
 #. Included files
 
@@ -39,11 +39,16 @@ The following sections discuss each of these parts.
 Namespace
 """""""""
 
-The namespace declaration of each PHP file in the TYPO3 Core starts
-with ":code:`TYPO3\CMS\`", then the extension name in UpperCamelCase,
-a :code:`\` slash and then possibly another part. E.g. the file
+The namespace declaration of each PHP file in the TYPO3 Core shows
+where the file belongs inside TYPO3 CMS. The namespace starts with
+:code:`"TYPO3\CMS\"`, then the extension name in UpperCamelCase, a
+:code:`\` slash and then the name of the subfolder of :code:`Classes/`,
+in which the file is located (if any). E.g. the file
 :code:`typo3/sysext/frontend/Classes/ContentObject/ContentObjectRenderer.php`
-is in the namespace ":code:`TYPO3\CMS\Frontend\ContentObject`".
+with the class :code:`ContentObjectRenderer` is in the namespace
+":code:`TYPO3\CMS\Frontend\ContentObject`".
+
+:code:`use` statements can be added to this section.
 
 Copyright notice
 """"""""""""""""
@@ -54,6 +59,8 @@ to the GPL must be included at the top of every TYPO3 PHP class file.
 :code:`user_` files must have this copyright notice as well. Example::
 
    <?php
+   namespace TYPO3\CMS\XXX;
+
    /***************************************************************
    *  Copyright notice
    *
