@@ -113,16 +113,16 @@ are two ways to obtain the path to the included file:
    corresponding TYPO3 directories. The last constant contains the
    absolute path to the TYPO3 root directory. Example::
 
-      require_once(PATH_tslib . 'class.tslib_pibase.php');
+      require_once(PATH_typo3 . 'sysext/frontend/Classes/Plugin/AbstractPlugin.php');
 
 
-#. Use :code:`t3lib_extMgm::extPath()` function. This function accepts two
-   arguments: first the extension key and second the path to the included
-   file inside the extension. The second argument is optional but recommended
-   to use. Examples::
+#. Use the :code:`ExtensionManagementUtility::extPath()` function. This
+   function accepts two arguments: first the extension key and second the path
+   to the included file inside the extension. The second argument is optional
+   but recommended to use. Examples::
 
-      require_once(t3lib_extMgm::extPath('lang', 'lang.php'));
-      require_once(t3lib_extMgm::extPath('lang') . 'lang.php');
+      require_once(ExtensionManagementUtility::extPath('lang', 'Classes/LanguageService.php'));
+      require_once(ExtensionManagementUtility::extPath('lang') . 'Classes/LanguageService.php');
 
 Always use one of these two ways to include files. This is required to
 include files even from the current directory. Some installations do
@@ -151,16 +151,14 @@ PHP class
 The PHP class follows the Class information block. PHP code must be
 formatted as described in chapter "PHP syntax formatting".
 
-The class name is expected to follow some conventions. The namespace
-and path parts are all lowercase and separated by underscores (":code:`_`").
-At the end comes the "true" class name which must be written in upper
-camel case.
+The class name is expected to follow some conventions. It must be
+identical to the file name and must be written in upper camel case.
 
 Taking again the example of file
-:code:`class.t3lib_cache_backend_abstractbackend.php`, the PHP class
+:code:`typo3/sysext/core/Classes/Cache/Backend/AbstractBackend.php`, the PHP class
 declaration will look like::
 
-   class t3lib_cache_backend_AbstractBackend {
+   class AbstractBackend implements \TYPO3\CMS\Core\Cache\Backend\BackendInterface {
            …
    }
 
@@ -170,7 +168,7 @@ XCLASS declaration
 
 The XCLASS declaration must follow the PHP class. The format of the
 XCLASS is very important. Please follow the example below, otherwise
-the :code:`extdeveval` will complain about a missing XCLASS
+the :code:`extdeveval` extension will complain about a missing XCLASS
 declaration.
 
 The XCLASS declaration must include the proper path to the current
@@ -190,7 +188,7 @@ Module execution code instantiates the class and runs its method(s).
 Typically this code can be found in :code:`eID` scripts and old Backend
 modules. Here is how it may look like::
 
-   $controller = t3lib_div::makeInstance('tx_myext_ajaxcontroller');
+   $controller = GeneralUtility::makeInstance('tx_myext_ajaxcontroller');
    $controller->main();
 
 This code must appear **after** the XCLASS declaration. :code:`$SOBE`

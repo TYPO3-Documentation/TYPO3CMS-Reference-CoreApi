@@ -11,18 +11,21 @@
 File names
 ^^^^^^^^^^
 
-TYPO3 requires all PHP class file names to start with :code:`class.` prefix
-followed by a namespace prefix, underscore character, class name,
-underscore character and extension. For information on namespaces and
-namespace prefix, see the next section of this document. Extension for
-PHP files is always :code:`php`.
+The file name describes the functionality included in the file. It
+consists of several words, written in UpperCamelCase. For example in
+the :code:`frontend` system extension there is the file
+:code:`ContentObject/ContentObjectRenderer.php`.
 
-Non-class files must not start with the :code:`class.` prefix. It is recommended to
-use only PHP classes and avoid non-class files.
+It is recommended to use only PHP classes and avoid non-class files.
 
-Classes that contain PHP interfaces must have interface.prefix.
+Files that contain PHP interfaces must have the file name end on
+"Interface", e,g, :code:`FileListEditIconHookInterface.php`.
+
+For information on namespaces, see the next section of this document.
 
 One file can contain only one class or interface.
+
+Extension for PHP files is always :code:`php`.
 
 
 Unit test files
@@ -44,9 +47,9 @@ Example
 ~~~~~~~
 
 The unit test class file for
-:code:`t3lib/db/class.t3lib_db_preparedstatement.php` is::
+:code:`typo3/sysext/core/Classes/Database/PreparedStatement.php` is::
 
-   tests/t3lib/db/t3lib_db_preparedstatementTest.php
+   tests/typo3/sysext/core/Classes/Database/PreparedStatementTest.php
 
 See more about unit testing in the "Unit tests" chapter.
 

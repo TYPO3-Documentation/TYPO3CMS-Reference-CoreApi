@@ -95,9 +95,9 @@ non–trivial types and is optional for trivial types. Example::
       protected $numberOfImages;
 
       /**
-       * Local instance of the tslib_cObj class
+       * Local instance of the ContentObjectRenderer class
        *
-       * @var tslib_cObj
+       * @var ContentObjectRenderer
        */
       protected $localCobj;
 
@@ -112,9 +112,9 @@ Debug output
 """"""""""""
 
 During development it is allowed to use :code:`debug()` or
-:code:`t3lib_div::debug()` function calls to produce debug output.
-However all debug statements must be removed (not only commented!) before
-pushing the code to the Git repository.
+:code:`GeneralUtility::debug()` function calls to produce debug output.
+However all debug statements must be removed (not only commented!)
+before pushing the code to the Git repository.
 
 
 Curly braces

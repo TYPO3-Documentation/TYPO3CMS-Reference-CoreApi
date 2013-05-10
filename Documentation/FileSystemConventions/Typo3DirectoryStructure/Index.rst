@@ -32,8 +32,8 @@ directories:
          :code:`fileadmin/`
 
    Description
-         This is a directory in which users can store files. Typically images or
-         HTML files appear in this directory and/or its subdirectories.
+         This is a directory in which users can store files. Typically images,
+         PDFs or HTML files appear in this directory and/or its subdirectories.
 
          Often this directory is used for downloadable files. This directory is
          the only one accessible using the TYPO3 :code:`File module`.
@@ -45,7 +45,10 @@ directories:
          :code:`t3lib/`
 
    Description
-         TYPO3 library directory
+         TYPO3 library directory. Deprecated since TYPO3 CMS 6.0, library files
+         have been moved to the according system extensions in the
+         :code:`typo3/` directory instead, e.g. to the system extension
+         :code:`core`, :code:`backend` or :code:`frontend`.
 
 
 .. container:: table-row
@@ -54,11 +57,15 @@ directories:
          :code:`typo3/`
 
    Description
-         TYPO3 Backend directory. This directory contains the Backend files.
-
-         Additionally, it contains some extensions in the :code:`ext/` (not used by the
-         TYPO3 core) and :code:`sysext/` directories. For example, the ":code:`frontend`"
-         extension contains the code for generating the Frontend website.
+         TYPO3 Backend directory. This directory contains most of the files
+         coming with the TYPO3 Core. The files are arranged logically in the
+         different system extensions in the :code:`sysext/` directory,
+         according to the application area of the particular file. For example,
+         the ":code:`frontend`" extension contains the code for generating the
+         Frontend website. In each system extension the PHP files are located
+         in the folder :code:`Classes/`. Additionally, :code:`typo3/` can
+         contain some global extensions in the :code:`ext/` directory (which is
+         not used by the TYPO3 core itself).
 
 
 .. container:: table-row

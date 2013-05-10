@@ -33,7 +33,7 @@ corresponds to the :code:`t3lib/` directory in the TYPO3 directory hierarchy.
 All PHP class files in :code:`t3lib` namespace start with :code:`class.t3lib_` prefix.
 
 The :code:`t3lib/` directory contains subdirectories. Class and interface files
-in these subdirectories have directory name appended to the
+in these subdirectories have the directory name appended to the
 :code:`t3lib_` prefix and separated from the class name by the underscore
 character. For example, files in :code:`t3lib/cache/` are named like
 :code:`class.t3lib_cache_exception.php`. Files inside :code:`t3lib/cache/backend` are
