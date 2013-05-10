@@ -98,6 +98,9 @@ inside extensions. The most important classes are:
   the collection's data. For accessing the selected records, just loop
   on the collection (see example).
 
+:code:`\TYPO3\CMS\Core\Resource\FileCollectionRepository`
+  Similar to the record collection repository, but for file collections.
+
 :code:`\TYPO3\CMS\Core\Resource\Collection\StaticFileCollection`
   Similar to the static record collection, but for files.
 
