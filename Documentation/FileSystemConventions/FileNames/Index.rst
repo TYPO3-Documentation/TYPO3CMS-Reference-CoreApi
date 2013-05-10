@@ -19,7 +19,7 @@ the :code:`frontend` system extension there is the file
 It is recommended to use only PHP classes and avoid non-class files.
 
 Files that contain PHP interfaces must have the file name end on
-"Interface", e,g, :code:`FileListEditIconHookInterface.php`.
+"Interface", e.g. :code:`FileListEditIconHookInterface.php`.
 
 For information on namespaces, see the next section of this document.
 
@@ -31,16 +31,13 @@ Extension for PHP files is always :code:`php`.
 Unit test files
 """""""""""""""
 
-Unit test files are located in the ":code:`tests/`" folder at the root of the
-TYPO3 source, within a sub-structure matching the source code's
-structure.
+Unit test files are located in the ":code:`Tests/Unit/`" folder in the
+according extension, within a sub-structure matching the structure in
+the :code:`Classes/` folder.
 
-The naming conventions for the files are different from those
-explained above:
-
-#. the names are not prepended with ":code:`class.`"
-
-#. "Test" is appended at the end of the name, before ":code:`.php`"
+The naming conventions for the files are different from those explained
+above: ":code:`Test`" is appended at the end of the name, before
+":code:`.php`".
 
 
 Example
@@ -49,7 +46,7 @@ Example
 The unit test class file for
 :code:`typo3/sysext/core/Classes/Database/PreparedStatement.php` is::
 
-   tests/typo3/sysext/core/Classes/Database/PreparedStatementTest.php
+   typo3/sysext/core/Tests/Unit/Database/PreparedStatementTest.php
 
 See more about unit testing in the "Unit tests" chapter.
 
