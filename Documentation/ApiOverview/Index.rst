@@ -48,6 +48,7 @@ http://typo3.org/documentation/api/.
    FormProtection/Index
    FlashMessages/Index
    Collections/Index
+   Http/Index
    Hooks/Index
    Xclasses/Index
    Examples/Index
