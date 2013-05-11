@@ -16,7 +16,7 @@ File Abstraction Layer
       doc_core_fal
 
 :Version:
-      0.0.1
+      6.0.0
 
 :Language:
       en
@@ -80,6 +80,7 @@ address the task at hand.
    :titlesonly:
    :glob:
 
+   Introduction/Index
    Administrators/Index
    Developers/Index
    Targets
