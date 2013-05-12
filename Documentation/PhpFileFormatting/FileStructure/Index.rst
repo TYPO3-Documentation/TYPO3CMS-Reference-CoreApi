@@ -19,8 +19,6 @@ TYPO3 files use the following structure:
 
 #. Copyright notice
 
-#. File information block in phpDoc format
-
 #. Included files
 
 #. Class information block in phpDoc format
@@ -91,23 +89,6 @@ This notice may not be altered except for the year, author name and
 author e-mail address.
 
 
-File information block
-""""""""""""""""""""""
-
-The file information block follows the copyright statement and provides
-basic information about the file. It should include file name,
-description of the file and information about the author (or authors).
-Example::
-
-   /**
-    * class.tx_myext_pi1.php
-    *
-    * Provides XYZ plugin implementation.
-    *
-    * @author John Doe <john.doe@example.com>
-    */
-
-
 Included files
 """"""""""""""
 
@@ -141,8 +122,9 @@ PHP error.
 Class information block
 """""""""""""""""""""""
 
-The class information block is similar to the file information block
-and describes the class in the file. Example::
+The class information block provides basic information about the class
+in the file. It should include a description of the class and
+information about the author (or authors). Example::
 
    /**
     * This class provides XYZ plugin implementation.
@@ -155,7 +137,7 @@ and describes the class in the file. Example::
 PHP class
 """""""""
 
-The PHP class follows the Class information block. PHP code must be
+The PHP class follows the class information block. PHP code must be
 formatted as described in chapter "PHP syntax formatting".
 
 The class name is expected to follow some conventions. It must be
