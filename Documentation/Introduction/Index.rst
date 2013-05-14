@@ -43,13 +43,13 @@ changes in the coding of TYPO3 CMS 6.0: Information about ext_icon.png
 (as opposed to ext_icon.gif) and notes on documentation in ReST format
 has been added. Filenames of PHP files and class names are no longer
 required to be all lowercase. Class names were changed and information
-on namespaces added. The structure and naming conventions for unit
-tests changed. :code:`@package` and :code:`@subpackage` annotations
-have been removed. Inline comments are now no longer indented with one
-additional tab compared to the line which they belong to. The coding
-style of long conditions has been changed to improve readability.
-Finally it is made more clear that also configuration files should
-follow the CGL.
+on namespaces added. XCLASS declarations have been removed. The
+structure and naming conventions for unit tests changed.
+:code:`@package` and :code:`@subpackage` annotations have been removed.
+Inline comments are now no longer indented with one additional tab
+compared to the line which they belong to. The coding style of long
+conditions has been changed to improve readability. Finally it is made
+more clear that also configuration files should follow the CGL.
 
 Furthermore the appendix which described how to properly set up
 various IDEs for working with the TYPO3 CMS Core has been moved to the
@@ -93,7 +93,7 @@ Conventions used in this document
 
 :code:`Monospace font` is used for:
 
-- File names and directories. Directories have slash (:code:`/`) in
+- File names and directories. Directories have a slash (:code:`/`) at
   the end of the directory name.
 
 - Code examples

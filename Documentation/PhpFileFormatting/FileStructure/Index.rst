@@ -25,8 +25,6 @@ TYPO3 files use the following structure:
 
 #. PHP class
 
-#. XCLASS declaration
-
 #. Optional module execution code (for example, in eID classes)
 
 #. Closing PHP tag
@@ -40,8 +38,8 @@ Namespace
 The namespace declaration of each PHP file in the TYPO3 Core shows
 where the file belongs inside TYPO3 CMS. The namespace starts with
 :code:`"TYPO3\CMS\"`, then the extension name in UpperCamelCase, a
-:code:`\` slash and then the name of the subfolder of :code:`Classes/`,
-in which the file is located (if any). E.g. the file
+slash (:code:`\\`) and then the name of the subfolder of
+:code:`Classes/`, in which the file is located (if any). E.g. the file
 :code:`typo3/sysext/frontend/Classes/ContentObject/ContentObjectRenderer.php`
 with the class :code:`ContentObjectRenderer` is in the namespace
 ":code:`TYPO3\CMS\Frontend\ContentObject`".
@@ -152,24 +150,6 @@ declaration will look like::
    }
 
 
-XCLASS declaration
-""""""""""""""""""
-
-The XCLASS declaration must follow the PHP class. The format of the
-XCLASS is very important. Please follow the example below, otherwise
-the :code:`extdeveval` extension will complain about a missing XCLASS
-declaration.
-
-The XCLASS declaration must include the proper path to the current
-class file. The following example assumes that extension key is
-:code:`myext`, the file name is :code:`class.tx_myext_pi1.php` and
-the file is located in the :code:`pi1` subdirectory of the extension::
-
-   if (defined('TYPO3_MODE') && isset($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/myext/pi1/class.tx_myext_pi1.php'])) {
-           include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/myext/pi1/class.tx_myext_pi1.php']);
-   }
-
-
 Optional module execution code
 """"""""""""""""""""""""""""""
 
@@ -180,6 +160,6 @@ modules. Here is how it may look like::
    $controller = GeneralUtility::makeInstance('tx_myext_ajaxcontroller');
    $controller->main();
 
-This code must appear **after** the XCLASS declaration. :code:`$SOBE`
-is the traditional, but not the required name.
+This code must appear **after** the PHP class. :code:`$SOBE` is the
+traditional, but not the required name.
 
