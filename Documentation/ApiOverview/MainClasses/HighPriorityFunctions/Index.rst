@@ -119,28 +119,6 @@ real documentation is found in the source scripts (and the
 
 
  - :Function:
-         :code:`loadTCA`
-   :Comments:
-         **Loading full table description into $TCA**
-
-         If you want to access or change any part of the $TCA array for a table
-         except the :code:`['ctrl']` part then you should call this function first. The
-         :code:`$TCA` might not contain the full configuration for the table (depending
-         on configuration of the table) and to make sure it is loaded, if it
-         isn't already, you call this function.
-
-         Examples of PHP code which traverses the ['columns'] part of an
-         unknown table and loads the table before. ::
-
-            \TYPO3\CMS\Core\Utility\GeneralUtility::loadTCA($this->table);
-            foreach ($TCA[$this->table]['columns'] as $fN) {
-                $fieldListArr[] = $fN;
-            }
-
-
-
-
- - :Function:
          :code:`getFileAbsFileName`
 
          :code:`validPathStr`

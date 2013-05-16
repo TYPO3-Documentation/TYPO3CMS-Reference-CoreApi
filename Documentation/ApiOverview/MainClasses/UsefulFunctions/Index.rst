@@ -568,7 +568,6 @@ Please take time to learn these functions!
          For usage in :file:`ext_tables.php` files ::
 
                 // tt_address modified
-            \TYPO3\CMS\Core\Utility\GeneralUtility::loadTCA('tt_address');
             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_address', array(
                      'module_sys_dmail_category' =>
                         array('config' => array('type' => 'passthrough')),
