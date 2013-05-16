@@ -610,10 +610,10 @@ if APC is used as opcode cache anyway.
 The implementation is very similar to the memcached backend implementation
 and suffers from the same problems if APC runs out of memory.
 Garbage collection is currently not implemented.
-In its latest version, apc will fail to store data with a `PHP warning <http://pecl.php.net/bugs/bug.php?id=16966>`_
+In its latest version, APC will fail to store data with a `PHP warning <http://pecl.php.net/bugs/bug.php?id=16966>`_
 if it runs out of memory. This may change in the future.
 Even without using the cache backend, it is advisable to increase
-the memory cache size of apc to at least 64MB when working with TYPO3,
+the memory cache size of APC to at least 64MB when working with TYPO3,
 simply due to the large number of PHP files to be cached.
 A minimum of 128MB is recommended when using the additional content cache.
 Cache TTL for file and user data should be set to zero (disabled) to avoid heavy memory fragmentation.
@@ -626,6 +626,27 @@ Cache TTL for file and user data should be set to zero (disabled) to avoid heavy
    Only use the APC backend in environments which are completely under your control
    and where no third party can read or tamper your data.
 
+
+.. _caching-backend-xcache:
+
+Xcache Backend
+""""""""""""""
+
+Xcache is a PHP opcode cache similar to APC. It can also store in-memory key/value user data.
+
+The cache backend implementation is nearly identical to the implementation of APC backend
+and has the same design constraints.
+
+.. important::
+
+   Xcache does **not** work in command-line context. The Xcache backend implementation is constructed
+   to silently discard any cache operation if in CLI context. That means if Xcache backend is used,
+   it is of no effect in CLI.
+
+   Furthermore, it is important to set the PHP ini value :code:`xcache.var_size` to a value (eg. 100M)
+   that is big enough to store the needed data. The usage of this capacity should be monitored.
+
+*(Available since TYPO3 CMS 6.1)*
 
 .. _caching-backend-wincache:
 
