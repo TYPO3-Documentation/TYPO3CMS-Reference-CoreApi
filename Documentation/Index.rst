@@ -19,13 +19,13 @@ TYPO3 Core APIs
       doc_core_api
 
 :Version:
-      6.0.0
+      6.1.0
 
 :Language:
       en
 
 :Description:
-      Reference to the Core APIs of TYPO3, e.g. main classes, skinning API, Extension API, RTE API.
+      Reference to the Core APIs of TYPO3, e.g. main classes, Extension API, RTE API.
 
 :Keywords:
       tsref, typoscript, reference, forDevelopers, forAdvanced
