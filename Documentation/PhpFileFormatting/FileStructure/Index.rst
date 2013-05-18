@@ -38,8 +38,8 @@ Namespace
 The namespace declaration of each PHP file in the TYPO3 Core shows
 where the file belongs inside TYPO3 CMS. The namespace starts with
 :code:`"TYPO3\CMS\"`, then the extension name in UpperCamelCase, a
-slash (:code:`\\`) and then the name of the subfolder of
-:code:`Classes/`, in which the file is located (if any). E.g. the file
+backslash and then the name of the subfolder of :code:`Classes/`, in
+which the file is located (if any). E.g. the file
 :code:`typo3/sysext/frontend/Classes/ContentObject/ContentObjectRenderer.php`
 with the class :code:`ContentObjectRenderer` is in the namespace
 ":code:`TYPO3\CMS\Frontend\ContentObject`".
