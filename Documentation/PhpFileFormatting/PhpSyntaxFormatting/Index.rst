@@ -383,13 +383,13 @@ very small and simple array declarations, e.g. ::
    );
 
 
-PHP5 features
-"""""""""""""
+PHP 5.3 features
+""""""""""""""""
 
-The use of PHP5 features is strongly recommended for extensions and
-mandatory for the TYPO3 core versions 4.2 or greater.
+The use of the newest PHP features is strongly recommended for
+extensions and mandatory for the TYPO3 core.
 
-Class functions must have access type specifier: :code:`public`,
+Class functions must have access type specifiers: :code:`public`,
 :code:`protected` or :code:`private`. Notice that :code:`private` may
 prevent XCLASSing of the class. Therefore :code:`private` can be used
 only if it is absolutely necessary.
@@ -415,6 +415,9 @@ The :code:`abstract` keyword also must be on the first position in the
 function declaration::
 
       abstract protected function render();
+
+Constructors for classes must use the :code:`__construct()` method of
+PHP.
 
 
 Global variables
