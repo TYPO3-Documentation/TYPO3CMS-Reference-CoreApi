@@ -19,7 +19,7 @@ TYPO3 Core APIs
       doc_core_api
 
 :Version:
-      6.1.0
+      6.2.0-dev
 
 :Language:
       en
@@ -46,10 +46,15 @@ TYPO3 Core APIs
 :Rendered:
       |today|
 
-The content of this document is related to TYPO3,
+The content of this document is related to TYPO3 CMS,
 a GNU/GPL CMS/Framework available from `www.typo3.org
 <http://www.typo3.org/>`_
 
+.. warning::
+
+   Development of TYPO3 CMS is still a work in progress. This manual
+   incorporates the latest features, but should not be considered final yet.
+   Use with care.
 
 **Official Documentation**
 
@@ -64,7 +69,7 @@ kept up-to-date to the best of the Documentation Team's abilities.
 **Core Manual**
 
 This document is a Core Manual. Core Manuals address the built in
-functionality of TYPO3 and are designed to provide the reader with in-
+functionality of TYPO3 CMS and are designed to provide the reader with in-
 depth information. Each Core Manual addresses a particular process or
 function and how it is implemented within the TYPO3 source code. These
 may include information on available APIs, specific configuration

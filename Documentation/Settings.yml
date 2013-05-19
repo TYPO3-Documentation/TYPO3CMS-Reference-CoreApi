@@ -3,6 +3,6 @@
 conf.py:
   project: TYPO3 Core APIs
   copyright: 2000-2013
-  version: 6.1.0
-  release: 6.1.0
+  version: 6.2.0-dev
+  release: 6.2.0-dev
 ...
