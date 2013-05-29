@@ -12,8 +12,8 @@ File names
 ^^^^^^^^^^
 
 The file name describes the functionality included in the file. It
-consists of several words, written in UpperCamelCase. For example in
-the :code:`frontend` system extension there is the file
+consists of one or more nouns, written in UpperCamelCase. For example
+in the :code:`frontend` system extension there is the file
 :code:`ContentObject/ContentObjectRenderer.php`.
 
 It is recommended to use only PHP classes and avoid non-class files.

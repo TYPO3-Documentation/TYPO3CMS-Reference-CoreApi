@@ -47,7 +47,9 @@ traditional integer variables like :code:`$i`, :code:`$j`, :code:`$kin`
 for loops. If such variables are used, their meaning must be absolutely
 clear from the context where they are used.
 
-The same rules apply to functions and class methods. Examples::
+The same rules apply to functions and class methods. In contrast to
+class names, function and method names should not only use nouns, but
+also verbs. Examples::
 
    protected function getFeedbackForm()
    public function processSubmission()
