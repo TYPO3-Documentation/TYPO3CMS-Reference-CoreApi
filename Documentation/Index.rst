@@ -16,7 +16,7 @@ TYPO3 CMS Coding Guidelines
       doc_core_cgl
 
 :Version:
-      6.1.0
+      6.2.0-dev
 
 :Language:
       en
