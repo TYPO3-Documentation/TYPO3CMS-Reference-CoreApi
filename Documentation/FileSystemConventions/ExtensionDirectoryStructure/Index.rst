@@ -139,15 +139,6 @@ An extension directory contains the following files and directories:
 .. container:: table-row
 
    Name
-         :code:`tca.php`
-
-   Description
-         This file contains full table definitions for extension tables.
-
-
-.. container:: table-row
-
-   Name
          :code:`doc/`
 
    Description
@@ -186,7 +177,9 @@ An extension directory contains the following files and directories:
 
    Description
          Directory for configuration files, in subfolders like :code:`TCA/` or
-         :code:`TSconfig/`.
+         :code:`TSconfig/`. E.g. the subfolder :code:`TCA/` contains files
+         named like :code:`tablename.php`, which return an array of the
+         configuration of the according table :code:`tablename`.
 
 
 .. container:: table-row
