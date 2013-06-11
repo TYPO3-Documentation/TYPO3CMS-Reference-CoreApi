@@ -37,6 +37,9 @@ TYPO3 requires that each class, function and method be documented with
 phpDoc. For information on phpDoc use for class declarations see
 "Class information block".
 
+The single parts of information for a phpDoc keyword are separated by
+one single space.
+
 Note that the :code:`@author` tag should **not** be used in function or
 method phpDoc comment blocks – only at class level – because it is too
 liable to change frequently and authors would accumulate indefinitely.
