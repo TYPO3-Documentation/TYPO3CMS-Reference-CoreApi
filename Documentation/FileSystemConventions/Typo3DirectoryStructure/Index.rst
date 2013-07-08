@@ -42,18 +42,6 @@ directories:
 .. container:: table-row
 
    Directory
-         :code:`t3lib/`
-
-   Description
-         TYPO3 library directory. Deprecated since TYPO3 CMS 6.0, library files
-         have been moved to the according system extensions in the
-         :code:`typo3/` directory instead, e.g. to the system extension
-         :code:`core`, :code:`backend` or :code:`frontend`.
-
-
-.. container:: table-row
-
-   Directory
          :code:`typo3/`
 
    Description
