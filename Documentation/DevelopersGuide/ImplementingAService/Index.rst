@@ -13,9 +13,9 @@ Implementing a service
 The best way to get started when implementing a service is to use the
 Extension Kickstarter. It will help you create the skeleton of your
 service. In the Kickstarter you start by setting the general
-information and declaring that your extension is of type “Service”:
+information and declaring that your extension is of type "Service":
 
-|img-3| Then move to the “Services” section if the left-hand menu and
+|img-3| Then move to the "Services" section if the left-hand menu and
 define a first service. Your screen might look something like this:
 
 |img-4|
@@ -30,7 +30,7 @@ Apart from the standard extension declaration file (
   resides
 
 As can be seen the naming convention for services is very close to the
-one used for FE plug-ins, using “sv” instead of “pi”.
+one used for FE plug-ins, using "sv" instead of "pi".
 
 
 Service registration
@@ -115,7 +115,7 @@ parameters:
 
    Description
          Unique key for the service. By default, the Kickstarter creates the
-         key as “tx\_myext\_sv1” for the first service, “tx\_myext\_sv2” for
+         key as "tx\_myext\_sv1" for the first service, "tx\_myext\_sv2" for
          the second service, etc. This may be changed freely, but the key
          should be explicit of the service's function.
 
@@ -423,8 +423,8 @@ method is also discussed in more details below.
 
 The skeleton :code:`process()` method is just an example of what you
 might want to implement in your service depending on the API of the
-service type. In the example Kickstarter input above, the “babelfish”
-service was declared as a “textLang” type of service. In this case the
+service type. In the example Kickstarter input above, the "babelfish"
+service was declared as a "textLang" type of service. In this case the
 specific service type API indeed consists of just the
 :code:`process()` method.
 

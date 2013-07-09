@@ -9,7 +9,7 @@
 Calling a chain of services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-It is also possible to use services in a “chain”. This means using all
+It is also possible to use services in a "chain". This means using all
 the available services of a type instead of just one.
 
 The method :code:`t3lib\_div::makeInstanceService()` accepts a third

@@ -70,14 +70,14 @@ Most of the below methods are quite obvious, except for
    Description
          This method is used to retrieve the value of a service option, as
          defined in the :code:`$TYPO3\_CONF\_VARS['SVCONF']` array. It will
-         take into account possible default values as described in the “Service
-         configuration” chapter above.
+         take into account possible default values as described in the "Service
+         configuration" chapter above.
 
 
 .. ###### END~OF~TABLE ######
 
 The :code:`getServiceOption()` method requires more explanations.
-Imagine your service has an option called “ignoreBozo”. To retrieve it
+Imagine your service has an option called "ignoreBozo". To retrieve it
 in a proper way, you should not access
 :code:`$TYPO3\_CONF\_VARS['SVCONF']` directly, but use
 :code:`getServiceOption()` instead. In its simplest form, it will look
@@ -85,7 +85,7 @@ like this (inside your service's code)::
 
    $ignoreBozo = $this->getServiceOption('ignoreBozo');
 
-This will retrieve the value of the “ignoreBozo” option for your
+This will retrieve the value of the "ignoreBozo" option for your
 specific service, if defined. If not, it will try to find a value in
 the default configuration. Additional call parameters can be added:
 
@@ -128,7 +128,7 @@ or any other form of permanence.
 
    Description
          Writes a message to the devlog, implicitly using the service key as a
-         log key. Depends on the member variable “writeDevLog” being set to
+         log key. Depends on the member variable "writeDevLog" being set to
          true (it's set to false by default).
 
 
