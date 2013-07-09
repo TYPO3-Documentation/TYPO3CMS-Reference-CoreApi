@@ -50,15 +50,18 @@ Copying a file:
    $someFileIdentifier = 'templates/images/banner.jpg';
    $someFolderIdentifier = 'website/images/';
 
-   $storage = $storageRepository->getByUid($storageUid);
-   $file = $storage->getFile($someFileIdentifier); // returns a t3lib_file_File object
-   $folder = $storage->getFolder($someFolderIdentifier); // returns a t3lib_file_File object
+   /** @var $storageRepository \TYPO3\CMS\Core\Ressources\StorageRepository */
+   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Resource\StorageRepository');
 
-   $file->copyTo($folder); // returns the t3lib_file_File object of the new, copied file
+   $storage = $storageRepository->findByUid($storageUid);
+   $file = $storage->getFile($someFileIdentifier); // returns a TYPO3\CMS\Core\Resource\File object
+   $folder = $storage->getFolder($someFolderIdentifier); // returns a TYPO3\CMS\Core\Resource\File object
+
+   $file->copyTo($folder); // returns the TYPO3\CMS\Core\Resource\File object of the new, copied file
 
 or, equivalently::
 
-  $folder->addCopyOfFile($file); // returns the t3lib_file_File object of the new, copied file
+  $folder->addCopyOfFile($file); // returns the TYPO3\CMS\Core\Resource\File object of the new, copied file
 
 
 File references
@@ -88,7 +91,8 @@ More things done by the Storage layer:
 
 Example: *Listing all files in a folder* ::
 
-  $storageRepository = t3lib_div::makeInstance('t3lib_file_StorageRepository');
+  /** @var $storageRepository \TYPO3\CMS\Core\Ressources\StorageRepository */
+  $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Resource\StorageRepository');
   $availableStorages = $storageRepository->findAll();
 
   foreach($availableStorages as $storage) {
@@ -118,7 +122,7 @@ or after moving some files. Apart from that, identifiers are also used for query
 driver for a File or Folder in the first place. Other than that,
 when the Storage is invoking copy, move, etc. operations on the Driver, it passes File
 objects (e.g. ``copyFile()`` in the Driver has this method signature:
-``copyFile(t3lib_file_File $file, t3lib_file_Folder $targetFolder, [...])``).
+``copyFile(TYPO3\CMS\Core\Resource\File $file, TYPO3\CMS\Core\Resource\Folder $targetFolder, [...])``).
 
 
 The file index
@@ -140,7 +144,7 @@ Managing the *asset* properties of a file (related to its contents) is not done 
 Storage/Driver combination, but by services that build on these low-level parts.
 
 Technically, both indexed and non-indexed files are represented by the same object type
-(t3lib_file_File), but being indexing nevertheless is an important property of a file. An
+(TYPO3\CMS\Core\Resource\File), but being indexing nevertheless is an important property of a file. An
 object of an indexed file could theoretically [1]_ even live without its storage as long as its
 only about querying the object for file properties, as all these properties reside in the
 database and are read from there when constructing the object.

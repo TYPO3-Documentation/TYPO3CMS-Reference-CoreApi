@@ -20,6 +20,9 @@ About this document
 This document contains information about the File Abstraction Layer,
 which has been added to TYPO3 in version 6.0.
 
+Additional information are available `in the wiki`_.
+
+.. _in the wiki: http://wiki.typo3.org/FAL
 
 .. _what-s-new:
 
