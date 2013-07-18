@@ -76,6 +76,22 @@ join the documentation mailing list (typo3.projects.documentation on
 lists.typo3.org).
 
 
+.. _quality-assurance:
+
+The CGL as a means of quality assurance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Our programmers know the CGL and are encouraged to inform authors,
+should their code not comply with the guidelines.
+
+Apart from that, adhering to the CGL is not voluntary; the CGL are also
+enforced by structural means: Automated tests are run by the continuous
+integration tool Jenkins to make sure that every code change complies
+with the CGL. In case a change does not meet the criteria, Jenkins will
+give a negative vote in the review system and point to the according
+problem.
+
+
 .. _conventions-in-this-document:
 
 Conventions used in this document
