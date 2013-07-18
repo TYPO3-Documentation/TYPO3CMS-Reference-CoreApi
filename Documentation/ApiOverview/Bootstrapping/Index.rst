@@ -72,3 +72,68 @@ should be taken about the call order.
 
 Also note that all bootstrapping methods return the instance of the
 Bootstrap class itself, allowing calls to be chained.
+
+
+.. _bootstrapping-context:
+
+Application Context
+^^^^^^^^^^^^^^^^^^^
+
+Each request, no matter if it runs from the command line or through HTTP,
+runs in a specific *application context*. TYPO3 CMS provides exactly three built-in
+contexts:
+
+* ``Production`` (default) - should be used for a live site
+* ``Development`` - used for development
+* ``Testing`` - is used for functional tests
+
+The context TYPO3 CMS runs in is specified through the environment variable
+``TYPO3_CONTEXT``. It can be set on the command line:
+
+.. code-block:: bash
+
+	# run the TYPO3 CMS CLI commands in development context
+	TYPO3_CONTEXT=Development ./typo3/cli_dispatch.phpsh
+
+
+or be part of the web server configuration:
+
+.. code-block:: apacheconf
+
+	# In your Apache configuration, you usually use:
+	SetEnv TYPO3_CONTEXT Development
+
+	# set context with mod_rewrite
+	RewriteCond %{HTTP_HOST} ^dev\.example\.com$
+	RewriteRule (.*) $1 [E=TYPO3_CONTEXT:Development]
+
+
+.. _bootstrapping-context-custom:
+
+Custom Contexts
+"""""""""""""""
+
+In certain situations, more specific contexts are desirable:
+
+* a staging system may run in a *Production* context, but requires a different set of
+  credentials than the production server.
+* developers working on a project may need different application specific settings
+  but prefer to maintain all configuration files in a common Git repository.
+
+By defining custom contexts which inherit from one of the three base contexts,
+more specific configuration sets can be realized.
+
+While it is not possible to add new "top-level" contexts at the same level like
+*Production* and *Testing*, you can create arbitrary *sub-contexts*, just by
+specifying them like ``<MainContext>/<SubContext>``.
+
+For a staging environment a custom context ``Production/Staging`` may provide the
+necessary settings while the ``Production/Live`` context is used on the live instance.
+
+.. note::
+
+   This even works recursively, so if you have a multiple-server staging
+   setup, you could use the context ``Production/Staging/Server1`` and
+   ``Production/Staging/Server2`` if both staging servers needed different
+   configuration.
+
