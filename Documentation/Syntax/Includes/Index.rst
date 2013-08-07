@@ -28,8 +28,8 @@ An include-instruction looks like this::
 
 The "source" parameter points to the source of the included content.
 The string before the first ":" (in the example it is the word "FILE")
-will determine which source the content is coming from. This is the
-only option available:
+will determine which source the content is coming from. These options
+are available:
 
 
 .. ### BEGIN~OF~SIMPLE~TABLE ###
@@ -45,6 +45,23 @@ FILE     A reference to a file relative to PATH\_site. Cannot contain ".."
          "EXT:myext/directory/file.txt" then the file included will be searched
          for in the extension directory of extension "myext", subdirectory
          "directory/file.txt".
+
+DIR      This includes all files from a directory relative to PATH\_site,
+         including subdirectories. If the optional property ``extensions=".."``
+         is provided, only files with these file extensions are included;
+         multiple extensions are separated by comma. This allows e.g. to include
+         both setup and constants from the same directory tree, using different
+         file extensions for both.
+
+         The order, in which files are included, is alphabetically: First files,
+         then directories.
+
+         Example::
+
+            <INCLUDE TYPOSCRIPT: source="DIR:fileadmin/templates/" extensions="ts">
+
+         This includes all those files from the directory fileadmin/templates/
+         and from subdirectories, which have the file extension ".ts".
 =======  ========================================================================
 
 .. ###### END~OF~SIMPLE~TABLE ######
