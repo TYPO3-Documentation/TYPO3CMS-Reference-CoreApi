@@ -6,8 +6,10 @@
 .. include:: ../Includes.txt
 
 
+.. _developers:
+
 Developers
-==========
+----------
 
 Contents:
 

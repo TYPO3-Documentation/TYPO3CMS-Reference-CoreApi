@@ -6,8 +6,10 @@
 .. include:: ../../Includes.txt
 
 
+.. _architecture:
+
 Architecture
-===============================
+^^^^^^^^^^^^
 
 This chapter provides both an overview of and an in-depth look into the architecture of FAL.
 
@@ -16,6 +18,6 @@ This chapter provides both an overview of and an in-depth look into the architec
    :titlesonly:
    :glob:
 
-   Overview
-   DatabaseStructure
-   Components
+   Overview/Index
+   DatabaseStructure/Index
+   Components/Index

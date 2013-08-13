@@ -3,10 +3,12 @@
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-ServiceApi
-==========
+.. _api-service:
+
+Service API
+"""""""""""
 
 ...

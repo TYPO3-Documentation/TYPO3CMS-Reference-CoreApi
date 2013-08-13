@@ -3,18 +3,19 @@
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
---------
+.. _architecture-overview:
+
 Overview
---------
+""""""""
 
 
 The central FAL architecture consists of three layers::
 
                    ..........................
-   Usage Layer     |      FileReference     |
+  Usage Layer      |      FileReference     |
                    ..........................
   Storage Layer    |      File | Folder     |
                    |         Storage        |
@@ -37,8 +38,10 @@ using them would mean to bypass all security and plausibility checks performed b
 In addition to the mentioned components, there is more inside FAL: FIXME
 
 
+.. _architecture-references:
+
 File references
----------------
+~~~~~~~~~~~~~~~
 
 A file reference represents a concrete usage of a file inside some content element or other database record.
 Additionally, it enables users to supply custom titles, captions etc. to that particular instance of the file.
@@ -52,10 +55,11 @@ Creating a reference to a file requires the file to be indexed first, as the ref
 the normal record relation handling of TYPO3 CMS.
 
 .. note::
-  Technically, the FileReference implements the same interface as the File itself,
-  so you have all the methods and properties of a File available in the FileReference
-  as well. This makes it possible to use both files and references to them
 
-  Additionally, there is a property "originalFile" on the FileReference which
-  lets you get information about the underlying file (e.g. ``$fileReference->getOriginalFile()->getName()``).
+   Technically, the FileReference implements the same interface as the File itself,
+   so you have all the methods and properties of a File available in the FileReference
+   as well. This makes it possible to use both files and references to them
+
+   Additionally, there is a property "originalFile" on the FileReference which
+   lets you get information about the underlying file (e.g. ``$fileReference->getOriginalFile()->getName()``).
 

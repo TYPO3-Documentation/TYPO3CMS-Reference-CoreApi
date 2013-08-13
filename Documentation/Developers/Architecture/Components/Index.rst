@@ -3,12 +3,13 @@
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
------------
+.. _architecture-components:
+
 Components
------------
+""""""""""
 
 FAL consists of a number of components that interact with each other. Each component has a clear role in the
 architecture, something that is explained in detail in this section.
@@ -17,14 +18,18 @@ When using the components in your own services, always keep the basic principles
 e.g. do not call services from the storage/driver part.
 
 
+.. _architecture-file-system:
+
 The (virtual) file system
--------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TODO: explain file system, storage/drivers, references ...
 
 
+.. _architecture-files-folders:
+
 Files and Folders
------------------
+~~~~~~~~~~~~~~~~~
 
 The Files and Folders are facades representing files and folders. They are tightly coupled
 with the Storage, which they use to actually perform any actions. For example
@@ -44,7 +49,6 @@ regardless of the indexing state of the File, as we are working directly on the 
 Copying a file:
 
 .. code-block:: php
-   :linenos:
 
    $storageUid = 17;
    $someFileIdentifier = 'templates/images/banner.jpg';
@@ -64,6 +68,8 @@ or, equivalently::
   $folder->addCopyOfFile($file); // returns the TYPO3\CMS\Core\Resource\File object of the new, copied file
 
 
+.. _architecture-file-references:
+
 File references
 ```````````````
 
@@ -73,8 +79,10 @@ a real, underlying File (from the layer below), but can add context-specific
 information such as a caption text of an image when used at a specific location.
 
 
+.. _architecture-storage:
+
 Storage
--------
+~~~~~~~
 
 The Storage is the focal point in the story. Even though it doesn't do the actual
 low-level actions on a file (that's up to the Driver), it still does the biggest part of the logic:
@@ -108,8 +116,10 @@ Example: *Listing all files in a folder* ::
 The ``findAll()`` method of the storage repository already takes user permissions into account (FIXME does it currently?).
 
 
+.. _architecture-drivers:
+
 The drivers
-------------
+~~~~~~~~~~~
 
 The driver does the actual copying of the file. It can rely on the Storage having
 done all the necessary checks before, so it doesn't need to worry about permissions
@@ -125,8 +135,10 @@ objects (e.g. ``copyFile()`` in the Driver has this method signature:
 ``copyFile(TYPO3\CMS\Core\Resource\File $file, TYPO3\CMS\Core\Resource\Folder $targetFolder, [...])``).
 
 
+.. _architecture-file-index:
+
 The file index
----------------
+~~~~~~~~~~~~~~
 
 Indexing a file creates a database record for the file, containing meta-information both
 *about* the file (file-system properties) and *from* the file (e.g. EXIF information for

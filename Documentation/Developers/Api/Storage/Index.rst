@@ -3,24 +3,29 @@
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
------------
+.. _api-storage:
+
 Storage API
------------
+"""""""""""
 
 This chapter describes the public API of the ``Storage`` objects.
 
 
+.. _api-storage-general:
+
 General API
------------
+~~~~~~~~~~~
 
 FIXME
 
 
+.. _api-storage-file:
+
 File API
---------
+~~~~~~~~
 
 .. TODO check if this complete
 
@@ -62,7 +67,9 @@ File API
   asd
 
 
+.. _api-storage-folder:
+
 Folder API
-----------
+~~~~~~~~~~
 
 FIXME

@@ -3,9 +3,12 @@
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
------------
-Driver API
------------
+.. _architecture-database:
+
+Database structure
+""""""""""""""""""
+
+To be written.
