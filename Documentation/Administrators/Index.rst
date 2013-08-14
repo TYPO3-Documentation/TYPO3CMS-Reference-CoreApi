@@ -148,6 +148,7 @@ in backend user records or backend user group records.
         removeFile = 0
         addFolder = 0
         readFolder = 1
+        copyFolder = 0
         moveFolder = 0
         writeFolder = 0
         renameFolder = 0
@@ -174,6 +175,7 @@ in User TSConfig along with the permissions like that:
         removeFile = 1
         addFolder = 1
         readFolder = 1
+        copyFolder = 1
         moveFolder = 1
         writeFolder = 1
         renameFolder = 1
