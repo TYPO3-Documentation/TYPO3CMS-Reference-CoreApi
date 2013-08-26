@@ -130,7 +130,7 @@ User permissions for files used to be set in the "Fileoperation permissions" sec
 backend user or backend user group records. This way still works since the introduction
 of FAL but has been deprecated because FAL offers more fine grained permission settings.
 
-As of TYPO3 6.0 it is recommended to set user default permissions in User TSConfig either
+As of TYPO3 6.0 it is recommended to set user default permissions in User TSconfig either
 in backend user records or backend user group records.
 
 **Default permissions for a user or user group (read permissions only):** ::
@@ -158,7 +158,7 @@ in backend user records or backend user group records.
 
 It is also possible to set different permissions for different storages.
 For that you need to know the uid of the storage record and specify it
-in User TSConfig along with the permissions like that:
+in User TSconfig along with the permissions like that:
 
 **Permissions for storage with uid "1" (all permissions):** ::
 
@@ -186,7 +186,7 @@ in User TSConfig along with the permissions like that:
 Configuring permissions for a specific storage always takes precedence over
 default permissions.
 
-If no permissions are defined in TSConfig, settings in user and group record are
+If no permissions are defined in TSconfig, settings in user and group record are
 taken into account and will be treated as default permissions for all storages.
 
 
