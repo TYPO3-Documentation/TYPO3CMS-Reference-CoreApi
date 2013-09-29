@@ -15,17 +15,14 @@ General requirements for PHP files
 PHP tags
 """"""""
 
-Each PHP file in TYPO3 must use full (as opposed to short) PHP tags.
-There must be exactly one pair of opening and closing tags (no closing
-and opening tags in the middle of the file). Example::
+Each PHP file in TYPO3 must use the full (as opposed to short) opening
+PHP tag. There must be exactly one opening tag (no closing and opening
+tags in the middle of the file). Example::
 
    <?php
            // File content goes here
-   ?>
 
-There must be no empty lines after the closing PHP tag. Empty lines
-after closing tags break output compression in PHP and/or result in
-AJAX errors.
+Closing PHP tags (e.g. at the end of the file) are not used.
 
 
 Line breaks

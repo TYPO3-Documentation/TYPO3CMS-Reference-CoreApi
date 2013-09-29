@@ -27,8 +27,6 @@ TYPO3 files use the following structure:
 
 #. Optional module execution code (for example, in eID classes)
 
-#. Closing PHP tag
-
 The following sections discuss each of these parts.
 
 
