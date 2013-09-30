@@ -545,7 +545,7 @@ real documentation is found in the source scripts (and the
          If you need to get the absolute or relative filepaths to an extension
          you should use these functions. Extension can be located in three
          different positions in the filesystem whether they are
-         :ref:`local, global or system extensions <t3api:extension-scope>`.
+         :ref:`local, global or system extensions <extension-scope>`.
          These functions will always give you the right path.
 
          Examples::
