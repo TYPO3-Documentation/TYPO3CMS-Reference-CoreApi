@@ -33,7 +33,7 @@ tab. On that page you can enter the key name you want to register.
 
    The extension registration form on typo3.org.
 
-See :ref:`t3api:extension-key`.
+See :ref:`extension-key`.
 
 
 Kickstarting the extension
