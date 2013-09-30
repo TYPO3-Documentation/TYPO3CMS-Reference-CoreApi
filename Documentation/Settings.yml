@@ -6,4 +6,32 @@ conf.py:
   project: Core APIs
   version: 4.6.0
   release: 4.6.0
+  intersphinx_mapping:
+    t3cgl:
+    - http://docs.typo3.org/typo3cms/CodingGuidelinesReference/
+    - null
+    t3extbasebook:
+    - http://docs.typo3.org/typo3cms/ExtbaseFluidBook/
+    - null
+    t3fal:
+    - http://docs.typo3.org/typo3cms/FileAbstractionLayerReference/
+    - null
+    t3inside:
+    - http://docs.typo3.org/typo3cms/InsideTypo3Reference/
+    - null
+    t3tca:
+    - http://docs.typo3.org/typo3cms/TCAReference/
+    - null
+    t3tsconfig:
+    - http://docs.typo3.org/typo3cms/TSconfigReference/
+    - null
+    t3skinning:
+    - http://docs.typo3.org/typo3cms/SkinningReference/
+    - null
+    t3tsref:
+    - http://docs.typo3.org/typo3cms/TyposcriptReference/
+    - null
+    t3services:
+    - http://docs.typo3.org/typo3cms/Typo3ServicesReference/
+    - null
 ...

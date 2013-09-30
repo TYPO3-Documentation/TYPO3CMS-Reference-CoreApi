@@ -195,7 +195,7 @@ real documentation is found in the source scripts (and the
          If you need to get the absolute or relative filepaths to an extension
          you should use these functions. Extension can be located in three
          different positions in the filesystem whether they are
-         :ref:`local, global or system extensions <t3api:extension-scope>`.
+         :ref:`local, global or system extensions <extension-scope>`.
          These functions will always give you the right path.
 
          Examples::
@@ -505,7 +505,7 @@ real documentation is found in the source scripts (and the
          actual editing command is passed to "alt\_doc.php" through the GET
          parameter "&edit".
 
-         For detailed examples, see :ref:`t3api:edit-links-examples`.
+         For detailed examples, see :ref:`edit-links`.
 
          Example::
 

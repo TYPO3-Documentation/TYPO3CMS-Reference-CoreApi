@@ -139,27 +139,26 @@ extensions with the name prefix "ext\_".
 
  - :Filename: ext\_typoscript\_constants.txt
    :Description:
-         Preset TypoScript constants
-
-         *Deprecated (use static template files instead, see Extension Management (extMgm) API
-         description)*
-
-         Such a file will be included in the constants section of all
+         Preset TypoScript constants. Will be included in the constants section of all
          TypoScript templates.
+
+         .. warning::
+
+            Use such a file if you absolutely need to load some TS (because you would get serious errors without it).
+            Otherwise static templates or usage of the :code:`t3lib_extMgm` toolbox are preferred.
 
  - :Filename: ext\_typoscript\_setup.txt
    :Description:
-         Preset TypoScript setup
-
-         *Deprecated (use static template files instead, see Extension Management (extMgm) API
-         description)*
-
-         Such a file will be included in the setup section of all TypoScript
+         Preset TypoScript setup. Will be included in the setup section of all TypoScript
          templates.
+
+         .. warning::
+
+            Use such a file if you absolutely need to load some TS (because you would get serious errors without it).
+            Otherwise static templates or usage of the :code:`t3lib_extMgm` toolbox are preferred.
 
  - :Filename: ext\_typoscript\_editorcfg.txt
    :Description:
-         ext\_typoscript\_editorcfg.txt
          *Deprecated*
 
          This file is not used anymore. It may be encountered in very old extensions.
