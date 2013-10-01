@@ -14,14 +14,14 @@ Overview
 
 The central FAL architecture consists of three layers::
 
-                   ..........................
+                   +------------------------+
   Usage Layer      |      FileReference     |
-                   ..........................
+                   +------------------------+
   Storage Layer    |      File | Folder     |
                    |         Storage        |
-                   ..........................
+                   +------------------------+
   Driver Layer     |         Driver         |
-                   ..........................
+                   +------------------------+
 
 .. todo: improve this diagram
 

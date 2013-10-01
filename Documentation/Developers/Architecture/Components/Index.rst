@@ -33,8 +33,8 @@ Files and Folders
 
 The Files and Folders are facades representing files and folders. They are tightly coupled
 with the Storage, which they use to actually perform any actions. For example
-a copying action ($file->copyTo($targetFolder)) is technically not implemented on the File
-object itself but in the Storage, the linchpin of the whole file abstraction layer. Apart from
+a copying action (``$file->copyTo($targetFolder)``) is technically not implemented by the File
+object itself but in the storage and driver, the linchpin of the whole file abstraction layer. Apart from
 the shorthand methods to the action methods of the Storage, the Files and Folders are pretty
 lightweight objects with properties (and according getters and setters) for obtaining information
 about their respective file or folder on the file system such as name or size.
@@ -62,10 +62,6 @@ Copying a file:
    $folder = $storage->getFolder($someFolderIdentifier); // returns a TYPO3\CMS\Core\Resource\File object
 
    $file->copyTo($folder); // returns the TYPO3\CMS\Core\Resource\File object of the new, copied file
-
-or, equivalently::
-
-  $folder->addCopyOfFile($file); // returns the TYPO3\CMS\Core\Resource\File object of the new, copied file
 
 
 .. _architecture-file-references:
@@ -156,7 +152,7 @@ Managing the *asset* properties of a file (related to its contents) is not done 
 Storage/Driver combination, but by services that build on these low-level parts.
 
 Technically, both indexed and non-indexed files are represented by the same object type
-(TYPO3\CMS\Core\Resource\File), but being indexing nevertheless is an important property of a file. An
+(``TYPO3\CMS\Core\Resource\File``), but being indexing nevertheless is an important property of a file. An
 object of an indexed file could theoretically [1]_ even live without its storage as long as its
 only about querying the object for file properties, as all these properties reside in the
 database and are read from there when constructing the object.
