@@ -22,18 +22,20 @@ In case you're interested in the inner workings of FAL, you can also have a look
 Necessary changes
 """""""""""""""""
 
-When a pre-FAL installtion is migrated to FAL, this is what needs to be changes (see next chapter about the tools that help you achieve that):
+When a pre-FAL installation is migrated to FAL, this is what needs to be changed (see next chapter about the tools that help you achieve that):
 
-* Filemounts in the sys_filemounts table need to be migrated
+* File mounts in the sys_filemounts table need to be migrated
 * For every mount point with an absolute path, a new storage is created with the absolute path as base path
-* For every mount point, the sys_file_mount is converted to a new structure where mounts act as "filters" on storages which can be assigned to users
+* For every mount point, the ``sys_file_mount`` record is converted to a new structure where mounts act as "filters" on storages which can be assigned to users
 
-* A new "Storage" record has been created for you, which mounts the basic "fileadmin/" directory.
+* A new "Storage" record is created by the upgrade wizard which mounts the "fileadmin/" directory in your installation.
 
-* The media and image fields of the Content and Pages table have been changed to use proper FAL relations. This technically means that images have been copied to the fileadmin directory and proper relations made. This means that:
+* The media and image fields of the Content and Pages tables have been changed to use proper FAL relations -- technically speaking the images have been copied to the fileadmin directory and proper relations were created. This means that:
 
-  * For each file in fileadmin/, a sys_file record has been created (also called the "index records")
-  * For each usage of the file from a content element, a relation records has been created (table "sys_file_references") which relates the content record to the index record
+  * For each new file in fileadmin/, a ``sys_file`` record has been created (also called the "index record")
+  * For each usage of the file from a content element, a relation record has been created (table ``sys_file_reference``) which relates the content record to the index record. This also includes overlays from the content element for the image title, description and alternative text, plus the file links
+
+* extensions have to be made compatible (they will still work with the backwards-compatibility layer, but this layer is just a transitional tool and will be removed in the future)
 
 
 
@@ -42,9 +44,12 @@ When a pre-FAL installtion is migrated to FAL, this is what needs to be changes 
 Extension compatibility
 """""""""""""""""""""""
 
-Generally, all extensions which just use files in a frontend extension or have database records with files attached to them should work the same way still and continue to be working without any adoption. (Note: Extensions which depend on DAM however need manual adoption, see the developers section for more details.)
+Generally, all extensions which just use files in a frontend extension or have database records with files attached to them should continue to work without any adaption.
 
-However, if you want to support FAL "the right way" and not just by means of the backwards compatibility layer, the developers of the extensions should take update the extensions to make use of the API as ountlined in the developers documentation.
+.. note::
+  DAM does not work with FAL currently, and FAL will not support using the DAM; instead, FAL provides a . Extensions which depend on DAM need manual adaption, see the developers section for more details.
+
+However, if you want to support FAL "the right way" and not just by means of the backwards compatibility layer, the extensions should be updated to make use of the API as outlined in the developers documentation.
 
 
 .. _admin-remote-storages:
@@ -53,15 +58,16 @@ Using Remote Storages
 """""""""""""""""""""
 
 To use a remote storage, you have to do two things:
-1) Install a driver extension for the remote system (e.g. WebDAV)
 
-Drivers are shipped in normal TYPO3 extensions and can be found on the TYPO3 Extension Repository. One example driver is the "WebDAV" driver (http://forge.typo3.org/projects/show/extension-fal_webdav), but it is also possible to program a custom driver which could e.g. connect to a cloud storage like Amazon S3 or similar.
+1. Install a driver extension for the remote system (e.g. WebDAV)
 
-Once the driver extension is installed, you can proceed to the next step.
+   Drivers are shipped in normal TYPO3 extensions and can be found on the TYPO3 Extension Repository. One example driver is the "WebDAV" driver (http://forge.typo3.org/projects/show/extension-fal_webdav), but it is also possible to program a custom driver which could e.g. connect to a cloud storage like Amazon S3 or similar.
 
-2) Create a new Storage record for the remote storage
+   Once the driver extension is installed, you can proceed to the next step.
 
-When you create the Storage record for the remote Storage, you are asked for more details on the connection to the remote Storage such as authentification credentials (if necessary) and server URLs. Once the Storage is configured, its data should be shown in the File->Filelist module just like files from a local storage.
+2. Create a new Storage record for the remote storage
+
+   When you create the Storage record for the remote Storage, you are asked for more details on the connection to the remote Storage such as authentification credentials (if necessary) and server URLs. Once the Storage is configured, its data should be shown in the File->Filelist module just like files from a local storage.
 
 
 .. _admin-indexing:
@@ -86,8 +92,8 @@ What happened to the TCEForms "group" field with internal_type "file"?
   However, it is adviced to adopt extensions to use FAL natively as the field type is now deprecated.
 
 What happened to the typo3temp/ folder?
-  The typo3temp/ folder is no longer used. Instead, a configurable temporary directory (on a per-Storage basis) replaces that concept instead.
-  Temporary files are now called "processedFiles" and are tracked in the database table sys_file_processedfile.
+  The typo3temp/ folder is no longer used for files that are used in your site's content. Instead, a configurable temporary directory per storage (the "processing folder") replaces that concept.
+  Temporary files are now called "processedFiles" and are tracked in the database table ``sys_file_processedfile``.
 
 
 .. toctree::
