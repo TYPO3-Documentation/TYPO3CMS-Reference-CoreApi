@@ -96,4 +96,4 @@ What happened to the typo3temp/ folder?
    :glob:
 
    Introduction/Index
-   Permissions
+   Permissions/Index

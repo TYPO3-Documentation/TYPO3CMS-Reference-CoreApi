@@ -3,7 +3,8 @@
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
+
 
 .. _admin-permissions:
 
@@ -17,6 +18,8 @@ The permissions in the File Abstraction Layer are grouped in two main groups: sy
 
 Administrators always have full access. The only reason they might be denied access is that the underlying file system/storage service does not allow access to a resource. TODO how are permissions from the storage device handled?
 
+
+.. _admin-user-permissions:
 
 User Permissions
 """"""""""""""""
@@ -80,8 +83,14 @@ default permissions.
 If no permissions are defined in TSconfig, settings in user and group record are
 taken into account and will be treated as default permissions for all storages.
 
-The model for the permissions is closely coupled to the one used on *NIX systems, i.e. folders are seen as a collection of files and folders. To change that collection (by adding, removing, renaming files/folders), you need to have write permissions on the folder, not only on the files themselves. But for only changing the contents of a file, no writer permissions are required on the folder.
+The model for the permissions is closely coupled to the one used on \*NIX systems,
+i.e. folders are seen as a collection of files and folders. To change that collection
+(by adding, removing, renaming files/folders), you need to have write permissions on the folder,
+not only on the files themselves. But for only changing the contents of a file,
+no writer permissions are required on the folder.
 
+
+.. _admin-user-permissions-details:
 
 User file permissions in detail
 -------------------------------
