@@ -21,3 +21,4 @@ This chapter provides both an overview of and an in-depth look into the architec
    Overview/Index
    DatabaseStructure/Index
    Components/Index
+   Signals

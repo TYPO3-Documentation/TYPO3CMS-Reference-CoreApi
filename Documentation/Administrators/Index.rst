@@ -119,75 +119,7 @@ TODO: Write.
 
 * fine-tuning
 * cron-automation
-
-
-.. _admin-permissions:
-
-User Permissions
-""""""""""""""""
-
-User permissions for files used to be set in the "Fileoperation permissions" section of
-backend user or backend user group records. This way still works since the introduction
-of FAL but has been deprecated because FAL offers more fine grained permission settings.
-
-As of TYPO3 6.0 it is recommended to set user default permissions in User TSconfig either
-in backend user records or backend user group records.
-
-**Default permissions for a user or user group (read permissions only):** ::
-
-    permissions.file.default {
-        addFile = 0
-        readFile = 1
-        editFile = 0
-        writeFile = 0
-        uploadFile = 0
-        copyFile = 0
-        moveFile = 0
-        renameFile = 0
-        unzipFile = 0
-        removeFile = 0
-        addFolder = 0
-        readFolder = 1
-        copyFolder = 0
-        moveFolder = 0
-        writeFolder = 0
-        renameFolder = 0
-        removeFolder = 0
-        removeSubfolders = 0
-    }
-
-It is also possible to set different permissions for different storages.
-For that you need to know the uid of the storage record and specify it
-in User TSconfig along with the permissions like that:
-
-**Permissions for storage with uid "1" (all permissions):** ::
-
-    permissions.file.storage.1 {
-        addFile = 1
-        readFile = 1
-        editFile = 1
-        writeFile = 1
-        uploadFile = 1
-        copyFile = 1
-        moveFile = 1
-        renameFile = 1
-        unzipFile = 1
-        removeFile = 1
-        addFolder = 1
-        readFolder = 1
-        copyFolder = 1
-        moveFolder = 1
-        writeFolder = 1
-        renameFolder = 1
-        removeFolder = 1
-        removeSubfolders = 1
-    }
-
-Configuring permissions for a specific storage always takes precedence over
-default permissions.
-
-If no permissions are defined in TSconfig, settings in user and group record are
-taken into account and will be treated as default permissions for all storages.
+* housekeeping
 
 
 .. _admin-faq:
@@ -203,3 +135,10 @@ What happened to the typo3temp/ folder?
   The typo3temp/ folder is no longer used. Instead, a configurable temporary directory (on a per-Storage basis) replaces that concept instead.
   Temporary files are now called "processedFiles" and are tracked in the database table sys_file_processedfile.
 
+
+.. toctree::
+   :maxdepth: 5
+   :titlesonly:
+   :glob:
+
+   Permissions
