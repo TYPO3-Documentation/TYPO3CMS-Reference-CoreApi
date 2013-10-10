@@ -30,7 +30,7 @@ secure HTTPS connection between client and server. Possible values
 are: 0, 1 and 2 (integer) with the following meaning:
 
 0 = a cookie is always sent, independently from which protocol is used
-currently.
+currently. This is the default setting.
 
 1 = The cookie will only be set if a secure connection exists (HTTPS).
 Use this in combination with "lockSSL" since otherwise the application
