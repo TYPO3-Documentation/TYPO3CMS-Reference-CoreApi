@@ -26,7 +26,7 @@ passwords.
 
 The "ENABLE\_INSTALL\_TOOL" file can be created by putting an empty
 file into the directory "typo3conf". You usually need write access to
-this directory on a server level (for example via SSH, FTP, etc.) or
+this directory on a server level (for example via SSH, SFTP, etc.) or
 you can create this file as a backend user with administrator
 privileges. TYPO3 CMS versions prior 4.6.0 offer this function in the
 "User Settings", and since TYPO3 CMS version 4.6.0 administrators can
