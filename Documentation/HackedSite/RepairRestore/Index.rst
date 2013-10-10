@@ -28,6 +28,16 @@ backup. You need to locate the entry point that the attacker has used
 to gain access to your system. If this is not found (and fixed!), it
 will be only a matter of time, until the website is hacked again.
 
+So called "backdoors" are another important thing you should keep in
+mind: if an attacker had access to your site, it is possible and common
+practise that he/she implemented a way to gain unauthorized access to
+the system at a later time (again). Even if the original security
+vulnerability has been fixed (entry point secured), all passwords
+changed, etc. Such a backdoor could be as simple as a new backend user
+account with an unsuspicious user name (and maybe administrator
+privileges) or a PHP file hidden somewhere deep in the file system,
+which contains some cryptic code to obscure its malicious purpose.
+
 Assuming all "infected" files have been cleaned and the vulnerability
 has been fixed, make sure to take corrective actions to prevent
 further attacks. This could be a combination of software updates,
