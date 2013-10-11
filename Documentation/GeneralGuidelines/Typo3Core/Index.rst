@@ -18,7 +18,7 @@ version 6.x.x), a minor update (e.g. from version 6.1.x to version
 6.1.4 to 6.1.5).
 
 In most cases, a maintenance/bugfix/security update is a no-brainer,
-see :ref:`TYPO3 Installation and Upgrade Guide <t3install>`
+see :ref:`TYPO3 Installation and Upgrade Guide <t3install:start>`
 for further details.
 
 When you extract the archive file of new TYPO3 sources into the
