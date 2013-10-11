@@ -16,7 +16,7 @@ TYPO3 Security Guide
       doc_guide_security
 
 :Version:
-      1.0.3
+      1.0.4
 
 :Language:
       en
