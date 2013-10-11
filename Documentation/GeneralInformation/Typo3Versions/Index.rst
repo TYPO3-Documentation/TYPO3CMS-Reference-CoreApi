@@ -50,4 +50,4 @@ as soon as possible.
 
 LTS ("Long Term Support") versions are an exception: these versions get
 full support (bug fixes and security fixes) for at least three years.
-TYPO3 CMS version 4.5 is such a LTS version.
+TYPO3 CMS version 4.5 as well as version 6.2 are such LTS versions.
