@@ -30,3 +30,30 @@ These "components" can be specific software packages on a system
 level, scripts running on the web server but also specific TYPO3
 versions or TYPO3 extensions.
 
+The recommended way to update TYPO3 extensions is to use TYPO3's
+internal Extension Manager (EM). The EM takes care of the download of
+the extension source code, extracts the archive and stores the files in
+the correct place, overwriting an existing old version by default. This
+ensures, the source code containing a possible security vulnerability
+will be removed from server when a new version of an extension is
+installed.
+
+When a system administrator decides to create a copy of the directory of
+an existing insecure extension, before installing the new version, he/she
+often introduces the risk of leaving the (insecure) copy on the web
+server. For example:
+
+::
+
+    typo3conf/ext/insecure_extension.bak
+    typo3conf/ext/insecure_extension.delete_me
+    typo3conf/ext/insecure_extension-1.2.3
+    ...
+
+The risk of exploiting a vulnerability is minimal, because the source
+code of the extension is not loaded by TYPO3, but it depends on the type
+of vulnerability of course.
+
+The advice is to move the directory of the old version outside of the
+web root directory, so the insecure extension code is not accessible.
+

@@ -25,6 +25,7 @@ for (frontend) users.
    OperatingSystemAndBrowser/Index
    Communication/Index
    ReactQuickly/Index
+   Typo3Core/Index
    Typo3Extensions/Index
    StagingServers/Index
 
