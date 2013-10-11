@@ -16,10 +16,9 @@ prerequisite for a secure web application. Well-considered access
 permissions on files and directories are an important part of this
 strategy. However, too strict permissions may stop TYPO3 CMS from working
 properly and/or restrict TYPO3 integrators or editors from using all
-features of the CMS. The official TYPO3 CMS Installation Guide provides
-further information about the install procedure:
-`http://forge.typo3.org/projects/show/typo3v4-doc\_guide\_install
-<http://forge.typo3.org/projects/show/typo3v4-doc_guide_install>`_
+features of the CMS. The official
+:ref:`TYPO3 Installation and Upgrade Guide <t3tsref:stdWrap>`
+provides further information about the install procedure.
 
 We do not need to mention that only privileged system users should
 have read/write access to files and directories inside the web root.
