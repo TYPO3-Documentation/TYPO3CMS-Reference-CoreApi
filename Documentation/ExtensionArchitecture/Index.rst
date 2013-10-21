@@ -80,5 +80,6 @@ related to a single implementation.
    ConfigurationOptions/Index
    ExtensionManager/Index
    CreateNewExtension/Index
+   Documentation/Index
    Resources/Index
 
