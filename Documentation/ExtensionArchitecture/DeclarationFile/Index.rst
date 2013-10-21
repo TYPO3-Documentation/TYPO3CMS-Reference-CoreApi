@@ -135,25 +135,34 @@ values in the :code:`$EM_CONF` array if needed.
          or TYPO3 or PHP version. Here's how a typical setup might look::
 
             'constraints' => array(
-              'dependencies' => array(
-                     'typo3' => '0.0.0-4.5.0',
-                            'php' => '5.2.0-0.0.0'
-              ),
-              'conflicts' => array(
-                        'dam' => ''
-                  ),
-              'suggests' => array(
-                         'tt_news' => '2.5.0-0.0.0'
-                   )
+                'depends' => array(
+                    'typo3' => '4.5.0-6.1.99',
+                    'php' => '5.3.0-5.5.99'
+                ),
+                'conflicts' => array(
+                    'dam' => ''
+                ),
+                'suggests' => array(
+                    'tt_news' => '2.5.0-0.0.0'
+                )
             )
 
-         "dependencies" lists extensions that this extension depends on.
-         "conflicts" lists extensions which will not work with this extension.
-         "suggests" is just suggestions of extensions that work together or
-         enhance this extension.
+         depends
+           List of extensions that this extension depends on.
 
-         In the example above, it is indicated that the extension depends on a
-         version of TYPO3 lower than 4.5 and a PHP version of at least 5.2. It
+         conflicts
+         	List of extensions which will not work with this extension.
+
+         suggests
+           List of suggestions of extensions that work together or
+           enhance this extension.
+
+         The above example indicated that the extension depends on a
+         version of TYPO3 between 4.5 and 6.1 (as only bug and security fixes are
+         integrated into TYPO3 when the last digit of the version changes, it is
+         safe to assume it will be compatible with any upcoming version of the
+         corresponding branch, thus ``.99``). Also the extension has been
+         tested and is known to work properly with PHP 5.3, 5.4 and 5.5. It
          will conflict with the DAM (any version) and it is suggested that it
          might be worth installing "tt\_news" (version at least 2.5.0).
 
