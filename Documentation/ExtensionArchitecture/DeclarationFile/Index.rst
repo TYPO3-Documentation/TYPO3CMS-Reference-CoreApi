@@ -347,16 +347,12 @@ values in the :code:`$EM_CONF` array if needed.
    :Data type:
          string
    :Description:
-         Path to manual.swx. Path is relative to extension directory and has no trailing slash.
-         If not defined, the docPath is "doc". Example::
+         Path to documentation. This has never been fully supported neither by the TER
+         nor by the Extension Manager. The documentation is expected to be in folder :file:`doc`
+         when using OpenOffice/LibreOffice format and in folder :file:`Documentation` when
+         using reStructuredText (recommended). See :ref:`extension-documentation` for more information.
 
-            'docPath' => 'ressources/documentation'
-
-         .. note::
-
-            Use with caution. This may not be preserved upon TER upload.
-            Furthermore upcoming changes to the documentation rendering may impose
-            other conventions.
+         **Deprecated**
 
  - :Key:
          CGLcompliance
