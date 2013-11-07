@@ -7,7 +7,7 @@
 .. include:: Images.txt
 
 
-.. edit-links:
+.. _edit-links:
 
 Links to edit records
 ^^^^^^^^^^^^^^^^^^^^^
