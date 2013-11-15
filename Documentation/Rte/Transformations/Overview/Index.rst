@@ -32,7 +32,7 @@ Transformation filters
 
    Description
          Transforms the content with regard to most of the issues related to
-         content elements types 'Text' and 'Text w/Image'. The mode is
+         content elements types 'Text' and 'Text & Images'. The mode is
          optimized for the content rendering of the static template "content
          (default)" which uses old :code:`<font>` tag style rendering.
 

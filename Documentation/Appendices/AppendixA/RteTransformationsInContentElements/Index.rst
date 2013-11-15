@@ -12,7 +12,7 @@ RTE transformations in Content Elements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The RTE is used in the bodytext field of the content elements,
-configured for the types "Text" and "Text w/Image".
+configured for the types "Text" and "Text & Images".
 
 .. figure:: ../../../Images/RteInContentElements.png
    :alt: The Rich-Text Editor
@@ -22,7 +22,7 @@ configured for the types "Text" and "Text w/Image".
 
 The configuration of the two 'Text'-types are the same: The toolbar
 includes only a subset of the total available buttons. The reason is
-that the text content of these types, 'Text' and 'Text w/Image' is
+that the text content of these types, 'Text' and 'Text & Images' is
 *traditionally* not meant to be filled up with HTML-codes. But more
 important is the fact that the content is usually (by the standard
 TypoScript content rendering used on the vast majority of TYPO3
