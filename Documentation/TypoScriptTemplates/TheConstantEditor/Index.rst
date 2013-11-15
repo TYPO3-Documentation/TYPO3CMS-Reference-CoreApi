@@ -27,7 +27,7 @@ in, which type it has and what explanation there is about the
 constant. This is an example containing several constant definitions::
 
    styles.content.textStyle {
-       # cat=content/cText/1; type=; label= Bodytext font: This is the fontface used for text!
+       # cat=content/cText/1; type=; label= Bodytext font: This is the font face used for text!
      face =
        # cat=content/cText/2; type=int[1-5]; label= Bodytext size
      size =
@@ -111,7 +111,7 @@ basic      Constants of superior importance for the template-layout. This is
            basic constants, which you would almost always want to configure.
 menu       Menu setup. This includes font files, sizes, background images.
            Depending on the menu type.
-content    All constants related to the display of pagecontent elements.
+content    All constants related to the display of page content elements.
 page       General configuration like meta tags, link targets.
 advanced   Advanced functions, which are used very seldom.
 =========  ======================================================================
