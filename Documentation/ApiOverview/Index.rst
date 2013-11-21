@@ -22,9 +22,9 @@ one location given the fact that things change and sometimes fast.
 This chapter describes the most important elements of the API. Some
 other elements have their own chapter further on.
 
-In general the TYPO3 Core Team and contributors from the community
-aim to produce well-documented source code. As such the best way to look up
-a particular class or method is to use the online API browser at
+In general the TYPO3 Active Contributors Team and all contributors aim
+to produce well-documented source code. As such the best way to look up a
+particular class or method is to use the online API browser at
 http://typo3.org/documentation/api/.
 
 
