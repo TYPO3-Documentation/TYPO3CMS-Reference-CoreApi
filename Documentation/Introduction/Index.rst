@@ -55,7 +55,7 @@ The original TYPO3 coding guidelines document was written by Kasper
 Skårhøj. The current version is based on a complete rewrite prepared
 by Ingo Renner and Dmitry Dulepov in 2008. It is currently maintained
 by François Suter. All changes go through an approval process by the
-TYPO3 Core Team.
+TYPO3 Active Contributors Team.
 
 
 .. _feedback:
@@ -68,7 +68,7 @@ to `documentation@typo3.org <mailto:documentation@typo3.org>`_ .
 
 If you find a bug in this manual, please file an issue in this
 manual's bug tracker:
-http://forge.typo3.org/projects/typo3v4-doc\_core\_cgl/issues
+http://forge.typo3.org/projects/typo3cms-doc-coding-guidelines/issues
 
 Maintaining quality documentation is hard work and the Documentation
 Team is always looking for volunteers. If you feel like helping please

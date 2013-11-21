@@ -15,7 +15,7 @@ All files in the TYPO3 web site directory hierarchy are divided into
 TYPO3 files and user files.
 
 TYPO3 files are files that come with the TYPO3 source package released
-by the TYPO3 core team. This includes files inside the :code:`typo3/`
+by the TYPO3 association. This includes files inside the :code:`typo3/`
 directory and the file named :code:`index.php` in the root of the TYPO3
 installation.
 
