@@ -15,8 +15,8 @@ For general questions about the documentation get in touch by writing
 to `documentation@typo3.org <mailto:documentation@typo3.org>`_ .
 
 If you find a bug in this document, please file an issue at it's bug
-tracker: `http://forge.typo3.org/projects/typo3v4-doc\_guide\_security
-<http://forge.typo3.org/projects/typo3v4-doc_guide_security>`_
+tracker: `http://forge.typo3.org/projects/typo3cms-doc-security
+<http://forge.typo3.org/projects/typo3cms-doc-security>`_
 
 If you would like to report a security issue in a TYPO3 extension or
 the TYPO3 core system, please report it to the TYPO3 Security Team.
