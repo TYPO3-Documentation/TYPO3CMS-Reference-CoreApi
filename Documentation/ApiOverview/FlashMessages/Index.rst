@@ -108,18 +108,28 @@ messages absolutely anywhere. Here's how this is achieved::
    $message->render();
 
 
-.. _flash-messages-extabase:
+.. _flash-messages-extbase:
 
 Flash messages in Extbase
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In Extbase the standard way of issuing flash messages is to add them
-in the controller. Code from the "examples" extension::
+in the controller. Code from the "examples" extension:
 
-   $this->flashMessageContainer->add(
-   	'This is a success message',
-   	'Hooray!',
-   	\TYPO3\CMS\Core\Messaging\FlashMessage::OK
+.. code-block:: php
+
+   $this->addFlashMessage('This is a simple success message');
+
+
+The full API of this function is:
+
+.. code-block:: php
+
+   $this->addFlashMessage(
+     $messageBody,
+     $messageTitle = '',
+     $severity = \TYPO3\CMS\Core\Messaging\AbstractMessage::OK,
+     $storeInSession = TRUE
    );
 
 
