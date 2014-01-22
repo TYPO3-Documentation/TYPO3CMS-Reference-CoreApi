@@ -104,7 +104,7 @@ This table lists some of the most important classes to know about in TYPO3:
          Static class, call methods using :code:`\TYPO3\CMS\Backend\Utility\IconUtility::`
 
 
- - :Class: template
+ - :Class: \\TYPO3\\CMS\\Backend\\Template\\DocumentTemplate
    :Description:
          **Backend Template Class**
 
