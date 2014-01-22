@@ -194,7 +194,7 @@ Here is some example code::
            $cacheIdentifier = $this->calculateCacheIdentifier();
 
            // If $entry is null, it hasn't been cached. Calculate the value and store it in the cache:
-           if (($entry = $GLOBALS['typo3CacheManager']->getCache('myCache')->get($cacheIdentifier)) === false) {
+           if (($entry = $GLOBALS['typo3CacheManager']->getCache('myCache')->get($cacheIdentifier)) === FALSE) {
                $entry = $this->calculateMagic();
 
                // [calculate lifetime and assigned tags]
@@ -208,4 +208,4 @@ Here is some example code::
 .. tip::
 
    It isn't needed to call :code:`has()` before accessing cache entries with :code:`get()`
-   as the latter returns :code:`NULL` if no entry exists.
+   as the latter returns :code:`FALSE` if no entry exists.
