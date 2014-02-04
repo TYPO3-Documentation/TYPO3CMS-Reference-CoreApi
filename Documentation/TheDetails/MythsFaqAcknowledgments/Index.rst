@@ -126,20 +126,20 @@ name for the non-existing TypoScript Mark-Up Language)::
 
    styles.content.bulletlist = TEXT
    styles.content.bulletlist {
-     current = 1
-     trim = 1
-     if.isTrue.current = 1
-           # Copying the object "styles.content.parseFunc" to this position
-     parseFunc < styles.content.parseFunc
-     split {
+     stdWrap.current = 1
+     stdWrap.trim = 1
+     stdWrap.if.isTrue.current = 1
+     # Copying the object "styles.content.parseFunc" to this position
+     stdWrap.parseFunc < styles.content.parseFunc
+     stdWrap.split {
        token.char = 10
        cObjNum = 1
        1.current < .cObjNum
        1.wrap = <li>
      }
-       # Setting wrapping value:
-     fontTag = <ol type="1"> | </ol>
-     textStyle.altWrap = {$styles.content.bulletlist.altWrap}
+     # Setting wrapping value:
+     stdWrap.fontTag = <ol type="1"> | </ol>
+     stdWrap.textStyle.altWrap = {$styles.content.bulletlist.altWrap}
    }
 
 That was 17 lines of TypoScript code and converting this information
@@ -150,36 +150,38 @@ into an XML structure could look like this::
        <content>
          <bulletlist>
            TEXT
-           <current>1</current>
-           <trim>1</trim>
-           <if>
-             <isTrue>
-               <current>1</current>
-             </isTrue>
-           </if>
+           <stdWrap>
+             <current>1</current>
+             <trim>1</trim>
+             <if>
+               <isTrue>
+                 <current>1</current>
+               </isTrue>
+             </if>
              <!-- Copying the object "styles.content.parseFunc" to this position -->
-           <parseFunc copy="styles.content.parseFunc"/>
-           <split>
-             <token>
-               <char>10</char>
-             </token>
-             <cObjNum>1</cObjNum>
-             <num:1>
-               <current>1</current>
-               <wrap>&lt;li&gt;</wrap>
-             </num:1>
-           </split>
+             <parseFunc copy="styles.content.parseFunc"/>
+             <split>
+               <token>
+                 <char>10</char>
+               </token>
+               <cObjNum>1</cObjNum>
+               <num:1>
+                 <current>1</current>
+                 <wrap>&lt;li&gt;</wrap>
+               </num:1>
+             </split>
              <!-- Setting wrapping value: -->
-           <fontTag>&lt;ol type=&quot;1&quot;&gt; | &lt;/ol&gt;</fontTag>
-           <textStyle>
-             <altWrap>{$styles.content.bulletlist.altWrap}</altWrap>
-           </textStyle>
+             <fontTag>&lt;ol type=&quot;1&quot;&gt; | &lt;/ol&gt;</fontTag>
+             <textStyle>
+               <altWrap>{$styles.content.bulletlist.altWrap}</altWrap>
+             </textStyle>
+           </stdWrap>
          </bulletlist>
        </content>
      </styles>
    </TSML>
 
-That was 33 lines of XML - the double amount of lines! And in bytes
+That was 35 lines of XML - the double amount of lines! And in bytes
 probably also much bigger. This example clearly demonstrates *why not
 XML*! XML will just get in the way, it is not handy for what
 TypoScript normally does. But hopefully you can at least use this

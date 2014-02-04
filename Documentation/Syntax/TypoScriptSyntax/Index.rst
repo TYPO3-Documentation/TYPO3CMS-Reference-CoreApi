@@ -238,16 +238,18 @@ Example:
 ::
 
    myObject = TEXT
-   myObject.field = title
-   myObject.ifEmpty.data = leveltitle:0
+   myObject.stdWrap.field = title
+   myObject.stdWrap.ifEmpty.data = leveltitle:0
 
 could also be written as::
 
    myObject = TEXT
    myObject {
-           field = title
-           ifEmpty {
-                   data = leveltitle:0
+           stdWrap {
+                   field = title
+                   ifEmpty {
+                           data = leveltitle:0
+                   }
            }
    }
 
@@ -346,13 +348,13 @@ copy does not change!** Take a look at the following code::
    someObject = TEXT
    someObject {
            value = Hello world!
-           wrap = <p>|<p>
+           stdWrap.wrap = <p>|<p>
    }
    anotherObject < someObject
-   someObject.wrap = <h1>|<h1>
+   someObject.stdWrap.wrap = <h1>|<h1>
 
-The value of the "wrap" property of "anotherObject" is "<p>\|</p>". It
-is **not** "<h1>\|<h1>" because this change happens **after** the
+The value of the "stdWrap.wrap" property of "anotherObject" is "<p>\|</p>".
+It is **not** "<h1>\|<h1>" because this change happens **after** the
 copying. This example may seem trivial, but it's easy to loose the
 oversight in larger pieces of TypoScript.
 
@@ -386,12 +388,12 @@ Example:
    someObject = TEXT
    someObject {
            value = Hello world!
-           wrap = <p>|<p>
+           stdWrap.wrap = <p>|<p>
    }
    anotherObject =< someObject
-   someObject.wrap = <h1>|<h1>
+   someObject.stdWrap.wrap = <h1>|<h1>
 
-In this case, the "wrap" property of "anotherObject" will indeed by
+In this case, the "stdWrap.wrap" property of "anotherObject" will indeed be
 "<h1>\|<h1>". In tree view the properties of the reference are not
 shown. Only the reference itself is there:
 

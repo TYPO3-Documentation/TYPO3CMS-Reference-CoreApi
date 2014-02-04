@@ -99,13 +99,13 @@ or use Windows NT as operating system::
 
    pageObj.10 = TEXT
    pageObj.10.value = Hello World
-   pageObj.10.case = upper
+   pageObj.10.stdWrap.case = upper
 
    [browser = msie][system = WinNT]
    pageObj.20 = TEXT
    pageObj.20 {
      value = Hello Internet Explorer or Windows NT users!
-     case = upper
+     stdWrap.case = upper
    }
 
    [GLOBAL]
@@ -149,7 +149,7 @@ of TypoScript Templates)::
 
    [END]
 
-   page.10.wrap = <strong>|</strong>
+   page.10.stdWrap.wrap = <strong>|</strong>
 
 Here we have one output text if the browser is Internet Explorer and
 another if not. Anyways the text is wrapped by <strong>\|</strong> as
