@@ -12,7 +12,8 @@ Using constants
 ^^^^^^^^^^^^^^^
 
 Constants are inserted in the template-setup by performing an ordinary
-str\_replace operation! You insert them in the setup field like this::
+str\_replace operation! You insert them in the setup field inside curly
+braces with a prepended $ sign like so::
 
    {$bgCol}
    {$topimg.width}
@@ -45,8 +46,6 @@ file in the according folder of your TYPO3 installation.
 
 Constants in included templates are also substituted as the whole
 template is just one large chunk of text.
-
-Constants are case sensitive.
 
 You should use a systematic naming scheme for constants. Seek
 inspiration in the code examples around.
