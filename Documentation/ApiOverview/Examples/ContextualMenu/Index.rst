@@ -44,7 +44,9 @@ file of the "examples" extension)::
    PHP file to include, but it is not necessary when using namespaced classes.
    They will be autoloaded.
 
-The class (:code:`\Documentation\Examples\Service\ContextMenuOptions`) looks like this::
+The class (:code:`\Documentation\Examples\Service\ContextMenuOptions`) looks like this:
+
+.. code-block:: php
 
 	class ContextMenuOptions {
 		/**
@@ -79,6 +81,20 @@ The class (:code:`\Documentation\Examples\Service\ContextMenuOptions`) looks lik
 			return $menuItems;
 		}
 	}
+
+Since TYPO3 CMS 6.2, a dedicated API must be used to assemble the destination
+URL of the context menu item. This adds CSRF protection to the link.
+
+.. code-block:: php
+
+	$baseUrl = \TYPO3\CMS\Backend\Utility\BackendUtility::getModuleUrl(
+		'tools_ExamplesExamples',
+		array(
+			'tx_examples_tools_examplesexamples[action]' => 'tree',
+			'tx_examples_tools_examplesexamples[controller]' => 'Default',
+			'tx_examples_tools_examplesexamples[page]' => $uid
+		)
+	);
 
 The important points to notice are what properties are used for defining
 a new menu item and what API calls are used (namely
