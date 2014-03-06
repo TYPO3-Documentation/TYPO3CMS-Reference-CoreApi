@@ -775,11 +775,11 @@ of course.
    Description
          *(Applies for all kinds of processing)*
 
-         When entering the processor all \r\n linebreaks are converted to \n
-         (13-10 to 10). When leaving the processor all \n is reconverted to
-         \r\n (10 to 13-10).
+         When entering the processor all \\r\\n linebreaks are converted to \\n
+         (13-10 to 10). When leaving the processor all \\n is reconverted to
+         \\r\\n (10 to 13-10).
 
-         This options disables that processing...
+         This options disables that processing.
 
 
 .. container:: table-row
