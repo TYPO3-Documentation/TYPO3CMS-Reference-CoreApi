@@ -13,7 +13,7 @@ Configuration
 ^^^^^^^^^^^^^
 
 Caches are configured in the array :code:`$TYPO3_CONF_VARS['SYS']['caching']`.
-The basic structure is predefined in :file:`t3lib/stddb/DefaultConfiguration.php`,
+The basic structure is predefined in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`,
 and consists of the single section:
 
 - **cacheConfigurations**: Registry of all configured caches. Each cache is identified

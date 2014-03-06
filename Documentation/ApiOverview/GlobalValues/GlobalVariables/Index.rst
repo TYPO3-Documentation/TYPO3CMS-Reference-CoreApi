@@ -40,7 +40,7 @@ Global variables
  - :Variable:
          $TYPO3\_CONF\_VARS
    :Defined:
-         :file:`t3lib/stddb/DefaultConfiguration.php`
+         :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
    :Description:
          TYPO3 configuration array. Please refer to mentioned file where each option is described in detail
          as comments. The same comments are also available in the Install Tool
@@ -139,7 +139,7 @@ Global variables
  - :Variable:
          $PAGES\_TYPES
    :Defined:
-         t3lib/stddb/tables.php
+         typo3/sysext/core/ext_tables.php
    :Description:
          See :ref:`page-types`
    :FE:
@@ -159,7 +159,7 @@ Global variables
  - :Variable:
          $TBE\_MODULES
    :Defined:
-         t3lib/stddb/tables.php
+         typo3/sysext/core/ext_tables.php
    :Description:
          The backend main/sub-module structure. See section elsewhere plus
          source code of class :code:`\TYPO3\CMS\Backend\Module\ModuleLoader` which also includes some
@@ -171,7 +171,7 @@ Global variables
  - :Variable:
          $TBE\_STYLES
    :Defined:
-         t3lib/stddb/tables.php
+         typo3/sysext/core/ext_tables.php
    :Description:
          Contains information related to BE skinning.
    :FE:
@@ -214,7 +214,7 @@ Global variables
  - :Variable:
          $FILEICONS
    :Defined:
-         t3lib/stddb/tables.php
+         typo3/sysext/core/ext_tables.php
    :Description:
          Associative array; keys are the type (e.g. "tif") and values are the
          filename (without path).

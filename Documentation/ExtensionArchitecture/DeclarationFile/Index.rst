@@ -264,8 +264,7 @@ values in the :code:`$EM_CONF` array if needed.
          "this extension could not be written independently of core source code
          modifications".
 
-         An extension is not internal just because it uses TYPO3 general
-         classes e.g. those from t3lib/.
+         An extension is not internal just because it uses TYPO3 general classes.
 
          True non-internal extensions are characterized by the fact that they
          could be written without making core source code changes, but rely

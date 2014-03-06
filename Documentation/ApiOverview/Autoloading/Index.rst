@@ -105,7 +105,7 @@ created in the extension's :file:`ext_autoload.php` file.
 Example taken from an oldish version of extension "news"::
 
 	<?php
-	$extensionClassesPath = t3lib_extMgm::extPath('news') . 'Classes/';
+	$extensionClassesPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('news') . 'Classes/';
 
 	$default = array(
 		'tx_news_domain_model_dto_emconfiguration' => $extensionClassesPath . 'Domain/Model/Dto/EmConfiguration.php',

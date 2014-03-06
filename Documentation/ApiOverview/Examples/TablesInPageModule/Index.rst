@@ -33,7 +33,7 @@ The TYPO3 CMS Core itself defines such a listing for the "fe_users" table::
 		)
 	),
 
-as found in :file:`t3lib/stddb/DefaultConfiguration.php`.
+as found in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 
 The "fList" key value is a list of field names separated first by
 comma and then ";" (semi-colon). The comma separates table columns

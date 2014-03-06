@@ -120,17 +120,6 @@ These constants are defined at various points during the bootstrap sequence.
 
 
  - :Constant:
-         PATH\_t3lib
-   :Defined:
-         SystemEnvironmentBuilder::definePaths()
-   :Description:
-         Absolute path to :file:`t3lib/` (general TYPO3 library) within the TYPO3 admin
-         directory.
-   :FE:
-         Yes
-
-
- - :Constant:
          PATH\_typo3conf
    :Defined:
          SystemEnvironmentBuilder::definePaths()
@@ -188,8 +177,7 @@ These constants are defined at various points during the bootstrap sequence.
          Bootstrap::populateLocalConfiguration()
    :Description:
          Name of a php-include script found in "typo3conf/" that contains PHP
-         code that further modifies the variables set by
-         :file:`t3lib/stddb/tables.php`.
+         code that further modifies the table definitions set by the TYPO3 CMS Core.
 
          **Deprecated.** Make Extensions instead.
    :FE:

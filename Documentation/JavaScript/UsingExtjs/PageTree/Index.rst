@@ -57,7 +57,7 @@ Configuration
 """""""""""""
 
 The CSM is entirely described in User TSconfig.
-The configuration is found in :file:`t3lib/stddb/DefaultConfiguration.php`.
+The configuration is found in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 Here is a sample:
 
 .. code-block:: typoscript
