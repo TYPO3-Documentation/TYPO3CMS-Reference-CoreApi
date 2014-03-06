@@ -21,7 +21,16 @@ and :ref:`XCLASS <xclasses>` handling.
 
 As a developer you should always instantiate classes either through
 :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` or with the Extbase
-ObjectManager (which internally uses :code:`makeInstance()` again).
+:ref:`ObjectManager <t3cmsapi:TYPO3\\CMS\\Extbase\\Object\\ObjectManager>`
+(which internally uses :code:`makeInstance()` again).
+
+.. important::
+
+   Since TYPO3 CMS 6.0 and the introduction of namespaces, developers are strongly encouraged
+   to use the namespaces. When using namespaces it is not necessary to explicitely declare
+   classes in an autoloader files. All namespaced classes are automatically autoloaded.
+
+   Please refer to the :ref:`namespaces` chapter for more information.
 
 
 .. _autoload-autoloader:
@@ -39,9 +48,6 @@ A developer has two options to help the core find a specific class:
 - Use the class naming convention and file location.
 
 - Register a class name together with its location in an :code:`ext_autoload.php` file.
-
-Since TYPO3 6.0 and the introduction of namespaces, developers are strongly encouraged
-to use the former. Please refer to the :ref:`namespaces` chapter for more information.
 
 If this is not possible - for whatever reason - or if you don't want to use namespaces,
 you can add a file to your extension called :file:`ext_autoload.php`, in the base directory.
