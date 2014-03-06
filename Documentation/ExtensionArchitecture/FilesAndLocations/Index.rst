@@ -19,7 +19,7 @@ Files
 
 An extension consists of
 
-#. a directory named by the  *extension key* (which is a worldwide unique
+#. a directory named by the *extension key* (which is a worldwide unique
    identification string for the extension)
 
 #. standard files with reserved names for configuration related to TYPO3
@@ -256,7 +256,53 @@ Refer to the :ref:`Extbase and Fluid <t3extbasebook:start>` book for more inform
 on extension structure. Also look at the "examples" extension.
 
 The `Extension Builder extension <http://typo3.org/extensions/repository/view/extension_builder>`_
-will create the right structure for you.
+will create the right structure for you. It is described below:
+
+Classes/Controller
+  Contains MVC Controller classes.
+
+Classes/Domain/Model
+  Contains MVC Domain model classes.
+
+Classes/Domain/Model/Repository
+  Contains data repository classes.
+
+Classes/ViewHelpers
+  Helper classes used in the views.
+
+Configuration/TypoScript
+  TypoScript static setup (:file:`setup.txt`) and constants (:file:`constants.txt`).
+  Use subfolders if your have several static templates.
+
+Configuration/TCA
+  One file per database table, using the name of the table for the file, plus ".php".
+
+Documentation
+  Contains the manual in reStructuredText format (:ref:`read more on the topic <extension-documentation>`).
+
+Resources/Private/Languages
+  XLIFF files for localized labels.
+
+Resources/Private/Layouts
+  Main layouts for the views.
+
+Resources/Private/Partials
+  Partial templates for repetitive use.
+
+Resources/Private/Templates
+  One template per action, stored in a folder named after each Controller.
+
+Resources/Public/Css
+  Any CSS file used by the extension.
+
+Resources/Public/Images
+  Any images used by the extension.
+
+Resources/Public/JavaScript
+  Any JS file used by the extension.
+
+Tests/Unit
+  Contains unit testing classes.
 
 
 .. _extension-reserved-folders-legacy:
