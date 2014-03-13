@@ -26,9 +26,14 @@ which is shipped with the Core.
 Basic usage
 ^^^^^^^^^^^
 
-The basic usage is as simple as it gets::
+The basic usage is as simple as it gets:
 
-	$request = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Core\Http\HttpRequest', 'http://typo3.org/');
+.. code-block:: php
+
+	$request = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+		'TYPO3\\CMS\\Core\\Http\\HttpRequest',
+		'http://typo3.org/'
+	);
 	$result = $request->send();
 	$content = $result->getBody();
 
@@ -41,7 +46,9 @@ The above example will read the content of the "typo3.org" home page.
 Example
 ^^^^^^^
 
-This example is taken from the "linkvalidator" system extension. ::
+This example is taken from the "linkvalidator" system extension.
+
+.. code-block:: php
 
 	$config = array(
 		'follow_redirects' => TRUE,
