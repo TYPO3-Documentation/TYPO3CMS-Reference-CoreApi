@@ -104,7 +104,10 @@ property "disabled" will simply disable the rendering of the RTE and
 "proc" is reserved to contain additional configuration of
 transformations.
 
-.. ### BEGIN~OF~TABLE ###
+.. _transformations-tsconfig-configuration-disabled:
+
+disabled
+~~~~~~~~
 
 .. container:: table-row
 
@@ -120,6 +123,11 @@ transformations.
          This option is evaluated in :code:`\TYPO3\CMS\Backend\Form\FormEngine` where it determines
          whether the RTE is rendered or not.
 
+
+.. _transformations-tsconfig-configuration-proc:
+
+proc
+~~~~
 
 .. container:: table-row
 
@@ -141,6 +149,11 @@ transformations.
          *independant* of the particular RTE used (like transformations generally are!).
 
 
+.. _transformations-tsconfig-configuration-specific:
+
+RTE-specific
+~~~~~~~~~~~~
+
 .. container:: table-row
 
    Property
@@ -152,9 +165,6 @@ transformations.
    Description
          Each RTE may use additional properties for the RTE.
          Please refer to their respective manuals.
-
-
-.. ###### END~OF~TABLE ######
 
 
 .. _transformations-tsconfig-processing:
@@ -179,7 +189,10 @@ other transformations :ref:`as explained in the overview <transformations-overvi
 This means that options limited to "ts\_transform" will also work for "ts\_css"
 of course.
 
-.. ### BEGIN~OF~TABLE ###
+.. _transformations-tsconfig-processing-overrulemode:
+
+overruleMode
+~~~~~~~~~~~~
 
 
 .. container:: table-row
@@ -195,6 +208,12 @@ of course.
 
          Notice, this is a  *comma list* of transformation keys. (Not a "dash-
          list" like in $TCA).
+
+
+.. _transformations-tsconfig-processing-typolist:
+
+typolist
+~~~~~~~~
 
 
 .. container:: table-row
@@ -216,6 +235,12 @@ of course.
          typolist = 0
 
 
+.. _transformations-tsconfig-processing-typohead:
+
+typohead
+~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -233,6 +258,12 @@ of course.
          **Example that disables "typohead":**
 
          typohead = 0
+
+
+.. _transformations-tsconfig-processing-preservetags:
+
+preserveTags
+~~~~~~~~~~~~
 
 
 .. container:: table-row
@@ -267,6 +298,12 @@ of course.
          Relates to the transformation 'ts\_preserve'
 
 
+.. _transformations-tsconfig-processing-dontconvbrtoparagraph:
+
+dontConvBRtoParagraph
+~~~~~~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -282,6 +319,12 @@ of course.
          By default <BR> tags in the contentare converted to paragraphs.
          Setting this value will  *prevent* the convertion of <BR>-tags to new-
          lines (chr(10))
+
+
+.. _transformations-tsconfig-processing-internalizefonttags:
+
+internalizeFontTags
+~~~~~~~~~~~~~~~~~~~
 
 
 .. container:: table-row
@@ -308,6 +351,12 @@ of course.
          In that case the font-tags is normally on the OUTSIDE of the sections.
 
 
+.. _transformations-tsconfig-processing-allowtagsoutside:
+
+allowTagsOutside
+~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -330,6 +379,12 @@ of course.
          IMG,HR
 
 
+.. _transformations-tsconfig-processing-allowtagsintypolists:
+
+allowTagsInTypolists
+~~~~~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -345,6 +400,12 @@ of course.
          sent to the database.
 
          Default is "br,font,b,i,u,a,img,span"
+
+
+.. _transformations-tsconfig-processing-allowtags:
+
+allowTags
+~~~~~~~~~
 
 
 .. container:: table-row
@@ -368,6 +429,12 @@ of course.
          If you wish to deny some tags, see below.
 
 
+.. _transformations-tsconfig-processing-denytags:
+
+denyTags
+~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -381,6 +448,32 @@ of course.
          getKeepTags))*
 
          Tags from above list to disallow.
+
+
+.. _transformations-tsconfig-processing-blockelementlist:
+
+blockElementList
+~~~~~~~~~~~~~~~~
+
+
+.. container:: table-row
+
+   Property
+         blockElementList
+
+   Data type
+         string
+
+   Description
+         Comma-separated list of uppercase tags (e.g. :code:`P,HR`) that
+         overrides the list of HTML elements that will be treated as block elements
+         by the RTE transformations.
+
+
+.. _transformations-tsconfig-processing-transformboldanditalictags:
+
+transformBoldAndItalicTags
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 .. container:: table-row
@@ -400,6 +493,12 @@ of course.
          tags to b and i tags in the direction of the RTE.
 
          This transformation may be disabled by setting this property to 0.
+
+
+.. _transformations-tsconfig-processing-htmlparser:
+
+HTMLparser\_rte, HTMLparser\_db
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 .. container:: table-row
@@ -434,6 +533,12 @@ of course.
             :code:`htmlSpecialChars` are **not** observed. They are preset internally.
 
 
+.. _transformations-tsconfig-processing-dontremoveunknowntags_db:
+
+dontRemoveUnknownTags\_db
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -458,6 +563,12 @@ of course.
          HTMLparser\_db-list.
 
 
+.. _transformations-tsconfig-processing-dontundohsc_db:
+
+dontUndoHSC\_db
+~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -475,6 +586,12 @@ of course.
          Default is to re-convert literals to characters (that is &lt; to <)
          outside of HTML-tags. This is disabled by this boolean. (HSC means
          HtmlSpecialChars - which is a PHP function)
+
+
+.. _transformations-tsconfig-processing-dontprotectunknowntags_rte:
+
+dontProtectUnknownTags\_rte
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 .. container:: table-row
@@ -500,6 +617,12 @@ of course.
          Setting this option will prevent unknown tags from becoming protected.
 
 
+.. _transformations-tsconfig-processing-donthsc_rte:
+
+dontHSC\_rte
+~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -521,6 +644,12 @@ of course.
          This option disables the default htmlspecialchars() conversion.
 
 
+.. _transformations-tsconfig-processing-dontconvampinnbsp_rte:
+
+dontConvAmpInNBSP\_rte
+~~~~~~~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -540,6 +669,12 @@ of course.
          this flag.
 
 
+.. _transformations-tsconfig-processing-allowedfontcolors:
+
+allowedFontColors
+~~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -556,6 +691,12 @@ of course.
 
          If set, this is the only colors which will be allowed in font-tags!
          Case insensitive.
+
+
+.. _transformations-tsconfig-processing-allowedclasses:
+
+allowedClasses
+~~~~~~~~~~~~~~
 
 
 .. container:: table-row
@@ -585,6 +726,12 @@ of course.
          class-attribute.
 
 
+.. _transformations-tsconfig-processing-skipalign_skipclass:
+
+skipAlign, skipClass
+~~~~~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -605,6 +752,12 @@ of course.
          it's removed.
 
 
+.. _transformations-tsconfig-processing-keeppdivattribs:
+
+keepPDIVattribs
+~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -619,6 +772,12 @@ of course.
 
          "align" and "class" are the only attributes preserved for <P>/<DIV>
          tags. Here you can specify a list of other attributes to preserve.
+
+
+.. _transformations-tsconfig-processing-remapparagraphtag:
+
+remapParagraphTag
+~~~~~~~~~~~~~~~~~
 
 
 .. container:: table-row
@@ -643,6 +802,12 @@ of course.
          tags preserved what so ever. Just removed.
 
 
+.. _transformations-tsconfig-processing-usedivasparagraphtagforrte:
+
+useDIVasParagraphTagForRTE
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -660,6 +825,12 @@ of course.
          around already.
 
 
+.. _transformations-tsconfig-processing-preservedivsections:
+
+preserveDIVSections
+~~~~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -673,6 +844,12 @@ of course.
 
          If set, div sections will be treated just like blockquotes. They will
          be treated recursively as external blocks.
+
+
+.. _transformations-tsconfig-processing-preservetables:
+
+preserveTables
+~~~~~~~~~~~~~~
 
 
 .. container:: table-row
@@ -689,6 +866,12 @@ of course.
          If set, tables are preserved
 
 
+.. _transformations-tsconfig-processing-dontfetchextpictures:
+
+dontFetchExtPictures
+~~~~~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -703,6 +886,12 @@ of course.
          If set, images from external urls are not fetched for the page if
          content is pasted from external sources. Normally this process of
          copying is done.
+
+
+.. _transformations-tsconfig-processing-plainimagemode:
+
+plainImageMode
+~~~~~~~~~~~~~~
 
 
 .. container:: table-row
@@ -740,6 +929,12 @@ of course.
          scaling larger than the original size of the image.
 
 
+.. _transformations-tsconfig-processing-exit_entry_htmlparser:
+
+exitHTMLparser, entryHTMLparser
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -764,6 +959,12 @@ of course.
          There are no default values set.
 
 
+.. _transformations-tsconfig-processing-disableunifylinebreaks:
+
+disableUnifyLineBreaks
+~~~~~~~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -782,6 +983,12 @@ of course.
          This options disables that processing.
 
 
+.. _transformations-tsconfig-processing-user:
+
+User transformations
+~~~~~~~~~~~~~~~~~~~~
+
+
 .. container:: table-row
 
    Property
@@ -794,7 +1001,3 @@ of course.
          Custom option-space for userdefined transformations.
 
          See example from section about custom transformations.
-
-
-.. ###### END~OF~TABLE ######
-

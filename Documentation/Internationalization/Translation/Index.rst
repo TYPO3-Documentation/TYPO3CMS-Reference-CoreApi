@@ -190,7 +190,7 @@ could look something like:
 	class CustomMirror {
 
 		/** @var string */
-		protected static $extKey = 'myext';
+		static protected $extKey = 'myext';
 
 		public function postProcessMirrorUrl($extensionKey, &$mirrorUrl) {
 			if ($extensionKey === self::$extKey) {
