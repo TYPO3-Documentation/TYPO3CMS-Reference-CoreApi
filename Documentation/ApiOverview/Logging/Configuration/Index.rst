@@ -13,13 +13,13 @@ Configuration of the Logging system
 
 Instantiation of Loggers is configuration-free, as the LogManager automatically applies its configuration.
 
-The Logger configuration is read from :code:`$TYPO3_CONF_VARS['LOG']`, which contains an array reflecting the namespace
+The Logger configuration is read from :code:`$GLOBALS['TYPO3_CONF_VARS']['LOG']`, which contains an array reflecting the namespace
 and class hierarchy of your TYPO3 project.
 
 Example:
 
 To apply a configuration for all Loggers within the :code:`\TYPO3\CMS\Core\Cache` namespace,
-the configuration is read from :code:`$TYPO3_CONF_VARS['LOG']['TYPO3']['CMS']['Core']['Cache']`.
+the configuration is read from :code:`$GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['Core']['Cache']`.
 So every logger requested for classes like :code:`\TYPO3\CMS\Core\Cache\CacheFactory`,
 :code:`\TYPO3\CMS\Core\Cache\Backend\NullBackend`, etc. will get this configuration applied.
 The same holds for the old pseudo-namespaces with underscore separator which
@@ -29,7 +29,7 @@ Configuring Logging for extensions works the same. If an extension uses namespac
 the syntax for the configuration is as above.
 
 For older extensions, configuration is
-searched for in :code:`$TYPO3_CONF_VARS['LOG']['tx']` to differentiate extension classes
+searched for in :code:`$GLOBALS['TYPO3_CONF_VARS']['LOG']['tx']` to differentiate extension classes
 from Core classes (as extension class names start with :code:`tx` or :code:`Tx` and all
 class names are converted to lowercase).
 
@@ -43,7 +43,7 @@ The Log Writer configuration is read from the subkey :code:`writerConfiguration`
 
 .. code-block:: php
 
-   $TYPO3_CONF_VARS['LOG']['writerConfiguration'] = array(
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['writerConfiguration'] = array(
        // configuration for ERROR level log entries
      \TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
          // add a FileWriter
@@ -77,7 +77,7 @@ For extension "foo" with key "tx_foo" (not using namespaces), the configuration 
 
 .. code-block:: php
 
-   $TYPO3_CONF_VARS['LOG']['tx']['foo']['writerConfiguration'] = array(
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['tx']['foo']['writerConfiguration'] = array(
    	...
    );
 
@@ -107,7 +107,7 @@ basis from the subkey :code:`processorConfiguration`
 
 .. code-block:: php
 
-   $TYPO3_CONF_VARS['LOG']['TYPO3']['Examples']['Controller']['processorConfiguration'] = array(
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['Examples']['Controller']['processorConfiguration'] = array(
        // configuration for ERROR level log entries
      \TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
          // add a MemoyUsageProcessor
