@@ -14,6 +14,7 @@ Logging with TYPO3
 TYPO3 Logging consists of the following components:
 
 - A :ref:`Logger <logging-logger>` that receives the log message and related details, like a severity
+- A :ref:`LogRecord model <logging-model>` which encapsulates the data
 - :ref:`Configuration <logging-configuration>` of the logging system
 - :ref:`Writers <logging-writers>` which write the log records to different targets
   (like file, database, rsyslog server, etc.)
@@ -78,5 +79,6 @@ A sample output looks like this::
 
    Logger/Index
    Configuration/Index
+   Model/Index
    Writers/Index
    Processors/Index

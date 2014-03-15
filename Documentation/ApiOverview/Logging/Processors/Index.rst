@@ -8,8 +8,8 @@
 
 .. _logging-processors:
 
-Log Record Processors
-^^^^^^^^^^^^^^^^^^^^^
+Log Processors
+^^^^^^^^^^^^^^
 
 The purpose of a log processor is (usually) to modify a log record or add more detailed information to it.
 
