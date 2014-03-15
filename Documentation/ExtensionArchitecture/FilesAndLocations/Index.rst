@@ -17,7 +17,7 @@ Files and locations
 Files
 """""
 
-An extension consists of
+An extension consists of:
 
 #. a directory named by the *extension key* (which is a worldwide unique
    identification string for the extension)
@@ -53,6 +53,8 @@ extensions with the name prefix "ext\_".
    :Description:
          Definition of extension properties.
 
+         |
+
          Name, category, status etc. Used by the EM. The content of this file
          is described in more details below. Note that it is auto-written by EM
          when extensions are imported from the repository.
@@ -68,6 +70,8 @@ extensions with the name prefix "ext\_".
          contain additional configuration of :code:`$TYPO3_CONF_VARS` and may include
          additional PHP class files.
 
+         |
+
          All :code:`ext_localconf.php` files of included extensions are
          included right  **after** the :code:`typo3conf/localconf.php` file has
          been included and database constants defined. Therefore you cannot
@@ -80,37 +84,34 @@ extensions with the name prefix "ext\_".
 
  - :Filename: ext\_tables.php
    :Description:
-         Addition to :code:`tables.php` which is included if found.
-         Shouldcontain configuration of tables, modules, backend styles etc.
-         Everything which can be done in an "extTables" file is allowed here.
+         Included if found. Contains extensions of existing tables,
+         declaration of modules, backend styles etc. All code in such files
+         is included after all the default definitions provided by the Core.
 
-         All :code:`ext_tables.php` files of loaded extensions are included
-         right  **after** the :code:`tables.php` file in the order they are
-         defined in the global array :code:`TYPO3_LOADED_EXT` but right
-         before a general "extTables" file (defined with the var
-         :code:`$typo_db_extTableDef_script` in the
-         :code:`typo3conf/localconf.php` file, later set as the constant
-         :code:`TYPO3_extTableDef_script` ). Thus a general "extTables" file
-         in typo3conf/ may overrule any settings made by loaded extensions.
+         |
 
-         You should  *not* use this file for setting up
-         :code:`$TYPO3_CONF_VARS` . See "ext\_localconf.php" above.
-
-         .. note::
-            Observe rules for content of these files. See section below.
+         Since TYPO3 CMS 6.1, definition of new database tables should be
+         done entirely in :file:`Configuration/TCA/(name of the table).php`.
+         These files are expected to contain the full TCA of the given table
+         (as an array) and simply return it (with a :code:`return` statement).
 
  - :Filename: ext\_tables.sql
    :Description:
          SQL definition of database tables.
+
+         |
 
          This file should contain a table-structure dump of the tables used by
          the extension. It is used for evaluation of the database structure and
          is therefore important to check and update the database when an
          extension is enabled.If you add additional fields (or depend on
          certain fields) to existing tables you can also put them here. In that
-         case insert a CREATE TABLE structure for that table, but remove all
-         lines except the ones defining the fields you need.The ext\_tables.sql
-         file may not necessarily be "dumpable" directly to MySQL (because of
+         case insert a :code:`CREATE TABLE` structure for that table, but remove all
+         lines except the ones defining the fields you need.
+
+         |
+
+         The :file`ext\_tables.sql` file may not necessarily be "dumpable" directly to MySQL (because of
          the semi-complete table definitions allowed defining only required
          fields, see above). But the EM or Install Tool can handle this. The
          only very important thing is that the syntax of the content is exactly
@@ -121,14 +122,20 @@ extensions with the name prefix "ext\_".
    :Description:
          Static SQL tables and their data.
 
+         |
+
          If the extension requires static data you can dump it into a sql-file
          by this name.Example for dumping mysql data from bash (being in the
-         extension directory)::
+         extension directory):
+
+         .. code-block:: csh
 
             mysqldump --password=[password] [database name] [tablename] --add-drop-table > ./ext_tables_static.sql
 
          :code:`--add-drop-table` will make sure to include a DROP TABLE
          statement so any data is inserted in a fresh table.
+
+         |
 
          You can also drop the table content using the EM in the backend.
 
@@ -161,18 +168,16 @@ extensions with the name prefix "ext\_".
             :ref:`Extension Management API <t3cmsapi:TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility>`
             are preferred.
 
- - :Filename: ext\_typoscript\_editorcfg.txt
-   :Description:
-         *Deprecated*
-
-         This file is not used anymore. It may be encountered in very old extensions.
-
  - :Filename: ext\_conf\_template.txt
    :Description:
          Extension Configuration template.
 
+         |
+
          Configuration code in TypoScript syntax setting up a series of values
          which can be configured for the extension in the EM.
+
+         |
 
          If this file is present the EM provides you with an interface for
          editing the configuration values defined in the file. The result is
@@ -180,8 +185,7 @@ extensions with the name prefix "ext\_".
          variable :code:`$TYPO3_CONF_VARS['EXT']['extConf'][`
          :code:`*extension_key*` :code:`]`
 
-         The content of the "res/" folder is used for filelists in
-         configuration forms.
+         |
 
          If you want to do user processing before the content from the
          configuration form is saved (or shown for that sake) there is a hook
@@ -193,27 +197,23 @@ extensions with the name prefix "ext\_".
    :Description:
          Extension Icon
 
+         |
+
          18x16 GIF or PNG icon for the extension.
-
- - :Filename: (\*/) locallang\*.xml
-   :Description:
-         Localized strings.
-
-         The filename :code:`locallang.xml` (or any file matching
-         :code:`locallang*.xml` ) is used for traditional definition of
-         language labels in the :code:`$LOCAL_LANG` array. If you use this
-         name consistently those files will be detected by the translation
-         tool!
 
  - :Filename: class.ext\_update.php
    :Description:
          Local Update tool class
+
+         |
 
          If this file is found it will install a new menu item, "UPDATE", in
          the EM when looking at details for the extension. When this menu item
          is selected the class inside of this file (named "ext\_update") will
          be instantiated and the method "main()" will be called and expected to
          return HTML content.
+
+         |
 
          Also you must add the function "access()" and make it return a boolean
          value whether or not the menu item should be shown. This feature is
@@ -225,14 +225,20 @@ extensions with the name prefix "ext\_".
 
  - :Filename: ext\_autoload.php
    :Description:
-         Since TYPO3 4.3, it is possible to declare classes in this file so
+         Since TYPO3 CMS 4.3, it is possible to declare classes in this file so
          that they will be automatically detected by the TYPO3 autoloader. This
          means that it is not necessary to require the related class files
          anymore. See the :ref:`autoload` chapter for more details.
 
+         |
+
+         Not needed anymore since TYPO3 CMS 6.1, when using :ref:`namespaces <namespaces>`.
+
  - :Filename: ext\_api\_php.dat
    :Description:
          PHP API data
+
+         |
 
          A file containing a serialized PHP array with API information for the
          PHP classes in the extension. The file is created - and viewed! - with
@@ -276,6 +282,7 @@ Configuration/TypoScript
 
 Configuration/TCA
   One file per database table, using the name of the table for the file, plus ".php".
+  Only for new tables. For extending existing tables, stick to file :file:`ext_tables.php`.
 
 Documentation
   Contains the manual in reStructuredText format (:ref:`read more on the topic <extension-documentation>`).
