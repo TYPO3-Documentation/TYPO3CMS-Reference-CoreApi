@@ -61,17 +61,17 @@ use the following configuration:
 
 .. code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['Examples']['Controller']['writerConfiguration'] = array(
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['writerConfiguration'] = array(
 		// configuration for WARNING severity, including all
 		// levels with higher severity (ERROR, CRITICAL, EMERGENCY)
        \TYPO3\CMS\Core\Log\LogLevel::WARNING => array(
         // add a SyslogWriter
-       'TYPO3\\CMS\\Core\\Log\\Writer\\SyslogWriter' => array(),
-     ),
+           'TYPO3\\CMS\\Core\\Log\\Writer\\SyslogWriter' => array(),
+       ),
    );
 
 This overwrites the default configuration shown in the first example for classes
-located in the namespace "\Documentation\Examples\Controller".
+located in the namespace :code:`\Documentation\Examples\Controller`.
 
 For extension "foo" with key "tx_foo" (not using namespaces), the configuration would be located at:
 
@@ -107,7 +107,7 @@ basis from the subkey :code:`processorConfiguration`
 
 .. code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['Examples']['Controller']['processorConfiguration'] = array(
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['processorConfiguration'] = array(
        // configuration for ERROR level log entries
      \TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
          // add a MemoyUsageProcessor
