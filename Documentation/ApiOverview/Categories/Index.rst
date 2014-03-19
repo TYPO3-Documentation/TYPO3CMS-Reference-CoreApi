@@ -87,6 +87,8 @@ The example below illustrates how this is done:
 		array(
 			// Set a custom label
 			'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:additional_categories',
+			// This field should not be an exclude-field
+			'exclude' => FALSE,
 			// Override generic configuration, e.g. sort by title rather than by sorting
 			'fieldConfiguration' => array(
 				'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC',
@@ -102,6 +104,9 @@ listed alphabetically instead of using the "sorting" field.
 
 If no :code:`label` part is set in the options array, the field will
 be labelled "Categories".
+
+By default, the field will be an exclude-field. The :code:`exclude` part
+can be used to override this.
 
 This is the result of the above code:
 
