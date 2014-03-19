@@ -30,11 +30,14 @@ feel free to ignore it.
 What's new
 ^^^^^^^^^^
 
-This version of the manual was updated for TYPO3 CMS 6.1.
+This version of the manual was updated for TYPO3 CMS 6.2.
 
-The changes include adding the new functions "uniqueList",
-"reverseList" and "sortList", which allow advanced value modification
-in TypoScript.
+The changes include adding the new INCLUDE_TYPOSCRIPT option DIR,
+which allows to include all files from a directory and from
+subdirectories recursively, optionally restricted to certain file
+types. Files can now be included from a file relatively to the
+location of this file. Dots in object paths can now be escaped using
+the backslash character.
 
 
 .. _credits:

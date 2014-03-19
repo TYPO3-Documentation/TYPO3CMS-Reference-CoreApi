@@ -16,7 +16,7 @@ TypoScript Syntax and In-depth Study
       doc_core_ts
 
 :Version:
-      6.2.0-dev
+      6.2
 
 :Language:
       en
@@ -28,7 +28,7 @@ TypoScript Syntax and In-depth Study
       typoscript, syntax, forAdmins, forIntermediates
 
 :Copyright:
-      2000-2013
+      2000-2014
 
 :Author:
       Documentation Team
