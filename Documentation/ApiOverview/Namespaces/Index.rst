@@ -128,6 +128,23 @@ For a frontend module::
    - Do not use dots inside the vendor name.
 
 
+.. _namespaces-test:
+
+Namespaces for test classes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As for ordinary classes, namespaces for test classes start with a vendor name
+followed by the extension key.
+
+All test classes reside in a :file:`Tests` folder and thus the third segment
+of the namespace must be "Tests". Unit tests are located in a :file:`Unit` folder
+which is the fourth segment of the namespace. Any further subfolders will
+be subsequent segments.
+
+So a test class in :file:`EXT:foo_bar_baz/Tests/Unit/Bla/` will have as namespace
+:code:`\Vendor\FooBarBaz\Tests\Unit\Bla`.
+
+
 .. _namespaces-instances:
 
 Creating instances
