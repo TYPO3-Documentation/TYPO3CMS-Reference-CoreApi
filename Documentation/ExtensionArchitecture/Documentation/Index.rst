@@ -52,6 +52,8 @@ provides tools that help write and manage Sphinx projects:
   Git repository.
 - The `Extension Builder <http://typo3.org/extensions/repository/view/extension_builder>`_
   provides a skeleton documentation based on the above-mentioned Git repository.
+- A `good primer <http://docs.typo3.org/typo3cms/drafts/github/xperseguers/RstPrimer/>`_
+  to get started using reStructuredText
 
 
 .. _extension-documentation-readme:
