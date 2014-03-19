@@ -25,18 +25,59 @@ Example:
 
    myObject.myProperty = value 2
 
-The **object path** (in this case "myObject.myProperty") is like the
+
+.. _syntax-object-path:
+
+object path
+"""""""""""
+
+The object path (in this case "myObject.myProperty") is like the
 variable name in a programming language. The object path is the first
 block of non-whitespace characters on a line until one of the
-characters "=<>{( " (space included) is found. **Use only A-Z, a-z,
-0-9, "-", "\_" and periods (.) for object paths!**
+characters "=<>{( " (space included) is found. The dot (".") is used
+to separate objects and properties from each other creating a hierarchy.
+Here we have the object "myObject" with the property "myProperty".
+**Use only A-Z, a-z, 0-9, "-", "\_" and periods (.) for object paths!**
 
-The **operator** (in this case it is "=") can be one of the characters
+Since TYPO3 6.2 dots in the object path can be escaped using a backslash.
+
+**Example:** ::
+
+   my\.escaped\.key = test
+
+This will result in the object "my.escaped.key" with the value "test".
+Here we do *not* have three hierarchically structured objects "my",
+"escaped" and "key".
+
+Backslashes can be protected from being interpreted as escape
+characters by using double backslashes.
+
+**Example:** ::
+
+   my\\.escaped\\.key = test
+
+This will result in the object path "my\.escaped\.key" with the value
+"test". Here we *do have* three hierarchically structured objects "my\",
+"escaped\" and "key".
+
+
+.. _syntax-operator:
+
+operator
+""""""""
+
+The operator (in the example it is "=") can be one of the characters
 "=<>{(". The various operators are described below.
 
-The **value** (in this case "value 2") is whatever characters follow
-the operator until the end of the line, but trimmed for whitespace at
-each end. Notice that values are *not* encapsulated in quotes! The
+
+.. _syntax-value:
+
+value
+"""""
+
+The value (in case of the above example "value 2") is whatever characters
+follow the operator until the end of the line, but trimmed for whitespace
+at both ends. Notice that values are *not* encapsulated in quotes! The
 value starts after the operator and ends with the line break.
 
 

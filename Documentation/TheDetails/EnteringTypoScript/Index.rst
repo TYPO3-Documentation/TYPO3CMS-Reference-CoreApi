@@ -20,9 +20,8 @@ is the "TSconfig" box of a regular page header:
    :alt: The TSconfig field of a page.
 
 This is how TypoScript is typically entered - directly in form fields.
-Since TYPO3 4.2 a JavaScript-based editor is available for TypoScript
-templates. It provides line-numbering and syntax highlighting. Since
-TYPO3 4.3, it also provides auto-completion.
+A JavaScript-based editor is available for TypoScript templates. It
+provides line-numbering, syntax highlighting and auto-completion.
 
 .. figure:: ../../Images/DetailsT3editor.png
    :alt: t3editor showing a TypoScript template.
