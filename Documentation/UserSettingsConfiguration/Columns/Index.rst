@@ -25,37 +25,48 @@ settings. This array allows the following configurations:
  - :Key:
          type
    :Data type:
-         :ref:`t3tsref:data-type-string`
+         string
    :Description:
          Defines the type of the input field
 
          If type=user you need to define userFunc too.
 
-         **Example:** ::
+         **Example:**
 
-            'installToolEnableFile' => array(
-                    'type' => 'user',
-                    'label' => 'LLL:EXT:setup/mod/locallang.xml:InstallToolEnableFileButton',
-                    'userFunc' => 'SC_mod_user_setup_index->renderInstallToolEnableFileButton',
-                    'access' => 'admin',
-            )
+         .. code-block:: php
 
-         Allowed values: text, password, check, select, user
+			'startModule' => array(
+				'type' => 'select',
+				'itemsProcFunc' => 'TYPO3\\CMS\\Setup\\Controller\\SetupModuleController->renderStartModuleSelect',
+				'label' => 'LLL:EXT:setup/mod/locallang.xlf:startModule',
+				'csh' => 'startModule'
+			),
+
+         Allowed values: button, check, password, select, text, user
 
 
  - :Key:
          label
    :Data type:
-         :ref:`t3tsref:data-type-string`
+         string
    :Description:
          Label for the input field, should be a pointer to a localized
          label using the :code:`LLL:` syntax.
 
 
  - :Key:
+         buttonLabel
+   :Data type:
+         string
+   :Description:
+         Text of the button for type=button fields.
+         Should be a pointer to a localized label using the :code:`LLL:` syntax.
+
+
+ - :Key:
          csh
    :Data type:
-         :ref:`t3tsref:data-type-string`
+         string
    :Description:
          CSH key for the input field
 
@@ -63,7 +74,7 @@ settings. This array allows the following configurations:
  - :Key:
          access
    :Data type:
-         :ref:`t3tsref:data-type-string`
+         string
    :Description:
          Access control. At the moment only a admin-check is implemented
 
@@ -73,7 +84,7 @@ settings. This array allows the following configurations:
  - :Key:
          table
    :Data type:
-         :ref:`t3tsref:data-type-string`
+         string
    :Description:
          If the user setting is saved in a DB table, this property sets the
          table. At the moment only "be\_users" is implemented.
@@ -84,7 +95,7 @@ settings. This array allows the following configurations:
  - :Key:
          eval
    :Data type:
-         :ref:`t3tsref:data-type-string`
+         string
    :Description:
          Evaluates a field with a given function. Currently only "md5" is
          implemented, for password field.
@@ -107,6 +118,15 @@ settings. This array allows the following configurations:
 
 
  - :Key:
+         items
+   :Data type:
+         array
+   :Description:
+         List of items for type=select fields. This should be a simple associative
+         array with key-value pairs.
+
+
+ - :Key:
          itemsProcFunc
    :Data type:
          array
@@ -117,3 +137,23 @@ settings. This array allows the following configurations:
 
          Use the usual class->method syntax.
 
+
+ - :Key:
+         onClick
+   :Data type:
+         string
+   :Description:
+         JavaScript code added to a button's onClick attribute.
+         Only used by type=button. May contain :code:`sprintf()`
+         markers which will be replaced by the strings provided
+         in property :code:`onClickLabels`.
+
+
+ - :Key:
+         onClickLabels
+   :Data type:
+         array
+   :Description:
+         List of strings used to replace the markers defined in
+         :code:`onClick`. Each string should point to a localized
+         label using the :code:`LLL:` syntax.
