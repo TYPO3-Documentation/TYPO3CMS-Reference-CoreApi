@@ -26,13 +26,32 @@ tx\_
 """"
 
 Class names starting with :code:`tx_` are reserved for extensions.
-Extension PHP class files must start with :code:`class.tx_` prefix,
-followed by the extension key without underscores, another underscore
-and the name of the class in lowercase. The file name ends with the
-extension :code:`php`. For example, if the extension key is
-:code:`test_ext`, the file name will be
-:code:`class.tx_testext_myclass.php` and the name of the class will be
-:code:`tx_testext_myClass`.
+Extension PHP class files, which are based on the :code:`tslib_pibase`
+class, must start with :code:`class.tx_` prefix, followed by the
+extension key without underscores, another underscore and the name of
+the class in lowercase. The file name ends with the extension
+:code:`php`. For example, if the extension key is :code:`test_ext`,
+the file name will be :code:`class.tx_testext_myclass.php` and the name
+of the class will be :code:`tx_testext_myClass`.
+
+User files with these class names are commonly found in the
+:code:`typo3conf/ext/` directory. Optionally these files can be
+installed to the :code:`typo3/ext/` directory to be shared by many
+TYPO3 installations.
+
+
+Tx\_
+""""
+
+Class names starting with :code:`Tx_` are reserved for extensions.
+Extension PHP class files, which are based on :code:`extbase`, use
+these rules: The class name starts with :code:`Tx_` prefix, followed by
+the extension key with first letter in uppercase and without
+underscores, another underscore and the name of the class with the
+first letter of the single words in uppercase. The file name ends with
+the extension :code:`php`. For example, if the extension key is
+:code:`test_ext`, the file name will be :code:`MyClass.php` and the
+name of the class will be :code:`Tx_Testext_MyClass`.
 
 User files with these class names are commonly found in the
 :code:`typo3conf/ext/` directory. Optionally these files can be
