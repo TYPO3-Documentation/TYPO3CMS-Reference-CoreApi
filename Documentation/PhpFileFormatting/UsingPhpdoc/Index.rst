@@ -57,7 +57,7 @@ Functions should have parameters and return type documented. Example::
     * Checks the configuration and substitutes defaults for missing values.
     *
     * @param array $conf Plugin configuration from TypoScript
-    * @return boolean TRUE if initialization was successful, FALSE otherwise
+    * @return bool TRUE if initialization was successful, FALSE otherwise
     * @see tx_myext_class:anotherFunc()
     */
    protected function initialize(array $conf) {
@@ -71,5 +71,9 @@ short description is the first piece of text inside the phpDoc block.
 It ends with the next blank line. Any additional text after that line
 and before the first tag is the long description.
 
-Use :code:`@return void` when a function does not return a value.
+In the comment blocks use the *short* forms of the type names (e.g.
+:code:`int`, :code:`bool`, :code:`string`, :code:`array` or
+:code:`mixed`).
+
+Use :code:`@return void` when a function does *not* return a value.
 
