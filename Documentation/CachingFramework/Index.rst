@@ -22,13 +22,9 @@ The caching framework exists to help speeding up TYPO3 sites, especially heavily
 It is possible to move all caches to a dedicated cache server with specialized cache systems
 like the Redis key-value store (a so called `NoSQL database <http://en.wikipedia.org/wiki/NoSQL>`_).
 
-Since CMS TYPO3 4.6, the caching framework is always enabled, the old and unflexible approach to cache content is gone.
+Since TYPO3 CMS 4.6, the caching framework is always enabled,
+the old and unflexible approach to cache content is gone.
 This document covers settings for TYPO3 CMS 6.0 and beyond.
-
-
-
-
-
 
 
 

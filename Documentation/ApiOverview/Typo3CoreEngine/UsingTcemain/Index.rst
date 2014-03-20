@@ -82,13 +82,13 @@ commands.
 Clearing cache
 ~~~~~~~~~~~~~~
 
-In this example the clear-cache API is used. No data is submitted, no
+In this example the cache clearing API is used. No data is submitted, no
 commands executed. Still you will have to initialize the class by
 calling the start() method (which will initialize internal variables).
 
 .. note::
-   Clearing "all" cache will be possible only for users that are
-   "admin" or for users with specific permissions to do so.
+   Clearing a given cache is possible only for users that are
+   "admin" or have :ref:`specific permissions <t3tsconfig:useroptions>` to do so.
 
 .. code-block:: php
    :linenos:
@@ -96,6 +96,11 @@ calling the start() method (which will initialize internal variables).
    $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\DataHandling\\DataHandler');
    $tce->start(array(), array());
    $tce->clear_cacheCmd('all');
+
+Since TYPO3 CMS 6.2, caches are organized in groups. Clearing "all"
+caches will actually clear caches from the "all" group and not really
+**all** caches. Check the :ref:`caching framework architecture section <caching-architecture-core>`
+for more details about available caches and groups.
 
 
 .. _tcemain-complex-submission:

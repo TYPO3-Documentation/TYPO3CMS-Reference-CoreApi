@@ -64,10 +64,10 @@ should hint an integrator about specific caching needs or setups in this case.
        $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = 'TYPO3\\CMS\\Core\\Cache\\Backend\\TransientMemoryBackend';
    }
 
-To get an instance of a cache, :code:`$GLOBALS['typo3CacheManager']->getCache('cacheName')`
+To get an instance of a cache, :code:`GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache('myext_mycache')`
 should be used. The cache manager will return the fully initialized cache instance::
 
-   $myCacheInstance = $GLOBALS['typo3CacheManager']->getCache('myext_mycache');
+   $myCacheInstance = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache('myext_mycache');
 
 
 
@@ -164,7 +164,7 @@ Instead it should perform its own initialization. Example::
        protected function initializeCache() {
            \TYPO3\CMS\Core\Cache\Cache::initializeCachingFramework();
            try {
-               $this->cacheInstance = $GLOBALS['typo3CacheManager']->getCache('myext_mycache');
+               $this->cacheInstance = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache('myext_mycache');
            } catch (\TYPO3\CMS\Core\Cache\Exception\NoSuchCacheException $e) {
                $this->cacheInstance = $GLOBALS['typo3CacheFactory']->create(
                    'myext_mycache',
@@ -194,13 +194,13 @@ Here is some example code::
            $cacheIdentifier = $this->calculateCacheIdentifier();
 
            // If $entry is null, it hasn't been cached. Calculate the value and store it in the cache:
-           if (($entry = $GLOBALS['typo3CacheManager']->getCache('myCache')->get($cacheIdentifier)) === FALSE) {
+           if (($entry = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache('myext_mycache')->get($cacheIdentifier)) === FALSE) {
                $entry = $this->calculateMagic();
 
                // [calculate lifetime and assigned tags]
 
                // Save value in cache
-               $GLOBALS['typo3CacheManager']->getCache('myCache')->set($cacheIdentifier, $entry, $tags, $lifetime);
+               GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache('myext_mycache')->set($cacheIdentifier, $entry, $tags, $lifetime);
            }
            return $entry;
        }

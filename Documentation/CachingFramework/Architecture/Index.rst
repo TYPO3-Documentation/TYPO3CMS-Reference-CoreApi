@@ -116,6 +116,28 @@ The TYPO3 core defines and uses several caching framework caches by default.
 This section gives an overview of default caches, its usage and behaviour. If not stated otherwise,
 the default database backend with variable frontend is used.
 
+Since TYPO3 CMS 6.2, the various caches are organized in groups.
+Three groups currently exist:
+
+pages
+  Frontend-related caches.
+
+system
+  Low-level caches. Flushing low-level caches should be avoided as much
+  as possible, as rebuilding them requires significant resources.
+
+all
+  All other caches.
+
+Cache clearing commands can be issued to target a particular group. If a cache
+does not belong to a group, it will be flushed when the "all" group is flushed,
+but such caches should normally be transient anyway.
+
+There are :ref:`TSconfig options for permissions <t3tsconfig:useroptions>`
+corresponding to each group.
+
+The following caches exist in the TYPO3 CMS Core:
+
 - cache_core
 
   - Core cache for compiled php code. It should **not** be used by extensions.
@@ -127,45 +149,75 @@ the default database backend with variable frontend is used.
   - Cache entries are located in directory :file:`typo3temp/Cache/Code/cache_code`. The full directory and any file
     in this directory can be safely removed and will be re-created upon next request. This is especially useful during
     development
+  - **group**: system
+
+- cache_classes
+
+  - Maps class names (ant potentially one or more aliases) to the location
+    of the class files in the filesystem. This cache is used by the class loader
+    in oder to require the correct class file when that class needs to be instantiated.
+  - **group**: system
 
 - cache_hash
 
-  - Stores several key value based cache entries, mostly used during frontend rendering
+  - Stores several key-value based cache entries, mostly used during frontend rendering.
+  - **groups**: all, pages
 
 - cache_pages
 
   - The frontend page cache. Stores full frontend pages.
   - Content is compressed by default to reduce database memory and storage overhead.
+  - **groups**: all, pages
 
 - cache_pagesection
 
   - Used to store "parts of a page", for example used to store typo3script snippets and
     compiled frontend templates.
   - Content is compressed by default to reduce database memory and storage overhead.
+  - **groups**: all, pages
 
 - cache_phpcode
+
   - Code cache with **PhpFrontend** and **FileBackend**.
   - Unused by core since TYPO3 CMS 6.0.
+  - **group**: system
 
 - cache_runtime
 
   - Runtime cache to store data specific for current request.
-  - Used by several core parts during rendering to re-use already calculated data
-  - Valid for one request only
-  - Can be re-used by extensions that have similar caching needs
+  - Used by several core parts during rendering to re-use already calculated data.
+  - Valid for one request only.
+  - Can be re-used by extensions that have similar caching needs.
 
 - cache_rootline
 
-  - Cache for rootline calculations
-  - Quick and simple cache dedicated for core usage, Should **not** be re-used by extenions
+  - Cache for rootline calculations.
+  - Quick and simple cache dedicated for core usage, Should **not** be re-used by extenions.
+  - **groups**: all, pages
+
+- l10n
+
+  - Cache for the localized labels.
+  - **group**: system
+
+- extbase_object
+
+  - Contains general information about classes, name, interfaces implemented, etc..
+  - **group**: system
+
+- extbase_reflection
+
+  - Contains detailed information about a class' member variables and methods.
+  - **group**: system
 
 
 .. tip::
 
-   In rare cases, for example when classes that are required during TYPO3 bootstrap are introduced
-   (usually when working on the TYPO3 core), the 'Clear all cache' request itself might throw a fatal error.
+   In rare cases, for example when classes that are required during the
+   bootstrap process are introduced (usually when working on the TYPO3 core),
+   cache clearings requests themselves might throw fatal errors.
    The solution here is to manually remove the cache files from
-   :file:`typo3temp/Cache/Code/cache_phpcode`.
+   :file:`typo3temp/Cache/Code/`.
 
 
 .. _caching-architecture-task:
