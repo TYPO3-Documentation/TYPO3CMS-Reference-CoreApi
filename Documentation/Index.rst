@@ -16,7 +16,7 @@ TYPO3 CMS Coding Guidelines
       doc_core_cgl
 
 :Version:
-      6.2.0-dev
+      6.2
 
 :Language:
       en
@@ -28,7 +28,7 @@ TYPO3 CMS Coding Guidelines
       forDevelopers, forIntermediates
 
 :Copyright:
-      2000-2013
+      2000-2014
 
 :Author:
       Documentation Team

@@ -2,7 +2,7 @@
 ---
 conf.py:
   project: TYPO3 CMS Coding Guidelines
-  copyright: 2000-2013
-  version: 6.2.0-dev
-  release: 6.2.0-dev
+  copyright: 2000-2014
+  version: 6.2
+  release: 6.2
 ...
