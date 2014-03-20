@@ -62,8 +62,6 @@ Comment lines should be kept within a limit of about 80 characters
 Notes
 ~~~~~
 
-- Tabs are considered to be 4 spaces wide.
-
 - When splitting a line, try to split it at a point that makes as much
   sense as possible. In the above example, the line is split between two
   arguments and not in the middle of one. In case of long logical
