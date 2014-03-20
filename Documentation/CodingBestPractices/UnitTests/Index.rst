@@ -32,6 +32,10 @@ added.
 Conventions for unit tests
 """"""""""""""""""""""""""
 
-Since unit tests should be as concise as possible and since they never
-return anything, they do not need an :code:`@return` tag.
+Unit tests should be as concise as possible. Since the :code:`setUp()`
+and :code:`tearDown()` methods always have the same responsibility,
+these methods do *not* need a documentation block.
+
+Since unit tests never return anything, they do not need an
+:code:`@return` tag.
 
