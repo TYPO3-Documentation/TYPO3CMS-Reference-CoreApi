@@ -28,3 +28,10 @@ The use of unit tests is strongly encouraged. Every time a new feature
 is introduced or an existing one is modified, a unit test should be
 added.
 
+
+Conventions for unit tests
+""""""""""""""""""""""""""
+
+Since unit tests should be as concise as possible and since they never
+return anything, they do not need an :code:`@return` tag.
+
