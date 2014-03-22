@@ -19,6 +19,25 @@ not in the order of importance (all are relevant but the usage depends
 on your specific site and requirements).
 
 
+.. _cookieHttpOnly:
+
+cookieHttpOnly
+""""""""""""""
+
+In order to make the session cookie only accessible through the HTTP
+protocol, "cookieHttpOnly" is enabled by default since TYPO3 CMS 6.2.
+This means, that the cookies "fe_typo_user" and "be_typo_user" are not
+be accessible by scripting languages (e.g. JavaScript), which hardens
+the protection against XSS attacks (cross site scripting). Although,
+some older browsers do not support this technique.
+
+Possible values are: 0 or 1 (boolean), where "0" deactivates the
+option (TYPO3 CMS before 6.2) and "1" enables it (default since TYPO3
+6.2).
+
+The PHP variable reads: $TYPO3\_CONF\_VARS['SYS']['cookieHttpOnly']
+
+
 .. _cookiesecure:
 
 cookieSecure
