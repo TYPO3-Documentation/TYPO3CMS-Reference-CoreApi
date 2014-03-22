@@ -2,7 +2,7 @@
 ---
 conf.py:
   project: TYPO3 Security Guide
-  copyright: 2011-2013
-  version: 1.0.4
-  release: 1.0.4
+  copyright: 2011-2014
+  version: 1.0.5
+  release: 1.0.5
 ...

@@ -16,7 +16,7 @@ TYPO3 Security Guide
       doc_guide_security
 
 :Version:
-      1.0.4
+      1.0.5
 
 :Language:
       en
@@ -31,7 +31,7 @@ TYPO3 Security Guide
       security forEditors forAdmins forDevelopers forBeginners forIntermediates forAdvanced
 
 :Copyright:
-      2011-2013
+      2011-2014
 
 :Author:
       Documentation Team
