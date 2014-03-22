@@ -43,6 +43,12 @@ front of the TYPO3 server) may have an impact on the retrieval of the
 TYPO3 extension list, which allows you to check if extension updates
 are available!
 
+Login attempts to the TYPO3 backend, which are unsuccessful, result in
+a server response to the client with HTTP code 401 ("Unauthorized").
+Due to the fact that this incident is logged in the web server's
+error log file, it can be handled by external tools, such as
+`fail2ban <http://www.fail2ban.org>`_.
+
 Please understand that detailed descriptions of further actions on a
 server-level and specific PHP security settings are out of scope of
 this document. The TYPO3 Security Guide focuses on security aspects of
