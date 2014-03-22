@@ -43,23 +43,39 @@ older than 60 minutes (expiry time). Both features can be deactivated
 if the content of this file is "KEEP\_FILE", which is understandably
 not recommended.
 
-The password for accessing the Install Tool is stored as a MD5 hash in
-the global configuration file "typo3conf/LocalConfiguration.php"::
+The password for accessing the Install Tool is stored as a salted MD5
+hash in the global configuration file "typo3conf/LocalConfiguration.php"::
+
+   'BE' => 'installToolPassword' = '$P$CnawBtpk.D22VwoB2RsN0jCocLuQFp.'
+
+In TYPO3 versions before 6.2, this value is a standard (unsalted) MD5
+hash::
 
    'BE' => 'installToolPassword' = 'bacb98acf97e0b6112b1d1b650b84971'
 
-Respectively in the file "typo3conf/localconf.php" in TYPO3 versions
-prior 6.0::
+During an update from TYPO3 version 6.0 or 6.1 to 6.2, the standard
+MD5 hash is automatically converted into a salted hash.
+
+In TYPO3 versions prior 6.0, the MD5 hash of the Install Tool password
+is stored in the file "typo3conf/localconf.php" ::
 
    $TYPO3_CONF_VARS['BE']['installToolPassword'] = "bacb98acf97e0b6112b1d1b650b84971";
 
-The first thing you should do after taking over a new TYPO3 system
-from a system administrator, is to change this password from the
-default value ("joh316") to a new and secure one. Log-in to the
-Install Tool and change it there.
+Since TYPO3 version 6.2, the Install Tool password is set during the
+installation process. This means, in the case that a system administrator
+hands over the TYPO3 instance to you, he/she should also provide you
+with the appropriate password.
+
+In older versions of TYPO3, the default password "joh316" is used as the
+Install Tool password. The first thing you should do, after taking over
+a new TYPO3 system from a system administrator, is to change the password
+to a new and secure one. Log-in to the Install Tool and change it there.
 
 .. figure:: ../../Images/change-install-tool-password-001.png
    :alt: Screen to change the Install Tool password
+
+The option to change the password of the Install Tool in TYPO3 versions
+before 6.2 is located under the menu item "About".
 
 For additional security, the folder "typo3/install" can be renamed,
 deleted, or password protected on a server level (e.g. by a web
