@@ -57,7 +57,7 @@ During an update from TYPO3 version 6.0 or 6.1 to 6.2, the standard
 MD5 hash is automatically converted into a salted hash.
 
 In TYPO3 versions prior 6.0, the MD5 hash of the Install Tool password
-is stored in the file "typo3conf/localconf.php" ::
+is stored in the file "typo3conf/localconf.php"::
 
    $TYPO3_CONF_VARS['BE']['installToolPassword'] = "bacb98acf97e0b6112b1d1b650b84971";
 
@@ -83,4 +83,20 @@ server's user authentication mechanism). Please keep in mind that
 these measures have an impact on the usability of the system. If you
 are not the only person who uses the Install Tool, you should
 definitely discuss your intention with the team.
+
+TYPO3 core updates
+""""""""""""""""""
+
+Since TYPO3 CMS 6.2, the Install Tool allows integrators to update the
+core of TYPO3 with a click of a button. This feature can be found under
+"Important actions" and it checks/installs revision updates only (e.g.
+bug fixes and security updates).
+
+.. figure:: ../../Images/core-updates.png
+   :alt: Install Tool function to update the TYPO3 core
+
+It should be noted that this feature can be disabled by the environment
+variable::
+
+   TYPO3_DISABLE_CORE_UPDATER=1
 
