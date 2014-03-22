@@ -75,15 +75,6 @@ list. This is to inform system administrators about the date and time
 of an upcoming important bulletin, so that they can schedule the
 update.
 
-Since 2010 the TYPO3 Security Team also publishes a CVSS rating with
-every security bulletin. CVSS is an open framework for communicating
-the characteristics and impacts of vulnerabilities in Information
-Technology. It enables analysts to understand and properly communicate
-disclosed vulnerabilities and allows responsible personnel to
-prioritize risks. Further details about CVSS are available at
-`http://www.first.org/cvss/cvss-guide.html <http://www.first.org/cvss
-/cvss-guide.html>`_
-
 Security issues in the TYPO3 core which are only exploitable by users
 with administrator privileges (including system components that are
 accessible by administrators only, such as the Install Tool) are
@@ -91,4 +82,34 @@ treated as normal software "bugs" and are fixed as part of the
 standard core review process. This implies that the development of the
 fix including the review and deployment is publicly visible and can be
 monitored by everyone.
+
+
+Public Service Announcements
+""""""""""""""""""""""""""""
+
+Important security related information regarding TYPO3 products or the
+typo3.org infrastructure are published as so called "Public Service
+Announcements" (PSA). Unlike other advisories, a PSA is usually not
+accompanied by a software release, but still contain information about
+how to mitigate a security related issue.
+
+Topics of these advisories include security issues in third party
+software like such as Apache, Nginx, MySQL, PHP, etc. that are related
+to TYPO3 products, possible security related misconfigurations in third
+party software, possible misconfigurations in TYPO3 products, security
+related information about the server infrastructure of typo3.org and
+other important recommendations how to securely use TYPO3 products.
+
+
+Common Vulnerability Scoring System (CVSS)
+""""""""""""""""""""""""""""""""""""""""""
+
+Since 2010 the TYPO3 Security Team also publishes a CVSS rating with
+every security bulletin. CVSS ("Common Vulnerability Scoring System" is
+a free and open industry standard for communicating the characteristics
+and impacts of vulnerabilities in Information Technology. It enables
+analysts to understand and properly communicate disclosed vulnerabilities
+and allows responsible personnel to prioritize risks. Further details
+about CVSS are available at `http://www.first.org/cvss/cvss-guide.html
+<http://www.first.org/cvss/cvss-guide.html>`_
 

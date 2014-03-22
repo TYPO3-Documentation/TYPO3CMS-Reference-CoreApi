@@ -29,6 +29,6 @@ bulletins.
 
 Other communication channels such as `http://news.typo3.org
 <http://news.typo3.org/>`_ , a RSS feed, an official Twitter account
-(@typo3\_security), etc. can additionally be used to stay up-to-date
+(@typo3\_security), etc. can be used additionally to stay up-to-date
 on security advisories.
 
