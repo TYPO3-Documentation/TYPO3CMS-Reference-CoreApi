@@ -11,9 +11,9 @@
 Incident handling
 ^^^^^^^^^^^^^^^^^
 
-The next chapter provides detailed information about the differences
-between the TYPO3 core system and TYPO3 extensions.
-
+This chapter provides detailed information about the differences between
+the TYPO3 core system and TYPO3 extensions and how the TYPO3 Security
+Team deals with security issues of those.
 
 .. _incident-handling-core:
 
