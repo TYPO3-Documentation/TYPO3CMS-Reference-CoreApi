@@ -19,7 +19,7 @@ TYPO3 Core APIs
       doc_core_api
 
 :Version:
-      6.2.0-dev
+      6.2.0
 
 :Language:
       en
@@ -31,7 +31,7 @@ TYPO3 Core APIs
       tsref, typoscript, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2000-2013
+      2000-2014
 
 :Author:
       Documentation Team
@@ -50,11 +50,6 @@ The content of this document is related to TYPO3 CMS,
 a GNU/GPL CMS/Framework available from `www.typo3.org
 <http://www.typo3.org/>`_
 
-.. warning::
-
-   Development of TYPO3 CMS is still a work in progress. This manual
-   incorporates the latest features, but should not be considered final yet.
-   Use with care.
 
 **Official Documentation**
 

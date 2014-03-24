@@ -49,13 +49,35 @@ published and we've tried to maintain it as best we could.
 What's new
 ^^^^^^^^^^
 
-This version is updated for TYPO3 CMS 6.1.
+This version is updated for TYPO3 CMS 6.2.
 
-The handling of TCA was refactored, so that this global array is always
-loaded. Thus calls to :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::loadTCA()`
-are not needed anymore.
+Many recent changes in the TYPO3 CMS code base were documented in
+this new version of Core APIs, some dating back to version 6.1.
+The release of a new LTS version was the opportunity to put extra
+efforts into the manuals.
 
-There is also a new cache backend based on :ref:`Xcache <caching-backend-xcache>`.
+Highlights from new features brought by TYPO3 CMS 6.2:
+
+- an :ref:`Application Context <bootstrapping-context>`, backported from TYPO3 Flow.
+
+- changes to the caching framework, in particuler the new
+  :ref:`cache groups <caching-architecture-core>`.
+
+- well-known folder :file:`t3lib` is now gone and so is constant
+  :code:`PATH_t3lib`.
+
+- a new API for registering AJAX handlers which provides CSRF protection
+  (documentation yet missing, but will come very soon).
+
+- the system categories API has matured and the :ref:`related chapter <categories>`
+  was extended. In particular, it is now possible to have more than one
+  categories field per table.
+
+- usage of :ref:`flash messages in Extbase <flash-messages-extbase>`
+  has changed.
+
+- it is possible to :ref:`define a custom mirror <xliff-translating-servers>`
+  to fetch extension translations from.
 
 
 .. _code-examples:
