@@ -15,8 +15,14 @@
 Developing with AJAX in the TYPO3 Backend
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is a small guide for you to use this feature in your AJAX
-scripts.
+This section describes how to correctly make AJAX calls
+in the TYPO3 CMS BE.
+
+.. note::
+
+   This section was fully updated for TYPO3 CMS 6.2. For
+   older versions, please refer to the related version of
+   this manual.
 
 
 .. _ajax-backend-id:
@@ -24,25 +30,26 @@ scripts.
 How to choose the right ajaxID
 """"""""""""""""""""""""""""""
 
+An AJAX call is represented by a system-wide identifier
+which is used to register the handler that will receive the call.
 The ajaxID consists of two parts, the class name and the action name,
-delimited by "::" ("<class>::<action>").
+delimited by "::" (:code:`<class>::<action>`).
 
-Please note that the ajaxID is just a system-wide identifier to
-register your AJAX handler. Even if it looks like a static function
-call, it won't be executed and has no technical dependencies. But it
-is required for all developers to use a common naming scheme as
-described above, since it might prevent from using identical names in
+Although it looks like a static function call, it is really just a key.
+Developers must stick to a common naming scheme as
+described above, to avoid using identical names in
 different extensions.
 
 Some good examples for an ajaxID:
 
 - SC\_alt\_db\_navframe::expandCollapse
 
-- t3lib\_TCEforms\_inline::processAjaxRequest
+- BackendLogin::refreshLogin
 
 - tx\_myext\_module1::executeSomething
 
-Some bad examples for an ajaxID:
+Some bad examples for an ajaxID (the first part is too generic
+or the identifier contains a single part):
 
 - search::findRecordByTitle
 
@@ -58,39 +65,42 @@ Some bad examples for an ajaxID:
 Server-Side
 """""""""""
 
-1) Register your unique ajaxID, at best prepended with your extension
-ID, in the TYPO3 backend by adding the following line to your
-:file:`ext_localconf.php` (this way you can also overwrite existing AJAX
-calls)::
+Since TYPO3 CMS 6.2, the registration is done via an API,
+which provides CSRF protection on the AJAX call and an automatic
+registration of the AJAX call URL:
 
-   $TYPO3_CONF_VARS['BE']['AJAX']['tx_myext::ajaxID'] = 'filename:object->method';
+.. code-block:: php
 
-A working example would be::
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerAjaxHandler (
+		'OpendocsController::renderMenu',
+		'TYPO3\\CMS\\Opendocs\\Controller\\OpendocsController->renderAjax'
+	);
 
-   $TYPO3_CONF_VARS['BE']['AJAX']['SC_alt_db_navframe::expandCollapse'] = 'typo3/alt_db_navframe.php:SC_alt_db_navframe->ajaxExpandCollapse';
+This is how the "opendocs" system extension registers the AJAX call to render
+the open documents menu in the top toolbar. The first argument is the ajaxID (as
+described above) and the second argument is a pointer to a class and method.
 
-2) Create a target method to do the logic on the server-side:
-similarly to the existing hooking mechanism, as with every
-"callUserFunction", the target method (here: ajaxExpandCollapse) will
-have two function parameters. The first one is an array of params (not
-used right now), the second is the TYPO3 AJAX Object (see
-:file:`typo3/classes/class.typo3ajax.php` for all available methods). You
-should use this to set the content you want to output or to write the
-error message if something went wrong. ::
+The target method receives an array of parameters (depending on the call
+context) and a backreference to the general AJAX handler
+:ref:`(\\TYPO3\\CMS\\Core\\Http\\AjaxRequestHandler <t3cmsapi:TYPO3\\CMS\\Core\\Http\\AjaxRequestHandler>`).
+The API of this object is used to set the content to output or to write an
+error message if something went wrong.
 
-   public function ajaxExpandCollapse($params, &$ajaxObj) {
-       $this->init();
-       // do the logic...
-       if (empty($this->tree)) {
-           $ajaxObj->setError('An error occurred');
-       } else  {
-           // the content is an array that can be set through $key / $value pairs as parameter
-           $ajaxObj->addContent('tree', 'The tree works...');
-       }
-   }
+In the above example, here's how the handling method looks like:
 
-So, the server-side part is now complete. Let's move over to the
-client-side.
+.. code-block:: php
+
+	/**
+	 * Renders the menu so that it can be returned as response to an AJAX call
+	 *
+	 * @param array $params Array of parameters from the AJAX interface, currently unused
+	 * @param \TYPO3\CMS\Core\Http\AjaxRequestHandler $ajaxObj Object of type AjaxRequestHandler
+	 * @return void
+	 */
+	public function renderAjax($params = array(), \TYPO3\CMS\Core\Http\AjaxRequestHandler &$ajaxObj = NULL) {
+		$menuContent = $this->renderMenu();
+		$ajaxObj->addContent('opendocsMenu', $menuContent);
+	}
 
 
 .. _ajax-backend-client:
@@ -98,40 +108,23 @@ client-side.
 Client-part
 """""""""""
 
-3) In order for you to use client-side AJAX Javascript you have to add
-these two lines of PHP code to your PHP script (available in
-:file:`template.php`, your template document)::
+The API mentioned above registers a corresponding AJAX URL
+in the global :code:`TYPO3.settings.ajaxUrls` JavaScript
+array.
 
-   $this->doc->loadJavascriptLib('contrib/prototype/prototype.js');
-   $this->doc->loadJavascriptLib('js/common.js');
-
-4) With prototype on the client side, it's quite simple to add a new
-AJAX request in Javascript:
+Whatever library you use, this URL can easily be accessed by
+using the registration key.
 
 .. code-block:: javascript
 
-   new Ajax.Request('ajax.php', {
-       method: 'get',
-       parameters: 'ajaxID=SC_alt_db_navframe::expandCollapse',
-       onComplete: function(xhr, json) {
-           // display results, should be "The tree works"
-       }.bind(this),
-       onT3Error: function(xhr, json) {
-           // display error message, will be "An error occurred" if an error occurred
-       }.bind(this)
-   });
+	var ajaxUrl = TYPO3.settings.ajaxUrls['<registration key>'];
 
-You can see, that it's almost the same, except that we introduce a new
-callback function "onT3Error", which is optional. It is called if the
-method "setError" on the server-side was called. Otherwise
-"onComplete" will be called. If you do not define "onT3Error", then
-the error message will be shown in the TYPO3 notification area in the
-backend. Our AJAX responders also work with the "onSuccess" callback,
-but the onT3Error is only executed with "onComplete".
+Here is the client-side part corresponding to the above example
+(an extract of :file:`typo3/sysext/backend/Resources/Public/JavaScript/shortcutmenu.js`):
 
-This should be all. Please note that our TYPO3 BE AJAX mechanism works
-best with the prototype JS library. If you want to create similar
-approaches for other JS frameworks, have a look at
-:file:`typo3/js/common.js`.
+.. code-block:: javascript
 
-
+	var del = new Ajax.Request(TYPO3.settings.ajaxUrls['ShortcutMenu::delete'], {
+		parameters : '&shortcutId=' + shortcutId,
+		onComplete : this.reRenderMenu.bind(this)
+	});
