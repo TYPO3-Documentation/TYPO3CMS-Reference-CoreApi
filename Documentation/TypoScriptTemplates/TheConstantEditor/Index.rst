@@ -200,8 +200,8 @@ type=
 ===========================  ============================================================================
 Type                         Description
 ===========================  ============================================================================
-integer [low-high]           Integer, opt. in range "low" to "high"
-positive integer             Positive integer
+int [low-high]               Integer, opt. in range "low" to "high"
+int+                         Positive integer
 offset [L1,L2,...L6]         Comma-separated list of integers. Default is "x,y", but as comma separated
                              parameters in brackets you can specify up to 6 labels being comma
                              separated! If you wish to omit one of the last 4 fields, just don't
