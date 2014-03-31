@@ -109,6 +109,12 @@ This is the result of the above code:
 
    The newly added field to define relations to categories (on top of the default one)
 
+.. warning::
+
+   In TYPO3 CMS 6.1, it is not possible to add more than one categories field
+   to a given table. Although this is a bug, fixing it implied so many changes
+   that the correction was applied only in the next version (hence version 6.2).
+
 
 .. _categories-flexforms:
 
