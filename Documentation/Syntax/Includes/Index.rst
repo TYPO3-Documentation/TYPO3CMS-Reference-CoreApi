@@ -17,7 +17,7 @@ TSconfig and User TSconfig.
 
 An include-instruction can e.g. look like this::
 
-   <INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/html/mainmenu_typoscript.txt">
+   <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/html/mainmenu_typoscript.txt">
 
 - It must have its own line in the TypoScript template, otherwise it is
   not recognized.
@@ -65,7 +65,7 @@ DIR      This includes all files from a directory relative to PATH\_site,
 
          Example::
 
-            <INCLUDE TYPOSCRIPT: source="DIR:fileadmin/templates/" extensions="ts">
+            <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/templates/" extensions="ts">
 
          This includes all those files from the directory fileadmin/templates/
          and from subdirectories, which have the file extension ".ts".
