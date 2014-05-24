@@ -60,7 +60,7 @@ extensions with the name prefix "ext\_".
          when extensions are imported from the repository.
 
          .. note::
-            If this file is  *not* present the EM will  *not* find the
+            If this file is *not* present the EM will *not* find the
             extension.
 
 
@@ -94,6 +94,12 @@ extensions with the name prefix "ext\_".
          done entirely in :file:`Configuration/TCA/(name of the table).php`.
          These files are expected to contain the full TCA of the given table
          (as an array) and simply return it (with a :code:`return` statement).
+
+         |
+
+         Since TYPO3 CMS 6.2, customizations of existing tables should be
+         done entirely in :file:`Configuration/TCA/Overrides/(name of the table).php`.
+         This way the TCA changes are cached.
 
  - :Filename: ext\_tables.sql
    :Description:
@@ -282,7 +288,11 @@ Configuration/TypoScript
 
 Configuration/TCA
   One file per database table, using the name of the table for the file, plus ".php".
-  Only for new tables. For extending existing tables, stick to file :file:`ext_tables.php`.
+  Only for new tables.
+
+Configuration/TCA/Overrides
+  For extending existing tables, one file per database table,
+  using the name of the table for the file, plus ".php".
 
 Documentation
   Contains the manual in reStructuredText format (:ref:`read more on the topic <extension-documentation>`).

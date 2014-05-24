@@ -565,15 +565,18 @@ Please take time to learn these functions!
    :Comments:
          Adding fields to an existing table definition in $TCA
 
-         For usage in :file:`ext_tables.php` files ::
+         For usage in :file:`ext_tables.php` or :file:`Configuration/TCA/Overrides` files.
 
-                // tt_address modified
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_address', array(
-                     'module_sys_dmail_category' =>
-                        array('config' => array('type' => 'passthrough')),
-                    'module_sys_dmail_html' =>
-                        array('config' => array('type' => 'passthrough'))
-            ));
+         .. code-block:: php
+
+			// tt_address modified
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
+				'tt_address',
+				array(
+					'module_sys_dmail_category' => array('config' => array('type' => 'passthrough')),
+					'module_sys_dmail_html' => array('config' => array('type' => 'passthrough'))
+				)
+			);
 
 
  - :Function:
@@ -582,12 +585,14 @@ Please take time to learn these functions!
          Makes fields visible in the TCEforms by adding them to all or selected
          "types"-configurations
 
-         For usage in :file:`ext_tables.php` files ::
+         For usage in :file:`ext_tables.php` or :file:`Configuration/TCA/Overrides` files.
 
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-                'fe_users',
-                'tx_myext_newfield;;;;1-1-1, tx_myext_another_field'
-            );
+         .. code-block:: php
+
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+				'fe_users',
+				'tx_myext_newfield;;;;1-1-1, tx_myext_another_field'
+			);
 
 
  - :Function:
@@ -596,9 +601,11 @@ Please take time to learn these functions!
          Add table name to default list of allowed tables on pages (in
          $PAGES\_TYPES)
 
-         For usage in :file:`ext_tables.php` files ::
+         For usage in :file:`ext_tables.php` files.
 
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tt_board');
+         .. code-block:: php
+
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tt_board');
 
 
  - :Function:
@@ -607,23 +614,26 @@ Please take time to learn these functions!
          Adds a module (main or sub) to the backend interface.
 
          .. note::
+
             Extbase-based modules use a different registration API.
 
-         For usage in :file:`ext_tables.php` files ::
+         For usage in :file:`ext_tables.php` files.
 
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
-                'user',
-                'setup',
-                'after:task',
-                \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'mod/'
-            );
+         .. code-block:: php
 
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
-                'tools',
-                'txcoreunittestM1',
-                '',
-                \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'mod1/'
-            );
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
+				'user',
+				'setup',
+				'after:task',
+				\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'mod/'
+			);
+
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
+				'tools',
+				'txcoreunittestM1',
+				'',
+				\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'mod1/'
+			);
 
 
  - :Function:
@@ -632,15 +642,17 @@ Please take time to learn these functions!
          Adds a "Function menu module" ("third level module") to an existing
          function menu for some other backend module
 
-         For usage in :file:`ext_tables.php` files ::
+         For usage in :file:`ext_tables.php` files.
 
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::insertModuleFunction(
-                'web_func',
-                'tx_cmsplaintextimport_webfunc',
-                \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) .
-                    'class.tx_cmsplaintextimport_webfunc.php',
-                'LLL:EXT:cms_plaintext_import/locallang.php:menu_1'
-            );
+         .. code-block:: php
+
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::insertModuleFunction(
+				'web_func',
+				'tx_cmsplaintextimport_webfunc',
+				\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) .
+					'class.tx_cmsplaintextimport_webfunc.php',
+				'LLL:EXT:cms_plaintext_import/locallang.php:menu_1'
+			);
 
 
  - :Function:
@@ -650,17 +662,20 @@ Please take time to learn these functions!
          "Insert plugin"
 
          .. note::
+
             Extbase-based plug-ins use a different registration API.
 
-         For usage in :file:`ext_tables.php` files ::
+         For usage in :file:`ext_tables.php` files.
 
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-                array(
-                    'LLL:EXT:newloginbox/locallang_db.php:tt_content.list_type1',
-                    $_EXTKEY . '_pi1'
-                ),
-                'list_type'
-            );
+         .. code-block:: php
+
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
+				array(
+					'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
+					$_EXTKEY . '_pi1'
+				),
+				'list_type'
+			);
 
 
  - :Function:
@@ -676,7 +691,8 @@ Please take time to learn these functions!
          automatically adding the necessary TypoScript for calling your plugin.
          It will also work for the extension "css\_styled\_content"
 
-         For usage in :file:`ext_localconf.php` files ::
+         For usage in :file:`ext_localconf.php` files.
 
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43($_EXTKEY);
+         .. code-block:: php
 
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43($_EXTKEY);

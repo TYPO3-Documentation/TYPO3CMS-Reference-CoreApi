@@ -25,13 +25,17 @@ Adding menu items
 The context-sensitive menu (CSM) is made of a list of menu items.
 Before that list is actually rendered into a HTML pop-up menu,
 it is passed to external processing scripts, which can be configured
-in the following global array::
+in the following global array:
 
-   $GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'];
+.. code-block:: php
+
+	$GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'];
 
 Each script can manipulate the list of menu items, in particular add
 or remove some. Registration example (taken from the :file:`ext_tables.php`
-file of the "examples" extension)::
+file of the "examples" extension):
+
+.. code-block:: php
 
 	$GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'][] = array(
 		'name' => 'Documentation\\Examples\\Service\\ContextMenuOptions'
