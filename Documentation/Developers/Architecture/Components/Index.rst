@@ -55,7 +55,7 @@ Copying a file:
    $someFolderIdentifier = 'website/images/';
 
    /** @var $storageRepository \TYPO3\CMS\Core\Ressources\StorageRepository */
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Resource\StorageRepository');
+   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\StorageRepository');
 
    $storage = $storageRepository->findByUid($storageUid);
    $file = $storage->getFile($someFileIdentifier); // returns a TYPO3\CMS\Core\Resource\File object
@@ -93,16 +93,18 @@ More things done by the Storage layer:
 * it logs and throws exceptions for successful and not-successful file operations
   (although some exceptions are also thrown in other layers if necessary, of course)
 
-Example: *Listing all files in a folder* ::
+Example: *Listing all files in a folder*
+
+.. code-block:: php
 
   /** @var $storageRepository \TYPO3\CMS\Core\Ressources\StorageRepository */
-  $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Resource\StorageRepository');
+  $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\StorageRepository');
   $availableStorages = $storageRepository->findAll();
 
-  foreach($availableStorages as $storage) {
+  foreach ($availableStorages as $storage) {
       $rootFolder = $storage->getRootFolder();
       $subFolders = $rootFolder->getSubFolders();
-      foreach($subFolders as $subFolder) {
+      foreach ($subFolders as $subFolder) {
           $filesInSubFolder = $subFolder->getFiles();
           $foldersInSubFolder = $subFolder->getSubFolders();
           ...
