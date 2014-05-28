@@ -36,4 +36,7 @@ conf.py:
     t3services:
     - http://docs.typo3.org/typo3cms/Typo3ServicesReference/
     - null
+  html_theme_options:
+    github_repository: TYPO3-Documentation/TYPO3CMS-Reference-CoreApi
+    github_branch: latest
 ...
