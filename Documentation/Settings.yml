@@ -5,4 +5,7 @@ conf.py:
   copyright: 2000-2014
   version: 6.2
   release: 6.2
+  html_theme_options:
+    github_repository: TYPO3-Documentation/TYPO3CMS-Reference-TyposcriptSyntax
+    github_branch: latest
 ...
