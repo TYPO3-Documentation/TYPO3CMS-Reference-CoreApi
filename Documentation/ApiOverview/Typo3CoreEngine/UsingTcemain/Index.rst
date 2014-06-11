@@ -146,7 +146,7 @@ all pages is cleared in line 7.
    $tce->reverseOrder = 1;
    $tce->start($data, array());
    $tce->process_datamap();
-   \TYPO3\CMS\Backend\Utility\BackendUtility::getSetUpdateSignal('updatePageTree');
+   \TYPO3\CMS\Backend\Utility\BackendUtility::setUpdateSignal('updatePageTree');
    $tce->clear_cacheCmd('pages');
 
 
