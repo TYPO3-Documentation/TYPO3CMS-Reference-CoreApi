@@ -94,7 +94,7 @@ cat=
   same constant appears in multiple categories!
 
 - If the chosen category is *not* found among the default categories
-  listed below, it's regarded a new category.
+  listed below, and is not a custom category either, it's regarded a new category.
 
 - If the category is empty (""), the constant is excluded from the
   editor!
@@ -117,6 +117,20 @@ advanced   Advanced functions, which are used very seldom.
 =========  ======================================================================
 
 .. ###### END~OF~SIMPLE~TABLE ######
+
+**Custom Categories**
+
+To define your own category put a comment including the parameter
+"customcategory". Here is an example::
+
+   # customcategory=mysite=LLL:EXT:myext/locallang.xml:mysite
+
+This line defines the new category "mysite" which will be available
+for your Constants defined AFTER this line. Usage example::
+
+   #cat=mysite//a; type=boolean; label=Global no_cache
+   config.no_cache = 0
+
 
 **Subcategories:**
 
