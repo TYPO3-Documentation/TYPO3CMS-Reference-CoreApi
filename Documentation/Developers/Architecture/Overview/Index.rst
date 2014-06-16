@@ -47,7 +47,7 @@ A file reference represents a concrete usage of a file inside some content eleme
 Additionally, it enables users to supply custom titles, captions etc. to that particular instance of the file.
 
 In the database, each FileReference is represented by a record in the ``sys_file_references``
-table. The table has a foreign key field field pointing to the ``sys_file`` table and other fields
+table. The table has a foreign key field pointing to the ``sys_file`` table and other fields
 for the specific properties this file has in this particular usage, such as the caption text or
 overlays for the title and description texts.
 
@@ -56,8 +56,8 @@ the normal record relation handling of TYPO3 CMS.
 
 .. note::
 
-   Technically, the FileReference implements the same interface as the File itself,
-   so you have all the methods and properties of a File available in the FileReference
+   Technically, the FileReference implements the same interface as the File itself.
+   So you have all the methods and properties of a File available in the FileReference
    as well. This makes it possible to use both files and references to them
 
    Additionally, there is a property "originalFile" on the FileReference which
