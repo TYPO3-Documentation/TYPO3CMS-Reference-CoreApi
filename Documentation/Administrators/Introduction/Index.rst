@@ -36,6 +36,6 @@ To create a new storage, just create a new "Storage" record using the List modul
 Images as IRRE-Child records
 """"""""""""""""""""""""""""
 
-When attaching images to a content record, TYPO3 now uses an IRRE inline child record for each of the image where settings such as the alt- or title text can be configured along with the image links and the description. This makes the interface for the editor much cleaner, and remove the disadvantage of older versions where e.g. such meta data (caption text, image links, descriptions) had to be entered newline-separated in different fields.
+When attaching images to a content record, TYPO3 now uses an IRRE inline child record for each image where settings such as the alt or title HTML tag can be configured along with the image link and the description. This makes the interface for an editor much cleaner. It removes the disadvantage of older versions where e.g. such meta data (caption text, image link, description) had to be entered newline-separated in different fields.
 
-The IRRE child records are records from the "sys_file_references" table with each child record representing one reference from a content element (or other table) to a file. The file is again represented by a sys_file record. For more information regarding the database structure, see the [[[DeveloperDocumentation/DatabaseStructure.rst Developer Documentation]]].
+The IRRE child records are records from the "sys_file_references" table with each child record representing a single reference from a content element (or other table) to a file. The file is also represented by a sys_file record. For more information regarding the database structure, see the [[[DeveloperDocumentation/DatabaseStructure.rst Developer Documentation]]].
