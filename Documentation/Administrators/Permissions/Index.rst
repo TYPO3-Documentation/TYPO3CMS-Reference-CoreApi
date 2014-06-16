@@ -12,7 +12,7 @@
 Permissions
 ------------------
 
-As for pages and content, permissions can also be defined for files, though not as fine-grained as for content (= on a per-file/folder level).
+As for pages and contents, permissions can also be defined for files, though not as fine-grained as for content (= on a per-file/folder level).
 
 The permissions in the File Abstraction Layer are grouped in two main groups: system and user permissions. System permissions are required to perform operations in the system, by every part of the system. They are strictly enforced and prevent an action no matter what component triggered them (think of a click in the file list vs. a processed file that is being saved -- the former could be stopped because the user does not have enough permissions, while the latter is always performed if the storage is writable).
 
@@ -26,7 +26,7 @@ User Permissions
 
 User permissions for files used to be set in the "Fileoperation permissions" section of
 backend user or backend user group records. This way still works since the introduction
-of FAL but has been deprecated because FAL offers more fine grained permission settings.
+of FAL. But it has been deprecated because FAL offers more fine grained permission settings.
 
 As of TYPO3 6.0 it is recommended to set user default permissions in User TSconfig either
 in backend user records or backend user group records.
@@ -80,7 +80,7 @@ in User TSconfig along with the permissions like that:
 Configured permissions for a specific storage always take precedence over
 default permissions.
 
-If no permissions are defined in TSconfig, settings in user and group record are
+If no permissions are defined in TSconfig, then the settings in the user and in the group record are
 taken into account and will be treated as default permissions for all storages.
 
 The model for the permissions is closely coupled to the one used on \*NIX systems,
@@ -102,7 +102,7 @@ readFile
   Show contents of files
 
 writeFile
-  Edit/Save contents of file, even if no write permissions to folders are not granted
+  Edit/Save contents of file, even if write permissions to folders are not granted
 
 copyFile
   Allow copying of files; needs writeFolder permissions for the target folder
