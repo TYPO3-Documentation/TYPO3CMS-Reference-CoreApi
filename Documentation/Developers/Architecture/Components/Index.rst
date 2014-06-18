@@ -39,7 +39,7 @@ the shorthand methods to the action methods of the Storage, the Files and Folder
 lightweight objects with properties (and according getters and setters) for obtaining information
 about their respective file or folder on the file system such as name or size.
 
-A File can be indexed, which makes it possible to references the file from any database record in order
+A File can be indexed, which makes it possible to reference the file from any database record in order
 to use it, but also speeds up obtaining cached information such as various metadata (when the
 Media Management extension is installed) or other file properties like size or the filename.
 
@@ -145,7 +145,7 @@ have to be fetched by additional services.
 
 This distinction is important because it makes clear that FAL does in fact two things:
 It manages files in terms of *assets* we use in our Content Management System. In that regard,
-files are no different from any other content, like texts. On the other hand, it also manages
+files are not different from any other content, like texts. On the other hand, it also manages
 files in terms of a *representation* of such an asset. While the former thing only uses the
 contents, the latter heavily depends on the file itself and thus is considered low-level,
 driver-dependent stuff.
@@ -155,20 +155,20 @@ Storage/Driver combination, but by services that build on these low-level parts.
 
 Technically, both indexed and non-indexed files are represented by the same object type
 (``TYPO3\CMS\Core\Resource\File``), but being indexing nevertheless is an important property of a file. An
-object of an indexed file could theoretically [1]_ even live without its storage as long as its
+object of an indexed file could theoretically [1]_ even live without its storage as long as it is
 only about querying the object for file properties, as all these properties reside in the
 database and are read from there when constructing the object.
 
 The reasons why you can regard it as a separate layer are:
 
-* an indexed file can live without firing up the full Storage layer (in case only data is accessed
+* An indexed file can live without firing up the full Storage layer (in case only data is accessed
   that is available from the index record). This is useful for quick access to e.g. all filenames
   in a bunch of indexed files. The process of firing up the Storage layer is done totally
-  transparently to the user, so you never need to worry about that.
+  transparently to the user. So you never need to worry about that.
 
-* it can be regarded as a layer between the Storage and the FileReference because the FileReference is only possible
+* It can be regarded as a layer between the Storage and the FileReference, because the FileReference is only possible
   with an indexed file underneath it.
 
-.. [1] When retrieving a file through the FAL API, the Storage is currently always used,
-       so there is no file without its Storage. The File object also relies on this, so
-       it will require some changes to get this working.
+.. [1] When retrieving a file through the FAL API, the Storage is currently always used.
+       So there is no file without its Storage. The File object also relies on this. So
+       it will require some future changes to get this working without Storage.
