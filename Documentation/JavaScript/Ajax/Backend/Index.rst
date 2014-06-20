@@ -65,7 +65,7 @@ or the identifier contains a single part):
 Server-Side
 """""""""""
 
-Since TYPO3 CMS 6.2, the registration is done via an API,
+Since TYPO3 CMS 6.2, the registration is done via an API, inside the ext_tables.php,
 which provides CSRF protection on the AJAX call and an automatic
 registration of the AJAX call URL:
 
