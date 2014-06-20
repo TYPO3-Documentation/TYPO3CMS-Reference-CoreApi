@@ -87,6 +87,10 @@ values in the :code:`$EM_CONF` array if needed.
          - **doc**
 
            Documentation (e.g. tutorials, FAQ's etc.)
+           
+         - **distribution**
+
+           Distribution (e.g. introduction package; provides a full side, including theme and content)
 
  - :Key:
          shy
