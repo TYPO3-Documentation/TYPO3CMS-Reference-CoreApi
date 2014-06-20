@@ -65,7 +65,7 @@ or the identifier contains a single part):
 Server-Side
 """""""""""
 
-Since TYPO3 CMS 6.2, the registration is done via an API, inside the ext_tables.php,
+Since TYPO3 CMS 6.2, the registration is done via an API,
 which provides CSRF protection on the AJAX call and an automatic
 registration of the AJAX call URL:
 
@@ -76,6 +76,7 @@ registration of the AJAX call URL:
 		'TYPO3\\CMS\\Opendocs\\Controller\\OpendocsController->renderAjax'
 	);
 
+This code must be located in the extension's :file:`ext_tables.php` file.
 This is how the "opendocs" system extension registers the AJAX call to render
 the open documents menu in the top toolbar. The first argument is the ajaxID (as
 described above) and the second argument is a pointer to a class and method.
