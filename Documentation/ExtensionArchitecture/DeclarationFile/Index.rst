@@ -89,44 +89,6 @@ values in the :code:`$EM_CONF` array if needed.
            Documentation (e.g. tutorials, FAQ's etc.)
 
  - :Key:
-         shy
-   :Data type:
-         boolean
-   :Description:
-         If set, the extension will normally be hidden in the EM because it
-         might be a default extension or otherwise something which is not so
-         important. Use this flag if an extension is of "rare interest" (which
-         is not the same as unimportant - just an extension not sought for very
-         often...)
-
-         It does not affect whether or not it's enabled. Only display in EM.
-
-         Normally "shy" is set for all extensions loaded by default according
-         to :code:`$TYPO3_CONF_VARS`.
-
- - :Key:
-         dependencies
-   :Data type:
-         list of extension-keys
-   :Description:
-         This is a list of other extension keys which this extension depends on
-         being loaded  *before* itself. The EM will manage that dependency
-         while writing the extension list to localconf.php.
-
-         **Deprecated** , use "constraints" instead.
-
- - :Key:
-         conflicts
-   :Data type:
-         list of extension-keys
-   :Description:
-         List of extension keys of extensions with which this extension does
-         *not* work (and so cannot be enabled before those other extensions are
-         un-installed)
-
-         **Deprecated** , use "constraints" instead.
-
- - :Key:
          constraints
    :Data type:
          array
@@ -167,14 +129,6 @@ values in the :code:`$EM_CONF` array if needed.
          might be worth installing "tt\_news" (version at least 2.5.0).
 
  - :Key:
-         priority
-   :Data type:
-         "top", "bottom"
-   :Description:
-         This tells the EM to try to put the extension as the very first
-         or the very last in the list.
-
- - :Key:
          doNotLoadInFE
    :Data type:
          boolean
@@ -188,21 +142,6 @@ values in the :code:`$EM_CONF` array if needed.
    :Data type:
    :Description:
          (Not used)
-
- - :Key:
-         module
-   :Data type:
-         list of strings
-   :Description:
-         If any subfolders to an extension contains backend modules, those
-         folder names should be listed here. It allows the EM to know about the
-         existence of the module, which is important because the EM has to
-         update the conf.php file of the module in order to set the correct
-         :code:`TYPO3_MOD_PATH` constant.
-
-         **Note:** this is not needed anymore if you use the dispatch mechanism
-         for BE modules (see "Inside TYPO3", chapter "Backend modules using
-         typo3/mod.php").
 
  - :Key:
          state
@@ -255,26 +194,6 @@ values in the :code:`$EM_CONF` array if needed.
            *New since TYPO3 4.3.*
 
  - :Key:
-         internal
-   :Data type:
-         boolean
-   :Description:
-         This flag indicates that the core source code is specifically aware of
-         the extension. In other words this flag should convey the message that
-         "this extension could not be written independently of core source code
-         modifications".
-
-         An extension is not internal just because it uses TYPO3 general classes.
-
-         True non-internal extensions are characterized by the fact that they
-         could be written without making core source code changes, but rely
-         only on existing classes in TYPO3 and/or other extensions, plus its
-         own scripts in the extension folder.
-
-         **This is a prehistorical practice. If your extension requires some changes
-         in the TYPO3 Core, you should make a hook request instead.**
-
- - :Key:
          uploadfolder
    :Data type:
          boolean
@@ -288,29 +207,6 @@ values in the :code:`$EM_CONF` array if needed.
          list of strings
    :Description:
          Comma list of directories to create upon extension installation.
-
- - :Key:
-         modify\_tables
-   :Data type:
-         list of tables
-   :Description:
-         List of table names which are only modified - not fully created - by
-         this extension. Tables from this list found in the ext\_tables.sql
-         file of the extension.
-
- - :Key:
-         lockType
-   :Data type:
-         char; L, G or S
-   :Description:
-         Locks the extension to be installed in a specific position of the
-         three posible:
-
-         - **L** = local (typo3conf/ext/)
-
-         - **G** = global (typo3/ext/)
-
-         - **S** = system (typo3/sysext/)
 
  - :Key:
          clearCacheOnLoad
