@@ -33,7 +33,7 @@ When a pre-FAL installation is migrated to FAL, this is what needs to be changed
 * The media and image fields of the Content and Pages tables have been changed to use proper FAL relations -- technically speaking the images have been copied to the fileadmin directory and proper relations were created. This means that:
 
   * For each new file in fileadmin/, a ``sys_file`` record has been created (also called the "index record")
-  * For each usage of the file from a content element, a relation record has been created (table ``sys_file_reference``) which relates the content record to the index record. This also includes overlays from the content element for the image title, description and alternative text, plus the file links
+  * For each usage of the file from a content element (table ``tt_content``), a relation record has been created (table ``sys_file_reference``) which relates the content record to the index record (table ``sys_file``). This also includes overlays from the content element for the image title, description and alternative text, plus the file links
 
 * extensions have to be made compatible (they will still work with the backwards-compatibility layer, but this layer is just a transitional tool and will be removed in the future)
 
