@@ -116,7 +116,7 @@ Here a code sample for attaching a file to mail:
 
    	// Create the attachment
    	// * Note that you can technically leave the content-type parameter out
-   $attachment = Swift_Attachment::fromPath('/path/to/image.jpg', 'image/jpeg');
+   $attachment = \Swift_Attachment::fromPath('/path/to/image.jpg', 'image/jpeg');
 
    	// (optional) setting the filename
    $attachment->setFilename('cool.jpg');
