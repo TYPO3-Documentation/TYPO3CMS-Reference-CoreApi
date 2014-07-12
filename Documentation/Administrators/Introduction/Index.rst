@@ -26,7 +26,7 @@ For the editors, this means that:
 Storages
 """"""""
 
-The central concept of FAL are Storages. A storage can be seen as a "mounted directory" either local or from remote systems. Not only additional mounts are handled as storages, but also the main ``fileadmin`` directory. The ``fileadmin`` storage will be created automatically when you upgrade an installation to TYPO3 6.0, but from then on it behaves just like any other storage.
+The central concept of FAL are storages. A storage can be seen as a "mounted directory" either local or from remote systems. Not only additional mounts are handled as storages, but also the main ``fileadmin`` directory. The ``fileadmin`` storage will be created automatically when you upgrade an installation to TYPO3 6.0, but from then on it behaves just like any other storage.
 
 To create a new storage, just create a new "Storage" record using the List module (Web->List) on the root page (uid=0). You can now create any number of other Storages alongside the ``fileadmin`` directory or even remove the initial ``fileadmin`` storage altogether or change its location easily by editing its Storage record. (Beware that this could break relations to the files from the content records though, unless you move the files along on the filesystem as well.)
 
@@ -36,6 +36,6 @@ To create a new storage, just create a new "Storage" record using the List modul
 Images as IRRE-Child records
 """"""""""""""""""""""""""""
 
-When attaching images to a content record, TYPO3 now uses an IRRE inline child record for each of the image where settings such as the alt- or title text can be configured along with the image links and the description. This makes the interface for the editor much cleaner, and remove the disadvantage of older versions where e.g. such meta data (caption text, image links, descriptions) had to be entered newline-separated in different fields.
+When attaching images to a content record, TYPO3 now uses an IRRE inline child record for each of the images. Settings such as the alt- or title text can be configured along with the image links and the description. This makes the interface for the editor much cleaner. It removes the disadvantage of older versions where e.g. such meta data (caption text, image links, descriptions) had to be entered in different fields.
 
 The IRRE child records are records from the "sys_file_references" table with each child record representing one reference from a content element (or other table) to a file. The file is again represented by a sys_file record. For more information regarding the database structure, see the [[[DeveloperDocumentation/DatabaseStructure.rst Developer Documentation]]].
