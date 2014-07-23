@@ -179,7 +179,7 @@ Rules:
 
 The portion after the ":=" operator and *to the end of the line* is
 split in two parts: A function and a value. The function is specified
-right next to the operator (trimmed) and holding the value in brackets
+right next to the operator (trimmed) and holding the value in parentheses
 (not trimmed).
 
 There are six predefined functions:
