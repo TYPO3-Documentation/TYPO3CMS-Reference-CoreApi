@@ -35,7 +35,9 @@ See the :ref:`Configuration <logging-configuration-processor>` section for how t
 IntrospectionProcessor
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The introspection processor adds backtrace data about where the log event was triggered:
+The introspection processor adds backtrace data about where the log event was triggered.
+
+By default the following parameters from the original function call are added:
 
 file
   absolute path to the file.
@@ -45,6 +47,15 @@ class
   class name.
 function
   function name.
+
+If appendFullBackTrace is set, the full backstrace stack is added instead.
+
+====================  =========  ===========================================================================  ============
+Option                Mandatory  Description                                                                   Default
+====================  =========  ===========================================================================  ============
+appendFullBackTrace   no         Adds a full backtrace stack to the log.                                      :code:`TRUE`
+shiftBackTraceLevel   no         Removes the given number of entries from the top of the backtrace stack.     :code:`0`
+====================  =========  ===========================================================================  ============
 
 
 .. _logging-processors-memory:
