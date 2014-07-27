@@ -87,6 +87,10 @@ values in the :code:`$EM_CONF` array if needed.
          - **doc**
 
            Documentation (e.g. tutorials, FAQ's etc.)
+           
+         - **distribution**
+         
+           Distribution, an extension kickstarting a full site
 
  - :Key:
          constraints
