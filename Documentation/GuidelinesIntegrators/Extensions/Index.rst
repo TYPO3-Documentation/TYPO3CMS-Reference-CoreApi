@@ -78,6 +78,26 @@ risks.
   staging servers for developments and tests").
 
 
+.. _extension-binaries:
+
+Executable binaries shipped with extensions
+"""""""""""""""""""""""""""""""""""""""""""
+
+TYPO3 extensions (.t3x files) are packages, which may contain any kind
+of data/files. This can not only be readable PHP or Javascript source
+code, but also binary files, e.g. Unix/Linux ELF files or Microsoft
+Windows .exe files (compiled executables).
+
+Executing these files on a server is a security risk, because it can not
+be verified what these files really do (unless they are
+reverse-engineered or dissected likewise). Thus it is highly recommended
+**not** to use any TYPO3 extensions, which contain executable binaries.
+Binaries should only come from trusted and/or verified sources such as
+the vendor of your operating system - which also ensures, these binaries
+get updated in a timely manner, if a security vulnerability is
+discovered in these components.
+
+
 .. _extension-remove:
 
 Remove unused extensions and other code
