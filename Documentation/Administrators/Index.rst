@@ -61,7 +61,7 @@ To use a remote storage, you have to do two things:
 
 1. Install a driver extension for the remote system (e.g. WebDAV)
 
-   Drivers are shipped in normal TYPO3 extensions and can be found on the TYPO3 Extension Repository. One example driver is the "WebDAV" driver (http://forge.typo3.org/projects/show/extension-fal_webdav), but it is also possible to program a custom driver which could e.g. connect to a cloud storage like Amazon S3 or similar.
+   Drivers are shipped in normal TYPO3 extensions and can be found on the TYPO3 Extension Repository. One example driver is the "WebDAV" driver (https://forge.typo3.org/projects/extension-fal_webdav), but it is also possible to program a custom driver which could e.g. connect to a cloud storage like Amazon S3 or similar.
 
    Once the driver extension is installed, you can proceed to the next step.
 

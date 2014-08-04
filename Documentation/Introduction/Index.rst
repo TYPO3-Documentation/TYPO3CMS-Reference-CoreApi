@@ -51,7 +51,7 @@ to `documentation@typo3.org <mailto:documentation@typo3.org>`_ .
 
 If you find a bug in this manual, please file an issue in this
 manual's bug tracker:
-http://forge.typo3.org/projects/typo3cms-doc-file-abstraction-layer/issues
+https://forge.typo3.org/projects/typo3cms-doc-file-abstraction-layer/issues
 
 Maintaining quality documentation is hard work and the Documentation
 Team is always looking for volunteers. If you feel like helping please
