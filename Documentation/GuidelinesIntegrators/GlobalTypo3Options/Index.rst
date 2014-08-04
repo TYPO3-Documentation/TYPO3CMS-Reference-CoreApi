@@ -268,6 +268,35 @@ default value is an empty value which reflects "0".
 The PHP variable reads: $TYPO3\_CONF\_VARS['FE']['noPHPscriptInclude']
 
 
+.. _trustedHostsPattern:
+
+trustedHostsPattern
+"""""""""""""""""""
+
+TYPO3 uses the HTTP header "Host:" to generate absolute URLs in several
+places such as 404 handling, http(s) enforcement, password reset links
+and many more. Since the host header itself is provided by the client,
+it can be forged to any value, even in a name based virtual hosts
+environment.
+
+The "trustedHostsPattern" configuration option can contain either the
+value *SERVER_NAME* or a regular expression pattern that matches all
+host names that are considered trustworthy for the particular TYPO3
+installation. "SERVER_NAME" is the default value and with this option
+value in effect, TYPO3 checks the currently submitted host-header
+against the SERVER_NAME variable. Please see security bulletin
+`TYPO3-CORE-SA-2014-001 <http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-core-sa-2014-001/>`_
+for further details about specific setups.
+
+If the "Host:" header also contains a non-standard port, the
+configuration must include this value, too. This is especially important
+for the default value "SERVER_NAME" as provided ports are checked
+against SERVER_PORT which fails in some more complex load balancing
+or SSL termination scenarios.
+
+The PHP variable reads: $TYPO3\_CONF\_VARS['SYS']['trustedHostsPattern']
+
+
 .. _warningemailaddr:
 
 warning_email_addr
