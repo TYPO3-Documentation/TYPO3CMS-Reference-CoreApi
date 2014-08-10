@@ -118,7 +118,8 @@ undeleted records. The corresponding JavaScript looks like::
 The data is handled inside a callback function as is usual with
 asynchronous calls. In this case we simple display a popup flash message.
 
-.. todo::
+.. note::
+
    This chapter should include an example about using Ext.Direct in the FE too.
    The last time I tried to do this it didn't work. I don't have time
    to dig into that now (François - 10.11.2012)
