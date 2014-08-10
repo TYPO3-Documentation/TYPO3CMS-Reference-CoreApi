@@ -109,6 +109,7 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
          wrong. The error message is logged to the configured logs.
 
          .. note::
+
             The configured productionExceptionHandler is used if
             :code:`$TYPO3_CONF_VARS[SYS][displayErrors]` is set to "0" or to "-1"
             and :code:`$TYPO3_CONF_VARS[SYS][devIPmask]` doesn't match.
@@ -129,6 +130,7 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
          configured logs.
 
          .. note::
+
             The configured debugExceptionHandler is used if
             :code:`$TYPO3_CONF_VARS[SYS][displayErrors]` is set to "1" or
             if :code:`$TYPO3_CONF_VARS[SYS][displayErrors]` is "-1" or "2" and
