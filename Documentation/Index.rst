@@ -29,7 +29,7 @@ TYPO3 CMS Services
       services, development, extension, auth, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2000-2013
+      2000-2014
 
 :Author:
       Documentation Team
