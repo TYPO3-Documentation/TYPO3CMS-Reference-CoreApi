@@ -57,14 +57,14 @@ specific page. ::
 
    $TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = 'myext_cacheProc->proc';
 
-This registers the class/method name from the with a
+This registers the class/method name to a
 hook inside of :code:`\TYPO3\CMS\Core\DataHandling\DataHandler`. The hook will call the user function
 after the clear-cache command has been executed. The user function
 will receive parameters which allows it to see what clear-cache action
 was performed and typically also an object reference to the parent
 object. Then the user function can take additional actions as needed.
 
-The class has to be declated with the TYPO3 autoloader.
+The class has to be declared with the TYPO3 autoloader.
 
 If we take a look inside of :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` we find the hook to be
 activated like this:
