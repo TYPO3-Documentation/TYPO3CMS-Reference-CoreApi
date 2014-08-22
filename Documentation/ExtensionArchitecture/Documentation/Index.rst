@@ -78,7 +78,7 @@ of this file is reStructuredText, as for chapters of a Sphinx project.
 OpenOffice manual
 """""""""""""""""
 
-You may use the :file:`manual.sxw` from extension `doc_template`_ as a template for writing documentation for your
-extension.
+The OpenOffice SWX format used to be the official documentation format for TYPO3. This format is not recommended anymore. 
+Please use the tools mentioned above to convert your existing SWX file into a Sphinx project instead.
 
-.. _`doc_template`: http://typo3.org/extensions/repository/view/doc_template
+- `Example manual <http://typo3.org/extensions/repository/view/doc_template>`_ in the TYPO3 extension repository.
