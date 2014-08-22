@@ -78,7 +78,7 @@ of this file is reStructuredText, as for chapters of a Sphinx project.
 OpenOffice manual
 """""""""""""""""
 
-The OpenOffice SWX format used to be the official documentation format for TYPO3. This format is not recommended anymore. 
-Please use the tools mentioned above to convert your existing SWX file into a Sphinx project instead.
+The OpenOffice SXW format used to be the official documentation format for TYPO3. This format is not recommended anymore. 
+Please use the tools mentioned above to convert your existing SXW file into a Sphinx project instead.
 
 - `Example manual <http://typo3.org/extensions/repository/view/doc_template>`_ in the TYPO3 extension repository.
