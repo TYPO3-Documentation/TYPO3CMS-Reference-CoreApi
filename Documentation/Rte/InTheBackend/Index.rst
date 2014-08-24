@@ -50,6 +50,10 @@ to the configuration of the column with the string :code:`richtext[]` as value:
 
 This works for FlexForms too.
 
+.. note::
+
+   Don't forget to enable Rich Text Editor in the back end, in User Settings -> Edit and Advanced functions,
+   check "Enable Rich Text Editor", if not already done.
 
 .. toctree::
    :maxdepth: 5
