@@ -27,8 +27,8 @@ different kind of documentation:
 Sphinx project
 """"""""""""""
 
-Sphinx is the official format for official TYPO3 documentation. A Sphinx-based documentation is a set of 
-plain text files making up the chapters or sections of the documentation. It uses a markup language 
+Sphinx is the official format for official TYPO3 documentation. A Sphinx-based documentation is a set of
+plain text files making up the chapters or sections of the documentation. It uses a markup language
 called "reStructuredText" (reST).
 
 Advantages of this new documentation format are numerous:
@@ -44,14 +44,14 @@ Advantages of this new documentation format are numerous:
 Although it is possible to write every single line of a Sphinx-based documentation from scratch, the TYPO3 community
 provides tools that help write and manage Sphinx projects:
 
-- The extension "Sphinx" (`Sphinx Python Documentation Generator and Viewer <http://typo3.org/extensions/repository/view/sphinx>`_) 
+- The extension "Sphinx" (`Sphinx Python Documentation Generator and Viewer <http://typo3.org/extensions/repository/view/sphinx>`_)
   installs a local Sphinx environment to view, edit and compile documentation in the backend of your TYPO3 website.
   It can be installed from the TYPO3 Extension Repository (TER) like any other extension.
 - The Sphinx extension is able to convert existing OpenOffice manuals (manual.sxw) into Sphinx projects with just
   one click.
-  The documentation platform offers a simple `online tool <http://docs.typo3.org/getthedocs/service-convert.html>`_ 
+  The documentation platform offers a simple `online tool <http://docs.typo3.org/getthedocs/service-convert.html>`_
   for this task as well.
-- An `example manual <https://git.typo3.org/Documentation/TYPO3/Example/ExtensionManual.git>`_ is available in 
+- An `example manual <https://git.typo3.org/Documentation/TYPO3/Example/ExtensionManual.git>`_ is available in
   the TYPO3 Git repository.
 - The `Extension Builder <http://typo3.org/extensions/repository/view/extension_builder>`_
   provides a skeleton documentation based on the above-mentioned Git repository.
@@ -64,8 +64,8 @@ provides tools that help write and manage Sphinx projects:
 README.rst
 """"""""""
 
-A "README.rst" is a simple text file stored at the root of your extension directory and briefly describing the 
-purpose of your extension. It is best suited when installing or using your extension is straightforward. The format 
+A "README.rst" is a simple text file stored at the root of your extension directory and briefly describing the
+purpose of your extension. It is best suited when installing or using your extension is straightforward. The format
 of this file is reStructuredText, as for chapters of a Sphinx project.
 
 .. tip::
@@ -78,7 +78,7 @@ of this file is reStructuredText, as for chapters of a Sphinx project.
 OpenOffice manual
 """""""""""""""""
 
-The OpenOffice SXW format used to be the official documentation format for TYPO3. This format is not recommended anymore. 
+The OpenOffice SXW format used to be the official documentation format for TYPO3. This format is not recommended anymore.
 Please use the tools mentioned above to convert your existing SXW file into a Sphinx project instead.
 
-- `Example manual <http://typo3.org/extensions/repository/view/doc_template>`_ in the TYPO3 extension repository.
+- `OpenOffice example manual <http://typo3.org/extensions/repository/view/doc_template>`_ in the TYPO3 extension repository.
