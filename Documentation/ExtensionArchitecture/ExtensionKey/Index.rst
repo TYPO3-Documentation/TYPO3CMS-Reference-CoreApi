@@ -89,6 +89,5 @@ the Security Team, your extension will be forcibly removed from the
 TYPO3 Extension Repository.
 
 More details on the security team's policy on handling security issues
-can be found at http://typo3.org/teams/security/extension-security-
-policy/.
+can be found at http://typo3.org/teams/security/extension-security-policy/.
 
