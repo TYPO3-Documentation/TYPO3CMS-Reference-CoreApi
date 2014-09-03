@@ -39,6 +39,9 @@ Finally the *class name* is the same as the corresponding file name, without the
    mapping of old to new class names, which will help you find your way around the new
    naming.
 
+.. tip::
+   Some names for CategoryName may cause ParseErrors: CategoryName must not be Lib, External (list should be extended)
+   This is not due to reserved PHP keywords, but apparently a Typo3 issue.
 
 .. _namespaces-example:
 
