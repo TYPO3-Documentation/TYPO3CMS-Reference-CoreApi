@@ -19,15 +19,6 @@ An extension directory contains the following files and directories:
 .. container:: table-row
 
    Name
-         Name
-
-   Description
-         Description
-
-
-.. container:: table-row
-
-   Name
          :code:`ext_autoload.php`
 
    Description
