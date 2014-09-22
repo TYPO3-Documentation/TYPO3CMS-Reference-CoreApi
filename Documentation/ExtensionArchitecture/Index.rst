@@ -78,6 +78,7 @@ related to a single implementation.
    ConfigurationFiles/Index
    ConfigurationOptions/Index
    ExtensionManager/Index
+   CreateNewDistribution/Index
    CreateNewExtension/Index
    Documentation/Index
    Resources/Index
