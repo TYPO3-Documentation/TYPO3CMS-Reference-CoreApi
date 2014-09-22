@@ -55,7 +55,7 @@ Inside that folder you need to create the :ref:`extension-declaration`
 file. Inside that file, you have to set the extension category to
 **distribution**. Here you must also define your dependencies.
 
-.. _distribution-kickstart:
+.. _distribution-kickstart-image:
 
 Configuring the distribution display in the EM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -71,19 +71,19 @@ detail view inside the extension manager.
 
 Fileadmin files
 ^^^^^^^^^^^^^^^
-Create a folder ``Initialisation``.
-Create a folder ``Files`` inside ``Initialisation`` such that the
+Create a folder ``Initialisation\``.
+Create a folder ``Files`` inside ``Initialisation\`` such that the
 resulting path is ``Initialisation\Files\``. All files side this folder
 will be copied into ``fileadmin\<extkey>\`` during the installation.
 ``<extkey>`` is the extension key you choose as a unique identifier.
 
-.. info::
+.. note::
    This means you have to make sure to only have files inside
    ``fileadmin\`` if you have them inside ``fileadmin\<extkey>``.
    You need to ensure this before exporting your database.
 
-Copy all files and folders from ``fileadmin\<extkey>`` to
-``Initialisation\Files`` to have them available inside the
+Copy all files and folders from ``fileadmin\<extkey>\`` to
+``Initialisation\Files\`` to have them available inside the
 distribution.
 
 .. _distribution-kickstart-database:
@@ -96,7 +96,19 @@ Therefore export it from the tree root with the import/export
 module. Make sure to include all tables in the export.
 
 The file has to be name ``data.t3d`` and must copied inside the
-``Initialisation`` folder.
+``Initialisation\`` folder.
+
+.. _distribution-kickstart-configuration:
+
+Distribution configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A distribution is technically handled as an extension. Therefore your
+can make use of the :ref:`extension-options`.
+After saving the configuration, the signal
+``afterExtensionConfigurationWrite`` is dispatched. You may use this
+to alter your website configuration (e.g. color scheme) on the fly.
+
 
 .. _distribution-kickstart-custom-dependencies:
 
@@ -104,16 +116,16 @@ Delivering custom dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Normally extension dependencies are setup in the
-:ref:`ext_emconf.php extension-declaration` file.
+:ref:`extension-declaration` file.
 
 However sometimes, extensions are not available in the
 *TYPO3 Extension Repository (TER)*.
 Therefore a distribution can act as its own extension repository.
 Add unpacked extensions to ``Initialisation/Extensions/`` to provide
 dependencies. Your main extension has to be dependent on these
-extension as normal dependencies in ext_emconf. Extensions delivered
-inside an extension have the highest priority when extensions need to
-be fetched.
+extension as normal dependencies in ``ext_emconf.php`` Extensions
+delivered inside an extension have the highest priority when extensions
+need to be fetched.
 
 .. warning::
    Caution, these will not overwrite extensions already present in the system.
@@ -140,9 +152,9 @@ manager.
 .. _distribution-more-information:
 
 More information
-^^^^^^^^^^^^^^^^
+----------------
 
-Some additional backgrounds can be retrieved from the `blueprint`_.
+Some additional backgrounds can be retrieved from the `blueprint for this feature`_.
 
-.. _blueprint: http://wiki.typo3.org/Blueprints/DistributionManagement
+.. _blueprint for this feature: http://wiki.typo3.org/Blueprints/DistributionManagement
 

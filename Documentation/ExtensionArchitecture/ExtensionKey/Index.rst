@@ -105,6 +105,6 @@ and go to Extensions > Extension Keys and click on the "Register keys"
 tab. On that page you can enter the key name you want to register.
 
 .. figure:: ../../Images/Typo3OrgRegistration.png
-:alt: The extension registration form
+   :alt: The extension registration form
 
    The extension registration form on typo3.org.
