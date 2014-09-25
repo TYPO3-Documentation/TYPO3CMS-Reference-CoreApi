@@ -5,12 +5,13 @@
 
 .. include:: Includes.txt
 
-
-
 .. _labels-for-crossreferencing:
 
-Index: Labels for Crossreferencing
-==================================
+.. only:: t3html
 
-.. ref-targets-list::
+   Index: Labels for Cross-Referencing
+   ===================================
+
+   .. ref-targets-list::
+
 
