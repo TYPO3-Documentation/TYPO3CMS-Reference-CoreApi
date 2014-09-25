@@ -61,5 +61,6 @@ the normal record relation handling of TYPO3 CMS.
    as well. This makes it possible to use both files and references to them
 
    Additionally, there is a property "originalFile" on the FileReference which
-   lets you get information about the underlying file (e.g. ``$fileReference->getOriginalFile()->getName()``).
+   lets you get information about the underlying file (e.g.
+   ``$fileReference->getOriginalFile()->getName()``).
 

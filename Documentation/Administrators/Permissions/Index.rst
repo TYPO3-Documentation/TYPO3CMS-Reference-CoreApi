@@ -12,11 +12,23 @@
 Permissions
 ------------------
 
-As for pages and contents, permissions can also be defined for files, though not as fine-grained as for content (= on a per-file/folder level).
+As for pages and contents, permissions can also be defined for files,
+though not as fine-grained as for content (= on a per-file/folder
+level).
 
-The permissions in the File Abstraction Layer are grouped in two main groups: system and user permissions. System permissions are required to perform operations in the system, by every part of the system. They are strictly enforced and prevent an action no matter what component triggered them (think of a click in the file list vs. a processed file that is being saved -- the former could be stopped because the user does not have enough permissions, while the latter is always performed if the storage is writable).
+The permissions in the File Abstraction Layer are grouped in two main
+groups: system and user permissions. System permissions are required to
+perform operations in the system, by every part of the system. They are
+strictly enforced and prevent an action no matter what component
+triggered them (think of a click in the file list vs. a processed file
+that is being saved -- the former could be stopped because the user
+does not have enough permissions, while the latter is always performed
+if the storage is writable).
 
-Administrators always have full access. The only reason they might be denied access is that the underlying file system/storage service does not allow access to a resource. TODO how are permissions from the storage device handled?
+Administrators always have full access. The only reason they might be
+denied access is that the underlying file system/storage service does
+not allow access to a resource. TODO how are permissions from the
+storage device handled?
 
 
 .. _admin-user-permissions:
@@ -24,12 +36,14 @@ Administrators always have full access. The only reason they might be denied acc
 User Permissions
 """"""""""""""""
 
-User permissions for files used to be set in the "Fileoperation permissions" section of
-backend user or backend user group records. This way still works since the introduction
-of FAL. But it has been deprecated because FAL offers more fine grained permission settings.
+User permissions for files used to be set in the "Fileoperation
+permissions" section of backend user or backend user group records.
+This way still works since the introduction of FAL. But it has been
+deprecated because FAL offers more fine grained permission settings.
 
-As of TYPO3 6.0 it is recommended to set user default permissions in User TSconfig either
-in backend user records or backend user group records.
+As of TYPO3 6.0 it is recommended to set user default permissions in
+User TSconfig either in backend user records or backend user group
+records.
 
 **Default permissions for a user or user group (read permissions only):** ::
 
@@ -80,14 +94,16 @@ in User TSconfig along with the permissions like that:
 Configured permissions for a specific storage always take precedence over
 default permissions.
 
-If no permissions are defined in TSconfig, then the settings in the user and in the group record are
-taken into account and will be treated as default permissions for all storages.
+If no permissions are defined in TSconfig, then the settings in the user
+and in the group record are taken into account and will be treated as
+default permissions for all storages.
 
-The model for the permissions is closely coupled to the one used on \*NIX systems,
-i.e. folders are seen as a collection of files and folders. To change that collection
-(by adding, removing, renaming files/folders), you need to have write permissions on the folder,
-not only on the files themselves. But for only changing the contents of a file,
-no writer permissions are required on the folder.
+The model for the permissions is closely coupled to the one used on
+\*NIX systems, i.e. folders are seen as a collection of files and
+folders. To change that collection (by adding, removing, renaming
+files/folders), you need to have write permissions on the folder,
+not only on the files themselves. But for only changing the contents
+of a file, no writer permissions are required on the folder.
 
 
 .. _admin-user-permissions-details:
@@ -126,16 +142,20 @@ readFolder
   list contents of folder
 
 writeFolder
-  Permission to change contents of folder (add files, rename files, add folders, rename folders). Changing contents of existing files is not governed by this permission!
+  Permission to change contents of folder (add files, rename files, add folders,
+  rename folders). Changing contents of existing files is not governed by this
+  permission!
 
 copyFolder
   Needs writeFolder permissions for the target folder
 
 moveFolder
-  Needs writeFolder permissions for both target and source folder (because it is removed from the latter, which changes the folder).
+  Needs writeFolder permissions for both target and source folder (because it is
+  removed from the latter, which changes the folder).
 
 renameFolder
-  Needs writeFolder permissions (because it changes the folder itself and also the containing folder's contents)
+  Needs writeFolder permissions (because it changes the folder itself and also
+  the containing folder's contents).
 
 deleteFolder
   Remove an (empty) folder; needs write folder permissions

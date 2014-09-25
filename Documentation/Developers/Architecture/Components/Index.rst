@@ -11,11 +11,13 @@
 Components
 """"""""""
 
-FAL consists of a number of components that interact with each other. Each component has a clear role in the
-architecture, something that is explained in detail in this section.
+FAL consists of a number of components that interact with each other.
+Each component has a clear role in the architecture, something that is
+explained in detail in this section.
 
-When using the components in your own services, always keep the basic principles that we laid out earlier in mind --
-e.g. do not call services from the storage/driver part.
+When using the components in your own services, always keep the basic
+principles that we laid out earlier in mind -- e.g. do not call
+services from the storage/driver part.
 
 
 .. _architecture-file-system:
@@ -55,13 +57,18 @@ Copying a file:
    $someFolderIdentifier = 'website/images/';
 
    /** @var $storageRepository \TYPO3\CMS\Core\Ressources\StorageRepository */
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\StorageRepository');
+   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+       'TYPO3\\CMS\\Core\\Resource\\StorageRepository'
+   );
 
    $storage = $storageRepository->findByUid($storageUid);
-   $file = $storage->getFile($someFileIdentifier); // returns a TYPO3\CMS\Core\Resource\File object
-   $folder = $storage->getFolder($someFolderIdentifier); // returns a TYPO3\CMS\Core\Resource\File object
+   // $file returns a TYPO3\CMS\Core\Resource\File object
+   $file = $storage->getFile($someFileIdentifier);
+   // $folder returns a TYPO3\CMS\Core\Resource\File object
+   $folder = $storage->getFolder($someFolderIdentifier);
 
-   $file->copyTo($folder); // returns the TYPO3\CMS\Core\Resource\File object of the new, copied file
+   // returns the TYPO3\CMS\Core\Resource\File object of the new, copied file
+   $file->copyTo($folder);
 
 
 .. _architecture-file-references:
@@ -98,7 +105,9 @@ Example: *Listing all files in a folder*
 .. code-block:: php
 
   /** @var $storageRepository \TYPO3\CMS\Core\Ressources\StorageRepository */
-  $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\StorageRepository');
+  $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+      'TYPO3\\CMS\\Core\\Resource\\StorageRepository'
+  );
   $availableStorages = $storageRepository->findAll();
 
   foreach ($availableStorages as $storage) {
@@ -111,7 +120,8 @@ Example: *Listing all files in a folder*
       }
   }
 
-The ``findAll()`` method of the storage repository already takes user permissions into account (FIXME does it currently?).
+The ``findAll()`` method of the storage repository already takes user
+permissions into account (FIXME does it currently?).
 
 
 .. _architecture-drivers:
@@ -166,8 +176,8 @@ The reasons why you can regard it as a separate layer are:
   in a bunch of indexed files. The process of firing up the Storage layer is done totally
   transparently to the user. So you never need to worry about that.
 
-* It can be regarded as a layer between the Storage and the FileReference, because the FileReference is only possible
-  with an indexed file underneath it.
+* It can be regarded as a layer between the Storage and the FileReference, because the
+  FileReference is only possible with an indexed file underneath it.
 
 .. [1] When retrieving a file through the FAL API, the Storage is currently always used.
        So there is no file without its Storage. The File object also relies on this. So
