@@ -22,7 +22,9 @@ TYPO3 CMS Coding Guidelines
       en
 
 :Description:
-      A description of the formal requirements or standards regarding PHP coding that you should adhere to when you develop TYPO3 Extensions or Core parts.
+      A description of the formal requirements or standards regarding
+      PHP coding that you should adhere to when you develop TYPO3
+      Extensions or Core parts.
 
 :Keywords:
       forDevelopers, forIntermediates

@@ -79,9 +79,10 @@ files must use absolute paths in calls to :code:`require_once()`. There
 are two ways to obtain the path to the included file:
 
 #. Use one of the predefined TYPO3 constants: :code:`PATH_tslib`,
-   :code:`PATH_typo3` or :code:`PATH_site`. The first three contain absolute paths to the
-   corresponding TYPO3 directories. The last constant contains the
-   absolute path to the TYPO3 root directory. Example::
+   :code:`PATH_typo3` or :code:`PATH_site`. The first three contain
+   absolute paths to the corresponding TYPO3 directories. The last
+   constant contains the absolute path to the TYPO3 root directory.
+   Example::
 
       require_once(PATH_typo3 . 'sysext/frontend/Classes/Plugin/AbstractPlugin.php');
 

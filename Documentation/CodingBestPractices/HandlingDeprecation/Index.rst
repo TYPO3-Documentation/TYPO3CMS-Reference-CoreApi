@@ -36,19 +36,24 @@ phpDoc :code:`@deprecated` annotation::
     */
 
 
-At the beginning of the deprecated function you must add the following code::
+At the beginning of the deprecated function you must add the following
+code::
 
    \TYPO3\CMS\Core\Utility\GeneralUtility::logDeprecatedFunction();
 
 
-This reads the :code:`@deprecated` annotation and logs its comment into the deprecation
-log.
+This reads the :code:`@deprecated` annotation and logs its comment into
+the deprecation log.
 
-It is also possible to deprecate finer-grained elements, such as TypoScript
-or TSconfig properties. In such a case, a log message can be used inside the code itself::
+It is also possible to deprecate finer-grained elements, such as
+TypoScript or TSconfig properties. In such a case, a log message can be
+used inside the code itself::
 
 	if ($fooBar !== NULL) {
-		\TYPO3\CMS\Core\Utility\GeneralUtility::deprecationLog('Usage of foobar is deprecated since TYPO3 CMS 6.2. It will be removed in 2 versions. Use barfoo instead.');
+		\TYPO3\CMS\Core\Utility\GeneralUtility::deprecationLog(
+			'Usage of foobar is deprecated since TYPO3 CMS 6.2. ' .
+			'It will be removed in 2 versions. Use barfoo instead.'
+		);
 		$this->useFooBar = TRUE;
 	}
 
