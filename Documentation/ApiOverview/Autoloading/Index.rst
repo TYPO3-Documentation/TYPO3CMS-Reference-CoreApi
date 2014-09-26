@@ -49,10 +49,11 @@ A developer has two options to help the core find a specific class:
 
 - Register a class name together with its location in an :code:`ext_autoload.php` file.
 
-If this is not possible - for whatever reason - or if you don't want to use namespaces,
-you can add a file to your extension called :file:`ext_autoload.php`, in the base directory.
-Its goal is to inform the autoloader about the location of each class files. The autoloader
-automatically searches for this file when a class is requested.
+If it's not possible to stick to the class naming and file location conventions - for whatever
+reason - or if you don't want to use namespaces, you can add a file to your extension called
+:file:`ext_autoload.php`, in the base directory. Its goal is to inform the autoloader about the
+location of each class files. The autoloader automatically searches for this file when a class is
+requested.
 
 The :file:`ext_autoload.php` file must simply return a one-dimensional array
 with the class name as key, and the file location as value. No other code is allowed in this file.
