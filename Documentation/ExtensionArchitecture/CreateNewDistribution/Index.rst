@@ -6,24 +6,25 @@
 .. include:: ../../Includes.txt
 
 
-.. _distribution-create-new:
+.. _distribution:
 
 Creating a new distribution
 ===========================
 
-This chapter is not a full tutorial about how to create a distribution.
-It only aims to be a list of steps to perform and key information
-to remember.
+This chapter describes the main steps in creating a new
+distribution. It should not be considered as a full fledge
+tutorial.
+
 
 .. _distribution_concept:
 
 Concept of distributions
 ------------------------
 
-Distribution are full TYPO3 CMS websites to be unpacked. They provide
+Distributions are full TYPO3 CMS websites ready to be unpacked. They provide
 an easy quickstart into using TYPO3 CMS.
 
-The distribution takes care of the following parts:
+A distribution takes care of the following parts:
 
 - Deliver initial database data
 
@@ -31,11 +32,10 @@ The distribution takes care of the following parts:
 
 - Deliver configuration for a package
 
-- Be able to hook into the process after saving configuration to
+- Hook into the process after saving configuration to
   trigger actions dependent on configuration values
-  (for example color selection in the old introduction package)
 
-- Deliver custom dependent extensions (customized versions or
+- Deliver dependent extensions (e.g. customized versions or
   extensions not available through TER)
 
 
@@ -44,16 +44,15 @@ The distribution takes care of the following parts:
 Kickstarting the distribution
 -----------------------------
 
-You need to create an extension, because a distribution is technically
-just an extension.
-That means you have to register an :ref:`extension-key`. This is the
-unique identifier for your distribution.
+A distribution is a special kind of extension. The first step
+is thus to create a new extension.
+Start by registering an :ref:`extension key <extension-key>`,
+which will be the unique identifier of your distribution.
 
-Once you have an extension key, you can create a new folder with the
-name of your extension key.
-Inside that folder you need to create the :ref:`extension-declaration`
-file. Inside that file, you have to set the extension category to
-**distribution**. Here you must also define your dependencies.
+Next create the :ref:`Extension declaration file <extension-declaration>` as usual,
+except for the "category" property which must be set to
+**distribution**.
+
 
 .. _distribution-kickstart-image:
 
@@ -62,41 +61,40 @@ Configuring the distribution display in the EM
 
 You should provide two preview images for your distribution. Provide
 the a small 220x150 pixels for the list in the extension manager in
-``Resources/Public/Images/Distribution.png`` and a bigger welcome
-image in ``Resources/Public/Images/DistributionWelcome.png`` with
+:file:`Resources/Public/Images/Distribution.png` and a bigger welcome
+image in :file:`Resources/Public/Images/DistributionWelcome.png` with
 300x400 pixels. The welcome image is displayed in the distribution
 detail view inside the extension manager.
+
 
 .. _distribution-kickstart-fileadmin:
 
 Fileadmin files
 ^^^^^^^^^^^^^^^
-Create a folder ``Initialisation\``.
-Create a folder ``Files`` inside ``Initialisation\`` such that the
-resulting path is ``Initialisation\Files\``. All files side this folder
-will be copied into ``fileadmin\<extkey>\`` during the installation.
-``<extkey>`` is the extension key you choose as a unique identifier.
 
-.. note::
-   This means you have to make sure to only have files inside
-   ``fileadmin\`` if you have them inside ``fileadmin\<extkey>``.
-   You need to ensure this before exporting your database.
+Create the following folder structure inside your extension:
 
-Copy all files and folders from ``fileadmin\<extkey>\`` to
-``Initialisation\Files\`` to have them available inside the
-distribution.
+- :file:`Initialisation`
+- :file:`Initialisation/Files`
+
+All the files inside that second folder will be copied to
+:file:`fileadmin/<extkey>` during installation, where "extkey" is
+the extension key of your distribution.
+
 
 .. _distribution-kickstart-database:
 
 Database data
 ^^^^^^^^^^^^^
 
-The database data is delivered as TYPO3 CMS export ``data.t3d``.
-Therefore export it from the tree root with the import/export
+The database data is delivered as TYPO3 CMS export :file:`data.t3d`.
+Generate this file by exporting your whole installation
+from the tree root with the import/export
 module. Make sure to include all tables in the export.
 
-The file has to be name ``data.t3d`` and must copied inside the
-``Initialisation\`` folder.
+The file has to be name :file:`data.t3d` and must be located in the
+:file:`Initialisation` folder.
+
 
 .. _distribution-kickstart-configuration:
 
@@ -104,9 +102,10 @@ Distribution configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A distribution is technically handled as an extension. Therefore your
-can make use of the :ref:`extension-options`.
+can make use of all :ref:`configuration options <extension-options>` as needed.
+
 After saving the configuration, the signal
-``afterExtensionConfigurationWrite`` is dispatched. You may use this
+:code:`afterExtensionConfigurationWrite` is dispatched. You may use this
 to alter your website configuration (e.g. color scheme) on the fly.
 
 
@@ -116,18 +115,20 @@ Delivering custom dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Normally extension dependencies are setup in the
-:ref:`extension-declaration` file.
+:ref:`Extension declaration file <extension-declaration>`.
 
 However sometimes, extensions are not available in the
 *TYPO3 Extension Repository (TER)*.
 Therefore a distribution can act as its own extension repository.
-Add unpacked extensions to ``Initialisation/Extensions/`` to provide
+Add unpacked extensions to :file:`Initialisation/Extensions/` to provide
 dependencies. Your main extension has to be dependent on these
-extension as normal dependencies in ``ext_emconf.php`` Extensions
-delivered inside an extension have the highest priority when extensions
+extension as normal dependencies in :file:`ext_emconf.php`.
+
+Extensions delivered inside an extension have the highest priority when extensions
 need to be fetched.
 
 .. warning::
+
    Caution, these will not overwrite extensions already present in the system.
 
 
@@ -136,16 +137,16 @@ need to be fetched.
 Test your distribution
 ----------------------
 
-You can test your distribution by copying the whole folder (named like
-your extension key) to ``typo3conf/ext/`` of an empty TYPO3 CMS
-installation. Then you can install your distribution with the extension
-manager.
+To test your distribution, simply copy your extension to an empty
+TYPO3 CMS installation and try to install it from the Extension
+Manager.
 
 .. warning::
+
    It is not enough to clean all files and the page tree if you want to
    retry your distribution installation. TYPO3 CMS remembers that it
    imported your distribution before and will skip any know files.
-   Make sure to clean the table ``sys_registry`` if you want to work
+   Make sure to clean the table "sys_registry" if you want to work
    around that.
 
 
@@ -154,7 +155,5 @@ manager.
 More information
 ----------------
 
-Some additional backgrounds can be retrieved from the `blueprint for this feature`_.
-
-.. _blueprint for this feature: http://wiki.typo3.org/Blueprints/DistributionManagement
-
+Some additional backgrounds can be retrieved from the
+`blueprint for this feature <http://wiki.typo3.org/Blueprints/DistributionManagement>`_.

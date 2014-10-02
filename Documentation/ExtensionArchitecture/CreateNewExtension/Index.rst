@@ -15,8 +15,8 @@ This chapter is not a tutorial about how to create an Extension.
 It only aims to be a list of steps to perform and key information
 to remember.
 
-First you have to :ref:`extension-key`. This is the
-unique identifier for your extension.
+First you have to :ref:`register an extension key <extension-key>`.
+This is the unique identifier for your extension.
 
 
 Kickstarting the extension
