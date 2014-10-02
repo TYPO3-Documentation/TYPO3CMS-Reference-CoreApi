@@ -44,6 +44,9 @@ additions to TYPO3. The main types are:
   backend. Please refer to the :ref:`"TYPO3 Services Reference"
   <t3services:start>` for more information about this type of extension.
 
+- **Distributions** are fully packaged TYPO3 CMS web installations,
+  complete with files, templates, extensions, etc. Distributions are
+  covered :ref:`in their own chapter <distribution>`.
 
 .. _extensions-and-core:
 
@@ -79,6 +82,7 @@ related to a single implementation.
    ConfigurationOptions/Index
    ExtensionManager/Index
    CreateNewExtension/Index
+   CreateNewDistribution/Index
    Documentation/Index
    Resources/Index
 
