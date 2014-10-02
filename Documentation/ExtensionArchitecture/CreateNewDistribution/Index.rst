@@ -22,7 +22,7 @@ Concept of distributions
 ------------------------
 
 Distributions are full TYPO3 CMS websites ready to be unpacked. They provide
-an easy quickstart into using TYPO3 CMS.
+an easy quickstart for using TYPO3 CMS.
 
 A distribution takes care of the following parts:
 
@@ -35,7 +35,7 @@ A distribution takes care of the following parts:
 - Hook into the process after saving configuration to
   trigger actions dependent on configuration values
 
-- Deliver dependent extensions (e.g. customized versions or
+- Deliver dependent extensions (e.g., customized versions or
   extensions not available through TER)
 
 
@@ -60,11 +60,10 @@ Configuring the distribution display in the EM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You should provide two preview images for your distribution. Provide
-the a small 220x150 pixels for the list in the extension manager in
-:file:`Resources/Public/Images/Distribution.png` and a bigger welcome
-image in :file:`Resources/Public/Images/DistributionWelcome.png` with
-300x400 pixels. The welcome image is displayed in the distribution
-detail view inside the extension manager.
+a small 220x150 pixels for the list in the extension manager as
+:file:`Resources/Public/Images/Distribution.png` and a larger 300x400 pixels
+welcome image as :file:`Resources/Public/Images/DistributionWelcome.png`.
+The welcome image is displayed in the distribution detail view inside the extension manager.
 
 
 .. _distribution-kickstart-fileadmin:
@@ -119,7 +118,7 @@ Normally extension dependencies are setup in the
 
 However sometimes, extensions are not available in the
 *TYPO3 Extension Repository (TER)*.
-Therefore a distribution can act as its own extension repository.
+Therefore, a distribution can act as its own extension repository.
 Add unpacked extensions to :file:`Initialisation/Extensions/` to provide
 dependencies. Your main extension has to be dependent on these
 extension as normal dependencies in :file:`ext_emconf.php`.
@@ -127,9 +126,9 @@ extension as normal dependencies in :file:`ext_emconf.php`.
 Extensions delivered inside an extension have the highest priority when extensions
 need to be fetched.
 
-.. warning::
+.. caution::
 
-   Caution, these will not overwrite extensions already present in the system.
+  This will not overwrite extensions already present in the system.
 
 
 .. _distribution-testing:
@@ -144,8 +143,8 @@ Manager.
 .. warning::
 
    It is not enough to clean all files and the page tree if you want to
-   retry your distribution installation. TYPO3 CMS remembers that it
-   imported your distribution before and will skip any know files.
+   try again to install your distribution. Indeed, TYPO3 CMS remembers that it
+   previously imported your distribution and will skip any known files.
    Make sure to clean the table "sys_registry" if you want to work
    around that.
 
