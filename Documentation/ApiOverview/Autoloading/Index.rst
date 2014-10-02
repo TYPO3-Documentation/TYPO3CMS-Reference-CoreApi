@@ -61,8 +61,8 @@ with the class name as key, and the file location as value. No other code is all
 
 .. _autoload-examples:
 
-Examples
-^^^^^^^^
+Examples for non-namespaced classes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The examples below are related to non-namespaced classes. When using :ref:`namespaces <namespaces>`,
 autoloading will happen without any extra effort on your part.
