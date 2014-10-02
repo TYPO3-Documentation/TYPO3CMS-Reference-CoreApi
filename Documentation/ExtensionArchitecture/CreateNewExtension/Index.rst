@@ -15,25 +15,8 @@ This chapter is not a tutorial about how to create an Extension.
 It only aims to be a list of steps to perform and key information
 to remember.
 
-.. _extension-key-registration:
-
-Registering an extension key
-""""""""""""""""""""""""""""
-
-Before starting a new extension you should register an extension key
-on typo3.org (unless you plan to make an implementation-specific
-extension – of course – which it does not make sense to share).
-
-Go to typo3.org, log in with your (pre-created) username / password
-and go to Extensions > Extension Keys and click on the "Register keys"
-tab. On that page you can enter the key name you want to register.
-
-.. figure:: ../../Images/Typo3OrgRegistration.png
-   :alt: The extension registration form
-
-   The extension registration form on typo3.org.
-
-See :ref:`extension-key`.
+First you have to :ref:`extension-key`. This is the
+unique identifier for your extension.
 
 
 Kickstarting the extension
