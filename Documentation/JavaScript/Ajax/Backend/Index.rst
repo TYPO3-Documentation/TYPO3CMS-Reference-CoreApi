@@ -69,6 +69,8 @@ Since TYPO3 CMS 6.2, the registration is done via an API,
 which provides CSRF protection on the AJAX call and an automatic
 registration of the AJAX call URL:
 
+in typo3conf/opendocs/ext_tables.php
+
 .. code-block:: php
 
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerAjaxHandler (
@@ -88,6 +90,8 @@ error message if something went wrong.
 
 In the above example, here's how the handling method looks like:
 
+in typo3conf/opendocs/Classes/Controller/OpendocsController.php
+
 .. code-block:: php
 
 	/**
@@ -99,7 +103,13 @@ In the above example, here's how the handling method looks like:
 	 */
 	public function renderAjax($params = array(), \TYPO3\CMS\Core\Http\AjaxRequestHandler &$ajaxObj = NULL) {
 		$menuContent = $this->renderMenu();
+		
+		//addContent('key', 'content to add')
+		//'key' = the new content key where the content should be added in the content array
 		$ajaxObj->addContent('opendocsMenu', $menuContent);
+		
+		//the new content, "$menuContent" can now be referenced like this:
+		//$ajaxObj->getContent('opendocsMenu');
 	}
 
 
