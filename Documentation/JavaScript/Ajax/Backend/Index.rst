@@ -67,9 +67,7 @@ Server-Side
 
 Since TYPO3 CMS 6.2, the registration is done via an API,
 which provides CSRF protection on the AJAX call and an automatic
-registration of the AJAX call URL:
-
-in typo3conf/opendocs/ext_tables.php
+registration of the AJAX call URL (in :file:`typo3conf/opendocs/ext_tables.php`):
 
 .. code-block:: php
 
@@ -88,9 +86,9 @@ context) and a backreference to the general AJAX handler
 The API of this object is used to set the content to output or to write an
 error message if something went wrong.
 
-In the above example, here's how the handling method looks like:
+In the above example, here's how the handling method looks like
+(in :file:`typo3conf/opendocs/Classes/Controller/OpendocsController.php`):
 
-in typo3conf/opendocs/Classes/Controller/OpendocsController.php
 
 .. code-block:: php
 
@@ -103,13 +101,13 @@ in typo3conf/opendocs/Classes/Controller/OpendocsController.php
 	 */
 	public function renderAjax($params = array(), \TYPO3\CMS\Core\Http\AjaxRequestHandler &$ajaxObj = NULL) {
 		$menuContent = $this->renderMenu();
-		
-		//addContent('key', 'content to add')
-		//'key' = the new content key where the content should be added in the content array
+
+		// addContent('key', 'content to add')
+		// 'key' = the new content key where the content should be added in the content array
 		$ajaxObj->addContent('opendocsMenu', $menuContent);
-		
-		//the new content, "$menuContent" can now be referenced like this:
-		//$ajaxObj->getContent('opendocsMenu');
+
+		// the new content, "$menuContent" can now be referenced like this:
+		// $ajaxObj->getContent('opendocsMenu');
 	}
 
 
