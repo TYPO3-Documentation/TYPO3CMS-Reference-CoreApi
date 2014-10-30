@@ -92,7 +92,6 @@ a frame on the same origin as the page itself. Other options are *DENY*
 to do so) and *ALLOW-FROM [uri]* (page can only be displayed in a frame
 on the specified origin).
 
-|
 Please understand that detailed descriptions of further actions on a
 server-level and specific PHP security settings are out of scope of
 this document. The TYPO3 Security Guide focuses on security aspects of
