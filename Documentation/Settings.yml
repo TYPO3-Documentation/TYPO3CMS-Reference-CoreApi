@@ -3,8 +3,8 @@
 conf.py:
   project: TypoScript Syntax and In-depth Study
   copyright: 2000-2014
-  version: 6.2
-  release: 6.2
+  version: 7.0-dev
+  release: 7.0-dev
   intersphinx_mapping:
     t3tsref:
     - http://docs.typo3.org/typo3cms/TyposcriptReference
