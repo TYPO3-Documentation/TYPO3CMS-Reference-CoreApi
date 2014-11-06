@@ -3,8 +3,8 @@
 conf.py:
   project: TYPO3 Core APIs
   copyright: 2000-2014
-  version: 6.2.0
-  release: 6.2.0
+  version: 7.0-dev
+  release: 7.0-dev
   intersphinx_mapping:
     t3cgl:
     - http://docs.typo3.org/typo3cms/CodingGuidelinesReference/
