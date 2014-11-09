@@ -61,7 +61,7 @@ Documentation Team (documentation@typo3.org). Official documents are
 kept up-to-date to the best of the Documentation Team's abilities.
 
 
-**Core Manual**
+**Core Manual in Essen**
 
 This document is a Core Manual. Core Manuals address the built in
 functionality of TYPO3 CMS and are designed to provide the reader with in-
