@@ -124,6 +124,42 @@ disabled
          whether the RTE is rendered or not.
 
 
+.. _transformations-tsconfig-configuration-contentcss:
+
+contentCSS
+~~~~~~~~~~
+
+.. container:: table-row
+
+   Property
+         contentCSS
+         contentCSS.[id-string]
+
+   Data type
+         resource(s)
+
+   Description
+         The CSS file that contains the style definitions that should be
+         applied to the edited contents.
+
+         The selectors defined in this file will also be used in the block
+         style and text style selection lists.
+
+         Default: :code:`EXT:rtehtmlarea/res/contentcss/default.css`
+
+         For example, this default could be overridden with:
+         :code:`fileadmin/styles/my\_contentCSS.css`
+
+         Multiple files may be specified by using :code:`contentCSS.[id-string]` .
+
+         For example ::
+
+            contentCSS {
+               file1 = fileadmin/myStylesheet1.css
+               file2 = fileadmin/myStylesheet2.css
+            }
+
+
 .. _transformations-tsconfig-configuration-proc:
 
 proc
