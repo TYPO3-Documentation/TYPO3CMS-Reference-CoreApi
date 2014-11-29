@@ -46,6 +46,12 @@ class
 function
   function name.
 
+===================  =========  =========  =========================================================================   =============
+Option               Mandatory  Type       Description                                                                 Default
+===================  =========  =========  =========================================================================   =============
+appendFullBackTrace   no         boolean    Add full backtrace to the log                                              :code:`FALSE`
+shiftBackTraceLevel   no         integer    Removes the given number of entries from the top of the backtrace stack    :code:`0`
+===================  =========  =========  =========================================================================   =============
 
 .. _logging-processors-memory:
 
