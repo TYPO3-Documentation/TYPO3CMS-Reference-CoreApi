@@ -199,13 +199,17 @@ extensions with the name prefix "ext\_".
          ['SC_OPTIONS']['typo3/mod/tools/em/index.php']['tsStyleConfigForm'][] = "`
          :code:`*function reference*` :code:`"`
 
- - :Filename: ext\_icon.gif or ext\_icon.png
+ - :Filename: ext\_icon.gif or ext\_icon.png or ext\_icon.svg
    :Description:
          Extension Icon
 
          |
 
          18x16 GIF or PNG icon for the extension.
+         
+         .. note::
+         Extension icons might be rendered better when provided as vector graphics and not as bitmaps.
+
 
  - :Filename: class.ext\_update.php
    :Description:
