@@ -651,7 +651,7 @@ Please take time to learn these functions!
 				'tx_cmsplaintextimport_webfunc',
 				\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) .
 					'class.tx_cmsplaintextimport_webfunc.php',
-				'LLL:EXT:cms_plaintext_import/locallang.php:menu_1'
+				'LLL:EXT:cms_plaintext_import/locallang.xlf:menu_1'
 			);
 
 
