@@ -124,6 +124,42 @@ disabled
          whether the RTE is rendered or not.
 
 
+.. _transformations-tsconfig-configuration-contentcss:
+
+contentCSS
+~~~~~~~~~~
+
+.. container:: table-row
+
+   Property
+         contentCSS
+         contentCSS.[id-string]
+
+   Data type
+         resource(s)
+
+   Description
+         The CSS file that contains the style definitions that should be
+         applied to the edited contents.
+
+         The selectors defined in this file will also be used in the block
+         style and text style selection lists.
+
+         Default: :code:`EXT:rtehtmlarea/res/contentcss/default.css`
+
+         For example, this default could be overridden with:
+         :code:`fileadmin/styles/my\_contentCSS.css`
+
+         Multiple files may be specified by using :code:`contentCSS.[id-string]` .
+
+         For example ::
+
+            contentCSS {
+               file1 = fileadmin/myStylesheet1.css
+               file2 = fileadmin/myStylesheet2.css
+            }
+
+
 .. _transformations-tsconfig-configuration-proc:
 
 proc
@@ -147,6 +183,41 @@ proc
 
          The :code:`proc` object is processed in :code:`\TYPO3\CMS\Core\Html\RteHtmlParser` and is
          *independant* of the particular RTE used (like transformations generally are!).
+
+
+.. _transformations-tsconfig-configuration-classes:
+
+classes
+~~~~~~~
+
+.. container:: table-row
+
+   Property
+         classes
+
+   Data type
+         -
+
+   Description
+         It is possible to configure a class as non-selectable in the style selectors of the Rich Text Editor.
+
+         The syntax of this new property is ::
+
+            RTE.classes.[ *classname* ] {
+               .selectable = boolean; if set to 0, the class is not selectable in the style selectors; if the property is omitted or set to 1, the class is selectable in the style selectors
+            }
+
+
+         It is possible to configure a class as requiring other classes.
+
+         The syntax of this new property is ::
+
+            RTE.classes.[ *classname* ] {
+               .requires = list of class names; list of classes that are required by the class;
+                     if this property, in combination with others, produces a circular relationship, it is ignored;
+                     when a class is added on an element, the classes it requires are also added, possibly recursively;
+                     when a class is removed from an element, any non-selectable class that is not required by any of the classes remaining on the element is also removed.
+            }
 
 
 .. _transformations-tsconfig-configuration-specific:
