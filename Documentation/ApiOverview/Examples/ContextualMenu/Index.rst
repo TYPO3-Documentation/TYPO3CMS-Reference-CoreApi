@@ -42,11 +42,6 @@ file of the "examples" extension):
 	);
 
 
-.. note::
-
-   There's an additional :code:`path:` property, which would point to the
-   PHP file to include, but it is not necessary when using namespaced classes.
-   They will be autoloaded.
 
 The class (:code:`\Documentation\Examples\Service\ContextMenuOptions`) looks like this:
 
@@ -167,7 +162,7 @@ is required (taken from :file:`typo3/sysext/beuser/Resources/Private/Templates/B
    :emphasize-lines: 2,2
 
 	<td class="col-icon">
-		<a href="#" onClick="Clickmenu.show('be_users', '{backendUser.uid}', '1', '', '', ''); return false;" title="id={backendUser.uid}">
+		<a href="#" onClick="TYPO3.Clickmenu.show('be_users', '{backendUser.uid}', '1', '', '', ''); return false;" title="id={backendUser.uid}">
 			<bu:spriteIconForRecord table="be_users" object="{backendUser}" />
 		</a>
 	</td>
@@ -175,5 +170,5 @@ is required (taken from :file:`typo3/sysext/beuser/Resources/Private/Templates/B
 the relevant line being highlighted.
 
 The same code works for files. In this case however, the first argument to
-:code:`Clickmenu.show()` should be the absolute file path (instead of the table)
+:code:`TYPO3.Clickmenu.show()` should be the absolute file path (instead of the table)
 and the second parameter (the uid) should be left blank.
