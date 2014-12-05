@@ -31,9 +31,9 @@ line, which additionally requires :code:`\TYPO3\CMS\Core\Core\CliBootstrap`.
 
 .. warning::
 
-   This boostrapping API is still young and may change in the future.
-   It's fine to use it in an extension if you absolutely need it,
-   but please be aware that there may be breaking changes at some point.
+   This boostrapping API is internal and may change any time in the near future and also over minor updates.
+   It is discouraged to use it in third party code. Only if other extensbility features like Hooks, Signals
+   or XCLASS do not suffice to reach a goal, this API may be used as last resort.
 
 
 One can see the bootstrapping process in action in file
