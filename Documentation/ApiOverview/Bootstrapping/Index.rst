@@ -137,3 +137,27 @@ necessary settings while the ``Production/Live`` context is used on the live ins
    ``Production/Staging/Server2`` if both staging servers needed different
    configuration.
 
+Usage Example
+"""""""""""""
+
+The current Application Context is set very early in the bootstrap process can be accessed
+through public API for example in the AdditionalConfiguration.php file to automatically set
+different configuration for different contexts.
+
+:file:`typo3conf/AdditionalConfiguration.php`::
+
+	switch (\TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()) {
+		case 'Development':
+			$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 1;
+			$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '*';
+			break;
+		case 'Production/Staging':
+			$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 0;
+			$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '192.168.1.*';
+			break;
+		default:
+			$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 0;
+			$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '127.0.0.1';
+	}
+
+
