@@ -79,6 +79,7 @@ registration of the AJAX call URL (in :file:`typo3conf/opendocs/ext_tables.php`)
 This is how the "opendocs" system extension registers the AJAX call to render
 the open documents menu in the top toolbar. The first argument is the ajaxID (as
 described above) and the second argument is a pointer to a class and method.
+This code must be located in an extension's :file:`ext_tables.php` file.
 
 The target method receives an array of parameters (depending on the call
 context) and a backreference to the general AJAX handler
