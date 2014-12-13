@@ -55,7 +55,7 @@ file. :code:`user_` files must have this copyright notice as well. Example::
    <?php
    namespace TYPO3\CMS\XXX;
 
-   /**
+   /*
     * This file is part of the TYPO3 CMS project.
     *
     * It is free software; you can redistribute it and/or modify it under
