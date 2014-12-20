@@ -316,30 +316,47 @@ Strings
 All strings must use single quotes. Double quotes are allowed only to
 create the new line character (:code:`"\n"`).
 
-String concatenation operators must be surrounded by spaces. Example::
+String concatenation operators must be surrounded by spaces. Example:
 
-   $content = 'Hello ' . 'world!';
+.. code-block:: php
+
+    $content = 'Hello ' . 'world!';
 
 However the space after the concatenation operator must not be present,
 if the operator is the last construction on the line. See the section
 about white spaces for more information.
 
-Variables must not be embedded into strings. Correct::
+Variables must not be embedded into strings. Correct:
 
-   $content = 'Hello ' . $userName;
+.. code-block:: php
 
-Incorrect::
+    $content = 'Hello ' . $userName;
 
-   $content = "Hello $userName";
+Incorrect:
+
+.. code-block:: php
+
+    $content = "Hello $userName";
 
 Multiline string concatenations are allowed. The line concatenation
-operator must be at the end of the line. Lines starting from the
+operator must be at the beginning of the line. Lines starting from the
 second must be indented relatively to the first line. It is recommended
 to indent lines one level from the start of the string on the first
-level::
+level.
 
-   $content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' .
-                   'Donec varius libero non nisi. Proin eros.';
+.. note::
+
+   The old rule allowed the operator only at the end. Both are still
+   valid. Please do no "mass-change" across the core. Use the new rule for
+   future changes or patches currently under review but do **not** block reviews
+   because of the legacy concatenation. If you change a line/method anyway,
+   you can of course adapt CGL-changes as well (as long as it's no
+   "mass-change").
+
+.. code-block:: php
+
+    $content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+                    . 'Donec varius libero non nisi. Proin eros.';
 
 
 Booleans
