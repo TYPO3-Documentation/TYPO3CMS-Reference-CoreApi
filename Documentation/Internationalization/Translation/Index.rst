@@ -62,7 +62,9 @@ syntax is as follows::
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/de.custom.xlf';
 
 The first line shows how to override a file in the default language,
-the second how to override a German ("de") translation. The German language file
+the second how to override a German ("de") translation. 
+For overriding backend labels ist fine to place these lines in ext_tables.php. For frontend labels these lines should be placed in ext_localconf.php.
+The German language file
 looks like this:
 
 .. code-block:: xml
