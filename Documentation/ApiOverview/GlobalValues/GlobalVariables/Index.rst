@@ -223,16 +223,6 @@ Global variables
 
 
  - :Variable:
-         $WEBMOUNTS
-   :Defined:
-         Bootstrap::initializeBackendUserMounts()
-   :Description:
-         Array of uid's to be mounted in the page-tree.
-   :FE:
-         (depends)
-
-
- - :Variable:
          $FILEMOUNTS
    :Defined:
          Bootstrap::initializeBackendUserMounts()
