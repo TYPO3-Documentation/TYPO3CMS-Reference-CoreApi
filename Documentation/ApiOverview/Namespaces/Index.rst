@@ -151,7 +151,7 @@ Creating instances
 ^^^^^^^^^^^^^^^^^^
 
 When creating instances using :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
-the leading backslash should be ommitted and all other backslashes escaped, even when using
+the leading backslash must be ommitted and all other backslashes escaped, even when using
 single quotes. Thus the following code is correct::
 
    $contentObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
