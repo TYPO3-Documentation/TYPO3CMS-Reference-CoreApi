@@ -162,7 +162,7 @@ Advanced processing
 
 There's much more that can be achieved with
 :code:`\TYPO3\CMS\Core\Html\HtmlParser` in particular
-more adavanced processing using callback methods that
+more advanced processing using callback methods that
 can perform additional work on each parsed element, including
 calling the HTML parser recursively.
 
