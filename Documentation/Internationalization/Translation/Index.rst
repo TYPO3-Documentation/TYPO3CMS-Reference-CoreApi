@@ -58,7 +58,7 @@ override both locallang-XML and XLIFF files. Actually this is not just about tra
 Default language files can also be overridden. In the case of XLIFF files, the
 syntax is as follows (to be placed in an extension's :file:`ext_localconf.php` file):
 
-.. code-block::
+.. code-block:: php
 
 	$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/custom.xlf';
 	$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/de.custom.xlf';
