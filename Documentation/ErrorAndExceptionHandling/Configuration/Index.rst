@@ -179,6 +179,48 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
          Default: :code:`E_ALL ^ E_NOTICE` (6135).
 
 
+- :Key:
+         systemLog
+   :Data type:
+         string
+   :Description:
+         Configures which mechanism is used to log errors being logged using
+         GeneralUtility::sysLog() calls. Multiple settings are possible by
+         separating them with a semicolon.
+         
+         Every distinct option can contain up to three values separated by
+         comma. The first option defines the mechanism which is used for logging.
+         The second option defines the destination/target of the log message.
+         The third option defines a severity level. Messages will get logged
+         to the mechanism/target only if the severity of the message is higher
+         than the specified level. Giving "0" as level or not giving a level at all
+         will log all messages. Possible options are:
+
+         - file,<abs-path-to-file>[,<level>] = Writes the error messages to the
+           specified file.
+
+         - mail,<to>[/<from>][,<level>] = Sends an email for every error message
+           to the configured email "<to>". Additionally sets the e-mail From
+           header.
+
+         - syslog,<facility>[,<level>] = Uses the PHP method "syslog" (http://php.net/manual/en/function.syslog.php)
+           to send the log message. Depending on the operating system the message
+           will get logged in different ways. On Linux (Debian, Ubuntu) the message
+           will usually appear in /var/log/syslog if not configured otherwise.
+           The <facility> option is not used currently.
+
+         - error_log[,,<level>] = This setting will use the PHP method "error_log"
+           (http://php.net/manual/en/function.error-log.php) to log the message.
+           The message will get handled according to the settings of the variable
+           "error_log" in the php.ini file (http://php.net/manual/en/errorfunc.configuration.php#ini.error-log).
+           
+         Using the method "file" is very reliable but could also pose a security
+         risk if you write error logs into the webroot of your site. The option
+         "error_log" allows to use the same logging facility which is by default
+         used by PHP scripts on the server. Be aware that on production machines
+         error logging for PHP scripts could be disabled.
+
+
 The table below shows which values can be set by the user and which
 are set by TYPO3.
 
