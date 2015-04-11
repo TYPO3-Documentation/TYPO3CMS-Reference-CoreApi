@@ -165,7 +165,7 @@ definition of the "poem" field of the "haiku" table from the "examples" extensio
 			'rows' => 6,
 			'softref' => 'typolink_tag,images,email[subst],url',
 		),
-		'defaultExtras' => 'richtext[]:rte_transform[mode=tx_examples_transformation-ts_css]:static_write[filename|poem]'
+		'defaultExtras' => 'richtext[]:rte_transform[mode=tx_examples_transformation-ts_css]'
 	),
 
 The order is important. The order in this list is the order of calling
