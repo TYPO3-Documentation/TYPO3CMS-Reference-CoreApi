@@ -92,6 +92,7 @@ and the result can be easily seen in the backend:
 
 
 .. important::
+   - Please note that you don't have to copy the full reference file, but only the labels you want to translate.
    - The path to the file to override must be expressed as :code:`EXT:foo/bar/...`. For the
      extension "xlf" or "xml" can be used interchangeably. The TYPO3 Core will try both anyway,
      but using "xlf" is more correct and future-proof.
