@@ -181,7 +181,9 @@ extension's :file:`ext_localconf.php` file:
 	$signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\SignalSlot\\Dispatcher');
 
 	$signalSlotDispatcher->connect(
-		'TYPO3\\CMS\\Lang\\Service\\UpdateTranslationService',
+		version_compare(TYPO3_version, '7.0', '<')
+			? 'TYPO3\\CMS\\Lang\\Service\\UpdateTranslationService'
+			: 'TYPO3\\CMS\\Lang\\Service\\TranslationService',
 		'postProcessMirrorUrl',
 		'Company\\Extension\Slots\\CustomMirror',
 		'postProcessMirrorUrl'
