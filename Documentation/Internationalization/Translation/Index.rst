@@ -115,7 +115,7 @@ XLIFF files.
 First of all, the language must be declared::
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['user'] = array(
-       'de_CH' => 'Swiss German',
+       'gsw_CH' => 'Swiss German',
    );
 
 This new language does not need to be entirely translated. It can be defined
@@ -123,29 +123,29 @@ as falling back to another language, so that only differing labels need be
 translated::
 
   $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['dependencies'] = array(
-     'de_CH' => array('de_AT', 'de'),
+     'gsw_CH' => array('de_AT', 'de'),
   );
 
-In this case we define that "de_CH" can fall back on "de_AT" (another custom
-translation) and then on "de".
+In this case we define that "gsw_CH" (which is the `official code <http://www.localeplanet.com/icu/>`_ for
+"Schwiizertüütsch" - that is, "Swiss German") can fall back on "de_AT" (another custom translation) and then on "de".
 
 The translations have to be stored in the appopriate folder, in this case
-:file:`typo3conf/l10n/de_CH`.
+:file:`typo3conf/l10n/gsw_CH`.
 
 The very least you need is to translate the label containing the name of the
 language itself, so that it appears in the user preferences. In our example
-this would be in file :file:`typo3conf/l10n/de_CH/setup/mod/de_CH.locallang.xlf`.
+this would be in file :file:`typo3conf/l10n/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
 
 .. code-block:: xml
 
    <?xml version='1.0' encoding='utf-8'?>
    <xliff version="1.0">
-      <file source-language="en" target-language="de_CH" datatype="plaintext" original="messages" product-name="setup">
+      <file source-language="en" target-language="gsw_CH" datatype="plaintext" original="messages" product-name="setup">
          <header/>
          <body>
-            <trans-unit id="lang_de_CH" approved="yes" xml:space="preserve">
+            <trans-unit id="lang_gsw_CH" approved="yes">
                <source>Swiss German</source>
-               <target state="translated">Swiizertütsch</target>
+               <target state="translated">Schwiizertüütsch</target>
             </trans-unit>
          </body>
       </file>
@@ -160,8 +160,8 @@ this would be in file :file:`typo3conf/l10n/de_CH/setup/mod/de_CH.locallang.xlf`
 
    Any language will always fall back on the default one (i.e. English) when
    a translation is not found. A custom language will fall back on its "parent"
-   language automatically. Thus - in our example - no fallback would have to be
-   defined for "de_CH" if it were just falling back on "de".
+   language automatically. Thus - in our second example of de_AT (German for Austria) - no fallback would have to be
+   defined for "de_AT" if it were just falling back on "de".
 
 .. _xliff-translating-servers:
 
