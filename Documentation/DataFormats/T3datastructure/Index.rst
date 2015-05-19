@@ -21,8 +21,8 @@ Such applications can be:
 - :ref:`FlexForms <t3tca:columns-flex>` - a TCEform type which will allow users to build
   information hierarchies (in XML) according to the Data Structure. In
   this sense the Data Structure is like a DTD (Document Type
-  Definition)for the backend which can render a dynamic form based on
-  the Data Structure
+  Definition) for the backend which can render a dynamic form based on
+  the Data Structure;
 
 - `TemplaVoila! <http://typo3.org/extensions/repository/view/templavoila>`_ -
   an extension which uses the Data Structure as backbone for mapping template HTML to data.
