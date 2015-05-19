@@ -2,7 +2,7 @@
 ---
 conf.py:
   project: TYPO3 Core APIs
-  copyright: 2000-2014
+  copyright: 2000-2015
   version: 7
   release: 7
   intersphinx_mapping:
