@@ -105,10 +105,16 @@ or be part of the web server configuration:
 	# In your Apache configuration, you usually use:
 	SetEnv TYPO3_CONTEXT Development
 
-	# set context with mod_rewrite
+	# Set context with mod_rewrite
+	# Rules to set ApplicationContext based on hostname
 	RewriteCond %{HTTP_HOST} ^dev\.example\.com$
-	RewriteRule (.*) $1 [E=TYPO3_CONTEXT:Development]
+	RewriteRule .? - [E=TYPO3_CONTEXT:Development]
 
+	RewriteCond %{HTTP_HOST} ^staging\.example\.com$
+	RewriteRule .? - [E=TYPO3_CONTEXT:Production/Staging]
+
+	RewriteCond %{HTTP_HOST} ^www\.example\.com$
+	RewriteRule .? - [E=TYPO3_CONTEXT:Production]
 
 .. _bootstrapping-context-custom:
 
