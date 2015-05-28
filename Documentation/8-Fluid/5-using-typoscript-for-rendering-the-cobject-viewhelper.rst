@@ -17,7 +17,7 @@ Setup::
 image (e.g. headlines with unusual fonts) by changing the TypoScript to::
 
 	lib.title = IMAGE
-		lib.title {
+	lib.title {
 		file = GIFBUILDER
 		file {
 			10 = TEXT
@@ -68,8 +68,8 @@ example it looks like this::
 
 	lib.myCounter = TEXT
 	lib.myCounter {
-	current = 1
-	wrap = <strong> | </strong>
+		current = 1
+		wrap = <strong>|</strong>
 	}
 
 This TypoScript snippet outputs the current number of visits written
@@ -81,11 +81,11 @@ following TypoScript::
 
 	lib.myCounter = IMAGE
 	lib.myCounter {
-	file = GIFBUILDER
-	file {
-	10 = TEXT
-	10.current = 1
-	}
+		file = GIFBUILDER
+		file {
+			10 = TEXT
+			10.current = 1
+		}
 	}
 
 At the moment we're only passing a single value to the TypoScript.
@@ -103,11 +103,11 @@ TypoScript-Setup? You can use the property ``field`` of
 
 	lib.myCounter = COA
 	lib.myCounter {
-	10 = TEXT
-	10.field = title
-	20 = TEXT
-	20.field = viewCount
-	wrap = (<strong> | </strong>)
+		10 = TEXT
+		10.field = title
+		20 = TEXT
+		20.field = viewCount
+		wrap = (<strong>|</strong>)
 	}
 
 Now we always output the title of the blog, followed by the amount of
@@ -132,11 +132,11 @@ information as the previous example::
 
 	lib.myCounter = COA
 	lib.myCounter {
-	10 = TEXT
-	10.field = title
-	20 = TEXT
-	20.current = 1
-	wrap = (<strong> | </strong>)
+		10 = TEXT
+		10.field = title
+		20 = TEXT
+		20.current = 1
+		wrap = (<strong>|</strong>)
 	}
 
 The ``cObject`` ViewHelper is a powerful option to use the
