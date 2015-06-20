@@ -266,3 +266,12 @@ These constants are defined at various points during the bootstrap sequence.
    :FE:
          Yes
 
+
+ - :Constant:
+         *TYPO3\_branch*
+   :Defined:
+         SystemEnvironmentBuilder::defineBaseConstants()
+   :Description:
+         The TYPO3 version Branch, as a "x.y" number. Without the patch level.
+   :FE:
+         Yes
