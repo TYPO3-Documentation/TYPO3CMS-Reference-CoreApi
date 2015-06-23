@@ -133,21 +133,6 @@ values in the :code:`$EM_CONF` array if needed.
          might be worth installing "tt\_news" (version at least 2.5.0).
 
  - :Key:
-         doNotLoadInFE
-   :Data type:
-         boolean
-   :Description:
-         You may come across this flag in some custom extensions. However it
-         was never supported by the TER and thus never widely used. It was
-         introduced in TYPO3 4.3 and removed in TYPO3 6.0.
-
- - :Key:
-         loadOrder
-   :Data type:
-   :Description:
-         (Not used)
-
- - :Key:
          state
    :Data type:
          string
