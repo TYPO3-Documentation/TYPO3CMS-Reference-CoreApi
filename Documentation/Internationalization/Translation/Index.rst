@@ -102,7 +102,8 @@ and the result can be easily seen in the backend:
    - The files containing the custom labels must be located inside an extension. Other locations
      will not be considered (this is a bug, but must be taken as a constraint for now).
      
-   - The original translation needs to exist in :code:`typo3temp/l10n/` for this to work
+   - The original translation needs to exist in :code:`typo3temp/l10n/` for this to work, or
+     next to the base translation file in extensions, e.g. :code:`typo3conf/ext/myext/Resources/Private/Language/`
      (this is a bug, but must be taken as a constraint for now).
 
 
