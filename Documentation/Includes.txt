@@ -19,3 +19,7 @@
 .. role::   php(code)
 
 .. highlight:: php
+
+
+.. default-role:: code
+

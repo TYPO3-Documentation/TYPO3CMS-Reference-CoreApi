@@ -6,7 +6,6 @@
 .. include:: ../../Includes.txt
 
 
-
 .. _xliff-translating:
 
 Translating XLIFF files
@@ -53,7 +52,7 @@ published or for creating :ref:`custom translations <xliff-translating-custom>`.
 Custom translations
 ^^^^^^^^^^^^^^^^^^^
 
-The :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` allows to
+The `$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` allows to
 override both locallang-XML and XLIFF files. Actually this is not just about translations.
 Default language files can also be overridden. In the case of XLIFF files, the
 syntax is as follows (to be placed in an extension's :file:`ext_localconf.php` file):
@@ -95,16 +94,19 @@ and the result can be easily seen in the backend:
 
    - Please note that you do not have to copy the full reference file, but only the labels you want to translate.
 
-   - The path to the file to override must be expressed as :code:`EXT:foo/bar/...`. For the
+   - The path to the file to override must be expressed as `EXT:foo/bar/...`. For the
      extension "xlf" or "xml" can be used interchangeably. The TYPO3 Core will try both anyway,
      but using "xlf" is more correct and future-proof.
 
+.. attention::
+
+   The following is a **bug** but must be taken as a constraint for now:
+
    - The files containing the custom labels must be located inside an extension. Other locations
-     will not be considered (this is a bug, but must be taken as a constraint for now).
-     
-   - The original translation needs to exist in :code:`typo3temp/l10n/` for this to work, or
-     next to the base translation file in extensions, e.g. :code:`typo3conf/ext/myext/Resources/Private/Language/`
-     (this is a bug, but must be taken as a constraint for now).
+     will not be considered.
+
+   - The original translation needs to exist in `typo3temp/l10n/` or next to the base
+     translation file in extensions, for example in `typo3conf/ext/myext/Resources/Private/Language/`.
 
 
 .. _xliff-translating-languages:
