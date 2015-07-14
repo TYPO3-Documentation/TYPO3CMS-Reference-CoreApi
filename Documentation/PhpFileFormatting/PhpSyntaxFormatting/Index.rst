@@ -404,8 +404,8 @@ very small and simple array declarations, e.g. ::
    );
 
 
-PHP 5.3 features
-""""""""""""""""
+PHP features
+""""""""""""
 
 The use of the newest PHP features is strongly recommended for
 extensions and mandatory for the TYPO3 core.
