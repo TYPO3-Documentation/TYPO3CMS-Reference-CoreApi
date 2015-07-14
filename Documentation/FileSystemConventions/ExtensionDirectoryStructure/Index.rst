@@ -40,10 +40,11 @@ An extension directory contains the following files and directories:
 .. container:: table-row
 
    Name
-         :code:`ext_icon.gif` or :code:`ext_icon.png`
+         :code:`ext_icon.png`, :code:`ext_icon.svg` or :code:`ext_icon.gif`
 
    Description
          This is the icon of the extension. The filename may not be changed.
+         Preferred is using an SVG file.
 
 
 .. container:: table-row
