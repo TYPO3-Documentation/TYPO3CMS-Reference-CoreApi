@@ -117,7 +117,7 @@ extensions with the name prefix "ext\_".
 
          |
 
-         The :file`ext\_tables.sql` file may not necessarily be "dumpable" directly to MySQL (because of
+         The :file:`ext\_tables.sql` file may not necessarily be "dumpable" directly to MySQL (because of
          the semi-complete table definitions allowed defining only required
          fields, see above). But the EM or Install Tool can handle this. The
          only very important thing is that the syntax of the content is exactly
