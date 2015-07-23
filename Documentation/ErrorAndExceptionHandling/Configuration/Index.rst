@@ -226,7 +226,7 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
 The table below shows which values can be set by the user and which
 are set by TYPO3.
 
-Values in plain text can be changed in localconf.php.
+Values in plain text can be changed in LocalConfiguration.php.
 
 **Values in bold are set by TYPO3.**
 
