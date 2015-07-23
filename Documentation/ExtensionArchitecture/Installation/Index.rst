@@ -33,7 +33,7 @@ extensions with TYPO3:
    An extension is loaded only if its extension
    key is listed in the comma-delimited list in the variable
    `$TYPO3_CONF_VARS["EXT"]["extList"]`. The list of enabled extensions
-   must be set and modified from inside typo3conf/localconf.php.
+   must be set and modified from inside typo3conf/LocalConfiguration.php.
    Extensions are loaded in the order they appear in this list. Any
    extensions listed in `$TYPO3_CONF_VARS["EXT"]["requiredExt"]` will be
    forcibly loaded before any extensions in

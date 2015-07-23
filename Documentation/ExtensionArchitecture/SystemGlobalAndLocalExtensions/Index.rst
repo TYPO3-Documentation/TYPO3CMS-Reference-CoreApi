@@ -30,8 +30,8 @@ Local extensions are located in the `typo3conf/ext/` directory.
 
 This is where to put extensions  *which are local* for a particular
 TYPO3 installation. The `typo3conf` directory is always local, containing
-local configuration (e.g.  `localconf.php`), local modules etc. If
-you put an extension here it will be available for a single TYPO3
+local configuration (e.g.  `LocalConfiguration.php`), local modules etc.
+If you put an extension here it will be available for a single TYPO3
 installation only. This is a "per-database" way to install an
 extension.
 

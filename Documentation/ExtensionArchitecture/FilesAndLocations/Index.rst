@@ -66,15 +66,15 @@ extensions with the name prefix "ext\_".
 
  - :Filename: ext\_localconf.php
    :Description:
-         Addition to :code:`localconf.php` which is included if found. Should
+         Addition to :code:`LocalConfiguration.php` which is included if found. Should
          contain additional configuration of :code:`$TYPO3_CONF_VARS` and may include
          additional PHP class files.
 
          |
 
          All :code:`ext_localconf.php` files of included extensions are
-         included right  **after** the :code:`typo3conf/localconf.php` file has
-         been included and database constants defined. Therefore you cannot
+         included right  **after** the :code:`typo3conf/LocalConfiguration.php` file
+         has been included and database constants defined. Therefore you cannot
          setup database name, username, password though, because database
          constants are defined already at this point.
 
@@ -187,8 +187,8 @@ extensions with the name prefix "ext\_".
 
          If this file is present the EM provides you with an interface for
          editing the configuration values defined in the file. The result is
-         written as a serialized array to :code:`localconf.php` file in the
-         variable :code:`$TYPO3_CONF_VARS['EXT']['extConf'][`
+         written as a serialized array to :code:`LocalConfiguration.php`
+         in the variable :code:`$TYPO3_CONF_VARS['EXT']['extConf'][`
          :code:`*extension_key*` :code:`]`
 
          |
