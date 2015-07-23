@@ -30,14 +30,9 @@ extensions with TYPO3:
 
 #. You must *install* it.
 
-   An extension is loaded only if its extension
-   key is listed in the comma-delimited list in the variable
-   `$TYPO3_CONF_VARS["EXT"]["extList"]`. The list of enabled extensions
-   must be set and modified from inside typo3conf/LocalConfiguration.php.
-   Extensions are loaded in the order they appear in this list. Any
-   extensions listed in `$TYPO3_CONF_VARS["EXT"]["requiredExt"]` will be
-   forcibly loaded before any extensions in
-   `$TYPO3_CONF_VARS["EXT"]["extList"]`.
+   An extension is loaded only if its `state` is set to `active`
+   in the PackageStates.php file.
+   Extensions are loaded in the order they appear in this list.
 
    An enabled extension is always
    global to the TYPO3 Installation - you cannot disable an extension
@@ -76,9 +71,7 @@ This is how the data structure for an extension in this array looks::
    )
 
 The order of the registered extensions in this array corresponds to
-the order they were listed in `$TYPO3_CONF_VARS["EXT"]["requiredExt"]`
-and `$TYPO3_CONF_VARS["EXT"]["extList"]` with duplicates removed, of
-course.
+the order they were listed in PackageStates.php.
 
 The inclusion of `ext_tables.php` or `ext_localconf.php` files (see next chapter) is done
 by traversing (a copy of) the `$TYPO3_LOADED_EXT` array.
