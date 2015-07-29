@@ -66,7 +66,8 @@ Highlights from new features brought by TYPO3 CMS 6.2:
 - well-known folder :file:`t3lib` is now gone and so is constant
   :code:`PATH_t3lib`.
 
-- a new API for registering AJAX handlers which provides CSRF protection
+- a new API for registering AJAX handlers which provides
+  `CSRF <https://en.wikipedia.org/wiki/Cross-site_request_forgery>`__ protection
   (documentation yet missing, but will come very soon).
 
 - the system categories API has matured and the :ref:`related chapter <categories>`

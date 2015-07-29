@@ -39,7 +39,7 @@ cannot have a TYPO3 extension recognized by TYPO3 without the
 "ext\_emconf.php" file etc. You can read more details like that in the
 table below.
 
-In general, do not introduce your own files in root directory of
+In general, do not introduce your own files in the root directory of
 extensions with the name prefix "ext\_".
 
 
@@ -206,7 +206,7 @@ extensions with the name prefix "ext\_".
          |
 
          18x16 GIF, PNG or SVG icon for the extension.
-         
+
          .. note::
 
             Extension icon will look nicer when provided as vector graphics (SVG)
