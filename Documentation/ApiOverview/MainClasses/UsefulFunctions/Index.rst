@@ -56,9 +56,31 @@ Please take time to learn these functions!
  - :Function:
          :code:`formatSize`
    :Comments:
-         Formats a number of bytes as Kb/Mb/Gb for visual output. ::
+         Formats a number of bytes as Kb/Mb/Gb for visual output.
 
-            $size = ' (' . \TYPO3\CMS\Core\Utility\GeneralUtility::formatSize(filesize($v)) . 'bytes)';
+         Size formatting supports two keywords additionally to the list of labels:
+
+         - iec: uses the Ki, Mi, etc prefixes and binary base (power of two, 1024)
+         - si: uses the k, M, etc prefixes and decimal base (power of ten, 1000)
+
+         The default formatting is set to "iec" base size calculations on the same base as before.
+         The fractional part, when present, will be two numbers.
+
+         The list of labels is still supported and defaults to using binary base. It is also
+         possible to explicitly choose between binary or decimal base when it is used. ::
+
+            $size = \TYPO3\CMS\Core\Utility\GeneralUtility::formatSize(85123) . 'B';
+            echo $size; // output:  83.13 KiB
+
+            $size = \TYPO3\CMS\Core\Utility\GeneralUtility::formatSize(85123, 'si') . 'B';
+            echo $size; // output:  85.12 kB
+
+            $size = \TYPO3\CMS\Core\Utility\GeneralUtility::formatSize(85123, '| kB| MB| GB| TB| PB| EB| ZB| YB');
+            echo $size; // output:  83.13 kB
+
+            $size = \TYPO3\CMS\Core\Utility\GeneralUtility::formatSize(85123, '| kB| MB| GB| TB| PB| EB| ZB| YB', 1000);
+            echo $size; // output:  85.12 kB
+
 
 
  - :Function:
