@@ -49,7 +49,7 @@ The Log Writer configuration is read from the subkey :code:`writerConfiguration`
          // add a FileWriter
        'TYPO3\\CMS\\Core\\Log\\Writer\\FileWriter' => array(
            // configuration for the writer
-         'logFile' => 'typo3temp/logs/error.log'
+         'logFile' => 'typo3temp/logs/typo3_7ac500bce5.log'
        )
      )
    );
