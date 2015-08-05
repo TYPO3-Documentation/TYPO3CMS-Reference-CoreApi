@@ -211,16 +211,6 @@ Global variables
          Yes
 
 
- - :Variable:
-         $FILEICONS
-   :Defined:
-         typo3/sysext/core/ext_tables.php
-   :Description:
-         Associative array; keys are the type (e.g. "tif") and values are the
-         filename (without path).
-   :FE:
-         (occasionally)
-
 
  - :Variable:
          $FILEMOUNTS
