@@ -119,24 +119,7 @@ Global variables
          No
 
 
- - :Variable:
-         $CLIENT
-   :Defined:
-         SystemEnvironmentBuilder::initializeGlobalVariables()
-   :Description:
-         Array with browser information (based on HTTP\_USER\_AGENT). Array
-         keys:
-
-         "BROWSER" = msie,net,opera or blank,
-
-         "VERSION" = browser version as double,
-
-         "SYSTEM" = win,mac,unix
-   :FE:
-         Yes
-
-
- - :Variable:
+  - :Variable:
          $PAGES\_TYPES
    :Defined:
          typo3/sysext/core/ext_tables.php
@@ -210,16 +193,6 @@ Global variables
    :FE:
          Yes
 
-
- - :Variable:
-         $FILEICONS
-   :Defined:
-         typo3/sysext/core/ext_tables.php
-   :Description:
-         Associative array; keys are the type (e.g. "tif") and values are the
-         filename (without path).
-   :FE:
-         (occasionally)
 
 
  - :Variable:

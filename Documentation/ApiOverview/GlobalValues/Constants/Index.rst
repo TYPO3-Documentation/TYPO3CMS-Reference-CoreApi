@@ -103,7 +103,6 @@ These constants are defined at various points during the bootstrap sequence.
          SystemEnvironmentBuilder::definePaths()
    :Description:
          Relative path (from the :code:`PATH_typo3`) to a properly configured module.
-         Based on :code:`TYPO3_MOD_PATH`.
    :FE:
          No
 
