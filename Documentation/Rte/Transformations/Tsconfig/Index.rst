@@ -210,55 +210,6 @@ overruleMode
          list" like in $TCA).
 
 
-.. _transformations-tsconfig-processing-typolist:
-
-typolist
-~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         typolist
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for "ts\_transform" only)*
-
-         This enables/disables the conversion between <TYPOLIST> and <UL>
-         sections. Default (if unset) is that "typolist" is enabled.
-
-         **Example that disables "typolist":**
-
-         typolist = 0
-
-
-.. _transformations-tsconfig-processing-typohead:
-
-typohead
-~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         typohead
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for "ts\_transform" only)*
-
-         This enables/disables the conversion between <TYPOHEAD> and <Hx>
-         sections.
-
-         **Example that disables "typohead":**
-
-         typohead = 0
-
 
 .. _transformations-tsconfig-processing-preservetags:
 
@@ -285,7 +236,7 @@ preserveTags
          **Example:**
 
          In the default TypoScript configuration of content rendering the tags
-         typotags <LINK>, <TYPOLIST> and <TYPOHEAD> are the most widely used.
+         typotags <LINK> are the most widely used.
          However the <TYPOCODE>-tag is also configured to let you define a
          section being formatted in monospace. Lets also imaging, you have
          defined a custom tag, <MYTAG>. In order to preserve these tag from
@@ -321,35 +272,6 @@ dontConvBRtoParagraph
          lines (chr(10))
 
 
-.. _transformations-tsconfig-processing-internalizefonttags:
-
-internalizeFontTags
-~~~~~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         internalizeFontTags
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for "ts\_transform" and "css\_transform" only (function
-         divideIntoLines))*
-
-         This splits the content into font-tag chunks.
-
-         If there are any <P>/<DIV> sections inside of them, the font-tag is
-         wrapped AROUND the content INSIDE of the P/DIV sections and the outer
-         font-tag is removed.
-
-         This functions seems to be a good choice for pre-processing content if
-         it has been pasted into the RTE from e.g. star-office.
-
-         In that case the font-tags is normally on the OUTSIDE of the sections.
-
 
 .. _transformations-tsconfig-processing-allowtagsoutside:
 
@@ -378,28 +300,6 @@ allowTagsOutside
 
          IMG,HR
 
-
-.. _transformations-tsconfig-processing-allowtagsintypolists:
-
-allowTagsInTypolists
-~~~~~~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         allowTagsInTypolists
-
-   Data type
-         commalist of strings
-
-   Description
-         *(Applies for "ts\_transform" only)*
-
-         Enter tags which are allowed inside of <typolist> tags when content is
-         sent to the database.
-
-         Default is "br,font,b,i,u,a,img,span"
 
 
 .. _transformations-tsconfig-processing-allowtags:

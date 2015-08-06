@@ -24,9 +24,9 @@ APIs in that regard.
 
    Since TYPO3 4.4, the TYPO3 backend relies primarily on ExtJS. As of TYPO3 6.0,
    jQuery was introduced in the new Extension Manager and is the library of choice
-   for the future. Although Prototype and Scriptaculous are still packed with the Core
-   and used in places, they should not be used for any new stuff, nor relied upon
-   in extensions.
+   for the future. Since TYPO3 7.4, Prototype and Scriptaculous are not packed with the Core
+   anymore. If you need them for your projects, you need to take care of shipping them
+   yourself, preferable by usage of requireJs.
 
 
 .. toctree::
@@ -36,4 +36,3 @@ APIs in that regard.
 
    Ajax/Index
    UsingExtjs/Index
-

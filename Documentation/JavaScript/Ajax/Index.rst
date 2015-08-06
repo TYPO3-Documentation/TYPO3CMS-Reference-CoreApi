@@ -24,11 +24,10 @@ all TYPO3 variables are loaded.
 The whole architecture builds on top of successful techniques
 developers already know. It's a mixture between the eID concept from
 the TYPO3 Frontend, the hooking idea we know from other places in
-TYPO3, piped through a single small AJAX file :file:`typo3/ajax.php` that
+TYPO3, piped through the single entrypoint file :file:`index.php?ajaxID=foobar` that
 creates a PHP AJAX object to see if an error occurred or not. If
 something went wrong, the X-JSON header is set to false and the
-client-side AJAX request (an AJAX responder in the Prototype
-Javascript framework) will know that there is an error.
+client-side AjaxRequestHandler will know that there is an error.
 
 
 .. toctree::

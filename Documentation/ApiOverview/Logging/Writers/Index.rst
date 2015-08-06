@@ -58,16 +58,17 @@ FileWriter
 The file writer logs into a log file, one log record per line.
 If the log file does not exist, it will be created (including parent directories, if needed).
 Please make sure that your web server has write-permissions to that path
-and it is below the root directory of your web site (defined by :code:`PATH_site`).
+and it is below the root directory of your web site (defined by :code:`PATH_site`). The filename is
+appended with a hash, that depends on the encryption key.
 If :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess']` is set,
 an :file:`.htaccess` file is added to the directory.
 It protects your log files from being accessed from the web.
 
-=======  =========  ================  ================================
+=======  =========  ================  ===========================================
 Option   Mandatory  Description       Default
-=======  =========  ================  ================================
-logFile  no         Path to log file  :file:`typo3temp/logs/typo3.log`
-=======  =========  ================  ================================
+=======  =========  ================  ===========================================
+logFile  no         Path to log file  :file:`typo3temp/logs/typo3_7ac500bce5.log`
+=======  =========  ================  ===========================================
 
 
 .. _logging-writers-php:
