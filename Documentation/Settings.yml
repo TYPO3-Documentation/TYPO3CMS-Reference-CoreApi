@@ -2,12 +2,12 @@
 ---
 conf.py:
   project: TYPO3 Security Guide
-  copyright: 2011-2014
+  copyright: 2011-2015
   version: 1.0.6
   release: 1.0.6
   intersphinx_mapping:
     t3install:
-    - http://docs.typo3.org/typo3cms/InstallationGuide
+    - https://docs.typo3.org/typo3cms/InstallationGuide
     - null
   html_theme_options:
     github_repository: TYPO3-Documentation/TYPO3CMS-Guide-Security

@@ -31,7 +31,7 @@ TYPO3 Security Guide
       security forEditors forAdmins forDevelopers forBeginners forIntermediates forAdvanced
 
 :Copyright:
-      2011-2014
+      2011-2015
 
 :Author:
       Documentation Team
@@ -40,15 +40,15 @@ TYPO3 Security Guide
       documentation@typo3.org
 
 :License:
-      Open Content License available from `www.opencontent.org/opl.shtml
-      <http://www.opencontent.org/opl.shtml>`_
+      Open Publication License available from `www.opencontent.org/openpub/
+      <http://www.opencontent.org/openpub/>`_
 
 :Rendered:
       |today|
 
 The content of this document is related to TYPO3 CMS, an open source
 enterprise content management system licensed under GNU/GPL, available
-from `www.typo3.org <http://www.typo3.org/>`_
+from `www.typo3.org <https://typo3.org/>`_
 
 
 **Official Documentation**
