@@ -142,7 +142,7 @@ many are optional. Note that this list is incomplete. A full list is available i
          `"Extension Template" on docs.typo3.org`_ for more information about
          structure and syntax of extension manuals.
 
-         .. _"Extension Template" on docs.typo3.org: http://docs.typo3.org/typo3cms/ExtensionManualExample/
+         .. _"Extension Template" on docs.typo3.org: https://docs.typo3.org/typo3cms/ExtensionManualExample/
 
 
 .. container:: table-row

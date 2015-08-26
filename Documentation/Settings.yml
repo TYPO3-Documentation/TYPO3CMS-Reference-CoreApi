@@ -2,12 +2,12 @@
 ---
 conf.py:
   project: TYPO3 CMS Coding Guidelines
-  copyright: 2000-2014
+  copyright: 2000-2015
   version: 7
   release: 7
   intersphinx_mapping:
     t3api:
-    - http://docs.typo3.org/typo3cms/CoreApiReference/
+    - https://docs.typo3.org/typo3cms/CoreApiReference/
     - null
   html_theme_options:
     github_repository: TYPO3-Documentation/TYPO3CMS-Reference-CodingGuidelines
