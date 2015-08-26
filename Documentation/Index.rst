@@ -16,7 +16,7 @@ File Abstraction Layer
       doc_core_fal
 
 :Version:
-      6.0.0
+      6.2.0
 
 :Language:
       en
@@ -28,7 +28,7 @@ File Abstraction Layer
       fal, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2012-2013
+      2012-2015
 
 :Author:
       Documentation Team
@@ -37,8 +37,8 @@ File Abstraction Layer
       documentation@typo3.org
 
 :License:
-      Open Content License available from `www.opencontent.org/opl.shtml
-      <http://www.opencontent.org/opl.shtml>`_
+      Open Publication License available from `www.opencontent.org/openpub/
+      <http://www.opencontent.org/openpub/>`_
 
 :Rendered:
       |today|
@@ -46,7 +46,7 @@ File Abstraction Layer
 The content of this document is related to TYPO3,
 
 a GNU/GPL CMS/Framework available from `www.typo3.org
-<http://www.typo3.org/>`_
+<https://typo3.org/>`_
 
 
 **Official documentation**
