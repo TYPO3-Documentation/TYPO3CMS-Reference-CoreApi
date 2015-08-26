@@ -14,7 +14,7 @@ If you plan to upload your extension to the TYPO3 Extension Repository (TER), yo
 documentation to your extension. A documentation will help users and administrators to quickly install and configure
 your extension and give it more weight.
 
-The documentation platform http://docs.typo3.org centralizes documentation for every project. It supports three
+The documentation platform https://docs.typo3.org centralizes documentation for every project. It supports three
 different kind of documentation:
 
 #. **(recommended)** A Sphinx project, stored within :file:`EXT:{extkey}/Documentation/`
@@ -53,7 +53,7 @@ provides tools that help write and manage Sphinx projects:
   the TYPO3 Git repository.
 - The `Extension Builder <http://typo3.org/extensions/repository/view/extension_builder>`_
   provides a skeleton documentation based on the above-mentioned Git repository.
-- A `good primer <http://docs.typo3.org/typo3cms/drafts/github/xperseguers/RstPrimer/>`_
+- A `good primer <https://docs.typo3.org/typo3cms/drafts/github/xperseguers/RstPrimer/>`_
   to get started using the reStructuredText markup.
 
 

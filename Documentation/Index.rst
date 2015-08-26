@@ -31,7 +31,7 @@ TYPO3 Core APIs
       tsref, typoscript, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2000-2014
+      2000-2015
 
 :Author:
       Documentation Team
@@ -40,15 +40,15 @@ TYPO3 Core APIs
       documentation@typo3.org
 
 :License:
-      Open Content License available from `www.opencontent.org/opl.shtml
-      <http://www.opencontent.org/opl.shtml>`_
+      Open Publication License available from `www.opencontent.org/openpub/
+      <http://www.opencontent.org/openpub/>`_
 
 :Rendered:
       |today|
 
 The content of this document is related to TYPO3 CMS,
 a GNU/GPL CMS/Framework available from `www.typo3.org
-<http://www.typo3.org/>`_
+<https://typo3.org/>`_
 
 
 **Official Documentation**

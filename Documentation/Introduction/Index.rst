@@ -106,7 +106,7 @@ For general questions about the documentation get in touch by writing
 to `documentation@typo3.org <mailto:documentation@typo3.org>`_ .
 
 If you find a bug in this manual, please be so kind as to check the
-online version on http://docs.typo3.org/typo3cms/CoreApiReference/.
+online version on https://docs.typo3.org/typo3cms/CoreApiReference/.
 From there you can hit the "Edit me on GitHub" button in the top right corner
 and submit a pull request via GitHub. Alternatively you can just file an issue
 using the bug tracker: https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues.
