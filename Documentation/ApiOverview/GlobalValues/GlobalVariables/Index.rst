@@ -119,7 +119,7 @@ Global variables
          No
 
 
-  - :Variable:
+ - :Variable:
          $PAGES\_TYPES
    :Defined:
          typo3/sysext/core/ext_tables.php
