@@ -28,7 +28,7 @@ TypoScript Syntax and In-depth Study
       typoscript, syntax, forAdmins, forIntermediates
 
 :Copyright:
-      2000-2014
+      2000-2015
 
 :Author:
       Documentation Team
@@ -37,8 +37,8 @@ TypoScript Syntax and In-depth Study
       documentation@typo3.org
 
 :License:
-      Open Content License available from `www.opencontent.org/opl.shtml
-      <http://www.opencontent.org/opl.shtml>`_
+      Open Publication License available from `www.opencontent.org/openpub/
+      <http://www.opencontent.org/openpub/>`_
 
 :Rendered:
       |today|
@@ -46,7 +46,7 @@ TypoScript Syntax and In-depth Study
 The content of this document is related to TYPO3,
 
 a GNU/GPL CMS/Framework available from `www.typo3.org
-<http://www.typo3.org/>`_
+<https://typo3.org/>`_
 
 
 **Official documentation**
