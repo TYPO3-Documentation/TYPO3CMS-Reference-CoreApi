@@ -28,7 +28,7 @@ Closing PHP tags (e.g. at the end of the file) are not used.
 Line breaks
 """""""""""
 
-TYPO3 uses Unix line endings (:code:`\n`, PHP :code:`chr(10)`). If
+TYPO3 uses Unix line endings (`\n`, PHP `chr(10)`). If
 a developer uses Windows or Mac OS X platform, the editor must be
 configured to use Unix line endings.
 
@@ -86,8 +86,8 @@ manually or using a text editor that takes care of this.
 Spaces must be added:
 
 - on both sides of string, arithmetic, assignment and other similar
-  operators (for example :code:`.`, :code:`=`, :code:`+`, :code:`-`,
-  :code:`?`, :code:`:`, :code:`*`, etc)
+  operators (for example `.`, `=`, `+`, `-`,
+  `?`, `:`, `*`, etc)
 
 - after commas
 
@@ -95,22 +95,23 @@ Spaces must be added:
 
 - after asterisks in multiline comments
 
-- after conditional keywords like :code:`if (` and :code:`switch (`
+- after conditional keywords like `if (` and `switch (`
 
 - before conditional keywords if the keyword is not the first
-  character like :code:`} elseif {`
+  character like `} elseif {`
 
 Spaces must not be present:
 
-- after an opening brace and before a closing brace (for example :code`explode( 'blah', 'someblah' )` should be wrtitten as :code`explode('blah', 'someblah')`
+- after an opening brace and before a closing brace. For example:
+  `explode( 'blah', 'someblah' )` needs to be written as `explode('blah', 'someblah')`
 
 Character set
 """""""""""""
 
 All TYPO3 source files use the UTF-8 character set without byte order
 mark (BOM) since version 4.5. Encoding declarations like
-:code:`declare(encoding = 'utf-8');` must not be used. They might lead
-to problems, especially in :code:`ext_tables.php` and
-:code:`ext_localconf.php` files of extensions, which are merged
+`declare(encoding = 'utf-8');` must not be used. They might lead
+to problems, especially in `ext_tables.php` and
+`ext_localconf.php` files of extensions, which are merged
 internally in TYPO3 CMS. Files from third-party libraries may have
 different encodings.
