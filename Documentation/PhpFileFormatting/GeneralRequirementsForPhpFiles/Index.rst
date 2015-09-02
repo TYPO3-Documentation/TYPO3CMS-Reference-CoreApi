@@ -100,6 +100,9 @@ Spaces must be added:
 - before conditional keywords if the keyword is not the first
   character like :code:`} elseif {`
 
+Spaces must not be present:
+
+- after an opening brace and before a closing brace (for example :code`explode( 'blah', 'someblah' )` should be wrtitten as :code`explode('blah', 'someblah')`
 
 Character set
 """""""""""""
