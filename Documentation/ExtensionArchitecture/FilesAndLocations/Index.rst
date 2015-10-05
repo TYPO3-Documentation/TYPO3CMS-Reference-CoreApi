@@ -303,7 +303,7 @@ Configuration/TCA/Overrides
 Documentation
   Contains the manual in reStructuredText format (:ref:`read more on the topic <extension-documentation>`).
 
-Resources/Private/Languages
+Resources/Private/Language
   XLIFF files for localized labels.
 
 Resources/Private/Layouts
