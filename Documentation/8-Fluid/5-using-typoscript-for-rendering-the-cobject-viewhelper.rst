@@ -1,3 +1,5 @@
+.. include:: ../Includes.txt
+
 Using TypoScript For Rendering: The cObject-ViewHelper
 ================================================================================================
 
@@ -13,7 +15,7 @@ Setup::
 	lib.title = TEXT
 	lib.title.value = Extbase and Fluid
 
-»Extbase and Fluid« will be outputted in the template. Now we can output an 
+»Extbase and Fluid« will be outputted in the template. Now we can output an
 image (e.g. headlines with unusual fonts) by changing the TypoScript to::
 
 	lib.title = IMAGE
