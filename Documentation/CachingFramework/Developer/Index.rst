@@ -32,8 +32,8 @@ and the :ref:`database backend <caching-backend-db>` by default.
 
 .. code-block:: php
 
-   if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
-       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
+   if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
    }
 
 .. tip::
@@ -57,11 +57,11 @@ should hint an integrator about specific caching needs or setups in this case.
 
 .. code-block:: php
 
-   if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
-       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
+   if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
    }
-   if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'])) {
-       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = 'TYPO3\\CMS\\Core\\Cache\\Backend\\TransientMemoryBackend';
+   if (!isset($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'])) {
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = 'TYPO3\\CMS\\Core\\Cache\\Backend\\TransientMemoryBackend';
    }
 
 To get an instance of a cache, :code:`GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache('myext_mycache')`
@@ -81,27 +81,27 @@ If an extension must also support these versions, it should implement this other
 process encapsulated in a proper version check. Example::
 
    // Register cache 'myext_mycache'
-   if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
-       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
+   if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
    }
    // Define string frontend as default frontend, this must be set with TYPO3 4.5 and below
    // and overrides the default variable frontend of 4.6
-   if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['frontend'])) {
-       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['frontend'] = 'TYPO3\\CMS\\Core\\Cache\\Frontend\\StringFrontend';
+   if (!isset($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['frontend'])) {
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['frontend'] = 'TYPO3\\CMS\\Core\\Cache\\Frontend\\StringFrontend';
    }
    if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < '4006000') {
-       if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'])) {
-           $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = 't3lib_cache_backend_DbBackend';
+       if (!isset($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'])) {
+           $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = 't3lib_cache_backend_DbBackend';
        }
        // Define data and tags table for 4.5 and below (obsolete in 4.6)
-       if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['options'])) {
-           $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['options'] = array();
+       if (!isset($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['options'])) {
+           $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['options'] = array();
        }
-       if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']['cacheTable'])) {
-           $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']['cacheTable'] = 'tx_myext_mycache';
+       if (!isset($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']['cacheTable'])) {
+           $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']['cacheTable'] = 'tx_myext_mycache';
        }
-       if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']['tagsTable'])) {
-           $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']['tagsTable'] = 'tx_myext_mycache_tags';
+       if (!isset($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']['tagsTable'])) {
+           $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['options']['tagsTable'] = 'tx_myext_mycache_tags';
        }
    }
 
@@ -136,7 +136,7 @@ If the database backend is chosen, the extension must add the required tables in
        KEY cache_tag (tag)
    ) ENGINE=InnoDB;
 
-An extension should usually not depend on :code:`$TYPO3_CONF_VARS['SYS']['useCachingFramework']`
+An extension should usually not depend on :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['useCachingFramework']`
 being **true**. This variable is always **true** since TYPO3 CMS 4.6, but could be **false**
 in older version. It should be possible to use the caching framework in an extension even if
 it is not activated globally for the Core. To achieve this, an extension must not expect the
