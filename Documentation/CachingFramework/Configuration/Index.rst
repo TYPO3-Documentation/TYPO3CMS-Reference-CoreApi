@@ -12,7 +12,7 @@
 Configuration
 ^^^^^^^^^^^^^
 
-Caches are configured in the array :code:`$TYPO3_CONF_VARS['SYS']['caching']`.
+Caches are configured in the array :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']`.
 The basic structure is predefined in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`,
 and consists of the single section:
 
@@ -34,8 +34,8 @@ the cache system fall back to default backend and default frontend settings:
 
 .. code-block:: php
 
-   if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
-       $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
+   if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
    }
 
 Extensions like **extbase** define default caches this way, giving administrators full freedom for specific and
@@ -80,4 +80,4 @@ Example entry to switch the *phpcode* cache (used for the autoloader cache) to u
 
 .. code-block:: php
 
-   $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['cache_phpcode']['backend'] = 'TYPO3\CMS\Core\Cache\Backend\NullBackend';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['cache_phpcode']['backend'] = 'TYPO3\CMS\Core\Cache\Backend\NullBackend';
