@@ -71,12 +71,11 @@ address the task at hand.
 
       :ref:`Sitemap`
 
-**Table of Contents**
+.. **Table of Contents**
 
 .. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+   :maxdepth: 99
+   :hidden:
 
    Introduction/Index
    ExtensionArchitecture/Index

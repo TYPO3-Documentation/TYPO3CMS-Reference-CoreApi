@@ -1,12 +1,5 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../Includes.txt
-
-
-
 
 
 .. _api-overview:
@@ -31,7 +24,7 @@ http://typo3.org/documentation/api/.
 .. toctree::
    :maxdepth: 5
    :titlesonly:
-   :glob:
+   :hidden:
 
    Namespaces/Index
    Autoloading/Index
