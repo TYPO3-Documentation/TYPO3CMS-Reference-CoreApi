@@ -47,7 +47,7 @@ smtp
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = '<transport protocol>';`
    Connect to the server using the specified transport protocol. Requires openssl library.
-   Usually available: ssl, sslv2, sslv3, tls. Check `stream_get_transports()`.
+   Usually available: ssl, sslv2, sslv3, tls. Check :php:`stream_get_transports()`.
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username] = '<username>';`
    If your SMTP server requires authentication, the username.
