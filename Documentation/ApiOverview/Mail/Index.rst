@@ -20,7 +20,7 @@ Configuration
 
 Several settings are available in the Install Tool ("All Configuration")
 affecting the sending process. The most important one is
-**:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport']`**, which can take the
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport']`, which can take the
 following values:
 
 .. _mail-configuration-mail:
