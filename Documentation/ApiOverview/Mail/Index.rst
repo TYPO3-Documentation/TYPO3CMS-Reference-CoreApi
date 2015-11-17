@@ -2,7 +2,6 @@
 .. include:: ../../Includes.txt
 
 
-
 .. _mail:
 
 ========
@@ -21,7 +20,7 @@ Configuration
 
 Several settings are available in the Install Tool ("All Configuration")
 affecting the sending process. The most important one is
-**$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport']**, which can take the
+**:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport']`**, which can take the
 following values:
 
 .. _mail-configuration-mail:
@@ -29,7 +28,7 @@ following values:
 mail
 ----
 
-`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'mail';`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'mail';`
    Default and backwards compatible setting. This is the most unreliable option.
    If you are serious about sending mails, consider using "smtp" or "sendmail".
 
@@ -38,22 +37,22 @@ mail
 smtp
 ----
 
-`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'smtp';`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'smtp';`
    Sends messages over SMTP. It can deal with encryption and authentication.
    Works exactly the same on Windows, Unix and MacOS. Requires a mail server
    and the following additional settings:
 
-`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = '<server:port>';`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = '<server:port>';`
    Mailserver name and port to connect to. Port defaults to "25".
 
-`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = '<transport protocol>';`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = '<transport protocol>';`
    Connect to the server using the specified transport protocol. Requires openssl library.
    Usually available: ssl, sslv2, sslv3, tls. Check `stream_get_transports()`.
 
-`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username] = '<username>';`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username] = '<username>';`
    If your SMTP server requires authentication, the username.
 
-`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password] = '<password>';`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password] = '<password>';`
    If your SMTP server requires authentication, the password.
 
 Example::
@@ -70,11 +69,11 @@ Example::
 sendmail
 --------
 
-`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'sendmail';`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'sendmail';`
    Sends messages by communicating with a locally installed MTA - such as sendmail.
    This may require setting the additional option:
 
-`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command'] = '<command>';`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command'] = '<command>';`
    The command to call to send a mail locally. The default works on most modern
    UNIX based mail servers (sendmail, postfix, exim).
 
@@ -89,13 +88,13 @@ sendmail
 mbox
 ----
 
-`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'mbox';`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'mbox';`
    This doesn't send any mail out, but instead will write every outgoing mail to a file
    adhering to the RFC 4155 mbox format, which is a simple text file where the mails are
    concatenated. Useful for debugging the mail sending process and on development machines
    which cannot send mails to the outside. The file to write to is defined by:
 
-`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_mbox_file'] = '<abs/path/to/mbox/file>';`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_mbox_file'] = '<abs/path/to/mbox/file>';`
    The file where to write the mails into. Path must be absolute.
 
 .. _mail-configuration-classname:
@@ -103,7 +102,7 @@ mbox
 <classname>
 -----------
 
-`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = '<classname>';`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = '<classname>';`
    Custom class which implements Swift_Transport. The constructor receives all settings from
    the MAIL section to make it possible to add custom settings.
 

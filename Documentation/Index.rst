@@ -75,7 +75,6 @@ address the task at hand.
 
 .. toctree::
    :maxdepth: 99
-   :hidden:
 
    Introduction/Index
    ExtensionArchitecture/Index
