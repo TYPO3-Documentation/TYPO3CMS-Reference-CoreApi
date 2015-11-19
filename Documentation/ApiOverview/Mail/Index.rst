@@ -61,7 +61,7 @@ Example::
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = 'localhost';
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = 'ssl'; // ssl, sslv3, tls
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username'] = 'johndoe';
-  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password] = 'cooLSecret';
+  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password'] = 'cooLSecret';
 
 
 .. _mail-configuration-sendmail:
