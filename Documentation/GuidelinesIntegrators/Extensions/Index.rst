@@ -27,20 +27,16 @@ Stable and reviewed extensions
 """"""""""""""""""""""""""""""
 
 Only a small percentage of the extensions available in the TER have
-been reviewed by the TYPO3 Security team so far. Reviewed extensions
-are marked with a checkmark next to the release state:
+been reviewed by the TYPO3 Security team. This does not imply that
+extensions without such an audit are insecure, but they probably have
+not been checked for potential security issues by an independent 3rd
+party (such as the TYPO3 Security Team).
 
-.. figure:: ../../Images/extension-state-001.png
-   :alt: Marker for a reviewed extension
-
-This does not imply that extensions without this checkmark are
-insecure, but they probably have not been checked for potential
-security issues by an independent 3rd party (such as the TYPO3
-Security Team). The status of an extension ("alpha", "beta", "stable",
-etc.) should also give you an indication in which state the developer
-thinks the extension is. However, this classification is an arbitrary
-setting by the developer and may not reflect the real status and/or
-opinions of independent parties.
+The status of an extension ("alpha", "beta", "stable", etc.) should
+also give you an indication in which state the developer claims the
+extension is. However, this classification is an arbitrary setting by
+the developer and may not reflect the real status and/or opinions of
+independent parties.
 
 Always keep in mind that an extension may not perform the
 functionality that it pretends to do: an attacker could write an
