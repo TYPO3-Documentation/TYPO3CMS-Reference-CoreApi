@@ -70,7 +70,7 @@ user settings, you will receive an email from TYPO3 each time you (or
 notification is an additional security measure because you will know
 if someone else picked up your password and uses your account.
 
-.. figure:: ../../Images/editor-notify-on-login-001b.png
+.. figure:: ../../Images/editor-notify-on-login.png
    :alt: The screen "User Settings" with the "Notify" checkbox
 
 Assuming you have activated this feature and you got a notification

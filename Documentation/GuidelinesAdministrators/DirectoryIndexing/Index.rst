@@ -17,7 +17,7 @@ enables search engines to index your file structure and possibly
 reveals sensitive data. The screenshot below shows an example of such
 data that can be retrieved with a simple HTTP request.
 
-.. figure:: ../../Images/directory-indexing-001.png
+.. figure:: ../../Images/directory-indexing.png
    :alt: Screenshot of an example directory index
 
 In this case only the list of extensions is revealed, but more

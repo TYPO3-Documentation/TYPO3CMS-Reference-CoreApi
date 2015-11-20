@@ -32,7 +32,7 @@ privileges. TYPO3 CMS versions prior 4.6.0 offer this function in the
 "User Settings", and since TYPO3 CMS version 4.6.0 administrators can
 unlock the Install Tool when accessing the module in the backend.
 
-.. figure:: ../../Images/enable-install-tool-001.png
+.. figure:: ../../Images/enable-install-tool.png
    :alt: Screen to enable the Install Tool
 
 Conversely, this also means, you should delete this file as soon as
@@ -71,7 +71,7 @@ Install Tool password. The first thing you should do, after taking over
 a new TYPO3 system from a system administrator, is to change the password
 to a new and secure one. Log-in to the Install Tool and change it there.
 
-.. figure:: ../../Images/change-install-tool-password-001.png
+.. figure:: ../../Images/change-install-tool-password.png
    :alt: Screen to change the Install Tool password
 
 The option to change the password of the Install Tool in TYPO3 versions
