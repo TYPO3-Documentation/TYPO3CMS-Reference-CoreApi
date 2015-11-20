@@ -162,14 +162,12 @@ Integrity of external JavaScript files
 The TypoScript property :code:`integrity` has been introduced with TYPO3
 CMS version 7.3. This configuration allows integrators to specify a SRI
 hash in order to allow a verification of the integrity of externally
-hosted JavaScript files.
-
-SRI (Sub-Resource Integrity) is a
+hosted JavaScript files. SRI (Sub-Resource Integrity) is a
 `W3C specification <http://www.w3.org/TR/SRI/>`_
 that allows web developers to ensure that resources hosted on third-party
 servers have not been tampered with.
 
-The TypoScript property can be used used for the following PAGE
+The TypoScript property can be used for the following PAGE
 properties:
 
 * :code:`page.includeJSLibs`
@@ -177,7 +175,7 @@ properties:
 * :code:`includeJS`
 * :code:`includeJSFooter`
 
-A typical example in TypoScript could look like:
+A typical example in TypoScript looks like::
 
    page {
      includeJS {
