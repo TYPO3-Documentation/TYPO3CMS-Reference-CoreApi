@@ -42,7 +42,7 @@ Flash messages API
 ------------------
 
 Creating a flash message is achieved by simply instantiating an object
-of class :class:`\TYPO3\CMS\Core\Messaging\FlashMessage`::
+of class :class:`\\TYPO3\\CMS\\Core\\Messaging\\FlashMessage`::
 
    $message = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
       'My message text',
@@ -52,7 +52,7 @@ of class :class:`\TYPO3\CMS\Core\Messaging\FlashMessage`::
    );
 
 The severity is defined by using class constants provided by
-:class:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
+:class:`\\TYPO3\\CMS\\Core\\Messaging\\FlashMessage`:
 
 - :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::NOTICE` for notifications
 
