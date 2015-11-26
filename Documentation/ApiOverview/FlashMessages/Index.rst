@@ -82,7 +82,8 @@ or render it on your own where ever you want.
 This example adds the flash message at the top of modules when
 rendering the next request::
 
-   \TYPO3\CMS\Core\Messaging\FlashMessageQueue::addMessage($message);
+   $messageQueue = $objectManager->get('\TYPO3\CMS\Core\Messaging\FlashMessageQueue');
+   $messageQueue->addMessage($message);
 
 The message is added to the queue and then the template class calls
 :code:`\TYPO3\CMS\Core\Messaging\FlashMessageQueue::renderFlashMessages()` which renders all
