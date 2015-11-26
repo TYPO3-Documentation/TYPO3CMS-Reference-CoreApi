@@ -72,18 +72,18 @@ Consider the following:
 
 - Extension location: :file:`typo3conf/ext/my_extension`
 
-- Class name: :class:`Tx_MyExtension_Utility_FooBar`
+- Class name: :php:`Tx_MyExtension_Utility_FooBar`
 
 - Required file location: :file:`typo3conf/ext/my_extension/Classes/Utility/FooBar.php`
 
 which respects the following rules:
 
-- The class name must start with :class:`Tx_`
+- The class name must start with :php:`Tx_`
 
 - In the extension name underscores are converted to upper camel case, hence :code:`MyExtension`
 
 - Every underscore after the extension name in the class name is resolved to a uppercases folder name
-  below the :file:`Classes` directory, i.e. :class:`"_utility"` becomes folder :file:`"Utility"`
+  below the :file:`Classes` directory, i.e. :php:`"_utility"` becomes folder :file:`"Utility"`
 
 - The last part of the class name resolves to the file name with suffix :file:`.php`
 
