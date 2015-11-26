@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# mb, 2015-10-01, 2015-11-05
+# mb, 2015-10-01, 2015-11-24
 
 # This file lives at https://github.com/marble/typo3-docs-typo3-org-resources/blob/master/userroot/scripts/bin/conf-2015-10.py
 # Check for a new version!
@@ -27,6 +27,10 @@ lexers['php-annotations'] = PhpLexer(startinline=True)
 
 # a dictionary to take notes while we do this processing
 notes = {}
+
+# settings from Overrides.cfg
+OVERRIDES = {}
+
 
 # PART 1: preparations
 
@@ -226,8 +230,9 @@ def updateModuleGlobals(GLOBALS, US):
     # add extensions from user settings if legal
     if US.has_key('extensions'):
         for k,e in US['extensions'].items():
-            if e in legal_extensions and not e in GLOBALS['extensions']:
-                GLOBALS['extensions'].append(e)
+            if not e in GLOBALS['extensions']:
+                if (e in legal_extensions) or (US is OVERRIDES):
+                    GLOBALS['extensions'].append(e)
 
     if US.has_key('extlinks'):
         for k, v in US['extlinks'].items():
@@ -374,9 +379,6 @@ elif type(html_theme_options['use_opensearch']) in [type(''), type(u'')]:
 # If MAKEDIR/Overrides.cfg exists:
 # Set all settings thereby overriding existing ones.
 # So the admin has the last word
-
-# settings from Overrides.cfg
-OVERRIDES = {}
 
 if notes['Overrides.cfg exists']:
     config = ConfigParser.RawConfigParser()
