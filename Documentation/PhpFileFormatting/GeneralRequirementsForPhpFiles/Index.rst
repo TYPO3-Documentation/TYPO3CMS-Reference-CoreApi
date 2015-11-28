@@ -38,25 +38,25 @@ Line length
 
 Very long lines of code should be avoided for questions of
 readability. A line length of about 130 characters (**including**
-tabs) is fine. Longer lines should be split into several lines whenever
+spaces) is fine. Longer lines should be split into several lines whenever
 possible. Each line fragment starting from the second must - compared
-to the first one - be indented with one tab character more. Example::
+to the first one - be indented with four space characters more. Example::
 
    $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('uid, title', 'pages',
-           'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'),
-           '', 'title');
+       'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'),
+       '', 'title');
 
 or even better for readability::
 
    $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('uid, title',
-           'pages',
-           'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'),
-           '',
-           'title'
+       'pages',
+       'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'),
+       '',
+       'title'
    );
 
 Comment lines should be kept within a limit of about 80 characters
-(**excluding** tabs) as it makes them easier to read.
+(**excluding** the leading spaces) as it makes them easier to read.
 
 
 Notes
@@ -77,8 +77,8 @@ Notes
 Whitespace and indentation
 """"""""""""""""""""""""""
 
-TYPO3 uses tab characters to indent source code. One indentation level
-is one tab.
+TYPO3 uses space characters to indent source code. Following PSR-2,
+one indentation level consists of four spaces.
 
 There must be no white spaces in the end of a line. This can be done
 manually or using a text editor that takes care of this.
@@ -109,9 +109,8 @@ Character set
 """""""""""""
 
 All TYPO3 source files use the UTF-8 character set without byte order
-mark (BOM) since version 4.5. Encoding declarations like
-`declare(encoding = 'utf-8');` must not be used. They might lead
-to problems, especially in `ext_tables.php` and
-`ext_localconf.php` files of extensions, which are merged
-internally in TYPO3 CMS. Files from third-party libraries may have
-different encodings.
+mark (BOM). Encoding declarations like `declare(encoding = 'utf-8');`
+must not be used. They might lead to problems, especially in
+`ext_tables.php` and `ext_localconf.php` files of extensions, which are
+merged internally in TYPO3 CMS. Files from third-party libraries may
+have different encodings.

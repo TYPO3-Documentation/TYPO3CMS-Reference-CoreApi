@@ -76,7 +76,7 @@ Comments
 
 Comments in the code are highly welcome and recommended. Inline
 comments must precede the commented line and be indented with
-the same number of tabs as the commented line.
+the same number of spaces as the commented line.
 Example::
 
    protected function processSubmission() {
@@ -130,12 +130,15 @@ where they can be used according to PHP syntax (except
 
 The opening curly brace is always on the same line as the preceding
 construction. There must be one space (not a tab!) before the opening
-brace. The opening brace is always followed by a new line.
+brace. An exception are classes and functions: Here the opening curly
+brace is on a new line with the same indentation as the line with class
+or function name. The opening brace is always followed by a new line.
 
 The closing curly brace must start on a new line and be indented to
 the same level as the construct with the opening brace. Example::
 
-   protected function getForm() {
+   protected function getForm()
+   {
        if ($this->extendedForm) {
            // generate extended form here
        } else {
@@ -145,8 +148,7 @@ the same level as the construct with the opening brace. Example::
 
 The following is not allowed::
 
-   protected function getForm()
-   {
+   protected function getForm() {
        if ($this->extendedForm) { // generate extended form here
        } else {
            // generate simple form here
@@ -189,11 +191,11 @@ code goes first. For example::
    }
 
 If the condition is long, it must be split into several lines. The
-first condition should be on a new line, indented one tab more than the
-":code:`if (`". The logical operators must be put in front of the next
-condition and be indented to the same level as the first condition. The
-closing round and opening curly bracket after the last condition should
-be on a new line, indented to the same level as the :code:`if`::
+first condition should be on a new line, indented four spaces more than
+the ":code:`if (`". The logical operators must be put in front of the
+next condition and be indented to the same level as the first condition.
+The closing round and opening curly bracket after the last condition
+should be on a new line, indented to the same level as the :code:`if`::
 
    if (
        $this->getSomeCondition($this->getSomeVariable())
@@ -235,11 +237,11 @@ The following is not allowed (missing the extra pair of brackets)::
 Switch
 """"""
 
-:code:`case` statements are indented with a single indent (tab) inside
-the :code:`switch` statement. The code inside the :code:`case`
-statements is further indented with a single indent. The :code:`break`
-statement is aligned with the code. Only one :code:`break` statement is
-allowed per :code:`case`.
+:code:`case` statements are indented with one additional indent (four
+spaces) inside the :code:`switch` statement. The code inside the
+:code:`case` statements is further indented with an additional indent.
+The :code:`break` statement is aligned with the code. Only one
+:code:`break` statement is allowed per :code:`case`.
 
 The :code:`default` statement must be the last in the :code:`switch`
 and must not have a :code:`break` statement.
@@ -383,11 +385,11 @@ no blank between the keyword and the opening bracket. Thus::
    $a = array();
 
 :code:`array` components are declared each on a separate line. Such
-lines are indented with one more tab than the start of the declaration.
-The closing bracket is on the same indentation level as the variable.
-Every line containing an array item ends with a comma. This may be
-omitted if there are no further elements, at the developer's choice.
-Example::
+lines are indented with four more spaces than the start of the
+declaration. The closing bracket is on the same indentation level as
+the variable. Every line containing an array item ends with a comma.
+This may be omitted if there are no further elements, at the
+developer's choice. Example::
 
    $thisIsAnArray = array(
        'foo' => 'bar',
