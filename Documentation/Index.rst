@@ -83,6 +83,7 @@ address the task at hand.
    Introduction/Index
    Syntax/Index
    TypoScriptTemplates/Index
+   TSconfig/Index
    TheDetails/Index
    TypoScriptParserApi/Index
    AppendixA/Index
