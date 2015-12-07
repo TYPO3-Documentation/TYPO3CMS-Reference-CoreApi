@@ -123,7 +123,7 @@ advanced   Advanced functions, which are used very seldom.
 To define your own category put a comment including the parameter
 "customcategory". Here is an example::
 
-   # customcategory=mysite=LLL:EXT:myext/locallang.xml:mysite
+   # customcategory=mysite=LLL:EXT:myext/locallang.xlf:mysite
 
 This line defines the new category "mysite" which will be available
 for your Constants defined AFTER this line. Usage example::
@@ -191,7 +191,7 @@ rendering for each type of tt\_content element. See static\_template
 To define your own Subcategory put a comment including the parameter
 "customsubcategory". Here is an example::
 
-   # customsubcategory=cache=LLL:EXT:myext/locallang.xml:cache
+   # customsubcategory=cache=LLL:EXT:myext/locallang.xlf:cache
 
 This line defines the new Subcategory "cache" which will be available
 for your Constants defined AFTER this line. Usage example::
@@ -247,17 +247,12 @@ The header is displayed on it's own line in bold.
 
 This can be localized by using the traditional "LLL" syntax. Example::
 
-   #cat=Site conf/cache/a; type=boolean; label=LLL:EXT:examples/locallang.xml:config.no_cache
+   #cat=Site conf/cache/a; type=boolean; label=LLL:EXT:examples/locallang.xlf:config.no_cache
    config.no_cache = 0
 
 Note that a single string is referenced (not one for the header and
 one for the description). This means that the localized string must
 contain the colon separator (":"). Example::
-
-   <label index="config.no_cache">Global no_cache: Check the box to turn off all caches.</label>
-
-In case of TYPO3 4.6 or newer translation files in XLIFF format are
-supported. There the label might look like this::
 
    <trans-unit id="config.no_cache" xml:space="preserve">
      <source>Global no_cache: Check the box to turn off all caches.</source>

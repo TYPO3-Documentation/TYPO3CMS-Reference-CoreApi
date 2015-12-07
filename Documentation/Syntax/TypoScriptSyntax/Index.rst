@@ -39,7 +39,7 @@ to separate objects and properties from each other creating a hierarchy.
 Here we have the object "myObject" with the property "myProperty".
 **Use only A-Z, a-z, 0-9, "-", "\_" and periods (.) for object paths!**
 
-Since TYPO3 6.2 dots in the object path can be escaped using a backslash.
+Dots in the object path can be escaped using a backslash.
 
 **Example:** ::
 

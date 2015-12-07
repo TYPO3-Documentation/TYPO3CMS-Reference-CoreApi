@@ -37,12 +37,12 @@ Example:
 field, are substituted. So for our example to work, we again have to
 define the constants from the last example in the constants field.
 
-In contrast to TYPO3 versions prior to 6.0 you can **no longer**
-reference files in the constants field without giving a file *path*
-(except the file is located in the root directory of your TYPO3
-installation). Instead you have to define file name *and path*, in our
-case for logo.gif. For the replacement to work, you must upload the
-file in the according folder of your TYPO3 installation.
+When you reference files in the constants field, you have to define
+file name *and path* (except the file is located in the root directory
+of your TYPO3 installation). So in our case for logo.gif, for the
+replacement to work, you must upload the file in the according folder
+of your TYPO3 installation and define that path as part of the constant
+as well.
 
 Constants in included templates are also substituted as the whole
 template is just one large chunk of text.

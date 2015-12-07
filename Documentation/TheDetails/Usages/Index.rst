@@ -132,11 +132,10 @@ templates:
     <t3templating:start>`".
 
   - **Fluid templates:** Configure TYPO3 to use extbase and fluid
-    (available as system extensions since TYPO3 4.3) for templating. This
-    allows to use external HTML templates, but with fluid-style variables
-    with curly braces. Since TYPO3 4.5 a new content object
-    "FLUIDTEMPLATE" is available, which that way lets you use fluid from
-    inside TypoScript.
+    for templating. This allows to use external HTML templates, but
+    with fluid-style variables with curly braces. A content object
+    "FLUIDTEMPLATE" is available, which that way lets you use fluid
+    from inside TypoScript.
 
   - **External Templating Engines:** Configure TYPO3 to use XSLT
     stylesheets with an XSLT processor. This is done either by an

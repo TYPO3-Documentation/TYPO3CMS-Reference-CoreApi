@@ -37,11 +37,9 @@ are available:
 =======  ========================================================================
 Option   Description
 =======  ========================================================================
-FILE     A reference to a file relative to PATH\_site. Until TYPO3 4.5 the file
-         size had to be less than 100 KB; in newer versions this limitation was
-         dropped.
+FILE     A reference to a file relative to PATH\_site.
 
-         Since TYPO3 6.2 also paths *relative to the including file* can be
+         Also paths *relative to the including file* can be
          passed to INCLUDE_TYPOSCRIPT, if the inclusion is called from inside a
          file. These paths start with "./" or "../". The "./" is needed to
          distinguish them from paths relative to PATH_SITE. This mechanism

@@ -50,8 +50,8 @@ highlighting (no context) conditions are just highlighted and nothing
 more. In the context of TypoScript Templates there is a :ref:`whole
 section of TSref <t3tsref:conditions>` which defines the
 syntax of the condition contents for TypoScript Templates. For "Page
-TSconfig" and "User TSconfig" conditions are implemented since TYPO3
-4.3. Basically they work the same way as conditions in TypoScript
+TSconfig" and "User TSconfig" conditions are implemented as well.
+Basically they work the same way as conditions in TypoScript
 templates do, but there are some small differences. For details see
 the according :ref:`section "Conditions" in TSconfig
 <t3tsconfig:conditions>`.
