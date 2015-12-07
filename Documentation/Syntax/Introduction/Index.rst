@@ -11,11 +11,11 @@
 Introduction
 ^^^^^^^^^^^^
 
-TypoScript is like a (large) multidimensional PHP array (see
-":ref:`what-is-typoscript`"). Values are arranged in a tree-like
-hierarchy. The "branches" are indicated with periods (".") - a syntax
-borrowed from for example JavaScript and which conveys the idea of
-defining objects/properties.
+TypoScript is internally handled as a (large) multidimensional PHP
+array (see ":ref:`what-is-typoscript`"). Values are arranged in a
+tree-like hierarchy. The "branches" are indicated with periods
+(".") - a syntax borrowed from for example JavaScript and which
+conveys the idea of defining objects/properties.
 
 
 .. _syntax-example:

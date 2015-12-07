@@ -19,7 +19,7 @@ TYPO3 backend. TSconfig is further subdivided into User TSconfig
 for pages in the page tree).
 
 Some parts of TypoScript are available in both contexts, some only in
-one or the other. Any difference is always mentioned in this manual.
+one or the other. Any difference is mentioned at the according place.
 
 Each context has its own chapter in this manual. It also has its own
 reference in a separate manual (see ":ref:`next-steps`" at the end of

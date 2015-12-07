@@ -18,9 +18,10 @@ What are constants?
 """""""""""""""""""
 
 Constants are values defined in the "Constants"-field of a template.
-They follow the syntax of ordinary TypoScript and are case sensitive!
-They allow to manage a value, which should later be used at *several
-places*, to be maintained centrally at only *one single place*.
+They follow the :ref:`syntax of ordinary TypoScript <syntax>` and are
+case sensitive! They allow to manage a value, which should later be
+used at *several places*, to be maintained centrally at only *one
+single place*.
 
 **Note, reserved name:** The object or property "file" is always
 interpreted as data type ":ref:`resource
