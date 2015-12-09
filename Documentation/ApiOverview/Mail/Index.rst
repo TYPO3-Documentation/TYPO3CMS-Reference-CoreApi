@@ -113,7 +113,7 @@ mbox
 How to create and send mails
 ============================
 
-This shows how to generate and send a mail in TYPO3 (starting with 4.5)::
+This shows how to generate and send a mail in TYPO3::
 
    // Create the message
    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Mail\\MailMessage');
