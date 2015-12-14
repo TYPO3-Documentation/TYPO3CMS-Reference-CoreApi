@@ -74,17 +74,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/TYPO3FileAbstractionLayer.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/Projectname.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/TYPO3FileAbstractionLayer.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/Projectname.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/TYPO3FileAbstractionLayer"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/TYPO3FileAbstractionLayer"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/Projectname"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/Projectname"
 	@echo "# devhelp"
 
 epub:
