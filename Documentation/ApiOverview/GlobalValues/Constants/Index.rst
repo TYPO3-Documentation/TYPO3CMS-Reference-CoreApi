@@ -27,8 +27,8 @@ These constants are defined at various points during the bootstrap sequence.
    - "Bootstrap" = :ref:`t3cmsapi:TYPO3\\CMS\\Core\\Core\\Bootstrap`
 
 
-Table 1
--------
+Table 1: Traditional List
+-------------------------
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -304,7 +304,7 @@ Constant                              (Example) Value
 TYPO3_URL_GENERAL                     'https://typo3.org/'
 TYPO3_URL_LICENSE                     'https://typo3.org/typo3-cms/overview/licenses/'
 TYPO3_URL_EXCEPTION                   'https://typo3.org/go/exception/CMS/'
-TYPO3_URL_MAILINGLISTS'               'http://lists.typo3.org/cgi-bin/mailman/listinfo'
+TYPO3_URL_MAILINGLISTS                'http://lists.typo3.org/cgi-bin/mailman/listinfo'
 TYPO3_URL_DOCUMENTATION               'https://typo3.org/documentation/'
 TYPO3_URL_DOCUMENTATION_TSREF         'https://docs.typo3.org/typo3cms/TyposcriptReference/'
 TYPO3_URL_DOCUMENTATION_TSCONFIG      'https://docs.typo3.org/typo3cms/TSconfigReference/'
