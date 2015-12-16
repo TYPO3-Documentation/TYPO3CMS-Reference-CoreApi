@@ -1,4 +1,6 @@
 
+.. include:: ../../Includes.txt
+
 .. _admin-introduction:
 
 Introduction / Basic Concepts

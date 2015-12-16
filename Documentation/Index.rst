@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: Includes.txt
 
@@ -76,9 +72,6 @@ address the task at hand.
 **Table of Contents**
 
 .. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
 
    Introduction/Index
    Administrators/Index
