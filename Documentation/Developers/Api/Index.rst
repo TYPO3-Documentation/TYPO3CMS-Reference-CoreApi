@@ -4,8 +4,9 @@
 
 .. _api:
 
+===========
 The FAL API
-^^^^^^^^^^^
+===========
 
 This chapter provides both an overview of and an in-depth look into the
 architecture of FAL.
@@ -15,3 +16,4 @@ architecture of FAL.
    Storage/Index
    Driver/Index
    Service/Index
+   AllTheLinks/Index
