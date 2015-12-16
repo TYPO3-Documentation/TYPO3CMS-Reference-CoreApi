@@ -287,7 +287,7 @@ This version, branch and copyright
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ===================================== =======================================================
-Constant                              (Example) Value
+Constant                              Example value
 ===================================== =======================================================
 TYPO3_version                         '7.6.1-dev'
 TYPO3_branch                          '7.6'
@@ -299,7 +299,7 @@ TYPO3 external links
 ~~~~~~~~~~~~~~~~~~~~
 
 ===================================== =======================================================
-Constant                              (Example) Value
+Constant                              Example value
 ===================================== =======================================================
 TYPO3_URL_GENERAL                     'https://typo3.org/'
 TYPO3_URL_LICENSE                     'https://typo3.org/typo3-cms/overview/licenses/'
@@ -322,7 +322,7 @@ String constants
 ~~~~~~~~~~~~~~~~
 
 ===================================== ======================================================= ============
-Constant                              (Example) Value                                         Description
+Constant                              Value                                                   Description
 ===================================== ======================================================= ============
 NUL                                   chr(0)                                                  A null
 TAB                                   chr(9)                                                  A tabulator
@@ -337,7 +337,7 @@ Security related constant
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ===================================== ======================================================= ============
-Constant                              (Example) Value                                         Description
+Constant                              Value                                                   Description
 ===================================== ======================================================= ============
 FILE_DENY_PATTERN_DEFAULT             '\\.(php[3-7]?|phpsh|phtml)(\\..*)?$|^\\.htaccess$'     Default value of fileDenyPattern
 PHP_EXTENSIONS_DEFAULT                'php,php3,php4,php5,php6,php7,phpsh,inc,phtml'          List of file extensions that should be registered as php script file extensions
@@ -348,7 +348,7 @@ Operating system identifier
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ===================================== ======================================================= ============
-Constant                              (Example) Value                                         Description
+Constant                              Value                                                   Description
 ===================================== ======================================================= ============
 TYPO3_OS                              self::getTypo3Os())                                     Either "WIN" or empty string
 ===================================== ======================================================= ============
@@ -358,7 +358,7 @@ Service error constants
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 ===================================== ======================================================= ============
-Constant                              (Example) Value                                         Description
+Constant                              Value                                                   Description
 ===================================== ======================================================= ============
 T3_ERR_SV_GENERAL                     -1                                                      General error - something went wrong
 T3_ERR_SV_NOT_AVAIL                   -2                                                      During execution it showed that the service is not available and should be ignored. The service itself should call $this->setNonAvailable()
