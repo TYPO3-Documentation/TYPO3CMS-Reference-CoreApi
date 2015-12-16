@@ -9,6 +9,13 @@ This folder ``_make`` is provided as a service for convenience.
 It helps to render this documentation on your own machine
 "at home".
 
+It is a good idea to check whether the *conf.py* file in this
+*\_make* folder is still up to date. The latest version should
+be maintained here:
+https://github.com/marble/typo3-docs-typo3-org-resources/blob/master/userroot/scripts/bin/conf-2015-10.py
+
+
+
 Steps:
 ------
 
@@ -24,7 +31,9 @@ Steps:
       make
       make html
 
+
 3. Open ``_make/build/html/Index.html`` in the browser.
+
 
 4. Check ``_make/_not_versioned/`` for logfiles.
 

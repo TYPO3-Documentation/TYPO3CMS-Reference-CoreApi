@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# mb, 2015-10-01, 2015-10-26
+# mb, 2015-10-01, 2015-11-24
 
 # This file lives at https://github.com/marble/typo3-docs-typo3-org-resources/blob/master/userroot/scripts/bin/conf-2015-10.py
 # Check for a new version!
@@ -18,6 +18,18 @@ import ConfigParser
 import os
 import sys
 import t3SphinxThemeRtd
+
+# enable highlighting for PHP code not between <?php ... ?> by default
+from sphinx.highlighting import lexers
+from pygments.lexers.web import PhpLexer
+lexers['php'] = PhpLexer(startinline=True)
+lexers['php-annotations'] = PhpLexer(startinline=True)
+
+# a dictionary to take notes while we do this processing
+notes = {}
+
+# settings from Overrides.cfg
+OVERRIDES = {}
 
 
 # PART 1: preparations
@@ -66,6 +78,16 @@ if os.path.isabs(MASTERDOC):
 else:
     masterdocabspath = os.path.normpath(os.path.join(confpyabspath, '..', MASTERDOC))
 
+if os.path.exists(masterdocabspath + '.rst'):
+    pass
+elif os.path.exists(masterdocabspath[:-len('README')] + 'Index.rst'):
+    MASTERDOC = MASTERDOC[:-len('README')] + 'Index'
+    masterdocabspath = masterdocabspath[:-len('README')] + 'Index'
+
+if not os.path.exists(masterdocabspath + '.rst'):
+    sys.stdout.write('Can\'t find MASTERDOC ' + masterdocabspath + '.rst\n')
+    sys.exit(1)
+
 if not os.path.isabs(LOGDIR):
     logdirabspath = os.path.abspath(LOGDIR)
 logdirabspath = os.path.normpath(logdirabspath)
@@ -75,18 +97,26 @@ projectabspath = os.path.normpath(os.path.join(masterdocabspath, '..'))
 
 # the absolute path to Documentation/Settings.cfg
 settingsabspath = projectabspath + '/' + 'Settings.cfg'
+notes['Settings.cfg exists'] = os.path.exists(settingsabspath)
 
-# Better stop with exitcode=1 if there is no 'Settings.cfg' file.
-if not os.path.exists(settingsabspath):
-    sys.stderr.write('Settings.cfg not found\n')
-    sys.exit(1)
+defaultsabspath = os.path.normpath(os.path.join(confpyabspath, '..', 'Defaults.cfg'))
+notes['Defaults.cfg exists'] = os.path.exists(defaultsabspath)
+
+overridesabspath = os.path.normpath(os.path.join(confpyabspath, '..', 'Overrides.cfg'))
+notes['Overrides.cfg exists'] = os.path.exists(overridesabspath)
+
+if 0:
+    # Better stop with exitcode=1 if there is no 'Settings.cfg' file
+    if not os.path.exists(settingsabspath):
+        sys.stdout.write('Settings.cfg not found\n')
+        sys.exit(1)
 
 # user settings
 US = {}
 
 # Documentation/Settings.cfg
 # read user settings and keep them in normal dictionary US
-if os.path.exists(settingsabspath):
+if notes['Settings.cfg exists']:
     config = ConfigParser.RawConfigParser()
     config.readfp(codecs.open(settingsabspath, 'r', 'utf-8'))
     for s in config.sections():
@@ -96,8 +126,7 @@ if os.path.exists(settingsabspath):
 
 # If MAKEDIR/Defaults.cfg exists:
 # Get defaults for settings that ARE NOT in Settings.cfg
-defaultsabspath = os.path.normpath(os.path.join(confpyabspath, '..', 'Defaults.cfg'))
-if os.path.exists(defaultsabspath):
+if notes['Defaults.cfg exists']:
     config = ConfigParser.RawConfigParser()
     config.readfp(codecs.open(defaultsabspath, 'r', 'utf-8'))
     for s in config.sections():
@@ -164,6 +193,11 @@ html_theme_options['project_home']         = ''  # some url
 html_theme_options['project_issues']       = ''  # 'https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-Typoscript/issues'
 html_theme_options['project_repository']   = ''  # 'https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-Typoscript.git'
 
+if 0 and 'enable this as soon as t3SphinxTheme knows the settings':
+    html_theme_options['project_has_settings_cfg' ] = True if notes['Settings.cfg exists' ] else False
+    html_theme_options['project_has_defaults_cfg' ] = True if notes['Defaults.cfg exists' ] else False
+    html_theme_options['project_has_overrides_cfg'] = True if notes['Overrides.cfg exists'] else False
+
 html_use_opensearch = '' # like: 'https://docs.typo3.org/typo3cms/TyposcriptReference/0.0'  no trailing slash!
 
 highlight_language = 'php'
@@ -196,8 +230,9 @@ def updateModuleGlobals(GLOBALS, US):
     # add extensions from user settings if legal
     if US.has_key('extensions'):
         for k,e in US['extensions'].items():
-            if e in legal_extensions and not e in GLOBALS['extensions']:
-                GLOBALS['extensions'].append(e)
+            if not e in GLOBALS['extensions']:
+                if (e in legal_extensions) or (US is OVERRIDES):
+                    GLOBALS['extensions'].append(e)
 
     if US.has_key('extlinks'):
         for k, v in US['extlinks'].items():
@@ -345,11 +380,7 @@ elif type(html_theme_options['use_opensearch']) in [type(''), type(u'')]:
 # Set all settings thereby overriding existing ones.
 # So the admin has the last word
 
-# settings from Overrides.cfg
-OVERRIDES = {}
-
-overridesabspath = os.path.normpath(os.path.join(confpyabspath, '..', 'Overrides.cfg'))
-if os.path.exists(overridesabspath):
+if notes['Overrides.cfg exists']:
     config = ConfigParser.RawConfigParser()
     config.readfp(codecs.open(overridesabspath, 'r', 'utf-8'))
     for s in config.sections():
@@ -367,7 +398,7 @@ updateModuleGlobals(G, OVERRIDES)
 
 for k in ['f1', 'f1name', 'o', 'contents',
     'extensions_to_be_loaded', 'section', 'legal_extensions',
-    'config', 'US', 'item', 's', 'v', 'e']:
+    'config', 'US', 'item', 's', 'v', 'e', 'notes']:
     if G.has_key(k):
         del G[k]
 del k
