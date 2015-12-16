@@ -8,7 +8,6 @@
 Database structure
 ==================
 
-((Maybe more is to be written ...))
 
 .. highlight:: sql
 
