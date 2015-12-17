@@ -2,7 +2,7 @@
 .. include:: ../../../Includes.txt
 
 
-.. _architecture-database:
+.. _Database-Structure:
 
 ==================
 Database structure
@@ -11,6 +11,8 @@ Database structure
 
 .. highlight:: sql
 
+
+.. _DB-table-sys_file:
 
 sys\_file
 =========
@@ -51,6 +53,8 @@ database record, not of the file! ::
       KEY sha1 (sha1(40))
    );
 
+
+.. _DB-table-sys_file_collection:
 
 sys\_file\_collection
 =====================
@@ -104,6 +108,8 @@ Table structure for table 'sys\_file\_collection'::
    );
 
 
+.. _DB-table-sys_metadata:
+
 sys\_file\_metadata
 ===================
 
@@ -148,6 +154,8 @@ Table structure for table 'sys\_file\_metadata'::
    );
 
 
+.. _DB-table-sys_file_processedfile:
+
 sys\_file\_processedfile
 ========================
 
@@ -177,6 +185,9 @@ to using direct SQL queries in the code::
       KEY combined_1 (original,task_type,configurationsha1),
       KEY identifier (storage,identifier(199))
    );
+
+
+.. _DB-table-sys_file_reference:
 
 sys\_file\_reference
 ====================
@@ -240,6 +251,42 @@ It is one usage of a file with overloaded metadata::
       endtime          int(11) DEFAULT '0' NOT NULL,
 
 
+
+.. _DB-table-sys_file_storage:
+
+sys\_file\_storage
+==================
+
+Table structure for table 'sys\_file\_storage'::
+
+   CREATE TABLE sys_file_storage (
+      uid              int(11)     NOT NULL auto_increment,
+      pid              int(11)     DEFAULT '0' NOT NULL,
+      tstamp           int(11)     DEFAULT '0' NOT NULL,
+      crdate           int(11)     DEFAULT '0' NOT NULL,
+      cruser_id        int(11)     DEFAULT '0' NOT NULL,
+      deleted          tinyint(4)  DEFAULT '0' NOT NULL,
+      hidden           tinyint(4)  DEFAULT '0' NOT NULL,
+
+      name             varchar(30) DEFAULT ''  NOT NULL,
+      description      text,
+      driver           tinytext,
+      configuration    text,
+      is_default       tinyint(4)  DEFAULT '0' NOT NULL,
+      is_browsable     tinyint(4)  DEFAULT '0' NOT NULL,
+      is_public        tinyint(4)  DEFAULT '0' NOT NULL,
+      is_writable      tinyint(4)  DEFAULT '0' NOT NULL,
+      is_online        tinyint(4)  DEFAULT '1' NOT NULL,
+      processingfolder tinytext,
+
+      PRIMARY KEY (uid),
+      KEY parent (pid,deleted),
+      KEY deleted_hidden (deleted,hidden)
+   );
+
+
+.. _DB-table-sys_filemounts:
+
 sys\_filemounts
 ===============
 
@@ -260,4 +307,6 @@ Table structure for table 'sys\_filemounts'::
       PRIMARY KEY (uid),
       KEY parent (pid)
    );
+
+
 

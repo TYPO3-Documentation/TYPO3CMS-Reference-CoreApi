@@ -2,119 +2,151 @@
 .. include:: ../../Includes.txt
 
 
-.. _admin-permissions:
+.. _Admin-Permissions:
 
-------------------
+===========
 Permissions
-------------------
+===========
 
 As for pages and contents, permissions can also be defined for files,
 though not as fine-grained as for content (= on a per-file/folder
-level).
+level). The permissions in the File Abstraction Layer are grouped in two main
+groups:
 
-The permissions in the File Abstraction Layer are grouped in two main
-groups: system and user permissions. System permissions are required to
-perform operations in the system, by every part of the system. They are
+- system permissions
+- and user permissions
+
+System Permissions
+==================
+
+System permissions are required by every part of the system to
+perform operations. They are
 strictly enforced and prevent an action no matter what component
-triggered them (think of a click in the file list vs. a processed file
-that is being saved -- the former could be stopped because the user
-does not have enough permissions, while the latter is always performed
-if the storage is writable).
+triggered them.
 
-Administrators always have full access. The only reason they might be
-denied access is that the underlying file system/storage service does
-not allow access to a resource. TODO how are permissions from the
-storage device handled?
+For example think of a click in the file list versus a processed file
+that is to be saved. The former could be stopped because the user
+does not have enough permissions. The latter should always happen
+if the storage is writable.
+
+Administrators always have full access. The only reason they might not
+have access is that the underlying file system or storage service does
+not allow access to a resource.
+
+.. todo::
+
+   How are permissions from the storage device handled?
+
 
 
 .. _admin-user-permissions:
 
 User Permissions
-""""""""""""""""
+================
 
 User permissions for files used to be set in the "Fileoperation
-permissions" section of backend user or backend user group records.
-This way still works since the introduction of FAL. But it has been
-deprecated because FAL offers more fine grained permission settings.
+permissions" section of the "backend user" or "backend user group" records.
+This still works with FAL. But it is a
+deprecated way because FAL offers more fine grained permission settings.
 
-As of TYPO3 6.0 it is recommended to set user default permissions in
-User TSconfig either in backend user records or backend user group
-records.
+.. tip::
 
-**Default permissions for a user or user group (read permissions only):** ::
+   As of TYPO3 6.0 it is recommended to set user default permissions in
+   **User TSconfig** either in **backend user records** or **backend user group**
+   records.
 
-    permissions.file.default {
-        addFile = 0
-        readFile = 1
-        writeFile = 0
-        copyFile = 0
-        moveFile = 0
-        renameFile = 0
-        unzipFile = 0
-        deleteFile = 0
-        addFolder = 0
-        readFolder = 1
-        writeFolder = 0
-        copyFolder = 0
-        moveFolder = 0
-        renameFolder = 0
-        deleteFolder = 0
-        recursivedeleteFolder = 0
-    }
+.. _Admin-Default-User-Permissions:
+
+Default User Permissions
+------------------------
+
+The default permissions for backend users and backend user groups
+are **READONLY**:
+
+.. code-block:: typoscript
+
+   permissions.file.default {
+      addFile      = 0
+      readFile     = 1
+      writeFile    = 0
+      copyFile     = 0
+      moveFile     = 0
+      renameFile   = 0
+      unzipFile    = 0
+      deleteFile   = 0
+      addFolder    = 0
+      readFolder   = 1
+      writeFolder  = 0
+      copyFolder   = 0
+      moveFolder   = 0
+      renameFolder = 0
+      deleteFolder = 0
+      recursivedeleteFolder = 0
+   }
+
+.. _Admin-User-Permissions-Per-Storage:
+
+User Permissions Per Storage
+----------------------------
 
 It is also possible to set different permissions for different storages.
-For that you need to know the uid of the storage record and specify it
-in User TSconfig along with the permissions like that:
+To achieve this you need to know the uid of the storage record and specify it
+in User TSconfig along with the permissions.
 
-**Permissions for storage with uid "1" (all permissions):** ::
+Example: Permissions = ALL for storage with uid "1":
 
-    permissions.file.storage.1 {
-        addFile = 1
-        readFile = 1
-        writeFile = 1
-        copyFile = 1
-        moveFile = 1
-        renameFile = 1
-        unzipFile = 1
-        deleteFile = 1
-        addFolder = 1
-        readFolder = 1
-        writeFolder = 1
-        copyFolder = 1
-        moveFolder = 1
-        renameFolder = 1
-        deleteFolder = 1
-        recursivedeleteFolder = 1
-    }
+.. code-block:: typoscript
 
-Configured permissions for a specific storage always take precedence over
-default permissions.
+   permissions.file.storage.1 {
+      addFile      = 1
+      readFile     = 1
+      writeFile    = 1
+      copyFile     = 1
+      moveFile     = 1
+      renameFile   = 1
+      unzipFile    = 1
+      deleteFile   = 1
+      addFolder    = 1
+      readFolder   = 1
+      writeFolder  = 1
+      copyFolder   = 1
+      moveFolder   = 1
+      renameFolder = 1
+      deleteFolder = 1
+      recursivedeleteFolder = 1
+   }
+
+.. note::
+
+   Configured permissions for a *specific* storage take precedence over
+   default permissions.
 
 If no permissions are defined in TSconfig, then the settings in the user
 and in the group record are taken into account and will be treated as
 default permissions for all storages.
 
-The model for the permissions is closely coupled to the one used on
-\*NIX systems, i.e. folders are seen as a collection of files and
-folders. To change that collection (by adding, removing, renaming
-files/folders), you need to have write permissions on the folder,
-not only on the files themselves. But for only changing the contents
-of a file, no writer permissions are required on the folder.
 
 
-.. _admin-user-permissions-details:
+.. _Permissions-Details:
 
-User file permissions in detail
--------------------------------
+Permissions Details
+===================
+
+This model for permissions behaves very similar to permission systems
+on Unix and Linux systems. Folders are seen as a collection of files and
+folders. If you want to change *that collection* by adding, removing or renaming
+files or folders folders you need to have **write permissions for the folder** as well.
+If you only want to change the contents of a file you need write permissions
+for the file but not for the containing folder.
 
 addFile
-  create new files, upload files
+  Create new files, upload files
 
 readFile
   Show contents of files
 
 writeFile
-  Edit/Save contents of file, even if write permissions to folders are not granted
+  Edit or Save contents of file, even if NO write permissions to folders are granted
 
 copyFile
   Allow copying of files; needs writeFolder permissions for the target folder
@@ -132,7 +164,7 @@ deleteFile
   delete a file; needs writeFolder permissions
 
 addFolder
-  add/create new folders; needs writeFolder permissions for the parent folder
+  add or create new folders; needs writeFolder permissions for the parent folder
 
 readFolder
   list contents of folder

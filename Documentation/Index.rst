@@ -69,7 +69,7 @@ on the Table of Contents to identify what particular section will best
 address the task at hand.
 
 
-**Table of Contents**
+**Sitemap:**
 
 .. toctree::
 
