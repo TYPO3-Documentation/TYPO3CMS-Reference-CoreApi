@@ -68,12 +68,6 @@ that need to be done. This is what the TYPO3 6.2 upgrade wizard does
 
 
 
-.. tip::
-
-   Add your specific tables and fields to the parameter array there to
-   have your nonstandards fields migrated as well!
-
-
 
 .. _admin-compatibility:
 
@@ -94,6 +88,48 @@ However, if you want to support FAL "the right way" and not just by
 means of the backwards compatibility layer, the extensions should be
 updated to make use of the API as outlined in the developers
 documentation.
+
+
+Tips and tricks
+---------------
+
+.. tip::
+
+   Add your specific tables and fields to the parameter array
+   in the update wizard of TYPO3 6.2 and make the install tool
+   migrated your custom file fields as well!
+
+You can make the 6.2 update wizard migrate your custom fields of type
+'file' as well.
+
+1. Check the code at :ref:`t3api62:TYPO3\\CMS\\Install\\Updates\\TceformsUpdateWizard`
+
+2. Add your own tables and fields to the configuration array::
+
+      /**
+       * Table fields to migrate
+       * @var array
+       */
+      protected $tables = array(
+         // ...
+         'pages' => array(
+            'media' => array(
+               'sourcePath' => 'uploads/media/',
+               // Relative to fileadmin
+               'targetPath' => '_migrated/media/'
+            )
+         ),
+         'tx_myextension_abc' => array(
+            'my_image_field' => array(
+               'sourcePath' => 'uploads/tx_myextension/',
+               'targetPath' => '_migrated/tx_myextension/'
+            )
+        ),
+        // ...
+      );
+
+3. Run the update wizard in the install tool as usual.
+
 
 
 .. _admin-remote-storages:
