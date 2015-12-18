@@ -134,6 +134,9 @@ reverses the order of the array. This is done because otherwise "page
 will create "page 2" first and then "page 1" so the "expected order"
 is preserved.
 
+To insert a record after a given record, set the other record's negative
+`uid` as `pid` in the new record you're setting as data.
+
 Apart from this line 6 will send a "signal" that the page tree should
 be updated at the earliest occasion possible. Finally, the cache for
 all pages is cleared in line 7.
