@@ -3,8 +3,8 @@
 
 .. only:: html
 
-   Targetsfor Cross-Referencing
-   ============================
+   Targets for Cross-Referencing
+   =============================
 
    .. ref-targets-list::
 
