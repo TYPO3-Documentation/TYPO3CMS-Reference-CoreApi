@@ -8,6 +8,12 @@ All The Links: Resource
 
 About `\\TYPO3\\CMS\\Core\\Resource`
 
+.. tip::
+
+   Hello **TYPO3 core developers,** here you have the links to the
+   RESOURCE Api enriched by **YOUR descriptions** as you have
+   given them in the JavaDoc blocks of the code.
+   So please: **Start being more eloquent!** It's worth it!
 
 
 AbstractFile
