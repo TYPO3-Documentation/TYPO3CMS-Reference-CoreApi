@@ -12,7 +12,7 @@ About `\\TYPO3\\CMS\\Core\\Resource`
 
    Hello **TYPO3 core developers,** here you have the links to the
    RESOURCE Api enriched by **YOUR descriptions** as you have
-   given them in the JavaDoc blocks of the code.
+   given them in the PHPDoc blocks of the code.
    So please: **Start being more eloquent!** It's worth it!
 
 
