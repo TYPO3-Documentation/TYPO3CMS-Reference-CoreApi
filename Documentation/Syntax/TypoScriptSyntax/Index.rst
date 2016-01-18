@@ -444,7 +444,8 @@ shown. Only the reference itself is there:
 Remember: References are only available in TypoScript templates, not
 in TSconfig.
 References also only work for Content Objects, not for configuration (extension)
-settings (like plugin.tx_example.settings.foo = 1 for example)!
+settings (like plugin.tx_example.settings.foo = 1 for example)! In this case you cannot
+reference plugin.tx_example.settings.foo as the reference will never be the value of foo.
 
 
 .. _syntax-bigger-than-operator:
