@@ -441,11 +441,10 @@ Remember:
 - References are only available in TypoScript templates, not in TSconfig
   (User TypoScript or Page TypoScript)
 
-- References are only resolved for Content Objects
-
-- Otherwise references are not resolves. For example, you **cannot** use a 
-  reference :ts:`<plugin.tx_example.settings.foo` to find the value of `foo`.
-  The value you get will be just '<plugin.tx_example.settings.foo' instead.
+- References are only resolved for Content Objects, otherwise references are 
+  not resolves. For example, you **cannot** use a 
+  reference :ts:`< plugin.tx_example.settings.foo` to find the value of `foo`.
+  The value you get will be just :ts:'< plugin.tx_example.settings.foo' instead.
 
 
 .. _syntax-bigger-than-operator:
