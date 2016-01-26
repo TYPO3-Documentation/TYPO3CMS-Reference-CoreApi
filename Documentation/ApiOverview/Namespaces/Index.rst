@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
 
@@ -58,17 +54,17 @@ This means that the class is now found in the "core" system extension, in folder
 Usage in extensions
 ^^^^^^^^^^^^^^^^^^^
 
-Extension developers are free to use their own vendor name. However it may
-contain only one segment. All vendor names start with an uppercase character and usually are written in UpperCamelCase. In order to avoid problems with different filesystems, only the characters a-z, A-Z, 0-9 and the dash sign "-" are allowed for package names – don’t use special characters. Right::
+Extension developers are free to use their own vendor name. *Important:* It may consist of *one* segment only. Vendor names must start with an uppercase character and are usually written in UpperCamelCase style. In order to avoid problems with different filesystems, only the characters a-z, A-Z, 0-9 and the dash sign "-" are allowed for package names – don't use special characters::
 
+   // good vendor name:
    \Webcompany
 
-Wrong::
-
+   // wrong vendor name:
    \Web\Company
 
-.. important::
-   The :code:`TYPO3\CMS` vendor name is reserved and may not be used by extensions!
+.. attention::
+
+   The vendor name `TYPO3\CMS` is reserved and may not be used by extensions!
 
 The package name corresponds to the extension key. Underscores in the extension
 key are removed in the namespace and replaced by upper camel-case. So extension key::
