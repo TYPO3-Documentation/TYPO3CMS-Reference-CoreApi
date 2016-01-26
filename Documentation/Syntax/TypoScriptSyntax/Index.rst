@@ -1,8 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
 .. include:: ../../Includes.txt
 
 
@@ -441,11 +436,16 @@ shown. Only the reference itself is there:
 .. figure:: ../../Images/SyntaxReferencing.png
    :alt: An object and a reference of it.
 
-Remember: References are only available in TypoScript templates, not
-in TSconfig.
-References also only work for Content Objects, not for configuration (extension)
-settings (like plugin.tx_example.settings.foo = 1 for example)! In this case you cannot
-reference plugin.tx_example.settings.foo as the reference will never be the value of foo.
+Remember: 
+
+- References are only available in TypoScript templates, not in TSconfig
+  (User TypoScript or Page TypoScript)
+
+- References are only resolved for Content Objects
+
+- Otherwise references are not resolves. For example, you **cannot** use a 
+  reference :ts:`<plugin.tx_example.settings.foo` to find the value of `foo`.
+  The value you get will be just '<plugin.tx_example.settings.foo' instead.
 
 
 .. _syntax-bigger-than-operator:
