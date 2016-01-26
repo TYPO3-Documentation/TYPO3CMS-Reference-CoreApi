@@ -442,7 +442,7 @@ Remember:
   (User TypoScript or Page TypoScript)
 
 - References are only resolved for Content Objects, otherwise references are 
-  not resolves. For example, you **cannot** use a 
+  not resolved. For example, you **cannot** use a 
   reference :ts:`< plugin.tx_example.settings.foo` to find the value of `foo`.
   The value you get will be just :ts:'< plugin.tx_example.settings.foo' instead.
 
