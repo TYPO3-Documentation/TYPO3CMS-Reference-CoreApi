@@ -59,7 +59,7 @@ Usage in extensions
 ^^^^^^^^^^^^^^^^^^^
 
 Extension developers are free to use their own vendor name. However it may
-contain only one segment. Right::
+contain only one segment. All vendor names start with an uppercase character and usually are written in UpperCamelCase. In order to avoid problems with different filesystems, only the characters a-z, A-Z, 0-9 and the dash sign "-" are allowed for package names – don’t use special characters. Right::
 
    \Webcompany
 
