@@ -11,10 +11,8 @@
 Page types
 ==========
 
-
-Global array :code:`$PAGES_TYPES` defines the various types of pages
-(field: :code:`doktype`) the system can handle and what restrictions may apply to them.
-Here you can set the icon and especially you can define which tables are
+Global array :code:`$PAGES_TYPES` defines the various types of pages (field: :code:`doktype`) the
+system can handle and what restrictions may apply to them. Here you can define which tables are
 allowed on a certain page type.
 
 .. note::
@@ -25,21 +23,22 @@ allowed on a certain page type.
 This is the default array as set in :file:`EXT:core/ext_tables.php`::
 
    $GLOBALS['PAGES_TYPES'] = array(
-   	(string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_LINK => array(
-   	),
-   	(string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SHORTCUT => array(
-   	),
-   	...
-   	(string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SYSFOLDER => array( //  Doktype 254 is a 'Folder' - a general purpose storage folder for whatever you like. In CMS context it's NOT a viewable page. Can contain any element.
-   		'type' => 'sys',
-   		'allowedTables' => '*'
-   	),
-   	...
-   	'default' => array(
-   		'type' => 'web',
-   		'allowedTables' => 'pages',
-   		'onlyAllowedTables' => '0'
-   	)
+    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_LINK => array(
+    ),
+    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SHORTCUT => array(
+    ),
+    ...
+    //  Doktype 254 is a 'Folder' - a general purpose storage folder for whatever you like. In CMS context it's NOT a viewable page. Can contain any element.
+    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SYSFOLDER => array( 
+        'type' => 'sys',
+        'allowedTables' => '*'
+    ),
+    ...
+    'default' => array(
+        'type' => 'web',
+        'allowedTables' => 'pages',
+        'onlyAllowedTables' => '0'
+    )
    );
 
 
@@ -72,19 +71,9 @@ Each array has the following options available:
 
 
  - :Key:
-         icon
-   :Description:
-         Alternative icon.
-
-         The file reference is in the same format as "iconfile" in
-         the :ref:`[ctrl] section <t3tca:ctrl>` of the TCA.
-
-
- - :Key:
          allowedTables
    :Description:
          The tables that may reside on pages with that "doktype".
-
          Comma-separated list of tables allowed on this page doktype. "\*" =
          all.
 
@@ -97,74 +86,119 @@ Each array has the following options available:
 
 
 .. note::
-   **All four options** must be set for the default type while
+   **All above options** must be set for the default type while
    the rest can choose as they like.
 
 
 .. _page-types-example:
 
-Example
--------
+Create new Page Type
+--------------------
 
-The following example adds a new page type called "Archive" (taken from the
-"examples" extensions). The first step is to add the new page type to the
-global array described above::
-
-	// Define a new doktype
-	$customPageDoktype = 116;
-	$customPageIcon = $relativeExtensionPath . 'Resources/Public/Images/Archive.png';
-	// Add the new doktype to the list of page types
-	$GLOBALS['PAGES_TYPES'][$customPageDoktype] = array(
-		'type' => 'sys',
-		'icon' => $customPageIcon,
-		'allowedTables' => '*'
-	);
-
-
-To enable users to select that page type, it must also be added to the page type
-selector of the "pages" table::
-
-
-	// Add the new doktype to the page type selector
-	$GLOBALS['TCA']['pages']['columns']['doktype']['config']['items'][] = array(
-		'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
-		$customPageDoktype,
-		$customPageIcon
-	);
-
-
-The same must be done with the "pages_language_overlay", so that the new page type
-can also be translated::
-
-
-	// Also add the new doktype to the page language overlays type selector (so that translations can inherit the same type)
-	$GLOBALS['TCA']['pages_language_overlay']['columns']['doktype']['config']['items'][] = array(
-		'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
-		$customPageDoktype,
-		$customPageIcon
-	);
-
-
-The icon chosen for the new page type must be added to the backend sprite::
-
-
-	// Add the icon for the new doktype
-	\TYPO3\CMS\Backend\Sprite\SpriteManager::addTcaTypeIcon('pages', $customPageDoktype, $customPageIcon);
-
-
-You may want to perform some other finishing touches. For example, it might make sense
-to add the new page type to the list of pages that can be selected from the
-drag and drop menu at the top of the page tree::
-
-
-	// Add the new doktype to the list of types available from the new page menu at the top of the page tree
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
-		'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $customPageDoktype . ')'
-	);
-
+The following example adds a new page type called "Archive".
 
 .. figure:: ../Images/NewPageType.png
    :alt: The new page type in action
 
    The new page type visible in the TYPO3 backend
 
+The whole code to add a page type is shown below with the according file names above.
+
+The first step is to add the new page type to the global array described above. Then you need to add
+the icon chosen for the new page type and allow users to drag and drop the new page type to the page
+tree.
+All the changes are applied in :file:`ext_tables.php`::
+
+    call_user_func(
+        function ($extKey) {
+            $archiveDoktype = 116;
+
+            // Add new page type:
+            $GLOBALS['PAGES_TYPES'][$archiveDoktype] = [
+                'type' => 'web',
+                'allowedTables' => '*',
+            ];
+
+            // Provide icon for page tree, list view, ... :
+            \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class)
+                ->registerIcon(
+                    'apps-pagetree-archive',
+                    TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+                    [
+                        'source' => 'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg',
+                    ]
+                );
+
+            // Allow backend users to drag and drop the new page type:
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
+                'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $archiveDoktype . ')'
+            );
+        },
+        'example'
+    );
+
+Furthermore we need to modify the configuration of "pages" records. As one can modify the pages. We
+need to add the new doktype as select item and associate it with the configured icon. That's done in
+:file:`Configuration/TCA/Overrides/pages.php`::
+
+    call_user_func(
+        function ($extKey, $table) {
+            $extRelPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($extKey);
+            $customPageIcon = $extRelPath . 'Resources/Public/Images/Archive.svg';
+            $archiveDoktype = 116;
+
+            // Add new page type as possible select item:
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+                $table,
+                'doktype',
+                [
+                    'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
+                    $archiveDoktype,
+                    $customPageIcon
+                ],
+                '1',
+                'after'
+            );
+
+            // Add icon for new page type:
+            \TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule(
+                $GLOBALS['TCA']['pages'],
+                [
+                    'ctrl' => [
+                        'typeicon_classes' => [
+                            $archiveDoktype => 'apps-pagetree-archive',
+                        ],
+                    ],
+                ],
+            );
+        },
+        'example',
+        'pages'
+    );
+
+The same must be done with the "pages_language_overlay", so that the new page type
+can also be translated :file:`Configuration/TCA/Overrides/pages_language_overlay.php`::
+
+    // Also add the new doktype to the page language overlays type selector (so that translations can inherit the same type)
+    call_user_func(
+        function ($extKey, $table) {
+            $extRelPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($extKey);
+            $customPageIcon = $extRelPath . 'Resources/Public/Images/Archive.svg';
+            $archiveDoktype = 116;
+
+            // Add new page type as possible select item:
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+                $table,
+                'doktype',
+                [
+                    'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
+                    $archiveDoktype,
+                    $customPageIcon
+                ],
+                '1',
+                'after'
+            );
+        },
+        'example',
+        'pages_language_overlay'
+    );
