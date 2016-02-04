@@ -169,7 +169,7 @@ need to add the new doktype as select item and associate it with the configured 
                             $archiveDoktype => 'apps-pagetree-archive',
                         ],
                     ],
-                ],
+                ]
             );
         },
         'example',
