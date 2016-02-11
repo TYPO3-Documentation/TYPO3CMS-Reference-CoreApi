@@ -72,7 +72,7 @@ The call to :code:`makeCategorizable()` must be located in an extension's
 :file:`ext_tables.php` file or (since TYPO3 CMS 6.2.1) in a file from
 the :file:`Configuration/TCA/Overrides` folder.
 
-The default :code:`$TCA` structure provided by the registry
+The default :code:`$GLOBALS['TCA']` structure provided by the registry
 can be overridden by an array options passed to :code:`makeCategorizable()`.
 The example below illustrates how this is done:
 
@@ -83,7 +83,6 @@ The example below illustrates how this is done:
 		'examples',
 		'pages',
 		// Do not use the default field name ("categories"), which is already used
-		// Also do not use a field name containing "categories" (see http://forum.typo3.org/index.php/t/199595/)
 		'tx_examples_cats',
 		array(
 			// Set a custom label
