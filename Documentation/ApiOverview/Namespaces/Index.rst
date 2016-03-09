@@ -69,11 +69,11 @@ Extension developers are free to use their own vendor name. *Important:* It may 
 The package name corresponds to the extension key. Underscores in the extension
 key are removed in the namespace and replaced by upper camel-case. So extension key::
 
-   weird_examples
+   weird-name_examples
 
 would become::
 
-   WeirdExamples
+   Weird-nameExamples
 
 in the namespace.
 
@@ -106,7 +106,7 @@ When registering components in Extbase, the vendor name must be used on top of t
 For a backend module::
 
    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-       '<vendorName>.' . $_EXTKEY,
+       '<vendorName>.<ExtensionName>,
        ...
    );
 
@@ -114,7 +114,7 @@ For a backend module::
 For a frontend module::
 
    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-       '<vendorName>.' . $_EXTKEY,
+       '<vendorName>.<ExtensionName>,
        ...
    );
 
@@ -150,7 +150,7 @@ When creating instances using :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::mak
 the leading backslash must be omitted and all other backslashes escaped, even when using
 single quotes. Thus the following code is correct::
 
-   $contentObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
+   $contentObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
 
 
 There is no need to use :code:`require()` or :code:`include()` statements. All classes that follow
