@@ -78,7 +78,7 @@ Description of keywords in syntax:
          .. note:: Only *one* command can be executed at a time for each
                    record! The first command in the array will be taken.
 
-         *See table below for :ref:`command keywords and values<tce-command-keywords>`*
+         *See table below for :ref:`command keywords and values <tce-command-keywords>`*
 
 
  - :Key:
@@ -88,7 +88,7 @@ Description of keywords in syntax:
    :Description:
          The value for the command
 
-         *See table below for :ref:`command keywords and values<tce-command-keywords>`*
+         *See table below for :ref:`command keywords and values <tce-command-keywords>`*
 
 
 .. _tce-command-keywords:
