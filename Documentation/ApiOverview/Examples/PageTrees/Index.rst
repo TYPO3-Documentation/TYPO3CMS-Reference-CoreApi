@@ -101,7 +101,7 @@ The result is rendered with a very simple Fluid template:
 
 	<f:for each="{tree}" as="page">
 		<tr class="db_list_normal">
-			<td><f:format.raw>{page.HTML}</f:format.raw> {page.row.title}</td>
+			<td>{page.depthData -> f:format.raw()}<f:format.raw>{page.HTML}</f:format.raw> {page.row.title}</td>
 			<td>{page.row.uid}</td>
 		</tr>
 	</f:for>
