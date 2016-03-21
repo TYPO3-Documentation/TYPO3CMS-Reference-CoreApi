@@ -94,15 +94,6 @@ Transformation filters
          <LINK>-tag. This process is designed to make links in concordance with
          the typolink function in the TypoScript frontend.
 
-
-.. container:: table-row
-
-   Transformation filter
-         ts\_reglinks
-
-   Description
-         Converts the absolute URLs of links to relative. Keeping the :code:`<a>` tag.
-
 .. ###### END~OF~TABLE ######
 
 
