@@ -211,44 +211,6 @@ overruleMode
 
 
 
-.. _transformations-tsconfig-processing-preservetags:
-
-preserveTags
-~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         preserveTags
-
-   Data type
-         list of tags
-
-   Description
-         (DEPRECATED)
-
-         Here you may specify a list of tags - possibly user-defined pseudo
-         tags - which you wish to preserve from being removed by the RTE. See
-         the information about preservation in the description of
-         transformations.
-
-         **Example:**
-
-         In the default TypoScript configuration of content rendering the tags
-         typotags <LINK> are the most widely used.
-         However the <TYPOCODE>-tag is also configured to let you define a
-         section being formatted in monospace. Lets also imaging, you have
-         defined a custom tag, <MYTAG>. In order to preserve these tag from
-         removal by the RTE, you should configure like this. ::
-
-            RTE.default.proc {
-              preserveTags = TYPOCODE, MYTAG
-            }
-
-         Relates to the transformation 'ts\_preserve'
-
-
 .. _transformations-tsconfig-processing-dontconvbrtoparagraph:
 
 dontConvBRtoParagraph
@@ -463,31 +425,6 @@ dontRemoveUnknownTags\_db
          HTMLparser\_db-list.
 
 
-.. _transformations-tsconfig-processing-dontundohsc_db:
-
-dontUndoHSC\_db
-~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         dontUndoHSC\_db
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for "ts\_transform" and "css\_transform" only (function
-         HTMLcleaner\_db))*
-
-         Direction: To database
-
-         Default is to re-convert literals to characters (that is &lt; to <)
-         outside of HTML-tags. This is disabled by this boolean. (HSC means
-         HtmlSpecialChars - which is a PHP function)
-
-
 .. _transformations-tsconfig-processing-dontprotectunknowntags_rte:
 
 dontProtectUnknownTags\_rte
@@ -511,37 +448,9 @@ dontProtectUnknownTags\_rte
          Default is that tags unknown to HTMLparser\_rte is "protected" when
          sent to the RTE. This means they are converted from eg <MYTAG> to
          &lt;MYTAG&gt;. This is normally very fine, because it can be edited
-         plainly by the editor and when returned to thedatabase the tag is (by
-         default, disabled by .dontUndoHSC\_db) converted back.
+         plainly by the editor and when returned to thedatabase the tag is converted back.
 
          Setting this option will prevent unknown tags from becoming protected.
-
-
-.. _transformations-tsconfig-processing-donthsc_rte:
-
-dontHSC\_rte
-~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         dontHSC\_rte
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for "ts\_transform" and "css\_transform" only (function
-         setDivTags))*
-
-         Direction: To RTE
-
-         Default is that all content outside of HTML-tags is passed through
-         htmlspecialchars(). This will disable that. (opposite to
-         .dontUndoHSC\_db)
-
-         This option disables the default htmlspecialchars() conversion.
 
 
 .. _transformations-tsconfig-processing-dontconvampinnbsp_rte:
@@ -565,32 +474,7 @@ dontConvAmpInNBSP\_rte
          Direction: To RTE
 
          By default all &nbsp; codes are NOT converted to &amp;nbsp; which they
-         naturally word (unless .dontHSC\_rte is set). You can disable that by
-         this flag.
-
-
-.. _transformations-tsconfig-processing-allowedfontcolors:
-
-allowedFontColors
-~~~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         allowedFontColors
-
-   Data type
-         list of HTMLcolors
-
-   Description
-         *(Applies for "ts\_transform" and "css\_transform" only (function
-         getKeepTags))*
-
-         Direction: To DB
-
-         If set, this is the only colors which will be allowed in font-tags!
-         Case insensitive.
+         naturally word. You can disable that by this flag.
 
 
 .. _transformations-tsconfig-processing-allowedclasses:
@@ -672,98 +556,6 @@ keepPDIVattribs
 
          "align" and "class" are the only attributes preserved for <P>/<DIV>
          tags. Here you can specify a list of other attributes to preserve.
-
-
-.. _transformations-tsconfig-processing-remapparagraphtag:
-
-remapParagraphTag
-~~~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         remapParagraphTag
-
-   Data type
-         string / boolean
-
-   Description
-         *(Applies for "ts\_transform" and "css\_transform" only (function
-         divideIntoLines))*
-
-         When <P>/<DIV> sections are converted to be put into the database, the
-         tag - P or DIV - is preserved. However setting this options to either
-         P or DIV will force the section to be converted to the one or the
-         other.
-
-         If the value is set true (1), then it works as a general disable-flag
-         for the whole section-convertion stuff here and the result will be no
-         tags preserved what so ever. Just removed.
-
-
-.. _transformations-tsconfig-processing-usedivasparagraphtagforrte:
-
-useDIVasParagraphTagForRTE
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         useDIVasParagraphTagForRTE
-
-   Data type
-         string
-
-   Description
-         *(Applies for "ts\_transform" only and "css\_transform" (function
-         TS\_transform\_rte))*
-
-         Use <DIV>-tags for sections when converting lines from database to
-         RTE. Default is <P>. Applies only to lines which has NO tag wrapped
-         around already.
-
-
-.. _transformations-tsconfig-processing-preservedivsections:
-
-preserveDIVSections
-~~~~~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         preserveDIVSections
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for "ts\_transform" and "css\_transform" only)*
-
-         If set, div sections will be treated just like blockquotes. They will
-         be treated recursively as external blocks.
-
-
-.. _transformations-tsconfig-processing-preservetables:
-
-preserveTables
-~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         preserveTables
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for "ts\_transform")*
-
-         If set, tables are preserved
 
 
 .. _transformations-tsconfig-processing-dontfetchextpictures:

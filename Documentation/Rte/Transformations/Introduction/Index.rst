@@ -46,8 +46,7 @@ in a browser. It was then sometimes needed to fall back an a simple
 :code:`<textarea>` where rich text had to be presented in a simple enough
 way so that editors could work with it with no visual help.
 
-This is what the two modes, :code:`ts_transform` and
-:code:`css_transform` try to achieve: maintain a
+This is what the mode :code:`css_transform` tries to achieve: maintain a
 data format that is as human readable as possible while still offering
 an RTE for editing if applicable.
 
