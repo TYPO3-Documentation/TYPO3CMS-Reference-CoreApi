@@ -228,7 +228,7 @@ available methods,
 
 .. seealso::
 
-   - `Swiftmailer: General <http://swiftmailer.org/docs/>`__
+   - `Swiftmailer: General <http://swiftmailer.org/docs/index.html>`__
 
    - `Swiftmailer: Content, attachments, basic headers
      <http://swiftmailer.org/docs/messages>`__
