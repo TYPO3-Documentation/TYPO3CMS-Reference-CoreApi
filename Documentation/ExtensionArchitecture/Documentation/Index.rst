@@ -49,8 +49,8 @@ provides tools that help write and manage Sphinx projects:
   It can be installed from the TYPO3 Extension Repository (TER) like any other extension.
 - The Sphinx extension is able to convert existing OpenOffice manuals (manual.sxw) into Sphinx projects with just
   one click.
-- An `example manual <https://git.typo3.org/Documentation/TYPO3/Example/ExtensionManual.git>`_ is available in
-  the TYPO3 Git repository.
+- An `example manual <https://github.com/TYPO3-Documentation/TYPO3CMS-Example-ExtensionManual>`_ is available on
+  the TYPO3 Documentatin Github repository.
 - The `Extension Builder <http://typo3.org/extensions/repository/view/extension_builder>`_
   provides a skeleton documentation based on the above-mentioned Git repository.
 - A `good primer <https://docs.typo3.org/typo3cms/drafts/github/xperseguers/RstPrimer/>`_
