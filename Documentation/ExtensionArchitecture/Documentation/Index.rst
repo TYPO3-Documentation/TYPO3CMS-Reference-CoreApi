@@ -1,6 +1,3 @@
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
 
@@ -14,7 +11,7 @@ If you plan to upload your extension to the TYPO3 Extension Repository (TER), yo
 documentation to your extension. A documentation will help users and administrators to quickly install and configure
 your extension and give it more weight.
 
-The documentation platform http://docs.typo3.org centralizes documentation for every project. It supports three
+The documentation platform https://docs.typo3.org centralizes documentation for every project. It supports three
 different kind of documentation:
 
 #. **(recommended)** A Sphinx project, stored within :file:`EXT:{extkey}/Documentation/`
@@ -49,13 +46,14 @@ provides tools that help write and manage Sphinx projects:
   It can be installed from the TYPO3 Extension Repository (TER) like any other extension.
 - The Sphinx extension is able to convert existing OpenOffice manuals (manual.sxw) into Sphinx projects with just
   one click.
-  The documentation platform offers a simple `online tool <http://docs.typo3.org/getthedocs/service-convert.html>`_
-  for this task as well.
-- An `example manual <https://git.typo3.org/Documentation/TYPO3/Example/ExtensionManual.git>`_ is available in
-  the TYPO3 Git repository.
+
+- An `example manual <https://github.com/TYPO3-Documentation/TYPO3CMS-Example-ExtensionManual>`_ is available on
+  the TYPO3 Documentation Github repository.
+
 - The `Extension Builder <http://typo3.org/extensions/repository/view/extension_builder>`_
   provides a skeleton documentation based on the above-mentioned Git repository.
-- A `good primer <http://docs.typo3.org/typo3cms/drafts/github/xperseguers/RstPrimer/>`_
+
+- A `good primer <https://docs.typo3.org/typo3cms/drafts/github/xperseguers/RstPrimer/>`_
   to get started using the reStructuredText markup.
 
 
@@ -78,7 +76,8 @@ of this file is reStructuredText, as for chapters of a Sphinx project.
 OpenOffice manual
 """""""""""""""""
 
-The OpenOffice SXW format used to be the official documentation format for TYPO3. This format is not recommended anymore.
+The OpenOffice SXW format used to be the official documentation format for TYPO3.
+**Use of this format is highly discouraged since support on docs.typo3.org is about to be dropped.**
 Please use the tools mentioned above to convert your existing SXW file into a Sphinx project instead.
 
 - `OpenOffice example manual <http://typo3.org/extensions/repository/view/doc_template>`_ in the TYPO3 extension repository.
