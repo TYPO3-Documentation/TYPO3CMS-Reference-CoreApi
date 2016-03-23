@@ -31,7 +31,7 @@ Finally the *class name* is the same as the corresponding file name, without the
 "UpperCamelCase" is used for all segments.
 
 .. tip::
-   File :file:`typo3/sysext/core/Migrations/Code/LegacyClassesForIde.php` contains a full
+   File :file:`vendor/composer/autoload_classmap.php` contains a full
    mapping of old to new class names, which will help you find your way around the new
    naming.
 
