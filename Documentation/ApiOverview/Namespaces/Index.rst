@@ -3,13 +3,10 @@
 
 
 
-
-
-
 .. _namespaces:
 
 Namespaces
-----------
+==========
 
 Since version 6.0, TYPO3 CMS uses PHP namespaces for all classes in the Core.
 
@@ -31,15 +28,16 @@ Finally the *class name* is the same as the corresponding file name, without the
 "UpperCamelCase" is used for all segments.
 
 .. tip::
-   File :file:`typo3/sysext/core/Migrations/Code/LegacyClassesForIde.php` contains a full
-   mapping of old to new class names, which will help you find your way around the new
-   naming.
+
+   `See the chapter about 'ClassAliasMap.php' in the 6.2 documentation.
+   <https://docs.typo3.org/typo3cms/CoreApiReference/6.2/ApiOverview/Namespaces/Index.html#namespaces-migrations-classaliasmap>`__.
+   I will help you when migrating code from old to new conventions.
 
 
 .. _namespaces-example:
 
 Core example
-^^^^^^^^^^^^
+------------
 
 The good old :code:`t3lib_div` class has been renamed to::
 
@@ -52,7 +50,7 @@ This means that the class is now found in the "core" system extension, in folder
 .. _namespaces-extensions:
 
 Usage in extensions
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 Extension developers are free to use their own vendor name. *Important:* It may consist of *one* segment only. Vendor names must start with an uppercase character and are usually written in UpperCamelCase style. In order to avoid problems with different filesystems, only the characters a-z, A-Z, 0-9 and the dash sign "-" are allowed for package names – don't use special characters::
 
@@ -99,23 +97,23 @@ Inside the class, the namespace is declared as::
 .. _namespaces-extbase:
 
 Namespaces in Extbase
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 When registering components in Extbase, the vendor name must be used on top of the extension key.
 
 For a backend module::
 
    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-       '<vendorName>.<ExtensionName>,
-       ...
+       '<vendorName>.<ExtensionName>',
+       // ...
    );
 
 
 For a frontend module::
 
    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-       '<vendorName>.<ExtensionName>,
-       ...
+       '<vendorName>.<ExtensionName>',
+       // ...
    );
 
 
@@ -127,7 +125,7 @@ For a frontend module::
 .. _namespaces-test:
 
 Namespaces for test classes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
 
 As for ordinary classes, namespaces for test classes start with a vendor name
 followed by the extension key.
@@ -144,7 +142,7 @@ So a test class in :file:`EXT:foo_bar_baz/Tests/Unit/Bla/` will have as namespac
 .. _namespaces-instances:
 
 Creating instances
-^^^^^^^^^^^^^^^^^^
+------------------
 
 When creating instances using :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
 the leading backslash must be omitted and all other backslashes escaped, even when using
@@ -160,7 +158,7 @@ namespace conventions will automatically located and included by the autoloader.
 .. _namespaces-references:
 
 References
-^^^^^^^^^^
+----------
 
 For more information about PHP namespaces in general, you may want to refer to the
 `PHP documentation <http://www.php.net/manual/en/language.namespaces.php>`_ and
