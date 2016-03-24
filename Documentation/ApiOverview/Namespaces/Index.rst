@@ -31,7 +31,7 @@ Finally the *class name* is the same as the corresponding file name, without the
 
    `See the chapter about 'ClassAliasMap.php' in the 6.2 documentation.
    <https://docs.typo3.org/typo3cms/CoreApiReference/6.2/ApiOverview/Namespaces/Index.html#namespaces-migrations-classaliasmap>`__.
-   I will help you when migrating code from old to new conventions.
+   It may help you with migrating code from old to new conventions.
 
 
 .. _namespaces-example:
