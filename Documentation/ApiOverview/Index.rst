@@ -1,12 +1,5 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../Includes.txt
-
-
-
 
 
 .. _api-overview:
@@ -25,11 +18,10 @@ other elements have their own chapter further on.
 In general the TYPO3 Active Contributors Team and all contributors aim
 to produce well-documented source code. As such the best way to look up a
 particular class or method is to use the online API browser at
-http://typo3.org/documentation/api/.
+http://api.typo3.org/documentation/.
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
    :glob:
 
@@ -53,5 +45,4 @@ http://typo3.org/documentation/api/.
    Hooks/Index
    Xclasses/Index
    Examples/Index
-
 
