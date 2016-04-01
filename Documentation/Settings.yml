@@ -6,6 +6,9 @@ conf.py:
   version: 7
   release: 7
   intersphinx_mapping:
+    t3tssyntax:
+    - http://docs.typo3.org/typo3cms/TyposcriptSyntaxReference/
+    - null
     t3cgl:
     - https://docs.typo3.org/typo3cms/CodingGuidelinesReference/
     - null
