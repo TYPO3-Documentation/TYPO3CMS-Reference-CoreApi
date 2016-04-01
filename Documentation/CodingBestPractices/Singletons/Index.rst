@@ -16,9 +16,9 @@ instantiated only once per HTTP request regardless of the number of
 calls to :code:`GeneralUtility::makeInstance()`. To use a singleton
 pattern, a class must implement the :code:`SingletonInterface`::
 
-   require_once(PATH_typo3 . 'sysext/core/Classes/SingletonInterface.php');
+   namespace Vendor\MyNamespace;
 
-   class tx_myext_mySingletonClass implements SingletonInterface {
+   class MySingletonClass implements \TYPO3\CMS\Core\SingletonInterface {
        …
    }
 
