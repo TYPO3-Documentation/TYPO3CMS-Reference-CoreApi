@@ -231,7 +231,8 @@ file [ext-list/IMAGE\_EXT]   Selectorbox with resources. Opt. list allowed exten
                              "[IMAGE\_EXT]" in which case the default image-extensions are listed.
                              (used for data type "imgResource")
 string (the default)         Just a string value
-user                         ...
+user                         Path to the file and method which renders the option HTML.
+                             e.g. type=user[EXT:extension/path/file.php:Vendor\Extension\Namespace\ClassName->method]
 ===========================  ============================================================================
 
 .. ###### END~OF~SIMPLE~TABLE ######
