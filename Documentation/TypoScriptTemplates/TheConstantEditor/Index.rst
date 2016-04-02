@@ -232,7 +232,11 @@ file [ext-list/IMAGE\_EXT]   Selectorbox with resources. Opt. list allowed exten
                              (used for data type "imgResource")
 string (the default)         Just a string value
 user                         Path to the file and method which renders the option HTML.
-                             e.g. type=user[EXT:extension/path/file.php:Vendor\Extension\Namespace\ClassName->method]
+                             e.g. ``type=user[Vendor\Extension\Namespace\ClassName->myCustomField]``
+                             The method should have following signature:
+                             ``public function myCustomField(array $params, $configurationForm)``
+                             where $configurationForm is an instance of \TYPO3\CMS\Core\TypoScript\ConfigurationForm.
+                             See ``TYPO3\CMS\Extensionmanager\ViewHelpers\Form\TypoScriptConstantsViewHelper->renderUserFunction`` for reference.
 ===========================  ============================================================================
 
 .. ###### END~OF~SIMPLE~TABLE ######
