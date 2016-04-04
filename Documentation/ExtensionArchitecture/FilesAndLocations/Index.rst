@@ -182,6 +182,8 @@ extensions with the name prefix "ext\_".
 
          Configuration code in TypoScript syntax setting up a series of values
          which can be configured for the extension in the EM.
+         :ref:`Read more about the file format here <extension-options>`.
+
 
          |
 
