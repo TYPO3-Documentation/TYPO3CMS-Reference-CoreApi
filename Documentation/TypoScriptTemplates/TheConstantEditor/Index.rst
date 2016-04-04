@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
 
@@ -208,38 +204,44 @@ Will look in the Constant Editor like this:
 type=
 ~~~~~
 
-
-.. ### BEGIN~OF~SIMPLE~TABLE ###
-
 ===========================  ============================================================================
 Type                         Description
 ===========================  ============================================================================
 int [low-high]               Integer, opt. in range "low" to "high"
+
 int+                         Positive integer
+
 offset [L1,L2,...L6]         Comma-separated list of integers. Default is "x,y", but as comma separated
                              parameters in brackets you can specify up to 6 labels being comma
                              separated! If you wish to omit one of the last 4 fields, just don't
                              enter a label for that element.
+
 color                        HTML color
+
 wrap                         HTML code that is wrapped around some content.
+
 options [item1,item2,...]    Selectbox with values/labels item1, item2 etc. Comma-separated. Split
                              by "=" also and in that case, first part is label, second is value
+
 boolean [truevalue]          Boolean, opt. you can define the value of "true", def.=1
+
 comment                      Boolean, checked= "", not-checked = "#".
+
 file [ext-list/IMAGE\_EXT]   Selectorbox with resources. Opt. list allowed extensions (no space in
                              list!), e.g. "[ttf]" or "[txt,html,htm]". You can also enter
                              "[IMAGE\_EXT]" in which case the default image-extensions are listed.
                              (used for data type "imgResource")
+
 string (the default)         Just a string value
-user                         Path to the file and method which renders the option HTML.
-                             e.g. ``type=user[Vendor\Extension\Namespace\ClassName->myCustomField]``
+
+user                         Path to the file and method which renders the option HTML,
+                             for example  `type=user[Vendor\Extension\Namespace\ClassName->myCustomField]`.
                              The method should have following signature:
-                             ``public function myCustomField(array $params, $configurationForm)``
-                             where $configurationForm is an instance of \TYPO3\CMS\Core\TypoScript\ConfigurationForm.
-                             See ``TYPO3\CMS\Extensionmanager\ViewHelpers\Form\TypoScriptConstantsViewHelper->renderUserFunction`` for reference.
+                             :php:`public function myCustomField(array $params, $configurationForm)`
+                             where :php:`$configurationForm` is an instance of :php:`\TYPO3\CMS\Core\TypoScript\ConfigurationForm`.
+                             See :php:`TYPO3\CMS\Extensionmanager\ViewHelpers\Form\TypoScriptConstantsViewHelper->renderUserFunction` for reference.
 ===========================  ============================================================================
 
-.. ###### END~OF~SIMPLE~TABLE ######
 
 
 label=
