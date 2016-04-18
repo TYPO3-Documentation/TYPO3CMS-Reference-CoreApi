@@ -7,7 +7,7 @@
 Upgrading to FAL
 ================
 
-When needs to be considered when you're upgrading from a 4.x TYPO3 version
+What needs to be considered when you're upgrading from a 4.x TYPO3 version
 to FAL?
 
 
@@ -16,7 +16,7 @@ to FAL?
 Migration Steps
 ===============
 
-When a pre-FAL installation is migrated to FAL, these are steps
+When a pre-FAL installation is migrated to FAL, these are the steps
 that need to be done. This is what the TYPO3 6.2 upgrade wizard does
 ((may need verification)):
 
@@ -51,14 +51,14 @@ that need to be done. This is what the TYPO3 6.2 upgrade wizard does
       This also includes overlays from the content element for the image title, description and
       alternative text, plus the file links.
 
--  Extensions need to be made compatible. They will still work as long as the
-   backwards-compatibility layer is active. But this layer is just a transitional
-   tool and will be removed in the future. It is gone in TYPO3 version 7.
+-  Extensions need to be made compatible. They will still worked as long as the
+   backwards-compatibility layer was active. But this layer was just a transitional
+   tool and has been removed in TYPO3 version 7.
 
 
 .. attention::
 
-   The TYPO3 6.2 upgrade wizards only migrates standard TYPO3 tables.
+   The TYPO3 6.2 upgrade wizards only migrate standard TYPO3 tables.
    See
 
    -  :ref:`t3api62:TYPO3\\CMS\\Install\\Updates\\TceformsUpdateWizard`
@@ -81,8 +81,8 @@ work without any adaption.
 .. note::
 
    DAM does not work with FAL currently, and FAL will not support using
-   the DAM; instead, FAL provides a ((?)). Extensions which depend on DAM
-   need manual adaption, see the developers section for more details.
+   the DAM; instead, FAL provides an alternative. Extensions which depend
+   on DAM need manual adaption, see the developers section for more details.
 
 However, if you want to support FAL "the right way" and not just by
 means of the backwards compatibility layer, the extensions should be
