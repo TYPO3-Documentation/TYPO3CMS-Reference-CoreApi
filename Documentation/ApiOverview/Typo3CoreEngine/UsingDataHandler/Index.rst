@@ -12,8 +12,8 @@
 
 .. _using-tcemain:
 
-Using TCEmain in scripts
-^^^^^^^^^^^^^^^^^^^^^^^^
+Using DataHandler in scripts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It's really easy to use the class :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` in your own
 scripts. All you need to do is include the class, build a $data/$cmd
@@ -33,8 +33,8 @@ syntax for these two arrays is explained in the :ref:`previous chapter <tce-data
 
 .. _tcemain-examples:
 
-TCEmain examples
-""""""""""""""""
+DataHandler examples
+""""""""""""""""""""
 
 .. _tcemain-submit-data:
 
@@ -167,7 +167,7 @@ possible argument which is an alternative :code:`$BE_USER` object. This allows
 you to force another backend user account to create stuff in the
 database. This may be useful in certain special cases. Normally you
 should not set this argument since you want TCE to use the global
-:code:`$BE\_USER`.
+:code:`$BE_USER`.
 
 .. code-block:: php
    :linenos:

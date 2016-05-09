@@ -33,9 +33,9 @@ to files and other records.
 
 TCE requires a backend login to work. This is due to the fact that
 permissions are observed (of course) and thus TCE needs a backend user
-to evaluate against. This means you cannot use TCEmain from the
+to evaluate against. This means you cannot use DataHandler from the
 frontend scope. Thus writing to tables (such as a guestbook) will have
-to be done from the frontend *without* TCEmain.
+to be done from the frontend *without* DataHandler.
 
 The features of the $TCA are described in the :ref:`TCA Reference<t3tca:start>`.
 

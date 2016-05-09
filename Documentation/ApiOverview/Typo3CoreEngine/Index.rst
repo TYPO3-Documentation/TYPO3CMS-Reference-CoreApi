@@ -17,7 +17,7 @@ TYPO3 Core Engine (TCE)
 
    Introduction/Index
    Database/Index
-   UsingTcemain/Index
+   UsingDataHandler/Index
    TceDb/Index
    Files/Index
    TceFile/Index

@@ -12,12 +12,12 @@
 
 .. _tce-database-basics:
 
-Database: TCEmain basics
-^^^^^^^^^^^^^^^^^^^^^^^^
+Database: DataHandler basics (formerly known as TCEmain)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When you are using TCE from your backend applications you need to
 prepare two arrays of information which contain the instructions to
-TCEmain (:code:`\TYPO3\CMS\Core\DataHandling\DataHandler`)
+DataHandler (:code:`\TYPO3\CMS\Core\DataHandling\DataHandler`)
 of what actions to perform. They fall into two categories:
 data and commands.
 
@@ -28,7 +28,7 @@ create a new record.
 system.
 
 The data and commands are created as multidimensional arrays and to
-understand the API of TCEmain you simply need to understand the
+understand the API of DataHandler you simply need to understand the
 hierarchy of these two arrays.
 
 
@@ -307,7 +307,7 @@ Description of keywords in syntax:
 
          .. important::
             Always make sure :code:`$this->stripslashes_values` is false before using
-            TCEmain.)
+            DataHandler.)
 
 
 .. note::
@@ -431,8 +431,8 @@ function. Configuration of the hook can be done from
 
 .. _tce-flags:
 
-Flags in TCEmain
-""""""""""""""""
+Flags in DataHandler
+""""""""""""""""""""
 
 There are a few internal variables you can set prior to executing
 commands or data submission. These are the most significant:

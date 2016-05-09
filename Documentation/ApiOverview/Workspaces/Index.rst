@@ -24,7 +24,7 @@ problems can appear with old extensions;
   (except placeholder records must be filtered out in the frontend with
   :code:`t3ver_state !=` , see below).
 
-- Secondly, all permission related issues are implemented in TCEmain so
+- Secondly, all permission related issues are implemented in DataHandler so
   the worst your users can experience is an error message.
 
 However, you probably want to update your extension so that in the
@@ -411,8 +411,8 @@ corresponding entry in the :code:`sys_workspace` table.
 
 .. _workspaces-tcemain:
 
-Using TCEmain with workspaces
-"""""""""""""""""""""""""""""
+Using DataHandler with workspaces
+"""""""""""""""""""""""""""""""""
 
 Since admin users are also restricted by the workspace it is not
 possible to save any live records when in a workspace. However for

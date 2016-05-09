@@ -97,7 +97,7 @@ and news one on another page, the related cache entries should be tagged with th
 - page 1, tags news_1, news_2
 - page 2, tag news_1
 
-If entry 2 is changed, a simple backend logic (probably a hook in :ref:`TCEMAIN <using-tcemain>`) could be created,
+If entry 2 is changed, a simple backend logic (probably a hook in :ref:`DataHandler <using-tcemain>`) could be created,
 which drops all cache entries tagged with :code:`news_2`. In this case the first entry would be
 invalidated while the second entry still exists in the cache after the operation.
 
