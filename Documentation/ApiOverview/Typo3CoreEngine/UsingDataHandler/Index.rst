@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../../Includes.txt
 
@@ -10,6 +6,7 @@
 
 
 
+.. _Using-DataHandler:
 .. _using-tcemain:
 
 Using DataHandler in scripts
@@ -31,6 +28,7 @@ the $data and $cmd arrays correctly prior to these chunks of code. The
 syntax for these two arrays is explained in the :ref:`previous chapter <tce-database>`.
 
 
+.. _dataHandler-examples:
 .. _tcemain-examples:
 
 DataHandler examples
