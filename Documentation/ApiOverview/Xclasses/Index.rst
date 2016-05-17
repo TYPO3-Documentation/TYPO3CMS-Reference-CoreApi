@@ -31,7 +31,7 @@ However there are :ref:`several limitations <xclasses-limitations>`.
 .. note::
 
    If you need a hook or a signal that does not exist, feel free to submit
-   a feature request and - even better - a patch.
+   a feature request and - even better - `a patch https://docs.typo3.org/typo3cms/ContributionWorkflowGuide/`_.
 
 
 .. _xclasses-mechanism:
