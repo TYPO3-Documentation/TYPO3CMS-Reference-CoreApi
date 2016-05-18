@@ -6,7 +6,7 @@
 .. include:: ../Includes.txt
 
 
-.. tsconfig:
+.. _tsconfig:
 
 TSconfig
 --------

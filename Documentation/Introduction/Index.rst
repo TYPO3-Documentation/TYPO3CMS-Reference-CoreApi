@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../Includes.txt
 
@@ -30,14 +26,10 @@ feel free to ignore it.
 What's new
 ^^^^^^^^^^
 
-This version of the manual was updated for TYPO3 CMS 6.2.
+This version of the manual was updated for TYPO3 CMS 7.
 
-The changes include adding the new INCLUDE_TYPOSCRIPT option DIR,
-which allows to include all files from a directory and from
-subdirectories recursively, optionally restricted to certain file
-types. Files can now be included from a file relatively to the
-location of this file. Dots in object paths can now be escaped using
-the backslash character.
+The changes include the possible to use conditions in the
+:code:`INCLUDE_TYPOSCRIPT` directive.
 
 
 .. _credits:
@@ -45,9 +37,10 @@ the backslash character.
 Credits
 ^^^^^^^
 
-This document was formerly maintained by Michael Stucki and François
+This document was formerly maintained by Michael Stucki and Francois
 Suter. Additions have been made by Sebastian Michaelsen. The updates
-for recent versions were done by Christopher Stelmaszyk.
+for recent versions were done by Christopher Stelmaszyk and Francois
+Suter.
 
 
 .. _feedback:

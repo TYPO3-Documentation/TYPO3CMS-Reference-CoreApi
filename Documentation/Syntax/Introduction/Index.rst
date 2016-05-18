@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
 
@@ -23,23 +19,23 @@ conveys the idea of defining objects/properties.
 Example:
 """"""""
 
-::
+.. code-block:: typoscript
 
    myObject = [value 1]
    myObject.myProperty = [value 2]
    myObject.myProperty.firstProperty = [value 3]
    myObject.myProperty.secondProperty = [value 4]
 
-Referring to "myObject" we might call it an "*object with the value
+Referring to :code:`myObject` we might call it: "*an object with the value
 [value 1] and the property, 'myProperty' with the value [value 2].
 Furthermore 'myProperty' has its own two properties, 'firstProperty'
 and 'secondProperty' with a value each ([value 3] and [value 4]).*"
 
-The TYPO3 backend contains tools that can be used to visualize the
+The TYPO3 CMS backend contains tools that can be used to visualize the
 tree structure of TypoScript. They are described in the relevant
-section further in this document (see "TypoScript Templates" and
-"TSconfig"). The above piece of TypoScript would look like this:
+section further in this document (see :ref:`typoscript-templates` and
+:ref:`tsconfig`). The above piece of TypoScript would look like this:
 
 .. figure:: ../../Images/SyntaxIntroduction.png
-   :alt: Example TypoScript code.
+   :alt: Example TypoScript code
 

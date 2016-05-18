@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
 
@@ -47,14 +43,13 @@ The *detection of conditions* is a part of the TypoScript syntax but
 the *validation* of the condition content always relies on the
 context where TypoScript is used. Therefore in plain syntax
 highlighting (no context) conditions are just highlighted and nothing
-more. In the context of TypoScript Templates there is a :ref:`whole
-section of TSref <t3tsref:conditions>` which defines the
+more. In the context of TypoScript Templates there is a
+:ref:`whole section of TSref <t3tsref:conditions>` which defines the
 syntax of the condition contents for TypoScript Templates. For "Page
 TSconfig" and "User TSconfig" conditions are implemented as well.
 Basically they work the same way as conditions in TypoScript
-templates do, but there are some small differences. For details see
-the according :ref:`section "Conditions" in TSconfig
-<t3tsconfig:conditions>`.
+templates do, but there are some small differences. For details see the
+:ref:`chapter on conditions in TSconfig <t3tsconfig:conditions>`.
 
 
 .. _conditions-syntax:
@@ -62,8 +57,10 @@ the according :ref:`section "Conditions" in TSconfig
 The syntax of conditions
 """"""""""""""""""""""""
 
-A condition always has its own line and the line is detected by "["
-(square bracket) being the first character on that line::
+A condition always has its own line and the line is detected by :code:`[`
+(square bracket) being the first character on that line:
+
+.. code-block:: typoscript
 
    (Some TypoScript)
 
@@ -75,36 +72,41 @@ A condition always has its own line and the line is detected by "["
 
    (Some TypoScript)
 
-As you can see from this example, the line "**[GLOBAL]**" also is a
-condition. It is built-in into TypoScript and always returns TRUE. The
-line "[ condition 1 ][ condition 2]" is another condition. If "[
-condition 1 ][ condition 2]" is TRUE, then the TypoScript in the
-middle would be parsed until [GLOBAL] (or [END]) resets the
+As you can see from this example, the line :code:`[GLOBAL]` also is a
+condition. It is built into TypoScript and always returns TRUE. The
+line :code:`[ condition 1 ][ condition 2]` is another condition.
+If :code:`[condition 1 ][ condition 2]` is TRUE, then the TypoScript in the
+middle would be parsed until :code:`[GLOBAL]` (or :code:`[END]`) resets the
 conditions. After that point the TypoScript is parsed for any case
 again.
 
-**Notice:** The condition line "[ condition 1 ][ condition 2]" conveys
-the idea of *two conditions* being set, but from the TypoScript
-parsers point of view the *whole line* is the condition - it is in the
-context of TypoScript Templates that the condition line content is
-broken down into smaller units ("[ condition 1 ]" and "[ condition
-2]") which are individually evaluated and connected by a logical OR
-before they return the resulting TRUE or FALSE value. (That is all
-done with the class AbstractConditionMatcher (t3lib\_matchCondition)).
+.. note::
+
+   The condition line :code:`[ condition 1 ][ condition 2]` conveys
+   the idea of *two conditions* being set, but from the TypoScript
+   parser point of view the *whole line* is the condition. It is in the
+   context of TypoScript Templates that the condition line content is
+   broken down into smaller units (:code:`[ condition 1 ]` and
+   :code:`[ condition 2]") which are individually evaluated and
+   connected by a logical OR before they return the resulting
+   TRUE or FALSE value. (That is all done within the class
+   :code:`\TYPO3\CMS\Core\Configuration\TypoScript\ConditionMatching\AbstractConditionMatcher`.
 
 Here is an example of some TypoScript (from the context of TypoScript
 Templates) where another text is output if you use the Microsoft
 Internet Explorer web browser (instead of for example Google Chrome)
-or use Windows NT as operating system::
+or use Windows NT as operating system:
+
+.. code-block:: typoscript
 
    pageObj.10 = TEXT
    pageObj.10.value = Hello World
    pageObj.10.stdWrap.case = upper
 
-   [browser = msie][system = WinNT]
+   [loginUser = *][IP = 127.0.0.01]
    pageObj.20 = TEXT
    pageObj.20 {
-     value = Hello Internet Explorer or Windows NT users!
+     value = Only for logged in users or local setup
      stdWrap.case = upper
    }
 
@@ -129,32 +131,34 @@ see):
 The special [ELSE], [END] and [GLOBAL] conditions
 """""""""""""""""""""""""""""""""""""""""""""""""
 
-There's a special condition called [ELSE] which will return TRUE if
-the previous condition returned FALSE. To end an [ELSE] condition you
-can use either [END] or [GLOBAL]. For all three conditions you can
+The special condition :code:`[ELSE]` which will return TRUE if
+the previous condition returned FALSE. To end an :code:`[ELSE]` condition you
+can use either :code:`[END]` or :code:`[GLOBAL]`. For all three conditions you can
 also use them in lower case.
 
-Here's an example of using the [ELSE]-condition (also in the context
-of TypoScript Templates)::
+Here's an example of using the :code:`[ELSE]` condition (also in the context
+of TypoScript Templates):
+
+.. code-block:: typoscript
 
    page.typeNum = 0
    page = PAGE
    page.10 = TEXT
 
-   [browser = msie]
-   page.10.value = Internet Explorer
+   [loginUser = *]
+   page.10.value = Logged in
 
    [ELSE]
-   page.10.value = Not an Internet Explorer browser!
+   page.10.value = Not logged in
 
    [END]
 
    page.10.stdWrap.wrap = <strong>|</strong>
 
-Here we have one output text if the browser is Internet Explorer and
-another if not. Anyways the text is wrapped by <strong>\|</strong> as
-we see, because this wrap is added outside of the condition block
-(here after the [END]-condition).
+Here we have one output text if a user is logged in and
+another if not. No matter what the text is wrapped in a :code:`<strong>` tag,
+because, as we can see, this wrap is added outside of the condition block
+(e.g. after the :code:`[END]` condition).
 
 .. figure:: ../../Images/ConditionsSyntaxElse.png
    :alt: The TypoScript object browser showing the output of an ELSE condition.
@@ -163,13 +167,15 @@ The fact that you can "enable" the condition in the TypoScript Object
 Browser is a facility provided to simulate the outcome of any
 conditions you insert in a TypoScript Template. Whether or not the
 conditions validate correctly is only verified by actually getting a
-(in this example) Internet Explorer browser and hitting the site.
+(in this example) a logged in user and hitting the site.
 
 Another example could be if you wanted to do something special in case
 a bunch of conditions is NOT true. There's **no negate-character**,
-but you could do this::
+but you could do this:
 
-   [browser = msie][usergroup = 3]
+.. code-block:: typoscript
+
+   [loginUser = *][usergroup = 3]
      # Enter nothing here!
    [ELSE]
      page.10.value = This text is only displayed if the conditions above are not TRUE!
@@ -184,22 +190,26 @@ Where to insert conditions in TypoScript?
 
 Conditions can be used *outside* of confinements (curly braces) only!
 
-So, this is valid::
+So, this is valid:
+
+.. code-block:: typoscript
 
    someObject {
-     1property = 234
+      1property = 234
    }
-   [browser = msie]
+   [loginUser = *]
    someObject {
-     2property = 567
+      2property = 567
    }
 
-But this is **not valid:** ::
+But this is **not valid:**
+
+.. code-block:: typoscript
 
    someObject {
-     1property = 234
-     [browser = msie]
-     2property = 567
+      1property = 234
+      [loginUser = *]
+      2property = 567
    }
 
 When parsed with syntax highlighting you will see this error:
@@ -207,8 +217,13 @@ When parsed with syntax highlighting you will see this error:
 .. figure:: ../../Images/ConditionsSyntaxError.png
    :alt: Error after having used a condition where it is not allowed.
 
+Clicking on the details link will show the following:
+
+.. figure:: ../../Images/ConditionsSyntaxErrorDetails.png
+   :alt: The error details
+
 This means that the line was perceived as a regular definition of
-"[object path] [operator] [value]" and not as a condition.
+TypoScript and not as a condition.
 
 
 .. _the-global-condition:
@@ -216,14 +231,16 @@ This means that the line was perceived as a regular definition of
 The [GLOBAL] condition
 """"""""""""""""""""""
 
-However for the special condition [GLOBAL] (which resets any previous
-condition scope), it is a bit different since that will be detected at
-*any line* except within multiline value definitions. ::
+The :code:`[GLOBAL]` special condition (which resets any previous
+condition scope) is yet different, in that will be detected at
+*any line* except within multiline value definitions.
+
+.. code-block:: typoscript
 
    someObject {
-     1property = 234
-     [GLOBAL]
-     2property = 567
+      1property = 234
+      [GLOBAL]
+      2property = 567
    }
 
 But you will still get some errors if you syntax highlight it:
@@ -231,17 +248,17 @@ But you will still get some errors if you syntax highlight it:
 .. figure:: ../../Images/ConditionsSyntaxErrorGlobal.png
    :alt: Error after having used a GLOBAL condition at thw wrong place.
 
-The reason for this is that the [GLOBAL] condition aborts the
+The reason for this is that the :code:`[GLOBAL]` condition aborts the
 confinement started in the first line resulting in the first error
 ("... short of 1 end brace(s)"). The second error appears because the
 end brace is now in excess since the "brace level" was reset by
-[GLOBAL].
+:code:`[GLOBAL]`.
 
-So, in summary; the special [global] (or [GLOBAL]) condition will
+So, in summary; the special :code:`[global]` (or :code:`[GLOBAL]`) condition will
 break TypoScript parsing within braces at any time and return to the
 global scope (unless entered in a multiline value). This is true for
 any TypoScript implementation whether other condition types are
-possible or not. Therefore you can use [GLOBAL] (put on a single line
+possible or not. Therefore you can use :code:`[GLOBAL]` (put on a single line
 for itself) to make sure that following TypoScript is correctly parsed
 from the top level. This is normally done when TypoScript code from
 various records is combined.
@@ -252,16 +269,16 @@ various records is combined.
 Summary
 """""""
 
-- Conditions are detected by "[" as the first line character (whitespace
+- Conditions are detected by :code:`[` as the first line character (whitespace
   ignored).
 
 - Conditions are evaluated in relation to the context where TypoScript
   is used. They are widely used in TypoScript Templates and can also be
   used in "Page TSconfig" or "User TSconfig".
 
-- Special conditions [ELSE], [END] and [GLOBAL] exist.
+- Special conditions :code:`[ELSE]`, :code:`[END]` and :code:`[GLOBAL]` exist.
 
 - Conditions can be used outside of confinements (curly braces) only.
-  However the [GLOBAL] condition will always break a confinement if
+  However the :code:`[GLOBAL]` condition will always break a confinement if
   entered inside of one.
 

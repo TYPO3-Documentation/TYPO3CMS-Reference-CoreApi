@@ -1,3 +1,4 @@
+
 .. include:: ../../Includes.txt
 
 
@@ -8,7 +9,9 @@ TypoScript syntax
 
 TypoScript is parsed in a very simple way; line by line. This means
 that abstractly said each line normally contains three parts based on
-this formula::
+this formula:
+
+.. code-block:: text
 
    [Object Path] [Operator] [Value]
 
@@ -16,7 +19,7 @@ this formula::
 Example:
 """"""""
 
-::
+.. code-block:: typoscript
 
    myObject.myProperty = value 2
 
@@ -26,17 +29,19 @@ Example:
 object path
 """""""""""
 
-The object path (in this case "myObject.myProperty") is like the
+The object path (in this case :code:`myObject.myProperty`) is like the
 variable name in a programming language. The object path is the first
 block of non-whitespace characters on a line until one of the
-characters "=<>{( " (space included) is found. The dot (".") is used
+characters :code:`=<>{( ` (space included) is found. The dot (:code:`.`) is used
 to separate objects and properties from each other creating a hierarchy.
-Here we have the object "myObject" with the property "myProperty".
+Here we have the object :code:`myObject` with the property :code:`myPropert`.
 **Use only A-Z, a-z, 0-9, "-", "\_" and periods (.) for object paths!**
 
 Dots in the object path can be escaped using a backslash.
 
-**Example:** ::
+**Example:**
+
+.. code-block:: typoscript
 
    my\.escaped\.key = test
 
@@ -47,13 +52,15 @@ Here we do *not* have three hierarchically structured objects "my",
 Backslashes can be protected from being interpreted as escape
 characters by using double backslashes.
 
-**Example:** ::
+**Example:**
+
+.. code-block:: typoscript
 
    my\\.escaped\\.key = test
 
-This will result in the object path "my\.escaped\.key" with the value
-"test". Here we *do have* three hierarchically structured objects "my\",
-"escaped\" and "key".
+This will result in the object path :code:`my\.escaped\.key` with the value
+"test". Here we *do have* three hierarchically structured objects :code:`my\`,
+:code:`escaped\` and :code:`key`.
 
 
 .. _syntax-operator:
@@ -61,8 +68,8 @@ This will result in the object path "my\.escaped\.key" with the value
 operator
 """"""""
 
-The operator (in the example it is "=") can be one of the characters
-"=<>{(". The various operators are described below.
+The operator (in the example it is :code:`=`) can be one of the characters
+:code:`=<>{(`. The various operators are described below.
 
 
 .. _syntax-value:
@@ -81,14 +88,14 @@ value starts after the operator and ends with the line break.
 Comments
 """"""""
 
-When a line starts with "/" or "#" it is considered to be a comment
+When a line starts with :code:`/` or :code:`#` it is considered to be a comment
 and will be ignored.
 
 
 Example:
 ~~~~~~~~
 
-::
+.. code-block:: typoscript
 
    // This is a comment
    / This also is a comment (only ONE slash is needed)
@@ -102,7 +109,7 @@ Example:
 Comment blocks
 """"""""""""""
 
-When a line starts with "/\*" or "\*/" it defines the beginning or the
+When a line starts with :code:`/*` or :code:`*/` it defines the beginning or the
 end of a comment section respectively. Anything inside a comment
 section is ignored.
 
@@ -110,7 +117,7 @@ section is ignored.
 Rules:
 ~~~~~~
 
-/\* and \*/ MUST be the very first characters of a trimmed line in
+:code:`/*` and :code:`*/` **must** be the very first characters of a trimmed line in
 order to be detected.
 
 Comment blocks are not detected inside a multi-line value block (see
@@ -120,7 +127,7 @@ parenthesis operator below).
 Example:
 ~~~~~~~~
 
-::
+.. code-block:: typoscript
 
    /* This is a comment
     .. and this line is within that comment which...
@@ -128,10 +135,10 @@ Example:
    */  ... this is not parsed either though - the whole line is still within the comment
    myObject = TEXT
    myObject.value (
-     Here is a multiline value which
-     /*
+      Here is a multiline value which
+      /*
        This is not a comment because it is inside a multi-line value block
-     */
+      */
    )
 
 
@@ -147,7 +154,7 @@ This simply assigns a value to an object path.
 Rules:
 ~~~~~~
 
-Everything after the "=" sign and *up to the end of the line* is
+Everything after the :code:`=` sign and *up to the end of the line* is
 considered to be the value. In other words: You don't need to quote
 anything!
 
@@ -172,65 +179,81 @@ redefining it again.
 Rules:
 ~~~~~~
 
-The portion after the ":=" operator and *to the end of the line* is
+The portion after the :code:`:=` operator and *to the end of the line* is
 split in two parts: A function and a value. The function is specified
 right next to the operator (trimmed) and holding the value in parentheses
 (not trimmed).
 
-There are six predefined functions:
+This is the list of predefined functions:
 
-- **prependString:** Adds a string to the beginning of the existing
+prependString
+  Adds a string to the beginning of the existing
   value.
 
-- **appendString:** Adds a string to the end of the existing value.
+appendString
+  Adds a string to the end of the existing value.
 
-- **removeString:** Removes a string from the existing value.
+removeString
+  Removes a string from the existing value.
 
-- **replaceString:** Replaces old with new value. Separate these using
-  "\|".
+replaceString
+  Replaces old with new value. Separate these using
+  :code:`|`.
 
-- **addToList:** Adds a comma-separated list of values to the end of a
+addToList
+  Adds a comma-separated list of values to the end of a
   string value. There is no check for duplicate values, and the list is
   not sorted in any way.
 
-- **removeFromList:** Removes a comma-separated list of values from an
+removeFromList
+  Removes a comma-separated list of values from an
   existing comma-separated list of values.
 
-- **uniqueList:** Removes duplicate entries from a comma-separated list
+uniqueList
+  Removes duplicate entries from a comma-separated list
   of values.
 
-- **reverseList:** Reverses the order of entries in a comma-separated
+reverseList
+  Reverses the order of entries in a comma-separated
   list of values.
 
-- **sortList:** Sorts the entries in a comma-separated list of values.
+sortList
+  Sorts the entries in a comma-separated list of values.
 
   Optional parameters are
 
-  - **ascending:** Sort the items in ascending order: First numbers
+  ascending
+    Sort the items in ascending order: First numbers
     from small to big, then letters in alphabetical order. This is the
     default method.
-  - **descending:** Sort the items in descending order: First letters
+
+  descending
+    Sort the items in descending order: First letters
     in descending order, then numbers from big to small.
-  - **numeric:** Apply numeric sorting: Numbers from small to big,
+
+  numeric
+    Apply numeric sorting: Numbers from small to big,
     letters sorted after "0".
 
   Multiple parameters are separated by comma.
 
-There is a hook inside class TypoScriptParser (formerly
-class.t3lib\_tsparser.php), which can be used to define more such functions.
+There is a hook inside class :code:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser`
+which can be used to define more such functions.
 
 
 Example:
 ~~~~~~~~
 
-::
+.. code-block:: typoscript
 
    myObject = TEXT
    myObject.value = 1,2,3
    myObject.value := addToList(4,5)
    myObject.value := removeFromList(2,1)
 
-produces the same result as::
+produces the same result as:
+
+.. code-block:: typoscript
 
    myObject = TEXT
    myObject.value = 3,4,5
@@ -250,34 +273,40 @@ properties.
 Rules:
 ~~~~~~
 
-- Everything on the same line as the opening brace ("{"), but that comes
+- Everything on the same line as the opening brace (:code:`{`), but that comes
   *after* it is ignored.
 
-- The "}" sign *must* be the first non-space character on a line in
-  order to close the block. Everything on the same line, but after "}"
+- The :code:`}` sign *must* be the first non-space character on a line in
+  order to close the block. Everything on the same line, but after :code:`}`
   is ignored.
 
 - Blocks can be nested. This is actually recommended for **improved
   readability**.
 
-- **Note:** You cannot use conditions inside of braces (except the
-  [GLOBAL] condition which will be detected and reset the brace-level to
-  zero)
+.. important::
 
-- **Note:** Excessive end braces are ignored, but generate warnings in
+   You cannot use conditions inside of braces (except the
+   :code:`[GLOBAL]` condition which will be detected and reset the brace-level to
+   zero)
+
+.. note::
+
+  Excessive end braces are ignored, but generate warnings in
   the TypoScript parser.
 
 
 Example:
 ~~~~~~~~
 
-::
+.. code-block:: typoscript
 
    myObject = TEXT
    myObject.stdWrap.field = title
    myObject.stdWrap.ifEmpty.data = leveltitle:0
 
-could also be written as::
+could also be written as:
+
+.. code-block:: typoscript
 
    myObject = TEXT
    myObject {
@@ -304,23 +333,23 @@ lines and thus include line breaks.
 Rules:
 ~~~~~~
 
-**Note:** The end-parenthesis is extremely important. If it is not
+The end-parenthesis is extremely important. If it is not
 found, the parser considers the following lines to be part of the
 value and does not return to parsing TypoScript. This includes the
-[GLOBAL] condition which will not save you in this case! So don't miss
+:code:`[GLOBAL]` condition which will not save you in this case! So don't miss
 it!
 
 
 Example:
 ~~~~~~~~
 
-::
+.. code-block:: typoscript
 
    myObject = TEXT
-   myObject.value (
-     <p class="warning">
-       This is HTML code.
-     </p>
+      myObject.value (
+      <p class="warning">
+         This is HTML code.
+      </p>
    )
 
 
@@ -330,7 +359,7 @@ Example:
 Object copying: The "<" sign
 """"""""""""""""""""""""""""
 
-The "<" sign is used to copy one object path to another. The whole
+The :code:`<` sign is used to copy one object path to another. The whole
 object is copied - both value and properties - and it overrides any
 old objects and values at that position.
 
@@ -338,7 +367,7 @@ old objects and values at that position.
 Example:
 ~~~~~~~~
 
-::
+.. code-block:: typoscript
 
    myObject = TEXT
    myObject.value = <p class="warning">This is HTML code.</p>
@@ -346,13 +375,15 @@ Example:
    myOtherObject < myObject
 
 The result of the above TypoScript is two independent sets of
-objects/properties which exactly the same (duplicates). They are
+objects/properties which are exactly the same (duplicates). They are
 *not* references to each other but actual copies:
 
 .. figure:: ../../Images/SyntaxCopying1.png
-   :alt: An object and a copy of it.
+   :alt: An object and its copy
 
-Another example with a copy within a code block::
+Another example with a copy within a code block:
+
+.. code-block:: typoscript
 
    pageObj {
            10 = TEXT
@@ -360,12 +391,14 @@ Another example with a copy within a code block::
            20 < pageObj.10
    }
 
-Here also a copy is made, although inside the "pageObj" object. Note
+Here also a copy is made, although inside the :code:`pageObj` object. Note
 that the copied object is referred to with its full path
-("pageObj.10"). When **copying on the same level**, you can just
+(:code:`pageObj.10`). When **copying on the same level**, you can just
 refer to the copied object's name, **prepended by a dot**.
 
-The following produces the same result as above::
+The following produces the same result as above:
+
+.. code-block:: typoscript
 
    pageObj {
            10 = TEXT
@@ -376,23 +409,27 @@ The following produces the same result as above::
 which – in tree view – translates to:
 
 .. figure:: ../../Images/SyntaxCopying2.png
-   :alt: An object and a copy of it.
+   :alt: Another object and its copy
 
-**Note: When the original object is changed after copying, the
-copy does not change!** Take a look at the following code::
+.. important::
 
-   someObject = TEXT
-   someObject {
-           value = Hello world!
-           stdWrap.wrap = <p>|<p>
-   }
-   anotherObject < someObject
-   someObject.stdWrap.wrap = <h1>|<h1>
+   When the original object is changed after copying, the
+   copy does not change! Take a look at the following code:
 
-The value of the "stdWrap.wrap" property of "anotherObject" is "<p>\|</p>".
-It is **not** "<h1>\|<h1>" because this change happens **after** the
-copying. This example may seem trivial, but it's easy to loose the
-oversight in larger pieces of TypoScript.
+   .. code-block:: typoscript
+
+      someObject = TEXT
+      someObject {
+              value = Hello world!
+              stdWrap.wrap = <p>|<p>
+      }
+      anotherObject < someObject
+      someObject.stdWrap.wrap = <h1>|<h1>
+
+   The value of the :code:`stdWrap.wrap` property of :code:`anotherObject`
+   is :code:`<p>|</p>`. It is **not** :code:`<h1>|<h1>` because this change
+   happens **after** the copying. This example may seem trivial, but
+   it's easy to loose the oversight in larger pieces of TypoScript.
 
 
 .. _syntax-equal-smaller-than-operator:
@@ -419,7 +456,7 @@ be used with caution.
 Example:
 ~~~~~~~~
 
-::
+.. code-block:: typoscript
 
    someObject = TEXT
    someObject {
@@ -429,22 +466,22 @@ Example:
    anotherObject =< someObject
    someObject.stdWrap.wrap = <h1>|<h1>
 
-In this case, the "stdWrap.wrap" property of "anotherObject" will indeed be
-"<h1>\|<h1>". In tree view the properties of the reference are not
-shown. Only the reference itself is there:
+In this case, the :code:`stdWrap.wrap` property of :code:`anotherObject`
+will indeed be :code:`<h1>|<h1>`. In tree view the properties
+of the reference are not shown. Only the reference itself is visible:
 
 .. figure:: ../../Images/SyntaxReferencing.png
    :alt: An object and a reference of it.
 
-Remember: 
+Remember:
 
 - References are only available in TypoScript templates, not in TSconfig
-  (User TypoScript or Page TypoScript)
+  (User TSconfig or Page TSconfig)
 
-- References are only resolved for Content Objects, otherwise references are 
-  not resolved. For example, you **cannot** use a 
-  reference :ts:`< plugin.tx_example.settings.foo` to find the value of `foo`.
-  The value you get will be just :ts:'< plugin.tx_example.settings.foo' instead.
+- References are only resolved for Content Objects, otherwise references are
+  not resolved. For example, you **cannot** use a
+  reference :code:`< plugin.tx_example.settings.foo` to find the value of `foo`.
+  The value you get will be just :code:`< plugin.tx_example.settings.foo` instead.
 
 
 .. _syntax-bigger-than-operator:
@@ -459,14 +496,14 @@ This is used to unset an object and all of its properties.
 Example:
 ~~~~~~~~
 
-::
+.. code-block:: typoscript
 
    myObject = TEXT
    myObject.value = <strong> HTML - code </strong>
 
    myObject >
 
-In this last line "myObject" is totally wiped out (removed).
+In this last line :code:`myObject` is totally wiped out (removed).
 
 
 .. _syntax-square-brackets:
@@ -493,7 +530,7 @@ of any curly braces).
 Example:
 ~~~~~~~~
 
-::
+.. code-block:: typoscript
 
    [browser = msie]
    page.10.value = Internet Explorer
