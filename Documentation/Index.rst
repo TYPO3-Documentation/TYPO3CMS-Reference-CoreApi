@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: Includes.txt
 
@@ -16,7 +12,7 @@ TypoScript Syntax and In-depth Study
       doc_core_ts
 
 :Version:
-      |release|
+      7 LTS
 
 :Language:
       en
@@ -28,7 +24,7 @@ TypoScript Syntax and In-depth Study
       typoscript, syntax, forAdmins, forIntermediates
 
 :Copyright:
-      2000-2015
+      2000-2016
 
 :Author:
       Documentation Team
