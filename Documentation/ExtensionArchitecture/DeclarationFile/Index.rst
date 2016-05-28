@@ -296,7 +296,7 @@ values in the :code:`$EM_CONF` array if needed.
          char; L, G or S
    :Description:
          Locks the extension to be installed in a specific position of the
-         three posible:
+         three possible:
 
          - **L** = local (typo3conf/ext/)
 
