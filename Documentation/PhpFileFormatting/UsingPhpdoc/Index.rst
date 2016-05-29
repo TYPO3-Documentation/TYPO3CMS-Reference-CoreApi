@@ -58,7 +58,7 @@ Functions should have parameters and return type documented. Example::
     *
     * @param array $conf Plugin configuration from TypoScript
     * @return bool TRUE if initialization was successful, FALSE otherwise
-    * @see tx_myext_class:anotherFunc()
+    * @see MyClass:anotherFunc()
     */
    protected function initialize(array $conf) {
        // Do something

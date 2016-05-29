@@ -21,12 +21,12 @@ Example
 
 ::
 
-   class tx_myext_MyClass {
+   class MyClass {
        static public function methodA() {
            //...
        }
        static public function methodB() {
-           // instead of tx_myext_MyClass::methodA():
+           // instead of MyClass::methodA():
            self::methodA();
        }
    }

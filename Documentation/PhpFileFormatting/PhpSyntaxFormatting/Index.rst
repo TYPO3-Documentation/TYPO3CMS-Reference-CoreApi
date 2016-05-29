@@ -423,14 +423,14 @@ keyword.
 Type hinting must be used when the function expects an :code:`array` or
 an :code:`instance` of a certain class. Example::
 
-      protected function executeAction(tx_myext_action& $action, array $extraParameters) {
+      protected function executeAction(MyAction &$action, array $extraParameters) {
           // Do something
       }
 
 Static functions must use the :code:`static` keyword. This keyword must
 be the first keyword in the function definition::
 
-      static public function executeAction(tx_myext_action& $action, array $extraParameters) {
+      static public function executeAction(MyAction &$action, array $extraParameters) {
           // Do something
       }
 
@@ -476,7 +476,7 @@ In general there should be a single :code:`return` statement in the
 function (see the preceding example). However a function can return
 during parameter validation before it starts its main logic. Example::
 
-   function extendedUse($enabled, tx_myext_useparameters $useParameters) {
+   function extendedUse($enabled, MyUseParameters $useParameters) {
        // Validation
        if (count($useParameters->urlParts) < 5) {
            return 'Parameter validation failed';

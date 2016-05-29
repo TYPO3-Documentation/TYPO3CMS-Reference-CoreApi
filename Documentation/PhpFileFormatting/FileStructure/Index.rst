@@ -50,7 +50,7 @@ Copyright notice
 TYPO3 is released under the terms of GNU General Public License
 version 2 or any later version. The copyright notice with a reference
 to the license text must be included at the top of every TYPO3 PHP class
-file. :code:`user_` files must have this copyright notice as well. Example::
+file. user files must have this copyright notice as well. Example::
 
    <?php
    namespace TYPO3\CMS\XXX;
@@ -142,7 +142,7 @@ Module execution code instantiates the class and runs its method(s).
 Typically this code can be found in :code:`eID` scripts and old Backend
 modules. Here is how it may look like::
 
-   $controller = GeneralUtility::makeInstance('tx_myext_ajaxcontroller');
+   $controller = GeneralUtility::makeInstance(\Vendor\MyNamespace\MyExtension\Controller\AjaxController::class);
    $controller->main();
 
 This code must appear **after** the PHP class. :code:`$SOBE` is the
