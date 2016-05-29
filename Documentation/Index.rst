@@ -1,8 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
 .. include:: Includes.txt
 
 
@@ -75,16 +70,11 @@ on the Table of Contents to identify what particular section will best
 address the task at hand.
 
 
-**Table of Contents**
-
 .. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+   :hidden:
 
    Introduction/Index
    FileSystemConventions/Index
    PhpFileFormatting/Index
    CodingBestPractices/Index
    Targets
-
