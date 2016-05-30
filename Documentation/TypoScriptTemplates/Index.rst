@@ -17,16 +17,15 @@ The TypoScript template configuration can be viewed and edited in the
 The objects, properties and conditions, which are available inside the
 Setup field, can be found in the :ref:`TypoScript Reference <t3tsref:start>`.
 
-The following chapter explains syntax and usage of constants. It also
-takes the Constant Editor into account.
-
 
 .. toctree::
    :maxdepth: 5
    :titlesonly:
    :glob:
 
+   Usage/Index
+   Entering/Index
    Constants/Index
    UsingConstants/Index
    TheConstantEditor/Index
-
+   Debugging/Index

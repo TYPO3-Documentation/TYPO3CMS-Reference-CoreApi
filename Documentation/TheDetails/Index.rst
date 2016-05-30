@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../Includes.txt
 
@@ -11,16 +7,14 @@
 Sorting out details
 -------------------
 
+This chapter looks at some more technical details about TypoScript.
+
 
 .. toctree::
    :maxdepth: 5
    :titlesonly:
    :glob:
 
-   TypoScriptComparedToXmlAndXslt/Index
-   Usages/Index
-   EnteringTypoScript/Index
    ParsingStoringExecutingTypoScript/Index
-   SyntaxHighlightingDebugging/Index
    MythsFaqAcknowledgments/Index
 

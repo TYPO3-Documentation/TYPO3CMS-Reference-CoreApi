@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
 
@@ -14,7 +10,7 @@ Myths, FAQ and acknowledgments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section contains a few remarks and answers to questions you may
-still have. So here it goes:
+still have.
 
 
 .. _myth-scripting-language:
@@ -26,11 +22,10 @@ This is misleading to say since you will think that TypoScript is like
 PHP or JavaScript while it is not. From the previous pages you have
 learned that TypoScript strictly speaking is just a syntax. However
 when the TypoScript syntax is applied to create TypoScript Templates
-then it begins to look like programming and the parallel to XSLT might
-also hint at that.
+then it begins to look like programming.
 
-In any case TypoScript is NOT comparable to a scripting language like
-PHP or JavaScript. In fact, if TYPO3 offers any scripting language it
+In any case TypoScript is **not** comparable to a scripting language like
+PHP or JavaScript. In fact, if TYPO3 CMS offers any scripting language it
 is PHP itself! TypoScript is only an API which is often used to
 configure underlying PHP code.
 
@@ -61,7 +56,7 @@ claim this in comparison to PHP, JavaScript, Java or whatever
 However compared to XML or PHP arrays (which also contain
 *information*) you can say that TypoScript is a proprietary syntax
 since a PHP array or XML file could be used to contain the same
-information as TypoScript does. But this is *not* a drawback: For
+information as TypoScript does. But this is *not* a drawback. For
 storage and exchange of *content* TYPO3 uses SQL (or XML if you need
 to), for storage of *configuration values* XML is not suitable
 anyways - TypoScript is much better at that job (see below).
@@ -119,10 +114,12 @@ are.
 
 Actually a data structure defined in TypoScript could also have been
 modeled in XML. Currently you *cannot* use XML as an alternative to
-TypoScript (writing of December 2015), but this may happen at some
+TypoScript, but this may happen at some
 point. Let's present this fictitious example of how a TypoScript
 structure could also have been implemented in "TSML" (our fictitious
-name for the non-existing TypoScript Mark-Up Language)::
+name for the non-existing TypoScript Mark-Up Language):
+
+.. code-block:: typoscript
 
    styles.content.bulletlist = TEXT
    styles.content.bulletlist {
@@ -143,7 +140,9 @@ name for the non-existing TypoScript Mark-Up Language)::
    }
 
 That was 17 lines of TypoScript code and converting this information
-into an XML structure could look like this::
+into an XML structure could look like this:
+
+.. code-block:: xml
 
    <TSML syntax="3">
      <styles>
