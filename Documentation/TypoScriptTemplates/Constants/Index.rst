@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
 
@@ -17,28 +13,32 @@ Constants
 What are constants?
 """""""""""""""""""
 
-Constants are values defined in the "Constants"-field of a template.
+Constants are values defined in the "Constants" field of a template.
 They follow the :ref:`syntax of ordinary TypoScript <syntax>` and are
-case sensitive! They allow to manage a value, which should later be
-used at *several places*, to be maintained centrally at only *one
-single place*.
+case sensitive! They are used to manage *in a single place* values,
+which are later used in *several places*.
 
-**Note, reserved name:** The object or property "file" is always
-interpreted as data type ":ref:`resource
-<t3tsref:data-type-resource>`". That means it refers to a file, which
-you have to upload in your TYPO3 installation.
+.. note::
 
-**Note: The top-level "object" TSConstantEditor** cannot be used. It's
-reserved for configuration of the Constant Editor module.
+   **Reserved name**
+
+   The object or property "file" is always interpreted as data type
+   ":ref:`resource <t3tsref:data-type-resource>`". That means it refers
+   to a file, which you have to upload in your TYPO3 CMS installation.
+
+.. note::
+
+   The top-level "object" :code:`TSConstantEditor` cannot be used. It is
+   reserved for the :ref:`configuration of help in the Constant Editor module <constant-editor-categories>`.
 
 
-Example:
-~~~~~~~~
+Example
+~~~~~~~
 
-Here "bgCol" is set to "red", "file.toplogo" is set to
-"fileadmin/logo.gif" and "topimg.file.pic2" is set to
-"fileadmin/logo2.gif"; these files must be uploaded in your
-installation.
+Here :code:`bgCol` is set to "red", :code:`file.toplogo` is set to
+"fileadmin/logo.gif" and :code:`topimg.file.pic2` is set to
+"fileadmin/logo2.gif", assuming these files are indeed available
+at the expected location.
 
 .. code-block:: typoscript
    :emphasize-lines: 3,4
@@ -63,9 +63,11 @@ This could also be defined in other ways, e.g. like this:
    }
 
 (The objects in the highlighted lines contain the reserved word "file"
-and the properties are always of data type ":ref:`resource
-<t3tsref:data-type-resource>`".)
+and the properties are always of data type ":ref:`resource <t3tsref:data-type-resource>`".)
 
-.. figure:: ../../Images/TSTemplatesConstants.png
-   :alt: Overview of the defined constants.
+.. figure:: ../../Images/TemplatesConstants.png
+   :alt: Overview of the defined constants
 
+
+The :code:`module` constant which is visible in the above screenshot
+comes from the TYPO3 CMS core itself.

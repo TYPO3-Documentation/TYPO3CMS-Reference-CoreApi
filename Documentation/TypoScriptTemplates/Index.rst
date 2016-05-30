@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../Includes.txt
 
@@ -16,11 +12,10 @@ Each template can include other (static) templates, which can again
 define values in their own Constants and Setup fields.
 
 The TypoScript template configuration can be viewed and edited in the
-Web > Template module.
+**WEB > Template** module.
 
 The objects, properties and conditions, which are available inside the
-Setup field, can be found in the
-:ref:`TypoScript Reference <t3tsref:start>`.
+Setup field, can be found in the :ref:`TypoScript Reference <t3tsref:start>`.
 
 The following chapter explains syntax and usage of constants. It also
 takes the Constant Editor into account.

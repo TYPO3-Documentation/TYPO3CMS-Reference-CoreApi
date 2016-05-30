@@ -9,35 +9,39 @@ Declaring constants for the Constant Editor
 
 You can put comments anywhere in your TypoScript. Comments are always
 ignored by the parser when the template is processed. But the backend
-module Web > Template has the ability to utilize comments in the
-constant editor that makes simple configuration of a template even
+module **WEB > Template** has the ability to use comments in the
+constant editor to make simple configuration of a template even
 easier than constants already make it themselves.
 
-.. figure:: ../../Images/TSTemplatesConstantEditor.png
+.. figure:: ../../Images/TemplatesConstantEditor.png
    :alt: The Constant Editor showing some categories with constants.
 
-When the TypoScript "Constant Editor" parses the template, *all*
+When the "Constant Editor" parses the template, *all*
 comments before every constant-definition are registered. You can
 follow a certain syntax to define what category the constant should be
-in, which type it has and what explanation there is about the
-constant. This is an example containing several constant definitions::
+in, which type it has and provide a description for the
+constant.
+
+.. code-block:: typoscript
 
    styles.content.textStyle {
-       # cat=content/cText/1; type=; label= Bodytext font: This is the font face used for text!
-     face =
-       # cat=content/cText/2; type=int[1-5]; label= Bodytext size
-     size =
-       # cat=content/cText/3; type=color; label= Bodytext color
-     color =
-     color1 =
-     color2 =
-     properties =
+      # cat=content/cText/1; type=; label= Bodytext font: This is the font face used for text!
+      face =
+      # cat=content/cText/2; type=int[1-5]; label= Bodytext size
+      size =
+      # cat=content/cText/3; type=color; label= Bodytext color
+      color =
+      color1 =
+      color2 = blue
+      properties =
    }
 
-It's totally optional to make the comments before your constants
-compliant with this system, but it's very useful later on if you want
-others to make simple corrections to your template or distribute the
-template in a template-archive or such.
+In the above example, three constants have syntactically correct comments
+and will appear in the "Constant Editor". The other three will not. The
+syntax is described in the rest of this chapter.
+
+Making your most important constants available for the "Constant Editor"
+is a real usability gain.
 
 
 .. _constant-editor-default-values:
@@ -45,17 +49,22 @@ template in a template-archive or such.
 Default values:
 """""""""""""""
 
-The default value of a constant is determined by the value the
-constant has BEFORE the last template (the one you're manipulating
-with the module) is parsed (previous templates are typically included
-static\_template records!), unless the mark
-###MOD\_TS:EDITABLE\_CONSTANTS### is found in the last template, in
-which case constant-definitions before this mark are also regarded
-default-values.
+A constant may be given a default value when it is defined,
+as is the case for the :code:`color2` constant in the above
+example.
 
-This means that all constant values - or values after the mark
-###MOD\_TS:EDITABLE\_CONSTANTS### if present - in the template record
-you're manipulating are regarded to be your customized extensions.
+More generally, the default value of a constant is determined
+by the value the constant has **before** the last template
+(i.e. the one you're manipulating with the *Template* module)
+is parsed (previous templates are typically included template records!).
+
+However a template may contain a :code:`###MOD_TS:EDITABLE_CONSTANTS###`.
+In this case, the constant definitions found before this mark are also regarded
+as default values.
+
+.. note::
+
+   This is a rather obscure and little-used feature.
 
 
 .. _constant-editor-comments:
@@ -65,15 +74,16 @@ Comments:
 
 How the comments are perceived by the module:
 
-- All comments set on lines before the constant wherever it's found in
-  the templates are parsed sequentially.
+- The comment line before the constant is considered to contain
+  its definition.
 
-- Each line is split by the ";" (semicolon) character, that separates
+- Each line is split at the :code:`;` (semicolon) character, that separates
   the various parameters
 
-- Each parameter is split by the "=" (equal) sign to separate the
-  parameter "key" and the "value".
+- Each parameter is split at the :code:`=` (equal) sign to separate the
+  parameter's key and value.
 
+The possible keys are described below.
 
 .. _constant-editor-keys:
 
@@ -81,12 +91,14 @@ Keys:
 """""
 
 
+.. _constant-editor-keys-cat:
+
 cat=
 ~~~~
 
 - Comma-separated list of the categories (case-insensitive) that the
-  constant is a member of. You should *list only one category*,
-  because it usually turns out to be confusing for users, if one and the
+  constant is a member of. You should really *list only one category*,
+  because it usually turns out to be confusing for users, if the
   same constant appears in multiple categories!
 
 - If the chosen category is *not* found among the default categories
@@ -95,67 +107,77 @@ cat=
 - If the category is empty (""), the constant is excluded from the
   editor!
 
-**Predefined Categories**
+.. _constant-editor-keys-cat-predefined-categories:
 
-.. ### BEGIN~OF~SIMPLE~TABLE ###
+Predefined categories
+*********************
 
 =========  ======================================================================
 Category   Description
 =========  ======================================================================
-basic      Constants of superior importance for the template-layout. This is
+basic      Constants of superior importance for the template. This is typically
            dimensions, image files and enabling of various features. The most
            basic constants, which you would almost always want to configure.
 menu       Menu setup. This includes font files, sizes, background images.
            Depending on the menu type.
 content    All constants related to the display of page content elements.
 page       General configuration like meta tags, link targets.
-advanced   Advanced functions, which are used very seldom.
+advanced   Advanced functions, which are seldom used.
 =========  ======================================================================
 
-.. ###### END~OF~SIMPLE~TABLE ######
+.. _constant-editor-keys-cat-custom-categories:
 
-**Custom Categories**
+Custom categories
+*****************
 
 To define your own category put a comment including the parameter
-"customcategory". Here is an example::
+:code:`customcategory`. Example:
+
+.. code-block:: typoscript
 
    # customcategory=mysite=LLL:EXT:myext/locallang.xlf:mysite
 
 This line defines the new category "mysite" which will be available
-for your Constants defined AFTER this line. Usage example::
+for any constant defined **after** this line. The :code:`LLL:` reference
+points to the localized string used to "name" the custom category
+in the Constant Editor. Usage example:
+
+.. code-block:: typoscript
 
    #cat=mysite//a; type=boolean; label=Global no_cache
    config.no_cache = 0
 
 
-**Subcategories:**
+.. _constant-editor-keys-cat-subcategories:
 
-There are a number of subcategories to use. Subcategories are entered
-after the category-name separated by a slash "/". Example:
-"basic/color/a"
+Subcategories
+*************
 
-This will make the constant go into the "BASIC"-category, be listed
-under the "COLOR"-section and probably be one of the top-constants
-listed, because the "a" is used to sort the constants in a
-subcategory. If "a" was not entered, the default is "z" and thus it
-would be one of the last colors to select. As the third parameter
-here, you can choose whatever you like.
+There are a number of subcategories one can use. Subcategories are entered
+after the category separated by a slash :code:`/`. Example:
+
+.. code-block:: typoscript
+
+   "basic/color/a"
+
+This will make the constant go into the "BASIC" category and be listed
+under the "COLOR" section.
 
 You can use one of the predefined subcategories or define your own. If
 you use a non-existing subcategory, your constant will just go into
 the subcategory "Other".
 
-**Predefined Subcategories**
+.. _constant-editor-keys-cat-predefined-subcategories:
+
+Predefined subcategories
+************************
 
 Standard subcategories (in the order they get listed in the Constant
 Editor):
 
-
-.. ### BEGIN~OF~SIMPLE~TABLE ###
-
-===========  ============
+===========  ========================================================================
 Subcategory  Description
-===========  ============
+===========  ========================================================================
 enable       Used for options that enable or disable primary functions of a
              template.
 dims         Dimensions of all kinds; pixels, widths, heights of images, frames,
@@ -167,42 +189,71 @@ color        Color setup. Many colors will be found with related options in othe
              categories though.
 links        Links: Targets typically.
 language     Language specific options.
-===========  ============
+===========  ========================================================================
 
-.. ###### END~OF~SIMPLE~TABLE ######
+There also exists a list of subcategories based on the default content elements:
 
-
-Subcategories based on the default content elements
-
-cheader,cheader\_g,ctext,ctextpic,cimage,cbullets,ctable,cuploads,cmul
-timedia,cmailform,csearch,clogin,csplash,cmenu,cshortcut,clist,cscript
-,chtml
+cheader,cheader\_g,ctext,ctextpic,cimage,cbullets,ctable,cuploads,
+cmultimedia,cmailform,csearch,clogin,csplash,cmenu,cshortcut,clist,cscript,chtml
 
 These are all categories reserved for options that relate to content
-rendering for each type of tt\_content element. See static\_template
-"css_styled_content" for examples.
+rendering for each type of "tt\_content" element. See the static_template
+of extension "css\_styled\_content" for examples.
 
-**Custom Subcategories**
+.. _constant-editor-keys-cat-custom-subcategories:
 
-To define your own Subcategory put a comment including the parameter
-"customsubcategory". Here is an example::
+Custom subcategories
+********************
+
+Defining a custom subcategory is similar to defining a custom category,
+using the :code:`customsubcategory` parameter. Example:
+
+.. code-block:: typoscript
 
    # customsubcategory=cache=LLL:EXT:myext/locallang.xlf:cache
 
-This line defines the new Subcategory "cache" which will be available
-for your Constants defined AFTER this line. Usage example::
+Usage example:
 
-   #cat=Site conf/cache/a; type=boolean; label=Global no_cache
+.. code-block:: typoscript
+
+   #cat=mysite/cache/a; type=boolean; label=Global no_cache
    config.no_cache = 0
 
 Will look in the Constant Editor like this:
 
-.. figure:: ../../Images/TSTemplatesCustomSubcategory.png
+.. figure:: ../../Images/TemplatesCustomSubcategory.png
    :alt: The Constant Editor showing a custom category.
 
 
+.. _constant-editor-keys-cat-constants-ordering:
+
+Constants ordering
+******************
+
+The third part of the category definition is optional and represents
+the order in which the constants are displayed in the Constant Editor.
+The values are sorted alphabetically, so it is traditional to use letters.
+Example:
+
+.. code-block:: typoscript
+
+   #cat=mysite/cache/b; type=boolean; label=Special cache
+   config.no_cache = 0
+   #cat=mysite/cache/a; type=boolean; label=Global no_cache
+   config.no_cache = 0
+
+The "Special cache" constant will be displayed after the "Global no_cache"
+constant, because it is ranked with letter "b" and the other constant
+has letter "a". Constants without any ordering information will come last.
+
+
+.. _constant-editor-keys-type:
+
 type=
 ~~~~~
+
+There exists a number of predefined type, which define what kind
+of field is rendered for inputting the constant.
 
 ===========================  ============================================================================
 Type                         Description
@@ -243,23 +294,28 @@ user                         Path to the file and method which renders the optio
 ===========================  ============================================================================
 
 
+.. _constant-editor-keys-label:
 
 label=
 ~~~~~~
 
 Text string, trimmed.
 
-Split by the first ":" to separate a header and body of the comment.
-The header is displayed on it's own line in bold.
+It gets split on the first :code:`:` (colon) to separate header and body of the comment.
+The header is displayed on its own line in bold.
 
-This can be localized by using the traditional "LLL" syntax. Example::
+The string be localized by using the traditional "LLL" syntax. Example:
+
+.. code-block:: typoscript
 
    #cat=Site conf/cache/a; type=boolean; label=LLL:EXT:examples/locallang.xlf:config.no_cache
    config.no_cache = 0
 
 Note that a single string is referenced (not one for the header and
 one for the description). This means that the localized string must
-contain the colon separator (":"). Example::
+contain the colon separator (:code:`:`). Example:
+
+.. code-block:: xml
 
    <trans-unit id="config.no_cache" xml:space="preserve">
      <source>Global no_cache: Check the box to turn off all caches.</source>
@@ -271,13 +327,15 @@ contain the colon separator (":"). Example::
 TSConstantEditor.[category]
 """""""""""""""""""""""""""
 
-In addition to using constants, you can also configure a category in
-the constant editor by a special top-level TypoScript "object" in the
-*constants* -field. The name is "TSConstantEditor" and any properties
-to this object will NOT be substituted like any other constant
-normally would.
+There exist a special object called :code:`TSConstantEditor`, which
+is not used as a constant, but as a container for some help text to
+be displayed in the Constant Editor.
 
-.. ### BEGIN~OF~TABLE ###
+.. warning::
+
+   Although this feature is not officially deprecated, it is very old
+   and you should probably avoid relying on it.
+
 
 .. container:: table-row
 
@@ -288,7 +346,7 @@ normally would.
          string
 
    Description
-         Header, displayed in upper-case.
+         Help title.
 
 
 .. container:: table-row
@@ -327,84 +385,64 @@ normally would.
    Description
          This is an optional image you can attach to the category.
 
-         The image would normally show a given configuration of the template
-         and contain numbered marks, that indicate positions that are referred
-         to by the constants, listed in the number-array.
-
-         The image must be located in "gfx/" in the module path.
+         The image must be located inside some extension and be referred to
+         using the :code:`EXT:` syntax.
 
 
 .. container:: table-row
 
    Property
-         Array, 1-20
+         Numbered array
 
    Data type
          list of constant names
 
    Description
-         Each number refers to a number-mark on the image and all constants
-         that are listed at each number will get a little number-icon by it's
-         header.
+         For each constant listed in this array, a numbered mark will be displayed
+         next to its name in the Constant Editor. This numbered mark should also be
+         present in the image, so that users can make a relation between the constant
+         and its impact.
 
 
-.. ###### END~OF~TABLE ######
+.. _constant-editor-categories-example:
 
-[TSConstantEditor.[category]]
+Example
+~~~~~~~
 
+Assuming the following constant is defined:
 
-Example:
-~~~~~~~~
+.. code-block:: typoscript
 
-::
+   # customcategory=mysite=MySite
+   #cat=mysite/cache/a; type=boolean; label=Global no_cache
+   config.no_cache = 0
 
-   ## TSConstantEditor Configuration
-   TSConstantEditor.basic {
-     header = Standard Template "BUSINESS"
-     description = BUSINESS is a frame-based template in a very simple layout, based on ....
-     bulletlist = Left-frame image in the top. The dimensions are fixed to ....
-     image = gfx/BUSINESS_basic.gif
+we could have a constant editor configuration like:
 
-     1 = leftFrameWidth,menu.file.bgImg,menu.bgCol
-     2 = page.file.bgImg,bgCol
-     3 = contentOffset
-     4 = file.logo
-     5 = page.L0.titleWrap
-     6 = page.L1.titleWrap
-     7 = contentWidth,styles.content.imgtext.maxW
-     8 = page.lineCol
+.. code-block:: typoscript
+
+   TSConstantEditor.MySite {
+      header = Clearing the cache
+      description = This explains the constant, altough it is really just a silly example
+      image = EXT:doc_tut_templating/Resources/Public/Images/Distribution.png
+      bulletlist = Please note//That the numbered item//Is missing in the image
+      1 = config.no_cache
    }
 
-This example shows how the static template "BUSINESS", which you find
-in the extension "statictemplates", is configured for the
-**basic**-module.
+The above example, will render as:
 
-The Business template is frame-based and has a very simple layout. It
-has a 2-level textual menu. You can select the properties of the font
-tag like the font size, color and so on. Details are in the following
-list. The numbers in brackets fit to the numbers in the code example
-above and in the screenshot below.
+.. figure:: ../../Images/TemplatesConstantEditorHelp.png
+   :alt: Help displayed in the Constant Editor
 
-- You can define the background images for each frame, the left and the
-  page frame). The width of the left frame can also be selected. (1) and
-  (2)
+The important things to note are:
 
-- You can set the offset of the content from the left frame and from the
-  top. (3)
+- after :code:`TSConstantEditor` comes the category's name and not the category's code,
+  i.e. in the above example, it is "MySite" that must be used and not "mysite".
+  This means you cannot use white spaces in your category's name because the TypoScript
+  parser does not accept blanks in object names (i.e. using "My Site" as a category name
+  will prevent you from defining a corresponding :code:`TSConstantEditor` help for that
+  category)
 
-- You can choose a logo for the top of the left frame. The dimensions
-  are fixed to 150x80 pixels (normally you are free to choose the
-  dimensions yourself). (4)
-
-- The page titles from first level (5) and second level (none in the
-  screenshot) (6) are displayed at the top.
-
-- You can choose the width of the content block. (7)
-
-- You can pick a color for the ruler at the top. (8)
-
-This is how it looks like in TYPO3 by default:
-
-.. figure:: ../../Images/TSTemplatesFrontendScreenshot.png
-   :alt: Annotated screenshot of a TYPO3 website.
-
+- the values used in the numbered array are the full name of the constants
+  (e.g. :code:`config.no_cache`). The related number (e.g. "1") is the number
+  that will appear in the little alert pill next the constant in the Constant Editor.

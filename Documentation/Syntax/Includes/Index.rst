@@ -78,7 +78,7 @@ The files or directories will be included only if the condition is met.
 
 Example:
 
-.. code-block:: typoscript
+.. code-block:: text
 
    <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/user.ts" condition="[loginUser = *]">
 
