@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../Includes.txt
 
@@ -20,5 +16,4 @@ The TypoScript parser API
    Introduction/Index
    CustomTypoScript/Index
    CustomConditions/Index
-   CombinedConditions/Index
 

@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
 
@@ -11,7 +7,12 @@
 Parsing custom TypoScript
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's imagine that you have created an application in TYPO3, for
+.. note::
+
+   This example will probably seem rather quaint. However it is
+   still useful to illustrate this topic.
+
+Let's imagine that you have created an application in TYPO3 CMS, for
 example a plug-in. You have defined certain parameters editable
 directly in the form fields of the plug-in content element. However
 you want advanced users to be able to set up more detailed parameters.
@@ -199,62 +200,54 @@ A case story
 ~~~~~~~~~~~~
 
 Now let's imagine that a user inputs this TypoScript configuration in
-whatever medium you have offered (e.g. a textarea field). (In a syntax
-highlighted version with line numbers it would look like the listing,
-which indicates that there are no *syntax errors* and everything is
-fine in that regard.) ::
+whatever medium you have offered (e.g. a textarea field):
 
-      0: colors {
-      1:   backgroundColor = red
-      2:   fontColor = blue
-      3: }
-      4: adminInfo {
-      5:   cc_email = email@email.com
-      6:   cc_name = Copy Name
-      7: }
-      8: showAll = true
-      9:
-     10: [UserIpRange = 123.456.*.*]
-     11:
-     12:   headerImage = fileadmin/img1.jpg
-     13:
-     14: [ELSE]
-     15:
-     16:   headerImage = fileadmin/img2.jpg
-     17:
-     18: [GLOBAL]
-     19:
-     20: // Wonder if this works... :-)
-     21: wakeMeUp = 7:00
+.. code-block:: typoscript
 
-(Syntax highlighting of TS (and XML and PHP) can be done with the
-extension "extdeveval").
+   colors {
+     backgroundColor = red
+     fontColor = blue
+   }
+   adminInfo {
+     cc_email = email@email.com
+     cc_name = Copy Name
+   }
+   showAll = true
+
+   [UserIpRange = 123.456.*.*]
+
+     headerImage = fileadmin/img1.jpg
+
+   [ELSE]
+
+     headerImage = fileadmin/img2.jpg
+
+   [GLOBAL]
+
+   // Wonder if this works... :-)
+   wakeMeUp = 7:00
 
 In order to parse this TypoScript we can use the following code
-provided that the variable $tsString contains the above TypoScript as
-its value::
+provided that the variable :code:`$tsString` contains the above TypoScript as
+its value:
 
-      3: require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('core') . 'Classes/TypoScript/Parser/TypoScriptParser.php');
-      4:
-      5: $TSparserObject = GeneralUtility::makeInstance('TypoScriptParser');
-      6: $TSparserObject->parse($tsString);
-      7:
-      8: echo '<pre>';
-      9: print_r($TSparserObject->setup);
-     10: echo '</pre>';
+.. code-block:: php
 
-- Line 3: The TypoScript parser class is included (most likely already
-  done in both frontend and backend of TYPO3).
+   $TSparserObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser::class);
+   $TSparserObject->parse($tsString);
 
-- Line 5: Creates an object of the parser class.
+   echo '<pre>';
+   print_r($TSparserObject->setup);
+   echo '</pre>';
 
-- Line 6: Initiates parsing of the TypoScript content of the string
-  $tsString.
+As you can see, this is really as simple as creating an instance of the
+:code:`TypoScriptParser` class and requesting it to parse the configuration
+contained in variable :code:`$tsString`. The result is located in
+:code:`$TSparserObject->setup`.
 
-- Line 8-10: Outputs the parsed result which is located in
-  $TSparserObject->setup.
+The result of this code will be this:
 
-The result of this code being run will be this::
+.. code-block:: php
 
    Array
    (
@@ -275,15 +268,19 @@ The result of this code being run will be this::
      [wakeMeUp] => 7:00
    )
 
-Now your application could use this information in a manner like this::
+Now your application could use this information like this, for example:
 
-   echo '<table bgcolor="'.$TSparserObject->setup['colors.']['backgroundColor'].'">
-     <tr>
-       <td>
-         <font color="'.$TSparserObject->setup['colors.']['fontColor'].'">HELLO WORLD!</font>
-       </td>
-     </tr>
-   </table>';
+.. code-block:: php
+
+     echo '
+          <table bgcolor="' . $TSparserObject->setup['colors.']['backgroundColor'] . '">
+               <tr>
+                    <td>
+                         <font color="' . $TSparserObject->setup['colors.']['fontColor'] . '">HELLO WORLD!</font>
+                    </td>
+               </tr>
+          </table>
+     ';
 
 As you can see some of the TypoScript properties (or *object paths*)
 which are found in the reference tables above are implemented here.
@@ -293,19 +290,8 @@ simply configuration values that make our underlying PHP code act
 accordingly - parameters, function arguments, as you please;
 TypoScript is an API to instruct an underlying system.**
 
-This also means that now we can begin to meaningfully talk about
-invalid information in TypoScript - it is obvious that two properties
-are entered in TypoScript but do not make any sense: "showAll" and
-"wakeMeUp". Both properties are not defined in the reference tables
-and therefore they should neither be implemented in the PHP code of
-course. However no errors are issued by the parser since the syntax
-used to define those properties is still right. The only problem is
-that they are irrelevant; it is like defining a variable in PHP and
-then never using it! A waste of time - and probably confusing later.
-
-As noted there exists only the input mode of t3editor to do
-"semantics-checking". However, this only works during input, not at a
-later time. It might be interesting and very helpful some day if we
-had that as well so we could also be warned if we use non-existing
-properties (which could just be spelling errors).
-
+This example also highlights one of the "risk" of TypoScript:
+it is perfectly possible to define arbitrary properties without
+triggering any error. Wrongly-named properties will just be
+ignored. As such they do not cause any harm, but may be confusing
+at a later stage if they are left around.
