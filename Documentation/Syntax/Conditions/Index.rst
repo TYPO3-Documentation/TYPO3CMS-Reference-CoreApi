@@ -57,14 +57,14 @@ templates do, but there are some small differences. For details see the
 The syntax of conditions
 """"""""""""""""""""""""
 
-A condition always has its own line and the line is detected by :code:`[`
+A condition is written on its own line and is detected by :code:`[`
 (square bracket) being the first character on that line:
 
 .. code-block:: typoscript
 
    (Some TypoScript)
 
-   [ condition 1 ][ condition 2]
+   [ condition 1 ][ condition 2 ]
 
    (Some TypoScript only parsed if condition 1 or condition 2 are met.)
 
@@ -74,28 +74,27 @@ A condition always has its own line and the line is detected by :code:`[`
 
 As you can see from this example, the line :code:`[GLOBAL]` also is a
 condition. It is built into TypoScript and always returns TRUE. The
-line :code:`[ condition 1 ][ condition 2]` is another condition.
-If :code:`[condition 1 ][ condition 2]` is TRUE, then the TypoScript in the
+line :code:`[ condition 1 ][ condition 2 ]` is another condition.
+If :code:`[ condition 1 ][ condition 2 ]` is TRUE, then the TypoScript in the
 middle would be parsed until :code:`[GLOBAL]` (or :code:`[END]`) resets the
 conditions. After that point the TypoScript is parsed for any case
 again.
 
 .. note::
 
-   The condition line :code:`[ condition 1 ][ condition 2]` conveys
+   The condition line :code:`[ condition 1 ][ condition 2 ]` conveys
    the idea of *two conditions* being set, but from the TypoScript
-   parser point of view the *whole line* is the condition. It is in the
-   context of TypoScript Templates that the condition line content is
+   parser point of view the *whole line* is the condition. It is only
+   when the condition is actually evaluated that the line content gets
    broken down into smaller units (:code:`[ condition 1 ]` and
-   :code:`[ condition 2]") which are individually evaluated and
+   :code:`[ condition 2 ]`) which are individually evaluated and
    connected by a logical OR before they return the resulting
    TRUE or FALSE value. (That is all done within the class
    :code:`\TYPO3\CMS\Core\Configuration\TypoScript\ConditionMatching\AbstractConditionMatcher`.
 
 Here is an example of some TypoScript (from the context of TypoScript
-Templates) where another text is output if you use the Microsoft
-Internet Explorer web browser (instead of for example Google Chrome)
-or use Windows NT as operating system:
+Templates) where another text is output if you  are logged in or
+working locally:
 
 .. code-block:: typoscript
 
@@ -122,6 +121,25 @@ see):
 .. figure:: ../../Images/ConditionsSyntax.png
    :alt: The Object Browser showing different objects depending on whether
          a condition is set or unset.
+
+
+.. _conditions-combine:
+
+Combining conditions
+""""""""""""""""""""
+
+As we saw above two or more tests can be written on the same line
+and the condition will be TRUE if any of these tests matches. It
+is also possible to use logical operators, for more complex
+conditions. The following operators are available:
+
+||
+  Also available as :code:`OR`. This is equivalent to the default behaviour
+  but makes it more explicit.
+
+&&
+  Also available as :code:`AND`. Takes precedence over :code:`||` (:code:`OR`).
+
 
 
 .. _else-condition:
@@ -175,7 +193,7 @@ but you could do this:
 
 .. code-block:: typoscript
 
-   [loginUser = *][usergroup = 3]
+   [loginUser = *] || [usergroup = 3]
      # Enter nothing here!
    [ELSE]
      page.10.value = This text is only displayed if the conditions above are not TRUE!
@@ -274,7 +292,7 @@ Summary
 
 - Conditions are evaluated in relation to the context where TypoScript
   is used. They are widely used in TypoScript Templates and can also be
-  used in "Page TSconfig" or "User TSconfig".
+  used in Page TSconfig or User TSconfig.
 
 - Special conditions :code:`[ELSE]`, :code:`[END]` and :code:`[GLOBAL]` exist.
 
