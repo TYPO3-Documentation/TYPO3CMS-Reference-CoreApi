@@ -52,7 +52,7 @@ DIR      This includes all files from a directory relative to :code:`PATH_site`,
          both setup and constants from the same directory tree, using different
          file extensions for both.
 
-         Files are included in alphabetical. Also first are included first,
+         Files are included in alphabetical. Also files are included first,
          then directories.
 
          Example:
