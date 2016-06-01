@@ -32,9 +32,9 @@ object path
 The object path (in this case :code:`myObject.myProperty`) is like the
 variable name in a programming language. The object path is the first
 block of non-whitespace characters on a line until one of the
-characters :code:`=<>{( ` (space included) is found. The dot (:code:`.`) is used
+characters :code:`=<>{(` or a white space is found. The dot (:code:`.`) is used
 to separate objects and properties from each other creating a hierarchy.
-Here we have the object :code:`myObject` with the property :code:`myPropert`.
+Here we have the object :code:`myObject` with the property :code:`myProperty`.
 **Use only A-Z, a-z, 0-9, "-", "\_" and periods (.) for object paths!**
 
 Dots in the object path can be escaped using a backslash.
@@ -45,22 +45,9 @@ Dots in the object path can be escaped using a backslash.
 
    my\.escaped\.key = test
 
-This will result in the object "my.escaped.key" with the value "test".
-Here we do *not* have three hierarchically structured objects "my",
-"escaped" and "key".
-
-Backslashes can be protected from being interpreted as escape
-characters by using double backslashes.
-
-**Example:**
-
-.. code-block:: typoscript
-
-   my\\.escaped\\.key = test
-
-This will result in the object path :code:`my\.escaped\.key` with the value
-"test". Here we *do have* three hierarchically structured objects :code:`my\`,
-:code:`escaped\` and :code:`key`.
+This will result in an object named :code:`my.escaped.key` with the value "test".
+Here we do **not** have three hierarchically structured objects :code:`my`,
+:code:`escaped` and :code:`key`.
 
 
 .. _syntax-operator:
