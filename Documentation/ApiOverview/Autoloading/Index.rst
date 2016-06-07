@@ -14,14 +14,14 @@ and :ref:`XCLASS <xclasses>` handling.
 
 As a developer you should always instantiate classes either through
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` or with the Extbase
-:ref:`ObjectManager <t3cmsapi:TYPO3\\CMS\\Extbase\\Object\\ObjectManager>`
-(which internally uses :php:`makeInstance()` again).
+:ref:`ObjectManager <t3cmsapi:TYPO3\\CMS\\Extbase\\Object\\ObjectManager>`,
+which internally uses :php:`makeInstance()` again.
 
 .. important::
 
    Since TYPO3 CMS 6.0 and the introduction of namespaces, developers are strongly encouraged
    to use the namespaces. When using namespaces it is not necessary to explicitely declare
-   classes in an autoloader files. All namespaced classes are automatically autoloaded.
+   classes in an autoloader files. All namespaced classes are found and loaded automatically.
 
    Please refer to the :ref:`namespaces` chapter for more information.
 
@@ -33,7 +33,7 @@ Naming convention or autoloader file
 
 In TYPO3 every class must reside in its own file, i.e. there should be only
 one class per PHP file. Extensions must not use :php:`require()` or :php:`include()`
-to load class files, but instead use the TYPO3 core API to automatically require a file
+*to load class files*, but instead use the TYPO3 core API to automatically require a file
 upon request of the class.
 
 A developer has two options to help the core find a specific class:
@@ -43,13 +43,13 @@ A developer has two options to help the core find a specific class:
 - Register a class name together with its location in an :php:`ext_autoload.php` file.
 
 If it's not possible to stick to the class naming and file location conventions - for whatever
-reason - or if you don't want to use namespaces, you can add a file to your extension called
-:file:`ext_autoload.php`, in the base directory. Its goal is to inform the autoloader about the
-location of each class files. The autoloader automatically searches for this file when a class is
+reasons - or if you don't want to use namespaces, you can add a file to your extension called
+:file:`ext_autoload.php` in the base directory. Its task is to inform the autoloader about the
+location of each class file. The autoloader automatically searches for this file when a class is
 requested.
 
-The :file:`ext_autoload.php` file must simply return a one-dimensional array
-with the class name as key, and the file location as value. No other code is allowed in this file.
+The :file:`ext_autoload.php` file simply has to return a one-dimensional array
+with the class name as key and the file location as value. No other code is allowed in this file.
 
 
 .. _autoload-examples:
