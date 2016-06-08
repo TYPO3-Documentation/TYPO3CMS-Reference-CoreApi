@@ -87,7 +87,7 @@ contexts:
 
 * ``Production`` (default) - should be used for a live site
 * ``Development`` - used for development
-* ``Testing`` - is only used internally when executing TYPO3 **Core** tests. It must not be used otherwise.
+* ``Testing`` - is only used internally when executing TYPO3 **core** tests. It must not be used otherwise.
 
 The context TYPO3 runs in is specified through the environment variable
 ``TYPO3_CONTEXT``. It can be set on the command line:
@@ -145,10 +145,10 @@ necessary settings while the ``Production/Live`` context is used on the live ins
    ``Production/Staging/Server2`` if both staging servers needed different
    configuration.
 
-.. note::
+.. attention::
 
-   ``Testing`` Is reserved for internal use when executing TYPO3 functional and unit tests
-   It must not be used otherwise. Instead sub-contexts shall be used:
+   ``Testing`` Is reserved for internal use when executing TYPO3 **core** functional and unit tests
+   It must not be used otherwise. Instead sub-contexts must be used:
    ``Production/Testing`` or ``Development/Testing``
 
 
