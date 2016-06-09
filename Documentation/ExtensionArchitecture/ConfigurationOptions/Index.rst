@@ -41,3 +41,27 @@ screenshot, the label – split between header and description – is
 visible. Then comes the field itself, in this case an input, because
 the option's type is "string".
 
+Once you saved the configuration in the ExtensionManager, it will be stored in
+:code:`$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']`
+as a serialized array.
+
+To fetch the value of :code:`temporaryDirectory` from the example above,
+you could simply use::
+
+   $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']);
+   $temporaryDirectory = $extensionConfiguration['temporaryDirectory'];
+
+You can also define nested options using the TypoScript notation::
+
+   directories {
+      # cat=basic/enable; type=string; label=Path to the temporary directory
+      tmp = 
+      # cat=basic/enable; type=string; label=Path to the cache directory
+      cache = 
+   }
+
+This will result in  a multidimensional array::
+
+   $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']);
+   $extensionConfiguration['directories']['tmp']
+   $extensionConfiguration['directories']['cache']
