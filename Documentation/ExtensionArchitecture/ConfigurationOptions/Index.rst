@@ -63,5 +63,11 @@ You can also define nested options using the TypoScript notation::
 This will result in  a multidimensional array::
 
    $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']);
-   $extensionConfiguration['directories']['tmp']
-   $extensionConfiguration['directories']['cache']
+   $extensionConfiguration['directories.']['tmp']
+   $extensionConfiguration['directories.']['cache']
+
+.. important::
+
+   Don't forget the dot at the end of the array key :code:`directories`.
+   This is a convention from the TypoScript parser.
+
