@@ -68,6 +68,6 @@ This will result in  a multidimensional array::
 
 .. important::
 
-   Don't forget the dot at the end of the array key :code:`directories`.
-   This is a convention from the TypoScript parser.
-
+  Notice the dot at the end of the :code:`directories` key.
+  This notation must be used for every grouping key and
+  is a convention of the TypoScript parser.
