@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../Includes.txt
 
@@ -9,18 +5,20 @@
 .. _extension-options:
 
 Configuration options
-^^^^^^^^^^^^^^^^^^^^^
+=====================
 
-In the :code:`ext_conf_template.txt` file configuration options
-for an extension can be defined. They will be accessible in the TYPO3 BE
+In the :file:`ext_conf_template.txt` file configuration options
+for an extension can be defined. They will be accessible in the TYPO3 backend
 from the Extension Manager.
 
 There's a specific syntax to declare these options properly, which is
 similar to the one used for TypoScript constants (see "Declaring
 constants for the Constant editor" in :ref:`"TypoScript Syntax and In-depth
-Study" <t3tssyntax:constant-editor>`). This syntax applies to the comment 
+Study" <t3tssyntax:constant-editor>`). This syntax applies to the comment
 line that should be placed just before the constant. Consider the following
-example (taken from system extension "rsaauth")::
+example (taken from system extension "rsaauth"):
+
+.. code-block:: typoscript
 
    # cat=basic/enable; type=string; label=Path to the temporary directory:This directory will contain...
    temporaryDirectory =
@@ -42,25 +40,27 @@ visible. Then comes the field itself, in this case an input, because
 the option's type is "string".
 
 Once you saved the configuration in the ExtensionManager, it will be stored in
-:code:`$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']`
 as a serialized array.
 
-To fetch the value of :code:`temporaryDirectory` from the example above,
+To fetch the value of :ts:`temporaryDirectory` from the example above,
 you could simply use::
 
    $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']);
    $temporaryDirectory = $extensionConfiguration['temporaryDirectory'];
 
-You can also define nested options using the TypoScript notation::
+You can also define nested options using the TypoScript notation:
+
+.. code-block:: typoscript
 
    directories {
       # cat=basic/enable; type=string; label=Path to the temporary directory
-      tmp = 
+      tmp =
       # cat=basic/enable; type=string; label=Path to the cache directory
-      cache = 
+      cache =
    }
 
-This will result in  a multidimensional array::
+This will result in a multidimensional array::
 
    $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']);
    $extensionConfiguration['directories.']['tmp']
@@ -68,6 +68,6 @@ This will result in  a multidimensional array::
 
 .. important::
 
-  Notice the dot at the end of the :code:`directories` key.
-  This notation must be used for every grouping key and
-  is a convention of the TypoScript parser.
+   Notice the dot at the end of the :code:`directories` key.
+   This notation must be used for every grouping key and
+   is a convention of the TypoScript parser.
