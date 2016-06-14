@@ -47,6 +47,27 @@ logTable  no         Database table  :code:`sys_log`
 *Tip:* There's a tool for viewing such records in the TYPO3 backend at
 `github.com/vertexvaar <https://github.com/vertexvaar/VerteXVaaR.Logs>`__.
 
+Example of a CREATE TABLE statement for logTable:
+
+.. code-block:: mysql
+
+   #
+   # Table structure for table 'tx_myextname_log'
+   #
+   # The KEY on request_id is optional
+   #
+   CREATE TABLE tx_myextname_log (
+           request_id varchar(13) DEFAULT '' NOT NULL,
+           time_micro double(16,4) NOT NULL default '0.0000',
+           component varchar(255) DEFAULT '' NOT NULL,
+           level tinyint(1) unsigned DEFAULT '0' NOT NULL,
+           message text,
+           data text,
+
+           KEY request (request_id)
+   );
+
+
 
 .. _logging-writers-file:
 
