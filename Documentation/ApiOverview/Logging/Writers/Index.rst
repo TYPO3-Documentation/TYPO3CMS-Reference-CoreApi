@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../../Includes.txt
 
@@ -46,8 +42,10 @@ logTable  no         Database table  :code:`sys_log`
 
    The Admin Tools > Log module is not adapted to the records written by the
    :code:`DatabaseWriter` into the :code:`sys_log` table. If you write such records
-   there, you will not be able to see them using that module. A tool for viewing
-   such records in the TYPO3 backend can be found here: https://github.com/vertexvaar/VerteXVaaR.Logs.
+   there, you will not be able to see them using that module.
+
+*Tip:* There's a tool for viewing such records in the TYPO3 backend at
+`github.com/vertexvaar <https://github.com/vertexvaar/VerteXVaaR.Logs>`__.
 
 
 .. _logging-writers-file:
