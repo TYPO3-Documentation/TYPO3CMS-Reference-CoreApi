@@ -1,7 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
 
 .. include:: ../../../Includes.txt
 
@@ -42,7 +38,18 @@ Option    Mandatory  Description     Default
 logTable  no         Database table  :code:`sys_log`
 ========  =========  ==============  ===============
 
-Example CREATE TABLE statement for logTable ::
+.. warning::
+
+   The Admin Tools > Log module is not adapted to the records written by the
+   :code:`DatabaseWriter` into the :code:`sys_log` table. If you write such records
+   there, you will not be able to see them using that module.
+
+*Tip:* There's a tool for viewing such records in the TYPO3 backend at
+`github.com/vertexvaar <https://github.com/vertexvaar/VerteXVaaR.Logs>`__.
+
+Example of a CREATE TABLE statement for logTable:
+
+.. code-block:: mysql
 
    #
    # Table structure for table 'tx_myextname_log'
@@ -56,17 +63,10 @@ Example CREATE TABLE statement for logTable ::
            level tinyint(1) unsigned DEFAULT '0' NOT NULL,
            message text,
            data text,
-           
+
            KEY request (request_id)
    );
 
-
-.. warning::
-
-   The Admin Tools > Log module is not adapted to the records written by the
-   :code:`DatabaseWriter` into the :code:`sys_log` table. If you write such records
-   there, you will not be able to see them using that module. A tool for viewing
-   such records in the TYPO3 backend is currently missing.
 
 
 .. _logging-writers-file:
