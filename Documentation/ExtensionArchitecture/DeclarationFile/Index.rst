@@ -114,7 +114,8 @@ values in the :code:`$EM_CONF` array if needed.
             )
 
          depends
-           List of extensions that this extension depends on.
+           List of extensions that this extension depends on. 
+           Extensions defined here will be loaded before the current extension.
 
          conflicts
          	List of extensions which will not work with this extension.
@@ -122,6 +123,13 @@ values in the :code:`$EM_CONF` array if needed.
          suggests
            List of suggestions of extensions that work together or
            enhance this extension.
+           Extensions defined here will be loaded before the current extension.
+           dependencies take precedence over suggestions.
+           
+           Note: If a "suggested" extension depends on the current extension
+           (directly or indirectly), the suggestion is not 
+           taken into account for loading order calculation. 
+           See also https://forge.typo3.org/issues/57825
 
          The above example indicated that the extension depends on a
          version of TYPO3 between 4.5 and 6.1 (as only bug and security fixes are
