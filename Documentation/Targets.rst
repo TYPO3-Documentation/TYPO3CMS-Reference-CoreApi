@@ -1,4 +1,4 @@
-﻿.. include:: Includes.txt
+.. include:: Includes.txt
 
 .. _index-labels-for-crossreferencing:
 .. _index-targets-for-crossreferencing:
