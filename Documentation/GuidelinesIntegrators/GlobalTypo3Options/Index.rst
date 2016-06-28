@@ -304,7 +304,7 @@ warning whenever more than three failed backend login attempts
 
 The default value is an empty string.
 
-The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['FE']['warning_email_addr']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['BE']['warning_email_addr']
 
 
 .. _warningmode:
@@ -320,5 +320,5 @@ in.
 
 The default value is an empty string.
 
-The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['FE']['warning_mode']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['BE']['warning_mode']
 
