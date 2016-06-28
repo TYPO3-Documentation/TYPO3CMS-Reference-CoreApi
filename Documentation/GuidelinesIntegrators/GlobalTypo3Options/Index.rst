@@ -30,7 +30,7 @@ Possible values are: 0 or 1 (boolean), where "0" deactivates the
 option (TYPO3 CMS before 6.2) and "1" enables it (default since TYPO3
 6.2).
 
-The PHP variable reads: $TYPO3\_CONF\_VARS['SYS']['cookieHttpOnly']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['SYS']['cookieHttpOnly']
 
 
 .. _cookiesecure:
@@ -53,7 +53,7 @@ will fail and throw an exception.
 2 = The cookie will be set in each case, but uses the secure flag if a
 secure (HTTPS) connection exists.
 
-The PHP variable reads: $TYPO3\_CONF\_VARS['SYS']['cookieSecure']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['SYS']['cookieSecure']
 
 
 .. _displayerrors:
@@ -83,7 +83,7 @@ devIPmask matches the user's IP address the configured
 "debugExceptionHandler" is used for exceptions, if not
 "productionExceptionHandler" will be used.
 
-The PHP variable reads: $TYPO3\_CONF\_VARS['SYS']['displayErrors']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['SYS']['displayErrors']
 
 
 .. _devipmask:
@@ -99,7 +99,7 @@ will show debug messages to every client without any restriction
 (definitely not recommended). The default value is "127.0.0.1,::1"
 which means "localhost" only.
 
-The PHP variable reads: $TYPO3\_CONF\_VARS['SYS']['devIPmask']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['SYS']['devIPmask']
 
 
 .. _enablebeuseriplock:
@@ -122,7 +122,7 @@ please see TSconfig documentation for further explanations on how to
 use the "lockToIP" option.
 
 The PHP variable reads:
-$TYPO3\_CONF\_VARS['BE']['enabledBeUserIPLock']
+$GLOBALS['TYPO3\_CONF\_VARS']['BE']['enabledBeUserIPLock']
 
 
 .. _filedenypattern:
@@ -147,7 +147,7 @@ trust your backend users, keep in mind that a less-restrictive
 he/she only gained access to the TYPO3 CMS backend with a normal,
 unprivileged user account.
 
-The PHP variable reads: $TYPO3\_CONF\_VARS['BE']['fileDenyPattern']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['BE']['fileDenyPattern']
 
 
 .. _lockip:
@@ -185,9 +185,9 @@ Keep in mind that the "lockIP" configuration is available for frontend
 ("[FE][lockIP]") and backend ("[BE][lockIP]") sessions separately, so
 two PHP variables are available:
 
-$TYPO3\_CONF\_VARS['FE']['lockIP']
+$GLOBALS['TYPO3\_CONF\_VARS']['FE']['lockIP']
 
-$TYPO3\_CONF\_VARS['BE']['lockIP']
+$GLOBALS['TYPO3\_CONF\_VARS']['BE']['lockIP']
 
 
 .. _lockssl:
@@ -212,7 +212,7 @@ to encrypted SSL URLs instead.
 3 = Only the login is forced to SSL. After then, the user switches
 back to non-SSL-mode.
 
-The PHP variable reads: $TYPO3\_CONF\_VARS['BE']['lockSSL']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['BE']['lockSSL']
 
 
 .. _ipmasklist:
@@ -237,7 +237,7 @@ the network "192.168.xxx.xxx"::
 
 The default value is an empty string.
 
-The PHP variable reads: $TYPO3\_CONF\_VARS['BE']['IPmaskList']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['BE']['IPmaskList']
 
 
 .. _nophpscriptinclude:
@@ -260,7 +260,7 @@ Possible values are: 0 or 1 (boolean), where "0" deactivates the
 option and "1" enables it (prevents the inclusion of PHP scripts). The
 default value is an empty value which reflects "0".
 
-The PHP variable reads: $TYPO3\_CONF\_VARS['FE']['noPHPscriptInclude']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['FE']['noPHPscriptInclude']
 
 
 .. _trustedHostsPattern:
@@ -289,7 +289,7 @@ for the default value "SERVER_NAME" as provided ports are checked
 against SERVER_PORT which fails in some more complex load balancing
 or SSL termination scenarios.
 
-The PHP variable reads: $TYPO3\_CONF\_VARS['SYS']['trustedHostsPattern']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['SYS']['trustedHostsPattern']
 
 
 .. _warningemailaddr:
@@ -304,7 +304,7 @@ warning whenever more than three failed backend login attempts
 
 The default value is an empty string.
 
-The PHP variable reads: $TYPO3\_CONF\_VARS['FE']['warning_email_addr']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['FE']['warning_email_addr']
 
 
 .. _warningmode:
@@ -320,5 +320,5 @@ in.
 
 The default value is an empty string.
 
-The PHP variable reads: $TYPO3\_CONF\_VARS['FE']['warning_mode']
+The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['FE']['warning_mode']
 
