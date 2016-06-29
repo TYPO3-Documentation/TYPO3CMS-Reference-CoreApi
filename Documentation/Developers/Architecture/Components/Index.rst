@@ -51,7 +51,7 @@ Copying a file:
    $someFileIdentifier = 'templates/images/banner.jpg';
    $someFolderIdentifier = 'website/images/';
 
-   /** @var $storageRepository \TYPO3\CMS\Core\Ressources\StorageRepository */
+   /** @var $storageRepository \TYPO3\CMS\Core\Ressource\StorageRepository */
    $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
        'TYPO3\\CMS\\Core\\Resource\\StorageRepository'
    );
