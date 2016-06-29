@@ -106,7 +106,7 @@ Example: *Listing all files in a folder*
   $availableStorages = $storageRepository->findAll();
 
   foreach ($availableStorages as $storage) {
-      $rootFolder = $storage->getRootFolder();
+      $rootFolder = $storage->getRootLevelFolder();
       $subFolders = $rootFolder->getSubFolders();
       foreach ($subFolders as $subFolder) {
           $filesInSubFolder = $subFolder->getFiles();
