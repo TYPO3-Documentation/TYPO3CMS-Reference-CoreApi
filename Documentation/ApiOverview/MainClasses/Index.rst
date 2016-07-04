@@ -24,18 +24,6 @@ This table lists some of the most important classes to know about in TYPO3:
    :Description,50: Description
    :Usage,30: Usage
 
- - :Class: \\TYPO3\\CMS\\Core\\Database\\DatabaseConnection
-   :Description:
-         **Database Abstraction Base API**
-
-         All access to the database must go through this object. That is the
-         first step towards DBAL compliance in your code. The class contains
-         MySQL wrapper functions which can almost be search/replaced with your
-         existing calls.
-   :Usage:
-         Available as :code:`$GLOBALS['TYPO3_DB']` in both frontend and backend
-
-
  - :Class: \\TYPO3\\CMS\\Core\\Charset\\CharsetConverter
    :Description:
          **Character Set handling API**

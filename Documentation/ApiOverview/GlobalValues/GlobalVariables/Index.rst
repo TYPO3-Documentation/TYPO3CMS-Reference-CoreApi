@@ -63,10 +63,8 @@ Global variables
    :Description:
          An instance of the TYPO3 DB wrapper class, :code:`\TYPO3\CMS\Core\Database\DatabaseConnection`.
 
-         You have to use this object for all interaction with the database.
+         You should NOT use this anymore. Use Doctrine instead.
 
-         :code:`\TYPO3\CMS\Core\Database\DatabaseConnection` contains MySQL wrapper functions so you easily swap all
-         hardcoded MySQL calls with function calls to :code:`$GLOBALS['TYPO3_DB']->`.
    :FE:
          Yes
 
