@@ -505,32 +505,6 @@ allowedClasses
          class-attribute.
 
 
-.. _transformations-tsconfig-processing-skipalign_skipclass:
-
-skipAlign, skipClass
-~~~~~~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         skipAlign
-
-         skipClass
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for "ts\_transform" and "css\_transform" only (function
-         divideIntoLines))*
-
-         If set, then the align and class attributes of <P>/<DIV> sections
-         (respectively) will be ignored. Normally <P>/<DIV> tags are preserved
-         if one or both of these attributes are present in the tag. Otherwise
-         it's removed.
-
-
 .. _transformations-tsconfig-processing-keeppdivattribs:
 
 keepPDIVattribs
