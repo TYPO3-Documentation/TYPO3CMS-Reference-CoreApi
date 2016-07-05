@@ -62,8 +62,11 @@ Global variables
          Bootstrap::initializeTypo3DbGlobal()
    :Description:
          An instance of the TYPO3 DB wrapper class, :code:`\TYPO3\CMS\Core\Database\DatabaseConnection`.
+         Formerly (before 8.2) this object had to be used for all interaction with the database.
 
-         You should NOT use this anymore. Use Doctrine instead.
+         .. attention::
+
+            You should NOT use this anymore. Use Doctrine instead!
 
    :FE:
          Yes
