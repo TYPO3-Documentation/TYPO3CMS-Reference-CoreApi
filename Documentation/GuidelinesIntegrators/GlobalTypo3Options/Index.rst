@@ -115,7 +115,7 @@ option and "1" enables it (default).
 In order to lock a specific user to the IP address 123.45.67.89, add
 the following TSconfig to the backend user's TSconfig field::
 
-   option.lockToIP = 123.45.67.89
+   options.lockToIP = 123.45.67.89
 
 The use of wildcards is also possible to specify a network instead –
 please see TSconfig documentation for further explanations on how to
