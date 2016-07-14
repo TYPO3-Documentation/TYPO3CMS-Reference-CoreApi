@@ -86,7 +86,7 @@ following TypoScript::
 		file = GIFBUILDER
 		file {
 			10 = TEXT
-			10.current = 1
+			10.text.current = 1
 		}
 	}
 
