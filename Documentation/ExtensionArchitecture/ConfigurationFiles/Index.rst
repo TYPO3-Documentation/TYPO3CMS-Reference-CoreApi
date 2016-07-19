@@ -47,7 +47,7 @@ every request. They should therefore be optimized for speed.
     includes) (:code:`$TYPO3_CONF_VARS["EXT"]["extCache"]=0;`)
 
   - or (better) the files are automatically imploded into one single
-    temporary file (cached) in `typo3conf/` directory (only one file
+    temporary file (cached) in `typo3temp/Cache/Code/cache_core` directory (only one file
     include) (:code:`$TYPO3_CONF_VARS["EXT"]["extCache"]=1;`). This is
     default.
 
