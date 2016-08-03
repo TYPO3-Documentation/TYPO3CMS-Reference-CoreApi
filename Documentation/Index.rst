@@ -76,5 +76,6 @@ address the task at hand.
    Introduction/Index
    FileSystemConventions/Index
    PhpFileFormatting/Index
+   PhpArchitecture/Index
    CodingBestPractices/Index
    Targets
