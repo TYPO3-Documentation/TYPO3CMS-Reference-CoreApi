@@ -14,8 +14,6 @@ and ending where the next condition is found, should be parsed or not.
 
 Examples of a condition could be:
 
-- Is the browser "Internet Explorer"?
-
 - Is a usergroup set for the current session?
 
 - Is it Monday?

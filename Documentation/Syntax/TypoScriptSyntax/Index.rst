@@ -518,9 +518,9 @@ Example:
 
 .. code-block:: typoscript
 
-   [browser = msie]
-   page.10.value = Internet Explorer
+   [dayofmonth = 9]
+   page.10.value = It is the 9th day of the month!
    [ELSE]
-   page.10.value = Not an Internet Explorer browser!
+   page.10.value = It is NOT the 9th day of the month!
    [END]
 
