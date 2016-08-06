@@ -74,7 +74,7 @@ value starts after the operator and ends with the line break.
 Comments
 """"""""
 
-When a line starts with :code:`/` or :code:`#` it is considered to be a comment
+When a line starts with :code:`//` or :code:`#` it is considered to be a comment
 and will be ignored.
 
 
@@ -84,10 +84,13 @@ Example:
 .. code-block:: typoscript
 
    // This is a comment
-   / This also is a comment (only ONE slash is needed)
    myObject = TEXT
    myObject.value = <strong>Some HTML code</strong>
    # This line also is a comment.
+
+Up to TYPO3 7.6, a line starting with only one single slash,
+:code:`/`, has also been considered a comment. Since TYPO3 8, this
+style however is deprecated and should not be used.
 
 
 .. _syntax-comment-blocks:
