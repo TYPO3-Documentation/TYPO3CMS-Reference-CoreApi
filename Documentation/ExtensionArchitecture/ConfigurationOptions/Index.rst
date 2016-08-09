@@ -48,13 +48,12 @@ you could simply use::
    $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']);
    $temporaryDirectory = $extensionConfiguration['temporaryDirectory'];
 
-Or even better use the API to get the information merged with the defautl settings,
-if the settings have not been saved yet:
+Or even better use the API to get the information merged with the default settings
+if the settings have not been saved yet::
 
    /** @var \TYPO3\CMS\Extensionmanager\Utility\ConfigurationUtility $configurationUtility */
    $configurationUtility = $this->objectManager->get('TYPO3\CMS\Extensionmanager\Utility\ConfigurationUtility');
    $extensionConfiguration = $configurationUtility->getCurrentConfiguration('themes');
-
 
 You can also define nested options using the TypoScript notation:
 
