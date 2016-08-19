@@ -47,7 +47,7 @@ as belonging to this category.
 Making a table categorizable
 """"""""""""""""""""""""""""
 
-There are two way to activate categories on a given table. The first one is to
+There are two ways to activate categories on a given table. The first one is to
 use the global setting :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultCategorizedTables']`.
 It is a comma-separated list of tables for which categories should be activated.
 The default value is :code:`pages,tt_content,sys_file_metadata`.
