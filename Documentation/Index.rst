@@ -1,5 +1,4 @@
 .. include:: Includes.txt
-.. include:: Images.txt
 
 
 .. _start:
@@ -12,19 +11,19 @@ TYPO3 CMS Services
       doc_core_services
 
 :Version:
-      1.0.1
+      4.5
 
 :Language:
       en
 
 :Description:
-      Describes the usage and API of services available in TYPO3.
+      Describes the usage and API of services available in TYPO3 CMS.
 
 :Keywords:
       services, development, extension, auth, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2000-2015
+      2000-2016
 
 :Author:
       Documentation Team
