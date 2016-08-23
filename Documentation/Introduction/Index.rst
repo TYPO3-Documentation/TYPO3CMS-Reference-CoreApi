@@ -25,7 +25,7 @@ The usual way to instatiate a class in TYPO3 CMS is:
 
 Getting a service instance is achieved using a different API. The
 PHP class is not directly referenced. Instead a service is identified
-by its key (type):
+by its type:
 
 .. code-block:: php
 

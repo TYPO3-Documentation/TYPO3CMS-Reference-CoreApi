@@ -1,6 +1,8 @@
 .. include:: ../../Includes.txt
 
 
+.. _developer-service-api:
+
 Service API
 ^^^^^^^^^^^
 

@@ -1,17 +1,20 @@
 .. include:: ../../Includes.txt
 
 
+.. _using-services-subtypes:
+
 Use with subtypes
 ^^^^^^^^^^^^^^^^^
 
 A service can also be requested for not just a type, but a subtype
-too::
+too:
 
-      // find a service for a file type
-   if (is_object($serviceObj = t3lib_div::makeInstanceService('metaExtract',$fileType))) {
+.. code-block:: php
+
+   // Find a service for a file type
+   if (is_object($serviceObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService('metaExtract', $fileType))) {
            $serviceObj->setInputFile($absFile, $fileType);
-           if ($serviceObj->process('', '', array('meta' => $meta)) > 0
-                           && (is_array($svmeta = $serviceObj->getOutput()))) {
+           if ($serviceObj->process('', '', array('meta' => $meta)) > 0 && (is_array($svmeta = $serviceObj->getOutput()))) {
                    $meta = $svmeta;
            }
    }

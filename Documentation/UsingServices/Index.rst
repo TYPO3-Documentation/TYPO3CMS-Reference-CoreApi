@@ -1,12 +1,14 @@
 .. include:: ../Includes.txt
 
 
+.. _using-services:
+
 Using services
 --------------
 
-There are different ways to use services, which are described below.
-But first a word about precedence.
-
+This chapter describes the different ways in which services
+can be used. It also explains the most important notion about
+services: precedence.
 
 .. toctree::
    :maxdepth: 5
@@ -16,5 +18,5 @@ But first a word about precedence.
    ServicePrecedence/Index
    SimpleUse/Index
    UseWithSubtypes/Index
-   CallingAChainOfServices/Index
+   ServiceChain/Index
 

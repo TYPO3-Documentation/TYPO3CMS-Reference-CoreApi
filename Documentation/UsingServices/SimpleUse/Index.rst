@@ -1,19 +1,24 @@
 .. include:: ../../Includes.txt
 
 
+.. _using-services-simple:
+
 Simple use
 ^^^^^^^^^^
 
 The most basic use is when you just want an object that handles a
-given service type::
+given service type:
 
-   if (is_object($serviceObj = t3lib_div::makeInstanceService('textLang'))) {
-     $language = $serviceObj->guessLanguage($text);
-   }
+.. code-block:: php
 
-In this example a service of type 'textLang' is requested. If such a
+	if (is_object($serviceObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService('textLang'))) {
+		$language = $serviceObject->guessLanguage($text);
+	}
+
+In this example a service of type "textLang" is requested. If such a
 service is indeed available an object will be returned. Then the
-service type 'textLang' has a function guessLanguage() which is used.
+:code:`guessLanguage()` - which would be part of the "textLang" service
+type public API - is called.
 
 There's no certainty that an object will be returned, for a number of
 reasons:
@@ -31,17 +36,19 @@ reasons:
 Note that when a service is requested, the instance created is stored
 in a global registry. If that service is requested again during the
 same code run, the stored instance will be returned instead of a new
-one. More details in "Service API" below.
+one. More details in :ref:`Service API <developer-service-api>`.
 
 If several services are available, the one with the highest priority
 (or quality if priority are equals) will be used.
 
-It's also possible to get an instance of a specific service by
+It is also possible to get an instance of a specific service by
 requesting its key directly instead of just requesting a service type.
-The call would then look something like::
+The call would then look something like:
 
-   if (is_object($serviceObj = t3lib_div::makeInstanceService('tx_myservice_sv1'))) {
-     // Do something with the object
-     ...
-   }
+.. code-block:: php
+
+	if (is_object($serviceObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService('tx_myservice_sv1'))) {
+		// Do something with the object
+		...
+	}
 
