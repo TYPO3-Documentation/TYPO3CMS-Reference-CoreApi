@@ -2,6 +2,8 @@
 .. include:: Images.txt
 
 
+.. _developer-implementing:
+
 Implementing a service
 ^^^^^^^^^^^^^^^^^^^^^^
 

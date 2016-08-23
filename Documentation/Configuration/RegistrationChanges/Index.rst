@@ -1,25 +1,32 @@
 .. include:: ../../Includes.txt
 
 
+.. _configuration-registration-changes:
+
 Registration changes
 ^^^^^^^^^^^^^^^^^^^^
 
-The priority and other values of the services registration can be
-overridden in :code:`typo3conf/localconf.php` . Example::
+The priority and other values of the original service registration can be
+overridden in any extension's :file:`ext_localconf.php` file. Example:
 
-       // raise priority of service 'tx_example_sv1' to 110
-   $TYPO3_CONF_VARS['T3_SERVICES']['auth']['tx_example_sv1']['priority'] = 110;
+.. code-block:: php
 
-       // disable service 'tx_example_sv1'
-   $TYPO3_CONF_VARS['T3_SERVICES']['auth']['tx_example_sv1']['enable'] = false;
+    // Raise priority of service 'tx_example_sv1' to 110
+   $GLOBALS['TYPO3_CONF_VARS']['T3_SERVICES']['auth']['tx_example_sv1']['priority'] = 110;
 
-The syntax is::
+    // Disable service 'tx_example_sv1'
+   $GLOBALS['TYPO3_CONF_VARS']['T3_SERVICES']['auth']['tx_example_sv1']['enable'] = false;
 
-   $TYPO3_CONF_VARS['T3_SERVICES'][service type][service key][option key] = value;
+The general syntax is:
 
-Registration options are described in more details in "Implementing a
-service" below. Any of these options may be overridden using the above
+.. code-block:: php
+
+   $GLOBALS['TYPO3_CONF_VARS']['T3_SERVICES'][service type][service key][option key] = value;
+
+Registration options are described in more details in
+:ref:`Implementing a service <developer-implementing>`.
+Any of these options may be overridden using the above
 syntax. However caution should be used depending on the options.
-"className" should not be overridden in such a way.
-Instead a new service should be implemented using this alternate
+:code:`className` should not be overridden in such a way.
+Instead a new service should be implemented using an alternate
 class.
