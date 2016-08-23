@@ -15,8 +15,8 @@ including advice to developing good services.
    :titlesonly:
    :glob:
 
-   IntroducingANewServiceType/Index
-   ImplementingAService/Index
+   NewServiceType/Index
+   Implementing/Index
    ServiceApi/Index
-   Img-5Service-relatedApi/Index
+   ServiceRelatedApi/Index
 

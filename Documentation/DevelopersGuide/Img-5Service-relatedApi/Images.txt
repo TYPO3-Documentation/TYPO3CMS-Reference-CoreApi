@@ -1,7 +1,0 @@
-﻿.. |img-5|      image:: ../../Images/manual_html_m43928415.png
-.. :height: 447
-.. :width: 322
-.. :align: left
-.. :border: 0
-.. :name: graphics3
-.. :vspace: 8

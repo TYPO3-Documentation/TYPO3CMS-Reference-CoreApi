@@ -40,3 +40,4 @@ or not.
 .. figure:: ../../Images/ServicesReport.png
    :alt: The Installed Services report
 
+   The Installed Services report showing details about registered services

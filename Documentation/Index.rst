@@ -78,5 +78,5 @@ address the task at hand.
    Introduction/Index
    UsingServices/Index
    Configuration/Index
-   DevelopersGuide/Index
+   Developer/Index
    Targets
