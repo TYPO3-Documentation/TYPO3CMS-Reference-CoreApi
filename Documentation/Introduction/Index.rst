@@ -1,40 +1,80 @@
 .. include:: ../Includes.txt
 
 
+.. _introduction:
+
 Introduction
 ------------
 
 This document describes the services functionality included in the
-TYPO3 core since version 3.6.0.
+TYPO3 CMS core.
 
-Services are designed to be overridden so that you can extend, improve
-or – in general – modify the behavior of the TYPO3 or any extension
-that uses services without having to change the original code of TYPO3
-or of the extension.
+The whole services API works as a registry. Services are registered
+with a number of parameters, and each service can easily be overridden
+by another one with improved features or more specific capabilities,
+for example. This can be achieved without having to change the original
+code of TYPO3 CMS or of an extension.
 
-Services are PHP classes inside of an extension similar to FE-plugins
-(or inside the core of TYPO3, for some base services). Usually when
-you use a class, you address it directly by creating an instance::
+Services are simply PHP classes packaged inside an extension.
+The usual way to instatiate a class in TYPO3 CMS is:
 
-   require_once(t3lib_extMgm::extPath('some_extension').'class.tx_some_extension_class.php');
-   $obj = t3lib_div::makeInstance('tx_some_extension_class');
+.. code-block:: php
 
-Using a service class is done by calling a function which chooses the
-right service automatically by passing only the requested service type
-name and not the class name::
-
-   $serviceObj = t3lib_div::makeInstanceService('my_service_type');
-
-The difference is that the class name itself and its usage is not
-hardcoded. The same service can be provided by different extensions.
-The service with the highest priority and quality is chosen
-automatically.
+   $object = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
 
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+Getting a service instance is achieved using a different API. The
+PHP class is not directly referenced. Instead a service is identified
+by its key (type):
 
-   TwoReasonsToUseServices/Index
+.. code-block:: php
 
+   $serviceObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService('my_service_type');
+
+
+The same service can be provided by different extensions.
+The service with the highest priority and quality (more on that later)
+is chosen automatically for you.
+
+
+.. _introduction-good-reasons:
+
+Two reasons to use services
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. _introduction-good-reasons-implementation:
+
+1. Freedom of implementation
+""""""""""""""""""""""""""""
+
+A service may be implemented multiple times to take into account
+different environments like operating systems (Unix, Windows, Mac),
+available PHP extensions or other third-party dependencies (other
+programming languages, binaries, etc.).
+
+Imagine an extension which could rely on a Perl script for very good
+results. Another implementation could exist, that relies only on PHP,
+but gives results of lesser quality. With a service you could switch
+automatically between the two implementations just by testing the
+availability or not of Perl on the server.
+
+
+.. _introduction-good-reasons-extensibility:
+
+2. Extend functionality with extensions
+"""""""""""""""""""""""""""""""""""""""
+
+Services are able to handle subtypes. Consider the services of type
+"auth" which perform both the frontend and backend authentication. They provide
+a total of six subtypes, each of which can be overridden independently
+by extensions.
+
+The base service class (:code:`\TYPO3\CMS\Sv\AuthenticationService`) provided
+by extension "sv" is extended by both "saltedpasswords" and "rsaauth" extensions
+but for different subtypes ("authUserFE" and "authUserBE" for the former,
+"processLoginDataBE" and "processLoginDataFE" for the latter).
+
+These overrides do not change the public API of the "auth" service type,
+meaning that developers can rely on it without worrying about what other extensions
+might be doing.
