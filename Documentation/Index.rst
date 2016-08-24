@@ -79,4 +79,5 @@ address the task at hand.
    UsingServices/Index
    Configuration/Index
    Developer/Index
+   Authentication/Index
    Targets
