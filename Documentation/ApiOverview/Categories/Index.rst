@@ -92,7 +92,7 @@ The example below illustrates how this is done:
 			'l10n_mode' => 'exclude',
 			// list of keywords, see TCA reference for details
 			'l10n_display' => 'hideDiff',
-		),
+		)
 	);
 
 The above code will add a categories field to the "pages" table,
