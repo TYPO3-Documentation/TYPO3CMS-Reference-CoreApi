@@ -40,6 +40,7 @@ http://api.typo3.org/.
    FlashMessages/Index
    Categories/Index
    Collections/Index
+   Enumerations/Index
    Http/Index
    Hooks/Index
    Xclasses/Index
