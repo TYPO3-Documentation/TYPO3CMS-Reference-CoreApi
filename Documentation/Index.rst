@@ -79,6 +79,7 @@ address the task at hand.
    Introduction/Index
    ExtensionArchitecture/Index
    ApiOverview/Index
+   Database/Index
    JavaScript/Index
    CachingFramework/Index
    Internationalization/Index
