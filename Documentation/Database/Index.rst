@@ -41,7 +41,7 @@ engines for different tables while this is transparent for extension developers.
    :glob:
 
    BasicCrud/Index
-   Overview/Index
+   ClassOverview/Index
    ApiEntryPoints/Index
 
 
