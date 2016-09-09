@@ -12,8 +12,8 @@ The concept of "hooks"
 
 Hooks are basically places in the source code where a user function
 will be called for processing if such has been configured. Hooks
-provide a way to extend functionality of TYPO3 and extensions easily
-and without blocking for others to do the same.
+provide an easy way to extend the functionality of TYPO3 and its extensions without 
+blocking others to do the same.
 
 
 .. _hooks-xclass:
@@ -22,13 +22,12 @@ Hooks vs. XCLASS extensions
 """""""""""""""""""""""""""
 
 Hooks are the recommended way of extending TYPO3 compared to extending
-the PHP classes with a child class (see "XCLASS extensions"). It is so
-because only one extension of a PHP class can exist at a time while
-hooks may allow many different user-designed processing functions to
-occur. On the other hand hooks have to be implemented in the core
-before you can use them while extending a PHP class via the XCLASS
-method allows you to extend anything spontaneously.
-
+PHP classes with a child class (see "XCLASS extensions"). Because only 
+one extension of a PHP class can exist at a time while
+hooks may allow many different user-designed processor functions to
+be executed. However, hooks have to be implemented in the TYPO3 core
+before you can use them, while extending a PHP class via the XCLASS
+method allows you to extend any class you like.
 
 .. _hooks-proposing:
 
@@ -42,11 +41,11 @@ the author of the source you want to extend.
 
 .. _hooks-basics:
 
-How a hook looks
+Using hooks
 """"""""""""""""
 
 The two lines of code below are an example of how a hook is used for
-clear-cache post-processing. The objective of this need could be to
+clear-cache post-processing. The objective of this could be to
 perform additional actions whenever the cache is cleared for a
 specific page. ::
 
