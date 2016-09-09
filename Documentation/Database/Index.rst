@@ -40,21 +40,23 @@ engines for different tables while this is transparent for extension developers.
    :titlesonly:
    :glob:
 
+   BasicCrud/Index
    Overview/Index
    ApiEntryPoints/Index
 
 
-brainstorm
-----------
+TBD - brainstorm
+----------------
 
    * code examples
    * select examples
    * join examples
-   * delete does now work with groupBy ...
+   * delete does now work with join ...
    * distinct
-   * main api, re-use von queryBuilder
+   * main api, re-use of queryBuilder
    * migration tutorial examples on exec_ to ...
-   * restrictions und deren TCA details
+   * restrictions and their TCA details
    * getSql()
    * things that don't work
    * result set iteration
+   * configuration in typo3_conf_vars

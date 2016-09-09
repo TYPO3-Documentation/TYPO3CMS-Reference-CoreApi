@@ -1,9 +1,9 @@
 .. include:: ../../Includes.txt
 
-.. _database-overview:
+.. _database-class-overview:
 
-Overview
---------
+Class overview
+--------------
 
 Doctrine provides a set of `php` objects to represent, create and handle SQL queries and
 their results. The basic class structure was slightly enriched by TYPO3 to add CMS
@@ -26,8 +26,8 @@ specific features. Extension authors will typically interact with these classes 
 
 * `TYPO3\CMS\Core\Database\Query\Restriction\...`: Set of classes that add expressions
   like "deleted=0" to a query based on `TCA` settings of a table. This automatically adds
-  TYPO3 specific restrictions like starttime and endtime, as well as deleted flags. Further
-  restrictions for language overlays and workspaces are available.
+  TYPO3 specific restrictions like starttime and endtime, as well as deleted and hidden flags.
+  Further restrictions for language overlays and workspaces are available.
 
 * `Doctrine\DBAL\Driver\Statement`: Result object retrieved if a select query has been
   executed. Single rows are returned as array by calling `->fetch()` until the method
