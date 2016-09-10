@@ -6,10 +6,31 @@
 Basic CRUD
 ----------
 
-SELECT just a single row
-^^^^^^^^^^^^^^^^^^^^^^^^
+INSERT a row
+^^^^^^^^^^^^
 
-Straight ahead fetch of a single row from `tt_content` table:
+A straight insert to a table:
+
+.. code-block:: php
+
+    GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content')
+        ->insert(
+            'tt_content',
+            [
+                'pid' => (int)42,
+                'bodytext' => 'bernd',
+            ]
+        );
+
+.. code-block:: sql
+
+    INSERT INTO `tt_content` (`pid`, `bodytext`) VALUES ('42', 'bernd')
+
+
+SELECT a single row
+^^^^^^^^^^^^^^^^^^^
+
+Straight fetch of a single row from `tt_content` table:
 
 .. code-block:: php
 
@@ -54,8 +75,8 @@ and prepares a query executed with this final statement:
    are only applied to `select()` calls, thery are *not* added for `delete()` or other query types.
 
 
-Get a list of rows including some WHERE magic
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SELECT multiple rows with some WHERE magic
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Advanced query using the `QueryBuilder` and manipulating the default restrictions:
 
@@ -106,29 +127,8 @@ The executed query looks like:
             AND (`tt_content`.`deleted` = 0)
 
 
-INSERT a row
-^^^^^^^^^^^^
-
-A straight insert to a table
-
-.. code-block:: php
-
-    GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content')
-        ->insert(
-            'tt_content',
-            [
-                'pid' => (int)42,
-                'bodytext' => 'bernd',
-            ]
-        );
-
-.. code-block:: sql
-
-    INSERT INTO `tt_content` (`pid`, `bodytext`) VALUES ('42', 'bernd')
-
-
-Update some rows
-^^^^^^^^^^^^^^^^
+UPDATE multiple rows
+^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: php
 
@@ -145,7 +145,7 @@ Update some rows
     UPDATE `tt_content` SET `bodytext` = 'bernd' WHERE `bodytext` = 'klaus'
 
 
-Delete a row
+DELETE a row
 ^^^^^^^^^^^^
 
 .. code-block:: php

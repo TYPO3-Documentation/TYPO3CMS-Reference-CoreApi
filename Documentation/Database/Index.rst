@@ -8,11 +8,7 @@ Database Access
 Database queries in TYPO3 are done with an API based on
 `doctrine-dbal <http://www.doctrine-project.org/projects/dbal.html>`__.
 The API is provided by the system extension `core` which is always loaded and
-thus always available. Note that doctrine is a two-fold project with
-`dotrine-dbal` being the low-level database abstraction and query building
-interface to specific database engines, while `doctrine-orm` is a high-level object
-relational mapping on top of `doctrine-dbal`. The TYPO3 CMS core only
-implemented the dbal part, `doctrine-orm` is neither required nor used.
+thus always available.
 
 Doctrine-dbal is feature rich. Drivers for various target systems enable
 TYPO3 to run on a long list of `ANSI SQL` compatible `DBMS`. If used properly,
@@ -33,6 +29,15 @@ engines for different tables while this is transparent for extension developers.
    away from TYPO3_DB to the new API. A dedicated chapter helps with typical migration
    questions. With database abstraction being built in within `doctrine-dbal` the old and
    optional extensions `dbal` and `adodb` are obsolete.
+
+
+.. note::
+
+   Doctrine is a two-fold project with `dotrine-dbal` being the low-level database
+   abstraction and query building interface to specific database engines, while
+   `doctrine-orm` is a high-level object relational mapping on top of `doctrine-dbal`.
+   The TYPO3 CMS core only implemented the dbal part, `doctrine-orm` is neither required nor used
+   at the time of this writing.
 
 
 .. toctree::

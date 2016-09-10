@@ -22,7 +22,7 @@ specific features. Extension authors will typically interact with these classes 
   select(), delete() and friends.
 
 * `TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder`: Object to model complex
-  expressions. Mainly used for "WHERE" clauses and "JOIN" restrictions.
+  expressions. Mainly used for "WHERE" and "JOIN" restrictions.
 
 * `TYPO3\CMS\Core\Database\Query\Restriction\...`: Set of classes that add expressions
   like "deleted=0" to a query based on `TCA` settings of a table. This automatically adds
