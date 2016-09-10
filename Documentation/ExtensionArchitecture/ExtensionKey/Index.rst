@@ -101,5 +101,6 @@ tab. On that page you can enter the key name you want to register.
 
 .. figure:: ../../Images/Typo3OrgRegistration.png
    :alt: The extension registration form
+   :class: with-border
 
    The extension registration form on typo3.org.
