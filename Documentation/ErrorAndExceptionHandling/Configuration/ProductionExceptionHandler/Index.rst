@@ -8,9 +8,8 @@ Production Exception Handler
 
 Functions of :code:`\TYPO3\CMS\Core\Error\ProductionExceptionHandler`:
 
-- Shows brief exception message using
-  :code:`\TYPO3\CMS\Core\TimeTracker\TimeTracker::debug_typo3PrintError()` which can be manipulated by
-  a hook
+- Shows brief exception message ("Oops, an error occurred!") using
+  :code:`\TYPO3\CMS\Core\Messaging\ErrorpageMessage` and its attendant template.
 
 - Logs exception messages to :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::syslog()` which is able to write
   exception messages to a file, to the web server's error\_log, the
