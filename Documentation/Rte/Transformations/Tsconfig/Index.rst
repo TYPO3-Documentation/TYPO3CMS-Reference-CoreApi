@@ -242,13 +242,13 @@ allowTagsOutside
          allowTagsOutside
 
    Data type
-         commalist of strings
+         list
 
    Description
          *(Applies for "ts\_transform" and "css\_transform" only (function
          divideIntoLines))*
 
-         Enter tags which are allowed outsideof <P> and <DIV> sections when
+         Enter tags which are allowed outside of <P> and <DIV> sections when
          converted back to database.
 
          Default is "img"
@@ -271,7 +271,7 @@ allowTags
          allowTags
 
    Data type
-         commalist of strings
+         list
 
    Description
          *(Applies for "ts\_transform" and "css\_transform" only (function
@@ -298,7 +298,7 @@ denyTags
          denyTags
 
    Data type
-         commalist of strings
+         list
 
    Description
          *(Applies for "ts\_transform" and "css\_transform" only (function
@@ -319,7 +319,7 @@ blockElementList
          blockElementList
 
    Data type
-         string
+         list
 
    Description
          Comma-separated list of uppercase tags (e.g. :code:`P,HR`) that
@@ -484,7 +484,7 @@ allowedClasses
          allowedClasses
 
    Data type
-         list of strings
+         list
 
    Description
          *(Applies for "ts\_transform" and "css\_transform" only (function
@@ -517,9 +517,11 @@ keepPDIVattribs
          keepPDIVattribs
 
    Data type
-         list of tag attributes (strings)
+         list
 
    Description
+         Comma seperated list of tag attributes.
+         
          *(Applies for "ts\_transform" and "css\_transform" only (function
          divideIntoLines))*
 
