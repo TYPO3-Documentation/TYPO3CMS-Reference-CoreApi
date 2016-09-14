@@ -65,17 +65,11 @@ Core Manuals are written as reference manuals. The reader should rely
 on the Table of Contents to identify what particular section will best
 address the task at hand.
 
-.. only:: html
-
-   .. tip::
-
-      :ref:`Sitemap`
-
-.. **Table of Contents**
 
 .. toctree::
-   :maxdepth: 99
+   :hidden:
 
+   Sitemap/Index
    Introduction/Index
    ExtensionArchitecture/Index
    ApiOverview/Index
