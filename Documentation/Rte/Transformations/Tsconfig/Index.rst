@@ -242,7 +242,7 @@ allowTagsOutside
          allowTagsOutside
 
    Data type
-         list
+         string with comma separated values
 
    Description
          *(Applies for "ts\_transform" and "css\_transform" only (function
@@ -271,7 +271,7 @@ allowTags
          allowTags
 
    Data type
-         list
+         string with comma separated values
 
    Description
          *(Applies for "ts\_transform" and "css\_transform" only (function
@@ -298,7 +298,7 @@ denyTags
          denyTags
 
    Data type
-         list
+         string with comma separated values
 
    Description
          *(Applies for "ts\_transform" and "css\_transform" only (function
@@ -319,7 +319,7 @@ blockElementList
          blockElementList
 
    Data type
-         list
+         string with comma separated values
 
    Description
          Comma-separated list of uppercase tags (e.g. :code:`P,HR`) that
@@ -484,7 +484,7 @@ allowedClasses
          allowedClasses
 
    Data type
-         list
+         string with comma separated values
 
    Description
          *(Applies for "ts\_transform" and "css\_transform" only (function
@@ -517,12 +517,12 @@ keepPDIVattribs
          keepPDIVattribs
 
    Data type
-         list
+         string with comma separated values
 
    Description
-         Comma seperated list of tag attributes.
-         
-         *(Applies for "ts\_transform" and "css\_transform" only (function
+         Comma separated list of tag attributes
+
+         *(Applies for `ts_transform` and `css_transform` only (function
          divideIntoLines))*
 
          "align" and "class" are the only attributes preserved for <P>/<DIV>
