@@ -10,7 +10,7 @@ It is often needed to create links to edit records in the TYPO3 backend.
 The same syntax is also used for creating new records.
 TYPO3 provides an API for creating such links, namely
 :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::editOnClick()`.
-This script will creates an onclick-JavaScript event linking
+This script will create an onclick-JavaScript event linking
 to the :file:`alt_doc.php` script in the :file:`PATH_typo3` directory.
 
 This is not always needed, especially in backend modules using the
