@@ -277,11 +277,6 @@ boolean [truevalue]          Boolean, opt. you can define the value of "true", d
 
 comment                      Boolean, checked= "", not-checked = "#".
 
-file [ext-list/IMAGE\_EXT]   Selectorbox with resources. Opt. list allowed extensions (no space in
-                             list!), e.g. "[ttf]" or "[txt,html,htm]". You can also enter
-                             "[IMAGE\_EXT]" in which case the default image-extensions are listed.
-                             (used for data type "imgResource")
-
 string (the default)         Just a string value
 
 user                         Path to the file and method which renders the option HTML,
