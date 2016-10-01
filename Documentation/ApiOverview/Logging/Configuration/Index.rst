@@ -24,9 +24,8 @@ Configuring Logging for extensions works the same. If an extension uses namespac
 the syntax for the configuration is as above.
 
 For older extensions, configuration is
-searched for in :code:`$GLOBALS['TYPO3_CONF_VARS']['LOG']['tx']` to differentiate extension classes
-from Core classes (as extension class names start with :code:`tx` or :code:`Tx` and all
-class names are converted to lowercase).
+searched for in :code:`$GLOBALS['TYPO3_CONF_VARS']['LOG']['tx']` or :code:`$GLOBALS['TYPO3_CONF_VARS']['LOG']['Tx']` to differentiate extension classes
+from Core classes (as extension class names start with :code:`tx` or :code:`Tx`).
 
 
 .. _logging-configuration-writer:
@@ -72,7 +71,7 @@ For extension "foo" with key "tx_foo" (not using namespaces), the configuration 
 
 .. code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['tx']['foo']['writerConfiguration'] = array(
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Tx']['Foo']['writerConfiguration'] = array(
    	...
    );
 
