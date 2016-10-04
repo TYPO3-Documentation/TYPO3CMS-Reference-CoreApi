@@ -552,3 +552,44 @@ Further remarks:
 * A join of two tables that are configured to different connections will throw an exception. This restricts which
   tables can be configured to different database endpoints. It is possible to test the connection objects of involved
   tables for equality and implement a fallback logic in `PHP` if they are different.
+
+
+orderBy() and addOrderBy()
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Add `ORDER BY` to a `select()` statement. Both `->orderBy()` and `->addOrderBy()` require a field name as first
+argument:
+
+.. code-block:: php
+
+    // SELECT * FROM `sys_language` ORDER BY `sorting` ASC
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
+    $queryBuilder->getRestrictions()->removeAll();
+    $languageRecords = $queryBuilder
+        ->select('*')
+        ->from('sys_language')
+        ->orderBy('sorting')
+        ->execute()
+        ->fetchAll();
+
+
+Remarks:
+
+* `->orderBy()` resets any previously specified orders. It doesn't make sense to call it after a previous `->orderBy()`
+  or `->addOrderBy()` again.
+
+* Both methods need a field name or a `table.fieldName` or a `tableAlias.fieldName` as first argument, in the above
+  example calling `->orderBy('sys_language.sorting')` would have been identical. All identifiers are quoted
+  automatically.
+
+* The second, optional argument of both methods specifies the sorting order. The two allowed values are `ASC` and `DESC`
+  where `ASC` is default and can be omited.
+
+* To create a chain of orders, use `->orderBy()` and then multiple `->addOrderBy()` calls. Calling
+  `->orderBy('header')->addOrderBy('bodytext')->addOrderBy('uid', DESC')` creates
+  ``ORDER BY `header` ASC, `bodytext` ASC, `uid` DESC``
+
+
+
+
+
