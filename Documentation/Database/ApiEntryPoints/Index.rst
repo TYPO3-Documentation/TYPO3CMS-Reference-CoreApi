@@ -426,3 +426,129 @@ Remarks:
   the core, those places are usually combined with `QueryHelper::stripLogicalOperatorPrefix()` to remove leading
   `AND` or `OR` parts. Using this gives an additional risk of missing or wrong quoting and is a potential security
   issue. Use with care if ever.
+
+
+join(), innerJoin(), rightJoin() and leftJoin()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Joining multiple tables in a `->select()` or `->count()` query is done with one of these methods. Multiple joins
+are supported by calling the methods more than once. All methods require four arguments: The name of the left side
+table (or its alias), the name of the right side table, an alias for the right side query and the join
+restriction as fourth argument:
+
+.. code-block:: php
+
+    // SELECT `sys_language`.`uid`, `sys_language`.`title`
+    // FROM `sys_language`
+    // INNER JOIN `pages_language_overlay` `overlay`
+    //     ON `overlay`.`sys_language_uid` = `sys_language`.`uid`
+    // WHERE
+    //     (`overlay`.`pid` = 42)
+    //     AND (
+    //          (`overlay`.`deleted` = 0)
+    //          AND (
+    //              (`sys_language`.`hidden` = 0) AND (`overlay`.`hidden` = 0)
+    //          )
+    //          AND (`overlay`.`starttime` <= 1475591280)
+    //          AND ((`overlay`.`endtime` = 0) OR (`overlay`.`endtime` > 1475591280))
+    //     )
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
+    $statement = $queryBuilder->select('sys_language.uid', 'sys_language.title')
+        ->from('sys_language')
+        ->join(
+            'sys_language',
+            'pages_language_overlay',
+            'overlay',
+            $queryBuilder->expr()->eq('overlay.sys_language_uid', $queryBuilder->quoteIdentifier('sys_language.uid'))
+        )
+        ->where($queryBuilder->expr()->eq('overlay.pid', (int)42))
+        ->execute();
+
+
+Notes to the above example:
+
+* The query operates on table `sys_language` as main table, this table name is given to `getQueryBuilderForTable()`.
+
+* The query joins table `pages_language_overlay` as `INNER JOIN`, giving it the alias `overlay`.
+
+* The join condition is ```overlay`.`sys_language_uid` = `sys_language`.`uid```. It would have been identical to
+  swap the expression arguments of the fourth `->join()` argument
+  `eq('sys_language.uid', $queryBuilder->quoteIdentifier('overlay.sys_language_uid'))`.
+
+* The second argument of the join expression instructs the `ExpressionBuilder` to quote the value as a field
+  identifier (a field name, here a table/field name combination). Using `createNamedParameter()` would lead to
+  a quoting as value (`'` instead of ````` in `mysql`) and the query would fail.
+
+* The alias `overlay` - the third argument of the `->join()` call - does not necessarily have to be set to a different
+  name than the table name itself here. Using `pages_language_overlay` as third argument and not specifying
+  a different name would do. Aliases are mostly useful if a join to the same table is needed:
+  ``SELECT `something` FROM `tt_content` JOIN `tt_content` `content2` ON ...``. Aliases additionally become handy
+  to increase readability of `where()` expressions.
+
+* The `RestrictionBuilder` added additional `WHERE` conditions for both involved tables! Table `sys_language` obviously
+  only specifies a `'disabled' => 'hidden'` as `enableColumns` in its `TCA` `ctrl` section, while table
+  `pages_language_overlay` specifies `deleted`, `hidden`, `starttime` and `stoptime` fields.
+
+
+A more complex example with two joins. The first join points to the first table again using an alias to resolve
+a language overlay scenario. The second join uses the alias name of the first join target as left side:
+
+.. code-block:: php
+
+    // SELECT `tt_content_orig`.`sys_language_uid`
+    // FROM `tt_content`
+    // INNER JOIN `tt_content` `tt_content_orig` ON `tt_content`.`t3_origuid` = `tt_content_orig`.`uid`
+    // INNER JOIN `sys_language` `sys_language` ON `tt_content_orig`.`sys_language_uid` = `sys_language`.`uid`
+    // WHERE
+    //     (`tt_content`.`colPos` = 1)
+    //     AND (`tt_content`.`pid` = 42)
+    //     AND (`tt_content`.`sys_language_uid` = 2)
+    //     AND ... RestrictionBuilder TCA restrictions for tables tt_content and sys_language ...
+    // GROUP BY `tt_content_orig`.`sys_language_uid`
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+    $constraints = [
+        $queryBuilder->expr()->eq('tt_content.colPos', (int)1),
+        $queryBuilder->expr()->eq('tt_content.pid', (int)42),
+        $queryBuilder->expr()->eq('tt_content.sys_language_uid', (int)2),
+    ];
+    $queryBuilder->select('tt_content_orig.sys_language_uid')
+        ->from('tt_content')
+        ->join(
+            'tt_content',
+            'tt_content',
+            'tt_content_orig',
+            $queryBuilder->expr()->eq(
+                'tt_content.t3_origuid',
+                $queryBuilder->quoteIdentifier('tt_content_orig.uid')
+            )
+        )
+        ->join(
+            'tt_content_orig',
+            'sys_language',
+            'sys_language',
+            $queryBuilder->expr()->eq(
+                'tt_content_orig.sys_language_uid',
+                $queryBuilder->quoteIdentifier('sys_language.uid')
+            )
+        )
+        ->where(...$constraints)
+        ->groupBy('tt_content_orig.sys_language_uid')
+        ->execute();
+
+
+Further remarks:
+
+* `->join()` and `innerJoin` are identical. They create an `INNER JOIN` query, this is identical to a `JOIN` query.
+
+* `->leftJoin()` creates a `LEFT JOIN` query, this is identical to a `LEFT OUTER JOIN` query.
+
+* `->rightJoin()` creates a `RIGHT JOIN` query, this is identical to a `RIGT OUTER JOIN` query.
+
+* Calls on join() methods are only considered for `->select()` and `->count()` type queries. `->delete()`, `->insert()`
+  and `update()` do not support joins, those query parts are ignored and do not end up in the final statement.
+
+* The argument of `->getQueryBuilderForTable()` should be the left most main table.
+
+* A join of two tables that are configured to different connections will throw an exception. This restricts which
+  tables can be configured to different database endpoints. It is possible to test the connection objects of involved
+  tables for equality and implement a fallback logic in `PHP` if they are different.
