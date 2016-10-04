@@ -354,3 +354,75 @@ multiple tables, the argument should be the name of the first table within the `
 tables if not restricted by an according `where()` or `andWhere()` expression. In general,
 it is a good idea to use `from()` only once per query and model multi-table selection
 with an explicit `join()` instead.
+
+
+where(), andWhere() and orWhere()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The three methods are used to create `WHERE` restrictions for `SELECT`, `COUNT`, `UPDATE` and `DELETE` query types.
+Each argument is typically an `ExpressionBuilder` object that will be cast to a string on `->execute()`.
+
+.. code-block:: php
+
+    // SELECT `uid`, `header`, `bodytext`
+    // FROM `tt_content`
+    // WHERE
+    //    (
+    //        ((`bodytext` = 'klaus') AND (`header` = 'a name'))
+    //        OR (`bodytext` = 'peter') OR (`bodytext` = 'hans')
+    //    )
+    //    AND (`pid` = 42)
+    //    AND ... RestrictionBuilder TCA restrictions ...
+    $statement = $queryBuilder->select('uid', 'header', 'bodytext')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
+            $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('a name'))
+        )
+        ->orWhere(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('peter')),
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('hans'))
+        )
+        ->andWhere(
+            $queryBuilder->expr()->eq('pid', (int)42)
+        )
+        ->execute();
+
+Note the parenthesis of the above example: `->andWhere()` encapsulates both `->where()` and `->orWhere()`
+with an additional restriction.
+
+Argument unpacking can become handy with these methods:
+
+.. code-block:: php
+
+    $whereExpressions = [
+        $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
+        $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('a name'))
+    ];
+    if ($needsAdditionalExpression) {
+        $whereExpressions[] = $someAdditionalExpression;
+    }
+    $queryBuilder->where(...$whereExpressions);
+
+
+Remarks:
+
+* The three methods are `variadic <https://en.wikipedia.org/wiki/Variadic_function>`__. They can handle
+  any number of arguments. If for instance `->where()` receives four arguments, they are handled as single
+  expressions, all of them combined with `AND`.
+
+* `->where()` should be called only once per query and it resets any previously set `->where()`, `->andWhere()`
+  and `->orWhere()` expression. Having a `->where()` call after a previous `->where()`, `->andWhere()` or `->orWhere()`
+  typically indicates a bug or a rather weird code flow. Doing so is discouraged.
+
+* While creating complex `WHERE` restrictions, `->getSql()` is a helpful debugging friend to verify parenthesis
+  and single query parts.
+
+* If using only `->eq()` expressions, it is often easier to switch to the according `Connection` object method
+  to simplify quoting and increase readability.
+
+* It is possible to feed the methods with strings directly, but that is discouraged and typically only used
+  in rare cases where expression strings are created at a different place that can not be resolved easily. In
+  the core, those places are usually combined with `QueryHelper::stripLogicalOperatorPrefix()` to remove leading
+  `AND` or `OR` parts. Using this gives an additional risk of missing or wrong quoting and is a potential security
+  issue. Use with care if ever.
