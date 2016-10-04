@@ -557,7 +557,7 @@ Further remarks:
 orderBy() and addOrderBy()
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Add `ORDER BY` to a `select()` statement. Both `->orderBy()` and `->addOrderBy()` require a field name as first
+Add `ORDER BY` to a `->select()` statement. Both `->orderBy()` and `->addOrderBy()` require a field name as first
 argument:
 
 .. code-block:: php
@@ -590,6 +590,22 @@ Remarks:
   ``ORDER BY `header` ASC, `bodytext` ASC, `uid` DESC``
 
 
+groupBy() and addGroupBy()
+%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Add `GROUP BY` to a `->select()` statement. Each argument to the methods is a single identifier:
 
+.. code-block:: php
 
+    // GROUP BY `pages_language_overlay`.`sys_language_uid`, `sys_language`.`uid`
+    ->groupBy('pages_language_overlay.sys_language_uid', 'sys_language.uid');
+
+Remarks:
+
+* Similar to `->select()` and `->where()` both methods are variadic and take any number of arguments, argument
+  unpacking is supported: `->groupBy(...$myGroupArray)`
+
+* Each argument is either a direct field name ``GROUP BY `bodytext```, a `table.fieldName` or a `tableAlias.fieldName`
+  and will be properly quoted.
+
+* `->groupBy()` resets any previously set group specification and should be called only once per statement.
