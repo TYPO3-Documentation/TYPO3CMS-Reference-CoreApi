@@ -367,7 +367,7 @@ Remarks:
   and `->orWhere()` expression. Having a `->where()` call after a previous `->where()`, `->andWhere()` or `->orWhere()`
   typically indicates a bug or a rather weird code flow. Doing so is discouraged.
 
-* While creating complex `WHERE` restrictions, `->getSql()` is a helpful debugging friend to verify parenthesis
+* While creating complex `WHERE` restrictions, `->getSQL()` is a helpful debugging friend to verify parenthesis
   and single query parts.
 
 * If using only `->eq()` expressions, it is often easier to switch to the according `Connection` object method
@@ -563,12 +563,75 @@ Remarks:
 * `->groupBy()` resets any previously set group specification and should be called only once per statement.
 
 
-getSql()
+setMaxResults() and setFirstResult()
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Add `LIMIT` to restrict number of records and `OFFSET` for pagination query parts. Both methods should be
+called only once per statement:
+
+.. code-block:: php
+
+    // SELECT * FROM `sys_language` LIMIT 2 OFFSET 4
+    $queryBuilder
+        ->select('*')
+        ->from('sys_language')
+        ->setMaxResults(2)
+        ->setFirstResult(4)
+        ->execute();
+
+
+Remarks:
+
+* It's allowed to call `->setMaxResults()` but not to call `->setFirstResult()`.
+
+* It is possible to call `->setFirstResult()` without calling `setMaxResults()`: This equals to "Fetch everything, but
+  leave out the first n records". Internally, `LIMIT` will be added by `doctrine-dbal` and set to a very high value.
+
+
+getSQL()
 ^^^^^^^^
+
+Method `->getSQL()` returns the created query statement as string. It is incredible useful during development
+to verify the final statement is executed just as a developer expects it.
+
+.. code-block:: php
+
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
+    $queryBuilder->select('*')->from('sys_language');
+    debug($queryBuilder->getSQL());
+    $statement = $queryBuilder->execute();
+
+
+Remarks:
+
+* This is debugging code. Take proper actions to ensure those calls do not end up in production!
+
+* The method is typically called directly in front `->execute()` to output the final statement.
+
+* Casting a QueryBuilder object to string has the same effect as calling `->getSQL()`, the explicit call
+  using the method should be preferred to simplify a search operation for this kind of debugging statements, though.
+
+* The method is a simple way to see which restrictions the `RestrictionBuilder` added.
+
+* `doctrine-dbal` always creates prepared statements: Any value that is added via `->createNamedParameter()` creates
+  a placeholder that is later substituted if the real query is fired via `->execute()`. `->getSQL()` does not show
+  those values, instead the placeholder names are displayed, usually with a string like `:dcValue1`. There is no
+  simple solution to show the fully replaced query from within the framework.
 
 
 execute()
 ^^^^^^^^^
+
+Compile and fire the final query statement. This is usually the last call on a `QueryBuilder` object. The method
+has two possible return values: On success, it either returns a `Statement` object representing the result set of
+`->select()` and `->count()` queries, or it returns an integer representing the number of affected rows for
+`->insert()`, `->update()` and `->delete()` queries.
+
+If the query fails for whatever reason (for instance if the database connection was lost or if the query contains a
+syntax error), a `\Doctrine\DBAL\DBALException` is thrown. It is most often bad habit to catch and suppress this
+exception since it indicates a runtime or a program error. Both should bubble up. See the
+`coding guidelines <https://docs.typo3.org/typo3cms/CodingGuidelinesReference/latest/PhpArchitecture/WorkingWithExceptions/Index.html>`__
+for more information on proper exception handling.
 
 
 expr()
