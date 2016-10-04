@@ -150,7 +150,7 @@ A useful combination of `select()` and `addSelect()` can be:
 delete()
 %%%%%%%%
 
-Create a `DELETE FROM` query. The methods requires the table name to drop data from. Classic usage:
+Create a `DELETE FROM` query. The method requires the table name to drop data from. Classic usage:
 
 .. code-block:: php
 
@@ -165,25 +165,82 @@ Create a `DELETE FROM` query. The methods requires the table name to drop data f
 
 Remarks:
 
-* In contrast to `select()`, `delete()` does *not* add `WHERE` restrictions like `AND \`deleted\` = 0`
+* In contrast to `select()`, `delete()` does *not* add `WHERE` restrictions like ``AND `deleted` = 0``
   automatically.
 
-* `delete()` does *not* magically transform a `DELETE FROM \`tt_content\` WHERE \`uid\` = 4711` to something like
-  `UPDATE \`tt_content\` SET \`deleted\` = 1 WHERE \`uid\` = 4711` internally. A soft-delete must be handled on application
+* `delete()` does *not* magically transform a ``DELETE FROM `tt_content` WHERE `uid` = 4711`` to something like
+  ``UPDATE `tt_content` SET `deleted` = 1 WHERE `uid` = 4711`` internally. A soft-delete must be handled on application
   level code with a dedicated lookup in `$GLOBALS['TCA']['theTable']['ctrl']['deleted']` to check if
   a specific table can handle the soft-delete, together with an `update()` instead.
 
-* Multi-table delete is *not* supported: `DELETE FROM \`table1\`, \`table2\`` can not be created.
+* Multi-table delete is *not* supported: ``DELETE FROM `table1`, `table2``` can not be created.
 
 * `delete()` ignores `join()`
 
 * `delete()` ignores `setMaxResults()`, `DELETE` with `LIMIT` does not work.
 
 
-
-
 update() and set()
 %%%%%%%%%%%%%%%%%%
+
+Create an `UPDATE` query. Typical usage:
+
+.. code-block:: php
+
+    // UPDATE `tt_content` SET `bodytext` = 'peter' WHERE `bodytext` = 'klaus'
+    $queryBuilder
+        ->update('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $this->createNamedParameter('klaus')
+        )
+        ->set('bodytext', 'peter')
+        ->execute();
+
+
+`update()` requires the table to update as first argument and a table alias as optional second argument.
+The table alias can then be used in `set()` and `where()` expressions:
+
+.. code-block:: php
+
+    // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'peter' WHERE `u`.`bodytext` = 'klaus'
+    $queryBuilder
+        ->update('tt_content', 'u')
+        ->where(
+            $queryBuilder->expr()->eq('u.bodytext', $this->createNamedParameter('klaus')
+        )
+        ->set('u.bodytext', 'peter')
+        ->execute();
+
+
+`set()` requires a field name as first argument and automatically quotes it internally. The second mandatory
+argument is the value a field should be set to, the value is automatically transformed to a named parameter
+of a prepared statement. This way, `set()` key/value pairs are automatically SQL injection save by default.
+
+If a field should be set to the value of another field from the table, the quoting needs to be turned off and
+`quoteIdentifier()` has to be used:
+
+.. code-block:: php
+
+    // UPDATE `tt_content` SET `bodytext` = `header` WHERE `bodytext` = 'klaus'
+    $queryBuilder->update('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+        )
+        ->set('bodytext', $queryBuilder->quoteIdentifier('header'), false)
+        ->execute();
+
+
+Remarks:
+
+* `set()` can be called multiple times if multiple fields should be updated.
+
+* `set()` requires a field name as first argument and automatically quotes it internally
+
+* `set()` requires the value a field should be set to as second parameter
+
+* `update()` ignores `join()` and `setMaxResults()`
+
+* The API does not magically add `delete = 0` or other restrictions magically.
 
 
 from()

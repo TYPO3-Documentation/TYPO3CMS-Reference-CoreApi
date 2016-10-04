@@ -10,7 +10,8 @@ their results. The basic class structure was slightly enriched by TYPO3 to add C
 specific features. Extension authors will typically interact with these classes and objects:
 
 * `TYPO3\CMS\Core\Database\ConnectionPool`: Main entry point for extensions to retrieve
-  a specific connection a query should be executed on.
+  a specific connection a query should be executed on. Typically used to return a
+  `Connection` or a `QueryBuilder` object.
 
 * `TYPO3\CMS\Core\Database\Connection`: Object representing a specific connection to one
   connected database. Provides "shortcut" methods for simple standard queries
