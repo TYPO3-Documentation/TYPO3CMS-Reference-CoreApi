@@ -99,7 +99,7 @@ Select all fields:
 
 
 `select()` and a number of other methods of the `QueryBuilder` are `variadic <https://en.wikipedia.org/wiki/Variadic_function>`__
-and can handle any number of arguments, for `select()`, every argument is interpreted as a single field name to select:
+and can handle any number of arguments. For `select()`, every argument is interpreted as a single field name to select:
 
 .. code-block:: php
 
@@ -126,7 +126,7 @@ Argument unpacking can be used if the list of fields is available as array alrea
 `select()` sets the list of fields that should be selected and `addSelect()` can add further items
 to an existing list.
 
-Mind that `select()` *resets* any formerly registered list and does not append. Thus, It usually doesn't
+Mind that `select()` *resets* any formerly registered list and does not append. Thus, it usually doesn't
 make much sense to call `select()` twice in a code flow, or to call it *after* an `addSelect()`. The methods
 `where()` and `andWhere()` share the same behavior.
 
@@ -139,12 +139,65 @@ A useful combination of `select()` and `addSelect()` can be:
         $queryBuilder->addSelect(...$additionalFields);
     }
 
+Calling `->execute()` on a `select()` query returns a `Statement` object. To receive single rows a `->fetch()`
+loop on that object is used, or `->fetchAll()` to return a single array with all rows. A typical code flow
+of a `SELECT` query looks like:
+
+.. code-block:: php
+
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+    $statement = $queryBuilder->select('uid', 'header', 'bodytext')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+        )
+        ->execute();
+    while ($row = $statement->fetch()) {
+        // Do something with that single row
+        debug($row);
+    }
+
 
 .. note::
 
    `select()` and `count()` queries trigger TYPO3 CMS magic that adds further default where
-   clauses if the queried table is also registered via `$GLOBALS['TCA']`. Follow to the `RestrictionBuilder`
-   for details on that topic.
+   clauses if the queried table is also registered via `$GLOBALS['TCA']`. See the `RestrictionBuilder`
+   section for details on that topic.
+
+
+count()
+%%%%%%%
+
+Create a `COUNT` query, a typical usage:
+
+.. code-block:: php
+
+    // SELECT COUNT(`uid`) FROM `tt_content` WHERE (`bodytext` = 'klaus')
+    //     AND ((`tt_content`.`deleted` = 0) AND (`tt_content`.`hidden` = 0)
+    //     AND (`tt_content`.`starttime` <= 1475580240)
+    //     AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1475580240)))
+    $count = $queryBuilder->count('uid')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+         )
+        ->execute()
+        ->fetchColumn(0);
+
+
+Remarks:
+
+* Similar to the `select()` query type, `count()` automatically triggers `RestrictionBuilder` magic
+  that adds default `deleted`, `hidden`, `starttime` and `endtime` restrictions if that is
+  defined in `TCA`.
+
+* Similar to `select()` query types, `execute()` with `count()` returns a `Statement` object. To
+  fetch the number of rows directly, use `fetchColumn(0)`.
+
+* First argument to `count()` is required, typically `count(*)` or `count('uid')` is used, the field
+  name is automatically quoted.
+
+* There is no support for `DISTINCT`, a `groupBy()` has to be used instead.
 
 
 delete()
@@ -164,6 +217,9 @@ Create a `DELETE FROM` query. The method requires the table name to drop data fr
 
 
 Remarks:
+
+* For simple cases, it is often easier to write and better to read to use the `delete()` method of the
+  `Connection` object.
 
 * In contrast to `select()`, `delete()` does *not* add `WHERE` restrictions like ``AND `deleted` = 0``
   automatically.
@@ -216,7 +272,7 @@ The table alias can then be used in `set()` and `where()` expressions:
 argument is the value a field should be set to, the value is automatically transformed to a named parameter
 of a prepared statement. This way, `set()` key/value pairs are automatically SQL injection save by default.
 
-If a field should be set to the value of another field from the table, the quoting needs to be turned off and
+If a field should be set to the value of another field from the row, the quoting needs to be turned off and
 `quoteIdentifier()` has to be used:
 
 .. code-block:: php
@@ -232,20 +288,55 @@ If a field should be set to the value of another field from the table, the quoti
 
 Remarks:
 
+* For simple cases, it is often easier to use the `update()` method of the
+  `Connection` object.
+
 * `set()` can be called multiple times if multiple fields should be updated.
 
-* `set()` requires a field name as first argument and automatically quotes it internally
+* `set()` requires a field name as first argument and automatically quotes it internally.
 
-* `set()` requires the value a field should be set to as second parameter
+* `set()` requires the value a field should be set to as second parameter.
 
-* `update()` ignores `join()` and `setMaxResults()`
+* `update()` ignores `join()` and `setMaxResults()`.
 
 * The API does not magically add `delete = 0` or other restrictions magically.
+
+
+insert() and values()
+%%%%%%%%%%%%%%%%%%%%%
+
+Create an `INSERT` query. Typical usage:
+
+.. code-block:: php
+
+    $affectedRows = $queryBuilder
+        ->insert('tt_content')
+        ->values([
+            'bodytext' => 'klaus',
+            'header' => 'peter',
+        ])
+        ->execute();
+
+
+Remarks:
+
+* It is often easier to use `insert()` or `bulkInsert()` of the `Connection` object.
+
+* `->values()` expects an array of key/value pairs. Both keys (field names / identifiers) and values are
+  automatically quoted. In rare cases, quoting of values can be turned off by setting the second argument
+  to `false`. In those cases the quoting has to be done manually, typically by using `createNamedParameter()`
+  on the values, use with care ...
+
+* `execute()` after `insert()` returns the number of inserted rows, which is typically `1`.
+
+* `QueryBuilder` does not contain a method to insert multiple rows at once, use `bulkInsert()` of `Connection`
+  object instead to achieve that.
 
 
 from()
 %%%%%%
 
+`from()` is a must have call for `select()` and `count()` query types.
 `from()` needs a table name and an optional alias name. The method is typically called once per query build
 and the table name is typically the same as what was given to `getQueryBuilderForTable()`. If the query joins
 multiple tables, the argument should be the name of the first table within the `join()` chain.

@@ -48,6 +48,7 @@ engines for different tables while this is transparent for extension developers.
    BasicCrud/Index
    ClassOverview/Index
    ApiEntryPoints/Index
+   TipsAndTricks/Index
 
 
 TBD - brainstorm
