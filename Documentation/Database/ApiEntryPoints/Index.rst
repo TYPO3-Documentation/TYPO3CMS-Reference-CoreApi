@@ -71,6 +71,11 @@ with a happy little list of small methods:
 
    * `execute()` a query and retrieve a `Statement` (a query result) object
 
+This documentation does not mention every single available method but sticks to those
+used in casual queries and normal code flow. There are a couple of not mentioned methods,
+most of them are either very seldom used or marked as internal. Extension authors typically
+don't have to deal with anything not mentioned here.
+
 Most methods of the `QueryBuilder` return `$this` and can be chained:
 
 .. code-block:: php
@@ -609,3 +614,33 @@ Remarks:
   and will be properly quoted.
 
 * `->groupBy()` resets any previously set group specification and should be called only once per statement.
+
+
+getSql()
+%%%%%%%%
+
+
+execute()
+%%%%%%%%%
+
+
+expr()
+%%%%%%
+
+
+createNamedParameter()
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+quoteIdentifier() and quoteIdentifiers()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+escapeLikeWildcards()
+%%%%%%%%%%%%%%%%%%%%%
+
+
+getRestrictions(), setRestrictions(), resetRestrictions()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
