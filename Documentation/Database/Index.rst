@@ -45,17 +45,14 @@ engines for different tables while this is transparent for extension developers.
    :titlesonly:
    :glob:
 
+   Configuration/Index
    BasicCrud/Index
    ClassOverview/Index
    ConnectionPool/Index
    QueryBuilder/Index
+   Connection/Index
+   ExpressionBuilder/Index
+   RestrictionBuilder/Index
+   Statement/Index
+   Migration/Index
    TipsAndTricks/Index
-
-
-TBD - brainstorm
-----------------
-
-   * migration tutorial examples on `exec_` to ...
-   * restrictions and their TCA details
-   * result set iteration
-   * configuration in typo3_conf_vars

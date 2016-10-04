@@ -6,6 +6,10 @@
 Basic CRUD
 ----------
 
+A list of basic usage examples of the query API. This is just a kickstart.
+Details on the single methods are found in the following chapters.
+
+
 INSERT a row
 ^^^^^^^^^^^^
 

@@ -829,8 +829,31 @@ Remarks:
 escapeLikeWildcards()
 ^^^^^^^^^^^^^^^^^^^^^
 
+Helper method to quote `%` characters within a search string. This is helpful in `->like()` and `->notLike()`
+expressions:
+
+.. code-block:: php
+
+    // SELECT `uid` FROM `tt_content` WHERE (`bodytext` LIKE '%kl\\%aus%')
+    $searchWord = 'kl%aus';
+    $queryBuilder->select('uid')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->like(
+                'bodytext',
+                $queryBuilder->createNamedParameter('%' . $queryBuilder->escapeLikeWildcards($searchWord) . '%')
+            )
+        );
+
+
+Remarks:
+
+* Even with using `->escapeLikeWildcards()`, the value must again be encapsulated in a
+  `->createNamedParameter()` call, only calling `->escapeLikeWildcards()` does **not** make the value
+  SQL injection safe!
+
 
 getRestrictions(), setRestrictions(), resetRestrictions()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
+`API` methods to deal with the `RestrictionBuilder`.
