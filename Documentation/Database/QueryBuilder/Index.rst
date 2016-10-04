@@ -1,62 +1,9 @@
 .. include:: ../../Includes.txt
 
-.. _database-api-entry-points:
-
-API main entry points
----------------------
-
-ConnectionPool
-^^^^^^^^^^^^^^
-
-TYPO3`s interface to execute queries via `doctrine-dbal` typically starts by asking
-the `ConnectionPool` for a `QueryBuilder` object, handing over the table name to be queried:
-
-.. code-block:: php
-
-    // Get a query builder for a table
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_myext_comments');
-    // or
-    // Get a connection for a table
-    $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_myext_comments');
-
-
-The `QueryBuilder` is the default workhorse object used by extension authors to express complex queries,
-while a `Connection` instance can be used as shortcut to deal with some simple query cases and little written down code.
-
-
-Pooling
-%%%%%%%
-
-TYPO3 can handle multiple connections to different database endpoints at the same time. This
-can be configured on a per-table basis in `TYPO3_CONF_VARS`. It allows running tables
-on different databases, without an extension developer taking care of that.
-
-The `ConnectionPool` implements this feature: It looks up a configured table-to-database
-mapping and can return a `Connection` or a `QueryBuilder` instance for that specific connection.
-Those objects internally know which target connection they are dealing with and will
-for instance quote field names accordingly.
-
-The transparency of tables to different database endpoints is limited, though:
-
-Executing a table JOIN between two tables that point to different connections will throw an exception.
-This restriction may in practice create implicit "groups" of tables that need to point to one connection
-at once if an extension or the TYPO3 core joins those tables.
-
-This can turn out as a headache if multiple different extensions use for instance the core category or
-collection API with their mm table joins between core internal tables and their extension's counterparts.
-
-That situation is not easy to deal with. At the time of this writing the core development will
-eventually implement some non-join fallbacks for typical cases that would be good to decouple, though.
-
-.. note::
-
-   In case joins cannot be decoupled but still affected tables must run on different databases,
-   and if the code can not be easily adapted, some DBMS like `PostgreSQL` allow executing those
-   queries by having own connection handlers to different other endpoints on its own.
-
+.. _database-query-builder:
 
 QueryBuilder
-^^^^^^^^^^^^
+------------
 
 The `QueryBuilder` is a rather huge class that takes care of the main query dealing
 with a happy little list of small methods:
@@ -91,7 +38,7 @@ Most methods of the `QueryBuilder` return `$this` and can be chained:
 
 
 select() and andSelect()
-%%%%%%%%%%%%%%%%%%%%%%%%
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a `SELECT` query.
 
@@ -171,7 +118,7 @@ of a `SELECT` query looks like:
 
 
 count()
-%%%%%%%
+^^^^^^^
 
 Create a `COUNT` query, a typical usage:
 
@@ -206,7 +153,7 @@ Remarks:
 
 
 delete()
-%%%%%%%%
+^^^^^^^^
 
 Create a `DELETE FROM` query. The method requires the table name to drop data from. Classic usage:
 
@@ -242,7 +189,7 @@ Remarks:
 
 
 update() and set()
-%%%%%%%%%%%%%%%%%%
+^^^^^^^^^^^^^^^^^^
 
 Create an `UPDATE` query. Typical usage:
 
@@ -308,7 +255,7 @@ Remarks:
 
 
 insert() and values()
-%%%%%%%%%%%%%%%%%%%%%
+^^^^^^^^^^^^^^^^^^^^^
 
 Create an `INSERT` query. Typical usage:
 
@@ -339,7 +286,7 @@ Remarks:
 
 
 from()
-%%%%%%
+^^^^^^
 
 `from()` is a must have call for `select()` and `count()` query types.
 `from()` needs a table name and an optional alias name. The method is typically called once per query build
@@ -362,7 +309,7 @@ with an explicit `join()` instead.
 
 
 where(), andWhere() and orWhere()
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The three methods are used to create `WHERE` restrictions for `SELECT`, `COUNT`, `UPDATE` and `DELETE` query types.
 Each argument is typically an `ExpressionBuilder` object that will be cast to a string on `->execute()`.
@@ -434,7 +381,7 @@ Remarks:
 
 
 join(), innerJoin(), rightJoin() and leftJoin()
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Joining multiple tables in a `->select()` or `->count()` query is done with one of these methods. Multiple joins
 are supported by calling the methods more than once. All methods require four arguments: The name of the left side
@@ -560,7 +507,7 @@ Further remarks:
 
 
 orderBy() and addOrderBy()
-%%%%%%%%%%%%%%%%%%%%%%%%%%
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Add `ORDER BY` to a `->select()` statement. Both `->orderBy()` and `->addOrderBy()` require a field name as first
 argument:
@@ -596,7 +543,7 @@ Remarks:
 
 
 groupBy() and addGroupBy()
-%%%%%%%%%%%%%%%%%%%%%%%%%%
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Add `GROUP BY` to a `->select()` statement. Each argument to the methods is a single identifier:
 
@@ -617,30 +564,30 @@ Remarks:
 
 
 getSql()
-%%%%%%%%
+^^^^^^^^
 
 
 execute()
-%%%%%%%%%
+^^^^^^^^^
 
 
 expr()
-%%%%%%
+^^^^^^
 
 
 createNamedParameter()
-%%%%%%%%%%%%%%%%%%%%%%
+^^^^^^^^^^^^^^^^^^^^^^
 
 
 quoteIdentifier() and quoteIdentifiers()
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 escapeLikeWildcards()
-%%%%%%%%%%%%%%%%%%%%%
+^^^^^^^^^^^^^^^^^^^^^
 
 
 getRestrictions(), setRestrictions(), resetRestrictions()
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 

@@ -47,22 +47,15 @@ engines for different tables while this is transparent for extension developers.
 
    BasicCrud/Index
    ClassOverview/Index
-   ApiEntryPoints/Index
+   ConnectionPool/Index
+   QueryBuilder/Index
    TipsAndTricks/Index
 
 
 TBD - brainstorm
 ----------------
 
-   * code examples
-   * select examples
-   * join examples
-   * delete does now work with join ...
-   * distinct
-   * main api, re-use of queryBuilder
-   * migration tutorial examples on exec_ to ...
+   * migration tutorial examples on `exec_` to ...
    * restrictions and their TCA details
-   * getSql()
-   * things that don't work
    * result set iteration
    * configuration in typo3_conf_vars
