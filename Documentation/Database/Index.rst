@@ -10,6 +10,9 @@ Database queries in TYPO3 are done with an API based on
 The API is provided by the system extension `core` which is always loaded and
 thus always available.
 
+Extension authors can use this low-level `API` to manage query operations
+directly on the configured `DBMS`.
+
 Doctrine-dbal is feature rich. Drivers for various target systems enable
 TYPO3 to run on a long list of `ANSI SQL` compatible `DBMS`. If used properly,
 queries created with this API are translated to the specific database engine by
@@ -24,20 +27,28 @@ engines for different tables while this is transparent for extension developers.
 
 .. note::
 
-   `doctrine-dbal` has been introduced with TYPO3 CMS version 8 and substitutes the
-   old API based on `$GLOBALS['TYPO3_DB']`. Extension authors are encouraged to switch
-   away from TYPO3_DB to the new API. A dedicated chapter helps with typical migration
-   questions. With database abstraction being built in within `doctrine-dbal` the old and
-   optional extensions `dbal` and `adodb` are obsolete.
+    `doctrine-dbal` has been introduced with TYPO3 CMS version 8 and substitutes the
+    old API based on `$GLOBALS['TYPO3_DB']`. Extension authors are encouraged to switch
+    away from TYPO3_DB to the new API. A dedicated chapter helps with typical migration
+    questions. With database abstraction being built in within `doctrine-dbal` the old and
+    optional extensions `dbal` and `adodb` are obsolete.
 
 
 .. note::
 
-   Doctrine is a two-fold project with `dotrine-dbal` being the low-level database
-   abstraction and query building interface to specific database engines, while
-   `doctrine-orm` is a high-level object relational mapping on top of `doctrine-dbal`.
-   The TYPO3 CMS core only implemented the dbal part, `doctrine-orm` is neither required nor used
-   at the time of this writing.
+    Doctrine is a two-fold project with `dotrine-dbal` being the low-level database
+    abstraction and query building interface to specific database engines, while
+    `doctrine-orm` is a high-level object relational mapping on top of `doctrine-dbal`.
+    The TYPO3 CMS core only implemented the dbal part, `doctrine-orm` is neither required nor used
+    at the time of this writing.
+
+
+.. note::
+
+    This documentation is about low-level database calls. In many cases it is better
+    to use higher level API's like the :ref:`DataHandler <tce-database-basics>` or
+    `extbase repositories <https://docs.typo3.org/typo3cms/ExtbaseFluidBook/2-BasicPrinciples/2-Domain-Driven-Design.html>`__
+    and to let the framework handle persistance details internally.
 
 
 .. toctree::
