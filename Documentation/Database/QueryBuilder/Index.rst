@@ -5,8 +5,22 @@
 QueryBuilder
 ------------
 
-The `QueryBuilder` is a rather huge class that takes care of the main query dealing
-with a happy little list of small methods:
+The `QueryBuilder` is a rather huge class that takes care of the main query dealing.
+
+This documentation does not mention every single available method but sticks to those
+used in casual queries and normal code flow. There are a couple of not mentioned methods,
+most of them are either very seldom used or marked as internal. Extension authors typically
+don't have to deal with anything not mentioned here.
+
+.. important::
+
+   From security point of view, the documentation of
+   :ref:`->createNamedParameter() <database-query-builder-create-named-parameter>` and
+   :ref:`->quoteIdentifier() <database-query-builder-quote-identifier>` are an absolute **must read and follow** section.
+   Make very sure this is understood and use to this for each and every query to prevent SQL injections!
+
+
+The `QueryBuilder` comes with a happy little list of small methods:
 
    * Set type of query: `select()`, `insert()`, `update()` and `delete()` and friends
 
@@ -17,11 +31,6 @@ with a happy little list of small methods:
    * Handle `LIMIT`, `GROUP BY` and other SQL stuff
 
    * `execute()` a query and retrieve a `Statement` (a query result) object
-
-This documentation does not mention every single available method but sticks to those
-used in casual queries and normal code flow. There are a couple of not mentioned methods,
-most of them are either very seldom used or marked as internal. Extension authors typically
-don't have to deal with anything not mentioned here.
 
 Most methods of the `QueryBuilder` return `$this` and can be chained:
 
@@ -36,6 +45,8 @@ Most methods of the `QueryBuilder` return `$this` and can be chained:
    same table is affected, or use `$connectionPool->getQueryBuilderForTable()` for a query
    on to a different table. No worries, creating those object instances is rather quick.
 
+
+.. _database-query-builder-select:
 
 select() and andSelect()
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -187,6 +198,8 @@ Remarks:
 
 * `delete()` ignores `setMaxResults()`, `DELETE` with `LIMIT` does not work.
 
+
+.. _database-query-builder-update-set:
 
 update() and set()
 ^^^^^^^^^^^^^^^^^^
@@ -608,7 +621,7 @@ Remarks:
 
 * The method is typically called directly in front `->execute()` to output the final statement.
 
-* Casting a QueryBuilder object to string has the same effect as calling `->getSQL()`, the explicit call
+* Casting a QueryBuilder object to `(string)` has the same effect as calling `->getSQL()`, the explicit call
   using the method should be preferred to simplify a search operation for this kind of debugging statements, though.
 
 * The method is a simple way to see which restrictions the `RestrictionBuilder` added.
@@ -637,13 +650,180 @@ for more information on proper exception handling.
 expr()
 ^^^^^^
 
+Return an instance of the `ExpressionBuilder`. This object is used to create complex `WHERE` query parts and `JOIN`
+expressions:
+
+.. code-block:: php
+
+    // SELECT `uid` FROM `tt_content` WHERE (`uid` > 42)
+    $queryBuilder->select('uid')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->gt('uid', (int)42)
+        )
+        ->execute();
+
+Remarks:
+
+* This object is stateless and can be called and worked on as often as needed. It however is bound to the specific
+  connection a statement is created for and is thus only available through the `QueryBuilder` which is specific for
+  one connection, too.
+
+* Never re-use the `ExpressionBuilder`, especially not between multiple `QueryBuilder` objects, always get an
+  instance of the `ExpressionBuilder` by calling `->expr()`.
+
+
+.. _database-query-builder-create-named-parameter:
 
 createNamedParameter()
 ^^^^^^^^^^^^^^^^^^^^^^
 
+Create a placeholder for a prepared statement field value. **Always** use that when dealing with user input in
+expressions to make the statement SQL injection safe:
+
+.. code-block:: php
+
+    // SELECT * FROM `tt_content` WHERE (`bodytext` = 'kl\'aus')
+    $searchWord = "kl'aus"; // $searchWord = GeneralUtility::_GP('searchword');
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+    $queryBuilder->getRestrictions()->removeAll();
+    $queryBuilder->select('uid')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter($searchWord))
+        )
+        ->execute();
+
+The above example shows the importance of using `->createNamedParameter()`: The search word ``kl'aus`` is "tainted"
+and would break the query if not channeled through `->createNamedParameter()` which quotes the backtick and makes
+the value SQL injection safe.
+
+Not convinced? Suppose the code would look like this:
+
+.. code-block:: php
+
+    // NEVER EVER DO THIS!
+    $_POST['searchword'] = "'foo' UNION SELECT username FROM be_users";
+    $searchWord = GeneralUtility::_GP('searchword');
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+    $queryBuilder->getRestrictions()->removeAll();
+        this fails with syntax error to prevent copy and paste
+    $queryBuilder->select('uid')
+        ->from('tt_content')
+        ->where(
+            // MASSIVE SECURITY ISSUE DEMONSTRATED HERE, USE ->createNamedParameter() ON $searchWord!
+            $queryBuilder->expr()->eq('bodytext', $searchWord)
+        );
+
+Mind the missing `->createNamedParameter()` in the `->eq()` expression on given value! This code would happily execute
+the statement ``SELECT uid FROM `tt_content` WHERE `bodytext` = 'kl' UNION SELECT username FROM be_users;`` returning
+a list of backend user names!
+
+Rules:
+
+* **Always** use `->createNamedParameter()` around **any** input, no matter where it comes from.
+
+* The second argument of `->expr()` is **always** either a call to `->createNamedParameter()`, `->quoteIdentifier()`
+  or an `(int)` cast.
+
+* Keep the `->createNamedParameter()` as close as possible to the expression. Do not structure your code in a way
+  that it first quotes something and only later stuffs the already prepared names into the expression. Having
+  `->createNamedParameter()` directly within the created expression is much less error prone and easier to review.
+  This is a general rule: Sanitizing input must be as close as possible to the "sink" where a value is submitted
+  to a lower part of the framework. This paradigm should be followed for other quote operations like `htmlspecialchars()`
+  or `GeneralUtility::quoteJSvalue()`, too. Sanitizing should be directly obvious at the very place where it is
+  important:
+
+.. code-block:: php
+
+    // DO
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+    $queryBuilder->getRestrictions()->removeAll();
+    $queryBuilder->select('uid')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter($searchWord))
+        )
+
+    // DON'T DO, this is much harder to track:
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+    $myValue = $queryBuilder->createNamedParameter($searchWord);
+    // Imagine much more code here
+    $queryBuilder->getRestrictions()->removeAll();
+    $queryBuilder->select('uid')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $myValue)
+        )
+
+
+* It is allowed to not use `->createNamedParameter()` but an explicit `(int)` on values that must be an integer.
+  This is a bit shorter, and can become handy for fields like `uid` or `pid`. Again, this cast should be as
+  close as possible to the "sink". Also, a duplicate cast does not harm, better cast directly within the expression
+  again than having the risk to forget a cast. Don't be afraid of having multiple `(int)` casts on the value, the `PHP`
+  compiler would optimize that away anyway. It is more important to see the correct casting where the value is used.
+
+.. code-block:: php
+
+    // First sanitation already, may be left out, but does not harm
+    $myUid = (int)GeneralUtility::_GP('myuid');
+    // Imagine much more code here
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+    $queryBuilder->getRestrictions()->removeAll();
+    $queryBuilder->select('bodytext')
+        ->from('tt_content')
+        ->where(
+            // This is the important cast, never dismiss
+            $queryBuilder->expr()->eq('uid', (int)$myUid)
+        )
+
+
+.. _database-query-builder-quote-identifier:
 
 quoteIdentifier() and quoteIdentifiers()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`->quoteIdentifier()` must be used if not a value is handled, but a field name. The quoting is different in those
+cases and typically ends up with backticks ````` instead of ticks ``'``:
+
+.. code-block:: php
+
+    // SELECT `uid` FROM `tt_content` WHERE (`header` = `bodytext`)
+    // Return list of rows where header and bodytext values are identical
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+    $queryBuilder->select('uid')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('header', $queryBuilder->quoteIdentifier('bodytext'))
+        );
+
+
+The method quotes single field names or combinations of table names or table aliases with field names:
+
+.. code-block:: php
+
+    // Single field name: `bodytext`
+    ->quoteIdentifier('bodytext');
+    // Table name and field name: `tt_content`.`bodytext`
+    ->quoteIdentifier('tt_content.bodytext')
+    // Table alias and field name: `foo`.`bodytext`
+    ->from('tt_content', 'foo')->quoteIdentifier('foo.bodytext')
+
+Remarks:
+
+* Similar to :ref:`->createNamedParameter() <database-query-builder-create-named-parameter>` this method is
+  crucial to prevent SQL injections. The same rules apply here.
+
+* Method :ref:`->set() <database-query-builder-update-set>` for `UPDATE` statements expects their second argument
+  to be a field value by default and quotes them using `->createNamedParameter()` internally. In case a field should
+  be set to the value of another field, this quoting can be turned off and an explicit call to `->quoteIdentifier()`
+  must be added.
+
+* Internally, `->quoteIdentifier()` is automatically called on all method arguments that must be a field name. For
+  instance, `->quoteIdentifier()` is called on all arguments given to :ref:`->select() <database-query-builder-select>`.
+
+* `->quoteIdentifiers()` (mind the plural) can be used to quote multiple field names at once. While that method is
+  'public` and thus exposed as `API` method, this is mostly useful internally only.
 
 
 escapeLikeWildcards()
