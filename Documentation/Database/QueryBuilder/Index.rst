@@ -124,8 +124,8 @@ of a `SELECT` query looks like:
 .. note::
 
    `select()` and `count()` queries trigger TYPO3 CMS magic that adds further default where
-   clauses if the queried table is also registered via `$GLOBALS['TCA']`. See the `RestrictionBuilder`
-   section for details on that topic.
+   clauses if the queried table is also registered via `$GLOBALS['TCA']`. See the
+   :ref:`RestrictionBuilder <database-restriction-builder>` section for details on that topic.
 
 
 count()
@@ -181,7 +181,7 @@ Create a `DELETE FROM` query. The method requires the table name to drop data fr
 
 Remarks:
 
-* For simple cases, it is often easier to write and better to read to use the `delete()` method of the
+* For simple cases, it is often easier to write and read if using the `delete()` method of the
   `Connection` object.
 
 * In contrast to `select()`, `delete()` does *not* add `WHERE` restrictions like ``AND `deleted` = 0``
@@ -196,7 +196,7 @@ Remarks:
 
 * `delete()` ignores `join()`
 
-* `delete()` ignores `setMaxResults()`, `DELETE` with `LIMIT` does not work.
+* `delete()` ignores `setMaxResults()`: `DELETE` with `LIMIT` does not work.
 
 
 .. _database-query-builder-update-set:
@@ -398,7 +398,7 @@ join(), innerJoin(), rightJoin() and leftJoin()
 
 Joining multiple tables in a `->select()` or `->count()` query is done with one of these methods. Multiple joins
 are supported by calling the methods more than once. All methods require four arguments: The name of the left side
-table (or its alias), the name of the right side table, an alias for the right side query and the join
+table (or its alias), the name of the right side table, an alias for the right side table name and the join
 restriction as fourth argument:
 
 .. code-block:: php
@@ -438,7 +438,7 @@ Notes to the above example:
 
 * The join condition is ```overlay`.`sys_language_uid` = `sys_language`.`uid```. It would have been identical to
   swap the expression arguments of the fourth `->join()` argument
-  `eq('sys_language.uid', $queryBuilder->quoteIdentifier('overlay.sys_language_uid'))`.
+  `->eq('sys_language.uid', $queryBuilder->quoteIdentifier('overlay.sys_language_uid'))`.
 
 * The second argument of the join expression instructs the `ExpressionBuilder` to quote the value as a field
   identifier (a field name, here a table/field name combination). Using `createNamedParameter()` would lead to
@@ -626,7 +626,7 @@ Remarks:
 
 * The method is a simple way to see which restrictions the `RestrictionBuilder` added.
 
-* `doctrine-dbal` always creates prepared statements: Any value that is added via `->createNamedParameter()` creates
+* `doctrine-dbal` always creates prepared statements: Any value that added via `->createNamedParameter()` creates
   a placeholder that is later substituted if the real query is fired via `->execute()`. `->getSQL()` does not show
   those values, instead the placeholder names are displayed, usually with a string like `:dcValue1`. There is no
   simple solution to show the fully replaced query from within the framework.
@@ -665,7 +665,7 @@ expressions:
 
 Remarks:
 
-* This object is stateless and can be called and worked on as often as needed. It however is bound to the specific
+* This object is stateless and can be called and worked on as often as needed. It however bound to the specific
   connection a statement is created for and is thus only available through the `QueryBuilder` which is specific for
   one connection, too.
 
@@ -856,4 +856,4 @@ Remarks:
 getRestrictions(), setRestrictions(), resetRestrictions()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`API` methods to deal with the `RestrictionBuilder`.
+`API` methods to deal with the :ref:`RestrictionBuilder <database-restriction-builder>`.
