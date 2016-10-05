@@ -135,7 +135,7 @@ First argument is the table an update should be executed on, the second argument
 the third argument is an array of "equal" where statements that are combined with `AND`, the (optional) fourth argument
 specifies the type of values to be updated similar to `->insert()` and `bulkInsert()`.
 
-Note the third argument `WHERE `foo` = 'bar'` only supports equal `=`. For more complex stuff the `QueryBuilder`
+Note the third argument ``WHERE `foo` = 'bar'`` only supports equal `=`. For more complex stuff the `QueryBuilder`
 has to be used.
 
 The method returns the number of affected rows.
