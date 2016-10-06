@@ -36,7 +36,7 @@ engines for different tables while this is transparent for extension developers.
 
 .. note::
 
-    Doctrine is a two-fold project with `dotrine-dbal` being the low-level database
+    Doctrine is a two-fold project with `doctrine-dbal` being the low-level database
     abstraction and query building interface to specific database engines, while
     `doctrine-orm` is a high-level object relational mapping on top of `doctrine-dbal`.
     The TYPO3 CMS core only implemented the dbal part, `doctrine-orm` is neither required nor used
@@ -48,7 +48,7 @@ engines for different tables while this is transparent for extension developers.
     This documentation is about low-level database calls. In many cases it is better
     to use higher level API's like the :ref:`DataHandler <tce-database-basics>` or
     `extbase repositories <https://docs.typo3.org/typo3cms/ExtbaseFluidBook/2-BasicPrinciples/2-Domain-Driven-Design.html>`__
-    and to let the framework handle persistance details internally.
+    and to let the framework handle persistence details internally.
 
 
 .. toctree::
