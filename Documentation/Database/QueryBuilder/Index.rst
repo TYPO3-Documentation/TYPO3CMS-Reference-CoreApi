@@ -7,6 +7,14 @@ QueryBuilder
 
 The `QueryBuilder` is a rather huge class that takes care of the main query dealing.
 
+An instance can get hold of by calling the `ConnectionPool->getQueryBuilderForTable()` and handing
+over the table. Never instantiate and initialize the `QueryBuilder` directly via `makeInstance()`!
+
+.. code-block:: php
+
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('aTable');
+
+
 This documentation does not mention every single available method but sticks to those
 used in casual queries and normal code flow. There are a couple of not mentioned methods,
 most of them are either very seldom used or marked as internal. Extension authors typically
@@ -22,15 +30,15 @@ don't have to deal with anything not mentioned here.
 
 The `QueryBuilder` comes with a happy little list of small methods:
 
-   * Set type of query: `select()`, `insert()`, `update()` and `delete()` and friends
+   * Set type of query: `->select()`, `->count()`, `->update()`, `->insert()` and `delete()`
 
-   * Prepare `WHERE` expressions
+   * Prepare `WHERE` conditions
 
-   * Manipulate default `WHERE` restrictions added by TYPO3 for `select()`
+   * Manipulate default `WHERE` restrictions added by TYPO3 for `->select()`
 
-   * Handle `LIMIT`, `GROUP BY` and other SQL stuff
+   * Add `LIMIT`, `GROUP BY` and other SQL stuff
 
-   * `execute()` a query and retrieve a `Statement` (a query result) object
+   * `->execute()` a query and retrieve a `Statement` (a query result) object
 
 Most methods of the `QueryBuilder` return `$this` and can be chained:
 
@@ -61,8 +69,8 @@ Select all fields:
    $queryBuilder->select('*')
 
 
-`select()` and a number of other methods of the `QueryBuilder` are `variadic <https://en.wikipedia.org/wiki/Variadic_function>`__
-and can handle any number of arguments. For `select()`, every argument is interpreted as a single field name to select:
+`->select()` and a number of other methods of the `QueryBuilder` are `variadic <https://en.wikipedia.org/wiki/Variadic_function>`__
+and can handle any number of arguments. For `->select()`, every argument is interpreted as a single field name to select:
 
 .. code-block:: php
 
@@ -78,7 +86,7 @@ Argument unpacking can be used if the list of fields is available as array alrea
    $queryBuilder->select(...$fields);
 
 
-`select()` supports `AS` and quotes identifiers automatically. This can become especially handy in join() operations.
+`->select()` supports `AS` and quotes identifiers automatically. This can become especially handy in join() operations.
 
 .. code-block:: php
 
@@ -86,14 +94,14 @@ Argument unpacking can be used if the list of fields is available as array alrea
    $queryBuilder->select('tt_content.bodytext AS t1.text')
 
 
-`select()` sets the list of fields that should be selected and `addSelect()` can add further items
+`->select()` sets the list of fields that should be selected and `->addSelect()` can add further items
 to an existing list.
 
-Mind that `select()` *resets* any formerly registered list and does not append. Thus, it usually doesn't
-make much sense to call `select()` twice in a code flow, or to call it *after* an `addSelect()`. The methods
-`where()` and `andWhere()` share the same behavior.
+Mind that `->select()` *resets* any formerly registered list and does not append. Thus, it usually doesn't
+make much sense to call `select()` twice in a code flow, or to call it *after* an `->addSelect()`. The methods
+`->where()` and `->andWhere()` share the same behavior.
 
-A useful combination of `select()` and `addSelect()` can be:
+A useful combination of `->select()` and `->addSelect()` can be:
 
 .. code-block:: php
 
@@ -102,14 +110,15 @@ A useful combination of `select()` and `addSelect()` can be:
         $queryBuilder->addSelect(...$additionalFields);
     }
 
-Calling `->execute()` on a `select()` query returns a `Statement` object. To receive single rows a `->fetch()`
+Calling `->execute()` on a `->select()` query returns a `Statement` object. To receive single rows a `->fetch()`
 loop on that object is used, or `->fetchAll()` to return a single array with all rows. A typical code flow
 of a `SELECT` query looks like:
 
 .. code-block:: php
 
     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-    $statement = $queryBuilder->select('uid', 'header', 'bodytext')
+    $statement = $queryBuilder
+        ->select('uid', 'header', 'bodytext')
         ->from('tt_content')
         ->where(
             $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
@@ -123,7 +132,7 @@ of a `SELECT` query looks like:
 
 .. note::
 
-   `select()` and `count()` queries trigger TYPO3 CMS magic that adds further default where
+   `->select()` and `->count()` queries trigger TYPO3 CMS magic that adds further default where
    clauses if the queried table is also registered via `$GLOBALS['TCA']`. See the
    :ref:`RestrictionBuilder <database-restriction-builder>` section for details on that topic.
 
@@ -139,7 +148,8 @@ Create a `COUNT` query, a typical usage:
     //     AND ((`tt_content`.`deleted` = 0) AND (`tt_content`.`hidden` = 0)
     //     AND (`tt_content`.`starttime` <= 1475580240)
     //     AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1475580240)))
-    $count = $queryBuilder->count('uid')
+    $count = $queryBuilder
+        ->count('uid')
         ->from('tt_content')
         ->where(
             $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
@@ -150,17 +160,17 @@ Create a `COUNT` query, a typical usage:
 
 Remarks:
 
-* Similar to the `select()` query type, `count()` automatically triggers `RestrictionBuilder` magic
+* Similar to the `->select()` query type, `->count()` automatically triggers `RestrictionBuilder` magic
   that adds default `deleted`, `hidden`, `starttime` and `endtime` restrictions if that is
   defined in `TCA`.
 
-* Similar to `select()` query types, `execute()` with `count()` returns a `Statement` object. To
-  fetch the number of rows directly, use `fetchColumn(0)`.
+* Similar to `->select()` query types, `->execute()` with `->count()` returns a `Statement` object. To
+  fetch the number of rows directly, use `->fetchColumn(0)`.
 
-* First argument to `count()` is required, typically `count(*)` or `count('uid')` is used, the field
+* First argument to `->count()` is required, typically `->count(*)` or `->count('uid')` is used, the field
   name is automatically quoted.
 
-* There is no support for `DISTINCT`, a `groupBy()` has to be used instead.
+* There is no support for `DISTINCT`, a `->groupBy()` has to be used instead.
 
 
 delete()
@@ -181,22 +191,22 @@ Create a `DELETE FROM` query. The method requires the table name to drop data fr
 
 Remarks:
 
-* For simple cases, it is often easier to write and read if using the `delete()` method of the
+* For simple cases, it is often easier to write and read if using the `->delete()` method of the
   `Connection` object.
 
-* In contrast to `select()`, `delete()` does *not* add `WHERE` restrictions like ``AND `deleted` = 0``
+* In contrast to `->select()`, `->delete()` does *not* add `WHERE` restrictions like ``AND `deleted` = 0``
   automatically.
 
-* `delete()` does *not* magically transform a ``DELETE FROM `tt_content` WHERE `uid` = 4711`` to something like
+* `->delete()` does *not* magically transform a ``DELETE FROM `tt_content` WHERE `uid` = 4711`` to something like
   ``UPDATE `tt_content` SET `deleted` = 1 WHERE `uid` = 4711`` internally. A soft-delete must be handled on application
   level code with a dedicated lookup in `$GLOBALS['TCA']['theTable']['ctrl']['deleted']` to check if
-  a specific table can handle the soft-delete, together with an `update()` instead.
+  a specific table can handle the soft-delete, together with an `->update()` instead.
 
 * Multi-table delete is *not* supported: ``DELETE FROM `table1`, `table2``` can not be created.
 
-* `delete()` ignores `join()`
+* `->delete()` ignores `->join()`
 
-* `delete()` ignores `setMaxResults()`: `DELETE` with `LIMIT` does not work.
+* `->delete()` ignores `setMaxResults()`: `DELETE` with `LIMIT` does not work.
 
 
 .. _database-query-builder-update-set:
@@ -218,8 +228,8 @@ Create an `UPDATE` query. Typical usage:
         ->execute();
 
 
-`update()` requires the table to update as first argument and a table alias as optional second argument.
-The table alias can then be used in `set()` and `where()` expressions:
+`->update()` requires the table to update as first argument and a table alias as optional second argument.
+The table alias can then be used in `->set()` and `->where()` expressions:
 
 .. code-block:: php
 
@@ -233,17 +243,18 @@ The table alias can then be used in `set()` and `where()` expressions:
         ->execute();
 
 
-`set()` requires a field name as first argument and automatically quotes it internally. The second mandatory
+`->set()` requires a field name as first argument and automatically quotes it internally. The second mandatory
 argument is the value a field should be set to, the value is automatically transformed to a named parameter
-of a prepared statement. This way, `set()` key/value pairs are automatically SQL injection save by default.
+of a prepared statement. This way, `->set()` key/value pairs are automatically SQL injection save by default.
 
 If a field should be set to the value of another field from the row, the quoting needs to be turned off and
-`quoteIdentifier()` has to be used:
+`->quoteIdentifier()` has to be used:
 
 .. code-block:: php
 
     // UPDATE `tt_content` SET `bodytext` = `header` WHERE `bodytext` = 'klaus'
-    $queryBuilder->update('tt_content')
+    $queryBuilder
+        ->update('tt_content')
         ->where(
             $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
         )
@@ -253,16 +264,16 @@ If a field should be set to the value of another field from the row, the quoting
 
 Remarks:
 
-* For simple cases, it is often easier to use the `update()` method of the
+* For simple cases, it is often easier to use the `->update()` method of the
   `Connection` object.
 
-* `set()` can be called multiple times if multiple fields should be updated.
+* `->set()` can be called multiple times if multiple fields should be updated.
 
-* `set()` requires a field name as first argument and automatically quotes it internally.
+* `->set()` requires a field name as first argument and automatically quotes it internally.
 
-* `set()` requires the value a field should be set to as second parameter.
+* `->set()` requires the value a field should be set to as second parameter.
 
-* `update()` ignores `join()` and `setMaxResults()`.
+* `->update()` ignores `->join()` and `->setMaxResults()`.
 
 * The API does not magically add `delete = 0` or other restrictions magically.
 
@@ -285,26 +296,26 @@ Create an `INSERT` query. Typical usage:
 
 Remarks:
 
-* It is often easier to use `insert()` or `bulkInsert()` of the `Connection` object.
+* It is often easier to use `->insert()` or `->bulkInsert()` of the `Connection` object.
 
 * `->values()` expects an array of key/value pairs. Both keys (field names / identifiers) and values are
   automatically quoted. In rare cases, quoting of values can be turned off by setting the second argument
-  to `false`. In those cases the quoting has to be done manually, typically by using `createNamedParameter()`
+  to `false`. In those cases the quoting has to be done manually, typically by using `->createNamedParameter()`
   on the values, use with care ...
 
-* `execute()` after `insert()` returns the number of inserted rows, which is typically `1`.
+* `->execute()` after `->insert()` returns the number of inserted rows, which is typically `1`.
 
-* `QueryBuilder` does not contain a method to insert multiple rows at once, use `bulkInsert()` of `Connection`
+* `QueryBuilder` does not contain a method to insert multiple rows at once, use `->bulkInsert()` of `Connection`
   object instead to achieve that.
 
 
 from()
 ^^^^^^
 
-`from()` is a must have call for `select()` and `count()` query types.
-`from()` needs a table name and an optional alias name. The method is typically called once per query build
-and the table name is typically the same as what was given to `getQueryBuilderForTable()`. If the query joins
-multiple tables, the argument should be the name of the first table within the `join()` chain.
+`->from()` is a must have call for `->select()` and `->count()` query types.
+`->from()` needs a table name and an optional alias name. The method is typically called once per query build
+and the table name is typically the same as what was given to `->getQueryBuilderForTable()`. If the query joins
+multiple tables, the argument should be the name of the first table within the `->join()` chain.
 
 .. code-block:: php
 
@@ -315,10 +326,10 @@ multiple tables, the argument should be the name of the first table within the `
    $queryBuilder->from('myTable', 'anAlias');
 
 
-`from()` can be called multiple times and will create the cartesian product of
-tables if not restricted by an according `where()` or `andWhere()` expression. In general,
-it is a good idea to use `from()` only once per query and model multi-table selection
-with an explicit `join()` instead.
+`->from()` can be called multiple times and will create the cartesian product of
+tables if not restricted by an according `->where()` or `->andWhere()` expression. In general,
+it is a good idea to use `->from()` only once per query and model multi-table selection
+with an explicit `->join()` instead.
 
 
 where(), andWhere() and orWhere()
@@ -338,7 +349,8 @@ Each argument is typically an `ExpressionBuilder` object that will be cast to a 
     //    )
     //    AND (`pid` = 42)
     //    AND ... RestrictionBuilder TCA restrictions ...
-    $statement = $queryBuilder->select('uid', 'header', 'bodytext')
+    $statement = $queryBuilder
+        ->select('uid', 'header', 'bodytext')
         ->from('tt_content')
         ->where(
             $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
@@ -349,7 +361,7 @@ Each argument is typically an `ExpressionBuilder` object that will be cast to a 
             $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('hans'))
         )
         ->andWhere(
-            $queryBuilder->expr()->eq('pid', (int)42)
+            $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
         )
         ->execute();
 
@@ -418,7 +430,8 @@ restriction as fourth argument:
     //          AND ((`overlay`.`endtime` = 0) OR (`overlay`.`endtime` > 1475591280))
     //     )
     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
-    $statement = $queryBuilder->select('sys_language.uid', 'sys_language.title')
+    $statement = $queryBuilder
+        ->select('sys_language.uid', 'sys_language.title')
         ->from('sys_language')
         ->join(
             'sys_language',
@@ -426,7 +439,9 @@ restriction as fourth argument:
             'overlay',
             $queryBuilder->expr()->eq('overlay.sys_language_uid', $queryBuilder->quoteIdentifier('sys_language.uid'))
         )
-        ->where($queryBuilder->expr()->eq('overlay.pid', (int)42))
+        ->where(
+            $queryBuilder->expr()->eq('overlay.pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
+        )
         ->execute();
 
 
@@ -448,7 +463,7 @@ Notes to the above example:
   name than the table name itself here. Using `pages_language_overlay` as third argument and not specifying
   a different name would do. Aliases are mostly useful if a join to the same table is needed:
   ``SELECT `something` FROM `tt_content` JOIN `tt_content` `content2` ON ...``. Aliases additionally become handy
-  to increase readability of `where()` expressions.
+  to increase readability of `->where()` expressions.
 
 * The `RestrictionBuilder` added additional `WHERE` conditions for both involved tables! Table `sys_language` obviously
   only specifies a `'disabled' => 'hidden'` as `enableColumns` in its `TCA` `ctrl` section, while table
@@ -472,11 +487,12 @@ a language overlay scenario. The second join uses the alias name of the first jo
     // GROUP BY `tt_content_orig`.`sys_language_uid`
     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
     $constraints = [
-        $queryBuilder->expr()->eq('tt_content.colPos', (int)1),
-        $queryBuilder->expr()->eq('tt_content.pid', (int)42),
-        $queryBuilder->expr()->eq('tt_content.sys_language_uid', (int)2),
+        $queryBuilder->expr()->eq('tt_content.colPos', $queryBuilder->createNamedParameter(1, \PDO::PARAM_INT)),
+        $queryBuilder->expr()->eq('tt_content.pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)),
+        $queryBuilder->expr()->eq('tt_content.sys_language_uid', $queryBuilder->createNamedParameter(2, \PDO::PARAM_INT)),
     ];
-    $queryBuilder->select('tt_content_orig.sys_language_uid')
+    $queryBuilder
+        ->select('tt_content_orig.sys_language_uid')
         ->from('tt_content')
         ->join(
             'tt_content',
@@ -656,10 +672,11 @@ expressions:
 .. code-block:: php
 
     // SELECT `uid` FROM `tt_content` WHERE (`uid` > 42)
-    $queryBuilder->select('uid')
+    $queryBuilder
+        ->select('uid')
         ->from('tt_content')
         ->where(
-            $queryBuilder->expr()->gt('uid', (int)42)
+            $queryBuilder->expr()->gt('uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
         )
         ->execute();
 
@@ -687,7 +704,8 @@ expressions to make the statement SQL injection safe:
     $searchWord = "kl'aus"; // $searchWord = GeneralUtility::_GP('searchword');
     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
     $queryBuilder->getRestrictions()->removeAll();
-    $queryBuilder->select('uid')
+    $queryBuilder
+        ->select('uid')
         ->from('tt_content')
         ->where(
             $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter($searchWord))
@@ -708,7 +726,8 @@ Not convinced? Suppose the code would look like this:
     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
     $queryBuilder->getRestrictions()->removeAll();
         this fails with syntax error to prevent copy and paste
-    $queryBuilder->select('uid')
+    $queryBuilder
+        ->select('uid')
         ->from('tt_content')
         ->where(
             // MASSIVE SECURITY ISSUE DEMONSTRATED HERE, USE ->createNamedParameter() ON $searchWord!
@@ -723,8 +742,12 @@ Rules:
 
 * **Always** use `->createNamedParameter()` around **any** input, no matter where it comes from.
 
-* The second argument of `->expr()` is **always** either a call to `->createNamedParameter()`, `->quoteIdentifier()`
-  or an `(int)` cast.
+* The second argument of `->expr()` is **always** either a call to `->createNamedParameter()`, `->quoteIdentifier()`.
+
+* The second argument of `->createNamedParameter()` specifies the type of input. For string, this can be omitted,
+  but it is good practice to add `\PDO::PARAM_INT` for integers or similar for other field types. This is currently
+  no strict rule, but following this will reduces headaches in the future, especially for `DBMS` that are not as
+  relaxed as `mysql` when it comes to field types.
 
 * Keep the `->createNamedParameter()` as close as possible to the expression. Do not structure your code in a way
   that it first quotes something and only later stuffs the already prepared names into the expression. Having
@@ -739,7 +762,8 @@ Rules:
     // DO
     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
     $queryBuilder->getRestrictions()->removeAll();
-    $queryBuilder->select('uid')
+    $queryBuilder
+        ->select('uid')
         ->from('tt_content')
         ->where(
             $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter($searchWord))
@@ -750,31 +774,11 @@ Rules:
     $myValue = $queryBuilder->createNamedParameter($searchWord);
     // Imagine much more code here
     $queryBuilder->getRestrictions()->removeAll();
-    $queryBuilder->select('uid')
+    $queryBuilder
+        ->select('uid')
         ->from('tt_content')
         ->where(
             $queryBuilder->expr()->eq('bodytext', $myValue)
-        )
-
-
-* It is allowed to not use `->createNamedParameter()` but an explicit `(int)` on values that must be an integer.
-  This is a bit shorter, and can become handy for fields like `uid` or `pid`. Again, this cast should be as
-  close as possible to the "sink". Also, a duplicate cast does not harm, better cast directly within the expression
-  again than having the risk to forget a cast. Don't be afraid of having multiple `(int)` casts on the value, the `PHP`
-  compiler would optimize that away anyway. It is more important to see the correct casting where the value is used.
-
-.. code-block:: php
-
-    // First sanitation already, may be left out, but does not harm
-    $myUid = (int)GeneralUtility::_GP('myuid');
-    // Imagine much more code here
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-    $queryBuilder->getRestrictions()->removeAll();
-    $queryBuilder->select('bodytext')
-        ->from('tt_content')
-        ->where(
-            // This is the important cast, never dismiss
-            $queryBuilder->expr()->eq('uid', (int)$myUid)
         )
 
 
@@ -791,7 +795,8 @@ cases and typically ends up with backticks ````` instead of ticks ``'``:
     // SELECT `uid` FROM `tt_content` WHERE (`header` = `bodytext`)
     // Return list of rows where header and bodytext values are identical
     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-    $queryBuilder->select('uid')
+    $queryBuilder
+        ->select('uid')
         ->from('tt_content')
         ->where(
             $queryBuilder->expr()->eq('header', $queryBuilder->quoteIdentifier('bodytext'))
@@ -836,7 +841,8 @@ expressions:
 
     // SELECT `uid` FROM `tt_content` WHERE (`bodytext` LIKE '%kl\\%aus%')
     $searchWord = 'kl%aus';
-    $queryBuilder->select('uid')
+    $queryBuilder
+        ->select('uid')
         ->from('tt_content')
         ->where(
             $queryBuilder->expr()->like(
