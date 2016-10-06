@@ -23,10 +23,10 @@ standard format for translations.
 
   Note that having several :code:`<file>` elements in the same XLIFF document is not
   supported by the TYPO3 CMS Core.
-  
+
   Keep in mind that the default language is always considered to be english,
   even when you have changed your typo3 backend to another language, so
-  source-language must always be source-language="en".
+  source-language must always be `source-language="en"`.
 
   Keep in mind that the default language is always considered to be english,
   even when you have changed your typo3 backend to another language, so
