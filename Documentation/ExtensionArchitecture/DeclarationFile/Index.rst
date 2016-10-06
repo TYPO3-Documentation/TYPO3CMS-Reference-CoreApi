@@ -113,7 +113,7 @@ values in the :code:`$EM_CONF` array if needed.
            Extensions defined here will be loaded *before* the current extension.
 
          conflicts
-         	List of extensions which will not work with this extension.
+            List of extensions which will not work with this extension.
 
          suggests
            List of suggestions of extensions that work together or

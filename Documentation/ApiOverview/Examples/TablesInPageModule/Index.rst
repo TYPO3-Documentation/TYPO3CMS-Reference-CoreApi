@@ -12,21 +12,21 @@ Content Elements. Any table can be displayed by adding to the array
 
 The TYPO3 CMS Core itself defines such a listing for the "fe_users" table::
 
-	'EXTCONF' => array(
-		'cms' => array(
-			'db_layout' => array(
-				'addTables' => array(
-					'fe_users' => array(
-						0 => array(
-							'MENU' => '',
-							'fList' => 'username,usergroup,name,email,telephone,address,zip,city',
-							'icon' => TRUE
-						)
-					)
-				)
-			)
-		)
-	),
+   'EXTCONF' => array(
+      'cms' => array(
+         'db_layout' => array(
+            'addTables' => array(
+               'fe_users' => array(
+                  0 => array(
+                     'MENU' => '',
+                     'fList' => 'username,usergroup,name,email,telephone,address,zip,city',
+                     'icon' => TRUE
+                  )
+               )
+            )
+         )
+      )
+   ),
 
 as found in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 

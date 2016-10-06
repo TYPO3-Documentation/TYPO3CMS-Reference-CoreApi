@@ -53,8 +53,8 @@ and pass the severity level:
 .. code-block:: php
 
    $logger->log(
-   	\TYPO3\CMS\Core\Log\LogLevel::CRITICAL,
-   	'This is an utter failure!'
+      \TYPO3\CMS\Core\Log\LogLevel::CRITICAL,
+      'This is an utter failure!'
    );
 
 

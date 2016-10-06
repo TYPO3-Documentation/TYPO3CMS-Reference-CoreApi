@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+﻿.. include:: ../../../Includes.txt
 
 
 .. _viewport:
@@ -61,20 +61,20 @@ be declared in the options list (notice the highlighted line below):
    :emphasize-lines: 14,14
 
    Tx_Extbase_Utility_Extension::registerModule(
-   	$_EXTKEY,
-   	'tools', // Make module a submodule of 'Admin Tools'
-   	'examples', // Submodule key
-   	'', // Position
-   	array(
-   			// An array holding the controller-action-combinations that are accessible
-   		'Default' => 'flash'
-   	),
-   	array(
-   		'access' => 'user,group',
-   		'icon'   => 'EXT:' . $_EXTKEY . '/Resources/Public/Images/moduleIcon.png',
-   		'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xml',
-   		'navigationComponentId' => 'typo3-navigation'
-   	)
+      $_EXTKEY,
+      'tools', // Make module a submodule of 'Admin Tools'
+      'examples', // Submodule key
+      '', // Position
+      array(
+            // An array holding the controller-action-combinations that are accessible
+         'Default' => 'flash'
+      ),
+      array(
+         'access' => 'user,group',
+         'icon'   => 'EXT:' . $_EXTKEY . '/Resources/Public/Images/moduleIcon.png',
+         'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xml',
+         'navigationComponentId' => 'typo3-navigation'
+      )
    );
 
 
@@ -105,12 +105,12 @@ if requested. Example (taken from :file:`EXT:examples/components/navigation/java
    Ext.ns('TYPO3.Navigation');
 
    TYPO3.Navigation.Navigator = Ext.extend(Ext.Panel, {
-   	id: 'typo3-navigation',
-   	html: 'Hello World!'
+      id: 'typo3-navigation',
+      html: 'Hello World!'
    });
 
    TYPO3.ModuleMenu.App.registerNavigationComponent('typo3-navigation', function() {
-   	return new TYPO3.Navigation.Navigator();
+      return new TYPO3.Navigation.Navigator();
    });
 
 
@@ -171,16 +171,16 @@ First a class must be declared to use the "render-preProcess" hook of the
 Then here is the class itself (as usual taken from the "examples" extension)::
 
    public function renderPreProcess($parameters, $pageRenderer) {
-   	$pageRenderer->addExtOnReadyCode('
-   		Ext.apply(TYPO3.Viewport.configuration.items[1], {
-   			split: true,
-   			collapsible: true,
-   			collapseMode: "mini",
-   			hideCollapseTool: true,
-   			animCollapse: false
-   		});',
-   		true
-   	);
+      $pageRenderer->addExtOnReadyCode('
+         Ext.apply(TYPO3.Viewport.configuration.items[1], {
+            split: true,
+            collapsible: true,
+            collapseMode: "mini",
+            hideCollapseTool: true,
+            animCollapse: false
+         });',
+         true
+      );
    }
 
 

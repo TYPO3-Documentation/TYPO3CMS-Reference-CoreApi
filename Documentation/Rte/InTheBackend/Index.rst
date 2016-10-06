@@ -34,13 +34,13 @@ to the configuration of the column with the string :code:`richtext[]` as value:
 
    'poem' => array(
        'exclude' => 0,
-	   'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.poem',
-	   'config' => array(
-		   'type' => 'text',
-		   'cols' => 40,
-		   'rows' => 6
-	   ),
-	   'defaultExtras' => 'richtext[]'
+      'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.poem',
+      'config' => array(
+         'type' => 'text',
+         'cols' => 40,
+         'rows' => 6
+      ),
+      'defaultExtras' => 'richtext[]'
    ),
 
 This works for FlexForms too.

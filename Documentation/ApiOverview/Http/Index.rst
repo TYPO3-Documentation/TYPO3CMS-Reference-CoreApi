@@ -25,12 +25,12 @@ The basic usage is as simple as it gets:
 
 .. code-block:: php
 
-	$request = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-		'TYPO3\\CMS\\Core\\Http\\HttpRequest',
-		'http://typo3.org/'
-	);
-	$result = $request->send();
-	$content = $result->getBody();
+   $request = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+      'TYPO3\\CMS\\Core\\Http\\HttpRequest',
+      'http://typo3.org/'
+   );
+   $result = $request->send();
+   $content = $result->getBody();
 
 
 The above example will read the content of the "typo3.org" home page.
@@ -45,45 +45,45 @@ This example is taken from the "linkvalidator" system extension.
 
 .. code-block:: php
 
-	$config = array(
-		'follow_redirects' => TRUE,
-		'strict_redirects' => TRUE
-	);
-	/** @var \TYPO3\CMS\Core\Http\HttpRequest|\HTTP_Request2 $request */
-	$request = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-		'TYPO3\\CMS\\Core\\Http\\HttpRequest',
-		$url,
-		'HEAD',
-		$config
-	);
-	// Observe cookies
-	$request->setCookieJar(TRUE);
-	try {
-		/** @var \HTTP_Request2_Response $response */
-		$response = $request->send();
-		// HEAD was not allowed, now trying GET
-		if (isset($response) && $response->getStatus() === 405) {
-			$request->setMethod('GET');
-			$request->setHeader('Range', 'bytes = 0 - 4048');
-			/** @var \HTTP_Request2_Response $response */
-			$response = $request->send();
-		}
-	} catch (\Exception $e) {
-		$isValidUrl = FALSE;
-		// A redirect loop occurred
-		if ($e->getCode() === 40) {
-			// Parse the exception for more information
-			$trace = $e->getTrace();
-			$traceUrl = $trace[0]['args'][0]->getUrl()->getUrl();
-			$traceCode = $trace[0]['args'][1]->getStatus();
-			$errorParams['errorType'] = 'loop';
-			$errorParams['location'] = $traceUrl;
-			$errorParams['errorCode'] = $traceCode;
-		} else {
-			$errorParams['errorType'] = 'exception';
-		}
-		$errorParams['message'] = $e->getMessage();
-	}
+   $config = array(
+      'follow_redirects' => TRUE,
+      'strict_redirects' => TRUE
+   );
+   /** @var \TYPO3\CMS\Core\Http\HttpRequest|\HTTP_Request2 $request */
+   $request = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+      'TYPO3\\CMS\\Core\\Http\\HttpRequest',
+      $url,
+      'HEAD',
+      $config
+   );
+   // Observe cookies
+   $request->setCookieJar(TRUE);
+   try {
+      /** @var \HTTP_Request2_Response $response */
+      $response = $request->send();
+      // HEAD was not allowed, now trying GET
+      if (isset($response) && $response->getStatus() === 405) {
+         $request->setMethod('GET');
+         $request->setHeader('Range', 'bytes = 0 - 4048');
+         /** @var \HTTP_Request2_Response $response */
+         $response = $request->send();
+      }
+   } catch (\Exception $e) {
+      $isValidUrl = FALSE;
+      // A redirect loop occurred
+      if ($e->getCode() === 40) {
+         // Parse the exception for more information
+         $trace = $e->getTrace();
+         $traceUrl = $trace[0]['args'][0]->getUrl()->getUrl();
+         $traceCode = $trace[0]['args'][1]->getStatus();
+         $errorParams['errorType'] = 'loop';
+         $errorParams['location'] = $traceUrl;
+         $errorParams['errorCode'] = $traceCode;
+      } else {
+         $errorParams['errorType'] = 'exception';
+      }
+      $errorParams['message'] = $e->getMessage();
+   }
 
 
 This is the code that checks external links. To keep the traffic low, it first checks

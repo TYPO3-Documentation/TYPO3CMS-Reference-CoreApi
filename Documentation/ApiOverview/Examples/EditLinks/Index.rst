@@ -22,17 +22,17 @@ Furthermore when using Fluid templates, you cannot call PHP code directly
 but have to wrap it in a view helper. The "examples" extensions demonstrates
 with the "edit link" view helper (:code:`\Documentation\Examples\ViewHelpers\Be\EditLinkViewHelper`)::
 
-	public function render($parameters, $returnUrl = '') {
-		$uri = 'alt_doc.php?' . $parameters;
-		if (!empty($returnUrl)) {
-			$uri .= '&returnUrl=' . rawurlencode($returnUrl);
-		}
+   public function render($parameters, $returnUrl = '') {
+      $uri = 'alt_doc.php?' . $parameters;
+      if (!empty($returnUrl)) {
+         $uri .= '&returnUrl=' . rawurlencode($returnUrl);
+      }
 
-		$this->tag->addAttribute('href', $uri);
-		$this->tag->setContent($this->renderChildren());
-		$this->tag->forceClosingTag(TRUE);
-		return $this->tag->render();
-	}
+      $this->tag->addAttribute('href', $uri);
+      $this->tag->setContent($this->renderChildren());
+      $this->tag->forceClosingTag(TRUE);
+      return $this->tag->render();
+   }
 
 
 This can then be used in the Fluid template. Below are a few examples,
@@ -41,24 +41,24 @@ various results:
 
 .. code-block:: xml
 
-	<p>
-		<Ex:be.editLink parameters="edit[pages][1]=edit" returnUrl="mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples[action]=links" title="{f:translate(key: 'function_links_edit_page_1')}">
-			<Ex:be.icon icon="actions-document-open" title="{f:translate(key: 'function_links_edit_page_1')}" />
-			<f:translate key="function_links_edit_page_1" />
-		</Ex:be.editLink>
-	</p>
-	<p>
-		<Ex:be.editLink parameters="edit[pages][1]=edit&columnsOnly=title,hidden" returnUrl="mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples[action]=links" title="{f:translate(key: 'function_links_edit_page_1_restricted')}">
-			<Ex:be.icon icon="actions-document-open" title="{f:translate(key: 'function_links_edit_page_1_restricted')}" />
-			<f:translate key="function_links_edit_page_1_restricted" />
-		</Ex:be.editLink>
-	</p>
-	<p>
-		<Ex:be.editLink parameters="&edit[tx_examples_haiku][1]=new&defVals[tx_examples_haiku][title]=New%20haiku" returnUrl="mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples[action]=links" title="{f:translate(key: 'function_links_new_haiku')}">
-			<Ex:be.icon icon="actions-document-new" title="{f:translate(key: 'function_links_new_haiku')}" />
-			<f:translate key="function_links_new_haiku" />
-		</Ex:be.editLink>
-	</p>
+   <p>
+      <Ex:be.editLink parameters="edit[pages][1]=edit" returnUrl="mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples[action]=links" title="{f:translate(key: 'function_links_edit_page_1')}">
+         <Ex:be.icon icon="actions-document-open" title="{f:translate(key: 'function_links_edit_page_1')}" />
+         <f:translate key="function_links_edit_page_1" />
+      </Ex:be.editLink>
+   </p>
+   <p>
+      <Ex:be.editLink parameters="edit[pages][1]=edit&columnsOnly=title,hidden" returnUrl="mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples[action]=links" title="{f:translate(key: 'function_links_edit_page_1_restricted')}">
+         <Ex:be.icon icon="actions-document-open" title="{f:translate(key: 'function_links_edit_page_1_restricted')}" />
+         <f:translate key="function_links_edit_page_1_restricted" />
+      </Ex:be.editLink>
+   </p>
+   <p>
+      <Ex:be.editLink parameters="&edit[tx_examples_haiku][1]=new&defVals[tx_examples_haiku][title]=New%20haiku" returnUrl="mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples[action]=links" title="{f:translate(key: 'function_links_new_haiku')}">
+         <Ex:be.icon icon="actions-document-new" title="{f:translate(key: 'function_links_new_haiku')}" />
+         <f:translate key="function_links_new_haiku" />
+      </Ex:be.editLink>
+   </p>
 
 
 The links appear as one can expect:

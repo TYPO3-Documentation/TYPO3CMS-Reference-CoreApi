@@ -40,17 +40,17 @@ Here is a sample XLIFF file:
 
    <?xml version="1.0" encoding="UTF-8"?>
    <xliff version="1.0">
-   	<file source-language="en" datatype="plaintext" original="messages" date="2011-10-18T18:20:51Z" product-name="my-ext">
-   		<header/>
-   		<body>
-   			<trans-unit id="headerComment" xml:space="preserve">
-   				<source>The default Header Comment.</source>
-   			</trans-unit>
-   			<trans-unit id="generator" xml:space="preserve">
-   				<source>The "Generator" Meta Tag.</source>
-   			</trans-unit>
-   		</body>
-   	</file>
+      <file source-language="en" datatype="plaintext" original="messages" date="2011-10-18T18:20:51Z" product-name="my-ext">
+         <header/>
+         <body>
+            <trans-unit id="headerComment" xml:space="preserve">
+               <source>The default Header Comment.</source>
+            </trans-unit>
+            <trans-unit id="generator" xml:space="preserve">
+               <source>The "Generator" Meta Tag.</source>
+            </trans-unit>
+         </body>
+      </file>
    </xliff>
 
 The translated file is very similar. If the original file was named
@@ -67,19 +67,19 @@ Here is what the translation of our sample file could look like:
 .. code-block:: xml
 
    <xliff version="1.0">
-   	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2011-10-18T18:20:51Z" product-name="my-ext">
-   		<header/>
-   		<body>
-   			<trans-unit id="headerComment" xml:space="preserve">
-   				<source>The default Header Comment.</source>
-   				<target>Der Standard-Header-Kommentar.</target>
-   			</trans-unit>
-   			<trans-unit id="generator" xml:space="preserve">
-   				<source>The "Generator" Meta Tag.</source>
-   				<target>Der "Generator"-Meta-Tag.</target>
-   			</trans-unit>
-   		</body>
-   	</file>
+      <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2011-10-18T18:20:51Z" product-name="my-ext">
+         <header/>
+         <body>
+            <trans-unit id="headerComment" xml:space="preserve">
+               <source>The default Header Comment.</source>
+               <target>Der Standard-Header-Kommentar.</target>
+            </trans-unit>
+            <trans-unit id="generator" xml:space="preserve">
+               <source>The "Generator" Meta Tag.</source>
+               <target>Der "Generator"-Meta-Tag.</target>
+            </trans-unit>
+         </body>
+      </file>
    </xliff>
 
 Contrary to "locallang XML" files, only one language can be stored per file.

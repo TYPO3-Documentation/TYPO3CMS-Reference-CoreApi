@@ -26,46 +26,46 @@ The tree object itself is prepared this way (taken from
 .. code-block:: php
    :linenos:
 
-	public function treeAction() {
-		// Get page record for tree starting point
-		$startingPoint = 1;
-		$pageRecord = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord(
-			'pages',
-			$startingPoint
-		);
+   public function treeAction() {
+      // Get page record for tree starting point
+      $startingPoint = 1;
+      $pageRecord = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord(
+         'pages',
+         $startingPoint
+      );
 
-		// Create and initialize the tree object
-		/** @var $tree \TYPO3\CMS\Backend\Tree\View\PageTreeView */
-		$tree = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Tree\\View\\PageTreeView');
-		$tree->init('AND ' . $GLOBALS['BE_USER']->getPagePermsClause(1));
+      // Create and initialize the tree object
+      /** @var $tree \TYPO3\CMS\Backend\Tree\View\PageTreeView */
+      $tree = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Tree\\View\\PageTreeView');
+      $tree->init('AND ' . $GLOBALS['BE_USER']->getPagePermsClause(1));
 
-		// Creating the icon for the current page and add it to the tree
-		$html = \TYPO3\CMS\Backend\Utility\IconUtility::getSpriteIconForRecord(
-			'pages',
-			$pageRecord,
-			array(
-				'title' => $pageRecord['title']
-			)
-		);
-		$tree->tree[] = array(
-		    'row' => $pageRecord,
-		    'HTML' => $html
-		);
+      // Creating the icon for the current page and add it to the tree
+      $html = \TYPO3\CMS\Backend\Utility\IconUtility::getSpriteIconForRecord(
+         'pages',
+         $pageRecord,
+         array(
+            'title' => $pageRecord['title']
+         )
+      );
+      $tree->tree[] = array(
+          'row' => $pageRecord,
+          'HTML' => $html
+      );
 
-		// Create the page tree, from the starting point, 2 levels deep
-		$depth = 2;
-		$tree->getTree(
-			$startingPoint,
-			$depth,
-			''
-		);
+      // Create the page tree, from the starting point, 2 levels deep
+      $depth = 2;
+      $tree->getTree(
+         $startingPoint,
+         $depth,
+         ''
+      );
 
-		// Pass the tree to the view
-		$this->view->assign(
-			'tree',
-			$tree->tree
-		);
-	}
+      // Pass the tree to the view
+      $this->view->assign(
+         'tree',
+         $tree->tree
+      );
+   }
 
 - At the top of the code we define the starting page and get the corresponding
   page record using :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::getRecord()`.
@@ -94,12 +94,12 @@ The result is rendered with a very simple Fluid template:
 
 .. code-block:: xml
 
-	<f:for each="{tree}" as="page">
-		<tr class="db_list_normal">
-			<td>{page.depthData -> f:format.raw()}<f:format.raw>{page.HTML}</f:format.raw> {page.row.title}</td>
-			<td>{page.row.uid}</td>
-		</tr>
-	</f:for>
+   <f:for each="{tree}" as="page">
+      <tr class="db_list_normal">
+         <td>{page.depthData -> f:format.raw()}<f:format.raw>{page.HTML}</f:format.raw> {page.row.title}</td>
+         <td>{page.row.uid}</td>
+      </tr>
+   </f:for>
 
 We do a simple loop on the tree array of pages and display the relevant
 elements.

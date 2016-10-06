@@ -58,58 +58,58 @@ Here is a sample:
 .. code-block:: typoscript
 
  options.contextMenu {
- 	table {
- 		pages_root {
- 			disableItems =
+    table {
+       pages_root {
+          disableItems =
 
- 			items {
- 				100 = ITEM
- 				100 {
- 					name = view
- 					label = LLL:EXT:lang/locallang_core.xml:cm.view
- 					spriteIcon = actions-document-view
- 					displayCondition = canBeViewed != 0
- 					callbackAction = viewPage
- 				}
- 				...
- 			}
- 		}
+          items {
+             100 = ITEM
+             100 {
+                name = view
+                label = LLL:EXT:lang/locallang_core.xml:cm.view
+                spriteIcon = actions-document-view
+                displayCondition = canBeViewed != 0
+                callbackAction = viewPage
+             }
+             ...
+          }
+       }
 
- 		pages {
- 			disableItems =
+       pages {
+          disableItems =
 
- 			items {
- 				...
+          items {
+             ...
 
- 				700 = ITEM
- 				700 {
- 					name = history
- 					label = LLL:EXT:lang/locallang_misc.xml:CM_history
- 					spriteIcon = actions-document-history-open
- 					displayCondition = canShowHistory != 0
- 					callbackAction = openHistoryPopUp
- 				}
+             700 = ITEM
+             700 {
+                name = history
+                label = LLL:EXT:lang/locallang_misc.xml:CM_history
+                spriteIcon = actions-document-history-open
+                displayCondition = canShowHistory != 0
+                callbackAction = openHistoryPopUp
+             }
 
- 				800 = DIVIDER
+             800 = DIVIDER
 
- 				900 = SUBMENU
- 				900 {
- 					label = LLL:EXT:lang/locallang_core.xml:cm.copyPasteActions
+             900 = SUBMENU
+             900 {
+                label = LLL:EXT:lang/locallang_core.xml:cm.copyPasteActions
 
- 					100 = ITEM
- 					100 {
- 						name = new
- 						label = LLL:EXT:lang/locallang_core.xml:cm.new
- 						spriteIcon = actions-page-new
- 						displayCondition = canCreateNewPages != 0
- 						callbackAction = newPageWizard
- 					}
- 					...
- 				}
- 				...
- 			}
- 		}
- 	}
+                100 = ITEM
+                100 {
+                   name = new
+                   label = LLL:EXT:lang/locallang_core.xml:cm.new
+                   spriteIcon = actions-page-new
+                   displayCondition = canCreateNewPages != 0
+                   callbackAction = newPageWizard
+                }
+                ...
+             }
+             ...
+          }
+       }
+    }
  }
 
 
@@ -152,28 +152,28 @@ The first step is to add the necessary User TSconfig in the extension's
 in the existing menu::
 
    $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig'] .= '
-   	options.contextMenu.table.pages.items {
-   		900 {
-   			1010 = DIVIDER
-      			1020 = ITEM
-   			1020 {
-   				name = clearPageCache
-   				label = LLL:EXT:sm_clearcachecm/Ressources/Private/Language/locallang_cm:clearPageCache
-   				spriteIcon = actions-system-cache-clear
-   				callbackAction = clearPageCache
-   			}
-   		}
-   		1000 {
-   			410 = DIVIDER
-      			420 = ITEM
-   			420 {
-   				name = clearBranchCache
-   				label = LLL:EXT:sm_clearcachecm/Ressources/Private/Language/locallang_cm:clearBranchCache
-   				spriteIcon = actions-system-cache-clear-impact-medium
-   				callbackAction = clearBranchCache
-   			}
-   		}
-   	}
+      options.contextMenu.table.pages.items {
+         900 {
+            1010 = DIVIDER
+               1020 = ITEM
+            1020 {
+               name = clearPageCache
+               label = LLL:EXT:sm_clearcachecm/Ressources/Private/Language/locallang_cm:clearPageCache
+               spriteIcon = actions-system-cache-clear
+               callbackAction = clearPageCache
+            }
+         }
+         1000 {
+            410 = DIVIDER
+               420 = ITEM
+            420 {
+               name = clearBranchCache
+               label = LLL:EXT:sm_clearcachecm/Ressources/Private/Language/locallang_cm:clearBranchCache
+               spriteIcon = actions-system-cache-clear-impact-medium
+               callbackAction = clearBranchCache
+            }
+         }
+      }
    ';
 
 Here are the various parameters that must or should be used when
@@ -261,36 +261,36 @@ This file contains the following code:
 .. code-block:: javascript
 
    Ext.onReady(function() {
-   	Ext.apply(TYPO3.Components.PageTree.Actions, {
-   		clearPageCache: function(node, tree) {
-   			TYPO3.SmClearcachecm.ClickmenuAction.clearPageCache(
-   				node.attributes.nodeData,
-   				function(response) {
-   					if (response) {
-   						TYPO3.Flashmessage.display(TYPO3.Severity.error, '', response);
-   					} else {
-   						TYPO3.Flashmessage.display(TYPO3.Severity.ok, '', TYPO3.lang.sm_clearcachecm_clearPageCacheSuccess);
-   					}
-   				},
-   				this
-   			);
-   		}
-   	});
-   	Ext.apply(TYPO3.Components.PageTree.Actions, {
-   		clearBranchCache: function(node, tree) {
-   			TYPO3.SmClearcachecm.ClickmenuAction.clearBranchCache(
-   				node.attributes.nodeData,
-   				function(response) {
-   					if (response) {
-   						TYPO3.Flashmessage.display(TYPO3.Severity.error, '', response);
-   					} else {
-   						TYPO3.Flashmessage.display(TYPO3.Severity.ok, '', TYPO3.lang.sm_clearcachecm_clearBranchCacheSuccess);
-   					}
-   				},
-   				this
-   			);
-   		}
-   	});
+      Ext.apply(TYPO3.Components.PageTree.Actions, {
+         clearPageCache: function(node, tree) {
+            TYPO3.SmClearcachecm.ClickmenuAction.clearPageCache(
+               node.attributes.nodeData,
+               function(response) {
+                  if (response) {
+                     TYPO3.Flashmessage.display(TYPO3.Severity.error, '', response);
+                  } else {
+                     TYPO3.Flashmessage.display(TYPO3.Severity.ok, '', TYPO3.lang.sm_clearcachecm_clearPageCacheSuccess);
+                  }
+               },
+               this
+            );
+         }
+      });
+      Ext.apply(TYPO3.Components.PageTree.Actions, {
+         clearBranchCache: function(node, tree) {
+            TYPO3.SmClearcachecm.ClickmenuAction.clearBranchCache(
+               node.attributes.nodeData,
+               function(response) {
+                  if (response) {
+                     TYPO3.Flashmessage.display(TYPO3.Severity.error, '', response);
+                  } else {
+                     TYPO3.Flashmessage.display(TYPO3.Severity.ok, '', TYPO3.lang.sm_clearcachecm_clearBranchCacheSuccess);
+                  }
+               },
+               this
+            );
+         }
+      });
    });
 
 The above code adds :ref:`extdirect` callbacks to the new menu items.
@@ -305,8 +305,8 @@ The last step is to write the PHP code that will answer to the Ext.Direct calls.
 First the PHP class must be registered as usual::
 
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerExtDirectComponent(
-   	'TYPO3.SmClearcachecm.ClickmenuAction',
-   	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Classes/Hooks/ClickmenuAction.php:Tx_SmClearcachecm_Hooks_ClickmenuAction'
+      'TYPO3.SmClearcachecm.ClickmenuAction',
+      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Classes/Hooks/ClickmenuAction.php:Tx_SmClearcachecm_Hooks_ClickmenuAction'
    );
 
 The PHP class itself contains the methods corresponding to the Ext.Direct JavaScript methods,
@@ -314,16 +314,16 @@ in this case :code:`clearPageCache` and :code:`clearBranchCache`. They receive i
 which node was clicked. This information can be made into a node object, as demonstrated below::
 
    public function clearPageCache($nodeData) {
-      	$nodeUids = array();
-      		/* @var $node \TYPO3\CMS\Backend\Tree\Pagetree\PagetreeNode */
-   	$node = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Tree\\Pagetree\\PagetreeNode', (array) $nodeData);
-      		// Get uid of page
-   	$nodeUids[] = $node->getId();
-      		// Clear the page cache of the page
-   	$success = $this->performClearCache($nodeUids);
-      	if (!$success) {
-   		return $GLOBALS['LANG']->sL('LLL:EXT:sm_clearcachecm/Ressources/Private/Language/locallang_cm.xml:clearPageCacheError', TRUE);
-   	}
+         $nodeUids = array();
+            /* @var $node \TYPO3\CMS\Backend\Tree\Pagetree\PagetreeNode */
+      $node = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Tree\\Pagetree\\PagetreeNode', (array) $nodeData);
+            // Get uid of page
+      $nodeUids[] = $node->getId();
+            // Clear the page cache of the page
+      $success = $this->performClearCache($nodeUids);
+         if (!$success) {
+         return $GLOBALS['LANG']->sL('LLL:EXT:sm_clearcachecm/Ressources/Private/Language/locallang_cm.xml:clearPageCacheError', TRUE);
+      }
    }
 
 
@@ -341,13 +341,13 @@ replaced with the selected page id. Example:
 
    720 = ITEM
    720 {
-   	name = someCustomeAction
-   	label = LLL:EXT:extension/locallang.xml:someCustomeAction
-   	icon = ' . \TYPO3\CMS\Core\Utility\GeneralUtility::locationHeaderUrl(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif') . '
-   	spriteIcon =
-   	displayCondition =
-   	callbackAction = openCustomUrlInContentFrame
-   	customAttributes.contentUrl = mod.php?M=web_WorkspacesWorkspaces&id=###ID###
+      name = someCustomeAction
+      label = LLL:EXT:extension/locallang.xml:someCustomeAction
+      icon = ' . \TYPO3\CMS\Core\Utility\GeneralUtility::locationHeaderUrl(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif') . '
+      spriteIcon =
+      displayCondition =
+      callbackAction = openCustomUrlInContentFrame
+      customAttributes.contentUrl = mod.php?M=web_WorkspacesWorkspaces&id=###ID###
    }
 
 

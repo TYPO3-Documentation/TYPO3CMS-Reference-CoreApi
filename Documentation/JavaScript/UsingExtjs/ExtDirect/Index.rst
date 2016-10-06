@@ -44,7 +44,7 @@ and the same with Ext.Direct:
 .. code-block:: javascript
 
    TYPO3.Backend.MyModule.doSomething('someValue', function(response, options) {
-   	// Do something with the response
+      // Do something with the response
    });
 
 This features exists since TYPO3 4.4.
@@ -59,10 +59,10 @@ declared in order to paired together (code taken from the "examples"
 extension)::
 
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerExtDirectComponent(
-   	'TYPO3.Examples.ExtDirect',
-   	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY, 'Classes/ExtDirect/Server.php:Tx_Examples_ExtDirect_Server'),
-   	NULL,
-   	'user,group'
+      'TYPO3.Examples.ExtDirect',
+      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY, 'Classes/ExtDirect/Server.php:Tx_Examples_ExtDirect_Server'),
+      NULL,
+      'user,group'
    );
 
 
@@ -77,13 +77,13 @@ calling up the page renderer from the BE module or from a specially
 designed Fluid View Helper, when making Extbase-based modules.
 Example taken from file :file:`EXT:examples/Classes/ViewHelpers/Be/HeaderViewHelper.php`::
 
-   	/** @var $pageRenderer \TYPO3\CMS\Core\Page\PageRenderer */
+      /** @var $pageRenderer \TYPO3\CMS\Core\Page\PageRenderer */
    $pageRenderer = $this->getDocInstance()->getPageRenderer();
-   	// Add base Ext.Direct code
+      // Add base Ext.Direct code
    $pageRenderer->addExtDirectCode(
-   	array('TYPO3.Examples')
+      array('TYPO3.Examples')
    );
-   	// Make localized labels available in JavaScript context
+      // Make localized labels available in JavaScript context
    $pageRenderer->addInlineLanguageLabelFile('EXT:examples/Resources/Private/Language/locallang.xml');
 
 
@@ -92,21 +92,21 @@ the same arguments as the JavaScript function and returning whatever data it is
 expected to produce::
 
    public function countRecords($table) {
-   		// Return the count of all non-deleted records for the given table
-   	return array(
-   		'data' => $GLOBALS['TYPO3_DB']->exec_SELECTcountRows('uid', $table, '1 = 1' . \TYPO3\CMS\Backend\Utility\BackendUtility::deleteClause($table))
-   	);
+         // Return the count of all non-deleted records for the given table
+      return array(
+         'data' => $GLOBALS['TYPO3_DB']->exec_SELECTcountRows('uid', $table, '1 = 1' . \TYPO3\CMS\Backend\Utility\BackendUtility::deleteClause($table))
+      );
    }
 
 Here the method receives a table name and sends back the count of
 undeleted records. The corresponding JavaScript looks like::
 
    TYPO3.Examples.ExtDirect.countRecords(table, function(response) {
-   		// If the response contains data, display it in a JavaScript flash message
-   	if (response.data) {
-   		var message = String.format(TYPO3.lang['record_count_message'], response.data, table);
-   		TYPO3.Flashmessage.display(TYPO3.Severity.ok, TYPO3.lang['record_count_title'], message, 5);
-   	}
+         // If the response contains data, display it in a JavaScript flash message
+      if (response.data) {
+         var message = String.format(TYPO3.lang['record_count_message'], response.data, table);
+         TYPO3.Flashmessage.display(TYPO3.Severity.ok, TYPO3.lang['record_count_title'], message, 5);
+      }
    });
 
 
@@ -140,7 +140,7 @@ The API Generator
 Looking at what happens under the hood, the following call::
 
    $pageRenderer->addExtDirectCode(
-   	array('TYPO3.Examples')
+      array('TYPO3.Examples')
    );
 
 

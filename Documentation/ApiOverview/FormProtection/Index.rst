@@ -25,7 +25,7 @@ The name of the form element does not matter; you only need it to get the form t
 .. code-block:: php
 
    $formToken = TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()
-   	->generateToken('BE user setup', 'edit')
+      ->generateToken('BE user setup', 'edit')
    );
    $this->content .= '<input type="hidden" name="formToken" value="' . $formToken . '" />';
 
@@ -56,14 +56,14 @@ you can check that the form token is valid like this:
 .. code-block:: php
 
    if ($dataHasBeenSubmitted &&
-   	TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->validateToken(
-   		(string) \TYPO3\CMS\Core\Utility\GeneralUtility::_POST('formToken'),
-   		'BE user setup', 'edit'
-   	) ) {
-   	// processes the data
+      TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->validateToken(
+         (string) \TYPO3\CMS\Core\Utility\GeneralUtility::_POST('formToken'),
+         'BE user setup', 'edit'
+      ) ) {
+      // processes the data
    } else {
-   	// no need to do anything here as the BE form protection will create a
-   	// flash message for an invalid token
+      // no need to do anything here as the BE form protection will create a
+      // flash message for an invalid token
  }
 
 Note that :code:`validateToken` invalidates the token with the token ID.
@@ -107,15 +107,15 @@ When processing the data that has been submitted by the form, you can check that
 .. code-block:: php
 
    if ($dataHasBeenSubmitted &&
-   	$this->formProtection()->validateToken(
-   		(string) $_POST['formToken'],
-   		'installToolPassword',
-   		'change')
+      $this->formProtection()->validateToken(
+         (string) $_POST['formToken'],
+         'installToolPassword',
+         'change')
    ) {
-   	// processes the data
+      // processes the data
    } else {
-   	// no need to do anything here as the install tool form protection will
-   	// create an error message for an invalid token
+      // no need to do anything here as the install tool form protection will
+      // create an error message for an invalid token
    }
 
 Note that :code:`validateToken` invalidates the token with the token ID.
