@@ -33,7 +33,7 @@ The migration benefits are the only reason the methods are documented here.
 
 
 parseOrderBy
-------------
+^^^^^^^^^^^^
 
 Some parts of the core framework allow string definitions like `ORDER BY sorting` for instance
 in `TCA` and `TypoScript`. The method rips those strings apart and prepares them to be fed
@@ -52,7 +52,7 @@ to `QueryBuilder->orderBy()`:
 
 
 parseGroupBy
-------------
+^^^^^^^^^^^^
 
 Parses `GROUP BY` strings ready to be added via `QueryBuilder->groupBy()`, similar to `->parseOrderBy()`:
 
@@ -66,7 +66,7 @@ Parses `GROUP BY` strings ready to be added via `QueryBuilder->groupBy()`, simil
 
 
 parseTableList
---------------
+^^^^^^^^^^^^^^
 
 Parse a table list, possibly prefixed with FROM, and explode it into and array of arrays where
 each item consists of a tableName and an optional alias name, ready to be put into `QueryBuilder->from()`:
@@ -84,7 +84,7 @@ each item consists of a tableName and an optional alias name, ready to be put in
 
 
 parseJoin
----------
+^^^^^^^^^
 
 Split a JOIN SQL fragment into table name, alias and join conditions:
 
