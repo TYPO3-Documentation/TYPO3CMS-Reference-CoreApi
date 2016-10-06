@@ -735,7 +735,7 @@ Not convinced? Suppose the code would look like this:
         );
 
 Mind the missing `->createNamedParameter()` in the `->eq()` expression on given value! This code would happily execute
-the statement ``SELECT uid FROM `tt_content` WHERE `bodytext` = 'kl' UNION SELECT username FROM be_users;`` returning
+the statement ``SELECT uid FROM `tt_content` WHERE `bodytext` = 'foo' UNION SELECT username FROM be_users;`` returning
 a list of backend user names!
 
 Rules:
