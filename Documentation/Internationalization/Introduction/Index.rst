@@ -28,10 +28,6 @@ standard format for translations.
   even when you have changed your typo3 backend to another language, so
   source-language must always be `source-language="en"`.
 
-  Keep in mind that the default language is always considered to be english,
-  even when you have changed your typo3 backend to another language, so
-  source-language must always be `source-language="en"`.
-
 
 .. _xliff-basics:
 
