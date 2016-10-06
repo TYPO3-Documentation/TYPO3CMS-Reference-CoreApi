@@ -108,8 +108,22 @@ or be part of the web server configuration:
    RewriteCond %{HTTP_HOST} ^staging\.example\.com$
    RewriteRule .? - [E=TYPO3_CONTEXT:Production/Staging]
 
+<<<<<<< HEAD
    RewriteCond %{HTTP_HOST} ^www\.example\.com$
    RewriteRule .? - [E=TYPO3_CONTEXT:Production]
+=======
+	RewriteCond %{HTTP_HOST} ^www\.example\.com$
+	RewriteRule .? - [E=TYPO3_CONTEXT:Production]
+	
+.. code-block:: nginxconf
+	# In your Nginx configuration, you can pass the context as a fastcgi parameter
+	location ~ \.php$ {
+                include         fastcgi_params;
+                fastcgi_index   index.php;
+                fastcgi_param   TYPO3_CONTEXT  Development/Dev;
+                fastcgi_param   SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        }
+>>>>>>> 3012c42adbe034f2d10e67bae3cf85a6b96e7ced
 
 .. _bootstrapping-context-custom:
 
