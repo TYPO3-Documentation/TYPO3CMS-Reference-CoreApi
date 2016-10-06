@@ -49,13 +49,14 @@ Remarks:
 
 * The connect options are hand over to `doctrine-dbal` without much manipulation from `TYPO3 CMS` side.
   Please refer to the
-  `doctrine connection docs http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html`__
+  `doctrine connection docs <http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html>`__
   for a full overview of settings.
 
 * If `charset` option is not specified it defaults to `utf8`.
 
-* The option `wrapperClass` is used by the `TYPO3 CMS` framework to "hang in" the extended `Connection`
-  class :ref:`TYPO3\CMS\Database\Connection <database-connection>` as main facade around `doctrine-dbal`.
+* The option `wrapperClass` is used by the `TYPO3 CMS` framework to "hang in" the extended
+  :ref:`Connection <database-connection>` class `TYPO3\CMS\Database\Connection` as main facade
+  around `doctrine-dbal`.
 
 
 A slightly more complex example with two connections, mapping the `sys_log` table to a different endpoint:
