@@ -83,15 +83,15 @@ real documentation is found in the source scripts (and the
 
          Examples::
 
-            	// Making an instance of class "\\TYPO3\\CMS\\Core\\TypoScript\\Parser\\TypoScriptParser":
+               // Making an instance of class "\\TYPO3\\CMS\\Core\\TypoScript\\Parser\\TypoScriptParser":
             $parseObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\TypoScript\\Parser\\TypoScriptParser');
 
-            	// Make an object with arguments passed to the constructor:
+               // Make an object with arguments passed to the constructor:
             $message = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
-            	'My message text',
-            	'Message Header',
-            	\TYPO3\CMS\Core\Messaging\FlashMessage::WARNING,
-            	TRUE
+               'My message text',
+               'Message Header',
+               \TYPO3\CMS\Core\Messaging\FlashMessage::WARNING,
+               TRUE
             );
 
 
@@ -140,12 +140,12 @@ real documentation is found in the source scripts (and the
          :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::validPathStr()`. Returns false if checks failed. Does not
          check if the file exists. ::
 
-            	// Getting absolute path of a temporary file
+               // Getting absolute path of a temporary file
             $cacheFile = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName('typo3temp/tempfile.tmp');
-				// Include file if it exists:
+            // Include file if it exists:
             $file = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($fileRef);
             if (@is_file($file)) {
-				include($file);
+            include($file);
             }
 
          :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::validPathStr()` - Checks for malicious file paths.
@@ -153,18 +153,18 @@ real documentation is found in the source scripts (and the
          make sure that the path is not pointing 'backwards' and further
          doesn't contain double/back slashes. ::
 
-				// If the path is true and validates as a valid path string
+            // If the path is true and validates as a valid path string
             if ($path && \TYPO3\CMS\Core\Utility\GeneralUtility::validPathStr($path)) {
-            	...
+               // ...
             }
 
          :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::isAbsPath()` - Checks if the input path is absolute or
          relative (detecting either '/' or 'x:/' as first part of string) and
          returns true if so. ::
 
-            	// Returns relative filename for icon:
+               // Returns relative filename for icon:
             if (\TYPO3\CMS\Core\Utility\GeneralUtility::isAbsPath($Ifilename)) {
-            	$Ifilename = '../' . substr($Ifilename, strlen(PATH_site));
+               $Ifilename = '../' . substr($Ifilename, strlen(PATH_site));
             }
 
          :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::isAllowedAbsPath()` - Returns true if the path is
@@ -512,19 +512,19 @@ real documentation is found in the source scripts (and the
 
          Example::
 
-            	// If the extension "sys_note" is loaded, then...
+               // If the extension "sys_note" is loaded, then...
             if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('sys_note'))    ...
 
-            	// Check if the "indexed_search" extension is loaded.
-            	// If not, an exception will be thrown!
+               // Check if the "indexed_search" extension is loaded.
+               // If not, an exception will be thrown!
             try {
-            	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('indexed_search', TRUE);
+               \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('indexed_search', TRUE);
             }
             catch (BadFunctionCallException $e) {
-            	...
+               // ...
             }
 
-            		// Assign value "popup" if extension "tsconfig_help" is loaded
+                  // Assign value "popup" if extension "tsconfig_help" is loaded
             $type = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('tsconfig_help') ? 'popup' : '';
 
 
@@ -545,16 +545,16 @@ real documentation is found in the source scripts (and the
 
          Examples::
 
-            	// Include a PHP file from the extension "extrep_wizard".
-            	// \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath() returns the absolute path to the
-            	// extension directory.
+               // Include a PHP file from the extension "extrep_wizard".
+               // \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath() returns the absolute path to the
+               // extension directory.
             require_once(
                 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('extrep_wizard') .
                 'pi/class.tx_extrepwizard.php'
             );
-            	// Get relative path (relative to PATH_typo3) to an icon (backend)
+               // Get relative path (relative to PATH_typo3) to an icon (backend)
             $icon = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('tt_rating') . 'rating.gif';
-            	// Get relative path (relative to PATH_site) to an icon (frontend)
+               // Get relative path (relative to PATH_site) to an icon (frontend)
             return '<img src="'.
                 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('indexed_search') . 'pi/res/locked.gif'
                 ... />';
@@ -588,19 +588,19 @@ real documentation is found in the source scripts (and the
 
          More information about skinning is found in the :ref:`t3skinning:start`. ::
 
-            	// Getting default icon for the "tt_content" table
+               // Getting default icon for the "tt_content" table
             $icon = \TYPO3\CMS\Backend\Utility\IconUtility::getSpriteIconForRecord(
-            	'tt_content',
-            	array()
+               'tt_content',
+               array()
             );
 
-            	// Getting an icon where record content may define the look
+               // Getting an icon where record content may define the look
             $icon = \TYPO3\CMS\Backend\Utility\IconUtility::getSpriteIconForRecord(
-            	$table,
-            	$row
+               $table,
+               $row
             );
 
-            	// Getting a given icon, for example the "new document" action
+               // Getting a given icon, for example the "new document" action
             \TYPO3\CMS\Backend\Utility\IconUtility::getSpriteIcon('actions-document-new');
 
 
@@ -627,7 +627,7 @@ This class is always accessed via its global instance :code:`$GLOBALS['BE_USER']
          is "admin"::
 
             if ($GLOBALS['BE_USER']->isAdmin()) {
-            	...
+               // ...
             }
 
 

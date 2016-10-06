@@ -56,8 +56,8 @@ use the following configuration:
 .. code-block:: php
 
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['writerConfiguration'] = array(
-		// configuration for WARNING severity, including all
-		// levels with higher severity (ERROR, CRITICAL, EMERGENCY)
+      // configuration for WARNING severity, including all
+      // levels with higher severity (ERROR, CRITICAL, EMERGENCY)
        \TYPO3\CMS\Core\Log\LogLevel::WARNING => array(
         // add a SyslogWriter
            'TYPO3\\CMS\\Core\\Log\\Writer\\SyslogWriter' => array(),
@@ -72,7 +72,7 @@ For extension "foo" with key "tx_foo" (not using namespaces), the configuration 
 .. code-block:: php
 
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['Tx']['Foo']['writerConfiguration'] = array(
-   	...
+      // ...
    );
 
 An arbitrary number of writers can be added for every severity level (INFO, WARNING, ERROR, ...).

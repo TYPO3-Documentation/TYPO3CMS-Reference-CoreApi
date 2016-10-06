@@ -16,15 +16,15 @@ Here is an example, taken from the "examples" extension:
 
 .. code-block:: php
 
-	$GLOBALS['TYPO3_USER_SETTINGS']['columns']['tx_examples_mobile'] = array(
-		'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile',
-		'type' => 'text',
-		'table' => 'be_users',
-	);
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings(
-		'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile,tx_examples_mobile',
-		'after:email'
-	);
+   $GLOBALS['TYPO3_USER_SETTINGS']['columns']['tx_examples_mobile'] = array(
+      'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile',
+      'type' => 'text',
+      'table' => 'be_users',
+   );
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings(
+      'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile,tx_examples_mobile',
+      'after:email'
+   );
 
 The second parameter in the call to :code:`addFieldsToUserSettings()`
 is used to position the new field. In this example, we decide to add it

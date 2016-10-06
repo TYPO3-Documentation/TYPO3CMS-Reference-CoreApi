@@ -211,85 +211,85 @@ of FlexForms can be found in the :ref:`relevant section of the TCA reference <t3
 
 .. code-block:: xml
 
-	<T3DataStructure>
-		<meta>
-			<langDisable>1</langDisable>
-		</meta>
-		<sheets>
-			<sDEF>
-				<ROOT>
-					<TCEforms>
-						<sheetTitle>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.sheet_general</sheetTitle>
-					</TCEforms>
-					<type>array</type>
-					<el>
-						<showForgotPassword>
-							<TCEforms>
-								<label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.show_forgot_password</label>
-								<config>
-									<type>check</type>
-									<items type="array">
-										<numIndex index="1" type="array">
-											<numIndex index="0">LLL:EXT:lang/locallang_core.xml:labels.enabled</numIndex>
-											<numIndex index="1">1</numIndex>
-										</numIndex>
-									</items>
-								</config>
-							</TCEforms>
-						</showForgotPassword>
-						<showPermaLogin>
-							<TCEforms>
-								<label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.show_permalogin</label>
-								<config>
-									<default>1</default>
-									<type>check</type>
-									<items type="array">
-										<numIndex index="1" type="array">
-											<numIndex index="0">LLL:EXT:lang/locallang_core.xml:labels.enabled</numIndex>
-											<numIndex index="1">1</numIndex>
-										</numIndex>
-									</items>
-								</config>
-							</TCEforms>
-						</showPermaLogin>
-						...
-					</el>
-				</ROOT>
-			</sDEF>
-			<s_redirect>
-				<ROOT>
-					<TCEforms>
-						<sheetTitle>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.sheet_redirect</sheetTitle>
-					</TCEforms>
-					<type>array</type>
-					<el>
-						<redirectMode>
-							<TCEforms>
-								<label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode</label>
-								<config>
-									<type>select</type>
-									<items type="array">
-										<numIndex index="0" type="array">
-											<numIndex index="0">LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode.I.0</numIndex>
-											<numIndex index="1">groupLogin</numIndex>
-										</numIndex>
-										<numIndex index="1" type="array">
-											<numIndex index="0">LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode.I.1</numIndex>
-											<numIndex index="1">userLogin</numIndex>
-										</numIndex>
-										...
-									</items>
-									<size>8</size>
-									<minitems>0</minitems>
-									<maxitems>8</maxitems>
-								</config>
-							</TCEforms>
-						</redirectMode>
-					</el>
-				</ROOT>
-			</s_redirect>
-			<s_messages>
-				...
-			</s_messages>
-		</sheets>
-	</T3DataStructure>
+   <T3DataStructure>
+      <meta>
+         <langDisable>1</langDisable>
+      </meta>
+      <sheets>
+         <sDEF>
+            <ROOT>
+               <TCEforms>
+                  <sheetTitle>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.sheet_general</sheetTitle>
+               </TCEforms>
+               <type>array</type>
+               <el>
+                  <showForgotPassword>
+                     <TCEforms>
+                        <label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.show_forgot_password</label>
+                        <config>
+                           <type>check</type>
+                           <items type="array">
+                              <numIndex index="1" type="array">
+                                 <numIndex index="0">LLL:EXT:lang/locallang_core.xml:labels.enabled</numIndex>
+                                 <numIndex index="1">1</numIndex>
+                              </numIndex>
+                           </items>
+                        </config>
+                     </TCEforms>
+                  </showForgotPassword>
+                  <showPermaLogin>
+                     <TCEforms>
+                        <label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.show_permalogin</label>
+                        <config>
+                           <default>1</default>
+                           <type>check</type>
+                           <items type="array">
+                              <numIndex index="1" type="array">
+                                 <numIndex index="0">LLL:EXT:lang/locallang_core.xml:labels.enabled</numIndex>
+                                 <numIndex index="1">1</numIndex>
+                              </numIndex>
+                           </items>
+                        </config>
+                     </TCEforms>
+                  </showPermaLogin>
+                  // ...
+               </el>
+            </ROOT>
+         </sDEF>
+         <s_redirect>
+            <ROOT>
+               <TCEforms>
+                  <sheetTitle>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.sheet_redirect</sheetTitle>
+               </TCEforms>
+               <type>array</type>
+               <el>
+                  <redirectMode>
+                     <TCEforms>
+                        <label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode</label>
+                        <config>
+                           <type>select</type>
+                           <items type="array">
+                              <numIndex index="0" type="array">
+                                 <numIndex index="0">LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode.I.0</numIndex>
+                                 <numIndex index="1">groupLogin</numIndex>
+                              </numIndex>
+                              <numIndex index="1" type="array">
+                                 <numIndex index="0">LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode.I.1</numIndex>
+                                 <numIndex index="1">userLogin</numIndex>
+                              </numIndex>
+                              // ...
+                           </items>
+                           <size>8</size>
+                           <minitems>0</minitems>
+                           <maxitems>8</maxitems>
+                        </config>
+                     </TCEforms>
+                  </redirectMode>
+               </el>
+            </ROOT>
+         </s_redirect>
+         <s_messages>
+            // ...
+         </s_messages>
+      </sheets>
+   </T3DataStructure>

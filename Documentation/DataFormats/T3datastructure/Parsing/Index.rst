@@ -23,8 +23,8 @@ If the Data Structure uses referenced sheets, for example
 
 additional operations must be performed to resolve the sheets content::
 
-	$treeDat = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($inputCode);
-	$treeDat = \TYPO3\CMS\Core\Utility\GeneralUtility::resolveAllSheetsInDS($treeDat);
+   $treeDat = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($inputCode);
+   $treeDat = \TYPO3\CMS\Core\Utility\GeneralUtility::resolveAllSheetsInDS($treeDat);
 
 
 This will produce the following debug output:

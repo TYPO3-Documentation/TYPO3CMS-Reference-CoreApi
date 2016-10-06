@@ -30,12 +30,12 @@ settings. This array allows the following configurations:
 
          .. code-block:: php
 
-			'startModule' => array(
-				'type' => 'select',
-				'itemsProcFunc' => 'TYPO3\\CMS\\Setup\\Controller\\SetupModuleController->renderStartModuleSelect',
-				'label' => 'LLL:EXT:setup/mod/locallang.xlf:startModule',
-				'csh' => 'startModule'
-			),
+            'startModule' => array(
+               'type' => 'select',
+               'itemsProcFunc' => 'TYPO3\\CMS\\Setup\\Controller\\SetupModuleController->renderStartModuleSelect',
+               'label' => 'LLL:EXT:setup/mod/locallang.xlf:startModule',
+               'csh' => 'startModule'
+            ),
 
          Allowed values: button, check, password, select, text, user
 

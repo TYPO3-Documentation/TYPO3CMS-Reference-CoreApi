@@ -24,7 +24,7 @@ in the following global array:
 
 .. code-block:: php
 
-	$GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'];
+   $GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'];
 
 Each script can manipulate the list of menu items, in particular add
 or remove some. Registration example (taken from the :file:`ext_tables.php`
@@ -32,9 +32,9 @@ file of the "examples" extension):
 
 .. code-block:: php
 
-	$GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'][] = array(
-		'name' => 'Documentation\\Examples\\Service\\ContextMenuOptions'
-	);
+   $GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'][] = array(
+      'name' => 'Documentation\\Examples\\Service\\ContextMenuOptions'
+   );
 
 
 
@@ -42,53 +42,53 @@ The class (:code:`\Documentation\Examples\Service\ContextMenuOptions`) looks lik
 
 .. code-block:: php
 
-	class ContextMenuOptions {
-		/**
-		 * Adds a sample item to the CSM
-		 *
-		 * @param \TYPO3\CMS\Backend\ClickMenu\ClickMenu $parentObject Back-reference to the calling object
-		 * @param array $menuItems Current list of menu items
-		 * @param string $table Name of the table the clicked on item belongs to
-		 * @param integer $uid Id of the clicked on item
-		 *
-		 * @return array Modified list of menu items
-		 */
-		public function main(\TYPO3\CMS\Backend\ClickMenu\ClickMenu $parentObject, $menuItems, $table, $uid) {
-			// Activate the menu item only for "pages" table
-			if ($table == 'pages') {
-				// URL for the menu item. Point to the page tree example module, passing the page id.
-				$baseUrl = 'mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples%5Baction%5D=tree&tx_examples_tools_examplesexamples%5Bcontroller%5D=Default';
-				$baseUrl .= '&tx_examples_tools_examplesexamples%5Bpage%5D=' . $uid;
+   class ContextMenuOptions {
+      /**
+       * Adds a sample item to the CSM
+       *
+       * @param \TYPO3\CMS\Backend\ClickMenu\ClickMenu $parentObject Back-reference to the calling object
+       * @param array $menuItems Current list of menu items
+       * @param string $table Name of the table the clicked on item belongs to
+       * @param integer $uid Id of the clicked on item
+       *
+       * @return array Modified list of menu items
+       */
+      public function main(\TYPO3\CMS\Backend\ClickMenu\ClickMenu $parentObject, $menuItems, $table, $uid) {
+         // Activate the menu item only for "pages" table
+         if ($table == 'pages') {
+            // URL for the menu item. Point to the page tree example module, passing the page id.
+            $baseUrl = 'mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples%5Baction%5D=tree&tx_examples_tools_examplesexamples%5Bcontroller%5D=Default';
+            $baseUrl .= '&tx_examples_tools_examplesexamples%5Bpage%5D=' . $uid;
 
-				// Add new menu item with the following parameters:
-				// 1) Label
-				// 2) Icon
-				// 3) URL
-				// 4) = 1 disable item in docheader
-				$menuItems[] = $parentObject->linkItem(
-					$GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xml:csm_view_page'),
-					\TYPO3\CMS\Backend\Utility\IconUtility::getSpriteIcon('extensions-examples-page-tree'),
-					$parentObject->urlRefForCM($baseUrl),
-					1
-				);
-			}
-			return $menuItems;
-		}
-	}
+            // Add new menu item with the following parameters:
+            // 1) Label
+            // 2) Icon
+            // 3) URL
+            // 4) = 1 disable item in docheader
+            $menuItems[] = $parentObject->linkItem(
+               $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xml:csm_view_page'),
+               \TYPO3\CMS\Backend\Utility\IconUtility::getSpriteIcon('extensions-examples-page-tree'),
+               $parentObject->urlRefForCM($baseUrl),
+               1
+            );
+         }
+         return $menuItems;
+      }
+   }
 
 Since TYPO3 CMS 6.2, a dedicated API must be used to assemble the destination
 URL of the context menu item. This adds CSRF protection to the link.
 
 .. code-block:: php
 
-	$baseUrl = \TYPO3\CMS\Backend\Utility\BackendUtility::getModuleUrl(
-		'tools_ExamplesExamples',
-		array(
-			'tx_examples_tools_examplesexamples[action]' => 'tree',
-			'tx_examples_tools_examplesexamples[controller]' => 'Default',
-			'tx_examples_tools_examplesexamples[page]' => $uid
-		)
-	);
+   $baseUrl = \TYPO3\CMS\Backend\Utility\BackendUtility::getModuleUrl(
+      'tools_ExamplesExamples',
+      array(
+         'tx_examples_tools_examplesexamples[action]' => 'tree',
+         'tx_examples_tools_examplesexamples[controller]' => 'Default',
+         'tx_examples_tools_examplesexamples[page]' => $uid
+      )
+   );
 
 The important points to notice are what properties are used for defining
 a new menu item and what API calls are used (namely
@@ -138,7 +138,7 @@ JavaScript is included by default, so just using:
 .. code-block:: xml
 
    <f:be.container>
-   	...
+      // ...
    </f:be.container>
 
 in your Layout is sufficient (see :file:`typo3/sysext/beuser/Resources/Private/Layouts/Default.html`).
@@ -146,7 +146,7 @@ Looking under the hood (in class :code:`\TYPO3\CMS\Fluid\ViewHelpers\Be\Containe
 the relevant JS inclusion is::
 
    if ($enableClickMenu) {
-   	$doc->loadJavascriptLib('js/clickmenu.js');
+      $doc->loadJavascriptLib('js/clickmenu.js');
    }
 
 
@@ -156,11 +156,11 @@ is required (taken from :file:`typo3/sysext/beuser/Resources/Private/Templates/B
 .. code-block:: xml
    :emphasize-lines: 2,2
 
-	<td class="col-icon">
-		<a href="#" onClick="TYPO3.Clickmenu.show('be_users', '{backendUser.uid}', '1', '', '', ''); return false;" title="id={backendUser.uid}">
-			<bu:spriteIconForRecord table="be_users" object="{backendUser}" />
-		</a>
-	</td>
+   <td class="col-icon">
+      <a href="#" onClick="TYPO3.Clickmenu.show('be_users', '{backendUser.uid}', '1', '', '', ''); return false;" title="id={backendUser.uid}">
+         <bu:spriteIconForRecord table="be_users" object="{backendUser}" />
+      </a>
+   </td>
 
 the relevant line being highlighted.
 

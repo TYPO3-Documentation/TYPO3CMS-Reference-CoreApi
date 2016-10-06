@@ -19,31 +19,31 @@ Extracting blocks from an HTML document
 The first example shows how to extract parts of a document.
 Consider the following code::
 
-	$testHTML = '
-		<DIV>
-			<IMG src="welcome.gif">
-			<p>Line 1</p>
-			<p>Line <B class="test">2</B></p>
-			<p>Line <b><i>3</i></p>
-			<img src="test.gif" />
-			<BR><br/>
-			<TABLE>
-				<tr>
-					<td>Another line here</td>
-				</tr>
-			</TABLE>
-		</div>
-		<B>Text outside div tag</B>
-		<table>
-			<tr>
-				<td>Another line here</td>
-			</tr>
-		</table>
-	';
+   $testHTML = '
+      <DIV>
+         <IMG src="welcome.gif">
+         <p>Line 1</p>
+         <p>Line <B class="test">2</B></p>
+         <p>Line <b><i>3</i></p>
+         <img src="test.gif" />
+         <BR><br/>
+         <TABLE>
+            <tr>
+               <td>Another line here</td>
+            </tr>
+         </TABLE>
+      </div>
+      <B>Text outside div tag</B>
+      <table>
+         <tr>
+            <td>Another line here</td>
+         </tr>
+      </table>
+   ';
 
-		// Splitting HTML into blocks defined by <div> and <table> tags
-	$parseObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Html\\HtmlParser');
-	$result = $parseObj->splitIntoBlock('div,table', $testHTML);
+      // Splitting HTML into blocks defined by <div> and <table> tags
+   $parseObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Html\\HtmlParser');
+   $result = $parseObj->splitIntoBlock('div,table', $testHTML);
 
 After loading some dummy HTML code into a variable, we create an instance of
 :code:`\TYPO3\CMS\Core\Html\HtmlParser` and ask it to split the HTML structure
@@ -76,7 +76,7 @@ Extracting single tags
 
 It is also possible to split by non-block tags, for example "img" and "br"::
 
-	$result = $parseObj->splitTags('img,br', $testHTML);
+   $result = $parseObj->splitTags('img,br', $testHTML);
 
 with the following result:
 
@@ -102,30 +102,30 @@ is quite extensive. Please refer to the phpDoc comments of the
 
 Here is a sample usage::
 
-	$tagCfg = array(
-		'b' => array(
-			'nesting' => 1,
-			'remap' => 'strong',
-			'allowedAttribs' => 0
-		),
-		'img' => array(),
-		'div' => array(),
-		'br' => array(),
-		'p' => array(
-			'fixAttrib' => array(
-				'class' => array(
-					'set' => 'bodytext'
-				)
-			)
-		)
-	);
-	$result = $parseObj->HTMLcleaner(
-		$testHTML,
-		$tagCfg,
-		FALSE,
-		FALSE,
-		array('xhtml' => 1)
-	);
+   $tagCfg = array(
+      'b' => array(
+         'nesting' => 1,
+         'remap' => 'strong',
+         'allowedAttribs' => 0
+      ),
+      'img' => array(),
+      'div' => array(),
+      'br' => array(),
+      'p' => array(
+         'fixAttrib' => array(
+            'class' => array(
+               'set' => 'bodytext'
+            )
+         )
+      )
+   );
+   $result = $parseObj->HTMLcleaner(
+      $testHTML,
+      $tagCfg,
+      FALSE,
+      FALSE,
+      array('xhtml' => 1)
+   );
 
 We first define our cleanup/transformation configuration.
 We define that only five tags should be kept ("b", "img", "div",

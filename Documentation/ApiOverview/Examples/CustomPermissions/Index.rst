@@ -22,20 +22,20 @@ Registration
 Options are configured in the global variable :code:`$TYPO3_CONF_VARS['BE']['customPermOptions']`.
 The syntax is demonstrated in the following example, which adds three options under a given header::
 
-	$GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = array(
-		'tx_examples_cat1' => array(
-			'header' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_header',
-			'items' => array(
-				'key1' => array(
-					'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1',
-					'EXT:t3skin/icons/gfx/savedok.gif',
-					'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1_description',
-				),
-				'key2' => array('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option2'),
-				'key3' => array('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option3'),
-			)
-		)
-	);
+   $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = array(
+      'tx_examples_cat1' => array(
+         'header' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_header',
+         'items' => array(
+            'key1' => array(
+               'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1',
+               'EXT:t3skin/icons/gfx/savedok.gif',
+               'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1_description',
+            ),
+            'key2' => array('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option2'),
+            'key3' => array('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option3'),
+         )
+      )
+   );
 
 The result is that these options appear in the group access lists like
 this:

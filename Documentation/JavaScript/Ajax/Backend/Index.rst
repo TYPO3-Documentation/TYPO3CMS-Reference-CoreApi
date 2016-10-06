@@ -66,10 +66,10 @@ registration of the AJAX call URL (in :file:`typo3conf/opendocs/ext_tables.php`)
 
 .. code-block:: php
 
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerAjaxHandler (
-		'OpendocsController::renderMenu',
-		'TYPO3\\CMS\\Opendocs\\Controller\\OpendocsController->renderAjax'
-	);
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerAjaxHandler (
+      'OpendocsController::renderMenu',
+      'TYPO3\\CMS\\Opendocs\\Controller\\OpendocsController->renderAjax'
+   );
 
 This is how the "opendocs" system extension registers the AJAX call to render
 the open documents menu in the top toolbar. The first argument is the ajaxID (as
@@ -88,23 +88,23 @@ In the above example, here's how the handling method looks like
 
 .. code-block:: php
 
-	/**
-	 * Renders the menu so that it can be returned as response to an AJAX call
-	 *
-	 * @param array $params Array of parameters from the AJAX interface, currently unused
-	 * @param \TYPO3\CMS\Core\Http\AjaxRequestHandler $ajaxObj Object of type AjaxRequestHandler
-	 * @return void
-	 */
-	public function renderAjax($params = array(), \TYPO3\CMS\Core\Http\AjaxRequestHandler &$ajaxObj = NULL) {
-		$menuContent = $this->renderMenu();
+   /**
+    * Renders the menu so that it can be returned as response to an AJAX call
+    *
+    * @param array $params Array of parameters from the AJAX interface, currently unused
+    * @param \TYPO3\CMS\Core\Http\AjaxRequestHandler $ajaxObj Object of type AjaxRequestHandler
+    * @return void
+    */
+   public function renderAjax($params = array(), \TYPO3\CMS\Core\Http\AjaxRequestHandler &$ajaxObj = NULL) {
+      $menuContent = $this->renderMenu();
 
-		// addContent('key', 'content to add')
-		// 'key' = the new content key where the content should be added in the content array
-		$ajaxObj->addContent('opendocsMenu', $menuContent);
+      // addContent('key', 'content to add')
+      // 'key' = the new content key where the content should be added in the content array
+      $ajaxObj->addContent('opendocsMenu', $menuContent);
 
-		// the new content, "$menuContent" can now be referenced like this:
-		// $ajaxObj->getContent('opendocsMenu');
-	}
+      // the new content, "$menuContent" can now be referenced like this:
+      // $ajaxObj->getContent('opendocsMenu');
+   }
 
 
 .. _ajax-backend-client:
@@ -121,14 +121,14 @@ using the registration key.
 
 .. code-block:: javascript
 
-	var ajaxUrl = TYPO3.settings.ajaxUrls['<registration key>'];
+   var ajaxUrl = TYPO3.settings.ajaxUrls['<registration key>'];
 
 Here is the client-side part corresponding to the above example
 (an extract of :file:`typo3/sysext/backend/Resources/Public/JavaScript/shortcutmenu.js`):
 
 .. code-block:: javascript
 
-	var del = new Ajax.Request(TYPO3.settings.ajaxUrls['ShortcutMenu::delete'], {
-		parameters : '&shortcutId=' + shortcutId,
-		onComplete : this.reRenderMenu.bind(this)
-	});
+   var del = new Ajax.Request(TYPO3.settings.ajaxUrls['ShortcutMenu::delete'], {
+      parameters : '&shortcutId=' + shortcutId,
+      onComplete : this.reRenderMenu.bind(this)
+   });

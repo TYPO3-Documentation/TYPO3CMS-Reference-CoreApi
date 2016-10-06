@@ -76,7 +76,7 @@ of overloaded (XCLASSed) classes.
 The syntax is as follows and is commonly located in an extension's :file:`ext_localconf.php` file::
 
        $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Backend\\Controller\\NewRecordController'] = array(
-       	'className' => 'Documentation\\Examples\\Xclass\\NewRecordController'
+          'className' => 'Documentation\\Examples\\Xclass\\NewRecordController'
        );
 
 
@@ -118,13 +118,13 @@ method and then adds its own content::
 
    class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController {
       function regularNew() {
-      	parent::regularNew();
-      	$this->code .= $this->doc->section(
-      		$GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:help'),
-      		$GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:make_choice'),
-      		0,
-      		1
-      	);
+         parent::regularNew();
+         $this->code .= $this->doc->section(
+            $GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:help'),
+            $GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:make_choice'),
+            0,
+            1
+         );
       }
    }
 

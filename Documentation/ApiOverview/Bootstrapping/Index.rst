@@ -36,31 +36,31 @@ line, which additionally requires :code:`\TYPO3\CMS\Core\Core\CliBootstrap`.
 One can see the bootstrapping process in action in file
 :file:`typo3/init.php`::
 
-	define('TYPO3_MODE', 'BE');
+   define('TYPO3_MODE', 'BE');
 
-	require 'sysext/core/Classes/Core/Bootstrap.php';
+   require 'sysext/core/Classes/Core/Bootstrap.php';
 
-	\TYPO3\CMS\Core\Core\Bootstrap::getInstance()
-		->baseSetup('typo3/')
-		->redirectToInstallToolIfLocalConfigurationFileDoesNotExist('../')
-		->startOutputBuffering()
-		->loadConfigurationAndInitialize()
-		->loadTypo3LoadedExtAndExtLocalconf(TRUE)
-		->applyAdditionalConfigurationSettings()
-		->initializeTypo3DbGlobal()
-		->checkLockedBackendAndRedirectOrDie()
-		->checkBackendIpOrDie()
-		->checkSslBackendAndRedirectIfNeeded()
-		->checkValidBrowserOrDie()
-		->loadExtensionTables(TRUE)
-		->initializeSpriteManager()
-		->initializeBackendUser()
-		->initializeBackendUserMounts()
-		->initializeLanguageObject()
-		->initializeModuleMenuObject()
-		->initializeBackendTemplate()
-		->endOutputBufferingAndCleanPreviousOutput()
-		->initializeOutputCompression();
+   \TYPO3\CMS\Core\Core\Bootstrap::getInstance()
+      ->baseSetup('typo3/')
+      ->redirectToInstallToolIfLocalConfigurationFileDoesNotExist('../')
+      ->startOutputBuffering()
+      ->loadConfigurationAndInitialize()
+      ->loadTypo3LoadedExtAndExtLocalconf(TRUE)
+      ->applyAdditionalConfigurationSettings()
+      ->initializeTypo3DbGlobal()
+      ->checkLockedBackendAndRedirectOrDie()
+      ->checkBackendIpOrDie()
+      ->checkSslBackendAndRedirectIfNeeded()
+      ->checkValidBrowserOrDie()
+      ->loadExtensionTables(TRUE)
+      ->initializeSpriteManager()
+      ->initializeBackendUser()
+      ->initializeBackendUserMounts()
+      ->initializeLanguageObject()
+      ->initializeModuleMenuObject()
+      ->initializeBackendTemplate()
+      ->endOutputBufferingAndCleanPreviousOutput()
+      ->initializeOutputCompression();
 
 
 Note that most methods of the Bootstrap class must be called in a precise order.
@@ -89,27 +89,27 @@ The context TYPO3 runs in is specified through the environment variable
 
 .. code-block:: bash
 
-	# run the TYPO3 CMS CLI commands in development context
-	TYPO3_CONTEXT=Development ./typo3/cli_dispatch.phpsh
+   # run the TYPO3 CMS CLI commands in development context
+   TYPO3_CONTEXT=Development ./typo3/cli_dispatch.phpsh
 
 
 or be part of the web server configuration:
 
 .. code-block:: apacheconf
 
-	# In your Apache configuration, you usually use:
-	SetEnv TYPO3_CONTEXT Development
+   # In your Apache configuration, you usually use:
+   SetEnv TYPO3_CONTEXT Development
 
-	# Set context with mod_rewrite
-	# Rules to set ApplicationContext based on hostname
-	RewriteCond %{HTTP_HOST} ^dev\.example\.com$
-	RewriteRule .? - [E=TYPO3_CONTEXT:Development]
+   # Set context with mod_rewrite
+   # Rules to set ApplicationContext based on hostname
+   RewriteCond %{HTTP_HOST} ^dev\.example\.com$
+   RewriteRule .? - [E=TYPO3_CONTEXT:Development]
 
-	RewriteCond %{HTTP_HOST} ^staging\.example\.com$
-	RewriteRule .? - [E=TYPO3_CONTEXT:Production/Staging]
+   RewriteCond %{HTTP_HOST} ^staging\.example\.com$
+   RewriteRule .? - [E=TYPO3_CONTEXT:Production/Staging]
 
-	RewriteCond %{HTTP_HOST} ^www\.example\.com$
-	RewriteRule .? - [E=TYPO3_CONTEXT:Production]
+   RewriteCond %{HTTP_HOST} ^www\.example\.com$
+   RewriteRule .? - [E=TYPO3_CONTEXT:Production]
 
 .. _bootstrapping-context-custom:
 
@@ -160,16 +160,16 @@ In file :file:`typo3conf/AdditionalConfiguration.php`:
 
 .. code-block:: php
 
-	switch (\TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()) {
-		case 'Development':
-			$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 1;
-			$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '*';
-			break;
-		case 'Production/Staging':
-			$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 0;
-			$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '192.168.1.*';
-			break;
-		default:
-			$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 0;
-			$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '127.0.0.1';
-	}
+   switch (\TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()) {
+      case 'Development':
+         $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 1;
+         $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '*';
+         break;
+      case 'Production/Staging':
+         $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 0;
+         $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '192.168.1.*';
+         break;
+      default:
+         $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 0;
+         $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '127.0.0.1';
+   }

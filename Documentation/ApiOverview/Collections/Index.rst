@@ -115,25 +115,25 @@ usage of collections. Here is what happens in the controller:
 .. code-block:: php
    :emphasize-lines: 13-15
 
-	/**
-	 * Renders the list of all existing collections and their content
-	 *
-	 * @return void
-	 */
-	public function indexAction() {
-		// Get all existing collections
-		/** @var \TYPO3\CMS\Core\Collection\AbstractRecordCollection $collections */
-		$collections = $this->collectionRepository->findAll();
+   /**
+    * Renders the list of all existing collections and their content
+    *
+    * @return void
+    */
+   public function indexAction() {
+      // Get all existing collections
+      /** @var \TYPO3\CMS\Core\Collection\AbstractRecordCollection $collections */
+      $collections = $this->collectionRepository->findAll();
 
-		// Load the records in each collection
-		/** @var \TYPO3\CMS\Core\Collection\StaticRecordCollection $aCollection */
-		foreach ($collections as $aCollection) {
-			$aCollection->loadContents();
-		}
+      // Load the records in each collection
+      /** @var \TYPO3\CMS\Core\Collection\StaticRecordCollection $aCollection */
+      foreach ($collections as $aCollection) {
+         $aCollection->loadContents();
+      }
 
-		// Assign the "loaded" collections to the view
-		$this->view->assign('collections', $collections);
-	}
+      // Assign the "loaded" collections to the view
+      $this->view->assign('collections', $collections);
+   }
 
 
 The base is code is quite simple: all collections are fetched and passed
@@ -146,20 +146,20 @@ record selection:
 
 .. code-block:: xml
 
-	<f:section name="main">
-		<ul>
-			<f:for each="{collections}" as="collection">
-				<li>
-					{collection.title} (Records from <code>{collection.itemTableName}</code>)
-					<ul>
-						<f:for each="{collection}" as="record">
-							<li>{record.title}</li>
-						</f:for>
-					</ul>
-				</li>
-			</f:for>
-		</ul>
-	</f:section>
+   <f:section name="main">
+      <ul>
+         <f:for each="{collections}" as="collection">
+            <li>
+               {collection.title} (Records from <code>{collection.itemTableName}</code>)
+               <ul>
+                  <f:for each="{collection}" as="record">
+                     <li>{record.title}</li>
+                  </f:for>
+               </ul>
+            </li>
+         </f:for>
+      </ul>
+   </f:section>
 
 Note that the above code is a bit rough as it assumes that each record
 has a "title" property. This may of course not be the case and proper

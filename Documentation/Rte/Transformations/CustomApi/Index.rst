@@ -66,67 +66,67 @@ content. When the content is stored in the database any :code:`<hr/>` tag at
 the end of the content will be removed and substituted with
 whitespace. ::
 
-	class RteTransformation {
-		/**
-		 * NOTE: must be public as it is accessed by \TYPO3\CMS\Core\Html\RteHtmlParser without API
-		 *
-		 * @var \TYPO3\CMS\Core\Html\RteHtmlParser
-		 */
-		public $pObj;
+   class RteTransformation {
+      /**
+       * NOTE: must be public as it is accessed by \TYPO3\CMS\Core\Html\RteHtmlParser without API
+       *
+       * @var \TYPO3\CMS\Core\Html\RteHtmlParser
+       */
+      public $pObj;
 
-		/**
-		 * NOTE: must be public as it is accessed by \TYPO3\CMS\Core\Html\RteHtmlParser without API
-		 *
-		 * @var string
-		 */
-		public $transformationKey = 'tx_examples_transformation';
+      /**
+       * NOTE: must be public as it is accessed by \TYPO3\CMS\Core\Html\RteHtmlParser without API
+       *
+       * @var string
+       */
+      public $transformationKey = 'tx_examples_transformation';
 
-		/**
-		 * @var array
-		 */
-		protected $configuration;
+      /**
+       * @var array
+       */
+      protected $configuration;
 
-		/**
-		 * Loads the transformation's configuration
-		 *
-		 * @return void
-		 */
-		protected function loadConfiguration() {
-			$this->configuration = $this->pObj->procOptions['usertrans.'][$this->transformationKey . '.'];
-		}
+      /**
+       * Loads the transformation's configuration
+       *
+       * @return void
+       */
+      protected function loadConfiguration() {
+         $this->configuration = $this->pObj->procOptions['usertrans.'][$this->transformationKey . '.'];
+      }
 
-		/**
-		 * Transforms RTE content prior to database storage
-		 *
-		 * @param string $value RTE HTML to clean for database storage
-		 * @return string
-		 */
-		public function transform_db($value) {
-			$this->loadConfiguration();
+      /**
+       * Transforms RTE content prior to database storage
+       *
+       * @param string $value RTE HTML to clean for database storage
+       * @return string
+       */
+      public function transform_db($value) {
+         $this->loadConfiguration();
 
-			if ($this->configuration['addHrulerInRTE'])    {
-				$value = preg_replace('/<hr[[:space:]]*[\/]>[[:space:]]*$/i', '', $value);
-			}
+         if ($this->configuration['addHrulerInRTE'])    {
+            $value = preg_replace('/<hr[[:space:]]*[\/]>[[:space:]]*$/i', '', $value);
+         }
 
-			return $value;
-		}
+         return $value;
+      }
 
-		/**
-		 * Transforms database content for RTE display
-		 *
-		 * @param string $value Database content to transform into RTE-ready HTML
-		 * @return string
-		 */
-		public function transform_rte($value) {
-			$this->loadConfiguration();
+      /**
+       * Transforms database content for RTE display
+       *
+       * @param string $value Database content to transform into RTE-ready HTML
+       * @return string
+       */
+      public function transform_rte($value) {
+         $this->loadConfiguration();
 
-			if ($this->configuration['addHrulerInRTE'])    {
-				$value .= '<hr/>';
-			}
+         if ($this->configuration['addHrulerInRTE'])    {
+            $value .= '<hr/>';
+         }
 
-			return $value;
-		}
-	}
+         return $value;
+      }
+   }
 
 
 - The transformation methods :code:`transform_rte` and :code:`transform_db` take
@@ -151,17 +151,17 @@ definition of the "poem" field of the "haiku" table from the "examples" extensio
 .. code-block:: php
    :emphasize-lines: 10,10
 
-	'poem' => array(
-		'exclude' => 0,
-		'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.poem',
-		'config' => array(
-			'type' => 'text',
-			'cols' => 40,
-			'rows' => 6,
-			'softref' => 'typolink_tag,images,email[subst],url',
-		),
-		'defaultExtras' => 'richtext[]:rte_transform[mode=tx_examples_transformation-ts_css]'
-	),
+   'poem' => array(
+      'exclude' => 0,
+      'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.poem',
+      'config' => array(
+         'type' => 'text',
+         'cols' => 40,
+         'rows' => 6,
+         'softref' => 'typolink_tag,images,email[subst],url',
+      ),
+      'defaultExtras' => 'richtext[]:rte_transform[mode=tx_examples_transformation-ts_css]'
+   ),
 
 The order is important. The order in this list is the order of calling
 when the direction is "db". The order is reversed on the way to the RTE.
@@ -182,7 +182,7 @@ and "css_styled_content" overrule any default processing (using the
 custom transformations, it must also be registered as an :code:`overruleMode`
 with the following :ref:`Page TSconfig <t3tsconfig:pagetsconfig>`::
 
-	RTE.config.tx_examples_haiku.poem.proc.overruleMode = tx_examples_transformation,ts_css
+   RTE.config.tx_examples_haiku.poem.proc.overruleMode = tx_examples_transformation,ts_css
 
 
 As a last step we must set the custom option (:code:`addHrulerInRTE`) that

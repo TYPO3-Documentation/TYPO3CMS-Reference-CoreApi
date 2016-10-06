@@ -73,27 +73,27 @@ The example below illustrates how this is done:
 
 .. code-block:: php
 
-	// Add an extra categories selection field to the pages table
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
-		'examples',
-		'pages',
-		// Do not use the default field name ("categories"), which is already used
-		'tx_examples_cats',
-		array(
-			// Set a custom label
-			'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:additional_categories',
-			// This field should not be an exclude-field
-			'exclude' => FALSE,
-			// Override generic configuration, e.g. sort by title rather than by sorting
-			'fieldConfiguration' => array(
-				'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC',
-			),
-			// string (keyword), see TCA reference for details
-			'l10n_mode' => 'exclude',
-			// list of keywords, see TCA reference for details
-			'l10n_display' => 'hideDiff',
-		)
-	);
+   // Add an extra categories selection field to the pages table
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
+      'examples',
+      'pages',
+      // Do not use the default field name ("categories"), which is already used
+      'tx_examples_cats',
+      array(
+         // Set a custom label
+         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:additional_categories',
+         // This field should not be an exclude-field
+         'exclude' => FALSE,
+         // Override generic configuration, e.g. sort by title rather than by sorting
+         'fieldConfiguration' => array(
+            'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC',
+         ),
+         // string (keyword), see TCA reference for details
+         'l10n_mode' => 'exclude',
+         // list of keywords, see TCA reference for details
+         'l10n_display' => 'hideDiff',
+      )
+   );
 
 The above code will add a categories field to the "pages" table,
 which will be called :code:`tx_examples_cats`. The :code:`fieldConfiguration`
@@ -129,34 +129,34 @@ The code will look something like:
 
 .. code-block:: xml
 
-	<settings.categoriesList>
-		<TCEforms>
-		<exclude>1</exclude>
-		<label>Categories:</label>
-		<config>
-			<type>select</type>
-			<autoSizeMax>50</autoSizeMax>
-			<foreign_table>sys_category</foreign_table>
-			<foreign_table_where> AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.sorting ASC</foreign_table_where>
-			<MM>sys_category_record_mm</MM>
-			<MM_opposite_field>items</MM_opposite_field>
-			<MM_match_fields>
-				<tablenames>tt_content</tablenames>
-				<fieldname>tx_myextension_categories</fieldname>
-			</MM_match_fields>
-			<maxitems>9999</maxitems>
-			<renderMode>tree</renderMode>
-			<size>10</size>
-			<treeConfig>
-				<appearance>
-					<expandAll>1</expandAll>
-					<showHeader>1</showHeader>
-				</appearance>
-				<parentField>parent</parentField>
-			</treeConfig>
-		</config>
-		</TCEforms>
-	</settings.categoriesList>
+   <settings.categoriesList>
+      <TCEforms>
+      <exclude>1</exclude>
+      <label>Categories:</label>
+      <config>
+         <type>select</type>
+         <autoSizeMax>50</autoSizeMax>
+         <foreign_table>sys_category</foreign_table>
+         <foreign_table_where> AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.sorting ASC</foreign_table_where>
+         <MM>sys_category_record_mm</MM>
+         <MM_opposite_field>items</MM_opposite_field>
+         <MM_match_fields>
+            <tablenames>tt_content</tablenames>
+            <fieldname>tx_myextension_categories</fieldname>
+         </MM_match_fields>
+         <maxitems>9999</maxitems>
+         <renderMode>tree</renderMode>
+         <size>10</size>
+         <treeConfig>
+            <appearance>
+               <expandAll>1</expandAll>
+               <showHeader>1</showHeader>
+            </appearance>
+            <parentField>parent</parentField>
+         </treeConfig>
+      </config>
+      </TCEforms>
+   </settings.categoriesList>
 
 Properties :code:`tablenames` and :code:`fieldname` would need
 to be adjusted.
@@ -195,23 +195,23 @@ Here is an example usage, taken from the RECORDS content object:
 
 .. code-block:: php
 
-	$collection = \TYPO3\CMS\Frontend\Category\Collection\CategoryCollection::load(
-		$aCategory,
-		TRUE,
-		$table,
-		$relationField
-	);
-	if ($collection->count() > 0) {
-		// Add items to the collection of records for the current table
-		foreach ($collection as $item) {
-			$tableRecords[$item['uid']] = $item;
-			// Keep track of all categories a given item belongs to
-			if (!isset($categoriesPerRecord[$item['uid']])) {
-				$categoriesPerRecord[$item['uid']] = array();
-			}
-			$categoriesPerRecord[$item['uid']][] = $aCategory;
-		}
-	}
+   $collection = \TYPO3\CMS\Frontend\Category\Collection\CategoryCollection::load(
+      $aCategory,
+      TRUE,
+      $table,
+      $relationField
+   );
+   if ($collection->count() > 0) {
+      // Add items to the collection of records for the current table
+      foreach ($collection as $item) {
+         $tableRecords[$item['uid']] = $item;
+         // Keep track of all categories a given item belongs to
+         if (!isset($categoriesPerRecord[$item['uid']])) {
+            $categoriesPerRecord[$item['uid']] = array();
+         }
+         $categoriesPerRecord[$item['uid']][] = $aCategory;
+      }
+   }
 
 As all collection classes in the TYPO3 CMS Core implement the
 Iterator interface, it is also possible to use expected methods like

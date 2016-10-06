@@ -58,7 +58,7 @@ In Database
 This is how the content in the database could look for a hybrid mode
 (such as :code:`css_transform`):
 
-.. code-block:: xml
+.. code-block:: html
    :linenos:
 
    This is line number 1 with a <link 123>link</link> inside

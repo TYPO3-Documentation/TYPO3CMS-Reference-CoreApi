@@ -216,7 +216,7 @@ Please take time to learn these functions!
                 $directories = \TYPO3\CMS\Core\Utility\GeneralUtility::get_dirs($path);
                 if (is_array($directories))    {
                     foreach($directories as $dirName)    {
-                        ...
+                        // ...
                     }
                 }
             }
@@ -373,21 +373,22 @@ Please take time to learn these functions!
          :code:`getRecord`
 
          :code:`getRecordsByField`
+
    :Comments:
          Functions for selecting records by uid or field value.
 
          :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::getRecord()` - Gets record with :code:`uid=$uid` from :code:`$table` ::
 
-              // Getting array with title field from a page:
-			\TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('pages', intval($row['shortcut']), 'title');
+                 // Getting array with title field from a page:
+            \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('pages', intval($row['shortcut']), 'title');
 
-              // Getting a full record with permission WHERE clause
-            $pageinfo = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord(
-                    'pages',
-                    $id,
-                    '*',
-                    ($perms_clause ? ' AND ' . $perms_clause : '')
-                );
+                 // Getting a full record with permission WHERE clause
+               $pageinfo = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord(
+                       'pages',
+                       $id,
+                       '*',
+                       ($perms_clause ? ' AND ' . $perms_clause : '')
+                   );
 
          :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::getRecordsByField()` - Returns records from table,
          :code:`$theTable`, where a field ($theField) equals the value, $theValue ::
@@ -586,14 +587,14 @@ Please take time to learn these functions!
 
          .. code-block:: php
 
-			// tt_address modified
-			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
-				'tt_address',
-				array(
-					'module_sys_dmail_category' => array('config' => array('type' => 'passthrough')),
-					'module_sys_dmail_html' => array('config' => array('type' => 'passthrough'))
-				)
-			);
+            // tt_address modified
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
+               'tt_address',
+               array(
+                  'module_sys_dmail_category' => array('config' => array('type' => 'passthrough')),
+                  'module_sys_dmail_html' => array('config' => array('type' => 'passthrough'))
+               )
+            );
 
 
  - :Function:
@@ -606,10 +607,10 @@ Please take time to learn these functions!
 
          .. code-block:: php
 
-			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-				'fe_users',
-				'tx_myext_newfield;;;;1-1-1, tx_myext_another_field'
-			);
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+               'fe_users',
+               'tx_myext_newfield;;;;1-1-1, tx_myext_another_field'
+            );
 
 
  - :Function:
@@ -622,7 +623,7 @@ Please take time to learn these functions!
 
          .. code-block:: php
 
-			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tt_board');
+         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tt_board');
 
 
  - :Function:
@@ -638,19 +639,19 @@ Please take time to learn these functions!
 
          .. code-block:: php
 
-			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
-				'user',
-				'setup',
-				'after:task',
-				\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'mod/'
-			);
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
+               'user',
+               'setup',
+               'after:task',
+               \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'mod/'
+            );
 
-			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
-				'tools',
-				'txcoreunittestM1',
-				'',
-				\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'mod1/'
-			);
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
+               'tools',
+               'txcoreunittestM1',
+               '',
+               \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'mod1/'
+            );
 
 
  - :Function:
@@ -663,13 +664,13 @@ Please take time to learn these functions!
 
          .. code-block:: php
 
-			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::insertModuleFunction(
-				'web_func',
-				'tx_cmsplaintextimport_webfunc',
-				\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) .
-					'class.tx_cmsplaintextimport_webfunc.php',
-				'LLL:EXT:cms_plaintext_import/locallang.xlf:menu_1'
-			);
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::insertModuleFunction(
+               'web_func',
+               'tx_cmsplaintextimport_webfunc',
+               \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) .
+                  'class.tx_cmsplaintextimport_webfunc.php',
+               'LLL:EXT:cms_plaintext_import/locallang.xlf:menu_1'
+            );
 
 
  - :Function:
@@ -686,13 +687,13 @@ Please take time to learn these functions!
 
          .. code-block:: php
 
-			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-				array(
-					'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
-					$_EXTKEY . '_pi1'
-				),
-				'list_type'
-			);
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
+               array(
+                  'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
+                  $_EXTKEY . '_pi1'
+               ),
+               'list_type'
+            );
 
 
  - :Function:
@@ -712,7 +713,7 @@ Please take time to learn these functions!
 
          .. code-block:: php
 
-			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43($_EXTKEY);
+         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43($_EXTKEY);
 
 
 
@@ -732,4 +733,4 @@ Please take time to learn these functions!
 
          .. code-block:: php
 
-			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile('extension_name', 'Configuration/PageTS/myPageTSconfigFile.txt', 'My special config');
+         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile('extension_name', 'Configuration/PageTS/myPageTSconfigFile.txt', 'My special config');
