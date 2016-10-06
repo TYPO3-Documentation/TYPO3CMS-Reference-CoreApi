@@ -13,6 +13,13 @@ or to `->fetchAll()` of them. Additionally, it can also be used to execute a sin
 statement with different values multiple times. This part is however not widely used within
 the `TYPO3 CMS` core yet, and thus not fully documented here.
 
+.. note::
+
+    The name "Statement" instead of "Result" can be puzzling at first glance: The class
+    represents a *prepared statement* that can be executed multiple times with different
+    values and then returns multiple different result sets. From this point of view
+    "Statement" fits much better than "Result".
+
 
 fetch()
 ^^^^^^^

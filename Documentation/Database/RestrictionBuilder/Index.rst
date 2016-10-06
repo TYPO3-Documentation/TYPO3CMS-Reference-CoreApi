@@ -20,10 +20,10 @@ well as language and workspace overlays. See the
 for details on this topic.
 
 These mechanics however come with a price tag attached to it: Extension developers
-dealing with low-level query stuff must take care that overlayed or deleted rows
-are not added to the result set.
+dealing with low-level query stuff must take care overlayed or deleted rows
+are not in the result set of a casual query.
 
-This is where the "automatic restriction" stuff kicks in: The construct is created
+This is where this "automatic restriction" stuff kicks in: The construct is created
 on top of native `doctrine-dbal` as `TYPO3 CMS` specific extension. It automatically
 adds `WHERE` expressions that suppress rows which are marked as deleted or exceeded
 their "active" life cycle. All that is based on the `TCA` configuration of the affected table.
