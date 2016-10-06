@@ -24,6 +24,10 @@ standard format for translations.
   Note that having several :code:`<file>` elements in the same XLIFF document is not
   supported by the TYPO3 CMS Core.
 
+  Keep in mind that the default language is always considered to be english,
+  even when you have changed your typo3 backend to another language, so
+  source-language must always be `source-language="en"`.
+
 
 .. _xliff-basics:
 
@@ -51,8 +55,9 @@ Here is a sample XLIFF file:
 
 The translated file is very similar. If the original file was named
 :file:`locallang.xlf`, the translated file for German (code "de") will
-be named :file:`de.locallang.xlf`. Inside the file itself, a
-:code:`<target-language>` attribute is added in the :code:`<file>` tag to
+be named :file:`de.locallang.xlf`. Note that the original file must always be in english,
+so it is not allowed to create a file with the prefix "en" e.g. :file:`en.locallang.xlf`.
+Inside the file itself, a :code:`<target-language>` attribute is added in the :code:`<file>` tag to
 indicate the translation language ("de" in our example). Then for each
 :code:`<source>` tag there's a sibling :code:`<target>` tag containing the
 translated string.
