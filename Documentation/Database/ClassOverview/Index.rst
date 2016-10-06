@@ -34,3 +34,6 @@ specific features. Extension authors will typically interact with these classes 
 * `Doctrine\DBAL\Driver\Statement`: :ref:`Result object <database-statement>` retrieved if a `SELECT`
   or `COUNT` query has been executed. Single rows are returned as array by calling `->fetch()` until
   the method returns `false`.
+
+* `TYPO3\CMS\Core\Database\Query\QueryHelper`: :ref:`Set of static helper methods <database-query-helper>`
+  that can simplify the transition from old `TYPO3_DB` based code to the doctrine base API.

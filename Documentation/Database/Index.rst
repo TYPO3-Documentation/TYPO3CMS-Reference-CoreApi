@@ -65,5 +65,6 @@ engines for different tables while this is transparent for extension developers.
    ExpressionBuilder/Index
    RestrictionBuilder/Index
    Statement/Index
+   QueryHelper/Index
    Migration/Index
    TipsAndTricks/Index
