@@ -138,7 +138,7 @@ JavaScript is included by default, so just using:
 .. code-block:: xml
 
    <f:be.container>
-      ...
+      // ...
    </f:be.container>
 
 in your Layout is sufficient (see :file:`typo3/sysext/beuser/Resources/Private/Layouts/Default.html`).

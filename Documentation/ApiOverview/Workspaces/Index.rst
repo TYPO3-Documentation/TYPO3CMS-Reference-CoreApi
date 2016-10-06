@@ -134,10 +134,13 @@ Frontend implementation guidelines
 
             $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(...);
             while (($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
-                    $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
+               $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
 
-                    if (is_array($row)) {
-            ...
+               if (is_array($row)) {
+                  // ...
+               }
+               // ...
+            }
 
          When the live record is selected, call :code:`->versionOL()` and make sure to
          check if the input row (passed by reference) is still an array.

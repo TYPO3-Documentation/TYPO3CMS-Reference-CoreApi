@@ -155,7 +155,7 @@ real documentation is found in the source scripts (and the
 
             // If the path is true and validates as a valid path string
             if ($path && \TYPO3\CMS\Core\Utility\GeneralUtility::validPathStr($path)) {
-               ...
+               // ...
             }
 
          :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::isAbsPath()` - Checks if the input path is absolute or
@@ -521,7 +521,7 @@ real documentation is found in the source scripts (and the
                \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('indexed_search', TRUE);
             }
             catch (BadFunctionCallException $e) {
-               ...
+               // ...
             }
 
                   // Assign value "popup" if extension "tsconfig_help" is loaded
@@ -627,7 +627,7 @@ This class is always accessed via its global instance :code:`$GLOBALS['BE_USER']
          is "admin"::
 
             if ($GLOBALS['BE_USER']->isAdmin()) {
-               ...
+               // ...
             }
 
 

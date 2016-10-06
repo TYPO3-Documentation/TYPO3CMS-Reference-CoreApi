@@ -22,13 +22,13 @@ This is the default array as set in :file:`EXT:core/ext_tables.php`::
     ),
     (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SHORTCUT => array(
     ),
-    ...
+    // ...
     //  Doktype 254 is a 'Folder' - a general purpose storage folder for whatever you like. In CMS context it's NOT a viewable page. Can contain any element.
-    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SYSFOLDER => array( 
+    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SYSFOLDER => array(
         'type' => 'sys',
         'allowedTables' => '*'
     ),
-    ...
+    // ...
     'default' => array(
         'type' => 'web',
         'allowedTables' => 'pages',

@@ -252,7 +252,7 @@ of FlexForms can be found in the :ref:`relevant section of the TCA reference <t3
                         </config>
                      </TCEforms>
                   </showPermaLogin>
-                  ...
+                  // ...
                </el>
             </ROOT>
          </sDEF>
@@ -277,7 +277,7 @@ of FlexForms can be found in the :ref:`relevant section of the TCA reference <t3
                                  <numIndex index="0">LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode.I.1</numIndex>
                                  <numIndex index="1">userLogin</numIndex>
                               </numIndex>
-                              ...
+                              // ...
                            </items>
                            <size>8</size>
                            <minitems>0</minitems>
@@ -289,7 +289,7 @@ of FlexForms can be found in the :ref:`relevant section of the TCA reference <t3
             </ROOT>
          </s_redirect>
          <s_messages>
-            ...
+            // ...
          </s_messages>
       </sheets>
    </T3DataStructure>

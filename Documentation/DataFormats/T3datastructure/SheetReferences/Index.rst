@@ -72,7 +72,7 @@ Main Data Structure:
                   </config>
                </TCEforms>
             </showPermaLogin>
-            ...
+            // ...
          </el>
       </ROOT>
    </T3DataStructure>

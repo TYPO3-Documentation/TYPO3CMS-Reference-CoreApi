@@ -160,6 +160,6 @@ Example taken from the Extension Manager's code::
     * @return array
     */
    public function saveExtensionConfiguration($parameter) {
-    ...
+    // ...
    }
 

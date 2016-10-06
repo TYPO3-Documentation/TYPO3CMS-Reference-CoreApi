@@ -71,7 +71,7 @@ Here is a sample:
                 displayCondition = canBeViewed != 0
                 callbackAction = viewPage
              }
-             ...
+             // ...
           }
        }
 
@@ -79,8 +79,7 @@ Here is a sample:
           disableItems =
 
           items {
-             ...
-
+             // ...
              700 = ITEM
              700 {
                 name = history
@@ -104,9 +103,9 @@ Here is a sample:
                    displayCondition = canCreateNewPages != 0
                    callbackAction = newPageWizard
                 }
-                ...
+                // ...
              }
-             ...
+             // ...
           }
        }
     }

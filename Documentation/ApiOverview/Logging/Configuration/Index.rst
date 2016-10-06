@@ -72,7 +72,7 @@ For extension "foo" with key "tx_foo" (not using namespaces), the configuration 
 .. code-block:: php
 
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['Tx']['Foo']['writerConfiguration'] = array(
-      ...
+      // ...
    );
 
 An arbitrary number of writers can be added for every severity level (INFO, WARNING, ERROR, ...).

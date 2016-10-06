@@ -216,7 +216,7 @@ Please take time to learn these functions!
                 $directories = \TYPO3\CMS\Core\Utility\GeneralUtility::get_dirs($path);
                 if (is_array($directories))    {
                     foreach($directories as $dirName)    {
-                        ...
+                        // ...
                     }
                 }
             }
