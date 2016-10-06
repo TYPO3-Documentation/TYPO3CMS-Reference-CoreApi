@@ -831,6 +831,8 @@ Remarks:
   'public` and thus exposed as `API` method, this is mostly useful internally only.
 
 
+.. _database-query-builder-escape-like-wildcards:
+
 escapeLikeWildcards()
 ^^^^^^^^^^^^^^^^^^^^^
 
