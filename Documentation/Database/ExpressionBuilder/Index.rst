@@ -56,13 +56,26 @@ Junctions
 
 Combine multiple single expressions with `AND` or `OR`. Nesting is possible, both methods are variadic and
 take any number of argument which are all combined. It usually doesn't make much sense to hand over
-zero or only one argument, though:
+zero or only one argument, though.
+
+A core example to find a sys_domain record:
 
 .. code-block:: php
 
+    // WHERE
+    //     (`sys_domain`.`pid` = `pages`.`uid`)
+    //     AND (
+    //        (`sys_domain`.`domainName` = 'example.com')
+    //        OR
+    //        (`sys_domain`.`domainName` = 'example.com/')
+    //     )
     $queryBuilder->where(
-        
-    );
+        $queryBuilder->expr()->eq('sys_domain.pid', $queryBuilder->createNamedParameter('pages.uid', \PDO::PARAM_INT)),
+        $queryBuilder->expr()->orX(
+            $queryBuilder->expr()->eq('sys_domain.domainName', $queryBuilder->createNamedParameter($domain)),
+            $queryBuilder->expr()->eq('sys_domain.domainName', $queryBuilder->createNamedParameter($domain . '/'))
+        )
+    )
 
 
 Comparisons
