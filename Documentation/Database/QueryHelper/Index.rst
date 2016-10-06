@@ -32,8 +32,8 @@ The migration benefits are the only reason the methods are documented here.
     Keep a special eye on those scenarios!
 
 
-parseOrderBy
-^^^^^^^^^^^^
+parseOrderBy()
+^^^^^^^^^^^^^^
 
 Some parts of the core framework allow string definitions like `ORDER BY sorting` for instance
 in `TCA` and `TypoScript`. The method rips those strings apart and prepares them to be fed
@@ -51,8 +51,8 @@ to `QueryBuilder->orderBy()`:
     }
 
 
-parseGroupBy
-^^^^^^^^^^^^
+parseGroupBy()
+^^^^^^^^^^^^^^
 
 Parses `GROUP BY` strings ready to be added via `QueryBuilder->groupBy()`, similar to `->parseOrderBy()`:
 
@@ -65,8 +65,8 @@ Parses `GROUP BY` strings ready to be added via `QueryBuilder->groupBy()`, simil
     $queryBuilder->groupBy(QueryHelper::parseGroupBy($uglyGroupBy));
 
 
-parseTableList
-^^^^^^^^^^^^^^
+parseTableList()
+^^^^^^^^^^^^^^^^
 
 Parse a table list, possibly prefixed with FROM, and explode it into and array of arrays where
 each item consists of a tableName and an optional alias name, ready to be put into `QueryBuilder->from()`:
@@ -83,8 +83,8 @@ each item consists of a tableName and an optional alias name, ready to be put in
     }
 
 
-parseJoin
-^^^^^^^^^
+parseJoin()
+^^^^^^^^^^^
 
 Split a JOIN SQL fragment into table name, alias and join conditions:
 
@@ -107,8 +107,8 @@ Split a JOIN SQL fragment into table name, alias and join conditions:
     );
 
 
-stripLogicalOperatorPrefix
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+stripLogicalOperatorPrefix()
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Removes the prefixes `AND` / `OR` from an input string.
 
@@ -129,8 +129,8 @@ helps by killing those prefixes before they are hand over to the `doctrine` API.
     );
 
 
-getDateTimeFormats
-^^^^^^^^^^^^^^^^^^
+getDateTimeFormats()
+^^^^^^^^^^^^^^^^^^^^
 
 Just a left over method from the old `TYPO3_DB` `DatabaseConnection` class. Of little to no use
 for extension authors. This one is hopefully one of the first methods that vanishes from the class.
