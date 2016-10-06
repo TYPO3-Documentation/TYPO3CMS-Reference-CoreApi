@@ -47,15 +47,16 @@ published or for creating :ref:`custom translations <xliff-translating-custom>`.
 Custom translations
 ^^^^^^^^^^^^^^^^^^^
 
-The `$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` allows to
+The :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` allows to
 override both locallang-XML and XLIFF files. Actually this is not just about translations.
 Default language files can also be overridden. In the case of XLIFF files, the
 syntax is as follows (to be placed in an extension's :file:`ext_localconf.php` file):
 
 .. code-block:: php
 
-	$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/custom.xlf';
-	$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/de.custom.xlf';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/custom.xlf';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:news/Resources/Private/Language/locallang_modadministration.xlf'][] = 'EXT:examples/Resources/Private/Language/Overrides/de.locallang_modadministration.xlf';
+
 
 The first line shows how to override a file in the default language,
 the second how to override a German ("de") translation. The German language file
@@ -65,15 +66,15 @@ looks like this:
 
    <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
    <xliff version="1.0">
-   	<file source-language="en" datatype="plaintext" original="messages" date="2013-03-09T18:44:59Z" product-name="examples">
-   		<header/>
-   		<body>
-   			<trans-unit id="pages.title_formlabel" xml:space="preserve">
-   				<source>Most important tile</source>
-   				<target>Wichtigster Titel</target>
-   			</trans-unit>
-   		</body>
-   	</file>
+      <file source-language="en" datatype="plaintext" original="messages" date="2013-03-09T18:44:59Z" product-name="examples">
+         <header/>
+         <body>
+            <trans-unit id="pages.title_formlabel" xml:space="preserve">
+               <source>Most important tile</source>
+               <target>Wichtigster Titel</target>
+            </trans-unit>
+         </body>
+      </file>
    </xliff>
 
 
@@ -89,7 +90,7 @@ and the result can be easily seen in the backend:
 
    - Please note that you do not have to copy the full reference file, but only the labels you want to translate.
 
-   - The path to the file to override must be expressed as `EXT:foo/bar/...`. For the
+   - The path to the file to override must be expressed as:file:`EXT:foo/bar/...`. For the
      extension "xlf" or "xml" can be used interchangeably. The TYPO3 Core will try both anyway,
      but using "xlf" is more correct and future-proof.
 
@@ -100,8 +101,8 @@ and the result can be easily seen in the backend:
    - The files containing the custom labels must be located inside an extension. Other locations
      will not be considered.
 
-   - The original translation needs to exist in `typo3temp/l10n/` or next to the base
-     translation file in extensions, for example in `typo3conf/ext/myext/Resources/Private/Language/`.
+   - The original translation needs to exist in:file:`typo3temp/l10n/` or next to the base
+     translation file in extensions, for example in:file:`typo3conf/ext/myext/Resources/Private/Language/`.
 
 
 .. _xliff-translating-languages:
@@ -179,35 +180,35 @@ extension's :file:`ext_localconf.php` file:
 
 .. code-block:: php
 
-	$signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\SignalSlot\\Dispatcher');
+   $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\SignalSlot\\Dispatcher');
 
-	$signalSlotDispatcher->connect(
-		version_compare(TYPO3_version, '7.0', '<')
-			? 'TYPO3\\CMS\\Lang\\Service\\UpdateTranslationService'
-			: 'TYPO3\\CMS\\Lang\\Service\\TranslationService',
-		'postProcessMirrorUrl',
-		'Company\\Extension\Slots\\CustomMirror',
-		'postProcessMirrorUrl'
-	);
+   $signalSlotDispatcher->connect(
+      version_compare(TYPO3_version, '7.0', '<')
+         ? 'TYPO3\\CMS\\Lang\\Service\\UpdateTranslationService'
+         : 'TYPO3\\CMS\\Lang\\Service\\TranslationService',
+      'postProcessMirrorUrl',
+      'Company\\Extension\Slots\\CustomMirror',
+      'postProcessMirrorUrl'
+   );
 
 The class (slot) which receives the signal (:file:`EXT:myext/Classes/Slots/CustomMirror.php`)
 could look something like:
 
 .. code-block:: php
 
-	<?php
-	namespace Company\Extensions\Slots;
-	class CustomMirror {
+   <?php
+   namespace Company\Extensions\Slots;
+   class CustomMirror {
 
-		/** @var string */
-		static protected $extKey = 'myext';
+      /** @var string */
+      static protected $extKey = 'myext';
 
-		public function postProcessMirrorUrl($extensionKey, &$mirrorUrl) {
-			if ($extensionKey === self::$extKey) {
-				$mirrorUrl = 'http://mycompany.tld/typo3-packages/';
-			}
-		}
-	}
+      public function postProcessMirrorUrl($extensionKey, &$mirrorUrl) {
+         if ($extensionKey === self::$extKey) {
+            $mirrorUrl = 'http://mycompany.tld/typo3-packages/';
+         }
+      }
+   }
 
 Note that the mirror URL is passed as a reference, so that it can be
 modified. In the above example, the URL is changed only for a given
@@ -217,47 +218,47 @@ On the custom translation server side, the structure needs to be:
 
 .. code-block:: text
 
-	https://mycompany.tld/typo3-packages/
-	`-- <first-letter-of-extension-key>
-		`-- <second-letter-of-extension-key>
-			`-- <extension-key>-l10n
-				|-- <extension-key>-l10n-de.zip
-				|-- <extension-key>-l10n-fr.zip
-				|-- <extension-key>-l10n-it.zip
-				`-- <extension-key>-l10n.xml
+   https://mycompany.tld/typo3-packages/
+   `-- <first-letter-of-extension-key>
+      `-- <second-letter-of-extension-key>
+         `-- <extension-key>-l10n
+            |-- <extension-key>-l10n-de.zip
+            |-- <extension-key>-l10n-fr.zip
+            |-- <extension-key>-l10n-it.zip
+            `-- <extension-key>-l10n.xml
 
 hence in our example:
 
 .. code-block:: text
 
-	https://mycompany.tld/typo3-packages/
-	`-- m
-		`-- y
-			`-- myext-l10n
-				|-- myext-l10n-de.zip
-				|-- myext-l10n-fr.zip
-				|-- myext-l10n-it.zip
-				`-- myext-l10n.xml
+   https://mycompany.tld/typo3-packages/
+   `-- m
+      `-- y
+         `-- myext-l10n
+            |-- myext-l10n-de.zip
+            |-- myext-l10n-fr.zip
+            |-- myext-l10n-it.zip
+            `-- myext-l10n.xml
 
 And the :file:`myext-l10n.xml` file contains something like:
 
 .. code-block:: xml
 
-	<?xml version="1.0" standalone="yes" ?>
-	<TERlanguagePackIndex>
-		<meta>
-			<timestamp>1374841386</timestamp>
-			<date>2013-07-26 14:23:06</date>
-		</meta>
-		<languagePackIndex>
-			<languagepack language="de">
-				<md5>1cc7046c3b624ba1fb1ef565343b84a1</md5>
-			</languagepack>
-			<languagepack language="fr">
-				<md5>f00f73ae5c43cb68392e6c508b65de7a</md5>
-			</languagepack>
-			<languagepack language="it">
-				<md5>cd59530ce1ee0a38e6309544be6bcb3d</md5>
-			</languagepack>
-		</languagePackIndex>
-	</TERlanguagePackIndex>
+   <?xml version="1.0" standalone="yes" ?>
+   <TERlanguagePackIndex>
+      <meta>
+         <timestamp>1374841386</timestamp>
+         <date>2013-07-26 14:23:06</date>
+      </meta>
+      <languagePackIndex>
+         <languagepack language="de">
+            <md5>1cc7046c3b624ba1fb1ef565343b84a1</md5>
+         </languagepack>
+         <languagepack language="fr">
+            <md5>f00f73ae5c43cb68392e6c508b65de7a</md5>
+         </languagepack>
+         <languagepack language="it">
+            <md5>cd59530ce1ee0a38e6309544be6bcb3d</md5>
+         </languagepack>
+      </languagePackIndex>
+   </TERlanguagePackIndex>
