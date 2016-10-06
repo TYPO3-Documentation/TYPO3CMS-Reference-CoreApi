@@ -123,8 +123,8 @@ Remarks:
   up in SQL injections!**
 
 * `->like()` and `->notLike()` values **must** be **additionally** quoted with a call to
-  :ref:`$queryBuilder->escapeLikeWildcards('klaus') <database-query-builder-escape-like-wildcards>` to remove
-  the special meaning of `%` sign from $value.
+  :ref:`$queryBuilder->escapeLikeWildcards($value) <database-query-builder-escape-like-wildcards>` to
+  suppress the special meaning of `%` characters from `$value`.
 
 
 Examples:

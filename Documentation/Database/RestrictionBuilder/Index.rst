@@ -39,7 +39,7 @@ construct implements some important design goals:
 * Simple: Query creation should be easy to use without forcing a developer thinking
   too much about those nasty `TCA` details.
 
-* Developers laziness: If the framework would force a developer to always add casual
+* Developer laziness: If the framework would force a developer to always add casual
   restrictions for each and every query, this is easy to forget. We're all lazy, are we?
 
 * Security: If in doubt, it is better to show a little too less than too much. It is
