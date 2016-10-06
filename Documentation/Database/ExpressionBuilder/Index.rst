@@ -140,7 +140,7 @@ Examples:
     // `aTableAlias`.`bodytext` = 'foo'
     ->eq('aTableAlias.bodytext', $queryBuilder->createNamedParameter('foo'))
 
-    // `uid` = 42 (integer comparison)
+    // `uid` = 42 - integer comparison
     ->eq('uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
 
     // `uid` >= 42
@@ -177,8 +177,8 @@ Examples:
     )
 
 
-Calculations
-^^^^^^^^^^^^
+Aggregate functions
+^^^^^^^^^^^^^^^^^^^
 
 Aggregate functions used in `SELECT` parts, often combined with `GROUP BY`. First argument is
 the field name (or table name / alias with field name), second argument an optional alias.

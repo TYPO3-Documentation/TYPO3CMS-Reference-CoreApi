@@ -617,6 +617,8 @@ Remarks:
   leave out the first n records". Internally, `LIMIT` will be added by `doctrine-dbal` and set to a very high value.
 
 
+.. _database-query-builder-get-sql:
+
 getSQL()
 ^^^^^^^^
 
