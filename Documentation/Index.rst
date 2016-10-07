@@ -74,6 +74,7 @@ address the task at hand.
 
    Introduction/Index
    Concepts/Index
+   Architecture/Index
    Administrators/Index
    Developers/Index
    Targets

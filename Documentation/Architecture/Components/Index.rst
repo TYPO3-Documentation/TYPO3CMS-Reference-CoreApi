@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: ../../Includes.txt
 
 
 .. _architecture-components:
@@ -177,3 +177,6 @@ The reasons why you can regard it as a separate layer are:
 .. [1] When retrieving a file through the FAL API, the Storage is currently always used.
        So there is no file without its Storage. The File object also relies on this. So
        it will require some future changes to get this working without Storage.
+
+
+Collections
