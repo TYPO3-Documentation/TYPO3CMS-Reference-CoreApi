@@ -13,11 +13,12 @@ About this document
 ^^^^^^^^^^^^^^^^^^^
 
 This document contains information about the File Abstraction Layer,
-which has been added to TYPO3 in version 6.0.
+which has been added to TYPO3 CMS in version 6.0.
 
 Additional information are available `in the wiki`_.
 
 .. _in the wiki: http://wiki.typo3.org/FAL
+
 
 .. _what-s-new:
 
@@ -33,7 +34,8 @@ Much is still missing.
 Credits
 ^^^^^^^
 
-This document was written by the FAL team.
+This document was written by the FAL Team and expanded by the
+Documentation Team based on many contributions by the community.
 
 
 .. _feedback:
@@ -46,7 +48,7 @@ to `documentation@typo3.org <mailto:documentation@typo3.org>`_ .
 
 If you find a bug in this manual, please file an issue in this
 manual's bug tracker:
-https://forge.typo3.org/projects/typo3cms-doc-file-abstraction-layer/issues
+https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-FileAbstractionLayer/issues
 
 Maintaining quality documentation is hard work and the Documentation
 Team is always looking for volunteers. If you feel like helping please
