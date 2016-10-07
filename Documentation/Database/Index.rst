@@ -25,14 +25,16 @@ specific connection objects per configured database connection based on the tabl
 that is queried. This enables instance administrators to configure different database
 engines for different tables while this is transparent for extension developers.
 
-.. note::
+`doctrine-dbal` has been introduced with TYPO3 CMS version 8 and substitutes the
+old API based on `$GLOBALS['TYPO3_DB']`. Extension authors are encouraged to switch
+away from TYPO3_DB to the new API. A :ref:`dedicated chapter <database-migration>` helps
+with typical migration questions. With database abstraction being built in `doctrine-dbal`
+the old and optional extensions `dbal` and `adodb` are obsolete.
 
-    `doctrine-dbal` has been introduced with TYPO3 CMS version 8 and substitutes the
-    old API based on `$GLOBALS['TYPO3_DB']`. Extension authors are encouraged to switch
-    away from TYPO3_DB to the new API. A dedicated chapter helps with typical migration
-    questions. With database abstraction being built in within `doctrine-dbal` the old and
-    optional extensions `dbal` and `adodb` are obsolete.
-
+This document does *not* outline each and every single method the API provides. It
+sticks to those that are commonly used in extensions and some parts like the rewritten
+schema migrator are left out since they are usually of little to no interest for
+extensions.
 
 .. note::
 
@@ -49,6 +51,15 @@ engines for different tables while this is transparent for extension developers.
     to use higher level API's like the :ref:`DataHandler <tce-database-basics>` or
     `extbase repositories <https://docs.typo3.org/typo3cms/ExtbaseFluidBook/2-BasicPrinciples/2-Domain-Driven-Design.html>`__
     and to let the framework handle persistence details internally.
+
+
+.. note::
+
+    Implementing the `doctrine-dbal` API into `TYPO3` has been a huge project in 2016.
+    Special thanks goes to awesome Mr. Morton Jonuschat for the initial design, integration
+    and support and to more than 40 different people who actively contributed to migrate
+    more than 1700 calls away from TYPO3_DB to doctrine in a half year. This was a huge
+    community achievement, thanks everyone involved!
 
 
 .. toctree::
