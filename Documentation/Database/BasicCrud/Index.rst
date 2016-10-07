@@ -65,7 +65,7 @@ and prepares a query executed with this final statement:
 
 .. code-block:: sql
 
-    SELECT `uid`, `pid`
+    SELECT `uid`, `pid`, `bodytext`
         FROM `tt_content`
         WHERE (`uid` = '4')
             AND ((`tt_content`.`deleted` = 0)
