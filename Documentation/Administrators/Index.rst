@@ -19,7 +19,6 @@ have a look at the
 .. toctree::
    :hidden:
 
-   BasicConcepts/Index
    Permissions/Index
    Upgrading/Index
 

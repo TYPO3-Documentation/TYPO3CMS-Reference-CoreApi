@@ -73,6 +73,7 @@ address the task at hand.
 .. toctree::
 
    Introduction/Index
+   Concepts/Index
    Administrators/Index
    Developers/Index
    Targets
