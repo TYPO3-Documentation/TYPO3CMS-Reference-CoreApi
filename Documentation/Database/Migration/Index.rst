@@ -22,7 +22,7 @@ and simple approach to verify this is to note down and compare the queries at th
 layer. In $GLOBALS['TYPO3_DB'], the final query statement is usually retrieved by removing the
 `exec_` part from the method name, in `doctrine` method `QueryBuilder->getSQL()` can be used:
 
-.. code-block:; php
+.. code-block:: php
 
     // Inital code:
     $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'index_fulltext', 'phash=' . (int)$phash);
