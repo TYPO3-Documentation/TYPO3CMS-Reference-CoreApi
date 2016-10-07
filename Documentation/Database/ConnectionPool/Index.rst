@@ -35,7 +35,7 @@ for instance quote field names accordingly.
 
 The transparency of tables to different database endpoints is limited, though:
 
-Executing a table JOIN between two tables that point to different connections will throw an exception.
+Executing a table `JOIN` between two tables that point to different connections will throw an exception.
 This restriction may in practice create implicit "groups" of tables that need to point to one connection
 at once if an extension or the TYPO3 core joins those tables.
 
