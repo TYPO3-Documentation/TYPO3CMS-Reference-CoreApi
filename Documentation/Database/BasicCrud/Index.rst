@@ -10,7 +10,11 @@ A list of basic usage examples of the query API. This is just a kickstart.
 Details on the single methods are found in the following chapters, especially
 :ref:`QueryBuilder <database-query-builder>` and :ref:`Connection <database-connection>`.
 
+.. note::
 
+    The examples use the shorthand syntax for class names. Please refer to :ref:`Class overview <database-class-overview>`       for the full namespace.
+    
+    
 INSERT a row
 ^^^^^^^^^^^^
 
