@@ -4,16 +4,15 @@
 .. _architecture-signals:
 
 Signals and slots
-"""""""""""""""""
+^^^^^^^^^^^^^^^^^
 
 FAL comes with a great many signals that offer the opportunity
 to hook into FAL processes at a variety of points.
 
-All signals are identified by constants of the
-:class:`\\TYPO3\\CMS\\Core\\Resource\\ResourceStorageInterface` interface.
-They are list below with some explanation, in particular when
+They are listed below with some explanation, in particular when
 they are sent (if the name is not explicit enough) and what
-parameters the corresponding slot will receive.
+parameters the corresponding slot will receive. They are grouped
+by emitting class.
 
 Most signals exist in pairs, one being sent **before** a given
 operation, the other one **after**.
@@ -25,6 +24,14 @@ operation, the other one **after**.
 
   "Folder" objects actually refer to the :class:`\\TYPO3\\CMS\\Core\\Resource\\Folder`
   class.
+
+.. _architecture-signals-resource-storage:
+
+\\TYPO3\\CMS\\Core\\Resource\\ResourceStorage
+"""""""""""""""""""""""""""""""""""""""""""""
+
+All signals are identified by constants of the
+:class:`\\TYPO3\\CMS\\Core\\Resource\\ResourceStorageInterface` interface.
 
 SIGNAL_SanitizeFileName
   The sanitize file name operation aims at removing characters from
@@ -138,3 +145,95 @@ SIGNAL_PreGeneratePublicUrl
   a boolean flag indicating whether the URL should be relative to the current
   script or absolute and a reference to the public URL (which is null at
   this point, but can be then modified by the slot).
+
+
+.. _architecture-signals-resource-factory:
+
+\\TYPO3\\CMS\\Core\\Resource\\ResourceFactory
+"""""""""""""""""""""""""""""""""""""""""""""
+
+The signal is identified by a constant of the
+:class:`\\TYPO3\\CMS\\Core\\Resource\\ResourceFactoryInterface`
+interface.
+
+SIGNAL_PostProcessStorage
+  This signal is emitted by method :code:`\TYPO3\CMS\Core\Resource\ResourceFactory::getStorageObject()`
+  after a Storage object has been fetched. The slot receives a reference
+  to the Storage.
+
+
+.. _architecture-signals-file-index-repository:
+
+\\TYPO3\\CMS\\Core\\Resource\\Index\\FileIndexRepository
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+recordCreated
+  Receives an array containing the information collected about the file
+  whose index (i.e. "sys\_file" table entry) was just created.
+
+recordUpdated
+  Receives an array containing the information collected about the file
+  whose index (i.e. "sys\_file" table entry) was just updated.
+
+recordDeleted
+  Receives the uid of the file (i.e. "sys\_file" table entry) which was deleted.
+
+recordMarkedAsMissing
+  Receives the uid of the file (i.e. "sys\_file" table entry) which was
+  marked as missing.
+
+
+.. _architecture-signals-metadata-repository:
+
+\\TYPO3\\CMS\\Core\\Resource\\Index\\MetaDataRepository
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+recordPostRetrieval
+  This signal is emitted after metadata has been retrieved for a given
+  file. The slot receives the metadata as an :class:`\\ArrayObject` instance.
+
+recordCreated
+  Receives an array containing the metadata collected about the file
+  just after it has been inserted into the "sys\_file\_metadata" table.
+
+recordUpdated
+  This signal is emitted after metadata for a given file has been
+  updated. The slot receives the metadata as an array containing all
+  metadata fields (and not just the updated ones).
+
+recordDeleted
+  Receives the uid of the file whose metadata has just been deleted.
+
+
+.. _architecture-signals-file-processing-service:
+
+\\TYPO3\\CMS\\Core\\Resource\\Service\\FileProcessingService
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+All signals are identified by constants of the
+:class:`\\TYPO3\\CMS\\Core\\Resource\\Service\\FileProcessingService`
+class.
+
+SIGNAL_PreFileProcess
+  This signal is emitted before a file is processed. The slot receives
+  a reference to the processed file and to the original file (both as
+  :class:`File` instances), a string defining the type of task being
+  executed and an array containing the configuration for that task.
+
+SIGNAL_PostFileProcess
+  This signal is emitted after a file has been processed. The slot receives
+  a reference to the processed file and to the original file (both as
+  :class:`File` instances), a string defining the type of task being
+  executed and an array containing the configuration for that task.
+
+.. note::
+
+   The Core defines two default processing task types. One is about
+   creating preview images (identified by constant
+   :code:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGEPREVIEW`),
+   the other about cropping and scaling an image, typically for frontend
+   output (identified by constant :code:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`).
+
+   The configuration for :code:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`
+   is the one used for the :ref:`imgResource function <t3tsref:imgresource>`,
+   but only taking the crop, scale and mask settings into account.
