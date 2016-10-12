@@ -14,5 +14,4 @@ architecture of FAL.
    Overview/Index
    Database/Index
    Components/Index
-   Api/Index
    Signals/Index

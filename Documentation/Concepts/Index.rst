@@ -71,3 +71,6 @@ use for this file just for this reference.
 This central reference table ("sys\_file\_reference") makes
 it easy to track every place where a file is used inside a
 TYPO3 CMS installation.
+
+All these elements are explored in greater depth in the chapter
+about :ref:`FAL components <architecture-components>`.

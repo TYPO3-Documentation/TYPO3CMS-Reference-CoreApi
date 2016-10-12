@@ -11,4 +11,5 @@ Contents:
 .. toctree::
 
    UsingFal/Index
+   Api/Index
 

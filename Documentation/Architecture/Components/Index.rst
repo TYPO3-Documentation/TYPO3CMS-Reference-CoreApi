@@ -4,148 +4,122 @@
 .. _architecture-components:
 
 Components
-""""""""""
+^^^^^^^^^^
 
 FAL consists of a number of components that interact with each other.
-Each component has a clear role in the architecture, something that is
-explained in detail in this section.
-
-When using the components in your own services, always keep the basic
-principles that we laid out earlier in mind -- e.g. do not call
-services from the storage/driver part.
+Each component has a clear role in the architecture, which is
+detailed in this section.
 
 
-.. _architecture-file-system:
-
-The (virtual) file system
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-TODO: explain file system, storage/drivers, references ...
-
-
-.. _architecture-files-folders:
+.. _architecture-components-files-folders:
 
 Files and Folders
-~~~~~~~~~~~~~~~~~
+"""""""""""""""""
 
-The Files and Folders are facades representing files and folders. They are tightly coupled
-with the Storage, which they use to actually perform any actions. For example
-a copying action (``$file->copyTo($targetFolder)``) is technically not implemented by the File
-object itself but in the storage and driver, the linchpin of the whole file abstraction layer. Apart from
-the shorthand methods to the action methods of the Storage, the Files and Folders are pretty
-lightweight objects with properties (and according getters and setters) for obtaining information
-about their respective file or folder on the file system such as name or size.
+The Files and Folders are facades representing files and folders
+or whatever equivalent there is in the system the Driver is connecting to
+(it could be categories from Digital Asset Management tool, for example).
+They are tightly coupled with the Storage, which they use to actually
+perform any actions. For example a copying action (:code:`$file->copyTo($targetFolder)`)
+is technically not implemented by the :class:`File` object itself but in the Storage
+and Driver.
 
-A File can be indexed, which makes it possible to reference the file from any database record in order
-to use it, but also speeds up obtaining cached information such as various metadata (when the
-Media Management extension is installed) or other file properties like size or the filename.
+Apart from the shorthand methods to the action methods of the Storage,
+the Files and Folders are pretty lightweight objects with properties
+(and related getters and setters) for obtaining information
+about their respective file or folder on the file system, such as name or size.
 
-Here are some examples of interacting with File, Folder and Storage objects. The following examples work
-regardless of the indexing state of the File, as we are working directly on the Storage layer here.
-
-Copying a file:
-
-.. code-block:: php
-
-   $storageUid = 17;
-   $someFileIdentifier = 'templates/images/banner.jpg';
-   $someFolderIdentifier = 'website/images/';
-
-   /** @var $storageRepository \TYPO3\CMS\Core\Ressource\StorageRepository */
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-       'TYPO3\\CMS\\Core\\Resource\\StorageRepository'
-   );
-
-   $storage = $storageRepository->findByUid($storageUid);
-   // $file returns a TYPO3\CMS\Core\Resource\File object
-   $file = $storage->getFile($someFileIdentifier);
-   // $folder returns a TYPO3\CMS\Core\Resource\File object
-   $folder = $storage->getFolder($someFolderIdentifier);
-
-   // returns the TYPO3\CMS\Core\Resource\File object of the new, copied file
-   $file->copyTo($folder);
+A File can be indexed, which makes it possible to reference the file
+from any database record in order to use it, but also speeds up obtaining
+cached information such as various metadata or other file properties like size or file name.
 
 
-.. _architecture-file-references:
+.. _architecture-components-file-references:
 
-File references
-```````````````
+File References
+"""""""""""""""
 
-The FileReference basically represents a usage of a file in a specific location,
-e.g. as an image attached to a tt_content record. A FileReference always references
-a real, underlying File (from the layer below), but can add context-specific
-information such as a caption text of an image when used at a specific location.
+A :class:`FileReference` basically represents a usage of a File in a specific location,
+e.g. as an image attached to a content element ("tt_content") record.
+A FileReference always references a real, underlying File,
+but can add context-specific information such as a caption text for an image
+when used at a specific location.
+
+In the database, each FileReference is represented by a record in the
+:ref:`sys_file_reference table <architecture-database-sys-file-reference>`.
+
+Creating a reference to a file requires the file to be indexed first,
+as the reference is done through the normal record relation handling of TYPO3 CMS.
+
+.. note::
+
+   Technically, the :class:`FileReference` implements the same interface as the :class:`File` itself.
+   So you have all the methods and properties of a File available in the FileReference
+   as well. This makes it possible to use both files and references to them.
+
+   Additionally, there is a property "originalFile" on the FileReference which
+   lets you get information about the underlying file (e.g.
+   :code:`$fileReference->getOriginalFile()->getName()`).
 
 
-.. _architecture-storage:
+
+.. _architecture-components-storage:
 
 Storage
-~~~~~~~
+"""""""
 
-The Storage is the focal point in the story. Even though it doesn't do the actual
-low-level actions on a file (that's up to the Driver), it still does the biggest part of the logic:
+The Storage is the focal point FAL architecture. Even though it doesn't do the actual
+low-level actions on a File (that's up to the Driver), it still does the largest part of the logic.
 
-More things done by the Storage layer:
+Among the many things done by the Storage layer are:
 
-* the capabilities check (is the driver capable of writing a file to the target location?)
-* the action permission checks (is the user allowed to do copy actions at all?)
-* the user mount permission check (do the user's file mount restrictions allow
+- the capabilities check (is the driver capable of writing a file to the target location?)
+- the action permission checks (is the user allowed to do file actions at all?)
+- the user mount permission check (do the user's file mount restrictions allow
   reading the target file and writing to the target folder?)
-* it is the ONLY object that communicates with the driver
-* it logs and throws exceptions for successful and not-successful file operations
+- communication with the Driver (it is the ONLY object that does so)
+- logging and throwing of exceptions for successful and unsuccessful file operations
   (although some exceptions are also thrown in other layers if necessary, of course)
 
-Example: *Listing all files in a folder*
+The Storage essentially works with :class:`File` and :class:`Folder` objects.
+
+
+.. _architecture-components-drivers:
+
+Drivers
+"""""""
+
+The driver does the actual actions on a file (e.g. moving, copying, etc.).
+It can rely on the Storage having done all the necessary checks before,
+so it doesn't need to worry about permissions and other rights.
+
+In the communication between Storage and Driver, the Storage hands over identifiers
+to the Driver where appropriate. For example, the :code:`copyFileWithinStorage()`
+method of the Driver API has the following method signature:
 
 .. code-block:: php
 
-  /** @var $storageRepository \TYPO3\CMS\Core\Ressources\StorageRepository */
-  $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-      'TYPO3\\CMS\\Core\\Resource\\StorageRepository'
-  );
-  $availableStorages = $storageRepository->findAll();
-
-  foreach ($availableStorages as $storage) {
-      $rootFolder = $storage->getRootLevelFolder();
-      $subFolders = $rootFolder->getSubFolders();
-      foreach ($subFolders as $subFolder) {
-          $filesInSubFolder = $subFolder->getFiles();
-          $foldersInSubFolder = $subFolder->getSubFolders();
-          ...
-      }
-  }
-
-The ``findAll()`` method of the storage repository already takes user
-permissions into account (FIXME does it currently?).
+    /**
+     * Copies a file *within* the current storage.
+     * Note that this is only about an inner storage copy action,
+     * where a file is just copied to another folder in the same storage.
+     *
+     * @param string $fileIdentifier
+     * @param string $targetFolderIdentifier
+     * @param string $fileName
+     * @return string the Identifier of the new file
+     */
+    public function copyFileWithinStorage($fileIdentifier, $targetFolderIdentifier, $fileName);
 
 
-.. _architecture-drivers:
+.. _architecture-components-file-index:
 
-The drivers
-~~~~~~~~~~~
-
-The driver does the actual copying of the file. It can rely on the Storage having
-done all the necessary checks before, so it doesn't need to worry about permissions
-etc.
-
-In the communication between Storage and Driver, the Storage hands File/Folder
-objects to the Driver where appropriate. The Driver will usually respond with an object,
-but could also return identifiers for certain operations, e.g. when copying a file
-or after moving some files. Apart from that, identifiers are also used for querying the
-driver for a File or Folder in the first place. Other than that,
-when the Storage is invoking copy, move, etc. operations on the Driver, it passes File
-objects (e.g. ``copyFile()`` in the Driver has this method signature:
-``copyFile(TYPO3\CMS\Core\Resource\File $file, TYPO3\CMS\Core\Resource\Folder $targetFolder, [...])``).
-
-
-.. _architecture-file-index:
-
-The file index
-~~~~~~~~~~~~~~
+The File Index
+""""""""""""""
 
 Indexing a file creates a database record for the file, containing meta-information both
 *about* the file (file-system properties) and *from* the file (e.g. EXIF information for
-images). Collecting file-system data is done by the driver, while all additional properties
+images). Collecting file-system data is done by the Driver, while all additional properties
 have to be fetched by additional services.
 
 This distinction is important because it makes clear that FAL does in fact two things:
@@ -159,24 +133,27 @@ Managing the *asset* properties of a file (related to its contents) is not done 
 Storage/Driver combination, but by services that build on these low-level parts.
 
 Technically, both indexed and non-indexed files are represented by the same object type
-(``TYPO3\CMS\Core\Resource\File``), but being indexing nevertheless is an important property of a file. An
-object of an indexed file could theoretically [1]_ even live without its storage as long as it is
-only about querying the object for file properties, as all these properties reside in the
-database and are read from there when constructing the object.
+(:class:`\\TYPO3\\CMS\\Core\\Resource\\File`), but being indexed is nevertheless an important
+step for a file.
 
-The reasons why you can regard it as a separate layer are:
+.. note::
 
-* An indexed file can live without firing up the full Storage layer (in case only data is accessed
-  that is available from the index record). This is useful for quick access to e.g. all filenames
-  in a bunch of indexed files. The process of firing up the Storage layer is done totally
-  transparently to the user. So you never need to worry about that.
+   An object of an indexed file could theoretically even live without
+   its Storage as long as it is only about querying the object for file properties,
+   as all these properties reside in the database and are read from there when constructing
+   the object. This is currently not the case, as Files are always retrieved
+   via Storages.
 
-* It can be regarded as a layer between the Storage and the FileReference, because the
-  FileReference is only possible with an indexed file underneath it.
 
-.. [1] When retrieving a file through the FAL API, the Storage is currently always used.
-       So there is no file without its Storage. The File object also relies on this. So
-       it will require some future changes to get this working without Storage.
-
+.. _architecture-components-collections:
 
 Collections
+"""""""""""
+
+Collections are groups of files defined in various ways. They can be picked up
+individually, by the selection of a folder or by the selection of one or
+more categories. Collections can be used by content elements or plugins
+for various needs.
+
+The TYPO3 CMS Core makes usage of collections for the "File Links"
+content object type.

@@ -16,5 +16,5 @@ More contents:
 
 .. toctree::
 
-   IncomingExamples/Index
+   Examples/Index
 

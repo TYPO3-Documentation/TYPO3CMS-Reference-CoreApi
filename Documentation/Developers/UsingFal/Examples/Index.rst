@@ -76,3 +76,9 @@ Code snippet from :ref:`t3api62:TYPO3\\CMS\\Install\\Updates\\TceformsUpdateWiza
       ++$i;
    }
 
+
+.. toctree::
+
+   FileFolder/Index
+   Storage/Index
+
