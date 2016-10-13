@@ -218,7 +218,7 @@ extra pair of brackets. Example::
 
 The following is allowed, but not recommended::
 
-   if (FALSE !== ($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
+   if (false !== ($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
        // Do something
    }
 
@@ -361,14 +361,14 @@ Booleans
 
 Booleans must use the language constructs of PHP and not explicit
 integer values like :code:`0` or :code:`1`. Furthermore they should be
-written in uppercase, i.e. :code:`TRUE` and :code:`FALSE`.
+written in lowercase, i.e. :code:`true` and :code:`false`.
 
 
 NULL
 """"
 
-Similarly this special value is written in uppercase, i.e.
-:code:`NULL`.
+Similarly this special value is written in lowercase, i.e.
+:code:`null`.
 
 
 Arrays
