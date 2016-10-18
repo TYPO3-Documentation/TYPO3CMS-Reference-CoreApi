@@ -165,7 +165,7 @@ This is typically changed to `->fetch()` on the `Statement` object:
 
     // Before:
     $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(...);
-    while ($row = $this->databaseConnection->sql_fetch_assoc($res)) {
+    while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
         // Do something
     }
 
@@ -193,7 +193,7 @@ on the same resource. `->lastInsertId()` can be used instead:
             'title' => 'Home',
         ]
     );
-    $pageUid = $this->getDatabaseConnection()->sql_insert_id();
+    $pageUid = $GLOBALS['TYPO3_DB']->sql_insert_id();
 
     // After:
     $databaseConnectionForPages = $connectionPool->getConnectionForTable('pages');
