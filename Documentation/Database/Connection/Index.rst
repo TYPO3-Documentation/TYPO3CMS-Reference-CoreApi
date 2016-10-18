@@ -206,7 +206,7 @@ returns tha number of active rows from table `tt_content` that have their `bodyt
     $rowCount = $connection->count(
         '*',
         'tt_content',
-        ['tt_content' => 'klaus']
+        ['bodytext' => 'klaus']
     );
 
 
