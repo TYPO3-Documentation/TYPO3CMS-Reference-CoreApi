@@ -103,7 +103,7 @@ bulkInsert()
 
 First argument is the table to insert table into, second argument is an array of rows, third argument is the list
 of field names. Similar to `->insert()` it is optionally possible to add another argument to specify quoting details,
-if given, everything will be quoted to strings.
+if omitted, everything will be quoted to strings.
 
 .. note::
 
