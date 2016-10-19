@@ -21,8 +21,8 @@ or whatever equivalent there is in the system the Driver is connecting to
 (it could be categories from Digital Asset Management tool, for example).
 They are tightly coupled with the Storage, which they use to actually
 perform any actions. For example a copying action (:code:`$file->copyTo($targetFolder)`)
-is technically not implemented by the :class:`File` object itself but in the Storage
-and Driver.
+is technically not implemented by the :class:`\\TYPO3\\CMS\\Core\\Resource\\File`
+object itself but in the Storage and Driver.
 
 Apart from the shorthand methods to the action methods of the Storage,
 the Files and Folders are pretty lightweight objects with properties
@@ -39,7 +39,8 @@ cached information such as various metadata or other file properties like size o
 File References
 """""""""""""""
 
-A :class:`FileReference` basically represents a usage of a File in a specific location,
+A :class:`\\TYPO3\\CMS\\Core\\Resource\\FileReference` basically
+represents a usage of a File in a specific location,
 e.g. as an image attached to a content element ("tt_content") record.
 A FileReference always references a real, underlying File,
 but can add context-specific information such as a caption text for an image
@@ -53,7 +54,8 @@ as the reference is done through the normal record relation handling of TYPO3 CM
 
 .. note::
 
-   Technically, the :class:`FileReference` implements the same interface as the :class:`File` itself.
+   Technically, the :class:`\\TYPO3\\CMS\\Core\\Resource\\FileReference` implements
+   the same interface as the :class:`\\TYPO3\\CMS\\Core\\Resource\\File` itself.
    So you have all the methods and properties of a File available in the FileReference
    as well. This makes it possible to use both files and references to them.
 
@@ -81,7 +83,8 @@ Among the many things done by the Storage layer are:
 - logging and throwing of exceptions for successful and unsuccessful file operations
   (although some exceptions are also thrown in other layers if necessary, of course)
 
-The Storage essentially works with :class:`File` and :class:`Folder` objects.
+The Storage essentially works with :class:`\\TYPO3\\CMS\\Core\\Resource\\File`
+and :class:`\\TYPO3\\CMS\\Core\\Resource\\Folder` objects.
 
 
 .. _architecture-components-drivers:
@@ -157,3 +160,45 @@ for various needs.
 
 The TYPO3 CMS Core makes usage of collections for the "File Links"
 content object type.
+
+
+.. _architecture-components-services:
+
+Services
+""""""""
+
+The File Abstraction Layer also comes with a number of services:
+
+:class:`\\TYPO3\\CMS\\Core\\Resource\\Service\\FileProcessingService`
+  This service processes files to generate previews or scaled/cropped images.
+  These two functions are known as task types and are identified by class
+  constants.
+
+  The task which generates preview images is used in most places in the backend
+  where thumbnails are called for. It is identified by constant
+  :code:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGEPREVIEW`.
+
+  The other task is about cropping and scaling an image, typically for frontend
+  output. It is dentified by constant :code:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`).
+
+  The configuration for :code:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`
+  is the one used for the :ref:`imgResource function <t3tsref:imgresource>`,
+  but only taking the crop, scale and mask settings into account.
+
+:class:`\\TYPO3\\CMS\\Core\\Resource\\Service\\MagicImageService`
+  This service creates resized ("magic") images as can be used in the
+  Rich-Text Editor, for example.
+
+:class:`\\TYPO3\\CMS\\Core\\Resource\\Service\\UserFileInlineLabelService`
+  This service is called to generate the label of a "sys\_file\_reference"
+  entry, i.e. what will appear in the header of an IRRE element.
+
+:class:`\\TYPO3\\CMS\\Core\\Resource\\Service\\UserFileMountService`
+  This service provides a single public method which builds a list of
+  folders (and subfolders, recursively) inside any given Storage. It is
+  used when defining File Mounts.
+
+:class:`\\TYPO3\\CMS\\Core\\Resource\\Service\\UserStorageCapabilityService`
+  This service provides a single public method, which is used for rendering
+  the "is\_public" field of a Storage, given that assessing this property may
+  not be obvious depending on the underlying Driver.

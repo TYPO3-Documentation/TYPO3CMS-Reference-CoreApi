@@ -226,14 +226,5 @@ SIGNAL_PostFileProcess
   :class:`File` instances), a string defining the type of task being
   executed and an array containing the configuration for that task.
 
-.. note::
-
-   The Core defines two default processing task types. One is about
-   creating preview images (identified by constant
-   :code:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGEPREVIEW`),
-   the other about cropping and scaling an image, typically for frontend
-   output (identified by constant :code:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`).
-
-   The configuration for :code:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`
-   is the one used for the :ref:`imgResource function <t3tsref:imgresource>`,
-   but only taking the crop, scale and mask settings into account.
+See the :ref:`section about Services <architecture-components-services>`
+for more information about this class.
