@@ -12,6 +12,7 @@ architecture of FAL.
 .. toctree::
 
    Overview/Index
+   Folders/Index
    Database/Index
    Components/Index
    Signals/Index
