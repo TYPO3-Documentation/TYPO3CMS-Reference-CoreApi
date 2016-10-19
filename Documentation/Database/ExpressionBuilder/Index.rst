@@ -28,7 +28,7 @@ to use it within the code flow of the `QueryBuilder` context directly:
 
 .. code-block:: php
 
-    $rows = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content)
+    $rows = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content')
         ->select('uid', 'header', 'bodytext')
         ->from('tt_content')
         ->where(
