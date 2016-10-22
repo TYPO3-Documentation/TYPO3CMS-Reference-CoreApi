@@ -6,15 +6,13 @@ ConnectionPool
 --------------
 
 TYPO3's interface to execute queries via `doctrine-dbal` typically starts by asking
-the `ConnectionPool` for a `QueryBuilder` or a `Connection` object, handing over the table name to be queried:
+the `ConnectionPool` for a `QueryBuilder` or a `Connection` object, handing over the table name to be queried::
 
-.. code-block:: php
-
-    // Get a query builder for a table
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_myext_comments');
-    // or
-    // Get a connection for a table
-    $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_myext_comments');
+   // Get a query builder for a table
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_myext_comments');
+   // or
+   // Get a connection for a table
+   $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_myext_comments');
 
 
 The `QueryBuilder` is the default workhorse object used by extension authors to express complex queries,
@@ -25,7 +23,7 @@ Pooling
 ^^^^^^^
 
 TYPO3 can handle multiple connections to different database endpoints at the same time. This
-can be configured on a per-table basis in `TYPO3_CONF_VARS`. It allows running tables
+can be configured on a per-table basis in :php:`$TYPO3_CONF_VARS`. It allows running tables
 on different databases, without an extension developer taking care of that.
 
 The `ConnectionPool` implements this feature: It looks up a configured table-to-database
@@ -45,7 +43,7 @@ collection API with their mm table joins between core internal tables and their 
 That situation is not easy to deal with. At the time of this writing the core development will
 eventually implement some non-join fallbacks for typical cases that would be good to decouple, though.
 
-.. note::
+.. tip::
 
    In case joins cannot be decoupled but still affected tables must run on different databases,
    and if the code can not be easily adapted, some DBMS like `PostgreSQL` allow executing those

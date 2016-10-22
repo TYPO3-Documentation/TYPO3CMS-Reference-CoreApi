@@ -6,7 +6,7 @@ ExpressionBuilder
 -----------------
 
 The `ExpressionBuilder` class is responsible to dynamically create SQL query parts
-for `WHERE` and `JOIN ON` conditions, functions like `->min()` may also be used in
+for `WHERE` and `JOIN ON` conditions, functions like :php:`->min()` may also be used in
 `SELECT` parts.
 
 It takes care of building query conditions while ensuring table and column names
@@ -16,67 +16,61 @@ the actual `doctrine-dbal` `ExpressionBuilder`.
 The `ExpressionBuilder` is used within the context of the :ref:`QueryBuilder <database-query-builder>`
 to ensure queries are being build based on the requirements of the database platform in use.
 
-An instance of the `ExpressionBuilder` is retrieved from the `QueryBuilder` object:
+An instance of the `ExpressionBuilder` is retrieved from the `QueryBuilder` object::
 
-.. code-block:: php
-
-    $expressionBuilder = $queryBuilder->expr();
+   $expressionBuilder = $queryBuilder->expr();
 
 
 It is good practice to not assign an instance of the `ExpressionBuilder` to a variable but
-to use it within the code flow of the `QueryBuilder` context directly:
+to use it within the code flow of the `QueryBuilder` context directly::
 
-.. code-block:: php
-
-    $rows = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content')
-        ->select('uid', 'header', 'bodytext')
-        ->from('tt_content')
-        ->where(
-            // `bodytext` = 'klaus' AND `header` = 'peter'
-            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
-            $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('peter'))
-        )
-        ->execute()
-        ->fetchAll();
+   $rows = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content')
+      ->select('uid', 'header', 'bodytext')
+      ->from('tt_content')
+      ->where(
+         // `bodytext` = 'klaus' AND `header` = 'peter'
+         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
+         $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('peter'))
+      )
+      ->execute()
+      ->fetchAll();
 
 
-.. important::
+.. warning::
 
-    It is crucially important to quote values correctly to not introduce SQL injection attack
-    vectors to your application. See the
-    :ref:`section of the QueryBuilder <database-query-builder-create-named-parameter>` for details.
+   It is crucially important to quote values correctly to not introduce SQL injection attack
+   vectors to your application. See the
+   :ref:`section of the QueryBuilder <database-query-builder-create-named-parameter>` for details.
 
 
 Junctions
 ^^^^^^^^^
 
-* `->andX()` conjunction
+* :php:`->andX()` conjunction
 
-* `->orX()` disjunction
+* :php:`->orX()` disjunction
 
 
 Combine multiple single expressions with `AND` or `OR`. Nesting is possible, both methods are variadic and
 take any number of argument which are all combined. It usually doesn't make much sense to hand over
 zero or only one argument, though.
 
-A core example to find a sys_domain record:
+A core example to find a sys_domain record::
 
-.. code-block:: php
-
-    // WHERE
-    //     (`sys_domain`.`pid` = `pages`.`uid`)
-    //     AND (
-    //        (`sys_domain`.`domainName` = 'example.com')
-    //        OR
-    //        (`sys_domain`.`domainName` = 'example.com/')
-    //     )
-    $queryBuilder->where(
-        $queryBuilder->expr()->eq('sys_domain.pid', $queryBuilder->createNamedParameter('pages.uid', \PDO::PARAM_INT)),
-        $queryBuilder->expr()->orX(
-            $queryBuilder->expr()->eq('sys_domain.domainName', $queryBuilder->createNamedParameter($domain)),
-            $queryBuilder->expr()->eq('sys_domain.domainName', $queryBuilder->createNamedParameter($domain . '/'))
-        )
-    )
+   // WHERE
+   //     (`sys_domain`.`pid` = `pages`.`uid`)
+   //     AND (
+   //        (`sys_domain`.`domainName` = 'example.com')
+   //        OR
+   //        (`sys_domain`.`domainName` = 'example.com/')
+   //     )
+   $queryBuilder->where(
+      $queryBuilder->expr()->eq('sys_domain.pid', $queryBuilder->createNamedParameter('pages.uid', \PDO::PARAM_INT)),
+      $queryBuilder->expr()->orX(
+         $queryBuilder->expr()->eq('sys_domain.domainName', $queryBuilder->createNamedParameter($domain)),
+         $queryBuilder->expr()->eq('sys_domain.domainName', $queryBuilder->createNamedParameter($domain . '/'))
+      )
+   )
 
 
 Comparisons
@@ -84,97 +78,95 @@ Comparisons
 
 A set of methods to create various comparison expressions or SQL functions:
 
-* `->eq($fieldName, $value)` "equal" comparison `=`
+* :php:`->eq($fieldName, $value)` "equal" comparison `=`
 
-* `->neq($fieldName, $value)` "not equal" comparison `!=`
+* :php:`->neq($fieldName, $value)` "not equal" comparison `!=`
 
-* `->lt($fieldName, $value)` "less than" comparison `<`
+* :php:`->lt($fieldName, $value)` "less than" comparison `<`
 
-* `->lte($fieldName, $value)` "less than or equal" comparison `<=`
+* :php:`->lte($fieldName, $value)` "less than or equal" comparison `<=`
 
-* `->gt($fieldName, $value)` "greater than" comparison `>`
+* :php:`->gt($fieldName, $value)` "greater than" comparison `>`
 
-* `->gte($fieldName, $value)` "greater than or equal" comparison `>=`
+* :php:`->gte($fieldName, $value)` "greater than or equal" comparison `>=`
 
-* `->isNull($fieldName)` "IS NULL" comparison
+* :php:`->isNull($fieldName)` "IS NULL" comparison
 
-* `->isNotNull($fieldName)` "IS NOT NULL" comparison
+* :php:`->isNotNull($fieldName)` "IS NOT NULL" comparison
 
-* `->like($fieldName)` "LIKE" comparison
+* :php:`->like($fieldName)` "LIKE" comparison
 
-* `->notLike($fieldName)` "NOT LIKE" comparison
+* :php:`->notLike($fieldName)` "NOT LIKE" comparison
 
-* `->in($fieldName, $valueArray)` "IN ()" comparison
+* :php:`->in($fieldName, $valueArray)` "IN ()" comparison
 
-* `->notIn($fieldName, $valueArray)` "NOT IN ()" comparison
+* :php:`->notIn($fieldName, $valueArray)` "NOT IN ()" comparison
 
-* `->inSet($fieldName, $value)` "FIND_IN_SET('42', `aField`)" Find a value in a comma separated list of values
+* :php:`->inSet($fieldName, $value)` "FIND_IN_SET('42', `aField`)" Find a value in a comma separated list of values
 
-* `->bitAnd($fieldName, $value)` A bitwise AND operation `&`
+* :php:`->bitAnd($fieldName, $value)` A bitwise AND operation `&`
 
 
-Remarks:
+Remarks and warnings:
 
-* The first argument `$fieldName` is always quoted automatically.
+* The first argument :php:`$fieldName` is always quoted automatically.
 
-* All methods that have a `$value` or `$valueList` as second argument **must** be quoted, usually by calling
+* All methods that have a :php:`$value` or :php:`$valueList` as second argument **must** be quoted, usually by calling
   :ref:`$queryBuilder->createNamedParameter() <database-query-builder-create-named-parameter>` or
   :ref:`$queryBuilder->quoteIdentifier() <database-query-builder-quote-identifier>`. **Failing to do so will end
   up in SQL injections!**
 
-* `->like()` and `->notLike()` values **must** be **additionally** quoted with a call to
+* :php:`->like()` and :php:`->notLike()` values **must** be **additionally** quoted with a call to
   :ref:`$queryBuilder->escapeLikeWildcards($value) <database-query-builder-escape-like-wildcards>` to
   suppress the special meaning of `%` characters from `$value`.
 
 
-Examples:
+Examples::
 
-.. code-block:: php
+   // `bodytext` = 'foo' - string comparison
+   ->eq('bodytext', $queryBuilder->createNamedParameter('foo'))
 
-    // `bodytext` = 'foo' - string comparison
-    ->eq('bodytext', $queryBuilder->createNamedParameter('foo'))
+   // `tt_content`.`bodytext` = 'foo'
+   ->eq('tt_content.bodytext', $queryBuilder->createNamedParameter('foo'))
 
-    // `tt_content`.`bodytext` = 'foo'
-    ->eq('tt_content.bodytext', $queryBuilder->createNamedParameter('foo'))
+   // `aTableAlias`.`bodytext` = 'foo'
+   ->eq('aTableAlias.bodytext', $queryBuilder->createNamedParameter('foo'))
 
-    // `aTableAlias`.`bodytext` = 'foo'
-    ->eq('aTableAlias.bodytext', $queryBuilder->createNamedParameter('foo'))
+   // `uid` = 42 - integer comparison
+   ->eq('uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
 
-    // `uid` = 42 - integer comparison
-    ->eq('uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
+   // `uid` >= 42
+   ->gte('uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
 
-    // `uid` >= 42
-    ->gte('uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
+   // `bodytext` LIKE 'klaus'
+   ->like(
+      'bodytext',
+      $queryBuilder->createNamedParameter($queryBuilder->escapeLikeWildcards('klaus'))
+   )
 
-    // `bodytext` LIKE 'klaus'
-    ->like(
-        'bodytext',
-        $queryBuilder->createNamedParameter($queryBuilder->escapeLikeWildcards('klaus'))
-    )
+   // `bodytext` LIKE '%klaus%'
+   ->like(
+      'bodytext',
+      $queryBuilder->createNamedParameter('%' . $queryBuilder->escapeLikeWildcards('klaus') . '%')
+   )
 
-    // `bodytext` LIKE '%klaus%'
-    ->like(
-        'bodytext',
-        $queryBuilder->createNamedParameter('%' . $queryBuilder->escapeLikeWildcards('klaus') . '%')
-    )
+   // `uid` IN (42, 0, 44) - properly sanitized, mind the intExplode and PARAM_INT_ARRAY
+   ->in(
+      'uid',
+      $queryBuilder->createNamedParameter(
+         GeneralUtility::intExplode(',', '42, karl, 44', true),
+         Connection::PARAM_INT_ARRAY
+      )
+   )
 
-    // `uid` IN (42, 0, 44) - properly sanitized, mind the intExplode and PARAM_INT_ARRAY
-    ->in(
-        'uid',
-        $queryBuilder->createNamedParameter(
-            GeneralUtility::intExplode(',', '42, karl, 44', true),
-            Connection::PARAM_INT_ARRAY
-        )
-    )
-
-    // `CType` IN ('media', 'multimedia') - properly sanitized, mind the PARAM_STR_ARRAY
-    ->in(
-        'CType',
-        $queryBuilder->createNamedParameter(
-            ['media', 'multimedia'],
-            Connection::PARAM_STR_ARRAY
-        )
-    )
+   // `CType` IN ('media', 'multimedia') - properly sanitized, mind the PARAM_STR_ARRAY
+   ->in(
+      'CType',
+      $queryBuilder->createNamedParameter(
+         ['media', 'multimedia'],
+         Connection::PARAM_STR_ARRAY
+      )
+   )
 
 
 Aggregate functions
@@ -183,38 +175,36 @@ Aggregate functions
 Aggregate functions used in `SELECT` parts, often combined with `GROUP BY`. First argument is
 the field name (or table name / alias with field name), second argument an optional alias.
 
-* `->min($fieldName, $alias = NULL)` "MIN()" calculation
+* :php:`->min($fieldName, $alias = NULL)` "MIN()" calculation
 
-* `->max($fieldName, $alias = NULL)` "MAX()" calculation
+* :php:`->max($fieldName, $alias = NULL)` "MAX()" calculation
 
-* `->avg($fieldName, $alias = NULL)` "AVG()" calculation
+* :php:`->avg($fieldName, $alias = NULL)` "AVG()" calculation
 
-* `->sum($fieldName, $alias = NULL)` "SUM()" calculation
+* :php:`->sum($fieldName, $alias = NULL)` "SUM()" calculation
 
-* `->count($fieldName, $alias = NULL)` "COUNT()" calculation
+* :php:`->count($fieldName, $alias = NULL)` "COUNT()" calculation
 
 
-Examples:
+Examples::
 
-.. code-block:: php
+   // Calculate the average creation timestamp of all rows from tt_content
+   // SELECT AVG(`crdate`) AS `averagecreation` FROM `tt_content`
+   $result = $queryBuilder
+      ->addSelectLiteral(
+         $queryBuilder->expr()->avg('crdate', 'averagecreation')
+      )
+      ->from('tt_content')
+      ->execute()
+      ->fetch();
 
-    // Calculate the average creation timestamp of all rows from tt_content
-    // SELECT AVG(`crdate`) AS `averagecreation` FROM `tt_content`
-    $result = $queryBuilder
-        ->addSelectLiteral(
-            $queryBuilder->expr()->avg('crdate', 'averagecreation')
-        )
-        ->from('tt_content')
-        ->execute()
-        ->fetch();
-
-    // Distinct list of all existing endtime values from tt_content
-    // SELECT `uid`, MAX(`endtime`) AS `maxendtime` FROM `tt_content` GROUP BY `endtime`
-    $statement = $queryBuilder
-        ->select('uid')
-        ->addSelectLiteral(
-            $queryBuilder->expr()->max('endtime', 'maxendtime')
-        )
-        ->from('tt_content')
-        ->groupBy('endtime')
-        ->execute();
+   // Distinct list of all existing endtime values from tt_content
+   // SELECT `uid`, MAX(`endtime`) AS `maxendtime` FROM `tt_content` GROUP BY `endtime`
+   $statement = $queryBuilder
+      ->select('uid')
+      ->addSelectLiteral(
+         $queryBuilder->expr()->max('endtime', 'maxendtime')
+      )
+      ->from('tt_content')
+      ->groupBy('endtime')
+      ->execute();

@@ -13,29 +13,27 @@ to a single or a group of tables: It allows "swapping-out" single tables from th
 to point them to a different database endpoint.
 
 As with other central configuration options, the database endpoint and mapping configuration happens
-within :file:`typo3conf/LocalConfiguration.php` and ends up in `$GLOBALS['TYPO3_CONF_VARS']` after
-core bootstrap. The specific sub-array is `$GLOBALS['TYPO3_CONF_VARS']['DB']`.
+within :file:`typo3conf/LocalConfiguration.php` and ends up in :php:`$GLOBALS['TYPO3_CONF_VARS']` after
+core bootstrap. The specific sub-array is :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']`.
 
-A typical, basic example using only the `Default` connection with a single database endpoint:
+A typical, basic example using only the `Default` connection with a single database endpoint::
 
-.. code-block:: php
-
-    // LocalConfiguration.php
-    // [...]
-    'DB' => [
-        'Connections' => [
-            'Default' => [
-                'charset' => 'utf8',
-                'dbname' => 'theDatabaseName',
-                'driver' => 'mysqli',
-                'host' => 'theHost',
-                'password' => 'theConnectionPassword',
-                'port' => 3306,
-                'user' => 'theUser',
-            ],
-        ],
-    ],
-    // [...]
+   // LocalConfiguration.php
+   // [...]
+   'DB' => [
+      'Connections' => [
+         'Default' => [
+            'charset' => 'utf8',
+            'dbname' => 'theDatabaseName',
+            'driver' => 'mysqli',
+            'host' => 'theHost',
+            'password' => 'theConnectionPassword',
+            'port' => 3306,
+            'user' => 'theUser',
+         ],
+      ],
+   ],
+   // [...]
 
 
 Remarks:
@@ -59,38 +57,36 @@ Remarks:
   around `doctrine-dbal`.
 
 
-A slightly more complex example with two connections, mapping the `sys_log` table to a different endpoint:
+A slightly more complex example with two connections, mapping the `sys_log` table to a different endpoint::
 
-.. code-block:: php
-
-    // LocalConfiguration.php
-    // [...]
-    'DB' => [
-        'Connections' => [
-            'Default' => [
-                'charset' => 'utf8',
-                'dbname' => 'default_dbname',
-                'driver' => 'mysqli',
-                'host' => 'default_host',
-                'password' => '***',
-                'port' => 3306,
-                'user' => 'default_user',
-            ],
-            'Syslog' => [
-                'charset' => 'utf8',
-                'dbname' => 'syslog_dbname',
-                'driver' => 'mysqli',
-                'host' => 'syslog_host',
-                'password' => '***',
-                'port' => 3306,
-                'user' => 'syslog_user',
-            ],
-        ],
-        'TableMapping' => [
-            'sys_log' => 'Syslog'
-        ]
-    ],
-    // [...]
+   // LocalConfiguration.php
+   // [...]
+   'DB' => [
+      'Connections' => [
+         'Default' => [
+            'charset' => 'utf8',
+            'dbname' => 'default_dbname',
+            'driver' => 'mysqli',
+            'host' => 'default_host',
+            'password' => '***',
+            'port' => 3306,
+            'user' => 'default_user',
+         ],
+         'Syslog' => [
+            'charset' => 'utf8',
+            'dbname' => 'syslog_dbname',
+            'driver' => 'mysqli',
+            'host' => 'syslog_host',
+            'password' => '***',
+            'port' => 3306,
+            'user' => 'syslog_user',
+         ],
+      ],
+      'TableMapping' => [
+         'sys_log' => 'Syslog'
+      ]
+   ],
+   // [...]
 
 
 Remarks:
@@ -107,7 +103,7 @@ Remarks:
   should implement some fallback logic to suppress the `join()`.
 
 
-.. note::
+.. attention::
 
     At the time of this writing (TYPO3 CMS version 8.3), there are still some known issues with
     connections to databases other than `mysql` or `mariadb`. Core internal tests to `postgresql`

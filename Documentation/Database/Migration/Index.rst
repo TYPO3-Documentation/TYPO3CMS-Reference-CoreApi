@@ -20,26 +20,24 @@ Compare raw queries
 The main goal during migration is usually to fire a logically identical query. One recommended
 and simple approach to verify this is to note down and compare the queries at the lowest possible
 layer. In $GLOBALS['TYPO3_DB'], the final query statement is usually retrieved by removing the
-`exec_` part from the method name, in `doctrine` method `QueryBuilder->getSQL()` can be used:
+`exec_` part from the method name, in `doctrine` method :php:`QueryBuilder->getSQL()` can be used::
 
-.. code-block:: php
+   // Inital code:
+   $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'index_fulltext', 'phash=' . (int)$phash);
 
-    // Inital code:
-    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'index_fulltext', 'phash=' . (int)$phash);
+   // Remove 'exec_' and debug SQL:
+   debug($GLOBALS['TYPO3_DB']->SELECTquery('*', 'index_fulltext', 'phash=' . (int)$phash));
+   // Returns:
+   'SELECT * FROM index_fulltext WHERE phash=42'
 
-    // Remove 'exec_' and debug SQL:
-    debug($GLOBALS['TYPO3_DB']->SELECTquery('*', 'index_fulltext', 'phash=' . (int)$phash));
-    // Returns:
-    'SELECT * FROM index_fulltext WHERE phash=42'
-
-    // Migrate to doctrine and debug SQL:
-    // 'SELECT * FROM index_fulltext WHERE phash=42'
-    $queryBuilder->select('*')
-    ->from('index_fulltext')
-    ->where(
-        $queryBuilder->expr()->eq('phash', $queryBuilder->createNamedParameter($pash, \PDO::PARAM_INT))
-    );
-    debug($queryBuilder->getSQL());
+   // Migrate to doctrine and debug SQL:
+   // 'SELECT * FROM index_fulltext WHERE phash=42'
+   $queryBuilder->select('*')
+   ->from('index_fulltext')
+   ->where(
+      $queryBuilder->expr()->eq('phash', $queryBuilder->createNamedParameter($pash, \PDO::PARAM_INT))
+   );
+   debug($queryBuilder->getSQL());
 
 
 The above example returns the exact same query as before. This is not always as trivial to see
@@ -52,193 +50,179 @@ transition.
 enableFields() and deleteClause()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`BackendUtility::deleteClause()` adds `deleted=0` if `['ctrl']['deleted']` is specified in the
+:php:`BackendUtility::deleteClause()` adds `deleted=0` if `['ctrl']['deleted']` is specified in the
 table's `TCA`. The method call *should* be removed during migration. If there is no other restriction
 method involved in the old call like `enableFields()`, the migrated code typically removes all
-doctrine default restrictions and just adds the `DeletedRestriction` again:
+doctrine default restrictions and just adds the `DeletedRestriction` again::
 
-.. code-block:: php
+   // Before:
+   $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
+      'uid, TSconfig',
+      'pages',
+      'TSconfig != \'\''
+         . BackendUtility::deleteClause('pages'),
+      'pages.uid'
+   );
 
-    // Before:
-    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
-        'uid, TSconfig',
-        'pages',
-        'TSconfig != \'\''
-            . BackendUtility::deleteClause('pages'),
-        'pages.uid'
-    );
-
-    // After:
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
-    $queryBuilder
-        ->getRestrictions()
-        ->removeAll()
-        ->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-    $res = $queryBuilder->select('uid', 'TSconfig')
-        ->from('pages')
-        ->where($queryBuilder->expr()->neq('TSconfig', $queryBuilder->createNamedParameter('')))
-        ->groupBy('uid')
-        ->execute();
+   // After:
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
+   $queryBuilder
+      ->getRestrictions()
+      ->removeAll()
+      ->add(GeneralUtility::makeInstance(DeletedRestriction::class));
+   $res = $queryBuilder->select('uid', 'TSconfig')
+      ->from('pages')
+      ->where($queryBuilder->expr()->neq('TSconfig', $queryBuilder->createNamedParameter('')))
+      ->groupBy('uid')
+      ->execute();
 
 
 `BackendUtility::versioningPlaceholderClause('pages')` is typically substituted with the
-`BackendWorkspaceRestriction`. Example very similar to the above one:
+`BackendWorkspaceRestriction`. Example very similar to the above one::
 
-.. code-block:: php
+   // Before:
+   $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
+      'uid, TSconfig',
+      'pages',
+      'TSconfig != \'\''
+         . BackendUtility::deleteClause('pages')
+         . BackendUtility::versioningPlaceholderClause('pages'),
+      'pages.uid'
+   );
 
-    // Before:
-    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
-        'uid, TSconfig',
-        'pages',
-        'TSconfig != \'\''
-            . BackendUtility::deleteClause('pages')
-            . BackendUtility::versioningPlaceholderClause('pages'),
-        'pages.uid'
-    );
-
-    // After:
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
-    $queryBuilder
-        ->getRestrictions()
-        ->removeAll()
-        ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
-        ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
-    $res = $queryBuilder->select('uid', 'TSconfig')
-        ->from('pages')
-        ->where($queryBuilder->expr()->neq('TSconfig', $queryBuilder->createNamedParameter('')))
-        ->groupBy('uid')
-        ->execute();
+   // After:
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
+   $queryBuilder
+      ->getRestrictions()
+      ->removeAll()
+      ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
+      ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
+   $res = $queryBuilder->select('uid', 'TSconfig')
+      ->from('pages')
+      ->where($queryBuilder->expr()->neq('TSconfig', $queryBuilder->createNamedParameter('')))
+      ->groupBy('uid')
+      ->execute();
 
 
-`BackendUtility::BEenableFields()` in combination with `BackendUtility::deleteClause()` adds the same
-calls as the `DefaultRestrictionContainer`. No further configuration needed:
+:php:`BackendUtility::BEenableFields()` in combination with :php:`BackendUtility::deleteClause()` adds the same
+calls as the `DefaultRestrictionContainer`. No further configuration needed::
 
-.. code-block:: php
+   // Before:
+   $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
+      'title, content, crdate',
+      'sys_news',
+      '1=1'
+         . BackendUtility::BEenableFields($systemNewsTable)
+         . BackendUtility::deleteClause($systemNewsTable)
+   );
 
-    // Before:
-    $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
-        'title, content, crdate',
-        'sys_news',
-        '1=1'
-            . BackendUtility::BEenableFields($systemNewsTable)
-            . BackendUtility::deleteClause($systemNewsTable)
-    );
-
-    // After:
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
-        ->getQueryBuilderForTable('sys_news');
-        ->select('title', 'content', 'crdate')
-        ->from('sys_news)
-        ->execute();
+   // After:
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
+      ->getQueryBuilderForTable('sys_news');
+      ->select('title', 'content', 'crdate')
+      ->from('sys_news)
+      ->execute();
 
 
-`cObj->enableFields()` in frontend context is typically directly substituted with
-`FrontendRestrictionContainer`:
+:php:`cObj->enableFields()` in frontend context is typically directly substituted with
+`FrontendRestrictionContainer`::
 
-.. code-block:: php
+   // Before:
+   $GLOBALS['TYPO3_DB']->exec_SELECTquery(
+      '*', $table,
+      'pid=' . (int)$pid
+         . $this->cObj->enableFields($table)
+   );
 
-    // Before:
-    $GLOBALS['TYPO3_DB']->exec_SELECTquery(
-        '*', $table,
-        'pid=' . (int)$pid
-            . $this->cObj->enableFields($table)
-    );
-
-    // After:
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($table);
-    $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
-    $queryBuilder->select('*')
-        ->from($table)
-        ->where(
-            $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pid, \PDO::PARAM_INT))
-        )
-    );
+   // After:
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($table);
+   $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
+   $queryBuilder->select('*')
+      ->from($table)
+      ->where(
+         $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pid, \PDO::PARAM_INT))
+      )
+   );
 
 
 Result set iteration
 ^^^^^^^^^^^^^^^^^^^^
 
-The `exec_*` calls return a resource object that is typically iterated over using `sql_fetch_assoc()`.
-This is typically changed to `->fetch()` on the `Statement` object:
+The `exec_*` calls return a resource object that is typically iterated over using :php:`sql_fetch_assoc()`.
+This is typically changed to :php:`->fetch()` on the `Statement` object::
 
-.. code-block:: php
+   // Before:
+   $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(...);
+   while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
+      // Do something
+   }
 
-    // Before:
-    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(...);
-    while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
-        // Do something
-    }
-
-    // After:
-    $statement = $queryBuilder->execute();
-    while ($row = $statement->fetch()) {
-        // Do something
-    }
+   // After:
+   $statement = $queryBuilder->execute();
+   while ($row = $statement->fetch()) {
+      // Do something
+   }
 
 
 sql_insert_id()
 ^^^^^^^^^^^^^^^
 
 It is sometimes needed to fetch the new `uid` of a just added record to further work with that row.
-In `TYPO3_DB` this was done with a call to `->sql_insert_id()` after a `->exec_INSERTquery()` call
-on the same resource. `->lastInsertId()` can be used instead:
+In `TYPO3_DB` this was done with a call to :php:`->sql_insert_id()` after a :php:`->exec_INSERTquery()` call
+on the same resource. :php:`->lastInsertId()` can be used instead::
 
-.. code-block:: php
+   // Before:
+   $GLOBALS['TYPO3_DB']->exec_INSERTquery(
+      'pages',
+      [
+         'pid' => 0,
+         'title' => 'Home',
+      ]
+   );
+   $pageUid = $GLOBALS['TYPO3_DB']->sql_insert_id();
 
-    // Before:
-    $GLOBALS['TYPO3_DB']->exec_INSERTquery(
-        'pages',
-        [
-            'pid' => 0,
-            'title' => 'Home',
-        ]
-    );
-    $pageUid = $GLOBALS['TYPO3_DB']->sql_insert_id();
-
-    // After:
-    $databaseConnectionForPages = $connectionPool->getConnectionForTable('pages');
-    $databaseConnectionForPages->insert(
-        'pages',
-        [
-            'pid' => 0,
-            'title' => 'Home',
-        ]
-    );
-    $pageUid = $databaseConnectionForPages->lastInsertId('pages');
+   // After:
+   $databaseConnectionForPages = $connectionPool->getConnectionForTable('pages');
+   $databaseConnectionForPages->insert(
+      'pages',
+      [
+         'pid' => 0,
+         'title' => 'Home',
+       ]
+   );
+   $pageUid = $databaseConnectionForPages->lastInsertId('pages');
 
 
 fullQuoteStr()
 ^^^^^^^^^^^^^^
 
-`->fullQuoteStr()` is rather straight changed to a `->createNamedParameter()`, typical case:
+:php:`->fullQuoteStr()` is rather straight changed to a :php:`->createNamedParameter()`, typical case::
 
-.. code-block:: php
+   // Before:
+   $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
+      'uid, title',
+      'tt_content',
+      'bodytext = ' . $GLOBALS['TYPO3_DB']->fullQuoteStr('horst')
+   );
 
-    // Before:
-    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
-        'uid, title',
-        'tt_content',
-        'bodytext = ' . $GLOBALS['TYPO3_DB']->fullQuoteStr('horst')
-    );
-
-    // After:
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-    $statement = $queryBuilder
-        ->select('uid', 'title')
-        ->from('tt_content')
-        ->where(
-            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('horst'))
-        )
-        ->execute();
+   // After:
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+   $statement = $queryBuilder
+      ->select('uid', 'title')
+      ->from('tt_content')
+      ->where(
+         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('horst'))
+      )
+      ->execute();
 
 
 ext_tables.sql
 ^^^^^^^^^^^^^^
 
-The schema migrator that compiles `ext_tables.sql` files from all loaded extensions and compares them with
+The schema migrator that compiles :file:`ext_tables.sql` files from all loaded extensions and compares them with
 current schema definitions in the database has been fully rewritten. It mostly should work as before, some
 specific fields however tend to grow a little larger on `mysql` platforms than before. This usually
-shouldn't have negative side effects, typically no `ext_tables.sql` changes are needed when migrating an
+shouldn't have negative side effects, typically no :file:`ext_tables.sql` changes are needed when migrating an
 extension to the new query API.
 
 

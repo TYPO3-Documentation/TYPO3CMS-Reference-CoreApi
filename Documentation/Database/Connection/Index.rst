@@ -5,7 +5,7 @@
 Connection
 ----------
 
-An instance of class `TYPO3\CMS\Core\Database\Connection` is retrieved from the
+An instance of class :php:`TYPO3\CMS\Core\Database\Connection` is retrieved from the
 :ref:`ConnectionPool <database-connection-pool>` by calling `->getConnectionForTable()`
 and handing over the table name a query should executed on.
 
@@ -32,21 +32,19 @@ automatically and the created queries are executed right away.
 insert()
 ^^^^^^^^
 
-Creates and executes an `INSERT INTO` statement. A (slightly simplified) example from the `Registry` API:
+Creates and executes an `INSERT INTO` statement. A (slightly simplified) example from the `Registry` API::
 
-.. code-block:: php
-
-    // INSERT INTO `sys_registry` (`entry_namespace`, `entry_key`, `entry_value`) VALUES ('aoeu', 'aoeu', 's:3:\"bar\";')
-    GeneralUtility::makeInstance(ConnectionPool::class)
-        ->getConnectionForTable('sys_registry')
-        ->insert(
-            'sys_registry',
-            [
-                'entry_namespace' => $namespace,
-                'entry_key' => $key,
-                'entry_value' => serialize($value)
-            ]
-        );
+   // INSERT INTO `sys_registry` (`entry_namespace`, `entry_key`, `entry_value`) VALUES ('aoeu', 'aoeu', 's:3:\"bar\";')
+   GeneralUtility::makeInstance(ConnectionPool::class)
+      ->getConnectionForTable('sys_registry')
+      ->insert(
+         'sys_registry',
+         [
+            'entry_namespace' => $namespace,
+            'entry_key' => $key,
+            'entry_value' => serialize($value)
+         ]
+      );
 
 
 Well, that should be rather obvious: First argument is the table name to insert a row into, second argument is an
@@ -54,24 +52,22 @@ array of key/value pairs. All keys are quoted to field names and all values are 
 
 It is possible to add another array as third argument to specify how single values are quoted. This is useful
 if `date` or `numbers` or similar should be inserted. The example below quotes the first value to an integer
-and the second one to a string:
+and the second one to a string::
 
-.. code-block:: php
-
-    // INSERT INTO `sys_log` (`userid`, `details`) VALUES (42, 'klaus')
-    GeneralUtility::makeInstance(ConnectionPool::class)
-        ->getConnectionForTable('sys_log')
-        ->insert(
-            'sys_log',
-            [
-                'userid' => (int)$userId,
-                'details' => (string)$details,
-            ],
-            [
-                Connection::PARAM_INT,
-                Connection::PARAM_STR,
-            ]
-        );
+   // INSERT INTO `sys_log` (`userid`, `details`) VALUES (42, 'klaus')
+   GeneralUtility::makeInstance(ConnectionPool::class)
+      ->getConnectionForTable('sys_log')
+      ->insert(
+         'sys_log',
+         [
+            'userid' => (int)$userId,
+            'details' => (string)$details,
+         ],
+         [
+            Connection::PARAM_INT,
+            Connection::PARAM_STR,
+         ]
+      );
 
 
 `insert()` returns the number of affected rows. Guess what? That's the number `1` ... In case something
@@ -79,30 +75,28 @@ goes wrong a `\Doctrine\DBAL\DBALException` is raised.
 
 .. note::
 
-    A list of allowed field types for proper quoting can be found in the `TYPO3\CMS\Core\Database\Connection`
-    class and its base class `\Doctrine\DBAL\Connection`
+    A list of allowed field types for proper quoting can be found in the :php:`TYPO3\CMS\Core\Database\Connection`
+    class and its base class :php:`\Doctrine\DBAL\Connection`
 
 
 bulkInsert()
 ^^^^^^^^^^^^
 
-`INSERT` multiple rows at once. An example from the test suite:
+`INSERT` multiple rows at once. An example from the test suite::
 
-.. code-block:: php
-
-    $connection->bulkInsert(
-        'aTestTable',
-        [
-            ['aField' => 'aValue'],
-            ['aField' => 'anotherValue']
-        ],
-        [
-            'aField'
-        ]
-    );
+   $connection->bulkInsert(
+      'aTestTable',
+      [
+         ['aField' => 'aValue'],
+         ['aField' => 'anotherValue']
+      ],
+      [
+         'aField'
+      ]
+   );
 
 First argument is the table to insert table into, second argument is an array of rows, third argument is the list
-of field names. Similar to `->insert()` it is optionally possible to add another argument to specify quoting details,
+of field names. Similar to :php:`->insert()` it is optionally possible to add another argument to specify quoting details,
 if omitted, everything will be quoted to strings.
 
 .. note::
@@ -116,24 +110,22 @@ if omitted, everything will be quoted to strings.
 update()
 ^^^^^^^^
 
-Create and execute an `UPDATE` statement. The example from `FAL's` `ResourceStorage` sets a storage to offline:
+Create and execute an `UPDATE` statement. The example from `FAL's` `ResourceStorage` sets a storage to offline::
 
-.. code-block:: php
-
-    // UPDATE `sys_file_storage` SET `is_online` = 0 WHERE `uid` = '42'
-    GeneralUtility::makeInstance(ConnectionPool::class)
-        ->getConnectionForTable('sys_file_storage')
-        ->update(
-            'sys_file_storage',
-            ['is_online' => 0],
-            ['uid' => (int)$this->getUid()],
-            [Connection::PARAM_INT]
-        );
+   // UPDATE `sys_file_storage` SET `is_online` = 0 WHERE `uid` = '42'
+   GeneralUtility::makeInstance(ConnectionPool::class)
+      ->getConnectionForTable('sys_file_storage')
+      ->update(
+         'sys_file_storage',
+         ['is_online' => 0],
+         ['uid' => (int)$this->getUid()],
+         [Connection::PARAM_INT]
+      );
 
 
 First argument is the table an update should be executed on, the second argument is an array of key/value pairs to set,
 the third argument is an array of "equal" where statements that are combined with `AND`, the (optional) fourth argument
-specifies the type of values to be updated similar to `->insert()` and `bulkInsert()`.
+specifies the type of values to be updated similar to :php:`->insert()` and :php:`bulkInsert()`.
 
 Note the third argument ``WHERE `foo` = 'bar'`` only supports equal `=`. For more complex stuff the `QueryBuilder`
 has to be used.
@@ -145,18 +137,16 @@ delete()
 ^^^^^^^^
 
 Execute a `DELETE` query using `equal` conditions in `WHERE`, example from `BackendUtility` to mark
-rows as no longer locked by a user:
+rows as no longer locked by a user::
 
-.. code-block:: php
-
-    // DELETE FROM `sys_lockedrecords` WHERE `userid` = 42
-    GeneralUtility::makeInstance(ConnectionPool::class)
-        ->getConnectionForTable('sys_lockedrecords')
-        ->delete(
-            'sys_lockedrecords',
-            ['userid' => (int)42],
-            [Connection::PARAM_INT]
-        );
+   // DELETE FROM `sys_lockedrecords` WHERE `userid` = 42
+   GeneralUtility::makeInstance(ConnectionPool::class)
+      ->getConnectionForTable('sys_lockedrecords')
+      ->delete(
+         'sys_lockedrecords',
+         ['userid' => (int)42],
+         [Connection::PARAM_INT]
+       );
 
 
 First argument is the table name, second argument is a list of `AND` combined `WHERE` conditions as array, third
@@ -173,41 +163,37 @@ argument specifies the quoting of `WHERE` values. There is a pattern ;)
 truncate()
 ^^^^^^^^^^
 
-Empty a table, removing all rows. Usually much quicker than a `->delete()` of all rows. This typically
-resets "auto increment primary keys" to zero. Use with care:
+Empty a table, removing all rows. Usually much quicker than a :php:`->delete()` of all rows. This typically
+resets "auto increment primary keys" to zero. Use with care::
 
-.. code-block:: php
-
-    // TRUNCATE `cache_treelist`
-    GeneralUtility::makeInstance(ConnectionPool::class)
-        ->getConnectionForTable('cache_treelist')
-        ->truncate('cache_treelist');
+   // TRUNCATE `cache_treelist`
+   GeneralUtility::makeInstance(ConnectionPool::class)
+      ->getConnectionForTable('cache_treelist')
+      ->truncate('cache_treelist');
 
 
 count()
 ^^^^^^^
 
 A `COUNT` query. Again, this methods becomes handy if very simple `COUNT` statements are to be executed, the example
-returns tha number of active rows from table `tt_content` that have their `bodytext` field set to `klaus`:
+returns tha number of active rows from table `tt_content` that have their `bodytext` field set to `klaus`::
 
-.. code-block:: php
-
-    // SELECT COUNT(*)
-    // FROM `tt_content`
-    // WHERE
-    //     (`bodytext` = 'klaus')
-    //     AND (
-    //         (`tt_content`.`deleted` = 0)
-    //         AND (`tt_content`.`hidden` = 0)
-    //         AND (`tt_content`.`starttime` <= 1475621940)
-    //         AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1475621940))
-    //     )
-    $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content');
-    $rowCount = $connection->count(
-        '*',
-        'tt_content',
-        ['bodytext' => 'klaus']
-    );
+   // SELECT COUNT(*)
+   // FROM `tt_content`
+   // WHERE
+   //     (`bodytext` = 'klaus')
+   //     AND (
+   //         (`tt_content`.`deleted` = 0)
+   //         AND (`tt_content`.`hidden` = 0)
+   //         AND (`tt_content`.`starttime` <= 1475621940)
+   //         AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1475621940))
+   //     )
+   $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content');
+   $rowCount = $connection->count(
+      '*',
+      'tt_content',
+      ['bodytext' => 'klaus']
+   );
 
 
 First argument is the field to count on, usually `*` or `uid`. Second argument is the table name, third argument
@@ -215,8 +201,8 @@ is an array of `WHERE` equal conditions combined with `AND`.
 
 Remarks:
 
-* `->count()` of `Connection` returns the number directly as integer, in contrast to the method of the `QueryBuilder`,
-  there is no need to call `->fetchColumns(0)` or similar.
+* :php:`->count()` of `Connection` returns the number directly as integer, in contrast to the method of the `QueryBuilder`,
+  there is no need to call :php:`->fetchColumns(0)` or similar.
 
 * The third argument expects all `WHERE` values to be strings, each single expression is combined with `AND`.
 
@@ -226,7 +212,7 @@ Remarks:
 * Field names and values are quoted automatically.
 
 * If anything more complex than a simple `equal` condition on `WHERE` is needed, the `QueryBuilder` methods
-  are a better choice: Next to `->select()`, the `->count()` query is often the least useful method of the
+  are a better choice: Next to :php:`->select()`, the :php:`->count()` query is often the least useful method of the
   `Connection` object.
 
 
@@ -235,24 +221,22 @@ select()
 
 Creates and executes a simple `SELECT` query based on `equal` conditions. Its usage is limited, the
 :ref:`RestrictionBuilder <database-restriction-builder>` kicks in and key/value pairs are automatically
-quoted:
+quoted::
 
-.. code-block:: php
-
-    // SELECT `entry_key`, `entry_value` FROM `sys_registry` WHERE `entry_namespace` = 'my_extension'
-    $resultRows = GeneralUtility::makeInstance(ConnectionPool::class)
-        ->getConnectionForTable('sys_registry')
-        ->select(
-            ['entry_key', 'entry_value'],
-            'sys_registry',
-            ['entry_namespace' => 'my_extension']
-        );
+   // SELECT `entry_key`, `entry_value` FROM `sys_registry` WHERE `entry_namespace` = 'my_extension'
+   $resultRows = GeneralUtility::makeInstance(ConnectionPool::class)
+      ->getConnectionForTable('sys_registry')
+      ->select(
+         ['entry_key', 'entry_value'],
+         'sys_registry',
+         ['entry_namespace' => 'my_extension']
+      );
 
 
 Remarks:
 
-* In contrast to the other short-hand methods, `->select()` returns a :ref:`Statement <database-statement>` object
-  ready to `->fetch()` single rows or to `->fetchAll()`
+* In contrast to the other short-hand methods, :php:`->select()` returns a :ref:`Statement <database-statement>` object
+  ready to :php:`->fetch()` single rows or to :php:`->fetchAll()`
 
 * The method accepts a series of further arguments to specify `GROUP BY`, `ORDER BY`, `LIMIT` and `OFFSET` query parts.
 
@@ -272,16 +256,14 @@ it sometimes becomes handy to first fetch a `Connection` object for a specific t
 query, and to create a `QueryBuilder` for a more complex query from this connection object later. The methods
 usefulness is limited however and no good example within the core can be found at the time of this writing.
 
-The method can be helpful in loops to save some precious code characters, too:
+The method can be helpful in loops to save some precious code characters, too::
 
-.. code-block:: php
-
-    $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($myTable);
-    foreach ($someList as $aListValue) {
-        $myResult = $connection->createQueryBuilder
-            ->select('something')
-            ->from('whatever')
-            ->where(...)
-            ->execute()
-            ->fetchAll();
-    }
+   $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($myTable);
+   foreach ($someList as $aListValue) {
+      $myResult = $connection->createQueryBuilder
+         ->select('something')
+         ->from('whatever')
+         ->where(...)
+         ->execute()
+         ->fetchAll();
+   }
