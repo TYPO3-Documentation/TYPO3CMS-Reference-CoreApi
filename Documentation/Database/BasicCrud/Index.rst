@@ -81,7 +81,7 @@ and prepares a query executed with this final statement:
 .. note::
 
    Default restrictions `deleted`, `hidden`, `startime` and `endtime` based on `TCA` setting of a table
-   are only applied to `select()` calls, thery are *not* added for `delete()` or other query types.
+   are only applied to `select()` calls, they are *not* added for `delete()` or other query types.
 
 
 SELECT multiple rows with some WHERE magic
