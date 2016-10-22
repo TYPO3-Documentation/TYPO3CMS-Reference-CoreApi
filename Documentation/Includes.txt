@@ -3,12 +3,22 @@
    every ReST source file in THIS documentation project (= manual).
 
 .. role:: aspect (emphasis)
+
 .. role:: html(code)
+   :language: html
+
 .. role:: js(code)
+   :language: javascript
+
 .. role:: php(code)
+   :language: php
+
 .. role:: typoscript(code)
+   :language:typoscript
+
 .. role:: ts(typoscript)
    :class: typoscript
+   :language: typoscript
 
 .. highlight:: php
 .. default-role:: code
