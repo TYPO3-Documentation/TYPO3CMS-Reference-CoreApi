@@ -26,7 +26,7 @@ that is queried. This enables instance administrators to configure different dat
 engines for different tables while this is transparent for extension developers.
 
 `doctrine-dbal` has been introduced with TYPO3 CMS version 8 and substitutes the
-old API based on `$GLOBALS['TYPO3_DB']`. Extension authors are encouraged to switch
+old API based on :php:`$GLOBALS['TYPO3_DB']`. Extension authors are encouraged to switch
 away from TYPO3_DB to the new API. A :ref:`dedicated chapter <database-migration>` helps
 with typical migration questions. With database abstraction being built in `doctrine-dbal`
 the old and optional extensions `dbal` and `adodb` are obsolete.
@@ -36,36 +36,42 @@ sticks to those that are commonly used in extensions and some parts like the rew
 schema migrator are left out since they are usually of little to no interest for
 extensions.
 
-.. note::
+Understand Doctrine-Dbal and Doctrine-Orm
+-----------------------------------------
 
-    Doctrine is a two-fold project with `doctrine-dbal` being the low-level database
-    abstraction and query building interface to specific database engines, while
-    `doctrine-orm` is a high-level object relational mapping on top of `doctrine-dbal`.
-    The TYPO3 CMS core only implemented the dbal part, `doctrine-orm` is neither required nor used
-    at the time of this writing.
+Doctrine is a two-fold project with `doctrine-dbal <http://www.doctrine-project.org/projects/dbal.html>`__
+being the low-level database abstraction and query building interface to specific database engines, while
+`doctrine-orm <http://www.doctrine-project.org/projects/orm.html>`__
+is a high-level object relational mapping on top of `doctrine-dbal`.
 
-
-.. note::
-
-    This documentation is about low-level database calls. In many cases it is better
-    to use higher level API's like the :ref:`DataHandler <tce-database-basics>` or
-    `extbase repositories <https://docs.typo3.org/typo3cms/ExtbaseFluidBook/2-BasicPrinciples/2-Domain-Driven-Design.html>`__
-    and to let the framework handle persistence details internally.
+The TYPO3 CMS core - only - implements the dbal part. `doctrine-orm` is neither required nor
+implemented nor used at the time of this writing.
 
 
-.. note::
+Low-level and high-level database calls
+---------------------------------------
 
-    Implementing the `doctrine-dbal` API into `TYPO3` has been a huge project in 2016.
-    Special thanks goes to awesome Mr. Morton Jonuschat for the initial design, integration
-    and support and to more than 40 different people who actively contributed to migrate
-    more than 1700 calls away from TYPO3_DB to doctrine in a half year. This was a huge
-    community achievement, thanks everyone involved!
+This documentation is about low-level database calls. In many cases it is better
+to use higher level API's like the :ref:`DataHandler <tce-database-basics>` or
+`extbase repositories <https://docs.typo3.org/typo3cms/ExtbaseFluidBook/2-BasicPrinciples/2-Domain-Driven-Design.html>`__
+and to let the framework handle persistence details internally.
+
+.. tip:: Always remember high-level database calls!
+
+
+
+Credits
+-------
+
+Implementing the `doctrine-dbal` API into `TYPO3` has been a *huge project in 2016.*
+Special thanks goes to awesome Mr. **Morton Jonuschat** for the initial design, integration
+and support and to more than **40 different people** who actively contributed to migrate
+more than 1700 calls from `TYPO3_DB`-style to Doctrine within half ayear.
+**This was a huge community achievement, thanks everyone involved!**
 
 
 .. toctree::
-   :maxdepth: 6
-   :titlesonly:
-   :glob:
+   :hidden:
 
    Configuration/Index
    BasicCrud/Index

@@ -2,7 +2,7 @@
 .. This is 'Includes.txt'. It is included at the very top of each and
    every ReST source file in THIS documentation project (= manual).
 
-.. role:: aspect (emphasis)
+.. role:: aspect(emphasis)
 
 .. role:: html(code)
    :language: html
