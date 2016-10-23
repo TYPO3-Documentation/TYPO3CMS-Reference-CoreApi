@@ -2,8 +2,12 @@
 
 .. _database:
 
+===============
 Database Access
 ===============
+
+Introduction
+============
 
 Database queries in TYPO3 are done with an API based on
 `doctrine-dbal <http://www.doctrine-project.org/projects/dbal.html>`__.
@@ -36,8 +40,8 @@ sticks to those that are commonly used in extensions and some parts like the rew
 schema migrator are left out since they are usually of little to no interest for
 extensions.
 
-Understand Doctrine-Dbal and Doctrine-Orm
------------------------------------------
+Understanding Doctrine-Dbal and Doctrine-Orm
+--------------------------------------------
 
 Doctrine is a two-fold project with `doctrine-dbal <http://www.doctrine-project.org/projects/dbal.html>`__
 being the low-level database abstraction and query building interface to specific database engines, while
@@ -56,7 +60,7 @@ to use higher level API's like the :ref:`DataHandler <tce-database-basics>` or
 `extbase repositories <https://docs.typo3.org/typo3cms/ExtbaseFluidBook/2-BasicPrinciples/2-Domain-Driven-Design.html>`__
 and to let the framework handle persistence details internally.
 
-.. tip:: Always remember high-level database calls!
+.. tip:: Always remember the **high-level** database calls and use them when appropriate!
 
 
 
@@ -70,8 +74,11 @@ more than 1700 calls from `TYPO3_DB`-style to Doctrine within half ayear.
 **This was a huge community achievement, thanks everyone involved!**
 
 
+Main Contents
+=============
+
 .. toctree::
-   :hidden:
+   :titlesonly:
 
    Configuration/Index
    BasicCrud/Index

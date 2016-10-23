@@ -15,7 +15,7 @@ handling of soft deletes and language overlays: For instance, if a row in the ba
 is deleted using the page or list module, many tables are configured to not
 entirely drop that row from the table, instead a field (often `deleted`) is set
 from zero to one for that row. Similar mechanics kick in for start- and endtime as
-well as language and workspace overlays. See the :ref:`t3tca:ctrl>` chapter in the
+well as language and workspace overlays. See the :ref:`t3tca:ctrl` chapter in the
 TCA reference for details on this topic.
 
 These mechanics however come with a price tag attached to it: Extension developers
