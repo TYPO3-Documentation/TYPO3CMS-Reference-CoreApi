@@ -19,8 +19,18 @@ The scope of such options is the backend only.
 Registration
 """"""""""""
 
-Options are configured in the global variable :code:`$TYPO3_CONF_VARS['BE']['customPermOptions']`.
-The syntax is demonstrated in the following example, which adds three options under a given header::
+Options are configured in the global variable :code:`$TYPO3_CONF_VARS['BE']['customPermOptions']` in
+:file:`ext_tables.php`. The syntax is demonstrated in the following example, which adds three options
+under a given header:
+
+.. code-block:: php
+
+   $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+   $iconRegistry->registerIcon(
+      'styleguide-icon-svg',
+      \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+      [ 'source' => 'EXT:styleguide/Resources/Public/Icons/provider_svg_icon.svg',]
+    );
 
    $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = array(
       'tx_examples_cat1' => array(
@@ -28,7 +38,7 @@ The syntax is demonstrated in the following example, which adds three options un
          'items' => array(
             'key1' => array(
                'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1',
-               'EXT:t3skin/icons/gfx/savedok.gif',
+               'styleguide-icon-svg',
                'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1_description',
             ),
             'key2' => array('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option2'),
@@ -36,6 +46,7 @@ The syntax is demonstrated in the following example, which adds three options un
          )
       )
    );
+
 
 The result is that these options appear in the group access lists like
 this:
@@ -47,12 +58,8 @@ this:
 
 
 As you can see it is possible to add both an icon and a description text, that will
-be displayed as context-sensitive help.
-
-.. note::
-
-   As this is a rather old API the icon is actually pointed to using a reference
-   to an actual file rather than using a sprite class.
+be displayed as context-sensitive help. If icons not provided by the core are used,
+they need to be registered with the icon API.
 
 
 .. _custom-permissions-evaluation:
