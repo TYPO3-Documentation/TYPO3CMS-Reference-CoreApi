@@ -623,7 +623,7 @@ Please take time to learn these functions!
 
          .. code-block:: php
 
-         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tt_board');
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tt_board');
 
 
  - :Function:
@@ -713,7 +713,7 @@ Please take time to learn these functions!
 
          .. code-block:: php
 
-         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43($_EXTKEY);
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43($_EXTKEY);
 
 
 
@@ -733,4 +733,4 @@ Please take time to learn these functions!
 
          .. code-block:: php
 
-         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile('extension_name', 'Configuration/PageTS/myPageTSconfigFile.txt', 'My special config');
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile('extension_name', 'Configuration/PageTS/myPageTSconfigFile.txt', 'My special config');
