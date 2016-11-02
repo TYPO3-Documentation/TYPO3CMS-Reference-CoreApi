@@ -33,6 +33,13 @@ A File can be indexed, which makes it possible to reference the file
 from any database record in order to use it, but also speeds up obtaining
 cached information such as various metadata or other file properties like size or file name.
 
+A File may be referenced by its uid in the "sys\_file" table, but will
+also often be referred to by its identifier, which is the path to the
+file from the root of the Storage the file belongs to. The
+**combined identifier** includes the File's identifier prepended
+by the Storage's uid and a colon (:code:`:`). Example:
+:code:`1:/path/to/file/filename.foo`.
+
 
 .. _architecture-components-file-references:
 
