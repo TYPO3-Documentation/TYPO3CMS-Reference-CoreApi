@@ -38,27 +38,57 @@ to the configuration of the column with the string :code:`richtext[]` as value:
    :emphasize-lines: 9,9
 
    'poem' => array(
-       'exclude' => 0,
-	   'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.poem',
-	   'config' => array(
-		   'type' => 'text',
-		   'cols' => 40,
-		   'rows' => 6
-	   ),
-	   'defaultExtras' => 'richtext[]'
+      'exclude' => 0,
+      'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.poem',
+      'config' => array(
+         'type' => 'text',
+         'cols' => 40,
+         'rows' => 6
+      ),
+      'defaultExtras' => 'richtext[]'
    ),
 
 This works for FlexForms too.
 
-.. note::
+.. important::
 
    Don't forget to enable Rich Text Editor in the back end, in User Settings -> Edit and Advanced functions,
    check "Enable Rich Text Editor", if not already done.
 
+Get a full options RTE
+======================
+
+Origin: `Documentation Issue #94 <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/94>`_
+
+Tested for 7.6, probably valid since 7.0
+
+   The doc only gives one example for rte using :php:`'defaultExtras' => 'richtext[]'`.
+   Note that it is possible to get a "full options RTE" by writing
+   :php:`'defaultExtras' => 'richtext[*]'`.
+   It would be very useful to describe in more detail more forms that can be used here.
+
+Fix wrong wrong file links in the frontend
+==========================================
+
+Origin: `Documentation Issue #94 <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/94>`_
+
+Tested for 7.6, probably valid since 7.0
+
+   **Symptom:** The RTE renders file links in the frontend like `file:1234`.
+
+   **Cure:** This could be fixed by writing :php:`'defaultExtras' => 'richtext[]:rte_transform[mode=ts_links]'`.
+
+Main contents
+=============
+
 .. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+   :hidden:
+
+   PlugRte/Index
+
+
+.. toctree::
+   :hidden:
 
    PlugRte/Index
 
