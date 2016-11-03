@@ -51,30 +51,28 @@ This works for FlexForms too.
    Don't forget to enable Rich Text Editor in the back end, in User Settings -> Edit and Advanced functions,
    check "Enable Rich Text Editor", if not already done.
 
+Get a full options RTE
+======================
 
-Tip: How to enable a "full options RTE"
-=======================================
-
-Origin: `DocIssue #94 <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/94>`_
+Origin: `Documentation Issue #94 <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/94>`_
 
 Tested for 7.6, probably valid since 7.0
 
-The description in the issue says:
+   The doc only gives one example for rte using :php:`'defaultExtras' => 'richtext[]'`.
+   Note that it is possible to get a "full options RTE" by writing
+   :php:`'defaultExtras' => 'richtext[*]'`.
+   It would be very useful to describe in more detail more forms that can be used here.
 
-A full options RTE
-------------------
-The doc only gives one example for rte using :php:`'defaultExtras' => 'richtext[]'`.
-Note that it is possible to get a "full options RTE" by writing
-:php:`'defaultExtras' => 'richtext[*]'`.
-It would be very useful to describe in more detail more forms that can be used here.
+Fix wrong wrong file links in the frontend
+==========================================
 
-Bugfix for wrong file links in the frontend
--------------------------------------------
+Origin: `Documentation Issue #94 <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/94>`_
 
-Symptom: The RTE renders file links in the frontend like `file:1234`.
+Tested for 7.6, probably valid since 7.0
 
-Cure: This could be fixed by writing :php:`'defaultExtras' => 'richtext[]:rte_transform[mode=ts_links]'`.
+   **Symptom:** The RTE renders file links in the frontend like `file:1234`.
 
+   **Cure:** This could be fixed by writing :php:`'defaultExtras' => 'richtext[]:rte_transform[mode=ts_links]'`.
 
 Main contents
 =============
