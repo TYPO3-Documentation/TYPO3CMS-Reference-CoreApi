@@ -11,5 +11,6 @@ Administration
 .. toctree::
 
    Permissions/Index
+   Storages/Index
    Maintenance/Index
 
