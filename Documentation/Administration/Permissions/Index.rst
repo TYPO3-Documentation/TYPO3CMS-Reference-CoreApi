@@ -188,6 +188,24 @@ recursivedeleteFolder
   Remove a folder even if it has contents; needs write folder permissions.
 
 
+.. _administration-permissions-upload-folder:
+
+Default upload folder
+"""""""""""""""""""""
+
+When nothing else is defined, any file uploaded by a user will end up
+in :file:`fileadmin/user_upload`. With User TSconfig, it is possible to
+define a different default upload folder for each backend user or user
+group. Example:
+
+.. code-block:: typoscript
+
+   options.defaultUploadFolder = 3:users/uploads/
+
+
+:ref:`See the full reference <t3tsconfig:useroptions-defaultuploadfolder>`.
+
+
 .. _administration-permissions-frontend:
 
 Frontend permissions
