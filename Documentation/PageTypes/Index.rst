@@ -102,6 +102,8 @@ The whole code to add a page type is shown below with the according file names a
 The first step is to add the new page type to the global array described above. Then you need to add
 the icon chosen for the new page type and allow users to drag and drop the new page type to the page
 tree.
+Note: You have to change 'example' in the call_user_func() method to your own extension key.
+
 All the changes are applied in :file:`ext_tables.php`::
 
     call_user_func(
@@ -138,8 +140,6 @@ need to add the new doktype as select item and associate it with the configured 
 
     call_user_func(
         function ($extKey, $table) {
-            $extRelPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($extKey);
-            $customPageIcon = $extRelPath . 'Resources/Public/Images/Archive.svg';
             $archiveDoktype = 116;
 
             // Add new page type as possible select item:
@@ -149,7 +149,7 @@ need to add the new doktype as select item and associate it with the configured 
                 [
                     'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
                     $archiveDoktype,
-                    $customPageIcon
+                    'EXT:' . $extKey . 'Resources/Public/Images/Archive.svg'
                 ],
                 '1',
                 'after'
@@ -177,8 +177,6 @@ can also be translated :file:`Configuration/TCA/Overrides/pages_language_overlay
     // Also add the new doktype to the page language overlays type selector (so that translations can inherit the same type)
     call_user_func(
         function ($extKey, $table) {
-            $extRelPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($extKey);
-            $customPageIcon = $extRelPath . 'Resources/Public/Images/Archive.svg';
             $archiveDoktype = 116;
 
             // Add new page type as possible select item:
@@ -188,7 +186,7 @@ can also be translated :file:`Configuration/TCA/Overrides/pages_language_overlay
                 [
                     'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
                     $archiveDoktype,
-                    $customPageIcon
+                    'EXT:' . $extKey . 'Resources/Public/Images/Archive.svg'
                 ],
                 '1',
                 'after'
