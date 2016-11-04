@@ -15,4 +15,5 @@ grouped in rough functional categories.
 
    ResourceFactory/Index
    FileFolder/Index
+   Collections/Index
 
