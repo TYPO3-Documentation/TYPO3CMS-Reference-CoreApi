@@ -205,6 +205,13 @@ group. Example:
 
 :ref:`See the full reference <t3tsconfig:useroptions-defaultuploadfolder>`.
 
+There are a number of circumstances where it might be convenient
+to change the default upload folder. A hook exists to provide
+maximum flexibility in that regard. For example, take a look at
+extension `default_upload_folder <https://github.com/beechit/default_upload_folder>`_,
+which makes it possible to define a default upload folder for
+a given field of a given table (using custom TSconfig).
+
 
 .. _administration-permissions-frontend:
 
