@@ -223,3 +223,8 @@ System extension "filemetadata" adds a "fe_groups" field to the
 frontend permissions to files. However these permissions are not
 enforced in any way by the TYPO3 CMS Core. It is up to extension
 developers to create tools which make use of these permissions.
+
+As an example, you may want to take a look at extension
+`fal_securedownload <https://typo3.org/extensions/repository/view/fal_securedownload>`_
+which also makes use of the "Is publicly available?" property of
+:ref:`File Storages <administration-storages>`.
