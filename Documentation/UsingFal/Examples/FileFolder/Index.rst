@@ -78,10 +78,78 @@ Storage:
 Creating a file reference
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There is no API to create a File Reference. As long as you are editing
-records in the backend, this is not a worry, as the TYPO3 CMS Core will
-take care of everything. However if you wish, for example, to create
-file references after some frontend input, you will be on your own.
+
+.. _using-fal-examples-file-folder-create-reference-backend:
+
+In the backend context
+''''''''''''''''''''''
+
+In the backend or command-line context, it is possible to create
+file references using the normal :class:`\\TYPO3\\CMS\\Core\\DataHandling\\DataHandler`
+processes.
+
+Assuming you have the "uid" of both the File and whatever other item
+you want to create a relation to, the following code will create
+the "sys\_file\_reference" entry and the relation to the other item
+(in this case a "tt\_content" record).
+
+.. code-block:: php
+
+     $resourceFactory = ResourceFactory::getInstance();
+     $fileObject = $resourceFactory->getFileObject((int)$file);
+     $contentElement = BackendUtility::getRecord(
+             'tt_content',
+             (int)$element
+     );
+     // Assemble DataHandler data
+     $newId = 'NEW1234';
+     $data = array();
+     $data['sys_file_reference'][$newId] = array(
+             'table_local' => 'sys_file',
+             'uid_local' => $fileObject->getUid(),
+             'tablenames' => 'tt_content',
+             'uid_foreign' => $contentElement['uid'],
+             'fieldname' => 'image',
+             'pid' => $contentElement['pid']
+     );
+     $data['tt_content'][$contentElement['uid']] = array(
+             'image' => $newId
+     );
+     // Get an instance of the DataHandler and process the data
+     /** @var DataHandler $dataHandler */
+     $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+     $dataHandler->start($data, array());
+     $dataHandler->process_datamap();
+     // Error or success reporting
+     if (count($dataHandler->errorLog) === 0) {
+         // Handle success
+     } else {
+         // Handle errors
+     }
+
+
+The above example comes from the "examples" extension
+(reference: https://github.com/TYPO3-Documentation/TYPO3CMS-Code-Examples/blob/master/Classes/Controller/ModuleController.php).
+
+For another table than "tt\_content", you need to define
+the "pid" explicitly when creating the relation:
+
+.. code-block:: php
+
+   $data['tt_address'][$address['uid']] = array(
+       'pid' => $address['pid'],
+       'image' => 'NEW1234' // changed automatically
+   );
+
+
+.. _using-fal-examples-file-folder-create-reference-frontend:
+
+In the frontend context
+'''''''''''''''''''''''
+
+In a frontend context, the :class:`\\TYPO3\\CMS\\Core\\DataHandling\\DataHandler`
+class cannot be used and there is no specific API to create a File Reference.
+You are on your own.
 
 The simplest solution is to simply create a database entry into
 table "sys\_file\_reference" by using directly the database connection
