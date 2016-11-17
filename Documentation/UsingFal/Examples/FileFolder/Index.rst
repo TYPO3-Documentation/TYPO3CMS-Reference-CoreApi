@@ -85,7 +85,7 @@ In the backend context
 ''''''''''''''''''''''
 
 In the backend or command-line context, it is possible to create
-file references using the normal :class:`\\TYPO3\\CMS\\Core\\DataHandling\\DataHandler`
+file references using the normal :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`
 processes.
 
 Assuming you have the "uid" of both the File and whatever other item
@@ -147,7 +147,7 @@ the "pid" explicitly when creating the relation:
 In the frontend context
 '''''''''''''''''''''''
 
-In a frontend context, the :class:`\\TYPO3\\CMS\\Core\\DataHandling\\DataHandler`
+In a frontend context, the :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`
 class cannot be used and there is no specific API to create a File Reference.
 You are on your own.
 
@@ -175,7 +175,7 @@ table:
 
 
 where :code:`$uid` is the id of some page. The return value if an array
-of :class:`\\TYPO3\\CMS\\Core\\Resource\\FileReference` objects.
+of :php:`\TYPO3\CMS\Core\Resource\FileReference` objects.
 
 
 .. _using-fal-examples-file-folder-list-files:

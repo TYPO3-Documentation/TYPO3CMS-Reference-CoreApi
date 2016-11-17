@@ -24,7 +24,7 @@ Is publicly available?
   replaced by an eID call pointing to a file dumping script provided
   by the TYPO3 CMS Core. The public URL looks something like
   :code:`index.php?eID=dumpFile&t=f&f=1230&token=135b17c52f5e718b7cc94e44186eb432e0cc6d2f`.
-  Behind the scene, class :class:`\\TYPO3\\CMS\\Core\\Controller\\FileDumpController`
+  Behind the scene, class :php:`\TYPO3\CMS\Core\Controller\FileDumpController`
   is invoked to manage the download. The class itself does not implement
   any access check, but provides a hook for doing so.
 

@@ -7,7 +7,7 @@
 Working with collections
 """"""""""""""""""""""""
 
-The :class:`\\TYPO3\\CMS\\Core\\Resource\\ResourceFactory` class
+The :php:`\TYPO3\CMS\Core\Resource\ResourceFactory` class
 provides a convenience method to retrieve a
 :ref:`File Collection <architecture-components-collections>`.
 
@@ -21,7 +21,7 @@ provides a convenience method to retrieve a
 
 In this example, we retrieve and load the content from the
 File Collection with a uid of "1". Any Collection implements
-the :class:`\\Iterator` interface, which means that a Collection
+the :php:`\Iterator` interface, which means that a Collection
 can be looped over (once its content has been loaded). Thus
 if the above code passed the :code:`$collection` variable to
 a Fluid view, you could do the following:

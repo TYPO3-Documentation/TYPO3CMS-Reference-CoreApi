@@ -7,7 +7,7 @@
 The ResourceFactory class
 """""""""""""""""""""""""
 
-The :class:`\\TYPO3\\CMS\\Core\\Resource\\ResourceFactory` is the
+The :php:`\TYPO3\CMS\Core\Resource\ResourceFactory` is the
 workhorse of the File Abstraction Layer from a coding point
 of view. It contains a number of utility methods, some of
 which are described here, some others which appear in the
@@ -40,9 +40,9 @@ when not using a :ref:`combined identifier <architecture-components-files-folder
 Getting any Storage
 ~~~~~~~~~~~~~~~~~~~
 
-The :class:`ResourceFactory` should also be used when retrieving
+The :php:`ResourceFactory` should also be used when retrieving
 any Storage. You should not try to instantiate directly a
-:class:`\\TYPO3\\CMS\\Core\\Resource\\StorageRepository` and call
+:php:`\TYPO3\CMS\Core\Resource\StorageRepository` and call
 its :code:`findByUid()` method.
 
 .. code-block:: php
