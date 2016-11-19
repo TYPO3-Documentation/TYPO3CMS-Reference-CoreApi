@@ -14,7 +14,7 @@ Usage Layer
   content elements or any custom structure defined by extensions).
 
 Storage Layer
-  This layer is made of several parts. First of all come the Files
+  This layer is made of several parts. First of all there are the Files
   and their associated metadata. Then each File is associated with
   a Storage.
 
