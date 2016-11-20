@@ -33,7 +33,7 @@ A File can be indexed, which makes it possible to reference the file
 from any database record in order to use it, but also speeds up obtaining
 cached information such as various metadata or other file properties like size or file name.
 
-A File may be referenced by its uid in the "sys\_file" table, but will
+A File may be referenced by its uid in the :ref:`sys_file table <architecture-database-sys-file>`, but will
 also often be referred to by its identifier, which is the path to the
 file from the root of the Storage the file belongs to. The
 **combined identifier** includes the File's identifier prepended
@@ -77,7 +77,7 @@ as the reference is done through the normal record relation handling of TYPO3 CM
 Storage
 """""""
 
-The Storage is the focal point FAL architecture. Even though it doesn't do the actual
+The Storage is the focal point of the FAL architecture. Even though it doesn't do the actual
 low-level actions on a File (that's up to the Driver), it still does the largest part of the logic.
 
 Among the many things done by the Storage layer are:
