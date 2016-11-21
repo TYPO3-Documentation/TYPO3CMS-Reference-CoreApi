@@ -45,4 +45,9 @@ as soon as possible.
 
 LTS ("Long Term Support") versions are an exception: these versions get
 full support (bug fixes and security fixes) for at least three years.
-TYPO3 CMS version 4.5 as well as version 6.2 are such LTS versions.
+TYPO3 CMS version 4.5, 6.2 and 7 are such LTS versions.
+Starting with TYPO3 CMS 7 LTS the minor-versions are skipped in the official
+naming. So 7 LTS is 7.6 internally. Versions inside a major-version have
+minor-versions as usual (7.0, 7.1, ...) until at some point it receives
+LTS-status.
+
