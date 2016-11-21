@@ -34,7 +34,7 @@ name
   the actual name of the file in the file system.
 
 sha1
-  A hash of the file's content. This is used to dectect whether a file
+  A hash of the file's content. This is used to detect whether a file
   has changed or not.
 
 metadata
