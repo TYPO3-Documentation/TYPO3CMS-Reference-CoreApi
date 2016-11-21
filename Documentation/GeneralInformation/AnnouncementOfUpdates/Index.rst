@@ -22,8 +22,7 @@ recommended to carefully read every message that arrives, because they
 contain important information about TYPO3 releases and security
 bulletins.
 
-Other communication channels such as `http://news.typo3.org
-<http://news.typo3.org/>`_ , a RSS feed, an official Twitter account
-(`@typo3\_security <https://twitter.com/typo3_security>`_), etc.
+Other communication channels such as https://news.typo3.org/, a RSS feed,
+an official Twitter account `@typo3\_security <https://twitter.com/typo3_security>`_  etc.
 can be used additionally to stay up-to-date on security advisories.
 
