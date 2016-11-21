@@ -7,10 +7,10 @@ Keep the TYPO3 core up-to-date
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As described in chapter :ref:`typo3-versions`, a new version
-of TYPO3 can either be a major update (e.g. from version 4.x.x to
-version 6.x.x), a minor update (e.g. from version 6.1.x to version
-6.2.x) or a maintenance/bugfix/security release (e.g. from version
-6.1.4 to 6.1.5).
+of TYPO3 can either be a major update (e.g. from version 6.x.x to
+version 7.x.x), a minor update (e.g. from version 7.5.x to version
+7.6.x) or a maintenance/bugfix/security release (e.g. from version
+7.6.11 to 7.6.11).
 
 In most cases, a maintenance/bugfix/security update is a no-brainer,
 see :ref:`TYPO3 Installation and Upgrade Guide <t3install:start>`
