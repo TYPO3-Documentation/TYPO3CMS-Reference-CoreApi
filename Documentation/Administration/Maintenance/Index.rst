@@ -28,14 +28,14 @@ File Abstraction Layer: Update storage index
   the TYPO3 CMS installation knows about all existing files in order
   to make them available to users.
 
-  This taks is defined per Storage.
+  This task is defined per Storage.
 
 File Abstraction Layer: Extract metadata in storage
   This task goes through all files in a Storage and updates their
   metadata. Again this is especially important when files can be
   manipulated by other means or actually reside on external systems.
 
-  This taks is defined per Storage.
+  This task is defined per Storage.
 
 
 .. _administration-maintenance-processed-files:
