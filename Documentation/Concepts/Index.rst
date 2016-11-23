@@ -22,13 +22,13 @@ to the record representing that file.
 Storages and drivers
 ^^^^^^^^^^^^^^^^^^^^
 
-Every file belongs to a storage, which a very general concept
+Every file belongs to a storage, which is a very general concept
 encompassing any kind of place where a file can be stored: a local
 file system, a remote server or a cloud-based resource. Accessing
 these different places requires an appropriate driver.
 
 Each storage relies on a driver to provide the user with the
-ability to use and manipulate the files found in the storage.
+ability to use and manipulate the files that exist in the storage.
 By default TYPO3 CMS provides only a local file system driver.
 
 A new TYPO3 CMS installation comes with a predefined storage,
@@ -41,7 +41,7 @@ using the local file system driver and pointing to the
 Files and metadata
 ^^^^^^^^^^^^^^^^^^
 
-For each file found in all possible storages, there exists a
+For each available file in all present storages, there exists a
 corresponding database record in table "sys\_file", which
 contains basic information about the file (name, path. size, etc.),
 and an additional record in table "sys\_file\_metadata", designed
