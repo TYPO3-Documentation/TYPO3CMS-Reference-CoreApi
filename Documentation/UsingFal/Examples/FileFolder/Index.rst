@@ -47,7 +47,7 @@ Copying a file
 
    // $file returns a TYPO3\CMS\Core\Resource\File object
    $file = $storage->getFile($someFileIdentifier);
-   // $folder returns a TYPO3\CMS\Core\Resource\File object
+   // $folder returns a TYPO3\CMS\Core\Resource\Folder object
    $folder = $storage->getFolder($someFolderIdentifier);
 
    // returns the TYPO3\CMS\Core\Resource\File object of the new, copied file
