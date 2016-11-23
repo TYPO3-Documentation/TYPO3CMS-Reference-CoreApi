@@ -129,8 +129,8 @@ User permissions details
 This model for permissions behaves very similar to permission systems
 on Unix and Linux systems. Folders are seen as a collection of files and
 folders. If you want to change *that collection* by adding, removing or renaming
-files or folders folders you need to have **write permissions for the folder** as well.
-If you only want to change the contents of a file you need write permissions
+files or folders you need to have **write permissions for the folder** as well.
+If you only want to change the content of a file you need write permissions
 for the file but not for the containing folder.
 
 Here is the detail of what the various permission options mean:
