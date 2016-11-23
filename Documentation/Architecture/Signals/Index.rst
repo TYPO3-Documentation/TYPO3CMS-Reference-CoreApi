@@ -22,8 +22,8 @@ operation, the other one **after**.
    Unless mentioned otherwise, mentions of class "File" below actually refer
    to the :php:`\TYPO3\CMS\Core\Resource\FileInterface` interface.
 
-  "Folder" objects actually refer to the :php:`\TYPO3\CMS\Core\Resource\Folder`
-  class.
+   "Folder" objects actually refer to the :php:`\TYPO3\CMS\Core\Resource\Folder`
+   class.
 
 .. _architecture-signals-resource-storage:
 
