@@ -148,9 +148,9 @@ The following caches exist in the TYPO3 CMS Core:
 
 - cache_classes
 
-  - Maps class names (ant potentially one or more aliases) to the location
+  - Maps class names (and potentially one or more aliases) to the location
     of the class files in the filesystem. This cache is used by the class loader
-    in oder to require the correct class file when that class needs to be instantiated.
+    in order to require the correct class file when that class needs to be instantiated.
   - **group**: system
 
 - cache_hash
@@ -187,7 +187,7 @@ The following caches exist in the TYPO3 CMS Core:
 - cache_rootline
 
   - Cache for rootline calculations.
-  - Quick and simple cache dedicated for core usage, Should **not** be re-used by extenions.
+  - Quick and simple cache dedicated for core usage, Should **not** be re-used by extensions.
   - **groups**: all, pages
 
 - l10n
@@ -245,5 +245,5 @@ The caching framework architecture is based on the following classes:
 - **\\TYPO3\\CMS\\Core\\Cache\\Frontend\\FrontendInterface**: Main interface to handle cache entries of a specific cache.
   Different frontends and further interfaces exist to handle different data types.
 - **\\TYPO3\\CMS\\Core\\Cache\\Backend\\BackendInterface**: Main interface every valid storage backend must implement.
-  Several backends und further interfaces exist to specify specific backend capabilities. Some frontends require backends
+  Several backends and further interfaces exist to specify specific backend capabilities. Some frontends require backends
   to implement additional interfaces.
