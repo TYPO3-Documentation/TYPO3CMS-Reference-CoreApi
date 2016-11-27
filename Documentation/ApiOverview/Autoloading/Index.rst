@@ -41,6 +41,23 @@ A developer has two options to help the core find a specific class:
 
 - Register a class name together with its location in an :php:`ext_autoload.php` file.
 
+Using namespaced classes
+-------------------------------
+
+Namespaced classes can be made available by Dependency Injection (Since Extbase 4.7):
+
+    /**
+    * @var \MyNamespace\MyExtension\SomeClass
+    * @inject
+    */
+    protected $someClass;
+    
+will automatically make $this->someClass available in your class's methods.
+Make sure all classes are properly namespaced.
+
+Autoloader file
+---------------
+
 If it's not possible to stick to the class naming and file location conventions - for whatever
 reasons - or if you don't want to use namespaces, you can add a file to your extension called
 :file:`ext_autoload.php` in the base directory. Its task is to inform the autoloader about the
@@ -52,6 +69,7 @@ with the class name as key and the file location as value. No other code is allo
 
 
 .. _autoload-examples:
+
 
 Examples for non-namespaced classes
 ===================================
