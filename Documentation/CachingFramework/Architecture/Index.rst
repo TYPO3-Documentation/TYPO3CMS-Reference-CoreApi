@@ -166,7 +166,7 @@ The following caches exist in the TYPO3 CMS Core:
 
 - cache_pagesection
 
-  - Used to store "parts of a page", for example used to store typo3script snippets and
+  - Used to store "parts of a page", for example used to store Typoscript snippets and
     compiled frontend templates.
   - Content is compressed by default to reduce database memory and storage overhead.
   - **groups**: all, pages
@@ -244,6 +244,6 @@ The caching framework architecture is based on the following classes:
   not need to fiddle with this class.
 - **\\TYPO3\\CMS\\Core\\Cache\\Frontend\\FrontendInterface**: Main interface to handle cache entries of a specific cache.
   Different frontends and further interfaces exist to handle different data types.
-- **\\TYPO3\\CMS\\Core\\Cache\\Backend\\BackendInterface**: Main interface every valid storage backend must implement.
+- **\\TYPO3\\CMS\\Core\\Cache\\Backend\\BackendInterface**: Main interface that every valid storage backend must implement.
   Several backends and further interfaces exist to specify specific backend capabilities. Some frontends require backends
   to implement additional interfaces.
