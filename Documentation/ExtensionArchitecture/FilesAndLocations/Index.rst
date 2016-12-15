@@ -279,7 +279,7 @@ Classes/Controller
 Classes/Domain/Model
   Contains MVC Domain model classes.
 
-Classes/Domain/Model/Repository
+Classes/Domain/Repository
   Contains data repository classes.
 
 Classes/ViewHelpers
