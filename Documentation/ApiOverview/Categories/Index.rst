@@ -182,7 +182,7 @@ Category collections
 ^^^^^^^^^^^^^^^^^^^^
 
 The :ref:`\\TYPO3\\CMS\\Core\\Category\\Collection\\CategoryCollection <t3cmsapi:TYPO3\\CMS\\Core\\Category\\Collection\\CategoryCollection>`
-classe provides the API for retrieving records related
+classe provides the backend API for retrieving records related
 to a given category. Since TYPO3 CMS 6.2, it is extended by class
 :ref:`\\TYPO3\\CMS\\Frontend\\Category\\Collection\\CategoryCollection <t3cmsapi:TYPO3\\CMS\\Frontend\\Category\\Collection\\CategoryCollection>`
 which does the same job but in the frontend, i.e.
