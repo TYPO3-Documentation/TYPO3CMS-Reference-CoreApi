@@ -119,7 +119,7 @@ facility  no         Syslog Facility_  ``USER``
 .. _logging-writers-custom:
 
 Custom Log Writers
-------------------
+""""""""""""""""""
 
 Custom log writers can be added through extensions.
 Every log writer has to implement the interface :code:`\TYPO3\CMS\Core\Log\Writer\WriterInterface`.
