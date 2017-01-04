@@ -152,7 +152,11 @@ Remarks:
 * First argument to :php:`->count()` is required, typically :php:`->count(*)` or :php:`->count('uid')` is used, the field
   name is automatically quoted.
 
-* There is no support for `DISTINCT`, a `->groupBy()` has to be used instead.
+* There is no support for `DISTINCT`, a :php:`->groupBy()` has to be used instead.
+
+* If combining :php:`->count()` with a :php:`->groupBy()`, the result may return multiple rows. The order of
+  those rows depends on the used `DBMS`. To ensure same order of result rows on multiple different databases,
+  a :php:`->groupBy()` should thus always be combined with a :php:`->orderBy()`.
 
 
 delete()
