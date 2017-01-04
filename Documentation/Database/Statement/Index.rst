@@ -21,6 +21,17 @@ the `TYPO3 CMS` core yet, and thus not fully documented here.
    "Statement" fits much better than "Result".
 
 
+.. warning::
+
+   The return type of single field values is NOT type safe! If selecting a value from a field that is
+   defined as `int`, the `Statement` result may very well return that as `PHP` :php:`string`. This is
+   true for other database column types like `FLOAT`, `DOUBLE` and others.
+   This is an issue with the database drivers used below, it may happen that `MySQL` returns an integer
+   value for an `int` field, while `MSSQL` returns a string.
+   In general, the application must take care of an according type cast on their own to reach maximum
+   `DBMS` compatibility.
+
+
 fetch()
 ^^^^^^^
 
