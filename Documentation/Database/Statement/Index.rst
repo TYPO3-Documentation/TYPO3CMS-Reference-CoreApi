@@ -81,3 +81,9 @@ rowCount()
 
 Returns the number of rows affected by the last execution of this statement. Use that method
 instead of counting the number of records in a :php:`->fetch()` loop manually.
+
+.. warning::
+
+   :php:`->rowCount()` works well with `DELETE`, `UPDATE` and `INSERT` queries. However, it does NOT
+   return a valid number for `SELECT` queries on some `DBMS`. Never use :php:`->rowCount()` on `SELECT`
+   queries. This may work with MySOL, but fails with other databases like SQLite.
