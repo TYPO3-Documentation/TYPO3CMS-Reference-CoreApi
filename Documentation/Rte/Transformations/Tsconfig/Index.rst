@@ -350,6 +350,26 @@ transformBoldAndItalicTags
          tags to b and i tags in the direction of the RTE.
 
          This transformation may be disabled by setting this property to 0.
+         
+         .. note::
+            This option is removed from TYPO3 version 8.6 (:ref:https://review.typo3.org/#/c/51289/5); if you need to remap :code:`strong` and :code:`em` tags to :code:`b` and :code:`i` and *vice versa*, please use the following configuration: ::
+
+                  RTE.default.proc {
+                          # make <strong> and <em> tags when sending to the RTE
+                      HTMLparser_rte {
+                              tags {
+                                  b.remap = strong
+                                  i.remap = em
+                              }
+                      }
+                          # make <b> and <i> tags when sending to the DB
+                      HTMLparser_db {
+                          tags {
+                              strong.remap = B
+                              em.remap = I
+                          }
+                      }
+                  }
 
 
 .. _transformations-tsconfig-processing-htmlparser:
