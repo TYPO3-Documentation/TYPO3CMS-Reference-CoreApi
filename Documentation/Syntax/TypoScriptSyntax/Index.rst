@@ -440,7 +440,9 @@ not affect earlier copies. On the other hand there's the reverse risk:
 It is easy to forget that changing the original object will have an
 impact on all references. References are very convenient, but should
 be used with caution.
-Note: changing or adding attributes in the object holding a reference will not change the original object that was referenced.
+
+*Note:* Changing or adding attributes in the object holding a reference
+will not change the original object that was referenced.
 
 
 Example:
