@@ -534,7 +534,7 @@ Options
  - :Option:
       persistentConnection
    :Description:
-      Activate a persistent connection to redis server. This could be beneficial under high load cloud setups.
+      Activate a persistent connection to redis server. This could be a benefit under high load cloud setups.
    :Mandatory:
       No
    :Type:
