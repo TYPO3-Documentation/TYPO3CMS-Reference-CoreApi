@@ -532,6 +532,17 @@ Options
       6379
 
  - :Option:
+      persistentConnection
+   :Description:
+      Activate a persistent connection to redis server. This could be beneficial under high load cloud setups.
+   :Mandatory:
+      No
+   :Type:
+      boolean
+   :Default:
+      false
+
+ - :Option:
       database
    :Description:
       Number of the database to store entries. Each cache should use its own database,
