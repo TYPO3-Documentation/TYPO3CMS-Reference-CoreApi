@@ -135,7 +135,7 @@ it matches a file name) will prevent TYPO3 CMS from accessing or
 processing this file (deny uploading, renaming, etc). For security
 reasons, PHP files as well as Apache's ".htaccess" file should be
 included in this regular expression string. The default value is:
-"\.(php[3-6]?\|phpsh\|phtml)(\..\*)?$\|^\.htaccess$" (initially
+"\\.(php[3-7]?\\|phpsh\\|phtml)(\\..\\*)?$\\|^\\.htaccess$" (initially
 defined in constant FILE\_DENY\_PATTERN\_DEFAULT).
 
 There are only a very few scenarios imaginable where it makes sense to
