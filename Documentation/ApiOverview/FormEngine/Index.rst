@@ -14,9 +14,9 @@ Looking at TYPO3's main constructs from an abstract position, the system splits 
 
 DataHandler
   :php:`TYPO3\CMS\Core\DataHandling\...`: :ref:`Construct taking care of persisting data into the database <tce>`.
-  The DataHandler takes an array representing one or multiple records, inserts, deletes or updates them in the database
+  The DataHandler takes an array representing one or more records, inserts, deletes or updates them in the database
   and takes care of relations between multiple records. If editing content in the backend, this construct does
-  all main database munging. The data handler is fed by some controller that most often gets :code:`GET`
+  all main database munging. DataHandler is fed by some controller that most often gets :code:`GET`
   or :code:`POST` data from FormEngine.
 
 FormEngine
@@ -39,7 +39,7 @@ DataHandler: A controller could use the FormEngine result and process it differe
 FormEngine are abstracted and may come from "elsewhere", still leading to the form output known for casual records.
 
 This makes FormEngine an incredible flexible construct. The basic idea is "feed something that looks like TCA
-and render forms that have the full power of TCA and look like all other parts of the backend".
+and render forms that have the full power of TCA but look like all other parts of the backend".
 
 The FormEngine code base has been significantly refactored in TYPO3 CMS version 7 and version 8 to be much more
 flexible, more easy to use and extend, and much more powerful than before. This is an ongoing process and some
@@ -49,3 +49,11 @@ usages of FormEngine within core itself and within extensions in the future, and
 feature needs based on FormEngine. With the ongoing changes, those areas that may need code adaptions in the
 foreseeable future have notes within the documentation and developers should be available to adapt with younger
 cores. Watch out for breaking changes if using FormEngine and updating core.
+
+Main Contents
+=============
+
+.. toctree::
+:titlesonly:
+
+   Overview/Index
