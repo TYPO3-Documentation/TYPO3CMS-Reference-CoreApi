@@ -44,19 +44,19 @@ The controller does two distinct things here: First, it initializes a data array
 data providers of FormEngine which add all information needed for the rendering part. Then feed this data array
 to the rendering part of FormEngine to end up with a result array containing all HTML, CSS and JavaScript.
 
-This basically means the full FormEngine concept is a two-fold process: First create an array having all
+This basically means the full FormEngine concept is a two-fold process: First create an array to gather all
 render-relevant information, then call the render engine using this array to come up with output.
 
 This two-fold process has a number of advantages:
 
-   * The data compiler step can be regulated by a controller to only enrich with stuff that is needed in a given context.
-     This part is supported by encapsulating single data providers in data groups, so single data providers can be omitted if
-     not relevant.
+   * The data compiler step can be regulated by a controller to only enrich with stuff that is needed in any given context.
+     This part is supported by encapsulating single data providers in data groups, single data providers can be omitted if
+     not relevant in given scope.
 
    * Data providing and rendering is split: Controllers could re-use the rendering part of FormEngine while
      all or parts of the data providers are omitted, or their data comes from "elsewhere". Furthermore, controllers can
-     re-use the data providers part of FormEngine and output the result in an entirely different way than HTML. The
-     latter is for instance used when FormEngine is triggered for a TCA tree by an ajax call and outputs a JSON array.
+     re-use the data providing part of FormEngine and output the result in an entirely different way than HTML. The
+     latter is for instance used when FormEngine is triggered for a TCA tree by an ajax call and thus outputs a JSON array.
 
    * The code constructs behind "data providing" and "rendering" can be different to allow higher re-use and more
      flexibility with having the "data array" as main communication base in between. This will become more obvious
