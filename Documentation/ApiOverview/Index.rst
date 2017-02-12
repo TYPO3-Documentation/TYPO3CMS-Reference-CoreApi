@@ -31,6 +31,7 @@ http://api.typo3.org/.
    GlobalValues/Index
    BackendUserObject/Index
    Typo3CoreEngine/Index
+   FormEngine/Index
    Database/Index
    Workspaces/Index
    CachingFramework/Index
