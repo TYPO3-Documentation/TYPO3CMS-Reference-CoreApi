@@ -38,9 +38,9 @@ The short story is that it's enough to set the key :code:`enableRichtext` to tru
       'config' => array(
          'type' => 'text',
          'cols' => 40,
-         'rows' => 6
+         'rows' => 6,
+         'enableRichtext' => true
       ),
-      'enableRichtext' => true
    ),
 
 This works for FlexForms too.
