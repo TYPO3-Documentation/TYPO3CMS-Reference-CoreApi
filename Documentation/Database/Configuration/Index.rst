@@ -97,7 +97,7 @@ Remarks:
 * It is possible to map multiple tables to a different endpoint by adding further table name /
   connection name pairs to `TableMapping`.
 
-* Mind this "connection per table" approach is limited: If in the above example join query
+* Mind this "connection per table" approach is limited: If in the above example a join query
   that spans over different connections is fired, an exception is raised. It is up to the
   administrator to group affected tables to the same connection in those cases, or a developer
   should implement some fallback logic to suppress the `join()`.
@@ -105,7 +105,7 @@ Remarks:
 
 .. attention::
 
-    At the time of this writing (TYPO3 CMS version 8.3), there are still some known issues with
+    At the time of this writing (TYPO3 CMS version 8.6), there are still some known issues with
     connections to databases other than `mysql` or `mariadb`. Core internal tests to `postgresql`
     and `mssql` still fail. This however should improve with younger versions.
 

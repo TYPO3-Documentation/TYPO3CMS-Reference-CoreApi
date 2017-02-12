@@ -701,7 +701,9 @@ Rules:
 * The second argument of :php:`->createNamedParameter()` specifies the type of input. For string, this can be omitted,
   but it is good practice to add `\PDO::PARAM_INT` for integers or similar for other field types. This is currently
   no strict rule, but following this will reduces headaches in the future, especially for `DBMS` that are not as
-  relaxed as `mysql` when it comes to field types.
+  relaxed as `mysql` when it comes to field types. The \PDO constants can be used for simple types like `bool`, `string`,
+  `null`, `lob` and `integer`. Additionally, the two constants `Connection::PARAM_INT_ARRAY` and `Connection::PARAM_STR_ARRAY`
+  can be used if an array of strings or integers is handled, for instance in an `IN()` expression.
 
 * Keep the :php:`->createNamedParameter()` as close as possible to the expression. Do not structure your code in a way
   that it first quotes something and only later stuffs the already prepared names into the expression. Having

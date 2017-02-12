@@ -105,7 +105,7 @@ Advanced query using the `QueryBuilder` and manipulating the default restriction
         ->where(
             $queryBuilder->expr()->orX(
                 $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
-                $queryBuilder->expr()->eq('uid', (int)$uid)
+                $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT))
             )
         )
         ->execute()
