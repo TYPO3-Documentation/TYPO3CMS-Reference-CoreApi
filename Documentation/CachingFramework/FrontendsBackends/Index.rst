@@ -156,7 +156,7 @@ slowing down a TYPO3 installation.
 .. _caching_backend-api:
 
 Backend API
-""""""""""""
+"""""""""""
 
 All backends must implement at least implement interface :code:`TYPO3\CMS\Core\Cache\Backend\BackendInterface`.
 All operations on a specific cache must be done with these methods. There are several further interfaces that can be
