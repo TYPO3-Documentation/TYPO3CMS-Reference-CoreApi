@@ -52,7 +52,7 @@ Most methods of the `QueryBuilder` return `$this` and can be chained::
 
 .. _database-query-builder-select:
 
-select() and andSelect()
+select() and addSelect()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a `SELECT` query.

@@ -6,6 +6,16 @@
 Plugging a RTE
 ^^^^^^^^^^^^^^
 
+
+.. attention:: This page needs an update!
+
+   `Issue #78 <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/78>`_
+   states that this contents needs an update. It says:
+     
+      The documentation of "Plugging a RTE" seems to be deprecated since TYPO3 CMS 7.4.
+      RTE registration isn't made via :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['RTE_reg']` anymore.
+      Instead the NodeFactory API is used.
+
 TYPO3 supports any Rich Text Editor for which someone might write a
 connector to the RTE API. This means that you can freely choose
 whatever RTE you want to use among those available from the Extension

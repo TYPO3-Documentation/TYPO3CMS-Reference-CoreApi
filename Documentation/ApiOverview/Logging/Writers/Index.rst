@@ -44,7 +44,7 @@ logTable  no         Database table  :code:`sys_log`
    there, you will not be able to see them using that module.
 
 *Tip:* There's a tool for viewing such records in the TYPO3 backend at
-`github.com/vertexvaar <https://github.com/vertexvaar/VerteXVaaR.Logs>`__.
+`github.com/vertexvaar/logs <https://github.com/vertexvaar/logs>`__.
 
 Example of a CREATE TABLE statement for logTable:
 
@@ -67,6 +67,11 @@ Example of a CREATE TABLE statement for logTable:
    );
 
 
+.. warning::
+
+   If you are using a MariaDB Galera Cluster you should definitely add a primary key field
+   to the database definition, since it is required by Galera (this can be a normal `uid` field as known from other tables):
+   `MariaDB Galera Cluster - Known Limitations <https://mariadb.com/kb/en/mariadb/mariadb-galera-cluster-known-limitations/>`__.
 
 .. _logging-writers-file:
 
@@ -119,7 +124,7 @@ facility  no         Syslog Facility_  ``USER``
 .. _logging-writers-custom:
 
 Custom Log Writers
-------------------
+""""""""""""""""""
 
 Custom log writers can be added through extensions.
 Every log writer has to implement the interface :code:`\TYPO3\CMS\Core\Log\Writer\WriterInterface`.

@@ -76,15 +76,16 @@ Here is some example code::
 
        protected function getCachedMagic() {
            $cacheIdentifier = $this->calculateCacheIdentifier();
+           $cache = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache('myext_mycache');
 
            // If $entry is null, it hasn't been cached. Calculate the value and store it in the cache:
-           if (($entry = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache('myext_mycache')->get($cacheIdentifier)) === FALSE) {
+           if (($entry = $cache->get($cacheIdentifier)) === FALSE) {
                $entry = $this->calculateMagic();
 
                // [calculate lifetime and assigned tags]
 
                // Save value in cache
-               GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache('myext_mycache')->set($cacheIdentifier, $entry, $tags, $lifetime);
+               $cache->set($cacheIdentifier, $entry, $tags, $lifetime);
            }
            return $entry;
        }
