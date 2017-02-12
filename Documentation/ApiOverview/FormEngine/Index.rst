@@ -54,6 +54,6 @@ Main Contents
 =============
 
 .. toctree::
-:titlesonly:
+  :titlesonly:
 
    Overview/Index
