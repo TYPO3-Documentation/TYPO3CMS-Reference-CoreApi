@@ -22,7 +22,7 @@ TYPO3 Core APIs
       tsref, typoscript, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2000-2015
+      2000-2017
 
 :Author:
       Documentation Team
@@ -73,14 +73,10 @@ address the task at hand.
    Introduction/Index
    ExtensionArchitecture/Index
    ApiOverview/Index
-   Database/Index
-   JavaScript/Index
-   CachingFramework/Index
    Internationalization/Index
    PageTypes/Index
    UserSettingsConfiguration/Index
    Rte/Index
-   ErrorAndExceptionHandling/Index
    DataFormats/Index
    References
    Appendices/Index
