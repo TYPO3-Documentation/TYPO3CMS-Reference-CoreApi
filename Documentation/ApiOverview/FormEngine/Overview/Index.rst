@@ -34,10 +34,10 @@ The rendering part of the :php:`EditDocumentController` job splits into these pa
 
    * Hand over DataCompiler result to an entry "render container" of FormEngine and receive a result array.
 
-   * Take result array containing HTML, CSS and JavaScript details and put them into FormResultCompiler which
+   * Take result array containing HTML, CSS and JavaScript details and put them into :php:`FormResultCompiler` which
      hands them over to the :php:`PageRenderer`.
 
-   * Let the PageRenderer output its compiled result.
+   * Let the :php:`PageRenderer` output its compiled result.
 
 
 The controller does two distinct things here: First, it initializes a data array and lets it get enriched by
