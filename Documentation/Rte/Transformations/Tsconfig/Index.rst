@@ -206,30 +206,6 @@ overruleMode
 
 
 
-.. _transformations-tsconfig-processing-dontconvbrtoparagraph:
-
-dontConvBRtoParagraph
-~~~~~~~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         dontConvBRtoParagraph
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for "ts\_transform" and "css\_transform" only (function
-         divideIntoLines))*
-
-         By default <BR> tags in the contentare converted to paragraphs.
-         Setting this value will  *prevent* the convertion of <BR>-tags to new-
-         lines (chr(10))
-
-
-
 .. _transformations-tsconfig-processing-allowtagsoutside:
 
 allowTagsOutside
@@ -327,51 +303,6 @@ blockElementList
          by the RTE transformations.
 
 
-.. _transformations-tsconfig-processing-transformboldanditalictags:
-
-transformBoldAndItalicTags
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         transformBoldAndItalicTags
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for "ts\_transform" and "css\_transform" only (function
-         getKeepTags))*
-
-         Default is to convert b and i tags to strong and em tags respectively
-         in the direction of the database, and to convert back strong and em
-         tags to b and i tags in the direction of the RTE.
-
-         This transformation may be disabled by setting this property to 0.
-         
-         .. note::
-            This option is removed from TYPO3 version 8.6 (:ref:https://review.typo3.org/#/c/51289/5); if you need to remap :code:`strong` and :code:`em` tags to :code:`b` and :code:`i` and *vice versa*, please use the following configuration: ::
-
-                  RTE.default.proc {
-                          # make <strong> and <em> tags when sending to the RTE
-                      HTMLparser_rte {
-                              tags {
-                                  b.remap = strong
-                                  i.remap = em
-                              }
-                      }
-                          # make <b> and <i> tags when sending to the DB
-                      HTMLparser_db {
-                          tags {
-                              strong.remap = B
-                              em.remap = I
-                          }
-                      }
-                  }
-
-
 .. _transformations-tsconfig-processing-htmlparser:
 
 HTMLparser\_rte, HTMLparser\_db
@@ -438,58 +369,6 @@ dontRemoveUnknownTags\_db
 
          However this disables that and allows all tags, that are not in the
          HTMLparser\_db-list.
-
-
-.. _transformations-tsconfig-processing-dontprotectunknowntags_rte:
-
-dontProtectUnknownTags\_rte
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         dontProtectUnknownTags\_rte
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for "ts\_transform" and "css\_transform" only (function
-         setDivTags))*
-
-         Direction: To RTE
-
-         Default is that tags unknown to HTMLparser\_rte is "protected" when
-         sent to the RTE. This means they are converted from eg <MYTAG> to
-         &lt;MYTAG&gt;. This is normally very fine, because it can be edited
-         plainly by the editor and when returned to thedatabase the tag is converted back.
-
-         Setting this option will prevent unknown tags from becoming protected.
-
-
-.. _transformations-tsconfig-processing-dontconvampinnbsp_rte:
-
-dontConvAmpInNBSP\_rte
-~~~~~~~~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         dontConvAmpInNBSP\_rte
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for "ts\_transform" and "css\_transform" only (function
-         setDivTags))*
-
-         Direction: To RTE
-
-         By default all &nbsp; codes are NOT converted to &amp;nbsp; which they
-         naturally word. You can disable that by this flag.
 
 
 .. _transformations-tsconfig-processing-allowedclasses:
@@ -640,30 +519,6 @@ exitHTMLparser, entryHTMLparser
          with the predefined processors (e.g. ts\_images or ts\_transform).
 
          There are no default values set.
-
-
-.. _transformations-tsconfig-processing-disableunifylinebreaks:
-
-disableUnifyLineBreaks
-~~~~~~~~~~~~~~~~~~~~~~
-
-
-.. container:: table-row
-
-   Property
-         disableUnifyLineBreaks
-
-   Data type
-         boolean
-
-   Description
-         *(Applies for all kinds of processing)*
-
-         When entering the processor all \\r\\n linebreaks are converted to \\n
-         (13-10 to 10). When leaving the processor all \\n is reconverted to
-         \\r\\n (10 to 13-10).
-
-         This options disables that processing.
 
 
 .. _transformations-tsconfig-processing-user:
