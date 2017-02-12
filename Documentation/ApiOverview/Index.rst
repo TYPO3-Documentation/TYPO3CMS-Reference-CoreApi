@@ -3,8 +3,8 @@
 
 .. _api-overview:
 
-TYPO3 API overview
-==================
+TYPO3 API
+=========
 
    The source is the documentation! (General wisdom)
 
@@ -31,6 +31,7 @@ http://api.typo3.org/.
    GlobalValues/Index
    BackendUserObject/Index
    Typo3CoreEngine/Index
+   Database/Index
    Workspaces/Index
    SystemLog/Index
    Logging/Index
