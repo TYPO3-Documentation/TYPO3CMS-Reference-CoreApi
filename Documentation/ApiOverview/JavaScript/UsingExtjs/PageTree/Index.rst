@@ -12,7 +12,7 @@ Page tree
 Since TYPO3 4.5, the page tree is powered by ExtJS. It is implemented in the
 global viewport as a :ref:`navigation component <viewport-navigation>`.
 
-.. figure:: ../../../Images/PageTreeUmlDiagram.png
+.. figure:: ../../../../Images/PageTreeUmlDiagram.png
    :alt: UML class diagram for the TYPO3 Page Tree
 
    A UML diagram of the related TYPO3 classes
@@ -135,7 +135,7 @@ by Steffen Müller. Thanks to him for allowing these samples to be shared.
 The extension adds an item in the "Page actions" and the "Branc actions" submenus
 to clear the cache of the page, respectively the branch.
 
-.. figure:: ../../../Images/CustomPageTreeMenuItem.png
+.. figure:: ../../../../Images/CustomPageTreeMenuItem.png
    :alt: The contextual menu with the custom item
 
    The contextual menu with the "Clear page cache" item added to it.
@@ -357,7 +357,7 @@ Class diagram
 
 The class diagram may help understanding the code structure.
 
-.. figure:: ../../../Images/ContextMenuUmlDiagram.png
+.. figure:: ../../../../Images/ContextMenuUmlDiagram.png
    :alt: UML class diagram for the contextual menus
 
    A UML diagram of the related TYPO3 classes

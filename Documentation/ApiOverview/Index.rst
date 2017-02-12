@@ -33,8 +33,10 @@ http://api.typo3.org/.
    Typo3CoreEngine/Index
    Database/Index
    Workspaces/Index
+   CachingFramework/Index
    SystemLog/Index
    Logging/Index
+   ErrorAndExceptionHandling/Index
    SystemRegistry/Index
    Mail/Index
    FormProtection/Index
@@ -45,4 +47,5 @@ http://api.typo3.org/.
    Http/Index
    Hooks/Index
    Xclasses/Index
+   JavaScript/Index
    Examples/Index

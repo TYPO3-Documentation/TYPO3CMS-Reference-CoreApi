@@ -73,13 +73,10 @@ address the task at hand.
    Introduction/Index
    ExtensionArchitecture/Index
    ApiOverview/Index
-   JavaScript/Index
-   CachingFramework/Index
    Internationalization/Index
    PageTypes/Index
    UserSettingsConfiguration/Index
    Rte/Index
-   ErrorAndExceptionHandling/Index
    DataFormats/Index
    References
    Appendices/Index
