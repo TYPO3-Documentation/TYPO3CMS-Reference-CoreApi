@@ -178,9 +178,15 @@ to add some own preparation stuff with this code in :file:`ext_localconf.php`:
         ];
     }
 
-This is pretty powerful since it allows extensions to hook in additional stuff at any point of the processing chain.
+This is pretty powerful since it allows extensions to hook in additional stuff at any point of the processing chain, and
+it does not depend on the load order of extensions.
 
 Limitations:
   * It is not easily possible to "kick out" an existing provider if other providers have dependencies to them - which is
     usually the case.
   * It is not easily possible to substitute an existing provider with an own one.
+
+.. note::
+  It may happen that the core splits or deletes the one or the other DataProvider in the future. If then an extension
+  has a dependency to a removed provider, the :php:`DependencyOrderingService` which takes care of the sorting throws
+  an exception. There is currently no good solution in the core on how to mitigate this issue.
