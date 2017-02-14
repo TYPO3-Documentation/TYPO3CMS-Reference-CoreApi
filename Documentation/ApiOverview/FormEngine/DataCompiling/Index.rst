@@ -121,4 +121,66 @@ OnTheFly
   from a global config. Used in the core at a couple of places where a small number of data providers should be called
   right away without being extendable.
 
-  
+.. note::
+   It is a good idea set a breakpoint at the form data result returned by the DataCompiler and to have a look at
+   the data array to get an idea on what is hand around.
+
+
+Let's have a closer look at the data providers. The main :php:`TcaDatabaseRecord` group consists mostly of three parts:
+
+Main record data and dependencies
+  * Fetch record from DB or initialize a new row depending on :php:`$data['command']` being "new" or "edit", set as :php:`$data['databaseRow']`
+  * Add userTs and pageTsConnfig to data array
+  * Add table TCA as :php:`$data['processedTca']
+  * Determine record type value
+  * Fetch record translations and other details and add to data array
+
+Single field processing
+  * Process values and items of simple types like :php:`type=input`, :php:`type=radio`, :php:`type=check` and so on. Validate
+    their :php:`databaseRow` values and validate and sanitize their :php:`processedTca` settings.
+  * Process more complex types that may have relations to other tables :php:`type=group` and :php:`type=select`, set
+    possible selectable items in :php:`$data['processedTca']` of the according fields, sanitize their TCA settings
+  * Process :php:`type=inline` and :php:`type=flex` fields and prepare their child fields by using new instances of
+    :php:`FormDataCompiler`s and adding their result to :php:`$data['processedTca`]`
+
+Post process after single field values are prepared
+  * Execute display conditions and remove fields from :php:`$data['processedTca']`that shouldn't be shown
+  * Determine main record title and set as :php:`$data['recordTitle']`
+
+
+Extending data groups with own providers
+----------------------------------------
+
+The base set of DataProviders for all DataGroups is defined within :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
+in section :php:`['SYS']['formEngine']['formDataGroup'], and ends up in variable :php:`$GLOBALS['TYPO3_CONF_VARS`] after core
+bootstrap. The provider list can be read top-down, so the :php:`DependencyOrderingService` typically does not resort this
+list to a different order.
+
+Adding an own provider to this list means adding an array key to that array having a specification *where* the new data provider
+should be added in the list. This is done by the arrays :php:`depends` and :php:`before`.
+
+As an example, extension news uses an own data provider to do additional flex form data structure preparation. The core internal
+flex provider split into two: :php:`TcaFlexPrepare` determines the data structure and parses it, :php:`TcaFlexProcess` uses the prepared
+data structure, processes values and applies defaults if needed. The data provider from extension news hooks in between these two
+to add some own preparation stuff with this code in :file:`ext_localconf.php`:
+
+.. code-block:: php
+
+    // Modify flexform fields since core 8.5 via formEngine: Inject a data provider between TcaFlexPrepare and TcaFlexProcess
+    if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 8005000) {
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['formDataGroup']['tcaDatabaseRecord'][\GeorgRinger\News\Backend\FormDataProvider\NewsFlexFormManipulation::class] = [
+            'depends' => [
+                \TYPO3\CMS\Backend\Form\FormDataProvider\TcaFlexPrepare::class,
+            ],
+            'before' => [
+                \TYPO3\CMS\Backend\Form\FormDataProvider\TcaFlexProcess::class,
+            ],
+        ];
+    }
+
+This is pretty powerful since it allows extensions to hook in additional stuff at any point of the processing chain.
+
+Limitations:
+  * It is not easily possible to "kick out" an existing provider if other providers have dependencies to them - which is
+    usually the case.
+  * It is not easily possible to substitute an existing provider with an own one.
