@@ -53,6 +53,15 @@ array as :php:`$data['renderType']` and then gives the data array to the :php:`N
 an appropriate class name, instantiates and initializes the class, gives it the data array, and class :php:`render()`
 on it.
 
+.. note::
+   The :php:`SingleFieldContainer` and :php:`FlexFormElementContainer` will probably vanish with core version 9.
+
+.. note::
+   Data set by containers and given down to children will likely change in core version 9: All fields not registered
+   in the main data array of :php:`FormDataCompiler` and only added within containers will move into section
+   :php:`renderData`. Furthermore, it is planned to *remove* :php:`parameterArray` and substitute it with something
+   better. This will affect most elements and will probably break a lot of these elements.
+
 
 Class inheritance
 -----------------
