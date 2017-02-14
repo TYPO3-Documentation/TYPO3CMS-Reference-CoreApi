@@ -43,14 +43,14 @@ The controller does two distinct things here: First, it initializes a data array
 data providers of FormEngine which add all information needed for the rendering part. Then feed this data array
 to the rendering part of FormEngine to end up with a result array containing all HTML, CSS and JavaScript.
 
-In code, this basic workflow looks like:
+In code, this basic workflow looks like this:
 
 .. code-block:: php
 
     $formDataGroup = GeneralUtility::makeInstance(TcaDatabaseRecord::class);
     $formDataCompiler = GeneralUtility::makeInstance(FormDataCompiler::class, $formDataGroup);
     $nodeFactory = GeneralUtility::makeInstance(NodeFactory::class);
-    $formResultCompiler = GeneralUtility::makeInstance(FormResultCompiler::class
+    $formResultCompiler = GeneralUtility::makeInstance(FormResultCompiler::class);
     $formDataCompilerInput = [
         'tableName' => $table,
         'vanillaUid' => (int)$theUid,
