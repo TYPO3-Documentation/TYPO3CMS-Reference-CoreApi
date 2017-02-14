@@ -1,12 +1,8 @@
 .. include:: ../../../Includes.txt
 
-.. _FormEngine-overview:
+.. _FormEngine-Overview:
 
-========
-Overview
-========
-
-Full rendering workflow
+Main rendering workflow
 =======================
 
 This is done by example. The details to steer and how to use only sub-parts of the rendering chain are
@@ -40,11 +36,33 @@ The rendering part of the :php:`EditDocumentController` job splits into these pa
    * Let the :php:`PageRenderer` output its compiled result.
 
 
+.. figure:: ../../../Images/FormEngineMainWorkflow.svg
+   :alt: Main FormEngine workflow
+
 The controller does two distinct things here: First, it initializes a data array and lets it get enriched by
 data providers of FormEngine which add all information needed for the rendering part. Then feed this data array
 to the rendering part of FormEngine to end up with a result array containing all HTML, CSS and JavaScript.
 
-This basically means the full FormEngine concept is a two-fold process: First create an array to gather all
+In code, this basic workflow looks like:
+
+.. code-block:: php
+
+    $formDataGroup = GeneralUtility::makeInstance(TcaDatabaseRecord::class);
+    $formDataCompiler = GeneralUtility::makeInstance(FormDataCompiler::class, $formDataGroup);
+    $nodeFactory = GeneralUtility::makeInstance(NodeFactory::class);
+    $formResultCompiler = GeneralUtility::makeInstance(FormResultCompiler::class
+    $formDataCompilerInput = [
+        'tableName' => $table,
+        'vanillaUid' => (int)$theUid,
+        'command' => $command,
+    ];
+    $formData = $formDataCompiler->compile($formDataCompilerInput);
+    $formData['renderType'] = 'outerWrapContainer';
+    $formResult = $nodeFactory->create($formData)->render();
+    $formResultCompiler->mergeResult($formResult);
+
+
+This basically means the main FormEngine concept is a two-fold process: First create an array to gather all
 render-relevant information, then call the render engine using this array to come up with output.
 
 This two-fold process has a number of advantages:
