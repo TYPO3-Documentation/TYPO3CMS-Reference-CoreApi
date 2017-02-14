@@ -9,5 +9,6 @@ FormEngine
 .. toctree::
    :titlesonly:
 
+   Introduction/Index
    Overview/Index
    DataCompiling/Index
