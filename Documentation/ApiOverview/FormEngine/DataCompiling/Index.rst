@@ -141,7 +141,7 @@ Single field processing
   * Process more complex types that may have relations to other tables :php:`type=group` and :php:`type=select`, set
     possible selectable items in :php:`$data['processedTca']` of the according fields, sanitize their TCA settings
   * Process :php:`type=inline` and :php:`type=flex` fields and prepare their child fields by using new instances of
-    :php:`FormDataCompiler`s and adding their result to :php:`$data['processedTca`]`
+    :php:`FormDataCompiler` and adding their result to :php:`$data['processedTca']`
 
 Post process after single field values are prepared
   * Execute display conditions and remove fields from :php:`$data['processedTca']`that shouldn't be shown
