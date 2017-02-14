@@ -12,3 +12,4 @@ FormEngine
    Introduction/Index
    Overview/Index
    DataCompiling/Index
+   Rendering/Index
