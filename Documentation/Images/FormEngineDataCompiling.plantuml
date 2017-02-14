@@ -1,0 +1,10 @@
+@startuml
+FormDataGroup --|> FirstDataProvider : addData($initialDataArray)
+FormDataGroup <|-- FirstDataProvider : $modifiedDataArray
+FormDataGroup --|> SecondDataProvider : addData($modifiedDataArray)
+FormDataGroup <|-- SecondDataProvider : $furtherModifiedDataArray
+FormDataGroup --|> ... : addData($furtherMmodifiedDataArray)
+FormDataGroup <|-- ... : $dataArray
+FormDataGroup --|> LastDataProvider : $dataArray
+FormDataGroup <|-- LastDataProvider : $dataArray
+@enduml
