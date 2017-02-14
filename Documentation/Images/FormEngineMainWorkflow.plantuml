@@ -1,0 +1,13 @@
+@startuml
+Controller -> FormDataCompiler : Initialize aFormDataGroup
+FormDataCompiler -> aFormDataGroup : Prepare data providers
+aFormDataGroup -> FormDataCompiler : Explode on error
+Controller -> FormDataCompiler : Give initialized data, call compile()
+FormDataCompiler -> aFormDataGroup : Compile single providers
+aFormDataGroup -> FormDataCompiler : Return updated data array
+FormDataCompiler -> Controller : Return full data arary
+Controller -> NodeFactory : Receive full data array
+NodeFactory -> EntryContainer : Render self, sub containers
+EntryContainer -> NodeFactory : Return result with HTML, CSS, JS
+NodeFactory -> Controller : Return result array
+@enduml
