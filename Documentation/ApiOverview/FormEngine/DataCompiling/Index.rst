@@ -88,7 +88,7 @@ the responsibility to find out which specific single data providers should be us
 Why we need this?
 
    * Which data providers are relevant depends on the specific scope: For instance, if editing a full database based record,
-     one provider fetches the according row from the database and initializes :php:`$data['databaseRow']. But if flex form
+     one provider fetches the according row from the database and initializes :php:`$data['databaseRow']`. But if flex form
      data is calculated, the flex form values fetched from table fields directly. So, while the :php:`DatabaseEditRow` data
      provider is needed in the first case, it's not needed or even counter productive in the second case.
      The FormDataGroup's are used to manage providers for specific scopes.
@@ -119,7 +119,7 @@ OnTheFly
   A special data group that can be initialized with a list of to-execute data providers directly. In contrast to the
   others, it does not resort the data provider list by its dependencies and does not fetch the list of data providers
   from a global config. Used in the core at a couple of places where a small number of data providers should be called
-  right away without being extendable.
+  right away without being extensible.
 
 .. note::
    It is a good idea set a breakpoint at the form data result returned by the DataCompiler and to have a look at
@@ -152,7 +152,7 @@ Extending data groups with own providers
 ----------------------------------------
 
 The base set of DataProviders for all DataGroups is defined within :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
-in section :php:`['SYS']['formEngine']['formDataGroup'], and ends up in variable :php:`$GLOBALS['TYPO3_CONF_VARS`] after core
+in section :php:`['SYS']['formEngine']['formDataGroup']`, and ends up in variable :php:`$GLOBALS['TYPO3_CONF_VARS']` after core
 bootstrap. The provider list can be read top-down, so the :php:`DependencyOrderingService` typically does not resort this
 list to a different order.
 
