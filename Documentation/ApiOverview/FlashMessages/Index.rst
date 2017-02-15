@@ -143,22 +143,21 @@ as simple as moving the View Helper around.
 
 .. _flash-messages-javascript:
 
-JavaScript-based flash messages
--------------------------------
+JavaScript-based flash messages (Notifications API)
+---------------------------------------------------
 
 Flash messages can also be fired up from JavaScript, coming up
-as small pop up windows. Here is sample code taken from the
-"examples" extension:
+as small pop up windows. This works only in the TYPO3 backend.
+Here is sample code:
 
 .. code-block:: javascript
 
-   TYPO3.Flashmessage.display(
-      TYPO3.Severity.ok,
-      title,
-      message,
-      5
-   );
+    top.TYPO3.Notification.notice('Test-Notice', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr');
+    top.TYPO3.Notification.info('Test-Info', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr');
+    top.TYPO3.Notification.success('Test-OK', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr');
+    top.TYPO3.Notification.warning('Test-Warning', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr');
+    top.TYPO3.Notification.error('Test-Error', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr');
 
 The last parameter is the duration (in seconds) after which
-the message should fade out.
-
+the message should fade out. 0 = sticky, means it will only
+disapear on user interaction.
