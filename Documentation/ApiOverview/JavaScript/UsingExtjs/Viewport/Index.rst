@@ -6,14 +6,12 @@
 Backend Viewport
 ^^^^^^^^^^^^^^^^
 
-The TYPO3 backend is structured with an ExtJS viewport. This makes
+The TYPO3 backend is structured with a JavaScript viewport. This makes
 it easy to display various panels in different parts of the user
 interface and to resize those parts.
 
-The viewport is defined in the files found in :file:`typo3/js/extjs/viewport*`.
-It consists of a configuration file and the viewport component code itself.
-The viewport component is an extension of the :code:`Ext.Viewport` component,
-meaning you can use all methods and functionalities from that component.
+The viewport is a CSS and JS based viewport.
+The AMD module :js:`TYPO3/CMS/Backend/Viewport` controls the viewport.
 
 
 .. _viewport-structure:
@@ -41,6 +39,11 @@ The viewport is structured in the following way::
 Navigation Components
 """""""""""""""""""""
 
+.. note::
+   This section must be completely checked and rewritten.
+   Especially the JavaScript part has changed.
+
+
 It is possible to add custom components like a navigation tree,
 information box or whatever else to the navigation container of the viewport.
 This can be achieved for any backend module with a simple
@@ -60,21 +63,21 @@ be declared in the options list (notice the highlighted line below):
    :linenos:
    :emphasize-lines: 14,14
 
-   Tx_Extbase_Utility_Extension::registerModule(
+   \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
       $_EXTKEY,
       'tools', // Make module a submodule of 'Admin Tools'
       'examples', // Submodule key
       '', // Position
-      array(
+      [
             // An array holding the controller-action-combinations that are accessible
          'Default' => 'flash'
-      ),
-      array(
+      ],
+      [
          'access' => 'user,group',
          'icon'   => 'EXT:' . $_EXTKEY . '/Resources/Public/Images/moduleIcon.png',
          'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xml',
          'navigationComponentId' => 'typo3-navigation'
-      )
+      ]
    );
 
 
