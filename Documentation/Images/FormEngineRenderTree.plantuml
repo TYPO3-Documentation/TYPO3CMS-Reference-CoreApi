@@ -1,0 +1,13 @@
+@startuml
+Controller --|> OuterWrapContainer : Create headline and footer
+OuterWrapContainer --|> FullRecordContainer : Initialize tabbing
+FullRecordContainer --|> TabsContainer : Prepare data of each tab
+TabsContainer --|> "PaletteAndSingleContainer 1" : Prepare fields on first tab
+TabsContainer --|> "PaletteAndSingleContainer 2" : Prepare fields on second tab
+"PaletteAndSingleContainer 1" --|> "SingleFieldContainer 1" : Prepare first field
+"PaletteAndSingleContainer 1" --|> "SingleFieldContainer 2" : Prepare second field
+"SingleFieldContainer 1" --|> CheckboxElement : Render checkbox element
+"SingleFieldContainer 2" --|> RadioElement : Render radio element
+CheckboxElement --|> FieldInformation : Render additional field information
+CheckboxElement --|> FieldWizards : Render additional field wizards
+@enduml

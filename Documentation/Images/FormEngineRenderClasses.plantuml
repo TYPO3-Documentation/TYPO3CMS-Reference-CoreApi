@@ -1,0 +1,14 @@
+@startuml
+interface NodeInterface
+abstract class AbstractNode
+abstract class Container\AbstractContainer
+abstract class Element\AbstractFormElement
+NodeInterface <|-- AbstractNode
+AbstractNode <|-- Container\AbstractContainer
+AbstractNode <|-- Element\AbstractFormElement
+AbstractNode <|-- NodeExpansion\FieldWizard
+AbstractNode <|-- FieldWizard\FileUpload
+Container\AbstractContainer <|-- aContainer
+Container\AbstractContainer <|-- anotherContainer
+Element\AbstractFormElement <|-- anElement
+@enduml
