@@ -88,9 +88,9 @@ including containers, elements, fieldInformation, fieldWizards and fieldControls
 can be fully adapted and extended if needed. It is possible to transparently "kick-out" a core container and to
 substitute it with an own implementation.
 
-As example, the TemplaVoila implementation needs to use additional render capabilities of the flex form rendering
-and adds for instance an own multi-language rendering of flex fields. It does that by overriding the default
-flex container with own implementations:
+As example, the TemplaVoila implementation needs to add additional render capabilities of the flex form rendering
+to add for instance an own multi-language rendering of flex fields. It does that by overriding the default
+flex container with own implementation:
 
 .. code-block:: php
 
@@ -108,7 +108,7 @@ This re-routes the :php:`renderType` "flex" to an own class. If multiple registr
 the one with highest priority wins.
 
 .. note::
-   The :php:`NodeFactory` uses :php:`$data['renderType']`. This has been introduces with core version 7 in TCA, and
+   The :php:`NodeFactory` uses :php:`$data['renderType']`. This has been introduced with core version 7 in TCA, and
    a couple of TCA fields actively use this renderType. However, it is important to understand the renderType is *only*
    used within the FormEngine and :php:`type` is still a must-have setting for columns fields in TCA. Additionally,
    :php:`type` can *not* be overridden in :php:`columnsOverrides`. Basically, :php:`type` specifies how the DataHandler
@@ -128,8 +128,8 @@ Adding a new renderType in :file:`ext_localconf.php`
         'class' => \MyVendor\CoolTagCloud\Form\Element\SelectTagCloudElement::class,
     ];
 
-And use it in TCA for a specific field, keeping the full functionality of "select" but just routing the rendering
-of that field to the new element:
+And use it in TCA for a specific field, keeping the full database functionality in DataHandler together with the
+data preparation of FormDataCompiler, but just routing the rendering of that field to the new element:
 
 .. code-block:: php
 
@@ -138,14 +138,14 @@ of that field to the new element:
         'config' => [
             'type' => 'select',
             'renderType' => 'selectTagCloud',
-            'foreign_table' => 'availableTags',
+            'foreign_table' => 'tx_cooltagcloud_availableTags',
         ],
     ];
 
 
 The above examples are a static list of nodes that can be changed by settings in :file:`ext_localconf.php`. If that
 is not enough, the :php:`NodeFactory` can be extended with a resolver that is called dynamically for specific renderTypes.
-This resolver gets the full current data array at runtime and can either return nothing saying "not my job", or return
+This resolver gets the full current data array at runtime and can either return :php:`NULL` saying "not my job", or return
 the name of a class that should handle this node.
 
 An example of this are the core internal rich text editors. Both "ckeditor" and "rtehtmlarea" register a resolver class
@@ -182,7 +182,7 @@ The array returned by every node looks like:
 
 CSS and language labels (which can be used in JS) are added with their file names in format :php:`EXT:extName/path/to/file`.
 JavaScript is added only via requireJs modules, the registration allows an init method to be called if the
-module is loaded.
+module is loaded by the browser.
 
 .. note::
    The result array actually contains a couple of more fields, but those will vanish with further FormEngine refactoring
@@ -199,7 +199,9 @@ This API is the substitution of the old "TCA wizards array" and has been introdu
 
 FieldInformation
   Additional information. In elements, their output is shown between the field label and the element itself. They can
-  not add functionality, but only simple and restricted HTML strings. No buttons, no images.
+  not add functionality, but only simple and restricted HTML strings. No buttons, no images. An example usage could be
+  an extension that auto-translates a field content and outputs an information like "Hey, this field was auto-filled
+  for you by an automatic translation wizard. Maybe you want to check the content".
 
 FieldWizard
   Wizards shown below the element. "enrich" an element with additional functionality. The localization wizard and
@@ -207,12 +209,12 @@ FieldWizard
 
 FieldControl
   "Buttons", usually shown next to the element. For :php:`type=group` the "list" button and the "element browser" button
-  are an example. A field control *must* return an icon identifier.
+  are examples. A field control *must* return an icon identifier.
 
 Currently, all elements usually implement all three of these, except in cases where it does not make sense. This API allows
 adding functionality to single nodes, without overriding the whole node. Containers and elements can come with default
-expansions (and usually do), and TCA can be used to add own stuff. On container side, the :php:`OuterWrapContainer` and the
-:php:`InlineControlContainer` currently implement the FieldInformation and the FieldWizard.
+expansions (and usually do). TCA configuration can be used to add own stuff. On container side the implementation is still
+basic, only :php:`OuterWrapContainer` and :php:`InlineControlContainer` currently implement FieldInformation and FieldWizard.
 
 Example. The :php:`InputTextElement` (standard input element) defines a couple of default wizards and embeds them in its
 main result HTML:
@@ -243,7 +245,7 @@ main result HTML:
             $resultArray = $this->initializeResultArray();
 
             $fieldWizardResult = $this->renderFieldWizard();
-            $fieldWizardHtml = $legacyFieldWizardHtml . $fieldWizardResult['html'];
+            $fieldWizardHtml = $fieldWizardResult['html'];
             $resultArray = $this->mergeChildReturnIntoExistingResult($resultArray, $fieldWizardResult, false);
 
             $mainFieldHtml = [];
