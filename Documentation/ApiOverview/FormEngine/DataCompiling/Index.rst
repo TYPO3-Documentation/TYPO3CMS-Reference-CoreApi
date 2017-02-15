@@ -45,7 +45,7 @@ The variable :php:`$formData` roughly consists of this data after calling :php:`
 
    * A validated and initialized list of current database row field variables.
 
-   * A processed version of :php:$TCA['givenTable'] containing only those columns fields current user has access to.
+   * A processed version of :php:`$TCA['givenTable']` containing only those columns fields current user has access to.
 
    * A processed list of items for single fields like select and group types.
 
