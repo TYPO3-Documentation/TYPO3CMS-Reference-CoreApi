@@ -15,5 +15,4 @@ called ":ref:`locallang XML <locallang>`" was used.
    :titlesonly:
 
    Introduction/Index
-   Migration/Index
    Translation/Index
