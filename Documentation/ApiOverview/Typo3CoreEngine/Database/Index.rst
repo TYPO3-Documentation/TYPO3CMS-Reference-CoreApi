@@ -354,7 +354,7 @@ only when the order in the array is as above since the processing
 happens in that order!
 
 This creates a new content record with references to existing and
-one new system category:
+one new system category::
 
    $data['sys_category']['NEW9823be87'] = array(
        'title' => 'New category',
