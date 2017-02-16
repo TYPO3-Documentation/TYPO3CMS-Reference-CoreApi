@@ -20,7 +20,7 @@ APIs in that regard.
    Since TYPO3 7, the TYPO3 backend relies primarily on bootstrap and jQuery.
    Since TYPO3 7.4, Prototype and Scriptaculous are not packed with the Core
    anymore. If you need them for your projects, you need to take care of shipping them
-   yourself, preferable by usage of requireJs.
+   yourself, preferable by usage of RequireJS.
    Since TYPO3 8, ExtJS will be removed step by step, the most parts are now
    ExtJS free and replaces with mostly pure JavaScript components.
 
