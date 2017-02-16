@@ -47,7 +47,7 @@ Provide additional information with the log message:
      )
    );
 
-:code:`$logger->warning()` etc. are only shorthands - you can also call :code:`$logger->log()` directly
+:php:`$logger->warning()` etc. are only shorthands - you can also call :php:`$logger->log()` directly
 and pass the severity level:
 
 .. code-block:: php
@@ -57,9 +57,14 @@ and pass the severity level:
       'This is an utter failure!'
    );
 
+TYPO3 has the :ref:`FileWriter <filewriter>` enabled by default,
+so all log entries are written to a file. If the filename is not set,
+then the file will contain a hash like :file:`typo3temp/logs/typo3_<hash>.log`,
+eg: :file:`typo3temp/logs/typo3_7ac500bce5.log`.
 
-By default the log entries are written to file :file:`typo3temp/logs/typo3.log`.
-A sample output looks like this::
+A sample output looks like this:
+
+.. code-block:: none
 
    Fri, 08 Mar 2013 09:45:00 +0100 [INFO] request="5139a50bee3a1" component="TYPO3.Examples.Controller.DefaultController": Everything went fine.
    Fri, 08 Mar 2013 09:45:00 +0100 [WARNING] request="5139a50bee3a1" component="TYPO3.Examples.Controller.DefaultController": Something went awry, check your configuration!
