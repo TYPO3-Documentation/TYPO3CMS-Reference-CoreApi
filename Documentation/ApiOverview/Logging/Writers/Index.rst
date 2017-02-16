@@ -86,12 +86,15 @@ appended with a hash, that depends on the encryption key.
 If :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess']` is set,
 an :file:`.htaccess` file is added to the directory.
 It protects your log files from being accessed from the web.
+If the log file is not set, then TYPO3 will use a filename containing a random hash,
+like :file:`typo3temp/logs/typo3_7ac500bce5.log`.
 
-=======  =========  ================  ===========================================
+=======  =========  ================  ================
 Option   Mandatory  Description       Default
-=======  =========  ================  ===========================================
-logFile  no         Path to log file  :file:`typo3temp/logs/typo3_7ac500bce5.log`
-=======  =========  ================  ===========================================
+=======  =========  ================  ================
+logFile  no         Path to log file  :file:`typo3temp/logs/typo3_<hash>.log` like, for example,
+                                      :file:`typo3temp/logs/typo3_7ac500bce5.log`
+=======  =========  ================  ================
 
 
 .. _logging-writers-php:
