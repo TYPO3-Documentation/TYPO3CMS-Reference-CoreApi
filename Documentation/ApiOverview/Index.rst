@@ -46,6 +46,7 @@ http://api.typo3.org/.
    Collections/Index
    Enumerations/Index
    Http/Index
+   Icon/Index
    Hooks/Index
    Xclasses/Index
    JavaScript/Index
