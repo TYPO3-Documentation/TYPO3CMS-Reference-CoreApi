@@ -3,8 +3,9 @@
 
 .. _locallang:
 
+=============
 <T3locallang>
--------------
+=============
 
 This XML format is used for "locallang-XML" (llXML) files, a format
 TYPO3 uses for storage of interface labels and translations of them.
@@ -30,6 +31,7 @@ translation process too much. It is also possible with a specific file
 reference to use other external files than the automated ones.
 
 .. important::
+
    Since TYPO3 CMS 4.6, a new format was introduced for managing internationalization.
    The XLIFF format is an open source standard. :ref:`See the related chapter <xliff>`
    for more information about, in particular how to migrate to it and how to ensure
@@ -37,9 +39,7 @@ reference to use other external files than the automated ones.
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    Elements/Index
 

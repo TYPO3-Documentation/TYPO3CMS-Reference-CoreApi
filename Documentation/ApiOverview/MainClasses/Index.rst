@@ -109,9 +109,7 @@ These lists also include some other methods selected for their usefulness.
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    HighPriorityFunctions/Index
    UsefulFunctions/Index

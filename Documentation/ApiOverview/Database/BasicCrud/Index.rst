@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 .. _database-basic-crud:
 
@@ -13,8 +13,8 @@ Details on the single methods are found in the following chapters, especially
 .. note::
 
     The examples use the shorthand syntax for class names. Please refer to :ref:`Class overview <database-class-overview>`       for the full namespace.
-    
-    
+
+
 INSERT a row
 ^^^^^^^^^^^^
 

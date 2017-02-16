@@ -3,8 +3,9 @@
 
 .. _t3ds:
 
+=================
 <T3DataStructure>
------------------
+=================
 
 TYPO3 offers an XML format, T3DataStructure, which defines a
 hierarchical data structure. In itself the data structure definition
@@ -45,9 +46,7 @@ Some other facts about Data Structures (DS):
 - "DS" is sometimes used as short for Data Structure
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    Elements/Index
    SheetReferences/Index

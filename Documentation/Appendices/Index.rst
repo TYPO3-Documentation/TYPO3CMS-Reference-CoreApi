@@ -13,8 +13,6 @@ some things work the way they do in TYPO3 CMS.
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    AppendixA/Index

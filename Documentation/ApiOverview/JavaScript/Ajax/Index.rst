@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
 
@@ -6,8 +6,9 @@
 
 .. _ajax:
 
+=========================
 AJAX in the TYPO3 Backend
--------------------------
+=========================
 
 In TYPO3 4.2 a new model for writing AJAX code in the TYPO3 Backend
 was introduced. Although there were some parts in the TYPO3 Backend
@@ -26,9 +27,7 @@ client-side AjaxRequestHandler will know that there is an error.
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    Presentation/Index
    Backend/Index

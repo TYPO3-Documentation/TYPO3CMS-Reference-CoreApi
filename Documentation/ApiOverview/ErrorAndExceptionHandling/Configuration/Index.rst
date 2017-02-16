@@ -1,10 +1,11 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
 .. _error-handling-configuration:
 
+=============
 Configuration
--------------
+=============
 
 All configuration options related to error and exception handling are
 found in :code:`$TYPO3_CONF_VARS[SYS]`:
@@ -182,7 +183,7 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
          Configures which mechanism is used to log errors being logged using
          GeneralUtility::sysLog() calls. Multiple settings are possible by
          separating them with a semicolon.
-         
+
          Every distinct option can contain up to three values separated by
          comma. The first option defines the mechanism which is used for logging.
          The second option defines the destination/target of the log message.
@@ -210,7 +211,7 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
            The message will get handled according to the settings of the variable
            `"error_log" in the php.ini file
            <http://php.net/manual/en/errorfunc.configuration.php#ini.error-log>`__.
-           
+
          Using the method "file" is very reliable but could also pose a security
          risk if you write error logs into the webroot of your site. The option
          "error_log" allows to use the same logging facility which is by default
@@ -263,9 +264,7 @@ related to error and exception handling. Examples and custom handlers are also
 discussed.
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    ErrorHandler/Index
    ProductionExceptionHandler/Index

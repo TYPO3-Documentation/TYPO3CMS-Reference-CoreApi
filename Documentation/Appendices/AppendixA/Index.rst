@@ -14,9 +14,7 @@ exist. The argumentation is still valid.
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    PropertiesAndTransformations/Index
    RteTransformationsInContentElements/Index

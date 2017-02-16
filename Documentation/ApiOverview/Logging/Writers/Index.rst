@@ -92,8 +92,7 @@ like :file:`typo3temp/logs/typo3_7ac500bce5.log`.
 =======  =========  ================  ================
 Option   Mandatory  Description       Default
 =======  =========  ================  ================
-logFile  no         Path to log file  :file:`typo3temp/logs/typo3_<hash>.log` like, for example,
-                                      :file:`typo3temp/logs/typo3_7ac500bce5.log`
+logFile  no         Path to log file  :file:`typo3temp/logs/typo3_<hash>.log` like for example :file:`typo3temp/logs/typo3_7ac500bce5.log`
 =======  =========  ================  ================
 
 

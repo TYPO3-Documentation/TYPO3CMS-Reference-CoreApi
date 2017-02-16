@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: ../../../../Includes.txt
 
 
 
@@ -6,8 +6,9 @@
 
 .. _pagetree:
 
+=========
 Page tree
-^^^^^^^^^
+=========
 
 Since TYPO3 4.5, the page tree is powered by ExtJS. It is implemented in the
 global viewport as a :ref:`navigation component <viewport-navigation>`.
@@ -18,9 +19,11 @@ global viewport as a :ref:`navigation component <viewport-navigation>`.
    A UML diagram of the related TYPO3 classes
 
 .. note::
+
    Unfortunately the components were never cleaned up nor generalized,
    so it's not possible to reuse them in different contexts. However
    it does provide a clean API for context-sensitive menu items.
+
 
 The options available to configure the page tree are described in the
 :ref:`TSconfig reference<t3tsconfig:start>`.
@@ -35,7 +38,7 @@ of queries executed. The setting is::
 .. _context-menu:
 
 Context-sensitive menus
-^^^^^^^^^^^^^^^^^^^^^^^
+=======================
 
 With the new page tree the implementation of the context-sensitive menu (CSM) items
 was made more flexible and easier to configure.
@@ -49,7 +52,7 @@ was made more flexible and easier to configure.
 .. _context-menu-configuration:
 
 Configuration
-"""""""""""""
+-------------
 
 The CSM is entirely described in User TSconfig.
 The configuration is found in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
@@ -126,7 +129,7 @@ is plenty of room to introduce custom items in between the default ones
 .. _context-menu-custom:
 
 Adding custom actions
-"""""""""""""""""""""
+---------------------
 
 Delivering custom menu items via an extension is a several step process.
 The code samples presented below come from extension

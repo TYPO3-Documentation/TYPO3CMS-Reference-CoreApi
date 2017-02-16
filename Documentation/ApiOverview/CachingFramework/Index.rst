@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
 .. http://wiki.typo3.org/Caching_framework
 
@@ -24,9 +24,7 @@ This document covers settings for TYPO3 CMS 6.0 and beyond.
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    QuickStart/Index
    Configuration/Index

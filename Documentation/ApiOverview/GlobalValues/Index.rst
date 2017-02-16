@@ -2,13 +2,11 @@
 
 
 
-
-
-
 .. _globals:
 
+=======================
 Variables and Constants
------------------------
+=======================
 
 After TYPO3's bootstrap sequence has completed, a number of
 global variables, constants and classes available to any script.
@@ -19,9 +17,7 @@ running under the frontend of the "cms" extension.
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    Constants/Index
    GlobalVariables/Index

@@ -12,9 +12,7 @@ described further in this section. Until TYPO3 CMS 4.5, a proprietary format
 called ":ref:`locallang XML <locallang>`" was used.
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    Introduction/Index
    Migration/Index

@@ -1,19 +1,19 @@
-.. include:: ../../Includes.txt
-
+.. include:: ../../../Includes.txt
 
 
 
 
 .. _extjs:
 
+===========
 Using ExtJS
------------
+===========
+
+**Contents:**
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    Loading/Index
    ExtDirect/Index

@@ -1,8 +1,9 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
 
 .. _error-handling:
 
+============================
 Error and Exception Handling
 ============================
 
@@ -14,9 +15,7 @@ logged to all available logging systems in TYPO3 including
 error messages by mail (see example setups below).
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    Screenshots/Index
    Configuration/Index

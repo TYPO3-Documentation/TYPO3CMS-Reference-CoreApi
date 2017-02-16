@@ -8,9 +8,7 @@ Transformations
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    Introduction/Index
    Process/Index

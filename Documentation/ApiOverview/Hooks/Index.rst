@@ -2,22 +2,18 @@
 
 
 
-
-
-
 .. _hooks:
 
-Hooks
------
 
+=====
+Hooks
+=====
+
+**Contents:**
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    Concept/Index
    Configuration/Index
    Creation/Index
-
-

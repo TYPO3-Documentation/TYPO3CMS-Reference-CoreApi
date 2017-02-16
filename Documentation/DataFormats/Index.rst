@@ -1,14 +1,13 @@
 .. include:: ../Includes.txt
 
 
+============
 Data Formats
 ============
 
+**Contents:**
 
 .. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
 
    T3datastructure/Index
    T3locallang/Index
