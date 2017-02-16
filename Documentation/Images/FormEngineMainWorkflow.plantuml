@@ -1,4 +1,25 @@
 @startuml
+
+skinparam handwritten true
+
+skinparam sequence {
+	ArrowColor #c85d0a
+	ActorBorderColor #c85d0a
+	LifeLineBorderColor #c85d0a
+	LifeLineBackgroundColor #c85d0a
+
+	ParticipantBorderColor #c85d0a
+	ParticipantBackgroundColor #f18532
+	ParticipantFontName Helvetica
+	ParticipantFontSize 17
+	ParticipantFontColor #FFFFFF
+
+	ActorBackgroundColor aqua
+	ActorFontColor #c85d0a
+	ActorFontSize 17
+	ActorFontName Helvetica
+}
+
 Controller -> FormDataCompiler : Initialize aFormDataGroup
 FormDataCompiler -> aFormDataGroup : Prepare data providers
 aFormDataGroup -> FormDataCompiler : Explode on error
