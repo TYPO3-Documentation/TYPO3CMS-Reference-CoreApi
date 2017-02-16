@@ -353,6 +353,23 @@ first record can be accessed by the second record. However it works
 only when the order in the array is as above since the processing
 happens in that order!
 
+This creates a new content record with references to existing and
+one new system category:
+
+   $data['sys_category']['NEW9823be87'] = array(
+       'title' => 'New category',
+       'pid' => 1,
+   );
+   $data['tt_content']['NEWbe68s587'] = array(
+       'header' => 'Look ma, categories!',
+       'pid' => 45,
+       'categories' => array(
+           1,
+           2,
+           'NEW9823be87', // You can also use placeholders here
+       ),
+   );
+
 This updates the page with uid=9834 to a new title, "New title for
 this page", and no\_cache checked::
 
