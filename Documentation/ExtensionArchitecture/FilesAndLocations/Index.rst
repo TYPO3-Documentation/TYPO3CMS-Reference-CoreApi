@@ -243,17 +243,6 @@ extensions with the name prefix "ext\_".
 
          Not needed anymore since TYPO3 CMS 6.1, when using :ref:`namespaces <namespaces>`.
 
- - :Filename: ext\_api\_php.dat
-   :Description:
-         PHP API data
-
-         |
-
-         A file containing a serialized PHP array with API information for the
-         PHP classes in the extension. The file is created - and viewed! - with
-         tools found in the extension "extdeveval" (Extension Development
-         Evaluator)
-
 
 .. _extension-reserved-folders:
 

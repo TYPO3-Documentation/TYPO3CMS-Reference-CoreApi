@@ -51,7 +51,6 @@ Some other facts about Data Structures (DS):
 
    Elements/Index
    SheetReferences/Index
-   Highlighting/Index
    Parsing/Index
 
 

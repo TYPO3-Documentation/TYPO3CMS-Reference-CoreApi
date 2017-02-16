@@ -27,11 +27,3 @@ additional operations must be performed to resolve the sheets content::
    $treeDat = \TYPO3\CMS\Core\Utility\GeneralUtility::resolveAllSheetsInDS($treeDat);
 
 
-This will produce the following debug output:
-
-
-.. figure:: ../../../Images/DataStructureArrayOutput.png
-   :alt: Debug output in extdeveval
-
-   Debug output produced by extdeveval
-
