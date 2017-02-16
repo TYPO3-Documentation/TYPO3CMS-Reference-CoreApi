@@ -30,3 +30,4 @@ APIs in that regard.
 .. toctree::
 
    Ajax/Index
+   RequireJS/Index
