@@ -30,4 +30,3 @@ APIs in that regard.
 .. toctree::
 
    Ajax/Index
-   UsingExtjs/Index
