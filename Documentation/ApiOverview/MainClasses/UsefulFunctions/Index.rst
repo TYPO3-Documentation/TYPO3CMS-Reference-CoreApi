@@ -118,23 +118,17 @@ Please take time to learn these functions!
 
 
  - :Function:
-         :code:`array_merge_recursive_overrule`
 
          :code:`array_merge`
+         
    :Comments:
          Merging arrays with fixes for "PHP-bugs"
-
-         :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::array_merge_recursive_overrule()` - Merges two
-         arrays recursively and "binary safe" (integer keys are overridden as
-         well), overruling similar the values in the first array ($arr0) with
-         the values of the second array ($arr1). In case of identical keys,
-         i.e. keeping the values of the second.
-
+         
          :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::array_merge()` - An array\_merge function where the
          keys are NOT renumbered as they happen to be with the real php-
          array\_merge function. It is "binary safe" in the sense that integer
          keys are overridden as well.
-
+         Note that this function is deprecated, use $arr1 + $arr2 since this is the PHP native way to do it.
 
  - :Function:
          :code:`array2xml_cs`
@@ -734,3 +728,22 @@ Please take time to learn these functions!
          .. code-block:: php
 
             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile('extension_name', 'Configuration/PageTS/myPageTSconfigFile.txt', 'My special config');
+            
+            
+ .. _useful-array-utility:
+
+\\TYPO3\\CMS\\Core\\Utility\\ArrayUtility
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""           
+
+ - :Function:
+         :code:`mergeRecursiveOverrule`
+
+         :code:`array_merge`
+   :Comments:
+         Merging arrays with fixes for "PHP-bugs"
+
+         :code:`\TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveOverrule()` - Merges two
+         arrays recursively and "binary safe" (integer keys are overridden as
+         well), overruling similar the values in the first array ($arr0) with
+         the values of the second array ($arr1). In case of identical keys,
+         i.e. keeping the values of the second.
