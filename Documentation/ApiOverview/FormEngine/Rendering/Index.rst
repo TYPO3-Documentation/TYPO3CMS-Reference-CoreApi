@@ -181,7 +181,7 @@ The array returned by every node looks like:
     ]
 
 CSS and language labels (which can be used in JS) are added with their file names in format :php:`EXT:extName/path/to/file`.
-JavaScript is added only via requireJs modules, the registration allows an init method to be called if the
+JavaScript is added only via RequireJS modules, the registration allows an init method to be called if the
 module is loaded by the browser.
 
 .. note::
