@@ -48,7 +48,7 @@ of inline-type fields can be used.
 
 .. note::
 
-   Such FAL-enabled fields can also be used inside FlexForms, but there's API
+   Such FAL-enabled fields can also be used inside FlexForms, but there's no API
    to generate the code in such a case.
 
 
