@@ -193,3 +193,17 @@ Limitations:
   It may happen that the core splits or deletes the one or the other DataProvider in the future. If then an extension
   has a dependency to a removed provider, the :php:`DependencyOrderingService` which takes care of the sorting throws
   an exception. There is currently no good solution in the core on how to mitigate this issue.
+
+
+Adding data to data array
+-------------------------
+
+Most custom data providers change or add existing data within the main data array. Typical use case is an additional
+record initialization for specific fields in :php:`$data['databaseRow']` or additional items somewhere within
+:php:`$data['processedTca']`. The main data array is documented in :php:`FormDataCompiler->initializeResultArray()`.
+
+Sometimes, own DataProvider need to add additional data that does not fit into existing places. In those cases, they
+can add stuff in :php:`$data['customData']`. This key is not filled with data by core DataProviders and a place for
+extensions to add things. Those data components can be used in own code parts of the rendering later. It is advisable
+to prefix own data in :php:`$data['customData']` with some unique key (for instance the extension name) to not collide
+with other data a different extension may add.
