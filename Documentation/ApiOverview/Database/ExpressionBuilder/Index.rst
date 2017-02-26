@@ -237,3 +237,17 @@ The call to :php:`$queryBuilder->expr()-trim()` can be one of the following:
   results in :code:`TRIM(TRAILING "x" FROM "tableName"."fieldName")`
 * :php:`trim('fieldName', AbstractPlatform::TRIM_BOTH, 'x')`
   results in :code:`TRIM(BOTH "x" FROM "tableName"."fieldName")`
+  
+LENGTH
+%%%%%%
+
+The LENGTH string function can be used to return the length of a string in bytes, method
+signature is fieldName with optional alias :php:`->length(string $fieldName, string $alias = null)`
+
+.. code-block:: php
+
+    $queryBuilder->expr()->comparison(
+        $queryBuilder->expr()->length($fieldName),
+        ExpressionBuilder::GT,
+        $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)
+    );
