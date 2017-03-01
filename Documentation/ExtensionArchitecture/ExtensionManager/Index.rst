@@ -13,17 +13,10 @@ are installed or activated), available extensions on the server and
 the possibility to import extensions from online resources, typically
 the TER (TYPO3 Extension Repository) located at typo3.org.
 
+.. figure:: ../../Images/ExtensionManager76To86.png
+   :alt: The Extension Manager (from TYPO3 7.6 to TYPO3 8.7)
 
-.. figure:: ../../Images/ExtensionManagerUpTo45.png
-   :alt: The Extension Manager (up to TYPO3 4.5)
-
-   Interface of the Extension Manager (up to TYPO3 4.5) showing the list
-   of available extensions.
-
-.. figure:: ../../Images/ExtensionManager45To47.png
-   :alt: The Extension Manager (from TYPO3 4.5 to TYPO3 4.7)
-
-   Interface of the Extension Manager (from TYPO3 4.5 to TYPO3 4.7) showing
+   Interface of the Extension Manager (from TYPO3 7.6 to TYPO3 8.6) showing
    all available extensions.
 
 The interface is really easy to use. You just click the +/- icon to
