@@ -43,12 +43,16 @@ Flash messages API
 Creating a flash message is achieved by simply instantiating an object
 of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`::
 
-   $message = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
+   $message = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Messaging\FlashMessage::class,
       'My message text',
-      'Message Header', // the header is optional
-      \TYPO3\CMS\Core\Messaging\FlashMessage::WARNING, // the severity is optional as well and defaults to \TYPO3\CMS\Core\Messaging\FlashMessage::OK
-      TRUE // optional, whether the message should be stored in the session or only in the \TYPO3\CMS\Core\Messaging\FlashMessageQueue object (default is FALSE)
+      'Message Header', // [optional] the header
+      \TYPO3\CMS\Core\Messaging\FlashMessage::WARNING, // [optional] the severity defaults to \TYPO3\CMS\Core\Messaging\FlashMessage::OK
+      true // [optional] whether the message should be stored in the session or only in the \TYPO3\CMS\Core\Messaging\FlashMessageQueue object (default is false)
    );
+
+
+Flash messages severities
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 The severity is defined by using class constants provided by
 :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
@@ -75,15 +79,13 @@ or render it on your own where ever you want.
 This example adds the flash message at the top of modules when
 rendering the next request::
 
-   $flashMessageService = $this->objectManager->get(
-      \TYPO3\CMS\Core\Messaging\FlashMessageService::class);
+   $flashMessageService = $this->objectManager->get(\TYPO3\CMS\Core\Messaging\FlashMessageService::class);
    $messageQueue = $flashMessageService->getMessageQueueByIdentifier();
    $messageQueue->addMessage($message);
 
 The message is added to the queue and then the template class calls
 :php:`\TYPO3\CMS\Core\Messaging\FlashMessageQueue::renderFlashMessages()` which renders all
-messages from the queue. Here's how such a message looks like in a
-module:
+messages from the queue. Here's how such a message looks like in a module:
 
 .. figure:: ../../Images/FlashMessagesExample.png
    :alt: A flash message in action
@@ -97,11 +99,49 @@ shown by manipulating a module's template and inserting the
 :html:`###FLASHMESSAGES###` marker. Messages will then replace that marker
 instead of appearing at the top of the module.
 
-It is also possible to render a single message directly instead of
-adding it to the queue. This makes it possible to display flash
-messages absolutely anywhere. Here's how this is achieved::
+The recommend way is to use the fluid ViewHelper :html:`<f:flashMessages />`.
+This ViewHelper works in any context because it use the :php:`FlashMessageRendererResolver` class
+to find the correct renderer for the current context.
 
-   $message->render();
+.. _flash-messages-renderer:
+
+Flash messages renderer
+-----------------------
+
+The implementation of rendering FlashMessages in the core has been optimized.
+
+A new class called :php:`FlashMessageRendererResolver` has been introduced.
+This class detects the context and renders the given FlashMessages in the correct output format.
+It can handle any kind of output format.
+The core ships with the following FlashMessageRenderer classes:
+
+* :php:`TYPO3\CMS\Core\Messaging\Renderer\BootstrapRenderer`
+  This renderer is used by default in the TYPO3 backend.
+  The output is based on Bootstrap markup
+* :php:`TYPO3\CMS\Core\Messaging\Renderer\ListRenderer`
+  This renderer is used by default in the TYPO3 frontend.
+  The output is a simple <ul> list
+* :php:`TYPO3\CMS\Core\Messaging\Renderer\PlaintextRenderer`
+  This renderer is used by default in the CLI context.
+  The output is plain text
+
+All new rendering classes have to implement the :php:`TYPO3\CMS\Core\Messaging\Renderer\FlashMessageRendererInterface` interface.
+If you need a special output format, you can implement your own renderer class and use it:
+
+.. code-block:: php
+
+   $out = GeneralUtility::makeInstance(MySpecialRenderer::class)
+      ->render($flashMessages);
+
+
+The core has been modified to use the new :php:`FlashMessageRendererResolver`.
+Any third party extension should use the provided :php:`FlashMessageViewHelper` or the new :php:`FlashMessageRendererResolver` class:
+
+.. code-block:: php
+
+   $out = GeneralUtility::makeInstance(FlashMessageRendererResolver::class)
+      ->resolve()
+      ->render($flashMessages);
 
 
 .. _flash-messages-extbase:
@@ -125,14 +165,14 @@ The full API of this function is::
    );
 
 
-The messages are then displayed by Fluid with the relevant View Helper
+The messages are then displayed by Fluid with the relevant ViewHelper
 as shown in this excerpt of :file:`EXT:examples/Resources/Private/Layouts/Module.html`:
 
 .. code-block:: html
 
    <div id="typo3-docbody">
       <div id="typo3-inner-docbody">
-         <f:flashMessages renderMode="div" />
+         <f:flashMessages />
          <f:render section="main" />
       </div>
    </div>
@@ -160,4 +200,4 @@ Here is sample code:
 
 The last parameter is the duration (in seconds) after which
 the message should fade out. 0 = sticky, means it will only
-disapear on user interaction.
+disappears on user interaction.
