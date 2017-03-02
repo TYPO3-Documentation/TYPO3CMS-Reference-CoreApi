@@ -20,6 +20,7 @@ Extension Architecture
    DeclarationFile/Index
    ConfigurationFiles/Index
    ConfigurationOptions/Index
+   ExtendingTca/Index
    ExtensionManager/Index
    CreateNewExtension/Index
    CreateNewDistribution/Index
