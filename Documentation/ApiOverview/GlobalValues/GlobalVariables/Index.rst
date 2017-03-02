@@ -12,7 +12,7 @@ Global variables
 
 .. note::
    Variables in italics *may* be set in a script prior to
-   inclusion of :file:`init.php` so they are optional.
+   the bootstrap process so they are optional.
 
 .. note::
 
