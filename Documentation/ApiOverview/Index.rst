@@ -50,4 +50,5 @@ http://api.typo3.org/.
    Hooks/Index
    Xclasses/Index
    JavaScript/Index
+   SoftReferences/Index
    Examples/Index
