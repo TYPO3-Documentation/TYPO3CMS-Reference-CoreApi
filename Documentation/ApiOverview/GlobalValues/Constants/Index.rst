@@ -41,11 +41,11 @@ Table 1: Traditional List
  - :Constant:
          TYPO3\_MODE
    :Defined:
-         \TYPO3\CMS\Backend\Console\Application::defineLegacyConstants()
-         \TYPO3\CMS\Backend\Http\Application::defineLegacyConstants()
-         \TYPO3\CMS\Core\Console\CommandApplication::defineLegacyConstants()
-         \TYPO3\CMS\Frontend\Http\Application::defineLegacyConstants()
-         \TYPO3\CMS\Install\Http\Application::defineLegacyConstants()
+         :ref:`t3cmsapi:TYPO3\\CMS\\Backend\\Console\\Application`::defineLegacyConstants()
+         :ref:`t3cmsapi:TYPO3\\CMS\\Backend\\Http\\Application`::defineLegacyConstants()
+         :ref:`t3cmsapi:TYPO3\\CMS\\Core\\Console\\CommandApplication`::defineLegacyConstants()
+         :ref:`t3cmsapi:TYPO3\\CMS\\Frontend\\Http\\Application`::defineLegacyConstants()
+         :ref:`t3cmsapi:TYPO3\\CMS\\Install\\Http\\Application`::defineLegacyConstants()
    :Description:
          Mode of TYPO3: Set to either "FE" or "BE" depending on frontend or
          backend execution and context.
