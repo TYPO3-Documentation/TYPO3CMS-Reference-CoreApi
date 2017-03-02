@@ -41,11 +41,14 @@ Table 1: Traditional List
  - :Constant:
          TYPO3\_MODE
    :Defined:
-         init.php
+         \TYPO3\CMS\Backend\Console\Application::defineLegacyConstants()
+         \TYPO3\CMS\Backend\Http\Application::defineLegacyConstants()
+         \TYPO3\CMS\Core\Console\CommandApplication::defineLegacyConstants()
+         \TYPO3\CMS\Frontend\Http\Application::defineLegacyConstants()
+         \TYPO3\CMS\Install\Http\Application::defineLegacyConstants()
    :Description:
          Mode of TYPO3: Set to either "FE" or "BE" depending on frontend or
-         backend execution. So in :file:`init.php` and :file:`thumbs.php` this value is
-         "BE".
+         backend execution and context.
    :FE:
          Yes
 
@@ -55,7 +58,7 @@ Table 1: Traditional List
  - :Constant:
          TYPO3\_OS
    :Defined:
-         SystemEnvironmentBuilder::getTypo3Os()
+         SystemEnvironmentBuilder::defineBaseConstants()
    :Description:
          Operating systen; Windows = "WIN", other = "" (presumed to be some
          sort of Unix)
@@ -97,16 +100,6 @@ Table 1: Traditional List
 
 
  - :Constant:
-         PATH\_typo3\_mod
-   :Defined:
-         SystemEnvironmentBuilder::definePaths()
-   :Description:
-         Relative path (from the :code:`PATH_typo3`) to a properly configured module.
-   :FE:
-         No
-
-
- - :Constant:
          PATH\_site
    :Defined:
          SystemEnvironmentBuilder::definePaths()
@@ -128,61 +121,6 @@ Table 1: Traditional List
 
 
  - :Constant:
-         TYPO3\_db
-   :Defined:
-         Bootstrap::populateLocalConfiguration()
-   :Description:
-         Name of the database, for example "t3\_coreinstall". Is defined after
-         the inclusion of :file:`typo3conf/LocalConfiguration.php` (same for the other
-         :code:`TYPO3_*` constants below.
-   :FE:
-         Yes
-
-
- - :Constant:
-         TYPO3\_db\_username
-   :Defined:
-         Bootstrap::populateLocalConfiguration()
-   :Description:
-         Database username
-   :FE:
-         Yes
-
-
- - :Constant:
-         TYPO3\_db\_password
-   :Defined:
-         Bootstrap::populateLocalConfiguration()
-   :Description:
-         Database password
-   :FE:
-         Yes
-
-
- - :Constant:
-         TYPO3\_db\_host
-   :Defined:
-         Bootstrap::populateLocalConfiguration()
-   :Description:
-         Database hostname, e.g. "localhost"
-   :FE:
-         Yes
-
-
- - :Constant:
-         TYPO3\_extTableDef\_script
-   :Defined:
-         Bootstrap::populateLocalConfiguration()
-   :Description:
-         Name of a php-include script found in "typo3conf/" that contains PHP
-         code that further modifies the table definitions set by the TYPO3 CMS Core.
-
-         **Deprecated.** Make Extensions instead.
-   :FE:
-         Yes
-
-
- - :Constant:
          TYPO3\_DLOG
    :Defined:
          Bootstrap::defineLoggingAndExceptionConstants()
@@ -192,66 +130,6 @@ Table 1: Traditional List
          in general.
    :FE:
          Yes
-
-
- - :Constant:
-         *TYPO3\_MOD\_PATH*
-   :Defined:
-         [prior to init.php]
-   :Description:
-         Path to module relative to :code:`PATH_typo3` (as defined in the module
-         configuration). Must be defined prior to :file:`init.php`.
-   :FE:
-         -
-
-
- - :Constant:
-         *TYPO3\_enterInstallScript*
-   :Defined:
-         [prior to init.php]
-   :Description:
-         If defined and set true the Install Tool is activated and the script
-         exits after that. Used in :file:`typo3/install/index.php`:
-
-         **Example:** ::
-
-            define('TYPO3_enterInstallScript', '1');
-   :FE:
-         No
-
-
- - :Constant:
-         *TYPO3\_PROCEED\_IF\_NO\_USER*
-   :Defined:
-         [prior to init.php]
-   :Description:
-         If defined and set true the bootstrapping process will return to the
-         parent script *even if no backend user was authenticated!*
-
-         For example, this constant is set by the :file:`index.php` script so it can
-         include :file:`init.php` and still show the login form::
-
-            define('TYPO3_PROCEED_IF_NO_USER', 1);
-            require ('init.php');
-
-         Please be very careful with this feature - use it only when you have
-         total control of what you are doing!
-   :FE:
-         No
-
-
- - :Constant:
-         *TYPO3\_cliMode*
-   :Defined:
-         [prior to init.php]
-   :Description:
-         Initiates CLI (Command Line Interface) mode. This is used when you
-         want a shell executable PHP script to initialize a TYPO3 backend.
-
-         For more details see :ref:`Initializing TYPO3 backend in a PHP
-         shell script <t3inside:initialize-cli-mode>` in :ref:`Inside TYPO3 <t3inside:start>`.
-   :FE:
-         No
 
 
  - :Constant:
