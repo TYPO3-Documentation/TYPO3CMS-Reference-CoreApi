@@ -224,7 +224,7 @@ adding functionality to single nodes, without overriding the whole node. Contain
 expansions (and usually do). TCA configuration can be used to add own stuff. On container side the implementation is still
 basic, only :php:`OuterWrapContainer` and :php:`InlineControlContainer` currently implement FieldInformation and FieldWizard.
 
-See the :ref:`TCA reference ctrl section <t3tca:reference-container>` for more information on how to configure these
+See the :ref:`TCA reference ctrl section <t3tca:ctrl-reference-container>` for more information on how to configure these
 for containers in TCA.
 
 Example. The :php:`InputTextElement` (standard input element) defines a couple of default wizards and embeds them in its
