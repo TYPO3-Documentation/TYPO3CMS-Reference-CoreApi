@@ -50,7 +50,7 @@ help with combining CSS and JavaScript.
 An upper container does not directly create an instance of a sub node (element or container) and never calls it
 directly. Instead, a node that wants to call a sub node only refers to it by a name, sets this name into the data
 array as :php:`$data['renderType']` and then gives the data array to the :php:`NodeFactory` which determines
-an appropriate class name, instantiates and initializes the class, gives it the data array, and class :php:`render()`
+an appropriate class name, instantiates and initializes the class, gives it the data array, and calls :php:`render()`
 on it.
 
 .. note::
