@@ -50,7 +50,7 @@ help with combining CSS and JavaScript.
 An upper container does not directly create an instance of a sub node (element or container) and never calls it
 directly. Instead, a node that wants to call a sub node only refers to it by a name, sets this name into the data
 array as :php:`$data['renderType']` and then gives the data array to the :php:`NodeFactory` which determines
-an appropriate class name, instantiates and initializes the class, gives it the data array, and class :php:`render()`
+an appropriate class name, instantiates and initializes the class, gives it the data array, and calls :php:`render()`
 on it.
 
 .. note::
@@ -62,6 +62,8 @@ on it.
    :php:`renderData`. Furthermore, it is planned to *remove* :php:`parameterArray` and substitute it with something
    better. This will affect most elements and will probably break a lot of these elements.
 
+
+.. _FormEngine-Rendering-ClassInheritance:
 
 Class inheritance
 -----------------
@@ -76,6 +78,8 @@ implement helpers for containers and elements respectively.
 The call concept is simple: A first container is called, which either calls a container below or a single element. A
 single element never calls a container again.
 
+
+.. _FormEngine-Rendering-NodeFactory:
 
 NodeFactory
 -----------
@@ -166,6 +170,8 @@ The trick is here that "ckeditor" registers his resolver with ah higher priority
 "ckeditor" resolver is called first and wins if both extensions are loaded and if both return a valid class name.
 
 
+.. _FormEngine-Rendering-ResultArray:
+
 Result array
 ------------
 
@@ -188,6 +194,8 @@ module is loaded by the browser.
    The result array actually contains a couple of more fields, but those will vanish with further FormEngine refactoring
    steps. If using them, be prepared to adapt extensions later.
 
+
+.. _FormEngine-Rendering-NodeExpansion:
 
 Node expansion
 --------------
@@ -215,6 +223,9 @@ Currently, all elements usually implement all three of these, except in cases wh
 adding functionality to single nodes, without overriding the whole node. Containers and elements can come with default
 expansions (and usually do). TCA configuration can be used to add own stuff. On container side the implementation is still
 basic, only :php:`OuterWrapContainer` and :php:`InlineControlContainer` currently implement FieldInformation and FieldWizard.
+
+See the :ref:`TCA reference ctrl section <t3tca:ctrl-reference-container>` for more information on how to configure these
+for containers in TCA.
 
 Example. The :php:`InputTextElement` (standard input element) defines a couple of default wizards and embeds them in its
 main result HTML:
