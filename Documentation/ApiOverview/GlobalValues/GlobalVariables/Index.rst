@@ -12,7 +12,7 @@ Global variables
 
 .. note::
    Variables in italics *may* be set in a script prior to
-   inclusion of :file:`init.php` so they are optional.
+   the bootstrap process so they are optional.
 
 .. note::
 
@@ -21,6 +21,7 @@ Global variables
 
    - "SystemEnvironmentBuilder" = :code:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder`
    - "Bootstrap" = :code:`\TYPO3\CMS\Core\Core\Bootstrap`
+   - "PackageManager" = :code:`\TYPO3\CMS\Core\Package\PackageManager`
 
 
 .. t3-field-list-table::
@@ -47,7 +48,8 @@ Global variables
  - :Variable:
          $TYPO3\_LOADED\_EXT
    :Defined:
-         Bootstrap::populateTypo3LoadedExtGlobal()
+         PackageManager::loadPackageManagerStatesFromCache()
+         PackageManager::initializeCompatibilityLoadedExtArray()
    :Description:
          Array with all loaded extensions listed with a set of paths. You can
          check if an extension is loaded by the function
@@ -106,16 +108,6 @@ Global variables
 
 
  - :Variable:
-         *$TYPO3\_AJAX*
-   :Defined:
-         ajax.php
-   :Description:
-         Set to true to indicate that an AJAX call is being processed
-   :FE:
-         No
-
-
- - :Variable:
          $PAGES\_TYPES
    :Defined:
          typo3/sysext/core/ext_tables.php
@@ -152,7 +144,7 @@ Global variables
    :Defined:
          typo3/sysext/core/ext_tables.php
    :Description:
-         Contains information related to BE skinning.
+         Contains information related to BE skinning. (will be removed on CMS 9)
    :FE:
          (occasionally)
 
@@ -189,16 +181,6 @@ Global variables
    :FE:
          Yes
 
-
-
- - :Variable:
-         $FILEMOUNTS
-   :Defined:
-         Bootstrap::initializeBackendUserMounts()
-   :Description:
-         Array of filepaths on the server to be mounted in the directory tree.
-   :FE:
-         (depends)
 
 
  - :Variable:
