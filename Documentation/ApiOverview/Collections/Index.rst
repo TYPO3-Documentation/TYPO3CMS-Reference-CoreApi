@@ -26,7 +26,7 @@ They can only be created in Folders.
 .. figure:: ../../Images/Collections/SampleRecordCollection.png
    :alt: A record collection
 
-   A collection of news items
+   A collection of blog posts
 
 .. note::
 
