@@ -17,7 +17,6 @@ error messages by mail (see example setups below).
 .. toctree::
    :titlesonly:
 
-   Screenshots/Index
    Configuration/Index
 
 
