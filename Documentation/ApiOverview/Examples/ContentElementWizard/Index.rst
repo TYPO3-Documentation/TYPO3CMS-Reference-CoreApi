@@ -19,7 +19,7 @@ global array. The keys in this array are class names and the values are the abso
 paths to these class. The class must have a :code:`proc()` method.
 
 Here is some code from the "examples" extension, to register the "pierror"
-plugin with the wizard. First of all, the class is declared::
+plugin with the wizard. First of all, the class is declared in :file:`ext_tables.php`::
 
    // Add "pierror" plugin to new element wizard
    if (TYPO3_MODE == 'BE') {
