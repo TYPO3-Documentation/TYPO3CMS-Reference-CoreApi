@@ -77,7 +77,7 @@ The example below illustrates how this is done:
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
       'examples',
       'pages',
-      // Do not use the default field name ("categories"), which is already used
+      // Do not use the default field name ("categories") for pages, tt_content, sys_file_metadata, which is already used
       'tx_examples_cats',
       array(
          // Set a custom label
