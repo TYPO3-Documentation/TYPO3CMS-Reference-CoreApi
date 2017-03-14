@@ -25,39 +25,50 @@ every request. They should therefore be optimized for speed.
 
   It should still not contain functions and classes as it still very often loaded.
 
-- Use the API of class :code:`extMgm` for tasks such as
+- Use the API of class :code:`ExtensionManagementUtility` for tasks such as
   adding tables, merging information into arrays, etc.
 
 - Before the inclusion of any of the two files, the variables :code:`$_EXTKEY`
   is set to the extension key and :code:`$_EXTCONF` is set
-  to the configuration from :code:`$TYPO3_CONF_VARS["EXT"]["extConf"][extension key]`
+  to the configuration from :code:`$TYPO3_CONF_VARS["EXT"]["extConf"][extension key]`.
+  We recommend to not use :code:`$_EXTKEY`, current planning is to deprecate this
+  variable in the future.
 
 - :code:`$TYPO3_LOADED_EXT[extension key]` contains information about
   whether the module is loaded as *local, global* or *system* type,
   including the proper paths you might use, absolute and relative.
 
-- The inclusion can happen in two ways:
+- Your :code:`ext_tables.php` and :code:`ext_localconf.php` file must be designed so
+  that they can safely be read and subsequently imploded into one single
+  file with all the other configuration scripts!
 
-  - Either the files are included individually on each request (many file
-    includes) (:code:`$TYPO3_CONF_VARS["EXT"]["extCache"]=0;`)
+- You must **never** use a "return" statement in the files global scope -
+  that would make the cached script concept break.
 
-  - or (better) the files are automatically imploded into one single
-    temporary file (cached) in `typo3temp/Cache/Code/cache_core` directory (only one file
-    include) (:code:`$TYPO3_CONF_VARS["EXT"]["extCache"]=1;`). This is
-    default.
+- You must **never** use a "use" statement in the files global scope -
+  that would make the cached script concept break and could conflict with other extensions.
 
-  In effect this means:
+- You should **not** rely on the PHP constant :code:`__FILE__` for detection of
+  include path of the script - the configuration might be executed from
+  a cached script and therefore such information should be derived from
+  e.g. :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName()` or
+  :code:`ExtensionManagementUtility::extPath()`.
 
-  - Your :code:`ext_tables.php` and :code:`ext_localconf.php` file must be designed so
-    that they can safely be read and subsequently imploded into one single
-    file with all the other configuration scripts!
+Best practice for ext_tables.php and ext_localconf.php
+------------------------------------------------------
 
-  - You must **never** use a "return" statement in the files global scope -
-    that would make the cached script concept break.
+It is a good practice to use :code:`call_user_func` with an closure function.
+The following example contains the complete code::
 
-  - You should **not** rely on the PHP constant :code:`__FILE__` for detection of
-    include path of the script - the configuration might be executed from
-    a cached script and therefore such information should be derived from
-    the :code:`$TYPO3_LOADED_EXT[extension key]` array, e.g.
-    :code:`$TYPO3_LOADED_EXT[$_EXTKEY]["siteRelPath"]`.
+   <?php
 
+   if (!defined('TYPO3_MODE')) {
+      die('Access denied.');
+   }
+
+   call_user_func(function () {
+      // Add your code here
+   });
+
+In most cases, the file :code:`ext_tables.php` is no longer needed, since most of
+the code can be placed in :code:`Configuration\TCA\*.php` files.
