@@ -145,6 +145,33 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
    );
 
 
+From ->exec_UDATEquery() to ->update()
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The easiest way to migrate a `$GLOBALS['TYPO3_DB']->exec_UDATEquery()` is often to use
+:php:`$connection->update()`:
+
+.. code-block:: php
+
+    // Before:
+    $database->exec_UPDATEquery(
+        'aTable', // table
+        'uid = 42', // where
+        [ 'aField' => 'newValue' ] // value array
+    );
+
+    // After:
+    $connection->update(
+        'aTable', // table
+        [ 'aField' => 'newValue' ], // value array
+        [ 'uid' => 42 ] // where
+    );
+
+.. warning::
+    If switching from :php:`exec_UPDATEquery()` to a :ref:`update <database-connection-update>`, the
+    order of arguments change, `where` and `values` are swapped!
+
+
 Result set iteration
 ^^^^^^^^^^^^^^^^^^^^
 
