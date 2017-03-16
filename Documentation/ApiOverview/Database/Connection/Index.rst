@@ -107,6 +107,8 @@ if omitted, everything will be quoted to strings.
     so right away will reduce the number of raised bugs if people run your extension an anything else than `mysql`.
 
 
+.. _database-connection-update:
+
 update()
 ^^^^^^^^
 
