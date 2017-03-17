@@ -127,9 +127,14 @@ and executes it twice with different arguments:
     $statement->execute();
     $result2 = $statement->fetch();
 
-Looking at a mysql debug log::
+
+Looking at a mysql debug log:
+
+.. code-block:: php
 
     Prepare SELECT `uid` FROM `pages` WHERE `uid` = ?
     Execute SELECT `uid` FROM `pages` WHERE `uid` = '24'
     Execute SELECT `uid` FROM `pages` WHERE `uid` = '25'
 
+
+The log shows one statement preparation with two executions.
