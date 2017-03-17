@@ -27,7 +27,6 @@ http://api.typo3.org/.
    Namespaces/Index
    Autoloading/Index
    Bootstrapping/Index
-   MainClasses/Index
    GlobalValues/Index
    BackendUserObject/Index
    Typo3CoreEngine/Index
