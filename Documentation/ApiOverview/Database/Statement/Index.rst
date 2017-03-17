@@ -98,3 +98,39 @@ instead of counting the number of records in a :php:`->fetch()` loop manually.
    :php:`->rowCount()` works well with `DELETE`, `UPDATE` and `INSERT` queries. However, it does NOT
    return a valid number for `SELECT` queries on some `DBMS`. Never use :php:`->rowCount()` on `SELECT`
    queries. This may work with MySOL, but fails with other databases like SQLite.
+
+
+Re-use prepared Statement()
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Doctrine usually prepares a statement first, and then executes it with given parameters. Implementing
+prepared statements depends on the given driver. For instance, the native mysql driver `mysqli` does implement
+prepared statements, while the pdo driver of mysql `pdo_mysql` does not, at least in some scenarios. A driver
+not properly implementing prepared statements fall back to a direct execution of given query.
+
+There is an API to make real use of prepared statements that becomes handy if the same query is executed
+with different arguments over and over again. The example below prepares a statement to the `pages` table
+and executes it twice with different arguments:
+
+.. code-block:: php
+
+    $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('pages');
+    $queryBuilder = $connection->createQueryBuilder();
+    $queryBuilder->getRestrictions()->removeAll();
+    $sqlStatement = $queryBuilder->select('uid')
+        ->from('pages')
+        ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createPositionalParameter(0, \PDO::PARAM_INT)))
+        ->getSQL();
+    $statement = $connection->executeQuery($sqlStatement, [ 24 ]);
+    $result1 = $statement->fetch();
+    $statement->bindValue(1, 25);
+    $statement->execute();
+    $result2 = $statement->fetch();
+
+Looking at a mysql debug log:
+
+.. code-block::
+
+    Prepare SELECT `uid` FROM `pages` WHERE `uid` = ?
+    Execute SELECT `uid` FROM `pages` WHERE `uid` = '24'
+    Execute SELECT `uid` FROM `pages` WHERE `uid` = '25'
