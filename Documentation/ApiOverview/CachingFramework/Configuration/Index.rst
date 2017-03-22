@@ -42,16 +42,18 @@ example configuration to switch **cache_pages** to the **redis** backend using d
 .. code-block:: php
 
    return array(
-      'SYS' => array(
-         'caching' => array(
-            'cache_pages' => array(
-               'backend' => 'TYPO3\CMS\Core\Cache\Backend\RedisBackend',
-               'options' => array(
-                  'database' => 3,
+       'SYS' => array(
+           'caching' => array(
+               'cacheConfigurations' => array(
+                   'cache_pages' => array(
+                       'backend' => 'TYPO3\CMS\Core\Cache\Backend\RedisBackend',
+                       'options' => array(
+                           'database' => 3,
+                       ),
+                   ),
                ),
-            ),
-         ),
-      ),
+           ),
+       ),
    );
 
 
