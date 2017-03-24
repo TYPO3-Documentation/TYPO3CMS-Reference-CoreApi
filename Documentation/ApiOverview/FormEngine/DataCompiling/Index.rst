@@ -6,7 +6,7 @@ Data compiling
 ==============
 
 This is the first step of FormEngine. The data compiling creates an array containing all data
-the rendering needs to come up with a.result.
+the rendering needs to come up with a result.
 
 A basic call looks like this:
 
