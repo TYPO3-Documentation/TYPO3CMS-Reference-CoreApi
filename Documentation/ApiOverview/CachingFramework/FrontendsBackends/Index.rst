@@ -488,13 +488,6 @@ which must be available on the system.
    contains some important hints on how to speed up the system if it reaches bounds.
    A full documentation of available options is far beyond this documentation.
 
-.. warning::
-
-   The redis implementation is pretty young and should be considered as experimental.
-   The redis project itself has a very high development speed and it might happen that
-   the TYPO3 implementation changes to adapt to new versions.
-
-
 .. _caching-backend-redis-options:
 
 Options
