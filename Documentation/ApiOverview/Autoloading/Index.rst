@@ -63,7 +63,9 @@ In composer mode, the autoloader checks for (classmap and `PSR-4`) autoloading i
 
 - Dump the class loading information manually via `composer dumpautoload` and check that the autoload information is updated. Typically you would check `vendor/composer` to hold files like `autoload_classmap.php` and `autoload_psr4.php` etc.
 
-Example::
+Example:
+
+.. code-block:: none
 
    $ tree vendor/composer
    .
