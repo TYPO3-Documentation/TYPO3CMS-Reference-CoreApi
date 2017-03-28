@@ -27,9 +27,19 @@ TYPO3 6.2 was still delivered with a couple of different autoloaders, that all h
 Loading classes without composer mode
 =====================================
 
-This means, you did not install TYPO3 via a require-statement inside your composer.json. It's a regular old-school install where the TYPO3 source and the symlinks (`typo3/index.php`) are setup manually. In this case, every time you install an extension, the autoloader scans the whole extension directory for classes. No matter if they follow any convention at all. There is just one rule. Put each class into its own file. The generated classmap is a huge array with a mapping of classnames to their location on the disk.
+This means, you did not install TYPO3 via a require-statement inside your `composer.json`. It's a regular old-school install where the TYPO3 source and the symlinks (`typo3/` and `index.php`) are setup manually. In this case, every time you install an extension, the autoloader does the following:
 
-Example::
+- First, it checks if extensions have a `composer.json`. If so, it will be evaluated and the autoloading definitions (only classmap and `PSR-4`) will be used.
+- If the autoloader did not find a `composer.json` it generates a classmap for the whole extension. The generated classmap is a huge array with a mapping of classnames to their location on the disk.
+
+.. important::
+   The fallback mechanism (classmap of all classes in your extension) is quite handy but it can cause problems if you have classes with the same name in different extensions.
+   This might happen if 3rd-party-libraries are shipped along with the extension classes and you have multiple extensions that come with different versions of the same library.
+   It's a rare case but it can lead to a very frustrating debugging session.
+
+**Example:**
+
+.. code-block:: php
 
    <?php
 
@@ -57,13 +67,13 @@ If your classes cannot be found, try the following approaches.
 Loading classes with composer mode
 ==================================
 
-In composer mode, the autoloader checks for (classmap and `PSR-4`) autoloading information inside your extensions' composer.json. If you do not provide any information, the autoloader falls back to the classmap autoloading like in non composer mode.
+In composer mode, you completely rely on composer and its features. Thus you need to provide a `composer.json` with all necessary autoloading information for each extensions. See https://getcomposer.org/doc/04-schema.md#autoload to learn all possible ways to configure autoloading with composer.
 
 **Troubleshooting:**
 
 - Dump the class loading information manually via `composer dumpautoload` and check that the autoload information is updated. Typically you would check `vendor/composer` to hold files like `autoload_classmap.php` and `autoload_psr4.php` etc.
 
-Example:
+**Example:**
 
 .. code-block:: none
 
