@@ -10,12 +10,11 @@ If you plan to upload your extension to the TYPO3 Extension Repository (TER), yo
 documentation to your extension. A documentation will help users and administrators to quickly install and configure
 your extension and give it more weight.
 
-The documentation platform https://docs.typo3.org centralizes documentation for every project. It supports three
+The documentation platform https://docs.typo3.org centralizes documentation for every project. It supports two
 different kind of documentation:
 
 #. **(recommended)** A Sphinx project, stored within :file:`EXT:{extkey}/Documentation/`
 #. A simple README file stored as :file:`EXT:{extkey}/README.rst` as seen on Github
-#. *(legacy)* An OpenOffice manual, stored as :file:`EXT:{extkey}/doc/manual.sxw`
 
 
 .. _extension-documentation-sphinx:
@@ -65,15 +64,3 @@ of this file is reStructuredText, as for chapters of a Sphinx project.
 .. tip::
 
    In TYPO3 6.2, the system extension "documentation" is using such a simple manual.
-
-
-.. _extension-documentation-openoffice:
-
-OpenOffice manual
-"""""""""""""""""
-
-The OpenOffice SXW format used to be the official documentation format for TYPO3.
-**Use of this format is highly discouraged since support on docs.typo3.org is about to be dropped.**
-Please use the tools mentioned above to convert your existing SXW file into a Sphinx project instead.
-
-- `OpenOffice example manual <http://typo3.org/extensions/repository/view/doc_template>`_ in the TYPO3 extension repository.
