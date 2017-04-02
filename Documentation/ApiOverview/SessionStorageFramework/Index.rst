@@ -26,6 +26,7 @@ The table name (`table` option) and whether anonymous sessions (`has_anonymous` 
 The default configuration used for sessions by the Core is:
 
 .. code-block:: php
+
     'SYS' => [
         'session' => [
             'BE' => [
@@ -62,6 +63,7 @@ The Redis session storage can be configured with `LocalConfiguration.php` in the
 A sample configuration will look like this:
 
 .. code-block:: php
+
     'SYS' => [
         'session' => [
             'BE' => [
@@ -110,6 +112,7 @@ implementing class must behave. Any number of options can be passed to the sessi
 A custom session storage backend can be used like this (similarly to the Redis backend):
 
 .. code-block:: php
+
     'SYS' => [
         'session' => [
             'FE' => [
