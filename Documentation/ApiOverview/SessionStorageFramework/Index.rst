@@ -24,6 +24,7 @@ TYPO3 also comes with the possibility to store sessions in a Redis key-value dat
 The Redis session storage can be configured with `LocalConfiguration.php` in the `SYS` entry:
 
 .. code-block:: php
+
     'SYS' => [
         'session' => [
             'BE' => [
@@ -65,6 +66,7 @@ implementing class must behave. Any number of options can be passed to the sessi
 A custom session storage backend can be used like this (similarly to the Redis backend):
 
 .. code-block:: php
+
     'SYS' => [
         'session' => [
 
