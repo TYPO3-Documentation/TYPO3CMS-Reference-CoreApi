@@ -50,4 +50,5 @@ http://api.typo3.org/.
    Xclasses/Index
    JavaScript/Index
    SoftReferences/Index
+   SessionStorageFramework/Index
    Examples/Index
