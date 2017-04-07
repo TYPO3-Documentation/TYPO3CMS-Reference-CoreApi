@@ -63,9 +63,9 @@ This method adds a new entry into the registry managed by
 :ref:`\\TYPO3\\CMS\\Core\\Category\\CategoryRegistry <t3cmsapi:TYPO3\\CMS\\Core\\Category\\CategoryRegistry>`.
 The registry will take care of adding the relevant :ref:`$TCA <t3tca:start>` definition to
 create a field for making relations to the system categories.
+
 The call to :code:`makeCategorizable()` must be located in an extension's
-:file:`ext_tables.php` file or (since TYPO3 CMS 6.2.1) in a file from
-the :file:`Configuration/TCA/Overrides` folder.
+:file:`Configuration/TCA/Overrides` folder (or :file:`ext_tables.php` file before TYPO3 CMS 6.2.1).
 
 The default :code:`$GLOBALS['TCA']` structure provided by the registry
 can be overridden by an array options passed to :code:`makeCategorizable()`.
