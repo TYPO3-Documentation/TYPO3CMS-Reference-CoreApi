@@ -38,9 +38,10 @@ Global variables
    :Defined:
          :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
    :Description:
-         TYPO3 configuration array. Please refer to mentioned file where each option is described in detail
-         as comments. The same comments are also available in the Install Tool
-         under the menu "All Configuration".
+         TYPO3 configuration array. Please refer to file
+         :file:`typo3/sysext/core/Configuration/DefaultConfigurationDescription.php`
+         where each option is described in detail in the comments. The same comments
+         are also available in the *Install Tool* when you choose "All Configuration".
    :FE:
          Yes
 
