@@ -16,7 +16,6 @@ array. It is quite similar to the :ref:`$TCA <t3tca:start>`, but with less optio
 .. toctree::
    :titlesonly:
 
-   Ctrl/Index
    Columns/Index
    Showitem/Index
    Extending/Index
