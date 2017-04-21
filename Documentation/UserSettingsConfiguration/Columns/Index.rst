@@ -88,31 +88,6 @@ settings. This array allows the following configurations:
 
 
  - :Key:
-         eval
-   :Data type:
-         string
-   :Description:
-         Evaluates a field with a given function. Currently only "md5" is
-         implemented, for password field.
-
-         Allowed values: md5
-
-         .. note::
-
-            In the specific case of the password field, the "md5" value defined by default
-            in the TYPO3 CMS Core is overridden to an empty string by system extension
-            "saltedpasswords".
-
-
- - :Key:
-         eval
-   :Data type:
-         array
-   :Description:
-         Array of key-value pair for select items Only used by type=select.
-
-
- - :Key:
          items
    :Data type:
          array
