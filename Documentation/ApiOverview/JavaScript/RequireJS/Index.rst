@@ -28,5 +28,6 @@ The complete documentation about RequireJS was inspired by the
    Extensions/Index
    Dependency/Index
    Loading/Index
+   Shim/Index
 
 
