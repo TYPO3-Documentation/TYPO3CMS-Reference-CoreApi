@@ -374,31 +374,31 @@ Similarly this special value is written in lowercase, i.e.
 Arrays
 """"""
 
-Array declarations use the ":code:`array`" keyword in lowercase, with
-no blank between the keyword and the opening bracket. Thus::
+Array declarations use the short array syntax :code:`[]`, instead of the 
+":code:`array`" keyword. Thus::
 
-   $a = array();
+   $a = [];
 
-:code:`array` components are declared each on a separate line. Such
+Array components are declared each on a separate line. Such
 lines are indented with four more spaces than the start of the
-declaration. The closing bracket is on the same indentation level as
+declaration. The closing square bracket is on the same indentation level as
 the variable. Every line containing an array item ends with a comma.
 This may be omitted if there are no further elements, at the
 developer's choice. Example::
 
-   $thisIsAnArray = array(
+   $thisIsAnArray = [
        'foo' => 'bar',
-       'baz' => array(
+       'baz' => [
            0 => 1
-       )
-   );
+       ]
+   ];
 
 Nested arrays follow the same pattern. This formatting applies even to
 very small and simple array declarations, e.g. ::
 
-   $a = array(
+   $a = [
        0 => 'b',
-   );
+   ];
 
 
 PHP features
