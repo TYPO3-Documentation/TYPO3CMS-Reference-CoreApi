@@ -62,12 +62,12 @@ many are optional. Note that this list is incomplete. A full list is available i
          :code:`ext_tables.sql`
 
    Description
-         This files contains SQL definitions for extension tables. The filename
+         This file contains SQL definitions for extension tables. The filename
          may not be changed.
 
          The file may contain either a full table definition or a partial
-         table. The full table definition declares extension's tables. It looks
-         like a normal SQL :code:`CREATE TABLE` statement.
+         table. The full table definition declares tables of the extension. It
+         looks like a normal SQL :code:`CREATE TABLE` statement.
 
          The partial table definition contains a list of the fields that will
          be added to an existing table. Here is an example::
