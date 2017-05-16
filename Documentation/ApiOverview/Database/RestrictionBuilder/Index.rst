@@ -114,7 +114,7 @@ Restrictions
   (default) Evaluates :php:`['ctrl']['enablecolumns']['disabled']`, adds `AND hidden = 0`
   if `hidden` is specified as field name.
 
-* `StarTimeRestriction`:
+* `StartTimeRestriction`:
   (default) Evaluates :php:`['ctrl']['enablecolumns']['starttime']`, typically adds
   something like ``AND (`tt_content`.`starttime` <= 1475580240)``.
 
