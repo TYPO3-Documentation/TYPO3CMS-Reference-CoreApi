@@ -61,7 +61,7 @@ Root level
          file-reference
 
    Description
-         A reference to an image file relative to the websites path
+         A reference to an image file relative to the website's path
          (PATH\_site)
 
 
