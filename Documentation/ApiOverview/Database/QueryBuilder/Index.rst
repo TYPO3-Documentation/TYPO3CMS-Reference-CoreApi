@@ -531,7 +531,7 @@ Remarks:
   where `ASC` is default and can be omited.
 
 * To create a chain of orders, use :php:`->orderBy()` and then multiple :php:`->addOrderBy()` calls. Calling
-  :php:`->orderBy('header')->addOrderBy('bodytext')->addOrderBy('uid', DESC')` creates
+  :php:`->orderBy('header')->addOrderBy('bodytext')->addOrderBy('uid', 'DESC')` creates
   ``ORDER BY `header` ASC, `bodytext` ASC, `uid` DESC``
 
 
