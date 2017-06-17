@@ -16,5 +16,4 @@ PHP file formatting
    FileStructure/Index
    PhpSyntaxFormatting/Index
    UsingPhpdoc/Index
-   TheChangelogFile/Index
 

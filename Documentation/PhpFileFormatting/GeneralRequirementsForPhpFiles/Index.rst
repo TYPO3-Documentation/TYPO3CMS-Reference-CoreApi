@@ -65,8 +65,7 @@ Notes
   expressions, put the logical operator at the beginning of the next
   line, e.g.::
 
-   if (
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['curlUse'] == '1'
+   if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['curlUse'] == '1'
        && preg_match('/^(?:http|ftp)s?|s(?:ftp|cp):/', $url)
    ) {
 

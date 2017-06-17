@@ -50,7 +50,7 @@ The original TYPO3 coding guidelines document was written by Kasper
 Skårhøj. The current version is based on a complete rewrite prepared
 by Ingo Renner and Dmitry Dulepov in 2008. It is currently maintained
 by François Suter. All changes go through an approval process by the
-TYPO3 Active Contributors Team.
+TYPO3 Core Team.
 
 
 .. _feedback:

@@ -16,11 +16,14 @@ Example
 
 ::
 
-   class MyClass {
-       static public function methodA() {
+   class MyClass
+   {
+       public static function methodA()
+       {
            //...
        }
-       static public function methodB() {
+       public static function methodB()
+       {
            // instead of MyClass::methodA():
            self::methodA();
        }

@@ -8,7 +8,7 @@ File structure
 
 TYPO3 files use the following structure:
 
-#. Opening PHP tag
+#. Opening PHP tag (including strict_types declaration)
 
 #. Namespace
 
@@ -20,7 +20,7 @@ TYPO3 files use the following structure:
 
 #. PHP class
 
-#. Optional module execution code (for example, in eID classes)
+#. Optional module execution code
 
 The following sections discuss each of these parts.
 
@@ -48,6 +48,7 @@ to the license text must be included at the top of every TYPO3 PHP class
 file. user files must have this copyright notice as well. Example::
 
    <?php
+   declare(strict_types=1);
    namespace TYPO3\CMS\XXX;
 
    /*
@@ -73,9 +74,9 @@ Files are included using the :code:`require_once()` function. All TYPO3
 files must use absolute paths in calls to :code:`require_once()`. There
 are two ways to obtain the path to the included file:
 
-#. Use one of the predefined TYPO3 constants: :code:`PATH_typo3` or 
-   :code:`PATH_site`. The first one contains the absolute path to the 
-   corresponding TYPO3 directory. The last constant contains the 
+#. Use one of the predefined TYPO3 constants: :code:`PATH_typo3` or
+   :code:`PATH_site`. The first one contains the absolute path to the
+   corresponding TYPO3 directory. The last constant contains the
    absolute path to the TYPO3 root directory.
    Example::
 
@@ -101,14 +102,10 @@ Class information block
 """""""""""""""""""""""
 
 The class information block provides basic information about the class
-in the file. It should include a description of the class and
-information about the author (or authors). Example::
+in the file. It should include a description of the class. Example::
 
    /**
     * This class provides XYZ plugin implementation.
-    *
-    * @author John Doe <john.doe@example.com>
-    * @author Jane Doe <jane.doe@example.com>
     */
 
 
@@ -125,7 +122,8 @@ Taking again the example of file
 :code:`typo3/sysext/core/Classes/Cache/Backend/AbstractBackend.php`, the PHP class
 declaration will look like::
 
-   class AbstractBackend implements \TYPO3\CMS\Core\Cache\Backend\BackendInterface {
+   class AbstractBackend implements \TYPO3\CMS\Core\Cache\Backend\BackendInterface
+   {
            …
    }
 
@@ -140,6 +138,4 @@ modules. Here is how it may look like::
    $controller = GeneralUtility::makeInstance(\Vendor\MyNamespace\MyExtension\Controller\AjaxController::class);
    $controller->main();
 
-This code must appear **after** the PHP class. :code:`$SOBE` is the
-traditional, but not the required name.
-
+This code must appear **after** the PHP class.

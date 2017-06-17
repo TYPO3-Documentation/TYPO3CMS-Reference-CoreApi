@@ -117,7 +117,7 @@ exception is caught and transformed into a localized flash message or
 a notification. Typically, those additional pieces of information
 should be added as additional constructor arguments::
 
-   __construct($message = "", $code = 0, Exception $previous = null, string $additionalArgument, integer $anotherArgument)
+   __construct($message = "", $code = 0, Exception $previous = null, string $additionalArgument, int $anotherArgument)
 
 There should be getters for those additional data parts within the
 exception class. Enriching an exception with additional data should not

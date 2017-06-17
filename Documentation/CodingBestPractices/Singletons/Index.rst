@@ -13,7 +13,8 @@ pattern, a class must implement the :code:`SingletonInterface`::
 
    namespace Vendor\MyNamespace;
 
-   class MySingletonClass implements \TYPO3\CMS\Core\SingletonInterface {
+   class MySingletonClass implements \TYPO3\CMS\Core\SingletonInterface
+   {
        …
    }
 
