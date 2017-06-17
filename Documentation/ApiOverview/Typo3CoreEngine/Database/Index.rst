@@ -422,12 +422,6 @@ Syntax::
          TSconfig "options.clearCache.pages".
 
 
- - :Value:
-         "temp\_CACHED"
-   :Description:
-         Clears the :file:`temp_CACHED` files in :file:`typo3conf/`.
-
-
 .. _tce-cache-hook:
 
 Hook for cache post-processing
