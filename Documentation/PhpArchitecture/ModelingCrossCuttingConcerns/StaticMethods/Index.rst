@@ -1,7 +1,7 @@
 .. include:: ../../../Includes.txt
 
 
-.. _static-methods:
+.. _model-static-methods:
 
 Static methods, static classes, utility classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
