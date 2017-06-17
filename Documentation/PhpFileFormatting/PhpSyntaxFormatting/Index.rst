@@ -447,9 +447,19 @@ Use of :code:`global` is not recommended. Always use
 Functions
 """""""""
 
-If a function returns a value, it must *always* return it. The following
-is not allowed::
+All **newly introduced** PHP functions must be as strongly typed as possible.
+That means one must use the possibilities of PHP 7.0 as much as possible to declare and enforce
+strict data types.
 
+i.e.: Every function parameter should be type-hinted. If a function returns a value, a return type-hint must be used.
+All data types must be documented in the phpDoc block of the function.
+
+If a function is declared to return a value, all code paths must *always* return a value. The following is *not allowed*::
+
+   /**
+    * @param bool $enabled
+    * @return string
+    */
    function extendedUse(bool $enabled) : string
    {
        if ($enabled) {
@@ -459,6 +469,10 @@ is not allowed::
 
 The following is the correct behavior::
 
+   /**
+    * @param bool $enabled
+    * @return string
+    */
    function extendedUse(bool $enabled) : string
    {
        $content = '';
@@ -472,6 +486,10 @@ In general there should be a single :code:`return` statement in the
 function (see the preceding example). However a function can return
 during parameter validation (guards) before it starts its main logic. Example::
 
+   /**
+    * @param bool $enabled
+    * @param MyUseParameters $useParameters
+    * @return string
    function extendedUse(bool $enabled, MyUseParameters $useParameters) : string
    {
        // Validation
