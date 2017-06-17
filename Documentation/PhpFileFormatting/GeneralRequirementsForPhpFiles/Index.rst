@@ -15,10 +15,12 @@ PHP tag. There must be exactly one opening tag (no closing and opening
 tags in the middle of the file). Example::
 
    <?php
-           // File content goes here
+   declare(strict_types=1);
+   // File content goes here
 
 Closing PHP tags (e.g. at the end of the file) are not used.
 
+Each newly introduced file **MUST** declare strict types for the given file.
 
 Line breaks
 """""""""""
