@@ -223,7 +223,7 @@ of how to initialize the usage.
 
        // Initializing:
    $this->fileProcessor = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Utility\\File\\ExtendedFileUtility');
-   $this->fileProcessor->init($FILEMOUNTS, $TYPO3_CONF_VARS['BE']['fileExtensions']);
+   $this->fileProcessor->init($FILEMOUNTS, $GLOBALS['TYPO3_CONF_VARS']['BE']['fileExtensions']);
    $this->fileProcessor->init_actionPerms($BE_USER->user['fileoper_perms']);
 
    $this->fileProcessor->start($this->file);
@@ -235,13 +235,13 @@ allow/deny file extensions in web-space and ftp-space (see below).
 Then the file operation permissions are loaded from the user object in
 line 4. Finally, the file command array is loaded in line 6 (and
 internally additional configuration takes place from
-:code:`$TYPO3_CONF_VARS`!). In line 7 the command map is executed.
+:code:`$GLOBALS['TYPO3_CONF_VARS']`!). In line 7 the command map is executed.
 
 
 .. _tce-file-extensions-control:
 
-Web-space, FTP-space and $TYPO3\_CONF\_VARS['BE']['fileExtensions']
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Web-space, FTP-space and $GLOBALS['TYPO3\_CONF\_VARS']['BE']['fileExtensions']
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 The control of file extensions goes in two categories. Webspace and
 ftpspace. Webspace is folders accessible from a web browser (below
@@ -257,7 +257,7 @@ extension is matched. If no file extension, true is returned if
 matches. This (default) configuration below accepts everything in
 ftpspace and everything in webspace except php files::
 
-   $TYPO3_CONF_VARS['BE']['fileExtensions'] = array (
+   $GLOBALS['TYPO3_CONF_VARS']['BE']['fileExtensions'] = array (
        'webspace' => array('allow' => '', 'deny' => 'php'),
        'ftpspace' => array('allow' => '*', 'deny' => '')
    );

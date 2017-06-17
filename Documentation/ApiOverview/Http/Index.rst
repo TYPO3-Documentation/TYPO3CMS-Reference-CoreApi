@@ -20,11 +20,11 @@ stream wrappers and chooses the best solution for the system.
 A TYPO3-specific PHP class called `TYPO3\CMS\Core\Http\RequestFactory` has been added as
 a simplified wrapper to access Guzzle clients.
 
-All options available under `$TYPO3_CONF_VARS[HTTP]` are automatically applied to the Guzzle
+All options available under `$GLOBALS['TYPO3_CONF_VARS'][HTTP]` are automatically applied to the Guzzle
 clients when using the `RequestFactory` class. The options are a subset to the available options
 on Guzzle (http://docs.guzzlephp.org/en/latest/request-options.html) but can further be extended.
 
-Existing `$TYPO3_CONF_VARS[HTTP]` options have been removed and/or migrated to the
+Existing `$GLOBALS['TYPO3_CONF_VARS'][HTTP]` options have been removed and/or migrated to the
 new Guzzle-compliant options.
 
 A full documentation for Guzzle can be found at http://docs.guzzlephp.org/en/latest/.

@@ -8,7 +8,7 @@ Support for custom tables in the Page module
 
 In the Web > Page module you can have listings of other records than
 Content Elements. Any table can be displayed by adding to the array
-:code:`$TYPO3_CONF_VARS['EXTCONF']['cms']`.
+:code:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']`.
 
 The TYPO3 CMS Core itself defines such a listing for the "fe_users" table::
 

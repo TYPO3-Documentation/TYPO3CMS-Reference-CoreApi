@@ -43,7 +43,7 @@ extensions with TYPO3:
    configure some settings. Again the EM is able to handle the
    configuration of the extensions based on a certain API for this. Any
    settings - if present - configured for an extension are available as
-   an array in the variable `$TYPO3_CONF_VARS["EXT"]["extConf"][extension key]`.
+   an array in the variable `$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][extension key]`.
 
 Loaded extensions are registered in a global variable,
 `$TYPO3_LOADED_EXT`, available in both frontend and backend of TYPO3.

@@ -19,7 +19,7 @@ The scope of such options is the backend only.
 Registration
 """"""""""""
 
-Options are configured in the global variable :code:`$TYPO3_CONF_VARS['BE']['customPermOptions']` in
+Options are configured in the global variable :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']` in
 :file:`ext_tables.php`. The syntax is demonstrated in the following example, which adds three options
 under a given header:
 

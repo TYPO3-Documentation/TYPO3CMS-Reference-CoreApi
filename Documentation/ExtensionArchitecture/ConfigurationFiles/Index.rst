@@ -19,7 +19,7 @@ every request. They should therefore be optimized for speed.
   such classes and functions would *always* be loaded.
   It is better to have them included only as needed.
 
-  So stick to changing values in :code:`TYPO3_CONF_VARS` only!
+  So stick to changing values in :code:`$GLOBALS['TYPO3_CONF_VARS']` only!
 
 - :code:`ext_tables.php` is *not* always included in global scope (in the frontend)
 
@@ -30,7 +30,7 @@ every request. They should therefore be optimized for speed.
 
 - Before the inclusion of any of the two files, the variables :code:`$_EXTKEY`
   is set to the extension key and :code:`$_EXTCONF` is set
-  to the configuration from :code:`$TYPO3_CONF_VARS["EXT"]["extConf"][extension key]`.
+  to the configuration from :code:`$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][extension key]`.
   We recommend to not use :code:`$_EXTKEY`, current planning is to deprecate this
   variable in the future.
 

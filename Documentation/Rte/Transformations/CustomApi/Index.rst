@@ -34,7 +34,7 @@ contain dashes (see :ref:`transformations-custom-usage`).
 Registering the transformation key in the system
 """"""""""""""""""""""""""""""""""""""""""""""""
 
-In :code:`ext_localconf.php`, simply set a :code:`$TYPO3_CONF_VARS` variable
+In :code:`ext_localconf.php`, simply set a :code:`$GLOBALS['TYPO3_CONF_VARS']` variable
 to point to the class which contains the transformation methods::
 
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation']['tx_examples_transformation']

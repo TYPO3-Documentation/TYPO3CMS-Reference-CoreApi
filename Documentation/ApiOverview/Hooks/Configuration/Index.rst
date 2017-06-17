@@ -21,8 +21,8 @@ carry hook configuration but might be used for other purposes as well.
 
 .. _hooks-extensions:
 
-$TYPO3\_CONF\_VARS['EXTCONF']
-"""""""""""""""""""""""""""""
+$GLOBALS['TYPO3\_CONF\_VARS']['EXTCONF']
+""""""""""""""""""""""""""""""""""""""""
 
 **Configuration space for extensions.**
 
@@ -31,7 +31,7 @@ extensions including possible hooks in them! What options are
 available to you will depend on a search in the documentation for that
 particular extension. ::
 
-   $TYPO3_CONF_VARS['EXTCONF'][ extension_key ][ sub_key ] = value
+   $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][ extension_key ][ sub_key ] = value
 
 - **extension\_key :** The unique extension key
 
@@ -45,11 +45,11 @@ particular extension. ::
 
 .. note::
 
-   :code:`$TYPO3_CONF_VARS['EXTCONF']` is the recommended place to
+   :code:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']` is the recommended place to
    put hook configuration that are available inside your extensions!
 
 This example shows hooks used in the "linkvalidator" system extension.
-The code looks inside the :code:`$TYPO3_CONF_VARS['EXTCONF']` array
+The code looks inside the :code:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']` array
 for items listed under the "checkLinks" key of the "linkvalidator"
 extension itself. All found classes are stored in an array, to be instantiated
 and used at a later point. ::
@@ -69,8 +69,8 @@ and used at a later point. ::
 
 .. _hooks-core:
 
-$TYPO3\_CONF\_VARS['SC\_OPTIONS']
-"""""""""""""""""""""""""""""""""
+$GLOBALS['TYPO3\_CONF\_VARS']['SC\_OPTIONS']
+""""""""""""""""""""""""""""""""""""""""""""
 
 **Configuration space for core scripts.**
 
@@ -79,7 +79,7 @@ script. This will typically be used from the core scripts of TYPO3
 which do not have a natural identifier like extensions have their
 extension keys. ::
 
-   $TYPO3_CONF_VARS['SC_OPTIONS'][ main_key ][ sub_key ][ index ] = function_reference
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS'][ main_key ][ sub_key ][ index ] = function_reference
 
 - **main\_key :** The relative path of a script (for output scripts it
   should be the "script ID" as found in a comment in the HTML header )
@@ -150,8 +150,8 @@ the parent object. ::
 
 .. _hooks-modules:
 
-$TYPO3\_CONF\_VARS['TBE\_MODULES\_EXT']
-"""""""""""""""""""""""""""""""""""""""
+$GLOBALS['TYPO3\_CONF\_VARS']['TBE\_MODULES\_EXT']
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
 ** Configuration space for backend modules.**
 

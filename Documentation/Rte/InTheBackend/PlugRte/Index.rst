@@ -47,10 +47,10 @@ Connecting an RTE in an extension to TYPO3 is easy.
   needed.
 
 - In the :file:`ext_localconf.php` file put an entry in
-  :code:`$TYPO3_CONF_VARS['BE']['RTE_reg']` which registers the new RTE with
+  :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['RTE_reg']` which registers the new RTE with
   the system. For example::
 
-     $TYPO3_CONF_VARS['BE']['RTE_reg']['myrte'] = array(
+     $GLOBALS['TYPO3_CONF_VARS']['BE']['RTE_reg']['myrte'] = array(
         'objRef' => 'Foo\\MyRte\\Editors\\RteBase');
 
 where the value of :code:`objRef` is the fully qualified name

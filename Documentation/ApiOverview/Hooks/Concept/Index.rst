@@ -49,7 +49,7 @@ clear-cache post-processing. The objective of this could be to
 perform additional actions whenever the cache is cleared for a
 specific page. ::
 
-   $TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = 'myext_cacheProc->proc';
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = 'myext_cacheProc->proc';
 
 This registers the class/method name to a
 hook inside of :code:`\TYPO3\CMS\Core\DataHandling\DataHandler`. The hook will call the user function
@@ -67,9 +67,9 @@ activated like this:
    :linenos:
 
        // Call post processing function for clear-cache:
-   if (is_array($TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'])) {
+   if (is_array($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'])) {
        $_params = array('cacheCmd' => $cacheCmd);
-       foreach($TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'] as $_funcRef) {
+       foreach($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'] as $_funcRef) {
            \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($_funcRef, $_params, $this);
        }
    }
@@ -85,7 +85,7 @@ to you and what data might possibly be passed by reference and thereby
 possible to manipulate from your hook function.
 
 Finally, notice how the array
-:code:`$TYPO3_CONF_VARS['SC_OPTIONS']['t3lib/class.t3lib\_tcemain.php']['clearCachePostProc']`
+:code:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib\_tcemain.php']['clearCachePostProc']`
 is traversed and for each entry the value is expected to be a function reference which will
 be called. This allows many hooks to be called at the same place. The
 hooks can even rearrange the calling order if they dare.

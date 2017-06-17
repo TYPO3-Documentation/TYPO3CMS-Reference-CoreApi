@@ -34,7 +34,7 @@ Global variables
 
 
  - :Variable:
-         $TYPO3\_CONF\_VARS
+         $GLOBALS['TYPO3\_CONF\_VARS']
    :Defined:
          :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
    :Description:

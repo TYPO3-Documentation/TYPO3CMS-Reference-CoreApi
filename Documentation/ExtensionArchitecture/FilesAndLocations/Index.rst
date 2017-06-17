@@ -62,7 +62,7 @@ extensions with the name prefix "ext\_".
  - :Filename: ext\_localconf.php
    :Description:
          Addition to :code:`LocalConfiguration.php` which is included if found. Should
-         contain additional configuration of :code:`$TYPO3_CONF_VARS` and may include
+         contain additional configuration of :code:`$GLOBALS['TYPO3_CONF_VARS']` and may include
          additional PHP class files.
 
          |
@@ -185,14 +185,14 @@ extensions with the name prefix "ext\_".
          If this file is present the EM provides you with an interface for
          editing the configuration values defined in the file. The result is
          written as a serialized array to :code:`LocalConfiguration.php`
-         in the variable :code:`$TYPO3_CONF_VARS['EXT']['extConf'][`
+         in the variable :code:`$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][`
          :code:`*extension_key*` :code:`]`
 
          |
 
          If you want to do user processing before the content from the
          configuration form is saved (or shown for that sake) there is a hook
-         in the EM which is configurable with :code:`$TYPO3_CONF_VARS
+         in the EM which is configurable with :code:`$GLOBALS['TYPO3_CONF_VARS']
          ['SC_OPTIONS']['typo3/mod/tools/em/index.php']['tsStyleConfigForm'][] = "`
          :code:`*function reference*` :code:`"`
 
