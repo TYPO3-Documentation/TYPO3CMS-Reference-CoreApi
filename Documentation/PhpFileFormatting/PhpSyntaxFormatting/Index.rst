@@ -432,8 +432,6 @@ function declaration::
 
       protected abstract function render();
 
-Constructors for classes must use the :code:`__construct()` method of
-PHP.
 
 
 Global variables
