@@ -57,8 +57,8 @@ Good examples
     dependency injection system of symfony and the trait is a simple
     default implementation that easily adds the interface functionality
     to a given class.
-   * Good naming
-   * Clear scope
+  * Good naming
+  * Clear scope
 
 * :code:`LoggerAwareInterface` with a default trait
 
