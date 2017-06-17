@@ -185,15 +185,13 @@ code goes first. For example::
        // Process submission, 30 lines
    }
 
-If the condition is long, it must be split into several lines. The
-first condition should be on a new line, indented four spaces more than
-the ":code:`if (`". The logical operators must be put in front of the
+If the condition is long, it must be split into several lines.
+The logical operators must be put in front of the
 next condition and be indented to the same level as the first condition.
 The closing round and opening curly bracket after the last condition
 should be on a new line, indented to the same level as the :code:`if`::
 
-   if (
-       $this->getSomeCondition($this->getSomeVariable())
+   if ($this->getSomeCondition($this->getSomeVariable())
        && $this->getAnotherCondition()
    ) {
        // Code follows here
@@ -374,7 +372,7 @@ Similarly this special value is written in lowercase, i.e.
 Arrays
 """"""
 
-Array declarations use the short array syntax :code:`[]`, instead of the 
+Array declarations use the short array syntax :code:`[]`, instead of the
 ":code:`array`" keyword. Thus::
 
    $a = [];
