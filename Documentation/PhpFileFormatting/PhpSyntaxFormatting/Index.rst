@@ -74,7 +74,8 @@ comments must precede the commented line and be indented with
 the same number of spaces as the commented line.
 Example::
 
-   protected function processSubmission() {
+   protected function processSubmission()
+   {
        // Check if user is logged in
        if ($GLOBALS['TSFE']->fe_user->user['uid']) {
            …
@@ -416,14 +417,16 @@ keyword.
 Type hinting must be used when the function expects an :code:`array` or
 an :code:`instance` of a certain class. Example::
 
-      protected function executeAction(MyAction &$action, array $extraParameters) {
+      protected function executeAction(MyAction &$action, array $extraParameters)
+      {
           // Do something
       }
 
 Static functions must use the :code:`static` keyword. This keyword must
 be after the visibility declaration in the function definition::
 
-      public static function executeAction(MyAction &$action, array $extraParameters) {
+      public static function executeAction(MyAction &$action, array $extraParameters)
+      {
           // Do something
       }
 
@@ -447,7 +450,8 @@ Functions
 If a function returns a value, it must *always* return it. The following
 is not allowed::
 
-   function extendedUse($enabled) {
+   function extendedUse(bool $enabled) : string
+   {
        if ($enabled) {
            return 'Extended use';
        }
@@ -455,7 +459,8 @@ is not allowed::
 
 The following is the correct behavior::
 
-   function extendedUse($enabled) {
+   function extendedUse(bool $enabled) : string
+   {
        $content = '';
        if ($enabled) {
            $content = 'Extended use';
@@ -465,9 +470,10 @@ The following is the correct behavior::
 
 In general there should be a single :code:`return` statement in the
 function (see the preceding example). However a function can return
-during parameter validation before it starts its main logic. Example::
+during parameter validation (guards) before it starts its main logic. Example::
 
-   function extendedUse($enabled, MyUseParameters $useParameters) {
+   function extendedUse(bool $enabled, MyUseParameters $useParameters) : string
+   {
        // Validation
        if (count($useParameters->urlParts) < 5) {
            return 'Parameter validation failed';
