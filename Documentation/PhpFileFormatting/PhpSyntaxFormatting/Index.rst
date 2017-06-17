@@ -421,16 +421,16 @@ an :code:`instance` of a certain class. Example::
       }
 
 Static functions must use the :code:`static` keyword. This keyword must
-be the first keyword in the function definition::
+be after the visibility declaration in the function definition::
 
-      static public function executeAction(MyAction &$action, array $extraParameters) {
+      public static function executeAction(MyAction &$action, array $extraParameters) {
           // Do something
       }
 
-The :code:`abstract` keyword also must be on the first position in the
+The :code:`abstract` keyword also must be after the visibility declaration in the
 function declaration::
 
-      abstract protected function render();
+      protected abstract function render();
 
 Constructors for classes must use the :code:`__construct()` method of
 PHP.
