@@ -10,9 +10,9 @@ In order to ensure that the downloaded TYPO3 package is an official
 package released by the TYPO3 developers, compare the MD5 checksum of
 the downloaded package with the checksum stated on the TYPO3 website,
 before you extract/install TYPO3. You find the MD5 checksums in the
-Wiki (e.g. `http://wiki.typo3.org/TYPO3\_6.0
-<http://wiki.typo3.org/TYPO3_6.0>`_ for the official TYPO3 version
-6.0.0 packages).
+Wiki (e.g. `https://wiki.typo3.org/TYPO3\_CMS\_8.7.0
+<https://wiki.typo3.org/TYPO3_CMS_8.7.0>`_ for the official TYPO3 version
+8.7.0 packages).
 
 Be careful when using pre-installed or pre-configured packages by
 other vendors: due to the nature and complexity of TYPO3 the system

@@ -8,10 +8,9 @@ Global TYPO3 configuration options
 
 The following configuration options are accessible and changeable via
 the Install Tool (recommended way) or directly in the file
-"typo3conf/LocalConfiguration.php" (named "localconf.php" in TYPO3
-versions prior 6.0). The list below is in alphabetical order -
-not in the order of importance (all are relevant but the usage depends
-on your specific site and requirements).
+"typo3conf/LocalConfiguration.php". The list below is in alphabetical
+order - not in the order of importance (all are relevant but the usage
+depends on your specific site and requirements).
 
 
 .. _cookieHttpOnly:
@@ -27,8 +26,7 @@ the protection against XSS attacks (cross site scripting). Although,
 some older browsers do not support this technique.
 
 Possible values are: 0 or 1 (boolean), where "0" deactivates the
-option (TYPO3 CMS before 6.2) and "1" enables it (default since TYPO3
-6.2).
+option and "1" enables it (default since TYPO3 6.2).
 
 The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['SYS']['cookieHttpOnly']
 

@@ -147,14 +147,7 @@ has been discussed above (see chapter: "TYPO3 security-bulletins"). It
 is also essential to know how to check for extension updates: the
 "Extension Manager" (EM) is a TYPO3 CMS backend module accessible for
 backend users with administrator privileges (section "ADMIN TOOLS").
-In TYPO3 CMS version 4.5.0, a completely rewritten EM was introduced and
-the usage differs a little bit between the old and the new version.
-However, the main functionality remains the same and a manual check
-for extension updates is available in both versions.
-
-TYPO3 version 6.0 comes (again) with a new version of the EM, but
-once again, the broad concept is still the same, some details might
-be slightly different.
+A manual check for extension updates is available in this module.
 
 The EM uses a cached version of the extension list from the TYPO3
 Extension Repository (TER) to compare the extensions currently
@@ -174,11 +167,10 @@ security-related.
 Older versions of the EM mark insecure extensions by a red extension
 title.
 
-Since TYPO3 4.5.0 a scheduler task is available that lets you
-update the extension list automatically and periodically (e.g. once a
-day). In combination with the task "System Status Update (reports)",
-it is possible to get a notification by email when extension updates
-are available.
+A scheduler task is available that lets you update the extension list
+automatically and periodically (e.g. once a day). In combination with
+the task "System Status Update (reports)", it is possible to get a
+notification by email when extension updates are available.
 
 
 .. _extension-security:
@@ -189,13 +181,10 @@ are available.
 Security-related core extensions
 """"""""""""""""""""""""""""""""
 
-Besides the "Reports" module described above, the following two system
-extensions increase the level of security of a TYPO3 CMS instance:
-"rsaauth" and "saltedpasswords", which became part of the TYPO3 core
-in TYPO3 CMS version 4.3.0. Both extensions are automatically activated
-(if possible) for new installations since TYPO3 4.6.0. It is
-recommended to manually enable these extensions if you upgrade from
-older versions to 4.3.0 or newer.
+Besides the "Reports" module described above, the two system extensions
+"rsaauth" and "saltedpasswords" increase the level of security of a
+TYPO3 CMS instance. Both extensions are automatically activated for
+new installations.
 
 "RSA authentication" (rsaauth) adds encrypted authentication for
 frontend and backend logins to TYPO3 CMS. This is a more secure solution

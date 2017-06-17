@@ -29,9 +29,8 @@ server misconfiguration of file/directory permissions may occur if all
 virtual hosts run as the same user, for example the default web server
 user. The risk with this setup is, that a script on another virtual
 host includes files from the TYPO3 instance or writes or manipulates
-files. The TYPO3 configuration file "LocalConfiguration.php" (named
-"localconf.php" in TYPO3 versions prior 6.0), which contains sensitive
-data, would be a typical example.
+files. The TYPO3 configuration file "LocalConfiguration.php", which
+contains sensitive data, would be a typical example.
 
 Besides the strict separation between multiple virtual hosts, it is
 possible to revoke any write permissions for the web server user (e.g.
