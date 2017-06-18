@@ -490,6 +490,7 @@ during parameter validation (guards) before it starts its main logic. Example::
     * @param bool $enabled
     * @param MyUseParameters $useParameters
     * @return string
+    */
    function extendedUse(bool $enabled, MyUseParameters $useParameters) : string
    {
        // Validation
