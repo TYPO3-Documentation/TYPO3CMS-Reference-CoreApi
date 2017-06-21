@@ -43,7 +43,7 @@ Straight fetch of a single row from `tt_content` table:
 
 .. code-block:: php
 
-    $uid = 4
+    $uid = 4;
     $row = GeneralUtility::makeInstance(ConnectionPool::class)
         ->getConnectionForTable('tt_content')
         ->select(
