@@ -72,7 +72,7 @@ Here is a sample:
  				100 {
  					name = view
  					label = LLL:EXT:lang/locallang_core.xml:cm.view
- 					spriteIcon = actions-document-view
+ 					iconName = actions-document-view
  					displayCondition = canBeViewed != 0
  					callbackAction = viewPage
  				}
@@ -90,7 +90,7 @@ Here is a sample:
  				700 {
  					name = history
  					label = LLL:EXT:lang/locallang_misc.xml:CM_history
- 					spriteIcon = actions-document-history-open
+ 					iconName = actions-document-history-open
  					displayCondition = canShowHistory != 0
  					callbackAction = openHistoryPopUp
  				}
@@ -105,7 +105,7 @@ Here is a sample:
  					100 {
  						name = new
  						label = LLL:EXT:lang/locallang_core.xml:cm.new
- 						spriteIcon = actions-page-new
+ 						iconName = actions-page-new
  						displayCondition = canCreateNewPages != 0
  						callbackAction = newPageWizard
  					}
@@ -164,7 +164,7 @@ in the existing menu::
    			1020 {
    				name = clearPageCache
    				label = LLL:EXT:sm_clearcachecm/Ressources/Private/Language/locallang_cm:clearPageCache
-   				spriteIcon = actions-system-cache-clear
+   				iconName = actions-system-cache-clear
    				callbackAction = clearPageCache
    			}
    		}
@@ -174,7 +174,7 @@ in the existing menu::
    			420 {
    				name = clearBranchCache
    				label = LLL:EXT:sm_clearcachecm/Ressources/Private/Language/locallang_cm:clearBranchCache
-   				spriteIcon = actions-system-cache-clear-impact-medium
+   				iconName = actions-system-cache-clear-impact-medium
    				callbackAction = clearBranchCache
    			}
    		}
@@ -207,7 +207,7 @@ declaring menu items:
          Image that should be shown to the left of the action item.
 
  - :Property:
-         spriteIcon
+         iconName
    :Description:
          Key of the sprite icon to use instead of some arbitrary image
          (see "icon" above).
@@ -349,7 +349,7 @@ replaced with the selected page id. Example:
    	name = someCustomeAction
    	label = LLL:EXT:extension/locallang.xml:someCustomeAction
    	icon = ' . \TYPO3\CMS\Core\Utility\GeneralUtility::locationHeaderUrl(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif') . '
-   	spriteIcon =
+   	iconName =
    	displayCondition =
    	callbackAction = openCustomUrlInContentFrame
    	customAttributes.contentUrl = mod.php?M=web_WorkspacesWorkspaces&id=###ID###
