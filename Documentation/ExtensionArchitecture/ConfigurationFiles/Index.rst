@@ -60,15 +60,12 @@ Best practice for ext_tables.php and ext_localconf.php
 It is a good practice to use :code:`call_user_func` with an closure function.
 The following example contains the complete code::
 
-   <?php
+    <?php
+    defined('TYPO3_MODE') or die(); 
 
-   if (!defined('TYPO3_MODE')) {
-      die('Access denied.');
-   }
-
-   call_user_func(function () {
-      // Add your code here
-   });
+    call_user_func(function () {
+        // Add your code here
+    });
 
 In most cases, the file :code:`ext_tables.php` is no longer needed, since most of
 the code can be placed in :code:`Configuration\TCA\*.php` files.
