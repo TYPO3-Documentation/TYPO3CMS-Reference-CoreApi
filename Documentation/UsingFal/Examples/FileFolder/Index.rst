@@ -174,7 +174,7 @@ table:
    $fileObjects = $fileRepository->findByRelation('pages', 'media', $uid);
 
 
-where :code:`$uid` is the id of some page. The return value if an array
+where :code:`$uid` is the id of some page. The return value is an array
 of :php:`\TYPO3\CMS\Core\Resource\FileReference` objects.
 
 
