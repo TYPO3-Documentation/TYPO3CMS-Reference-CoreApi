@@ -73,6 +73,7 @@ address the task at hand.
 .. toctree::
    :hidden:
 
+   Sitemap/Index
    Introduction/Index
    FileSystemConventions/Index
    PhpFileFormatting/Index
