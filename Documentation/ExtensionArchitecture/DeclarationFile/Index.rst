@@ -244,9 +244,9 @@ values in the :code:`$EM_CONF` array if needed.
    :Description:
          To get better class loading support for websites in **non-composer mode+** the following information can be provided.
          
-         **Extensions having one folder with classes**
+         **Extensions having one folder with classes or single files**
          
-         Considering you have an Extbase extension (or an extension where all classes and interfaces reside in a Classes folder) you can simply add the following to your ext_emconf.php file::
+         Considering you have an Extbase extension (or an extension where all classes and interfaces reside in a Classes folder) or single classes you can simply add the following to your ext_emconf.php file::
 
             'autoload' => [
                 'classmap' => [
