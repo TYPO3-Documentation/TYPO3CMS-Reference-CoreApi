@@ -236,6 +236,45 @@ values in the :code:`$EM_CONF` array if needed.
    :Description:
          Author company
 
+
+ - :Key:
+         autoload
+   :Data type:
+         array
+   :Description:
+         To get better class loading support for websites in **non-composer mode+** the following information can be provided.
+         
+         **Extensions having one folder with classes**
+         
+         Considering you have an Extbase extension (or an extension where all classes and interfaces reside in a Classes folder) you can simply add the following to your ext_emconf.php file::
+
+            'autoload' => [
+                'classmap' => [
+                    'Classes',
+                    'a-class.php',
+                ]
+            ],
+            
+         **Extensions using namespaces**
+         
+         If the extension has namespaced classes following the PSR-4 standard, then you can add the following to your ext_emconf.php file::
+         
+            'autoload' => [
+                'psr-4' => [
+                    'Vendor\\ExtName\\' => 'Classes'
+                ]
+            ],
+            
+          Important: The prefix **must** end with a backslash.          
+
+ - :Key:
+         autoload-dev
+   :Data type:
+         array
+   :Description:
+         Same as the configuration "autoload" but it is only used if the *ApplicationContext* is set to *Testing*.
+  
+
 Deprecated configuration
 """"""""""""""""""""""""
 The following fields are deprecated and should not be used anymore:
