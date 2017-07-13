@@ -40,6 +40,13 @@ values in the :code:`$EM_CONF` array if needed.
          and for whom it might be useful.
 
  - :Key:
+         version
+   :Data type:
+         string
+   :Description:
+         Version of the extension. Automatically managed by EM / TER. Format is
+         [int].[int].[int]
+ - :Key:
          category
    :Data type:
          string
@@ -213,7 +220,7 @@ values in the :code:`$EM_CONF` array if needed.
    :Data type:
          string
    :Description:
-         Author name (Use a-z)
+         Author name
 
  - :Key:
          author\_email
@@ -227,66 +234,26 @@ values in the :code:`$EM_CONF` array if needed.
    :Data type:
          string
    :Description:
-         Author company (if any company sponsors the extension).
+         Author company
 
- - :Key:
-         docPath
-   :Data type:
-         string
-   :Description:
-         Path to documentation. This has never been fully supported neither by the TER
-         nor by the Extension Manager. The documentation is expected to be in folder :file:`doc`
-         when using OpenOffice/LibreOffice format and in folder :file:`Documentation` when
-         using reStructuredText (recommended). See :ref:`extension-documentation` for more information.
+Deprecated configuration
+""""""""""""""""""""""""
+The following fields are deprecated and should not be used anymore:
 
-         **Deprecated**
-
- - :Key:
-         CGLcompliance
-   :Data type:
-         keyword
-   :Description:
-         Compliance level that the extension claims to adhere to. A compliance
-         defines certain coding guidelines, level of documentation, technical
-         requirements (like XHTML, DBAL usage etc).
-
-         **Deprecated**
-
- - :Key:
-         CGLcompliance\_note
-   :Data type:
-         string
-   :Description:
-         Any remarks to the compliance status. Might describe some minor
-         incompatibilities or other reservations.
-
-         **Deprecated**
-
- - :Key:
-         private
-   :Data type:
-         boolean
-   :Description:
-         If set,  *this version* of the extension is not included in the public
-         list!
-
-         **Not supported anymore**
-
- - :Key:
-         download\_password
-   :Data type:
-         string
-   :Description:
-         If set, this password must additionally be specified if people want to
-         access (import or see details for) this the extension.
-
-         **Not supported anymore**
-
- - :Key:
-         version
-   :Data type:
-         main.sub.dev
-   :Description:
-         Version of the extension. Automatically managed by EM / TER. Format is
-         [int].[int].[int]
-
+- dependencies
+- conflicts
+- suggests 
+- docPath 
+- CGLcompliance
+- CGLcompliance_note
+- private
+- download_password
+- shy
+- loadOrder
+- priority
+- internal
+- modify_tables
+- module
+- lockType
+- TYPO3_version
+- PHP_version
