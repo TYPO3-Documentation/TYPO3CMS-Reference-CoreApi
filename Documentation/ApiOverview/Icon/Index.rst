@@ -17,7 +17,7 @@ Registration
 
 All icons must be registered in the :php:`IconRegistry`.
 To register icons for your own extension use the following
-code in your :php:`ext_localconf.php` file:
+code in your :php:`ext_tables.php` file:
 
 .. code-block:: php
 
