@@ -277,7 +277,7 @@ Classes/ViewHelpers
 Configuration/TsConfig/Page
 Configuration/TsConfig/User
   Page and User TSconfig, see `TSconfig Reference <https://docs.typo3.org/typo3cms/TSconfigReference/>`_.
-  Files must have the file extension :code:`.tsconfig`.
+  Files must have the file extension :file:`.tsconfig`.
 
 Configuration/TypoScript
   TypoScript static setup (:file:`setup.txt`) and constants (:file:`constants.txt`).
