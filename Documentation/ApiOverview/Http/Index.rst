@@ -60,7 +60,7 @@ The `RequestFactory` class can be used like this:
    $response = $requestFactory->request($url, 'GET', $additionalOptions);
    // Get the content as a string on a successful request
    if ($response->getStatusCode() === 200) {
-      if ($response->getHeader('Content-Type') === 'text/html') {
+      if (strpos($response->getHeaderLine('Content-Type'), 'text/html') === 0) {
          $content = $response->getBody()->getContents();
       }
    }
