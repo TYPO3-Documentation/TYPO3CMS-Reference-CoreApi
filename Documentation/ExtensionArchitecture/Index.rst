@@ -1,6 +1,5 @@
 .. include:: ../Includes.txt
 
-
 .. _extension-architecture:
 
 ======================
