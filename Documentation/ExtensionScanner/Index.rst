@@ -52,6 +52,8 @@ Goals and non goals
   If those find no matches, according ReST documentation files are tagged as "no match", telling integrators
   and project developers "You do not need to read this file since you are not affected anyway".
 
+* The extension scanner is not meant to be used with core extensions, it is not a core development helper.
+
 
 Limits
 ------
