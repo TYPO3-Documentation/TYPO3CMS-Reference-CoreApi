@@ -10,8 +10,8 @@ Extension scanner
 Introduction
 ------------
 
-The "extension scanner" which has been introduced with TYPO3 core version 9 as part of the system
-management (formerly "install tool") provides an interactive interface to actively "scan" extension code
+The extension scanner which has been introduced with TYPO3 core version 9 as part of the system
+management (formerly "install tool") provides an interactive interface to scan extension code
 for usage of TYPO3 core API which has been removed or deprecated.
 
 The module can be a great help for extension developers and site maintainers when upgrading to
@@ -30,7 +30,7 @@ Goals and non goals
 * Help extension authors quickly find code in extensions that may need attention when upgrading to
   newer core versions.
 
-* Extend the existing RST documentation files which are shown in the "Upgrade Analysis" section
+* Extend the existing RST documentation files which are shown in the ``Upgrade Analysis`` section
   with additional information giving extension authors and site developers hints if they are affected
   by a specific change.
 
@@ -38,14 +38,14 @@ Goals and non goals
 
 * It should later be possible to scan different languages - not only PHP - TypoScript or Fluid could be examples.
 
-* Core developers should be able to easily register and maintain "matchers" for new deprecations or breaking patches.
+* Core developers should be able to easily register and maintain matchers for new deprecations or breaking patches.
 
 * Implementation within the TYPO3 core backend has been primary goal. While it might be possible, integration
-  into IDEs like PhpStorm has not been design goal. Also, matcher configuration is bound to the core version,
+  into IDEs like PhpStorm has not been a design goal. Also, matcher configuration is bound to the core version,
   e.g. tests concerning v9 are not intended to be executed on v8.
 
 * Some of RST files that document a breaking change or deprecated API can be used to scan extensions.
-  If those find no matches, the RST documentation files are tagged with a "no match" label, telling integrators
+  If those find no matches, the RST documentation files are tagged with a "no match" label telling integrators
   and project developers that they do not need to concern themselves with that particular change.
 
 * The extension scanner is not meant to be used on core extensions - it is not a core development helper.
