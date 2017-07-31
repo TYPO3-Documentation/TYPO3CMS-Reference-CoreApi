@@ -54,6 +54,8 @@ Goals and non goals
 
 * The extension scanner is not meant to be used with core extensions, it is not a core development helper.
 
+* It is not scope of the extension scanner to automatically fix code.
+
 
 Limits
 ------
