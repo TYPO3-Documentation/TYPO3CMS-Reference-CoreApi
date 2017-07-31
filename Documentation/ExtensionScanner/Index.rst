@@ -10,51 +10,45 @@ Extension scanner
 Introduction
 ------------
 
-The "extension scanner" which has been introduced with TYPO3 core version 9 as part of the system
-management (formerly "install tool") provides a click-able interface to actively "scan" extension code
+The extension scanner which has been introduced with TYPO3 core version 9 as part of the system
+management (formerly "install tool") provides an interactive interface to scan extension code
 for usage of TYPO3 core API which has been removed or deprecated.
 
-The module can be a great helper for extension developers and site maintainers when upgrading to
-new core versions. It can point out code places within extensions that should have a look. However,
-the detection approach - based on static code analysis - is limited by concept: There can be false
-positives as well as false negatives and this can not be entirely avoided.
+The module can be a great help for extension developers and site maintainers when upgrading to
+new core versions. It can point out code places within extensions that need attention. However,
+the detection approach - based on static code analysis - is limited by concept: false positives/negatives
+are impossible to avoid.
 
 This document has been written to explain the design goals of the scanner, to point out what it can
-do and what it can't. The document should help extension and project developers to get the best out
-of the tool, and it should help core developers to add core patches which use it best.
+and can't do. The document should help extension and project developers to get the best out of the tool,
+and it should help core developers to add core patches which use the scanner.
 
 
 Goals and non goals
 -------------------
 
-* Help extension authors to quickly find places in extensions that may need an eye when upgrading to
-  younger core versions.
+* Help extension authors quickly find code in extensions that may need attention when upgrading to
+  newer core versions.
 
-* Supply the existing "ReST" documentation files which are shown in the "Upgrade Analysis" section
+* Extend the existing RST documentation files which are shown in the ``Upgrade Analysis`` section
   with additional information giving extension authors and site developers hints if they are affected
-  by a specific change or not.
+  by a specific change.
 
-* It is not a design goal to scan for everything the core changes in it's API giving extension authors
-  reliable information if they violate something. This can't be done.
+* It is not a design goal to scan for every TYPO3 core API change.
 
-* It should later be possible to scan different languages - not only PHP - TypoScript of Fluid could be examples.
+* It should later be possible to scan different languages - not only PHP - TypoScript or Fluid could be examples.
 
-* Core developers should be able to register and maintain "matchers" for new deprecated or breaking patches easily
-  and provide according configuration along with their patches.
+* Core developers should be able to easily register and maintain matchers for new deprecations or breaking patches.
 
 * Implementation within the TYPO3 core backend has been primary goal. While it might be possible, integration
-  into IDE's like PhpStorm has not been design goal. Also, matcher configuration is bound to the core version,
-  it is not planned to run the core version 9 tests in a core version 8 or similar. Both IDE integration and
-  upgrade testing based for different core version could be side projects, those will however not be integrated
-  into the core, nor maintained by the core team.
+  into IDEs like PhpStorm has not been a design goal. Also, matcher configuration is bound to the core version,
+  e.g. tests concerning v9 are not intended to be executed on v8.
 
-* Some of ReST files that document a breaking or deprecated API change can be "fully" scanned in extensions.
-  If those find no matches, according ReST documentation files are tagged as "no match", telling integrators
-  and project developers "You do not need to read this file since you are not affected anyway".
+* Some of RST files that document a breaking change or deprecated API can be used to scan extensions.
+  If those find no matches, the RST documentation files are tagged with a "no match" label telling integrators
+  and project developers that they do not need to concern themselves with that particular change.
 
-* The extension scanner is not meant to be used with core extensions, it is not a core development helper.
-
-* It is not scope of the extension scanner to automatically fix code.
+* The extension scanner is not meant to be used on core extensions - it is not a core development helper.
 
 
 Limits
@@ -63,9 +57,9 @@ Limits
 The extension scanner is based on `static code analysis <https://en.wikipedia.org/wiki/Static_program_analysis>`__.
 "Understanding and analyzing" code flow from within code itself (dynamic code analysis) is not performed.
 This means the scanner is basically not much more clever than a simple string search paired with
-some magic to reduce false positives and false negatives.
+some additional analysis to reduce false positives/negatives.
 
-Let's explain this by example. Suppose the core deprecated a static method call:
+Let's explain this by example. Suppose a static method was deprecated:
 
 .. code-block:: php
 
@@ -96,11 +90,11 @@ This method is registered in the matcher class
     ],
 
 The array key is the class name plus method name, :php:`numberOfMandatoryArguments` is the number
-of arguments that must be given to the method, :php:`maximumNumberOfArguments` is the maximum
+of arguments that must be passed to the method, :php:`maximumNumberOfArguments` is the maximum
 number of arguments the method accepts. The :php:`restFiles` array contains file names of
 :php:`.rst` file(s) that explain details of the deprecation.
 
-Now let's look at some class of an extension that uses this deprecated method:
+Now let's look at a theoretical class of an extension that uses this deprecated method:
 
 .. code-block:: php
 
@@ -137,50 +131,47 @@ Now let's look at some class of an extension that uses this deprecated method:
         }
     }
 
-The first three method calls are classified as "strong" matches: The full class name is given
+The first three method calls are classified as strong matches: the full class name is used
 and the method name matches including the argument restrictions.
-The fourth call :php:`$foo::someMethod();` is classified as "weak" match and is a false
+The fourth call :php:`$foo::someMethod();` is classified as a weak match and is a false
 positive: Class :php:`SomeOtherUtility` is called instead of :php:`SomeUtility`.
 The sixth method call :php:`SomeUtility::someMethod('foo', 'bar')` does not match because the
-method is called with two arguments instead of the one argument the method accepts.
+method is called with two arguments instead of one argument.
 
 The "too many arguments" restriction is a measure to suppress false positives: If a method with
-the same name exists that accepts a different number of arguments, valid calls to the other method
-may not be found as false positives depending on the count of given arguments.
+the same name exists which accepts a different number of arguments, valid calls to the other method
+may be reported as false positives depending on the number of arguments used in the call.
 
-As you can see, depending on given extension code the scanner may find false positives and it may
-not find matches if for instance the number of arguments is not within a specified range. This can
-not be avoided.
+As you can see, depending on given extension code, the scanner may find false positives and it may
+not find matches if for instance the number of arguments is not within a specified range.
 
-The example above looks at static method calls which are relatively reliable matches. If
-it comes to "dynamic" :php:`->` method call, the "strong" part considering the class name is
-almost never done, so all matches are usually "weak" and the number of false positive matches
-raises. These cases are especially hard to avoid.
+The example above looks for static method calls, which are relatively reliable to match. For dynamic
+:php:`->` method call, a strong match on the class name is almost never achieved, which means almost
+all matches for such cases will be weak matches.
 
-Additionally, an extension may already have a "version check" around a code call to run a call
+Additionally, an extension may already have a version check around a function call to run one function
 on one core version and a different one on another core version. The extension scanner does not
-understand these constructs and would still show the deprecated call as match, even if wrapped
-in a core version constraint.
+understand these constructs and would still show the deprecated call as a match, even if it was wrapped
+in a core version check.
 
 
 Extension authors
 -----------------
 
-While the extension scanner can be a great helper to quickly see which places of an extension
-may need attention when upgrading an extension to support a younger core version, the following
-points should be considered:
+Even though the extension scanner can be a great help to quickly see which places of an extension
+may need attention when upgrading to a newer core version, the following points should be considered:
 
-* It should not be a goal to always have a "green" output of the extension scanner, especially
-  if the extension scanner shows a false positive (a wrong match).
+* It should not be a goal to always have a green output of the extension scanner, especially
+  if the extension scanner shows a false positive.
 
-* A "green" output when scanning an extension does *not* mean the extension actually works with
-  that core version: Not everything is scanned, some deprecations or breaking changes are not
-  scanned: The scanner does not support all languages, and some possible matches may have been
-  actively removed since they raise too many false positives.
+* A green output when scanning an extension does *not* imply that the extension actually works with
+  that core version: Some deprecations or breaking changes are not scanned (for example those causing 
+  too many false positives) and the scanner does not support all script/markup languages.
 
-* The breaking / deprecation ReST files coming with a core update should still be read.
+* The breaking change / deprecation RST files shipped with a core version are still relevant and should
+  be read.
 
-* If the extension scanner shows one or more false positives, the extension author has the following options:
+* If the extension scanner shows one or more false positives the extension author has the following options:
 
   * Ignore the false positive
 
@@ -191,8 +182,8 @@ points should be considered:
         // @extensionScannerIgnoreLine
         $foo->someFalsePositiveMatch('foo');
 
-  * Suppress matches in an entire file with a comment. This is especially useful for
-    dedicated files that act as "Core API usage version switcher helper":
+  * Suppress all matches in an entire file with a comment. This is especially useful for
+    dedicated classes which act as proxies for core API:
 
     .. code-block:: php
 
@@ -207,110 +198,84 @@ points should be considered:
         }
 
   * The author could request a core patch to remove a specific match from the extension scanner
-    if it triggers tons on false positives. This might be accepted by the core team if further
-    extension authors have the same problem and if that is a common match. Single false positives
-    will be ignored and not removed from the matchers since the core team rates the benefit of
-    finding a possible correct match higher than having false positives.
+    if it triggers too many false positives. If multiple authors experience the same false positives
+    they are even more likely to be removed upon request.
 
-  * Some of the matchers can be restricted to "strong" matches ingnoring "weak" matches. The
+  * Some of the matchers can be restricted to only include strong matches and ignore weak ones. The
     extension author may request a "strong match only" patch for specific cases to suppress
-    common false positives. The decision about that is again in the core team and mostly depends
-    on how common false positives show up.
+    common false positives.
 
-  * If a PHP file is invalid and can not be compiled for a given PHP version, the extension scanner
-    may throw a general parse error for that file. Not compilable code will not be scanned, this is
-    a task of a general language linter. Additionally, if an extension calls a method detected by the
-    scanner with too many arguments (which is valid in PHP), the extension scanner will not show that
-    as a match. In general, the cleaner the code base of a given extension is and the less magic it uses,
-    the more useful the extension scanner will be.
+* If a PHP file is invalid and can not be compiled for a given PHP version, the extension scanner
+  may throw a general parse error for that file. Additionally, if an extension calls a matched method
+  with too many arguments (which is valid in PHP) then the extension scanner will not show that
+  as a match. In general: the cleaner the code base of a given extension is and the simpler the code lines are,
+  the more useful the extension scanner will be.
 
-* If an extension is cluttered with lots of "@extensionScannerIgnoreLine" or "@extensionScannerIgnoreFile"
-  annotations, this could be rated as a sign the extension authors may think about branching off
-  an extensions to support more dedicated core versions only in their branches.
-
-* If adding "@extensionScannerIgnoreLine" or "@extensionScannerIgnoreFile" to a file or code line,
-  the extension scanner is effectively turned off and can't help with further core deprecations or
-  removals in this area. It is up to the extension author to track and update these places.
+* If an extension is cluttered with ``@extensionScannerIgnoreLine`` or ``@extensionScannerIgnoreFile``
+  annotations this could be an indication to the extension author to consider branching off
+  an extensions to support individual core versions instead of supporting multiple versions in the same release.
 
 
 Project developers
 ------------------
 
-Project developers are devs who maintain a project that consists of third party extensions
-(eg. from the TER) together with some own or project specific extensions. To rate the output of
-an extension scanner run, the following points should be considered:
+Project developers are developers who maintain a project that consists of third party extensions
+(eg. from TER) together with some custom, project-specific extensions. When analysing the output of
+an extension scanner run the following points should be considered:
 
-* It is not necessary to have all extensions "green" when scanning them. With the nature of the
+* It is not necessary for all scanned extensions to report green status. Due to the nature of the
   extension scanner which can show false positives, extension authors may decide to ignore a false
-  positive (see above). That means even a well maintained extension may not be green. The
-  extension scanner is an imperfect helper and can not give a "go" or "no go".
+  positive (see above). That means that even well maintained extensions may not report green.
 
-* The number of false positives of an extension scanner run depends on the amount of core API
-  calls, the size of the extension in general and the number of methods names that are identical
-  to core method names. Depending on what the extension does, this is hard to avoid from an
-  extensions author point of view.
-
-* An extension "green" in the scanner does not mean it works.
-
-* If the extension scanner shows a huge number of "ignored lines" and "ignored files" it could mean
-  the extension author overreacted with these annotations, should maybe branch off the extension to
-  support more dedicated core versions only, the extension is huge in general, the extension uses
-  lots of core API that has been changed, or the extension is in bad luck and hits lots of false
-  positives. It does not necessarily mean the extension is of bad code quality.
-
+* A green status in the scanner does not imply that the extension also works, just that it neither
+  uses deprecated methods nor core any API which received breaking changes. It also does not indicate
+  anything about the quality of the extension: false positives can be caused by for example supporting
+  multiple TYPO3 versions in the same extension release.
 
 Core developers
 ---------------
 
 When changing core API, core developers should keep an eye on the extension scanner and add matcher
-configuration if possible. This is typically the case if PHP API changed and the patch comes with
+configurations if possible. This is typically the case if PHP API was changed and the patch comes with
 a deprecation or breaking ReST file to document the change.
 
-Connection to Changelog ReST files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Connection to Changelog RST files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-All "Changelog" ReST file since core version 9 have to be tagged with one of the three tags
-"FullyScanned", "PartiallyScanned" or "NotScanned". Especially the "FullyScanned" tag is used by
-the extension scanner to mark instances as "not affected by this change", they should be added
-with care and only if the scanner configuration matches all changes mentioned in the ReST file.
-If parts of the ReST file are covered, "PartiallyScanned" has to be added and the ReST file should
-mention which parts are scanned and which are not covered. If the scanner does not cover a ReST file
-at all, "NotScanned" can be added.
+All changelog type RST file since core version 9 have to be tagged with one of the three tags
+``FullyScanned``, ``PartiallyScanned`` or ``NotScanned``. In particular, the ``FullyScanned`` tag is
+used by the extension scanner to mark instances as "not affected by this change", as such they should
+be added with care and only if the scanner configuration matches all changes mentioned in the RST file.
+If only parts of the RST file are covered, ``PartiallyScanned`` has to be added and the RST file should
+mention which parts are and are not covered. If the scanner does not cover a RST file at all then
+``NotScanned`` can be added.
 
-If a ReST file is renamed, the file may be covered in a matcher configuration, so it needs to be
-adapted, too. The ReST files are not bound to specific directories in the matcher configuration,
-so moving a ReST file to a different location within the Changelog directory needs no adaption.
+If an RST file is renamed the file may be covered in a matcher configuration which then needs to be
+adapted, too. The RST files are not bound to specific directories in the matcher configuration
+so moving a RST file to a different location within the ``Changelog`` directory has no effect.
 
-Extension scanner "PHP" configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Extension scanner PHP configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The PHP part of the extension scanner is based on the library
 `nikic/php-parser <https://github.com/nikic/PHP-Parser>`__. This library creates an
 `abstract syntax tree <https://en.wikipedia.org/wiki/Abstract_syntax_tree>`__ from any given
 compilable PHP file. It comes with a traverser for recursive iteration over the tree that
 implements a visitor pattern, own visitors can be added. A single "matcher" is a visitor added
-to the traverser. A default visitor resolves all "shortened" namespaced class usages to their
+to the traverser. A default visitor resolves all shortened namespaced class usages to their
 fully qualified name, which is a great help for our matchers.
 
 This basically means: The whole AST is traversed exactly once for each PHP file and all matchers
-are called for every node. They can then decide if they match a configured deprecation or breaking
+are called for each node. Matches can then decide if they match a configured deprecation or breaking
 scenario.
 
-All matchers are covered by unit tests and a fixture that show what exactly the match. The fixture
-files are a good source to find out what a matcher can do.
+All matchers are covered by unit tests and a fixture that shows what exactly is matched. Studying the
+fixture can be a good way to understand the matcher.
 
-Matchers are systematically named: For method calls, there is a usually a variant for dynamic and
-one for static calls. If for instance a static method changed the argument signature by removing
-an argument, the according matcher class is :php:`TYPO3\CMS\Install\CodeScanner\Php\MethodArgumentDroppedStaticMatcher`.
+Matchers are systematically named: for method calls there is a usually one variant for dynamic and
+one for static calls. If for example a static method changed its argument signature by removing
+an argument then the according matcher class is :php:`TYPO3\CMS\Install\CodeScanner\Php\MethodArgumentDroppedStaticMatcher`.
 
-Single matcher configuration are pretty obvious, new ones should be added at the end. If adding
-matcher configuration it should be checked it is not yet covered by some other matcher.
-
-A matcher configuration can be removed if it creates too many false positives. This is the case
-rather seldom, cases where this has been done are "generic" method names that occur often. Examples
-are the dynamic methods :php:`->setIcon()`, :php:`->getIcon()` and :php:`->render()`. Decision to
-remove a single matcher configuration or to not add one should be done with huge care.
-
-One special issue is if a method is moved from one class to a different one and keeps its name. The
-extension scanner (for dynamic methods) will then find a call to the new method as false positive.
-In general, this should be avoided if possible: Maybe the method could be given a better name along the way?
+Single matcher configurations are pretty obvious, new ones should be added at the end. When adding
+matcher configurations it should be verified the match it is not already covered by some other matcher
+(possibly in another RST file).
