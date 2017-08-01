@@ -77,7 +77,7 @@ Let's explain this by example. Suppose a static method was deprecated:
     }
 
 This method is registered in the matcher class
-:php:`TYPO3\CMS\Install\CodeScanner\Php\MethodCallStaticMatcher` like this:
+:php:`TYPO3\CMS\Install\ExtensionScanner\Php\MethodCallStaticMatcher` like this:
 
 .. code-block:: php
 
@@ -274,7 +274,7 @@ fixture can be a good way to understand the matcher.
 
 Matchers are systematically named: for method calls there is a usually one variant for dynamic and
 one for static calls. If for example a static method changed its argument signature by removing
-an argument then the according matcher class is :php:`TYPO3\CMS\Install\CodeScanner\Php\MethodArgumentDroppedStaticMatcher`.
+an argument then the according matcher class is :php:`TYPO3\CMS\Install\ExtensionScanner\Php\MethodArgumentDroppedStaticMatcher`.
 
 Single matcher configurations are pretty obvious, new ones should be added at the end. When adding
 matcher configurations it should be verified the match it is not already covered by some other matcher
