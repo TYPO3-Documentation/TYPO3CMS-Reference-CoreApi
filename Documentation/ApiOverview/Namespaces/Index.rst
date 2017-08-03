@@ -31,9 +31,10 @@ Finally the *class name* is the same as the corresponding file name, without the
 "UpperCamelCase" is used for all segments.
 
 .. tip::
-   File :file:`typo3/sysext/core/Migrations/Code/LegacyClassesForIde.php` contains a full
-   mapping of old to new class names, which will help you find your way around the new
-   naming.
+   The Extension `compatibility6 <https://typo3.org/extensions/repository/view/compatibility6>`_
+   contains a full mapping of old to new class names, which will help you find your way around
+   the new naming. You can find the source code at its Github repo in file `Migrations/Code/LegacyClassesForIde.php
+   <https://github.com/FriendsOfTYPO3/compatibility6/blob/master/Migrations/Code/LegacyClassesForIde.php>`_.
 
 
 .. _namespaces-example:
