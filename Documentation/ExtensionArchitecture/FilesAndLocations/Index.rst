@@ -275,8 +275,11 @@ Classes/ViewHelpers
   Helper classes used in the views.
 
 Configuration/TsConfig/Page
+  Page TSconfig, see `TSconfig Reference <https://docs.typo3.org/typo3cms/TSconfigReference/PageTsconfig/>`_.
+  Files should have the file extension :file:`.tsconfig`.
+  
 Configuration/TsConfig/User
-  Page and User TSconfig, see `TSconfig Reference <https://docs.typo3.org/typo3cms/TSconfigReference/>`_.
+  User TSconfig, see `TSconfig Reference <https://docs.typo3.org/typo3cms/TSconfigReference/UserTsconfig/>`_.
   Files should have the file extension :file:`.tsconfig`.
 
 Configuration/TypoScript
