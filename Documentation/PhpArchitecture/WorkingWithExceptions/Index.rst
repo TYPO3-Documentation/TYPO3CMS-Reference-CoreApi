@@ -96,17 +96,21 @@ Exception inheritance
 """""""""""""""""""""
 
 A typical exception hierarchy for specific exceptions in the core
-typically looks like :code:`Vendor\MyExt\Exception extends TYPO3\CMS\Core\Exception`,
-where :code:`TYPO3\CMS\Core\Exception` is the base for all exceptions in TYPO3.
+looks like :php:`Vendor\MyExt\Exception extends TYPO3\CMS\Core\Exception`,
+where :php:`TYPO3\CMS\Core\Exception` is the base of all exceptions in TYPO3.
 
-Building on that you can have :code:`Vendor\MyExt\Exception\AFunctionality\ASpecificException extends
+Building on that you can have :php:`Vendor\MyExt\Exception\AFunctionality\ASpecificException extends
 Vendor\MyExt\Exception` for more specific exceptions. All of your exceptions
 should extend your extension-specific base exception.
 
-So, as soon as multiple different specific exceptions are thrown within
-some extension, there should be a generic base exception within the extension
-that is not thrown itself, and the specific exceptions that are thrown
-then extend from this class. Typically, only the specific exceptions are
+So, rule:
+
+   As soon as multiple different specific exceptions are thrown within
+   some extension, there should be a generic base exception within the extension
+   that is not thrown itself, and the specific exceptions that are thrown
+   then extend from this class. 
+
+Typically, only the specific exceptions are
 caught however. In general, the inheritance hierarchy shouldn’t be
 extended much deeper and should be kept relatively flat.
 
@@ -120,7 +124,8 @@ exception is caught and transformed into a localized flash message or
 a notification. Typically, those additional pieces of information
 should be added as additional constructor arguments::
 
-   __construct($message = "", $code = 0, Exception $previous = null, string $additionalArgument, int $anotherArgument)
+   __construct($message = "", $code = 0, Exception $previous = null, 
+               string $additionalArgument, int $anotherArgument)
 
 There should be getters for those additional data parts within the
 exception class. Enriching an exception with additional data should not
@@ -133,10 +138,10 @@ only way to add data is by handing it over as constructor arguments.
 Good examples
 """""""""""""
 
-* :code:`\TYPO3\CMS\Backend\Form\FormDataProvider\AbstractDatabaseRecordProvider`,
-  :code:`\TYPO3\CMS\Backend\Form\FormDataProvider\DatabaseEditRow`,
-  :code:`\TYPO3\CMS\Backend\Form\Exception\DatabaseRecordException`,
-  :code:`\TYPO3\CMS\Backend\Form\FormDataProvider\TcaInline`
+* :php:`\TYPO3\CMS\Backend\Form\FormDataProvider\AbstractDatabaseRecordProvider`,
+  :php:`\TYPO3\CMS\Backend\Form\FormDataProvider\DatabaseEditRow`,
+  :php:`\TYPO3\CMS\Backend\Form\Exception\DatabaseRecordException`,
+  :php:`\TYPO3\CMS\Backend\Form\FormDataProvider\TcaInline`
 
   * Scenario: :code:`DatabaseEditRow` may throw a :code:`DatabaseRecordException`
     if the record to open has been deleted meanwhile. This can happen
@@ -176,17 +181,24 @@ Good examples
 Bad examples
 """"""""""""
 
-* :code:`TYPO3\CMS\Core\Resource\FileRepository` method :code:`findFileReferenceByUid()`
+* :php:`TYPO3\CMS\Core\Resource\FileRepository` method :php:`findFileReferenceByUid()`
 
-  * Bad: The top-level PHP built-in is caught, this is not a good idea
+  * Bad: The top-level PHP built-in is caught.
+
+    This is not a good idea
     and indicates something is wrong in the code that may throw this
     exception. A specific exception should be caught here only.
-  * Bad: Catching :code:`\RuntimeException` may hide more serious
+    
+  * Bad: Catching :php:`\RuntimeException`.
+
+    This may hide more serious
     failures from an underlying library that should better have been
-    bubbling up. The same goes for :code:`\Exception`.
+    bubbling up. The same holds for :php:`\Exception`.
+
   * Bad: Catching this exception is used to change the return value of
-    the method to false, making it a method that returns multiple
-    different types.
+    the method to false.
+
+    This would make it a method that returns multiple different types.
 
 
 Further readings
