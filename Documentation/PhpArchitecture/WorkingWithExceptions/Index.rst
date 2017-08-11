@@ -96,12 +96,15 @@ Exception inheritance
 """""""""""""""""""""
 
 A typical exception hierarchy for specific exceptions in the core
-typically looks like:
-:code:`Vendor\MyExt\Exception extends \Exception` <- base for own exceptions
-:code:`Vendor\Myext\Exception\AFunctionality\ASpecificExceptionName extends
-Vendor\MyExt\Exception extends \Exception` <- exception typically thrown.
+typically looks like :code:`Vendor\MyExt\Exception extends TYPO3\CMS\Core\Exception`,
+where :code:`TYPO3\CMS\Core\Exception` is the base for all exceptions in TYPO3.
+
+Building on that you can have :code:`Vendor\MyExt\Exception\AFunctionality\ASpecificException extends
+Vendor\MyExt\Exception` for more specific exceptions. All of your exceptions
+should extend your extension-specific base exception.
+
 So, as soon as multiple different specific exceptions are thrown within
-some extension, there should be a generic exception within the extension
+some extension, there should be a generic base exception within the extension
 that is not thrown itself, and the specific exceptions that are thrown
 then extend from this class. Typically, only the specific exceptions are
 caught however. In general, the inheritance hierarchy shouldn’t be
@@ -180,7 +183,7 @@ Bad examples
     exception. A specific exception should be caught here only.
   * Bad: Catching :code:`\RuntimeException` may hide more serious
     failures from an underlying library that should better have been
-    bubbling up.
+    bubbling up. The same goes for :code:`\Exception`.
   * Bad: Catching this exception is used to change the return value of
     the method to false, making it a method that returns multiple
     different types.
