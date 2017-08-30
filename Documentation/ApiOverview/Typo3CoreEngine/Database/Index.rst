@@ -26,6 +26,13 @@ The data and commands are created as multidimensional arrays and to
 understand the API of DataHandler you simply need to understand the
 hierarchy of these two arrays.
 
+.. caution::
+	The DataHandler relies an a propper configured TCA. If your field 
+   has no configuration in the TCA, the DataHandler is not able to 
+   interact with it. This will be also the case, if you configured 
+   "type"="none" (which is in fact a valid type) or an invalid type 
+   for the field. Than the DataHandler is not able to determine the 
+   correct value of the field.
 
 .. _tce-commands:
 
