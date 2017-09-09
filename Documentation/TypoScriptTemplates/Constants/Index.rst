@@ -25,11 +25,6 @@ which are later used in *several places*.
    ":ref:`resource <t3tsref:data-type-resource>`". That means it refers
    to a file, which you have to upload in your TYPO3 CMS installation.
 
-.. note::
-
-   The top-level "object" :code:`TSConstantEditor` cannot be used. It is
-   reserved for the :ref:`configuration of help in the Constant Editor module <constant-editor-categories>`.
-
 
 Example
 ~~~~~~~
