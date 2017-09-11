@@ -57,14 +57,6 @@ by the value the constant has **before** the last template
 (i.e. the one you're manipulating with the *Template* module)
 is parsed (previous templates are typically included template records!).
 
-However a template may contain a :code:`###MOD_TS:EDITABLE_CONSTANTS###`.
-In this case, the constant definitions found before this mark are also regarded
-as default values.
-
-.. note::
-
-   This is a rather obscure and little-used feature.
-
 
 .. _constant-editor-comments:
 
