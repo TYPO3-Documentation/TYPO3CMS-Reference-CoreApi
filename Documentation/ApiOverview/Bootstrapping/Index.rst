@@ -36,6 +36,11 @@ line, which additionally requires :code:`\TYPO3\CMS\Core\Core\CliBootstrap`.
 One can see the bootstrapping process in action in file
 :file:`typo3/sysext/backend/Classes/Http/Application.php`::
 
+.. code-block:: php
+
+   use TYPO3\CMS\Core\Core\Bootstrap;
+   
+   ...
    $this->bootstrap = Bootstrap::getInstance()
       ->initializeClassLoader($classLoader)
       ->setRequestType(TYPO3_REQUESTTYPE_BE | (!empty($_GET['ajaxID']) ? TYPO3_REQUESTTYPE_AJAX : 0))
@@ -51,6 +56,7 @@ One can see the bootstrapping process in action in file
    }
    
    $this->bootstrap->configure();
+   ...
 
 
 Note that most methods of the Bootstrap class must be called in a precise order.
