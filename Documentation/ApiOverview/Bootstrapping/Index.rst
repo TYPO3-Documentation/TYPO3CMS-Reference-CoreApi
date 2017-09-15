@@ -41,6 +41,7 @@ One can see the bootstrapping process in action in file
    use TYPO3\CMS\Core\Core\Bootstrap;
    
    ###
+
    $this->bootstrap = Bootstrap::getInstance()
       ->initializeClassLoader($classLoader)
       ->setRequestType(TYPO3_REQUESTTYPE_BE | (!empty($_GET['ajaxID']) ? TYPO3_REQUESTTYPE_AJAX : 0))
@@ -56,6 +57,7 @@ One can see the bootstrapping process in action in file
    }
    
    $this->bootstrap->configure();
+
    ###
 
 
