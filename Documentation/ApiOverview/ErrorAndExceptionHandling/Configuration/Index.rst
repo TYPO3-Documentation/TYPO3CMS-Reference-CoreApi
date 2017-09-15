@@ -1,6 +1,5 @@
 .. include:: ../../../Includes.txt
 
-
 .. _error-handling-configuration:
 
 =============
@@ -8,7 +7,7 @@ Configuration
 =============
 
 All configuration options related to error and exception handling are
-found in :code:`$TYPO3_CONF_VARS[SYS]`:
+part of :php:`$TYPO3_CONF_VARS[SYS]`:
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -26,21 +25,21 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
 
          - 0 = Do not display any PHP error messages. Overrides the value of
            "exceptionalErrors" and sets it to 0 (= no errors are turned into
-           exceptions),the configured :code:`productionExceptionHandler` is used as
+           exceptions),the configured :php:`productionExceptionHandler` is used as
            exception handler
 
          - 1 = Display error messages with the registered error handler,the
-           configured :code:`debugExceptionHandler` is used as exception handler
+           configured :php:`debugExceptionHandler` is used as exception handler
 
          - 2 = Display errors only if client matches
-           :code:`$TYPO3_CONF_VARS[SYS][devIPmask]`. If devIPmask matches the users IP
+           :php:`$TYPO3_CONF_VARS[SYS][devIPmask]`. If devIPmask matches the users IP
            address the configured "debugExceptionHandler" is used for exceptions,
            if not "productionExceptionHandler" will be used.
 
          - -1 = Default setting. With this option, you can override the PHP
-           setting :code:`display_errors`. If :code:`devIPmask` matches the users IP address
-           the configured :code:`debugExceptionHandler` is used for exceptions, if not
-           :code:`productionExceptionHandler` will be used.
+           setting :php:`display_errors`. If :php:`devIPmask` matches the users IP address
+           the configured :php:`debugExceptionHandler` is used for exceptions, if not
+           :php:`productionExceptionHandler` will be used.
 
 
  - :Key:
@@ -50,10 +49,10 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
    :Description:
          Classname to handle PHP errors. Leave empty to disable error handling.
 
-         Default: :code:`\TYPO3\CMS\Core\Error\ErrorHandler`. This class will register itself
+         Default: :php:`\TYPO3\CMS\Core\Error\ErrorHandler`. This class will register itself
          as error handler. It is able to write error messages to all available
-         logging systems in TYPO3 (:code:`\TYPO3\CMS\Core\Utility\GeneralUtility::syslog`,
-         :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::devlog()` and
+         logging systems in TYPO3 (:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::syslog`,
+         :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::devlog()` and
          to the "sys\_log" table).
 
          Additionally the errors can be displayed as flash messages in the
@@ -61,7 +60,7 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
          Backend are only displayed if the error and exception handling is in
          "debug-mode", which is the case when the configured
          "debugExceptionHandler" is registered as exception handler (see:
-         :code:`$TYPO3_CONF_VARS[SYS][displayErrors]`).
+         :php:`$TYPO3_CONF_VARS[SYS][displayErrors]`).
 
          Errors which are registered as "exceptionalErrors" will be turned into
          exceptions (to be handled by the configured exceptionHandler).
@@ -72,9 +71,9 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
    :Data type:
          integer
    :Description:
-         The :code:`E_*` constant that will be handled by the error handler
+         The :php:`E_*` constant that will be handled by the error handler
 
-         Default: :code:`E_ALL ^ E_NOTICE`
+         Default: :php:`E_ALL ^ E_NOTICE`
 
 
  - :Key:
@@ -82,11 +81,11 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
    :Data type:
          integer
    :Description:
-         The :code:`E_*` constant that will be handled as an exception by the error
+         The :php:`E_*` constant that will be handled as an exception by the error
          handler.
 
-         Default: :code:`E_ALL ^ E_NOTICE ^ E_WARNING ^ E_USER\_ERROR ^ E_USER\_NOTICE ^ E_USER\_WARNING`
-         (4341) and "0" if :code:`$TYPO3_CONF_VARS[SYS][displayErrors] = 0`.
+         Default: :php:`E_ALL ^ E_NOTICE ^ E_WARNING ^ E_USER\_ERROR ^ E_USER\_NOTICE ^ E_USER\_WARNING`
+         (4341) and "0" if :php:`$TYPO3_CONF_VARS[SYS][displayErrors] = 0`.
 
          Refer to the PHP documentation for more details on this value.
 
@@ -100,15 +99,15 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
 
          Leave empty to disable exception handling.
 
-         Default: :code:`\TYPO3\CMS\Core\Error\ProductionExceptionHandler`. This
+         Default: :php:`\TYPO3\CMS\Core\Error\ProductionExceptionHandler`. This
          exception handler displays a nice error message when something went
          wrong. The error message is logged to the configured logs.
 
          .. note::
 
             The configured productionExceptionHandler is used if
-            :code:`$TYPO3_CONF_VARS[SYS][displayErrors]` is set to "0" or to "-1"
-            and :code:`$TYPO3_CONF_VARS[SYS][devIPmask]` doesn't match.
+            :php:`$TYPO3_CONF_VARS[SYS][displayErrors]` is set to "0" or to "-1"
+            and :php:`$TYPO3_CONF_VARS[SYS][devIPmask]` doesn't match.
 
 
  - :Key:
@@ -120,7 +119,7 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
 
          Leave empty to disable exception handling.
 
-         Default: :code:`\TYPO3\CMS\Core\Error\DebugExceptionHandler`. This exception
+         Default: :php:`\TYPO3\CMS\Core\Error\DebugExceptionHandler`. This exception
          handler displays the complete stack trace of any encountered
          exception. The error message and the stack trace is logged to the
          configured logs.
@@ -128,9 +127,9 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
          .. note::
 
             The configured debugExceptionHandler is used if
-            :code:`$TYPO3_CONF_VARS[SYS][displayErrors]` is set to "1" or
-            if :code:`$TYPO3_CONF_VARS[SYS][displayErrors]` is "-1" or "2" and
-            the :code:`$TYPO3_CONF_VARS[SYS][devIPmask]` matches.
+            :php:`$TYPO3_CONF_VARS[SYS][displayErrors]` is set to "1" or
+            if :php:`$TYPO3_CONF_VARS[SYS][displayErrors]` is "-1" or "2" and
+            the :php:`$TYPO3_CONF_VARS[SYS][devIPmask]` matches.
 
 
  - :Key:
@@ -160,7 +159,7 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
          (see: [SYS][systemLog]). If set to "0" no PHP errors are logged to the
          syslog.
 
-         Default: :code:`E_ALL ^ E_NOTICE` (6135).
+         Default: :php:`E_ALL ^ E_NOTICE` (6135).
 
 
  - :Key:
@@ -172,7 +171,7 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
          (extension: belog). If set to "0" no PHP errors are logged to the
          "sys\_log" table.
 
-         Default: :code:`E_ALL ^ E_NOTICE` (6135).
+         Default: :php:`E_ALL ^ E_NOTICE` (6135).
 
 
  - :Key:
@@ -258,16 +257,68 @@ Values in plain text can be changed in LocalConfiguration.php.
 |               |                    |                   |                |           | productionExceptionHandler  |                 |
 +---------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
 
+.. seealso::
+
+   `PHP predefined constants for errors and logging
+   <http://php.net/manual/en/errorfunc.constants.php>`__
+
+.. tip::
+
+   Search for **php error calculator** in the web.
+
+*PHP constants:*
+
+.. code-block:: none
+
+       1  E_ERROR            Fatal run-time errors.
+       2  E_WARNING           Run-time warnings (non-fatal errors).
+       4  E_PARSE             Compile-time parse errors.
+       8  E_NOTICE            Run-time notices.
+      16  E_CORE_ERROR        Fatal errors that occur during PHP's initial startup.
+      32  E_CORE_WARNING      Warnings (non-fatal errors) that occur during PHP's initial startup.
+      64  E_COMPILE_ERROR     Fatal compile-time errors.
+     128  E_COMPILE_WARNING   Compile-time warnings (non-fatal errors).
+     256  E_USER_ERROR        User-generated error message.
+     512  E_USER_WARNING      User-generated warning message.
+    1024  E_USER_NOTICE       User-generated notice message.
+    2048  E_STRICT            Enable to have PHP suggest changes to your code.
+    4096  E_RECOVERABLE_ERROR Catchable fatal error. It indicates that a probably dangerous error occurred, but did not leave the Engine in an unstable state. If the error is not caught by a user defined handle (see also set_error_handler()), the application aborts as it was an E_ERROR. 	Since PHP 5.2.0
+    8192  E_DEPRECATED        Run-time notices.
+   16384  E_USER_DEPRECATED   User-generated warning message.
+   ----------------------------------------------------------------------------
+   32767  E_ALL               (Use ~0 in the code to set all bits.)
+
+
+Defaults:
+
+.. code-block:: none
+
+   30711                      SYS/belogErrorReporting  = E_ALL & ~(E_STRICT | E_NOTICE)
+
+   30466                      SYS/errorHandlerErrors  = E_WARNING     | E_USER_ERROR        | E_USER_WARNING |
+                                                        E_USER_NOTICE | E_RECOVERABLE_ERROR | E_DEPRECATED   |
+                                                        E_USER_DEPRECATED
+
+   30711                      SYS/syslogErrorReporting = E_ALL & ~(E_STRICT | E_NOTICE)
+
+
+Typical in TYPO3 for production:
+
+.. code-block:: none
+
+
+   20408                      SYS/exceptionalErrors   = E_RECOVERABLE_ERROR | E_USER_DEPRECATED
+
+
+Typical in TYPO3 for development:
+
+.. code-block:: none
+
+   28674                      SYS/exceptionalErrors   = E_WARNING | E_RECOVERABLE_ERROR | E_DEPRECATED | E_USER_DEPRECATED
+
+
 
 The following sections highlight the roles and goals of the various classes
 related to error and exception handling. Examples and custom handlers are also
 discussed.
 
-.. toctree::
-   :titlesonly:
-
-   ErrorHandler/Index
-   ProductionExceptionHandler/Index
-   DebugExceptionHandler/Index
-   Examples/Index
-   Extending/Index

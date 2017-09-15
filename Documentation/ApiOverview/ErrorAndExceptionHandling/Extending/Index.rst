@@ -1,10 +1,11 @@
-.. include:: ../../../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
 .. _error-handling-extending:
 
-Extending the error and exception handling
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==============================================
+How to extend the error and exception handling
+==============================================
 
 If you want to register your own error or exception handler, simply
 include the class and insert its name into "productionExceptionHandler",

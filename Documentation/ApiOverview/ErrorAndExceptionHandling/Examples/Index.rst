@@ -1,15 +1,16 @@
-.. include:: ../../../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
 .. _error-handling-configuration-examples:
 
+========
 Examples
-^^^^^^^^
+========
 
 .. _error-handling-configuration-examples-debug:
 
 Debugging and development setup
-"""""""""""""""""""""""""""""""
+===============================
 
 Very verbose configuration which logs and displays all errors and
 exceptions.
@@ -41,7 +42,7 @@ In :file:`.htaccess`::
 .. _error-handling-configuration-examples-production:
 
 Production setup
-""""""""""""""""
+================
 
 Example for a production configuration which displays only errors and
 exceptions if the devIPmask matches. Errors and exceptions are only
@@ -71,7 +72,7 @@ In :file:`.htaccess`::
 .. _error-handling-configuration-examples-performance:
 
 Performance setup
-"""""""""""""""""
+=================
 
 Since the error and exception handling and also the logging need some
 performance, here's an example how to disable error and exception
