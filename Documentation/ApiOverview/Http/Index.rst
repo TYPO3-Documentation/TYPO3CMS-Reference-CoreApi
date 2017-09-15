@@ -47,7 +47,8 @@ The `RequestFactory` class can be used like this:
 .. code-block:: php
 
    // Initiate the Request Factory, which allows to run multiple requests
-   $requestFactory = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Http\RequestFactory\RequestFactory::class);
+   /** @var \TYPO3\CMS\Core\Http\RequestFactory $requestFactory */
+   $requestFactory = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Http\RequestFactory::class);
    $url = 'https://typo3.com';
    $additionalOptions = [
       // Additional headers for this specific request
