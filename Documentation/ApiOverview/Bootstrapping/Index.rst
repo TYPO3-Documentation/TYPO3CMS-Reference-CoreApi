@@ -36,8 +36,6 @@ line, which additionally requires :code:`\TYPO3\CMS\Core\Core\CliBootstrap`.
 One can see the bootstrapping process in action in file
 :file:`typo3/sysext/backend/Classes/Http/Application.php`::
 
-.. code-block:: php
-
    use TYPO3\CMS\Core\Core\Bootstrap;
    
    ###
