@@ -34,33 +34,29 @@ line, which additionally requires :code:`\TYPO3\CMS\Core\Core\CliBootstrap`.
 
 
 One can see the bootstrapping process in action in file
-:file:`typo3/init.php`::
+:file:`typo3/sysext/backend/Classes/Http/Application.php`::
 
-   define('TYPO3_MODE', 'BE');
+   use TYPO3\CMS\Core\Core\Bootstrap;
+   
+   ###
 
-   require 'sysext/core/Classes/Core/Bootstrap.php';
+   $this->bootstrap = Bootstrap::getInstance()
+      ->initializeClassLoader($classLoader)
+      ->setRequestType(TYPO3_REQUESTTYPE_BE | (!empty($_GET['ajaxID']) ? TYPO3_REQUESTTYPE_AJAX : 0))
+      ->baseSetup($this->entryPointLevel);
 
-   \TYPO3\CMS\Core\Core\Bootstrap::getInstance()
-      ->baseSetup('typo3/')
-      ->redirectToInstallToolIfLocalConfigurationFileDoesNotExist('../')
-      ->startOutputBuffering()
-      ->loadConfigurationAndInitialize()
-      ->loadTypo3LoadedExtAndExtLocalconf(TRUE)
-      ->applyAdditionalConfigurationSettings()
-      ->initializeTypo3DbGlobal()
-      ->checkLockedBackendAndRedirectOrDie()
-      ->checkBackendIpOrDie()
-      ->checkSslBackendAndRedirectIfNeeded()
-      ->checkValidBrowserOrDie()
-      ->loadExtensionTables(TRUE)
-      ->initializeSpriteManager()
-      ->initializeBackendUser()
-      ->initializeBackendUserMounts()
-      ->initializeLanguageObject()
-      ->initializeModuleMenuObject()
-      ->initializeBackendTemplate()
-      ->endOutputBufferingAndCleanPreviousOutput()
-      ->initializeOutputCompression();
+   // Redirect to install tool if base configuration is not found
+   if (!$this->bootstrap->checkIfEssentialConfigurationExists()) {
+      $this->bootstrap->redirectToInstallTool($this->entryPointLevel);
+   }
+   
+   foreach ($this->availableRequestHandlers as $requestHandler) {
+      $this->bootstrap->registerRequestHandlerImplementation($requestHandler);
+   }
+   
+   $this->bootstrap->configure();
+
+   ###
 
 
 Note that most methods of the Bootstrap class must be called in a precise order.
