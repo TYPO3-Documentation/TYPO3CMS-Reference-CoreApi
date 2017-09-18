@@ -21,7 +21,7 @@ checking functions.
 Default soft reference parsers
 """"""""""""""""""""""""""""""
 
-The :ref:`TYPO3\\CMS\\Core\\Database\\SoftReferenceIndex <t3api:TYPO3\\CMS\\Core\\Database\\SoftReferenceIndex>`
+The :php:`TYPO3\CMS\Core\Database\SoftReferenceIndex`
 class contains generic parsers for the most well-known types
 which are default for most TYPO3 installations. This
 is the list of the possible keys:
