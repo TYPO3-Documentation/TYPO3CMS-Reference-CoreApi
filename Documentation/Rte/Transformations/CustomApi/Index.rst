@@ -20,7 +20,7 @@ Custom transformation key
 
 You should pick a custom transformation key prefixed by :code:`tx_`,
 something like :code:`tx_[extension key]_[suffix]`. The key must **not**
-contain dashes (see :ref:`transformations-custom-usage`).
+contain dashes (see :ref:`transformations-custom`).
 
 .. note::
 
