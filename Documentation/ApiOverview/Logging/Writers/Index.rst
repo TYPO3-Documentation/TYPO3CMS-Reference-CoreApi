@@ -73,7 +73,7 @@ Example of a CREATE TABLE statement for logTable:
    to the database definition, since it is required by Galera (this can be a normal `uid` field as known from other tables):
    `MariaDB Galera Cluster - Known Limitations <https://mariadb.com/kb/en/mariadb/mariadb-galera-cluster-known-limitations/>`__.
 
-.. _logging-writers-file:
+.. _logging-writers-FileWriter:
 
 FileWriter
 ~~~~~~~~~~
