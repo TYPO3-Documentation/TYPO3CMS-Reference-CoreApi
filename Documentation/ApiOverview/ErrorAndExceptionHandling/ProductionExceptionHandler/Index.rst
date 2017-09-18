@@ -10,7 +10,7 @@ Production Exception Handler
 Funcionality of the :php:`\TYPO3\CMS\Core\Error\ProductionExceptionHandler`:
 
 -  Shows brief exception message ("Oops, an error occurred!") using
-  :php:`\TYPO3\CMS\Core\Messaging\ErrorpageMessage` and its attendant template.
+   :php:`\TYPO3\CMS\Core\Messaging\ErrorpageMessage` and its attendant template.
 
 -  Logs exception messages to
    :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::syslog()` which is able to
