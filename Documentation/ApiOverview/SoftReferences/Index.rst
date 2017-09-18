@@ -184,5 +184,5 @@ names based on the extension you put it in, e.g. :code:`tx_myextensionkey`.
 
 The class containing the soft reference parser must have a function
 named :code:`findRef`. Please refer to class
-:ref:`TYPO3\\CMS\\Core\\Database\\SoftReferenceIndex <t3api:TYPO3\\CMS\\Core\\Database\\SoftReferenceIndex>`
+:php:`TYPO3\CMS\Core\Database\SoftReferenceIndex`
 for API usage and expected return values.
