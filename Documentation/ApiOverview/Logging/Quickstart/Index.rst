@@ -40,7 +40,7 @@ and pass the severity level::
    );
 
 
-TYPO3 has the :ref:`FileWriter <filewriter>` enabled by default,
+TYPO3 has the :ref:`FileWriter <logging-writers-FileWriter>` enabled by default,
 so all log entries are written to a file. If the filename is not set,
 then the file will contain a hash like :file:`typo3temp/logs/typo3_<hash>.log`,
 for example :file:`typo3temp/logs/typo3_7ac500bce5.log`.
