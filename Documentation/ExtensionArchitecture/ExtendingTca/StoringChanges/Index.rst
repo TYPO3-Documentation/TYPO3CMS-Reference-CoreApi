@@ -32,7 +32,7 @@ a dependency of yours. See the
 :ref:`description of constraints in Core APIs <extension-declaration>`.
 
 For more information about an extension's structure, please refer to the
-:ref:`extension architecture <t3coreapi:extension-architecture>` chapter in
+:ref:`extension architecture <extension-architecture>` chapter in
 Core APIs.
 
 
