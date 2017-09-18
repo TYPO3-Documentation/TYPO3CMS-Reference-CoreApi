@@ -7,7 +7,7 @@
 Introduction
 ============
 
-When you configure a table in :code:`$TCA` and add a field of the type "text"
+When you configure a table in :php:`$TCA` and add a field of the type "text"
 which is edited by a :code:`<textarea>`, you can choose to use a Rich Text
 Editor (RTE) instead of the simple form field. A RTE enables the users
 to use visual formatting aids to create bold, italic, paragraphs,
@@ -19,7 +19,8 @@ tables, etc.
    The rtehtmlarea RTE activated in the TYPO3 backend
 
 For full details about setting up a field to use a RTE, please refer to the
-:ref:`t3tca:special-configuration-options` chapter in the TCA Reference.
+chapter labeled 'special-configuration-options' in older versions of the
+TCA Reference.
 
 The short story is that it's enough to set the key :code:`enableRichtext` to true.
 

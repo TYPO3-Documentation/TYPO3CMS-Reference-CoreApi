@@ -31,7 +31,8 @@ is used to position the new field. In this example, we decide to add it
 after the existing "email" field.
 
 In this example the field is also added to the "be_users" table. This is
-not described here as it belongs to :ref:`extending the $TCA array <t3tca:extending>`.
+not described here as it belongs to 'extending the $TCA array'.
+See label 'extending' in older versions of the TCA-Reference.
 
 And here is the new field in the User Tools > User Settings module:
 
