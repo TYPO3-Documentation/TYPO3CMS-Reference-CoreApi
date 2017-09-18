@@ -225,37 +225,36 @@ Values in plain text can be changed in LocalConfiguration.php.
 
 **Values in bold are set by TYPO3.**
 
-+---------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
-| displayErrors | errorHandlerErrors | exceptionalErrors | errorHandler   | devIPmask | exceptionHandler            | display\_errors |
-|               |                    |                   |                |           |                             |    (php\_ini)   |
-+---------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
-|     -1        | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | \TYPO3\CMS     | Matters   | If devIPmask matches:       | Not changed     |
-|               |                    | ^ E_WARNING       | \Core\Error    |           | debugExceptionHandler       |                 |
-|               |                    | ^ E_USER\_ERROR   | \ErrorHandler  |           |                             |                 |
-|               |                    | ^ E_USER\_NOTICE  |                |           | |                           |                 |
-|               |                    |                   |                |           |                             |                 |
-|               |                    |                   |                |           | If devIPmask doesn't match: |                 |
-|               |                    |                   |                |           | productionExceptionHandler  |                 |
-+---------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
-|      0        | E_ALL ^ E_NOTICE   | **0**             | \TYPO3\CMS     | Doesn't   | production                  | **0 (Off)**     |
-|               |                    | **(no errors are  | \Core\Error    | matter    | ExceptionHandler            |                 |
-|               |                    | turned into       | \ErrorHandler  |           |                             |                 |
-|               |                    | exceptions)**     |                |           |                             |                 |
-+---------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
-|      1        | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | \TYPO3\CMS     | Doesn't   | debugException              | **1 (On)**      |
-|               |                    | ^ E_WARNING       | \Core\Error    | matter    | Handler                     |                 |
-|               |                    | ^ E_USER\_ERROR   | \ErrorHandler  |           |                             |                 |
-|               |                    | ^ E_USER\_NOTICE  |                |           |                             |                 |
-|               |                    | ^ E_USER\_WARNING |                |           |                             |                 |
-+---------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
-|      2        | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | \TYPO3\CMS     | Matters   | If devIPmask matches:       | **1 (On)**      |
-|               |                    | ^ E_WARNING       | \Core\Error    |           | debugExceptionHandler       |                 |
-|               |                    | ^ E_USER\_ERROR   | \ErrorHandler  |           |                             | |               |
-|               |                    | ^ E_USER\_NOTICE  |                |           | |                           | |               |
-|               |                    | ^ E_USER\_WARNING |                |           |                             |                 |
-|               |                    |                   |                |           | If devIPmask doesn't match: | **0 (Off)**     |
-|               |                    |                   |                |           | productionExceptionHandler  |                 |
-+---------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
++-------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
+|displayErrors| errorHandlerErrors | exceptionalErrors | errorHandler   | devIPmask | exceptionHandler            | display\_errors |
+|             |                    |                   |                |           |                             |    (php\_ini)   |
++=============+====================+===================+================+===========+=============================+=================+
+|    -1       | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | \TYPO3\CMS     | Matters   | If devIPmask matches:       | Not changed     |
+|             |                    | ^ E_WARNING       | \Core\Error    |           | debugExceptionHandler       |                 |
+|             |                    | ^ E_USER\_ERROR   | \ErrorHandler  |           |                             |                 |
+|             |                    | ^ E_USER\_NOTICE  |                |           +-----------------------------+-----------------+
+|             |                    |                   |                |           | If devIPmask doesn't match: | Not changed     |
+|             |                    |                   |                |           | productionExceptionHandler  |                 |
++-------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
+|     0       | E_ALL ^ E_NOTICE   | **0**             | \TYPO3\CMS     | Doesn't   | production                  | **0 (Off)**     |
+|             |                    | **(no errors are  | \Core\Error    | matter    | ExceptionHandler            |                 |
+|             |                    | turned into       | \ErrorHandler  |           |                             |                 |
+|             |                    | exceptions)**     |                |           |                             |                 |
++-------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
+|     1       | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | \TYPO3\CMS     | Doesn't   | debugException              | **1 (On)**      |
+|             |                    | ^ E_WARNING       | \Core\Error    | matter    | Handler                     |                 |
+|             |                    | ^ E_USER\_ERROR   | \ErrorHandler  |           |                             |                 |
+|             |                    | ^ E_USER\_NOTICE  |                |           |                             |                 |
+|             |                    | ^ E_USER\_WARNING |                |           |                             |                 |
++-------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
+|     2       | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | \TYPO3\CMS     | Matters   | If devIPmask matches:       | **1 (On)**      |
+|             |                    | ^ E_WARNING       | \Core\Error    |           | debugExceptionHandler       |                 |
+|             |                    | ^ E_USER\_ERROR   | \ErrorHandler  |           |                             |                 |
+|             |                    | ^ E_USER\_NOTICE  |                |           +-----------------------------+-----------------+
+|             |                    | ^ E_USER\_WARNING |                |           | If devIPmask doesn't match: |                 |
+|             |                    |                   |                |           | productionExceptionHandler  | **0 (Off)**     |
+|             |                    |                   |                |           |                             |                 |
++-------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
 
 .. seealso::
 
