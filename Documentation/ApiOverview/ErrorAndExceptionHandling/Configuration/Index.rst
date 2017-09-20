@@ -306,7 +306,7 @@ Typical in TYPO3 for production:
 .. code-block:: none
 
 
-   20408                      SYS/exceptionalErrors   = E_RECOVERABLE_ERROR | E_USER_DEPRECATED
+   20480                      SYS/exceptionalErrors   = E_RECOVERABLE_ERROR | E_USER_DEPRECATED
 
 
 Typical in TYPO3 for development:
