@@ -120,7 +120,7 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
       ->getQueryBuilderForTable('sys_news');
       ->select('title', 'content', 'crdate')
-      ->from('sys_news)
+      ->from('sys_news')
       ->execute();
 
 
