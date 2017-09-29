@@ -16,9 +16,7 @@ Manager (EM) inside TYPO3 and the online TYPO3 Extension Repository
 additions to TYPO3. The main types are:
 
 - **Plugins** which play a role on the website itself, e.g. a discussion
-  board, guestbook, shop, etc. It is normally enclosed in a PHP class
-  and invoked through a USER or USER\_INT cObject from TypoScript. A
-  plugin is an extension in the frontend.
+  board, guestbook, shop, etc. Therefore plugins are content elements, that can be placed on a page like a text element or an image.
 
 - **Modules** are backend applications which have their own entry in the
   main menu. They require a backend login and work inside the framework
