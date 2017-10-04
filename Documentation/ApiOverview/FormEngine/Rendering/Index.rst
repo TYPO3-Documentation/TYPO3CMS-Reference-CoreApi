@@ -287,3 +287,168 @@ It is possible to:
   * It is possible to disable single wizards via TCA
   * It is possible to add own expansion nodes at any position relative to the other nodes by specifying "before" and
     "after" in TCA.
+
+
+Complete example of adding a fieldControl to a pages field
+----------------------------------------------------------
+
+To illustrate the principals discussed in this chapter see the following
+example which registers a fieldControl (button) next to a field in the pages
+table to trigger a data import via ajax.
+
+Add a new renderType in :file:`ext_localconf.php`::
+
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1485351217] = [
+      'nodeName' => 'importDataControl',
+      'priority' => 30,
+      'class' => \T3G\Something\FormEngine\FieldControl\ImportDataControl::class
+   ];
+
+Register the control in :file:`TCA/Overrides/pages.php`::
+
+   'somefield' => [
+      'label'   => $langFile . ':pages.somefield',
+      'config'  => [
+         'type' => 'input',
+         'eval' => 'int, unique',
+         'fieldControl' => [
+            'importControl' => [
+               'renderType' => 'importDataControl'
+            ]
+         ]
+      ]
+   ],
+
+Add the php class for rendering the control in
+:file:`FormEngine/FieldControl/ImportDataControl.php`::
+
+   declare(strict_types=1);
+
+   namespace T3G\Something\FormEngine\FieldControl;
+
+   use TYPO3\CMS\Backend\Form\AbstractNode;
+   use TYPO3\CMS\Core\Page\PageRenderer;
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+   class ImportDataControl extends AbstractNode
+   {
+      public function render()
+      {
+         $pagerenderer = GeneralUtility::makeInstance(PageRenderer::class);
+
+         // Add RequireJS module to define behavior of the control
+         $pagerenderer->loadRequireJsModule('TYPO3/CMS/Something/ImportData');
+
+         $result = [
+            'iconIdentifier' => 'import-data',
+            'title' => $GLOBALS['LANG']->sL('LLL:EXT:something/Resources/Private/Language/locallang_db.xlf:pages.importData'),
+            'linkAttributes' => [
+               'class' => 'importData ',
+               'data-id' => $this->data['databaseRow']['somefield']
+            ],
+         ];
+         return $result;
+      }
+   }
+
+Add the JavaScript for defining the behavior of the control in
+:file:`Resources/Public/JavaScript/ImportData.js`:
+
+.. code-block:: javascript
+
+   /**
+   * Module: TYPO3/CMS/Something/ImportData
+   *
+   * JavaScript to handle data import
+   * @exports TYPO3/CMS/Something/ImportData
+   */
+   define(function () {
+      'use strict';
+
+      /**
+      * @exports TYPO3/CMS/Something/ImportData
+      */
+      var ImportData = {};
+
+      /**
+      * @param {int} id
+      */
+      ImportData.import = function (id) {
+         $.ajax({
+            type: 'POST',
+            url: TYPO3.settings.ajaxUrls['something-import-data'],
+            data: {
+               'id': id
+            }
+         }).done(function (response) {
+            if (response.success) {
+               top.TYPO3.Notification.success('Import Done', response.output);
+            } else {
+               top.TYPO3.Notification.error('Import Error!');
+            }
+         });
+      };
+
+      /**
+      * initializes events using deferred bound to document
+      * so AJAX reloads are no problem
+      */
+      ImportData.initializeEvents = function () {
+
+         $('.importData').on('click', function (evt) {
+            evt.preventDefault();
+            ImportData.import($(this).attr('data-id'));
+         });
+      };
+
+      $(ImportData.initializeEvents);
+
+      return ImportData;
+   });
+
+Add an ajax route for the request in
+:file:`Configuration/Backend/AjaxRoutes.php`::
+
+   <?php
+   return [
+      'something-import-data' => [
+         'path' => '/something/import-data',
+         'target' => \T3G\Something\Controller\Ajax\ImportDataController::class . '::importDataAction'
+      ],
+   ];
+
+Add the ajax controller class in
+:file:`Classes/Controller/Ajax/ImportDataController.php`::
+
+   declare(strict_types=1);
+
+   namespace T3G\Something\Controller\Ajax;
+
+   use Psr\Http\Message\ResponseInterface;
+   use Psr\Http\Message\ServerRequestInterface;
+
+   class ImportDataController
+   {
+      /**
+      * @param ServerRequestInterface $request
+      * @param ResponseInterface $response
+      * @return ResponseInterface
+      */
+      public function importDataAction(ServerRequestInterface $request, ResponseInterface $response)
+      {
+         $queryParameters = $request->getParsedBody();
+         $id = (int)$queryParameters['id'];
+
+         if (empty($id)) {
+            $response->getBody()->write(json_encode(['success' => false]));
+            return $response;
+         }
+         $param = ' -id=' . $id;
+
+         // trigger data import (simplified as example)
+         $output = shell_exec('.' . DIRECTORY_SEPARATOR . 'import.sh' . $param);
+
+         $response->getBody()->write(json_encode(['success' => true, 'output' => $output]));
+         return $response;
+      }
+   }
