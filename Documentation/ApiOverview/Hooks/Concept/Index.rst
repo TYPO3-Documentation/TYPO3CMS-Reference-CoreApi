@@ -35,7 +35,7 @@ method allows you to extend any class you like.
 .. _hooks-proposing:
 
 Proposing hooks or signals
-"""""""""""""""""""""""""""
+""""""""""""""""""""""""""
 
 If you need to extend something which has no hook or signal yet, then you should
 suggest implementing one. Normally that is rather easily done by
@@ -104,7 +104,7 @@ API documentation of :code:`\TYPO3\CMS\Core\Utility\GeneralUtility`.
 .. _signals-basics:
 
 Using Signals
-""""""""""""""""
+"""""""""""""
 
 To use a signal dispatched by the core, connect to it via the signal slot dispatcher:
 
@@ -134,9 +134,9 @@ In this case, the :code:`dumpClassLoadingInformation` method will get the extens
 the dispatching class as parameters.
 
 Finding Signals
-""""""""""""""""
+"""""""""""""""
 
-There is no complete list of signals available, but they are easily found by searching the TYPO3
+There is no complete list of signals available, but they can be easily found by searching the TYPO3
 core for :code:`dispatch(`.
 
 For finding Hooks, look into the next chapter hooks-configuration_.
