@@ -5,9 +5,9 @@
 .. _hooks:
 
 
-=====
-Hooks
-=====
+=================
+Hooks and Signals
+=================
 
 **Contents:**
 

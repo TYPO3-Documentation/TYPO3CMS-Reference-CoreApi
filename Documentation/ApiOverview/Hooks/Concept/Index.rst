@@ -7,35 +7,38 @@
 
 .. _hooks-concept:
 
-The concept of "hooks"
-^^^^^^^^^^^^^^^^^^^^^^
+The concept of "hooks" and "signals"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Hooks are basically places in the source code where a user function
-will be called for processing if such has been configured. Hooks
-provide an easy way to extend the functionality of TYPO3 and its extensions without 
+Hooks and Signals provide an easy way to extend the functionality of TYPO3 and its extensions without
 blocking others to do the same.
+Hooks are basically places in the source code where a user function
+will be called for processing if such has been configured.
+Signals roughly follow the observer pattern. Signals and slots decouple the sender (sending a signal) and
+the receiver(s) (called slots). The sender sends a signal - like "database updated" - and all receivers
+listening to that signal will be executed.
 
 
 .. _hooks-xclass:
 
-Hooks vs. XCLASS extensions
-"""""""""""""""""""""""""""
+Hooks and Signals vs. XCLASS extensions
+"""""""""""""""""""""""""""""""""""""""
 
-Hooks are the recommended way of extending TYPO3 compared to extending
+Hooks or Signals are the recommended way of extending TYPO3 compared to extending
 PHP classes with a child class (see "XCLASS extensions"). Because only 
 one extension of a PHP class can exist at a time while
-hooks may allow many different user-designed processor functions to
-be executed. However, hooks have to be implemented in the TYPO3 core
+hooks and signals may allow many different user-designed processor functions to
+be executed. However, hooks and signals have to be implemented in the TYPO3 core
 before you can use them, while extending a PHP class via the XCLASS
 method allows you to extend any class you like.
 
 .. _hooks-proposing:
 
-Proposing hooks
-"""""""""""""""
+Proposing hooks or signals
+"""""""""""""""""""""""""""
 
-If you need to extend something which has no hook yet, then you should
-suggest implementing a hook. Normally that is rather easily done by
+If you need to extend something which has no hook or signal yet, then you should
+suggest implementing one. Normally that is rather easily done by
 the author of the source you want to extend.
 
 
@@ -97,3 +100,43 @@ API documentation of :code:`\TYPO3\CMS\Core\Utility\GeneralUtility`.
 .. note::
    The example hook shown above refers to old class names. All these old class
    names were left in hooks, for obvious reasons of backwards-compatibility.
+
+.. _signals-basics:
+
+Using Signals
+""""""""""""""""
+
+To use a signal dispatched by the core, connect to it via the signal slot dispatcher:
+
+.. code-block:: php
+   :linenos:
+
+   $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
+   $signalSlotDispatcher->connect(
+     \TYPO3\CMS\Extensionmanager\Utility\InstallUtility::class,  // Signal class name
+     'afterExtensionUninstall',                                  // Signal name
+     \TYPO3\CMS\Core\Core\ClassLoadingInformation::class,        // Slot class name
+     'dumpClassLoadingInformation'                               // Slot name
+   );
+
+In this example, we define that we want to call the method :code:`dumpClassLoadingInformation` of the class
+:code:`\TYPO3\CMS\Core\Core\ClassLoadingInformation::class` when the signal :code:`afterExtensionUninstall` of the
+class :code:`\TYPO3\CMS\Extensionmanager\Utility\InstallUtility::class` is dispatched.
+
+To find out which parameters/variables are available, open the signal's class and take a look
+at the dispatch call:
+
+.. code-block:: php
+
+   $this->signalSlotDispatcher->dispatch(__CLASS__, 'afterExtensionUninstall', [$extensionKey, $this]);
+
+In this case, the :code:`dumpClassLoadingInformation` method will get the extension key and an instance of
+the dispatching class as parameters.
+
+Finding Signals
+""""""""""""""""
+
+There is no complete list of signals available, but they are easily found by searching the TYPO3
+core for :code:`dispatch(`.
+
+For finding Hooks, look into the next chapter hooks-configuration_.
