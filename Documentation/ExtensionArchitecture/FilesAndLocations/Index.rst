@@ -3,8 +3,11 @@
 
 .. _extension-files-locations:
 
+===================
 Files and locations
-^^^^^^^^^^^^^^^^^^^
+===================
+
+**EM** stands for **Extension Manager**
 
 
 .. _extension-files:
