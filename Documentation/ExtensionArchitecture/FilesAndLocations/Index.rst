@@ -7,7 +7,7 @@
 Files and locations
 ===================
 
-**EM** stands for **Extension Manager**
+**EM** stands for **Extension Manager**.
 
 
 .. _extension-files:
