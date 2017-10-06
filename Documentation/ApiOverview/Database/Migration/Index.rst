@@ -217,7 +217,7 @@ on the same resource. :php:`->lastInsertId()` can be used instead::
          'title' => 'Home',
        ]
    );
-   $pageUid = $databaseConnectionForPages->lastInsertId('pages');
+   $pageUid = (int)$databaseConnectionForPages->lastInsertId('pages');
 
 
 fullQuoteStr()
