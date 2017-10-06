@@ -250,6 +250,30 @@ Remarks:
   `WHERE` manipulation.
 
 
+lastInsertId()
+^^^^^^^^^^^^^^
+
+Returns the `uid` of the last :php:`->insert()` statement. Useful if this id needs to be used afterwards directly::
+
+   $databaseConnectionForPages = $connectionPool->getConnectionForTable('myTable');
+   $databaseConnectionForPages->insert(
+      'myTable',
+      [
+         'pid' => 0,
+         'title' => 'Home',
+      ]
+   );
+   $pageUid = (int)$databaseConnectionForPages->lastInsertId('pages');
+
+Remarks:
+
+* :php:`->lastInsertId()` needs the table name as first argument. While this is optional in TYPO3 Core v8, it is
+  mandatory since version 9.
+
+* If the auto increment field name is not `uid`, the second argument with the name of this field must be supplied.
+  For casual TYPO3 tables, `uid` is ok and the argument can be left out.
+
+
 createQueryBuilder()
 ^^^^^^^^^^^^^^^^^^^^
 
