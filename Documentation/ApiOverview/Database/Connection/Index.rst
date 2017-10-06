@@ -267,8 +267,8 @@ Returns the `uid` of the last :php:`->insert()` statement. Useful if this id nee
 
 Remarks:
 
-* :php:`->lastInsertId()` needs the table name as first argument. While this is optional in TYPO3 Core v8, it is
-  mandatory since version 9.
+* :php:`->lastInsertId($tableName)` needs the table name as first argument. While this is optional, you should always
+  supply the table name for DBAL compatibility with engines like postgres.
 
 * If the auto increment field name is not `uid`, the second argument with the name of this field must be supplied.
   For casual TYPO3 tables, `uid` is ok and the argument can be left out.
