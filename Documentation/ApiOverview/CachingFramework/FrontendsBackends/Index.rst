@@ -158,7 +158,7 @@ slowing down a TYPO3 installation.
 Backend API
 """""""""""
 
-All backends must implement at least implement interface :code:`TYPO3\CMS\Core\Cache\Backend\BackendInterface`.
+All backends must implement at least interface :code:`TYPO3\CMS\Core\Cache\Backend\BackendInterface`.
 All operations on a specific cache must be done with these methods. There are several further interfaces that can be
 implemented by backends to declare additional capabilities. Usually, extension code should not handle cache backend operations
 directly, but should use the frontend object instead.
