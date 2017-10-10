@@ -294,8 +294,8 @@ It is possible to:
     "after" in TCA.
 
 
-Complete example of adding a fieldControl to a pages field
-----------------------------------------------------------
+Add fieldControl example
+------------------------
 
 To illustrate the principals discussed in this chapter see the following
 example which registers a fieldControl (button) next to a field in the pages
