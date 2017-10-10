@@ -199,6 +199,7 @@ module is loaded by the browser.
    as this container / element / wizard is called via AJAX, for instance within inline. Instead, those ressources
    must be registered via the result array only, using :php:`stylesheetFiles` and :php:`requireJsModules`.
 
+
 .. _FormEngine-Rendering-NodeExpansion:
 
 Node expansion
@@ -338,11 +339,6 @@ Add the php class for rendering the control in
    {
       public function render()
       {
-         $pagerenderer = GeneralUtility::makeInstance(PageRenderer::class);
-
-         // Add RequireJS module to define behavior of the control
-         $pagerenderer->loadRequireJsModule('TYPO3/CMS/Something/ImportData');
-
          $result = [
             'iconIdentifier' => 'import-data',
             'title' => $GLOBALS['LANG']->sL('LLL:EXT:something/Resources/Private/Language/locallang_db.xlf:pages.importData'),
@@ -350,6 +346,7 @@ Add the php class for rendering the control in
                'class' => 'importData ',
                'data-id' => $this->data['databaseRow']['somefield']
             ],
+            'requireJsModules' => 'TYPO3/CMS/Something/ImportData',
          ];
          return $result;
       }
