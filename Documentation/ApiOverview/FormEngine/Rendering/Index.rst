@@ -194,6 +194,10 @@ module is loaded by the browser.
    The result array actually contains a couple of more fields, but those will vanish with further FormEngine refactoring
    steps. If using them, be prepared to adapt extensions later.
 
+.. note::
+   Nodes must never add JavaScript or CSS or similar stuff using the :php:`PageRenderer`. This fails as soon
+   as this container / element / wizard is called via AJAX, for instance within inline. Instead, those ressources
+   must be registered via the result array only, using :php:`stylesheetFiles` and :php:`requireJsModules`.
 
 .. _FormEngine-Rendering-NodeExpansion:
 
