@@ -22,6 +22,10 @@ extensions with TYPO3:
    newer versions if needed.Notice that backend modules will have their
    "conf.php" file modified in the install process depending on whether
    they are installed locally or globally!
+   
+   Another convenient way to install extensions is offered by using composer (https://getcomposer.org/).
+   Besides TYPO3 CMS itself the TYPO3 composer repository includes all TYPO3 Extensions that are uploaded to TER.
+   Read more on https://composer.typo3.org/ .
 
 #. You must *install* it.
 
