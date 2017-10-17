@@ -362,8 +362,7 @@ Remarks:
   and :php:`->orWhere()` expression. Having a :php:`->where()` call after a previous :php:`->where()`, :php:`->andWhere()` or :php:`->orWhere()`
   typically indicates a bug or a rather weird code flow. Doing so is discouraged.
 
-* While creating complex `WHERE` restrictions, :php:`->getSQL()` is a helpful debugging friend to verify parenthesis
-  and single query parts.
+* While creating complex `WHERE` restrictions, :php:`->getSQL()` and :php:`->getParameters()` are helpful debugging friends to verify parenthesis and single query parts.
 
 * If using only :php:`->eq()` expressions, it is often easier to switch to the according `Connection` object method
   to simplify quoting and increase readability.
@@ -582,7 +581,7 @@ Remarks:
 getSQL()
 ^^^^^^^^
 
-Method :php:`->getSQL()` returns the created query statement as string. It is incredible useful during development
+Method :php:`->getSQL()` returns the created query statement as string. It is incredibly useful during development
 to verify the final statement is executed just as a developer expects it::
 
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
@@ -595,17 +594,39 @@ Remarks:
 
 * This is debugging code. Take proper actions to ensure those calls do not end up in production!
 
-* The method is typically called directly in front :php:`->execute()` to output the final statement.
+* The method is typically called directly before :php:`->execute()` to output the final statement.
 
 * Casting a QueryBuilder object to :php:`(string)` has the same effect as calling :php:`->getSQL()`, the explicit call
   using the method should be preferred to simplify a search operation for this kind of debugging statements, though.
 
 * The method is a simple way to see which restrictions the `RestrictionBuilder` added.
 
-* `doctrine-dbal` always creates prepared statements: Any value that added via :php:`->createNamedParameter()` creates
-  a placeholder that is later substituted if the real query is fired via :php:`->execute()`. :php:`->getSQL()` does not show
+* `doctrine-dbal` always creates prepared statements: Any value that is added via :php:`->createNamedParameter()` creates
+  a placeholder that is later substituted when the real query is fired via :php:`->execute()`. :php:`->getSQL()` does not show
   those values, instead the placeholder names are displayed, usually with a string like `:dcValue1`. There is no
-  simple solution to show the fully replaced query from within the framework.
+  simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getParameters()` to see the array of parameters used to replace these placeholders within the query.
+  
+
+getParameters()
+^^^^^^^^
+
+Method :php:`->getParameters()` returns the values for the prepared statement placeholders in an array. It is incredibly useful during development to verify the final statement is executed just as a developer expects it::
+
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
+   $queryBuilder->select('*')->from('sys_language');
+   debug($queryBuilder->getParameters());
+   $statement = $queryBuilder->execute();
+
+
+Remarks:
+
+* This is debugging code. Take proper actions to ensure those calls do not end up in production!
+
+* The method is typically called directly before :php:`->execute()` to output the final values for the statement.
+
+* `doctrine-dbal` always creates prepared statements: Any value that added via :php:`->createNamedParameter()` creates
+  a placeholder that is later substituted when the real query is fired via :php:`->execute()`. :php:`->getparameters()` does not show
+  the statement or those placeholders, instead the values are displayed, usually within an array using keys like `:dcValue1`. There is no simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getSQL()` to see the string with placeholders used as a prepared statement.
 
 
 execute()
