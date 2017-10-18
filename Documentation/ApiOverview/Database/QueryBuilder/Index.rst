@@ -217,7 +217,7 @@ The table alias can then be used in :php:`->set()` and :php:`->where()` expressi
    $queryBuilder
       ->update('tt_content', 'u')
       ->where(
-         $queryBuilder->expr()->eq('u.bodytext', $this->createNamedParameter('klaus')
+         $queryBuilder->expr()->eq('u.bodytext', $queryBuilder->createNamedParameter('klaus')
       )
       ->set('u.bodytext', 'peter')
       ->execute();
