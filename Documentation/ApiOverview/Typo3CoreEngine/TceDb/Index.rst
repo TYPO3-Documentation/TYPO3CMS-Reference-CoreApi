@@ -95,36 +95,9 @@ takes precedence. The variable names you can use are:
 
 
  - :Variable:
-         prErr
-   :Type:
-         boolean
-   :Description:
-         If set, errors will be printed on screen instead of redirection.
-         Should always be used, otherwise you will see no errors if they
-         happen.
-
-
- - :Variable:
          CB
    :Type:
          array
    :Description:
          Clipboard command array. May trigger changes in "cmd".
-
-
- - :Variable:
-         vC
-   :Type:
-         string
-   :Description:
-         Verification code
-
-
- - :Variable:
-         uPT
-   :Type:
-         string
-   :Description:
-         Update Page Tree Trigger. If set and the manipulated records are pages
-         then the update page tree signal will be set.
 
