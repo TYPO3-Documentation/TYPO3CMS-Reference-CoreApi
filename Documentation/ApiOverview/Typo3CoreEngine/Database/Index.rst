@@ -507,27 +507,3 @@ commands or data submission. These are the most significant:
          course).
 
          Default is "\*".
-
-
- - :Variable:
-         ->stripslashes\_values
-   :Type:
-         boolean
-   :Description:
-         If set, then all values will be passed through stripslashes(). This
-         has been the default since the birth of TYPO3 in times when input from
-         POST forms were always escaped an needed to be unescaped. Today this
-         is deprecated and values should be passed around without escaped
-         characters.
-
-         .. warning::
-            It is highly recommended to set this value to zero every time the
-            class is used!
-
-         If you set this value to false you can pass values as-is to the class
-         and it is most like that this is what you want. Otherwise you would
-         have to pass all values through addslashes() first.
-
-         Default is (currently) "1" (true) but *might be changed in the
-         future!*
-
