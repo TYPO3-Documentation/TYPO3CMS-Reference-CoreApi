@@ -149,7 +149,7 @@ need to add the new doktype as select item and associate it with the configured 
                 [
                     'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
                     $archiveDoktype,
-                    'EXT:' . $extKey . 'Resources/Public/Images/Archive.svg'
+                    'EXT:' . $extKey . 'Resources/Public/Icons/Archive.svg'
                 ],
                 '1',
                 'after'
@@ -186,7 +186,7 @@ can also be translated :file:`Configuration/TCA/Overrides/pages_language_overlay
                 [
                     'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
                     $archiveDoktype,
-                    'EXT:' . $extKey . 'Resources/Public/Images/Archive.svg'
+                    'EXT:' . $extKey . 'Resources/Public/Icons/Archive.svg'
                 ],
                 '1',
                 'after'
