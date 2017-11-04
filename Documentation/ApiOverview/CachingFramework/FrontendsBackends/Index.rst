@@ -274,7 +274,13 @@ In terms of performance the database backend is already pretty well optimized
 and should be used as default backend if in doubt. This backend is the default backend if no backend
 is specifically set in the configuration.
 
-The core takes care of creating and updating required database tables.
+The core takes care of creating and updating required database tables "on the fly".
+
+.. note::
+
+   However, caching framework tables which are not needed anymore are not deleted automatically. That is why the database analyzer in the install tool will propose you to rename/delete caching framework tables after you changed the caching backend to a non-database one. 
+
+..
 
 For caches with a lot of read and write operations, it is important to tune the MySQL setup.
 The most important setting is :code:`innodb_buffer_pool_size`. A generic goal is to give MySQL
