@@ -430,7 +430,7 @@ Syntax::
          TSconfig "options.clearCache.pages".
 
  - :Value:
-         "temp_cached or system"
+         "temp_cached" or "system"
    :Description:
          Clears all cache entries cache group  :code:`system`.
 
