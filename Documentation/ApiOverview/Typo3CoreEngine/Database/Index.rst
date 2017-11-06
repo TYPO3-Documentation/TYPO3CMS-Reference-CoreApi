@@ -429,6 +429,14 @@ Syntax::
          Only available for admin-users unless explicitly allowed by User
          TSconfig "options.clearCache.pages".
 
+ - :Value:
+         "temp_cached" or "system"
+   :Description:
+         Clears all cache entries cache group  :code:`system`.
+
+         Only available for admin-users unless explicitly allowed by User
+         TSconfig "options.clearCache.system".
+
 
 .. _tce-cache-hook:
 
