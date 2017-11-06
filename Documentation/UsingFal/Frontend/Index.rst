@@ -38,6 +38,19 @@ in the :php:`\TYPO3\CMS\Fluid\ViewHelpers\ImageViewHelper`:
 
 where :code:`xxx` is the uid of the File Reference.
 
+Get File Properties
+~~~~~~~~~~~~~~~~~~~
+
+If you have a file reference and want to get its properties like Metadata, you have to access "originalResource" first. Example:
+
+.. code-block:: html
+
+	{filereference.originalResource.title}
+	{filereference.originalResource.description}
+	{filereference.originalResource.publicUrl}
+
+*Note:* Some metadata fields, like title and description, can be entered either in the referenced file itself or in the reference or both. TYPO3 automatically merges both sources when you access originalResource in Fluid. So `originalResource` returns the merged value. Values which are entered in the reference will override values from the file itself. 
+
 
 .. _using-fal-frontend-fluid-fluidtemplate:
 
