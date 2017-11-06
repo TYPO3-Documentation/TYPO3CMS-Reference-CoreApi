@@ -41,7 +41,7 @@ where :code:`xxx` is the uid of the File Reference.
 Get File Properties
 ~~~~~~~~~~~~~~~~~~~
 
-If you have a File Reference and want to get its Properties like Metadata, you have to access "originalResource" first. Example:
+If you have a file reference and want to get its properties like Metadata, you have to access "originalResource" first. Example:
 
 .. code-block:: html
 
@@ -49,7 +49,7 @@ If you have a File Reference and want to get its Properties like Metadata, you h
 	{filereference.originalResource.description}
 	{filereference.originalResource.publicUrl}
 
-Some Metadata Fields, like title and description, can be entered either in the referenced file itself or in the reference or both. TYPO3 automatically merges both sources when you access originalResource in Fluid. So "originalResource" returns the merged value. Values which are entered in the reference will override values from the file itself. 
+*Note:* Some metadata fields, like title and description, can be entered either in the referenced file itself or in the reference or both. TYPO3 automatically merges both sources when you access originalResource in Fluid. So `originalResource` returns the merged value. Values which are entered in the reference will override values from the file itself. 
 
 
 .. _using-fal-frontend-fluid-fluidtemplate:
