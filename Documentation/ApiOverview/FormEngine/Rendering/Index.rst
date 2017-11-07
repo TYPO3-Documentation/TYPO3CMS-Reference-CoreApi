@@ -332,8 +332,6 @@ Add the php class for rendering the control in
    namespace T3G\Something\FormEngine\FieldControl;
 
    use TYPO3\CMS\Backend\Form\AbstractNode;
-   use TYPO3\CMS\Core\Page\PageRenderer;
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
 
    class ImportDataControl extends AbstractNode
    {
