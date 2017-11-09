@@ -8,13 +8,13 @@ Extending the User Settings
 
 Adding fields to the User Settings is done in two steps.
 First of all, the new fields are added directly to the
-:code:`$GLOBALS['TYPO3_USER_SETTINGS']` array. Then the
+:php:`$GLOBALS['TYPO3_USER_SETTINGS']` array. Then the
 field is made visible by calling
-:code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings()`.
+:php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings()`.
 
-Here is an example, taken from the "examples" extension:
+The configuration needs to be put into :file:`ext_tables.php`.
 
-.. code-block:: php
+Here is an example, taken from the "examples" extension::
 
    $GLOBALS['TYPO3_USER_SETTINGS']['columns']['tx_examples_mobile'] = array(
       'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile',
@@ -26,7 +26,7 @@ Here is an example, taken from the "examples" extension:
       'after:email'
    );
 
-The second parameter in the call to :code:`addFieldsToUserSettings()`
+The second parameter in the call to :php:`addFieldsToUserSettings()`
 is used to position the new field. In this example, we decide to add it
 after the existing "email" field.
 
