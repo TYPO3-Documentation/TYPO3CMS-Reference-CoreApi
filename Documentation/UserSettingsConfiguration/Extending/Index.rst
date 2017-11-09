@@ -12,6 +12,8 @@ First of all, the new fields are added directly to the
 field is made visible by calling
 :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings()`.
 
+The configuration needs to be put into :code:`ext_tables.php`.
+
 Here is an example, taken from the "examples" extension:
 
 .. code-block:: php
