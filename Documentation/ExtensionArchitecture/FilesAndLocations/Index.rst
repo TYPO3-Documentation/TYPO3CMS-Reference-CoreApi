@@ -147,6 +147,12 @@ extensions with the name prefix "ext\_".
             The table structure of static tables needs to be in the
             ext\_tables.sql file as well - otherwise an installed static table
             will be reported as being in excess in the EM!
+           
+         .. warning::
+         
+            Static data is not meant to be extended by other extensions. On re-import 
+            all extended fields and data is lost due to `DROP TABLE` statements.
+            
 
  - :Filename: ext\_typoscript\_constants.txt
    :Description:
