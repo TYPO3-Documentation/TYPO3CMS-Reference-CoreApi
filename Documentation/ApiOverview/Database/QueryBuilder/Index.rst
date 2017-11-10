@@ -2,8 +2,9 @@
 
 .. _database-query-builder:
 
+============
 QueryBuilder
-------------
+============
 
 The `QueryBuilder` is a rather huge class that takes care of the main query dealing.
 
@@ -53,7 +54,7 @@ Most methods of the `QueryBuilder` return `$this` and can be chained::
 .. _database-query-builder-select:
 
 select() and addSelect()
-^^^^^^^^^^^^^^^^^^^^^^^^
+========================
 
 Create a `SELECT` query.
 
@@ -122,7 +123,7 @@ of a `SELECT` query looks like::
 
 
 count()
-^^^^^^^
+=======
 
 Create a `COUNT` query, a typical usage::
 
@@ -160,7 +161,7 @@ Remarks:
 
 
 delete()
-^^^^^^^^
+========
 
 Create a `DELETE FROM` query. The method requires the table name to drop data from. Classic usage::
 
@@ -196,7 +197,7 @@ Remarks:
 .. _database-query-builder-update-set:
 
 update() and set()
-^^^^^^^^^^^^^^^^^^
+==================
 
 Create an `UPDATE` query. Typical usage::
 
@@ -257,7 +258,7 @@ Remarks:
 
 
 insert() and values()
-^^^^^^^^^^^^^^^^^^^^^
+=====================
 
 Create an `INSERT` query. Typical usage::
 
@@ -286,7 +287,7 @@ Remarks:
 
 
 from()
-^^^^^^
+======
 
 :php:`->from()` is a must have call for :php:`->select()` and :php:`->count()` query types.
 :php:`->from()` needs a table name and an optional alias name. The method is typically called once per query build
@@ -307,7 +308,7 @@ with an explicit :php:`->join()` instead.
 
 
 where(), andWhere() and orWhere()
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=================================
 
 The three methods are used to create `WHERE` restrictions for `SELECT`, `COUNT`, `UPDATE` and `DELETE` query types.
 Each argument is typically an `ExpressionBuilder` object that will be cast to a string on :php:`->execute()`::
@@ -375,7 +376,7 @@ Remarks:
 
 
 join(), innerJoin(), rightJoin() and leftJoin()
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===============================================
 
 Joining multiple tables in a :php:`->select()` or :php:`->count()` query is done with one of these methods. Multiple joins
 are supported by calling the methods more than once. All methods require four arguments: The name of the left side
@@ -501,7 +502,7 @@ Further remarks:
 
 
 orderBy() and addOrderBy()
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+==========================
 
 Add `ORDER BY` to a :php:`->select()` statement. Both :php:`->orderBy()` and :php:`->addOrderBy()` require a field name as first
 argument::
@@ -535,7 +536,7 @@ Remarks:
 
 
 groupBy() and addGroupBy()
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+==========================
 
 Add `GROUP BY` to a :php:`->select()` statement. Each argument to the methods is a single identifier::
 
@@ -554,7 +555,7 @@ Remarks:
 
 
 setMaxResults() and setFirstResult()
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+====================================
 
 Add `LIMIT` to restrict number of records and `OFFSET` for pagination query parts. Both methods should be
 called only once per statement::
@@ -579,7 +580,7 @@ Remarks:
 .. _database-query-builder-get-sql:
 
 getSQL()
-^^^^^^^^
+========
 
 Method :php:`->getSQL()` returns the created query statement as string. It is incredibly useful during development
 to verify the final statement is executed just as a developer expects it::
@@ -605,10 +606,10 @@ Remarks:
   a placeholder that is later substituted when the real query is fired via :php:`->execute()`. :php:`->getSQL()` does not show
   those values, instead the placeholder names are displayed, usually with a string like `:dcValue1`. There is no
   simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getParameters()` to see the array of parameters used to replace these placeholders within the query.
-  
+
 
 getParameters()
-^^^^^^^^
+===============
 
 Method :php:`->getParameters()` returns the values for the prepared statement placeholders in an array. It is incredibly useful during development to verify the final statement is executed just as a developer expects it::
 
@@ -630,7 +631,7 @@ Remarks:
 
 
 execute()
-^^^^^^^^^
+=========
 
 Compile and fire the final query statement. This is usually the last call on a `QueryBuilder` object. The method
 has two possible return values: On success, it either returns a `Statement` object representing the result set of
@@ -645,7 +646,7 @@ for more information on proper exception handling.
 
 
 expr()
-^^^^^^
+======
 
 Return an instance of the `ExpressionBuilder`. This object is used to create complex `WHERE` query parts and `JOIN`
 expressions::
@@ -672,7 +673,7 @@ Remarks:
 .. _database-query-builder-create-named-parameter:
 
 createNamedParameter()
-^^^^^^^^^^^^^^^^^^^^^^
+======================
 
 Create a placeholder for a prepared statement field value. **Always** use that when dealing with user input in
 expressions to make the statement SQL injection safe::
@@ -760,7 +761,7 @@ Rules:
 .. _database-query-builder-quote-identifier:
 
 quoteIdentifier() and quoteIdentifiers()
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+========================================
 
 :php:`->quoteIdentifier()` must be used if not a value is handled, but a field name. The quoting is different in those
 cases and typically ends up with backticks ````` instead of ticks ``'``::
@@ -805,7 +806,7 @@ Remarks:
 .. _database-query-builder-escape-like-wildcards:
 
 escapeLikeWildcards()
-^^^^^^^^^^^^^^^^^^^^^
+=====================
 
 Helper method to quote `%` characters within a search string. This is helpful in :php:`->like()` and :php:`->notLike()`
 expressions::
@@ -831,6 +832,6 @@ expressions::
 
 
 getRestrictions(), setRestrictions(), resetRestrictions()
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================================================
 
 `API` methods to deal with the :ref:`RestrictionBuilder <database-restriction-builder>`.
