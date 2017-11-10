@@ -150,8 +150,8 @@ extensions with the name prefix "ext\_".
            
          .. warning::
          
-            Static data is not meant to be extended by other Extensions. On re-import 
-            all extended fields and data is lost.
+            Static data is not meant to be extended by other extensions. On re-import 
+            all extended fields and data is lost due to DROP TABLE statements.
             
 
  - :Filename: ext\_typoscript\_constants.txt
