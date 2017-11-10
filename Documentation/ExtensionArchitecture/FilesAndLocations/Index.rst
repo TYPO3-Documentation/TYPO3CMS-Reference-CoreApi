@@ -137,7 +137,7 @@ extensions with the name prefix "ext\_".
             mysqldump --password=[password] [database name] [tablename] --add-drop-table > ./ext_tables_static.sql
 
          :code:`--add-drop-table` will make sure to include a DROP TABLE
-         statement so any data is inserted in a fresh table. 
+         statement so any data is inserted in a fresh table.
 
          |
 
@@ -151,7 +151,7 @@ extensions with the name prefix "ext\_".
          .. warning::
          
             Static data is not meant to be extended by other extensions. On re-import 
-            all extended fields and data is lost due to DROP TABLE statements.
+            all extended fields and data is lost due to `DROP TABLE` statements.
             
 
  - :Filename: ext\_typoscript\_constants.txt
