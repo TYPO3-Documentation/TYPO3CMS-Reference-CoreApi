@@ -240,26 +240,25 @@ internally additional configuration takes place from
 
 .. _tce-file-extensions-control:
 
-Web-space, FTP-space and $GLOBALS['TYPO3\_CONF\_VARS']['BE']['fileExtensions']
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Configure file extensions via $GLOBALS['TYPO3\_CONF\_VARS']['BE']['fileExtensions']
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-The control of file extensions goes in two categories. Webspace and
-ftpspace. Webspace is folders accessible from a web browser (below
-TYPO3\_DOCUMENT\_ROOT) and ftpspace is everything else.
+File extensions can be configured via :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileExtensions']`.
+For legacy reasons you have to add the sub-key :php:`webspace` in 
+TYPO3 8LTS.
 
 The control is done like this: if an extension matches 'allow' then
 the check returns true. If not and an extension matches 'deny' then
 the check return false. If no match at all, returns true.
 
 You list extensions comma-separated. If the value is a '\*' every
-extension is matched. If no file extension, true is returned if
+extension is matched. If no file extension is given, true is returned if
 'allow' is '\*', false if 'deny' is '\*' and true if none of these
-matches. This (default) configuration below accepts everything in
-ftpspace and everything in webspace except php files::
+matches. This (default) configuration below accepts everything
+except php files::
 
    $GLOBALS['TYPO3_CONF_VARS']['BE']['fileExtensions'] = array (
-       'webspace' => array('allow' => '', 'deny' => 'php'),
-       'ftpspace' => array('allow' => '*', 'deny' => '')
+       'webspace' => array('allow' => '', 'deny' => 'php')
    );
 
 
