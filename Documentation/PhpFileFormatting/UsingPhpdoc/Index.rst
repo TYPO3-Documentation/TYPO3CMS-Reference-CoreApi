@@ -59,7 +59,7 @@ information block".))
 Function information block
 ==========================
 
-Functions should have parameters and return type documented. Example::
+Functions should have *parameters* and *the return type* documented. Example::
 
    /**
     * Initializes the plugin.
