@@ -24,13 +24,18 @@ the following phpDoc keywords:
 For more information on phpDoc see the phpDoc web site at
 `http://www.phpdoc.org/ <http://www.phpdoc.org/>`_
 
-TYPO3 requires that each class, function and method be documented with
-phpDoc. For information on phpDoc use for class declarations see
-"Class information block".
+TYPO3 does not require that each class, function and method be documented with
+phpDoc, but if you cannot use a type-hint, then a docblock documenting types is necessary. 
+Additionally add a phpDoc to your code if it provides additional information. 
+For example detail the content of arrays using the Object[] notation, if the return type is 
+mixed and cannot be strictly annotated, add a @return tag. If parameters or return 
+types have specific syntactical requirements, document them.
 
 The single parts of information for a phpDoc keyword are separated by
 one single space.
 
+For information on phpDoc use for class declarations see
+"Class information block".
 
 Function information block
 """"""""""""""""""""""""""
