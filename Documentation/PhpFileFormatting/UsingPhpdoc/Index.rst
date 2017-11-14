@@ -3,11 +3,12 @@
 
 .. _using-phpdoc:
 
+============
 Using phpDoc
-^^^^^^^^^^^^
+============
 
-phpDoc is used for documenting source code. Typically TYPO3 code uses
-the following phpDoc keywords:
+"phpDocumentor" (`phpDoc <https://www.phpdoc.org/>`_) is used for documenting
+source code. TYPO3 code typically uses the following phpDoc_ keywords:
 
 - :code:`@global`
 
@@ -21,19 +22,42 @@ the following phpDoc keywords:
 
 - :code:`@deprecated`
 
-For more information on phpDoc see the phpDoc web site at
-`http://www.phpdoc.org/ <http://www.phpdoc.org/>`_
+For more information on phpDoc_ see the phpDoc_ web site at
+https://www.phpdoc.org/.
 
-TYPO3 requires that each class, function and method be documented with
-phpDoc. For information on phpDoc use for class declarations see
-"Class information block".
+TYPO3 does **not** require that *each class, function* and *method* be
+documented with phpDoc_.
 
-The single parts of information for a phpDoc keyword are separated by
-one single space.
+But documenting types is required. If you cannot use *type hints* then a
+docblock is mandatory to describe the types..
+
+Additionally you should add a phpDoc_ block if additional information seems
+appropriate:
+
+- An example would be the detailed description of the content of arrays using
+  the Object[] notation.
+
+- If the return type is mixed and cannot be annotated strictly, add a
+  @return tag.
+
+- If parameters or return types have specific syntactical requirements:
+  document that!
+
+The different parts of a phpDoc_ statement after the keyword are separated by
+**one single space.**
+
+
+Class information block
+=======================
+
+((to be written))
+
+((was: For information on phpDoc use for class declarations see "Class
+information block".))
 
 
 Function information block
-""""""""""""""""""""""""""
+==========================
 
 Functions should have parameters and return type documented. Example::
 
@@ -51,7 +75,9 @@ Functions should have parameters and return type documented. Example::
        // Do something
    }
 
-**Short and long description**
+
+Short and long description
+--------------------------
 
 A method or class may have both a short and a long description. The
 short description is the first piece of text inside the phpDoc block.
