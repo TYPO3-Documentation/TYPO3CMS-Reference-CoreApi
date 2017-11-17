@@ -38,80 +38,23 @@ screenshot, the label – split between header and description – is
 visible. Then comes the field itself, in this case an input, because
 the option's type is "string".
 
-Description of option type in syntax:
+Available option types:
 
-.. t3-field-list-table::
- :header-rows: 1
-
- - :Type,10: Option type
-   :Description,60: Description
-
-
- - :Type:
-         int
-   :Description:
-         Integer value
-
-
- - :Type:
-         int+
-   :Description:
-         positive integer value
-
-
- - :Type:
-         integer
-   :Description:
-         Integer value
-
-
- - :Type:
-         color
-   :Description:
-         colorpicker
-
-
- - :Type:
-         wrap
-   :Description:
-         wrap field
-
-
- - :Type:
-         offset
-   :Description:
-         offset
-
-
- - :Type:
-         options
-   :Description:
-         option select
-
-
- - :Type:
-         boolean
-   :Description:
-         checkbox
-
-
- - :Type:
-         user
-   :Description:
-         user function
-
-
- - :Type:
-         small
-   :Description:
-         small text field
-
-
- - :Type:
-         string
-   :Description:
-         text field
-
+============= ==========================
+Option type   Description
+============= ==========================
+boolean       checkbox
+color         colorpicker
+int           integer value
+int+          positive integer value
+integer       integer value
+offset        offset
+options       option select
+small         small text field
+string        text field
+user          user function
+wrap          wrap field
+============= ==========================
 
 Once you saved the configuration in the ExtensionManager, it will be stored in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']`
