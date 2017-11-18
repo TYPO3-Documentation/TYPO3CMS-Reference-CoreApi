@@ -40,15 +40,3 @@ one. More details in :ref:`Service API <developer-service-api>`.
 
 If several services are available, the one with the highest priority
 (or quality if priority are equals) will be used.
-
-It is also possible to get an instance of a specific service by
-requesting its key directly instead of just requesting a service type.
-The call would then look something like:
-
-.. code-block:: php
-
-	if (is_object($serviceObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService('tx_myservice_sv1'))) {
-		// Do something with the object
-		...
-	}
-

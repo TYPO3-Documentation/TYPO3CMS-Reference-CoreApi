@@ -227,7 +227,7 @@ TYPO3 CMS and the remote system.
    users in the TYPO3 CMS database. It is recommended to store
    an arbitrary string in such case, making sure that such string
    is random enough for security reasons. TYPO3 CMS provides method
-   :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getRandomHexString()`
+   :code:`\TYPO3\CMS\Core\Crypto\Random::generateRandomHexString()`
    which can be used for such a purpose.
 
 For the :code:`authUser()` method, you will want to take care
@@ -272,7 +272,7 @@ either for the FE or the BE:
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_alwaysAuthUser'] = true;
 
 the authentication process will be fully run on each request. Both flags
-many not be necessary depending on what your service does exactly.
+may not be necessary depending on what your service does exactly.
 
 .. note::
 
