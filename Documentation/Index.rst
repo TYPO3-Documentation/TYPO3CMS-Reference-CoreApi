@@ -68,13 +68,10 @@ on the Table of Contents to identify what particular section will best
 address the task at hand.
 
 
-**Table of Contents**
-
 .. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+   :hidden:
 
+   Sitemap/Index
    Introduction/Index
    UsingServices/Index
    Configuration/Index

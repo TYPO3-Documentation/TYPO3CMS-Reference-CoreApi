@@ -1,10 +1,11 @@
 .. include:: Includes.txt
 
+.. _targets-for-crossreferencing:
+.. _labels-for-crossreferencing:
+
 .. only:: html
 
-.. _Targets-for-Cross-Referencing:
+   Targets For Cross-Referencing
+   =============================
 
-Targets for Cross-Referencing
-=============================
-
-.. ref-targets-list::
+   .. ref-targets-list::
