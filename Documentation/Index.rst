@@ -11,7 +11,7 @@ TYPO3 CMS Services
       doc_core_services
 
 :Version:
-      7 LTS
+      8 LTS
 
 :Language:
       en
@@ -23,7 +23,7 @@ TYPO3 CMS Services
       services, development, extension, auth, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2000-2016
+      2000-2018
 
 :Author:
       Documentation Team

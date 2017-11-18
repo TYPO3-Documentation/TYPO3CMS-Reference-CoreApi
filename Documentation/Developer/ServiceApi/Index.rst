@@ -96,7 +96,7 @@ getServiceOption
   take into account possible default values as described in the
   :ref:`Service configuration chapter <configuration-service-configuration>`.
 
-  This method requires more explanations.
+  This method requires more explanation.
   Imagine your service has an option called "ignoreBozo". To retrieve it
   in a proper way, you should not access
   :code:`$GLOBALS['TYPO3_CONF_VARS']['SVCONF']` directly, but use

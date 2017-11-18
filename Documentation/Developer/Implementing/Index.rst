@@ -7,7 +7,7 @@ Implementing a service
 ^^^^^^^^^^^^^^^^^^^^^^
 
 There are no tools to get you started coding a new service.
-However there is not so much that needs to be done.
+However there is not much that needs to be done.
 
 A service should be packaged into an extension. This means that you
 will need at least a declaration file :file:`ext_emconf.php` and
@@ -34,7 +34,8 @@ file. Let's look at what is inside.
     }
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addService(
-        $_EXTKEY,
+        // Extension Key
+        'babelfish',
         // Service type
         'translator',
         // Service key
@@ -80,7 +81,7 @@ $info
 
         - the quality of the service (if it's better or not than normal)
 
-        - the OS dependency
+        - the OS dependency (either WIN or UNIX)
 
         - the dependency on external programs (perl, pdftotext, etc.)
 

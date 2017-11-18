@@ -20,7 +20,7 @@ too:
    }
 
 In this example a service type "metaExtract" is requested for a
-specific subtype corresponding some file's type. With the returned
+specific subtype corresponding to some file's type. With the returned
 instance, it then proceeds to retrieving whatever possible meta data
 from the file.
 
