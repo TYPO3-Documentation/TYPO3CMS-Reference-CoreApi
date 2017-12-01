@@ -104,7 +104,7 @@ basis from the subkey :code:`processorConfiguration`
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['processorConfiguration'] = array(
        // configuration for ERROR level log entries
      \TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
-         // add a MemoyUsageProcessor
+         // add a MemoryUsageProcessor
        'TYPO3\\CMS\\Core\\Log\\Processor\\MemoryUsageProcessor' => array(
          'formatSize' => TRUE
        )
