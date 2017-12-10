@@ -212,53 +212,24 @@ It is unlikely that you will need to use this internally in your
 scripts like you will need :code:`\TYPO3\CMS\Core\DataHandling\DataHandler`. It is fairly uncommon to
 need the file manipulations in own scripts unless you make a special
 application. Therefore the most typical usage of this API is from
-:ref:`tce\_file.php <tce-file-api>` and the core scripts that are activated by the "File >
+:ref:`\TYPO3\CMS\Backend\Controller\File\FileController <tce-file-api>` and the core scripts that are activated by the "File >
 List" module.
 
-However, if you need it this is an example (taken from :file:`tce_file.php`)
+However, if you need it this is an example (taken from :file:`ImportExportController.php`)
 of how to initialize the usage.
 
 .. code-block:: php
    :linenos:
 
        // Initializing:
-   $this->fileProcessor = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Utility\\File\\ExtendedFileUtility');
-   $this->fileProcessor->init($FILEMOUNTS, $GLOBALS['TYPO3_CONF_VARS']['BE']['fileExtensions']);
-   $this->fileProcessor->init_actionPerms($BE_USER->user['fileoper_perms']);
+		$this->fileProcessor = GeneralUtility::makeInstance(ExtendedFileUtility::class);
+		$this->fileProcessor->setActionPermissions();
 
-   $this->fileProcessor->start($this->file);
-   $this->fileProcessor->processData();
+		$this->fileProcessor->start($this->file);
+		$this->fileProcessor->processData();
 
-Line 2 makes an instance of the class and line 3 initializes the
-object with the filemounts of the current user and the array of
-allow/deny file extensions in web-space and ftp-space (see below).
+Line 2 makes an instance of the class.
 Then the file operation permissions are loaded from the user object in
-line 4. Finally, the file command array is loaded in line 6 (and
+line 3. Finally, the file command array is loaded in line 5 (and
 internally additional configuration takes place from
-:code:`$GLOBALS['TYPO3_CONF_VARS']`!). In line 7 the command map is executed.
-
-
-.. _tce-file-extensions-control:
-
-Configure file extensions via $GLOBALS['TYPO3\_CONF\_VARS']['BE']['fileExtensions']
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-File extensions can be configured via :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileExtensions']`.
-For legacy reasons you have to add the sub-key :php:`webspace` in 
-TYPO3 8LTS.
-
-The control is done like this: if an extension matches 'allow' then
-the check returns true. If not and an extension matches 'deny' then
-the check return false. If no match at all, returns true.
-
-You list extensions comma-separated. If the value is a '\*' every
-extension is matched. If no file extension is given, true is returned if
-'allow' is '\*', false if 'deny' is '\*' and true if none of these
-matches. This (default) configuration below accepts everything
-except php files::
-
-   $GLOBALS['TYPO3_CONF_VARS']['BE']['fileExtensions'] = array (
-       'webspace' => array('allow' => '', 'deny' => 'php')
-   );
-
-
+:code:`$GLOBALS['TYPO3_CONF_VARS']`!). In line 6 the command map is executed.

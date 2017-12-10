@@ -101,3 +101,10 @@ takes precedence. The variable names you can use are:
    :Description:
          Clipboard command array. May trigger changes in "cmd".
 
+
+ - :Variable:
+         vC
+   :Type:
+         string
+   :Description:
+         Verification code

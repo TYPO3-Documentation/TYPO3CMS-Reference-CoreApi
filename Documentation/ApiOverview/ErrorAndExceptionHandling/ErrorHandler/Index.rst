@@ -30,10 +30,6 @@ Functions:
    :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::syslog()` offers a hook and
    can be extended by userdefined logging methods.
 
--  Logs error messages to
-   :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::devLog()` if
-   :php:`$TYPO3_CONF_VARS[SYS][enable_errorDLOG]` is enabled. Depending on
-   which devlog extension is used this may require a DB connection.
 
 -  Logs error messages to the sys\_log table. Logged errors are displayed
    in the belog extension (Admin Tools > Log). This will work only with an

@@ -28,13 +28,6 @@ will produce such an output:
 
    Typical TYPO3 debug output
 
-
-.. tip::
-
-   The :code:`debug()` function allows for adding your own debugging object.
-   Put an instance of your class in :code:`$GLOBALS['error']` and its :code:`debug()`
-   method, receiving the same parameters as the original :code:`debug()` function.
-
 In general, look at class :code:`\TYPO3\CMS\Core\Utility\DebugUtility` for useful
 debugging tools.
 

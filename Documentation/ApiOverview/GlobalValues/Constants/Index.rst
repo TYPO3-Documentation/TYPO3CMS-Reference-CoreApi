@@ -41,7 +41,6 @@ Table 1: Traditional List
  - :Constant:
          TYPO3\_MODE
    :Defined:
-         :ref:`t3cmsapi:TYPO3\\CMS\\Backend\\Console\\Application`::defineLegacyConstants()
          :ref:`t3cmsapi:TYPO3\\CMS\\Backend\\Http\\Application`::defineLegacyConstants()
          :ref:`t3cmsapi:TYPO3\\CMS\\Core\\Console\\CommandApplication`::defineLegacyConstants()
          :ref:`t3cmsapi:TYPO3\\CMS\\Frontend\\Http\\Application`::defineLegacyConstants()
@@ -116,18 +115,6 @@ Table 1: Traditional List
          SystemEnvironmentBuilder::definePaths()
    :Description:
          Absolute TYPO3 configuration path (local, not part of source).
-   :FE:
-         Yes
-
-
- - :Constant:
-         TYPO3\_DLOG
-   :Defined:
-         Bootstrap::defineLoggingAndExceptionConstants()
-   :Description:
-         If true, calls to :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::devLog()` can be made in both frontend
-         and backend; This is event logging which can help to track debugging
-         in general.
    :FE:
          Yes
 

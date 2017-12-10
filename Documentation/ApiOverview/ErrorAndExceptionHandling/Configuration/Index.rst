@@ -51,9 +51,7 @@ part of :php:`$TYPO3_CONF_VARS[SYS]`:
 
          Default: :php:`\TYPO3\CMS\Core\Error\ErrorHandler`. This class will register itself
          as error handler. It is able to write error messages to all available
-         logging systems in TYPO3 (:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::syslog`,
-         :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::devlog()` and
-         to the "sys\_log" table).
+         logging systems in TYPO3 (see `Logging Framework`).
 
          Additionally the errors can be displayed as flash messages in the
          Backend or in the adminpanel in Frontend. The flash messages in
@@ -133,24 +131,6 @@ part of :php:`$TYPO3_CONF_VARS[SYS]`:
 
 
  - :Key:
-         enable_errorDLOG
-   :Data type:
-         boolean
-   :Description:
-         Whether errors should be written to the Developer's Log (requires an
-         installed \*devlog extension).
-
-
- - :Key:
-         enable_exceptions
-   :Data type:
-         boolean
-   :Description:
-         Whether exceptions should be written to the Developer's Log (requires an
-         installed \*devlog extension).
-
-
- - :Key:
          syslogErrorReporting
    :Data type:
          integer
@@ -177,45 +157,10 @@ part of :php:`$TYPO3_CONF_VARS[SYS]`:
  - :Key:
          systemLog
    :Data type:
-         string
+         boolean
    :Description:
-         Configures which mechanism is used to log errors being logged using
-         GeneralUtility::sysLog() calls. Multiple settings are possible by
-         separating them with a semicolon.
-
-         Every distinct option can contain up to three values separated by
-         comma. The first option defines the mechanism which is used for logging.
-         The second option defines the destination/target of the log message.
-         The third option defines a severity level. Messages will get logged
-         to the mechanism/target only if the severity of the message is higher
-         than the specified level. Giving "0" as level or not giving a level at all
-         will log all messages. Possible options are:
-
-         - file,<abs-path-to-file>[,<level>] = Writes the error messages to the
-           specified file.
-
-         - mail,<to>[/<from>][,<level>] = Sends an email for every error message
-           to the configured email "<to>". Additionally sets the e-mail From
-           header.
-
-         - syslog,<facility>[,<level>] = Uses the `PHP method "syslog"
-           <http://php.net/manual/en/function.syslog.php>`__
-           to send the log message. Depending on the operating system the message
-           will get logged in different ways. On Linux (Debian, Ubuntu) the message
-           will usually appear in /var/log/syslog if not configured otherwise.
-           The <facility> option is not used currently.
-
-         - error_log[,,<level>] = This setting will use the `PHP method "error_log"
-           <http://php.net/manual/en/function.error-log.php>`__ to log the message.
-           The message will get handled according to the settings of the variable
-           `"error_log" in the php.ini file
-           <http://php.net/manual/en/errorfunc.configuration.php#ini.error-log>`__.
-
-         Using the method "file" is very reliable but could also pose a security
-         risk if you write error logs into the webroot of your site. The option
-         "error_log" allows to use the same logging facility which is by default
-         used by PHP scripts on the server. Be aware that on production machines
-         error logging for PHP scripts could be disabled.
+         Configures whether logging is enabled. Logging itself can be
+         configured in detail via the `Logging Framework`.
 
 
 The table below shows which values can be set by the user and which
