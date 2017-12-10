@@ -134,7 +134,6 @@ name for the non-existing TypoScript Mark-Up Language):
        1.wrap = <li>
      }
      # Setting wrapping value:
-     stdWrap.fontTag = <ol type="1"> | </ol>
      stdWrap.textStyle.altWrap = {$styles.content.bulletlist.altWrap}
    }
 
