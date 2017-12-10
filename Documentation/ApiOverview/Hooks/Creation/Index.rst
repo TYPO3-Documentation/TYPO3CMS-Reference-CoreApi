@@ -28,7 +28,7 @@ TYPO3.
   function name to call. This method is mostly useful for small-scale
   hooks in the sources.
 
-- :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObject()` - Create an object from a user defined
+- :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` - Create an object from a user defined
   file/class. The method called in the object is fixed by the hook, so
   this is the non-flexible part. But it is cleaner in other ways, in
   particular that you can even call many methods in the object and you
@@ -41,18 +41,16 @@ Here follows some examples.
 
 .. _hooks-creation-object:
 
-Using \TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj()
+Using \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 ::
 
-       // Hook for pre-processing of the content for formmails:
-   if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['sendFormmail-PreProcClass'])) {
-       foreach($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['sendFormmail-PreProcClass'] as $_classRef) {
-           $_procObj = \TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj($_classRef);
-           $EMAIL_VARS = $_procObj->sendFormmail_preProcessVariables($EMAIL_VARS, $this);
-       }
-   }
+	// Hook for processing data submission to extensions
+	foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['checkDataSubmission'] ?? [] as $className) {
+		$_procObj = GeneralUtility::makeInstance($className);
+		$_procObj->checkDataSubmission($this);
+	}
 
 
 .. _hooks-creation-function:

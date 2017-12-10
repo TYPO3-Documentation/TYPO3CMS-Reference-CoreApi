@@ -30,11 +30,11 @@ every request. They should therefore be optimized for speed.
 
 - Before the inclusion of any of the two files, the variables :code:`$_EXTKEY`
   is set to the extension key and :code:`$_EXTCONF` is set
-  to the configuration from :code:`$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][extension key]`.
+  to the configuration from :code:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][extensionKey]`.
   We recommend to not use :code:`$_EXTKEY`, current planning is to deprecate this
   variable in the future.
 
-- :code:`$TYPO3_LOADED_EXT[extension key]` contains information about
+- :code:`$TYPO3_LOADED_EXT[extensionKey]` contains information about
   whether the module is loaded as *local, global* or *system* type,
   including the proper paths you might use, absolute and relative.
 

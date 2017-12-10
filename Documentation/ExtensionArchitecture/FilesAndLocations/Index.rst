@@ -200,8 +200,8 @@ extensions with the name prefix :file:` ext_`.
 
          If this file is present the EM provides you with an interface for
          editing the configuration values defined in the file. The result is
-         written as a serialized array to :file:`LocalConfiguration.php`
-         in the variable :file:`$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][`
+         written as an array to :file:`LocalConfiguration.php`
+         in the variable :file:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][`
          :file:`*extension_key*` :file:`]`
 
          If you want to do user processing before the content from the

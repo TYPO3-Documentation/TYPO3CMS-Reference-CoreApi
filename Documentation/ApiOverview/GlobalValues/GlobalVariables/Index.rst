@@ -172,9 +172,6 @@ Global variables
          ['callUserFunction'] + ['callUserFunction\_classPool']: Used by
          :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction` to store singleton objects.
 
-         ['getUserObj'] : Used by :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj` to store singleton
-         objects.
-
          ['RTEobj'] : Used to hold the current RTE object if any. See
          :code:`\TYPO3\CMS\Backend\Utility\BackendUtility`.
 
