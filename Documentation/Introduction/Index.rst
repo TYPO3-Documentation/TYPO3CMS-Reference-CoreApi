@@ -20,17 +20,6 @@ appendix ":ref:`What is TypoScript? <what-is-typoscript>`". Otherwise
 feel free to ignore it.
 
 
-.. _what-s-new:
-
-What's new
-^^^^^^^^^^
-
-This version of the manual was updated for TYPO3 CMS 7.
-
-The changes include the possible to use conditions in the
-:code:`INCLUDE_TYPOSCRIPT` directive.
-
-
 .. _credits:
 
 Credits
