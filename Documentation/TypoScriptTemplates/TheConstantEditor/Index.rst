@@ -274,9 +274,7 @@ string (the default)         Just a string value
 user                         Path to the file and method which renders the option HTML,
                              for example  `type=user[Vendor\Extension\Namespace\ClassName->myCustomField]`.
                              The method should have following signature:
-                             :php:`public function myCustomField(array $params, $configurationForm)`
-                             where :php:`$configurationForm` is an instance of :php:`\TYPO3\CMS\Core\TypoScript\ConfigurationForm`.
-                             See :php:`TYPO3\CMS\Extensionmanager\ViewHelpers\Form\TypoScriptConstantsViewHelper->renderUserFunction` for reference.
+                             :php:`public function myCustomField(array $params)`.
 ===========================  ============================================================================
 
 
