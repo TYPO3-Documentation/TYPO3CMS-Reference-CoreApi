@@ -70,7 +70,7 @@ Services are able to handle subtypes. Consider the services of type
 a total of six subtypes, each of which can be overridden independently
 by extensions.
 
-The base service class (:code:`\TYPO3\CMS\Sv\AuthenticationService`) provided
+The base service class (:code:`\TYPO3\CMS\Core\Authentication\AuthenticationService`) provided
 by extension "sv" is extended by both "saltedpasswords" and "rsaauth" extensions
 but for different subtypes ("authUserFE" and "authUserBE" for the former,
 "processLoginDataBE" and "processLoginDataFE" for the latter).

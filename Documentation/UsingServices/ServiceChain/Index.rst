@@ -20,15 +20,16 @@ process:
 
 .. code-block:: php
 
-    // Use 'auth' service to find the user
+    /// Use 'auth' service to find the user
     // First found user will be used
     $subType = 'getUser' . $this->loginType;
     foreach ($this->getAuthServices($subType, $loginData, $authInfo) as $serviceObj) {
         if ($row = $serviceObj->getUser()) {
             $tempuserArr[] = $row;
-            if ($this->writeDevLog) {
-                GeneralUtility::devLog('User found: ' . GeneralUtility::arrayToLogString($row, [$this->userid_column, $this->username_column]), self::class, 0);
-            }
+            $this->logger->debug('User found', [
+                $this->userid_column => $row[$this->userid_column],
+                $this->username_column => $row[$this->username_column],
+            ]);
             // User found, just stop to search for more if not configured to go on
             if (!$this->svConfig['setup'][$this->loginType . '_fetchAllUsers']) {
                 break;
@@ -44,8 +45,8 @@ process:
             $serviceObj->initAuth($subType, $loginData, $authInfo, $this);
             yield $serviceObj;
         }
-        if ($this->writeDevLog && $serviceChain) {
-            GeneralUtility::devLog($subType . ' auth services called: ' . $serviceChain, self::class);
+        if ($serviceChain) {
+            $this->logger->debug($subType . ' auth services called: ' . $serviceChain);
         }
     }
 
@@ -57,34 +58,34 @@ when a certain value is returned by the method called:
 
 .. code-block:: php
 
-    // Use 'auth' service to authenticate the user
-    // If one service returns FALSE then authentication failed
-    // a service might return 100 which means there's no reason to stop but the user can't be authenticated by that service
-    if ($this->writeDevLog) {
-        GeneralUtility::devLog('Auth user: ' . GeneralUtility::arrayToLogString($tempuser), self::class);
-    }
-    $subType = 'authUser' . $this->loginType;
+    foreach ($tempuserArr as $tempuser) {
+        // Use 'auth' service to authenticate the user
+        // If one service returns FALSE then authentication failed
+        // a service might return 100 which means there's no reason to stop but the user can't be authenticated by that service
+        $this->logger->debug('Auth user', $tempuser);
+        $subType = 'authUser' . $this->loginType;
 
-    foreach ($this->getAuthServices($subType, $loginData, $authInfo) as $serviceObj) {
-        if (($ret = $serviceObj->authUser($tempuser)) > 0) {
-            // If the service returns >=200 then no more checking is needed - useful for IP checking without password
-            if ((int)$ret >= 200) {
-                $authenticated = true;
+        foreach ($this->getAuthServices($subType, $loginData, $authInfo) as $serviceObj) {
+            if (($ret = $serviceObj->authUser($tempuser)) > 0) {
+                // If the service returns >=200 then no more checking is needed - useful for IP checking without password
+                if ((int)$ret >= 200) {
+                    $authenticated = true;
+                    break;
+                }
+                if ((int)$ret >= 100) {
+                } else {
+                    $authenticated = true;
+                }
+            } else {
+                $authenticated = false;
                 break;
             }
-            if ((int)$ret >= 100) {
-            } else {
-                $authenticated = true;
-            }
-        } else {
-            $authenticated = false;
+        }
+
+        if ($authenticated) {
+            // Leave foreach() because a user is authenticated
             break;
         }
-    }
-
-    if ($authenticated) {
-        // Leave foreach() because a user is authenticated
-        break;
     }
 
 In the above example the loop will walk through all services of the
