@@ -10,7 +10,7 @@ All service classes must inherit from the base service class
 :code:`\TYPO3\CMS\Core\Service\AbstractService`,
 unless the service type provides a specific
 base class (authentication services, for example, inherit from
-:code:`\TYPO3\CMS\Sv\AbstractAuthenticationService` instead).
+:code:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService` instead).
 These specific classes should
 normally themselves extend :code:`\TYPO3\CMS\Core\Service\AbstractService`.
 This class provides a large number of important or useful methods which are described
@@ -133,12 +133,6 @@ short array comprised of an error number and an error message.
 
 The error queue exists only at run-time. It is not stored into session
 or any other form of persistence.
-
-devLog
-  Writes a message to the devlog, implicitly using the service key as a
-  log key. Depends on the member variable "writeDevLog" being set to
-  :code:`true` (it's set to code:`false` by default).
-
 
 errorPush
   Puts a new error on top of the queue stack.

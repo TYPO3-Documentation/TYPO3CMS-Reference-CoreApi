@@ -154,7 +154,7 @@ getGroupsFE
    :ref:`service-specific options <configuration-service-configuration>`.
 
    This represents very advanced tuning and is not described here.
-   Please refer to :code:`\TYPO3\CMS\Sv\AbstractAuthenticationService::initAuth()`
+   Please refer to :code:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService::initAuth()`
    to learn more about the possibilities offered during authentication services
    initialization.
 
