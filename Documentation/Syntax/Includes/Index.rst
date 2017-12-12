@@ -5,10 +5,57 @@
 
 Includes
 ^^^^^^^^
-
 You can also add include-instructions in TypoScript code. Availability
 depends on the context, but it works with TypoScript templates, Page
 TSconfig and User TSconfig.
+
+Since TYPO3 version 9 a new syntax for importing external TypoScript files has been introduced,
+which acts as a preprocessor before the actual parsing (Condition evaluation) is made.
+
+It's main purpose is ease the use of TypoScript includes and make it easier for integrators and
+frontend developers to work with distributed TypoScript files. The syntax is inspired by SASS
+imports and works as follows:
+
+.. code-block:: typoscript
+
+	# Import a single file
+	@import 'EXT:myproject/TypoScript/Configuration/randomfile.typoscript'
+
+	# Import multiple files in a single directory, sorted by file name
+	@import 'EXT:myproject/TypoScript/Configuration/*.typoscript'
+
+	# Import all files in a directory
+	@import 'EXT:myproject/TypoScript/Configuration/'
+
+	# It's possible to omit the file ending, then "typoscript" is automatically added
+	@import 'EXT:myproject/TypoScript/Configuration/'
+
+The main benefits of `@import` over using `<INCLUDE_TYPOSCRIPT>` (see below) are:
+- Less error-prone when adding statements to TypoScript
+- Easier to read what should be included (files, folders - instead of `FILE:` and `DIR:` syntax)
+- @import is more speaking than a pseudo-XML syntax
+
+The following rules apply:
+- If multiple files are found, the file name is important in which order the files (sorted
+alphabetically by filename)
+- Recursive inclusion of files (@import within @import is possible)
+- It is not possible to use a condition as possible with <INCLUDE_TYPOSCRIPT condition=""> as its
+sole purpose is to include files, which happens before the actual real condition matching happens,
+and the INCLUDE_TYPOSCRIPT condition syntax is a conceptual mistake, and should be avoided.
+- Both `<INCLUDE_TYPOSCRIPT>` and `@import` can work side-by-side in the same project
+- If a directory is included, it will not include files recursively
+- Quoting of the filename is necessary, both double quotes (") and single tickst (') can be used
+
+The syntax is designed to stay, and @import is not intended to be extended with more logic in the
+future. However, it may be possible that TypoScript will get more preparsing logic via the @ annotation.
+
+Under the hood, Symfony Finder is used to detect files. This makes globbing (* syntax) possible.
+
+
+Alternative Syntax
+""""""""""""""""""
+
+You can also add include-instructions in another way in TypoScript code.
 
 An include-instruction can e.g. look like this:
 
@@ -58,11 +105,11 @@ DIR      This includes all files from a directory relative to :code:`PATH_site`,
 
          .. code-block:: typoscript
 
-            <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/templates/" extensions="ts">
+            <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/templates/" extensions="typoscript">
 
          This includes all those files from the directory
          :file:`fileadmin/templates/` and from subdirectories, which have the
-         file extension :code:`.ts`.
+         file extension :code:`.typoscript`.
 =======  ==========================================================================
 
 
@@ -79,7 +126,7 @@ Example:
 
 .. code-block:: text
 
-   <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/user.ts" condition="[loginUser = *]">
+   <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/user.typoscript" condition="[loginUser = *]">
 
 
 .. _includes-best-practices:
@@ -92,9 +139,9 @@ purpose of covering as many use cases as possible. In TYPO3 CMS we often
 have many different ways of configuring something, with pros and cons
 and the extended inclusion command serves this purpose of letting you
 organize your files with different directories using whichever extension
-fits your needs better (e.g., :code:`.ts`) and/or filter by extension (e.g.,
-because you may have :code:`.ts` and :code:`.txt` in the directory or because you prefer
-having :code:`.ts<something>` as extension).
+fits your needs better (e.g., :code:`.typoscript`) and/or filter by extension (e.g.,
+because you may have :code:`.typoscript` and :code:`.txt` in the directory or because you prefer
+having :code:`.typoscript<something>` as extension).
 
 It is recommended to separate files with different directories:
 
