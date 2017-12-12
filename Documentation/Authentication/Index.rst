@@ -38,11 +38,14 @@ The authentication process
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The authentication process is not managed entirely by services.
-It is handled essentially by class :code:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
-for the backend (BE) and by class :code:`\TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication`,
+It is handled essentially by class
+:php:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
+for the backend (BE) and by class
+:php:`\TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication`
 for the frontend (FE), which both inherit from class
-:code:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`.
-These classes are called by the :ref:`bootstrapping process <t3inside:backend-initialization>`.
+:php:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`.
+These classes are called by the
+:ref:`bootstrapping process <t3inside:backend-initialization>`.
 They manage the workflow of the authentication process.
 Services are used strictly to identify and validate
 users based on whatever form of credentials a given service
@@ -82,7 +85,7 @@ uident\_text
   contain the same value.
 
 Inside an authentication service, this data is available in
-:code:`$this->login`.
+:php:`$this->login`.
 
 
 .. _authentication-api:
@@ -103,12 +106,13 @@ processLoginDataBE, processLoginDataFE
   This subtype performs preprocessing on the submitted
   :ref:`login data <authentication-data>`.
 
-  The method to implement is :code:`processLoginData()`.
+  The method to implement is :php:`processLoginData()`.
   It receives as argument the login data and the password
   transmission strategy (which corresponds to the login security
-  level, as defined in :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['loginSecurityLevel']`
-  or :code:`$GLOBALS['TYPO3_CONF_VARS']['FE']['loginSecurityLevel']`).
-  It is expected to return a boolean value, with :code:`true`
+  level, as defined in
+  :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['loginSecurityLevel']`
+  or :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['loginSecurityLevel']`).
+  It is expected to return a boolean value, with :php:`true`
   meaning that it successfully processed login data.
 
   It may also return a numerical value equal to 200 or greater,
@@ -122,25 +126,26 @@ processLoginDataBE, processLoginDataFE
 getUserFE, getUserBE
   This subtype corresponds to the operation of searching in the
   database if the credentials that were given correspond to an
-  existing user. The method to implement is :code:`getUser()`.
+  existing user. The method to implement is :php:`getUser()`.
   It is expected to return an array containing the user information
-  or :code:`false` if no user was found.
+  or :php:`false` if no user was found.
 
 authUserFE, authUserBE
   This subtype performs the actual authentication based on the
-  provided credentials. The method to implement is :code:`authUser()`.
-  It receives the user information (as returned by :code:`getUser()`)
+  provided credentials. The method to implement is :php:`authUser()`.
+  It receives the user information (as returned by :php:`getUser()`)
   as an input and is expected to return a numerical value,
   :ref:`which is described later <authentication-service-chain>`.
 
 getGroupsFE
   This subtype exists only for the FE. The method to implement
-  is :code:`getGroups()`, which is tasked with gathering the various
+  is :php:`getGroups()`, which is tasked with gathering the various
   groups the user is part of (by default, taking into account such
-  configuration options as :code:`$GLOBALS['TYPO3_CONF_VARS']['FE']['IPmaskMountGroups']`
+  configuration options as
+  :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['IPmaskMountGroups']`
   and the fact that FE user groups may be locked to a given domain).
 
-  The :code:`getGroups()` method receives as arguments the user data
+  The :php:`getGroups()` method receives as arguments the user data
   and a list of already assigned groups, if any. It is expected to return
   an associative array containing the information about each group the
   user is member of (with the group's id as key).
@@ -148,13 +153,14 @@ getGroupsFE
 .. note::
 
    Before any of the above-mentioned methods are called, the authentication
-   process will call the :code:`initAuth()` method of each service. This
+   process will call the :php:`initAuth()` method of each service. This
    sets up a lot of data for the service. It also makes it possible to
    override part of the default settings with
    :ref:`service-specific options <configuration-service-configuration>`.
 
    This represents very advanced tuning and is not described here.
-   Please refer to :code:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService::initAuth()`
+   Please refer to
+   :php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService::initAuth()`
    to learn more about the possibilities offered during authentication services
    initialization.
 
@@ -171,14 +177,15 @@ decreasing priority and quality.
 
 However, for some subtypes, there are ways to stop the chain.
 
-For "processLoginDataBE" and "processLoginDataFE" subtypes, the :code:`processLoginData()`
+For "processLoginDataBE" and "processLoginDataFE" subtypes, the
+:php:`processLoginData()`
 method may return a numerical value of 200 or more. In such a case
 no further services are called and login data is not further
 processed. This makes it possible for a service to perform
 a form of final transformation on the login data.
 
-For "authUserFE" and "authUserBE" subtypes, the :code:`authUser()`
-method may return different values:
+For "authUserFE" and "authUserBE" subtypes, the :php:`authUser()` method may
+return different values:
 
 - a negative value indicates that the authentication has definitely failed
   and that no other "auth" service should be called up.
@@ -227,10 +234,10 @@ TYPO3 CMS and the remote system.
    users in the TYPO3 CMS database. It is recommended to store
    an arbitrary string in such case, making sure that such string
    is random enough for security reasons. TYPO3 CMS provides method
-   :code:`\TYPO3\CMS\Core\Crypto\Random::generateRandomHexString()`
+   :php:`\TYPO3\CMS\Core\Crypto\Random::generateRandomHexString()`
    which can be used for such a purpose.
 
-For the :code:`authUser()` method, you will want to take care
+For the :php:`authUser()` method, you will want to take care
 about the return values. If your service should be the final
 authority for authentication, it should not only have a high priority,
 but also return values which stop the service chain (i.e.
@@ -261,9 +268,7 @@ influence when services are called.
 It is possible to force TYPO3 CMS to go through the
 authentication process for **every** request no matter any
 existing session. By setting the following local configuration
-either for the FE or the BE:
-
-.. code-block:: php
+either for the FE or the BE::
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysFetchUser'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysAuthUser'] = true;
@@ -281,9 +286,7 @@ may not be necessary depending on what your service does exactly.
 
 A more fine-grained approach allows for triggering the
 authentication process only when a valid session does not
-yet exist. The settings are:
-
-.. code-block:: php
+yet exist. The settings are::
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_fetchUserIfNoSession'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_fetchUserIfNoSession'] = true;
@@ -296,9 +299,7 @@ yet exist. The settings are:
    need to repeat the process upon each request.
 
 The authentication process can also be forced to go through
-all services for the "getUser\*" subtype by setting:
-
-.. code-block:: php
+all services for the "getUser\*" subtype by setting::
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_fetchAllUsers'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_fetchAllUsers'] = true;

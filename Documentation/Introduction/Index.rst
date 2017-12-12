@@ -16,18 +16,15 @@ for example. This can be achieved without having to change the original
 code of TYPO3 CMS or of an extension.
 
 Services are simply PHP classes packaged inside an extension.
-The usual way to instatiate a class in TYPO3 CMS is:
+The usual way to instatiate a class in TYPO3 CMS is::
 
-.. code-block:: php
-
-   $object = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
+   $object = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+      \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
 
 
 Getting a service instance is achieved using a different API. The
 PHP class is not directly referenced. Instead a service is identified
-by its type:
-
-.. code-block:: php
+by its type::
 
    $serviceObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService('my_service_type');
 
@@ -70,7 +67,8 @@ Services are able to handle subtypes. Consider the services of type
 a total of six subtypes, each of which can be overridden independently
 by extensions.
 
-The base service class (:code:`\TYPO3\CMS\Core\Authentication\AuthenticationService`) provided
+The base service class
+(:php:`\TYPO3\CMS\Core\Authentication\AuthenticationService`) provided
 by extension "sv" is extended by both "saltedpasswords" and "rsaauth" extensions
 but for different subtypes ("authUserFE" and "authUserBE" for the former,
 "processLoginDataBE" and "processLoginDataFE" for the latter).
