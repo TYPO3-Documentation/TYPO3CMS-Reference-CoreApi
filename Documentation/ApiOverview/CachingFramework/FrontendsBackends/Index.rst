@@ -369,8 +369,7 @@ Currently, only memcache is supported by this backend.
 Warning and design constraints
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Memcached is by design a simple key-value store. Values must be strings and
-there is no relation between keys. Since the caching framework needs to structure it
+Memcached is by design a simple key-value store. Since the caching framework needs to structure it
 to store the identifier-data-tags relations, for each cache entry it stores an identifier->data,
 identifier->tags and a tag->identifiers entry.
 

@@ -91,9 +91,7 @@ is traversed and for each entry the value is expected to be a function
 reference which will be called. This allows many hooks to be called at the same
 place. The hooks can even rearrange the calling order if they dare.
 
-The syntax of a function reference (or object reference if
-:code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj` is used in the hook
-instead) can be seen in the API documentation of
+The syntax of a function reference can be seen in the API documentation of
 :code:`\TYPO3\CMS\Core\Utility\GeneralUtility`.
 
 .. note::

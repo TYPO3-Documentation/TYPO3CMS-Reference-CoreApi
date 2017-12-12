@@ -60,22 +60,6 @@ Global variables
 
 
  - :Variable:
-         $TYPO3\_DB
-   :Defined:
-         Bootstrap::initializeTypo3DbGlobal()
-   :Description:
-         An instance of the TYPO3 DB wrapper class, :code:`\TYPO3\CMS\Core\Database\DatabaseConnection`.
-         Formerly (before 8.2) this object had to be used for all interaction with the database.
-
-         .. attention::
-
-            You should NOT use this anymore. Use Doctrine instead!
-
-   :FE:
-         Yes
-
-
- - :Variable:
          $EXEC\_TIME
    :Defined:
          SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()
@@ -96,17 +80,6 @@ Global variables
          database (used in the frontend for preview of future and past dates)
    :FE:
          Yes
-
-
- - :Variable:
-         $PARSETIME\_START
-   :Defined:
-         SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()
-   :Description:
-         Time in milliseconds right after inclusion of the configuration.
-   :FE:
-         No
-
 
  - :Variable:
          $PAGES\_TYPES
@@ -171,9 +144,6 @@ Global variables
 
          ['callUserFunction'] + ['callUserFunction\_classPool']: Used by
          :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction` to store singleton objects.
-
-         ['getUserObj'] : Used by :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj` to store singleton
-         objects.
 
          ['RTEobj'] : Used to hold the current RTE object if any. See
          :code:`\TYPO3\CMS\Backend\Utility\BackendUtility`.

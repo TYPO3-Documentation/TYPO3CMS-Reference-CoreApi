@@ -98,8 +98,8 @@ Distribution configuration
 A distribution is technically handled as an extension. Therefore your
 can make use of all :ref:`configuration options <extension-options>` as needed.
 
-After saving the configuration, the signal
-:code:`afterExtensionConfigurationWrite` is dispatched. You may use this
+After installing the extension, the signal
+:code:`hasInstalledExtensions` is dispatched. You may use this
 to alter your website configuration (e.g. color scheme) on the fly.
 
 

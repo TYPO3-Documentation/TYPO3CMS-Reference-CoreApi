@@ -57,21 +57,26 @@ wrap          wrap field
 ============= ==========================
 
 Once you saved the configuration in the ExtensionManager, it will be stored in
-:php:`$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']`
-as a serialized array.
+:php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['your_extension_key']`
+as an array.
+
+To retrieve the configuration use the API:
+
+.. code-block:: php
+
+   $backendConfiguration = (bool)\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+        \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+    )->get('your_extension_key');
 
 To fetch the value of :ts:`temporaryDirectory` from the example above,
-you could simply use::
+you could simply use:
 
-   $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']);
-   $temporaryDirectory = $extensionConfiguration['temporaryDirectory'];
+.. code-block:: php
 
-Or even better use the API to get the information merged with the default settings
-if the settings have not been saved yet::
+$backendConfiguration = (bool)\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+        \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+    )->get('your_extension_key', 'temporaryDirectory');
 
-   /** @var \TYPO3\CMS\Extensionmanager\Utility\ConfigurationUtility $configurationUtility */
-   $configurationUtility = $this->objectManager->get('TYPO3\CMS\Extensionmanager\Utility\ConfigurationUtility');
-   $extensionConfiguration = $configurationUtility->getCurrentConfiguration('themes');
 
 You can also define nested options using the TypoScript notation:
 
@@ -86,7 +91,7 @@ You can also define nested options using the TypoScript notation:
 
 This will result in a multidimensional array::
 
-   $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']);
+   $extensionConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['your_extension_key'];
    $extensionConfiguration['directories.']['tmp']
    $extensionConfiguration['directories.']['cache']
 

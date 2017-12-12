@@ -171,12 +171,6 @@ The following caches exist in the TYPO3 CMS Core:
   - Content is compressed by default to reduce database memory and storage overhead.
   - **groups**: all, pages
 
-- cache_phpcode
-
-  - Code cache with **PhpFrontend** and **FileBackend**.
-  - Unused by core since TYPO3 CMS 6.0.
-  - **group**: system
-
 - cache_runtime
 
   - Runtime cache to store data specific for current request.
@@ -193,11 +187,6 @@ The following caches exist in the TYPO3 CMS Core:
 - l10n
 
   - Cache for the localized labels.
-  - **group**: system
-
-- extbase_object
-
-  - Contains general information about classes, name, interfaces implemented, etc..
   - **group**: system
 
 - extbase_reflection
@@ -234,14 +223,9 @@ Cache API
 
 The caching framework architecture is based on the following classes:
 
-- **\\TYPO3\\CMS\\Core\\Cache\\Cache**: Adapter class between TYPO3 FLOW cache logic and TYPO3 CMS core implementation.
-  Used by core and extensions to initialize the framework.
-  Creates singleton instances of :code:`\TYPO3\CMS\Core\Cache\CacheFactory` and :code:`\TYPO3\CMS\Core\Cache\CacheManager`.
 - **\\TYPO3\\CMS\\Core\\Cache\\CacheManager**: Returns the cache frontend of a specific cache.
   This is the main class used by core and extensions to access the instance of a specific cache. Handles configuration
   settings and default configuration.
-- **\\TYPO3\\CMS\\Core\\Cache\\CacheFactory**: Factory class to instantiate cache manager and caches. Extensions usually do
-  not need to fiddle with this class.
 - **\\TYPO3\\CMS\\Core\\Cache\\Frontend\\FrontendInterface**: Main interface to handle cache entries of a specific cache.
   Different frontends and further interfaces exist to handle different data types.
 - **\\TYPO3\\CMS\\Core\\Cache\\Backend\\BackendInterface**: Main interface that every valid storage backend must implement.

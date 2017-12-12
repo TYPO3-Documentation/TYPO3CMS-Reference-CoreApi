@@ -61,7 +61,7 @@ and used at a later point. ::
          // Hook to handle own checks
       if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['linkvalidator']['checkLinks'])) {
          foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['linkvalidator']['checkLinks'] as $key => $classRef) {
-            $this->hookObjectsArr[$key] = \TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj($classRef);
+            $this->hookObjectsArr[$key] = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance($classRef);
          }
       }
    }
@@ -94,7 +94,7 @@ extension keys. ::
 
 - **function\_reference :** A function reference using the syntax of
   :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
-  or :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj()`
+  or :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
   depending on implementation of the hook.
 
 The above syntax is how a hook is typically defined but it might
@@ -102,7 +102,7 @@ differ and it might not be a hook at all, but just configuration.
 Depends on implementation in any case.
 
 The following example shows a hook from :code:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`. In this case the
-function :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj()` is used for the hook. The
+function :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` is used for the hook. The
 function\_reference is referring to the class name only since the
 function returns an object instance of that class. The method name to
 call is predefined by the hook, in this case
@@ -113,7 +113,7 @@ variables from :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()
        // Hook for preprocessing of the content for formmails:
    if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['sendFormmail-PreProcClass'])) {
        foreach($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['sendFormmail-PreProcClass'] as $_classRef) {
-           $_procObj = \TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj($_classRef);
+           $_procObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance($_classRef);
            $EMAIL_VARS = $_procObj->sendFormmail_preProcessVariables($EMAIL_VARS, $this);
        }
    }
@@ -123,14 +123,14 @@ RTE transformations. It is not a "hook" in the strict
 sense, but the same principles are used. In this case the "index" key
 is defined to be the transformation key name, not a random integer
 since we do not iterate over the array as usual.
-:code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj()` is also used. ::
+:code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` is also used. ::
 
-   if ($_classRef = $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation'][$cmd]) {
-       $_procObj = \TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj($_classRef);
-       $_procObj->pObj = &$this;
-       $_procObj->transformationKey = $cmd;
-       $value = $_procObj->transform_db($value, $this);
-   }
+    if ($className = $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation'][$cmd]) {
+        $_procObj = GeneralUtility::makeInstance($className);
+        $_procObj->pObj = $this;
+        $_procObj->transformationKey = $cmd;
+        $value = $_procObj->transform_db($value, $this);
+    }
 
 A classic hook also from :code:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`. This one is based on
 :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()` and it passes a reference to :code:`$this`
