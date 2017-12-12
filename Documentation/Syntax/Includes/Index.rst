@@ -9,55 +9,74 @@ You can also add include-instructions in TypoScript code. Availability
 depends on the context, but it works with TypoScript templates, Page
 TSconfig and User TSconfig.
 
-Since TYPO3 version 9 a new syntax for importing external TypoScript files has been introduced,
-which acts as a preprocessor before the actual parsing (Condition evaluation) is made.
+Since TYPO3 version 9 a new syntax for importing external TypoScript files has
+been introduced, which acts as a preprocessor before the actual parsing
+(condition evaluation) takes place.
 
-It's main purpose is ease the use of TypoScript includes and make it easier for integrators and
-frontend developers to work with distributed TypoScript files. The syntax is inspired by SASS
-imports and works as follows:
+Its main purpose is ease the use of TypoScript includes and making it easier
+for integrators and frontend developers to work with distributed TypoScript
+files. The syntax is inspired by SASS imports and works as follows:
 
 .. code-block:: typoscript
 
-	# Import a single file
-	@import 'EXT:myproject/TypoScript/Configuration/randomfile.typoscript'
+   # Import a single file
+   @import 'EXT:myproject/TypoScript/Configuration/randomfile.typoscript'
 
-	# Import multiple files in a single directory, sorted by file name
-	@import 'EXT:myproject/TypoScript/Configuration/*.typoscript'
+   # Import multiple files of a single directory in file name order
+   @import 'EXT:myproject/TypoScript/Configuration/*.typoscript'
 
-	# Import all files in a directory
-	@import 'EXT:myproject/TypoScript/Configuration/'
+   # Import all files of a directory
+   @import 'EXT:myproject/TypoScript/Configuration/'
 
-	# It's possible to omit the file ending, then "typoscript" is automatically added
-	@import 'EXT:myproject/TypoScript/Configuration/'
+   # The filename extension can be omitted and defaults to .typoscript
+   @import 'EXT:myproject/TypoScript/Configuration/'
 
-The main benefits of `@import` over using `<INCLUDE_TYPOSCRIPT>` (see below) are:
-- Less error-prone when adding statements to TypoScript
-- Easier to read what should be included (files, folders - instead of `FILE:` and `DIR:` syntax)
-- @import is more speaking than a pseudo-XML syntax
+The main benefits of :ts:`@import` compared to :ts:`<INCLUDE_TYPOSCRIPT>`are:
+
+- is less error-prone
+
+- @import is expressive and self-explanatory
+
+- better clarifies wether files or folders are imported (in comparison to the
+  old `FILE:` and `DIR:` syntax)
+
 
 The following rules apply:
-- If multiple files are found, the file name is important in which order the files (sorted
-alphabetically by filename)
-- Recursive inclusion of files (@import within @import is possible)
-- It is not possible to use a condition as possible with <INCLUDE_TYPOSCRIPT condition=""> as its
-sole purpose is to include files, which happens before the actual real condition matching happens,
-and the INCLUDE_TYPOSCRIPT condition syntax is a conceptual mistake, and should be avoided.
-- Both `<INCLUDE_TYPOSCRIPT>` and `@import` can work side-by-side in the same project
-- If a directory is included, it will not include files recursively
-- Quoting of the filename is necessary, both double quotes (") and single tickst (') can be used
 
-The syntax is designed to stay, and @import is not intended to be extended with more logic in the
-future. However, it may be possible that TypoScript will get more preparsing logic via the @ annotation.
+- Multiple files are imported in alphabetical order.
 
-Under the hood, Symfony Finder is used to detect files. This makes globbing (* syntax) possible.
+- Recursive is allowed. Imported files can have :ts:`@import` statements.
+
+- The :ts:`@import` statement does not take a condition clause as the old
+  :ts:`<INCLUDE_TYPOSCRIPT condition="">` statement did. That kind of condition
+  should be considered a conceptual mistake. It should not be used.
+
+- Both the old syntax :ts:`<INCLUDE_TYPOSCRIPT>` and the new one :ts:`@import`
+  can be used at the same time.
+
+- Directory imports are not recursive, meaning that a directory import does
+  not automatically travel down its subdirectories.
+
+- Quoting the filename is necessary with the new syntax. Either double quotes
+  (") or single quotes (') can be used.
+
+*Internals:*
+Under the hood, Symfony Finder is use to find the file and provides the
+"globbing" feature (\* syntax).
+
+*Outlook:*
+The syntax is designed to stay and there are absolutely not plans to
+extend the :ts:`@import` statement in the future. However, the
+:ts:`@...` syntax for annotations may be used to add more preparsing logic to
+TypoScript in future.
 
 
-Alternative Syntax
-""""""""""""""""""
 
-You can also add include-instructions in another way in TypoScript code.
+Alternative, traditional Syntax
+"""""""""""""""""""""""""""""""
 
-An include-instruction can e.g. look like this:
+A tradional include-instruction will work as well and for example looks like
+this:
 
 .. code-block:: typoscript
 
@@ -82,7 +101,7 @@ FILE     A reference to a file relative to :code:`PATH_site`.
 
          Also paths *relative to the including file* can be
          passed to INCLUDE_TYPOSCRIPT, if the inclusion is called from inside a
-         file. These paths start with :code:`./` or :code:`../`. The :code:`./`
+         file. These paths start with :file:`./` or :file:`../`. The :file:`./`
          is needed to distinguish them from paths relative to PATH_SITE. This
          mechanism allows simple, nested TypoScript templates that can be moved
          or copied without the need to adapt all includes.
@@ -92,7 +111,7 @@ FILE     A reference to a file relative to :code:`PATH_site`.
          of extension "myext", subdirectory :file:`directory/file.txt`.
 
 DIR      This includes all files from a directory relative to :code:`PATH_site`,
-         including subdirectories. If the optional property :code:`extensions=".."`
+         including subdirectories. If the optional property :file:`extensions="..."`
          is provided, only files with these file extensions are included;
          multiple extensions are separated by comma. This allows e.g. to include
          both setup and constants from the same directory tree, using different
@@ -109,7 +128,7 @@ DIR      This includes all files from a directory relative to :code:`PATH_site`,
 
          This includes all those files from the directory
          :file:`fileadmin/templates/` and from subdirectories, which have the
-         file extension :code:`.typoscript`.
+         file extension :file:`.typoscript`.
 =======  ==========================================================================
 
 
@@ -139,9 +158,9 @@ purpose of covering as many use cases as possible. In TYPO3 CMS we often
 have many different ways of configuring something, with pros and cons
 and the extended inclusion command serves this purpose of letting you
 organize your files with different directories using whichever extension
-fits your needs better (e.g., :code:`.typoscript`) and/or filter by extension (e.g.,
-because you may have :code:`.typoscript` and :code:`.txt` in the directory or because you prefer
-having :code:`.typoscript<something>` as extension).
+fits your needs better (e.g., :file:`.typoscript`) and/or filter by extension (e.g.,
+because you may have :file:`.typoscript` and :file:`.txt` in the directory or because you prefer
+having :file:`.typoscript<something>` as extension).
 
 It is recommended to separate files with different directories:
 

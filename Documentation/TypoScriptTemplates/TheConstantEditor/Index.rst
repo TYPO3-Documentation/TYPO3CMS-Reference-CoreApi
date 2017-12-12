@@ -13,7 +13,9 @@ constant editor to make simple configuration of a template even
 easier than constants already make it themselves.
 
 .. figure:: ../../Images/TemplatesConstantEditor.png
-   :alt: The Constant Editor showing some categories with constants.
+   :alt: The Constant Editor showing some categories with constants
+
+   The Constant Editor showing some categories with constants
 
 When the "Constant Editor" parses the template, *all*
 comments before every constant-definition are registered. You can
