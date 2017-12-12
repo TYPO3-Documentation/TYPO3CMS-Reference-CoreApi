@@ -22,7 +22,7 @@ function, please mark it within the phpDoc param part::
 
 
 For a whole function inside one of the TYPO3 CMS core classes, use the
-phpDoc :code:`@deprecated` annotation::
+phpDoc `@deprecated` annotation::
 
    /**
     * ...
@@ -41,10 +41,10 @@ It is also possible to deprecate finer-grained elements, such as
 TypoScript or TSconfig properties. In such a case, a log message can be
 used inside the code itself::
 
-	if ($fooBar !== null) {
-		trigger_error('A useful message', E_USER_DEPRECATED);
-		$this->useFooBar = true;
-	}
+   if ($fooBar !== null) {
+      trigger_error('A useful message', E_USER_DEPRECATED);
+      $this->useFooBar = true;
+   }
 
 
 Anyone can submit a patch to remove deprecated elements.
