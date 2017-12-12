@@ -9,7 +9,6 @@
 
 
 .. toctree::
-   :titlesonly:
 
    Presentation/Index
    Backend/Index

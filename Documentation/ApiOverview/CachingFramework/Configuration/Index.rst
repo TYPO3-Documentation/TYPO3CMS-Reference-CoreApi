@@ -77,4 +77,5 @@ Example entry to switch the *runtime* cache to use the **null** backend:
 
 .. code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['cache_runtime']['backend'] = 'TYPO3\CMS\Core\Cache\Backend\NullBackend';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']
+      ['cache_runtime']['backend'] = 'TYPO3\CMS\Core\Cache\Backend\NullBackend';

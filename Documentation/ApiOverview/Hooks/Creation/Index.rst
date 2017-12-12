@@ -1,10 +1,6 @@
 .. include:: ../../../Includes.txt
 
 
-
-
-
-
 .. _hooks-creation:
 
 Creating hooks
@@ -28,7 +24,8 @@ TYPO3.
   function name to call. This method is mostly useful for small-scale
   hooks in the sources.
 
-- :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` - Create an object from a user defined
+- :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` - Create an
+  object from a user defined
   file/class. The method called in the object is fixed by the hook, so
   this is the non-flexible part. But it is cleaner in other ways, in
   particular that you can even call many methods in the object and you
@@ -42,15 +39,16 @@ Here follows some examples.
 .. _hooks-creation-object:
 
 Using \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-::
+Data submission to extensions::
 
-	// Hook for processing data submission to extensions
-	foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['checkDataSubmission'] ?? [] as $className) {
-		$_procObj = GeneralUtility::makeInstance($className);
-		$_procObj->checkDataSubmission($this);
-	}
+   // Hook for processing data submission to extensions
+   foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']
+         ['checkDataSubmission'] ?? [] as $className) {
+      $_procObj = GeneralUtility::makeInstance($className);
+      $_procObj->checkDataSubmission($this);
+   }
 
 
 .. _hooks-creation-function:
@@ -58,13 +56,13 @@ Using \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()
 Using with \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-::
+Constructor post-processing::
 
-       // Call post-processing function for constructor:
+      // Call post-processing function for constructor:
    if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['tslib_fe-PostProc'])) {
-       $_params = array('pObj' => &$this);
-       foreach($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['tslib_fe-PostProc'] as $_funcRef) {
-           \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($_funcRef,$_params, $this);
-       }
+      $_params = array('pObj' => &$this);
+      foreach($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['tslib_fe-PostProc'] as $_funcRef) {
+         \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($_funcRef,$_params, $this);
+      }
    }
 

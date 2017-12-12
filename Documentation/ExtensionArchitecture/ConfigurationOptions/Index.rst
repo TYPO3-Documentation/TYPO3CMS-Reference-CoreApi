@@ -60,22 +60,18 @@ Once you saved the configuration in the ExtensionManager, it will be stored in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['your_extension_key']`
 as an array.
 
-To retrieve the configuration use the API:
-
-.. code-block:: php
+To retrieve the configuration use the API::
 
    $backendConfiguration = (bool)\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
-    )->get('your_extension_key');
+      \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)
+      ->get('your_extension_key');
 
 To fetch the value of :ts:`temporaryDirectory` from the example above,
-you could simply use:
+you could simply use::
 
-.. code-block:: php
-
-$backendConfiguration = (bool)\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
-    )->get('your_extension_key', 'temporaryDirectory');
+   $backendConfiguration = (bool)\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+      \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)
+      ->get('your_extension_key', 'temporaryDirectory');
 
 
 You can also define nested options using the TypoScript notation:

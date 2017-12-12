@@ -10,7 +10,8 @@
 The "tce\_db.php" API
 ^^^^^^^^^^^^^^^^^^^^^
 
-This script is a gateway for POST forms to class :code:`\TYPO3\CMS\Core\DataHandling\DataHandler`. It
+This script is a gateway for POST forms to class
+:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. It
 has historically been *the* script to which data was posted when you
 wanted to update something in the database.
 

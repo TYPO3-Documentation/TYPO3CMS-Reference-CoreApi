@@ -278,7 +278,7 @@ The core takes care of creating and updating required database tables "on the fl
 
 .. note::
 
-   However, caching framework tables which are not needed anymore are not deleted automatically. That is why the database analyzer in the install tool will propose you to rename/delete caching framework tables after you changed the caching backend to a non-database one. 
+   However, caching framework tables which are not needed anymore are not deleted automatically. That is why the database analyzer in the install tool will propose you to rename/delete caching framework tables after you changed the caching backend to a non-database one.
 
 ..
 
@@ -369,9 +369,10 @@ Currently, only memcache is supported by this backend.
 Warning and design constraints
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Memcached is by design a simple key-value store. Since the caching framework needs to structure it
-to store the identifier-data-tags relations, for each cache entry it stores an identifier->data,
-identifier->tags and a tag->identifiers entry.
+Memcached is a simple key-value store by design . Since the caching framework
+needs to structure it to store the identifier-data-tags relations, for each
+cache entry it stores an identifier->data, identifier->tags and a
+tag->identifiers entry.
 
 This leads to structural problems:
 

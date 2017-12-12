@@ -201,8 +201,8 @@ extensions with the name prefix :file:` ext_`.
          If this file is present the EM provides you with an interface for
          editing the configuration values defined in the file. The result is
          written as an array to :file:`LocalConfiguration.php`
-         in the variable :file:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][`
-         :file:`*extension_key*` :file:`]`
+         in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][`
+         :code:`*extension_key*` :php:`]`
 
          If you want to do user processing before the content from the
          configuration form is saved (or shown for that sake) there is a hook

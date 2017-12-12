@@ -7,8 +7,9 @@ Parsing a Data Structure
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can convert a Data Structure XML document into a PHP array by using the
-function :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::xml2array()`.
-The reverse transformation is achieved using :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::array2xml()`.
+function :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::xml2array()`.
+The reverse transformation is achieved using
+:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::array2xml()`.
 
 If the Data Structure uses referenced sheets, for example
 
@@ -21,8 +22,8 @@ If the Data Structure uses referenced sheets, for example
      </sheets>
    </T3DataStructure>
 
-additional operations must be performed to resolve the sheets content,
-see class :php:`FlexFormTools`.
+Additional operations must be performed to resolve the sheet's content. See
+class :php:`FlexFormTools`.
 
 
 

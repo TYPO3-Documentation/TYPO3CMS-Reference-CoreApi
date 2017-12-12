@@ -11,6 +11,7 @@ Global variables
 ^^^^^^^^^^^^^^^^
 
 .. note::
+
    Variables in italics *may* be set in a script prior to
    the bootstrap process so they are optional.
 

@@ -92,7 +92,7 @@ reference which will be called. This allows many hooks to be called at the same
 place. The hooks can even rearrange the calling order if they dare.
 
 The syntax of a function reference can be seen in the API documentation of
-:code:`\TYPO3\CMS\Core\Utility\GeneralUtility`.
+:php:`\TYPO3\CMS\Core\Utility\GeneralUtility`.
 
 .. note::
 

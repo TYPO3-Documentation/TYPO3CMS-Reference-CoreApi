@@ -51,7 +51,7 @@ part of :php:`$TYPO3_CONF_VARS[SYS]`:
 
          Default: :php:`\TYPO3\CMS\Core\Error\ErrorHandler`. This class will register itself
          as error handler. It is able to write error messages to all available
-         logging systems in TYPO3 (see `Logging Framework`).
+         logging systems in TYPO3. See :ref:`logging` for more.
 
          Additionally the errors can be displayed as flash messages in the
          Backend or in the adminpanel in Frontend. The flash messages in
@@ -160,7 +160,7 @@ part of :php:`$TYPO3_CONF_VARS[SYS]`:
          boolean
    :Description:
          Configures whether logging is enabled. Logging itself can be
-         configured in detail via the `Logging Framework`.
+         configured in detail via the :ref:`Logging Framework <logging>`.
 
 
 The table below shows which values can be set by the user and which

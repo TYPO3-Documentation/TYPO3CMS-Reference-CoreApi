@@ -3,8 +3,6 @@
 
 
 
-
-
 .. _globals-constants:
 
 =========

@@ -209,27 +209,27 @@ Command keywords and values
          not set, default is the same as the zip-file)
 
 It is unlikely that you will need to use this internally in your
-scripts like you will need :code:`\TYPO3\CMS\Core\DataHandling\DataHandler`. It is fairly uncommon to
-need the file manipulations in own scripts unless you make a special
-application. Therefore the most typical usage of this API is from
-:ref:`\TYPO3\CMS\Backend\Controller\File\FileController <tce-file-api>` and the core scripts that are activated by the "File >
-List" module.
+scripts like you will need :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. It
+is fairly uncommon to need the file manipulations in own scripts unless you
+make a special application. Therefore the most typical usage of this API is
+from :ref:`\TYPO3\CMS\Backend\Controller\File\FileController <tce-file-api>`
+and the core scripts that are activated by the "File > List" module.
 
-However, if you need it this is an example (taken from :file:`ImportExportController.php`)
-of how to initialize the usage.
+However, if needed, this is an example of how to initialize usage. It is taken
+from :file:`ImportExportController.php`:
 
 .. code-block:: php
    :linenos:
 
-       // Initializing:
-		$this->fileProcessor = GeneralUtility::makeInstance(ExtendedFileUtility::class);
-		$this->fileProcessor->setActionPermissions();
+      // Initializing:
+   $this->fileProcessor = GeneralUtility::makeInstance(ExtendedFileUtility::class);
+   $this->fileProcessor->setActionPermissions();
 
-		$this->fileProcessor->start($this->file);
-		$this->fileProcessor->processData();
+   $this->fileProcessor->start($this->file);
+   $this->fileProcessor->processData();
 
-Line 2 makes an instance of the class.
-Then the file operation permissions are loaded from the user object in
-line 3. Finally, the file command array is loaded in line 5 (and
-internally additional configuration takes place from
-:code:`$GLOBALS['TYPO3_CONF_VARS']`!). In line 6 the command map is executed.
+*Explanation:* Line 2 creates an instance of the class. Then the file operation
+permissions are loaded from the user object in line 3. Finally, the file
+command array is loaded in line 5 and internally additional configuration takes
+place according to :php:`$GLOBALS['TYPO3_CONF_VARS']`!. In line 6 the command
+map is executed.
