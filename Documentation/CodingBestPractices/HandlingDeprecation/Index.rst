@@ -16,7 +16,7 @@ function, please mark it within the phpDoc param part::
 
    /**
     * ...
-    * @param string DEPRECATED since TYPO3 CMS 7 - is not used anymore because...
+    * @param string DEPRECATED since TYPO3 CMS 9 - is not used anymore because...
     * ...
     */
 
@@ -27,31 +27,24 @@ phpDoc :code:`@deprecated` annotation::
    /**
     * ...
     * @return ...
-    * @deprecated since TYPO3 CMS 7, will be removed in TYPO3 CMS 8, use FUNCNAME instead
+    * @deprecated
     */
 
 
 At the beginning of the deprecated function you must add the following
 code::
 
-   \TYPO3\CMS\Core\Utility\GeneralUtility::logDeprecatedFunction();
+   trigger_error('since TYPO3 CMS 9, will be removed in TYPO3 CMS 10, use FUNCNAME instead', E_USER_DEPRECATED);
 
-
-This reads the :code:`@deprecated` annotation and logs its comment into
-the deprecation log.
 
 It is also possible to deprecate finer-grained elements, such as
 TypoScript or TSconfig properties. In such a case, a log message can be
 used inside the code itself::
 
-	if ($fooBar !== NULL) {
-		\TYPO3\CMS\Core\Utility\GeneralUtility::deprecationLog(
-			'Usage of foobar is deprecated since TYPO3 CMS 7, ' .
-			'will be removed in TYPO3 CMS 8, use FUNCNAME instead.'
-		);
-		$this->useFooBar = TRUE;
+	if ($fooBar !== null) {
+		trigger_error('A useful message', E_USER_DEPRECATED);
+		$this->useFooBar = true;
 	}
 
 
 Anyone can submit a patch to remove deprecated elements.
-
