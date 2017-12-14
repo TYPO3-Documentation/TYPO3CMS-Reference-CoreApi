@@ -175,7 +175,22 @@ The trick is here that "ckeditor" registers his resolver with ah higher priority
 Result array
 ------------
 
-The array returned by every node looks like:
+Each node, no matter if it is a container, an element, or a :ref:`node expansion <FormEngine-Rendering-NodeExpansion>`,
+must return an array with specific data keys it wants to add. It is the job of the parent node that calls the sub node to
+merge child node results into its own result. This typically happens by merging :php:`$childResult['html']`
+into an appropriate position of own HTML, and then calling :php:`$this->mergeChildReturnIntoExistingResult()` to add
+other array child demands like :php:`stylesheetFiles` into its own result.
+
+Container and element nodes should use the helper method :php:`$this->initializeResultArray()` to
+have a result array initialized that is understood by a parent node.
+
+Only if extending existing element via :ref:`node expansion <FormEngine-Rendering-NodeExpansion>`, the result array
+of a child can be slightly different. For instance, a :php:`FieldControl` "wizards" must have a :php:`iconIdentifier`
+result key key. Using :php:`$this->initializeResultArray()` is not appropriate in these cases but depends on the specific
+expansion type. See below for more details on node expansion.
+
+The result array for container and element nodes looks like this. :php:`$resultArray = $this->initializeResultArray()`
+takes care of basic keys:
 
 .. code-block:: php
 
@@ -191,8 +206,8 @@ JavaScript is added only via RequireJS modules, the registration allows an init 
 module is loaded by the browser.
 
 .. note::
-   The result array actually contains a couple of more fields, but those will vanish with further FormEngine refactoring
-   steps. If using them, be prepared to adapt extensions later.
+   The result array handled by :php:`$this->mergeChildReturnIntoExistingResult()` contains a couple of more keys, those
+   will vanish with further FormEngine refactoring steps. If using them, be prepared to adapt extensions later.
 
 
 .. _FormEngine-Rendering-NodeExpansion:
