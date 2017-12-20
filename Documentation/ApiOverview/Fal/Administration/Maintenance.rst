@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _administration-maintenance:
+.. _fal-administration-maintenance:
 
 Maintenance
 ^^^^^^^^^^^
@@ -11,7 +11,7 @@ to  maintain a healthy TYPO3 CMS installation with the
 File Abstraction Layer.
 
 
-.. _administration-maintenance-scheduler:
+.. _fal-administration-maintenance-scheduler:
 
 Scheduler tasks
 """""""""""""""
@@ -38,7 +38,7 @@ File Abstraction Layer: Extract metadata in storage
   This task is defined per Storage.
 
 
-.. _administration-maintenance-processed-files:
+.. _fal-administration-maintenance-processed-files:
 
 Processed files
 """""""""""""""
@@ -47,7 +47,7 @@ If you change some graphics-related settings, it may be necessary
 to force a regeneration of all processed files. This can be achieved
 by deleting all existing processed files via the Install Tool.
 
-.. figure:: ../../Images/AdministrationCleanupProcessedFiles.png
+.. figure:: ../Images/AdministrationCleanupProcessedFiles.png
    :alt: Cleaning up processed files
 
    Removing all processed files in the Install Tool

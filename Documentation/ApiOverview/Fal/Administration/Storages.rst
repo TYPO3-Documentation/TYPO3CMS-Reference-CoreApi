@@ -1,14 +1,14 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _administration-storages:
+.. _fal-administration-storages:
 
 File Storages
 ^^^^^^^^^^^^^
 
 File Storages have a few properties which deserve more explanations.
 
-.. figure:: ../../Images/AdministrationFileStorageAccessTab.png
+.. figure:: ../Images/AdministrationFileStorageAccessTab.png
    :alt: The Access tab of a File Storage
 
    Special properties in the Access tab of a File Storage

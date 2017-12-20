@@ -1,8 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _Admin-Permissions:
-.. _administration-permissions:
+.. _fal-administration-permissions:
 
 Permissions
 ^^^^^^^^^^^
@@ -11,7 +10,7 @@ Permissions in the File Abstraction Layer are the result of a
 combination of various mechanisms.
 
 
-.. _administration-permissions-system:
+.. _fal-administration-permissions-system:
 
 System permissions
 """"""""""""""""""
@@ -25,7 +24,7 @@ not allow access to a resource (e.g. some file is read-only in the
 local file system).
 
 
-.. _administration-permissions-mounts:
+.. _fal-administration-permissions-mounts:
 
 File mounts
 """""""""""
@@ -36,8 +35,7 @@ an obvious permission restriction: users will never be able to act
 on a file or folder outside of their allotted file mounts.
 
 
-.. _admin-user-permissions:
-.. _administration-permissions-user:
+.. _fal-administration-permissions-user:
 
 User permissions
 """"""""""""""""
@@ -80,8 +78,7 @@ and in the Backend User Group record are taken into account and treated as
 default permissions for all Storages.
 
 
-.. _Admin-User-Permissions-Per-Storage:
-.. _administration-permissions-user-storage:
+.. _fal-administration-permissions-user-storage:
 
 User permissions per storage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -120,8 +117,7 @@ The following example grants all permission for the Storage with uid "1":
 
 
 
-.. _Permissions-Details:
-.. _administration-permissions-user-details:
+.. _fal-administration-permissions-user-details:
 
 User permissions details
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -188,7 +184,7 @@ recursivedeleteFolder
   Remove a folder even if it has contents; needs write folder permissions.
 
 
-.. _administration-permissions-upload-folder:
+.. _fal-administration-permissions-upload-folder:
 
 Default upload folder
 """""""""""""""""""""
@@ -213,7 +209,7 @@ which makes it possible to define a default upload folder for
 a given field of a given table (using custom TSconfig).
 
 
-.. _administration-permissions-frontend:
+.. _fal-administration-permissions-frontend:
 
 Frontend permissions
 """"""""""""""""""""
@@ -227,4 +223,4 @@ developers to create tools which make use of these permissions.
 As an example, you may want to take a look at extension
 `fal_securedownload <https://typo3.org/extensions/repository/view/fal_securedownload>`_
 which also makes use of the "Is publicly available?" property of
-:ref:`File Storages <administration-storages>`.
+:ref:`File Storages <fal-administration-storages>`.

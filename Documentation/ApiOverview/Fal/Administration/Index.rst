@@ -1,8 +1,7 @@
-.. include:: ../Includes.txt
+.. include:: ../../../Includes.txt
 
+.. _fal-administration:
 
-.. _Administrators:
-.. _administration:
 
 Administration
 --------------
@@ -10,7 +9,7 @@ Administration
 
 .. toctree::
 
-   Permissions/Index
-   Storages/Index
-   Maintenance/Index
+   Permissions
+   Storages
+   Maintenance
 
