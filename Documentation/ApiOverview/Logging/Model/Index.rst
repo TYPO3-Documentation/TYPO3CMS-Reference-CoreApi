@@ -6,8 +6,7 @@
 The LogRecord model
 ^^^^^^^^^^^^^^^^^^^
 
-All logging data is modeled using
-:ref:`\\TYPO3\\CMS\\Core\\Log\\LogRecord <t3cmsapi:TYPO3\\CMS\\Core\\Log\\LogRecord>`.
+All logging data is modeled using :php:`\TYPO3\CMS\Core\Log\LogRecord`.
 
 This model has the following properties:
 
@@ -42,7 +41,7 @@ A :code:`LogRecord` can be processed using :ref:`LogProcessors <logging-processo
 or :ref:`LogWriters <logging-writers>`. :code:`LogProcessors` are meant to add values
 to the :code:`data` property of :code:`LogRecord`. For example,
 if you would like to add a stack trace, use
-:ref:`\\TYPO3\\CMS\\Core\\Log\\Processor\\IntrospectionProcessor <t3cmsapi:TYPO3\\CMS\\Core\\Log\\Processor\\IntrospectionProcessor>`.
+:php:`\TYPO3\CMS\Core\Log\Processor\IntrospectionProcessor`.
 
 :code:`LogWriters` are used to write a :code:`LogRecord` to a particular target,
 for example a log file.

@@ -20,8 +20,8 @@ These constants are defined at various points during the bootstrap sequence.
    To make the table below a bit more compact, namespaces were left out. Here
    are the fully qualified class names referred to below:
 
-   - "SystemEnvironmentBuilder" = :ref:`t3cmsapi:TYPO3\\CMS\\Core\\Core\\SystemEnvironmentBuilder`
-   - "Bootstrap" = :ref:`t3cmsapi:TYPO3\\CMS\\Core\\Core\\Bootstrap`
+   - "SystemEnvironmentBuilder" = :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder`
+   - "Bootstrap" = :php:`\TYPO3\CMS\Core\Core\Bootstrap`
 
 
 Table 1: Traditional List
@@ -39,10 +39,10 @@ Table 1: Traditional List
  - :Constant:
          TYPO3\_MODE
    :Defined:
-         :ref:`t3cmsapi:TYPO3\\CMS\\Backend\\Http\\Application`::defineLegacyConstants()
-         :ref:`t3cmsapi:TYPO3\\CMS\\Core\\Console\\CommandApplication`::defineLegacyConstants()
-         :ref:`t3cmsapi:TYPO3\\CMS\\Frontend\\Http\\Application`::defineLegacyConstants()
-         :ref:`t3cmsapi:TYPO3\\CMS\\Install\\Http\\Application`::defineLegacyConstants()
+         :php:`\TYPO3\CMS\Backend\Http\Application::defineLegacyConstants()`
+         :php:`\TYPO3\CMS\Core\Console\CommandApplication::defineLegacyConstants()`
+         :php:`\TYPO3\CMS\Frontend\Http\Application::defineLegacyConstants()`
+         :php:`\TYPO3\CMS\Install\Http\Application::defineLegacyConstants()`
    :Description:
          Mode of TYPO3: Set to either "FE" or "BE" depending on frontend or
          backend execution and context.
@@ -141,7 +141,7 @@ Table 1: Traditional List
 Table 2: Base Constants
 -----------------------
 
-Check :ref:`t3cmsapi:TYPO3\\CMS\\Core\\Core\\SystemEnvironmentBuilder::defineBaseConstants`
+Check :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder::defineBaseConstants()`
 for updates.
 
 

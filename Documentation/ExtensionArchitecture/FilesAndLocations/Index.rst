@@ -167,8 +167,7 @@ extensions with the name prefix :file:` ext_`.
 
             Use such a file if you absolutely need to load some TS (because you
             would get serious errors without it). Otherwise static templates or
-            usage of the :ref:`Extension Management API
-            <t3cmsapi:TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility>`
+            usage of the *Extension Management API* of class :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility`
             are preferred.
 
 
@@ -183,8 +182,7 @@ extensions with the name prefix :file:` ext_`.
 
             Use such a file if you absolutely need to load some TS (because you
             would get serious errors without it). Otherwise static templates or
-            usage of the :ref:`Extension Management API
-            <t3cmsapi:TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility>`
+            usage of the *Extension Management API* of class :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility`
             are preferred.
 
 

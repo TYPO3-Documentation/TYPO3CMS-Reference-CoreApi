@@ -14,7 +14,7 @@ and :ref:`XCLASS <xclasses>` handling.
 
 As a developer you should always instantiate classes either through
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` or with the Extbase
-:ref:`ObjectManager <t3cmsapi:TYPO3\\CMS\\Extbase\\Object\\ObjectManager>`
+:php:`\TYPO3\CMS\Extbase\Object\ObjectManager>`
 (which internally uses :php:`makeInstance()` again).
 
 .. _autoloading_since_typo3_7:
