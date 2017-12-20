@@ -1,59 +1,27 @@
-.. include:: ../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _introduction:
+.. _fal_introduction:
 
 Introduction
 ------------
 
-
-.. _about:
-
-About this document
-^^^^^^^^^^^^^^^^^^^
-
-This document contains information about the File Abstraction Layer (FAL),
+This part of the Core API document contains details about the File Abstraction Layer (FAL),
 TYPO3 CMS' toolbox for handling media. It explains its architecture and
 concepts and details what a web site administrator should know about
-FAL maintenance and permissions. Finally this manual provides a number
-of examples showing how to use the File Abstraction Layer in your own
-code.
+FAL maintenance and permissions.
 
+Content related assets - mostly videos and images - are accessible through
+a *file abstraction layer* API and never referenced directly throughout
+the system.
 
-.. _what-s-new:
+The API abstracts physical file assets storage within the system. It allows to
+store, manipulate and access assets with different *Digital Assets Management Systems*
+transparently within the system, allows high availability cloud storages
+and assets providers. Assets can be enriched with meta data like description information,
+authors, and copyright. This information is stored in local database tables
+and all access to assets used for instance in content elements or managed
+through the backend uses the FAL API.
 
-What's new
-^^^^^^^^^^
-
-This is the first complete version of this document. This does not mean
-that it provides an exhaustive coverage of the topic, but at least that
-it explores all important parts of it and that there no empty chapters
-left over.
-
-
-.. _credits:
-
-Credits
-^^^^^^^
-
-This document was originally written by the FAL Team and expanded by the
-Documentation Team based on many contributions from the community.
-
-
-.. _feedback:
-
-Feedback
-^^^^^^^^
-
-For general questions about the documentation get in touch by writing
-to `documentation@typo3.org <mailto:documentation@typo3.org>`_ .
-
-If you find a bug in this manual, please file an issue in this
-manual's bug tracker:
-https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-FileAbstractionLayer/issues
-
-Maintaining quality documentation is hard work and the Documentation
-Team is always looking for volunteers. If you feel like helping please
-join the documentation mailing list (typo3.projects.documentation on
-lists.typo3.org).
-
+Finally this manual provides a number of examples showing how to use the
+File Abstraction Layer in your own code.
