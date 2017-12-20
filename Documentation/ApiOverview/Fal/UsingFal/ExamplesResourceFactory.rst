@@ -22,7 +22,7 @@ Getting the default Storage
 Of all available Storages, one may be marked as default. This
 is the Storage that will be used for any operation whenever
 no Storage has been explicitly chosen or defined (for example,
-when not using a :ref:`combined identifier <architecture-components-files-folders>`).
+when not using a :ref:`combined identifier <fal-architecture-components-files-folders>`).
 
 .. code-block:: php
 
