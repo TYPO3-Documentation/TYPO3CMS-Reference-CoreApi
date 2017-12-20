@@ -33,6 +33,7 @@ http://api.typo3.org/.
    FormEngine/Index
    Database/Index
    Workspaces/Index
+   Fal/Index
    CachingFramework/Index
    SystemLog/Index
    Logging/Index
