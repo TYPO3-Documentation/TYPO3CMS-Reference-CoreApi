@@ -6,7 +6,7 @@
 Signals and slots
 ^^^^^^^^^^^^^^^^^
 
-FAL comes with a great many signals that offer the opportunity
+FAL comes with a series of signals that offer the opportunity
 to hook into FAL processes at a variety of points.
 
 They are listed below with some explanation, in particular when
