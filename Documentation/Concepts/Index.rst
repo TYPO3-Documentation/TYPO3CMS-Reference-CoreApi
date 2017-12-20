@@ -43,7 +43,7 @@ Files and metadata
 
 For each available file in all present storages, there exists a
 corresponding database record in table "sys\_file", which
-contains basic information about the file (name, path. size, etc.),
+contains basic information about the file (name, path, size, etc.),
 and an additional record in table "sys\_file\_metadata", designed
 to hold a large variety of additional information about the file
 (metadata such as title, description, width, height, etc.).
