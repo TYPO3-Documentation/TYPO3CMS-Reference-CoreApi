@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
 .. _architecture-folders:
@@ -16,7 +16,7 @@ By default, a Storage pointing to the :file:`fileadmin` folder
 is created automatically in every TYPO3 CMS installation.
 
 
-.. _architecture-folders-processed-files:
+.. _fal-architecture-folders-processed-files:
 
 Processed files
 """""""""""""""
@@ -27,13 +27,13 @@ or thumbnails from the backend. The name of this folder is not
 hard-coded. It can be defined as a property of the Storage.
 It may even point to a different storage.
 
-.. figure:: ../../Images/ArchitectureFoldersProcessedFolder.png
+.. figure:: ../Images/ArchitectureFoldersProcessedFolder.png
    :alt: Defining a location for processed files
 
    Editing a File Storage to define a location for processed files
 
 
-.. _architecture-folders-migrated-files:
+.. _fal-architecture-folders-migrated-files:
 
 Migrated files
 """"""""""""""

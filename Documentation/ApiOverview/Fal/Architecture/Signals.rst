@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _architecture-signals:
+.. _fal-architecture-signals:
 
 Signals and slots
 ^^^^^^^^^^^^^^^^^
@@ -25,7 +25,7 @@ operation, the other one **after**.
    "Folder" objects actually refer to the :php:`\TYPO3\CMS\Core\Resource\Folder`
    class.
 
-.. _architecture-signals-resource-storage:
+.. _fal-architecture-signals-resource-storage:
 
 \\TYPO3\\CMS\\Core\\Resource\\ResourceStorage
 """""""""""""""""""""""""""""""""""""""""""""
@@ -147,7 +147,7 @@ SIGNAL_PreGeneratePublicUrl
   this point, but can be then modified by the slot).
 
 
-.. _architecture-signals-resource-factory:
+.. _fal-architecture-signals-resource-factory:
 
 \\TYPO3\\CMS\\Core\\Resource\\ResourceFactory
 """""""""""""""""""""""""""""""""""""""""""""
@@ -162,7 +162,7 @@ SIGNAL_PostProcessStorage
   to the Storage.
 
 
-.. _architecture-signals-file-index-repository:
+.. _fal-architecture-signals-file-index-repository:
 
 \\TYPO3\\CMS\\Core\\Resource\\Index\\FileIndexRepository
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -183,7 +183,7 @@ recordMarkedAsMissing
   marked as missing.
 
 
-.. _architecture-signals-metadata-repository:
+.. _fal-architecture-signals-metadata-repository:
 
 \\TYPO3\\CMS\\Core\\Resource\\Index\\MetaDataRepository
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -205,7 +205,7 @@ recordDeleted
   Receives the uid of the file whose metadata has just been deleted.
 
 
-.. _architecture-signals-file-processing-service:
+.. _fal-architecture-signals-file-processing-service:
 
 \\TYPO3\\CMS\\Core\\Resource\\Service\\FileProcessingService
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -226,5 +226,5 @@ SIGNAL_PostFileProcess
   :php:`File` instances), a string defining the type of task being
   executed and an array containing the configuration for that task.
 
-See the :ref:`section about Services <architecture-components-services>`
+See the :ref:`section about Services <fal-architecture-components-services>`
 for more information about this class.

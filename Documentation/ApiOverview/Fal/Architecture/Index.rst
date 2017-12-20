@@ -1,7 +1,6 @@
-.. include:: ../Includes.txt
+.. include:: ../../../Includes.txt
 
-
-.. _architecture:
+.. _fal-architecture:
 
 Architecture
 ------------
@@ -11,8 +10,8 @@ architecture of FAL.
 
 .. toctree::
 
-   Overview/Index
-   Folders/Index
-   Database/Index
-   Components/Index
-   Signals/Index
+   Overview
+   Folders
+   Database
+   Components
+   Signals

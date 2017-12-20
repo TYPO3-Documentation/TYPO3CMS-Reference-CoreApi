@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _architecture-components:
+.. _fal-architecture-components:
 
 Components
 ^^^^^^^^^^
@@ -11,7 +11,7 @@ Each component has a clear role in the architecture, which is
 detailed in this section.
 
 
-.. _architecture-components-files-folders:
+.. _fal-architecture-components-files-folders:
 
 Files and Folders
 """""""""""""""""
@@ -33,7 +33,7 @@ A File can be indexed, which makes it possible to reference the file
 from any database record in order to use it, but also speeds up obtaining
 cached information such as various metadata or other file properties like size or file name.
 
-A File may be referenced by its uid in the :ref:`sys_file table <architecture-database-sys-file>`, but will
+A File may be referenced by its uid in the :ref:`sys_file table <fal-architecture-database-sys-file>`, but will
 also often be referred to by its identifier, which is the path to the
 file from the root of the Storage the file belongs to. The
 **combined identifier** includes the File's identifier prepended
@@ -41,7 +41,7 @@ by the Storage's uid and a colon (:code:`:`). Example:
 :code:`1:/path/to/file/filename.foo`.
 
 
-.. _architecture-components-file-references:
+.. _fal-architecture-components-file-references:
 
 File References
 """""""""""""""
@@ -54,7 +54,7 @@ but can add context-specific information such as a caption text for an image
 when used at a specific location.
 
 In the database, each FileReference is represented by a record in the
-:ref:`sys_file_reference table <architecture-database-sys-file-reference>`.
+:ref:`sys_file_reference table <fal-architecture-database-sys-file-reference>`.
 
 Creating a reference to a file requires the file to be indexed first,
 as the reference is done through the normal record relation handling of TYPO3 CMS.
@@ -72,7 +72,7 @@ as the reference is done through the normal record relation handling of TYPO3 CM
 
 
 
-.. _architecture-components-storage:
+.. _fal-architecture-components-storage:
 
 Storage
 """""""
@@ -94,7 +94,7 @@ The Storage essentially works with :php:`\TYPO3\CMS\Core\Resource\File`
 and :php:`\TYPO3\CMS\Core\Resource\Folder` objects.
 
 
-.. _architecture-components-drivers:
+.. _fal-architecture-components-drivers:
 
 Drivers
 """""""
@@ -122,7 +122,7 @@ method of the Driver API has the following method signature:
     public function copyFileWithinStorage($fileIdentifier, $targetFolderIdentifier, $fileName);
 
 
-.. _architecture-components-file-index:
+.. _fal-architecture-components-file-index:
 
 The File Index
 """"""""""""""
@@ -155,7 +155,7 @@ step for a file.
    via Storages.
 
 
-.. _architecture-components-collections:
+.. _fal-architecture-components-collections:
 
 Collections
 """""""""""
@@ -169,7 +169,7 @@ The TYPO3 CMS Core makes usage of collections for the "File Links"
 content object type.
 
 
-.. _architecture-components-services:
+.. _fal-architecture-components-services:
 
 Services
 """"""""

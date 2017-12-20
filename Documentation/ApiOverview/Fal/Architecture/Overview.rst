@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _architecture-overview:
+.. _fal-architecture-overview:
 
 Overview
 ^^^^^^^^

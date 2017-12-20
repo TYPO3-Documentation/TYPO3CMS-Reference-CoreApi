@@ -1,8 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _Database-Structure:
-.. _architecture-database:
+.. _fal-architecture-database:
 
 Database structure
 ^^^^^^^^^^^^^^^^^^
@@ -11,8 +10,7 @@ This chapter lists the various tables related to FAL
 and highlights some of their important fields.
 
 
-.. _DB-table-sys_file:
-.. _architecture-database-sys-file:
+.. _fal-architecture-database-sys-file:
 
 sys\_file
 """""""""
@@ -43,8 +41,7 @@ metadata
   database, but necessary for the TCA of the "sys\_file".
 
 
-.. _DB-table-sys_metadata:
-.. _architecture-database-sys-file-metadata:
+.. _fal-architecture-database-sys-file-metadata:
 
 sys\_file\_metadata
 """""""""""""""""""
@@ -65,8 +62,7 @@ The "sys\_file\_metadata" table is extended by system extension
 to categorize files with system categories.
 
 
-.. _DB-table-sys_file_reference:
-.. _architecture-database-sys-file-reference:
+.. _fal-architecture-database-sys-file-reference:
 
 sys\_file\_reference
 """"""""""""""""""""
@@ -99,8 +95,7 @@ title
   The fields "description", "alternative" and "downloadname" obey the same principle.
 
 
-.. _DB-table-sys_file_processedfile:
-.. _architecture-database-sys-file-processedfile:
+.. _fal-architecture-database-sys-file-processedfile:
 
 sys\_file\_processedfile
 """"""""""""""""""""""""
@@ -110,8 +105,7 @@ like image previews. This table does not have a TCA representation,
 as it is only written for using direct SQL queries in the source code.
 
 
-.. _DB-table-sys_file_collection:
-.. _architecture-database-sys-file-collection:
+.. _fal-architecture-database-sys-file-collection:
 
 sys\_file\_collection
 """""""""""""""""""""
@@ -140,8 +134,7 @@ category
   The chosen categories, for category-type Collections.
 
 
-.. _DB-table-sys_file_storage:
-.. _architecture-database-sys-file-storage:
+.. _fal-architecture-database-sys-file-storage:
 
 sys\_file\_storage
 """"""""""""""""""
@@ -158,8 +151,7 @@ configuration
   depend on the selected Driver.
 
 
-.. _DB-table-sys_filemounts:
-.. _architecture-database-sys-filemounts:
+.. _fal-architecture-database-sys-filemounts:
 
 sys\_filemounts
 """""""""""""""
