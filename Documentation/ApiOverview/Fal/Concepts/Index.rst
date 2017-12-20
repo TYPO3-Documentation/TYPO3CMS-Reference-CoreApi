@@ -1,7 +1,6 @@
-.. include:: ../Includes.txt
+.. include:: ../../../Includes.txt
 
-.. _Admin-Basic-Concepts:
-.. _concepts:
+.. _fal-concepts:
 
 Basic Concepts
 --------------
@@ -16,8 +15,7 @@ using a given file is mostly about creating a database relation
 to the record representing that file.
 
 
-.. _Admin-Storages:
-.. _concepts-storages-drivers:
+.. _fal-concepts-storages-drivers:
 
 Storages and drivers
 ^^^^^^^^^^^^^^^^^^^^
@@ -36,7 +34,7 @@ using the local file system driver and pointing to the
 :file:`fileadmin/` directory.
 
 
-.. _concepts-files-metadata:
+.. _fal-concepts-files-metadata:
 
 Files and metadata
 ^^^^^^^^^^^^^^^^^^
@@ -56,8 +54,7 @@ to hold a large variety of additional information about the file
    fields such as copyright notice, author name, location, etc.
 
 
-.. _Admin-References:
-.. _concepts-file-references:
+.. _fal-concepts-file-references:
 
 File references
 ^^^^^^^^^^^^^^^
@@ -73,4 +70,4 @@ it easy to track every place where a file is used inside a
 TYPO3 CMS installation.
 
 All these elements are explored in greater depth in the chapter
-about :ref:`FAL components <architecture-components>`.
+about :ref:`FAL components <fal-architecture-components>`.

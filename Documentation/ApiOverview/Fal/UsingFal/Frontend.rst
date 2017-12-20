@@ -1,14 +1,12 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
-
-
-.. _using-fal-frontend:
+.. _fal-using-fal-frontend:
 
 Using FAL in the frontend
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. _using-fal-frontend-typoScript:
+.. _fal-using-fal-frontend-typoScript:
 
 TypoScript
 """"""""""
@@ -18,13 +16,13 @@ using the :code:`FILES` content object, which is described
 in details in the :ref:`TypoScript Reference <t3tsref:cobj-files>`.
 
 
-.. _using-fal-frontend-fluid:
+.. _fal-using-fal-frontend-fluid:
 
 Fluid
 """""
 
 
-.. _using-fal-frontend-fluid-image:
+.. _fal-using-fal-frontend-fluid-image:
 
 The ImageViewHelper
 ~~~~~~~~~~~~~~~~~~~
@@ -52,7 +50,7 @@ If you have a file reference and want to get its properties like Metadata, you h
 *Note:* Some metadata fields, like title and description, can be entered either in the referenced file itself or in the reference or both. TYPO3 automatically merges both sources when you access originalResource in Fluid. So `originalResource` returns the merged value. Values which are entered in the reference will override values from the file itself. 
 
 
-.. _using-fal-frontend-fluid-fluidtemplate:
+.. _fal-using-fal-frontend-fluid-fluidtemplate:
 
 FLUIDTEMPLATE
 ~~~~~~~~~~~~~

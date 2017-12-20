@@ -1,8 +1,8 @@
 .. include:: ../../../Includes.txt
 
 
-
-.. _using-fal-examples-resource-factory:
+.. _fal-using-fal-examples:
+.. _fal-using-fal-examples-resource-factory:
 
 The ResourceFactory class
 """""""""""""""""""""""""
@@ -14,7 +14,7 @@ which are described here, some others which appear in the
 other code samples provided in this chapter.
 
 
-.. _using-fal-examples-resource-factory-default-storage:
+.. _fal-using-fal-examples-resource-factory-default-storage:
 
 Getting the default Storage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,7 +35,7 @@ when not using a :ref:`combined identifier <architecture-components-files-folder
    This may return :code:`null` if no default Storage exists.
 
 
-.. _using-fal-examples-resource-factory-getting-storage:
+.. _fal-using-fal-examples-resource-factory-getting-storage:
 
 Getting any Storage
 ~~~~~~~~~~~~~~~~~~~

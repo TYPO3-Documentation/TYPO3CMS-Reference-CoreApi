@@ -2,14 +2,14 @@
 
 
 
-.. _using-fal-examples-collections:
+.. _fal-using-fal-examples-collections:
 
 Working with collections
 """"""""""""""""""""""""
 
 The :php:`\TYPO3\CMS\Core\Resource\ResourceFactory` class
 provides a convenience method to retrieve a
-:ref:`File Collection <architecture-components-collections>`.
+:ref:`File Collection <fal-architecture-components-collections>`.
 
 .. code-block:: php
 

@@ -2,7 +2,7 @@
 
 
 
-.. _using-fal-examples-file-folder:
+.. _fal-using-fal-examples-file-folder:
 
 Working with Files, Folders and File References
 """""""""""""""""""""""""""""""""""""""""""""""
@@ -11,7 +11,7 @@ This chapter provides some examples about interacting
 with File, Folder and FileReference objects.
 
 
-.. _using-fal-examples-file-folder-get-file:
+.. _fal-using-fal-examples-file-folder-get-file:
 
 Getting a file
 ~~~~~~~~~~~~~~
@@ -31,7 +31,7 @@ or its combined identifier:
    $file = $resourceFactory->getFileObjectFromCombinedIdentifier('1:/foo.txt');
 
 
-.. _using-fal-examples-file-folder-copy-file:
+.. _fal-using-fal-examples-file-folder-copy-file:
 
 Copying a file
 ~~~~~~~~~~~~~~
@@ -54,7 +54,7 @@ Copying a file
    $copiedFile = $file->copyTo($folder);
 
 
-.. _using-fal-examples-file-folder-add-file:
+.. _fal-using-fal-examples-file-folder-add-file:
 
 Adding a file
 ~~~~~~~~~~~~~
@@ -73,13 +73,13 @@ Storage:
    );
 
 
-.. _using-fal-examples-file-folder-create-reference:
+.. _fal-using-fal-examples-file-folder-create-reference:
 
 Creating a file reference
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-.. _using-fal-examples-file-folder-create-reference-backend:
+.. _fal-using-fal-examples-file-folder-create-reference-backend:
 
 In the backend context
 ''''''''''''''''''''''
@@ -142,7 +142,7 @@ the "pid" explicitly when creating the relation:
    );
 
 
-.. _using-fal-examples-file-folder-create-reference-frontend:
+.. _fal-using-fal-examples-file-folder-create-reference-frontend:
 
 In the frontend context
 '''''''''''''''''''''''
@@ -159,7 +159,7 @@ A cleaner solution using Extbase requires far more work. An example
 can be found here: https://github.com/helhum/upload_example
 
 
-.. _using-fal-examples-file-folder-get-references:
+.. _fal-using-fal-examples-file-folder-get-references:
 
 Getting referenced files
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -178,7 +178,7 @@ where :code:`$uid` is the id of some page. The return value is an array
 of :php:`\TYPO3\CMS\Core\Resource\FileReference` objects.
 
 
-.. _using-fal-examples-file-folder-list-files:
+.. _fal-using-fal-examples-file-folder-list-files:
 
 Listing files in a folder
 ~~~~~~~~~~~~~~~~~~~~~~~~~

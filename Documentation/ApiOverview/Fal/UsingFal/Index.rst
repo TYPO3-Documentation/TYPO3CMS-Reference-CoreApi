@@ -1,6 +1,4 @@
-.. include:: ../Includes.txt
-
-
+.. include:: ../../../Includes.txt
 
 .. _using-fal:
 
@@ -14,7 +12,9 @@ or useful examples for common use-cases.
 
 .. toctree::
 
-   Frontend/Index
-   Tca/Index
-   Examples/Index
+   Frontend
+   Tca
+   ExamplesResourceFactory
+   ExamplesFileFolder
+   ExamplesCollection
 
