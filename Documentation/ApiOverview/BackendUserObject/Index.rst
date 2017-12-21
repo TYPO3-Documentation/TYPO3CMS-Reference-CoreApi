@@ -191,9 +191,9 @@ Get User Configuration value
 """"""""""""""""""""""""""""
 
 The internal :code:`->uc` array contains options which are managed by the
-User Tools > User Settings module (extensions "setup"). These values are accessible in
+User Tools > User Settings module (extension "setup"). These values are accessible in
 the :code:`$BE_USER->uc` array. This will return the current state of
-"Condensed mode" for the user::
+"Notify me by email, when somebody logs in from my account" for the user::
 
-      $BE_USER->uc['condensedMode']
+      $BE_USER->uc['emailMeAtLogin']
 
