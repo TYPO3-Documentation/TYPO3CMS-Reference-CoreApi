@@ -40,6 +40,7 @@ http://api.typo3.org/.
    ErrorAndExceptionHandling/Index
    SystemRegistry/Index
    Mail/Index
+   Services/Index
    FormProtection/Index
    FlashMessages/Index
    Categories/Index

@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _developer-service-related-api:
+.. _services-developer-service-related-api:
 
 Service-related API
 ^^^^^^^^^^^^^^^^^^^
@@ -10,7 +10,7 @@ This section describes the methods of the TYPO3 CMS core that are related
 to the use of services.
 
 
-.. _developer-service-related-api-extension-management-utility:
+.. _services-developer-service-related-api-extension-management-utility:
 
 \\TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -40,7 +40,7 @@ deactivateService
   be called directly unless you're sure of what you're doing.
 
 
-.. _developer-service-related-api-general-utility:
+.. _services-developer-service-related-api-general-utility:
 
 \\TYPO3\\CMS\\Core\\Utility\\GeneralUtility
 """""""""""""""""""""""""""""""""""""""""""

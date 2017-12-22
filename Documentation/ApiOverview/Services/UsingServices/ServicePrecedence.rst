@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _using-services-precedence:
+.. _services-using-services-precedence:
 
 Service precedence
 ^^^^^^^^^^^^^^^^^^
@@ -16,7 +16,7 @@ found, the system will use the service with the best quality.
 The priority is used to define a call order for services. The default
 priority is 50. The service with the highest priority is called first.
 The priority of a service is defined by its developer, but may be
-reconfigured (see :ref:`Configuration <configuration>`). It is thus very easy to add
+reconfigured (see :ref:`Configuration <services-configuration>`). It is thus very easy to add
 a new service that comes before or after an existing service, or to
 change the call order of already registered services.
 
@@ -30,14 +30,14 @@ on the lower quality service which will still be better than nothing.
 Quality varies between 0-100.
 
 More considerations about priority and quality can be found in the
-:ref:`Developer's Guide <developer>`.
+:ref:`Developer's Guide <services-developer>`.
 
 The "Installed Services" report of the **SYSTEM > Reports** module
 provides an overview of all installed services and their priority
 and quality. It also shows whether a given service is available
 or not.
 
-.. figure:: ../../Images/ServicesReport.png
+.. figure:: ../Images/ServicesReport.png
    :alt: The Installed Services report
 
    The Installed Services report showing details about registered services

@@ -1,7 +1,7 @@
-.. include:: ../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _configuration:
+.. _services-configuration:
 
 Configuration
 -------------
@@ -12,11 +12,9 @@ services as well as generic mechanisms which are described below.
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
-   RegistrationChanges/Index
-   ServiceConfiguration/Index
-   ServiceTypeConfiguration/Index
+   RegistrationChanges
+   ServiceConfiguration
+   ServiceTypeConfiguration
 

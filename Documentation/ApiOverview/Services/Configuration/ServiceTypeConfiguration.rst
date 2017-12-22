@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _configuration-service-type-configuration:
+.. _services-configuration-service-type-configuration:
 
 Service type configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

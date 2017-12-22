@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _configuration-service-configuration:
+.. _services-configuration-service-configuration:
 
 Service configuration
 ^^^^^^^^^^^^^^^^^^^^^
@@ -29,6 +29,6 @@ service type by using the keyword "default" instead of a service key:
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF'][service type]['default'][config key] = value;
 
 The available configuration settings should be described in the
-service's documentation. See :ref:`Service API <developer-service-api>`
+service's documentation. See :ref:`Service API <services-developer-service-api>`
 to see how you can read these values properly inside your service.
 

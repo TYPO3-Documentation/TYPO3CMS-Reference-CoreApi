@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _developer-new-service-type:
+.. _services-developer-new-service-type:
 
 Introducing a new service type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

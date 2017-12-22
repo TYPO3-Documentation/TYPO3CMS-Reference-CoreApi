@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _using-services-subtypes:
+.. _services-using-services-subtypes:
 
 Use with subtypes
 ^^^^^^^^^^^^^^^^^

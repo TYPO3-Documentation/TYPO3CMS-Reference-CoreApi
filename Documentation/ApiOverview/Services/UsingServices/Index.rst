@@ -1,7 +1,7 @@
-.. include:: ../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _using-services:
+.. _services-using-services:
 
 Using services
 --------------
@@ -11,12 +11,10 @@ can be used. It also explains the most important notion about
 services: precedence.
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
-   ServicePrecedence/Index
-   SimpleUse/Index
-   UseWithSubtypes/Index
-   ServiceChain/Index
+   ServicePrecedence
+   SimpleUse
+   UseWithSubtypes
+   ServiceChain
 

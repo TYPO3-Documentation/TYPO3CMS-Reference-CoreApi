@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _configuration-registration-changes:
+.. _services-configuration-registration-changes:
 
 Registration changes
 ^^^^^^^^^^^^^^^^^^^^
@@ -24,7 +24,7 @@ The general syntax is:
    $GLOBALS['TYPO3_CONF_VARS']['T3_SERVICES'][service type][service key][option key] = value;
 
 Registration options are described in more details in
-:ref:`Implementing a service <developer-implementing>`.
+:ref:`Implementing a service <services-developer-implementing>`.
 Any of these options may be overridden using the above
 syntax. However caution should be used depending on the options.
 :code:`className` should not be overridden in such a way.

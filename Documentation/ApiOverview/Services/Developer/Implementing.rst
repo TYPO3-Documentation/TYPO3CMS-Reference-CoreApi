@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _developer-implementing:
+.. _services-developer-implementing:
 
 Implementing a service
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -18,7 +18,7 @@ Finally the service registration is placed in the extension's
 :file:`ext_localconf.php` file.
 
 
-.. _developer-implementing-registration:
+.. _services-developer-implementing-registration:
 
 Service registration
 """"""""""""""""""""
@@ -117,7 +117,7 @@ $info
 
     priority
       (integer) The priority of the service. A service of higher priority will be
-      selected first. Can be :ref:`reconfigured <configuration-registration-changes>`.
+      selected first. Can be :ref:`reconfigured <services-configuration-registration-changes>`.
 
       Use a value from 0 to 100. Higher values are reserved for
       reconfiguration in local configuration. The default value is
@@ -185,7 +185,7 @@ $info
 			'className' => \Foo\Babelfish\Service\Translator::class
 
 
-.. _developer-implementing-php:
+.. _services-developer-implementing-php:
 
 PHP class
 """""""""
@@ -196,4 +196,4 @@ should extend the base service class (:code:`\TYPO3\CMS\Core\Service\AbstractSer
 It should then implement the methods that you defined
 for your service's public API, plus whatever method is
 relevant from the base TYPO3 CMS service API, which is
-described in details in :ref:`the next chapter <developer-service-api>`.
+described in details in :ref:`the next chapter <services-developer-service-api>`.

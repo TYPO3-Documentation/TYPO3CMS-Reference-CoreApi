@@ -1,7 +1,7 @@
-.. include:: ../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _developer:
+.. _services-developer:
 
 Developer's Guide
 -----------------
@@ -11,12 +11,10 @@ including advice to developing good services.
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
-   NewServiceType/Index
-   Implementing/Index
-   ServiceApi/Index
-   ServiceRelatedApi/Index
+   NewServiceType
+   Implementing
+   ServiceApi
+   ServiceRelatedApi
 

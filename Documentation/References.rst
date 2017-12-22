@@ -18,10 +18,6 @@ below:
 :ref:`t3skinning:start`
   All things related to skinning, CSS and icons, for the TYPO3 backend.
 
-:ref:`t3services:start`
-  Services are libraries which can be loaded flexibly based on various
-  conditions.
-
 :ref:`t3inside:start`
   The "sister" manual to this one. Describes the general principles underlying
   the TYPO3 CMS Core.

@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _developer-service-api:
+.. _services-developer-service-api:
 
 Service API
 ^^^^^^^^^^^
@@ -17,7 +17,7 @@ This class provides a large number of important or useful methods which are
 described below, grouped by type of usage.
 
 
-.. _developer-service-api-implementation:
+.. _services-developer-service-api-implementation:
 
 Service implementation
 """"""""""""""""""""""
@@ -68,13 +68,13 @@ The little schema below summarizes the process of getting a service
 instance and when each of :php:`init()` and :php:`reset()` are
 called.
 
-.. figure:: ../../Images/InstanceLifeCycle.png
+.. figure:: ../Images/InstanceLifeCycle.png
    :alt: The life cycle of a service instance
 
    The life cycle of a service instance
 
 
-.. _developer-service-api-getters:
+.. _services-developer-service-api-getters:
 
 Getter methods for service information
 """"""""""""""""""""""""""""""""""""""
@@ -95,7 +95,7 @@ getServiceOption
   This method is used to retrieve the value of a service option, as
   defined in the :php:`$GLOBALS['TYPO3_CONF_VARS']['SVCONF']` array. It will
   take into account possible default values as described in the
-  :ref:`Service configuration chapter <configuration-service-configuration>`.
+  :ref:`Service configuration chapter <services-configuration-service-configuration>`.
 
   This method requires more explanation.
   Imagine your service has an option called "ignoreBozo". To retrieve it
@@ -119,7 +119,7 @@ getServiceOption
   This allows for a lot of flexibility.
 
 
-.. _developer-service-api-error:
+.. _services-developer-service-api-error:
 
 Error handling
 """"""""""""""
@@ -156,7 +156,7 @@ resetErrors
   Empties the error queue.
 
 
-.. _developer-service-api-general:
+.. _services-developer-service-api-general:
 
 General service functions
 """""""""""""""""""""""""
@@ -176,7 +176,7 @@ deactivateService
   suddenly fails for some reason.
 
 
-.. _developer-service-api-io-tools:
+.. _services-developer-service-api-io-tools:
 
 I/O tools
 """""""""
@@ -211,7 +211,7 @@ unlinkTempFiles
   Deletes all the registered temporary files.
 
 
-.. _developer-service-api-io-input-output:
+.. _services-developer-service-api-io-input-output:
 
 I/O Input and I/O output
 """"""""""""""""""""""""

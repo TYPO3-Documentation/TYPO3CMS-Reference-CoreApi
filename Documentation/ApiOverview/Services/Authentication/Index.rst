@@ -1,7 +1,7 @@
-.. include:: ../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _authentication:
+.. _services-authentication:
 
 Authentication services
 -----------------------
@@ -15,7 +15,7 @@ services so that developers feel confident about writing
 their own.
 
 
-.. _authentication-why-services:
+.. _services-authentication-why-services:
 
 Why use services?
 ^^^^^^^^^^^^^^^^^
@@ -32,7 +32,7 @@ Being able to toy with priority and quality allows for
 precise fine-tuning of the authentication chain.
 
 
-.. _authentication-process:
+.. _services-authentication-process:
 
 The authentication process
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -62,7 +62,7 @@ called "logintype" is submitted with value "login". The same
 happens for the BE, but with a form field called "login_status".
 
 
-.. _authentication-data:
+.. _services-authentication-data:
 
 The login data
 ^^^^^^^^^^^^^^
@@ -88,7 +88,7 @@ Inside an authentication service, this data is available in
 :php:`$this->login`.
 
 
-.. _authentication-api:
+.. _services-authentication-api:
 
 The "auth" services API
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -104,7 +104,7 @@ during the authentication process.
 
 processLoginDataBE, processLoginDataFE
   This subtype performs preprocessing on the submitted
-  :ref:`login data <authentication-data>`.
+  :ref:`login data <services-authentication-data>`.
 
   The method to implement is :php:`processLoginData()`.
   It receives as argument the login data and the password
@@ -117,7 +117,7 @@ processLoginDataBE, processLoginDataFE
 
   It may also return a numerical value equal to 200 or greater,
   which indicates that no further login data processing should
-  take place (see :ref:`The service chain <authentication-service-chain>`).
+  take place (see :ref:`The service chain <services-authentication-service-chain>`).
 
   In particular, this subtype is implemented by system extension
   "rsaauth", which decrypts the submitted password. The decrypted
@@ -135,7 +135,7 @@ authUserFE, authUserBE
   provided credentials. The method to implement is :php:`authUser()`.
   It receives the user information (as returned by :php:`getUser()`)
   as an input and is expected to return a numerical value,
-  :ref:`which is described later <authentication-service-chain>`.
+  :ref:`which is described later <services-authentication-service-chain>`.
 
 getGroupsFE
   This subtype exists only for the FE. The method to implement
@@ -156,7 +156,7 @@ getGroupsFE
    process will call the :php:`initAuth()` method of each service. This
    sets up a lot of data for the service. It also makes it possible to
    override part of the default settings with
-   :ref:`service-specific options <configuration-service-configuration>`.
+   :ref:`service-specific options <services-configuration-service-configuration>`.
 
    This represents very advanced tuning and is not described here.
    Please refer to
@@ -165,13 +165,13 @@ getGroupsFE
    initialization.
 
 
-.. _authentication-service-chain:
+.. _services-authentication-service-chain:
 
 The service chain
 ^^^^^^^^^^^^^^^^^
 
 No matter what subtype, authentication services are always called
-in a :ref:`chain <using-services-service-chain>`. This means that
+in a :ref:`chain <services-using-services-service-chain>`. This means that
 **all** registered "auth" services will be called, in order of
 decreasing priority and quality.
 
@@ -205,7 +205,7 @@ For "getUserFE" and "getUserBE" subtypes, the logic is reversed.
 The service chain will stop as soon as one user is found.
 
 
-.. _authentication-service-development:
+.. _services-authentication-service-development:
 
 Developing an authentication service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -255,7 +255,7 @@ users which depend on the remote system and let the default
 authentication proceed for "local" TYPO3 CMS users.
 
 
-.. _authentication-advanced-options:
+.. _services-authentication-advanced-options:
 
 Advanced options
 ^^^^^^^^^^^^^^^^

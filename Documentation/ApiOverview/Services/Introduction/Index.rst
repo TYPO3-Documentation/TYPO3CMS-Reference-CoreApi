@@ -1,7 +1,7 @@
-.. include:: ../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _introduction:
+.. _services-introduction:
 
 Introduction
 ------------
@@ -34,13 +34,13 @@ The service with the highest priority and quality (more on that later)
 is chosen automatically for you.
 
 
-.. _introduction-good-reasons:
+.. _services-introduction-good-reasons:
 
 Two reasons to use services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. _introduction-good-reasons-implementation:
+.. _services-introduction-good-reasons-implementation:
 
 1. Freedom of implementation
 """"""""""""""""""""""""""""
@@ -57,7 +57,7 @@ automatically between the two implementations just by testing the
 availability or not of Perl on the server.
 
 
-.. _introduction-good-reasons-extensibility:
+.. _services-introduction-good-reasons-extensibility:
 
 2. Extend functionality with extensions
 """""""""""""""""""""""""""""""""""""""

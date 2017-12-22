@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _using-services-simple:
+.. _services-using-services-simple:
 
 Simple use
 ^^^^^^^^^^
@@ -36,7 +36,7 @@ reasons:
 Note that when a service is requested, the instance created is stored
 in a global registry. If that service is requested again during the
 same code run, the stored instance will be returned instead of a new
-one. More details in :ref:`Service API <developer-service-api>`.
+one. More details in :ref:`Service API <services-developer-service-api>`.
 
 If several services are available, the one with the highest priority
 (or quality if priority are equals) will be used.

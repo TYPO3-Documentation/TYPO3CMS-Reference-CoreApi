@@ -1,7 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
-.. _using-services-service-chain:
+.. _services-using-services-service-chain:
 
 Calling a chain of services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

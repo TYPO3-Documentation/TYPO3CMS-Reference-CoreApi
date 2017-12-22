@@ -27,8 +27,8 @@ additions to TYPO3. The main types are:
 
 - **Services** are libraries that provide a given service through a
   clearly defined API. A service may exist both in the frontend and the
-  backend. Please refer to the :ref:`TYPO3 Services Reference
-  <t3services:start>` for more information about this type of extension.
+  backend. Please refer to the :ref:`Services Section
+  <services>` for more information about this type of extension.
 
 - **Distributions** are fully packaged TYPO3 CMS web installations,
   complete with files, templates, extensions, etc. Distributions are
