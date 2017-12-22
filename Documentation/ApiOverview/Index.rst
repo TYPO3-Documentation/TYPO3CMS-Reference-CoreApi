@@ -41,6 +41,7 @@ http://api.typo3.org/.
    SystemRegistry/Index
    Mail/Index
    Services/Index
+   Authentication/Index
    FormProtection/Index
    FlashMessages/Index
    Categories/Index

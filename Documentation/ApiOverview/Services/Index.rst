@@ -15,4 +15,3 @@ Services
    UsingServices/Index
    Configuration/Index
    Developer/Index
-   Authentication/Index

@@ -1,12 +1,12 @@
-.. include:: ../../../Includes.txt
+.. include:: ../../Includes.txt
 
 
-.. _services-authentication:
+.. _authentication:
 
-Authentication services
------------------------
+Authentication
+--------------
 
-The TYPO3 CMS Core uses services for the authentication process.
+The TYPO3 CMS Core uses :ref:`Services <services>` for the authentication process.
 This family of services (of type "auth") are both very important
 and quite different from other services.
 
@@ -15,7 +15,7 @@ services so that developers feel confident about writing
 their own.
 
 
-.. _services-authentication-why-services:
+.. _authentication-why-services:
 
 Why use services?
 ^^^^^^^^^^^^^^^^^
@@ -32,7 +32,7 @@ Being able to toy with priority and quality allows for
 precise fine-tuning of the authentication chain.
 
 
-.. _services-authentication-process:
+.. _authentication-process:
 
 The authentication process
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -62,7 +62,7 @@ called "logintype" is submitted with value "login". The same
 happens for the BE, but with a form field called "login_status".
 
 
-.. _services-authentication-data:
+.. _authentication-data:
 
 The login data
 ^^^^^^^^^^^^^^
@@ -88,7 +88,7 @@ Inside an authentication service, this data is available in
 :php:`$this->login`.
 
 
-.. _services-authentication-api:
+.. _authentication-api:
 
 The "auth" services API
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -104,7 +104,7 @@ during the authentication process.
 
 processLoginDataBE, processLoginDataFE
   This subtype performs preprocessing on the submitted
-  :ref:`login data <services-authentication-data>`.
+  :ref:`login data <authentication-data>`.
 
   The method to implement is :php:`processLoginData()`.
   It receives as argument the login data and the password
@@ -117,7 +117,7 @@ processLoginDataBE, processLoginDataFE
 
   It may also return a numerical value equal to 200 or greater,
   which indicates that no further login data processing should
-  take place (see :ref:`The service chain <services-authentication-service-chain>`).
+  take place (see :ref:`The service chain <authentication-service-chain>`).
 
   In particular, this subtype is implemented by system extension
   "rsaauth", which decrypts the submitted password. The decrypted
@@ -135,7 +135,7 @@ authUserFE, authUserBE
   provided credentials. The method to implement is :php:`authUser()`.
   It receives the user information (as returned by :php:`getUser()`)
   as an input and is expected to return a numerical value,
-  :ref:`which is described later <services-authentication-service-chain>`.
+  :ref:`which is described later <authentication-service-chain>`.
 
 getGroupsFE
   This subtype exists only for the FE. The method to implement
@@ -165,7 +165,7 @@ getGroupsFE
    initialization.
 
 
-.. _services-authentication-service-chain:
+.. _authentication-service-chain:
 
 The service chain
 ^^^^^^^^^^^^^^^^^
@@ -205,7 +205,7 @@ For "getUserFE" and "getUserBE" subtypes, the logic is reversed.
 The service chain will stop as soon as one user is found.
 
 
-.. _services-authentication-service-development:
+.. _authentication-service-development:
 
 Developing an authentication service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -255,7 +255,7 @@ users which depend on the remote system and let the default
 authentication proceed for "local" TYPO3 CMS users.
 
 
-.. _services-authentication-advanced-options:
+.. _authentication-advanced-options:
 
 Advanced options
 ^^^^^^^^^^^^^^^^
