@@ -9,6 +9,30 @@ Introduction
 This document describes the services functionality included in the
 TYPO3 CMS core.
 
+.. note::
+
+    The "Services" API is one of the older core API's that did not found
+    much traction over the years. The core itself only uses it for frontend
+    and backend user :ref:`authentication. <authentication>`
+
+    Additionally, only a couple of extensions use the Services API, and not
+    much happened to the underlying codebase lately. Extension authors may
+    want to ignore this API for new stuff and implement own factory or service
+    related patterns that may better fit needs.
+
+.. important::
+
+    This chapter is about the "Services API" provided by the core. Don't confuse
+    it with casual PHP classes within the directory :file:`Classes/Service` found in many
+    extensions - they usually do not use the API mentioned here.
+
+    Classes in the scope of this chapter - directly or indirectly - extend the
+    service class :php:`TYPO3\CMS\Core\Service\AbstractService`.
+
+    In comparison, for additional information on what the core usually understands
+    as "casual" service class, see the :ref:`coding guidelines. <t3cgl:services>`
+
+
 The whole services API works as a registry. Services are registered
 with a number of parameters, and each service can easily be overridden
 by another one with improved features or more specific capabilities,
@@ -16,7 +40,7 @@ for example. This can be achieved without having to change the original
 code of TYPO3 CMS or of an extension.
 
 Services are simply PHP classes packaged inside an extension.
-The usual way to instatiate a class in TYPO3 CMS is::
+The usual way to instantiate a class in TYPO3 CMS is::
 
    $object = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
       \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);

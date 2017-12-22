@@ -7,8 +7,8 @@ Authentication
 --------------
 
 The TYPO3 CMS Core uses :ref:`Services <services>` for the authentication process.
-This family of services (of type "auth") are both very important
-and quite different from other services.
+This family of services (of type "auth") are the only core usage that consumes the
+Services API.
 
 The aim of this chapter is to describe the authentication
 services so that developers feel confident about writing
