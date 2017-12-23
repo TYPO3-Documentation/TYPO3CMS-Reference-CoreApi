@@ -31,7 +31,7 @@ files. The syntax is inspired by SASS imports and works as follows:
    # The filename extension can be omitted and defaults to .typoscript
    @import 'EXT:myproject/TypoScript/Configuration/'
 
-The main benefits of :ts:`@import` compared to :ts:`<INCLUDE_TYPOSCRIPT>`are:
+The main benefits of :ts:`@import` compared to :ts:`<INCLUDE_TYPOSCRIPT>` are:
 
 - is less error-prone
 
