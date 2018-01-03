@@ -1,19 +1,19 @@
 .. include:: ../../Includes.txt
 
 
-.. _constants:
+.. _typoscript-syntax-constants:
 
 Constants
 ^^^^^^^^^
 
 
-.. _what-are-constants:
+.. _typoscript-syntax-what-are-constants:
 
 What are constants?
 """""""""""""""""""
 
 Constants are values defined in the "Constants" field of a template.
-They follow the :ref:`syntax of ordinary TypoScript <syntax>` and are
+They follow the :ref:`syntax of ordinary TypoScript <typoscript-syntax-syntax>` and are
 case sensitive! They are used to manage *in a single place* values,
 which are later used in *several places*.
 
@@ -59,7 +59,7 @@ This could also be defined in other ways, e.g. like this:
 (The objects in the highlighted lines contain the reserved word "file"
 and the properties are always of data type ":ref:`resource <t3tsref:data-type-resource>`".)
 
-.. figure:: ../../Images/TemplatesConstants.png
+.. figure:: ../Images/TemplatesConstants.png
    :alt: Overview of the defined constants
 
 

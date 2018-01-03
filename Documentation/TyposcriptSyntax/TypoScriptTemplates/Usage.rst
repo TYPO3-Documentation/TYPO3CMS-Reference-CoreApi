@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _typoscript-templates-usage:
+.. _typoscript-syntax-typoscript-templates-usage:
 
 Usage
 ^^^^^

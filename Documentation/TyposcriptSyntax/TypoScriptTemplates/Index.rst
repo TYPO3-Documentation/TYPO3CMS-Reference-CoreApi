@@ -1,7 +1,7 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
 
-.. _typoscript-templates:
+.. _typoscript-syntax-typoscript-templates:
 
 TypoScript Templates
 --------------------
@@ -22,9 +22,9 @@ Setup field, can be found in the :ref:`TypoScript Reference <t3tsref:start>`.
    :titlesonly:
    :glob:
 
-   Usage/Index
-   Entering/Index
-   Constants/Index
-   UsingConstants/Index
-   TheConstantEditor/Index
-   Debugging/Index
+   Usage
+   Entering
+   Constants
+   UsingConstants
+   TheConstantEditor
+   Debugging

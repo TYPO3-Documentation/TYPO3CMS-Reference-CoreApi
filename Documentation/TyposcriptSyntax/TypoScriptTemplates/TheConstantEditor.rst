@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _constant-editor:
+.. _typoscript-syntax-constant-editor:
 
 Declaring constants for the Constant Editor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -12,7 +12,7 @@ module **WEB > Template** has the ability to use comments in the
 constant editor to make simple configuration of a template even
 easier than constants already make it themselves.
 
-.. figure:: ../../Images/TemplatesConstantEditor.png
+.. figure:: ../Images/TemplatesConstantEditor.png
    :alt: The Constant Editor showing some categories with constants
 
    The Constant Editor showing some categories with constants
@@ -45,7 +45,7 @@ Making your most important constants available for the "Constant Editor"
 is a real usability gain.
 
 
-.. _constant-editor-default-values:
+.. _typoscript-syntax-constant-editor-default-values:
 
 Default values:
 """""""""""""""
@@ -60,7 +60,7 @@ by the value the constant has **before** the last template
 is parsed (previous templates are typically included template records!).
 
 
-.. _constant-editor-comments:
+.. _typoscript-syntax-constant-editor-comments:
 
 Comments:
 """""""""
@@ -78,13 +78,13 @@ How the comments are perceived by the module:
 
 The possible keys are described below.
 
-.. _constant-editor-keys:
+.. _typoscript-syntax-constant-editor-keys:
 
 Keys:
 """""
 
 
-.. _constant-editor-keys-cat:
+.. _typoscript-syntax-constant-editor-keys-cat:
 
 cat=
 ~~~~
@@ -100,7 +100,7 @@ cat=
 - If the category is empty (""), the constant is excluded from the
   editor!
 
-.. _constant-editor-keys-cat-predefined-categories:
+.. _typoscript-syntax-constant-editor-keys-cat-predefined-categories:
 
 Predefined categories
 *********************
@@ -118,7 +118,7 @@ page       General configuration like meta tags, link targets.
 advanced   Advanced functions, which are seldom used.
 =========  ======================================================================
 
-.. _constant-editor-keys-cat-custom-categories:
+.. _typoscript-syntax-constant-editor-keys-cat-custom-categories:
 
 Custom categories
 *****************
@@ -141,7 +141,7 @@ in the Constant Editor. Usage example:
    config.no_cache = 0
 
 
-.. _constant-editor-keys-cat-subcategories:
+.. _typoscript-syntax-constant-editor-keys-cat-subcategories:
 
 Subcategories
 *************
@@ -160,7 +160,7 @@ You can use one of the predefined subcategories or define your own. If
 you use a non-existing subcategory, your constant will just go into
 the subcategory "Other".
 
-.. _constant-editor-keys-cat-predefined-subcategories:
+.. _typoscript-syntax-constant-editor-keys-cat-predefined-subcategories:
 
 Predefined subcategories
 ************************
@@ -193,7 +193,7 @@ These are all categories reserved for options that relate to content
 rendering for each type of "tt\_content" element. See the static_template
 of extension "css\_styled\_content" for examples.
 
-.. _constant-editor-keys-cat-custom-subcategories:
+.. _typoscript-syntax-constant-editor-keys-cat-custom-subcategories:
 
 Custom subcategories
 ********************
@@ -214,11 +214,11 @@ Usage example:
 
 Will look in the Constant Editor like this:
 
-.. figure:: ../../Images/TemplatesCustomSubcategory.png
+.. figure:: ../Images/TemplatesCustomSubcategory.png
    :alt: The Constant Editor showing a custom category.
 
 
-.. _constant-editor-keys-cat-constants-ordering:
+.. _typoscript-syntax-constant-editor-keys-cat-constants-ordering:
 
 Constants ordering
 ******************
@@ -240,7 +240,7 @@ constant, because it is ranked with letter "b" and the other constant
 has letter "a". Constants without any ordering information will come last.
 
 
-.. _constant-editor-keys-type:
+.. _typoscript-syntax-constant-editor-keys-type:
 
 type=
 ~~~~~
@@ -280,7 +280,7 @@ user                         Path to the file and method which renders the optio
 ===========================  ============================================================================
 
 
-.. _constant-editor-keys-label:
+.. _typoscript-syntax-constant-editor-keys-label:
 
 label=
 ~~~~~~

@@ -1,8 +1,8 @@
 .. include:: ../../Includes.txt
 
 
-.. _templates-debugging:
-.. _debugging:
+.. _typoscript-syntax-templates-debugging:
+.. _typoscript-syntax-debugging:
 
 Debugging
 ^^^^^^^^^
@@ -11,7 +11,7 @@ There are no tools that will tell you that your TypoScript code is
 100% correct. The TypoScript Object Browser will warn you about syntax errors
 though:
 
-.. figure:: ../../Images/TemplatesSyntaxError.png
+.. figure:: ../Images/TemplatesSyntaxError.png
    :alt: The TypoScript Object Browser showing a syntax error
 
 
@@ -20,14 +20,14 @@ content of a give template. It is also possible to see the full
 TypoScript code by clicking on the "View the complete TS listing"
 button at the bottom of the Template Analyzer:
 
-.. figure:: ../../Images/TemplatesViewFullListingButton.png
+.. figure:: ../Images/TemplatesViewFullListingButton.png
    :alt: The TypoScript Object Browser showing a syntax error
 
 
 The result is a long listing with all compiled line numbers, which
 makes it easy to find the error reported by the TypoScript Object Browser.
 
-.. figure:: ../../Images/TemplatesFullListing.png
+.. figure:: ../Images/TemplatesFullListing.png
    :alt: The TypoScript Object Browser showing a syntax error
 
 

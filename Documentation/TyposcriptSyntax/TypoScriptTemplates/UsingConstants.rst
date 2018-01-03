@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _using-constants:
+.. _typoscript-syntax-using-constants:
 
 Using constants
 ^^^^^^^^^^^^^^^
@@ -48,7 +48,7 @@ template is just one large chunk of text.
 You should use a systematic naming scheme for constants. Seek
 inspiration in the code examples around.
 
-.. figure:: ../../Images/TemplatesSetup.png
+.. figure:: ../Images/TemplatesSetup.png
    :alt: Overview of the defined setup
 
 Notice how the constants in the setup code are substituted (marked in
