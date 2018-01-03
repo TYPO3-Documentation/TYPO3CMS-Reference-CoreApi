@@ -13,3 +13,6 @@ TypoScript Syntax Study
 
    Introduction/Index
    Syntax/Index
+   TypoScriptTemplates/Index
+   TSconfig/Index
+   Details/Index

@@ -1,18 +1,18 @@
 .. include:: ../../Includes.txt
 
 
-.. _myths:
-.. _faq:
-.. _acknowledgements:
+.. _typoscript-syntax-myths:
+.. _typoscript-syntax-faq:
+.. _typoscript-syntax-acknowledgements:
 
-Myths, FAQ and acknowledgments
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Myths, FAQ and acknowledgements
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section contains a few remarks and answers to questions you may
 still have.
 
 
-.. _myth-scripting-language:
+.. _typoscript-syntax-myth-scripting-language:
 
 Myth: "TypoScript is a scripting language"
 """"""""""""""""""""""""""""""""""""""""""
@@ -32,7 +32,7 @@ Finally the name "TypoScript" is misleading as well. We are sorry
 about that; too late to change that now.
 
 
-.. _myth-javascript:
+.. _typoscript-syntax-myth-javascript:
 
 Myth: "TypoScript has the same syntax as JavaScript"
 """"""""""""""""""""""""""""""""""""""""""""""""""""
@@ -43,7 +43,7 @@ is very dangerous to say this since it all stops with the syntax -
 TypoScript is still not a procedural programming language!
 
 
-.. _myth-proprietary:
+.. _typoscript-syntax-myth-proprietary:
 
 Myth: "TypoScript is a proprietary standard"
 """"""""""""""""""""""""""""""""""""""""""""
@@ -82,7 +82,7 @@ time it would take to learn about them would not be eliminated, if
 TypoScript was not invented!
 
 
-.. _myth-complex:
+.. _typoscript-syntax-myth-complex:
 
 Myth: "TypoScript is very complex"
 """"""""""""""""""""""""""""""""""
@@ -98,7 +98,7 @@ This can partly be solved by:
   gives you overview as well.
 
 
-.. _xml:
+.. _typoscript-syntax-xml:
 
 Why not XML instead?
 """"""""""""""""""""

@@ -1,7 +1,7 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
 
-.. _tsconfig:
+.. _typoscript-syntax-tsconfig:
 
 TSconfig
 --------
@@ -29,7 +29,7 @@ Page and User TSconfig, can be found in the
 :ref:`TSconfig Reference <t3tsconfig:start>`.
 
 
-.. _tsconfig-page:
+.. _typoscript-syntax-tsconfig-page:
 
 Entering Page TSconfig
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -59,7 +59,7 @@ Page TSconfig is thus very convenient to have separate branches
 of the page tree behave differerently.
 
 
-.. _tsconfig-user:
+.. _typoscript-syntax-tsconfig-user:
 
 Entering User TSconfig
 ^^^^^^^^^^^^^^^^^^^^^^

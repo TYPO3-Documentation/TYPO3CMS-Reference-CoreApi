@@ -1,12 +1,12 @@
 .. include:: ../../Includes.txt
 
 
-.. _parsing-storing-executing-typoscript:
+.. _typoscript-syntax-parsing-storing-executing-typoscript:
 
 Parsing, storing and executing TypoScript
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _parsing-typoscript:
+.. _typoscript-syntax-parsing-typoscript:
 
 Parsing TypoScript
 """"""""""""""""""
@@ -23,11 +23,11 @@ errors can therefore be seen only with a tool that analyzes the syntax
 - like the syntax highlighter does.
 
 The :code:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser` class is used to parse
-TypoScript content. Please see the section :ref:`typoscript-parser-api`
+TypoScript content. Please see the section :ref:`typoscript-syntax-typoscript-parser-api`
 in this document for details.
 
 
-.. _storing-typoscript:
+.. _typoscript-syntax-storing-typoscript:
 
 Storing parsed TypoScript
 """""""""""""""""""""""""
@@ -82,7 +82,7 @@ direct access to PHP code, which is the very reason why TypoScript came into
 existence.
 
 
-.. _executing-typoscript:
+.. _typoscript-syntax-executing-typoscript:
 
 Executing TypoScript
 """"""""""""""""""""

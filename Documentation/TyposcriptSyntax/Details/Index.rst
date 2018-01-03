@@ -1,7 +1,7 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
 
-.. _details:
+.. _typoscript-syntax-details:
 
 Sorting out details
 -------------------
@@ -14,6 +14,6 @@ This chapter looks at some more technical details about TypoScript.
    :titlesonly:
    :glob:
 
-   ParsingStoringExecutingTypoScript/Index
-   MythsFaqAcknowledgments/Index
+   ParsingStoringExecutingTypoScript
+   MythsFaqAcknowledgements
 
