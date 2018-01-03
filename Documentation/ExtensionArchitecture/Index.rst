@@ -9,6 +9,7 @@ Extension Architecture
 
 .. toctree::
    :titlesonly:
+   :maxdepth: 1
 
    Introduction/Index
    FilesAndLocations/Index
