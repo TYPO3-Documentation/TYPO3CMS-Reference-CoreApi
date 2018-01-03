@@ -16,7 +16,7 @@ This chapter describes the most important elements of the API.
 
 .. toctree::
    :titlesonly:
-   :hidden:
+   :maxdepth: 1
 
    Namespaces/Index
    Autoloading/Index
