@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _parser-introduction:
+.. _typoscript-syntax-parser-introduction:
 
 Introduction
 ^^^^^^^^^^^^

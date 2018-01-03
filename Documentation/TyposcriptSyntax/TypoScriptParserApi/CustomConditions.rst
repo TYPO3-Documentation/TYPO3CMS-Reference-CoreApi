@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _implementing-custom-conditions:
+.. _typoscript-syntax-implementing-custom-conditions:
 
 Implementing custom conditions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -71,7 +71,7 @@ With this listing we would expect to get the object path "message" set
 to "Yes" since the condition line "[TYPO3 IS GREAT]" matches the
 criteria for what will return true. Let's try:
 
-.. figure:: ../../Images/ParserAPIConditionDebug1.png
+.. figure:: ../Images/ParserAPIConditionDebug1.png
    :alt: Debug output of our custom condition 1.
 
 According to this output it worked!
@@ -84,7 +84,7 @@ Let's try to alter line 2 to this:
 
 The parsed result is now:
 
-.. figure:: ../../Images/ParserAPIConditionDebug2.png
+.. figure:: ../Images/ParserAPIConditionDebug2.png
    :alt: Debug output of our custom condition 2.
 
 As you can see the value of "message" is now "No" since the condition
