@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
 .. _extension-scanner:
 
@@ -13,6 +13,13 @@ Introduction
 The extension scanner which has been introduced with TYPO3 core version 9 as part of the system
 management (formerly "install tool") provides an interactive interface to scan extension code
 for usage of TYPO3 core API which has been removed or deprecated.
+
+
+.. figure:: Images/ExtensionScanner.png
+    :alt: Scan Extension Files in core 9.0 backend
+
+    The Extension scanner in 9.0
+
 
 The module can be a great help for extension developers and site maintainers when upgrading to
 new core versions. It can point out code places within extensions that need attention. However,

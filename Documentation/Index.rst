@@ -72,7 +72,6 @@ address the task at hand.
    Sitemap/Index
    Introduction/Index
    ExtensionArchitecture/Index
-   ExtensionScanner/Index
    ApiOverview/Index
    Internationalization/Index
    PageTypes/Index
