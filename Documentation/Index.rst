@@ -76,7 +76,7 @@ address the task at hand.
    ApiOverview/Index
    Internationalization/Index
    PageTypes/Index
-   TyposcriptSyntax/Index
+   TypoScriptSyntax/Index
    UserSettingsConfiguration/Index
    Rte/Index
    DataFormats/Index
