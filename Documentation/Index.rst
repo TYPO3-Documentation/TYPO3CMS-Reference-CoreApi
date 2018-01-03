@@ -74,7 +74,6 @@ address the task at hand.
    ExtensionArchitecture/Index
    ApiOverview/Index
    UserSettingsConfiguration/Index
-   Rte/Index
    DataFormats/Index
    NextSteps
    Targets
