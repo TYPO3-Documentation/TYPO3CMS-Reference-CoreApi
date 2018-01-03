@@ -1,16 +1,91 @@
 .. include:: ../../Includes.txt
 
 
-.. _object-paths:
-.. _objects:
-.. _properties:
+.. _typoscript-syntax-introduction:
+
+Introduction
+============
+
+
+.. _typoscript-syntax-about:
+
+About this chapter
+------------------
+
+This chapter describes the syntax of TypoScript. It also covers the
+nature of TypoScript and what the differences are between the various
+contexts in which it can be used (i.e. templates and TSconfig).
+
+
+.. _typoscript-syntax-what-is-typoscript:
+
+What is TypoScript?
+-------------------
+
+People are often confused about what TypoScript (TS) is, where it can
+be used and have a tendency to think of it as something complex. This
+chapter has been written in the hope of clarifying these issues.
+
+First let's start with a basic truth:
+
+- TypoScript is a *syntax* for defining information in a hierarchical
+  structure using simple ASCII text content.
+
+This means that:
+
+- TypoScript itself does not "do" anything - it just contains
+  information.
+
+- TypoScript is *only* transformed into function when it is passed to a
+  program which is designed to act according to the information in a
+  TypoScript information structure.
+
+So strictly speaking TypoScript has no function in itself, only when
+used in a certain context. Since the context is almost always to
+*configure* something you can often understand TypoScript as
+*parameters* (or function arguments) passed to a function which acts
+accordingly (e.g. "background\_color = red"). And on the contrary you
+will probably never see TypoScript used to store information like a
+database of addresses - you would use XML or SQL for that.
+
+
+.. _typoscript-syntax-php-arrays:
+
+PHP arrays
+^^^^^^^^^^
+
+In the scope of its use you can also understand TypoScript as a non-
+strict way to enter information into a *multidimensional array* . In
+fact when TypoScript is parsed, it is *transformed into a PHP array*
+! So when would you define static information in PHP arrays? You would
+do that in configuration files - but probably not to build your
+address database!
+
+This can be summarized as follows:
+
+- When TypoScript is *parsed* it means that the information is
+  transformed into a *PHP array* from where TYPO3 applications can
+  access it.
+
+- So the *same* information could in fact be defined in TypoScript *or
+  directly* in PHP; but the syntax would be different for the two of
+  course.
+
+- TypoScript offers convenient features which is the reason why we don't
+  just define the information directly with PHP syntax into arrays.
+  These features include a relaxed handling of syntax errors, definition
+  of values with less language symbols needed and the ability of using
+  an object/property metaphor, etc.
+
+
+.. _typoscript-syntax-object-paths:
 
 TypoScript syntax, object paths, objects and properties
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-See, that is what this document is about - the *syntax* of
+See, that is what this chapter is about - the *syntax* of
 TypoScript; the rules you must obey in order to store information in
-this structure. Obviously I'll not explain the full syntax here again
+this structure. Obviously we'll not explain the full syntax here again
 but just give an example to convey the idea.
 
 Remember it is about storing information, so think about TypoScript as
@@ -63,10 +138,10 @@ of (the object) "asdf". Further, "transparency" is a property of (the
 object / the property) "backgroundColor" (or "asdf.backgroundColor").
 
 
-.. _semantics:
+.. _typoscript-syntax-semantics:
 
 Note about perceived semantics
-""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You may now think that "backgroundColor = blue" makes more sense than
 "zxcvbnm = uiop" but having a look at the **syntax** only it doesn't!
@@ -87,14 +162,12 @@ ultimately is the programming reference, DTD or XML-Schema which
 defines the meaning.
 
 
-.._parsed-php-array:
+.. _typoscript-syntax-parsed-php-array:
 
 Note about the internal structure when parsed into a PHP array
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As stated in the previous chapter TypoScript can be understood as a
-lightweight way to enter information into a multidimensional PHP
-array. Let's take the TypoScript from above as an example::
+Let's take the TypoScript from above as an example::
 
    asdf {
      zxcvbnm = uiop
@@ -112,16 +185,26 @@ could be defined as follows::
 Or alternatively you could define the information in that PHP array
 like this::
 
-   $TS = array(
-     'asdf.' => array(
+   $TS = [
+     'asdf.' => [
        'zxcvbnm' => 'uiop',
        'backgroundColor' => 'blue',
-       'backgroundColor.' => array (
+       'backgroundColor.' => [
          'transparency' => '95%'
-       )
-     )
-   )
+       ]
+     ]
+   ]
 
 The information inside a PHP array like that one is used by TYPO3 to
 apply the configurations, which you have set.
 
+
+.. _typoscript-syntax-credits:
+
+Credits
+-------
+
+This chapter was formerly maintained by Michael Stucki and Francois
+Suter. Additions have been made by Sebastian Michaelsen. The updates
+for recent versions were done by Christopher Stelmaszyk and Francois
+Suter.

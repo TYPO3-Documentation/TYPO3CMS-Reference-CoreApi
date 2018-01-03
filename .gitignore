@@ -12,4 +12,5 @@
 .TemporaryItems
 .webprj
 /_make
+/Documentation-GENERATED-temp/
 nbproject
