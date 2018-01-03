@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
 
 .. _page-types:
@@ -92,7 +92,7 @@ Create new Page Type
 
 The following example adds a new page type called "Archive".
 
-.. figure:: ../Images/NewPageType.png
+.. figure:: Images/NewPageType.png
    :alt: The new page type in action
 
    The new page type visible in the TYPO3 backend

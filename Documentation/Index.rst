@@ -73,7 +73,6 @@ address the task at hand.
    Introduction/Index
    ExtensionArchitecture/Index
    ApiOverview/Index
-   PageTypes/Index
    TypoScriptSyntax/Index
    UserSettingsConfiguration/Index
    Rte/Index

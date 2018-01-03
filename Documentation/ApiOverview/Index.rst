@@ -49,5 +49,6 @@ This chapter describes the most important elements of the API.
    JavaScript/Index
    SoftReferences/Index
    SessionStorageFramework/Index
+   PageTypes/Index
    ExtensionScanner/Index
    Examples/Index
