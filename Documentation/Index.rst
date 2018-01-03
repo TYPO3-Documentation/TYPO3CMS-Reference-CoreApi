@@ -80,7 +80,6 @@ address the task at hand.
    UserSettingsConfiguration/Index
    Rte/Index
    DataFormats/Index
-   References
-   Appendices/Index
+   NextSteps
    Targets
 

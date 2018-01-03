@@ -1,10 +1,10 @@
 .. include:: ../../Includes.txt
 
-
+.. _appendices:
 .. _appendix-a:
 
-Appendix A: Historical perspective on RTE transformations
----------------------------------------------------------
+Historical perspective on RTE transformations
+---------------------------------------------
 
 The next sections describe in more details the necessity of RTE
 transformations. The text was written at the birth of transformations
@@ -16,7 +16,7 @@ exist. The argumentation is still valid.
 .. toctree::
    :titlesonly:
 
-   PropertiesAndTransformations/Index
-   RteTransformationsInContentElements/Index
+   PropertiesAndTransformations
+   RteTransformationsInContentElements
 
 

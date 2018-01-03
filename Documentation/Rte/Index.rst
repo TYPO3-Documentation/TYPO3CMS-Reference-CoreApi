@@ -15,5 +15,6 @@ various processes (saving to the database, rendering to the frontend, etc.)
 
    InTheBackend/Index
    Transformations/Index
+   HistoricalRteTransformations/Index
 
 

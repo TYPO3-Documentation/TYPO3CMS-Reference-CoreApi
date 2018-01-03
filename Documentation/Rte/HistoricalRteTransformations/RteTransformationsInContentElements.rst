@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: ../../Includes.txt
 
 
 .. _appendix-a-content-elements:
@@ -9,7 +9,7 @@ RTE transformations in Content Elements
 The RTE is used in the bodytext field of the content elements,
 configured for the types "Text" and "Text & Images".
 
-.. figure:: ../../../Images/RteInContentElements.png
+.. figure:: ../Images/RteInContentElements.png
    :alt: The Rich-Text Editor
 
    The Rich-Text Editor in a typical text content element
@@ -142,7 +142,7 @@ current domain.
 .. _appendix-a-content-elements-conclusion:
 
 Conclusion
-"""""""""""
+""""""""""
 
 These actions are done by so called *transformations* which are
 configured in the :code:`$TCA`. Basically these transformations are admittedly

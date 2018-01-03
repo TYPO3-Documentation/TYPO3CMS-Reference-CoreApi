@@ -11,6 +11,6 @@ Rich Text Editors in the TYPO3 backend
 
 .. toctree::
 
-   Introduction/Index
-   PlugRte/Index
+   Introduction
+   PlugRte
 

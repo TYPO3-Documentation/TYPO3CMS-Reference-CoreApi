@@ -10,10 +10,10 @@ Transformations
 .. toctree::
    :titlesonly:
 
-   Introduction/Index
-   Process/Index
-   Overview/Index
-   Tsconfig/Index
-   CustomApi/Index
+   Introduction
+   Process
+   Overview
+   Tsconfig
+   CustomApi
 
 

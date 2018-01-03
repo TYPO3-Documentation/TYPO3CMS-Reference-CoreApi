@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: ../../Includes.txt
 
 
 .. _transformations-process:
@@ -9,7 +9,7 @@ Process illustration
 The following illustration shows the process of transformations
 graphically.
 
-.. figure:: ../../../Images/RteTransformationProcess.png
+.. figure:: ../Images/RteTransformationProcess.png
    :alt: RTE transformations process
 
    The various steps in the RTE transformations process
