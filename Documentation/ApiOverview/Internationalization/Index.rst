@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
 
 .. _internationalization:
@@ -14,5 +14,5 @@ called ":ref:`locallang XML <locallang>`" was used.
 .. toctree::
    :titlesonly:
 
-   Introduction/Index
-   Translation/Index
+   Introduction
+   Translation

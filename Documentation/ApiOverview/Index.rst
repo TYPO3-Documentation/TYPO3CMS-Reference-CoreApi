@@ -26,6 +26,7 @@ This chapter describes the most important elements of the API.
    Typo3CoreEngine/Index
    FormEngine/Index
    Database/Index
+   Internationalization/Index
    Workspaces/Index
    Fal/Index
    CachingFramework/Index

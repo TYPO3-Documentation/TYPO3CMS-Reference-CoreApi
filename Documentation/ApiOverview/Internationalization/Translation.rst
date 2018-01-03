@@ -33,7 +33,7 @@ Using `Virtaal <http://translate.sourceforge.net/wiki/virtaal/index>`_,
 it is possible to translate XLIFF files locally.
 Virtaal is an open source, cross-platform application.
 
-.. figure:: ../../Images/XliffWithVirtaal.png
+.. figure:: Images/XliffWithVirtaal.png
    :alt: Virtaal screenshot
 
    Translating with Virtaal, with suggestions from other software
@@ -80,7 +80,7 @@ looks like this:
 
 and the result can be easily seen in the backend:
 
-.. figure:: ../../Images/LabelOverride.png
+.. figure:: Images/LabelOverride.png
    :alt: Custom label
 
    Custom translation in the TYPO3 backend
@@ -153,7 +153,7 @@ this would be in file :file:`typo3conf/l10n/gsw_CH/setup/mod/gsw_CH.locallang.xl
       </file>
    </xliff>
 
-.. figure:: ../../Images/XliffCustomLanguage.png
+.. figure:: Images/XliffCustomLanguage.png
    :alt: User Settings screenshot
 
    The new language appears in the user preferences
