@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _typoscript-syntax:
+.. _typoscript-syntax-typoscript-syntax:
 
 TypoScript syntax
 ^^^^^^^^^^^^^^^^^
@@ -23,7 +23,7 @@ Example:
    myObject.myProperty = value 2
 
 
-.. _syntax-object-path:
+.. _typoscript-syntax-syntax-object-path:
 
 object path
 """""""""""
@@ -49,7 +49,7 @@ Here we do **not** have three hierarchically structured objects :code:`my`,
 :code:`escaped` and :code:`key`.
 
 
-.. _syntax-operator:
+.. _typoscript-syntax-syntax-operator:
 
 operator
 """"""""
@@ -58,7 +58,7 @@ The operator (in the example it is :code:`=`) can be one of the characters
 :code:`=<>{(`. The various operators are described below.
 
 
-.. _syntax-value:
+.. _typoscript-syntax-syntax-value:
 
 value
 """""
@@ -69,7 +69,7 @@ at both ends. Notice that values are *not* encapsulated in quotes! The
 value starts after the operator and ends with the line break.
 
 
-.. _syntax-comments:
+.. _typoscript-syntax-syntax-comments:
 
 Comments
 """"""""
@@ -93,7 +93,7 @@ Up to TYPO3 7.6, a line starting with only one single slash,
 style however is deprecated and should not be used.
 
 
-.. _syntax-comment-blocks:
+.. _typoscript-syntax-syntax-comment-blocks:
 
 Comment blocks
 """"""""""""""
@@ -131,8 +131,8 @@ Example:
    )
 
 
-.. _syntax-equal-operator:
-.. _syntax-value-assignment:
+.. _typoscript-syntax-syntax-equal-operator:
+.. _typoscript-syntax-syntax-value-assignment:
 
 Value assignment: The "=" operator
 """"""""""""""""""""""""""""""""""
@@ -151,8 +151,8 @@ Be aware that the value will be trimmed, which means stripped of
 whitespace at both ends.
 
 
-.. _syntax-colon-equal-operator:
-.. _syntax-value-modification:
+.. _typoscript-syntax-syntax-colon-equal-operator:
+.. _typoscript-syntax-syntax-value-modification:
 
 Value modifications: The ":=" operator
 """"""""""""""""""""""""""""""""""""""
@@ -248,8 +248,8 @@ produces the same result as:
    myObject.value = 3,4,5
 
 
-.. _syntax-code-blocks:
-.. _syntax-curly-brackets:
+.. _typoscript-syntax-syntax-code-blocks:
+.. _typoscript-syntax-syntax-curly-brackets:
 
 Code blocks: The { } signs
 """"""""""""""""""""""""""
@@ -308,8 +308,8 @@ could also be written as:
    }
 
 
-.. _syntax-round-brackets:
-.. _syntax-multiline-values:
+.. _typoscript-syntax-syntax-round-brackets:
+.. _typoscript-syntax-syntax-multiline-values:
 
 Multi-line values: The ( ) signs
 """"""""""""""""""""""""""""""""
@@ -342,8 +342,8 @@ Example:
    )
 
 
-.. _syntax-smaller-than-operator:
-.. _syntax-object-copying:
+.. _typoscript-syntax-syntax-smaller-than-operator:
+.. _typoscript-syntax-syntax-object-copying:
 
 Object copying: The "<" sign
 """"""""""""""""""""""""""""
@@ -367,7 +367,7 @@ The result of the above TypoScript is two independent sets of
 objects/properties which are exactly the same (duplicates). They are
 *not* references to each other but actual copies:
 
-.. figure:: ../../Images/SyntaxCopying1.png
+.. figure:: ../Images/SyntaxCopying1.png
    :alt: An object and its copy
 
 Another example with a copy within a code block:
@@ -397,7 +397,7 @@ The following produces the same result as above:
 
 which – in tree view – translates to:
 
-.. figure:: ../../Images/SyntaxCopying2.png
+.. figure:: ../Images/SyntaxCopying2.png
    :alt: Another object and its copy
 
 .. important::
@@ -421,8 +421,8 @@ which – in tree view – translates to:
    it's easy to loose the oversight in larger pieces of TypoScript.
 
 
-.. _syntax-equal-smaller-than-operator:
-.. _syntax-object-referencing:
+.. _typoscript-syntax-syntax-equal-smaller-than-operator:
+.. _typoscript-syntax-syntax-object-referencing:
 
 References: the "=<" sign
 """""""""""""""""""""""""
@@ -445,8 +445,8 @@ be used with caution.
 will not change the original object that was referenced.
 
 
-Example:
-~~~~~~~~
+Example
+~~~~~~~
 
 .. code-block:: typoscript
 
@@ -462,7 +462,7 @@ In this case, the :code:`stdWrap.wrap` property of :code:`anotherObject`
 will indeed be :code:`<h1>|<h1>`. In tree view the properties
 of the reference are not shown. Only the reference itself is visible:
 
-.. figure:: ../../Images/SyntaxReferencing.png
+.. figure:: ../Images/SyntaxReferencing.png
    :alt: An object and a reference of it.
 
 Remember:
@@ -476,8 +476,8 @@ Remember:
   The value you get will be just :code:`< plugin.tx_example.settings.foo` instead.
 
 
-.. _syntax-bigger-than-operator:
-.. _syntax-unsetting-operator:
+.. _typoscript-syntax-syntax-bigger-than-operator:
+.. _typoscript-syntax-syntax-unsetting-operator:
 
 Object unsetting: The ">" Sign
 """"""""""""""""""""""""""""""
@@ -498,8 +498,8 @@ Example:
 In this last line :code:`myObject` is totally wiped out (removed).
 
 
-.. _syntax-square-brackets:
-.. _syntax-conditions:
+.. _typoscript-syntax-syntax-square-brackets:
+.. _typoscript-syntax-syntax-conditions:
 
 Conditions: Lines starting with "["
 """""""""""""""""""""""""""""""""""

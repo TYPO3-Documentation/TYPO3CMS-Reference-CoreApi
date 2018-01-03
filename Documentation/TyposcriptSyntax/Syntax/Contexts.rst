@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _typoscript-contexts:
+.. _typoscript-syntax-typoscript-contexts:
 
 Contexts
 ^^^^^^^^
@@ -22,11 +22,11 @@ Some parts of TypoScript are available in both contexts, some only in
 one or the other. Any difference is mentioned at the relevant place.
 
 Each context has its own chapter in this manual. It also has its own
-reference in a separate manual (see :ref:`next-steps` at the end of
+reference in a separate manual (see :ref:`typoscript-syntax-next-steps` at the end of
 this manual).
 
 .. note::
 
-   TYPO3 CMS provides a :ref:`TypoScript parser <typoscript-parser-api>`
+   TYPO3 CMS provides a :ref:`TypoScript parser <typoscript-syntax-typoscript-parser-api>`
    whose API can be used by any developer. In theory this means that new
    contexts of TypoScript usage can be created by TYPO3 CMS extensions.

@@ -4,7 +4,7 @@
 .. _typoscript-syntax-start:
 
 =======================
-Typoscript Syntax Study
+TypoScript Syntax Study
 =======================
 
 .. toctree::
@@ -12,3 +12,4 @@ Typoscript Syntax Study
    :glob:
 
    Introduction/Index
+   Syntax/Index

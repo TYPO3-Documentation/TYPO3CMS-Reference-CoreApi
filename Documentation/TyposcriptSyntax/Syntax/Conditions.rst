@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _conditions:
+.. _typoscript-syntax-conditions:
 
 Conditions
 ^^^^^^^^^^
@@ -31,7 +31,7 @@ and return either TRUE or FALSE which subsequently means the parsing
 of the TypoScript code that follows.
 
 
-.. _conditions-usage:
+.. _typoscript-syntax-conditions-usage:
 
 Where conditions can be used
 """"""""""""""""""""""""""""
@@ -49,7 +49,7 @@ templates do, but there are some small differences. For details see the
 :ref:`chapter on conditions in TSconfig <t3tsconfig:conditions>`.
 
 
-.. _conditions-syntax:
+.. _typoscript-syntax-conditions-syntax:
 
 The syntax of conditions
 """"""""""""""""""""""""
@@ -115,12 +115,12 @@ the parsed object tree depending on whether the condition evaluates to
 TRUE or FALSE (which can be simulated with that module as you can
 see):
 
-.. figure:: ../../Images/ConditionsSyntax.png
+.. figure:: ../Images/ConditionsSyntax.png
    :alt: The Object Browser showing different objects depending on whether
          a condition is set or unset.
 
 
-.. _conditions-combine:
+.. _typoscript-syntax-conditions-combine:
 
 Combining conditions
 """"""""""""""""""""
@@ -139,9 +139,9 @@ conditions. The following operators are available:
 
 
 
-.. _else-condition:
-.. _end-condition:
-.. _global-condition:
+.. _typoscript-syntax-else-condition:
+.. _typoscript-syntax-end-condition:
+.. _typoscript-syntax-global-condition:
 
 The special [ELSE], [END] and [GLOBAL] conditions
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -175,7 +175,7 @@ another if not. No matter what the text is wrapped in a :code:`<strong>` tag,
 because, as we can see, this wrap is added outside of the condition block
 (e.g. after the :code:`[END]` condition).
 
-.. figure:: ../../Images/ConditionsSyntaxElse.png
+.. figure:: ../Images/ConditionsSyntaxElse.png
    :alt: The TypoScript object browser showing the output of an ELSE condition.
 
 The fact that you can "enable" the condition in the TypoScript Object
@@ -197,8 +197,8 @@ but you could do this:
    [END]
 
 
-.. _conditions-confinements:
-.. _conditions-braces:
+.. _typoscript-syntax-conditions-confinements:
+.. _typoscript-syntax-conditions-braces:
 
 Where to insert conditions in TypoScript?
 """""""""""""""""""""""""""""""""""""""""
@@ -229,19 +229,19 @@ But this is **not valid:**
 
 When parsed with syntax highlighting you will see this error:
 
-.. figure:: ../../Images/ConditionsSyntaxError.png
+.. figure:: ../Images/ConditionsSyntaxError.png
    :alt: Error after having used a condition where it is not allowed.
 
 Clicking on the details link will show the following:
 
-.. figure:: ../../Images/ConditionsSyntaxErrorDetails.png
+.. figure:: ../Images/ConditionsSyntaxErrorDetails.png
    :alt: The error details
 
 This means that the line was perceived as a regular definition of
 TypoScript and not as a condition.
 
 
-.. _the-global-condition:
+.. _typoscript-syntax-the-global-condition:
 
 The [GLOBAL] condition
 """"""""""""""""""""""
@@ -260,7 +260,7 @@ condition scope) is yet different, in that will be detected at
 
 But you will still get some errors if you syntax highlight it:
 
-.. figure:: ../../Images/ConditionsSyntaxErrorGlobal.png
+.. figure:: ../Images/ConditionsSyntaxErrorGlobal.png
    :alt: Error after having used a GLOBAL condition at thw wrong place.
 
 The reason for this is that the :code:`[GLOBAL]` condition aborts the
@@ -279,7 +279,7 @@ from the top level. This is normally done when TypoScript code from
 various records is combined.
 
 
-.. _conditions-summary:
+.. _typoscript-syntax-conditions-summary:
 
 Summary
 """""""

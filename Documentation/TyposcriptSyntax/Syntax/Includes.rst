@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _includes:
+.. _typoscript-syntax-includes:
 
 Includes
 ^^^^^^^^
@@ -132,13 +132,13 @@ DIR      This includes all files from a directory relative to :code:`PATH_site`,
 =======  ==========================================================================
 
 
-.. _includes-conditions:
+.. _typoscript-syntax-includes-conditions:
 
 Conditions
 """"""""""
 
 Since TYPO3 CMS 7, it is possible to use conditions on include directives.
-The conditions are the same as was presented in the :ref:`previous chapter <conditions>`.
+The conditions are the same as was presented in the :ref:`previous chapter <typoscript-syntax-conditions>`.
 The files or directories will be included only if the condition is met.
 
 Example:
@@ -148,7 +148,7 @@ Example:
    <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/user.typoscript" condition="[loginUser = *]">
 
 
-.. _includes-best-practices:
+.. _typoscript-syntax-includes-best-practices:
 
 Best practices
 """"""""""""""
