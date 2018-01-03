@@ -3,7 +3,7 @@
 
 .. _api-overview:
 
-TYPO3 Explained
+TYPO3 explained
 ===============
 
    The source is the documentation! (General wisdom)
@@ -52,5 +52,6 @@ This chapter describes the most important elements of the API.
    Rte/Index
    TypoScriptSyntax/Index
    PageTypes/Index
+   UserSettingsConfiguration/Index
    ExtensionScanner/Index
    Examples/Index

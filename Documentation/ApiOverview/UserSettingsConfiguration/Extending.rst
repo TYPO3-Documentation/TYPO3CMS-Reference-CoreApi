@@ -36,7 +36,7 @@ See label 'extending' in older versions of the TCA-Reference.
 
 And here is the new field in the User Tools > User Settings module:
 
-.. figure:: ../../Images/UserSettingsExtending.png
+.. figure:: Images/UserSettingsExtending.png
    :alt: Extending the User Settings configuration
 
    The new field visible in the User Settings configuration

@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
 
 .. _user-settings-reference:
@@ -16,7 +16,7 @@ array. It is quite similar to the :ref:`$TCA <t3tca:start>`, but with less optio
 .. toctree::
    :titlesonly:
 
-   Columns/Index
-   Showitem/Index
-   Extending/Index
-   Checking/Index
+   Columns
+   Showitem
+   Extending
+   Checking
