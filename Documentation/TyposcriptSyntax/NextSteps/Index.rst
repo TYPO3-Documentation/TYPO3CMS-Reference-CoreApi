@@ -1,7 +1,7 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
 
-.. _next-steps:
+.. _typoscript-syntax-next-steps:
 
 Next steps
 ----------

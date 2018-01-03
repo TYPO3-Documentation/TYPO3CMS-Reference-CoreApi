@@ -17,3 +17,4 @@ TypoScript Syntax Study
    TSconfig/Index
    Details/Index
    TypoScriptParserApi/Index
+   NextSteps/Index
