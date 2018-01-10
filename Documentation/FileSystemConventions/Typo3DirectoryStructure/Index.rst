@@ -15,15 +15,6 @@ directories:
 .. container:: table-row
 
    Directory
-         Directory
-
-   Description
-         Description
-
-
-.. container:: table-row
-
-   Directory
          :code:`fileadmin/`
 
    Description
