@@ -30,6 +30,12 @@ This document has been written to explain the design goals of the scanner, to po
 and can't do. The document should help extension and project developers to get the best out of the tool,
 and it should help core developers to add core patches which use the scanner.
 
+This module has been featured on the TYPO3 youtube channel:
+
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UdIYDZgBrQU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 
 Goals and non goals
 -------------------
