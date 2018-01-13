@@ -32,9 +32,7 @@ and it should help core developers to add core patches which use the scanner.
 
 This module has been featured on the TYPO3 youtube channel:
 
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UdIYDZgBrQU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+.. youtube:: UdIYDZgBrQU
 
 
 Goals and non goals
@@ -178,7 +176,7 @@ may need attention when upgrading to a newer core version, the following points 
   if the extension scanner shows a false positive.
 
 * A green output when scanning an extension does *not* imply that the extension actually works with
-  that core version: Some deprecations or breaking changes are not scanned (for example those causing 
+  that core version: Some deprecations or breaking changes are not scanned (for example those causing
   too many false positives) and the scanner does not support all script/markup languages.
 
 * The breaking change / deprecation RST files shipped with a core version are still relevant and should
