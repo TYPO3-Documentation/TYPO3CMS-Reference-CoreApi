@@ -194,6 +194,12 @@ Limitations:
   has a dependency to a removed provider, the :php:`DependencyOrderingService` which takes care of the sorting throws
   an exception. There is currently no good solution in the core on how to mitigate this issue.
 
+.. note::
+  Data providers in general should not know about :php:`renderType`, but only on :php:`type`. Their goal is to prepare
+  and sanitize data independet of a specific :php:`renderType`. At the moment, the core data provider just have one
+  or two places where specific renderType`s are taken into account to process data, and those show that these areas
+  are a technical dept that should be changed.
+
 
 Adding data to data array
 -------------------------
