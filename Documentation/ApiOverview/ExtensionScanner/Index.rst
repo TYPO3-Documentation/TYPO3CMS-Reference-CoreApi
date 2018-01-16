@@ -32,7 +32,7 @@ and it should help core developers to add core patches which use the scanner.
 
 This module has been featured on the TYPO3 youtube channel:
 
-.. only:: html
+.. only:: html and singlehtml
 
    .. youtube:: UdIYDZgBrQU
 
