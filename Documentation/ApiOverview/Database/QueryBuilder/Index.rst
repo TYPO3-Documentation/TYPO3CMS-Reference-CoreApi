@@ -205,7 +205,7 @@ Create an `UPDATE` query. Typical usage::
    $queryBuilder
       ->update('tt_content')
       ->where(
-         $queryBuilder->expr()->eq('bodytext', $this->createNamedParameter('klaus')
+         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')
       )
       ->set('bodytext', 'peter')
       ->execute();
