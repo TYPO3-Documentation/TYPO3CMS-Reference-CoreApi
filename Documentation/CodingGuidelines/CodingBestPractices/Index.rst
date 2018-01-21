@@ -19,6 +19,6 @@ part is just an overview of common pitfalls and generic tips.
    StaticMethods
    Localization
    UnitTests
-   HandlingDeprecation
+   HandlingDeprecations
    ClassNamesOfUserFiles
 

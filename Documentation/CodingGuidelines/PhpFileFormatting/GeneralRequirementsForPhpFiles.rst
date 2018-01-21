@@ -75,15 +75,18 @@ Comment lines should be kept within a limit of about 80 characters
 (**excluding** the leading spaces) as it makes them easier to read.
 
 .. note::
+
     When splitting a line, try to split it at a point that makes as much
     sense as possible. In the above example, the line is split between two
     arguments and not in the middle of one. In case of long logical
     expressions, put the logical operator at the beginning of the next
-    line, e.g.::
+    line, example:
 
-    if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['curlUse'] == '1'
-        && preg_match('/^(?:http|ftp)s?|s(?:ftp|cp):/', $url)
-    ) {
+    .. code-block:: php
+
+        if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['curlUse'] == '1'
+            && preg_match('/^(?:http|ftp)s?|s(?:ftp|cp):/', $url)
+        ) {
 
 
 Whitespace and indentation
