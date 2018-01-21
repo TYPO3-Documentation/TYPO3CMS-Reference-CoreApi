@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _localization:
+.. _cgl-localization:
 
 Localization
 ^^^^^^^^^^^^
@@ -41,7 +41,7 @@ files:
 - Localized strings are not supposed to contain HTML tags, except for
   CSH. They should be avoided whenever possible.
 
-- Punctuation marks **must** be included in the localized string –
+- Punctuation marks must be included in the localized string –
   including trailing marks – as different punctuation marks (e.g. "?"
   and "¿") may be used in various languages. Also some languages include
   blanks before some punctuation marks.
@@ -50,15 +50,3 @@ Once a localized string appears in a released version of TYPO3, it
 cannot be changed (unless it needs grammar or spelling fixes). Nor can
 it be removed. If the label of a localized string has to be changed, a
 new one should be introduced instead.
-
-
-Using localized strings
-"""""""""""""""""""""""
-
-Localized strings are displayed using the available API: Mostly
-:code:`$GLOBALS['LANG']::getLL()` when the corresponding locallang file
-is loaded, :code:`$GLOBALS['LANG']::sL()` otherwise. In both these
-methods, the second call parameter should be left out, unless there's a
-compelling reason to set it to :code:`TRUE` (which triggers the use of
-:code:`htmlspecialchars()`).
-

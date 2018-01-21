@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _namespaces-class-names:
+.. _cgl-namespaces-class-names:
 
 Namespaces and class names of user files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1,7 +1,7 @@
 .. include:: ../../../Includes.txt
 
 
-.. _model-static-methods:
+.. _cgl-model-static-methods:
 
 Static methods, static classes, utility classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

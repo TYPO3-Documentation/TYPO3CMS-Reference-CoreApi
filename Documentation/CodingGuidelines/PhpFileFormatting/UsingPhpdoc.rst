@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _using-phpdoc:
+.. _cgl-using-phpdoc:
 
 ============
 Using phpDoc

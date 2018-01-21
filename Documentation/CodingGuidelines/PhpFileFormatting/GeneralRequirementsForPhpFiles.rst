@@ -1,10 +1,27 @@
 .. include:: ../../Includes.txt
 
 
-.. _general-requirements-for-php-files:
+.. _cgl-general-requirements-for-php-files:
 
 General requirements for PHP files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+File names
+""""""""""
+
+The file name describes the functionality included in the file. It
+consists of one or more nouns, written in UpperCamelCase. For example
+in the :code:`frontend` system extension there is the file
+:code:`ContentObject/ContentObjectRenderer.php`.
+
+It is recommended to use only PHP classes and avoid non-class files.
+
+Files that contain PHP interfaces must have the file name end on
+"Interface", e.g. :code:`FileListEditIconHookInterface.php`.
+
+One file can contain only one class or interface.
+
+Extension for PHP files is always :code:`php`.
 
 
 PHP tags
@@ -21,6 +38,7 @@ tags in the middle of the file). Example::
 Closing PHP tags (e.g. at the end of the file) are not used.
 
 Each newly introduced file **MUST** declare strict types for the given file.
+
 
 Line breaks
 """""""""""
@@ -45,7 +63,8 @@ to the first one - be indented with four space characters more. Example::
 
 or even better for readability::
 
-   $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('uid, title',
+   $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
+       'uid, title',
        'pages',
        'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'),
        '',
@@ -55,19 +74,16 @@ or even better for readability::
 Comment lines should be kept within a limit of about 80 characters
 (**excluding** the leading spaces) as it makes them easier to read.
 
+.. note::
+    When splitting a line, try to split it at a point that makes as much
+    sense as possible. In the above example, the line is split between two
+    arguments and not in the middle of one. In case of long logical
+    expressions, put the logical operator at the beginning of the next
+    line, e.g.::
 
-Notes
-~~~~~
-
-- When splitting a line, try to split it at a point that makes as much
-  sense as possible. In the above example, the line is split between two
-  arguments and not in the middle of one. In case of long logical
-  expressions, put the logical operator at the beginning of the next
-  line, e.g.::
-
-   if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['curlUse'] == '1'
-       && preg_match('/^(?:http|ftp)s?|s(?:ftp|cp):/', $url)
-   ) {
+    if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['curlUse'] == '1'
+        && preg_match('/^(?:http|ftp)s?|s(?:ftp|cp):/', $url)
+    ) {
 
 
 Whitespace and indentation
@@ -100,6 +116,7 @@ Spaces must not be present:
 
 - after an opening brace and before a closing brace. For example:
   `explode( 'blah', 'someblah' )` needs to be written as `explode('blah', 'someblah')`
+
 
 Character set
 """""""""""""

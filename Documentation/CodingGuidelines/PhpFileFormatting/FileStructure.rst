@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _file-structure:
+.. _cgl-file-structure:
 
 File structure
 ^^^^^^^^^^^^^^

@@ -15,9 +15,6 @@ extensions or core parts.
    :titlesonly:
 
    Introduction
-   PhpArchitecture/Index
-
-
-   FileSystemConventions/Index
    PhpFileFormatting/Index
+   PhpArchitecture/Index
    CodingBestPractices/Index

@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _deprecation:
+.. _cgl-deprecation:
 
 Handling deprecation
 ^^^^^^^^^^^^^^^^^^^^
