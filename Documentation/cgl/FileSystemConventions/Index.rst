@@ -18,7 +18,5 @@ below.
    :titlesonly:
    :glob:
 
-   Typo3DirectoryStructure/Index
-   Typo3FilesAndUserFiles/Index
    FileNames/Index
 

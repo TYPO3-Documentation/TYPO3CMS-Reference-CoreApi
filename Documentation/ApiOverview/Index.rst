@@ -18,6 +18,7 @@ This chapter describes the most important elements of the API.
    :titlesonly:
    :maxdepth: 1
 
+   DirectoryStructure/Index
    Namespaces/Index
    Autoloading/Index
    Bootstrapping/Index
