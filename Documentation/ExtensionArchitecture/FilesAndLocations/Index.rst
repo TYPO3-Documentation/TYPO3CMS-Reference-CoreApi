@@ -2,6 +2,7 @@
 
 
 .. _extension-files-locations:
+.. _extension-reserved-folders-legacy:
 
 ===================
 Files and locations
@@ -17,27 +18,33 @@ Files
 
 An extension consists of:
 
-1. a directory named by the *extension key* (which is a worldwide unique
-   identification string for the extension)
+1. A directory named by the *extension key* (which is a worldwide unique
+   identification string for the extension), usually located in :file:`typo3conf/ext`
+   for local extensions, or :file:`typo3/sysext` for system extensions.
 
-2. standard files with reserved names for configuration related to TYPO3
+2. Standard files with reserved names for configuration related to TYPO3
    (of which most are optional, see list below)
 
-3. any number of additional files for the extension itself.
+3. Any number of additional files for the extension functionality itself.
 
 
 .. _extension-reserved-filenames:
 
-Reserved filenames
-==================
+Reserved file names
+===================
 
-This list of filenames are all reserved filenames in the root directory of
-extensions. None of them are required but for example you cannot have a TYPO3
+This lists special files within an extension that have a special meaning
+by convention. If put at the according places, TYPO3 will find them and
+use for specific functionality. For example, if a svg logo of your extension
+is placed at :file:`Resources/Public/Icons/Extension.svg`, the EM will show
+that image.
+
+Nearly none of the are required, but for example you can not have a TYPO3
 extension recognized by TYPO3 without the :file:`ext_emconf.php` file etc. You
 can read more details like that in the table below.
 
 In general, do not introduce your own files in the root directory of
-extensions with the name prefix :file:` ext_`.
+extensions with the name prefix :file:`ext_`.
 
 
 .. t3-field-list-table::
@@ -46,90 +53,112 @@ extensions with the name prefix :file:` ext_`.
  - :Filename,20:    Filename
    :Description,80: Description
 
+
  - :Filename: :file:`ext_emconf.php`
    :Description:
-         Definition of extension properties.
+         Definition of extension properties. This is the only mandatory file in the extension.
+         It describes the extension for the rest of TYPO3.
 
          Name, category, status etc. Used by the EM. The content of this file
-         is described in more details below. Note that it is auto-written by EM
-         when extensions are imported from the repository.
+         is described in more details :ref:`below <extension-declaration>`. Note
+         that it is auto-written by EM when extensions are imported from the repository.
 
          .. note::
 
-            If this file is *not* present the EM will *not* find the
+            If this file is *not* present, the EM will *not* find the
             extension.
 
 
-
  - :Filename: :file:`ext_localconf.php`
-
    :Description:
          Addition to :file:`LocalConfiguration.php` which is included if found.
-         Should contain additional configuration of
-         :php:`$GLOBALS['TYPO3_CONF_VARS']` and may include additional PHP
-         class files.
+         Should contain additional configuration of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 
-         All :file:`ext_localconf.php` files of included extensions are
-         included right  **after** the :file:`typo3conf/LocalConfiguration.php`
-         file has been included and database constants defined. Therefore you
-         cannot setup database name, username, password though, because database
-         constants are defined already at this point.
+         This file contains hook definitions and plugin configuration. It must
+         not contain a PHP encoding declaration.
 
-         .. note::
+         All :file:`ext_localconf.php` files of loaded extensions are
+         included right  *after* the files :file:`typo3conf/LocalConfiguration.php`
+         and :file:`typo3conf/AdditionalConfiguration.php` during TYPO3
+         :ref:`bootstrap <bootstrapping>`.
 
-            Pay attention to the rules for the contents of these files.
-            See the section on caching below.
+         Pay attention to the rules for the contents of these files.
+         For more details, see the :ref:`section below <extension-configuration-files>`.
 
 
  - :Filename: :file:`ext_tables.php`
-
    :Description:
          Included if found. Contains extensions of existing tables,
-         declaration of modules, backend styles etc. All code in such files
-         is included after all the default definitions provided by the Core.
+         declaration of backend modules, etc. All code in such files
+         is included after all the default definitions provided by the Core and
+         loaded after :file:`ext_localconf.php` files during TYPO3
+         :ref:`bootstrap <bootstrapping>`.
 
-         Since TYPO3 CMS 6.1, definition of new database tables should be
-         done entirely in :file:`Configuration/TCA/(name of the table).php`.
-         These files are expected to contain the full TCA of the given table
-         (as an array) and simply return it (with a :php:`return` statement).
+         Pay attention to the rules for the contents of these files.
+         For more details, see the :ref:`section below <extension-configuration-files>`.
 
-         Since TYPO3 CMS 6.2, customizations of existing tables should be
-         done entirely in :file:`Configuration/TCA/Overrides/TABLENAME.php`.
-         This way the TCA changes are cached.
+         .. note::
+            In old TYPO3 core versions, this file contained additions to the
+            global :php:`$GLOBALS['TCA']` array. This changed since core version 6.2
+            to allow effective caching:
 
+            TCA definition of new database tables must be done entirely
+            in :file:`Configuration/TCA/<table name>.php`.
+            These files are expected to contain the full TCA of the given table
+            (as an array) and simply return it (with a :php:`return` statement).
+
+            Customizations of existing tables must be done entirely
+            in :file:`Configuration/TCA/Overrides/<table name>.php`.
 
 
  - :Filename: :file:`ext_tables.sql`
-
    :Description:
          SQL definition of database tables.
-
 
          This file should contain a table-structure dump of the tables used by
          the extension. It is used for evaluation of the database structure and
          is therefore important to check and update the database when an
-         extension is enabled.If you add additional fields (or depend on
-         certain fields) to existing tables you can also put them here. In that
-         case insert a :code:`CREATE TABLE` structure for that table, but remove
-         all lines except the ones defining the fields you need.
+         extension is enabled.
+
+         If you add additional fields (or depend on certain fields) to existing tables
+         you can also put them here. In that case insert a :code:`CREATE TABLE` structure
+         for that table, but remove all lines except the ones defining the fields you need,
+         here is an example adding a column to the pages table:
+
+         .. code-block:: sql
+
+            CREATE TABLE pages (
+                tx_myext_field int(11) DEFAULT '0' NOT NULL,
+            );
+
+         TYPO3 will merge this table definition to the existing table definition when
+         comparing expected and actual table definitions. Partial definitions
+         can also contain indexes and other directives. They can also change
+         existing table fields though that is not recommended, because it may
+         create problems with the TYPO3 core and/or other extensions.
 
          The :file:`ext_tables.sql` file may not necessarily be "dumpable"
-         directly to MySQL (because of
-         the semi-complete table definitions allowed defining only required
-         fields, see above). But the EM or Install Tool can handle this. The
-         only very important thing is that the syntax of the content is exactly
+         directly to MySQL (because of the semi-complete table definitions allowed
+         defining only required fields). But the EM or Install Tool can handle this.
+         The only very important thing is that the syntax of the content is exactly
          like MySQL made it so that the parsing and analysis of the file is
          done correctly by the EM.
 
+         TYPO3 parses :code:`ext_tables.sql` files. TYPO3 expects that all
+         table definitions in this file look like the ones produced by the
+         :code:`mysqldump` utility. Incorrect definitions may not be recognized
+         by the TYPO3 SQL parser or may lead to MySQL errors, when TYPO3 tries
+         to apply them. If TYPO3 is not running on MySQL or directly compatible
+         other DBMS like MariaDB, the system will parse the file towards the
+         target DBMS like PostgreSQL.
 
 
  - :Filename: :file:`ext_tables_static+adt.sql`
-
    :Description:
          Static SQL tables and their data.
 
          If the extension requires static data you can dump it into a sql-file
-         by this name.Example for dumping mysql data from bash (being in the
+         by this name. Example for dumping mysql data from bash (being in the
          extension directory):
 
          .. code-block:: shell
@@ -147,7 +176,7 @@ extensions with the name prefix :file:` ext_`.
 
             The table structure of static tables needs to be in the
             :file:`ext_tables.sql` file as well - otherwise an installed static
-            table will be reported as being in excess in the EM!
+            table will be reported as being in excess in the install tool.
 
          .. warning::
 
@@ -156,9 +185,7 @@ extensions with the name prefix :file:` ext_`.
             statements.
 
 
-
  - :Filename: :file:`ext_typoscript_constants.txt`
-
    :Description:
          Preset TypoScript constants. Will be included in the constants section
          of all TypoScript templates.
@@ -167,13 +194,11 @@ extensions with the name prefix :file:` ext_`.
 
             Use such a file if you absolutely need to load some TS (because you
             would get serious errors without it). Otherwise static templates or
-            usage of the *Extension Management API* of class :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility`
-            are preferred.
-
+            usage of the *Extension Management API* of class
+            :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` are preferred.
 
 
  - :Filename: :file:`ext_typoscript_setup.txt`
-
    :Description:
          Preset TypoScript setup. Will be included in the setup section of all
          TypoScript templates.
@@ -182,56 +207,43 @@ extensions with the name prefix :file:` ext_`.
 
             Use such a file if you absolutely need to load some TS (because you
             would get serious errors without it). Otherwise static templates or
-            usage of the *Extension Management API* of class :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility`
-            are preferred.
-
+            usage of the *Extension Management API* of class
+            :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` are preferred.
 
 
  - :Filename: :file:`ext_conf_template.txt`
-
    :Description:
          Extension Configuration template.
 
          Configuration code in TypoScript syntax setting up a series of values
-         which can be configured for the extension in the EM.
+         which can be configured for the extension in the install tool.
          :ref:`Read more about the file format here <extension-options>`.
 
-         If this file is present the EM provides you with an interface for
-         editing the configuration values defined in the file. The result is
+         If this file is present 'Settings' of the install tool provides you with an
+         interface for editing the configuration values defined in the file. The result is
          written as an array to :file:`LocalConfiguration.php`
-         in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][`
-         :code:`*extension_key*` :php:`]`
-
-         If you want to do user processing before the content from the
-         configuration form is saved (or shown for that sake) there is a hook
-         in the EM which is configurable with::
-
-            $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/mod/tools/em/index.php']
-               ['tsStyleConfigForm'][] = "...";
-
-         Fill in the :file:`*function reference*` file as value.
+         in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][`:code:`*extension_key*` :php:`]`
 
 
-
- - :Filename:
-         :file:`ext_icon.gif`, :file:`ext_icon.png` or :file:`ext_icon.svg`
-
+ - :Filename: :file:`Configuration/Backend/Routes.php` and :file:`Configuration/Backend/AjaxRoutes.php`
    :Description:
-         Extension Icon
+         Registry of backend routes. Extension that add backend modules must
+         register their routes here to be correctly linkable in the backend.
+         The file must return an array with routing details. See core extensions
+         like :php:`backend` for examples.
+
+
+ - :Filename: :file:`Resources/Public/Icons/Extension.svg`
+   :Description:
+         Extension icon. If exists, this icon is displayed in the extension manager.
+         Preferred is using an SVG file, Extension icon will look nicer when provided
+         as vector graphics (SVG) rather than bitmaps (GIF or PNG).
 
          18x16 GIF, PNG or SVG icon for the extension.
 
-         .. note::
-
-            Extension icon will look nicer when provided as vector graphics
-            (SVG) rather than bitmaps (GIF or PNG).
-
-
 
  - :Filename: :file:`class.ext_update.php`
-
    :Description:
-
          Local Update tool class
 
          If this file is found it will install a new menu item, "UPDATE", in
@@ -249,39 +261,32 @@ extensions with the name prefix :file:` ext_`.
          some updates to be done.
 
 
-
- - :Filename: :file:`ext_autoload.php`
-
-   :Description:
-         Since TYPO3 CMS 4.3, it is possible to declare classes in this file so
-         that they will be automatically detected by the TYPO3 autoloader. This
-         means that it is not necessary to require the related class files
-         anymore. See the :ref:`autoload` chapter for more details.
-
-         Not needed anymore since TYPO3 CMS 6.1 when using
-         :ref:`namespaces <namespaces>`.
-
-
 .. _extension-reserved-folders:
 
 Reserved folders
 ================
 
-The current standard for files location - except for the special files
-mentioned above - is inspired by TYPO3 Flow. It is necessary to use such
-structure in Extbase-based extensions and recommended for all extensions
-anyway.
+In the early days, every extension baked it own bread when it came to
+file locations of PHP classes, public web resources and templates.
 
+With the rise of extbase, a generally accepted structure for file
+locations inside extensions has been established. If extension authors
+stick to this, the system helps in various ways. For instance, if putting
+PHP classes into the :file:`Classes/` folder and naming classes accordingly,
+the system will be able to autoload these without further action from the
+developer.
 
-In order to use :ref:`namespaces`, class files **must** be located in a
-:file:`Classes` folder.
-
-Refer to the :ref:`Extbase and Fluid <t3extbasebook:start>` book for more
-information on extension structure. Also look at the "examples" extension.
-
-The `Extension Builder extension
+Extension kickstarters like the `Extension Builder extension
 <http://typo3.org/extensions/repository/view/extension_builder>`_ will create
-the right structure for you. It is described below:
+the correct structure for you.
+
+It is described below:
+
+Classes
+  Contains all PHP classes. One class per file. Should have sub folders like
+  :code:`Controller/`, :code:`Domain/`, :code:`Service/` or :code:`View/`.
+  For more details on class file namings an PHP namespaces, see chapter
+  :ref:`namespaces <namespaces>`.
 
 Classes/Controller
   Contains MVC Controller classes.
@@ -293,7 +298,24 @@ Classes/Domain/Repository
   Contains data repository classes.
 
 Classes/ViewHelpers
-  Helper classes used in the views.
+  Helper classes used in (Fluid) views.
+
+Configuration
+  General configuration folder. Some of the sub directories in here like :file:`TCA`
+  and :file:`Backend` have special meaning and files in there are automatically
+  included during TYPO3 bootstrap.
+
+Configuration/Backend/
+  Contains backend routing configurations. See files description of :php:`Routes.php`
+  and :php:`AjaxRoutes.php` :ref:`above <extension-reserved-filenames>`.
+
+Configuration/TCA
+  One file per database table, using the name of the table for the file, plus
+  ".php". Only for new tables.
+
+Configuration/TCA/Overrides
+  For extending existing tables, one file per database table, using the name of
+  the table for the file, plus ".php".
 
 Configuration/TsConfig/Page
   Page TSconfig, see chapter :ref:`'Page TSconfig' in the TSconfig Reference
@@ -310,23 +332,33 @@ Configuration/TypoScript
   (:file:`constants.txt`). Use subfolders if your have several static
   templates.
 
-Configuration/TCA
-  One file per database table, using the name of the table for the file, plus
-  ".php". Only for new tables.
-
-Configuration/TCA/Overrides
-  For extending existing tables, one file per database table, using the name of
-  the table for the file, plus ".php".
-
 Documentation
-  Contains the manual in reStructuredText format (:ref:`read more on the topic
-  <extension-documentation>`).
+  Contains the extension documentation in ReStructuredText (ReST, .rst) formata.
+  Read more on the topic in chapter :ref:`extension documentation <extension-documentation>`.
+  :file:`Documentation/` and its subfolders may contain several ReST files, images and other resources.
+
+Documentation/Index.rst
+  This file contains the cover page of the extension manual in ReST
+  format. The name or format of the file may not be changed. You may
+  include other ReST files as you like. See the `"Extension Template" on docs.typo3.org`_
+  for more information about structure and syntax of extension manuals.
+
+  .. _"Extension Template" on docs.typo3.org: https://docs.typo3.org/typo3cms/ExtensionManualExample/
+
+Resources
+  Contains the subfolders :code:`Public/` and :code:`Private/`, which
+  contain resources, possibly in further subfolders, e.g.
+  :code:`Templates/`, :code:`CSS/`, :code:`Language/`, :code:`Images/`
+  or :code:`JavaScript/`. This is also the directory for non–TYPO3 files supplied with the
+  extension. TYPO3 is licensed under GPL version 2 or any later version.
+  Any non–TYPO3 code must be compatible with GPL version 2 or any later
+  version.
 
 Resources/Private/Language
   XLIFF files for localized labels.
 
 Resources/Private/Layouts
-  Main layouts for the views.
+  Main layouts for (Fluid) views.
 
 Resources/Private/Partials
   Partial templates for repetitive use.
@@ -344,57 +376,7 @@ Resources/Public/JavaScript
   Any JS file used by the extension.
 
 Tests/Unit
-  Contains unit testing classes.
+  Contains unit tests and fixtures.
 
-
-.. _extension-reserved-folders-legacy:
-
-Legacy structure
-----------------
-
-The structure of older extensions was not so clearly defined, but it generally
-adhered to the following conventions:
-
-.. t3-field-list-table::
- :header-rows: 1
-
-
- - :Filename,20:    Filename
-
-   :Description,80: Description
-
-
-
- - :Filename: :file:`pi*/`
-
-   :Description:
-         Typical folder for a frontend plugin class.
-
-
-
- - :Filename: :file:`mod*/`
-
-   :Description:
-         Typical folder for a backend module.
-
-
-
- - :Filename: :file:`sv*/`
-
-   :Description:
-         Typical folder for a service.
-
-
-
- - :Filename: :file:`res*/`
-
-   :Description:
-         Extensions normally consist of other files: Classes, images, html-
-         files etc. Files not related to either a frontend plugin (pi/) or
-         backend module (mod/) might be put in a subfolder of the extension
-         directory named "res/" (for "resources") but you can do it as you like
-         (inside of the extension directory that is).The "res/" folder content
-         will be listed as files you can select in the configuration interface.
-
-         Files in this folder can also be selected in a selector box if you set
-         up Extension configuration in a :file:`ext_conf_template.txt` file.
+Tests/Functional
+  Contains functional tests and fixtures.

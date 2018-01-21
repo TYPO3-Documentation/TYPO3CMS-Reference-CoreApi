@@ -20,6 +20,5 @@ below.
 
    Typo3DirectoryStructure/Index
    Typo3FilesAndUserFiles/Index
-   ExtensionDirectoryStructure/Index
    FileNames/Index
 
