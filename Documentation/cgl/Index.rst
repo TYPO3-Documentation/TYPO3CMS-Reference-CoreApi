@@ -73,10 +73,8 @@ address the task at hand.
 .. toctree::
    :hidden:
 
-   Sitemap/Index
    Introduction/Index
    FileSystemConventions/Index
    PhpFileFormatting/Index
    PhpArchitecture/Index
    CodingBestPractices/Index
-   Targets
