@@ -8,9 +8,6 @@
 Files and locations
 ===================
 
-**EM** stands for **Extension Manager**.
-
-
 .. _extension-files:
 
 Files
@@ -36,8 +33,8 @@ Reserved file names
 This lists special files within an extension that have a special meaning
 by convention. If put at the according places, TYPO3 will find them and
 use for specific functionality. For example, if a svg logo of your extension
-is placed at :file:`Resources/Public/Icons/Extension.svg`, the EM will show
-that image.
+is placed at :file:`Resources/Public/Icons/Extension.svg`, the extension manager
+will show that image.
 
 Nearly none of the are required, but for example you can not have a TYPO3
 extension recognized by TYPO3 without the :file:`ext_emconf.php` file etc. You
@@ -50,7 +47,7 @@ extensions with the name prefix :file:`ext_`.
 .. t3-field-list-table::
  :header-rows: 1
 
- - :Filename,20:    Filename
+ - :Filename,20: Filename
    :Description,80: Description
 
 
@@ -59,13 +56,13 @@ extensions with the name prefix :file:`ext_`.
          Definition of extension properties. This is the only mandatory file in the extension.
          It describes the extension for the rest of TYPO3.
 
-         Name, category, status etc. Used by the EM. The content of this file
+         Name, category, status etc. Used by the extension manager. The content of this file
          is described in more details :ref:`below <extension-declaration>`. Note
-         that it is auto-written by EM when extensions are imported from the repository.
+         that it is auto-written by extension manager when extensions are imported from the repository.
 
          .. note::
 
-            If this file is *not* present, the EM will *not* find the
+            If this file is *not* present, the extension manager will *not* find the
             extension.
 
 
@@ -139,10 +136,10 @@ extensions with the name prefix :file:`ext_`.
 
          The :file:`ext_tables.sql` file may not necessarily be "dumpable"
          directly to MySQL (because of the semi-complete table definitions allowed
-         defining only required fields). But the EM or Install Tool can handle this.
+         defining only required fields). But the extension manager or install tool can handle this.
          The only very important thing is that the syntax of the content is exactly
          like MySQL made it so that the parsing and analysis of the file is
-         done correctly by the EM.
+         done correctly by the extension manager.
 
          TYPO3 parses :code:`ext_tables.sql` files. TYPO3 expects that all
          table definitions in this file look like the ones produced by the
@@ -170,7 +167,7 @@ extensions with the name prefix :file:`ext_`.
          :code:`--add-drop-table` will make sure to include a DROP TABLE
          statement so any data is inserted in a fresh table.
 
-         You can also drop the table content using the EM in the backend.
+         You can also drop the table content using the extension manager in the backend.
 
          .. note::
 
@@ -247,8 +244,8 @@ extensions with the name prefix :file:`ext_`.
          Local Update tool class
 
          If this file is found it will install a new menu item, "UPDATE", in
-         the EM when looking at details for the extension. When this menu item
-         is selected the class inside of this file (named `ext_update`) will
+         the extension manager when looking at details for the extension. When this
+         menu item is selected the class inside of this file (named `ext_update`) will
          be instantiated and the method "main()" will be called and expected to
          return HTML content.
 
