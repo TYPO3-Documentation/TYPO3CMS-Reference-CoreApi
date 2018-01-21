@@ -20,11 +20,10 @@ and exchangeability.
 
 
 .. toctree::
-      :maxdepth: 5
-      :titlesonly:
-      :glob:
+    :maxdepth: 1
+    :titlesonly:
 
-      ModelingCrossCuttingConcerns/Index
-      WorkingWithExceptions/Index
-      GeneralLinks/Index
+    ModelingCrossCuttingConcerns/Index
+    WorkingWithExceptions
+    GeneralLinks
 

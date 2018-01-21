@@ -11,13 +11,13 @@ regarding coding that you should adhere to when you develop TYPO3
 extensions or core parts.
 
 .. toctree::
+   :maxdepth: 3
    :titlesonly:
 
    Introduction
+   PhpArchitecture/Index
 
 
-   Introduction/Index
    FileSystemConventions/Index
    PhpFileFormatting/Index
-   PhpArchitecture/Index
    CodingBestPractices/Index
