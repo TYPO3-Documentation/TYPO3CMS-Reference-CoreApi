@@ -73,6 +73,7 @@ address the task at hand.
    Introduction/Index
    ExtensionArchitecture/Index
    ApiOverview/Index
+   CodingGuidelines/Index
    DataFormats/Index
    NextSteps
    Targets
