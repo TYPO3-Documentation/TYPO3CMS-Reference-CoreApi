@@ -1,9 +1,9 @@
 .. include:: ../../Includes.txt
 
-.. _typo3-directory-structure:
+.. _directory-structure:
 
-TYPO3 directory structure
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Directory structure
+^^^^^^^^^^^^^^^^^^^
 
 By default a TYPO3 installation consists of a structure of
 main directories within the web server document root. You will find
