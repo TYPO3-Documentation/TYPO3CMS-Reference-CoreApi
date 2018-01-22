@@ -22,7 +22,7 @@ flavors the core tries to follow.
 Following PSR standards
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-TYPO3 codebase follows PSR-1 and PSR-2 standards for code formatting.
+TYPO3 codebase follows  `PSR-1 <http://www.php-fig.org/psr/psr-1/>`__ and `PSR-2 <http://www.php-fig.org/psr/psr-2/>`__ standards for code formatting.
 
 
 .. _cgl-quality-assurance:
