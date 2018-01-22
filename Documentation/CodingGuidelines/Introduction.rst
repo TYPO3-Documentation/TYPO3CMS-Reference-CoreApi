@@ -19,6 +19,11 @@ This chapter defines how TYPO3 code, files and directories should be
 outlined and formatted. It gives some thoughts on general coding
 flavors the core tries to follow.
 
+Following PSR standards
+^^^^^^^^^^^^^^^^^^^^^^^
+
+TYPO3 codebase follows PSR-1 and PSR-2 standards for code formatting.
+
 
 .. _cgl-quality-assurance:
 
