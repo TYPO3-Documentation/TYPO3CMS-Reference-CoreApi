@@ -310,13 +310,21 @@ The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['BE']['warning_email_addr'
 warning_mode
 """"""""""""
 
-Here you can set an integer. If the first bit is set to 1,
+Here you can set an integer. If the first bit (bit-0) is set to 1,
 warning_email_addr (see above) will be notified every time a backend
-user logs in. If the first bit is not set and the second bit is set,
+user logs in. If the first bit is not set and the second bit (bit-1) is set,
 an email is only sent every time an *administrator* backend user logs
 in.
 
-The default value is an empty string.
+    bit-1 bit-0
+
+The default value is an empty string. No warning emails are sent in this case.
 
 The PHP variable reads: $GLOBALS['TYPO3\_CONF\_VARS']['BE']['warning_mode']
+
+Example:
+   $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_mode'] = 2;
+
+An email is only sent for the login of an administrator. Bit-1 has been set to 1, bit-0 is 0.
+
 
