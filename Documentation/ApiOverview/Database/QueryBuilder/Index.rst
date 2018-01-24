@@ -86,9 +86,10 @@ Argument unpacking can be used if the list of fields is available as array alrea
 :php:`->select()` sets the list of fields that should be selected and :php:`->addSelect()` can add further items
 to an existing list.
 
-Mind that :php:`->select()` *resets* any formerly registered list and does not append. Thus, it usually doesn't
+Mind that :php:`->select()` *replaces* any formerly registered list instead of appending. Thus, it usually doesn't
 make much sense to call :php:`select()` twice in a code flow, or to call it *after* an :php:`->addSelect()`. The methods
-:php:`->where()` and :php:`->andWhere()` share the same behavior.
+:php:`->where()` and :php:`->andWhere()` share the same behavior: :php:`->where()` replaces all formerly registered
+constraints, :php:`->andWhere()` appends additional constraints.
 
 A useful combination of :php:`->select()` and :php:`->addSelect()` can be::
 
