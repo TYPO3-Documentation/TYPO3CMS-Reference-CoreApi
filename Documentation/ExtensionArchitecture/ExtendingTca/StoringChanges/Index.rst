@@ -79,8 +79,8 @@ into an extension's :file:`ext_tables.php` file. This is strongly discouraged in
 versions of TYPO3 CMS.
 
 Nowadays the only usecase for TCA changes in :file:`ext_tables.php` is to override TCA definitions
-done the :file:`ext_tables.php` of a legacy extension. TCA overrides cannot be used in this case
-until the extension author migrates his code.
+done in the :file:`ext_tables.php` of a legacy extension. TCA overrides cannot be used in this case
+until the author of the legacy extension migrates his code.
 
 
 .. _storing-changes-on-the-fly:
