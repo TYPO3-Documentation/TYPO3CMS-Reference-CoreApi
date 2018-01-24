@@ -88,7 +88,7 @@ to an existing list.
 
 Mind that :php:`->select()` *resets* any formerly registered list and does not append. Thus, it usually doesn't
 make much sense to call :php:`select()` twice in a code flow, or to call it *after* an :php:`->addSelect()`. The methods
-:php:`->where()` and :php:`->andWhere()` share the same behavior.
+:php:`->where()` and :php:`->andWhere()` share the same behavior: :php:`->where()` resets all formerly registered constraints, :php:`->andWhere()` appends additional constraints.
 
 A useful combination of :php:`->select()` and :php:`->addSelect()` can be::
 
