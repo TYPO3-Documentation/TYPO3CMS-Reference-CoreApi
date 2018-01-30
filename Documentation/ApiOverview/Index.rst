@@ -47,6 +47,7 @@ This chapter describes the most important elements of the API.
    Icon/Index
    Hooks/Index
    Xclasses/Index
+   FeatureToggles/Index
    JavaScript/Index
    SoftReferences/Index
    SessionStorageFramework/Index
