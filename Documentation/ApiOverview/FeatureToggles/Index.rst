@@ -7,7 +7,7 @@
 Feature Toggles
 ===============
 
-TYPO3 provides an API class for creating so-called `Feature Toggles`. Feature toggles provide an easy way to add
+TYPO3 provides an API class for creating so-called 'Feature Toggles'. Feature toggles provide an easy way to add
 new implementations of features next to their legacy version. By using a feature toggle, the integrator or site admin
 can decide when to switch to the new feature.
 
@@ -47,13 +47,11 @@ Good examples:
 Using the API as extension author
 ---------------------------------
 
-For extension authors, the API can be used for any custom feature provided by an extension:
+For extension authors, the API can be used for any custom feature provided by an extension::
 
-.. code-block:: php
-
-	if (GeneralUtility::makeInstance(Features::class)->isFeatureEnabled('myFeatureName')) {
-		// do custom processing
-	}
+   if (GeneralUtility::makeInstance(Features::class)->isFeatureEnabled('myFeatureName')) {
+      // do custom processing
+   }
 
 The name can be any arbitrary string, but an extension author should prefix the feature with the
 extension name as the features are global switches which otherwise might lead to naming conflicts.
@@ -63,19 +61,17 @@ Core Feature Toggles
 
 The following feature toggles currently exist in the TYPO3 Core:
 
- - `redirects.hitCount`: Enables hit statistics in the redirects backend module
+- `redirects.hitCount`: Enables hit statistics in the redirects backend module
 
 
-Enable Feature Toggle - Example
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Example: Enable Feature Toggle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Add the following snippet in your :file:`LocalConfiguration.php`:
+Add the following snippet in your :file:`LocalConfiguration.php`::
 
-.. code-block:: php
-
-	'SYS' => [
-		'features' => [
-			'redirects.hitCount' => true,
-		],
-	]
+   'SYS' => [
+      'features' => [
+         'redirects.hitCount' => true,
+      ],
+   ]
 
