@@ -50,7 +50,7 @@ logged if their level is at least 2 (=Warning).
 In :file:`LocalConfiguration.php`::
 
    'SYS' => array(
-      'displayErrors' => '2',
+      'displayErrors' => '0',
       'devIPmask' => '[your.IP.address]',
       'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
       'systemLogLevel' => '2',
