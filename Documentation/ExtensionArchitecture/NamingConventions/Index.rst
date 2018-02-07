@@ -25,11 +25,11 @@ should be followed:
    :General:
          Assigned by the TYPO3 Extension Repository.
    :Example:
-         cool\_shop_2day
+         cool\_shop\_2day
    :User-specific:
          Determined by yourself, but prefixed "user\_"
    :Example-2:
-         user\_my\_shop_2day
+         user\_my\_shop\_2day
 
  - :Context:
          Database tables and fields
