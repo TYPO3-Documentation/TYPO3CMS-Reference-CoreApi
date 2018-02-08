@@ -9,7 +9,10 @@ Naming conventions
 Based on the extension key of an extension these naming conventions
 should be followed:
 
-((this table is unreadable and about to be removed))
+.. attention::
+
+   ((The following table is unreadable and has been translated to the following normal text.
+   The table will be dropped soon.))
 
 .. t3-field-list-table::
  :header-rows: 1
