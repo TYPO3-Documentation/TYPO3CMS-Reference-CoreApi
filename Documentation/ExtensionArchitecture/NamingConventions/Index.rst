@@ -9,6 +9,8 @@ Naming conventions
 Based on the extension key of an extension these naming conventions
 should be followed:
 
+((this table is unreadable and about to be removed))
+
 .. t3-field-list-table::
  :header-rows: 1
 
@@ -67,8 +69,64 @@ should be followed:
    :Example-2:
          uMyShop or umyshop or ...
 
-For frontend PHP classes, follow the same conventions as for
-database tables and field, but prepend class file names with `class`.
+Abbreviations
+   | TER = TYPO3 extension repository
+   | *extkey* = extension key
+   | *modkey* = backend module key
+   
+
+Public extensions
+   1. Public extensions are available from the TER.
+   
+   2. The *extkey* is made up of alphanumeric characters and underscores only
+      and should start with a letter.
+   
+      **Example:** cool\_shop
+
+   3. The *extkey* is valid if the TER accepts it. This makes sure that the
+      name follows the rules and is unique.
+      
+   4. Database tablenames look like 'tx\_' + *extkey* (without underscores) + '\_specification'.
+   
+      **Examples:** tx\_coolshop\_products, tx\_coolshop\_categories, tx\_coolshop\_more\_categories 
+
+Private extensions
+   1. Private extensions are not uploaded to the TER.
+   
+   2. The *extkey* is made up of alphanumeric characters and underscores only
+      and starts with the string 'user\_'.
+   
+      **Example:** user\_my\_shop
+
+   3. Database tablenames look like *extkey* + '\_specification'.
+   
+      **Examples:** user\_my\_shop\_products, user\_my\_shop\_categories
+
+Public backend modules
+   1. The *modkey* is made up of alphanumeric characters only. It does not
+      contain underscores and starts with a letter.
+   
+      **Example:** coolshop
+
+   2. ((correct?))   
+      Database tablenames look like 'tx' (no underscore) + *modkey* + '\_specification'.
+   
+      **Examples:** txcoolshop\_products, txcoolshop\_categories, txcoolshop\_more\_categories
+
+Private backend modules
+   1. The *modkey* is made up of alphanumeric characters only. It does not
+      contain underscores and starts with a letter.
+  
+      **Example:** uMyCoolShop
+
+   2. ((correct?))
+      Database tablenames look like 'u' (no underscore) + *modkey* (no underscores) + '\_specification'.
+   
+      **Examples:** uMyCoolShop\_products, uMyCoolShop\_categories, uMyCoolShop\_more\_categories
+
+Frontend PHP classes
+   For frontend PHP classes, follow the same conventions as for
+   database tables and field, but prepend class file names with `class`.
 
 You may also want to refer to the TYPO3 Core Coding Guidelines for
 more on general naming conventions in TYPO3.
