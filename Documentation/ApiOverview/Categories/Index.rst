@@ -139,7 +139,7 @@ The code will look something like:
          <foreign_table>sys_category</foreign_table>
          <foreign_table_where> AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.sorting ASC</foreign_table_where>
          <MM>sys_category_record_mm</MM>
-         <MM_opposite_field>items</MM_opposite_field>
+         <MM_opposite_field>uid_foreign</MM_opposite_field>
          <MM_match_fields>
             <tablenames>tt_content</tablenames>
             <fieldname>tx_myextension_categories</fieldname>
