@@ -151,7 +151,7 @@ single quotes. Thus the following code is correct::
 
 
 There is no need to use :code:`require()` or :code:`include()` statements. All classes that follow
-namespace conventions will automatically located and included by the autoloader.
+namespace conventions will automatically be located and included by the autoloader.
 
 
 .. _namespaces-references:
