@@ -173,7 +173,7 @@ The result is the following:
 
 .. note::
 
-   Obviously this new field will no magically exclude a content element
+   Obviously this new field will now magically exclude a content element
    from being printed. For it to have any effect, it must be used during
    the rendering by modifying the TypoScript used to render the
    "tt\_content" table. Although this is outside the scope of this
