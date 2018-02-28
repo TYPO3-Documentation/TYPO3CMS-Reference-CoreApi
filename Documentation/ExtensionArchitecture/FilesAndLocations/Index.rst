@@ -36,7 +36,7 @@ use for specific functionality. For example, if a svg logo of your extension
 is placed at :file:`Resources/Public/Icons/Extension.svg`, the extension manager
 will show that image.
 
-Nearly none of the are required, but for example you can not have a TYPO3
+Nearly none of these are required, but for example you can not have a TYPO3
 extension recognized by TYPO3 without the :file:`ext_emconf.php` file etc. You
 can read more details like that in the table below.
 
