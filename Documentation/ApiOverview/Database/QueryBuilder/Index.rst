@@ -170,7 +170,7 @@ Create a `DELETE FROM` query. The method requires the table name to drop data fr
    $affectedRows = $queryBuilder
       ->delete('tt_content')
       ->where(
-         $queryBuilder->expr()->eq('bodytext', $this->createNamedParameter('klaus'))
+         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
       ->execute();
 
