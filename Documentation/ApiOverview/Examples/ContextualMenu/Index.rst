@@ -188,13 +188,13 @@ For example, disabling `edit` and `new` items for table `pages` use:
 
 .. code-block:: typoscript
 
-   options.contextMenu.pages.disableItems = edit,new
+   options.contextMenu.table.pages.disableItems = edit,new
 
 If you want to disable the items just for certain context (e.g. tree) add the `.tree` key after table name like that:
 
 .. code-block:: typoscript
 
-   options.contextMenu.pages.tree.disableItems = edit,new
+   options.contextMenu.table.pages.tree.disableItems = edit,new
 
 If configuration for certain context is available, the default configuration is not taken into account.
 For more details see :ref:`TSConfig reference <t3tsconfig:useroptions-contextmenu-key-disableitems>`.
