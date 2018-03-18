@@ -182,7 +182,7 @@ extensions with the name prefix :file:`ext_`.
             statements.
 
 
- - :Filename: :file:`ext_typoscript_constants.txt`
+ - :Filename: :file:`ext_typoscript_constants.typoscript`
    :Description:
          Preset TypoScript constants. Will be included in the constants section
          of all TypoScript templates.
@@ -195,7 +195,7 @@ extensions with the name prefix :file:`ext_`.
             :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` are preferred.
 
 
- - :Filename: :file:`ext_typoscript_setup.txt`
+ - :Filename: :file:`ext_typoscript_setup.typoscript`
    :Description:
          Preset TypoScript setup. Will be included in the setup section of all
          TypoScript templates.
@@ -325,8 +325,8 @@ Configuration/TsConfig/User
   :file:`.tsconfig`.
 
 Configuration/TypoScript
-  TypoScript static setup (:file:`setup.txt`) and constants
-  (:file:`constants.txt`). Use subfolders if your have several static
+  TypoScript static setup (:file:`setup.typoscript`) and constants
+  (:file:`constants.typoscript`). Use subfolders if your have several static
   templates.
 
 Documentation
