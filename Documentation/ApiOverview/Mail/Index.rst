@@ -115,7 +115,7 @@ How to create and send mails
 This shows how to generate and send a mail in TYPO3::
 
    // Create the message
-   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Mail\\MailMessage');
+   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
 
    // Prepare and send the message
    $mail
@@ -145,7 +145,7 @@ This shows how to generate and send a mail in TYPO3::
 
 Or if you prefer, don't concatenate the calls::
 
-   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Mail\\MailMessage');
+   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
    $mail->setSubject('Your subject');
    $mail->setFrom(array('john@doe.com' => 'John Doe'));
    $mail->setTo(array('receiver@domain.org', 'other@domain.org' => 'A name'));
@@ -209,8 +209,7 @@ Tool*::
 This is how you can use these defaults::
 
    $from = \TYPO3\CMS\Core\Utility\MailUtility::getSystemFrom();
-   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-      'TYPO3\\CMS\\Core\\Mail\\MailMessage');
+   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
    $mail->setFrom($from);
    // ...
    $mail->send();
