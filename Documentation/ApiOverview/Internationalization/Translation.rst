@@ -90,7 +90,7 @@ and the result can be easily seen in the backend:
 
    - Please note that you do not have to copy the full reference file, but only the labels you want to translate.
 
-   - The path to the file to override must be expressed as:file:`EXT:foo/bar/...`. For the
+   - The path to the file to override must be expressed as :file:`EXT:foo/bar/...`. For the
      extension "xlf" or "xml" can be used interchangeably. The TYPO3 Core will try both anyway,
      but using "xlf" is more correct and future-proof.
 
@@ -101,8 +101,8 @@ and the result can be easily seen in the backend:
    - The files containing the custom labels must be located inside an extension. Other locations
      will not be considered.
 
-   - The original translation needs to exist in:file:`typo3temp/l10n/` or next to the base
-     translation file in extensions, for example in:file:`typo3conf/ext/myext/Resources/Private/Language/`.
+   - The original translation needs to exist in :file:`typo3temp/l10n/` or next to the base
+     translation file in extensions, for example in :file:`typo3conf/ext/myext/Resources/Private/Language/`.
 
 
 .. _xliff-translating-languages:
