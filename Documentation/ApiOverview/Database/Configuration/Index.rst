@@ -105,12 +105,9 @@ Remarks:
 
 .. attention::
 
-    At the time of this writing (TYPO3 CMS version 8.6), there are still some known issues with
-    connections to databases other than `mysql` or `mariadb`. Core internal tests to `postgresql`
-    and `mssql` still fail. This however should improve with younger versions.
+    Connections to databases `postgres`, `maria` and `mysql` are actively tested.
+    However, `mssql` is currently not actively tested.
 
     Furthermore, the `TYPO3 CMS` installer supports only a single `mysql` or `mariadb` connection
     at the moment and the connection details can not be properly edited within the `All configuration`
     section of the install tool.
-
-    The core team hopes this situation settles until the final release of `TYPO3 v8 LTS`.
