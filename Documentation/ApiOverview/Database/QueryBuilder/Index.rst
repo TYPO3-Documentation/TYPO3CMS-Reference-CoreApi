@@ -642,7 +642,7 @@ has two possible return values: On success, it either returns a `Statement` obje
 If the query fails for whatever reason (for instance if the database connection was lost or if the query contains a
 syntax error), a `\Doctrine\DBAL\DBALException` is thrown. It is most often bad habit to catch and suppress this
 exception since it indicates a runtime or a program error. Both should bubble up. See the
-`coding guidelines <https://docs.typo3.org/typo3cms/CodingGuidelinesReference/latest/PhpArchitecture/WorkingWithExceptions/Index.html>`__
+:ref:`coding guidelines <cgl-working-with-exceptions>`
 for more information on proper exception handling.
 
 
