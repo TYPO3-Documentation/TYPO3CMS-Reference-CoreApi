@@ -93,7 +93,7 @@ The example below illustrates how this is done:
 			'fieldConfiguration' => array(
 				'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC',
 				'treeConfig' => [
-				  'rootUid' => 7
+				   'rootUid' => 7,
 				],
 			),
 			// string (keyword), see TCA reference for details
@@ -104,13 +104,14 @@ The example below illustrates how this is done:
 	);
 
 The above code will add a categories field to the "pages" table,
-which will be called :code:`tx_examples_cats`. The :code:`fieldConfiguration`
+which will be called `tx_examples_cats`. The :php:`fieldConfiguration`
 part of the options array is the one which overrides the base
-:code:`$TCA` structure. In this case we would like categories to be
+:php:`$TCA` structure. In this case we would like categories to be
 listed alphabetically instead of using the "sorting" field.
 
-There is another option :code:`treeConfig` with :code:`rootUid => 7`.
+There is another option `treeConfig` with :php:`'rootUid' => 7,`.
 This is usefull if you want to start the category tree at a special category.
+Just provide the uid of the category to start with.
 
 If no :code:`label` part is set in the options array, the field will
 be labelled "Categories".
