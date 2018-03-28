@@ -92,6 +92,9 @@ The example below illustrates how this is done:
 			// Override generic configuration, e.g. sort by title rather than by sorting
 			'fieldConfiguration' => array(
 				'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC',
+				'treeConfig' => [
+				  'rootUid' => 7
+				],
 			),
 			// string (keyword), see TCA reference for details
 			'l10n_mode' => 'exclude',
@@ -105,6 +108,9 @@ which will be called :code:`tx_examples_cats`. The :code:`fieldConfiguration`
 part of the options array is the one which overrides the base
 :code:`$TCA` structure. In this case we would like categories to be
 listed alphabetically instead of using the "sorting" field.
+
+There is another option :code:`treeConfig` with :code:`rootUid => 7`.
+This is usefull if you want to start the category tree at a special category.
 
 If no :code:`label` part is set in the options array, the field will
 be labelled "Categories".
