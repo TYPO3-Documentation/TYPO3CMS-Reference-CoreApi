@@ -702,7 +702,7 @@ Not convinced? Suppose the code would look like this::
    $searchWord = GeneralUtility::_GP('searchword');
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder->getRestrictions()->removeAll();
-      this fails with syntax error to prevent copy and paste
+   // this fails with syntax error to prevent copy and paste
    $queryBuilder
       ->select('uid')
       ->from('tt_content')
