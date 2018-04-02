@@ -143,11 +143,23 @@ So a test class in :file:`EXT:foo_bar_baz/Tests/Unit/Bla/` will have as namespac
 Creating instances
 ------------------
 
-When creating instances using :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
-the leading backslash must be omitted and all other backslashes escaped, even when using
-single quotes. Thus the following code is correct::
+The following example shows how you can create instances with :code:`GeneralUtility::makeInstance`:
 
-   $contentObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
+
+
+
+   $contentObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
+
+Or, with the use of :code:`use`, which makes the code more readable:
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+   
+   class ...
+   
+   ...
+   
+      $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
 
 
 There is no need to use :code:`require()` or :code:`include()` statements. All classes that follow
