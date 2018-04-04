@@ -102,7 +102,7 @@ mbox
 -----------
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = '<classname>';`
-   Custom class which implements Swift_Transport. The constructor receives all settings from
+   Custom class which implements :php:`\Swift_Transport`. The constructor receives all settings from
    the MAIL section to make it possible to add custom settings.
 
 
@@ -136,7 +136,7 @@ This shows how to generate and send a mail in TYPO3::
       ->addPart('<q>Here is the message itself</q>', 'text/html')
 
       // Optionally add any attachments
-      ->attach(Swift_Attachment::fromPath('my-document.pdf'))
+      ->attach(\Swift_Attachment::fromPath('my-document.pdf'))
 
       // And finally do send it
       ->send()
@@ -151,7 +151,7 @@ Or if you prefer, don't concatenate the calls::
    $mail->setTo(array('receiver@domain.org', 'other@domain.org' => 'A name'));
    $mail->setBody('Here is the message itself');
    $mail->addPart('<q>Here is the message itself</q>', 'text/html');
-   $mail->attach(Swift_Attachment::fromPath('my-document.pdf'));
+   $mail->attach(\Swift_Attachment::fromPath('my-document.pdf'));
    $mail->send();
 
 
