@@ -25,6 +25,12 @@ which are later used in *several places*.
    ":ref:`resource <t3tsref:data-type-resource>`". That means it refers
    to a file, which you have to upload in your TYPO3 CMS installation.
 
+.. important::
+
+   **Multi-line values: The ( ) signs**
+
+   Constants do not support multiline values!
+
 
 Example
 ~~~~~~~
