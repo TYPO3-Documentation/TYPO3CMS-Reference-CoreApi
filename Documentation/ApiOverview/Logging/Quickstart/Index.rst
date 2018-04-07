@@ -8,21 +8,28 @@
 Quickstart
 ==========
 
-Instantiate a logger for the current class::
+.. note:: 
 
-   /** @var $logger \TYPO3\CMS\Core\Log\Logger */
-   $logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Log\LogManager')->getLogger(__CLASS__);
+As of TYPO3 9.0 you no longer need to use makeInstance to create an instance of the logger yourself. You can use `LoggerAwareTrait <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects.html?highlight=loggerawaretrait>`__
 
+
+Use LoggerAwareTrait in your class to automatically instantiate $this->logger::
+
+   use Psr\Log\LoggerAwareTrait;
+
+   class Example
+   {
+      use LoggerAwareTrait;
 
 Log a simple message::
 
-   $logger->info('Everything went fine.');
-   $logger->warning('Something went awry, check your configuration!');
+   $this->logger->info('Everything went fine.');
+   $this->logger->warning('Something went awry, check your configuration!');
 
 
 Provide additional information with the log message::
 
-   $logger->error(
+   $this->logger->error(
      'This was not a good idea',
      array(
        'foo' => $bar,
@@ -34,7 +41,7 @@ Provide additional information with the log message::
 :php:`$logger->warning()` etc. are only shorthands - you can also call :php:`$logger->log()` directly
 and pass the severity level::
 
-   $logger->log(
+   $this->logger->log(
       \TYPO3\CMS\Core\Log\LogLevel::CRITICAL,
       'This is an utter failure!'
    );
