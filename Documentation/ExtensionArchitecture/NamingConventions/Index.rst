@@ -129,7 +129,7 @@ exception made for backwards compatibility. The assignment of new keys
 from the TYPO3 Extension Repository will make sure that any of these
 old names are not accidentially reassigned to new extensions.
 
-Further, some of the classic plugins (tt\_board, tt\_guest etc) users
+Further, some of the classic plugins (tt\_board, tt\_guest etc) use
 the "user\_" prefix for their classes as well.
 
 .. _extension-extending:
