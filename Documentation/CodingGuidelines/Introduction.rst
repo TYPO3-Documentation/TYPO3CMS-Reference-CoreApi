@@ -19,10 +19,61 @@ This chapter defines how TYPO3 code, files and directories should be
 outlined and formatted. It gives some thoughts on general coding
 flavors the core tries to follow.
 
-Following PSR standards
+.. _cgl-general-recommendations:
+
+General recommendations
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-TYPO3 codebase follows  `PSR-1 <http://www.php-fig.org/psr/psr-1/>`__ and `PSR-2 <http://www.php-fig.org/psr/psr-2/>`__ standards for code formatting.
+As a general rule, use your IDE to enforce the correct code
+style for you. For Phpstorm, which is widely used within
+the TYPO3 community, you can find some hints in the
+:ref:`Contribution Guide <t3contribute:phpstorm-setup-cgl>`
+
+.. _cgl-standards:
+
+General standards
+^^^^^^^^^^^^^^^^
+
+.. _cgl-standards-psr:
+
+PSR standards for PHP
+"""""""""""""""""""""
+
+PHP files in the TYPO3 codebase follow
+`PSR-1 <http://www.php-fig.org/psr/psr-1/>`__ and
+`PSR-2 <http://www.php-fig.org/psr/psr-2/>`__ standards for code
+formatting.
+
+
+AirBnB ruleset for JavaScript
+"""""""""""""""""""""""""""""
+
+The rules suggested in the
+`Airbnb JavaScript Style Guide <https://github.com/airbnb/javascript>`__
+should be used throughout the TYPO3 CMS core for JavaScript files.
+
+Excel Micro rules for TypeScript
+""""""""""""""""""""""""""""""""
+
+`Excel Micro TypeScript Style Guide for TypeScript
+<https://github.com/excelmicro/typescript>`__ should be used
+throughout the TYPO3 CMS core for TypeScript files.
+
+Rules for Language XLIFF files
+""""""""""""""""""""""""""""""
+
+Tabs are used for indentation within Language files (.xlf).
+
+Language files are located in the directory
+:file:`Resources/Private/Language`,
+
+Rules for Documentation ReST files
+""""""""""""""""""""""""""""""""""
+
+Don't use tabs, use spaces. Use 3 spaces to indent.
+
+
+.. Todo: Other files: .sql, .scss, css, json ...
 
 
 .. _cgl-quality-assurance:
@@ -30,8 +81,9 @@ TYPO3 codebase follows  `PSR-1 <http://www.php-fig.org/psr/psr-1/>`__ and `PSR-2
 The CGL as a means of quality assurance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Our programmers know the CGL and are encouraged to inform authors,
-should their code not comply with the guidelines.
+In the TYPO3 CMS codebase, our programmers know the CGL and are
+encouraged to inform authors, should their code not comply
+with the guidelines.
 
 Apart from that, adhering to the CGL is not voluntary: The CGL are also
 enforced by structural means: Automated tests are run by the continuous

@@ -1,10 +1,10 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
-.. _cgl:
+.. _cgl-php:
 
-=================
-Coding Guidelines
-=================
+=========================
+Coding Guidelines for PHP
+=========================
 
 This chapter contains description of the formal requirements or standards
 regarding coding that you should adhere to when you develop TYPO3
@@ -14,5 +14,6 @@ extensions or core parts.
    :maxdepth: 3
    :titlesonly:
 
-   Introduction
-   Php/Index
+   PhpFileFormatting/Index
+   PhpArchitecture/Index
+   CodingBestPractices/Index
