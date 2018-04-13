@@ -33,7 +33,7 @@ database user.
 MySQL and other database systems provide privileges that apply at
 different levels of operation. It depends on your individual system
 and setup which privileges the database user needs (SELECT, INSERT,
-UPDATEand some more are essential of course) but privileges like LOCK
+UPDATE and some more are essential of course) but privileges like LOCK
 TABLES, FILE, PROCESS, CREATE USER, RELOAD, SHUTDOWN, etc. are in the
 context of administrative privileges and not required in most cases.
 
