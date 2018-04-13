@@ -16,15 +16,14 @@ Instantiate $this->logger
    `LoggerAwareTrait <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects.html?highlight=loggerawaretrait>`__
 
 
-Use LoggerAwareTrait in your class to automatically instantiate :code:`$this->logger`::
+Use LoggerAwareTrait in your class to automatically instantiate :php:`$this->logger`::
 
    use Psr\Log\LoggerAwareTrait;
 
    class Example
    {
-      use LoggerAwareTrait;
-
-    }
+       use LoggerAwareTrait;
+   }
 
 Or, if you prefer to instantiate with makeInstance::
 
@@ -48,11 +47,11 @@ Log a simple message::
 Provide additional information with the log message::
 
    $this->logger->error(
-     'This was not a good idea',
-     array(
-       'foo' => $bar,
-       'bar' => $foo,
-     )
+       'This was not a good idea',
+       [
+           'foo' => $bar,
+           'bar' => $foo,
+       ]
    );
 
 
@@ -60,8 +59,8 @@ Provide additional information with the log message::
 and pass the severity level::
 
    $this->logger->log(
-      \TYPO3\CMS\Core\Log\LogLevel::CRITICAL,
-      'This is an utter failure!'
+       \TYPO3\CMS\Core\Log\LogLevel::CRITICAL,
+       'This is an utter failure!'
    );
 
 Output
