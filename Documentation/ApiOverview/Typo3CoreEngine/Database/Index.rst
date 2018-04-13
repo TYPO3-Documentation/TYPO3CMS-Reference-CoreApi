@@ -7,8 +7,9 @@
 
 .. _tce-database-basics:
 
+========================================================
 Database: DataHandler basics (formerly known as TCEmain)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+========================================================
 
 When you are using TCE from your backend applications you need to
 prepare two arrays of information which contain the instructions to
@@ -38,7 +39,7 @@ hierarchy of these two arrays.
 .. _tce-commands:
 
 Commands Array
-""""""""""""""
+==============
 
 Syntax::
 
@@ -97,7 +98,7 @@ Description of keywords in syntax:
 .. _tce-command-keywords:
 
 Command keywords and values
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -125,6 +126,18 @@ Command keywords and values
            set, then it will be positioned *after*.
 
          - Zero value: Record is inserted on tree root level.
+
+         - array: The array has to contain the integer value as in examples above and
+           may contain field => value pairs for updates. The array is structured
+           like:
+
+           .. code-block:: php
+
+              [
+                  'action' => 'copy', // Defines where this is a move or copy command
+                  'target' => $pUid, // Defines the page to insert the record.
+                  'update' => $update, // Array with field => value to be updated.
+              ]
 
 
  - :Command:
@@ -245,7 +258,7 @@ Command keywords and values
 .. _tce-command-examples:
 
 Examples of commands:
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 ::
 
@@ -257,7 +270,7 @@ Examples of commands:
 .. _tce-data:
 
 Data Array
-""""""""""
+==========
 
 Syntax::
 
@@ -323,7 +336,7 @@ Description of keywords in syntax:
 .. _tce-data-examples:
 
 Examples of Data submission
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 This creates a new page titled "The page title" as the first page
 inside page id 45::
@@ -390,7 +403,7 @@ this page", and no\_cache checked::
 .. _tce-clear-cache:
 
 Clear cache
-"""""""""""
+===========
 
 TCE also has an API for clearing the cache tables of TYPO3:
 
@@ -441,7 +454,7 @@ Syntax::
 .. _tce-cache-hook:
 
 Hook for cache post-processing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
 You can configure cache post-processing with a user defined PHP
 function. Configuration of the hook can be done from
@@ -454,7 +467,7 @@ function. Configuration of the hook can be done from
 .. _tce-flags:
 
 Flags in DataHandler
-""""""""""""""""""""
+====================
 
 There are a few internal variables you can set prior to executing
 commands or data submission. These are the most significant:
