@@ -26,7 +26,7 @@ insecure code may still be accessible and a security vulnerability
 possibly exploitable.
 
 Another option is to store the extracted TYPO3 sources outside of the
-web root directory (so they are not acceessible via web requests) as
-a generale rule and use symblic links inside the web root to point to
+web root directory (so they are not accessible via web requests) as
+a general rule and use symbolic links inside the web root to point to
 the correct and secure TYPO3 version.
 
