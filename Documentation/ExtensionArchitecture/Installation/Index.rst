@@ -19,7 +19,7 @@ extensions with TYPO3:
    system.
 
    The Extension Manager (EM) should take care of this process, including updates to
-   newer versions if needed.Notice that backend modules will have their
+   newer versions if needed. Notice that backend modules will have their
    "conf.php" file modified in the install process depending on whether
    they are installed locally or globally!
 
