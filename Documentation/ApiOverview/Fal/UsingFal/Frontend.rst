@@ -56,7 +56,7 @@ FLUIDTEMPLATE
 ~~~~~~~~~~~~~
 
 More often the File Reference information will not be
-available explicitely. The :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>` content object
+available explicitly. The :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>` content object
 has a :ref:`dataProcessing <t3tsref:cobj-fluidtemplate-properties-dataprocessing>` property
 which can be used to call up the :php:`\TYPO3\CMS\Frontend\DataProcessing\FilesProcessor`
 class, whose task it is to load all media referenced for the current
