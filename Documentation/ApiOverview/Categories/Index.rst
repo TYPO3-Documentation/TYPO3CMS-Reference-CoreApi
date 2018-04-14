@@ -181,7 +181,7 @@ Category collections
 ^^^^^^^^^^^^^^^^^^^^
 
 The :php:`\TYPO3\CMS\Core\Category\Collection\CategoryCollection`
-classe provides the API for retrieving records related
+class provides the API for retrieving records related
 to a given category. Since TYPO3 CMS 6.2, it is extended by class
 :php:`\TYPO3\CMS\Frontend\Category\Collection\CategoryCollection`
 which does the same job but in the frontend, i.e.
