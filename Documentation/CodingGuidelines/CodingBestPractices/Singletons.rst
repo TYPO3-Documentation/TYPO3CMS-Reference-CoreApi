@@ -17,7 +17,7 @@ pattern, a class must implement the :code:`SingletonInterface`::
        …
    }
 
-This interface has no specific methods to implement, but if imlemented
+This interface has no specific methods to implement, but if implemented
 only one instance of the class will be created throught given request.
 
 Be aware that singletons are often considered as "anti pattern" by
