@@ -37,7 +37,7 @@ The main benefits of :ts:`@import` compared to :ts:`<INCLUDE_TYPOSCRIPT>` are:
 
 - @import is expressive and self-explanatory
 
-- better clarifies wether files or folders are imported (in comparison to the
+- better clarifies whether files or folders are imported (in comparison to the
   old `FILE:` and `DIR:` syntax)
 
 
