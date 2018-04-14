@@ -18,7 +18,7 @@ created
 
 component
   The name of the logger which created the LogRecord, usually the fully qualified
-  class name where the Logger has been instanciated.
+  class name where the Logger has been instantiated.
 
 level
   An integer severity level from :ref:`\\TYPO3\\CMS\\Core\\Log\\LogLevel <logging-logger-log>`.
