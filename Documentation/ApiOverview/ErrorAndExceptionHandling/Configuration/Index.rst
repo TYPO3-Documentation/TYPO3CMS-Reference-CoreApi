@@ -28,7 +28,7 @@ part of :php:`$TYPO3_CONF_VARS[SYS]`:
            exceptions),the configured :php:`productionExceptionHandler` is used as
            exception handler
 
-         - 1 = Display error messages with the registered error handler,the
+         - 1 = Display error messages with the registered error handler, the
            configured :php:`debugExceptionHandler` is used as exception handler
 
          - -1 = Default setting. With this option, you can override the PHP
