@@ -28,13 +28,13 @@ part of :php:`$TYPO3_CONF_VARS[SYS]`:
            exceptions),the configured :php:`productionExceptionHandler` is used as
            exception handler
 
-         - 1 = Display error messages with the registered error handler,the
+         - 1 = Display error messages with the registered error handler, the
            configured :php:`debugExceptionHandler` is used as exception handler
 
          - 2 = Display errors only if client matches
            :php:`$TYPO3_CONF_VARS[SYS][devIPmask]`. If devIPmask matches the users IP
-           address the configured "debugExceptionHandler" is used for exceptions,
-           if not "productionExceptionHandler" will be used.
+           address the configured "debugExceptionHandler" is used for exceptions.
+           Otherwise "productionExceptionHandler" will be used.
 
          - -1 = Default setting. With this option, you can override the PHP
            setting :php:`display_errors`. If :php:`devIPmask` matches the users IP address

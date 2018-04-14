@@ -2,9 +2,6 @@
 
 
 
-
-
-
 .. _tce-database-basics:
 
 ========================================================
@@ -29,11 +26,11 @@ hierarchy of these two arrays.
 
 .. caution::
 
-   The DataHandler needs a properly configured TCA. If your field 
-   is not configured in the TCA the DataHandler is not able to 
-   interact with it. This also is the case if you configured 
-   "type"="none" (which is in fact a valid type) or if an invalid 
-   type is specified. In that case the DataHandler is not 
+   The DataHandler needs a properly configured TCA. If your field
+   is not configured in the TCA the DataHandler is not able to
+   interact with it. This also is the case if you configured
+   "type"="none" (which is in fact a valid type) or if an invalid
+   type is specified. In that case the DataHandler is not
    able to determine the correct value of the field.
 
 .. _tce-commands:
@@ -129,14 +126,12 @@ Command keywords and values
 
          - array: The array has to contain the integer value as in examples above and
            may contain field => value pairs for updates. The array is structured
-           like:
-
-           .. code-block:: php
+           like::
 
               [
-                  'action' => 'copy', // Defines where this is a move or copy command
-                  'target' => $pUid, // Defines the page to insert the record.
-                  'update' => $update, // Array with field => value to be updated.
+                 'action' => 'copy', // Defines where this is a move or copy command
+                 'target' => $pUid, // Defines the page to insert the record.
+                 'update' => $update, // Array with field => value to be updated.
               ]
 
 
@@ -322,7 +317,7 @@ Description of keywords in syntax:
          Value for "fieldname".
 
          .. important::
-            Always make sure :code:`$this->stripslashes_values` is false before using
+            Always make sure :php:`$this->stripslashes_values` is false before using
             DataHandler.)
 
 
@@ -342,30 +337,30 @@ This creates a new page titled "The page title" as the first page
 inside page id 45::
 
    $data['pages']['NEW9823be87'] = array(
-       'title' => 'The page title',
-       'subtitle' => 'Other title stuff',
-       'pid' => '45'
+      'title' => 'The page title',
+      'subtitle' => 'Other title stuff',
+      'pid' => '45'
    );
 
 This creates a new page titled "The page title" right after page id 45
 in the tree::
 
    $data['pages']['NEW9823be87'] = array(
-       'title' => 'The page title',
-       'subtitle' => 'Other title stuff',
-       'pid' => '-45'
+      'title' => 'The page title',
+      'subtitle' => 'Other title stuff',
+      'pid' => '-45'
    );
 
 This creates two new pages right after each other, located right after
 the page id 45::
 
    $data['pages']['NEW9823be87'] = array(
-       'title' => 'Page 1',
-       'pid' => '-45'
+      'title' => 'Page 1',
+      'pid' => '-45'
    );
    $data['pages']['NEWbe68s587'] = array(
-       'title' => 'Page 2',
-       'pid' => '-NEW9823be87'
+      'title' => 'Page 2',
+      'pid' => '-NEW9823be87'
    );
 
 Notice how the second "pid" value points to the "NEW..." id

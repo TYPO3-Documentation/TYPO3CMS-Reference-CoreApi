@@ -23,11 +23,11 @@ Log a simple message::
 Provide additional information with the log message::
 
    $logger->error(
-     'This was not a good idea',
-     array(
-       'foo' => $bar,
-       'bar' => $foo,
-     )
+      'This was not a good idea',
+      array(
+         'foo' => $bar,
+         'bar' => $foo,
+      )
    );
 
 
