@@ -735,7 +735,7 @@ The simple file backend is the small brother of the :ref:`file backend <caching-
 other backends, it does not implement the :code:`TaggableInterface`, so cache entries can not be tagged and flushed
 by tag. This improves the performance if cache entries do not need such tagging. TYPO3 CMS core uses this backend
 for its central core cache (that hold autoloader cache entries and other important cache entries). The core cache is
-usually flushed completly and does not need specific cache entry eviction.
+usually flushed completely and does not need specific cache entry eviction.
 
 
 .. _caching-backend-pdo:
