@@ -10,7 +10,7 @@ by :php:`FormDataCompiler` and creates a result array containing HTML, CSS and J
 is then post-processed by a controller to feed it to the :php:`PageRenderer` or to create an ajax
 response.
 
-The rendering is a tree: The controller intitializes this by setting one :php:`container` as :php:`renderType`
+The rendering is a tree: The controller initializes this by setting one :php:`container` as :php:`renderType`
 entry point within the data array, then hands over the full data array to the :php:`NodeFactory` which looks
 up a class responsible for this :php:`renderType`, and calls render() on it. A container class creates only
 a fraction of the full result, and delegates details to another container. The second one does another detail
