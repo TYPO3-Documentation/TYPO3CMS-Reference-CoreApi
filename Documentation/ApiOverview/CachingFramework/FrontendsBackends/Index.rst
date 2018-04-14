@@ -202,7 +202,7 @@ directly, but should use the frontend object instead.
  - :Method:
       collectGarbage
    :Description:
-      Does garabage collection.
+      Does garbage collection.
 
  - :Method:
       flushByTag
