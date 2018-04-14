@@ -54,7 +54,7 @@ code or directly in fluid.
 The PHP way
 -----------
 
-Your can use the :php:`IconFactory` to request an icon:
+You can use the :php:`IconFactory` to request an icon:
 
 .. code-block:: php
 
