@@ -101,7 +101,7 @@ part of the options array is the one which overrides the base
 listed alphabetically instead of using the "sorting" field.
 
 If no :code:`label` part is set in the options array, the field will
-be labelled "Categories".
+be labeled "Categories".
 
 By default, the field will be an exclude-field. The :code:`exclude` part
 can be used to override this.
