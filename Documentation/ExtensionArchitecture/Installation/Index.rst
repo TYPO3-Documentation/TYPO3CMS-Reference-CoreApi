@@ -35,7 +35,7 @@ extensions with TYPO3:
 
    An enabled extension is always
    global to the TYPO3 Installation - you cannot disable an extension
-   from being loaded in a particular branch of the page tree.The EM takes
+   from being loaded in a particular branch of the page tree. The EM takes
    care enabling extensions. It's highly recommended that the EM is doing
    this, because the EM will make sure the priorities, dependencies and
    conflicts are managed according to the extension characteristics,
