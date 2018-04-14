@@ -56,7 +56,7 @@ on the page where we defined this TSconfig and **all** of its
 child pages.
 
 Page TSconfig is thus very convenient to have separate branches
-of the page tree behave differerently.
+of the page tree behave differently.
 
 
 .. _typoscript-syntax-tsconfig-user:
