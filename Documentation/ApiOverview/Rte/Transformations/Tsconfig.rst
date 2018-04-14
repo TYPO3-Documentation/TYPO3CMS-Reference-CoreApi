@@ -364,7 +364,7 @@ dontRemoveUnknownTags\_db
 
          Default is to remove all unknown tags in the content going to the
          database. (See HTMLparser\_db above for default tags). Generally this
-         is a very usefull thing, because all kinds of bogus tags from pasted
+         is a very useful thing, because all kinds of bogus tags from pasted
          content like that from Word etc. will be removed to have clean content
          in the database.
 
