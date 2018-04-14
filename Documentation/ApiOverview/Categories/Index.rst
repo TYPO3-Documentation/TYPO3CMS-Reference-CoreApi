@@ -101,7 +101,7 @@ part of the options array is the one which overrides the base
 listed alphabetically instead of using the "sorting" field.
 
 If no :code:`label` part is set in the options array, the field will
-be labelled "Categories".
+be labeled "Categories".
 
 By default, the field will be an exclude-field. The :code:`exclude` part
 can be used to override this.
@@ -181,7 +181,7 @@ Category collections
 ^^^^^^^^^^^^^^^^^^^^
 
 The :php:`\TYPO3\CMS\Core\Category\Collection\CategoryCollection`
-classe provides the API for retrieving records related
+class provides the API for retrieving records related
 to a given category. Since TYPO3 CMS 6.2, it is extended by class
 :php:`\TYPO3\CMS\Frontend\Category\Collection\CategoryCollection`
 which does the same job but in the frontend, i.e.

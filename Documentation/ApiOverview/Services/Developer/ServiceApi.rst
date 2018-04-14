@@ -163,7 +163,7 @@ General service functions
 
 checkExec
   This method checks the availability of one or more executables on the
-  server. A comma-separated list of excutables names is provided as a
+  server. A comma-separated list of executable names is provided as a
   parameter. The method returns :php:`true` if **all** executables are
   available.
 

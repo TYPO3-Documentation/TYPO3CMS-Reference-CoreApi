@@ -40,7 +40,7 @@ The TYPO3 core ships three IconProvider which can be used:
 * :php:`SvgIconProvider` – For all SVG icons
 * :php:`FontawesomeIconProvider` – For all icons which can be found in fontawesome.io
 
-In case your need special IconProvider you can implement your own,
+In case you need special IconProvider you can implement your own,
 your class has to implement the :php:`IconProviderInterface`.
 
 .. _icon-usage:
@@ -54,7 +54,7 @@ code or directly in fluid.
 The PHP way
 -----------
 
-Your can use the :php:`IconFactory` to request an icon:
+You can use the :php:`IconFactory` to request an icon:
 
 .. code-block:: php
 

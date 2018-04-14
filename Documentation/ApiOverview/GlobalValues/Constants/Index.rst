@@ -57,7 +57,7 @@ Table 1: Traditional List
    :Defined:
          SystemEnvironmentBuilder::defineBaseConstants()
    :Description:
-         Operating systen; Windows = "WIN", other = "" (presumed to be some
+         Operating system; Windows = "WIN", other = "" (presumed to be some
          sort of Unix)
    :FE:
          Yes

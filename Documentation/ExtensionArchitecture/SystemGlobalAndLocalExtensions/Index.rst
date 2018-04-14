@@ -49,7 +49,7 @@ for the TYPO3 source code on the web server. These extensions will be
 available for any TYPO3 installation sharing the source code.
 
 .. note::
-   This features has not been consistently supported in recent versions of TYPO3,
+   These features have not been consistently supported in recent versions of TYPO3,
    so you may encounter problems when using it.
 
 .. _extension-system:

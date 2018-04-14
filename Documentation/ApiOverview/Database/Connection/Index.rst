@@ -26,7 +26,7 @@ automatically and the created queries are executed right away.
     The `Connection` object is designed to work on a single table only. If queries to multiple
     tables should be performed, the object must not be re-used. Instead, a single `Connection`
     instance should be retrieved via `ConnectionPool` per target table. However, it is allowed
-    to use one `Connection` object for muliple queries to the same table.
+    to use one `Connection` object for multiple queries to the same table.
 
 
 insert()

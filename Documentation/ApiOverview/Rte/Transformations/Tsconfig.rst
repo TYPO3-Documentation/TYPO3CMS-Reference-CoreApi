@@ -32,7 +32,7 @@ like this:
 
    Description
          These objects contain the actual configuration of the RTE interface.
-         For the properties available, refer to the table below.This is a
+         For the properties available, refer to the table below. This is a
          description of how you can customize in general and override for
          specific fields/types.
 
@@ -142,7 +142,7 @@ proc
          older versions of the TCA-Reference
 
          The :code:`proc` object is processed in :code:`\TYPO3\CMS\Core\Html\RteHtmlParser` and is
-         *independant* of the particular RTE used (like transformations generally are!).
+         *independent* of the particular RTE used (like transformations generally are!).
 
 
 .. _transformations-tsconfig-configuration-specific:
@@ -364,7 +364,7 @@ dontRemoveUnknownTags\_db
 
          Default is to remove all unknown tags in the content going to the
          database. (See HTMLparser\_db above for default tags). Generally this
-         is a very usefull thing, because all kinds of bogus tags from pasted
+         is a very useful thing, because all kinds of bogus tags from pasted
          content like that from Word etc. will be removed to have clean content
          in the database.
 

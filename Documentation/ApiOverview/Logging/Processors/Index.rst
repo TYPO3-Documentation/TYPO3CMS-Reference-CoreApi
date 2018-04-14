@@ -43,7 +43,7 @@ class
 function
   function name.
 
-If :code:`appendFullBackTrace` is set, the full backstrace stack is added instead.
+If :code:`appendFullBackTrace` is set, the full backtrace stack is added instead.
 
 ====================  =========  ===========================================================================  ============
 Option                Mandatory  Description                                                                   Default

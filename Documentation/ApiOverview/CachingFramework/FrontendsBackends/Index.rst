@@ -202,7 +202,7 @@ directly, but should use the frontend object instead.
  - :Method:
       collectGarbage
    :Description:
-      Does garabage collection.
+      Does garbage collection.
 
  - :Method:
       flushByTag
@@ -290,7 +290,7 @@ The database backend tends to slow down if there are many write operations
 and big caches which do not fit into memory because of slow harddrive seek and write performance.
 If the data table grows too big to fit into memory, it is possible to compress given data transparently
 with this backend, which often shrinks the amount of needed space to 1/4 or less.
-The overhead of the compress/uncrompress operation is usually not high.
+The overhead of the compress/uncompress operation is usually not high.
 A good candidate for a cache with enabled compression is the core pages cache:
 it is only read or written once per request and the data size is pretty large.
 The compression should not be enabled for caches which are read or written
@@ -735,7 +735,7 @@ The simple file backend is the small brother of the :ref:`file backend <caching-
 other backends, it does not implement the :code:`TaggableInterface`, so cache entries can not be tagged and flushed
 by tag. This improves the performance if cache entries do not need such tagging. TYPO3 CMS core uses this backend
 for its central core cache (that hold autoloader cache entries and other important cache entries). The core cache is
-usually flushed completly and does not need specific cache entry eviction.
+usually flushed completely and does not need specific cache entry eviction.
 
 
 .. _caching-backend-pdo:

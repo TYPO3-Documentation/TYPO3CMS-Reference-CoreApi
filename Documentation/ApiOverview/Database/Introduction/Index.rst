@@ -69,5 +69,5 @@ Credits
 Implementing the `doctrine-dbal` API into `TYPO3` has been a *huge project in 2016.*
 Special thanks goes to awesome Mr. **Morton Jonuschat** for the initial design, integration
 and support and to more than **40 different people** who actively contributed to migrate
-more than 1700 calls from `TYPO3_DB`-style to Doctrine within half ayear.
+more than 1700 calls from `TYPO3_DB`-style to Doctrine within half a year.
 **This was a huge community achievement, thanks everyone involved!**

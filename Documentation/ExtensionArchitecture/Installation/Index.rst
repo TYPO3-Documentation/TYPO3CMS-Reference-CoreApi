@@ -19,7 +19,7 @@ extensions with TYPO3:
    system.
 
    The Extension Manager (EM) should take care of this process, including updates to
-   newer versions if needed.Notice that backend modules will have their
+   newer versions if needed. Notice that backend modules will have their
    "conf.php" file modified in the install process depending on whether
    they are installed locally or globally!
 
@@ -35,7 +35,7 @@ extensions with TYPO3:
 
    An enabled extension is always
    global to the TYPO3 Installation - you cannot disable an extension
-   from being loaded in a particular branch of the page tree.The EM takes
+   from being loaded in a particular branch of the page tree. The EM takes
    care enabling extensions. It's highly recommended that the EM is doing
    this, because the EM will make sure the priorities, dependencies and
    conflicts are managed according to the extension characteristics,
