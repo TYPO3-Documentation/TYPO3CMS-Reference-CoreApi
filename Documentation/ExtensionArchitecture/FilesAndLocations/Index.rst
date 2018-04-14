@@ -330,7 +330,7 @@ Configuration/TypoScript
   templates.
 
 Documentation
-  Contains the extension documentation in ReStructuredText (ReST, .rst) formata.
+  Contains the extension documentation in ReStructuredText (ReST, .rst) format.
   Read more on the topic in chapter :ref:`extension documentation <extension-documentation>`.
   :file:`Documentation/` and its subfolders may contain several ReST files, images and other resources.
 
