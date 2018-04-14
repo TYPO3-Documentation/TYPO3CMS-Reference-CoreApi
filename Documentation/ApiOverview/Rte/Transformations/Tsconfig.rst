@@ -142,7 +142,7 @@ proc
          older versions of the TCA-Reference
 
          The :code:`proc` object is processed in :code:`\TYPO3\CMS\Core\Html\RteHtmlParser` and is
-         *independant* of the particular RTE used (like transformations generally are!).
+         *independent* of the particular RTE used (like transformations generally are!).
 
 
 .. _transformations-tsconfig-configuration-specific:
