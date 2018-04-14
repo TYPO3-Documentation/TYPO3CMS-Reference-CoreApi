@@ -32,7 +32,7 @@ like this:
 
    Description
          These objects contain the actual configuration of the RTE interface.
-         For the properties available, refer to the table below.This is a
+         For the properties available, refer to the table below. This is a
          description of how you can customize in general and override for
          specific fields/types.
 
