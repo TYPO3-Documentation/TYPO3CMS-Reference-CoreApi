@@ -211,7 +211,7 @@ module is loaded by the browser.
 
 .. note::
    Nodes must never add JavaScript or CSS or similar stuff using the :php:`PageRenderer`. This fails as soon
-   as this container / element / wizard is called via AJAX, for instance within inline. Instead, those ressources
+   as this container / element / wizard is called via AJAX, for instance within inline. Instead, those resources
    must be registered via the result array only, using :php:`stylesheetFiles` and :php:`requireJsModules`.
 
 
