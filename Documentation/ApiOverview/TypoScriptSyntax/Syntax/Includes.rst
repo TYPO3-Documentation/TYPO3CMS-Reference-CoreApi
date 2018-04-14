@@ -75,7 +75,7 @@ TypoScript in future.
 Alternative, traditional Syntax
 """""""""""""""""""""""""""""""
 
-A tradional include-instruction will work as well and for example looks like
+A traditional include-instruction will work as well and for example looks like
 this:
 
 .. code-block:: typoscript
