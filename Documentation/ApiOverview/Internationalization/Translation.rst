@@ -17,7 +17,7 @@ The TYPO3 translation server
 The TYPO3 community manages an official translation server, running
 `Pootle <http://pootle.translatehouse.org>`__. Localization files
 in English are uploaded on that server and translations are packaged nightly.
-They are fecthed in the TYPO3 CMS backend, via the Extension Manager (or the
+They are fetched in the TYPO3 CMS backend, via the Extension Manager (or the
 new "Language" module since version 6.0).
 
 It is not the point of this manual to go into the details of the translation
