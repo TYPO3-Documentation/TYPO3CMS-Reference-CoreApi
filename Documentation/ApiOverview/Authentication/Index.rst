@@ -81,7 +81,7 @@ uident
 
 uident\_text
   This is the clear text value of the password. If the password is
-  orignally submitted in clear text, both "uident" and "uident\_text"
+  originally submitted in clear text, both "uident" and "uident\_text"
   contain the same value.
 
 Inside an authentication service, this data is available in
