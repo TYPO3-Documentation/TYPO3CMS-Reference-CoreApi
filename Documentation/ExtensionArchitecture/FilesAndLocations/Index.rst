@@ -252,7 +252,7 @@ extensions with the name prefix :file:`ext_`.
          Also you must add the function "access()" and make it return a boolean
          value whether or not the menu item should be shown. This feature is
          meant to let you disable the update tool if you can somehow detect
-         that it has already been run and doesn't need to run again.The point
+         that it has already been run and doesn't need to run again. The point
          of this file is to give extension developers the possibility to
          provide an update tool if their extensions in newer versions require
          some updates to be done.
