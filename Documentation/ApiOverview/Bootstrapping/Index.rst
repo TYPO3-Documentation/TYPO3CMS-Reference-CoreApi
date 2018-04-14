@@ -26,7 +26,7 @@ line, which additionally requires :code:`\TYPO3\CMS\Core\Core\CliBootstrap`.
 
 .. warning::
 
-   This boostrapping API is internal and may change at any time in the near future
+   This bootstrapping API is internal and may change at any time in the near future
    even in minor updates. It is thus discouraged to use it in third party code.
    Use this class only if other extensibility possibilities such as
    :ref:`Hooks <hooks>`, Signals or :ref:`XCLASS <xclasses>`
