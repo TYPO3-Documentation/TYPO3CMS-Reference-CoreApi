@@ -160,7 +160,7 @@ Or, use :php:`use` to make the code more readable::
 include and required
 --------------------
 
-There is no need to use :php:`require()` or :php:`include()` statements. All
+There is no need for :php:`require()` or :php:`include()` statements. All
 classes adhering to namespace conventions will automatically be located and
 included by the autoloader.
 
