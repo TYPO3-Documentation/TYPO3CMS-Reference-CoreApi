@@ -138,30 +138,32 @@ So a test class in :file:`EXT:foo_bar_baz/Tests/Unit/Bla/` will have as namespac
 :code:`\Vendor\FooBarBaz\Tests\Unit\Bla`.
 
 
-
 .. _namespaces-instances:
 
 Creating instances
 ------------------
 
-The following example shows how you can create instances with :code:`GeneralUtility::makeInstance`::
+The following example shows how you can create instances by means of
+:php:`GeneralUtility::makeInstance()`::
 
-   $contentObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
+   $contentObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+      \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
 
-Or, with the use of :code:`use`, which makes the code more readable::
+Or, use :php:`use` to make the code more readable::
 
    use TYPO3\CMS\Core\Utility\GeneralUtility;
    use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-   
-::
 
    $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
+
 
 include and required
 --------------------
 
-There is no need to use :code:`require()` or :code:`include()` statements. All classes that follow
-namespace conventions will automatically be located and included by the autoloader.
+There is no need to use :php:`require()` or :php:`include()` statements. All
+classes adhering to namespace conventions will automatically be located and
+included by the autoloader.
+
 
 .. _namespaces-references:
 
