@@ -50,16 +50,17 @@ General recommendations
 =======================
 
 .. important::
-   As a general rule, use your IDE / Editor to enforce the correct code style for you.
+
+   You are strongly advised to set up your editor and IDE properly so that the
+   standards get checked and enforced automatically!
 
 
 .. _cgl-introduction-php:
 
-
 PHP
 ===
 
-TYPO3 codebase follows the following standards for code formatting:
+TYPO3 codebase is following these standards for code formatting:
 
 * `PSR-1 <http://www.php-fig.org/psr/psr-1/>`__
 * `PSR-2 <http://www.php-fig.org/psr/psr-2/>`__
@@ -68,32 +69,31 @@ TYPO3 codebase follows the following standards for code formatting:
 JavaScript
 ==========
 
-The rules suggested in the
-`Airbnb JavaScript Style Guide <https://github.com/airbnb/javascript>`__
-should be used throughout the TYPO3 CMS core for JavaScript files.
+The rules suggested in the `Airbnb JavaScript Style Guide
+<https://github.com/airbnb/javascript>`__ should be used throughout the TYPO3
+CMS core for JavaScript files.
 
 TypeSript
 =========
 
 `Excel Micro TypeScript Style Guide for TypeScript
-<https://github.com/excelmicro/typescript>`__ should be used
-throughout the TYPO3 CMS core for TypeScript files.
+<https://github.com/excelmicro/typescript>`__ should be used throughout the
+TYPO3 CMS core for TypeScript files.
 
 
 XLIFF
 =====
 
 Tabs are used for indentation within Language files (.xlf).
-
-Language files are located in the directory
-:file:`Resources/Private/Language`,
+Language files are located in the directory :file:`Resources/Private/Language`.
 
 reST
 ====
 
-Don't use tabs, use spaces. Use 3 spaces to indent.
+Don't use tabs, use spaces. Use three spaces for one level of indentation.
+Compare with the :ref:`rules for formatting reST files
+<h2document:Formatting-reST-Source-Files>`.
 
+.. Todo: More types: sql, scss, css, json ...
 
-.. Todo: Other files: .sql, .scss, css, json ...
-
-
+   possibly explain .editorconfig file!?
