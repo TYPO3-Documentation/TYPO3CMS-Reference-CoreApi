@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _cgl-hooknaming:
+.. _cgl-hook-naming:
 
 Hook Naming
 ^^^^^^^^^^^
