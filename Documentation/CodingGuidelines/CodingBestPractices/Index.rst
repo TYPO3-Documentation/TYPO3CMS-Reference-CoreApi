@@ -21,4 +21,5 @@ part is just an overview of common pitfalls and generic tips.
    UnitTests
    HandlingDeprecations
    ClassNamesOfUserFiles
+   HookNaming
 
