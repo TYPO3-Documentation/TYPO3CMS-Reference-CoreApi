@@ -2,8 +2,9 @@
 
 .. _cgl-introduction:
 
+============
 Introduction
-------------
+============
 
 This chapter defines coding guidelines for the TYPO3 CMS project.
 Following these guidelines is mandatory for TYPO3 core developers and
@@ -19,16 +20,10 @@ This chapter defines how TYPO3 code, files and directories should be
 outlined and formatted. It gives some thoughts on general coding
 flavors the core tries to follow.
 
-Following PSR standards
-^^^^^^^^^^^^^^^^^^^^^^^
-
-TYPO3 codebase follows  `PSR-1 <http://www.php-fig.org/psr/psr-1/>`__ and `PSR-2 <http://www.php-fig.org/psr/psr-2/>`__ standards for code formatting.
-
-
 .. _cgl-quality-assurance:
 
 The CGL as a means of quality assurance
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=======================================
 
 Our programmers know the CGL and are encouraged to inform authors,
 should their code not comply with the guidelines.
@@ -46,4 +41,59 @@ be easily replayed locally: If the test setup votes negative on a
 core patch in the review system due to CGL violations, the patch
 can be easily fixed locally by calling :file:`./Build/Scripts/cglFixMyCommit.sh`
 and pushed another time. For details on core contributions, have a look at the
-:ref:`contribution workflow guide <t3contribute:TYPO3.Tutorial.ContributionWorkflow.Index>`.
+:ref:`TYPO3 Contribution Guide <t3contribute:start>`.
+
+
+.. _cgl-introduction-general-recommendations:
+
+General recommendations
+=======================
+
+.. important::
+
+   You are strongly advised to set up your editor and IDE properly so that the
+   standards get checked and enforced automatically!
+
+
+.. _cgl-introduction-php:
+
+PHP
+===
+
+TYPO3 codebase is following these standards for code formatting:
+
+* `PSR-1 <http://www.php-fig.org/psr/psr-1/>`__
+* `PSR-2 <http://www.php-fig.org/psr/psr-2/>`__
+
+
+JavaScript
+==========
+
+The rules suggested in the `Airbnb JavaScript Style Guide
+<https://github.com/airbnb/javascript>`__ should be used throughout the TYPO3
+CMS core for JavaScript files.
+
+TypeSript
+=========
+
+`Excel Micro TypeScript Style Guide for TypeScript
+<https://github.com/excelmicro/typescript>`__ should be used throughout the
+TYPO3 CMS core for TypeScript files.
+
+
+XLIFF
+=====
+
+Tabs are used for indentation within Language files (.xlf).
+Language files are located in the directory :file:`Resources/Private/Language`.
+
+reST
+====
+
+Don't use tabs, use spaces. Use three spaces for one level of indentation.
+Compare with the :ref:`rules for formatting reST files
+<h2document:Formatting-reST-Source-Files>`.
+
+.. Todo: More types: sql, scss, css, json ...
+
+   possibly explain .editorconfig file!?
