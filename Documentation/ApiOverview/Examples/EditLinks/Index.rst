@@ -1,5 +1,12 @@
 .. include:: ../../../Includes.txt
 
+.. --- EDIT NOTE ---
+.. please see this open issue: 
+.. https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/73
+.. If this is resolved, please close the issue and remove this note. 
+.. 2018-04-24
+.. ------------------
+
 
 .. _edit-links:
 
