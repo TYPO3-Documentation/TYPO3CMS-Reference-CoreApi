@@ -12,17 +12,32 @@ Logger
 Instantiation
 """""""""""""
 
-The :code:`LogManager` enables an auto-configured usage of loggers in your PHP code
+.. note:: 
+   As of TYPO3 9.0 you no longer need to use makeInstance to create an 
+   instance of the logger yourself. You can use `LoggerAwareTrait <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects.html?highlight=loggerawaretrait>`__
+
+Use LoggerAwareTrait in your class to automatically instantiate $this->logger::
+
+   use Psr\Log\LoggerAwareTrait;
+
+   class Example
+   {
+      use LoggerAwareTrait;
+   }
+
+Or, you can instantiate the Logger with `makeInstance`.
+
+The `LogManager` enables an auto-configured usage of loggers in your PHP code
 by reading the logging configuration and setting the minimum severity level of the Logger
 accordingly.
 
 .. code-block:: php
 
    /** @var $logger \TYPO3\CMS\Core\Log\Logger */
-   $logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Log\LogManager')->getLogger(__CLASS__);
+   $this->logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Log\LogManager')->getLogger(__CLASS__);
 
 
-Using :code:`__CLASS__` as name for the logger is recommended to enable logging configuration
+Using `__CLASS__` as name for the logger is recommended to enable logging configuration
 based on the class hierarchy.
 
 
@@ -36,7 +51,7 @@ the :code:`log()` method:
 
 .. code-block:: php
 
-   $logger->log($level, $message, $data);
+   $this->logger->log($level, $message, $data);
 
 which takes three parameters:
 
@@ -77,7 +92,7 @@ which takes three parameters:
          in the form of an array.
 
 An early return in the :code:`log()` method prevents unneeded computation work to be done.
-So you are safe to call :code:`$logger->debug()` frequently without slowing down your code too much.
+So you are safe to call :code:`$this->logger->debug()` frequently without slowing down your code too much.
 The Logger will know by its configuration, what the most explicit severity level is.
 
 As next step, all registered :ref:`Processors <logging-processors>` are notified.
@@ -95,7 +110,7 @@ Shorthand methods
 For each of the severity levels mentioned above, a shorthand method exists in
 :code:`\TYPO3\CMS\Core\Log\Logger`, like
 
-- :code:`$logger->debug($message, array $data = array());`
-- :code:`$logger->info($message, array $data = array());`
-- :code:`$logger->notice($message, array $data = array());`
+- :code:`$this->logger->debug($message, array $data = array());`
+- :code:`$this->logger->info($message, array $data = array());`
+- :code:`$this->logger->notice($message, array $data = array());`
 - etc.
