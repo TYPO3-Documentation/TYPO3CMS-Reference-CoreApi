@@ -6,6 +6,7 @@
 
 .. _introduction:
 
+============
 Introduction
 ============
 
@@ -13,7 +14,7 @@ Introduction
 .. _overview:
 
 Overview
---------
+========
 
 TYPO3 is known for its extensibility. To really benefit from
 this power, a complete documentation is needed: "Core APIs" and its
@@ -42,7 +43,7 @@ published and we've tried to maintain it as best as we could.
 .. _code-examples:
 
 Code examples
--------------
+=============
 
 Many of the code examples found in this document come from the TYPO3
 Core itself.
@@ -56,29 +57,31 @@ to the "examples" extension at some later stage.
 
 
 .. _feedback:
+.. _how-to-contribute:
 
-Feedback
-^^^^^^^^
-
-For general questions about the documentation get in touch by writing
-to `documentation@typo3.org <mailto:documentation@typo3.org>`_ .
+How to contribute
+=================
 
 If you find a bug in this manual, please be so kind as to check the
-online version on https://docs.typo3.org/typo3cms/CoreApiReference/.
+online version on http://docs.typo3.org/typo3cms/InsideTypo3Reference/.
 From there you can hit the "Edit me on GitHub" button in the top right corner
-and submit a pull request via GitHub. Alternatively you can just file an issue
-using the bug tracker: https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues.
+and submit a pull request via GitHub. Alternatively you can just `file an issue
+using the bug tracker <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-InsideTypo3/issues>`__.
 
 Maintaining high quality documentation requires time and effort
 and the TYPO3 Documentation Team always appreciates support.
-If you want to support us, please join the documentation
-mailing list/forum (http://forum.typo3.org/index.php/f/44/).
+If you want to support us, please join the slack channel **#typo3-documentation**
+on `Slack <https://typo3.slack.com/>`__.
 
+Visit https://forger.typo3.org/slack to gain access to Slack.
+
+And finally, as a last resort, you can get in touch with the documentation team
+`by mail <documentation@typo3.org>`_.
 
 .. _credits:
 
 Credits
--------
+=======
 
 This manual was originally written by Kasper Skårhøj. It was further
 maintained, refreshed and expanded by François Suter.
@@ -87,7 +90,7 @@ maintained, refreshed and expanded by François Suter.
 .. _dedication:
 
 Dedication
-----------
+==========
 
 I want to dedicate this document to the people in the TYPO3 community
 who have the  *discipline* to do the boring job of writing
