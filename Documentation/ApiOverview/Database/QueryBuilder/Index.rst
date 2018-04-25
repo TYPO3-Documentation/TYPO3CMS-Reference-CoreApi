@@ -535,7 +535,8 @@ Remarks:
   :php:`->orderBy('header')->addOrderBy('bodytext')->addOrderBy('uid', 'DESC')` creates
   ``ORDER BY `header` ASC, `bodytext` ASC, `uid` DESC``
   
-* To add more complex sorting, you can use :php:`->add('orderBy', 'FIELD(eventtype, 0, 4, 1, 2, 3)', true)`
+* To add more complex sorting, you can use :php:`->add('orderBy', 'FIELD(eventtype, 0, 4, 1, 2, 3)', true)`,
+  remember to quote properly
 
 
 groupBy() and addGroupBy()
@@ -556,7 +557,7 @@ Remarks:
 
 * :php:`->groupBy()` resets any previously set group specification and should be called only once per statement.
 
-* For more complex statements you can use :php:`->add('groupBy', $sql, $append)`
+* For more complex statements you can use :php:`->add('groupBy', $sql, $append)`, remember to quote properly.
 
 
 setMaxResults() and setFirstResult()
@@ -581,12 +582,29 @@ Remarks:
 * It is possible to call :php:`->setFirstResult()` without calling :php:`setMaxResults()`: This equals to "Fetch everything, but
   leave out the first n records". Internally, `LIMIT` will be added by `doctrine-dbal` and set to a very high value.
 
+
 .. _database-query-builder-add:
 
 add()
 =====
 
-Method :php:`->add()` appends to or replaces a single, generic query part. The available parts are: `select`, `from`, `set`, `where`, `groupBy`, `having` and `orderBy`.
+Method :php:`->add()` appends to or replaces a single, generic query part. It can be used as a low level call
+if more specific calls don't give enough freedom to express parts of statments::
+
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
+   $queryBuilder->select('*')->from('sys_language');
+   $queryBuilder->add('orderBy', 'FIELD(eventtype, 0, 4, 1, 2, 3)');
+
+
+Remarks:
+
+* The first argument is the sql part. One of: `select`, `from`, `set`, `where`, `groupBy`, `having` or `orderBy`
+
+* Second argument is the (properly quoted!) sql segment of this part
+
+* Optional third boolean argument specifies if the sql fragment should be appended (true) or substitute
+  an possibly existing sql part of this name (false, default).
+
 
 .. _database-query-builder-get-sql:
 
