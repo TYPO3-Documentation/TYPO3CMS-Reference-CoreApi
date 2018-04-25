@@ -534,6 +534,8 @@ Remarks:
 * To create a chain of orders, use :php:`->orderBy()` and then multiple :php:`->addOrderBy()` calls. Calling
   :php:`->orderBy('header')->addOrderBy('bodytext')->addOrderBy('uid', 'DESC')` creates
   ``ORDER BY `header` ASC, `bodytext` ASC, `uid` DESC``
+  
+* To add more complex sorting, you can use :php:`->add('orderBy', 'FIELD(eventtype, 0, 4, 1, 2, 3)', true)`
 
 
 groupBy() and addGroupBy()
@@ -553,6 +555,8 @@ Remarks:
   and will be properly quoted.
 
 * :php:`->groupBy()` resets any previously set group specification and should be called only once per statement.
+
+* For more complex statements you can use :php:`->add('groupBy', $sql, $append)`
 
 
 setMaxResults() and setFirstResult()
@@ -577,6 +581,12 @@ Remarks:
 * It is possible to call :php:`->setFirstResult()` without calling :php:`setMaxResults()`: This equals to "Fetch everything, but
   leave out the first n records". Internally, `LIMIT` will be added by `doctrine-dbal` and set to a very high value.
 
+.. _database-query-builder-add:
+
+add()
+=====
+
+Method :php:`->add()` appends to or replaces a single, generic query part. The available parts are: `select`, `from`, `set`, `where`, `groupBy`, `having` and `orderBy`.
 
 .. _database-query-builder-get-sql:
 
