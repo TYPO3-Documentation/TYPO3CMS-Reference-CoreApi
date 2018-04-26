@@ -58,7 +58,7 @@ to the "examples" extension at some later stage.
 .. _feedback:
 
 Feedback
-^^^^^^^^
+--------
 
 For general questions about the documentation get in touch by writing
 to `documentation@typo3.org <mailto:documentation@typo3.org>`_ .
