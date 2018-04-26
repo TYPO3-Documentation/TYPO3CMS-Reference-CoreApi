@@ -45,7 +45,7 @@ for the backend (BE) and by class
 for the frontend (FE), which both inherit from class
 :php:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`.
 These classes are called by the
-:ref:`bootstrapping process <t3inside:backend-initialization>`.
+:ref:`bootstrapping process <bootstrapping>`.
 They manage the workflow of the authentication process.
 Services are used strictly to identify and validate
 users based on whatever form of credentials a given service
