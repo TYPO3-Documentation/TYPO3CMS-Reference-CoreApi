@@ -111,8 +111,8 @@ documents. Go for completeness!
 
 .. _overview:
 
-Overview
---------
+System Overview
+---------------
 
 For most people TYPO3 is equivalent to a CMS providing a backend for
 management of the content and a frontend engine for website display.
@@ -120,7 +120,7 @@ However TYPO3s core is natively designed to be a general purpose
 framework for management of database content. The core of TYPO3 CMS
 delivers a set of principles for storage of this content, user access
 management, editing of the content, uploading and managing files etc.
-Many of these principles are expressed as an API (Application
+These principles are expressed as an API (Application
 Programming Interface) for use in *extensions* which ultimately
 add most of the real functionality.
 
