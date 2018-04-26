@@ -13,7 +13,7 @@ Extension Architecture
 
    Introduction/Index
    FilesAndLocations/Index
-   SystemGlobalAndLocalExtensions/Index
+   SystemAndLocalExtensions/Index
    ExtensionKey/Index
    NamingConventions/Index
    Installation/Index
