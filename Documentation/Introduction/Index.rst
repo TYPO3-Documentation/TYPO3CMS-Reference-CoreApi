@@ -134,3 +134,29 @@ the bone and provide a detailed look at the core of TYPO3 CMS including
 the API available to the outside. This is supposed to be the final
 technical reference apart from source code itself which
 is - of course - the ultimate documentation.
+
+
+.. _installation:
+
+A basic installation
+--------------------
+
+To follow this document, it might help to have a totally trimmed down installation
+of TYPO3 CMS with *only* the core and the required system extensions at hand.
+
+The installation process is covered in the :ref:`Installation and Upgrade Guide <t3install:start>`.
+You should perform the basic installation steps and not install any distribution.
+This will give you the "lightest" possible version of TYPO3 CMS.
+
+Log into your basic installation and  move to the **ADMIN TOOLS > Extensions**
+module. You will see all extensions which are loaded by default.
+Required extensions are not only loaded by default, they have no
+"Activate/Deactivate" button, too.
+
+.. figure:: ../Images/ExtensionsMinimalList.png
+   :alt: The Extension Manager with a bare bones installation
+
+
+The most important thing to note for now is that **everything** is an
+extension in TYPO3 CMS. Even the most basic functions are packaged in a
+system extension called "core".
