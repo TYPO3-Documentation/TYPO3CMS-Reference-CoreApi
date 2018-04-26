@@ -10,6 +10,5 @@ Data Formats
 .. toctree::
 
    T3datastructure/Index
-   T3locallang/Index
 
 
