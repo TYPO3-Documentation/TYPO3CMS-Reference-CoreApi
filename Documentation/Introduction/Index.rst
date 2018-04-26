@@ -1,9 +1,5 @@
 .. include:: ../Includes.txt
 
-
-
-
-
 .. _introduction:
 
 Introduction
@@ -16,27 +12,18 @@ Overview
 --------
 
 TYPO3 is known for its extensibility. To really benefit from
-this power, a complete documentation is needed: "Core APIs" and its
-companion, "Inside TYPO3", aim to provide such information to
-developers and administrators. Not all areas are covered with the same
-amount of detail, but at least some pointers are provided.
+this power, a complete documentation is needed: "Core APIs" aims to
+provide such information to developers and administrators. Not all areas
+are covered with the same amount of detail, but at least some pointers are provided.
 
-"Inside TYPO3" contains the overall introduction to the architecture
-of the TYPO3 core. It also contains API descriptions to a certain
-degree but mostly in the form of examples and short table listings.
-"Core APIs" goes into much more detail about such APIs and covers
-subjects more closely related to development.
-
-These documents do *not* contain any significant information about
+The document does *not* contain any significant information about
 the frontend of TYPO3. Creating templates, setting up TypoScript
-objects etc. is not the scope of these documents; they address the
+objects etc. is not the scope of the document, it addresses the
 *backend* part of the core only.
 
-The TYPO3 Documentation Team hopes that these two documents, "Inside TYPO3" and
-"TYPO3 Core APIs", will form a complete picture of the TYPO3 Core
-architecture and the backend. They will hopefully be the reference of choice in your work
-with TYPO3. It took Kasper more than a year to get the first version
-published and we've tried to maintain it as best as we could.
+The TYPO3 Documentation Team hopes that this document will form a complete picture
+of the TYPO3 Core architecture and the backend. It will hopefully be the reference
+of choice in your work with TYPO3.
 
 
 .. _code-examples:
@@ -47,9 +34,9 @@ Code examples
 Many of the code examples found in this document come from the TYPO3
 Core itself.
 
-Quite a few others come from the "examples" extension which is
-available in the TER. You can install it if you want to try out these
-examples yourself and use them as a basis for your own stuff.
+Quite a few others come from the "examples" and the "styleguide" extension. You can
+install them if you want to try out these examples yourself and use them as
+a basis for your own stuff.
 
 Yet some other examples just belong to this manual. Some may be moved
 to the "examples" extension at some later stage.
@@ -57,22 +44,24 @@ to the "examples" extension at some later stage.
 
 .. _feedback:
 
-Feedback
---------
-
-For general questions about the documentation get in touch by writing
-to `documentation@typo3.org <mailto:documentation@typo3.org>`_ .
+Feedback and Fixing
+-------------------
 
 If you find a bug in this manual, please be so kind as to check the
-online version on https://docs.typo3.org/typo3cms/CoreApiReference/.
+`online version on <https://docs.typo3.org/typo3cms/CoreApiReference/>`__.
 From there you can hit the "Edit me on GitHub" button in the top right corner
-and submit a pull request via GitHub. Alternatively you can just file an issue
-using the bug tracker: https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues.
+and submit a pull request via GitHub. Alternatively you can just `file an issue
+using the bug tracker <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues>`__.
 
 Maintaining high quality documentation requires time and effort
 and the TYPO3 Documentation Team always appreciates support.
-If you want to support us, please join the documentation
-mailing list/forum (http://forum.typo3.org/index.php/f/44/).
+
+If you want to support us, please join the slack channel **#typo3-documentation**
+on `Slack <https://typo3.slack.com/>`__.
+Visit `forger <https://forger.typo3.org/slack>`__ to gain access to Slack.
+
+And finally, as a last resort, you can get in touch with the documentation team
+`by mail <documentation@typo3.org>`_.
 
 
 .. _credits:
