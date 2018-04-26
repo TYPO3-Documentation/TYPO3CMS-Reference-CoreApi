@@ -7,18 +7,15 @@
 .. _locallang-ext:
 .. _locallang-example-backend:
 
-
 .. _internationalization:
 
-Internationalization
-====================
-
-Internationalization is achieved in TYPO3 with the use of files containing
-localizable strings. Since TYPO3 CMS 4.6, the XLIFF format is used. It is
-described further in this section.
+=====================================
+Internationalization and localization
+=====================================
 
 .. toctree::
    :titlesonly:
 
    Introduction
-   Translation
+   ManagingTranslations
+   XliffFormat

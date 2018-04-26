@@ -3,10 +3,10 @@
 
 .. _xliff-translating:
 
-Translating XLIFF files
------------------------
+Managing translations
+---------------------
 
-This sections highlights the different ways to translate XLIFF files.
+This sections highlights the different ways to translate and manage XLIFF files.
 
 
 .. _xliff-translating-server:
@@ -14,14 +14,36 @@ This sections highlights the different ways to translate XLIFF files.
 The TYPO3 translation server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The TYPO3 community manages an official translation server, running
-`Pootle <http://pootle.translatehouse.org>`__. Localization files
+To manage translations of extensions uploaded to the TYPO3 Extension Repository (TER),
+the TYPO3 community runs an `official translation server <https://translation.typo3.org/>`_,
+based on `Pootle <http://pootle.translatehouse.org>`__. Localization files of TER extensions
 in English are uploaded on that server and translations are packaged nightly.
-They are fetched in the TYPO3 CMS backend, via the Extension Manager (or the
-new "Language" module since version 6.0).
+They can be fetched in the TYPO3 CMS backend, via the Install Tool and on the command line.
 
 It is not the point of this manual to go into the details of the translation
 process. More information can be found in the `TYPO3 wiki <http://wiki.typo3.org/Translation>`_.
+
+
+Fetching translations of TER extensions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The interface of the Install tool in "Admin Tools -> Maintenance -> Manage language packs"
+allows to manage the list of available languages to your users and can fetch and
+update language packs of TER and core extensions from the official translation server.
+The module is rather straight forward to use and should be pretty much self explanatory.
+Downloaded language packs are stored in :file:`typo3conf/l10n/[language code]`.
+
+.. figure:: ../../Images/InternationalizationManageLanguagePacks.png
+   :alt: The Languages module
+
+   The Languages module with some active languages and status of extensions language packs
+
+
+Language packs can also be fetched using the command line.
+
+.. code-block:: shell
+
+   /path/to/typo3/bin/typo3 language:update
 
 
 .. _xliff-translating-local:
@@ -33,7 +55,7 @@ Using `Virtaal <http://translate.sourceforge.net/wiki/virtaal/index>`_,
 it is possible to translate XLIFF files locally.
 Virtaal is an open source, cross-platform application.
 
-.. figure:: Images/XliffWithVirtaal.png
+.. figure:: ../../Images/InternationalizationXliffWithVirtaal.png
    :alt: Virtaal screenshot
 
    Translating with Virtaal, with suggestions from other software
@@ -80,7 +102,7 @@ looks like this:
 
 and the result can be easily seen in the backend:
 
-.. figure:: Images/LabelOverride.png
+.. figure:: ../../Images/InternationalizationLabelOverride.png
    :alt: Custom label
 
    Custom translation in the TYPO3 backend
@@ -110,9 +132,12 @@ and the result can be easily seen in the backend:
 Custom languages
 ^^^^^^^^^^^^^^^^
 
-Going further it is even possible - since TYPO3 CMS 4.6 - to add custom
-languages to the TYPO3 backend and create the translations locally using
-XLIFF files.
+The list of supported languages is defined in :php:`\TYPO3\CMS\Core\Localization\Locales::$languages`.
+Adding support for a new language usually starts by adding the language there and waiting for the next
+release.
+
+However, it is possible to add custom languages to the TYPO3 backend and create the translations
+locally using XLIFF files.
 
 First of all, the language must be declared::
 
@@ -153,7 +178,7 @@ this would be in file :file:`typo3conf/l10n/gsw_CH/setup/mod/gsw_CH.locallang.xl
       </file>
    </xliff>
 
-.. figure:: Images/XliffCustomLanguage.png
+.. figure:: ../../Images/InternationalizationXliffCustomLanguage.png
    :alt: User Settings screenshot
 
    The new language appears in the user preferences
@@ -164,6 +189,7 @@ this would be in file :file:`typo3conf/l10n/gsw_CH/setup/mod/gsw_CH.locallang.xl
    a translation is not found. A custom language will fall back on its "parent"
    language automatically. Thus - in our second example of de_AT (German for Austria) - no fallback would have to be
    defined for "de_AT" if it were just falling back on "de".
+
 
 .. _xliff-translating-servers:
 
@@ -181,7 +207,6 @@ extension's :file:`ext_localconf.php` file:
 .. code-block:: php
 
    $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\SignalSlot\\Dispatcher');
-
    $signalSlotDispatcher->connect(
       version_compare(TYPO3_version, '7.0', '<')
          ? 'TYPO3\\CMS\\Lang\\Service\\UpdateTranslationService'
@@ -199,8 +224,6 @@ could look something like:
    <?php
    namespace Company\Extensions\Slots;
    class CustomMirror {
-
-      /** @var string */
       static protected $extKey = 'myext';
 
       public function postProcessMirrorUrl($extensionKey, &$mirrorUrl) {
