@@ -1,14 +1,22 @@
 .. include:: ../../Includes.txt
 
-
-
-
-
-
 .. _workspaces:
 
-Programming with workspaces in mind
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Versioning and workspaces
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TYPO3 CMS provides a feature called "workspaces", whereby changes
+can be made to the content of the web site without affecting the
+currently visible (live) version. Changes can be previewed and
+go through an approval process before publishing.
+
+The technical background and a practical user guide to this feature
+are provided in the :ref:`"workspaces" system extension manual <workspaces:start>`.
+
+All the information necessary for making any database table
+compatible with workspaces is described in the
+TCA reference (in the :ref:`description of the "ctrl" section <t3tca:ctrl>`
+and in the :ref:`description of the "versioningWS" property <t3tca:ctrl-reference-versioningws>`).
 
 The concept of workspaces needs attention from extension programmers.
 The implementation of workspaces is however made so that no critical

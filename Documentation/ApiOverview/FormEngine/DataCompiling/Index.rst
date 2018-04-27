@@ -86,7 +86,6 @@ has the responsibility to find out, which specific single data providers should 
    :alt: Data compiling by multiple providers
 
 Why do we need this?
-
    * Which data providers are relevant depends on the specific scope: For instance, if editing a full database based record,
      one provider fetches the according row from the database and initializes :php:`$data['databaseRow']`. But if flex form
      data is calculated, the flex form values are fetched from table fields directly. So, while the :php:`DatabaseEditRow` data
