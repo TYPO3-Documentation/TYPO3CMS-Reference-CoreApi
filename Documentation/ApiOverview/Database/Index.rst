@@ -2,9 +2,9 @@
 
 .. _database:
 
-===============
-Database Access
-===============
+========
+Database
+========
 
 **Contents:**
 
