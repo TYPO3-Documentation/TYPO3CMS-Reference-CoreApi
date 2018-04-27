@@ -13,6 +13,8 @@ Database
 
    Introduction/Index
    Configuration/Index
+   DatabaseStructure/Index
+   DatabaseUpgrade/Index
    BasicCrud/Index
    ClassOverview/Index
    ConnectionPool/Index

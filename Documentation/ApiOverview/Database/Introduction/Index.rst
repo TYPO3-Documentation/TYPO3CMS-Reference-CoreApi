@@ -2,9 +2,28 @@
 
 .. _Database_Introduction:
 
-===============
+============
 Introduction
-===============
+============
+
+TYPO3 CMS relies on storing its data in a Relational database management
+system (RDBMS). The doctrine-dbal component is used to enable connecting to
+different database management systems. Most used is still MySQL / MariaDB, but
+thanks to Doctrine others like PostgreSQL and SQLServer are also an option.
+
+The corresponding DBMS can be selected during installation.
+
+.. note::
+  At the time of writing the installation process does not fully work for
+  SQL Server, the connection settings have to be manually configured in that case.
+
+This chapter gives an overview of the basic TYPO3 database table structure, followed
+by some information on upgrading and maintaining table and field consistency, and then
+deep dives into the programming API.
+
+
+Doctrine-Dbal
+=============
 
 Database queries in TYPO3 are done with an API based on
 `doctrine-dbal <http://www.doctrine-project.org/projects/dbal.html>`__.

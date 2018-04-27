@@ -87,10 +87,10 @@ has the responsibility to find out, which specific single data providers should 
 
 Why do we need this?
    * Which data providers are relevant depends on the specific scope: For instance, if editing a full database based record,
-     one provider fetches the according row from the database and initializes :php:`$data['databaseRow']`. But if flex form
+     one provider fetches the according row from the database and initializes :php:`$data['databaseRow']` . But if flex form
      data is calculated, the flex form values are fetched from table fields directly. So, while the :php:`DatabaseEditRow` data
      provider is needed in the first case, it's not needed or even counter productive in the second case.
-     The :php:`FormDataGroup`s are used to manage providers for specific scopes.
+     The :php:`FormDataGroup`'s are used to manage providers for specific scopes.
 
    * FormDataGroups know which providers should be used in a specific scope. They usually fetch a list of providers from
      some global configuration array. Extensions can add own providers to this configuration array for further data munging.
@@ -186,6 +186,7 @@ it does not depend on the load order of extensions.
 Limitations:
   * It is not easily possible to "kick out" an existing provider if other providers have dependencies to them - which is
     usually the case.
+
   * It is not easily possible to substitute an existing provider with an own one.
 
 .. note::
@@ -196,7 +197,7 @@ Limitations:
 .. note::
   Data providers in general should not know about :php:`renderType`, but only about :php:`type`. Their goal is to prepare
   and sanitize data independent of a specific :php:`renderType`. At the moment, the core data provider just has one
-  or two places, where specific :php:`renderType`s are taken into account to process data, and those show that these areas
+  or two places, where specific :php:`renderType`'s are taken into account to process data, and those show that these areas
   are a technical dept that should be changed.
 
 
