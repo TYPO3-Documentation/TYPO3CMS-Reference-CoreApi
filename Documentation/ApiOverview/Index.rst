@@ -23,6 +23,7 @@ This chapter describes the most important elements of the API.
    Autoloading/Index
    Bootstrapping/Index
    GlobalValues/Index
+   BackendModules/Index
    BackendUserObject/Index
    Typo3CoreEngine/Index
    FormEngine/Index
