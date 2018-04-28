@@ -3,9 +3,9 @@
 
 .. _examples:
 
-================
-Various examples
-================
+=======
+Various
+=======
 
 This chapter presents some examples of how you can use the APIs
 of Core libraries. They are not meant to be exhaustive,
@@ -32,4 +32,5 @@ another whole lot of examples.
    TablesInPageModule/Index
    ContentElementWizard/Index
    CustomPermissions/Index
+   Tsconfig/Index
 

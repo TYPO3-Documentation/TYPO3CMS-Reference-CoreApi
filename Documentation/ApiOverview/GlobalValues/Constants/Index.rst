@@ -1,8 +1,5 @@
 .. include:: ../../../Includes.txt
 
-
-
-
 .. _globals-constants:
 
 =========
@@ -14,6 +11,10 @@ are global and cannot be changed when they are first defined. This is
 why constants are used for such vital information.
 
 These constants are defined at various points during the bootstrap sequence.
+
+The column "Avail. in FE" is an indicator that tells you if the
+constant, variable or class mentioned is also available to scripts
+running under the frontend of the "cms" extension.
 
 .. note::
 

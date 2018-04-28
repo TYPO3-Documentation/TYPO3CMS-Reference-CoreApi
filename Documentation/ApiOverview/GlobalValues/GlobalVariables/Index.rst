@@ -1,10 +1,5 @@
 .. include:: ../../../Includes.txt
 
-
-
-
-
-
 .. _globals-variables:
 
 Global variables
@@ -200,8 +195,16 @@ Admin Tools > Configuration module.
    This module is always viewed in the BE context. Variables defined
    only in the FE context will not be visible there.
 
+.. note::
+
+   This module is purely a browser. It does not let you change
+   values.
+
+   It also lets you browse a number of other global arrays.
+   Just be curious and investigate!
+
 .. figure:: ../../../Images/ConfigurationModule.png
    :alt: The Configuration module in Admin Tools
 
-   Viewing the :code:`$TCA` array using the Admin Tools > Configuration module
+   Viewing the :code:`$GLOBALS['TYPO3_CONF_VARS]` array using the Admin Tools > Configuration module
 
