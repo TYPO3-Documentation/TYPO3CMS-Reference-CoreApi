@@ -32,6 +32,7 @@ The existing TYPO3-specific wrapper `GeneralUtility::getUrl()` now uses Guzzle u
 automatically for remote files, removing the need to configure settings based on certain
 implementations like stream wrappers or cURL directly.
 
+
 .. _http-basic:
 
 Basic usage
