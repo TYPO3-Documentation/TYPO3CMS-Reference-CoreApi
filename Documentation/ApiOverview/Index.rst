@@ -39,6 +39,7 @@ This chapter describes the most important elements of the API.
    Mail/Index
    Services/Index
    Authentication/Index
+   AccessControl/Index
    FormProtection/Index
    FlashMessages/Index
    Categories/Index
