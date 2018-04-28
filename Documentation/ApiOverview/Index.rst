@@ -55,5 +55,6 @@ This chapter describes the most important elements of the API.
    TypoScriptSyntax/Index
    PageTypes/Index
    UserSettingsConfiguration/Index
+   ContextSensitiveHelp/Index
    ExtensionScanner/Index
    Examples/Index
