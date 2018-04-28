@@ -119,6 +119,7 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
    // After:
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
       ->getQueryBuilderForTable('sys_news');
+   $queryBuilder
       ->select('title', 'content', 'crdate')
       ->from('sys_news')
       ->execute();
