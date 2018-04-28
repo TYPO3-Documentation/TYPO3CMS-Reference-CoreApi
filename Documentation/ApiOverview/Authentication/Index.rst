@@ -31,6 +31,17 @@ point in favor of TYPO3 CMS, especially in corporate environments.
 Being able to toy with priority and quality allows for
 precise fine-tuning of the authentication chain.
 
+Alternative services are available in the TYPO3 Extension Repository.
+It is thus possible to find solutions for using LDAP as an
+authentication server, for example.
+
+You can check which authentication services are installed
+using the **SYSTEM > Reports** module, in the *Installed Services*
+view:
+
+.. figure:: ../../Images/AuthenticationInstalledAuthServices.png
+   :alt: All installed authentication services and their priority
+
 
 .. _authentication-process:
 
