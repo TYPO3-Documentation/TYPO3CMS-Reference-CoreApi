@@ -22,7 +22,7 @@ objects etc. is not the scope of the document, it addresses the
 *backend* part of the core only.
 
 The TYPO3 Documentation Team hopes that this document will form a complete picture
-of the TYPO3 Core architecture and the backend. It will hopefully be the reference
+of the TYPO3 Core architecture and the backend. It will hopefully be the knowledge base
 of choice in your work with TYPO3.
 
 
@@ -31,17 +31,16 @@ of choice in your work with TYPO3.
 Intended audience
 ~~~~~~~~~~~~~~~~~
 
-This document is intended to be a reference for experienced TYPO3 CMS
-developers. For intermediates it will help you to become experienced!
-But the document presumes that you are well familiar with TYPO3 and
-the concepts herein. Further it will presume knowledge in the
-technical end: PHP, MySQL, Unix etc.
+This document is intended to be a reference for TYPO3 CMS developers and partially
+for integrators. The document explains all major parts of TYPO3 and the concepts.
+It presumes some knowledge in the technical end: PHP, MySQL, Unix etc, depending
+on the specific chapter.
 
 The goal is to take you "under the hood" of TYPO3 CMS. To make the
 principles and opportunities clear and less mysterious. To educate you
 to help continue the development of TYPO3 along the already
 established lines so we will have a consistent CMS application in a
-future as well. And hopefully my teaching on the deep technical level
+future as well. And hopefully this teaching on the deep technical level
 will enable you to educate others higher up in the "hierarchy". Please
 consider that as well!
 
@@ -107,6 +106,65 @@ through till the end - even when it means spending days writing good
 documents. Go for completeness!
 
 \- kasper
+
+
+.. _next-steps:
+
+Further Documentation
+---------------------
+
+This manual covers many different APIs of the TYPO3 CMS Core, but some
+other documents exist which cover more specific aspects.
+
+
+:ref:`TCA Reference <t3tca:start>`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`TCA` is the backbone of database tables displayed in the backend, it configures
+how data is stored if editing records in the backend, how fields are displayed,
+relations to other tables and much more. It is a huge array loaded in almost all
+access contexts.
+
+A detailed insight on `TCA` is documented in the :ref:`TCA Reference <t3tca:start>`.
+Next to a small introduction, the document forms a complete reference of all
+different `TCA` options, with bells and whistles. The document is a must-read for
+Developers, partially for Integrators, and is often used as a reference book on a daily basis.
+
+
+:ref:`TypoScript Reference <t3tsref:start>`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`TypoScript` - or more precisely `Frontend TypoScript` - is used in TYPO3 to steer
+the frontend rendering (the actual website) of a TYPO3 instance. It is based on the
+TypoScript syntax which is outlined in detail :ref:`here in this document <typoscript-syntax-start>`.
+
+Frontend TypoScript is very powerful and has been the backbone of frontend rendering ever since.
+However, with the rise of the Fluid templating engine, many parts of Frontend TypoScript are much less
+often used. Nowadays, TypoScript in real life projects is often not much more than a way to
+set a series of options for plugins, to set some global config options, and to act as a simple
+pre processor between database data and Fluid templates.
+
+Still, the :ref:`TypoScript Reference <t3tsref:start>` reference document that goes deep into
+the incredible power of Frontent TypoScript is daily bread for Integrators.
+
+
+:ref:`TSconfig Reference <t3tsconfig:start>`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+While `Frontend TypoScript` is used to steer the rendering of the frontend, `TSconfig` is used
+to configure backend details for backend users. Using `TSconfig` it is possible to enable or
+disable certain views, change the editing interfaces, and much more. All that without coding a single
+line of PHP. `TSconfig` can be set an a page (Page TSconfig), as well as a user / group (User TSconfig)
+basis.
+
+`TSconfig` uses the same syntax as `Frontend TypoScript`, the syntax is outlined in detail
+:ref:`here in this document <typoscript-syntax-start>`. Other than that, TSconfig and Frontend TypoScript
+don't have much more in common - they consist of entirely different properties.
+
+A full reference of properties as well as an introduction to explain details configuration usage, API and
+load orders can be found in the :ref:`TSconfig Reference document <t3tsconfig:start>`. While Devolopers
+should have an eye on this document, it is mostly a used as reference for Integrators who make life as
+easy as possible for backend users.
 
 
 .. _overview:

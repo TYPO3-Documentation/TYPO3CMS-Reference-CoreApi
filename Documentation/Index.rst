@@ -75,6 +75,5 @@ address the task at hand.
    ApiOverview/Index
    CodingGuidelines/Index
    DataFormats/Index
-   NextSteps
    Targets
 

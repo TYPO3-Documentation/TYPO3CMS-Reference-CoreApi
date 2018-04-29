@@ -3,9 +3,9 @@
 
 .. _typoscript-syntax-start:
 
-=======================
-TypoScript Syntax Study
-=======================
+=================
+TypoScript Syntax
+=================
 
 .. toctree::
    :titlesonly:
