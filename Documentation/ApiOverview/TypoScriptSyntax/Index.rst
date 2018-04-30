@@ -2,6 +2,7 @@
 
 
 .. _typoscript-syntax-start:
+.. _typoscript-syntax-next-steps:
 
 =================
 TypoScript Syntax
@@ -17,4 +18,3 @@ TypoScript Syntax
    TSconfig/Index
    Details/Index
    TypoScriptParserApi/Index
-   NextSteps/Index
