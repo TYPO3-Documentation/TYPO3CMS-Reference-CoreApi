@@ -12,10 +12,10 @@ from the Extension Manager.
 
 There's a specific syntax to declare these options properly, which is
 similar to the one used for TypoScript constants (see "Declaring
-constants for the Constant editor" in :ref:`"TypoScript Syntax and In-depth
-Study" <typoscript-syntax-constant-editor>`). This syntax applies to the comment
-line that should be placed just before the constant. Consider the following
-example (taken from system extension "rsaauth"):
+constants for the Constant editor" in
+:ref:`Constants section in TypoScript Reference <t3tsref:typoscript-syntax-constant-editor>`.
+This syntax applies to the comment line that should be placed just before the constant.
+Consider the following example (taken from system extension "rsaauth"):
 
 .. code-block:: typoscript
 
