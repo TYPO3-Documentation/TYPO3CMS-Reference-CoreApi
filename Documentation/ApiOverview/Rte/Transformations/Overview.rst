@@ -3,6 +3,27 @@
 
 .. _transformations-overview:
 
+.. _transformations-tsconfig:
+.. _transformations-tsconfig-examples:
+.. _transformations-tsconfig-configuration:
+.. _transformations-tsconfig-configuration-disabled:
+.. _transformations-tsconfig-configuration-proc:
+.. _transformations-tsconfig-configuration-specific:
+.. _transformations-tsconfig-processing:
+.. _transformations-tsconfig-processing-overrulemode:
+.. _transformations-tsconfig-processing-allowtagsoutside:
+.. _transformations-tsconfig-processing-allowtags:
+.. _transformations-tsconfig-processing-denytags:
+.. _transformations-tsconfig-processing-blockelementlist:
+.. _transformations-tsconfig-processing-htmlparser:
+.. _transformations-tsconfig-processing-dontremoveunknowntags_db:
+.. _transformations-tsconfig-processing-allowedclasses:
+.. _transformations-tsconfig-processing-keeppdivattribs:
+.. _transformations-tsconfig-processing-dontfetchextpictures:
+.. _transformations-tsconfig-processing-plainimagemode:
+.. _transformations-tsconfig-processing-exit_entry_htmlparser:
+.. _transformations-tsconfig-processing-user:
+
 Transformation overview
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -11,6 +32,9 @@ The transformation of the content can be configured by listing which
 the order in which the transformations are performed when saved to the
 database. The order is reversed when the content is loaded into the
 RTE again.
+
+Processing can also be overwritten by Page TSconfig, see the
+:ref:`according section <t3tsconfig:pageTsRte> of the Page TSconfig reference` for details.
 
 
 .. _transformations-overview-filters:

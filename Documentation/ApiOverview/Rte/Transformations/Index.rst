@@ -13,7 +13,6 @@ Transformations
    Introduction
    Process
    Overview
-   Tsconfig
    CustomApi
 
 
