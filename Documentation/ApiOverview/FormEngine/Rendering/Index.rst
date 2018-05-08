@@ -359,7 +359,7 @@ Add the php class for rendering the control in
                'class' => 'importData ',
                'data-id' => $this->data['databaseRow']['somefield']
             ],
-            'requireJsModules' => 'TYPO3/CMS/Something/ImportData',
+            'requireJsModules' => ['TYPO3/CMS/Something/ImportData'],
          ];
          return $result;
       }
