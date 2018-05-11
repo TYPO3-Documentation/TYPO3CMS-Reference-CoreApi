@@ -11,7 +11,7 @@ TYPO3 provides an API class for creating so-called 'Feature Toggles'. Feature to
 new implementations of features next to their legacy version. By using a feature toggle, the integrator or site admin
 can decide when to switch to the new feature.
 
-The API checks against a system-wide option array within :php:`$TYPO3_CONF_VARS['SYS']['features']` which an integrator
+The API checks against a system-wide option array within :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']` which an integrator
 or admin can set in the :file:`LocalConfiguration.php` file.
 Both TYPO3 Core and Extensions can provide alternative functionality for a certain feature.
 

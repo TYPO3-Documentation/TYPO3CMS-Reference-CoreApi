@@ -7,7 +7,7 @@ Configuration
 =============
 
 All configuration options related to error and exception handling are
-part of :php:`$TYPO3_CONF_VARS[SYS]`:
+part of :php:`$GLOBALS['TYPO3_CONF_VARS'][SYS]`:
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -53,7 +53,7 @@ part of :php:`$TYPO3_CONF_VARS[SYS]`:
          Backend are only displayed if the error and exception handling is in
          "debug-mode", which is the case when the configured
          "debugExceptionHandler" is registered as exception handler (see:
-         :php:`$TYPO3_CONF_VARS[SYS][displayErrors]`).
+         :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']`).
 
          Errors which are registered as "exceptionalErrors" will be turned into
          exceptions (to be handled by the configured exceptionHandler).
@@ -78,7 +78,7 @@ part of :php:`$TYPO3_CONF_VARS[SYS]`:
          handler.
 
          Default: :php:`E_ALL ^ E_NOTICE ^ E_WARNING ^ E_USER\_ERROR ^ E_USER\_NOTICE ^ E_USER\_WARNING`
-         (4341) and "0" if :php:`$TYPO3_CONF_VARS[SYS][displayErrors] = 0`.
+         (4341) and "0" if :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 0`.
 
          Refer to the PHP documentation for more details on this value.
 
@@ -99,8 +99,8 @@ part of :php:`$TYPO3_CONF_VARS[SYS]`:
          .. note::
 
             The configured productionExceptionHandler is used if
-            :php:`$TYPO3_CONF_VARS[SYS][displayErrors]` is set to "0" or to "-1"
-            and :php:`$TYPO3_CONF_VARS[SYS][devIPmask]` doesn't match.
+            :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']` is set to "0" or to "-1"
+            and :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']` doesn't match.
 
 
  - :Key:
@@ -120,9 +120,9 @@ part of :php:`$TYPO3_CONF_VARS[SYS]`:
          .. note::
 
             The configured debugExceptionHandler is used if
-            :php:`$TYPO3_CONF_VARS[SYS][displayErrors]` is set to "1" or
-            if :php:`$TYPO3_CONF_VARS[SYS][displayErrors]` is "-1" or "2" and
-            the :php:`$TYPO3_CONF_VARS[SYS][devIPmask]` matches.
+            :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']` is set to "1" or
+            if :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']` is "-1" or "2" and
+            the :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']` matches.
 
 
  - :Key:

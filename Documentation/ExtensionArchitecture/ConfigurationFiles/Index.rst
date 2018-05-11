@@ -21,7 +21,7 @@ every request. They should therefore be optimized for speed.
 
   These are the typical functions that extension authors should place within :file:`ext_localconf.php`
 
-  * Registering hooks or any simple array assignments to :php:`$TYPO3_CONF_VARS` options
+  * Registering hooks or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
   * Registering additional Request Handlers within the Bootstrap
   * Adding any PageTSconfig or Default TypoScript via :php:`ExtensionManagementUtility` APIs
   * Registering Extbase Command Controllers
