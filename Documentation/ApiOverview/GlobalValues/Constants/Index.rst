@@ -234,3 +234,29 @@ T3_ERR_SV_PROG_NOT_FOUND              -40                                       
 T3_ERR_SV_PROG_FAILED                 -41                                                     Passed subtype is not possible with this service
 ===================================== ======================================================= ============
 
+Filetypes
+~~~~~~~~~
+
+Different types of files constants are defined in :php:`TYPO3\CMS\Core\Resource\AbstractFile`.
+These constants are available for different groups of files as documented in
+https://www.iana.org/assignments/media-types/media-types.xhtml
+
+These file types are assigned to all FAL resources. They can, for example, be
+used in Fluid to decide how to render different types of files.
+
+==================== ===== =======================
+Constant             Value Description
+==================== ===== =======================
+FILETYPE_UNKNOWN         0 Unknown
+FILETYPE_TEXT            1 Any kind of text
+FILETYPE_IMAGE           2 Any kind of image
+FILETYPE_AUDIO           3 Any kind of audio
+FILETYPE_VIDEO           4 Any kind of video
+FILETYPE_APPLICATION     5 Any kind of application
+==================== ===== =======================
+
+HTTP status codes
+~~~~~~~~~~~~~~~~~
+
+The different status codes available are defined in :php:`TYPO3\CMS\Core\Utility\HttpUtility`.
+These constants are defined as documented in https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
