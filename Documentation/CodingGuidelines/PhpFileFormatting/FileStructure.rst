@@ -14,7 +14,7 @@ TYPO3 files use the following structure:
 
 #. Copyright notice
 
-#. Included files
+#. Namespace imports
 
 #. Class information block in phpDoc format
 
@@ -67,36 +67,16 @@ file. user files must have this copyright notice as well. Example::
 The wording must not be changed/updated/extended, under any circumstances.
 
 
-Included files
-""""""""""""""
+Namespace imports
+"""""""""""""""""
 
-Files are included using the :code:`require_once()` function. All TYPO3
-files must use absolute paths in calls to :code:`require_once()`. There
-are two ways to obtain the path to the included file:
+Necessary PHP Classes should be imported like explained in PSR-2::
 
-#. Use one of the predefined TYPO3 constants: :code:`PATH_typo3` or
-   :code:`PATH_site`. The first one contains the absolute path to the
-   corresponding TYPO3 directory. The last constant contains the
-   absolute path to the TYPO3 root directory.
-   Example::
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Utility\HttpUtility;
 
-      require_once(PATH_typo3 . 'sysext/frontend/Classes/Plugin/AbstractPlugin.php');
-
-
-#. Use the :code:`ExtensionManagementUtility::extPath()` function. This
-   function accepts two arguments: first the extension key and second the path
-   to the included file inside the extension. The second argument is optional
-   but recommended to use. Examples::
-
-      require_once(ExtensionManagementUtility::extPath('lang', 'Classes/LanguageService.php'));
-      require_once(ExtensionManagementUtility::extPath('lang') . 'Classes/LanguageService.php');
-
-Always use one of these two ways to include files. This is required to
-include files even from the current directory. Some installations do
-not have the current directory in the PHP :code:`include path` and
-:code:`require_once()` without a proper path will result in a fatal
-PHP error.
-
+Put one blank line before and after import statements.
+Also put one import statement per line.
 
 Class information block
 """""""""""""""""""""""
