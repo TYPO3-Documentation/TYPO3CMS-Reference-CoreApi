@@ -6,7 +6,8 @@
 
 .. _ajax:
 
-
+AJAX
+====
 
 .. toctree::
 
