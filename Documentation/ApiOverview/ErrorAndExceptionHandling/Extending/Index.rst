@@ -11,9 +11,9 @@ If you want to register your own error or exception handler, simply
 include the class and insert its name into "productionExceptionHandler",
 "debugExceptionHandler" or "errorHandler"::
 
-   $TYPO3_CONF_VARS['SYS']['errorHandler'] = 'myOwnErrorHandler';
-   $TYPO3_CONF_VARS['SYS']['debugExceptionHandler'] = 'myOwnDebugExceptionHandler';
-   $TYPO3_CONF_VARS['SYS']['productionExceptionHandler'] = 'myOwnProductionExceptionHandler';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = 'myOwnErrorHandler';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = 'myOwnDebugExceptionHandler';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = 'myOwnProductionExceptionHandler';
 
 
 An error or exception handler class must register an error (exception)
@@ -25,13 +25,17 @@ extend it with your own functionality, simply derive your class from the
 error and exception handling classes shipped with TYPO3 and register
 this class as error (exception) handler::
 
-   class tx_postExceptionsOnTwitter extends \TYPO3\CMS\Core\Error\DebugExceptionHandler {
-       function echoExceptionWeb(Exception $exception) {
+   class tx_postExceptionsOnTwitter extends \TYPO3\CMS\Core\Error\DebugExceptionHandler
+   {
+       public function echoExceptionWeb(Exception $exception)
+       {
            $this->postExceptionsOnTwitter($exception);
        }
-       function postExceptionsOnTwitter($exception) {
+
+       public function postExceptionsOnTwitter($exception)
+       {
            // do it ;-)
        }
    }
-   $TYPO3_CONF_VARS['SYS']['debugExceptionHandler'] = 'tx_postExceptionsOnTwitter';
-   $TYPO3_CONF_VARS['SYS']['productionExceptionHandler'] = 'tx_postExceptionsOnTwitter';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = 'tx_postExceptionsOnTwitter';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = 'tx_postExceptionsOnTwitter';

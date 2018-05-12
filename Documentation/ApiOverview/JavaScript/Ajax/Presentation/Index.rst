@@ -50,8 +50,8 @@ supports usage of 'Ext.Direct')).
 Server-side programming
 """""""""""""""""""""""
 
-If you look into "typo3/ajax.php", it is only a small dispatcher
-script. It checks for an ajaxID in the :code:`$TYPO3_CONF_VARS['BE']['AJAX']`
+If you look into :file:`typo3/ajax.php`, it is only a small dispatcher
+script. It checks for an ajaxID in the :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['AJAX']`
 array and tries to execute the function pointer. The function has two
 parameters, where the first (an array) is not used yet. The second
 parameter is the TYPO3 AJAX Object (located in

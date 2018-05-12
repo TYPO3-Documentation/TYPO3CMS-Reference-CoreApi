@@ -23,7 +23,7 @@ Pooling
 ^^^^^^^
 
 TYPO3 can handle multiple connections to different database endpoints at the same time. This
-can be configured on a per-table basis in :php:`$TYPO3_CONF_VARS`. It allows running tables
+can be configured on a per-table basis in :php:`$GLOBALS['TYPO3_CONF_VARS']`. It allows running tables
 on different databases, without an extension developer taking care of that.
 
 The `ConnectionPool` implements this feature: It looks up a configured table-to-database
