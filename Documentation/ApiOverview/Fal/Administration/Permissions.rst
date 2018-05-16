@@ -44,10 +44,10 @@ User permissions for files can be set in the
 :ref:`"Fileoperation permissions" section <t3start:file-permissions>`
 of the Backend User or Backend User Group records.
 
-It is also possible to set permissions using User TSconfig
-(defined either at Backend User or Backend User Group level).
-The TSconfig way is recommended because it allows for more
-flexibility (see below).
+It is also possible to set permissions using :ref:`User TSconfig <t3tsconfig:usertsconfig>`,
+defined either at Backend User or Backend User Group level. The TSconfig way is recommended because
+it allows for more flexibility. See some examples below and read on in the section about
+:ref:`permissions <t3tsconfig:userTsConfigPermissions>` in the user TSconfig reference.
 
 The default permissions for backend users and backend user groups
 are **read-only**:
@@ -82,7 +82,7 @@ default permissions for all Storages.
 User permissions per storage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Using User TSconfig it is possible to set different permissions
+Using :ref:`User TSconfig <t3tsconfig:usertsconfig>` it is possible to set different permissions
 for different Storages. This syntax uses the uid of the targeted
 Storage record.
 
@@ -185,16 +185,14 @@ Default upload folder
 """""""""""""""""""""
 
 When nothing else is defined, any file uploaded by a user will end up
-in :file:`fileadmin/user_upload`. With User TSconfig, it is possible to
-define a different default upload folder for each backend user or user
-group. Example:
+in :file:`fileadmin/user_upload`. The user TSconfig property
+:ref:`defaultUploadFolder <t3tsconfig:useroptions-defaultuploadfolder>`, allows to define a
+different default upload folder on a backend user or backend user group level, example:
 
 .. code-block:: typoscript
 
    options.defaultUploadFolder = 3:users/uploads/
 
-
-:ref:`See the full reference <t3tsconfig:useroptions-defaultuploadfolder>`.
 
 There are a number of circumstances where it might be convenient
 to change the default upload folder. A hook exists to provide
