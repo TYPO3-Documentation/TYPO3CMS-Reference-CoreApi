@@ -61,7 +61,6 @@ are **read-only**:
       copyFile     = 0
       moveFile     = 0
       renameFile   = 0
-      unzipFile    = 0
       deleteFile   = 0
       addFolder    = 0
       readFolder   = 1
@@ -98,7 +97,6 @@ The following example grants all permission for the Storage with uid "1":
       copyFile     = 1
       moveFile     = 1
       renameFile   = 1
-      unzipFile    = 1
       deleteFile   = 1
       addFolder    = 1
       readFolder   = 1
@@ -148,9 +146,6 @@ moveFile
 
 renameFile
   Allow renaming files; needs writeFolder permissions.
-
-unzipFile
-  Allow unzipping a file; needs writeFolder permissions on the target folder.
 
 deleteFile
   Delete a file; needs writeFolder permissions.
