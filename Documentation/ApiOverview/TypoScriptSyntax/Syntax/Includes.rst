@@ -65,7 +65,7 @@ Under the hood, Symfony Finder is use to find the file and provides the
 "globbing" feature (\* syntax).
 
 *Outlook:*
-The syntax is designed to stay and there are absolutely not plans to
+The syntax is designed to stay and there are absolutely no plans to
 extend the :ts:`@import` statement in the future. However, the
 :ts:`@...` syntax for annotations may be used to add more preparsing logic to
 TypoScript in future.
