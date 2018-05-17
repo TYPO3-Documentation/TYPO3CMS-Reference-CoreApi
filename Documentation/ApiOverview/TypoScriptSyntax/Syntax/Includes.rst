@@ -45,7 +45,7 @@ The following rules apply:
 
 - Multiple files are imported in alphabetical order.
 
-- Recursive is allowed. Imported files can have :ts:`@import` statements.
+- Recursion is allowed. Imported files can have :ts:`@import` statements.
 
 - The :ts:`@import` statement does not take a condition clause as the old
   :ts:`<INCLUDE_TYPOSCRIPT condition="">` statement did. That kind of condition
