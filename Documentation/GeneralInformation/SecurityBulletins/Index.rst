@@ -10,9 +10,8 @@ When security updates for TYPO3 or an extension become available, they
 will be announced on the "TYPO3 Announce" mailing list, as described
 above, but also published with much more specific details on the
 official TYPO3 Security Team website at
-`http://typo3.org/teams/security/security-
-<http://typo3.org/teams/security/security-bulletins>`_ `bulletins
-<http://typo3.org/teams/security/security-bulletins>`_
+`https://typo3.org/help/security-advisories/
+<https://typo3.org/help/security-advisories/>`_
 
 Security bulletins for the TYPO3 core are separated from security
 bulletins for TYPO3 extensions. Every bulletin has a unique advisory
