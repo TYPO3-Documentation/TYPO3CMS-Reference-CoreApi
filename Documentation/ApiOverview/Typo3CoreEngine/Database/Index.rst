@@ -79,7 +79,7 @@ Description of keywords in syntax:
          .. note:: Only *one* command can be executed at a time for each
                    record! The first command in the array will be taken.
 
-         *See table below for :ref:`command keywords and values <tce-command-keywords>`*
+         See table below for :ref:`command keywords and values <tce-command-keywords>`
 
 
  - :Key:
@@ -89,7 +89,7 @@ Description of keywords in syntax:
    :Description:
          The value for the command
 
-         *See table below for :ref:`command keywords and values <tce-command-keywords>`*
+         See table below for :ref:`command keywords and values <tce-command-keywords>`
 
 
 .. _tce-command-keywords:
@@ -169,9 +169,9 @@ Command keywords and values
    :Type:
          integer
    :Value:
-         Pointer to a :code:`sys_language` uid to localize the record into.
+         Value is an uid of the :php:`sys_language` to localize the record into.
          Basically a localization of a record is making a copy of the record
-         (possibly excluding certain fields defined with :code:`l10n_mode`) but
+         (possibly excluding certain fields defined with :php:`l10n_mode`) but
          changing relevant fields to point to the right sys language / original
          language record.
 
@@ -192,6 +192,38 @@ Command keywords and values
          Apart from this, ordinary permissions apply as if the user wants to
          make a copy of the record on the same page.
 
+         The :php:`localize` DataHandler command should be used when translating records in "Connected Mode"
+         (strict translation of records from the default language).
+         This command is used when selecting the "Translate" strategy in the content elements translation wizard.
+
+
+ - :Command:
+         copyToLanguage
+   :Type:
+         integer
+   :Value:
+         It behaves like :php:`localize` command (both record and child records are copied to given language),
+         but does not set :php:`transOrigPointerField` fields (e.g. :php:`l10n_parent`).
+
+         The :php:`copyToLanguage` command should be used when localizing records in the "Free Mode".
+         This command is used when localizing content elements using translation wizard's "Copy" strategy.
+
+
+ - :Command:
+         inlineLocalizeSynchronize
+   :Type:
+         array
+   :Value:
+         Performs localization or synchronization of child records.
+         The command structure is like::
+
+             $cmd['tt_content'][13]['inlineLocalizeSynchronize'] = [ // 13 is a parent record uid
+               'field' => 'tx_myfieldname', // field we want to synchronize
+               'language' => 2, // uid of the target language
+               // either the key 'action' or 'ids' must be set
+               'action' => 'localize' // or 'synchronize'
+               'ids' =>  [1, 2, 3] // array of child-ids to be localized
+             ]
 
  - :Command:
          version
@@ -258,8 +290,9 @@ Examples of commands:
 ::
 
    $cmd['tt_content'][54]['delete'] = 1;    // Deletes tt_content record with uid=54
-   $cmd['pages'][1203]['copy'] = -303;   //Copies page id=1203 to the position after page 303
-   $cmd['pages'][1203]['move'] = 303;  // Moves page id=1203 to the first position in page 303
+   $cmd['tt_content'][1203]['copy'] = -303; // Copies tt_content uid=1203 to the position after tt_content uid=303 (new record will have the same pid as tt_content uid=1203)
+   $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
+   $cmd['tt_content'][1203]['move'] = 400;  // Moves tt_content uid=1203 to the first position in page uid=400
 
 
 .. _tce-data:

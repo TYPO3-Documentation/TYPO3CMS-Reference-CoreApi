@@ -43,7 +43,7 @@ Description of keywords in syntax:
    :Description:
          The command type you want to execute.
 
-         *See table below for :ref:`command keywords, keys and values<tce-file-keywords>`*
+         See table below for :ref:`command keywords, keys and values<tce-file-keywords>`
 
 
  - :Key:
@@ -65,7 +65,7 @@ Description of keywords in syntax:
          point to the target directory or file while a "data" key carries the
          data.
 
-         *See table below for :ref:`command keywords, keys and values<tce-file-keywords>`*
+         See table below for :ref:`command keywords, keys and values<tce-file-keywords>`
 
 
  - :Key:
@@ -75,7 +75,7 @@ Description of keywords in syntax:
    :Description:
          The value for the command
 
-         *See table below for :ref:`command keywords, keys and values<tce-file-keywords>`*
+         See table below for :ref:`command keywords, keys and values<tce-file-keywords>`
 
 
 .. _tce-file-keywords:
