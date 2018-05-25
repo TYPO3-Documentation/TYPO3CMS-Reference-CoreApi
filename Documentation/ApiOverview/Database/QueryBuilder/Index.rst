@@ -203,7 +203,7 @@ update() and set()
 Create an `UPDATE` query. Typical usage::
 
    // UPDATE `tt_content` SET `bodytext` = 'peter' WHERE `bodytext` = 'klaus'
-   $queryBuilder
+   $numRows = $queryBuilder
       ->update('tt_content')
       ->where(
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')
@@ -211,6 +211,8 @@ Create an `UPDATE` query. Typical usage::
       ->set('bodytext', 'peter')
       ->execute();
 
+
+In this case, the number of updated rows is returned by :php:`execute()`.
 
 :php:`->update()` requires the table to update as first argument and a table alias as optional second argument.
 The table alias can then be used in :php:`->set()` and :php:`->where()` expressions::
