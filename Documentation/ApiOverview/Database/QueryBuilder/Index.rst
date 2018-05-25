@@ -257,7 +257,7 @@ Remarks:
 
 * :php:`->execute()` after :php:`->update()` returns the number of updated rows.
 
-* The API does not magically add `delete = 0` or other restrictions magically.
+* The API does not magically add `delete = 0` or other restrictions.
 
 
 insert() and values()
