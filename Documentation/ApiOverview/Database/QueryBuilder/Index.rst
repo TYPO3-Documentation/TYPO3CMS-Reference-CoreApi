@@ -115,6 +115,10 @@ of a `SELECT` query looks like::
       debug($row);
    }
 
+.. _database-query-builder-select-restrictions:
+
+Default restrictions
+--------------------
 
 .. note::
 
@@ -257,7 +261,9 @@ Remarks:
 
 * :php:`->execute()` after :php:`->update()` returns the number of updated rows.
 
-* The API does not magically add `delete = 0` or other restrictions.
+* The API does not magically add `deleted = 0` or other restrictions as is currently done
+  for example on :ref:`select <database-query-builder-select-restrictions>`.
+  (See also :ref:`RestrictionBuilder <database-restriction-builder>`).
 
 
 insert() and values()
