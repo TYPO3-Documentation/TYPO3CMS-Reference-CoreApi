@@ -71,4 +71,4 @@ As soon as the wizard has completely finished, e.g. it detected that no update i
 necessary anymore, or that all updates were completed successfully, the wizard should
 be marked as done. To mark the wizard as done, call :php:`$this->markWizardAsDone`.
 
-The state is persisted in :file:`LocalConfiguration.php`.
+The state of completed wizards is persisted in the TYPO3 system registry.
