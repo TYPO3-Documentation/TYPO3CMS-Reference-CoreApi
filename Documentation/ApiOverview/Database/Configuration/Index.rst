@@ -110,4 +110,4 @@ Remarks:
 
     Furthermore, the `TYPO3 CMS` installer supports only a single `mysql` or `mariadb` connection
     at the moment and the connection details can not be properly edited within the `All configuration`
-    section of the install tool.
+    section of the Install Tool.

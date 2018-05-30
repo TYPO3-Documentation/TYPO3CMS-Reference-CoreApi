@@ -45,14 +45,14 @@ Example::
       ...
    );
 
-This method is failsafe unless the autoload information cannot be written. In this case, check the install tool for warnings and **make sure that** `typo3temp` **is writable**.
+This method is failsafe unless the autoload information cannot be written. In this case, check the Install Tool for warnings and **make sure that** `typo3temp` **is writable**.
 
 **Troubleshooting:**
 
 If your classes cannot be found, try the following approaches.
 
 - Dump the class loading information manually with the following command: `php typo3/cli_dispatch.phpsh extbase extension:dumpclassloadinginformation`
-- If that command itself fails, please (manually) uninstall the extension and simply try reinstalling it (via the extension manager).
+- If that command itself fails, please (manually) uninstall the extension and simply try reinstalling it (via the Extension Manager).
 - If you are still not lucky, the issue is definitely on your side and you should double check the write permissions on typo3temp.
 
 .. _autoloading_with_composer_mode:

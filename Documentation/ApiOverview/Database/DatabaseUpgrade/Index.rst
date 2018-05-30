@@ -10,7 +10,7 @@ Each extension in TYPO3 CMS can bring the file :file:`ext_tables.sql` that
 defines which tables and fields the extension needs. Gathering all
 :file:`ext_tables.sql` thus defines the full set of tables, fields and
 indexes of a TYPO3 instance to unfold its full feature set. Some functionality
-in the install tool can compare the defined set with the current active
+in the Install Tool can compare the defined set with the current active
 database schema and shows options to align those two by adding fields,
 removing fields and so on.
 

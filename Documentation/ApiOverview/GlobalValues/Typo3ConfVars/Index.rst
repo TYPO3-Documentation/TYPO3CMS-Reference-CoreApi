@@ -121,12 +121,12 @@ as well as the TYPO3-source at
 The documentation shown in the install-tool is automatically extracted from
 those values of :file:`DefaultConfigurationDescription.yml`.
 
-The install tool provides various dedicated modules that change parts of
+The Install Tool provides various dedicated modules that change parts of
 :file:`LocalConfiguration.php`, those can be found in **Admin tools > Settings**,
 most importantly section **Configure installation-wide options**:
 
 .. figure:: ../../../Images/InstallToolAllConfiguration.png
-   :alt: Configure installation-wide options in install tool with an active search
+   :alt: Configure installation-wide options in Install Tool with an active search
 
 
 

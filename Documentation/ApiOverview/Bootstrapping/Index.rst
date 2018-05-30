@@ -40,7 +40,7 @@ One can see the bootstrapping process in action in file
       ->setRequestType(TYPO3_REQUESTTYPE_BE | (!empty($_GET['ajaxID']) ? TYPO3_REQUESTTYPE_AJAX : 0))
       ->baseSetup($this->entryPointLevel);
 
-   // Redirect to install tool if base configuration is not found
+   // Redirect to Install Tool if base configuration is not found
    if (!$this->bootstrap->checkIfEssentialConfigurationExists()) {
       $this->bootstrap->redirectToInstallTool($this->entryPointLevel);
    }
@@ -93,7 +93,7 @@ This defines which autoloader to use.
 3.  Set request type
 """"""""""""""""""""
 
-The request type is set - this defines whether the current request is a frontend, backend, cli, ajax or install tool
+The request type is set - this defines whether the current request is a frontend, backend, cli, ajax or Install Tool
 request. (see `defineTypo3RequestTypes`).
 
 4. Perform base setup
