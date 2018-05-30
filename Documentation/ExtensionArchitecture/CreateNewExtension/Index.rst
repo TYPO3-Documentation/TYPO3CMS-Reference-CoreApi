@@ -18,12 +18,12 @@ Kickstarting the extension
 """"""""""""""""""""""""""
 
 Although it is possible to write every single line of an extension from
-scratch, there is tool which makes it easier to start. It is called
+scratch, there is a tool which makes it easier to start. It is called
 "Extension builder" (key: "extension_builder") and can be installed from
 TER.
 
 
-The `Extension Builder <http://typo3.org/extensions/repository/view/extension_builder>`_
+The `Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
 comes with its own BE module:
 
 .. figure:: ../../Images/ExtensionBuilder.png

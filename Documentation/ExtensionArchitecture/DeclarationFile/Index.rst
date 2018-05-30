@@ -164,7 +164,7 @@ values in the :code:`$EM_CONF` array if needed.
 
            Stable extensions are complete, mature and ready for production
            environment. You will be approached for a review. Authors of stable
-           extensions carry a responsibility to be maintain and improve them.
+           extensions carry a responsibility to maintain and improve them.
 
          - **experimental**
 
@@ -174,7 +174,7 @@ values in the :code:`$EM_CONF` array if needed.
 
          - **test**
 
-           Test extension, demonstrates concepts etc.
+           Test extension, demonstrates concepts, etc.
 
          - **obsolete**
 

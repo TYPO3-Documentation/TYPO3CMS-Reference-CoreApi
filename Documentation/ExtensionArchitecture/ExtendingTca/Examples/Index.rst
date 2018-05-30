@@ -22,10 +22,7 @@ Here's the complete code, taken from file
 .. code-block:: php
 
 	<?php
-	if (!defined('TYPO3_MODE')) {
-		die ('Access denied.');
-	}
-
+	defined('TYPO3_MODE') or die();
 
 	// Add some fields to FE Users table to show TCA fields definitions
 	// USAGE: TCA Reference > $GLOBALS['TCA'] array reference > ['columns'][fieldname]['config'] / TYPE: "select"
@@ -72,7 +69,7 @@ First of all, the fields that we want to add are detailed according to
 the :php:`$GLOBALS['TCA']` syntax for columns. This configuration is stored in the
 :php:`$temporaryColumns` array.
 
-After that come two additional steps:
+After that two additional steps come:
 
 - first the columns are actually added to the table by using
   :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns()`.

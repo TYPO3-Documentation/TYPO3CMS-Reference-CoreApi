@@ -186,7 +186,7 @@ However sometimes, extensions are not available in the
 Therefore, a distribution can act as its own extension repository.
 Add unpacked extensions to :file:`Initialisation/Extensions/` to provide
 dependencies. Your main extension has to be dependent on these
-extension as normal dependencies in :file:`ext_emconf.php`.
+extensions as normal dependencies in :file:`ext_emconf.php`.
 
 Extensions delivered inside an extension have the highest priority when extensions
 need to be fetched.
@@ -207,14 +207,14 @@ Manager.
 
 To test a distribution locally without uploading to TER, just install
 a blank TYPO3 (last step in installer "Just get me to the Backend"),
-then go to extension manager, select "Get extensions" once to let the
-extension manager initialize the extension list (this is needed if your
+then go to Extension Manager, select "Get extensions" once to let the
+Extension Manager initialize the extension list (this is needed if your
 distribution has dependencies to other extensions, for instance ext:introduction
 depends on ext:bootstrap_package). Next, copy or move the distribution extension
-to :file:`typo3conf/ext`, it will then show up in extension manager default
+to :file:`typo3conf/ext`, it will then show up in Extension Manager default
 tab "Installed Extensions".
 
-Install the distribution extension from there. The extension manager will then resolve
+Install the distribution extension from there. The Extension Manager will then resolve
 TER dependencies, loads the database dump and will handle the file operations.
 Under the hood, this does the same as later installing the distribution
 via "Get preconfigured distribution", when it has been uploaded or updated in
