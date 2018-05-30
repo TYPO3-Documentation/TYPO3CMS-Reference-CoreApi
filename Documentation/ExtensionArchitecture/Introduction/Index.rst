@@ -101,7 +101,7 @@ fluid
   This system extension provides a number of classes and many View Helpers
   (in :file:`typo3/sysext/fluid/Classes/ViewHelpers`), which
   extend the basic templating features of standalone Fluid. Fluid can be used in conjunction
-  with extbase (where it is the default template engine), but also in non-extbase extensions.
+  with Extbase (where it is the default template engine), but also in non-extbase extensions.
 
 install
   This system extension is the package containing the TYPO3 CMS Install Tool.

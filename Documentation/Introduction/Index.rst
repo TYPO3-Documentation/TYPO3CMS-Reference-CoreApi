@@ -154,7 +154,7 @@ the incredible power of Frontent TypoScript is daily bread for Integrators.
 While `Frontend TypoScript` is used to steer the rendering of the frontend, `TSconfig` is used
 to configure backend details for backend users. Using `TSconfig` it is possible to enable or
 disable certain views, change the editing interfaces, and much more. All that without coding a single
-line of PHP. `TSconfig` can be set an a page (Page TSconfig), as well as a user / group (User TSconfig)
+line of PHP. `TSconfig` can be set on a page (Page TSconfig), as well as a user / group (User TSconfig)
 basis.
 
 `TSconfig` uses the same syntax as `Frontend TypoScript`, the syntax is outlined in detail
@@ -162,8 +162,8 @@ basis.
 don't have much more in common - they consist of entirely different properties.
 
 A full reference of properties as well as an introduction to explain details configuration usage, API and
-load orders can be found in the :ref:`TSconfig Reference document <t3tsconfig:start>`. While Devolopers
-should have an eye on this document, it is mostly a used as reference for Integrators who make life as
+load orders can be found in the :ref:`TSconfig Reference document <t3tsconfig:start>`. While Developers
+should have an eye on this document, it is mostly used as a reference for Integrators who make life as
 easy as possible for backend users.
 
 
@@ -174,10 +174,10 @@ System Overview
 
 For most people TYPO3 is equivalent to a CMS providing a backend for
 management of the content and a frontend engine for website display.
-However TYPO3s core is natively designed to be a general purpose
+However the core of TYPO3 is natively designed to be a general purpose
 framework for management of database content. The core of TYPO3 CMS
 delivers a set of principles for storage of this content, user access
-management, editing of the content, uploading and managing files etc.
+management, editing of the content, uploading and managing files, etc.
 These principles are expressed as an API (Application
 Programming Interface) for use in *extensions* which ultimately
 add most of the real functionality.
