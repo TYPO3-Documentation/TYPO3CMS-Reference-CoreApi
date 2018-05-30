@@ -7,7 +7,7 @@ Extension Management
 ====================
 
 Extensions are managed from the Extension Manager inside TYPO3 by
-"admin" users. The module is located at "Admin tools > Extensions"
+"admin" users. The module is located at "ADMIN TOOLS > Extensions"
 and offers a menu with options to see loaded extensions (those that
 are installed or activated), available extensions on the server and
 the possibility to import extensions from online resources, typically
@@ -46,7 +46,7 @@ There are only two (possibly three) steps involved in using extensions with TYPO
 
 #. You must *load* it.
 
-   An extension is loaded only if it is listed in the PackageStates.php file.
+   An extension is loaded only if it is listed in the :file:`PackageStates.php` file.
    Extensions are loaded in the order they appear in this list.
 
    An enabled extension is always global to the TYPO3 Installation - you cannot disable
@@ -58,18 +58,18 @@ There are only two (possibly three) steps involved in using extensions with TYPO
 
 #. You *might* be able to configure it.
 
-   Certain extensions may allow you to configure some settings. **Admin tools > Settings > Extension configuration**
+   Certain extensions may allow you to configure some settings. **ADMIN TOOLS > Settings > Extension configuration**
    provides an interface to configure extensions that provide configuration settings. Any
    settings - if present - configured for an extension are available as
    an array in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][extensionKey]` and
-   thus reside in :file:`typo3conf/LocalConfiguration`.
+   thus reside in :file:`typo3conf/LocalConfiguration.php`.
 
 Loaded extensions are registered in a global variable,
-`$TYPO3_LOADED_EXT`, available in both frontend and backend of TYPO3.
+`$GLOBALS['TYPO3_LOADED_EXT']`, available in both frontend and backend of TYPO3.
 
 This is how the data structure for an extension in this array looks::
 
-   $TYPO3_LOADED_EXT[extension key] = array(
+   $GLOBALS['TYPO3_LOADED_EXT'][extension key] = array(
            "type" =>                S, G, L for system, global or local type of availability.
            "siteRelPath" => Path of extension dir relative to the PATH_site constant
                                    e.g. "typo3/ext/my_ext/" or "typo3conf/ext/my_ext/"
@@ -85,7 +85,7 @@ This is how the data structure for an extension in this array looks::
    )
 
 The order of the registered extensions in this array corresponds to
-the order they were listed in PackageStates.php.
+the order they were listed in :file:`PackageStates.php`.
 
 
 .. _extension-package-manager:

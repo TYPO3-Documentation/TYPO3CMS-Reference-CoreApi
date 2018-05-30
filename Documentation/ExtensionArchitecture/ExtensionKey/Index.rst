@@ -47,7 +47,7 @@ There are two ways to name an extension:
 .. tip::
    It is far easier to settle for the right
    extension key from the beginning. Changing it later involves a cascade
-   of name changes to tables, modules, configuration files etc. Think carefully.
+   of name changes to tables, modules, configuration files, etc. Think carefully.
 
 .. _extension-license:
 
@@ -56,11 +56,11 @@ About GPL and extensions
 
 Remember that TYPO3 is GPL software and at the
 same moment you extend TYPO3 your extensions are legally covered by
-GPL. This does not  *force* you to share your extension, but it should
+GPL. This does not *force* you to share your extension, but it should
 *inspire* you to do so and legally you cannot prevent anyone who gets
 hold of your extension code from using it and further develop it. The
 TYPO3 Extension API is designed to make sharing of your work easy as
-well as using others work easy. Remember TYPO3 is Open Source Software
+well as using others' work easy. Remember TYPO3 is Open Source Software
 and we rely on each other in the community to develop it further.
 
 .. important::

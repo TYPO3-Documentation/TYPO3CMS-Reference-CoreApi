@@ -37,7 +37,7 @@ is placed at :file:`Resources/Public/Icons/Extension.svg`, the extension manager
 will show that image.
 
 Nearly none of these are required, but for example you can not have a TYPO3
-extension recognized by TYPO3 without the :file:`ext_emconf.php` file etc. You
+extension recognized by TYPO3 without the :file:`ext_emconf.php` file, etc. You
 can read more details like that in the table below.
 
 In general, do not introduce your own files in the root directory of
@@ -56,7 +56,7 @@ extensions with the name prefix :file:`ext_`.
          Definition of extension properties. This is the only mandatory file in the extension.
          It describes the extension for the rest of TYPO3.
 
-         Name, category, status etc. Used by the extension manager. The content of this file
+         Name, category, status etc. used by the extension manager. The content of this file
          is described in more details :ref:`below <extension-declaration>`. Note
          that it is auto-written by extension manager when extensions are imported from the repository.
 
@@ -224,7 +224,7 @@ extensions with the name prefix :file:`ext_`.
 
  - :Filename: :file:`Configuration/Backend/Routes.php` and :file:`Configuration/Backend/AjaxRoutes.php`
    :Description:
-         Registry of backend routes. Extension that add backend modules must
+         Registry of backend routes. Extensions that add backend modules must
          register their routes here to be correctly linkable in the backend.
          The file must return an array with routing details. See core extensions
          like :php:`backend` for examples.
@@ -266,7 +266,7 @@ Reserved folders
 In the early days, every extension baked it own bread when it came to
 file locations of PHP classes, public web resources and templates.
 
-With the rise of extbase, a generally accepted structure for file
+With the rise of Extbase, a generally accepted structure for file
 locations inside extensions has been established. If extension authors
 stick to this, the system helps in various ways. For instance, if putting
 PHP classes into the :file:`Classes/` folder and naming classes accordingly,
@@ -274,7 +274,7 @@ the system will be able to autoload these without further action from the
 developer.
 
 Extension kickstarters like the `Extension Builder extension
-<http://typo3.org/extensions/repository/view/extension_builder>`_ will create
+<https://extensions.typo3.org/extension/extension_builder>`_ will create
 the correct structure for you.
 
 It is described below:
@@ -326,7 +326,7 @@ Configuration/TsConfig/User
 
 Configuration/TypoScript
   TypoScript static setup (:file:`setup.typoscript`) and constants
-  (:file:`constants.typoscript`). Use subfolders if your have several static
+  (:file:`constants.typoscript`). Use subfolders if you have several static
   templates.
 
 Documentation
@@ -345,7 +345,7 @@ Documentation/Index.rst
 Resources
   Contains the subfolders :code:`Public/` and :code:`Private/`, which
   contain resources, possibly in further subfolders, e.g.
-  :code:`Templates/`, :code:`CSS/`, :code:`Language/`, :code:`Images/`
+  :code:`Templates/`, :code:`Css/`, :code:`Language/`, :code:`Images/`
   or :code:`JavaScript/`. This is also the directory for non–TYPO3 files supplied with the
   extension. TYPO3 is licensed under GPL version 2 or any later version.
   Any non–TYPO3 code must be compatible with GPL version 2 or any later
