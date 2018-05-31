@@ -44,12 +44,12 @@ almost always find the directory structure as outlined below.
     :Description:
       TYPO3 Backend directory. This directory contains most of the files
       coming with the TYPO3 Core. The files are arranged logically in the
-      different system extensions in the :code:`sysext/` directory,
+      different system extensions in the :file:`sysext/` directory,
       according to the application area of the particular file. For example,
       the ":code:`frontend`" extension amongst other things contains the
       "TypoScript library", the code for generating the Frontend website. In
       each system extension the PHP files are located in the folder
-      :code:`Classes/`. See :ref:`extension files locations <extension-files-locations>`
+      :file:`Classes/`. See :ref:`extension files locations <extension-files-locations>`
       for more information on how single extensions are structured.
 
 

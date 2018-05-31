@@ -58,7 +58,7 @@ TYPO3 also comes with the possibility to store sessions in a Redis key-value dat
     This requires a running Redis instance (refer to the Redis documentation for help on this)
     and the PHP extension "redis" to be installed.
 
-The Redis session storage can be configured with `LocalConfiguration.php` in the `SYS` entry:
+The Redis session storage can be configured with :file:`LocalConfiguration.php` in the `SYS` entry:
 
 A sample configuration will look like this:
 

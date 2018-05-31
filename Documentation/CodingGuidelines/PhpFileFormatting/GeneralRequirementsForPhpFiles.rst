@@ -12,12 +12,12 @@ File names
 The file name describes the functionality included in the file. It
 consists of one or more nouns, written in UpperCamelCase. For example
 in the :code:`frontend` system extension there is the file
-:code:`ContentObject/ContentObjectRenderer.php`.
+:file:`ContentObject/ContentObjectRenderer.php`.
 
 It is recommended to use only PHP classes and avoid non-class files.
 
 Files that contain PHP interfaces must have the file name end on
-"Interface", e.g. :code:`FileListEditIconHookInterface.php`.
+"Interface", e.g. :file:`FileListEditIconHookInterface.php`.
 
 One file can contain only one class or interface.
 
@@ -127,6 +127,6 @@ Character set
 All TYPO3 source files use the UTF-8 character set without byte order
 mark (BOM). Encoding declarations like `declare(encoding = 'utf-8');`
 must not be used. They might lead to problems, especially in
-`ext_tables.php` and `ext_localconf.php` files of extensions, which are
+:file:`ext_tables.php` and :file:`ext_localconf.php` files of extensions, which are
 merged internally in TYPO3 CMS. Files from third-party libraries may
 have different encodings.

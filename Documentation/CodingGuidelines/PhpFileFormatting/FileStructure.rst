@@ -31,11 +31,11 @@ Namespace
 The namespace declaration of each PHP file in the TYPO3 Core shows
 where the file belongs inside TYPO3 CMS. The namespace starts with
 :code:`"TYPO3\CMS\"`, then the extension name in UpperCamelCase, a
-backslash and then the name of the subfolder of :code:`Classes/`, in
+backslash and then the name of the subfolder of :file:`Classes/`, in
 which the file is located (if any). E.g. the file
-:code:`typo3/sysext/frontend/Classes/ContentObject/ContentObjectRenderer.php`
+:file:`typo3/sysext/frontend/Classes/ContentObject/ContentObjectRenderer.php`
 with the class :code:`ContentObjectRenderer` is in the namespace
-":code:`TYPO3\CMS\Frontend\ContentObject`".
+":file:`TYPO3\CMS\Frontend\ContentObject`".
 
 :code:`use` statements can be added to this section.
 
@@ -99,7 +99,7 @@ The class name is expected to follow some conventions. It must be
 identical to the file name and must be written in upper camel case.
 
 Taking again the example of file
-:code:`typo3/sysext/core/Classes/Cache/Backend/AbstractBackend.php`, the PHP class
+:file:`typo3/sysext/core/Classes/Cache/Backend/AbstractBackend.php`, the PHP class
 declaration will look like::
 
    class AbstractBackend implements \TYPO3\CMS\Core\Cache\Backend\BackendInterface

@@ -19,7 +19,7 @@ Concept of distributions
 Distributions are full TYPO3 CMS websites ready to be unpacked. They provide
 an easy quick start for using TYPO3 CMS. The most well known distribution is
 "The official Introduction Package". Distributions can most easily installed
-in the backend extension manager in "Get preconfigured distribution", it lists
+in the backend Extension Manager in "Get preconfigured distribution", it lists
 all available distributions for the given core version.
 
 A distribution is just an extension enriched with some further data that is
@@ -60,10 +60,10 @@ Configuring the distribution display in the EM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You should provide two preview images for your distribution. Provide
-a small 220x150 pixels for the list in the extension manager as
+a small 220x150 pixels for the list in the Extension Manager as
 :file:`Resources/Public/Images/Distribution.png` and a larger 300x400 pixels
 welcome image as :file:`Resources/Public/Images/DistributionWelcome.png`.
-The welcome image is displayed in the distribution detail view inside the extension manager.
+The welcome image is displayed in the distribution detail view inside the Extension Manager.
 
 
 .. _distribution-kickstart-fileadmin:
