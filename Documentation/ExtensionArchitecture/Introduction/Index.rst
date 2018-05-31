@@ -87,7 +87,7 @@ frontend
   This system extension contains all the tools for performing rendering in
   the frontend, i.e. the actual web site. It is mostly comprised of PHP classes,
   in particular those in :file:`typo3/sysext/frontend/Classes/ContentObject`,
-  which are use for rendering the various content objects (one class per object
+  which are used for rendering the various content objects (one class per object
   type, plus a number of base and utility classes).
 
 extbase

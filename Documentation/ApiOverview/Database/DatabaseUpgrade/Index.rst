@@ -32,7 +32,7 @@ changes:
 
 When performing smaller updates, after updating extensions or - in
 general - if you want to check the sanity of your system,
-you can go to **Admin tools > Maintenance > Analyze Database Structure**:
+you can go to **ADMIN TOOLS > Maintenance > Analyze Database Structure**:
 
 .. figure:: ../../../Images/DatabaseDatabaseAnalyzer.png
    :alt: Analyze Database Structure of the Install Tool

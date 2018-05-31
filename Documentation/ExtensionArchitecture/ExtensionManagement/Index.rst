@@ -7,7 +7,7 @@ Extension Management
 ====================
 
 Extensions are managed from the Extension Manager inside TYPO3 by
-"admin" users. The module is located at "ADMIN TOOLS > Extensions"
+"admin" users. The module is located at **ADMIN TOOLS > Extensions**
 and offers a menu with options to see loaded extensions (those that
 are installed or activated), available extensions on the server and
 the possibility to import extensions from online resources, typically
@@ -34,7 +34,7 @@ There are only two (possibly three) steps involved in using extensions with TYPO
 
    This simply means to copy the extensions files into the correct directory into.
    More commonly you import an extension directly from the online TYPO3 Extension Repository (TER)
-   using the extension manager. When an extension is found located in one of the extension locations,
+   using the Extension Manager. When an extension is found located in one of the extension locations,
    it is  *available* to the system.
 
    The Extension Manager (EM) should take care of this process, including updates to

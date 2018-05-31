@@ -15,5 +15,5 @@ Functionality of the :php:`\TYPO3\CMS\Core\Error\ProductionExceptionHandler`:
 -  Logs exception messages via the :ref:`logging API <logging>`.
 
 -  Logs exception messages to the sys\_log table. Logged errors are displayed
-   in the belog extension (Admin Tools > Log). This will only work with an
+   in the belog extension (**ADMIN TOOLS > Log**). This will only work with an
    existing DB connection.

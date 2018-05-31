@@ -12,7 +12,7 @@ step along the initialization of a full TYPO3 process,
 be it the backend or other contexts.
 
 Some contexts add their own bootstrap class (like the command
-line, which additionally requires :code:`\TYPO3\CMS\Core\Core\CliBootstrap`.
+line, which additionally requires :code:`\TYPO3\CMS\Core\Core\CliBootstrap`).
 
 .. note::
 

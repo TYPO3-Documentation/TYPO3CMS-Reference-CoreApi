@@ -52,6 +52,6 @@ returns a label from it (using a string with the :php:`LLL:EXT:...` syntax as ar
 Extbase class :php:`\TYPO3\CMS\Extbase\Utility\LocalizationUtility` is essentially a
 convenience wrapper around the :php:`\TYPO3\CMS\Core\Localization\LanguageService` class,
 whose :php:`translate()` method also takes an array as argument and runs PHP's
-:php:`vsprintf()` on the localized string. However, in the future it is expected this extbase
+:php:`vsprintf()` on the localized string. However, in the future it is expected this Extbase
 specific class will melt down and somehow merged into the core API classes to get rid of this
 duplication.

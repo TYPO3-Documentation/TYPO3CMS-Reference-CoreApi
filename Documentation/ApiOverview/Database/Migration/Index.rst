@@ -259,5 +259,5 @@ extbase QueryBuilder
 
 The `extbase` internal `QueryBuilder` used in `Repositories` still exists and works a before. There is
 usually no manual migration needed. It is theoretically possible to use the doctrine based query builder
-object in extbase which can become handy since the new one is much more feature rich, but that topic
+object in Extbase which can become handy since the new one is much more feature rich, but that topic
 didn't yet fully settle in the core and no general recommendation can be given yet.

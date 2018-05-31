@@ -63,8 +63,8 @@ almost always find the directory structure as outlined below.
       The most important file within :file:`typo3conf/` however is
       :file:`LocalConfiguration.php`. This one contains local settings of the main
       global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS`], crucial settings like
-      database connect credentials are in here. The file is managed by the install
-      tool and the Extension Manager and the content should not be managed manually
+      database connect credentials are in here. The file is managed by the Install
+      Tool and the Extension Manager and the content should not be managed manually
       since Extension Manager or Install Tool may override manually changed settings
       again.
 

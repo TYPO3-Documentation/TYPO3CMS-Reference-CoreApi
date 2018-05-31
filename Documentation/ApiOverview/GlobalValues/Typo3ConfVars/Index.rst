@@ -122,7 +122,7 @@ The documentation shown in the install-tool is automatically extracted from
 those values of :file:`DefaultConfigurationDescription.yml`.
 
 The Install Tool provides various dedicated modules that change parts of
-:file:`LocalConfiguration.php`, those can be found in **Admin tools > Settings**,
+:file:`LocalConfiguration.php`, those can be found in **ADMIN TOOLS > Settings**,
 most importantly section **Configure installation-wide options**:
 
 .. figure:: ../../../Images/InstallToolAllConfiguration.png
