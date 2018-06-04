@@ -69,13 +69,13 @@ First of all, the fields that we want to add are detailed according to
 the :php:`$GLOBALS['TCA']` syntax for columns. This configuration is stored in the
 :php:`$temporaryColumns` array.
 
-After that two additional steps come:
+Then two essential steps are performed:
 
 - first the columns are actually added to the table by using
-  :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns()`.
+  :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns()`.
 
 - then the fields are added to the "types" definition of the
-  "fe\_users" table by using :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes()`.
+  "fe\_users" table by using :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes()`.
   It is possible to be more fine-grained.
 
 This does not create the corresponding fields in the database. The new
