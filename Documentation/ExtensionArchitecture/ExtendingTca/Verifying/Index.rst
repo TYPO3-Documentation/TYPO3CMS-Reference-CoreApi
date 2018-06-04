@@ -7,8 +7,8 @@ Verifying the $TCA
 ^^^^^^^^^^^^^^^^^^
 
 You may find it necessary – at some point – to verify the full
-structure of the :php:`$GLOBALS['TCA']` in your TYPO3 installation. The System >
-Configuration module makes it possible to have an overview of the
+structure of the :php:`$GLOBALS['TCA']` in your TYPO3 installation. The *SYSTEM >
+Configuration* module makes it possible to have an overview of the
 complete :php:`$GLOBALS['TCA']`, with all customizations taken into account.
 
 .. figure:: ../../../Images/VerifyingTca.png

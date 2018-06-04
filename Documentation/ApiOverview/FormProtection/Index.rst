@@ -80,7 +80,7 @@ cannot be used again.
 Usage in the Install Tool
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For each form in the install tool (or link that changes some data),
+For each form in the Install Tool (or link that changes some data),
 create a token and insert is as a hidden form element.
 The name of the form element does not matter;
 you only need it to get the form token for verifying it.
@@ -114,7 +114,7 @@ When processing the data that has been submitted by the form, you can check that
    ) {
       // processes the data
    } else {
-      // no need to do anything here as the install tool form protection will
+      // no need to do anything here as the Install Tool form protection will
       // create an error message for an invalid token
    }
 

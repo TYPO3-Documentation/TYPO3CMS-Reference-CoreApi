@@ -108,7 +108,7 @@ inside extensions. The most important classes are:
 Example
 ^^^^^^^
 
-The `"examples" extension <http://typo3.org/extensions/repository/view/examples>`_
+The `"examples" extension <https://extensions.typo3.org/extension/examples>`_
 provides a simple frontend plugin to demonstrate
 usage of collections. Here is what happens in the controller:
 

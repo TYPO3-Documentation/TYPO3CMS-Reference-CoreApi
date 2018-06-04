@@ -214,6 +214,6 @@ enforced in any way by the TYPO3 CMS Core. It is up to extension
 developers to create tools which make use of these permissions.
 
 As an example, you may want to take a look at extension
-`fal_securedownload <https://typo3.org/extensions/repository/view/fal_securedownload>`_
+`fal_securedownload <https://extensions.typo3.org/extension/fal_securedownload>`_
 which also makes use of the "Is publicly available?" property of
 :ref:`File Storages <fal-administration-storages>`.

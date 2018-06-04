@@ -11,7 +11,7 @@ Introduction
 ------------
 
 The extension scanner which has been introduced with TYPO3 core version 9 as part of the system
-management (formerly "install tool") provides an interactive interface to scan extension code
+management (formerly "Install Tool") provides an interactive interface to scan extension code
 for usage of TYPO3 core API which has been removed or deprecated.
 
 

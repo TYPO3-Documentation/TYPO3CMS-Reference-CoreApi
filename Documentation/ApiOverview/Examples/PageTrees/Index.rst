@@ -21,7 +21,7 @@ page tree. The result looks like:
 
 
 The tree object itself is prepared this way (taken from
-:code:`EXT:examples/Classes/Controller/DefaultController.php`):
+:file:`EXT:examples/Classes/Controller/DefaultController.php`):
 
 .. code-block:: php
    :linenos:

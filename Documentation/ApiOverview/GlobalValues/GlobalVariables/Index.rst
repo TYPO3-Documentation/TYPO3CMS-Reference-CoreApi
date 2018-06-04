@@ -189,7 +189,7 @@ Exploring global variables
 """"""""""""""""""""""""""
 
 Many of the global variables described above can be inspected using the
-Admin Tools > Configuration module.
+**ADMIN TOOLS > Configuration** module.
 
 .. warning::
    This module is always viewed in the BE context. Variables defined
@@ -204,7 +204,7 @@ Admin Tools > Configuration module.
    Just be curious and investigate!
 
 .. figure:: ../../../Images/ConfigurationModule.png
-   :alt: The Configuration module in Admin Tools
+   :alt: The Configuration module in **ADMIN TOOLS**
 
-   Viewing the :code:`$GLOBALS['TYPO3_CONF_VARS]` array using the Admin Tools > Configuration module
+   Viewing the :code:`$GLOBALS['TYPO3_CONF_VARS]` array using the **ADMIN TOOLS > Configuration** module
 

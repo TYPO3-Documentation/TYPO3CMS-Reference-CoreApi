@@ -11,7 +11,7 @@ Unit test files
 
 Unit test files are located in the ":code:`Tests/Unit/`" folder of the
 according extension, within a sub-structure matching the structure in
-the :code:`Classes/` folder.
+the :file:`Classes/` folder.
 
 As naming convention, :code:`Test` is appended at the end of the name.
 As example, the unit test class file for

@@ -19,7 +19,7 @@ Concept of distributions
 Distributions are full TYPO3 CMS websites ready to be unpacked. They provide
 an easy quick start for using TYPO3 CMS. The most well known distribution is
 "The official Introduction Package". Distributions can most easily installed
-in the backend extension manager in "Get preconfigured distribution", it lists
+in the backend Extension Manager in "Get preconfigured distribution", it lists
 all available distributions for the given core version.
 
 A distribution is just an extension enriched with some further data that is
@@ -60,10 +60,10 @@ Configuring the distribution display in the EM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You should provide two preview images for your distribution. Provide
-a small 220x150 pixels for the list in the extension manager as
+a small 220x150 pixels for the list in the Extension Manager as
 :file:`Resources/Public/Images/Distribution.png` and a larger 300x400 pixels
 welcome image as :file:`Resources/Public/Images/DistributionWelcome.png`.
-The welcome image is displayed in the distribution detail view inside the extension manager.
+The welcome image is displayed in the distribution detail view inside the Extension Manager.
 
 
 .. _distribution-kickstart-fileadmin:
@@ -186,7 +186,7 @@ However sometimes, extensions are not available in the
 Therefore, a distribution can act as its own extension repository.
 Add unpacked extensions to :file:`Initialisation/Extensions/` to provide
 dependencies. Your main extension has to be dependent on these
-extension as normal dependencies in :file:`ext_emconf.php`.
+extensions as normal dependencies in :file:`ext_emconf.php`.
 
 Extensions delivered inside an extension have the highest priority when extensions
 need to be fetched.
@@ -207,14 +207,14 @@ Manager.
 
 To test a distribution locally without uploading to TER, just install
 a blank TYPO3 (last step in installer "Just get me to the Backend"),
-then go to extension manager, select "Get extensions" once to let the
-extension manager initialize the extension list (this is needed if your
+then go to Extension Manager, select "Get extensions" once to let the
+Extension Manager initialize the extension list (this is needed if your
 distribution has dependencies to other extensions, for instance ext:introduction
 depends on ext:bootstrap_package). Next, copy or move the distribution extension
-to :file:`typo3conf/ext`, it will then show up in extension manager default
+to :file:`typo3conf/ext`, it will then show up in Extension Manager default
 tab "Installed Extensions".
 
-Install the distribution extension from there. The extension manager will then resolve
+Install the distribution extension from there. The Extension Manager will then resolve
 TER dependencies, loads the database dump and will handle the file operations.
 Under the hood, this does the same as later installing the distribution
 via "Get preconfigured distribution", when it has been uploaded or updated in

@@ -13,7 +13,7 @@ Characteristica
 * Services MUST be used as objects, they are never static
 * A single service MUST consist of one class only
 * Services MUST be located in a :code:`Service/` directory and MUST end
-  with :code:`Service`, eg. :code:`Service/FoobarService.php`
+  with :code:`Service`, eg. :file:`Service/FoobarService.php`
 * Service instances MAY hold state, but SHOULD be stateless
 * Services MAY use configuration, but SHOULD not
 * Services MAY have multiple entry points, but SHOULD have only one

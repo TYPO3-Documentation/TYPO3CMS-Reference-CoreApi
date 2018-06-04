@@ -54,7 +54,7 @@ Typical cases for exceptions that are designed to be caught
     into a localized error message shown to the user “The record bla
     from table foo you tried to open has been deleted ...”.
 
-* Temporary issues: Updating the extension list in the extension manager
+* Temporary issues: Updating the extension list in the Extension Manager
   fails because of a network issue - The code throws a catchable, named
   exception that is turned into a localized error message shown to the
   user “Can not connect to update servers, please check internet

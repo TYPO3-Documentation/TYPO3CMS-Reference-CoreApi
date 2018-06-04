@@ -92,7 +92,7 @@ File locations and naming
 In the TYPO3 Core, XLIFF files are located in the various system extensions
 as needed and are expected to be located in :file:`Resources/Private/Language`.
 
-In extbase, the main file (:file:`locallang.xlf`) will be loaded automatically and
+In Extbase, the main file (:file:`locallang.xlf`) will be loaded automatically and
 available in the controller and Fluid views without further work needed. Other files will
 need to be referred to explicitly using the `EXT:LLL:path/to/file:my.label` syntax.
 

@@ -63,16 +63,16 @@ every request. They should therefore be optimized for speed.
   within the two configuration files as this variable will be removed in the future. This also applies
   to :php:`$_EXTCONF`.
 
-  However, due to limitations to TER, the :php:`$_EXTKEY` option should be kept within an extensions
+  However, due to limitations to TER, the :php:`$_EXTKEY` option should be kept within an extension's
   :file:`ext_emconf.php`.
 
   See any system extension for best practice on this behaviour.
 
-- :php:`$TYPO3_LOADED_EXT[extensionKey]` contains information about
-  whether the module is loaded as *local, global* or *system* type,
+- :php:`$GLOBALS['TYPO3_LOADED_EXT'][extensionKey]` contains information about
+  whether the module is loaded as *local* or *system* type,
   including the proper paths you might use, absolute and relative.
 
-- Your :file:`ext_tables.php` and :file:`ext_localconf.php` file must be designed so
+- Your :file:`ext_tables.php` and :file:`ext_localconf.php` files must be designed so
   that they can safely be read and subsequently imploded into one single
   file with all the other configuration scripts!
 

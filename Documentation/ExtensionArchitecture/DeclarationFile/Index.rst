@@ -6,7 +6,7 @@
 Declaration file
 ^^^^^^^^^^^^^^^^
 
-The `ext_emconf.php` is the single most important file in an extension.
+The :file:`ext_emconf.php` is the single most important file in an extension.
 Without it, the Extension Manager (EM) will not detect the extension, much less
 be able to install it. This file contains a declaration of what the extension
 is or does for the EM. The only thing included
@@ -164,7 +164,7 @@ values in the :code:`$EM_CONF` array if needed.
 
            Stable extensions are complete, mature and ready for production
            environment. You will be approached for a review. Authors of stable
-           extensions carry a responsibility to be maintain and improve them.
+           extensions carry a responsibility to maintain and improve them.
 
          - **experimental**
 
@@ -174,7 +174,7 @@ values in the :code:`$EM_CONF` array if needed.
 
          - **test**
 
-           Test extension, demonstrates concepts etc.
+           Test extension, demonstrates concepts, etc.
 
          - **obsolete**
 
@@ -185,7 +185,7 @@ values in the :code:`$EM_CONF` array if needed.
          - **excludeFromUpdates**
 
            This state makes it impossible to update the
-           extension through the extension manager (neither by the Update
+           extension through the Extension Manager (neither by the Update
            mechanism, nor by uploading a newer version to the installation). This
            is very useful if you made local changes to an extension for a
            specific installation and don't want any admin to overwrite them.
@@ -248,7 +248,7 @@ values in the :code:`$EM_CONF` array if needed.
          **Extensions having one folder with classes or single files**
          
          Considering you have an Extbase extension (or an extension where all classes 
-         and interfaces reside in a Classes folder) or single classes you can simply 
+         and interfaces reside in a :file:`Classes` folder) or single classes you can simply
          add the following to your :file:`ext_emconf.php` file::
 
             'autoload' => [

@@ -32,5 +32,5 @@ Functions:
 
 
 -  Logs error messages to the sys\_log table. Logged errors are displayed
-   in the belog extension (Admin Tools > Log). This will work only with an
+   in the belog extension (**ADMIN TOOLS > Log**). This will work only with an
    existing DB connection.

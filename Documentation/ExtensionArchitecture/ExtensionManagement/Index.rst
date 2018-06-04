@@ -7,7 +7,7 @@ Extension Management
 ====================
 
 Extensions are managed from the Extension Manager inside TYPO3 by
-"admin" users. The module is located at "ADMIN TOOLS > Extensions"
+"admin" users. The module is located at **ADMIN TOOLS > Extensions**
 and offers a menu with options to see loaded extensions (those that
 are installed or activated), available extensions on the server and
 the possibility to import extensions from online resources, typically
@@ -34,7 +34,7 @@ There are only two (possibly three) steps involved in using extensions with TYPO
 
    This simply means to copy the extensions files into the correct directory into.
    More commonly you import an extension directly from the online TYPO3 Extension Repository (TER)
-   using the extension manager. When an extension is found located in one of the extension locations,
+   using the Extension Manager. When an extension is found located in one of the extension locations,
    it is  *available* to the system.
 
    The Extension Manager (EM) should take care of this process, including updates to
@@ -96,7 +96,7 @@ Package Manager
 On a low level, the list of loaded extensions is written to the file
 :file:`typo3conf/PackageStates.php`. PHP class :code:`\TYPO3\CMS\Core\Package\PackageManager`
 manages this file as part of the "Package management", it is part of the
-core extension, but mostly used by the extension manager as the low level work horse.
+core extension, but mostly used by the Extension Manager as the low level work horse.
 
 The :file:`typo3conf/PackageStates.php` file contains a list of all active packages, example::
 
@@ -104,7 +104,7 @@ The :file:`typo3conf/PackageStates.php` file contains a list of all active packa
     # PackageStates.php
 
     # This file is maintained by TYPO3's package management. Although you can edit it
-    # manually, you should rather use the extension manager for maintaining packages.
+    # manually, you should rather use the Extension Manager for maintaining packages.
     # This file will be regenerated automatically if it doesn't exist. Deleting this file
     # should, however, never become necessary if you use the package commands.
 

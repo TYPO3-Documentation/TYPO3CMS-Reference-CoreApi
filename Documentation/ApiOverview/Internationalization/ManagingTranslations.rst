@@ -27,7 +27,7 @@ process. More information can be found in the `TYPO3 wiki <http://wiki.typo3.org
 Fetching translations of TER extensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The interface of the Install tool in "Admin Tools -> Maintenance -> Manage language packs"
+The interface of the Install Tool in **ADMIN TOOLS > Maintenance > Manage language packs**
 allows to manage the list of available languages to your users and can fetch and
 update language packs of TER and core extensions from the official translation server.
 The module is rather straight forward to use and should be pretty much self explanatory.

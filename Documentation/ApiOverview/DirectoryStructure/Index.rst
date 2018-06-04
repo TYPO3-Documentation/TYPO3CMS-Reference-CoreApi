@@ -44,12 +44,12 @@ almost always find the directory structure as outlined below.
     :Description:
       TYPO3 Backend directory. This directory contains most of the files
       coming with the TYPO3 Core. The files are arranged logically in the
-      different system extensions in the :code:`sysext/` directory,
+      different system extensions in the :file:`sysext/` directory,
       according to the application area of the particular file. For example,
       the ":code:`frontend`" extension amongst other things contains the
       "TypoScript library", the code for generating the Frontend website. In
       each system extension the PHP files are located in the folder
-      :code:`Classes/`. See :ref:`extension files locations <extension-files-locations>`
+      :file:`Classes/`. See :ref:`extension files locations <extension-files-locations>`
       for more information on how single extensions are structured.
 
 
@@ -63,9 +63,9 @@ almost always find the directory structure as outlined below.
       The most important file within :file:`typo3conf/` however is
       :file:`LocalConfiguration.php`. This one contains local settings of the main
       global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS`], crucial settings like
-      database connect credentials are in here. The file is managed by the install
-      tool and the extension manager and the content should not be managed manually
-      since extension manager or install tool may override manually changed settings
+      database connect credentials are in here. The file is managed by the Install
+      Tool and the Extension Manager and the content should not be managed manually
+      since Extension Manager or Install Tool may override manually changed settings
       again.
 
       The file :file:`LocalConfiguration.php` can be enriched by :file:`AdditionalConfiguration.php`

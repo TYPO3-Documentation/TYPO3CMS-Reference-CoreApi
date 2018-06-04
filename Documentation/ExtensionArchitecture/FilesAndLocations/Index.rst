@@ -33,7 +33,7 @@ Reserved file names
 This lists special files within an extension that have a special meaning
 by convention. If put at the according places, TYPO3 will find them and
 use for specific functionality. For example, if a svg logo of your extension
-is placed at :file:`Resources/Public/Icons/Extension.svg`, the extension manager
+is placed at :file:`Resources/Public/Icons/Extension.svg`, the Extension Manager
 will show that image.
 
 Nearly none of these are required, but for example you can not have a TYPO3
@@ -56,13 +56,13 @@ extensions with the name prefix :file:`ext_`.
          Definition of extension properties. This is the only mandatory file in the extension.
          It describes the extension for the rest of TYPO3.
 
-         Name, category, status etc. used by the extension manager. The content of this file
+         Name, category, status etc. used by the Extension Manager. The content of this file
          is described in more details :ref:`below <extension-declaration>`. Note
-         that it is auto-written by extension manager when extensions are imported from the repository.
+         that it is auto-written by Extension Manager when extensions are imported from the repository.
 
          .. note::
 
-            If this file is *not* present, the extension manager will *not* find the
+            If this file is *not* present, the Extension Manager will *not* find the
             extension.
 
 
@@ -136,10 +136,10 @@ extensions with the name prefix :file:`ext_`.
 
          The :file:`ext_tables.sql` file may not necessarily be "dumpable"
          directly to MySQL (because of the semi-complete table definitions allowed
-         defining only required fields). But the extension manager or install tool can handle this.
+         defining only required fields). But the Extension Manager or Install Tool can handle this.
          The only very important thing is that the syntax of the content is exactly
          like MySQL made it so that the parsing and analysis of the file is
-         done correctly by the extension manager.
+         done correctly by the Extension Manager.
 
          TYPO3 parses :code:`ext_tables.sql` files. TYPO3 expects that all
          table definitions in this file look like the ones produced by the
@@ -167,13 +167,13 @@ extensions with the name prefix :file:`ext_`.
          :code:`--add-drop-table` will make sure to include a DROP TABLE
          statement so any data is inserted in a fresh table.
 
-         You can also drop the table content using the extension manager in the backend.
+         You can also drop the table content using the Extension Manager in the backend.
 
          .. note::
 
             The table structure of static tables needs to be in the
             :file:`ext_tables.sql` file as well - otherwise an installed static
-            table will be reported as being in excess in the install tool.
+            table will be reported as being in excess in the Install Tool.
 
          .. warning::
 
@@ -213,10 +213,10 @@ extensions with the name prefix :file:`ext_`.
          Extension Configuration template.
 
          Configuration code in TypoScript syntax setting up a series of values
-         which can be configured for the extension in the install tool.
+         which can be configured for the extension in the Install Tool.
          :ref:`Read more about the file format here <extension-options>`.
 
-         If this file is present 'Settings' of the install tool provides you with an
+         If this file is present 'Settings' of the Install Tool provides you with an
          interface for editing the configuration values defined in the file. The result is
          written as an array to :file:`LocalConfiguration.php`
          in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][`:code:`*extension_key*` :php:`]`
@@ -232,7 +232,7 @@ extensions with the name prefix :file:`ext_`.
 
  - :Filename: :file:`Resources/Public/Icons/Extension.svg`
    :Description:
-         Extension icon. If exists, this icon is displayed in the extension manager.
+         Extension icon. If exists, this icon is displayed in the Extension Manager.
          Preferred is using an SVG file, Extension icon will look nicer when provided
          as vector graphics (SVG) rather than bitmaps (GIF or PNG).
 
@@ -244,7 +244,7 @@ extensions with the name prefix :file:`ext_`.
          Local Update tool class
 
          If this file is found it will install a new menu item, "UPDATE", in
-         the extension manager when looking at details for the extension. When this
+         the Extension Manager when looking at details for the extension. When this
          menu item is selected the class inside of this file (named `ext_update`) will
          be instantiated and the method "main()" will be called and expected to
          return HTML content.

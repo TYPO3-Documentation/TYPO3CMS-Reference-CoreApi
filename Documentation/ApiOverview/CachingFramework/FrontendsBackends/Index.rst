@@ -278,7 +278,7 @@ The core takes care of creating and updating required database tables "on the fl
 
 .. note::
 
-   However, caching framework tables which are not needed anymore are not deleted automatically. That is why the database analyzer in the install tool will propose you to rename/delete caching framework tables after you changed the caching backend to a non-database one.
+   However, caching framework tables which are not needed anymore are not deleted automatically. That is why the database analyzer in the Install Tool will propose you to rename/delete caching framework tables after you changed the caching backend to a non-database one.
 
 ..
 
@@ -305,7 +305,7 @@ The database backend for MySQL uses InnoDB tables. Due to the nature of InnoDB, 
 `does not reclaim <http://bugs.mysql.com/bug.php?id=1287>`_ the actual disk space. E.g. if the cache uses 10GB,
 cleaning it will still keep 10GB allocated on the disk even though phpMyAdmin will show 0 as the cache table size.
 To reclaim the space, turn on the MySQL option file_per_table, drop the cache tables and re-create
-them using the Install tool.
+them using the Install Tool.
 This does not by any mean that you should skip the scheduler task. Deleting records still improves performance.
 
 
