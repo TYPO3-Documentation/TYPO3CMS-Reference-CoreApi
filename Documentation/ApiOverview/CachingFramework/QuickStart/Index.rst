@@ -22,7 +22,7 @@ and can be overridden in :file:`LocalConfiguration.php`.
 
 If specific settings should be applied to the configuration, they should be added to :file:`LocalConfiguration.php`.
 All settings in :file:`LocalConfiguration.php` will be merged with :file:`DefaultConfiguration.php`. The easiest way to see
-the final cache configuration is to use the TYPO3 Backend module **ADMIN TOOLS > Configuration > :php:`$GLOBALS['TYPO3_CONF_VARS']`**.
+the final cache configuration is to use the TYPO3 Backend module **ADMIN TOOLS > Configuration > $GLOBALS['TYPO3_CONF_VARS']**.
 
 Example for a configuration of redis cache backend on redis database number 42 instead of the default
 database backend with compression for the pages cache:
