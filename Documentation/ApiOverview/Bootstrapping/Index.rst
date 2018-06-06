@@ -130,7 +130,7 @@ worth taking a look into the following methods:
 5. Define class loading information
 """""""""""""""""""""""""""""""""""
 
-This part of bootstrap the processes all the information available to be able to
+This part of the bootstrap processes all the information available to be able to
 determine where to load classes from, including class alias maps which
 are used to map legacy class names to new class names.
 
