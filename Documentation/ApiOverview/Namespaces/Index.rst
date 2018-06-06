@@ -14,7 +14,7 @@ The general structure of namespaces is the following::
    \{VendorName}\{PackageName}\({CategoryName}\)*{ClassName}
 
 
-For the Core, the *vendor name* is :code:`TYPO3\CMS` and the *package name* corresponds
+For the Core, the *vendor name* is :php:`TYPO3\CMS` and the *package name* corresponds
 to a system extension.
 
 All classes must be located inside the :file:`Classes` folder at the root of the
@@ -38,7 +38,7 @@ Finally the *class name* is the same as the corresponding file name, without the
 Core example
 ------------
 
-The good old :code:`t3lib_div` class has been renamed to::
+The good old :php:`t3lib_div` class has been renamed to::
 
    \TYPO3\CMS\Core\Utility\GeneralUtility
 

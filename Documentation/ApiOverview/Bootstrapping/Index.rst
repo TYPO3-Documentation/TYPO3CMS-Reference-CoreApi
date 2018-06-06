@@ -6,13 +6,13 @@ Bootstrapping
 -------------
 
 TYPO3 CMS has a clean bootstrapping process driven mostly
-by class :code:`\TYPO3\CMS\Core\Core\Bootstrap`. This class
+by class :php:`\TYPO3\CMS\Core\Core\Bootstrap`. This class
 contains a host of methods each responsible for a little
 step along the initialization of a full TYPO3 process,
 be it the backend or other contexts.
 
 Some contexts add their own bootstrap class (like the command
-line, which additionally requires :code:`\TYPO3\CMS\Core\Core\CliBootstrap`).
+line, which additionally requires :php:`\TYPO3\CMS\Core\Core\CliBootstrap`).
 
 .. note::
 
@@ -161,7 +161,7 @@ list of the most important stuff happening at this point:
 
 -  all configuration items from extensions are loaded
 
--  the database connections is established
+-  the database connection is established
 
 9. Dispatch
 """""""""""
@@ -276,8 +276,8 @@ necessary settings while the ``Production/Live`` context is used on the live ins
 Usage Example
 """""""""""""
 
-The current Application Context is set very early in the bootstrap process can be accessed
-through public API for example in the AdditionalConfiguration.php file to automatically set
+The current Application Context is set very early in the bootstrap process and can be accessed
+through public API for example in the :file:`AdditionalConfiguration.php` file to automatically set
 different configuration for different contexts.
 
 In file :file:`typo3conf/AdditionalConfiguration.php`:
