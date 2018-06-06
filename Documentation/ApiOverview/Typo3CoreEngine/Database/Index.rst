@@ -27,7 +27,7 @@ hierarchy of these two arrays.
 .. caution::
 
    The DataHandler needs a properly configured TCA. If your field
-   is not configured in the TCA the DataHandler is not able to
+   is not configured in the TCA the DataHandler will not able to
    interact with it. This also is the case if you configured
    "type"="none" (which is in fact a valid type) or if an invalid
    type is specified. In that case the DataHandler is not
