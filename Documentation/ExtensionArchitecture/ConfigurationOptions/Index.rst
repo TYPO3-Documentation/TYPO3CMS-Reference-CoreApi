@@ -56,7 +56,7 @@ user          user function
 wrap          wrap field
 ============= ==========================
 
-Once you saved the configuration in the ExtensionManager, it will be stored in
+Once you saved the configuration in the Extension Manager, it will be stored in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['your_extension_key']`
 as an array.
 
