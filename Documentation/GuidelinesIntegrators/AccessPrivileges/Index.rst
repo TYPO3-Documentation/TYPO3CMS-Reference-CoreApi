@@ -3,8 +3,13 @@
 
 .. _access-privileges:
 
-Backend users and access privileges
+Users and access privileges
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _backend:
+
+Backend
+"""""""
 
 TYPO3 CMS offers a very sophisticated and complex access concept: you can
 define permissions on a user-level, on a group-level, on pages, on
@@ -48,3 +53,28 @@ users that are allowed to continue using the system.
 .. figure:: ../../Images/be-user-expiry-date.png
    :alt: Screenshot showing the screen to set an expiry date for a BE user
 
+.. _frontend:
+
+Frontend
+""""""""
+
+Access to pages and content in the TYPO3 frontend can be configured with
+frontend usergroups. Similar suggestions like for backend users also apply here.
+
+There are two special options in addition to frontend usergroups:
+
+* *Hide at login*: hide page/content as soon as a user is logged in into the frontend,
+  no matter which groups he belongs to.
+
+* *Show at any login*: show page/content as soon as a user is logged in.
+
+The option *Show at any login* should be used with caution since it permits access to
+**any** user regardless of his usergroups and **storage location**. This means that for
+multi-site TYPO3 instances users are able to log in to other sites under certain
+circumstances. This is a technical limitation and cannot be fixed in TYPO3 itself right
+now, see this `Forge ticket for details`_.
+
+Thus the correct solution is to always prefer explicit usergroups instead of the
+*Show at any login* option.
+
+.. _Forge ticket for details: https://forge.typo3.org/issues/85035
