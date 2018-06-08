@@ -10,7 +10,7 @@ Database: DataHandler basics (formerly known as TCEmain)
 
 When you are using TCE from your backend applications you need to
 prepare two arrays of information which contain the instructions to
-DataHandler (:code:`\TYPO3\CMS\Core\DataHandling\DataHandler`)
+DataHandler (:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`)
 of what actions to perform. They fall into two categories:
 data and commands.
 
@@ -27,7 +27,7 @@ hierarchy of these two arrays.
 .. caution::
 
    The DataHandler needs a properly configured TCA. If your field
-   is not configured in the TCA the DataHandler will not able to
+   is not configured in the TCA the DataHandler will not be able to
    interact with it. This also is the case if you configured
    "type"="none" (which is in fact a valid type) or if an invalid
    type is specified. In that case the DataHandler is not
@@ -57,7 +57,7 @@ Description of keywords in syntax:
    :Type:
          string
    :Description:
-         Name of the database table. Must be configured in $TCA array,
+         Name of the database table. Must be configured in :php:`$TCA` array,
          otherwise it cannot be processed.
 
 
@@ -119,7 +119,7 @@ Command keywords and values
 
          - Negative value: The (absolute) value points to another record from the
            same table as the record being copied. The new record will be inserted
-           on the same page as that record and if :code:`$TCA[...]['ctrl']['sortby']` is
+           on the same page as that record and if :php:`$TCA[...]['ctrl']['sortby']` is
            set, then it will be positioned *after*.
 
          - Zero value: Record is inserted on tree root level.
@@ -151,7 +151,7 @@ Command keywords and values
          Value should always be "1"
 
          This action will delete the record (or mark the record "deleted" if
-         configured in :code:`$TCA`).
+         configured in :php:`$TCA`).
 
 
  - :Command:
@@ -172,7 +172,7 @@ Command keywords and values
          Value is an uid of the :php:`sys_language` to localize the record into.
          Basically a localization of a record is making a copy of the record
          (possibly excluding certain fields defined with :php:`l10n_mode`) but
-         changing relevant fields to point to the right sys language / original
+         changing relevant fields to point to the right :php:`sys_language` / original
          language record.
 
          Requirements for a successful localization is this:
@@ -180,11 +180,11 @@ Command keywords and values
          - :code:`[ctrl]` options "languageField" and "transOrigPointerField" must be
            defined for the table
 
-         - A :code:`sys_language` record with the given :code:`sys_language_uid` must
+         - A :php:`sys_language` record with the given :php:`sys_language_uid` must
            exist.
 
          - The record to be localized by currently be set to "Default" language
-           and not have any value set for the :code:`transOrigPointerField` either.
+           and not have any value set for the :php:`transOrigPointerField` either.
 
          - There cannot exist another localization to the given language for the
            record (looking in the original record PID).
@@ -319,7 +319,7 @@ Description of keywords in syntax:
    :Type:
          string
    :Description:
-         Name of the database table. Must be configured in $TCA array,
+         Name of the database table. Must be configured in :php:`$TCA` array,
          otherwise it cannot be processed.
 
 

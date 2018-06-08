@@ -5,12 +5,12 @@
 Migrating from TYPO3_DB
 -----------------------
 
-This chapter is for those poor souls who want to migrate old and busted `$GLOBALS['TYPO3_DB']`
+This chapter is for those poor souls who want to migrate old and busted :php:`$GLOBALS['TYPO3_DB']`
 calls to new hotness `doctrine-dbal` based API.
 
 It tries to give some hints on typical pitfalls and areas a special eye should be kept on.
 
-Migration of a single extension is finished if a search for `$GLOBALS['TYPO3_DB']` does
+Migration of a single extension is finished if a search for :php:`$GLOBALS['TYPO3_DB']` does
 not return hits anymore. This search is the most simple entry point to see which areas need work.
 
 
@@ -19,7 +19,7 @@ Compare raw queries
 
 The main goal during migration is usually to fire a logically identical query. One recommended
 and simple approach to verify this is to note down and compare the queries at the lowest possible
-layer. In $GLOBALS['TYPO3_DB'], the final query statement is usually retrieved by removing the
+layer. In :php:`$GLOBALS['TYPO3_DB']`, the final query statement is usually retrieved by removing the
 `exec_` part from the method name, in `doctrine` method :php:`QueryBuilder->getSQL()` can be used::
 
    // Inital code:

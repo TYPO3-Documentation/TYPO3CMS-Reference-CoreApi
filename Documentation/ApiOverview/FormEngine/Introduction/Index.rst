@@ -20,7 +20,7 @@ FormEngine
   by some controller.
 
 Frontend rendering
-  :php:`TYPO3\CMS\Frontend\...`: Render the website frontend. The frontend rendering, usually based on
+  :php:`TYPO3\CMS\Frontend\...`: Renders the website frontend. The frontend rendering, usually based on
   :php:`TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController` uses :code:`TypoScript` and / or :code:`Fluid`
   to process and render database content into the frontend.
 

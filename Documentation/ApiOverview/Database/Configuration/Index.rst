@@ -6,7 +6,7 @@ Configuration
 -------------
 
 Configuring `doctrine-dbal` for `TYPO3 CMS` is all about specifying the single database endpoints
-and handing over connection credentials. The frameworks supports the parallel usage of multiple
+and handing over connection credentials. The framework supports the parallel usage of multiple
 database connections, a specific connection is mapped depending on its table name. The table space
 can be seen as a transparent layer that determines which specific connection is chosen for a query
 to a single or a group of tables: It allows "swapping-out" single tables from the `Default` connection
@@ -53,7 +53,7 @@ Remarks:
 * If `charset` option is not specified it defaults to `utf8`.
 
 * The option `wrapperClass` is used by the `TYPO3 CMS` framework to "hang in" the extended
-  :ref:`Connection <database-connection>` class `TYPO3\CMS\Database\Connection` as main facade
+  :ref:`Connection <database-connection>` class :php:`TYPO3\CMS\Database\Connection` as main facade
   around `doctrine-dbal`.
 
 
