@@ -207,7 +207,7 @@ update() and set()
 Create an `UPDATE` query. Typical usage::
 
    // UPDATE `tt_content` SET `bodytext` = 'peter' WHERE `bodytext` = 'klaus'
-   $affectedRows = $queryBuilder
+   queryBuilder
       ->update('tt_content')
       ->where(
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')
@@ -220,7 +220,7 @@ Create an `UPDATE` query. Typical usage::
 The table alias can then be used in :php:`->set()` and :php:`->where()` expressions::
 
    // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'peter' WHERE `u`.`bodytext` = 'klaus'
-   $affectedRows = $queryBuilder
+   $queryBuilder
       ->update('tt_content', 'u')
       ->where(
          $queryBuilder->expr()->eq('u.bodytext', $queryBuilder->createNamedParameter('klaus')
@@ -237,7 +237,7 @@ If a field should be set to the value of another field from the row, the quoting
 :php:`->quoteIdentifier()` has to be used::
 
    // UPDATE `tt_content` SET `bodytext` = `header` WHERE `bodytext` = 'klaus'
-   $affectedRows = $queryBuilder
+   $queryBuilder
       ->update('tt_content')
       ->where(
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
@@ -258,8 +258,6 @@ Remarks:
 * :php:`->set()` requires the value a field should be set to as second parameter.
 
 * :php:`->update()` ignores :php:`->join()` and :php:`->setMaxResults()`.
-
-* :php:`->execute()` after :php:`->update()` returns the number of updated rows.
 
 * The API does not magically add `deleted = 0` or other restrictions as is currently done
   for example on :ref:`select <database-query-builder-select-restrictions>`.
