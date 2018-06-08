@@ -53,7 +53,7 @@ the access list by this function call::
 
       $BE_USER->check('modules', 'web_list');
 
-Here access to the module **WEV > List** is checked.
+Here access to the module **WEB > List** is checked.
 
 
 .. _be-user-access-tables:
