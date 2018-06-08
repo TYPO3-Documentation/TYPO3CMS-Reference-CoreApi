@@ -6,7 +6,7 @@ TYPO3_CONF_VARS
 ^^^^^^^^^^^^^^^
 
 However the main configuration is achieved via a set of global settings
-stored in a global array called :code:`$GLOBALS['TYPO3_CONF_VARS']`.
+stored in a global array called :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 
 This chapter describes this global configuration in more details and hints
 at other configuration possibilities.
@@ -115,11 +115,11 @@ MAIL
 SYS
   General options which may affect both the frontend and the backend.
 
-Details on the various configuration-options can be found in the install-tool
-as well as the TYPO3-source at
-:file:`typo3/sysext/core/Configuration/DefaultConfigurationDescription.yml`.
-The documentation shown in the install-tool is automatically extracted from
-those values of :file:`DefaultConfigurationDescription.yml`.
+Details on the various configuration options can be found in the Install Tool
+as well as the TYPO3 source at
+:file:`typo3/sysext/core/Configuration/DefaultConfigurationDescription.yaml`.
+The documentation shown in the Install Tool is automatically extracted from
+those values of :file:`DefaultConfigurationDescription.yaml`.
 
 The Install Tool provides various dedicated modules that change parts of
 :file:`LocalConfiguration.php`, those can be found in **ADMIN TOOLS > Settings**,

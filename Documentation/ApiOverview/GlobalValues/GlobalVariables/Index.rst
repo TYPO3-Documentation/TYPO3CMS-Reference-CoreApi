@@ -15,9 +15,9 @@ Global variables
    To make the table below a bit more compact, namespaces were left out. Here
    are the fully qualified class names referred to below:
 
-   - "SystemEnvironmentBuilder" = :code:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder`
-   - "Bootstrap" = :code:`\TYPO3\CMS\Core\Core\Bootstrap`
-   - "PackageManager" = :code:`\TYPO3\CMS\Core\Package\PackageManager`
+   - "SystemEnvironmentBuilder" = :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder`
+   - "Bootstrap" = :php:`\TYPO3\CMS\Core\Core\Bootstrap`
+   - "PackageManager" = :php:`\TYPO3\CMS\Core\Package\PackageManager`
 
 
 .. t3-field-list-table::
@@ -45,12 +45,12 @@ Global variables
  - :Variable:
          $TYPO3\_LOADED\_EXT
    :Defined:
-         PackageManager::loadPackageManagerStatesFromCache()
-         PackageManager::initializeCompatibilityLoadedExtArray()
+         :php:`PackageManager::loadPackageManagerStatesFromCache()`
+         :php:`PackageManager::initializeCompatibilityLoadedExtArray()`
    :Description:
          Array with all loaded extensions listed with a set of paths. You can
          check if an extension is loaded by the function
-         :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded($key)` where :code:`$key` is the extension key.
+         :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded($key)` where :php:`$key` is the extension key.
    :FE:
          Yes
 
@@ -58,9 +58,9 @@ Global variables
  - :Variable:
          $EXEC\_TIME
    :Defined:
-         SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()
+         :php:`SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
    :Description:
-         Is set to :code:`time()` so that the rest of the script has a common value
+         Is set to :php:`time()` so that the rest of the script has a common value
          for the script execution time.
    :FE:
          YES
@@ -69,9 +69,9 @@ Global variables
  - :Variable:
          $SIM\_EXEC\_TIME
    :Defined:
-         SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()
+         :php:`SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
    :Description:
-         Is set to :code:`$EXEC_TIME` but can be altered later in the script if we
+         Is set to :php:`$EXEC_TIME` but can be altered later in the script if we
          want to simulate another execution-time when selecting from e.g. a
          database (used in the frontend for preview of future and past dates)
    :FE:
@@ -80,7 +80,7 @@ Global variables
  - :Variable:
          $PAGES\_TYPES
    :Defined:
-         typo3/sysext/core/ext_tables.php
+         :file:`typo3/sysext/core/ext_tables.php`
    :Description:
          See :ref:`page-types`
    :FE:
@@ -90,7 +90,7 @@ Global variables
  - :Variable:
          $TCA
    :Defined:
-         Bootstrap::loadExtensionTables()
+         :php:`Bootstrap::loadExtensionTables()`
    :Description:
          See :ref:`TCA Reference<t3tca:start>`
    :FE:
@@ -100,10 +100,10 @@ Global variables
  - :Variable:
          $TBE\_MODULES
    :Defined:
-         typo3/sysext/core/ext_tables.php
+         :file:`typo3/sysext/core/ext_tables.php`
    :Description:
          The backend main/sub-module structure. See section elsewhere plus
-         source code of class :code:`\TYPO3\CMS\Backend\Module\ModuleLoader` which also includes some
+         source code of class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader` which also includes some
          examples.
    :FE:
          (occasionally)
@@ -112,7 +112,7 @@ Global variables
  - :Variable:
          $TBE\_STYLES
    :Defined:
-         typo3/sysext/core/ext_tables.php
+         :file:`typo3/sysext/core/ext_tables.php`
    :Description:
          Contains information related to BE skinning. (will be removed on CMS 9)
    :FE:
@@ -122,7 +122,7 @@ Global variables
  - :Variable:
          $T3\_SERVICES
    :Defined:
-         SystemEnvironmentBuilder::initializeGlobalVariables()
+         :php:`SystemEnvironmentBuilder::initializeGlobalVariables()`
    :Description:
          Global registration of services.
    :FE:
@@ -132,17 +132,17 @@ Global variables
  - :Variable:
          $T3\_VAR
    :Defined:
-         SystemEnvironmentBuilder::initializeGlobalVariables()
+         :php:`SystemEnvironmentBuilder::initializeGlobalVariables()`
    :Description:
          Space for various internal global data storage in TYPO3. Each key in
          this array is a data space for an application. Keys currently defined
          for use is:
 
          ['callUserFunction'] + ['callUserFunction\_classPool']: Used by
-         :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction` to store singleton objects.
+         :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction` to store singleton objects.
 
          ['RTEobj'] : Used to hold the current RTE object if any. See
-         :code:`\TYPO3\CMS\Backend\Utility\BackendUtility`.
+         :php:`\TYPO3\CMS\Backend\Utility\BackendUtility`.
 
          ['ext'][ *extension-key* ] : Free space for extensions.
    :FE:
@@ -153,7 +153,7 @@ Global variables
  - :Variable:
          $BE\_USER
    :Defined:
-         Bootstrap::initializeBackendUser()
+         :php:`Bootstrap::initializeBackendUser()`
    :Description:
          Backend user object. See :ref:`be-user`.
    :FE:
@@ -163,7 +163,7 @@ Global variables
  - :Variable:
          *$TBE\_MODULES\_EXT*
    :Defined:
-         [In ext\_tables.php files of extensions]
+         [In :file:`ext_tables.php` files of extensions]
    :Description:
          Used to store information about modules from extensions that should be
          included in "function menus" of real modules. See the Extension API
@@ -175,10 +175,10 @@ Global variables
  - :Variable:
          *$TCA\_DESCR*
    :Defined:
-         [tables.php files]
+         [:file:`tables.php` files]
    :Description:
          Can be set to contain file references to local lang files containing
-         :code:`TCA_DESCR` labels. See section about Context Sensitive Help.
+         :php:`TCA_DESCR` labels. See section about Context Sensitive Help.
    :FE:
          No
 
@@ -206,5 +206,5 @@ Many of the global variables described above can be inspected using the
 .. figure:: ../../../Images/ConfigurationModule.png
    :alt: The Configuration module in **ADMIN TOOLS**
 
-   Viewing the :code:`$GLOBALS['TYPO3_CONF_VARS]` array using the **ADMIN TOOLS > Configuration** module
+   Viewing the :php:`$GLOBALS['TYPO3_CONF_VARS]` array using the **ADMIN TOOLS > Configuration** module
 

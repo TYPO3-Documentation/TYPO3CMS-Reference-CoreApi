@@ -54,12 +54,12 @@ every request. They should therefore be optimized for speed.
   Symfony Console Commands etc) which do not need to touch these files.
 
   It is heavily recommended to AVOID any checks on :php:`TYPO3_MODE` or :php:`TYPO3_REQUESTTYPE` constants
-  (e.g. `if(TYPO3_MODE === 'BE')`) within these files as it limits the functionality to cache the
+  (e.g. :php:`if(TYPO3_MODE === 'BE')`) within these files as it limits the functionality to cache the
   whole systems' configuration. Any extension author should remove the checks if not explicitly
   necessary, and re-evaluate if these context-depending checks could go inside the hooks / caller
   function directly.
 
-  Additionally, it is recommend to use the extension name (e.g. "tt_address") instead of :php:`$_EXTKEY`
+  Additionally, it is recommended to use the extension name (e.g. "tt_address") instead of :php:`$_EXTKEY`
   within the two configuration files as this variable will be removed in the future. This also applies
   to :php:`$_EXTCONF`.
 
@@ -89,18 +89,21 @@ every request. They should therefore be optimized for speed.
   :php:`ExtensionManagementUtility::extPath()`.
 
 
-Best practice for ext\_tables.php and ext\_localconf.php
+Best practice for :php:`ext_tables.php` and :php:`ext_localconf.php`
 --------------------------------------------------------
 
-It is a good practice to use :php:`call_user_func` with an closure function.
+It is a good practice to use directly called closure function to encapsulate all
+locally defined variables and thus keep them out of the surrounding scope. This
+avoids unexpected side-effects with files of other extensions.
+
 The following example contains the complete code::
 
     <?php
     defined('TYPO3_MODE') or die();
 
-    call_user_func(function () {
+    (function () {
         // Add your code here
-    });
+    })();
 
 In most cases, the file :file:`ext_tables.php` is no longer needed, since most of
 the code can be placed in :file:`Configuration\TCA\*.php` files.

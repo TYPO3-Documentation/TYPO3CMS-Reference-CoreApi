@@ -18,7 +18,7 @@ Concept of distributions
 
 Distributions are full TYPO3 CMS websites ready to be unpacked. They provide
 an easy quick start for using TYPO3 CMS. The most well known distribution is
-"The official Introduction Package". Distributions can most easily installed
+"The official Introduction Package". Distributions can most easily be installed
 in the backend Extension Manager in "Get preconfigured distribution", it lists
 all available distributions for the given core version.
 
@@ -165,7 +165,7 @@ to the needs of your distribution. The ext:introduction preset is configured as:
 Distribution configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A distribution is technically handled as an extension. Therefore your
+A distribution is technically handled as an extension. Therefore you
 can make use of all :ref:`configuration options <extension-options>` as needed.
 
 After installing the extension, the signal :code:`hasInstalledExtensions` is

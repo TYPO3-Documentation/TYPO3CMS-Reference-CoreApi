@@ -22,7 +22,7 @@ As a developer you should always instantiate classes either through
 Autoloading classes since TYPO3 7.x
 ===================================
 
-TYPO3 6.2 was still delivered with a couple of different autoloaders, that all had different approaches and rules to find a class. This led to the naming conventions in and outside Extbase and the optional :file:`ext_autoload.php` file to load classes that didn't follow the conventions. Since TYPO3 7.0 all this is gone and there is only a single autoloader left, the one of composer. No matter if you run TYPO3 in composer mode or not, TYPO3 uses the composer autoloader to resolve all class file locations. However, the autoloader is little bit more sophisticated in composer mode as it then supports `PSR-4` autoloading.
+TYPO3 6.2 was still delivered with a couple of different autoloaders, that all had different approaches and rules to find a class. This led to the naming conventions in and outside Extbase and the optional :file:`ext_autoload.php` file to load classes that didn't follow the conventions. Since TYPO3 7.0 all this is gone and there is only a single autoloader left, the one of composer. No matter if you run TYPO3 in composer mode or not, TYPO3 uses the composer autoloader to resolve all class file locations. However, the autoloader is a little bit more sophisticated in composer mode as it then supports `PSR-4` autoloading.
 
 .. _autoloading_without_composer_mode:
 
@@ -64,7 +64,7 @@ In composer mode, the autoloader checks for (classmap and `PSR-4`) autoloading i
 
 **Troubleshooting:**
 
-- Dump the class loading information manually via `composer dumpautoload` and check that the autoload information is updated. Typically you would check `vendor/composer` to hold files like :file:`autoload_classmap.php` and :file:`autoload_psr4.php` etc.
+- Dump the class loading information manually via `composer dumpautoload` and check that the autoload information is updated. Typically you would check :file:`vendor/composer` to hold files like :file:`autoload_classmap.php` and :file:`autoload_psr4.php` etc.
 
 Example::
 
