@@ -156,7 +156,7 @@ translated::
 In this case we define that "gsw_CH" (which is the `official code <http://www.localeplanet.com/icu/>`_ for
 "Schwiizertüütsch" - that is, "Swiss German") can fall back on "de_AT" (another custom translation) and then on "de".
 
-The translations have to be stored in the appopriate folder, in this case
+The translations have to be stored in the appropriate folder, in this case
 :file:`typo3conf/l10n/gsw_CH`.
 
 The very least you need is to translate the label containing the name of the
@@ -196,7 +196,7 @@ this would be in file :file:`typo3conf/l10n/gsw_CH/setup/mod/gsw_CH.locallang.xl
 Custom translation servers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-With the use of XLIFF and the freely available `Pootle <http://pootle.translatehouse.org/>`__
+With the usage of XLIFF and the freely available `Pootle <http://pootle.translatehouse.org/>`__
 translation server, companies and individuals may easily set up a custom translation server
 for their extensions.
 
