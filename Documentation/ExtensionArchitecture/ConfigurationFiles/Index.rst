@@ -89,18 +89,21 @@ every request. They should therefore be optimized for speed.
   :php:`ExtensionManagementUtility::extPath()`.
 
 
-Best practice for ext\_tables.php and ext\_localconf.php
+Best practice for :php:`ext_tables.php` and :php:`ext_localconf.php`
 --------------------------------------------------------
 
-It is a good practice to use :php:`call_user_func` with a closure function.
+It is a good practice to use directly called closure function to encapsulate all
+locally defined variables and thus keep them out of the surrounding scope. This
+avoids unexpected side-effects with files of other extensions.
+
 The following example contains the complete code::
 
     <?php
     defined('TYPO3_MODE') or die();
 
-    call_user_func(function () {
+    (function () {
         // Add your code here
-    });
+    })();
 
 In most cases, the file :file:`ext_tables.php` is no longer needed, since most of
 the code can be placed in :file:`Configuration\TCA\*.php` files.
