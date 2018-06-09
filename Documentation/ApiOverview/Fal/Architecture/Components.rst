@@ -20,7 +20,7 @@ The Files and Folders are facades representing files and folders
 or whatever equivalent there is in the system the Driver is connecting to
 (it could be categories from Digital Asset Management tool, for example).
 They are tightly coupled with the Storage, which they use to actually
-perform any actions. For example a copying action (:code:`$file->copyTo($targetFolder)`)
+perform any actions. For example a copying action (:php:`$file->copyTo($targetFolder)`)
 is technically not implemented by the :php:`\TYPO3\CMS\Core\Resource\File`
 object itself but in the Storage and Driver.
 
@@ -104,7 +104,7 @@ It can rely on the Storage having done all the necessary checks before,
 so it doesn't need to worry about permissions and other rights.
 
 In the communication between Storage and Driver, the Storage hands over identifiers
-to the Driver where appropriate. For example, the :code:`copyFileWithinStorage()`
+to the Driver where appropriate. For example, the :php:`copyFileWithinStorage()`
 method of the Driver API has the following method signature:
 
 .. code-block:: php
@@ -183,12 +183,12 @@ The File Abstraction Layer also comes with a number of services:
 
   The task which generates preview images is used in most places in the backend
   where thumbnails are called for. It is identified by constant
-  :code:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGEPREVIEW`.
+  :php:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGEPREVIEW`.
 
   The other task is about cropping and scaling an image, typically for frontend
-  output. It is dentified by constant :code:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`).
+  output. It is dentified by constant :php:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`).
 
-  The configuration for :code:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`
+  The configuration for :php:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`
   is the one used for the :ref:`imgResource function <t3tsref:imgresource>`,
   but only taking the crop, scale and mask settings into account.
 

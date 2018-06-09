@@ -7,7 +7,7 @@ Maintenance
 ^^^^^^^^^^^
 
 There are various maintenance tasks which can be performed
-to  maintain a healthy TYPO3 CMS installation with the
+to maintain a healthy TYPO3 CMS installation with the
 File Abstraction Layer.
 
 
