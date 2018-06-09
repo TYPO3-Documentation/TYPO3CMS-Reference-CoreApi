@@ -166,7 +166,8 @@ Getting TSconfig
 This function can return a value from the "User TSconfig" structure of
 the user. In this case the value for "options.clipboardNumberPads"::
 
-      $BE_USER->getTSConfigVal('options.clipboardNumberPads');
+      $tsconfig = $BE_USER->getTSConfig('');
+      $clipboardNumberPads = $tsconfig['options.clipboardNumberPads'] ?? '';
 
 
 .. _be-user-name:
