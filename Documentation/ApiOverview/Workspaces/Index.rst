@@ -102,7 +102,7 @@ Frontend implementation guidelines
   related to versioning).
 
 - If you need to detect preview mode for versioning and workspaces you
-  can read these variable:
+  can read this variable:
 
   - :code:`$GLOBALS['TSFE']->sys_page->versioningWorkspaceId`: Will tell you the
     id of the workspace of the current backend user. Used for preview of
