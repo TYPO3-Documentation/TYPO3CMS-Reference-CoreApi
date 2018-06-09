@@ -75,7 +75,7 @@ and corresponding database fields in table "sys\_log":
 
          - 4 : Modules: This is the mode you may use for extensions having
            backend module functionality. Probably you would like to use
-           :code:`BE_USER->simplelog()` for your extensions.
+           :code:`BE_USER->writelog()` for your extensions.
 
          - 254 : Personal settings changed
 
@@ -268,20 +268,4 @@ and corresponding database fields in table "sys\_log":
    :Description:
          Workspace ID
 
-
-.. _syslog-simplified:
-
-Making logging simple
-^^^^^^^^^^^^^^^^^^^^^
-
-While it is nice to have log message categorized and numbered during
-development and sometimes beyond that point a simpler logging API is
-necessary. Therefore you can also call this function::
-
-   BE_USER->simplelog($message, $extKey='', $error=0);
-
-All you need is to set :code:`$message` to store a log message. If you call it
-from an extension it is good practice to also supply the extension
-key. Finally you can add the error number (according to the table
-above) if you need to signal an error.
 

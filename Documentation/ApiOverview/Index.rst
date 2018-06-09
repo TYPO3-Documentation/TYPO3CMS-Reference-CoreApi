@@ -61,3 +61,4 @@ This chapter describes the most important elements of the API.
    ContextSensitiveHelp/Index
    ExtensionScanner/Index
    Examples/Index
+   MetaTagAPI/Index

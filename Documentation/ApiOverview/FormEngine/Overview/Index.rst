@@ -9,8 +9,8 @@ This is done by example. The details to steer and how to use only sub-parts of t
 explained in more detail in the following sections.
 
 Editing a record in the backend - often from within the `Page` or `List` module - triggers the
-:php:`EditDocumentController` by routing definitions using :php:`getModuleUrl()` and handing over
-which record of which table should be edited. This can be an existing record, or it could be a command
+:php:`EditDocumentController` by routing definitions using :php:`UriBuilder->buildUriFromRoute($moduleIdentifier)`
+and handing over which record of which table should be edited. This can be an existing record, or it could be a command
 to create the form for a new record. The EditDocumentController is the main logic triggered whenever
 an editor changes a record!
 
