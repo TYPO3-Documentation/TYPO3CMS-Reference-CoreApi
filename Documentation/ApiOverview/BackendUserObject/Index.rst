@@ -166,8 +166,8 @@ Getting TSconfig
 This function can return a value from the "User TSconfig" structure of
 the user. In this case the value for "options.clipboardNumberPads"::
 
-      $tsconfig = $BE_USER->getTSConfig('');
-      $clipboardNumberPads = $tsconfig['options.clipboardNumberPads'] ?? '';
+   $tsconfig = $BE_USER->getTSConfig('');
+   $clipboardNumberPads = $tsconfig['options.clipboardNumberPads'] ?? '';
 
 
 .. _be-user-name:
@@ -192,4 +192,3 @@ the :code:`$BE_USER->uc` array. This will return the current state of
 "Notify me by email, when somebody logs in from my account" for the user::
 
       $BE_USER->uc['emailMeAtLogin']
-
