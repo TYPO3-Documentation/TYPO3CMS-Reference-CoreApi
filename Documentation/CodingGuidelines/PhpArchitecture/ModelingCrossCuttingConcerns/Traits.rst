@@ -39,7 +39,7 @@ would be really useful to autowire default functionality like logging
 into classes with very little developer effort and in a simple and
 understandable way. It should however be kept in mind that traits must
 always be used with care and should stay as a relatively seldom used
-solution. This is one reason why the current :code:`getLanguageService()`
+solution. This is one reason why the current :php:`getLanguageService()`
 and similar boilerplate methods are kept within classes directly for
 now and is not extracted to traits: Both container system and global
 scope objects are currently not finally decided and we don’t want to
@@ -49,27 +49,27 @@ have relatively hard to deprecate and remove traits at this point.
 Good examples
 """""""""""""
 
-* :code:`\Symfony\Component\DependencyInjection\ContainerAwareInterface` with
-  :code:`\Symfony\Component\DependencyInjection\ContainerAwareTrait` as default
+* :php:`\Symfony\Component\DependencyInjection\ContainerAwareInterface` with
+  :php:`\Symfony\Component\DependencyInjection\ContainerAwareTrait` as default
   implementation
 
-  * The :code:`ContainerAwareInterface` is tested to within the
+  * The :php:`ContainerAwareInterface` is tested to within the
     dependency injection system of symfony and the trait is a simple
     default implementation that easily adds the interface functionality
     to a given class.
   * Good naming
   * Clear scope
 
-* :code:`LoggerAwareInterface` with a default trait
+* :php:`LoggerAwareInterface` with a default trait
 
 
 Bad examples
 """"""""""""
 
-* :code:`\TYPO3\CMS\FluidStyledContent\ViewHelpers\Menu\MenuViewHelperTrait`
+* :php:`\TYPO3\CMS\FluidStyledContent\ViewHelpers\Menu\MenuViewHelperTrait`
 
   * Contains only protected methods, can not be combined with interface
-  * Contains :code:`getTypoScriptFrontendController()`, hides this
+  * Contains :php:`getTypoScriptFrontendController()`, hides this
     dependency in the consuming class
   * No interface
   * It would have probably been better to add the trait code to a full

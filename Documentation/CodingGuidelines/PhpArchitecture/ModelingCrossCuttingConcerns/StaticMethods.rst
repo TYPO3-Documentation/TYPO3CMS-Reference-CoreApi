@@ -20,7 +20,7 @@ Characteristica
 * Utility class scope MUST be small and domain logic MUST NOT be
   encapsulated in static methods
 * Utility classes MUST be located in a utility sub folder and MUST end
-  with :code:`Utility`, eg. :code:`FoobarUtility`
+  with :php:`Utility`, eg. :php:`FoobarUtility`
 * Static methods MUST be located in utility classes and SHOULD NOT be
   added to other classes, except a specific pattern has a hard
   requirement to a static helper method within its class. All classes
@@ -83,7 +83,7 @@ edge cases.
 
 Good examples
 """""""""""""
-* :code:`Core/Utility/ArrayUtility`
+* :php:`Core/Utility/ArrayUtility`
 
   * Clear scope - array manipulation helpers
   * Well documented, distinct and short methods doing only one thing at
@@ -92,7 +92,7 @@ Good examples
     acting as additional documentation of the system
   * No further dependencies
 
-* :code:`Core/Utility/VersionNumberUtility`
+* :php:`Core/Utility/VersionNumberUtility`
 
   * Clear scope - a group of helper methods to process version number
     handling
@@ -104,21 +104,21 @@ Good examples
 Bad examples
 """"""""""""
 
-* :code:`Backend/Utility/BackendUtility`
+* :php:`Backend/Utility/BackendUtility`
 
   * Global access, third party dependencies
   * Stateful methods
   * No clear concern
   * God methods
 
-* :code:`Core/Utility/MailUtility`
+* :php:`Core/Utility/MailUtility`
 
   * Good: Relatively clear focus, but:
   * Stateful, external dependencies to objects, depends on configuration
   * Relatively inflexible
   * This should probably “at least” be a service
 
-* :code:`Core/Utility/RootlineUtility`
+* :php:`Core/Utility/RootlineUtility`
 
   * Not static
   * Should probably be a dedicated class construct, probably a service
@@ -128,6 +128,6 @@ Bad examples
 Red Flags
 """""""""
 
-* :code:`$GLOBALS: Utility` code should not have dependencies to global
+* :php:`$GLOBALS: Utility` code should not have dependencies to global
   state or global objects.
 
