@@ -57,7 +57,7 @@ Description of keywords in syntax:
    :Type:
          string
    :Description:
-         Name of the database table. Must be configured in :php:`$TCA` array,
+         Name of the database table. Must be configured in :php:`$GLOBALS['TCA']` array,
          otherwise it cannot be processed.
 
 
@@ -119,7 +119,7 @@ Command keywords and values
 
          - Negative value: The (absolute) value points to another record from the
            same table as the record being copied. The new record will be inserted
-           on the same page as that record and if :php:`$TCA[...]['ctrl']['sortby']` is
+           on the same page as that record and if :php:`$GLOBALS['TCA'][...]['ctrl']['sortby']` is
            set, then it will be positioned *after*.
 
          - Zero value: Record is inserted on tree root level.
@@ -151,7 +151,7 @@ Command keywords and values
          Value should always be "1"
 
          This action will delete the record (or mark the record "deleted" if
-         configured in :php:`$TCA`).
+         configured in :php:`$GLOBALS['TCA']`).
 
 
  - :Command:
@@ -169,10 +169,10 @@ Command keywords and values
    :Type:
          integer
    :Value:
-         Value is an uid of the :php:`sys_language` to localize the record into.
+         Value is an uid of the :sql:`sys_language` to localize the record into.
          Basically a localization of a record is making a copy of the record
-         (possibly excluding certain fields defined with :php:`l10n_mode`) but
-         changing relevant fields to point to the right :php:`sys_language` / original
+         (possibly excluding certain fields defined with :sql:`l10n_mode`) but
+         changing relevant fields to point to the right :sql:`sys_language` / original
          language record.
 
          Requirements for a successful localization is this:
@@ -180,11 +180,11 @@ Command keywords and values
          - :code:`[ctrl]` options "languageField" and "transOrigPointerField" must be
            defined for the table
 
-         - A :php:`sys_language` record with the given :php:`sys_language_uid` must
+         - A :sql:`sys_language` record with the given :sql:`sys_language_uid` must
            exist.
 
          - The record to be localized by currently be set to "Default" language
-           and not have any value set for the :php:`transOrigPointerField` either.
+           and not have any value set for the :sql:`transOrigPointerField` either.
 
          - There cannot exist another localization to the given language for the
            record (looking in the original record PID).
@@ -203,7 +203,7 @@ Command keywords and values
          integer
    :Value:
          It behaves like :php:`localize` command (both record and child records are copied to given language),
-         but does not set :php:`transOrigPointerField` fields (e.g. :php:`l10n_parent`).
+         but does not set :sql:`transOrigPointerField` fields (e.g. :sql:`l10n_parent`).
 
          The :php:`copyToLanguage` command should be used when localizing records in the "Free Mode".
          This command is used when localizing content elements using translation wizard's "Copy" strategy.
@@ -246,7 +246,7 @@ Command keywords and values
                content tables (defined by ctrl-flag :code:`versioning_followPages` )>0
                ("branch") means the the whole branch is versioned ( *full copy* of
                all tables), down to the level indicated by the value (1= 1 level
-               down, 2= 2 levels down, etc.)The treeLevel is recorded in the field
+               down, 2= 2 levels down, etc.). The treeLevel is recorded in the field
                :code:`t3ver_swapmode` and will be observed when the record is swapped
                during publishing.
 
@@ -319,7 +319,7 @@ Description of keywords in syntax:
    :Type:
          string
    :Description:
-         Name of the database table. Must be configured in :php:`$TCA` array,
+         Name of the database table. Must be configured in :php:`$GLOBALS['TCA']` array,
          otherwise it cannot be processed.
 
 
@@ -339,7 +339,7 @@ Description of keywords in syntax:
          string
    :Description:
          Name of the database field you want to set a value for. Must be
-         configure in $TCA[  *tablename* ]['columns']
+         configured in :php:`$GLOBALS['TCA'][*tablename*]['columns']`.
 
 
  - :Key:
