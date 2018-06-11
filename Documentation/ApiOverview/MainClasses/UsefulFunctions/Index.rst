@@ -398,7 +398,7 @@ Please take time to learn these functions!
          :code:`$theTable`, where a field ($theField) equals the value, $theValue ::
 
                 // Checking if the id-parameter is an alias.
-            if (!\TYPO3\CMS\Core\Utility\GeneralUtility::testInt($id))    {
+            if (!\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($id))    {
                 list($idPartR) =
                     \TYPO3\CMS\Backend\Utility\BackendUtility::getRecordsByField('pages', 'alias', $id);
                 $id = intval($idPartR['uid']);
