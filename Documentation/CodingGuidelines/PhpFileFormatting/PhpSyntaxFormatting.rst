@@ -414,8 +414,8 @@ only if it is absolutely necessary.
 Class variables must use access specifiers instead of the :php:`var`
 keyword.
 
-Type hinting must be used when the function expects an :php:`array` or
-an :php:`instance` of a certain class. Example::
+Type hinting must be used when the function expects an array or
+an instance of a certain class. Example::
 
       protected function executeAction(MyAction &$action, array $extraParameters)
       {

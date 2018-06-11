@@ -65,7 +65,7 @@ Bad examples
 * :php:`\TYPO3\CMS\Core\Service\AbstractService`,
   :php:`TYPO3\CMS\Sv\AuthenticationService`
 
-  * Not modeled in a sane way, this should be within :php:`Core/Authentication`
+  * Not modeled in a sane way, this should be within :file:`Core/Authentication`
   * Far too complex, class abstraction and extending classes
 
 
