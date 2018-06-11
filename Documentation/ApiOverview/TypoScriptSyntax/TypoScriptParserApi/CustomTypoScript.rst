@@ -227,7 +227,7 @@ whatever medium you have offered (e.g. a textarea field):
    wakeMeUp = 7:00
 
 In order to parse this TypoScript we can use the following code
-provided that the variable :code:`$tsString` contains the above TypoScript as
+provided that the variable :php:`$tsString` contains the above TypoScript as
 its value:
 
 .. code-block:: php
@@ -240,9 +240,9 @@ its value:
    echo '</pre>';
 
 As you can see, this is really as simple as creating an instance of the
-:code:`TypoScriptParser` class and requesting it to parse the configuration
-contained in variable :code:`$tsString`. The result is located in
-:code:`$TSparserObject->setup`.
+:php:`TypoScriptParser` class and requesting it to parse the configuration
+contained in variable :php:`$tsString`. The result is located in
+:php:`$TSparserObject->setup`.
 
 The result of this code will be this:
 

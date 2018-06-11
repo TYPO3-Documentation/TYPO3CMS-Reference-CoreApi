@@ -90,7 +90,7 @@ again.
    :code:`\TYPO3\CMS\Core\Configuration\TypoScript\ConditionMatching\AbstractConditionMatcher`.
 
 Here is an example of some TypoScript (from the context of TypoScript
-Templates) where another text is output if you  are logged in or
+Templates) where another text is output if you are logged in or
 working locally:
 
 .. code-block:: typoscript
@@ -102,8 +102,8 @@ working locally:
    [loginUser = *][IP = 127.0.0.01]
    pageObj.20 = TEXT
    pageObj.20 {
-     value = Only for logged in users or local setup
-     stdWrap.case = upper
+      value = Only for logged in users or local setup
+      stdWrap.case = upper
    }
 
    [GLOBAL]
@@ -181,7 +181,7 @@ because, as we can see, this wrap is added outside of the condition block
 The fact that you can "enable" the condition in the TypoScript Object
 Browser is a facility provided to simulate the outcome of any
 conditions you insert in a TypoScript Template. Whether or not the
-conditions validate correctly is only verified by actually getting a
+conditions validate correctly is only verified by actually getting
 (in this example) a logged in user and hitting the site.
 
 Another example could be if you wanted to do something special in case

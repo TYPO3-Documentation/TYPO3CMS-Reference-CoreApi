@@ -35,8 +35,8 @@ function. This is done in the code listing below:
 
     debug($TSparserObject->setup);
 
-In this example, we define a very simple class with a :code:`match()` function
-inside. This :code:`match()` function must exist and take a string as its
+In this example, we define a very simple class with a :php:`match()` function
+inside. This :php:`match()` function must exist and take a string as its
 argument. It is expected to return a boolean value. This
 function should be programmed to evaluate the condition line according
 to your specifications. Currently, if a condition line contains the
@@ -44,7 +44,7 @@ value "[TYPO3 IS GREAT]" then the condition will evaluate to true and
 the subsequent TypoScript will be parsed.
 
 To enable this condition, we simply create an instance of our class
-and pass it to the TypoScript parser upon callings the :code:`parse()`
+and pass it to the TypoScript parser upon callings the :php:`parse()`
 method.
 
 Let's test the custom condition class from the code listing

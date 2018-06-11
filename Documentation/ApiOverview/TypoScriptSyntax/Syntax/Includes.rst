@@ -106,7 +106,7 @@ FILE     A reference to a file relative to :code:`PATH_site`.
          mechanism allows simple, nested TypoScript templates that can be moved
          or copied without the need to adapt all includes.
 
-         If you use the a syntax like :file:`EXT:myext/directory/file.txt`
+         If you use a syntax like :file:`EXT:myext/directory/file.txt`
          the file included will be searched for in the extension directory
          of extension "myext", subdirectory :file:`directory/file.txt`.
 

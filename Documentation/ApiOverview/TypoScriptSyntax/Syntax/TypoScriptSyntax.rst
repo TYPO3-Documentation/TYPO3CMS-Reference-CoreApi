@@ -226,7 +226,7 @@ sortList
 
   Multiple parameters are separated by comma.
 
-There is a hook inside class :code:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser`
+There is a hook inside class :php:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser`
 which can be used to define more such functions.
 
 
@@ -299,12 +299,12 @@ could also be written as:
 
    myObject = TEXT
    myObject {
-           stdWrap {
-                   field = title
-                   ifEmpty {
-                           data = leveltitle:0
-                   }
-           }
+      stdWrap {
+         field = title
+         ifEmpty {
+            data = leveltitle:0
+         }
+      }
    }
 
 
@@ -335,7 +335,7 @@ Example:
 .. code-block:: typoscript
 
    myObject = TEXT
-      myObject.value (
+   myObject.value (
       <p class="warning">
          This is HTML code.
       </p>
@@ -375,9 +375,9 @@ Another example with a copy within a code block:
 .. code-block:: typoscript
 
    pageObj {
-           10 = TEXT
-           10.value = <p class="warning">This is HTML code.</p>
-           20 < pageObj.10
+      10 = TEXT
+      10.value = <p class="warning">This is HTML code.</p>
+      20 < pageObj.10
    }
 
 Here also a copy is made, although inside the :code:`pageObj` object. Note
@@ -390,9 +390,9 @@ The following produces the same result as above:
 .. code-block:: typoscript
 
    pageObj {
-           10 = TEXT
-           10.value = <p class="warning">This is HTML code.</p>
-           20 < .10
+      10 = TEXT
+      10.value = <p class="warning">This is HTML code.</p>
+      20 < .10
    }
 
 which – in tree view – translates to:
@@ -409,8 +409,8 @@ which – in tree view – translates to:
 
       someObject = TEXT
       someObject {
-              value = Hello world!
-              stdWrap.wrap = <p>|<p>
+         value = Hello world!
+         stdWrap.wrap = <p>|<p>
       }
       anotherObject < someObject
       someObject.stdWrap.wrap = <h1>|<h1>
@@ -452,8 +452,8 @@ Example
 
    someObject = TEXT
    someObject {
-           value = Hello world!
-           stdWrap.wrap = <p>|<p>
+      value = Hello world!
+      stdWrap.wrap = <p>|<p>
    }
    anotherObject =< someObject
    someObject.stdWrap.wrap = <h1>|<h1>

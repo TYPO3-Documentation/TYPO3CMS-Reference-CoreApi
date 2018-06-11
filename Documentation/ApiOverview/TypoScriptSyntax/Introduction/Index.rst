@@ -12,8 +12,8 @@ Introduction
 About this chapter
 ------------------
 
-This chapter describes the syntax of TypoScript. The Typo3Script syntax
-and its parser logic is used in two different context: `Frontend TypoScript`
+This chapter describes the syntax of TypoScript. The TypoScript syntax
+and its parser logic is used in two different contexts: `Frontend TypoScript`
 to configure frontend rendering and `TSconfig` to configure backend details
 for backend users.
 
@@ -53,7 +53,7 @@ So strictly speaking TypoScript has no function in itself, only when
 used in a certain context. Since the context is almost always to
 *configure* something you can often understand TypoScript as
 *parameters* (or function arguments) passed to a function which acts
-accordingly (e.g. "background\_color = red"). And on the contrary you
+accordingly (e.g. :ts:`background_color = red`). And on the contrary you
 will probably never see TypoScript used to store information like a
 database of addresses - you would use XML or SQL for that.
 
@@ -105,11 +105,15 @@ but at the same time TypoScript is designed to allow a very simple and
 straight forward assignment of values; simply by using the equal sign
 as an operator::
 
+.. code-block:: typoscript
+
    asdf = qwerty
 
 Now the object path "asdf" contains the value "qwerty".
 
 Another example::
+
+.. code-block:: typoscript
 
    asdf.zxcvbnm = uiop
    asdf.backgroundColor = blue
@@ -118,6 +122,8 @@ Now the object path "asdf.zxcvbnm" contains the value "uiop" and
 "asdf.backgroundColor" contains the value "blue". According to *the
 syntax* of TypoScript this could also have been written more
 comfortably as::
+
+.. code-block:: typoscript
 
    asdf {
      zxcvbnm = uiop
@@ -135,6 +141,8 @@ So although the terms *objects* and *properties* normally hint at
 some context (semantics) we may also use them purely to describe the
 various parts of an object path without considering the context and
 meaning. Consider this::
+
+.. code-block:: typoscript
 
    asdf {
      zxcvbnm = uiop
@@ -178,6 +186,8 @@ Note about the internal structure when parsed into a PHP array
 
 Let's take the TypoScript from above as an example::
 
+.. code-block:: typoscript
+
    asdf {
      zxcvbnm = uiop
      backgroundColor = blue
@@ -187,22 +197,26 @@ Let's take the TypoScript from above as an example::
 When parsed, this information will be stored in a PHP array which
 could be defined as follows::
 
-   $TS['asdf.']['zxcvbnm'] = 'uiop';
-   $TS['asdf.']['backgroundColor'] = 'blue';
-   $TS['asdf.']['backgroundColor.']['transparency'] = '95%';
+.. code-block:: php
+
+    $TS['asdf.']['zxcvbnm'] = 'uiop';
+    $TS['asdf.']['backgroundColor'] = 'blue';
+    $TS['asdf.']['backgroundColor.']['transparency'] = '95%';
 
 Or alternatively you could define the information in that PHP array
 like this::
 
-   $TS = [
-     'asdf.' => [
-       'zxcvbnm' => 'uiop',
-       'backgroundColor' => 'blue',
-       'backgroundColor.' => [
-         'transparency' => '95%'
-       ]
-     ]
-   ]
+.. code-block:: php
+
+    $TS = [
+        'asdf.' => [
+            'zxcvbnm' => 'uiop',
+            'backgroundColor' => 'blue',
+            'backgroundColor.' => [
+                'transparency' => '95%'
+            ]
+        ]
+    ]
 
 The information inside a PHP array like that one is used by TYPO3 to
 apply the configurations, which you have set.
