@@ -171,8 +171,8 @@ Command keywords and values
    :Value:
          Value is an uid of the :sql:`sys_language` to localize the record into.
          Basically a localization of a record is making a copy of the record
-         (possibly excluding certain fields defined with :sql:`l10n_mode`) but
-         changing relevant fields to point to the right :sql:`sys_language` / original
+         (possibly excluding certain fields defined with :php:`l10n_mode`) but
+         changing relevant fields to point to the right :php:`sys_language` / original
          language record.
 
          Requirements for a successful localization is this:
@@ -184,7 +184,7 @@ Command keywords and values
            exist.
 
          - The record to be localized by currently be set to "Default" language
-           and not have any value set for the :sql:`transOrigPointerField` either.
+           and not have any value set for the :php:`transOrigPointerField` either.
 
          - There cannot exist another localization to the given language for the
            record (looking in the original record PID).
@@ -203,7 +203,7 @@ Command keywords and values
          integer
    :Value:
          It behaves like :php:`localize` command (both record and child records are copied to given language),
-         but does not set :sql:`transOrigPointerField` fields (e.g. :sql:`l10n_parent`).
+         but does not set :php:`transOrigPointerField` fields (e.g. :sql:`l10n_parent`).
 
          The :php:`copyToLanguage` command should be used when localizing records in the "Free Mode".
          This command is used when localizing content elements using translation wizard's "Copy" strategy.
