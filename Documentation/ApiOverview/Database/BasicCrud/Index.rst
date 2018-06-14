@@ -154,6 +154,11 @@ UPDATE multiple rows
     UPDATE `tt_content` SET `bodytext` = 'bernd' WHERE `bodytext` = 'klaus'
 
 
+.. tip::
+
+   You can also use `QueryBuilder` for generating more complex update queries. See examples in the :ref:`QueryBuilder chapter <database-query-builder-update-set>`.
+   
+
 DELETE a row
 ^^^^^^^^^^^^
 
