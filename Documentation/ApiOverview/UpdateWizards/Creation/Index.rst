@@ -25,7 +25,7 @@ abstract methods::
        /**
         * Checks whether updates are required.
         *
-        * @param string &$description The description for the update
+        * @param string $description The description for the update
         * @return bool Whether an update is required (TRUE) or not (FALSE)
         */
        public function checkForUpdate(&$description)
@@ -36,8 +36,8 @@ abstract methods::
       /**
        * Performs the required update.
        *
-       * @param array &$dbQueries Queries done in this update
-       * @param string &$customMessage Custom message to be displayed after the update process finished
+       * @param array $dbQueries Queries done in this update
+       * @param string $customMessage Custom message to be displayed after the update process finished
        * @return bool Whether everything went smoothly or not
        */
        public function performUpdate(array &$databaseQueries, &$customMessage)
@@ -72,3 +72,18 @@ necessary anymore, or that all updates were completed successfully, the wizard s
 be marked as done. To mark the wizard as done, call :php:`$this->markWizardAsDone`.
 
 The state of completed wizards is persisted in the :ref:`TYPO3 system registry <registry>`.
+
+Registering wizard
+==================
+
+Once the wizard is created, it needs to be registered. Registration is done in
+:file:`ext_localconf.php`::
+
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\Vendor\ExtName\Updates\ExampleUpdateWizard::class]
+      = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
+
+Executing wizard
+================
+
+Wizards are listed inside the install tool, inside navigation "Upgrade Wizard".
+The registered wizard should be shown there, as long as he is not done.
