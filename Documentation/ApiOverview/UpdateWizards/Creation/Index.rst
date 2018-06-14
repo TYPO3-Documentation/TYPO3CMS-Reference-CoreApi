@@ -25,7 +25,7 @@ abstract methods::
        /**
         * Checks whether updates are required.
         *
-        * @param string &$description The description for the update
+        * @param string $description The description for the update
         * @return bool Whether an update is required (TRUE) or not (FALSE)
         */
        public function checkForUpdate(&$description)
@@ -36,8 +36,8 @@ abstract methods::
       /**
        * Performs the required update.
        *
-       * @param array &$dbQueries Queries done in this update
-       * @param string &$customMessage Custom message to be displayed after the update process finished
+       * @param array $dbQueries Queries done in this update
+       * @param string $customMessage Custom message to be displayed after the update process finished
        * @return bool Whether everything went smoothly or not
        */
        public function performUpdate(array &$databaseQueries, &$customMessage)
