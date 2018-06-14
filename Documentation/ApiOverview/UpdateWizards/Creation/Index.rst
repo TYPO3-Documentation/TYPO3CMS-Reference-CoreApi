@@ -72,3 +72,18 @@ necessary anymore, or that all updates were completed successfully, the wizard s
 be marked as done. To mark the wizard as done, call :php:`$this->markWizardAsDone`.
 
 The state of completed wizards is persisted in the :ref:`TYPO3 system registry <registry>`.
+
+Registering wizard
+==================
+
+Once the wizard is created, it needs to be registered. Registration is done in
+:file:`ext_localconf.php`::
+
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\Vendor\ExtName\Updates\ExampleUpdateWizard::class]
+      = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
+
+Executing wizard
+================
+
+Wizards are listed inside the install tool, inside navigation "Upgrade Wizard".
+The registered wizard should be shown there, as long as he is not done.
