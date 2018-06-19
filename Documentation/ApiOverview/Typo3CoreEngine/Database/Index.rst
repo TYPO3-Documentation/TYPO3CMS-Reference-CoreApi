@@ -129,8 +129,8 @@ Command keywords and values
            like::
 
               [
-                 'action' => 'copy', // Defines where this is a move or copy command
-                 'target' => $pUid, // Defines the page to insert the record.
+                 'action' => 'paste', // 'paste' is used for both move and copy commands
+                 'target' => $pUid, // Defines the page to insert the record, or record uid to copy after
                  'update' => $update, // Array with field => value to be updated.
               ]
 
