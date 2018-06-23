@@ -169,7 +169,7 @@ Command keywords and values
    :Type:
          integer
    :Value:
-         Value is an uid of the :sql:`sys_language` to localize the record into.
+         Value is an uid of the :php:`sys_language` to localize the record into.
          Basically a localization of a record is making a copy of the record
          (possibly excluding certain fields defined with :php:`l10n_mode`) but
          changing relevant fields to point to the right :php:`sys_language` / original
