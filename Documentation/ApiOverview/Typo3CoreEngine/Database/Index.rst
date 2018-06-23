@@ -184,7 +184,7 @@ Command keywords and values
            exist.
 
          - The record to be localized by currently be set to "Default" language
-           and not have any value set for the :php:`transOrigPointerField` either.
+           and not have any value set for the TCA :php:`transOrigPointerField` either.
 
          - There cannot exist another localization to the given language for the
            record (looking in the original record PID).
