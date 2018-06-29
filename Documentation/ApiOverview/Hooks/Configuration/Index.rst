@@ -95,7 +95,7 @@ extension keys. ::
 - **function\_reference :** A function reference using the syntax of
   :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()` as a function
   or :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` as a class name
-  depending on implementation of the hook. A namespace function has the quoted string format :php:`'Foo\\Bar\\MyClassName->myUserFunction'`. A namespace class name can be in the quoted string format :php:`'Foo\\Bar\\MyClassName'` or in the unquoted form :php:`\Foo\Bar\MyClassName::class` (>= PHP 5.5). 
+  depending on implementation of the hook. A namespace function has the quoted string format :php:`'Foo\\Bar\\MyClassName->myUserFunction'`. A namespace class name can be in the FQCN quoted string format :php:`'Foo\\Bar\\MyClassName'`, which must not have a leading backslash, or in the unquoted form :php:`\Foo\Bar\MyClassName::class` (>= PHP 5.5). 
   The called function name is determined by the hook itself.
 
 The above syntax is how a hook is typically defined but it might
