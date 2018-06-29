@@ -12,8 +12,8 @@ Logger
 Instantiation
 """""""""""""
 
-.. note:: 
-   As of TYPO3 9.0 you no longer need to use makeInstance to create an 
+.. note::
+   As of TYPO3 9.0 you no longer need to use makeInstance to create an
    instance of the logger yourself. You can use `LoggerAwareTrait <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects.html?highlight=loggerawaretrait>`__
 
 Use LoggerAwareTrait in your class to automatically instantiate $this->logger::
@@ -34,7 +34,7 @@ accordingly.
 .. code-block:: php
 
    /** @var $logger \TYPO3\CMS\Core\Log\Logger */
-   $this->logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Log\LogManager')->getLogger(__CLASS__);
+   $this->logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
 
 
 Using `__CLASS__` as name for the logger is recommended to enable logging configuration

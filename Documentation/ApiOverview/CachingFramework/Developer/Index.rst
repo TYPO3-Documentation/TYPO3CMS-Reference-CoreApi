@@ -59,10 +59,10 @@ should hint an integrator about specific caching needs or setups in this case.
        $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = 'TYPO3\\CMS\\Core\\Cache\\Backend\\TransientMemoryBackend';
    }
 
-To get an instance of a cache, :code:`GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache('myext_mycache')`
+To get an instance of a cache, :code:`GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache')`
 should be used. The cache manager will return the fully initialized cache instance::
 
-   $myCacheInstance = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache('myext_mycache');
+   $myCacheInstance = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache');
 
 
 
@@ -76,7 +76,7 @@ Here is some example code::
 
        protected function getCachedMagic() {
            $cacheIdentifier = $this->calculateCacheIdentifier();
-           $cache = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache('myext_mycache');
+           $cache = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache');
 
            // If $entry is null, it hasn't been cached. Calculate the value and store it in the cache:
            if (($entry = $cache->get($cacheIdentifier)) === FALSE) {

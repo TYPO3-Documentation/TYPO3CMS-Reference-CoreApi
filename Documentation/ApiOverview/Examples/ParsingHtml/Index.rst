@@ -42,7 +42,7 @@ Consider the following code::
    ';
 
       // Splitting HTML into blocks defined by <div> and <table> tags
-   $parseObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Html\\HtmlParser');
+   $parseObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Html\HtmlParser::class);
    $result = $parseObj->splitIntoBlock('div,table', $testHTML);
 
 After loading some dummy HTML code into a variable, we create an instance of

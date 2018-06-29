@@ -206,7 +206,7 @@ extension's :file:`ext_localconf.php` file:
 
 .. code-block:: php
 
-   $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\SignalSlot\\Dispatcher');
+   $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
    $signalSlotDispatcher->connect(
       version_compare(TYPO3_version, '7.0', '<')
          ? 'TYPO3\\CMS\\Lang\\Service\\UpdateTranslationService'
