@@ -10,7 +10,7 @@ You can easily access the internal clipboard in TYPO3 from your
 backend modules::
 
    /** @var $clipboard \TYPO3\CMS\Backend\Clipboard\Clipboard */
-   $clipboard = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Clipboard\\Clipboard');
+   $clipboard = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Clipboard\Clipboard::class);
    // Read the clipboard content from the user session
    $clipboard->initializeClipboard();
    \TYPO3\CMS\Core\Utility\DebugUtility::debug($clipboard->clipData);
@@ -79,7 +79,7 @@ clipboard are posted from a form and registered::
 
       // Clipboard is initialized:
       // Start clipboard
-      $dblist->clipObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Clipboard\\Clipboard');
+      $dblist->clipObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Clipboard\Clipboard::class);
       // Initialize - reads the clipboard content from the user session
       $dblist->clipObj->initializeClipboard();
       // Clipboard actions are handled:

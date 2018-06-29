@@ -100,7 +100,7 @@ the code below to retrieve an instance of
 the registry. The instance returned will always be the same as the
 registry is a singleton::
 
-   $registry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Registry');
+   $registry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Registry::class);
 
 After retrieving an instance of the registry you can access the
 registry values through its :code:`get()` method. The :code:`get()` method offers an
@@ -174,13 +174,13 @@ Examples
 
 Here's an example taken from the Scheduler system extension::
 
-   $registry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Registry');
+   $registry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Registry::class);
    $runInformation = array('start' => $GLOBALS['EXEC_TIME'], 'end' => time(), 'type' => $type);
    $registry->set('tx_scheduler', 'lastRun', $runInformation);
 
 It is retrieved later using::
 
-   $registry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Registry');
+   $registry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Registry::class);
    $lastRun = $registry->get('tx_scheduler', 'lastRun');
 
 

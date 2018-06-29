@@ -29,7 +29,7 @@ Use LoggerAwareTrait in your class to automatically instantiate `$this->logger`:
    
 Or instantiate the logger in the classic way with makeInstance::
 
-   $this->logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Log\LogManager')->getLogger(__CLASS__);
+   $this->logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
 
 .. _logging-quickstart-log:
 

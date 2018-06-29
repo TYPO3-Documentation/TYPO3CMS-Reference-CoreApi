@@ -48,7 +48,7 @@ submission.
 .. code-block:: php
    :linenos:
 
-   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\DataHandling\\DataHandler');
+   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $tce->stripslashes_values = 0;
    $tce->start($data, array());
    $tce->process_datamap();
@@ -68,7 +68,7 @@ commands.
 .. code-block:: php
    :linenos:
 
-   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\DataHandling\\DataHandler');
+   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $tce->stripslashes_values = 0;
    $tce->start(array(), $cmd);
    $tce->process_cmdmap();
@@ -90,7 +90,7 @@ calling the start() method (which will initialize internal variables).
 .. code-block:: php
    :linenos:
 
-   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\DataHandling\\DataHandler');
+   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $tce->start(array(), array());
    $tce->clear_cacheCmd('all');
 
@@ -141,7 +141,7 @@ all pages is cleared in line 7.
 .. code-block:: php
    :linenos:
 
-   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\DataHandling\\DataHandler');
+   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $tce->stripslashes_values = 0;
    $tce->reverseOrder = 1;
    $tce->start($data, array());
@@ -169,7 +169,7 @@ should not set this argument since you want TCE to use the global
 .. code-block:: php
    :linenos:
 
-   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\DataHandling\\DataHandler');
+   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $tce->stripslashes_values = 0;
    $tce->start($data, $cmd, $alternative_BE_USER);
    $tce->process_datamap();

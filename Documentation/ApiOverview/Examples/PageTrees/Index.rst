@@ -36,7 +36,7 @@ The tree object itself is prepared this way (taken from
 
       // Create and initialize the tree object
       /** @var $tree \TYPO3\CMS\Backend\Tree\View\PageTreeView */
-      $tree = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Tree\\View\\PageTreeView');
+      $tree = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Tree\View\PageTreeView::class);
       $tree->init('AND ' . $GLOBALS['BE_USER']->getPagePermsClause(1));
 
       // Creating the icon for the current page and add it to the tree
