@@ -2,7 +2,6 @@
 
 .. _update-wizards:
 
-
 ==============
 Update wizards
 ==============
@@ -12,5 +11,5 @@ Update wizards
 .. toctree::
    :titlesonly:
 
-   Concept/Index
-   Creation/Index
+   Concept
+   Creation
