@@ -241,22 +241,8 @@ extensions with the name prefix :file:`ext_`.
 
  - :Filename: :file:`class.ext_update.php`
    :Description:
-         Local Update tool class
-
-         If this file is found it will install a new menu item, "UPDATE", in
-         the Extension Manager when looking at details for the extension. When this
-         menu item is selected the class inside of this file (named `ext_update`) will
-         be instantiated and the method "main()" will be called and expected to
-         return HTML content.
-
-         Also you must add the function "access()" and make it return a boolean
-         value whether or not the menu item should be shown. This feature is
-         meant to let you disable the update tool if you can somehow detect
-         that it has already been run and doesn't need to run again. The point
-         of this file is to give extension developers the possibility to
-         provide an update tool if their extensions in newer versions require
-         some updates to be done.
-
+         See section :ref:`update-wizards-extupdatefile` in chapter
+         :ref:`update-wizards`.
 
 .. _extension-reserved-folders:
 
