@@ -13,8 +13,7 @@ is or does for the EM. The only thing included
 is an associative array, :code:`$EM_CONF[extension key]`.
 The keys are described in the table below.
 
-When extensions are imported from the online repository this file is
-written anew! So don't put any custom stuff in there - only change
+This file is overwritten, when extensions are imported from the online repository. So don't write your custom code in this file - only change
 values in the :code:`$EM_CONF` array if needed.
 
 .. t3-field-list-table::
