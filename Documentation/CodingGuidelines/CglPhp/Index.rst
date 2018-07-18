@@ -13,3 +13,4 @@ PHP Coding Guidelines
 
    PhpFileFormatting/Index
    PhpArchitecture/Index
+   CodingBestPractices/Index
