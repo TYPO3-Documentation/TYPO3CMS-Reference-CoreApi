@@ -1,0 +1,27 @@
+.. include:: ../../Includes.txt
+
+.. _cgl-xliff:
+
+=======================
+reStructuredText (reST)
+=======================
+
+Documentation is typically stored in `reST <https://en.wikipedia.org/wiki/ReStructuredText>`__
+files.
+
+Directory and filenames
+=======================
+
+* Files have the ending :file:`.rst`
+* Language files are located in the directory :file:`<extension>/Documentation`.
+
+Format
+======
+
+* use spaces, not TABs
+* indent with 3 spaces per indent level
+
+
+.. seealso::
+
+   :ref:`h2document:Formatting-reST-Source-Files`
