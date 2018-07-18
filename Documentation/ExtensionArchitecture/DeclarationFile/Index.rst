@@ -268,7 +268,7 @@ values in the :code:`$EM_CONF` array if needed.
                ]
             ],
             
-          Important: The prefix **must** end with a backslash.          
+         // Important: The prefix must end with a backslash.          
 
  - :Key:
          autoload-dev
