@@ -4,6 +4,8 @@
 
 .. _tce-database-basics:
 
+.. _datahandler-basics:
+
 ========================================================
 Database: DataHandler basics (formerly known as TCEmain)
 ========================================================
