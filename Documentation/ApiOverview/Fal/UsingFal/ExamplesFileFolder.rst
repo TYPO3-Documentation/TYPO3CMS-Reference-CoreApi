@@ -34,10 +34,10 @@ The syntax of argument 1 for getFileObjectFromCombinedIdentifier is
 
 .. code-block:: none
 
-   `[[storage uid]:]<file identifier>
+   [[storage uid]:]<file identifier>
 
-The storage uid is optional. If it is not specified, the default storage 
-(virtual storage with uid=0) is used. 
+The storage uid is optional. If it is not specified, the default storage
+(virtual storage with uid=0) is used.
 
 .. _fal-using-fal-examples-file-folder-copy-file:
 
@@ -75,16 +75,16 @@ Storage:
    $resourceFactory = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance();
    $storage = $resourceFactory->getDefaultStorage();
    $newFile = $storage->addFile(
-         '/tmp/temporary_file_name.foo',
+         '/tmp/temporary_file_name.ext',
          $storage->getRootLevelFolder(),
-         'final_file_name.foo'
+         'final_file_name.ext'
    );
 
-The default storage uses :file:`fileadmin` unless you have configured this 
-differently, as explained in :ref:`fal-concepts-storages-drivers`. 
+The default storage uses :file:`fileadmin` unless this was configured
+differently, as explained in :ref:`fal-concepts-storages-drivers`.
 
 So, for this example, the resulting file path would typically be
-:file:`<document-root>/fileadmin/tmp/temporary_file_name.foo`
+:file:`<document-root>/fileadmin/tmp/temporary_file_name.ext`
 
 .. _fal-using-fal-examples-file-folder-create-reference:
 
@@ -144,7 +144,7 @@ the "sys\_file\_reference" entry and the relation to the other item
 The above example comes from the "examples" extension
 (reference: https://github.com/TYPO3-Documentation/TYPO3CMS-Code-Examples/blob/master/Classes/Controller/ModuleController.php).
 
-Here, the :php:`'fieldname'` :php:`'assets'` is used instead of 
+Here, the :php:`'fieldname'` :php:`'assets'` is used instead of
 :php:`image`. Content elements of ctype 'textmedia' use the field 'assets'.
 
 For another table than "tt\_content", you need to define
