@@ -31,4 +31,3 @@ Example
 
 Note that using :code:`static::` does not work in closures/lambda
 functions/anonymous functions.
-

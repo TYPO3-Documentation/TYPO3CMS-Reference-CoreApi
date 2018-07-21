@@ -45,4 +45,3 @@ these methods do *not* need a documentation block.
 
 Since unit tests never return anything, they do not need an
 :code:`@return` tag.
-

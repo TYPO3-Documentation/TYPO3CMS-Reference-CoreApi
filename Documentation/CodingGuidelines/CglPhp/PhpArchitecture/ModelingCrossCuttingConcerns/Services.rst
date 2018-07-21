@@ -73,4 +73,3 @@ Further reading
 """""""""""""""
 
 See http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/.
-

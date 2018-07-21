@@ -67,4 +67,3 @@ For example, for PhpStorm there is an `EditorConfig plugin <https://plugins.jetb
 
 An `.editorconfig <https://github.com/TYPO3/TYPO3.CMS/blob/master/.editorconfig>`__
 file is included in the TYPO3 source code.
-

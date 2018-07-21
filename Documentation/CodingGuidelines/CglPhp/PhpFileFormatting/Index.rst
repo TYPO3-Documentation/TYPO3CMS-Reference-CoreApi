@@ -21,4 +21,3 @@ Rules for single PHP files:
    FileStructure
    PhpSyntaxFormatting
    UsingPhpdoc
-

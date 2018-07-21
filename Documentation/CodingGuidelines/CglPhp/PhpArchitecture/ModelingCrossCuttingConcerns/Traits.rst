@@ -80,4 +80,3 @@ Further reading
 """""""""""""""
 
 See http://rosstuck.com/how-i-use-traits/.
-

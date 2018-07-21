@@ -89,4 +89,3 @@ In the comment blocks use the *short* forms of the type names (e.g.
 :code:`mixed`).
 
 Use :code:`@return void` when a function does *not* return a value.
-

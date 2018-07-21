@@ -23,4 +23,3 @@ User files with these class names are commonly found in the
 :file:`typo3conf/ext/` directory. Optionally these files can be
 installed to the :file:`typo3/ext/` directory to be shared by many
 TYPO3 installations.
-

@@ -130,4 +130,3 @@ Red Flags
 
 * :code:`$GLOBALS: Utility` code should not have dependencies to global
   state or global objects.
-

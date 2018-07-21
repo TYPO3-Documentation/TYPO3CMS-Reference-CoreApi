@@ -22,4 +22,3 @@ part is just an overview of common pitfalls and generic tips.
    HandlingDeprecations
    ClassNamesOfUserFiles
    HookNaming
-
