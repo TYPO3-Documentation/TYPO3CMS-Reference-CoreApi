@@ -10,17 +10,24 @@ Static methods, static classes, utility classes
 Characteristica
 """""""""""""""
 
-* A utility class MUST contain only static methods
+* A utility class MUST contain only static methods.
+
 * Utility classes MUST NOT have state, no local properties, no DB
-  access, ...
-* Utility methods MAY call other utility methods
+  access, … .
+
+* Utility methods MAY call other utility methods.
+
 * Utility class methods MUST NOT have dependencies to non static
-  methods like other class instances or global variables
-* Utility class methods MUST have high unit test coverage
+  methods like other class instances or global variables.
+
+* Utility class methods MUST have high unit test coverage.
+
 * Utility class scope MUST be small and domain logic MUST NOT be
-  encapsulated in static methods
+  encapsulated in static methods.
+
 * Utility classes MUST be located in a utility sub folder and MUST end
-  with :code:`Utility`, eg. :code:`FoobarUtility`
+  with :code:`Utility`, eg. :code:`FoobarUtility`.
+
 * Static methods MUST be located in utility classes and SHOULD NOT be
   added to other classes, except a specific pattern has a hard
   requirement to a static helper method within its class. All classes
@@ -85,20 +92,25 @@ Good examples
 """""""""""""
 * :code:`Core/Utility/ArrayUtility`
 
-  * Clear scope - array manipulation helpers
+  * Clear scope - array manipulation helpers.
+
   * Well documented, distinct and short methods doing only one thing at
-    a time with decent names and examples
+    a time with decent names and examples.
+
   * High test coverage taking care of edge case input output scenarios
-    acting as additional documentation of the system
-  * No further dependencies
+    acting as additional documentation of the system.
+
+  * No further dependencies.
 
 * :code:`Core/Utility/VersionNumberUtility`
 
   * Clear scope - a group of helper methods to process version number
-    handling
-  * Good test coverage defining the edge cases
+    handling.
+
+  * Good test coverage defining the edge cases.
+
   * Defines how version handling is done in TYPO3 and encapsulates this
-    concern well
+    concern well.
 
 
 Bad examples
@@ -106,21 +118,28 @@ Bad examples
 
 * :code:`Backend/Utility/BackendUtility`
 
-  * Global access, third party dependencies
-  * Stateful methods
-  * No clear concern
-  * God methods
+  * Global access, third party dependencies.
+
+  * Stateful methods.
+
+  * No clear concern.
+
+  * God methods.
 
 * :code:`Core/Utility/MailUtility`
 
   * Good: Relatively clear focus, but:
-  * Stateful, external dependencies to objects, depends on configuration
-  * Relatively inflexible
-  * This should probably “at least” be a service
+
+  * Stateful, external dependencies to objects, depends on configuration.
+
+  * Relatively inflexible.
+
+  * This should probably “at least” be a service.
 
 * :code:`Core/Utility/RootlineUtility`
 
-  * Not static
+  * Not static.
+
   * Should probably be a dedicated class construct, probably a service
     is not enough. Why is this not part of a tree structure?
 

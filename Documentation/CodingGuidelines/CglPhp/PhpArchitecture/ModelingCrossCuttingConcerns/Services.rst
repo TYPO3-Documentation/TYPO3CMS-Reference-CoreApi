@@ -10,14 +10,20 @@ Services
 Characteristica
 """""""""""""""
 
-* Services MUST be used as objects, they are never static
-* A single service MUST consist of one class only
+* Services MUST be used as objects, they are never static.
+
+* A single service MUST consist of one class only.
+
 * Services MUST be located in a :code:`Service/` directory and MUST end
-  with :code:`Service`, eg. :file:`Service/FoobarService.php`
-* Service instances MAY hold state, but SHOULD be stateless
-* Services MAY use configuration, but SHOULD not
+  with :code:`Service`, eg. :file:`Service/FoobarService.php`.
+
+* Service instances MAY hold state, but SHOULD be stateless.
+
+* Services MAY use configuration, but SHOULD not.
+
 * Services MAY have multiple entry points, but SHOULD have only one
-* Services SHOULD NOT be singletons
+
+* Services SHOULD NOT be singletons.
 
 
 Rationale
@@ -55,8 +61,9 @@ Good examples
 
 * :code:`\TYPO3\CMS\Extbase\Service\CacheService`
 
-  * Small and straight scope with useful helpers
-  * It is a singleton, but that is feasible in this case
+  * Small and straight scope with useful helpers.
+
+  * It is a singleton, but that is feasible in this case.
 
 
 Bad examples
@@ -65,8 +72,10 @@ Bad examples
 * :code:`\TYPO3\CMS\Core\Service\AbstractService`,
   :code:`TYPO3\CMS\Sv\AuthenticationService`
 
-  * Not modeled in a sane way, this should be within :code:`Core/Authentication`
-  * Far too complex, class abstraction and extending classes
+  * Not modeled in a sane way, this should be within
+    :code:`Core/Authentication`.
+
+  * Far too complex, class abstraction and extending classes.
 
 
 Further reading

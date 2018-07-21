@@ -11,10 +11,12 @@ Characteristica
 """""""""""""""
 
 * A trait MAY access properties or methods of the class it is
-  embedded in
+  embedded in.
+
 * A trait MUST be combined with an interface. Classes using a trait
-  must implement at least this interface
-* A trait interface MUST have a default implementation trait
+  must implement at least this interface.
+
+* A trait interface MUST have a default implementation trait.
 
 
 Rationale
@@ -51,16 +53,18 @@ Good examples
 
 * :code:`\Symfony\Component\DependencyInjection\ContainerAwareInterface` with
   :code:`\Symfony\Component\DependencyInjection\ContainerAwareTrait` as default
-  implementation
+  implementation.
 
   * The :code:`ContainerAwareInterface` is tested to within the
     dependency injection system of symfony and the trait is a simple
     default implementation that easily adds the interface functionality
     to a given class.
-  * Good naming
-  * Clear scope
 
-* :code:`LoggerAwareInterface` with a default trait
+  * Good naming.
+
+  * Clear scope.
+
+* :code:`LoggerAwareInterface` with a default trait.
 
 
 Bad examples
@@ -68,12 +72,15 @@ Bad examples
 
 * :code:`\TYPO3\CMS\FluidStyledContent\ViewHelpers\Menu\MenuViewHelperTrait`
 
-  * Contains only protected methods, can not be combined with interface
+  * Contains only protected methods, can not be combined with interface.
+
   * Contains :code:`getTypoScriptFrontendController()`, hides this
-    dependency in the consuming class
-  * No interface
+    dependency in the consuming class.
+
+  * No interface.
+
   * It would have probably been better to add the trait code to a full
-    class and just use it in the according view helpers (composition)
+    class and just use it in the according view helpers (composition).
 
 
 Further reading

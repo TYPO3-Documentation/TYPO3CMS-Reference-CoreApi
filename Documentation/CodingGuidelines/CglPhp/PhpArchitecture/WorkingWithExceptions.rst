@@ -47,18 +47,21 @@ Typical cases for exceptions that are designed to be caught
 
 * Race conditions than can be created by editors in a normal workflow:
 
-  * editor 1 calls list module and a record is shown
-  * editor 2 deletes this record
-  * editor 1 clicks the link to open this deleted record
+  * Editor 1 calls list module and a record is shown.
+
+  * Editor 2 deletes this record.
+
+  * Editor 1 clicks the link to open this deleted record.
+
   * The code throws a catchable, specific named exception that is turned
-    into a localized error message shown to the user “The record bla
-    from table foo you tried to open has been deleted ...”.
+    into a localized error message shown to the user "The record 12
+    from table tt_content you tried to open has been deleted …".
 
 * Temporary issues: Updating the extension list in the Extension Manager
   fails because of a network issue - The code throws a catchable, named
   exception that is turned into a localized error message shown to the
-  user “Can not connect to update servers, please check internet
-  connection ...”
+  user "Can not connect to update servers, please check internet
+  connection …".
 
 
 Typical cases for exceptions that should not be caught
@@ -69,6 +72,7 @@ Typical cases for exceptions that should not be caught
   code checks for this case and throws a top-level PHP built-in
   exception (:code:`\RuntimeException` in this case) to point developers
   to an invalid configuration scenario.
+
 * Programming error/ wrong API usage: Code that can not do its job
   because a developer did not take care and used an API in a wrong way.
   This is a common reason to throw an extension and can be found at lots
@@ -108,7 +112,7 @@ So, rule:
    As soon as multiple different specific exceptions are thrown within
    some extension, there should be a generic base exception within the extension
    that is not thrown itself, and the specific exceptions that are thrown
-   then extend from this class. 
+   then extend from this class.
 
 Typically, only the specific exceptions are
 caught however. In general, the inheritance hierarchy shouldn’t be
@@ -124,7 +128,7 @@ exception is caught and transformed into a localized flash message or
 a notification. Typically, those additional pieces of information
 should be added as additional constructor arguments::
 
-   __construct($message = "", $code = 0, Exception $previous = null, 
+   __construct($message = "", $code = 0, Exception $previous = null,
                string $additionalArgument, int $anotherArgument)
 
 There should be getters for those additional data parts within the
@@ -147,23 +151,28 @@ Good examples
     if the record to open has been deleted meanwhile. This can happen
     in inline scenarios, so the TcaInline data provider catches this
     exception.
+
   * Good: Next to a meaningful exception message, the exception is
     enriched with the table name and the uid it was handling in
     :code:`__construct()` to hand over further useful information to the
     catching code.
+
   * Good: The catching code catches this specific exception, uses the
     getters of the exception to get the additional data and creates a
     localized error message from it that is enriched with further data
     that only the catching code knows.
+
   * Good: The exception hierarchy is relatively flat - it extends from
     a more generic :code:`backend\Form\Exception` which itself extends
     from :code:`backend\Exception` which extends :code:`\Exception`.
     The :code:`backend\Form\Exception` could have been left out, but
     since the backend extension is so huge, the author decided to have
     this additional class layer in between.
+
   * Good: The method that throws has :code:`@throws` annotations to hint
     IDEs like PhpStorm that an exception may be received using that
     method.
+
   * Bad: The exception could have had a more dedicated name like
     :code:`DatabaseRecordVanishedException` or similar.
 
@@ -174,6 +183,7 @@ Good examples
     (:code:`DatabaseRecordException`) and the other three being
     top-level PHP built-in exceptions that indicate a developer/ code
     usage error.
+
   * Bad: The generic exception messages could be more verbose and
     explain in more detail on what went wrong.
 
@@ -188,7 +198,7 @@ Bad examples
     This is not a good idea
     and indicates something is wrong in the code that may throw this
     exception. A specific exception should be caught here only.
-    
+
   * Bad: Catching :php:`\RuntimeException`.
 
     This may hide more serious

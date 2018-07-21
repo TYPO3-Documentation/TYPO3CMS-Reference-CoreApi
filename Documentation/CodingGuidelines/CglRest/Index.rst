@@ -12,15 +12,16 @@ files.
 Directory and filenames
 =======================
 
-* Files have the ending :file:`.rst`
+* Files have the ending :file:`.rst`.
+
 * Language files are located in the directory :file:`<extension>/Documentation`.
 
 Format
 ======
 
-* use spaces, not TABs
-* indent with 3 spaces per indent level
+* Use spaces, not TABs.
 
+* Indent with 3 spaces per indent level.
 
 .. seealso::
 

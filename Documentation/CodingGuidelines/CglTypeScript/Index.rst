@@ -14,14 +14,16 @@ Directories and filenames
 =========================
 
 * TypeScript files should have the file ending :file:`.ts`
+
 * TypeScript files are located under :file:`<extension>/Resources/Private/TypeScript/`
 
 
 Format
 ======
 
-* use spaces, not TABs
-* indent with 2 spaces
+* Use spaces, not TABs.
+
+* Indent with 2 spaces.
 
 .. seealso::
 

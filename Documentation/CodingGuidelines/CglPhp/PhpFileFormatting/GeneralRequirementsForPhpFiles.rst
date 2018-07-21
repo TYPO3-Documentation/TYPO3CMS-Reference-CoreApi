@@ -100,25 +100,25 @@ manually or using a text editor that takes care of this.
 
 Spaces must be added:
 
-- on both sides of string, arithmetic, assignment and other similar
+* On both sides of string, arithmetic, assignment and other similar
   operators (for example `.`, `=`, `+`, `-`,
-  `?`, `:`, `*`, etc)
+  `?`, `:`, `*`, etc).
 
-- after commas
+* After commas.
 
-- in single line comments after the comment sign (double slash)
+* In single line comments after the comment sign (double slash).
 
-- after asterisks in multiline comments
+* After asterisks in multiline comments.
 
-- after conditional keywords like `if (` and `switch (`
+* After conditional keywords like `if (` and `switch (`.
 
-- before conditional keywords if the keyword is not the first
-  character like `} elseif {`
+* Before conditional keywords if the keyword is not the first
+  character like `} elseif {`.
 
 Spaces must not be present:
 
-- after an opening brace and before a closing brace. For example:
-  `explode( 'blah', 'someblah' )` needs to be written as `explode('blah', 'someblah')`
+* After an opening brace and before a closing brace. For example:
+  `explode( 'blah', 'someblah' )` needs to be written as `explode('blah', 'someblah')`.
 
 
 Character set

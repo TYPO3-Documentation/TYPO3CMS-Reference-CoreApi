@@ -12,14 +12,16 @@ files. XLIFF is based on XML.
 Directory and filenames
 =======================
 
-* Files have the ending :file:`.xlf`
+* Files have the ending :file:`.xlf`.
+
 * Language files are located in the directory :file:`<extension>/Resources/Private/Language`.
 
 Format
 ======
 
-* use TABs, not spaces
-* TAB size is 4
+* Use TABs, not spaces.
+
+* TAB size is 4.
 
 
 .. seealso::

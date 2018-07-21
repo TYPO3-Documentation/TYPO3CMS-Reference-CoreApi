@@ -263,13 +263,13 @@ Loops
 
 The following loops can be used:
 
-- do
+* do
 
-- while
+* while
 
-- for
+* for
 
-- foreach
+* foreach
 
 The use of :code:`each` is not allowed in loops.
 
