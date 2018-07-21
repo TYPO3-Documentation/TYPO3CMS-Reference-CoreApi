@@ -38,7 +38,7 @@ caught by a higher level code segment, then a specific exception type
 - mostly unique for this case - should be thrown. If the exception
 should never be caught, then a top-level PHP built-in exception should
 be thrown. For PHP built-in exceptions, the actual class is not crucial,
-if in doubt, a :code:`\RuntimeException` fits - it is much more important
+if in doubt, a :php:`\RuntimeException` fits - it is much more important
 to throw a meaningful exception message in those cases.
 
 
@@ -70,14 +70,14 @@ Typical cases for exceptions that should not be caught
 * Wrong configuration: A flex from contains a :code:`type=inline` field.
   At the time of this writing, this case was not implemented, so the
   code checks for this case and throws a top-level PHP built-in
-  exception (:code:`\RuntimeException` in this case) to point developers
+  exception (:php:`\RuntimeException` in this case) to point developers
   to an invalid configuration scenario.
 
 * Programming error/ wrong API usage: Code that can not do its job
   because a developer did not take care and used an API in a wrong way.
   This is a common reason to throw an extension and can be found at lots
   of places in the core. A top-level exception like
-  :code:`\RuntimeException` should be thrown.
+  :php:`\RuntimeException` should be thrown.
 
 
 Typical exception arguments
@@ -88,7 +88,7 @@ The standard exception signature::
    public function __construct($message = "", $code = 0, Exception $previous = null) { }
 
 TYPO3 typically uses a meaningful exception message and a unique code.
-Uniqueness of :code:`$code` is created by using a timestamp of :code:`now`
+Uniqueness of :php:`$code` is created by using a timestamp of :php:`now`
 (the time when the exception is created): This can be easily created,
 for instance using the trivial shell command :code:`date +%s`. Throwing
 a meaningful message in is important especially if top-level exceptions
@@ -147,14 +147,14 @@ Good examples
   :php:`\TYPO3\CMS\Backend\Form\Exception\DatabaseRecordException`,
   :php:`\TYPO3\CMS\Backend\Form\FormDataProvider\TcaInline`
 
-  * Scenario: :code:`DatabaseEditRow` may throw a :code:`DatabaseRecordException`
+  * Scenario: :php:`DatabaseEditRow` may throw a :php:`DatabaseRecordException`
     if the record to open has been deleted meanwhile. This can happen
     in inline scenarios, so the TcaInline data provider catches this
     exception.
 
   * Good: Next to a meaningful exception message, the exception is
     enriched with the table name and the uid it was handling in
-    :code:`__construct()` to hand over further useful information to the
+    :php:`__construct()` to hand over further useful information to the
     catching code.
 
   * Good: The catching code catches this specific exception, uses the
@@ -163,24 +163,24 @@ Good examples
     that only the catching code knows.
 
   * Good: The exception hierarchy is relatively flat - it extends from
-    a more generic :code:`backend\Form\Exception` which itself extends
-    from :code:`backend\Exception` which extends :code:`\Exception`.
-    The :code:`backend\Form\Exception` could have been left out, but
+    a more generic :php:`Backend\Form\Exception` which itself extends
+    from :php:`Backend\Exception` which extends :php:`\Exception`.
+    The :php:`Backend\Form\Exception` could have been left out, but
     since the backend extension is so huge, the author decided to have
     this additional class layer in between.
 
-  * Good: The method that throws has :code:`@throws` annotations to hint
+  * Good: The method that throws has :php:`@throws` annotations to hint
     IDEs like PhpStorm that an exception may be received using that
     method.
 
   * Bad: The exception could have had a more dedicated name like
-    :code:`DatabaseRecordVanishedException` or similar.
+    :php:`DatabaseRecordVanishedException` or similar.
 
-* :code:`\TYPO3\CMS\Backend\Form\FormDataProvider\AbstractDatabaseRecordProvider`
+* :php:`\TYPO3\CMS\Backend\Form\FormDataProvider\AbstractDatabaseRecordProvider`
 
-  * Good: method :code:`getRecordFromDatabase()` throws exceptions at
+  * Good: method :php:`getRecordFromDatabase()` throws exceptions at
     four different places with only one of them being catchable
-    (:code:`DatabaseRecordException`) and the other three being
+    (:php:`DatabaseRecordException`) and the other three being
     top-level PHP built-in exceptions that indicate a developer/ code
     usage error.
 

@@ -16,8 +16,8 @@ belongs inside its extension. The namespace starts with
 name of the subfolder of :file:`Classes/`, in which the file is located
 (if any). E.g. the file
 :file:`typo3conf/ext/realurl/Classes/Controller/AliasesController.php`
-with the class :code:`AliasesController` is in the namespace
-":code:`DmitryDulepov\Realurl\Controller`".
+with the class :php:`AliasesController` is in the namespace
+":php:`DmitryDulepov\Realurl\Controller`".
 
 User files with these class names are commonly found in the
 :file:`typo3conf/ext/` directory. Optionally these files can be

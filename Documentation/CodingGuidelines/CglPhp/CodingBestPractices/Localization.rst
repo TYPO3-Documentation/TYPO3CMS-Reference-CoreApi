@@ -8,33 +8,33 @@ Localization
 
 TYPO3 is designed to be fully localizable. Hard-coded strings should
 thus be avoided unless there are some technical limitations (e.g. some
-very early or low-level stuff where a :code:`$GLOBALS['LANG']` object
+very early or low-level stuff where a :php:`$GLOBALS['LANG']` object
 is not yet available).
 
 
 Defining localized strings
 """"""""""""""""""""""""""
 
-Here are some rules to respect when working with labels in :code:`locallang`
+Here are some rules to respect when working with labels in :file:`locallang`
 files:
 
 * Always check the existing locallang files to see if a given localized
-  string already exists, in particular :code:`EXT:lang/locallang_common.xlf`
-  and :code:`EXT:lang/locallang_core.xlf`.
+  string already exists, in particular :file:`EXT:lang/locallang_common.xlf`
+  and :file:`EXT:lang/locallang_core.xlf`.
 
 * Localized strings should never be all uppercase. If uppercase is needed,
   then appropriate methods should be used to transform them to uppercase.
 
 * Localized strings must not be split into several parts to include
   stuff in their middle. Rather use a single string with
-  :code:`sprintf()` markers (:code:`%s`, :code:`%d`, etc.).
+  :php:`sprintf()` markers (:code:`%s`, :code:`%d`, etc.).
 
-* When a localized string contains several :code:`sprintf()` markers, it
+* When a localized string contains several :php:`sprintf()` markers, it
   **must** use numbered arguments (e.g. :code:`%1$d`).
 
 * Localized strings should never contain configuration options (e.g.
   :code:`index_config:timer_frequency`, which would display a link or
-  :code:`EXT:wizard_crpages/cshimages/wizards_1.png`, which would show
+  :file:`EXT:wizard_crpages/cshimages/wizards_1.png`, which would show
   an image). Configuration like this does not belong in language
   labels, but in TypoScript.
 

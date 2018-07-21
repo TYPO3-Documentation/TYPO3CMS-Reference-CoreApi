@@ -85,7 +85,7 @@ It ends with the next blank line. Any additional text after that line
 and before the first tag is the long description.
 
 In the comment blocks use the *short* forms of the type names (e.g.
-:code:`int`, :code:`bool`, :code:`string`, :code:`array` or
-:code:`mixed`).
+:php:`int`, :php:`bool`, :php:`string`, :php:`array` or
+:php:`mixed`).
 
 Use :code:`@return void` when a function does *not* return a value.

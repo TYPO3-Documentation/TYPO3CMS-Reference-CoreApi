@@ -34,10 +34,10 @@ where the file belongs inside TYPO3 CMS. The namespace starts with
 backslash and then the name of the subfolder of :file:`Classes/`, in
 which the file is located (if any). E.g. the file
 :file:`typo3/sysext/frontend/Classes/ContentObject/ContentObjectRenderer.php`
-with the class :code:`ContentObjectRenderer` is in the namespace
+with the class :php:`ContentObjectRenderer` is in the namespace
 :php:`TYPO3\CMS\Frontend\ContentObject`.
 
-:code:`use` statements can be added to this section.
+:php:`use` statements can be added to this section.
 
 Copyright notice
 """"""""""""""""

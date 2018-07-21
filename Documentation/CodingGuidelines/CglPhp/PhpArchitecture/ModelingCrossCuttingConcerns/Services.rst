@@ -14,8 +14,8 @@ Characteristica
 
 * A single service MUST consist of one class only.
 
-* Services MUST be located in a :code:`Service/` directory and MUST end
-  with :code:`Service`, eg. :file:`Service/FoobarService.php`.
+* Services MUST be located in a :file:`Service/` directory and MUST end
+  with :file:`Service`, eg. :file:`Service/FoobarService.php`.
 
 * Service instances MAY hold state, but SHOULD be stateless.
 
@@ -30,8 +30,8 @@ Rationale
 """""""""
 
 A “service” in this context is meant as the relatively short-sighted
-process of putting a class into a :code:`Service/` subfolder and calling
-it a :code:`WhateverService`. It does not have too much to do with the
+process of putting a class into a :file:`Service/` subfolder and calling
+it a :file:`WhateverService`. It does not have too much to do with the
 DDD Service context, which is broader. This section is just about which
 scope can be expected for classes residing in a Service folder within
 core extensions.
@@ -59,7 +59,7 @@ within the scope of a specific extension.
 Good examples
 """""""""""""
 
-* :code:`\TYPO3\CMS\Extbase\Service\CacheService`
+* :php:`\TYPO3\CMS\Extbase\Service\CacheService`
 
   * Small and straight scope with useful helpers.
 
@@ -69,11 +69,11 @@ Good examples
 Bad examples
 """"""""""""
 
-* :code:`\TYPO3\CMS\Core\Service\AbstractService`,
-  :code:`TYPO3\CMS\Sv\AuthenticationService`
+* :php:`\TYPO3\CMS\Core\Service\AbstractService`,
+  :php:`TYPO3\CMS\Sv\AuthenticationService`
 
   * Not modeled in a sane way, this should be within
-    :code:`Core/Authentication`.
+    :file:`Core/Authentication`.
 
   * Far too complex, class abstraction and extending classes.
 

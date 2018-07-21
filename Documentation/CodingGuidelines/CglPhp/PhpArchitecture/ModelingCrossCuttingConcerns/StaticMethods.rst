@@ -26,7 +26,7 @@ Characteristica
   encapsulated in static methods.
 
 * Utility classes MUST be located in a utility sub folder and MUST end
-  with :code:`Utility`, eg. :code:`FoobarUtility`.
+  with :php:`Utility`, eg. :php:`GeneralUtility`.
 
 * Static methods MUST be located in utility classes and SHOULD NOT be
   added to other classes, except a specific pattern has a hard
@@ -90,7 +90,7 @@ edge cases.
 
 Good examples
 """""""""""""
-* :code:`Core/Utility/ArrayUtility`
+* :php:`Core/Utility/ArrayUtility`
 
   * Clear scope - array manipulation helpers.
 
@@ -102,7 +102,7 @@ Good examples
 
   * No further dependencies.
 
-* :code:`Core/Utility/VersionNumberUtility`
+* :php:`Core/Utility/VersionNumberUtility`
 
   * Clear scope - a group of helper methods to process version number
     handling.
@@ -116,7 +116,7 @@ Good examples
 Bad examples
 """"""""""""
 
-* :code:`Backend/Utility/BackendUtility`
+* :php:`Backend/Utility/BackendUtility`
 
   * Global access, third party dependencies.
 
@@ -126,7 +126,7 @@ Bad examples
 
   * God methods.
 
-* :code:`Core/Utility/MailUtility`
+* :php:`Core/Utility/MailUtility`
 
   * Good: Relatively clear focus, but:
 
@@ -136,7 +136,7 @@ Bad examples
 
   * This should probably “at least” be a service.
 
-* :code:`Core/Utility/RootlineUtility`
+* :php:`Core/Utility/RootlineUtility`
 
   * Not static.
 
