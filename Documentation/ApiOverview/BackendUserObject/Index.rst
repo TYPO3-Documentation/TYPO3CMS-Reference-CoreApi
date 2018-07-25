@@ -26,7 +26,7 @@ Checking user access
 ^^^^^^^^^^^^^^^^^^^^
 
 The :code:`$BE_USER` object is mostly used to check user access right,
-but contains other helpful information as well. Following is an explaination of it using examples:
+but contains other helpful information as well. Following is an explanation of it using examples:
 
 
 .. _be-user-access-current:
