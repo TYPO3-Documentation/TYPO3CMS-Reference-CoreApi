@@ -94,7 +94,7 @@ as needed and are expected to be located in :file:`Resources/Private/Language`.
 
 In Extbase, the main file (:file:`locallang.xlf`) will be loaded automatically and
 available in the controller and Fluid views without further work needed. Other files will
-need to be referred to explicitly using the `EXT:LLL:path/to/file:my.label` syntax.
+need to be referred to explicitly using the `LLL:EXT:path/to/file:my.label` syntax.
 
 As mentioned above, the translation files follow the same naming conventions, but
 are prepended with the language code and a dot. They are stored alongside the default
