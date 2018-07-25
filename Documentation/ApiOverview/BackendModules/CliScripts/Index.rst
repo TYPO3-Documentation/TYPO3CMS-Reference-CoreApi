@@ -11,7 +11,7 @@ scripts from the command line. This makes it possible - for
 example - to set up cronjobs. There are two ways to register
 CLI scripts:
 
-- using the :file:`typo3` command-line dispatcher based on Symfony Commands.
+- using the :file:`TYPO3` command-line dispatcher based on Symfony Commands.
 
 - creating an Extbase command controller.
 
