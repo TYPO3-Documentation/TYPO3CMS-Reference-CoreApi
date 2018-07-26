@@ -49,7 +49,6 @@ submission.
    :linenos:
 
    $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $tce->stripslashes_values = 0;
    $tce->start($data, array());
    $tce->process_datamap();
 
@@ -69,7 +68,6 @@ commands.
    :linenos:
 
    $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $tce->stripslashes_values = 0;
    $tce->start(array(), $cmd);
    $tce->process_cmdmap();
 
@@ -142,7 +140,6 @@ all pages is cleared in line 7.
    :linenos:
 
    $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $tce->stripslashes_values = 0;
    $tce->reverseOrder = 1;
    $tce->start($data, array());
    $tce->process_datamap();
@@ -170,7 +167,6 @@ should not set this argument since you want TCE to use the global
    :linenos:
 
    $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $tce->stripslashes_values = 0;
    $tce->start($data, $cmd, $alternative_BE_USER);
    $tce->process_datamap();
    $tce->process_cmdmap();
