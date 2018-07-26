@@ -351,10 +351,6 @@ Description of keywords in syntax:
    :Description:
          Value for "fieldname".
 
-         .. important::
-            Always make sure :php:`$this->stripslashes_values` is false before using
-            DataHandler.)
-
 
 .. note::
    For FlexForms the data array of the FlexForm field is
@@ -421,6 +417,9 @@ one new system category::
        ),
    );
 
+.. note::
+   To get real uid of the record you have just created use DataHandler's `substNEWwithIDs` property like: :php:`$uid = $dataHandler->substNEWwithIDs['NEW9823be87'];`
+
 This updates the page with uid=9834 to a new title, "New title for
 this page", and no\_cache checked::
 
@@ -428,6 +427,7 @@ this page", and no\_cache checked::
        'title' => 'New title for this page',
        'no_cache' => '1'
    );
+
 
 
 .. _tce-clear-cache:
