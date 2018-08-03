@@ -22,6 +22,9 @@ A straight insert to a table:
 
 .. code-block:: php
 
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+    // use TYPO3\CMS\Core\Database\ConnectionPool;
+
     GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content')
         ->insert(
             'tt_content',
@@ -43,6 +46,9 @@ Straight fetch of a single row from `tt_content` table:
 
 .. code-block:: php
 
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+    // use TYPO3\CMS\Core\Database\ConnectionPool;
+    
     $uid = 4;
     $row = GeneralUtility::makeInstance(ConnectionPool::class)
         ->getConnectionForTable('tt_content')
@@ -90,6 +96,10 @@ SELECT multiple rows with some WHERE magic
 Advanced query using the `QueryBuilder` and manipulating the default restrictions:
 
 .. code-block:: php
+
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+    // use TYPO3\CMS\Core\Database\ConnectionPool;
+    // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction
 
     $uid = 4;
     // Get a query builder for a query on table "tt_content"
@@ -141,6 +151,9 @@ UPDATE multiple rows
 
 .. code-block:: php
 
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+    // use TYPO3\CMS\Core\Database\ConnectionPool;
+
     GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content')
         ->update(
             'tt_content',
@@ -164,6 +177,9 @@ DELETE a row
 
 .. code-block:: php
 
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+    // use TYPO3\CMS\Core\Database\ConnectionPool;
+    
     GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content')
         ->delete(
             'tt_content', // from
