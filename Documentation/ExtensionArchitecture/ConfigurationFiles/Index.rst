@@ -123,4 +123,4 @@ The following example contains the complete code::
     })();
 
 In most cases, the file :file:`ext_tables.php` is no longer needed, since most of
-the code can be placed in :file:`Configuration\TCA\*.php` files.
+the code can be placed in :file:`Configuration/TCA/*.php` files.
