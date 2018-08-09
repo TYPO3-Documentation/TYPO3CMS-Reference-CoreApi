@@ -207,7 +207,7 @@ update() and set()
 Create an `UPDATE` query. Typical usage::
 
    // UPDATE `tt_content` SET `bodytext` = 'peter' WHERE `bodytext` = 'klaus'
-   queryBuilder
+   $queryBuilder
       ->update('tt_content')
       ->where(
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')
