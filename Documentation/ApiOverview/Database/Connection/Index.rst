@@ -34,7 +34,6 @@ insert()
 
 Creates and executes an `INSERT INTO` statement. A (slightly simplified) example from the `Registry` API::
 
-
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    // INSERT INTO `sys_registry` (`entry_namespace`, `entry_key`, `entry_value`) VALUES ('aoeu', 'aoeu', 's:3:\"bar\";')
