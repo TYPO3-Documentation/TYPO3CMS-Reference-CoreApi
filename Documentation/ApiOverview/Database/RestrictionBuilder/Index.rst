@@ -156,7 +156,6 @@ However, many backend modules still want to show disabled records and remove the
 restrictions to allow administration of those records for an editor. A typical setup from within a
 backend module::
 
-
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction
@@ -182,7 +181,6 @@ An alternative to the recommended way of first removing all restrictions and the
 ones again (using :php:`->removeAll()`, then :php:`->add()`) is to kick specific restrictions with a call to
 :php:`->removeByType()`::
 
-
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    // use TYPO3\CMS\Core\Database\Query\Restriction\StartTimeRestriction
@@ -198,7 +196,6 @@ ones again (using :php:`->removeAll()`, then :php:`->add()`) is to kick specific
 In the frontend it is often needed to swap the `DefaultRestrictionContainer` with the
 `FrontendRestrictionContainer`::
 
-
    // use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer
    // Kick default restrictions and add list of default frontend restrictions
    $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
@@ -207,7 +204,6 @@ In the frontend it is often needed to swap the `DefaultRestrictionContainer` wit
 Note that :php:`->setRestrictions()` resets any previously specified restrictions. Any class instance implementing
 `QueryRestrictionContainerInterface` can be given to :php:`->setRestrictions()`. This allows extensions to
 deliver and use an own set of restrictions for own query statements if needed.
-
 
 .. tip::
 
