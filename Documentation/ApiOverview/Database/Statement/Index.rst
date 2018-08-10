@@ -37,7 +37,6 @@ fetch()
 
 Fetch next row from a result statement. Usually used in while() loops. Typical example::
 
-
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    // Fetch all records from tt_content on page 42
@@ -63,7 +62,6 @@ Returns an array containing all of the result set rows by implementing the same 
 Using that method saves some precious code characters but is more memory intensive if the result set is large
 with lots of rows and lot of data since big arrays are carried around in `PHP`::
 
-
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    // Fetch all records from tt_content on page 42
@@ -82,7 +80,6 @@ fetchColumn()
 Returns a single column from the next row of a result set, other columns from that result row are discarded.
 This method is especially handy for :php:`QueryBuilder->count()` queries. The :php:`Connection->count()` implementation
 does exactly that to return the number of rows directly::
-
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
