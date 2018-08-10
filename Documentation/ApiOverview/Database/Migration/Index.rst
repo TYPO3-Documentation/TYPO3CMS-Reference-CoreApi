@@ -22,7 +22,6 @@ and simple approach to verify this is to note down and compare the queries at th
 layer. In $GLOBALS['TYPO3_DB'], the final query statement is usually retrieved by removing the
 `exec_` part from the method name, in `doctrine` method :php:`QueryBuilder->getSQL()` can be used::
 
-
    // Inital code:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'index_fulltext', 'phash=' . (int)$phash);
 
@@ -56,7 +55,6 @@ table's `TCA`. The method call *should* be removed during migration. If there is
 method involved in the old call like `enableFields()`, the migrated code typically removes all
 doctrine default restrictions and just adds the `DeletedRestriction` again::
 
-
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
       'uid, TSconfig',
@@ -85,7 +83,6 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
 `BackendUtility::versioningPlaceholderClause('pages')` is typically substituted with the
 `BackendWorkspaceRestriction`. Example very similar to the above one::
 
-
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
       'uid, TSconfig',
@@ -95,7 +92,6 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
          . BackendUtility::versioningPlaceholderClause('pages'),
       'pages.uid'
    );
-
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -118,7 +114,6 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
 :php:`BackendUtility::BEenableFields()` in combination with :php:`BackendUtility::deleteClause()` adds the same
 calls as the `DefaultRestrictionContainer`. No further configuration needed::
 
-
    // Before:
    $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
       'title, content, crdate',
@@ -127,7 +122,6 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
          . BackendUtility::BEenableFields($systemNewsTable)
          . BackendUtility::deleteClause($systemNewsTable)
    );
-
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -142,7 +136,6 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
 
 :php:`cObj->enableFields()` in frontend context is typically directly substituted with
 `FrontendRestrictionContainer`::
-
 
    // Before:
    $GLOBALS['TYPO3_DB']->exec_SELECTquery(
@@ -169,8 +162,7 @@ From ->exec_UDATEquery() to ->update()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Most often, the easiest way to migrate a `$GLOBALS['TYPO3_DB']->exec_UDATEquery()` is to use
-:php:`$connection->update()`:
-
+:php:`$connection->update()`::
 
     // Before:
     $database->exec_UPDATEquery(
@@ -197,7 +189,6 @@ Result set iteration
 The `exec_*` calls return a resource object that is typically iterated over using :php:`sql_fetch_assoc()`.
 This is typically changed to :php:`->fetch()` on the `Statement` object::
 
-
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(...);
    while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
@@ -217,7 +208,6 @@ sql_insert_id()
 It is sometimes needed to fetch the new `uid` of a just added record to further work with that row.
 In `TYPO3_DB` this was done with a call to :php:`->sql_insert_id()` after a :php:`->exec_INSERTquery()` call
 on the same resource. :php:`->lastInsertId()` can be used instead::
-
 
    // Before:
    $GLOBALS['TYPO3_DB']->exec_INSERTquery(
@@ -248,7 +238,6 @@ fullQuoteStr()
 ^^^^^^^^^^^^^^
 
 :php:`->fullQuoteStr()` is rather straight changed to a :php:`->createNamedParameter()`, typical case::
-
 
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
