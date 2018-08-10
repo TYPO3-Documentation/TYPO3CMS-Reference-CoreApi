@@ -18,12 +18,16 @@ to ensure queries are being build based on the requirements of the database plat
 
 An instance of the `ExpressionBuilder` is retrieved from the `QueryBuilder` object::
 
+
    $expressionBuilder = $queryBuilder->expr();
 
 
 It is good practice to not assign an instance of the `ExpressionBuilder` to a variable but
 to use it within the code flow of the `QueryBuilder` context directly::
 
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    $rows = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content')
       ->select('uid', 'header', 'bodytext')
       ->from('tt_content')
@@ -57,6 +61,9 @@ zero or only one argument, though.
 
 A core example to find a sys_domain record::
 
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // WHERE
    //     (`sys_domain`.`pid` = `pages`.`uid`)
    //     AND (
@@ -64,6 +71,7 @@ A core example to find a sys_domain record::
    //        OR
    //        (`sys_domain`.`domainName` = 'example.com/')
    //     )
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder->where(
       $queryBuilder->expr()->eq('sys_domain.pid', $queryBuilder->createNamedParameter('pages.uid', \PDO::PARAM_INT)),
       $queryBuilder->expr()->orX(
@@ -123,6 +131,7 @@ Remarks and warnings:
 
 Examples::
 
+
    // `bodytext` = 'foo' - string comparison
    ->eq('bodytext', $queryBuilder->createNamedParameter('foo'))
 
@@ -150,6 +159,7 @@ Examples::
       $queryBuilder->createNamedParameter('%' . $queryBuilder->escapeLikeWildcards('klaus') . '%')
    )
 
+   // use TYPO3\CMS\Core\Database\Connection;
    // `uid` IN (42, 0, 44) - properly sanitized, mind the intExplode and PARAM_INT_ARRAY
    ->in(
       'uid',
@@ -159,6 +169,7 @@ Examples::
       )
    )
 
+   // use TYPO3\CMS\Core\Database\Connection;
    // `CType` IN ('media', 'multimedia') - properly sanitized, mind the PARAM_STR_ARRAY
    ->in(
       'CType',
@@ -188,8 +199,12 @@ the field name (or table name / alias with field name), second argument an optio
 
 Examples::
 
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // Calculate the average creation timestamp of all rows from tt_content
    // SELECT AVG(`crdate`) AS `averagecreation` FROM `tt_content`
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $result = $queryBuilder
       ->addSelectLiteral(
          $queryBuilder->expr()->avg('crdate', 'averagecreation')
@@ -219,8 +234,11 @@ TRIM
 Using the TRIM expression makes sure fields get trimmed on database level.
 See the examples below to get a better idea of what can be done.
 
-.. code-block:: php
 
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+    // use TYPO3\CMS\Core\Database\ConnectionPool;
+    // use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
     $queryBuilder->expr()->comparison(
         $queryBuilder->expr()->trim($fieldName),
         ExpressionBuilder::EQ,
@@ -237,15 +255,18 @@ The call to :php:`$queryBuilder->expr()-trim()` can be one of the following:
   results in :code:`TRIM(TRAILING "x" FROM "tableName"."fieldName")`
 * :php:`trim('fieldName', AbstractPlatform::TRIM_BOTH, 'x')`
   results in :code:`TRIM(BOTH "x" FROM "tableName"."fieldName")`
-  
+
 LENGTH
 %%%%%%
 
 The LENGTH string function can be used to return the length of a string in bytes, method
 signature is fieldName with optional alias :php:`->length(string $fieldName, string $alias = null)`
 
-.. code-block:: php
 
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+    // use TYPO3\CMS\Core\Database\ConnectionPool;
+    // use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
     $queryBuilder->expr()->comparison(
         $queryBuilder->expr()->length($fieldName),
         ExpressionBuilder::GT,

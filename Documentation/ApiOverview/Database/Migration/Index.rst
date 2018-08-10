@@ -22,6 +22,7 @@ and simple approach to verify this is to note down and compare the queries at th
 layer. In $GLOBALS['TYPO3_DB'], the final query statement is usually retrieved by removing the
 `exec_` part from the method name, in `doctrine` method :php:`QueryBuilder->getSQL()` can be used::
 
+
    // Inital code:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'index_fulltext', 'phash=' . (int)$phash);
 
@@ -55,6 +56,7 @@ table's `TCA`. The method call *should* be removed during migration. If there is
 method involved in the old call like `enableFields()`, the migrated code typically removes all
 doctrine default restrictions and just adds the `DeletedRestriction` again::
 
+
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
       'uid, TSconfig',
@@ -64,6 +66,9 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
       'pages.uid'
    );
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction
    // After:
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
    $queryBuilder
@@ -80,6 +85,7 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
 `BackendUtility::versioningPlaceholderClause('pages')` is typically substituted with the
 `BackendWorkspaceRestriction`. Example very similar to the above one::
 
+
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
       'uid, TSconfig',
@@ -90,6 +96,11 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
       'pages.uid'
    );
 
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction
+   // use TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction
    // After:
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
    $queryBuilder
@@ -107,6 +118,7 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
 :php:`BackendUtility::BEenableFields()` in combination with :php:`BackendUtility::deleteClause()` adds the same
 calls as the `DefaultRestrictionContainer`. No further configuration needed::
 
+
    // Before:
    $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
       'title, content, crdate',
@@ -116,6 +128,9 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
          . BackendUtility::deleteClause($systemNewsTable)
    );
 
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // After:
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
       ->getQueryBuilderForTable('sys_news');
@@ -128,6 +143,7 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
 :php:`cObj->enableFields()` in frontend context is typically directly substituted with
 `FrontendRestrictionContainer`::
 
+
    // Before:
    $GLOBALS['TYPO3_DB']->exec_SELECTquery(
       '*', $table,
@@ -135,6 +151,9 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
          . $this->cObj->enableFields($table)
    );
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer
    // After:
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($table);
    $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
@@ -152,7 +171,6 @@ From ->exec_UDATEquery() to ->update()
 Most often, the easiest way to migrate a `$GLOBALS['TYPO3_DB']->exec_UDATEquery()` is to use
 :php:`$connection->update()`:
 
-.. code-block:: php
 
     // Before:
     $database->exec_UPDATEquery(
@@ -179,6 +197,7 @@ Result set iteration
 The `exec_*` calls return a resource object that is typically iterated over using :php:`sql_fetch_assoc()`.
 This is typically changed to :php:`->fetch()` on the `Statement` object::
 
+
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(...);
    while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
@@ -199,6 +218,7 @@ It is sometimes needed to fetch the new `uid` of a just added record to further 
 In `TYPO3_DB` this was done with a call to :php:`->sql_insert_id()` after a :php:`->exec_INSERTquery()` call
 on the same resource. :php:`->lastInsertId()` can be used instead::
 
+
    // Before:
    $GLOBALS['TYPO3_DB']->exec_INSERTquery(
       'pages',
@@ -209,7 +229,10 @@ on the same resource. :php:`->lastInsertId()` can be used instead::
    );
    $pageUid = $GLOBALS['TYPO3_DB']->sql_insert_id();
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // After:
+   $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
    $databaseConnectionForPages = $connectionPool->getConnectionForTable('pages');
    $databaseConnectionForPages->insert(
       'pages',
@@ -226,6 +249,7 @@ fullQuoteStr()
 
 :php:`->fullQuoteStr()` is rather straight changed to a :php:`->createNamedParameter()`, typical case::
 
+
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
       'uid, title',
@@ -233,6 +257,8 @@ fullQuoteStr()
       'bodytext = ' . $GLOBALS['TYPO3_DB']->fullQuoteStr('horst')
    );
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // After:
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $statement = $queryBuilder

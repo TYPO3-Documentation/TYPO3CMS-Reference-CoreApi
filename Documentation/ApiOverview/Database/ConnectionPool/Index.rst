@@ -8,6 +8,9 @@ ConnectionPool
 TYPO3's interface to execute queries via `doctrine-dbal` typically starts by asking
 the `ConnectionPool` for a `QueryBuilder` or a `Connection` object, handing over the table name to be queried::
 
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // Get a query builder for a table
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_myext_comments');
    // or

@@ -37,6 +37,9 @@ fetch()
 
 Fetch next row from a result statement. Usually used in while() loops. Typical example::
 
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // Fetch all records from tt_content on page 42
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $statement = $queryBuilder
@@ -60,6 +63,9 @@ Returns an array containing all of the result set rows by implementing the same 
 Using that method saves some precious code characters but is more memory intensive if the result set is large
 with lots of rows and lot of data since big arrays are carried around in `PHP`::
 
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // Fetch all records from tt_content on page 42
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $rows = $queryBuilder
@@ -77,6 +83,9 @@ Returns a single column from the next row of a result set, other columns from th
 This method is especially handy for :php:`QueryBuilder->count()` queries. The :php:`Connection->count()` implementation
 does exactly that to return the number of rows directly::
 
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // Get the number of tt_content records on pid 42 into variable $numberOfRecords
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $numberOfRecords = $queryBuilder
@@ -112,8 +121,9 @@ There is an API to make real use of prepared statements that becomes handy if th
 with different arguments over and over again. The example below prepares a statement to the `pages` table
 and executes it twice with different arguments:
 
-.. code-block:: php
 
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+    // use TYPO3\CMS\Core\Database\ConnectionPool;
     $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('pages');
     $queryBuilder = $connection->createQueryBuilder();
     $queryBuilder->getRestrictions()->removeAll();
@@ -130,7 +140,6 @@ and executes it twice with different arguments:
 
 Looking at a mysql debug log:
 
-.. code-block:: php
 
     Prepare SELECT `uid` FROM `pages` WHERE `uid` = ?
     Execute SELECT `uid` FROM `pages` WHERE `uid` = '24'
