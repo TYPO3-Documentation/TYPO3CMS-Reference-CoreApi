@@ -234,11 +234,12 @@ Create an `UPDATE` query. Typical usage::
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    // UPDATE `tt_content` SET `bodytext` = 'peter' WHERE `bodytext` = 'klaus'
+
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder
       ->update('tt_content')
       ->where(
-         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')
+         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
       ->set('bodytext', 'peter')
       ->execute();
@@ -255,7 +256,7 @@ The table alias can then be used in :php:`->set()` and :php:`->where()` expressi
    $queryBuilder
       ->update('tt_content', 'u')
       ->where(
-         $queryBuilder->expr()->eq('u.bodytext', $queryBuilder->createNamedParameter('klaus')
+         $queryBuilder->expr()->eq('u.bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
       ->set('u.bodytext', 'peter')
       ->execute();
