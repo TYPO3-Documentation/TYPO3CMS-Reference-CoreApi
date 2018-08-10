@@ -119,8 +119,7 @@ not properly implementing prepared statements fall back to a direct execution of
 
 There is an API to make real use of prepared statements that becomes handy if the same query is executed
 with different arguments over and over again. The example below prepares a statement to the `pages` table
-and executes it twice with different arguments:
-
+and executes it twice with different arguments::
 
     // use TYPO3\CMS\Core\Utility\GeneralUtility;
     // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -140,6 +139,7 @@ and executes it twice with different arguments:
 
 Looking at a mysql debug log:
 
+.. code-block:: sql
 
     Prepare SELECT `uid` FROM `pages` WHERE `uid` = ?
     Execute SELECT `uid` FROM `pages` WHERE `uid` = '24'
