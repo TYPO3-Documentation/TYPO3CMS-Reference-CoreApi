@@ -11,6 +11,8 @@ The `QueryBuilder` is a rather huge class that takes care of the main query deal
 An instance can get hold of by calling the :php:`ConnectionPool->getQueryBuilderForTable()` and handing
 over the table. Never instantiate and initialize the `QueryBuilder` directly via :php:`makeInstance()`! ::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('aTable');
 
 
@@ -41,6 +43,10 @@ The `QueryBuilder` comes with a happy little list of small methods:
 
 Most methods of the `QueryBuilder` return `$this` and can be chained::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Connection;
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('pages')->createQueryBuilder();
    $queryBuilder->select('uid')->from('pages');
 
 .. note::
@@ -59,6 +65,7 @@ select() and addSelect()
 Create a `SELECT` query.
 
 Select all fields::
+
 
    // SELECT *
    $queryBuilder->select('*')
@@ -102,6 +109,8 @@ Calling :php:`->execute()` on a :php:`->select()` query returns a `Statement` ob
 loop on that object is used, or :php:`->fetchAll()` to return a single array with all rows. A typical code flow
 of a `SELECT` query looks like::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $statement = $queryBuilder
       ->select('uid', 'header', 'bodytext')
@@ -132,10 +141,13 @@ count()
 
 Create a `COUNT` query, a typical usage::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // SELECT COUNT(`uid`) FROM `tt_content` WHERE (`bodytext` = 'klaus')
    //     AND ((`tt_content`.`deleted` = 0) AND (`tt_content`.`hidden` = 0)
    //     AND (`tt_content`.`starttime` <= 1475580240)
    //     AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1475580240)))
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $count = $queryBuilder
       ->count('uid')
       ->from('tt_content')
@@ -170,7 +182,10 @@ delete()
 
 Create a `DELETE FROM` query. The method requires the table name to drop data from. Classic usage::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // DELETE FROM `tt_content` WHERE `bodytext` = 'klaus'
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $affectedRows = $queryBuilder
       ->delete('tt_content')
       ->where(
@@ -206,7 +221,11 @@ update() and set()
 
 Create an `UPDATE` query. Typical usage::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // UPDATE `tt_content` SET `bodytext` = 'peter' WHERE `bodytext` = 'klaus'
+
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder
       ->update('tt_content')
       ->where(
@@ -219,7 +238,10 @@ Create an `UPDATE` query. Typical usage::
 :php:`->update()` requires the table to update as first argument and a table alias as optional second argument.
 The table alias can then be used in :php:`->set()` and :php:`->where()` expressions::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'peter' WHERE `u`.`bodytext` = 'klaus'
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder
       ->update('tt_content', 'u')
       ->where(
@@ -228,7 +250,6 @@ The table alias can then be used in :php:`->set()` and :php:`->where()` expressi
       ->set('u.bodytext', 'peter')
       ->execute();
 
-
 :php:`->set()` requires a field name as first argument and automatically quotes it internally. The second mandatory
 argument is the value a field should be set to, the value is automatically transformed to a named parameter
 of a prepared statement. This way, :php:`->set()` key/value pairs are automatically SQL injection save by default.
@@ -236,7 +257,10 @@ of a prepared statement. This way, :php:`->set()` key/value pairs are automatica
 If a field should be set to the value of another field from the row, the quoting needs to be turned off and
 :php:`->quoteIdentifier()` has to be used::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // UPDATE `tt_content` SET `bodytext` = `header` WHERE `bodytext` = 'klaus'
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder
       ->update('tt_content')
       ->where(
@@ -244,7 +268,6 @@ If a field should be set to the value of another field from the row, the quoting
       )
       ->set('bodytext', $queryBuilder->quoteIdentifier('header'), false)
       ->execute();
-
 
 Remarks:
 
@@ -269,6 +292,9 @@ insert() and values()
 
 Create an `INSERT` query. Typical usage::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $affectedRows = $queryBuilder
       ->insert('tt_content')
       ->values([
@@ -320,6 +346,8 @@ where(), andWhere() and orWhere()
 The three methods are used to create `WHERE` restrictions for `SELECT`, `COUNT`, `UPDATE` and `DELETE` query types.
 Each argument is typically an `ExpressionBuilder` object that will be cast to a string on :php:`->execute()`::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // SELECT `uid`, `header`, `bodytext`
    // FROM `tt_content`
    // WHERE
@@ -329,6 +357,7 @@ Each argument is typically an `ExpressionBuilder` object that will be cast to a 
    //    )
    //    AND (`pid` = 42)
    //    AND ... RestrictionBuilder TCA restrictions ...
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $statement = $queryBuilder
       ->select('uid', 'header', 'bodytext')
       ->from('tt_content')
@@ -390,6 +419,8 @@ are supported by calling the methods more than once. All methods require four ar
 table (or its alias), the name of the right side table, an alias for the right side table name and the join
 restriction as fourth argument::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // SELECT `sys_language`.`uid`, `sys_language`.`title`
    // FROM `sys_language`
    // INNER JOIN `pages_language_overlay` `overlay`
@@ -448,6 +479,8 @@ Notes to the above example:
 A more complex example with two joins. The first join points to the first table again using an alias to resolve
 a language overlay scenario. The second join uses the alias name of the first join target as left side::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // SELECT `tt_content_orig`.`sys_language_uid`
    // FROM `tt_content`
    // INNER JOIN `tt_content` `tt_content_orig` ON `tt_content`.`t3_origuid` = `tt_content_orig`.`uid`
@@ -514,6 +547,8 @@ orderBy() and addOrderBy()
 Add `ORDER BY` to a :php:`->select()` statement. Both :php:`->orderBy()` and :php:`->addOrderBy()` require a field name as first
 argument::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // SELECT * FROM `sys_language` ORDER BY `sorting` ASC
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
    $queryBuilder->getRestrictions()->removeAll();
@@ -540,7 +575,7 @@ Remarks:
 * To create a chain of orders, use :php:`->orderBy()` and then multiple :php:`->addOrderBy()` calls. Calling
   :php:`->orderBy('header')->addOrderBy('bodytext')->addOrderBy('uid', 'DESC')` creates
   ``ORDER BY `header` ASC, `bodytext` ASC, `uid` DESC``
-  
+
 * To add more complex sorting, you can use :php:`->add('orderBy', 'FIELD(eventtype, 0, 4, 1, 2, 3)', true)`,
   remember to quote properly
 
@@ -572,14 +607,16 @@ setMaxResults() and setFirstResult()
 Add `LIMIT` to restrict number of records and `OFFSET` for pagination query parts. Both methods should be
 called only once per statement::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // SELECT * FROM `sys_language` LIMIT 2 OFFSET 4
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
    $queryBuilder
       ->select('*')
       ->from('sys_language')
       ->setMaxResults(2)
       ->setFirstResult(4)
       ->execute();
-
 
 Remarks:
 
@@ -597,6 +634,8 @@ add()
 Method :php:`->add()` appends to or replaces a single, generic query part. It can be used as a low level call
 if more specific calls don't give enough freedom to express parts of statments::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
    $queryBuilder->select('*')->from('sys_language');
    $queryBuilder->add('orderBy', 'FIELD(eventtype, 0, 4, 1, 2, 3)');
@@ -620,6 +659,8 @@ getSQL()
 Method :php:`->getSQL()` returns the created query statement as string. It is incredibly useful during development
 to verify the final statement is executed just as a developer expects it::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
    $queryBuilder->select('*')->from('sys_language');
    debug($queryBuilder->getSQL());
@@ -648,6 +689,8 @@ getParameters()
 
 Method :php:`->getParameters()` returns the values for the prepared statement placeholders in an array. It is incredibly useful during development to verify the final statement is executed just as a developer expects it::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
    $queryBuilder->select('*')->from('sys_language');
    debug($queryBuilder->getParameters());
@@ -686,7 +729,10 @@ expr()
 Return an instance of the `ExpressionBuilder`. This object is used to create complex `WHERE` query parts and `JOIN`
 expressions::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // SELECT `uid` FROM `tt_content` WHERE (`uid` > 42)
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder
       ->select('uid')
       ->from('tt_content')
@@ -713,6 +759,8 @@ createNamedParameter()
 Create a placeholder for a prepared statement field value. **Always** use that when dealing with user input in
 expressions to make the statement SQL injection safe::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // SELECT * FROM `tt_content` WHERE (`bodytext` = 'kl\'aus')
    $searchWord = "kl'aus"; // $searchWord = GeneralUtility::_GP('searchword');
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
@@ -770,6 +818,8 @@ Rules:
   or :php:`GeneralUtility::quoteJSvalue()`, too. Sanitizing should be directly obvious at the very place where it is
   important::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // DO
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder->getRestrictions()->removeAll();
@@ -801,6 +851,9 @@ quoteIdentifier() and quoteIdentifiers()
 :php:`->quoteIdentifier()` must be used if not a value is handled, but a field name. The quoting is different in those
 cases and typically ends up with backticks ````` instead of ticks ``'``::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Connection;
    // SELECT `uid` FROM `tt_content` WHERE (`header` = `bodytext`)
    // Return list of rows where header and bodytext values are identical
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
@@ -846,8 +899,12 @@ escapeLikeWildcards()
 Helper method to quote `%` characters within a search string. This is helpful in :php:`->like()` and :php:`->notLike()`
 expressions::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Connection;
    // SELECT `uid` FROM `tt_content` WHERE (`bodytext` LIKE '%kl\\%aus%')
    $searchWord = 'kl%aus';
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder
       ->select('uid')
       ->from('tt_content')

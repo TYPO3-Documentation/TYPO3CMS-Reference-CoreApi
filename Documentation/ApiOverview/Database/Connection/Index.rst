@@ -34,6 +34,8 @@ insert()
 
 Creates and executes an `INSERT INTO` statement. A (slightly simplified) example from the `Registry` API::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // INSERT INTO `sys_registry` (`entry_namespace`, `entry_key`, `entry_value`) VALUES ('aoeu', 'aoeu', 's:3:\"bar\";')
    GeneralUtility::makeInstance(ConnectionPool::class)
       ->getConnectionForTable('sys_registry')
@@ -54,6 +56,9 @@ It is possible to add another array as third argument to specify how single valu
 if `date` or `numbers` or similar should be inserted. The example below quotes the first value to an integer
 and the second one to a string::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Connection;
    // INSERT INTO `sys_log` (`userid`, `details`) VALUES (42, 'klaus')
    GeneralUtility::makeInstance(ConnectionPool::class)
       ->getConnectionForTable('sys_log')
@@ -84,6 +89,10 @@ bulkInsert()
 
 `INSERT` multiple rows at once. An example from the test suite::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   $connection = GeneralUtility::makeInstance(ConnectionPool::class)
+      ->getConnectionForTable('aTestTable')
    $connection->bulkInsert(
       'aTestTable',
       [
@@ -114,6 +123,9 @@ update()
 
 Create and execute an `UPDATE` statement. The example from `FAL's` `ResourceStorage` sets a storage to offline::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Connection;
    // UPDATE `sys_file_storage` SET `is_online` = 0 WHERE `uid` = '42'
    GeneralUtility::makeInstance(ConnectionPool::class)
       ->getConnectionForTable('sys_file_storage')
@@ -141,6 +153,9 @@ delete()
 Execute a `DELETE` query using `equal` conditions in `WHERE`, example from `BackendUtility` to mark
 rows as no longer locked by a user::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Connection;
    // DELETE FROM `sys_lockedrecords` WHERE `userid` = 42
    GeneralUtility::makeInstance(ConnectionPool::class)
       ->getConnectionForTable('sys_lockedrecords')
@@ -168,6 +183,8 @@ truncate()
 Empty a table, removing all rows. Usually much quicker than a :php:`->delete()` of all rows. This typically
 resets "auto increment primary keys" to zero. Use with care::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // TRUNCATE `cache_treelist`
    GeneralUtility::makeInstance(ConnectionPool::class)
       ->getConnectionForTable('cache_treelist')
@@ -180,6 +197,8 @@ count()
 A `COUNT` query. Again, this methods becomes handy if very simple `COUNT` statements are to be executed, the example
 returns tha number of active rows from table `tt_content` that have their `bodytext` field set to `klaus`::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // SELECT COUNT(*)
    // FROM `tt_content`
    // WHERE
@@ -225,6 +244,8 @@ Creates and executes a simple `SELECT` query based on `equal` conditions. Its us
 :ref:`RestrictionBuilder <database-restriction-builder>` kicks in and key/value pairs are automatically
 quoted::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // SELECT `entry_key`, `entry_value` FROM `sys_registry` WHERE `entry_namespace` = 'my_extension'
    $resultRows = GeneralUtility::makeInstance(ConnectionPool::class)
       ->getConnectionForTable('sys_registry')
@@ -255,6 +276,10 @@ lastInsertId()
 
 Returns the `uid` of the last :php:`->insert()` statement. Useful if this id needs to be used afterwards directly::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Connection;
+   $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
    $databaseConnectionForPages = $connectionPool->getConnectionForTable('myTable');
    $databaseConnectionForPages->insert(
       'myTable',
@@ -284,6 +309,8 @@ usefulness is limited however and no good example within the core can be found a
 
 The method can be helpful in loops to save some precious code characters, too::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($myTable);
    foreach ($someList as $aListValue) {
       $myResult = $connection->createQueryBuilder

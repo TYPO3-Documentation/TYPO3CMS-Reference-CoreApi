@@ -64,6 +64,9 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
       'pages.uid'
    );
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction
    // After:
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
    $queryBuilder
@@ -90,6 +93,10 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
       'pages.uid'
    );
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction
+   // use TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction
    // After:
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
    $queryBuilder
@@ -116,6 +123,8 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
          . BackendUtility::deleteClause($systemNewsTable)
    );
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // After:
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
       ->getQueryBuilderForTable('sys_news');
@@ -135,6 +144,9 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
          . $this->cObj->enableFields($table)
    );
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer
    // After:
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($table);
    $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
@@ -150,9 +162,7 @@ From ->exec_UDATEquery() to ->update()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Most often, the easiest way to migrate a `$GLOBALS['TYPO3_DB']->exec_UDATEquery()` is to use
-:php:`$connection->update()`:
-
-.. code-block:: php
+:php:`$connection->update()`::
 
     // Before:
     $database->exec_UPDATEquery(
@@ -209,7 +219,10 @@ on the same resource. :php:`->lastInsertId()` can be used instead::
    );
    $pageUid = $GLOBALS['TYPO3_DB']->sql_insert_id();
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // After:
+   $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
    $databaseConnectionForPages = $connectionPool->getConnectionForTable('pages');
    $databaseConnectionForPages->insert(
       'pages',
@@ -233,6 +246,8 @@ fullQuoteStr()
       'bodytext = ' . $GLOBALS['TYPO3_DB']->fullQuoteStr('horst')
    );
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
    // After:
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $statement = $queryBuilder
