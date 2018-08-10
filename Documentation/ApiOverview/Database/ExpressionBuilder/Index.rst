@@ -18,13 +18,10 @@ to ensure queries are being build based on the requirements of the database plat
 
 An instance of the `ExpressionBuilder` is retrieved from the `QueryBuilder` object::
 
-
    $expressionBuilder = $queryBuilder->expr();
-
 
 It is good practice to not assign an instance of the `ExpressionBuilder` to a variable but
 to use it within the code flow of the `QueryBuilder` context directly::
-
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -38,7 +35,6 @@ to use it within the code flow of the `QueryBuilder` context directly::
       )
       ->execute()
       ->fetchAll();
-
 
 .. warning::
 
@@ -60,7 +56,6 @@ take any number of argument which are all combined. It usually doesn't make much
 zero or only one argument, though.
 
 A core example to find a sys_domain record::
-
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -199,7 +194,6 @@ the field name (or table name / alias with field name), second argument an optio
 
 Examples::
 
-
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    // Calculate the average creation timestamp of all rows from tt_content
@@ -232,8 +226,7 @@ TRIM
 %%%%
 
 Using the TRIM expression makes sure fields get trimmed on database level.
-See the examples below to get a better idea of what can be done.
-
+See the examples below to get a better idea of what can be done::
 
     // use TYPO3\CMS\Core\Utility\GeneralUtility;
     // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -260,8 +253,7 @@ LENGTH
 %%%%%%
 
 The LENGTH string function can be used to return the length of a string in bytes, method
-signature is fieldName with optional alias :php:`->length(string $fieldName, string $alias = null)`
-
+signature is fieldName with optional alias :php:`->length(string $fieldName, string $alias = null)`::
 
     // use TYPO3\CMS\Core\Utility\GeneralUtility;
     // use TYPO3\CMS\Core\Database\ConnectionPool;
