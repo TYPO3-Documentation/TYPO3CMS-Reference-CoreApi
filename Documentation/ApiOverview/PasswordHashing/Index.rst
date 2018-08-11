@@ -40,19 +40,19 @@ at different services. Maybe, the user uses the same login email and password fo
 To mitigate this risk, one-way hash algorithms have been invented: The given password is one-way
 transformed to some different string (a hash), this hash is stored in the database instead of the
 plain text password. The idea is if you see the hash, you can not calculate back to the plain text
-password. Thats why hashes are called "one-way": Its easily possible to calculate a hash from given password, but
-it is expensive (in terms of computation time) to calculate a password from a given hash. If a user tries
-to log in and submits its password, the same one-way transformation is done again, if it is then identical
+password easily. That's why hashes are called "one-way": It's easily possible to calculate a hash from given
+password, but it is expensive (in terms of computation time) to calculate a password from a given hash. If a user
+tries to log in and submits its password, the same one-way transformation is done again, if it is then identical
 with the hash stored in the database, the submitted password must have been correct and the login is granted.
 
 The most well-known hash algorithm is md5. Those basic hash algorithms and especially md5 have drawbacks,
 tough: First, if you find some other string that resolves to the same hash, you are screwed (that's called
 a collision). An attacker could login with a password that is not identical to "your" password, but still matches
-the calculated hash. And second, if an attacker just calculates a huge list of all possible passwords (this is
-called a rainbow table) and put them into a database to compare any given hash with, it can easily look up plain
-text passwords for given hashes. A simple md5 hash is susceptible to both of these attack vectors and
-thus deemed insecure. md5 rainbow tables for casual passwords can be found online and md5 collision
-creation can be done with without issues. In short: md5 is not a good idea to secure user passwords.
+the calculated hash. And second, if an attacker just calculates a huge list of all possible password with their
+representing hashes (this is called a rainbow table) and puts them into a database to compare any given hash with,
+it can easily look up plain text passwords for given hashes. A simple md5 hash is susceptible to both of these
+attack vectors and thus deemed insecure. md5 rainbow tables for casual passwords can be found online and md5 collision
+creation can be done with without too many issues. In short: md5 is not a good idea to secure user passwords.
 
 To mitigate the rainbow table attack vector, the idea of "salting" has been invented: Instead of
 hashing the given password directly and always ending up with the same hash for the same password
