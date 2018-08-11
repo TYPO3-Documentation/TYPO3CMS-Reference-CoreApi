@@ -36,6 +36,7 @@ This chapter describes the most important elements of the API.
    Logging/Index
    ErrorAndExceptionHandling/Index
    SystemRegistry/Index
+   PasswordHashing/Index
    Mail/Index
    Services/Index
    Authentication/Index
