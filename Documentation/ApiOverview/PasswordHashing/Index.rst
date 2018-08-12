@@ -77,7 +77,7 @@ systems in parallel or optimized into chunks by re-using already computed sectio
 
 TYPO3 improved its standards in password hash storing over a long time and always went with more modern
 approaches: Core version v4.3 from 2009 added salted password storing, v4.5 from 2011 added salted passwords
-storing using algorithm 'phpass' by default, v6.2 from 2014f made salted passwords storing mandatory,
+storing using algorithm 'phpass' by default, v6.2 from 2014 made salted passwords storing mandatory,
 v8 added the improved hash algorithm 'pbkdf2' and used it by default.
 
 With core v9, the password hashing has been refactored and modern hash algorithms like especially
