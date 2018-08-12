@@ -40,7 +40,7 @@ at different services. Maybe, the user uses the same login email and password fo
 To mitigate this risk, one-way hash algorithms have been invented: The given password is one-way
 transformed to some different string (a hash), this hash is stored in the database instead of the
 plain text password. The idea is if you see the hash, you can not calculate back to the plain text
-password easily. That's why hashes are called "one-way": It's easily possible to calculate a hash from given
+password easily. That's why hashes are called "one-way": It's easy to calculate a hash from given
 password, but it is expensive (in terms of computation time) to calculate a password from a given hash. If a user
 tries to log in and submits its password, the same one-way transformation is done again, if it is then identical
 with the hash stored in the database, the submitted password must have been correct and the login is granted.
