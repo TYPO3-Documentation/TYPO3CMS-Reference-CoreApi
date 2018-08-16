@@ -254,7 +254,7 @@ Example implementation for TYPO3 frontend::
 
    // Given plain text password
    $password = 'someHopefullyGoodAndLongPassword';
-   $hashInstance = GeneralUtility::makeInstance(SaltFactory::class)->getDefaultHashInstance('FE');
+   $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)->getDefaultHashInstance('FE');
    $hashedPassword = $hashInstance->getHashedPassword($password);
 
 Checking a password
@@ -271,7 +271,7 @@ Example implementation for TYPO3 frontend::
    $password = 'someHopefullyGoodAndLongPassword';
    // The stored password hash from database
    $passwordHash = 'YYY';
-   $success = GeneralUtility::makeInstance(SaltFactory::class)
+   $success = GeneralUtility::makeInstance(PasswordHashFactory::class)
        ->get($saltedPassword)
        ->checkPassword($password, $passwordHash);
 
