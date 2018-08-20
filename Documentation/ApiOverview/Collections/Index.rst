@@ -101,6 +101,9 @@ inside extensions. The most important classes are:
 
 :code:`\TYPO3\CMS\Core\Resource\Collection\FolderBasedFileCollection`
   Again similar, but for file collections based on a folder.
+  
+:code:`\TYPO3\CMS\Core\Resource\Collection\CategoryBasedFileCollection`
+  File collection based on a single category.
 
 
 .. _collections-example:
