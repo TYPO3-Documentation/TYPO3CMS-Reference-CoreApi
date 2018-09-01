@@ -63,7 +63,7 @@ Bad examples
 """"""""""""
 
 * :code:`\TYPO3\CMS\Core\Service\AbstractService`,
-  :code:`TYPO3\CMS\Sv\AuthenticationService`
+  :code:`TYPO3\CMS\Core\AuthenticationService`
 
   * Not modeled in a sane way, this should be within :code:`Core/Authentication`
   * Far too complex, class abstraction and extending classes

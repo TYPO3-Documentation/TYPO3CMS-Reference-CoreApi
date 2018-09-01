@@ -93,7 +93,7 @@ by extensions.
 
 The base service class
 (:php:`\TYPO3\CMS\Core\Authentication\AuthenticationService`) provided
-by extension "sv" is extended by both "saltedpasswords" and "rsaauth" extensions
+by extension "core" is extended by both "saltedpasswords" and "rsaauth" extensions
 but for different subtypes ("authUserFE" and "authUserBE" for the former,
 "processLoginDataBE" and "processLoginDataFE" for the latter).
 
