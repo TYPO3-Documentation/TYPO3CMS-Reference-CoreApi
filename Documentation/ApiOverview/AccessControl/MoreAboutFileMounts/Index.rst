@@ -66,7 +66,7 @@ must be explicitly declared in the global configuration option
 :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']`. Any absolute
 path that you want to declare in a File Storage needs to have its
 first part match the value of :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']`
-(or of the web root, which is stored in constant :code:`PATH_site`).
+(or of the web root, which can be retrieved with :code:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`).
 
 As an example, let's say you want to define two storages, one
 pointing to :file:`/home/foo/bar` and one pointing to

@@ -58,6 +58,12 @@ Table 1: Traditional List
    :Defined:
          SystemEnvironmentBuilder::defineBaseConstants()
    :Description:
+        .. note::
+
+          this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()` to retrieve the information.
+          Use :php:`Environment::isWindows()` and :php:`Environment::isUnix()` instead.
+
+
          Operating system; Windows = "WIN", other = "" (presumed to be some
          sort of Unix)
    :FE:
@@ -69,6 +75,12 @@ Table 1: Traditional List
    :Defined:
          SystemEnvironmentBuilder::definePaths()
    :Description:
+
+         .. note::
+
+            this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getCurrentScript()` to retrieve the information.
+
+
          Abs. path to current script.
    :FE:
          Yes
@@ -92,7 +104,12 @@ Table 1: Traditional List
    :Defined:
          SystemEnvironmentBuilder::definePaths()
    :Description:
-         Abs. path of the TYPO3 admin dir (:code:`PATH_site + TYPO3_mainDir`).
+        .. note::
+
+            this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3'` to retrieve the information.
+
+
+         Abs. path of the TYPO3 admin dir.
    :FE:
          No
 
@@ -102,8 +119,13 @@ Table 1: Traditional List
    :Defined:
          SystemEnvironmentBuilder::definePaths()
    :Description:
+         .. note::
+
+            this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()` to retrieve the information.
+
+
          Absolute path to directory with the frontend (one directory above
-         :code:`PATH_typo3`)
+         :code:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3/`)
    :FE:
          Yes
 
@@ -113,6 +135,12 @@ Table 1: Traditional List
    :Defined:
          SystemEnvironmentBuilder::definePaths()
    :Description:
+
+         .. note::
+
+            this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3conf'` to retrieve the information.
+
+
          Absolute TYPO3 configuration path (local, not part of source).
    :FE:
          Yes
@@ -214,6 +242,12 @@ Operating system identifier
 Constant                              Value                                                   Description
 ===================================== ======================================================= ============
 TYPO3_OS                              self::getTypo3Os())                                     Either "WIN" or empty string
+
+                                                                                              .. note::
+
+                                                                                                this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()` to retrieve the information.
+                                                                                                Use :php:`Environment::isWindows()` and :php:`Environment::isUnix()` instead.
+
 ===================================== ======================================================= ============
 
 

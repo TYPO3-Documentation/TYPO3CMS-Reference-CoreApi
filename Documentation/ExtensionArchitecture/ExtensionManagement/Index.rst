@@ -71,7 +71,7 @@ This is how the data structure for an extension in this array looks::
 
    $GLOBALS['TYPO3_LOADED_EXT'][extension key] = array(
            "type" =>                S, G, L for system, global or local type of availability.
-           "siteRelPath" => Path of extension dir relative to the PATH_site constant
+           "siteRelPath" => Path of extension dir relative to :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`
                                    e.g. "typo3/ext/my_ext/" or "typo3conf/ext/my_ext/"
            "typo3RelPath" => Path of extension dir relative to the "typo3/" admin folder
                                    e.g. "ext/my_ext/" or "../typo3conf/ext/my_ext/"
