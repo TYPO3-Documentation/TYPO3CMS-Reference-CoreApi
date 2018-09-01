@@ -196,14 +196,67 @@ TYPO3_URL_GENERAL                     'https://typo3.org/'
 TYPO3_URL_LICENSE                     'https://typo3.org/typo3-cms/overview/licenses/'
 TYPO3_URL_EXCEPTION                   'https://typo3.org/go/exception/CMS/'
 TYPO3_URL_MAILINGLISTS                'http://lists.typo3.org/cgi-bin/mailman/listinfo'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
 TYPO3_URL_DOCUMENTATION               'https://typo3.org/documentation/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_DOCUMENTATION_TSREF         'https://docs.typo3.org/typo3cms/TyposcriptReference/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_DOCUMENTATION_TSCONFIG      'https://docs.typo3.org/typo3cms/TSconfigReference/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_CONSULTANCY                 'https://typo3.org/support/professional-services/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_CONTRIBUTE                  'https://typo3.org/contribute/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_SECURITY                    'https://typo3.org/teams/security/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_DOWNLOAD                    'https://typo3.org/download/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_SYSTEMREQUIREMENTS          'https://typo3.org/typo3-cms/overview/requirements/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_DONATE                      'https://typo3.org/donate/online-donation/'
 TYPO3_URL_WIKI_OPCODECACHE            'https://wiki.typo3.org/Opcode_Cache'
 ===================================== =======================================================
@@ -216,10 +269,30 @@ String constants
 Constant                              Value                                                   Description
 ===================================== ======================================================= ============
 NUL                                   chr(0)                                                  A null
+
+                                                                                              .. note::
+
+                                                                                                this constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                                                                                Use :php:`"\0"` instead.
+
 TAB                                   chr(9)                                                  A tabulator
+
+
+                                                                                              .. note::
+
+                                                                                                this constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                                                                                Use :php:`"\t"` instead.
+
 LF                                    chr(10)                                                 A linefeed
 CR                                    chr(13)                                                 A carriage return
 SUB                                   chr(26)                                                 A sub (substitute) character
+
+
+                                                                                              .. note::
+
+                                                                                                this constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                                                                                Use :php:`chr(26)` instead.
+
 CRLF                                  CR + LF                                                 Carriage return + linefeed pair
 ===================================== ======================================================= ============
 
