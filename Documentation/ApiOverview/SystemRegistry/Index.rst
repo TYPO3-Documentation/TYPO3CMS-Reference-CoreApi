@@ -174,8 +174,10 @@ Examples
 
 Here's an example taken from the Scheduler system extension::
 
+   $context = GeneralUtility::makeInstance(Context::class);
+   $requestStartTimestamp = $context->getPropertyFromAspect('date', 'timestamp');
    $registry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Registry::class);
-   $runInformation = array('start' => $GLOBALS['EXEC_TIME'], 'end' => time(), 'type' => $type);
+   $runInformation = array('start' => $requestStartTimestamp, 'end' => time(), 'type' => $type);
    $registry->set('tx_scheduler', 'lastRun', $runInformation);
 
 It is retrieved later using::

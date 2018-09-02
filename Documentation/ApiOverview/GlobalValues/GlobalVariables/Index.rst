@@ -62,6 +62,12 @@ Global variables
    :Description:
          Is set to :php:`time()` so that the rest of the script has a common value
          for the script execution time.
+
+         .. note::
+
+           Should not be used anymore, rather use the :ref:`DateTime Aspect <context_api_aspects_datetime>`.
+
+
    :FE:
          YES
 
@@ -74,6 +80,12 @@ Global variables
          Is set to :php:`$EXEC_TIME` but can be altered later in the script if we
          want to simulate another execution-time when selecting from e.g. a
          database (used in the frontend for preview of future and past dates)
+
+         .. note::
+
+           Should not be used anymore, rather use the :ref:`DateTime Aspect <context_api_aspects_datetime>`.
+
+
    :FE:
          Yes
 

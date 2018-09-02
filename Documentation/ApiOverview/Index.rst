@@ -25,6 +25,7 @@ This chapter describes the most important elements of the API.
    GlobalValues/Index
    BackendModules/Index
    BackendUserObject/Index
+   Context/Index
    Typo3CoreEngine/Index
    FormEngine/Index
    Database/Index

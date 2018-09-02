@@ -76,8 +76,9 @@ Example::
 
    protected function processSubmission()
    {
+       $context = GeneralUtility::makeInstance(Context::class);
        // Check if user is logged in
-       if ($GLOBALS['TSFE']->fe_user->user['uid']) {
+       if ($context->getPropertyFromAspect('frontend.user', 'isLoggedIn')) {
            …
        }
    }
