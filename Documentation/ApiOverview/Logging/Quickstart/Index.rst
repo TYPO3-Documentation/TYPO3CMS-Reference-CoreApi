@@ -16,15 +16,20 @@ Instantiate a logger for the current class
 .. note::
    As of TYPO3 9.0 you no longer need to use makeInstance to create an 
    instance of the logger yourself. You can use `LoggerAwareTrait 
-   <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects.html?highlight=loggerawaretrait>`__
+   <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects.html?highlight=loggerawaretrait>`__.
+   You must implement the :php:`\Psr\Log\LoggerAwareInterface` interface with your class to have the Trait taking effect.
    
 Use LoggerAwareTrait in your class to automatically instantiate `$this->logger`::
 
    use Psr\Log\LoggerAwareTrait;
 
-   class Example
+   class Example implements \Psr\Log\LoggerAwareInterface
    {
       use LoggerAwareTrait;
+
+      protected function myFunction() {
+         $this->logger->info('entered function myFunction');
+      }
    }
    
 Or instantiate the logger in the classic way with makeInstance::
