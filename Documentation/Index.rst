@@ -22,7 +22,7 @@ TYPO3 Core APIs
       tsref, typoscript, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2000-2017
+      2000-2018
 
 :Author:
       Documentation Team
