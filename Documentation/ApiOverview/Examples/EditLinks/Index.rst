@@ -25,7 +25,7 @@ the dispatched was introduced in TYPO3 4.1).
 
 Furthermore when using Fluid templates, you cannot call PHP code directly
 but have to wrap it in a view helper. The "examples" extensions demonstrates
-with the "edit link" view helper (:code:`\TYPO3\CMS\Backend\ViewHelpers\Link\EditRecordViewHelper`)::
+with the "edit link" view helper (:code:`\TYPO3\CMS\Backend\ViewHelpers\Link\EditRecordViewHelper`).
 
 This can then be used in the Fluid template. Below are a few examples,
 also demonstrating what kind of parameters must be passed to achieve

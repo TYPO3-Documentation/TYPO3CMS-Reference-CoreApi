@@ -118,7 +118,7 @@ more on general naming conventions in TYPO3.
    your extensions keys at all! That will make the rules simpler. This is
    highly encouraged.
 
-.. _extension-old-extensions :
+.. _extension-old-extensions:
 
 Note on "old" extensions:
 """""""""""""""""""""""""
@@ -139,7 +139,7 @@ Extending "extensions classes"
 
 As a standard procedure you should include the "class extension code"
 even in your own extensions. This is placed at the bottom of every
-class file::
+class file:
 
 .. code-block:: php
 
