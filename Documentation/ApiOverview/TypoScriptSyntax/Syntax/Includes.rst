@@ -97,12 +97,12 @@ are available:
 =======  ==========================================================================
 Option   Description
 =======  ==========================================================================
-FILE     A reference to a file relative to :code:`PATH_site`.
+FILE     A reference to a file relative to :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`.
 
          Also paths *relative to the including file* can be
          passed to INCLUDE_TYPOSCRIPT, if the inclusion is called from inside a
          file. These paths start with :file:`./` or :file:`../`. The :file:`./`
-         is needed to distinguish them from paths relative to PATH_SITE. This
+         is needed to distinguish them from paths relative to :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`. This
          mechanism allows simple, nested TypoScript templates that can be moved
          or copied without the need to adapt all includes.
 
@@ -110,7 +110,7 @@ FILE     A reference to a file relative to :code:`PATH_site`.
          the file included will be searched for in the extension directory
          of extension "myext", subdirectory :file:`directory/file.txt`.
 
-DIR      This includes all files from a directory relative to :code:`PATH_site`,
+DIR      This includes all files from a directory relative to :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`,
          including subdirectories. If the optional property :file:`extensions="..."`
          is provided, only files with these file extensions are included;
          multiple extensions are separated by comma. This allows e.g. to include

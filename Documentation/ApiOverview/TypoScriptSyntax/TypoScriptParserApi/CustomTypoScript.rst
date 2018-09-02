@@ -62,7 +62,7 @@ Root level
 
    Description
          A reference to an image file relative to the website's path
-         (PATH\_site)
+         (:php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`)
 
 
 .. ###### END~OF~TABLE ######

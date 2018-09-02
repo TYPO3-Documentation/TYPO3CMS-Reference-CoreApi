@@ -17,30 +17,15 @@ It is often needed to create links to edit records in the TYPO3 backend.
 The same syntax is also used for creating new records.
 TYPO3 provides an API for creating such links, namely
 :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::editOnClick()`.
-This script will create an onclick-JavaScript event linking
-to the :file:`alt_doc.php` script in the :file:`PATH_typo3` directory.
+This script will create an onclick-JavaScript event preparing the necessary route for the operation.
 
 This is not always needed, especially in backend modules using the
 dispatcher method (which should be **all** backend modules, since
-the dispatched was introduced in TYPO3 4.1). A simple link to
-:file:`alt_doc.php` (with the proper parameters) works just as well.
+the dispatched was introduced in TYPO3 4.1).
 
 Furthermore when using Fluid templates, you cannot call PHP code directly
 but have to wrap it in a view helper. The "examples" extensions demonstrates
-with the "edit link" view helper (:code:`\Documentation\Examples\ViewHelpers\Be\EditLinkViewHelper`)::
-
-   public function render($parameters, $returnUrl = '') {
-      $uri = 'alt_doc.php?' . $parameters;
-      if (!empty($returnUrl)) {
-         $uri .= '&returnUrl=' . rawurlencode($returnUrl);
-      }
-
-      $this->tag->addAttribute('href', $uri);
-      $this->tag->setContent($this->renderChildren());
-      $this->tag->forceClosingTag(TRUE);
-      return $this->tag->render();
-   }
-
+with the "edit link" view helper (:code:`\TYPO3\CMS\Backend\ViewHelpers\Link\EditRecordViewHelper`)::
 
 This can then be used in the Fluid template. Below are a few examples,
 also demonstrating what kind of parameters must be passed to achieve

@@ -404,7 +404,7 @@ Detecting current workspace
 """""""""""""""""""""""""""
 
 You can always check what the current workspace of the backend user is
-by reading :code:`$GLOBALS['BE_USER']->workspace`. If the workspace is a
+by reading :code:`WorkspaceAspect->getWorkspaceId()`. If the workspace is a
 custom workspace you will find its record loaded in
 :code:`$GLOBALS['BE_USER']->workspaceRec`.
 

@@ -58,6 +58,12 @@ Table 1: Traditional List
    :Defined:
          SystemEnvironmentBuilder::defineBaseConstants()
    :Description:
+        .. note::
+
+          this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()` to retrieve the information.
+          Use :php:`Environment::isWindows()` and :php:`Environment::isUnix()` instead.
+
+
          Operating system; Windows = "WIN", other = "" (presumed to be some
          sort of Unix)
    :FE:
@@ -69,6 +75,12 @@ Table 1: Traditional List
    :Defined:
          SystemEnvironmentBuilder::definePaths()
    :Description:
+
+         .. note::
+
+            this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getCurrentScript()` to retrieve the information.
+
+
          Abs. path to current script.
    :FE:
          Yes
@@ -92,7 +104,12 @@ Table 1: Traditional List
    :Defined:
          SystemEnvironmentBuilder::definePaths()
    :Description:
-         Abs. path of the TYPO3 admin dir (:code:`PATH_site + TYPO3_mainDir`).
+        .. note::
+
+            this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3'` to retrieve the information.
+
+
+         Abs. path of the TYPO3 admin dir.
    :FE:
          No
 
@@ -102,8 +119,13 @@ Table 1: Traditional List
    :Defined:
          SystemEnvironmentBuilder::definePaths()
    :Description:
+         .. note::
+
+            this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()` to retrieve the information.
+
+
          Absolute path to directory with the frontend (one directory above
-         :code:`PATH_typo3`)
+         :code:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3/`)
    :FE:
          Yes
 
@@ -113,6 +135,12 @@ Table 1: Traditional List
    :Defined:
          SystemEnvironmentBuilder::definePaths()
    :Description:
+
+         .. note::
+
+            this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3conf'` to retrieve the information.
+
+
          Absolute TYPO3 configuration path (local, not part of source).
    :FE:
          Yes
@@ -168,14 +196,67 @@ TYPO3_URL_GENERAL                     'https://typo3.org/'
 TYPO3_URL_LICENSE                     'https://typo3.org/typo3-cms/overview/licenses/'
 TYPO3_URL_EXCEPTION                   'https://typo3.org/go/exception/CMS/'
 TYPO3_URL_MAILINGLISTS                'http://lists.typo3.org/cgi-bin/mailman/listinfo'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
 TYPO3_URL_DOCUMENTATION               'https://typo3.org/documentation/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_DOCUMENTATION_TSREF         'https://docs.typo3.org/typo3cms/TyposcriptReference/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_DOCUMENTATION_TSCONFIG      'https://docs.typo3.org/typo3cms/TSconfigReference/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_CONSULTANCY                 'https://typo3.org/support/professional-services/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_CONTRIBUTE                  'https://typo3.org/contribute/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_SECURITY                    'https://typo3.org/teams/security/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_DOWNLOAD                    'https://typo3.org/download/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_SYSTEMREQUIREMENTS          'https://typo3.org/typo3-cms/overview/requirements/'
+
+                                      .. note::
+
+                                          this constant has been marked as deprecated and will be removed with TYPO3 v10.
+
+
 TYPO3_URL_DONATE                      'https://typo3.org/donate/online-donation/'
 TYPO3_URL_WIKI_OPCODECACHE            'https://wiki.typo3.org/Opcode_Cache'
 ===================================== =======================================================
@@ -188,10 +269,30 @@ String constants
 Constant                              Value                                                   Description
 ===================================== ======================================================= ============
 NUL                                   chr(0)                                                  A null
+
+                                                                                              .. note::
+
+                                                                                                this constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                                                                                Use :php:`"\0"` instead.
+
 TAB                                   chr(9)                                                  A tabulator
+
+
+                                                                                              .. note::
+
+                                                                                                this constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                                                                                Use :php:`"\t"` instead.
+
 LF                                    chr(10)                                                 A linefeed
 CR                                    chr(13)                                                 A carriage return
 SUB                                   chr(26)                                                 A sub (substitute) character
+
+
+                                                                                              .. note::
+
+                                                                                                this constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                                                                                Use :php:`chr(26)` instead.
+
 CRLF                                  CR + LF                                                 Carriage return + linefeed pair
 ===================================== ======================================================= ============
 
@@ -214,6 +315,12 @@ Operating system identifier
 Constant                              Value                                                   Description
 ===================================== ======================================================= ============
 TYPO3_OS                              self::getTypo3Os())                                     Either "WIN" or empty string
+
+                                                                                              .. note::
+
+                                                                                                this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()` to retrieve the information.
+                                                                                                Use :php:`Environment::isWindows()` and :php:`Environment::isUnix()` instead.
+
 ===================================== ======================================================= ============
 
 

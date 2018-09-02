@@ -57,19 +57,11 @@ spaces) is fine. Longer lines should be split into several lines whenever
 possible. Each line fragment starting from the second must - compared
 to the first one - be indented with four space characters more. Example::
 
-   $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('uid, title', 'pages',
-       'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'),
-       '', 'title');
-
-or even better for readability::
-
-   $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
-       'uid, title',
-       'pages',
-       'pid=' . $this->fullQuoteStr($this->pid, 'pages') . $this->cObj->enableFields('pages'),
-       '',
-       'title'
-   );
+    BackendUtility::viewOnClick(
+        (int)$this->pageInfo['uid'],
+        '',
+        BackendUtility::BEgetRootLine((int)$this->pageInfo['uid'])
+    );
 
 Comment lines should be kept within a limit of about 80 characters
 (**excluding** the leading spaces) as it makes them easier to read.
