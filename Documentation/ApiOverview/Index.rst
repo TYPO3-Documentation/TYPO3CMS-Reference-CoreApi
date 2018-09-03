@@ -64,3 +64,4 @@ This chapter describes the most important elements of the API.
    ExtensionScanner/Index
    Examples/Index
    MetaTagApi/Index
+   XmlSitemap/Index
