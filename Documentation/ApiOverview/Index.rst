@@ -65,3 +65,4 @@ This chapter describes the most important elements of the API.
    Examples/Index
    MetaTagApi/Index
    PageTitleApi/Index
+   XmlSitemap/Index
