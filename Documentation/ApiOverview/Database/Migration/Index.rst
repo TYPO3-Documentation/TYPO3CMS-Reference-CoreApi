@@ -35,7 +35,7 @@ layer. In $GLOBALS['TYPO3_DB'], the final query statement is usually retrieved b
    $queryBuilder->select('*')
    ->from('index_fulltext')
    ->where(
-      $queryBuilder->expr()->eq('phash', $queryBuilder->createNamedParameter($pash, \PDO::PARAM_INT))
+      $queryBuilder->expr()->eq('phash', $queryBuilder->createNamedParameter($phash, \PDO::PARAM_INT))
    );
    debug($queryBuilder->getSQL());
 
