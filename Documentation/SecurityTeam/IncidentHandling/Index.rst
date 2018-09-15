@@ -67,6 +67,5 @@ version with the TYPO3 Security Team.
 
 Further details about the handling of security incidents and time
 frames can be found in the official TYPO3 Extension Security Policy at
-`http://typo3.org/teams/security/extension-security-policy/
-<http://typo3.org/teams/security/extension-security-policy/>`_
-
+`https://typo3.org/community/teams/security/extension-security-policy/
+<https://typo3.org/community/teams/security/extension-security-policy/>`_

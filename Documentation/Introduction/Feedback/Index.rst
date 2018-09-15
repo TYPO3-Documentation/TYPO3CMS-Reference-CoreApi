@@ -23,6 +23,5 @@ TYPO3 Security Team in the next chapter.
 
 Maintaining high quality documentation requires time and effort
 and the TYPO3 Documentation Team always appreciates support.
-If you want to support us, please join the documentation
-mailing list/forum (http://forum.typo3.org/index.php/f/44/).
-
+If you want to support us, please consider joining
+`the team <https://typo3.org/community/teams/documentation/>`_.
