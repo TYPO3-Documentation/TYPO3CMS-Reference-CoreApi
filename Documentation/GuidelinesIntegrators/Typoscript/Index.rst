@@ -181,3 +181,29 @@ A typical example in TypoScript looks like::
        jQuery.integrity = sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g=
      }
    }
+
+
+Risk of externally hosted JavaScript libraries
+""""""""""""""""""""""""""""""""""""""""""""""
+
+In many cases, it makes perfect sense to include JavaScript libraries, which are
+externally hosted. Like the example above, many libraries are hosted by CDN
+providers (Content Delivery Network) from an external resource rather than the
+own server or hosting infrastructure. This approach reduces the load and traffic
+of your own server and often speeds up the loading time for your end-users, in
+particular if well-known libraries are used.
+
+However, JavaScript libraries of any kind and nature, for example feedback,
+comment or discussion forums, as well as user tracking, statistics, additional
+features, etc. which are hosted *somewhere*, can be compromised, too.
+
+If you include a JavaScript library that is hosted under
+:code:`https://example.com/js/feedback.js` and the systems of operator of
+:code:`example.com` are compromised, your site and your site visitors are under
+risk, too.
+
+JavaScript running in the browser of your end-users is able to intercept any
+input, for example sensitive data such as personal details, credit card numbers,
+etc. From a security perspective, it it recommended to either not to use
+externally hosted JavaScript files or to only include them on pages, where
+necessary. On pages, where users enter data, they should be removed.
