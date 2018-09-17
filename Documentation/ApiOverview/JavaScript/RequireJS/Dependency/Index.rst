@@ -26,7 +26,7 @@ The code above is very easy to understand:
 1. every dependency in the array of the first argument
 2. will be injected in the callback function at the same position
 
-Let us combine jQuery with out own module from the :ref:`Extension example <requirejs-extensions>`
+Let us combine jQuery with our own module from the :ref:`Extension example <requirejs-extensions>`
 
 .. code-block:: js
 
