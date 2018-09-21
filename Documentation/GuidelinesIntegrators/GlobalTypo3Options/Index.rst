@@ -278,7 +278,7 @@ host names that are considered trustworthy for the particular TYPO3
 installation. "SERVER_NAME" is the default value and with this option
 value in effect, TYPO3 checks the currently submitted host-header
 against the SERVER_NAME variable. Please see security bulletin
-`TYPO3-CORE-SA-2014-001 <http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-core-sa-2014-001/>`_
+`TYPO3-CORE-SA-2014-001 <https://typo3.org/security/advisory/typo3-core-sa-2014-001/>`_
 for further details about specific setups.
 
 If the "Host:" header also contains a non-standard port, the
@@ -326,5 +326,3 @@ Example:
    $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_mode'] = 2;
 
 An email is only sent for the login of an administrator. Bit-1 has been set to 1, bit-0 is 0.
-
-

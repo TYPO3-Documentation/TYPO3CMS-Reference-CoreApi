@@ -36,5 +36,4 @@ You can contact the TYPO3 Security Team at `security@typo3.org
 <mailto:security@typo3.org>`_ .
 
 Please find further details about the TYPO3 Security Team at
-`http://typo3.org/teams/security <http://typo3.org/teams/security>`_ .
-
+`https://typo3.org/community/teams/security/ <https://typo3.org/community/teams/security/>`_ .
