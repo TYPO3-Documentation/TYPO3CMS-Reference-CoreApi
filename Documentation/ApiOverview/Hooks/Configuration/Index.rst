@@ -45,8 +45,8 @@ particular extension. ::
 
 .. note::
 
-   :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']` is the recommended place to
-   put hook configuration that are available inside your extensions!
+   :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']` is the recommended place where to
+   put hook configurations, which are processed inside of your extensions!
 
 This example shows hooks used in the "linkvalidator" system extension.
 The code looks inside the :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']` array
