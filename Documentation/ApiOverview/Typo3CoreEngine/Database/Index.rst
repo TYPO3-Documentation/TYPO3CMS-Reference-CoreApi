@@ -1,9 +1,6 @@
 .. include:: ../../../Includes.txt
 
-
-
 .. _tce-database-basics:
-
 .. _datahandler-basics:
 
 ========================================================
@@ -273,7 +270,7 @@ Command keywords and values
            - "setStage": Sets the stage of an element. *Special feature: The id-
              key in the array can be a comma list of ids in order to perform the
              stageChange over a number of records. Also, the internal variable
-             ->generalComment (also available through :file:`tce_db.php` as
+             ->generalComment (also available through `/record/commit route` as
              "&generalComment") can be used to set a default comment for all stage
              changes of an instance of tcemain.* Additional keys for this action
              is:
