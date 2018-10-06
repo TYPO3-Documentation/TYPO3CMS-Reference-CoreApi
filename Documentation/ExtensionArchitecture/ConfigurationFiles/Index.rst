@@ -74,11 +74,15 @@ Best practices
 Additionally, it is possible to extend TYPO3 in a lot of different ways (adding TCA, Backend Routes,
 Symfony Console Commands etc) which do not need to touch these files.
 
-It is heavily recommended to AVOID any checks on :php:`TYPO3_MODE` or :php:`TYPO3_REQUESTTYPE` constants
-(e.g. :php:`if(TYPO3_MODE === 'BE')`) within these files as it limits the functionality to cache the
+It is heavily recommended to AVOID any checks for values on :php:`TYPO3_MODE` or :php:`TYPO3_REQUESTTYPE`
+constants (e.g. :php:`if(TYPO3_MODE === 'BE')`) within these files as it limits the functionality to cache the
 whole systems' configuration. Any extension author should remove the checks if not explicitly
 necessary, and re-evaluate if these context-depending checks could go inside the hooks / caller
 function directly.
+
+It is recommended to check for the existence of the constans
+:php:`defined('TYPO3_MODE') or die();` to make sure the file is loaded within
+TYPO3 context.
 
 Additionally, it is recommended to use the extension name (e.g. "tt_address") instead of :php:`$_EXTKEY`
 within the two configuration files as this variable will be removed in the future. This also applies
@@ -122,5 +126,6 @@ The following example contains the complete code::
         // Add your code here
     })();
 
-In most cases, the file :file:`ext_tables.php` is no longer needed, since most of
-the code can be placed in :file:`Configuration/TCA/*.php` files.
+In most cases, the file :file:`ext_tables.php` is no longer needed, since most
+of the code can be placed in :file:`Configuration/TCA/*.php`
+:file:`Configuration/TCA/Overrides/*.php` files.
