@@ -15,6 +15,8 @@ root. This setup however did not fully settle yet, and is not documented
 here in detail. So, if you look at "casual" TYPO3 installations, you will
 almost always find the directory structure as outlined below.
 
+Also see :ref:`Environment` for further information, especially how to retrieve
+the paths within PHP code.
 
 .. t3-field-list-table::
   :header-rows: 1
@@ -53,25 +55,24 @@ almost always find the directory structure as outlined below.
       for more information on how single extensions are structured.
 
 
-  - :Directory: :file:`typo3conf/`
+  - :Directory: :ref:`Environment-config-path` either :file:`typo3conf/` or :file:`config/`
     :Description:
-      TYPO3 configuration directory. This directory contains local extensions
-      in :file:`typo3conf/ext` folder. It may also contain a :file:`typo3conf/l10n`
-      directory that holds localisation files for frontend or backend languages
-      other than english.
+      TYPO3 configuration directory. This directory contains installation wide
+      configuration.
 
-      The most important file within :file:`typo3conf/` however is
-      :file:`LocalConfiguration.php`. This one contains local settings of the main
-      global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS`], crucial settings like
-      database connect credentials are in here. The file is managed by the Install
-      Tool and the Extension Manager and the content should not be managed manually
-      since Extension Manager or Install Tool may override manually changed settings
-      again.
+      The most important file within this folder is
+      :file:`LocalConfiguration.php`. This one contains local settings of the
+      main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS`], crucial settings
+      like database connect credentials are in here. The file is managed by the
+      Install Tool and the Extension Manager and the content should not be
+      managed manually since Extension Manager or Install Tool may override
+      manually changed settings again.
 
-      The file :file:`LocalConfiguration.php` can be enriched by :file:`AdditionalConfiguration.php`
-      which is never touched by TYPO3 internal management tools. Be aware that having
-      settings within :file:`AdditionalConfiguration.php` may prevent the system from
-      doing automatic upgrades and should be used with care and only if you know what
+      The file :file:`LocalConfiguration.php` can be enriched by
+      :file:`AdditionalConfiguration.php` which is never touched by TYPO3
+      internal management tools. Be aware that having settings within
+      :file:`AdditionalConfiguration.php` may prevent the system from doing
+      automatic upgrades and should be used with care and only if you know what
       you are doing.
 
 
@@ -80,10 +81,10 @@ almost always find the directory structure as outlined below.
       Directory for local TYPO3 extensions. Each subdirectory contains one extension.
 
 
-  - :Directory: :file:`typo3conf/l10n`
+  - :Directory: :ref:`Environment-labels-path` either :file:`typo3conf/l10n` or :file:`var/labels`
     :Description:
-      Directory for extension localisations. The "Language" module of the TYPO3 Backend
-      manages this directory.
+      Directory for extension localisations. Contains all downloaded translation
+      files.
 
 
   - :Directory: :file:`typo3temp/`

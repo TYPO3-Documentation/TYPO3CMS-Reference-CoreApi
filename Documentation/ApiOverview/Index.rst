@@ -47,6 +47,7 @@ This chapter describes the most important elements of the API.
    Categories/Index
    Collections/Index
    Enumerations/Index
+   Environment/Index
    Http/Index
    Icon/Index
    Hooks/Index
