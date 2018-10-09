@@ -269,6 +269,26 @@ shouldn't have negative side effects, typically no :file:`ext_tables.sql` change
 extension to the new query API.
 
 
+TCA and TypoScript
+^^^^^^^^^^^^^^^^^^
+
+`TCA` and `TypoScript` needs to be adapted at places where SQL fragments are specified. Table and field
+names are quoted differently on different platforms and extension developers should never hard code
+quoting for specific target platforms, but let the core quote the field according to the currently used
+platform. This leads to a new syntax in various places, for instance in `TCA` property
+:ref:`foreign_table_where <t3tca:columns-select-properties-foreign-table-where>`. In general it applies to all
+places where SQL fragments are specified::
+
+    // Before:
+    'foreign_table_where' => 'AND tx_some_foreign_table_name.pid = 42',
+
+    // After:
+    'foreign_table_where' => 'AND {#tx_some_foreign_table_name}.{#pid} = 42',
+
+If using MySQL, this fragment will be parsed to ``AND `tx_some_foreign_table_name`.`pid` = 42`` (note the backticks)
+with the help of :ref:`QueryHelper::quoteDatabaseIdentifiers() <database-query-helper-quoteDatabaseIdentifiers>`.
+
+
 extbase QueryBuilder
 ^^^^^^^^^^^^^^^^^^^^
 

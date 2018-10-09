@@ -126,3 +126,38 @@ getDateTimeFormats()
 
 Just a left over method from the old `TYPO3_DB` `DatabaseConnection` class. Of little to no use
 for extension authors. This one is hopefully one of the first methods to vanish from the class.
+
+
+.. _database-query-helper-quoteDatabaseIdentifiers:
+
+quoteDatabaseIdentifiers()
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This helper method is used especially in `TCA` and `TypoScript` at places where SQL fragments are specified to
+correctly quote table and field names for the specific database platform. It for example
+substitutes :php:`{#aIdentifier}` to ```aIdentifier``` if using MySQL or to `"aIdentifier"`
+if using PostgreSQL. Let's suppose a simple `TCA` columns select field like this::
+
+    'aSelectFieldWithForeignTableWhere' => [
+        'label' => 'some label',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'foreign_table' => 'tx_some_foreign_table_name',
+            'foreign_table_where' => 'AND {#tx_some_foreign_table_name}.{#pid} = 42',
+        ],
+    ],
+
+Method :php:`quoteDatabaseIdentifiers()` is called for :php:`foreign_table_where`, and if using
+MySQL, this fragment will be substituted to::
+
+    AND `tx_some_foreign_table_name`.`pid` = 42
+
+The core had to come up with this special syntax since the core API contains various places
+where SQL fragments can be specified by extension developers who do not know and should not
+restrict on which actual platform a query is performed.
+
+As an extension developer it is important to use this :php:`{#...}` syntax in order to make
+extensions database platform agnostic. The TCA reference and TypoScript reference contains
+hints at the according properties that need this, in general the core calls this helper
+method whenever SQL fragments can be specified in `TCA` and `TypoScript`.
