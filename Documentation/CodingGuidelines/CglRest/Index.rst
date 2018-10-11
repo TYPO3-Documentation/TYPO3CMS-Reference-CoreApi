@@ -1,6 +1,6 @@
 .. include:: ../../Includes.txt
 
-.. _cgl-xliff:
+.. _cgl-rest:
 
 =======================
 reStructuredText (reST)
@@ -22,7 +22,3 @@ Format
 * Use spaces, not TABs.
 
 * Indent with 3 spaces per indent level.
-
-.. seealso::
-
-   :ref:`h2document:Formatting-reST-Source-Files`

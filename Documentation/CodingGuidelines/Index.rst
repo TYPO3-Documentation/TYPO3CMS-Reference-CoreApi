@@ -21,4 +21,3 @@ extensions or core parts.
    CglTypoScript/Index
    CglXliff/Index
    CglRest/Index
-   CodingBestPractices/Index
