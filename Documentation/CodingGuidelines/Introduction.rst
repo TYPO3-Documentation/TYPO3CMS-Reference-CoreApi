@@ -10,7 +10,7 @@ This chapter defines coding guidelines for the TYPO3 CMS project.
 Following these guidelines is mandatory for TYPO3 core developers and
 contributors to the TYPO3 core.
 
-Extension authors are strongly encouraged to follow these guidelines
+Extension authors are encouraged to follow these guidelines
 when developing extensions for TYPO3. Following these guidelines makes
 it easier to read the code, analyze it for learning or performing code
 reviews. These guidelines also help preventing typical errors in the
@@ -30,7 +30,7 @@ should their code not comply with the guidelines.
 
 Apart from that, adhering to the CGL is not voluntary: The CGL are also
 enforced by structural means: Automated tests are run by the continuous
-integration tool bamboo to make sure that every (core) code change complies
+integration tool `bamboo` to make sure that every (core) code change complies
 with the CGL. In case a change does not meet the criteria, bamboo will
 give a negative vote in the review system and point to the according
 problem.
