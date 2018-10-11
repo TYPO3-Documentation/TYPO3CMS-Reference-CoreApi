@@ -1,23 +1,18 @@
 .. include:: ../../Includes.txt
 
-
-
-
-
-
 .. _be-user:
 
 Backend User Object
 -------------------
 
 The backend user of a session is always available to the backend
-scripts as the global variable :code:`$BE_USER`. The object is created in
-:code:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
+scripts as the global variable :php:`$BE_USER`. The object is created in
+:php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
 and is an instance of the class :code:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
-(which extends :code:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
+(which extends :php:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
 
-In addition to :code:`$BE_USER` one other global variables is of interest -
-:code:`$FILEMOUNTS`, holding an array with the File mounts of the :code:`$BE_USER`.
+In addition to :php:`$BE_USER` one other global variables is of interest -
+:php:`$FILEMOUNTS`, holding an array with the File mounts of the :php:`$BE_USER`.
 
 
 .. _be-user-check:
@@ -25,8 +20,8 @@ In addition to :code:`$BE_USER` one other global variables is of interest -
 Checking user access
 ^^^^^^^^^^^^^^^^^^^^
 
-The :code:`$BE_USER` object is mostly used to check user access right,
-but contains other helpful information as well. See these examples:
+The :php:`$BE_USER` object is mostly used to check user access right,
+but contains other helpful information. This is presented here by a few examples:
 
 
 .. _be-user-access-current:
@@ -34,9 +29,9 @@ but contains other helpful information as well. See these examples:
 Checking access to current backend module
 """""""""""""""""""""""""""""""""""""""""
 
-:code:`$MCONF` is module configuration and the key :code:`$MCONF['access']` determines
+:php:`$MCONF` is module configuration and the key :php:`$MCONF['access']` determines
 the access scope for the module. This function call will check if the
-:code:`$BE_USER` is allowed to access the module and if not, the function
+:php:`$BE_USER` is allowed to access the module and if not, the function
 will exit with an error message. ::
 
       $BE_USER->modAccess($MCONF, 1);
@@ -52,7 +47,7 @@ the access list by this function call::
 
       $BE_USER->check('modules', 'web_list');
 
-Here access to the module "Web > List" is checked.
+Here access to the module **WEB > List** is checked.
 
 
 .. _be-user-access-tables:
@@ -60,8 +55,8 @@ Here access to the module "Web > List" is checked.
 Access to tables and fields?
 """"""""""""""""""""""""""""
 
-The same function :code:`->check()` can actually check all the :code:`->groupLists`
-inside :code:`$BE_USER`. For instance:
+The same function :php:`->check()` can actually check all the :php:`->groupLists`
+inside :php:`$BE_USER`. For instance:
 
 Checking modify access to the table "pages"::
 
@@ -94,7 +89,7 @@ Read access to a page?
 """"""""""""""""""""""
 
 This function call will return true if the user has read access to a
-page (represented by its database record, :code:`$pageRec`)::
+page (represented by its database record, :php:`$pageRec`)::
 
       $BE_USER->doesUserHaveAccess($pageRec, 1);
 
@@ -111,7 +106,7 @@ Is a page inside a DB mount?
 
 Access to a page should not be checked only based on page permissions
 but also if a page is found within a DB mount for ther user. This can
-be checked by this function call (:code:`$id` is the page uid)::
+be checked by this function call (:php:`$id` is the page uid)::
 
       $BE_USER->isInWebMount($id)
 
@@ -129,7 +124,7 @@ function call::
       $BE_USER->getPagePermsClause(1);
 
 Again the number "1" represents the "read" permission; "2" is "edit"
-and "4" is delete permission. The result from the above query could be this string::
+and "4" is "delete" permission. The result from the above query could be this string::
 
    ((pages.perms_everybody & 1 = 1)OR(pages.perms_userid = 2 AND pages.perms_user & 1 = 1)OR(pages.perms_groupid in (1) AND pages.perms_group & 1 = 1))
 
@@ -139,7 +134,7 @@ and "4" is delete permission. The result from the above query could be this stri
 Saving module data
 """"""""""""""""""
 
-This stores the input variable :code:`$compareFlags` (an array!) with the key
+This stores the input variable :php:`$compareFlags` (an array!) with the key
 "tools\_beuser/index.php/compare" ::
 
        $compareFlags = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('compareFlags');
@@ -175,7 +170,7 @@ Getting the username
 """"""""""""""""""""
 
 The full "be\_users" record of a authenticated user is available in
-:code:`$BE_USER`->user as an array. This will return the "username"::
+:php:`$BE_USER`->user as an array. This will return the "username"::
 
       $BE_USER->user['username']
 
@@ -185,9 +180,9 @@ The full "be\_users" record of a authenticated user is available in
 Get User Configuration value
 """"""""""""""""""""""""""""
 
-The internal :code:`->uc` array contains options which are managed by the
+The internal :php:`->uc` array contains options which are managed by the
 User Tools > User Settings module (extension "setup"). These values are accessible in
-the :code:`$BE_USER->uc` array. This will return the current state of
+the :php:`$BE_USER->uc` array. This will return the current state of
 "Notify me by email, when somebody logs in from my account" for the user::
 
       $BE_USER->uc['emailMeAtLogin']

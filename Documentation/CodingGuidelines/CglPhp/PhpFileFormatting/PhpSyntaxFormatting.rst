@@ -103,7 +103,7 @@ non–trivial types and is optional for trivial types. Example::
 Single line comments are allowed when there is no type declaration for
 the class variable or constant.
 
-If a variable can hold values of different types, use :code:`mixed` as
+If a variable can hold values of different types, use :php:`mixed` as
 type.
 
 

@@ -26,7 +26,7 @@ Characteristica
   encapsulated in static methods.
 
 * Utility classes MUST be located in a utility sub folder and MUST end
-  with :php:`Utility`, eg. :php:`GeneralUtility`.
+  with :php:`Utility`, eg. :php:`FoobarUtility`.
 
 * Static methods MUST be located in utility classes and SHOULD NOT be
   added to other classes, except a specific pattern has a hard
@@ -147,5 +147,5 @@ Bad examples
 Red Flags
 """""""""
 
-* :code:`$GLOBALS: Utility` code should not have dependencies to global
+* :php:`$GLOBALS: Utility` code should not have dependencies to global
   state or global objects.

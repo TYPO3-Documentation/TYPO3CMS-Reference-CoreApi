@@ -32,7 +32,7 @@ when not using a :ref:`combined identifier <fal-architecture-components-files-fo
 
 .. note::
 
-   This may return :code:`null` if no default Storage exists.
+   This may return :php:`null` if no default Storage exists.
 
 
 .. _fal-using-fal-examples-resource-factory-getting-storage:
@@ -43,7 +43,7 @@ Getting any Storage
 The :php:`ResourceFactory` should also be used when retrieving
 any Storage. You should not try to instantiate directly a
 :php:`\TYPO3\CMS\Core\Resource\StorageRepository` and call
-its :code:`findByUid()` method.
+its :php:`findByUid()` method.
 
 .. code-block:: php
 

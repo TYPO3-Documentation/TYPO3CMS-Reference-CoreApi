@@ -74,8 +74,8 @@ This makes the `pages` table the mother of all other managed tables. It can be s
 tree with all other table records as files.
 
 Standard pages are quite literally web site pages in the frontend. But they can also be storage
-spaces in the backend, very much like folders on a hard disk. For any record, the "pid" field
-contains a reference to the page where that record is stored. For pages, the "pid" fields behaves
+spaces in the backend, very much like folders on a hard disk. For any record, the `pid` field
+contains a reference to the page where that record is stored. For pages, the `pid` fields behaves
 as a reference to their parent pages.
 
 The special "root" page has some unique properties: its pid is 0 (zero), it does not exist as

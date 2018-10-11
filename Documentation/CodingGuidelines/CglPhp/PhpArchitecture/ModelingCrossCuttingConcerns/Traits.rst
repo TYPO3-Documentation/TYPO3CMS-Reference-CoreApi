@@ -53,7 +53,7 @@ Good examples
 
 * :php:`\Symfony\Component\DependencyInjection\ContainerAwareInterface` with
   :php:`\Symfony\Component\DependencyInjection\ContainerAwareTrait` as default
-  implementation.
+  implementation
 
   * The :php:`ContainerAwareInterface` is tested to within the
     dependency injection system of symfony and the trait is a simple

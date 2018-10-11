@@ -18,9 +18,9 @@ Top bar
   The top bar is always present. It is itself divided into two
   areas: the logo and top bar tools.
 
-  The logo can be changed using the :code:`$GLOBALS['TBE_STYLES']['logo']`
+  The logo can be changed using the :php:`$GLOBALS['TBE_STYLES']['logo']`
   setting. Additional top bar tools can be registered using
-  :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']`.
+  :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']`.
 
 Module menu
   This is the main navigation. All modules are structured in main
@@ -30,7 +30,7 @@ Module menu
   The module menu can be opened or closed by using the icon on the top left.
 
   New main or submodules are registered using the
-  :code:`\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule()`
+  :php:`\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule()`
   API.
 
   .. note::

@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
 .. _xliff-translating:
@@ -196,7 +196,7 @@ would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
 Custom translation servers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-With the use of XLIFF and the freely available `Pootle <http://pootle.translatehouse.org/>`__
+With the usage of XLIFF and the freely available `Pootle <http://pootle.translatehouse.org/>`__
 translation server, companies and individuals may easily set up a custom translation server
 for their extensions.
 
