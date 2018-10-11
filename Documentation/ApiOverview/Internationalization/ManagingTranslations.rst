@@ -156,12 +156,12 @@ translated::
 In this case we define that "gsw_CH" (which is the `official code <http://www.localeplanet.com/icu/>`_ for
 "Schwiizertüütsch" - that is, "Swiss German") can fall back on "de_AT" (another custom translation) and then on "de".
 
-The translations have to be stored in the appopriate folder, in this case
-:ref:`Environment-labels-path`/:file:`gsw_CH`.
+The translations have to be stored in the appropriate labels path sub folder
+(:ref:`Environment-labels-path`), in this case :file:`/gsw_CH`.
 
 The very least you need is to translate the label containing the name of the
 language itself, so that it appears in the user preferences. In our example this
-would be in file :ref:`Environment-labels-path`/:file:`gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
+would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
 
 .. code-block:: xml
 

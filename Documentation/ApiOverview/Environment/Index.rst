@@ -6,7 +6,7 @@
 Environment
 ===========
 
-Since version 9.x the TYPO3 CMS core includes an environment class.
+Since version 9.x the TYPO3 core includes an environment class.
 This class contains all environment specific information, e.g. paths within the
 filesystem. This implementation replaces previously used global variables and
 constants like :php:`PATH_site`.
@@ -17,74 +17,66 @@ class provides static methods to access the necessary information.
 Also for testing, the :php:`initialize()` method can be called to adjust the
 information.
 
+
 .. _Environment-project-path:
 
-project path
-------------
+getProjectPath()
+----------------
 
-The environment provides the path to the folder containing the
-:file:`composer.json`, or public web folder for non composer projects.
+The environment provides the path to the folder containing the :file:`composer.json`.
+For projects without Composer setup, this is equal to :ref:`Environment-public-path`.
 
-The path is available through :php:`getProjectPath()` method.
 
 .. _Environment-public-path:
 
-public path
------------
+getPublicPath()
+---------------
 
 The environment provides the path to the public web folder with
 :file:`index.php` for TYPO3 frontend. This was previously :php:`PATH_site`.
+For projects without Composer setup, this is equal to :ref:`Environment-project-path`.
 
-For non composer setups, this is equal to :ref:`Environment-project-path`.
-
-The path is available through :php:`getPublicPath()` method.
 
 .. _Environment-var-path:
 
-var path
---------
+getVarPath()
+------------
 
 The environment provides the path to :file:`var` folder. This folder contains
 data like logs, sessions, locks and cache files.
 
-The folder is, by default, :file:`typo3temp/var` for setups where the project
-path is equal to public path, e.g. "classic" installation without composer.
+For projects with Composer setup, the value is :php:`getProjectPath() . '/var'`,
+so it is outside of the web document root - not within :php:`getPublicPath()`.
 
-For setups where project path and public path are not equal, the default is
-:file:`$projectPath/var`. This way these files are not available to the public.
+Without Composer, the value is :php:`getPublicPath() . '/typo3temp/var'`, so within
+the web document root - a situation that is not optimal from a security point of view.
 
-The path is available through :php:`getVarPath()` method.
 
 .. _Environment-config-path:
 
-config path
------------
+getConfigPath()
+---------------
 
-The environment provides the path to :file:`typo3conf`. This folder contains all
-TYPO3 global configuration files and folders, e.g. :file:`LocalConfiguration.php`.
+The environment provides the path to :file:`typo3conf`. This folder contains TYPO3
+global configuration files and folders, e.g. :file:`LocalConfiguration.php`.
 
-The folder is, by default, :file:`typo3conf` for setups where the project
-path is equal to public path, e.g. "classic" installation without composer.
+For projects with Composer setup, the value is :php:`getProjectPath() . '/typo3conf'`,
+so it is outside of the web document root - not within :php:`getPublicPath()`.
 
-For setups where project path and public path are not equal, the default is
-:file:`$projectPath/config`. This way these files are not available to the
-public. See :ref:`Environment-project-path`.
+Without Composer, the value is :php:`getPublicPath() . '/typo3conf'`, so within
+the web document root - a situation that is not optimal from a security point of view.
 
-The path is available through :php:`getConfigPath()` method.
 
 .. _Environment-labels-path:
 
-labels path
------------
+getLabelsPath()
+---------------
 
 The environment provides the path to :file:`labels`, respective :file:`l10n`
 folder. This folder contains downloaded translation files.
 
-The folder is, by default, :file:`typo3temp/l10n` for setups where the project
-path is equal to public path, e.g. "classic" installation without composer.
+For projects with Composer setup, the value is :php:`getVarPath() . '/labels'`,
+so it is outside of the web document root - not within :php:`getPublicPath()`.
 
-For setups where project path and public path are not equal, the default is
-:file:`$varPath/labels`. This way these files are not available to the public.
-See :ref:`Environment-var-path`.
-
-The path is available through :php:`getLabelsPath()` method.
+Without Composer, the value is :php:`getPublicPath() . '/typo3conf/l10n'`, so within
+the web document root - a situation that is not optimal from a security point of view.
