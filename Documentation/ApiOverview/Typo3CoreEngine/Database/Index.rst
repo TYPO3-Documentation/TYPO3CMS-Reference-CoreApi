@@ -176,10 +176,10 @@ Command keywords and values
 
          Requirements for a successful localization is this:
 
-         - :code:`[ctrl]` options "languageField" and "transOrigPointerField" must be
+         - :php:`[ctrl]` options "languageField" and "transOrigPointerField" must be
            defined for the table
 
-         - A :sql:`sys_language` record with the given :sql:`sys_language_uid` must
+         - A :php:`sys_language` record with the given :php:`sys_language_uid` must
            exist.
 
          - The record to be localized by currently be set to "Default" language
@@ -202,7 +202,7 @@ Command keywords and values
          integer
    :Value:
          It behaves like :php:`localize` command (both record and child records are copied to given language),
-         but does not set :php:`transOrigPointerField` fields (e.g. :sql:`l10n_parent`).
+         but does not set :php:`transOrigPointerField` fields (e.g. :php:`l10n_parent`).
 
          The :php:`copyToLanguage` command should be used when localizing records in the "Free Mode".
          This command is used when localizing content elements using translation wizard's "Copy" strategy.

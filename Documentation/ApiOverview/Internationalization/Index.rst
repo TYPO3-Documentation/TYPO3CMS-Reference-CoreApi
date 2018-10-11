@@ -16,6 +16,6 @@ Internationalization and localization
 .. toctree::
    :titlesonly:
 
-   Introduction/Index
-   ManagingTranslations/Index
-   XliffFormat/Index
+   Introduction
+   ManagingTranslations
+   XliffFormat
