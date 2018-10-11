@@ -22,7 +22,7 @@ internally while it will continue to parse the TypoScript code. Syntax
 errors can therefore be seen only with a tool that analyzes the syntax
 - like the syntax highlighter does.
 
-The :code:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser` class is used to parse
+The :php:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser` class is used to parse
 TypoScript content. Please see the section :ref:`typoscript-syntax-typoscript-parser-api`
 in this document for details.
 

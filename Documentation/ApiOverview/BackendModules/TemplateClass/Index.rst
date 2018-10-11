@@ -16,11 +16,11 @@ The backend template view
 
 Modern backend modules are written using the Extbase/Fluid combination.
 Thus, templates are Fluid-based. On top of that the "backend" system extension
-provides a general view class :code:`TYPO3\CMS\Backend\View\BackendTemplateView`
+provides a general view class :php:`TYPO3\CMS\Backend\View\BackendTemplateView`
 which provides common features for all backend modules, like the management
 of the action menu or the registration of docheader buttons.
 
-This view class gives access to the :code:`\TYPO3\CMS\Backend\Template\ModuleTemplate`
+This view class gives access to the :php:`\TYPO3\CMS\Backend\Template\ModuleTemplate`
 class which is - more or less - the old backend module template,
 cleaned up and refreshed. This class performs a number of basic
 operations for backend modules, like loading base JS libraries,
@@ -28,8 +28,8 @@ loading stylesheets, managing a flash message queue and - in general -
 performing all kind of necessary setups.
 
 To access these resources, the trick is to force your backend
-module controller to use the :code:`TYPO3\CMS\Backend\View\BackendTemplateView`
-class by changing the value of the :code:`$defaultViewObjectName` member
+module controller to use the :php:`TYPO3\CMS\Backend\View\BackendTemplateView`
+class by changing the value of the :php:`$defaultViewObjectName` member
 variable in the controller. Here is an example taken from system extension "beuser":
 
 .. code-block:: php
@@ -49,7 +49,7 @@ variable in the controller. Here is an example taken from system extension "beus
 		// ...
 	}
 
-After that, you can use the :code:`initializeView()` method to
+After that, you can use the :php:`initializeView()` method to
 build the general elements of your backend module. Again looking
 at the "beuser" extension:
 
@@ -83,7 +83,7 @@ the generation of buttons for the Docheader, the initialization
 of the Flash message queue and the registration of a JS library
 to be loaded using RequireJS.
 
-Using this :code:`BackendTemplateView` class, the Fluid templates for
+Using this :php:`BackendTemplateView` class, the Fluid templates for
 your module need only take care of the actual content of your module.
 As such, the Layout may be as simple as (again from "beuser"):
 

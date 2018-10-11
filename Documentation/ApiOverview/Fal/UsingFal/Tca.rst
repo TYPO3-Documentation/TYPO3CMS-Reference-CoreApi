@@ -29,13 +29,13 @@ table for example (with some parts skipped).
 	),
 
 
-The API call is :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig()`.
+The API call is :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig()`.
 The first argument is the name of the current field, the second argument is an override
 configuration array, the third argument is the list of allowed file extensions and the
 fourth argument is the list of disallowed file extensions. All arguments but the first
 are optional.
 
-A call to :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig()`
+A call to :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig()`
 will generate a standard TCA configuration for an :ref:`inline-type field <t3tca:columns-inline>`,
 with relation to the "sys\_file" table via the "sys\_file\_reference"
 table as "MM" table.

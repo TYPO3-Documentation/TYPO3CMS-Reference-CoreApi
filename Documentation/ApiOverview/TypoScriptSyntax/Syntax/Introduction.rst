@@ -32,7 +32,7 @@ and 'secondProperty' with a value each ([value 3] and [value 4]).*"
 
 The TYPO3 CMS backend contains tools that can be used to visualize the
 tree structure of TypoScript. They are described in the relevant
-section further of the two using refence documents
+section further of the two using reference documents
 :ref:`TypoScript Reference <t3tsref:typoscript-syntax-typoscript-templates>` and
 :ref:`TSconfig Reference <t3tsconfig:typoscript-syntax-using-setting>`.
 The above piece of TypoScript would look like this:

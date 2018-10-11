@@ -100,16 +100,16 @@ $TBE\_MODULES
 """""""""""""
 
 When modules are registered, they get added to a global array called
-:code:`$GLOBALS['TBE_MODULES']`. It contains the list of all registered
+:php:`$GLOBALS['TBE_MODULES']`. It contains the list of all registered
 modules, their configuration and the configuration of any existing
 navigation component (the components which may be loaded into the
 navigation frame).
 
-:code:`$GLOBALS['TBE_MODULES']` can be explored using the
+:php:`$GLOBALS['TBE_MODULES']` can be explored using the
 **SYSTEM > Configuration** module.
 
 .. figure:: ../../../Images/BackendModulesConfiguration.png
    :alt: Exploring the TBE_MODULES array using the Configuration module
 
 
-The list of modules is parsed by the class :code:`\TYPO3\CMS\Backend\Module\ModuleLoader`.
+The list of modules is parsed by the class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader`.

@@ -10,17 +10,17 @@ Using phpDoc
 "phpDocumentor" (`phpDoc <https://www.phpdoc.org/>`_) is used for documenting
 source code. TYPO3 code typically uses the following phpDoc_ keywords:
 
-* :code:`@global`
+- :php:`@global`
 
-* :code:`@param`
+- :php:`@param`
 
-* :code:`@return`
+- :php:`@return`
 
-* :code:`@see`
+- :php:`@see`
 
-* :code:`@var`
+- :php:`@var`
 
-* :code:`@deprecated`
+- :php:`@deprecated`
 
 For more information on phpDoc_ see the phpDoc_ web site at
 https://www.phpdoc.org/.
@@ -88,4 +88,4 @@ In the comment blocks use the *short* forms of the type names (e.g.
 :php:`int`, :php:`bool`, :php:`string`, :php:`array` or
 :php:`mixed`).
 
-Use :code:`@return void` when a function does *not* return a value.
+Use :php:`@return void` when a function does *not* return a value.
