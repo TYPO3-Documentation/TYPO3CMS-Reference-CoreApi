@@ -1,26 +1,13 @@
 .. include:: ../../../Includes.txt
 
-
-
-
-
-
 .. _tce-db-api:
+.. _record-commit-route:
 
-The "tce\_db.php" API
-^^^^^^^^^^^^^^^^^^^^^
+The "/record/commit" route
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This script is a gateway for POST forms to class
-:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. It
-has historically been *the* script to which data was posted when you
-wanted to update something in the database.
-
-Today it is used for editing by only a few scripts, actually only the
-"Quick Edit" module in "Web>Page" (frontend). The standard forms you
-find in TYPO3 are normally rendered and handled by :file:`alt_doc.php`
-which includes :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` on its own.
-
-For commands it is still used from various locations.
+This route is a gateway for posting form data to the
+:php:`\TYPO3\CMS\Backend\Controller\SimpleDataHandlerController`.
 
 You can send data to this file either as GET or POST vars where POST
 takes precedence. The variable names you can use are:
