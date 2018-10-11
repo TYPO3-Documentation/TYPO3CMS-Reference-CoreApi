@@ -10,7 +10,7 @@ This chapter defines coding guidelines for the TYPO3 CMS project.
 Following these guidelines is mandatory for TYPO3 core developers and
 contributors to the TYPO3 core.
 
-Extension authors are strongly encouraged to follow these guidelines
+Extension authors are encouraged to follow these guidelines
 when developing extensions for TYPO3. Following these guidelines makes
 it easier to read the code, analyze it for learning or performing code
 reviews. These guidelines also help preventing typical errors in the
@@ -30,7 +30,7 @@ should their code not comply with the guidelines.
 
 Apart from that, adhering to the CGL is not voluntary: The CGL are also
 enforced by structural means: Automated tests are run by the continuous
-integration tool bamboo to make sure that every (core) code change complies
+integration tool `bamboo` to make sure that every (core) code change complies
 with the CGL. In case a change does not meet the criteria, bamboo will
 give a negative vote in the review system and point to the according
 problem.
@@ -51,49 +51,19 @@ General recommendations
 
 .. important::
 
-   You are strongly advised to set up your editor and IDE properly so that the
+   You are strongly advised to set up your editor / IDE properly so that the
    standards get checked and enforced automatically!
 
 
-.. _cgl-introduction-php:
+EditorConfig
+------------
 
-PHP
-===
+One method to set up your IDE / editor to adhere to specific Coding Guidelines,
+is to use an .editorconfig file. Read `EditorConfig.org <http://EditorConfig.org>`__
+to find out more about it. Various IDEs or Editors support editorconfig by default or with
+an additional plugin.
 
-TYPO3 codebase is following these standards for code formatting:
+For example, for PhpStorm there is an `EditorConfig plugin <https://plugins.jetbrains.com/plugin/7294-editorconfig>`__.
 
-* `PSR-1 <http://www.php-fig.org/psr/psr-1/>`__
-* `PSR-2 <http://www.php-fig.org/psr/psr-2/>`__
-
-
-JavaScript
-==========
-
-The rules suggested in the `Airbnb JavaScript Style Guide
-<https://github.com/airbnb/javascript>`__ should be used throughout the TYPO3
-CMS core for JavaScript files.
-
-TypeSript
-=========
-
-`Excel Micro TypeScript Style Guide for TypeScript
-<https://github.com/excelmicro/typescript>`__ should be used throughout the
-TYPO3 CMS core for TypeScript files.
-
-
-XLIFF
-=====
-
-Tabs are used for indentation within Language files (.xlf).
-Language files are located in the directory :file:`Resources/Private/Language`.
-
-reST
-====
-
-Don't use tabs, use spaces. Use three spaces for one level of indentation.
-Compare with the :ref:`rules for formatting reST files
-<h2document:Formatting-reST-Source-Files>`.
-
-.. Todo: More types: sql, scss, css, json ...
-
-   possibly explain .editorconfig file!?
+An `.editorconfig <https://github.com/TYPO3/TYPO3.CMS/blob/master/.editorconfig>`__
+file is included in the TYPO3 source code.

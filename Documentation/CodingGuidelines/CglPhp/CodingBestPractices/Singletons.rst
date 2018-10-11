@@ -7,8 +7,8 @@ Singletons
 
 TYPO3 supports the singleton patterns for classes. Singletons are
 instantiated only once per request regardless of the number of
-calls to :code:`GeneralUtility::makeInstance()`. To use a singleton
-pattern, a class must implement the :code:`SingletonInterface`::
+calls to :php:`GeneralUtility::makeInstance()`. To use a singleton
+pattern, a class must implement the :php:`SingletonInterface`::
 
    namespace Vendor\MyNamespace;
 

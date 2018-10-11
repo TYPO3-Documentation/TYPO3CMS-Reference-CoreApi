@@ -15,6 +15,10 @@ extensions or core parts.
    :titlesonly:
 
    Introduction
-   PhpFileFormatting/Index
-   PhpArchitecture/Index
+   CglPhp/Index
+   CglJavaScript/Index
+   CglTypeScript/Index
+   CglTypoScript/Index
+   CglXliff/Index
+   CglRest/Index
    CodingBestPractices/Index

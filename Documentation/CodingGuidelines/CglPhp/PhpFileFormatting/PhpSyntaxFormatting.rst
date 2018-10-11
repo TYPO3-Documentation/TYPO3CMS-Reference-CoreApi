@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
 .. _cgl-php-syntax-formatting:
@@ -38,7 +38,7 @@ In particular the abbreviations "FE" and "BE" should be avoided and
 the full "Frontend" and "Backend" words used instead.
 
 Identifier names must be descriptive. However it is allowed to use
-traditional integer variables like :code:`$i`, :code:`$j`, :code:`$k` in
+traditional integer variables like :php:`$i`, :php:`$j`, :php:`$k` in
 for loops. If such variables are used, their meaning must be absolutely
 clear from the context where they are used.
 
@@ -83,8 +83,8 @@ Example::
        }
    }
 
-Comments must start with ":code:`//`". Starting comments with
-":code:`#`" is not allowed.
+Comments must start with ":php:`//`". Starting comments with
+":php:`#`" is not allowed.
 
 Class constants and variable comments should follow PHP doc style and
 precede the variable. The variable type must be specified for
@@ -110,8 +110,8 @@ type.
 Debug output
 """"""""""""
 
-During development it is allowed to use :code:`debug()` or
-:code:`GeneralUtility::debug()` function calls to produce debug output.
+During development it is allowed to use :php:`debug()` or
+:php:`GeneralUtility::debug()` function calls to produce debug output.
 However all debug statements must be removed (not only commented!)
 before pushing the code to the Git repository. Only very exceptionally
 is it allowed to even *think* of leaving a debug statement, if it is
@@ -123,7 +123,7 @@ Curly braces
 
 Usage of opening and closing curly braces is mandatory in all cases
 where they can be used according to PHP syntax (except
-:code:`case` statements).
+:php:`case` statements).
 
 The opening curly brace is always on the same line as the preceding
 construction. There must be one space (not a tab!) before the opening
@@ -156,8 +156,8 @@ The following is not allowed::
 Conditions
 """"""""""
 
-Conditions consist of :code:`if`, :code:`elseif` and :code:`else`
-keywords. TYPO3 code must not use the :code:`else if` construct.
+Conditions consist of :php:`if`, :php:`elseif` and :php:`else`
+keywords. TYPO3 code must not use the :php:`else if` construct.
 
 The following is the correct layout for conditions::
 
@@ -191,7 +191,7 @@ If the condition is long, it must be split into several lines.
 The logical operators must be put in front of the
 next condition and be indented to the same level as the first condition.
 The closing round and opening curly bracket after the last condition
-should be on a new line, indented to the same level as the :code:`if`::
+should be on a new line, indented to the same level as the :php:`if`::
 
    if ($this->getSomeCondition($this->getSomeVariable())
        && $this->getAnotherCondition()
@@ -199,7 +199,7 @@ should be on a new line, indented to the same level as the :code:`if`::
        // Code follows here
    }
 
-The ternary conditional operator :code:`? :` must be used only, if it
+The ternary conditional operator :php:`? :` must be used only, if it
 has exactly two outcomes. Example::
 
    $result = ($useComma ? ',' : '.');
@@ -232,17 +232,17 @@ The following is not allowed (missing the extra pair of brackets)::
 Switch
 """"""
 
-:code:`case` statements are indented with one additional indent (four
-spaces) inside the :code:`switch` statement. The code inside the
-:code:`case` statements is further indented with an additional indent.
-The :code:`break` statement is aligned with the code. Only one
-:code:`break` statement is allowed per :code:`case`.
+:php:`case` statements are indented with one additional indent (four
+spaces) inside the :php:`switch` statement. The code inside the
+:php:`case` statements is further indented with an additional indent.
+The :php:`break` statement is aligned with the code. Only one
+:php:`break` statement is allowed per :php:`case`.
 
-The :code:`default` statement must be the last in the :code:`switch`
-and must not have a :code:`break` statement.
+The :php:`default` statement must be the last in the :php:`switch`
+and must not have a :php:`break` statement.
 
-If one :code:`case` block has to pass control into another :code:`case`
-block without having a :code:`break`, there must be a comment about it
+If one :php:`case` block has to pass control into another :php:`case`
+block without having a :php:`break`, there must be a comment about it
 in the code.
 
 Examples::
@@ -264,17 +264,17 @@ Loops
 
 The following loops can be used:
 
-- do
+* do
 
-- while
+* while
 
-- for
+* for
 
-- foreach
+* foreach
 
-The use of :code:`each` is not allowed in loops.
+The use of :php:`each` is not allowed in loops.
 
-:code:`for` loops must contain only variables inside (no function
+:php:`for` loops must contain only variables inside (no function
 calls). The following is correct::
 
    $size = count($dataArray);
@@ -288,15 +288,15 @@ The following is not allowed::
        // Process element here
    }
 
-:code:`do` and :code:`while` loops must use extra brackets, if an
+:php:`do` and :php:`while` loops must use extra brackets, if an
 assignment happens in the loop::
 
    while (($fields = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
        // Do something
    }
 
-There's a special case for :code:`foreach` loops when the value is not
-used inside the loop. In this case the dummy variable :code:`$_`
+There's a special case for :php:`foreach` loops when the value is not
+used inside the loop. In this case the dummy variable :php:`$_`
 (underscore) is used::
 
    foreach ($GLOBALS['TCA'] as $table => $_) {
@@ -304,14 +304,14 @@ used inside the loop. In this case the dummy variable :code:`$_`
    }
 
 This is done for performance reasons, as it is faster than calling
-:code:`array_keys()` and looping on its result.
+:php:`array_keys()` and looping on its result.
 
 
 Strings
 """""""
 
 All strings must use single quotes. Double quotes are allowed only to
-create the new line character (:code:`"\n"`).
+create the new line character (:php:`"\n"`).
 
 String concatenation operators must be surrounded by spaces. Example:
 
@@ -360,22 +360,22 @@ Booleans
 """"""""
 
 Booleans must use the language constructs of PHP and not explicit
-integer values like :code:`0` or :code:`1`. Furthermore they should be
-written in lowercase, i.e. :code:`true` and :code:`false`.
+integer values like :php:`0` or :php:`1`. Furthermore they should be
+written in lowercase, i.e. :php:`true` and :php:`false`.
 
 
 NULL
 """"
 
 Similarly this special value is written in lowercase, i.e.
-:code:`null`.
+:php:`null`.
 
 
 Arrays
 """"""
 
-Array declarations use the short array syntax :code:`[]`, instead of the
-":code:`array`" keyword. Thus::
+Array declarations use the short array syntax :php:`[]`, instead of the
+":php:`array`" keyword. Thus::
 
    $a = [];
 
@@ -407,23 +407,23 @@ PHP features
 The use of the newest PHP features is strongly recommended for
 extensions and mandatory for the TYPO3 core.
 
-Class functions must have access type specifiers: :code:`public`,
-:code:`protected` or :code:`private`. Notice that :code:`private` may
-prevent XCLASSing of the class. Therefore :code:`private` can be used
+Class functions must have access type specifiers: :php:`public`,
+:php:`protected` or :php:`private`. Notice that :php:`private` may
+prevent XCLASSing of the class. Therefore :php:`private` can be used
 only if it is absolutely necessary.
 
-Class variables must use access specifiers instead of the :code:`var`
+Class variables must use access specifiers instead of the :php:`var`
 keyword.
 
-Type hinting must be used when the function expects an :code:`array` or
-an :code:`instance` of a certain class. Example::
+Type hinting must be used when the function expects an :php:`array` or
+an :php:`instance` of a certain class. Example::
 
       protected function executeAction(MyAction &$action, array $extraParameters)
       {
           // Do something
       }
 
-Static functions must use the :code:`static` keyword. This keyword must
+Static functions must use the :php:`static` keyword. This keyword must
 be after the visibility declaration in the function definition::
 
       public static function executeAction(MyAction &$action, array $extraParameters)
@@ -431,7 +431,7 @@ be after the visibility declaration in the function definition::
           // Do something
       }
 
-The :code:`abstract` keyword also must be after the visibility declaration in the
+The :php:`abstract` keyword also must be after the visibility declaration in the
 function declaration::
 
       protected abstract function render();
@@ -441,8 +441,8 @@ function declaration::
 Global variables
 """"""""""""""""
 
-Use of :code:`global` is not recommended. Always use
-:code:`$GLOBALS['variable']`.
+Use of :php:`global` is not recommended. Always use
+:php:`$GLOBALS['variable']`.
 
 
 Functions
@@ -483,7 +483,7 @@ The following is the correct behavior::
        return $content;
    }
 
-In general there should be a single :code:`return` statement in the
+In general there should be a single :php:`return` statement in the
 function (see the preceding example). However a function can return
 during parameter validation (guards) before it starts its main logic. Example::
 
