@@ -9,11 +9,11 @@ Unit tests
 Unit test files
 """""""""""""""
 
-Unit test files are located in the ":code:`Tests/Unit/`" folder of the
+Unit test files are located in the ":file:`Tests/Unit/`" folder of the
 according extension, within a sub-structure matching the structure in
 the :file:`Classes/` folder.
 
-As naming convention, :code:`Test` is appended at the end of the name.
+As naming convention, :file:`Test` is appended at the end of the name.
 As example, the unit test class file for
 :file:`typo3/sysext/core/Classes/Database/PreparedStatement.php` located
 at :file:`typo3/sysext/core/Tests/Unit/Database/PreparedStatementTest.php`.
@@ -39,10 +39,9 @@ added.
 Conventions for unit tests
 """"""""""""""""""""""""""
 
-Unit tests should be as concise as possible. Since the :code:`setUp()`
-and :code:`tearDown()` methods always have the same responsibility,
+Unit tests should be as concise as possible. Since the :php:`setUp()`
+and :php:`tearDown()` methods always have the same responsibility,
 these methods do *not* need a documentation block.
 
 Since unit tests never return anything, they do not need an
 :code:`@return` tag.
-

@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: ../../../../Includes.txt
 
 
 .. _cgl-traits:
@@ -11,10 +11,12 @@ Characteristica
 """""""""""""""
 
 * A trait MAY access properties or methods of the class it is
-  embedded in
+  embedded in.
+
 * A trait MUST be combined with an interface. Classes using a trait
-  must implement at least this interface
-* A trait interface MUST have a default implementation trait
+  must implement at least this interface.
+
+* A trait interface MUST have a default implementation trait.
 
 
 Rationale
@@ -39,7 +41,7 @@ would be really useful to autowire default functionality like logging
 into classes with very little developer effort and in a simple and
 understandable way. It should however be kept in mind that traits must
 always be used with care and should stay as a relatively seldom used
-solution. This is one reason why the current :code:`getLanguageService()`
+solution. This is one reason why the current :php:`getLanguageService()`
 and similar boilerplate methods are kept within classes directly for
 now and is not extracted to traits: Both container system and global
 scope objects are currently not finally decided and we don’t want to
@@ -49,35 +51,39 @@ have relatively hard to deprecate and remove traits at this point.
 Good examples
 """""""""""""
 
-* :code:`\Symfony\Component\DependencyInjection\ContainerAwareInterface` with
-  :code:`\Symfony\Component\DependencyInjection\ContainerAwareTrait` as default
-  implementation
+* :php:`\Symfony\Component\DependencyInjection\ContainerAwareInterface` with
+  :php:`\Symfony\Component\DependencyInjection\ContainerAwareTrait` as default
+  implementation.
 
-  * The :code:`ContainerAwareInterface` is tested to within the
+  * The :php:`ContainerAwareInterface` is tested to within the
     dependency injection system of symfony and the trait is a simple
     default implementation that easily adds the interface functionality
     to a given class.
-  * Good naming
-  * Clear scope
 
-* :code:`LoggerAwareInterface` with a default trait
+  * Good naming.
+
+  * Clear scope.
+
+* :php:`LoggerAwareInterface` with a default trait.
 
 
 Bad examples
 """"""""""""
 
-* :code:`\TYPO3\CMS\FluidStyledContent\ViewHelpers\Menu\MenuViewHelperTrait`
+* :php:`\TYPO3\CMS\FluidStyledContent\ViewHelpers\Menu\MenuViewHelperTrait`
 
-  * Contains only protected methods, can not be combined with interface
-  * Contains :code:`getTypoScriptFrontendController()`, hides this
-    dependency in the consuming class
-  * No interface
+  * Contains only protected methods, can not be combined with interface.
+
+  * Contains :php:`getTypoScriptFrontendController()`, hides this
+    dependency in the consuming class.
+
+  * No interface.
+
   * It would have probably been better to add the trait code to a full
-    class and just use it in the according view helpers (composition)
+    class and just use it in the according view helpers (composition).
 
 
 Further reading
 """""""""""""""
 
 See http://rosstuck.com/how-i-use-traits/.
-

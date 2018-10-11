@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
 .. _cgl-using-phpdoc:
@@ -10,17 +10,17 @@ Using phpDoc
 "phpDocumentor" (`phpDoc <https://www.phpdoc.org/>`_) is used for documenting
 source code. TYPO3 code typically uses the following phpDoc_ keywords:
 
-- :code:`@global`
+* :code:`@global`
 
-- :code:`@param`
+* :code:`@param`
 
-- :code:`@return`
+* :code:`@return`
 
-- :code:`@see`
+* :code:`@see`
 
-- :code:`@var`
+* :code:`@var`
 
-- :code:`@deprecated`
+* :code:`@deprecated`
 
 For more information on phpDoc_ see the phpDoc_ web site at
 https://www.phpdoc.org/.
@@ -34,13 +34,13 @@ docblock is mandatory to describe the types..
 Additionally you should add a phpDoc_ block if additional information seems
 appropriate:
 
-- An example would be the detailed description of the content of arrays using
+* An example would be the detailed description of the content of arrays using
   the Object[] notation.
 
-- If the return type is mixed and cannot be annotated strictly, add a
+* If the return type is mixed and cannot be annotated strictly, add a
   @return tag.
 
-- If parameters or return types have specific syntactical requirements:
+* If parameters or return types have specific syntactical requirements:
   document that!
 
 The different parts of a phpDoc_ statement after the keyword are separated by
@@ -85,8 +85,7 @@ It ends with the next blank line. Any additional text after that line
 and before the first tag is the long description.
 
 In the comment blocks use the *short* forms of the type names (e.g.
-:code:`int`, :code:`bool`, :code:`string`, :code:`array` or
-:code:`mixed`).
+:php:`int`, :php:`bool`, :php:`string`, :php:`array` or
+:php:`mixed`).
 
 Use :code:`@return void` when a function does *not* return a value.
-

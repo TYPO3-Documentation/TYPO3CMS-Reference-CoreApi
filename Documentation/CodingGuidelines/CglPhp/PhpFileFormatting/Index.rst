@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 .. _cgl-php-file-formatting:
 
@@ -21,4 +21,3 @@ Rules for single PHP files:
    FileStructure
    PhpSyntaxFormatting
    UsingPhpdoc
-

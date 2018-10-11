@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
 .. _cgl-php-architecture:
@@ -26,4 +26,3 @@ and exchangeability.
     ModelingCrossCuttingConcerns/Index
     WorkingWithExceptions
     GeneralLinks
-

@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: ../../../../Includes.txt
 
 
 .. _cgl-modeling-cross-cutting-concerns:
@@ -20,4 +20,3 @@ with class abstractions.
     StaticMethods
     Traits
     Services
-
