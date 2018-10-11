@@ -31,7 +31,7 @@ The interface of the Install Tool in **ADMIN TOOLS > Maintenance > Manage langua
 allows to manage the list of available languages to your users and can fetch and
 update language packs of TER and core extensions from the official translation server.
 The module is rather straight forward to use and should be pretty much self explanatory.
-Downloaded language packs are stored in :file:`typo3conf/l10n/[language code]`.
+Downloaded language packs are stored in :ref:`Environment-labels-path`.
 
 .. figure:: ../../Images/InternationalizationManageLanguagePacks.png
    :alt: The Languages module
@@ -123,7 +123,7 @@ and the result can be easily seen in the backend:
    - The files containing the custom labels must be located inside an extension. Other locations
      will not be considered.
 
-   - The original translation needs to exist in :file:`typo3temp/l10n/` or next to the base
+   - The original translation needs to exist in :ref:`Environment-labels-path` or next to the base
      translation file in extensions, for example in :file:`typo3conf/ext/myext/Resources/Private/Language/`.
 
 
@@ -156,12 +156,12 @@ translated::
 In this case we define that "gsw_CH" (which is the `official code <http://www.localeplanet.com/icu/>`_ for
 "Schwiizertüütsch" - that is, "Swiss German") can fall back on "de_AT" (another custom translation) and then on "de".
 
-The translations have to be stored in the appopriate folder, in this case
-:file:`typo3conf/l10n/gsw_CH`.
+The translations have to be stored in the appropriate labels path sub folder
+(:ref:`Environment-labels-path`), in this case :file:`/gsw_CH`.
 
 The very least you need is to translate the label containing the name of the
-language itself, so that it appears in the user preferences. In our example
-this would be in file :file:`typo3conf/l10n/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
+language itself, so that it appears in the user preferences. In our example this
+would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
 
 .. code-block:: xml
 
