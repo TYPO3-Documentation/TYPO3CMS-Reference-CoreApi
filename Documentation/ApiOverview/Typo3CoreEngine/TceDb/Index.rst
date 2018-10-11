@@ -6,7 +6,7 @@
 The "/record/commit" route
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This route is a gateway for POST forms to class
+This route is a gateway for posting form data to the
 :php:`\TYPO3\CMS\Backend\Controller\SimpleDataHandlerController`.
 
 You can send data to this file either as GET or POST vars where POST
