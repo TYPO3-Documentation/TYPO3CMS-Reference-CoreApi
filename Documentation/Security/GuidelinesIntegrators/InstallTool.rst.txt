@@ -34,8 +34,9 @@ older than 60 minutes (expiry time). Both features can be deactivated
 if the content of this file is "KEEP\_FILE", which is understandably
 not recommended.
 
-The password for accessing the Install Tool is stored as a salted MD5
-hash in the global configuration file "typo3conf/LocalConfiguration.php"::
+The password for accessing the Install Tool is stored using the
+:ref:`configured password hash mechanism <password-hashing>` set for the backend
+in the global configuration file :file:`typo3conf/LocalConfiguration.php`::
 
    'BE' => 'installToolPassword' = '$P$CnawBtpk.D22VwoB2RsN0jCocLuQFp.'
 

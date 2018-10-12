@@ -151,54 +151,10 @@ depending on the nature and importance of your TYPO3 CMS instance.
 Often a new version of an extension published by the developer is not
 security-related.
 
-Older versions of the EM mark insecure extensions by a red extension
-title.
-
 A scheduler task is available that lets you update the extension list
 automatically and periodically (e.g. once a day). In combination with
 the task "System Status Update (reports)", it is possible to get a
 notification by email when extension updates are available.
-
-
-Security-related core extensions
-""""""""""""""""""""""""""""""""
-
-Besides the "Reports" module described above, the two system extensions
-"rsaauth" and "saltedpasswords" increase the level of security of a
-TYPO3 CMS instance. Both extensions are automatically activated for
-new installations.
-
-"RSA authentication" (rsaauth) adds encrypted authentication for
-frontend and backend logins to TYPO3 CMS. This is a more secure solution
-than plain text frontend authentication or superchallenged backend
-authentication because rsaauth uses a one time generated public and
-private key pair. The password is encrypted with a new public key each
-time, before it is transferred over the network – and decrypted on the
-server using a one time generated private key. The rsaauth extension
-requires either an OpenSSL PHP module or the OpenSSL binary to be
-available to TYPO3 CMS.
-
-The second extension focuses on the storage of passwords: by using the
-"Salted user password hashes" (saltedpasswords) extension, you get rid
-of plain-text passwords or MD5 password hashes for user records in
-TYPO3 CMS. Due to the fact that MD5 hashes should be considered as
-cryptographically insecure, they are unsuitable for representing
-passwords. Using rainbow tables is a widely spread practice these days
-and plain-text passwords can be restored from MD5 hashes in minutes.
-Salted hashes increase the complexity of this process drastically and
-the efforts required to restore a password by using rainbow tables
-exceed the benefit.
-
-Another advantage of the saltedpasswords extension is that it
-generates different hashes for the same password, if triggered
-multiple times.
-
-If you enable the extension on a system with existing users, the
-passwords will automatically be converted when a user record is saved
-(e.g. the next time the user logs in). TYPO3 CMS also offers several
-solutions to update existing passwords of all users to encrypted
-values; please see the documentation of the extension for further
-details.
 
 
 Other security-related extensions
