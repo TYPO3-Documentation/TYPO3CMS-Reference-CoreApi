@@ -7,10 +7,10 @@ The TYPO3 database contains all data of backend and frontend users and
 therefore special care must be taken not to grant unauthorized access.
 
 
-Secure passwords, usernames and minimum access privileges
+Secure passwords and minimum access privileges with MySQL
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-The MySQL privilege system authenticates a (database-)user who
+If using MySQL, the privilege system authenticates a (database-)user who
 connects from the TYPO3 host (which is possibly on the same machine)
 and associates that user with privileges on a database. These
 privileges are for example: SELECT, INSERT, UPDATE, DELETE, etc.
@@ -33,6 +33,17 @@ context of administrative privileges and not required in most cases.
 See the documentation of your database system on how to set up
 database users and access privileges (e.g. chapter 5.4 and chapter
 12.7.1 of the MySQL documentation).
+
+
+Database not within web document root with SQLite
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+If using SQLite as underlying database, a database is stored in a single
+file. In TYPO3, its default location is the var/sqlite path of the instance which
+is derived from environment variable :php:`TYPO3_PATH_APP`. If that variable is **not**
+set which is often the case in non-composer instances, **the database file will end
+up in the web server accessible document root directory :file:`typo3conf/`**! In such
+a setup it is important to configure Web servers to not deliver :file:`.sqlite` files.
 
 
 Disallow external access
