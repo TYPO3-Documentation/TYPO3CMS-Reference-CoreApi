@@ -71,6 +71,7 @@ address the task at hand.
 
    Sitemap/Index
    Introduction/Index
+   Security/Index
    ExtensionArchitecture/Index
    ApiOverview/Index
    CodingGuidelines/Index
