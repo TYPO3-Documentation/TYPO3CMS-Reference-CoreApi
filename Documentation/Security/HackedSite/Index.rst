@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _detect-analyze-repair:
+.. _security-detect-analyze-repair:
 
 Detect, Analyze and Repair a Hacked Site
 ----------------------------------------
@@ -20,15 +20,18 @@ always keep in mind: if you are already in the situation that you have
 to restore a hacked site, focus on the limitation of damage and do not
 react over-hastily.
 
+.. _security-detect:
+.. include:: Detect.rst.txt
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+.. _security-take-offline:
+.. include:: TakeOffline.rst.txt
 
-   Detect
-   TakeOffline
-   Analyze
-   RepairRestore
-   FurtherActions
+.. _security-analyze:
+.. include:: Analyze.rst.txt
+
+.. _security-repair-restore:
+.. include:: RepairRestore.rst.txt
+
+.. _security-further-actions:
+.. include:: FurtherActions.rst.txt
 

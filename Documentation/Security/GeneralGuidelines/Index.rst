@@ -1,7 +1,6 @@
 .. include:: ../../Includes.txt
 
-
-.. _general-guidelines:
+.. _security-general-guidelines:
 
 General Guidelines
 ------------------
@@ -10,17 +9,25 @@ The recommendations in this chapter apply for all roles: system
 administrators, TYPO3 integrators, editors and strictly speaking even
 for (frontend) users.
 
+.. _security-secure-passwords:
+.. include:: SecurePasswords.rst.txt
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+.. _security-update-operating-system:
+.. _security-update-browser:
+.. include:: OperatingSystemAndBrowser.rst.txt
 
-   SecurePasswords
-   OperatingSystemAndBrowser
-   Communication
-   ReactQuickly
-   Typo3Core
-   Typo3Extensions
-   StagingServers
+.. _security-communication:
+.. include:: Communication.rst.txt
+
+.. _security-react-quickly:
+.. include:: ReactQuickly.rst.txt
+
+.. _security-updating-typo3:
+.. include:: Typo3Core.rst.txt
+
+.. _security-updating-extensions:
+.. include:: Typo3Extensions.rst.txt
+
+.. _security-staging-servers:
+.. include:: StagingServers.rst.txt
 

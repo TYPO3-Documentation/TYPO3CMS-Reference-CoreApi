@@ -19,7 +19,7 @@ TYPO3 Core APIs
       Reference to the Core APIs of TYPO3, e.g. main classes, Extension API, RTE API.
 
 :Keywords:
-      tsref, typoscript, reference, forDevelopers, forAdvanced
+      tsref, typoscript, reference, security, forEditors, forBeginners, forDevelopers, forAdmins, forAdvanced
 
 :Copyright:
       2000-2018
@@ -71,9 +71,9 @@ address the task at hand.
 
    Sitemap/Index
    Introduction/Index
-   Security/Index
    ExtensionArchitecture/Index
    ApiOverview/Index
+   Security/Index
    CodingGuidelines/Index
    DataFormats/Index
    Targets

@@ -1,6 +1,5 @@
 .. include:: ../../Includes.txt
 
-.. _types-of-security-threats:
 .. _security-threats:
 
 Types of Security Threats
@@ -11,17 +10,23 @@ threats to give the reader a basic understanding of them. The sections
 for system administrators, TYPO3 integrators and editors explain in
 more detail how to secure a system against those threats.
 
+.. _security-information-disclosure:
+.. include:: InformationDisclosure.rst.txt
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+.. _security-identity-theft:
+.. include:: IdentityTheft.rst.txt
 
-   InformationDisclosure
-   IdentityTheft
-   SqlInjection
-   CodeInjection
-   AuthorizationBypass
-   CrossSiteScripting
-   CrossSiteRequestForgery
+.. _security-sql-injection:
+.. include:: SqlInjection.rst.txt
 
+.. _security-code-injection:
+.. include:: CodeInjection.rst.txt
+
+.. _security-authorization-bypass:
+.. include:: AuthenticationBypass.rst.txt
+
+.. _security-xss:
+.. include:: CrossSiteScripting.rst.txt
+
+.. _security-xsrf:
+.. include:: CrossSiteRequestForgery.rst.txt

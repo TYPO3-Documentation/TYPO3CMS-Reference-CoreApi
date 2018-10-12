@@ -1,19 +1,18 @@
 .. include:: ../../Includes.txt
 
-
-.. _general-information:
+.. _security-general-information:
 
 General Information
 -------------------
 
+.. _security-typo3-versions:
+.. include:: Typo3Versions.rst.txt
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+.. _security-difference-core-extensions:
+.. include:: CoreAndExtensions.rst.txt
 
-   Typo3Versions
-   CoreAndExtensions
-   AnnouncementOfUpdates
-   SecurityBulletins
+.. _security-announcement-updates:
+.. include:: AnnouncementOfUpdates.rst.txt
 
+.. _security-bulletins:
+.. include:: SecurityBulletins.rst.txt

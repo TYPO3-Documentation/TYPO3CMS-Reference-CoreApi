@@ -91,6 +91,13 @@ Credits
 This manual was originally written by Kasper Skårhøj. It was further
 maintained, refreshed and expanded by François Suter.
 
+A first version of the security chapter has been done Ekkehard Guembel and Michael Hirdes
+and we would like to thank them for this. Further thanks to the TYPO3 Security Team for
+their work for the TYPO3 project. A special thank goes to Stefan Esser for his books and
+articles on PHP security, Jochen Weiland for an initial foundation and Michael Schams
+for compiling the content of the security chapter and coordinating the collaboration between
+several teams. He managed the whole process of getting the Security Guide to a high quality.
+
 
 .. _dedication:
 

@@ -1,26 +1,40 @@
 .. include:: ../../Includes.txt
 
-
-.. _integrators:
+.. _security-integrators:
 
 Guidelines for TYPO3 Integrators
 --------------------------------
 
+.. _security-integrator-definition:
+.. include:: RoleDefinition.rst.txt
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+.. _security-integrator-rules:
+.. include:: GeneralRules.rst.txt
 
-   RoleDefinition
-   GeneralRules
-   InstallTool
-   EncryptionKey
-   GlobalTypo3Options
-   SecurityWarningsAfterLogin
-   ReportsAndLogs
-   AccessPrivileges
-   Extensions
-   Typoscript
-   ContentElements
+.. _security-install-tool:
+.. include:: InstallTool.rst.txt
+
+.. _security-encryption-key:
+.. include:: EncryptionKey.rst.txt
+
+.. _security-global-typo3-options:
+.. include:: GlobalTypo3Options.rst.txt
+
+.. _security-security-warnings:
+.. include:: SecurityWarningsAfterLogin.rst.txt
+
+.. _security-reports-logs:
+.. include:: ReportsAndLogs.rst.txt
+
+.. _security-access-privileges:
+.. include:: AccessPrivileges.rst.txt
+
+.. _security-extensions:
+.. include:: Extensions.rst.txt
+
+.. _security-typoscript:
+.. include:: Typoscript.rst.txt
+
+.. _security-content-elements:
+.. include:: ContentElements.rst.txt
 

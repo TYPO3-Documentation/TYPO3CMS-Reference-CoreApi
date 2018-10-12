@@ -1,21 +1,26 @@
 .. include:: ../../Includes.txt
 
 
-.. _editors:
+.. _security-editors:
 
 Guidelines for Editors
 ----------------------
 
+.. _security-editor-definition:
+.. include:: RoleDefinition.rst.txt
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+.. _security-editor-rules:
+.. include:: GeneralRules.rst.txt
 
-   RoleDefinition
-   GeneralRules
-   BackendAccess
-   RequiredFunctions
-   SecureConnection
-   Logout
+.. _security-backend-access:
+.. include:: BackendAccess.rst.txt
+
+.. _security-restrict-to-required-functions:
+.. include:: RequiredFunctions.rst.txt
+
+.. _security-secure-connection:
+.. include:: SecureConnection.rst.txt
+
+.. _security-logout:
+.. include:: Logout.rst.txt
 

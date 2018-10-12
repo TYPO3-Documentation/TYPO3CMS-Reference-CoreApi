@@ -1,8 +1,6 @@
 .. include:: ../../Includes.txt
 
-
-.. _backups:
-.. _backup-strategy:
+.. _security-backups:
 
 Backup Strategy
 ---------------
@@ -14,13 +12,15 @@ restore a website after your site has been compromised or in the case
 of a data loss.
 
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+.. _security-backup-components:
+.. include:: Components.rst.txt
 
-   Components
-   TimePlan
-   BackupLocation
-   FurtherConsiderations
+.. _security-backups-time-plan:
+.. include:: TimePlan.rst.txt
+
+.. _security-backup-location:
+.. include:: BackupLocation.rst.txt
+
+.. _security-backups-further-considerations:
+.. include:: FurtherConsiderations.rst.txt
 
