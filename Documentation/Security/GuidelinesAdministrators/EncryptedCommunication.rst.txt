@@ -105,10 +105,10 @@ The TYPO3 CMS core extension "rsaauth" addresses this requirement, see
 integrators".
 
 
-Other services
-""""""""""""""
+Drop FTP
+""""""""
 
-An encrypted communication between client and server for other
+An encrypted communication between client and server for further
 services than the TYPO3 frontend and backend should be considered,
 too. For example, it is highly recommended to use encrypted services
 such as SSH (secure shell), SFTP (SSH file transfer protocol) or FTPS
