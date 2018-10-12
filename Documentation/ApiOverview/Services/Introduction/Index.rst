@@ -30,7 +30,7 @@ TYPO3 CMS core.
     service class :php:`TYPO3\CMS\Core\Service\AbstractService`.
 
     In comparison, for additional information on what the core usually understands
-    as "casual" service class, see the :ref:`coding guidelines. <t3cgl:services>`
+    as "casual" service class, see the :ref:`coding guidelines. <cgl-services>`
 
 
 The whole services API works as a registry. Services are registered

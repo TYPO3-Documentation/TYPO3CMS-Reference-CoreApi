@@ -1,10 +1,5 @@
 .. include:: ../../Includes.txt
 
-
-
-
-
-
 .. _xclasses:
 
 Extending classes (XCLASSes)
@@ -37,7 +32,7 @@ How does it work?
 ^^^^^^^^^^^^^^^^^
 
 In general every class instance in the Core and in extensions that stick to
-the recommended :ref:`TYPO3 coding guidelines <t3cgl:start>` is created with the API call
+the recommended :ref:`coding guidelines <cgl>` is created with the API call
 :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`.
 The methods takes care of singletons and also searches for existing XCLASSes.
 If there is an XCLASS registered for the specific class that should be instantiated,
