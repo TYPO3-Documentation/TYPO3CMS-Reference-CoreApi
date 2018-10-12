@@ -6,11 +6,16 @@
 *~
 .buildpath
 .cache
+.DS_Store
+.env
 .project
 .session
 .settings
 .TemporaryItems
+.Trashes
 .webprj
 /_make
 /Documentation-GENERATED-temp/
+ehthumbs.db
 nbproject
+Thumbs.db
