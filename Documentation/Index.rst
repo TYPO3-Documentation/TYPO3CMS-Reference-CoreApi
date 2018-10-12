@@ -3,7 +3,7 @@
 .. _start:
 
 ===============
-TYPO3 Core APIs
+TYPO3 Explained
 ===============
 
 :Previous Key:
@@ -16,10 +16,10 @@ TYPO3 Core APIs
       en
 
 :Description:
-      Reference to the Core APIs of TYPO3, e.g. main classes, Extension API, RTE API.
+      Main TYPO3 core documentation
 
 :Keywords:
-      tsref, typoscript, reference, security, forEditors, forBeginners, forDevelopers, forAdmins, forAdvanced
+      forEditors, forBeginners, forDevelopers, forAdmins, forAdvanced, security
 
 :Copyright:
       2000-2018

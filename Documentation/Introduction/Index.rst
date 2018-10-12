@@ -12,17 +12,17 @@ About this document
 -------------------
 
 TYPO3 is known for its extensibility. To really benefit from
-this power, a complete documentation is needed: "Core APIs" aims to
-provide such information to developers and administrators. Not all areas
-are covered with the same amount of detail, but at least some pointers are provided.
+this power, a complete documentation is needed: "TYPO3 Explained" aims to
+provide such information to everyone. Not all areas are covered with the
+same amount of detail, but at least some pointers are provided.
 
 The document does *not* contain any significant information about
 the frontend of TYPO3. Creating templates, setting up TypoScript
 objects etc. is not the scope of the document, it addresses the
-*backend* part of the core only.
+*backend* and management part of the core only.
 
 The TYPO3 Documentation Team hopes that this document will form a complete picture
-of the TYPO3 Core architecture and the backend. It will hopefully be the knowledge base
+of the TYPO3 Core architecture. It will hopefully be the knowledge base
 of choice in your work with TYPO3.
 
 
@@ -33,7 +33,7 @@ Intended audience
 
 This document is intended to be a reference for TYPO3 CMS developers and partially
 for integrators. The document explains all major parts of TYPO3 and the concepts.
-It presumes some knowledge in the technical end: PHP, MySQL, Unix etc, depending
+Some chapters presumes knowledge in the technical end: PHP, MySQL, Unix etc, depending
 on the specific chapter.
 
 The goal is to take you "under the hood" of TYPO3 CMS. To make the
@@ -56,9 +56,6 @@ Core itself.
 Quite a few others come from the "examples" and the "styleguide" extension. You can
 install them if you want to try out these examples yourself and use them as
 a basis for your own stuff.
-
-Yet some other examples just belong to this manual. Some may be moved
-to the "examples" extension at some later stage.
 
 
 .. _feedback:
