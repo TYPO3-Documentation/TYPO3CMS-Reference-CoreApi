@@ -84,5 +84,4 @@ given task.
    GuidelinesEditors/Index
    Backups/Index
    HackedSite/Index
-   Targets
 
