@@ -1,7 +1,7 @@
 .. include:: ../../../Includes.txt
 
 
-.. _sitehandling-basics:
+.. _sitehandling-addingLanguages:
 
 Adding languages
 -----------------

@@ -14,11 +14,10 @@ in the section "Site Management".
 
 A site configuration consists of the following parts
 
-//@todo links
 - Base URL configuration: Under which domain(s) is my site accessible
-- Language configuration: Which languages are available for my site
-- Error Handling: How should errors for this site behave (For example: configure custom 404 pages)
-- Static Routes: Add static routes to a site (For example for robots.txt on a per site base)
+- :ref:`Language configuration<sitehandling-addingLanguages>`: Which languages are available for my site
+- :ref:`Error Handling<sitehandling-errorHandling>`: How should errors for this site behave (For example: configure custom 404 pages)
+- :ref:`Static Routes<sitehandling-staticRoutes>`: Add static routes to a site (For example for robots.txt on a per site base)
 - Routing Configuration: How shall routing behave for this site
 
 Most parts of the site configuration can be edited via the graphical interface in the backend module "Site".
@@ -157,19 +156,20 @@ languages
 ---------
 
 Available languages for a site can be specified here. These settings determine language avaialability as well as behavior. For a detailed 
-description see //@todo link
+description see  :ref:`Language configuration<sitehandling-addingLanguages>`.
 
 errorHandling
 -------------
 
 The error handling section describes how to handle error status codes for this web site. It allows configuration of custom redirects, 
-rendering templates and more. For a detailed description see //@todo link
+rendering templates and more. For a detailed description see :ref:`error handling<sitehandling-errorHandling>`.
 
 routes
 ------
 
 The routes section is for adding static routes to a site, an example would be a :file:`robots.txt` or :file:`humans.txt` file that is 
-dependent on the current site (as opposed to containing the same content for the whole TYPO3 installation). Read more at //@see staticRoutes
+dependent on the current site (as opposed to containing the same content for the whole TYPO3 installation). Read more at 
+:ref:`static routes<sitehandling-staticRoutes>`
 
 routeEnhancers
 --------------
