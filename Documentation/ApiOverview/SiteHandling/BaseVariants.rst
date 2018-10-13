@@ -26,130 +26,119 @@ would define a base variant to use in Development context.
 
    A configured base variant for development context.
 
+.. hint::
+    For those coming from earlier TYPO3 versions: With site handling, you do not need `sys_domain` records anymore! :)
+
 The following variables and functions are available in addition to the default symfony functionality:
 
 Properties
 ----------
 
-.. container:: table-row
+typo3.version
+^^^^^^^^^^^^^
 
-   Property
-         typo3.version
+:aspect:`Datatype`
+    string
 
-   Data type
-         string
+:aspect:`Description`
+    The current TYPO3 version
 
-   Description
-         The current TYPO3 version
+:aspect:`Example`
+    `9.5.0`
 
-   Example
-         `9.5.0`
 
-.. container:: table-row
+typo3.branch
+^^^^^^^^^^^^
 
-   Property
-         typo3.branch
+:aspect:`Datatype`
+    string
 
-   Data type
-         string
+:aspect:`Description`
+    The current TYPO3 branch
 
-   Description
-         The current TYPO3 branch
+:aspect:`Example`
+    `9.5`
 
-   Example
-        `9.5`
 
-.. container:: table-row
+typo3.devIpMask
+^^^^^^^^^^^^^^^
 
-   Property
-         typo3.devIpMask
+:aspect:`Datatype`
+    string
 
-   Data type
-         string
+:aspect:`Description`
+    The configured devIpMask taken from `$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']`
 
-   Description
-         The configured devIpMask taken from `$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']`
+:aspect:`Example`
+    `77.176.160.*`
 
-   Example
-        `77.176.160.*`
 
-.. container:: table-row
+applicationContext
+^^^^^^^^^^^^^^^^^^
 
-   Property
-         applicationContext
+:aspect:`Datatype`
+    string
 
-   Data type
-         string
+:aspect:`Description`
+    The current application context
 
-   Description
-         The current application context
+:aspect:`Example`
+    `Development`
 
-   Example
-        `Development`
 
 Functions
 ---------
 
 All functions from TYPO3s `DefaultFunctionProvider` are available:
 
-.. container:: table-row
+ip
+^^
 
-   Function
-         ip
+:aspect:`Datatype`
+    string
 
-   Data type
-         string
+:aspect:`Description`
+    Match an IP address, value or regex, wildcards possible. Special value: `devIp` for matching `devIpMask`.
 
-   Description
-         Match an IP address, value or regex, wildcards possible. 
-         Special value: `devIp` for matching `devIpMask`.
+:aspect:`Example`
+    `ip("77.176.160.*")`
 
-   Example
-        `ip("77.176.160.*")`
 
-.. container:: table-row
+compatVersion
+^^^^^^^^^^^^^
 
-   Function
-         compatVersion
+:aspect:`Datatype`
+    string
 
-   Data type
-         string
+:aspect:`Description`
+    Match a TYPO3 version
 
-   Description
-         Match a TYPO3 version
+:aspect:`Example`
+    `compatVersion("9.5.0")`, `compatVersion("9.4")`
 
-   Example
-        `compatVersion("9.5.0")`
-        `compatVersion("9.4")`
 
-.. container:: table-row
+like
+^^^^
 
-   Function
-         like
+:aspect:`Datatype`
+    string
 
-   Data type
-         string
+:aspect:`Description`
+    Comparison function to compare two strings. The first parameter is the "haystack", the
+    second the "needle". Wildcards are allowed.
 
-   Description
-         Comparison function to compare two strings. The first parameter is the "haystack", the 
-         second the "needle". Wildcards are allowed.
+:aspect:`Example`
+    `like("foobarbaz", "*bar*")`
 
-   Example
-        `like("foobarbaz", "*bar*")`
 
-.. container:: table-row
+env
+^^^
 
-   Function
-         env
+:aspect:`Datatype`
+    string
 
-   Data type
-         string
+:aspect:`Description`
+    Wrapper for PHPs `getenv()` function. Allows accessing environment variables.
 
-   Description
-         Wrapper for PHPs `getenv()` function. Allows accessing environment variables.
-
-   Example
-        `env("TYPO3_BASE_URL")`
-
-.. hint::
-    For those coming from earlier TYPO3 versions: With site handling, you do not need `sys_domain` records anymore! :)
+:aspect:`Example`
+    `env("TYPO3_BASE_URL")`
