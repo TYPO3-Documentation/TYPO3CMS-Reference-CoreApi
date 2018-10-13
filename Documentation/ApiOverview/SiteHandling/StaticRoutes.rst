@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: ../../Includes.txt
 
 
 .. _sitehandling-staticRoutes:
@@ -18,10 +18,12 @@ There are two options: deliver static text or resolve a TYPO3 URL.
 StaticText
 ----------
 
-The :yaml:`staticText` option allows to deliver simple text content. The text can be added through a text field directly in
+The :code:`staticText` option allows to deliver simple text content. The text can be added through a text field directly in
 the site configuration. This is suitable for files like :file:`robots.txt` or :file:`humans.txt`.
 
-YAML Configuration Example::
+YAML Configuration Example:
+
+.. code-block:: yaml
 
    route: robots.txt
    type: staticText
@@ -34,10 +36,12 @@ YAML Configuration Example::
 TYPO3 URL (t3://)
 -----------------
 
-The type :yaml:`uri` for TYPO3 URL provides the option to render either a file, page or url. Internally a request to the
+The type :code:`uri` for TYPO3 URL provides the option to render either a file, page or url. Internally a request to the
 file or URL is done and its content delivered.
 
-YAML Configuration Examples::
+YAML Configuration Examples:
+
+.. code-block:: yaml
 
    -
      route: sitemap.xml

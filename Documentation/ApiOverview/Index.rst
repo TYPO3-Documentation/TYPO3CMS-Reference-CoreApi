@@ -31,6 +31,7 @@ This chapter describes the most important elements of the API.
    FormEngine/Index
    Database/Index
    Internationalization/Index
+   SiteHandling/Index
    Workspaces/Index
    Fal/Index
    CachingFramework/Index

@@ -1,10 +1,9 @@
-.. include:: ../../../Includes.txt
-
+.. include:: ../../Includes.txt
 
 .. _sitehandling-basics:
 
 Basics
-------
+======
 
 .. note::
    Site Handling as described here is available since TYPO3 9 LTS.
@@ -12,45 +11,48 @@ Basics
 TYPO3 Site Handling and Configuration is the starting point for creating new web sites. The corresponding modules are found in the TYPO3 backend
 in the section "Site Management".
 
-A site configuration consists of the following parts
+A site configuration consists of the following parts:
 
-- Base URL configuration: Under which domain(s) is my site accessible
-- :ref:`Language configuration<sitehandling-addingLanguages>`: Which languages are available for my site
-- :ref:`Error Handling<sitehandling-errorHandling>`: How should errors for this site behave (For example: configure custom 404 pages)
-- :ref:`Static Routes<sitehandling-staticRoutes>`: Add static routes to a site (For example for robots.txt on a per site base)
-- Routing Configuration: How shall routing behave for this site
+* Base URL configuration: Under which domain(s) is my site accessible
+* :ref:`Language configuration<sitehandling-addingLanguages>`: Which languages are available for my site
+* :ref:`Error Handling<sitehandling-errorHandling>`: How should errors for this site behave (For example: configure custom 404 pages)
+* :ref:`Static Routes<sitehandling-staticRoutes>`: Add static routes to a site (For example for robots.txt on a per site base)
+* Routing Configuration: How shall routing behave for this site
 
 Most parts of the site configuration can be edited via the graphical interface in the backend module "Site".
 
-.. figure:: ../Images/SiteModule.png
+.. figure:: ../../Images/SiteHandlingSiteModule.png
    :class: with-shadow
    :alt: Site Module
 
    The Site module in the TYPO3 backend.
 
 .. hint::
-   While the editing mask for a site looks like a "normal" TYPO3 editing form it is not. In contrast to other forms, site configuration is stored in the file system.
+   While the editing mask for a site looks like a "normal" TYPO3 editing form, it is not. In contrast to
+   other forms, site configuration is stored in the file system and not in database tables.
 
 
 Site configuration storage
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-When creating a new site configuration, a folder in the file system is created located at :file:`<project-root>/config/sites/<identifier>/`. The site configuration is stored in a file called
-`config.yaml`. 
+--------------------------
+
+When creating a new site configuration, a folder in the file system is created located at
+:file:`<project-root>/config/sites/<identifier>/`. The site configuration is stored in a
+file called `config.yaml`.
 
 .. note::
-    If you are using a non-composer based installation, the location changes to `typo3conf/sites/`. 
+    If you are using a non-composer based installation, the location is `typo3conf/sites/`.
     In the future this folder can (and should) be used for more files like Fluid templates, and Backend layouts.
-
 
 .. hint::
     Add this folder to your version control. 
 
+
 The configuration file
-""""""""""""""""""""""
+----------------------
 
 The following part explains the configuration file and options:
 
-.. code::
+.. code-block:: yaml
 
   rootPageId: 12
   base: 'https://www.example.com/'
@@ -116,17 +118,19 @@ The following part explains the configuration file and options:
         Allow: /
         Disallow: /forbidden/
 
-Most settings can also be edited via the backend module `Site Management > Configuration` (Exceptions being custom settings and additional routing configuration).
+Most settings can also be edited via the backend module `Site Management > Configuration`,
+exceptions being custom settings and additional routing configuration.
+
 
 site identifier
----------------
+^^^^^^^^^^^^^^^
 
 The site identifier is the name of the folder within `<project-root>/config/sites/` that will hold your configuration file(s). When
 choosing an identifier make sure to stick to ASCII but you may also use `-`, `_` and `.` for convenience.
 
 
 rootPageId
-----------
+^^^^^^^^^^
 
 Root pages are identified by one of these two properties:
 
@@ -134,7 +138,7 @@ Root pages are identified by one of these two properties:
 * they have the "Use as Root Page" property in `pages` set to true.
 
 base
-----
+^^^^
 
 The base is the base domain to run a site on. It either accepts a fully qualified URL or a relative segment "/" to react to any domain name.
 It is possible to set a site base prefix to just "/site1" and "/site2" or "www.mydomain.com" instead of entering a full URI.
@@ -153,25 +157,25 @@ HTTPS redirect either on the webserver level, via a .htaccess rewrite rule, or b
   In this case, it is necessary by the Site Administrator to define unique Site base prefixes.
 
 languages
----------
+^^^^^^^^^
 
 Available languages for a site can be specified here. These settings determine language avaialability as well as behavior. For a detailed 
 description see  :ref:`Language configuration<sitehandling-addingLanguages>`.
 
 errorHandling
--------------
+^^^^^^^^^^^^^
 
 The error handling section describes how to handle error status codes for this web site. It allows configuration of custom redirects, 
 rendering templates and more. For a detailed description see :ref:`error handling<sitehandling-errorHandling>`.
 
 routes
-------
+^^^^^^
 
 The routes section is for adding static routes to a site, an example would be a :file:`robots.txt` or :file:`humans.txt` file that is 
 dependent on the current site (as opposed to containing the same content for the whole TYPO3 installation). Read more at 
 :ref:`static routes<sitehandling-staticRoutes>`
 
 routeEnhancers
---------------
+^^^^^^^^^^^^^^
 
 While page routing works out of the box with no further settings, routeEnhancers allow the configuration of routing for TYPO3 extensions. 

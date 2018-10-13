@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: ../../Includes.txt
 
 
 .. _sitehandling-errorHandling:
@@ -20,7 +20,7 @@ You can define one error handler per HTTP error code and add a generic one that 
     No more trouble with translated 404 error pages. With the new site handling getting translated
     404 is easy!
 
-.. figure:: ../Images/ErrorHandling-1.png
+.. figure:: ../../Images/SiteHandlingErrorHandling-1.png
    :class: with-shadow
    :alt: Error Handling
 

@@ -1,7 +1,7 @@
-.. include:: ../../../Includes.txt
+.. include:: ../../Includes.txt
 
 
-.. _sitehandling-basics:
+.. _sitehandling-inTypoScript:
 
 Using Site Configuration in TypoScript
 --------------------------------------
