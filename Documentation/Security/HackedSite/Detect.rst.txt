@@ -44,8 +44,8 @@ websites. Latter could steal user data if the site which the user was
 redirected to convinces users to enter their access details (e.g. if
 it looks the same as or similar to your site).
 
-Also see the explanations below ("Search engines warn about your
-site").
+See alse the explanations below :ref:`Search engines warn about your
+site <security-detect-reports-from-search-engines>`.
 
 
 Embedded elements in the site's content
@@ -58,7 +58,8 @@ suspicious. A hacker possibly has placed harmful files (e.g. virus-
 infected software) on your site, hoping your visitors trust you and
 download/execute these files.
 
-Also see the explanations below ("Reports from visitors or users").
+See also the explanations below :ref:`Reports from visitors or users
+<security-detect-reports-from-visitors>`.
 
 
 Unusual traffic increase or decrease
@@ -80,6 +81,8 @@ server traffic in general. Significant changes in this traffic
 behavior should definitely make you investigating the cause.
 
 
+.. _security-detect-reports-from-visitors:
+
 Reports from visitors or users
 """"""""""""""""""""""""""""""
 
@@ -87,9 +90,11 @@ If visitors or users report that they get viruses from browsing
 through your site, or that their anti-virus software raises an alarm
 when accessing it, you should immediately check this incident. Keep in
 mind that under certain circumstances the manipulated content might
-not be visible to you if you just check the generated output; see
+not be visible to you if you just check the generated output - see
 explanations above.
 
+
+.. _security-detect-reports-from-search-engines:
 
 Search engines or browsers warn about your site
 """""""""""""""""""""""""""""""""""""""""""""""

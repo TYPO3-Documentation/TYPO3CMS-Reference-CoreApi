@@ -20,10 +20,10 @@ will be only a matter of time, until the website is hacked again.
 
 So called "backdoors" are another important thing you should keep in
 mind: if an attacker had access to your site, it is possible and common
-practise that he/she implemented a way to gain unauthorized access to
+practise that it implemented a way to gain unauthorized access to
 the system at a later time (again). Even if the original security
 vulnerability has been fixed (entry point secured), all passwords
-changed, etc. Such a backdoor could be as simple as a new backend user
+changed, etc., such a backdoor could be as simple as a new backend user
 account with an unsuspicious user name (and maybe administrator
 privileges) or a PHP file hidden somewhere deep in the file system,
 which contains some cryptic code to obscure its malicious purpose.
@@ -31,7 +31,7 @@ which contains some cryptic code to obscure its malicious purpose.
 Assuming all "infected" files have been cleaned and the vulnerability
 has been fixed, make sure to take corrective actions to prevent
 further attacks. This could be a combination of software updates,
-changes in access rights, firewall settings, policies for logfile
+changes in access rights, firewall settings, policies for log file
 analysis, the implementation of an intrusion detection system, etc. A
 system that has been compromised once should be carefully monitored in
 the following months for any signs of new attacks.

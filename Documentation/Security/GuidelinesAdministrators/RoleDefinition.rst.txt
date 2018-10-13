@@ -3,7 +3,7 @@
 Role definition
 ^^^^^^^^^^^^^^^
 
-In this document, we define a system administrator as the person who
+In this chapter, we define a system administrator as the person who
 is responsible for the system/server where the TYPO3 instance is
 installed. System administrators usually have full access on a server
 level (operating system) and install, configure and maintain the base
@@ -16,5 +16,5 @@ the system (e.g. SSH, FTP, etc.) as well as correct permissions on a
 file system level.
 
 The role of a system administrator often overlaps with a TYPO3
-integrator and it is likely that one person is in both roles.
+integrator and it happens that one person has both roles.
 

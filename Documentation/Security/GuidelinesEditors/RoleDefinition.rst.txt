@@ -12,7 +12,7 @@ system. This may vary depending on the relation and contracts between
 developer and client of course.
 
 Editors are predominantly responsible for the content of the website.
-They log into the backend of TYPO3 (the administration interface)
+They log in to the backend of TYPO3 (the administration interface)
 using their username and password. Editors add, update and remove
 pages as well as content on pages. They upload files such as images or
 PDF documents, create internal and external links and add/edit
@@ -35,5 +35,5 @@ Editors usually do not change the layout of the website, they do not
 set up the system, new backend user accounts, new site functionality
 (for example, they do not install, update or remove extensions), they
 do not need to have programming, database or HTML knowledge and they
-do not configure the TYPO3 instance by changing TypoScript code.
+do not configure the TYPO3 instance by changing TypoScript code or templates.
 

@@ -8,19 +8,19 @@ take it offline for the duration of the analysis and restoration
 process (the explanations below). This can be done in various ways and
 it may be necessary to perform more than one of the following tasks:
 
-- route the domain(s) to a different server
+* route the domain(s) to a different server
 
-- deactivate the web host and show a "maintenance" note
+* deactivate the web host and show a "maintenance" note
 
-- disable the web server such as Apache (keep in mind that shutting down
+* disable the web server such as Apache (keep in mind that shutting down
   a web server on a system that serves virtual hosts will make all sites
   inaccessible)
 
-- disconnect the server from the Internet or block access from and to
+* disconnect the server from the Internet or block access from and to
   the server (firewall rules)
 
 There are many reasons why it is important to take the whole site or
-server offline: in the case where the hacked site is used for
+server offline: In the case where the hacked site is used for
 distributing malicious software, a visitor who gets attacked by a
 virus from your site, will most likely lose the trust in your site and
 your services. A visitor who simply finds your site offline (or in

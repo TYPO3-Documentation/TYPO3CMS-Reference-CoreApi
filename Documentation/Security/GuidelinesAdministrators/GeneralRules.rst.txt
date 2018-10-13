@@ -18,7 +18,7 @@ General rules
    passwords for all logins and components for every installation.
 
 #. Never use the same password for a TYPO3 installation and any other
-   service such as FTP, SSH, etc.
+   service such as `FTP`, `SSH`, etc.
 
 #. Change the username and password of the "admin" account after the
    installation of TYPO3 immediately.

@@ -7,8 +7,8 @@ Backups are typically created on the same server as the TYPO3 instance
 and often stored there as well. In this case, the backup files should
 be copied to external systems to prevent data loss from a hardware
 failure. If backups are only stored on the local system and an
-attacker gains full control over the server, he might delete the
-backup files. Protecting the external systems against any access from
+attacker gains full control over the server, he might delete or tamper with
+the backup files. Protecting the external systems against any access from
 the TYPO3 server is also highly recommended, so you should consider
 "fetching" the backups from the TYPO3 system instead of "pushing" them
 to the backup system.
@@ -30,4 +30,3 @@ website and cannot be accessed with a browser. Otherwise everybody
 could simply download your backups, including sensitive data, such as
 passwords (not revealing the URL is not a sufficient measure from a
 security perspective).
-

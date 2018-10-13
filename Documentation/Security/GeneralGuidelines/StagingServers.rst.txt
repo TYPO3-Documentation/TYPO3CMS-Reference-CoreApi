@@ -5,7 +5,7 @@ Use staging servers for developments and tests
 
 During the development phase of a project and also after the launch of
 a TYPO3 site as ongoing maintenance work, it is often required to test
-if new or updated extensions, PHP, TypoScript or other code meets the
+if new or updated extensions, `PHP`, `TypoScript` or other code meets the
 requirements.
 
 A website that is already "live" and publicly accessible should not be

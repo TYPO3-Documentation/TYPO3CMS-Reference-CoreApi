@@ -22,14 +22,14 @@ extensions without such an audit are insecure, but they probably have
 not been checked for potential security issues by an independent 3rd
 party (such as the TYPO3 Security Team).
 
-The status of an extension ("alpha", "beta", "stable", etc.) should
+The status of an extension (`alpha`, `beta`, `stable`, etc.) should
 also give you an indication in which state the developer claims the
 extension is. However, this classification is an arbitrary setting by
 the developer and may not reflect the real status and/or opinions of
 independent parties.
 
 Always keep in mind that an extension may not perform the
-functionality that it pretends to do: an attacker could write an
+functionality that it pretends to do: An attacker could write an
 extension that contains malicious code or functions and publish it
 under a promising name. It is also possible that a well-known,
 harmless extension will be used for an attack in the future by
@@ -40,34 +40,34 @@ installations.
 
 Following the guidelines listed below would improve the level of
 security, but the trade-off would be more effort in maintaining your
-website and a delay of updating existing extensions (which would
-possibly be against the "react quickly" paradigm described above).
+website and a delay of updating existing extensions, which would
+possibly be against the :ref:`react quickly <security-react-quickly>` paradigm.
 Thus, it depends on the specific case and project, and the intention
 of listing the points below is more to raise the awareness of possible
 risks.
 
-- Do not install extensions or versions marked as "alpha" or "obsolete"
-  (the developer classified the code as a very early version, preview,
+* Do not install extensions or versions marked as `alpha` or `obsolete`:
+  The developer classified the code as a early version, preview,
   prototype, proof-of-concept and/or as not maintained – nothing you
-  should install on a production site).
+  should install on a production site.
 
-- Be very careful when using extensions or versions marked as "beta"
-  (according to the developer, this version of the extension is still in
+- Be very careful when using extensions or versions marked as `beta`:
+  According to the developer, this version of the extension is still in
   development, so it is unlikely that any security-related tests or
-  reviews have been undertaken so far).
+  reviews have been undertaken so far.
 
-- Be careful with extensions and versions marked as "stable" (but not
-  reviewed by the TYPO3 Security Team).
+- Be careful with extensions and versions marked as `stable`, but not
+  reviewed by the TYPO3 Security Team.
 
 - Check every extension and extension update before you install it on a
-  production site and review it in regards to security (see chapter "Use
-  staging servers for developments and tests").
+  production site and review it in regards to security, see
+  :ref:`Use staging servers for developments and tests <security-staging-servers>`.
 
 
 Executable binaries shipped with extensions
 """""""""""""""""""""""""""""""""""""""""""
 
-TYPO3 extensions (.t3x files) are packages, which may contain any kind
+TYPO3 extensions (:file:`.t3x` files) are packages, which may contain any kind
 of data/files. This can not only be readable PHP or Javascript source
 code, but also binary files, e.g. Unix/Linux ELF files or Microsoft
 Windows .exe files (compiled executables).
@@ -85,7 +85,7 @@ discovered in these components.
 Remove unused extensions and other code
 """""""""""""""""""""""""""""""""""""""
 
-TYPO3 CMS distinguishes between "imported" and "loaded" extensions.
+TYPO3 distinguishes between "imported" and "loaded" extensions.
 Imported extensions exist in the system and are ready to be integrated
 into TYPO3 but they are not installed yet. Loaded extensions are
 available for being used (or are being used automatically, depending
@@ -103,9 +103,11 @@ the system that is not in use. This includes TYPO3 extensions, any
 TypoScript (see below), PHP scripts as well as all other functional
 components. In regards to TYPO3 extensions, you should remove unused
 extensions from the system (not only unload/deinstall them). The
-"Extension Manager" offers an appropriate function for this:
-"Backup/Delete" - an administrator backend account is required.
+*Extension Manager* offers an appropriate function for this - an
+administrator backend account is required.
 
+
+.. _security-extensions-low-level:
 
 Low-level extensions
 """"""""""""""""""""
@@ -113,27 +115,26 @@ Low-level extensions
 So called "low-level" extensions provide "questionable" functionality
 to a level below what a standard CMS would allow you to access. This
 could be for example direct read/write access to the file system or
-direct access to the database (see chapter "Guidelines for System
-Administrators: Database access" above). If a TYPO3 integrator or a
-backend user (e.g. an editor) depends on those extensions, it is most
+direct access to the database (see :ref:`Guidelines for System
+Administrators: Database access <security-database-access>`). If a TYPO3 integrator
+or a backend user (e.g. an editor) depends on those extensions, it is most
 likely that a misconfiguration of the system exists in general.
 
-TYPO3 extensions like "phpMyAdmin", various file browser/manager
+TYPO3 extensions like `phpMyAdmin`, various file browser/manager
 extensions, etc. may be a good choice for a development or test
 environment but are definitely out of place at production sites.
 
-Extensions that allow editors to include PHP code should be avoided,
-too.
+Extensions that allow editors to include PHP code must be avoided, too.
 
 
 Check for extension updates regularly
 """""""""""""""""""""""""""""""""""""
 
 The importance of the knowledge that security updates are available
-has been discussed above (see chapter: "TYPO3 security-bulletins"). It
-is also essential to know how to check for extension updates: the
-"Extension Manager" (EM) is a TYPO3 CMS backend module accessible for
-backend users with administrator privileges (section "ADMIN TOOLS").
+has been discussed above (see :ref:`TYPO3 security-bulletins
+<security-bulletins>`). It is also essential to know how to check for
+extension updates: the *Extension Manager* (EM) is a TYPO3 backend module
+accessible for backend users with administrator privileges.
 A manual check for extension updates is available in this module.
 
 The EM uses a cached version of the extension list from the TYPO3
@@ -147,7 +148,7 @@ short description of changes (the "upload comment" provided by the
 extension developers) and you can download/install the updates if
 desired. Please note that under certain circumstances, new versions
 may behave differently and a test/review is sometimes useful,
-depending on the nature and importance of your TYPO3 CMS instance.
+depending on the nature and importance of your TYPO3 instance.
 Often a new version of an extension published by the developer is not
 security-related.
 

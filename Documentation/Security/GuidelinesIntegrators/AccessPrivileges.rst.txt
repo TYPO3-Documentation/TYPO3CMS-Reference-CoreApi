@@ -1,12 +1,12 @@
 .. include:: ../../Includes.txt
 
 Users and access privileges
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Backend
 """""""
 
-TYPO3 CMS offers a very sophisticated and complex access concept: you can
+TYPO3 offers a very sophisticated and complex access concept: you can
 define permissions on a user-level, on a group-level, on pages, on
 functions, on DB mounts, even on content elements and more. This
 concept is possibly a little bit complicated and maybe overwhelming if
@@ -30,12 +30,12 @@ necessary to update the access privileges for every user if you want
 to adjust something in the future – simply update the group's
 permissions instead.
 
-When creating a new user, do not use generic usernames such as
+When creating a new user, do not use generic user names such as
 "editor", "webmaster", "cms" or similar. You should use real names
 instead (e.g. first name + dot + last name). Always remember the
-guidelines for choosing a secure password when you set a password for
-a new user or update a password for an existing user (set a good
-example and inform the new user about your policies).
+guidelines for :ref:`choosing a secure password <security-secure-passwords>` when
+you set a password for a new user or update a password for an existing user
+(set a good example and inform the new user about your policies).
 
 If backend users will leave the project at a known date, for example
 students or temporary contractors, you should set an expiration date
@@ -46,25 +46,27 @@ team to review the accounts from time to time and only extend the
 users that are allowed to continue using the system.
 
 .. figure:: ../../Images/Security/be-user-expiry-date.png
-   :alt: Screenshot showing the screen to set an expiry date for a BE user
+    :class: with-shadow
+    :alt: Screenshot showing the screen to set an expiry date for a BE user
+
 
 Frontend
 """"""""
 
 Access to pages and content in the TYPO3 frontend can be configured with
-frontend usergroups. Similar suggestions like for backend users also apply here.
+frontend user groups. Similar suggestions like for backend users also apply here.
 
-There are two special options in addition to frontend usergroups:
+There are two special options in addition to frontend user groups:
 
 * *Hide at login*: hide page/content as soon as a user is logged in into the frontend,
   no matter which groups he belongs to.
 
 * *Show at any login*: show page/content as soon as a user is logged in.
 
-The option *Show at any login* should be used with caution since it permits access to
-**any** user regardless of his usergroups and **storage location**. This means that for
+The option *Show at any login* should be used with care since it permits access to
+**any** user regardless of it's user groups and **storage location**. This means that for
 multi-site TYPO3 instances users are able to log in to other sites under certain
 circumstances.
 
-Thus the correct solution is to always prefer explicit usergroups instead of the
+Thus the correct solution is to always prefer explicit user groups instead of the
 *Show at any login* option.

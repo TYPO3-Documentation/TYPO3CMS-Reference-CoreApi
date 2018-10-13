@@ -8,15 +8,15 @@ that the security hole has been identified and fixed, you can switch
 the website back online. However, there are some further things to do
 or to consider:
 
-- change (all) passwords and other access details
+* change (all) passwords and other access details
 
-- review situation: determine impact of the attack and degree of damage
+* review situation: determine impact of the attack and degree of damage
 
-- possibly notify your hosting provider
+* possibly notify your hosting provider
 
-- possibly notify users (maybe clients), business partners, etc.
+* possibly notify users (maybe clients), business partners, etc.
 
-- possibly take further legal steps (or ask for legal advice from
+* possibly take further legal steps (or ask for legal advice from
   professionals)
 
 Depending on the nature of the hack, the consequences can be as

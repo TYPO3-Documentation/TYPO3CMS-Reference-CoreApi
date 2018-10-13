@@ -3,9 +3,9 @@
 General rules
 ^^^^^^^^^^^^^
 
-All "general rules" for a system administrator also apply for a TYPO3
-integrator. One of the most important rules is to change the username
-and password of the "admin" account immediately after a TYPO3 CMS system
+All :ref:`general rules <security-administrator-rules>` for a system administrator
+also apply for a TYPO3 integrator. One of the most important rules is to change the
+username and password of the "admin" account immediately after a TYPO3 system
 was handed over from a system administrator to an integrator, if not
 already done. The same applies to the Install Tool password, see
 below.
@@ -17,7 +17,7 @@ In addition, the following general rules apply for a TYPO3 integrator:
    explanations below.
 
 #. Ensure, the TYPO3 sites they are responsible for, always run a stable
-   and secure TYPO3 core version and always contain secure extensions
+   and secure TYPO3 core version and always and only contain secure extensions
    (integrators update them immediately if a vulnerability has been
    discovered).
 
