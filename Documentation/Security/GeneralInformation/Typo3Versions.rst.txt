@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 TYPO3 versions and lifecycle
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 TYPO3 is offered in Long Term Support (LTS) and Sprint Release versions.
 
