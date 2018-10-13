@@ -3,16 +3,27 @@
 Components included in the backups
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To restore a TYPO3 CMS project you need to have a backup of at least the
+To restore a TYPO3 project you need to have a backup of at least the
 following data directories:
 
-- fileadmin
+* :file:`fileadmin`
 
-- typo3conf
+* :file:`typo3conf`
 
-- uploads
+.. note::
+    The directory structure is not *that* fixed: Especially with
+    modern `Composer` based instances, a separation of the :ref:`project root
+    <Environment-project-path>`
+    and the :ref:`web server document root <Environment-public-path>` can be achieved.
+    This is recommended from a security point of view since critical parts of
+    the TYPO3 instance can be located outside of the web document root and are then not
+    directly accessible from the outside. Important parts are the :ref:`var path
+    <Environment-var-path>` and the :ref:`config path <Environment-config-path>`
+    - see :ref:`Environment API <Environment>` for details. The "config path" should
+    be included in backups, while the "var path" could be left out since its content
+    will be - with most instance configurations - recreated automatically if needed.
 
-You do not need a backup of the "typo3temp/" directory, due to the
+You do not need a backup of the :file:`typo3temp/` directory, due to the
 fact that all files are re-generated automatically if they do not
 exist. Also a backup of the TYPO3 source code is not needed (unless
 changes were made to the source code, which is not recommended). You
@@ -20,8 +31,8 @@ can always download the TYPO3 source packages from the TYPO3 website,
 even for older versions of TYPO3.
 
 In addition to the data directories listed above, a backup of the
-database is required. For MySQL the command line tool "mysqldump" (or
-"mysqldump.exe" for Microsoft Windows) is a good way to export the
+database is required. For MySQL the command line tool `mysqldump` (or
+`mysqldump.exe` for Microsoft Windows) is a good way to export the
 content of the database to a file without any manual interaction (e.g.
 as an automated, scheduled system task).
 
