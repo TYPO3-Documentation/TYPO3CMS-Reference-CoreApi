@@ -1,10 +1,9 @@
 .. include:: ../../Includes.txt
 
-
 .. _sitehandling-inTypoScript:
 
 Using Site Configuration in TypoScript
---------------------------------------
+======================================
 
 Site configuration can be accessed via the :typoscript:`getText` property in TypoScript.
 
@@ -12,15 +11,16 @@ Example:
 
 .. code-block:: typoscript
 
-	page.10 = TEXT
-	page.10.data = site:base
-	page.10.wrap = This is your base URL: |
+    page.10 = TEXT
+    page.10.data = site:base
+    page.10.wrap = This is your base URL: |
 
-Where :typoscript:`site` is the keyword for accessing an aspect, and the following parts are the configuration key(s) to access.
+Where :typoscript:`site` is the keyword for accessing an aspect, and the following parts are the
+configuration key(s) to access.
 
 .. code-block:: typoscript
 
-	data = site:customConfigKey.nested.value
+    data = site:customConfigKey.nested.value
     
 .. tip::
     Accessing site configuration is possible in TypoScript, which enables to store site specific configuration options

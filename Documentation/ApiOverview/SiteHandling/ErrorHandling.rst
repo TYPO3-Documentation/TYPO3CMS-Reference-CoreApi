@@ -1,18 +1,17 @@
 .. include:: ../../Includes.txt
 
-
 .. _sitehandling-errorHandling:
 
 Error Handling
---------------
+==============
 
-Error handling can be configured on site level and is automatically dependent on the current site and 
-language.
+Error handling can be configured on site level and is automatically dependent on the
+current site and language.
 
 The configuration consists of two parts:
 
-- The HTTP Error Status Code that should be handled
-- The Error Handler Configuration
+* The HTTP Error Status Code that should be handled
+* The Error Handler Configuration
 
 You can define one error handler per HTTP error code and add a generic one that serves all error pages.
 
@@ -26,102 +25,121 @@ You can define one error handler per HTTP error code and add a generic one that 
 
    Add custom error handling.
 
+
 Properties
-^^^^^^^^^^
+----------
 
-.. container:: table-row
 
-   Property
-        errorCode
+errorCode
+^^^^^^^^^
 
-   Data type
-         int
+:aspect:`Datatype`
+    int
 
-   Description
-         The HTTP (Error) Status Code to handle. The predefined list contains the most common errors,
-         a free definition of other error codes is also possible. Special value `0` will take care of 
-         all errors.
+:aspect:`Description`
+    The HTTP (Error) Status Code to handle. The predefined list contains the most common errors,
+    a free definition of other error codes is also possible. Special value `0` will take care of
+    all errors.
 
-   Example
-         404
+:aspect:`Example`
+    `404`
 
-.. container:: table-row
 
-   Property
-        errorHandler
+errorHandler
+^^^^^^^^^^^^
 
-   Data type
-         string / enum
+:aspect:`Datatype`
+    string / enum
 
-   Description
-         Define how to handle these errors. May be `Fluid` for rendering a fluid template, 
-         `page` for fetching content from a page or `PHP` for a custom implementation.
+:aspect:`Description`
+    Define how to handle these errors. May be `Fluid` for rendering a fluid template,
+    `page` for fetching content from a page or `PHP` for a custom implementation.
 
-   Example
-         Fluid
+:aspect:`Example`
+    `Fluid`
 
-.. container:: table-row
 
-   Property
-        errorFluidTemplate
+errorFluidTemplate
+^^^^^^^^^^^^^^^^^^
 
-   Data type
-         string
+:aspect:`Datatype`
+    string
 
-   Description
-         *ONLY if errorHandler == `fluid`*: Path to fluid template file. Path may be 
+:aspect:`Description`
+    **Only if errorHandler == `fluid`**: Path to fluid template file. Path may be
 
-         - absolute
-         - relative to site root
-         - starting with `EXT:` for files from an extension 
+    * absolute
+    * relative to site root
+    * starting with `EXT:` for files from an extension
 
-   Example
-         EXT:sitepackage/Resources/Private/Templates/Error.html
+:aspect:`Example`
+    `EXT:sitepackage/Resources/Private/Templates/Error.html`
 
-.. container:: table-row
 
-   Property
-        errorFluidTemplatesRootPath
-        errorFluidPartialsRootPath
-        errorFluidLayoutsRootPath
+errorFluidTemplatesRootPath
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Data type
-         string [optional]
+:aspect:`Datatype`
+    string [optional]
 
-   Description
-         *ONLY if errorHandler == `fluid`*: Pathes to Fluid Templates, Partials and Layouts in
-         case more flexibility is needed. 
+:aspect:`Description`
+    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    case more flexibility is needed.
 
-   Example
-         EXT:sitepackage/Resources/Private/Templates/
-         EXT:sitepackage/Resources/Private/Partials/
-         EXT:sitepackage/Resources/Private/Layouts/
+:aspect:`Example`
+    `EXT:sitepackage/Resources/Private/Templates/`
 
-.. container:: table-row
 
-   Property
-        errorContentSource
+errorFluidPartialsRootPath
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Data type
-         string 
+:aspect:`Datatype`
+    string [optional]
 
-   Description
-         May be either an External URL or TYPO3 Page that will be fetched with curl and displayed
-         in case of an error.
+:aspect:`Description`
+    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    case more flexibility is needed.
 
-   Example
-         t3://page?uid=123
+:aspect:`Example`
+    `EXT:sitepackage/Resources/Private/Partials/`
 
-.. container:: table-row
 
-   Property
-        errorPhpClassFQCN
+errorFluidLayoutsRootPath
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Data type
-         string 
+:aspect:`Datatype`
+    string [optional]
 
-   Description
-         Fully qualified class name of a custom error handler implementing `PageErrorHandlerInterface`.
+:aspect:`Description`
+    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    case more flexibility is needed.
 
-   Example
-         `My\Site\Error\Handler`
+:aspect:`Example`
+    `EXT:sitepackage/Resources/Private/Layouts/`
+
+
+errorContentSource
+^^^^^^^^^^^^^^^^^^
+
+:aspect:`Datatype`
+    string
+
+:aspect:`Description`
+    May be either an External URL or TYPO3 Page that will be fetched with curl and displayed
+    in case of an error.
+
+:aspect:`Example`
+    `t3://page?uid=123`
+
+
+errorPhpClassFQCN
+^^^^^^^^^^^^^^^^^
+
+:aspect:`Datatype`
+    string
+
+:aspect:`Description`
+    Fully qualified class name of a custom error handler implementing `PageErrorHandlerInterface`.
+
+:aspect:`Example`
+    `My\Site\Error\Handler`
