@@ -6,7 +6,9 @@
 .. role:: js(code)
 .. role:: php(code)
 .. role:: sep (strong)
+.. role:: sql(code)
 .. role:: typoscript(code)
+.. role:: yaml(code)
 
 .. role:: ts(typoscript)
    :class: typoscript
