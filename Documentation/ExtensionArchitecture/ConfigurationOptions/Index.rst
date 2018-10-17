@@ -60,17 +60,16 @@ Once you saved the configuration in the Extension Manager, it will be stored in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['your_extension_key']`
 as an array.
 
-To retrieve the configuration use the API::
+To retrieve the configuration use the API provided by the :php:`\TYPO3\CMS\Core\Configuration\ExtensionConfiguration` class::
 
-   $backendConfiguration = (bool)\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-      \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)
+   $backendConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
       ->get('your_extension_key');
 
-To fetch the value of :ts:`temporaryDirectory` from the example above,
-you could simply use::
+This will return the whole configuration as an array.
 
-   $backendConfiguration = (bool)\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-      \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)
+To directly fetch specific values like :ts:`temporaryDirectory` from the example above::
+
+   $backendConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
       ->get('your_extension_key', 'temporaryDirectory');
 
 
