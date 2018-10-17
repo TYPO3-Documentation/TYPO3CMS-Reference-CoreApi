@@ -84,7 +84,7 @@ The following part explains the configuration file and options:
       languageId: '2'
       title: Deutsch
       navigationTitle: ''
-      base: 'https://www.beispiel.de'
+      base: 'https://www.beispiel.de/'
       locale: de_DE.UTF-8
       iso-639-1: de
       hreflang: de-DE
