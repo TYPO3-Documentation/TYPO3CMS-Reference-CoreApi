@@ -97,7 +97,7 @@ See any system extension for best practice on this behaviour.
 - :php:`$GLOBALS['TYPO3_LOADED_EXT'][extensionKey]` contains information about
   whether the module is loaded as *local* or *system* type,
   including the proper paths you might use, absolute and relative.
-- Your :file:`ext_tables.php` and :file:`ext_localconf.php` files must be designed so
+- Your :file:`ext_tables.php` and :file:`ext_localconf.php` files must be designed in a way
   that they can safely be read and subsequently imploded into one single
   file with all the other configuration scripts!
 - You must **never** use a "return" statement in the files global scope -
