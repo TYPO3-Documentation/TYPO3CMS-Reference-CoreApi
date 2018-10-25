@@ -61,7 +61,7 @@ an input field for a Google API key. However it is **not possible to extend with
 database driven select fields, Flex Form handling and similar.
 
 The example below shows the experimental feature adding a field to site in an extensions file
-:file:`Configuration/SiteConfiguration/Overrides/sites.php`. Note the helper methods of class
+:file:`Configuration/SiteConfiguration/sites.php`. Note the helper methods of class
 :php:`TYPO3\CMS\core\Utility\ExtensionManagementUtility` can not be used.
 
 .. code-block:: php
