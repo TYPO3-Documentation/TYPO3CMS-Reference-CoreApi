@@ -1,0 +1,6 @@
+{
+    "name": "typo3/reference-coreapi",
+    "type": "typo3-cms-documentation",
+    "description": "Main TYPO3 core documentation",
+    "license": "OPL-1.0"
+}
