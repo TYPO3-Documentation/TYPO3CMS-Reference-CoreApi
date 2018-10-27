@@ -29,12 +29,22 @@ In :file:`LocalConfiguration.php`::
       'systemLog' => true,
    ),
 
+You can also use the "Debug" preset in the Settings module "Configuration presets". 
+
 
 In :file:`.htaccess`::
 
    php_flag display_errors on
    php_flag log_errors on
    php_value error_log /path/to/php_error.log
+
+TypoScript::
+
+   config.contentObjectExceptionHandler = 0 
+   
+Use this setting, to get more context and a stacktrace in the Frontend in case of an exception.
+See :ref:`contentObjectExceptionHandler <t3tsref:setup-config-contentObjectExceptionHandler>` for more
+information.
 
 
 .. _error-handling-configuration-examples-production:
@@ -57,6 +67,8 @@ In :file:`LocalConfiguration.php`::
       'syslogErrorReporting' => E_ALL ^ E_NOTICE ^ E_WARNING,
       'belogErrorReporting' => '0',
    ),
+
+You can also use the "Live" preset in the Settings module "Configuration presets". 
 
 In :file:`.htaccess`::
 
