@@ -252,7 +252,7 @@ The table alias can then be used in :php:`->set()` and :php:`->where()` expressi
 
 :php:`->set()` requires a field name as first argument and automatically quotes it internally. The second mandatory
 argument is the value a field should be set to, the value is automatically transformed to a named parameter
-of a prepared statement. This way, :php:`->set()` key/value pairs are automatically SQL injection save by default.
+of a prepared statement. This way, :php:`->set()` key/value pairs are automatically SQL injection safe by default.
 
 If a field should be set to the value of another field from the row, the quoting needs to be turned off and
 :php:`->quoteIdentifier()` has to be used::
