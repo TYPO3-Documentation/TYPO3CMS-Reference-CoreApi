@@ -59,15 +59,24 @@ extension name as the features are global switches which otherwise might lead to
 Core Feature Toggles
 --------------------
 
-The following feature toggles currently exist in the TYPO3 Core:
+Some examples for feature toggles in the TYPO3 Core:
 
 - `redirects.hitCount`: Enables hit statistics in the redirects backend module
+- `TypoScript.strictSyntax`: If on, TypoScript is parsed in strict syntax modes.
+  Enabling this feature means old condition syntax (which is deprecated) will
+  trigger deprecation messages.
 
 
-Example: Enable Feature Toggle
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Enable / Disable Feature Toggle
+-------------------------------
 
-Add the following snippet in your :file:`LocalConfiguration.php`::
+Features can be toggled in the *Settings* module via *Feature Toggles*:
+
+.. image:: Images/FeatureToggles.png
+   :class: with-shadow
+
+
+Internally, the changes are written to :file:`LocalConfiguration.php`::
 
    'SYS' => [
       'features' => [
