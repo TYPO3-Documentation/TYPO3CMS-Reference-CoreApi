@@ -70,7 +70,7 @@ Some examples for feature toggles in the TYPO3 Core:
 Enable / Disable Feature Toggle
 -------------------------------
 
-Features can be toggled on / off in *Settings:Feature Toggles*:
+Features can be toggled in the *Settings* module via *Feature Toggles*:
 
 .. image:: Images/FeatureToggles.png
    :class: with-shadow
