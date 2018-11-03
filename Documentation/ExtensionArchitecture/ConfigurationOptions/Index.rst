@@ -8,7 +8,7 @@ Configuration options
 
 In the :file:`ext_conf_template.txt` file configuration options
 for an extension can be defined. They will be accessible in the TYPO3 backend
-from the Extension Manager.
+from Settings module.
 
 There's a specific syntax to declare these options properly, which is
 similar to the one used for TypoScript constants (see "Declaring
