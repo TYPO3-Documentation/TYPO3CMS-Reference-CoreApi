@@ -74,6 +74,7 @@ address the task at hand.
    ExtensionArchitecture/Index
    ApiOverview/Index
    Security/Index
+   Testing/Index
    CodingGuidelines/Index
    DataFormats/Index
    Targets
