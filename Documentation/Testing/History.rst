@@ -262,13 +262,13 @@ pattern repeated often over the years: The test suites show quite well which par
 attention. Working in these areas in turn improves the core for everyone and allows usages that
 have not been possible before. Extension authors later pick these up and use this.
 
-In late 2018 another thing has been established: The *runTests.sh* scripts allows core developers
+In late 2018 another thing has been established: The *runTests.sh* script allows core developers
 to easily execute tests within a container based environment that takes care of all the nasty
 system dependency problems. The test setup for some test suites is far from trivial: Acceptance
 tests need a web server, chrome and selenium, functional tests need different database systems
 that at best run in RAM, and so forth. Not too many core developers went through all that to
-actually run and develop tests. The script now hides away all that complexity and creates a well
-defined and simple to use environment to run the tests, the only dependencies are recent docker
+actually run and develop tests locally. The script now hides away all that complexity and creates a
+well defined and simple to use environment to run the tests, the only dependencies are recent docker
 and docker-compose versions.
 
 
