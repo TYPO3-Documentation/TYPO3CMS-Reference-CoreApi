@@ -140,6 +140,8 @@ removed again. Note the exit code of runTests.sh (`echo $?`) is identical to the
 call: If phpunit reports green, runTests.sh returns 0, and if phpunit is red, the exit code would be non zero.
 
 
+.. _testing-core-examples:
+
 Examples
 ========
 
@@ -174,6 +176,10 @@ tests, but there is more:
 
 As shown there are various combinations available. Just go ahead, read the help output and play around.
 There are tons of further test suites to try.
+
+One interesting detail shouldn't be unmentioned: runTests.sh uses `typo3gmbh/phpXY <https://hub.docker.com/r/typo3gmbh/>`_
+as main PHP containers. Those are loosely maintained and may be updated. Use the command
+`Build/Scripts/runTests.sh -u` once in a while to fetch latest versions of these containers.
 
 
 Debugging
