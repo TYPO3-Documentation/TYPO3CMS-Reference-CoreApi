@@ -39,11 +39,11 @@ Submitting data
 ~~~~~~~~~~~~~~~
 
 This is the most basic example of how to submit data into the
-database. It is four lines. Line 1 instantiates the class, line 2
-defines that values will be provided without escaped characters
-(recommended!), line 3 registers the $data array inside the class and
-initializes the class internally! Finally line 4 will execute the data
-submission.
+database. 
+
+* Line 1: Instantiate the class.
+* Line 2: Register the $data array inside the class and initializes the class internally.
+* Line 3: Submit data.
 
 .. code-block:: php
    :linenos:
@@ -58,11 +58,11 @@ submission.
 Executing commands
 ~~~~~~~~~~~~~~~~~~
 
-The most basic way of executing commands. Line 1 creates the object,
-line 2 defines that values will be provided without escaped characters
-(recommended), line 3 registers the $cmd array inside the class and
-initializes the class internally! Finally line 4 will execute the
-commands.
+The most basic way of executing commands:
+
+* Line 1: Creates object.
+* Line 2: Registers the $cmd array inside the class and initializes the class internally.
+* Line 3: Execute the commands.
 
 .. code-block:: php
    :linenos:
