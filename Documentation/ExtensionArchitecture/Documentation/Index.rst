@@ -7,15 +7,23 @@
 Adding documentation
 ====================
 
-If you plan to upload your extension to the TYPO3 Extension Repository (TER), you should first consider adding a
-documentation to your extension. A documentation will help users and administrators to quickly install and configure
-your extension and give it more weight.
+If you plan to upload your extension to the TYPO3 Extension Repository (TER), you should first consider adding
+documentation to your extension. Documentation will help users and administrators to install, configure
+and use your extension.
 
-The documentation platform https://docs.typo3.org centralizes documentation for every project. It supports two
-different kind of documentation:
+We will give you a short overview here, but for more information, please see the guide 
+:ref:`Writing documentation <h2document:start>` and specifically:
+
+* General information about TYPO3 documentation: :ref:`h2document:basic-principles`
+* Get started using reST: :ref:`h2document:Formatting-with-reST`
+* More information about starting documentation for your TYPO3 extension: :ref:`h2document:how-to-start-docs-extension`
+* If you want to test your documenation, you need to render it: :ref:`h2document:rendering-docs`
+
+The documentation platform https://docs.typo3.org centralizes documentation for every project. It supports 
+different kinds of documentation:
 
 #. **(recommended)** A Sphinx project, stored within :file:`EXT:{extkey}/Documentation/`
-#. A simple README file stored as :file:`EXT:{extkey}/README.rst` as seen on Github
+#. Other formats, such as a simple README file stored as :file:`EXT:{extkey}/README.rst`, see :ref:`h2document:supported-filenames-and-formats`
 
 
 .. _extension-documentation-sphinx:
@@ -23,45 +31,44 @@ different kind of documentation:
 Sphinx project
 ==============
 
-Sphinx is the official format for official TYPO3 documentation. A Sphinx-based documentation is a set of
+Sphinx is the format used for official TYPO3 documentation. A Sphinx-based documentation is a set of
 plain text files making up the chapters or sections of the documentation. It uses a markup language
 called "reStructuredText" (reST).
 
-Advantages of this new documentation format are numerous:
+Advantages of this documentation format are numerous:
 
 - **Output formats:** Sphinx projects may be automatically rendered as HTML or TYPO3-branded PDF.
 - **Cross-references:** It is easy to cross-reference other chapters and sections of other manuals (either TYPO3
-  references or extension manuals).
-- **Multilingual:** Unlike OpenOffice, Sphinx projects may be easily localized and automatically presented in the most
-  appropriate language to TYPO3 users.
+  references or extension manuals). The links are automatically updated if pages or sections are moved.
 - **Collaboration:** As the documentation is plain text, it is easy to work as a team on the same manual or quickly
   review changes using any versioning system.
 
 Although it is possible to write every single line of a Sphinx-based documentation from scratch, the TYPO3 community
-provides tools that help write and manage Sphinx projects:
+provides tools that help to create a Sphinx documentation project:
 
-- The extension "Sphinx" (`Sphinx Python Documentation Generator and Viewer <https://extensions.typo3.org/extension/sphinx>`_)
-  installs a local Sphinx environment to view, edit and compile documentation in the backend of your TYPO3 website.
-  It can be installed from the TYPO3 Extension Repository (TER) like any other extension.
-- The Sphinx extension is able to convert existing OpenOffice manuals (manual.sxw) into Sphinx projects with just
-  one click.
 - An `example manual <https://github.com/TYPO3-Documentation/TYPO3CMS-Example-ExtensionManual>`_ is available on
   the TYPO3 Documentation Github repository.
 - The `Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
   provides a skeleton documentation based on the above-mentioned Git repository.
-- A `good primer <https://docs.typo3.org/typo3cms/drafts/github/xperseguers/RstPrimer/>`_
-  to get started using the reStructuredText markup.
-
 
 .. _extension-documentation-readme:
 
+Other formats
+=============
+
+Other formats besides the recommended format are possible as described in :ref:`h2document:supported-filenames-and-formats`.
+However, please consider using the recommended format (sphinx project in file:`Documentation` directory)
+as described here. 
+
+There are some rendering issues with Markdown, so even if it is possible to use Mardown, please consider
+using reST, because that is what is commonly used in TYPO3 documentation projects and that is what is
+supported best. 
+
 README.rst
-==========
+----------
 
 A "README.rst" is a simple text file stored at the root of your extension directory and briefly describing the
 purpose of your extension. It is best suited when installing or using your extension is straightforward. The format
 of this file is reStructuredText, as for chapters of a Sphinx project.
 
-.. tip::
 
-   In TYPO3 6.2, the system extension "documentation" is using such a simple manual.
