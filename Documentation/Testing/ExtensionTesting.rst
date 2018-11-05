@@ -413,3 +413,383 @@ Note we again use :file:`runTests.sh` to actually run tests. So the environment 
 identical to our local environment. It's all dockerized. We don't care about the PHP versions travis-ci loaded
 and installed for us too much. Travis-ci needs the setting `sudo: true` to allow starting own containers, though.
 
+
+Testing styleguide
+==================
+
+The above enetcache extension is an example for a casual in-the-wild extension that has rather low testing
+needs: It just comes with a couple of unit tests. Executing these and maybe adding PHP linting is good to go.
+More ambitious testing needs slightly more effort, though. As example, we pick the `styleguide
+<https://github.com/TYPO3/styleguide>`_ extension. This extension is developed "core near", core itself
+uses styleguide to test various FormEngine details with acceptance tests, and if developing core, that
+extension is installed as dependency by default. However, styleguide is just a casual extension: It is released
+to composer's `packagist.org <https://packagist.org/packages/typo3/cms-styleguide>`_ and can be loaded as
+dependency (or require-dev dependency) in any project.
+
+The styleguide extension follows the core branching principle, too: At the time of this writing, it's "master"
+branch is dedicated to be compatible with core version 9. This will change later if core v10 gains traction,
+and there are branches compatible with older core versions.
+
+In comparison to enetcache, styleguide comes with additional test suites: It has functional and
+acceptance tests! Our goal is to run the functional tests with different database platforms, and to
+execute the acceptance tests. Both locally and on travis-ci and with different PHP versions.
+
+Basic setup
+-----------
+
+The setup is similar to what has been outlined in detail with enetcache above: We add properties to the
+`composer.json <https://github.com/TYPO3/styleguide/blob/master/composer.json>`_ file to make it a valid
+root composer.json defining a project. The `require-dev` section is a bit longer since we additionally
+need `codeception <https://codeception.com/>`_ to run acceptance tests, and specify a couple of additional
+core extensions for a basic TYPO3 instance. We additionally add an `app-dir` directive in the extra section.
+
+Next, we have another iteration of `runTests.sh <https://github.com/TYPO3/styleguide/blob/master/Build/Scripts/runTests.sh>`_
+and `docker-compose.yml <https://github.com/TYPO3/styleguide/blob/master/Build/testing-docker/docker-compose.yml>`_ that are
+quite a bit longer than the versions of enetcache to handle the functional and acceptance tests setups, too.
+
+With this in place we can already run unit tests:
+
+.. code-block:: shell
+
+    git clone git@github.com:TYPO3/styleguide.git
+    cd styleguide
+    Build/Scripts/runTests.sh -s composerInstall
+    # Run unit tests
+    Build/Scripts/runTests.sh
+    # ... OK (1 test, 4 assertions)
+
+Functional testing
+------------------
+
+At the time of this writing, there is only a single functional test, but this one is important since
+it tests a crucial functionality of styleguide: The extension comes with tons of different TCA scenarios
+to show all sorts of database relation and field possibilities of TYPO3. To simplify testing, some happy
+little code can generate a page tree and demo data for all of these scenarios. Codewise, this is a huge
+section of the extension and it uses quite some core API to do its job. And yes, the generator breaks
+once in a while. A perfect scenario for a `functional test!
+<https://github.com/TYPO3/styleguide/blob/master/Tests/Functional/TcaDataGenerator/GeneratorTest.php>`_
+(slightly stripped)::
+
+    <?php
+    namespace TYPO3\CMS\Styleguide\Tests\Functional\TcaDataGenerator;
+
+    use TYPO3\CMS\Core\Core\Bootstrap;
+    use TYPO3\CMS\Styleguide\TcaDataGenerator\Generator;
+    use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
+
+    /**
+     * Test case
+     */
+    class GeneratorTest extends FunctionalTestCase
+    {
+        /**
+         * @var array Have styleguide loaded
+         */
+        protected $testExtensionsToLoad = [
+            'typo3conf/ext/styleguide',
+        ];
+
+        /**
+         * Just a dummy to show that at least one test is actually executed on mssql
+         *
+         * @test
+         */
+        public function dummy()
+        {
+            $this->assertTrue(true);
+        }
+
+        /**
+         * @test
+         * @group not-mssql
+         * @todo Generator does not work using mssql DMBS yet ... fix this
+         */
+        public function generatorCreatesBasicRecord()
+        {
+            // styleguide generator uses DataHandler for some parts. DataHandler needs an
+            // initialized BE user with admin right and the live workspace.
+            Bootstrap::initializeBackendUser();
+            $GLOBALS['BE_USER']->user['admin'] = 1;
+            $GLOBALS['BE_USER']->user['uid'] = 1;
+            $GLOBALS['BE_USER']->workspace = 0;
+            Bootstrap::initializeLanguageObject();
+
+            // Verify there is no tx_styleguide_elements_basic yet
+            $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
+            $queryBuilder->getRestrictions()->removeAll();
+            $count = $queryBuilder->count('uid')
+                ->from('tx_styleguide_elements_basic')
+                ->execute()
+                ->fetchColumn(0);
+            $this->assertEquals(0, $count);
+
+            $generator = new Generator();
+            $generator->create();
+
+            // Verify there is at least one tx_styleguide_elements_basic record now
+            $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
+            $queryBuilder->getRestrictions()->removeAll();
+            $count = $queryBuilder->count('uid')
+                ->from('tx_styleguide_elements_basic')
+                ->execute()
+                ->fetchColumn(0);
+            $this->assertGreaterThan(0, $count);
+        }
+    }
+
+Ah, shame on us! The data generator does not work well if executed using mssql as DBMS. It is thus marked as
+`@group not-mssql` at the moment. We need to fix that at some point. The rest is rather straight forward:
+We extend from :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase`, instruct it to actually load
+the styleguide extension (:php:`$testExtensionsToLoad`), need some additional magic for the DataHandler, then
+call :php:`$generator->create();` and verify it created at least one record in one of our database tables.
+That's it. It executes fine using runTests.sh:
+
+.. code-block:: shell
+
+    lolli@apoc /var/www/local/git/styleguide $ Build/Scripts/runTests.sh -s functional
+    Creating network "local_default" with the default driver
+    Creating local_mariadb10_1 ... done
+    Waiting for database start...
+    Database is up
+    PHP 7.2.11-3+ubuntu18.04.1+deb.sury.org+1 (cli) (built: Oct 25 2018 06:44:08) ( NTS )
+    PHPUnit 7.1.5 by Sebastian Bergmann and contributors.
+
+    ..                                                                  2 / 2 (100%)
+
+    Time: 5.23 seconds, Memory: 28.00MB
+
+    OK (2 tests, 3 assertions)
+    Stopping local_mariadb10_1 ... done
+    Removing local_functional_mariadb10_run_1 ... done
+    Removing local_mariadb10_1                ... done
+    Removing network local_default
+    lolli@apoc /var/www/local/git/styleguide $
+
+The cool thing about this test is that it actually triggers quite some functionality below. It does tons of
+database inserts and updates and uses the core DataHandler for various details. If something goes wrong in
+this entire area, it would throw some exception, the functional test would recognize this and fail. But if
+its green, we know that a rather huge part of that extension works fine.
+
+If looking at details - for instance if we try to fix the mssql issue - runTests.sh can be called with `-x`
+again for xdebug break pointing. Also, the functional test execution becomes a bit funny: We are creating
+a TYPO3 test instance within `.Build/` folder anyway. But the functional test setup again creates instances
+for the single tests cases. The code that is actually executed is thus located somewhere in a sub folder
+of `typo3temp/` of `.Build/`, in this test case it is `functional-9ad521a`:
+
+.. code-block:: shell
+
+    lolli@apoc /var/www/local/git/styleguide $ ls -l .Build/Web/typo3temp/var/tests/functional-9ad521a/
+    total 16
+    drwxr-sr-x 4 lolli www-data 4096 Nov  5 17:35 fileadmin
+    lrwxrwxrwx 1 lolli www-data   50 Nov  5 17:35 index.php -> /var/www/local/git/styleguide/.Build/Web/index.php
+    lrwxrwxrwx 1 lolli www-data   46 Nov  5 17:35 typo3 -> /var/www/local/git/styleguide/.Build/Web/typo3
+    drwxr-sr-x 4 lolli www-data 4096 Nov  5 17:35 typo3conf
+    lrwxrwxrwx 1 lolli www-data   40 Nov  5 17:35 typo3_src -> /var/www/local/git/styleguide/.Build/Web
+    drwxr-sr-x 4 lolli www-data 4096 Nov  5 17:35 typo3temp
+    drwxr-sr-x 2 lolli www-data 4096 Nov  5 17:35 uploads
+
+This can be confusing at first, but it starts making total sense if you get used to it. Promised ;)
+Also, the docker-compose.yml file contains a setup to start needed databases for the functional tests
+and runTests.sh is tuned to call the different scenarios.
+
+Acceptance testing
+------------------
+
+Not enough! The styleguide extension adds itself to the TYPO3 backend to the Topbar > Help module dialogue
+a little backend module. Next to other things, this module adds buttons to create and delete the demo
+data that has been functonal tested above already. To verify this works in the backend as well, styleguide
+comes some pretty straight acceptance tests in `Tests/Acceptance/Backend/ModuleCest
+<https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Backend/ModuleCest.php>`_::
+
+    <?php
+    declare(strict_types = 1);
+    namespace TYPO3\CMS\Styleguide\Tests\Acceptance\Backend;
+
+    use TYPO3\CMS\Styleguide\Tests\Acceptance\Support\BackendTester;
+    use TYPO3\TestingFramework\Core\Acceptance\Helper\Topbar;
+
+    /**
+     * Tests the styleguide backend module can be loaded
+     */
+    class ModuleCest
+    {
+        /**
+         * Selector for the module container in the topbar
+         *
+         * @var string
+         */
+        public static $topBarModuleSelector = '#typo3-cms-backend-backend-toolbaritems-helptoolbaritem';
+
+        /**
+         * @param BackendTester $I
+         */
+        public function _before(BackendTester $I)
+        {
+            $I->useExistingSession('admin');
+        }
+
+        /**
+         * @param BackendTester $I
+         */
+        public function styleguideInTopbarHelpCanBeCalled(BackendTester $I)
+        {
+            $I->click(Topbar::$dropdownToggleSelector, self::$topBarModuleSelector);
+            $I->canSee('Styleguide', self::$topBarModuleSelector);
+            $I->click('Styleguide', self::$topBarModuleSelector);
+            $I->switchToContentFrame();
+            $I->see('TYPO3 CMS Backend Styleguide', 'h1');
+        }
+
+        /**
+         * @depends styleguideInTopbarHelpCanBeCalled
+         * @param BackendTester $I
+         */
+        public function creatingDemoDataWorks(BackendTester $I)
+        {
+            $I->click(Topbar::$dropdownToggleSelector, self::$topBarModuleSelector);
+            $I->canSee('Styleguide', self::$topBarModuleSelector);
+            $I->click('Styleguide', self::$topBarModuleSelector);
+            $I->switchToContentFrame();
+            $I->see('TYPO3 CMS Backend Styleguide', 'h1');
+            $I->click('TCA / Records');
+            $I->waitForText('TCA test records');
+            $I->click('Create styleguide page tree with data');
+            $I->waitForText('A page tree with styleguide TCA test records was created.', 300);
+        }
+
+        /**
+         * @depends creatingDemoDataWorks
+         * @param BackendTester $I
+         */
+        public function deletingDemoDataWorks(BackendTester $I)
+        {
+            $I->click(Topbar::$dropdownToggleSelector, self::$topBarModuleSelector);
+            $I->canSee('Styleguide', self::$topBarModuleSelector);
+            $I->click('Styleguide', self::$topBarModuleSelector);
+            $I->switchToContentFrame();
+            $I->see('TYPO3 CMS Backend Styleguide', 'h1');
+            $I->click('TCA / Records');
+            $I->waitForText('TCA test records');
+            $I->click('Delete styleguide page tree and all styleguide data records');
+            $I->waitForText('The styleguide page tree and all styleguide records were deleted.', 300);
+        }
+    }
+
+These are three tests: One verifies the backend module can be called, one creates demo data, the last
+one deletes demo data again. The codeception setup needs a bit more attention to setup. The entry point
+is the main `codeception.yml file <https://github.com/TYPO3/styleguide/blob/master/Tests/codeception.yml>`_
+extended by the `backend suite <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Backend.suite.yml>`_,
+a `backend tester <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/BackendTester.php>`_ and
+a `codeception bootstrap extension
+<https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/Extension/BackendStyleguideEnvironment.php>`_
+that instructs the basic typo3/testing-framework acceptance boostrap to load the styleguide extension and
+have some database fixtures included to easily log in to the backend. Additionally, the runTests.sh and
+docker-compose.yml files take care of adding selenium with chrome and a web server to the game to actually
+execute the tests:
+
+.. code-block:: shell
+
+    lolli@apoc /var/www/local/git/styleguide $ Build/Scripts/runTests.sh -s acceptance
+    Creating network "local_default" with the default driver
+    Creating local_chrome_1    ... done
+    Creating local_web_1       ... done
+    Creating local_mariadb10_1 ... done
+    Waiting for database start...
+    Database is up
+    Codeception PHP Testing Framework v2.5.1
+    Powered by PHPUnit 7.1.5 by Sebastian Bergmann and contributors.
+    Running with seed:
+
+
+      Generating BackendTesterActions...
+
+    TYPO3\CMS\Styleguide\Tests\Acceptance\Support.Backend Tests (3) -------------------------------------------------------
+    Modules: WebDriver, \TYPO3\TestingFramework\Core\Acceptance\Helper\Acceptance, \TYPO3\TestingFramework\Core\Acceptance\Helper\Login, Asserts
+    -----------------------------------------------------------------------------------------------------------------------
+    ⏺ Recording ⏺ step-by-step screenshots will be saved to /var/www/local/git/styleguide/Tests/../.Build/Web/typo3temp/var/tests/AcceptanceReports/
+    Directory Format: record_5be078fb43f86_{filename}_{testname} ----
+
+      Database Connection: {"Connections":{"Default":{"driver":"mysqli","dbname":"func_test_at","host":"mariadb10","user":"root","password":"funcp"}}}
+      Loaded Extensions: ["core","extbase","fluid","backend","about","install","frontend","recordlist","typo3conf/ext/styleguide"]
+    ModuleCest: Styleguide in topbar help can be called
+
+    ...
+
+    Time: 27.89 seconds, Memory: 28.00MB
+
+    OK (3 tests, 6 assertions)
+    Stopping local_mariadb10_1 ... done
+    Stopping local_chrome_1    ... done
+    Stopping local_web_1       ... done
+    Removing local_acceptance_backend_mariadb10_run_1 ... done
+    Removing local_mariadb10_1                        ... done
+    Removing local_chrome_1                           ... done
+    Removing local_web_1                              ... done
+    Removing network local_default
+
+Ok, this setup is a bit more effort, but we end up with a browser automatically clicking things in
+an ad-hoc TYPO3 instance to verify this extension can perform its job. If something goes wrong, screenshots
+of the failed run can be found in :file:`.Build/Web/typo3temp/var/tests/AcceptanceReports/`.
+
+travis-ci
+---------
+
+Now we want all this stuff automatically checked using travis-ci:
+
+.. code-block:: yaml
+
+    language: php
+
+    php:
+      - 7.2
+      - 7.3
+
+    sudo: true
+
+    cache:
+      directories:
+        - $HOME/.composer/cache
+
+    notifications:
+      email:
+        recipients:
+          - lolli@schwarzbu.ch
+        on_success: change
+        on_failure: change
+
+    before_script:
+      - Build/Scripts/runTests.sh -s composerInstall -p $TRAVIS_PHP_VERSION
+
+    script:
+      - >
+        echo "Running composer validate"
+        Build/Scripts/runTests.sh -s composerValidate -p $TRAVIS_PHP_VERSION
+      - >
+        echo "Running unit tests";
+        Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
+      - >
+        echo "Running php lint";
+        Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
+      - >
+        echo "Running functional tests with mariadb";
+        Build/Scripts/runTests.sh -s functional -d mariadb -p $TRAVIS_PHP_VERSION
+      - >
+        if [ ${TRAVIS_PHP_VERSION} = "7.2" ]; then
+          echo "Running functional tests with mssql";
+          Build/Scripts/runTests.sh -s functional -d mssql -p $TRAVIS_PHP_VERSION;
+        else
+          echo "Running functional tests with mssql not supported with PHP 7.3 yet";
+        fi
+      - >
+        echo "Running functional tests with postgres";
+        Build/Scripts/runTests.sh -s functional -d postgres -p $TRAVIS_PHP_VERSION
+      - >
+        echo "Running functional tests with sqlite";
+        Build/Scripts/runTests.sh -s functional -d sqlite -p $TRAVIS_PHP_VERSION
+      - >
+        echo "Running acceptance tests";
+        Build/Scripts/runTests.sh -s acceptance -p $TRAVIS_PHP_VERSION
+
+This is similar to the enetcache example, but does some more: The functional tests are executed
+with four different DBMS (mariadb, mssql, postgres, sqlite), and the acceptance tests are executed, too.
+This setup takes some minutes to finish on travis-ci. But hey, `it's green <https://travis-ci.org/TYPO3/styleguide>`_!
