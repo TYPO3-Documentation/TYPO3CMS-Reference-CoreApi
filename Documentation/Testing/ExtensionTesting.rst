@@ -322,8 +322,8 @@ Next we need the setup to actually run tests. These are the two files `Build/Scr
 <https://github.com/lolli42/enetcache/blob/master/Build/Scripts/runTests.sh>`_ and `Build/testing-docker/
 docker-compose.yml <https://github.com/lolli42/enetcache/blob/master/Build/testing-docker/docker-compose.yml>`_.
 
-These files are simplified rip-off versions of similar files from the TYPO3 core: `Build/Scripts/runTests.sh
-<https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_ and `Build/testing-docker/local/
+These files are simplified rip-off versions of similar files from the TYPO3 core: `core Build/Scripts/runTests.sh
+<https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
 docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/tree/master/Build/testing-docker/local>`_. You can
 copy + paste these files from extensions like enetcache or styleguide to your own extension, but should then look
 through the files and adapt to your needs (for instance search for the word "enetcache" in runTests.sh if you
@@ -352,7 +352,8 @@ with some additional goodies, for example it is possible to execute `composer in
 using `Build/Scripts/runTests.sh -s composerInstall`, it is possible to execute unit tests with PHP 7.3 instead
 of 7.2 (option `-p 7.3`). This is available for PHP linting, too (`-s lint`). Similar to :ref:`core test execution
 <testing-core-examples>` it is possible to break point tests using xdebug (`-x` option), typo3gmbh containers
-can be updated using `runTests.sh -u`, and a help is available with `runTests.sh -h`. Have a look around.
+can be updated using `runTests.sh -u`, verbose output is available with `-v` and a help is available
+with `runTests.sh -h`. Have a look around.
 
 travis-ci
 ---------

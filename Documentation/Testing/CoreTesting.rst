@@ -174,6 +174,9 @@ tests, but there is more:
     # Execute the cgl fixer
     Build/Scripts/runTests.sh -s cglGit
 
+    # Verbose runTests.sh output. Shows main steps and composer commands for debugging
+    Build/Scripts/runTests.sh -v
+
 As shown there are various combinations available. Just go ahead, read the help output and play around.
 There are tons of further test suites to try.
 
