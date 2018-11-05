@@ -57,7 +57,7 @@ Other formats
 =============
 
 Other formats besides the recommended format are possible as described in :ref:`h2document:supported-filenames-and-formats`.
-However, please consider using the recommended format (sphinx project in file:`Documentation` directory)
+However, please consider using the recommended format (sphinx project in `Documentation` directory)
 as described here. 
 
 There are some rendering issues with Markdown, so even if it is possible to use Mardown, please consider
