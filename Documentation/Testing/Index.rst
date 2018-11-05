@@ -29,4 +29,5 @@ various scopes. Have fun.
     History
     CoreTesting
     ExtensionTesting
+    ProjectTesting
     Faq
