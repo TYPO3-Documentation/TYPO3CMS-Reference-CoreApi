@@ -14,7 +14,7 @@ tries to support this. This chapter goes into details how extension authors can 
 automatic extension testing. We'll do that with two examples. Both embed the given extension
 in a TYPO3 instance and run tests within this environment, both examples also configure
 travis-ci to execute tests. We'll use docker containers for test execution again and use
-an extension specific runTests.sh script piloting tests setup and execution.
+an extension specific runTests.sh script piloting test setup and execution.
 
 
 Scope
@@ -57,8 +57,6 @@ Let us talk about some boundaries and what this documentation does *not* do, fir
   The integration of travis-ci into github is dead simple. If your extension code is elsewhere
   or a different CI should be used, you need to figure out details on your own but may very well
   use this document as inspiration since the strategies may be similar.
-
-That being said, let's look at a rather simple extension and its testing needs.
 
 
 General strategy
@@ -361,7 +359,7 @@ travis-ci
 
 With basic testing in place we want execution of tests whenever something is merged to the repository and if
 people create pull requests for our happy little extension to make sure our carefully crafted test setup actually
-works all the time. We'll use the continuous integration service `travis-ci <https://travis-ci.org/`_ to take care of
+works all the time. We'll use the continuous integration service `travis-ci <https://travis-ci.org/>`_ to take care of
 that. It's free for open source projects. So, log in to travis using your github account. After login, the
 user settings page will list all your github repositories and travis-ci can be enabled with one click for single
 repositories. All we need is a :file:`.travis.yml` file in the `root directory
@@ -403,9 +401,14 @@ exactly should be done:
         echo "Running php lint";
         Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
 
-In case of enetcache, we lets travis-ci test the extension with the two PHP versions 7.2 and 7.3. Travis exposes
+In case of enetcache, we let travis-ci test the extension with the two PHP versions 7.2 and 7.3. Travis exposes
 the current version as variable `$TRAVIS_PHP_VERSION`, so we use that to feed it to `runTests.sh`. We instruct
 travis-ci to always `composer install` first, then run the test suites `composer validate`, the unit testing
 and the PHP linting. It's possible to see executed test runs `online <https://travis-ci.org/lolli42/enetcache>`_.
 Green :) Maybe it's now time to add the `travis-ci status badge <https://docs.travis-ci.com/user/status-images/>`_
 to our README.md file.
+
+Note we again use :file:`runTests.sh` to actually run tests. So the environment our tests are executed in is
+identical to our local environment. It's all dockerized. We don't care about the PHP versions travis-ci loaded
+and installed for us too much. Travis-ci needs the setting `sudo: true` to allow starting own containers, though.
+
