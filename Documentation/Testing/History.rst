@@ -226,9 +226,9 @@ To the end of TYPO3 core v8 development the bootstrap, helper and set up code to
 tests has been extracted from the core to an own repository, the `typo3/testing-framework
 <https://github.com/TYPO3/testing-framework>`_. This allowed re-using this package within
 extensions to execute own tests. It however took that repository another major core version
-to mature well enough to easily do that. Executing extension tests has always been possible
-for years alread, but extension authors were mostly on their own if they wanted to do that.
-This chapter is one final result of these improvements.
+to mature well enough to easily do that. Writing and executing tests for TYPO3 extensions is
+possible for a long time already, but extension authors were mostly on their own in finding a
+suitable solution to do that. This chapter may put an end to this confusion.
 
 
 2018

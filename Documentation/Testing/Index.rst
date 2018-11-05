@@ -23,7 +23,9 @@ various scopes. Have fun.
 
 
 .. toctree::
-   :maxdepth: 1
-   :titlesonly:
+    :maxdepth: 1
+    :titlesonly:
 
-   History
+    History
+    CoreTesting
+    Faq
