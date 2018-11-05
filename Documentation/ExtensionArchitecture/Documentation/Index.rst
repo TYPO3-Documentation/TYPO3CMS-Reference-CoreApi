@@ -3,8 +3,9 @@
 
 .. _extension-documentation:
 
+====================
 Adding documentation
-^^^^^^^^^^^^^^^^^^^^
+====================
 
 If you plan to upload your extension to the TYPO3 Extension Repository (TER), you should first consider adding a
 documentation to your extension. A documentation will help users and administrators to quickly install and configure
@@ -20,7 +21,7 @@ different kind of documentation:
 .. _extension-documentation-sphinx:
 
 Sphinx project
-""""""""""""""
+==============
 
 Sphinx is the official format for official TYPO3 documentation. A Sphinx-based documentation is a set of
 plain text files making up the chapters or sections of the documentation. It uses a markup language
@@ -55,7 +56,7 @@ provides tools that help write and manage Sphinx projects:
 .. _extension-documentation-readme:
 
 README.rst
-""""""""""
+==========
 
 A "README.rst" is a simple text file stored at the root of your extension directory and briefly describing the
 purpose of your extension. It is best suited when installing or using your extension is straightforward. The format
