@@ -132,9 +132,9 @@ is preserved.
 To insert a record after a given record, set the other record's negative
 `uid` as `pid` in the new record you're setting as data.
 
-Apart from this line 6 will send a "signal" that the page tree should
+Apart from this line 5 will send a "signal" that the page tree should
 be updated at the earliest occasion possible. Finally, the cache for
-all pages is cleared in line 7.
+all pages is cleared in line 6.
 
 .. code-block:: php
    :linenos:
@@ -156,7 +156,7 @@ In this case it is shown how you can use the same object instance to
 submit both data and execute commands if you like. The order will
 depend on the order of line 4 and 5.
 
-In line 3 the :code:`start()` method is called, but this time with the third
+In line 2 the :code:`start()` method is called, but this time with the third
 possible argument which is an alternative :code:`$BE_USER` object. This allows
 you to force another backend user account to create stuff in the
 database. This may be useful in certain special cases. Normally you
