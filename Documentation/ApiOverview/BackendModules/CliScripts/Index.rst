@@ -71,6 +71,10 @@ A detailed description and an example can be found at `the Symfony Command Docum
 Extbase command controllers
 """""""""""""""""""""""""""
 
+.. warning::
+
+   Extbase command controller is ist deprecated as of TYPO3 9.4. Consider only using the above version.
+
 .. note::
 
    If you do not need Extbase in your command it is recommended to directly use
