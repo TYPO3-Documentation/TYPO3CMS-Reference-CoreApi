@@ -11,13 +11,13 @@
 Using DataHandler in scripts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-It's really easy to use the class :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` in your own
+It's really easy to use the class :php:`\TYPO3\CMS\Core\DataHandling\DataHandler` in your own
 scripts. All you need to do is include the class, build a $data/$cmd
 array you want to pass to the class and call a few methods.
 
 .. important::
    Mind that these scripts have to be run in the
-   **backend scope**! There must be a global :code:`$BE_USER` object.
+   **backend scope**! There must be a global :php:`$BE_USER` object.
 
 In your script you simply insert this line to include the class:
 
@@ -39,18 +39,18 @@ Submitting data
 ~~~~~~~~~~~~~~~
 
 This is the most basic example of how to submit data into the
-database. It is four lines. Line 1 instantiates the class, line 2
-defines that values will be provided without escaped characters
-(recommended!), line 3 registers the $data array inside the class and
-initializes the class internally! Finally line 4 will execute the data
-submission.
+database. 
+
+* Line 1: Instantiate the class.
+* Line 2: Register the :php:`$data` array inside the class and initialize the class internally.
+* Line 3: Submit data and have all records created/updated.
 
 .. code-block:: php
    :linenos:
 
-   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $tce->start($data, array());
-   $tce->process_datamap();
+   $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
+   $dataHandler->start($data, []);
+   $dataHandler->process_datamap();
 
 
 .. _tcemain-execute-commands:
@@ -58,18 +58,18 @@ submission.
 Executing commands
 ~~~~~~~~~~~~~~~~~~
 
-The most basic way of executing commands. Line 1 creates the object,
-line 2 defines that values will be provided without escaped characters
-(recommended), line 3 registers the $cmd array inside the class and
-initializes the class internally! Finally line 4 will execute the
-commands.
+The most basic way of executing commands:
+
+* Line 1: Instantiate the class.
+* Line 2: Registers the :php:`$cmd` array inside the class and initialize the class internally.
+* Line 3: Execute the commands.
 
 .. code-block:: php
    :linenos:
 
-   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $tce->start(array(), $cmd);
-   $tce->process_cmdmap();
+   $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
+   $dataHandler->start([], $cmd);
+   $dataHandler->process_cmdmap();
 
 
 .. _tcemain-clear-cache:
@@ -78,8 +78,8 @@ Clearing cache
 ~~~~~~~~~~~~~~
 
 In this example the cache clearing API is used. No data is submitted, no
-commands executed. Still you will have to initialize the class by
-calling the start() method (which will initialize internal variables).
+are commands executed. Still you will have to initialize the class by
+calling the :php:`start()` method (which will initialize internal state).
 
 .. note::
    Clearing a given cache is possible only for users that are
@@ -88,9 +88,9 @@ calling the start() method (which will initialize internal variables).
 .. code-block:: php
    :linenos:
 
-   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $tce->start(array(), array());
-   $tce->clear_cacheCmd('all');
+   $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
+   $dataHandler->start([], []);
+   $dataHandler->clear_cacheCmd('all');
 
 Since TYPO3 CMS 6.2, caches are organized in groups. Clearing "all"
 caches will actually clear caches from the "all" group and not really
@@ -139,12 +139,12 @@ all pages is cleared in line 7.
 .. code-block:: php
    :linenos:
 
-   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $tce->reverseOrder = 1;
-   $tce->start($data, array());
-   $tce->process_datamap();
+   $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
+   $dataHandler->reverseOrder = 1;
+   $dataHandler->start($data, []);
+   $dataHandler->process_datamap();
    \TYPO3\CMS\Backend\Utility\BackendUtility::setUpdateSignal('updatePageTree');
-   $tce->clear_cacheCmd('pages');
+   $dataHandler->clear_cacheCmd('pages');
 
 
 .. _tcemain-data-command-user:
@@ -166,8 +166,8 @@ should not set this argument since you want TCE to use the global
 .. code-block:: php
    :linenos:
 
-   $tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $tce->start($data, $cmd, $alternative_BE_USER);
-   $tce->process_datamap();
-   $tce->process_cmdmap();
+   $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
+   $dataHandler->start($data, $cmd, $alternative_BE_USER);
+   $dataHandler->process_datamap();
+   $dataHandler->process_cmdmap();
 
