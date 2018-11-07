@@ -75,7 +75,7 @@ To use the manager, you must register it in :php:`ext_localconf.php`:
 
 .. code-block:: php
 
-    $metaTagManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry::class);
+    $metaTagManagerRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry::class);
     $metaTagManagerRegistry->registerManager(
         'custom',
         \Some\CustomExtension\MetaTag\CustomMetaTagManager::class
@@ -87,7 +87,7 @@ want to implement your own :php:`OpenGraphMetaTagManager`, you can use the follo
 
 .. code-block:: php
 
-    $metaTagManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry::class);
+    $metaTagManagerRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry::class);
     $metaTagManagerRegistry->registerManager(
         'myOwnOpenGraphManager',
         \Some\CustomExtension\MetaTag\MyOpenGraphMetaTagManager::class,
