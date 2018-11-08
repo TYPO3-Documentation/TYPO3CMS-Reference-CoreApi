@@ -355,7 +355,7 @@ of 7.2 (option `-p 7.3`). This is available for PHP linting, too (`-s lint`). Si
 can be updated using `runTests.sh -u`, verbose output is available with `-v` and a help is available
 with `runTests.sh -h`. Have a look around.
 
-travis-ci
+Travis CI
 ---------
 
 With basic testing in place we want execution of tests whenever something is merged to the repository and if
@@ -412,6 +412,8 @@ to our README.md file.
 Note we again use :file:`runTests.sh` to actually run tests. So the environment our tests are executed in is
 identical to our local environment. It's all dockerized. We don't care about the PHP versions travis-ci loaded
 and installed for us too much. Travis-ci needs the setting `sudo: true` to allow starting own containers, though.
+
+If you want to run multiple jobs in parallel check out `Travis' Build Stages feature <https://docs.travis-ci.com/user/build-stages/>`_.
 
 
 Testing styleguide
