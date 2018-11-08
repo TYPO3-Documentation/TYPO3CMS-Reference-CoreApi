@@ -12,12 +12,13 @@ Introduction
 This chapter is mostly about executing TYPO3 core tests locally and getting an idea of the overall
 picture and how things play with each other. A full core git checkout comes with everything needed
 to run tests in TYPO3 since core version 9. We don't look back to older versions in this chapter
-since core development is most likely bound to core master branch - back port details to older
+since core development is most likely bound to the core master branch - back porting patches to older
 branches are usually handled by core maintainers and often don't affect other core contributors much.
 
 As a disclaimer, the main script :file:`Build/Scripts/runTests.sh` is relatively young. It works best
-if executed on a linux based host, it works using macOS (but much slower), and it may work using
-Windows (and it's actually quicker than with mac). Not everything in this area is settled yet, though.
+if executed on a linux based host, it works using macOS (but much slower), and it works using
+Windows (and it's actually quicker on Windows than with mac). Not everything in this area is settled yet,
+though.
 
 Additionally, it *is* possible to execute tests on a local system without using docker. Depending on
 which test suite should be executed, developers may set up and configure their environments to achieve
@@ -74,10 +75,11 @@ Overview
 Ok. What just happened? You cloned a core, composer install`ed dependencies and executed core
 unit tests. Let's have a look at more some details: `runTests.sh` is a shell script that figures out
 which test suite with which options a user wants to execute, does some error handling for broken
-combinations, writes the file `Build/testing-docker/.env` according to its findings and then executes a
-couple of `docker-compose` commands to prepare containers, run tests and stop containers.
+combinations, writes the file `Build/testing-docker/local/.env` according to its findings and then executes a
+couple of `docker-compose` commands to prepare containers, run tests and stop containers after execution
+again.
 
-A core developer doing this for the first time may find `docker-compose` fetching some container images
+A core developer doing this for the first time may find `docker-compose` pulling some container images
 before party goes on. These are the dependent images needed to execute certain jobs. For instance the
 container `typo3gmbh/php72 <https://hub.docker.com/r/typo3gmbh/php72/>`_ may be fetched. It's definition
 can be found at `TYPO3 GmbH bitbucket <https://bitbucket.typo3.com/projects/T3COM/repos/bamboo-remote-agent/browse>`_.
@@ -135,7 +137,7 @@ The command asks runTests.sh to execute the "functional" test suite `-s function
 available tests but only those within `typo3/sysext/core/Tests/Functional/Authentication/`. The script first
 starts the containers it needs: A redis, a memcached and a mariadb. All in one network. It then waits until
 the mariadb container opens its database port, then starts a PHP 7.2 container and calls phpunit to execute
-the tests. phpunit executes only one test in this case that is green. The containers and networks are then
+the tests. phpunit executes only one test in this case, that one is green. The containers and networks are then
 removed again. Note the exit code of runTests.sh (`echo $?`) is identical to the exit code of the phpunit
 call: If phpunit reports green, runTests.sh returns 0, and if phpunit is red, the exit code would be non zero.
 
@@ -231,4 +233,4 @@ locally, the container based debugging should do, too. Next, make sure a proper 
 Additionally, it may be useful to activate "Break at first line in PHP scripts" in Phpstorm settings. runTests.sh
 mounts the local path to the same location within the container, so path mapping is not needed. Phpstorm
 also comes with a `guide <https://www.jetbrains.com/help/phpstorm/configuring-xdebug.html>`_ how to set up
-debugging properly.
+debugging.

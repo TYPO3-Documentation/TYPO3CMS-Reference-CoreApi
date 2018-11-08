@@ -22,7 +22,7 @@ selenium, various database systems, different php versions in parallel on the sa
 so on. It also creates a well defined environment that is identical for everyone: Extension
 authors rely on the same system dependencies as the core does, local test execution is identical
 to what the continuous integration system bamboo does. All dependencies and setup details are open
-sourced and available for everyone. Even travis-ci is forced to create the exact same environment
+sourced and available for everyone. Even Travis CI is forced to create the exact same environment
 in our examples, and it plays well with other dockerized solutions like `ddev <https://www.drud.com/>`_.
 In short: Using docker creates stable an easy to replay results.
 
@@ -36,7 +36,7 @@ First, `runTests.sh -u` updates local typo3gmbh containers and removes old ones.
 Additionally, it is a good idea to check which local containers exist using `docker images` and
 remove obsolete ones once in a while using `docker rmi`. Also, some container setups tend to create
 many docker volumes and don't remove them after use. The command `docker volume list` gives an overview,
-and a (use with care!) `docker volume prune` helps removing unused volumes.
+and a (use with care, you have a backup right?) `docker volume prune` helps removing unused volumes.
 
 
 Why do you need runTests.sh?
@@ -50,7 +50,7 @@ may write files to that volume. These files should be written with the same loca
 the tests, otherwise local files are created with permissions a local user may not be able to delete again.
 Specifying the user that runs a container is however not possible in docker directly and a `long standing issue
 <https://github.com/docker/compose/issues/2380>`_ about that is still not resolved. There are further
-issues which runTests.sh hides away.. The goal was to have a dead simple mechanism to
+issues which runTests.sh hides away. The goal was to have a dead simple mechanism to
 execute tests. runTests.sh does that.
 
 Additionally, wrapping details in runTests.sh gives the core the opportunity to change docker-compose
@@ -78,11 +78,11 @@ an own docker-compose file in :file:`Build/testing-docker/bamboo/docker-compose.
 for that is the bamboo agents are not local processes on the given hardware directly, but are also
 executed in docker containers to have many of them in parallel on one host.
 
-The bamboo agents are "stupid" and only contain the java agent but don't know about php versions or
+The bamboo agents are "stupid" and only contain the java agent but don't know about PHP versions or
 further services. To execute single test jobs, they start new "sibling" containers and call commands in them.
 For instance, they start an ad hoc postgres, a redis and a memcached container, then start a PHP 7.3 container
 assigned to the same network and run the functional test suite. With multiple agents on one host (to make good
-use of many CPU's on one hardware system), these per-agent specific ad hoc networks and volume mounts need to be
+use of many CPU's on one hardware system), these per-agent specific ad-hoc networks and volume mounts need to be
 separated from each other. This requires some additional setup efforts runTests.sh does not reflect. Additionally,
 the ram disk, responsible shell user and home directory setup is different to speed up single runs and to
 efficiently cache network related stuff on the local host filesystem without agents colliding with each other.
@@ -92,26 +92,27 @@ mounts are different and this forces us to separate that from the local "one thi
 runTests.sh.
 
 
-Why do you not use native PHP on travis-ci?
+Why do you not use native PHP on Travis CI?
 ===========================================
 
-The documentation about extension and project testing using travis-ci sets up an environment that
+The documentation about extension and project testing using Travis CI sets up an environment that
 is identical to the local testing with the same containers used locally. This circumvents
-the PHP versions that travis-ci comes with and again runs everything in docker containers. It is
-also possible to use the native travis-ci environments. This however requires additional
+the PHP versions that Travis comes with and again runs everything in docker containers. It would
+also possible be to use the native Travis environments. This however requires additional
 fiddling and more knowledge of the testing internals, especially when it comes to functional and
 acceptance testing. Extension authors may very well decide to do that, but a setup like that is
-out of scope of this document. Torturing travis-ci to fetch and run the docker containers all the
+out of scope of this document. Torturing Travis CI to fetch and run the docker containers all the
 time is more time consuming but simplifies the setup a lot. And it gives stable results: If it fails
-on travis-ci, it will fail locally, too.
+on Travis, it will fail locally, too.
 
 
 Functional tests set up own instances in typo3temp?
 ===================================================
 
 Yes. This is how it works. The functional (and acceptance) bootstrap create new, isolated instances
-within your project root's public directory in :file:`typo3temp/var/tests` for each execution. Maybe
-later we make this path configurable and locate it elsewhere, but for the time being it is how it is.
+within your project root's public directory (usually :file:`.Build/Web`) in :file:`typo3temp/var/tests`
+for each execution. Maybe later we make this path configurable and locate it elsewhere, but for the
+time being it is how it is.
 
 
 Can I provide more hardware for bamboo?

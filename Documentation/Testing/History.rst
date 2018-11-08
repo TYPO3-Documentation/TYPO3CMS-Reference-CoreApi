@@ -127,7 +127,7 @@ With this being done, side effects between tests reduced a lot and a dedicated u
 tests in random order was added to find situations were test isolation was still not perfect.
 Nowadays unit testing is pretty stable on all machines that execute them due to these works. With nearly
 ten thousand tests in place it is rather seldom that a test fails on one machine and is successful
-on another. And if that happens, the root cause is often a details down below in PHP itself that is not
+on another. And if that happens, the root cause is often a detail down below in PHP itself that has not been
 perfectly aligned during test bootstrap - for instance a missing locale or some detail php.ini setting.
 
 Second, the test execution was changed to use a composer based setup instead of cloning things on
@@ -178,8 +178,8 @@ In early 2016, core developers added another type of testing: Acceptance tests. 
 browser to actually click around in the backend to verify various parts of the system. For instance,
 TYPO3 core had a history of breaking the installation procedure once in a while: Most core developers
 set up a local development system once and then never or only seldom see the installation procedure
-again. If code is changed that affects the installer, this may go through not noticed. Acceptance testing
-put an end to this: There are tests in place that install a fresh TYPO3, log in to the backend,
+again. If code is changed that breaks the installer, this may go through not noticed. Acceptance testing
+put an end to this: There are tests to install a fresh TYPO3, log in to the backend,
 install the *introduction* extension and then verify the frontend works. The installer never hard broke
 again since that. Other acceptance tests nowadays use the *styleguide* extension to click through some
 complex backend scenarios, verify the backend throws no javascript errors and so on.
@@ -194,21 +194,21 @@ acceptance tests could be executed often without throwing false positives at var
 acceptance testing is another great leap forward to ensure major parts of the TYPO3 core do work as
 expected.
 
-Another thing became more and more pressing in 2016: The automatic testing via travis-ci started showing
+Another thing became more and more pressing in 2016: The automatic testing via Travis CI started to show
 drawbacks. We continued adding lots of tests and test suites over the years and executing everything
-after each code merge took an increasing amount of time. Even with all sorts of tricks, travis-ci was
+after each code merge took an increasing amount of time. Even with all sorts of tricks, Travis CI was
 busy for more than half an hour to go through the suite, merging more than two patches per hour thus
-added to a queue. There were core code sprints were travis-ci reported green or red on a just
-merged patch only half a day later. We tried to pay travis-ci for more processing power, but payed plans
-do not work with travis-ci for open source repositories (maybe they changed that restriction meanwhile).
+added to a queue. There were core code sprints were Travis reported green or red on a just
+merged patch only half a day later. We tried to pay the service for more processing power, but payed plans
+do not work with Travis CI for open source repositories (maybe they changed that restriction meanwhile).
 We also knew that the amount of tests will increase and thus lead to even longer run times. Additionally,
-travis-ci was configured to only test patches that were actually merged into the git main branches. So
+Travis CI was configured to only test patches that were actually merged into the git main branches. So
 we always only knew *after* a merge if the test suite stays green. But we wanted to know if the test
-suite is green *before* merging a patch. Enabling travis-ci to test each and every patch set that is
+suite is green *before* merging a patch. Enabling Travis CI to test each and every patch set that is
 pushed to the review system was out of question due to the long run times, though.
 
 So we looked for alternatives. Luckily, the TYPO3 GmbH was founded in 2016 and got a open source license
-for their main products by `atlassian <https://atlassian.com/>`_. Atlassian has an own continuous
+by `atlassian <https://atlassian.com/>`_ for their main products. Atlassian has an own continuous
 integration solution called bamboo. This CI allows adding "remote agents" that pick up single jobs
 to run them. It's possible to scale by just adding more agents. We thus split the time consuming test
 tasks into single parts and execute them in parallel on many agents at the same time. This also allowed
@@ -242,7 +242,7 @@ much more.
 
 As another important step, the core developers worked on the functional test isolation again in
 TYPO3 v9: As explained above, the functional tests forked processes twice if frontend testing was
-involved. With TYPO3 v9 however, the TYPO3 core bootstrap has been heavily improved another time,
+involved. With TYPO3 v9 however, the TYPO3 core bootstrap has been heavily improved,
 with having a special eye on system state encapsulation: Next to the incredible PSR-15 works in
 this area, two further API's have been established: :ref:`Context <context-api>` and
 :ref:`Environment <Environment>`. Remember each functional tests case runs in an own instance within
@@ -260,7 +260,7 @@ core and dropping the process isolation for functional backend tests significant
 with functional tests now and debugging is much easier and improved core code at the same time. This
 pattern repeated often over the years: The test suites show quite well which parts of the core need
 attention. Working in these areas in turn improves the core for everyone and allows usages that
-have not been possible before. Extension authors later pick these up and use this.
+have not been possible before.
 
 In late 2018 another thing has been established: The *runTests.sh* script allows core developers
 to easily execute tests within a container based environment that takes care of all the nasty
@@ -275,12 +275,12 @@ and docker-compose versions.
 2019
 ====
 
-The above milestones show the efforts in the core testing area have positive effects on
+The above milestones show that efforts in the core testing area have positive effects on
 core and extension code and allow system usages that have not been possible before.
 
 There are some further hard nuts we have to crack, though: For example, while the process isolation
 for functional backend tests has been dropped in 2018, the tests still fork processes to execute
-a frontend scenario. This is still ugly. It shows that calling a TYPO3 frontend from within the
+frontend scenarios. This is still ugly. It shows that calling a TYPO3 frontend from within the
 backend context or from cli is still not easily possible. As a goal, a developer in such a situation
 would usually want to do this: Preserve the current framework state, create a PSR-7 request for the
 frontend, fire it, get a PSR-7 response object back, reset the framework state and then further work

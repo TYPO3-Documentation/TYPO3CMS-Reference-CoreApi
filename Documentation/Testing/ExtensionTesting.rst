@@ -13,7 +13,7 @@ Extension authors want to test their extension code, too. This is great and the 
 tries to support this. This chapter goes into details how extension authors can set up
 automatic extension testing. We'll do that with two examples. Both embed the given extension
 in a TYPO3 instance and run tests within this environment, both examples also configure
-travis-ci to execute tests. We'll use docker containers for test execution again and use
+Travis CI to execute tests. We'll use docker containers for test execution again and use
 an extension specific runTests.sh script piloting test setup and execution.
 
 
@@ -53,8 +53,8 @@ Let us talk about some boundaries and what this documentation does *not* do, fir
 * Similar to core testing, this documentation relies an docker and docker-compose. See the
   :ref:`core testing requirements <testing-core-dependencies>` for more details.
 
-* We assume extension code is located at github and automatic testing is done using travis-ci.
-  The integration of travis-ci into github is dead simple. If your extension code is elsewhere
+* We assume extension code is located at github and automatic testing is done using Travis CI.
+  The integration of Travis CI into github is dead simple. If your extension code is elsewhere
   or a different CI should be used, you need to figure out details on your own but may very well
   use this document as inspiration since the strategies may be similar.
 
@@ -72,7 +72,7 @@ instance which PHP class namespaces it provides and where those can be found. Th
 integrates the extension into the project and the project then "knows" location of extension
 classes.
 
-If we want to test extension code directly, we do a similar step: We turn the :file:`composer.json`
+If we want to test extension code directly, we do a similar change: We turn the :file:`composer.json`
 file of the extension into a `root composer.json file <https://getcomposer.org/doc/04-schema.md#root-package>`_.
 That file then serves two needs at the same time: It is used by projects that require the extension
 as dependency, and it is used as root composer.json to specify dependencies turning the extension
@@ -151,7 +151,7 @@ Here is how the composer.json file looked like before we added a test setup:
 
 This is a typical composer.json file without much fanciness: It's a `typo3-cms-extension`, some
 author and license information, a "I need at least 9.5.0 of cms-core" dependency, and a
-"hey autoloader, find class names starting with Lolli\Enetcache in the Classes/ directory" specification.
+"hey autoloader, find class names starting with :php:`Lolli\Enetcache` in the Classes/ directory" specification.
 
 The extension already contains some unit tests that extend form typo3/testing-framework`s base
 unit test class in directory :file:`Tests/Unit/Hooks` (stripped)::
@@ -175,7 +175,7 @@ unit test class in directory :file:`Tests/Unit/Hooks` (stripped)::
 Preparing composer.json
 -----------------------
 
-Now let's add things to put that test into action. First, we add a series of properties to :file:`composer.json`
+Now let's add things to put these tests into action. First, we add a series of properties to :file:`composer.json`
 to add root composer.json details, turning the extension into a project at the same time:
 
 .. code-block:: json
@@ -253,8 +253,8 @@ on-the-fly files. The :file:`.gitignore` looks like this::
     Build/testing-docker/.env
     composer.lock
 
-We ignore the entire `.Build` directory, these are on-the-fly files that not belong to the extension
-functionality. We also ignore the `.idea` directory, this is a directory where PhpStorm parks its stuff.
+We ignore the entire `.Build` directory, these are on-the-fly files that do not belong to the extension
+functionality. We also ignore the `.idea` directory - this is a directory where PhpStorm parks its stuff.
 We also ignore `Build/testing-docker/.env` - this is a test runtime file created by `runTests.sh` later.
 And we ignore the `composer.lock` file: We don't hard nail our dependency versions and a
 `composer install` will later always fetch for instance the youngest core dependencies marked as
@@ -360,7 +360,7 @@ Travis CI
 
 With basic testing in place we want execution of tests whenever something is merged to the repository and if
 people create pull requests for our happy little extension to make sure our carefully crafted test setup actually
-works all the time. We'll use the continuous integration service `travis-ci <https://travis-ci.org/>`_ to take care of
+works all the time. We'll use the continuous integration service `Travis CI <https://travis-ci.org/>`_ to take care of
 that. It's free for open source projects. So, log in to travis using your github account. After login, the
 user settings page will list all your github repositories and travis-ci can be enabled with one click for single
 repositories. All we need is a :file:`.travis.yml` file in the `root directory
@@ -381,13 +381,6 @@ exactly should be done:
       directories:
         - $HOME/.composer/cache
 
-    notifications:
-      email:
-        recipients:
-          - lolli@schwarzbu.ch
-        on_success: change
-        on_failure: change
-
     before_script:
       - Build/Scripts/runTests.sh -s composerInstall -p $TRAVIS_PHP_VERSION
 
@@ -402,18 +395,19 @@ exactly should be done:
         echo "Running php lint";
         Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
 
-In case of enetcache, we let travis-ci test the extension with the two PHP versions 7.2 and 7.3. Travis exposes
+In case of enetcache, we let Travis CI test the extension with the two PHP versions 7.2 and 7.3. Travis exposes
 the current version as variable `$TRAVIS_PHP_VERSION`, so we use that to feed it to `runTests.sh`. We instruct
-travis-ci to always `composer install` first, then run the test suites `composer validate`, the unit testing
+Travis to always `composer install` first, then run the test suites `composer validate`, the unit testing
 and the PHP linting. It's possible to see executed test runs `online <https://travis-ci.org/lolli42/enetcache>`_.
 Green :) Maybe it's now time to add the `travis-ci status badge <https://docs.travis-ci.com/user/status-images/>`_
 to our README.md file.
 
 Note we again use :file:`runTests.sh` to actually run tests. So the environment our tests are executed in is
 identical to our local environment. It's all dockerized. We don't care about the PHP versions travis-ci loaded
-and installed for us too much. Travis-ci needs the setting `sudo: true` to allow starting own containers, though.
+and installed for us too much. Travis CI needs the setting `sudo: true` to allow starting own containers, though.
 
-If you want to run multiple jobs in parallel check out `Travis' Build Stages feature <https://docs.travis-ci.com/user/build-stages/>`_.
+Travis CI comes with tons of further options and possibilities. If you for instance want to run multiple jobs
+in parallel check out `Travis' Build Stages feature <https://docs.travis-ci.com/user/build-stages/>`_.
 
 
 Testing styleguide
@@ -597,10 +591,10 @@ and runTests.sh is tuned to call the different scenarios.
 Acceptance testing
 ------------------
 
-Not enough! The styleguide extension adds itself to the TYPO3 backend to the Topbar > Help module dialogue
-a little backend module. Next to other things, this module adds buttons to create and delete the demo
-data that has been functonal tested above already. To verify this works in the backend as well, styleguide
-comes some pretty straight acceptance tests in `Tests/Acceptance/Backend/ModuleCest
+Not enough! The styleguide extension adds a module to the TYPO3 backend to the Topbar > Help section.
+Next to other things, this module adds buttons to create and delete the demo
+data that has been functional tested above already. To verify this works in the backend as well, styleguide
+comes with some straight acceptance tests in `Tests/Acceptance/Backend/ModuleCest
 <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Backend/ModuleCest.php>`_::
 
     <?php
@@ -678,16 +672,15 @@ comes some pretty straight acceptance tests in `Tests/Acceptance/Backend/ModuleC
     }
 
 These are three tests: One verifies the backend module can be called, one creates demo data, the last
-one deletes demo data again. The codeception setup needs a bit more attention to setup. The entry point
+one deletes demo data again. The codeception setup needs a bit more attention to setup, though. The entry point
 is the main `codeception.yml file <https://github.com/TYPO3/styleguide/blob/master/Tests/codeception.yml>`_
 extended by the `backend suite <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Backend.suite.yml>`_,
 a `backend tester <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/BackendTester.php>`_ and
 a `codeception bootstrap extension
 <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/Extension/BackendStyleguideEnvironment.php>`_
-that instructs the basic typo3/testing-framework acceptance boostrap to load the styleguide extension and
+that instructs the basic typo3/testing-framework acceptance bootstrap to load the styleguide extension and
 have some database fixtures included to easily log in to the backend. Additionally, the runTests.sh and
-docker-compose.yml files take care of adding selenium with chrome and a web server to the game to actually
-execute the tests:
+docker-compose.yml files take care of adding selenium-chrome and a web server to actually execute the tests:
 
 .. code-block:: shell
 
