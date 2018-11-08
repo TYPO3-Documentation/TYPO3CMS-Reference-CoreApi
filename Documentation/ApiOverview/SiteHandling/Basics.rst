@@ -178,4 +178,4 @@ dependent on the current site (as opposed to containing the same content for the
 routeEnhancers
 ^^^^^^^^^^^^^^
 
-While page routing works out of the box with no further settings, routeEnhancers allow the configuration of routing for TYPO3 extensions. More information regarding routeEnhancers can be found here: https://docs.typo3.org/typo3cms/extensions/core/latest/Changelog/9.5/Feature-86365-RoutingEnhancersAndAspects.html
+While page routing works out of the box with no further settings, routeEnhancers allow the configuration of routing for TYPO3 extensions. The TYPO3 Changlog comes with some `more information <https://docs.typo3.org/typo3cms/extensions/core/latest/Changelog/9.5/Feature-86365-RoutingEnhancersAndAspects.html>`_ regarding routeEnhancers.
