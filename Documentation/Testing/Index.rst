@@ -30,4 +30,5 @@ various scopes. Have fun.
     CoreTesting
     ExtensionTesting
     ProjectTesting
+    WritingUnit
     Faq

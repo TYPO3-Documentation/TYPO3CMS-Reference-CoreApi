@@ -1,0 +1,179 @@
+.. include:: ../Includes.txt
+
+.. _testing-writing-unit:
+
+==================
+Writing unit tests
+==================
+
+Introduction
+============
+
+This chapter goes into details about writing and maintaining unit tests in the TYPO3
+world. Core developers over the years gained quite some knowledge and experience on
+this topic, this section outlines some best practices and goes into details about
+some of the TYPO3 specific unit testing details that have been put on top of the native
+phpunit stack: At the time of this writing the TYPO3 core contains about ten thousand
+unit tests - many of them are good, some are bad and we're constantly improving
+details. Unit testing is a great playground for interested contributors, and most
+extension developers probably learn something useful from reading this section, too.
+
+Note this chapter is not a full "How to write unit tests" documentation: It contains
+some examples, but mostly goes into details of the additions typo3/testing-framework
+puts on top.
+
+
+When to unit tests
+==================
+
+It depends on the code you're writing if unit testing that specific code is useful or not.
+There are certain areas that scream to be unit tested: You're writing a method that does some PHP
+array munging or sorting, juggling keys and values around? Unit test this! You're
+writing something that involves date calculations? No way to get that right without unit
+testing! You're throwing a regex at some string? The unit test data provider should already
+exist before you start with implementing the method!
+
+In general, whenever a rather small piece of code does some dedicated munging on a rather
+small set of data, unit testing this isolated piece is helpful. It's a healthy developer
+attitude to assume any written code is broken. Isolating that code and throwing unit tests at
+it will proof its broken. Promised. Add edge cases to your unit test data provider, feed
+it with whatever you can think of and continue doing that until your code survives all that.
+Depending on your use case, develop `test-driven
+<https://en.wikipedia.org/wiki/Test-driven_development>`_: Test first, fail, fix, refactor, next iteration.
+
+Good to-be-unit-tested code does usually not contain much state, sometimes it's static.
+:ref:`Services <cgl-services>` or :ref:`utilities <cgl-model-static-methods>` are often good
+targets for unit testing, sometimes some detail method of a class that has not been extracted
+to an own class, too.
+
+
+When not to unit tests
+======================
+
+Simply put: Do not unit test "glue code". There are persons proclaiming "100% unit test coverage".
+This does not make sense. As an extension developer working on top of framework functionality, it
+usually does not make sense to unit test glue code. What is glue code? Well, code
+that fetches things from one underlying part and feeds it to some other part: Code that "glues"
+framework functionality together.
+
+Good examples are often extbase MVC controller actions: A typical controller usually does not do much
+more than fetching some objects from a repository just to assign them to the view. There is no benefit in
+adding a unit test for this: A unit test can't do much more than verifying some specific framework
+methods are actually called. It thus needs to mock the object dependencies to only verify some
+method is hit with some argument. This is tiresome to set up and you're then testing a trivial
+part of your controller: Looking at the controller clearly shows the underlying method *is* called.
+Why bother?
+
+Another example are extbase models: Most extbase model properties consist of a protected property,
+a getter and a setter method. This is no-brainer code. I could train my cat writing this without
+introducing bugs! Ok, core contributors have very clever cats, but still, you don't gain anything from
+unit testing a getter/setter model class - it's obvious by reading that it's ok and you probably auto-created
+the getter/setter methods using your IDE's functionality anyway, did you? Worse, unit testing this code
+leads to broken tests with each trivial change of the model class. That's tiresome and waste of time.
+Concentrate your unit tests on the real stuff that does data munging magic as outlined above!
+Ah, one of your model getters initializes some object storage, then sorts and filters objects?
+*That* can be helpful if unit tested, it's nothing cats can handle! If not unit tested,
+your filter code is most likely broken. Add unit tests to proof it's not.
+
+A much better way of testing glue code are functional tests: Set up a proper scenario in your
+database, then call your controller that will use your repository and models, then verify your
+view returns something useful. With adding a functional test for this you can kill many
+birds with one stone. This has many more benefits than trying to unit test glue code.
+
+A good sign that your unit test would be more useful if it is turned into a functional test is if
+the unit tests needs lots of lines of code to mock dependencies, just to test something using
+:php:`->shouldBeCalled()` on some mock to verify on some dependency is actually called. Go ahead and
+read some unit tests provided by the core: We're sure you'll find a bad unit test that could be improved
+by creating a functional test from it.
+
+
+Unit test conventions
+=====================
+
+TYPO3 unit testing means using the `phpunit <https://phpunit.de/>`_ testing framework. TYPO3 comes with
+as basic `UnitTests.xml <https://github.com/TYPO3/testing-framework/blob/master/Resources/Core/Build/UnitTests.xml>`_
+file that can be used by core and extensions. This references a phpunit `bootstrap file
+<https://github.com/TYPO3/testing-framework/blob/master/Resources/Core/Build/UnitTestsBootstrap.php>`_ so
+phpunit does find our main classes. Apart from that, there are little conventions: Tests for some "system under test"
+class in the :file:`Classes/` folder should be located at the same position within the :file:`Test/Unit`
+folder having the additional suffix :file:`Test.php` to the system under test file name. The class of the
+test file should extend the basic unit test abstract :php:`TYPO3\TestingFramework\Core\Unit\UnitTestCase`. Single
+tests should be named starting with the method that is tested plus some explaining suffix and should
+be annotated with :php:`@test`.
+
+Example for a system under test located at :file:`typo3/sysext/core/Utility/ArrayUtility.php` (stripped)::
+
+    <?php
+    namespace TYPO3\CMS\Core\Utility;
+    class ArrayUtility
+    {
+
+        ...
+
+        public static function filterByValueRecursive($needle = '', array $haystack = [])
+        {
+            // System under test code
+        }
+    }
+
+The test file is located at :file:`typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php` (stripped)::
+
+    <?php
+    namespace TYPO3\CMS\Core\Tests\Unit\Utility;
+    use TYPO3\CMS\Core\Utility\ArrayUtility;
+    use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
+    class ArrayUtilityTest extends UnitTestCase
+    {
+
+        ...
+
+        /**
+         * @test
+         * @dataProvider filterByValueRecursive
+         */
+        public function filterByValueRecursiveCorrectlyFiltersArray($needle, $haystack, $expectedResult)
+        {
+            // Unit test code
+        }
+
+This way it is easy to find unit tests for any given file. Note PhpStorm understands this structure and
+can jump from a file to the according test file by hitting `CTRL+Shift+T`.
+
+
+Extending UnitTestCase
+======================
+
+Extending a unit test from class :php:`TYPO3\TestingFramework\Core\Unit\UnitTestCase` of the
+:php:`typo3/testing-framework` package instead of the native phpunit class :php:`PHPUnit\Framework\TestCase`
+adds some functionality on top of phpunit:
+
+* Environment backup: If a unit test has to fiddle with the :ref:`Environment <Environment>` class, setting
+  property :php:`$backupEnvironment` to :php:`true` instructs the unit test to reset the state after each call.
+
+* If a system under test creates instances of classes implementing :php:`SingletonInterface`, setting
+  property :php:`$resetSingletonInstances` to :php:`true` instructs the unit test to reset internal
+  :php:`GeneralUtility` scope after each test. :php:`tearDown()` will fail if there are dangling singletons,
+  otherwise.
+
+* Adding files or directories to array property :php:`$testFilesToDelete` instructs the test to delete
+  certain files or entire directories that have been created by unit tests. This property is useful
+  to keep the system clean.
+
+* A generic :php:`tearDown()` method: That method is designed to test for TYPO3 specific global state changes
+  and to let a unit test fail if it does not take care of these. For instance, if a unit tests add a singleton
+  class to the system but does not declare that singletons should be flushed, the system will recognize this
+  and let the according test fail. This is a great help for test developers to not run into side effects
+  between unit tests. It is usually not needed to override this method, but if you do, call :php:`parent::tearDown()`
+  at the end to have the parent method kick in.
+
+* A :php:`getAccessibleMock()` method: This method can be useful if a protected method of the system under test
+  class needs to be accessed. It allows to "mock-away" other methods, but keep the method that is tested.
+  Note this method should *not* be used if just a full class dependency needs to be mocked. Use prophecy (see below)
+  to do this instead.
+
+
+A casual data provider
+======================
+
+This is one of the most common use cases in unit testing: Some to-test method ("system under test") takes
+some argument and a unit tests feeds it with a series of input arguments to verify output is as expected.
