@@ -73,7 +73,8 @@ Extbase command controllers
 
 .. warning::
 
-   Extbase command controller is ist deprecated as of TYPO3 9.4. Consider only using the above version.
+   Extbase command controllers are deprecated since TYPO3 v9. Use symfony commands as
+   outlined above.
 
 .. note::
 
