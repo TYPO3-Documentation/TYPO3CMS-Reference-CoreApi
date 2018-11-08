@@ -413,7 +413,7 @@ Note we again use :file:`runTests.sh` to actually run tests. So the environment 
 identical to our local environment. It's all dockerized. We don't care about the PHP versions travis-ci loaded
 and installed for us too much. Travis-ci needs the setting `sudo: true` to allow starting own containers, though.
 
-If you want to run multiple jobs in parallel check out [Travis' Build Stages feature](https://docs.travis-ci.com/user/build-stages/).
+If you want to run multiple jobs in parallel check out `Travis' Build Stages feature <https://docs.travis-ci.com/user/build-stages/>`_.
 
 
 Testing styleguide
