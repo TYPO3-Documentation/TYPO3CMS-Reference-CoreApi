@@ -24,9 +24,11 @@ How To Use Enumerations
 Create an Enumeration
 ---------------------
 
-To create a new enumeration you have to extend the class :php:`TYPO3\CMS\Core\Type\Enumeration`.
-Values are defined as constants in your implementation.
-The names of the constants must be given in uppercase.
+To create a new enumeration you have to extend the class :php:`TYPO3\CMS\Core\Type\Enumeration`,
+make sure your enumeration is marked :php:`final`, this ensures your code only receives a known
+set of values. Otherwise adding more values by extension will lead to undefined behavior in your code.
+
+Values are defined as constants in your implementation. The names of the constants must be given in uppercase.
 
 A special, optional constant :php:`__default` represents the default value of your enumeration
 if it is present. In that case the enumeration can be instantiated without a value and
@@ -34,7 +36,7 @@ will be set to the default.
 
 Example::
 
-   class LikeWildcard extends \TYPO3\CMS\Core\Type\Enumeration
+   final class LikeWildcard extends \TYPO3\CMS\Core\Type\Enumeration
    {
       const __default = self::BOTH;
 
@@ -116,7 +118,7 @@ For example, the :php:`TYPO3\CMS\Core\Versioning\VersionState` enumeration conta
 values of version states. Some of the values indicate that the state is a "placeholder".
 This logic can be implemented by a custom method::
 
-   class VersionState extends \TYPO3\CMS\Core\Type\Enumeration
+   final class VersionState extends \TYPO3\CMS\Core\Type\Enumeration
    {
       const __default = self::DEFAULT_STATE;
       const NEW_PLACEHOLDER_VERSION = -1;
