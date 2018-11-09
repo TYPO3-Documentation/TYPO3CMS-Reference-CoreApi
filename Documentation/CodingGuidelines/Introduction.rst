@@ -44,10 +44,15 @@ and pushed another time. For details on core contributions, have a look at the
 :ref:`TYPO3 Contribution Guide <t3contribute:start>`.
 
 
-.. _cgl-introduction-general-recommendations:
+.. _cgl-general-recommendations:
 
 General recommendations
 =======================
+
+.. _cgl-ide:
+
+Setup IDE / Editor
+------------------
 
 .. important::
 
@@ -55,8 +60,10 @@ General recommendations
    standards get checked and enforced automatically!
 
 
+.. _cgl-editorconfig:
+
 EditorConfig
-------------
+~~~~~~~~~~~~
 
 One method to set up your IDE / editor to adhere to specific Coding Guidelines,
 is to use an .editorconfig file. Read `EditorConfig.org <http://EditorConfig.org>`__

@@ -22,3 +22,9 @@ Format
 * Use spaces, not TABs.
 
 * Indent with 3 spaces per indent level.
+
+More information
+================
+
+* See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE
+  to adhere to the coding guidelines.

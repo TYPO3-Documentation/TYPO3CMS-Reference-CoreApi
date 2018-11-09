@@ -30,10 +30,12 @@ Format
 
 * Prefix jQuery object variables with a `$`.
 
-.. seealso::
 
-   * `AirBnb JavaScript Style Guide: Whitespace <https://github.com/airbnb/javascript#whitespace>`__
+More information
+================
 
-   * `AirBnb JavaScript Style Guide: Strings <https://github.com/airbnb/javascript#strings>`__
-
-   * `AirBnb JavaScript Style Guide: jQuery <https://github.com/airbnb/javascript#jquery>`__
+* See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to
+  the coding guidelines.
+* `AirBnb JavaScript Style Guide: Whitespace <https://github.com/airbnb/javascript#whitespace>`__
+* `AirBnb JavaScript Style Guide: Strings <https://github.com/airbnb/javascript#strings>`__
+* `AirBnb JavaScript Style Guide: jQuery <https://github.com/airbnb/javascript#jquery>`__

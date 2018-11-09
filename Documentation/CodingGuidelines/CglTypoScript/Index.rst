@@ -39,3 +39,9 @@ Format
 * Use spaces, not TABs.
 
 * Use 2 spaces per indenting level.
+
+More information
+================
+
+* See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to
+  the coding guidelines.

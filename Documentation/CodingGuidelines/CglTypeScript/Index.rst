@@ -28,3 +28,9 @@ Format
 .. seealso::
 
    `Excel Micro : Whitespace <https://github.com/excelmicro/typescript#whitespace>`__
+
+More information
+================
+
+* See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to
+  the coding guidelines.

@@ -21,3 +21,8 @@ Format
 * Use single (' ') for defining string values
 
 
+More information
+================
+
+* See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to
+  the coding guidelines.
