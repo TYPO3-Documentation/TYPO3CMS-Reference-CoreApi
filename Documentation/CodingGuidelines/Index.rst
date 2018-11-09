@@ -20,4 +20,6 @@ extensions or core parts.
    CglTypeScript/Index
    CglTypoScript/Index
    CglXliff/Index
+   CglYaml
    CglRest/Index
+
