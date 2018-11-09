@@ -18,7 +18,12 @@ Format
 
 * Use spaces, not tabs
 * Indent with 2 spaces per indent level
-* Use single (' ') for defining string values
+* Use single (' ') for defining string values. Double quotes can be used for 
+  quotes inside of quotes:
+  
+.. code-block:: yaml
+  
+   description: 'This is a "salt" used for various kinds of encryption ...' 
 
 
 More information
