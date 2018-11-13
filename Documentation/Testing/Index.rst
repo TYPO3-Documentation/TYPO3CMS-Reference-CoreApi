@@ -31,4 +31,5 @@ various scopes. Have fun.
     ExtensionTesting
     ProjectTesting
     WritingUnit
+    WritingFunctional
     Faq

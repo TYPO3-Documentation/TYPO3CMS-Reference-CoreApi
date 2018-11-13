@@ -22,7 +22,7 @@ Note this chapter is not a full "How to write unit tests" documentation: It cont
 some examples, but mostly goes into details of the additions typo3/testing-framework
 puts on top.
 
-Note this documentation is a general guide. There can be reasons to violate them.
+Furthermore, this documentation is a general guide. There can be reasons to violate them.
 These are no hard rules to always follow.
 
 

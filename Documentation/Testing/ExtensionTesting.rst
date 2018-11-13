@@ -410,6 +410,8 @@ Travis CI comes with tons of further options and possibilities. If you for insta
 in parallel check out `Travis' Build Stages feature <https://docs.travis-ci.com/user/build-stages/>`_.
 
 
+.. _testing-extensions-styleguide:
+
 Testing styleguide
 ==================
 
