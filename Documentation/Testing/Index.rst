@@ -32,4 +32,5 @@ various scopes. Have fun.
     ProjectTesting
     WritingUnit
     WritingFunctional
+    WritingAcceptance
     Faq
