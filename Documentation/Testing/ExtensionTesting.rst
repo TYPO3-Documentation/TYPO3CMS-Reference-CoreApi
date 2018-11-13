@@ -50,7 +50,7 @@ Let us talk about some boundaries and what this documentation does *not* do, fir
 * We assume a composer based setup. Extensions should nowadays provide a :file:`composer.json`
   file anyway and using composer for extension testing is quite convenient.
 
-* Similar to core testing, this documentation relies an docker and docker-compose. See the
+* Similar to core testing, this documentation relies on docker and docker-compose. See the
   :ref:`core testing requirements <testing-core-dependencies>` for more details.
 
 * We assume extension code is located at github and automatic testing is done using Travis CI.
