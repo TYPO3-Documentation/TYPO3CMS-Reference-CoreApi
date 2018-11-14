@@ -69,7 +69,6 @@ address the task at hand.
 .. toctree::
    :hidden:
 
-   Sitemap/Index
    Introduction/Index
    ExtensionArchitecture/Index
    ApiOverview/Index
@@ -77,5 +76,6 @@ address the task at hand.
    Testing/Index
    CodingGuidelines/Index
    DataFormats/Index
+   Sitemap/Index
    Targets
 
