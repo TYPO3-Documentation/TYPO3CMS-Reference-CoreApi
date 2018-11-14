@@ -17,3 +17,99 @@ to store sensitive files (such as backups, etc.) in the DocRoot
 directory at all – instead of trying to address the issue by
 restricting the access to certain file names (keep in mind that you
 cannot predict which file names could occur in the future).
+
+To increase protection of TYPO3 instances, the core team however decided to
+install default configuration files since TYPO3 core version v9 under certain
+circumstances: If an Apache web server is detected by the web based installation
+procedure, a default :file:`.htaccess` file is written to the document root, and if
+a Microsoft IIS web server is detected, a default :file:`web.config` file is written
+to the document root. These files contain web server configurations to deny direct web
+access to a series of common file types and directories, for instance version control system
+directories like :file:`.git/`, all private template directories like :file:`Resources/Private/`
+and common package files like :file:`composer.json`.
+
+Administrators should *test and verify* file access to these files are actually denied. A
+typical example is to check the :file:`composer.json` file of the core extension can't
+be reached directly by adapting and calling a URL like
+`https://my.domain/typo3/sysext/core/composer.json`.
+
+This "black list" approach needs maintenance: The core team tries to keep template the
+:file:`.htaccess` and :file:`web.config` files updated. If running Apache or IIS, administrators
+should compare their specific version with the reference files found at `root-htaccess
+<https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess>`_
+and `root-web-config
+<https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-web-config>`_
+and adapt or update local versions if needed.
+
+Administrators running the popular web server `NGINX <https://www.nginx.com/>`_ need to
+take additional measures: NGINX does not support an approach like Apache or IIS to configure
+access by putting files into the web document directories - the TYPO3 install procedure thus can
+not install good default files and administrators must merge deny patterns into the web
+servers virtual host configuration. A typical example looks like this::
+
+    server {
+
+        ...
+
+        # Prevent clients from accessing hidden files (starting with a dot)
+        # This is particularly important if you store .htpasswd files in the site hierarchy
+        # Access to `/.well-known/` is allowed.
+        # https://www.mnot.net/blog/2010/04/07/well-known
+        # https://tools.ietf.org/html/rfc5785
+        location ~* /\.(?!well-known\/) {
+            deny all;
+        }
+
+        # Prevent clients from accessing to backup/config/source files
+            location ~* (?:\.(?:bak|conf|dist|fla|in[ci]|log|psd|sh|sql|sw[op])|~)$ {
+            deny all;
+        }
+
+        # TYPO3 - Block access to composer files
+        location ~* composer\.(?:json|lock) {
+            deny all;
+        }
+
+        # TYPO3 - Block access to flexform files
+        location ~* flexform[^.]*\.xml {
+            deny all;
+        }
+
+        # TYPO3 - Block access to language files
+        location ~* locallang[^.]*\.(?:xml|xlf)$ {
+            deny all;
+        }
+
+        # TYPO3 - Block access to static typoscript files
+        location ~* ext_conf_template\.txt|ext_typoscript_constants\.(?:txt|typoscript)|ext_typoscript_setup\.(?:txt|typoscript) {
+            deny all;
+        }
+
+        # TYPO3 - Block access to miscellaneous protected files
+        location ~* /.*\.(?:bak|co?nf|cfg|ya?ml|ts|typoscript|dist|fla|in[ci]|log|sh|sql)$ {
+            deny all;
+        }
+
+        # TYPO3 - Block access to recycler and temporary directories
+        location ~ _(?:recycler|temp)_/ {
+            deny all;
+        }
+
+        # TYPO3 - Block access to configuration files stored in fileadmin
+        location ~ fileadmin/(?:templates)/.*\.(?:txt|ts|typoscript)$ {
+            deny all;
+        }
+
+        # TYPO3 - Block access to libaries, source and temporary compiled data
+        location ~ ^(?:vendor|typo3_src|typo3temp/var) {
+            deny all;
+        }
+
+        # TYPO3 - Block access to protected extension directories
+        location ~ (?:typo3conf/ext|typo3/sysext|typo3/ext)/[^/]+/(?:Configuration|Resources/Private|Tests?|Documentation|docs?)/ {
+            deny all;
+        }
+
+        ...
+
+    }
