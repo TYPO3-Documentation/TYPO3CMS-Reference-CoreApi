@@ -46,9 +46,9 @@ directly by using HTTP requests:
 * `https://my.domain/typo3/sysext/core/ext_tables.sql`
 * `https://my.domain/typo3/sysext/extbase/ext_typoscript_setup.txt`
 * `https://my.domain/typo3/sysext/extbase/ext_typoscript_setup.typoscript`
-* `https://my.domain/typo3/sysext/extbase/Tests/Functional/Fixtures/Extensions/blog_example/Resources/Public/Icons/Extension.gif`
 * `https://my.domain/typo3/sysext/felogin/Configuration/FlexForms/Login.xml`
 * `https://my.domain/typo3/sysext/backend/Resources/Private/Language/locallang.xlf`
+* `https://my.domain/typo3/sysext/backend/Tests/Unit/Utility/Fixtures/clear.gif`
 * `https://my.domain/typo3/sysext/belog/Configuration/TypoScript/setup.txt`
 * `https://my.domain/typo3/sysext/belog/Configuration/TypoScript/setup.typoscript`
 
