@@ -68,15 +68,12 @@ part of your controller: Looking at the controller clearly shows the underlying 
 Why bother?
 
 Another example are extbase models: Most extbase model properties consist of a protected property,
-a getter and a setter method. This is no-brainer code. I could train my cat writing this without
-introducing bugs! Ok, core contributors have very clever cats, but still, you don't gain anything from
-unit testing a getter/setter model class - it's obvious by reading that it's ok and you probably auto-created
-the getter/setter methods using your IDE's functionality anyway, did you? Worse, unit testing this code
-leads to broken tests with each trivial change of the model class. That's tiresome and waste of time.
-Concentrate your unit tests on the real stuff that does data munging magic as outlined above!
-Ah, one of your model getters initializes some object storage, then sorts and filters objects?
-*That* can be helpful if unit tested, it's nothing cats can handle! If not unit tested,
-your filter code is most likely broken. Add unit tests to proof it's not.
+a getter and a setter method. This is near no-brainer code, and many developers auto-generate
+getters and setters by an IDE anyway. Unit testing this code leads to broken tests with each trivial
+change of the model class. That's tiresome and likely some waste of time. Concentrate unit testing
+efforts on stuff that does data munging magic as outlined above! One of your model getters initializes
+some object storage, then sorts and filters objects? *That* can be helpful if unit tested, your filter
+code is otherwise most likely broken. Add unit tests to proof it's not.
 
 A much better way of testing glue code are functional tests: Set up a proper scenario in your
 database, then call your controller that will use your repository and models, then verify your
