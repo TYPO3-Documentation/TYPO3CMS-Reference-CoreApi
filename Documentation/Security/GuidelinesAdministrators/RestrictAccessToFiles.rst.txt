@@ -19,7 +19,7 @@ restricting the access to certain file names (keep in mind that you
 cannot predict which file names could occur in the future).
 
 To increase protection of TYPO3 instances, the core team however decided to
-install default configuration files since TYPO3 core version v9 under certain
+install default web server configuration files since TYPO3 core version v9 under certain
 circumstances: If an Apache web server is detected by the web based installation
 procedure, a default :file:`.htaccess` file is written to the document root, and if
 a Microsoft IIS web server is detected, a default :file:`web.config` file is written
@@ -33,8 +33,8 @@ typical example is to check the :file:`composer.json` file of the core extension
 be reached directly by adapting and calling a URL like
 `https://my.domain/typo3/sysext/core/composer.json`.
 
-This "black list" approach needs maintenance: The core team tries to keep template the
-:file:`.htaccess` and :file:`web.config` files updated. If running Apache or IIS, administrators
+This "black list" approach needs maintenance: The core team tries to keep the template files
+:file:`.htaccess` and :file:`web.config` updated. If running Apache or IIS, administrators
 should compare their specific version with the reference files found at `root-htaccess
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess>`_
 and `root-web-config
@@ -43,7 +43,7 @@ and adapt or update local versions if needed.
 
 Administrators running the popular web server `NGINX <https://www.nginx.com/>`_ need to
 take additional measures: NGINX does not support an approach like Apache or IIS to configure
-access by putting files into the web document directories - the TYPO3 install procedure thus can
+access by putting files into the web document directories - the TYPO3 install procedure can
 not install good default files and administrators must merge deny patterns into the web
 servers virtual host configuration. A typical example looks like this::
 
