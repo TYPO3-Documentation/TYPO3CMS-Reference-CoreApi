@@ -18,6 +18,47 @@ directory at all – instead of trying to address the issue by
 restricting the access to certain file names (keep in mind that you
 cannot predict which file names could occur in the future).
 
+
+Verification of access restrictions
+...................................
+
+Administrators should *test and verify* file access to these files are actually denied.
+The following list provides some files as an example that should not be retrievable
+directly by using HTTP requests:
+
+* `https://my.domain/.git/index`
+* `https://my.domain/INSTALL.md`
+* `https://my.domain/INSTALL.txt`
+* `https://my.domain/composer.json`
+* `https://my.domain/composer.lock`
+* `https://my.domain/vendor/autoload.php`
+* `https://my.domain/typo3_src/Build/package.json`
+* `https://my.domain/typo3_src/bin/typo3`
+* `https://my.domain/typo3_src/INSTALL.md`
+* `https://my.domain/typo3_src/INSTALL.txt`
+* `https://my.domain/typo3_src/vendor/autoload.php`
+* `https://my.domain/typo3conf/LocalConfiguration.php`
+* `https://my.domain/typo3conf/AdditionalConfiguration.php`
+* `https://my.domain/typo3temp/var/log/`
+* `https://my.domain/typo3temp/var/session/`
+* `https://my.domain/typo3temp/var/tests/`
+* `https://my.domain/typo3/sysext/core/composer.json`
+* `https://my.domain/typo3/sysext/core/ext_tables.sql`
+* `https://my.domain/typo3/sysext/extbase/ext_typoscript_setup.txt`
+* `https://my.domain/typo3/sysext/extbase/ext_typoscript_setup.typoscript`
+* `https://my.domain/typo3/sysext/extbase/Tests/Functional/Fixtures/Extensions/blog_example/Resources/Public/Icons/Extension.gif`
+* `https://my.domain/typo3/sysext/felogin/Configuration/FlexForms/Login.xml`
+* `https://my.domain/typo3/sysext/backend/Resources/Private/Language/locallang.xlf`
+* `https://my.domain/typo3/sysext/belog/Configuration/TypoScript/setup.txt`
+* `https://my.domain/typo3/sysext/belog/Configuration/TypoScript/setup.typoscript`
+
+The list above is probably not complete. However, if general deny rules are in place links
+provided above should not be accessible anymore and result in a HTTP `403` error response.
+
+
+Apache and Microsoft IIS web servers
+....................................
+
 To increase protection of TYPO3 instances, the core team however decided to
 install default web server configuration files since TYPO3 core version v9 under certain
 circumstances: If an Apache web server is detected by the web based installation
@@ -28,10 +69,6 @@ access to a series of common file types and directories, for instance version co
 directories like :file:`.git/`, all private template directories like :file:`Resources/Private/`
 and common package files like :file:`composer.json`.
 
-Administrators should *test and verify* file access to these files are actually denied. A
-typical example is to check the :file:`composer.json` file of the core extension can't
-be reached directly by adapting and calling a URL like
-`https://my.domain/typo3/sysext/core/composer.json`.
 
 This "black list" approach needs maintenance: The core team tries to keep the template files
 :file:`.htaccess` and :file:`web.config` updated. If running Apache or IIS, administrators
@@ -40,6 +77,10 @@ should compare their specific version with the reference files found at `root-ht
 and `root-web-config
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-web-config>`_
 and adapt or update local versions if needed.
+
+
+NGINX web servers
+.................
 
 Administrators running the popular web server `NGINX <https://www.nginx.com/>`_ need to
 take additional measures: NGINX does not support an approach like Apache or IIS to configure
@@ -113,3 +154,6 @@ servers virtual host configuration. A typical example looks like this::
         ...
 
     }
+
+(the list above has been taken from
+https://github.com/drud/ddev/blob/f2171f390a3af8d4a85954105e8aa68b8bcab5ac/containers/ddev-webserver/files/etc/nginx/nginx-site-typo3.conf)
