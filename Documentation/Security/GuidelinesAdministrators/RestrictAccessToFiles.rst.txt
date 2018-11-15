@@ -155,5 +155,5 @@ servers virtual host configuration. A typical example looks like this::
 
     }
 
-(the list above has been taken from
-https://github.com/drud/ddev/blob/f2171f390a3af8d4a85954105e8aa68b8bcab5ac/containers/ddev-webserver/files/etc/nginx/nginx-site-typo3.conf)
+The config example above has been taken from `ddev
+<https://github.com/drud/ddev/blob/f2171f390a3af8d4a85954105e8aa68b8bcab5ac/containers/ddev-webserver/files/etc/nginx/nginx-site-typo3.conf>`_.
