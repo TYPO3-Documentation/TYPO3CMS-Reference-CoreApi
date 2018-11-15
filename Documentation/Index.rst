@@ -76,6 +76,6 @@ address the task at hand.
    Testing/Index
    CodingGuidelines/Index
    DataFormats/Index
-   Sitemap/Index
+   Sitemap
    Targets
 

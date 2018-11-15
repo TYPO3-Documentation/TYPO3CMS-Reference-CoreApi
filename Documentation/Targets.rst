@@ -6,7 +6,7 @@
 
 .. only:: html
 
-   Targets For Cross-Referencing
-   =============================
+Link Targets
+============
 
-   .. ref-targets-list::
+.. ref-targets-list::

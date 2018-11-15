@@ -2,7 +2,7 @@
 
 .. _api-overview:
 
-API overview
+API Overview
 ============
 
 The TYPO3 APIs are first and foremost documented inside of the source
