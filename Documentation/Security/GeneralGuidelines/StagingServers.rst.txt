@@ -1,5 +1,7 @@
 .. include:: ../../Includes.txt
 
+.. _security-staging-servers:
+
 Use staging servers for developments and tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

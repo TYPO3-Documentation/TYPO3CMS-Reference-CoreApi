@@ -48,10 +48,10 @@ In :file:`.htaccess`::
    php_value error_log /path/to/php_error.log
 
 
-.. important:: 
-   Do not use `config.contentObjectExceptionHandler = 0 `in production. It will 
-   display a complete stack dump in the Frontend, when an exception occurs. Use 
-   `config.contentObjectExceptionHandler = 1`, which is the default, in production.
+
+Do not set `contentObjectExceptionHandler` to 0 in production. It will
+display a complete stack dump in the Frontend, when an exception occurs. Use
+`config.contentObjectExceptionHandler = 1`, which is the default, in production.
    
 
 TypoScript::
@@ -59,6 +59,12 @@ TypoScript::
    config.contentObjectExceptionHandler = 0 
    
 Use this setting, to get more context and a stacktrace in the Frontend in case of an exception.
+
+Do not set `config.contentObjectExceptionHandler` to 0 in production. It will
+display a complete stack dump in the Frontend, when an exception occurs. Use
+`config.contentObjectExceptionHandler = 1`, which is the default, in production.
+
+
 See :ref:`contentObjectExceptionHandler <t3tsref:setup-config-contentObjectExceptionHandler>` for more
 information.
 
@@ -122,7 +128,3 @@ In :file:`.htaccess`::
    php_flag display_errors off
    php_flag log_errors off
 
-More information
-================
-
-* 
