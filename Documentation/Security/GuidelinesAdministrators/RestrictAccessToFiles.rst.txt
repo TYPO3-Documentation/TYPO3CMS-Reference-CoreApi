@@ -29,6 +29,7 @@ directly by using HTTP requests:
 * `https://my.domain/.git/index`
 * `https://my.domain/INSTALL.md`
 * `https://my.domain/INSTALL.txt`
+* `https://my.domain/ChangeLog`
 * `https://my.domain/composer.json`
 * `https://my.domain/composer.lock`
 * `https://my.domain/vendor/autoload.php`
@@ -36,6 +37,7 @@ directly by using HTTP requests:
 * `https://my.domain/typo3_src/bin/typo3`
 * `https://my.domain/typo3_src/INSTALL.md`
 * `https://my.domain/typo3_src/INSTALL.txt`
+* `https://my.domain/typo3_src/ChangeLog`
 * `https://my.domain/typo3_src/vendor/autoload.php`
 * `https://my.domain/typo3conf/LocalConfiguration.php`
 * `https://my.domain/typo3conf/AdditionalConfiguration.php`
