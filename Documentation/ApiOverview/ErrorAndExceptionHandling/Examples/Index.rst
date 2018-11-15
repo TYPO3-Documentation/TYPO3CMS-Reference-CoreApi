@@ -12,6 +12,15 @@ Examples
 Debugging and development setup
 ===============================
 
+.. important:: 
+   Do not use **debug / development setup** in production. This setup generates error
+   messages in the Frontend and a number of log messages for low severity errors. 
+   The messages in the Frontend will be visible to the user, give a potential attacker
+   more information about your system and the logging will fill your filesystem / DB, 
+   which degrades performance and can potentially be used to bring down your system 
+   by filling storage with log messages. See :ref:`security-staging-servers` for more
+   information.
+
 Very verbose configuration which logs and displays all errors and
 exceptions.
 
@@ -38,11 +47,24 @@ In :file:`.htaccess`::
    php_flag log_errors on
    php_value error_log /path/to/php_error.log
 
+
+
+Do not set `contentObjectExceptionHandler` to 0 in production. It will
+display a complete stack dump in the Frontend, when an exception occurs. Use
+`config.contentObjectExceptionHandler = 1`, which is the default, in production.
+   
+
 TypoScript::
 
    config.contentObjectExceptionHandler = 0 
    
 Use this setting, to get more context and a stacktrace in the Frontend in case of an exception.
+
+Do not set `config.contentObjectExceptionHandler` to 0 in production. It will
+display a complete stack dump in the Frontend, when an exception occurs. Use
+`config.contentObjectExceptionHandler = 1`, which is the default, in production.
+
+
 See :ref:`contentObjectExceptionHandler <t3tsref:setup-config-contentObjectExceptionHandler>` for more
 information.
 
@@ -77,6 +99,7 @@ In :file:`.htaccess`::
    php_value error_log /path/to/php_error.log
 
 
+
 .. _error-handling-configuration-examples-performance:
 
 Performance setup
@@ -104,3 +127,4 @@ In :file:`.htaccess`::
 
    php_flag display_errors off
    php_flag log_errors off
+

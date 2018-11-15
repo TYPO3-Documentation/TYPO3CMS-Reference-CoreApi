@@ -28,6 +28,5 @@ for (frontend) users.
 .. _security-updating-extensions:
 .. include:: Typo3Extensions.rst.txt
 
-.. _security-staging-servers:
 .. include:: StagingServers.rst.txt
 
