@@ -56,7 +56,6 @@ A simple example can be found in the :php:`ListSysLogCommand`:
      */
     protected function configure()
     {
-        parent::configure();
         $this->setDescription('Show entries from the sys_log database table of the last 24 hours.');
         $this->setHelp('Prints a list of recent sys_log entries.' . LF . 'If you want to get more detailed information, use the --verbose option.');
     }
