@@ -41,11 +41,16 @@ But hey, for test execution alone you don't need PHP at all locally! You can eve
 a core by calling `Build/Script/runTests.sh -s composerInstall` in a container.
 
 If you're using mac, install or update docker to a recent version using the packaging system of
-your choice. If using some linux based on ubuntu 18.04 or higher, all should be ok already after
+your choice.
+
+If using some linux based on ubuntu 18.04 or higher, all should be ok already after
 calling `sudo apt-get install git docker docker-compose` once, other / older linux`es should have a
 look at the docker homepage to see how to update to a recent version. It usually involves adding some
-other package repository and updating / installing using it. Windows can rely on WSL to
-have a decent docker version, too.
+other package repository and updating / installing using it.
+Make sure your local user is a member of the `docker` group, else the script will fail with something like
+`/var/run/docker.sock: connect: permission denied`.
+
+Windows can rely on WSL to have a decent docker version, too.
 
 
 Quick start
