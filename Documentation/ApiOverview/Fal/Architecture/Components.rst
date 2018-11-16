@@ -204,8 +204,3 @@ The File Abstraction Layer also comes with a number of services:
   This service provides a single public method which builds a list of
   folders (and subfolders, recursively) inside any given Storage. It is
   used when defining File Mounts.
-
-:php:`\TYPO3\CMS\Core\Resource\Service\UserStorageCapabilityService`
-  This service provides a single public method, which is used for rendering
-  the "is\_public" field of a Storage, given that assessing this property may
-  not be obvious depending on the underlying Driver.
