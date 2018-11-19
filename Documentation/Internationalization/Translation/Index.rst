@@ -31,9 +31,9 @@ process. More information can be found in the `TYPO3 wiki <http://wiki.typo3.org
 Translating locally
 ^^^^^^^^^^^^^^^^^^^
 
-Using `Virtaal <http://translate.sourceforge.net/wiki/virtaal/index>`_,
+Using `Poedit <https://poedit.net>`_ or `Virtaal <http://translate.sourceforge.net/wiki/virtaal/index>`_,
 it is possible to translate XLIFF files locally.
-Virtaal is an open source, cross-platform application.
+Both are open source, cross-platform applications.
 
 .. figure:: ../../Images/XliffWithVirtaal.png
    :alt: Virtaal screenshot
