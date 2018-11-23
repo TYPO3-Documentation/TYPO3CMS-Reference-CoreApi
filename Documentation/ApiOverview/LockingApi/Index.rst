@@ -132,7 +132,7 @@ Acquire and use an exclusive, blocking lock::
 
    $lockFactory = GeneralUtility::makeInstance(LockFactory::class);
 
-   // createLocker will return an instantiation of class which implements
+   // createLocker will return an instance of class which implements
    // LockingStrategyInterface, according to required capabilities.
    // Here, we are asking for an exclusive, blocking lock. This is the default,
    // so the second parameter could be omitted.
@@ -140,12 +140,10 @@ Acquire and use an exclusive, blocking lock::
 
    // now use the locker to lock something exclusively, this may block (wait) until lock is free, if it
    // has been used already
-   $locker->acquire(LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE);
+   if ($locker->acquire(LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE)) {
+       // do some work that required exclusive locking here ...
 
-   // do some work that required exclusive locking here ...
-   if ($locker) {
-
-       // after you did your stuff, you should release
+       // after you did your stuff, you must release
        $locker->release();
    }
 
@@ -160,13 +158,10 @@ Acquire and use an exclusive, non-blocking lock::
 
    // now use the locker to lock something exclusively, this will not block, so handle retry / abort yourself,
    // e.g. by using a loop
-   $locker->acquire(LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE);
+   if ($locker->acquire(LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE)) {
+       // ... some work to be done that requires locking
 
-   // ... some work to be done that requires locking
-   if ($locker) {
-
-
-       // after you did your stuff, you should release
+       // after you did your stuff, you must release
        $locker->release();
    }
 
@@ -207,7 +202,7 @@ Caveats
 FileLockStrategy & NFS
 ----------------------
 
-There was a problem with PHP `flock()
+There is a problem with PHP `flock()
 <http://php.net/manual/en/function.flock.php>`__ on NFS systems.
 This problem may or may not affect you, if you use NFS. See this
 issue for more information
@@ -232,7 +227,7 @@ example TypoScriptFrontendController), make sure that you correctly
 setup your caching and locking if you share your TYPO3 instance on multiple
 servers for load balancing or high availability.
 
-Specifically, these may be a problem:
+Specifically, this may be a problem:
 
 * **Do not** use a local locking mechanism (e.g. semaphores or file locks
   in typo3temp/var, *if* `typo3temp/var` is mapped to local storage and
