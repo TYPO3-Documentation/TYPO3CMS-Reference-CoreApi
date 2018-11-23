@@ -6,9 +6,9 @@
 Error and Exception Handling
 ============================
 
-Since version 4.3.0 TYPO3 comes with a built-in error and exception
-handling system. Admins can configure how errors and exceptions should
-be displayed in the backend and in the frontend.
+As of version 4.3.0 TYPO3 has come with a built-in error and exception
+handling system. Administrators can configure how errors and exceptions are
+displayed in both the backend and the frontend.
 See the examples below.
 
 .. rst-class:: compact-list
