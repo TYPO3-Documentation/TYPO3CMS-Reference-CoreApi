@@ -9,18 +9,17 @@ Extension testing
 Introduction
 ============
 
-Extension authors want to test their extension code, too. This is great and the TYPO3 core
-tries to support this. This chapter goes into details how extension authors can set up
-automatic extension testing. We'll do that with two examples. Both embed the given extension
-in a TYPO3 instance and run tests within this environment, both examples also configure
-Travis CI to execute tests. We'll use docker containers for test execution again and use
-an extension specific runTests.sh script piloting test setup and execution.
+As an Extension author, it likely that you may want to test your extension during its development.
+This chapter details how extension authors can set up automatic extension testing. We'll do that with
+two examples. Both embed the given extension in a TYPO3 instance and run tests within this environment,
+both examples also configure Travis CI to execute tests. We'll use Docker containers for test execution again and use
+an extension specific runTests.sh script for executing test setup and execution.
 
 
 Scope
 =====
 
-Let us talk about some boundaries and what this documentation does *not* do, first.
+About this chapter and what it does *not* cover, first.
 
 * This documentation assumes an extension is tested with only one major core version. It
   does not support extension testing with multiple target core versions. Extensions that
@@ -29,63 +28,61 @@ Let us talk about some boundaries and what this documentation does *not* do, fir
   per core version. This has various advantages, it is for instance easy to create deprecation
   free extensions this way.
 
-  Your mileage may vary. That's ok. If you need test setups for an extension that supports
-  multiple major core versions at the same time, you may however run into trouble if using
+  If you need test setups for an extension that supports
+  multiple major core versions at the same time, you may run into trouble if using
   the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>`_ package. The
   development of that package is closely bound to core development and has a relatively high
   development speed. It does contain breaking patches per major core versions, but it should
   not contain breaking patches for existing major core branches. If you now set up testing
-  using typo3/testing-framework with TYPO3 core version 9, it should not break within v9
-  lifetime. But it probably will break if you upgrade to version 10 later and may need adaption
-  in extension code or setup procedures.
+  using typo3/testing-framework with TYPO3 core version 9, it should not break within v9's
+  lifetime. But it is likely to break if you upgrade to version 10 or later and may need adaption
+  in your extension codes or setup.
 
   If you are looking for test setups that support multiple core versions at once,
   `nimut/testing-framework <https://github.com/Nimut/testing-framework>`_ may better suit your
-  needs. This is however out of scope of this document.
+  needs. This is however out of scope for this chapter.
 
-* This documentation relies on TYPO3 core version 9 (and up). It is very well possible to
-  run tests using older core versions and various extensions do that for years already. This
-  is however out of scope of this document.
+* This documentation relies on TYPO3 core version 9 and higher. It is possible to
+  run tests using older core versions and various extensions have done this before. This
+  is however out of scope for this chapter.
 
-* We assume a composer based setup. Extensions should nowadays provide a :file:`composer.json`
-  file anyway and using composer for extension testing is quite convenient.
+* We assume a Composer based setup. Extensions should provide a :file:`composer.json`
+  file anyway and using Composer for extension testing is quite convenient.
 
 * Similar to core testing, this documentation relies on docker and docker-compose. See the
   :ref:`core testing requirements <testing-core-dependencies>` for more details.
 
-* We assume extension code is located at github and automatic testing is done using Travis CI.
-  The integration of Travis CI into github is dead simple. If your extension code is elsewhere
-  or a different CI should be used, you need to figure out details on your own but may very well
-  use this document as inspiration since the strategies may be similar.
+* We assume your extensions code is located within github and automatic testing is carried out using Travis CI.
+  The integration of Travis CI into github is easy to set up with plenty of documentation already available.
+  If your extensions code is located elsewhere or a different CI is used, this chapter may still be of use
+  in helping you build a general understanding of the testing process.
 
 
 General strategy
 ================
 
-TYPO3 extensions usually do not work without some TYPO3 core extensions. Extensions embed into
-TYPO3 core, so depending on what an extension does, a series of core extensions is required to
-successfully execute extension tests.
+Third party extensions often rely on TYPO3 core extensions to add key functionality.
 
-If a project needs some TYPO3 extension, it typically adds the extension using `composer require`
-to its own root composer.json file. The extension`s composer.json then specifies some details, for
-instance which PHP class namespaces it provides and where those can be found. This properly
-integrates the extension into the project and the project then "knows" location of extension
+If a project needs a TYPO3 extension, it will add the required extension using `composer require`
+to its own root composer.json file. The extensions composer.json then specifies additional detail, for
+instance which PHP class namespaces it provides and where they can be found. This properly
+integrates the extension into the project and the project then "knows" the location of extension
 classes.
 
 If we want to test extension code directly, we do a similar change: We turn the :file:`composer.json`
 file of the extension into a `root composer.json file <https://getcomposer.org/doc/04-schema.md#root-package>`_.
 That file then serves two needs at the same time: It is used by projects that require the extension
-as dependency, and it is used as root composer.json to specify dependencies turning the extension
-into a project on its own for testing. The latter allows us to basically set up a full TYPO3
-environment in some sub folder of the extension and execute the tests within this sub folder.
+as a dependency and it is used as the root composer.json to specify dependencies turning the extension
+into a project on its own for testing. The latter allows us to set up a full TYPO3
+environment in a sub folder of the extension and execute the tests within this sub folder.
 
 
 Testing enetcache
 =================
 
-The extension `enetcache <https://github.com/lolli42/enetcache>`_ is a tiny extension that helps
-with frontend plugin based caches. It is available as composer package and TER extension for quite
-some time already and is loosely maintained to keep up with current core versions. At the time of this
+The extension `enetcache <https://github.com/lolli42/enetcache>`_ is a small extension that helps
+with frontend plugin based caches. It has been available as composer package and a TER extension for quite
+some time and is loosely maintained to keep up with current core versions. At the time of
 writing, it has three branches:
 
 * `1.2` compatible with core v7, released to TER as 1.x.y
@@ -98,7 +95,7 @@ Branch master will be branched later as `3` when core version 10 gains traction.
 focuses on the master / core v9 compatible branch. The extension comes with a couple of unit tests
 in `Tests/Unit`, we want to run these locally and in travis-ci, along with some PHP linting to verify
 there is no fatal PHP error. We'll test that extension with both PHP 7.2 and PHP 7.3 - the two PHP
-versions current TYPO3 core v9 supports as well at the time of this writing.
+versions TYPO3 core v9 currently supports at the time of writing.
 
 Starting point
 --------------
@@ -109,7 +106,7 @@ composer.json properties if the extension is a project dependency and not used a
 Root properties are ignored in composer if the file is not used as root project file, see the
 notes "root-only" of the `composer documentation <https://getcomposer.org/doc/04-schema.md>`_ for details.
 
-Here is how the composer.json file looked like before we added a test setup:
+This is how the composer.json file looks before we add a test setup:
 
 .. code-block:: json
 
@@ -149,9 +146,9 @@ Here is how the composer.json file looked like before we added a test setup:
       }
     }
 
-This is a typical composer.json file without much fanciness: It's a `typo3-cms-extension`, some
-author and license information, a "I need at least 9.5.0 of cms-core" dependency, and a
-"hey autoloader, find class names starting with :php:`Lolli\Enetcache` in the Classes/ directory" specification.
+This is a typical composer.json file without any complexity: It's a `typo3-cms-extension`, with an
+author and a license. We are stating that "I need at least 9.5.0 of cms-core" and we tell the auto loader
+"find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
 The extension already contains some unit tests that extend form typo3/testing-framework`s base
 unit test class in directory :file:`Tests/Unit/Hooks` (stripped)::
@@ -175,7 +172,7 @@ unit test class in directory :file:`Tests/Unit/Hooks` (stripped)::
 Preparing composer.json
 -----------------------
 
-Now let's add things to put these tests into action. First, we add a series of properties to :file:`composer.json`
+Now let's add our properties to put these tests into action. First, we add a series of properties to :file:`composer.json`
 to add root composer.json details, turning the extension into a project at the same time:
 
 .. code-block:: json
@@ -236,11 +233,11 @@ to add root composer.json details, turning the extension into a project at the s
       }
     }
 
-Note all added properties are only used within root composer.json files, they are ignored if the
-extension is loaded as dependency in a project. Have a look at details: We specify `.Build` as
+Note all added properties are only used within our root composer.json files, they are ignored if the
+extension is loaded as a dependency in our project. Note: We specify `.Build` as
 build directory. This is where our TYPO3 instance will be set up. We add `typo3/testing-framework`
 in a v9 compatible version as `require-dev` dependency. We add a `autoload-dev` to tell composer
-that test classes are found in the `Tests` directory. Easy. In the `scripts` section we add a composer
+that test classes are found in the `Tests` directory. In the `scripts` section we add a composer
 hook. This one is interesting. That class of the testing framework links the main directory as
 extension `.Build/Web/typo3conf/ext/enetcache` in our extension specific TYPO3 instance. It needs the
 two additional properties `web-dir` and `extension-key` to do that.
@@ -254,9 +251,9 @@ on-the-fly files. The :file:`.gitignore` looks like this::
     composer.lock
 
 We ignore the entire `.Build` directory, these are on-the-fly files that do not belong to the extension
-functionality. We also ignore the `.idea` directory - this is a directory where PhpStorm parks its stuff.
+functionality. We also ignore the `.idea` directory - this is a directory where PhpStorm stores its settings.
 We also ignore `Build/testing-docker/.env` - this is a test runtime file created by `runTests.sh` later.
-And we ignore the `composer.lock` file: We don't hard nail our dependency versions and a
+And we ignore the `composer.lock` file: We don't specify our dependency versions and a
 `composer install` will later always fetch for instance the youngest core dependencies marked as
 compatible in our `composer.json` file.
 
@@ -290,8 +287,8 @@ Let's clone that repository and call `composer install` (stripped):
     > TYPO3\TestingFramework\Composer\ExtensionTestEnvironment::prepare
     lolli@apoc /var/www/local/git/enetcache $
 
-To clean up any mess created at this point, we can always `rm -r .Build/ composer.lock` later and
-call `composer install` again. We now have a basic TYPO3 instance in `.Build/` folder to execute
+To clean up any errors created at this point, we can always run `rm -r .Build/ composer.lock` later and
+call `composer install` again. We now have a basic TYPO3 instance in our `.Build/` folder to execute
 our tests in:
 
 .. code-block:: shell
@@ -312,22 +309,21 @@ extensions set as dependency, we end up with the core extensions `backend`, `cor
 `fluid`, `frontend` and `recordlist` in `.Build/Web/typo3/sysext`. Additionally, the
 :php:`ExtensionTestEnvironment` hook linked our git root checkout as extension into `.Build/Web/typo3conf/ext`.
 
-So yep, that's a full TYPO3 instance. It is not installed, there is no database, but that is good
-enough for unit testing!
+We now have a full TYPO3 instance. It is not installed, there is no database, but we are now at the point
+to begin unit testing!
 
 runTests.sh and docker-compose.yml
 ----------------------------------
 
-Next we need the setup to actually run tests. These are the two files `Build/Scripts/runTests.sh
+Next we need to setup our tests. These are the two files we need: `Build/Scripts/runTests.sh
 <https://github.com/lolli42/enetcache/blob/master/Build/Scripts/runTests.sh>`_ and `Build/testing-docker/
 docker-compose.yml <https://github.com/lolli42/enetcache/blob/master/Build/testing-docker/docker-compose.yml>`_.
 
-These files are simplified rip-off versions of similar files from the TYPO3 core: `core Build/Scripts/runTests.sh
+These files are re-purposed from TYPO3's core: `core Build/Scripts/runTests.sh
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
 docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/tree/master/Build/testing-docker/local>`_. You can
-copy + paste these files from extensions like enetcache or styleguide to your own extension, but should then look
-through the files and adapt to your needs (for instance search for the word "enetcache" in runTests.sh if you
-copy from there).
+copy and paste these files from extensions like enetcache or styleguide to your own extension, but you should then look
+through the files and adapt to your needs (for instance search for the word "enetcache" in runTests.sh).
 
 Let's run the tests:
 
@@ -348,7 +344,7 @@ Let's run the tests:
     Removing network local_default
 
 Done. That's it. Execution of your extension`s unit tests. The :file:`runTests.sh` file of enetcache comes
-with some additional goodies, for example it is possible to execute `composer install` from within a container
+with some additional features, for example it is possible to execute `composer install` from within a container
 using `Build/Scripts/runTests.sh -s composerInstall`, it is possible to execute unit tests with PHP 7.3 instead
 of 7.2 (option `-p 7.3`). This is available for PHP linting, too (`-s lint`). Similar to :ref:`core test execution
 <testing-core-examples>` it is possible to break point tests using xdebug (`-x` option), typo3gmbh containers
@@ -358,9 +354,9 @@ with `runTests.sh -h`. Have a look around.
 Travis CI
 ---------
 
-With basic testing in place we want execution of tests whenever something is merged to the repository and if
-people create pull requests for our happy little extension to make sure our carefully crafted test setup actually
-works all the time. We'll use the continuous integration service `Travis CI <https://travis-ci.org/>`_ to take care of
+With basic testing in place we now want automatic execution of tests whenever something is merged to the repository and if
+people create pull requests for our extension, we want to make sure our carefully crafted test setup actually
+work. We'll use the continuous integration service `Travis CI <https://travis-ci.org/>`_ to take care of
 that. It's free for open source projects. So, log in to travis using your github account. After login, the
 user settings page will list all your github repositories and travis-ci can be enabled with one click for single
 repositories. All we need is a :file:`.travis.yml` file in the `root directory
@@ -396,7 +392,7 @@ exactly should be done:
         Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
 
 In case of enetcache, we let Travis CI test the extension with the two PHP versions 7.2 and 7.3. Travis exposes
-the current version as variable `$TRAVIS_PHP_VERSION`, so we use that to feed it to `runTests.sh`. We instruct
+the current version as the variable `$TRAVIS_PHP_VERSION`, so we use that to feed it to `runTests.sh`. We instruct
 Travis to always `composer install` first, then run the test suites `composer validate`, the unit testing
 and the PHP linting. It's possible to see executed test runs `online <https://travis-ci.org/lolli42/enetcache>`_.
 Green :) Maybe it's now time to add the `travis-ci status badge <https://docs.travis-ci.com/user/status-images/>`_
@@ -404,9 +400,9 @@ to our README.md file.
 
 Note we again use :file:`runTests.sh` to actually run tests. So the environment our tests are executed in is
 identical to our local environment. It's all dockerized. We don't care about the PHP versions travis-ci loaded
-and installed for us too much. Travis CI needs the setting `sudo: true` to allow starting own containers, though.
+and installed for us. Travis CI needs the setting `sudo: true` to allow starting own containers, though.
 
-Travis CI comes with tons of further options and possibilities. If you for instance want to run multiple jobs
+Travis CI comes with many additional options and possibilities. If for instance we want to run multiple jobs
 in parallel check out `Travis' Build Stages feature <https://docs.travis-ci.com/user/build-stages/>`_.
 
 
@@ -415,12 +411,12 @@ in parallel check out `Travis' Build Stages feature <https://docs.travis-ci.com/
 Testing styleguide
 ==================
 
-The above enetcache extension is an example for a casual in-the-wild extension that has rather low testing
-needs: It just comes with a couple of unit tests. Executing these and maybe adding PHP linting is good to go.
-More ambitious testing needs slightly more effort, though. As example, we pick the `styleguide
+The above enetcache extension is an example for a common extension that has few testing
+needs: It just comes with a couple of unit tests. Executing these and maybe adding PHP linting is recommended.
+More ambitious testing needs additional effort. As an example, we pick the `styleguide
 <https://github.com/TYPO3/styleguide>`_ extension. This extension is developed "core near", core itself
-uses styleguide to test various FormEngine details with acceptance tests, and if developing core, that
-extension is installed as dependency by default. However, styleguide is just a casual extension: It is released
+uses styleguide to test various FormEngine details with acceptance tests and if developing core, that
+extension is installed as a dependency by default. However, styleguide is just a casual extension: It is released
 to composer's `packagist.org <https://packagist.org/packages/typo3/cms-styleguide>`_ and can be loaded as
 dependency (or require-dev dependency) in any project.
 
@@ -437,15 +433,15 @@ Basic setup
 
 The setup is similar to what has been outlined in detail with enetcache above: We add properties to the
 `composer.json <https://github.com/TYPO3/styleguide/blob/master/composer.json>`_ file to make it a valid
-root composer.json defining a project. The `require-dev` section is a bit longer since we additionally
-need `codeception <https://codeception.com/>`_ to run acceptance tests, and specify a couple of additional
+root composer.json defining a project. The `require-dev` section is a bit longer as we also
+need `codeception <https://codeception.com/>`_ to run acceptance tests and specify a couple of additional
 core extensions for a basic TYPO3 instance. We additionally add an `app-dir` directive in the extra section.
 
 Next, we have another iteration of `runTests.sh <https://github.com/TYPO3/styleguide/blob/master/Build/Scripts/runTests.sh>`_
 and `docker-compose.yml <https://github.com/TYPO3/styleguide/blob/master/Build/testing-docker/docker-compose.yml>`_ that are
-quite a bit longer than the versions of enetcache to handle the functional and acceptance tests setups, too.
+longer than the versions of enetcache to handle the functional and acceptance tests setups, too.
 
-With this in place we can already run unit tests:
+With this in place we can run unit tests:
 
 .. code-block:: shell
 
@@ -459,10 +455,10 @@ With this in place we can already run unit tests:
 Functional testing
 ------------------
 
-At the time of this writing, there is only a single functional test, but this one is important since
-it tests a crucial functionality of styleguide: The extension comes with tons of different TCA scenarios
-to show all sorts of database relation and field possibilities of TYPO3. To simplify testing, some happy
-little code can generate a page tree and demo data for all of these scenarios. Codewise, this is a huge
+At the time writing, there is only a single functional test, but this one is important as
+it tests crucial functionality within styleguide: The extension comes with several different TCA scenarios
+to show all sorts of database relation and field possibilities supported within TYPO3. To simplify testing,
+code can generate a page tree and demo data for all of these scenarios. Codewise, this is a huge
 section of the extension and it uses quite some core API to do its job. And yes, the generator breaks
 once in a while. A perfect scenario for a `functional test!
 <https://github.com/TYPO3/styleguide/blob/master/Tests/Functional/TcaDataGenerator/GeneratorTest.php>`_
@@ -535,9 +531,9 @@ once in a while. A perfect scenario for a `functional test!
         }
     }
 
-Ah, shame on us! The data generator does not work well if executed using mssql as DBMS. It is thus marked as
+Ah, shame on us! The data generator does not work well if executed using MSSQL as our DBMS. It is thus marked as
 `@group not-mssql` at the moment. We need to fix that at some point. The rest is rather straight forward:
-We extend from :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase`, instruct it to actually load
+We extend from :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase`, instruct it to load
 the styleguide extension (:php:`$testExtensionsToLoad`), need some additional magic for the DataHandler, then
 call :php:`$generator->create();` and verify it created at least one record in one of our database tables.
 That's it. It executes fine using runTests.sh:
@@ -563,15 +559,15 @@ That's it. It executes fine using runTests.sh:
     Removing network local_default
     lolli@apoc /var/www/local/git/styleguide $
 
-The cool thing about this test is that it actually triggers quite some functionality below. It does tons of
+The good thing about this test is that it actually triggers quite some functionality below. It does tons of
 database inserts and updates and uses the core DataHandler for various details. If something goes wrong in
-this entire area, it would throw some exception, the functional test would recognize this and fail. But if
-its green, we know that a rather huge part of that extension works fine.
+this entire area, it would throw an exception, the functional test would recognize this and fail. But if
+its green, we know that a large parts of that extension are working correctly.
 
-If looking at details - for instance if we try to fix the mssql issue - runTests.sh can be called with `-x`
+If looking at details - for instance if we try to fix the MSSQL issue - runTests.sh can be called with `-x`
 again for xdebug break pointing. Also, the functional test execution becomes a bit funny: We are creating
 a TYPO3 test instance within `.Build/` folder anyway. But the functional test setup again creates instances
-for the single tests cases. The code that is actually executed is thus located somewhere in a sub folder
+for the single tests cases. The code that is actually executed is now located in a sub folder
 of `typo3temp/` of `.Build/`, in this test case it is `functional-9ad521a`:
 
 .. code-block:: shell
@@ -586,7 +582,7 @@ of `typo3temp/` of `.Build/`, in this test case it is `functional-9ad521a`:
     drwxr-sr-x 4 lolli www-data 4096 Nov  5 17:35 typo3temp
     drwxr-sr-x 2 lolli www-data 4096 Nov  5 17:35 uploads
 
-This can be confusing at first, but it starts making total sense if you get used to it. Promised ;)
+This can be confusing at first, but it starts making sense the more you use it.
 Also, the docker-compose.yml file contains a setup to start needed databases for the functional tests
 and runTests.sh is tuned to call the different scenarios.
 
@@ -673,7 +669,7 @@ comes with some straight acceptance tests in `Tests/Acceptance/Backend/ModuleCes
         }
     }
 
-These are three tests: One verifies the backend module can be called, one creates demo data, the last
+There are three tests: One verifies the backend module can be called, one creates demo data, the last
 one deletes demo data again. The codeception setup needs a bit more attention to setup, though. The entry point
 is the main `codeception.yml file <https://github.com/TYPO3/styleguide/blob/master/Tests/codeception.yml>`_
 extended by the `backend suite <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Backend.suite.yml>`_,
@@ -731,7 +727,7 @@ of the failed run can be found in :file:`.Build/Web/typo3temp/var/tests/Acceptan
 travis-ci
 ---------
 
-Now we want all this stuff automatically checked using travis-ci:
+Now we want all of this automatically checked using travis-ci:
 
 .. code-block:: yaml
 
@@ -788,5 +784,5 @@ Now we want all this stuff automatically checked using travis-ci:
         Build/Scripts/runTests.sh -s acceptance -p $TRAVIS_PHP_VERSION
 
 This is similar to the enetcache example, but does some more: The functional tests are executed
-with four different DBMS (mariadb, mssql, postgres, sqlite), and the acceptance tests are executed, too.
-This setup takes some minutes to finish on travis-ci. But hey, `it's green <https://travis-ci.org/TYPO3/styleguide>`_!
+with four different DBMS (MariaDB, MSSQL, Postgres, sqlite), and the acceptance tests are executed, too.
+This setup takes some time to complete on travis-ci. But, `it's green <https://travis-ci.org/TYPO3/styleguide>`_!
