@@ -15,7 +15,7 @@ since core development is most likely bound to the core master branch - back por
 branches are usually handled by core maintainers and often don't affect other core contributors.
 
 Note, the main script :file:`Build/Scripts/runTests.sh` is relatively new. It works best
-when executed on a Linux based host but can be run under macOS and Windows with some performance drawbacks.
+when executed on a Linux based host but can be run under macOS and Windows with some performance drawbacks on macOS.
 
 Additionally, it *is* possible to execute tests on a local system without using Docker. Depending on
 which test suite is executed, developers may need to configure their environments to run the
