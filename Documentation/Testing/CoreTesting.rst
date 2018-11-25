@@ -65,9 +65,9 @@ running on the host system. Executing the basic core unit test suite boils down 
     # Run unit tests
     Build/Scripts/runTests.sh
 
-That's it. You just executed the entire unit test suite. How long did test execution take on your side?
+That's it. You just executed the entire unit test suite.
 initial core clone and a composer install, other parts of this chapter are about different permutations of.
-Now that we have examined the initial core clone and a composer install process, we will now look at the
+Now that we have examined the initial core clone and a composer install process, we will then look at the
 different ways we can apply the `runTests.sh` or other scenarios
 
 
