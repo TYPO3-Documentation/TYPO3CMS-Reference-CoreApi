@@ -22,7 +22,7 @@ TYPO3 Explained
       forEditors, forBeginners, forDevelopers, forAdmins, forAdvanced, security
 
 :Copyright:
-      2000-2018
+      2000-2019
 
 :Author:
       Documentation Team
