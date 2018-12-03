@@ -60,7 +60,7 @@ Other formats besides the recommended format are possible as described in :ref:`
 However, please consider using the recommended format (sphinx project in `Documentation` directory)
 as described here. 
 
-There are some rendering issues with Markdown, so even if it is possible to use Mardown, please consider
+There are some rendering issues with Markdown, so even if it is possible to use Markdown, please consider
 using reST, because that is what is commonly used in TYPO3 documentation projects and that is what is
 supported best. 
 
