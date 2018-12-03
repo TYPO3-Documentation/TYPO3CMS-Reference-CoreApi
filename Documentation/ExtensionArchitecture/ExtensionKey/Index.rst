@@ -10,8 +10,8 @@ The "extension key" is a string uniquely identifying the extension.
 The folder where the extension resides is named by this string. The
 string can contain characters a-z0-9 and underscore. No uppercase
 characters should be used (keeps folder-,file- and table/field-names
-in lowercase). Furthermore the name must not start with an "tx" or "u"
-(this is prefixes used for modules) and because backend modules
+in lowercase). Furthermore the name must not start with a "tx" or "u"
+(these are prefixes used for modules) and because backend modules
 related to the extension should be named by the extension name
 *without* underscores, the extension name must still be unique even if
 underscores are removed (underscores are allowed to make the extension
