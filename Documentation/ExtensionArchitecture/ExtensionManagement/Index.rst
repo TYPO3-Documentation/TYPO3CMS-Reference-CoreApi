@@ -40,9 +40,9 @@ There are only two (possibly three) steps involved in using extensions with TYPO
    The Extension Manager (EM) should take care of this process, including updates to
    newer versions if needed.
 
-   Another convenient way to install extensions is offered by using composer (https://getcomposer.org/).
-   Besides TYPO3 CMS itself the TYPO3 composer repository includes all TYPO3 Extensions that are uploaded to TER.
-   Read more on https://composer.typo3.org/ .
+   Another convenient way to install extensions is offered by using Composer (https://getcomposer.org/)
+   along with TYPO3 Composer Repository (https://composer.typo3.org/). The TYPO3 Composer Repository
+   includes all TYPO3 extensions that are uploaded to TER as well as TYPO3 CMS itself.
 
 #. You must *load* it.
 
