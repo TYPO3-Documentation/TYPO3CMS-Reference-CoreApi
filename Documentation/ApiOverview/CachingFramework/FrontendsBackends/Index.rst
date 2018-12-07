@@ -108,11 +108,6 @@ Variable Frontend
 Strings, arrays and objects are accepted by this frontend.
 Data is serialized before it is passed to the backend.
 
-.. note::
-   Since version 4.5, the `igbinary serializer <http://pecl.php.net/package/igbinary>`_
-   is used transparently (if available in the system), which speeds up both serialization
-   and unserialization while also reducing data size.
-
 .. tip::
    The variable frontend is the most frequently used frontend and handles the widest range of data types.
    While it can also handle string data, the :ref:`string frontend <caching-frontend-string>`
