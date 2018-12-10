@@ -67,7 +67,12 @@ A POST request can be achieved with:
 .. code-block:: php
 
    $additionalOptions = [
-      'body' => 'Your post data',
+      'body' => 'Your raw post data',
+      // OR form data:
+      'form_params' = [
+         'first_name => 'Hans',
+         'last_name' => 'Dampf'
+      ]
    ];
    $response = $requestFactory->request($url, 'POST', $additionalOptions);
 
