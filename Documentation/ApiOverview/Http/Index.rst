@@ -62,6 +62,20 @@ The `RequestFactory` class can be used like this:
       }
    }
 
+A POST request can be achieved with:
+
+.. code-block:: php
+
+   $additionalOptions = [
+      'body' => 'Your raw post data',
+      // OR form data:
+      'form_params' = [
+         'first_name => 'Hans',
+         'last_name' => 'Dampf'
+      ]
+   ];
+   $response = $requestFactory->request($url, 'POST', $additionalOptions);
+
 Extension authors are advised to use the `RequestFactory` class instead of using the Guzzle
 API directly in order to ensure a clear upgrade path when updates to the underlying API need to be done.
 
