@@ -92,7 +92,7 @@ is added to the other containers, running in the same docker network. More infor
 setups like these can be found in the `ddev documentation
 <https://ddev.readthedocs.io/en/stable/users/extend/custom-compose-files/>`_.
 
-Next, after adding codecption as require-dev dependency in :file:`comyposer.json`, we need a
+Next, after adding codecption as require-dev dependency in :file:`composer.json`, we need a
 basic :file:`Tests/codeception.yml` file:
 
 .. code-block:: yaml
