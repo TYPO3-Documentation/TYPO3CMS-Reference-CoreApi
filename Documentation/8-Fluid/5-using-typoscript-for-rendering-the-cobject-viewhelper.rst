@@ -56,7 +56,7 @@ with the help of the ``data`` attribute.
 ``<f:cObject typoscriptObjectPath="lib.myCounter"
 data="{post.viewCount}" />``
 
-Also advisable for this example is the inline notaion, because you can
+Also advisable for this example is the inline notation, because you can
 easily read it from left to right:
 
 ``{post.viewCount -> f:cObject(typoscriptObjectPath:
@@ -119,7 +119,7 @@ You can also combine the ``field`` based approach with
 ``current``: If you set the property ``currentValueKey``
 in the ``cObject`` ViewHelper, then this value will be available in
 the TypoScript template with ``current``. This is especially useful
-when you want to emphazise that the value is very
+when you want to emphasize that the value is very
 *important* for the TypoScript template. For example, the
 *amount of visits* is very important in our view
 counter:
