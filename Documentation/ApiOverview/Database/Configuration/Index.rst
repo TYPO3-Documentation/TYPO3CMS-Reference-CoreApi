@@ -52,7 +52,7 @@ Remarks:
 
 * If `charset` option is not specified it defaults to `utf8`.
 
-* The option `wrapperClass` is used by the `TYPO3 CMS` framework to "hang in" the extended
+* The option `wrapperClass` is used by TYPO3 to insert the extended
   :ref:`Connection <database-connection>` class :php:`TYPO3\CMS\Database\Connection` as main facade
   around `doctrine-dbal`.
 
