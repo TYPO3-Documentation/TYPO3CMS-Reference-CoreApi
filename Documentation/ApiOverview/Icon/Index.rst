@@ -34,13 +34,13 @@ code in your :php:`ext_tables.php` file:
 IconProvider
 ------------
 
-The TYPO3 core ships three IconProviders which can be used:
+The TYPO3 core ships three icon providers which can be used:
 
-* :php:`BitmapIconProvider` – For all kinds of bitmap icons (gif, png, jpeg, etc.)
-* :php:`SvgIconProvider` – For all SVG icons
-* :php:`FontawesomeIconProvider` – For all icons which can be found in fontawesome.io
+* :php:`BitmapIconProvider` – For all kinds of bitmap icons (GIF, PNG, JPEG, etc.)
+* :php:`SvgIconProvider` – For SVG icons
+* :php:`FontawesomeIconProvider` – For all icons which can be found in the fontawesome.io icon font
 
-In case you need a custom IconProvider, you can implement your own by writing a
+In case you need a custom icon provider, you can add your own by writing a
 class which implements the :php:`IconProviderInterface`.
 
 .. _icon-usage:
