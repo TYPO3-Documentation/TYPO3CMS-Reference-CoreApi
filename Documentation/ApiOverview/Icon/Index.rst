@@ -79,3 +79,33 @@ You can also use the Fluid ViewHelper to render an icon in your view:
    {namespace core = TYPO3\CMS\Core\ViewHelpers}
    <core:icon identifier="my-icon-identifier" size="small" overlay="overlay-identifier" />
 
+.. _available-icons:
+
+Available Icons
+===============
+
+The TYPO3 Core comes with a number of icons that may be used in your extensions.
+
+To search for available icons, you can use one of these possibilities:
+
+Install Styleguide Extension
+----------------------------
+
+Install the extension *styleguide* as described in the Readme in the `installation
+<https://github.com/TYPO3/styleguide#installation>`__ section.
+
+Once, installed, you can view available icons by selecting help (?) on the top in the
+TYPO3 Backend, then *Styleguide* and then *Icons*, *All Icons*.
+
+There, browse through existing icons. Use the name under the icon (for example
+:code:`actions-add`) as first parameter for :php:`IconFactory::getIcon()` in PHP or as value for
+the argument :code:`identifier` in Fluid (see code examples above).
+
+
+.. image:: Images/styleguide.png
+   :class: with-shadow
+
+Use TYPO3.Icons
+---------------
+
+An alternative way to look for existing icons is to browse through https://typo3.github.io/TYPO3.Icons/.
