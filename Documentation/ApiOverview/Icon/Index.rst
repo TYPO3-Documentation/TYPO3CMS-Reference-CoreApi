@@ -34,24 +34,24 @@ code in your :php:`ext_tables.php` file:
 IconProvider
 ------------
 
-The TYPO3 core ships three IconProvider which can be used:
+The TYPO3 core ships three IconProviders which can be used:
 
-* :php:`BitmapIconProvider` – For all kind of bitmap icons (format like: gif, png, jpeg, etc)
+* :php:`BitmapIconProvider` – For all kinds of bitmap icons (gif, png, jpeg, etc.)
 * :php:`SvgIconProvider` – For all SVG icons
 * :php:`FontawesomeIconProvider` – For all icons which can be found in fontawesome.io
 
-In case you need special IconProvider you can implement your own,
-your class has to implement the :php:`IconProviderInterface`.
+In case you need a custom IconProvider, you can implement your own by writing a
+class which implements the :php:`IconProviderInterface`.
 
 .. _icon-usage:
 
-Use icons in your code
+Use Icons in Your Code
 ======================
 
-You can use the Icon API to receive icons with in your PHP
-code or directly in fluid.
+You can use the Icon API to receive icons in your PHP
+code or directly in Fluid.
 
-The PHP way
+The PHP Way
 -----------
 
 You can use the :php:`IconFactory` to request an icon:
@@ -72,7 +72,7 @@ You can use the :php:`IconFactory` to request an icon:
 The Fluid ViewHelper
 --------------------
 
-You can also simple use the Fluid ViewHelper to render an icon in your view:
+You can also use the Fluid ViewHelper to render an icon in your view:
 
 .. code-block:: html
 
