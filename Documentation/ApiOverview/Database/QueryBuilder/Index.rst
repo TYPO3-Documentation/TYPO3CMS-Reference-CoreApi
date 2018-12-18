@@ -251,8 +251,8 @@ The table alias can then be used in :php:`->set()` and :php:`->where()` expressi
       ->execute();
 
 :php:`->set()` requires a field name as first argument and automatically quotes it internally. The second mandatory
-argument is the value a field should be set to, the value is automatically transformed to a named parameter
-of a prepared statement. This way, :php:`->set()` key/value pairs are automatically SQL injection safe by default.
+argument is the value a field should be set to, **the value is automatically transformed to a named parameter
+of a prepared statement**. This way, :php:`->set()` key/value pairs are **automatically SQL injection safe by default**.
 
 If a field should be set to the value of another field from the row, the quoting needs to be turned off and
 :php:`->quoteIdentifier()` has to be used::
@@ -797,6 +797,14 @@ Mind the missing :php:`->createNamedParameter()` in the :php:`->eq()` expression
 the statement ``SELECT uid FROM `tt_content` WHERE `bodytext` = 'foo' UNION SELECT username FROM be_users;`` returning
 a list of backend user names!
 
+
+.. note::
+
+   :php:`->set()` automatically transforms the second mandatory parameter into a named parameter of a prepared statement.
+   Wrapping the second parameter in a :php:`->createNamedParameter()` call will result in an error upon execution. This
+   behaviour can be disabled by passing :php:`false` as a third parameter to :php:`->set()`.
+   
+   
 Rules:
 
 * **Always** use :php:`->createNamedParameter()` around **any** input, no matter where it comes from.
