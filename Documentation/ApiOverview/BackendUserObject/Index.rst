@@ -5,8 +5,8 @@
 Backend User Object
 -------------------
 
-The backend user of a session is always available to the backend
-scripts as the global variable :php:`$BE_USER`. The object is created in
+The backend user of a session is always available in extensions
+as the global variable :php:`$GLOBALS['BE_USER']`. The object is created in
 :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
 and is an instance of the class :code:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
 (which extends :php:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
