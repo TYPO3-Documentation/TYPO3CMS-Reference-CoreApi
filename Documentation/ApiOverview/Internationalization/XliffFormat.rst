@@ -37,7 +37,7 @@ Here is a sample XLIFF file:
 .. code-block:: xml
 
    <?xml version="1.0" encoding="UTF-8"?>
-   <xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+   <xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
       <file source-language="en" datatype="plaintext" original="messages" date="2011-10-18T18:20:51Z" product-name="my-ext">
          <header/>
          <body>
@@ -64,7 +64,8 @@ Here is what the translation of our sample file could look like:
 
 .. code-block:: xml
 
-   <xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+   <?xml version="1.0" encoding="UTF-8"?>
+   <xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
       <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2011-10-18T18:20:51Z" product-name="my-ext">
          <header/>
          <body>
