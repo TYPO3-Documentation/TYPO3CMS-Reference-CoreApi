@@ -198,7 +198,7 @@ Limitations:
   Data providers in general should not know about :php:`renderType`, but only about :php:`type`. Their goal is to prepare
   and sanitize data independent of a specific :php:`renderType`. At the moment, the core data provider just has one
   or two places, where specific :php:`renderType`'s are taken into account to process data, and those show that these areas
-  are a technical dept that should be changed.
+  are a technical debt that should be changed.
 
 
 Adding data to data array
