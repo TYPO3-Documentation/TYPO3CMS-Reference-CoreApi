@@ -7,69 +7,114 @@ Creating generic update wizards
 ===============================
 
 Each update wizard consists of a single PHP file containing a single PHP class. This
-class has to extend :php:`TYPO3\CMS\Install\Updates\AbstractUpdate` and implement its
-abstract methods::
+class has to implement :php:`TYPO3\CMS\Install\Updates\UpgradeWizardInterface` and its
+methods::
 
    <?php
    namespace Vendor\ExtName\Updates;
 
-   use TYPO3\CMS\Install\Updates\AbstractUpdate;
+   use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-   class ExampleUpdateWizard extends AbstractUpdate
+   class ExampleUpdateWizard implements UpgradeWizardInterface
    {
-       /**
-        * @var string
-        */
-       protected $title = 'Title of this updater';
+		/**
+		 * Return the identifier for this wizard
+		 * This should be the same string as used in the ext_localconf class registration
+		 *
+		 * @return string
+		 */
+		public function getIdentifier(): string
+		{
+			return 'exampleUpdateWizard';
+		}
 
-       /**
-        * Checks whether updates are required.
-        *
-        * @param string $description The description for the update
-        * @return bool Whether an update is required (TRUE) or not (FALSE)
-        */
-       public function checkForUpdate(&$description)
-       {
-           return true;
-       }
+		/**
+		 * Return the speaking name of this wizard
+		 *
+		 * @return string
+		 */
+		public function getTitle(): string
+		{
+			return 'Title of this updater';
+		}
 
-      /**
-       * Performs the required update.
-       *
-       * @param array $dbQueries Queries done in this update
-       * @param string $customMessage Custom message to be displayed after the update process finished
-       * @return bool Whether everything went smoothly or not
-       */
-       public function performUpdate(array &$databaseQueries, &$customMessage)
-       {
-           return true;
-       }
+		/**
+		 * Return the description for this wizard
+		 *
+		 * @return string
+		 */
+		public function getDescription(): string
+		{
+			return 'Description of this updater';
+		}
+
+		/**
+		 * Execute the update
+		 *
+		 * Called when a wizard reports that an update is necessary
+		 *
+		 * @return bool
+		 */
+		public function executeUpdate(): bool
+		{
+
+		}
+
+		/**
+		 * Is an update necessary?
+		 *
+		 * Is used to determine whether a wizard needs to be run.
+		 * Check if data for migration exists.
+		 *
+		 * @return bool
+		 */
+		public function updateNecessary(): bool
+		{
+
+		}
+
+		/**
+		 * Returns an array of class names of Prerequisite classes
+		 *
+		 * This way a wizard can define dependencies like "database up-to-date" or
+		 * "reference index updated"
+		 *
+		 * @return string[]
+		 */
+		public function getPrerequisites(): array
+		{
+
+		}
    }
 
-Property :php:`$title`
-   Can be overwritten to define the title used while rendering the list of available
-   update wizards.
+Method :php:`getIdentifier`
+   Return the identifier for this wizard. This should be the same string as used 
+   in the ext_localconf class registration.
 
-Method :php:`checkForUpdate`
-   Is called to check whether the updater has to run. Therefore a boolean has to be
-   returned. The :php:`$description` provided can be modified as a reference to
-   provide further explanation, in addition to the title.
+Method :php:`getTitle`
+   Return the speaking name of this wizard.
 
-Method :php:`performUpdate`
+Method :php:`getDescription`
+   Return the description for this wizard.
+
+Method :php:`executeUpdate`
    Is called if the user triggers the wizard. This method should contain, or call,
-   the code that is needed to execute the update. :php:`$databaseQueries` and
-   :php:`$customMessage` can be used as reference to provide further information to
-   the user after the update function is completed. :php:`$databaseQueries` has to
-   be an array, where each value is a string containing the query. This array should
-   only contain executed queries. :php:`$customMessage` is a string, where further
-   information is provided for the user after the updated process has completed.
+   the code that is needed to execute the update. 
+
+Method :php:`updateNecessary`
+   Is called to check whether the updater has to run. Therefore a boolean has to be
+   returned.
+   
+Method :php:`getPrerequisites`
+   Returns an array of class names of Prerequisite classes. This way a wizard can 
+   define dependencies like "database up-to-date" or "reference index updated".
 
 Marking wizard as done
 ======================
 
 As soon as the wizard has completely finished, e.g. it detected that no update is
 necessary anymore, or that all updates were completed successfully, the wizard should
-be marked as done. To mark the wizard as done, call :php:`$this->markWizardAsDone`.
+be marked as done. To mark the wizard as done, call :php:`updateNecessary`.
 
 The state of completed wizards is persisted in the :ref:`TYPO3 system registry <registry>`.
 
@@ -79,11 +124,11 @@ Registering wizard
 Once the wizard is created, it needs to be registered. Registration is done in
 :file:`ext_localconf.php`::
 
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\Vendor\ExtName\Updates\ExampleUpdateWizard::class]
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['exampleUpdateWizard']
       = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
 
 Executing wizard
 ================
 
-Wizards are listed inside the install tool, inside navigation "Upgrade Wizard".
+Wizards are listed inside the install tool, inside navigation "Upgrade" and the card "Upgrade Wizard".
 The registered wizard should be shown there, as long as he is not done.
