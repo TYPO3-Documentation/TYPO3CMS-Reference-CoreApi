@@ -74,7 +74,7 @@ methods::
 		}
 
 		/**
-		 * Returns an array of class names of Prerequisite classes
+		 * Returns an array of class names of prerequisite classes
 		 *
 		 * This way a wizard can define dependencies like "database up-to-date" or
 		 * "reference index updated"
@@ -99,22 +99,34 @@ Method :php:`getDescription`
 
 Method :php:`executeUpdate`
    Is called if the user triggers the wizard. This method should contain, or call,
-   the code that is needed to execute the update. 
+   the code that is needed to execute the update. Therefore a boolean has to be
+   returned.
 
 Method :php:`updateNecessary`
    Is called to check whether the updater has to run. Therefore a boolean has to be
    returned.
    
 Method :php:`getPrerequisites`
-   Returns an array of class names of Prerequisite classes. This way a wizard can 
-   define dependencies like "database up-to-date" or "reference index updated".
+   Returns an array of class names of prerequisite classes. This way a wizard can 
+   define dependencies like "database up-to-date" or "reference index updated"::
+   
+   <?php
+    /**
+     * @return string[] All new fields and tables must exist
+     */
+    public function getPrerequisites(): array
+    {
+        return [
+            DatabaseUpdatedPrerequisite::class
+        ];
+    }
 
 Marking wizard as done
 ======================
 
 As soon as the wizard has completely finished, e.g. it detected that no update is
-necessary anymore, or that all updates were completed successfully, the wizard should
-be marked as done. To mark the wizard as done, call :php:`updateNecessary`.
+necessary anymore, or that all updates were completed successfully, the wizard is
+marked as done.
 
 The state of completed wizards is persisted in the :ref:`TYPO3 system registry <registry>`.
 
