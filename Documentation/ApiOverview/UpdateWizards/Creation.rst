@@ -110,6 +110,7 @@ Method :php:`getPrerequisites`
    Returns an array of class names of prerequisite classes. This way a wizard can 
    define dependencies like "database up-to-date" or "reference index updated"::
    
+   <?php
    /**
     * @return string[]
     */
