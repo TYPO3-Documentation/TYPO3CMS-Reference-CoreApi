@@ -81,10 +81,25 @@ Property                Call                                                    
 ``id``                  :php:`$context->getPropertyFromAspect('language', 'id');`                  the requested language of the current page as integer (uid)
 ``contentId``           :php:`$context->getPropertyFromAspect('language', 'contentId');`           the language id of records to be fetched in translation scenarios as integer (uid)
 ``fallbackChain``       :php:`$context->getPropertyFromAspect('language', 'fallbackChain');`       the fallback steps as array
-``overlayType``         :php:`$context->getPropertyFromAspect('language', 'overlayType');`         one of `on`, `mixed`, `off` or `includeFloating`
+``overlayType``         :php:`$context->getPropertyFromAspect('language', 'overlayType');`         one of `on`, `mixed`, `off` or `on with floating`
 ``legacyLanguageMode``  :php:`$context->getPropertyFromAspect('language', 'legacyLanguageMode');`  one of `strict`, `ignore` or `content_fallback`, kept for compatibility reasons. Don't use if not really necessary, the option will be removed rather sooner than later.
 ``legacyOverlayType``   :php:`$context->getPropertyFromAspect('language', 'legacyLanguageMode');`  one of `hideNonTranslated`, `0` or `1`, kept for compatibility reasons. Don't use if not really necessary, the option will be removed rather sooner than later.
 ======================  =========================================================================  ======
+
+**Overlay types:**
+
+:ref:`legacy settings sys_language_overlay documented in TypoScript Reference <t3tsref:setup-config-sys-language-overlay>`.
+
+* `on`:
+    Fetch records from the default language and overlay them with translations. If a record is not translated, it will not be displayed.
+* `off`:
+    Just fetch records from the selected language as given by `$TSFE->sys_language_content`. No overlay will happen, no fetching of the records from the default language. This boils down to "free mode" language handling.
+    Records without a default language parent are included.
+* `mixed`:
+    Fetch records from the default language and overlay them with translations. If a record is not translated the default language will be used.
+* `on with floating`:
+    Fetch records from the default language and overlay them with translations. If some record is not translated it will not be shown.
+    Records without a default language parent are included.
 
 **Replaced calls:**
 
