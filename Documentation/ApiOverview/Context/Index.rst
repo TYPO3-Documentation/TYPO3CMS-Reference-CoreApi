@@ -96,9 +96,9 @@ Property                Call                                                    
     Just fetch records from the selected language as given by `$TSFE->sys_language_content`. No overlay will happen, no fetching of the records from the default language. This boils down to "free mode" language handling.
     Records without a default language parent are included.
 * `mixed`:
-    Fetch records from the default language and overlay them with translations. If a record is not translated the default language will be used.
+    Fetch records from the default language and overlay them with translations. If a record is not translated, the default language will be used.
 * `on with floating`:
-    Fetch records from the default language and overlay them with translations. If some record is not translated it will not be shown.
+    Fetch records from the default language and overlay them with translations. If a record is not translated, it will not be shown.
     Records without a default language parent are included.
 
 **Replaced calls:**
