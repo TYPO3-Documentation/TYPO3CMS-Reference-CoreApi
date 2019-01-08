@@ -38,6 +38,24 @@ screenshot, the label – split between header and description – is
 visible. Then comes the field itself, in this case an input, because
 the option's type is "string".
 
+Available option types:
+
+============= ==========================
+Option type   Description
+============= ==========================
+boolean       checkbox
+color         colorpicker
+int           integer value
+int+          positive integer value
+integer       integer value
+offset        offset
+options       option select
+small         small text field
+string        text field
+user          user function
+wrap          wrap field
+============= ==========================
+
 Once you saved the configuration in the ExtensionManager, it will be stored in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']`
 as a serialized array.
