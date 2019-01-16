@@ -17,7 +17,7 @@ We will give you a short overview here, but for more information, please see the
 * General information about TYPO3 documentation: :ref:`h2document:basic-principles`
 * Get started using reST: :ref:`h2document:Formatting-with-reST`
 * More information about starting documentation for your TYPO3 extension: :ref:`h2document:how-to-start-docs-extension`
-* If you want to test your documenation, you need to render it: :ref:`h2document:rendering-docs`
+* If you want to test your documentation, you need to render it: :ref:`h2document:rendering-docs`
 
 The documentation platform https://docs.typo3.org centralizes documentation for every project. It supports 
 different kinds of documentation:
