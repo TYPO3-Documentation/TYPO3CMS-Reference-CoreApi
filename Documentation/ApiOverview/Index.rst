@@ -35,6 +35,7 @@ This chapter describes the most important elements of the API.
    Workspaces/Index
    Fal/Index
    CachingFramework/Index
+   LockingApi/Index
    SystemLog/Index
    Logging/Index
    ErrorAndExceptionHandling/Index
