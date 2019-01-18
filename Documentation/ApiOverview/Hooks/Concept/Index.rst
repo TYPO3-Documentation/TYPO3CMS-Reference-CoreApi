@@ -105,8 +105,16 @@ The syntax of a function reference can be seen in the API documentation of
 Using Signals
 =============
 
-To use a signal dispatched by the core, connect to it via the signal slot
-dispatcher:
+To connect a slot to a signal, use the :php:`\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::connect()` method.
+This method accepts the following arguments:
+
+1. :php:`$signalClassName`: Name of the class containing the signal
+2. :php:`$signalName`: Name of the class containing the signal
+3. :php:`$slotClassNameOrObject`: Name of the class containing the slot or the instantiated class or a :php:`\Closure` object
+4. :php:`$slotMethodName`: Name of the method to be used as a slot. If :php:`$slotClassNameOrObject` is a :php:`\Closure` object, this parameter is ignored and can be skipped
+5. :php:`$passSignalInformation`: If set to :php:`true`, the last argument passed to the slot will be information about the signal (:php:`EmitterClassName::signalName`)
+
+Usage example:
 
 .. code-block:: php
    :linenos:
@@ -129,7 +137,7 @@ In this example, we define that we want to call the method
 To find out which parameters/variables are available, open the signal's class
 and take a look at the dispatch call::
 
-   $this->signalSlotDispatcher->dispatch(__CLASS__, 'afterExtensionUninstall', [$extensionKey, $this]);
+:php:`$this->signalSlotDispatcher->dispatch(__CLASS__, 'afterExtensionUninstall', [$extensionKey, $this]);`
 
 In this case, the :php:`dumpClassLoadingInformation` method will get the
 extension key and an instance of the dispatching class as parameters.
