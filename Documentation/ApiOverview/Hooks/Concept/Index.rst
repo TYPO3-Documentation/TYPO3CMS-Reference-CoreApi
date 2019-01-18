@@ -105,34 +105,16 @@ The syntax of a function reference can be seen in the API documentation of
 Using Signals
 =============
 
-To use a signal dispatched by the core, connect to it via the signal slot
-dispatcher which is an object of type :php:`\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class`.
+To connect a slot to a signal, use the :php:`\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::connect()` method.
+This method accepts the following arguments:
 
-connect
--------
+1. :php:`$signalClassName`: Name of the class containing the signal
+2. :php:`$signalName`: Name of the class containing the signal
+3. :php:`$slotClassNameOrObject`: Name of the class containing the slot or the instantiated class or a :php:`\Closure` object
+4. :php:`$slotMethodName`: Name of the method to be used as a slot. If :php:`$slotClassNameOrObject` is a :php:`\Closure` object, this parameter is ignored and can be skipped
+5. :php:`$passSignalInformation`: If set to :php:`true`, the last argument passed to the slot will be information about the signal (:php:`EmitterClassName::signalName`)
 
-throws :php:`\InvalidArgumentException`
-
-$signalClassName
-^^^^^^^^^^^^^^^^
-Parameter 1: Name of the class containing the signal
-
-$signalName
-^^^^^^^^^^^
-Parameter 2: Name of the class containing the signal
-
-$slotClassNameOrObject
-^^^^^^^^^^^^^^^^^^^^^^
-Parameter 3: Name of the class containing the slot or the instantiated class or a :php:`Closure` object
-
-$slotMethodName
-^^^^^^^^^^^^^^^
-Parameter 4: Name of the method to be used as a slot. If :php:`$slotClassNameOrObject` is a :php:`Closure` object, this parameter is ignored
-
-$passSignalInformation
-^^^^^^^^^^^^^^^^^^^^^^
-If set to true, the last argument passed to the slot will be information about the signal (:php:`EmitterClassName::signalName`)
-
+Usage example:
 
 .. code-block:: php
    :linenos:
