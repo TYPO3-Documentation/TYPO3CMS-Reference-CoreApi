@@ -61,6 +61,8 @@ Example::
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = 'ssl'; // ssl, sslv3, tls
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username'] = 'johndoe';
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password'] = 'cooLSecret';
+  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'bounces@example.org';  // fetches all 'returning' emails 
+  
 
 
 .. _mail-configuration-sendmail:
@@ -209,12 +211,21 @@ Tool*::
 This is how you can use these defaults::
 
    $from = \TYPO3\CMS\Core\Utility\MailUtility::getSystemFrom();
+   
    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
    $mail->setFrom($from);
    // ...
    $mail->send();
 
-
+In case of problem  "Mails are not sent" in your extension, try to set a ReturnPath: start as before but add
+      
+   // you will get a valid Email Adress from  'defaultMailFromAddress' or if not set from PHP settings or from system. 
+   // if result is not a valid email, the final result will be  no-reply@example.com .. 
+   $returnPath = \TYPO3\CMS\Core\Utility\MailUtility::getSystemFromAddress();
+   if ( $returnPath != "no-reply@example.com") {
+       $mail->setReturnPath($returnPath);
+   }
+   $mail->send();
 
 .. _mail-swift:
 
