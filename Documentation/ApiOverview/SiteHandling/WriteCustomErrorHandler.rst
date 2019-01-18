@@ -9,7 +9,12 @@ The error handling configuration for sites allows implementing a custom error ha
 options of rendering a fluid template or page are not enough. An example would be an error page
 that uses the requested page or its parameters to search for relevant content on the web site.
 
-A custom error handler needs to implement the :php:`PageErrorHandlerInterface`
+A custom error handler needs to have a constructor that takes exactly two arguments:
+
+* :php:`$statusCode`: an integer holding the status code TYPO3 expects the handler to use
+* :php:`$configuration`: an array holding the configuration of the handler
+
+Furthermore it needs to implement the :php:`PageErrorHandlerInterface`
 (:php:`\TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface`). The interface specifies only one method:
 :php:`handlePageError(ServerRequestInterface $request, string $message, array $reasons = []): ResponseInterface`
 
