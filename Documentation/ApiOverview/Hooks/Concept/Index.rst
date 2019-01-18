@@ -106,7 +106,33 @@ Using Signals
 =============
 
 To use a signal dispatched by the core, connect to it via the signal slot
-dispatcher:
+dispatcher which is an object of type :php:`\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class`.
+
+connect
+-------
+
+throws :php:`\InvalidArgumentException`
+
+$signalClassName
+^^^^^^^^^^^^^^^^
+Parameter 1: Name of the class containing the signal
+
+$signalName
+^^^^^^^^^^^
+Parameter 2: Name of the class containing the signal
+
+$slotClassNameOrObject
+^^^^^^^^^^^^^^^^^^^^^^
+Parameter 3: Name of the class containing the slot or the instantiated class or a :php:`Closure` object
+
+$slotMethodName
+^^^^^^^^^^^^^^^
+Parameter 4: Name of the method to be used as a slot. If :php:`$slotClassNameOrObject` is a :php:`Closure` object, this parameter is ignored
+
+$passSignalInformation
+^^^^^^^^^^^^^^^^^^^^^^
+If set to true, the last argument passed to the slot will be information about the signal (:php:`EmitterClassName::signalName`)
+
 
 .. code-block:: php
    :linenos:
@@ -129,7 +155,7 @@ In this example, we define that we want to call the method
 To find out which parameters/variables are available, open the signal's class
 and take a look at the dispatch call::
 
-   $this->signalSlotDispatcher->dispatch(__CLASS__, 'afterExtensionUninstall', [$extensionKey, $this]);
+:php:`$this->signalSlotDispatcher->dispatch(__CLASS__, 'afterExtensionUninstall', [$extensionKey, $this]);`
 
 In this case, the :php:`dumpClassLoadingInformation` method will get the
 extension key and an instance of the dispatching class as parameters.
