@@ -39,7 +39,7 @@ The :file:`EXT:examples/pierror/class.tx_examples_pierror_wizicon.php` file look
        */
       function proc($wizardItems)   {
          $wizardItems['plugins_tx_examples_pierror'] = array(
-            'iconIdentifier' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('examples') . 'Resources/Public/Images/PiErrorWizard.png',
+            'iconIdentifier' => 'tx-pierror-icon',
             'title' => $GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xlf:pierror_wizard_title'),
             'description' => $GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xlf:pierror_wizard_description'),
             'params' => '&defVals[tt_content][CType]=list&&defVals[tt_content][list_type]=examples_pierror'
