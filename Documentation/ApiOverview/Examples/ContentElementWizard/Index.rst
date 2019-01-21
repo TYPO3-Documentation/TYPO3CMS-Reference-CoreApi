@@ -51,10 +51,10 @@ The :file:`EXT:examples/pierror/class.tx_examples_pierror_wizicon.php` file look
 
 The :code:`proc()` method receives the list of existing items
 in the wizard and adds a new one to it. The first three properties
-are quite easy to understand. The icon has to be registered with the icon-API before usage. The "params" property defines the default values
-to be added to the new record link so that the right type of content element
-(and plugin in this case) is already selected. This uses the syntax demonstrated
-in the :ref:`edit-links` chapter.
+are quite easy to understand. The icon must be registered with the Icon API (:ref:`icon-registration`) before usage.
+The "params" property defines the default values to be added to the new record link so
+that the right type of content element (and plugin in this case) is already selected.
+This uses the syntax demonstrated in the :ref:`edit-links` chapter.
 
 The result can be seen in the new content element wizard:
 
