@@ -98,23 +98,23 @@ data that can help to debug and mitigate the issue.
 Example
 
     try {
-        if ($theFile == '') {
+        if ($filePath == '') {
             throw new \Exception ('The import file has not been found.');
         }
         if ($pid == 0) {
             throw new \Exception ('The page "' . $pid . '" cannot be accessed.');
         }
 
-        $absFilename = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($theFile);
+        $absoluteFilePath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($filePath);
 
         if (is_file($absFilename)) {
-            $iFile = fopen($absFilename, 'rb');
+            $file = fopen($absoluteFilePath, 'rb');
         } else {
-            throw new \Exception ('File "' . $absFilename . '" not found.');
+            throw new \Exception ('File "' . $absoluteFilePath . '" not found.');
         }
 
-        if ($iFile == null) {
-            throw new \Exception ('File "' . $absFilename . '" cannot be read.');
+        if ($file == null) {
+            throw new \Exception ('File "' . $absoluteFilePath . '" cannot be read.');
         }
     } // try
 
