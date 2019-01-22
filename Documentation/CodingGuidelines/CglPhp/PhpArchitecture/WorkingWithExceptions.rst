@@ -95,6 +95,35 @@ a meaningful message in is important especially if top-level exceptions
 are thrown. A developer receiving this exception should get all useful
 data that can help to debug and mitigate the issue.
 
+Example
+
+    try {
+        if ($theFile == '') {
+            throw new \Exception ('The import file has not been found.');
+        }
+        if ($pid == 0) {
+            throw new \Exception ('The page "' . $pid . '" cannot be accessed.');
+        }
+
+        $absFilename = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($theFile);
+
+        if (is_file($absFilename)) {
+            $iFile = fopen($absFilename, 'rb');
+        } else {
+            throw new \Exception ('File "' . $absFilename . '" not found.');
+        }
+
+        if ($iFile == null) {
+            throw new \Exception ('File "' . $absFilename . '" cannot be read.');
+        }
+    } // try
+
+    catch (\Exception $e) {
+        throw new \TYPO3\CMS\Core\Exception($e->getMessage(), exec('date +%s'));
+    }
+
+
+
 
 Exception inheritance
 """""""""""""""""""""
