@@ -91,9 +91,9 @@ TYPO3 typically uses a meaningful exception message and a unique code.
 Uniqueness of :php:`$code` is created by using a UNIX timestamp of :php:`now`
 (the time when the exception is created): This can be easily created,
 for instance using the trivial shell command :code:`date +%s`. The resulting
-number should be directly inserted into the code and never changed again.
+number of this command should be directly used as the exception code and never changed again.
 
-Throwing a meaningful message in is important especially if top-level exceptions
+Throwing a meaningful message is important especially if top-level exceptions
 are thrown. A developer receiving this exception should get all useful
 data that can help to debug and mitigate the issue.
 
