@@ -110,7 +110,7 @@ Example::
    
    $absoluteFilePath = GeneralUtility::getFileAbsFileName($filePath);
    
-   if (is_file($absFilename)) {
+   if (is_file($absoluteFilePath)) {
        $file = fopen($absoluteFilePath, 'rb');
    } else {
        // prefer speaking exception names, add custom exceptions if necessary
