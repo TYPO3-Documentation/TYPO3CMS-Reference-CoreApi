@@ -88,12 +88,39 @@ The standard exception signature::
    public function __construct($message = "", $code = 0, Exception $previous = null) { }
 
 TYPO3 typically uses a meaningful exception message and a unique code.
-Uniqueness of :php:`$code` is created by using a timestamp of :php:`now`
+Uniqueness of :php:`$code` is created by using a UNIX timestamp of :php:`now`
 (the time when the exception is created): This can be easily created,
-for instance using the trivial shell command :code:`date +%s`. Throwing
-a meaningful message in is important especially if top-level exceptions
+for instance using the trivial shell command :code:`date +%s`. The resulting
+number of this command should be directly used as the exception code and never changed again.
+
+Throwing a meaningful message is important especially if top-level exceptions
 are thrown. A developer receiving this exception should get all useful
 data that can help to debug and mitigate the issue.
+
+Example::
+
+   use Vendor\Package\File\FileNotAccessibleException;
+   use Vendor\Package\File\FileNotFoundException;
+   
+   // ...
+   
+   if ($pid === 0) {
+       throw new \RuntimeException('The page "' . $pid . '" cannot be accessed.', 1548145665);
+   }
+   
+   $absoluteFilePath = GeneralUtility::getFileAbsFileName($filePath);
+   
+   if (is_file($absoluteFilePath)) {
+       $file = fopen($absoluteFilePath, 'rb');
+   } else {
+       // prefer speaking exception names, add custom exceptions if necessary
+       throw new FileNotFoundException('File "' . $absoluteFilePath . '" does not exist.', 1548145672);
+   }
+   
+   if ($file == null) {
+       throw new FileNotAccessibleException('File "' . $absoluteFilePath . '" cannot be read.', 1548145672);
+   }
+
 
 
 Exception inheritance
