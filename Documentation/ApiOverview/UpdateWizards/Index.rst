@@ -16,4 +16,5 @@ wizards.
 
    Concept
    Creation
+   OldApi
    ExtUpdateFile
