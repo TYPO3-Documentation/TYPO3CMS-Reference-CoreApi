@@ -347,7 +347,7 @@ Description of keywords in syntax:
    :Description:
          Value for "fieldname".
 
-         For fields of type ``inline`` this is a comma separated list of uids of
+         For fields of type ``inline`` this is a comma separated list (CSV) of UIDs of
          referenced records.
 
 
