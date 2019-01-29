@@ -347,6 +347,9 @@ Description of keywords in syntax:
    :Description:
          Value for "fieldname".
 
+         For fields of type ``inline`` this is a comma separated list (CSV) of UIDs of
+         referenced records.
+
 
 .. note::
    For FlexForms the data array of the FlexForm field is
