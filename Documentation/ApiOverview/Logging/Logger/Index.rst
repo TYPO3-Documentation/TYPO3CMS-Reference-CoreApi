@@ -17,10 +17,10 @@ Instantiation
    instance of the logger yourself. You can use `LoggerAwareTrait <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects.html?highlight=loggerawaretrait>`__
 
 Use LoggerAwareTrait in your class to automatically instantiate $this->logger::
-
+   use Psr\Log\LoggerAwareInterface;
    use Psr\Log\LoggerAwareTrait;
 
-   class Example
+   class Example implements LoggerAwareInterface
    {
       use LoggerAwareTrait;
    }
