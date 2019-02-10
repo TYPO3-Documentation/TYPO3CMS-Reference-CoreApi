@@ -47,6 +47,7 @@ http://api.typo3.org/.
    Http/Index
    Icon/Index
    Hooks/Index
+   UpdateWizards/Index
    Xclasses/Index
    JavaScript/Index
    SoftReferences/Index
