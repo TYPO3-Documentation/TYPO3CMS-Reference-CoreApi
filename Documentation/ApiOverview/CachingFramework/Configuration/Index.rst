@@ -20,12 +20,12 @@ and consists of the single section:
 Cache configurations
 """"""""""""""""""""
 
-Unfortunately in TYPO3 CMS, all :file:`ext_localconf.php` files are loaded **after** the instance specific
+Unfortunately in TYPO3 CMS, all :file:`ext_localconf.php` files of the extensions are loaded **after** the instance specific
 configuration from :file:`LocalConfiguration.php` and :file:`AdditionalConfiguration.php`. This
-enables extensions to overwrite cache configuration already done for the instance. Any extension
-should avoid this situation and should just define the very required minimum of cache configuration. This
+enables extensions to overwrite cache configurations already done for the instance. All extensions
+should avoid this situation and should just define the very bare minimum of cache configurations. This
 boils down to define just the array key to populate a new cache to the system. Without further configuration,
-the cache system fall back to default backend and default frontend settings:
+the cache system falls back to the default backend and default frontend settings:
 
 .. code-block:: php
 
