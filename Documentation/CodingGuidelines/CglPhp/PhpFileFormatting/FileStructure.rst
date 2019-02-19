@@ -48,7 +48,7 @@ to the license text must be included at the top of every TYPO3 PHP class
 file. user files must have this copyright notice as well. Example::
 
    <?php
-   declare(strict_types=1);
+   declare(strict_types = 1);
    namespace TYPO3\CMS\XXX;
 
    /*
