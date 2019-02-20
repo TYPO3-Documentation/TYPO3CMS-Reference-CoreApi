@@ -157,7 +157,7 @@ need to add the new doktype as select item and associate it with the configured 
 
             // Add icon for new page type:
             \TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule(
-                $GLOBALS['TCA']['pages'],
+                $GLOBALS['TCA'][$table],
                 [
                     'ctrl' => [
                         'typeicon_classes' => [
