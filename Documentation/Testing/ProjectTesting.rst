@@ -225,7 +225,9 @@ installs ddev, sets up the instance and executes the tests. Ready to rumble:
       - chmod +x docker-compose
       - sudo mv docker-compose /usr/local/bin
       # Install ddev
-      - curl -L https://raw.githubusercontent.com/drud/ddev/master/install_ddev.sh | sudo bash
+      - curl -L https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh | sudo bash
+      # ddev should not ask for usage stats
+      - ddev config global --instrumentation-opt-in=false
 
     script:
       - >
@@ -233,7 +235,7 @@ installs ddev, sets up the instance and executes the tests. Ready to rumble:
         ddev start;
         ddev import-db --src=./data/db.sql;
         ddev import-files --src=./assets;
-        ddev exec ../bin/codecept run acceptance -d -c ../Tests/codeception.yml
+        ddev exec bin/codecept run acceptance -d -c Tests/codeception.yml
 
 A Travis CI run can be found `online <https://travis-ci.org/benjaminkott/site-introduction>`_.
 
