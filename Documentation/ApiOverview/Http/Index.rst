@@ -70,7 +70,7 @@ A POST request can be achieved with:
       'body' => 'Your raw post data',
       // OR form data:
       'form_params' = [
-         'first_name => 'Hans',
+         'first_name' => 'Hans',
          'last_name' => 'Dampf'
       ]
    ];
