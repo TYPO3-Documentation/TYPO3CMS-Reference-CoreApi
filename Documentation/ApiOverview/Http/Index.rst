@@ -51,7 +51,7 @@ The `RequestFactory` class can be used like this:
       'headers' => ['Cache-Control' => 'no-cache'],
       // Additional options, see http://docs.guzzlephp.org/en/latest/request-options.html
       'allow_redirects' => false,
-      'cookies' => true
+      'cookies' => true,
    ];
    // Return a PSR-7 compliant response object
    $response = $requestFactory->request($url, 'GET', $additionalOptions);
@@ -70,8 +70,8 @@ A POST request can be achieved with:
       'body' => 'Your raw post data',
       // OR form data:
       'form_params' = [
-         'first_name => 'Hans',
-         'last_name' => 'Dampf'
+         'first_name' => 'Hans',
+         'last_name' => 'Dampf',
       ]
    ];
    $response = $requestFactory->request($url, 'POST', $additionalOptions);
@@ -115,13 +115,13 @@ Here is an extract of :file:`typo3/sysext/backend/Configuration/Backend/Routes.p
 		'login' => [
 			'path' => '/login',
 			'access' => 'public',
-			'target' => Controller\LoginController::class . '::formAction'
+			'target' => Controller\LoginController::class . '::formAction',
 		],
 
 		// Main backend rendering setup (previously called backend.php) for the TYPO3 Backend
 		'main' => [
 			'path' => '/main',
-			'target' => Controller\BackendController::class . '::mainAction'
+			'target' => Controller\BackendController::class . '::mainAction',
 		],
 		// ...
 	];
