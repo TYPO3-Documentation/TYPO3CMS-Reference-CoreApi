@@ -28,7 +28,7 @@ looks like this::
 
 :php:`getLanguageService()` is a call to a helper method that accesses :php:`$GLOBALS['LANG']`. In the Backend, the bootstrap
 parks an initialized instance of :php:`\TYPO3\CMS\Core\Localization\LanguageService` at this place. This may change in the
-future, but for now it the LanguageService can be reliably fetched from this global.
+future, but for now the LanguageService can be reliably fetched from this global.
 
 .. note::
 
