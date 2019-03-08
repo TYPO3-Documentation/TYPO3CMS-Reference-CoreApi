@@ -247,7 +247,7 @@ on can be linked into the test instance::
     /**
      * @var array
      */
-    protected $$pathsToLinkInTestInstance = [
+    protected $pathsToLinkInTestInstance = [
         'typo3/sysext/impexp/Tests/Functional/Fixtures/Folders/fileadmin/user_upload/typo3_image2.jpg' => 'fileadmin/user_upload/typo3_image2.jpg',
     ];
 
