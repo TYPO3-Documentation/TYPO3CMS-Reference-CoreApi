@@ -273,6 +273,7 @@ main result HTML:
         ];
 
         public function render()
+        {
             $resultArray = $this->initializeResultArray();
 
             $fieldWizardResult = $this->renderFieldWizard();
