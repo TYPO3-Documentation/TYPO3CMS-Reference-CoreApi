@@ -67,7 +67,7 @@ Typical cases for exceptions that are designed to be caught
 Typical cases for exceptions that should not be caught
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Wrong configuration: A flex form contains a :code:`type=inline` field.
+* Wrong configuration: A flexform contains a :code:`type=inline` field.
   At the time of this writing, this case was not implemented, so the
   code checks for this case and throws a top-level PHP built-in
   exception (:php:`\RuntimeException` in this case) to point developers
@@ -101,22 +101,22 @@ Example::
 
    use Vendor\Package\File\FileNotAccessibleException;
    use Vendor\Package\File\FileNotFoundException;
-   
+
    // ...
-   
+
    if ($pid === 0) {
        throw new \RuntimeException('The page "' . $pid . '" cannot be accessed.', 1548145665);
    }
-   
+
    $absoluteFilePath = GeneralUtility::getFileAbsFileName($filePath);
-   
+
    if (is_file($absoluteFilePath)) {
        $file = fopen($absoluteFilePath, 'rb');
    } else {
        // prefer speaking exception names, add custom exceptions if necessary
        throw new FileNotFoundException('File "' . $absoluteFilePath . '" does not exist.', 1548145672);
    }
-   
+
    if ($file == null) {
        throw new FileNotAccessibleException('File "' . $absoluteFilePath . '" cannot be read.', 1548145672);
    }
