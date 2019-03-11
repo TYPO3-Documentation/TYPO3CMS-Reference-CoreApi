@@ -67,7 +67,7 @@ Typical cases for exceptions that are designed to be caught
 Typical cases for exceptions that should not be caught
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Wrong configuration: A flex from contains a :code:`type=inline` field.
+* Wrong configuration: A flex form contains a :code:`type=inline` field.
   At the time of this writing, this case was not implemented, so the
   code checks for this case and throws a top-level PHP built-in
   exception (:php:`\RuntimeException` in this case) to point developers
@@ -75,7 +75,7 @@ Typical cases for exceptions that should not be caught
 
 * Programming error/ wrong API usage: Code that can not do its job
   because a developer did not take care and used an API in a wrong way.
-  This is a common reason to throw an extension and can be found at lots
+  This is a common reason to throw an exception and can be found at lots
   of places in the core. A top-level exception like
   :php:`\RuntimeException` should be thrown.
 
