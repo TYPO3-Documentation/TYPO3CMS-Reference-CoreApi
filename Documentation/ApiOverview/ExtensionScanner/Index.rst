@@ -37,6 +37,35 @@ This module has been featured on the TYPO3 youtube channel:
    .. youtube:: UdIYDZgBrQU
 
 
+Quick Start
+===========
+
+.. rst-class:: bignums
+
+1. Open extension scanner from the TYPO3 backend:
+
+   :guilabel:`ADMIN TOOLS`: :guilabel:`Upgrade` > :guilabel:`Scan Extension Files`
+
+   .. figure:: Images/extensionscanner_open.png
+      :class: with-shadow
+
+      Open extension scanner from the backend
+
+2. Scan one extension by clicking on it or click :guilabel:`"Scan all"`.
+
+3. View the report:
+
+   The tags :guilabel:`weak`, :guilabel:`strong`, etc. will give you an idea
+   of how well the extension scanner was able to match. Hover over the tags
+   with the mouse to see a tooltip.
+
+   Click on the Changelog to view it.
+
+   .. figure:: Images/extensionscanner_report.png
+      :class: with-shadow
+
+      View extension scanner report
+
 Goals and non Goals
 ===================
 
