@@ -81,8 +81,8 @@ This requires first a bit of TypoScript:
 				}
 				as = images
 			}
-		}
 	}
+	
 
 This will fetch all Files related to the content element being rendered
 (referenced in the "image" field) and make them available in a variable
