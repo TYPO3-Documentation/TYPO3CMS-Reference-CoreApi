@@ -53,9 +53,7 @@ Code examples
 Many of the code examples found in this document come from the TYPO3
 Core itself.
 
-Quite a few others come from the "examples" and the "styleguide" extension. You can
-install them if you want to try out these examples yourself and use them as
-a basis for your own stuff.
+Quite a few others come from the "examples" and the `styleguide <https://github.com/TYPO3/styleguide>`__ extension. 
 
 
 .. _feedback:
