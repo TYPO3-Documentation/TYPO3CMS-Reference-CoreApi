@@ -89,7 +89,7 @@ Exceptions
 
 If the enumeration is instantiated with an invalid value an
 :php:`TYPO3\CMS\Core\Type\Exception\InvalidEnumerationValueException` is thrown.
-This exception must be catched and you have to decide what the appropriate
+This exception must be caught and you have to decide what the appropriate
 behavior should be.
 
 .. important::
