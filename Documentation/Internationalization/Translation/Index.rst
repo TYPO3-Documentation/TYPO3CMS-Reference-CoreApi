@@ -120,6 +120,14 @@ First of all, the language must be declared::
        'gsw_CH' => 'Swiss German',
    );
 
+
+.. important::
+
+   - Locales are loaded during the bootstrap of TYPO3, before reading the
+     extensions' configuration. Therefore you need to declare the custom
+     languages in :file:`AdditionalConfiguration.php` and not in extensions.
+
+
 This new language does not need to be entirely translated. It can be defined
 as falling back to another language, so that only differing labels need be
 translated::
