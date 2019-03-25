@@ -97,9 +97,9 @@ A set of methods to create various comparison expressions or SQL functions:
 
 * :php:`->isNotNull($fieldName)` "IS NOT NULL" comparison
 
-* :php:`->like($fieldName)` "LIKE" comparison
+* :php:`->like($fieldName, $value)` "LIKE" comparison
 
-* :php:`->notLike($fieldName)` "NOT LIKE" comparison
+* :php:`->notLike($fieldName, $value)` "NOT LIKE" comparison
 
 * :php:`->in($fieldName, $valueArray)` "IN ()" comparison
 
