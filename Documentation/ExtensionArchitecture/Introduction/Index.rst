@@ -20,7 +20,7 @@ It is also possible to set up TYPO3 CMS using Composer. This opens
 the possibility of including any library published on
 `Packagist <https://packagist.org/>`_.
 
-TYPO3 can be extended in nearly any direction without loosing
+TYPO3 can be extended in nearly any direction without losing
 backwards compatibility. The Extension API provides a powerful
 framework for easily adding, removing, installing and developing such
 extensions to TYPO3.
@@ -52,7 +52,7 @@ Extensions are designed in a way so that extensions can supplement the
 core seamlessly. This means that a TYPO3 system will appear as "a
 whole" while actually being composed of the core application *and* a
 set of extensions providing various features. This philosophy allows
-TYPO3 to be developed by many individuals without loosing fine control
+TYPO3 to be developed by many individuals without losing fine control
 since each developer will have a special area (typically a system
 extension) of responsibility which is effectively encapsulated.
 
