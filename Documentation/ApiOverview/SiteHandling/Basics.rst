@@ -118,7 +118,7 @@ The following part explains the configuration file and options:
         Allow: /
         Disallow: /forbidden/
 
-Most settings can also be edited via the backend module `Site Management > Configuration`,
+Most settings can also be edited via the backend module `Site Management > Sites`,
 exceptions being custom settings and additional routing configuration.
 
 
