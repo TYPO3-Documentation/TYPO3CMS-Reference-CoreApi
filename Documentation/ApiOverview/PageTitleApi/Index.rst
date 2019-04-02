@@ -7,7 +7,7 @@
 PageTitle API
 =============
 
-In order to keep setting the titles in control, you can use the PageTite API. The API uses :php:`PageTitleProviders`
+In order to keep setting the titles in control, you can use the PageTitle API. The API uses :php:`PageTitleProviders`
 to define the page title based on page record and the content on the page.
 
 Based on the priority of the providers, the :php:`PageTitleProviderManager` will check the providers if a title
