@@ -6,7 +6,7 @@
 File Storages
 ^^^^^^^^^^^^^
 
-File Storages have a few properties which deserve more explanations.
+File Storages can be administered through the List module. They have a few properties which deserve further explanation.
 
 .. figure:: ../Images/AdministrationFileStorageAccessTab.png
    :alt: The Access tab of a File Storage
