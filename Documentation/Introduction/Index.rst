@@ -73,8 +73,7 @@ Maintaining high quality documentation requires time and effort
 and the TYPO3 Documentation Team always appreciates support.
 
 If you want to support us, please join the slack channel **#typo3-documentation**
-on `Slack <https://typo3.slack.com/>`__.
-Visit `forger <https://forger.typo3.org/slack>`__ to gain access to Slack.
+on `Slack <https://typo3.slack.com/>`__ (`Register for Slack <https://my.typo3.org/about-mytypo3org/slack/>`__).
 
 And finally, as a last resort, you can get in touch with the documentation team
 `by mail <documentation@typo3.org>`_.
