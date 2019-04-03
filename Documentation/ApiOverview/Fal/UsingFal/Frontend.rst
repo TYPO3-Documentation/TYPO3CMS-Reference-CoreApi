@@ -72,15 +72,15 @@ This requires first a bit of TypoScript:
 
 	lib.carousel = FLUIDTEMPLATE
 	lib.carousel {
-			file = EXT:extension/Resources/Private/Templates/Carousel.html
-			dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-			dataProcessing.10 {
-				references {
-					table = tt_content
-					fieldName = image
-				}
-				as = images
+		file = EXT:extension/Resources/Private/Templates/Carousel.html
+		dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+		dataProcessing.10 {
+			references {
+				table = tt_content
+				fieldName = image
 			}
+			as = images
+		}
 	}
 	
 
