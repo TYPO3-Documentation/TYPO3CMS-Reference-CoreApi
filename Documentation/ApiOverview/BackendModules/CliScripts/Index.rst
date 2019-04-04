@@ -5,7 +5,7 @@
 
 TYPO3 CMS shell scripts (CLI mode)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+ 
 Besides the backend, it is also possible to run some TYPO3 CMS
 scripts from the command line. This makes it possible - for
 example - to set up cronjobs. There are two ways to register
