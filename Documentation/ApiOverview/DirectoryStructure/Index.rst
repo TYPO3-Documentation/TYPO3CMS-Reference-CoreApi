@@ -89,5 +89,15 @@ the paths within PHP code.
 
   - :Directory: :file:`typo3temp/`
     :Description:
-      Directory for temporary files. It contains subdirectories for
-      temporary files of extensions and TYPO3 components.
+      Directory for temporary files. It contains subdirectories (see below) 
+      for temporary files of extensions and TYPO3 components.
+
+   - :Directory: :file:`typo3temp/assets/`
+     :Description:
+       Directory for temporary files that should be public available 
+       (e.g. generated images).
+
+   - :Directory: :file:`typo3temp/var/`
+     :Description:
+       Directory for temporary files that contains private files (e.g. cached 
+       Fluid templates) and should not be publicly available.
