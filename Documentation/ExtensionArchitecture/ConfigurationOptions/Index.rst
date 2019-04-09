@@ -3,6 +3,7 @@
 
 .. _extension-options:
 
+=====================
 Configuration options
 =====================
 
