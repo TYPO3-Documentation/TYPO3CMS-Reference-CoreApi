@@ -8,7 +8,7 @@ Introduction
 
 .. _about:
 
-About this document
+About This Document
 -------------------
 
 TYPO3 is known for its extensibility. To really benefit from
@@ -28,7 +28,7 @@ of choice in your work with TYPO3.
 
 .. _audience:
 
-Intended audience
+Intended Audience
 ~~~~~~~~~~~~~~~~~
 
 This document is intended to be a reference for TYPO3 CMS developers and partially
@@ -47,7 +47,7 @@ consider that as well!
 
 .. _code-examples:
 
-Code examples
+Code Examples
 ~~~~~~~~~~~~~
 
 Many of the code examples found in this document come from the TYPO3
@@ -198,7 +198,7 @@ is - of course - the ultimate documentation.
 
 .. _installation:
 
-A basic installation
+A Basic Installation
 --------------------
 
 To follow this document, it might help to have a totally trimmed down installation
