@@ -3,8 +3,9 @@
 
 .. _backend-modules-template:
 
-The backend template view
-^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================
+The Backend Template View
+=========================
 
 .. warning::
 
