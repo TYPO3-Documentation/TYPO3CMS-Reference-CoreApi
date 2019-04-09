@@ -13,6 +13,9 @@ most important files for the execution of extensions
 within TYPO3. They contain configuration used by the system on almost
 every request. They should therefore be optimized for speed.
 
+
+.. _ext-localconf-php:
+
 ext_localconf.php
 =================
 
@@ -41,6 +44,9 @@ These are the typical functions that extension authors should place within :file
 * Adding slots to signals via Extbase's SignalSlotDispatcher
 * Registering Icons to the IconRegistry
 * Registering Services via the Service API
+
+
+.. _ext-tables.php:
 
 ext_tables.php
 ==============

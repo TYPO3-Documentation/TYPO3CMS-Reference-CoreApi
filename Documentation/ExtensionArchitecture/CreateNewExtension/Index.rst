@@ -13,6 +13,7 @@ to remember.
 First you have to :ref:`register an extension key <extension-key>`.
 This is the unique identifier for your extension.
 
+.. _extension-builder:
 
 Kickstarting the extension
 """"""""""""""""""""""""""
