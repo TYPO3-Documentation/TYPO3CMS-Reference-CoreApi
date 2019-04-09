@@ -3,14 +3,15 @@
 
 .. _backend-modules-api:
 
+==================
 Backend Module API
-^^^^^^^^^^^^^^^^^^
+==================
 
 
 .. _backend-modules-api-registration:
 
-Registering new modules
-"""""""""""""""""""""""
+Registering new Modules
+=======================
 
 Modules added by extensions are registered in the :file:`ext_tables.php`
 using the following API:
@@ -57,8 +58,8 @@ for building the module menu and for the display of information in the
 **About Modules** module (found in the main help menu in the top bar).
 The `LLL:` prefix is mandatory here and is there for historical reasons.
 
-Registering a toplevel module
-"""""""""""""""""""""""""""""
+Registering a Toplevel Module
+=============================
 
 Toplevel modules like "Web" or "File" are registered with the same API:
 
@@ -97,7 +98,7 @@ be used to add submodules to this new toplevel module:
 .. _backend-modules-api-tbemodules:
 
 $TBE\_MODULES
-"""""""""""""
+=============
 
 When modules are registered, they get added to a global array called
 :php:`$GLOBALS['TBE_MODULES']`. It contains the list of all registered

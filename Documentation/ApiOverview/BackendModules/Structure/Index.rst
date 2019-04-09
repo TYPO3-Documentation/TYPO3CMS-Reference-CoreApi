@@ -3,8 +3,9 @@
 
 .. _backend-modules-structure:
 
-Backend interface
-^^^^^^^^^^^^^^^^^
+=================
+Backend Interface
+=================
 
 The backend interface is essentially driven by the "backend"
 system extension and extended by many other system extensions.
