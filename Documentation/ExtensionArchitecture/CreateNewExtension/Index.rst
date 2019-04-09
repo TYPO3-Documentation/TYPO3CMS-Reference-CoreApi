@@ -3,7 +3,7 @@
 
 .. _extension-create-new:
 
-Creating a new extension
+Creating a new Extension
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 This chapter is not a tutorial about how to create an Extension.
@@ -14,7 +14,7 @@ First you have to :ref:`register an extension key <extension-key>`.
 This is the unique identifier for your extension.
 
 
-Kickstarting the extension
+Kickstarting the Extension
 """"""""""""""""""""""""""
 
 Although it is possible to write every single line of an extension from

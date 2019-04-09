@@ -5,7 +5,7 @@
 
 
 ===================
-Configuration files
+Configuration Files
 ===================
 
 Files :file:`ext_tables.php` and :file:`ext_localconf.php` are the two
@@ -19,7 +19,7 @@ ext_localconf.php
 :file:`ext_localconf.php` is always included in global scope of the script,
 either frontend or backend.
 
-Should not be used for
+Should Not Be Used For
 ----------------------
 
 While you *can* put functions and classes into
@@ -27,7 +27,7 @@ the script, it is a really bad practice because
 such classes and functions would *always* be loaded.
 It is better to have them included only as needed.
 
-Should be used for
+Should Be Used For
 ------------------
 
 These are the typical functions that extension authors should place within :file:`ext_localconf.php`
@@ -56,7 +56,7 @@ This file is only included when
 This file usually gets included later within the request and after TCA information is loaded,
 and a Backend User is authenticated as well.
 
-Should be used for
+Should Be Used For
 ------------------
 
 These are the typical functions that should be placed inside :file:`ext_tables.php`
@@ -68,7 +68,7 @@ These are the typical functions that should be placed inside :file:`ext_tables.p
 * Assignments to the global configuration arrays :php:`$TBE_STYLES` and :php:`$PAGES_TYPES`
 * Adding new fields to User Settings ("Setup" Extension)
 
-Best practices
+Best Practices
 --------------
 
 Additionally, it is possible to extend TYPO3 in a lot of different ways (adding TCA, Backend Routes,
@@ -111,7 +111,7 @@ See any system extension for best practice on this behaviour.
   :php:`ExtensionManagementUtility::extPath()`.
 
 
-Best practices for :php:`ext_tables.php` and :php:`ext_localconf.php`
+Best Practices for :php:`ext_tables.php` and :php:`ext_localconf.php`
 =====================================================================
 
 It is a good practice to use a directly called closure function to encapsulate all

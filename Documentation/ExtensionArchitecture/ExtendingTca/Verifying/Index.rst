@@ -3,8 +3,8 @@
 
 .. _verifying:
 
-Verifying the $TCA
-^^^^^^^^^^^^^^^^^^
+Verifying the TCA
+^^^^^^^^^^^^^^^^^
 
 You may find it necessary – at some point – to verify the full
 structure of the :php:`$GLOBALS['TCA']` in your TYPO3 installation. The **SYSTEM >

@@ -3,7 +3,7 @@
 
 .. _extending-examples:
 
-Customization examples
+Customization Examples
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Many extracts can be found throughout the manual, but this section
@@ -12,7 +12,7 @@ provides more complete examples.
 
 .. _extending-examples-feusers:
 
-Example 1: extending the fe\_users table
+Example 1: Extending the fe\_users Table
 """"""""""""""""""""""""""""""""""""""""
 
 The "examples" extension adds two fields to the "fe\_users" table.
@@ -114,7 +114,7 @@ The next example shows how to place a field more precisely.
 
 .. _extending-examples-ttcontent:
 
-Example 2: extending the tt\_content table
+Example 2: Extending the tt\_content Table
 """"""""""""""""""""""""""""""""""""""""""
 
 In this second example, we will add a "No print" field to all content
