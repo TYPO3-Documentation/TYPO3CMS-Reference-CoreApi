@@ -29,7 +29,7 @@ of choice in your work with TYPO3.
 
 .. _audience:
 
-Intended audience
+Intended Audience
 -----------------
 
 This document is intended to be a reference for TYPO3 CMS developers and partially
