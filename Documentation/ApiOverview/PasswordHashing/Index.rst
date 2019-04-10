@@ -276,6 +276,8 @@ Example implementation for TYPO3 frontend::
    $password = 'someHopefullyGoodAndLongPassword';
    // The stored password hash from database
    $passwordHash = 'YYY';
+   // The context, either 'FE' or 'BE'
+   $mode = 'FE';
    $success = GeneralUtility::makeInstance(PasswordHashFactory::class)
        ->get($saltedPassword, $mode)
        ->checkPassword($password, $passwordHash);
