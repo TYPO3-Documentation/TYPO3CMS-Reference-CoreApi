@@ -5,7 +5,7 @@
 
 
 ===================
-Configuration files
+Configuration Files
 ===================
 
 Files :file:`ext_tables.php` and :file:`ext_localconf.php` are the two
@@ -19,7 +19,7 @@ ext_localconf.php
 :file:`ext_localconf.php` is always included in global scope of the script,
 either frontend or backend.
 
-Should not be used for
+Should Not Be Used For
 ----------------------
 
 While you *can* put functions and classes into
@@ -27,20 +27,24 @@ the script, it is a really bad practice because
 such classes and functions would *always* be loaded.
 It is better to have them included only as needed.
 
-Should be used for
+Should Be Used For
 ------------------
 
 These are the typical functions that extension authors should place within :file:`ext_localconf.php`
 
-* Registering hooks or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
-* Registering additional Request Handlers within the Bootstrap
+* Registering :ref:`hooks <hooks-basics>` or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
+* Registering additional Request Handlers within the :ref:`Bootstrap <bootstrapping>`
 * Adding any PageTSconfig or Default TypoScript via :php:`ExtensionManagementUtility` APIs
-* Registering Extbase Command Controllers
 * Registering Scheduler Tasks
 * Adding reports to the reports module
 * Adding slots to signals via Extbase's SignalSlotDispatcher
-* Registering Icons to the IconRegistry
-* Registering Services via the Service API
+* Registering Icons to the :ref:`IconRegistry <icon-registration>`
+* Registering Services via the :ref:`Service API <services-developer-service-api>`
+
+deprecated
+
+* *Registering Extbase Command Controllers* (Extbase command controllers are deprecated since
+  TYPO3 9. Use symfony commands as explained in :ref:`cli-mode`)
 
 ext_tables.php
 ==============
@@ -56,7 +60,29 @@ This file is only included when
 This file usually gets included later within the request and after TCA information is loaded,
 and a Backend User is authenticated as well.
 
-Should be used for
+.. hint::
+
+   In many cases, the file :file:`ext_tables.php` is no longer needed, since `TCA` definitions
+   must be placed in :file:`Configuration/TCA/*.php` files nowadays.
+
+
+Should Not Be Used For
+----------------------
+
+* TCA configurations for new tables. They should go in Configuration/TCA/tablename.php
+* TCA overrides of existing tables. They should go in Configuration/TCA/Overrides/tablename.php
+
+For a descriptions of the changes for TCA (compared to older TYPO3 versions), please see
+the blogpost `"Cleaning the hood: TCA" by Andreas Fernandez <https://scripting-base.de/blog/cleaning-the-hood-tca.html>`__
+
+More information can be found in the blogpost `"Good practices in extensions
+<https://usetypo3.com/good-practices-in-extensions.html>`__ (use TYPO3 blog).
+
+.. hint::
+
+   ext_tables.php is not cached. The files in Configuration/TCA are cached.
+
+Should Be Used For
 ------------------
 
 These are the typical functions that should be placed inside :file:`ext_tables.php`
@@ -68,8 +94,9 @@ These are the typical functions that should be placed inside :file:`ext_tables.p
 * Assignments to the global configuration arrays :php:`$TBE_STYLES` and :php:`$PAGES_TYPES`
 * Adding new fields to User Settings ("Setup" Extension)
 
-Best practices
---------------
+
+Best Practices for :php:`ext_tables.php` and :php:`ext_localconf.php`
+=====================================================================
 
 Additionally, it is possible to extend TYPO3 in a lot of different ways (adding TCA, Backend Routes,
 Symfony Console Commands etc) which do not need to touch these files.
@@ -110,10 +137,6 @@ See any system extension for best practice on this behaviour.
   e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName()` or
   :php:`ExtensionManagementUtility::extPath()`.
 
-
-Best practices for :php:`ext_tables.php` and :php:`ext_localconf.php`
-=====================================================================
-
 It is a good practice to use a directly called closure function to encapsulate all
 locally defined variables and thus keep them out of the surrounding scope. This
 avoids unexpected side-effects with files of other extensions.
@@ -127,5 +150,3 @@ The following example contains the complete code::
         // Add your code here
     })();
 
-In many cases, the file :file:`ext_tables.php` is no longer needed, since `TCA` definitions
-must be placed in :file:`Configuration/TCA/*.php` files nowadays.
