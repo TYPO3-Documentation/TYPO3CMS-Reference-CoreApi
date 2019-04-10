@@ -3,6 +3,7 @@
 
 .. _storing-changes:
 
+===================
 Storing the Changes
 ===================
 
@@ -18,7 +19,7 @@ more details.
 .. _storing-changes-extension:
 
 Storing in Extensions
----------------------
+=====================
 
 The advantage of putting your changes inside an extension is that they
 are nicely packaged in a self-contained entity which can be easily
@@ -39,7 +40,7 @@ Core APIs.
 .. _storing-changes-extension-overrides:
 
 Storing in the Overrides Folder
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------
 
 Since TYPO3 CMS 6.2 (6.2.1 to be precise) changes to :php:`$GLOBALS['TCA']`
 must be stored inside a folder called :file:`Configuration/TCA/Overrides`
@@ -72,7 +73,7 @@ The advantage of this method is that all such changes are incorporated into
 .. _storing-changes-extension-exttables:
 
 Storing in ext_tables.php Files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------
 
 Until TYPO3 CMS 6.1 (still supported for 6.2) changes to :php:`$GLOBALS['TCA']` are packaged
 into an extension's :file:`ext_tables.php` file. This is strongly discouraged in more recent
@@ -86,7 +87,7 @@ until the author of the legacy extension migrates his code.
 .. _storing-changes-on-the-fly:
 
 Changing the TCA "on the Fly"
------------------------------
+=============================
 
 It is also possible to perform some special manipulations on
 :php:`$GLOBALS['TCA']` right before it is stored into cache, thanks to the

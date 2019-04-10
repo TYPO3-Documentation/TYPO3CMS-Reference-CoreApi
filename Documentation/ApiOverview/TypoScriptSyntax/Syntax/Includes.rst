@@ -20,16 +20,16 @@ files. The syntax is inspired by SASS imports and works as follows:
 .. code-block:: typoscript
 
    # Import a single file
-   @import 'EXT:myproject/TypoScript/Configuration/randomfile.typoscript'
+   @import 'EXT:myproject/Configuration/TypoScript/randomfile.typoscript'
 
    # Import multiple files of a single directory in file name order
-   @import 'EXT:myproject/TypoScript/Configuration/*.typoscript'
+   @import 'EXT:myproject/Configuration/TypoScript/*.typoscript'
 
    # Import all files of a directory
-   @import 'EXT:myproject/TypoScript/Configuration/'
+   @import 'EXT:myproject/Configuration/TypoScript/'
 
    # The filename extension can be omitted and defaults to .typoscript
-   @import 'EXT:myproject/TypoScript/Configuration/'
+   @import 'EXT:myproject/Configuration/TypoScript/'
 
 The main benefits of :ts:`@import` compared to :ts:`<INCLUDE_TYPOSCRIPT>` are:
 

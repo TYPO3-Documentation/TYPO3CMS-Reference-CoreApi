@@ -3,8 +3,9 @@
 
 .. _extension-create-new:
 
+========================
 Creating a new Extension
-^^^^^^^^^^^^^^^^^^^^^^^^
+========================
 
 This chapter is not a tutorial about how to create an Extension.
 It only aims to be a list of steps to perform and key information
@@ -15,7 +16,7 @@ This is the unique identifier for your extension.
 
 
 Kickstarting the Extension
-""""""""""""""""""""""""""
+==========================
 
 Although it is possible to write every single line of an extension from
 scratch, there is a tool which makes it easier to start. It is called

@@ -3,8 +3,10 @@
 
 .. _extension-declaration:
 
+
+================
 Declaration File
-^^^^^^^^^^^^^^^^
+================
 
 The :file:`ext_emconf.php` is the single most important file in an extension.
 Without it, the Extension Manager (EM) will not detect the extension, much less
@@ -280,7 +282,8 @@ values in the :code:`$EM_CONF` array if needed.
   
 
 Deprecated Configuration
-""""""""""""""""""""""""
+========================
+
 The following fields are deprecated and should not be used anymore:
 
 - dependencies

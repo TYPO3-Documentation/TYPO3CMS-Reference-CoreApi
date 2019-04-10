@@ -3,8 +3,9 @@
 
 .. _cli-mode:
 
+==================================
 TYPO3 CMS shell scripts (CLI mode)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==================================
 
 Besides the backend, it is also possible to run some TYPO3 CMS
 scripts from the command line. This makes it possible - for
@@ -18,13 +19,13 @@ CLI scripts:
 
 .. _cli-mode-dispatcher:
 
-The command-line dispatcher
-"""""""""""""""""""""""""""
+The Command-line Dispatcher
+===========================
 
 TYPO3 uses Symfony commands to provide an easy to use, well-documented API for
 writing CLI commands.
 
-Creating a new Symfony command in your extension
+Creating a new Symfony Command in Your Extension
 ------------------------------------------------
 
 Symfony commands should extend the class :php:`Symfony\Component\Console\Command\Command`.
@@ -68,8 +69,8 @@ A detailed description and an example can be found at `the Symfony Command Docum
 
 .. _cli-mode-command-controllers:
 
-Extbase command controllers
-"""""""""""""""""""""""""""
+Extbase Command Controllers
+===========================
 
 .. warning::
 

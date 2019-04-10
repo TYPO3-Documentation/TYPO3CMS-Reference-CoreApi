@@ -3,8 +3,10 @@
 
 .. _extending:
 
+
+========================
 Extending the TCA Array
------------------------
+========================
 
 Being a PHP array, the Table Configuration Array can be easily
 extended. It can be accessed as the global variable :php:`$GLOBALS['TCA']`.
