@@ -58,16 +58,29 @@ Quite a few others come from the "`styleguide <https://github.com/TYPO3/stylegui
 extension. You can install it, if you want to try out these examples yourself and
 use them as a basis for your own extensions.
 
+.. _contribute:
 .. _feedback:
 
-Feedback and Fixing
--------------------
+Feedback and Contribute
+-----------------------
 
-If you find a bug in this manual, please be so kind as to check the
-`online version <https://docs.typo3.org/typo3cms/CoreApiReference/>`__.
-From there you can hit the "Edit me on GitHub" button in the top right corner
-and submit a pull request via GitHub. Alternatively you can just `file an issue
-using the bug tracker <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues>`__.
+If you find an error in this manual, please be so kind to hit
+the "Edit me on GitHub" button in the top right corner
+and submit a pull request via GitHub.
+
+Alternatively you can just `report an issue
+on GitHub <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/new>`__.
+
+You can find more about this in Writing Documentation:
+
+- :ref:`h2document:docs-contribute` : Make a change by editing directly on
+  GitHub and creating a pull request
+- :ref:`h2document:docs-contribute-git-docker` : If you are experienced
+  with Docker and Git you can edit and render locally. Find out more in
+  :ref:`docs-contribute-git-docker`.
+
+If you are currently not reading the online version, go to
+https://docs.typo3.org/typo3cms/CoreApiReference/.
 
 Maintaining high quality documentation requires time and effort
 and the TYPO3 Documentation Team always appreciates support.
