@@ -2,6 +2,7 @@
 
 .. _introduction:
 
+============
 Introduction
 ============
 
@@ -9,7 +10,7 @@ Introduction
 .. _about:
 
 About this document
--------------------
+===================
 
 TYPO3 is known for its extensibility. To really benefit from
 this power, a complete documentation is needed: "TYPO3 Explained" aims to
@@ -29,7 +30,7 @@ of choice in your work with TYPO3.
 .. _audience:
 
 Intended audience
-~~~~~~~~~~~~~~~~~
+-----------------
 
 This document is intended to be a reference for TYPO3 CMS developers and partially
 for integrators. The document explains all major parts of TYPO3 and the concepts.
@@ -48,7 +49,7 @@ consider that as well!
 .. _code-examples:
 
 Code examples
-~~~~~~~~~~~~~
+-------------
 
 Many of the code examples found in this document come from the TYPO3
 Core itself.
@@ -61,7 +62,7 @@ use them as a basis for your own extensions.
 .. _feedback:
 
 Feedback and Contribute
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 If you find an error in this manual, please be so kind to hit
 the "Edit me on GitHub" button in the top right corner
@@ -85,13 +86,7 @@ Maintaining high quality documentation requires time and effort
 and the TYPO3 Documentation Team always appreciates support.
 
 If you want to support us, please join the slack channel **#typo3-documentation**
-<<<<<<< HEAD
 on `Slack <https://typo3.slack.com/>`__ (`Register for Slack <https://my.typo3.org/about-mytypo3org/slack/>`__).
-=======
-on `Slack <https://typo3.slack.com/>`__.
-Visit `forger <https://forger.typo3.org/slack>`__ to gain access to Slack.
-Find out more in :ref:`h2document:slack>`
->>>>>>> sypets/startpage-author
 
 And finally, as a last resort, you can get in touch with the documentation team
 `by mail <documentation@typo3.org>`_.
@@ -100,7 +95,7 @@ And finally, as a last resort, you can get in touch with the documentation team
 .. _credits:
 
 Credits
-~~~~~~~
+-------
 
 This manual was originally written by Kasper Skårhøj. It was further
 maintained, refreshed and expanded by François Suter.
@@ -116,7 +111,7 @@ several teams. He managed the whole process of getting the Security Guide to a h
 .. _dedication:
 
 Dedication
-~~~~~~~~~~
+----------
 
 I want to dedicate this document to the people in the TYPO3 community
 who have the  *discipline* to do the boring job of writing
@@ -132,14 +127,14 @@ documents. Go for completeness!
 .. _next-steps:
 
 Further Documentation
----------------------
+=====================
 
 This manual covers many different APIs of the TYPO3 CMS Core, but some
 other documents exist which cover more specific aspects.
 
 
 :ref:`TCA Reference <t3tca:start>`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 `TCA` is the backbone of database tables displayed in the backend, it configures
 how data is stored if editing records in the backend, how fields are displayed,
@@ -153,7 +148,7 @@ Developers, partially for Integrators, and is often used as a reference book on 
 
 
 :ref:`TypoScript Reference <t3tsref:start>`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------
 
 `TypoScript` - or more precisely `Frontend TypoScript` - is used in TYPO3 to steer
 the frontend rendering (the actual website) of a TYPO3 instance. It is based on the
@@ -170,7 +165,7 @@ the incredible power of Frontent TypoScript is daily bread for Integrators.
 
 
 :ref:`TSconfig Reference <t3tsconfig:start>`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------
 
 While `Frontend TypoScript` is used to steer the rendering of the frontend, `TSconfig` is used
 to configure backend details for backend users. Using `TSconfig` it is possible to enable or
@@ -191,7 +186,7 @@ easy as possible for backend users.
 .. _overview:
 
 System Overview
----------------
+===============
 
 For most people TYPO3 is equivalent to a CMS providing a backend for
 management of the content and a frontend engine for website display.
@@ -218,7 +213,7 @@ is - of course - the ultimate documentation.
 .. _installation:
 
 A basic installation
---------------------
+====================
 
 To follow this document, it might help to have a totally trimmed down installation
 of TYPO3 CMS with *only* the core and the required system extensions at hand.
