@@ -4,7 +4,7 @@
 .. _distribution:
 
 ===========================
-Creating a new distribution
+Creating a new Distribution
 ===========================
 
 This chapter describes the main steps in creating a new
@@ -14,7 +14,7 @@ tutorial.
 
 .. _distribution_concept:
 
-Concept of distributions
+Concept of Distributions
 ========================
 
 Distributions are full TYPO3 CMS websites ready to be unpacked. They provide
@@ -42,7 +42,7 @@ care of the following parts:
 
 .. _distribution-kickstart:
 
-Kickstarting the distribution
+Kickstarting the Distribution
 =============================
 
 A distribution is a special kind of extension. The first step
@@ -57,7 +57,7 @@ except for the "category" property which must be set to
 
 .. _distribution-kickstart-image:
 
-Configuring the distribution display in the EM
+Configuring the Distribution Display in the EM
 ----------------------------------------------
 
 You should provide two preview images for your distribution. Provide
@@ -69,7 +69,7 @@ The welcome image is displayed in the distribution detail view inside the Extens
 
 .. _distribution-kickstart-fileadmin:
 
-Fileadmin files
+Fileadmin Files
 ---------------
 
 Create the following folder structure inside your extension:
@@ -111,7 +111,7 @@ site setup. This ends up with only content related stuff being located in
 
 .. _distribution-kickstart-database:
 
-Database data
+Database Data
 -------------
 
 The database data is delivered as TYPO3 CMS export :file:`data.xml`.
@@ -163,7 +163,7 @@ to the needs of your distribution. The ext:introduction preset is configured as:
 
 .. _distribution-kickstart-configuration:
 
-Distribution configuration
+Distribution Configuration
 --------------------------
 
 A distribution is technically handled as an extension. Therefore you
@@ -176,7 +176,7 @@ scheme) on the fly.
 
 .. _distribution-kickstart-custom-dependencies:
 
-Delivering custom dependencies
+Delivering Custom Dependencies
 ------------------------------
 
 Normally extension dependencies are setup in the
@@ -199,7 +199,7 @@ need to be fetched.
 
 .. _distribution-testing:
 
-Test your distribution
+Test Your Distribution
 ======================
 
 To test your distribution, simply copy your extension to an empty
@@ -235,7 +235,7 @@ locally *without* uploading to TER first.
 
 .. _distribution-more-information:
 
-More information
+More Information
 ================
 
 The `introduction extension <https://github.com/FriendsOfTYPO3/introduction>`_ is a

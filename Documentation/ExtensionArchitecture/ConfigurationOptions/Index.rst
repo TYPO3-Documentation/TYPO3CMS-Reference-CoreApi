@@ -4,7 +4,7 @@
 .. _extension-options:
 
 =====================
-Configuration options
+Configuration Options
 =====================
 
 In the :file:`ext_conf_template.txt` file configuration options

@@ -94,7 +94,6 @@ These are the typical functions that should be placed inside :file:`ext_tables.p
 * Assignments to the global configuration arrays :php:`$TBE_STYLES` and :php:`$PAGES_TYPES`
 * Adding new fields to User Settings ("Setup" Extension)
 
-
 Best Practices for :php:`ext_tables.php` and :php:`ext_localconf.php`
 =====================================================================
 

@@ -3,8 +3,9 @@
 
 .. _extension-declaration:
 
+
 ================
-Declaration file
+Declaration File
 ================
 
 The :file:`ext_emconf.php` is the single most important file in an extension.
@@ -280,7 +281,7 @@ values in the :code:`$EM_CONF` array if needed.
          *ApplicationContext* is set to *Testing*.
   
 
-Deprecated configuration
+Deprecated Configuration
 ========================
 
 The following fields are deprecated and should not be used anymore:

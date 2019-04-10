@@ -4,7 +4,7 @@
 .. _storing-changes:
 
 ===================
-Storing the changes
+Storing the Changes
 ===================
 
 There are various ways to store changes to :php:`$GLOBALS['TCA']`. They
@@ -18,7 +18,7 @@ more details.
 
 .. _storing-changes-extension:
 
-Storing in extensions
+Storing in Extensions
 =====================
 
 The advantage of putting your changes inside an extension is that they
@@ -39,7 +39,7 @@ Core APIs.
 
 .. _storing-changes-extension-overrides:
 
-Storing in the Overrides folder
+Storing in the Overrides Folder
 -------------------------------
 
 Since TYPO3 CMS 6.2 (6.2.1 to be precise) changes to :php:`$GLOBALS['TCA']`
@@ -72,7 +72,7 @@ The advantage of this method is that all such changes are incorporated into
 
 .. _storing-changes-extension-exttables:
 
-Storing in ext_tables.php files
+Storing in ext_tables.php Files
 -------------------------------
 
 Until TYPO3 CMS 6.1 (still supported for 6.2) changes to :php:`$GLOBALS['TCA']` are packaged
@@ -86,7 +86,7 @@ until the author of the legacy extension migrates his code.
 
 .. _storing-changes-on-the-fly:
 
-Changing the TCA "on the fly"
+Changing the TCA "on the Fly"
 =============================
 
 It is also possible to perform some special manipulations on

@@ -4,7 +4,7 @@
 .. _extension-documentation:
 
 ====================
-Adding documentation
+Adding Documentation
 ====================
 
 If you plan to upload your extension to the TYPO3 Extension Repository (TER), you should first consider adding
@@ -28,7 +28,7 @@ different kinds of documentation:
 
 .. _extension-documentation-sphinx:
 
-Sphinx project
+Sphinx Project
 ==============
 
 Sphinx is the format used for official TYPO3 documentation. A Sphinx-based documentation is a set of
@@ -53,7 +53,7 @@ provides tools that help to create a Sphinx documentation project:
 
 .. _extension-documentation-readme:
 
-Other formats
+Other Formats
 =============
 
 Other formats besides the recommended format are possible as described in :ref:`h2document:supported-filenames-and-formats`.

@@ -3,8 +3,9 @@
 
 .. _extending:
 
+
 ========================
-Extending the $TCA array
+Extending the TCA Array
 ========================
 
 Being a PHP array, the Table Configuration Array can be easily
