@@ -3,6 +3,7 @@
 
 .. _distribution:
 
+===========================
 Creating a new distribution
 ===========================
 
@@ -14,7 +15,7 @@ tutorial.
 .. _distribution_concept:
 
 Concept of distributions
-------------------------
+========================
 
 Distributions are full TYPO3 CMS websites ready to be unpacked. They provide
 an easy quick start for using TYPO3 CMS. The most well known distribution is
@@ -42,7 +43,7 @@ care of the following parts:
 .. _distribution-kickstart:
 
 Kickstarting the distribution
------------------------------
+=============================
 
 A distribution is a special kind of extension. The first step
 is thus to create a new extension.
@@ -57,7 +58,7 @@ except for the "category" property which must be set to
 .. _distribution-kickstart-image:
 
 Configuring the distribution display in the EM
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------
 
 You should provide two preview images for your distribution. Provide
 a small 220x150 pixels for the list in the Extension Manager as
@@ -69,7 +70,7 @@ The welcome image is displayed in the distribution detail view inside the Extens
 .. _distribution-kickstart-fileadmin:
 
 Fileadmin files
-^^^^^^^^^^^^^^^
+---------------
 
 Create the following folder structure inside your extension:
 
@@ -111,7 +112,7 @@ site setup. This ends up with only content related stuff being located in
 .. _distribution-kickstart-database:
 
 Database data
-^^^^^^^^^^^^^
+-------------
 
 The database data is delivered as TYPO3 CMS export :file:`data.xml`.
 Generate this file by exporting your whole installation
@@ -163,7 +164,7 @@ to the needs of your distribution. The ext:introduction preset is configured as:
 .. _distribution-kickstart-configuration:
 
 Distribution configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------
 
 A distribution is technically handled as an extension. Therefore you
 can make use of all :ref:`configuration options <extension-options>` as needed.
@@ -176,7 +177,7 @@ scheme) on the fly.
 .. _distribution-kickstart-custom-dependencies:
 
 Delivering custom dependencies
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------
 
 Normally extension dependencies are setup in the
 :ref:`Extension declaration file <extension-declaration>`.
@@ -199,7 +200,7 @@ need to be fetched.
 .. _distribution-testing:
 
 Test your distribution
-----------------------
+======================
 
 To test your distribution, simply copy your extension to an empty
 TYPO3 CMS installation and try to install it from the Extension
@@ -235,7 +236,7 @@ locally *without* uploading to TER first.
 .. _distribution-more-information:
 
 More information
-----------------
+================
 
 The `introduction extension <https://github.com/FriendsOfTYPO3/introduction>`_ is a
 good starting point to see how distributions are handled in practice. It also comes
