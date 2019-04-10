@@ -24,8 +24,8 @@ TYPO3 Explained
 :Copyright:
       2000-2018
 
-:Author:
-      Core Team, Documentation Team & community
+:Authors:
+      Core Team, Documentation Team & community (see :ref:`credits`)
 
 :Email:
       documentation@typo3.org
