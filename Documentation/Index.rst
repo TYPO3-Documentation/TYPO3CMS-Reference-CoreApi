@@ -25,7 +25,7 @@ TYPO3 Explained
       2000-2018
 
 :Author:
-      Documentation Team
+      Core Team, Documentation Team & community
 
 :Email:
       documentation@typo3.org
@@ -45,12 +45,11 @@ a GNU/GPL CMS/Framework available from `www.typo3.org
 **Official Documentation**
 
 This document is included as part of the official TYPO3 documentation.
-It has been approved by the TYPO3 Documentation Team following a peer-
-review process. The reader should expect the information in this
-document to be accurate - please report discrepancies to the
-Documentation Team (documentation@typo3.org). Official documents are
-kept up-to-date to the best of the Documentation Team's abilities.
 
+If you find an error or something is missing, please create an `issue
+<https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/new>`__
+or make the change yourself. You can find out more about how to do this in
+:ref:`contribute`.
 
 **Core Manual**
 
