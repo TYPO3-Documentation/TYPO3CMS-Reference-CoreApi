@@ -318,6 +318,11 @@ Opening and closing parenthesis are used to assign a *multi-line
 value* . With this method you can define values which span several
 lines and thus include line breaks.
 
+.. important::
+
+   You cannot use multi-line values in constants. They are only available in the setup part of TypoScript.
+
+
 
 Rules:
 ~~~~~~
