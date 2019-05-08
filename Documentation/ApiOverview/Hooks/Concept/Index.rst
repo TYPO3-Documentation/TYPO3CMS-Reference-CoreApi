@@ -135,7 +135,7 @@ In this example, we define that we want to call the method
 :php:`\TYPO3\CMS\Extensionmanager\Utility\InstallUtility::class` is dispatched.
 
 To find out which parameters/variables are available, open the signal's class
-and take a look at the dispatch call::
+and take a look at the dispatch call:
 
 :php:`$this->signalSlotDispatcher->dispatch(__CLASS__, 'afterExtensionUninstall', [$extensionKey, $this]);`
 
