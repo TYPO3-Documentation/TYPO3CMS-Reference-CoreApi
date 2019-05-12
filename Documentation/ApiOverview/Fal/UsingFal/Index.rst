@@ -17,4 +17,5 @@ or useful examples for common use-cases.
    ExamplesResourceFactory
    ExamplesFileFolder
    ExamplesCollection
+   ExamplesFileSearch
 
