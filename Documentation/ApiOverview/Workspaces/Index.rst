@@ -40,8 +40,8 @@ you are facing.
 
 .. _workspaces-frontend:
 
-Frontend challenges in general
-""""""""""""""""""""""""""""""
+Frontend Challenges in General
+==============================
 
 For the frontend the challenges are mostly related to creating correct
 previews of content in workspaces. For most extensions this will work
@@ -79,7 +79,7 @@ like email, username, alias etc. it will fail.
 .. _workspaces-frontend-summary:
 
 Summary
-~~~~~~~
+-------
 
 **Challenge:** How to preview elements which are disabled by
 "enableFields" in the live version but not necessarily in the offline
@@ -92,8 +92,8 @@ live records and check for them in versionOL on input record.
 
 .. _workspaces-frontend-guidelines:
 
-Frontend implementation guidelines
-""""""""""""""""""""""""""""""""""
+Frontend Implementation Guidelines
+==================================
 
 - Any place where enableFields() are not used for selecting in the
   frontend you must at least check that :code:`t3ver_state != 1` so
@@ -176,8 +176,8 @@ Frontend implementation guidelines
 
 .. _workspaces-frontend-problems:
 
-Frontend scenarios impossible to preview
-""""""""""""""""""""""""""""""""""""""""
+Frontend Scenarios Impossible to Preview
+========================================
 
 These issues are not planned to be supported for preview:
 
@@ -223,8 +223,8 @@ These issues are not planned to be supported for preview:
 
 .. _workspaces-backend:
 
-Backend challenges
-""""""""""""""""""
+Backend Challenges
+==================
 
 The main challenge in the backend is to reflect how the system will
 look when the workspace gets published. To create a transparent
@@ -237,8 +237,8 @@ frontend.
 
 .. _workspaces-backend-api:
 
-Workspace-related API for backend modules
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Workspace-related API for Backend Modules
+-----------------------------------------
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -385,8 +385,8 @@ Workspace-related API for backend modules
 
 .. _workspaces-backend-acess:
 
-Backend module access
-"""""""""""""""""""""
+Backend Module Access
+=====================
 
 You can restrict access to backend modules by using
 :code:`$MCONF['workspaces']` in the :file:`conf.php` files. The variable is a list of
@@ -401,8 +401,8 @@ like. This is done by an argument sent to the function
 
 .. _workspaces-detection:
 
-Detecting current workspace
-"""""""""""""""""""""""""""
+Detecting Current Workspace
+===========================
 
 You can always check what the current workspace of the backend user is
 by reading :code:`WorkspaceAspect->getWorkspaceId()`. If the workspace is a
@@ -415,8 +415,8 @@ corresponding entry in the :code:`sys_workspace` table.
 
 .. _workspaces-tcemain:
 
-Using DataHandler with workspaces
-"""""""""""""""""""""""""""""""""
+Using DataHandler With Workspaces
+=================================
 
 Since admin users are also restricted by the workspace it is not
 possible to save any live records when in a workspace. However for
@@ -430,8 +430,8 @@ User Settings" module; that actually allows them to save to a live record
 
 .. _workspaces-moving:
 
-Moving in workspaces
-""""""""""""""""""""
+Moving in Workspaces
+====================
 
 TYPO3 4.2 and beyond supports moving for "Element" type versions in
 workspaces. Technically this works by creating a new online
