@@ -12,7 +12,7 @@ CMS core for JavaScript files.
 
 Note that the TYPO3 core typically uses TypeScript now and automatically converts it to JavaScript.
 
-Directories and filenames
+Directories and Filenames
 =========================
 
 * JavaScript files should have the file ending :file:`.js`
@@ -31,7 +31,7 @@ Format
 * Prefix jQuery object variables with a `$`.
 
 
-More information
+More Information
 ================
 
 * See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to

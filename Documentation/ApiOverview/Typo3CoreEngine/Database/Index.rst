@@ -4,7 +4,7 @@
 .. _datahandler-basics:
 
 ========================================================
-Database: DataHandler basics (formerly known as TCEmain)
+Database: DataHandler Basics (Formerly Known as TCEmain)
 ========================================================
 
 When you are using TCE from your backend applications you need to
@@ -93,7 +93,7 @@ Description of keywords in syntax:
 
 .. _tce-command-keywords:
 
-Command keywords and values
+Command Keywords and Values
 ---------------------------
 
 .. t3-field-list-table::
@@ -282,7 +282,7 @@ Command keywords and values
 
 .. _tce-command-examples:
 
-Examples of commands:
+Examples of Commands:
 ---------------------
 
 ::
@@ -360,7 +360,7 @@ Description of keywords in syntax:
 
 .. _tce-data-examples:
 
-Examples of Data submission
+Examples of Data Submission
 ---------------------------
 
 This creates a new page titled "The page title" as the first page
@@ -431,7 +431,7 @@ this page", and no\_cache checked::
 
 .. _tce-clear-cache:
 
-Clear cache
+Clear Cache
 ===========
 
 TCE also has an API for clearing the cache tables of TYPO3:
@@ -482,7 +482,7 @@ Syntax::
 
 .. _tce-cache-hook:
 
-Hook for cache post-processing
+Hook for Cache Post-processing
 ------------------------------
 
 You can configure cache post-processing with a user defined PHP

@@ -1,17 +1,18 @@
 .. include:: ../../../Includes.txt
 
 .. --- EDIT NOTE ---
-.. please see this open issue: 
+.. please see this open issue:
 .. https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/73
-.. If this is resolved, please close the issue and remove this note. 
+.. If this is resolved, please close the issue and remove this note.
 .. 2018-04-24
 .. ------------------
 
 
 .. _edit-links:
 
-Links to edit records
-^^^^^^^^^^^^^^^^^^^^^
+=====================
+Links to Edit Records
+=====================
 
 It is often needed to create links to edit records in the TYPO3 backend.
 The same syntax is also used for creating new records.
@@ -63,8 +64,8 @@ The links appear as one can expect:
 
 .. _edit-links-edit:
 
-Editing a record
-""""""""""""""""
+Editing a Record
+================
 
 The first example (:code:`edit[pages][1]=edit`) opens the page with uid 1
 for editing.
@@ -84,8 +85,8 @@ The examples above leads to the normal edit form for a page:
 
 .. _edit-links-edit-restricted:
 
-Editing only a few fields from a record
-"""""""""""""""""""""""""""""""""""""""
+Editing Only a Few Fields From a Record
+=======================================
 
 The second example does the same, but restricts the display to
 only the "title" and "hidden" fields (:code:`edit[pages][1]=edit&columnsOnly=title,hidden`).
@@ -101,8 +102,8 @@ The example above results in the following:
 
 .. _edit-links-new:
 
-Creating a form for new elements
-""""""""""""""""""""""""""""""""
+Creating a Form for New Elements
+================================
 
 The third example uses somewhat more complex parameters::
 

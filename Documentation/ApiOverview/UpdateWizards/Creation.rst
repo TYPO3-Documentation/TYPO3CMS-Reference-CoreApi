@@ -3,7 +3,7 @@
 .. _update-wizards-creation-generic:
 
 ===============================
-Creating generic update wizards
+Creating Generic Update Wizards
 ===============================
 
 Each update wizard consists of a single PHP file containing a single PHP class. This
@@ -27,7 +27,7 @@ methods::
        {
          return 'exampleUpdateWizard';
        }
-   
+
        /**
         * Return the speaking name of this wizard
         *
@@ -37,7 +37,7 @@ methods::
        {
          return 'Title of this updater';
        }
-   
+
        /**
         * Return the description for this wizard
         *
@@ -47,7 +47,7 @@ methods::
        {
          return 'Description of this updater';
        }
-   
+
        /**
         * Execute the update
         *
@@ -58,7 +58,7 @@ methods::
        public function executeUpdate(): bool
        {
        }
-   
+
        /**
         * Is an update necessary?
         *
@@ -70,7 +70,7 @@ methods::
        public function updateNecessary(): bool
        {
        }
-   
+
        /**
         * Returns an array of class names of prerequisite classes
         *
@@ -85,7 +85,7 @@ methods::
    }
 
 Method :php:`getIdentifier`
-   Return the identifier for this wizard. This should be the same string as used 
+   Return the identifier for this wizard. This should be the same string as used
    in the ext_localconf class registration.
 
 Method :php:`getTitle`
@@ -102,11 +102,11 @@ Method :php:`executeUpdate`
 Method :php:`updateNecessary`
    Is called to check whether the updater has to run. Therefore a boolean has to be
    returned.
-   
+
 Method :php:`getPrerequisites`
-   Returns an array of class names of prerequisite classes. This way a wizard can 
+   Returns an array of class names of prerequisite classes. This way a wizard can
    define dependencies like "database up-to-date" or "reference index updated":
-   
+
 .. code-block:: php
 
    /**

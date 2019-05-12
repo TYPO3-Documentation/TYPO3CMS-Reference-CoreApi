@@ -3,8 +3,9 @@
 
 .. _transformations-custom:
 
-Custom transformations API
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+==========================
+Custom Transformations API
+==========================
 
 Instead of using the built-in transformations of TYPO3 you can program
 your own. This is done by creating a PHP class with two methods for
@@ -15,8 +16,9 @@ the configuration of Rich Text Editors.
 
 .. _transformations-custom-key:
 
-Custom transformation key
-"""""""""""""""""""""""""
+
+Custom Transformation Key
+=========================
 
 You should pick a custom transformation key prefixed by :code:`tx_`,
 something like :code:`tx_[extension key]_[suffix]`. The key must **not**
@@ -31,8 +33,8 @@ contain dashes (see :ref:`transformations-custom`).
 
 .. _transformations-custom-key-registration:
 
-Registering the transformation key in the system
-""""""""""""""""""""""""""""""""""""""""""""""""
+Registering the Transformation Key in the System
+================================================
 
 In :code:`ext_localconf.php`, simply set a :code:`$GLOBALS['TYPO3_CONF_VARS']` variable
 to point to the class which contains the transformation methods::
@@ -57,8 +59,8 @@ It must also contain two public variables called by TYPO3 Core
 
 .. _transformations-custom-code:
 
-Code listing
-""""""""""""
+Code Listing
+============
 
 This code listing shows a simple transformation. When content is
 delivered to the RTE it will add a :code:`<hr/>` tag to the end of the

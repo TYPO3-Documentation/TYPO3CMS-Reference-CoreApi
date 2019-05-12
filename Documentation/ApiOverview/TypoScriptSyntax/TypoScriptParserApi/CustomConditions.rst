@@ -3,8 +3,9 @@
 
 .. _typoscript-syntax-implementing-custom-conditions:
 
-Implementing custom conditions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==============================
+Implementing Custom Conditions
+==============================
 
 Now we know how to parse TypoScript and the only thing we still want
 to do is to implement support for custom conditions. As stated in a few

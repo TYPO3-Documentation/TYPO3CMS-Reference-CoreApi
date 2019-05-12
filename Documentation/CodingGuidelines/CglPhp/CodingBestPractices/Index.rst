@@ -2,8 +2,9 @@
 
 .. _cgl-best-practices:
 
+======================
 Coding: Best practices
-----------------------
+======================
 
 This section documents some best practices when developing for TYPO3.
 Most areas are documented in more detail at different places, this

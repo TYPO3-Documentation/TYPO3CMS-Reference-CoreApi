@@ -3,8 +3,9 @@
 
 .. _csh-files:
 
-The language files for CSH
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+==========================
+The Language Files for CSH
+==========================
 
 The files used for storing CSH data are standard
 language files, in XLIFF format and stored in an extension's
@@ -95,8 +96,8 @@ table or module (by selecting it from the CSH table of contents).
 
 .. _csh-files-syntax:
 
-Syntax for type keys
-""""""""""""""""""""
+Syntax for Type Keys
+====================
 
 .. note::
 
@@ -184,8 +185,8 @@ seeAlso
 
 .. _csh-files-extend-label:
 
-Extending an existing label
-"""""""""""""""""""""""""""
+Extending an Existing Label
+===========================
 
 It is also possible to extend an existing label. Here is an extract from
 :file:`typo3/sysext/core/Resources/Private/Language/locallang_csh_pages.xlf`:

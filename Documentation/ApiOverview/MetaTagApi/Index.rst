@@ -64,7 +64,7 @@ Or remove all previously set meta tags of a specific manager:
 
 .. _metatagapi-create-your-own:
 
-Creating your own MetaTagManager
+Creating Your Own MetaTagManager
 ================================
 
 If you need to specify the settings and rendering of a specific meta tag (for example when you want to make it possible

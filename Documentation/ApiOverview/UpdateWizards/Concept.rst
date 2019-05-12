@@ -3,7 +3,7 @@
 .. _update-wizards-concept:
 
 =============================
-The concept of update wizards
+The concept of Update Wizards
 =============================
 
 Update wizards are single PHP classes that provide an automated way to update certain
@@ -22,7 +22,7 @@ Each wizard is able to check pre-conditions to prevent execution, if nothing has
 be updated. The wizard can log information and executed SQL statements, that can be
 displayed after execution.
 
-Best practice
+Best Practice
 =============
 
 Each extension can provide as many update wizards as necessary. Each wizard should do

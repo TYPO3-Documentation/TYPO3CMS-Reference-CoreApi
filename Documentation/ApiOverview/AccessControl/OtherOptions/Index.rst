@@ -3,8 +3,9 @@
 
 .. _access-other-options:
 
-Other options
-^^^^^^^^^^^^^
+=============
+Other Options
+=============
 
 This chapter presents a few more, miscellaneous options for
 backend users and groups.
@@ -13,7 +14,7 @@ backend users and groups.
 .. _access-other-options-users:
 
 Backend Users
-"""""""""""""
+=============
 
 Default language
   This is the language in which the backend will be localized for the
@@ -46,7 +47,7 @@ Lock to domain
 .. _access-other-options-groups:
 
 Backend Groups
-""""""""""""""
+==============
 
 Disable
   Setting this flag will immediately disable the group for

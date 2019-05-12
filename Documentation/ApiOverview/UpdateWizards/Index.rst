@@ -3,7 +3,7 @@
 .. _update-wizards:
 
 ==============
-Update wizards
+Update Wizards
 ==============
 
 TYPO3 CMS offers a way for extension authors to provide automated updates for

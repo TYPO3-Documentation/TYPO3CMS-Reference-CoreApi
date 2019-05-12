@@ -3,8 +3,9 @@
 
 .. _cgl-localization:
 
+============
 Localization
-^^^^^^^^^^^^
+============
 
 TYPO3 is designed to be fully localizable. Hard-coded strings should
 thus be avoided unless there are some technical limitations (e.g. some
@@ -12,8 +13,8 @@ very early or low-level stuff where a :php:`$GLOBALS['LANG']` object
 is not yet available).
 
 
-Defining localized strings
-""""""""""""""""""""""""""
+Defining Localized Strings
+==========================
 
 Here are some rules to respect when working with labels in :file:`locallang`
 files:

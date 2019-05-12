@@ -3,8 +3,9 @@
 
 .. _access-users-groups:
 
-Users and groups
-^^^^^^^^^^^^^^^^
+================
+Users and Groups
+================
 
 TYPO3 CMS features an access control system based on users and groups.
 
@@ -12,7 +13,7 @@ TYPO3 CMS features an access control system based on users and groups.
 .. _access-users-groups-users:
 
 Users
-"""""
+=====
 
 Each user of the backend must be represented with a single record in
 the table "be\_users". This record contains the username and password,
@@ -35,7 +36,7 @@ done using groups. Furthermore groups offer far more options.
 .. _access-users-groups-groups:
 
 Groups
-""""""
+======
 
 Each user can also be a member of one or more groups (from the
 "be\_groups" table) and each group can include sub-groups. Groups
@@ -56,8 +57,8 @@ It contains many more fields!
 
 .. _access-users-groups-admin:
 
-The "admin" user
-""""""""""""""""
+The "admin" User
+================
 
 There is a special kind of backend users called "Admin".
 When creating a backend user, just check the "Admin!" box in the
@@ -95,8 +96,8 @@ Admin users are differentiated with an orange icon.
 
 .. _access-users-groups-location:
 
-Location of users and groups
-""""""""""""""""""""""""""""
+Location of Users and Groups
+============================
 
 Since both backend users and backend groups are represented by records
 in the database, they are edited just as any other record in the

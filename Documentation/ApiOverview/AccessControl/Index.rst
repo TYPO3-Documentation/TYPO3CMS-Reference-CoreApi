@@ -2,8 +2,9 @@
 
 .. _access:
 
+==============
 Access Control
---------------
+==============
 
 .. toctree::
    :maxdepth: 5

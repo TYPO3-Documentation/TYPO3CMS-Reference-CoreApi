@@ -3,8 +3,9 @@
 
 .. _cgl-hook-naming:
 
+===========
 Hook Naming
-^^^^^^^^^^^
+===========
 
 When introducing new hooks in TYPO3 the naming of the registration arrays shall follow this schema::
 

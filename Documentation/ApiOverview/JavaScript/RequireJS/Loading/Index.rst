@@ -7,8 +7,10 @@
 
 .. _requirejs-loading:
 
-Loading your own or other RequireJS modules
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===========================================
+Loading Your Own or Other RequireJS Modules
+===========================================
+
 
 In case you use the ready event, you may wonder how to use the module.
 Answer: it depends! If you use Fluid's :html:`f:be.pageRenderer` view helper,

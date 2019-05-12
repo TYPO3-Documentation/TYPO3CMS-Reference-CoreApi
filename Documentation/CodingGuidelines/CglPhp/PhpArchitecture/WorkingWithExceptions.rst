@@ -3,12 +3,13 @@
 
 .. _cgl-working-with-exceptions:
 
-Working with exceptions
-^^^^^^^^^^^^^^^^^^^^^^^
+=======================
+Working With Exceptions
+=======================
 
 
 Introduction
-""""""""""""
+============
 
 Working with exceptions in a sane way is a frequently asked topic. This
 section aims to give some good advice on how to deal with exceptions in
@@ -29,8 +30,8 @@ a log file for later analysis. Additionally, an exception usually comes
 along with a backtrace.
 
 
-Exception types
-"""""""""""""""
+Exception Types
+===============
 
 Exceptions are a good thing, but how to decide on what to throw exactly?
 The basic idea is: If it is possible that an exception needs to be
@@ -42,8 +43,8 @@ if in doubt, a :php:`\RuntimeException` fits - it is much more important
 to throw a meaningful exception message in those cases.
 
 
-Typical cases for exceptions that are designed to be caught
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Typical Cases for Exceptions That are Designed to be Caught
+-----------------------------------------------------------
 
 * Race conditions than can be created by editors in a normal workflow:
 
@@ -64,8 +65,8 @@ Typical cases for exceptions that are designed to be caught
   connection …".
 
 
-Typical cases for exceptions that should not be caught
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Typical Cases for Exceptions That Should not be Caught
+------------------------------------------------------
 
 * Wrong configuration: A flexform contains a :code:`type=inline` field.
   At the time of this writing, this case was not implemented, so the
@@ -80,8 +81,8 @@ Typical cases for exceptions that should not be caught
   :php:`\RuntimeException` should be thrown.
 
 
-Typical exception arguments
-"""""""""""""""""""""""""""
+Typical Exception Arguments
+===========================
 
 The standard exception signature::
 
@@ -123,8 +124,8 @@ Example::
 
 
 
-Exception inheritance
-"""""""""""""""""""""
+Exception Inheritance
+=====================
 
 A typical exception hierarchy for specific exceptions in the core
 looks like :php:`Vendor\MyExt\Exception extends TYPO3\CMS\Core\Exception`,
@@ -146,8 +147,8 @@ caught however. In general, the inheritance hierarchy shouldn’t be
 extended much deeper and should be kept relatively flat.
 
 
-Extending exceptions
-""""""""""""""""""""
+Extending Exceptions
+====================
 
 It can become handy to extend exceptions in order to transport further
 data to the code that catches the exception. This can be useful if an
@@ -166,8 +167,8 @@ spoil this idea: Once thrown, exceptions should be immutable, thus the
 only way to add data is by handing it over as constructor arguments.
 
 
-Good examples
-"""""""""""""
+Good Examples
+=============
 
 * :php:`\TYPO3\CMS\Backend\Form\FormDataProvider\AbstractDatabaseRecordProvider`,
   :php:`\TYPO3\CMS\Backend\Form\FormDataProvider\DatabaseEditRow`,
@@ -215,8 +216,8 @@ Good examples
     explain in more detail on what went wrong.
 
 
-Bad examples
-""""""""""""
+Bad Examples
+============
 
 * :php:`TYPO3\CMS\Core\Resource\FileRepository` method :php:`findFileReferenceByUid()`
 

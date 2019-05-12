@@ -7,14 +7,15 @@
 
 .. _ajax-presentation:
 
-In-depth presentation
-^^^^^^^^^^^^^^^^^^^^^
+=====================
+In-depth Presentation
+=====================
 
 
 .. _ajax-client:
 
-Client-Side programming
-"""""""""""""""""""""""
+Client-Side Programming
+=======================
 
 .. note::
    This paragraph describes obsolete processes using Prototype
@@ -47,8 +48,8 @@ supports usage of 'Ext.Direct')).
 
 .. _ajax-server:
 
-Server-side programming
-"""""""""""""""""""""""
+Server-side Programming
+=======================
 
 If you look into :file:`typo3/ajax.php`, it is only a small dispatcher
 script. It checks for an ajaxID in the :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['AJAX']`
@@ -82,7 +83,7 @@ to see if you're calling through the new AJAX interface.
 .. _ajax-formats:
 
 Different Content Formats
-"""""""""""""""""""""""""
+=========================
 
 As with every AJAX response you can send it in different response
 formats.
@@ -106,7 +107,7 @@ Here are the specifics for each format.
 .. _ajax-formats-plain:
 
 Plain Text
-~~~~~~~~~~
+----------
 
 The content array in the backend will be concatenated and returned
 uninterpreted.
@@ -118,7 +119,7 @@ through "xhr.responseText".
 .. _ajax-formats-xml:
 
 XML
-~~~
+---
 
 The content needs to be valid XML and will be available in javascript
 as "xhr.responseXML".
@@ -127,7 +128,7 @@ as "xhr.responseXML".
 .. _ajax-formats-json:
 
 JSON
-~~~~
+----
 
 The content is transformed to JSON using PHP's built-in functions
 and is then available in JSON notation

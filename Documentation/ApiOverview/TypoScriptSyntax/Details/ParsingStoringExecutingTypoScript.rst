@@ -3,13 +3,14 @@
 
 .. _typoscript-syntax-parsing-storing-executing-typoscript:
 
-Parsing, storing and executing TypoScript
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================================
+Parsing, Storing and Executing TypoScript
+=========================================
 
 .. _typoscript-syntax-parsing-typoscript:
 
 Parsing TypoScript
-""""""""""""""""""
+==================
 
 This means that the TypoScript text content is transformed into a PHP
 array structure by following the rules of the TypoScript syntax. But
@@ -29,8 +30,8 @@ in this document for details.
 
 .. _typoscript-syntax-storing-typoscript:
 
-Storing parsed TypoScript
-"""""""""""""""""""""""""
+Storing Parsed TypoScript
+=========================
 
 When TypoScript has been parsed it is stored in a *PHP array* (which
 is often serialized and cached in the database afterward).
@@ -85,7 +86,7 @@ existence.
 .. _typoscript-syntax-executing-typoscript:
 
 Executing TypoScript
-""""""""""""""""""""
+====================
 
 Since TypoScript itself contains only information you cannot
 "execute" it. The closest you come to "executing" TypoScript is when

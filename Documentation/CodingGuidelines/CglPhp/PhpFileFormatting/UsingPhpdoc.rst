@@ -47,7 +47,7 @@ The different parts of a phpDoc_ statement after the keyword are separated by
 **one single space.**
 
 
-Class information block
+Class Information Block
 =======================
 
 ((to be written))
@@ -56,7 +56,7 @@ Class information block
 information block".))
 
 
-Function information block
+Function Information Block
 ==========================
 
 Functions should have *parameters* and *the return type* documented. Example::
@@ -76,7 +76,7 @@ Functions should have *parameters* and *the return type* documented. Example::
    }
 
 
-Short and long description
+Short and Long Description
 --------------------------
 
 A method or class may have both a short and a long description. The

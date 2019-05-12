@@ -3,8 +3,9 @@
 
 .. _typoscript-syntax-conditions:
 
+==========
 Conditions
-^^^^^^^^^^
+==========
 
 There is a *possibility* of using so called *conditions* in
 TypoScript. Conditions are simple control structures, that evaluate to
@@ -33,8 +34,8 @@ of the TypoScript code that follows.
 
 .. _typoscript-syntax-conditions-usage:
 
-Where conditions can be used
-""""""""""""""""""""""""""""
+Where Conditions Can Be Used
+============================
 
 The *detection of conditions* is a part of the TypoScript syntax but
 the *validation* of the condition content always relies on the
@@ -51,8 +52,8 @@ templates do, but there are some small differences. For details see the
 
 .. _typoscript-syntax-conditions-syntax:
 
-The syntax of conditions
-""""""""""""""""""""""""
+The Syntax of Conditions
+========================
 
 A condition is written on its own line and is detected by :code:`[`
 (square bracket) being the first character on that line:
@@ -122,8 +123,8 @@ see):
 
 .. _typoscript-syntax-conditions-combine:
 
-Combining conditions
-""""""""""""""""""""
+Combining Conditions
+====================
 
 As we saw above two or more tests can be written on the same line
 and the condition will be TRUE if any of these tests matches. It
@@ -143,8 +144,8 @@ conditions. The following operators are available:
 .. _typoscript-syntax-end-condition:
 .. _typoscript-syntax-global-condition:
 
-The special [ELSE], [END] and [GLOBAL] conditions
-"""""""""""""""""""""""""""""""""""""""""""""""""
+The Special [ELSE], [END] and [GLOBAL] Conditions
+=================================================
 
 The special condition :code:`[ELSE]` which will return TRUE if
 the previous condition returned FALSE. To end an :code:`[ELSE]` condition you
@@ -201,7 +202,7 @@ but you could do this:
 .. _typoscript-syntax-conditions-braces:
 
 Where to insert conditions in TypoScript?
-"""""""""""""""""""""""""""""""""""""""""
+=========================================
 
 Conditions can be used *outside* of confinements (curly braces) only!
 
@@ -243,8 +244,8 @@ TypoScript and not as a condition.
 
 .. _typoscript-syntax-the-global-condition:
 
-The [GLOBAL] condition
-""""""""""""""""""""""
+The [GLOBAL] Condition
+======================
 
 The :code:`[GLOBAL]` special condition (which resets any previous
 condition scope) is yet different, in that will be detected at
@@ -281,8 +282,8 @@ various records is combined.
 
 .. _typoscript-syntax-conditions-expression-language:
 
-Custom Conditions with symfony/expression_language
-""""""""""""""""""""""""""""""""""""""""""""""""""
+Custom Conditions With Symfony Expression Language
+==================================================
 
 It is possible to provide own functions with extensions.
 Use as reference the class :php:`TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionFunctionsProvider` which implements
@@ -302,7 +303,7 @@ register the provider in :file:`ext_localconf.php`:
 .. _typoscript-syntax-conditions-summary:
 
 Summary
-"""""""
+=======
 
 - Conditions are detected by :code:`[` as the first line character (whitespace
   ignored).

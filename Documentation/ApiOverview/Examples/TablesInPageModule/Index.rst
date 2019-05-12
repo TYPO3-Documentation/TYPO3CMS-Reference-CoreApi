@@ -3,8 +3,9 @@
 
 .. _page-module-tables:
 
-Support for custom tables in the Page module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+============================================
+Support for Custom Tables in the Page Module
+============================================
 
 In the Web > Page module you can have listings of other records than
 Content Elements. Any table can be displayed by adding to the array

@@ -2,11 +2,12 @@
 
 .. _sitehandling-staticRoutes:
 
+=============
 Static Routes
 =============
 
 Static routes provide a way to create seemingly static content on a per site base.
-Take the following example: 
+Take the following example:
 In a multi-site installation you want to have different `robots.txt` files for each site
 that should be reachable at `/robots.txt` on each site. You can now add a static route "robots.txt"
 to your site and define which content should be delivered.
@@ -26,7 +27,7 @@ There are two options: deliver static text or resolve a TYPO3 URL.
 
 
 StaticText
-----------
+==========
 
 The :code:`staticText` option allows to deliver simple text content. The text can be added through a
 text field directly in the site configuration. This is suitable for files like :file:`robots.txt`
@@ -46,7 +47,7 @@ YAML Configuration Example:
 
 
 TYPO3 URL (t3://)
------------------
+=================
 
 The type :code:`uri` for TYPO3 URL provides the option to render either a file, page or url. Internally
 a request to the file or URL is done and its content delivered.

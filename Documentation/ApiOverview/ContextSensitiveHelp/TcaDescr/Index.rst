@@ -3,8 +3,9 @@
 
 .. _csh-tca-descr:
 
-The $TCA\_DESCR array
-^^^^^^^^^^^^^^^^^^^^^
+=====================
+The $TCA\_DESCR Array
+=====================
 
 The global array :php:`$TCA_DESCR` is reserved to contain CSH labels. CSH
 labels are loaded as they are needed. Thus the class rendering the
@@ -38,7 +39,7 @@ This makes it possible to:
 .. _csh-tca-descr-keys:
 
 Keys in $TCA\_DESCR
-"""""""""""""""""""
+===================
 
 Each file is registered with :php:`$TCA_DESCR` using a key. For a
 database table, this is simple the table name. For backend modules you

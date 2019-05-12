@@ -3,8 +3,9 @@
 
 .. _services-developer-service-api:
 
+===========
 Service API
-^^^^^^^^^^^
+===========
 
 All service classes must inherit from the base service class
 :php:`\TYPO3\CMS\Core\Service\AbstractService`,
@@ -19,8 +20,9 @@ described below, grouped by type of usage.
 
 .. _services-developer-service-api-implementation:
 
-Service implementation
-""""""""""""""""""""""
+
+Service Implementation
+======================
 
 These methods are related to the general functioning of services.
 
@@ -76,8 +78,8 @@ called.
 
 .. _services-developer-service-api-getters:
 
-Getter methods for service information
-""""""""""""""""""""""""""""""""""""""
+Getter Methods for Service Information
+======================================
 
 Most of the below methods are quite obvious, except for
 :php:`getServiceOption()`.
@@ -121,8 +123,8 @@ getServiceOption
 
 .. _services-developer-service-api-error:
 
-Error handling
-""""""""""""""
+Error Handling
+==============
 
 This set of methods handles the error reporting and manages the error
 queue. The error queue works as a stack. New errors are added on top
@@ -158,8 +160,8 @@ resetErrors
 
 .. _services-developer-service-api-general:
 
-General service functions
-"""""""""""""""""""""""""
+General Service Functions
+=========================
 
 checkExec
   This method checks the availability of one or more executables on the
@@ -178,8 +180,8 @@ deactivateService
 
 .. _services-developer-service-api-io-tools:
 
-I/O tools
-"""""""""
+I/O Tools
+=========
 
 A lot of early services were designed to handle files, like those used
 by the DAM. Hence the base service class provides a number of methods
@@ -213,8 +215,8 @@ unlinkTempFiles
 
 .. _services-developer-service-api-io-input-output:
 
-I/O Input and I/O output
-""""""""""""""""""""""""
+I/O Input and I/O Output
+========================
 
 These methods provide a standard way of defining or getting the
 content that needs to be processed – if this is the kind of operation

@@ -3,14 +3,15 @@
 
 .. _logging-logger:
 
+======
 Logger
-^^^^^^
+======
 
 
 .. _logging-logger-instantiation:
 
 Instantiation
-"""""""""""""
+=============
 
 .. note::
    As of TYPO3 9.0 you no longer need to use makeInstance to create an
@@ -43,8 +44,8 @@ based on the class hierarchy.
 
 .. _logging-logger-log:
 
-Log() method
-""""""""""""
+Log() Method
+============
 
 :code:`\TYPO3\CMS\Core\Log\Logger` provides a central point for submitting log messages,
 the :code:`log()` method:
@@ -104,8 +105,8 @@ which will then persist the log record.
 
 .. _logging-logger-shortcuts:
 
-Shorthand methods
-"""""""""""""""""
+Shorthand Methods
+=================
 
 For each of the severity levels mentioned above, a shorthand method exists in
 :code:`\TYPO3\CMS\Core\Log\Logger`, like

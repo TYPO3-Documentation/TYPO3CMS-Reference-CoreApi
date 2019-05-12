@@ -2,8 +2,9 @@
 
 .. _database-configuration:
 
+=============
 Configuration
--------------
+=============
 
 Configuring `doctrine-dbal` for `TYPO3 CMS` is all about specifying the single database endpoints
 and handing over connection credentials. The framework supports the parallel usage of multiple

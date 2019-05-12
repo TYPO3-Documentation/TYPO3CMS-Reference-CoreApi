@@ -1,14 +1,11 @@
 .. include:: ../../Includes.txt
 
 
-
-
-
-
 .. _collections:
 
-System collections
-------------------
+==================
+System Collections
+==================
 
 Since TYPO3 CMS 4.7 there exists a generic interface for managing
 collections of records. The :ref:`File Abstraction Layer <fal>` itself extends
@@ -17,8 +14,8 @@ this mechanism for managing file collections.
 
 .. _collections-records:
 
-Record collections
-^^^^^^^^^^^^^^^^^^
+Record Collections
+==================
 
 Record collections are managed via the TYPO3 backend.
 They can only be created in Folders.
@@ -44,8 +41,8 @@ Others might be added in the future.
 
 .. _collections-files:
 
-File collections
-^^^^^^^^^^^^^^^^
+File Collections
+================
 
 File collections are similar in principle, but reference files.
 They are used by the "File links" (download) content element.
@@ -72,7 +69,7 @@ all files inside the folder will be returned when calling that collection.
 .. _collections-api:
 
 Collections API
-^^^^^^^^^^^^^^^
+===============
 
 The TYPO3 CMS Core provides an API to enable usage of collections
 inside extensions. The most important classes are:
@@ -101,7 +98,7 @@ inside extensions. The most important classes are:
 
 :code:`\TYPO3\CMS\Core\Resource\Collection\FolderBasedFileCollection`
   Again similar, but for file collections based on a folder.
-  
+
 :code:`\TYPO3\CMS\Core\Resource\Collection\CategoryBasedFileCollection`
   File collection based on a single category.
 
@@ -109,7 +106,7 @@ inside extensions. The most important classes are:
 .. _collections-example:
 
 Example
-^^^^^^^
+=======
 
 The `"examples" extension <https://extensions.typo3.org/extension/examples>`_
 provides a simple frontend plugin to demonstrate

@@ -2,14 +2,15 @@
 
 .. _xclasses:
 
-Extending classes (XCLASSes)
-----------------------------
+============================
+Extending Classes (XCLASSes)
+============================
 
 
 .. _xclasses-intro:
 
 Introduction
-^^^^^^^^^^^^
+============
 
 XCLASSing is a mechanism in TYPO3 CMS to extend classes or overwrite methods from the Core or extensions
 with one's own code. This enables a developer to easily change a given functionality,
@@ -28,8 +29,8 @@ However there are :ref:`several limitations <xclasses-limitations>`.
 
 .. _xclasses-mechanism:
 
-How does it work?
-^^^^^^^^^^^^^^^^^
+How Does it Work?
+=================
 
 In general every class instance in the Core and in extensions that stick to
 the recommended :ref:`coding guidelines <cgl>` is created with the API call
@@ -42,7 +43,7 @@ an instance of that XCLASS is returned instead of an instance of the original cl
 .. _xclasses-limitations:
 
 Limitations
-^^^^^^^^^^^
+===========
 
 - Using XCLASSes is risky: neither the core, nor extensions authors
   can guarantee that XCLASSes will not break if the underlying code changes
@@ -63,7 +64,7 @@ Limitations
 .. _xclasses-declaration:
 
 Declaration
-^^^^^^^^^^^
+===========
 
 The :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']` global array acts as a registry
 of overloaded (XCLASSed) classes.
@@ -96,8 +97,8 @@ in the declaration.
 
 .. _xclasses-coding:
 
-Coding practices
-^^^^^^^^^^^^^^^^
+Coding Practices
+================
 
 The recommended way of writing an XCLASS is to **extend** the original class and
 overwrite only the methods where a change is needed. This lowers the chances of the

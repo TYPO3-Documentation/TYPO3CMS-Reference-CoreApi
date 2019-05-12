@@ -6,8 +6,8 @@
 TypoScript Coding Guidelines
 ============================
 
-Directory and filenames
-=======================
+Directory and file Names
+========================
 
 * As of TYPO3 8.7, the file ending can and should be :file:`.typoscript`.
 
@@ -40,7 +40,7 @@ Format
 
 * Use 2 spaces per indenting level.
 
-More information
+More Information
 ================
 
 * See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to

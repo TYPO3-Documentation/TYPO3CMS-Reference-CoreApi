@@ -2,19 +2,20 @@
 
 .. _sitehandling-inConditions:
 
-Using site config in conditions
+===============================
+Using Site Config in Conditions
 ===============================
 
 Site configuration may be used in all conditions that use Symfony Expression language
 `Typo3ConditionFunctionsProvider` - at the moment this means in EXT:form variants
 and TypoScript conditions.
 
-Two objects are available: `site` and `siteLanguage`. 
+Two objects are available: `site` and `siteLanguage`.
 With `site` you can access the properties of the top level site configuration.
 `siteLanguage` accesses the configuration of the current site language.
 
 TypoScript Examples
--------------------
+===================
 
 The identifier of the site name is evaluated:
 
@@ -35,7 +36,7 @@ Property of the current site language is evaluated:
 
 
 EXT:form Examples
------------------
+=================
 
 Translate options via `siteLanguage` condition:
 

@@ -3,8 +3,9 @@
 
 .. _fal-architecture-components:
 
+==========
 Components
-^^^^^^^^^^
+==========
 
 FAL consists of a number of components that interact with each other.
 Each component has a clear role in the architecture, which is
@@ -14,7 +15,7 @@ detailed in this section.
 .. _fal-architecture-components-files-folders:
 
 Files and Folders
-"""""""""""""""""
+=================
 
 The Files and Folders are facades representing files and folders
 or whatever equivalent there is in the system the Driver is connecting to
@@ -44,7 +45,7 @@ by the Storage's uid and a colon (:code:`:`). Example:
 .. _fal-architecture-components-file-references:
 
 File References
-"""""""""""""""
+===============
 
 A :php:`\TYPO3\CMS\Core\Resource\FileReference` basically
 represents a usage of a File in a specific location,
@@ -75,7 +76,7 @@ as the reference is done through the normal record relation handling of TYPO3 CM
 .. _fal-architecture-components-storage:
 
 Storage
-"""""""
+=======
 
 The Storage is the focal point of the FAL architecture. Even though it doesn't do the actual
 low-level actions on a File (that's up to the Driver), it still does the largest part of the logic.
@@ -97,7 +98,7 @@ and :php:`\TYPO3\CMS\Core\Resource\Folder` objects.
 .. _fal-architecture-components-drivers:
 
 Drivers
-"""""""
+=======
 
 The driver does the actual actions on a file (e.g. moving, copying, etc.).
 It can rely on the Storage having done all the necessary checks before,
@@ -125,7 +126,7 @@ method of the Driver API has the following method signature:
 .. _fal-architecture-components-file-index:
 
 The File Index
-""""""""""""""
+==============
 
 Indexing a file creates a database record for the file, containing meta-information both
 *about* the file (file-system properties) and *from* the file (e.g. EXIF information for
@@ -158,7 +159,7 @@ step for a file.
 .. _fal-architecture-components-collections:
 
 Collections
-"""""""""""
+===========
 
 Collections are groups of files defined in various ways. They can be picked up
 individually, by the selection of a folder or by the selection of one or
@@ -172,7 +173,7 @@ content object type.
 .. _fal-architecture-components-services:
 
 Services
-""""""""
+========
 
 The File Abstraction Layer also comes with a number of services:
 

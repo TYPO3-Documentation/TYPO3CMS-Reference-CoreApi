@@ -3,8 +3,9 @@
 
 .. _services-developer-service-related-api:
 
+===================
 Service-related API
-^^^^^^^^^^^^^^^^^^^
+===================
 
 This section describes the methods of the TYPO3 CMS core that are related
 to the use of services.
@@ -13,7 +14,7 @@ to the use of services.
 .. _services-developer-service-related-api-extension-management-utility:
 
 \\TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+=======================================================
 
 This extension management class contains three methods related to
 services:
@@ -43,7 +44,7 @@ deactivateService
 .. _services-developer-service-related-api-general-utility:
 
 \\TYPO3\\CMS\\Core\\Utility\\GeneralUtility
-"""""""""""""""""""""""""""""""""""""""""""
+===========================================
 
 This class contains a single method related to services, but the most
 useful one, used to get an instance of a service.

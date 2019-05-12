@@ -5,7 +5,7 @@
 .. _extension-reserved-folders-legacy:
 
 ===================
-Files and locations
+Files and Locations
 ===================
 
 .. _extension-files:
@@ -27,7 +27,7 @@ An extension consists of:
 
 .. _extension-reserved-filenames:
 
-Reserved file names
+Reserved File Names
 ===================
 
 This lists special files within an extension that have a special meaning
@@ -246,7 +246,7 @@ extensions with the name prefix :file:`ext_`.
 
 .. _extension-reserved-folders:
 
-Reserved folders
+Reserved Folders
 ================
 
 In the early days, every extension baked it own bread when it came to

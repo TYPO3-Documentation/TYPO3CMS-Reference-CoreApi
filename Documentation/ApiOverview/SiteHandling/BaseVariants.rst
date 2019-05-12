@@ -2,6 +2,7 @@
 
 .. _sitehandling-baseVariants:
 
+=============
 Base Variants
 =============
 
@@ -32,10 +33,10 @@ would define a base variant to use in Development context.
 The following variables and functions are available in addition to the default symfony functionality:
 
 Properties
-----------
+==========
 
 typo3.version
-^^^^^^^^^^^^^
+-------------
 
 :aspect:`Datatype`
     string
@@ -48,7 +49,7 @@ typo3.version
 
 
 typo3.branch
-^^^^^^^^^^^^
+------------
 
 :aspect:`Datatype`
     string
@@ -61,7 +62,7 @@ typo3.branch
 
 
 typo3.devIpMask
-^^^^^^^^^^^^^^^
+---------------
 
 :aspect:`Datatype`
     string
@@ -74,7 +75,7 @@ typo3.devIpMask
 
 
 applicationContext
-^^^^^^^^^^^^^^^^^^
+------------------
 
 :aspect:`Datatype`
     string
@@ -87,12 +88,12 @@ applicationContext
 
 
 Functions
----------
+=========
 
 All functions from TYPO3s `DefaultFunctionProvider` are available:
 
 ip
-^^
+--
 
 :aspect:`Datatype`
     string
@@ -105,7 +106,7 @@ ip
 
 
 compatVersion
-^^^^^^^^^^^^^
+-------------
 
 :aspect:`Datatype`
     string
@@ -118,7 +119,7 @@ compatVersion
 
 
 like
-^^^^
+----
 
 :aspect:`Datatype`
     string
@@ -132,7 +133,7 @@ like
 
 
 env
-^^^
+---
 
 :aspect:`Datatype`
     string

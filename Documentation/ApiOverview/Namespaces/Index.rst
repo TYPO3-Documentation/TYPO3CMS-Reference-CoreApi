@@ -35,7 +35,7 @@ Finally the *class name* is the same as the corresponding file name, without the
 
 .. _namespaces-example:
 
-Core example
+Core Example
 ------------
 
 The good old :php:`t3lib_div` class has been renamed to::
@@ -48,7 +48,7 @@ This means that the class is now found in the "core" system extension, in folder
 
 .. _namespaces-extensions:
 
-Usage in extensions
+Usage in Extensions
 -------------------
 
 Extension developers are free to use their own vendor name. *Important:* It may consist of *one* segment only. Vendor names must start with an uppercase character and are usually written in UpperCamelCase style. In order to avoid problems with different filesystems, only the characters a-z, A-Z, 0-9 and the dash sign "-" are allowed for package names – don't use special characters::
@@ -123,7 +123,7 @@ For a frontend module::
 
 .. _namespaces-test:
 
-Namespaces for test classes
+Namespaces for Test Classes
 ---------------------------
 
 As for ordinary classes, namespaces for test classes start with a vendor name
@@ -140,7 +140,7 @@ So a test class in :file:`EXT:foo_bar_baz/Tests/Unit/Bla/` will have as namespac
 
 .. _namespaces-instances:
 
-Creating instances
+Creating Instances
 ------------------
 
 The following example shows how you can create instances by means of

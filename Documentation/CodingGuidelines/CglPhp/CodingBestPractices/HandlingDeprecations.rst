@@ -3,8 +3,9 @@
 
 .. _cgl-deprecation:
 
-Handling deprecation
-^^^^^^^^^^^^^^^^^^^^
+====================
+Handling Deprecation
+====================
 
 This section describes the rules to follow for removing existing
 functions or parameters from TYPO3 CMS. The general principle is that

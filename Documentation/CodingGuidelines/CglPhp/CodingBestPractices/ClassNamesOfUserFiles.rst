@@ -3,8 +3,9 @@
 
 .. _cgl-namespaces-class-names:
 
-Namespaces and class names of user files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+========================================
+Namespaces and Class Names of User Files
+========================================
 
 The namespace and class names of user files follow the same rules as
 class names of the TYPO3 Core files do.

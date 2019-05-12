@@ -3,11 +3,12 @@
 
 .. _cgl-general-requirements-for-php-files:
 
-General requirements for PHP files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==================================
+General Requirements for PHP Files
+==================================
 
-File names
-""""""""""
+File Names
+==========
 
 The file name describes the functionality included in the file. It
 consists of one or more nouns, written in UpperCamelCase. For example
@@ -24,8 +25,8 @@ One file can contain only one class or interface.
 Extension for PHP files is always :code:`php`.
 
 
-PHP tags
-""""""""
+PHP Tags
+========
 
 Each PHP file in TYPO3 must use the full (as opposed to short) opening
 PHP tag. There must be exactly one opening tag (no closing and opening
@@ -40,16 +41,16 @@ Closing PHP tags (e.g. at the end of the file) are not used.
 Each newly introduced file **MUST** declare strict types for the given file.
 
 
-Line breaks
-"""""""""""
+Line Breaks
+===========
 
 TYPO3 uses Unix line endings (`\n`, PHP `chr(10)`). If
 a developer uses Windows or Mac OS X platform, the editor must be
 configured to use Unix line endings.
 
 
-Line length
-"""""""""""
+Line Length
+===========
 
 Very long lines of code should be avoided for questions of
 readability. A line length of about 130 characters (**including**
@@ -81,8 +82,8 @@ Comment lines should be kept within a limit of about 80 characters
         ) {
 
 
-Whitespace and indentation
-""""""""""""""""""""""""""
+Whitespace and Indentation
+==========================
 
 TYPO3 uses space characters to indent source code. Following PSR-2,
 one indentation level consists of four spaces.
@@ -113,8 +114,8 @@ Spaces must not be present:
   `explode( 'blah', 'someblah' )` needs to be written as `explode('blah', 'someblah')`.
 
 
-Character set
-"""""""""""""
+Character Set
+=============
 
 All TYPO3 source files use the UTF-8 character set without byte order
 mark (BOM). Encoding declarations like `declare(encoding = 'utf-8');`

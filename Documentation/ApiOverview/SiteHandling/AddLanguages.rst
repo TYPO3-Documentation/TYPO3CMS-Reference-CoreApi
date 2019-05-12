@@ -2,7 +2,8 @@
 
 .. _sitehandling-addingLanguages:
 
-Adding languages
+================
+Adding Languages
 ================
 
 The site module allows you to define which languages are active for your site, which languages are available
@@ -42,10 +43,10 @@ fallback levels - for example "Modern Chinese" might fall back to "Chinese (Trad
 
 
 Configuration Properties
-------------------------
+========================
 
 languageId
-^^^^^^^^^^
+----------
 
 :aspect:`Datatype`
     integer
@@ -57,7 +58,7 @@ languageId
     `1`
 
 title
-^^^^^
+-----
 
 :aspect:`Datatype`
     string
@@ -70,7 +71,7 @@ title
 
 
 navigationTitle
-^^^^^^^^^^^^^^^
+---------------
 
 :aspect:`Datatype`
     string
@@ -83,7 +84,7 @@ navigationTitle
 
 
 base
-^^^^
+----
 
 :aspect:`Datatype`
     string / URL
@@ -96,7 +97,7 @@ base
 
 
 locale
-^^^^^^
+------
 
 :aspect:`Datatype`
     string / locale
@@ -109,7 +110,7 @@ locale
 
 
 iso-639-1
-^^^^^^^^^
+---------
 
 :aspect:`Datatype`
     string
@@ -121,7 +122,7 @@ iso-639-1
     `en`
 
 hreflang
-^^^^^^^^
+--------
 
 :aspect:`Datatype`
     string
@@ -134,7 +135,7 @@ hreflang
 
 
 direction
-^^^^^^^^^
+---------
 
 :aspect:`Datatype`
     string
@@ -147,7 +148,7 @@ direction
 
 
 typo3Language
-^^^^^^^^^^^^^
+-------------
 
 :aspect:`Datatype`
     string
@@ -160,7 +161,7 @@ typo3Language
 
 
 flagIdentifier
-^^^^^^^^^^^^^^
+--------------
 
 :aspect:`Datatype`
     string
@@ -173,7 +174,7 @@ flagIdentifier
 
 
 fallbackType
-^^^^^^^^^^^^
+------------
 
 :aspect:`Datatype`
     string
@@ -186,7 +187,7 @@ fallbackType
 
 
 fallbacks
-^^^^^^^^^
+---------
 
 :aspect:`Datatype`
     list of language ids

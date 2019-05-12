@@ -3,8 +3,9 @@
 
 .. _examples-clipboard:
 
-Accessing the clipboard
-^^^^^^^^^^^^^^^^^^^^^^^
+=======================
+Accessing the Clipboard
+=======================
 
 You can easily access the internal clipboard in TYPO3 from your
 backend modules::
@@ -70,8 +71,8 @@ for display, which is really just information:
 
 .. _examples-clipboard-put:
 
-Putting elements into the clipboard
-"""""""""""""""""""""""""""""""""""
+Putting Elements Into the Clipboard
+===================================
 
 This is too complicated to describe in detail. The following
 codelisting is from the Web > List module where selections for the

@@ -3,8 +3,9 @@
 
 .. _t3ds-parsing:
 
+========================
 Parsing a Data Structure
-^^^^^^^^^^^^^^^^^^^^^^^^
+========================
 
 You can convert a Data Structure XML document into a PHP array by using the
 function :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::xml2array()`.

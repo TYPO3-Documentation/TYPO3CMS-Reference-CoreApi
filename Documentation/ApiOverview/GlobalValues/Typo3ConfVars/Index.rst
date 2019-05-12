@@ -2,8 +2,9 @@
 
 .. _typo3ConfVars:
 
+===============
 TYPO3_CONF_VARS
-^^^^^^^^^^^^^^^
+===============
 
 However the main configuration is achieved via a set of global settings
 stored in a global array called :php:`$GLOBALS['TYPO3_CONF_VARS']`.
@@ -15,7 +16,7 @@ at other configuration possibilities.
 .. _typo3ConfVars-localConfiguration:
 
 File LocalConfiguration.php
-"""""""""""""""""""""""""""
+===========================
 
 The global configuration is stored in file :file:`typo3conf/LocalConfiguration.php`.
 This file overrides default settings from :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
@@ -152,7 +153,7 @@ most importantly section **Configure installation-wide options**:
 .. _typo3ConfVars-additionalConfiguration:
 
 File AdditionalConfiguration.php
-""""""""""""""""""""""""""""""""
+================================
 
 Although you can manually edit the :file:`typo3conf/LocalConfiguration.php`
 file, it is limited in scope because the file is expected to return
@@ -179,7 +180,7 @@ which requires heavy duty processing.
 .. _typo3ConfVars-defaultConfiguration:
 
 File DefaultConfiguration.php
-"""""""""""""""""""""""""""""
+=============================
 
 TYPO3 CMS comes with some default settings, which are defined in
 file :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.

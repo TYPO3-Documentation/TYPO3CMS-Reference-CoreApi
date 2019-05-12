@@ -4,14 +4,15 @@
 
 .. _caching-architecture:
 
-Caching framework architecture
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==============================
+Caching Framework Architecture
+==============================
 
 
 .. _caching-architecture-base:
 
-Basic knowhow
-"""""""""""""
+Basic Knowhow
+=============
 
 The caching framework can handle multiple caches with different configurations.
 A single cache consists of any number of cache entries.
@@ -32,8 +33,8 @@ A single cache entry is defined by these fields:
 
 .. _caching-architecture-identifier:
 
-About the identifier
-~~~~~~~~~~~~~~~~~~~~
+About the Identifier
+--------------------
 
 The identifier is used to store ("set") and retrieve ("get") entries
 from the cache and holds all information to differentiate entries from each other.
@@ -74,8 +75,8 @@ are already determined during the frontend bootstrap and can be retrieved from t
 
 .. _caching-architecture-tags:
 
-About tags
-~~~~~~~~~~
+About Tags
+----------
 
 Tags are used to drop specific cache entries when some information they are based on
 is changed.
@@ -105,7 +106,7 @@ the cache when the entry is stored ("set").
 .. _caching-architecture-core:
 
 Caches in the TYPO3 Core
-""""""""""""""""""""""""
+========================
 
 The TYPO3 core defines and uses several caching framework caches by default.
 This section gives an overview of default caches, its usage and behaviour. If not stated otherwise,
@@ -206,8 +207,8 @@ The following caches exist in the TYPO3 CMS Core:
 
 .. _caching-architecture-task:
 
-Garbage collection task
-"""""""""""""""""""""""
+Garbage Collection Task
+=======================
 
 The core system provides a Scheduler task to collect the garbage of all cache backends.
 This is important for backends like the database backend that do not remove old cache entries
@@ -219,7 +220,7 @@ their lifetime on their own to free up memory or hard disk space.
 .. _caching-architecture-api:
 
 Cache API
-"""""""""
+=========
 
 The caching framework architecture is based on the following classes:
 

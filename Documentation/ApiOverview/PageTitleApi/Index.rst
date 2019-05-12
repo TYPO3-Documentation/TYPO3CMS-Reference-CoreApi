@@ -30,7 +30,7 @@ by a provider, this provider will return the title of the page.
 Besides the providers shipped by core, you can add own providers. An integrator can define the priority of the
 providers for his project.
 
-Create your own PageTitleProvider
+Create Your Own PageTitleProvider
 =================================
 
 Extension developers may want to have an own provider for page titles. For example if you have an extension with
@@ -41,7 +41,7 @@ First of all create a PHP class in your extension that implements the :php:`Page
 force you to have at least the :php:`getTitle()` method in your class. Within this method you can create your
 own logic to define the correct title.
 
-Define priority of PageTitleProviders
+Define Priority of PageTitleProviders
 =====================================
 
 The priority of the providers are set by the TypoScript property :typoscript:`config.pageTitleProviders`. This

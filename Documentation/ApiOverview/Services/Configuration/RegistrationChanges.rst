@@ -3,8 +3,9 @@
 
 .. _services-configuration-registration-changes:
 
-Registration changes
-^^^^^^^^^^^^^^^^^^^^
+====================
+Registration Changes
+====================
 
 The priority and other values of the original service registration can be
 overridden in any extension's :file:`ext_localconf.php` file. Example:

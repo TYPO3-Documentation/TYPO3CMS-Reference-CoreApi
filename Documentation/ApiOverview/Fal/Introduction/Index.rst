@@ -3,8 +3,9 @@
 
 .. _fal_introduction:
 
+============
 Introduction
-------------
+============
 
 This part of the Core API document contains details about the File Abstraction Layer (FAL),
 TYPO3 CMS' toolbox for handling media. It explains its architecture and

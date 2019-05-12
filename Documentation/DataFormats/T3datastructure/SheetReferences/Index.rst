@@ -3,8 +3,9 @@
 
 .. _t3ds-sheet-references:
 
-Sheet references
-^^^^^^^^^^^^^^^^
+================
+Sheet References
+================
 
 If Data Structures are arranged in a collection of sheets you can
 choose to store one or more sheets externally in separate files. This
@@ -15,7 +16,7 @@ file reference instead of being a definition of the <ROOT> element.
 .. _t3ds-sheet-references-example:
 
 Example
-~~~~~~~
+=======
 
 Taking the Data Structure from the :ref:`previous example <t3ds-elements-example>`
 we could rearrange it in separate files:

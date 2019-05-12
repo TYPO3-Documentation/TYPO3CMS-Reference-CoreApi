@@ -30,7 +30,7 @@ of choice in your work with TYPO3.
 .. _audience:
 
 Intended Audience
------------------
+=================
 
 This document is intended to be a reference for TYPO3 CMS developers and partially
 for integrators. The document explains all major parts of TYPO3 and the concepts.
@@ -49,7 +49,7 @@ consider that as well!
 .. _code-examples:
 
 Code examples
--------------
+=============
 
 Many of the code examples found in this document come from the TYPO3
 Core itself.
@@ -62,7 +62,7 @@ use them as a basis for your own extensions.
 .. _feedback:
 
 Feedback and Contribute
------------------------
+=======================
 
 If you find an error in this manual, please be so kind to hit
 the "Edit me on GitHub" button in the top right corner
@@ -95,7 +95,7 @@ And finally, as a last resort, you can get in touch with the documentation team
 .. _credits:
 
 Credits
--------
+=======
 
 This manual was originally written by Kasper Skårhøj. It was further
 maintained, refreshed and expanded by François Suter.
@@ -111,7 +111,7 @@ several teams. He managed the whole process of getting the Security Guide to a h
 .. _dedication:
 
 Dedication
-----------
+==========
 
 I want to dedicate this document to the people in the TYPO3 community
 who have the  *discipline* to do the boring job of writing

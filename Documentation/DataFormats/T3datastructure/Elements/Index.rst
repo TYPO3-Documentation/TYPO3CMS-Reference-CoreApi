@@ -3,16 +3,17 @@
 
 .. _t3ds-elements:
 
+========
 Elements
-^^^^^^^^
+========
 
 This is the list of elements and their nesting in the Data Structure.
 
 
 .. _t3ds-elements-array:
 
-Elements nesting other elements ("Array" elements):
-"""""""""""""""""""""""""""""""""""""""""""""""""""
+Elements Nesting Other Elements ("Array" Elements)
+==================================================
 
 All elements defined here cannot contain any string value but  *must*
 contain another set of elements.
@@ -147,8 +148,8 @@ must be arrays.)
 
 .. _t3ds-elements-value:
 
-Elements containing values ("Value" elements):
-""""""""""""""""""""""""""""""""""""""""""""""
+Elements Containing Values ("Value" Elements)
+=============================================
 
 All elements defined here must contain a string value and no other XML
 tags whatsoever!
@@ -202,7 +203,7 @@ must be strings or integers.)
 .. _t3ds-elements-example:
 
 Example
-"""""""
+=======
 
 Below is the (truncated) structure for the plugin options of
 system extension "felogin". It shows an example of relative complex

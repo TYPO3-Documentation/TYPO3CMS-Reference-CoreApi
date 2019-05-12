@@ -4,8 +4,9 @@
 
 .. _caching-developer:
 
-Developer information
-^^^^^^^^^^^^^^^^^^^^^
+=====================
+Developer Information
+=====================
 
 This chapter is targeted at extension authors who want to use the caching framework
 for their needs. It is about how to use the framework properly. For details about
@@ -17,8 +18,8 @@ system extension "core" and "extbase".
 
 .. _caching-developer-usage:
 
-Cache registration and usage
-""""""""""""""""""""""""""""
+Cache Registration and Usage
+============================
 
 Registration of a new cache should be done in :file:`ext_localconf.php`. The example below just defines
 an empty sub-array in *cacheConfigurations*. Neither *frontend* nor *backend* are defined,
@@ -68,8 +69,8 @@ should be used. The cache manager will return the fully initialized cache instan
 
 .. _caching-developer-access:
 
-Cache access logic
-""""""""""""""""""
+Cache Access Logic
+==================
 
 Cache usage patterns are usually wrappers around the main code sections.
 Here is some example code::

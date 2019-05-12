@@ -3,8 +3,9 @@
 
 .. _access-options:
 
-Access Control options
-^^^^^^^^^^^^^^^^^^^^^^
+======================
+Access Control Options
+======================
 
 The permissions of fully initialized backend users are the result of the
 rights granted in their own user records and all the user groups they
@@ -33,8 +34,8 @@ User TSconfig
 
 .. _access-options-access-lists:
 
-Access lists
-""""""""""""
+Access Lists
+============
 
 Access lists are defined at group-level. Usage of access lists for defining
 user rights is described in the :ref:`Getting Started tutorial <t3start:setting-up-user-permissions>`.
@@ -113,7 +114,7 @@ the groups are "added" together.
 .. _access-options-mounts:
 
 Mounts
-""""""
+======
 
 TYPO3 CMS natively supports two kinds of hierarchical tree structures:
 the page tree (typically visible in the **WEB** module) and the folder
@@ -204,11 +205,11 @@ to every part of the installation.
 
 .. _access-options-page-permissions:
 
-Page permissions
-""""""""""""""""
+Page Permissions
+----------------
 
 Page permissions are designed to work like file permissions on UNIX
-systems. Each page record has an owner user and group and 
+systems. Each page record has an owner user and group and
 permission settings for the owner, the group and "everybody". This is
 summarized here:
 
@@ -261,7 +262,7 @@ can be changed through :ref:`Page TSconfig <t3tsconfig:pagetcemain-permissions-u
 .. _access-options-user-tsconfig:
 
 User TSconfig
-"""""""""""""
+=============
 
 User TSconfig is a hierarchical configuration structure entered in
 plain text TypoScript. It can be used by all kinds of applications

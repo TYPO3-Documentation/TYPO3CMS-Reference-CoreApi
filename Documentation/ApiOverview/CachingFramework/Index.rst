@@ -4,7 +4,8 @@
 
 .. _caching:
 
-Caching framework
+=================
+Caching Framework
 =================
 
 Since TYPO3 CMS 4.3, the core contains a data caching framework

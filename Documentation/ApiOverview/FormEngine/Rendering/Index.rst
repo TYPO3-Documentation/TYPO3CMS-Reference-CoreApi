@@ -2,6 +2,7 @@
 
 .. _FormEngine-Rendering:
 
+=========
 Rendering
 =========
 
@@ -65,8 +66,8 @@ on it.
 
 .. _FormEngine-Rendering-ClassInheritance:
 
-Class inheritance
------------------
+Class Inheritance
+=================
 
 .. figure:: ../../../Images/FormEngineRenderClasses.svg
    :alt: Main render class inheritance
@@ -82,7 +83,7 @@ single element never calls a container again.
 .. _FormEngine-Rendering-NodeFactory:
 
 NodeFactory
------------
+===========
 
 The :php:`NodeFactory` plays an important abstraction role within the render chain: Creation of child nodes is
 always routed through it, and the NodeFactory takes care of finding and validating the according class that
@@ -172,8 +173,8 @@ The trick is here that "ckeditor" registers his resolver with ah higher priority
 
 .. _FormEngine-Rendering-ResultArray:
 
-Result array
-------------
+Result Array
+============
 
 Each node, no matter if it is a container, an element, or a :ref:`node expansion <FormEngine-Rendering-NodeExpansion>`,
 must return an array with specific data keys it wants to add. It is the job of the parent node that calls the sub node to
@@ -217,8 +218,8 @@ module is loaded by the browser.
 
 .. _FormEngine-Rendering-NodeExpansion:
 
-Node expansion
---------------
+Node Expansion
+==============
 
 The "node expansion" classes :php:`FieldControl`, :php:`FieldInformation` and :php:`FieldWizard` are called by containers
 and elements and allow "enriching" containers and elements. Which enrichments are called can be configured via TCA.
@@ -310,8 +311,8 @@ It is possible to:
     "after" in TCA.
 
 
-Add fieldControl example
-------------------------
+Add fieldControl Example
+========================
 
 To illustrate the principals discussed in this chapter see the following
 example which registers a fieldControl (button) next to a field in the pages

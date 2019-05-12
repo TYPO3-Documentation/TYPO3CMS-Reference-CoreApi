@@ -3,8 +3,9 @@
 
 .. _fal-administration-permissions:
 
+===========
 Permissions
-^^^^^^^^^^^
+===========
 
 Permissions in the File Abstraction Layer are the result of a
 combination of various mechanisms.
@@ -12,8 +13,8 @@ combination of various mechanisms.
 
 .. _fal-administration-permissions-system:
 
-System permissions
-""""""""""""""""""
+System Permissions
+==================
 
 System permissions are strictly enforced and may prevent an action
 no matter what component triggered them.
@@ -26,8 +27,8 @@ local file system).
 
 .. _fal-administration-permissions-mounts:
 
-File mounts
-"""""""""""
+File Mounts
+===========
 
 Files mounts (discussed in the :ref:`Getting Started Tutorial <t3start:file-mounts>`)
 restrict users to a certain folder in a certain Storage. This is
@@ -37,8 +38,8 @@ on a file or folder outside of their allotted file mounts.
 
 .. _fal-administration-permissions-user:
 
-User permissions
-""""""""""""""""
+User Permissions
+================
 
 User permissions for files can be set in the
 :ref:`"Fileoperation permissions" section <t3start:file-permissions>`
@@ -79,8 +80,8 @@ default permissions for all Storages.
 
 .. _fal-administration-permissions-user-storage:
 
-User permissions per storage
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+User Permissions per Storage
+----------------------------
 
 Using :ref:`User TSconfig <t3tsconfig:usertsconfig>` it is possible to set different permissions
 for different Storages. This syntax uses the uid of the targeted
@@ -117,8 +118,8 @@ The following example grants all permission for the Storage with uid "1":
 
 .. _fal-administration-permissions-user-details:
 
-User permissions details
-~~~~~~~~~~~~~~~~~~~~~~~~
+User Permissions Details
+------------------------
 
 This model for permissions behaves very similar to permission systems
 on Unix and Linux systems. Folders are seen as a collection of files and
@@ -181,8 +182,8 @@ recursivedeleteFolder
 
 .. _fal-administration-permissions-upload-folder:
 
-Default upload folder
-"""""""""""""""""""""
+Default Upload Folder
+=====================
 
 When nothing else is defined, any file uploaded by a user will end up
 in :file:`fileadmin/user_upload`. The user TSconfig property
@@ -204,8 +205,8 @@ a given field of a given table (using custom TSconfig).
 
 .. _fal-administration-permissions-frontend:
 
-Frontend permissions
-""""""""""""""""""""
+Frontend Permissions
+====================
 
 System extension "filemetadata" adds a "fe_groups" field to the
 "sys\_file\_metadata" table. This makes it possible to attach

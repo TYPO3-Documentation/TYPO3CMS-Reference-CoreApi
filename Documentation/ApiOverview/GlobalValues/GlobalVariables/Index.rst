@@ -2,8 +2,9 @@
 
 .. _globals-variables:
 
-Global variables
-^^^^^^^^^^^^^^^^
+================
+Global Variables
+================
 
 .. note::
 
@@ -197,8 +198,8 @@ Global variables
 
 .. _globals-exploring:
 
-Exploring global variables
-""""""""""""""""""""""""""
+Exploring Global Variables
+==========================
 
 Many of the global variables described above can be inspected using the
 **ADMIN TOOLS > Configuration** module.

@@ -7,8 +7,9 @@
 
 .. _csrf:
 
-Form protection tool
---------------------
+====================
+Form Protection Tool
+====================
 
 Since TYPO3 4.5, the TYPO3 Core provides a generic way of protecting
 forms against Cross-Site Request Forgery (CSRF).
@@ -16,8 +17,8 @@ forms against Cross-Site Request Forgery (CSRF).
 
 .. _csrf-backend:
 
-Usage in the backend
-^^^^^^^^^^^^^^^^^^^^
+Usage in the Backend
+====================
 
 For each form in the BE (or link that changes some data), create a token and insert is as a hidden form element.
 The name of the form element does not matter; you only need it to get the form token for verifying it.
@@ -78,7 +79,7 @@ cannot be used again.
 .. _csrf-install:
 
 Usage in the Install Tool
-^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================
 
 For each form in the Install Tool (or link that changes some data),
 create a token and insert is as a hidden form element.

@@ -4,8 +4,9 @@
 
 .. _hooks-configuration:
 
-Hook configuration
-^^^^^^^^^^^^^^^^^^
+==================
+Hook Configuration
+==================
 
 There is no complete index of hooks in the core. But they are easy to
 search for and find. And typically it comes quite naturally since you
@@ -22,7 +23,7 @@ carry hook configuration but might be used for other purposes as well.
 .. _hooks-extensions:
 
 $GLOBALS['TYPO3\_CONF\_VARS']['EXTCONF']
-""""""""""""""""""""""""""""""""""""""""
+========================================
 
 **Configuration space for extensions.**
 
@@ -70,7 +71,7 @@ and used at a later point. ::
 .. _hooks-core:
 
 $GLOBALS['TYPO3\_CONF\_VARS']['SC\_OPTIONS']
-""""""""""""""""""""""""""""""""""""""""""""
+============================================
 
 **Configuration space for core scripts.**
 
@@ -96,15 +97,15 @@ extension keys. ::
   :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()` as a function
   or :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` as a class name
   depending on implementation of the hook.
-  
+
   A namespace function has the quoted string format :php:`'Foo\\Bar\\MyClassName->myUserFunction'`
   or a format using an unquoted class name :php:`\Foo\Bar\MyClassName::class . '->myUserFunction'`.
   The latter is available since PHP 5.5.
-  
+
   A namespace class name can be in the FQCN quoted string format :php:`'Foo\\Bar\\MyClassName'`,
   or in the unquoted form :php:`\Foo\Bar\MyClassName::class`. The called function name
   is determined by the hook itself.
-  
+
   Leading backslashes for class names are not allowed and lead to an error.
 
 The above syntax is how a hook is typically defined but it might
@@ -161,7 +162,7 @@ the parent object. ::
 .. _hooks-modules:
 
 $GLOBALS['TYPO3\_CONF\_VARS']['TBE\_MODULES\_EXT']
-""""""""""""""""""""""""""""""""""""""""""""""""""
+==================================================
 
 ** Configuration space for backend modules.**
 

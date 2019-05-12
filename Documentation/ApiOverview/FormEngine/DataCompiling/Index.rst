@@ -2,7 +2,8 @@
 
 .. _FormEngine-DataCompiling:
 
-Data compiling
+==============
+Data Compiling
 ==============
 
 This is the first step of FormEngine. The data compiling creates an array containing all data
@@ -74,8 +75,8 @@ The main array is initialized by :php:`FormDataCompiler`, and each :php:`DataPro
    the :php:`FormDataCompiler` obsolete in total.
 
 
-Data groups and providers
--------------------------
+Data Groups and Providers
+=========================
 
 So we have this empty data array, pre-set with data by a controller and then initialized by :php:`FormDataCompiler`,
 which in turn hands over the data array to a specific :php:`FormDataGroup`. What are these data providers now? Data providers are
@@ -147,8 +148,8 @@ Post process after single field values are prepared
   * Determine main record title and set as :php:`$data['recordTitle']`
 
 
-Extending data groups with own providers
-----------------------------------------
+Extending Data Groups With Own Providers
+========================================
 
 The base set of DataProviders for all DataGroups is defined within :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
 in section :php:`['SYS']['formEngine']['formDataGroup']`, and ends up in variable :php:`$GLOBALS['TYPO3_CONF_VARS']` after core
@@ -201,8 +202,8 @@ Limitations:
   are a technical debt that should be changed.
 
 
-Adding data to data array
--------------------------
+Adding Data to Data Array
+=========================
 
 Most custom data providers change or add existing data within the main data array. A typical use case is an additional
 record initialization for specific fields in :php:`$data['databaseRow']` or additional items somewhere within

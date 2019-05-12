@@ -7,8 +7,9 @@
 
 .. _requirejs-dependency:
 
+===================
 Dependency Handling
-^^^^^^^^^^^^^^^^^^^
+===================
 
 Let us try to explain the dependency handling with the most used JS lib: jQuery
 

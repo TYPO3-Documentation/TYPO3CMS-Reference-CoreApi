@@ -3,8 +3,9 @@
 .. _tce-db-api:
 .. _record-commit-route:
 
-The "/record/commit" route
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+==========================
+The "/record/commit" Route
+==========================
 
 This route is a gateway for posting form data to the
 :php:`\TYPO3\CMS\Backend\Controller\SimpleDataHandlerController`.

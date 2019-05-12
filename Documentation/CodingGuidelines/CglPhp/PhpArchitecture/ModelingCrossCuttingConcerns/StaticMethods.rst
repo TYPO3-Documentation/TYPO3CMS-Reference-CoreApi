@@ -3,12 +3,12 @@
 
 .. _cgl-model-static-methods:
 
-Static methods, static classes, utility classes
+Static Methods, static Classes, Utility Classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Characteristica
-"""""""""""""""
+===============
 
 * A utility class MUST contain only static methods.
 
@@ -36,7 +36,7 @@ Characteristica
 
 
 Rationale
-"""""""""
+=========
 
 Static methods as cross-cutting concern solution have been in the core
 ever since. They are an easy way to extract recurring coding problems
@@ -88,8 +88,9 @@ static method itself, defining the method behaviour especially for
 edge cases.
 
 
-Good examples
-"""""""""""""
+Good Examples
+=============
+
 * :php:`Core/Utility/ArrayUtility`
 
   * Clear scope - array manipulation helpers.
@@ -113,8 +114,8 @@ Good examples
     concern well.
 
 
-Bad examples
-""""""""""""
+Bad Examples
+============
 
 * :php:`Backend/Utility/BackendUtility`
 
@@ -145,7 +146,7 @@ Bad examples
 
 
 Red Flags
-"""""""""
+=========
 
 * :php:`$GLOBALS: Utility` code should not have dependencies to global
   state or global objects.

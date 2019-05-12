@@ -7,8 +7,9 @@
 
 .. _requirejs-extensions:
 
-Use RequireJS in your own extension
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===================================
+Use RequireJS in Your Own Extension
+===================================
 
 To be able to use RequireJS at all, some prerequisites must be fulfilled:
 

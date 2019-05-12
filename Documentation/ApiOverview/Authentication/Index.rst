@@ -3,8 +3,9 @@
 
 .. _authentication:
 
+==============
 Authentication
---------------
+==============
 
 The TYPO3 CMS Core uses :ref:`Services <services>` for the authentication process.
 This family of services (of type "auth") are the only core usage that consumes the
@@ -17,8 +18,8 @@ their own.
 
 .. _authentication-why-services:
 
-Why use services?
-^^^^^^^^^^^^^^^^^
+Why Use Services?
+=================
 
 Services provide the flexibility needed for such a complex
 process of authentication, where many methods may be desirable
@@ -45,8 +46,8 @@ view:
 
 .. _authentication-process:
 
-The authentication process
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+The Authentication Process
+==========================
 
 The authentication process is not managed entirely by services.
 It is handled essentially by class
@@ -75,8 +76,8 @@ happens for the BE, but with a form field called "login_status".
 
 .. _authentication-data:
 
-The login data
-^^^^^^^^^^^^^^
+The Login Data
+==============
 
 There is a typical set of data that is transmitted to authentication
 service in order to enable them to do their work:
@@ -101,8 +102,8 @@ Inside an authentication service, this data is available in
 
 .. _authentication-api:
 
-The "auth" services API
-^^^^^^^^^^^^^^^^^^^^^^^
+The "auth" Services API
+=======================
 
 The services of type "auth" are further divided into subtypes,
 which correspond to various steps in the authentication process.
@@ -178,8 +179,8 @@ getGroupsFE
 
 .. _authentication-service-chain:
 
-The service chain
-^^^^^^^^^^^^^^^^^
+The Service Chain
+=================
 
 No matter what subtype, authentication services are always called
 in a :ref:`chain <services-using-services-service-chain>`. This means that
@@ -218,8 +219,8 @@ The service chain will stop as soon as one user is found.
 
 .. _authentication-service-development:
 
-Developing an authentication service
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Developing an Authentication Service
+====================================
 
 When developing your own "auth" services, the chances are high
 that you will want to implement only the "getUser\*" and "authUser\*"
@@ -268,8 +269,8 @@ authentication proceed for "local" TYPO3 CMS users.
 
 .. _authentication-advanced-options:
 
-Advanced options
-^^^^^^^^^^^^^^^^
+Advanced Options
+================
 
 There are some special configuration options which can be used
 to modify the behaviour of the authentication process. Some

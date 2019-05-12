@@ -3,8 +3,9 @@
 
 .. _user-settings-columns:
 
-['columns'] section
-^^^^^^^^^^^^^^^^^^^
+===================
+['columns'] Section
+===================
 
 This contains the configuration array for single fields in the user
 settings. This array allows the following configurations:

@@ -4,8 +4,9 @@
 .. _fal-using-fal-examples:
 .. _fal-using-fal-examples-resource-factory:
 
-The ResourceFactory class
-"""""""""""""""""""""""""
+=========================
+The ResourceFactory Class
+=========================
 
 The :php:`\TYPO3\CMS\Core\Resource\ResourceFactory` is the
 workhorse of the File Abstraction Layer from a coding point
@@ -16,8 +17,8 @@ other code samples provided in this chapter.
 
 .. _fal-using-fal-examples-resource-factory-default-storage:
 
-Getting the default Storage
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Getting the Default Storage
+===========================
 
 Of all available Storages, one may be marked as default. This
 is the Storage that will be used for any operation whenever
@@ -38,7 +39,7 @@ when not using a :ref:`combined identifier <fal-architecture-components-files-fo
 .. _fal-using-fal-examples-resource-factory-getting-storage:
 
 Getting any Storage
-~~~~~~~~~~~~~~~~~~~
+===================
 
 The :php:`ResourceFactory` should also be used when retrieving
 any Storage. You should not try to instantiate directly a

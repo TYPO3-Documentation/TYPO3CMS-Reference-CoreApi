@@ -2,8 +2,9 @@
 
 .. _bootstrapping:
 
+=============
 Bootstrapping
--------------
+=============
 
 TYPO3 CMS has a clean bootstrapping process driven mostly
 by class :php:`\TYPO3\CMS\Core\Core\Bootstrap`. This class
@@ -32,7 +33,7 @@ One can see the bootstrapping process in action in file
 :file:`typo3/sysext/backend/Classes/Http/Application.php`::
 
    use TYPO3\CMS\Core\Core\Bootstrap;
-   
+
    ###
 
    $this->bootstrap = Bootstrap::getInstance()
@@ -44,11 +45,11 @@ One can see the bootstrapping process in action in file
    if (!$this->bootstrap->checkIfEssentialConfigurationExists()) {
       $this->bootstrap->redirectToInstallTool($this->entryPointLevel);
    }
-   
+
    foreach ($this->availableRequestHandlers as $requestHandler) {
       $this->bootstrap->registerRequestHandlerImplementation($requestHandler);
    }
-   
+
    $this->bootstrap->configure();
 
    ###
@@ -65,7 +66,7 @@ Bootstrap class itself, allowing calls to be chained.
 .. _backend-initialization:
 
 Initialization
-^^^^^^^^^^^^^^
+==============
 
 Whenever a call to TYPO3 CMS is made, the application goes through a
 bootstrapping process managed by a dedicated API. This process is also
@@ -79,25 +80,25 @@ Classes involved in the backend bootstrapping process are :php:`\TYPO3\CMS\Core\
 
 The following steps are performed during bootstrapping.
 
-1. Define legacy constants
+1. Define Legacy Constants
 """"""""""""""""""""""""""
 
 In :php:`Application::defineLegacyConstants` some constants are defined, which will eventually
 be dropped, but are still initialized for now.
 
-2. Initialize class loader
-""""""""""""""""""""""""""
+2. Initialize Class Loader
+--------------------------
 
 This defines which autoloader to use.
 
-3.  Set request type
-""""""""""""""""""""
+3.  Set Request Type
+--------------------
 
 The request type is set - this defines whether the current request is a frontend, backend, cli, ajax or Install Tool
 request. (see `defineTypo3RequestTypes`).
 
 4. Perform base setup
-"""""""""""""""""""""
+---------------------
 
 An instance of :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder` is
 created. This class in turn defines a large number of constants and global
@@ -127,28 +128,28 @@ worth taking a look into the following methods:
 -  :php:`SystemEnvironmentBuilder::initializeBasicErrorReporting()`
    sets up default error reporting level during the bootstrapping process.
 
-5. Define class loading information
-"""""""""""""""""""""""""""""""""""
+5. Define Class Loading Information
+-----------------------------------
 
 This part of the bootstrap processes all the information available to be able to
 determine where to load classes from, including class alias maps which
 are used to map legacy class names to new class names.
 
-6. Check essential configuration
-""""""""""""""""""""""""""""""""
+6. Check Essential Configuration
+--------------------------------
 
 In this step we check if crucial configuration elements have been set.
 If that is not the case, the installation is deemed incomplete and the
 user is redirected to the Install Tool.
 
-7. Register request handlers
-""""""""""""""""""""""""""""
+7. Register Request Handlers
+----------------------------
 
 The backend recognizes various request handlers, one to handle general requests,
 one for backend module requests, one for cli requests and one for AJAX requests.
 
-8. More configuration
-"""""""""""""""""""""
+8. More Configuration
+---------------------
 
 Next :php:`Bootstrap::configure()` is called which in turn triggers
 a whole new series of configuration. This is actually a major step,
@@ -164,13 +165,13 @@ list of the most important stuff happening at this point:
 -  the database connection is established
 
 9. Dispatch
-"""""""""""
+-----------
 
 After all that the :php:`Application::run()` method is called, which
 basically dispatches the request to the right handler.
 
 10. Initialization of the TYPO3 Backend
-"""""""""""""""""""""""""""""""""""""""
+---------------------------------------
 
 The backend request handler has its own :php:`boot()` method, which performs
 yet more initialization and set up as needed. A general request to the
@@ -186,7 +187,7 @@ backend will typically go through such important steps like:
 .. _bootstrapping-context:
 
 Application Context
-^^^^^^^^^^^^^^^^^^^
+===================
 
 Each request, no matter if it runs from the command line or through HTTP,
 runs in a specific *application context*. TYPO3 CMS provides exactly three built-in
@@ -238,7 +239,7 @@ or be part of the web server configuration:
 .. _bootstrapping-context-custom:
 
 Custom Contexts
-"""""""""""""""
+---------------
 
 In certain situations, more specific contexts are desirable:
 
@@ -274,7 +275,7 @@ necessary settings while the ``Production/Live`` context is used on the live ins
 .. _bootstrapping-context-example:
 
 Usage Example
-"""""""""""""
+-------------
 
 The current Application Context is set very early in the bootstrap process and can be accessed
 through public API for example in the :file:`AdditionalConfiguration.php` file to automatically set

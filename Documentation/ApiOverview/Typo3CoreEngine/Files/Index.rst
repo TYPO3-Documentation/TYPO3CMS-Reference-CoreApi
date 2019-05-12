@@ -7,8 +7,9 @@
 
 .. _file-functions:
 
-File functions basics
-^^^^^^^^^^^^^^^^^^^^^
+=====================
+File Functions Basics
+=====================
 
 File operations in the TCE are handled by the class
 :code:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility`
@@ -20,7 +21,7 @@ multidimensional array.
 .. _tce-files-array:
 
 Files Array
-"""""""""""
+===========
 
 Syntax::
 
@@ -80,8 +81,8 @@ Description of keywords in syntax:
 
 .. _tce-file-keywords:
 
-Command keywords and values
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Command Keywords and Values
+---------------------------
 
 .. t3-field-list-table::
  :header-rows: 1

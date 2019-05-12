@@ -10,15 +10,15 @@ Quickstart
 
 .. _logging-quicksart-instantiate-logger:
 
-Instantiate a logger for the current class
+Instantiate a Logger for the Current Class
 ==========================================
 
 .. note::
-   As of TYPO3 9.0 you no longer need to use makeInstance to create an 
-   instance of the logger yourself. You can use `LoggerAwareTrait 
+   As of TYPO3 9.0 you no longer need to use makeInstance to create an
+   instance of the logger yourself. You can use `LoggerAwareTrait
    <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects.html?highlight=loggerawaretrait>`__.
    You must implement the :php:`\Psr\Log\LoggerAwareInterface` interface with your class to have the Trait taking effect.
-   
+
 Use LoggerAwareTrait in your class to automatically instantiate `$this->logger`::
 
    use Psr\Log\LoggerAwareTrait;
@@ -31,7 +31,7 @@ Use LoggerAwareTrait in your class to automatically instantiate `$this->logger`:
          $this->logger->info('entered function myFunction');
       }
    }
-   
+
 Or instantiate the logger in the classic way with makeInstance::
 
    $this->logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
@@ -67,7 +67,7 @@ and pass the severity level::
    );
 
 
-Set logging output
+Set Logging Output
 ==================
 
 TYPO3 has the :ref:`FileWriter <logging-writers-FileWriter>` enabled by default,

@@ -3,8 +3,9 @@
 
 .. _typoscript-syntax-typoscript-parser-api:
 
-The TypoScript parser API
--------------------------
+=========================
+The TypoScript Parser API
+=========================
 
 
 .. toctree::

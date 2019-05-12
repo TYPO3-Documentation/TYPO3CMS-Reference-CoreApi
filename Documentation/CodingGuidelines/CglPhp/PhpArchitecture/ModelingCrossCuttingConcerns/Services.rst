@@ -3,12 +3,13 @@
 
 .. _cgl-services:
 
+========
 Services
-^^^^^^^^
+========
 
 
 Characteristica
-"""""""""""""""
+===============
 
 * Services MUST be used as objects, they are never static
 
@@ -27,7 +28,7 @@ Characteristica
 
 
 Rationale
-"""""""""
+=========
 
 A “service” in this context is meant as the relatively short-sighted
 process of putting a class into a :file:`Service/` subfolder and calling
@@ -56,8 +57,8 @@ bin for something that just does not fit to a different better place
 within the scope of a specific extension.
 
 
-Good examples
-"""""""""""""
+Good Examples
+=============
 
 * :php:`\TYPO3\CMS\Extbase\Service\CacheService`
 
@@ -66,8 +67,8 @@ Good examples
   * It is a singleton, but that is feasible in this case
 
 
-Bad examples
-""""""""""""
+Bad Examples
+============
 
 * :php:`\TYPO3\CMS\Core\Service\AbstractService`,
 
@@ -76,7 +77,7 @@ Bad examples
   * Far too complex, class abstraction and extending classes
 
 
-Further reading
-"""""""""""""""
+Further Reading
+===============
 
 See http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/.

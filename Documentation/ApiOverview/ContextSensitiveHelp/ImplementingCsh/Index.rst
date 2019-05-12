@@ -3,13 +3,14 @@
 
 .. _csh-implementation:
 
+================
 Implementing CSH
-^^^^^^^^^^^^^^^^
+================
 
 .. _csh-implementation-new-table:
 
-For new tables and fields
-"""""""""""""""""""""""""
+For new Tables and Fields
+=========================
 
 Create a language file following the
 explanations given in this chapter and register it in your
@@ -29,8 +30,8 @@ form engine.
 
 .. _csh-implementation-extend-table:
 
-Adding CSH for fields added to existing tables
-""""""""""""""""""""""""""""""""""""""""""""""
+Adding CSH for Fields Added to Existing Tables
+==============================================
 
 Create a language file in your extension
 using the name of the table that you are extending. Inside the file,
@@ -48,8 +49,8 @@ The example assumes that you are extending the "pages" table.
 
 .. _csh-implementation-modules:
 
-For modules
-"""""""""""
+For Modules
+===========
 
 Implementing CSH for your backend module requires a bit more work,
 because you don't have the form engine doing everything for you.

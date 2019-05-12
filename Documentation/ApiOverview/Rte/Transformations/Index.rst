@@ -3,8 +3,9 @@
 
 .. _transformations:
 
+===============
 Transformations
----------------
+===============
 
 
 .. toctree::

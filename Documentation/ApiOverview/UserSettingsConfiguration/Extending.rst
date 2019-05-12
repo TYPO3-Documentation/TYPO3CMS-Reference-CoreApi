@@ -3,8 +3,9 @@
 
 .. _user-settings-extending:
 
+===========================
 Extending the User Settings
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===========================
 
 Adding fields to the User Settings is done in two steps.
 First of all, the new fields are added directly to the

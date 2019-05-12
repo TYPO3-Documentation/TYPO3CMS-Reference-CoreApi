@@ -4,8 +4,9 @@
 
 .. _fal-using-fal-examples-file-folder:
 
-Working with Files, Folders and File References
-"""""""""""""""""""""""""""""""""""""""""""""""
+===============================================
+Working With Files, Folders and File References
+===============================================
 
 This chapter provides some examples about interacting
 with File, Folder and FileReference objects.
@@ -13,8 +14,8 @@ with File, Folder and FileReference objects.
 
 .. _fal-using-fal-examples-file-folder-get-file:
 
-Getting a file
-~~~~~~~~~~~~~~
+Getting a File
+==============
 
 A file can be retrieved using its uid:
 
@@ -41,8 +42,8 @@ The storage uid is optional. If it is not specified, the default storage
 
 .. _fal-using-fal-examples-file-folder-copy-file:
 
-Copying a file
-~~~~~~~~~~~~~~
+Copying a File
+==============
 
 .. code-block:: php
 
@@ -64,8 +65,8 @@ Copying a file
 
 .. _fal-using-fal-examples-file-folder-add-file:
 
-Adding a file
-~~~~~~~~~~~~~
+Adding a File
+=============
 
 This example adds a new file in the root folder of the default
 Storage:
@@ -88,14 +89,14 @@ So, for this example, the resulting file path would typically be
 
 .. _fal-using-fal-examples-file-folder-create-reference:
 
-Creating a file reference
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating a File Reference
+=========================
 
 
 .. _fal-using-fal-examples-file-folder-create-reference-backend:
 
-In the backend context
-''''''''''''''''''''''
+In the Backend Context
+----------------------
 
 In the backend or command-line context, it is possible to create
 file references using the :ref:`DataHandler <datahandler-basics>`
@@ -160,8 +161,8 @@ the "pid" explicitly when creating the relation:
 
 .. _fal-using-fal-examples-file-folder-create-reference-frontend:
 
-In the frontend context
-'''''''''''''''''''''''
+In the Frontend Context
+-----------------------
 
 In a frontend context, the :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`
 class cannot be used and there is no specific API to create a File Reference.
@@ -177,8 +178,8 @@ can be found here: https://github.com/helhum/upload_example
 
 .. _fal-using-fal-examples-file-folder-get-references:
 
-Getting referenced files
-~~~~~~~~~~~~~~~~~~~~~~~~
+Getting Referenced Files
+========================
 
 This snippet shows how to retrieve FAL items that have been attached
 to some other element, in this case the "media" field of the "pages"
@@ -196,8 +197,8 @@ of :php:`\TYPO3\CMS\Core\Resource\FileReference` objects.
 
 .. _fal-using-fal-examples-file-folder-list-files:
 
-Listing files in a folder
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Listing Files in a Folder
+=========================
 
 These would be the shortest steps to get the list of files in a given
 folder: get the Storage, get a Folder object for some path in that

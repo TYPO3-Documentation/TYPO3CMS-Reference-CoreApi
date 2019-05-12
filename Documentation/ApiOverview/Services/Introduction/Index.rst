@@ -3,8 +3,9 @@
 
 .. _services-introduction:
 
+============
 Introduction
-------------
+============
 
 This document describes the services functionality included in the
 TYPO3 CMS core.
@@ -60,14 +61,14 @@ is chosen automatically for you.
 
 .. _services-introduction-good-reasons:
 
-Two reasons to use services
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Two Reasons to Use Services
+===========================
 
 
 .. _services-introduction-good-reasons-implementation:
 
-1. Freedom of implementation
-""""""""""""""""""""""""""""
+1. Freedom of Implementation
+============================
 
 A service may be implemented multiple times to take into account
 different environments like operating systems (Unix, Windows, Mac),
@@ -83,8 +84,8 @@ availability or not of Perl on the server.
 
 .. _services-introduction-good-reasons-extensibility:
 
-2. Extend functionality with extensions
-"""""""""""""""""""""""""""""""""""""""
+2. Extend Functionality with Extensions
+=======================================
 
 Services are able to handle subtypes. Consider the services of type
 "auth" which perform both the frontend and backend authentication. They provide

@@ -3,8 +3,9 @@
 
 .. _services-using-services-service-chain:
 
-Calling a chain of services
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===========================
+Calling a Chain of Services
+===========================
 
 It is also possible to use services in a "chain". This means using all
 the available services of a type instead of just one.

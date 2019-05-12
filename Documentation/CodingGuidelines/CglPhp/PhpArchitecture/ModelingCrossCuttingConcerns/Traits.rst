@@ -3,12 +3,13 @@
 
 .. _cgl-traits:
 
+======
 Traits
-^^^^^^
+======
 
 
 Characteristica
-"""""""""""""""
+===============
 
 * A trait MAY access properties or methods of the class it is
   embedded in.
@@ -20,7 +21,7 @@ Characteristica
 
 
 Rationale
-"""""""""
+=========
 
 There is one specific feature that traits provide other abstraction
 solutions like services or static extraction do not: A trait is
@@ -48,8 +49,8 @@ scope objects are currently not finally decided and we don’t want to
 have relatively hard to deprecate and remove traits at this point.
 
 
-Good examples
-"""""""""""""
+Good Examples
+=============
 
 * :php:`\Symfony\Component\DependencyInjection\ContainerAwareInterface` with
   :php:`\Symfony\Component\DependencyInjection\ContainerAwareTrait` as default
@@ -67,8 +68,8 @@ Good examples
 * :php:`LoggerAwareInterface` with a default trait.
 
 
-Bad examples
-""""""""""""
+Bad Examples
+============
 
 * :php:`\TYPO3\CMS\FluidStyledContent\ViewHelpers\Menu\MenuViewHelperTrait`
 
@@ -83,7 +84,7 @@ Bad examples
     class and just use it in the according view helpers (composition).
 
 
-Further reading
-"""""""""""""""
+Further Reading
+===============
 
 See http://rosstuck.com/how-i-use-traits/.

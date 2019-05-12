@@ -3,8 +3,9 @@
 
 .. _cgl-file-structure:
 
-File structure
-^^^^^^^^^^^^^^
+==============
+File Structure
+==============
 
 TYPO3 files use the following structure:
 
@@ -26,7 +27,7 @@ The following sections discuss each of these parts.
 
 
 Namespace
-"""""""""
+=========
 
 The namespace declaration of each PHP file in the TYPO3 Core shows
 where the file belongs inside TYPO3 CMS. The namespace starts with
@@ -39,8 +40,8 @@ with the class :php:`ContentObjectRenderer` is in the namespace
 
 :php:`use` statements can be added to this section.
 
-Copyright notice
-""""""""""""""""
+Copyright Notice
+================
 
 TYPO3 is released under the terms of GNU General Public License
 version 2 or any later version. The copyright notice with a reference
@@ -67,8 +68,8 @@ file. user files must have this copyright notice as well. Example::
 The wording must not be changed/updated/extended, under any circumstances.
 
 
-Namespace imports
-"""""""""""""""""
+Namespace Imports
+=================
 
 Necessary PHP Classes should be imported like explained in PSR-2::
 
@@ -78,8 +79,8 @@ Necessary PHP Classes should be imported like explained in PSR-2::
 Put one blank line before and after import statements.
 Also put one import statement per line.
 
-Class information block
-"""""""""""""""""""""""
+Class Information Block
+=======================
 
 The class information block provides basic information about the class
 in the file. It should include a description of the class. Example::
@@ -89,8 +90,8 @@ in the file. It should include a description of the class. Example::
     */
 
 
-PHP class
-"""""""""
+PHP Class
+=========
 
 The PHP class follows the class information block. PHP code must be
 formatted as described in chapter "PHP syntax formatting".
@@ -108,8 +109,8 @@ declaration will look like::
    }
 
 
-Optional module execution code
-""""""""""""""""""""""""""""""
+Optional Module Execution Code
+==============================
 
 Module execution code instantiates the class and runs its method(s).
 Typically this code can be found in :code:`eID` scripts and old Backend

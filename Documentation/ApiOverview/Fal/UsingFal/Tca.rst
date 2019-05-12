@@ -2,8 +2,9 @@
 
 .. _fal-using-fal-tca:
 
-TCA definition
-^^^^^^^^^^^^^^
+==============
+TCA Definition
+==============
 
 This chapter explains how to create a field that makes it possible to
 create relations to files.

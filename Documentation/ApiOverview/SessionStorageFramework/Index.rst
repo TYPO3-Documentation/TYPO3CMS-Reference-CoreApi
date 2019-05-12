@@ -2,6 +2,7 @@
 
 .. _sessions:
 
+=========================
 Session Storage Framework
 =========================
 
@@ -17,8 +18,8 @@ By default user sessions are still stored in the database using the database sto
 
 .. _sessions-database:
 
-Database storage backend
-------------------------
+Database Storage Backend
+========================
 
 The database storage backend only requires two configuration options:
 The table name (`table` option) and whether anonymous sessions (`has_anonymous` option) may be stored.
@@ -48,8 +49,8 @@ The default configuration used for sessions by the Core is:
 
 .. _sessions-redis:
 
-Using Redis to store sessions
------------------------------
+Using Redis to Store Sessions
+=============================
 
 TYPO3 also comes with the possibility to store sessions in a Redis key-value database.
 
@@ -102,8 +103,8 @@ The available options are:
 
 .. _sessions-custom:
 
-Writing your own session storage
---------------------------------
+Writing Your Own Session Storage
+================================
 
 Custom sessions storage backends can be created by implementing the interface
 :php:`\TYPO3\CMS\Core\Session\Backend\SessionBackendInterface`. The doc blocks in the interface describe how the
@@ -127,6 +128,6 @@ A custom session storage backend can be used like this (similarly to the Redis b
 .. _sessions-references:
 
 References
-----------
+==========
 
  - The Redis documentation https://redis.io/documentation
