@@ -136,11 +136,11 @@ Frontend implementation guidelines
          This is how simple it is to use this record in your frontend plugins
          when you do queries directly (not using API functions already using
          them)::
-
-            $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(...);
-            while (($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
+         
+            $statement = $queryBuilder->execute();
+            while ($row = $statement->fetch()) {
                $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
-
+               
                if (is_array($row)) {
                   // ...
                }
@@ -256,8 +256,12 @@ Workspace-related API for backend modules
 
          **Example:** ::
 
-            $result = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'pages', 'uid=' . intval($id) . $delClause);
-            $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($result);
+            $queryBuilder->select('*')
+            ->from('pages')
+            ->where(
+               $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT))
+            );
+            $row = $statement->fetch();
             \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL('pages', $row);
 
 
