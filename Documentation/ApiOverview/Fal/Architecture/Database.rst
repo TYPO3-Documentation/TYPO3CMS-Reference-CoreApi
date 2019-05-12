@@ -3,8 +3,9 @@
 
 .. _fal-architecture-database:
 
-Database structure
-^^^^^^^^^^^^^^^^^^
+==================
+Database Structure
+==================
 
 This chapter lists the various tables related to FAL
 and highlights some of their important fields.
@@ -13,7 +14,7 @@ and highlights some of their important fields.
 .. _fal-architecture-database-sys-file:
 
 sys\_file
-"""""""""
+=========
 
 This table is used to store basic information about each file.
 Some important fields:
@@ -25,7 +26,7 @@ identifier
   A string which should uniquely identify a file within its storage.
   Duplicate identifiers are possible, but will create a confusion.
   For the local file system driver, the identifier is the path to the
-  file, relative to the storage root (starting with a slash and using 
+  file, relative to the storage root (starting with a slash and using
   a slash as directory delimiter).
 
 name
@@ -44,7 +45,7 @@ metadata
 .. _fal-architecture-database-sys-file-metadata:
 
 sys\_file\_metadata
-"""""""""""""""""""
+===================
 
 This table is used to store metadata about each file. It has a
 one-to-one relationship with table "sys\_file". Contrary to the
@@ -65,7 +66,7 @@ to categorize files with system categories.
 .. _fal-architecture-database-sys-file-reference:
 
 sys\_file\_reference
-""""""""""""""""""""
+====================
 
 This table is used to store all references between files and
 whatever other records they are used in, typically pages and
@@ -98,7 +99,7 @@ title
 .. _fal-architecture-database-sys-file-processedfile:
 
 sys\_file\_processedfile
-""""""""""""""""""""""""
+========================
 
 This table is similar to "sys\_file", but for "temporary" files,
 like image previews. This table does not have a TCA representation,
@@ -108,7 +109,7 @@ as it is only written for using direct SQL queries in the source code.
 .. _fal-architecture-database-sys-file-collection:
 
 sys\_file\_collection
-"""""""""""""""""""""
+=====================
 
 FAL offers the possibility to create File Collections,
 which can then be used for various purposes. By default,
@@ -137,7 +138,7 @@ category
 .. _fal-architecture-database-sys-file-storage:
 
 sys\_file\_storage
-""""""""""""""""""
+==================
 
 This table is used to store the Storages available in the installation.
 The most important fields are:
@@ -154,7 +155,7 @@ configuration
 .. _fal-architecture-database-sys-filemounts:
 
 sys\_filemounts
-"""""""""""""""
+===============
 
 File Mounts are not specifically part of the FAL (they existed long
 before), but their definition is based on Storages. Each File Mount is

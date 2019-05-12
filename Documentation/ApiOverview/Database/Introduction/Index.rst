@@ -69,7 +69,7 @@ The TYPO3 CMS core - only - implements the dbal part. `doctrine-orm` is neither 
 implemented nor used at the time of this writing.
 
 
-Low-level and high-level database calls
+Low-level and High-Level Database Calls
 =======================================
 
 This documentation is about low-level database calls. In many cases it is better

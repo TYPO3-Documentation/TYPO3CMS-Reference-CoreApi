@@ -2,12 +2,13 @@
 
 .. _cgl-unit-tests:
 
-Unit tests
-^^^^^^^^^^
+==========
+Unit Tests
+==========
 
 
-Unit test files
-"""""""""""""""
+Unit Test Files
+===============
 
 Unit test files are located in the ":file:`Tests/Unit/`" folder of the
 according extension, within a sub-structure matching the structure in
@@ -19,8 +20,8 @@ As example, the unit test class file for
 at :file:`typo3/sysext/core/Tests/Unit/Database/PreparedStatementTest.php`.
 
 
-Using unit tests
-""""""""""""""""
+Using Unit Tests
+================
 
 Although the coverage is far from complete, there are already quite a
 lot of unit tests for the TYPO3 Core. Anytime something is changed in
@@ -28,16 +29,16 @@ the Core, all existing unit tests are run to ensure that nothing
 is broken.
 
 
-Adding unit tests
-"""""""""""""""""
+Adding Unit Tests
+=================
 
 The use of unit tests is strongly encouraged. Every time a new feature
 is introduced or an existing one is modified, a unit test should be
 added.
 
 
-Conventions for unit tests
-""""""""""""""""""""""""""
+Conventions for Unit Tests
+==========================
 
 Unit tests should be as concise as possible. Since the :php:`setUp()`
 and :php:`tearDown()` methods always have the same responsibility,

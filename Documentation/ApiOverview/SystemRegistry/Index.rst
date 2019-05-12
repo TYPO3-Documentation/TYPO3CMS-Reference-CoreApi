@@ -7,8 +7,9 @@
 
 .. _registry:
 
-Using the system registry
--------------------------
+=========================
+Using the System Registry
+=========================
 
 The purpose of the registry (introduced in TYPO3 4.3) is to hold key-
 value pairs of information. You can actually think of it being an
@@ -34,8 +35,8 @@ a session or a cache, use the appropriate API for these instead.
 
 .. _registry-table:
 
-The registry table (sys\_registry)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The Registry Table (sys\_registry)
+==================================
 
 Here's a description of the fields found in the sys\_registry table:
 
@@ -93,7 +94,7 @@ Here's a description of the fields found in the sys\_registry table:
 .. _registry-api:
 
 The registry API
-^^^^^^^^^^^^^^^^
+================
 
 To use the registry, there's an easy to use API. Simply use
 the code below to retrieve an instance of
@@ -170,7 +171,7 @@ needs.
 .. _registry-examples:
 
 Examples
-""""""""
+--------
 
 Here's an example taken from the Scheduler system extension::
 

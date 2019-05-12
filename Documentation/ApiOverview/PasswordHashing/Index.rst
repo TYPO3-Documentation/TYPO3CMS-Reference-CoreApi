@@ -25,7 +25,7 @@ have a basic understanding of the hashing algorithms and configuration in TYPO3.
 
 .. _password-hashing-basic-knowledge:
 
-Basic knowledge
+Basic Knowledge
 ===============
 
 Storing plain text passwords to simply compare a stored password with a given user password when
@@ -161,7 +161,7 @@ rely on different PHP capabilities and might be suitable fall backs if Argon2i i
 reason.
 
 
-Configuration options
+Configuration Options
 =====================
 
 Configuration of password hashing is stored in :file:`LocalConfiguration.php` with defaults in
@@ -184,7 +184,7 @@ Configuration of password hashing is stored in :file:`LocalConfiguration.php` wi
   hash algorithm. This is usually an empty array to fall back to defaults, see below for more details.
 
 
-Available hash algorithms
+Available Hash Algorithms
 =========================
 
 The list of available hash mechanisms is pretty rich since core version v9 and may be extended further
@@ -247,7 +247,7 @@ any longer and is only included for instances that still need to upgrade users t
 PHP API
 =======
 
-Creating a hash
+Creating a Hash
 ---------------
 
 To create a new password hash from a given plain-text password, these are the steps to be done:
@@ -262,7 +262,7 @@ Example implementation for TYPO3 frontend::
    $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)->getDefaultHashInstance('FE');
    $hashedPassword = $hashInstance->getHashedPassword($password);
 
-Checking a password
+Checking a Password
 -------------------
 
 To check a plain-text password against a password hash, these are the steps to be done:

@@ -4,7 +4,7 @@
 .. _rte-backend:
 
 ======================================
-Rich Text Editors in the TYPO3 backend
+Rich Text Editors in the TYPO3 Backend
 ======================================
 
 .. toctree::

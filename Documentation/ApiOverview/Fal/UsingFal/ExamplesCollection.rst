@@ -4,8 +4,9 @@
 
 .. _fal-using-fal-examples-collections:
 
-Working with collections
-""""""""""""""""""""""""
+========================
+Working With Collections
+========================
 
 The :php:`\TYPO3\CMS\Core\Resource\ResourceFactory` class
 provides a convenience method to retrieve a

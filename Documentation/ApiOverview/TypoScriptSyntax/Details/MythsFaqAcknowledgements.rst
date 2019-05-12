@@ -5,8 +5,9 @@
 .. _typoscript-syntax-faq:
 .. _typoscript-syntax-acknowledgements:
 
-Myths, FAQ and acknowledgements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===============================
+Myths, FAQ and Acknowledgements
+===============================
 
 This section contains a few remarks and answers to questions you may
 still have.
@@ -14,8 +15,8 @@ still have.
 
 .. _typoscript-syntax-myth-scripting-language:
 
-Myth: "TypoScript is a scripting language"
-""""""""""""""""""""""""""""""""""""""""""
+Myth: "TypoScript Is a Scripting Language"
+==========================================
 
 This is misleading to say since you will think that TypoScript is like
 PHP or JavaScript while it is not. From the previous pages you have
@@ -34,8 +35,8 @@ about that; too late to change that now.
 
 .. _typoscript-syntax-myth-javascript:
 
-Myth: "TypoScript has the same syntax as JavaScript"
-""""""""""""""""""""""""""""""""""""""""""""""""""""
+Myth: "TypoScript has the Same Syntax as JavaScript"
+====================================================
 
 TypoScript was designed to be simple to use and understand. Therefore
 the syntax looks like JavaScript objects to some degree. But again; it
@@ -45,8 +46,8 @@ TypoScript is still not a procedural programming language!
 
 .. _typoscript-syntax-myth-proprietary:
 
-Myth: "TypoScript is a proprietary standard"
-""""""""""""""""""""""""""""""""""""""""""""
+Myth: "TypoScript Is a Proprietary Standard"
+============================================
 
 Since TypoScript is not a scripting language it does not make sense to
 claim this in comparison to PHP, JavaScript, Java or whatever
@@ -84,8 +85,8 @@ TypoScript was not invented!
 
 .. _typoscript-syntax-myth-complex:
 
-Myth: "TypoScript is very complex"
-""""""""""""""""""""""""""""""""""
+Myth: "TypoScript Is very Complex"
+==================================
 
 TypoScript is simple in nature. But certainly it can quickly become
 complex and get "out of hand" when the amount of code lines grows!
@@ -100,8 +101,8 @@ This can partly be solved by:
 
 .. _typoscript-syntax-xml:
 
-Why not XML instead?
-""""""""""""""""""""
+Why not XML Instead?
+====================
 
 A few times TypoScript has been compared with XML since both
 "languages" are frameworks for storing information. Apart from XML

@@ -3,8 +3,9 @@
 
 .. _user-settings-showitem:
 
-['showitem'] section
-^^^^^^^^^^^^^^^^^^^^
+====================
+['showitem'] Section
+====================
 
 This string is used for rendering the form in the user setup module.
 It contains a comma-separated list of fields, which will be rendered

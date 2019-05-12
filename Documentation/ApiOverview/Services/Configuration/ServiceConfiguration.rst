@@ -3,8 +3,9 @@
 
 .. _services-configuration-service-configuration:
 
-Service configuration
-^^^^^^^^^^^^^^^^^^^^^
+=====================
+Service Configuration
+=====================
 
 Some services will not need additional configuration. Others may have
 some options that can be set in the Extension Manager. Yet others may

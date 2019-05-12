@@ -2,8 +2,9 @@
 
 .. _http:
 
-HTTP request library / Guzzle / PSR-7
--------------------------------------
+=====================================
+HTTP Request Library / Guzzle / PSR-7
+=====================================
 
 Since TYPO3 CMS 8.1 the PHP library `Guzzle` has been added via composer dependency
 to work as a feature rich solution for creating HTTP requests based on the PSR-7 interfaces
@@ -35,8 +36,8 @@ implementations like stream wrappers or cURL directly.
 
 .. _http-basic:
 
-Basic usage
-^^^^^^^^^^^
+Basic Usage
+===========
 
 The `RequestFactory` class can be used like this:
 
@@ -83,7 +84,7 @@ API directly in order to ensure a clear upgrade path when updates to the underly
 .. _backend-routing:
 
 Routing
-^^^^^^^
+=======
 
 Each request to the backend is eventually executed by a controller.
 A list of routes is defined which maps a given request to a controller

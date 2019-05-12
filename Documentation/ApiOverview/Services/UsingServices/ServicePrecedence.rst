@@ -3,8 +3,9 @@
 
 .. _services-using-services-precedence:
 
-Service precedence
-^^^^^^^^^^^^^^^^^^
+==================
+Service Precedence
+==================
 
 Several services may be declared to do the same job. What will
 distinguish them is two intrinsic properties of services: priority and

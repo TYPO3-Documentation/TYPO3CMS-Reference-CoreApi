@@ -4,14 +4,15 @@
 
 .. _caching-frontend:
 
-Cache frontends
-^^^^^^^^^^^^^^^
+===============
+Cache Frontends
+===============
 
 
 .. _caching-frontend-api:
 
 Frontend API
-""""""""""""
+============
 
 All frontends must implement the API defined in interface :code:`TYPO3\CMS\Core\Cache\Frontend\FrontendInterface`.
 All operations on a specific cache must be done with these methods. The frontend object of a cache is the main object
@@ -85,8 +86,8 @@ any cache manipulation is done with, usually the assigned backend object should 
 
 .. _caching-frontend-avalaible:
 
-Available frontends
-"""""""""""""""""""
+Available Frontends
+===================
 
 Currenly three different frontends are implemented. The main difference is
 the data types which can be stored using a specific frontend.
@@ -95,7 +96,7 @@ the data types which can be stored using a specific frontend.
 .. _caching-frontend-string:
 
 String Frontend
-~~~~~~~~~~~~~~~
+---------------
 
 The string frontend accepts strings as data to be cached.
 
@@ -103,7 +104,7 @@ The string frontend accepts strings as data to be cached.
 .. _caching-frontend-variable:
 
 Variable Frontend
-~~~~~~~~~~~~~~~~~
+-----------------
 
 Strings, arrays and objects are accepted by this frontend.
 Data is serialized before it is passed to the backend.
@@ -118,7 +119,7 @@ Data is serialized before it is passed to the backend.
 .. _caching-frontend-php:
 
 PHP Frontend
-~~~~~~~~~~~~
+------------
 
 This is a special frontend to cache PHP files. It extends the string frontend
 with the method :code:`requireOnce()` which allows PHP files to be :code:`require()`'d
@@ -151,7 +152,7 @@ slowing down a TYPO3 installation.
 .. _caching_backend-api:
 
 Backend API
-"""""""""""
+===========
 
 All backends must implement at least interface :code:`TYPO3\CMS\Core\Cache\Backend\BackendInterface`.
 All operations on a specific cache must be done with these methods. There are several further interfaces that can be
@@ -227,8 +228,8 @@ directly, but should use the frontend object instead.
 
 .. _caching-backend-options:
 
-Common options
-""""""""""""""
+Common Options
+==============
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -254,7 +255,7 @@ Common options
 .. _caching-backend-db:
 
 Database Backend
-""""""""""""""""
+================
 
 This is the main backend suitable for most storage needs.
 It does not require additional server daemons nor server configuration.
@@ -293,8 +294,8 @@ multiple times during one request.
 
 .. _caching-backend-db-innodb:
 
-InnoDB issues
-~~~~~~~~~~~~~
+InnoDB Issues
+-------------
 
 The database backend for MySQL uses InnoDB tables. Due to the nature of InnoDB, deleting records
 `does not reclaim <http://bugs.mysql.com/bug.php?id=1287>`_ the actual disk space. E.g. if the cache uses 10GB,
@@ -307,7 +308,7 @@ This does not by any mean that you should skip the scheduler task. Deleting reco
 .. _caching-backend-db-options:
 
 Options
-~~~~~~~
+-------
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -350,7 +351,7 @@ Options
 .. _caching-backend-memcached:
 
 Memcached Backend
-"""""""""""""""""
+=================
 
 `Memcached <http://memcached.org/>`_ is a simple, distributed key/value RAM database.
 To use this backend, at least one memcached daemon must be reachable,
@@ -361,8 +362,8 @@ Currently, only memcache is supported by this backend.
 
 .. _caching-backend-memcache-warning:
 
-Warning and design constraints
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Warning and Design Constraints
+------------------------------
 
 Memcached is a simple key-value store by design . Since the caching framework
 needs to structure it to store the identifier-data-tags relations, for each
@@ -410,7 +411,7 @@ even if it is not advised to used this backend together with heavy tagging.
 .. _caching-backend-memcache-options:
 
 Options
-~~~~~~~
+-------
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -456,7 +457,7 @@ Options
 .. _caching-backend-redis:
 
 Redis Backend
-"""""""""""""
+=============
 
 `Redis <http://redis.io/>`_ is a key-value storage/database.
 In contrast to memcached, it allows structured values.
@@ -492,7 +493,7 @@ which must be available on the system.
 .. _caching-backend-redis-options:
 
 Options
-~~~~~~~
+-------
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -597,7 +598,7 @@ Options
 .. _caching-backend-apc:
 
 APC Backend
-"""""""""""
+===========
 
 `APC <http://pecl.php.net/package/APC>`_ is mostly known as an opcode cache
 for PHP source files but can be used to store user data in shared memory as well.
@@ -630,7 +631,7 @@ Cache TTL for file and user data should be set to zero (disabled) to avoid heavy
 .. _caching-backend-xcache:
 
 Xcache Backend
-""""""""""""""
+==============
 
 Xcache is a PHP opcode cache similar to APC. It can also store in-memory key/value user data.
 
@@ -650,8 +651,8 @@ and has the same design constraints.
 
 .. _caching-backend-wincache:
 
-Wincache backend
-""""""""""""""""
+Wincache Backend
+================
 
 `Wincache <http://www.iis.net/downloads/microsoft/wincache-extension>`_ is a PHP opcode cache similar to APC, but
 dedicated to the Windows OS platform. Similar to APC, the cache can also be used as in-memory key/value cache.
@@ -663,7 +664,7 @@ and has the same design constrains.
 .. _caching-backend-file:
 
 File Backend
-""""""""""""
+============
 
 The file backend stores every cache entry as a single file to the file system.
 The lifetime and tags are added after the data part in the same file.
@@ -696,7 +697,7 @@ backend if cached data has many tags.
 .. _caching-backend-file-options:
 
 Options
-~~~~~~~
+-------
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -724,7 +725,7 @@ Options
 .. _caching-backend-simple-file:
 
 Simple File Backend
-"""""""""""""""""""
+===================
 
 The simple file backend is the small brother of the :ref:`file backend <caching-backend-file>`. In contrast to most
 other backends, it does not implement the :code:`TaggableInterface`, so cache entries can not be tagged and flushed
@@ -736,7 +737,7 @@ usually flushed completely and does not need specific cache entry eviction.
 .. _caching-backend-pdo:
 
 PDO Backend
-"""""""""""
+===========
 
 The PDO backend can be used as a native PDO interface to databases which are connected to PHP via PDO.
 It is an alternative to the database backend if a cache should be stored in a database which is otherwise
@@ -753,7 +754,7 @@ The garbage collection is implemented for this backend and should be called to c
 .. _caching-backend-pdo-options:
 
 Options
-~~~~~~~
+-------
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -802,7 +803,7 @@ Options
 .. _caching-backend-transient:
 
 Transient Memory Backend
-""""""""""""""""""""""""
+========================
 
 The transient memory backend stores data in a PHP array. It is only valid for one request. This becomes handy if code
 logic needs to do expensive calculations or must look up identical information from a database over and over again
@@ -817,7 +818,7 @@ the memory consumed by the PHP process and can hit the :code:`memory_limit` PHP 
 .. _caching-backend-null:
 
 Null Backend
-""""""""""""
+============
 
 The null backend is a dummy backend which doesn't store any data and always returns :code:`false`
 on :code:`get()`. This backend becomes handy in development context to practically "switch off" a cache.

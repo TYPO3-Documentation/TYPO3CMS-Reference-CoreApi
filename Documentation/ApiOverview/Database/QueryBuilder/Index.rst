@@ -126,7 +126,7 @@ of a `SELECT` query looks like::
 
 .. _database-query-builder-select-restrictions:
 
-Default restrictions
+Default Restrictions
 --------------------
 
 .. note::
@@ -803,8 +803,8 @@ a list of backend user names!
    :php:`->set()` automatically transforms the second mandatory parameter into a named parameter of a prepared statement.
    Wrapping the second parameter in a :php:`->createNamedParameter()` call will result in an error upon execution. This
    behaviour can be disabled by passing :php:`false` as a third parameter to :php:`->set()`.
-   
-   
+
+
 Rules:
 
 * **Always** use :php:`->createNamedParameter()` around **any** input, no matter where it comes from.

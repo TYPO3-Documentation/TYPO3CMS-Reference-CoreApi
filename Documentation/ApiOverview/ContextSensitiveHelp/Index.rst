@@ -2,8 +2,9 @@
 
 .. _csh:
 
+============================
 Context Sensitive Help (CSH)
-----------------------------
+============================
 
 TYPO3 CMS offers a full API for adding Context Sensitive Help to
 backend modules and - especially - to all database tables and fields.

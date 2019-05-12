@@ -2,9 +2,9 @@
 
 .. _fal-administration:
 
-
+==============
 Administration
---------------
+==============
 
 
 .. toctree::

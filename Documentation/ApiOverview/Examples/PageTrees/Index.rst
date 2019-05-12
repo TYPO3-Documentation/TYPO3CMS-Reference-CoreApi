@@ -3,8 +3,9 @@
 
 .. _examples-page-tree:
 
-Rendering page trees
-^^^^^^^^^^^^^^^^^^^^
+====================
+Rendering Page Trees
+====================
 
 In your backend modules you might like to show information or perform
 processing for a part of the page tree. There is a whole family of

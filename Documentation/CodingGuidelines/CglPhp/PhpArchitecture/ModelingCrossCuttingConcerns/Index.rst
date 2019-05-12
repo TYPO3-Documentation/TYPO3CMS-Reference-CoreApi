@@ -3,8 +3,9 @@
 
 .. _cgl-modeling-cross-cutting-concerns:
 
+===============================
 Modeling Cross Cutting Concerns
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===============================
 
 A cross cutting concern we are talking about here is a problem that
 has to be solved at multiple, distinct places within the system that

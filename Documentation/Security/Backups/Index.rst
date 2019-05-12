@@ -2,8 +2,9 @@
 
 .. _security-backups:
 
+===============
 Backup Strategy
----------------
+===============
 
 Backups are usually in the responsibility of the system administrator.
 Creating backups obviously does not improve the security of a TYPO3

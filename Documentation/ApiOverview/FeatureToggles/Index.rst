@@ -4,6 +4,7 @@
 
 .. _feature-toggles:
 
+===============
 Feature Toggles
 ===============
 
@@ -22,11 +23,11 @@ Examples for features are:
  - Enable alternative PageNotFound handling for an installation.
 
 Naming of Feature Toggles
--------------------------
+=========================
 
 Feature names should NEVER be named "enable" or have a negation, or contain versions or years.
 
-Bad examples: 
+Bad examples:
 
  - `enableFeatureXyz`
  - `disableOverlays`
@@ -44,8 +45,8 @@ Good examples:
  - `NativeDoctrineQueries`
 
 
-Using the API as extension author
----------------------------------
+Using the API as Extension Author
+=================================
 
 For extension authors, the API can be used for any custom feature provided by an extension::
 
@@ -57,7 +58,7 @@ The name can be any arbitrary string, but an extension author should prefix the 
 extension name as the features are global switches which otherwise might lead to naming conflicts.
 
 Core Feature Toggles
---------------------
+====================
 
 Some examples for feature toggles in the TYPO3 Core:
 
@@ -68,7 +69,7 @@ Some examples for feature toggles in the TYPO3 Core:
 
 
 Enable / Disable Feature Toggle
--------------------------------
+===============================
 
 Features can be toggled in the *Settings* module via *Feature Toggles*:
 

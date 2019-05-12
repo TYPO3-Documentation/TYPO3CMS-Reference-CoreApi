@@ -24,8 +24,9 @@
 .. _transformations-tsconfig-processing-exit_entry_htmlparser:
 .. _transformations-tsconfig-processing-user:
 
-Transformation overview
-^^^^^^^^^^^^^^^^^^^^^^^
+=======================
+Transformation Overview
+=======================
 
 The transformation of the content can be configured by listing which
 *transformation filters* to pass it through. The order of the list is
@@ -39,8 +40,8 @@ Processing can also be overwritten by Page TSconfig, see the
 
 .. _transformations-overview-filters:
 
-Transformation filters
-""""""""""""""""""""""
+Transformation Filters
+======================
 
 .. ### BEGIN~OF~TABLE ###
 
@@ -118,8 +119,8 @@ Transformation filters
 
 .. _transformations-overview-meta:
 
-Meta transformations
-""""""""""""""""""""
+Meta Transformations
+====================
 
 Meta transformations are special modes that include several filters.
 

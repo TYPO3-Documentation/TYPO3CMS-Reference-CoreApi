@@ -3,8 +3,9 @@
 
 .. _hooks-creation:
 
-Creating hooks
-^^^^^^^^^^^^^^
+==============
+Creating Hooks
+==============
 
 You are encouraged to create hooks in your extensions if they seem
 meaningful. Typically someone would request a hook somewhere. Before
@@ -39,7 +40,7 @@ Here follows some examples.
 .. _hooks-creation-object:
 
 Using \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+============================================================
 
 Data submission to extensions::
 
@@ -54,7 +55,7 @@ Data submission to extensions::
 .. _hooks-creation-function:
 
 Using with \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+=====================================================================
 
 Constructor post-processing::
 

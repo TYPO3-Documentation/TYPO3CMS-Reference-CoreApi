@@ -2,13 +2,14 @@
 
 .. _sitehandling-create-new:
 
-Creating a new site
+===================
+Creating a new Site
 ===================
 
 A new site can be created for every page record that either **is on rootLevel (pid = 0)**
 or **has `is_siteroot` flag set**. So at least one page is needed in the page tree.
 
-To create a new site configuration, go to the `Site` module at `Site Management`. 
+To create a new site configuration, go to the `Site` module at `Site Management`.
 
 .. figure:: ../../Images/SiteHandlingCreateNewSite-1.png
    :class: with-shadow
@@ -25,7 +26,7 @@ After pressing the "big blue button" an edit form is displayed:
    A new site creation form.
 
 
-First, enter an identifier at (1). 
+First, enter an identifier at (1).
 
 .. hint::
 
@@ -33,10 +34,10 @@ First, enter an identifier at (1).
     configuration file(s). When choosing an identifier make sure to stick to ASCII but you may also
     use `-`, `_` and `.` for convenience. Examples: `main-site` and `langing-page`.
 
-Then, enter a base for your site at (2). 
+Then, enter a base for your site at (2).
 
 .. tip::
-    Be as specific as you can for your sites without losing flexibility. So, if you have a choice 
+    Be as specific as you can for your sites without losing flexibility. So, if you have a choice
     between using `https://www.example.org`, `www.example.org` or `/`, then choose `https://www.example.org`.
 
     This will make resolving pages more reliable as the chance for conflicts with other sites gets minimized.

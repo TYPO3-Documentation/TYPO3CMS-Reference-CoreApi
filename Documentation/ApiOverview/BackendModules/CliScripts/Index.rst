@@ -4,7 +4,7 @@
 .. _cli-mode:
 
 ==================================
-TYPO3 CMS shell scripts (CLI mode)
+TYPO3 CMS Shell Scripts (CLI Mode)
 ==================================
 
 Besides the backend, it is also possible to run some TYPO3 CMS

@@ -3,8 +3,9 @@
 
 .. _xliff:
 
-XLIFF format
-------------
+============
+XLIFF Format
+============
 
 The `XML Localisation Interchange File Format <http://en.wikipedia.org/wiki/XLIFF>`_
 (or XLIFF) is an `OASIS-blessed <http://www.oasis-open.org/committees/xliff>`_
@@ -30,7 +31,7 @@ source-language must always be `source-language="en"`.
 .. _xliff-basics:
 
 Basics
-^^^^^^
+======
 
 Here is a sample XLIFF file:
 
@@ -86,8 +87,8 @@ goes to an additional file.
 
 .. _xliff-files:
 
-File locations and naming
-^^^^^^^^^^^^^^^^^^^^^^^^^
+File Locations and Naming
+=========================
 
 In the TYPO3 Core, XLIFF files are located in the various system extensions
 as needed and are expected to be located in :file:`Resources/Private/Language`.

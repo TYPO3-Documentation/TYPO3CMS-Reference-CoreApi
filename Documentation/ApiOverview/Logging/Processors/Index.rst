@@ -3,8 +3,9 @@
 
 .. _logging-processors:
 
+==============
 Log Processors
-^^^^^^^^^^^^^^
+==============
 
 The purpose of a log processor is (usually) to modify a log record or add more detailed information to it.
 
@@ -18,7 +19,7 @@ but more can be added with extensions.
 .. _logging-processors-builtin:
 
 Built-in Log Processors
-"""""""""""""""""""""""
+=======================
 
 This section describes the log processors shipped with the TYPO3 core.
 Some processors have options to allow customization of the particular processor.
@@ -28,7 +29,7 @@ See the :ref:`Configuration <logging-configuration-processor>` section for how t
 .. _logging-processors-introspection:
 
 IntrospectionProcessor
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 The introspection processor adds backtrace data about where the log event was triggered.
 
@@ -56,7 +57,7 @@ shiftBackTraceLevel   no         Removes the given number of entries from the to
 .. _logging-processors-memory:
 
 MemoryUsageProcessor
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 The memory usage processor adds the amount of used memory to the log record
 (result from `memory_get_usage()`__).
@@ -76,7 +77,7 @@ __ http://www.php.net/manual/en/function.memory-get-usage.php
 .. _logging-processors-memory-peak:
 
 MemoryPeakUsageProcessor
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 The memory peak usage processor adds the peak amount of used memory to the log record
 (result from `memory_get_peak_usage()`__).
@@ -96,7 +97,7 @@ __ http://www.php.net/manual/en/function.memory-get-peak-usage.php
 .. _logging-processors-web:
 
 WebProcessor
-~~~~~~~~~~~~
+------------
 
 The web processor adds selected webserver environment variables to the log record,
 i.e. all possible values from :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('_ARRAY')`.
@@ -105,7 +106,7 @@ i.e. all possible values from :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::get
 .. _logging-processors-custom:
 
 Custom Log Processors
-"""""""""""""""""""""
+=====================
 
 Custom log processors can be added through extensions. Every log processor has to implement
 the interface :code:`\TYPO3\CMS\Core\Log\Processor\ProcessorInterface`.

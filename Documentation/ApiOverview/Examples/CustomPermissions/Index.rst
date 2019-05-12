@@ -3,8 +3,9 @@
 
 .. _custom-permissions:
 
-Using custom permission options
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===============================
+Using Custom Permission Options
+===============================
 
 TYPO3 allows extension developers to register their own
 permission options, managed automatically by the built-in user group
@@ -17,7 +18,7 @@ The scope of such options is the backend only.
 .. _custom-permissions-registration:
 
 Registration
-""""""""""""
+============
 
 Options are configured in the global variable :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']` in
 :file:`ext_tables.php`. The syntax is demonstrated in the following example, which adds three options
@@ -65,7 +66,7 @@ they need to be registered with the icon API.
 .. _custom-permissions-evaluation:
 
 Evaluation
-""""""""""
+==========
 
 To check if a custom permission option is set simply call the API
 function from the user object::
@@ -84,8 +85,8 @@ The function returns true if the option is set, otherwise false.
 
 .. _custom-permissions-keys:
 
-Keys for options
-""""""""""""""""
+Keys for Options
+================
 
 It is good practice to use the extension keys prefixed with :code:`tx_` on
 the first level of the array to avoid potential conflicts with other

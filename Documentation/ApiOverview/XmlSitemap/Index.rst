@@ -13,13 +13,15 @@ Out-of-the-box it will have one sitemap containing all the pages of the current 
 language. Per site and per language you have the possibility to render a different sitemap.
 
 Installation
-------------
+============
+
 The XML sitemap is disabled by default. You can easily enable it by installing the system
 extension "seo" and including the static TypoScript template XML Sitemap (seo). It is also
 mandatory to have a site configuration for your rootpage(s).
 
-How to access your XML sitemap
-------------------------------
+How to Access Your XML Sitemap
+==============================
+
 Until it is possible to have a default route with the new URL handling mechanism, you can access
 the sitemaps by going to https://yourdomain.com/?type=1533906435. You will first see the sitemap
 index. By default you will see one sitemap in the index. This is the sitemap for pages.
@@ -29,7 +31,8 @@ you can just go to the domain that handles the siteroot / language. The sitemap 
 the settings for that domain.
 
 XmlSitemapDataProviders
------------------------
+=======================
+
 The rendering of sitemaps is based on XmlSitemapDataProviders. The EXT:seo extension ships with two
 XmlSitemapDataProviders. The first one is the PagesXmlSitemapDataProvider. This will generate a sitemap
 of pages based on the siteroot that is detected. You can configure if you have additional conditions
@@ -89,8 +92,9 @@ RecordsXmlSitemapDataProvider. You can add for example a sitemap for news record
 
 You can add several sitemaps and those will be added to the sitemap index automatically.
 
-Create your own XmlSitemapDataProvider
---------------------------------------
+Create Your Own XmlSitemapDataProvider
+======================================
+
 If you need more logic in your sitemap, you can also write your own XmlSitemapProvider. You can do this by
 extending the \TYPO3\CMS\Seo\XmlSitemap\AbstractXmlSitemapDataProvider class. The most important methods are
 :php:`getLastModified` and :php:`getItems`.

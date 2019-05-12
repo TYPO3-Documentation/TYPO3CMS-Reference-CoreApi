@@ -3,8 +3,9 @@
 
 .. _services-developer-new-service-type:
 
-Introducing a new service type
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==============================
+Introducing a New Service Type
+==============================
 
 Every service belongs to a given service type. A service type is
 represented by a key, just like an extension key. In the examples

@@ -2,8 +2,9 @@
 
 .. _database-query-helper:
 
+===========
 QueryHelper
------------
+===========
 
 The class contains miscellaneous helper methods to build syntactically valid
 SQL queries.
@@ -33,7 +34,7 @@ The migration benefits are the only reason the methods are documented here.
 
 
 parseOrderBy()
-^^^^^^^^^^^^^^
+==============
 
 Some parts of the core framework allow string definitions like `ORDER BY sorting` for instance
 in `TCA` and `TypoScript`. The method rips those strings apart and prepares them to be fed
@@ -50,7 +51,7 @@ to :php:`QueryBuilder->orderBy()`::
 
 
 parseGroupBy()
-^^^^^^^^^^^^^^
+==============
 
 Parses `GROUP BY` strings ready to be added via :php:`QueryBuilder->groupBy()`,
 similar to :php:`->parseOrderBy()`::
@@ -63,7 +64,7 @@ similar to :php:`->parseOrderBy()`::
 
 
 parseTableList()
-^^^^^^^^^^^^^^^^
+================
 
 Parse a table list, possibly prefixed with FROM, and explode it into and array of arrays where
 each item consists of a tableName and an optional alias name,
@@ -80,7 +81,7 @@ ready to be put into :php:`QueryBuilder->from()`::
 
 
 parseJoin()
-^^^^^^^^^^^
+===========
 
 Split a JOIN SQL fragment into table name, alias and join conditions::
 
@@ -102,7 +103,7 @@ Split a JOIN SQL fragment into table name, alias and join conditions::
 
 
 stripLogicalOperatorPrefix()
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+============================
 
 Removes the prefixes `AND` / `OR` from an input string.
 
@@ -122,7 +123,7 @@ helps by killing those prefixes before they are handed over to the `doctrine` AP
 
 
 getDateTimeFormats()
-^^^^^^^^^^^^^^^^^^^^
+====================
 
 Just a left over method from the old `TYPO3_DB` `DatabaseConnection` class. Of little to no use
 for extension authors. This one is hopefully one of the first methods to vanish from the class.
@@ -131,7 +132,7 @@ for extension authors. This one is hopefully one of the first methods to vanish 
 .. _database-query-helper-quoteDatabaseIdentifiers:
 
 quoteDatabaseIdentifiers()
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+==========================
 
 This helper method is used especially in `TCA` and `TypoScript` at places where SQL fragments are specified to
 correctly quote table and field names for the specific database platform. It for example

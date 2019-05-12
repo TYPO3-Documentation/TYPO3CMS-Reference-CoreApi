@@ -26,7 +26,7 @@ running under the frontend of the "cms" extension.
 
 
 Table 1: Traditional List
--------------------------
+=========================
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -168,14 +168,14 @@ Table 1: Traditional List
 
 
 Table 2: Base Constants
------------------------
+=======================
 
 Check :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder::defineBaseConstants()`
 for updates.
 
 
-This version, branch and copyright
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This Version, Branch and Copyright
+----------------------------------
 
 ===================================== =======================================================
 Constant                              Example value
@@ -186,8 +186,8 @@ TYPO3_copyright_year                  '1998-2015'
 ===================================== =======================================================
 
 
-TYPO3 external links
-~~~~~~~~~~~~~~~~~~~~
+TYPO3 External Links
+--------------------
 
 ===================================== =======================================================
 Constant                              Example value
@@ -262,8 +262,8 @@ TYPO3_URL_WIKI_OPCODECACHE            'https://wiki.typo3.org/Opcode_Cache'
 ===================================== =======================================================
 
 
-String constants
-~~~~~~~~~~~~~~~~
+String Constants
+----------------
 
 ===================================== ======================================================= ============
 Constant                              Value                                                   Description
@@ -297,8 +297,8 @@ CRLF                                  CR + LF                                   
 ===================================== ======================================================= ============
 
 
-Security related constant
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Security Related Constant
+-------------------------
 
 ===================================== ======================================================= ============
 Constant                              Value                                                   Description
@@ -308,8 +308,8 @@ PHP_EXTENSIONS_DEFAULT                'php,php3,php4,php5,php6,php7,phpsh,inc,ph
 ===================================== ======================================================= ============
 
 
-Operating system identifier
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Operating System Identifier
+---------------------------
 
 ===================================== ======================================================= ============
 Constant                              Value                                                   Description
@@ -324,8 +324,8 @@ TYPO3_OS                              self::getTypo3Os())                       
 ===================================== ======================================================= ============
 
 
-Service error constants
-~~~~~~~~~~~~~~~~~~~~~~~
+Service Error Constants
+-----------------------
 
 ===================================== ======================================================= ============
 Constant                              Value                                                   Description
@@ -342,7 +342,7 @@ T3_ERR_SV_PROG_FAILED                 -41                                       
 ===================================== ======================================================= ============
 
 Filetypes
-~~~~~~~~~
+---------
 
 Different types of files constants are defined in :php:`TYPO3\CMS\Core\Resource\AbstractFile`.
 These constants are available for different groups of files as documented in
@@ -362,8 +362,8 @@ FILETYPE_VIDEO           4 Any kind of video
 FILETYPE_APPLICATION     5 Any kind of application
 ==================== ===== =======================
 
-HTTP status codes
-~~~~~~~~~~~~~~~~~
+HTTP Status Codes
+-----------------
 
 The different status codes available are defined in :php:`TYPO3\CMS\Core\Utility\HttpUtility`.
 These constants are defined as documented in https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml

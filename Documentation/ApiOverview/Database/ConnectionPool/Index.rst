@@ -2,8 +2,9 @@
 
 .. _database-connection-pool:
 
+==============
 ConnectionPool
---------------
+==============
 
 TYPO3's interface to execute queries via `doctrine-dbal` typically starts by asking
 the `ConnectionPool` for a `QueryBuilder` or a `Connection` object, handing over the table name to be queried::
@@ -22,7 +23,7 @@ while a `Connection` instance can be used as shortcut to deal with some simple q
 
 
 Pooling
-^^^^^^^
+=======
 
 TYPO3 can handle multiple connections to different database endpoints at the same time. This
 can be configured on a per-table basis in :php:`$GLOBALS['TYPO3_CONF_VARS']`. It allows running tables

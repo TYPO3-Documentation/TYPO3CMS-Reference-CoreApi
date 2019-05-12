@@ -7,7 +7,7 @@ Context API and Aspects
 =======================
 
 Introduction
-------------
+============
 
 Context API encapsulates various information for data retrieval (e.g. inside
 the database) and analysis of current permissions and caching information.
@@ -26,7 +26,7 @@ This information is separated in so-called "Aspects", each being responsible for
 .. _context_api_aspects_datetime:
 
 DateTime Aspect
-^^^^^^^^^^^^^^^
+---------------
 
 Contains time, date and timezone information for the current request.
 
@@ -50,7 +50,7 @@ Property       Call                                                          Res
 .. _context_api_aspects_datetime_example:
 
 Example
-.......
+~~~~~~~
 
 .. code-block:: php
 
@@ -63,7 +63,7 @@ Example
 .. _context_api_aspects_language:
 
 Language Aspect
-^^^^^^^^^^^^^^^
+---------------
 
 Contains information about language settings for the current request, including fallback and overlay logic.
 
@@ -112,7 +112,7 @@ Property                Call                                                    
 .. _context_api_aspects_language_example:
 
 Example
-.......
+~~~~~~~
 
 .. code-block:: php
 
@@ -125,7 +125,7 @@ Example
 .. _context_api_aspects_user:
 
 User Aspect
-^^^^^^^^^^^
+-----------
 
 Contains information about authenticated users in the current request. Can be used for frontend and backend users.
 
@@ -150,7 +150,7 @@ Property        Call                                                            
 .. _context_api_aspects_user_example:
 
 Example
-.......
+~~~~~~~
 
 .. code-block:: php
 
@@ -163,7 +163,7 @@ Example
 .. _context_api_aspects_visibility:
 
 Visibility Aspect
-^^^^^^^^^^^^^^^^^
+-----------------
 
 The aspect contains whether to show hidden pages, records (content) or even deleted records.
 
@@ -185,7 +185,7 @@ Property                   Call                                                 
 .. _context_api_aspects_visibility_example:
 
 Example
-.......
+~~~~~~~
 
 .. code-block:: php
 
@@ -198,7 +198,7 @@ Example
 .. _context_api_aspects_workspace:
 
 Workspace Aspect
-^^^^^^^^^^^^^^^^
+----------------
 
 The aspect contains information about the currently accessed workspace
 
@@ -220,7 +220,7 @@ Property       Call                                                             
 .. _context_api_aspects_workspace_example:
 
 Example
-.......
+~~~~~~~
 
 .. code-block:: php
 

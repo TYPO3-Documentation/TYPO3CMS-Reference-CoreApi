@@ -2,8 +2,9 @@
 
 .. _database-restriction-builder:
 
+==================
 RestrictionBuilder
-------------------
+==================
 
 Database tables in `TYPO3 CMS` that can be administrated in the backend come with
 :ref:`TCA <t3tca:start>` definitions that
@@ -29,7 +30,7 @@ their "active" life cycle. All that is based on the `TCA` configuration of the a
 
 
 Rationale
-^^^^^^^^^
+=========
 
 A developer may ask why she has to go through all this and why this additional stuff
 is added on a low-level query layer, when "just a simple query" should be fired. The
@@ -65,8 +66,8 @@ construct implements some important design goals:
   or substitute it with own restrictions if that is useful to model the domain in question.
 
 
-Main construct
-^^^^^^^^^^^^^^
+Main Construct
+==============
 
 The restriction builder is called whenever a `SELECT` or `COUNT` query is executed through
 either the `QueryBuilder` or `Connection`. The `QueryBuilder` allows manipulation of those
@@ -104,7 +105,7 @@ the `DefaultRestrictionContainer` if not explicitly told otherwise by an extensi
 
 
 Restrictions
-^^^^^^^^^^^^
+============
 
 * `DeletedRestriction`:
   (default) Evaluates :php:`['ctrl']['delete']`, adds for instance `AND deleted = 0` if
@@ -136,7 +137,7 @@ Restrictions
 
 
 QueryRestrictionContainer
-^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================
 
 * `DefaultRestrictionContainer`: Add `DeletedRestriction`, `HiddenRestriction`, `StartTimeRestriction`
   and `EndTimeRestriction`. This container is always added if not told otherwise.
@@ -148,7 +149,7 @@ QueryRestrictionContainer
 
 
 Examples
-^^^^^^^^
+========
 
 Often the default restrictions are sufficient. Nothing needs to be done in those cases.
 

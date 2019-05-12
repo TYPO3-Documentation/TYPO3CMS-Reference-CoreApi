@@ -7,8 +7,9 @@
 
 .. _categories:
 
-System categories
------------------
+=================
+System Categories
+=================
 
 Since version 6.0, TYPO3 CMS provides a generic categorization system.
 Categories can be created in the backend like any other type of record.
@@ -20,14 +21,14 @@ Since version 6.2, pages, content elements and files are categorizable by defaul
 
 .. _categories-using:
 
-Using categories
-^^^^^^^^^^^^^^^^
+Using Categories
+================
 
 
 .. _categories-managing:
 
-Managing categories
-"""""""""""""""""""
+Managing Categories
+-------------------
 
 System categories are defined just like any other record. Each category
 can have a parent, making for a tree-like structure.
@@ -44,8 +45,8 @@ as belonging to this category.
 
 .. _categories-activating:
 
-Making a table categorizable
-""""""""""""""""""""""""""""
+Making a Table Categorizable
+----------------------------
 
 There are two ways to activate categories on a given table. The first one is to
 use the global setting :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultCategorizedTables']`.
@@ -117,8 +118,8 @@ This is the result of the above code:
 
 .. _categories-flexforms:
 
-Using categories in flexforms
-"""""""""""""""""""""""""""""
+Using Categories in FlexForms
+=============================
 
 It is possible to create relations to categories also in
 :ref:`Flexforms <t3tca:columns-flex>`, although this has
@@ -163,8 +164,8 @@ to be adjusted.
 
 .. _categories-api:
 
-System categories API
-^^^^^^^^^^^^^^^^^^^^^
+System Categories API
+=====================
 
 Beyond :php:`makeCategorizable()`, class
 :php:`\TYPO3\CMS\Core\Category\CategoryRegistry`
@@ -177,8 +178,8 @@ most of the time.
 
 .. _categories-collections:
 
-Category collections
-^^^^^^^^^^^^^^^^^^^^
+Category Collections
+====================
 
 The :php:`\TYPO3\CMS\Core\Category\Collection\CategoryCollection`
 class provides the API for retrieving records related
@@ -221,8 +222,8 @@ The relations are not persisted in the database.
 
 .. _categories-typoscript:
 
-Usage with TypoScript
-^^^^^^^^^^^^^^^^^^^^^
+Usage With TypoScript
+=====================
 
 *(since TYPO3 CMS 6.2)*
 

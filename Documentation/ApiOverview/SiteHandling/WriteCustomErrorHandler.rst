@@ -2,7 +2,8 @@
 
 .. _sitehandling-customErrorHandler:
 
-Writing a custom Page Error Handler
+===================================
+Writing a Custom Page Error Handler
 ===================================
 
 The error handling configuration for sites allows implementing a custom error handler if the existing

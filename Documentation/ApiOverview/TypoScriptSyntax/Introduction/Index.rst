@@ -3,14 +3,15 @@
 
 .. _typoscript-syntax-introduction:
 
+============
 Introduction
 ============
 
 
 .. _typoscript-syntax-about:
 
-About this chapter
-------------------
+About This Chapter
+==================
 
 This chapter describes the syntax of TypoScript. The TypoScript syntax
 and its parser logic is used in two different contexts: `Frontend TypoScript`
@@ -28,8 +29,8 @@ and their details are found in standalone manuals:
 
 .. _typoscript-syntax-what-is-typoscript:
 
-What is TypoScript?
--------------------
+What Is TypoScript?
+===================
 
 People are often confused about what TypoScript (TS) is, where it can
 be used and have a tendency to think of it as something complex. This
@@ -60,8 +61,8 @@ database of addresses - you would use XML or SQL for that.
 
 .. _typoscript-syntax-php-arrays:
 
-PHP arrays
-^^^^^^^^^^
+PHP Arrays
+----------
 
 In the scope of its use you can also understand TypoScript as a non-
 strict way to enter information into a *multidimensional array* . In
@@ -89,8 +90,8 @@ This can be summarized as follows:
 
 .. _typoscript-syntax-object-paths:
 
-TypoScript syntax, object paths, objects and properties
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypoScript Syntax, Object Paths, Objects and Properties
+-------------------------------------------------------
 
 See, that is what this chapter is about - the *syntax* of
 TypoScript; the rules you must obey in order to store information in
@@ -157,8 +158,8 @@ object / the property) "backgroundColor" (or "asdf.backgroundColor").
 
 .. _typoscript-syntax-semantics:
 
-Note about perceived semantics
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Note About Perceived Semantics
+------------------------------
 
 You may now think that "backgroundColor = blue" makes more sense than
 "zxcvbnm = uiop" but having a look at the **syntax** only it doesn't!
@@ -181,8 +182,8 @@ defines the meaning.
 
 .. _typoscript-syntax-parsed-php-array:
 
-Note about the internal structure when parsed into a PHP array
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Note About the Internal Structure When Parsed Into a PHP Array
+--------------------------------------------------------------
 
 Let's take the TypoScript from above as an example:
 
@@ -225,7 +226,7 @@ apply the configurations, which you have set.
 .. _typoscript-syntax-credits:
 
 Credits
--------
+=======
 
 This chapter was formerly maintained by Michael Stucki and Francois
 Suter. Additions have been made by Sebastian Michaelsen. The updates

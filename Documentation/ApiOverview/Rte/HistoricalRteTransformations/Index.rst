@@ -3,8 +3,9 @@
 .. _appendices:
 .. _appendix-a:
 
-Historical perspective on RTE transformations
----------------------------------------------
+=============================================
+Historical Perspective on RTE Transformations
+=============================================
 
 The next sections describe in more details the necessity of RTE
 transformations. The text was written at the birth of transformations

@@ -3,16 +3,17 @@
 
 .. _xliff-translating:
 
-Managing translations
----------------------
+=====================
+Managing Translations
+=====================
 
 This sections highlights the different ways to translate and manage XLIFF files.
 
 
 .. _xliff-translating-server:
 
-The TYPO3 translation server
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The TYPO3 Translation Server
+============================
 
 To manage translations of extensions uploaded to the TYPO3 Extension Repository (TER),
 the TYPO3 community runs an `official translation server <https://translation.typo3.org/>`_,
@@ -24,8 +25,8 @@ It is not the point of this manual to go into the details of the translation
 process. More information can be found in the `TYPO3 wiki <http://wiki.typo3.org/Translation>`_.
 
 
-Fetching translations of TER extensions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Fetching Translations of TER Extensions
+=======================================
 
 The interface of the Install Tool in **ADMIN TOOLS > Maintenance > Manage language packs**
 allows to manage the list of available languages to your users and can fetch and
@@ -48,8 +49,8 @@ Language packs can also be fetched using the command line.
 
 .. _xliff-translating-local:
 
-Translating locally
-^^^^^^^^^^^^^^^^^^^
+Translating Locally
+===================
 
 Using `Virtaal <http://translate.sourceforge.net/wiki/virtaal/index>`_,
 it is possible to translate XLIFF files locally.
@@ -66,8 +67,8 @@ published or for creating :ref:`custom translations <xliff-translating-custom>`.
 
 .. _xliff-translating-custom:
 
-Custom translations
-^^^^^^^^^^^^^^^^^^^
+Custom Translations
+===================
 
 The :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` allows to
 override both locallang-XML and XLIFF files. Actually this is not just about translations.
@@ -129,8 +130,8 @@ and the result can be easily seen in the backend:
 
 .. _xliff-translating-languages:
 
-Custom languages
-^^^^^^^^^^^^^^^^
+Custom Languages
+================
 
 The list of supported languages is defined in :php:`\TYPO3\CMS\Core\Localization\Locales::$languages`.
 Adding support for a new language usually starts by adding the language there and waiting for the next
@@ -193,8 +194,8 @@ would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
 
 .. _xliff-translating-servers:
 
-Custom translation servers
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Custom Translation Servers
+==========================
 
 With the usage of XLIFF and the freely available `Pootle <http://pootle.translatehouse.org/>`__
 translation server, companies and individuals may easily set up a custom translation server

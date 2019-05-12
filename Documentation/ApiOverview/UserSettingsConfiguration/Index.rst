@@ -4,6 +4,7 @@
 .. _user-settings-reference:
 .. _user-settings:
 
+===========================
 User Settings Configuration
 ===========================
 

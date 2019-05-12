@@ -3,8 +3,9 @@
 
 .. _soft-references:
 
+===============
 Soft References
-^^^^^^^^^^^^^^^
+===============
 
 "Soft References" are references to database elements, files, email
 addresses, URLs etc. which are found inside text fields. The
@@ -19,7 +20,7 @@ checking functions.
 .. _soft-references-default-parsers:
 
 Default soft reference parsers
-""""""""""""""""""""""""""""""
+==============================
 
 The :php:`TYPO3\CMS\Core\Database\SoftReferenceIndex`
 class contains generic parsers for the most well-known types
@@ -30,7 +31,7 @@ is the list of the possible keys:
 .. _soft-references-default-parsers-substitute:
 
 substitute
-~~~~~~~~~~
+----------
 
 .. container:: table-row
 
@@ -46,7 +47,7 @@ substitute
 .. _soft-references-default-parsers-notify:
 
 notify
-~~~~~~
+------
 
 .. container:: table-row
 
@@ -61,7 +62,7 @@ notify
 .. _soft-references-default-parsers-images:
 
 images
-~~~~~~
+------
 
 .. container:: table-row
 
@@ -76,7 +77,7 @@ images
 .. _soft-references-default-parsers-typolink:
 
 typolink
-~~~~~~~~
+--------
 
 .. container:: table-row
 
@@ -92,7 +93,7 @@ typolink
 .. _soft-references-default-parsers-typolink-tag:
 
 typolink\_tag
-~~~~~~~~~~~~~
+-------------
 
 .. container:: table-row
 
@@ -107,7 +108,7 @@ typolink\_tag
 .. _soft-references-default-parsers-ext-fileref:
 
 ext\_fileref
-~~~~~~~~~~~~
+------------
 
 .. container:: table-row
 
@@ -123,7 +124,7 @@ ext\_fileref
 .. _soft-references-default-parsers-email:
 
 email
-~~~~~
+-----
 
 .. container:: table-row
 
@@ -138,7 +139,7 @@ email
 .. _soft-references-default-parsers-url:
 
 url
-~~~
+---
 
 .. container:: table-row
 
@@ -174,8 +175,8 @@ The default set up is found in :file:`typo3/sysext/core/Configuration/DefaultCon
 
 .. _soft-references-custom-parsers:
 
-User-defined soft reference parsers
-"""""""""""""""""""""""""""""""""""
+User-defined Soft Reference Parsers
+===================================
 
 Soft References can also be user-defined. It is easy to set them up by
 simply adding new keys in

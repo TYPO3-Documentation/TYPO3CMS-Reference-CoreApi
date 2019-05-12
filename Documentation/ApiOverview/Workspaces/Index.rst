@@ -2,8 +2,9 @@
 
 .. _workspaces:
 
-Versioning and workspaces
-^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================
+Versioning and Workspaces
+=========================
 
 TYPO3 CMS provides a feature called "workspaces", whereby changes
 can be made to the content of the web site without affecting the

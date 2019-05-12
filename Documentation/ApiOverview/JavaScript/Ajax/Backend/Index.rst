@@ -7,8 +7,9 @@
 
 .. _ajax-backend:
 
-Developing with AJAX in the TYPO3 Backend
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================================
+Developing With AJAX in the TYPO3 Backend
+=========================================
 
 This section describes how to correctly make AJAX calls
 in the TYPO3 CMS BE.

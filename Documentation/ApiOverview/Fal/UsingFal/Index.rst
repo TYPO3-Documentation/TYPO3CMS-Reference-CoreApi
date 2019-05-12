@@ -2,8 +2,9 @@
 
 .. _using-fal:
 
+=========
 Using FAL
----------
+=========
 
 This chapter explains the principles on how to use FAL in
 various contexts, like the frontend or during extension

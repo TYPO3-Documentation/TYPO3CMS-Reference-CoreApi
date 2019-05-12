@@ -2,6 +2,7 @@
 
 .. _sitehandling-errorHandling:
 
+==============
 Error Handling
 ==============
 
@@ -27,11 +28,10 @@ You can define one error handler per HTTP error code and add a generic one that 
 
 
 Properties
-----------
-
+==========
 
 errorCode
-^^^^^^^^^
+---------
 
 :aspect:`Datatype`
     int
@@ -46,7 +46,7 @@ errorCode
 
 
 errorHandler
-^^^^^^^^^^^^
+------------
 
 :aspect:`Datatype`
     string / enum
@@ -60,7 +60,7 @@ errorHandler
 
 
 errorFluidTemplate
-^^^^^^^^^^^^^^^^^^
+------------------
 
 :aspect:`Datatype`
     string
@@ -77,7 +77,7 @@ errorFluidTemplate
 
 
 errorFluidTemplatesRootPath
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
 
 :aspect:`Datatype`
     string [optional]
@@ -91,7 +91,7 @@ errorFluidTemplatesRootPath
 
 
 errorFluidPartialsRootPath
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------
 
 :aspect:`Datatype`
     string [optional]
@@ -105,7 +105,7 @@ errorFluidPartialsRootPath
 
 
 errorFluidLayoutsRootPath
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 
 :aspect:`Datatype`
     string [optional]
@@ -119,7 +119,7 @@ errorFluidLayoutsRootPath
 
 
 errorContentSource
-^^^^^^^^^^^^^^^^^^
+------------------
 
 :aspect:`Datatype`
     string
@@ -133,7 +133,7 @@ errorContentSource
 
 
 errorPhpClassFQCN
-^^^^^^^^^^^^^^^^^
+-----------------
 
 :aspect:`Datatype`
     string

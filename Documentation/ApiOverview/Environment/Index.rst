@@ -21,7 +21,7 @@ information.
 .. _Environment-project-path:
 
 getProjectPath()
-----------------
+================
 
 The environment provides the path to the folder containing the :file:`composer.json`.
 For projects without Composer setup, this is equal to :ref:`Environment-public-path`.
@@ -30,7 +30,7 @@ For projects without Composer setup, this is equal to :ref:`Environment-public-p
 .. _Environment-public-path:
 
 getPublicPath()
----------------
+===============
 
 The environment provides the path to the public web folder with
 :file:`index.php` for TYPO3 frontend. This was previously :php:`PATH_site`.
@@ -40,7 +40,7 @@ For projects without Composer setup, this is equal to :ref:`Environment-project-
 .. _Environment-var-path:
 
 getVarPath()
-------------
+============
 
 The environment provides the path to :file:`var` folder. This folder contains
 data like logs, sessions, locks and cache files.
@@ -55,7 +55,7 @@ the web document root - a situation that is not optimal from a security point of
 .. _Environment-config-path:
 
 getConfigPath()
----------------
+===============
 
 The environment provides the path to :file:`typo3conf`. This folder contains TYPO3
 global configuration files and folders, e.g. :file:`LocalConfiguration.php`.
@@ -70,7 +70,7 @@ the web document root - a situation that is not optimal from a security point of
 .. _Environment-labels-path:
 
 getLabelsPath()
----------------
+===============
 
 The environment provides the path to :file:`labels`, respective :file:`l10n`
 folder. This folder contains downloaded translation files.

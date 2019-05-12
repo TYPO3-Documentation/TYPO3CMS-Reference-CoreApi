@@ -3,8 +3,9 @@
 
 .. _content-element-wizard:
 
-Adding elements to the Content Element Wizard
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=============================================
+Adding Elements to the Content Element Wizard
+=============================================
 
 The content element wizard can be fully configured using TSConfig.
 The API described here should not be used for the purpose of customizing
