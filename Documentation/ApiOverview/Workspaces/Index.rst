@@ -314,7 +314,7 @@ Workspace-related API for backend modules
    :Description:
          Adds a WHERE-clause to the QueryBuilder which will deselect placeholder
          records from other workspaces. This should be implemented almost everywhere
-         records are selected based on other fields than uid and where
+         records are selected in the backend based on other fields than uid and where
          :code:`a DeletedRestriction` is used.
 
          **Example:** ::
@@ -329,6 +329,17 @@ Workspace-related API for backend modules
                ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
                ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
 
+ - :Function:
+         \TYPO3\CMS\Core\Database\Query\Restriction\FrontendWorkspaceRestriction()
+   :Description:
+         Restriction for filtering records for fronted workspaces preview.
+
+ - :Function:
+         \TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction()
+   :Description:
+         This `WorkspaceRestriction` has been added to overcome certain downsides of the `BackendWorkspaceRestriction`
+         and `FrontendWorkspaceRestriction`. It limits a SQL query to only select records which are "online" (pid != -1)
+         and in live or current workspace.
 
  - :Function:
          $BE\_USER->workspaceCannotEditRecord()
