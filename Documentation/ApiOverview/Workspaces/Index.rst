@@ -310,23 +310,24 @@ Workspace-related API for backend modules
 
 
  - :Function:
-         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::versioningPlaceholderClause()
+         \TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction()
    :Description:
-         Returns a WHERE-clause which will deselect placeholder records from
-         other workspaces. This should be implemented almost everywhere records
-         are selected based on other fields than uid and where
-         :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::deleteClause()` is used.
+         Adds a WHERE-clause to the QueryBuilder which will deselect placeholder
+         records from other workspaces. This should be implemented almost everywhere
+         records are selected based on other fields than uid and where
+         :code:`a DeletedRestriction` is used.
 
          **Example:** ::
 
-            $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
-               'count(*)',
-               $this->table,
-               $this->parentField . '=' . $GLOBALS['TYPO3_DB']->fullQuoteStr($uid, $this->table) .
-               \TYPO3\CMS\Backend\Utility\BackendUtility::deleteClause($this->table) .
-               \TYPO3\CMS\Backend\Utility\BackendUtility::versioningPlaceholderClause($this->table) .
-               $this->clause
-            );
+            use TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction;
+            use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
+
+            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
+               ->getQueryBuilderForTable('pages');
+            $queryBuilder->getRestrictions()
+               ->removeAll()
+               ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
+               ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
 
 
  - :Function:
