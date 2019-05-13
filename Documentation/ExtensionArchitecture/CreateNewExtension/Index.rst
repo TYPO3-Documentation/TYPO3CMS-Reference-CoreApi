@@ -46,4 +46,4 @@ with the relevant code.
 After the extension is written to your computer's disk you will be able to install
 it locally and start using it.
 
-Please refer to the Extension Builder's manual for more information.
+Please refer to the `Extension Builder's manual <https://docs.typo3.org/typo3cms/extensions/extension_builder/>`__ for more information.
