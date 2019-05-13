@@ -13,6 +13,9 @@ most important files for the execution of extensions
 within TYPO3. They contain configuration used by the system on almost
 every request. They should therefore be optimized for speed.
 
+
+.. _ext-localconf-php:
+
 ext_localconf.php
 =================
 
@@ -45,6 +48,9 @@ deprecated
 
 * *Registering Extbase Command Controllers* (Extbase command controllers are deprecated since
   TYPO3 9. Use symfony commands as explained in :ref:`cli-mode`)
+
+
+.. _ext-tables.php:
 
 ext_tables.php
 ==============

@@ -7,15 +7,28 @@ Choosing an extension key
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The "extension key" is a string uniquely identifying the extension.
-The folder where the extension resides is named by this string. The
-string can contain characters a-z0-9 and underscore. No uppercase
-characters should be used (keeps folder-,file- and table/field-names
-in lowercase). Furthermore the name must not start with a "tx" or "u"
-(these are prefixes used for modules) and because backend modules
-related to the extension should be named by the extension name
-*without* underscores, the extension name must still be unique even if
-underscores are removed (underscores are allowed to make the extension
-key easily readable).
+The folder where the extension resides is named by this string.
+
+The extension key must follow these rules:
+
+* It can contain characters a-z,0-9 and underscore
+* No uppercase characters should be used (keeps folder-,file- and table/field-names
+  in lowercase).
+* Furthermore the name must **not start** with any of these (these are prefixes used for modules):
+
+  * **tx**
+  * **user_**
+  * **pages**
+  * **tt_**
+  * **sys_**
+  * **ts_language**
+  * **csh_**
+
+* The extension name must still be unique even if underscores are removed
+  because backend modules related to the extension should be named by
+  the extension name *without* underscores. (Underscores are allowed
+  to make the extension key easily readable).
+* Extension
 
 The naming conventions of extension keys are automatically validated
 by the registration at the repository, so you have nothing to worry
@@ -96,7 +109,8 @@ on typo3.org (unless you plan to make an implementation-specific
 extension – of course – which it does not make sense to share).
 
 Go to typo3.org, log in with your (pre-created) username / password
-and go to Extensions > Extension Keys and click on the "Register keys"
+and go to `Extensions <https://extensions.typo3.org>`__
+> My Extensions and click on the "Register extension key"
 tab. On that page you can enter the key name you want to register.
 
 .. figure:: ../../Images/Typo3OrgRegistration.png
