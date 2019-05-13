@@ -137,14 +137,14 @@ Frontend implementation guidelines
          when you do queries directly (not using API functions already using
          them)::
          
-            $statement = $queryBuilder->execute();
-            while ($row = $statement->fetch()) {
-               $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
+            $result = $queryBuilder->execute();
+            foreach ($result as $row) {
+                $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
                
-               if (is_array($row)) {
-                  // ...
-               }
-               // ...
+                if (is_array($row)) {
+                    // ...
+                }
+                // ...
             }
 
          When the live record is selected, call :code:`->versionOL()` and make sure to
@@ -256,10 +256,11 @@ Workspace-related API for backend modules
 
          **Example:** ::
 
-            $queryBuilder->select('*')
-            ->from('pages')
-            ->where(
-               $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT))
+            $queryBuilder
+                ->select('*')
+                ->from('pages')
+                ->where(
+                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT))
             );
             $row = $statement->fetch();
             \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL('pages', $row);
@@ -315,7 +316,7 @@ Workspace-related API for backend modules
          Adds a WHERE-clause to the QueryBuilder which will deselect placeholder
          records from other workspaces. This should be implemented almost everywhere
          records are selected in the backend based on other fields than uid and where
-         :code:`a DeletedRestriction` is used.
+         a :code:`DeletedRestriction` is used.
 
          **Example:** ::
 
@@ -323,11 +324,11 @@ Workspace-related API for backend modules
             use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
-               ->getQueryBuilderForTable('pages');
+                ->getQueryBuilderForTable('pages');
             $queryBuilder->getRestrictions()
-               ->removeAll()
-               ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
-               ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
+                ->removeAll()
+                ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
+                ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
 
  - :Function:
          \TYPO3\CMS\Core\Database\Query\Restriction\FrontendWorkspaceRestriction()
