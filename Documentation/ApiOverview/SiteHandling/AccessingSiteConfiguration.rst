@@ -45,7 +45,7 @@ Methods::
     $site = $request->getAttribute('site');
 
     // current site language
-    $siteLanguage = $request->getAttribute('siteLanguage');
+    $siteLanguage = $request->getAttribute('language');
 
 
 .. warning::
