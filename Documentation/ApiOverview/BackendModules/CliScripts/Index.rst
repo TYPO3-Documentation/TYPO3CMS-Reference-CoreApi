@@ -12,15 +12,14 @@ scripts from the command line. This makes it possible - for
 example - to set up cronjobs. There are two ways to register
 CLI scripts:
 
-- using the TYPO3 command-line dispatcher based on Symfony Commands.
-
-- creating an Extbase command controller (`deprecated since TYPO3 v9 <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.4/Deprecation-85977-ExtbaseCommandControllersAndCliAnnotation.html>`_).
+#. Using the TYPO3 command-line dispatcher based on Symfony Commands.
+#. Creating an Extbase command controller (`deprecated since TYPO3 v9 <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.4/Deprecation-85977-ExtbaseCommandControllersAndCliAnnotation.html>`_).
 
 
 .. _cli-mode-dispatcher:
 
-The Command-line Dispatcher
-===========================
+1. The Command-line Dispatcher (Symfony)
+========================================
 
 TYPO3 uses Symfony commands to provide an easy to use, well-documented API for
 writing CLI commands.
@@ -69,13 +68,16 @@ A detailed description and an example can be found at `the Symfony Command Docum
 
 .. _cli-mode-command-controllers:
 
-Extbase Command Controllers
-===========================
+2. Extbase Command Controllers
+==============================
 
 .. warning::
 
    Extbase command controllers are deprecated since TYPO3 v9. Use symfony commands as
    outlined above.
+
+Creating an Extbase Command Controller
+--------------------------------------
 
 First of all, the command controller must be registered in an extension's
 :file:`ext_localconf.php` file (example taken from the "lang" system
@@ -91,6 +93,9 @@ class. Each action that should be available from the command line must
 be named following the pattern "[action name]Command". The PHPdoc information
 is directly used as help text (description of the action, what arguments it
 takes).
+
+Example
+~~~~~~~
 
 Here's an extract from the command controller class of the "lang"
 extension:
@@ -115,6 +120,9 @@ extension:
              // ...
          }
      }
+
+Calling an Extbase Command Controller From the Command Line
+-----------------------------------------------------------
 
 This command would be called by using:
 
