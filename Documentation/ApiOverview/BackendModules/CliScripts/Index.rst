@@ -14,7 +14,7 @@ CLI scripts:
 
 - using the TYPO3 command-line dispatcher based on Symfony Commands.
 
-- creating an Extbase command controller.
+- creating an Extbase command controller (deprecated since TYPO3 9).
 
 
 .. _cli-mode-dispatcher:
@@ -76,11 +76,6 @@ Extbase Command Controllers
 
    Extbase command controllers are deprecated since TYPO3 v9. Use symfony commands as
    outlined above.
-
-.. note::
-
-   If you do not need Extbase in your command it is recommended to directly use
-   a Symfony command (see above).
 
 First of all, the command controller must be registered in an extension's
 :file:`ext_localconf.php` file (example taken from the "lang" system
