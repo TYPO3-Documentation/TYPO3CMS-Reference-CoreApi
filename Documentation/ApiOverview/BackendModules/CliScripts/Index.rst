@@ -91,14 +91,34 @@ extension):
 The class itself must extend the :code:`\TYPO3\CMS\Extbase\Mvc\Controller\CommandController`
 class. Each action that should be available from the command line must
 be named following the pattern "[action name]Command". The PHPdoc information
-is directly used as help text (description of the action, what arguments it
-takes).
+will be shown as help text on the command line.
+
+Some commands need to be flexible and therefore need some arguments which may be optional or required.
+To make an argument optional, provide a default value.
+
+You can define them the following way:
+
+.. code-block:: php
+
+   /**
+    * @param int $required
+    * @param bool $optional
+    */
+   public function argumentsCommand($required, $optional = false)
+   {
+
+   }
+
 
 Example
 ~~~~~~~
 
 Here's an extract from the command controller class of the "lang"
 extension:
+
+.. note::
+
+   This command controller no longer exists in the TYPO3 core in TYPO3 9.
 
 .. code-block:: php
 
@@ -131,3 +151,9 @@ This command would be called by using:
      $ /path/to/php bin/typo3 extbase language:update fr
 
 which would update translation packages for the French language.
+
+Show help:
+
+.. code-block:: shell
+
+   $ /path/to/php bin/typo3 extbase help language:update
