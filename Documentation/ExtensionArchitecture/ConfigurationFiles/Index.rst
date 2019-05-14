@@ -120,8 +120,8 @@ However, due to limitations to TER, the :php:`$_EXTKEY` option should be kept wi
 
 See any system extension for best practice on this behaviour.
 
-- :php:`$GLOBALS['TYPO3_LOADED_EXT'][extensionKey]` contains information about
-  whether the module is loaded as *local* or *system* type,
+- :php:`TYPO3\CMS\Core\Package\PackageManager::getActivePackages()` contains information about
+  whether the module is loaded as *local* or *system* type in the `packagePath` key,
   including the proper paths you might use, absolute and relative.
 - Your :file:`ext_tables.php` and :file:`ext_localconf.php` files must be designed in a way
   that they can safely be read and subsequently imploded into one single
