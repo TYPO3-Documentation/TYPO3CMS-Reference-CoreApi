@@ -14,7 +14,7 @@ CLI scripts:
 
 - using the TYPO3 command-line dispatcher based on Symfony Commands.
 
-- creating an Extbase command controller (deprecated since TYPO3 9).
+- creating an Extbase command controller (`deprecated since TYPO3 v9 <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.4/Deprecation-85977-ExtbaseCommandControllersAndCliAnnotation.html>`_).
 
 
 .. _cli-mode-dispatcher:
