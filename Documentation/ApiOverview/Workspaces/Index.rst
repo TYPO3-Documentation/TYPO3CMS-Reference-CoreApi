@@ -256,13 +256,14 @@ Workspace-related API for backend modules
 
          **Example:** ::
 
-            $queryBuilder
+            $result = $queryBuilder
                 ->select('*')
                 ->from('pages')
                 ->where(
                     $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT))
-            );
-            $row = $statement->fetch();
+                )
+                ->execute();
+            $row = $result->fetch();
             \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL('pages', $row);
 
 
