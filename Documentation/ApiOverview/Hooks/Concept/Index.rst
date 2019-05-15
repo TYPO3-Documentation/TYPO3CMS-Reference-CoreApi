@@ -50,7 +50,7 @@ The two lines of code below are an example of how a hook is used for
 clear-cache post-processing. The objective of this could be to perform
 additional actions whenever the cache is cleared for a specific page. ::
 
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = 'myext_cacheProc->proc';
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = \Vendor\Package\Hook\DataHandlerHook::class . '->postProcessClearCache';
 
 This registers the class/method name to a hook inside of
 :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. The hook will call the user

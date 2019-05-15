@@ -137,15 +137,15 @@ Frontend Implementation Guidelines
          This is how simple it is to use this record in your frontend plugins
          when you do queries directly (not using API functions already using
          them)::
-
-            $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(...);
-            while (($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
-               $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
-
-               if (is_array($row)) {
-                  // ...
-               }
-               // ...
+         
+            $result = $queryBuilder->execute();
+            foreach ($result as $row) {
+                $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
+               
+                if (is_array($row)) {
+                    // ...
+                }
+                // ...
             }
 
          When the live record is selected, call :code:`->versionOL()` and make sure to
@@ -187,10 +187,10 @@ These issues are not planned to be supported for preview:
 
   - This problem can largely be avoided for  *versions of new records*
     because versions of a "New"-placeholder can mirror certain fields down
-    onto the placeholder record. For the :code:`tt\_content` table this is
+    onto the placeholder record. For the :code:`tt_content` table this is
     configured as ::
 
-       shadowColumnsForNewPlaceholders'=> 'sys\_language\_uid,l18n\_parent,colPos,header'
+       shadowColumnsForNewPlaceholders'=> 'sys_language_uid,l18n_parent,colPos,header'
 
     so that these fields used for column position, language and header title are also updated
     in the placeholder thus creating a correct preview in the frontend.
@@ -257,8 +257,14 @@ Workspace-related API for Backend Modules
 
          **Example:** ::
 
-            $result = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'pages', 'uid=' . intval($id) . $delClause);
-            $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($result);
+            $result = $queryBuilder
+                ->select('*')
+                ->from('pages')
+                ->where(
+                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT))
+                )
+                ->execute();
+            $row = $result->fetch();
             \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL('pages', $row);
 
 
@@ -271,7 +277,6 @@ Workspace-related API for Backend Modules
          **Example:** ::
 
             $row = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecordWSOL($table, $uid);
-
 
             // This is the same as:
             $row = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord($table, $uid);
@@ -307,24 +312,36 @@ Workspace-related API for Backend Modules
 
 
  - :Function:
-         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::versioningPlaceholderClause()
+         \\TYPO3\\CMS\\Core\\Database\\Query\\Restriction\\BackendWorkspaceRestriction()
    :Description:
-         Returns a WHERE-clause which will deselect placeholder records from
-         other workspaces. This should be implemented almost everywhere records
-         are selected based on other fields than uid and where
-         :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::deleteClause()` is used.
+         Adds a WHERE-clause to the QueryBuilder which will deselect placeholder
+         records from other workspaces. This should be implemented almost everywhere
+         records are selected in the backend based on other fields than uid and where
+         a :code:`DeletedRestriction` is used.
 
          **Example:** ::
 
-            $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
-               'count(*)',
-               $this->table,
-               $this->parentField . '=' . $GLOBALS['TYPO3_DB']->fullQuoteStr($uid, $this->table) .
-               \TYPO3\CMS\Backend\Utility\BackendUtility::deleteClause($this->table) .
-               \TYPO3\CMS\Backend\Utility\BackendUtility::versioningPlaceholderClause($this->table) .
-               $this->clause
-            );
+            use TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction;
+            use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 
+            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
+                ->getQueryBuilderForTable('pages');
+            $queryBuilder->getRestrictions()
+                ->removeAll()
+                ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
+                ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
+
+ - :Function:
+         \\TYPO3\\CMS\\Core\\Database\\Query\\Restriction\\FrontendWorkspaceRestriction()
+   :Description:
+         Restriction for filtering records for fronted workspaces preview.
+
+ - :Function:
+         \\TYPO3\\CMS\\Core\\Database\\Query\\Restriction\\WorkspaceRestriction()
+   :Description:
+         This `WorkspaceRestriction` has been added to overcome certain downsides of the `BackendWorkspaceRestriction`
+         and `FrontendWorkspaceRestriction`. It limits a SQL query to only select records which are "online" (pid != -1)
+         and in live or current workspace.
 
  - :Function:
          $BE\_USER->workspaceCannotEditRecord()
