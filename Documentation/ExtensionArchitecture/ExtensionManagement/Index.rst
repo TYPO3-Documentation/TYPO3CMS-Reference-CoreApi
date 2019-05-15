@@ -64,10 +64,11 @@ There are only two (possibly three) steps involved in using extensions with TYPO
    an array in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][extensionKey]` and
    thus reside in :file:`typo3conf/LocalConfiguration.php`.
 
-Loaded extensions can be fetched with `TYPO3\CMS\Core\Package\PackageManager::getActivePackages()`,
+Loaded extensions can be fetched with :php:`TYPO3\CMS\Core\Package\PackageManager::getActivePackages()`,
 available in both frontend and backend of TYPO3.
 
-This will return an array of `TYPO3\CMS\Core\Package\Package` objects, containing the data structure for each extension. These include the properties::
+This will return an array of :php:`TYPO3\CMS\Core\Package\Package` objects,
+containing the data structure for each extension. These include the properties:
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -83,17 +84,21 @@ This will return an array of `TYPO3\CMS\Core\Package\Package` objects, containin
  - :Key:
          packagePath
    :Description:
-         Path to the package. Can be used to determine, if the extension is local or global scope.
+         Path to the package. Can be used to determine, if the extension is
+         local or global scope.
 
  - :Key:
          composerManifest
    :Description:
-         A large array containing the composer manifest. (the composer.json of the extension, if it exists)
+         A large array containing the composer manifest. (the
+         :file:`composer.json` of the extension, if it exists)
 
  - :Key:
          packageMetaData
    :Description:
-         Properties of the ext_emconf.php configuration of the extension, like its constraints (depends, suggests, conflicts), version, title, description, ...,
+         Properties of the :file:`ext_emconf.php` configuration of the
+         extension, like its constraints (depends, suggests, conflicts),
+         version, title, description, …,
 
 
 The order of the registered extensions in this array corresponds to
