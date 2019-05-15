@@ -2,8 +2,9 @@
 
 .. _database-tips-and-tricks:
 
-Various tips and tricks
------------------------
+=======================
+Various Tips and Tricks
+=======================
 
 * Use `Find usages` of `PhpStorm` for examples! The source code of the core is a great way to
   learn how specific methods of the API are used. In `PhpStorm` it is extremely helpful to right

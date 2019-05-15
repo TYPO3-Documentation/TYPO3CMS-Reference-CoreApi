@@ -2,6 +2,7 @@
 
 .. _api-overview:
 
+============
 API Overview
 ============
 

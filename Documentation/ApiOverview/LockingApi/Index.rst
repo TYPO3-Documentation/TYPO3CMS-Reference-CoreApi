@@ -29,7 +29,7 @@ where concurrent access can be a problem, for example:
    want to use the locking API as well.
 
 
-Locking strategies
+Locking Strategies
 ==================
 
 A locking strategy must implement the LockingStrategyInterface. Several locking strategies
@@ -219,7 +219,7 @@ and LOCK_CAPABILITY_NOBLOCK) and priority (75), FileLockStrategy is used as
 first choice for most locking operations in TYPO3.
 
 
-Multiple Servers & Cache locking
+Multiple Servers & Cache Locking
 --------------------------------
 
 Since the core uses the locking API for some cache operations (see for
@@ -236,7 +236,7 @@ Specifically, this may be a problem:
 
 .. _locking-api-more-info:
 
-Related information
+Related Information
 ===================
 
 Some of these resources are for specific systems. We link to these, if the

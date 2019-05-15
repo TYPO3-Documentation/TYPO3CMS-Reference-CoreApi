@@ -3,8 +3,9 @@
 
 .. _transformations-process:
 
-Process illustration
-^^^^^^^^^^^^^^^^^^^^
+====================
+Process Illustration
+====================
 
 The following illustration shows the process of transformations
 graphically.
@@ -18,7 +19,7 @@ graphically.
 .. _transformations-process-step1:
 
 Step 1: The RTE Applications
-""""""""""""""""""""""""""""
+============================
 
 This is the various possible RTE applications, including
 the bare :code:`<textarea>`.
@@ -27,7 +28,7 @@ the bare :code:`<textarea>`.
 .. _transformations-process-step2:
 
 Step 2: The RTE-specific Transformation
-"""""""""""""""""""""""""""""""""""""""
+=======================================
 
 Some RTEs might need to apply additional transformation of the content
 in addition to the general transformation. RTE specific transformations
@@ -40,7 +41,7 @@ which extends :code:`\TYPO3\CMS\Backend\Rte\AbstractRte`.
 .. _transformations-process-step3:
 
 Step 3: The Main Transformation
-"""""""""""""""""""""""""""""""
+===============================
 
 The main transformation of content between browser format for RTEs and
 the database storage format. This is general for all RTEs. Normally
@@ -54,7 +55,7 @@ The main transformations are done with :code:`\TYPO3\CMS\Core\Html\RteHtmlParser
 .. _transformations-process-step4:
 
 Step 4: The Database
-""""""""""""""""""""
+====================
 
 The database where the content is stored for use in both backend and
 frontend.
@@ -62,8 +63,8 @@ frontend.
 
 .. _transformations-process-step5:
 
-Step 5: Rendering the website
-"""""""""""""""""""""""""""""
+Step 5: Rendering the Website
+=============================
 
 Content from the database is processed for display on the website.
 Depending on the storage format this might also involve
@@ -79,7 +80,7 @@ System extension "CSS Styled Content" extension provides such an object
 .. _transformations-process-step6:
 
 Step 6: The Website
-"""""""""""""""""""
+===================
 
 The website made with TYPO3 CMS.
 
@@ -87,7 +88,7 @@ The website made with TYPO3 CMS.
 .. _transformations-process-examples:
 
 Content Examples
-""""""""""""""""
+================
 
 This table gives some examples of how content will look in the RTE, in
 the database and on the final website.

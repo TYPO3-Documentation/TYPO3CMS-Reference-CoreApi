@@ -61,8 +61,8 @@ Example::
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = 'ssl'; // ssl, sslv3, tls
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username'] = 'johndoe';
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password'] = 'cooLSecret';
-  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'bounces@example.org';  // fetches all 'returning' emails 
-  
+  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'bounces@example.org';  // fetches all 'returning' emails
+
 
 
 .. _mail-configuration-sendmail:
@@ -111,7 +111,7 @@ mbox
 
 .. _mail-create:
 
-How to create and send mails
+How to Create and Send Mails
 ============================
 
 This shows how to generate and send a mail in TYPO3::
@@ -160,7 +160,7 @@ Or if you prefer, don't concatenate the calls::
 
 .. _mail-attachments:
 
-How to add attachments
+How to Add Attachments
 ======================
 
 Here is a code sample for attaching a file to mail::
@@ -178,7 +178,7 @@ Here is a code sample for attaching a file to mail::
 
 .. _mail-inline:
 
-How to add inline media
+How to Add Inline Media
 =======================
 
 Here is how to add some inline media like images in a mail::
@@ -199,7 +199,7 @@ Here is how to add some inline media like images in a mail::
 
 .. _mail-sender:
 
-How to set and use a default sender
+How to Set and Use a Default Sender
 ===================================
 
 It is possible to define a default email sender ("From:") in the *Install
@@ -211,16 +211,16 @@ Tool*::
 This is how you can use these defaults::
 
    $from = \TYPO3\CMS\Core\Utility\MailUtility::getSystemFrom();
-   
+
    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
    $mail->setFrom($from);
    // ...
    $mail->send();
 
 In case of problem  "Mails are not sent" in your extension, try to set a ReturnPath: start as before but add
-      
-   // you will get a valid Email Adress from  'defaultMailFromAddress' or if not set from PHP settings or from system. 
-   // if result is not a valid email, the final result will be  no-reply@example.com .. 
+
+   // you will get a valid Email Adress from  'defaultMailFromAddress' or if not set from PHP settings or from system.
+   // if result is not a valid email, the final result will be  no-reply@example.com ..
    $returnPath = \TYPO3\CMS\Core\Utility\MailUtility::getSystemFromAddress();
    if ( $returnPath != "no-reply@example.com") {
        $mail->setReturnPath($returnPath);
@@ -229,7 +229,7 @@ In case of problem  "Mails are not sent" in your extension, try to set a ReturnP
 
 .. _mail-swift:
 
-SwiftMailer documentation
+SwiftMailer Documentation
 =========================
 
 Please refer to the SwiftMailer documentation for more information about

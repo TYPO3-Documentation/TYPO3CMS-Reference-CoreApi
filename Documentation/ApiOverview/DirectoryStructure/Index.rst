@@ -2,8 +2,9 @@
 
 .. _directory-structure:
 
-Directory structure
-^^^^^^^^^^^^^^^^^^^
+===================
+Directory Structure
+===================
 
 By default a TYPO3 installation consists of a structure of
 main directories within the web server document root. You will find
@@ -89,15 +90,15 @@ the paths within PHP code.
 
   - :Directory: :file:`typo3temp/`
     :Description:
-      Directory for temporary files. It contains subdirectories (see below) 
+      Directory for temporary files. It contains subdirectories (see below)
       for temporary files of extensions and TYPO3 components.
 
    - :Directory: :file:`typo3temp/assets/`
      :Description:
-       Directory for temporary files that should be public available 
+       Directory for temporary files that should be public available
        (e.g. generated images).
 
    - :Directory: :file:`typo3temp/var/`
      :Description:
-       Directory for temporary files that contains private files (e.g. cached 
+       Directory for temporary files that contains private files (e.g. cached
        Fluid templates) and should not be publicly available.

@@ -3,8 +3,9 @@
 
 .. _tsconfig:
 
+======================
 User and Page TSconfig
-^^^^^^^^^^^^^^^^^^^^^^
+======================
 
 "User TSconfig" and "Page TSconfig" are very flexible concepts for
 adding fine-grained configuration to the backend of TYPO3 CMS. It is a text-
@@ -16,7 +17,7 @@ describes in detail how this works and what can be done with it.
 .. _tsconfig-user:
 
 User TSconfig
-"""""""""""""
+=============
 
 User TSconfig can be set for each backend user and group.
 Configuration set for backend groups is inherited by the user who is a
@@ -32,7 +33,7 @@ TSconfig).
 .. _tsconfig-page:
 
 Page TSconfig
-"""""""""""""
+=============
 
 Page TSconfig can be set for each page in the page tree. Pages
 inherit configuration from parent pages. The available

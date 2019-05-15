@@ -3,8 +3,9 @@
 
 .. _logging-configuration:
 
-Configuration of the Logging system
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===================================
+Configuration of the Logging System
+===================================
 
 Instantiation of Loggers is configuration-free, as the LogManager automatically applies its configuration.
 
@@ -30,8 +31,8 @@ from Core classes (as extension class names start with :code:`tx` or :code:`Tx`)
 
 .. _logging-configuration-writer:
 
-Writer configuration
-""""""""""""""""""""
+Writer Configuration
+====================
 
 The Log Writer configuration is read from the subkey :code:`writerConfiguration` of the configuration array:
 
@@ -93,8 +94,8 @@ For a list of writers shipped with the TYPO3 Core see the section about
 
 .. _logging-configuration-processor:
 
-Processor configuration
-"""""""""""""""""""""""
+Processor Configuration
+=======================
 
 Similar to the writer configuration, log record processors can be configured on a per-class and per-namespace
 basis from the subkey :code:`processorConfiguration`

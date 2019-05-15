@@ -3,8 +3,9 @@
 
 .. _fal-architecture-signals:
 
-Signals and slots
-^^^^^^^^^^^^^^^^^
+=================
+Signals and Slots
+=================
 
 FAL comes with a series of signals that offer the opportunity
 to hook into FAL processes at a variety of points.
@@ -28,7 +29,7 @@ operation, the other one **after**.
 .. _fal-architecture-signals-resource-storage:
 
 \\TYPO3\\CMS\\Core\\Resource\\ResourceStorage
-"""""""""""""""""""""""""""""""""""""""""""""
+=============================================
 
 All signals are identified by constants of the
 :php:`\TYPO3\CMS\Core\Resource\ResourceStorageInterface` interface.
@@ -150,7 +151,7 @@ SIGNAL_PreGeneratePublicUrl
 .. _fal-architecture-signals-resource-factory:
 
 \\TYPO3\\CMS\\Core\\Resource\\ResourceFactory
-"""""""""""""""""""""""""""""""""""""""""""""
+=============================================
 
 The signal is identified by a constant of the
 :php:`\TYPO3\CMS\Core\Resource\ResourceFactoryInterface`
@@ -165,7 +166,7 @@ SIGNAL_PostProcessStorage
 .. _fal-architecture-signals-file-index-repository:
 
 \\TYPO3\\CMS\\Core\\Resource\\Index\\FileIndexRepository
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+========================================================
 
 recordCreated
   Receives an array containing the information collected about the file
@@ -186,7 +187,7 @@ recordMarkedAsMissing
 .. _fal-architecture-signals-metadata-repository:
 
 \\TYPO3\\CMS\\Core\\Resource\\Index\\MetaDataRepository
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+=======================================================
 
 recordPostRetrieval
   This signal is emitted after metadata has been retrieved for a given
@@ -208,7 +209,7 @@ recordDeleted
 .. _fal-architecture-signals-file-processing-service:
 
 \\TYPO3\\CMS\\Core\\Resource\\Service\\FileProcessingService
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+============================================================
 
 All signals are identified by constants of the
 :php:`\TYPO3\CMS\Core\Resource\Service\FileProcessingService`

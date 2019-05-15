@@ -3,8 +3,9 @@
 
 .. _typoscript-syntax-custom-typoscript:
 
-Parsing custom TypoScript
-^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================
+Parsing Custom TypoScript
+=========================
 
 .. note::
 
@@ -23,8 +24,8 @@ codes based on a little reference you make for them.
 The reference could look like this:
 
 
-Root level
-""""""""""
+Root Level
+==========
 
 .. ### BEGIN~OF~TABLE ###
 
@@ -71,7 +72,7 @@ Root level
 
 
 ->COLORS
-""""""""
+========
 
 .. ### BEGIN~OF~TABLE ###
 
@@ -126,7 +127,7 @@ Root level
 
 
 ->ADMINFO
-"""""""""
+=========
 
 .. ### BEGIN~OF~TABLE ###
 
@@ -195,8 +196,8 @@ information makes sense* to put into the TypoScript field
 information as needed.
 
 
-A case story
-~~~~~~~~~~~~
+A Case Story
+------------
 
 Now let's imagine that a user inputs this TypoScript configuration in
 whatever medium you have offered (e.g. a textarea field):

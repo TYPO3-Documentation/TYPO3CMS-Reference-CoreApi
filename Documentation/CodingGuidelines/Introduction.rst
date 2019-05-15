@@ -22,7 +22,7 @@ flavors the core tries to follow.
 
 .. _cgl-quality-assurance:
 
-The CGL as a means of quality assurance
+The CGL as a Means of Quality Assurance
 =======================================
 
 Our programmers know the CGL and are encouraged to inform authors,
@@ -46,7 +46,7 @@ and pushed another time. For details on core contributions, have a look at the
 
 .. _cgl-general-recommendations:
 
-General recommendations
+General Recommendations
 =======================
 
 .. _cgl-ide:

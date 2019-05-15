@@ -4,8 +4,9 @@
 .. _database-structure:
 .. _database-structure-requirements:
 
+==================
 Database Structure
-^^^^^^^^^^^^^^^^^^
+==================
 
 The database tables used by TYPO3 CMS can be divided into two
 rough categories:
@@ -63,8 +64,8 @@ There are certain requirements for such managed tables:
 
 .. _database-structure-pages:
 
-The "pages" table
-"""""""""""""""""
+The "pages" Table
+=================
 
 The `pages` table has a special status: It is the backbone of TYPO3 CMS, as it provides
 the hierarchical page structure into which all other TYPO3 CMS managed records are positioned.
@@ -86,8 +87,8 @@ table records may only be created on a real page.
 
 .. _database-structure-other-tables:
 
-Other tables
-""""""""""""
+Other Tables
+============
 
 The tables which are not managed via the TYPO3 CMS backend fill various
 roles. Some of the most common are:

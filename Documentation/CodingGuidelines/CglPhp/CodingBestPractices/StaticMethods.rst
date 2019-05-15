@@ -3,8 +3,9 @@
 
 .. _cgl-static-methods:
 
-Static methods
-^^^^^^^^^^^^^^
+==============
+Static Methods
+==============
 
 When a given class calls one of its own static methods (or one from one
 of its parents), the code should use the :php:`self` keyword instead
@@ -12,7 +13,7 @@ of the class name. For more information on when or where static methods
 are a good idea (or not), see :ref:`modelling cross cutting concerns <cgl-model-static-methods>`.
 
 Example
-"""""""
+=======
 
 .. code-block:: php
 

@@ -12,7 +12,7 @@ for (frontend) users.
 
 .. _security-secure-passwords:
 
-Secure passwords
+Secure Passwords
 ================
 
 It is critical that every user is using secure passwords to
@@ -64,7 +64,7 @@ knowledge of the owner) and log your keyboard input.
 .. _security-update-operating-system:
 .. _security-update-browser:
 
-Operating system and browser version
+Operating System and Browser Version
 ====================================
 
 Make sure that you are using up-to-date software versions of your
@@ -96,7 +96,7 @@ can report issues.
 
 .. _security-react-quickly:
 
-React quickly
+React Quickly
 =============
 
 TYPO3 is open source software as well as all TYPO3 extensions
@@ -126,7 +126,7 @@ and follow these recommendations.
 
 .. _security-updating-typo3:
 
-Keep the TYPO3 core up-to-date
+Keep the TYPO3 Core up-to-date
 ==============================
 
 As described in :ref:`TYPO3 versions <security-typo3-versions>` chapter, a
@@ -155,7 +155,7 @@ the correct and secure TYPO3 version.
 
 .. _security-updating-extensions:
 
-Keep TYPO3 extensions up-to-date
+Keep TYPO3 Extensions Up-to-date
 ================================
 
 Do not rely on publicly released security announcements only. Reading
@@ -205,7 +205,7 @@ web root directory, so the insecure extension code is not accessible.
 
 .. _security-staging-servers:
 
-Use staging servers for developments and tests
+Use Staging Servers for Developments and Tests
 ==============================================
 
 During the development phase of a project and also after the launch of

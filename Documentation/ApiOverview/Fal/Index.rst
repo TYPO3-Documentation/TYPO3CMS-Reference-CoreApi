@@ -3,7 +3,7 @@
 .. _fal:
 
 ===============================
-Digital assets management (FAL)
+Digital Assets Management (FAL)
 ===============================
 
 **Contents:**

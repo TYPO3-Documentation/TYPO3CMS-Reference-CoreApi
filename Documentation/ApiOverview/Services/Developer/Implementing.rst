@@ -3,8 +3,9 @@
 
 .. _services-developer-implementing:
 
-Implementing a service
-^^^^^^^^^^^^^^^^^^^^^^
+======================
+Implementing a Service
+======================
 
 There are no tools to get you started coding a new service.
 However there is not much that needs to be done.
@@ -20,8 +21,8 @@ Finally the service registration is placed in the extension's
 
 .. _services-developer-implementing-registration:
 
-Service registration
-""""""""""""""""""""
+Service Registration
+====================
 
 Registering a service is done inside the :file:`ext_localconf.php`
 file. Let's look at what is inside.
@@ -187,8 +188,8 @@ $info
 
 .. _services-developer-implementing-php:
 
-PHP class
-"""""""""
+PHP Class
+=========
 
 The PHP class corresponding to the registered service
 should extend the base service class (:code:`\TYPO3\CMS\Core\Service\AbstractService`).

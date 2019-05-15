@@ -3,8 +3,9 @@
 
 .. _tce-file-api:
 
+=======================
 The "tce\_file.php" API
-^^^^^^^^^^^^^^^^^^^^^^^
+=======================
 
 This script serves as the file administration part of the TYPO3 Core
 Engine. It's a gateway for TCE (TYPO3 Core Engine) file-handling

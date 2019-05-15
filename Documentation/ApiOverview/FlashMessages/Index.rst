@@ -4,7 +4,8 @@
 
 .. _flash-messages:
 
-Flash messages
+==============
+Flash Messages
 ==============
 
 There exists a generic system to show users that an action
@@ -37,8 +38,8 @@ The different severity levels are described below:
 
 .. _flash-messages-api:
 
-Flash messages API
-------------------
+Flash Messages API
+==================
 
 Creating a flash message is achieved by simply instantiating an object
 of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`::
@@ -51,8 +52,8 @@ of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`::
    );
 
 
-Flash messages severities
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Flash Messages Severities
+-------------------------
 
 The severity is defined by using class constants provided by
 :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
@@ -105,8 +106,8 @@ to find the correct renderer for the current context.
 
 .. _flash-messages-renderer:
 
-Flash messages renderer
------------------------
+Flash Messages Renderer
+=======================
 
 The implementation of rendering FlashMessages in the core has been optimized.
 
@@ -146,8 +147,8 @@ Any third party extension should use the provided :php:`FlashMessageViewHelper` 
 
 .. _flash-messages-extbase:
 
-Flash messages in Extbase
--------------------------
+Flash Messages in Extbase
+=========================
 
 In Extbase the standard way of issuing flash messages is to add them
 in the controller. Code from the "examples" extension::
@@ -183,8 +184,8 @@ as simple as moving the View Helper around.
 
 .. _flash-messages-javascript:
 
-JavaScript-based flash messages (Notifications API)
----------------------------------------------------
+JavaScript-based Flash Messages (Notifications API)
+===================================================
 
 Flash messages can also be fired up from JavaScript, coming up
 as small pop up windows. This works only in the TYPO3 backend.

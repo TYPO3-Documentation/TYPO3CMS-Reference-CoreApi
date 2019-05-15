@@ -7,12 +7,14 @@
 
 .. _requirejs-loading:
 
-Loading your own or other RequireJS modules
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===========================================
+Loading Your Own or Other RequireJS Modules
+===========================================
+
 
 In case you use the ready event, you may wonder how to use the module.
-Answer: it depends! If you use Fluid's :html:`f:be.pageRenderer` view helper,
-simply add the argument :html:`includeRequireJsModules`:
+Answer: it depends! If you use Fluid's :html:`f:be.pageRenderer` view helper
+add the argument :html:`includeRequireJsModules`:
 
 .. code-block:: html
 
@@ -20,12 +22,14 @@ simply add the argument :html:`includeRequireJsModules`:
       0:'TYPO3/CMS/FooBar/Wisdom'
    }" />
 
-However, if you don't use Fluid you may use :php:`PageRenderer`:
+However, if you don't use Fluid you may use :php:`PageRenderer` in e.g `ext_localconf.php`:
 
 .. code-block:: php
 
-   $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
-   $pageRenderer->loadRequireJsModule('TYPO3/CMS/FooBar/MyMagicModule');
+   if (TYPO3_MODE=="BE" )   {
+      $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+      $pageRenderer->loadRequireJsModule('TYPO3/CMS/FooBar/MyMagicModule');
+   }
 
 **Bonus**: :php:`loadRequireJsModule` takes a second argument
 :php:`$callBackFunction` which is executed right after the module

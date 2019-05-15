@@ -6,9 +6,6 @@
 TYPO3 Explained
 ===============
 
-:Previous Key:
-      doc_core_api
-
 :Version:
       |release|
 
@@ -33,6 +30,9 @@ TYPO3 Explained
 :License:
       Open Publication License available from `www.opencontent.org/openpub/
       <http://www.opencontent.org/openpub/>`_
+
+:Shortcut:
+      `t3coreapi` is the usual alias for :ref:`h2document:cheat-sheet-intersphinx`.
 
 :Rendered:
       |today|

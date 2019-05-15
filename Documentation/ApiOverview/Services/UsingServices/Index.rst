@@ -3,8 +3,9 @@
 
 .. _services-using-services:
 
-Using services
---------------
+==============
+Using Services
+==============
 
 This chapter describes the different ways in which services
 can be used. It also explains the most important notion about

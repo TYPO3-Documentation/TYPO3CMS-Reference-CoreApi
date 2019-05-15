@@ -3,8 +3,9 @@
 
 .. _services-configuration-service-type-configuration:
 
-Service type configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+==========================
+Service Type Configuration
+==========================
 
 It may also be necessary to provide configuration options for the code
 that uses the services (and not for usage inside the services

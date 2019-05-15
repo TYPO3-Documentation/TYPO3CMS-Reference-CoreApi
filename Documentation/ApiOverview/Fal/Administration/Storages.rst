@@ -3,8 +3,9 @@
 
 .. _fal-administration-storages:
 
+=============
 File Storages
-^^^^^^^^^^^^^
+=============
 
 File Storages can be administered through the List module. They have a few properties which deserve further explanation.
 

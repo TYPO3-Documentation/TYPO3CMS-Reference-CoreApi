@@ -2,14 +2,15 @@
 
 .. _fal-using-fal-frontend:
 
-Using FAL in the frontend
-^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================
+Using FAL in the Frontend
+=========================
 
 
 .. _fal-using-fal-frontend-typoScript:
 
 TypoScript
-""""""""""
+==========
 
 Using FAL relations in the frontend via TypoScript is achieved
 using the :code:`FILES` content object, which is described
@@ -19,13 +20,13 @@ in details in the :ref:`TypoScript Reference <t3tsref:cobj-files>`.
 .. _fal-using-fal-frontend-fluid:
 
 Fluid
-"""""
+=====
 
 
 .. _fal-using-fal-frontend-fluid-image:
 
 The ImageViewHelper
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 If you have the uid of a File Reference, you can use it directly
 in the :php:`\TYPO3\CMS\Fluid\ViewHelpers\ImageViewHelper`:
@@ -41,7 +42,7 @@ Here :code:`{image}` is an object of one of the following types:
 * :code:`TYPO3\CMS\Extbase\Domain\Model\FileReference`
 
 Get File Properties
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 If you have a file reference and want to get its properties like Metadata, you have to access "originalResource" first. Example:
 
@@ -51,13 +52,13 @@ If you have a file reference and want to get its properties like Metadata, you h
 	{filereference.originalResource.description}
 	{filereference.originalResource.publicUrl}
 
-*Note:* Some metadata fields, like title and description, can be entered either in the referenced file itself or in the reference or both. TYPO3 automatically merges both sources when you access originalResource in Fluid. So `originalResource` returns the merged value. Values which are entered in the reference will override values from the file itself. 
+*Note:* Some metadata fields, like title and description, can be entered either in the referenced file itself or in the reference or both. TYPO3 automatically merges both sources when you access originalResource in Fluid. So `originalResource` returns the merged value. Values which are entered in the reference will override values from the file itself.
 
 
 .. _fal-using-fal-frontend-fluid-fluidtemplate:
 
 FLUIDTEMPLATE
-~~~~~~~~~~~~~
+-------------
 
 More often the File Reference information will not be
 available explicitly. The :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>` content object
@@ -82,7 +83,7 @@ This requires first a bit of TypoScript:
 			as = images
 		}
 	}
-	
+
 
 This will fetch all Files related to the content element being rendered
 (referenced in the "image" field) and make them available in a variable

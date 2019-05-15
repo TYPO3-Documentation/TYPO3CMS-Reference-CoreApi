@@ -2,8 +2,9 @@
 
 .. _cgl-singletons:
 
+==========
 Singletons
-^^^^^^^^^^
+==========
 
 TYPO3 supports the singleton patterns for classes. Singletons are
 instantiated only once per request regardless of the number of

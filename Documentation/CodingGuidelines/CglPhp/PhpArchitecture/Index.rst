@@ -3,8 +3,9 @@
 
 .. _cgl-php-architecture:
 
-PHP architecture
-----------------
+================
+PHP Architecture
+================
 
 Best practices and rules of thumb when developing for TYPO3.
 

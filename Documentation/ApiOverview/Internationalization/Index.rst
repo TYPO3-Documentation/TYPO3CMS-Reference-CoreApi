@@ -10,7 +10,7 @@
 .. _internationalization:
 
 =====================================
-Internationalization and localization
+Internationalization and Localization
 =====================================
 
 .. toctree::

@@ -5,7 +5,7 @@
 .. _hooks-concept:
 
 ====================================
-The concept of "hooks" and "signals"
+The Concept of "Hooks" and "Signals"
 ====================================
 
 Hooks and Signals provide an easy way to extend the functionality of TYPO3 and
@@ -19,7 +19,7 @@ receivers listening to that signal will be executed.
 
 .. _hooks-xclass:
 
-Hooks and Signals vs. XCLASS extensions
+Hooks and Signals vs. XCLASS Extensions
 =======================================
 
 Hooks or Signals are the recommended way of extending TYPO3 compared to
@@ -33,7 +33,7 @@ extend any class you like.
 
 .. _hooks-proposing:
 
-Proposing hooks or signals
+Proposing Hooks or Signals
 ==========================
 
 If you need to extend something which has no hook or signal yet, then you
@@ -43,7 +43,7 @@ author of the source you want to extend.
 
 .. _hooks-basics:
 
-Using hooks
+Using Hooks
 ===========
 
 The two lines of code below are an example of how a hook is used for

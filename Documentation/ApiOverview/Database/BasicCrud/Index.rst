@@ -2,9 +2,9 @@
 
 .. _database-basic-crud:
 
-
+==========
 Basic CRUD
-----------
+==========
 
 A list of basic usage examples of the query API. This is just a kickstart.
 Details on the single methods are found in the following chapters, especially
@@ -15,8 +15,8 @@ Details on the single methods are found in the following chapters, especially
     The examples use the shorthand syntax for class names. Please refer to :ref:`Class overview <database-class-overview>` for the full namespace.
 
 
-INSERT a row
-^^^^^^^^^^^^
+INSERT a Row
+============
 
 A straight insert to a table:
 
@@ -39,8 +39,8 @@ A straight insert to a table:
     INSERT INTO `tt_content` (`pid`, `bodytext`) VALUES ('42', 'bernd')
 
 
-SELECT a single row
-^^^^^^^^^^^^^^^^^^^
+SELECT a Single Row
+===================
 
 Straight fetch of a single row from `tt_content` table:
 
@@ -48,7 +48,7 @@ Straight fetch of a single row from `tt_content` table:
 
     // use TYPO3\CMS\Core\Utility\GeneralUtility;
     // use TYPO3\CMS\Core\Database\ConnectionPool;
-    
+
     $uid = 4;
     $row = GeneralUtility::makeInstance(ConnectionPool::class)
         ->getConnectionForTable('tt_content')
@@ -90,7 +90,7 @@ and prepares a query executed with this final statement:
    are only applied to `select()` calls, they are *not* added for `delete()` or other query types.
 
 
-SELECT multiple rows with some WHERE magic
+SELECT Multiple Rows With Some WHERE Magic
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Advanced query using the `QueryBuilder` and manipulating the default restrictions:
@@ -146,8 +146,8 @@ The executed query looks like:
             AND (`tt_content`.`deleted` = 0)
 
 
-UPDATE multiple rows
-^^^^^^^^^^^^^^^^^^^^
+UPDATE Multiple Rows
+====================
 
 .. code-block:: php
 
@@ -170,16 +170,16 @@ UPDATE multiple rows
 .. tip::
 
    You can also use `QueryBuilder` for generating more complex update queries. See examples in the :ref:`QueryBuilder chapter <database-query-builder-update-set>`.
-   
 
-DELETE a row
-^^^^^^^^^^^^
+
+DELETE a Row
+============
 
 .. code-block:: php
 
     // use TYPO3\CMS\Core\Utility\GeneralUtility;
     // use TYPO3\CMS\Core\Database\ConnectionPool;
-    
+
     GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content')
         ->delete(
             'tt_content', // from

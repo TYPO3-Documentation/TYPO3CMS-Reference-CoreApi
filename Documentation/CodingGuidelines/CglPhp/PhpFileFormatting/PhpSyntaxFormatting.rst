@@ -3,12 +3,13 @@
 
 .. _cgl-php-syntax-formatting:
 
-PHP syntax formatting
-^^^^^^^^^^^^^^^^^^^^^
+=====================
+PHP Syntax Formatting
+=====================
 
 
 Identifiers
-"""""""""""
+===========
 
 All identifiers must use camelCase and start with a lowercase letter.
 Underscore characters are not allowed. Hungarian notation is not
@@ -67,7 +68,7 @@ Examples::
 
 
 Comments
-""""""""
+========
 
 Comments in the code are highly welcome and recommended. Inline
 comments must precede the commented line and be indented with
@@ -107,8 +108,8 @@ If a variable can hold values of different types, use :php:`mixed` as
 type.
 
 
-Debug output
-""""""""""""
+Debug Output
+============
 
 During development it is allowed to use :php:`debug()` or
 :php:`GeneralUtility::debug()` function calls to produce debug output.
@@ -118,8 +119,8 @@ is it allowed to even *think* of leaving a debug statement, if it is
 definitely a major help when developing user code for the TYPO3 Core.
 
 
-Curly braces
-""""""""""""
+Curly Braces
+============
 
 Usage of opening and closing curly braces is mandatory in all cases
 where they can be used according to PHP syntax (except
@@ -154,7 +155,7 @@ The following is not allowed::
 
 
 Conditions
-""""""""""
+==========
 
 Conditions consist of :php:`if`, :php:`elseif` and :php:`else`
 keywords. TYPO3 code must not use the :php:`else if` construct.
@@ -230,7 +231,7 @@ The following is not allowed (missing the extra pair of brackets)::
 
 
 Switch
-""""""
+======
 
 :php:`case` statements are indented with one additional indent (four
 spaces) inside the :php:`switch` statement. The code inside the
@@ -260,7 +261,7 @@ Examples::
 
 
 Loops
-"""""
+=====
 
 The following loops can be used:
 
@@ -308,7 +309,7 @@ This is done for performance reasons, as it is faster than calling
 
 
 Strings
-"""""""
+=======
 
 All strings must use single quotes. Double quotes are allowed only to
 create the new line character (:php:`"\n"`).
@@ -357,7 +358,7 @@ level.
 
 
 Booleans
-""""""""
+========
 
 Booleans must use the language constructs of PHP and not explicit
 integer values like :php:`0` or :php:`1`. Furthermore they should be
@@ -365,14 +366,14 @@ written in lowercase, i.e. :php:`true` and :php:`false`.
 
 
 NULL
-""""
+====
 
 Similarly this special value is written in lowercase, i.e.
 :php:`null`.
 
 
 Arrays
-""""""
+======
 
 Array declarations use the short array syntax :php:`[]`, instead of the
 ":php:`array`" keyword. Thus::
@@ -401,8 +402,8 @@ very small and simple array declarations, e.g. ::
    ];
 
 
-PHP features
-""""""""""""
+PHP Features
+============
 
 The use of the newest PHP features is strongly recommended for
 extensions and mandatory for the TYPO3 core.
@@ -438,15 +439,15 @@ function declaration::
 
 
 
-Global variables
-""""""""""""""""
+Global Variables
+================
 
 Use of :php:`global` is not recommended. Always use
 :php:`$GLOBALS['variable']`.
 
 
 Functions
-"""""""""
+=========
 
 All **newly introduced** PHP functions must be as strongly typed as possible.
 That means one must use the possibilities of PHP 7.0 as much as possible to declare and enforce

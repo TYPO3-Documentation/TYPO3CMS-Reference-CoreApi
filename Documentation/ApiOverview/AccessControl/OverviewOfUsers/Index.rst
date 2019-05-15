@@ -3,8 +3,9 @@
 
 .. _access-backend-users-module:
 
-Backend users module
-^^^^^^^^^^^^^^^^^^^^
+====================
+Backend Users Module
+====================
 
 The **SYSTEM > Backend users** module offers a convenient way
 of working with backend users and groups. It provides a list of both

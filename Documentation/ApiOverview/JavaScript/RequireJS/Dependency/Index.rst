@@ -7,8 +7,9 @@
 
 .. _requirejs-dependency:
 
+===================
 Dependency Handling
-^^^^^^^^^^^^^^^^^^^
+===================
 
 Let us try to explain the dependency handling with the most used JS lib: jQuery
 
@@ -33,5 +34,8 @@ Let us combine jQuery with our own module from the :ref:`Extension example <requ
    define(['jquery', 'TYPO3/CMS/FooBar/MyMagicModule'], function($, MyMagicModule) {
       // $ is our jQuery object
       // MyMagicModule is the object, which is returned from our own module
+      if(MyMagicModule.foo == 'bar'){
+         MyMagicModule.init();
+      }
    });
 

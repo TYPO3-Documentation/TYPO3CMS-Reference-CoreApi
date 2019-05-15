@@ -2,6 +2,7 @@
 
 .. _sitehandling-php-api:
 
+=====================================
 PHP API: Accessing Site Configuration
 =====================================
 
@@ -10,23 +11,23 @@ The PHP API for Sites comes in two parts:
 - Accessing the current, resolved site object
 - Finding a site object / configuration via a page or identifier
 
-The first case is relevant when we want to access site 
-configuration in the current request, for example if we want to 
-know which language is currently rendered. 
+The first case is relevant when we want to access site
+configuration in the current request, for example if we want to
+know which language is currently rendered.
 
 The second case is about accessing site configuration options
-independent of the current request but based on a page id or a 
-site identifier. 
+independent of the current request but based on a page id or a
+site identifier.
 
 Let's look at both cases in detail:
 
-Accessing the current site object
----------------------------------
+Accessing the Current Site Object
+=================================
 
-When rendering the frontend or backend TYPO3 builds a HTTP request object 
+When rendering the frontend or backend TYPO3 builds a HTTP request object
 through a `PSR-15` middleware stack and enriches that with information.
 Part of that information are the :php:`Site` and :php:`SiteLanguage` objects. Both
-objects are available as attributes on the current request object. 
+objects are available as attributes on the current request object.
 
 Depending on the context, there are two main ways to access them:
 
@@ -44,7 +45,7 @@ Methods::
     $site = $request->getAttribute('site');
 
     // current site language
-    $siteLanguage = $request->getAttribute('siteLanguage');
+    $siteLanguage = $request->getAttribute('language');
 
 
 .. warning::
@@ -53,10 +54,10 @@ Methods::
     use the global access - a better way will be introduced in future versions.
 
 
-Finding a site object
----------------------
+Finding a Site Object
+=====================
 
-When you need to access site configuration for a specific page ID or by identifier, 
+When you need to access site configuration for a specific page ID or by identifier,
 you can use the :php:`SiteFinder` (:php:`\TYPO3\CMS\Core\Site\SiteFinder`).
 
 The :php:`SiteFinder` offers the following methods for finding a site:
@@ -71,9 +72,9 @@ All methods for finding a specific site throw an exception if no site was found.
 
 
 The Site Object
----------------
+===============
 
-Now we know how to find a site object, but what can it do? 
+Now we know how to find a site object, but what can it do?
 
 First of all, it gives us access to the site configuration options via
 
@@ -90,8 +91,8 @@ It additionally provides methods for accessing related objects (languages / erro
 Take a look at the class to find out more: :php:`\TYPO3\CMS\Core\Site\Entity\Site`
 
 
-The SiteLanguage object
------------------------
+The SiteLanguage Object
+=======================
 
 The :php:`SiteLanguage` object is basically a simple model that represents the configuration options of
 the site regarding language as an object and provides getters for those properties.
@@ -99,8 +100,8 @@ the site regarding language as an object and provides getters for those properti
 See :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage`
 
 
-Pages without Site Configuration
---------------------------------
+Pages Without Site Configuration
+================================
 
 The site handling functionality has a counterpart for usages within PHP code where no site configuration
 can be found, which is named "Pseudo Site", a site without configuration.
