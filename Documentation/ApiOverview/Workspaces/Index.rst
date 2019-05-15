@@ -186,10 +186,10 @@ These issues are not planned to be supported for preview:
 
   - This problem can largely be avoided for  *versions of new records*
     because versions of a "New"-placeholder can mirror certain fields down
-    onto the placeholder record. For the :code:`tt\_content` table this is
+    onto the placeholder record. For the :code:`tt_content` table this is
     configured as ::
 
-       shadowColumnsForNewPlaceholders'=> 'sys\_language\_uid,l18n\_parent,colPos,header'
+       shadowColumnsForNewPlaceholders'=> 'sys_language_uid,l18n_parent,colPos,header'
 
     so that these fields used for column position, language and header title are also updated
     in the placeholder thus creating a correct preview in the frontend.
@@ -277,7 +277,6 @@ Workspace-related API for backend modules
 
             $row = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecordWSOL($table, $uid);
 
-
             // This is the same as:
             $row = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord($table, $uid);
             \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL($table, $row);
@@ -312,7 +311,7 @@ Workspace-related API for backend modules
 
 
  - :Function:
-         \TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction()
+         \\TYPO3\\CMS\\Core\\Database\\Query\\Restriction\\BackendWorkspaceRestriction()
    :Description:
          Adds a WHERE-clause to the QueryBuilder which will deselect placeholder
          records from other workspaces. This should be implemented almost everywhere
@@ -332,12 +331,12 @@ Workspace-related API for backend modules
                 ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
 
  - :Function:
-         \TYPO3\CMS\Core\Database\Query\Restriction\FrontendWorkspaceRestriction()
+         \\TYPO3\\CMS\\Core\\Database\\Query\\Restriction\\FrontendWorkspaceRestriction()
    :Description:
          Restriction for filtering records for fronted workspaces preview.
 
  - :Function:
-         \TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction()
+         \\TYPO3\\CMS\\Core\\Database\\Query\\Restriction\\WorkspaceRestriction()
    :Description:
          This `WorkspaceRestriction` has been added to overcome certain downsides of the `BackendWorkspaceRestriction`
          and `FrontendWorkspaceRestriction`. It limits a SQL query to only select records which are "online" (pid != -1)
