@@ -53,12 +53,12 @@ to fetch data from the site entity:
 
    tt_content.mycontent.20 = FLUIDTEMPLATE
    tt_content.mycontent.20 {
-      file = EXT:myextension/Resources/Private/Templates/ContentObjects/MyContent.html
+       file = EXT:myextension/Resources/Private/Templates/ContentObjects/MyContent.html
 
-      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
-      dataProcessing.10 {
-         as = site
-      }
+       dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+       dataProcessing.10 {
+           as = site
+       }
    }
 
 In the Fluid template the properties of the site entity can be accessed with:
