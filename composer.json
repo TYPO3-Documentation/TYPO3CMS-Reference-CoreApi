@@ -2,5 +2,8 @@
     "name": "typo3/reference-coreapi",
     "type": "typo3-cms-documentation",
     "description": "Main TYPO3 core documentation",
-    "license": "OPL-1.0"
+    "license": "OPL-1.0",
+    "require": {
+      "typo3/cms-core": "^6.2"
+    }
 }
