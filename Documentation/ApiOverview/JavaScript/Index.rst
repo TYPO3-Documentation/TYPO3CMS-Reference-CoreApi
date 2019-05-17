@@ -6,6 +6,7 @@
 
 .. _javascript:
 
+===================
 JavaScript in TYPO3
 ===================
 

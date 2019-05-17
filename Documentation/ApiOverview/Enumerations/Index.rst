@@ -108,7 +108,7 @@ Example::
 
 .. _Enumerations-Implement-custom-logic:
 
-Implement custom logic
+Implement Custom Logic
 ----------------------
 
 Sometimes it not only makes sense to validate a value but to also

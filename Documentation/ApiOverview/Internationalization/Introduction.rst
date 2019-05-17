@@ -1,7 +1,8 @@
 .. include:: ../../Includes.txt
 
+============
 Introduction
-------------
+============
 
 Except for some low level functions, TYPO3 CMS exclusively uses localizable
 strings for all labels displayed in the backend. This means that the whole user
@@ -18,8 +19,8 @@ The format, TYPO3 specific details and managing interfaces of XLIFF are
 outlined in detail in this chapter.
 
 
-Label access in PHP
-^^^^^^^^^^^^^^^^^^^
+Label Access in PHP
+===================
 
 In PHP, a typical call in the Backend to fetch a string in the language selected by a user
 looks like this::

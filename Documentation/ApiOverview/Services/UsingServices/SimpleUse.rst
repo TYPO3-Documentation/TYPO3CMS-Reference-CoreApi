@@ -3,8 +3,9 @@
 
 .. _services-using-services-simple:
 
-Simple use
-^^^^^^^^^^
+==========
+Simple Use
+==========
 
 The most basic use is when you just want an object that handles a
 given service type:

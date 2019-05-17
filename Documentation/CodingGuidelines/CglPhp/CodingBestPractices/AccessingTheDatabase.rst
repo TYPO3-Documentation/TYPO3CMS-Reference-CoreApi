@@ -2,8 +2,9 @@
 
 .. _cgl-database-access:
 
-Accessing the database
-^^^^^^^^^^^^^^^^^^^^^^
+======================
+Accessing the Database
+======================
 
 The TYPO3 database should always be accessed using the QueryBuilder of doctrine.
 The :php:`TYPO3\CMS\Core\Database\ConnectionPool` class can be used to create

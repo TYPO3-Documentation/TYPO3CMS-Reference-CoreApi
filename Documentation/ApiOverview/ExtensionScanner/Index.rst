@@ -4,11 +4,11 @@
 
 
 =================
-Extension scanner
+Extension Scanner
 =================
 
 Introduction
-------------
+============
 
 The extension scanner which has been introduced with TYPO3 core version 9 as part of the system
 management (formerly "Install Tool") provides an interactive interface to scan extension code
@@ -37,8 +37,37 @@ This module has been featured on the TYPO3 youtube channel:
    .. youtube:: UdIYDZgBrQU
 
 
-Goals and non goals
--------------------
+Quick Start
+===========
+
+.. rst-class:: bignums
+
+1. Open extension scanner from the TYPO3 backend:
+
+   :guilabel:`ADMIN TOOLS`: :guilabel:`Upgrade` > :guilabel:`Scan Extension Files`
+
+   .. figure:: Images/extensionscanner_open.png
+      :class: with-shadow
+
+      Open extension scanner from the backend
+
+2. Scan one extension by clicking on it or click :guilabel:`"Scan all"`.
+
+3. View the report:
+
+   The tags :guilabel:`weak`, :guilabel:`strong`, etc. will give you an idea
+   of how well the extension scanner was able to match. Hover over the tags
+   with the mouse to see a tooltip.
+
+   Click on the Changelog to view it.
+
+   .. figure:: Images/extensionscanner_report.png
+      :class: with-shadow
+
+      View extension scanner report
+
+Goals and non Goals
+===================
 
 * Help extension authors quickly find code in extensions that may need attention when upgrading to
   newer core versions.
@@ -65,7 +94,7 @@ Goals and non goals
 
 
 Limits
-------
+======
 
 The extension scanner is based on `static code analysis <https://en.wikipedia.org/wiki/Static_program_analysis>`__.
 "Understanding and analyzing" code flow from within code itself (dynamic code analysis) is not performed.
@@ -168,8 +197,8 @@ understand these constructs and would still show the deprecated call as a match,
 in a core version check.
 
 
-Extension authors
------------------
+Extension Authors
+=================
 
 Even though the extension scanner can be a great help to quickly see which places of an extension
 may need attention when upgrading to a newer core version, the following points should be considered:
@@ -229,8 +258,8 @@ may need attention when upgrading to a newer core version, the following points 
   an extensions to support individual core versions instead of supporting multiple versions in the same release.
 
 
-Project developers
-------------------
+Project Developers
+==================
 
 Project developers are developers who maintain a project that consists of third party extensions
 (eg. from TER) together with some custom, project-specific extensions. When analysing the output of
@@ -245,15 +274,15 @@ an extension scanner run the following points should be considered:
   anything about the quality of the extension: false positives can be caused by for example supporting
   multiple TYPO3 versions in the same extension release.
 
-Core developers
----------------
+Core Developers
+===============
 
 When changing core API, core developers should keep an eye on the extension scanner and add matcher
 configurations if possible. This is typically the case if PHP API was changed and the patch comes with
 a deprecation or breaking ReST file to document the change.
 
-Connection to Changelog RST files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Connection to Changelog RST Files
+---------------------------------
 
 All changelog type RST file since core version 9 have to be tagged with one of the three tags
 ``FullyScanned``, ``PartiallyScanned`` or ``NotScanned``. In particular, the ``FullyScanned`` tag is
@@ -267,8 +296,8 @@ If an RST file is renamed the file may be covered in a matcher configuration whi
 adapted, too. The RST files are not bound to specific directories in the matcher configuration
 so moving a RST file to a different location within the ``Changelog`` directory has no effect.
 
-Extension scanner PHP configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Extension Scanner PHP Configuration
+-----------------------------------
 
 The PHP part of the extension scanner is based on the library
 `nikic/php-parser <https://github.com/nikic/PHP-Parser>`__. This library creates an

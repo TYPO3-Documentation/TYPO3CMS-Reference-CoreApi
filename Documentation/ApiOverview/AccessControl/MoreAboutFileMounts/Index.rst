@@ -3,12 +3,13 @@
 
 .. _access-filemounts-more:
 
-More about File Mounts
-^^^^^^^^^^^^^^^^^^^^^^
+======================
+More About File Mounts
+======================
 
 File mounts require a little more description of the concepts provided
 by TYPO3 CMS. All files are handled by an application layer called
-the "File Abstraction Layer" (FAL). You can find more information 
+the "File Abstraction Layer" (FAL). You can find more information
 about the basic concepts of :ref:`FAL <fal-concepts>`.
 
 The FAL is comprised of the following components:
@@ -36,8 +37,8 @@ File Mounts
 
 .. _access-filemounts-more-local-driver:
 
-Paths for local driver storage
-""""""""""""""""""""""""""""""
+Paths for Local Driver Storage
+==============================
 
 The File Storages based on the "local file system" driver have an
 option for relative or absolute paths.
@@ -77,8 +78,8 @@ equal to :code:`/home/foo/`.
 
 .. _access-filemounts-home-directories:
 
-Home directories
-""""""""""""""""
+Home Directories
+================
 
 TYPO3 CMS also features the concept of "home directories". These are paths
 that are automatically mounted if they are present at a path

@@ -8,8 +8,9 @@
 .. _Using-DataHandler:
 .. _using-tcemain:
 
-Using DataHandler in scripts
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+============================
+Using DataHandler in Scripts
+============================
 
 It's really easy to use the class :php:`\TYPO3\CMS\Core\DataHandling\DataHandler` in your own
 scripts. All you need to do is include the class, build a $data/$cmd
@@ -30,16 +31,16 @@ syntax for these two arrays is explained in the :ref:`previous chapter <tce-data
 .. _dataHandler-examples:
 .. _tcemain-examples:
 
-DataHandler examples
-""""""""""""""""""""
+DataHandler Examples
+====================
 
 .. _tcemain-submit-data:
 
-Submitting data
-~~~~~~~~~~~~~~~
+Submitting Data
+---------------
 
 This is the most basic example of how to submit data into the
-database. 
+database.
 
 * Line 1: Instantiate the class.
 * Line 2: Register the :php:`$data` array inside the class and initialize the class internally.
@@ -55,8 +56,8 @@ database.
 
 .. _tcemain-execute-commands:
 
-Executing commands
-~~~~~~~~~~~~~~~~~~
+Executing Commands
+------------------
 
 The most basic way of executing commands:
 
@@ -74,8 +75,8 @@ The most basic way of executing commands:
 
 .. _tcemain-clear-cache:
 
-Clearing cache
-~~~~~~~~~~~~~~
+Clearing Cache
+--------------
 
 In this example the cache clearing API is used. No data is submitted, no
 are commands executed. Still you will have to initialize the class by
@@ -100,8 +101,8 @@ for more details about available caches and groups.
 
 .. _tcemain-complex-submission:
 
-Complex data submission
-~~~~~~~~~~~~~~~~~~~~~~~
+Complex Data Submission
+-----------------------
 
 Imagine the $data array something like this:
 
@@ -149,8 +150,8 @@ all pages is cleared in line 6.
 
 .. _tcemain-data-command-user:
 
-Both data and commands executed with alternative user object
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Both Data and Commands Executed With Alternative User Object
+------------------------------------------------------------
 
 In this case it is shown how you can use the same object instance to
 submit both data and execute commands if you like. The order will

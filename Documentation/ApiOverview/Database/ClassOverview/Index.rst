@@ -2,8 +2,9 @@
 
 .. _database-class-overview:
 
-Class overview
---------------
+==============
+Class Overview
+==============
 
 Doctrine provides a set of `php` objects to represent, create and handle SQL queries and
 their results. The basic class structure was slightly enriched by TYPO3 to add CMS

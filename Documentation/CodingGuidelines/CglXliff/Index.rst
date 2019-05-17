@@ -9,8 +9,8 @@ Xliff Coding Guidelines
 Language files are typically stored in `XLIFF <https://en.wikipedia.org/wiki/XLIFF>`__
 files. XLIFF is based on XML.
 
-Directory and filenames
-=======================
+Directory and File Names
+========================
 
 * Files have the ending :file:`.xlf`.
 
@@ -28,7 +28,7 @@ Format
 
    :ref:`xliff`
 
-More information
+More Information
 ================
 
 * See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to

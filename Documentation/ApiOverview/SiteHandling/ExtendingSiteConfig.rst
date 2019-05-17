@@ -2,26 +2,27 @@
 
 .. _sitehandling-extendingSiteConfiguration:
 
+============================
 Extending Site Configuration
 ============================
 
 
-Adding custom / project specific options to site configuration
---------------------------------------------------------------
+Adding Custom / Project Specific Options to Site Configuration
+==============================================================
 
-Site configuration is stored as yaml and provides per definition context independent configuration of 
+Site configuration is stored as yaml and provides per definition context independent configuration of
 a site. Especially when thinking about things like storage PIDs or general site specific settings, it
 makes sense to add them to the site configuration.
 
 .. note::
     In "the old days" these kind of options were commonly stored in TypoScript or TSConfig or LocalConfiguration,
-    all three being in some ways a bit unfortunate - parsing TypoScript while on CLI or using TSConfig made for 
+    all three being in some ways a bit unfortunate - parsing TypoScript while on CLI or using TSConfig made for
     the backend in frontend was no fun.
 
-Adding project configuration to site configuration is easy: The site entity will automatically provide the 
+Adding project configuration to site configuration is easy: The site entity will automatically provide the
 complete configuration via `getConfiguration()`, extending that means therefor "just add whatever you want to
-the yaml file". The GUI is built in a way that toplevel options unknown / not available in the form will be 
-left alone and do not get overwritten when saving. 
+the yaml file". The GUI is built in a way that toplevel options unknown / not available in the form will be
+left alone and do not get overwritten when saving.
 
 Example:
 
@@ -39,8 +40,8 @@ Access it via the API:
     $site->getConfiguration()['myProject']['recordStorage']
 
 
-Extending the form / GUI
-------------------------
+Extending the Form / GUI
+========================
 
 Extending the GUI is a bit more tricky.
 

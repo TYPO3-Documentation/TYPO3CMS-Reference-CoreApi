@@ -4,9 +4,9 @@
 .. _csm:
 .. _context-menu:
 
-
+=======================
 Context-Sensitive Menus
-^^^^^^^^^^^^^^^^^^^^^^^
+=======================
 
 .. tip::
 
@@ -27,8 +27,8 @@ Contextual menus exist in many places in the TYPO3 CMS backend. Just try your lu
 .. _csm-implementation:
 
 
-Context menu rendering flow
-"""""""""""""""""""""""""""
+Context Menu Rendering Flow
+===========================
 
 Markup
 ------
@@ -129,7 +129,7 @@ Example of the JSON response:
 
 
 API usage in the Core
-"""""""""""""""""""""
+=====================
 
 Several TYPO3 Core modules are already using this API for adding or modifying items. See following places for a reference:
 
@@ -141,8 +141,8 @@ Several TYPO3 Core modules are already using this API for adding or modifying it
 
 
 
-Adding context menu to elements in your backend module
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Adding Context Menu to Elements in Your Backend Module
+======================================================
 
 Enabling context menu in your own backend modules is quite straightforward.
 The examples below are taken from the "beuser" system extension and
@@ -179,8 +179,8 @@ One additional data attribute can be used `data-context` with values being e.g. 
    In most cases the `data-uid` attributes contain an integer value. However in case of files and folders this attribute takes file/folder path as a value like `data-uid="1:/some-folder/some-file.pdf"`
 
 
-Disabling context menu items from TSConfig
-""""""""""""""""""""""""""""""""""""""""""
+Disabling Context Menu Items from TSConfig
+==========================================
 
 Context menu items can be disabled in TSConfig by adding item name to the `options.contextMenu` option corresponding to the table and context you want to cover.
 
@@ -201,8 +201,8 @@ For more details see :ref:`TSConfig reference <t3tsconfig:useroptions-contextmen
 
 .. _csm-adding:
 
-Tutorial: How to add a custom context menu item
-"""""""""""""""""""""""""""""""""""""""""""""""
+Tutorial: How to Add a Custom Context Menu Item
+===============================================
 
 Follow these steps to add a custom menu item for pages records. You will add a "Hello world" item which will show an info after clicking.
 
@@ -213,7 +213,7 @@ Follow these steps to add a custom menu item for pages records. You will add a "
    Context menu with custom item
 
 
-Step 1: Item provider registration
+Step 1: Item Provider Registration
 ----------------------------------
 
 First you need to add an item provider registration to the `ext_localconf.php` of your extension.
@@ -230,7 +230,7 @@ First you need to add an item provider registration to the `ext_localconf.php` o
    }
 
 
-Step 2: Implementation of the item provider class
+Step 2: Implementation of the Item Provider Class
 -------------------------------------------------
 
 Second step is to implement your own item provider class. Provider must implement :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface` and can extend :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\AbstractProvider` or any other provider from EXT:backend.
@@ -385,7 +385,7 @@ This file goes to EXT:extension_key/Classes/ContextMenu/HelloWorldItemProvider.p
    }
 
 
-Step 3: JavaScript actions
+Step 3: JavaScript Actions
 --------------------------
 
 Third step is to provide a JavaScript file (RequireJS module) which will be called after clicking on the context menu item.

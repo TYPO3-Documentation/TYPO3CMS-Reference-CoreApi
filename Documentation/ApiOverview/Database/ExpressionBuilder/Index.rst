@@ -2,8 +2,9 @@
 
 .. _database-expression-builder:
 
+=================
 ExpressionBuilder
------------------
+=================
 
 The `ExpressionBuilder` class is responsible to dynamically create SQL query parts
 for `WHERE` and `JOIN ON` conditions, functions like :php:`->min()` may also be used in
@@ -44,7 +45,7 @@ to use it within the code flow of the `QueryBuilder` context directly::
 
 
 Junctions
-^^^^^^^^^
+=========
 
 * :php:`->andX()` conjunction
 
@@ -77,7 +78,7 @@ A core example to find a sys_domain record::
 
 
 Comparisons
-^^^^^^^^^^^
+===========
 
 A set of methods to create various comparison expressions or SQL functions:
 
@@ -175,8 +176,8 @@ Examples::
    )
 
 
-Aggregate functions
-^^^^^^^^^^^^^^^^^^^
+Aggregate Functions
+===================
 
 Aggregate functions used in `SELECT` parts, often combined with `GROUP BY`. First argument is
 the field name (or table name / alias with field name), second argument an optional alias.
@@ -220,7 +221,7 @@ Examples::
 
 
 Various Expressions
-^^^^^^^^^^^^^^^^^^^
+===================
 
 TRIM
 %%%%

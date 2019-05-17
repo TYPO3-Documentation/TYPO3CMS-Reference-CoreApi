@@ -3,7 +3,8 @@
 
 .. _page-types:
 
-Page types
+==========
+Page Types
 ==========
 
 Global array :code:`$PAGES_TYPES` defines the various types of pages (field: :code:`doktype`) the
@@ -88,7 +89,7 @@ Each array has the following options available:
 .. _page-types-example:
 
 Create new Page Type
---------------------
+====================
 
 The following example adds a new page type called "Archive".
 

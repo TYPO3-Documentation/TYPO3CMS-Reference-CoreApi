@@ -2,8 +2,9 @@
 
 .. _database-statement:
 
+=========
 Statement
----------
+=========
 
 A `Statement` object is returned by :php:`QueryBuilder->execute()` for :php:`->select()` and :php:`->count()`
 query types and by :php:`Connection->select()` and :php:`Connection->count()` calls.
@@ -33,7 +34,7 @@ the `TYPO3 CMS` core yet, and thus not fully documented here.
 
 
 fetch()
-^^^^^^^
+=======
 
 Fetch next row from a result statement. Usually used in while() loops. Typical example::
 
@@ -56,7 +57,7 @@ which then returns false and thus breaks the while loop.
 
 
 fetchAll()
-^^^^^^^^^^
+==========
 
 Returns an array containing all of the result set rows by implementing the same while loop as above internally.
 Using that method saves some precious code characters but is more memory intensive if the result set is large
@@ -75,7 +76,7 @@ with lots of rows and lot of data since big arrays are carried around in `PHP`::
 
 
 fetchColumn()
-^^^^^^^^^^^^^
+=============
 
 Returns a single column from the next row of a result set, other columns from that result row are discarded.
 This method is especially handy for :php:`QueryBuilder->count()` queries. The :php:`Connection->count()` implementation
@@ -94,7 +95,7 @@ does exactly that to return the number of rows directly::
 
 
 rowCount()
-^^^^^^^^^^
+==========
 
 Returns the number of rows affected by the last execution of this statement. Use that method
 instead of counting the number of records in a :php:`->fetch()` loop manually.
@@ -106,8 +107,8 @@ instead of counting the number of records in a :php:`->fetch()` loop manually.
    queries. This may work with MySOL, but fails with other databases like SQLite.
 
 
-Re-use prepared Statement()
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Re-use Prepared Statement()
+===========================
 
 Doctrine usually prepares a statement first, and then executes it with given parameters. Implementing
 prepared statements depends on the given driver. For instance, the native mysql driver `mysqli` does implement

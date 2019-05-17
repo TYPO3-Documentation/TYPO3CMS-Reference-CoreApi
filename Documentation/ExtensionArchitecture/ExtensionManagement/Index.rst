@@ -64,25 +64,42 @@ There are only two (possibly three) steps involved in using extensions with TYPO
    an array in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][extensionKey]` and
    thus reside in :file:`typo3conf/LocalConfiguration.php`.
 
-Loaded extensions are registered in a global variable,
-`$GLOBALS['TYPO3_LOADED_EXT']`, available in both frontend and backend of TYPO3.
+Loaded extensions can be fetched with :php:`TYPO3\CMS\Core\Package\PackageManager::getActivePackages()`,
+available in both frontend and backend of TYPO3.
 
-This is how the data structure for an extension in this array looks::
+This will return an array of :php:`TYPO3\CMS\Core\Package\Package` objects,
+containing the data structure for each extension. These include the properties:
 
-   $GLOBALS['TYPO3_LOADED_EXT'][extension key] = array(
-           "type" =>                S, G, L for system, global or local type of availability.
-           "siteRelPath" => Path of extension dir relative to :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`
-                                   e.g. "typo3/ext/my_ext/" or "typo3conf/ext/my_ext/"
-           "typo3RelPath" => Path of extension dir relative to the "typo3/" admin folder
-                                   e.g. "ext/my_ext/" or "../typo3conf/ext/my_ext/"
-           "ext_localconf" => Contains absolute path to 'ext_localconf.php' file if present
-           "ext_tables" => [same]
-           "ext_tables_sql" => [same]
-           "ext_tables_static+adt.sql" => [same]
-           "ext_typoscript_constants.txt" => [same]
-           "ext_typoscript_setup.txt" => [same]
-           "ext_typoscript_editorcfg.txt" => [same]
-   )
+.. t3-field-list-table::
+ :header-rows: 1
+
+ - :Key,20: Key
+   :Description,60: Description
+
+ - :Key:
+         packageKey
+   :Description:
+         The package key (or extension key).
+
+ - :Key:
+         packagePath
+   :Description:
+         Path to the package. Can be used to determine, if the extension is
+         local or global scope.
+
+ - :Key:
+         composerManifest
+   :Description:
+         A large array containing the composer manifest. (the
+         :file:`composer.json` of the extension, if it exists)
+
+ - :Key:
+         packageMetaData
+   :Description:
+         Properties of the :file:`ext_emconf.php` configuration of the
+         extension, like its constraints (depends, suggests, conflicts),
+         version, title, description, …,
+
 
 The order of the registered extensions in this array corresponds to
 the order they were listed in :file:`PackageStates.php`.

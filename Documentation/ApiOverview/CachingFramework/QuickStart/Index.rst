@@ -4,8 +4,9 @@
 
 .. _caching-quickstart:
 
-Quick start for Integrators
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===========================
+Quick Start for Integrators
+===========================
 
 This section gives come simple instructions for getting started with using
 the caching framework without giving the whole details under the hood.
@@ -13,8 +14,8 @@ the caching framework without giving the whole details under the hood.
 
 .. _caching-quickstart-tuning:
 
-Change specific cache options
-"""""""""""""""""""""""""""""
+Change Specific Cache Options
+=============================
 
 By default, most core caches use the database backend. Default cache configuration
 is defined in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
@@ -48,8 +49,8 @@ database backend with compression for the pages cache:
 
 .. _caching-quickstart-garbage:
 
-Garbage collection task
-"""""""""""""""""""""""
+Garbage Collection Task
+=======================
 
 Most cache backends do not have an internal system to remove old cache entries that exceeded their lifetime.
 A cleanup must be triggered externally to find and remove those entries, otherwise caches could grow to

@@ -7,8 +7,9 @@
 
 .. _syslog:
 
-Using the system log
---------------------
+====================
+Using the System Log
+====================
 
 .. note::
 

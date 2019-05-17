@@ -3,8 +3,9 @@
 
 .. _transformations-introduction:
 
+============
 Introduction
-^^^^^^^^^^^^
+============
 
 Transformation of content between the database and an RTE is needed if
 the format of the content in the database is different than the format
@@ -32,8 +33,8 @@ Generally transformations are needed for two reasons:
 
 .. _transformations-hybrid-modes:
 
-Hybrid modes
-""""""""""""
+Hybrid Modes
+============
 
 Many of the transformations performed back and forth in the TYPO3
 backend date back to when it was a challenge to incorporate a RTE
@@ -53,7 +54,7 @@ hybrid mode:
 .. _transformations-hybrid-modes-db:
 
 In Database
-~~~~~~~~~~~
+-----------
 
 This is how the content in the database could look for a hybrid mode
 (such as :code:`css_transform`):
@@ -86,7 +87,7 @@ result will be valid HTML.
 .. _transformations-hybrid-modes-rte:
 
 In RTE
-~~~~~~
+------
 
 The content in the database can easily be edited as plain text thanks
 to the "hybrid-mode" used to store the content. But when the content
@@ -110,7 +111,7 @@ transformations do!
 .. _transformations-configuration:
 
 Configuration
-"""""""""""""
+=============
 
 Transformations are mainly defined in the
 'special configurations' of the $TCA "types"-configuration.
@@ -122,8 +123,8 @@ which means that RTE behaviour can be determined even on page branch level!
 
 .. _transformations-where:
 
-Where transformations are performed
-"""""""""""""""""""""""""""""""""""
+Where Transformations are Performed
+===================================
 
 The transformations you can do with TYPO3 are done in the class
 :code:`\TYPO3\CMS\Core\Html\RteHtmlParser`. There is typically a function for each

@@ -3,8 +3,9 @@
 
 .. _logging-writers:
 
+===========
 Log Writers
-^^^^^^^^^^^
+===========
 
 The purpose of a log writer is (usually) to save all log records into a persistent storage,
 like a log file, a database table, or to a remote syslog server.
@@ -16,7 +17,7 @@ Custom log writers can extend the functionality shipped with TYPO3 core.
 .. _logging-writers-builtin:
 
 Built-in Log Writers
-""""""""""""""""""""
+====================
 
 This section describes the log writers shipped with the TYPO3 core.
 Some writers have options to allow customization of the particular writer.
@@ -26,7 +27,7 @@ See the :ref:`Configuration <logging-configuration-writer>` section for how to u
 .. _logging-writers-database:
 
 DatabaseWriter
-~~~~~~~~~~~~~~
+--------------
 
 The database writer logs into a database table. This table has to reside
 in the database used by TYPO3 and is **not** automatically created.
@@ -76,7 +77,7 @@ Example of a CREATE TABLE statement for logTable:
 .. _logging-writers-FileWriter:
 
 FileWriter
-~~~~~~~~~~
+----------
 
 The file writer logs into a log file, one log record per line.
 If the log file does not exist, it will be created (including parent directories, if needed).
@@ -100,7 +101,7 @@ logFileInfix  no         Different file name to the default log configuration  :
 .. _logging-writers-php:
 
 PhpErrorLogWriter
-~~~~~~~~~~~~~~~~~
+-----------------
 
 Logs into the PHP error log using `error_log()`_
 
@@ -109,7 +110,7 @@ Logs into the PHP error log using `error_log()`_
 .. _logging-writers-syslog:
 
 SyslogWriter
-~~~~~~~~~~~~
+------------
 
 Logs into the syslog (Unix only).
 
@@ -127,7 +128,7 @@ facility  no         Syslog Facility_  ``USER``
 .. _logging-writers-custom:
 
 Custom Log Writers
-""""""""""""""""""
+==================
 
 Custom log writers can be added through extensions.
 Every log writer has to implement the interface :code:`\TYPO3\CMS\Core\Log\Writer\WriterInterface`.

@@ -2,8 +2,9 @@
 
 .. _database-migration:
 
+=======================
 Migrating from TYPO3_DB
------------------------
+=======================
 
 This chapter is for those poor souls who want to migrate old and busted :php:`$GLOBALS['TYPO3_DB']`
 calls to new hotness `doctrine-dbal` based API.
@@ -14,8 +15,8 @@ Migration of a single extension is finished if a search for :php:`$GLOBALS['TYPO
 not return hits anymore. This search is the most simple entry point to see which areas need work.
 
 
-Compare raw queries
-^^^^^^^^^^^^^^^^^^^
+Compare Raw Queries
+===================
 
 The main goal during migration is usually to fire a logically identical query. One recommended
 and simple approach to verify this is to note down and compare the queries at the lowest possible
@@ -48,7 +49,7 @@ transition.
 
 
 enableFields() and deleteClause()
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=================================
 
 :php:`BackendUtility::deleteClause()` adds `deleted=0` if `['ctrl']['deleted']` is specified in the
 table's `TCA`. The method call *should* be removed during migration. If there is no other restriction
@@ -159,7 +160,7 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
 
 
 From ->exec_UDATEquery() to ->update()
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+======================================
 
 Most often, the easiest way to migrate a `$GLOBALS['TYPO3_DB']->exec_UDATEquery()` is to use
 :php:`$connection->update()`::
@@ -183,8 +184,8 @@ Most often, the easiest way to migrate a `$GLOBALS['TYPO3_DB']->exec_UDATEquery(
     order of arguments change, `where` and `values` are swapped!
 
 
-Result set iteration
-^^^^^^^^^^^^^^^^^^^^
+Result Set Iteration
+====================
 
 The `exec_*` calls return a resource object that is typically iterated over using :php:`sql_fetch_assoc()`.
 This is typically changed to :php:`->fetch()` on the `Statement` object::
@@ -203,7 +204,7 @@ This is typically changed to :php:`->fetch()` on the `Statement` object::
 
 
 sql_insert_id()
-^^^^^^^^^^^^^^^
+===============
 
 It is sometimes needed to fetch the new `uid` of a just added record to further work with that row.
 In `TYPO3_DB` this was done with a call to :php:`->sql_insert_id()` after a :php:`->exec_INSERTquery()` call
@@ -235,7 +236,7 @@ on the same resource. :php:`->lastInsertId()` can be used instead::
 
 
 fullQuoteStr()
-^^^^^^^^^^^^^^
+==============
 
 :php:`->fullQuoteStr()` is rather straight changed to a :php:`->createNamedParameter()`, typical case::
 
@@ -260,7 +261,7 @@ fullQuoteStr()
 
 
 ext_tables.sql
-^^^^^^^^^^^^^^
+==============
 
 The schema migrator that compiles :file:`ext_tables.sql` files from all loaded extensions and compares them with
 current schema definitions in the database has been fully rewritten. It mostly should work as before, some
@@ -270,7 +271,7 @@ extension to the new query API.
 
 
 TCA and TypoScript
-^^^^^^^^^^^^^^^^^^
+==================
 
 `TCA` and `TypoScript` needs to be adapted at places where SQL fragments are specified. Table and field
 names are quoted differently on different platforms and extension developers should never hard code
@@ -289,8 +290,8 @@ If using MySQL, this fragment will be parsed to ``AND `tx_some_foreign_table_nam
 with the help of :ref:`QueryHelper::quoteDatabaseIdentifiers() <database-query-helper-quoteDatabaseIdentifiers>`.
 
 
-extbase QueryBuilder
-^^^^^^^^^^^^^^^^^^^^
+Extbase QueryBuilder
+====================
 
 The `extbase` internal `QueryBuilder` used in `Repositories` still exists and works a before. There is
 usually no manual migration needed. It is theoretically possible to use the doctrine based query builder

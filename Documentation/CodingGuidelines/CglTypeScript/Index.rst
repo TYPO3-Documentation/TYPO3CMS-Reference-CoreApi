@@ -10,8 +10,8 @@ TypeScript Coding Guidelines
 <https://github.com/excelmicro/typescript>`__ should be used throughout the
 TYPO3 CMS core for TypeScript files.
 
-Directories and filenames
-=========================
+Directories and File Names
+==========================
 
 * TypeScript files should have the file ending :file:`.ts`
 

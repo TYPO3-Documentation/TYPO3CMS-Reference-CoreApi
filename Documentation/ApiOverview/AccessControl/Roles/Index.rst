@@ -1,8 +1,8 @@
 .. include:: ../../../Includes.txt
 
-
+=====
 Roles
-^^^^^
+=====
 
 Another popular approach to setting up users is roles. This
 concept is basically about identifying certain roles that users can

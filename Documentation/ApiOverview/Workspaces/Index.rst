@@ -2,8 +2,9 @@
 
 .. _workspaces:
 
-Versioning and workspaces
-^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================
+Versioning and Workspaces
+=========================
 
 TYPO3 CMS provides a feature called "workspaces", whereby changes
 can be made to the content of the web site without affecting the
@@ -39,8 +40,8 @@ you are facing.
 
 .. _workspaces-frontend:
 
-Frontend challenges in general
-""""""""""""""""""""""""""""""
+Frontend Challenges in General
+==============================
 
 For the frontend the challenges are mostly related to creating correct
 previews of content in workspaces. For most extensions this will work
@@ -78,7 +79,7 @@ like email, username, alias etc. it will fail.
 .. _workspaces-frontend-summary:
 
 Summary
-~~~~~~~
+-------
 
 **Challenge:** How to preview elements which are disabled by
 "enableFields" in the live version but not necessarily in the offline
@@ -91,8 +92,8 @@ live records and check for them in versionOL on input record.
 
 .. _workspaces-frontend-guidelines:
 
-Frontend implementation guidelines
-""""""""""""""""""""""""""""""""""
+Frontend Implementation Guidelines
+==================================
 
 - Any place where enableFields() are not used for selecting in the
   frontend you must at least check that :code:`t3ver_state != 1` so
@@ -137,14 +138,14 @@ Frontend implementation guidelines
          when you do queries directly (not using API functions already using
          them)::
          
-            $statement = $queryBuilder->execute();
-            while ($row = $statement->fetch()) {
-               $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
+            $result = $queryBuilder->execute();
+            foreach ($result as $row) {
+                $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
                
-               if (is_array($row)) {
-                  // ...
-               }
-               // ...
+                if (is_array($row)) {
+                    // ...
+                }
+                // ...
             }
 
          When the live record is selected, call :code:`->versionOL()` and make sure to
@@ -175,8 +176,8 @@ Frontend implementation guidelines
 
 .. _workspaces-frontend-problems:
 
-Frontend scenarios impossible to preview
-""""""""""""""""""""""""""""""""""""""""
+Frontend Scenarios Impossible to Preview
+========================================
 
 These issues are not planned to be supported for preview:
 
@@ -186,10 +187,10 @@ These issues are not planned to be supported for preview:
 
   - This problem can largely be avoided for  *versions of new records*
     because versions of a "New"-placeholder can mirror certain fields down
-    onto the placeholder record. For the :code:`tt\_content` table this is
+    onto the placeholder record. For the :code:`tt_content` table this is
     configured as ::
 
-       shadowColumnsForNewPlaceholders'=> 'sys\_language\_uid,l18n\_parent,colPos,header'
+       shadowColumnsForNewPlaceholders'=> 'sys_language_uid,l18n_parent,colPos,header'
 
     so that these fields used for column position, language and header title are also updated
     in the placeholder thus creating a correct preview in the frontend.
@@ -222,8 +223,8 @@ These issues are not planned to be supported for preview:
 
 .. _workspaces-backend:
 
-Backend challenges
-""""""""""""""""""
+Backend Challenges
+==================
 
 The main challenge in the backend is to reflect how the system will
 look when the workspace gets published. To create a transparent
@@ -236,8 +237,8 @@ frontend.
 
 .. _workspaces-backend-api:
 
-Workspace-related API for backend modules
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Workspace-related API for Backend Modules
+-----------------------------------------
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -256,12 +257,14 @@ Workspace-related API for backend modules
 
          **Example:** ::
 
-            $queryBuilder->select('*')
-            ->from('pages')
-            ->where(
-               $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT))
-            );
-            $row = $statement->fetch();
+            $result = $queryBuilder
+                ->select('*')
+                ->from('pages')
+                ->where(
+                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT))
+                )
+                ->execute();
+            $row = $result->fetch();
             \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL('pages', $row);
 
 
@@ -274,7 +277,6 @@ Workspace-related API for backend modules
          **Example:** ::
 
             $row = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecordWSOL($table, $uid);
-
 
             // This is the same as:
             $row = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord($table, $uid);
@@ -310,12 +312,12 @@ Workspace-related API for backend modules
 
 
  - :Function:
-         \TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction()
+         \\TYPO3\\CMS\\Core\\Database\\Query\\Restriction\\BackendWorkspaceRestriction()
    :Description:
          Adds a WHERE-clause to the QueryBuilder which will deselect placeholder
          records from other workspaces. This should be implemented almost everywhere
-         records are selected based on other fields than uid and where
-         :code:`a DeletedRestriction` is used.
+         records are selected in the backend based on other fields than uid and where
+         a :code:`DeletedRestriction` is used.
 
          **Example:** ::
 
@@ -323,12 +325,23 @@ Workspace-related API for backend modules
             use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
-               ->getQueryBuilderForTable('pages');
+                ->getQueryBuilderForTable('pages');
             $queryBuilder->getRestrictions()
-               ->removeAll()
-               ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
-               ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
+                ->removeAll()
+                ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
+                ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
 
+ - :Function:
+         \\TYPO3\\CMS\\Core\\Database\\Query\\Restriction\\FrontendWorkspaceRestriction()
+   :Description:
+         Restriction for filtering records for fronted workspaces preview.
+
+ - :Function:
+         \\TYPO3\\CMS\\Core\\Database\\Query\\Restriction\\WorkspaceRestriction()
+   :Description:
+         This `WorkspaceRestriction` has been added to overcome certain downsides of the `BackendWorkspaceRestriction`
+         and `FrontendWorkspaceRestriction`. It limits a SQL query to only select records which are "online" (pid != -1)
+         and in live or current workspace.
 
  - :Function:
          $BE\_USER->workspaceCannotEditRecord()
@@ -389,8 +402,8 @@ Workspace-related API for backend modules
 
 .. _workspaces-backend-acess:
 
-Backend module access
-"""""""""""""""""""""
+Backend Module Access
+=====================
 
 You can restrict access to backend modules by using
 :code:`$MCONF['workspaces']` in the :file:`conf.php` files. The variable is a list of
@@ -405,8 +418,8 @@ like. This is done by an argument sent to the function
 
 .. _workspaces-detection:
 
-Detecting current workspace
-"""""""""""""""""""""""""""
+Detecting Current Workspace
+===========================
 
 You can always check what the current workspace of the backend user is
 by reading :code:`WorkspaceAspect->getWorkspaceId()`. If the workspace is a
@@ -419,8 +432,8 @@ corresponding entry in the :code:`sys_workspace` table.
 
 .. _workspaces-tcemain:
 
-Using DataHandler with workspaces
-"""""""""""""""""""""""""""""""""
+Using DataHandler With Workspaces
+=================================
 
 Since admin users are also restricted by the workspace it is not
 possible to save any live records when in a workspace. However for
@@ -434,8 +447,8 @@ User Settings" module; that actually allows them to save to a live record
 
 .. _workspaces-moving:
 
-Moving in workspaces
-""""""""""""""""""""
+Moving in Workspaces
+====================
 
 TYPO3 4.2 and beyond supports moving for "Element" type versions in
 workspaces. Technically this works by creating a new online

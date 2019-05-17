@@ -13,6 +13,9 @@ most important files for the execution of extensions
 within TYPO3. They contain configuration used by the system on almost
 every request. They should therefore be optimized for speed.
 
+
+.. _ext-localconf-php:
+
 ext_localconf.php
 =================
 
@@ -45,6 +48,9 @@ deprecated
 
 * *Registering Extbase Command Controllers* (Extbase command controllers are deprecated since
   TYPO3 9. Use symfony commands as explained in :ref:`cli-mode`)
+
+
+.. _ext-tables.php:
 
 ext_tables.php
 ==============
@@ -120,8 +126,8 @@ However, due to limitations to TER, the :php:`$_EXTKEY` option should be kept wi
 
 See any system extension for best practice on this behaviour.
 
-- :php:`$GLOBALS['TYPO3_LOADED_EXT'][extensionKey]` contains information about
-  whether the module is loaded as *local* or *system* type,
+- :php:`TYPO3\CMS\Core\Package\PackageManager::getActivePackages()` contains information about
+  whether the module is loaded as *local* or *system* type in the `packagePath` key,
   including the proper paths you might use, absolute and relative.
 - Your :file:`ext_tables.php` and :file:`ext_localconf.php` files must be designed in a way
   that they can safely be read and subsequently imploded into one single

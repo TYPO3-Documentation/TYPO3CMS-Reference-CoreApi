@@ -3,8 +3,9 @@
 
 .. _parsing-html:
 
+============
 Parsing HTML
-^^^^^^^^^^^^
+============
 
 TYPO3 CMS provides its own HTML parsing class:
 :code:`\TYPO3\CMS\Core\Html\HtmlParser`. This chapter
@@ -13,8 +14,8 @@ shows some example uses.
 
 .. _parsing-html-extraction-blocks:
 
-Extracting blocks from an HTML document
-"""""""""""""""""""""""""""""""""""""""
+Extracting Blocks From an HTML Document
+=======================================
 
 The first example shows how to extract parts of a document.
 Consider the following code::
@@ -71,8 +72,8 @@ all tags were found).
 
 .. _parsing-html-extraction-single:
 
-Extracting single tags
-""""""""""""""""""""""
+Extracting Single Tags
+======================
 
 It is also possible to split by non-block tags, for example "img" and "br"::
 
@@ -92,8 +93,8 @@ tags or self-closing tags.
 
 .. _parsing-html-cleanup:
 
-Cleaning HTML content
-"""""""""""""""""""""
+Cleaning HTML Content
+=====================
 
 The HTML parsing class also provides a tool for manipulating HTML
 with the :code:`HTMLcleaner()` method. The cleanup configuration
@@ -152,8 +153,8 @@ This is the result:
 
 .. _parsing-html-advanced:
 
-Advanced processing
-"""""""""""""""""""
+Advanced Processing
+===================
 
 There's much more that can be achieved with
 :code:`\TYPO3\CMS\Core\Html\HtmlParser` in particular

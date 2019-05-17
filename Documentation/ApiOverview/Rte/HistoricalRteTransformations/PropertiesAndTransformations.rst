@@ -3,8 +3,9 @@
 
 .. _appendix-a-properties:
 
-Properties and transformations
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==============================
+Properties and Transformations
+==============================
 
 The RTE applications typically expect to be fed with content formatted
 as HTML. In effect an RTE will discard content it doesn't like, for

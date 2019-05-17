@@ -3,8 +3,9 @@
 
 .. _services-configuration:
 
+=============
 Configuration
--------------
+=============
 
 Each service will have its own configuration which should be
 documented in their manual. There are however properties common to all

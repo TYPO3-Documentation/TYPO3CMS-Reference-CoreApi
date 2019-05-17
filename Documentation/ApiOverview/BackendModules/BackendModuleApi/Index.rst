@@ -8,12 +8,22 @@ Backend Module API
 ==================
 
 
+As for frontend plugins, you can use :ref:`Fluid templates <t3extbasebook:fluid-start>` to
+create the view and :ref:`controller actions <t3extbasebook:controlling-the-flow-with-controllers>`
+for the functionality.
+
+
+.. tip::
+
+   The :ref:`extension builder <extension-builder>` can be used to generate basic code
+   for a new extension. You can also use this to create backend modules.
+
 .. _backend-modules-api-registration:
 
 Registering new Modules
 =======================
 
-Modules added by extensions are registered in the :file:`ext_tables.php`
+Modules added by extensions are registered in the file :ref:`ext_tables.php <ext-tables.php>`
 using the following API:
 
 .. code-block:: php
@@ -35,28 +45,45 @@ using the following API:
         ]
     );
 
-Here the module ``tx_Beuser`` is declared as being a submodule of main module ``system``.
-It should be placed at the ``top`` of that main module, if possible (if several modules
-are declared at the same position, the last one wins). The following positions are possible:
+Here the module ``tx_Beuser`` is declared as a submodule of the already existing
+main module ``system``.
 
-* ``top``: the module is prepended to the top of the submodule list
-* ``bottom`` or empty string: the module is appended to the end of the submodule list
-* ``before:<submodulekey>``: the module is inserted before the submodule identified by ``<submodulekey>``
-* ``after:<submodulekey>``: the module is inserted after the submodule identified by ``<submodulekey>``
+Parameters:
 
-The last array is the module configuration and contains important information:
-the module is accessible only to admin users. The following options are available
-and should be defined as comma-separated string:
+#. A vendor shorthand and the extension key in upper camel case:
+   **'Vendor.ExtensionName'**.
+#. **Main module** name, in which the new module will be placed,
+   for example 'web' or 'system'.
+#. **Submodule key**: This is an identifier for your new module.
+#. **Position** of the module: Here, the module should be placed at the ``top`` of the main
+   module, if possible. If several modules are declared at the same position, the last one wins.
+   The following positions are possible:
 
-* ``admin``: the module is accessible to admins only
-* ``user``: the module can be made accessible per user
-* ``group``: the module can be made accessible per usergroup
+   * ``top``: the module is prepended to the top of the submodule list
+   * ``bottom`` or empty string: the module is appended to the end of the submodule list
+   * ``before:<submodulekey>``: the module is inserted before the submodule identified by ``<submodulekey>``
+   * ``after:<submodulekey>``: the module is inserted after the submodule identified by ``<submodulekey>``
 
-The configuration also contains pointers to the module ``icon`` and the
-language file containing ``labels`` like the module title and description,
-for building the module menu and for the display of information in the
-**About Modules** module (found in the main help menu in the top bar).
-The `LLL:` prefix is mandatory here and is there for historical reasons.
+#. Allowed **controller => action** combinations
+#. **Module configuration**: The following options are available:
+
+   * ``access``: can contain several, separated by comma
+
+      * ``admin``: the module is accessible to admins only
+      * ``user``: the module can be made accessible per user
+      * ``group``: the module can be made accessible per usergroup
+
+   * Module ``icon``
+   * A language file containing ``labels`` like the module title and description,
+     for building the module menu and for the display of information in the
+     **About Modules** module (found in the main help menu in the top bar).
+     The `LLL:` prefix is mandatory here and is there for historical reasons.
+
+
+.. note::
+   When registering frontend plugins, you must define which actions are not to be stored
+   in the cache. This is not necessary for backend modules, because the actions are
+   generally not being cached in the backend.
 
 Registering a Toplevel Module
 =============================
@@ -114,3 +141,26 @@ navigation frame).
 
 
 The list of modules is parsed by the class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader`.
+
+
+Configuration With TypoScript
+=============================
+
+Backend modules can, like frontend plugins, be configured via TypoScript. While the frontend plugins
+are configured with :ts:`plugin.tx_[pluginkey]`, for the configuration of the backend
+:ts:`module.tx_[pluginkey]` is used.
+
+Example for configuring the paths of Fluid files:
+
+.. code-block:: typoscript
+
+   module.tx_example {
+       view {
+           templateRootPaths {
+               10 = EXT:example/Resources/Private/Backend/Templates/
+           }
+           layoutRootPaths {
+              10 = EXT:example/Resources/Private/Backend/Layouts/
+           }
+       }
+   }

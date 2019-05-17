@@ -7,8 +7,9 @@
 
 .. _requirejs-shim:
 
-Shim library to use it as own RequireJS modules
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===============================================
+Shim Library to Use it as Own RequireJS Modules
+===============================================
 
 Not all javascript libraries are compatible with RequireJS. In the rarest cases, you can
 adjust the library code to be AMD or UMD compatible. So you need to configure RequireJS to

@@ -3,8 +3,9 @@
 
 .. _typoscript-syntax-details:
 
-Sorting out details
--------------------
+===================
+Sorting out Details
+===================
 
 This chapter looks at some more technical details about TypoScript.
 

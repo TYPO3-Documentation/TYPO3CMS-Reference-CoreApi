@@ -3,8 +3,9 @@
 
 .. _services-using-services-subtypes:
 
-Use with subtypes
-^^^^^^^^^^^^^^^^^
+=================
+Use With Subtypes
+=================
 
 A service can also be requested for not just a type, but a subtype
 too:

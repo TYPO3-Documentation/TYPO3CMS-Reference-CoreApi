@@ -2,8 +2,9 @@
 
 .. _database-connection:
 
+==========
 Connection
-----------
+==========
 
 An instance of class :php:`TYPO3\CMS\Core\Database\Connection` is retrieved from the
 :ref:`ConnectionPool <database-connection-pool>` by calling `->getConnectionForTable()`
@@ -30,7 +31,7 @@ automatically and the created queries are executed right away.
 
 
 insert()
-^^^^^^^^
+========
 
 Creates and executes an `INSERT INTO` statement. A (slightly simplified) example from the `Registry` API::
 
@@ -85,7 +86,7 @@ goes wrong a `\Doctrine\DBAL\DBALException` is raised.
 
 
 bulkInsert()
-^^^^^^^^^^^^
+============
 
 `INSERT` multiple rows at once. An example from the test suite::
 
@@ -119,7 +120,7 @@ if omitted, everything will be quoted to strings.
 .. _database-connection-update:
 
 update()
-^^^^^^^^
+========
 
 Create and execute an `UPDATE` statement. The example from `FAL's` `ResourceStorage` sets a storage to offline::
 
@@ -148,7 +149,7 @@ The method returns the number of affected rows.
 
 
 delete()
-^^^^^^^^
+========
 
 Execute a `DELETE` query using `equal` conditions in `WHERE`, example from `BackendUtility` to mark
 rows as no longer locked by a user::
@@ -178,7 +179,7 @@ argument specifies the quoting of `WHERE` values. There is a pattern ;)
 
 
 truncate()
-^^^^^^^^^^
+==========
 
 Empty a table, removing all rows. Usually much quicker than a :php:`->delete()` of all rows. This typically
 resets "auto increment primary keys" to zero. Use with care::
@@ -192,7 +193,7 @@ resets "auto increment primary keys" to zero. Use with care::
 
 
 count()
-^^^^^^^
+=======
 
 A `COUNT` query. Again, this methods becomes handy if very simple `COUNT` statements are to be executed, the example
 returns tha number of active rows from table `tt_content` that have their `bodytext` field set to `klaus`::
@@ -238,7 +239,7 @@ Remarks:
 
 
 select()
-^^^^^^^^
+========
 
 Creates and executes a simple `SELECT` query based on `equal` conditions. Its usage is limited, the
 :ref:`RestrictionBuilder <database-restriction-builder>` kicks in and key/value pairs are automatically
@@ -272,7 +273,7 @@ Remarks:
 
 
 lastInsertId()
-^^^^^^^^^^^^^^
+==============
 
 Returns the `uid` of the last :php:`->insert()` statement. Useful if this id needs to be used afterwards directly::
 
@@ -300,7 +301,7 @@ Remarks:
 
 
 createQueryBuilder()
-^^^^^^^^^^^^^^^^^^^^
+====================
 
 The :ref:`QueryBuilder <database-query-builder>` should not be re-used for multiple different queries. However,
 it sometimes becomes handy to first fetch a `Connection` object for a specific table and to execute a simple

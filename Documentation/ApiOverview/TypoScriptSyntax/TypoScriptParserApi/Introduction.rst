@@ -3,8 +3,9 @@
 
 .. _typoscript-syntax-parser-introduction:
 
+============
 Introduction
-^^^^^^^^^^^^
+============
 
 If you want to deploy TypoScript in your own TYPO3 CMS applications it is
 really easy. The TypoScript parser is readily available to you and the

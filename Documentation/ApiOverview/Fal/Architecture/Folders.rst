@@ -3,8 +3,9 @@
 
 .. _architecture-folders:
 
+=======
 Folders
-^^^^^^^
+=======
 
 The actual storage structure depends on which Driver each Storage
 is based on. When using the local file system Driver provided by
@@ -18,8 +19,8 @@ is created automatically in every TYPO3 CMS installation.
 
 .. _fal-architecture-folders-processed-files:
 
-Processed files
-"""""""""""""""
+Processed Files
+===============
 
 Inside each Storage there will be a folder named :file:`_processed_`
 which contains all resized images, be they rendered in the frontend
@@ -35,8 +36,8 @@ It may even point to a different storage.
 
 .. _fal-architecture-folders-migrated-files:
 
-Migrated files
-""""""""""""""
+Migrated Files
+==============
 
 When upgrading from a pre-FAL installation (i.e. a TYPO3 CMS version
 older than 6.0), files will have been moved from various locations

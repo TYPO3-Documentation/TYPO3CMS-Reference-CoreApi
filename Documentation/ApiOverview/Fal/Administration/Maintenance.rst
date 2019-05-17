@@ -3,8 +3,9 @@
 
 .. _fal-administration-maintenance:
 
+===========
 Maintenance
-^^^^^^^^^^^
+===========
 
 There are various maintenance tasks which can be performed
 to maintain a healthy TYPO3 CMS installation with the
@@ -13,8 +14,8 @@ File Abstraction Layer.
 
 .. _fal-administration-maintenance-scheduler:
 
-Scheduler tasks
-"""""""""""""""
+Scheduler Tasks
+===============
 
 Two base tasks provided by the Scheduler are related to the
 File Abstraction Layer.
@@ -40,8 +41,8 @@ File Abstraction Layer: Extract metadata in storage
 
 .. _fal-administration-maintenance-processed-files:
 
-Processed files
-"""""""""""""""
+Processed Files
+===============
 
 If you change some graphics-related settings, it may be necessary
 to force a regeneration of all processed files. This can be achieved

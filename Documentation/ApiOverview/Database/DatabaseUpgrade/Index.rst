@@ -3,8 +3,9 @@
 
 .. _database-upgrade:
 
-Upgrade table and field definitions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===================================
+Upgrade Table and Field Definitions
+===================================
 
 Each extension in TYPO3 CMS can bring the file :file:`ext_tables.sql` that
 defines which tables and fields the extension needs. Gathering all
@@ -56,8 +57,8 @@ the :ref:`Installation and Upgrade Guide <t3install:upgrade>`.
 
 .. _database-exttables-sql:
 
-The ext\_tables.sql files
-"""""""""""""""""""""""""
+The ext\_tables.sql Files
+=========================
 
 As mentioned before, all data definition statements are stored in
 files called :file:`ext_tables.sql` which may be present in any

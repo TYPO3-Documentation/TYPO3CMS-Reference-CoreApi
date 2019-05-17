@@ -4,8 +4,9 @@
 
 .. _caching-configuration:
 
+=============
 Configuration
-^^^^^^^^^^^^^
+=============
 
 Caches are configured in the array :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']`.
 The basic structure is predefined in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`,
@@ -17,8 +18,8 @@ and consists of the single section:
 
 .. _caching-configuration-cache:
 
-Cache configurations
-""""""""""""""""""""
+Cache Configurations
+====================
 
 Unfortunately in TYPO3 CMS, all :file:`ext_localconf.php` files of the extensions are loaded **after** the instance specific
 configuration from :file:`LocalConfiguration.php` and :file:`AdditionalConfiguration.php`. This
@@ -62,8 +63,8 @@ If not all mandatory options are defined, the specific backend will throw an exc
 
 .. _caching-disable:
 
-How to disable specific caches
-""""""""""""""""""""""""""""""
+How to Disable Specific Caches
+==============================
 
 During development, it can be convenient to disable certain caches.
 This is especially helpful since TYPO3 CMS 4.6 for central caches like the language or autoloader cache.

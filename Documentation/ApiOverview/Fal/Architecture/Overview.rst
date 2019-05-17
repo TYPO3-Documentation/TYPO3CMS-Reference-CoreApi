@@ -3,8 +3,9 @@
 
 .. _fal-architecture-overview:
 
+========
 Overview
-^^^^^^^^
+========
 
 The FAL architecture consists of three layers:
 
