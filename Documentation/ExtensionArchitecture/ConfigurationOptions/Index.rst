@@ -26,7 +26,7 @@ Consider the following example (taken from system extension "backend"):
 First a category (cat) is defined ("Login"). Then a type is given ("string") and finally a label, which
 is itself split (on the colon ":") into a title and a description
 (this should actually be a localized string). The
-above example will be rendered like this in the EM:
+above example will be rendered like this in the Settings module:
 
 .. figure:: ../../Images/ExtensionConfigurationOptions.png
    :alt: Configuration screen for the backend extension
@@ -56,7 +56,7 @@ user          user function
 wrap          wrap field
 ============= ==========================
 
-Once you saved the configuration in the Extension Manager, it will be stored in
+Once you saved the configuration in the Settings module, it will be stored in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['your_extension_key']`
 as an array.
 
