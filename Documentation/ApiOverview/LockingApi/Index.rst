@@ -40,7 +40,6 @@ available, SemaphoreLockStrategy will not be used).
 
 * **FileLockStrategy**: uses the PHP function `flock() <http://php.net/manual/en/function.flock.php>`__
   and creates a file in `typo3temp/var/lock`
-  (or `typo3temp/lock` for older TYPO3 versions)
 * **SemaphoreLockStrategy**: uses the PHP function `sem_get()
   <http://php.net/manual/en/function.sem-get.php>`__
 * **SimpleLockStrategy** is a simple method of file locking. It also uses the folder
@@ -211,8 +210,7 @@ issue for more information
 
 or check if PHP flock works on your filesystem.
 
-The FileLockStrategy uses flock(). This will create a file
-(typically in `typo3temp/locks` or `typo3temp/var/lock`).
+The FileLockStrategy uses flock(). This will create a file in `typo3temp/var/lock`.
 
 Because of its capabilities (LOCK_CAPABILITY_EXCLUSIVE, LOCK_CAPABILITY_SHARED
 and LOCK_CAPABILITY_NOBLOCK) and priority (75), FileLockStrategy is used as
