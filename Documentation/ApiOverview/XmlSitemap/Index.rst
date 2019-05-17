@@ -72,6 +72,7 @@ RecordsXmlSitemapDataProvider. You can add for example a sitemap for news record
                   lastModifiedField = tstamp
                   additionalWhere = AND (no_index = 0 OR no_follow = 0)
                   pid = <page id('s) containing news records>
+                  recursive = <number of subpage levels taken into account beyond the pid page. (default: 0)>
                   url {
                      pageId = <your detail page id>
                      fieldToParameterMap {

@@ -6,6 +6,9 @@
 Using Site Configuration in TypoScript
 ======================================
 
+getText
+~~~~~~~
+
 Site configuration can be accessed via the :typoscript:`getText` property in TypoScript.
 
 Example:
@@ -43,3 +46,28 @@ To access the current siteLanguage use the `siteLanguage` prefix:
     TypoScript can now access these properties, too.
 
 Site configuration can also be used in :ref:`TypoScript conditions <sitehandling-inConditions>`.
+
+FLUIDTEMPLATE
+~~~~~~~~~~~~~
+
+You can use the SiteProcessor in the The :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>` content object
+to fetch data from the site entity:
+
+.. code-block:: typoscript
+
+   tt_content.mycontent.20 = FLUIDTEMPLATE
+   tt_content.mycontent.20 {
+       file = EXT:myextension/Resources/Private/Templates/ContentObjects/MyContent.html
+
+       dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+       dataProcessing.10 {
+           as = site
+       }
+   }
+
+In the Fluid template the properties of the site entity can be accessed with:
+
+.. code-block:: html
+
+   <p>{site.rootPageId}</p>
+   <p>{site.someCustomConfiguration}</p>
