@@ -16,21 +16,20 @@ similar to the one used for TypoScript constants (see "Declaring
 constants for the Constant editor" in
 :ref:`Constants section in TypoScript Reference <t3tsref:typoscript-syntax-constant-editor>`.
 This syntax applies to the comment line that should be placed just before the constant.
-Consider the following example (taken from system extension "rsaauth"):
+Consider the following example (taken from system extension "backend"):
 
 .. code-block:: typoscript
 
-   # cat=basic/enable; type=string; label=Path to the temporary directory:This directory will contain...
-   temporaryDirectory =
+   # cat=Login; type=string; label=Logo: If set, this logo will be used instead of...
+   loginLogo =
 
-First a category (cat) is defined ("basic") with the subcategory
-"enable". Then a type is given ("string") and finally a label, which
+First a category (cat) is defined ("Login"). Then a type is given ("string") and finally a label, which
 is itself split (on the colon ":") into a title and a description
 (this should actually be a localized string). The
-above example will be rendered like this in the EM:
+above example will be rendered like this in the Settings module:
 
 .. figure:: ../../Images/ExtensionConfigurationOptions.png
-   :alt: Configuration screen for the rsaauth extension
+   :alt: Configuration screen for the backend extension
 
 The configuration tab displays all options from a single category. A
 selector is available to switch between categories. Inside an option
@@ -57,7 +56,7 @@ user          user function
 wrap          wrap field
 ============= ==========================
 
-Once you saved the configuration in the Extension Manager, it will be stored in
+Once you saved the configuration in the Settings module, it will be stored in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['your_extension_key']`
 as an array.
 
