@@ -384,7 +384,7 @@ which should be removed and they will not be deleted. This results in old data d
 Additionally, there is currently **no** implementation of the garbage collection that could rebuild cache integrity.
 
 It is important to monitor a memcached system for evictions and server outages
-and to clear clear caches if that happens.
+and to clear caches if that happens.
 
 Furthermore memcache has no sort of namespacing.
 To distinguish entries of multiple caches from each other,
