@@ -142,7 +142,7 @@ The following caches exist in the TYPO3 CMS Core:
     files, autoloader and sprite configuration PHP files.
   - This cache is instantiated very early during bootstrap and **can not** be re configured
     by instance specific :file:`LocalConfiguration.php` or similar.
-  - Cache entries are located in directory :file:`typo3temp/Cache/Code/cache_code`. The full directory and any file
+  - Cache entries are located in directory :file:`typo3temp/var/cache/code/cache_code` or :file:`var/cache/code/cache_code` (for composer-based installations). The full directory and any file
     in this directory can be safely removed and will be re-created upon next request. This is especially useful during
     development
   - **group**: system
@@ -202,7 +202,7 @@ The following caches exist in the TYPO3 CMS Core:
    bootstrap process are introduced (usually when working on the TYPO3 core),
    cache clearings requests themselves might throw fatal errors.
    The solution here is to manually remove the cache files from
-   :file:`typo3temp/Cache/Code/`.
+   :file:`typo3temp/var/cache/code/` or :file:`var/cache/code/` (for composer-based installation).
 
 
 .. _caching-architecture-task:
