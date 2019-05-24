@@ -103,7 +103,7 @@ extending the \TYPO3\CMS\Seo\XmlSitemap\AbstractXmlSitemapDataProvider class. Th
 The :php:`getLastModified` is used in the sitemap index and have to return the date of the last modified
 item in the sitemap.
 
-The :php:`getItems` method have to return an array with items with the items for the sitemap.
+The :php:`getItems` method have to return an array with the items for the sitemap.
 
 .. code-block:: php
 
