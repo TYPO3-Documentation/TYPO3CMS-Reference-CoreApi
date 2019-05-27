@@ -52,8 +52,3 @@ So a routes file essentially returns an array containing routes mapping.
 A route is defined by a key, a path and a target. The "public" :code:`access`
 property indicates that no authentication is required for that action.
 
-.. note::
-
-   As the above code extract mentions, routes are a new feature (since TYPO3 CMS 7)
-   and may yet evolve.
-
