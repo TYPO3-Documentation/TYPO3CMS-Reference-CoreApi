@@ -27,9 +27,21 @@ another whole lot of examples.
    Clipboard/Index
    ContextualMenu/Index
    ParsingHtml/Index
-   EditLinks/Index
    TablesInPageModule/Index
-   ContentElementWizard/Index
    CustomPermissions/Index
-   Tsconfig/Index
 
+Backend information has been moved to :ref:`backend`:
+
+* :ref:`edit-links`
+* :ref:`content-element-wizard`
+* :ref:`custom-permissions`
+
+
+Configuration information has been moved to :ref:`configuration`:
+
+* :ref:`tsconfig`
+
+.. is now referenced from toctree in Backend/Index.rst:
+   - EditLinks/Index
+   - Tsconfig/Index
+   - ContentElementWizard/Index

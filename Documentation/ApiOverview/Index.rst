@@ -6,8 +6,8 @@
 API Overview
 ============
 
-The TYPO3 APIs are first and foremost documented inside of the source
-scripts. It would be impossible to maintain documentation at more than
+The TYPO3 API is first and foremost documented inside the source
+code. It would be impossible to maintain documentation at more than
 one location given the fact that things change and sometimes fast.
 This chapter describes the most important elements of the API.
 
@@ -15,6 +15,13 @@ This chapter describes the most important elements of the API.
 
    The source is the documentation! (General wisdom)
 
+This page lists all subchapters. You will also find them in the menu.
+
+For more information about the order of these chapters, see the
+note at the bottom.
+
+
+**Table of Contents:**
 
 .. toctree::
    :titlesonly:
@@ -22,53 +29,80 @@ This chapter describes the most important elements of the API.
 
    DirectoryStructure/Index
    Namespaces/Index
+   GlobalValues/Index
+
+   Typo3CoreEngine/Index
+   Database/Index
+   FormEngine/Index
+
+   BackendOverview/Index
+
+   ConfigurationOverview/Index
+
    Autoloading/Index
    Bootstrapping/Index
-   GlobalValues/Index
-   BackendModules/Index
-   BackendRouting/Index
-   BackendUserObject/Index
+
+   Fal/Index
    Context/Index
-   Typo3CoreEngine/Index
-   FormEngine/Index
-   Database/Index
    Internationalization/Index
    SiteHandling/Index
    Workspaces/Index
-   Fal/Index
    CachingFramework/Index
    LockingApi/Index
-   SystemLog/Index
-   Logging/Index
-   ErrorAndExceptionHandling/Index
-   SystemRegistry/Index
-   PasswordHashing/Index
-   Mail/Index
    Services/Index
-   Authentication/Index
-   AccessControl/Index
-   FormProtection/Index
+   SystemRegistry/Index
+   Mail/Index
    FlashMessages/Index
-   Categories/Index
-   Collections/Index
-   Enumerations/Index
    Environment/Index
    Http/Index
    Icon/Index
-   Hooks/Index
-   UpdateWizards/Index
-   Xclasses/Index
    FeatureToggles/Index
-   JavaScript/Index
    SoftReferences/Index
    SessionStorageFramework/Index
    Rte/Index
-   TypoScriptSyntax/Index
    PageTypes/Index
-   UserSettingsConfiguration/Index
    ContextSensitiveHelp/Index
+
+   SystemLog/Index
+   Logging/Index
+   ErrorAndExceptionHandling/Index
+
+   Authentication/Index
+   FormProtection/Index
+   PasswordHashing/Index
+
+   Categories/Index
+   Collections/Index
+   Enumerations/Index
+
+   UpdateWizards/Index
    ExtensionScanner/Index
+
+   Hooks/Index
+   Xclasses/Index
+
+   SeoOverview/Index
+
    Examples/Index
-   MetaTagApi/Index
-   PageTitleApi/Index
-   XmlSitemap/Index
+
+
+More subtopics in
+
+* :ref:`backend`
+* :ref:`configuration`
+* :ref:`seo`
+* :ref:`examples`
+
+
+.. note::
+
+   **About the order of the subchapters**
+
+   The order is loosely based on the following:
+
+   #. Basic topics like namespaces, directory names, global variables
+   #. Central core functionality like TCE, database functions
+   #. Several topics, more general or basic first, more relevant first
+
+   In general, we try to group similar chapters together, e.g. :ref:`syslog`
+   and :ref:`logging`.
