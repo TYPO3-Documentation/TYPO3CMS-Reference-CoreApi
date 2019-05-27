@@ -31,7 +31,7 @@ the cache system falls back to the default backend and default frontend settings
 .. code-block:: php
 
    if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] = array();
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] = [];
    }
 
 Extensions like **extbase** define default caches this way, giving administrators full freedom for specific and
@@ -42,20 +42,20 @@ example configuration to switch **cache_pages** to the **redis** backend using d
 
 .. code-block:: php
 
-   return array(
-       'SYS' => array(
-           'caching' => array(
-               'cacheConfigurations' => array(
-                   'cache_pages' => array(
-                       'backend' => 'TYPO3\CMS\Core\Cache\Backend\RedisBackend',
-                       'options' => array(
+   return [
+       'SYS' => [
+           'caching' => [
+               'cacheConfigurations' => [
+                   'cache_pages' => [
+                       'backend' => \TYPO3\CMS\Core\Cache\Backend\RedisBackend::class,
+                       'options' => [
                            'database' => 3,
-                       ),
-                   ),
-               ),
-           ),
-       ),
-   );
+                       ],
+                   ],
+               ],
+           ],
+       ],
+   ];
 
 
 Some backends have mandatory as well as optional parameters (which are documented below).
@@ -79,4 +79,4 @@ Example entry to switch the *runtime* cache to use the **null** backend:
 .. code-block:: php
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']
-      ['cache_runtime']['backend'] = 'TYPO3\CMS\Core\Cache\Backend\NullBackend';
+      ['cache_runtime']['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
