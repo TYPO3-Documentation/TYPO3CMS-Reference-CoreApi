@@ -4,8 +4,9 @@
 
 .. _fal-using-fal-examples-collections:
 
-Searching for files
-""""""""""""""""""""""""
+===================
+Searching for Files
+===================
 
 Since TYPO3 9.5.6, there is an API in FAL to search for files in a storage or folder, which includes matches in meta data
 of those files. The given search term is looked for in all search fields defined in TCA of `sys_file`
@@ -40,7 +41,7 @@ Please note, that `FileSearchDemand` is an immutable value object, but allows ch
    $files = $storage->searchFiles($searchDemand);
 
 
-There also is a driver capability `\TYPO3\CMS\Core\Resource\ResourceStorageInterface::CAPABILITY_HIERARCHICAL_IDENTIFIERS`
+There is also a driver capability `\TYPO3\CMS\Core\Resource\ResourceStorageInterface::CAPABILITY_HIERARCHICAL_IDENTIFIERS`
 to allow implementing an optimized search with good performance.
 Drivers can optionally add this capability in case the identifiers that are constructed by the driver
 include the directory structure.
