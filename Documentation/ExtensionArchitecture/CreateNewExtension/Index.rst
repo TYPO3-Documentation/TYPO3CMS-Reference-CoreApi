@@ -26,7 +26,10 @@ TER.
 
 .. hint::
 
-   The extension builder in TER is usually not up to date. If you can't find a version supporting the latest TYPO3 version in    TER, you can take a look into the `_official github repository <https://github.com/FriendsOfTYPO3/extension_builder>`.
+   The extension builder in TER is usually not up to date. If you can't
+   find a version supporting the latest TYPO3 version in TER, you can
+   take a look into the
+   `_official github repository <https://github.com/FriendsOfTYPO3/extension_builder>`.
 
 The `Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
 comes with its own BE module:
