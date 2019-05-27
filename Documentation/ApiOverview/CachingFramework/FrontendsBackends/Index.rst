@@ -140,8 +140,9 @@ the simple file backend fulfill this requirement.
 
 .. _caching-backend:
 
+===============
 Cache backends
-^^^^^^^^^^^^^^
+===============
 
 A variety of storage backends exists. They have different characteristics
 and can be used for different caching needs. The best backend depends on
