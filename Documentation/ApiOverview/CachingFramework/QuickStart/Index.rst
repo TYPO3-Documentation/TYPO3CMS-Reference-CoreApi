@@ -31,21 +31,21 @@ database backend with compression for the pages cache:
 
 .. code-block:: php
 
-   return array(
+   return [
    // ...
-      'SYS' => array(
+      'SYS' => [
       // ...
-         'caching' => array(
+         'caching' => [
             // ...
-            'cache_pages' => array(
-               'backend' => 'TYPO3\CMS\Core\Cache\Backend\RedisBackend',
-               'options' => array(
+            'cache_pages' => [
+               'backend' => \TYPO3\CMS\Core\Cache\Backend\RedisBackend::class,
+               'options' => [
                   'database' => 42,
-               ),
-            ),
-         ),
-      ),
-   );
+               ],
+            ],
+         ],
+      ],
+   ];
 
 .. _caching-quickstart-garbage:
 
