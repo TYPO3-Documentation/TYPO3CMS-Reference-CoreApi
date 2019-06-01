@@ -1,24 +1,17 @@
 .. include:: ../../../../Includes.txt
 
-
-
-
-
-
 .. _ajax-backend:
 
 =========================================
 Developing With AJAX in the TYPO3 Backend
 =========================================
 
-This section describes how to correctly make AJAX calls
-in the TYPO3 CMS BE.
+.. todo:: This section must be written
 
-.. note::
+   see also open issue:
+   https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/459
 
-   This section is fully updated and reflects TYPO3 CMS 9.0. For older
-   versions, please refer to the corresponding version of this manual.
-
+For now, see :ref:`backend-routing`.
 
 
 

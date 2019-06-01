@@ -6,9 +6,9 @@
 
 .. _javascript:
 
-===================
-JavaScript in TYPO3
-===================
+===========================
+JavaScript in TYPO3 Backend
+===========================
 
 Some third-party JavaScript libraries are packaged with the TYPO3 source code.
 The TYPO3 backend itself relies on quite a lot of JavaScript to do its job.
