@@ -9,68 +9,6 @@ Naming conventions
 Based on the extension key of an extension these naming conventions
 should be followed:
 
-.. attention::
-
-   ((The following table is unreadable and has been translated to the following normal text.
-   The table will be dropped soon.))
-
-.. t3-field-list-table::
- :header-rows: 1
-
- - :Context,20:
-   :General,20: General
-   :Example,20: Example
-   :User-specific,20: User-specific
-   :Example-2,20: Example
-
- - :Context:
-         Extension key
-
-         (Lowercase "alnum" + underscores. )
-   :General:
-         Assigned by the TYPO3 Extension Repository.
-   :Example:
-         cool\_shop
-   :User-specific:
-         Determined by yourself, but prefixed "user\_"
-   :Example-2:
-         user\_my\_shop
-
- - :Context:
-         Database tables and fields
-   :General:
-         Prefix with "tx\_[ *key* ]\_" where key is  *without* underscores!
-   :Example:
-         **Prefix:** tx\_coolshop\_
-
-         **Examples:**
-
-         tx\_coolshop\_products
-
-         tx\_coolshop\_categories
-   :User-specific:
-         Prefix with "[ *key* ]\_"
-   :Example-2:
-         **Prefix:** user\_my\_shop\_
-
-         **Examples:**
-
-         user\_my\_shop\_products
-
-         user\_my\_shop\_categories
-
- - :Context:
-         Backend module
-
-         (Names are always  *without* underscores!)
-   :General:
-         Name: The extension key name  *without* underscores, prefixed "tx"
-   :Example:
-         txcoolshop
-   :User-specific:
-         Name: No underscores, prefixed "u"
-   :Example-2:
-         uMyShop or umyshop or ...
 
 Abbreviations
    | TER = TYPO3 extension repository
