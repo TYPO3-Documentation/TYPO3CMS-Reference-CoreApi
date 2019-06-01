@@ -82,7 +82,7 @@ Public extensions
    1. Public extensions are available from the TER_ or via Packagist_. Private
       extensions are not published to the TER or Packagist.
 
-   2. The *extkey* is made up of alphanumeric characters and underscores only
+   2. The *extkey* is made up of lowercase alphanumeric characters and underscores only
       and should start with a letter.
 
       **Example:** cool\_shop
@@ -90,7 +90,7 @@ Public extensions
    3. The *extkey* is valid if the TER accepts it. This makes sure that the
       name follows the rules and is unique.
 
-   4. Database tablenames look like `tx_` + *extkey* (without underscores) +
+   4. Database tablenames should be named `tx_` + *extkey* (without underscores) +
       `_specification`.
 
       **Examples:** tx\_coolshop\_products, tx\_coolshop\_categories,
