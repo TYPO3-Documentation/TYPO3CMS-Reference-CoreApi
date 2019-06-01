@@ -106,7 +106,7 @@ Frontend PHP classes
    For frontend PHP classes, follow the same conventions as for database tables
    and fields.
 
-You may also want to refer to the TYPO3 Core Coding Guidelines for
+You may also want to refer to the TYPO3 :ref:`cgl` for
 more on general naming conventions in TYPO3.
 
 .. tip::
