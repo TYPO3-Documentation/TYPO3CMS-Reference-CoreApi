@@ -16,12 +16,11 @@ The Core itself along with its many system extensions provide
 another whole lot of examples.
 
 
-.. _examples-examples:
-
 **Contents:**
 
 .. toctree::
    :titlesonly:
+   :name: examples-toctree
 
    Debugging/Index
    PageTrees/Index
