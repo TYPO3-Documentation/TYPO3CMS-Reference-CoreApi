@@ -23,7 +23,7 @@ APIs in that regard.
    anymore. If you need them for your projects, you need to take care of shipping them
    yourself, preferable by usage of RequireJS.
    Since TYPO3 8, ExtJS will be removed step by step, the most parts are now
-   ExtJS free and replaces with mostly pure JavaScript components.
+   ExtJS free and replaced with mostly pure JavaScript components.
 
 
 **Contents:**
