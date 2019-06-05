@@ -9,68 +9,6 @@ Naming conventions
 Based on the extension key of an extension these naming conventions
 should be followed:
 
-.. attention::
-
-   ((The following table is unreadable and has been translated to the following normal text.
-   The table will be dropped soon.))
-
-.. t3-field-list-table::
- :header-rows: 1
-
- - :Context,20:
-   :General,20: General
-   :Example,20: Example
-   :User-specific,20: User-specific
-   :Example-2,20: Example
-
- - :Context:
-         Extension key
-
-         (Lowercase "alnum" + underscores. )
-   :General:
-         Assigned by the TYPO3 Extension Repository.
-   :Example:
-         cool\_shop
-   :User-specific:
-         Determined by yourself, but prefixed "user\_"
-   :Example-2:
-         user\_my\_shop
-
- - :Context:
-         Database tables and fields
-   :General:
-         Prefix with "tx\_[ *key* ]\_" where key is  *without* underscores!
-   :Example:
-         **Prefix:** tx\_coolshop\_
-
-         **Examples:**
-
-         tx\_coolshop\_products
-
-         tx\_coolshop\_categories
-   :User-specific:
-         Prefix with "[ *key* ]\_"
-   :Example-2:
-         **Prefix:** user\_my\_shop\_
-
-         **Examples:**
-
-         user\_my\_shop\_products
-
-         user\_my\_shop\_categories
-
- - :Context:
-         Backend module
-
-         (Names are always  *without* underscores!)
-   :General:
-         Name: The extension key name  *without* underscores, prefixed "tx"
-   :Example:
-         txcoolshop
-   :User-specific:
-         Name: No underscores, prefixed "u"
-   :Example-2:
-         uMyShop or umyshop or ...
 
 Abbreviations
    | TER = TYPO3 extension repository
@@ -82,7 +20,7 @@ Public extensions
    1. Public extensions are available from the TER_ or via Packagist_. Private
       extensions are not published to the TER or Packagist.
 
-   2. The *extkey* is made up of alphanumeric characters and underscores only
+   2. The *extkey* is made up of lowercase alphanumeric characters and underscores only
       and should start with a letter.
 
       **Example:** cool\_shop
@@ -90,7 +28,7 @@ Public extensions
    3. The *extkey* is valid if the TER accepts it. This makes sure that the
       name follows the rules and is unique.
 
-   4. Database tablenames look like `tx_` + *extkey* (without underscores) +
+   4. Database tablenames should be named `tx_` + *extkey* (without underscores) +
       `_specification`.
 
       **Examples:** tx\_coolshop\_products, tx\_coolshop\_categories,
@@ -106,7 +44,7 @@ Frontend PHP classes
    For frontend PHP classes, follow the same conventions as for database tables
    and fields.
 
-You may also want to refer to the TYPO3 Core Coding Guidelines for
+You may also want to refer to the TYPO3 :ref:`cgl` for
 more on general naming conventions in TYPO3.
 
 .. tip::
