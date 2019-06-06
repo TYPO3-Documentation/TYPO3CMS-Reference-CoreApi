@@ -78,6 +78,13 @@ You can also use the Fluid ViewHelper to render an icon in your view:
 
    {namespace core = TYPO3\CMS\Core\ViewHelpers}
    <core:icon identifier="my-icon-identifier" size="small" overlay="overlay-identifier" />
+   
+This will render the desired icon using an `img`-tag. If you prefer having the SVG inlined into your HTML (e.g. for being able to change colors with CSS), you can set the optional `alternativeMarkupIdentifier` attribute to `inline`. By default, the icon will pick up the font-color of its surrounding element if you use this option.
+
+.. code-block:: html
+
+   {namespace core = TYPO3\CMS\Core\ViewHelpers}
+   <core:icon identifier="my-icon-identifier" size="small" overlay="overlay-identifier" alternativeMarkupIdentifier="inline" />
 
 
 The JavaScript way
