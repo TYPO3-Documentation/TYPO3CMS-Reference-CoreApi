@@ -343,13 +343,30 @@ Let's run the tests:
     Removing local_unit_run_1 ... done
     Removing network local_default
 
-Done. That's it. Execution of your extension`s unit tests. The :file:`runTests.sh` file of enetcache comes
-with some additional features, for example it is possible to execute `composer install` from within a container
-using `Build/Scripts/runTests.sh -s composerInstall`, it is possible to execute unit tests with PHP 7.3 instead
-of 7.2 (option `-p 7.3`). This is available for PHP linting, too (`-s lint`). Similar to :ref:`core test execution
-<testing-core-examples>` it is possible to break point tests using xdebug (`-x` option), typo3gmbh containers
-can be updated using `runTests.sh -u`, verbose output is available with `-v` and a help is available
-with `runTests.sh -h`. Have a look around.
+Done. That's it. Execution of your extension`s unit tests.
+
+On some versions of MacOS you might get the following error message when executing runTests.sh:
+
+.. code-block:: shell
+
+    $ ./Build/Scripts/runTests.sh 
+    readlink: illegal option -- f
+    usage: readlink [-n] [file ...]
+    Creating network "local_default" with the default driver
+    ERROR: Cannot create container for service unit: invalid volume specification: '.:.:rw':
+    invalid mount config for type "volume": invalid mount path: '.' mount path must be absolute
+    Removing network local_default
+
+To solve this issue follow the steps described `here <http://biercoff.com/fixing-readlink-illegal-option-f-error-on-a-mac/>`_ to install greadlink which supports the needed --f option.
+
+Rather than changing the :file:`runTests.sh` to then use `greadlink` and thus risk breaking your automated testing via Travis CI consider symlinking your readlink executable to the newly installed greadlink with the following command as mentioned in the comments:
+
+.. code-block:: shell
+
+   ln -s "$(which greadlink)" "$(dirname "$(which greadlink)")/readlink"
+
+The :file:`runTests.sh` file of enetcache comes with some additional features, for example it is possible to execute `composer install` from within a container using `Build/Scripts/runTests.sh -s composerInstall`, it is possible to execute unit tests with PHP 7.3 instead of 7.2 (option `-p 7.3`). This is available for PHP linting, too (`-s lint`). Similar to :ref:`core test execution <testing-core-examples>` it is possible to break point tests using xdebug (`-x` option), typo3gmbh containers
+can be updated using `runTests.sh -u`, verbose output is available with `-v` and a help is available with `runTests.sh -h`. Have a look around.
 
 Travis CI
 ---------
