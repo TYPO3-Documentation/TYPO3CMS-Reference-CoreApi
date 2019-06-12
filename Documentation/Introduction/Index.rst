@@ -161,7 +161,7 @@ set a series of options for plugins, to set some global config options, and to a
 pre processor between database data and Fluid templates.
 
 Still, the :ref:`TypoScript Reference <t3tsref:start>` reference document that goes deep into
-the incredible power of Frontent TypoScript is daily bread for Integrators.
+the incredible power of Frontend TypoScript is daily bread for Integrators.
 
 
 :ref:`TSconfig Reference <t3tsconfig:start>`
