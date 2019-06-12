@@ -146,7 +146,7 @@ Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrid
 	);
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
 		'tt_content',
-		'visibility',
+		'appearanceLinks',
 		'tx_examples_noprint',
 		'after:linkToTop'
 	);
