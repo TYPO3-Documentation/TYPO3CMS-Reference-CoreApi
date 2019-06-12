@@ -462,7 +462,7 @@ If a function is declared to return a value, all code paths must *always* return
     * @param bool $enabled
     * @return string
     */
-   function extendedUse(bool $enabled) : string
+   function extendedUse(bool $enabled): string
    {
        if ($enabled) {
            return 'Extended use';
@@ -475,7 +475,7 @@ The following is the correct behavior::
     * @param bool $enabled
     * @return string
     */
-   function extendedUse(bool $enabled) : string
+   function extendedUse(bool $enabled): string
    {
        $content = '';
        if ($enabled) {
@@ -493,7 +493,7 @@ during parameter validation (guards) before it starts its main logic. Example::
     * @param MyUseParameters $useParameters
     * @return string
     */
-   function extendedUse(bool $enabled, MyUseParameters $useParameters) : string
+   function extendedUse(bool $enabled, MyUseParameters $useParameters): string
    {
        // Validation
        if (count($useParameters->urlParts) < 5) {
