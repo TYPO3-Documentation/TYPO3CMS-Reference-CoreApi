@@ -156,7 +156,7 @@ is very different and requires an explanation. The "pages" and "tt\_content"
 use :ref:`palettes <palettes>` extensively for all fields
 and not just for secondary options, for increased flexibility.
 So in this case we use :code:`addFieldsToPalette()` instead of :code:`addToAllTCAtypes()`.
-We need to specify the palette's key as the second argument (:code:`visibility`).
+We need to specify the palette's key as the second argument (:code:`appearanceLinks`).
 Precise placement of the new field is achieved with the fourth parameter
 (:code:`after:linkToTop`). This will place the "no print" field right after the
 "link to top" field, instead of putting it in the "Extended" tab.
