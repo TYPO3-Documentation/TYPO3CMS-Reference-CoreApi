@@ -124,10 +124,13 @@ Marking wizard as done
 ======================
 
 As soon as the wizard has completely finished, e.g. it detected that no update is
-necessary anymore, or that all updates were completed successfully, the wizard is
-marked as done.
+necessary anymore, or that all updates were completed successfully, the wizard
+is marked as done and won't be checked anymore.
 
-The state of completed wizards is persisted in the :ref:`TYPO3 system registry <registry>`.
+To force TYPO3 to check the wizard everytime, the interface
+:php:``\TYPO3\CMS\Install\Updates\RepeatableInterface`` has to be implemented.
+This interface works as a marker and does not force any methods to be
+implemented.
 
 Registering wizard
 ==================
