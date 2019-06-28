@@ -95,6 +95,24 @@ base
 :aspect:`Example`
     `/uk/`
 
+baseVariants
+------------
+
+:aspect:`Datatype`
+    array
+
+:aspect:`Description`
+    base variants. They allow different base URLs for languages. They follow the same syntax as the base variants on the root level of the site config and they get active if the condition matches.
+
+:aspect:`Example`
+    `baseVariants:
+      - base: 'https://dev.xxx.yy'
+        condition: 'applicationContext matches "#^.*/Dev$#"'
+      - base: 'https://www.xxx.yy.test'
+        condition: 'applicationContext matches "#^.*/Local$#"'
+    `
+
+
 
 locale
 ------
