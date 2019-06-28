@@ -90,7 +90,7 @@ applicationContext
 Functions
 =========
 
-All functions from TYPO3s `DefaultFunctionProvider` are available:
+All functions from TYPO3s `DefaultFunctionsProvider` are available:
 
 ip
 --
