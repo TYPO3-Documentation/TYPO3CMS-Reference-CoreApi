@@ -14,10 +14,13 @@ Instantiation
 =============
 
 .. note::
-   As of TYPO3 9.0 you no longer need to use makeInstance to create an
-   instance of the logger yourself. You can use `LoggerAwareTrait <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects.html?highlight=loggerawaretrait>`__
+   As of TYPO3 9.0 you no longer need to call makeInstance to create an
+   instance of the logger. You can use the `LoggerAwareTrait <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects.html?highlight=loggerawaretrait>`__
 
-Use LoggerAwareTrait in your class to automatically instantiate $this->logger::
+Use the :code:`LoggerAwareTrait` in your class to automatically instantiate :code:`$this->logger`:
+
+.. code-block:: php
+
    use Psr\Log\LoggerAwareInterface;
    use Psr\Log\LoggerAwareTrait;
 
@@ -26,9 +29,10 @@ Use LoggerAwareTrait in your class to automatically instantiate $this->logger::
       use LoggerAwareTrait;
    }
 
-Or, you can instantiate the Logger with `makeInstance`.
 
-The `LogManager` enables an auto-configured usage of loggers in your PHP code
+Or, you can instantiate the Logger with :code:`makeInstance`.
+
+The :code:`LogManager` enables an auto-configured usage of loggers in your PHP code
 by reading the logging configuration and setting the minimum severity level of the Logger
 accordingly.
 
@@ -38,7 +42,7 @@ accordingly.
    $this->logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
 
 
-Using `__CLASS__` as name for the logger is recommended to enable logging configuration
+Using :code:`__CLASS__` as name for the logger is recommended to enable logging configuration
 based on the class hierarchy.
 
 
