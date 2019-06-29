@@ -136,8 +136,8 @@ like
     `like("foobarbaz", "*bar*")`
 
 
-env
----
+getenv
+------
 
 :aspect:`Datatype`
     string
@@ -146,4 +146,4 @@ env
     Wrapper for PHPs `getenv()` function. Allows accessing environment variables.
 
 :aspect:`Example`
-    `env("TYPO3_BASE_URL")`
+    `getenv("TYPO3_BASE_URL")`
