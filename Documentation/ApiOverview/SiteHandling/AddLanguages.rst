@@ -95,6 +95,32 @@ base
 :aspect:`Example`
     `/uk/`
 
+baseVariants
+------------
+
+:aspect:`Datatype`
+    array
+
+:aspect:`Description`
+    Allows different base URLs for same language.
+    They follow the same syntax as the :ref:`base variants
+    <sitehandling-baseVariants>` on the root level of the site config and they
+    get active if the condition matches.
+
+:aspect:`Example`
+
+   .. code-block:: yaml
+
+      baseVariants:
+        -
+          base: 'https://de.example.local/'
+          condition: 'applicationContext == "Development"'
+        -
+          base: 'https://staging.example.de/'
+          condition: 'applicationContext == "Production/Sydney"'
+        -
+          base: 'https://testing.example.de/'
+          condition: 'applicationContext == "Testing/Paris"'
 
 locale
 ------
