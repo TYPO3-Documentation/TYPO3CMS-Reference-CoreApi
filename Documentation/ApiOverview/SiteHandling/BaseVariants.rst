@@ -6,9 +6,12 @@
 Base Variants
 =============
 
-In Site Handling base variants represent different bases for you web site depending on a specified
-condition. For example your "live" base URL might be `https://example.org` but on your local machine
-you want `https://example.test` as a domain - that's when you add a variant.
+In Site Handling base variants represent different bases for a web site depending on a specified
+condition. For example a "live" base URL might be `https://example.org` but on local machine
+it's `https://example.test` as a domain - that's when variants are used.
+
+Base variants exist for languages, too. Currently these can only be defined
+through the respective :file:`*.yml` file, there is no UI available yet.
 
 Variants consist of two parts:
 
@@ -28,13 +31,63 @@ would define a base variant to use in Development context.
    A configured base variant for development context.
 
 .. hint::
-    For those coming from earlier TYPO3 versions: With site handling, you do not need `sys_domain` records anymore! :)
+    For those coming from earlier TYPO3 versions: With site handling, there is no need for `sys_domain` records anymore! :)
 
-.. hint::
-    Base variants exist for languages, too. 
+The following variables and functions are available in addition to the default Symfony functionality:
 
+Example
+=======
 
-The following variables and functions are available in addition to the default symfony functionality:
+.. code-block:: yaml
+
+    rootPageId: 1
+    base: 'https://www.example.com/'
+    baseVariants:
+      -
+        base: 'https://example.local/'
+        condition: 'applicationContext == "Development"'
+      -
+        base: 'https://staging.example.com/'
+        condition: 'applicationContext == "Production/Sydney"'
+      -
+        base: 'https://testing.example.com/'
+        condition: 'applicationContext == "Testing/Paris"'
+    languages:
+      -
+        title: 'Global'
+        enabled: true
+        languageId: '0'
+        base: /
+        typo3Language: default
+        locale: en_UK.UTF-8
+        iso-639-1: en
+        navigationTitle: English
+        hreflang: gb-en
+        direction: ''
+        flag: gb
+      -
+        title: 'DE'
+        enabled: true
+        languageId: '1'
+        base: https://example.de/'
+        baseVariants:
+          -
+            base: 'https://de.example.local/'
+            condition: 'applicationContext == "Development"'
+          -
+            base: 'https://staging.example.de/'
+            condition: 'applicationContext == "Production/Sydney"'
+          -
+            base: 'https://testing.example.de/'
+            condition: 'applicationContext == "Testing/Paris"'
+        typo3Language: de
+        locale: de_DE.UTF-8
+        iso-639-1: de
+        navigationTitle: Deutsch
+        hreflang: de-de
+        direction: ''
+        fallbackType: strict
+        flag: de
 
 Properties
 ==========
