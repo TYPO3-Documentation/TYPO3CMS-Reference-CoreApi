@@ -30,6 +30,10 @@ would define a base variant to use in Development context.
 .. hint::
     For those coming from earlier TYPO3 versions: With site handling, you do not need `sys_domain` records anymore! :)
 
+.. hint::
+    Base variants exist for languages, too. 
+
+
 The following variables and functions are available in addition to the default symfony functionality:
 
 Properties
