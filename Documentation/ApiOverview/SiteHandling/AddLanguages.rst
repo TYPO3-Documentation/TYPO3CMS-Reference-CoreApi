@@ -206,7 +206,27 @@ fallbackType
     string
 
 :aspect:`Description`
-    Language fallback mode - strict = no fallbacks, fallback = fallback to another language in case no translation exists
+    Language fallback mode:
+
+    ``strict``
+      Same as ``fallback`` but remove the records that are not translated.
+
+      If there is no overlay, do not render the default language records,
+      behaves like old :ts:`hideNonTranslated`, and include records without
+      default translation.
+
+    ``fallback``
+      Fall back to other language, if the page does not exist in the requested language.
+      Do overlays, and keep the ones that are not translated.
+
+      Behaves like old :ts:`config.sys_language_overlay = 1`
+      Keep the ones that are only available in default language.
+
+    ``free``
+      Fall back to other language, if the page does not exist in the requested language.
+      But always fetch only records of this specific (available) language.
+
+      Behaves like old :ts:`config.sys_language_overlay = 0`
 
 :aspect:`Example`
     `strict`
