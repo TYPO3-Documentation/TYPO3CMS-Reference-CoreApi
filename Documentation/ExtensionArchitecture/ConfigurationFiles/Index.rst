@@ -27,7 +27,7 @@ Should Not Be Used For
 
 * While you *can* put functions and classes into the script, it is a really bad practice because
 such classes and functions would *always* be loaded. It is better to have them included only as needed.
-* TYPO3 Core XCLASS array assignments :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']` or $GLOBALS['TYPO3_CONF_VARS']['SYS'] options for class loader, package manager, cache manager, package manager, log manager, time zone, memory limit, locales and error handler. This would not work because the :file:`ext_localconf.php` is included too late in the Bootstrap class.
+* TYPO3 Core XCLASS array assignments :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']` or :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']` options for class loader, package manager, cache manager, configuration manager, log manager, time zone, memory limit, locales, stream wrapper and error handler. This would not work because the extension files :file:`ext_localconf.php` are included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the mentioned objects in the Bootstrap class.
 
 
 Should Be Used For
