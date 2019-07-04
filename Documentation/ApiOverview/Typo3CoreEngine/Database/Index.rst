@@ -386,9 +386,12 @@ Clear cache
 
 TCE also has an API for clearing the cache tables of TYPO3:
 
-Syntax::
+ .. note:: 
+     Usage examples can :ref:`be found here. <tce-clear-cache>`
 
-   $tce->clear_cacheCmd($cacheCmd);
+Syntax::
+   
+   $dataHandler->clear_cacheCmd($cacheCmd);
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -421,6 +424,15 @@ Syntax::
          Only available for admin-users unless explicitly allowed by User
          TSconfig "options.clearCache.pages".
 
+ - :Value:
+         "temp_cached" or "system"
+   :Description:
+         .. note:: Usage of values "temp_cached" and "system" has been deprecated in TYPO3 v8.1.
+                   See `documentation for the change <https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/8.1/Deprecation-75625-DeprecatedCacheClearingOptions.html>`_.
+         Clears all cache entries cache group  :code:`system`.
+
+         Only available for admin-users unless explicitly allowed by User
+         TSconfig "options.clearCache.system".
 
 .. _tce-cache-hook:
 
