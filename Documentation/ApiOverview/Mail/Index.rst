@@ -217,7 +217,7 @@ This is how you can use these defaults::
    // ...
    $mail->send();
 
-In case of problem  "Mails are not sent" in your extension, try to set a ReturnPath: start as before but add
+In case of problem  "Mails are not sent" in your extension, try to set a ReturnPath: start as before but add::
 
    // you will get a valid Email Adress from  'defaultMailFromAddress' or if not set from PHP settings or from system.
    // if result is not a valid email, the final result will be  no-reply@example.com ..
