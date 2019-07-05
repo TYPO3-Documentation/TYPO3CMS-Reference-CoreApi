@@ -76,8 +76,7 @@ You can find more about this in Writing Documentation:
 - :ref:`h2document:docs-contribute` : Make a change by editing directly on
   GitHub and creating a pull request
 - :ref:`h2document:docs-contribute-git-docker` : If you are experienced
-  with Docker and Git you can edit and render locally. Find out more in
-  :ref:`docs-contribute-git-docker`.
+  with Docker and Git you can edit and render locally. 
 
 If you are currently not reading the online version, go to
 https://docs.typo3.org/typo3cms/CoreApiReference/.
