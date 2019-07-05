@@ -436,11 +436,8 @@ Clear Cache
 
 TCE also has an API for clearing the cache tables of TYPO3:
 
- .. note:: 
-     Usage examples can :ref:`be found here. <tce-clear-cache>`
-
 Syntax::
-   
+
    $dataHandler->clear_cacheCmd($cacheCmd);
 
 .. t3-field-list-table::
