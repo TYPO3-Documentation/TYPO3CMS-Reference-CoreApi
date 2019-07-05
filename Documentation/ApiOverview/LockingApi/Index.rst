@@ -245,7 +245,7 @@ If you do find better resources, feel free to make changes or add to this list!
 
 * `Stackoverflow: What's the difference between an exclusive lock and a shared lock?
   <https://stackoverflow.com/q/11837428/2444812>`__
-* `Wikipedia: Reqders-writers problem <https://en.wikipedia.org/wiki/Readers%E2%80%93writers_problem>`__
+* `Wikipedia: Readers-writers problem <https://en.wikipedia.org/wiki/Readers%E2%80%93writers_problem>`__
 * `Wikipedia: Readers–writer lock <https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock>`__
 * Exlains shared / exclusive locks `IBM CICS Transaction Server: Exclusive locks and shared locks
   <https://www.ibm.com/support/knowledgecenter/SSGMGV_3.2.0/com.ibm.cics.ts.applicationprogramming.doc/topics/dfhp39o.html>`__
