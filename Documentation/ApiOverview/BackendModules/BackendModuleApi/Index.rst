@@ -122,6 +122,9 @@ be used to add submodules to this new toplevel module:
         ]
     );
 
+.. note::
+   The main module name should contain only lowercase characters. Do not use an underscore or dash.
+
 .. _backend-modules-api-tbemodules:
 
 $TBE\_MODULES
