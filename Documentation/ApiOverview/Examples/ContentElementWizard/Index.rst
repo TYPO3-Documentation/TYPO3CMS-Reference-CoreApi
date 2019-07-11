@@ -24,7 +24,7 @@ plugin with the wizard. First of all, the class is declared in :file:`ext_tables
 
    // Add "pierror" plugin to new element wizard
    if (TYPO3_MODE == 'BE') {
-      $TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_examples_pierror_wizicon'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'pierror/class.tx_examples_pierror_wizicon.php';
+      $TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_examples_pierror_wizicon'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('tx_examples') . 'pierror/class.tx_examples_pierror_wizicon.php';
    }
 
 
