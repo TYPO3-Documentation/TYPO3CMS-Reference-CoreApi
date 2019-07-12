@@ -85,3 +85,5 @@ Our extension key is `example` and the name of the plugin is `registration`.
 
    * :ref:`t3tsconfig:pagenewcontentelementwizard` in TSconfig Reference
    * :ref:`Register your icon <icon-registration>` in TYPO3 Explained
+   * `Creating Your Own Content Elements <https://docs.typo3.org/c/typo3/cms-fluid-styled-content/master/en-us/AddingYourOwnContentElements/Index.html>`__
+     in fluid_styled_content documentation
