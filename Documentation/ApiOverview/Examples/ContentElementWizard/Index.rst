@@ -7,59 +7,81 @@
 Adding Elements to the Content Element Wizard
 =============================================
 
+The content elements wizard is opened when a new element is
+created.
+
 The content element wizard can be fully configured using TSConfig.
-The API described here should not be used for the purpose of customizing
-this wizard.
 
-However for extension authors, it provides a way of registering their
-plugin with the new content element wizard.
+.. seealso::
 
-Basically it is about adding a class reference to the
-:code:`$GLOBALS['TBE_MODULES_EXT']['xMOD_db_new_content_el']['addElClasses']`
-global array. The keys in this array are class names and the values are the absolute
-paths to these class. The class must have a :code:`proc()` method.
+   :ref:`t3tsconfig:pagenewcontentelementwizard` in the TSconfig Reference
+   provides an extensive description of the parameters use by :typoscript:`mod.wizards.newContentElement`
 
-Here is some code from the "examples" extension, to register the "pierror"
-plugin with the wizard. First of all, the class is declared in :file:`ext_tables.php`::
+Our extension key is `example` and the name of the plugin is `registration`.
 
-   // Add "pierror" plugin to new element wizard
-   if (TYPO3_MODE == 'BE') {
-      $TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_examples_pierror_wizicon'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'pierror/class.tx_examples_pierror_wizicon.php';
-   }
+.. rst-class:: bignums-xxl
 
+#. Create TSconfig
 
-The :file:`EXT:examples/pierror/class.tx_examples_pierror_wizicon.php` file looks like::
+   :file:`Configuration/TSconfig/Page/NewContentElementWizards.typoscript`:
 
-   class tx_examples_pierror_wizicon {
+   .. code-block:: typoscript
 
-      /**
-       * Processing the wizard items array
-       *
-       * @param array $wizardItems The wizard items
-       * @return array Modified array with wizard items
-       */
-      function proc($wizardItems)   {
-         $wizardItems['plugins_tx_examples_pierror'] = array(
-            'iconIdentifier' => 'tx-pierror-icon',
-            'title' => $GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xlf:pierror_wizard_title'),
-            'description' => $GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xlf:pierror_wizard_description'),
-            'params' => '&defVals[tt_content][CType]=list&&defVals[tt_content][list_type]=examples_pierror'
-         );
-
-         return $wizardItems;
+      mod.wizards {
+          newContentElement.wizardItems {
+              plugins {
+                  elements {
+                      example_registration {
+                          iconIdentifier = example-registration
+                          title = Registration Example
+                          description = Create a registration form
+                          tt_content_defValues {
+                              CType = list
+                              list_type = example_registration
+                          }
+                      }
+                  }
+              }
+          }
       }
-   }
 
-The :code:`proc()` method receives the list of existing items
-in the wizard and adds a new one to it. The first three properties
-are quite easy to understand. The icon must be registered with the Icon API (:ref:`icon-registration`) before usage.
-The "params" property defines the default values to be added to the new record link so
-that the right type of content element (and plugin in this case) is already selected.
-This uses the syntax demonstrated in the :ref:`edit-links` chapter.
+#. :ref:`Register your icon <icon-registration>` with the icon API
 
-The result can be seen in the new content element wizard:
+   In :file:`ext_localconf.php`:
 
-.. figure:: ../../../Images/ContentElementWizardAdd.png
-   :alt: The modified content element wizard
+   .. code-block:: php
 
-   The entry added in the plugin list of the new content element wizard
+      $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+
+      // use same identifier as used in TSconfig for icon
+      $iconRegistry->registerIcon(
+         // use same identifier as used in TSconfig for icon
+         'example-registration',
+         \TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
+         // font-awesome identifier ('external-link-square')
+         ['name' => 'external-link-square']
+      );
+
+#. After clearing cache, create a new content element
+
+   You should now see the icon, title and description you just added!
+
+   .. figure:: ../../../Images/ContentElementWizard.png
+      :class: with-shadow
+
+      Content Element Wizard with the new "Event Registration" plugin
+
+.. tip::
+
+   You may want to replace title and description, using language files for translation:
+
+   .. code-block:: typoscript
+
+      title = LLL:EXT:example/Resources/Private/Language/locallang.xml:registration_title
+      description = LLL:EXT:exapmle/Resources/Private/Language/locallang.xml:registration_description
+
+
+.. seealso::
+
+   * :ref:`t3tsconfig:pagenewcontentelementwizard` in TSconfig Reference
+   * :ref:`Register your icon <icon-registration>` in TYPO3 Explained
