@@ -83,7 +83,7 @@ Property                Call                                                    
 ``fallbackChain``       :php:`$context->getPropertyFromAspect('language', 'fallbackChain');`       the fallback steps as array
 ``overlayType``         :php:`$context->getPropertyFromAspect('language', 'overlayType');`         one of :php:`LanguageAspect::OVERLAYS_OFF`, :php:`LanguageAspect::OVERLAYS_MIXED`, :php:`LanguageAspect::OVERLAYS_ON`, or :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING` (default)
 ``legacyLanguageMode``  :php:`$context->getPropertyFromAspect('language', 'legacyLanguageMode');`  one of `strict`, `ignore` or `content_fallback`, kept for compatibility reasons. Don't use if not really necessary, the option will be removed rather sooner than later.
-``legacyOverlayType``   :php:`$context->getPropertyFromAspect('language', 'legacyLanguageMode');`  one of `hideNonTranslated`, `0` or `1`, kept for compatibility reasons. Don't use if not really necessary, the option will be removed rather sooner than later.
+``legacyOverlayType``   :php:`$context->getPropertyFromAspect('language', 'legacyOverlayType');`  one of `hideNonTranslated`, `0` or `1`, kept for compatibility reasons. Don't use if not really necessary, the option will be removed rather sooner than later.
 ======================  =========================================================================  ======
 
 **Overlay types:**
