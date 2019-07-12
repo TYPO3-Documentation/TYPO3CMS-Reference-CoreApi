@@ -25,17 +25,34 @@ either frontend or backend.
 Should Not Be Used For
 ----------------------
 
-While you *can* put functions and classes into
-the script, it is a really bad practice because
-such classes and functions would *always* be loaded.
-It is better to have them included only as needed.
+* While you *can* put functions and classes into the script, it is a really bad
+  practice because such classes and functions would *always* be loaded. It is
+  better to have them included only as needed.
+* Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes
+  <xclasses>` or any simple array assignments to
+  :php:`$GLOBALS['TYPO3_CONF_VARS']` options will not work for the following:
+
+ * class loader
+ * package manager
+ * cache manager
+ * configuration manager
+ * log manager
+ * time zone
+ * memory limit
+ * locales
+ * stream wrapper
+ * error handler
+
+ This would not work because the extension files :file:`ext_localconf.php` are
+ included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the
+ mentioned objects in the Bootstrap class.
 
 Should Be Used For
 ------------------
 
 These are the typical functions that extension authors should place within :file:`ext_localconf.php`
 
-* Registering :ref:`hooks <hooks-basics>` or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
+* Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes <xclasses>` or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
 * Registering additional Request Handlers within the :ref:`Bootstrap <bootstrapping>`
 * Adding any PageTSconfig or Default TypoScript via :php:`ExtensionManagementUtility` APIs
 * Registering Scheduler Tasks
