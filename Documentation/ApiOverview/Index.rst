@@ -49,6 +49,7 @@ This chapter describes the most important elements of the API.
    AccessControl/Index
    FormProtection/Index
    FlashMessages/Index
+   FlexForms/Index
    Categories/Index
    Collections/Index
    Enumerations/Index
