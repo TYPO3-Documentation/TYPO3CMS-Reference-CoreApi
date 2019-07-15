@@ -2,9 +2,9 @@
 
 .. _access:
 
-==============
-Access Control
-==============
+=========================================
+Access Control for Backend Users & Groups
+=========================================
 
 .. toctree::
    :maxdepth: 5

@@ -3,9 +3,9 @@
 
 .. _logging:
 
-==================
-Logging with TYPO3
-==================
+=================
+Logging Framework
+=================
 
 - Chapter :ref:`logging-quickstart` helps to get going
 

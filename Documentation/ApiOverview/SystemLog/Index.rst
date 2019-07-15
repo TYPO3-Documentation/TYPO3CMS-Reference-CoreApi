@@ -1,15 +1,10 @@
 .. include:: ../../Includes.txt
 
-
-
-
-
-
 .. _syslog:
 
-====================
-Using the System Log
-====================
+==========
+System Log
+==========
 
 .. note::
 

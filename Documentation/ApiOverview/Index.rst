@@ -16,59 +16,119 @@ This chapter describes the most important elements of the API.
    The source is the documentation! (General wisdom)
 
 
+
+BASICS
+
 .. toctree::
    :titlesonly:
    :maxdepth: 1
 
    DirectoryStructure/Index
    Namespaces/Index
+   Environment/Index
+   GlobalValues/Index
+
+
+AUTOLOADING & BOOTSTRAPPING
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
    Autoloading/Index
    Bootstrapping/Index
-   GlobalValues/Index
+
+PERSISTENCE
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Database/Index
+   Typo3CoreEngine/Index
+   Fal/Index
+
+CACHING
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   CachingFramework/Index
+
+CONFIGURATION
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   TypoScriptSyntax/Index
+   Tsconfig/Index
+   UserSettingsConfiguration/Index
+
+LOGGING, ERRORS, EXCEPTIONS
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Logging/Index
+   SystemLog/Index
+   ErrorAndExceptionHandling/Index
+
+BACKEND
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
    BackendModules/Index
+   AccessControl/Index
    BackendRouting/Index
    BackendUserObject/Index
-   Context/Index
-   Typo3CoreEngine/Index
    FormEngine/Index
-   Database/Index
-   Internationalization/Index
-   SiteHandling/Index
-   Workspaces/Index
-   Fal/Index
-   CachingFramework/Index
-   LockingApi/Index
-   SystemLog/Index
-   Logging/Index
-   ErrorAndExceptionHandling/Index
-   SystemRegistry/Index
-   PasswordHashing/Index
-   Mail/Index
-   Services/Index
-   Authentication/Index
-   AccessControl/Index
-   FormProtection/Index
-   FlashMessages/Index
-   Categories/Index
-   Collections/Index
-   Enumerations/Index
-   Environment/Index
-   Http/Index
-   Icon/Index
-   Hooks/Index
-   UpdateWizards/Index
-   Xclasses/Index
-   FeatureToggles/Index
    JavaScript/Index
-   SoftReferences/Index
-   SessionStorageFramework/Index
-   Rte/Index
-   TypoScriptSyntax/Index
-   PageTypes/Index
-   UserSettingsConfiguration/Index
-   ContextSensitiveHelp/Index
+
+UPDATES
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   UpdateWizards/Index
    ExtensionScanner/Index
-   Examples/Index
+
+VARIOUS
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Authentication/Index
+   Context/Index
+   ContextSensitiveHelp/Index
+   Enumerations/Index
+   FeatureToggles/Index
+   FlashMessages/Index
+   FormProtection/Index
+   Http/Index
+   Hooks/Index
+   Icon/Index
+   Internationalization/Index
+   LockingApi/Index
+   Mail/Index
    MetaTagApi/Index
    PageTitleApi/Index
+   PageTypes/Index
+   PasswordHashing/Index
+   Rte/Index
+   SessionStorageFramework/Index
+   Services/Index
+   SiteHandling/Index
+   SoftReferences/Index
+   Categories/Index
+   Collections/Index
+   SystemRegistry/Index
+   Workspaces/Index
+   Xclasses/Index
    XmlSitemap/Index

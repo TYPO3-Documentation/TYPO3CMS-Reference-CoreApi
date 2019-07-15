@@ -4,7 +4,7 @@
 .. _password-hashing:
 
 ================
-Password hashing
+Password Hashing
 ================
 
 

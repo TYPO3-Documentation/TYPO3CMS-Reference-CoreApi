@@ -71,6 +71,7 @@ address the task at hand.
    Introduction/Index
    ExtensionArchitecture/Index
    ApiOverview/Index
+   ApiOverview/Examples/Index
    Security/Index
    Testing/Index
    CodingGuidelines/Index

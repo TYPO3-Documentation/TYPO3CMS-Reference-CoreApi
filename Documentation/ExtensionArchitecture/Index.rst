@@ -1,10 +1,11 @@
 .. include:: ../Includes.txt
 
 .. _extension-architecture:
+.. _extension-development:
 
-======================
-Extension Architecture
-======================
+=====================
+Extension Development
+=====================
 
 
 .. toctree::
