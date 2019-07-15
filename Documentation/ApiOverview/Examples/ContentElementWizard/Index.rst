@@ -45,6 +45,14 @@ Our extension key is `example` and the name of the plugin is `registration`.
           }
       }
 
+#. Include TSconfig in ext_localconf.php
+
+    .. code-block:: typoscript
+
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:example/Configuration/TSconfig/Page/NewContentElementWizards.typoscript">'
+        );
+
 #. :ref:`Register your icon <icon-registration>` with the icon API
 
    In :file:`ext_localconf.php`:
@@ -87,3 +95,29 @@ Our extension key is `example` and the name of the plugin is `registration`.
    * :ref:`Register your icon <icon-registration>` in TYPO3 Explained
    * `Creating Your Own Content Elements <https://docs.typo3.org/c/typo3/cms-fluid-styled-content/master/en-us/AddingYourOwnContentElements/Index.html>`__
      in fluid_styled_content documentation
+
+Add Your Plugin to Different Tab
+================================
+
+The above example adds your plugin to the tab "Plugin" in the content element wizard.
+You can add it to one of the other existing tabs or create a new one.
+
+See `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
+for example of creating a new tab "interactive" and adding
+elements to it:
+
+.. code-block:: typoscript
+
+    mod.wizards.newContentElement.wizardItems {
+        interactive.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.interactive
+        interactive.elements {
+            accordion {
+                iconIdentifier = content-bootstrappackage-accordion
+                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion
+                description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion.description
+                tt_content_defValues {
+                    CType = accordion
+                }
+            }
+        }
+    }
