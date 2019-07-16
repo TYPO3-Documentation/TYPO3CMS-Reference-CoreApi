@@ -46,9 +46,7 @@ Steps to Perform (Extension Developer)
 
 .. rst-class:: bignums-xxl
 
-#. Create configuration schema
-
-   A configuration schema in :ref:`T3DataStructure <t3ds>` format (XML) is added to the extension.
+#. Create configuration schema in :ref:`T3DataStructure <t3ds>` format (XML)
 
    Example: :file:`Configuration/FlexForms/Registration.xml`.
 
@@ -89,7 +87,7 @@ Steps to Perform (Extension Developer)
 
 #. The configuration schema is attached to one or more plugins
 
-   Here, the vendor name is **Myvendor**, the extension key is **example**
+   The vendor name is **Myvendor**, the extension key is **example**
    and the plugin name is **Registration**.
 
    In :file:`Configuration/TCA/Overrides/tt_content.php` add the following:
@@ -142,8 +140,6 @@ schema file.
 
 Select Field
 ------------
-
-Here, the
 
 * vendor name is **Myvendor**
 * the extension key is **example**
