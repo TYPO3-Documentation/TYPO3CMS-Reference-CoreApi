@@ -8,34 +8,15 @@ FlexForms
 
 FlexForms can be used to configure extension plugins in the backend.
 
-Credits
-=======
-
-Some of the examples were taken from the extensions
-`news <https://extensions.typo3.org/extension/example/>`__ (by Georg Ringer)
-and `bootstrap_package <https://extensions.typo3.org/extension/example/>`__
-(by Benjamin Kott). This chapter was originally written by Sybille Peters.
-
-Further enhancements by the TYPO3 community are welcome!
-
-When to Use FlexForms
-=====================
-
-Extensions can be configured using :ref:`Extension Configuration <extension-options>`.
-This configuration applies to the extension in general. You may want to configure
+You may want to configure
 individual plugins differently, depending on where they are added. The
 configuration set via the FlexForm mechanism applies to only the content
-record it has been configured for. The FlexForms configuration
-can be changed by editors. This gives editors more control over plugin features
-and what is to be rendered.
+record it has been configured for. The FlexForms configuration for a plugin
+can be changed by editors in the backend. This gives editors more control
+over plugin features and what is to be rendered.
 
-FlexForms configuration has more possibilities than Extension Configuration.
-Extension Configuration uses TypoScript constant syntax. This limits you to one
-single line per configuration option with very little flexibility.
-
-With FlexForm, it is possible to populate select lists via functions
-(:ref:`itemsProcFunc <flexforms-itemsProcFunc>`),
-show options conditionally and more.
+Using FlexForms you have all the features of TCA, so it is possible to
+to use input fields, select lists, show options conditionally and more.
 
 Example Use Cases
 =================
@@ -67,7 +48,7 @@ Steps to Perform (Extension Developer)
 
 #. Create configuration schema
 
-   A configuration schema in XML is added to the extension.
+   A configuration schema in :ref:`T3DataStructure <t3ds>` format (XML) is added to the extension.
 
    Example: :file:`Configuration/FlexForms/Registration.xml`.
 
@@ -85,15 +66,17 @@ Steps to Perform (Extension Developer)
                         <el>
                             <!-- Add settings here ... -->
 
-                            <!-- Example setting: checkbox with name settings.includeCategories -->
-                            <settings.includeCategories>
+                            <!-- Example setting: input field with name settings.timeRestriction -->
+                            <settings.timeRestriction>
                                 <TCEforms>
-                                    <label>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.includeCategories</label>
+                                    <label>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.timeRestriction</label>
                                     <config>
-                                        <type>check</type>
+                                        <default></default>
+                                        <type>input</type>
+                                        <size>15</size>
                                     </config>
                                 </TCEforms>
-                            </settings.includeCategories>
+                            </settings.timeRestriction>
 
                             <!-- end of settings -->
 
@@ -103,40 +86,13 @@ Steps to Perform (Extension Developer)
             </sheets>
         </T3DataStructure>
 
-#. Add texts and translations
-
-   Add text for the language keys used in schema (LLL) to your language
-   files in :file:`Resources/Private/Languages`.
-
-   .. code-block:: xml
-
-       <trans-unit id="settings.registration.title">
-           <source>Settings for Registration plugin</source>
-       </trans-unit>
-       <trans-unit id="settings.registration.includeCategories">
-           <source>Include categories</source>
-       </trans-unit>
-
 
 #. The configuration schema is attached to one or more plugins
 
-   Here, the vendor name is **Myvendor, the extension key is **example**
+   Here, the vendor name is **Myvendor**, the extension key is **example**
    and the plugin name is **Registration**.
 
-   in :file:`Configuration/TCA/Overrides/tt_content.php`:
-
-   .. code-block:: php
-
-      \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-          // The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
-          'Myvendor.example',
-          // Plugin name: unique id in UpperCamelCase
-          'Registration',
-          // title
-          'LLL:EXT:example/Resources/Private/Language/Backend.xlf:registration_title'
-      );
-
-   * `API reference: registerPlugin <https://github.com/TYPO3/TYPO3.CMS/blob/ddedb065030de860de87e39636ed2664c7c531cd/typo3/sysext/extbase/Classes/Utility/ExtensionUtility.php#L104>`__
+   In :file:`Configuration/TCA/Overrides/tt_content.php` add the following:
 
    .. code-block:: php
 
@@ -148,11 +104,9 @@ Steps to Perform (Extension Developer)
            'FILE:EXT:example/Configuration/FlexForms/Registration.xml'
        );
 
-   * `API reference: addPiFlexFormValue <https://github.com/TYPO3/TYPO3.CMS/blob/ddedb065030de860de87e39636ed2664c7c531cd/typo3/sysext/core/Classes/Utility/ExtensionManagementUtility.php#L1263>`__
-
    .. tip::
 
-      The plugin signature is used in the database field `tt_content.ctype`
+      The plugin signature is used in the database field `tt_content.list_type`
       as well, when the tt_content record is saved. If you are confused about
       how to handle underscores and upper / lowercase, check there to see
       what your plugin signature is.
@@ -167,16 +121,14 @@ Steps to Perform (Extension Developer)
       $includeCategories = (bool) ($this->settings['includeCategories'] ?? false);
 
 
-Schema Examples
-===============
+.. todo: Add information about how to read settings apart from Extbase Controllers.
+
+
+More Schema Examples
+====================
 
 The definition of the data types and parameters used complies in large
 parts to the :ref:`column types defined by TCA <t3tca:columns-types>`.
-
-* :ref:`t3tca:columns-input`
-* :ref:`t3tca:columns-check`
-* :ref:`t3tca:columns-select`
-* ...
 
 The settings must be added within the <el> element in the FlexForm configuration
 schema file.
@@ -187,27 +139,6 @@ schema file.
     :php:`$this->settings`, the name of the setting must begin with
     **settings** directly followed by a dot (`.`).
 
-Input Field
------------
-
-This is a text field.
-
-.. code-block:: xml
-
-    <settings.timeRestriction>
-        <TCEforms>
-            <label>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.timeRestriction</label>
-            <config>
-                <default></default>
-                <type>input</type>
-                <size>15</size>
-            </config>
-        </TCEforms>
-    </settings.timeRestriction>
-
-.. seealso::
-
-   :ref:`t3tca:columns-input` in TCA Reference.
 
 Select Field
 ------------
@@ -224,7 +155,6 @@ Here, the
             <label>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy</label>
             <config>
                 <type>select</type>
-                <itemsProcFunc>Myvendor\Example\Backend\ItemsProcFunc->user_orderBy</itemsProcFunc>
                 <renderType>selectSingle</renderType>
                 <items>
                     <numIndex index="0" type="array">
@@ -312,6 +242,13 @@ How this looks when configuring the plugin:
 Select a Controller Action
 ==========================
 
+.. note::
+
+   This option is specific for Extbase Controller Actions.
+
+With `switchableControllerActions` you can define which action should be used as default action
+in your controller.
+
 .. code-block:: xml
 
     <switchableControllerActions>
@@ -334,9 +271,6 @@ Select a Controller Action
             </config>
         </TCEforms>
     </switchableControllerActions>
-
-
-
 
 Display Fields Conditionally (displayCond)
 ==========================================
@@ -375,6 +309,13 @@ to the tab "Plugin" or whatever string you defined to replace this.
 .. image:: Images/FlexformBackend.png
    :class: with-shadow
 
+Credits
+=======
 
+Some of the examples were taken from the extensions
+`news <https://extensions.typo3.org/extension/example/>`__ (by Georg Ringer)
+and `bootstrap_package <https://extensions.typo3.org/extension/example/>`__
+(by Benjamin Kott). This chapter was originally written by Sybille Peters.
 
+Further enhancements by the TYPO3 community are welcome!
 
