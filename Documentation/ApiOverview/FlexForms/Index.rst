@@ -38,8 +38,8 @@ How it Works
 #. When the plugin is added to a page, it can be configured as defined by the configuration
    schema.
 #. The configuration for this content element is automatically saved to `tt_content.pi_flexform`.
-#. The extension can read current configuration in the controller and act according to
-   the configuration for the current plugin.
+#. The extension can read current configuration and act according to
+   the configuration.
 
 Steps to Perform (Extension Developer)
 ======================================
