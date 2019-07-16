@@ -28,6 +28,7 @@ This chapter describes the most important elements of the API.
    BackendModules/Index
    BackendRouting/Index
    BackendUserObject/Index
+   CommandControllers/Index
    Context/Index
    Typo3CoreEngine/Index
    FormEngine/Index
