@@ -65,16 +65,20 @@ Steps to Perform (Extension Developer)
                             <!-- Add settings here ... -->
 
                             <!-- Example setting: input field with name settings.timeRestriction -->
-                            <settings.timeRestriction>
+                            <settings.includeCategories>
                                 <TCEforms>
-                                    <label>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.timeRestriction</label>
+                                    <label>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.includeCategories</label>
                                     <config>
-                                        <default></default>
-                                        <type>input</type>
-                                        <size>15</size>
+                                        <type>check</type>
+                                        <default>0</default>
+                                        <items type="array">
+                                            <numIndex index="0" type="array">
+                                                <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:setting.registration.includeCategories.title</numIndex>
+                                            </numIndex>
+                                        </items>
                                     </config>
                                 </TCEforms>
-                            </settings.timeRestriction>
+                            </settings.includeCategories>
 
                             <!-- end of settings -->
 
@@ -83,6 +87,13 @@ Steps to Perform (Extension Developer)
                 </sDEF>
             </sheets>
         </T3DataStructure>
+
+    .. important::
+
+        If you wish to access a setting from your controller via
+        :php:`$this->settings`, the name of the setting must begin with
+        **settings** directly followed by a dot (`.`).
+
 
 
 #. The configuration schema is attached to one or more plugins
@@ -96,7 +107,7 @@ Steps to Perform (Extension Developer)
 
        $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['example_registration'] = 'pi_flexform';
        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-           // plugin signature: <extension key> '_' <plugin name in lowercase>
+           // plugin signature: <extension key without underscores> '_' <plugin name in lowercase>
            'example_registration',
            // Flexform configuration schema file
            'FILE:EXT:example/Configuration/FlexForms/Registration.xml'
@@ -125,24 +136,14 @@ Steps to Perform (Extension Developer)
 More Schema Examples
 ====================
 
-The definition of the data types and parameters used complies in large
-parts to the :ref:`column types defined by TCA <t3tca:columns-types>`.
+The definition of the data types and parameters used complies to the
+:ref:`column types defined by TCA <t3tca:columns-types>`.
 
-The settings must be added within the <el> element in the FlexForm configuration
-schema file.
-
-.. important::
-
-    If you wish to access a setting from your controller via
-    :php:`$this->settings`, the name of the setting must begin with
-    **settings** directly followed by a dot (`.`).
-
+The settings must be added within the :html:`<el>` element in the FlexForm
+configuration schema file.
 
 Select Field
 ------------
-
-* vendor name is **Myvendor**
-* the extension key is **example**
 
 .. code-block:: xml
 
@@ -153,23 +154,11 @@ Select Field
                 <type>select</type>
                 <renderType>selectSingle</renderType>
                 <items>
-                    <numIndex index="0" type="array">
-                        <numIndex index="0"></numIndex>
-                        <numIndex index="1"></numIndex>
-                    </numIndex>
-                    <numIndex index="1">
-                        <numIndex index="0">LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy.tstamp</numIndex>
-                        <numIndex index="1">tstamp</numIndex>
-                    </numIndex>
-                    <numIndex index="2">
-                        <numIndex index="0">LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy.datetime</numIndex>
-                        <numIndex index="1">datetime</numIndex>
-                    </numIndex>
-                    <numIndex index="3">
+                    <numIndex index="0">
                         <numIndex index="0">LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy.crdate</numIndex>
                         <numIndex index="1">crdate</numIndex>
                     </numIndex>
-                    <numIndex index="4">
+                    <numIndex index="1">
                         <numIndex index="0">LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy.title</numIndex>
                         <numIndex index="1">title</numIndex>
                     </numIndex>
@@ -178,15 +167,14 @@ Select Field
         </TCEforms>
     </settings.orderBy>
 
+.. seealso::
+
+   * :ref:`t3tca:columns-select` in TCA reference.
+
 .. _flexforms-itemsProcFunc:
 
 Populate a `select` Field with a PHP Function (itemsProcFunc)
 -------------------------------------------------------------
-
-Here, the
-
-* vendor name is **Myvendor**
-* the extension key is **example**
 
 .. code-block:: xml
 
@@ -235,6 +223,9 @@ How this looks when configuring the plugin:
 .. image:: Images/FlexFormsItemsProcFunc.png
    :class: with-shadow
 
+.. seealso::
+
+   * :ref:`t3tca:columns-select-properties-itemsprocfunc` in TCA reference.
 
 Display Fields Conditionally (displayCond)
 ==========================================
