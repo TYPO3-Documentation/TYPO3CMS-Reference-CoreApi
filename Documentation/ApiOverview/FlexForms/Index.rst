@@ -235,38 +235,6 @@ How this looks when configuring the plugin:
 .. image:: Images/FlexFormsItemsProcFunc.png
    :class: with-shadow
 
-Select a Controller Action
-==========================
-
-.. note::
-
-   This option is specific for Extbase Controller Actions.
-
-With `switchableControllerActions` you can define which action should be used as default action
-in your controller.
-
-.. code-block:: xml
-
-    <switchableControllerActions>
-        <TCEforms>
-            <label>LLL:EXT:EXTKEY/Resources/Private/Language/Backend.xlf:settings.registration.action.title</label>
-            <config>
-                <type>select</type>
-                <items type="array">
-                    <numIndex index="0">
-                        <numIndex index="0">LLL:EXT:EXTKEY/Resources/Private/Language/Backend.xlf:settings.registration.action.list</numIndex>
-                        <!-- Controller -> action -->
-                        <numIndex index="1">Registration->list</numIndex>
-                    </numIndex>
-                    <numIndex index="1">
-                        <numIndex index="0">LLL:EXT:EXTKEY/Resources/Private/Language/Backend.xlf:settings.registration.action.register</numIndex>
-                        <numIndex index="1">Registration->register</numIndex>
-                    </numIndex>
-                </items>
-                <size>1</size>
-            </config>
-        </TCEforms>
-    </switchableControllerActions>
 
 Display Fields Conditionally (displayCond)
 ==========================================
