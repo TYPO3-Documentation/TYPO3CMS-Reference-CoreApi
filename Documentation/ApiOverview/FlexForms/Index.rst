@@ -32,7 +32,7 @@ Example Use Cases
    :class: with-shadow
 
 
-How it Works for content elements
+How it Works for Content Elements
 =================================
 
 #. In the extension, a configuration schema is defined and attached to one or more plugins.
@@ -89,13 +89,6 @@ Steps to Perform (Extension Developer)
             </sheets>
         </T3DataStructure>
 
-    .. important::
-
-        If you wish to access a setting from your controller via
-        :php:`$this->settings`, the name of the setting must begin with
-        **settings** directly followed by a dot (`.`).
-
-
 
 #. The configuration schema is attached to one or more plugins
 
@@ -123,19 +116,17 @@ Steps to Perform (Extension Developer)
 
       Also look on the page :ref:`extension-naming`.
 
-#. The settings can be read using :php:`$this->settings` in an
-   Extbase controller.
+#. Access the settings in your extension:
 
-   .. code-block:: php
-
-      $includeCategories = (bool) ($this->settings['includeCategories'] ?? false);
-
-
-.. todo: Add information about how to read settings apart from Extbase Controllers.
+   The settings can be read using one of the methods described below, e.g.
+   :ref:`from an Extbase controller action <read-flexforms-extbase>`,
+   :ref:`from a PHP function <read-flexforms-php>` (without using the
+   Extbase framework), from :ref:`TypoScript <read-flexforms-ts>` or
+   from within a :ref:`Fluid template <read-flexforms-fluid>`.
 
 
-More Schema Examples
-====================
+More Examples
+=============
 
 The definition of the data types and parameters used complies to the
 :ref:`column types defined by TCA <t3tca:columns-types>`.
@@ -229,7 +220,7 @@ How this looks when configuring the plugin:
    * :ref:`t3tca:columns-select-properties-itemsprocfunc` in TCA reference.
 
 Display Fields Conditionally (displayCond)
-==========================================
+------------------------------------------
 
 Some settings may only make sense, depending on other settings.
 For example in one setting you define a sorting order (by date, title etc.)
@@ -256,17 +247,31 @@ in the TCA reference:
 
    * :ref:`t3tca:columns-properties-displaycond` in TCA Reference
 
-Steps to Perform (Editor)
-=========================
 
-After inserting a plugin, the editor can configure this plugin by switching
-to the tab "Plugin" or whatever string you defined to replace this.
+.. _read-flexforms:
+.. _read-flexforms-extbase:
 
-.. image:: Images/FlexformBackend.png
-   :class: with-shadow
+How to Read FlexForms From an Extbase Controller Action
+-------------------------------------------------------
 
-How to read and write FlexForms from PHP
-========================================
+The settings can be read using :php:`$this->settings` in an
+Extbase controller.
+
+.. code-block:: php
+
+   $includeCategories = (bool) ($this->settings['includeCategories'] ?? false);
+
+
+.. important::
+
+   If you wish to access a setting from your controller via
+   :php:`$this->settings`, the name of the setting must begin with
+   **settings** directly followed by a dot (`.`).
+
+.. _read-flexforms-php:
+
+How to Read and Write FlexForms From PHP
+----------------------------------------
 
 Some situation make it necessary to access FlexForms via PHP. The following APIs
 are available to work with FlexForms from within PHP:
@@ -287,9 +292,10 @@ method can be used:
    $flexFormTools = new \TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools();
    $flexFormString = $flexFormTools->flexArray2Xml($flexFormArray, true);
 
+.. _read-flexforms-ts:
 
-How to access FlexForms from TypoScript
-=======================================
+How to Access FlexForms From TypoScript
+---------------------------------------
 
 It's possible to read values from FlexForms within TypoScript, this is explained
 within the TypoScript Reference:
@@ -298,13 +304,32 @@ within the TypoScript Reference:
 
    * :ref:`t3tsref:data-type-gettext-flexform`
 
+
+.. _read-flexforms-fluid:
+
+How to Access FlexFroms From Fluid
+----------------------------------
+
+FlexForm settings can be read from within a Fluid template using
+:html:`{settings}`.
+
+
+Steps to Perform (Editor)
+=========================
+
+After inserting a plugin, the editor can configure this plugin by switching
+to the tab "Plugin" or whatever string you defined to replace this.
+
+.. image:: Images/FlexformBackend.png
+   :class: with-shadow
+
 Credits
 =======
 
 Some of the examples were taken from the extensions
 `news <https://extensions.typo3.org/extension/example/>`__ (by Georg Ringer)
 and `bootstrap_package <https://extensions.typo3.org/extension/example/>`__
-(by Benjamin Kott). This chapter was originally written by Sybille Peters.
+(by Benjamin Kott).
 
 Further enhancements by the TYPO3 community are welcome!
 
