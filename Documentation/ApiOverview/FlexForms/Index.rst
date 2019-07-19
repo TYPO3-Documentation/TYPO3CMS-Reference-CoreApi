@@ -6,7 +6,8 @@
 FlexForms
 ==============
 
-FlexForms can be used to configure extension plugins in the backend.
+FlexForms can be used to store data within an XML structure inside a single DB
+columns. The typical use case is to configure plugins within a content element.
 
 You may want to configure
 individual plugins differently, depending on where they are added. The
@@ -31,8 +32,8 @@ Example Use Cases
    :class: with-shadow
 
 
-How it Works
-============
+How it Works for content elements
+=================================
 
 #. In the extension, a configuration schema is defined and attached to one or more plugins.
 #. When the plugin is added to a page, it can be configured as defined by the configuration
@@ -263,6 +264,39 @@ to the tab "Plugin" or whatever string you defined to replace this.
 
 .. image:: Images/FlexformBackend.png
    :class: with-shadow
+
+How to read and write FlexForms from PHP
+========================================
+
+Some situation make it necessary to access FlexForms via PHP. The following APIs
+are available to work with FlexForms from within PHP:
+
+In order to convert a FlexForm to an PHP array, the :php:`xml2array` method can
+be used:
+
+.. code-block:: php
+
+   $flexFormArray = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($flexFormString);
+
+
+In order to convert an PHP array into an FlexForm, the :php`flexArray2Xml`
+method can be used:
+
+.. code-block:: php
+
+   $flexFormTools = new \TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools();
+   $flexFormString = $flexFormTools->flexArray2Xml($flexFormArray, true);
+
+
+How to access FlexForms from TypoScript
+=======================================
+
+It's possible to read values from FlexForms within TypoScript, this is explained
+within the TypoScript Reference:
+
+.. seealso::
+
+   * :ref:`t3tsref:data-type-gettext-flexform`
 
 Credits
 =======
