@@ -16,61 +16,143 @@ This chapter describes the most important elements of the API.
    The source is the documentation! (General wisdom)
 
 
+
+BASICS
+
 .. toctree::
    :titlesonly:
    :maxdepth: 1
 
    DirectoryStructure/Index
    Namespaces/Index
+   Environment/Index
+   GlobalValues/Index
+
+
+BOOTSTRAPPING
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
    Autoloading/Index
    Bootstrapping/Index
-   GlobalValues/Index
+
+PERSISTENCE
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Database/Index
+   Typo3CoreEngine/Index
+   Fal/Index
+
+CONFIGURATION
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   TypoScriptSyntax/Index
+   Tsconfig/Index
+   UserSettingsConfiguration/Index
+   FlexForms/Index
+
+CACHING
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   CachingFramework/Index
+
+LOGGING, ERRORS, EXCEPTIONS
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Logging/Index
+   SystemLog/Index
+   ErrorAndExceptionHandling/Index
+
+BACKEND
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   AccessControl/Index
    BackendModules/Index
    BackendRouting/Index
    BackendUserObject/Index
-   CommandControllers/Index
-   Context/Index
-   Typo3CoreEngine/Index
    FormEngine/Index
-   Database/Index
-   Internationalization/Index
-   SiteHandling/Index
-   Workspaces/Index
-   Fal/Index
-   CachingFramework/Index
-   LockingApi/Index
-   SystemLog/Index
-   Logging/Index
-   ErrorAndExceptionHandling/Index
-   SystemRegistry/Index
-   PasswordHashing/Index
-   Mail/Index
-   Services/Index
-   Authentication/Index
-   AccessControl/Index
-   FormProtection/Index
-   FlashMessages/Index
-   FlexForms/Index
-   Categories/Index
-   Collections/Index
-   Enumerations/Index
-   Environment/Index
-   Http/Index
-   Icon/Index
-   Hooks/Index
-   UpdateWizards/Index
-   Xclasses/Index
-   FeatureToggles/Index
    JavaScript/Index
-   SoftReferences/Index
-   SessionStorageFramework/Index
-   Rte/Index
-   TypoScriptSyntax/Index
-   PageTypes/Index
-   UserSettingsConfiguration/Index
-   ContextSensitiveHelp/Index
+   FlashMessages/Index
+
+HANDLING SITES, URLS, LANGUAGES
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   SiteHandling/Index
+   Internationalization/Index
+
+SECURITY, AUTHENTICATION, PASSWORDS, ...
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Authentication/Index
+   PasswordHashing/Index
+   FormProtection/Index
+
+UPDATES
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   UpdateWizards/Index
    ExtensionScanner/Index
-   Examples/Index
+
+SEO & SOCIAL MEDIA
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
    MetaTagApi/Index
    PageTitleApi/Index
    XmlSitemap/Index
+
+VARIOUS
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   CommandControllers/Index
+   Context/Index
+   ContextSensitiveHelp/Index
+   Enumerations/Index
+   FeatureToggles/Index
+   Http/Index
+   Hooks/Index
+   Icon/Index
+   LockingApi/Index
+   Mail/Index
+   PageTypes/Index
+   Rte/Index
+   SessionStorageFramework/Index
+   Services/Index
+   SoftReferences/Index
+   Categories/Index
+   Collections/Index
+   SystemRegistry/Index
+   Workspaces/Index
+   Xclasses/Index
+

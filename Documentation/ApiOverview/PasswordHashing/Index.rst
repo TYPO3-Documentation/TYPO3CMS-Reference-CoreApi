@@ -3,9 +3,9 @@
 
 .. _password-hashing:
 
-================
-Password hashing
-================
+===============================
+Password Hashing
+===============================
 
 
 .. _password-hashing-introduction:
