@@ -40,6 +40,7 @@ http://typo3.org/documentation/api/.
    Mail/Index
    FormProtection/Index
    FlashMessages/Index
+   FlexForms/Index
    Categories/Index
    Collections/Index
    Http/Index
