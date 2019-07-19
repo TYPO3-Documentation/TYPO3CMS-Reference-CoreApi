@@ -30,30 +30,32 @@ An extension consists of:
 Reserved File Names
 ===================
 
-This lists special files within an extension that have a special meaning
-by convention. If put at the according places, TYPO3 will find them and
-use for specific functionality. For example, if a svg logo of your extension
+This lists files within an extension that have a specific meaning
+by convention. TYPO3 will scan for reserved file names and
+use the content for specific functionality. For example, if a svg logo of your extension
 is placed at :file:`Resources/Public/Icons/Extension.svg`, the Extension Manager
 will show that image.
 
-Nearly none of these are required, but for example you can not have a TYPO3
-extension recognized by TYPO3 without the :file:`ext_emconf.php` file, etc. You
-can read more details like that in the table below.
+Most of these files are not required. The exception is :file:`ext_emconf.php`:
+You can not have a TYPO3
+extension recognized by TYPO3 without this file.
 
 In general, do not introduce your own files in the root directory of
-extensions with the name prefix :file:`ext_`.
+extensions with the name prefix :file:`ext_`, because that is reserved.
 
 .. _:file:`ext_emconf.php`:
 
 :file:`ext_emconf.php`
 ----------------------
 
-Definition of extension properties. This is the only mandatory file in the extension.
-It describes the extension for the rest of TYPO3.
+*mandatory*
 
-Name, category, status etc. used by the Extension Manager. The content of this file
+Definition of extension properties. This is the only mandatory file in the extension.
+It describes the extension.
+
+Name, category, status etc. are used by the Extension Manager. The content of this file
 is described in more details :ref:`below <extension-declaration>`. Note
-that it is auto-written by Extension Manager when extensions are imported from the repository.
+that it is auto-written by the Extension Manager when extensions are imported from the repository.
 
 .. note::
 
@@ -66,8 +68,10 @@ that it is auto-written by Extension Manager when extensions are imported from t
 :file:`ext_localconf.php`
 -------------------------
 
-Addition to :file:`LocalConfiguration.php` which is included if found.
-Should contain additional configuration of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
+*optional*
+
+Addition to :file:`LocalConfiguration.php`.
+It should contain additional configuration of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 
 This file contains hook definitions and plugin configuration. It must
 not contain a PHP encoding declaration.
@@ -86,9 +90,11 @@ For more details, see the :ref:`section below <extension-configuration-files>`.
 :file:`ext_tables.php`
 ----------------------
 
-Included if found. Contains extensions of existing tables,
+*optional*
+
+Contains extensions of existing tables,
 declaration of backend modules, etc. All code in such files
-is included after all the default definitions provided by the Core and
+is included after all the default definitions provided by the core and
 loaded after :file:`ext_localconf.php` files during TYPO3
 :ref:`bootstrap <bootstrapping>`.
 
@@ -114,11 +120,13 @@ For more details, see the :ref:`section below <extension-configuration-files>`.
 :file:`ext_tables.sql`
 ----------------------
 
+*optional*
+
 SQL definition of database tables.
 
 This file should contain a table-structure dump of the tables used by
 the extension. It is used for evaluation of the database structure and
-is therefore important to check and update the database when an
+is applied to the database when an
 extension is enabled.
 
 If you add additional fields (or depend on certain fields) to existing tables
@@ -240,7 +248,7 @@ definition:
 
 Static SQL tables and their data.
 
-If the extension requires static data you can dump it into a sql-file
+If the extension requires static data you can dump it into an SQL file
 by this name. Example for dumping mysql data from bash (being in the
 extension directory):
 
