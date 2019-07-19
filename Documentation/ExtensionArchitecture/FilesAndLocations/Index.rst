@@ -141,9 +141,6 @@ create problems with the TYPO3 core and/or other extensions.
 The :file:`ext_tables.sql` file may not necessarily be "dumpable"
 directly to MySQL (because of the semi-complete table definitions allowed
 defining only required fields). But the Extension Manager or Install Tool can handle this.
-The only very important thing is that the syntax of the content is exactly
-like MySQL made it so that the parsing and analysis of the file is
-done correctly by the Extension Manager.
 
 TYPO3 parses :code:`ext_tables.sql` files. TYPO3 expects that all
 table definitions in this file look like the ones produced by the
