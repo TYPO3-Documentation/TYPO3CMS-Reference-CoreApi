@@ -30,219 +30,334 @@ An extension consists of:
 Reserved File Names
 ===================
 
-This lists special files within an extension that have a special meaning
-by convention. If put at the according places, TYPO3 will find them and
-use for specific functionality. For example, if a svg logo of your extension
+This lists files within an extension that have a specific meaning
+by convention. TYPO3 will scan for reserved file names and
+use the content for specific functionality. For example, if a svg logo of your extension
 is placed at :file:`Resources/Public/Icons/Extension.svg`, the Extension Manager
 will show that image.
 
-Nearly none of these are required, but for example you can not have a TYPO3
-extension recognized by TYPO3 without the :file:`ext_emconf.php` file, etc. You
-can read more details like that in the table below.
+Most of these files are not required. The exception is :file:`ext_emconf.php`:
+You can not have a TYPO3
+extension recognized by TYPO3 without this file.
 
 In general, do not introduce your own files in the root directory of
-extensions with the name prefix :file:`ext_`.
+extensions with the name prefix :file:`ext_`, because that is reserved.
+
+.. _:file:`ext_emconf.php`:
+
+:file:`ext_emconf.php`
+----------------------
+
+*mandatory*
+
+Definition of extension properties. This is the only mandatory file in the extension.
+It describes the extension.
+
+Name, category, status etc. are used by the Extension Manager. The content of this file
+is described in more details :ref:`below <extension-declaration>`. Note
+that it is auto-written by the Extension Manager when extensions are imported from the repository.
+
+.. note::
+
+   If this file is *not* present, the Extension Manager will *not* find the
+   extension.
 
 
-.. t3-field-list-table::
- :header-rows: 1
+.. _:file:`ext_localconf.php`:
 
- - :Filename,20: Filename
-   :Description,80: Description
+:file:`ext_localconf.php`
+-------------------------
 
+*optional*
 
- - :Filename: :file:`ext_emconf.php`
-   :Description:
-         Definition of extension properties. This is the only mandatory file in the extension.
-         It describes the extension for the rest of TYPO3.
+Addition to :file:`LocalConfiguration.php`.
+It should contain additional configuration of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 
-         Name, category, status etc. used by the Extension Manager. The content of this file
-         is described in more details :ref:`below <extension-declaration>`. Note
-         that it is auto-written by Extension Manager when extensions are imported from the repository.
+This file contains hook definitions and plugin configuration. It must
+not contain a PHP encoding declaration.
 
-         .. note::
+All :file:`ext_localconf.php` files of loaded extensions are
+included right  *after* the files :file:`typo3conf/LocalConfiguration.php`
+and :file:`typo3conf/AdditionalConfiguration.php` during TYPO3
+:ref:`bootstrap <bootstrapping>`.
 
-            If this file is *not* present, the Extension Manager will *not* find the
-            extension.
-
-
- - :Filename: :file:`ext_localconf.php`
-   :Description:
-         Addition to :file:`LocalConfiguration.php` which is included if found.
-         Should contain additional configuration of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
-
-         This file contains hook definitions and plugin configuration. It must
-         not contain a PHP encoding declaration.
-
-         All :file:`ext_localconf.php` files of loaded extensions are
-         included right  *after* the files :file:`typo3conf/LocalConfiguration.php`
-         and :file:`typo3conf/AdditionalConfiguration.php` during TYPO3
-         :ref:`bootstrap <bootstrapping>`.
-
-         Pay attention to the rules for the contents of these files.
-         For more details, see the :ref:`section below <extension-configuration-files>`.
+Pay attention to the rules for the contents of these files.
+For more details, see the :ref:`section below <extension-configuration-files>`.
 
 
- - :Filename: :file:`ext_tables.php`
-   :Description:
-         Included if found. Contains extensions of existing tables,
-         declaration of backend modules, etc. All code in such files
-         is included after all the default definitions provided by the Core and
-         loaded after :file:`ext_localconf.php` files during TYPO3
-         :ref:`bootstrap <bootstrapping>`.
+.. _:file:`ext_tables.php`:
 
-         Pay attention to the rules for the contents of these files.
-         For more details, see the :ref:`section below <extension-configuration-files>`.
+:file:`ext_tables.php`
+----------------------
 
-         .. note::
-            In old TYPO3 core versions, this file contained additions to the
-            global :php:`$GLOBALS['TCA']` array. This changed since core version 6.2
-            to allow effective caching:
+*optional*
 
-            TCA definition of new database tables must be done entirely
-            in :file:`Configuration/TCA/<table name>.php`.
-            These files are expected to contain the full TCA of the given table
-            (as an array) and simply return it (with a :php:`return` statement).
+Contains extensions of existing tables,
+declaration of backend modules, etc. All code in such files
+is included after all the default definitions provided by the core and
+loaded after :file:`ext_localconf.php` files during TYPO3
+:ref:`bootstrap <bootstrapping>`.
 
-            Customizations of existing tables must be done entirely
-            in :file:`Configuration/TCA/Overrides/<table name>.php`.
+Pay attention to the rules for the contents of these files.
+For more details, see the :ref:`section below <extension-configuration-files>`.
 
+.. note::
+   In old TYPO3 core versions, this file contained additions to the
+   global :php:`$GLOBALS['TCA']` array. This changed since core version 6.2
+   to allow effective caching:
 
- - :Filename: :file:`ext_tables.sql`
-   :Description:
-         SQL definition of database tables.
+   TCA definition of new database tables must be done entirely
+   in :file:`Configuration/TCA/<table name>.php`.
+   These files are expected to contain the full TCA of the given table
+   (as an array) and simply return it (with a :php:`return` statement).
 
-         This file should contain a table-structure dump of the tables used by
-         the extension. It is used for evaluation of the database structure and
-         is therefore important to check and update the database when an
-         extension is enabled.
-
-         If you add additional fields (or depend on certain fields) to existing tables
-         you can also put them here. In that case insert a :code:`CREATE TABLE` structure
-         for that table, but remove all lines except the ones defining the fields you need,
-         here is an example adding a column to the pages table:
-
-         .. code-block:: sql
-
-            CREATE TABLE pages (
-                tx_myext_field int(11) DEFAULT '0' NOT NULL,
-            );
-
-         TYPO3 will merge this table definition to the existing table definition when
-         comparing expected and actual table definitions. Partial definitions
-         can also contain indexes and other directives. They can also change
-         existing table fields though that is not recommended, because it may
-         create problems with the TYPO3 core and/or other extensions.
-
-         The :file:`ext_tables.sql` file may not necessarily be "dumpable"
-         directly to MySQL (because of the semi-complete table definitions allowed
-         defining only required fields). But the Extension Manager or Install Tool can handle this.
-         The only very important thing is that the syntax of the content is exactly
-         like MySQL made it so that the parsing and analysis of the file is
-         done correctly by the Extension Manager.
-
-         TYPO3 parses :code:`ext_tables.sql` files. TYPO3 expects that all
-         table definitions in this file look like the ones produced by the
-         :code:`mysqldump` utility. Incorrect definitions may not be recognized
-         by the TYPO3 SQL parser or may lead to MySQL errors, when TYPO3 tries
-         to apply them. If TYPO3 is not running on MySQL or directly compatible
-         other DBMS like MariaDB, the system will parse the file towards the
-         target DBMS like PostgreSQL.
+   Customizations of existing tables must be done entirely
+   in :file:`Configuration/TCA/Overrides/<table name>.php`.
 
 
- - :Filename: :file:`ext_tables_static+adt.sql`
-   :Description:
-         Static SQL tables and their data.
+.. _:file:`ext_tables.sql`:
 
-         If the extension requires static data you can dump it into a sql-file
-         by this name. Example for dumping mysql data from bash (being in the
-         extension directory):
+:file:`ext_tables.sql`
+----------------------
 
-         .. code-block:: shell
+*optional*
 
-            mysqldump --add-drop-table \
-                      --password=[password] [database name] \
-                      [tablename]  > ./ext_tables_static.sql
+SQL definition of database tables.
 
-         :code:`--add-drop-table` will make sure to include a DROP TABLE
-         statement so any data is inserted in a fresh table.
+This file should contain a table-structure dump of the tables used by
+the extension. It is used for evaluation of the database structure and
+is applied to the database when an
+extension is enabled.
 
-         You can also drop the table content using the Extension Manager in the backend.
+If you add additional fields (or depend on certain fields) to existing tables
+you can also put them here. In that case insert a :code:`CREATE TABLE` structure
+for that table, but remove all lines except the ones defining the fields you need,
+here is an example adding a column to the pages table:
 
-         .. note::
+.. code-block:: sql
 
-            The table structure of static tables needs to be in the
-            :file:`ext_tables.sql` file as well - otherwise an installed static
-            table will be reported as being in excess in the Install Tool.
+   CREATE TABLE pages (
+         tx_myext_field int(11) DEFAULT '0' NOT NULL,
+   );
 
-         .. warning::
+TYPO3 will merge this table definition to the existing table definition when
+comparing expected and actual table definitions. Partial definitions
+can also contain indexes and other directives. They can also change
+existing table fields though that is not recommended, because it may
+create problems with the TYPO3 core and/or other extensions.
 
-            Static data is not meant to be extended by other extensions. On
-            re-import all extended fields and data is lost due to `DROP TABLE`
-            statements.
+The :file:`ext_tables.sql` file may not necessarily be "dumpable"
+directly to MySQL (because of the semi-complete table definitions allowed
+defining only required fields). But the Extension Manager or Install Tool can handle this.
+
+TYPO3 parses :code:`ext_tables.sql` files. TYPO3 expects that all
+table definitions in this file look like the ones produced by the
+:code:`mysqldump` utility. Incorrect definitions may not be recognized
+by the TYPO3 SQL parser or may lead to MySQL errors, when TYPO3 tries
+to apply them. If TYPO3 is not running on MySQL or directly compatible
+other DBMS like MariaDB, the system will parse the file towards the
+target DBMS like PostgreSQL.
+
+.. _auto-generated-db-structure:
+
+Auto generated structure
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The database schema analyzer automatically creates TYPO3 "management" related
+database columns by reading a tables TCA and checking the :ref:`t3tca:ctrl`
+section for table capabilities. Field definitions in :file:`ext_tables.sql` take
+precedence over automatically generated fields, so the core never overrides a
+manually specified column definition from an :file:`ext_tables.sql` file.
+
+These columns below are automatically added if not defined in
+:file:`ext_tables.sql` for database tables that provide a :php:`$GLOBALS['TCA']`
+definition:
+
+:php:`uid` and :php:`PRIMARY KEY`
+  If uid field is not provided inside :file:`ext_tables.sql`, the :php:`PRIMARY KEY`
+  **must** be omitted, too.
+
+:php:`pid` and :php:`KEY parent`
+  Column pid is :php:`unsigned` if the table is not workspace aware, the default
+  index :php:`parent` includes :php:`pid` and :php:`hidden` as well as
+  :php:`deleted` if the latter two are specified in :php:`TCA`
+  :ref:`t3tca:ctrl`. The parent index creation is only applied if column
+  :php:`pid` is auto generated, too.
+
+:php:`['ctrl']['tstamp'] = 'fieldName'`
+  Often set to :php:`tstamp` or :php:`updatedon`
+
+:php:`['ctrl']['crdate'] = 'fieldName'`
+  Often set to :php:`crdate` or :php:`createdon`
+
+:php:`['ctrl']['cruser_id'] = 'fieldName'`
+  Often set to :php:`cruser` or :php:`createdby`
+
+:php:`['ctrl']['delete'] = 'fieldName'`
+  Often set to :php:`deleted`
+
+:php:`['ctrl']['enablecolumns']['disabled'] = 'fieldName'`
+  Often set to :php:`hidden` or :php:`disabled`
+
+:php:`['ctrl']['enablecolumns']['starttime'] = 'fieldName'`
+  Often set to :php:`starttime`
+
+:php:`['ctrl']['enablecolumns']['endtime'] = 'fieldName'`
+  Often set to :php:`endtime`
+
+:php:`['ctrl']['enablecolumns']['fe_group'] = 'fieldName'`
+  Often set to :php:`fe_group`
+
+:php:`['ctrl']['sortby'] = 'fieldName'`
+  Often set to :php:`sorting`
+
+:php:`['ctrl']['descriptionColumn'] = 'fieldName'`
+  Often set to :php:`description`
+
+:php:`['ctrl']['editlock'] = 'fieldName'`
+  Often set to :php:`editlock`
+
+:php:`['ctrl']['languageField'] = 'fieldName'`
+  Often set to :php:`sys_language_uid`
+
+:php:`['ctrl']['transOrigPointerField'] = 'fieldName'`
+  Often set to :php:`l10n_parent`
+
+:php:`['ctrl']['translationSource'] = 'fieldName'`
+  Often set to :php:`l10n_source`
+
+:php:`l10n_state`
+  Column added if :php:`languageField` and :php:`transOrigPointerField` are set
+
+:php:`['ctrl']['origUid'] = 'fieldName'`
+  Often set to :php:`t3_origuid`
+
+:php:`['ctrl']['transOrigDiffSourceField'] = 'fieldName'`
+  Often set to :php:`l10n_diffsource`
+
+:php:`['ctrl']['versioningWS'] = true` - :php:`t3ver_*` columns
+  Columns that make a table workspace aware. All those fields are prefixed with
+  :php:`t3ver_`, for example :php:`t3ver_oid` and :php:`t3ver_id`. A default
+  index named :php:`t3ver_oid` to fields :php:`t3ver_oid` and :php:`t3ver_wsid` is
+  added, too.
+
+.. _:file:`ext_tables_static+adt.sql`:
+
+:file:`ext_tables_static+adt.sql`
+---------------------------------
+
+Static SQL tables and their data.
+
+If the extension requires static data you can dump it into an SQL file
+by this name. Example for dumping mysql data from bash (being in the
+extension directory):
+
+.. code-block:: shell
+
+   mysqldump --add-drop-table \
+               --password=[password] [database name] \
+               [tablename]  > ./ext_tables_static.sql
+
+:code:`--add-drop-table` will make sure to include a DROP TABLE
+statement so any data is inserted in a fresh table.
+
+You can also drop the table content using the Extension Manager in the backend.
+
+.. note::
+
+   The table structure of static tables needs to be in the
+   :file:`ext_tables.sql` file as well - otherwise an installed static
+   table will be reported as being in excess in the Install Tool.
+
+.. warning::
+
+   Static data is not meant to be extended by other extensions. On
+   re-import all extended fields and data is lost due to `DROP TABLE`
+   statements.
 
 
- - :Filename: :file:`ext_typoscript_constants.typoscript`
-   :Description:
-         Preset TypoScript constants. Will be included in the constants section
-         of all TypoScript templates.
+.. _:file:`ext_typoscript_constants.typoscript`:
 
-         .. warning::
+:file:`ext_typoscript_constants.typoscript`
+-------------------------------------------
 
-            Use such a file if you absolutely need to load some TS (because you
-            would get serious errors without it). Otherwise static templates or
-            usage of the *Extension Management API* of class
-            :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` are preferred.
+Preset TypoScript constants. Will be included in the constants section
+of all TypoScript templates.
 
+.. warning::
 
- - :Filename: :file:`ext_typoscript_setup.typoscript`
-   :Description:
-         Preset TypoScript setup. Will be included in the setup section of all
-         TypoScript templates.
-
-         .. warning::
-
-            Use such a file if you absolutely need to load some TS (because you
-            would get serious errors without it). Otherwise static templates or
-            usage of the *Extension Management API* of class
-            :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` are preferred.
+   Use such a file if you absolutely need to load some TS (because you
+   would get serious errors without it). Otherwise static templates or
+   usage of the *Extension Management API* of class
+   :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` are preferred.
 
 
- - :Filename: :file:`ext_conf_template.txt`
-   :Description:
-         Extension Configuration template.
+.. _:file:`ext_typoscript_setup.typoscript`:
 
-         Configuration code in TypoScript syntax setting up a series of values
-         which can be configured for the extension in the Install Tool.
-         :ref:`Read more about the file format here <extension-options>`.
+:file:`ext_typoscript_setup.typoscript`
+---------------------------------------
 
-         If this file is present 'Settings' of the Install Tool provides you with an
-         interface for editing the configuration values defined in the file. The result is
-         written as an array to :file:`LocalConfiguration.php`
-         in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][`:code:`*extension_key*` :php:`]`
+Preset TypoScript setup. Will be included in the setup section of all
+TypoScript templates.
 
+.. warning::
 
- - :Filename: :file:`Configuration/Backend/Routes.php` and :file:`Configuration/Backend/AjaxRoutes.php`
-   :Description:
-         Registry of backend routes. Extensions that add backend modules must
-         register their routes here to be correctly linkable in the backend.
-         The file must return an array with routing details. See core extensions
-         like :php:`backend` for examples.
+   Use such a file if you absolutely need to load some TS (because you
+   would get serious errors without it). Otherwise static templates or
+   usage of the *Extension Management API* of class
+   :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` are preferred.
 
 
- - :Filename: :file:`Resources/Public/Icons/Extension.svg`
-   :Description:
-         Extension icon. If exists, this icon is displayed in the Extension Manager.
-         Preferred is using an SVG file, Extension icon will look nicer when provided
-         as vector graphics (SVG) rather than bitmaps (GIF or PNG).
+.. _:file:`ext_conf_template.txt`:
 
-         18x16 GIF, PNG or SVG icon for the extension.
+:file:`ext_conf_template.txt`
+-----------------------------
+
+Extension Configuration template.
+
+Configuration code in TypoScript syntax setting up a series of values
+which can be configured for the extension in the Install Tool.
+:ref:`Read more about the file format here <extension-options>`.
+
+If this file is present 'Settings' of the Install Tool provides you with an
+interface for editing the configuration values defined in the file. The result is
+written as an array to :file:`LocalConfiguration.php`
+in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][`:code:`*extension_key*` :php:`]`
 
 
- - :Filename: :file:`class.ext_update.php`
-   :Description:
-         See section :ref:`update-wizards-extupdatefile` in chapter
-         :ref:`update-wizards`.
+.. _:file:`routes.php`-and-:file:`ajaxroutes.php`:
+
+:file:`Routes.php` and :file:`AjaxRoutes.php`
+---------------------------------------------
+
+Full paths to these files are: :file:`Configuration/Backend/Routes.php` and
+:file:`Configuration/Backend/AjaxRoutes.php`.
+
+Registry of backend routes. Extensions that add backend modules must
+register their routes here to be correctly linkable in the backend.
+The file must return an array with routing details. See core extensions
+like :php:`backend` for examples.
+
+
+.. _:file:`resources/public/icons/extension.svg`:
+
+:file:`Resources/Public/Icons/Extension.svg`
+--------------------------------------------
+
+Extension icon. If exists, this icon is displayed in the Extension Manager.
+Preferred is using an SVG file, Extension icon will look nicer when provided
+as vector graphics (SVG) rather than bitmaps (GIF or PNG).
+
+18x16 GIF, PNG or SVG icon for the extension.
+
+
+.. _:file:`class.ext_update.php`:
+
+:file:`class.ext_update.php`
+----------------------------
+
+See section :ref:`update-wizards-extupdatefile` in chapter
+:ref:`update-wizards`.
 
 .. _extension-reserved-folders:
 
