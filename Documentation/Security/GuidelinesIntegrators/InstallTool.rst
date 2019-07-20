@@ -16,12 +16,14 @@ the Install Tool should be accessible. The second mechanism is a
 password protection, which is independent of all backend user
 passwords.
 
+The Install Tool can found as a stand alone application via ``https://<domain.tld>/typo3/install.php``.
+It also integrates with the backend, but is only available for logged in users with administrator privileges.
+
 The :file:`ENABLE_INSTALL_TOOL` file can be created by putting an empty
 file into the :ref:`config directory<Environment-config-path>`. You usually
 need write access to this directory on a server level (for example via SSH, SFTP, etc.)
 or you can create this file as a backend user with administrator
-privileges. Since TYPO3 version 6.2 administrators can unlock the Install Tool
-when accessing the module in the backend.
+privileges.
 
 .. figure:: ../../Images/Security/enable-install-tool.png
     :class: with-shadow
@@ -54,7 +56,17 @@ Log-in to the Install Tool and change it there.
     :class: with-shadow
     :alt: Screen to change the Install Tool password
 
-For additional security, the folder :file:`typo3/install` and :file:`typo3/sysext/install`
+Since TYPO3 v9, the role of system maintainer has been introduced. It allows for selected
+BE users to access the Install Tool components from within the Backend without further
+security measures.
+The number of system maintainers should be as small as possible to mitigate the risks of corrupted accounts.
+
+The role can be provided in the Settings Section of the Install Tool -> Manage System Maintainers. It is also
+possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`LocalConfiguration.php`::
+
+    'SYS' => 'SystemMaintainers' => [1, 7, 36]
+
+For additional security, the folders :file:`typo3/install` and :file:`typo3/sysext/install`
 can be deleted, or password protected on a server level (e.g. by a web
 server's user authentication mechanism). Please keep in mind that
 these measures have an impact on the usability of the system. If you
