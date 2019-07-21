@@ -12,7 +12,7 @@ Guidelines for TYPO3 Integrators
 .. include:: GeneralRules.rst.txt
 
 .. _security-install-tool:
-.. include:: InstallTool.rst
+.. include:: InstallTool.rst.txt
 
 .. _security-encryption-key:
 .. include:: EncryptionKey.rst.txt
