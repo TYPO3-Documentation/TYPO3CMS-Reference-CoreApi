@@ -23,7 +23,7 @@ Our extension key is `example` and the name of the plugin is `registration`.
 
 #. Create TSconfig
 
-   :file:`Configuration/TSconfig/Page/NewContentElementWizards.typoscript`:
+   :file:`Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig`:
 
    .. code-block:: typoscript
 
@@ -50,7 +50,7 @@ Our extension key is `example` and the name of the plugin is `registration`.
     .. code-block:: typoscript
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:example/Configuration/TSconfig/Page/NewContentElementWizards.typoscript">'
+            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig">'
         );
 
 #. :ref:`Register your icon <icon-registration>` with the icon API
