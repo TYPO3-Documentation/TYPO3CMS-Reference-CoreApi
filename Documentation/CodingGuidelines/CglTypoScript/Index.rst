@@ -6,16 +6,16 @@
 TypoScript Coding Guidelines
 ============================
 
-Directory and file Names
+Directory and File Names
 ========================
 
 * As of TYPO3 8.7, the file ending can and should be :file:`.typoscript`.
 
 * TypoScript files are located in the directory :file:`<extension>/Configuration/TypoScript`.
 
-* Filename for constants in static templates: :file:`constants.typoscript`.
+* File name for constants in static templates: :file:`constants.typoscript`.
 
-* Filename for TypoScript in static templates: :file:`setup.typoscript`.
+* File name for TypoScript in static templates: :file:`setup.typoscript`.
 
 More information about the file ending:
 
