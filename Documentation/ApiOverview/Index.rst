@@ -55,7 +55,7 @@ CONFIGURATION
    :titlesonly:
    :maxdepth: 1
 
-
+   Configuration/Index
    TypoScriptSyntax/Index
    Yaml/Index
    Tsconfig/Index
