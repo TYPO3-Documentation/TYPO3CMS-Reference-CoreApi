@@ -4,9 +4,9 @@
 .. _extension-declaration:
 
 
-================
-Declaration File
-================
+=================================
+Declaration File (ext_emconf.php)
+=================================
 
 The :file:`ext_emconf.php` is the single most important file in an extension.
 Without it, the Extension Manager (EM) will not detect the extension, much less
