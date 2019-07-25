@@ -4,9 +4,9 @@
 .. _extension-configuration-files:
 
 
-===================
-Configuration Files
-===================
+========================================================
+Configuration Files (ext_tables.php & ext_localconf.php)
+========================================================
 
 Files :file:`ext_tables.php` and :file:`ext_localconf.php` are the two
 most important files for the execution of extensions

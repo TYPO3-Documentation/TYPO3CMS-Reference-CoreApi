@@ -3,9 +3,9 @@
 
 .. _extension-options:
 
-=====================
-Configuration Options
-=====================
+===============================================
+Extension Configuration (ext_conf_template.txt)
+===============================================
 
 In the :file:`ext_conf_template.txt` file configuration options
 for an extension can be defined. They will be accessible in the TYPO3 backend
