@@ -8,22 +8,39 @@ Extension Development
 =====================
 
 
+INTRODUCTION
+
 .. toctree::
    :titlesonly:
    :maxdepth: 1
 
    Introduction/Index
    ExtensionManagement/Index
-   FilesAndLocations/Index
    SystemAndLocalExtensions/Index
-   ExtensionKey/Index
-   NamingConventions/Index
+
+RESERVED FILES & HOW THEY DEFINE FUNCTIONALITY
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+
+   FilesAndLocations/Index
    DeclarationFile/Index
    ConfigurationFiles/Index
+   NamingConventions/Index
    ConfigurationOptions/Index
    ExtendingTca/Index
+
+STEPS TOWARDS CREATING AN EXTENSION
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+
+   ExtensionKey/Index
    CreateNewExtension/Index
    CreateNewDistribution/Index
    Documentation/Index
    Resources/Index
-
