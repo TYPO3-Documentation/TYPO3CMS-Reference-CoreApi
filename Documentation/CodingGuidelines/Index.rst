@@ -19,6 +19,7 @@ extensions or core parts.
    CglJavaScript/Index
    CglTypeScript/Index
    CglTypoScript/Index
+   CglTsConfig
    CglXliff/Index
    CglYaml
    CglRest/Index
