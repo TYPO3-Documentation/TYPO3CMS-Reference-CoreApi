@@ -70,27 +70,6 @@ old names are not accidentally reassigned to new extensions.
 Further, some of the classic plugins (tt\_board, tt\_guest etc) use
 the "user\_" prefix for their classes as well.
 
-.. _extension-extending:
-
-Extending "extensions classes"
-""""""""""""""""""""""""""""""
-
-As a standard procedure you should include the "class extension code"
-even in your own extensions. This is placed at the bottom of every
-class file:
-
-.. code-block:: php
-
-   if (defined('TYPO3_MODE') && isset($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/myext/pi1/class.tx_myext_pi1.php'])) {
-           include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/myext/pi1/class.tx_myext_pi1.php']);
-   }
-
-
-Normally the key used as example here ("ext/myext/pi1/class.tx_myext_pi1.php")
-would be the full path to the script relative to :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`. However because modules are required to work from both
-:code:`typo3/sysext/` *and* :code:`typo3conf/ext/` it is a policy that any
-path before "ext/" is omitted.
-
 
 .. _TER: https://extensions.typo3.org/
 .. _Packagist: https://packagist.org/
