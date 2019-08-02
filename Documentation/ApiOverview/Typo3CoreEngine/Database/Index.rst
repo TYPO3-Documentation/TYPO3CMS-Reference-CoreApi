@@ -366,32 +366,32 @@ Examples of Data Submission
 This creates a new page titled "The page title" as the first page
 inside page id 45::
 
-   $data['pages']['NEW9823be87'] = array(
+   $data['pages']['NEW9823be87'] = [
       'title' => 'The page title',
       'subtitle' => 'Other title stuff',
       'pid' => '45'
-   );
+   ];
 
 This creates a new page titled "The page title" right after page id 45
 in the tree::
 
-   $data['pages']['NEW9823be87'] = array(
+   $data['pages']['NEW9823be87'] = [
       'title' => 'The page title',
       'subtitle' => 'Other title stuff',
       'pid' => '-45'
-   );
+   ];
 
 This creates two new pages right after each other, located right after
 the page id 45::
 
-   $data['pages']['NEW9823be87'] = array(
+   $data['pages']['NEW9823be87'] = [
       'title' => 'Page 1',
       'pid' => '-45'
-   );
-   $data['pages']['NEWbe68s587'] = array(
+   ];
+   $data['pages']['NEWbe68s587'] = [
       'title' => 'Page 2',
       'pid' => '-NEW9823be87'
-   );
+   ];
 
 Notice how the second "pid" value points to the "NEW..." id
 placeholder of the first record. This works because the new id of the
@@ -402,19 +402,19 @@ happens in that order!
 This creates a new content record with references to existing and
 one new system category::
 
-   $data['sys_category']['NEW9823be87'] = array(
+   $data['sys_category']['NEW9823be87'] = [
        'title' => 'New category',
        'pid' => 1,
-   );
-   $data['tt_content']['NEWbe68s587'] = array(
+   ];
+   $data['tt_content']['NEWbe68s587'] = [
        'header' => 'Look ma, categories!',
        'pid' => 45,
-       'categories' => array(
+       'categories' => [
            1,
            2,
            'NEW9823be87', // You can also use placeholders here
-       ),
-   );
+       ],
+   ];
 
 .. note::
    To get real uid of the record you have just created use DataHandler's `substNEWwithIDs` property like: :php:`$uid = $dataHandler->substNEWwithIDs['NEW9823be87'];`
@@ -422,10 +422,10 @@ one new system category::
 This updates the page with uid=9834 to a new title, "New title for
 this page", and no\_cache checked::
 
-   $data['pages'][9834] = array(
+   $data['pages'][9834] = [
        'title' => 'New title for this page',
        'no_cache' => '1'
-   );
+   ];
 
 
 
