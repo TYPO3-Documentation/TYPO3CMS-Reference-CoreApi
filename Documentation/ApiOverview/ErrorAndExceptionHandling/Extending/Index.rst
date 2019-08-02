@@ -11,9 +11,9 @@ If you want to register your own error or exception handler, simply
 include the class and insert its name into `productionExceptionHandler`,
 `debugExceptionHandler` or `errorHandler`::
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = 'Vendor\Ext\Error\MyOwnErrorHandler';
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = 'Vendor\Ext\Error\MyOwnDebugExceptionHandler';
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = 'Vendor\Ext\Error\MyOwnProductionExceptionHandler';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = \Vendor\Ext\Error\MyOwnErrorHandler::class;
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\MyOwnDebugExceptionHandler::class;
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = \Vendor\Ext\Error\MyOwnProductionExceptionHandler::class;
 
 
 An error or exception handler class must register an error (exception)
@@ -40,7 +40,7 @@ this class as error (exception) handler::
        }
    }
    
-Then add the following lines to the `ext_localconf.php` of your extension:
+Then add the following lines to the `ext_localconf.php` of your extension::
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = 'Vendor\Ext\Error\PostExceptionsOnTwitter';
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = 'Vendor\Ext\Error\PostExceptionsOnTwitter';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\PostExceptionsOnTwitter::class;
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = \Vendor\Ext\Error\PostExceptionsOnTwitter::class;
