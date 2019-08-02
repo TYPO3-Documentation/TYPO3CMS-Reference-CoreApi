@@ -37,9 +37,32 @@ Extension developers may want to have an own provider for page titles. For examp
 records and a detail view, the title of the page record will not be the correct title. To make sure to display
 the correct page title, you have to create your own :php:`PageTitleProvider`. It is quite easy to create one.
 
-First of all create a PHP class in your extension that implements the :php:`PageTitleProviderInterface`. This will
-force you to have at least the :php:`getTitle()` method in your class. Within this method you can create your
-own logic to define the correct title.
+First of all create a PHP class in your extension that implements the :php:`PageTitleProviderInterface`, for example by extending :php:`AbstractPageTitleProvider`. This will force you to have at least the :php:`getTitle()` method in your class. Within this method you can create your own logic to define the correct title.
+
+.. code-block:: php
+
+   namespace Vendor\Extension\PageTitle;
+
+   use TYPO3\CMS\Core\PageTitle\AbstractPageTitleProvider;
+
+   class MyOwnPageTitleProvider extends AbstractPageTitleProvider
+   {
+       /**
+        * @param string $title
+        */
+       public function setTitle(string $title)
+       {
+           $this->title = $title;
+       }
+   }
+   
+   
+Usage Example e.g. in an Extbase controller:
+.. code-block:: php
+   $titleProvider = GeneralUtility::makeInstance(MyOwnPageTitleProvider::class);
+   $titleProvider->setTitle(‘Title from controller action’);
+
+
 
 Define Priority of PageTitleProviders
 =====================================
