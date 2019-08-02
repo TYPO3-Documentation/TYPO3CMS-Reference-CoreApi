@@ -29,15 +29,9 @@ ext_localconf.php
 :file:`ext_localconf.php` is always included in global scope of the script,
 either frontend or backend.
 
-Should Not Be Used For
-----------------------
-
-* While you *can* put functions and classes into the script, it is a really bad
-  practice because such classes and functions would *always* be loaded. It is
-  better to have them included only as needed.
-* Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes
-  <xclasses>` or any simple array assignments to
-  :php:`$GLOBALS['TYPO3_CONF_VARS']` options will not work for the following:
+The files :file:`ext_localconf.php` is included
+(:php:`loadTypo3LoadedExtAndExtLocalconf()`) after the following objects in the
+bootstrap class:
 
  * class loader
  * package manager
@@ -50,9 +44,17 @@ Should Not Be Used For
  * stream wrapper
  * error handler
 
- This would not work because the extension files :file:`ext_localconf.php` are
- included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the
- mentioned objects in the Bootstrap class.
+ Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes <xclasses>`
+ or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
+ will not work for those.
+
+
+Should Not Be Used For
+----------------------
+
+* While you *can* put functions and classes into the script, it is a really bad
+  practice because such classes and functions would *always* be loaded. It is
+  better to have them included only as needed.
 
 Should Be Used For
 ------------------
@@ -61,7 +63,8 @@ These are the typical functions that extension authors should place within :file
 
 * Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes <xclasses>` or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
 * Registering additional Request Handlers within the :ref:`Bootstrap <bootstrapping>`
-* Adding any PageTSconfig or Default TypoScript via :php:`ExtensionManagementUtility` APIs
+* Adding any :ref:`PageTSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>` or :ref:`PageTSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>`
+* Adding default TypoScript via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility` APIs
 * Registering Scheduler Tasks
 * Adding reports to the reports module
 * Adding slots to signals via Extbase's SignalSlotDispatcher
@@ -73,6 +76,50 @@ deprecated
 * *Registering Extbase Command Controllers* (Extbase command controllers are deprecated since
   TYPO3 9. Use symfony commands as explained in :ref:`cli-mode`)
 
+Examples
+--------
+
+Put a file called :file:`ext_localconf.php` in the main directory of your
+Extension. It does not need to be registered anywhere but will be loaded
+automatically as soon as the extension is installed.
+The skeletton of the :file:`ext_localconf.php` looks like this::
+
+   <?php
+
+   // Prevent Script from beeing called directly
+   defined('TYPO3_MODE') or die();
+
+   // encapsulate all locally defined variables
+   (function () {
+       // Add your code here
+   })();
+
+Adding default PageTSconfig
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can add any default :ref:`PageTSconfig
+<t3tsconfig:pagesettingdefaultpagetsconfig>` directly in the
+:file:`ext_localconf.php` :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig()`::
+
+   <?php
+
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('# Add your PageTSConfig here');
+
+.. hint::
+
+   Hint: PageTSconfig in static files that can be optionally included by the
+   integrators go to :file:`Configuration/TCA/Overrides/pages.php`, see
+   :ref:`PageTSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>`
+
+
+Adding default UserTSconfig
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Analog, you can also add default UserTSconfig via
+:php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig()`::
+
+   // Adding the admin panel to users by default and forcing the display of the edit-icons
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig('# Add your UserTSConfig here');
 
 .. _ext-tables.php:
 
@@ -95,7 +142,7 @@ and a Backend User is authenticated as well.
 .. hint::
 
    In many cases, the file :file:`ext_tables.php` is no longer needed, since `TCA` definitions
-   must be placed in :file:`Configuration/TCA/\*.php` files nowadays.
+   must be placed in :file:`Configuration/TCA/\*.php` files.
 
 
 Should Not Be Used For
@@ -103,13 +150,13 @@ Should Not Be Used For
 
 * TCA configurations for new tables. They should go in :file:`Configuration/TCA/tablename.php`
 * TCA overrides of existing tables. They should go in :file:`Configuration/TCA/Overrides/tablename.php`
-* calling :php:`ExtensionManagementUtility::addToInsertRecords` as this might break the frontend
-* calling :php:`ExtensionManagementUtility::addStaticFile` as this might break the frontend
+* calling :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToInsertRecords()` as this might break the frontend
+* calling :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile()` as this might break the frontend
 
 For a descriptions of the changes for TCA (compared to older TYPO3 versions), please see
-the blogpost `"Cleaning the hood: TCA" by Andreas Fernandez <https://scripting-base.de/blog/cleaning-the-hood-tca.html>`__
+the blogpost `"Cleaning the hood: TCA" by Andreas Fernandez <https://scripting-base.de/blog/cleaning-the-hood-tca.html>`__.
 
-More information can be found in the blogpost `"Good practices in extensions
+More information can be found in the blogpost `Good practices in extensions
 <https://usetypo3.com/good-practices-in-extensions.html>`__ (use TYPO3 blog).
 
 .. hint::
@@ -122,8 +169,9 @@ Should Be Used For
 These are the typical functions that should be placed inside :file:`ext_tables.php`
 
 * Registering of :ref:`Backend modules <backend-modules-api>` or Adding a new Main Module :ref: 'Example <extension-configuration-files-backend-module>'
-* Adding :ref:`Context-Sensitive-Help <csh-implementation>` to fields (via :php:`ExtensionManagementUtility::addLLrefForTCAdescr()`) :ref:`Example <extension-configuration-files-csh>`
-* Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages` :ref:`Example <extension-configuration-files-allow-table-standard>`
+* Adding :ref:`Context-Sensitive-Help <csh-implementation>` to fields (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`) :ref:`Example <extension-configuration-files-csh>`
+* Adding TCA descriptions (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`)
+* Adding table options via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages()` :ref:`Example <extension-configuration-files-allow-table-standard>`
 * Registering a scheduler tasks `Scheduler Task <https://docs.typo3.org/c/typo3/cms-scheduler/master/en-us/DevelopersGuide/CreatingTasks/Index.html>`__ :ref:`Example <extension-configuration-files-scheduler>`
 * Assignments to the global configuration arrays :php:`$TBE_STYLES` and :php:`$PAGES_TYPES`
 * Extending the :ref:`Backend User Settings <user-settings-extending>`
@@ -241,9 +289,9 @@ See any system extension for best practice on this behaviour.
 - Your :file:`ext_tables.php` and :file:`ext_localconf.php` files must be designed in a way
   that they can safely be read and subsequently imploded into one single
   file with all the other configuration scripts!
-- You must **never** use a "return" statement in the files global scope -
+- You must **never** use a :php:`return` statement in the files global scope -
   that would make the cached script concept break.
-- You must **never** use a "use" statement in the files global scope -
+- You must **never** use a :php:`use` statement in the files global scope -
   that would make the cached script concept break and could conflict with other extensions.
 - You should **not** rely on the PHP constant :php:`__FILE__` for detection of
   include path of the script - the configuration might be executed from
