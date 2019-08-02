@@ -57,8 +57,10 @@ First of all create a PHP class in your extension that implements the :php:`Page
    }
    
    
-Usage Example e.g. in an Extbase controller:
+Usage example e.g. in an Extbase controller:
+
 .. code-block:: php
+
    $titleProvider = GeneralUtility::makeInstance(MyOwnPageTitleProvider::class);
    $titleProvider->setTitle(‘Title from controller action’);
 
