@@ -8,12 +8,12 @@ How to extend the error and exception handling
 ==============================================
 
 If you want to register your own error or exception handler, simply
-include the class and insert its name into "productionExceptionHandler",
-"debugExceptionHandler" or "errorHandler"::
+include the class and insert its name into `productionExceptionHandler`,
+`debugExceptionHandler` or `errorHandler`::
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = 'myOwnErrorHandler';
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = 'myOwnDebugExceptionHandler';
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = 'myOwnProductionExceptionHandler';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = 'Vendor\Ext\Error\MyOwnErrorHandler';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = 'Vendor\Ext\Error\MyOwnDebugExceptionHandler';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = 'Vendor\Ext\Error\MyOwnProductionExceptionHandler';
 
 
 An error or exception handler class must register an error (exception)
@@ -25,7 +25,9 @@ extend it with your own functionality, simply derive your class from the
 error and exception handling classes shipped with TYPO3 and register
 this class as error (exception) handler::
 
-   class tx_postExceptionsOnTwitter extends \TYPO3\CMS\Core\Error\DebugExceptionHandler
+   namespace Vendor\Ext\Error;
+
+   class PostExceptionsOnTwitter extends \TYPO3\CMS\Core\Error\DebugExceptionHandler
    {
        public function echoExceptionWeb(Exception $exception)
        {
@@ -37,5 +39,8 @@ this class as error (exception) handler::
            // do it ;-)
        }
    }
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = 'tx_postExceptionsOnTwitter';
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = 'tx_postExceptionsOnTwitter';
+   
+Then add the following lines to the `ext_localconf.php` of your extension:
+
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = 'Vendor\Ext\Error\PostExceptionsOnTwitter';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = 'Vendor\Ext\Error\PostExceptionsOnTwitter';
