@@ -112,15 +112,12 @@ Should Be Used For
 
 These are the typical functions that should be placed inside :file:`ext_tables.php`
 
-* Registering of :ref:`Backend modules <backend-modules-api>` or Adding a new Main Module
-    (:ref: 'Example <extension-configuration-files-backend-module>')
-* Adding :ref:`Context-Sensitive-Help <csh-implementation>` to fields
-    (via :php:`ExtensionManagementUtility::addLLrefForTCAdescr()`)
-    (:ref: 'Example <extension-configuration-files-csh>')
-* Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages`
-    (:ref: 'Example <extension-configuration-files-allow-table-standard>')
+* Registering of :ref:`Backend modules <backend-modules-api>` or Adding a new Main Module :ref: 'Example <extension-configuration-files-backend-module>'
+* Adding :ref:`Context-Sensitive-Help <csh-implementation>` to fields (via :php:`ExtensionManagementUtility::addLLrefForTCAdescr()`) :ref:`Example <extension-configuration-files-csh>`
+* Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages` :ref:`Example <extension-configuration-files-allow-table-standard>`
+* Registering a scheduler tasks `Scheduler Task <https://docs.typo3.org/c/typo3/cms-scheduler/master/en-us/DevelopersGuide/CreatingTasks/Index.html>`__ :ref:`Example <extension-configuration-files-scheduler>`
 * Assignments to the global configuration arrays :php:`$TBE_STYLES` and :php:`$PAGES_TYPES`
-* Adding new fields to User Settings ("Setup" Extension)
+* Extending the :ref:`Backend User Settings <user-settings-extending>`
 
 Examples
 --------
@@ -192,6 +189,26 @@ new reccords of your table to be added on Standard pages call:
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages(
       'tx_myextension_domain_model_mymodel'
    );
+
+
+.. _extension-configuration-files-scheduler:
+Registering a scheduler Task
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Scheduler tasks get registered in the ext_tables.php as well. Note that the Sysext "scheduler" has
+to be installed for this to work.
+
+
+.. code-block:: php
+
+   // Add caching framework garbage collection task
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][\TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionTask::class] = array(
+        'extension' => 'your_extension_key',
+        'title' => 'LLL:EXT:your_extension_key/locallang.xlf:cachingFrameworkGarbageCollection.name',
+        'description' => 'LLL:EXT:your_extension_key/locallang.xlf:cachingFrameworkGarbageCollection.description',
+        'additionalFields' => \TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionAdditionalFieldProvider::class
+   );
+
+For more information see the documentation of the Sys-Extension scheduler.
 
 Best Practices for :php:`ext_tables.php` and :php:`ext_localconf.php`
 =====================================================================
