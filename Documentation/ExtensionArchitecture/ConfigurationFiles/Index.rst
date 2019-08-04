@@ -1,5 +1,7 @@
 .. include:: ../../Includes.txt
 
+.. highlight:: php
+
 
 .. _extension-configuration-files:
 
@@ -86,14 +88,16 @@ and a Backend User is authenticated as well.
 .. hint::
 
    In many cases, the file :file:`ext_tables.php` is no longer needed, since `TCA` definitions
-   must be placed in :file:`Configuration/TCA/*.php` files nowadays.
+   must be placed in :file:`Configuration/TCA/\*.php` files nowadays.
 
 
 Should Not Be Used For
 ----------------------
 
-* TCA configurations for new tables. They should go in Configuration/TCA/tablename.php
-* TCA overrides of existing tables. They should go in Configuration/TCA/Overrides/tablename.php
+* TCA configurations for new tables. They should go in :file:`Configuration/TCA/tablename.php`
+* TCA overrides of existing tables. They should go in :file:`Configuration/TCA/Overrides/tablename.php`
+* calling :php:`ExtensionManagementUtility::addToInsertRecords` as this might break the frontend
+* calling :php:`ExtensionManagementUtility::addStaticFile` as this might break the frontend
 
 For a descriptions of the changes for TCA (compared to older TYPO3 versions), please see
 the blogpost `"Cleaning the hood: TCA" by Andreas Fernandez <https://scripting-base.de/blog/cleaning-the-hood-tca.html>`__
@@ -103,19 +107,100 @@ More information can be found in the blogpost `"Good practices in extensions
 
 .. hint::
 
-   ext_tables.php is not cached. The files in Configuration/TCA are cached.
+   :file:`ext_tables.php` is cached.
 
 Should Be Used For
 ------------------
 
 These are the typical functions that should be placed inside :file:`ext_tables.php`
 
-* Registering of Backend modules or Backend module functions
-* Adding Context-Sensitive-Help docs via ExtensionManagementUtility API
-* Adding TCA descriptions (via :php:`ExtensionManagementUtility::addLLrefForTCAdescr()`)
-* Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages`
+* Registering of :ref:`Backend modules <backend-modules-api>` or Adding a new Main Module :ref: 'Example <extension-configuration-files-backend-module>'
+* Adding :ref:`Context-Sensitive-Help <csh-implementation>` to fields (via :php:`ExtensionManagementUtility::addLLrefForTCAdescr()`) :ref:`Example <extension-configuration-files-csh>`
+* Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages` :ref:`Example <extension-configuration-files-allow-table-standard>`
+* Registering a scheduler tasks `Scheduler Task <https://docs.typo3.org/c/typo3/cms-scheduler/master/en-us/DevelopersGuide/CreatingTasks/Index.html>`__ :ref:`Example <extension-configuration-files-scheduler>`
 * Assignments to the global configuration arrays :php:`$TBE_STYLES` and :php:`$PAGES_TYPES`
-* Adding new fields to User Settings ("Setup" Extension)
+* Extending the :ref:`Backend User Settings <user-settings-extending>`
+
+Examples
+--------
+Put the following in a file called :file:`ext_tables.php` in the main directory of your extension. The
+file does not need to be registered but will be loaded automatically::
+
+   <?php
+   defined('TYPO3_MODE') or die();
+
+   (function () {
+     // Add your code here
+   })();
+
+.. _extension-configuration-files-backend-module:
+
+Registering a Backend Module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+You can register a new Backend Module for your extension via :php:`ExtensionUtility::registerModule()`::
+
+   \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+      'Vendor.ExtensionName', // Vendor dot Extension Name in CamelCase
+      'web', // the main module
+      'mysubmodulekey', // Submodule key
+      'bottom', // Position
+      [
+          'MyController' => 'list,show,new',
+      ],
+      [
+          'access' => 'user,group',
+          'icon'   => 'EXT:my_extension/ext_icon.svg',
+          'labels' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang_statistics.xlf',
+      ]
+   );
+
+For more information on Backend Modules see :ref:`Backend Module API <backend-modules-api>`.
+
+.. _extension-configuration-files-csh:
+
+Adding Context Sensitive Help to fields
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Add the following to your extensions ext_tables.php in order to add Context Sensitive Help for
+the corresponding field::
+
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
+       'tx_domain_model_foo',
+       'EXT:myext/Resources/Private/Language/locallang_csh_tx_domain_model_foo.xlf'
+   );
+
+For more information see :ref:`Context-Sensitive-Help <csh-implementation>`.
+
+.. _extension-configuration-files-allow-table-standard:
+
+Allowing a tables records to be added to Standard pages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+By default new records of tables may only be added to Sysfolders in TYPO3. If you need to allow
+new records of your table to be added on Standard pages call:
+
+.. code-block:: php
+
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages(
+      'tx_myextension_domain_model_mymodel'
+   );
+
+.. _extension-configuration-files-scheduler:
+Registering a scheduler Task
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Scheduler tasks get registered in the ext_tables.php as well. Note that the Sysext "scheduler" has
+to be installed for this to work.
+
+.. code-block:: php
+
+   // Add caching framework garbage collection task
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][\TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionTask::class] = array(
+        'extension' => 'your_extension_key',
+        'title' => 'LLL:EXT:your_extension_key/locallang.xlf:cachingFrameworkGarbageCollection.name',
+        'description' => 'LLL:EXT:your_extension_key/locallang.xlf:cachingFrameworkGarbageCollection.description',
+        'additionalFields' => \TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionAdditionalFieldProvider::class
+   );
+
+For more information see the documentation of the Sys-Extension scheduler.
 
 Best Practices for :php:`ext_tables.php` and :php:`ext_localconf.php`
 =====================================================================
