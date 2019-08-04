@@ -1,5 +1,7 @@
 .. include:: ../../Includes.txt
 
+.. highlight:: php
+
 
 .. _extension-configuration-files:
 
@@ -86,14 +88,14 @@ and a Backend User is authenticated as well.
 .. hint::
 
    In many cases, the file :file:`ext_tables.php` is no longer needed, since `TCA` definitions
-   must be placed in :file:`Configuration/TCA/*.php` files nowadays.
+   must be placed in :file:`Configuration/TCA/\*.php` files nowadays.
 
 
 Should Not Be Used For
 ----------------------
 
-* TCA configurations for new tables. They should go in Configuration/TCA/tablename.php
-* TCA overrides of existing tables. They should go in Configuration/TCA/Overrides/tablename.php
+* TCA configurations for new tables. They should go in :file:`Configuration/TCA/tablename.php`
+* TCA overrides of existing tables. They should go in :file:`Configuration/TCA/Overrides/tablename.php`
 * calling :php:`ExtensionManagementUtility::addToInsertRecords` as this might break the frontend
 * calling :php:`ExtensionManagementUtility::addStaticFile` as this might break the frontend
 
@@ -105,7 +107,7 @@ More information can be found in the blogpost `"Good practices in extensions
 
 .. hint::
 
-   ext_tables.php is not cached. The files in Configuration/TCA are cached.
+   :file:`ext_tables.php` is cached.
 
 Should Be Used For
 ------------------
@@ -122,25 +124,20 @@ These are the typical functions that should be placed inside :file:`ext_tables.p
 Examples
 --------
 Put the following in a file called :file:`ext_tables.php` in the main directory of your extension. The
-file does not need to be registered but will be loaded automatically.
-
-.. code-block:: php
+file does not need to be registered but will be loaded automatically::
 
    <?php
-      defined('TYPO3_MODE') or die();
+   defined('TYPO3_MODE') or die();
 
-      (function () {
-        // Add your code here
-      })();
-
+   (function () {
+     // Add your code here
+   })();
 
 .. _extension-configuration-files-backend-module:
 
 Registering a Backend Module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You can register a new Backend Module for your extension via :php:`ExtensionUtility::registerModule`
-
-.. code-block:: php
+You can register a new Backend Module for your extension via :php:`ExtensionUtility::registerModule()`::
 
    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
       'Vendor.ExtensionName', // Vendor dot Extension Name in CamelCase
@@ -155,34 +152,31 @@ You can register a new Backend Module for your extension via :php:`ExtensionUtil
           'icon'   => 'EXT:my_extension/ext_icon.svg',
           'labels' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang_statistics.xlf',
       ]
-);
+   );
 
-For more information on Backend Modules see :ref:`Backend Module API <backend-modules-api>`
-
+For more information on Backend Modules see :ref:`Backend Module API <backend-modules-api>`.
 
 .. _extension-configuration-files-csh:
 
 Adding Context Sensitive Help to fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Add the following to your extensions ext_tables.php in order to add Context Sensitve Help for
-the corresponding field.
 
-.. code-block:: php
+Add the following to your extensions ext_tables.php in order to add Context Sensitive Help for
+the corresponding field::
 
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
-        'tx_domain_model_foo',
-        'EXT:myext/Resources/Private/Language/locallang_csh_tx_domain_model_foo.xlf'
+       'tx_domain_model_foo',
+       'EXT:myext/Resources/Private/Language/locallang_csh_tx_domain_model_foo.xlf'
    );
 
-For more information see:  :ref:`Context-Sensitive-Help <csh-implementation>`
-
+For more information see :ref:`Context-Sensitive-Help <csh-implementation>`.
 
 .. _extension-configuration-files-allow-table-standard:
 
 Allowing a tables records to be added to Standard pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 By default new records of tables may only be added to Sysfolders in TYPO3. If you need to allow
-new reccords of your table to be added on Standard pages call:
+new records of your table to be added on Standard pages call:
 
 .. code-block:: php
 
@@ -190,13 +184,11 @@ new reccords of your table to be added on Standard pages call:
       'tx_myextension_domain_model_mymodel'
    );
 
-
 .. _extension-configuration-files-scheduler:
 Registering a scheduler Task
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Scheduler tasks get registered in the ext_tables.php as well. Note that the Sysext "scheduler" has
 to be installed for this to work.
-
 
 .. code-block:: php
 
