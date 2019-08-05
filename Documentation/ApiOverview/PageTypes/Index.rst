@@ -178,7 +178,7 @@ need to add the new doktype as select item and associate it with the configured 
         'pages'
     );
 
-The same must be done with the "pages_language_overlay", so that the new page type
+For TYPO3 versions < 9.0 the same must be done with the "pages_language_overlay", so that the new page type
 can also be translated :file:`Configuration/TCA/Overrides/pages_language_overlay.php`::
 
     // Also add the new doktype to the page language overlays type selector (so that translations can inherit the same type)
@@ -197,6 +197,24 @@ can also be translated :file:`Configuration/TCA/Overrides/pages_language_overlay
                 ],
                 '1',
                 'after'
+            );
+
+             \TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule(
+                $GLOBALS['TCA'][$table],
+                [
+                    // add icon for new page type:
+                    'ctrl' => [
+                        'typeicon_classes' => [
+                            $archiveDoktype => 'apps-pagetree-archive',
+                        ],
+                    ],
+                    // add all page standard fields and tabs to your new page type
+                    'types' => [
+                        (string) $archiveDoktype => [
+                            'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_DEFAULT]['showitem']
+                        ]
+                    ]
+                ]
             );
         },
         'example',
