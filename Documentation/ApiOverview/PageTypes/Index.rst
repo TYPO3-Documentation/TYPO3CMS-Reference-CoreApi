@@ -156,15 +156,21 @@ need to add the new doktype as select item and associate it with the configured 
                 'after'
             );
 
-            // Add icon for new page type:
             \TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule(
                 $GLOBALS['TCA'][$table],
                 [
+                    // add icon for new page type:
                     'ctrl' => [
                         'typeicon_classes' => [
                             $archiveDoktype => 'apps-pagetree-archive',
                         ],
                     ],
+                    // add all page standard fields and tabs to your new page type
+                    'types' => [
+                        (string) $archiveDoktype => [
+                            'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_DEFAULT]['showitem']
+                        ]
+                    ]
                 ]
             );
         },
