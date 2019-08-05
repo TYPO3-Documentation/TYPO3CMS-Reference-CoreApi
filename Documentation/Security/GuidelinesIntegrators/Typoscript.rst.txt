@@ -43,7 +43,7 @@ The following code snippet gives an example:
 Argument passed by the `GET` / `POST` request `pageid` wrapped as markers are properly
 escaped and quoted to prevent SQL injection problems.
 
-See :ref:`TypoScript Reference <t3tsref:Functions/Select.html#markers>` for more
+See :ref:`TypoScript Reference <t3tsref:select-markers>` for more
 information.
 
 As a rule, you cannot trust (and must not use) any data from a source
