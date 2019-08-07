@@ -4,7 +4,7 @@
 .. _metatagapi:
 
 =================
-MetaTag API (SEO)
+MetaTag API
 =================
 
 In order to have the possibility to set metatags in a flexible (but regulated way), a new Meta Tag API is introduced.
