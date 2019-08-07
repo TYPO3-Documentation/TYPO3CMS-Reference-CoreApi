@@ -43,6 +43,17 @@ extension recognized by TYPO3 without this file.
 In general, do not introduce your own files in the root directory of
 extensions with the name prefix :file:`ext_`, because that is reserved.
 
+
+.. _files-composer-json:
+
+:file:`composer.json`
+---------------------
+
+*-- required*
+
+For more information, see :ref:`composer-json`.
+
+
 .. _ext_emconf-php:
 
 :file:`ext_emconf.php`

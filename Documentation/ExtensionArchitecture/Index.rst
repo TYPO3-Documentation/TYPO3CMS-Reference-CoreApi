@@ -26,6 +26,7 @@ RESERVED FILES & HOW THEY DEFINE FUNCTIONALITY
 
 
    FilesAndLocations/Index
+   ComposerJson/Index
    DeclarationFile/Index
    ConfigurationFiles/Index
    NamingConventions/Index
