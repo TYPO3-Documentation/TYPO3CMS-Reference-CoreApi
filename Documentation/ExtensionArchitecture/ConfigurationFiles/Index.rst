@@ -24,7 +24,7 @@ directory names typically used in extensions.
 ext_localconf.php
 =================
 
-- *optional*
+*-- optional*
 
 :file:`ext_localconf.php` is always included in global scope of the script,
 either frontend or backend.
@@ -79,7 +79,7 @@ deprecated
 ext_tables.php
 ==============
 
-- *optional*
+*-- optional*
 
 :file:`ext_tables.php` is *not* always included in the global scope of the
 frontend context.
