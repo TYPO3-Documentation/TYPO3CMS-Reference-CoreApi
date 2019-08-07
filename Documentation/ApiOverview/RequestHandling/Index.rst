@@ -8,22 +8,22 @@
 Request Handling
 ================
 
-TYPO3 CMS has implemented `PSR-15`_ for handling incoming HTTP Requests. The
+TYPO3 CMS has implemented `PSR-15`_ for handling incoming HTTP requests. The
 implementation within TYPO3 is often called "Middlewares", as PSR-15 consists of
-two Interfaces where one is called Middleware.
+two interfaces where one is called :php:`Middleware`.
 
 .. _request-handling-basic-concept:
 
 Basic concept
 =============
 
-The most important information are available at
+The most important information is available at
 https://www.php-fig.org/psr/psr-15/ and https://www.php-fig.org/psr/psr-15/meta/
 where the standard itself is explained.
 
-The idea is to use `PSR-7`_ Request and Response as a base, and wrap the execution
-of application using PSR-15. PSR-15 will receive the incoming request and return
-the created response. Within PSR-15 multiple Request Handlers and Middlewares
+The idea is to use `PSR-7`_ :php:`Request` and :php:`Response` as a base, and wrap the execution
+of the application using PSR-15. PSR-15 will receive the incoming request and return
+the created response. Within PSR-15 multiple request handlers and middlewares
 can be executed. Each of them can adjust the request and response.
 
 .. _request-handling-typo3-implementation:
@@ -42,15 +42,15 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 
 #. TYPO3 will create a PSR-7 request.
 
-#. TYPO3 will collect and order all configured PSR-15 middlewares.
+#. TYPO3 will collect and sort all configured PSR-15 middlewares.
 
-#. TYPO3 will convert all middlewares to PSR-15 request handler.
+#. TYPO3 will convert all middlewares to PSR-15 request handlers.
 
-#. TYPO3 will call the first middleware with request and next middleware.
+#. TYPO3 will call the first middleware with request and the next middleware.
 
 #. Each middleware is processed, see :ref:`request-handling-middleware`.
 
-#. In the end each middleware has to return an PSR-7 response.
+#. In the end each middleware has to return a PSR-7 response.
 
 #. This response is passed back to the execution flow.
 
@@ -94,9 +94,9 @@ By doing so, the middleware can do one or multiple of the following:
 
 * Create and return a PSR-7 response.
 
-* Call next request handler (which again will be a middleware).
+* Call next request handler (which again can be a middleware).
 
-* Adjust response received from calling next request handler.
+* Adjust response received from the next request handler.
 
 .. _request-handling-middleware-examples:
 
@@ -107,12 +107,12 @@ The following list shows typical use cases for middlewares.
 
 .. _request-handling-returning-custom-response:
 
-Returning custom response
--------------------------
+Returning a custom response
+---------------------------
 
 This middleware will check whether TYPO3 is in maintenance mode and will return
 an unavailable response in that case. Otherwise the next middleware will be
-called, and their response is returned instead.
+called, and its response is returned instead.
 
 ::
 
@@ -133,14 +133,14 @@ called, and their response is returned instead.
 
 .. _request-handling-enriching-request:
 
-Enriching request
------------------
+Enriching the request
+---------------------
 
 The current request can be extended with further information, e.g. the current
 resolved site and language could be attached to the request.
 
 In order to do so, a new request is built with additional attributes, before
-calling the next request handler with enhanced request.
+calling the next request handler with the enhanced request.
 
 ::
 
@@ -158,13 +158,13 @@ calling the next request handler with enhanced request.
 
 .. _request-handling-enriching-response:
 
-Enriching response
------------------
+Enriching the response
+----------------------
 
-This middleware will check the length of generated output, and add an header
+This middleware will check the length of generated output, and add a header
 with this information to the response.
 
-In order to do so, next request handler is called. He will return the generated
+In order to do so, the next request handler is called. It will return the generated
 response, which can be enriched before it gets returned.
 
 ::
@@ -191,12 +191,12 @@ Configuring middlewares
 =======================
 
 In order to implement a custom middleware, this middleware has to be configured.
-TYPO3 already provides some middlewares pre configured. Beside adding own
+TYPO3 already provides some middlewares out of the box. Beside adding your own
 middlewares, it's also possible to remove existing middlewares from
-configuration.
+the configuration.
 
 The configuration is provided within
-:file:`Configuration/RequestMiddlewares.php` of an extensions::
+:file:`Configuration/RequestMiddlewares.php` of an extension::
 
    return [
        'frontend' => [
@@ -224,11 +224,11 @@ The configuration is provided within
    ];
 
 TYPO3 has multiple stacks where one middleware might only be necessary in one
-of them. Therefore the configuration first introduces an level to define the
-context. Within each context each middleware is registered as new php array with
+of them. Therefore the configuration defines the context on its first level to define the
+context. Within each context the middleware is registered as new subsection with
 an unique identifier as key.
 
-Possible stacks are: `frontend` and `backend`.
+The default stacks are: `frontend` and `backend`.
 
 Each middleware consists of the following options:
 
@@ -259,8 +259,9 @@ disabled
 Debugging
 =========
 
-In order to see which middlewares are configured, and to see the order of
-execution TYPO3 offers a new function menu entry within "Configuration" module:
+In order to see which middlewares are configured and to see the order of
+execution, TYPO3 offers a the menu entry :guilabel:`HTTP Middlewares (PSR-15)`
+within the "Configuration" module:
 
 .. figure:: /Images/ConfigurationMiddleware.png
    :align: center
