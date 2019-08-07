@@ -15,11 +15,16 @@ most important files for the execution of extensions
 within TYPO3. They contain configuration used by the system on almost
 every request. They should therefore be optimized for speed.
 
+See :ref:`extension-files-locations` for a full list of file and
+directory names typically used in extensions.
+
 
 .. _ext-localconf-php:
 
 ext_localconf.php
 =================
+
+- *optional*
 
 :file:`ext_localconf.php` is always included in global scope of the script,
 either frontend or backend.
@@ -73,6 +78,8 @@ deprecated
 
 ext_tables.php
 ==============
+
+- *optional*
 
 :file:`ext_tables.php` is *not* always included in the global scope of the
 frontend context.

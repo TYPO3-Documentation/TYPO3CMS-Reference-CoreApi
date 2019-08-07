@@ -48,13 +48,13 @@ extensions with the name prefix :file:`ext_`, because that is reserved.
 :file:`ext_emconf.php`
 ----------------------
 
-*mandatory*
+- *required*
 
 Definition of extension properties. This is the only mandatory file in the extension.
 It describes the extension.
 
 Name, category, status etc. are used by the Extension Manager. The content of this file
-is described in more details :ref:`below <extension-declaration>`. Note
+is described in more details in :ref:`extension-declaration`. Note
 that it is auto-written by the Extension Manager when extensions are imported from the repository.
 
 .. note::
@@ -68,7 +68,7 @@ that it is auto-written by the Extension Manager when extensions are imported fr
 :file:`ext_localconf.php`
 -------------------------
 
-*optional*
+- *optional*
 
 Addition to :file:`LocalConfiguration.php`.
 It should contain additional configuration of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
@@ -90,7 +90,7 @@ For more details, see the :ref:`section below <extension-configuration-files>`.
 :file:`ext_tables.php`
 ----------------------
 
-*optional*
+- *optional*
 
 Contains extensions of existing tables,
 declaration of backend modules, etc. All code in such files
@@ -120,7 +120,7 @@ For more details, see the :ref:`section below <extension-configuration-files>`.
 :file:`ext_tables.sql`
 ----------------------
 
-*optional*
+- *optional*
 
 SQL definition of database tables.
 

@@ -8,6 +8,8 @@
 Declaration File (ext_emconf.php)
 =================================
 
+- *required*
+
 The :file:`ext_emconf.php` is the single most important file in an extension.
 Without it, the Extension Manager (EM) will not detect the extension, much less
 be able to install it. This file contains a declaration of what the extension
