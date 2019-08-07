@@ -43,18 +43,18 @@ extension recognized by TYPO3 without this file.
 In general, do not introduce your own files in the root directory of
 extensions with the name prefix :file:`ext_`, because that is reserved.
 
-.. _:file:`ext_emconf.php`:
+.. _ext_emconf-php:
 
 :file:`ext_emconf.php`
 ----------------------
 
-*mandatory*
+*-- required*
 
 Definition of extension properties. This is the only mandatory file in the extension.
 It describes the extension.
 
 Name, category, status etc. are used by the Extension Manager. The content of this file
-is described in more details :ref:`below <extension-declaration>`. Note
+is described in more details in :ref:`extension-declaration`. Note
 that it is auto-written by the Extension Manager when extensions are imported from the repository.
 
 .. note::
@@ -63,12 +63,12 @@ that it is auto-written by the Extension Manager when extensions are imported fr
    extension.
 
 
-.. _:file:`ext_localconf.php`:
+.. _ext_localconf-php:
 
 :file:`ext_localconf.php`
 -------------------------
 
-*optional*
+*-- optional*
 
 Addition to :file:`LocalConfiguration.php`.
 It should contain additional configuration of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
@@ -85,12 +85,12 @@ Pay attention to the rules for the contents of these files.
 For more details, see the :ref:`section below <extension-configuration-files>`.
 
 
-.. _:file:`ext_tables.php`:
+.. _ext_tables-php:
 
 :file:`ext_tables.php`
 ----------------------
 
-*optional*
+*-- optional*
 
 Contains extensions of existing tables,
 declaration of backend modules, etc. All code in such files
@@ -115,12 +115,12 @@ For more details, see the :ref:`section below <extension-configuration-files>`.
    in :file:`Configuration/TCA/Overrides/<table name>.php`.
 
 
-.. _:file:`ext_tables.sql`:
+.. _ext_tables-sql:
 
 :file:`ext_tables.sql`
 ----------------------
 
-*optional*
+*-- optional*
 
 SQL definition of database tables.
 
