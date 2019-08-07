@@ -43,7 +43,7 @@ extension recognized by TYPO3 without this file.
 In general, do not introduce your own files in the root directory of
 extensions with the name prefix :file:`ext_`, because that is reserved.
 
-.. _:file:`ext_emconf.php`:
+.. _ext_emconf-php:
 
 :file:`ext_emconf.php`
 ----------------------
@@ -63,7 +63,7 @@ that it is auto-written by the Extension Manager when extensions are imported fr
    extension.
 
 
-.. _:file:`ext_localconf.php`:
+.. _ext_localconf-php:
 
 :file:`ext_localconf.php`
 -------------------------
@@ -85,7 +85,7 @@ Pay attention to the rules for the contents of these files.
 For more details, see the :ref:`section below <extension-configuration-files>`.
 
 
-.. _:file:`ext_tables.php`:
+.. _ext_tables-php:
 
 :file:`ext_tables.php`
 ----------------------
@@ -115,7 +115,7 @@ For more details, see the :ref:`section below <extension-configuration-files>`.
    in :file:`Configuration/TCA/Overrides/<table name>.php`.
 
 
-.. _:file:`ext_tables.sql`:
+.. _ext_tables-sql:
 
 :file:`ext_tables.sql`
 ----------------------
