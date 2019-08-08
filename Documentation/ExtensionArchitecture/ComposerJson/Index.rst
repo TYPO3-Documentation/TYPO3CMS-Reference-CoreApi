@@ -11,10 +11,11 @@ composer.json
 
 .. note::
 
-   While the file :file:`composer.json` is currently not strictly required, it is considered
+   While the file :file:`composer.json` is currently not strictly required
+   for an extension to function properly, it is considered
    bad practice not to add one. That is why we classify it as "required".
 
-Including a :file:`composers.json` is strongly recommended for a number of reasons:
+Including a :file:`composer.json` is strongly recommended for a number of reasons:
 
 #. The file :file:`composer.json` is required for documentation rendering since
    May 29, 2019.
@@ -31,7 +32,7 @@ Including a :file:`composers.json` is strongly recommended for a number of reaso
 Minimal composer.json
 =====================
 
-This is a minimal composer.json for a TYPO3 extensions:
+This is a minimal composer.json for a TYPO3 extension:
 
 .. code-block:: json
    :linenos:
