@@ -21,10 +21,11 @@ The most important information is available at
 https://www.php-fig.org/psr/psr-15/ and https://www.php-fig.org/psr/psr-15/meta/
 where the standard itself is explained.
 
-The idea is to use `PSR-7`_ :php:`Request` and :php:`Response` as a base, and wrap the execution
-of the application using PSR-15. PSR-15 will receive the incoming request and return
-the created response. Within PSR-15 multiple request handlers and middlewares
-can be executed. Each of them can adjust the request and response.
+The idea is to use `PSR-7`_ :php:`Request` and :php:`Response` as a base, and
+wrap the execution with middlewares which implement `PSR-15`_. PSR-15 will receive
+the incoming request and return the created response. Within PSR-15 multiple
+request handlers and middlewares can be executed. Each of them can adjust the
+request and response.
 
 .. _request-handling-typo3-implementation:
 
