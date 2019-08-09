@@ -43,12 +43,23 @@ extension recognized by TYPO3 without this file.
 In general, do not introduce your own files in the root directory of
 extensions with the name prefix :file:`ext_`, because that is reserved.
 
-.. _:file:`ext_emconf.php`:
+
+.. _files-composer-json:
+
+:file:`composer.json`
+---------------------
+
+*-- required*
+
+For more information, see :ref:`composer-json`.
+
+
+.. _ext_emconf-php:
 
 :file:`ext_emconf.php`
 ----------------------
 
-*mandatory*
+*-- required*
 
 Definition of extension properties. This is the only mandatory file in the extension.
 It describes the extension.
@@ -63,12 +74,12 @@ that it is auto-written by the Extension Manager when extensions are imported fr
    extension.
 
 
-.. _:file:`ext_localconf.php`:
+.. _ext_localconf-php:
 
 :file:`ext_localconf.php`
 -------------------------
 
-*optional*
+*-- optional*
 
 Addition to :file:`LocalConfiguration.php`.
 It should contain additional configuration of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
@@ -85,12 +96,12 @@ Pay attention to the rules for the contents of these files.
 For more details, see the :ref:`section below <extension-configuration-files>`.
 
 
-.. _:file:`ext_tables.php`:
+.. _ext_tables-php`:
 
 :file:`ext_tables.php`
 ----------------------
 
-*optional*
+*-- optional*
 
 Contains extensions of existing tables,
 declaration of backend modules, etc. All code in such files
@@ -115,12 +126,12 @@ For more details, see the :ref:`section below <extension-configuration-files>`.
    in :file:`Configuration/TCA/Overrides/<table name>.php`.
 
 
-.. _:file:`ext_tables.sql`:
+.. _ext_tables.sql:
 
 :file:`ext_tables.sql`
 ----------------------
 
-*optional*
+*-- optional*
 
 SQL definition of database tables.
 
@@ -241,7 +252,7 @@ definition:
   index named :php:`t3ver_oid` to fields :php:`t3ver_oid` and :php:`t3ver_wsid` is
   added, too.
 
-.. _:file:`ext_tables_static+adt.sql`:
+.. _ext_tables_static+adt.sql:
 
 :file:`ext_tables_static+adt.sql`
 ---------------------------------
@@ -276,7 +287,7 @@ You can also drop the table content using the Extension Manager in the backend.
    statements.
 
 
-.. _:file:`ext_typoscript_constants.typoscript`:
+.. _ext_typoscript_constants.typoscript:
 
 :file:`ext_typoscript_constants.typoscript`
 -------------------------------------------
@@ -292,7 +303,7 @@ of all TypoScript templates.
    :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` are preferred.
 
 
-.. _:file:`ext_typoscript_setup.typoscript`:
+.. _ext_typoscript_setup.typoscript:
 
 :file:`ext_typoscript_setup.typoscript`
 ---------------------------------------
@@ -308,7 +319,7 @@ TypoScript templates.
    :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` are preferred.
 
 
-.. _:file:`ext_conf_template.txt`:
+.. _ext_conf_template.txt:
 
 :file:`ext_conf_template.txt`
 -----------------------------
@@ -325,7 +336,7 @@ written as an array to :file:`LocalConfiguration.php`
 in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][`:code:`*extension_key*` :php:`]`
 
 
-.. _:file:`routes.php`-and-:file:`ajaxroutes.php`:
+.. _routes-php:
 
 :file:`Routes.php` and :file:`AjaxRoutes.php`
 ---------------------------------------------
@@ -339,7 +350,7 @@ The file must return an array with routing details. See core extensions
 like :php:`backend` for examples.
 
 
-.. _:file:`resources/public/icons/extension.svg`:
+.. _extension-svg:
 
 :file:`Resources/Public/Icons/Extension.svg`
 --------------------------------------------
@@ -351,7 +362,7 @@ as vector graphics (SVG) rather than bitmaps (GIF or PNG).
 18x16 GIF, PNG or SVG icon for the extension.
 
 
-.. _:file:`class.ext_update.php`:
+.. _class-ext_update-php:
 
 :file:`class.ext_update.php`
 ----------------------------
