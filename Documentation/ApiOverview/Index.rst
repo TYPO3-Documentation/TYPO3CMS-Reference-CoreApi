@@ -37,6 +37,7 @@ BOOTSTRAPPING
 
    Autoloading/Index
    Bootstrapping/Index
+   RequestHandling/Index
 
 PERSISTENCE
 
