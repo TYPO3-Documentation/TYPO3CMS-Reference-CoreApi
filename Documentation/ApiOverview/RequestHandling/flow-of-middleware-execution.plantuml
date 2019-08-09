@@ -1,0 +1,28 @@
+@startuml
+
+autonumber 1
+Application -> ServerRequestFactory: fromGlobals()
+autonumber 1
+Application <-- ServerRequestFactory: Request
+
+autonumber 2
+Application -> MiddlewareStackResolver: resolve()
+autonumber 3
+Application <-- MiddlewareStackResolver: Stack
+
+autonumber 4
+Application -> MiddlewareDispatcher: handle(Request)
+autonumber 4
+MiddlewareDispatcher -> RequestHandler: handle(Request)
+
+autonumber 5
+RequestHandler -> Middleware: process(Request, next RequestHandler)
+autonumber 6
+Middleware --> RequestHandler: Response
+
+autonumber 7
+RequestHandler --> MiddlewareDispatcher: Response
+autonumber 7
+MiddlewareDispatcher --> Application: Response
+
+@enduml
