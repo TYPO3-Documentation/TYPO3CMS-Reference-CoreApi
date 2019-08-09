@@ -7,7 +7,7 @@ FlexForms
 ==============
 
 FlexForms can be used to store data within an XML structure inside a single DB
-columns. The typical use case is to configure plugins within a content element.
+column. The typical use case is to configure plugins within a content element.
 
 You may want to configure
 individual plugins differently, depending on where they are added. The
