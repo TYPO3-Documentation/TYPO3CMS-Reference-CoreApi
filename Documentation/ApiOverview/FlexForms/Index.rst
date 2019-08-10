@@ -276,7 +276,7 @@ How to Read and Write FlexForms From PHP
 Some situation make it necessary to access FlexForms via PHP. The following APIs
 are available to work with FlexForms from within PHP:
 
-In order to convert a FlexForm to an PHP array, the :php:`xml2array` method can
+In order to convert a FlexForm to a PHP array, the :php:`xml2array` method can
 be used:
 
 .. code-block:: php
