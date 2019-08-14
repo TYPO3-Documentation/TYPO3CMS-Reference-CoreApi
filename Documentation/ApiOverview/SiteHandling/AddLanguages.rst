@@ -45,6 +45,18 @@ fallback levels - for example "Modern Chinese" might fall back to "Chinese (Trad
 Configuration Properties
 ========================
 
+enabled
+-----
+
+:aspect:`Datatype`
+    bool
+
+:aspect:`Description`
+    Defines if the language is visible in the frontend. Editors in the TYPO3 Backend will still be able to translate content     for the language.
+
+:aspect:`Example`
+    `true`
+
 languageId
 ----------
 
