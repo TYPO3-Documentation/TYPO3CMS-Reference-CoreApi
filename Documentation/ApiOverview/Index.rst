@@ -127,6 +127,7 @@ SEO & SOCIAL MEDIA
    :titlesonly:
    :maxdepth: 1
 
+   Seo/Index
    MetaTagApi/Index
    PageTitleApi/Index
    XmlSitemap/Index
@@ -157,4 +158,5 @@ VARIOUS
    SystemRegistry/Index
    Workspaces/Index
    Xclasses/Index
+   Yaml/Index
 
