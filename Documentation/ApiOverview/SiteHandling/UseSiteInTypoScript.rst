@@ -9,7 +9,7 @@ Using Site Configuration in TypoScript
 getText
 ~~~~~~~
 
-Site configuration can be accessed via the :typoscript:`getText` property in TypoScript.
+Site configuration can be accessed via the :ref:`site <t3tsref:data-type-site>` property in TypoScript.
 
 Example:
 
@@ -26,7 +26,7 @@ configuration key(s) to access.
 
     data = site:customConfigKey.nested.value
 
-To access the current siteLanguage use the `siteLanguage` prefix:
+To access the current siteLanguage use the :ref:`siteLanguage <t3tsref:data-type-siteLanguage>` prefix:
 
 .. code-block:: typoscript
 

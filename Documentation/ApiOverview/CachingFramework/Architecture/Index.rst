@@ -232,3 +232,6 @@ The caching framework architecture is based on the following classes:
 - **\\TYPO3\\CMS\\Core\\Cache\\Backend\\BackendInterface**: Main interface that every valid storage backend must implement.
   Several backends and further interfaces exist to specify specific backend capabilities. Some frontends require backends
   to implement additional interfaces.
+
+.. warning::
+  Do not use the CacheManager in :file:`ext_localconf.php` - instead load caches on demand at the place where they are needed.

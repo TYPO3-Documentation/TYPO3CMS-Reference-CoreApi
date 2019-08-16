@@ -351,29 +351,10 @@ Workspace-related API for Backend Modules
 
 
  - :Function:
-         $BE\_USER->workspaceCannotEditOfflineVersion()
-   :Description:
-         Like :code:`$BE_USER->workspaceCannotEditRecord()` but also requires version
-         to be offline.
-
-
- - :Function:
          $BE\_USER->workspaceCreateNewRecord()
    :Description:
          Checks if new records can be created in a certain page (according to
          workspace restrictions).
-
-
- - :Function:
-         $BE\_USER->workspacePublishAccess($wsid)
-   :Description:
-         Returns true if user has access to publish in workspace.
-
-
- - :Function:
-         $BE\_USER->workspaceSwapAccess()
-   :Description:
-         Returns true if user has access to swap versions.
 
 
  - :Function:
