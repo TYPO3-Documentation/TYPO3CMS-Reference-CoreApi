@@ -10,7 +10,7 @@ TYPO3 contains various SEO related functionality out of the box. The following p
 
 Hreflang Tags
 =============
- "hreflang" tags are now added automatically for multilanguage websites based on the one-tree principle.
+ "hreflang" tags are added automatically for multilanguage websites based on the one-tree principle.
 
 The href is relative as long as the domain is the same. If the domain differs the href becomes absolute. 
 The x-default href is the first supported language. The value of "hreflang" is the one set in the sites module
