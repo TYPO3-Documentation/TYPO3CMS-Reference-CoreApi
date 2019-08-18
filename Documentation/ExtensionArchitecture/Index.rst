@@ -44,4 +44,5 @@ STEPS TOWARDS CREATING AN EXTENSION
    CreateNewExtension/Index
    CreateNewDistribution/Index
    Documentation/Index
+   PublishExtension/Index
    Resources/Index
