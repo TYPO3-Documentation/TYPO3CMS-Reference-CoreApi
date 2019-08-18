@@ -7,8 +7,7 @@
 Publish Your Extension
 ======================
 
-By publishing an extension, we mean making it publicly available. This may include
-all of or just a few of the following:
+By publishing an extension, we mean making it publicly available. This includes:
 
 #. :ref:`Register your extension on Packagist <publish-extension-packagist>`
 #. :ref:`Register your extension on extensions.typo3.org <publish-extension-ter>` (TER)
@@ -20,7 +19,7 @@ all of or just a few of the following:
    docs.typo3.org
 
 
-We recommend to do all of these. Find more information in the following sections!
+We recommend to do all of these. Find more information in the following sections.
 
 *TYPO3 - Inspiring people to share*
 
@@ -47,7 +46,6 @@ for more information on how to publish an extension and check out the
 
 Advantages:
 
-* More visibility for your extension
 * The community can vote for your extension
 * Donate link (optional)
 * Link to the documentation (optional)
@@ -60,14 +58,13 @@ Publish Source Code on a Public Git Hosting Platform
 ====================================================
 
 The TYPO3 community currently uses GitHub, GitLab and Atlassian Bitbucket to host
-the Git repository of their extensions.
+the Git repositories of their extensions.
 
-Just add a repository to your workspace. Typically, the extension key is used
+Add a repository to your workspace. Typically, the extension key is used
 for the repository name, but that is not necessary.
 
 Advantages:
 
-* More visibility for your extension
 * Contributors can add issues or pull requests
 * Render the documentation on docs.typo3.org (see next step) by adding a webhook
 
@@ -88,6 +85,5 @@ step 4 (request redirects) which is not necessary for new documentation.
 Advantages:
 
 * Your extension will be rendered on docs.typo3.org
-* More visibility for your extension
 * The documentation link will automatically be added if your extension is registered
   on extensions.typo3.org (TER).
