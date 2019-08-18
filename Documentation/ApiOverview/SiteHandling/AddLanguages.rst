@@ -46,7 +46,7 @@ Configuration Properties
 ========================
 
 enabled
------
+-------
 
 :aspect:`Datatype`
     bool
