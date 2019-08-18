@@ -7,6 +7,10 @@
 Creating Hooks
 ==============
 
+.. note::
+   Starting with TYPO3 v10 hooks and signals have been replaced by a PSR-14 based
+   event dispatching system.
+
 You are encouraged to create hooks in your extensions if they seem
 meaningful. Typically someone would request a hook somewhere. Before
 you implement it, consider if it is the right place to put it etc. On
@@ -42,6 +46,9 @@ Here follows some examples.
 Using \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()
 ============================================================
 
+.. warning:: 
+   The hook shown here is deprecated since TYPO3 v9 - use a custom :ref:`PSR-15 middleware<request-handling>` instead.
+
 Data submission to extensions::
 
    // Hook for processing data submission to extensions
@@ -56,6 +63,9 @@ Data submission to extensions::
 
 Using with \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()
 =====================================================================
+
+.. warning:: 
+   The hook shown here is deprecated since TYPO3 v9 - use a custom :ref:`PSR-15 middleware<request-handling>` instead.
 
 Constructor post-processing::
 

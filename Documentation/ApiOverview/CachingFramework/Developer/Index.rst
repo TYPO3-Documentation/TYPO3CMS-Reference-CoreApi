@@ -65,7 +65,8 @@ should be used. The cache manager will return the fully initialized cache instan
 
    $myCacheInstance = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache');
 
-
+.. warning::
+  Do not use the CacheManager in :file:`ext_localconf.php` - instead load caches on demand at the place where they are needed.
 
 .. _caching-developer-access:
 
