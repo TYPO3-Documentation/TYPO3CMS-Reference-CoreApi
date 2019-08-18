@@ -100,6 +100,7 @@ HANDLING SITES, URLS, LANGUAGES
 
    SiteHandling/Index
    Internationalization/Index
+   Routing/Index
 
 SECURITY, AUTHENTICATION, PASSWORDS, ...
 
