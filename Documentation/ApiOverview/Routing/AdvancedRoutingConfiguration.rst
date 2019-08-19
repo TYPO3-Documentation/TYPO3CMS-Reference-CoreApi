@@ -217,7 +217,7 @@ which is typically the case within demand objects for filtering functionality.
 Page Type Decorator
 ^^^^^^^^^^^^^^^^^^^
 
-The PageType Enhancre (Decorator) allows to add a suffix to the existing route (including existing other enhancers)
+The PageType Enhancer (Decorator) allows to add a suffix to the existing route (including existing other enhancers)
 to map a page type (GET parameter &type=) to a suffix.
 
 It is possible to map various page types to endings:
