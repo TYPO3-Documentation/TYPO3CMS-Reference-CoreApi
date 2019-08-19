@@ -55,10 +55,14 @@ CONFIGURATION
    :titlesonly:
    :maxdepth: 1
 
+
    TypoScriptSyntax/Index
+   Yaml/Index
    Tsconfig/Index
+   FeatureToggles/Index
    UserSettingsConfiguration/Index
    FlexForms/Index
+
 
 CACHING
 
@@ -132,6 +136,15 @@ SEO & SOCIAL MEDIA
    PageTitleApi/Index
    XmlSitemap/Index
 
+HOOKS, SIGNALS, XCLASSES
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Hooks/Index
+   Xclasses/Index
+
 VARIOUS
 
 .. toctree::
@@ -142,9 +155,7 @@ VARIOUS
    Context/Index
    ContextSensitiveHelp/Index
    Enumerations/Index
-   FeatureToggles/Index
    Http/Index
-   Hooks/Index
    Icon/Index
    LockingApi/Index
    Mail/Index
@@ -157,6 +168,6 @@ VARIOUS
    Collections/Index
    SystemRegistry/Index
    Workspaces/Index
-   Xclasses/Index
-   Yaml/Index
+
+
 
