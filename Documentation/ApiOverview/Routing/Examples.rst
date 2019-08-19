@@ -924,3 +924,48 @@ Based on the plugin enhancer and extbase plugin enhancer, extended with paramete
             }
         }
 
+EXT: DpnGlossary
+================
+
+**Prerequisites:**
+
+The plugin for *list view* and *detail view* is added on one page.
+
+**Result:**
+
+* List view: ``https://www.example.com/[YOUR_PLUGINPAGE_SLUG]``
+* Detail view: ``https://www.example.com/[YOUR_PLUGINPAGE_SLUG]/term/the-term-title``
+
+.. code-block:: yaml
+   :linenos: 
+
+   routeEnhancers:
+     DpnGlossary:
+        type: Extbase
+        limitToPages: [YOUR_PLUGINPAGE_UID]
+        extension: DpnGlossary
+        plugin: glossary
+        routes:
+        - { routePath: '/{character}', _controller: 'Term::list', _arguments: {'character': '@widget_0/character'} }
+        - { routePath: '/{localized_term}/{term_name}', _controller: 'Term::show', _arguments: {'term_name': 'term'} }
+        defaultController: 'Term::list'
+        defaults:
+          character: ''
+        aspects:
+          term_name:
+            type: PersistedAliasMapper
+            tableName: 'tx_dpnglossary_domain_model_term'
+            routeFieldName: 'url_segment'
+          character:
+            type: StaticMultiRangeMapper
+            ranges:
+              - start: 'A'
+                end: 'Z'
+          localized_term:
+            type: LocaleModifier
+            default: 'term'
+            localeMap:
+            - locale: 'de_DE.*'
+              value: 'begriff'
+
+Taken from `dpn_glossary manual <https://docs.typo3.org/typo3cms/extensions/dpn_glossary/3.0.2/Configuration/ExampleTypoScriptSetup/Index.html#configure-routing-for-terms-and-pagination>`__.
