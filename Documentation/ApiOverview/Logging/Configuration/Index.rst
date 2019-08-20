@@ -67,11 +67,11 @@ use the following configuration:
 This overwrites the default configuration shown in the first example for classes
 located in the namespace :code:`\Documentation\Examples\Controller`.
 
-For extension "foo" with key "tx_foo" (not using namespaces), the configuration would be located at:
+For extension "foo" with key "tx_foo" from "Vendor" (not using namespaces), the configuration would be located at:
 
 .. code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Tx']['Foo']['writerConfiguration'] = array(
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Vendor']['TxFoo']['writerConfiguration'] = array(
       // ...
    );
 
