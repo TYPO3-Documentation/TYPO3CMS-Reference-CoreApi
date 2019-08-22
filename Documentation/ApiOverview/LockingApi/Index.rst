@@ -8,13 +8,6 @@
 Locking API
 ===========
 
-In TYPO3 7.2 a new Locking API was introduced, see Change `Feature: #47712 - New Locking API
-<https://docs.typo3.org/typo3cms/extensions/core/latest/Changelog/7.2/Feature-47712-NewLockingAPI.html>`__.
-
-Here, we describe the basic API. In some descriptions, we give implementation details (like
-currently implemented locking strategies). This may change in the future, so be sure to
-check in your version of the core.
-
 TYPO3 uses the locking API in the core. You can do the same in your extension,
 for operations which require locking. This is typically, if you use a resource,
 where concurrent access can be a problem, for example:
