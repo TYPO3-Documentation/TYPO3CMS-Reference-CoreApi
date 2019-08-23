@@ -10,7 +10,7 @@ Locking API
 
 TYPO3 uses the locking API in the core. You can do the same in your extension
 for operations which require locking. This is the case if you use a resource,
-where concurrent access can be a problem. For example if your are getting a
+where concurrent access can be a problem. For example if you are getting a
 cache entry, while another process sets the same entry. This may
 result in incomplete or corrupt data, if locking is not used.
 
