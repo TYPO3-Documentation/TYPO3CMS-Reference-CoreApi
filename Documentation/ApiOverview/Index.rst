@@ -57,6 +57,7 @@ CONFIGURATION
 
    Configuration/Index
    TypoScriptSyntax/Index
+   SymfonyExpressionLanguage/Index
    Yaml/Index
    Tsconfig/Index
    FeatureToggles/Index
