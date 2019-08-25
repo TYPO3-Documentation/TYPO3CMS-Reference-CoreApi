@@ -4,7 +4,7 @@
 .. _extension-architecture:
 
 ======================
-Extension Architecture
+Extension Development
 ======================
 
 
