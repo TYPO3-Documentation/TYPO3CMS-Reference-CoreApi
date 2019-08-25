@@ -79,6 +79,7 @@ address the task at hand.
    Rte/Index
    DataFormats/Index
    References
+   CodingGuidelines/Index
    Appendices/Index
    Targets
 
