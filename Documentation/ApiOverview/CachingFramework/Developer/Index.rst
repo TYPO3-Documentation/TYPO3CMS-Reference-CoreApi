@@ -60,13 +60,39 @@ should hint an integrator about specific caching needs or setups in this case.
        $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = \TYPO3\CMS\Core\Cache\Backend\TransientMemoryBackend::class;
    }
 
-To get an instance of a cache, :code:`GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache')`
-should be used. The cache manager will return the fully initialized cache instance::
+To get an instance of a cache dependency injection should be used. A service for each cache 
+configuration will added to the dependency injection container. The cache instances will be 
+named like "cache.[NAME OF CONFIGURATION]". The follwing examples shows how to inject a 
+cache instance to the constructor of a class:
 
-   $myCacheInstance = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache');
+.. code-block:: php
+
+   class MyClass
+   {
+       /**
+        * @var TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
+        */
+       private $cache;
+
+       public function __construct(FrontendInterface $cache)
+       {
+           $this->cache = $cache;
+       }
+   }
+
+Since the auto-wiring feature of the dependency injection container cannot detect,
+which cache configuration should be used for the :php:`$cache` argument, the container
+service configuration needs to be extended as well:
+
+.. code-block:: yaml
+
+   MyClass:
+      arguments:
+         $cache: '@cache.myext_mycache'
+
 
 .. warning::
-  Do not use the CacheManager in :file:`ext_localconf.php` - instead load caches on demand at the place where they are needed.
+  The CacheManager cannot be used in :file:`ext_localconf.php`.
 
 .. _caching-developer-access:
 
