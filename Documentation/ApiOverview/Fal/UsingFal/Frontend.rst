@@ -51,7 +51,22 @@ If you have a file reference and want to get its properties like Metadata, you h
 	{filereference.originalResource.title}
 	{filereference.originalResource.description}
 	{filereference.originalResource.publicUrl}
+   
 
+.. note::
+
+   The system extension "filemetadata" (if installed) provides some additional meta data fields for files, for example :code:`creator`, :code:`publisher`, :code:`copyright` and others. To access those fields in the frontend, you have to use a proxy method named :code:`properties`:
+
+.. code-block:: html
+
+	{filereference.originalResource.properties.copyright}
+	{filereference.originalResource.properties.creator}
+   
+
+.. tip::
+
+   Please note that the additional fields provided by the "filemetadata" extension are not listed as properties when you use :code:`<f:debug>` on a :code:`\TYPO3\CMS\Core\Resource\FileReference` object. 
+   
 *Note:* Some metadata fields, like title and description, can be entered either in the referenced file itself or in the reference or both. TYPO3 automatically merges both sources when you access originalResource in Fluid. So `originalResource` returns the merged value. Values which are entered in the reference will override values from the file itself.
 
 
