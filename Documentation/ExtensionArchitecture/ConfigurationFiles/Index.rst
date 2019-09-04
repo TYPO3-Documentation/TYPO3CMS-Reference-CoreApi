@@ -97,29 +97,26 @@ The skeletton of the :file:`ext_localconf.php` looks like this::
 Adding default PageTSconfig
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can add any default :ref:`PageTSconfig
-<t3tsconfig:pagesettingdefaultpagetsconfig>` directly in the
-:file:`ext_localconf.php` :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig()`::
+Default PageTSconfig can be added inside :file:`ext_localconf.php`, see
+:ref:`t3tsconfig:pagesettingdefaultpagetsconfig`::
 
-   <?php
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig();
 
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('# Add your PageTSConfig here');
+PageTSconfig available via static files can be added inside
+:file:`Configuration/TCA/Overrides/pages.php`, see
+:ref:`t3tsconfig:pagesettingstaticpagetsconfigfiles`::
 
-.. hint::
-
-   Hint: PageTSconfig in static files that can be optionally included by the
-   integrators go to :file:`Configuration/TCA/Overrides/pages.php`, see
-   :ref:`PageTSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>`
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile();
 
 
 Adding default UserTSconfig
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Analog, you can also add default UserTSconfig via
-:php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig()`::
+As for default PageTSconfig, UserTSconfig can be added inside
+:file:`ext_localconf.php`, see:
+:ref:`t3tsconfig:usersettingdefaultusertsconfig`::
 
-   // Adding the admin panel to users by default and forcing the display of the edit-icons
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig('# Add your UserTSConfig here');
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig();
 
 .. _ext-tables.php:
 
