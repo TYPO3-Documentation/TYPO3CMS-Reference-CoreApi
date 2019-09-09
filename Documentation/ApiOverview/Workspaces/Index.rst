@@ -470,14 +470,32 @@ Placeholders
 
 Workspace placeholders are stored in field :code:`t3ver_state` which can have the following values:
 
-* `-1`: new placeholder version - the workspace pendant for a new placeholder (see value `1`)
-* `0`: default state - representing a workspace modification of an existing record (when :code:`t3ver_wsid > 0`)
-* `1`: new placeholder - live pendant for a record that is new, used as insertion point concerning sorting
-* `2`: delete placeholder - representing a record that is deleted in workspace
-* `3`: move placeholder - live pendant indicating that record referenced in :code:`t3ver_move_id` is moved in workspace
-  + either moved to different page - value :code:`pid` has the target :code:`pages.uid` of live version
-  + or changed :code:`sorting` - :code:`pid` is preserved to same value as live version pendant of record
-* `4`: move pointer - workspace pendant of a record that shall be moved
+`-1`
+   * **new placeholder version**
+   * the workspace pendant for a new placeholder (see value `1`)
+
+`0`
+   * **default state**
+   * representing a workspace modification of an existing record (when :code:`t3ver_wsid > 0`)
+
+`1`
+   * **new placeholder**
+   * live pendant for a record that is new, used as insertion point concerning sorting
+
+`2`
+   * **delete placeholder**
+   * representing a record that is deleted in workspace
+
+`3`
+   * **move placeholder**
+   * live pendant indicating that record referenced in :code:`t3ver_move_id` is moved in workspace
+
+     * either moved to different page - value :code:`pid` has the target :code:`pages.uid` of live version
+     * or changed :code:`sorting` - :code:`pid` is preserved to same value as live version pendant of record
+
+`4`
+   * **move pointer**
+   * workspace pendant of a record that shall be moved
 
 Overview
 --------
