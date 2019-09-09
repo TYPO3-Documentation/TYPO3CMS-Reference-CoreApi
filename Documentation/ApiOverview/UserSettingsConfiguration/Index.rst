@@ -8,9 +8,21 @@
 User Settings Configuration
 ===========================
 
+The User Settings module determines what user settings are available
+for backend users. The users can access the settings by clicking on their name in
+the :ref:`top bar <t3start:top-bar>` and then "User settings".
+
+A number of settings such as backend language, password etc. are available
+by default. These settings may be extended via extensions as described in
+:ref:`user-settings-extending`.
+
 The User Settings module has the most complex form in the TYPO3 backend
-not driven by TCA/TCEforms. Instead it uses its own configuration
-array. It is quite similar to the :ref:`$TCA <t3tca:start>`, but with less options.
+not driven by TCA/TCEforms. Instead it uses its own PHP configuration
+array :php:`$GLOBALS['TYPO3_USER_SETTINGS']`. It is quite similar to
+:ref:`$GLOBALS['TCA'] <t3tca:start>`, but with less options.
+
+The actual values can be accessed via the array :php:`$GLOBALS['BE_USER']->uc`
+as described in :ref:`be-user-configuration`.
 
 **Contents:**
 
