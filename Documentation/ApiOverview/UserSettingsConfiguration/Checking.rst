@@ -3,11 +3,11 @@
 
 .. _user-settings-checking:
 
-==========================
-Checking the Configuration
-==========================
+======================
+View the Configuration
+======================
 
-It is possible to check the configuration via the **ADMIN TOOLS >
+It is possible to via the configuration via the **ADMIN TOOLS >
 Configuration** module, just like for the :ref:`$TCA <t3tca:start>`.
 
 .. figure:: Images/UserSettingsConfiguration.png
