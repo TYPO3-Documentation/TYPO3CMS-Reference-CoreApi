@@ -71,7 +71,7 @@ Evaluation
 To check if a custom permission option is set simply call the API
 function from the user object::
 
-   $BE_USER->check('custom_options', $catKey . ':' . $itemKey);
+   $GLOBALS['BE_USER']->check('custom_options', $catKey . ':' . $itemKey);
 
 :code:`$catKey` is the category in which the option resides. From the example
 above this would be :code:`tx_examples_cat1`.
