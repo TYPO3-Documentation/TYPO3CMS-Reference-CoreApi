@@ -630,7 +630,7 @@ Scenario: Create new record on page that is new in workspace
 
 * record :code:`uid = 29` defines :code:`sorting` insertion point on page :code:`pid = 41` in live workspace, :code:`t3ver_state = 1`
 * record :code:`uid = 30` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 29`
-* *side-note: :code:`pid = 41` points to new placeholder of a page that has been created in workspace*
+* side-note: :code:`pid = 41` points to new placeholder of a page that has been created in workspace
 
 Scenario: Discard record workspace modifications
 ------------------------------------------------
@@ -644,7 +644,7 @@ Scenario: Discard record workspace modifications
    27,20,1,640,0,0,1,0,0,0,Article #5 discarded
    28,-1,1,640,0,27,-1,0,0,0,Article #5 discarded
 
-* *records :code:`uid = 27` and :code:`uid = 28` previously have been created in workspace*
+* records :code:`uid = 27` and :code:`uid = 28` previously have been created in workspace
 * both records represent the discarded state by having assigned :code:`deleted = 1` and :code:`t3ver_wsid = 0`
 
 Scenario: Create new record localization
