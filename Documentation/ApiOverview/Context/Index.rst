@@ -12,7 +12,7 @@ Introduction
 Context API encapsulates various information for data retrieval (e.g. inside
 the database) and analysis of current permissions and caching information.
 
-Previously, various information was distributed inside globally accessible objects (:php:`$TSFE` or :php:`$BE_USER`)
+Previously, various information was distributed inside globally accessible objects (:php:`$TSFE` or :php:`$GLOBALS['BE_USER']`)
 like the current workspace ID or if a frontend or backend user is authenticated. Having a global object
 available was also dependent on the current request type (frontend or backend), instead of having
 one consistent place where all this data is located.

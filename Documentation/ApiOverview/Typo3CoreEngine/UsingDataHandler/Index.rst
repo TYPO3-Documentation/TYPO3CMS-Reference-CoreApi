@@ -18,7 +18,7 @@ array you want to pass to the class and call a few methods.
 
 .. important::
    Mind that these scripts have to be run in the
-   **backend scope**! There must be a global :php:`$BE_USER` object.
+   **backend scope**! There must be a global :php:`$GLOBALS['BE_USER']` object.
 
 In your script you simply insert this line to include the class:
 
@@ -158,11 +158,11 @@ submit both data and execute commands if you like. The order will
 depend on the order of line 4 and 5.
 
 In line 2 the :code:`start()` method is called, but this time with the third
-possible argument which is an alternative :code:`$BE_USER` object. This allows
+possible argument which is an alternative :code:`$GLOBALS['BE_USER']` object. This allows
 you to force another backend user account to create stuff in the
 database. This may be useful in certain special cases. Normally you
 should not set this argument since you want TCE to use the global
-:code:`$BE_USER`.
+:code:`$GLOBALS['BE_USER']`.
 
 .. code-block:: php
    :linenos:
