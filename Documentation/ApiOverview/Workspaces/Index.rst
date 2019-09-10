@@ -551,11 +551,12 @@ Scenario: Create new page
    ...,...,...,...,...,...,...,...,...,...,...
    30,10,0,512,0,0,0,0,0,0,Other topics
    ...,...,...,...,...,...,...,...,...,...,...
-   41,30,0,128,1,0,1,0,0,0,Topic #1 new
-   42,-1,0,128,1,41,-1,0,0,0,Topic #2 new
+   41,**30**,0,128,1,0,**1**,0,0,0,Topic #1 new
+   42,-1,0,128,1,**41**,**-1**,0,0,0,Topic #2 new
 
 * record :code:`uid = 41` defines :code:`sorting` insertion point page :code:`pid = 30` in live workspace, :code:`t3ver_state = 1`
-* record :code:`uid = 42` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 41`
+* record :code:`uid = 42` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 41`,
+  indicating new version state :code:`t3ver_state = -1`
 
 Scenario: Modify record
 -----------------------
@@ -567,9 +568,10 @@ Scenario: Modify record
    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
    11,20,0,128,0,0,0,0,0,0,Article #1
    ...,...,...,...,...,...,...,...,...,...,...
-   21,-1,0,128,1,11,0,0,0,0,Article #1 modified
+   21,-1,0,128,1,**11**,0,0,0,0,Article #1 modified
 
-* record :code:`uid = 21` contains actual version information, pointing back to live pendant, :code:`t3ver_oid = 11`
+* record :code:`uid = 21` contains actual version information, pointing back to live pendant, :code:`t3ver_oid = 11`,
+  using default version state :code:`t3ver_state = 0`
 
 Scenario: Delete record
 -----------------------
@@ -581,9 +583,11 @@ Scenario: Delete record
    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
    12,20,0,256,0,0,0,0,0,0,Article #2
    ...,...,...,...,...,...,...,...,...,...,...
-   22,-1,0,256,1,12,2,0,0,0,Article #2 deleted
+   22,-1,0,256,1,**12**,**2**,0,0,0,Article #2 deleted
 
 * record :code:`uid = 22` represents delete placeholder :code:`t3ver_state = 2`, pointing back to live pendant, :code:`t3ver_oid = 12`
+
+.. _scenario-move-record-to-different-page:
 
 Scenario: Move record to different page
 ---------------------------------------
@@ -595,11 +599,13 @@ Scenario: Move record to different page
    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
    13,20,0,384,0,0,0,0,0,0,Article #3
    ...,...,...,...,...,...,...,...,...,...,...
-   23,-1,0,384,1,13,4,0,0,0,Article #3 moved
-   24,30,0,64,1,0,3,13,0,0,[MOVE_TO PLACEHOLDER for ...]
+   23,-1,0,384,1,**13**,**4**,0,0,0,Article #3 moved
+   24,**30**,0,64,1,0,**3**,**13**,0,0,[MOVE_TO PLACEHOLDER for ...]
 
 * record :code:`uid = 23` represents move pointer :code:`t3ver_state = 4`, pointing back to move placeholder, :code:`t3ver_oid = 24`
 * record :code:`uid = 24` represents move placeholder :code:`t3ver_state = 3`, pointing back to live pendant, :code:`t3ver_move_id = 13`
+
+.. _scenario-create-new-record-on-existing-page:
 
 Scenario: Create new record on existing page
 --------------------------------------------
@@ -610,11 +616,12 @@ Scenario: Create new record on existing page
 
    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
    ...,...,...,...,...,...,...,...,...,...,...
-   25,20,0,512,1,0,1,0,0,0,Article #4 new
-   26,-1,0,512,1,25,-1,0,0,0,Article #4 new
+   25,**20**,0,512,1,0,**1**,0,0,0,Article #4 new
+   26,-1,0,512,1,**25**,**-1**,0,0,0,Article #4 new
 
 * record :code:`uid = 25` defines :code:`sorting` insertion point on page :code:`pid = 20` in live workspace, :code:`t3ver_state = 1`
-* record :code:`uid = 26` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 25`
+* record :code:`uid = 26` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 25`,
+  indicating new version state :code:`t3ver_state = -1`
 
 Scenario: Create new record on page that is new in workspace
 ------------------------------------------------------------
@@ -625,12 +632,15 @@ Scenario: Create new record on page that is new in workspace
 
    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
    ...,...,...,...,...,...,...,...,...,...,...
-   29,41,0,128,1,0,1,0,0,0,Topic #1 Article new
-   30,-1,0,128,1,29,-1,0,0,0,Topic #1 Article new
+   29,**41**,0,128,1,0,**1**,0,0,0,Topic #1 Article new
+   30,-1,0,128,1,**29**,**-1**,0,0,0,Topic #1 Article new
 
 * record :code:`uid = 29` defines :code:`sorting` insertion point on page :code:`pid = 41` in live workspace, :code:`t3ver_state = 1`
-* record :code:`uid = 30` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 29`
-* *side-note: :code:`pid = 41` points to new placeholder of a page that has been created in workspace*
+* record :code:`uid = 30` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 29`,
+  indicating new version state :code:`t3ver_state = -1`
+* side-note: :code:`pid = 41` points to new placeholder of a page that has been created in workspace
+
+.. _scenario-discard-record-workspace-modifications:
 
 Scenario: Discard record workspace modifications
 ------------------------------------------------
@@ -641,10 +651,11 @@ Scenario: Discard record workspace modifications
 
    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
    ...,...,...,...,...,...,...,...,...,...,...
-   27,20,1,640,0,0,1,0,0,0,Article #5 discarded
-   28,-1,1,640,0,27,-1,0,0,0,Article #5 discarded
+   27,20,**1**,640,**0**,0,1,0,0,0,Article #5 discarded
+   28,-1,**1**,640,**0**,27,-1,0,0,0,Article #5 discarded
 
-* *records :code:`uid = 27` and :code:`uid = 28` previously have been created in workspace*
+* previously records :code:`uid = 27` and :code:`uid = 28` have been created in workspace
+  (similar to :ref:`scenario-create-new-record-on-existing-page`)
 * both records represent the discarded state by having assigned :code:`deleted = 1` and :code:`t3ver_wsid = 0`
 
 Scenario: Create new record localization
@@ -657,10 +668,10 @@ Scenario: Create new record localization
    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
    11,20,0,128,0,0,0,0,0,0,Article #1
    ...,...,...,...,...,...,...,...,...,...,...
-   31,20,0,192,1,0,1,0,11,1,Entrefilet #1 (fr)
-   32,-1,0,192,1,31,-1,0,11,1,Entrefilet #1 (fr)
-   33,20,0,224,1,0,1,0,11,2,Beitrag #1 (de)
-   34,-1,0,224,1,33,-1,0,11,2,Beitrag #1 (de)
+   31,20,0,192,1,0,1,0,**11**,**1**,Entrefilet #1 (fr)
+   32,-1,0,192,1,31,-1,0,**11**,**1**,Entrefilet #1 (fr)
+   33,20,0,224,1,0,1,0,**11**,**2**,Beitrag #1 (de)
+   34,-1,0,224,1,33,-1,0,**11**,**2**,Beitrag #1 (de)
 
 * *principles of creating new records with according placeholders applies in this scenario*
 * records :code:`uid = 31` and :code:`uid = 32` represent localization to French :code:`sys_language_uid = 1`,
@@ -668,3 +679,38 @@ Scenario: Create new record localization
 * records :code:`uid = 33` and :code:`uid = 34` represent localization to German :code:`sys_language_uid = 2`,
   pointing back to their localization origin :code:`l10n_parent = 11`
 
+Scenario: Create new record, then move to different page
+--------------------------------------------------------
+
+.. csv-table:: Record "Article #4" is created on existing page, then moved to different page
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   ...,...,...,...,...,...,...,...,...,...,...
+   25,**30**,0,512,1,0,1,0,0,0,Article #4 new & moved
+   26,-1,0,512,1,25,-1,0,0,0,Article #4 new & moved
+
+* previously records :code:`uid = 25` and :code:`uid = 26` have been created in workspace
+  (exactly like in :ref:`scenario-create-new-record-on-existing-page`), then record :code:`uid = 25`
+  has been moved to target target page :code:`pid = 30`
+* record :code:`uid = 25` directly uses target page :code:`pid = 30`
+  (in contrary to :ref:`scenario-move-record-to-different-page`)
+
+Scenario: Create new record, then delete
+----------------------------------------
+
+.. csv-table:: Record "Article #4" is created on existing page, then deleted
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   ...,...,...,...,...,...,...,...,...,...,...
+   25,20,**1**,512,**0**,0,1,0,0,0,Article #4 new & deleted
+   26,-1,**1**,512,**0**,25,-1,0,0,0,Article #4 new & deleted
+
+* previously records :code:`uid = 25` and :code:`uid = 26` have been created in workspace
+  (exactly like in :ref:`scenario-create-new-record-on-existing-page`), then record :code:`uid = 25`
+  has been deleted
+* records :code:`uid = 25` and :code:`uid = 26` are directly discarded in workspace
+  (similar to :ref:`scenario-discard-record-workspace-modifications`)
