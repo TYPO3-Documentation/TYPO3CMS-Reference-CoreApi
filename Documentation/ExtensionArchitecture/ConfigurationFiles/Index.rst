@@ -64,6 +64,9 @@ These are the typical functions that extension authors should place within :file
 * Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes <xclasses>` or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
 * Registering additional Request Handlers within the :ref:`Bootstrap <bootstrapping>`
 * Adding any :ref:`PageTSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>` or :ref:`PageTSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>`
+Page and Page? Or Page and User?
+
+
 * Adding default TypoScript via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility` APIs
 * Registering Scheduler Tasks
 * Adding reports to the reports module
