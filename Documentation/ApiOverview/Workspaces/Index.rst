@@ -137,11 +137,11 @@ Frontend Implementation Guidelines
          This is how simple it is to use this record in your frontend plugins
          when you do queries directly (not using API functions already using
          them)::
-         
+
             $result = $queryBuilder->execute();
             foreach ($result as $row) {
                 $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
-               
+
                 if (is_array($row)) {
                     // ...
                 }
@@ -459,3 +459,258 @@ record is selected it should simply be discarded in case shown in
 context where ordering or position matters (like in menus or column
 based page content). This is done in the appropriate places.
 
+Persistence In-Depth Scenarios
+==============================
+
+The following section represents how database records are actually persisted in a database
+table for different scenarios and previously performed actions.
+
+Placeholders
+------------
+
+Workspace placeholders are stored in field :code:`t3ver_state` which can have the following values:
+
+`-1`
+   * **new placeholder version**
+   * the workspace pendant for a new placeholder (see value `1`)
+
+`0`
+   * **default state**
+   * representing a workspace modification of an existing record (when :code:`t3ver_wsid > 0`)
+
+`1`
+   * **new placeholder**
+   * live pendant for a record that is new, used as insertion point concerning sorting
+
+`2`
+   * **delete placeholder**
+   * representing a record that is deleted in workspace
+
+`3`
+   * **move placeholder**
+   * live pendant indicating that record referenced in :code:`t3ver_move_id` is moved in workspace
+
+     * either moved to different page - value :code:`pid` has the target :code:`pages.uid` of live version
+     * or changed :code:`sorting` - :code:`pid` is preserved to same value as live version pendant of record
+
+`4`
+   * **move pointer**
+   * workspace pendant of a record that shall be moved
+
+Overview
+--------
+
+.. csv-table:: Overview of `pages` records (not all possible scenarios are shown)
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   10,0,0,128,0,0,0,0,0,0,example.org website
+   20,10,0,128,0,0,0,0,0,0,Current issues
+   21,10,0,256,0,0,0,0,20,1,Actualité
+   22,10,0,384,0,0,0,0,20,2,Neuigkeiten
+   30,10,0,512,0,0,0,0,0,0,Other topics
+   ...,...,...,...,...,...,...,...,...,...,...
+   41,30,0,128,1,0,1,0,0,0,Topic #1 new
+   42,-1,0,128,1,41,-1,0,0,0,Topic #2 new
+
+.. csv-table:: Overview of regular records (e.g. `tx_record`, `tt_content`, ... but not `pages`)
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   11,20,0,128,0,0,0,0,0,0,Article #1
+   12,20,0,256,0,0,0,0,0,0,Article #2
+   13,20,0,384,0,0,0,0,0,0,Article #3
+   ...,...,...,...,...,...,...,...,...,...,...
+   21,-1,0,128,1,11,0,0,0,0,Article #1 modified
+   22,-1,0,256,1,12,2,0,0,0,Article #2 deleted
+   23,-1,0,384,1,13,4,0,0,0,Article #3 moved
+   24,30,0,64,1,0,3,13,0,0,[MOVE_TO PLACEHOLDER for ...]
+   25,20,0,512,1,0,1,0,0,0,Article #4 new
+   26,-1,0,512,1,25,-1,0,0,0,Article #4 new
+   27,20,1,640,0,0,1,0,0,0,Article #5 discarded
+   28,-1,1,640,0,27,-1,0,0,0,Article #5 discarded
+   29,41,0,128,1,0,1,0,0,0,Topic #1 Article new
+   30,-1,0,128,1,29,-1,0,0,0,Topic #1 Article new
+   ...,...,...,...,...,...,...,...,...,...,...
+   31,20,0,192,1,0,1,0,11,1,Entrefilet #1 (fr)
+   32,-1,0,192,1,31,-1,0,11,1,Entrefilet #1 (fr)
+   33,20,0,224,1,0,1,0,11,2,Beitrag #1 (de)
+   34,-1,0,224,1,33,-1,0,11,2,Beitrag #1 (de)
+
+Scenario: Create new page
+-------------------------
+
+.. csv-table:: Page "Topic #1 new" is created with their according placeholders
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   10,0,0,128,0,0,0,0,0,0,example.org website
+   ...,...,...,...,...,...,...,...,...,...,...
+   30,10,0,512,0,0,0,0,0,0,Other topics
+   ...,...,...,...,...,...,...,...,...,...,...
+   41,**30**,0,128,1,0,**1**,0,0,0,Topic #1 new
+   42,-1,0,128,1,**41**,**-1**,0,0,0,Topic #2 new
+
+* record :code:`uid = 41` defines :code:`sorting` insertion point page :code:`pid = 30` in live workspace, :code:`t3ver_state = 1`
+* record :code:`uid = 42` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 41`,
+  indicating new version state :code:`t3ver_state = -1`
+
+Scenario: Modify record
+-----------------------
+
+.. csv-table:: Record "Article #1" is modified in workspace
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   11,20,0,128,0,0,0,0,0,0,Article #1
+   ...,...,...,...,...,...,...,...,...,...,...
+   21,-1,0,128,1,**11**,0,0,0,0,Article #1 modified
+
+* record :code:`uid = 21` contains actual version information, pointing back to live pendant, :code:`t3ver_oid = 11`,
+  using default version state :code:`t3ver_state = 0`
+
+Scenario: Delete record
+-----------------------
+
+.. csv-table:: Record "Article #2" is deleted in workspace
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   12,20,0,256,0,0,0,0,0,0,Article #2
+   ...,...,...,...,...,...,...,...,...,...,...
+   22,-1,0,256,1,**12**,**2**,0,0,0,Article #2 deleted
+
+* record :code:`uid = 22` represents delete placeholder :code:`t3ver_state = 2`, pointing back to live pendant, :code:`t3ver_oid = 12`
+
+.. _scenario-move-record-to-different-page:
+
+Scenario: Move record to different page
+---------------------------------------
+
+.. csv-table:: Record "Article #3" is moved to different page
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   13,20,0,384,0,0,0,0,0,0,Article #3
+   ...,...,...,...,...,...,...,...,...,...,...
+   23,-1,0,384,1,**13**,**4**,0,0,0,Article #3 moved
+   24,**30**,0,64,1,0,**3**,**13**,0,0,[MOVE_TO PLACEHOLDER for ...]
+
+* record :code:`uid = 23` represents move pointer :code:`t3ver_state = 4`, pointing back to move placeholder, :code:`t3ver_oid = 24`
+* record :code:`uid = 24` represents move placeholder :code:`t3ver_state = 3`, pointing back to live pendant, :code:`t3ver_move_id = 13`
+
+.. _scenario-create-new-record-on-existing-page:
+
+Scenario: Create new record on existing page
+--------------------------------------------
+
+.. csv-table:: Record "Article #4" is created on existing page
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   ...,...,...,...,...,...,...,...,...,...,...
+   25,**20**,0,512,1,0,**1**,0,0,0,Article #4 new
+   26,-1,0,512,1,**25**,**-1**,0,0,0,Article #4 new
+
+* record :code:`uid = 25` defines :code:`sorting` insertion point on page :code:`pid = 20` in live workspace, :code:`t3ver_state = 1`
+* record :code:`uid = 26` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 25`,
+  indicating new version state :code:`t3ver_state = -1`
+
+Scenario: Create new record on page that is new in workspace
+------------------------------------------------------------
+
+.. csv-table:: Record "Topic #1 Article" is created on page that is new in workspace
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   ...,...,...,...,...,...,...,...,...,...,...
+   29,**41**,0,128,1,0,**1**,0,0,0,Topic #1 Article new
+   30,-1,0,128,1,**29**,**-1**,0,0,0,Topic #1 Article new
+
+* record :code:`uid = 29` defines :code:`sorting` insertion point on page :code:`pid = 41` in live workspace, :code:`t3ver_state = 1`
+* record :code:`uid = 30` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 29`,
+  indicating new version state :code:`t3ver_state = -1`
+* side-note: :code:`pid = 41` points to new placeholder of a page that has been created in workspace
+
+.. _scenario-discard-record-workspace-modifications:
+
+Scenario: Discard record workspace modifications
+------------------------------------------------
+
+.. csv-table:: Previously created record "Article #5" is discarded
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   ...,...,...,...,...,...,...,...,...,...,...
+   27,20,**1**,640,**0**,0,1,0,0,0,Article #5 discarded
+   28,-1,**1**,640,**0**,27,-1,0,0,0,Article #5 discarded
+
+* previously records :code:`uid = 27` and :code:`uid = 28` have been created in workspace
+  (similar to :ref:`scenario-create-new-record-on-existing-page`)
+* both records represent the discarded state by having assigned :code:`deleted = 1` and :code:`t3ver_wsid = 0`
+
+Scenario: Create new record localization
+----------------------------------------
+
+.. csv-table:: Record "Article #1" is localized to French and German
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   11,20,0,128,0,0,0,0,0,0,Article #1
+   ...,...,...,...,...,...,...,...,...,...,...
+   31,20,0,192,1,0,1,0,**11**,**1**,Entrefilet #1 (fr)
+   32,-1,0,192,1,31,-1,0,**11**,**1**,Entrefilet #1 (fr)
+   33,20,0,224,1,0,1,0,**11**,**2**,Beitrag #1 (de)
+   34,-1,0,224,1,33,-1,0,**11**,**2**,Beitrag #1 (de)
+
+* *principles of creating new records with according placeholders applies in this scenario*
+* records :code:`uid = 31` and :code:`uid = 32` represent localization to French :code:`sys_language_uid = 1`,
+  pointing back to their localization origin :code:`l10n_parent = 11`
+* records :code:`uid = 33` and :code:`uid = 34` represent localization to German :code:`sys_language_uid = 2`,
+  pointing back to their localization origin :code:`l10n_parent = 11`
+
+Scenario: Create new record, then move to different page
+--------------------------------------------------------
+
+.. csv-table:: Record "Article #4" is created on existing page, then moved to different page
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   ...,...,...,...,...,...,...,...,...,...,...
+   25,**30**,0,512,1,0,1,0,0,0,Article #4 new & moved
+   26,-1,0,512,1,25,-1,0,0,0,Article #4 new & moved
+
+* previously records :code:`uid = 25` and :code:`uid = 26` have been created in workspace
+  (exactly like in :ref:`scenario-create-new-record-on-existing-page`), then record :code:`uid = 25`
+  has been moved to target target page :code:`pid = 30`
+* record :code:`uid = 25` directly uses target page :code:`pid = 30`
+  (in contrary to :ref:`scenario-move-record-to-different-page`)
+
+Scenario: Create new record, then delete
+----------------------------------------
+
+.. csv-table:: Record "Article #4" is created on existing page, then deleted
+   :header-rows: 1
+   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   ...,...,...,...,...,...,...,...,...,...,...
+   25,20,**1**,512,**0**,0,1,0,0,0,Article #4 new & deleted
+   26,-1,**1**,512,**0**,25,-1,0,0,0,Article #4 new & deleted
+
+* previously records :code:`uid = 25` and :code:`uid = 26` have been created in workspace
+  (exactly like in :ref:`scenario-create-new-record-on-existing-page`), then record :code:`uid = 25`
+  has been deleted
+* records :code:`uid = 25` and :code:`uid = 26` are directly discarded in workspace
+  (similar to :ref:`scenario-discard-record-workspace-modifications`)
