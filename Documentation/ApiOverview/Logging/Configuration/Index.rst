@@ -39,41 +39,16 @@ The Log Writer configuration is read from the subkey :code:`writerConfiguration`
 
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['writerConfiguration'] = array(
        // configuration for ERROR level log entries
-     \TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
+       \TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
          // add a FileWriter
-       'TYPO3\\CMS\\Core\\Log\\Writer\\FileWriter' => array(
+         'TYPO3\\CMS\\Core\\Log\\Writer\\FileWriter' => array(
            // configuration for the writer
-         'logFile' => 'typo3temp/logs/typo3_7ac500bce5.log'
+           'logFile' => 'typo3temp/logs/typo3_7ac500bce5.log'
+         )
        )
-     )
    );
 
 The above configuration applies to **all** log entries of level "ERROR" or above.
-
-To apply a special configuration for the controllers of the *examples* extension,
-use the following configuration:
-
-.. code-block:: php
-
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['writerConfiguration'] = array(
-      // configuration for WARNING severity, including all
-      // levels with higher severity (ERROR, CRITICAL, EMERGENCY)
-       \TYPO3\CMS\Core\Log\LogLevel::WARNING => array(
-        // add a SyslogWriter
-           'TYPO3\\CMS\\Core\\Log\\Writer\\SyslogWriter' => array(),
-       ),
-   );
-
-This overwrites the default configuration shown in the first example for classes
-located in the namespace :code:`\Documentation\Examples\Controller`.
-
-For extension "foo" with key "tx_foo" (not using namespaces), the configuration would be located at:
-
-.. code-block:: php
-
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Tx']['Foo']['writerConfiguration'] = array(
-      // ...
-   );
 
 An arbitrary number of writers can be added for every severity level (INFO, WARNING, ERROR, ...).
 The configuration based on severity levels is applied to log entries of the particular severity level
@@ -90,6 +65,34 @@ For the above example code that means:
 For a list of writers shipped with the TYPO3 Core see the section about
 :ref:`logging-writers`.
 
+Classes with namespaces
+-----------------------
+
+To apply a special configuration for the controllers of the *examples* extension,
+use the following configuration::
+
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['writerConfiguration'] = array(
+      // configuration for WARNING severity, including all
+      // levels with higher severity (ERROR, CRITICAL, EMERGENCY)
+       \TYPO3\CMS\Core\Log\LogLevel::WARNING => array(
+        // add a SyslogWriter
+           'TYPO3\\CMS\\Core\\Log\\Writer\\SyslogWriter' => array(),
+       ),
+   );
+
+This overwrites the default configuration shown in the first example for classes
+located in the namespace :php:`\Documentation\Examples\Controller`.
+
+Classes without namespaces
+--------------------------
+
+For extension ``foo`` with key ``tx_foo``, the configuration would be located at::
+
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Tx']['Foo']['writerConfiguration'] = array(
+       \TYPO3\CMS\Core\Log\LogLevel::WARNING => array(
+           'TYPO3\\CMS\\Core\\Log\\Writer\\SyslogWriter' => array(),
+       ),
+   );
 
 .. _logging-configuration-processor:
 
