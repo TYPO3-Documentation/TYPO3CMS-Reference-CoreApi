@@ -290,15 +290,20 @@ Use as reference the class :php:`TYPO3\CMS\Core\ExpressionLanguage\TypoScriptCon
 the most core functions.
 
 Add new methods by implementing own providers which implement the :php:`ExpressionFunctionProviderInterface` and
-register the provider in :file:`ext_localconf.php`:
+register the provider in :file:`Configuration/ExpressionLanguage.php`:
 
 .. code-block:: php
+  <?php
+  return [
+      'typoscript' => [
+          // Simple register you provider class
+          \My\NameSpace\Provider\TypoScriptConditionProvider::class
+      ]
+  ];
 
-   if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionProvider']['additionalExpressionLanguageProvider'])) {
-      $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionProvider']['additionalExpressionLanguageProvider'] = [];
-   }
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionProvider']['additionalExpressionLanguageProvider'][] = \My\NameSpace\Provider\TypoScriptConditionProvider::class;
+The keyword :code:`typoscript` indicates that the condition is used for TypoScript.
 
+Next to :code:`typoscript` additional providers could registered for :code:`form` and :code:`site`.
 
 .. _typoscript-syntax-conditions-summary:
 
