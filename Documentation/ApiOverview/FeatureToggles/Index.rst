@@ -48,11 +48,21 @@ Good examples:
 Using the API as Extension Author
 =================================
 
-For extension authors, the API can be used for any custom feature provided by an extension::
+For extension authors, the API can be used for any custom feature provided by an extension.
 
-   if (GeneralUtility::makeInstance(Features::class)->isFeatureEnabled('myFeatureName')) {
+To register a feature add the following to the :file:`ext_localconf.php`: of your extension::
+   
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true|false;
+
+To check if a feature is enabled use this code::
+
+   if (TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(TYPO3\CMS\Core\Configuration\Features::class)->isFeatureEnabled('myFeatureName')) {
       // do custom processing
    }
+
+.. attention::
+
+   Currently, only the core features can be (de-)activated in the Install Tool.
 
 The name can be any arbitrary string, but an extension author should prefix the feature with the
 extension name as the features are global switches which otherwise might lead to naming conflicts.
