@@ -81,7 +81,7 @@ Here is some example code::
            $cache = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache');
 
            // If $entry is null, it hasn't been cached. Calculate the value and store it in the cache:
-           if (($entry = $cache->get($cacheIdentifier)) === FALSE) {
+           if (($entry = $cache->get($cacheIdentifier)) === false) {
                $entry = $this->calculateMagic();
 
                // [calculate lifetime and assigned tags]
@@ -95,4 +95,4 @@ Here is some example code::
 .. tip::
 
    It isn't needed to call :code:`has()` before accessing cache entries with :code:`get()`
-   as the latter returns :code:`FALSE` if no entry exists.
+   as the latter returns :code:`false` if no entry exists.
