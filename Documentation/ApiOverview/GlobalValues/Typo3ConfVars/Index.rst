@@ -124,7 +124,7 @@ EXTCONF
   Backend related language pack configuration resides here.
 
 EXTENSIONS
-  Extension specific settings.
+  :ref:`Extension configuration <extension-configuration>`.
 
 FE
   Frontend-related options.
