@@ -148,6 +148,17 @@ Example:
    <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/user.typoscript" condition="[loginUser = *]">
 
 
+.. important::
+
+   Please note that since TYPO3 9.4, the syntax of condition has switched to the `symfony expression language <https://symfony.com/doc/4.1/components/expression_language.html>`__ which :ref:`is covered in this section of TSref <t3tsref:conditions>`. If the condition requires double quotes, they must be converted to single quotes or escaped, e.g.: 
+
+   .. code-block:: text
+
+      <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/some.typoscript" condition="[applicationContext == 'Development']">
+
+	  <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/some.typoscript" condition="[applicationContext == \"Development\"]">
+
+
 .. _typoscript-syntax-includes-best-practices:
 
 Best practices
