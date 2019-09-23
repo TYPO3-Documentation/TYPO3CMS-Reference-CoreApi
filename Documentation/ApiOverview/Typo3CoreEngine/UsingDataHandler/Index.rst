@@ -20,12 +20,19 @@ array you want to pass to the class and call a few methods.
    Mind that these scripts have to be run in the
    **backend scope**! There must be a global :php:`$GLOBALS['BE_USER']` object.
 
-In your script you simply insert this line to include the class:
+Using the DataHandler in a Symfony Command
+==========================================
 
-What follows are a few code listings with comments which will provide you with
-enough knowledge to get started. It is assumed that you have populated
-the $data and $cmd arrays correctly prior to these chunks of code. The
-syntax for these two arrays is explained in the :ref:`previous chapter <tce-database>`.
+It is possible to use the DataHandler for scripts started from the command line or by
+the scheduler as well. You can do this by creating a :ref:`Symfony Command <cli-mode-command-controllers>`.
+
+These scripts use the `_cli_` backend user. Before using the DataHandler in your :php:`execute()`
+function, you should make sure that this user is initialized like this::
+
+   Bootstrap::initializeBackendAuthentication();
+
+Look in the `typo3/cms-lowlevel <https://github.com/TYPO3/TYPO3.CMS/tree/master/typo3/sysext/lowlevel>`__
+system extension for more examples.
 
 
 .. _dataHandler-examples:
@@ -33,6 +40,11 @@ syntax for these two arrays is explained in the :ref:`previous chapter <tce-data
 
 DataHandler Examples
 ====================
+
+What follows are a few code listings with comments which will provide you with
+enough knowledge to get started. It is assumed that you have populated
+the $data and $cmd arrays correctly prior to these chunks of code. The
+syntax for these two arrays is explained in the :ref:`previous chapter <tce-database>`.
 
 .. _tcemain-submit-data:
 
