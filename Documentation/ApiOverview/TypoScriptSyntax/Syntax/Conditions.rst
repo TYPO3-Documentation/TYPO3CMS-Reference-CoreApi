@@ -285,25 +285,7 @@ various records is combined.
 Custom Conditions With Symfony Expression Language
 ==================================================
 
-It is possible to provide own functions with extensions.
-Use as reference the class :php:`TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionFunctionsProvider` which implements
-the most core functions.
-
-Add new methods by implementing own providers which implement the :php:`ExpressionFunctionProviderInterface` and
-register the provider in :file:`Configuration/ExpressionLanguage.php`:
-
-.. code-block:: php
-  <?php
-  return [
-      'typoscript' => [
-          // Simple register you provider class
-          \My\NameSpace\Provider\TypoScriptConditionProvider::class
-      ]
-  ];
-
-The keyword :code:`typoscript` indicates that the condition is used for TypoScript.
-
-Next to :code:`typoscript` additional providers could registered for :code:`form` and :code:`site`.
+Further information about how to extend TypoScript with your own custom conditions can be found within :ref:`symfony-expression-language`
 
 .. _typoscript-syntax-conditions-summary:
 
@@ -323,3 +305,4 @@ Summary
   However the :code:`[GLOBAL]` condition will always break a confinement if
   entered inside of one.
 
+https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/SymfonyExpressionLanguage/Index.html
