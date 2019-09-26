@@ -45,6 +45,25 @@ The override configuration array (the second argument) can be used to tweak
 this default TCA definition. Any valid property from the "config" section
 of inline-type fields can be used.
 
+Additionally, there is an extra section for providing media sources, that come as three buttons per default.
+
+.. figure:: ../../Images/FalTCAStyleGuide1.png
+    :alt: FAL relation with all three media sources visible
+    :class: with-shadow
+
+    A typical FAL relation field
+
+Which ones should appear for the editor to use, can be configures using TCA appearance settings:
+
+.. codeblock:: php
+
+   $GLOBALS['TCA']['pages']['columns']['media']['config']['appearance'] = [
+      'fileUploadAllowed' => false,
+      'fileByUrlAllowed' => false,
+   ];
+
+This will suppress two buttons and only leave "Create new relation".
+
 .. note::
 
    Such FAL-enabled fields can also be used inside FlexForms, but there's no API
