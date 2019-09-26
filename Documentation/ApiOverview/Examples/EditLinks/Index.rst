@@ -17,14 +17,9 @@ Links to Edit Records
 It is often needed to create links to edit records in the TYPO3 backend.
 The same syntax is also used for creating new records.
 TYPO3 provides an API for creating such links, namely
-:code:`\TYPO3\CMS\Backend\Utility\BackendUtility::editOnClick()`.
-This script will create an onclick-JavaScript event preparing the necessary route for the operation.
+:code:`(GeneralUtility::makeInstance(UriBuilder::class))->buildUriFromRoute()`.
 
-This is not always needed, especially in backend modules using the
-dispatcher method (which should be **all** backend modules, since
-the dispatched was introduced in TYPO3 4.1).
-
-Furthermore when using Fluid templates, you cannot call PHP code directly
+When using Fluid templates, you cannot call PHP code directly
 but have to wrap it in a view helper. The "examples" extensions demonstrates
 with the "edit link" view helper (:code:`\TYPO3\CMS\Backend\ViewHelpers\Link\EditRecordViewHelper`).
 
