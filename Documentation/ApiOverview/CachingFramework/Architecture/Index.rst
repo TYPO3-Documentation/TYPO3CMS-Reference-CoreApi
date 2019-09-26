@@ -225,6 +225,7 @@ Cache API
 The caching framework architecture is based on the following classes:
 
 - **\\TYPO3\\CMS\\Core\\Cache\\CacheManager**: Returns the cache frontend of a specific cache.
+  Preferable to using CacheManager directly to get the cache frontend object handed in, dependency injection should be used.
   This is the main class used by core and extensions to access the instance of a specific cache. Handles configuration
   settings and default configuration.
 - **\\TYPO3\\CMS\\Core\\Cache\\Frontend\\FrontendInterface**: Main interface to handle cache entries of a specific cache.

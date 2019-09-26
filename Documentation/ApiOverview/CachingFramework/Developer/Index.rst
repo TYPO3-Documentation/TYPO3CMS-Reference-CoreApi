@@ -61,7 +61,7 @@ should hint an integrator about specific caching needs or setups in this case.
    }
 
 To get an instance of a cache, :code:`GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache')`
-should be used. The cache manager will return the fully initialized cache instance::
+can be used. However, you should prefer the dependency injection method (see below) to retrieve cache frontends whenever possible. The cache manager will return the fully initialized cache instance::
 
    $myCacheInstance = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache');
 
@@ -76,21 +76,48 @@ Cache Access Logic
 Cache usage patterns are usually wrappers around the main code sections.
 Here is some example code::
 
+   class MyClass
+   {
+       /**
+        * @var TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
+        */
+       private $cache;
+
+       public function __construct(FrontendInterface $cache)
+       {
+           $this->cache = $cache;
+       }
+
        protected function getCachedMagic() {
            $cacheIdentifier = $this->calculateCacheIdentifier();
-           $cache = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache');
 
            // If $entry is null, it hasn't been cached. Calculate the value and store it in the cache:
-           if (($entry = $cache->get($cacheIdentifier)) === false) {
+           if (($entry = $this->cache->get($cacheIdentifier)) === false) {
                $entry = $this->calculateMagic();
 
                // [calculate lifetime and assigned tags]
 
                // Save value in cache
-               $cache->set($cacheIdentifier, $entry, $tags, $lifetime);
+               $this->cache->set($cacheIdentifier, $entry, $tags, $lifetime);
            }
            return $entry;
        }
+
+Since the auto-wiring feature of the dependency injection container cannot detect,
+which cache configuration should be used for the :php:`$cache` argument, the container
+service configuration needs to be extended as well:
+
+.. code-block:: yaml
+
+    services:
+      cache.my_cache:
+        class: TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
+        factory: ['@TYPO3\CMS\Core\Cache\CacheManager', 'getCache']
+        arguments: ['myext_mycache']
+
+      MyClass:
+        arguments:
+          $cache: '@cache.my_cache'
 
 .. tip::
 
