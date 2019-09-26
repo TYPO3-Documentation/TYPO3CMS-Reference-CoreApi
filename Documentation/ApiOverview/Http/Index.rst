@@ -43,25 +43,35 @@ The `RequestFactory` class can be used like this:
 
 .. code-block:: php
 
-   // Initiate the Request Factory, which allows to run multiple requests
-   /** @var \TYPO3\CMS\Core\Http\RequestFactory $requestFactory */
-   $requestFactory = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Http\RequestFactory::class);
-   $url = 'https://typo3.com';
-   $additionalOptions = [
-      // Additional headers for this specific request
-      'headers' => ['Cache-Control' => 'no-cache'],
-      // Additional options, see http://docs.guzzlephp.org/en/latest/request-options.html
-      'allow_redirects' => false,
-      'cookies' => true,
-   ];
-   // Return a PSR-7 compliant response object
-   $response = $requestFactory->request($url, 'GET', $additionalOptions);
-   // Get the content as a string on a successful request
-   if ($response->getStatusCode() === 200) {
-      if (strpos($response->getHeaderLine('Content-Type'), 'text/html') === 0) {
-         $content = $response->getBody()->getContents();
+      use Psr\Http\Message\ResponseFactoryInterface;
+
+      /** @var RequestFactoryInterface */
+        private $requestFactory;
+
+      // Initiate the Request Factory, which allows to run multiple requests (prefer dependency injection)
+        public function __construct(RequestFactoryInterface $requestFactory)
+        {
+            $this->requestFactory = $requestFactory;
+        }
+
+      public function handle() {
+         $url = 'https://typo3.com';
+         $additionalOptions = [
+            // Additional headers for this specific request
+            'headers' => ['Cache-Control' => 'no-cache'],
+            // Additional options, see http://docs.guzzlephp.org/en/latest/request-options.html
+            'allow_redirects' => false,
+            'cookies' => true,
+         ];
+         // Return a PSR-7 compliant response object
+         $response = $this->requestFactory->request($url, 'GET', $additionalOptions);
+         // Get the content as a string on a successful request
+         if ($response->getStatusCode() === 200) {
+            if (strpos($response->getHeaderLine('Content-Type'), 'text/html') === 0) {
+               $content = $response->getBody()->getContents();
+            }
+         }
       }
-   }
 
 A POST request can be achieved with:
 
@@ -75,7 +85,7 @@ A POST request can be achieved with:
          'last_name' => 'Dampf',
       ]
    ];
-   $response = $requestFactory->request($url, 'POST', $additionalOptions);
+   $response = $this->requestFactory->request($url, 'POST', $additionalOptions);
 
 Extension authors are advised to use the `RequestFactory` class instead of using the Guzzle
 API directly in order to ensure a clear upgrade path when updates to the underlying API need to be done.
