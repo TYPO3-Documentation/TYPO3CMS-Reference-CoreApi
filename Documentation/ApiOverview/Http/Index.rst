@@ -84,3 +84,19 @@ API directly in order to ensure a clear upgrade path when updates to the underly
 .. note::
 
    Some information on this page was moved to :ref:`backend-routing`.
+
+.. _http-custom-handlers:
+
+Custom Middleware Handlers
+==========================
+
+Guzzle will accept a stack of custom middleware handlers, which can be configured using :php:`$GLOBALS['TYPO3_CONF_VARS']`.
+If a custom configuration is given, the default handler stack is extended, but overridden.
+
+.. code-block:: php
+
+   # Add custom middleware to default Guzzle handler stack
+   $GLOBALS['TYPO3_CONF_VARS']['HTTP']['handler'][] =
+      (\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\ACME\Middleware\Guzzle\CustomMiddleware::class))->handler();
+   $GLOBALS['TYPO3_CONF_VARS']['HTTP']['handler'][] =
+      (\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\ACME\Middleware\Guzzle\SecondCustomMiddleware::class))->handler();
