@@ -20,6 +20,9 @@ A site configuration consists of the following parts:
 * :ref:`Static Routes<sitehandling-staticRoutes>`: Add static routes to a site (For example for robots.txt on a per site base)
 * Routing Configuration: How shall routing behave for this site
 
+When creating a new page on root level via TYPO3 Backend, a very basic site configuration is generated on the fly. It prevents immediate errors
+due to missing configuration and can also serve as a starting point for all further actions.
+
 Most parts of the site configuration can be edited via the graphical interface in the backend module "Site".
 
 .. figure:: ../../Images/SiteHandlingSiteModule.png
