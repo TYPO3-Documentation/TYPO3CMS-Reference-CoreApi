@@ -156,6 +156,7 @@ VARIOUS
    Context/Index
    ContextSensitiveHelp/Index
    Enumerations/Index
+   FileProcessing/Index
    Http/Index
    Icon/Index
    LockingApi/Index
