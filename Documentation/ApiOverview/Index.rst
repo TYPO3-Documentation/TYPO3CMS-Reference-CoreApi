@@ -96,6 +96,7 @@ BACKEND
    FormEngine/Index
    JavaScript/Index
    FlashMessages/Index
+   BroadcastChannels/Index
 
 HANDLING SITES, URLS, LANGUAGES
 
