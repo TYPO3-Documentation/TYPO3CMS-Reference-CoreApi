@@ -88,7 +88,8 @@ Here is some example code::
            $this->cache = $cache;
        }
 
-       protected function getCachedMagic() {
+       protected function getCachedMagic()
+       {
            $cacheIdentifier = $this->calculateCacheIdentifier();
 
            // If $entry is null, it hasn't been cached. Calculate the value and store it in the cache:

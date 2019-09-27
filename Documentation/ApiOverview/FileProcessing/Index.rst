@@ -12,10 +12,13 @@ For custom needs in terms of file processing, registration of custom file proces
 Create a new processor class
 ----------------------------
 
-The file must implement the :php:`TYPO3\CMS\Core\Resource\Processing\ProcessorInterface` and ist two required methods.
+The file must implement the :php:`\TYPO3\CMS\Core\Resource\Processing\ProcessorInterface` and two required methods.
 
-Function :php:`canProcessTask` will decide whether the given file should be handled at all. The expected return type is boolean.
-Function :php:`processTask` will then do whatever needs to be done to process the given file.
+:php:`canProcessTask()`
+   Will decide whether the given file should be handled at all. The expected return type is boolean.
+
+:php:`processTask()`
+   Will then do whatever needs to be done to process the given file.
 
 .. _file_processing-register:
 
@@ -35,6 +38,6 @@ With the `before` and `after` options, priority can be defined.
 
 .. note::
 
-   Only one file processor will handle any given file. Once the first match for :php:`canHandleTask` has been found, this is the
+   Only one file processor will handle any given file. Once the first match for :php:`canProcessTask()` has been found, this is the
    processor that will handle the file. There is no cascading or sequence possible, so make sure your processor does all the work
    necessary.

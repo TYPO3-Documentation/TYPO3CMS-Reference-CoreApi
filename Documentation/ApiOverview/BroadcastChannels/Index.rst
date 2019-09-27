@@ -1,4 +1,5 @@
 .. include:: ../../Includes.txt
+.. highlight:: javascript
 
 .. _broadcast_channels:
 
@@ -32,9 +33,7 @@ component name and the event name, e.g. `typo3:my_extension:my_event`.
 
 To send a message, the :js:`post()` method must be used.
 
-Example code:
-
-.. code-block:: js
+Example code::
 
    require(['TYPO3/CMS/Backend/BroadcastService'], function (BroadcastService) {
      const payload = {
@@ -56,9 +55,7 @@ name (e.g. `typo3:my_component:my_event`) sent to :js:`document`.
 
 The event itself contains a property called `detail` **excluding** the component name and event name.
 
-Example code:
-
-.. code-block:: js
+Example code::
 
    define([], function() {
       document.addEventListener('typo3:my_component:my_event', (e) => eventHandler(e.detail));
