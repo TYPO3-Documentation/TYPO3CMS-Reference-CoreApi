@@ -285,20 +285,7 @@ various records is combined.
 Custom Conditions With Symfony Expression Language
 ==================================================
 
-It is possible to provide own functions with extensions.
-Use as reference the class :php:`TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionFunctionsProvider` which implements
-the most core functions.
-
-Add new methods by implementing own providers which implement the :php:`ExpressionFunctionProviderInterface` and
-register the provider in :file:`ext_localconf.php`:
-
-.. code-block:: php
-
-   if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionProvider']['additionalExpressionLanguageProvider'])) {
-      $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionProvider']['additionalExpressionLanguageProvider'] = [];
-   }
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionProvider']['additionalExpressionLanguageProvider'][] = \My\NameSpace\Provider\TypoScriptConditionProvider::class;
-
+Further information about how to extend TypoScript with your own custom conditions can be found within :ref:`sel-within-typoscript-conditions`.
 
 .. _typoscript-syntax-conditions-summary:
 
@@ -317,4 +304,3 @@ Summary
 - Conditions can be used outside of confinements (curly braces) only.
   However the :code:`[GLOBAL]` condition will always break a confinement if
   entered inside of one.
-
