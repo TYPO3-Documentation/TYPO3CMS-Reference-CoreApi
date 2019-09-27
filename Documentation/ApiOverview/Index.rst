@@ -97,9 +97,10 @@ BACKEND
    BackendModules/Index
    BackendRouting/Index
    BackendUserObject/Index
+   BroadcastChannels/Index
+   FlashMessages/Index
    FormEngine/Index
    JavaScript/Index
-   FlashMessages/Index
    Rte/Index
 
 HANDLING SITES, URLS, LANGUAGES
@@ -160,6 +161,7 @@ VARIOUS
    CommandControllers/Index
    ContextSensitiveHelp/Index
    Enumerations/Index
+   FileProcessing/Index
    Http/Index
    Icon/Index
    LockingApi/Index

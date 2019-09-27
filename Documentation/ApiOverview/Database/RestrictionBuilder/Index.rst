@@ -137,7 +137,7 @@ Restrictions
 
 * `WorkspaceRestriction`: `WorkspaceRestriction` has been added to overcome downsides of
    `FrontendWorkspaceRestriction` and `BackendWorkspaceRestriction`. The workspace restriction
-   limits a SQL query to only select records which are "online" (pid != -1) and in live or current
+   limits a SQL query to only select records which are "online" and in live or current
    workspace.
 
 .. note::
@@ -145,7 +145,7 @@ Restrictions
    As an important note and limitation of any workspace-related restrictions, fetching the exact
    records need to be handled after the SQL results are fetched, by overlaying the records with
    :php:`BackendUtility::getRecordWSOL()`, :php:`PageRepository->versionOL()` or `PlainDataResolver`.
-  
+
 
 
 QueryRestrictionContainer
