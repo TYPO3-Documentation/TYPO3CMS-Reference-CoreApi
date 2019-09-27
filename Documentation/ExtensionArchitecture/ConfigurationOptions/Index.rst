@@ -2,6 +2,7 @@
 
 
 .. _extension-options:
+.. _extension-configuration:
 
 ===============================================
 Extension Configuration (ext_conf_template.txt)
