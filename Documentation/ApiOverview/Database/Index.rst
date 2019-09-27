@@ -2,9 +2,9 @@
 
 .. _database:
 
-========
-Database
-========
+========================
+Database (doctrine-dbal)
+========================
 
 **Contents:**
 
