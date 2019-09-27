@@ -33,6 +33,9 @@ would define a base variant to use in Development context.
 .. hint::
     For those coming from earlier TYPO3 versions: With site handling, there is no need for `sys_domain` records anymore! :)
 
+.. seealso::
+    Read :ref:`application-context` for more information on how to set the application context.
+
 The following variables and functions are available in addition to the default Symfony functionality:
 
 Example

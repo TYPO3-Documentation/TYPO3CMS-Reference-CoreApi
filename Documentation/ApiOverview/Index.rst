@@ -15,17 +15,21 @@ This chapter describes the most important elements of the API.
 
    The source is the documentation! (General wisdom)
 
-
-
-BASICS
-
 .. toctree::
    :titlesonly:
    :maxdepth: 1
 
    DirectoryStructure/Index
-   Namespaces/Index
+
+
+GLOBAL PROPERTIES
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
    Environment/Index
+   Context/Index
    GlobalValues/Index
 
 
@@ -35,11 +39,12 @@ BOOTSTRAPPING
    :titlesonly:
    :maxdepth: 1
 
+   Namespaces/Index
    Autoloading/Index
    Bootstrapping/Index
    RequestHandling/Index
 
-PERSISTENCE
+DATABASE & FILES
 
 .. toctree::
    :titlesonly:
@@ -63,7 +68,6 @@ CONFIGURATION
    FeatureToggles/Index
    UserSettingsConfiguration/Index
    FlexForms/Index
-
 
 CACHING
 
@@ -93,10 +97,11 @@ BACKEND
    BackendModules/Index
    BackendRouting/Index
    BackendUserObject/Index
+   BroadcastChannels/Index
+   FlashMessages/Index
    FormEngine/Index
    JavaScript/Index
-   FlashMessages/Index
-   BroadcastChannels/Index
+   Rte/Index
 
 HANDLING SITES, URLS, LANGUAGES
 
@@ -154,7 +159,6 @@ VARIOUS
    :maxdepth: 1
 
    CommandControllers/Index
-   Context/Index
    ContextSensitiveHelp/Index
    Enumerations/Index
    FileProcessing/Index
@@ -163,7 +167,6 @@ VARIOUS
    LockingApi/Index
    Mail/Index
    PageTypes/Index
-   Rte/Index
    SessionStorageFramework/Index
    Services/Index
    SoftReferences/Index

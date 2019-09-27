@@ -112,19 +112,25 @@ may themselves be arrays.
 The configuration categories are:
 
 BE
-  Options related to the TYPO3 CMS backend
+  Options related to the TYPO3 CMS backend.
 
 DB
-  Database connection configuration
+  Database connection configuration.
+
+EXT
+  Extension installation options.
 
 EXTCONF
   Backend related language pack configuration resides here.
 
 EXTENSIONS
-  Extension specific settings
+  :ref:`Extension configuration <extension-configuration>`.
 
 FE
   Frontend-related options.
+
+HTTP
+  Settings for tuning HTTP requests made by TYPO3.
 
 GFX
   Options related to image manipulation.
