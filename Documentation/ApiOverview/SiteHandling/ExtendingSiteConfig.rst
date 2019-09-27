@@ -46,7 +46,7 @@ Extending the Form / GUI
 Extending the GUI is a bit more tricky.
 
 The backend module relies on FormEngine to render the edit interface. Since the form data is not stored in
-database records but in :file:`.yml` files, a couple of details have been extended of the default FormEngine code.
+database records but in :file:`.yaml` files, a couple of details have been extended of the default FormEngine code.
 
 The render configuration is stored in :file:`typo3/sysext/backend/Configuration/SiteConfiguration/` in a format
 syntactically identical to TCA. However, this is **not** loaded into :php:`$GLOBALS['TCA']` scope, and only a small
@@ -85,6 +85,6 @@ The example below shows the experimental feature adding a field to site in an ex
         $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem']
     );
 
-The field will be shown in the edit form of the configuration module and it's value stored in the :file:`.yml`
+The field will be shown in the edit form of the configuration module and it's value stored in the :file:`.yaml`
 file. Using the site object :php:`TYPO3\CMS\core\Site\Entity\Site`, the value can be fetched using
 :php:`->getConfiguration()['myNewField']`.
