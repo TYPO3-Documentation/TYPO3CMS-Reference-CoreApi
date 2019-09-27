@@ -14,15 +14,10 @@ Based on the priority of the providers, the :php:`PageTitleProviderManager` will
 is given by the provider. It will start with the highest priority PageTitleProviders and will end with the lowest
 in priority.
 
-By default, the core ships three providers. The provider with the (by default) highest priority will be the
-:php:`AltPageTitleProvider`. This provider handles the (since TYPO3 v9 deprecated) property
-:php:`$GLOBALS['TSFE']->altPageTitle`. If an extension has set a value to this property, this provider will return
-that value.
-
-If you have installed the system extension SEO, the second provider will be the :php:`SeoTitlePageTitleProvider`.
-When an editor has set a value for the SEO title in the page properties of the page, this provider will provide
-that title to the :php:`PageTitleProviderManager`. If you have not installed the SEO system extension, this fields
-and provider are not available.
+By default, the core ships two providers. If you have installed the system extension SEO, the provider with the (by default) highest priority will be the
+:php:`SeoTitlePageTitleProvider`. When an editor has set a value for the SEO title in the page properties of the page,
+this provider will provide that title to the :php:`PageTitleProviderManager`. If you have not installed the SEO system
+extension, this fields and provider are not available.
 
 The fallback provider with the lowest priority is the :php:`RecordPageTitleProvider`. When no other title is set
 by a provider, this provider will return the title of the page.
@@ -55,8 +50,8 @@ First of all create a PHP class in your extension that implements the :php:`Page
            $this->title = $title;
        }
    }
-   
-   
+
+
 Usage example e.g. in an Extbase controller:
 
 .. code-block:: php
@@ -77,10 +72,6 @@ By default, the core has the following setup:
 .. code-block:: typoscript
 
    config.pageTitleProviders {
-        altPageTitle {
-            provider = TYPO3\CMS\Core\PageTitle\AltPageTitleProvider
-            before = record
-        }
         record {
             provider = TYPO3\CMS\Core\PageTitle\RecordPageTitleProvider
         }
@@ -89,28 +80,22 @@ By default, the core has the following setup:
 The ordering of the providers is based on the `before` and `after` parameters. If you want a provider to be handled
 before a specific other provider, just set that provider in the `before`, do the same with `after`.
 
-If you have installed the system extension SEO, you will also get a third provider. The configuration will be:
+If you have installed the system extension SEO, you will also get a second provider. The configuration will be:
 
 .. code-block:: typoscript
 
    config.pageTitleProviders {
-      altPageTitle {
-         provider = TYPO3\CMS\Core\PageTitle\AltPageTitleProvider
-         before = record
-      }
       record {
          provider = TYPO3\CMS\Core\PageTitle\RecordPageTitleProvider
       }
       seo {
          provider = TYPO3\CMS\Seo\PageTitle\SeoTitlePageTitleProvider
          before = record
-         after = altPageTitle
       }
    }
 
-First the :php:`AltPageTitleProvider` will be checked, then the :php:`SeoTitlePageTitleProvider` (because it will be
-handled before record and after altPageTitle) and if both providers didn't provide a title, the
-:php:`RecordPageTitleProvider` will be checked.
+First the :php:`SeoTitlePageTitleProvider` (because it will be handled before record) and if this providers didn't
+provide a title, the :php:`RecordPageTitleProvider` will be checked.
 
 You can override these settings within your own installation. You can add as many providers as you want. Be aware
 that if a provider returns a non-empty value, all provider with a lower priority won't be checked.
