@@ -7,15 +7,15 @@
 Page Types
 ==========
 
-The :GLOBALS['PAGE_TYPES'] Array
+The $GLOBALS['PAGE_TYPES'] Array
 ================================
 
-Global array :code:`$GLOBALS['PAGES_TYPES']` defines the various types of pages (field: :code:`doktype`) the
+Global array :php:`$GLOBALS['PAGES_TYPES']` defines the various types of pages (field: :code:`doktype`) the
 system can handle and what restrictions may apply to them. Here you can define which tables are
 allowed on a certain page type.
 
 .. note::
-   The "default" entry in the :code:`$GLOBALS['PAGES_TYPES']` array is the "base"
+   The "default" entry in the :php:`$GLOBALS['PAGES_TYPES']` array is the "base"
    for all types, and for every type the entries simply overrides the
    entries in the "default" type!!
 
@@ -104,18 +104,39 @@ What role each page type plays and when to use it is explained in more
 detail in :ref:`t3editors:pages-types`. Some of the page types require
 additional fields in pages to be filled out:
 
-* **DOKTYPE_DEFAULT** ("Standard")
-* **DOKTYPE_LINK** ("Link to External URL"):This type of page creates a redirect to an URL in the
-  frontend. The URL is specified in the field `pages.url`.
-* **DOKTYPE_SHORTCUT** ("Shortcut"): This type of page creates a redirect to another
-  page in the frontend. The shortcut target is specified in the field `pages.shortcut`, shortcut
-  mode is stored in `pages.shortcut_mode`.
-* **DOKTYPE_BE_USER_SECTION** ("Backend User Section")
-* **DOKTYPE_MOUNTPOINT** ("Mount point"): The mounted page is specified in `pages.mount_pid`,
-  while display options can be changed with `pages.mount_pid_ol`.
-* **DOKTYPE_SPACER** ("Menu separator")
-* **DOKTYPE_SYSFOLDER** ("Folder")
-* **DOKTYPE_RECYCLER** ("Recycler")
+`DOKTYPE_DEFAULT`
+   Standard
+
+`DOKTYPE_LINK`
+   Link to External URL
+
+   This type of page creates a redirect to an URL in the frontend.
+   The URL is specified in the field `pages.url`.
+
+`DOKTYPE_SHORTCUT`
+   Shortcut
+
+   This type of page creates a redirect to another page in the frontend.
+   The shortcut target is specified in the field `pages.shortcut`,
+   shortcut mode is stored in `pages.shortcut_mode`.
+
+`DOKTYPE_BE_USER_SECTION`
+   Backend User Section
+
+`DOKTYPE_MOUNTPOINT`
+   Mount point
+
+   The mounted page is specified in `pages.mount_pid`,
+   while display options can be changed with `pages.mount_pid_ol`.
+
+`DOKTYPE_SPACER`
+   Menu separator
+
+`DOKTYPE_SYSFOLDER`
+   Folder
+
+`DOKTYPE_RECYCLER`
+   Recycler
 
 
 .. _page-types-example:
@@ -135,7 +156,7 @@ The whole code to add a page type is shown below with the according file names a
 The first step is to add the new page type to the global array described above. Then you need to add
 the icon chosen for the new page type and allow users to drag and drop the new page type to the page
 tree.
-Note: You have to change 'example' in the call_user_func() method to your own extension key.
+Note: You have to change 'example' in the :php:`call_user_func()` method to your own extension key.
 
 All the changes are applied in :file:`ext_tables.php`::
 
