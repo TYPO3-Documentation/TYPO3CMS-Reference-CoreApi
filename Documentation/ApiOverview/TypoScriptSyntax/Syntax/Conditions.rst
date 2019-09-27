@@ -285,7 +285,7 @@ various records is combined.
 Custom Conditions With Symfony Expression Language
 ==================================================
 
-Further information about how to extend TypoScript with your own custom conditions can be found within :ref:`symfony-expression-language`
+Further information about how to extend TypoScript with your own custom conditions can be found within :ref:`sel-within-typoscript-conditions`.
 
 .. _typoscript-syntax-conditions-summary:
 
@@ -304,5 +304,3 @@ Summary
 - Conditions can be used outside of confinements (curly braces) only.
   However the :code:`[GLOBAL]` condition will always break a confinement if
   entered inside of one.
-
-https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/SymfonyExpressionLanguage/Index.html
