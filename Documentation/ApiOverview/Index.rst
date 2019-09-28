@@ -101,6 +101,7 @@ BACKEND
    FlashMessages/Index
    FormEngine/Index
    JavaScript/Index
+   LinkBrowser/Index
    Rte/Index
 
 HANDLING SITES, URLS, LANGUAGES
