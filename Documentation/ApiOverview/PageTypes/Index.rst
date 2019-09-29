@@ -22,13 +22,13 @@ allowed on a certain page type.
 This is the default array as set in :file:`EXT:core/ext_tables.php`::
 
    $GLOBALS['PAGES_TYPES'] = array(
-    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_LINK => array(
+    (string) \TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_LINK => array(
     ),
-    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SHORTCUT => array(
+    (string) \TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_SHORTCUT => array(
     ),
     // ...
     //  Doktype 254 is a 'Folder' - a general purpose storage folder for whatever you like. In CMS context it's NOT a viewable page. Can contain any element.
-    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SYSFOLDER => array(
+    (string) \TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_SYSFOLDER => array(
         'type' => 'sys',
         'allowedTables' => '*'
     ),
