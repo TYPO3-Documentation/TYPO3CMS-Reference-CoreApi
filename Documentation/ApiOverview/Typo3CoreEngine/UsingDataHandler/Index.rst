@@ -110,7 +110,6 @@ caches will actually clear caches from the "all" group and not really
 **all** caches. Check the :ref:`caching framework architecture section <caching-architecture-core>`
 for more details about available caches and groups.
 
-
 .. _tcemain-complex-submission:
 
 Complex Data Submission
@@ -184,3 +183,20 @@ should not set this argument since you want TCE to use the global
    $dataHandler->process_datamap();
    $dataHandler->process_cmdmap();
 
+.. _tcemain-error-handling:
+
+Error handling
+============================
+
+The data handler has a property `errorLog` as an `array`. In this property, the data handler collects all errors.
+You can use this to log all errors that occur during the data handler would be used.
+
+.. code-block:: php
+   :linenos:
+
+   if (!empty($dataHandler->errorLog)) {
+      $this->logger->error('Error(s) while creating content element');
+      foreach ($dataHandler->errorLog as $log) {
+         $this->logger->error($log);
+      }
+   }
