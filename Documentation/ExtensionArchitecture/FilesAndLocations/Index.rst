@@ -426,12 +426,12 @@ Configuration/TCA/Overrides
   For extending existing tables, one file per database table, using the name of
   the table for the file, plus ".php".
 
-Configuration/TsConfig/Page
+Configuration/TSconfig/Page
   Page TSconfig, see chapter :ref:`'Page TSconfig' in the TSconfig Reference
   <t3tsconfig:PageTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.
 
-Configuration/TsConfig/User
+Configuration/TSconfig/User
   User TSconfig, see chapter :ref:`'User TSconfig' in the TSconfig Reference
   <t3tsconfig:UserTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.
