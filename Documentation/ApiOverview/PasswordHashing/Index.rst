@@ -36,7 +36,7 @@ such as their bank account, social media accounts, or even their email provider.
 To mitigate this risk, we can use one-way `hash`_ algorithms to transform a plain text password into an incomprehensible
 string of seemingly "random" characters.
 A hash, (also known as a checksum), is the result of a value (in this case the user's password) that has been
-mathematically calculated using a one-way function.
+transformed using a one-way function.
 Hashes are called "one-way functions" because they're quick and easy to generate, but incredibly hard to undo.
 You would require an incredible amount of computational power and time to try and reverse a hash back to its original
 value.
@@ -59,7 +59,7 @@ hashing the given password directly and always ending up with the same hash for 
 (if different users use the same password they end up with the same hash in the database), a "salt"
 is added to the password. This salt is a random string calculated when the password is first set (when the
 user record is created) and stored *together* with the hash. The basic thinking is that the salt is
-appended to the password before hashing, the "salt+password" combination is then hashed. The salt is stored
+added to the password before hashing, the "salt+password" combination is then hashed. The salt is stored
 next to the hash in the database. If then a user logs in and submits their username and password, the following
 happens:
 
@@ -85,7 +85,7 @@ approaches: Core version v4.3 from 2009 added salted password storing, v4.5 from
 storing using the algorithm 'phpass' by default, v6.2 from 2014 made salted passwords storing mandatory,
 v8 added the improved hash algorithm 'PBKDF2' and used it by default.
 
-With core v9, the password hashing has been refactored and modern hash algorithms such as
+With TYPO3 core version 9, the password hashing has been refactored and modern hash algorithms such as
 Argon2i have been added. PHP improved in this area a lot and PHP 7.2 brings `Argon2i`_ by default, so this
 algorithm could be easily integrated as available core hash mechanism to the existing hash family.
 Argon2i is rather resilient against GPU and some other attacks, the default TYPO3 core configuration even raises
