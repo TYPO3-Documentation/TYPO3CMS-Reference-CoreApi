@@ -74,6 +74,4 @@ In PHP, a typical call to fetch a string in the language selected by a user look
 
 If the correct context is set, the current extension name and language is provided by the request. Otherwise it must be provided.
 
-TODO
-The documentation for the ViewHelper can be found at https://docs.typo3.org/other/typo3/view-helper-reference/9.5/en-us/typo3/fluid/latest/Translate.html
-TODO
+The documentation for the ViewHelper can be found at :ref:`t3viewhelper:typo3-fluid-translate`.
