@@ -47,7 +47,10 @@ If additional placeholders are used in a translation source, they must be inject
    // <trans-unit id="message.description.fileHasBrokenReferences">
    //     <source>The file has %1s broken reference(s) but it will be deleted regardless.</source>
    // </trans-unit>
-   sprintf($this->getLanguageService()->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:message.description.fileHasBrokenReferences'), count($brokenReferences));
+   sprintf($this->getLanguageService()->sL(
+       'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:message.description.fileHasBrokenReferences'),
+       count($brokenReferences)
+   );
 
 Various classes are involved in the localization process, with
 :php:`\TYPO3\CMS\Core\Localization\LanguageService` providing the actual

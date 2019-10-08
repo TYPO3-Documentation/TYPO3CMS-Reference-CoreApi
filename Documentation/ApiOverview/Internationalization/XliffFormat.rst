@@ -56,8 +56,11 @@ Here is a sample XLIFF file:
 
    The following properties should be filled properly to get best support in external translation tools:
 
-   - `original`: This property contains the path to the xlf file.
-   - `resname`: Its content is shown to translators. It should be a copy of the property `id`.
+   `original`
+      This property contains the path to the xlf file.
+
+   `resname`
+      Its content is shown to translators. It should be a copy of the property `id`.
 
 
 The translated file is very similar. If the original file was named
