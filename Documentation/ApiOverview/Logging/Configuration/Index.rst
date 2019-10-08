@@ -44,12 +44,21 @@ The Log Writer configuration is read from the subkey :code:`writerConfiguration`
          // add a FileWriter
        'TYPO3\\CMS\\Core\\Log\\Writer\\FileWriter' => array(
            // configuration for the writer
-         'logFile' => 'typo3temp/logs/typo3_7ac500bce5.log'
+         'logFile' => 'typo3temp/var/log/typo3_7ac500bce5.log'
        )
      )
    );
 
 The above configuration applies to **all** log entries of level "ERROR" or above.
+
+.. important::
+
+    Since TYPO3 v9 the default folder for log files is `typo3temp/var/log`. In v8 it was `typo3temp/var/logs`
+    and older versions used `typo3temp/logs`.
+
+.. important::
+
+    Since TYPO3 v9 it is possible (and a good practice) to store temporary files (`typo3temp/var`) outside the document root).
 
 To apply a special configuration for the controllers of the *examples* extension,
 use the following configuration:
@@ -86,7 +95,7 @@ For the above example code that means:
 - Calling :code:`$logger->warning($msg);` will result in $msg being written to the computer's syslog
   on top of the default configuration.
 - Calling :code:`$logger->debug($msg);` will result in $msg being written
-  only to the default log file (:file:`typo3temp/logs/typo3.log`).
+  only to the default log file (:file:`typo3temp/var/log/typo3_<hash>.log`).
 
 For a list of writers shipped with the TYPO3 Core see the section about
 :ref:`logging-writers`.
