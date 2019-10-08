@@ -39,18 +39,26 @@ Here is a sample XLIFF file:
 
    <?xml version="1.0" encoding="UTF-8"?>
    <xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.1">
-      <file source-language="en" datatype="plaintext" original="messages" date="2011-10-18T18:20:51Z" product-name="my-ext">
+      <file source-language="en" datatype="plaintext" original="EXT:my_ext/Resources/Private/Language/Modules/<ffile-name>.xlf" date="2011-10-18T18:20:51Z" product-name="my_ext">
          <header/>
          <body>
-            <trans-unit id="headerComment" xml:space="preserve">
+            <trans-unit id="headerComment" resname="headerComment">
                <source>The default Header Comment.</source>
             </trans-unit>
-            <trans-unit id="generator" xml:space="preserve">
+            <trans-unit id="generator" resname="generator">
                <source>The "Generator" Meta Tag.</source>
             </trans-unit>
          </body>
       </file>
    </xliff>
+
+.. note::
+
+   The following properties should be filled properly to get best support in external translation tools:
+
+   - `original`: This property contains the path to the xlf file.
+   - `resname`: Its content is shown to translators. It should be a copy of the property `id`.
+
 
 The translated file is very similar. If the original file was named
 :file:`locallang.xlf`, the translated file for German (code "de") will
@@ -66,14 +74,14 @@ Here is what the translation of our sample file could look like:
 .. code-block:: xml
 
    <xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.1">
-      <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2011-10-18T18:20:51Z" product-name="my-ext">
+      <file source-language="en" target-language="de" datatype="plaintext" original="EXT:my_ext/Resources/Private/Language/Modules/<ffile-name>.xlf" date="2011-10-18T18:20:51Z" product-name="my_ext">
          <header/>
          <body>
-            <trans-unit id="headerComment" xml:space="preserve">
+            <trans-unit id="headerComment" resname="headerComment">
                <source>The default Header Comment.</source>
                <target>Der Standard-Header-Kommentar.</target>
             </trans-unit>
-            <trans-unit id="generator" xml:space="preserve">
+            <trans-unit id="generator" resname="generator">
                <source>The "Generator" Meta Tag.</source>
                <target>Der "Generator"-Meta-Tag.</target>
             </trans-unit>

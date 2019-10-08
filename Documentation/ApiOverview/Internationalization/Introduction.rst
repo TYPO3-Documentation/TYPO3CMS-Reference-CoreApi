@@ -23,7 +23,9 @@ Label Access in PHP
 ===================
 
 In PHP, a typical call in the Backend to fetch a string in the language selected by a user
-looks like this::
+looks like this:
+
+.. code-block:: php
 
    $this->getLanguageService()->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.minutesHoursDaysYears')
 
@@ -37,7 +39,9 @@ future, but for now the LanguageService can be reliably fetched from this global
    is returned in a web context, it *must* be added manually.
 
 
-If additional placeholders are used in a translation source, they must be injected, a call then typically looks like this::
+If additional placeholders are used in a translation source, they must be injected, a call then typically looks like this:
+
+.. code-block:: php
 
    // Text string in .xlf file has a placeholder:
    // <trans-unit id="message.description.fileHasBrokenReferences">
@@ -56,3 +60,20 @@ whose :php:`translate()` method also takes an array as argument and runs PHP's
 :php:`vsprintf()` on the localized string. However, in the future it is expected this Extbase
 specific class will melt down and somehow merged into the core API classes to get rid of this
 duplication.
+
+Label Access in Fluid
+=====================
+
+In PHP, a typical call to fetch a string in the language selected by a user looks like this:
+
+.. code-block:: html
+
+   <f:translate key="key1" extensionName="SomeExtensionName" />
+   // or inline notation
+   {f:translate(key: 'someKey', extensionName: 'SomeExtensionName')}
+
+If the correct context is set, the current extension name and language is provided by the request. Otherwise it must be provided.
+
+TODO
+The documentation for the ViewHelper can be found at https://docs.typo3.org/other/typo3/view-helper-reference/9.5/en-us/typo3/fluid/latest/Translate.html
+TODO

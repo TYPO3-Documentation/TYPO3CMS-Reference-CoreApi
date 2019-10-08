@@ -140,7 +140,9 @@ release.
 However, it is possible to add custom languages to the TYPO3 backend and create the translations
 locally using XLIFF files.
 
-First of all, the language must be declared::
+First of all, the language must be declared:
+
+.. code-block:: php
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['user'] = array(
        'gsw_CH' => 'Swiss German',
@@ -148,7 +150,9 @@ First of all, the language must be declared::
 
 This new language does not need to be entirely translated. It can be defined
 as falling back to another language, so that only differing labels need be
-translated::
+translated:
+
+.. code-block:: php
 
   $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['dependencies'] = array(
      'gsw_CH' => array('de_AT', 'de'),
