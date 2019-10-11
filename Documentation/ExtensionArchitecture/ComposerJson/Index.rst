@@ -39,7 +39,7 @@ This is a minimal composer.json for a TYPO3 extension:
 
 Subsequently:
 
-* The namespace will be *\\Vendorname\\MyExtension*
+* The namespace will be *Vendorname\\MyExtension*
 * The package name will be *vendorname/my-extension*
 
 .. code-block:: json
@@ -64,30 +64,44 @@ Subsequently:
        }
    }
 
-* **name** (*required*): `<vendorname>/<dashed extension key>` "Dashed extension key" means that every
-  underscore (`_`) has been changed to a dash (`-`).
-  You must be owner of the vendor name and should register it on packagist. Typically, the name will
-  correspond to your namespaces used in the :file:`Classes` folder, but with different uppercase /
-  lowercase spelling, e.g. `GeorgRinger\News` namespace and `georgringer/news` name in :file:`composer.json`.
-* **type** (*required*): Just use `typo3-cms-extension` for TYPO3 extensions
-* **description** (*required*): Description of your extension (1 line)
-* **license** (*recommended*)
-* **require** (*required*): At the least, you will want to require `typo3/cms-core`. You can add other
-  system extensions and third party extensions, if your extension depends on them.
-* **extra**: The extra typo3/cms section can be used to provide a TYPO3 extension_key for the package.
-  This will be used when found. If not provided, the package-key will be used with all dashes (`-`)
-  replaced by underscores (`_`) to follow TYPO3 and packagist conventions.
-* **autoload**: Define namespace - path mapping for PSR-4 autoloading. In TYPO3 we follow the
-  convention that all classes (except test classes) are in the directory :file:`Classes`.
+``name`` (*required*)
+   `<vendorname>/<dashed extension key>` "Dashed extension key" means that every underscore (`_`) has been changed to a dash (`-`).
+   You must be owner of the vendor name and should register it on packagist.
+   Typically, the name will correspond to your namespaces used in the :file:`Classes` folder,
+   but with different uppercase / lowercase spelling,
+   e.g. `GeorgRinger\News` namespace and `georgringer/news` name in :file:`composer.json`.
 
+``type`` (*required*)
+   Just use `typo3-cms-extension` for TYPO3 extensions
+
+``description`` (*required*)
+   Description of your extension (1 line)
+
+``license`` (*recommended*)
+   Has to be `GPL-2.0-only` or `GPL-2.0-or-later`.
+   See: https://typo3.org/project/licenses/.
+
+``require`` (*required*)
+   At the least, you will want to require `typo3/cms-core`.
+   You can add other system extensions and third party extensions,
+   if your extension depends on them.
+
+``extra``
+   The extra `typo3/cms` section can be used to provide a TYPO3 extension_key for the package.
+   This will be used when found. If not provided, the package-key will be used with all dashes (`-`)
+   replaced by underscores (`_`) to follow TYPO3 and Packagist conventions.
+
+``autoload``
+   Define namespace - path mapping for PSR-4 autoloading.
+   In TYPO3 we follow the convention that all classes (except test classes)
+   are in the directory :file:`Classes`.
 
 Properties no longer used:
 
-* **version** (*not recommended*): was used in earlier TYPO3 versions. For versions 7.6 and above
-  you should not use the version property. The version for the extension is set in the file
-  :ref:`ext_emconf.php <ext_emconf-php>`.
-
-
+``version`` (*not recommended*)
+  Was used in earlier TYPO3 versions.
+  For versions 7.6 and above you should not use the version property.
+  The version for the extension is set in the file :ref:`ext_emconf.php <ext_emconf-php>`.
 
 More Information
 ================
