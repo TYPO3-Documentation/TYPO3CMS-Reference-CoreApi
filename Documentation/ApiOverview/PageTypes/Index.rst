@@ -22,13 +22,13 @@ allowed on a certain page type.
 This is the default array as set in :file:`EXT:core/ext_tables.php`::
 
    $GLOBALS['PAGES_TYPES'] = array(
-    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_LINK => array(
+    (string) \TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_LINK => array(
     ),
-    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SHORTCUT => array(
+    (string) \TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_SHORTCUT => array(
     ),
     // ...
     //  Doktype 254 is a 'Folder' - a general purpose storage folder for whatever you like. In CMS context it's NOT a viewable page. Can contain any element.
-    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SYSFOLDER => array(
+    (string) \TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_SYSFOLDER => array(
         'type' => 'sys',
         'allowedTables' => '*'
     ),
@@ -221,7 +221,7 @@ need to add the new doktype as select item and associate it with the configured 
                     // add all page standard fields and tabs to your new page type
                     'types' => [
                         (string) $archiveDoktype => [
-                            'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_DEFAULT]['showitem']
+                            'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_DEFAULT]['showitem']
                         ]
                     ]
                 ]
