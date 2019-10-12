@@ -1,10 +1,142 @@
 .. include:: ../../../Includes.txt
 
 
+.. _hooks-general:
+
+=====
+Hooks
+=====
+Hooks are basically places in the source code where a user function will be called for processing
+if such has been configured. While there are conventions and best practises of how hooks should be
+implemented the Hook Concept itself doesnt prevent it from being used in any way.
+
+.. _hooks-basics:
+
+Using Hooks
+===========
+
+The two lines of code below are an example of how a hook is used for
+clear-cache post-processing. The objective of this could be to perform
+additional actions whenever the cache is cleared for a specific page. ::
+
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = \Vendor\Package\Hook\DataHandlerHook::class . '->postProcessClearCache';
+
+This registers the class/method name to a hook inside of
+:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. The hook will call the user
+function after the clear-cache command has been executed. The user function
+will receive parameters which allows it to see what clear-cache action was
+performed and typically also an object reference to the parent object. Then the
+user function can take additional actions as needed.
+
+The class has to be declared with the TYPO3 autoloader.
+
+If we take a look inside of :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` we
+find the hook to be activated like this:
+
+.. code-block:: php
+   :linenos:
+
+      // Call post processing function for clear-cache:
+   if (is_array($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'])) {
+      $_params = array('cacheCmd' => $cacheCmd);
+      foreach($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'] as $_funcRef) {
+         \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($_funcRef, $_params, $this);
+      }
+   }
+
+This is how hooks are typically constructed. The main action happens in line 5
+where the function :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
+is called. The user function is called with two arguments, an array with
+variable parameters and the parent object.
+
+In line 3 the contents of the parameter array is prepared. This is of
+high interest to you because this is where you see what data is passed
+to you and what data might possibly be passed by reference and thereby
+possible to manipulate from your hook function.
+
+Finally, notice how the array
+:code:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib\_tcemain.php']['clearCachePostProc']`
+is traversed and for each entry the value is expected to be a function
+reference which will be called. This allows many hooks to be called at the same
+place. The hooks can even rearrange the calling order if they dare.
+
+The syntax of a function reference can be seen in the API documentation of
+:php:`\TYPO3\CMS\Core\Utility\GeneralUtility`.
+
+.. note::
+
+   The example hook shown above refers to old class names. All these old class
+   names were left in hooks, for obvious reasons of backwards-compatibility.
+
+
+.. _hooks-creation:
+
+Creating Hooks
+==============
+
+You are encouraged to create hooks in your extensions if they seem
+meaningful. Typically someone would request a hook somewhere. Before
+you implement it, consider if it is the right place to put it etc. On
+the one hand we want to have many hooks but not more than needed.
+Redundant hooks or hooks which are implemented in the wrong context is
+just confusing. So put a little thought into it first, but be
+generous.
+
+There are two main methods of calling a user defined function in
+TYPO3.
+
+- :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()` - The classic way. Takes a
+  file/class/method reference as value and calls that function. The
+  argument list is fixed to a parameter array and a parent object. So
+  this is the limitation. The freedom is that the reference defines the
+  function name to call. This method is mostly useful for small-scale
+  hooks in the sources.
+
+- :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` - Create an
+  object from a user defined
+  file/class. The method called in the object is fixed by the hook, so
+  this is the non-flexible part. But it is cleaner in other ways, in
+  particular that you can even call many methods in the object and you
+  can pass an arbitrary argument list which makes the API more
+  beautiful. You can also define the objects to be singletons,
+  instantiated only once in the global scope.
+
+Here follows some examples.
+
+
+.. _hooks-creation-object:
+
+Using \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()
+============================================================
+
+Data submission to extensions::
+
+   // Hook for processing data submission to extensions
+   foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']
+         ['checkDataSubmission'] ?? [] as $className) {
+      $_procObj = GeneralUtility::makeInstance($className);
+      $_procObj->checkDataSubmission($this);
+   }
+
+
+.. _hooks-creation-function:
+
+Using with \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()
+=====================================================================
+
+Constructor post-processing::
+
+      // Call post-processing function for constructor:
+   if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['tslib_fe-PostProc'])) {
+      $_params = array('pObj' => &$this);
+      foreach($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['tslib_fe-PostProc'] as $_funcRef) {
+         \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($_funcRef,$_params, $this);
+      }
+   }
+
 
 .. _hooks-configuration:
 
-==================
 Hook Configuration
 ==================
 
@@ -121,7 +253,7 @@ call is predefined by the hook, in this case
 number of variables along instead of the limited :php:`$params` and :php:`$pObj`
 variables from :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`. ::
 
-       // Hook for preprocessing of the content for formmails:
+    // Hook for preprocessing of the content for formmails:
    if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['sendFormmail-PreProcClass'])) {
        foreach($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['sendFormmail-PreProcClass'] as $_classRef) {
            $_procObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance($_classRef);
