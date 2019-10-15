@@ -45,7 +45,7 @@ extending PHP classes with a child class (see :ref:`XCLASS extensions <xclasses>
 only one extension of a PHP class can exist at a time while hooks and signals
 may allow many different user-designed processor functions to be executed.
 With TYPO3 10 the EventDispatcher was introduced. It is a strongly typed method of
-extetending TYPO3 and therfore recommended to use wherever availible.
+extending TYPO3 and therefore recommended to use wherever available.
 
 However, Events have to be emitted, Hooks and Signals have to be implemented,
 in the TYPO3 core or an Extension before you can use them, while extending a
