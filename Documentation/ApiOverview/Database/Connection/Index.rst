@@ -82,16 +82,25 @@ goes wrong a `\Doctrine\DBAL\DBALException` is raised.
 bulkInsert()
 ^^^^^^^^^^^^
 
-`INSERT` multiple rows at once. An example from the test suite::
+`INSERT` multiple rows at once::
 
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   $connection = GeneralUtility::makeInstance(ConnectionPool::class)
+      ->getConnectionForTable('sys_log')
    $connection->bulkInsert(
-      'aTestTable',
+      'sys_log',
       [
-         ['aField' => 'aValue'],
-         ['aField' => 'anotherValue']
+         [(int)$userId, (string)$details1],
+         [(int)$userId, (string)$details2],
       ],
       [
-         'aField'
+         'userid',
+         'details',
+      ],
+      [
+         Connection::PARAM_INT,
+         Connection::PARAM_STR,
       ]
    );
 
