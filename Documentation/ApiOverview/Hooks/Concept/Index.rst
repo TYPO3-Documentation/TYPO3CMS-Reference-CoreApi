@@ -15,6 +15,7 @@ if such has been configured. Signals roughly follow the observer pattern.
 Signals and slots decouple the sender (sending a signal) and the receiver(s)
 (called slots). The sender sends a signal - like "database updated" - and all
 receivers listening to that signal will be executed.
+The configuration of hooks and signals should be done in the files :file:`ext_localconf.php` of the extensions.
 
 
 .. _hooks-xclass:
