@@ -70,6 +70,8 @@ RecordsXmlSitemapDataProvider. You can add for example a sitemap for news record
                   table = news_table
                   sortField = sorting
                   lastModifiedField = tstamp
+                  changeFreqField = news_changefreq
+                  priorityField = news_priority
                   additionalWhere = AND (no_index = 0 OR no_follow = 0)
                   pid = <page id('s) containing news records>
                   recursive = <number of subpage levels taken into account beyond the pid page. (default: 0)>
@@ -92,6 +94,28 @@ RecordsXmlSitemapDataProvider. You can add for example a sitemap for news record
    }
 
 You can add several sitemaps and those will be added to the sitemap index automatically.
+
+Change Frequency and Priority
+-----------------------------
+
+Change frequencies define how often each page is approximately updated and hence how often it should be revisited
+(for example: News in an archive are “never” updated, while your home page might get “weekly” updates).
+
+Priority allows you to define how important the page is compared to other pages on your site. The priority is
+stated in a value from 0 to 1. Your most important pages can get an higher priority as other pages. This value does
+not affect how important your pages are compared to pages of other websites. All pages and records get a priority of
+0.5 by default.
+
+The settings can be defined in TypoScript by mapping the properties to fields of the record by using the options
+:ts:`changeFreqField` and :ts:`priorityField`. :ts:`changeFreqField` needs to point to a field containing
+string values (see :ts:`pages` TCA definition of field :ts:`sitemap_changefreq`), :ts:`priorityField` needs to point
+to a field with a decimal value between 0 and 1.
+
+.. note::
+
+   Both priority and change frequency does have no impact on your rankings. These options only give hints to search engines
+   in which order and how often you would like a crawler to visit your pages.
+
 
 Create Your Own XmlSitemapDataProvider
 ======================================
