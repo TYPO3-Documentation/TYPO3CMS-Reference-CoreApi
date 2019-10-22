@@ -175,6 +175,7 @@ VARIOUS
    Collections/Index
    SystemRegistry/Index
    Workspaces/Index
+   DependencyInjection/Index
 
 
 
