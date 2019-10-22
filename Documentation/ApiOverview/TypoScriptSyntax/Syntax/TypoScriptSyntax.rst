@@ -15,17 +15,19 @@ this formula:
    [Object Path] [Operator] [Value]
 
 
-Example:
-""""""""
+**Example:**
 
 .. code-block:: typoscript
 
    myObject.myProperty = value 2
 
+In this example we have the object :code:`myObject` with the property :code:`myProperty`
+and a value :code:`value 2`.
+
 
 .. _typoscript-syntax-syntax-object-path:
 
-object path
+Object Path
 """""""""""
 
 The object path (in this case :code:`myObject.myProperty`) is like the
@@ -33,12 +35,12 @@ variable name in a programming language. The object path is the first
 block of non-whitespace characters on a line until one of the
 characters :code:`=<>{(` or a white space is found. The dot (:code:`.`) is used
 to separate objects and properties from each other creating a hierarchy.
-Here we have the object :code:`myObject` with the property :code:`myProperty`.
+
 **Use only A-Z, a-z, 0-9, "-", "\_" and periods (.) for object paths!**
 
 Dots in the object path can be escaped using a backslash.
 
-**Example:**
+**Escaping example:**
 
 .. code-block:: typoscript
 
@@ -51,97 +53,25 @@ Here we do **not** have three hierarchically structured objects :code:`my`,
 
 .. _typoscript-syntax-syntax-operator:
 
-operator
+Operator
 """"""""
 
 The operator (in the example it is :code:`=`) can be one of the characters
 :code:`=<>{(`. The various operators are described below.
 
 
-.. _typoscript-syntax-syntax-value:
-
-value
-"""""
-
-The value (in case of the above example "value 2") is whatever characters
-follow the operator until the end of the line, but trimmed for whitespace
-at both ends. Notice that values are *not* encapsulated in quotes! The
-value starts after the operator and ends with the line break.
-
-
-.. _typoscript-syntax-syntax-comments:
-
-Comments
-""""""""
-
-When a line starts with :code:`//` or :code:`#` it is considered to be a comment
-and will be ignored.
-
-
-Example:
-~~~~~~~~
-
-.. code-block:: typoscript
-
-   // This is a comment
-   myObject = TEXT
-   myObject.value = <strong>Some HTML code</strong>
-   # This line also is a comment.
-
-Up to TYPO3 7.6, a line starting with only one single slash,
-:code:`/`, has also been considered a comment. Since TYPO3 8, this
-style however is deprecated and should not be used.
-
-
-.. _typoscript-syntax-syntax-comment-blocks:
-
-Comment blocks
-""""""""""""""
-
-When a line starts with :code:`/*` or :code:`*/` it defines the beginning or the
-end of a comment section respectively. Anything inside a comment
-section is ignored.
-
-
-Rules:
-~~~~~~
-
-:code:`/*` and :code:`*/` **must** be the very first characters of a trimmed line in
-order to be detected.
-
-Comment blocks are not detected inside a multi-line value block (see
-parenthesis operator below).
-
-
-Example:
-~~~~~~~~
-
-.. code-block:: typoscript
-
-   /* This is a comment
-    .. and this line is within that comment which...
-     ends here:
-   */  ... this is not parsed either though - the whole line is still within the comment
-   myObject = TEXT
-   myObject.value (
-      Here is a multiline value which
-      /*
-       This is not a comment because it is inside a multi-line value block
-      */
-   )
-
 
 .. _typoscript-syntax-syntax-equal-operator:
 .. _typoscript-syntax-syntax-value-assignment:
 
 Value assignment: The "=" operator
-""""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This simply assigns a value to an object path.
 
 
-Rules:
-~~~~~~
+**Rules:**
+
 
 Everything after the :code:`=` sign and *up to the end of the line* is
 considered to be the value. In other words: You don't need to quote
@@ -155,7 +85,7 @@ whitespace at both ends.
 .. _typoscript-syntax-syntax-value-modification:
 
 Value modifications: The ":=" operator
-""""""""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This operator assigns a value to an object path by calling a
 predefined function which modifies the existing value of the current
@@ -165,8 +95,7 @@ This is very useful when a value should be modified without completely
 redefining it again.
 
 
-Rules:
-~~~~~~
+**Rules:**
 
 The portion after the :code:`:=` operator and *to the end of the line* is
 split in two parts: A function and a value. The function is specified
@@ -230,8 +159,7 @@ There is a hook inside class :code:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScript
 which can be used to define more such functions.
 
 
-Example:
-~~~~~~~~
+**Example:**
 
 .. code-block:: typoscript
 
@@ -252,15 +180,14 @@ produces the same result as:
 .. _typoscript-syntax-syntax-curly-brackets:
 
 Code blocks: The { } signs
-""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Opening and closing curly braces are used to assign many object
 properties in a simple way at once. It's called a block or nesting of
 properties.
 
 
-Rules:
-~~~~~~
+**Rules:**
 
 - Everything on the same line as the opening brace (:code:`{`), but that comes
   *after* it is ignored.
@@ -284,8 +211,7 @@ Rules:
   the TypoScript parser.
 
 
-Example:
-~~~~~~~~
+**Example:**
 
 .. code-block:: typoscript
 
@@ -312,15 +238,14 @@ could also be written as:
 .. _typoscript-syntax-syntax-multiline-values:
 
 Multi-line values: The ( ) signs
-""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Opening and closing parenthesis are used to assign a *multi-line
 value* . With this method you can define values which span several
 lines and thus include line breaks.
 
 
-Rules:
-~~~~~~
+**Rules:**
 
 The end-parenthesis is extremely important. If it is not
 found, the parser considers the following lines to be part of the
@@ -329,8 +254,7 @@ value and does not return to parsing TypoScript. This includes the
 it!
 
 
-Example:
-~~~~~~~~
+**Example:**
 
 .. code-block:: typoscript
 
@@ -346,15 +270,14 @@ Example:
 .. _typoscript-syntax-syntax-object-copying:
 
 Object copying: The "<" sign
-""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The :code:`<` sign is used to copy one object path to another. The whole
 object is copied - both value and properties - and it overrides any
 old objects and values at that position.
 
 
-Example:
-~~~~~~~~
+**Example:**
 
 .. code-block:: typoscript
 
@@ -425,7 +348,7 @@ which – in tree view – translates to:
 .. _typoscript-syntax-syntax-object-referencing:
 
 References: the "=<" sign
-"""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **In the context of TypoScript Templates** it is possible to create
 references from one object to another. References mean that multiple
@@ -445,8 +368,7 @@ be used with caution.
 will not change the original object that was referenced.
 
 
-Example
-~~~~~~~
+**Example:**
 
 .. code-block:: typoscript
 
@@ -480,13 +402,12 @@ Remember:
 .. _typoscript-syntax-syntax-unsetting-operator:
 
 Object unsetting: The ">" Sign
-""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is used to unset an object and all of its properties.
 
 
-Example:
-~~~~~~~~
+**Example:**
 
 .. code-block:: typoscript
 
@@ -502,7 +423,7 @@ In this last line :code:`myObject` is totally wiped out (removed).
 .. _typoscript-syntax-syntax-conditions:
 
 Conditions: Lines starting with "["
-"""""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Conditions break the parsing of TypoScript in order to evaluate the
 content of the condition line. If the evaluation returns true, parsing
@@ -512,15 +433,13 @@ The next section in this document describes conditions in more
 details.
 
 
-Rules:
-~~~~~~
+**Rules:**
 
 Conditions apply *only* when outside of any code block (i.e. outside
 of any curly braces).
 
 
-Example:
-~~~~~~~~
+**Example:**
 
 .. code-block:: typoscript
 
@@ -529,4 +448,83 @@ Example:
    [ELSE]
    page.10.value = It is NOT the 9th day of the month!
    [END]
+
+
+
+
+
+.. _typoscript-syntax-syntax-value:
+
+Value
+"""""
+
+The value (in case of the above example "value 2") is whatever characters
+follow the operator until the end of the line, but trimmed for whitespace
+at both ends. Notice that values are *not* encapsulated in quotes! The
+value starts after the operator and ends with the line break.
+
+
+.. _typoscript-syntax-syntax-comments:
+
+Comments
+""""""""
+
+TypoScript support single line comments as well as multiline comment blocks.
+
+
+Single line comments
+~~~~~~~~~~~~~~~~~~~~
+
+When a line starts with :code:`//` or :code:`#` it is considered to be a comment
+and will be ignored.
+
+
+**Example:**
+
+.. code-block:: typoscript
+
+   // This is a comment
+   myObject = TEXT
+   myObject.value = <strong>Some HTML code</strong>
+   # This line also is a comment.
+
+Up to TYPO3 7.6, a line starting with only one single slash,
+:code:`/`, has also been considered a comment. Since TYPO3 8, this
+style however is deprecated and should not be used.
+
+
+.. _typoscript-syntax-syntax-comment-blocks:
+
+Comment blocks
+~~~~~~~~~~~~~~
+
+When a line starts with :code:`/*` or :code:`*/` it defines the beginning or the
+end of a comment section respectively. Anything inside a comment
+section is ignored.
+
+
+**Rules:**
+
+:code:`/*` and :code:`*/` **must** be the very first characters of a trimmed line in
+order to be detected.
+
+Comment blocks are not detected inside a multi-line value block (see
+parenthesis operator below).
+
+
+**Example:**
+
+.. code-block:: typoscript
+
+   /* This is a comment
+    .. and this line is within that comment which...
+     ends here:
+   */  ... this is not parsed either though - the whole line is still within the comment
+   myObject = TEXT
+   myObject.value (
+      Here is a multiline value which
+      /*
+       This is not a comment because it is inside a multi-line value block
+      */
+   )
 
