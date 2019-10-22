@@ -17,7 +17,7 @@ for instance a controller action. That method triggers dependent logic that chan
 data. The tests end with comparing the changed data or output is identical to some
 expected data.
 
-This chapter goes into details on functional testing and how the typo3/testing-framework
+This chapter goes into details on functional testing and how the `typo3/testing-framework`
 helps with setting up, running and verifying scenarios.
 
 
@@ -33,7 +33,7 @@ tests are executed using this scenario definition.
 Single test cases extend :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase`.
 The default implementation of method :php:`setUp()` contains all the main magic to set
 up a new TYPO3 instance in a sub folder of the existing system, create a database,
-create :file:`LocalConfiguration`, load extensions, populate the database with tables
+create :file:`LocalConfiguration.php`, load extensions, populate the database with tables
 needed by the extensions and to link or copy additional fixture files around and finally
 bootstrap a basic TYPO3 backend. :php:`setUp()` is called before each test, so each single
 test is isolated from other tests, even within one test case. There is only one optimization
@@ -116,7 +116,7 @@ call :php:`parent::setUp()` before doing own stuff. An example can be found in
 
     use TYPO3\CMS\Backend\Domain\Repository\Localization\LocalizationRepository;
     use TYPO3\CMS\Core\Core\Bootstrap;
-    use \TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
+    use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
     /**
      * Test case
@@ -265,8 +265,8 @@ If extensions need additional settings in :file:`LocalConfiguration.php`, the pr
 :php:`$configurationToUseInTestInstance` can be used to specify these::
 
     protected $configurationToUseInTestInstance = [
-        'FE' => [
-            'pageNotFound_handling' => 'READFILE:typo3/sysext/frontend/Tests/Functional/Rendering/DataSet/404Template.html'
+        'MAIL' => [
+            'transport' => \Symfony\Component\Mailer\Transport\NullTransport::class
         ]
     ];
 
@@ -281,7 +281,7 @@ Frontend tests
     set up and execute these tests and core usages are hard to explain here in detail
     since most of them work with additional abstracts and set up tricks.
 
-To prepare a frontend test, the system can be instructed to load a set of `.typoscript`
+To prepare a frontend test, the system can be instructed to load a set of :file:`.typoscript`
 files for a working frontend::
 
     $this->setUpFrontendRootPage(1, ['EXT:fluid_test/Configuration/TypoScript/Basic.ts']);
