@@ -266,8 +266,8 @@ If extensions need additional settings in :file:`LocalConfiguration.php`, the pr
 
     protected $configurationToUseInTestInstance = [
         'MAIL' => [
-            'transport' => \Symfony\Component\Mailer\Transport\NullTransport::class
-        ]
+            'transport' => \Symfony\Component\Mailer\Transport\NullTransport::class,
+        ],
     ];
 
 
