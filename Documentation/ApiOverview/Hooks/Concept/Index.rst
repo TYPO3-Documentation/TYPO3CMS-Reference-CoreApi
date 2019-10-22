@@ -14,7 +14,7 @@ its extensions without blocking others to do the same.
 :ref:`Events <EventDispatcherEvents>` are being emitted by the TYPO3 Core or an Extension via the
 :ref:`EventDispatcher <EventDispatcher>. The Event
 will be received by all implemented Event Listeners for the Event in question. Events are strongly
-typed. Events only allow changes to variables the are intended to be changed by the Event.
+typed. Events only allow changes to variables that are intended to be changed by the Event.
 
 :ref:`Hooks <hooks-general>` are basically places in the source code where a user function will be called for processing
 if such has been configured.

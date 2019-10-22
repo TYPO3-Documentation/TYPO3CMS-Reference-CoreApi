@@ -10,7 +10,7 @@ Signals and Slots provide a way to extend TYPO3s Core functionality or the funct
 follow the `observer pattern <https://en.wikipedia.org/wiki/Observer_pattern>`__.
 
 Signals and Slots decouple the sender (sending a signal) and the receiver(s)
-(called slots). In opposite :ref:`Hooks <hooks-general>` depend on directly calling functions in the implementing class.
+(called slots). :ref:`Hooks <hooks-general>` depend on directly calling functions in the implementing class.
 
 
 .. _signals-concept:
@@ -39,13 +39,13 @@ signal all of them will be called. However the order in which they are being cal
 The slot may provide an array as return value that may or may not be used be the dispatching class depending on its
 implementation. In the case of several slots being connected to the signal and one or all of them have return values the
 return value of the previous slot will be fed into the next slot as input data. As there is no way of knowing in which
-order the slots will be called several slots manipulation the same part of the array might override each other.
+order the slots will be called, several slots manipulations of the same part of the array might override each other.
 
-As the data returned by a slot will be used as input for the next slot it always must forward the complete information
+As the data returned by a slot will be used as input for the next slot it must forward the entire information
 from the input data plus the changes being made by this slot.
 
-However, as there is no programmatic way of ensuring the returned array contains all expected data slots should never
-take the content of the input data array for granted.
+Slots should never take the content of the input data array for granted, because
+there is no programmatic way of ensuring the returned array contains all expected data, .
 
 
 .. image:: ../../../Images/Hooks/ReturningSignalData.png
@@ -73,7 +73,7 @@ Emitting a signal is a mere call of the function :php:`dispatch` on the SignalSl
    ];
    $signalArguments = $signalSlotDispatcher->dispatch(__CLASS__, 'signalName', $signalArguments);
 
-The data returned by the dispatch should not be taken for granted but always sanity checks be made before using it.
+The data returned by the dispatch should not be taken for granted. Always perform sanity checks before using it.
 
 Using Signals
 =============
@@ -122,4 +122,4 @@ Finding Signals
 There is no complete list of signals available, but they are easily found by
 searching the TYPO3 core or the extensions code for :php:`dispatch(`.
 
-For finding hooks, look into the :ref:`Hooks Configuration <hooks-configuration>`.
+For finding hooks, look in the :ref:`Hooks Configuration <hooks-configuration>`.

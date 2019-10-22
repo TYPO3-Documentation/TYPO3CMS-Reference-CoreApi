@@ -8,7 +8,7 @@ Hooks
 =====
 Hooks are basically places in the source code where a user function will be called for processing
 if such has been configured. While there are conventions and best practises of how hooks should be
-implemented the Hook Concept itself doesnt prevent it from being used in any way.
+implemented the Hook Concept itself doesn't prevent it from being used in any way.
 
 .. _hooks-basics:
 
@@ -17,7 +17,7 @@ Using Hooks
 
 The two lines of code below are an example of how a hook is used for
 clear-cache post-processing. The objective of this could be to perform
-additional actions whenever the cache is cleared for a specific page. ::
+additional actions whenever the cache is cleared for a specific page::
 
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = \Vendor\Package\Hook\DataHandlerHook::class . '->postProcessClearCache';
 
@@ -51,14 +51,14 @@ variable parameters and the parent object.
 
 In line 3 the contents of the parameter array is prepared. This is of
 high interest to you because this is where you see what data is passed
-to you and what data might possibly be passed by reference and thereby
-possible to manipulate from your hook function.
+to you and what data might be passed by reference and thereby
+could be manipulated from your hook function.
 
 Finally, notice how the array
 :code:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib\_tcemain.php']['clearCachePostProc']`
 is traversed and for each entry the value is expected to be a function
-reference which will be called. This allows many hooks to be called at the same
-place. The hooks can even rearrange the calling order if they dare.
+reference which will be called. This allows many hooks to be called at once.
+The hooks can even rearrange the calling order if they dare.
 
 The syntax of a function reference can be seen in the API documentation of
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility`.
@@ -76,7 +76,7 @@ Creating Hooks
 
 You are encouraged to create hooks in your extensions if they seem
 meaningful. Typically someone would request a hook somewhere. Before
-you implement it, consider if it is the right place to put it etc. On
+you implement it, consider if it is the right place to put it. On
 the one hand we want to have many hooks but not more than needed.
 Redundant hooks or hooks which are implemented in the wrong context is
 just confusing. So put a little thought into it first, but be
@@ -97,11 +97,11 @@ TYPO3.
   file/class. The method called in the object is fixed by the hook, so
   this is the non-flexible part. But it is cleaner in other ways, in
   particular that you can even call many methods in the object and you
-  can pass an arbitrary argument list which makes the API more
-  beautiful. You can also define the objects to be singletons,
+  can pass an arbitrary argument list which makes the API cleaner.
+  You can also define the objects to be singletons,
   instantiated only once in the global scope.
 
-Here follows some examples.
+Here are some examples:
 
 
 .. _hooks-creation-object:
@@ -148,7 +148,7 @@ This index will list the main variable spaces for configuration of
 hooks. By the names of these you can easily scan the source code to
 find which hooks are available or might be interesting for you.
 
-The index below also includes some variable spaces which do not only
+The index below also includes some variable spaces which not only
 carry hook configuration but might be used for other purposes as well.
 
 
@@ -296,7 +296,7 @@ the parent object. ::
 $GLOBALS['TYPO3\_CONF\_VARS']['TBE\_MODULES\_EXT']
 ==================================================
 
-** Configuration space for backend modules.**
+**Configuration space for backend modules.**
 
 Among these configuration options you might find entry points for
 hooks in the backend. This somehow overlaps the intention of
