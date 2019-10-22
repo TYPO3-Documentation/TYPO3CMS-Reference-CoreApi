@@ -238,8 +238,10 @@ new records of your table to be added on Standard pages call:
    );
 
 .. _extension-configuration-files-scheduler:
+
 Registering a scheduler Task
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Scheduler tasks get registered in the ext_tables.php as well. Note that the Sysext "scheduler" has
 to be installed for this to work.
 

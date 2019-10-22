@@ -233,12 +233,13 @@ The conditions may for example depend on one or more other settings in the FlexF
 on database fields of current record or be defined by a user function.
 
 
-.. code-block::
+.. code-block:: xml
 
     <config>
         <type>select</type>
         <!-- Hide field if value of neighbour field "settings.orderBy" on same sheet is not "title" -->
         <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
+    </config>
 
 Again, the syntax and available fields and comparison operators is documented
 in the TCA reference:
