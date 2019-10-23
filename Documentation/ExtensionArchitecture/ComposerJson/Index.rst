@@ -91,8 +91,8 @@ Subsequently:
    if your extension depends on them.
 
 ``replace``
-  The replace part can be used to tell the composer that any other found code for your extension will be 
-  overridden by your own code for this extension.
+  The replace part allows you to modify the extension locally and to avoid conflicts with a code for 
+  this extension coming from an external repository.
 
 ``extra``
    The extra `typo3/cms` section can be used to provide a TYPO3 extension_key for the package.
