@@ -53,6 +53,10 @@ Subsequently:
        "require": {
            "typo3/cms-core": "^9.5 || ^10.1"
        },
+       "replace": {
+        "vendorname/my-extension": "self.version",
+        "typo3-ter/my-extension": "self.version"
+       },
        "extra": {
            "typo3/cms": {
                "extension-key": "my_extension"
@@ -85,6 +89,10 @@ Subsequently:
    At the least, you will want to require `typo3/cms-core`.
    You can add other system extensions and third party extensions,
    if your extension depends on them.
+
+``replace``
+  The replace part can be used to tell the composer that any other found code for your extension will be 
+  overridden by your own code for this extension.
 
 ``extra``
    The extra `typo3/cms` section can be used to provide a TYPO3 extension_key for the package.
