@@ -148,8 +148,10 @@ Should Not Be Used For
 
 * TCA configurations for new tables. They should go in :file:`Configuration/TCA/tablename.php`
 * TCA overrides of existing tables. They should go in :file:`Configuration/TCA/Overrides/tablename.php`
-* calling :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToInsertRecords()` as this might break the frontend
-* calling :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile()` as this might break the frontend
+* calling :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToInsertRecords()`
+  as this might break the frontend. They should go in :file:`Configuration/TCA/Overrides/tablename.php`
+* calling :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile()`
+  as this might break the frontend. They should go in :file:`Configuration/TCA/Overrides/sys_template.php`
 
 For a descriptions of the changes for TCA (compared to older TYPO3 versions), please see
 the blogpost `"Cleaning the hood: TCA" by Andreas Fernandez <https://scripting-base.de/blog/cleaning-the-hood-tca.html>`__.
