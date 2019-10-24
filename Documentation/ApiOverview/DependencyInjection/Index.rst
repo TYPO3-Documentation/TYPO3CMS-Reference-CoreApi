@@ -44,14 +44,14 @@ Alternatively :file:`Configuration/Services.php` can be used.
       Your\Namespace\:
         resource: '../Classes/*'
 
-This is how a basic Services.yaml of an extension looks like. The meaning of :yaml:`autowire`,
+This is how a basic :file:`Services.yaml` of an extension looks like. The meaning of :yaml:`autowire`,
 :yaml:`autoconfigure` and :yaml:`public` will be explained below.
 
 
 .. note::
 
    Whenever service configuration or class dependencies change, the core cache needs
-   to be flushed to rebuild the compiled symfony container.
+   to be flushed to rebuild the compiled Symfony container.
 
 
 .. _autowire:
@@ -225,13 +225,13 @@ interface the interface injection is simply resolved to this implementation::
 
 When multiple implementation of the same interface exist, an extension needs to specify which
 implementation should be injected when the interface is type hinted. Find out more about how this
-is achieved in the official `symfony documentation <https://symfony.com/doc/current/service_container/autowiring.html#working-with-interfaces>`_.
+is achieved in the official `Symfony documentation <https://symfony.com/doc/current/service_container/autowiring.html#working-with-interfaces>`_.
 
 Further Information
 ^^^^^^^^^^^^^^^^^^^
 
 * `Official documentation <https://symfony.com/doc/current/components/dependency_injection.html>`_ of the
-  symfony dependency injection component.
+  Symfony dependency injection component.
 * `Official documentation <https://symfony.com/doc/current/service_container.html>`_ of the service container.
 * `FEATURE Documentation <https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase.html>`_
   of the TYPO3 core.
