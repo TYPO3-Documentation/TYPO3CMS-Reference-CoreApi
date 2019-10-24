@@ -255,6 +255,51 @@ disabled
 
    Allows to disable specific middlewares.
 
+Override ordering of middlewares
+================================
+
+To change the ordering of middlewares shipped by the core an extension can override the registration in
+:file:`Configuration/RequestMiddlewares.php`::
+
+   return [
+       'frontend' => [
+           'middleware-identifier' => [
+               'after' => [
+                   'another-middleware-identifier',
+               ],
+               'before' => [
+                   '3rd-middleware-identifier',
+               ]
+           ],
+       ]
+   ];
+
+However, this could lead to circular ordering depending on the ordering constraints of other
+middlewares. Alternatively an existing middleware can be disabled and reregistered again with a new
+identifier. This will circumvent the risk of circularity::
+
+   return [
+       'frontend' => [
+           'middleware-identifier' => [
+               'disabled' => true
+           ],
+           'overwrite-middleware-identifier' => [
+               'target' => \Vendor\Extension\Middleware\MyMiddleware::class,
+               'after' => [
+                   'another-middleware-identifier',
+               ],
+               'before' => [
+                   '3rd-middleware-identifier',
+               ]
+           ]
+       ]
+   ];
+
+.. important::
+
+   Always check the integrity of the middleware stack after changing the default ordering.
+   This can be done in the configuration module that comes with EXT:lowlevel.
+
 .. _request-handling-debugging:
 
 Debugging
