@@ -200,10 +200,10 @@ The function :php:`user_orderBy` populates the select field in
         {
             // simple and stupid example
             // change this to dynamically populate the list!
-            $config['items] = [
+            $config['items'] = [
                 // label, value
                 ['Timestamp', 'timestamp'],
-                ['Title', title]
+                ['Title', 'title']
             ];
         }
 
