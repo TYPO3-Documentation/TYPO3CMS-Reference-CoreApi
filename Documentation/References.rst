@@ -1,8 +1,8 @@
+:orphan:
+
 .. include:: Includes.txt
 
 
-
-.. _next-steps:
 
 Next Steps
 ==========

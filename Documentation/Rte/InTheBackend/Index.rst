@@ -1,15 +1,11 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
 .. include:: ../../Includes.txt
 
 
 .. _rte-backend:
 
+======================================
 Rich Text Editors in the TYPO3 backend
---------------------------------------
+======================================
 
 
 .. _rte-backend-introduction:
@@ -29,7 +25,7 @@ tables, etc.
    The rtehtmlarea RTE activated in the TYPO3 backend
 
 For full details about setting up a field to use a RTE, please refer to the
-:ref:`t3tca:special-configuration-options` chapter in the TCA Reference.
+:ref:`TCA Reference <t3tca:start>`.
 
 The short story is that it's enough to add the key :code:`defaultExtras`
 to the configuration of the column with the string :code:`richtext[]` as value:

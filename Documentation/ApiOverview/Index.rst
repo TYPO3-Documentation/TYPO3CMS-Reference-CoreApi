@@ -1,13 +1,21 @@
+:orphan:
 
 .. include:: ../Includes.txt
 
 
-.. _api-overview:
+=========
+TYPO3 API
+=========
 
-TYPO3 API overview
-==================
 
    The source is the documentation! (General wisdom)
+
+For a list of TYPO3 features, see the
+
+.. rst-class:: horizbuttons-tip-xxl
+
+- :ref:`Sitemap`
+
 
 The TYPO3 APIs are first and foremost documented inside of the source
 scripts. It would be impossible to maintain documentation at more than
@@ -19,34 +27,5 @@ In general the TYPO3 Active Contributors Team and all contributors aim
 to produce well-documented source code. As such the best way to look up a
 particular class or method is to use the online API browser at
 http://typo3.org/documentation/api/.
-
-
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :hidden:
-
-   Namespaces/Index
-   Autoloading/Index
-   Bootstrapping/Index
-   MainClasses/Index
-   GlobalValues/Index
-   BackendUserObject/Index
-   Typo3CoreEngine/Index
-   Workspaces/Index
-   SystemLog/Index
-   Logging/Index
-   SystemRegistry/Index
-   Mail/Index
-   FormProtection/Index
-   FlashMessages/Index
-   TypoScriptSyntax/Index
-   FlexForms/Index
-   Categories/Index
-   Collections/Index
-   Http/Index
-   Hooks/Index
-   Xclasses/Index
-   Examples/Index
 
 

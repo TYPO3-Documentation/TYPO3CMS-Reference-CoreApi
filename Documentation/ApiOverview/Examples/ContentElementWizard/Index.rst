@@ -1,15 +1,11 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
 .. include:: ../../../Includes.txt
-
 
 .. _content-element-wizard:
 
-Adding elements to the Content Element Wizard
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=============================================
+Adding elements to the content element wizard
+=============================================
+
 
 The content element wizard can be fully configured using TSConfig.
 The API described here should not be used for the purpose of customizing

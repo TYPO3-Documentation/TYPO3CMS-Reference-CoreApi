@@ -22,5 +22,6 @@ Transformations
    Overview/Index
    Tsconfig/Index
    CustomApi/Index
+   HistoricalPerspective
 
 

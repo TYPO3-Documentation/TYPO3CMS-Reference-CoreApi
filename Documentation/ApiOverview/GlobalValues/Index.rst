@@ -1,7 +1,5 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
+:orphan:
+
 
 .. include:: ../../Includes.txt
 
@@ -12,8 +10,9 @@
 
 .. _globals:
 
-Variables and Constants
------------------------
+=======================
+Variables and constants
+=======================
 
 After TYPO3's bootstrap sequence has completed, a number of
 global variables, constants and classes available to any script.
@@ -23,12 +22,11 @@ constant, variable or class mentioned is also available to scripts
 running under the frontend of the "cms" extension.
 
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+.. the toctree is now in ApiOverview/ConfigurationMethods.rst
 
-   Constants/Index
-   GlobalVariables/Index
+* :ref:`globals-constants`
+* :ref:`globals-variables`
+
+
 
 

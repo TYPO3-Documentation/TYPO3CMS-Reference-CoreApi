@@ -12,8 +12,9 @@
 
 .. _workspaces:
 
-Programming with workspaces in mind
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==========
+Workspaces
+==========
 
 The concept of workspaces needs attention from extension programmers.
 The implementation of workspaces is however made so that no critical

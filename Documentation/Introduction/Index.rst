@@ -1,144 +1,61 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
 .. include:: ../Includes.txt
-
-
-
-
 
 .. _introduction:
 
+============
 Introduction
 ============
 
 
 .. _overview:
 
-Overview
---------
+System Overview
+===============
 
-TYPO3 is known for its extensibility. However to really benefit from
-this power, a complete documentation is needed. "Core APIs" and its
-companion, "Inside TYPO3", aim to provide such information to
-developers and administrators. Not all areas are covered with the same
-amount of details, but at least some pointers are provided.
+For most people TYPO3 is equivalent to a CMS providing a backend for
+management of the content and a frontend engine for website display.
+However the core of TYPO3 is natively designed to be a general purpose
+framework for management of database content. The core of TYPO3 CMS
+delivers a set of principles for storage of this content, user access
+management, editing of the content, uploading and managing files, etc.
+These principles are expressed as an API (Application
+Programming Interface) for use in *extensions* which ultimately
+add most of the real functionality.
 
-"Inside TYPO3" contains the overall introduction to the architecture
-of the TYPO3 core. It also contains API descriptions to a certain
-degree but mostly in the form of examples and short table listings.
-"Core APIs" goes into much more detail about such APIs and covers
-subjects more closely related to development.
-
-These documents do *not* contain any significant information about
-the frontend of TYPO3. Creating templates, setting up TypoScript
-objects etc. is not the scope of these documents; they are about the
-*backend* part of the core only.
-
-The TYPO3 Documentation Team hopes that these two documents, "Inside TYPO3" and
-"TYPO3 Core APIs", will form a complete picture of the TYPO3 Core
-architecture, the backend and be the reference of choice in your work
-with TYPO3. It took Kasper more than a year to get the first version
-published and we've tried to maintain it as best we could.
+.. figure:: ../Images/Typo3CmsStructure.png
+   :alt: Main TYPO3 CMS core architecture
 
 
-.. _what-s-new:
-
-What's new
-^^^^^^^^^^
-
-This version is updated for TYPO3 CMS 6.2.
-
-Many recent changes in the TYPO3 CMS code base were documented in
-this new version of Core APIs, some dating back to version 6.1.
-The release of a new LTS version was the opportunity to put extra
-efforts into the manuals.
-
-Highlights from new features brought by TYPO3 CMS 6.2:
-
-- an :ref:`Application Context <bootstrapping-context>`, backported from TYPO3 Flow.
-
-- changes to the caching framework, in particuler the new
-  :ref:`cache groups <caching-architecture-core>`.
-
-- well-known folder :file:`t3lib` is now gone and so is constant
-  :code:`PATH_t3lib`.
-
-- a new API for registering AJAX handlers which provides
-  `CSRF <https://en.wikipedia.org/wiki/Cross-site_request_forgery>`__ protection
-  (documentation yet missing, but will come very soon).
-
-- the system categories API has matured and the :ref:`related chapter <categories>`
-  was extended. In particular, it is now possible to have more than one
-  categories field per table.
-
-- usage of :ref:`flash messages in Extbase <flash-messages-extbase>`
-  has changed.
-
-- it is possible to :ref:`define a custom mirror <xliff-translating-servers>`
-  to fetch extension translations from.
+So the *core* is the skeleton and  *extensions* are the muscles,
+fibers and skin making a full bodied CMS. In this document I cut to
+the bone and provide a detailed look at the core of TYPO3 CMS including
+the API available to the outside. This is supposed to be the final
+technical reference apart from source code itself which
+is - of course - the ultimate documentation.
 
 
-.. _code-examples:
+.. _installation:
 
-Code examples
--------------
+A basic installation
+====================
 
-Many of the code examples found in this document come from the TYPO3
-Core itself.
+To follow this document, it might help to have a totally trimmed down installation
+of TYPO3 CMS with *only* the core and the required system extensions at hand.
 
-Quite a few others come from the "examples" extension which is
-available in the TER. You can install it if you want to try out these
-examples yourself and use them as a basis for your own stuff.
+The installation process is covered in the :ref:`Installation and Upgrade Guide <t3install:start>`.
+You should perform the basic installation steps and not install any distribution.
+This will give you the "lightest" possible version of TYPO3 CMS.
 
-Yet some other examples just belong to this manual. Some may be moved
-to the "examples" extension at some later stage.
+Log into your basic installation and move to the **ADMIN TOOLS > Extensions**
+module. You will see all extensions which are loaded by default.
+Required extensions are not only loaded by default, they have no
+"Activate/Deactivate" button, too.
 
-
-.. _feedback:
-
-Feedback
-^^^^^^^^
-
-For general questions about the documentation get in touch by writing
-to `documentation@typo3.org <mailto:documentation@typo3.org>`_ .
-
-If you find a bug in this manual, please be so kind as to check the
-online version on https://docs.typo3.org/typo3cms/CoreApiReference/.
-From there you can hit the "Edit me on GitHub" button in the top right corner
-and submit a pull request via GitHub. Alternatively you can just file an issue
-using the bug tracker: https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues.
-
-Maintaining high quality documentation requires time and effort
-and the TYPO3 Documentation Team always appreciates support.
-If you want to support us, please join the documentation
-mailing list/forum (http://forum.typo3.org/index.php/f/44/).
+.. figure:: ../Images/ExtensionsMinimalList.png
+   :alt: The Extension Manager with a bare bones installation
 
 
-.. _credits:
-
-Credits
--------
-
-This manual was originally written by Kasper Skårhøj. It was further
-maintained, refreshed and expanded by François Suter.
-
-
-.. _dedication:
-
-Dedication
-----------
-
-I want to dedicate this document to the people in the TYPO3 community
-who have the  *discipline* to do the boring job of writing
-documentation for their extensions or contribute to the TYPO3
-documentation in general. It's great to have good coders, but it's
-even more important to have coders with character to carry their work
-through till the end - even when it means spending days writing good
-documents. Go for completeness!
-
-\- kasper
-
+The most important thing to note for now is that **everything** is an
+extension in TYPO3 CMS. Even the most basic functions are packaged in a
+system extension called "core".
 

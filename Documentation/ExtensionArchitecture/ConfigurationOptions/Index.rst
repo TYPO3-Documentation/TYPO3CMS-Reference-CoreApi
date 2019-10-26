@@ -11,9 +11,9 @@ for an extension can be defined. They will be accessible in the TYPO3 backend
 from the Extension Manager.
 
 There's a specific syntax to declare these options properly, which is
-similar to the one used for TypoScript constants (see "Declaring
-constants for the Constant editor" in
-:ref:`"TypoScript Syntax and In-depth Study" <t3tssyntax:constant-editor>`).
+similar to the one used for TypoScript constants (see
+:ref:`Declaring constants for the Constant editor <t3tsref:constant-editor>`).
+
 This syntax applies to the comment
 line that should be placed just before the constant. Consider the following
 example (taken from system extension "rsaauth"):
