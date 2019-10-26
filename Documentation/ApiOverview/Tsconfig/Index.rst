@@ -3,9 +3,9 @@
 
 .. _tsconfig:
 
-======================
-User and Page TSconfig
-======================
+========
+TSconfig
+========
 
 "User TSconfig" and "Page TSconfig" are very flexible concepts for
 adding fine-grained configuration to the backend of TYPO3 CMS. It is a text-

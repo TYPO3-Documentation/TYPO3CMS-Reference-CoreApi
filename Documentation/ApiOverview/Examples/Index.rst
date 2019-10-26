@@ -1,11 +1,21 @@
+:orphan:
+
 .. include:: ../../Includes.txt
 
+
+.. todo:: merge examples into other chapters in TYPO3 API
 
 .. _examples:
 
 ========
 Examples
 ========
+
+For a list of TYPO3 features, see the
+
+.. rst-class:: horizbuttons-tip-xxl
+
+- :ref:`Sitemap`
 
 This chapter presents some examples of how you can use the APIs
 of Core libraries. They are not meant to be exhaustive,
@@ -29,7 +39,4 @@ another whole lot of examples.
    ParsingHtml/Index
    EditLinks/Index
    TablesInPageModule/Index
-   ContentElementWizard/Index
    CustomPermissions/Index
-
-

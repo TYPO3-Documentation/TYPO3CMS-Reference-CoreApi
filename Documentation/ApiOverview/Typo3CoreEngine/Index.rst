@@ -1,14 +1,11 @@
 .. include:: ../../Includes.txt
 
 
-
-
-
 .. _tce:
 
-=======================
-TYPO3 Core Engine (TCE)
-=======================
+=====================================
+TCE (TYPO3 Core Engine) & DataHandler
+=====================================
 
 
 .. toctree::

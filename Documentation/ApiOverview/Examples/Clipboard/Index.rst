@@ -3,9 +3,9 @@
 
 .. _examples-clipboard:
 
-=======================
-Accessing the Clipboard
-=======================
+=========
+Clipboard
+=========
 
 You can easily access the internal clipboard in TYPO3 from your
 backend modules::
