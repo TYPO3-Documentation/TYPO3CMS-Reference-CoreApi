@@ -23,9 +23,6 @@ Content Elements & Plugins
 
    AddingYourOwnContentElements
    ContentElementsWizard
-
-.. seealso::
-
-   * :ref:`Some content elements <fsc:content-elements>` are supplied by the TYPO3
-     system extension **fluid_styled_content**.
+   ../FlexForms/Index
+   ..//BackendLayout/Index
 

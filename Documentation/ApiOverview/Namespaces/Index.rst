@@ -4,8 +4,8 @@
 
 .. _namespaces:
 
-PHP Namespaces
-==============
+Namespaces
+==========
 
 Since version 6.0, TYPO3 CMS uses PHP namespaces for all classes in the Core.
 

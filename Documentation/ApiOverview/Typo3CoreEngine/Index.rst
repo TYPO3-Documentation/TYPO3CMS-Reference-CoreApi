@@ -7,7 +7,7 @@
 .. _tce:
 
 =====================================
-TYPO3 Core Engine (TCE) & DataHandler
+TCE (TYPO3 Core Engine) & DataHandler
 =====================================
 
 
