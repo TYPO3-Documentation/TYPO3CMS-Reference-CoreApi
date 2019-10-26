@@ -1,13 +1,18 @@
 .. include:: Includes.txt
 
 .. _start:
+.. _api-overview:
 
 ===============
 TYPO3 Core APIs
 ===============
 
-:Previous Key:
-      doc_core_api
+.. rst-class:: horizbuttons-tip-m
+
+- :ref:`Configuration <configuration>`
+- :ref:`Doctrine-dbal <database>`
+- :ref:`Internationalization <internationalization>`
+
 
 :Version:
       |release|
@@ -22,7 +27,7 @@ TYPO3 Core APIs
       tsref, typoscript, reference, forDevelopers, forAdvanced
 
 :Copyright:
-      2000-2017
+      Since 2000
 
 :Author:
       Documentation Team
@@ -34,13 +39,17 @@ TYPO3 Core APIs
       Open Publication License available from `www.opencontent.org/openpub/
       <http://www.opencontent.org/openpub/>`_
 
-:Rendered:
-      |today|
+:Shortcut:
+      `t3coreapi` is the usual alias for :ref:`h2document:cheat-sheet-intersphinx`.
+
+.. rst-class:: horizbuttons-tip-xxl
+
+- :ref:`Sitemap`
+
 
 The content of this document is related to TYPO3 CMS,
 a GNU/GPL CMS/Framework available from `www.typo3.org
 <https://typo3.org/>`_
-
 
 **Official Documentation**
 
@@ -65,21 +74,103 @@ Core Manuals are written as reference manuals. The reader should rely
 on the Table of Contents to identify what particular section will best
 address the task at hand.
 
+**Table of Contents**
+
 
 .. toctree::
    :hidden:
 
-   Sitemap/Index
+   Quicklinks
+
+.. toctree::
+   :maxdepth: 1
+
    Introduction/Index
+
+.. toctree::
+   :maxdepth: 2
+
    ExtensionArchitecture/Index
-   ApiOverview/Index
-   Internationalization/Index
-   PageTypes/Index
-   UserSettingsConfiguration/Index
-   Rte/Index
-   DataFormats/Index
-   References
+
+
+.. toctree::
+   :caption: TYPO3 A-Z
+   :maxdepth: 2
+
+   ApiOverview/Autoloading/Index
+   ApiOverview/BackendUserObject/Index
+   ApiOverview/Bootstrapping/Index
+   ApiOverview/CachingFramework/Index
    CodingGuidelines/Index
-   Appendices/Index
+
+.. toctree::
+   :maxdepth: 3
+
+   ApiOverview/Configuration/Index
+
+.. toctree::
+   :maxdepth: 2
+
+   ApiOverview/ContentElements/Index
+   ApiOverview/Database/Index
+   DataFormats/Index
+   ApiOverview/Enumerations/Index
+   ApiOverview/ErrorAndExceptionHandling/Index
+   ApiOverview/Hooks/Index
+   ApiOverview/FlashMessages/Index
+   ApiOverview/FormEngine/Index
+   ApiOverview/FormProtection/Index
+   ApiOverview/Http/Index
+   ApiOverview/Icon/Index
+   Internationalization/Index
+   ApiOverview/JavaScript/Index
+   ApiOverview/LinkBrowser/Index
+   ApiOverview/Logging/Index
+   ApiOverview/Mail/Index
+   ApiOverview/Namespaces/Index
+   PageTypes/Index
+   Rte/Index
+   ApiOverview/SessionStorageFramework/Index
+   ApiOverview/SoftReferences/Index
+   ApiOverview/Categories/Index
+   ApiOverview/Collections/Index
+   ApiOverview/SystemLog/Index
+   ApiOverview/SystemRegistry/Index
+   ApiOverview/Typo3CoreEngine/Index
+   ApiOverview/UpdateWizards/Index
+   ApiOverview/Workspaces/Index
+   ApiOverview/Xclasses/Index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: meta
+
+
+   Sitemap
+   About
    Targets
 
+
+.. todo:: ApiOverview/Examples/ : currently not in menu, merge into ...?
+
+.. todo:: References contains links to services etc .., can be removed
+
+
+.. the following have been moved in the menu:
+
+.. to ApiOverview/ContentElements/Index
+..    - ApiOverview/FlexForms/Index
+..    - ApiOverview/BackendLayout/Index
+
+.. to ApiOverview/Configuration/Index
+..    - ApiOverview/Yaml/Index
+..    - ApiOverview/TypoScriptSyntax/Index
+..    - ApiOverview/Tsconfig/Index
+..    - ApiOverview/GlobalValues/Index
+..    - ApiOverview/FeatureToggles/Index
+..    - UserSettingsConfiguration/Index
+
+.. to ApiOverview/Seo/Index
+..    - ApiOverview/MetaTagApi/Index
+..    - ApiOverview/XmlSitemap/Index
+..    - ApiOverview/PageTitleApi/Index

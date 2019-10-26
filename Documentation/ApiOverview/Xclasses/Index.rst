@@ -1,14 +1,12 @@
 .. include:: ../../Includes.txt
 
 
-
-
-
-
 .. _xclasses:
 
-Extending classes (XCLASSes)
-----------------------------
+============================
+XCLASSes (Extending Classes)
+============================
+
 
 
 .. _xclasses-intro:

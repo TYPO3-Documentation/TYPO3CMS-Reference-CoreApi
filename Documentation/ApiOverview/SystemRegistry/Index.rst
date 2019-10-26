@@ -1,14 +1,12 @@
 .. include:: ../../Includes.txt
 
 
-
-
-
-
 .. _registry:
 
-Using the system registry
--------------------------
+===============
+System Registry
+===============
+
 
 The purpose of the registry (introduced in TYPO3 4.3) is to hold key-
 value pairs of information. You can actually think of it being an

@@ -1,3 +1,5 @@
+:orphan:
+
 .. include:: ../../Includes.txt
 
 
@@ -16,10 +18,11 @@ constant, variable or class mentioned is also available to scripts
 running under the frontend of the "cms" extension.
 
 
-.. toctree::
-   :titlesonly:
+.. the toctree is now in ApiOverview/ConfigurationMethods.rst
 
-   Constants/Index
-   GlobalVariables/Index
+* :ref:`globals-constants`
+* :ref:`globals-variables`
+
+
 
 

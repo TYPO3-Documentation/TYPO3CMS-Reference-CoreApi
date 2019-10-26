@@ -1,8 +1,10 @@
+:orphan:
+
 .. include:: ../../../Includes.txt
 
-=====================================================
-Adding Elements to the Content Element Wizard (Moved)
-=====================================================
+=============================================
+Adding Elements to the Content Element Wizard
+=============================================
 
 The content on this page has moved to
 
