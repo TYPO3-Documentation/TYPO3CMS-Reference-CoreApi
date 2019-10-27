@@ -108,6 +108,7 @@ address the task at hand.
    ApiOverview/Authentication/Index
    ApiOverview/Autoloading/Index
    ApiOverview/AccessControl/Index
+   ApiOverview/BackendLayout/Index
    ApiOverview/BackendModules/Index
    ApiOverview/BackendRouting/Index
    ApiOverview/BackendUserObject/Index
