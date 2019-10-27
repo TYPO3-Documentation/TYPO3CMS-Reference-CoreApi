@@ -97,6 +97,7 @@ BACKEND
    BackendModules/Index
    BackendRouting/Index
    BackendUserObject/Index
+   BackendLayout/Index
    BroadcastChannels/Index
    FlashMessages/Index
    FormEngine/Index
