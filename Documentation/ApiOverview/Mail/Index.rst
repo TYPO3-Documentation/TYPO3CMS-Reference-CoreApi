@@ -163,7 +163,7 @@ Or if you prefer, don't concatenate the calls::
 
 .. note::
 
-   Before TYPO3 v10 the :php:`MailMessage` only has methods like
+   Before TYPO3 v10 the :php:`MailMessage` class only had methods like
    :php:`->setTo()`, :php:`setFrom()`, :php:`->setSubject()` etc.
    Now the class inherits from :php:`\Symfony\Component\Mime\Email` which
    provides the methods from the example. To make migration from older TYPO3
