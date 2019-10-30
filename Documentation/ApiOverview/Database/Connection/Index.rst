@@ -95,19 +95,28 @@ bulkInsert()
    $connection = GeneralUtility::makeInstance(ConnectionPool::class)
       ->getConnectionForTable('sys_log')
    $connection->bulkInsert(
-      'sys_log',
-      [
-         [(int)$userId, (string)$details1],
-         [(int)$userId, (string)$details2],
-      ],
-      [
-         'userid',
-         'details',
-      ],
-      [
-         Connection::PARAM_INT,
-         Connection::PARAM_STR,
-      ]
+       'sys_log',
+       [
+           [
+               (int)$userId,
+               (string)$details1
+           ],
+           [
+               'userId' => (int)$userId,
+               'detail' => (string)$details2
+           ],
+       ],
+       [
+           // 'userid' does not exist in both records, so Doctrine uses value at array key position 0 of data parameter.
+           0 => 'userid',
+           // 'detail' does not exist in first record, so Doctrine uses value at array key position 1 of data parameter.
+           // 'detail' is valid for second record and can be directly accessed independently of it's position index (1).
+           1 => 'detail',
+       ],
+       [
+           Connection::PARAM_INT,
+           Connection::PARAM_STR,
+       ]
    );
 
 First argument is the table to insert table into, second argument is an array of rows, third argument is the list
@@ -119,7 +128,7 @@ if omitted, everything will be quoted to strings.
     `mysql` is rather forgiving when it comes to insufficient field quoting: Inserting a string to an `int` field will
     not raise an error and `mysql` will adapt internally. However, other `dbms` are not that relaxed and may raise
     errors. It is good practice to specify field types for each field, especially if they are not strings. Doing
-    so right away will reduce the number of raised bugs if people run your extension an anything else than `mysql`.
+    so right away will reduce the number of raised bugs if people run your extension on anything else than `mysql`.
 
 
 .. _database-connection-update:
