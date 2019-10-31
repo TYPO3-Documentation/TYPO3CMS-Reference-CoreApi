@@ -60,7 +60,8 @@ Subsequently:
        },
        "autoload": {
            "psr-4": {
-           "Vendorname\\MyExtension\\": "Classes/"
+               "Vendorname\\MyExtension\\": "Classes/"
+           }
        }
    }
 
