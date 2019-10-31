@@ -116,9 +116,9 @@ Archive
             page: '@widget_0/currentPage'
         defaultController: 'Post::listPostsByDate'
         requirements:
-        year: '[0-9]{1..4}'
-        month: '[a-z]+'
-        page: '\d+'
+           year: '[0-9]{1..4}'
+           month: '[a-z]+'
+           page: '\d+'
         aspects:
         year:
             type: BlogStaticDatabaseMapper
@@ -203,8 +203,8 @@ Posts by Author
                     page: '@widget_0/currentPage'
             defaultController: 'Post::listPostsByAuthor'
             requirements:
-            author_title: '^[a-z0-9].*$'
-            page: '\d+'
+               author_title: '^[a-z0-9].*$'
+               page: '\d+'
             aspects:
             author_title:
                 type: PersistedAliasMapper
