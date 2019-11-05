@@ -55,7 +55,7 @@ Defined in:
 Description:
    .. note::
 
-       This constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()` to retrieve the information.
+       This constant was removed in TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()` to retrieve the information.
        Use :php:`Environment::isWindows()` and :php:`Environment::isUnix()` instead.
 
 
@@ -74,7 +74,7 @@ Defined in:
 Description:
    .. note::
 
-      This constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getCurrentScript()` to retrieve the information.
+      This constant was removed in TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getCurrentScript()` to retrieve the information.
 
 
       Abs. path to current script.
@@ -108,7 +108,7 @@ Defined in:
 Description:
    .. note::
 
-      This constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3'` to retrieve the information.
+      This constant was removed in TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3'` to retrieve the information.
 
 
    Abs. path of the TYPO3 admin dir.
@@ -126,7 +126,7 @@ Defined in:
 Description:
    .. note::
 
-      This constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/'` to retrieve the information.
+      This constant was removed in TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/'` to retrieve the information.
 
 
    Absolute path to directory with the frontend (one directory above
@@ -146,7 +146,7 @@ Description:
 
    .. note::
 
-      This constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3conf'` to retrieve the information.
+      This constant was removed in TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/typo3conf'` to retrieve the information.
 
 
    Absolute TYPO3 configuration path (local, not part of source).
@@ -214,62 +214,62 @@ TYPO3_URL_MAILINGLISTS                'http://lists.typo3.org/cgi-bin/mailman/li
 
                                       .. note::
 
-                                          This constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                          This constant was removed in TYPO3 v10.
 
 TYPO3_URL_DOCUMENTATION               'https://typo3.org/documentation/'
 
                                       .. note::
 
-                                          This constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                          This constant was removed in TYPO3 v10.
 
 
 TYPO3_URL_DOCUMENTATION_TSREF         'https://docs.typo3.org/typo3cms/TyposcriptReference/'
 
                                       .. note::
 
-                                          This constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                          This constant was removed in TYPO3 v10.
 
 
 TYPO3_URL_DOCUMENTATION_TSCONFIG      'https://docs.typo3.org/typo3cms/TSconfigReference/'
 
                                       .. note::
 
-                                          This constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                          This constant was removed in TYPO3 v10.
 
 
 TYPO3_URL_CONSULTANCY                 'https://typo3.org/support/professional-services/'
 
                                       .. note::
 
-                                          This constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                          This constant was removed in TYPO3 v10.
 
 
 TYPO3_URL_CONTRIBUTE                  'https://typo3.org/contribute/'
 
                                       .. note::
 
-                                          This constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                          This constant was removed in TYPO3 v10.
 
 
 TYPO3_URL_SECURITY                    'https://typo3.org/teams/security/'
 
                                       .. note::
 
-                                          This constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                          This constant was removed in TYPO3 v10.
 
 
 TYPO3_URL_DOWNLOAD                    'https://typo3.org/download/'
 
                                       .. note::
 
-                                          This constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                          This constant was removed in TYPO3 v10.
 
 
 TYPO3_URL_SYSTEMREQUIREMENTS          'https://typo3.org/typo3-cms/overview/requirements/'
 
                                       .. note::
 
-                                          This constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                          This constant was removed in TYPO3 v10.
 
 
 TYPO3_URL_DONATE                      'https://typo3.org/donate/online-donation/'
@@ -287,7 +287,7 @@ NUL                                   chr(0)                                    
 
                                                                                               .. note::
 
-                                                                                                This constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                                                                                This constant was removed in TYPO3 v10.
                                                                                                 Use :php:`"\0"` instead.
 
 TAB                                   chr(9)                                                  A tabulator
@@ -295,7 +295,7 @@ TAB                                   chr(9)                                    
 
                                                                                               .. note::
 
-                                                                                                This constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                                                                                This constant was removed in TYPO3 v10.
                                                                                                 Use :php:`"\t"` instead.
 
 LF                                    chr(10)                                                 A linefeed
@@ -305,7 +305,7 @@ SUB                                   chr(26)                                   
 
                                                                                               .. note::
 
-                                                                                                This constant has been marked as deprecated and will be removed with TYPO3 v10.
+                                                                                                This constant was removed in TYPO3 v10.
                                                                                                 Use :php:`chr(26)` instead.
 
 CRLF                                  CR + LF                                                 Carriage return + linefeed pair
@@ -333,7 +333,7 @@ TYPO3_OS                              self::getTypo3Os())                       
 
                                                                                               .. note::
 
-                                                                                                This constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()` to retrieve the information.
+                                                                                                This constant was removed in TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()` to retrieve the information.
                                                                                                 Use :php:`Environment::isWindows()` and :php:`Environment::isUnix()` instead.
 
 ===================================== ======================================================= ============
