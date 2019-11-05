@@ -121,7 +121,7 @@ Table 1: Traditional List
    :Description:
          .. note::
 
-            this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()` to retrieve the information.
+            this constant has been marked as deprecated and will be removed with TYPO3 v10. Use :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath() . '/'` to retrieve the information.
 
 
          Absolute path to directory with the frontend (one directory above
