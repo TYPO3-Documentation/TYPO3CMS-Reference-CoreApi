@@ -3,9 +3,9 @@
 
 .. _composer-json:
 
-=====================
-composer.json
-=====================
+============================
+composer.json for Extensions
+============================
 
 *-- required*
 
@@ -42,6 +42,11 @@ Subsequently:
 * The namespace will be *Vendorname\\MyExtension*
 * The package name will be *vendorname/my-extension*
 
+.. tip::
+
+   In general, you should use the conventions that the package name equals the
+   extension key (with underscores in extension key replaced by dash in package name).
+
 .. code-block:: json
    :linenos:
 
@@ -52,15 +57,6 @@ Subsequently:
        "license": "GPL-2.0-or-later",
        "require": {
            "typo3/cms-core": "^9.5 || ^10.1"
-       },
-       "replace": {
-        "vendorname/my-extension": "self.version",
-        "typo3-ter/my-extension": "self.version"
-       },
-       "extra": {
-           "typo3/cms": {
-               "extension-key": "my_extension"
-           }
        },
        "autoload": {
            "psr-4": {
@@ -90,21 +86,69 @@ Subsequently:
    You can add other system extensions and third party extensions,
    if your extension depends on them.
 
-``replace``
-  The replace part allows you to modify the extension locally and to avoid conflicts with a code for 
-  this extension coming from an external repository.
+   **Version constraints:**
 
-``extra``
-   The extra `typo3/cms` section can be used to provide a TYPO3 extension_key for the package.
-   This will be used when found. If not provided, the package-key will be used with all dashes (`-`)
-   replaced by underscores (`_`) to follow TYPO3 and Packagist conventions.
+   * `~` (tilde version range): *"~ specifies a minimum version, but
+     allows the last digit specified to go up."* (as specified on
+     `getcomposer.org <https://getcomposer.org/doc/articles/versions.md#tilde-version-range->`__,
+     e.g. ~1.2.3 means version 1.2.3 is minimum and version can go
+     up to 1.2.*
+
 
 ``autoload``
    Define namespace - path mapping for PSR-4 autoloading.
    In TYPO3 we follow the convention that all classes (except test classes)
    are in the directory :file:`Classes`.
 
-Properties no longer used:
+Additional Parameters
+=====================
+
+extra
+-----
+
+.. code-block:: json
+   :linenos:
+
+   {
+       // ...
+       "extra": {
+           "typo3/cms": {
+               "extension-key": "my_extension"
+           }
+       },
+   }
+
+
+``extra`` (*usually not required*)
+   The extra `typo3/cms` section can be used to provide a TYPO3 extension_key for the package.
+   This will be used when found. If not provided, the package-key will be used with all dashes (`-`)
+   replaced by underscores (`_`) to follow TYPO3 and Packagist conventions. This is only required
+   if the extension does not adhere to the naming conventions (described above).
+
+
+replace
+-------
+
+.. code-block:: json
+   :linenos:
+
+   {
+       // ...
+
+       "replace": {
+        "vendorname/my-extension": "self.version",
+        "typo3-ter/my-extension": "self.version"
+       },
+
+
+``replace`` (*usually not required*)
+  The replace part allows you to modify the extension locally and to avoid conflicts with code for
+  this extension coming from an external repository.
+
+
+
+Properties no longer used
+=========================
 
 ``version`` (*not recommended*)
   Was used in earlier TYPO3 versions.
@@ -119,11 +163,22 @@ Not TYPO3 specific:
 * `About Packagist <https://packagist.org/about>`__
 * `composer.json schema <https://getcomposer.org/doc/04-schema.md>`__
 * `Composer Getting Started <https://getcomposer.org/doc/00-intro.md>`__
+* `Version constraints <https://getcomposer.org/doc/articles/versions.md>`__
 
 TYPO3 specific:
 
+* :ref:`t3install:migrate-to-composer`
+* :ref:`t3install:composer-working-with`
 * The :ref:`section on testing <testing-extensions>` (in this manual) contains further information
   about adding additional properties to :file:`composer.json` that are relevant for testing.
+* `TYPO3 Wiki on Composer <https://wiki.typo3.org/Composer>`__ contains extensive information about
+  using Composer with TYPO3
+* https://composer.typo3.org is a repository running on Satis that can be used as a Packagist
+  alternative for extensions not available on Packagist and available on https://extensions.typo3.org (TER).
+  However, it is recommended to make extensions available on Packagist.
+
+Some of the following blog posts may be outdated:
+
 * `Helmut Hummel: composer.json specification for TYPO3 extensions <https://insight.helhum.io/post/148886148725/composerjson-specification-for-typo3-extensions>`__
 * `Helmut Hummel: minimal composer.json <https://gist.github.com/helhum/0ffd82525c90f305b81a8285329eb4f8>`__
 * `Helmut Hummel: TYPO3 Extension dependencies revisited <https://insight.helhum.io/post/155297666635/typo3-extension-dependencies-revisited>`__
