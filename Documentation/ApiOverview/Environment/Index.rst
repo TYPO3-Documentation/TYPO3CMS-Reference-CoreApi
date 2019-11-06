@@ -80,3 +80,10 @@ so it is outside of the web document root - not within :php:`getPublicPath()`.
 
 Without Composer, the value is :php:`getPublicPath() . '/typo3conf/l10n'`, so within
 the web document root - a situation that is not optimal from a security point of view.
+
+.. _Environment-current-script:
+
+getCurrentScript()
+==================
+
+The path + filename to the current PHP script.
