@@ -48,13 +48,14 @@ bootstrap class:
  or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
  will not work for those.
 
-
 Should Not Be Used For
 ----------------------
 
 * While you *can* put functions and classes into the script, it is a really bad
   practice because such classes and functions would *always* be loaded. It is
   better to have them included only as needed.
+* Error and exception handlers should be registered in :file:`typo3conf/AdditionalConfiguration.php`.
+  See :ref:`error-handling-extending`.
 
 Should Be Used For
 ------------------
