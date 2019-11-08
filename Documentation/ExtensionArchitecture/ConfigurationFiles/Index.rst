@@ -29,33 +29,41 @@ ext_localconf.php
 :file:`ext_localconf.php` is always included in global scope of the script,
 either frontend or backend.
 
-The files :file:`ext_localconf.php` is included
-(:php:`loadTypo3LoadedExtAndExtLocalconf()`) after the following objects in the
-bootstrap class:
+
+
+Should Not Be Used For
+----------------------
+
+While you *can* put functions and classes into :file:`ext_localconf.php`, it is a really bad
+practice because such classes and functions would *always* be loaded. It is
+better to have them included only as needed.
+
+Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes
+<xclasses>` or any simple array assignments to
+:php:`$GLOBALS['TYPO3_CONF_VARS']` options will not work for the following:
 
  * class loader
  * package manager
  * cache manager
  * configuration manager
- * log manager
+ * log manager (= :ref:`Logging Framework <logging>`)
  * time zone
  * memory limit
  * locales
  * stream wrapper
- * error handler
+ * :ref:`error handler <error-handling-extending>`
 
- Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes <xclasses>`
- or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
- will not work for those.
+This would not work because the extension files :file:`ext_localconf.php` are
+included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the
+mentioned objects in the :ref:`Bootstrap <bootstrapping>` class.
 
-Should Not Be Used For
-----------------------
+In most cases, these assignments should be placed in :file:`typo3conf/AdditionalConfiguration.php`.
 
-* While you *can* put functions and classes into the script, it is a really bad
-  practice because such classes and functions would *always* be loaded. It is
-  better to have them included only as needed.
-* Error and exception handlers should be registered in :file:`typo3conf/AdditionalConfiguration.php`.
-  See :ref:`error-handling-extending`.
+Example:
+
+:ref:`Register an exception handler <error-handling-extending>` in :file:`typo3conf/AdditionalConfiguration.php`::
+
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\PostExceptionsOnTwitter::class;
 
 Should Be Used For
 ------------------
