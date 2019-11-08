@@ -10,14 +10,25 @@ Configuration Files (ext_tables.php & ext_localconf.php)
 
 Files :file:`ext_tables.php` and :file:`ext_localconf.php` are the two
 most important files for the execution of extensions
-within TYPO3. They contain configuration used by the system on almost
-every request. They should therefore be optimized for speed.
+within TYPO3.
 
+These files contain configuration used by the system on almost
+every request. Therefore, they should be optimized for speed.
+
+.. important::
+
+   Please also see :ref:`ext-tables-localconf-best-practices` on the bottom of
+   this page for some important tips regarding these files.
+
+Only add these files if your extension requires any of the configuration
+described below.
 
 .. _ext-localconf-php:
 
 ext_localconf.php
 =================
+
+*-- optional*
 
 :file:`ext_localconf.php` is always included in global scope of the script,
 either frontend or backend.
@@ -25,27 +36,38 @@ either frontend or backend.
 Should Not Be Used For
 ----------------------
 
-* While you *can* put functions and classes into the script, it is a really bad
-  practice because such classes and functions would *always* be loaded. It is
-  better to have them included only as needed.
-* Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes
-  <xclasses>` or any simple array assignments to
-  :php:`$GLOBALS['TYPO3_CONF_VARS']` options will not work for the following:
+While you *can* put functions and classes into the script, it is a really bad
+practice because such classes and functions would *always* be loaded. It is
+better to have them included only as needed.
+
+Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes
+<xclasses>` or any simple array assignments to
+:php:`$GLOBALS['TYPO3_CONF_VARS']` options will not work for the following:
 
  * class loader
  * package manager
  * cache manager
  * configuration manager
- * log manager
+ * log manager (= :ref:`Logging Framework <logging>`)
  * time zone
  * memory limit
  * locales
  * stream wrapper
- * error handler
+ * :ref:`error handler <error-handling-extending>`
 
- This would not work because the extension files :file:`ext_localconf.php` are
- included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the
- mentioned objects in the Bootstrap class.
+This would not work because the extension files :file:`ext_localconf.php` are
+included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the
+mentioned objects in the :ref:`Bootstrap <bootstrapping>` class.
+
+In most cases, these assignments should be placed in :file:`typo3conf/AdditionalConfiguration.php`.
+
+Example:
+
+:ref:`Register an exception handler <error-handling-extending>` in :file:`typo3conf/AdditionalConfiguration.php`::
+
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\PostExceptionsOnTwitter::class;
+
+
 
 Should Be Used For
 ------------------
@@ -71,6 +93,8 @@ deprecated
 
 ext_tables.php
 ==============
+
+*-- optional*
 
 :file:`ext_tables.php` is *not* always included in the global scope of the
 frontend context.
@@ -121,6 +145,9 @@ These are the typical functions that should be placed inside :file:`ext_tables.p
 * Assignments to the global configuration arrays :php:`$TBE_STYLES` and :php:`$PAGES_TYPES`
 * Adding new fields to User Settings ("Setup" Extension)
 
+
+.. _ext-tables-localconf-best-practices:
+
 Best Practices for :php:`ext_tables.php` and :php:`ext_localconf.php`
 =====================================================================
 
@@ -147,6 +174,8 @@ However, due to limitations to TER, the :php:`$_EXTKEY` option should be kept wi
 
 See any system extension for best practice on this behaviour.
 
+- These files contain configuration used by the system on almost
+  every request. Therefore, they should be optimized for speed.
 - :php:`TYPO3\CMS\Core\Package\PackageManager::getActivePackages()` contains information about
   whether the module is loaded as *local* or *system* type in the `packagePath` key,
   including the proper paths you might use, absolute and relative.
