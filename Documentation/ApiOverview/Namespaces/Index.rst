@@ -53,10 +53,10 @@ Usage in Extensions
 
 Extension developers are free to use their own vendor name. *Important:* It may consist of *one* segment only. Vendor names must start with an uppercase character and are usually written in UpperCamelCase style. In order to avoid problems with different filesystems, only the characters a-z, A-Z, 0-9 and the dash sign "-" are allowed for package names – don't use special characters::
 
-   // good vendor name:
-   \Webcompany
+   // correct vendor name for 'web company':
+   \WebCompany
 
-   // wrong vendor name:
+   // wrong vendor name for 'web company':
    \Web\Company
 
 .. attention::
