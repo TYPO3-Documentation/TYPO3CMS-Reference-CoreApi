@@ -6,18 +6,18 @@
 Backend Layout
 ==============
 
-Since TYPO3 4.5 there has been a database record type the "Backend Layout" to define a combination of rows and columns
+Since TYPO3 4.5 there has been a database record type "Backend Layout" to define a combination of rows and columns
 to which content can be added in the page module.
 
-With TYPO3 7.4 a new feature was introduced to define Backend Layouts in TYPO3 via PageTSConfig. It implements a
-generic PageTS provider for Backend Layouts to make Backend Layouts reusable across installations.
+With TYPO3 7.4 a new feature was introduced to define backend layouts in TYPO3 via PageTSConfig. It implements a
+generic PageTS provider for backend layouts to make backend layouts reusable across installations.
 
 .. _be-layout-video:
 
 Backend Layout Video
 ================================
 
-Benji: How to implement frontend layouts in TYPO3 using Backend Layouts
+Benjamin Kott: How to implement frontend layouts in TYPO3 using Backend Layouts
 
 .. youtube:: RoHaeo4fq34
 
@@ -27,30 +27,30 @@ Benji: How to implement frontend layouts in TYPO3 using Backend Layouts
 Backend Layout Definition
 =========================
 
-Backend Layouts can be configured either as "Backend Layout" record in a sysfolder or as PageTsConfig entry in
- :typoscript:`mod.web_layout.BackendLayouts`. Each layout will be saved with a key. The Backend Layout records are
-using their uid as a key, therefore layouts defined via PageTsConfig should use a non-numeric string key. It is a good
+Backend layouts can be configured either as "Backend Layout" record in a sysfolder or as Page Tsconfig entry in
+:typoscript:`mod.web_layout.BackendLayouts`. Each layout will be saved with a key. The "Backend Layout" records are
+using their uid as a key, therefore layouts defined via Page Tsconfig should use a non-numeric string key. It is a good
 practise to use a descriptive name as key.
 
-The entries title and icon are being used to display the Backend Layout options in the page properties.
+The entries title and icon are being used to display the backend layout options in the page properties.
 
 The overall grid size will be defined by :typoscript:`config.backend_layout.colCount` and :typoscript:`rowCount`.
-Additional rows in the :typoscript:`rows` Array and additional columns in the each rows :typoscript:`columns` section
+Additional rows in the :typoscript:`rows` array and additional columns in the each rows :typoscript:`columns` section
 will be ignored when they are greater then :typoscript:`rowCount` or :typoscript:`colCount` respectively.
 
 Each column position can span several columns and or several rows. Each column position must have a distinct number
-between 0 and n assigned. It is best practise to always assign "0" to the main column if there is such a thing as a
-main column. Multiple Backend Layouts that contain similar parts, i.e. header, footer, aside, ...  should each have
+between 0 and n. It is best practice to always assign "0" to the main column if there is such a thing as a
+main column. Multiple backend layouts that contain similar parts, i.e. header, footer, aside, ...  should each have
 assigned the same number within one project. This leads to a uniform position of the content, which makes it more clear
 for further use.
 
 
 .. _be-layout-simple-example:
 
-Backend Layout Simple Example
+backend layout Simple Example
 =============================
 
-The following PageTsConfig example creates a simple Backend Layout consisting of two rows and just one column.
+The following PageTsConfig example creates a simple backend layout consisting of two rows and just one column.
 
 .. code-block:: typoscript
 
@@ -96,8 +96,8 @@ The following PageTsConfig example creates a simple Backend Layout consisting of
 Backend Layout Advanced Example
 ===============================
 
-The following PageTsConfig example creates a 3x3 Backend Layout with 5 column position sections in total. The topmost
-row, the "header" spans all 3 columns. There is an "aside" spanning two rows on the right.
+The following Page Tsconfig example creates a 3x3 backend layout with 5 column position sections in total. The topmost
+row (here called "header") spans all 3 columns. There is an "aside" spanning two rows on the right.
 
 .. code-block:: typoscript
 
@@ -154,16 +154,16 @@ row, the "header" spans all 3 columns. There is an "aside" spanning two rows on 
 
 .. _be-layout-frontend:
 
-Output of a Backend Layout in the frontend
+Output of a Backend Layout in the Frontend
 ==========================================
 
-The Backend Layout to be used on a certain page gets determined either by the Backend Layout being chosen directly and
-stored in the pages field "backend_layout" or by the field "backend_layout_next_level" of a parent page up the rootline
+The backend layout to be used on a certain page gets determined either by the backend layout being chosen directly and
+stored in the pages field "backend_layout" or by the field "backend_layout_next_level" of a parent page up the rootline.
 
-To avoid complex TypoScript for integrators, the handling of Backend Layouts has
+To avoid complex TypoScript for integrators, the handling of backend layouts has
 been simplified for the frontend.
 
-To get the correct Backend Layout, the following TypoScript code can be used:
+To get the correct backend layout, the following TypoScript code can be used:
 
 .. code-block:: typoscript
 
@@ -207,10 +207,10 @@ Line 95 ff <https://github.com/benjaminkott/bootstrap_package/blob/master/Config
 
 .. _be-layout-extensions:
 
-Extensions for the Backend Layouts
-==================================
+Extensions for backend layouts
+==============================
 
-In many cases besides defining fixed Backend Layouts a more modular approach with the possibility of combining different
+In many cases besides defining fixed backend layouts a more modular approach with the possibility of combining different
 backend layouts and frontend layouts may be feasible. The extension `gridelements <https://extensions.typo3.org/extension/gridelements/>`__
 integrates the grid layout concept also to regular content elements.
 
