@@ -120,11 +120,11 @@ This shows how to generate and send a mail in TYPO3::
 
       // Defining the "From" email address and name as an object
       // (email clients will display the name)
-      ->from(new \Symfony\Component\Mime\NamedAddress('john@doe.com', 'John Doe'))
+      ->from(new \Symfony\Component\Mime\Address('john@doe.com', 'John Doe'))
 
       // Set the "To" addresses
       ->to(
-         new \Symfony\Component\Mime\NamedAddress('receiver@example.org', 'Max Mustermann'),
+         new \Symfony\Component\Mime\Address('receiver@example.org', 'Max Mustermann'),
          new \Symfony\Component\Mime\Address('other@domain.org')
       )
 
@@ -149,9 +149,9 @@ This shows how to generate and send a mail in TYPO3::
 Or if you prefer, don't concatenate the calls::
 
    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
-   $mail->from(new \Symfony\Component\Mime\NamedAddress('john@doe.com', 'John Doe'));
+   $mail->from(new \Symfony\Component\Mime\Address('john@doe.com', 'John Doe'));
    $mail->to(
-      new \Symfony\Component\Mime\NamedAddress('receiver@example.org', 'Max Mustermann'),
+      new \Symfony\Component\Mime\Address('receiver@example.org', 'Max Mustermann'),
       new \Symfony\Component\Mime\Address('other@domain.org')
    );
    $mail->subject('Your subject');
