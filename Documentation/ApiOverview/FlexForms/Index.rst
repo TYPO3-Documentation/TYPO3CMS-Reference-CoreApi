@@ -23,7 +23,7 @@ Example Use Cases
 =================
 
 * Use the plugin to configure a different view, e.g. list, single
-* The `bootstrap_package <https://extensions.typo3.org/extension/example/>`__
+* The `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__
   uses FlexForms to configure rendering options,
   e.g. a transition interval and transition type (slide, fade)
   for the carousel.
@@ -328,8 +328,8 @@ Credits
 =======
 
 Some of the examples were taken from the extensions
-`news <https://extensions.typo3.org/extension/example/>`__ (by Georg Ringer)
-and `bootstrap_package <https://extensions.typo3.org/extension/example/>`__
+`news <https://extensions.typo3.org/extension/news/>`__ (by Georg Ringer)
+and `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__
 (by Benjamin Kott).
 
 Further enhancements by the TYPO3 community are welcome!
