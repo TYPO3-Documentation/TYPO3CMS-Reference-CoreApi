@@ -214,7 +214,7 @@ whatever medium you have offered (e.g. a textarea field):
    }
    showAll = true
 
-   [UserIpRange = 123.456.*.*]
+   [ip("123.45.*")]
 
      headerImage = fileadmin/img1.jpg
 
