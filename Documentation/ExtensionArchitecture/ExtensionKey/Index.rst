@@ -3,18 +3,23 @@
 
 .. _extension-key:
 
+=========================
 Choosing an extension key
-^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================
 
-The "extension key" is a string uniquely identifying the extension.
-The folder where the extension resides is named by this string.
+The "extension key" is a string that uniquely identifies the extension.
+The folder in which the extension is located is named by this string.
 
-The extension key must follow these rules:
+Rules for the Extension Key
+===========================
 
-* It can contain characters a-z,0-9 and underscore
-* No uppercase characters should be used (keeps folder-,file- and table/field-names
-  in lowercase).
-* Furthermore the name must **not start** with any of these (these are prefixes used for modules):
+The extension key must comply with the following rules:
+
+* It can contain characters a-z, 0-9 and underscore
+* No uppercase characters should be used (folder, file and table/field names
+  remain in lowercase).
+* Furthermore the key must **not start** with any of these (these are prefixes
+  used for modules):
 
   * **tx**
   * **user_**
@@ -24,34 +29,36 @@ The extension key must follow these rules:
   * **ts_language**
   * **csh_**
 
-* The extension name must still be unique even if underscores are removed
-  because backend modules related to the extension should be named by
-  the extension name *without* underscores. (Underscores are allowed
-  to make the extension key easily readable).
-* Extension
+* They key may not start with a number. Also an underscore at the beginning or
+  the end is not allowed.
+* The length must be between 3 and 30 characters (underscores not included).
+* The extension key must still be unique even if underscores are removed,
+  since backend modules that refer to the extension should be named by
+  the extension key *without* underscores. (Underscores are allowed
+  to make the extension key easy to read).
 
 The naming conventions of extension keys are automatically validated
-by the registration at the repository, so you have nothing to worry
-about here.
+when they are registered in the repository, so you do not have to worry
+about this.
 
 There are two ways to name an extension:
 
 - **Project specific extensions** (not generally usable or shareable):
   Select any name you like and prepend it "user\_" (which is the only
-  allowed use of a key starting with "u"). This prefix denotes that this
-  extension is a local one which does not come from the central TYPO3
-  Extension Repository or is ever intended to be shared. Probably this
-  is an "adhoc" extension you have made for some special occasion.
+  allowed use of a key starting with "u"). This prefix denotes that it is
+  a local extension that does not originate from the central TYPO3
+  Extension Repository or is ever intended for sharing. Probably this
+  is an "adhoc" extension you made for some special occasion.
 
 - **General extensions:** Register an extension name online at the TYPO3
-  Extension Repository. Your extension name will automatically be
-  validated and you are sure to have a unique name returned which nobody
-  else in the world uses. This makes it very easy to share your
-  extension later on with every one else, because it ensures that no
-  conflicts with other extension will happen. But by default a new
-  extension you make is defined "private" which means nobody else but
+  Extension Repository. Your extension name will be validated automatically
+  and you are sure to have a unique name will be returned which no
+  one else in the world will use. This makes it very easy to share your
+  extension later on with everyone else as it ensures that no
+  conflicts will occur with other extensions. But by default, a new
+  extension you make is defined as "private", which means no one else but
   you have access to it until you permit it to be public. It's free of
-  charge to register an extension name. By definition all code in the
+  charge to register an extension name. By definition, all code in the
   TYPO3 Extension Repository is covered by the GPL license because it
   interfaces with TYPO3. You should really consider making general
   extensions!
@@ -65,10 +72,10 @@ There are two ways to name an extension:
 .. _extension-license:
 
 About GPL and extensions
-""""""""""""""""""""""""
+========================
 
 Remember that TYPO3 is GPL software and at the
-same moment you extend TYPO3 your extensions are legally covered by
+same moment when you extend TYPO3, your extensions are legally covered by
 GPL. This does not *force* you to share your extension, but it should
 *inspire* you to do so and legally you cannot prevent anyone who gets
 hold of your extension code from using it and further develop it. The
@@ -85,36 +92,37 @@ and we rely on each other in the community to develop it further.
 .. _extensions-security:
 
 Security
-""""""""
+========
 
 You are responsible for security issues in your
 extensions. People may report security issues either directly to you
-or to the TYPO3 Security Team. Whatever the case you should get in
+or to the `TYPO3 Security Team <https://typo3.org/community/teams/security/>`__.
+In any case, you should get in
 touch with the Security Team which will validate the security fixes.
 They will also include information about your (fixed) extension in
 their next Security bulletin. If you don't respond to requests from
-the Security Team, your extension will be forcibly removed from the
+the Security Team, your extension will be removed by force from the
 TYPO3 Extension Repository.
 
 More details on the security team's policy on handling security issues
-can be found at http://typo3.org/teams/security/extension-security-policy/.
+can be found at https://typo3.org/teams/security/extension-security-policy/.
 
 .. _extension-key-registration:
 
 Registering an extension key
-""""""""""""""""""""""""""""
+============================
 
 Before starting a new extension you should register an extension key
-on typo3.org (unless you plan to make an implementation-specific
-extension – of course – which it does not make sense to share).
+on extensions.typo3.org (unless you plan to make an implementation-specific
+extension – of course – which does not make sense to share).
 
-Go to typo3.org, log in with your (pre-created) username / password
-and go to `Extensions <https://extensions.typo3.org>`__
-> My Extensions and click on the "Register extension key"
-tab. On that page you can enter the key name you want to register.
+Go to `extensions.typo3.org <https://extensions.typo3.org>`__, log in with your
+(pre-created) username/password and navigate to :guilabel:`My Extensions` in the
+menu. Click on the :guilabel:`Register extension key` tab. On that page enter
+the extension key you want to register.
 
-.. figure:: ../../Images/Typo3OrgRegistration.png
-   :alt: The extension registration form
+.. figure:: ../../Images/RegisterExtensionKey.png
+   :alt: The extension key registration form
    :class: with-border
 
-   The extension registration form on typo3.org.
+   The extension key registration form
