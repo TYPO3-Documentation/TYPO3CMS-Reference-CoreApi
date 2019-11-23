@@ -85,6 +85,7 @@ LOGGING, ERRORS, EXCEPTIONS
 
    Logging/Index
    SystemLog/Index
+   Deprecation/Index
    ErrorAndExceptionHandling/Index
 
 BACKEND
