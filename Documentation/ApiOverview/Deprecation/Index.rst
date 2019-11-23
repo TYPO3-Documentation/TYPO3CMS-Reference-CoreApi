@@ -6,9 +6,9 @@
 Deprecation
 ===========
 
-Since TYPO3 4.3, deprecated functions are logged. A deprecation log has been introduced to track calls to
+Since TYPO3 4.3, calls to deprecated functions are logged to track usage of
 deprecated/outdated methods in the TYPO3 Core. Developers have to make sure to adjust their code to avoid
-using this old functionality since deprecated methods will be removed in future TYPO3 releases!
+using this old functionality since deprecated methods will be removed in future TYPO3 releases.
 
 .. _deprecation_introduction:
 
