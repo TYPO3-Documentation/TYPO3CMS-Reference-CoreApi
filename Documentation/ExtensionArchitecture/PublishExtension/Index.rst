@@ -7,83 +7,77 @@
 Publish Your Extension
 ======================
 
-By publishing an extension, we mean making it publicly available. This includes:
-
-#. :ref:`Register your extension on Packagist <publish-extension-packagist>`
-#. :ref:`Register your extension on extensions.typo3.org <publish-extension-ter>` (TER)
-#. Make your :ref:`extension source code available <publish-extension-git>`
-   on a public Git hoster such as GitHub,
-   Gitlab or Bitbucket
-#. :ref:`Register Your Extension for docs.typo3.org <publish-extension-docs>`:
-   This makes sure your extension documentation will be rendered on
-   docs.typo3.org
-
-
-We recommend to do all of these. Find more information in the following sections.
+By publishing an extension to the
+`TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__, we mean
+making it publicly available. Follow these four steps, we recommend to do all
+of these.
 
 *TYPO3 - Inspiring people to share*
 
-.. _publish-extension-packagist:
+.. rst-class:: bignums-xxl
 
-Publish Your Extension on Packagist
-====================================================
+#. Publish Source Code on a Public Git Hosting Platform
 
-This is described well on `Packagist <https://packagist.org/>`__.
+   The TYPO3 community currently uses GitHub, GitLab and Atlassian Bitbucket to
+   host the Git repositories of their extensions.
 
-Advantages:
+   Typically, the :ref:`extension key <extension-key>` is used for the
+   repository name, but that is not necessary.
 
-* It is possible to install your extension using `composer require`
+   **Advantages:**
 
-.. _publish-extension-ter:
+   * Contributors can add issues or make pull requests
+   * Render the documentation on docs.typo3.org (see below) by adding a webhook
 
-Publish Your Extension on TER
-====================================================
+#. Publish Your Extension on Packagist
 
+   This is described well on `Packagist <https://packagist.org/>`__.
 
-See `Publish an Extension <https://extensions.typo3.org/faq/publish-an-extension/>`__
-for more information on how to publish an extension and check out the
-`FAQ <https://extensions.typo3.org/faq/>`__ as well.
+   **Depends on:**
 
-Advantages:
+   * Public Git repository
 
-* The community can vote for your extension
-* Donate link (optional)
-* Link to the documentation (optional)
-* Link to the source code (optional)
+   **Advantages:**
 
+   * It is possible to install your extension using `composer require`
+   * An update of the extension can be done easily by your users with
+     `composer update`
 
-.. _publish-extension-git:
+#. Publish Your Extension on TER
 
-Publish Source Code on a Public Git Hosting Platform
-====================================================
+   See `Publish an Extension <https://extensions.typo3.org/faq/publish-an-extension/>`__
+   for more information on how to publish an extension and check out the
+   `FAQ <https://extensions.typo3.org/faq/>`__ as well.
 
-The TYPO3 community currently uses GitHub, GitLab and Atlassian Bitbucket to host
-the Git repositories of their extensions.
+   **Advantages:**
 
-Add a repository to your workspace. Typically, the extension key is used
-for the repository name, but that is not necessary.
+   * Easy finding of your extension in the central Extension Repository
+   * The community can vote for your extension
+   * Users can subscribe to notifications on new releases
+   * Composer package is announced (optional)
+   * Sponsoring link (optional)
+   * Link to the documentation (optional)
+   * Link to the source code (optional)
+   * Link to the issue tracker (optional)
 
-Advantages:
+#. Add Webhook for Documentation
 
-* Contributors can add issues or pull requests
-* Render the documentation on docs.typo3.org (see next step) by adding a webhook
+   In order for this to work, you must have a :file:`composer.json` and push
+   some changes after you registered the webhook.
 
+   All the necessary steps are outlined in :ref:`h2document:migrate` except for
+   step 4 (request redirects) which is not necessary for new documentation.
 
+   **Depends on:**
 
-.. _publish-extension-docs:
+   * Public Git repository
+   * Extension published to TER (This is not strictly necessary for documentation
+     rendering. But it makes the workflow easier for the Documentation Team,
+     specifically for the approval process if your extension is already registered
+     on extensions.typöo3.org).
 
-Register Your Extension for docs.typo3.org
-==========================================
+   **Advantages:**
 
-This basically means that you will add a webhook in your extension repository.
-In order for this to work, you must have a :file:`composer.json` and push some
-changes after you register the webhook.
-
-All the necessary steps are outlined in :ref:`h2document:migrate` except for
-step 4 (request redirects) which is not necessary for new documentation.
-
-Advantages:
-
-* Your extension will be rendered on docs.typo3.org
-* The documentation link will automatically be added if your extension is registered
-  on extensions.typo3.org (TER).
+   * Your extension will be rendered on `docs.typo3.org <https://docs.typo3.org/>`__
+   * The documentation link will be added automatically if your extension is
+     registered on extensions.typo3.org (TER).
