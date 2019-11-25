@@ -37,7 +37,7 @@ context you can do so in the :file:`LocalConfiguration.php`::
 
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['deprecations']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::NOTICE] = [];
 
-For more information on how to configure the writting of deprecation logs see :ref:`logging-configuration-writer`.
+For more information on how to configure the writing of deprecation logs see :ref:`logging-configuration-writer`.
 
 .. _deprecation_finding_calls:
 
