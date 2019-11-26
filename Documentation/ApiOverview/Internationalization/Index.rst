@@ -18,4 +18,6 @@ Internationalization and Localization
 
    Introduction
    ManagingTranslations
+   TranslationServer/Index
    XliffFormat
+   XliffApi
