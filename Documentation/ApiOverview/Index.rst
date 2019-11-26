@@ -97,10 +97,12 @@ BACKEND
    BackendModules/Index
    BackendRouting/Index
    BackendUserObject/Index
+   BackendLayout/Index
    BroadcastChannels/Index
    FlashMessages/Index
    FormEngine/Index
    JavaScript/Index
+   LinkBrowser/Index
    Rte/Index
 
 HANDLING SITES, URLS, LANGUAGES
@@ -174,6 +176,7 @@ VARIOUS
    Collections/Index
    SystemRegistry/Index
    Workspaces/Index
+   DependencyInjection/Index
 
 
 

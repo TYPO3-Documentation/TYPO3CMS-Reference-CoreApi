@@ -71,7 +71,7 @@ then overlay the future version and eventually check if it is hidden
 and if so exclude it. The same problem applies to all other
 "enableFields", future versions with "delete" flags and current
 versions which are invisible placeholders for future records. Anyway,
-all that is handled by the :code:`\TYPO3\CMS\Frontend\Page\PageRepository` class which includes
+all that is handled by the :code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository` class which includes
 functions for "enableFields" and "deleted" so it will work out of the
 box for you. But as soon as you do selection based on other fields
 like email, username, alias etc. it will fail.
@@ -451,7 +451,7 @@ see if a placeholder exists for a move operation and if so the record
 will take over the pid / "sortby" value upon publishing.
 
 Preview of move operations is almost fully functional through the
-:code:`\TYPO3\CMS\Frontend\Page\PageRepository::versionOL()` and
+:code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::versionOL()` and
 :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL()` functions.
 When the online placeholder is selected it simply looks up the source
 record, overlays any version on top and displays it. When the source

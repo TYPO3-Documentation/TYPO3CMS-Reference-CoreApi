@@ -14,6 +14,11 @@ In the :file:`ext_conf_template.txt` file configuration options
 for an extension can be defined. They will be accessible in the TYPO3 backend
 from Settings module.
 
+.. _extension-options-syntax:
+
+Syntax
+======
+
 There's a specific syntax to declare these options properly, which is
 similar to the one used for TypoScript constants (see "Declaring
 constants for the Constant editor" in
@@ -41,7 +46,10 @@ screenshot, the label – split between header and description – is
 visible. Then comes the field itself, in this case an input, because
 the option's type is "string".
 
-Available option types:
+.. _extension-options-available-option-types:
+
+Available option types
+======================
 
 ============= ==========================
 Option type   Description
@@ -59,6 +67,18 @@ user          user function
 wrap          wrap field
 ============= ==========================
 
+Where user functions have to be written the following way:
+
+.. code-block:: typoscript
+
+   # cat=basic/enable/050; type=user[Vendor\MyExtensionKey\ViewHelpers\MyConfigurationClass->render]; label=MyLabel
+      myVariable = 1
+
+.. _extension-options-accessing-saved-options:
+
+Accessing saved options
+=======================
+
 Once you saved the configuration in the Settings module, it will be stored in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['your_extension_key']`
 as an array.
@@ -75,6 +95,11 @@ To directly fetch specific values like :ts:`temporaryDirectory` from the example
    $backendConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
       ->get('your_extension_key', 'temporaryDirectory');
 
+
+.. _extension-options-nested-structure:
+
+Nested structure
+================
 
 You can also define nested options using the TypoScript notation:
 

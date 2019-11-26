@@ -29,32 +29,41 @@ ext_localconf.php
 :file:`ext_localconf.php` is always included in global scope of the script,
 either frontend or backend.
 
-The files :file:`ext_localconf.php` is included
-(:php:`loadTypo3LoadedExtAndExtLocalconf()`) after the following objects in the
-bootstrap class:
-
- * class loader
- * package manager
- * cache manager
- * configuration manager
- * log manager
- * time zone
- * memory limit
- * locales
- * stream wrapper
- * error handler
-
- Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes <xclasses>`
- or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
- will not work for those.
 
 
 Should Not Be Used For
 ----------------------
 
-* While you *can* put functions and classes into the script, it is a really bad
-  practice because such classes and functions would *always* be loaded. It is
-  better to have them included only as needed.
+While you *can* put functions and classes into :file:`ext_localconf.php`, it is a really bad
+practice because such classes and functions would *always* be loaded. It is
+better to have them included only as needed.
+
+Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes
+<xclasses>` or any simple array assignments to
+:php:`$GLOBALS['TYPO3_CONF_VARS']` options will not work for the following:
+
+ * class loader
+ * package manager
+ * cache manager
+ * configuration manager
+ * log manager (= :ref:`Logging Framework <logging>`)
+ * time zone
+ * memory limit
+ * locales
+ * stream wrapper
+ * :ref:`error handler <error-handling-extending>`
+
+This would not work because the extension files :file:`ext_localconf.php` are
+included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the
+mentioned objects in the :ref:`Bootstrap <bootstrapping>` class.
+
+In most cases, these assignments should be placed in :file:`typo3conf/AdditionalConfiguration.php`.
+
+Example:
+
+:ref:`Register an exception handler <error-handling-extending>` in :file:`typo3conf/AdditionalConfiguration.php`::
+
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\PostExceptionsOnTwitter::class;
 
 Should Be Used For
 ------------------
@@ -148,8 +157,10 @@ Should Not Be Used For
 
 * TCA configurations for new tables. They should go in :file:`Configuration/TCA/tablename.php`
 * TCA overrides of existing tables. They should go in :file:`Configuration/TCA/Overrides/tablename.php`
-* calling :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToInsertRecords()` as this might break the frontend
-* calling :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile()` as this might break the frontend
+* calling :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToInsertRecords()`
+  as this might break the frontend. They should go in :file:`Configuration/TCA/Overrides/tablename.php`
+* calling :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile()`
+  as this might break the frontend. They should go in :file:`Configuration/TCA/Overrides/sys_template.php`
 
 For a descriptions of the changes for TCA (compared to older TYPO3 versions), please see
 the blogpost `"Cleaning the hood: TCA" by Andreas Fernandez <https://scripting-base.de/blog/cleaning-the-hood-tca.html>`__.
@@ -238,8 +249,10 @@ new records of your table to be added on Standard pages call:
    );
 
 .. _extension-configuration-files-scheduler:
+
 Registering a scheduler Task
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Scheduler tasks get registered in the ext_tables.php as well. Note that the Sysext "scheduler" has
 to be installed for this to work.
 

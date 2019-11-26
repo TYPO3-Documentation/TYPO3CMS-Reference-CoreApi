@@ -18,15 +18,18 @@ This configuration should be used in combination with
 the cookie should only be transmitted over a secure HTTPS connection between
 client and server. Possible values are: `0`, `1` and `2` (integer) with the following meaning:
 
-* `0`: A cookie is always sent, independently from which protocol is used
-  currently. This is the default setting.
+`0`
+   A cookie is always sent, independently from which protocol is used currently.
+   This is the default setting.
 
-* `1`: The cookie will only be set if a secure connection exists (HTTPS).
-  Use this in combination with :ref:`lockSSL <security-global-typo3-options-lockSSL>` since
-  otherwise the application will fail and throw an exception.
+`1`
+   The cookie will only be set if a secure connection exists (HTTPS).
+   Use this in combination with :ref:`lockSSL <security-global-typo3-options-lockSSL>`
+   since otherwise the application will fail and throw an exception.
 
-* `2`: The cookie will be set in each case, but uses the secure flag if a
-  secure (HTTPS) connection exists.
+`2`
+   The cookie will be set in each case, but uses the secure flag if a secure (HTTPS)
+   connection exists.
 
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['cookieSecure']`
 
@@ -38,17 +41,20 @@ This configuration option controls whether PHP errors should be
 displayed or not (information disclosure). Possible values are: `-1`, `0`,
 `1` (integer) with the following meaning:
 
-* `-1`: This overrides the PHP setting :php:`display_errors`. If
-  :ref:`devIPmask <security-global-typo3-options-devIpMask>` matches the user's IP
-  address the configured :php:`debugExceptionHandler` is used for exceptions, if
-  not, `productionExceptionHandler` will be used. This is the default setting.
+`-1`
+   This overrides the PHP setting :php:`display_errors`.
+   If :ref:`devIPmask <security-global-typo3-options-devIpMask>` matches the user's IP address the
+   configured :php:`debugExceptionHandler` is used for exceptions,
+   if not, `productionExceptionHandler` will be used. This is the default setting.
 
-* `0`: This suppresses any PHP error messages, overrides the value of `exceptionalErrors`
-  and sets it to `0` (no errors are turned into exceptions), the configured
-  `productionExceptionHandler` is used as exception handler.
+`0`
+   This suppresses any PHP error messages, overrides the value of `exceptionalErrors`
+   and sets it to `0` (no errors are turned into exceptions), the configured
+   `productionExceptionHandler` is used as exception handler.
 
-* `1`: This shows PHP error messages with the registered error handler.
-  The configured `debugExceptionHandler` is used as exception handler.
+`1`
+   This shows PHP error messages with the registered error handler.
+   The configured `debugExceptionHandler` is used as exception handler.
 
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']`
 
@@ -112,35 +118,83 @@ it only gained access to the TYPO3 backend with a normal, unprivileged user acco
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']`
 
 
-lockIP
-""""""
+lockIP / lockIPv6
+"""""""""""""""""
 
 If a frontend or backend user logs into TYPO3, the user's session is
-locked to its IP address. The `lockIP` configuration controls how
+locked to its IP address. The `lockIP` configuration for IPv4 and `lockIPv6` for IPv6 control how
 many parts of the IP address have to match with the IP address used at
-authentication time. Possible values are: `0`, `1`, `2`, `3` or `4` (integer)
+authentication time.
+
+Possible values for **IPv4** are: `0`, `1`, `2`, `3` or `4` (integer)
 with the following meaning:
 
-* `0`: Disable IP locking at all, not recommended.
+`0`
+   Disable IP locking at all, not recommended.
 
-* `1`: Only the first part of the IP address needs to match, e.g. `123.xxx.xxx.xxx`.
+`1`
+   Only the first part of the IPv4 address needs to match, e.g. `123.xxx.xxx.xxx`.
 
-* `2`: Only the first and second part of the IP address need to match, e.g. `123.45.xxx.xxx`.
+`2`
+   Only the first and second part of the IPv4 address need to match, e.g. `123.45.xxx.xxx`.
 
-* `3`: Only the first, second and third part of the IP address need to match, e.g. `123.45.67.xxx`.
+`3`
+   Only the first, second and third part of the IPv4 address need to match, e.g. `123.45.67.xxx`.
 
-* `4`: The complete IP address has to match (e.g. `123.45.67.89`). This is the default and recommended setting.
+`4`
+   The complete IPv4 address has to match (e.g. `123.45.67.89`).
+
+The default value for frontend is `2` and for backend is `4`.
+
+Possible values for **IPv6** are: `0`, `1`, `2`, `3`, `4`,  `5`,  `6`, `7`, `8` (integer)
+with the following meaning:
+
+`0`
+   Disable IP locking at all, not recommended.
+
+`1`
+   Only the first block (16 bits) of the IPv6 address needs to match, e.g. `2001:`
+
+`2`
+   The first two blocks (32 bits) of the IPv6 address need to match, e.g. `2001:0db8`.
+
+`3`
+   The first three blocks (48 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3`
+
+`4`
+   The first four blocks (64 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3`
+
+`5`
+   The first five blocks (80 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3:1319`
+
+`6`
+   The first six blocks (96 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3:1319:8a2e`
+
+`7`
+   The first seven blocks (112 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3:1319:8a2e:0370`
+
+`8`
+   The full IPv6 address has to match, e.g. `2001:0db8:85a3:08d3:1319:8a2e:0370:7344`
+
+The default value for frontend and backend is `2`.
 
 If your users experience that their sessions sometimes drop out, it
 might be because of a changing IP address (this may happen with
 dynamic proxy servers for example) and adjusting this setting could
-address this issue. The downside of using a lower value than `4` is a
+address this issue. The downside of using a lower value than the default is a
 decreased level of security.
 
-Keep in mind that the `lockIP` configuration is available for frontend
-(:php:`['FE']['lockIP']``) and backend (:php:`['BE']['lockIP']``) sessions separately, so
-two PHP variables are available: :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['lockIP']` and
-:php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockIP']`.
+Keep in mind that the `lockIP` and `lockIPv6` configurations are available for frontend
+(:php:`['FE']['lockIP']` and :php:`['FE']['lockIPv6']`) and backend (:php:`['BE']['lockIP']`
+and :php:`['BE']['lockIPv6']`) sessions separately, so four PHP variables are available:
+
+* :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['lockIP']`
+
+* :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['lockIPv6']`
+
+* :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockIP']`
+
+* :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockIPv6']`
 
 
 .. _security-global-typo3-options-lockSSL:
@@ -235,10 +289,13 @@ This setting specifies if mails should be sen to :ref:`warning_email_addr
 
 The value in an integer:
 
-* `0`: Do not send notification-emails upon backend-login (default)
+`0`
+   Do not send notification-emails upon backend-login (default)
 
-* `1`: Send a notification-email every time a backend user logs in
+`1`
+   Send a notification-email every time a backend user logs in
 
-* `2`: Send a notification-email every time an ADMIN backend user logs in
+`2`
+   Send a notification-email every time an ADMIN backend user logs in
 
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['warning_mode']`

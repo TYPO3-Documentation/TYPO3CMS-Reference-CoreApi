@@ -13,14 +13,14 @@ Password Hashing
 Introduction
 ============
 
-TYPO3 never stores passwords in plain text in the database and updates stored frontend and
-backend user password hashes to the latest configured hash algorithm upon user login.
+TYPO3 never stores passwords in plain text in the database. If the latest configured hash algorithm has been changed,
+TYPO3 will update the stored frontend and backend user password hashes upon user login.
 
-TYPO3 uses modern hash algorithms suitable for the given PHP platform, the default since
-TYPO3 core version v9 is Argon2i.
+TYPO3 uses modern hash algorithms suitable for the given PHP platform, the default being Argon2i since
+the release of TYPO3 core version 9.
 
-This section is for administrators and users who want to know more about TYPO3 password hashing,
-have a basic understanding of the hashing algorithms and configuration in TYPO3.
+This section is for administrators and users who want to know more about TYPO3 password hashing and
+have a basic understanding of hashing algorithms and configuration in TYPO3.
 
 
 .. _password-hashing-basic-knowledge:
@@ -28,39 +28,39 @@ have a basic understanding of the hashing algorithms and configuration in TYPO3.
 Basic Knowledge
 ===============
 
-Storing plain text passwords to simply compare a stored password with a given user password when
-the user logs in has been a common attack vector in online systems ever since.
-The main risk is that some other system vulnerability or chain of vulnerabilities
-allows an attacker to download the frontend or backend user database table and then knows
-the plain text passwords of users. These passwords can then be used to log in as the specific
-user to get their TYPO3 instance specific privileges (for instance a backend admin)
-and - usually even worse - are often abused by attackers to try the same user / password combination
-at different services. Maybe the user uses the same login email and password for his bank account?
+If a database has been compromised and the passwords have been stored as plain text,
+the attacker has most likely gained access to more than just the user's TYPO3 Frontend / Backend account.
+It's not uncommon for someone to use the same email and password combination for more than one online service,
+such as their bank account, social media accounts, or even their email provider.
 
-To mitigate this risk, one-way `hash`_ algorithms have been invented: The given password is one-way
-transformed to some different string (a hash, also known as checksum), this hash is stored in the database
-instead of the plain text password. The idea is if you see the hash, you can not calculate back to the plain text
-password easily. That's why hashes are called "one-way": It's cheap to calculate a hash for a given
-password, but it is expensive (in terms of computation time) to determine a password for a given hash. If a user
-tries to log in and submits its password, the same one-way transformation is done again, if it is then identical
-with the hash stored in the database, the submitted password must have been correct and the login succeeds.
+To mitigate this risk, we can use one-way `hash`_ algorithms to transform a plain text password into an incomprehensible
+string of seemingly "random" characters.
+A hash, (also known as a checksum), is the result of a value (in this case the user's password) that has been
+transformed using a one-way function.
+Hashes are called "one-way functions" because they're quick and easy to generate, but incredibly hard to undo.
+You would require an incredible amount of computational power and time to try and reverse a hash back to its original
+value.
 
-The most well-known hash algorithm is MD5. Basic hash algorithms and especially MD5 have drawbacks tough:
-First, if you find some other string that resolves to the same hash, you are screwed (that's called
+When a user tries to log in and submits their password through the login form, the same one-way function is performed
+and the result is compared against the hash stored in the database. If they're the same, we can safely assume the user
+typed in the correct password without ever needing to store their actual password!
+
+The most well-known hash algorithm is MD5. Basic hash algorithms and especially MD5 have drawbacks though:
+First, if you find some other string that resolves to the same hash, you're screwed (that's called
 a collision). An attacker could login with a password that is not identical to "your" password, but still matches
 the calculated hash. And second, if an attacker just calculates a huge list of all possible passwords with their
 matching hashes (this is called a rainbow table) and puts them into a database to compare any given hash with,
 it can easily look up plain text passwords for given hashes. A simple MD5 hash is susceptible to both of these
 attack vectors and thus deemed insecure. MD5 rainbow tables for casual passwords can be found online and MD5 collision
-creation can be done without too many issues. In short: MD5 is not a good idea to secure user passwords.
+creation can be done without too many issues. In short: MD5 is not a suitable hashing algorithm for securing user passwords.
 
 To mitigate the rainbow table attack vector, the idea of "salting" has been invented: Instead of
 hashing the given password directly and always ending up with the same hash for the same password
-(if different users use the same password they end up with the same hash in database), a "salt"
+(if different users use the same password they end up with the same hash in the database), a "salt"
 is added to the password. This salt is a random string calculated when the password is first set (when the
 user record is created) and stored *together* with the hash. The basic thinking is that the salt is
-appended to the password before hashing, the "salt+password" combination is then hashed. The salt is stored
-next to the hash in the database. If then a user logs in and submits its username and password, the following
+added to the password before hashing, the "salt+password" combination is then hashed. The salt is stored
+next to the hash in the database. If then a user logs in and submits their username and password, the following
 happens:
 
 1. the requested user is looked up in the database,
@@ -74,7 +74,7 @@ tables (direct hash to password lists) unfeasible.
 
 During the past years, further attack vectors to salted password hashes have been found. For example,
 MD5 hash attacks have been optimized such they are extremely quick on some platforms, where billions of
-hashes per second can be calculated with decent time and money efforts. This allows password guessing even with
+hashes per second can be calculated with decent time and money efforts. This allows for easy password guessing, even with
 salted hashes. Modern password hash algorithms thus try to mitigate these attack vectors. Their hash calculation
 is expensive in terms of memory and CPU time even for short input string like passwords
 (short as in "not a book of text") and they can not be easily split into parallel sections to run on many
@@ -85,7 +85,7 @@ approaches: Core version v4.3 from 2009 added salted password storing, v4.5 from
 storing using the algorithm 'phpass' by default, v6.2 from 2014 made salted passwords storing mandatory,
 v8 added the improved hash algorithm 'PBKDF2' and used it by default.
 
-With core v9, the password hashing has been refactored and modern hash algorithms like especially
+With TYPO3 core version 9, the password hashing has been refactored and modern hash algorithms such as
 Argon2i have been added. PHP improved in this area a lot and PHP 7.2 brings `Argon2i`_ by default, so this
 algorithm could be easily integrated as available core hash mechanism to the existing hash family.
 Argon2i is rather resilient against GPU and some other attacks, the default TYPO3 core configuration even raises

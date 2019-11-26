@@ -240,7 +240,7 @@ or be part of the web server configuration:
 .. _bootstrapping-context-custom:
 
 Custom Contexts
----------------
+"""""""""""""""
 
 In certain situations, more specific contexts are desirable:
 

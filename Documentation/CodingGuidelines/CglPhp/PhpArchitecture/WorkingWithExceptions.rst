@@ -240,6 +240,6 @@ Bad Examples
 
 
 Further readings
-""""""""""""""""
+----------------
 
 See https://blogs.msdn.microsoft.com/kcwalina/2007/01/30/how-to-design-exception-hierarchies/.

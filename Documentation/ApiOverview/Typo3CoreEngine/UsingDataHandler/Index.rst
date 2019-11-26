@@ -1,10 +1,5 @@
 .. include:: ../../../Includes.txt
 
-
-
-
-
-
 .. _Using-DataHandler:
 .. _using-tcemain:
 
@@ -110,7 +105,6 @@ caches will actually clear caches from the "all" group and not really
 **all** caches. Check the :ref:`caching framework architecture section <caching-architecture-core>`
 for more details about available caches and groups.
 
-
 .. _tcemain-complex-submission:
 
 Complex Data Submission
@@ -169,12 +163,12 @@ In this case it is shown how you can use the same object instance to
 submit both data and execute commands if you like. The order will
 depend on the order of line 4 and 5.
 
-In line 2 the :code:`start()` method is called, but this time with the third
-possible argument which is an alternative :code:`$GLOBALS['BE_USER']` object. This allows
+In line 2 the :php:`start()` method is called, but this time with the third
+possible argument which is an alternative :php:`$GLOBALS['BE_USER']` object. This allows
 you to force another backend user account to create stuff in the
 database. This may be useful in certain special cases. Normally you
 should not set this argument since you want TCE to use the global
-:code:`$GLOBALS['BE_USER']`.
+:php:`$GLOBALS['BE_USER']`.
 
 .. code-block:: php
    :linenos:
@@ -184,3 +178,22 @@ should not set this argument since you want TCE to use the global
    $dataHandler->process_datamap();
    $dataHandler->process_cmdmap();
 
+.. _tcemain-error-handling:
+
+Error handling
+============================
+
+The data handler has a property `errorLog` as an `array`.
+In this property, the data handler collects all errors.
+You can use these e.g to logging or another error handling.
+
+.. code-block:: php
+   :linenos:
+
+   if (!empty($dataHandler->errorLog)) {
+       $this->logger->error('Error(s) while creating content element');
+       foreach ($dataHandler->errorLog as $log) {
+           // handle error e.g. in a log
+           $this->logger->error($log);
+       }
+   }

@@ -7,8 +7,11 @@
 Mail API
 ========
 
-Since version 4.5 TYPO3 CMS provides a RFC compliant mailing solution,
-based on `SwiftMailer <http://swiftmailer.org/>`_.
+TYPO3 CMS provides a RFC-compliant mailing solution based on
+`symfony/mailer <https://symfony.com/doc/current/components/mailer.html>`__
+for sending emails and
+`symfony/mime <https://symfony.com/doc/current/components/mime.html>`__
+for creating email messages.
 
 
 
@@ -22,15 +25,6 @@ affecting the sending process. The most important one is
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport']`, which can take the
 following values:
 
-.. _mail-configuration-mail:
-
-mail
-----
-
-:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'mail';`
-   Default and backwards compatible setting. This is the most unreliable option.
-   If you are serious about sending mails, consider using "smtp" or "sendmail".
-
 .. _mail-configuration-smtp:
 
 smtp
@@ -42,7 +36,7 @@ smtp
    and the following additional settings:
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = '<server:port>';`
-   Mailserver name and port to connect to. Port defaults to "25".
+   Mail server name and port to connect to. Port defaults to "25".
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = '<transport protocol>';`
    Connect to the server using the specified transport protocol. Requires openssl library.
@@ -58,7 +52,7 @@ Example::
 
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'smtp';
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = 'localhost';
-  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = 'ssl'; // ssl, sslv3, tls
+  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = 'tls'; // ssl, sslv3, tls
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username'] = 'johndoe';
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password'] = 'cooLSecret';
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'bounces@example.org';  // fetches all 'returning' emails
@@ -95,7 +89,7 @@ mbox
    concatenated. Useful for debugging the mail sending process and on development machines
    which cannot send mails to the outside. The file to write to is defined by:
 
-:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_mbox_file'] = '<abs/path/to/mbox/file>';`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_mbox_file'] = '</abs/path/to/mbox/file>';`
    The file where to write the mails into. Path must be absolute.
 
 .. _mail-configuration-classname:
@@ -104,8 +98,10 @@ mbox
 -----------
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = '<classname>';`
-   Custom class which implements :php:`\Swift_Transport`. The constructor receives all settings from
-   the MAIL section to make it possible to add custom settings.
+   Custom class which implements
+   :php:`\Symfony\Component\Mailer\Transport\TransportInterface`.
+   The constructor receives all settings from the ``MAIL`` section to make it
+   possible to add custom settings.
 
 
 
@@ -122,40 +118,57 @@ This shows how to generate and send a mail in TYPO3::
    // Prepare and send the message
    $mail
 
+      // Defining the "From" email address and name as an object
+      // (email clients will display the name)
+      ->from(new \Symfony\Component\Mime\Address('john@doe.com', 'John Doe'))
+
+      // Set the "To" addresses
+      ->to(
+         new \Symfony\Component\Mime\Address('receiver@example.org', 'Max Mustermann'),
+         new \Symfony\Component\Mime\Address('other@domain.org')
+      )
+
       // Give the message a subject
-      ->setSubject('Your subject')
+      ->subject('Your subject')
 
-      // Set the From address with an associative array
-      ->setFrom(array('john@doe.com' => 'John Doe'))
+      // Give it the text message
+      ->text('Here is the message itself')
 
-      // Set the To addresses with an associative array
-      ->setTo(array('receiver@domain.org', 'other@domain.org' => 'A name'))
-
-      // Give it a body
-      ->setBody('Here is the message itself')
-
-      // And optionally an alternative body
-      ->addPart('<q>Here is the message itself</q>', 'text/html')
+      // And optionally a HTML message
+      ->html('<q>Here is the message itself</q>')
 
       // Optionally add any attachments
-      ->attach(\Swift_Attachment::fromPath('my-document.pdf'))
+      ->attachFromPath('/path/to/my-document.pdf')
 
-      // And finally do send it
+      // And finally send it
       ->send()
     ;
+
 
 
 Or if you prefer, don't concatenate the calls::
 
    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
-   $mail->setSubject('Your subject');
-   $mail->setFrom(array('john@doe.com' => 'John Doe'));
-   $mail->setTo(array('receiver@domain.org', 'other@domain.org' => 'A name'));
-   $mail->setBody('Here is the message itself');
-   $mail->addPart('<q>Here is the message itself</q>', 'text/html');
-   $mail->attach(\Swift_Attachment::fromPath('my-document.pdf'));
+   $mail->from(new \Symfony\Component\Mime\Address('john@doe.com', 'John Doe'));
+   $mail->to(
+      new \Symfony\Component\Mime\Address('receiver@example.org', 'Max Mustermann'),
+      new \Symfony\Component\Mime\Address('other@domain.org')
+   );
+   $mail->subject('Your subject');
+   $mail->text('Here is the message itself');
+   $mail->html('<q>Here is the message itself</q>');
+   $mail->attachFromPath('/path/to/my-document.pdf');
    $mail->send();
 
+
+.. note::
+
+   Before TYPO3 v10 the :php:`MailMessage` class only had methods like
+   :php:`->setTo()`, :php:`setFrom()`, :php:`->setSubject()` etc.
+   Now the class inherits from :php:`\Symfony\Component\Mime\Email` which
+   provides the methods from the example. To make migration from older TYPO3
+   versions easier the previous methods still exist. The use of
+   :php:`MailMessage` in own extensions is recommended.
 
 
 .. _mail-attachments:
@@ -163,16 +176,16 @@ Or if you prefer, don't concatenate the calls::
 How to Add Attachments
 ======================
 
-Here is a code sample for attaching a file to mail::
+Attach files that exist in your file system::
 
-   // Create the attachment, the content-type parameter is optional
-   $attachment = \Swift_Attachment::fromPath('</path/to/image.jpg>', 'image/jpeg');
+   // Attach file to message
+   $mail->attachFromPath('/path/to/documents/privacy.pdf');
 
-   // Set the filename (optional)
-   $attachment->setFilename('<cool.jpg>');
+   // Optionally you can tell email clients to display a custom name for the file
+   $mail->attachFromPath('/path/to/documents/privacy.pdf', 'Privacy Policy');
 
-   // Attach attachment to message
-   $mail->attach($attachment);
+   // Alternatively attach contents from a stream
+   $mail->attach(fopen('/path/to/documents/contract.doc', 'r'));
 
 
 
@@ -181,19 +194,16 @@ Here is a code sample for attaching a file to mail::
 How to Add Inline Media
 =======================
 
-Here is how to add some inline media like images in a mail::
+Add some inline media like images in a mail::
 
-   // Attach the message with a "cid"
-   $cid = $mail->embed(\Swift_Image::fromPath('<path/to/image.png>'));
+   // Get the image contents from a PHP resource
+   $mail->embed(fopen('/path/to/images/logo.png', 'r'), 'logo');
 
-   // Create HTML body refering to it
-   $mail->setBody(
-      '<html><head></head><body>' .
-      '  Here is an image <img src="' . $cid . '" alt="Image" />' .
-      '  Rest of message' .
-      ' </body></html>',
-      'text/html' //Mark the content-type as HTML
-   );
+   // Get the image contents from an existing file
+   $mail->embedFromPath('/path/to/images/signature.png', 'footer-signature');
+
+   // reference images using the syntax 'cid:' + "image embed name"
+   $mail->html('<img src="cid:logo"> ... <img src="cid:footer-signature"> ...');
 
 
 
@@ -213,34 +223,33 @@ This is how you can use these defaults::
    $from = \TYPO3\CMS\Core\Utility\MailUtility::getSystemFrom();
 
    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
+
+   // As getSystemFrom() returns an array we need to use the setFrom method
    $mail->setFrom($from);
    // ...
    $mail->send();
 
-In case of problem  "Mails are not sent" in your extension, try to set a ReturnPath: start as before but add::
+In case of the problem "Mails are not sent" in your extension, try to set a
+``ReturnPath:``. Start as before but add::
 
    // you will get a valid Email Adress from  'defaultMailFromAddress' or if not set from PHP settings or from system.
-   // if result is not a valid email, the final result will be  no-reply@example.com ..
+   // if result is not a valid email, the final result will be no-reply@example.com..
    $returnPath = \TYPO3\CMS\Core\Utility\MailUtility::getSystemFromAddress();
-   if ( $returnPath != "no-reply@example.com") {
+   if ($returnPath != "no-reply@example.com") {
        $mail->setReturnPath($returnPath);
    }
    $mail->send();
 
-.. _mail-swift:
+.. _mail-symfony-mime:
 
-SwiftMailer Documentation
-=========================
+Symfony Documentation
+=====================
 
-Please refer to the SwiftMailer documentation for more information about
-available methods,
+Please refer to the Symfony documentation for more information about
+available methods.
 
 .. seealso::
 
-   - `Swiftmailer: General <http://swiftmailer.org/docs/index.html>`__
+   - `The Mime Component <https://symfony.com/doc/current/components/mime.html>`__
 
-   - `Swiftmailer: Content, attachments, basic headers
-     <http://swiftmailer.org/docs/messages>`__
-
-   - `Adding and manipulating complex or custom headers
-     <http://swiftmailer.org/docs/headers>`__
+   - `Sending Emails with Mailer <https://symfony.com/doc/current/mailer.html>`__

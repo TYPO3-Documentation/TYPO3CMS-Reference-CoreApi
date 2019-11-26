@@ -22,13 +22,13 @@ allowed on a certain page type.
 This is the default array as set in :file:`EXT:core/ext_tables.php`::
 
    $GLOBALS['PAGES_TYPES'] = array(
-    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_LINK => array(
+    (string) \TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_LINK => array(
     ),
-    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SHORTCUT => array(
+    (string) \TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_SHORTCUT => array(
     ),
     // ...
     //  Doktype 254 is a 'Folder' - a general purpose storage folder for whatever you like. In CMS context it's NOT a viewable page. Can contain any element.
-    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SYSFOLDER => array(
+    (string) \TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_SYSFOLDER => array(
         'type' => 'sys',
         'allowedTables' => '*'
     ),
@@ -221,7 +221,7 @@ need to add the new doktype as select item and associate it with the configured 
                     // add all page standard fields and tabs to your new page type
                     'types' => [
                         (string) $archiveDoktype => [
-                            'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_DEFAULT]['showitem']
+                            'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_DEFAULT]['showitem']
                         ]
                     ]
                 ]
@@ -229,47 +229,4 @@ need to add the new doktype as select item and associate it with the configured 
         },
         'example',
         'pages'
-    );
-
-For TYPO3 versions < 9.0 the same must be done with the "pages_language_overlay", so that the new page type
-can also be translated :file:`Configuration/TCA/Overrides/pages_language_overlay.php`::
-
-    // Also add the new doktype to the page language overlays type selector (so that translations can inherit the same type)
-    call_user_func(
-        function ($extKey, $table) {
-            $archiveDoktype = 116;
-
-            // Add new page type as possible select item:
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-                $table,
-                'doktype',
-                [
-                    'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
-                    $archiveDoktype,
-                    'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg'
-                ],
-                '1',
-                'after'
-            );
-
-             \TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule(
-                $GLOBALS['TCA'][$table],
-                [
-                    // add icon for new page type:
-                    'ctrl' => [
-                        'typeicon_classes' => [
-                            $archiveDoktype => 'apps-pagetree-archive',
-                        ],
-                    ],
-                    // add all page standard fields and tabs to your new page type
-                    'types' => [
-                        (string) $archiveDoktype => [
-                            'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_DEFAULT]['showitem']
-                        ]
-                    ]
-                ]
-            );
-        },
-        'example',
-        'pages_language_overlay'
     );

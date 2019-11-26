@@ -2,7 +2,7 @@
 
 
 
-.. _fal-using-fal-examples-collections:
+.. _fal-using-fal-examples-file-search:
 
 ===================
 Searching for Files

@@ -49,7 +49,7 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 
 #. TYPO3 will call the first middleware with request and the next middleware.
 
-#. Each middleware is processed, see :ref:`request-handling-middleware`.
+#. Each middleware is processed, see :ref:`request-handling-middlewares`.
 
 #. In the end each middleware has to return a PSR-7 response.
 
@@ -254,6 +254,51 @@ disabled
    PHP boolean
 
    Allows to disable specific middlewares.
+
+Override ordering of middlewares
+================================
+
+To change the ordering of middlewares shipped by the core an extension can override the registration in
+:file:`Configuration/RequestMiddlewares.php`::
+
+   return [
+       'frontend' => [
+           'middleware-identifier' => [
+               'after' => [
+                   'another-middleware-identifier',
+               ],
+               'before' => [
+                   '3rd-middleware-identifier',
+               ]
+           ],
+       ]
+   ];
+
+However, this could lead to circular ordering depending on the ordering constraints of other
+middlewares. Alternatively an existing middleware can be disabled and reregistered again with a new
+identifier. This will circumvent the risk of circularity::
+
+   return [
+       'frontend' => [
+           'middleware-identifier' => [
+               'disabled' => true
+           ],
+           'overwrite-middleware-identifier' => [
+               'target' => \Vendor\Extension\Middleware\MyMiddleware::class,
+               'after' => [
+                   'another-middleware-identifier',
+               ],
+               'before' => [
+                   '3rd-middleware-identifier',
+               ]
+           ]
+       ]
+   ];
+
+.. important::
+
+   Always check the integrity of the middleware stack after changing the default ordering.
+   This can be done in the configuration module that comes with EXT:lowlevel.
 
 .. _request-handling-debugging:
 

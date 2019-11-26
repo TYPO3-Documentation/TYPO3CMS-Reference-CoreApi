@@ -23,7 +23,7 @@ Example Use Cases
 =================
 
 * Use the plugin to configure a different view, e.g. list, single
-* The `bootstrap_package <https://extensions.typo3.org/extension/example/>`__
+* The `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__
   uses FlexForms to configure rendering options,
   e.g. a transition interval and transition type (slide, fade)
   for the carousel.
@@ -200,10 +200,10 @@ The function :php:`user_orderBy` populates the select field in
         {
             // simple and stupid example
             // change this to dynamically populate the list!
-            $config['items] = [
+            $config['items'] = [
                 // label, value
                 ['Timestamp', 'timestamp'],
-                ['Title', title]
+                ['Title', 'title']
             ];
         }
 
@@ -233,12 +233,13 @@ The conditions may for example depend on one or more other settings in the FlexF
 on database fields of current record or be defined by a user function.
 
 
-.. code-block::
+.. code-block:: xml
 
     <config>
         <type>select</type>
         <!-- Hide field if value of neighbour field "settings.orderBy" on same sheet is not "title" -->
         <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
+    </config>
 
 Again, the syntax and available fields and comparison operators is documented
 in the TCA reference:
@@ -327,8 +328,8 @@ Credits
 =======
 
 Some of the examples were taken from the extensions
-`news <https://extensions.typo3.org/extension/example/>`__ (by Georg Ringer)
-and `bootstrap_package <https://extensions.typo3.org/extension/example/>`__
+`news <https://extensions.typo3.org/extension/news/>`__ (by Georg Ringer)
+and `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__
 (by Benjamin Kott).
 
 Further enhancements by the TYPO3 community are welcome!
