@@ -3,9 +3,9 @@
 
 .. _xliff-translating-server-crowdin:
 
-=========================
-Localization with Crowdin
-=========================
+================================
+Localization with Crowdin [beta]
+================================
 
 .. tip::
 
