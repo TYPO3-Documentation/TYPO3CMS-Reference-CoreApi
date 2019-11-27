@@ -23,18 +23,19 @@ TODO
 Workflow
 --------
 
+.. rst-class:: bignums
 
-#. Creating translations
+1. Creating translations
 
    The translations are managed either on Crowdin or directly in the TYPO3 backend. This is described in detail at :ref:`crowdin-usage`.
 
-#. Export
+2. Export
 
    Once the translations are approved, those are automatically exported to the translation server `beta-translation.typo3.org`.
 
    TODO: Add link to repo.
 
-#. Import translations into TYPO3 installations
+3. Import translations into TYPO3 installations
 
    The translations can be downloaded which is described at :ref:`xliff-translating-fetch`.
 

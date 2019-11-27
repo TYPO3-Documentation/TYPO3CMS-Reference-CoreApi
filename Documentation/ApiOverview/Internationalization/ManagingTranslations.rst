@@ -120,11 +120,9 @@ and the result can be easily seen in the backend:
 Custom Languages
 ================
 
-The list of supported languages is defined in :php:`\TYPO3\CMS\Core\Localization\Locales::$languages`.
-Adding support for a new language usually starts by adding the language there and waiting for the next
-release.
+:ref:`i18n-languages` describes the languages which are supported by default.
 
-However, it is possible to add custom languages to the TYPO3 backend and create the translations
+It is possible to add custom languages to the TYPO3 backend and create the translations
 locally using XLIFF files.
 
 First of all, the language must be declared:
