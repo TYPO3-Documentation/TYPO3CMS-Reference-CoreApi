@@ -19,7 +19,7 @@ This section describes how an extension author can get his extension setup at Cr
 Setup
 =====
 
-Get in contact with the team in the Team in the TYPO3 slack channel *cig-crowdin-localization* with the following information:
+Get in contact with the team in the TYPO3 slack channel *cig-crowdin-localization* with the following information:
 
 1. Extension name
 3. Your email address for an invitation to Crowdin, so you will get the correct role for your project.
@@ -37,7 +37,7 @@ Go to the url of your project at Crowdin (e.g. `https://crowdin.com/project/typo
 
    Start of Crowdin integration for an extension
 
-A modal will open and will allow to to select the proper repository.
+A modal will open and will allow you to to select the proper repository.
 
 Select branches
 ~~~~~~~~~~~~~~~
