@@ -9,8 +9,6 @@ Extension Integration
 
 This section describes how an extension author can get his extension setup at Crowdin.
 
-TODO add TOC
-
 .. tip::
 
    **Important to know**
@@ -21,7 +19,7 @@ TODO add TOC
 Setup
 =====
 
-Get in contact with the team in the Team in the slack channel *cig-crowdin-localization* (TODO add link to https://docs.typo3.org/m/typo3/guide-contributionworkflow/master/en-us/Account/Slack.html) with the following information:
+Get in contact with the team in the Team in the TYPO3 slack channel *cig-crowdin-localization* with the following information:
 
 1. Extension name
 3. Your email address for an invitation to Crowdin, so you will get the correct role for your project.

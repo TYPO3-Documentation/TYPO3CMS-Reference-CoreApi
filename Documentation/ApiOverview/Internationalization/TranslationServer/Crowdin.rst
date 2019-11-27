@@ -41,8 +41,6 @@ The following workflow is used to bring a translation into a TYPO3 installation.
 
    Once the translations are approved on Crowdin by a proof reader, those are automatically exported and copied to the translation server `beta-translation.typo3.org`.
 
-   If interested in the technical details, take a look at the package XYZ TODO: Add link to repo.
-
 3. Import translations into TYPO3 installations
 
    The translations can be downloaded within a TYPO3 installation.
@@ -61,5 +59,4 @@ More to read
 .. toctree::
    :titlesonly:
 
-   Crowdin/Usage
    Crowdin/ExtensionIntegration

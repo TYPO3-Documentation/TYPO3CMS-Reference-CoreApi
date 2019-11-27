@@ -29,7 +29,7 @@ Downloaded language packs are stored in :ref:`Environment-labels-path`.
 
 Language packs can also be fetched using the command line.
 
-.. code-block:: shell
+.. code-block:: bash
 
    /path/to/typo3/bin/typo3 language:update
 
