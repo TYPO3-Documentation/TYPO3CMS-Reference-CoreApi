@@ -75,3 +75,5 @@ doc-comment and a call to the PHP error method::
       //[ ...]
    }
 
+For more information about how to deprecate classes, arguments and hooks and how the TYPO3 core handles deprecations,
+see :ref:`t3contribute:deprecations`.
