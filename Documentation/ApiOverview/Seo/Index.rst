@@ -8,6 +8,15 @@ SEO
 
 TYPO3 contains various SEO related functionality out of the box. The following provides an introduction in those features.
 
+Site title
+==========
+
+The site title is basically a variable that describes the current web site. It is used 
+in title tag generation as for example prefix. If your website is called "TYPO3 News" and 
+the current page is called "Latest" the page title will be something like "TYPO3 News: Latest".
+
+The site title can be configured in the sites module and is translatable.
+
 Hreflang Tags
 =============
  "hreflang" tags are added automatically for multilanguage websites based on the one-tree principle.

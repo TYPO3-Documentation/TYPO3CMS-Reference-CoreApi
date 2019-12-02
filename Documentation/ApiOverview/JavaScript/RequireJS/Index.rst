@@ -22,6 +22,9 @@ Credits
 The complete documentation about RequireJS was inspired by the
 `blog post of Andreas Fernandez <https://scripting-base.de/blog/requirejs-backend-1.html>`__.
 
+Overview
+========
+
 .. toctree::
    :titlesonly:
 
