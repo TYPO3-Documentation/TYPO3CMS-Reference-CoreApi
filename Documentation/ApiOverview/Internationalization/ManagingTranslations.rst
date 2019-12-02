@@ -120,7 +120,7 @@ and the result can be easily seen in the backend:
 Custom Languages
 ================
 
-:ref:`i18n-languages` describes the languages which are supported by default.
+:ref:`i18n_languages` describes the languages which are supported by default.
 
 It is possible to add custom languages to the TYPO3 backend and create the translations
 locally using XLIFF files.

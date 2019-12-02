@@ -21,8 +21,9 @@ Setup
 
 Get in contact with the team in the TYPO3 slack channel *cig-crowdin-localization* with the following information:
 
-1. Extension name
-3. Your email address for an invitation to Crowdin, so you will get the correct role for your project.
+#. Extension name
+#. Information if your extension is already available on the previous translation server
+#. Your email address for an invitation to Crowdin, so you will get the correct role for your project.
 
 Integration
 ===========
@@ -90,7 +91,7 @@ Now you need to define where the language files are located.
    :alt: Location of translation files
    :width: 600px
 
-Typically the following setup will workout file:
+Typically the following setup will workout fine:
 
 - Source file path: `/Resources/Private/Language/`
 - Translated file path: `/%original_path%/%two_letters_code%.%original_file_name%`

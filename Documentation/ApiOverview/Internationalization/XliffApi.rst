@@ -58,7 +58,7 @@ duplication.
 Label Access in Fluid
 ---------------------
 
-In PHP, a typical call to fetch a string in the language selected by a user looks like this:
+In Fluid, a typical call to fetch a string in the language selected by a user looks like this:
 
 .. code-block:: html
 
