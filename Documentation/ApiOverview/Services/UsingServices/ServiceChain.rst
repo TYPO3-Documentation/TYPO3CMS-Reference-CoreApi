@@ -36,14 +36,11 @@ The following example is an extract of the user authentication process::
 
    protected function getAuthServices(string $subType, array $loginData, array $authInfo): \Traversable
    {
-      $serviceChain = '';
+      $serviceChain = [];
       while (is_object($serviceObj = GeneralUtility::makeInstanceService('auth', $subType, $serviceChain))) {
          $serviceChain .= ',' . $serviceObj->getServiceKey();
          $serviceObj->initAuth($subType, $loginData, $authInfo, $this);
          yield $serviceObj;
-      }
-      if ($serviceChain) {
-         $this->logger->debug($subType . ' auth services called: ' . $serviceChain);
       }
    }
 

@@ -111,8 +111,7 @@ Re-use Prepared Statement()
 ===========================
 
 Doctrine usually prepares a statement first, and then executes it with given parameters. Implementing
-prepared statements depends on the given driver. For instance, the native mysql driver `mysqli` does implement
-prepared statements, while the pdo driver of mysql `pdo_mysql` does not, at least in some scenarios. A driver
+prepared statements depends on the given driver. A driver
 not properly implementing prepared statements fall back to a direct execution of given query.
 
 There is an API to make real use of prepared statements that becomes handy if the same query is executed

@@ -1,22 +1,16 @@
 .. include:: ../../Includes.txt
 
-
-
-
-
-
 .. _syslog:
 
 ========================
 System Log
 ========================
 
-.. note::
+.. warning::
 
-   A :ref:`new logging API <logging>` was introduced in TYPO3 CMS 6.0. It is far more flexible than the old
-   one described here, but is not yet in use in the Core. Thus this section remains valid
-   if you want to write to the "sys_log" table. Otherwise please consider using the new API.
-
+   A :ref:`new logging API <logging>` was introduced in TYPO3 CMS 6.0. It should be used by extension 
+   authors starting with TYPO3 v9 LTS. The following section is here as legacy reference,
+   but should not be used in installations with TYPO3 >= 9.
 
 Writing to the system log is done using the backend user object,
 which writes to the "sys_log" table::
