@@ -38,7 +38,7 @@ The following example is an extract of the user authentication process::
    {
       $serviceChain = [];
       while (is_object($serviceObj = GeneralUtility::makeInstanceService('auth', $subType, $serviceChain))) {
-         $serviceChain .= ',' . $serviceObj->getServiceKey();
+         $serviceChain[] = $serviceObj->getServiceKey();
          $serviceObj->initAuth($subType, $loginData, $authInfo, $this);
          yield $serviceObj;
       }
