@@ -3,9 +3,9 @@
 
 .. _EventDispatcher:
 
-===================
-The EventDispatcher
-===================
+===============
+Events (PSR-14)
+===============
 
 The EventDispatcher system was added to extend TYPO3's Core behaviour in TYPO3 10.0 via PHP code. In the past,
 this was done via Extbase's SignalSlot and TYPO3's custom hook system. The new EventDispatcher
@@ -15,6 +15,11 @@ migrate away from previous TYPO3 solutions.
 Benni Mack: "Don't get hooked, listen to events! PSR-14 within TYPO3 v10" @ TYPO3 Developer Days 2019
 
 .. youtube:: ElUDMXmV3Ng
+
+.. info::
+
+  Additional background on the implementation can be found at https://usetypo3.com/psr-14-events.html 
+
 
 .. _EventDispatcherDescription:
 
@@ -179,4 +184,9 @@ for its constructor arguments, which may vary. Events that should only be used w
 are marked as :php:`@internal`, just like other non-API parts of TYPO3, but :php:`@internal` Events will be
 avoided whenever technically possible.
 
+**Events:**
 
+.. toctree::
+   :titlesonly:
+
+   Events/Index.rst

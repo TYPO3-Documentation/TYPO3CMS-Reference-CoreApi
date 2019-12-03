@@ -39,6 +39,16 @@ After implementing the matching interface, your aspect needs to be registered in
 
 It can now be used in the routing configuration as `type`. The example above could be used as `type: MyCustomMapperNameAsUsedInYamlConfig`.
 
+If your aspect is language aware, it should additionally implement `SiteLanguageAwareInterface` with the methods `setSiteLanguage(Entity\SiteLanguage $siteLanguage)`
+and `getSiteLanguage()`. `setSiteLanguage` will automatically be called with the current site language object.
+
+
+Impact
+======
+
+Routing aspects respecting the site language are now using the `SiteLanguageAwareInterface` in addition
+to the `SiteLanguageAwareTrait`. The `AspectFactory` check has been adjusted to check for the interface
+_or_ the trait. If you are currently using the trait, you should implement the interface as well.
 
 Writing custom enhancers
 ========================

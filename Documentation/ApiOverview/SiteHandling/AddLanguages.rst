@@ -81,6 +81,18 @@ title
 :aspect:`Example`
     `English`
 
+websiteTitle
+---------------
+
+:aspect:`Datatype`
+    string
+
+:aspect:`Description`
+    Overrides the global website title for this language.
+
+:aspect:`Example`
+    `My custom very british title`
+
 
 navigationTitle
 ---------------

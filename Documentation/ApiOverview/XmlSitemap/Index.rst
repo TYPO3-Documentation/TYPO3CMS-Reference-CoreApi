@@ -62,7 +62,7 @@ RecordsXmlSitemapDataProvider. You can add for example a sitemap for news record
 
    plugin.tx_seo {
      config {
-       xmlSitemap {
+      <sitemapType> {
          sitemaps {
             <unique key> {
                provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
@@ -94,6 +94,40 @@ RecordsXmlSitemapDataProvider. You can add for example a sitemap for news record
    }
 
 You can add several sitemaps and those will be added to the sitemap index automatically.
+Use different types to have multiple, independent sitemaps:
+
+.. code-block:: typoscript
+
+   seo_googlenews < seo_sitemap
+   seo_googlenews.typeNum = 1571859552
+   seo_googlenews.10.sitemapType = googleNewsSitemap
+
+   plugin.tx_seo {
+       config {
+           xmlSitemap {
+               sitemaps {
+                   news {
+                       provider = GeorgRinger\News\Seo\NewsXmlSitemapDataProvider
+                       config {
+                           ...
+                       }
+                   }
+               }
+           }
+           googleNewsSitemap {
+               sitemaps {
+                   news {
+                       provider = GeorgRinger\News\Seo\NewsXmlSitemapDataProvider
+                       config {
+                           googleNews = 1
+                           ...
+                           template = GoogleNewsXmlSitemap.html
+                       }
+                   }
+               }
+           }
+       }
+   }
 
 Change Frequency and Priority
 -----------------------------

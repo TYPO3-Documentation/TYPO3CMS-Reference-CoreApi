@@ -60,6 +60,7 @@ The following part explains the configuration file and options:
 
   rootPageId: 12
   base: 'https://www.example.com/'
+  websiteTitle: Example
   languages:
     -
       languageId: '0'
@@ -140,6 +141,11 @@ Root pages are identified by one of these two properties:
 
 * they are direct descendants of PID 0 (the root root page of TYPO3)
 * they have the "Use as Root Page" property in `pages` set to true.
+
+websiteTitle
+------------
+
+The title of the website which is used in title tags in the frontend.
 
 base
 ----
