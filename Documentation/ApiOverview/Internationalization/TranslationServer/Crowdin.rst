@@ -21,7 +21,7 @@ Crowdin is a localization management platform and offers the core features essen
 - **Translation memory**: we can reuse existing translations, no matter if done for the TYPO3 Core or an extension.
 - **Crowdin** is a cloud-based content localization solution which offers a free plan for open source projects.
 
-.. tip::
+.. note::
 
    Crowdin is completely free of charge for open-source projects.
 
@@ -62,3 +62,4 @@ More to read
    :titlesonly:
 
    Crowdin/ExtensionIntegration
+   Crowdin/Faq

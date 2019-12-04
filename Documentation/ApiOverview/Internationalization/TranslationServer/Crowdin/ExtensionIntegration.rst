@@ -111,3 +111,6 @@ After a short time you should see something like that
 
 Happy translating!
 
+.. tip::
+
+   Checkout the :ref:`crowdin-faq` for solutions to common pitfalls.
