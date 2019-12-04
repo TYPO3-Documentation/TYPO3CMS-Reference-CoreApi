@@ -16,7 +16,7 @@ Benni Mack: "Don't get hooked, listen to events! PSR-14 within TYPO3 v10" @ TYPO
 
 .. youtube:: ElUDMXmV3Ng
 
-.. info::
+.. note::
 
   Additional background on the implementation can be found at https://usetypo3.com/psr-14-events.html 
 
@@ -74,7 +74,8 @@ nature of handling objects and the PSR-14 Listener signature, it cannot be guara
 .. _EventDispatcherListeners:
 
 The Listeners
-----------
+-------------
+
 Extensions and PHP packages can add listeners that are registered via YAML. They are usually
 associated to Event objects by the fully qualified name of the event to be listened on. It is the task of
 the :php:`ListenerProvider` to provide configuration mechanisms to represent this relationship.

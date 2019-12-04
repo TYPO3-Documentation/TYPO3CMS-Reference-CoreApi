@@ -1,4 +1,4 @@
-.. include:: ../../../../../../Includes.txt
+.. include:: ../../../../../Includes.txt
 
 
 .. _AfterTcaCompilationEvent:
@@ -8,7 +8,7 @@
 AfterTcaCompilationEvent
 ========================
 
-Event after $GLOBALS['TCA'] is built to allow to further manipulate $tca.
+Event after `$GLOBALS['TCA']` is built to allow to further manipulate the TCA.
 
 .. note:: 
    

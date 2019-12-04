@@ -1,4 +1,4 @@
-.. include:: ../../../../../Includes.txt
+.. include:: ../../../../Includes.txt
 
 
 .. _SendRecoveryEmailEvent:
@@ -27,7 +27,7 @@ API
  - :Method:
          getEmail()
    :Description:
-         Get the email address of the user.
+         Returns the email address of the user.
    :ReturnType:
          \Symfony\Component\Mime\Email
 

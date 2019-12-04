@@ -1,4 +1,4 @@
-.. include:: ../../../../../Includes.txt
+.. include:: ../../../../Includes.txt
 
 
 .. _BeforeRecordIsAnalyzedEvent:
@@ -66,7 +66,7 @@ API
  - :Method:
          getLinkAnalyzer()
    :Description:
-         Get the current link analyzer instance
+         Returns the current link analyzer instance
    :ReturnType:
          \TYPO3\CMS\Linkvalidator\LinkAnalyzer
 

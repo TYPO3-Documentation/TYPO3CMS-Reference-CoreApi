@@ -1,4 +1,4 @@
-.. include:: ../../../../../Includes.txt
+.. include:: ../../../../Includes.txt
 
 
 .. _AfterCompiledCacheableDataForWorkspaceEvent:
@@ -19,7 +19,7 @@ API
    :Description:
          Returns the current instance of the GridDataService.
    :ReturnType:
-         \TYPO3\CMS\Workspaces\Service\GridDataService
+         `\TYPO3\CMS\Workspaces\Service\GridDataService`
 
 
  - :Method:
@@ -41,7 +41,7 @@ API
  - :Method:
          getVersions()
    :Description:
-         Get versions.
+         Returns versions.
    :ReturnType:
          array
 

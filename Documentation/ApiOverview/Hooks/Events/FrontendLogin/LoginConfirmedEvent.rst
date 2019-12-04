@@ -1,4 +1,4 @@
-.. include:: ../../../../../Includes.txt
+.. include:: ../../../../Includes.txt
 
 
 .. _LoginConfirmedEvent:
@@ -8,7 +8,7 @@
 LoginConfirmedEvent
 ===================
 
-A notification when a log in has successfully arrived at the plugin
+A notification event when a login has successfully arrived at the plugin
 via the view and the controller.
 
 API

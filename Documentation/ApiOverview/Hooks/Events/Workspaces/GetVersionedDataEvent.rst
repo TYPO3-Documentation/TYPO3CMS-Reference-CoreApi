@@ -1,4 +1,4 @@
-.. include:: ../../../../../Includes.txt
+.. include:: ../../../../Includes.txt
 
 
 .. _GetVersionedDataEvent:
@@ -21,7 +21,7 @@ API
    :Description:
          Returns the current instance of the GridDataService.
    :ReturnType:
-         \TYPO3\CMS\Workspaces\Service\GridDataService
+         `\TYPO3\CMS\Workspaces\Service\GridDataService`
 
 
  - :Method:
@@ -43,7 +43,7 @@ API
  - :Method:
          getDataArrayPart()
    :Description:
-         Get currently relevant (with applied limit) part of the data array.
+         Returns currently relevant (with applied limit) part of the data array.
    :ReturnType:
          array
 
@@ -59,7 +59,7 @@ API
  - :Method:
          getStart()
    :Description:
-         Get current start index.
+         Returns current start index.
    :ReturnType:
          int
 
@@ -67,7 +67,7 @@ API
  - :Method:
          getLimit()
    :Description:
-         Get current limit / maximum number of data sets.
+         Returns current limit / maximum number of data sets.
    :ReturnType:
          int
 

@@ -1,4 +1,4 @@
-.. include:: ../../../../../../Includes.txt
+.. include:: ../../../../../Includes.txt
 
 
 .. _ModifyLoadedPageTsConfigEvent:
@@ -8,7 +8,7 @@
 ModifyLoadedPageTsConfigEvent
 =============================
 
-Extensions can modify pageTSConfig entries that can be overridden or added, based on the root line.
+Extensions can modify Page TSConfig entries that can be overridden or added, based on the root line.
 
 
 API

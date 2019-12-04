@@ -1,4 +1,4 @@
-.. include:: ../../../../../Includes.txt
+.. include:: ../../../../Includes.txt
 
 
 .. _SwitchUserEvent:
@@ -8,7 +8,7 @@
 SwitchUserEvent
 ===============
 
-This event is triggered when a "SU" (switch user) action has been triggered.
+This event is dispatched when a "SU" (switch user) action has been triggered.
 
 API
 ---

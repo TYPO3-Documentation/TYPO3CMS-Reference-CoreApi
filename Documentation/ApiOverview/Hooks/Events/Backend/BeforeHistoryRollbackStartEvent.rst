@@ -1,4 +1,4 @@
-.. include:: ../../../../../Includes.txt
+.. include:: ../../../../Includes.txt
 
 
 .. _BeforeHistoryRollbackStartEvent:
@@ -25,7 +25,7 @@ API
  - :Method:
          getRollbackFields()
    :Description:
-         Get fields to be rolled back.
+         Returs list of fields to be rolled back.
    :ReturnType:
          string
   
@@ -33,7 +33,7 @@ API
  - :Method:
          getDiff()
    :Description:
-         Get the diff between the rollback data and the current version.
+         Returns the diff between the rollback data and the current version.
    :ReturnType:
          array
   

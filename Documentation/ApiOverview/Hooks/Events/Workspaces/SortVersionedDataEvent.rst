@@ -1,4 +1,4 @@
-.. include:: ../../../../../Includes.txt
+.. include:: ../../../../Includes.txt
 
 
 .. _SortVersionedDataEvent:
@@ -41,7 +41,7 @@ API
  - :Method:
          getSortColumn()
    :Description:
-         Get column to sort by.
+         Returns column to sort by.
    :ReturnType:
          string
 
@@ -57,7 +57,7 @@ API
  - :Method:
          getSortDirection()
    :Description:
-         Get the current sorting direction (ASC | DESC)
+         Returns the current sorting direction (ASC | DESC)
    :ReturnType:
          string
 
