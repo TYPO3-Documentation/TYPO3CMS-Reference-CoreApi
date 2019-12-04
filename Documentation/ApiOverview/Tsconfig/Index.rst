@@ -45,3 +45,33 @@ and the DataHandler (component that takes care of transforming and persisting da
 structures) behaviours. Again, the point is that the configuration is
 active for certain branches of the page tree which is very practical
 in projects running many sites in the same page tree.
+
+Get Page TSConfig via PHP in an extension
+-----------------------------------------
+
+When there is the necessity for fetching and loading PageTSconfig,
+it is recommended for extension developers to make use of the PHP classes:
+- `TYPO3\CMS\Core\Configuration\Loader\PageTsConfigLoader`
+- `TYPO3\CMS\Core\Configuration\Parser\PageTsConfigParser`
+
+Usages for fetching all available PageTS in one large string (not parsed yet):
+
+.. code-block:: php 
+
+    $loader = GeneralUtility::makeInstance(PageTsConfigLoader::class);
+    $tsConfigString = $loader->load($rootLine);
+
+The string can then be put in proper TSconfig array syntax:
+
+.. code-block:: php
+
+    $parser = GeneralUtility::makeInstance(
+        PageTsConfigParser::class,
+        $typoScriptParser,
+        $hashCache
+    );
+    $pagesTSconfig = $parser->parse(
+        $tsConfigString,
+        $conditionMatcher
+    );
+

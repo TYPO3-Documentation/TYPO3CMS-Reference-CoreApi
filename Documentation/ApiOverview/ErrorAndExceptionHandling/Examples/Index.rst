@@ -34,8 +34,6 @@ In :file:`LocalConfiguration.php`::
       'exceptionalErrors' => E_ALL ^ E_NOTICE ^ E_WARNING ^ E_USER_ERROR ^ E_USER_NOTICE ^ E_USER_WARNING,
       'debugExceptionHandler' => 'TYPO3\\CMS\\Core\\Error\\DebugExceptionHandler',
       'productionExceptionHandler' => 'TYPO3\\CMS\\Core\\Error\\DebugExceptionHandler',
-      'systemLogLevel' => '0',
-      'systemLog' => true,
    ),
 
 You can also use the "Debug" preset in the Settings module "Configuration presets". 
@@ -84,8 +82,6 @@ In :file:`LocalConfiguration.php`::
       'displayErrors' => '2',
       'devIPmask' => '[your.IP.address]',
       'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
-      'systemLogLevel' => '2',
-      'systemLog' => true,
       'syslogErrorReporting' => E_ALL ^ E_NOTICE ^ E_WARNING,
       'belogErrorReporting' => '0',
    ),
@@ -117,7 +113,6 @@ In :file:`LocalConfiguration.php`::
       'errorHandler' => '',
       'debugExceptionHandler' => '',
       'productionExceptionHandler' => '',
-      'systemLog' => false,
       'syslogErrorReporting' => '0',
       'belogErrorReporting' => '0',
    ),

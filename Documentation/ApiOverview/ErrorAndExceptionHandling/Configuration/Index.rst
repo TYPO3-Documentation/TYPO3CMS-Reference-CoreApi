@@ -124,19 +124,6 @@ part of :php:`$GLOBALS['TYPO3_CONF_VARS'][SYS]`:
             if :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']` is "-1" or "2" and
             the :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']` matches.
 
-
- - :Key:
-         syslogErrorReporting
-   :Data type:
-         integer
-   :Description:
-         Configures which PHP errors should be logged to the configured syslogs
-         (see: [SYS][systemLog]). If set to "0" no PHP errors are logged to the
-         syslog.
-
-         Default: :php:`E_ALL ^ E_NOTICE` (6135).
-
-
  - :Key:
          belogErrorReporting
    :Data type:
@@ -149,13 +136,6 @@ part of :php:`$GLOBALS['TYPO3_CONF_VARS'][SYS]`:
          Default: :php:`E_ALL ^ E_NOTICE` (6135).
 
 
- - :Key:
-         systemLog
-   :Data type:
-         boolean
-   :Description:
-         Configures whether logging is enabled. Logging itself can be
-         configured in detail via the :ref:`Logging Framework <logging>`.
 
 
 The table below shows which values can be set by the user and which
