@@ -45,7 +45,7 @@ Why does Crowdin show me translations in source language?
 ---------------------------------------------------------
 If you just have setup Crowdin and you ship translated xlf files within your extension, those will be shown as well as to be translated.
 
-You need to exlude those in your `.crowdin.yaml` configuration
+You need to exlude those in your `.crowdin.yaml` configuration which can be found in the extension root directory.
 
 .. code-block:: yaml
 
@@ -58,6 +58,8 @@ You need to exlude those in your `.crowdin.yaml` configuration
 .. info::
 
    In the long run, you should remove the translations from your extension as those will be provided by the translation server.
+
+More information can be found in the documtation on crowdin: https://support.crowdin.com/configuration-file/
 
 Can I upload translated xlf files?
 ----------------------------------
