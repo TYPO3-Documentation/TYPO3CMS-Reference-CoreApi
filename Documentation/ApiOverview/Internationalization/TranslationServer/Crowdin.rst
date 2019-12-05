@@ -48,6 +48,9 @@ The following workflow is used to bring a translation into a TYPO3 installation.
    The translations can be downloaded within a TYPO3 installation.
    This is described at :ref:`xliff-translating-fetch`.
 
+
+.. _crowdin-initiative:
+
 Crowdin initiative
 ------------------
 A TYPO3 initiative has been created which takes care of integrating Crowdin into TYPO3.

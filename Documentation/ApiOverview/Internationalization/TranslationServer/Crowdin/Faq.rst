@@ -35,6 +35,23 @@ Will TYPO3 8.7 be supported?
 Short answer: **No**!
 Long answer: A lot of work has been done for version 9.5 by moving translations to proper places. TYPO3 8.7 will be end of life in April 2020 and you should really upgrade to 9 or 10 - not only because of better translations!
 
+.. _crowdin-faq-extension-missing:
+
+My favorite extension is not available on Crowdin
+-------------------------------------------------
+If you miss an extension on Crowdin, contact the extension owner to create a project on Crowdin.
+It is a simple process and done within minutes.
+
+.. _crowdin-faq-extension-language-missing:
+
+My favorite language is not available for an extension
+------------------------------------------------------
+If you are missing the support for a specific language in an extension on Crowdin please contact either the maintainer
+of the extension or the :ref:`crowdin-initiative`.
+
+.. seealso::
+
+   The language needs to be supported by TYPO3 itself as well, see :ref:`i18n_languages` for a list of all languages.
 
 Questions about extension integration
 =====================================
@@ -55,7 +72,7 @@ You need to exlude those in your `.crowdin.yaml` configuration which can be foun
         ignore:
           - /Resources/Private/Language/de.*
 
-.. info::
+.. important::
 
    In the long run, you should remove the translations from your extension as those will be provided by the translation server.
 
