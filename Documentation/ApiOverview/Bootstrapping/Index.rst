@@ -286,7 +286,7 @@ In file :file:`typo3conf/AdditionalConfiguration.php`:
 
 .. code-block:: php
 
-   switch (\TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()) {
+   switch (\TYPO3\CMS\Core\Core\Environment::getContext()) {
       case 'Development':
          $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 1;
          $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '*';

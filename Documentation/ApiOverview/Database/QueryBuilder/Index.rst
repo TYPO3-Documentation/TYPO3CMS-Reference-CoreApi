@@ -423,17 +423,17 @@ restriction as fourth argument::
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    // SELECT `sys_language`.`uid`, `sys_language`.`title`
    // FROM `sys_language`
-   // INNER JOIN `pages_language_overlay` `overlay`
-   //     ON `overlay`.`sys_language_uid` = `sys_language`.`uid`
+   // INNER JOIN `pages` `p`
+   //     ON `p`.`sys_language_uid` = `sys_language`.`uid`
    // WHERE
-   //     (`overlay`.`pid` = 42)
+   //     (`p`.`uid` = 42)
    //     AND (
-   //          (`overlay`.`deleted` = 0)
+   //          (`p`.`deleted` = 0)
    //          AND (
    //              (`sys_language`.`hidden` = 0) AND (`overlay`.`hidden` = 0)
    //          )
-   //          AND (`overlay`.`starttime` <= 1475591280)
-   //          AND ((`overlay`.`endtime` = 0) OR (`overlay`.`endtime` > 1475591280))
+   //          AND (`p`.`starttime` <= 1475591280)
+   //          AND ((`p`.`endtime` = 0) OR (`overlay`.`endtime` > 1475591280))
    //     )
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
    $statement = $queryBuilder
@@ -441,12 +441,12 @@ restriction as fourth argument::
       ->from('sys_language')
       ->join(
          'sys_language',
-         'pages_language_overlay',
-         'overlay',
-         $queryBuilder->expr()->eq('overlay.sys_language_uid', $queryBuilder->quoteIdentifier('sys_language.uid'))
+         'pages',
+         'p',
+         $queryBuilder->expr()->eq('p.sys_language_uid', $queryBuilder->quoteIdentifier('sys_language.uid'))
       )
       ->where(
-         $queryBuilder->expr()->eq('overlay.pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
+         $queryBuilder->expr()->eq('p.uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
       )
       ->execute();
 
@@ -455,25 +455,25 @@ Notes to the above example:
 
 * The query operates on table `sys_language` as main table, this table name is given to :php:`getQueryBuilderForTable()`.
 
-* The query joins table `pages_language_overlay` as `INNER JOIN`, giving it the alias `overlay`.
+* The query joins table `pages` as `INNER JOIN`, giving it the alias `p`.
 
-* The join condition is ```overlay`.`sys_language_uid` = `sys_language`.`uid```. It would have been identical to
+* The join condition is ```p`.`sys_language_uid` = `sys_language`.`uid```. It would have been identical to
   swap the expression arguments of the fourth `->join()` argument
-  :php:`->eq('sys_language.uid', $queryBuilder->quoteIdentifier('overlay.sys_language_uid'))`.
+  :php:`->eq('sys_language.uid', $queryBuilder->quoteIdentifier('p.sys_language_uid'))`.
 
 * The second argument of the join expression instructs the `ExpressionBuilder` to quote the value as a field
   identifier (a field name, here a table/field name combination). Using :php:`createNamedParameter()` would lead to
   a quoting as value (`'` instead of ````` in `mysql`) and the query would fail.
 
-* The alias `overlay` - the third argument of the :php:`->join()` call - does not necessarily have to be set to a different
-  name than the table name itself here. Using `pages_language_overlay` as third argument and not specifying
+* The alias `p` - the third argument of the :php:`->join()` call - does not necessarily have to be set to a different
+  name than the table name itself here. Using `pages` as third argument and not specifying
   a different name would do. Aliases are mostly useful if a join to the same table is needed:
   ``SELECT `something` FROM `tt_content` JOIN `tt_content` `content2` ON ...``. Aliases additionally become handy
   to increase readability of `->where()` expressions.
 
 * The `RestrictionBuilder` added additional `WHERE` conditions for both involved tables! Table `sys_language` obviously
   only specifies a `'disabled' => 'hidden'` as `enableColumns` in its `TCA` `ctrl` section, while table
-  `pages_language_overlay` specifies `deleted`, `hidden`, `starttime` and `stoptime` fields.
+  `pages` specifies `deleted`, `hidden`, `starttime` and `stoptime` fields.
 
 
 A more complex example with two joins. The first join points to the first table again using an alias to resolve
@@ -585,8 +585,8 @@ groupBy() and addGroupBy()
 
 Add `GROUP BY` to a :php:`->select()` statement. Each argument to the methods is a single identifier::
 
-   // GROUP BY `pages_language_overlay`.`sys_language_uid`, `sys_language`.`uid`
-   ->groupBy('pages_language_overlay.sys_language_uid', 'sys_language.uid');
+   // GROUP BY `pages`.`sys_language_uid`, `sys_language`.`uid`
+   ->groupBy('pages.sys_language_uid', 'sys_language.uid');
 
 Remarks:
 
@@ -681,7 +681,9 @@ Remarks:
 * `doctrine-dbal` always creates prepared statements: Any value that is added via :php:`->createNamedParameter()` creates
   a placeholder that is later substituted when the real query is fired via :php:`->execute()`. :php:`->getSQL()` does not show
   those values, instead the placeholder names are displayed, usually with a string like `:dcValue1`. There is no
-  simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getParameters()` to see the array of parameters used to replace these placeholders within the query.
+  simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getParameters()` to see the 
+  array of parameters used to replace these placeholders within the query. In the frontend, the queries and parameters are shown 
+  in the admin panel.
 
 
 getParameters()
