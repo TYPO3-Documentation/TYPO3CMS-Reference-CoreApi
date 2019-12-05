@@ -16,7 +16,7 @@ Benni Mack: "Don't get hooked, listen to events! PSR-14 within TYPO3 v10" @ TYPO
 
 .. youtube:: ElUDMXmV3Ng
 
-.. info::
+.. hint::
 
   Additional background on the implementation can be found at https://usetypo3.com/psr-14-events.html 
 
