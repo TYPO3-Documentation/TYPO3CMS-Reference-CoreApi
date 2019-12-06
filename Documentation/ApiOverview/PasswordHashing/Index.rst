@@ -279,7 +279,7 @@ Example implementation for TYPO3 frontend::
    // The context, either 'FE' or 'BE'
    $mode = 'FE';
    $success = GeneralUtility::makeInstance(PasswordHashFactory::class)
-       ->get($saltedPassword, $mode)
+       ->get($passwordHash, $mode) # or getDefaultHashInstance($mode)
        ->checkPassword($password, $passwordHash);
 
 Adding a new hash mechanism
