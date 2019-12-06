@@ -97,7 +97,7 @@ The skeletton of the :file:`ext_localconf.php` looks like this::
    <?php
 
    // Prevent Script from beeing called directly
-   defined('TYPO3_MODE') or die();
+   defined('TYPO3_MODE') || die();
 
    // encapsulate all locally defined variables
    (function () {
@@ -191,7 +191,7 @@ Put the following in a file called :file:`ext_tables.php` in the main directory 
 file does not need to be registered but will be loaded automatically::
 
    <?php
-   defined('TYPO3_MODE') or die();
+   defined('TYPO3_MODE') || die();
 
    (function () {
      // Add your code here
@@ -317,7 +317,7 @@ avoids unexpected side-effects with files of other extensions.
 The following example contains the complete code::
 
     <?php
-    defined('TYPO3_MODE') or die();
+    defined('TYPO3_MODE') || die();
 
     (function () {
         // Add your code here
