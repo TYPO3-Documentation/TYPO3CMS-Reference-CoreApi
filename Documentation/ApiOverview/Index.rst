@@ -162,6 +162,7 @@ VARIOUS
    :maxdepth: 1
 
    CommandControllers/Index
+   ContentElements/Index
    ContextSensitiveHelp/Index
    Enumerations/Index
    FileProcessing/Index
