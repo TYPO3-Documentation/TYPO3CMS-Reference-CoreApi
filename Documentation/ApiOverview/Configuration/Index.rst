@@ -138,6 +138,6 @@ Additionally, some system extensions use yaml for configuration:
 
 * :ref:`Site <sitehandling>` configuration is stored in :file:`<project-root>/config/sites/<identifier>/config.yaml`
   and can be configured in the sites module.
-* :ref:`form <sysextform:concepts-configuration>`
-* :ref:`rte_ckeditor <sysextckedit:configuration>`
+* :ref:`form <form:concepts-configuration>`
+* :ref:`rte_ckeditor <ckedit:configuration>`
 

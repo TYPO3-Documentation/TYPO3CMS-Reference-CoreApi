@@ -6,10 +6,6 @@
 Adding your own content elements
 ================================
 
-.. note::
-
-   This part is written for developers!
-
 A content element can be based on already available fields in the `tt_content` table and/or extra fields you can add to the `tt_content` table.
 This is done the same way as you do for your own extensions by :ref:`extending TCA <t3coreapi:extending>`.
 Depending on the data in the `tt_content` table, you can send the data immediately to the :ref:`cobj-fluidtemplate`
@@ -18,6 +14,12 @@ The content elements in the extension "fluid_styled_content" are using both as w
 A data processor is sometimes used to convert a string (like the `bodytext` field in content element "table")
 to an array or fetch a related record (e.g. a FAL file), so Fluid does not have to deal with this manipulation or transformation.
 
+Prerequisites
+=============
+
+Some of the following steps (specifically the ones using ``lib.contentElement``) require the system
+extension :ref:`fluid_styled_content <fsc:start>`. If you do not use **fluid_styled_content**, you
+must create and initialize the ``lib.contentElement`` TypoScript object yourself.
 
 .. _AddingCE-use-an-extension:
 
@@ -30,8 +32,6 @@ If you have plans to publish your extension, do not forget to check
 for the availability of your desired key
 and register it at the `"extension keys" page <https://extensions.typo3.org/my-extensions/>`_
 (prior login at `typo3.org <https://typo3.org/>`_ is required).
-
-Since this part is written for developers, it will not explain in full detail how an extension works.
 
 .. _AddingCE-PageTSconfig:
 .. _RegisterCE:
@@ -149,6 +149,11 @@ To ensure your custom content element templates can be found you need to extend 
        }
    }
 
+.. note::
+
+   The :``lib.contentElement`` path is defined in
+   :file:`EXT:fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
+
 You can use an arbitrary index (`200` here), just make sure it is unique. If you use partials
 and layouts, you need to do the same for :ref:`t3tsref:cobj-fluidtemplate-properties-partialrootpaths`
 and :ref:`t3tsref:cobj-fluidtemplate-properties-layoutrootpaths`.
@@ -167,12 +172,6 @@ Now you can register the rendering of your custom content element using a Fluid 
 In this example a :ref:`cobj-fluidtemplate` content object is created using a reference from :typoscript:`lib.contentElement`
 with a template identified by the :ref:`t3tsref:cobj-fluidtemplate-properties-templatename` `NewContentElement`.
 This will load a :file:`NewContentElement.html` template file from the :typoscript:`templateRootPaths`.
-
-.. note::
-
-   The :typoscript:`lib.contentElement` path is defined in
-   :file:`EXT:fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
-
 
 For the final rendering you need a Fluid template. This template will be located at the
 directory and file name which you have entered in  :file:`setup.typoscript` using the parameter
