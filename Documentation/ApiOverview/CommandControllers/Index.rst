@@ -96,3 +96,9 @@ if (`schedulable` is not set to false).
 
 In the backend: :guilabel:`SYSTEM > Scheduler`
 
+<<<<<<< HEAD
+=======
+By default, it is possible to run the command from the `TYPO3 scheduler
+<sched:start>`__ as well, if not deactivated see:
+:ref:`deactivating-the-command-in-scheduler`.
+>>>>>>> 55518010... Changes for migrating "Adding your own Content Elements"
