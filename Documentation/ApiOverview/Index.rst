@@ -19,7 +19,6 @@ to produce well-documented source code. As such the best way to look up a
 particular class or method is to use the online API browser at
 http://api.typo3.org/.
 
-
 .. toctree::
    :titlesonly:
    :hidden:
@@ -34,6 +33,7 @@ http://api.typo3.org/.
    Database/Index
    Workspaces/Index
    CachingFramework/Index
+   ContentElements/Index
    SystemLog/Index
    Logging/Index
    ErrorAndExceptionHandling/Index
@@ -55,3 +55,4 @@ http://api.typo3.org/.
    SoftReferences/Index
    SessionStorageFramework/Index
    Examples/Index
+
