@@ -3,9 +3,9 @@
 
 .. _EventDispatcher:
 
-===============
-Events (PSR-14)
-===============
+=============
+PSR-14 Events
+=============
 
 The EventDispatcher system was added to extend TYPO3's Core behaviour in TYPO3 10.0 via PHP code. In the past,
 this was done via Extbase's SignalSlot and TYPO3's custom hook system. The new EventDispatcher
@@ -74,7 +74,8 @@ nature of handling objects and the PSR-14 Listener signature, it cannot be guara
 .. _EventDispatcherListeners:
 
 The Listeners
-----------
+-------------
+
 Extensions and PHP packages can add listeners that are registered via YAML. They are usually
 associated to Event objects by the fully qualified name of the event to be listened on. It is the task of
 the :php:`ListenerProvider` to provide configuration mechanisms to represent this relationship.
@@ -184,9 +185,4 @@ for its constructor arguments, which may vary. Events that should only be used w
 are marked as :php:`@internal`, just like other non-API parts of TYPO3, but :php:`@internal` Events will be
 avoided whenever technically possible.
 
-**Events:**
 
-.. toctree::
-   :titlesonly:
-
-   Events/Index.rst

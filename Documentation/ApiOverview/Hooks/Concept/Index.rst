@@ -12,7 +12,7 @@ Events, Hooks and Signals provide an easy way to extend the functionality of the
 its extensions without blocking others to do the same.
 
 :ref:`Events <EventDispatcherEvents>` are being emitted by the TYPO3 Core or an Extension via the
-:ref:`EventDispatcher <EventDispatcher>. The Event
+:ref:`EventDispatcher <EventDispatcher>`. The Event
 will be received by all implemented Event Listeners for the Event in question. Events are strongly
 typed. Events only allow changes to variables that are intended to be changed by the Event.
 
