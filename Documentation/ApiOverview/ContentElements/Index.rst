@@ -24,3 +24,4 @@ Content Elements & Plugins
    :maxdepth: 1
 
    AddingYourOwnContentElements
+   ContentElementsWizard

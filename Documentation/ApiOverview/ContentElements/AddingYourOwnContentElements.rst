@@ -43,6 +43,9 @@ and register it at the `"extension keys" page <https://extensions.typo3.org/my-e
 First add your new content element to the "New Content Element Wizard" and define its `CType` in PageTSconfig.
 The example content element is called `yourextensionkey_newcontentelement`:
 
+.. tip::
+   This is handled in more detail in :ref:`content-element-wizard`.
+
 .. code-block:: typoscript
 
    mod.wizards.newContentElement.wizardItems.common {
