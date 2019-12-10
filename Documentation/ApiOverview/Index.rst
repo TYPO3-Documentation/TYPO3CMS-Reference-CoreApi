@@ -155,6 +155,7 @@ VARIOUS
 
    CommandControllers/Index
    Context/Index
+   ContentElements/Index
    ContextSensitiveHelp/Index
    Enumerations/Index
    Http/Index
