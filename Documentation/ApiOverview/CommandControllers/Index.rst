@@ -182,5 +182,5 @@ Running the Command From the Scheduler
    The `schedulable` option is available since v9.4.
 
 By default, it is possible to run the command from the `TYPO3 scheduler
-<sysextscheduler:start>`__ as well, if not deactivated see:
+<sched:start>`__ as well, if not deactivated see:
 :ref:`deactivating-the-command-in-scheduler`.
