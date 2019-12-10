@@ -25,3 +25,5 @@ system extension **fluid_styled_content**.
    :maxdepth: 1
 
    AddingYourOwnContentElements
+   ContentElementsWizard
+
