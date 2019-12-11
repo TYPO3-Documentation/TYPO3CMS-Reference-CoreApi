@@ -30,7 +30,7 @@ Integration
 
 You need to handle the integration yourself as you got the permissions on GitHub.
 
-Go to the url of your project at Crowdin (e.g. `https://crowdin.com/project/typo3-extension-ttaddress`_) and switch to **Settings** & then switch to the tab **Integrations**. Click on the button **Setup integration**.
+Go to the url of your project at Crowdin (e.g. `<https://crowdin.com/project/typo3-extension-ttaddress>`_) and switch to **Settings** & then switch to the tab **Integrations**. Click on the button **Setup integration**.
 
 .. figure:: ../../../../Images/I18n/Crowdin/crowdin-integration-setup.png
    :alt: Start of Crowdin integration for an extension
@@ -77,7 +77,7 @@ Now click on the edit button next to the branch name to setup your branch config
    :alt: Branch configuration
    :width: 600px
 
-This will open a new modal and will ask for the _Configuration file name_. We propose the file name `.crowdin.yaml`
+This will open a new modal and will ask for the **Configuration file name**. We propose the file name `.crowdin.yaml`
 
 .. figure:: ../../../../Images/I18n/Crowdin/crowdin-integration-configuration-file.png
    :alt: Setting for translation pushes

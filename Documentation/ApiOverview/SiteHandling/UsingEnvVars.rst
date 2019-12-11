@@ -19,12 +19,11 @@ Example:
     base: 'https://%env(BASE_DOMAIN)%/'
 
 
-.. info::
+.. note::
 
-    Since TYPO3 v10.2 it's also possible to use env variables in imports: imports:
+    Since TYPO3 v10.2 it's also possible to use env variables in imports: 
     `resource: 'MyFile_%env("foo")%.yaml'`
 
-.. note::
-    TYPO3 does not provide a loader for .env files - you have to take care of loading them yourself.
-    Common options include setting environment configuration via server configuration or
-    using `vlucas/phpdotenv <https://packagist.org/packages/vlucas/phpdotenv>`_.
+TYPO3 does not provide a loader for .env files - you have to take care of loading them yourself.
+Common options include setting environment configuration via server configuration or
+using `vlucas/phpdotenv <https://packagist.org/packages/vlucas/phpdotenv>`_.
