@@ -1,7 +1,7 @@
 .. include:: ../../../Includes.txt
 
 
-.. _xliff-translating:
+.. _custom-translation-server:
 
 ==========================
 Custom Translation Servers

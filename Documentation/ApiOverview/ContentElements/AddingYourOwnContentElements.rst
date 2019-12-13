@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
 .. _adding-your-own-content-elements:
 
@@ -7,7 +7,7 @@ Adding Your Own Content Elements
 ================================
 
 A content element can be based on already available fields in the `tt_content` table and/or extra fields you can add to the `tt_content` table.
-This is done the same way as you do for your own extensions by :ref:`extending TCA <t3coreapi:extending>`.
+This is done the same way as you do for your own extensions by :ref:`extending TCA <extending-tca>`.
 Depending on the data in the `tt_content` table, you can send the data immediately to the :ref:`cobj-fluidtemplate`
 or use a :ref:`data processor <t3tsref:cobj-fluidtemplate-properties-dataprocessing>` in front to do some data manipulation.
 The content elements in the extension "fluid_styled_content" are using both as well.
@@ -62,7 +62,7 @@ The example content element is called `yourextensionkey_newcontentelement`:
        show := addToList(yourextensionkey_newcontentelement)
    }
 
-You need to :ref:`register the icon identifier <t3coreapi:icon-registration>` with the icon API in your :file:`ext_localconf.php`.
+You need to :ref:`register the icon identifier <icon-registration>` with the icon API in your :file:`ext_localconf.php`.
 
 Then you need to add the content element to the "Type" dropdown, where you can select
 the type of content element in the file :file:`Configuration/TCA/Overrides/tt_content.php`:
@@ -345,7 +345,7 @@ look like this:
 
 
 Just to show the variable `variableName`,
-like defined in :ref:`ConfigureCE-Data-Processor`,
+like defined above,
 you can use the following markup:
 
 .. code-block:: html

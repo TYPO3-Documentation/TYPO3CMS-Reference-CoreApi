@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
 .. _content-element-wizard:
 
@@ -73,7 +73,7 @@ Our extension key is `example` and the name of the plugin is `registration`.
 
    You should now see the icon, title and description you just added!
 
-   .. figure:: ../../../Images/ContentElementWizard.png
+   .. figure:: ../../Images/ContentElementWizard.png
       :class: with-shadow
 
       Content Element Wizard with the new "Event Registration" plugin
