@@ -3,7 +3,7 @@
 .. _adding-your-own-content-elements:
 
 ================================
-Adding your own content elements
+Adding Your Own Content Elements
 ================================
 
 A content element can be based on already available fields in the `tt_content` table and/or extra fields you can add to the `tt_content` table.
@@ -23,7 +23,7 @@ must create and initialize the ``lib.contentElement`` TypoScript object yourself
 
 .. _AddingCE-use-an-extension:
 
-Use an extension
+Use an Extension
 ================
 
 We recommend to create your own extension for adding content elements.
@@ -37,7 +37,7 @@ and register it at the `"extension keys" page <https://extensions.typo3.org/my-e
 .. _RegisterCE:
 .. _AddingCE-TCA-Overrides-tt_content:
 
-1. Register the content element
+1. Register the Content Element
 ===============================
 
 First add your new content element to the "New Content Element Wizard" and define its `CType` in PageTSconfig.
@@ -82,7 +82,7 @@ the type of content element in the file :file:`Configuration/TCA/Overrides/tt_co
 
 .. _ConfigureCE-Fields:
 
-2. Configure fields
+2. Configure Fields
 ===================
 
 Then you need to configure the backend fields for your new content element in the file
@@ -123,7 +123,7 @@ Then you need to configure the backend fields for your new content element in th
 
 .. _ConfigureCE-Frontend:
 
-3. Configure the frontend template
+3. Configure the Frontend Template
 ==================================
 
 Since TypoScript configuration is needed as well,add an entry in the static template list
@@ -189,7 +189,7 @@ field `bodytext` formatted using the defined richtext configuration:
 
 .. _ConfigureCE-Preview:
 
-4. Optional: configure custom backend preview
+4. Optional: Configure Custom Backend Preview
 =============================================
 
 If you want to generate a special preview in the backend "Web > Page" module, you can use
@@ -259,7 +259,7 @@ been put in the directory :file:`Classes/Hooks/PageLayoutView/` and could look l
 
 .. _ConfigureCE-Extend-tt_content:
 
-5. Optional: extend tt_content
+5. Optional: Extend tt_content
 ==============================
 
 .. todo::
@@ -268,7 +268,7 @@ been put in the directory :file:`Classes/Hooks/PageLayoutView/` and could look l
 
 .. _ConfigureCE-DataProcessors:
 
-6. Optional: use data processors
+6. Optional: Use Data Processors
 ================================
 
 You can use data processors for some data manipulation or other actions you would like to perform before passing everything to the view.
