@@ -72,7 +72,7 @@ You can use the :php:`IconFactory` to request an icon:
 The Fluid ViewHelper
 --------------------
 
-You can also use the Fluid ViewHelper to render an icon in your view:
+You can also use the :ref:`Fluid core:icon ViewHelper <t3viewhelper:typo3-core-icon>` to render an icon in your view:
 
 .. code-block:: html
 
