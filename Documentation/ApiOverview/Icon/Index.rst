@@ -77,5 +77,5 @@ You can also simple use the Fluid ViewHelper to render an icon in your view:
 .. code-block:: html
 
    {namespace core = TYPO3\CMS\Core\ViewHelpers}
-   <core:icon identifier="my-icon-identifier" size="small" overlay="overlay-identifier" />
 
+   <core:icon identifier="my-icon-identifier" size="small" />
