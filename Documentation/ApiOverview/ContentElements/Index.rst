@@ -17,11 +17,15 @@ Content Elements & Plugins
 ..   - create plugins : Extbase / AbstractPlugin
 
 
-* :ref:`Some content elements <fsc:content-elements>` are supplied by the TYPO3
-  system extension **fluid_styled_content**.
-
 .. toctree::
    :maxdepth: 1
+   :titlesonly:
 
    AddingYourOwnContentElements
    ContentElementsWizard
+
+.. seealso::
+
+   * :ref:`Some content elements <fsc:content-elements>` are supplied by the TYPO3
+     system extension **fluid_styled_content**.
+
