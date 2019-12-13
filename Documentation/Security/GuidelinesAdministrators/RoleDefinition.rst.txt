@@ -1,7 +1,13 @@
 .. include:: ../../Includes.txt
 
-Role definition
-^^^^^^^^^^^^^^^
+.. -----------------------------------------------------------------------
+.. This file is included via include.
+.. Technically, it is as if this file is inserted **into** the including file
+.. Continue from header level of including file ...
+.. -----------------------------------------------------------------------
+
+Role Definition
+===============
 
 In this chapter, we define a system administrator as the person who
 is responsible for the system/server where the TYPO3 instance is

@@ -32,3 +32,4 @@ APIs in that regard.
 
    Ajax/Index
    RequireJS/Index
+   Modules/Index

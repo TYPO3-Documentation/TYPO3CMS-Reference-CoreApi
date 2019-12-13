@@ -230,8 +230,7 @@ is achieved in the official `Symfony documentation <https://symfony.com/doc/curr
 Further Information
 ^^^^^^^^^^^^^^^^^^^
 
-* `Official documentation <https://symfony.com/doc/current/components/dependency_injection.html>`_ of the
-  Symfony dependency injection component.
-* `Official documentation <https://symfony.com/doc/current/service_container.html>`_ of the service container.
+* `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`__
+* `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
 * `FEATURE Documentation <https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase.html>`_
   of the TYPO3 core.

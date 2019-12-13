@@ -1,7 +1,14 @@
 .. include:: ../../Includes.txt
 
-File/directory permissions
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. -----------------------------------------------------------------------
+.. This file is included via include.
+.. Technically, it is as if this file is inserted **into** the including file
+.. Continue from header level of including file ...
+.. -----------------------------------------------------------------------
+
+
+File/directory Permissions
+==========================
 
 The correct and secure setup of the underlying server is an essential
 prerequisite for a secure web application. Well-considered access

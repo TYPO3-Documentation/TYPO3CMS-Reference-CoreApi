@@ -171,6 +171,7 @@ VARIOUS
    LockingApi/Index
    Mail/Index
    PageTypes/Index
+   Pagination/Index
    SessionStorageFramework/Index
    Services/Index
    SoftReferences/Index

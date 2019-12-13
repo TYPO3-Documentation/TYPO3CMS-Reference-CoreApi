@@ -2,7 +2,7 @@
 
 
 .. _extending:
-
+.. _extending-tca:
 
 ========================
 Extending the TCA Array

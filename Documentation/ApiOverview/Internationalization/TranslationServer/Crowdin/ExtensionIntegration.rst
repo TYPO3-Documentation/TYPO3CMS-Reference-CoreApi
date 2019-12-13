@@ -40,8 +40,9 @@ Go to the url of your project at Crowdin (e.g. `<https://crowdin.com/project/typ
 
 A modal will open and will allow you to to select the proper repository.
 
-Select branches
-~~~~~~~~~~~~~~~
+Select Branches
+---------------
+
 Select the **main** branch you want to be translated.
 
 
@@ -57,8 +58,9 @@ Select the **main** branch you want to be translated.
    Typically you should select the master branch.
 
 
-Push translations
-~~~~~~~~~~~~~~~~~
+Push Translations
+-----------------
+
 Click on the *Show advanced settings* link below to decide now how you want your translations to behave:
 
 .. figure:: ../../../../Images/I18n/Crowdin/crowdin-integration-push-translations.png
@@ -69,8 +71,9 @@ Click on the *Show advanced settings* link below to decide now how you want your
 
 Uncheck the checkbox to avoid pushing back the translations to your project directly.
 
-Branch configuration
-~~~~~~~~~~~~~~~~~~~~
+Branch Configuration
+--------------------
+
 Now click on the edit button next to the branch name to setup your branch configuration.
 
 .. figure:: ../../../../Images/I18n/Crowdin/crowdin-integration-branch-configuration.png

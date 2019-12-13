@@ -3,8 +3,9 @@
 
 .. _security-administrators:
 
+====================================
 Guidelines for System Administrators
-------------------------------------
+====================================
 
 .. _security-administrator-definition:
 .. include:: RoleDefinition.rst.txt

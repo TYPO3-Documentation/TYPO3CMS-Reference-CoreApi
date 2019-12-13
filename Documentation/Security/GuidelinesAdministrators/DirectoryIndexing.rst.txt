@@ -1,7 +1,13 @@
 .. include:: ../../Includes.txt
 
-Directory indexing
-^^^^^^^^^^^^^^^^^^
+.. -----------------------------------------------------------------------
+.. This file is included via include.
+.. Technically, it is as if this file is inserted **into** the including file
+.. Continue from header level of including file ...
+.. -----------------------------------------------------------------------
+
+Directory Indexing
+==================
 
 Depending on the operating system and distribution, the default
 configuration of Apache allows the indexing of directories. This
