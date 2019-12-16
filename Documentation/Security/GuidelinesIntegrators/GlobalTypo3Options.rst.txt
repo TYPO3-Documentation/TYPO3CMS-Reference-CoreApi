@@ -137,7 +137,7 @@ Possible values for **IPv4** are: `0`, `1`, `2`, `3` or `4` (integer)
 with the following meaning:
 
 `0`
-   Disable IP locking at all.
+   Disable IP locking entirely.
 
 `1`
    Only the first part of the IPv4 address needs to match, e.g. `123.xxx.xxx.xxx`.
@@ -155,7 +155,7 @@ Possible values for **IPv6** are: `0`, `1`, `2`, `3`, `4`,  `5`,  `6`, `7`, `8` 
 with the following meaning:
 
 `0`
-   Disable IP locking at all.
+   Disable IP locking entirely.
 
 `1`
    Only the first block (16 bits) of the IPv6 address needs to match, e.g. `2001:`
