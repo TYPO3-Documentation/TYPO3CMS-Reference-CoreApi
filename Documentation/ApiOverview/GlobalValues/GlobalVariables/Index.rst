@@ -44,7 +44,7 @@ Global Variables
 
 
  - :Variable:
-         $TYPO3\_LOADED\_EXT
+         $GLOBALS['TYPO3\_LOADED\_EXT']
    :Defined:
          :php:`PackageManager::loadPackageManagerStatesFromCache()`
          :php:`PackageManager::initializeCompatibilityLoadedExtArray()`
@@ -57,7 +57,7 @@ Global Variables
 
 
  - :Variable:
-         $EXEC\_TIME
+         $GLOBALS['EXEC\_TIME']
    :Defined:
          :php:`SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
    :Description:
@@ -70,15 +70,15 @@ Global Variables
 
 
    :FE:
-         YES
+         Yes
 
 
  - :Variable:
-         $SIM\_EXEC\_TIME
+         $GLOBALS['SIM\_EXEC\_TIME']
    :Defined:
          :php:`SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
    :Description:
-         Is set to :php:`$EXEC_TIME` but can be altered later in the script if we
+         Is set to :php:`$GLOBALS['EXEC_TIME']` but can be altered later in the script if we
          want to simulate another execution-time when selecting from e.g. a
          database (used in the frontend for preview of future and past dates)
 
@@ -91,7 +91,7 @@ Global Variables
          Yes
 
  - :Variable:
-         $PAGES\_TYPES
+         $GLOBALS['PAGES\_TYPES']
    :Defined:
          :file:`typo3/sysext/core/ext_tables.php`
    :Description:
@@ -101,7 +101,7 @@ Global Variables
 
 
  - :Variable:
-         $TCA
+         $GLOBALS['TCA']
    :Defined:
          :php:`Bootstrap::loadExtensionTables()`
    :Description:
@@ -111,7 +111,7 @@ Global Variables
 
 
  - :Variable:
-         $TBE\_MODULES
+         $GLOBALS['TBE\_MODULES']
    :Defined:
          :file:`typo3/sysext/core/ext_tables.php`
    :Description:
@@ -123,17 +123,17 @@ Global Variables
 
 
  - :Variable:
-         $TBE\_STYLES
+         $GLOBALS['TBE\_STYLES']
    :Defined:
          :file:`typo3/sysext/core/ext_tables.php`
    :Description:
-         Contains information related to BE skinning. (will be removed on CMS 9)
+         Contains information related to BE skinning.
    :FE:
          (occasionally)
 
 
  - :Variable:
-         $T3\_SERVICES
+         $GLOBALS['T3\_SERVICES']
    :Defined:
          :php:`SystemEnvironmentBuilder::initializeGlobalVariables()`
    :Description:
@@ -143,7 +143,7 @@ Global Variables
 
 
  - :Variable:
-         $T3\_VAR
+         $GLOBALS['T3\_VAR']
    :Defined:
          :php:`SystemEnvironmentBuilder::initializeGlobalVariables()`
    :Description:
@@ -164,7 +164,7 @@ Global Variables
 
 
  - :Variable:
-         $BE\_USER
+         $GLOBALS['BE\_USER']
    :Defined:
          :php:`Bootstrap::initializeBackendUser()`
    :Description:
@@ -174,7 +174,7 @@ Global Variables
 
 
  - :Variable:
-         *$TBE\_MODULES\_EXT*
+         *$GLOBALS['TBE\_MODULES\_EXT']*
    :Defined:
          [In :file:`ext_tables.php` files of extensions]
    :Description:
@@ -186,7 +186,7 @@ Global Variables
 
 
  - :Variable:
-         *$TCA\_DESCR*
+         *$GLOBALS['TCA\_DESCR']*
    :Defined:
          [:file:`tables.php` files]
    :Description:
