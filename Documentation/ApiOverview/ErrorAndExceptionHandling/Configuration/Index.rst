@@ -187,14 +187,6 @@ Values in plain text can be changed in LocalConfiguration.php.
 |             |                    | ^ E_USER\_NOTICE  |                |           |                             |                 |
 |             |                    | ^ E_USER\_WARNING |                |           |                             |                 |
 +-------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
-|     2       | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | \TYPO3\CMS     | Matters   | If devIPmask matches:       | **1 (On)**      |
-|             |                    | ^ E_WARNING       | \Core\Error    |           | debugExceptionHandler       |                 |
-|             |                    | ^ E_USER\_ERROR   | \ErrorHandler  |           |                             |                 |
-|             |                    | ^ E_USER\_NOTICE  |                |           +-----------------------------+-----------------+
-|             |                    | ^ E_USER\_WARNING |                |           | If devIPmask doesn't match: |                 |
-|             |                    |                   |                |           | productionExceptionHandler  | **0 (Off)**     |
-|             |                    |                   |                |           |                             |                 |
-+-------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
 
 .. seealso::
 
