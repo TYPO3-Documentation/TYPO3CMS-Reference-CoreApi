@@ -63,7 +63,7 @@ Chart
       | 3) Crowdin Bridge |                 | 4) Translation Server |
       |-------------------|                 |-----------------------|
       |- Build projects   |                 |- Serves l10n zip      |
-      |- Download &       |     rsync to    |  files, requested     |
+      |- Download         |     rsync to    |  files, requested     |
       |  translations     |+--------------->|  by TYPO3 sites       |
       |- Create zips      |                 |- Hosts status page    |
       |- Status pages     |                 +-----------------------+
