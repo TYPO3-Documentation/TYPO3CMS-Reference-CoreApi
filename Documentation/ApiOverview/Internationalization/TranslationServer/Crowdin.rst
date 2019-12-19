@@ -26,30 +26,6 @@ Crowdin is a localization management platform and offers the core features essen
 
    Crowdin is completely free of charge for open-source projects.
 
-Workflow
-========
-
-The following workflow is used to bring a translation into a TYPO3 installation.
-
-.. rst-class:: bignums
-
-1. Creating translations
-
-   The translations are managed on Crowdin at https://crowdin.com/project/typo3-cms.
-
-   You can either translate all strings on the Crowdin platform or directly in the TYPO3 backend.
-
-   .. todo:: Add link to usage: Where?
-
-2. Translation Export
-
-   Once the translations are approved on Crowdin by a proof reader, those are automatically exported and copied to the translation server `beta-translation.typo3.org`.
-
-3. Import translations into TYPO3 installations
-
-   The translations can be downloaded within a TYPO3 installation.
-   This is described at :ref:`xliff-translating-fetch`.
-
 
 .. _crowdin-initiative:
 
@@ -68,4 +44,5 @@ More to Read
    :titlesonly:
 
    Crowdin/ExtensionIntegration
+   Crowdin/Workflow
    Crowdin/Faq
