@@ -12,7 +12,8 @@ Localization with Crowdin [beta]
    The integration of Crowdin is currently in beta state. Once it is stabilized, it will be also available in installations using TYPO3 9 LTS.
 
 What is Crowdin
----------------
+===============
+
 Crowdin is a localization management platform and offers the core features essential for delivering great translation:
 
 - **Single source**: Translate text once that is used in different versions and parts of the software.
@@ -28,15 +29,16 @@ Crowdin is a localization management platform and offers the core features essen
 
 .. _crowdin-initiative:
 
-Crowdin initiative
-------------------
+Crowdin Initiative
+==================
+
 A TYPO3 initiative has been created which takes care of integrating Crowdin into TYPO3.
 The initiative’s scope is to fulfill all features which have been available with Pootle and its integration.
 
 Click `for more information <https://typo3.org/community/teams/typo3-development/initiatives/localization-with-crowdin/>`__.
 
-More to read
-------------
+More to Read
+============
 
 .. toctree::
    :titlesonly:

@@ -1,11 +1,11 @@
 .. include:: ../../../Includes.txt
 
-:orphan:
+=====================================================
+Adding Elements to the Content Element Wizard (Moved)
+=====================================================
 
-=====
-Moved
-=====
+The content on this page has moved to
 
 .. rst-class:: horizbuttons-tip-xxl
 
-- :ref:`The content on this page has moved to <content-element-wizard>`
+- :ref:`content-element-wizard`

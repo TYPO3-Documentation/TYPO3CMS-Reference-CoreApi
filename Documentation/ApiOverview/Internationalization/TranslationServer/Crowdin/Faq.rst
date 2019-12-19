@@ -17,12 +17,12 @@ Frequently Asked Questions (FAQ)
 
    If you miss a question, please share it in the slack channel `cig-crowdin-localization`.
 
-General questions
+General Questions
 =================
 
 .. _crowdin-faq-pootle:
 
-Will the old translation server be disabled?
+Will the old Translation Server be Disabled?
 --------------------------------------------
 The existing translation server will be turned off some time after Crowdin has been announced stable.
 
@@ -30,21 +30,21 @@ The existing and exported translations which are downloaded within the Install T
 
 .. _crowdin-faq-support-87:
 
-Will TYPO3 8.7 be supported?
+Will TYPO3 8.7 Be Supported?
 ----------------------------
 Short answer: **No**!
 Long answer: A lot of work has been done for version 9.5 by moving translations to proper places. TYPO3 8.7 will be end of life in April 2020 and you should really upgrade to 9 or 10 - not only because of better translations!
 
 .. _crowdin-faq-extension-missing:
 
-My favorite extension is not available on Crowdin
+My Favorite Extension Is not Available on Crowdin
 -------------------------------------------------
 If you miss an extension on Crowdin, contact the extension owner to create a project on Crowdin.
 It is a simple process and done within minutes.
 
 .. _crowdin-faq-extension-language-missing:
 
-My favorite language is not available for an extension
+My Favorite Language Is not Available for an Extension
 ------------------------------------------------------
 If you are missing the support for a specific language in an extension on Crowdin please contact either the maintainer
 of the extension or the :ref:`crowdin-initiative`.
@@ -53,7 +53,7 @@ of the extension or the :ref:`crowdin-initiative`.
 
    The language needs to be supported by TYPO3 itself as well, see :ref:`i18n_languages` for a list of all languages.
 
-Questions about extension integration
+Questions About Extension Integration
 =====================================
 
 .. _crowdin-faq-duplicated-labels:
@@ -78,7 +78,7 @@ You need to exlude those in your `.crowdin.yaml` configuration which can be foun
 
 More information can be found in the documtation on crowdin: https://support.crowdin.com/configuration-file/
 
-Can I upload translated xlf files?
+Can I upload Translated xlf Files?
 ----------------------------------
 Yes, you can! Switch to the settings area of your project (you need to have the proper permissions for that) and you can upload xlf files or even zip files containg the xlf files.
 

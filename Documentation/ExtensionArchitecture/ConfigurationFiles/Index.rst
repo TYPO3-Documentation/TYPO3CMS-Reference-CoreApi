@@ -182,7 +182,7 @@ These are the typical functions that should be placed inside :file:`ext_tables.p
 * Adding TCA descriptions (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`)
 * Adding table options via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages()` :ref:`Example <extension-configuration-files-allow-table-standard>`
 * Registering a scheduler tasks `Scheduler Task <https://docs.typo3.org/c/typo3/cms-scheduler/master/en-us/DevelopersGuide/CreatingTasks/Index.html>`__ :ref:`Example <extension-configuration-files-scheduler>`
-* Assignments to the global configuration arrays :php:`$TBE_STYLES` and :php:`$PAGES_TYPES`
+* Assignments to the global configuration arrays :php:`$GLOBALS['TBE_STYLES']` and :php:`$GLOBALS['PAGES_TYPES']`
 * Extending the :ref:`Backend User Settings <user-settings-extending>`
 
 Examples

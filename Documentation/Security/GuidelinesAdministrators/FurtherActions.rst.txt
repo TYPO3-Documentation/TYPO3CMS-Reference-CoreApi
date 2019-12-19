@@ -1,10 +1,16 @@
 .. include:: ../../Includes.txt
 
-Further actions
-^^^^^^^^^^^^^^^
+.. -----------------------------------------------------------------------
+.. This file is included via include.
+.. Technically, it is as if this file is inserted **into** the including file
+.. Continue from header level of including file ...
+.. -----------------------------------------------------------------------
 
-Hosting environment
-"""""""""""""""""""
+Further Actions
+===============
+
+Hosting Environment
+-------------------
 
 A system administrator is usually responsible for the entirety of an
 IT infrastructure. This includes several services (e.g. web server,
@@ -20,8 +26,8 @@ database server, `DNS` server, `IMAP/POP3` server, etc.). In short words:
 keep your hosting environment as slim as possible for performance and
 security purposes.
 
-Security-related PHP settings
-"""""""""""""""""""""""""""""
+Security-related PHP Settings
+-----------------------------
 
 Due to the fact that TYPO3 is a PHP application, secure PHP settings
 are also important, of course. PHP settings, such as `open_basedir`,
@@ -35,8 +41,8 @@ front of the TYPO3 server) may have an impact on the retrieval of the
 TYPO3 extension list, which allows you to check if extension updates
 are available, or on retrival of translation files.
 
-Events in log files
-"""""""""""""""""""
+Events in Log Files
+-------------------
 
 Login attempts to the TYPO3 backend, which are unsuccessful, result in
 a server response to the client with HTTP code 401 ("Unauthorized").
@@ -45,8 +51,8 @@ error log file, it can be handled by external tools, such as
 `fail2ban <http://www.fail2ban.org>`_.
 
 
-Defending against Clickjacking
-""""""""""""""""""""""""""""""
+Defending Against Clickjacking
+------------------------------
 
 Clickjacking, also known as *user interface (UI) redress attack* or
 *UI redressing*, is an attack scenario where an attacker tricks a web

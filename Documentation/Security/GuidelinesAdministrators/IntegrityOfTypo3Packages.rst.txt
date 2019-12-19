@@ -1,7 +1,13 @@
 .. include:: ../../Includes.txt
 
-Integrity of TYPO3 packages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. -----------------------------------------------------------------------
+.. This file is included via include.
+.. Technically, it is as if this file is inserted **into** the including file
+.. Continue from header level of including file ...
+.. -----------------------------------------------------------------------
+
+Integrity of TYPO3 Packages
+===========================
 
 In order to ensure that the downloaded TYPO3 package is an official
 package released by the TYPO3 developers, compare the `SHA2-256` checksum of

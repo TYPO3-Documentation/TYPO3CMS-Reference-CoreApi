@@ -1,7 +1,13 @@
 .. include:: ../../Includes.txt
 
-General rules
-^^^^^^^^^^^^^
+.. -----------------------------------------------------------------------
+.. This file is included via include.
+.. Technically, it is as if this file is inserted **into** the including file
+.. Continue from header level of including file ...
+.. -----------------------------------------------------------------------
+
+General Rules
+=============
 
 #. Subscribe to the "TYPO3 Announce" mailing list at
    `http://lists.typo3.org <http://lists.typo3.org/>`_ , so that you are

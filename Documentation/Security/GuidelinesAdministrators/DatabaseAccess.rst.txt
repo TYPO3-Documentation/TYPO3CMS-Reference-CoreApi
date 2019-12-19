@@ -1,14 +1,20 @@
 .. include:: ../../Includes.txt
 
-Database access
-^^^^^^^^^^^^^^^
+.. -----------------------------------------------------------------------
+.. This file is included via include.
+.. Technically, it is as if this file is inserted **into** the including file
+.. Continue from header level of including file ...
+.. -----------------------------------------------------------------------
+
+Database Access
+===============
 
 The TYPO3 database contains all data of backend and frontend users and
 therefore special care must be taken not to grant unauthorized access.
 
 
-Secure passwords and minimum access privileges with MySQL
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Secure Passwords and Minimum Access Privileges With MySQL
+---------------------------------------------------------
 
 If using MySQL, the privilege system authenticates a (database-)user who
 connects from the TYPO3 host (which is possibly on the same machine)
@@ -34,8 +40,8 @@ See the documentation of your database system on how to set up
 database users and access privileges.
 
 
-Database not within web document root with SQLite
-"""""""""""""""""""""""""""""""""""""""""""""""""
+Database not Within Web Document Root With SQLite
+---------------------------------------------------------
 
 If using SQLite as underlying database, a database is stored in a single
 file. In TYPO3, its default location is the :ref:`var/sqlite <Environment-var-path>` path
@@ -45,8 +51,8 @@ file will end up in the web server accessible document root directory :file:`typ
 In such a setup it is important to configure Web servers to not deliver :file:`.sqlite` files.
 
 
-Disallow external access
-""""""""""""""""""""""""
+Disallow External Access
+------------------------
 
 The database server should only be reachable from the server that your
 TYPO3 installation is running on. Make sure to disable any access from
@@ -59,8 +65,8 @@ in the manual and check for the "skip-networking" and "bind-address" options
 in particular.
 
 
-Database administration tools
-"""""""""""""""""""""""""""""
+Database Administration Tools
+-----------------------------
 
 `phpMyAdmin` and similar tools intend to allow the administration of
 MySQL database servers over the Web. Under certain circumstances, it

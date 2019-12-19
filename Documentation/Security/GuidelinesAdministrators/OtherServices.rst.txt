@@ -1,7 +1,13 @@
 .. include:: ../../Includes.txt
 
-Other services
-^^^^^^^^^^^^^^
+.. -----------------------------------------------------------------------
+.. This file is included via include.
+.. Technically, it is as if this file is inserted **into** the including file
+.. Continue from header level of including file ...
+.. -----------------------------------------------------------------------
+
+Other Services
+==============
 
 System administrators should keep in mind that every "untrusted"
 script (e.g. PHP, perl, python script) or executable file inside the

@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _xliff-translating:
+.. _managing-translating:
 
 =====================
 Managing Translations
