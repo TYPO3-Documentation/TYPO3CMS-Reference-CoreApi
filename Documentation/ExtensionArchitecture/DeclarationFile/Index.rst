@@ -14,11 +14,11 @@ The :file:`ext_emconf.php` is the single most important file in an extension.
 Without it, the Extension Manager (EM) will not detect the extension, much less
 be able to install it. This file contains a declaration of what the extension
 is or does for the EM. The only thing included
-is an associative array, :code:`$EM_CONF[extension key]`.
+is an associative array, :php:`$EM_CONF[extension key]`.
 The keys are described in the table below.
 
 This file is overwritten, when extensions are imported from the online repository. So don't write your custom code in this file - only change
-values in the :code:`$EM_CONF` array if needed.
+values in the :php:`$EM_CONF` array if needed.
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -105,18 +105,18 @@ values in the :code:`$EM_CONF` array if needed.
          List of requirements, suggestions or conflicts with other extensions
          or TYPO3 or PHP version. Here's how a typical setup might look::
 
-            'constraints' => array(
-                'depends' => array(
-                    'typo3' => '4.5.0-6.1.99',
-                    'php' => '5.3.0-5.5.99'
-                ),
-                'conflicts' => array(
-                    'dam' => ''
-                ),
-                'suggests' => array(
-                    'tt_news' => '2.5.0-0.0.0'
-                )
-            )
+            'constraints' => [
+                'depends' => [
+                    'typo3' => '9.5.0-10.4.99',
+                    'php' => '7.2.0-7.4.99'
+                ],
+                'conflicts' => [
+                    'templavoilaplus' => ''
+                ],
+                'suggests' => [
+                    'news' => '7.3.0-0.0.0'
+                ],
+            ]
 
          depends
            List of extensions that this extension depends on.
@@ -131,19 +131,14 @@ values in the :code:`$EM_CONF` array if needed.
            Extensions defined here will be loaded *before* the current extension.
            Dependencies take precedence over suggestions.
 
-           **Note:** If a "suggested" extension depends on the current extension
-           (directly or indirectly), the suggestion is not
-           taken into account for loading order calculation.
-           Read more at :forge:`57825`.
-
-         The above example indicated that the extension depends on a
-         version of TYPO3 between 4.5 and 6.1 (as only bug and security fixes are
+         The above example indicates that the extension depends on a
+         version of TYPO3 between 9.5 and 10.4 (as only bug and security fixes are
          integrated into TYPO3 when the last digit of the version changes, it is
          safe to assume it will be compatible with any upcoming version of the
          corresponding branch, thus ``.99``). Also the extension has been
-         tested and is known to work properly with PHP 5.3, 5.4 and 5.5. It
-         will conflict with the DAM (any version) and it is suggested that it
-         might be worth installing "tt\_news" (version at least 2.5.0).
+         tested and is known to work properly with PHP 7.2, 7.3 and 7.4. It
+         will conflict with "templavoilaplus" (any version) and it is suggested
+         that it might be worth installing "news" (version at least 7.3.0).
 
  - :Key:
          state
@@ -193,15 +188,13 @@ values in the :code:`$EM_CONF` array if needed.
            is very useful if you made local changes to an extension for a
            specific installation and don't want any admin to overwrite them.
 
-           *New since TYPO3 4.3.*
-
  - :Key:
          uploadfolder
    :Data type:
          boolean
    :Description:
-         If set, then the folder named "uploads/tx\_[extKey-with-no-
-         underscore]" should be present!
+         If set, then the folder named :file:`uploads/tx\_[extKey-with-no-underscore]`
+         should be present!
 
  - :Key:
          clearCacheOnLoad
@@ -238,7 +231,7 @@ values in the :code:`$EM_CONF` array if needed.
    :Data type:
          array
    :Description:
-         To get better class loading support for websites in **non-composer mode+**
+         To get better class loading support for websites in **non-composer mode**
          the following information can be provided.
 
          **Extensions having one folder with classes or single files**
@@ -265,7 +258,8 @@ values in the :code:`$EM_CONF` array if needed.
                ]
             ],
 
-         // Important: The prefix must end with a backslash.
+         .. important::
+            The prefix must end with a backslash.
 
  - :Key:
          autoload-dev
