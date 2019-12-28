@@ -111,3 +111,73 @@ need to be referred to explicitly using the :code:`EXT:LLL:extkey/path/to/file:m
 As mentioned above, the translation files follow the same naming conventions, but
 are prepended with the language code and a dot. They are stored alongside the default
 language files.
+
+
+.. _xliff-id-naming:
+
+ID Naming
+=========
+
+There is no strict rule or guideline in place for defining identifiers
+(the ``id`` attribute).
+Still it is best practice to follow these rules:
+
+Separate by Dots
+----------------
+
+Use dots to separate logical parts of the identifier.
+
+Good example:
+
+.. code-block:: none
+
+   CType.menu_abstract
+
+Bad examples:
+
+.. code-block:: none
+
+    CType_menu_abstract
+    CType-menu_abstract
+
+Namespace
+---------
+
+Group identifiers together with a useful namespace.
+
+Good example:
+
+.. code-block:: none
+
+   CType.menu_abstract
+
+This groups all available content types for content elements by using
+the same prefix ``CType.``.
+
+Bad example:
+
+.. code-block:: none
+
+    menu_abstract
+
+Namespaces should be defined by context.
+``menu_abstract.CType`` could also be a reasonable namespace
+if the context is about ``menu_abstract``.
+
+lowerCamelCase
+--------------
+
+Generally, lowerCamelCase should be used:
+
+Good example:
+
+.. code-block:: none
+
+   frontendUsers.firstName
+
+Exceptions:
+
+* For some specific cases where the referenced identifier is in a format
+  other than lowerCamelCase, that format can be used:
+  For example, database table or column names often are written in snake_case,
+  and the XLIFF key then might be something like ``fe_users.first_name``.
