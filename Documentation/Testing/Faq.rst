@@ -125,8 +125,7 @@ system, we need root access to the host, a host needs 8 hardware CPU's with 64 G
 system needs to be stable and always available, it needs to be wired into the TYPO3 GmbH internal
 VPN, we need a decent network connection and we need to trust the system. You probably do not
 want to load systems like that with additional tasks since the system load can grow quite high if the
-agent cluster is busy. If you can comply with this, please mail to `Christian Kuhn
-<christian.kuhn@typo3.com>`_ for details, it is highly appreciated! In the future our system demands may
+agent cluster is busy. If you can comply with this, please mail to the TYPO3 GmbH for details, it is highly appreciated! In the future our system demands may
 hopefully shrink, maybe we're able to establish more dynamic scaling using kubernetes for instance, but
 we're not there yet.
 
