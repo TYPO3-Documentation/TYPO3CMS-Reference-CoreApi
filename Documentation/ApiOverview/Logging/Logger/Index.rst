@@ -128,47 +128,75 @@ Best Practices
 There are no strict rules or guidelines about logging.
 Still it can be considered to be best practice to follow these rules:
 
-Meaningful message
-   The message itself has to be meaningful, for example Exception messages.
+Meaningful Message
+------------------
 
-   | A bad example would be "Something went wrong".
-   | A good example would be "Could not connect to database".
+The message itself has to be meaningful, for example exception messages.
 
-Searchable message
-   Most of the times log entries will be stored.
-   They are most important if something goes wrong within the system.
-   In such situations people might search for specific issues or situations,
-   considering this while writing log entries will reduce debugging time in future.
+Bad example:
 
-   Messages should therefore contain keywords that might be used in searches.
+.. code-block:: none
 
-   A good example would be "Connection to mysql database could not be established",
-   which includes "connection", "mysql" and "database" as possible keywords.
+    "Something went wrong"
 
-Distinguishable and grouped
-   Log entries might be collected and people might scroll through them.
-   Therefore it is helpful to write log entries that are distinguishable,
-   but are also grouped.
+Good example:
 
-   A bad example would be:
+.. code-block:: none
 
-   | Connection to mysql database could not be established.
-   | Could not establish connection to memcache.
+    "Could not connect to database"
 
-   A good example would be:
+Searchable Message
+------------------
 
-   | Connection to mysql database could not be established.
-   | Connection to memcache could not be established.
+Most of the times log entries will be stored.
+They are most important if something goes wrong within the system.
+In such situations people might search for specific issues or situations,
+considering this while writing log entries will reduce debugging time in future.
 
-   This way the same issue is grouped by the same structure,
-   and one can scan the same position for either "mysql" or "memcache".
+Messages should therefore contain keywords that might be used in searches.
 
-Provide useful information
-   TYPO3 already uses the component of the logger to give some context.
-   Still further individual context might be available that should be added.
-   In case of an exception, the code, stacktrace, file and line number would be helpful.
+Good example:
 
-   Keep in mind that it is hard to add information afterwards.
-   Logging is there to get information if something got wrong.
-   All necessary information should be available to get the state of the system
-   and why something happened.
+.. code-block:: none
+
+   "Connection to mysql database could not be established"
+
+
+This includes "connection", "mysql" and "database" as possible keywords.
+
+Distinguishable and Grouped
+---------------------------
+
+Log entries might be collected and people might scroll through them.
+Therefore it is helpful to write log entries that are distinguishable,
+but are also grouped.
+
+Bad examples:
+
+.. code-block:: none
+
+   "Connection to mysql database could not be established."
+   "Could not establish connection to memcache."
+
+Good examples:
+
+.. code-block:: none
+
+   "Connection to mysql database could not be established."
+   "Connection to memcache could not be established."
+
+This way the same issue is grouped by the same structure,
+and one can scan the same position for either "mysql" or "memcache".
+
+Provide Useful Information
+--------------------------
+
+
+TYPO3 already uses the component of the logger to give some context.
+Still further individual context might be available that should be added.
+In case of an exception, the code, stacktrace, file and line number would be helpful.
+
+Keep in mind that it is hard to add information afterwards.
+Logging is there to get information if something got wrong.
+All necessary information should be available to get the state of the system
+and why something happened.
