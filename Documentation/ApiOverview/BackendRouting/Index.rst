@@ -52,6 +52,29 @@ So a routes file essentially returns an array containing routes mapping.
 A route is defined by a key, a path and a target. The "public" :code:`access`
 property indicates that no authentication is required for that action.
 
+Default Route Parameters
+========================
+
+Routes definitions are extended by the possibility to define default parameters.
+Those parameters can be overridden during the regular URI generation process.
+
+Several AJAX routes inhibited the backend session update to not keep the session
+alive by periodic polling. Those :php:`skipSessionUpdate` parameters have been removed
+from the specific URI generation invocations and moved to the central route definitions.
+
+Default route parameters are defined in an associative key-value-array using the
+index :php:`parameters`. This definition can be used for both, plain routes and AJAX routes.
+
+.. code-block:: php
+
+    'systeminformation_render' => [
+        'path' => '/system-information/render',
+        'target' => \TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem::class . '::renderMenuAction',
+        'parameters' => [
+            'skipSessionUpdate' => 1
+        ]
+    ]
+
 More Information
 ================
 
