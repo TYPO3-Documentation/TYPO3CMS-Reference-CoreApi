@@ -112,37 +112,72 @@ As mentioned above, the translation files follow the same naming conventions, bu
 are prepended with the language code and a dot. They are stored alongside the default
 language files.
 
-.. _xliff-best-practices:
 
-Best practices
-==============
+.. _xliff-id-naming:
 
-.. _xliff-best-practices-id-naming:
+ID Naming
+=========
 
-ID naming
----------
+There is no strict rule or guideline in place for defining identifiers
+(the ``id`` attribute).
+Still it is best practice to follow these rules:
 
-There is no strict rule or guideline in place for defining identifiers = the ``id`` attribute.
-Still it can be considered to be best practice to follow these rules:
+Separate by Dots
+----------------
 
-Separate by dots
-   Use dots to separate logical parts of the identifier.
-   A good example would be ``CType.menu_abstract``.
-   Bad examples would be: ``CType_menu_abstract`` and ``CType-menu_abstract``.
+Use dots to separate logical parts of the identifier.
+
+Good example:
+
+.. code-block:: none
+
+   CType.menu_abstract
+
+Bad examples:
+
+.. code-block:: none
+
+    CType_menu_abstract
+    CType-menu_abstract
 
 Namespace
-   Group identifiers together with a useful namespace.
-   A good example would be ``CType.menu_abstract``,
-   in order to group all available content types for content elements.
-   A bad example would be: ``menu_abstract``.
+---------
 
-   Namespaces should be defined by context.
-   ``menu_abstract.CType`` could also be a reasonable namespace
-   if the context is about ``menu_abstract``.
+Group identifiers together with a useful namespace.
 
-Case
-   Generally, lowerCamelCase should be used.
-   For some specific cases where the referenced identifier is in a format other than lowerCamelCase,
-   that format can be used:
-   For example, database table or column names often are written in snake_case,
-   and the XLIFF key then might be something like ``fe_users.first_name``.
+Good example:
+
+.. code-block:: none
+
+   CType.menu_abstract
+
+This groups all available content types for content elements by using
+the same prefix ``CType.``.
+
+Bad example:
+
+.. code-block:: none
+
+    menu_abstract
+
+Namespaces should be defined by context.
+``menu_abstract.CType`` could also be a reasonable namespace
+if the context is about ``menu_abstract``.
+
+lowerCamelCase
+--------------
+
+Generally, lowerCamelCase should be used:
+
+Good example:
+
+.. code-block:: none
+
+   frontendUsers.firstName
+
+Exceptions:
+
+* For some specific cases where the referenced identifier is in a format
+  other than lowerCamelCase, that format can be used:
+  For example, database table or column names often are written in snake_case,
+  and the XLIFF key then might be something like ``fe_users.first_name``.
