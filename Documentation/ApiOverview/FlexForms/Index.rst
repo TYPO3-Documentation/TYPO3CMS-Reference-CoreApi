@@ -7,7 +7,7 @@ FlexForms
 ==============
 
 FlexForms can be used to store data within an XML structure inside a single DB
-columns. The typical use case is to configure plugins within a content element.
+column.
 
 You may want to configure
 individual plugins differently, depending on where they are added. The
@@ -32,8 +32,8 @@ Example Use Cases
    :class: with-shadow
 
 
-How it Works for Content Elements
-=================================
+How it Works
+============
 
 #. In the extension, a configuration schema is defined and attached to one or more plugins.
 #. When the plugin is added to a page, it can be configured as defined by the configuration
