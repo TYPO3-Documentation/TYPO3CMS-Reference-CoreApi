@@ -6,7 +6,7 @@
 class.ext_update.php
 ====================
 
-While the update wizards already provide a skeleton and integration into TYPO3
+While the upgarde wizards already provide a skeleton and integration into TYPO3
 CMS, there is a file from old times. This file is placed in the extension root
 and called :file:`class.ext_update.php`. For better overview it's recommended to
 use the new update wizards with separate classes for each update.
