@@ -11,7 +11,7 @@ parts of a TYPO3 installation. Usually those affected parts are sections of the
 database (e.g. contents of fields change) as well as segments in the file system
 (e.g. locations of files have changed).
 
-wizards should be provided to ease updates for integrators and administrators. They
+Wizards should be provided to ease updates for integrators and administrators. They
 are an addition to the database migration, which is handled by the core based on
 :file:`ext_tables.sql`.
 
