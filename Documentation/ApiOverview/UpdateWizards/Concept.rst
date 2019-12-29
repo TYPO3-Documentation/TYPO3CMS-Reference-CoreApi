@@ -1,12 +1,15 @@
 .. include:: ../../Includes.txt
 
+.. preferably, use label upgrade-wizards-concept
+
 .. _update-wizards-concept:
+.. _upgrade-wizards-concept:
 
-=============================
-The concept of Update Wizards
-=============================
+==============================
+The Concept of Upgrade Wizards
+==============================
 
-Update wizards are single PHP classes that provide an automated way to update certain
+Upgrade wizards are single PHP classes that provide an automated way to update certain
 parts of a TYPO3 installation. Usually those affected parts are sections of the
 database (e.g. contents of fields change) as well as segments in the file system
 (e.g. locations of files have changed).
@@ -25,7 +28,7 @@ displayed after execution.
 Best Practice
 =============
 
-Each extension can provide as many update wizards as necessary. Each wizard should do
+Each extension can provide as many upgrade wizards as necessary. Each wizard should do
 exactly one specific update.
 
 Examples

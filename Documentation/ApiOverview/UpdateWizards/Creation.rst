@@ -1,12 +1,15 @@
 .. include:: ../../Includes.txt
 
+.. preferably, use label "upgrade-wizards-creation"
+
 .. _update-wizards-creation-generic:
+.. _upgrade-wizards-creation:
 
-===============================
-Creating Generic Update Wizards
-===============================
+================================
+Creating Generic Upgrade Wizards
+================================
 
-Each update wizard consists of a single PHP file containing a single PHP class. This
+Each upgrade wizard consists of a single PHP file containing a single PHP class. This
 class has to implement :php:`TYPO3\CMS\Install\Updates\UpgradeWizardInterface` and its
 methods::
 
