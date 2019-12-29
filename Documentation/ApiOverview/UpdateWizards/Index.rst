@@ -1,10 +1,13 @@
 .. include:: ../../Includes.txt
 
-.. _update-wizards:
+.. preferably use label "upgrade-wizards"
 
-==============
-Update Wizards
-==============
+.. _update-wizards:
+.. _upgrade-wizards:
+
+===============
+Upgrade Wizards
+===============
 
 .. note::
 
@@ -12,8 +15,8 @@ Update Wizards
    was introduced. This chapter was updated to use the new API.
 
 TYPO3 CMS offers a way for extension authors to provide automated updates for
-extensions. TYPO3 itself provides update wizards to smooth updates of TYPO3
-versions. This chapter will explain the concept and how to write those update
+extensions. TYPO3 itself provides upgrade wizards to ease updates of TYPO3
+versions. This chapter will explain the concept and how to write upgrade
 wizards.
 
 The API for upgrade wizards comes with the following interfaces:

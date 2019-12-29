@@ -11,7 +11,7 @@ class.ext_update.php
    Using the file :file:`class.ext_update.php` is discouraged.
    Use the new API as explained in this chapter.
 
-While the update wizards already provide a skeleton and integration into TYPO3
+While the upgrade wizards already provide a skeleton and integration into TYPO3
 CMS, there is a file from old times. This file is placed in the extension root
 and called :file:`class.ext_update.php`.
 
