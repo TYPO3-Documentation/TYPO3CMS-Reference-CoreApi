@@ -70,7 +70,7 @@ A POST request can be achieved with:
    $additionalOptions = [
       'body' => 'Your raw post data',
       // OR form data:
-      'form_params' = [
+      'form_params' => [
          'first_name' => 'Hans',
          'last_name' => 'Dampf',
       ]
