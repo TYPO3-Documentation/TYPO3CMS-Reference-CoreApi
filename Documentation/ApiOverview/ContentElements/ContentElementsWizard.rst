@@ -108,7 +108,7 @@ You can add it to one of the other existing tabs or create a new one.
 If you add it to any of the other tabs (other than plugins), you must add
 the name to ``show`` as well:
 
-.. code-block:: typoscript::
+.. code-block:: typoscript
 
    mod.wizards.newContentElement.wizardItems.common {
        elements {
@@ -128,7 +128,7 @@ the name to ``show`` as well:
 * When you look at existing Page TSconfig in the :guilabel:`Info` module, you may
   notice that ``show`` has been set to include all for the "plugins" tab:
 
-.. code-block::
+.. code-block:: typoscript
 
    show = *
 
