@@ -347,6 +347,7 @@ The three methods are used to create `WHERE` restrictions for `SELECT`, `COUNT`,
 Each argument is typically an `ExpressionBuilder` object that will be cast to a string on :php:`->execute()`::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\Connection;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    // SELECT `uid`, `header`, `bodytext`
    // FROM `tt_content`
@@ -355,8 +356,9 @@ Each argument is typically an `ExpressionBuilder` object that will be cast to a 
    //       ((`bodytext` = 'klaus') AND (`header` = 'a name'))
    //       OR (`bodytext` = 'peter') OR (`bodytext` = 'hans')
    //    )
-   //    AND (`pid` = 42)
+   //    AND (`pid` IN (40, 41, 42))
    //    AND ... RestrictionBuilder TCA restrictions ...
+   $pageIds = [40, 41, 42];
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $statement = $queryBuilder
       ->select('uid', 'header', 'bodytext')
@@ -370,7 +372,7 @@ Each argument is typically an `ExpressionBuilder` object that will be cast to a 
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('hans'))
       )
       ->andWhere(
-         $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
+         $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter($pageIds, Connection::PARAM_INT_ARRAY))
       )
       ->execute();
 
