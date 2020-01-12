@@ -290,7 +290,7 @@ The extkey and plugin key are separated by an underscore (`_`):
 The plugin signature is used in:
 
 * the database field `tt_content.list_type`
-* when defining a :ref:`FlexForm <flexform>` to be used for the plugin in
+* when defining a :ref:`FlexForm <flexforms>` to be used for the plugin in
   :php:`addPiFlexFormValue()`
 
 

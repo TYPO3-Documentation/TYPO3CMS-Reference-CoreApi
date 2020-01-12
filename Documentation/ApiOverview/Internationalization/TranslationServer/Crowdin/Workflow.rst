@@ -21,7 +21,7 @@ The following workflow is used to bring a translation into a TYPO3 installation.
 
    You can either translate all strings on the Crowdin platform or directly in the TYPO3 backend.
 
-   .. todo:: Add link to usage: This is described in detail at :ref:`crowdin-usage`.
+   .. todo:: Add link to usage
 
 3. Crowdin Bridge
 
