@@ -113,16 +113,16 @@ Registrating the Event Listener:
 --------------------------------
 
 If an extension author wants to provide a custom Event Listener, an according entry with the tag
-:yaml:`event.listener` can be added to the :yaml:`Configuration/Services.yaml` file of that extension.
+:yaml:`event.listener` can be added to the :file:`Configuration/Services.yaml` file of that extension.
 
 .. code-block:: yaml
 
    services:
      MyCompany\MyPackage\EventListener\NullMailer:
        tags:
-         - name: event.listener,
-           identifier: 'myListener',
-           event: TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent,
+         - name: event.listener
+           identifier: 'myListener'
+           event: TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent
            before: 'redirects, anotherIdentifier'
 
 
