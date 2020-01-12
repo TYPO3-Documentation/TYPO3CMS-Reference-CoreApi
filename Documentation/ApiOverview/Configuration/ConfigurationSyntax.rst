@@ -13,7 +13,7 @@ These are the main languages TYPO3 uses for configuration:
   and TSconfig.
 * :ref:`TypoScript constant syntax <t3tsref:typoscript-syntax-constant-editor>` is
   used for Extension Configuration and for defining constants for TypoScript.
-* :ref:`Yaml <yaml>` is the configuration language of choice for newer TYPO3 system extensions
+* :ref:`Yaml <yaml-syntax>` is the configuration language of choice for newer TYPO3 system extensions
   like rte_ckeditor, form and the sites module. It has partly replaced TypoScript
   and TSconfig as configuration languages.
 * XML is used in FlexForms.

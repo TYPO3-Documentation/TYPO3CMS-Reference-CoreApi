@@ -39,13 +39,17 @@ Furthermore, we have:
 * :ref:`feature-toggles` are used to switch a specific functionality of TYPO3 on or off.
 
 
-Additionally, some system extensions use yaml for configuration:
+Additionally, some system extensions use YAML for configuration:
 
 * :ref:`Site <sitehandling>` configuration is stored in :file:`<project-root>/config/sites/<identifier>/config.yaml`
   and can be configured in the sites module.
 * :ref:`form <form:concepts-configuration>`: Forms in the frontend
 * :ref:`rte_ckeditor <ckedit:configuration>`: configure editing rich text editing
+* :ref:`Event listeners <EventDispatcher>` in :file:`Configuration/Services.yaml`
+* :ref:`Dependency injection <DependencyInjection>` information in :file:`Configuration/Services.yaml`
 
+There is a :ref:`YamlFileLoader <yamlFileLoader>` which can be used to load YAML
+files.
 
 .. _next-steps:
 

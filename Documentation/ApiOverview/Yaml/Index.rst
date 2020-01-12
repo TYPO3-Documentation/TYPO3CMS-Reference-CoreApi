@@ -1,13 +1,22 @@
 .. include:: ../../Includes.txt
 
-.. _yaml:
+.. _yaml-api:
 
 =============
-YAML in TYPO3
+YAML API
 =============
 
-YAML is used in TYPO3 for various configurations; most notable are site configuration (see :ref:`sitehandling`)
-and EXT:form configuration (see :ref:`form:introduction`).
+YAML is used in TYPO3 for various configurations; most notable are
+
+* :ref:`Event listeners <EventDispatcher>` in :file:`Configuration/Services.yaml`
+* :ref:`Dependency injection <DependencyInjection>` information in :file:`Configuration/Services.yaml`
+* :ref:`Site configuration <sitehandling>` in :file:`sites/<identifier>/config.yaml`
+* System extension :ref:`form <form:start>` configuration
+* System extension :ref:`rte_ckeditor  <rteckeditor:start>` configuration
+
+
+
+.. _yamlFileLoader:
 
 YamlFileLoader
 ==============
