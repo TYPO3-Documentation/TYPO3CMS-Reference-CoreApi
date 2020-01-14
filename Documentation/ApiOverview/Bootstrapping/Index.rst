@@ -1,10 +1,6 @@
 .. include:: ../../Includes.txt
 
 
-
-
-
-
 .. _bootstrapping:
 
 Bootstrapping
@@ -34,6 +30,7 @@ line, which additionally requires :code:`\TYPO3\CMS\Core\Core\CliBootstrap`.
 
 
 One can see the bootstrapping process in action in file
+
 :file:`typo3/init.php`::
 
    define('TYPO3_MODE', 'BE');
@@ -97,11 +94,12 @@ or be part of the web server configuration:
 
 .. code-block:: apacheconf
 
-   # In your Apache configuration, you usually use:
+   # In your Apache configuration (either .htaccess or vhost)
+   # you can either set context to static value with:
    SetEnv TYPO3_CONTEXT Development
 
-   # Set context with mod_rewrite
-   # Rules to set ApplicationContext based on hostname
+   # Or set context depending on current host header
+   # using mod_rewrite module
    RewriteCond %{HTTP_HOST} ^dev\.example\.com$
    RewriteRule .? - [E=TYPO3_CONTEXT:Development]
 
@@ -110,6 +108,11 @@ or be part of the web server configuration:
 
    RewriteCond %{HTTP_HOST} ^www\.example\.com$
    RewriteRule .? - [E=TYPO3_CONTEXT:Production]
+
+   # or using setenvif module
+   SetEnvIf Host "^dev\.example\.com$" TYPO3_CONTEXT=Development
+   SetEnvIf Host "^staging\.example\.com$" TYPO3_CONTEXT=Production/Staging
+   SetEnvIf Host "^www\.example\.com$" TYPO3_CONTEXT=Production
 
 
 .. code-block:: nginx
