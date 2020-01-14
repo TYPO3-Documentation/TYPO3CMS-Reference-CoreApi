@@ -44,6 +44,16 @@ Our extension key is `example` and the name of the plugin is `registration`.
           }
       }
 
+
+
+   You may want to replace title and description, using language files for translation:
+
+   .. code-block:: typoscript
+
+      title = LLL:EXT:example/Resources/Private/Language/locallang.xml:registration_title
+      description = LLL:EXT:exapmle/Resources/Private/Language/locallang.xml:registration_description
+
+
 #. Include TSconfig in ext_localconf.php
 
     .. code-block:: typoscript
@@ -73,19 +83,11 @@ Our extension key is `example` and the name of the plugin is `registration`.
 
    You should now see the icon, title and description you just added!
 
-   .. figure:: ../../../Images/ContentElementWizard.png
+   .. figure:: ../../Images/ContentElementWizard.png
       :class: with-shadow
 
       Content Element Wizard with the new "Event Registration" plugin
 
-.. tip::
-
-   You may want to replace title and description, using language files for translation:
-
-   .. code-block:: typoscript
-
-      title = LLL:EXT:example/Resources/Private/Language/locallang.xml:registration_title
-      description = LLL:EXT:exapmle/Resources/Private/Language/locallang.xml:registration_description
 
 
 .. seealso::

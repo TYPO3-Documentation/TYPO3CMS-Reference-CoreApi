@@ -9,7 +9,6 @@ Custom Content Elements
 This page explains how to create your own custom content element types, in
 addition to the content elements already supplied by TYPO3. You can find
 more code examples in the system extension `fluid_styled_content`.
->>>>>>> b7c89474... Change title for custom content elements chapter
 
 A content element can be based on fields already available in the `tt_content` table.
 
