@@ -2,17 +2,29 @@
 
 .. _adding-your-own-content-elements:
 
-================================
-Adding Your Own Content Elements
-================================
+=======================
+Custom Content Elements
+=======================
 
-A content element can be based on already available fields in the `tt_content` table and/or extra fields you can add to the `tt_content` table.
-This is done the same way as you do for your own extensions by :ref:`extending TCA <extending-tca>`.
-Depending on the data in the `tt_content` table, you can send the data immediately to the :ref:`cobj-fluidtemplate`
-or use a :ref:`data processor <t3tsref:cobj-fluidtemplate-properties-dataprocessing>` in front to do some data manipulation.
-The content elements in the extension "fluid_styled_content" are using both as well.
-A data processor is sometimes used to convert a string (like the `bodytext` field in content element "table")
-to an array or fetch a related record (e.g. a FAL file), so Fluid does not have to deal with this manipulation or transformation.
+This page explains how to create your own custom content element types, in
+addition to the content elements already supplied by TYPO3. You can find
+more code examples in the system extension `fluid_styled_content`.
+
+A content element can be based on fields already available in the `tt_content` table.
+
+It is also possible to add extra fields that can be added to the `tt_content` table.
+Adding fields is done by :ref:`extending the TCA <t3coreapi:extending>`.
+
+Depending on the data in the `tt_content` table,
+the data can be passed to the :ref:`cobj-fluidtemplate`.
+Some data might need additional processing by
+:ref:`data processor <t3tsref:cobj-fluidtemplate-properties-dataprocessing>` e.g. to resolve file relations.
+The content elements in the extension *fluid_styled_content* are using both methods.
+A data processor can be used to convert a string to an array,
+like done for the *table* content element with the field `bodytext`,
+or to fetch a related record, e.g. a FAL file.
+In these cases Fluid does not have to deal with these manipulations or transformation.
+
 
 Prerequisites
 =============
@@ -28,10 +40,8 @@ Use an Extension
 
 We recommend to create your own extension for adding content elements.
 The following example uses the extension key `your_extension_key`.
-If you have plans to publish your extension, do not forget to check
-for the availability of your desired key
-and register it at the `"extension keys" page <https://extensions.typo3.org/my-extensions/>`_
-(prior login at `typo3.org <https://typo3.org/>`_ is required).
+
+If you have plans to publish your extension, follow :ref:`t3coreapi:extension-key-registration`.
 
 .. _AddingCE-PageTSconfig:
 .. _RegisterCE:
@@ -40,7 +50,8 @@ and register it at the `"extension keys" page <https://extensions.typo3.org/my-e
 1. Register the Content Element
 ===============================
 
-First add your new content element to the "New Content Element Wizard" and define its `CType` in PageTSconfig.
+First add the new content element to :guilabel:`New Content Element Wizard` and define its `CType` in PageTSconfig.
+
 The example content element is called `yourextensionkey_newcontentelement`:
 
 .. tip::
@@ -64,20 +75,23 @@ The example content element is called `yourextensionkey_newcontentelement`:
 
 You need to :ref:`register the icon identifier <icon-registration>` with the icon API in your :file:`ext_localconf.php`.
 
-Then you need to add the content element to the "Type" dropdown, where you can select
-the type of content element in the file :file:`Configuration/TCA/Overrides/tt_content.php`:
+In order to allow to select the type of content element,
+it has to be added to the :guilabel:`Type` dropdown.
+This is done in the file :file:`Configuration/TCA/Overrides/tt_content.php`.
 
 .. code-block:: php
 
    // Adds the content element to the "Type" dropdown
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+      'tt_content',
+      'CType',
        [
            'LLL:EXT:your_extension_key/Resources/Private/Language/Tca.xlf:yourextensionkey_newcontentelement',
            'yourextensionkey_newcontentelement',
-           'EXT:your_extension_key/Resources/Public/Icons/ContentElements/yourextensionkey_newcontentelement.gif',
+           'your-icon-identifier',
        ],
-       'CType',
-       'your_extension_key'
+       'textmedia',
+       'after'
    );
 
 .. _ConfigureCE-Fields:
@@ -85,8 +99,7 @@ the type of content element in the file :file:`Configuration/TCA/Overrides/tt_co
 2. Configure Fields
 ===================
 
-Then you need to configure the backend fields for your new content element in the file
-:file:`Configuration/TCA/Overrides/tt_content.php`:
+Then you need to configure the backend fields for your new content element in the file :file:`Configuration/TCA/Overrides/tt_content.php`:
 
 .. code-block:: php
 
@@ -126,8 +139,9 @@ Then you need to configure the backend fields for your new content element in th
 3. Configure the Frontend Template
 ==================================
 
-Since TypoScript configuration is needed as well,add an entry in the static template list
-found in `sys_templates` for static TypoScript in :file:`Configuration/TCA/Overrides/sys_template.php`:
+TypoScript configuration is needed as well.
+Therefore add an entry in the static template list found in `sys_templates`.
+This should be done within :file:`Configuration/TCA/Overrides/sys_template.php`:
 
 .. code-block:: php
 
@@ -138,18 +152,24 @@ found in `sys_templates` for static TypoScript in :file:`Configuration/TCA/Overr
        'Your description'
    );
 
-As defined in :file:`Configuration/TCA/Overrides/sys_template.php`, the file :file:`setup.typoscript` is in the directory
-:file:`Configuration/TypoScript/` of your own extension.
+This API call will register the file :file:`Configuration/TypoScript/setup.typoscript` to be loaded as static TypoScript.
+The definitions inside this file will be effective when the file is loaded.
 
-To ensure your custom content element templates can be found you need to extend the global
-:typoscript:`templateRootPaths` with a path within your extension:
+As Fluid templates, partials and layouts will be shipped in the custom extension,
+paths for them need to be added to the file.
+Therefore adjust the properties:
+
+* :ref:`t3tsref:cobj-fluidtemplate-properties-templaterootpaths`,
+* :ref:`t3tsref:cobj-fluidtemplate-properties-partialrootpaths`
+* :ref:`t3tsref:cobj-fluidtemplate-properties-layoutrootpaths`
 
 .. code-block:: typoscript
 
    lib.contentElement {
-       templateRootPaths {
-           200 = EXT:your_extension_key/Resources/Private/Templates/
-       }
+       templateRootPaths.200 = EXT:your_extension_key/Resources/Private/Templates/
+       partialRootPaths.200 = EXT:your_extension_key/Resources/Private/Partials/
+       layoutRootPaths.200 = EXT:your_extension_key/Resources/Private/Layout/
+
    }
 
 .. note::
@@ -157,11 +177,10 @@ To ensure your custom content element templates can be found you need to extend 
    The :``lib.contentElement`` path is defined in
    :file:`EXT:fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
 
-You can use an arbitrary index (`200` here), just make sure it is unique. If you use partials
-and layouts, you need to do the same for :ref:`t3tsref:cobj-fluidtemplate-properties-partialrootpaths`
-and :ref:`t3tsref:cobj-fluidtemplate-properties-layoutrootpaths`.
+You can use any index (`200` in this example), just make sure it is unique.
+The paths only need to be added if they exist and are used.
 
-Now you can register the rendering of your custom content element using a Fluid template:
+Now you can register the rendering of your custom content element using a :ref:`t3tsref:cobj-fluidtemplate`:
 
 .. code-block:: typoscript
 
@@ -172,15 +191,19 @@ Now you can register the rendering of your custom content element using a Fluid 
        }
    }
 
-In this example a :ref:`cobj-fluidtemplate` content object is created using a reference from :typoscript:`lib.contentElement`
-with a template identified by the :ref:`t3tsref:cobj-fluidtemplate-properties-templatename` `NewContentElement`.
+In this example a :ref:`cobj-fluidtemplate` content object is created using a reference from :typoscript:`lib.contentElement`.
+The template is identified by the :ref:`t3tsref:cobj-fluidtemplate-properties-templatename` property as `NewContentElement`.
+
 This will load a :file:`NewContentElement.html` template file from the :typoscript:`templateRootPaths`.
 
-For the final rendering you need a Fluid template. This template will be located at the
-directory and file name which you have entered in  :file:`setup.typoscript` using the parameter
-:typoscript:`templateName`. Now we can use the `tt_content` fields in the Fluid template by accessing them
-via the `data` variable. The following example shows the text entered in the richtext enabled
-field `bodytext` formatted using the defined richtext configuration:
+For the final rendering you need a Fluid template.
+
+This template will be located at the directory and file name entered in :file:`setup.typoscript` using
+the parameter :typoscript:`templateName`.
+
+`tt_content` fields can now be used in the Fluid template by accessing them via the `data` variable.
+The following example shows the text entered in the richtext enabled field `bodytext`, using the html
+saved by the richtext editor:
 
 .. code-block:: html
 
@@ -192,8 +215,7 @@ field `bodytext` formatted using the defined richtext configuration:
 4. Optional: Configure Custom Backend Preview
 =============================================
 
-If you want to generate a special preview in the backend "Web > Page" module, you can use
-a hook for this:
+If you want to generate a special preview in the backend :guilabel:`Web > Page` module, you can use a hook for this:
 
 .. code-block:: php
 
@@ -201,8 +223,8 @@ a hook for this:
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['yourextensionkey_newcontentelement'] =
       \Vendor\YourExtensionKey\Hooks\PageLayoutView\NewContentElementPreviewRenderer::class;
 
-The preview renderer :file:`NewContentElementPreviewRenderer.php`, for the backend, has
-been put in the directory :file:`Classes/Hooks/PageLayoutView/` and could look like this:
+According to the used namespace, a new file :file:`Classes/Hooks/PageLayoutView/NewContentElementPreviewRenderer.php`
+has to be created with the following content:
 
 .. code-block:: php
 
@@ -222,8 +244,8 @@ been put in the directory :file:`Classes/Hooks/PageLayoutView/` and could look l
     * The TYPO3 project - inspiring people to share!
     */
 
-   use \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
-   use \TYPO3\CMS\Backend\View\PageLayoutView;
+   use TYPO3\CMS\Backend\View\PageLayoutView;
+   use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 
    /**
     * Contains a preview rendering for the page module of CType="yourextensionkey_newcontentelement"
@@ -271,9 +293,14 @@ been put in the directory :file:`Classes/Hooks/PageLayoutView/` and could look l
 6. Optional: Use Data Processors
 ================================
 
-You can use data processors for some data manipulation or other actions you would like to perform before passing everything to the view.
-This is done in the :ref:`dataProcessing <t3tsref:cobj-fluidtemplate-properties-dataprocessing>` section where you can add an arbitrary number of data processors,
-each with a fully qualified class name (FQCN) and optional parameters to be used in the data processor:
+Data processors can be used for some data manipulation or other actions you
+would like to perform before passing everything to the view.
+
+This is done in the :ref:`dataProcessing <t3tsref:cobj-fluidtemplate-properties-dataprocessing>`
+section where you can add an arbitrary number of data processors.
+
+Each one has to be added with a fully qualified class name (FQCN) and optional
+parameters to be used in the data processor:
 
 .. code-block:: typoscript
 
@@ -290,9 +317,8 @@ each with a fully qualified class name (FQCN) and optional parameters to be used
        }
    }
 
-In the example :file:`setup.typoscript` above, the data processor is located in the directory
-:file:`Classes/DataProcessing/`. The file :file:`NewContentElementProcessor.php` could
-look like this:
+In the example :file:`setup.typoscript` above, the data processor is located in the directory :file:`Classes/DataProcessing/`.
+The file :file:`NewContentElementProcessor.php` could look like this:
 
 .. code-block:: php
 
@@ -344,9 +370,8 @@ look like this:
    }
 
 
-Just to show the variable `variableName`,
-like defined above,
-you can use the following markup:
+To use the variable `variableName` defined in :ref:`ConfigureCE-Data-Processor`
+as h1 headline, you can use the following markup:
 
 .. code-block:: html
 
