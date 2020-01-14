@@ -123,9 +123,11 @@ and executes it twice with different arguments:
         ->getSQL();
     $statement = $connection->executeQuery($sqlStatement, [ 24 ]);
     $result1 = $statement->fetch();
+    $statement->closeCursor(); // free the resources for this result
     $statement->bindValue(1, 25);
     $statement->execute();
     $result2 = $statement->fetch();
+    $statement->closeCursor(); // free the resources for this result
 
 
 Looking at a mysql debug log:
