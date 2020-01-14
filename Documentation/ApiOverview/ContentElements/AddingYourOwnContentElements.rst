@@ -2,9 +2,13 @@
 
 .. _adding-your-own-content-elements:
 
-================================
-Adding Your Own Content Elements
-================================
+=======================
+Custom Content Elements
+=======================
+
+This page explains how to create your own custom content element types, in
+addition to the content elements already supplied by TYPO3. You can find
+more code examples in the system extension `fluid_styled_content`.
 
 A content element can be based on already available fields in the `tt_content` table and/or extra fields you can add to the `tt_content` table.
 This is done the same way as you do for your own extensions by :ref:`extending TCA <extending-tca>`.
