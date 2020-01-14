@@ -40,12 +40,12 @@ plugin is `registration`.
           }
       }
 
-You may want to replace title and description, using language files for translation, for example:
+   You may want to replace title and description, using language files for translation, for example:
 
-.. code-block:: typoscript
+   .. code-block:: typoscript
 
-   title = LLL:EXT:example/Resources/Private/Language/locallang.xml:registration_title
-   description = LLL:EXT:exapmle/Resources/Private/Language/locallang.xml:registration_description
+      title = LLL:EXT:example/Resources/Private/Language/locallang.xml:registration_title
+      description = LLL:EXT:exapmle/Resources/Private/Language/locallang.xml:registration_description
 
 #. Include TSconfig
 
