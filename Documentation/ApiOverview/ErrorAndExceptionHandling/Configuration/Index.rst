@@ -85,7 +85,7 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
          The :code:`E_*` constant that will be handled as an exception by the error
          handler.
 
-         Default: :code:`E_ALL ^ E_NOTICE ^ E_WARNING ^ E_USER\_ERROR ^ E_USER\_NOTICE ^ E_USER\_WARNING`
+         Default: :code:`E_ALL ^ E_NOTICE ^ E_WARNING ^ E_USER_ERROR ^ E_USER_NOTICE ^ E_USER_WARNING`
          (4341) and "0" if :code:`$TYPO3_CONF_VARS[SYS][displayErrors] = 0`.
 
          Refer to the PHP documentation for more details on this value.
