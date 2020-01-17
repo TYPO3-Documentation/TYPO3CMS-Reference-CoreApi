@@ -41,8 +41,16 @@ area. This behaviour is done automatically with every AJAX call to
 "ajax.php" made through Prototype's AJAX classes. This responder is
 also only active if "typo3/js/common.js" is added to the base script.
 
+.. todo: update this and add link
+
+
+.. Label for extdirect is missing
+.. Since TYPO3 4.4, ExtJS is used instead for AJAX calls. TYPO3 even
+.. supports usage of :ref:`Ext.Direct <extdirect>`.
+
 Since TYPO3 4.4, ExtJS is used instead for AJAX calls. TYPO3 even
-supports usage of :ref:`Ext.Direct<extdirect>`.
+48 supports usage of Ext.Direct.
+
 
 
 .. _ajax-server:
