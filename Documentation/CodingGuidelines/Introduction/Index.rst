@@ -1,18 +1,18 @@
 .. include:: ../Includes.txt
 
 
-.. _introduction:
+.. _cgl-introduction:
 
 Introduction
 ------------
 
 
-.. _about:
+.. _cgl-about:
 
-About this document
+About this chapter
 ^^^^^^^^^^^^^^^^^^^
 
-This document defines coding guidelines for the TYPO3 CMS project.
+This chapter defines coding guidelines for the TYPO3 CMS project.
 Following these guidelines is mandatory for TYPO3 core developers and
 contributors to the TYPO3 core.
 
@@ -27,7 +27,7 @@ structured and formatted. It does not teach how to program for TYPO3
 and does not provide technical information about TYPO3.
 
 
-.. _what-s-new:
+.. _cgl-what-s-new:
 
 What's new
 ^^^^^^^^^^
@@ -38,7 +38,7 @@ the coding of TYPO3 CMS 8.
 
 
 
-.. _credits:
+.. _cgl-credits:
 
 Credits
 ^^^^^^^
@@ -51,26 +51,7 @@ All changes go through an approval process by the
 TYPO3 Core Team.
 
 
-.. _feedback:
-.. _contribute:
-
-Contribute
-^^^^^^^^^^
-
-If you find an error in this manual, please be so kind to hit the
-“Edit me on GitHub” button in the top right corner and submit a pull request via GitHub.
-
-Alternatively you can just report an issue on GitHub .
-
-You can find more about this in :ref:`h2document:contribute`:
-
-Maintaining high quality documentation requires time and effort
-and the TYPO3 Documentation Team always appreciates support.
-
-Find out more about how to contact us on the `Documentation Team page <https://typo3.org/community/teams/documentation/#c9886>`__.
-
-
-.. _quality-assurance:
+.. _cgl-quality-assurance:
 
 The CGL as a means of quality assurance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -86,7 +67,7 @@ give a negative vote in the review system and point to the according
 problem.
 
 
-.. _conventions-in-this-document:
+.. _cgl-conventions-in-this-document:
 
 Conventions used in this document
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

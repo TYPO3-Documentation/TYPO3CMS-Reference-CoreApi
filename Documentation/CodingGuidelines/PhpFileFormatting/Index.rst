@@ -1,7 +1,7 @@
 .. include:: ../Includes.txt
 
 
-.. _php-file-formatting:
+.. _cgl-php-file-formatting:
 
 PHP file formatting
 -------------------

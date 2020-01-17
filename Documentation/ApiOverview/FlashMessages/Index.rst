@@ -52,7 +52,7 @@ of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`::
 
 
 Flash messages severities
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The severity is defined by using class constants provided by
 :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:

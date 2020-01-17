@@ -112,8 +112,10 @@ transformations do!
 Configuration
 """""""""""""
 
-Transformations are mainly defined in the
-:ref:`special configurations of the $TCA "types"-configuration <t3tca:special-configuration>`.
+.. todo:: add correct link here, special-configurations was removed from TCA reference
+
+.. Transformations are mainly defined in the
+.. :ref:`special configurations of the $TCA "types"-configuration <t3tca:special-configuration>`.
 
 In addition :ref:`transformations can be fine-tuned by Page TSconfig <transformations-tsconfig>`
 which means that RTE behaviour can be determined even on page branch level!

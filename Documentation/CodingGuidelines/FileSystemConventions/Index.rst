@@ -1,7 +1,7 @@
 .. include:: ../Includes.txt
 
 
-.. _file-system-conventions:
+.. _cgl-file-system-conventions:
 
 File system conventions
 -----------------------

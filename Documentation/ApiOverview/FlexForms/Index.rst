@@ -233,7 +233,7 @@ The conditions may for example depend on one or more other settings in the FlexF
 on database fields of current record or be defined by a user function.
 
 
-.. code-block::
+.. code-block:: xml
 
     <config>
         <type>select</type>

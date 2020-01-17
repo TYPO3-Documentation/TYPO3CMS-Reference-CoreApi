@@ -15,7 +15,7 @@ a :code:`\TYPO3\CMS\Core\Database\Query\QueryBuilder` instance::
 
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tablename');
 
-See the :ref:`Database Access API documentation <t3coreapi:database>` for details.
+See the :ref:`Database Access API documentation <database>` for details.
 
 For TYPO3 versions before 8 LTS
 -------------------------------

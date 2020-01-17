@@ -154,7 +154,7 @@ extensions with the name prefix "ext\_".
 
             Use such a file if you absolutely need to load some TS (because you would get serious errors without it).
             Otherwise static templates or usage of the
-            :ref:`Extension Management API <t3cmsapi:TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility>`
+            class :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility`
             are preferred.
 
  - :Filename: ext\_typoscript\_setup.txt
@@ -165,8 +165,8 @@ extensions with the name prefix "ext\_".
          .. warning::
 
             Use such a file if you absolutely need to load some TS (because you would get serious errors without it).
-            Otherwise static templates or usage of the
-            :ref:`Extension Management API <t3cmsapi:TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility>`
+            Otherwise static templates or usage of the class
+            :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility`
             are preferred.
 
  - :Filename: ext\_conf\_template.txt
@@ -275,8 +275,11 @@ Classes/ViewHelpers
   Helper classes used in the views.
 
 Configuration/TsConfig/Page
+  Page TSconfig, see `TSconfig Reference <https://docs.typo3.org/typo3cms/TSconfigReference/>`_.
+  Files should have the file extension :file:`.tsconfig`.
+
 Configuration/TsConfig/User
-  Page and User TSconfig, see `TSconfig Reference <https://docs.typo3.org/typo3cms/TSconfigReference/>`_.
+  User TSconfig, see `TSconfig Reference <https://docs.typo3.org/typo3cms/TSconfigReference/>`_.
   Files should have the file extension :file:`.tsconfig`.
 
 Configuration/TypoScript

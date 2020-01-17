@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _working-with-exceptions:
+.. _cgl-working-with-exceptions:
 
 Working with exceptions
 ^^^^^^^^^^^^^^^^^^^^^^^

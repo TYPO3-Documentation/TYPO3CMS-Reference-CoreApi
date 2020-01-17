@@ -1,7 +1,7 @@
 .. include:: ../../../Includes.txt
 
 
-.. _traits:
+.. _cgl-traits:
 
 Traits
 ^^^^^^

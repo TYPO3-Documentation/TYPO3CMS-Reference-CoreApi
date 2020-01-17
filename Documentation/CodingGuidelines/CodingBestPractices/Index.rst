@@ -1,7 +1,7 @@
 .. include:: ../Includes.txt
 
 
-.. _best-practices:
+.. _cgl-best-practices:
 
 Coding: Best practices
 ----------------------

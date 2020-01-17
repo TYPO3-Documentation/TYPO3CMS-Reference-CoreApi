@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: ../../../Includes.txt
 
 
 .. _storing-changes:
@@ -29,10 +29,10 @@ finely controlled. Indeed if your extension modifies another extension,
 your extension must be loaded *after* the extension you are modifying.
 This can be achieved by registering that other extension as
 a dependency of yours. See the
-:ref:`description of constraints in Core APIs <t3coreapi:extension-declaration>`.
+:ref:`description of constraints in Core APIs <extension-declaration>`.
 
 For more information about an extension's structure, please refer to the
-:ref:`extension architecture <t3coreapi:extension-architecture>` chapter in
+:ref:`extension architecture <extension-architecture>` chapter in
 Core APIs.
 
 

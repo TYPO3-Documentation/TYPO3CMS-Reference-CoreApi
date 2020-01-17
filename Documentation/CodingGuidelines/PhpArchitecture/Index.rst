@@ -1,7 +1,7 @@
 .. include:: ../Includes.txt
 
 
-.. _php-architecture:
+.. _cgl-php-architecture:
 
 PHP architecture
 ----------------

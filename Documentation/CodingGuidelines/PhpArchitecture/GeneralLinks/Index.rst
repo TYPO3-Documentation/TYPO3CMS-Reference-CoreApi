@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _general-links:
+.. _cgl-general-links:
 
 General links
 ^^^^^^^^^^^^^

@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _typo3-user-files:
+.. _cgl-typo3-user-files:
 
 TYPO3 files and user files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

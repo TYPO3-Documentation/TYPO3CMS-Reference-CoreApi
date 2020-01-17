@@ -1,7 +1,7 @@
 .. include:: ../../../Includes.txt
 
 
-.. _services:
+.. _cgl-services:
 
 Services
 ^^^^^^^^

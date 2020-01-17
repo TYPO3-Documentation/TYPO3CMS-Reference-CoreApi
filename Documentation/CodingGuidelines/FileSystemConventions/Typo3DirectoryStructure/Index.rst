@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _typo3-directory-structure:
+.. _cgl-typo3-directory-structure:
 
 TYPO3 directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^

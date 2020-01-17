@@ -1,6 +1,6 @@
-.. include:: ../Includes.txt
+.. include:: ../../Includes.txt
 
-
+.. _extending-tca:
 .. _extending:
 
 Extending the $TCA array

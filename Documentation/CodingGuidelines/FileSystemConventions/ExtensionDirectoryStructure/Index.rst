@@ -1,14 +1,14 @@
 .. include:: ../../Includes.txt
 
 
-.. _extension-directory-structure:
+.. _cgl-extension-directory-structure:
 
 Extension directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 An extension directory can contain the following files and directories, of which
 many are optional. Note that this list is incomplete. A full list is available in
-:ref:`t3coreapi:extension-files-locations`.
+:ref:`extension-files-locations`.
 
 
 .. ### BEGIN~OF~TABLE ###

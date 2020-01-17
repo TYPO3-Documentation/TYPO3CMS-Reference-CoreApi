@@ -1,7 +1,7 @@
 .. include:: ../../Includes.txt
 
 
-.. _file-names:
+.. _cgl-file-names:
 
 File names
 ^^^^^^^^^^
