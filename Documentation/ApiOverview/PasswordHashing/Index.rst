@@ -106,8 +106,8 @@ users from short passwords or simple passwords that can be found in a dictionary
 good idea to force users to register with a password that for instance at least has some minimum length.
 
 
-How does it look like?
-======================
+What does it look like?
+=======================
 
 Below is an example of a frontend user with its stored password hash. Since TYPO3 can handle multiple
 different hash mechanisms in parallel, each hash is prefixed with a unique string that identifies the
