@@ -2,9 +2,9 @@
 
 .. _adding-your-own-content-elements:
 
-=======================
-Custom Content Elements
-=======================
+==============================
+Create Custom Content Elements
+==============================
 
 This page explains how to create your own custom content element types, in
 addition to the content elements already supplied by TYPO3. You can find
