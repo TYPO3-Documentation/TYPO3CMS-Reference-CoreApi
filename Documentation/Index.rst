@@ -3,11 +3,8 @@
 .. _start:
 
 ===============
-TYPO3 Core APIs
+TYPO3 Explained
 ===============
-
-:Previous Key:
-      doc_core_api
 
 :Version:
       |release|
@@ -33,9 +30,6 @@ TYPO3 Core APIs
 :License:
       Open Publication License available from `www.opencontent.org/openpub/
       <http://www.opencontent.org/openpub/>`_
-
-:Rendered:
-      |today|
 
 The content of this document is related to TYPO3 CMS,
 a GNU/GPL CMS/Framework available from `www.typo3.org

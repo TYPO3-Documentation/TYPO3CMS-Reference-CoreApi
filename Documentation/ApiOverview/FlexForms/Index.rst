@@ -233,7 +233,7 @@ The conditions may for example depend on one or more other settings in the FlexF
 on database fields of current record or be defined by a user function.
 
 
-.. code-block::
+.. code-block:: xml
 
     <config>
         <type>select</type>
@@ -297,12 +297,11 @@ method can be used:
 How to Access FlexForms From TypoScript
 ---------------------------------------
 
+.. todo:: Add better link to TypoScript reference.
+
 It's possible to read values from FlexForms within TypoScript, this is explained
-within the TypoScript Reference:
+within the :ref:`TypoScript Reference <t3tsref:start>`.
 
-.. seealso::
-
-   * :ref:`t3tsref:data-type-gettext-flexform`
 
 
 .. _read-flexforms-fluid:

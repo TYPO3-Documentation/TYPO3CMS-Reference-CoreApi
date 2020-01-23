@@ -14,16 +14,18 @@ and :ref:`XCLASS <xclasses>` handling.
 
 As a developer you should always instantiate classes either through
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` or with the Extbase
-:ref:`ObjectManager <t3cmsapi:TYPO3\\CMS\\Extbase\\Object\\ObjectManager>`
+:php:`ObjectManager`
 (which internally uses :php:`makeInstance()` again).
 
 .. _autoloading_since_typo3_7:
+
 Autoloading classes since TYPO3 7.x
 ===================================
 
 TYPO3 6.2 was still delivered with a couple of different autoloaders, that all had different approaches and rules to find a class. This led to the naming conventions in and outside extbase and the optional `ext_autoload.php` file to load classes that didn't follow the conventions. Since TYPO3 7.0 all this is gone and there is only a single autoloader left, the one of composer. No matter if you run TYPO3 in composer mode or not, TYPO3 uses the composer autoloader to resolve all class file locations. However, the autoloader is little bit more sophisticated in composer mode as it then supports `PSR-4` autoloading.
 
 .. _autoloading_without_composer_mode:
+
 Loading classes without composer mode
 =====================================
 
@@ -64,6 +66,7 @@ If your classes cannot be found, try the following approaches.
 - If you are still not lucky, the issue is definitely on your side and you should double check the write permissions on typo3temp.
 
 .. _autoloading_with_composer_mode:
+
 Loading classes with composer mode
 ==================================
 

@@ -1,8 +1,3 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
 .. include:: Includes.txt
 
 
@@ -27,7 +22,7 @@ below:
   Services are libraries which can be loaded flexibly based on various
   conditions.
 
-:ref:`t3fal:start`
+:ref:`t3fal:start` (8.7)
   The complete reference for the File Abstraction Layer introduced in TYPO3 CMS 6.0.
 
 :ref:`t3inside:start`
