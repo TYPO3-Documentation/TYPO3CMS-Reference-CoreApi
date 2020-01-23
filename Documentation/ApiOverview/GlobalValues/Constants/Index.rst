@@ -1,10 +1,4 @@
-
 .. include:: ../../../Includes.txt
-
-
-
-
-
 
 .. _globals-constants:
 
@@ -23,8 +17,8 @@ These constants are defined at various points during the bootstrap sequence.
    To make the table below a bit more compact, namespaces were left out. Here
    are the fully qualified class names referred to below:
 
-   - "SystemEnvironmentBuilder" = :ref:`t3cmsapi:TYPO3\\CMS\\Core\\Core\\SystemEnvironmentBuilder`
-   - "Bootstrap" = :ref:`t3cmsapi:TYPO3\\CMS\\Core\\Core\\Bootstrap`
+   - "SystemEnvironmentBuilder" = :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder`
+   - "Bootstrap" = :php:`\TYPO3\CMS\Core\Core\Bootstrap`
 
 
 Table 1: Traditional List
@@ -279,7 +273,7 @@ Table 1: Traditional List
 Table 2: Base Constants
 -----------------------
 
-Check :ref:`t3cmsapi:TYPO3\\CMS\\Core\\Core\\SystemEnvironmentBuilder::defineBaseConstants`
+Check :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder::defineBaseConstants`
 for updates.
 
 

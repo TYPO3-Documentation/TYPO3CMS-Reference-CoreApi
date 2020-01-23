@@ -1,13 +1,4 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
 .. include:: ../../../Includes.txt
-
-
-
-
 
 
 .. _ajax-backend:
@@ -83,7 +74,7 @@ This code must be located in an extension's :file:`ext_tables.php` file.
 
 The target method receives an array of parameters (depending on the call
 context) and a backreference to the general AJAX handler
-:ref:`(\\TYPO3\\CMS\\Core\\Http\\AjaxRequestHandler <t3cmsapi:TYPO3\\CMS\\Core\\Http\\AjaxRequestHandler>`).
+:php:`(\TYPO3\CMS\Core\Http\AjaxRequestHandler`).
 The API of this object is used to set the content to output or to write an
 error message if something went wrong.
 
