@@ -1,13 +1,4 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
 .. include:: ../../Includes.txt
-
-
-
-
 
 
 .. _categories:
@@ -65,7 +56,7 @@ The default value is :code:`pages,tt_content,sys_file_metadata`.
 
 The second way is to call :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable()`.
 This method adds a new entry into the registry managed by
-:ref:`\\TYPO3\\CMS\\Core\\Category\\CategoryRegistry <t3cmsapi:TYPO3\\CMS\\Core\\Category\\CategoryRegistry>`.
+:php:`\TYPO3\CMS\Core\Category\CategoryRegistry`.
 The registry will take care of adding the relevant :ref:`$TCA <t3tca:start>` definition to
 create a field for making relations to the system categories.
 The call to :code:`makeCategorizable()` must be located in an extension's
@@ -170,7 +161,7 @@ System categories API
 ^^^^^^^^^^^^^^^^^^^^^
 
 Beyond :code:`makeCategorizable()`, class
-:ref:`\\TYPO3\\CMS\\Core\\Category\\CategoryRegistry <t3cmsapi:TYPO3\\CMS\\Core\\Category\\CategoryRegistry>`
+:php:`\TYPO3\CMS\Core\Category\CategoryRegistry`
 has many other methods related to the management of
 categorized table. The best way to discover is to follow
 the link above and explore the methods provided by this class.
@@ -183,10 +174,10 @@ most of the time.
 Category collections
 ^^^^^^^^^^^^^^^^^^^^
 
-The :ref:`\\TYPO3\\CMS\\Core\\Category\\Collection\\CategoryCollection <t3cmsapi:TYPO3\\CMS\\Core\\Category\\Collection\\CategoryCollection>`
+The :php:`\TYPO3\CMS\Core\Category\Collection\CategoryCollection`
 classe provides the API for retrieving records related
 to a given category. Since TYPO3 CMS 6.2, it is extended by class
-:ref:`\\TYPO3\\CMS\\Frontend\\Category\\Collection\\CategoryCollection <t3cmsapi:TYPO3\\CMS\\Frontend\\Category\\Collection\\CategoryCollection>`
+:php:`\TYPO3\CMS\Frontend\Category\Collection\CategoryCollection`
 which does the same job but in the frontend, i.e.
 respecting all enable fields and performing version
 and language overlays.

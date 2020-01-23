@@ -1,14 +1,4 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
 .. include:: ../../Includes.txt
-
-
-
-
-
 
 .. _autoload:
 
@@ -21,7 +11,7 @@ and :ref:`XCLASS <xclasses>` handling.
 
 As a developer you should always instantiate classes either through
 :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` or with the Extbase
-:ref:`ObjectManager <t3cmsapi:TYPO3\\CMS\\Extbase\\Object\\ObjectManager>`
+:php:`ObjectManager`
 (which internally uses :code:`makeInstance()` again).
 
 .. important::

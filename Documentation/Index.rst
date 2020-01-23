@@ -12,14 +12,11 @@
 .. _start:
 
 ===============
-TYPO3 Core APIs
+TYPO3 Explained
 ===============
 
-:Previous Key:
-      doc_core_api
-
 :Version:
-      6.2.0
+      6.2
 
 :Language:
       en
@@ -43,8 +40,6 @@ TYPO3 Core APIs
       Open Content License available from `www.opencontent.org/opl.shtml
       <http://www.opencontent.org/opl.shtml>`_
 
-:Rendered:
-      |today|
 
 The content of this document is related to TYPO3 CMS,
 a GNU/GPL CMS/Framework available from `www.typo3.org
