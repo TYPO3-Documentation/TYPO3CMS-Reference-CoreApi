@@ -1,10 +1,4 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
 .. include:: ../../Includes.txt
-
 
 .. _extension-files-locations:
 
@@ -159,7 +153,7 @@ extensions with the name prefix "ext\_".
 
             Use such a file if you absolutely need to load some TS (because you would get serious errors without it).
             Otherwise static templates or usage of the
-            :ref:`Extension Management API <t3cmsapi:TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility>`
+            Extension Management API (:php:`ExtensionManagementUtility`)
             are preferred.
 
  - :Filename: ext\_typoscript\_setup.txt
@@ -171,7 +165,7 @@ extensions with the name prefix "ext\_".
 
             Use such a file if you absolutely need to load some TS (because you would get serious errors without it).
             Otherwise static templates or usage of the
-            :ref:`Extension Management API <t3cmsapi:TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility>`
+            Extension Management API (:php:`ExtensionManagementUtility`)
             are preferred.
 
  - :Filename: ext\_conf\_template.txt
@@ -263,9 +257,6 @@ extensions and recommended for all extensions anyway.
 
 In order to use :ref:`namespaces`, class files **must** be located in a
 :file:`Classes` folder.
-
-Refer to the :ref:`Extbase and Fluid <t3extbasebook:start>` book for more information
-on extension structure. Also look at the "examples" extension.
 
 The `Extension Builder extension <http://typo3.org/extensions/repository/view/extension_builder>`_
 will create the right structure for you. It is described below:
