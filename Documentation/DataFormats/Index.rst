@@ -5,11 +5,9 @@
 Data Formats
 ============
 
-**Contents:**
+**Table of contents**
 
 .. toctree::
 
    T3datastructure/Index
    T3locallang/Index
-
-
