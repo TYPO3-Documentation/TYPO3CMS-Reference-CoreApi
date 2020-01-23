@@ -1,3 +1,5 @@
+:orphan:
+
 .. include:: ../Includes.txt
 
 
@@ -5,8 +7,10 @@
 Data Formats
 ============
 
-.. toctree::
+This content has moved to:
 
-   T3datastructure/Index
+.. rst-class:: horizbuttons-tip-xxl
 
+
+- :ref:`t3ds`
 

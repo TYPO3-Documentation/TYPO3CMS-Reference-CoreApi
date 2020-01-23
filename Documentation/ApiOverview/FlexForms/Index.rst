@@ -22,7 +22,6 @@ to use input fields, select lists, show options conditionally and more.
 Example Use Cases
 =================
 
-* Use the plugin to configure a different view, e.g. list, single
 * The `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__
   uses FlexForms to configure rendering options,
   e.g. a transition interval and transition type (slide, fade)
