@@ -39,6 +39,9 @@ http://api.typo3.org/documentation/.
    Mail/Index
    FormProtection/Index
    FlashMessages/Index
+   LinkBrowser/Index
+   TypoScriptSyntax/Index
+   FlexForms/Index
    Categories/Index
    Collections/Index
    Http/Index
