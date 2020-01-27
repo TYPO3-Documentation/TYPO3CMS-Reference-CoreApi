@@ -54,8 +54,8 @@ Subsequently:
            "typo3/cms-core": "^9.5 || ^10.1"
        },
        "replace": {
-        "vendorname/my-extension": "self.version",
-        "typo3-ter/my-extension": "self.version"
+           "vendorname/my-extension": "self.version",
+           "typo3-ter/my-extension": "self.version"
        },
        "extra": {
            "typo3/cms": {
@@ -64,7 +64,8 @@ Subsequently:
        },
        "autoload": {
            "psr-4": {
-           "Vendorname\\MyExtension\\": "Classes/"
+               "Vendorname\\MyExtension\\": "Classes/"
+           }
        }
    }
 
