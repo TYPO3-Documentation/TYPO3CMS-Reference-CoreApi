@@ -1,12 +1,3 @@
-:orphan:
-
-.. -------------------------------------------------
-.. Note for editors:
-..   This page is currently not included in the menu
-..   We may add it again, once it is reworked and
-..   extended to explain the basic concepts of TYPO3
-.. -------------------------------------------------
-
 .. include:: ../Includes.txt
 
 .. _introduction:
@@ -15,7 +6,7 @@
 Introduction
 ============
 
-
+.. _system-overview:
 .. _overview:
 
 System Overview

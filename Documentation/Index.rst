@@ -90,6 +90,10 @@ address the task at hand.
 
    Quicklinks
 
+.. toctree::
+   :maxdepth: 1
+
+   Introduction/Index
 
 .. toctree::
    :maxdepth: 2
@@ -119,6 +123,7 @@ address the task at hand.
 .. toctree::
    :maxdepth: 2
 
+   ApiOverview/GlobalValues/Constants/Index
    ApiOverview/ContentElements/Index
    ApiOverview/Context/Index
    ApiOverview/ContextSensitiveHelp/Index
