@@ -13,7 +13,7 @@ more code examples in the system extension `fluid_styled_content`.
 A content element can be based on fields already available in the `tt_content` table.
 
 It is also possible to add extra fields that can be added to the `tt_content` table.
-Adding fields is done by :ref:`extending the TCA <t3coreapi:extending>`.
+Adding fields is done by :ref:`extending the TCA <extending-tca>`.
 
 Depending on the data in the `tt_content` table,
 the data can be passed to the :ref:`cobj-fluidtemplate`.
@@ -40,7 +40,7 @@ Use an extension
 We recommend to create your own extension for adding content elements.
 The following example uses the extension key `your_extension_key`.
 
-If you have plans to publish your extension, follow :ref:`t3coreapi:extension-key-registration`.
+If you have plans to publish your extension, follow :ref:`extension-key-registration`.
 
 .. _AddingCE-PageTSconfig:
 .. _RegisterCE:
@@ -72,7 +72,7 @@ The example content element is called `yourextensionkey_newcontentelement`:
        show := addToList(yourextensionkey_newcontentelement)
    }
 
-You need to :ref:`register the icon identifier <t3coreapi:icon-registration>` with the icon API in your :file:`ext_localconf.php`.
+You need to :ref:`register the icon identifier <icon-registration>` with the icon API in your :file:`ext_localconf.php`.
 
 In order to allow to select the type of content element,
 it has to be added to the :guilabel:`Type` dropdown.
@@ -369,7 +369,7 @@ The file :file:`NewContentElementProcessor.php` could look like this:
    }
 
 
-To use the variable `variableName` defined in :ref:`ConfigureCE-Data-Processor`
+To use the variable `variableName`
 as h1 headline, you can use the following markup:
 
 .. code-block:: html

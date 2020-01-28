@@ -1,6 +1,7 @@
+:orphan:
+
 .. include:: ../../../Includes.txt
 
-:orphan:
 
 =====
 Moved

@@ -81,7 +81,7 @@ Classes involved in the backend bootstrapping process are :php:`\TYPO3\CMS\Core\
 The following steps are performed during bootstrapping.
 
 1. Define Legacy Constants
-""""""""""""""""""""""""""
+--------------------------
 
 In :php:`Application::defineLegacyConstants` some constants are defined, which will eventually
 be dropped, but are still initialized for now.

@@ -49,7 +49,7 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 
 #. TYPO3 will call the first middleware with request and the next middleware.
 
-#. Each middleware is processed, see :ref:`request-handling-middleware`.
+#. Each middleware is processed, see :ref:`request-handling-middlewares`.
 
 #. In the end each middleware has to return a PSR-7 response.
 

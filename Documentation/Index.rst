@@ -11,7 +11,6 @@ TYPO3 Explained
 
 - :ref:`Configuration <configuration>`
 - :ref:`Doctrine-dbal <database>`
-- :ref:`DependencyInjection`
 - :ref:`FAL <fal>`
 - :ref:`Internationalization <internationalization>`
 - :ref:`PSR-15 middlewares <request-handling>`
@@ -109,7 +108,6 @@ address the task at hand.
    ApiOverview/BackendRouting/Index
    ApiOverview/BackendUserObject/Index
    ApiOverview/Bootstrapping/Index
-   ApiOverview/BroadcastChannels/Index
    ApiOverview/CachingFramework/Index
    CodingGuidelines/Index
 
@@ -124,11 +122,8 @@ address the task at hand.
    ApiOverview/ContentElements/Index
    ApiOverview/Context/Index
    ApiOverview/ContextSensitiveHelp/Index
-   ApiOverview/FileProcessing/Index
    ApiOverview/Database/Index
    DataFormats/Index
-   ApiOverview/DependencyInjection/Index
-   ApiOverview/Deprecation/Index
    ApiOverview/Fal/Index
    ApiOverview/DirectoryStructure/Index
    ApiOverview/Enumerations/Index
@@ -149,7 +144,6 @@ address the task at hand.
    ApiOverview/Mail/Index
    ApiOverview/Namespaces/Index
    ApiOverview/PageTypes/Index
-   ApiOverview/Pagination/Index
    ApiOverview/PasswordHashing/Index
    ApiOverview/RequestHandling/Index
    ApiOverview/Rte/Index

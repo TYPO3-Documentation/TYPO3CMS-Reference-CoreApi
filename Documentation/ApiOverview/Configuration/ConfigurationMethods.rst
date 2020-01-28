@@ -44,7 +44,7 @@ Additionally, some system extensions use yaml for configuration:
 * :ref:`form <form:concepts-configuration>`
 * :ref:`rte_ckeditor <ckedit:configuration>`
 
-.. toctree:: 1
+.. toctree::
    :maxdepth: 1
 
    ../GlobalValues/Constants/Index
