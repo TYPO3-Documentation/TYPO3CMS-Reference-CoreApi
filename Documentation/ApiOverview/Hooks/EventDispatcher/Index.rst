@@ -3,9 +3,9 @@
 
 .. _EventDispatcher:
 
-=============
-PSR-14 Events
-=============
+===============================
+EventDispatcher (PSR-14 Events)
+===============================
 
 The EventDispatcher system was added to extend TYPO3's Core behaviour in TYPO3 10.0 via PHP code. In the past,
 this was done via Extbase's SignalSlot and TYPO3's custom hook system. The new EventDispatcher

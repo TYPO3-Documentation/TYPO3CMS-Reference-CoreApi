@@ -1,10 +1,19 @@
+:orphan:
+
 .. include:: ../Includes.txt
 
-.. _api-overview:
+
 
 ============
 API Overview
 ============
+
+For a list of TYPO3 features, see the
+
+.. rst-class:: horizbuttons-tip-xxl
+
+- :ref:`Sitemap`
+
 
 The TYPO3 APIs are first and foremost documented inside of the source
 scripts. It would be impossible to maintain documentation at more than
@@ -14,172 +23,4 @@ This chapter describes the most important elements of the API.
 .. note::
 
    The source is the documentation! (General wisdom)
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   DirectoryStructure/Index
-
-
-GLOBAL PROPERTIES
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Environment/Index
-   Context/Index
-   GlobalValues/Index
-
-
-BOOTSTRAPPING
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Namespaces/Index
-   Autoloading/Index
-   Bootstrapping/Index
-   RequestHandling/Index
-
-DATABASE & FILES
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Database/Index
-   Typo3CoreEngine/Index
-   Fal/Index
-
-CONFIGURATION
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Configuration/Index
-   TypoScriptSyntax/Index
-   SymfonyExpressionLanguage/Index
-   Yaml/Index
-   Tsconfig/Index
-   FeatureToggles/Index
-   UserSettingsConfiguration/Index
-   FlexForms/Index
-
-CACHING
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   CachingFramework/Index
-
-LOGGING, ERRORS, EXCEPTIONS
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Logging/Index
-   SystemLog/Index
-   Deprecation/Index
-   ErrorAndExceptionHandling/Index
-
-BACKEND
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   AccessControl/Index
-   BackendModules/Index
-   BackendRouting/Index
-   BackendUserObject/Index
-   BackendLayout/Index
-   BroadcastChannels/Index
-   FlashMessages/Index
-   FormEngine/Index
-   JavaScript/Index
-   LinkBrowser/Index
-   Rte/Index
-
-HANDLING SITES, URLS, LANGUAGES
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   SiteHandling/Index
-   Internationalization/Index
-   Routing/Index
-
-SECURITY, AUTHENTICATION, PASSWORDS, ...
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Authentication/Index
-   PasswordHashing/Index
-   FormProtection/Index
-
-UPDATES
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   UpdateWizards/Index
-   ExtensionScanner/Index
-
-SEO & SOCIAL MEDIA
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Seo/Index
-   MetaTagApi/Index
-   PageTitleApi/Index
-   XmlSitemap/Index
-
-HOOKS, SIGNALS, XCLASSES
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Hooks/Index
-   Xclasses/Index
-
-VARIOUS
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   CommandControllers/Index
-   ContentElements/Index
-   ContextSensitiveHelp/Index
-   Enumerations/Index
-   FileProcessing/Index
-   Http/Index
-   Icon/Index
-   LockingApi/Index
-   Mail/Index
-   PageTypes/Index
-   Pagination/Index
-   SessionStorageFramework/Index
-   Services/Index
-   SoftReferences/Index
-   Categories/Index
-   Collections/Index
-   SystemRegistry/Index
-   Workspaces/Index
-   DependencyInjection/Index
-
-
 

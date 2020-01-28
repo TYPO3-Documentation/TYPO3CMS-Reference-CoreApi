@@ -1,3 +1,5 @@
+:orphan:
+
 .. include:: ../../Includes.txt
 
 .. _globals:
@@ -10,11 +12,10 @@ After TYPO3's bootstrap sequence has completed, a number of
 global variables, constants and classes are available to any script.
 
 
-.. toctree::
-   :titlesonly:
+.. the toctree is now in ApiOverview/ConfigurationMethods.rst
 
-   Constants/Index
-   GlobalVariables/Index
-   Typo3ConfVars/Index
+* :ref:`globals-constants`
+* :ref:`globals-variables`
+* :ref:`typo3ConfVars`
 
 
