@@ -50,7 +50,7 @@ Additionally, some system extensions use yaml for configuration:
 **Table of Contents**
 
 More information can be found in these subchapters, the arrow `➜` indicates that
-you will directed to another manual.
+you will be directed to another manual or to a different section in this manual.
 
 
 .. toctree:: 1
