@@ -39,3 +39,6 @@ More information can be found in these subchapters.
 
 .. toctree::
    :maxdepth: 1
+
+   ../TypoScriptSyntax/Index
+   ../Yaml/Index
