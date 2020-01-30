@@ -296,12 +296,35 @@ method can be used:
 How to Access FlexForms From TypoScript
 ---------------------------------------
 
-It's possible to read values from FlexForms within TypoScript, this is explained
-within the TypoScript Reference:
+.. note::
+
+   Since TYPO3 8.4, it is possible to read FlexForm properties from TypoScript 
+   (`Changelog <https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/8.4/Feature-17309-AccessFlexformValueViaTS.html>`__).
+
+
+.. code-block:: typoscript
+
+    lib.flexformContent = CONTENT
+    lib.flexformContent {
+        table = tt_content
+        select {
+            pidInList = this
+        }
+
+        renderObj = COA
+        renderObj {
+            10 = TEXT
+            10 {
+                data = flexform: pi_flexform:settings.categories
+            }
+        }
+    }
+    
+The key `flexform` is followed by the field which holds the FlexForm data (`pi_flexform`) and the name of the property whose content should be retrieved (`settings.categories`).
 
 .. seealso::
 
-   * :ref:`t3tsref:data-type-gettext-flexform`
+   * :ref:`TypoScript: flexform <t3tsref:data-type-gettext-flexform>`
 
 
 .. _read-flexforms-fluid:
