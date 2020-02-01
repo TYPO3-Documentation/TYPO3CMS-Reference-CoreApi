@@ -222,10 +222,10 @@ message
 duration
    :sep:`|` :aspect:`Condition:` optional
    :sep:`|` :aspect:`Type:` number
-   :sep:`|` :aspect:`Default:` '5 (0 for :js:`error()`'
+   :sep:`|` :aspect:`Default:` '5 (0 for :js:`error()`)'
    :sep:`|`
 
-   The duration how long a notification will stay visible.
+   The amount of seconds how long a notification will stay visible. A value of `0` disables the timer.
 
 actions
    :sep:`|` :aspect:`Condition:` optional
@@ -304,7 +304,7 @@ Deferred action
 An action of type :js:`DeferredAction` (:js:`TYPO3/CMS/Backend/ActionButtons/DeferredAction`) is recommended when a
 long-lasting task is executed, e.g. an AJAX request.
 
-This class accepts a callback method which must return either a :js:`Promise`.
+This class accepts a callback method which must return a :js:`Promise`_.
 
 The :js:`DeferredAction` replaces the action button with a spinner icon to indicate a task will take some time. It's
 still possible to dismiss a notification, which will **not** stop the execution.
@@ -326,3 +326,4 @@ Example:
      ]);
    });
 
+.. _`Promise`: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
