@@ -304,7 +304,7 @@ Deferred action
 An action of type :js:`DeferredAction` (:js:`TYPO3/CMS/Backend/ActionButtons/DeferredAction`) is recommended when a
 long-lasting task is executed, e.g. an AJAX request.
 
-This class accepts a callback method which must return a :js:`Promise`_.
+This class accepts a callback method which must return a :js:`Promise` (read more at `developer.mozilla.org`_).
 
 The :js:`DeferredAction` replaces the action button with a spinner icon to indicate a task will take some time. It's
 still possible to dismiss a notification, which will **not** stop the execution.
@@ -326,4 +326,4 @@ Example:
      ]);
    });
 
-.. _`Promise`: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+.. _`developer.mozilla.org`: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
