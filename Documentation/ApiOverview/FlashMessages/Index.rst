@@ -184,21 +184,145 @@ as simple as moving the View Helper around.
 
 .. _flash-messages-javascript:
 
-JavaScript-based Flash Messages (Notifications API)
-===================================================
+JavaScript-based Flash Messages (Notification API)
+==================================================
 
-Flash messages can also be fired up from JavaScript, coming up
-as small pop up windows. This works only in the TYPO3 backend.
-Here is sample code:
+.. important::
+   The Notification API is designed for TYPO3 Backend purposes only.
 
-.. code-block:: javascript
+The TYPO3 Core provides a JavaScript-based API to trigger flash messages ("Notifications") that appear on the upper
+right corner of the TYPO3 backend. To use the Notification API, load the :js:`TYPO3/CMS/Backend/Notification` module and
+use one of its methods:
 
-    top.TYPO3.Notification.notice('Test-Notice', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr');
-    top.TYPO3.Notification.info('Test-Info', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr');
-    top.TYPO3.Notification.success('Test-OK', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr');
-    top.TYPO3.Notification.warning('Test-Warning', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr');
-    top.TYPO3.Notification.error('Test-Error', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr');
+* :js:`notice()`
+* :js:`info()`
+* :js:`success()`
+* :js:`warning()`
+* :js:`error()`
 
-The last parameter is the duration (in seconds) after which
-the message should fade out. 0 = sticky, means it will only
-disappears on user interaction.
+All methods accept the same arguments.
+
+.. rst-class:: dl-parameters
+
+title
+   :sep:`|` :aspect:`Condition:` required
+   :sep:`|` :aspect:`Type:` string
+   :sep:`|`
+
+   Contains the title of the notification.
+
+message
+   :sep:`|` :aspect:`Condition:` optional
+   :sep:`|` :aspect:`Type:` string
+   :sep:`|` :aspect:`Default:` ''
+   :sep:`|`
+
+   The actual message that describes the purpose of the notification.
+
+duration
+   :sep:`|` :aspect:`Condition:` optional
+   :sep:`|` :aspect:`Type:` number
+   :sep:`|` :aspect:`Default:` '5 (0 for :js:`error()`'
+   :sep:`|`
+
+   The duration how long a notification will stay visible.
+
+actions
+   :sep:`|` :aspect:`Condition:` optional
+   :sep:`|` :aspect:`Type:` array
+   :sep:`|` :aspect:`Default:` '[]'
+   :sep:`|`
+
+   Contains all actions that get rendered as buttons inside the notification.
+
+
+Example:
+
+.. code-block:: js
+
+   require(['TYPO3/CMS/Backend/Notification'], function(Notification) {
+     Notification.success('Well done', 'Whatever you did, it was successful.');
+   });
+
+
+Actions
+-------
+
+Since TYPO3 10.3 the Notification API may bind actions to a notification that execute certain tasks when invoked. Each
+action item is an object containing the fields :js:`label` and :js:`action`:
+
+.. rst-class:: dl-parameters
+
+label
+   :sep:`|` :aspect:`Condition:` required
+   :sep:`|` :aspect:`Type:` string
+   :sep:`|`
+
+   The label of the action item.
+
+action
+   :sep:`|` :aspect:`Condition:` required
+   :sep:`|` :aspect:`Type:` ImmediateAction|DeferredAction
+   :sep:`|`
+
+   An instance of either :js:`ImmediateAction` or :js:`DeferredAction`.
+
+.. important::
+   Any action **must** be optional to be executed. If triggering an action is mandatory, consider using Modals instead.
+
+Immediate action
+~~~~~~~~~~~~~~~~
+
+An action of type :js:`ImmediateAction` (:js:`TYPO3/CMS/Backend/ActionButtons/ImmediateAction`) is executed directly on
+click and closes the notification. This action type is suitable for e.g. linking to a backend module.
+
+The class accepts a callback method executing very simple logic.
+
+Example:
+
+.. code-block:: js
+
+   require(['TYPO3/CMS/Backend/Notification', 'TYPO3/CMS/Backend/ActionButtons/ImmediateAction'], function(Notification, ImmediateAction) {
+     const immediateActionCallback = new ImmediateAction(function () {
+       require(['TYPO3/CMS/Backend/ModuleMenu'], function (ModuleMenu) {
+         ModuleMenu.showModule('web_layout');
+       });
+     });
+
+     Notification.info('Nearly there', 'You may head to the Page module to see what we did for you', 10, [
+       {
+         label: 'Go to module',
+         action: immediateActionCallback
+       }
+     ]);
+   });
+
+
+Deferred action
+~~~~~~~~~~~~~~~
+
+An action of type :js:`DeferredAction` (:js:`TYPO3/CMS/Backend/ActionButtons/DeferredAction`) is recommended when a
+long-lasting task is executed, e.g. an AJAX request.
+
+This class accepts a callback method which must return either a :js:`Promise`.
+
+The :js:`DeferredAction` replaces the action button with a spinner icon to indicate a task will take some time. It's
+still possible to dismiss a notification, which will **not** stop the execution.
+
+Example:
+
+.. code-block:: js
+
+   require(['jquery', 'TYPO3/CMS/Backend/Notification', 'TYPO3/CMS/Backend/ActionButtons/DeferredAction'], function(Notification, DeferredAction) {
+     const deferredActionCallback = new DeferredAction(function () {
+       return Promise.resolve($.ajax(/* AJAX configuration */));
+     });
+
+     Notification.warning('Goblins ahead', 'It may become dangerous at this point.', 10, [
+       {
+         label: 'Delete the internet',
+         action: deferredActionCallback
+       }
+     ]);
+   });
+
