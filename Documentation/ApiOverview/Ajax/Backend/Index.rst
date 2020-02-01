@@ -2,9 +2,9 @@
 
 .. _ajax-backend:
 
-=========================================
-Developing With AJAX in the TYPO3 Backend
-=========================================
+=======
+Backend
+=======
 
 .. todo:: This section must be written
 
