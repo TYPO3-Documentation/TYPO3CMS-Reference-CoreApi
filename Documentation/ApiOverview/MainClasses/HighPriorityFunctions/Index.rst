@@ -766,7 +766,7 @@ This class is always accessed via its global instance :code:`$GLOBALS['BE_USER']
 TYPO3 Coding Guidelines
 """""""""""""""""""""""
 
-You should also refer to the :ref:`TYPO3 Core Coding Guidelines (CGL) <t3cgl:start>`
+You should also refer to the :ref:`TYPO3 Core Coding Guidelines (CGL) <cgl>`
 document which is the authoritative source to know about which coding
 practices are required for TYPO3 core and extension programming.
 
