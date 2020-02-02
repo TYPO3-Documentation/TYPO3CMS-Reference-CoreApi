@@ -101,6 +101,7 @@ address the task at hand.
    ApiOverview/Bootstrapping/Index
    CachingFramework/Index
    ApiOverview/Categories/Index
+   CodingGuidelines/Index
    ApiOverview/Collections/Index
    ApiOverview/Configuration/Index
    DataFormats/Index
