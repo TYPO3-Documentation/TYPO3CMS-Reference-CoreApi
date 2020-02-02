@@ -8,21 +8,21 @@
 Content Elements & Plugins
 ==========================
 
-.. todo:: add introductory text
+This chapter handles content elements & plugins: What they are, how they can be
+created, how existing content elements or plugins can be customized etc.
 
-.. - add introductory text explaining content elements and plugins
-..   - difference between content elements & plugins
-.. - add additional chapters / link to existing docs
-..   - create your own content elements (from fluid_styled_content docs)
-..   - create plugins : Extbase / AbstractPlugin
-
+**Table of Contents**
 
 .. toctree::
    :maxdepth: 1
    :titlesonly:
 
+   Introduction
    AddingYourOwnContentElements
+   CreatePlugins
    ContentElementsWizard
    ../FlexForms/Index
-   ..//BackendLayout/Index
+   ../DataFormats/T3datastructure/Index
+   ../BackendLayout/Index
+   BestPractices
 

@@ -2,9 +2,9 @@
 
 .. _content-element-wizard:
 
-=============================================
-Adding Elements to the Content Element Wizard
-=============================================
+==========================================
+Add Elements to the Content Element Wizard
+==========================================
 
 The content elements wizard is opened when a new content element is
 created.
