@@ -1,4 +1,4 @@
-.. include:: ../../../../Includes.txt
+.. include:: ../../../Includes.txt
 
 .. _ajax-client-side:
 
@@ -9,7 +9,7 @@ Client-Side Programming
 TYPO3 Core ships an API to send AJAX requests to the server. This API is based on the `fetch API`_, which is implemented
 in every modern browser (e.g. Chrome, Safari, Firefox, Edge).
 
-.. info::
+.. note::
    TYPO3 ships jQuery as well, but is considered discouraged for new code.
 
 
@@ -23,7 +23,7 @@ create a new instance of :js:`AjaxRequest` per request and pass the url as the c
 
    let request = new AjaxRequest('https://example.com/my-endpoint');
 
-The API offers a method :js:`withQueryString` which allows to attach a query string to the URL. This comes in handy if
+The API offers a method :js:`withQueryString()` which allows to attach a query string to the URL. This comes in handy if
 the query string is programmatically generated. The method returns a clone of the :js:`AjaxRequest` object. It's possible
 to pass either strings, arrays or objects as an argument.
 
@@ -60,7 +60,7 @@ Each of these methods set the corresponding request method (GET, POST, PUT, DELE
 
 data
    :sep:`|` :aspect:`Condition:` required
-   :sep:`|` :aspect:`Type:` object
+   :sep:`|` :aspect:`Type:` string | object
    :sep:`|`
 
    The payload to be sent as body in the request.
@@ -84,8 +84,9 @@ Example:
 .. note::
    The API presets the request configuration with :js:`{credentials: 'same-origin', signal: AbortController.signal}`.
 
-The body being sent is by default converted to a `FormData`_ object. To send a JSON-encoded object instead, set the
-`Content-Type` header to `application/json`.
+The body of the request is automatically converted to a `FormData`_ object, if the submitted payload is an object. To
+send a JSON-encoded object instead, set the `Content-Type` header to `application/json`.
+If the payload is a string, no conversion will happen, but it's still recommended to set proper headers.
 
 Example:
 
