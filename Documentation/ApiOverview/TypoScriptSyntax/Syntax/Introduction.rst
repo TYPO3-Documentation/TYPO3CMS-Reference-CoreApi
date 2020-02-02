@@ -34,7 +34,7 @@ The TYPO3 CMS backend contains tools that can be used to visualize the
 tree structure of TypoScript. They are described in the relevant
 section further of the two using reference documents
 :ref:`TypoScript Reference <t3tsref:typoscript-syntax-typoscript-templates>` and
-:ref:`TSconfig Reference <t3tsconfig:typoscript-syntax-using-setting>`.
+:ref:`TSconfig Reference <t3tsconfig:start>`.
 The above piece of TypoScript would look like this:
 
 .. figure:: ../Images/SyntaxIntroduction.png

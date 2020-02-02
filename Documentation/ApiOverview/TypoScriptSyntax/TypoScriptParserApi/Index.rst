@@ -15,5 +15,5 @@ The TypoScript Parser API
 
    Introduction
    CustomTypoScript
-   CustomConditions
+
 
