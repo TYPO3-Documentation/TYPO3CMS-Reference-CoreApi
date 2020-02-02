@@ -80,6 +80,7 @@ address the task at hand.
    Introduction/Index
    ExtensionArchitecture/Index
    ApiOverview/Index
+   CodingGuidelines/Index
    JavaScript/Index
    CachingFramework/Index
    Internationalization/Index
