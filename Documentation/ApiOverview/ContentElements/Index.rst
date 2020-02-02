@@ -25,7 +25,7 @@ system extension **fluid_styled_content**.
    CreatePlugins
    ContentElementsWizard
    ../FlexForms/Index
-   ../DataFormats/T3datastructure/Index
+   ../../DataFormats/T3datastructure/Index
    ../BackendLayout/Index
    BestPractices
 

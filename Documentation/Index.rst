@@ -128,7 +128,6 @@ address the task at hand.
    ApiOverview/Context/Index
    ApiOverview/ContextSensitiveHelp/Index
    ApiOverview/Database/Index
-   DataFormats/Index
    ApiOverview/Fal/Index
    ApiOverview/DirectoryStructure/Index
    ApiOverview/Enumerations/Index
