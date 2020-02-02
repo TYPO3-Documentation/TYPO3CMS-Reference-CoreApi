@@ -22,7 +22,7 @@ created, how existing content elements or plugins can be customized etc.
    CreatePlugins
    ContentElementsWizard
    ../FlexForms/Index
-   ../DataFormats/T3datastructure/Index
+   ../../DataFormats/T3datastructure/Index
    ../BackendLayout/Index
    BestPractices
 

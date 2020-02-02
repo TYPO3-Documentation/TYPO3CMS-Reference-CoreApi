@@ -131,7 +131,6 @@ address the task at hand.
    ApiOverview/ContextSensitiveHelp/Index
    ApiOverview/FileProcessing/Index
    ApiOverview/Database/Index
-   DataFormats/Index
    ApiOverview/DependencyInjection/Index
    ApiOverview/Deprecation/Index
    ApiOverview/Fal/Index
