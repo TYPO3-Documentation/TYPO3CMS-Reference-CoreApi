@@ -98,6 +98,7 @@ address the task at hand.
    :maxdepth: 2
 
    ApiOverview/Autoloading/Index
+   ApiOverview/BackendLayout/Index
    ApiOverview/BackendUserObject/Index
    ApiOverview/Bootstrapping/Index
    ApiOverview/CachingFramework/Index
