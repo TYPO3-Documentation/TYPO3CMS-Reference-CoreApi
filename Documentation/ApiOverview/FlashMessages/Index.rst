@@ -248,7 +248,7 @@ Example:
 Actions
 -------
 
-Since TYPO3 10.3 the Notification API may bind actions to a notification that execute certain tasks when invoked. Each
+Since TYPO3 10.1 the Notification API may bind actions to a notification that execute certain tasks when invoked. Each
 action item is an object containing the fields :js:`label` and :js:`action`:
 
 .. rst-class:: dl-parameters
