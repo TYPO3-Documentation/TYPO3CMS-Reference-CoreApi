@@ -64,7 +64,9 @@ languageId
     integer
 
 :aspect:`Description`
-    The TYPO3 sys_language_uid (the uid of the language record on pid 0)
+    For default/main language for the given site, use value '0'. For additional languages use
+    the TYPO3 sys_language_uid (the uid of the language record on pid 0).
+    Every site should have at last one language configured - with `languageId: 0`.
 
 :aspect:`Example`
     `1`
