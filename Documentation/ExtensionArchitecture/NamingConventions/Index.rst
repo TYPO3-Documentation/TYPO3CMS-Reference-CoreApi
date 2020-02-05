@@ -65,8 +65,6 @@ Private extensions
 
 
 
-Conventions
-===========
 
 Some of these "Conventions" are actually mandatory, meaning you **will** most likely
 run into problems if you do not adhere to them.
@@ -92,8 +90,8 @@ do not follow the conventions.
 
 .. _naming-conventions-extkey:
 
-Extension Key (extkey)
-----------------------
+Extension key (extkey)
+======================
 
 The extension key (extkey) is used **as is** in:
 
@@ -141,8 +139,8 @@ Here, extkey is `my_extension`:
      a dash)
 
 
-Vendor Name
------------
+Vendor name
+===========
 
 The vendor name is used in:
 
@@ -180,8 +178,8 @@ Examples:
    * `PSR-1 <https://www.php-fig.org/psr/psr-0/>`__
 
 
-Database Table Name
--------------------
+Database table name
+===================
 
 These rules apply to public extensions, but should be followed nevertheless.
 
@@ -210,8 +208,8 @@ Example for Extbase table name for the model "Post":
    You may notice, that the names above uses the singular, e.g. post and
    not posts. This is recommended, but not always followed.
 
-Backend Module Key
-------------------
+Backend module key
+==================
 
 The **main module key** SHOULD contain only lowercase characters. Do not use an
 underscore or dash.
@@ -246,8 +244,8 @@ Example usage::
 
 
 
-Plugin Key
-----------
+Plugin key
+==========
 
 The plugin key is registered in:
 
@@ -276,8 +274,8 @@ The plugin key used in :php:`registerPlugin()` and :php:`configurePlugin()` MUST
 
 .. _naming-conventions-plugin-signature:
 
-Plugin Signature
-----------------
+Plugin signature
+================
 
 The plugin signature is automatically created by TYPO3 from the extension key and plugin
 key.
@@ -306,8 +304,8 @@ Examples:
       first parameter of :php:`addPiFlexFormValue()`.
 
 
-Class Name
-----------
+Class name
+==========
 
 Class names SHOULD be in UpperCamelCase.
 
@@ -321,7 +319,7 @@ Examples:
 
 
 Extbase
--------
+=======
 
 Extbase has some of its own conventions.
 
@@ -333,7 +331,7 @@ Extbase has some of its own conventions.
 .. _extension-old-extensions:
 
 Note on "old" Extensions
-------------------------
+========================
 
 Some the "classic" extensions from before the extension structure came
 about do not comply with these naming conventions. That is an
