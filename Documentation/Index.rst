@@ -106,6 +106,7 @@ address the task at hand.
    :caption: TYPO3 A-Z
    :maxdepth: 2
 
+   ApiOverview/Ajax/Index
    ApiOverview/Authentication/Index
    ApiOverview/Autoloading/Index
    ApiOverview/AccessControl/Index
