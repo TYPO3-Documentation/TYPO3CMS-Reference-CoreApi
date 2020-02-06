@@ -1,15 +1,11 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
 .. include:: ../../../Includes.txt
 
 
 .. _logging-configuration:
 
+===================================
 Configuration of the Logging system
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===================================
 
 Instantiation of Loggers is configuration-free, as the LogManager automatically applies its configuration.
 
@@ -36,22 +32,22 @@ from Core classes (as extension class names start with :code:`tx` or :code:`Tx`)
 .. _logging-configuration-writer:
 
 Writer configuration
-""""""""""""""""""""
+====================
 
 The Log Writer configuration is read from the subkey :code:`writerConfiguration` of the configuration array:
 
 .. code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['writerConfiguration'] = array(
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['writerConfiguration'] = [
        // configuration for ERROR level log entries
-     \TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
-         // add a FileWriter
-       'TYPO3\\CMS\\Core\\Log\\Writer\\FileWriter' => array(
-           // configuration for the writer
-         'logFile' => 'typo3temp/logs/typo3_7ac500bce5.log'
-       )
-     )
-   );
+       \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
+           // add a FileWriter
+           \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+               // configuration for the writer
+               'logFile' => 'typo3temp/var/log/typo3_7ac500bce5.log'
+           ]
+       ]
+   ];
 
 The above configuration applies to **all** log entries of level "ERROR" or above.
 
@@ -60,14 +56,15 @@ use the following configuration:
 
 .. code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['writerConfiguration'] = array(
-		// configuration for WARNING severity, including all
-		// levels with higher severity (ERROR, CRITICAL, EMERGENCY)
-       \TYPO3\CMS\Core\Log\LogLevel::WARNING => array(
-        // add a SyslogWriter
-           'TYPO3\\CMS\\Core\\Log\\Writer\\SyslogWriter' => array(),
-       ),
-   );
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['writerConfiguration'] = [
+       // configuration for WARNING severity, including all
+       // levels with higher severity (ERROR, CRITICAL, EMERGENCY)
+       \TYPO3\CMS\Core\Log\LogLevel::WARNING => [
+           // add a SyslogWriter
+           \TYPO3\CMS\Core\Log\Writer\SyslogWriter::class => [],
+       ],
+   ];
+
 
 This overwrites the default configuration shown in the first example for classes
 located in the namespace :code:`\Documentation\Examples\Controller`.
@@ -76,9 +73,9 @@ For extension "foo" with key "tx_foo" (not using namespaces), the configuration 
 
 .. code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Tx']['Foo']['writerConfiguration'] = array(
-   	...
-   );
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Tx']['Foo']['writerConfiguration'] = [
+      // ...
+   ];
 
 An arbitrary number of writers can be added for every severity level (INFO, WARNING, ERROR, ...).
 The configuration is applied to log entries of the particular severity level
@@ -104,21 +101,21 @@ For a list of writers shipped with the TYPO3 Core see the section about
 .. _logging-configuration-processor:
 
 Processor configuration
-"""""""""""""""""""""""
+=======================
 
 Similar to the writer configuration, log record processors can be configured on a per-class and per-namespace
 basis from the subkey :code:`processorConfiguration`
 
 .. code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['processorConfiguration'] = array(
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['processorConfiguration'] = [
        // configuration for ERROR level log entries
-     \TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
-         // add a MemoyUsageProcessor
-       'TYPO3\\CMS\\Core\\Log\\Processor\\MemoryUsage' => array(
-         'formatSize' => TRUE
-       )
-     )
-   );
+       \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
+           // add a MemoryUsageProcessor
+           \TYPO3\CMS\Core\Log\Processor\MemoryUsageProcessor::class => [
+               'formatSize' => TRUE
+           ]
+       ]
+   ];
 
 For a list of processors shipped with the TYPO3 Core, see the section about :ref:`logging-processors`.
