@@ -86,10 +86,15 @@ For extension "foo" with key "tx_foo" (not using namespaces), the configuration 
    );
 
 An arbitrary number of writers can be added for every severity level (INFO, WARNING, ERROR, ...).
-The configuration based on severity levels is applied to log entries of the particular severity level
+The configuration is applied to log entries of the particular severity level
 plus all levels with a higher severity. Thus, a log messages created with :code:`$logger->warning()`
-will be affected by a :code:`writerConfiguration` for
-:code:`\TYPO3\CMS\Core\Log\LogLevel::DEBUG, \TYPO3\CMS\Core\Log\LogLevel::INFO, \TYPO3\CMS\Core\Log\LogLevel::NOTICE and \TYPO3\CMS\Core\Log\LogLevel::WARNING`.
+will be affected by the writerConfiguration for the log levels:
+
+* :php:`LogLevel::DEBUG`
+* :php:`LogLevel::INFO`
+* :php:`LogLevel::NOTICE`
+* :php:`LogLevel::WARNING`
+
 For the above example code that means:
 
 - Calling :code:`$logger->warning($msg);` will result in $msg being written to the computer's syslog
