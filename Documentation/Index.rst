@@ -102,11 +102,11 @@ address the task at hand.
    CachingFramework/Index
    ApiOverview/Categories/Index
    CodingGuidelines/Index
-   ApiOverview/Collections/Index
    ApiOverview/Configuration/Index
-   DataFormats/Index
-   ErrorAndExceptionHandling/Index
-   ApiOverview/Examples/Index
+   ApiOverview/GlobalValues/Constants/Index
+   ApiOverview/ContentElements/Index
+   ApiOverview/Database/Index
+   ApiOverview/Hooks/Index
    ApiOverview/FlashMessages/Index
    ApiOverview/FormProtection/Index
    ApiOverview/Hooks/Index
@@ -119,6 +119,7 @@ address the task at hand.
    ApiOverview/Namespaces/Index
    PageTypes/Index
    Rte/Index
+   ApiOverview/Collections/Index
    ApiOverview/SystemLog/Index
    ApiOverview/SystemRegistry/Index
    ApiOverview/Typo3CoreEngine/Index
