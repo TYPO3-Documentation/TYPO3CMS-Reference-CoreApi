@@ -3,9 +3,9 @@
 
 .. _configuration-syntax:
 
-====================
-Configuration Syntax
-====================
+=========================
+Configuration syntax list
+=========================
 
 These are the main languages TYPO3 uses for configuration:
 
@@ -33,12 +33,9 @@ what they mean) are not.
    confusion, we will use the term "TypoScript syntax" and "TypoScript configuration
    method", at least in this chapter.
 
-**Table of Contents**
+More information can be found in these chapters:
 
-More information can be found in these subchapters.
+.. seealso::
 
-.. toctree::
-   :maxdepth: 1
-
-   ../TypoScriptSyntax/Index
-   ../Yaml/Index
+   * :ref:`typoscript-syntax-start`
+   * :ref:`yaml`
