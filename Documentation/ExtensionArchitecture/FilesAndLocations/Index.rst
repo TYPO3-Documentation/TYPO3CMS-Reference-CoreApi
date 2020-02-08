@@ -336,6 +336,19 @@ written as an array to :file:`LocalConfiguration.php`
 in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][`:code:`*extension_key*` :php:`]`
 
 
+.. _:file:`requestmiddlewares.php`:
+
+:file:`RequestMiddlewares.php`
+------------------------------
+
+Full path to this file is: :file:`Configuration/RequestMiddlewares.php`.
+
+Configuration of user-defined middlewares for frontend and backend. Extensions
+that add middlewares or disable existing middlewares configure them in this
+file. The file must return an array with the configuration. For more details,
+see :ref:`request-handling-configuring-middlewares`.
+
+
 .. _:file:`routes.php`-and-:file:`ajaxroutes.php`:
 
 :file:`Routes.php` and :file:`AjaxRoutes.php`
