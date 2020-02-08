@@ -4,7 +4,7 @@
 .. _configuration-methods:
 
 ==========================
-Configuration Methods
+Configuration methods list
 ==========================
 
 These are the main configuration methods used by TYPO3:
@@ -42,18 +42,57 @@ Additionally, some system extensions use yaml for configuration:
 * :ref:`form <form:concepts-configuration>`
 * :ref:`rte_ckeditor <ckedit:configuration>`
 
-.. toctree::
-   :maxdepth: 1
+.. _next-steps:
 
-   ../GlobalValues/Constants/Index
-   Extension Configuration ➜ <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ExtensionArchitecture/ConfigurationOptions/Index.html>
-   FlexForms ➜ <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/FlexForms/Index.html>
-   Form configuration ➜ <https://docs.typo3.org/c/typo3/cms-form/master/en-us/I/Concepts/Configuration/Index.html#concepts-configuration>
-   ../GlobalValues/GlobalVariables/Index
-   rte_ckeditor configuration ➜  <https://docs.typo3.org/c/typo3/cms-rte-ckeditor/master/en-us/Configuration/Index.html#configuration>
-   Site configuration ➜ <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/SiteHandling/Index.html#sitehandling>
-   TCA ➜ <https://docs.typo3.org/m/typo3/reference-tca/master/en-us/Introduction/Index.html>
-   ../Tsconfig/Index
-   TypoScript Templates ➜ <https://docs.typo3.org/m/typo3/reference-typoscript/master/en-us/>
-   ../../UserSettingsConfiguration/Index
+Further Documentation
+=====================
+
+This manual covers many different APIs of the TYPO3 CMS Core, but some
+other documents exist which cover more specific aspects.
+
+
+:ref:`TCA Reference <t3tca:start>`
+----------------------------------
+
+`TCA` is the backbone of database tables displayed in the backend, it configures
+how data is stored if editing records in the backend, how fields are displayed,
+relations to other tables and much more. It is a huge array loaded in almost all
+access contexts.
+
+A detailed insight on `TCA` is documented in the :ref:`TCA Reference <t3tca:start>`.
+Next to a small introduction, the document forms a complete reference of all
+different `TCA` options, with bells and whistles. The document is a must-read for
+Developers, partially for Integrators, and is often used as a reference book on a daily basis.
+
+
+:ref:`TypoScript Reference <t3tsref:start>`
+-------------------------------------------
+
+`TypoScript` - or more precisely `Frontend TypoScript` - is used in TYPO3 to steer
+the frontend rendering (the actual website) of a TYPO3 instance. It is based on the
+TypoScript syntax which is outlined in detail :ref:`here in this document <typoscript-syntax-start>`.
+
+Frontend TypoScript is very powerful and has been the backbone of frontend rendering ever since.
+However, with the rise of the Fluid templating engine, many parts of Frontend TypoScript are much less
+often used. Nowadays, TypoScript in real life projects is often not much more than a way to
+set a series of options for plugins, to set some global config options, and to act as a simple
+pre processor between database data and Fluid templates.
+
+Still, the :ref:`TypoScript Reference <t3tsref:start>` reference document that goes deep into
+the incredible power of Frontend TypoScript is daily bread for Integrators.
+
+
+:ref:`TSconfig Reference <t3tsconfig:start>`
+--------------------------------------------
+
+While `Frontend TypoScript` is used to steer the rendering of the frontend, `TSconfig` is used
+to configure backend details for backend users. Using `TSconfig` it is possible to enable or
+disable certain views, change the editing interfaces, and much more. All that without coding a single
+line of PHP. `TSconfig` can be set on a page (Page TSconfig), as well as a user / group (User TSconfig)
+basis.
+
+`TSconfig` uses the same syntax as `Frontend TypoScript`, the syntax is outlined in detail
+:ref:`here in this document <typoscript-syntax-start>`. Other than that, TSconfig and Frontend TypoScript
+don't have much more in common - they consist of entirely different properties.
+>>>>>>> 4f2f9ad9... Restructure configuration section
 
