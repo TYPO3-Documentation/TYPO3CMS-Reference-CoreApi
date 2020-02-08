@@ -115,15 +115,7 @@ address the task at hand.
    ApiOverview/Bootstrapping/Index
    ApiOverview/CachingFramework/Index
    CodingGuidelines/Index
-
-.. toctree::
-   :maxdepth: 3
-
    ApiOverview/Configuration/Index
-
-.. toctree::
-   :maxdepth: 2
-
    ApiOverview/GlobalValues/Constants/Index
    ApiOverview/ContentElements/Index
    ApiOverview/Context/Index
