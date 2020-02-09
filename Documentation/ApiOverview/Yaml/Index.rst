@@ -28,8 +28,14 @@ The YAML Loader class has two flags: :yaml:`PROCESS_PLACEHOLDERS` and :yaml:`PRO
 * :yaml:`PROCESS_PLACEHOLDERS` decides whether or not placeholders (`%abc%`) will be resolved.
 * :yaml:`PROCESS_IMPORTS` decides whether or not imports (`imports` key) will be resolved.
 
-Use the method :php:`\TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader::load(string $fileName, int $flags = self::PROCESS_PLACEHOLDERS | self::PROCESS_IMPORTS)`
-to make use of the loader in your extensions.
+Use the method :php:`YamlFileLoader::load()`
+to make use of the loader in your extensions::
+
+   use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
+
+   // ...
+
+   YamlFileLoader::load(string $fileName, int $flags = self::PROCESS_PLACEHOLDERS | self::PROCESS_IMPORTS)
 
 Configuration files can make use of import functionality to reference to the contents of different files.
 
