@@ -3,13 +3,13 @@
 
 .. _xliff-translating-server-crowdin:
 
-================================
-Localization with Crowdin [beta]
-================================
+=========================
+Localization with Crowdin
+=========================
 
 .. tip::
 
-   The integration of Crowdin is currently in beta state. Once it is stabilized, it will be also available in installations using TYPO3 9 LTS.
+   Crowdin is used for TYPO3 10 by default. Since 9.5.14 it can be enabled for TYPO3 9 by using a :ref:`feature toggle <xliff-translating-featuretoggle>`.
 
 What is Crowdin
 ===============
