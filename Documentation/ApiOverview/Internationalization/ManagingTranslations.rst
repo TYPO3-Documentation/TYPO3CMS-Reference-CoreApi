@@ -34,6 +34,18 @@ Language packs can also be fetched using the command line.
    /path/to/typo3/bin/typo3 language:update
 
 
+.. _xliff-translating-featuretoggle:
+
+Feature toggle (9 LTS only)
+---------------------------
+Since **TYPO3 9.5.14** it is possible to use :ref:`Crowdin <xliff-translating-server-crowdin>` as translation server.
+This can be configured in the Install Tool at Settings > Feature Toggles > `newTranslationServer`.
+
+.. tip::
+
+   Crowdin is used for TYPO3 10 by default.
+
+
 .. _xliff-translating-local:
 
 Translating Locally
