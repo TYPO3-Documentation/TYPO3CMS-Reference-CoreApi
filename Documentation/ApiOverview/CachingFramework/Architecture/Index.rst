@@ -142,7 +142,7 @@ The following caches exist in the TYPO3 CMS Core:
     files, autoloader and sprite configuration PHP files.
   - This cache is instantiated very early during bootstrap and **can not** be re configured
     by instance specific :file:`LocalConfiguration.php` or similar.
-  - Cache entries are located in directory :file:`typo3temp/var/cache/code/cache_code` or :file:`var/cache/code/cache_code` (for composer-based installations). The full directory and any file
+  - Cache entries are located in directory :file:`typo3temp/var/cache/code/cache_code` or :file:`var/cache/code/cache_core` (for composer-based installations). The full directory and any file
     in this directory can be safely removed and will be re-created upon next request. This is especially useful during
     development
   - **group**: system
@@ -224,15 +224,19 @@ Cache API
 
 The caching framework architecture is based on the following classes:
 
-- **\\TYPO3\\CMS\\Core\\Cache\\CacheManager**: Returns the cache frontend of a specific cache.
-  Preferable to using CacheManager directly to get the cache frontend object handed in, dependency injection should be used.
-  This is the main class used by core and extensions to access the instance of a specific cache. Handles configuration
-  settings and default configuration.
 - **\\TYPO3\\CMS\\Core\\Cache\\Frontend\\FrontendInterface**: Main interface to handle cache entries of a specific cache.
   Different frontends and further interfaces exist to handle different data types.
 - **\\TYPO3\\CMS\\Core\\Cache\\Backend\\BackendInterface**: Main interface that every valid storage backend must implement.
   Several backends and further interfaces exist to specify specific backend capabilities. Some frontends require backends
   to implement additional interfaces.
+
+.. note::
+
+   The `\TYPO3\CMS\Core\Cache\CacheManager` was used before TYPO3 10.1 to
+   retrieve an object implementing `FrontendInterface`. It is now recommended
+   to :ref:`use dependency injection <caching-developer-example>` to retrieve
+   this object and no longer use the `CacheManager` directly.
+
 
 .. warning::
   Do not use the CacheManager in :file:`ext_localconf.php` - instead load caches on demand at the place where they are needed.

@@ -1,12 +1,16 @@
 .. include:: ../../Includes.txt
 
+.. preferably, use label "upgrade-wizards-creation"
+
 .. _update-wizards-creation-generic:
+.. _upgrade-wizards-creation:
+.. _upgrade-wizard-interface:
 
-===============================
-Creating Generic Update Wizards
-===============================
+================================
+Creating Generic Upgrade Wizards
+================================
 
-Each update wizard consists of a single PHP file containing a single PHP class. This
+Each upgrade wizard consists of a single PHP file containing a single PHP class. This
 class has to implement :php:`TYPO3\CMS\Install\Updates\UpgradeWizardInterface` and its
 methods::
 
@@ -120,6 +124,9 @@ Method :php:`getPrerequisites`
        ];
    }
 
+.. _upgrade-wizards-mark-as-done:
+.. _repeatable-interface:
+
 Marking wizard as done
 ======================
 
@@ -127,10 +134,77 @@ As soon as the wizard has completely finished, e.g. it detected that no update i
 necessary anymore, or that all updates were completed successfully, the wizard
 is marked as done and won't be checked anymore.
 
-To force TYPO3 to check the wizard everytime, the interface
-:php:``\TYPO3\CMS\Install\Updates\RepeatableInterface`` has to be implemented.
+To force TYPO3 to check the wizard every time, the interface
+:php:`\TYPO3\CMS\Install\Updates\RepeatableInterface` has to be implemented.
 This interface works as a marker and does not force any methods to be
 implemented.
+
+.. _upgrade-wizards-generate-output:
+.. _uprade-wizards-chatty-interface:
+
+Generating Output
+=================
+
+The :php:`ChattyInterface` can be implemented for wizards which should generate output.
+:php:`ChattyInterface` uses the Symfony interface
+`OutputInterface <https://github.com/symfony/symfony/blob/master/src/Symfony/Component/Console/Output/OutputInterface.php>`__.
+
+Classes using this interface must implement the following method::
+
+    /**
+     * Setter injection for output into upgrade wizards
+     *
+     * @param OutputInterface $output
+     */
+    public function setOutput(OutputInterface $output): void;
+
+
+
+
+The class :php:`FormFileExtensionUpdate` in the extension "form" implements this interface.
+We show a simplified example here, based on this class::
+
+    use Symfony\Component\Console\Output\OutputInterface;
+    use TYPO3\CMS\Install\Updates\ChattyInterface;
+    use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
+
+    class FormFileExtensionUpdate implements ChattyInterface, UpgradeWizardInterface
+    {
+         /**
+         * @var OutputInterface
+         */
+        protected $output;
+
+
+        public function setOutput(OutputInterface $output): void
+        {
+            $this->output = $output;
+        }
+
+        /**
+         * Checks whether updates are required.
+         *
+         * @return bool Whether an update is required (TRUE) or not (FALSE)
+         */
+        public function updateNecessary(): bool
+        {
+            $updateNeeded = false;
+
+            if (
+                $formDefinitionInformation['hasNewFileExtension'] === false
+                && $formDefinitionInformation['location'] === 'storage'
+            ) {
+                $updateNeeded = true;
+                $this->output->writeln('Form definition files were found that should be migrated to be named .form.yaml.');
+            }
+            // etc.
+
+            return $updateNeeded;
+        }
+
+        // etc.
+
+    }
 
 Registering wizard
 ==================

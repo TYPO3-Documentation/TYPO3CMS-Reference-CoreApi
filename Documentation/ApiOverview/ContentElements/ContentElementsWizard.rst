@@ -2,25 +2,21 @@
 
 .. _content-element-wizard:
 
-=============================================
-Adding Elements to the Content Element Wizard
-=============================================
+==========================================
+Add Elements to the Content Element Wizard
+==========================================
 
-The content elements wizard is opened when a new element is
+The content elements wizard is opened when a new content element is
 created.
 
 The content element wizard can be fully configured using TSConfig.
 
-.. seealso::
-
-   :ref:`t3tsconfig:pagenewcontentelementwizard` in the TSconfig Reference
-   provides an extensive description of the parameters use by :typoscript:`mod.wizards.newContentElement`
-
-Our extension key is `example` and the name of the plugin is `registration`.
+Our extension key is `example` and the name of the content element or
+plugin is `registration`.
 
 .. rst-class:: bignums-xxl
 
-#. Create TSconfig
+#. Create Page TSconfig
 
    :file:`Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig`:
 
@@ -44,13 +40,26 @@ Our extension key is `example` and the name of the plugin is `registration`.
           }
       }
 
-#. Include TSconfig in ext_localconf.php
+   You may want to replace title and description, using language files for translation, for example:
+
+   .. code-block:: typoscript
+
+      title = LLL:EXT:example/Resources/Private/Language/locallang.xml:registration_title
+      description = LLL:EXT:exapmle/Resources/Private/Language/locallang.xml:registration_description
+
+#. Include TSconfig
+
+   :file:`ext_localconf.php`:
 
     .. code-block:: typoscript
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
             '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig">'
         );
+
+   This always includes the above Page TSconfig. It is better practice to make this configurable by
+   :ref:`registering the file as static Page TSconfig <t3tsconfig:pagesettingstaticpagetsconfigfiles>`:
+
 
 #. :ref:`Register your icon <icon-registration>` with the icon API
 
@@ -78,28 +87,53 @@ Our extension key is `example` and the name of the plugin is `registration`.
 
       Content Element Wizard with the new "Event Registration" plugin
 
-.. tip::
-
-   You may want to replace title and description, using language files for translation:
-
-   .. code-block:: typoscript
-
-      title = LLL:EXT:example/Resources/Private/Language/locallang.xml:registration_title
-      description = LLL:EXT:exapmle/Resources/Private/Language/locallang.xml:registration_description
-
-
 .. seealso::
 
    * :ref:`t3tsconfig:pagenewcontentelementwizard` in TSconfig Reference
    * :ref:`Register your icon <icon-registration>` in TYPO3 Explained
-   * `Creating Your Own Content Elements <https://docs.typo3.org/c/typo3/cms-fluid-styled-content/master/en-us/AddingYourOwnContentElements/Index.html>`__
-     in fluid_styled_content documentation
+   * :ref:`adding-your-own-content-elements`
 
-Add Your Plugin to Different Tab
-================================
+Add Your Plugin or CE to Different Tab
+======================================
 
 The above example adds your plugin to the tab "Plugin" in the content element wizard.
 You can add it to one of the other existing tabs or create a new one.
+
+.. tip::
+
+   Look in the :guilabel:`Info` module > :guilabel:`Page TSconfig` for existing
+   configuration of ``mod.wizards.newContentElement.wizardItems``.
+
+
+If you add it to any of the other tabs (other than plugins), you must add
+the name to ``show`` as well:
+
+.. code-block:: typoscript
+
+   mod.wizards.newContentElement.wizardItems.common {
+       elements {
+           example_registration {
+               iconIdentifier = example-registration
+               title = Example title
+               description = Example description
+               tt_content_defValues {
+                   CType = list
+                   list_type = example_registration
+               }
+
+       }
+       show := addToList(example_registration)
+   }
+
+* When you look at existing Page TSconfig in the :guilabel:`Info` module, you may
+  notice that ``show`` has been set to include all for the "plugins" tab:
+
+.. code-block:: typoscript
+
+   show = *
+
+Create a New Tab
+================
 
 See `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
 for example of creating a new tab "interactive" and adding

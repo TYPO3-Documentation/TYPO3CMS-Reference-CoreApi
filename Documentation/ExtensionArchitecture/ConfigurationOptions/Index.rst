@@ -67,12 +67,19 @@ user          user function
 wrap          wrap field
 ============= ==========================
 
+Option select can be used as follows:
+
+.. code-block:: typoscript
+
+   # cat=basic/enable/050; type=options[label1=value1,label2]; label=MyLabel
+   myVariable = 1
+
 Where user functions have to be written the following way:
 
 .. code-block:: typoscript
 
    # cat=basic/enable/050; type=user[Vendor\MyExtensionKey\ViewHelpers\MyConfigurationClass->render]; label=MyLabel
-      myVariable = 1
+   myVariable = 1
 
 .. _extension-options-accessing-saved-options:
 

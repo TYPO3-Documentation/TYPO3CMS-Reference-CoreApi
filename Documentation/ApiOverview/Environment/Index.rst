@@ -87,3 +87,6 @@ getCurrentScript()
 ==================
 
 The path + filename to the current PHP script.
+
+
+

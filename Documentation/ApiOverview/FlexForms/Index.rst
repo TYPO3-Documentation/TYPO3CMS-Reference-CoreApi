@@ -7,7 +7,7 @@ FlexForms
 ==============
 
 FlexForms can be used to store data within an XML structure inside a single DB
-column. The typical use case is to configure plugins within a content element.
+column.
 
 You may want to configure
 individual plugins differently, depending on where they are added. The
@@ -22,7 +22,6 @@ to use input fields, select lists, show options conditionally and more.
 Example Use Cases
 =================
 
-* Use the plugin to configure a different view, e.g. list, single
 * The `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__
   uses FlexForms to configure rendering options,
   e.g. a transition interval and transition type (slide, fade)
@@ -32,8 +31,8 @@ Example Use Cases
    :class: with-shadow
 
 
-How it Works for Content Elements
-=================================
+How it Works
+============
 
 #. In the extension, a configuration schema is defined and attached to one or more plugins.
 #. When the plugin is added to a page, it can be configured as defined by the configuration
@@ -298,12 +297,35 @@ method can be used:
 How to Access FlexForms From TypoScript
 ---------------------------------------
 
-It's possible to read values from FlexForms within TypoScript, this is explained
-within the TypoScript Reference:
+.. note::
+
+   Since TYPO3 8.4, it is possible to read FlexForm properties from TypoScript 
+   (`Changelog <https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/8.4/Feature-17309-AccessFlexformValueViaTS.html>`__).
+
+
+.. code-block:: typoscript
+
+    lib.flexformContent = CONTENT
+    lib.flexformContent {
+        table = tt_content
+        select {
+            pidInList = this
+        }
+
+        renderObj = COA
+        renderObj {
+            10 = TEXT
+            10 {
+                data = flexform: pi_flexform:settings.categories
+            }
+        }
+    }
+    
+The key `flexform` is followed by the field which holds the FlexForm data (`pi_flexform`) and the name of the property whose content should be retrieved (`settings.categories`).
 
 .. seealso::
 
-   * :ref:`t3tsref:data-type-gettext-flexform`
+   * :ref:`TypoScript: flexform <t3tsref:data-type-gettext-flexform>`
 
 
 .. _read-flexforms-fluid:

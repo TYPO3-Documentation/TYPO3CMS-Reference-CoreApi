@@ -17,9 +17,10 @@ system extension "core" and "extbase".
 
 
 .. _caching-developer-usage:
+.. _caching-developer-registration:
 
-Cache Registration and Usage
-============================
+Cache Registration
+==================
 
 Registration of a new cache should be done in :file:`ext_localconf.php`. The example below just defines
 an empty sub-array in *cacheConfigurations*. Neither *frontend* nor *backend* are defined,
@@ -60,20 +61,17 @@ should hint an integrator about specific caching needs or setups in this case.
        $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = \TYPO3\CMS\Core\Cache\Backend\TransientMemoryBackend::class;
    }
 
-To get an instance of a cache, :code:`GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache')`
-can be used. However, you should prefer the dependency injection method (see below) to retrieve cache frontends whenever possible. The cache manager will return the fully initialized cache instance::
 
-   $myCacheInstance = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache');
-
-.. warning::
-  Do not use the CacheManager in :file:`ext_localconf.php` - instead load caches on demand at the place where they are needed.
-
+.. _caching-developer-example:
 .. _caching-developer-access:
 
-Cache Access Logic
-==================
+Using the Cache
+===============
 
-Cache usage patterns are usually wrappers around the main code sections.
+Since TYPO3 10.1, you should prefer :ref:`dependency injection <DependencyInjection>`
+to retrieve cache frontends whenever possible and no longer use the `CacheManager` directly.
+
+
 Here is some example code::
 
    class MyClass
@@ -104,7 +102,7 @@ Here is some example code::
            return $entry;
        }
 
-Since the auto-wiring feature of the dependency injection container cannot detect,
+Since the auto-wiring feature of the dependency injection container cannot detect
 which cache configuration should be used for the :php:`$cache` argument, the container
 service configuration needs to be extended as well:
 

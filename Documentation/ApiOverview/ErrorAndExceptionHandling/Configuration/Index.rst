@@ -77,7 +77,7 @@ part of :php:`$GLOBALS['TYPO3_CONF_VARS'][SYS]`:
          The :php:`E_*` constant that will be handled as an exception by the error
          handler.
 
-         Default: :php:`E_ALL ^ E_NOTICE ^ E_WARNING ^ E_USER\_ERROR ^ E_USER\_NOTICE ^ E_USER\_WARNING`
+         Default: :php:`E_ALL ^ E_NOTICE ^ E_WARNING ^ E_USER_ERROR ^ E_USER_NOTICE ^ E_USER_WARNING`
          (4341) and "0" if :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 0`.
 
          Refer to the PHP documentation for more details on this value.
@@ -166,14 +166,6 @@ Values in plain text can be changed in LocalConfiguration.php.
 |             |                    | ^ E_USER\_ERROR   | \ErrorHandler  |           |                             |                 |
 |             |                    | ^ E_USER\_NOTICE  |                |           |                             |                 |
 |             |                    | ^ E_USER\_WARNING |                |           |                             |                 |
-+-------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
-|     2       | E_ALL ^ E_NOTICE   | E_ALL ^ E_NOTICE  | \TYPO3\CMS     | Matters   | If devIPmask matches:       | **1 (On)**      |
-|             |                    | ^ E_WARNING       | \Core\Error    |           | debugExceptionHandler       |                 |
-|             |                    | ^ E_USER\_ERROR   | \ErrorHandler  |           |                             |                 |
-|             |                    | ^ E_USER\_NOTICE  |                |           +-----------------------------+-----------------+
-|             |                    | ^ E_USER\_WARNING |                |           | If devIPmask doesn't match: |                 |
-|             |                    |                   |                |           | productionExceptionHandler  | **0 (Off)**     |
-|             |                    |                   |                |           |                             |                 |
 +-------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
 
 .. seealso::
