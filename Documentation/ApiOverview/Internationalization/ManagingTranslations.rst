@@ -15,7 +15,7 @@ This sections highlights the different ways to translate and manage XLIFF files.
 Fetching Translations
 =====================
 
-The interface of the Install Tool in **ADMIN TOOLS > Maintenance > Manage language packs**
+The interface of the Install Tool in :guilabel:`ADMIN TOOLS > Maintenance > Manage language packs`
 allows to manage the list of available languages to your users and can fetch and
 update language packs of TER and core extensions from the official translation server.
 The module is rather straight forward to use and should be pretty much self explanatory.
@@ -39,7 +39,7 @@ Language packs can also be fetched using the command line.
 Feature toggle (9 LTS only)
 ---------------------------
 Since **TYPO3 9.5.14** it is possible to use :ref:`Crowdin <xliff-translating-server-crowdin>` as translation server.
-This can be configured in the Install Tool at Settings > Feature Toggles > `newTranslationServer`.
+This can be configured in the Install Tool at :guilabel:`Settings > Feature Toggles > newTranslationServer`.
 
 .. tip::
 
