@@ -2,9 +2,9 @@
 
 .. _typo3ConfVars:
 
-===============
-TYPO3_CONF_VARS
-===============
+===========================
+$GLOBALS['TYPO3_CONF_VARS']
+===========================
 
 However the main configuration is achieved via a set of global settings
 stored in a global array called :php:`$GLOBALS['TYPO3_CONF_VARS']`.
