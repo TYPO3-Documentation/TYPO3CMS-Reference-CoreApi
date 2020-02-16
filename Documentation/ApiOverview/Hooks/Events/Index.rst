@@ -36,6 +36,14 @@ of available events refer to the "Configuration" module in the TYPO3 backend.
 
 .. toctree::
    :titlesonly:
+   :caption: frontend
+   :glob:
+
+   Frontend/*
+
+
+.. toctree::
+   :titlesonly:
    :caption: frontendlogin
    :glob:
 
