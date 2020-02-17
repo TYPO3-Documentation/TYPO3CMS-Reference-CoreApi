@@ -107,7 +107,7 @@ itself but by e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
 as public. Some examples for this are:
 
 * User Functions
-* None Extbase Controllers
+* Non-Extbase Controllers
 * Classes registered in Hooks
 
 For such classes an extension can override the global :yaml:`public: false` configuration in the
