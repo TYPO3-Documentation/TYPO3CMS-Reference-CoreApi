@@ -36,8 +36,8 @@ Depending on the context, there are two main ways to access them:
 * via :php:`$GLOBALS['TYPO3_REQUEST']` - everywhere you don't have a ServerRequest object
 
 .. hint::
-    The first method is preferred if possible as the global access will be
-    deprecated and removed in future versions.
+    The first method is preferred if possible as :php:`$GLOBALS['TYPO3_REQUEST']` was
+    deprecated in 9.2 and removed in future versions.
 
 Methods::
 
