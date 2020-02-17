@@ -21,19 +21,20 @@ the **TYPO3 specific information**:
 The :ref:`TYPO3 coding guidelines for YAML <cgl-yaml>` define some basic rules to
 be used in the TYPO3 core and extensions. Additionally, yaml has general syntax rules.
 
+These are recommendations that should be followed for TYPO3. We pointed out where things
+might break badly if not followed, by using MUST.
+
 * File ending ``.yaml``
 * Indenting with 2 spaces (not tabs). Spaces MUST be used. You MUST use the correct indenting level.
 * Use UTF-8
-* All text is case-sensitive
-* Enclose strings with single quotes ('')
+* Enclose strings with single quotes (''). You MUST properly quote strings containing special
+  characters (such as `@`) in YAML. In fact, generally using quotes for strings is encouraged.
+  See `Symfony > The YAML Format > Strings <https://symfony.com/doc/current/components/yaml/yaml_format.html#strings>`__
+
 
 .. important::
 
-   The following MUST be adhered to in order to produce valid syntax:
-
-   #. Use spaces, not tabs to indent
-   #. Identing is not optional. It is used to define the hierarchy of the data
-
+   All text is case-sensitive.
 
 To get a better understanding of YAML, you might want to compare YAML with PHP arrays:
 
