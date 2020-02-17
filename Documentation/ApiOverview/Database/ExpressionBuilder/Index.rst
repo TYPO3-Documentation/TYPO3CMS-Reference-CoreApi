@@ -55,20 +55,20 @@ Combine multiple single expressions with `AND` or `OR`. Nesting is possible, bot
 take any number of argument which are all combined. It usually doesn't make much sense to hand over
 zero or only one argument, though.
 
-A core example to find a sys_domain record::
+Example to find tt_content records::
 
    // WHERE
-   //     (`sys_domain`.`pid` = `pages`.`uid`)
+   //     (`tt_content`.`CType` = 'list')
    //     AND (
-   //        (`sys_domain`.`domainName` = 'example.com')
+   //        (`tt_content`.`list_type` = 'example_pi1')
    //        OR
-   //        (`sys_domain`.`domainName` = 'example.com/')
+   //        (`tt_content`.`list_type` = 'example_pi2')
    //     )
    $queryBuilder->where(
-      $queryBuilder->expr()->eq('sys_domain.pid', $queryBuilder->createNamedParameter('pages.uid', \PDO::PARAM_INT)),
+      $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('list')),
       $queryBuilder->expr()->orX(
-         $queryBuilder->expr()->eq('sys_domain.domainName', $queryBuilder->createNamedParameter($domain)),
-         $queryBuilder->expr()->eq('sys_domain.domainName', $queryBuilder->createNamedParameter($domain . '/'))
+         $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter('example_pi1')),
+         $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter('example_pi2'))
       )
    )
 
