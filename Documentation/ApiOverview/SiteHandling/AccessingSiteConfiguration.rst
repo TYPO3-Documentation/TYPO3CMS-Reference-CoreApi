@@ -37,7 +37,7 @@ Depending on the context, there are two main ways to access them:
 
 .. hint::
     The first method is preferred if possible as :php:`$GLOBALS['TYPO3_REQUEST']` was
-    deprecated in 9.2 and removed in future versions.
+    deprecated in 9.2 and will be removed in future versions.
 
 Methods::
 
