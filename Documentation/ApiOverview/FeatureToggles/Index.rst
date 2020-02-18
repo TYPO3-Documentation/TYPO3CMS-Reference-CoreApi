@@ -50,9 +50,11 @@ Using the API as Extension Author
 
 For extension authors, the API can be used for any custom feature provided by an extension.
 
-To register a feature add the following to the :file:`ext_localconf.php`: of your extension::
-   
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true|false;
+To register a feature and set the default state, add the following to the :file:`ext_localconf.php`: of your extension::
+
+   if (!isset($GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'])) {
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true; // or false;
+   }
 
 To check if a feature is enabled use this code::
 
@@ -63,6 +65,11 @@ To check if a feature is enabled use this code::
 .. attention::
 
    Currently, only the core features can be (de-)activated in the Install Tool.
+   
+   To change the setting for your extension feature either use :file:`Localconfiguration.php`:
+   or :file:`AdditionalConfiguration.php`: like
+      
+      $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true
 
 The name can be any arbitrary string, but an extension author should prefix the feature with the
 extension name as the features are global switches which otherwise might lead to naming conflicts.
@@ -94,4 +101,22 @@ Internally, the changes are written to :file:`LocalConfiguration.php`::
          'redirects.hitCount' => true,
       ],
    ]
+
+Feature Toggles in TypoScript
+===============================
+
+To check wether a feature is enabled in TypoScript was introduced in v9.5 in :issue:`86881`
+
+Support for feature toggle check in the symfony expression language DefaultFunctionProvider is provided.
+With the new function :typoscript:`feature()` the feature toggle can be checked.
+
+.. code-block:: typoscript
+
+   [feature("TypoScript.strictSyntax")]
+   # This condition matches if the feature toggle "TypoScript.strictSyntax" is true
+   [END]
+
+   [feature("TypoScript.strictSyntax") === false]
+   # This condition matches if the feature toggle "TypoScript.strictSyntax" is false
+   [END]
 
