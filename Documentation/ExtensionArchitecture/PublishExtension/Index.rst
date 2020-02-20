@@ -84,6 +84,6 @@ step 4 (request redirects) which is not necessary for new documentation.
 
 Advantages:
 
-* Your extension will be rendered on docs.typo3.org
-* The documentation link will automatically be added if your extension is registered
-  on extensions.typo3.org (TER).
+   * Your extension documentation will be rendered on `docs.typo3.org <https://docs.typo3.org/>`__
+   * The documentation link will be added automatically if your extension is
+     registered on extensions.typo3.org (TER).
