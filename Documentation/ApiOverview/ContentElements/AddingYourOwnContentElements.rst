@@ -41,7 +41,7 @@ Use an Extension
 We recommend to create your own extension for adding content elements.
 The following example uses the extension key `your_extension_key`.
 
-If you have plans to publish your extension, follow :ref:`t3coreapi:extension-key-registration`.
+If you have plans to publish your extension, follow :ref:`extension-key-registration`.
 
 .. _AddingCE-PageTSconfig:
 .. _RegisterCE:
