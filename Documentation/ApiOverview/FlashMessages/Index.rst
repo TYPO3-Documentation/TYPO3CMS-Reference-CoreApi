@@ -273,7 +273,7 @@ action
 Immediate action
 ~~~~~~~~~~~~~~~~
 
-An action of type :js:`ImmediateAction` (:js:`TYPO3/CMS/Backend/ActionButtons/ImmediateAction`) is executed directly on
+An action of type :js:`ImmediateAction` (:js:`TYPO3/CMS/Backend/ActionButton/ImmediateAction`) is executed directly on
 click and closes the notification. This action type is suitable for e.g. linking to a backend module.
 
 The class accepts a callback method executing very simple logic.
@@ -282,7 +282,7 @@ Example:
 
 .. code-block:: js
 
-   require(['TYPO3/CMS/Backend/Notification', 'TYPO3/CMS/Backend/ActionButtons/ImmediateAction'], function(Notification, ImmediateAction) {
+   require(['TYPO3/CMS/Backend/Notification', 'TYPO3/CMS/Backend/ActionButton/ImmediateAction'], function(Notification, ImmediateAction) {
      const immediateActionCallback = new ImmediateAction(function () {
        require(['TYPO3/CMS/Backend/ModuleMenu'], function (ModuleMenu) {
          ModuleMenu.showModule('web_layout');
@@ -301,7 +301,7 @@ Example:
 Deferred action
 ~~~~~~~~~~~~~~~
 
-An action of type :js:`DeferredAction` (:js:`TYPO3/CMS/Backend/ActionButtons/DeferredAction`) is recommended when a
+An action of type :js:`DeferredAction` (:js:`TYPO3/CMS/Backend/ActionButton/DeferredAction`) is recommended when a
 long-lasting task is executed, e.g. an AJAX request.
 
 This class accepts a callback method which must return a :js:`Promise` (read more at `developer.mozilla.org`_).
@@ -313,7 +313,7 @@ Example:
 
 .. code-block:: js
 
-   require(['jquery', 'TYPO3/CMS/Backend/Notification', 'TYPO3/CMS/Backend/ActionButtons/DeferredAction'], function(Notification, DeferredAction) {
+   require(['jquery', 'TYPO3/CMS/Backend/Notification', 'TYPO3/CMS/Backend/ActionButton/DeferredAction'], function($, Notification, DeferredAction) {
      const deferredActionCallback = new DeferredAction(function () {
        return Promise.resolve($.ajax(/* AJAX configuration */));
      });
