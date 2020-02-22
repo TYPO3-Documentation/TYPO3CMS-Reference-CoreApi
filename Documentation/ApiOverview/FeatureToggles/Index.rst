@@ -102,7 +102,7 @@ Internally, the changes are written to :file:`LocalConfiguration.php`::
       ],
    ]
 
-Feature Toogles in TypoScript
+Feature Toggles in TypoScript
 ===============================
 
 To check wether a feature is enabled in TypoScript was introduced in v9.5 in :issue:`86881`
@@ -120,5 +120,3 @@ With the new function :typoscript:`feature()` the feature toggle can be checked.
    # This condition matches if the feature toggle "TypoScript.strictSyntax" is false
    [END]
 
-
-.. index:: Backend, Frontend, TypoScript, ext:core
