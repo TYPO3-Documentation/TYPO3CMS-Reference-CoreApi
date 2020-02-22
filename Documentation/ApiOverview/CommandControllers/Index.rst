@@ -133,6 +133,7 @@ This command takes one optional argument `wizardName`, which can be passed on th
 
 
 .. _deactivating-the-command-in-scheduler:
+.. _schedulable:
 
 Deactivating the Command in Scheduler
 -------------------------------------
@@ -191,7 +192,7 @@ Running the Command From the Scheduler
 
    Running Symfony Console Commands via the scheduler is possible since TYPO3 v9.0.
 
-   The `schedulable` option is available since v9.4.
+   The :ref:`schedulable` option is available since v9.4.
 
 By default, it is possible to run the command from the :ref:`TYPO3 scheduler
 <sched:start>` as well. In order to deactivate this, see
