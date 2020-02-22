@@ -138,6 +138,9 @@ This command takes one optional argument `wizardName`, which can be passed on th
 Deactivating the Command in Scheduler
 -------------------------------------
 
+.. versionadded:: 9.4
+    :doc:`t3core:Changelog/9.4/Feature-85991-ExcludeSymfonyCommandsFromScheduler`
+
 By default, the command can be used in the scheduler too. You can deactivate
 this by setting `schedulable` to `false` in :file:`Configuration/Commands.php`::
 
