@@ -7,6 +7,10 @@
 Mail API
 ========
 
+.. versionadded:: 10.2
+
+   Related changelog: :doc:`t3core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
+
 TYPO3 CMS provides a RFC-compliant mailing solution based on
 `symfony/mailer <https://symfony.com/doc/current/components/mailer.html>`__
 for sending emails and
