@@ -71,19 +71,14 @@ of overloaded (XCLASSed) classes.
 
 The syntax is as follows and is commonly located in an extension's :file:`ext_localconf.php` file::
 
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Backend\\Controller\\NewRecordController'] = array(
-          'className' => 'Documentation\\Examples\\Xclass\\NewRecordController'
-       );
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Backend\Controller\NewRecordController::class] = [
+          'className' => Documentation\Examples\Xclass\NewRecordController::class
+       ];
 
 
 In this example, we declare that the :code:`\TYPO3\CMS\Backend\Controller\NewRecordController` class
 will be overridden by the :code:`\Documentation\Examples\Xclass\NewRecordController` class, the
 latter being part of the "examples" extension.
-
-.. note::
-
-   In the above declaration, namespaced classes are entered without the leading
-   backslash.
 
 When XCLASSing a class that does not use namespaces, simply use that class' name
 in the declaration.
@@ -112,8 +107,10 @@ XCLASS breaking after a code update.
 The example below extends the new record wizard screen. It first calls the original
 method and then adds its own content::
 
-   class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController {
-      function regularNew() {
+   class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController
+   {
+      function regularNew()
+      {
          parent::regularNew();
          $this->code .= $this->doc->section(
             $GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:help'),
