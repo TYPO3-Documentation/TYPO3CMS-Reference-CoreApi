@@ -13,6 +13,9 @@ for sending emails and
 `symfony/mime <https://symfony.com/doc/current/components/mime.html>`__
 for creating email messages.
 
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
 
 
 .. _mail-configuration:
