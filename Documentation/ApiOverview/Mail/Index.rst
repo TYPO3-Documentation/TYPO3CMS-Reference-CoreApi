@@ -9,13 +9,23 @@ Mail API
 
 .. versionadded:: 10.2
 
-   Related changelog: :doc:`t3core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
+   Symfony mailer and mime support was added in 10.2:
+   :doc:`t3core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
+
+.. versionadded:: 10.3
+
+   TYPO3 now supports sending template-based emails for multi-part and HTML-based
+   emails out-of-the-box. The email contents are built with Fluid Templating Engine.
+   :doc:`t3core:Changelog/master/Feature-90266-Fluid-basedTemplatedEmails`
 
 TYPO3 CMS provides a RFC-compliant mailing solution based on
 `symfony/mailer <https://symfony.com/doc/current/components/mailer.html>`__
 for sending emails and
 `symfony/mime <https://symfony.com/doc/current/components/mime.html>`__
 for creating email messages.
+
+TYPO3’s backend functionality already ships with a default layout for templated emails,
+which can be tested out in TYPO3’s install tool test email functionality.
 
 .. contents:: Table of Contents
    :depth: 1
@@ -27,15 +37,50 @@ for creating email messages.
 Configuration
 =============
 
-Several settings are available in the Install Tool ("All Configuration")
-affecting the sending process. The most important one is
+Several settings are available in the "Configure Installation-Wide Options"
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']`.
+
+
+.. _mail-configuration-format:
+
+format
+------
+
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['format']` can be `both`,
+`plain` or `html`. This option can be overridden by Extension authors
+in their use cases.
+
+.. _mail-configuration-fluid:
+
+Fluid paths
+-----------
+
+All Fluid-based template paths can be configured via
+
+* :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths']`
+* :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['partialRootPaths']`
+* :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']`
+
+where TYPO3 reserves all array keys below 100 for internal purposes.
+
+If you want to provide custom templates or layouts, set this in your LocalConfiguration.php / AdditionalConfiguration.php file::
+
+    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths'][700] = 'EXT:my_site_extension/Resources/Private/Templates/Email';
+    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths'][700] = 'EXT:my_site_extension/Resources/Private/Layouts';
+
+.. _mail-configuration-transport:
+
+transport
+---------
+
+The most important configuration option for sending emails is
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport']`, which can take the
 following values:
 
 .. _mail-configuration-smtp:
 
 smtp
-----
+~~~~
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'smtp';`
    Sends messages over SMTP. It can deal with encryption and authentication.
@@ -69,7 +114,7 @@ Example::
 .. _mail-configuration-sendmail:
 
 sendmail
---------
+~~~~~~~~
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'sendmail';`
    Sends messages by communicating with a locally installed MTA - such as sendmail.
@@ -88,7 +133,7 @@ sendmail
 .. _mail-configuration-mbox:
 
 mbox
-----
+~~~~
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'mbox';`
    This doesn't send any mail out, but instead will write every outgoing mail to a file
@@ -102,7 +147,7 @@ mbox
 .. _mail-configuration-classname:
 
 <classname>
------------
+~~~~~~~~~~~
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = '<classname>';`
    Custom class which implements
@@ -116,6 +161,51 @@ mbox
 
 How to Create and Send Mails
 ============================
+
+Both :php:`\TYPO3\CMS\Core\Mail\MailMessage` and :php:`\TYPO3\CMS\Core\Mail\FluidEmail) inherit
+from :php:`Symfony\Component\Mime\Email` and have a similar API. **FluidEmail** is specific
+for sending emails based on Fluid.
+
+Send email with `FluidEmail`
+----------------------------
+
+This sends an email based using an existing Fluid template. Make sure the paths
+are setup as described in :ref:`mail-configuration-fluid`.
+
+.. code-block:: php
+
+   $email = GeneralUtility::makeInstance(FluidEmail::class);
+   $email
+       ->to('contact@acme.com')
+       ->from(new Address('jeremy@acme.com', 'Jeremy'))
+       ->subject('TYPO3 loves you - here is why')
+       ->setFormat('html') // only HTML mail
+       ->setTemplate('TipsAndTricks')
+       ->assign('mySecretIngredient', 'Tomato and TypoScript');
+   GeneralUtility::makeInstance(Mailer::class)->send($email);
+
+Defining a custom email subject in a custom template:
+
+.. code-block:: html
+
+   <f:section name="Subject">New Login at "{typo3.sitename}"</f:section>
+
+Building templated emails with Fluid also allows to define the language key,
+and use this within the Fluid template:
+
+.. code-block:: php
+
+   $email = GeneralUtility::makeInstance(FluidEmail::class);
+   $email
+       ->to('contact@acme.com')
+       ->assign('language', 'de');
+
+.. code-block:: html
+
+   <f:translate languageKey="{language}" id="LLL:my_ext/Resources/Private/Language/emails.xml:subject" />
+
+Send email with `MailMessage`
+-----------------------------
 
 This shows how to generate and send a mail in TYPO3::
 
