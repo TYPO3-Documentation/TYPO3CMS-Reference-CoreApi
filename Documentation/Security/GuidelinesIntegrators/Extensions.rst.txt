@@ -161,28 +161,11 @@ notification by email when extension updates are available.
 Security-related core extensions
 """"""""""""""""""""""""""""""""
 
-Besides the "Reports" module described above, the system extension
-"rsaauth" may increase the level of security of a TYPO3 CMS instance.
+.. deprecated:: 10.2
 
-"RSA authentication" (rsaauth) adds encrypted authentication for
-frontend and backend logins to TYPO3 CMS. This is a fallback if the
-instance is not accessible via HTTPS, rsaauth uses a one time generated
-public and private key pair. The password is encrypted with a new public key
-each time, before it is transferred over the network – and decrypted on the
-server using a one time generated private key. The rsaauth extension
-requires either an OpenSSL PHP module or the OpenSSL binary to be
-available to TYPO3 CMS.
-
-However, rsaauth has many drawbacks and is *not* a suitable solution over
-:ref:`properly encrypted client/server communication <security-encrypted-client-server-connection>`:
-All sites nowadays should be only accessible via HTTPS and rsaauth
-can be unloaded from the system in this case. For sites accessible
-via HTTP only, rsaauth gives only a small advantage since login passwords are
-somehow encrypted (if the login extensions in use support rsaaouth), but everything
-else is still transferred in plain-text! Furthermore the rsaauth solution is susceptible
-to `man-in-the-middle <https://en.wikipedia.org/wiki/Man-in-the-middle_attack>`_ (MITM)
-attacks. The extension has been deprecated since TYPO3 v9 and will be
-removed from core due to these limitations.
+   The extension rsaauth was deprecated in TYPO3 9.1. Please see
+   the related changelog `Deprecation: #81852 - Deprecated Usage of EXT:rsaauth <https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/9.1/Deprecation-81852-DeprecatedUsageOfEXTrsaauth.html>`__
+   for more information.
 
 
 Other security-related extensions
