@@ -4,6 +4,7 @@
 .. _cli-mode:
 .. _cli-mode-dispatcher:
 .. _cli-mode-command-controllers:
+.. _symfony-console-commands:
 
 ==============================
 Symfony Console Commands (cli)
@@ -16,7 +17,9 @@ to set up cronjobs.
 TYPO3 uses Symfony commands to provide an easy to use, well-documented API for
 writing CLI (command line interface) commands.
 
-.. note::
+These commands can also be run from the TYPO3 :ref:`scheduler <symfony-console-commands-scheduler>`.
+
+.. versionadded:: 8
 
    TYPO3 supports Symfony Console commands natively since TYPO3 v8.
 
@@ -155,9 +158,10 @@ method once in your :php:`execute()` function::
    Bootstrap::initializeBackendAuthentication();
 
 
+.. _symfony-console-commands-cli:
+
 Running the Command From the Command Line
 =========================================
-
 
 The above example can be run via command line:
 
@@ -178,14 +182,17 @@ Show help for the command:
    is :file:`typo3/sysext/core/bin/typo3`.
 
 
+.. _symfony-console-commands-scheduler:
+
 Running the Command From the Scheduler
 ======================================
 
-.. note::
+.. versionadded:: 9.0
 
    Running Symfony Console Commands via the scheduler is possible since TYPO3 v9.0.
+
    The `schedulable` option is available since v9.4.
 
-By default, it is possible to run the command from the `TYPO3 scheduler
-<sched:start>`__ as well, if not deactivated see:
+By default, it is possible to run the command from the :ref:`TYPO3 scheduler
+<sched:start>` as well. In order to deactivate this, see
 :ref:`deactivating-the-command-in-scheduler`.
