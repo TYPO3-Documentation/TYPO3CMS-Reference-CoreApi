@@ -20,6 +20,7 @@ of available events refer to the "Configuration" module in the TYPO3 backend.
    :glob:
 
    Backend/*
+   Backend/View/*
 
 .. toctree::
    :titlesonly:
