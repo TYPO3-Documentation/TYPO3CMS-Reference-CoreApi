@@ -9,7 +9,7 @@ Mail API
 
 .. versionadded:: 10.2
 
-   Symfony mailer and mime support was added in 10.2:
+   Symfony mailer and mime support was added with this change:
    :doc:`t3core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
 
 .. versionadded:: 10.3
@@ -162,15 +162,15 @@ mbox
 How to Create and Send Mails
 ============================
 
-Both :php:`\TYPO3\CMS\Core\Mail\MailMessage` and :php:`\TYPO3\CMS\Core\Mail\FluidEmail) inherit
+Both :php:`\TYPO3\CMS\Core\Mail\MailMessage` and :php:`\TYPO3\CMS\Core\Mail\FluidEmail` inherit
 from :php:`Symfony\Component\Mime\Email` and have a similar API. **FluidEmail** is specific
 for sending emails based on Fluid.
 
 Send email with `FluidEmail`
 ----------------------------
 
-This sends an email based using an existing Fluid template. Make sure the paths
-are setup as described in :ref:`mail-configuration-fluid`.
+This sends an email using an existing Fluid template :file:`TipsAndTricks.html`.
+Make sure the paths are setup as described in :ref:`mail-configuration-fluid`.
 
 .. code-block:: php
 
@@ -184,7 +184,7 @@ are setup as described in :ref:`mail-configuration-fluid`.
        ->assign('mySecretIngredient', 'Tomato and TypoScript');
    GeneralUtility::makeInstance(Mailer::class)->send($email);
 
-Defining a custom email subject in a custom template:
+Defining a custom email subject in a custom Fluid template:
 
 .. code-block:: html
 
@@ -199,6 +199,8 @@ and use this within the Fluid template:
    $email
        ->to('contact@acme.com')
        ->assign('language', 'de');
+
+In Fluid, you can now use the defined language key ("language"):
 
 .. code-block:: html
 
