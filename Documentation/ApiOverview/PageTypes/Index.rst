@@ -160,73 +160,65 @@ Note: You have to change 'example' in the :php:`call_user_func()` method to your
 
 All the changes are applied in :file:`ext_tables.php`::
 
-    call_user_func(
-        function ($extKey) {
-            $archiveDoktype = 116;
+    call_user_func(function ($extKey, $archiveDoktype) {
+        // Add new page type:
+        $GLOBALS['PAGES_TYPES'][$archiveDoktype] = [
+            'type' => 'web',
+            'allowedTables' => '*',
+        ];
+    }, 'example', 116);
 
-            // Add new page type:
-            $GLOBALS['PAGES_TYPES'][$archiveDoktype] = [
-                'type' => 'web',
-                'allowedTables' => '*',
-            ];
 
-            // Provide icon for page tree, list view, ... :
-            \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class)
-                ->registerIcon(
-                    'apps-pagetree-archive',
-                    TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-                    [
-                        'source' => 'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg',
-                    ]
-                );
+All the changes are applied in :file:`ext_localconf.php`::
 
-            // Allow backend users to drag and drop the new page type:
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
-                'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $archiveDoktype . ')'
+    call_user_func(function ($extKey, $archiveDoktype) {
+        \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class)
+            ->registerIcon(
+                'tcarecords-pages-vacancy',
+                TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+                ['source' => 'EXT:my_hireserve/Resources/Public/Icons/Archive.svg']
             );
-        },
-        'example'
-    );
+
+        // Allow backend users to drag and drop the new page type:
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
+            'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $archiveDoktype . ')'
+        );
+    }, 'example', 116);
+
 
 Furthermore we need to modify the configuration of "pages" records. As one can modify the pages. We
 need to add the new doktype as select item and associate it with the configured icon. That's done in
 :file:`Configuration/TCA/Overrides/pages.php`::
 
-    call_user_func(
-        function ($extKey, $table) {
-            $archiveDoktype = 116;
-
-            // Add new page type as possible select item:
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-                $table,
-                'doktype',
-                [
-                    'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
-                    $archiveDoktype,
-                    'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg'
-                ],
-                '1',
-                'after'
-            );
-
-            \TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule(
-                $GLOBALS['TCA'][$table],
-                [
-                    // add icon for new page type:
-                    'ctrl' => [
-                        'typeicon_classes' => [
-                            $archiveDoktype => 'apps-pagetree-archive',
-                        ],
+    call_user_func(function ($extKey, $table, $archiveDoktype) {
+        // Add new page type as possible select item:
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+            $table,
+            'doktype',
+            [
+                'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
+                $archiveDoktype,
+                'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg'
+            ],
+            '1',
+            'after'
+        );
+    
+        \TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule(
+            $GLOBALS['TCA'][$table],
+            [
+                // add icon for new page type:
+                'ctrl' => [
+                    'typeicon_classes' => [
+                        $archiveDoktype => 'apps-pagetree-archive',
                     ],
-                    // add all page standard fields and tabs to your new page type
-                    'types' => [
-                        (string) $archiveDoktype => [
-                            'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_DEFAULT]['showitem']
-                        ]
+                ],
+                // add all page standard fields and tabs to your new page type
+                'types' => [
+                    (string) $archiveDoktype => [
+                        'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_DEFAULT]['showitem']
                     ]
                 ]
-            );
-        },
-        'example',
-        'pages'
-    );
+            ]
+        );
+    }, 'example', 'pages', 116);
