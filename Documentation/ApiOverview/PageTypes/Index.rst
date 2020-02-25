@@ -176,7 +176,7 @@ All the changes are applied in :file:`ext_localconf.php`::
             ->registerIcon(
                 'tcarecords-pages-vacancy',
                 TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-                ['source' => 'EXT:my_hireserve/Resources/Public/Icons/Archive.svg']
+                ['source' => 'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg']
             );
 
         // Allow backend users to drag and drop the new page type:
