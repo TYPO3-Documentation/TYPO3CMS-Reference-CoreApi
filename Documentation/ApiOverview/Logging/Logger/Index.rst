@@ -13,9 +13,10 @@ Logger
 Instantiation
 =============
 
-.. note::
-   As of TYPO3 9.0 you no longer need to call makeInstance to create an
-   instance of the logger. You can use the `LoggerAwareTrait <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects.html?highlight=loggerawaretrait>`__
+.. versionadded:: 9.0
+   You no longer need to call makeInstance to create an
+   instance of the logger. You can use the LoggerAwareTrait:
+   :doc:`Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects`
 
 Use the :code:`LoggerAwareTrait` in your class to automatically instantiate :code:`$this->logger`:
 

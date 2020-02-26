@@ -9,10 +9,10 @@
 Upgrade Wizards
 ===============
 
-.. note::
-
-   In TYPO3 9.4, `a new API for upgrade wizards <https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/9.4/Feature-86076-NewAPIForUpgradeWizards.html>`__
-   was introduced. This chapter was updated to use the new API.
+.. versionadded:: 9.4
+   A new API for upgrade wizards was introduced:
+   :doc:`t3core:Changelog/9.4/Feature-86076-NewAPIForUpgradeWizards`
+   This chapter was updated to use the new API.
 
 TYPO3 CMS offers a way for extension authors to provide automated updates for
 extensions. TYPO3 itself provides upgrade wizards to ease updates of TYPO3

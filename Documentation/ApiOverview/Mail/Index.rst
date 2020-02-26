@@ -7,10 +7,22 @@
 Mail API
 ========
 
-Since version 4.5 TYPO3 CMS provides a RFC compliant mailing solution,
-based on `SwiftMailer <http://swiftmailer.org/>`_.
+.. versionadded:: 10.0
+   Symfony mailer and mime support was added with this change:
+   :doc:`t3core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
 
+TYPO3 CMS provides a RFC-compliant mailing solution based on
+`symfony/mailer <https://symfony.com/doc/current/components/mailer.html>`__
+for sending emails and
+`symfony/mime <https://symfony.com/doc/current/components/mime.html>`__
+for creating email messages.
 
+TYPO3’s backend functionality already ships with a default layout for templated emails,
+which can be tested out in TYPO3’s install tool test email functionality.
+
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
 
 .. _mail-configuration:
 

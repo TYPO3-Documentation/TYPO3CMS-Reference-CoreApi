@@ -296,10 +296,9 @@ method can be used:
 How to Access FlexForms From TypoScript
 ---------------------------------------
 
-.. note::
-
-   Since TYPO3 8.4, it is possible to read FlexForm properties from TypoScript 
-   (`Changelog <https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/8.4/Feature-17309-AccessFlexformValueViaTS.html>`__).
+.. versionadded:: 8.4
+   It is now possible to read FlexForm properties from TypoScript,
+   see :doc:`t3core:Changelog/8.4/Feature-17309-AccessFlexformValueViaTS`.
 
 
 .. code-block:: typoscript
