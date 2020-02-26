@@ -7,7 +7,7 @@
 Mail API
 ========
 
-.. versionadded:: 10.2
+.. versionadded:: 10.0
 
    Symfony mailer and mime support was added with this change:
    :doc:`t3core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
@@ -15,8 +15,8 @@ Mail API
 .. versionadded:: 10.3
 
    TYPO3 now supports sending template-based emails for multi-part and HTML-based
-   emails out-of-the-box. The email contents are built with Fluid Templating Engine.
-   :doc:`t3core:Changelog/master/Feature-90266-Fluid-basedTemplatedEmails`
+   emails out-of-the-box. The email contents are built with the Fluid Templating Engine.
+   :doc:`t3core:Changelog/10.3/Feature-90266-Fluid-basedTemplatedEmails`
 
 TYPO3 CMS provides a RFC-compliant mailing solution based on
 `symfony/mailer <https://symfony.com/doc/current/components/mailer.html>`__

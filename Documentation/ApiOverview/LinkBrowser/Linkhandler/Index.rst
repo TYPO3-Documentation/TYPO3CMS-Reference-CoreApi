@@ -7,9 +7,10 @@
 LinkHandler Api
 ===============
 
-In TYPO3 8.6 the LinkHandler Api has been included in the core, see Change `Feature: #79626 - Integrate record link handler
-<https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/8.6/Feature-79626-IntegrateRecordLinkHandler.html>`__. It had only
-been available as 3rd party extension therefore.
+.. versionadded:: 8.6
+    The LinkHandler Api has been included in the core with the change
+    :doc:`t3core:Changelog/8.6/Feature-79626-IntegrateRecordLinkHandler`.
+    Before, it had only been available as third party extension.
 
 The LinkHandler enables editors to link to single records i.e. a single news record.
 
