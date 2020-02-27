@@ -134,6 +134,7 @@ address the task at hand.
    ApiOverview/Hooks/Index
    ApiOverview/ExtensionScanner/Index
    ApiOverview/FlashMessages/Index
+   ApiOverview/Fluid/Index
    ApiOverview/FormEngine/Index
    ApiOverview/FormProtection/Index
    ApiOverview/Http/Index

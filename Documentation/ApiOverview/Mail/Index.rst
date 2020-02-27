@@ -166,6 +166,8 @@ Both :php:`\TYPO3\CMS\Core\Mail\MailMessage` and :php:`\TYPO3\CMS\Core\Mail\Flui
 from :php:`Symfony\Component\Mime\Email` and have a similar API. **FluidEmail** is specific
 for sending emails based on Fluid.
 
+.. _mail-fluid-email:
+
 Send email with `FluidEmail`
 ----------------------------
 
