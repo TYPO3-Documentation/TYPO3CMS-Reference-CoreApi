@@ -862,7 +862,7 @@ Based on the plugin enhancer and extbase plugin enhancer, extended with paramete
             * @param array $internals Internal instructions (_route, _controller, _method, ...)
             * @return array
             */
-            protected function inflateParameters(array $parameters, array $internals = []): array
+            public function inflateParameters(array $parameters, array $internals = []): array
             {
                 $parameters = $this->getVariableProcessor()->inflateParameters($parameters) ?? [];
 
