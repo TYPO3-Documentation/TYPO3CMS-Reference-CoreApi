@@ -36,3 +36,51 @@ response - most usually an :php:`HtmlResponse`.
 For an example implementation of the :php:`PageErrorHandlerInterface` take a look
 at :php:`\TYPO3\CMS\Core\Error\PageErrorHandler\PageContentErrorHandler` or
 :php:`\TYPO3\CMS\Core\Error\PageErrorHandler\FluidPageErrorHandler`.
+
+Examples
+========
+
+Example for a simple 404 ErrorHandler
+-------------------------------------
+
+The configuration in *config.yaml*:
+
+.. code-block:: yaml
+
+   errorHandling:
+      -
+         errorCode: '404'
+         errorHandler: PHP
+         errorPhpClassFQCN: My\ExtensionName\Error\ErrorHandling
+
+The ErrorHandler class:
+
+.. code-block:: php
+
+   <?php
+
+   namespace My\ExtensionName\Error;
+
+   use Psr\Http\Message\ResponseInterface;
+   use Psr\Http\Message\ServerRequestInterface;
+   use TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface;
+   use TYPO3\CMS\Core\Http\RedirectResponse;
+
+   class ErrorHandling implements PageErrorHandlerInterface 
+   {
+
+       /**
+        * @param ServerRequestInterface $request
+        * @param string $message
+        * @param array $reasons
+        * @return ResponseInterface
+        */
+       public function handlePageError(
+           ServerRequestInterface $request,
+           string $message,
+           array $reasons = []
+       ): ResponseInterface {
+              return new RedirectResponse('/404-page', 404);
+       }
+       
+   }
