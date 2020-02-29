@@ -161,10 +161,9 @@ notification by email when extension updates are available.
 Security-related core extensions
 """"""""""""""""""""""""""""""""
 
-.. deprecated:: 10.2
-
+.. deprecated:: 9.1
    The extension rsaauth was deprecated in TYPO3 9.1. Please see
-   the related changelog `Deprecation: #81852 - Deprecated Usage of EXT:rsaauth <https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/9.1/Deprecation-81852-DeprecatedUsageOfEXTrsaauth.html>`__
+   the related changelog :doc:`t3core:Changelog/9.1/Deprecation-81852-DeprecatedUsageOfEXTrsaauth>`
    for more information.
 
 

@@ -13,10 +13,10 @@ Quickstart
 Instantiate a Logger for the Current Class
 ==========================================
 
-.. note::
-   As of TYPO3 9.0 you no longer need to use makeInstance to create an
-   instance of the logger yourself. You can use `LoggerAwareTrait
-   <https://docs.typo3.org/typo3cms/extensions/core/Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects.html?highlight=loggerawaretrait>`__.
+.. versionadded:: 9.0
+   You no longer need to use makeInstance to create an
+   instance of the logger yourself. You can use LoggerAwareTrait:
+   :doc:`Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects`.
    You must implement the :php:`\Psr\Log\LoggerAwareInterface` interface with your class to have the Trait taking effect.
 
 Use LoggerAwareTrait in your class to automatically instantiate `$this->logger`::
