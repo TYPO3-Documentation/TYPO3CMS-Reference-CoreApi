@@ -195,6 +195,11 @@ The following caches exist in the TYPO3 CMS Core:
   - Contains detailed information about a class' member variables and methods.
   - **group**: system
 
+- dashboard_rss
+
+  - Contains the contents of RSS-Feeds retrieved by RSS widgets on the dashboard.
+  - This cache can be used by extension authors for their own RSS widgets.
+
 
 .. tip::
 
