@@ -29,8 +29,8 @@ Example:
    new AnyEventStrategy('click', callbackFn).bindTo(document.getElementById('foobar'));
 
 .. important::
-   Event delegation needs a bubbling event which not the default case for :js:`CustomEvent()`. Define the option in
-   the event initialization as follows: :js:`new CustomEvent('my-event', {bubbles: true});`.
+   Event delegation needs a bubbling event which is not the default case for :js:`CustomEvent()`. Define the option
+   in the event initialization as follows: :js:`new CustomEvent('my-event', {bubbles: true});`.
 
 
 Bind to multiple elements
