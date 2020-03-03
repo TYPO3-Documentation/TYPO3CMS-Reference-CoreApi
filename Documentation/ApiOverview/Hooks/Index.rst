@@ -23,3 +23,4 @@ its extensions without blocking others to do the same.
    Events/Index
    SignalsSlots/Index
    Hooks/Index
+   JavaScript/Index
