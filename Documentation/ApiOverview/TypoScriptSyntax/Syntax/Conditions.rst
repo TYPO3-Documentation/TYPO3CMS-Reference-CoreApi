@@ -280,25 +280,13 @@ from the top level. This is normally done when TypoScript code from
 various records is combined.
 
 
-.. _typoscript-syntax-conditions-expression-language:
+.. _typoscript-syntax-conditions:
 
-Custom Conditions With Symfony Expression Language
-==================================================
+Custom Conditions
+=================
 
-It is possible to provide own functions with extensions.
-Use as reference the class :php:`TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionFunctionsProvider` which implements
-the most core functions.
-
-Add new methods by implementing own providers which implement the :php:`ExpressionFunctionProviderInterface` and
-register the provider in :file:`ext_localconf.php`:
-
-.. code-block:: php
-
-   if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionProvider']['additionalExpressionLanguageProvider'])) {
-      $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionProvider']['additionalExpressionLanguageProvider'] = [];
-   }
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Core\ExpressionLanguage\TypoScriptConditionProvider']['additionalExpressionLanguageProvider'][] = \My\NameSpace\Provider\TypoScriptConditionProvider::class;
-
+You can find information about custom conditions in the TypoScript reference:
+:ref:`t3tsref:condition-custom-conditions`.
 
 .. _typoscript-syntax-conditions-summary:
 
