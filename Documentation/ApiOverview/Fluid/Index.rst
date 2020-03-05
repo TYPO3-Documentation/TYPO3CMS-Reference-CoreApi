@@ -28,16 +28,18 @@ What can you do with Fluid in TYPO3?
 
 You can use Fluid in TYPO3 to do one of the following:
 
-* Create a template (theme) in combination with TypoScript :ref:`FLUIDTEMPLATE <t3tsref:t3tsrefcobj-fluidtemplate>`.
+* Create a template (theme) using a combination of TypoScript
+  :ref:`FLUIDTEMPLATE <t3tsref:t3tsrefcobj-fluidtemplate>` and Fluid.
   Check out the :ref:`t3sitepackage:start` which walks you through the
   creation of a sitepackage extension.
 * :ref:`adding-your-own-content-elements` in addition to the already existing content
   elements TYPO3 supplies.
-* The the previous point describes the lightweight components which
+* The previous point describes the lightweight components which
   are created using a combination of TypoScript and Fluid. If you need more functionality
   or flexibility in your content element, you can create a content plugin using
   a combination of Extbase and Fluid. This is explained in :ref:`t3extbasebook:start`
 * Use Fluid to create emails using the :ref:`TYPO3 Mail API <mail-fluid-email>`.
+* Use Fluid in :ref:`Backend Modules <backend-modules-template>`.
 
 Example Fluid snippet
 =====================
@@ -101,7 +103,7 @@ If you are using Extbase controller actions in combination with Fluid,
 Extbase defines how files and directories should be named within these directories.
 Extbase uses the sub-folders of the "Templates" directory to group templates by controller name
 and the filename of templates to correspond to a certain action on that controller
-(see :ref:`t3extbasebook:template-creation-by-example` for an example).
+(see :ref:`t3extbasebook:template-creation-by-example`).
 
 .. code-block:: none
 
@@ -113,7 +115,7 @@ and the filename of templates to correspond to a certain action on that controll
                    └── Show.html (for Blog->show() action)
 
 
-If you don't use Extbase you still can, but are not required to use the sub-folder structure
+If you don't use Extbase you still can - but are not required to - use the sub-folder structure
 to group templates into logical groups, such as "Page" and "Content" to separate different
 types of templates.
 
@@ -155,8 +157,8 @@ Templates can be used with or without a Layout.
 Partials are a Fluid component. Partials can be used as reusable components from within
 a template.
 
-Example
--------
+Example: Using Fluid to create a theme
+--------------------------------------
 
 This example was taken from the `example extension <https://github.com/TYPO3-Documentation/TYPO3CMS-Tutorial-SitePackage-Code/>`__
 for :ref:`t3sitepackage:start` and reduced to a very basic example.
