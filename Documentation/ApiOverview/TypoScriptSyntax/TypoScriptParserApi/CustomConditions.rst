@@ -7,6 +7,5 @@
 Implementing Custom Conditions
 ==============================
 
-For TYPO3 versions 9.5 and above, this can be implemened with the Symfony Expression Language.
-
-Switch to a newer version of this page to read more about this.
+You can find information about custom conditions in the TypoScript reference:
+:ref:`t3tsref:condition-custom-conditions`.
