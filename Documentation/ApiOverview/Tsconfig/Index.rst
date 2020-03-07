@@ -38,40 +38,38 @@ Page TSconfig
 Page TSconfig can be set for each page in the page tree. Pages
 inherit configuration from parent pages. The available
 options typically cover backend module configuration, which means that
-modules related to pages (typically those in the **WEB** main module) can be
-configured for different behaviours in different branches of the tree.
-It also includes configuration for the FormEngine (Forms to edit content in TYPO3)
-and the DataHandler (component that takes care of transforming and persisting data
+modules related to pages (typically those in the :guilabel:`WEB` main module)
+can be configured for different behaviours in different branches of the tree.
+It also includes configuration for the :ref:`FormEngine <FormEngine>` (Forms
+to edit content in TYPO3) and the :ref:`DataHandler <datahandler-basics>`
+(component that takes care of transforming and persisting data
 structures) behaviours. Again, the point is that the configuration is
 active for certain branches of the page tree which is very practical
 in projects running many sites in the same page tree.
 
-Get Page TSConfig via PHP in an extension
+Get Page TSConfig via PHP in an Extension
 -----------------------------------------
 
 When there is the necessity for fetching and loading PageTSconfig,
 it is recommended for extension developers to make use of the PHP classes:
-- `TYPO3\CMS\Core\Configuration\Loader\PageTsConfigLoader`
-- `TYPO3\CMS\Core\Configuration\Parser\PageTsConfigParser`
 
-Usages for fetching all available PageTS in one large string (not parsed yet):
+- :php:`TYPO3\CMS\Core\Configuration\Loader\PageTsConfigLoader`
+- :php:`TYPO3\CMS\Core\Configuration\Parser\PageTsConfigParser`
 
-.. code-block:: php 
+Usage for fetching all available PageTS in one large string (not parsed yet)::
 
-    $loader = GeneralUtility::makeInstance(PageTsConfigLoader::class);
-    $tsConfigString = $loader->load($rootLine);
+   $loader = GeneralUtility::makeInstance(PageTsConfigLoader::class);
+   $tsConfigString = $loader->load($rootLine);
 
-The string can then be put in proper TSconfig array syntax:
+The string can then be put in proper TSconfig array syntax::
 
-.. code-block:: php
-
-    $parser = GeneralUtility::makeInstance(
-        PageTsConfigParser::class,
-        $typoScriptParser,
-        $hashCache
-    );
-    $pagesTSconfig = $parser->parse(
-        $tsConfigString,
-        $conditionMatcher
-    );
+   $parser = GeneralUtility::makeInstance(
+      PageTsConfigParser::class,
+      $typoScriptParser,
+      $hashCache
+   );
+   $pagesTSconfig = $parser->parse(
+      $tsConfigString,
+      $conditionMatcher
+   );
 
