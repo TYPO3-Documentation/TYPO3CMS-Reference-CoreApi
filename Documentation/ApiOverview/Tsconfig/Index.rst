@@ -38,10 +38,11 @@ Page TSconfig
 Page TSconfig can be set for each page in the page tree. Pages
 inherit configuration from parent pages. The available
 options typically cover backend module configuration, which means that
-modules related to pages (typically those in the **WEB** main module) can be
-configured for different behaviours in different branches of the tree.
-It also includes configuration for the FormEngine (Forms to edit content in TYPO3)
-and the DataHandler (component that takes care of transforming and persisting data
+modules related to pages (typically those in the :guilabel:`WEB` main module)
+can be configured for different behaviours in different branches of the tree.
+It also includes configuration for the :ref:`FormEngine <FormEngine>` (Forms
+to edit content in TYPO3) and the :ref:`DataHandler <datahandler-basics>`
+(component that takes care of transforming and persisting data
 structures) behaviours. Again, the point is that the configuration is
 active for certain branches of the page tree which is very practical
 in projects running many sites in the same page tree.
