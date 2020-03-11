@@ -101,8 +101,9 @@ TYPO3 CMS you can use any folder structure you like.
 
 If you are using Extbase controller actions in combination with Fluid,
 Extbase defines how files and directories should be named within these directories.
-Extbase uses the sub-folders of the "Templates" directory to group templates by controller name
-and the filename of templates to correspond to a certain action on that controller
+Extbase uses sub directories located within the "Templates" directory to group
+templates by controller name and the filename of templates to correspond to a
+certain action on that controller
 (see :ref:`t3extbasebook:template-creation-by-example`).
 
 .. code-block:: none
@@ -115,9 +116,9 @@ and the filename of templates to correspond to a certain action on that controll
                    └── Show.html (for Blog->show() action)
 
 
-If you don't use Extbase you still can - but are not required to - use the sub-folder structure
-to group templates into logical groups, such as "Page" and "Content" to separate different
-types of templates.
+If you don't use Extbase you can still use this convention, but it is not a
+requirement to use this structure to group templates into logical groups, such
+as "Page" and "Content" to group different types of templates.
 
 In Fluid, the location of these paths is defined with
 :php:`\TYPO3Fluid\Fluid\Core\Rendering\RenderingContext->setTemplatePaths()`.
@@ -142,12 +143,12 @@ sites menu, footer, and any other items that are reused throughout your website.
 
 Templates can be used with or without a Layout.
 
-* *With a Layout* anything that's not inside a section is ignored. When a Layout is used,
-  the Layout determines which sections will be rendered from the template through use of
-  :xml:`<f:render>` in the Layout file.
-* *Without a Layout* anything that's not inside a section is rendered. You can still use
-  sections of course, but you then must use f:render in the template file itself, outside
-  of a section, to render a section.
+* *With a Layout* anything that's not inside a section is ignored. When a
+  Layout is used,   the Layout determines which sections will be rendered
+  from the template through the use of   :xml:`<f:render>` in the Layout file.
+* *Without a Layout* anything that's not inside a section is rendered. You
+  can still use sections of course, but you then must use f:render in the
+  template file itself, outside of a section, to render a section.
 
 :file:`Partials`
 ----------------
@@ -163,10 +164,10 @@ Example: Using Fluid to create a theme
 This example was taken from the `example extension <https://github.com/TYPO3-Documentation/TYPO3CMS-Tutorial-SitePackage-Code/>`__
 for :ref:`t3sitepackage:start` and reduced to a very basic example.
 
-The Sitepackage Tutorial walks you through the creation of a sitepackage (theme) using Fluid.
-In our simplified example here, the general structure of a page is defined by a layout "Default".
-We show an example for a three column layout. Further templates can be added later, using
-the same layout.
+The Sitepackage Tutorial walks you through the creation of a sitepackage
+(theme) using Fluid. In our simplified example, the overall structure of
+a page is defined by a layout "Default". We show an example of a three
+column layout. Further templates can be added later, using the same layout.
 
 .. code-block:: none
 
