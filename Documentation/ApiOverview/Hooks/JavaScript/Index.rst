@@ -7,6 +7,10 @@
 JavaScript Event API
 ====================
 
+.. versionadded:: 10.3
+
+   :doc:`t3core:Changelog/10.3/Feature-90471-JavaScriptEventAPI`
+
 The Event API in TYPO3 incorporates different techniques to handle JavaScript events in an easy, convenient and
 performant manner. Event listeners may be bound directly to an element or to multiple elements using event delegation.
 
