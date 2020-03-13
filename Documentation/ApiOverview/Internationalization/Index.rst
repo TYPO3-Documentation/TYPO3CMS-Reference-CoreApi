@@ -17,5 +17,6 @@ Internationalization and Localization
    :titlesonly:
 
    Introduction
+   Languages
    ManagingTranslations
    XliffFormat
