@@ -93,7 +93,7 @@ bulkInsert()
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    $connection = GeneralUtility::makeInstance(ConnectionPool::class)
-      ->getConnectionForTable('sys_log')
+      ->getConnectionForTable('sys_log');
    $connection->bulkInsert(
       'sys_log',
       [
