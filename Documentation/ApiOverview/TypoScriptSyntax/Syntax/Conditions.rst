@@ -31,6 +31,10 @@ Templates. But a condition can theoretically evaluate any circumstance
 and return either TRUE or FALSE which subsequently means the parsing
 of the TypoScript code that follows.
 
+.. seealso::
+
+   For conditions usage examples, and available variables and function reference, please refer to
+   :ref:`the TypoScript Reference conditions chapter <t3tsref:conditions>`.
 
 .. _typoscript-syntax-conditions-usage:
 
