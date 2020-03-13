@@ -39,18 +39,29 @@ Here is a sample XLIFF file:
 
    <?xml version="1.0" encoding="UTF-8"?>
    <xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.1">
-      <file source-language="en" datatype="plaintext" original="messages" date="2011-10-18T18:20:51Z" product-name="my-ext">
+      <file source-language="en" datatype="plaintext" original="EXT:my_ext/Resources/Private/Language/Modules/<ffile-name>.xlf" date="2011-10-18T18:20:51Z" product-name="my_ext">
          <header/>
          <body>
-            <trans-unit id="headerComment" xml:space="preserve">
+            <trans-unit id="headerComment" resname="headerComment">
                <source>The default Header Comment.</source>
             </trans-unit>
-            <trans-unit id="generator" xml:space="preserve">
+            <trans-unit id="generator" resname="generator">
                <source>The "Generator" Meta Tag.</source>
             </trans-unit>
          </body>
       </file>
    </xliff>
+
+.. note::
+
+   The following properties should be filled properly to get best support in external translation tools:
+
+   `original`
+      This property contains the path to the xlf file.
+
+   `resname`
+      Its content is shown to translators. It should be a copy of the property `id`.
+
 
 The translated file is very similar. If the original file was named
 :file:`locallang.xlf`, the translated file for German (code "de") will
@@ -66,14 +77,14 @@ Here is what the translation of our sample file could look like:
 .. code-block:: xml
 
    <xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.1">
-      <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2011-10-18T18:20:51Z" product-name="my-ext">
+      <file source-language="en" target-language="de" datatype="plaintext" original="EXT:my_ext/Resources/Private/Language/Modules/<ffile-name>.xlf" date="2011-10-18T18:20:51Z" product-name="my_ext">
          <header/>
          <body>
-            <trans-unit id="headerComment" xml:space="preserve">
+            <trans-unit id="headerComment" resname="headerComment">
                <source>The default Header Comment.</source>
                <target>Der Standard-Header-Kommentar.</target>
             </trans-unit>
-            <trans-unit id="generator" xml:space="preserve">
+            <trans-unit id="generator" resname="generator">
                <source>The "Generator" Meta Tag.</source>
                <target>Der "Generator"-Meta-Tag.</target>
             </trans-unit>
@@ -100,3 +111,73 @@ need to be referred to explicitly using the :code:`EXT:LLL:extkey/path/to/file:m
 As mentioned above, the translation files follow the same naming conventions, but
 are prepended with the language code and a dot. They are stored alongside the default
 language files.
+
+
+.. _xliff-id-naming:
+
+ID Naming
+=========
+
+There is no strict rule or guideline in place for defining identifiers
+(the ``id`` attribute).
+Still it is best practice to follow these rules:
+
+Separate by Dots
+----------------
+
+Use dots to separate logical parts of the identifier.
+
+Good example:
+
+.. code-block:: none
+
+   CType.menu_abstract
+
+Bad examples:
+
+.. code-block:: none
+
+    CType_menu_abstract
+    CType-menu_abstract
+
+Namespace
+---------
+
+Group identifiers together with a useful namespace.
+
+Good example:
+
+.. code-block:: none
+
+   CType.menu_abstract
+
+This groups all available content types for content elements by using
+the same prefix ``CType.``.
+
+Bad example:
+
+.. code-block:: none
+
+    menu_abstract
+
+Namespaces should be defined by context.
+``menu_abstract.CType`` could also be a reasonable namespace
+if the context is about ``menu_abstract``.
+
+lowerCamelCase
+--------------
+
+Generally, lowerCamelCase should be used:
+
+Good example:
+
+.. code-block:: none
+
+   frontendUsers.firstName
+
+Exceptions:
+
+* For some specific cases where the referenced identifier is in a format
+  other than lowerCamelCase, that format can be used:
+  For example, database table or column names often are written in snake_case,
+  and the XLIFF key then might be something like ``fe_users.first_name``.
