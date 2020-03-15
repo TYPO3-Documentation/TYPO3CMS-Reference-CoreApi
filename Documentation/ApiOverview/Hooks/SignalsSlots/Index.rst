@@ -6,6 +6,13 @@
 Signals and Slots
 =================
 
+.. versionchanged:: 10.2
+   A number of signals have been replaced in the core with :ref:`PSR-14 events <eventlist>`.
+   See changelogs:
+
+   * :doc:`t3core:Changelog/10.2/Feature-89733-NewPSR-14EventsForExistingSignalSlotsInCoreExtension`
+   * :doc:`t3core:Changelog/10.3/Feature-89870-NewPSR-14EventsForExtbase-relatedSignals`
+
 Signals and Slots provide a way to extend TYPO3s Core functionality or the functionality of Extensions. Signals roughly
 follow the `observer pattern <https://en.wikipedia.org/wiki/Observer_pattern>`__.
 
