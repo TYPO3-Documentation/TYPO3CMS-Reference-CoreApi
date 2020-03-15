@@ -811,8 +811,35 @@ a list of backend user names!
    Wrapping the second parameter in a :php:`->createNamedParameter()` call will result in an error upon execution. This
    behaviour can be disabled by passing :php:`false` as a third parameter to :php:`->set()`.
 
+More examples
+-------------
+
+Use integer, integer array::
+
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+    // use TYPO3\CMS\Core\Database\ConnectionPool;
+    // use TYPO3\CMS\Core\Database\Connection;
+    // SELECT * FROM `tt_content`
+    //     WHERE `bodytext` = 'kl\'aus'
+    //     AND   sys_language_uid = 0
+    //     AND   pid in (2, 42,13333)
+    $searchWord = "kl'aus"; // $searchWord = GeneralUtility::_GP('searchword');
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+    $queryBuilder->getRestrictions()->removeAll();
+    $queryBuilder
+        ->select('uid')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter($searchWord)),
+            $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($language, \PDO::PARAM_INT)),
+            $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter($pageIds, Connection::PARAM_INT_ARRAY))
+        )
+        ->execute();
+
+
 
 Rules:
+------
 
 * **Always** use :php:`->createNamedParameter()` around **any** input, no matter where it comes from.
 
