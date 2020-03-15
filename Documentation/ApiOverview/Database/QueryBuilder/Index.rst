@@ -395,6 +395,11 @@ Remarks:
   any number of arguments. If for instance :php:`->where()` receives four arguments, they are handled as single
   expressions, all of them combined with `AND`.
 
+* :ref:`createNamedParameter <database-query-builder-create-named-parameter>`
+  is used to create a placeholder for a prepared statement field value.
+  **Always** use that when dealing with user input in expressions to make
+  the statement SQL injection safe.
+
 * :php:`->where()` should be called only once per query and it resets any previously set :php:`->where()`, :php:`->andWhere()`
   and :php:`->orWhere()` expression. Having a :php:`->where()` call after a previous :php:`->where()`, :php:`->andWhere()` or :php:`->orWhere()`
   typically indicates a bug or a rather weird code flow. Doing so is discouraged.
