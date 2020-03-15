@@ -7,6 +7,10 @@
 XML Sitemap
 ===========
 
+.. versionadded:: 9.4
+
+   XML Sitemap support was added to the core with change :doc:`t3core:Changelog/9.4/Feature-84525-XMLSitemap`.
+
 It is possible to generate XML sitemaps for SEO purposes without using 3rd-party plugins.
 When enabled, this new feature will create a sitemapindex with one or more sitemaps in it.
 Out-of-the-box it will have one sitemap containing all the pages of the current site and
@@ -172,3 +176,34 @@ The :php:`getItems` method have to return an array with the items for the sitema
 
 The loc element, is the URL of the page that the search engine has to crawl. The lastMod element contains the
 date of the last update of the specific item. This value is a UNIX-timestamp.
+
+
+.. _sitemap-xslFile::
+
+Path to sitemap xslFile
+=======================
+
+.. versionadded:: 10.3
+
+   It is now possible to configure the path to the sitemap xslFile.
+   See changelog :doc:`t3core:Changelog/master/Feature-88147-AddPossibilityToConfigureThePathToSitemapXslFile`
+
+The xsl file to create a layout for a XML sitemap can now be configured on three levels:
+
+#. For all sitemaps::
+
+      plugin.tx_seo.config.xslFile = EXT:myext/Resources/Public/CSS/mySite.xsl
+
+#. For all sitemaps of a certain sitemapType::
+
+      plugin.tx_seo.config.<sitemapType>.sitemaps.xslFile = EXT:myext/Resources/Public/CSS/mySite.xsl
+
+#. For a specific sitemap::
+
+      plugin.tx_seo.config.<sitemapType>.sitemaps.<sitemap>.config.xslFile = EXT:myext/Resources/Public/CSS/mySite.xsl
+
+
+The value is inherited until it is overwritten.
+
+If no value is specified at all, :file:`EXT:seo/Resources/Public/CSS/Sitemap.xsl` is used as default like before.
+
