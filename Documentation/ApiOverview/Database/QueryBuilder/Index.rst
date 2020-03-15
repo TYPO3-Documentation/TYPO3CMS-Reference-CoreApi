@@ -569,8 +569,8 @@ Remarks:
   example calling :php:`->orderBy('sys_language.sorting')` would have been identical. All identifiers are quoted
   automatically.
 
-* The second, optional argument of both methods specifies the sorting order. The two allowed values are `ASC` and `DESC`
-  where `ASC` is default and can be omited.
+* The second, optional argument of both methods specifies the sorting order. The two allowed values are `'ASC'` and `'DESC'`
+  where `'ASC'` is default and can be omited.
 
 * To create a chain of orders, use :php:`->orderBy()` and then multiple :php:`->addOrderBy()` calls. Calling
   :php:`->orderBy('header')->addOrderBy('bodytext')->addOrderBy('uid', 'DESC')` creates
