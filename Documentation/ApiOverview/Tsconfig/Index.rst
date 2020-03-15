@@ -47,7 +47,7 @@ structures) behaviours. Again, the point is that the configuration is
 active for certain branches of the page tree which is very practical
 in projects running many sites in the same page tree.
 
-Get Page TSConfig via PHP in an Extension
+Get Page TSConfig via PHP in an extension
 -----------------------------------------
 
 When there is the necessity for fetching and loading PageTSconfig,
