@@ -1,36 +1,31 @@
 .. include:: ../../Includes.txt
 
 
-
-
-
-
 .. _registry:
 
 ===============
 System Registry
 ===============
 
-The purpose of the registry (introduced in TYPO3 4.3) is to hold key-
-value pairs of information. You can actually think of it being an
-equivalent to the Windows registry (just not as complicated).
+The purpose of the registry is to store key-value pairs of information. It can
+be considered an equivalent to the Windows registry (only not as complicated).
 
-You might use the registry to store information that your script needs
-to store across sessions or request.
+You might use the registry to hold information that your script needs
+to store across sessions or requests.
 
 An example would be a setting that needs to be altered by a PHP
 script, which currently is not possible with TypoScript.
 
-Another example: The scheduler system extension stores when it ran the
-last time. The reports system extension then checks that value, in
-case it determines that the scheduler hasn't run for a while it issues
-a warning. While this might not be of great use to anyone with an
-actual cron job set up for the scheduler, it is of use for users that
-have to run the scheduler tasks by hand due to missing access to a
+Another example: The Scheduler system extension stores when it ran the
+last time. The Reports system extension then checks that value, in
+case it determines that the Scheduler hasn't run for a while, it issues
+a warning. While this might not be of much use to someone who has set up an
+actual cron job for the Scheduler, but it is useful for users who
+need to run the Scheduler tasks manually due to a lack of access to a
 cron job.
 
-The registry is not meant to store things that are supposed to go into
-a session or a cache, use the appropriate API for these instead.
+The registry is not intended to store things that are supposed to go into
+a session or a cache, use the appropriate API for them instead.
 
 
 .. _registry-table:
@@ -38,7 +33,8 @@ a session or a cache, use the appropriate API for these instead.
 The Registry Table (sys\_registry)
 ==================================
 
-Here's a description of the fields found in the sys\_registry table:
+Here's a description of the fields that can be found in the `sys_registry`
+table:
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -61,12 +57,12 @@ Here's a description of the fields found in the sys\_registry table:
    :Type:
          varchar (128)
    :Description:
-         Represents an entry's namespace. In general the namespace is an
-         extension key starting with "tx\_", a user script's prefix "user\_",
-         or "core" for entries that belong to the core.
+         Represents an entry's namespace. In general, the namespace is an
+         extension key starting with `tx_`, a user script's prefix `user_`,
+         or `core` for entries that belong to the core.
 
-         The point of namespaces is that entries with the same key can exist
-         inside different namespaces.
+         The purpose of namespaces is that entries with the same key can exist
+         within different namespaces.
 
 
  - :Field:
@@ -74,10 +70,10 @@ Here's a description of the fields found in the sys\_registry table:
    :Type:
          varchar (255)
    :Description:
-         The entry's key. Together with the namespace the key is unique for the
+         The entry's key. Together with the namespace, the key is unique for the
          whole table. The key can be any string to identify the entry. It's
-         recommended to use dots as dividers if necessary. This way the naming
-         is similar to the already known syntax in TypoScript.
+         recommended to use dots as dividers if necessary. In this way, the
+         naming is similar to the syntax already known in TypoScript.
 
 
  - :Field:
@@ -87,28 +83,28 @@ Here's a description of the fields found in the sys\_registry table:
    :Description:
          The entry's actual value. The value is stored as a serialized string,
          thus you can even store arrays or objects in a registry entry – it's
-         not recommended though. Using phpMyAdmin's Show BLOB option you can
-         check the value in that field although being stored as a binary.
+         not recommended though. Using phpMyAdmin's `Show BLOB` option allows
+         you to check the value in this field even though it is stored as a
+         binary.
 
 
 .. _registry-api:
 
-The registry API
+The Registry API
 ================
 
-To use the registry, there's an easy to use API. Simply use
-the code below to retrieve an instance of
-the registry. The instance returned will always be the same as the
-registry is a singleton::
+There is an easy-to-use API for using the registry. Simply call the following
+code to retrieve an instance of the registry. The instance returned will always
+be the same, as the registry is a singleton::
 
    $registry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Registry::class);
 
-After retrieving an instance of the registry you can access the
-registry values through its :code:`get()` method. The :code:`get()` method offers an
-interesting third parameter to specify a default value, that value is
-returned in case the requested entry was not found in the registry.
-That happens when accessing an entry for the first time for example.
-Setting a value is easy as well using the :code:`set()` method.
+After retrieving an instance of the registry, you can access the registry values
+through its :php:`get()` method. The :php:`get()` method provides an
+interesting third parameter to specify a default value that is returned if the
+requested entry is not found in the registry. This happens, for example, the
+first time an entry is accessed. Setting a value is also easy with the
+:php:`set()` method.
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -121,23 +117,23 @@ Setting a value is easy as well using the :code:`set()` method.
  - :Method:
          set
    :Parameters:
-         **$namespace** : namespace in which to set the value
+         **$namespace** : namespace in which the value to set
 
          **$key** : the key of the value to set
 
          **$value** : the value to store
    :Description:
-         Represents an entry's namespace. In general the namespace is an
-         extension key starting with "tx\_", a user script's prefix "user\_",
-         or "core" for entries that belong to the core.
+         Represents an entry's namespace. In general, the namespace is an
+         extension key that starts with `tx_`, a user script's prefix `user_`,
+         or `core` for entries that belong to the core.
 
 
  - :Method:
          get
    :Parameters:
-         **$namespace** : namespace to get the value from
+         **$namespace** : namespace from which the value is to be obtained
 
-         **$key** : the key of the value to retrieve
+         **$key** : the key of the value to be retrieved
 
          **$defaultValue** : a default value if the key was not found in the
          given namespace
@@ -148,9 +144,9 @@ Setting a value is easy as well using the :code:`set()` method.
  - :Method:
          remove
    :Parameters:
-         **$namespace** : namespace to remove the value from
+         **$namespace** : namespace from which the value is to be removed
 
-         **$key** : the key of the value to remove
+         **$key** : the key of the value to be removed
    :Description:
          Remove an entry from a given namespace.
 
@@ -158,14 +154,14 @@ Setting a value is easy as well using the :code:`set()` method.
  - :Method:
          removeAllByNamespace
    :Parameters:
-         **$namespace** : namespace to empty
+         **$namespace** : namespace to be emptied
    :Description:
-         Deletes all value for a given namespace.
+         Deletes all values for a given namespace.
 
 
-Note that you should not store binary data into the registry, it's not
-designed to do that. Use the filesystem instead, if you have such
-needs.
+.. note::
+   Do not store binary data in the registry, it it not intended for this
+   purpose. Use the file system instead, if you have such needs.
 
 
 .. _registry-examples:
@@ -185,5 +181,4 @@ It is retrieved later using::
 
    $registry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Registry::class);
    $lastRun = $registry->get('tx_scheduler', 'lastRun');
-
 
