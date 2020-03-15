@@ -3,30 +3,29 @@
 .. _flexforms:
 
 ==============
-FlexForms
+Flexforms
 ==============
 
-FlexForms can be used to store data within an XML structure inside a single DB
+Flexforms can be used to store data within an XML structure inside a single DB
 column.
 
 You may want to configure
 individual plugins differently, depending on where they are added. The
-configuration set via the FlexForm mechanism applies to only the content
-record it has been configured for. The FlexForms configuration for a plugin
+configuration set via the Flexform mechanism applies to only the content
+record it has been configured for. The Flexforms configuration for a plugin
 can be changed by editors in the backend. This gives editors more control
 over plugin features and what is to be rendered.
 
-Using FlexForms you have all the features of TCA, so it is possible to
+Using Flexforms you have all the features of TCA, so it is possible to
 to use input fields, select lists, show options conditionally and more.
 
 Example Use Cases
 =================
 
-* Use the plugin to configure a different view, e.g. list, single
-* The `bootstrap_package <https://extensions.typo3.org/extension/example/>`__
-  uses FlexForms to configure rendering options,
-  e.g. a transition interval and transition type (slide, fade)
-  for the carousel.
+The `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__
+uses Flexforms to configure rendering options,
+e.g. a transition interval and transition type (slide, fade)
+for the carousel.
 
 .. image:: Images/FlexFormCarousel.png
    :class: with-shadow
@@ -131,7 +130,7 @@ More Examples
 The definition of the data types and parameters used complies to the
 :ref:`column types defined by TCA <t3tca:columns-types>`.
 
-The settings must be added within the :html:`<el>` element in the FlexForm
+The settings must be added within the :html:`<el>` element in the Flexform
 configuration schema file.
 
 Select Field
@@ -229,7 +228,7 @@ should only be visible, if sort order "title" was not selected.
 
 You can define conditions using displayCond. This dynamically defines
 whether a setting should be displayed when the plugin is configured.
-The conditions may for example depend on one or more other settings in the FlexForm,
+The conditions may for example depend on one or more other settings in the Flexform,
 on database fields of current record or be defined by a user function.
 
 
@@ -251,7 +250,7 @@ in the TCA reference:
 .. _read-flexforms:
 .. _read-flexforms-extbase:
 
-How to Read FlexForms From an Extbase Controller Action
+How to Read Flexforms From an Extbase Controller Action
 -------------------------------------------------------
 
 The settings can be read using :php:`$this->settings` in an
@@ -270,13 +269,13 @@ Extbase controller.
 
 .. _read-flexforms-php:
 
-How to Read and Write FlexForms From PHP
+How to Read and Write Flexforms From PHP
 ----------------------------------------
 
-Some situation make it necessary to access FlexForms via PHP. The following APIs
-are available to work with FlexForms from within PHP:
+Some situation make it necessary to access Flexforms via PHP. The following APIs
+are available to work with Flexforms from within PHP:
 
-In order to convert a FlexForm to an PHP array, the :php:`xml2array` method can
+In order to convert a Flexform to a PHP array, the :php:`xml2array` method can
 be used:
 
 .. code-block:: php
@@ -284,7 +283,7 @@ be used:
    $flexFormArray = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($flexFormString);
 
 
-In order to convert an PHP array into an FlexForm, the :php`flexArray2Xml`
+In order to convert an PHP array into an Flexform, the :php`flexArray2Xml`
 method can be used:
 
 .. code-block:: php
@@ -292,24 +291,13 @@ method can be used:
    $flexFormTools = new \TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools();
    $flexFormString = $flexFormTools->flexArray2Xml($flexFormArray, true);
 
-.. _read-flexforms-ts:
-
-How to Access FlexForms From TypoScript
----------------------------------------
-
-.. todo:: Add better link to TypoScript reference.
-
-It's possible to read values from FlexForms within TypoScript, this is explained
-within the :ref:`TypoScript Reference <t3tsref:start>`.
-
-
 
 .. _read-flexforms-fluid:
 
 How to Access FlexFroms From Fluid
 ----------------------------------
 
-FlexForm settings can be read from within a Fluid template using
+Flexform settings can be read from within a Fluid template using
 :html:`{settings}`.
 
 
