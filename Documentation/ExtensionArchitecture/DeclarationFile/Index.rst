@@ -139,6 +139,8 @@ values in the :php:`$EM_CONF` array if needed.
          tested and is known to work properly with PHP 7.2, 7.3 and 7.4. It
          will conflict with "templavoilaplus" (any version) and it is suggested
          that it might be worth installing "news" (version at least 7.3.0).
+         Be aware that you should add *at least* the TYPO3 and PHP version constraints
+         to this file to make sure everything is working properly.
 
  - :Key:
          state
