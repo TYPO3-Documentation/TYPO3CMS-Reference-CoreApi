@@ -139,9 +139,11 @@ values in the :code:`$EM_CONF` array if needed.
          integrated into TYPO3 when the last digit of the version changes, it is
          safe to assume it will be compatible with any upcoming version of the
          corresponding branch, thus ``.99``). Also the extension has been
-         tested and is known to work properly with PHP 5.3, 5.4 and 5.5. It
-         will conflict with the DAM (any version) and it is suggested that it
-         might be worth installing "tt\_news" (version at least 2.5.0).
+         tested and is known to work properly with PHP 7.2, 7.3 and 7.4. It
+         will conflict with "templavoilaplus" (any version) and it is suggested
+         that it might be worth installing "news" (version at least 7.3.0).
+         Be aware that you should add *at least* the TYPO3 and PHP version constraints
+         to this file to make sure everything is working properly.
 
  - :Key:
          state
