@@ -267,7 +267,7 @@ extension directory):
 
    mysqldump --add-drop-table \
                --password=[password] [database name] \
-               [tablename]  > ./ext_tables_static.sql
+               [tablename]  > ./ext_tables_static+adt.sql
 
 :code:`--add-drop-table` will make sure to include a DROP TABLE
 statement so any data is inserted in a fresh table.
