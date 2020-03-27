@@ -596,60 +596,6 @@ Options
       -1
 
 
-.. _caching-backend-apc:
-
-APC Backend
-===========
-
-`APC <http://pecl.php.net/package/APC>`_ is mostly known as an opcode cache
-for PHP source files but can be used to store user data in shared memory as well.
-Its main advantage is that data can be shared between different PHP processes and requests.
-All calls directly access shared memory. This makes this backend lightning fast for
-:code:`get()` and :code:`set()` operations. It can be an option for relatively small caches
-(few dozens of megabytes) which are read and written very often and becomes handy
-if APC is used as opcode cache anyway.
-
-The implementation is very similar to the memcached backend implementation
-and suffers from the same problems if APC runs out of memory.
-Garbage collection is currently not implemented.
-In its latest version, APC will fail to store data with a `PHP warning <http://pecl.php.net/bugs/bug.php?id=16966>`_
-if it runs out of memory. This may change in the future.
-Even without using the cache backend, it is advisable to increase
-the memory cache size of APC to at least 64MB when working with TYPO3,
-simply due to the large number of PHP files to be cached.
-A minimum of 128MB is recommended when using the additional content cache.
-Cache TTL for file and user data should be set to zero (disabled) to avoid heavy memory fragmentation.
-
-.. note::
-   It is not advisable to use the APC backend in shared hosting environments for security reasons.
-   The user cache in APC is not aware of different virtual hosts. Basically every PHP script
-   which is executed on the system can read and write any data to this shared cache,
-   given data is not encapsulated or namespaced in any way.
-   Only use the APC backend in environments which are completely under your control
-   and where no third party can read or tamper your data.
-
-
-.. _caching-backend-xcache:
-
-Xcache Backend
-==============
-
-Xcache is a PHP opcode cache similar to APC. It can also store in-memory key/value user data.
-
-The cache backend implementation is nearly identical to the implementation of APC backend
-and has the same design constraints.
-
-.. important::
-
-   Xcache does **not** work in command-line context. The Xcache backend implementation is constructed
-   to silently discard any cache operation if in CLI context. That means if Xcache backend is used,
-   it is of no effect in CLI.
-
-   Furthermore, it is important to set the PHP ini value :code:`xcache.var_size` to a value (eg. 100M)
-   that is big enough to store the needed data. The usage of this capacity should be monitored.
-
-*(Available since TYPO3 CMS 6.1)*
-
 .. _caching-backend-wincache:
 
 Wincache Backend
@@ -658,8 +604,7 @@ Wincache Backend
 `Wincache <http://www.iis.net/downloads/microsoft/wincache-extension>`_ is a PHP opcode cache similar to APC, but
 dedicated to the Windows OS platform. Similar to APC, the cache can also be used as in-memory key/value cache.
 
-The cache backend implementation is nearly identical to the implementation of :ref:`APC backend <caching-backend-apc>`
-and has the same design constrains.
+The cache backend implementation is nearly identical to the implementation of `APC backend <https://docs.typo3.org/m/typo3/reference-coreapi/9.5/en-us/ApiOverview/CachingFramework/FrontendsBackends/Index.html#apc-backend>`_ and has the same design constrains.
 
 
 .. _caching-backend-file:
