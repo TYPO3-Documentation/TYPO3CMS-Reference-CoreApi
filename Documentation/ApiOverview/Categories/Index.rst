@@ -86,7 +86,7 @@ The example below illustrates how this is done:
          'exclude' => FALSE,
          // Override generic configuration, e.g. sort by title rather than by sorting
          'fieldConfiguration' => array(
-            'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC',
+            'foreign_table_where' => ' AND {#sys_category}.{#sys_language_uid} IN (-1, 0) ORDER BY sys_category.title ASC',
          ),
          // string (keyword), see TCA reference for details
          'l10n_mode' => 'exclude',
@@ -137,7 +137,7 @@ The code will look something like:
          <type>select</type>
          <autoSizeMax>50</autoSizeMax>
          <foreign_table>sys_category</foreign_table>
-         <foreign_table_where> AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.sorting ASC</foreign_table_where>
+         <foreign_table_where> AND {#sys_category}.{#sys_language_uid} IN (-1, 0) ORDER BY sys_category.sorting ASC</foreign_table_where>
          <MM>sys_category_record_mm</MM>
          <MM_opposite_field>items</MM_opposite_field>
          <MM_match_fields>
