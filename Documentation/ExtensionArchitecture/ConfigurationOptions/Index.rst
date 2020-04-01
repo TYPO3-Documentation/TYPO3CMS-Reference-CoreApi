@@ -81,14 +81,14 @@ Where user functions have to be written the following way:
    # cat=basic/enable/050; type=user[Vendor\MyExtensionKey\ViewHelpers\MyConfigurationClass->render]; label=MyLabel
    myVariable = 1
 
+
 .. _extension-options-accessing-saved-options:
 
 Accessing saved options
 =======================
 
-Once you saved the configuration in the Settings module, it will be stored in
-:php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['your_extension_key']`
-as an array.
+When saved in the Settings module, the configuration will be kept in the :file:`LocalConfiguration.php`
+file and is available as array :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['your_extension_key']`.
 
 To retrieve the configuration use the API provided by the :php:`\TYPO3\CMS\Core\Configuration\ExtensionConfiguration` class::
 
