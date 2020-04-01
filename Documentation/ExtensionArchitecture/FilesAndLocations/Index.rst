@@ -129,9 +129,12 @@ extensions with the name prefix "ext\_".
          by this name.Example for dumping mysql data from bash (being in the
          extension directory):
 
-         .. code-block:: csh
+         .. code-block:: shell
 
-            mysqldump --password=[password] [database name] [tablename] --add-drop-table > ./ext_tables_static.sql
+            mysqldump --add-drop-table \
+               --password=[password] [database name] \
+               [tablename]  > ./ext_tables_static+adt.sql
+
 
          :code:`--add-drop-table` will make sure to include a DROP TABLE
          statement so any data is inserted in a fresh table.
