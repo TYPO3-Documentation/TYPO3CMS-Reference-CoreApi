@@ -37,6 +37,9 @@ context you can do so in the :file:`AdditionalConfiguration.php`::
 
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['deprecations']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::NOTICE] = [];
 
+*Note:* Due to how the configuration files are being merged this disabling can only be done in 
+:file:`AdditionalConfiguration.php` and not in :file:`LocalConfiguration.php`.
+
 For more information on how to configure the writing of deprecation logs see :ref:`logging-configuration-writer`.
 
 .. _deprecation_finding_calls:
