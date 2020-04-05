@@ -124,6 +124,25 @@ The PageTSconfig of the LinkHandler is being used in sysext `recordlist`
 in class :php:`\TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler`
 which does not contain Hooks or Slots.
 
+Special: Activate page UID field for directly entering a target page
+--------------------------------------------------------------------
+
+.. important::
+
+   This only works for the page LinkHandler. Not for custom added LinkHandler configurations.
+
+It is possible to activate an additional field in the link browser to enter the UID of a page
+directly instead of selecting it from the page tree. This is especially useful if you have a
+potentially large page tree in your TYPO3 project.
+
+.. figure:: ../../../Images/LinkBrowserTSConfigExamplepageIdSelector.png
+   :alt: The link browser field for entering a page uid
+
+Activate the field with exactly the following User-/PageTSConfig::
+
+   TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1
+
+
 .. _linkhandler-typoscript:
 
 LinkHandler TypoScript Options
