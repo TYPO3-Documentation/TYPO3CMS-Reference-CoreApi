@@ -247,6 +247,18 @@ in the TCA reference:
 
    * :ref:`t3tca:columns-properties-displaycond` in TCA Reference
 
+.. _flexformSwitchableControllerActions:
+
+switchableControllerActions
+---------------------------
+
+.. deprecated:: 10.3
+
+   It is no longer considered best practice to use
+   `switchableControllerActions` in a Flexform. The reasons
+   for the deprecation and possible alternatives are outlined
+   in the changelog :doc:`t3core:Changelog/10.3/Deprecation-89463-SwitchableControllerActions`.
+
 
 .. _read-flexforms:
 .. _read-flexforms-extbase:
