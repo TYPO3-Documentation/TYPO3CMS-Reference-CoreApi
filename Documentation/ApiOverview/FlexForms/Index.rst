@@ -97,6 +97,7 @@ Steps to Perform (Extension Developer)
    In :file:`Configuration/TCA/Overrides/tt_content.php` add the following:
 
    .. code-block:: php
+       :linenos:
 
        $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['example_registration'] = 'pi_flexform';
        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
@@ -106,9 +107,17 @@ Steps to Perform (Extension Developer)
            'FILE:EXT:example/Configuration/FlexForms/Registration.xml'
        );
 
+   * :ref:`t3tca:types-properties-subtypes-addlist` defines that *example_registration*
+     is a FlexForm.
+   * :php:`addPiFlexFormValue()` attaches the FlexForm :file:`Registration.xml`
+     to the specific content element or plugin *example_registration*.
+   * You may also want to add :ref:`subtypes-excludelist <subtypes_excludelist>`
+     if you don't want the fields *recursive* or *Record Storage Page* to
+     appear.
+
    .. tip::
 
-      The plugin signature is used in the database field `tt_content.list_type`
+      The plugin signature *example_registration* is used in the database field `tt_content.list_type`
       as well, when the tt_content record is saved. If you are confused about
       how to handle underscores and upper / lowercase, check there to see
       what your plugin signature is.
@@ -335,6 +344,36 @@ How to Access FlexFroms From Fluid
 Flexform settings can be read from within a Fluid template using
 :html:`{settings}`.
 
+
+.. _subtypes_excludelist:
+
+How to remove extra fields from FlexForm
+----------------------------------------
+
+In :file:`Configuration/TCA/Overrides/tt_content.php` add for example
+the following::
+
+   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['example_registration'] = 'recursive,pages';
+
+:ref:`t3tca:types-properties-subtypes-excludelist` excludes the fields
+*recursive* and *pages* from the FlexForm view. This is not strictly
+necessary, but declutters your FlexForm in the cases that these fields
+do not need to be configured. You should do this, unless you need these
+fields in your FlexForm.
+
+* *recursive*: This defines that the fields will apply recursively.
+* *pages* ("Record Storage Page"): This defines the page where your
+  records are stored. For a plugin, you will usually have defined
+  a specific table to store the records. The records should be
+  stored on a separate page of type *Folder*. Only remove the
+  *pages* if you do not want this (which may be the case for
+  content elements, which do not store data in an extra table
+  but directly in `tt_content`.
+
+This is how it looks without the statement:
+
+.. image:: Images/FlexformsSubtypesExcludelist.png
+   :class: with-shadow
 
 Steps to Perform (Editor)
 =========================
