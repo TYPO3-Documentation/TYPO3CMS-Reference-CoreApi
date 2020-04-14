@@ -30,13 +30,13 @@ using the following API:
 
     // Module System > Backend Users
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'TYPO3.CMS.Beuser',
+        'Beuser',
         'system',
         'tx_Beuser',
         'top',
         [
-            'BackendUser' => 'index, addToCompareList, removeFromCompareList, compare, online, terminateBackendUserSession',
-            'BackendUserGroup' => 'index'
+            \TYPO3\CMS\Beuser\Controller\BackendUserController::class => 'index, show, addToCompareList, removeFromCompareList, removeAllFromCompareList, compare, online, terminateBackendUserSession, initiatePasswordReset',
+            \TYPO3\CMS\Beuser\Controller\BackendUserGroupController::class => 'index, addToCompareList, removeFromCompareList, removeAllFromCompareList, compare'
         ],
         [
             'access' => 'admin',
@@ -93,7 +93,7 @@ Toplevel modules like "Web" or "File" are registered with the same API:
 .. code-block:: php
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'Vendor.MyExtension',
+        'MyExtension',
         'mysection',
         '',
         '',
@@ -111,7 +111,7 @@ be used to add submodules to this new toplevel module:
 .. code-block:: php
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'Vendor.MyExtension',
+        'MyExtension',
         'mymodule1',
         'mysection',
         '',
