@@ -91,6 +91,7 @@ Example taken from :php:`ListSysLogCommand` in the core and simplified::
          *
          * @param InputInterface $input
          * @param OutputInterface $output
+         * @return int error code
          */
         protected function execute(InputInterface $input, OutputInterface $output)
         {
@@ -99,6 +100,7 @@ Example taken from :php:`ListSysLogCommand` in the core and simplified::
 
             // ...
             $io->writeln('Write something');
+            return 0;
         }
     }
 
@@ -130,6 +132,9 @@ This command takes one optional argument `wizardName`, which can be passed on th
 .. code-block:: bash
 
    vendor/bin/typo3 upgrade:run [wizardName]
+   
+
+and can be retreived using `$input->getArgument('wizardName');`
 
 
 .. _deactivating-the-command-in-scheduler:
