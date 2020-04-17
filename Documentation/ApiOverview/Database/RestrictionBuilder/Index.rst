@@ -236,9 +236,10 @@ that you have content in table `tt_content` that could have another record as pa
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction
-   // use TYPO3\CMS\Core\Database\Query\Restriction\EndTimeRestriction
-   // use TYPO3\CMS\Core\Database\Query\Restriction\StartTimeRestriction
+   // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
+   // use TYPO3\CMS\Core\Database\Query\Restriction\EndTimeRestriction;
+   // use TYPO3\CMS\Core\Database\Query\Restriction\StartTimeRestriction;
+   // use TYPO3\CMS\Core\Database\Query\Restriction\DefaultRestrictionContainer;
 
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    
@@ -248,14 +249,14 @@ that you have content in table `tt_content` that could have another record as pa
       ->removeAll()
    
    // build a custom restriction container
-   $myRestrictionContainer = new \TYPO3\CMS\Core\Database\Query\Restriction\DefaultRestrictionContainer();
+   $myRestrictionContainer = new DefaultRestrictionContainer();
    
    // remove all restricitons that should not been used
    // with this, only the HiddenRestriction stays in the restriction container
    $myRestrictionContainer
-      ->removeByType(\TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction::class)
-      ->removeByType(\TYPO3\CMS\Core\Database\Query\Restriction\EndTimeRestriction::class)
-      ->removeByType(\TYPO3\CMS\Core\Database\Query\Restriction\StartTimeRestriction::class);
+      ->removeByType(DeletedRestriction::class)
+      ->removeByType(EndTimeRestriction::class)
+      ->removeByType(StartTimeRestriction::class);
    
    // apply the restrictions in "$myRestrictionContainer" only to one table
    $doctrineQueryBuilderExpressions = $myRestrictionContainer->buildExpression(['c2' => 'tt_content'], $queryBuilder->expr());
