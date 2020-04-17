@@ -146,6 +146,11 @@ Restrictions
    records need to be handled after the SQL results are fetched, by overlaying the records with
    :php:`BackendUtility::getRecordWSOL()`, :php:`PageRepository->versionOL()` or `PlainDataResolver`.
 
+If a Restriction needs to be enforced as it should always be applied, a restrition could implement the interface `EnforceableQueryRestrictionInterface`. Is this interface implemented for a Restrition, please take care of the following behavior:
+
+* `->removeAll()` will remove all restrictions except the ones that implement the interface `EnforceableQueryRestrictionInterface`
+
+* `->removeByType()` will remove a restriction completely, also restritions that implement the interface `EnforceableQueryRestrictionInterface`
 
 
 QueryRestrictionContainer
@@ -223,3 +228,50 @@ deliver and use an own set of restrictions for own query statements if needed.
    It can be very helpful to debug the final statements created by the `RestrictionBuilder` using
    :php:`debug($queryBuilder->getSQL())` right before the final call to :php:`$queryBuilder->execute()`. Just
    take care these calls **do not** :ref:`end up in production <database-query-builder-get-sql>` code.
+
+
+A very complex example is that you might want to apply one or more restriction/s to only one table. Let's say,
+that you have content in table `tt_content` that could have another record as parent record assigned in field
+`parent`. Now you would like to get all records except the child records where the parent record is hidden.
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction
+   // use TYPO3\CMS\Core\Database\Query\Restriction\EndTimeRestriction
+   // use TYPO3\CMS\Core\Database\Query\Restriction\StartTimeRestriction
+
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+   
+   // Remove all restrictions first
+   $queryBuilder
+      ->getRestrictions()
+      ->removeAll()
+   
+   // build a custom restriction container
+   $myRestrictionContainer = new \TYPO3\CMS\Core\Database\Query\Restriction\DefaultRestrictionContainer();
+   
+   // remove all restricitons that should not been used
+   // with this, only the HiddenRestriction stays in the restriction container
+   $myRestrictionContainer
+      ->removeByType(\TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction::class)
+      ->removeByType(\TYPO3\CMS\Core\Database\Query\Restriction\EndTimeRestriction::class)
+      ->removeByType(\TYPO3\CMS\Core\Database\Query\Restriction\StartTimeRestriction::class);
+   
+   // apply the restrictions in "$myRestrictionContainer" only to one table
+   $doctrineQueryBuilderExpressions = $myRestrictionContainer->buildExpression(['c2' => 'tt_content'], $queryBuilder->expr());
+
+   // add those restrictions to the orWhere query part
+   $queryBuilder
+      ->select('c1.*')
+      ->from('tt_content', 'c1')
+      ->leftJoin('c1', 'tt_content', 'c2', 'c1.parent = c2.uid')
+      ->orWhere($queryBuilder->expr()->isNull('c2.uid'), $doctrineQueryBuilderExpressions);
+
+With this you will end up with the following query:
+
+   SELECT `c1`.*
+   FROM `tt_content` `c1`
+         LEFT JOIN `tt_content` `c2` ON c1.parent = c2.uid
+   WHERE (`c2`.`uid` IS NULL) OR (`c2`.`hidden` = 0);
+
+
