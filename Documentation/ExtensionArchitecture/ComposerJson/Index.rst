@@ -51,7 +51,7 @@ Subsequently:
        "description": "An example extension",
        "license": "GPL-2.0-or-later",
        "require": {
-           "typo3/cms-core": "^9.5 || ^10.1"
+           "typo3/cms-core": "^9.5 || ^10.4"
        },
        "replace": {
            "vendorname/my-extension": "self.version",
