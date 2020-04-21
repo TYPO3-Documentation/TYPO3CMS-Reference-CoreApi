@@ -12,8 +12,7 @@ Fluid
 
    In TYPO3, (almost) everything is an extension. If you want to create a theme, override
    some configuration or add custom content elements you will do this in a custom TYPO3
-   extension. A sitepackage is an extension that contains everything that is necessary
-   for your site: The configuration, necessary assets for your theme (images, css etc.)
+   extension. A sitepackage is an extension that contains everything that is required for building the foundation (in particular, the visual appearance) of a website: The configuration, necessary assets for a theme (images, css etc.)
    and a combination of TypoScript and Fluid.
 
 You can use Fluid in TYPO3 to do one of the following:
