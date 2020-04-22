@@ -17,9 +17,15 @@ like the current workspace ID or if a frontend or backend user is authenticated.
 available was also dependent on the current request type (frontend or backend), instead of having
 one consistent place where all this data is located.
 
-The context is instantiated at the very beginning of each TYPO3 entry point, keeping track
+The context is set up at the very beginning of each TYPO3 entry point, keeping track
 of the current time (formally known as :php:`$GLOBALS['EXEC_TIME']`, if a user is logged in,
 and which workspace is currently accessed.
+
+It can be retrieved anywhere via :php:`GeneralUtility::makeInstance()`:
+
+.. code-block:: php
+
+    $context = GeneralUtility::makeInstance(Context::class);
 
 This information is separated in so-called "Aspects", each being responsible for a certain area:
 
