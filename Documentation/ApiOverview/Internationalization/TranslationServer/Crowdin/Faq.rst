@@ -76,7 +76,7 @@ You need to exlude those in your `.crowdin.yaml` configuration which can be foun
 
    In the long run, you should remove the translations from your extension as those will be provided by the translation server.
 
-More information can be found in the documtation on crowdin: https://support.crowdin.com/configuration-file/
+More information can be found in the documentation on crowdin: https://support.crowdin.com/configuration-file/
 
 Can I upload Translated xlf Files?
 ----------------------------------
