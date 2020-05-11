@@ -53,6 +53,7 @@ directly by using HTTP requests:
 * `https://my.domain/typo3temp/var/tests/`
 * `https://my.domain/typo3/sysext/core/composer.json`
 * `https://my.domain/typo3/sysext/core/ext_tables.sql`
+* `https://my.domain/typo3/sysext/core/Configuration/Services.yaml`
 * `https://my.domain/typo3/sysext/extbase/ext_typoscript_setup.txt`
 * `https://my.domain/typo3/sysext/extbase/ext_typoscript_setup.typoscript`
 * `https://my.domain/typo3/sysext/felogin/Configuration/FlexForms/Login.xml`
