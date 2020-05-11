@@ -329,7 +329,7 @@ The key `flexform` is followed by the field which holds the Flexform data (`pi_f
 
 .. _read-flexforms-fluid:
 
-How to Access FlexFroms From Fluid
+How to Access FlexForms From Fluid
 ----------------------------------
 
 Flexform settings can be read from within a Fluid template using
