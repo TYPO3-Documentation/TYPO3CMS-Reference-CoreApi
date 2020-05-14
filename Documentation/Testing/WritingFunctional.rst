@@ -46,7 +46,7 @@ The :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase` contains a 
 of class properties. Most of them are designed to be overwritten by single test cases,
 they tell :php:`setUp()` what to do. For instance, there is a property to specify which
 extensions should be active for the given scenario. Everyone looking or creating
-functional tests should have a look at these properties: The are well documented and
+functional tests should have a look at these properties: They are well documented and
 contain examples how to use. These properties are the key to instruct `typo3/testing-framework`
 what to do.
 
