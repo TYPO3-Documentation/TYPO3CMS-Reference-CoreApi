@@ -128,8 +128,9 @@ values in the :php:`$EM_CONF` array if needed.
          suggests
            List of suggestions of extensions that work together or
            enhance this extension.
-           Extensions defined here will be loaded *before* the current extension.
+           Extensions defined here will be loaded *before* the current extension. 
            Dependencies take precedence over suggestions.
+           Loading order especially matters when overriding TCA or SQL of another extension.
 
          The above example indicates that the extension depends on a
          version of TYPO3 between 9.5 and 10.4 (as only bug and security fixes are
