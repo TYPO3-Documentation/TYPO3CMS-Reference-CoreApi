@@ -9,69 +9,6 @@ You can also add include-instructions in TypoScript code. Availability
 depends on the context, but it works with TypoScript templates, Page
 TSconfig and User TSconfig.
 
-Since TYPO3 version 9 a new syntax for importing external TypoScript files has
-been introduced, which acts as a preprocessor before the actual parsing
-(condition evaluation) takes place.
-
-Its main purpose is ease the use of TypoScript includes and making it easier
-for integrators and frontend developers to work with distributed TypoScript
-files. The syntax is inspired by SASS imports and works as follows:
-
-.. code-block:: typoscript
-
-   # Import a single file
-   @import 'EXT:myproject/Configuration/TypoScript/randomfile.typoscript'
-
-   # Import multiple files of a single directory in file name order
-   @import 'EXT:myproject/Configuration/TypoScript/*.typoscript'
-
-   # Import all files of a directory
-   @import 'EXT:myproject/Configuration/TypoScript/'
-
-   # The filename extension can be omitted and defaults to .typoscript
-   @import 'EXT:myproject/Configuration/TypoScript/'
-
-The main benefits of :ts:`@import` compared to :ts:`<INCLUDE_TYPOSCRIPT>` are:
-
-- is less error-prone
-
-- @import is expressive and self-explanatory
-
-- better clarifies whether files or folders are imported (in comparison to the
-  old `FILE:` and `DIR:` syntax)
-
-
-The following rules apply:
-
-- Multiple files are imported in alphabetical order.
-
-- Recursion is allowed. Imported files can have :ts:`@import` statements.
-
-- The :ts:`@import` statement does not take a condition clause as the old
-  :ts:`<INCLUDE_TYPOSCRIPT condition="">` statement did. That kind of condition
-  should be considered a conceptual mistake. It should not be used.
-
-- Both the old syntax :ts:`<INCLUDE_TYPOSCRIPT>` and the new one :ts:`@import`
-  can be used at the same time.
-
-- Directory imports are not recursive, meaning that a directory import does
-  not automatically travel down its subdirectories.
-
-- Quoting the filename is necessary with the new syntax. Either double quotes
-  (") or single quotes (') can be used.
-
-*Internals:*
-Under the hood, Symfony Finder is use to find the file and provides the
-"globbing" feature (\* syntax).
-
-*Outlook:*
-The syntax is designed to stay and there are absolutely no plans to
-extend the :ts:`@import` statement in the future. However, the
-:ts:`@...` syntax for annotations may be used to add more preparsing logic to
-TypoScript in future.
-
-
-
 Alternative, traditional Syntax
 """""""""""""""""""""""""""""""
 
