@@ -266,9 +266,10 @@ It is also possible to set :yaml:`default` to e.g. ".html" to add a ".html" suff
    routeEnhancers:
       PageTypeSuffix:
          type: PageType
-         default: '.json'
+         default: '.html'
          index: 'index'
          map:
+            '.html': 0
             'rss.feed': 13
             '.json': 26
 
