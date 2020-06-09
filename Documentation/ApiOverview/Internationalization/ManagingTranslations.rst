@@ -3,11 +3,21 @@
 
 .. _managing-translating:
 
-=====================
-Managing Translations
-=====================
+=================================
+Managing Translations for Backend
+=================================
 
 This sections highlights the different ways to translate and manage XLIFF files.
+
+.. note::
+
+   For the frontend to load the correct translation files:
+   set `typo3Language` in your site config and set it for example to `de_CH`.
+   
+   Create the translation file in your extension under `Resources/Private/Language/de_CH.locallang.xlf`
+   
+   See more infos at
+   https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/SiteHandling/AddLanguages.html
 
 
 .. _xliff-translating-fetch:
