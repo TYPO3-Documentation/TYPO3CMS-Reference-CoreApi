@@ -186,6 +186,9 @@ See any system extension for best practice on this behaviour.
   that would make the cached script concept break.
 - You must **never** use a "use" statement in the files global scope -
   that would make the cached script concept break and could conflict with other extensions.
+- The same goes for :php:`declare(strict_types=1)` and similar directives which must be placed
+  at the very top of files: once all files of all extensions are merged, this condition is not
+  fulfilled anymore leading to errors. So these must **never** be used here.
 - You should **not** rely on the PHP constant :php:`__FILE__` for detection of
   include path of the script - the configuration might be executed from
   a cached script and therefore such information should be derived from
