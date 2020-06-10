@@ -9,17 +9,6 @@ Managing Translations for Backend
 
 This sections highlights the different ways to translate and manage XLIFF files.
 
-.. note::
-
-   For the frontend to load the correct translation files:
-   set `typo3Language` in your site config and set it for example to `de_CH`.
-   
-   Create the translation file in your extension under `Resources/Private/Language/de_CH.locallang.xlf`
-   
-   See more infos at
-   https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/SiteHandling/AddLanguages.html
-
-
 .. _xliff-translating-fetch:
 
 Fetching Translations
@@ -201,5 +190,10 @@ would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
    a translation is not found. A custom language will fall back on its "parent"
    language automatically. Thus - in our second example of de_AT (German for Austria) - no fallback would have to be
    defined for "de_AT" if it were just falling back on "de".
+
+.. seealso::
+   
+   Configure :yaml:`typo3Language` for using custom languages in the frontend,
+   see :ref:`sitehandling-addinglanguages` for details.
 
 
