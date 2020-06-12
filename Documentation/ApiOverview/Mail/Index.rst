@@ -176,6 +176,8 @@ Make sure the paths are setup as described in :ref:`mail-configuration-fluid`.
 
 .. code-block:: php
 
+   use TYPO3\CMS\Core\Mail\FluidEmail;
+   
    $email = GeneralUtility::makeInstance(FluidEmail::class);
    $email
        ->to('contact@acme.com')
