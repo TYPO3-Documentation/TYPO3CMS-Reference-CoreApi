@@ -108,9 +108,9 @@ Steps to Perform (Extension Developer)
        );
 
    * :ref:`t3tca:types-properties-subtypes-addlist` defines that *example_registration*
-     is a FlexForm.
+     plugin has a FlexForm.
    * :php:`addPiFlexFormValue()` attaches the FlexForm :file:`Registration.xml`
-     to the specific content element or plugin *example_registration*.
+     to the specific plugin content element *example_registration*.
    * You may also want to add :ref:`subtypes-excludelist <subtypes_excludelist>`
      if you don't want the fields *recursive* or *Record Storage Page* to
      appear.
