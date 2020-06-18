@@ -75,9 +75,11 @@ in your yaml configuration which allows you to add routing configurations from d
 
 Example - Main :file:`config.yaml`
 
-imports:
-  - { resource: "EXT:myblog/Configuration/Routes/Default.yaml" }
-  - { resource: "EXT:mynews/Configuration/Routes/Default.yaml" }
-  - { resource: "EXT:template/Configuration/Routes/Default.yaml" }
+.. code-block:: yaml
+
+   imports:
+      - { resource: "EXT:myblog/Configuration/Routes/Default.yaml" }
+      - { resource: "EXT:mynews/Configuration/Routes/Default.yaml" }
+      - { resource: "EXT:template/Configuration/Routes/Default.yaml" }
   
 
