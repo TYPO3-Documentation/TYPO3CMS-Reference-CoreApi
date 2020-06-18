@@ -22,13 +22,18 @@ to use input fields, select lists, show options conditionally and more.
 Example Use Cases
 =================
 
-* The `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__
-  uses Flexforms to configure rendering options,
-  e.g. a transition interval and transition type (slide, fade)
-  for the carousel.
+The `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
+uses Flexforms to configure rendering options,
+e.g. a transition interval and transition type (slide, fade)
+for the carousel.
 
 .. image:: Images/FlexFormCarousel.png
    :class: with-shadow
+
+Some more extensions that utilize FlexForms are:
+
+* `blog <https://github.com/TYPO3GmbH/blog>`__: This has a very small and
+  basic FlexForm, so it might be a good starting point to look at.
 
 
 How it Works
