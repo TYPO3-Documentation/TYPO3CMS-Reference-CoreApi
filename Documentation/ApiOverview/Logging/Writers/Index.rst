@@ -44,7 +44,7 @@ logTable  no         Database table  :code:`sys_log`
    there, you will not be able to see them using that module.
 
 *Tip:* There's a tool for viewing such records in the TYPO3 backend at
-`github.com/vertexvaar/logs <https://github.com/vertexvaar/logs>`__.
+`gitlab.com/co-stack.com/co-stack.com/typo3-extensions/logs <https://gitlab.com/co-stack.com/co-stack.com/typo3-extensions/logs>`__.
 
 Example of a CREATE TABLE statement for logTable:
 
