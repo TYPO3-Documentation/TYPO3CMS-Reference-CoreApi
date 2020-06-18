@@ -127,14 +127,14 @@ Passing Arguments
     }
 
 
-This command takes one optional argument `wizardName`, which can be passed on the command line:
+This command takes one optional argument :php:`wizardName`, which can be passed on the command line:
 
 .. code-block:: bash
 
    vendor/bin/typo3 upgrade:run [wizardName]
    
 
-and can be retreived using `$input->getArgument('wizardName');`
+This argument can be retrieved using :php:`$input->getArgument('wizardName');`.
 
 
 .. _deactivating-the-command-in-scheduler:
