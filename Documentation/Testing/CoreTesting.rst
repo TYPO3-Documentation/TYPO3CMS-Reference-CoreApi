@@ -40,7 +40,7 @@ composerInstall` in a container.
 If you're using a Mac, install or update Docker to the most recent version using the packaging system of
 your choice.
 
-If you are using Ubuntu Linux 18.04 or higher, everthing should be ok after
+If you are using Ubuntu Linux 18.04 or higher, everything should be ok after
 calling `sudo apt-get install git docker docker-compose` once. For other Linux distributions
 including older releases of Ubuntu, users should have a look at the Docker homepage to see how to update
 to a recent version. It usually involves adding some other package repository and updating / installing using it.
