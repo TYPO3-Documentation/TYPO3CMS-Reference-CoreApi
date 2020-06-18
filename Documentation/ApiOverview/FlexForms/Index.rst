@@ -223,6 +223,11 @@ How this looks when configuring the plugin:
 
    * :ref:`t3tca:columns-select-properties-itemsprocfunc` in TCA reference.
 
+
+
+
+.. _flexformDisplayCond:
+
 Display Fields Conditionally (displayCond)
 ------------------------------------------
 
@@ -264,6 +269,24 @@ switchableControllerActions
    for the deprecation and possible alternatives are outlined
    in the changelog :doc:`t3core:Changelog/10.3/Deprecation-89463-SwitchableControllerActions`.
 
+
+.. _flexformReload:
+
+Reload on change
+----------------
+
+Especially in combination with conditionally displaying settings with
+:ref:`displayCond <flexformDisplayCond>`, you may want to trigger
+a reloading of the form when specific settings are changed. You
+can do that with:
+
+.. code-block:: xml
+
+   <config>
+       <!-- ... -->
+       <onChange>reload</onChange>
+
+This element is optional and must go inside the `<config>` element.
 
 .. _read-flexforms:
 .. _read-flexforms-extbase:
