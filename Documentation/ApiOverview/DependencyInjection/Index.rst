@@ -7,6 +7,10 @@
 Dependency Injection
 ====================
 
+.. versionadded:: 10.0
+
+   :doc:`Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
+
 TYPO3 uses a Dependency Injection solution based on the corresponding `PSR-11 <https://www.php-fig.org/psr/psr-11/>`_
 compliant Symfony component to standardize object initialization throughout the core as well as in extensions.
 
