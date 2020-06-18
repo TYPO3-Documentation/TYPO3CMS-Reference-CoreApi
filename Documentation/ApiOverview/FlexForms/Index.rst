@@ -63,13 +63,13 @@ Steps to Perform (Extension Developer)
                 <sDEF>
                     <ROOT>
                         <TCEforms>
-                            <sheetTitle>LLL:EXT:extkey/Resources/Private/Language/Backend.xlf:settings.registration.title</sheetTitle>
+                            <sheetTitle>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.title</sheetTitle>
                         </TCEforms>
                         <type>array</type>
                         <el>
                             <!-- Add settings here ... -->
 
-                            <!-- Example setting: input field with name settings.timeRestriction -->
+                            <!-- Example setting: input field with name settings.includeCategories -->
                             <settings.includeCategories>
                                 <TCEforms>
                                     <label>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.includeCategories</label>
@@ -78,7 +78,7 @@ Steps to Perform (Extension Developer)
                                         <default>0</default>
                                         <items type="array">
                                             <numIndex index="0" type="array">
-                                                <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:setting.registration.includeCategories.title</numIndex>
+                                                <numIndex index="0">LLL:EXT:example/Resources/Private/Language/Backend.xlf:setting.registration.includeCategories.title</numIndex>
                                             </numIndex>
                                         </items>
                                     </config>
