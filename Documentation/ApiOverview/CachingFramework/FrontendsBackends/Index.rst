@@ -89,16 +89,8 @@ any cache manipulation is done with, usually the assigned backend object should 
 Available Frontends
 ===================
 
-Currenly three different frontends are implemented. The main difference is
+Currently two different frontends are implemented. The main difference are
 the data types which can be stored using a specific frontend.
-
-
-.. _caching-frontend-string:
-
-String Frontend
----------------
-
-The string frontend accepts strings as data to be cached.
 
 
 .. _caching-frontend-variable:
@@ -110,10 +102,8 @@ Strings, arrays and objects are accepted by this frontend.
 Data is serialized before it is passed to the backend.
 
 .. tip::
-   The variable frontend is the most frequently used frontend and handles the widest range of data types.
-   While it can also handle string data, the :ref:`string frontend <caching-frontend-string>`
-   should be used if the cache needs to store strings, if only to avoid
-   the additional serialization done by the variable frontend.
+   The variable frontend is the most frequently used frontend and handles
+   the widest range of data types.
 
 
 .. _caching-frontend-php:
