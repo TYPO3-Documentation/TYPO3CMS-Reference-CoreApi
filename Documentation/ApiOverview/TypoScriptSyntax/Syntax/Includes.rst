@@ -22,14 +22,11 @@ files. The syntax is inspired by SASS imports and works as follows:
    # Import a single file
    @import 'EXT:myproject/Configuration/TypoScript/randomfile.typoscript'
 
-   # Import multiple files of a single directory in file name order
+   # Import multiple files in a single directory, sorted by file name
    @import 'EXT:myproject/Configuration/TypoScript/*.typoscript'
 
-   # Import all files of a directory
+   # It's possible to omit the file ending, then "*.typoscript" is appended automatically
    @import 'EXT:myproject/Configuration/TypoScript/'
-
-   # The filename extension can be omitted and defaults to .typoscript
-   @import 'EXT:myproject/Configuration/TypoScript/randomfile'
 
 The main benefits of :ts:`@import` compared to :ts:`<INCLUDE_TYPOSCRIPT>` are:
 
