@@ -98,10 +98,11 @@ Steps to Perform (Extension Developer)
 
    .. code-block:: php
 
-       $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['example_registration'] = 'pi_flexform';
+       // plugin signature: <extension key without underscores> '_' <plugin name in lowercase>
+       $pluginSignature = 'example_registration';
+       $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-           // plugin signature: <extension key without underscores> '_' <plugin name in lowercase>
-           'example_registration',
+           $pluginSignature,
            // Flexform configuration schema file
            'FILE:EXT:example/Configuration/FlexForms/Registration.xml'
        );
