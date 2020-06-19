@@ -176,6 +176,8 @@ Make sure the paths are setup as described in :ref:`mail-configuration-fluid`.
 
 .. code-block:: php
 
+   use Symfony\Component\Mailer\Mailer;
+   use Symfony\Component\Mime\Address;
    use TYPO3\CMS\Core\Mail\FluidEmail;
    
    $email = GeneralUtility::makeInstance(FluidEmail::class);
@@ -199,6 +201,8 @@ and use this within the Fluid template:
 
 .. code-block:: php
 
+   use TYPO3\CMS\Core\Mail\FluidEmail;
+
    $email = GeneralUtility::makeInstance(FluidEmail::class);
    $email
        ->to('contact@acme.com')
@@ -215,20 +219,23 @@ Send email with `MailMessage`
 
 This shows how to generate and send a mail in TYPO3::
 
+   use Symfony\Component\Mime\Address;
+   use TYPO3\CMS\Core\Mail\MailMessage;
+
    // Create the message
-   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
+   $mail = GeneralUtility::makeInstance(MailMessage::class);
 
    // Prepare and send the message
    $mail
 
       // Defining the "From" email address and name as an object
       // (email clients will display the name)
-      ->from(new \Symfony\Component\Mime\Address('john@doe.com', 'John Doe'))
+      ->from(new Address('john@doe.com', 'John Doe'))
 
       // Set the "To" addresses
       ->to(
-         new \Symfony\Component\Mime\Address('receiver@example.org', 'Max Mustermann'),
-         new \Symfony\Component\Mime\Address('other@domain.org')
+         new Address('receiver@example.org', 'Max Mustermann'),
+         new Address('other@domain.org')
       )
 
       // Give the message a subject
@@ -251,11 +258,14 @@ This shows how to generate and send a mail in TYPO3::
 
 Or if you prefer, don't concatenate the calls::
 
-   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
+   use Symfony\Component\Mime\Address;
+   use TYPO3\CMS\Core\Mail\MailMessage;
+
+   $mail = GeneralUtility::makeInstance(MailMessage::class);
    $mail->from(new \Symfony\Component\Mime\Address('john@doe.com', 'John Doe'));
    $mail->to(
-      new \Symfony\Component\Mime\Address('receiver@example.org', 'Max Mustermann'),
-      new \Symfony\Component\Mime\Address('other@domain.org')
+      new Address('receiver@example.org', 'Max Mustermann'),
+      new Address('other@domain.org')
    );
    $mail->subject('Your subject');
    $mail->text('Here is the message itself');
@@ -323,9 +333,13 @@ Tool*::
 
 This is how you can use these defaults::
 
-   $from = \TYPO3\CMS\Core\Utility\MailUtility::getSystemFrom();
 
-   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
+   use TYPO3\CMS\Core\Utility\MailUtility;
+   use TYPO3\CMS\Core\Mail\MailMessage;
+
+   $from = MailUtility::getSystemFrom();
+
+   $mail = GeneralUtility::makeInstance(MailMessage::class);
 
    // As getSystemFrom() returns an array we need to use the setFrom method
    $mail->setFrom($from);
