@@ -171,19 +171,20 @@ for sending emails based on Fluid.
 Send email with `FluidEmail`
 ----------------------------
 
-This sends an email using an existing Fluid template :file:`TipsAndTricks.html`.
-Make sure the paths are setup as described in :ref:`mail-configuration-fluid`.
+This sends an email using an existing Fluid template :file:`TipsAndTricks.html`,
+make sure the paths are setup as described in :ref:`mail-configuration-fluid`:
 
 .. code-block:: php
 
+   use Symfony\Component\Mime\Address;
    use TYPO3\CMS\Core\Mail\FluidEmail;
-   
+
    $email = GeneralUtility::makeInstance(FluidEmail::class);
    $email
        ->to('contact@acme.com')
        ->from(new Address('jeremy@acme.com', 'Jeremy'))
        ->subject('TYPO3 loves you - here is why')
-       ->setFormat('html') // only HTML mail
+       ->format('html') // only HTML mail
        ->setTemplate('TipsAndTricks')
        ->assign('mySecretIngredient', 'Tomato and TypoScript');
    GeneralUtility::makeInstance(Mailer::class)->send($email);

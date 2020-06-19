@@ -3,12 +3,11 @@
 
 .. _managing-translating:
 
-=====================
-Managing Translations
-=====================
+=================================
+Managing Translations for Backend
+=================================
 
 This sections highlights the different ways to translate and manage XLIFF files.
-
 
 .. _xliff-translating-fetch:
 
@@ -191,5 +190,10 @@ would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
    a translation is not found. A custom language will fall back on its "parent"
    language automatically. Thus - in our second example of de_AT (German for Austria) - no fallback would have to be
    defined for "de_AT" if it were just falling back on "de".
+
+.. seealso::
+   
+   Configure :yaml:`typo3Language` for using custom languages in the frontend,
+   see :ref:`sitehandling-addinglanguages` for details.
 
 
