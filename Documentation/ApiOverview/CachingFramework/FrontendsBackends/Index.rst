@@ -93,14 +93,6 @@ Currenly three different frontends are implemented. The main difference is
 the data types which can be stored using a specific frontend.
 
 
-.. _caching-frontend-string:
-
-String Frontend
----------------
-
-The string frontend accepts strings as data to be cached.
-
-
 .. _caching-frontend-variable:
 
 Variable Frontend
