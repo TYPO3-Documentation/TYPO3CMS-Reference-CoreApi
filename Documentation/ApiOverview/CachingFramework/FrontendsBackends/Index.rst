@@ -93,6 +93,17 @@ Currently two different frontends are implemented. The main difference are
 the data types which can be stored using a specific frontend.
 
 
+.. _caching-frontend-string:
+
+String Frontend
+---------------
+
+.. deprecated:: 9.2
+
+   The StringFrontend should no longer be used. It was removed in TYPO3
+   version 10.0. Use the VariableFrontend instead, as explained in the
+   changelog :doc:`t3core:Changelog/9.2/Deprecation-81434-StringCacheFrontendDeprecated`.
+
 .. _caching-frontend-variable:
 
 Variable Frontend
