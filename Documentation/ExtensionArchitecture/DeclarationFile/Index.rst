@@ -192,14 +192,6 @@ values in the :php:`$EM_CONF` array if needed.
            specific installation and don't want any admin to overwrite them.
 
  - :Key:
-         uploadfolder
-   :Data type:
-         boolean
-   :Description:
-         If set, then the folder named :file:`uploads/tx\_[extKey-with-no-underscore]`
-         should be present!
-
- - :Key:
          clearCacheOnLoad
    :Data type:
          boolean
