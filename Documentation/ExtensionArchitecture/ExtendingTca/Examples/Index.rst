@@ -177,7 +177,7 @@ The result is the following:
    manual, here is an example of what you could do, for the sake of
    showing a complete process.
 
-   Assuming you are using "css\_styled\_content" (which is installed by
+   Assuming you are using "fluid\_styled\_content" (which is installed by
    default), you could add the following TypoScript to your template:
 
    .. code-block:: typoscript
