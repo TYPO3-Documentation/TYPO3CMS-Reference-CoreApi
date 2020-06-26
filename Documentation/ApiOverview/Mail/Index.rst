@@ -56,9 +56,9 @@ smtp
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = '<server:port>';`
    Mailserver name and port to connect to. Port defaults to "25".
 
-:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = '<transport protocol>';`
-   Connect to the server using the specified transport protocol. Requires openssl library.
-   Usually available: ssl, sslv2, sslv3, tls. Check :php:`stream_get_transports()`.
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = '<bool>';`
+   Determines whether the transport protocol should be encrypted. Requires openssl library.
+   If :php:`false`, symfony/mailer will use STARTTLS.
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username] = '<username>';`
    If your SMTP server requires authentication, the username.
@@ -118,6 +118,38 @@ mbox
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = '<classname>';`
    Custom class which implements :php:`\Swift_Transport`. The constructor receives all settings from
    the MAIL section to make it possible to add custom settings.
+
+
+.. _mail-spooling:
+
+Spooling
+============================
+
+The default behavior of the TYPO3 mailer is to send the email messages immediately. You may, however, want to avoid
+the performance hit of the communication to the email server, which could cause the user to wait for the next page to
+load while the email is being sent. This can be avoided by choosing to "spool" the emails instead of sending them directly.
+
+Spool Using Memory
+------------------
+
+.. code-block:: php
+
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_type'] = 'memory';
+
+When you use spooling to store the emails to memory, they will get sent right before the kernel terminates. This means
+the email only gets sent if the whole request got executed without any unhandled exception or any errors.
+
+Spool Using Files
+-----------------
+
+.. code-block:: php
+
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_type'] = 'file';
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_filepath'] = '/folder/of/choice';
+
+When using the filesystem for spooling, you need to define in which folder TYPO3 stores the spooled files.
+This folder will contain files for each email in the spool. So make sure this directory is writable by TYPO3 and not
+accessible to the world (outside of the webroot).
 
 
 
