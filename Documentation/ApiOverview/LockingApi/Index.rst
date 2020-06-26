@@ -70,12 +70,10 @@ LOCK_CAPABILITY_EXCLUSIVE
    process or thread tries to acquire the same lock, it will:
 
    * If locking strategy **without** LOCK_CAPABILITY_NOBLOCK is used either:
-
       * block or
       * throw LockAcquireException, if the lock could not be acquired - even with blocking
 
    * If locking strategy **with** LOCK_CAPABILITY_NOBLOCK is used, this should not block and do either:
-
       * return false or
       * throw LockAcquireWouldBlockException, if trying to acquire lock would block
       * throw LockAcquireException, if the lock could not be acquired
