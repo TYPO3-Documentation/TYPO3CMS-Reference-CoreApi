@@ -15,4 +15,4 @@ architecture of FAL.
    Folders
    Database
    Components
-   Signals
+   Events
