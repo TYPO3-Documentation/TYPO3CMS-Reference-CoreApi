@@ -16,7 +16,7 @@ table for example (with some parts skipped).
 .. code-block:: php
 
    'image' => array(
-       'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.images',
+       'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.images',
        'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image', array(
            'appearance' => array(
                'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
