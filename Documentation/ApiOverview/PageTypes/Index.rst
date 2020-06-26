@@ -48,14 +48,6 @@ The key used in the array above is the value that will be stored in the
    As for other :php:`$GLOBALS` values, you can view current settings in the backend in
    :guilabel:`SYSTEM > Configuration`.
 
-.. important::
-
-   The choice of value for the :code:`doktype` is critical.
-   If you want your custom page type to be displayed in the frontend,
-   you must make sure to choose a :code:`doktype` smaller than 200.
-   If it's supposed to be just some storage, choose a :code:`doktype`
-   larger than 200.
-
 
 Each array has the following options available:
 
