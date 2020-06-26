@@ -74,7 +74,7 @@ Low-level and High-Level Database Calls
 
 This documentation is about low-level database calls. In many cases it is better
 to use higher level API's like the :ref:`DataHandler <tce-database-basics>` or
-`extbase repositories <https://docs.typo3.org/typo3cms/ExtbaseFluidBook/2-BasicPrinciples/2-Domain-Driven-Design.html>`__
+:ref:`extbase repositories <t3extbasebook:persistence>`
 and to let the framework handle persistence details internally.
 
 .. tip::
