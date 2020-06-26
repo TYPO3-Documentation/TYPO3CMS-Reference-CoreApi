@@ -16,10 +16,6 @@ scripts as the global variable :code:`$BE_USER`. The object is created in
 and is an instance of the class :code:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
 (which extends :code:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
 
-In addition to :code:`$BE_USER` one other global variables is of interest -
-:code:`$FILEMOUNTS`, holding an array with the File mounts of the :code:`$BE_USER`.
-
-
 .. _be-user-check:
 
 Checking user access
@@ -165,6 +161,7 @@ Getting TSconfig
 
 This function can return a value from the "User TSconfig" structure of
 the user. In this case the value for "options.clipboardNumberPads"::
+
 
       $BE_USER->getTSConfigVal('options.clipboardNumberPads');
 
