@@ -101,6 +101,6 @@ a free and open industry standard for communicating the characteristics
 and impacts of vulnerabilities in Information Technology. It enables
 analysts to understand and properly communicate disclosed vulnerabilities
 and allows responsible personnel to prioritize risks. Further details
-about CVSS are available at `http://www.first.org/cvss/cvss-guide.html
-<http://www.first.org/cvss/cvss-guide.html>`_
+about CVSS are available at `https://www.first.org/cvss/user-guide
+<https://www.first.org/cvss/user-guide>`_
 
