@@ -13,9 +13,8 @@ The autoloader takes care of finding classes in TYPO3. It is closely related to
 and :ref:`XCLASS <xclasses>` handling.
 
 As a developer you should always instantiate classes either through
-:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` or with the Extbase
-:php:`\TYPO3\CMS\Extbase\Object\ObjectManager>`
-(which internally uses :php:`makeInstance()` again).
+:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` or use
+:ref:`Dependency Injection <dependencyinjection>`.
 
 .. _autoloading_since_typo3_7:
 
@@ -51,7 +50,7 @@ This method is failsafe unless the autoload information cannot be written. In th
 
 If your classes cannot be found, try the following approaches.
 
-- Dump the class loading information manually with the following command: `php typo3/cli_dispatch.phpsh extbase extension:dumpclassloadinginformation`
+- Dump the class loading information manually with the following command: `php typo3/sysext/core/bin/typo3 dumpautoload`
 - If that command itself fails, please (manually) uninstall the extension and simply try reinstalling it (via the Extension Manager).
 - If you are still not lucky, the issue is definitely on your side and you should double check the write permissions on :file:`typo3temp`.
 
