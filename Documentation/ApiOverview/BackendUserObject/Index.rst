@@ -12,9 +12,6 @@ as the global variable :php:`$GLOBALS['BE_USER']`. The object is created in
 and is an instance of the class :code:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
 (which extends :php:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
 
-In addition to :php:`$BE_USER` one other global variables is of interest -
-:php:`$FILEMOUNTS`, holding an array with the File mounts of the :php:`$BE_USER`.
-
 
 .. _be-user-check:
 
@@ -32,11 +29,19 @@ Checking Access to Current Backend Module
 
 :php:`$MCONF` is module configuration and the key :php:`$MCONF['access']` determines
 the access scope for the module. This function call will check if the
-:php:`$BE_USER` is allowed to access the module and if not, the function
-will exit with an error message. ::
+:php:`$BE_USER` is allowed to access the module. If not allowed, the function will
+throw an exception, if the second parameter :php:`$exitOnError` is true.
 
-      $BE_USER->modAccess($MCONF, 1);
+.. note::
 
+    The behaviour has changed in TYPO3 9: The
+    :doc:`second parameter $exitOnError <t3core:Changelog/9.5/Deprecation-86441-VariousMethodsAndPropertiesInsideBackendUserAuthentication>`
+    is now deprecated and
+    will trigger a deprecation notice. In TYPO3 10 it will be removed entirely.
+
+::
+
+      $BE_USER->modAccess($MCONF);
 
 .. _be-user-access-any:
 
@@ -161,8 +166,8 @@ Getting TSconfig
 This function can return a value from the "User TSconfig" structure of
 the user. In this case the value for "options.clipboardNumberPads"::
 
-   $tsconfig = $BE_USER->getTSConfig('');
-   $clipboardNumberPads = $tsconfig['options.clipboardNumberPads'] ?? '';
+   $tsconfig = $GLOBALS['BE_USER']->getTSConfig();
+   $clipboardNumberPads = $tsconfig['options.']['clipboardNumberPads'] ?? '';
 
 
 .. _be-user-name:
