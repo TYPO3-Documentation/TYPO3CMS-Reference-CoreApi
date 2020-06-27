@@ -182,5 +182,4 @@ routeEnhancers
 .. todo:: Add some more documentation here from the changelog?
 
 While page routing works out of the box with no further settings, routeEnhancers allow the configuration of
-routing for TYPO3 extensions. The TYPO3 Changelog comes with some more information:
-:doc:`t3core:Changelog/9.5/Feature-86365-RoutingEnhancersAndAspects` regarding routeEnhancers.
+routing for TYPO3 extensions. Read more at :ref:`routing-advanced-routing-configuration`
