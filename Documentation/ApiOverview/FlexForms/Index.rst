@@ -360,7 +360,7 @@ How to Access FlexFroms From Fluid
 ----------------------------------
 
 Flexform settings can be read from within a Fluid template using
-:html:`{settings}`.
+:html:`{settings}`. Note that this only works for Flexform variables which are prefixed with `settings.` - variables which are not prefixed will have to be extracted from within a controller, data processor or other PHP context which allows arbitrary access to the Flexform values.
 
 
 Steps to Perform (Editor)
