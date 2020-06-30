@@ -24,7 +24,7 @@ the scheduler as well. You can do this by creating a :ref:`Symfony Command <cli-
 These scripts use the `_cli_` backend user. Before using the DataHandler in your :php:`execute()`
 function, you should make sure that this user is initialized like this::
 
-   Bootstrap::initializeBackendAuthentication();
+   \TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication();
 
 Look in the `typo3/cms-lowlevel <https://github.com/TYPO3/TYPO3.CMS/tree/master/typo3/sysext/lowlevel>`__
 system extension for more examples.
