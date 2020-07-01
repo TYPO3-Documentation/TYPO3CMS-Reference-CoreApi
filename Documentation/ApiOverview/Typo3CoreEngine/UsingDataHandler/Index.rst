@@ -129,19 +129,18 @@ Imagine the $data array something like this:
    );
 
 This aims to create two new pages in the page with uid "456". In the
-follow code this is submitted to the database. Notice how line 3
-reverses the order of the array. This is done because otherwise "page
-1" is created first, then "page 2" in the *same* PID meaning that
-"page 2" will end up above "page 1" in the order. Reversing the array
-will create "page 2" first and then "page 1" so the "expected order"
-is preserved.
+following code this is submitted to the database. Notice the reversing of
+the order of the array: This is done because otherwise "page 1" is created
+first, then "page 2" in the *same* PID meaning that "page 2" will end up
+above "page 1" in the order. Reversing the array will create "page 2" first and
+then "page 1" so the "expected order" is preserved.
 
 To insert a record after a given record, set the other record's negative
 `uid` as `pid` in the new record you're setting as data.
 
-Apart from this line 5 will send a "signal" that the page tree should
+Apart from this a "signal" will be send that the page tree should
 be updated at the earliest occasion possible. Finally, the cache for
-all pages is cleared in line 6.
+all pages is cleared.
 
 .. code-block:: php
    :linenos:
@@ -161,11 +160,11 @@ Both Data and Commands Executed With Alternative User Object
 
 In this case it is shown how you can use the same object instance to
 submit both data and execute commands if you like. The order will
-depend on the order of line 4 and 5.
+depend on the order in the code.
 
-In line 2 the :php:`start()` method is called, but this time with the third
-possible argument which is an alternative :php:`$GLOBALS['BE_USER']` object. This allows
-you to force another backend user account to create stuff in the
+First the :php:`start()` method is called, but this time with the third
+possible argument which is an alternative :php:`$GLOBALS['BE_USER']` object.
+This allows you to force another backend user account to create stuff in the
 database. This may be useful in certain special cases. Normally you
 should not set this argument since you want TCE to use the global
 :php:`$GLOBALS['BE_USER']`.
