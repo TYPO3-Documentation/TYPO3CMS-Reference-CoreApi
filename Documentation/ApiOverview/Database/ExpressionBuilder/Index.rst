@@ -69,10 +69,12 @@ Example to find tt_content records::
    //     )
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder->where(
-      $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('list')),
-      $queryBuilder->expr()->orX(
-         $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter('example_pi1')),
-         $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter('example_pi2'))
+      $queryBuilder->expr()->andX(
+         $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('list')),
+         $queryBuilder->expr()->orX(
+            $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter('example_pi1')),
+            $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter('example_pi2'))
+        )
       )
    )
 
