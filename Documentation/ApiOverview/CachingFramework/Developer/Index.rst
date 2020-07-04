@@ -80,8 +80,8 @@ Here is some example code::
            $cacheIdentifier = $this->calculateCacheIdentifier();
            $cache = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Cache\CacheManager::class)->getCache('myext_mycache');
 
-           // If $entry is null, it hasn't been cached. Calculate the value and store it in the cache:
-           if (($entry = $cache->get($cacheIdentifier)) === FALSE) {
+           // If $entry is false, it hasn't been cached. Calculate the value and store it in the cache:
+           if (($entry = $cache->get($cacheIdentifier)) === false) {
                $entry = $this->calculateMagic();
 
                // [calculate lifetime and assigned tags]
