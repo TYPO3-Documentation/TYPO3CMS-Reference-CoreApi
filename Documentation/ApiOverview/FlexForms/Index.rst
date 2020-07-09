@@ -244,10 +244,10 @@ on database fields of current record or be defined by a user function.
 
 .. code-block:: xml
 
+    <!-- Hide field if value of neighbour field "settings.orderBy" on same sheet is not "title" -->
+    <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
     <config>
-        <type>select</type>
-        <!-- Hide field if value of neighbour field "settings.orderBy" on same sheet is not "title" -->
-        <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
+        <!-- ... -->
     </config>
 
 Again, the syntax and available fields and comparison operators is documented
@@ -282,11 +282,12 @@ can do that with:
 
 .. code-block:: xml
 
+   <onChange>reload</onChange>
    <config>
        <!-- ... -->
-       <onChange>reload</onChange>
+   </config>
 
-This element is optional and must go inside the `<config>` element.
+This element is optional and must go next to the `<config>` element.
 
 .. _read-flexforms:
 .. _read-flexforms-extbase:
