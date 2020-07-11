@@ -165,8 +165,6 @@ address the task at hand.
 
 .. toctree::
    :maxdepth: 1
-   :caption: meta
-
 
    Sitemap
    About
