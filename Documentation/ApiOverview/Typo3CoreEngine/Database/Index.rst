@@ -471,18 +471,6 @@ Syntax::
          Only available for admin-users unless explicitly allowed by User
          TSconfig "options.clearCache.pages".
 
- - :Value:
-         "temp_cached" or "system"
-   :Description:
-         .. deprecated:: 8.1
-            Usage of values "temp_cached" and "system" has been deprecated.
-            See :doc:`t3core:Changelog/8.1/Deprecation-75625-DeprecatedCacheClearingOptions`.
-
-         Clears all cache entries cache group  :code:`system`.
-
-         Only available for admin-users unless explicitly allowed by User
-         TSconfig "options.clearCache.system".
-
 
 .. _tce-cache-hook:
 
