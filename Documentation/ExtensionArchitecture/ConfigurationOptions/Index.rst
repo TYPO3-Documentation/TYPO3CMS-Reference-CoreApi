@@ -83,6 +83,7 @@ Where user functions have to be written the following way:
 
 
 .. _extension-options-accessing-saved-options:
+.. _extension-options-api:
 
 Accessing saved options
 =======================

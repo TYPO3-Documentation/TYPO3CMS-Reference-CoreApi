@@ -44,6 +44,7 @@ Good examples:
  - `TypoScriptParserIncludesAsXml`
  - `NativeDoctrineQueries`
 
+.. _feature-toggles-api:
 
 Using the API as Extension Author
 =================================
