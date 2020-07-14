@@ -320,7 +320,7 @@ avoids unexpected side-effects with files of other extensions.
 The following example contains the complete code::
 
     <?php
-    defined('TYPO3_MODE') || die();
+    defined('TYPO3_MODE') or die();
 
     (function () {
         // Add your code here
