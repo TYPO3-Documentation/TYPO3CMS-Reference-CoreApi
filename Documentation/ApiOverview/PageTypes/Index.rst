@@ -49,6 +49,9 @@ The key used in the array above is the value that will be stored in the
    If it's supposed to be just some storage, choose a :code:`doktype`
    larger than 200.
 
+   This restriction is dropped with TYPO3 10, see Changelog
+   `Important: #18079 - pages.doktype restriction for frontend queries refined <https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/10.4/Important-18079-PagesdoktypeRestrictionForFrontendQueriesRefined.html>`__.
+
 
 Each array has the following options available:
 
