@@ -109,7 +109,7 @@ the "sys\_file\_reference" entry and the relation to the other item
 
 .. code-block:: php
 
-     $resourceFactory = ResourceFactory::getInstance();
+     $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
      $fileObject = $resourceFactory->getFileObject((int)$file);
      $contentElement = BackendUtility::getRecord(
              'tt_content',
