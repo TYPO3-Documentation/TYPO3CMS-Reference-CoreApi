@@ -86,8 +86,6 @@ must be arrays.)
    :Child elements:
          <sheetTitle>
 
-         <cshFile>
-
          <displayCond>
 
 
@@ -98,17 +96,6 @@ must be arrays.)
          gets "General" in this case). Can be a plain string or a reference to
          language file using standard LLL syntax. Ignored if sheets are not
          defined for the flexform.
-   :Child elements:
-         -
-
-
- - :Element:
-         <cshFile>
-   :Description:
-         CSH language file for fields inside the flexform. Refer to section on
-         :ref:`T3locallang <locallang>` for the format of language files and to
-         section Content Sensitive Help of "Inside TYPO3" document for
-         information about CSH.
    :Child elements:
          -
 
