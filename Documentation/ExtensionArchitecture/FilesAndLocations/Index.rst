@@ -438,7 +438,7 @@ Configuration/TCA
 Configuration/TCA/Overrides
   For extending existing tables.
   General advice: One file per database table, using the name of the table for the file, plus ".php".
-  For more informations, see chapter :ref:`Extending the TCA Array <storing-in-extensions>`.
+  For more informations, see chapter :ref:`Extending the TCA Array <storing-changes-extension>`.
 
 Configuration/TSconfig/Page
   Page TSconfig, see chapter :ref:`'Page TSconfig' in the TSconfig Reference
