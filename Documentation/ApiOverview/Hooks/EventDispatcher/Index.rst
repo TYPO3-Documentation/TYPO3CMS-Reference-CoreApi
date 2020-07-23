@@ -113,8 +113,8 @@ Implementing an Event Listener in your Extension
 
 .. _EventDispatcherRegistration:
 
-Registrating the Event Listener:
---------------------------------
+Registrate the Event Listener:
+------------------------------
 
 If an extension author wants to provide a custom Event Listener, an according entry with the tag
 :yaml:`event.listener` can be added to the :file:`Configuration/Services.yaml` file of that extension.
