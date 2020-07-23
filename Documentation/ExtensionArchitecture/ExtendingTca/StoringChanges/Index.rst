@@ -53,6 +53,16 @@ you'd create the file :file:`Configuration/TCA/Overrides/tx_foo_domain_model_bar
 The advantage of this method is that all such changes are incorporated into
 :php:`$GLOBALS['TCA']` **before** it is cached. This is thus far more efficient.
 
+.. note::
+
+   All files within :file:`Configuration/TCA/Overrides` will be loaded, you are not forced 
+   to have a single file for table "tt\_content" for instance. When dealing with custom
+   content elements this file can get 1000+ lines very quickly and maintainability can get
+   hard quickly as well. 
+   Also names don't matter in that folder, at least not to TYPO3. They only might influence
+   loading order. Proper naming is only relevant for the real definition of tables one
+   folder up in :file:`Configuration/TCA`
+
 .. important::
 
    Be aware that you cannot extend the TCA of extensions if it was configured within
