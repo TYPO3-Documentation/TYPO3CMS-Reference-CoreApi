@@ -94,13 +94,7 @@ messages from the queue. Here's how such a message looks like in a module:
    A typical (success) message shown at the top of a module
 
 
-By default flash messages are shown atop the content of a
-module. However, if needed, you can change where the messages are
-shown by manipulating a module's template and inserting the
-:html:`###FLASHMESSAGES###` marker. Messages will then replace that marker
-instead of appearing at the top of the module.
-
-The recommend way is to use the fluid ViewHelper :html:`<f:flashMessages />`.
+The recommend way to show flash messages is to use the fluid ViewHelper :html:`<f:flashMessages />`.
 This ViewHelper works in any context because it use the :php:`FlashMessageRendererResolver` class
 to find the correct renderer for the current context.
 
