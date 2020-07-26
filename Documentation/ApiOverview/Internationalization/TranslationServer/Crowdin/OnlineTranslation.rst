@@ -6,9 +6,10 @@
 ===============================
 Online Translation with Crowdin
 ===============================
+
 .. tip::
-      The Crowdin Solution provide you with a well written and extended knowledge base on all issues concerning
-      how to use the platform. You'll find it here: `<https://support.crowdin.com/>`__.
+    The Crowdin solution provide you with a well written and extended knowledge base on all issues concerning
+    how to use the platform. You'll find it here: `<https://support.crowdin.com/>`__.
 
 Getting started
 ===============
@@ -38,37 +39,37 @@ Each sys extension contains one or more files and the structure reflects the rea
 
 While you translate an xlf-file, Crowdin supports you with valuable information.
 
-   - You get a clear overview on the progress. A grey bar means that work needs to be done, the blue bar shows how many words
-     have been translated and the green bar show how many words have been approved.
-   - The system offers you suggestions on terms and translations from the Translation Memory (TM) and Machine Translation (MT)
-   - You can sort and order the labels in different ways; show only untranslated, unresolved, commented, and so on. And all labels too of course.
-   - You can start discussions about a specific string
-   - You can search TM
-   - You can improve TM by adding new terms.
-   - You can also easily get in contact with the language manager and team members.
+- You get a clear overview on the progress. A grey bar means that work needs to be done, the blue bar shows how many words
+  have been translated and the green bar shows how many words have been approved.
+- The system offers you suggestions on terms and translations from the Translation Memory (TM) and Machine Translation (MT)
+- You can sort and order the labels in different ways; show only untranslated, unresolved, commented, and so on. And all labels too of course.
+- You can start discussions about a specific string
+- You can search TM
+- You can improve TM by adding new terms.
+- You can also easily get in contact with the language manager and team members.
 
 Preconditions
 =============
 
 You need a detailed understanding of how TYPO3 works. You have prefereably worked with TYPO3 for some years as developer, administrator,
-integrator or senior editor. You know your way around in Backend and you are familiar with most of the functionality and features.
+integrator or senior editor. You know your way around in the backend and you are familiar with most of the functionality and features.
 If you are more focused in translation extensions, you’ll need to understand all the parts of the extension before you start translating.
 
 What skills are needed
 ======================
 
-You need to be bilingual: Fluent in both English and the language you will translate into. It’ll be hard work if you only have casual knowledge of the target language or English. And we end up with confusing localization.
+You need to be bilingual: Fluent in both English and the language you will translate into. It would be hard work if you only had casual knowledge of the target language or English. And we would (probably) end up with confusing localization.
 
 A good understanding of how language is constructed in terms of nouns, verbs, punctation and grammar in general will be necessary.
 
-How to make (good) translations
-===============================
+How to create (good) translations
+=================================
 
 1. Be true to the source labels you work with. Given that the developer of the code, who made the English text, understands the functionality best, please try to translate the meaning of the sentences.
 
 2. Translate organically, not literally. The structure or your target language is important. English often has a different structure and tone, so you must adapt the equal text but the equivalent. So please don’t replicate but replace.
 
-3. Use the same level of formality. The cultural context can be very different from different languages. What goes in English might be way to informal in your language and vice versa. Try to find a good level of (in)formality and stick to it. And be open to discuss it with your fellow team translators.
+3. Use the same level of formality. The cultural context can be very different from different languages. What goes in English might be way too informal in your language and vice versa. Try to find a good level of (in)formality and stick to it. And be open to discuss it with your fellow team translators.
 
 4. Look into other localized projects in your language. There are tons of open source projects being translated, also into your language. Be curious and look at how the localization is done – there might be things to learn and adapt.
 
@@ -83,9 +84,9 @@ Crowdin offers a good platform for cooperating with your team translators, and p
 Translation Styles
 ==================
 
-In general and where it makes sense, we follow the style guide from the Documentation Team: `<https://typo3.org/community/teams/content/writing-style-guide/>`__
+In general and where it makes sense, we follow the style guide from the Content Team: `<https://typo3.org/community/teams/content/writing-style-guide/>`__
 
-In the future when translation teams are getting bigger, it will be a good idea to develop local style guides.
+In the future (when translation teams start getting bigger), it might be a good idea to develop local style guides.
 
 Links
 =====
@@ -101,20 +102,23 @@ There are many good resources when it comes to translation, language, dictionari
 FAQ
 ===
 
-Should I localize both 9.5 and Master?
+Should I localize both 9.5 and master?
 --------------------------------------
-Master (which is currently version 10) is the leading version. Every string which exists in 9.5 as well is automatically filled during the export and only needs to be localized if it is different in 9.5.
+
+Master is the leading version. Every string which exists in the previous version as well is automatically filled during the export and only needs to be localized if it is different in the previous version.
 
 Strings are translated, but when are they taken into account and available for download?
 ----------------------------------------------------------------------------------------
-As soon as a string is proofread, it will be taken into account at the next export. The export runs 3 times a day.
+
+As soon as a string is proofread, it will be taken into account at the next export.
 
 How can I be sure what way a word, term or sting is to be translated?
 ---------------------------------------------------------------------
-There are several ways to get help: In left panel you can either search the translation memory (TM) or the term base. You can also drop a comment to start a discussion or ask for advice.
+
+There are several ways to get help: In the left panel you can either search the translation memory (TM) or the term base. You can also drop a comment to start a discussion or ask for advice.
 
 Where do I meet all the other translators?
 ------------------------------------------
-There is a good chance to find help and endorsement in the TYPO3 Slack. Try the `Translation Slack channel <https://typo3.slack.com/archives/C032FRT0W>`__.
 
-
+There is a good chance to find help and endorsement in the TYPO3 Slack
+workspace. Try the `Translation Slack channel #typo3-translations <https://typo3.slack.com/archives/C032FRT0W>`__.
