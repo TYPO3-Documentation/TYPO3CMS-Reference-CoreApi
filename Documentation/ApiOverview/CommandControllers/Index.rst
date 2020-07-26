@@ -10,7 +10,7 @@ Symfony Console Commands (cli)
 ==============================
 
 It is possible to run TYPO3 CMS scripts from the command line.
-This makes it possible to set up cronjobs.
+This functionality can be used to set up cronjobs, for example.
 
 TYPO3 uses Symfony commands API for writing CLI (command line interface) commands.
 These commands can also be run from the TYPO3 :ref:`scheduler <symfony-console-commands-scheduler>`.
@@ -75,8 +75,8 @@ Creating a new Command in Extensions
 
    :php:`configure()`
       As the name would suggest allows to configure the command.
-      Allows to add a description or a help text,
-      or mandatory and optional arguments and parameters defined.
+      Allows to add a description, a help text,
+      and / or define arguments.
 
    :php:`execute()`
       Contains the logic when executing the command.
@@ -197,7 +197,7 @@ Deprecated since v10 and will be removed in v11::
 Initialize Backend User
 -----------------------
 
-Backend user can be initialized with this call inside :php:`execute()` method::
+A backend user can be initialized with this call inside :php:`execute()` method::
 
    Bootstrap::initializeBackendAuthentication();
 
