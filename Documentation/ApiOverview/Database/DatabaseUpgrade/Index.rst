@@ -66,40 +66,27 @@ extension.
 
 The peculiarity is that these files may not always contain
 a complete and valid SQL data definition. For example,
-system extension "rsaauth" defines a new table for storing
-RSA keys:
+system extension "dashboard" defines a new table for storing
+dashboards:
 
 .. code-block:: sql
 
-   CREATE TABLE tx_rsaauth_keys (
-      uid int(11) NOT NULL auto_increment,
-      pid int(11) DEFAULT '0' NOT NULL,
-      crdate int(11) DEFAULT '0' NOT NULL,
-      key_value text,
-
-      PRIMARY KEY (uid),
-      KEY crdate (crdate)
+   CREATE TABLE be_dashboards (
+       identifier varchar(120) DEFAULT '' NOT NULL,
+       title varchar(120) DEFAULT '' NOT NULL,
+       widgets text
    );
 
 This is a complete and valid SQL data definition. However
-system extension "css\_styled\_content" extends the "tt_content"
+community extension "news" extends the "tt_content"
 table with additional fields. It also provides these changes
 in the form of a SQL :code:`CREATE TABLE` statement:
 
 .. code-block:: sql
 
    CREATE TABLE tt_content (
-      header_position varchar(6) DEFAULT '' NOT NULL,
-      image_compression tinyint(3) unsigned DEFAULT '0' NOT NULL,
-      image_effects tinyint(3) unsigned DEFAULT '0' NOT NULL,
-      image_noRows tinyint(3) unsigned DEFAULT '0' NOT NULL,
-      section_frame int(11) unsigned DEFAULT '0' NOT NULL,
-      spaceAfter smallint(5) unsigned DEFAULT '0' NOT NULL,
-      spaceBefore smallint(5) unsigned DEFAULT '0' NOT NULL,
-      table_bgColor int(11) unsigned DEFAULT '0' NOT NULL,
-      table_border tinyint(3) unsigned DEFAULT '0' NOT NULL,
-      table_cellpadding tinyint(3) unsigned DEFAULT '0' NOT NULL,
-      table_cellspacing tinyint(3) unsigned DEFAULT '0' NOT NULL
+      tx_news_related_news int(11) DEFAULT '0' NOT NULL,
+      KEY index_newscontent (tx_news_related_news)
    );
 
 The classes which take care of assembling the complete SQL data

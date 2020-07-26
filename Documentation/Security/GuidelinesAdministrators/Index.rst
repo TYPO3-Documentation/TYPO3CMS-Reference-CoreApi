@@ -25,6 +25,9 @@ Guidelines for System Administrators
 .. _security-directory-indexing:
 .. include:: DirectoryIndexing.rst.txt
 
+.. _security-file-extension-handling:
+.. include:: FileExtensionHandling.rst.txt
+
 .. _security-database-access:
 .. include:: DatabaseAccess.rst.txt
 

@@ -56,7 +56,6 @@ The key used in the array above is the value that will be stored in the
    frontend, and larger than 200 when it is just some storage. This limitation
    no longer exists, so you can choose a number at will.
 
-
 Each array has the following options available:
 
 .. t3-field-list-table::

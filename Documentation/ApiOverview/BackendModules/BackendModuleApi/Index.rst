@@ -30,13 +30,13 @@ using the following API:
 
     // Module System > Backend Users
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'TYPO3.CMS.Beuser',
+        'Beuser',
         'system',
         'tx_Beuser',
         'top',
         [
-            'BackendUser' => 'index, addToCompareList, removeFromCompareList, compare, online, terminateBackendUserSession',
-            'BackendUserGroup' => 'index'
+            \TYPO3\CMS\Beuser\Controller\BackendUserController::class => 'index, show, addToCompareList, removeFromCompareList, removeAllFromCompareList, compare, online, terminateBackendUserSession, initiatePasswordReset',
+            \TYPO3\CMS\Beuser\Controller\BackendUserGroupController::class => 'index, addToCompareList, removeFromCompareList, removeAllFromCompareList, compare'
         ],
         [
             'access' => 'admin',
@@ -50,8 +50,10 @@ main module ``system``.
 
 Parameters:
 
-#. A vendor shorthand and the extension key in upper camel case:
-   **'Vendor.ExtensionName'**.
+#. The first argument contains the extension name (in UpperCamelCase)
+   or the extension key (in lower_underscore). Since TYPO3 10.0,
+   you should no longer prepend the vendor name here, see
+   :doc:`t3core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
 #. **Main module** name, in which the new module will be placed,
    for example 'web' or 'system'.
 #. **Submodule key**: This is an identifier for your new module.
@@ -64,7 +66,9 @@ Parameters:
    * ``before:<submodulekey>``: the module is inserted before the submodule identified by ``<submodulekey>``
    * ``after:<submodulekey>``: the module is inserted after the submodule identified by ``<submodulekey>``
 
-#. Allowed **controller => action** combinations
+#. Allowed **controller => action** combinations. Since TYPO3 10.0 you should
+   use fully qualified class names here, see
+   :doc:`t3core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
 #. **Module configuration**: The following options are available:
 
    * ``access``: can contain several, separated by comma
@@ -93,7 +97,7 @@ Toplevel modules like "Web" or "File" are registered with the same API:
 .. code-block:: php
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'Vendor.MyExtension',
+        'MyExtension',
         'mysection',
         '',
         '',
@@ -111,7 +115,7 @@ be used to add submodules to this new toplevel module:
 .. code-block:: php
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'Vendor.MyExtension',
+        'MyExtension',
         'mymodule1',
         'mysection',
         '',

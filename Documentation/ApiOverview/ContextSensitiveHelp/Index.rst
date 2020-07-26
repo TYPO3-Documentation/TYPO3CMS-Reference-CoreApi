@@ -31,7 +31,7 @@ with images.
 .. figure:: ../../Images/ContextSensitiveHelpPopup.png
    :alt: Popup help window
 
-   Popup help window for the "Title" field of the "pages" table
+   Popup help window for the "Subtitle" field of the "pages" table
 
 
 Clicking on the "Back" icon at the top of the popup window leads

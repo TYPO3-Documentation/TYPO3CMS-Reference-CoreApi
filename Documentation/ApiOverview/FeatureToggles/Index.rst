@@ -29,20 +29,20 @@ Feature names should NEVER be named "enable" or have a negation, or contain vers
 
 Bad examples:
 
- - `enableFeatureXyz`
- - `disableOverlays`
- - `schedulerRevamped2018`
- - `useDoctrineQueries`
- - `disablePreparedStatements`
- - `disableHooksInFE`
+- `enableFeatureXyz`
+- `disableOverlays`
+- `schedulerRevamped2018`
+- `useDoctrineQueries`
+- `disablePreparedStatements`
+- `disableHooksInFE`
 
 Good examples:
 
- - `ExtendedRichtextFormat`
- - `NativeYamlParser`
- - `InlinePageTranslations`
- - `TypoScriptParserIncludesAsXml`
- - `NativeDoctrineQueries`
+- `ExtendedRichtextFormat`
+- `NativeYamlParser`
+- `InlinePageTranslations`
+- `TypoScriptParserIncludesAsXml`
+- `NativeDoctrineQueries`
 
 
 Using the API as Extension Author
@@ -68,6 +68,8 @@ To check if a feature is enabled use this code::
    
    To change the setting for your extension feature either use :file:`Localconfiguration.php`:
    or :file:`AdditionalConfiguration.php`: like
+   
+   .. code-block:: php
       
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true
 

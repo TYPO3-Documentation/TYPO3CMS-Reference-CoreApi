@@ -22,13 +22,18 @@ to use input fields, select lists, show options conditionally and more.
 Example Use Cases
 =================
 
-* The `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__
-  uses Flexforms to configure rendering options,
-  e.g. a transition interval and transition type (slide, fade)
-  for the carousel.
+The `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
+uses Flexforms to configure rendering options,
+e.g. a transition interval and transition type (slide, fade)
+for the carousel.
 
 .. image:: Images/FlexFormCarousel.png
    :class: with-shadow
+
+Some more extensions that utilize FlexForms are:
+
+* `blog <https://github.com/TYPO3GmbH/blog>`__: This has a very small and
+  basic FlexForm, so it might be a good starting point to look at.
 
 
 How it Works
@@ -58,13 +63,13 @@ Steps to Perform (Extension Developer)
                 <sDEF>
                     <ROOT>
                         <TCEforms>
-                            <sheetTitle>LLL:EXT:extkey/Resources/Private/Language/Backend.xlf:settings.registration.title</sheetTitle>
+                            <sheetTitle>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.title</sheetTitle>
                         </TCEforms>
                         <type>array</type>
                         <el>
                             <!-- Add settings here ... -->
 
-                            <!-- Example setting: input field with name settings.timeRestriction -->
+                            <!-- Example setting: input field with name settings.includeCategories -->
                             <settings.includeCategories>
                                 <TCEforms>
                                     <label>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.includeCategories</label>
@@ -73,7 +78,7 @@ Steps to Perform (Extension Developer)
                                         <default>0</default>
                                         <items type="array">
                                             <numIndex index="0" type="array">
-                                                <numIndex index="0">LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:setting.registration.includeCategories.title</numIndex>
+                                                <numIndex index="0">LLL:EXT:example/Resources/Private/Language/Backend.xlf:setting.registration.includeCategories.title</numIndex>
                                             </numIndex>
                                         </items>
                                     </config>
@@ -98,10 +103,11 @@ Steps to Perform (Extension Developer)
 
    .. code-block:: php
 
-       $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['example_registration'] = 'pi_flexform';
+       // plugin signature: <extension key without underscores> '_' <plugin name in lowercase>
+       $pluginSignature = 'example_registration';
+       $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-           // plugin signature: <extension key without underscores> '_' <plugin name in lowercase>
-           'example_registration',
+           $pluginSignature,
            // Flexform configuration schema file
            'FILE:EXT:example/Configuration/FlexForms/Registration.xml'
        );
@@ -218,6 +224,11 @@ How this looks when configuring the plugin:
 
    * :ref:`t3tca:columns-select-properties-itemsprocfunc` in TCA reference.
 
+
+
+
+.. _flexformDisplayCond:
+
 Display Fields Conditionally (displayCond)
 ------------------------------------------
 
@@ -247,6 +258,36 @@ in the TCA reference:
 
    * :ref:`t3tca:columns-properties-displaycond` in TCA Reference
 
+.. _flexformSwitchableControllerActions:
+
+switchableControllerActions
+---------------------------
+
+.. deprecated:: 10.3
+
+   It is no longer considered best practice to use
+   `switchableControllerActions` in a Flexform. The reasons
+   for the deprecation and possible alternatives are outlined
+   in the changelog :doc:`t3core:Changelog/10.3/Deprecation-89463-SwitchableControllerActions`.
+
+
+.. _flexformReload:
+
+Reload on change
+----------------
+
+Especially in combination with conditionally displaying settings with
+:ref:`displayCond <flexformDisplayCond>`, you may want to trigger
+a reloading of the form when specific settings are changed. You
+can do that with:
+
+.. code-block:: xml
+
+   <config>
+       <!-- ... -->
+       <onChange>reload</onChange>
+
+This element is optional and must go inside the `<config>` element.
 
 .. _read-flexforms:
 .. _read-flexforms-extbase:
@@ -329,7 +370,7 @@ The key `flexform` is followed by the field which holds the Flexform data (`pi_f
 
 .. _read-flexforms-fluid:
 
-How to Access FlexFroms From Fluid
+How to Access FlexForms From Fluid
 ----------------------------------
 
 Flexform settings can be read from within a Fluid template using

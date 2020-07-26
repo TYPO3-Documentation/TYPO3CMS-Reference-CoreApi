@@ -31,15 +31,16 @@ don't have to deal with anything not mentioned here.
 
 The `QueryBuilder` comes with a happy little list of small methods:
 
-   * Set type of query: :php:`->select()`, :php:`->count()`, :php:`->update()`, :php:`->insert()` and :php:`delete()`
+* Set type of query: :php:`->select()`, :php:`->count()`, :php:`->update()`, :php:`->insert()` and :php:`delete()`
 
-   * Prepare `WHERE` conditions
+* Prepare `WHERE` conditions
 
-   * Manipulate default `WHERE` restrictions added by TYPO3 for :php:`->select()`
+* Manipulate default `WHERE` restrictions added by TYPO3 for :php:`->select()`
 
-   * Add `LIMIT`, `GROUP BY` and other SQL stuff
+* Add `LIMIT`, `GROUP BY` and other SQL stuff
 
-   * :php:`->execute()` a query and retrieve a `Statement` (a query result) object
+* :php:`->execute()` a query and retrieve a `Statement` (a query result) object
+
 
 Most methods of the `QueryBuilder` return `$this` and can be chained::
 

@@ -44,7 +44,7 @@ The Log Writer configuration is read from the subkey :code:`writerConfiguration`
            // add a FileWriter
            \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
                // configuration for the writer
-               'logFile' => 'typo3temp/var/log/typo3_7ac500bce5.log'
+               'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_7ac500bce5.log'
            ]
        ]
    ];

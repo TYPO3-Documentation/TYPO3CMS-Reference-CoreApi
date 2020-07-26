@@ -3,12 +3,11 @@
 
 .. _managing-translating:
 
-=====================
-Managing Translations
-=====================
+=================================
+Managing Translations for Backend
+=================================
 
 This sections highlights the different ways to translate and manage XLIFF files.
-
 
 .. _xliff-translating-fetch:
 
@@ -76,7 +75,7 @@ syntax is as follows (to be placed in an extension's :file:`ext_localconf.php` f
 
 .. code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/custom.xlf';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/custom.xlf';
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:news/Resources/Private/Language/locallang_modadministration.xlf'][] = 'EXT:examples/Resources/Private/Language/Overrides/de.locallang_modadministration.xlf';
 
 
@@ -191,5 +190,10 @@ would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
    a translation is not found. A custom language will fall back on its "parent"
    language automatically. Thus - in our second example of de_AT (German for Austria) - no fallback would have to be
    defined for "de_AT" if it were just falling back on "de".
+
+.. seealso::
+   
+   Configure :yaml:`typo3Language` for using custom languages in the frontend,
+   see :ref:`sitehandling-addinglanguages` for details.
 
 

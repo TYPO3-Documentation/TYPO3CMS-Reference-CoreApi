@@ -71,14 +71,14 @@ LOCK_CAPABILITY_EXCLUSIVE
 
    * If locking strategy **without** LOCK_CAPABILITY_NOBLOCK is used either:
 
-      * block or
-      * throw LockAcquireException, if the lock could not be acquired - even with blocking
+     * block or
+     * throw LockAcquireException, if the lock could not be acquired - even with blocking
 
    * If locking strategy **with** LOCK_CAPABILITY_NOBLOCK is used, this should not block and do either:
 
-      * return false or
-      * throw LockAcquireWouldBlockException, if trying to acquire lock would block
-      * throw LockAcquireException, if the lock could not be acquired
+     * return false or
+     * throw LockAcquireWouldBlockException, if trying to acquire lock would block
+     * throw LockAcquireException, if the lock could not be acquired
 
 LOCK_CAPABILITY_SHARED
    A lock can be acquired by multiple processes, if it has this capability and the lock is
