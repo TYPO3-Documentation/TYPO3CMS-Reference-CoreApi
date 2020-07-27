@@ -91,7 +91,7 @@ frontend
   type, plus a number of base and utility classes).
 
 extbase
-  Extbase is a MVC framework, with the "View" part being actually system extension "fluid".
+  Extbase is an MVC framework, with the "View" part being actually the system extension "fluid".
   Not all of the TYPO3 CMS backend is written in Extbase, but some modules are.
 
 fluid
