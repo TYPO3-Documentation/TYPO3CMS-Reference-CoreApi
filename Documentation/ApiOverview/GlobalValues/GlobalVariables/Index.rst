@@ -195,15 +195,6 @@ Global variables
 
 
 
- - :Variable:
-         $FILEMOUNTS
-   :Defined:
-         Bootstrap::initializeBackendUserMounts()
-   :Description:
-         Array of filepaths on the server to be mounted in the directory tree.
-   :FE:
-         (depends)
-
 
  - :Variable:
          $BE\_USER
