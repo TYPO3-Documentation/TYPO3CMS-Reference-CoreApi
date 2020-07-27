@@ -424,14 +424,6 @@ as vector graphics (SVG) rather than bitmaps (GIF or PNG).
 18x16 GIF, PNG or SVG icon for the extension.
 
 
-.. _:file:`class.ext_update.php`:
-
-:file:`class.ext_update.php`
-----------------------------
-
-See section :ref:`update-wizards-extupdatefile` in chapter
-:ref:`update-wizards`.
-
 .. _extension-reserved-folders:
 
 Reserved Folders
