@@ -256,7 +256,7 @@ argument is the value a field should be set to, **the value is automatically tra
 of a prepared statement**. This way, :php:`->set()` key/value pairs are **automatically SQL injection safe by default**.
 
 If a field should be set to the value of another field from the row, the quoting needs to be turned off and
-:php:`->quoteIdentifier()` has to be used::
+:php:`->quoteIdentifier()` and :php:`false` have to be used:
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
