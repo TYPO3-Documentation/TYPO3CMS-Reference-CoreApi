@@ -85,7 +85,7 @@ In the case where the extension author fails to provide a security fix
 in an appropriate time frame (see below), all affected versions of the
 extension will be removed from the TYPO3 Extension Repository (TER)
 and a security bulletin will be published (see below), recommending to
-deinstall the extension.
+uninstall the extension.
 
 If the developer provides the TYPO3 Security Team with an updated
 version of the extension, the team reviews the fix and checks if the
