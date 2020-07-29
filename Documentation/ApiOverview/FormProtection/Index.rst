@@ -130,7 +130,9 @@ cannot be used again.
 Usage in the Frontend
 =====================
 
-Feature: #56633 - "Form protection API for frontend usage" introduced a new
+.. versionadded:: 7.6
+
+:doc:`t3core:Changelog/7.6/Feature-56633-FormProtectionAPIForFrontEndUsage` introduced a new
 class to allow usage of the FormProtection (CSRF protection) API in the frontend.
 
 Usage is the same as in backend context:
