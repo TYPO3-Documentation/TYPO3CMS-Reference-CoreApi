@@ -100,11 +100,10 @@ Frontend Implementation Guidelines
   placeholders for new records are not displayed.
 
 - If you need to detect preview mode for versioning and workspaces you
-  can read this variable:
-
-  - :code:`$GLOBALS['TSFE']->sys_page->versioningWorkspaceId`: Will tell you the
-    id of the workspace of the current backend user. Used for preview of
-    workspaces.
+  can use the Context object.
+  :code:`GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('workspace', 'id', 0);`
+  gives you the id of the workspace of the current backend user. Used
+  for preview of workspaces.
 
 - Use these API functions for support of version previews in the
   frontend:
