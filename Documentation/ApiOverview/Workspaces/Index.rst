@@ -99,9 +99,6 @@ Frontend Implementation Guidelines
   frontend you must at least check that :code:`t3ver_state != 1` so
   placeholders for new records are not displayed.
 
-- Make sure never to select any record with :code:`pid = -1`! (offline records -
-  related to versioning).
-
 - If you need to detect preview mode for versioning and workspaces you
   can read this variable:
 
