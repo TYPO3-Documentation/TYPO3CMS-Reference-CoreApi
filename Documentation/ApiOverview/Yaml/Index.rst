@@ -12,7 +12,7 @@ YAML is used in TYPO3 for various configurations; most notable are
 * :ref:`Dependency injection <DependencyInjection>` information in :file:`Configuration/Services.yaml`
 * :ref:`Site configuration <sitehandling>` in :file:`sites/<identifier>/config.yaml`
 * System extension :ref:`form <form:start>` configuration
-* System extension :ref:`rte_ckeditor  <rteckeditor:start>` configuration
+* System extension :ref:`rte_ckeditor  <ckedit:start>` configuration
 
 
 

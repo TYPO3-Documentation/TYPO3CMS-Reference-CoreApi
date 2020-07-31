@@ -71,6 +71,7 @@ Where user functions have to be written the following way:
    myVariable = 1
 
 .. _extension-options-accessing-saved-options:
+.. _extension-options-api:
 
 Accessing saved options
 =======================
