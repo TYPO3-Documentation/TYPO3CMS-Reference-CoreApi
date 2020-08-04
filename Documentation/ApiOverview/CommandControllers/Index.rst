@@ -82,8 +82,8 @@ Example taken from :php:`ListSysLogCommand` in the core and simplified::
          */
         protected function configure()
         {
-            $this->setDescription('Show entries from the sys_log database table of the last 24 hours.');
-            $this->setHelp('Prints a list of recent sys_log entries.' . LF . 'If you want to get more detailed information, use the --verbose option.');
+            $this->setDescription('Show entries from the sys_log database table of the last 24 hours.')
+               ->setHelp('Prints a list of recent sys_log entries.' . LF . 'If you want to get more detailed information, use the --verbose option.');
         }
 
         /**
@@ -107,34 +107,64 @@ Example taken from :php:`ListSysLogCommand` in the core and simplified::
 Passing Arguments
 -----------------
 
-:php:`\TYPO3\CMS\Install\Command\UpgradeWizardRunCommand`::
+Since your command is inherited from :php:`Symfony\Component\Console\Command\Command`,
+it is possible to define arguments (ordered) and options (unordered) using the Symfony
+command API. This is explained in depth on the following Symfony Documentation page:
 
+.. seealso::
+
+   * `Symfony: Console Input (Arguments & Options) <https://symfony.com/doc/current/console/input.html>`__
+
+
+Add an optional argument and an optional option to your command::
 
     /**
      * Configure the command by defining the name, options and arguments
      */
     protected function configure()
     {
-        $this->setDescription('Run upgrade wizard. Without arguments all available wizards will be run.')
+        $this->setDescription('Run content importer. Without arguments all available wizards will be run.')
             ->addArgument(
                 'wizardName',
-                InputArgument::OPTIONAL
-            )->setHelp(
-                'This command allows running upgrade wizards on CLI. To run a single wizard add the ' .
-                'identifier of the wizard as argument. The identifier of the wizard is the name it is ' .
-                'registered with in ext_localconf.'
-            );
+                InputArgument::OPTIONAL,
+                'Here is a description for your argument'
+            )
+            ->addOption(
+               'brute-force',
+               'b',
+               InputOption::VALUE_OPTIONAL,
+               'Some optional option for your wizard(s). You can use --brute-force or -b when running command';
     }
 
 
-This command takes one optional argument :php:`wizardName`, which can be passed on the command line:
+This command takes one optional argument :php:`wizardName` and one optional option,
+which can be passed on the command line:
 
 .. code-block:: bash
 
-   vendor/bin/typo3 upgrade:run [wizardName]
+   vendor/bin/typo3 yourext:dothings [-b] [wizardName]
    
 
-This argument can be retrieved using :php:`$input->getArgument('wizardName');`.
+This argument can be retrieved with :php:`$input->getArgument()`, the options with
+:php:`$input->getOption()`, for example::
+
+   protected function execute(InputInterface $input, OutputInterface $output)
+   {
+      // ...
+
+      if ($input->getArgument('wizardName')) {
+
+         // ...
+
+      }
+
+      if ($input->getOption('brute-force')) {
+
+      // ...
+
+      }
+
+
 
 
 .. _deactivating-the-command-in-scheduler:
@@ -183,7 +213,7 @@ Show help for the command:
 
 .. code-block:: bash
 
-   vendor/bin/typo3 help yourext:dothings
+   vendor/bin/typo3 yourext:dothings -h
 
 .. tip::
 
@@ -205,3 +235,10 @@ Running the Command From the Scheduler
 By default, it is possible to run the command from the :ref:`TYPO3 scheduler
 <sched:start>` as well. In order to deactivate this, see
 :ref:`deactivating-the-command-in-scheduler`.
+
+More information
+================
+
+* see existing command controllers in the core: :file:`typo3/sysext/*/Classes/Command`
+* `Symfony Command Documentation <https://symfony.com/doc/current/console.html>`_
+* `Symfony Commands: Console Input (Arguments & Options) <https://symfony.com/doc/current/console/input.html>`__
