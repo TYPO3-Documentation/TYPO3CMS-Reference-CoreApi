@@ -189,7 +189,7 @@ database schema analyzer to create all database tables specified in the :file:`e
 Database fixtures
 =================
 
-To populate the test database tables with rows to prepare any gives scenario, the helper method
+To populate the test database tables with rows to prepare any given scenario, the helper method
 :php:`$this->importCSVDataSet()` can be used. Note it is not possible to inject a fully prepared
 database, for instance it is not possible to provide a full `.sqlite` database and work on this
 in the test case. Instead, database rows should be provided as `.csv` files to be loaded into
