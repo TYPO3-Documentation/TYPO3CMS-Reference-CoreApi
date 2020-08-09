@@ -204,7 +204,7 @@ Create an `UPDATE` query. Typical usage::
    $queryBuilder
       ->update('tt_content')
       ->where(
-         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')
+         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
       ->set('bodytext', 'peter')
       ->execute();
@@ -217,7 +217,7 @@ The table alias can then be used in :php:`->set()` and :php:`->where()` expressi
    $queryBuilder
       ->update('tt_content', 'u')
       ->where(
-         $queryBuilder->expr()->eq('u.bodytext', $this->createNamedParameter('klaus')
+         $queryBuilder->expr()->eq('u.bodytext', $this->createNamedParameter('klaus'))
       )
       ->set('u.bodytext', 'peter')
       ->execute();
