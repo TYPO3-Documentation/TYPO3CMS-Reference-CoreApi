@@ -199,19 +199,36 @@ a form of final transformation on the login data.
 For "authUserFE" and "authUserBE" subtypes, the :php:`authUser()` method may
 return different values:
 
-- a negative value indicates that the authentication has definitely failed
-  and that no other "auth" service should be called up.
+.. warning::
 
-- a positive value smaller than 100 indicates that the authentication
-  was successful, but that further services should also perform their
+   Previously, there was an error in the documentation. It did not match
+   the actual behaviour. This has now been fixed. For details, see
+   :issue:`91993`.
+
+- a negative value or 0 (<=0) indicates that the authentication has
+  definitely **failed** and that no other "auth" service should be
+  called up.
+
+- a positive value smaller than 100 (<100) indicates that the authentication
+  was **successful**, but that further services should also perform their
   own authentication.
 
-- a value of 0 or a value of 100 or more indicates that the authentication has failed,
-  but that further services should keep trying.
+- a value of 100 or more (>= 100) indicates that the user was **not authenticated**,
+  this service is not responsible for the authentication and that further
+  services should authenticate.
 
-- a value of 200 or more indicates that the authentication was successful
-  and that no further tries should be made by other services down
+- a value of 200 or more (>=200) indicates that the authentication was **successful**
+  and that **no further tries** should be made by other services down
   the chain.
+
++------------+--------------+--------------+--------------+
+|            | auth failed  | auth success | no auth      |
++============+==============+==============+==============+
+| continue   |              | 1..99        | 100..199     |
++------------+--------------+--------------+--------------+
+| stop       | <= 0         | >= 200       |              |
++------------+--------------+--------------+--------------+
+
 
 For "getUserFE" and "getUserBE" subtypes, the logic is reversed.
 The service chain will stop as soon as one user is found.
