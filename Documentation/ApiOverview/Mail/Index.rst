@@ -179,7 +179,7 @@ This shows how to generate and send a mail in TYPO3::
       ->setBody('Here is the message itself')
 
       // And optionally an alternative body
-      ->addPart('<q>Here is the message itself</q>', 'text/html')
+      ->addPart('<p>Here is the message itself</p>', 'text/html')
 
       // Optionally add any attachments
       ->attach(\Swift_Attachment::fromPath('my-document.pdf'))
@@ -196,7 +196,7 @@ Or if you prefer, don't concatenate the calls::
    $mail->setFrom(array('john@doe.com' => 'John Doe'));
    $mail->setTo(array('receiver@domain.org', 'other@domain.org' => 'A name'));
    $mail->setBody('Here is the message itself');
-   $mail->addPart('<q>Here is the message itself</q>', 'text/html');
+   $mail->addPart('<p>Here is the message itself</p>', 'text/html');
    $mail->attach(\Swift_Attachment::fromPath('my-document.pdf'));
    $mail->send();
 
