@@ -55,7 +55,6 @@ Subsequently:
            "typo3/cms-core": "^9.5 || ^10.4"
        },
        "replace": {
-           "vendorname/my-extension": "self.version",
            "typo3-ter/my-extension": "self.version"
        },
        "autoload": {
@@ -185,8 +184,25 @@ are in the directory :file:`Classes`.
 replace
 -------
 
-.. todo:: add replace section
+(*recommended*)
 
+`replace <https://getcomposer.org/doc/04-schema.md#replace>`__ in a
+:file:`composer.json` file specifies which other packages can be
+replaced by this package. This means that packages with different
+vendor name or package name will be treated as the same package by
+Composer.
+
+.. code-block:: json
+
+   "replace": {
+      "typo3-ter/my-extension": "self.version"
+   },
+
+
+As all extensions available in the TER can be installed
+with `composer require typo3-ter/ext-key`, this makes sure that
+there will be no conflicts with packages installed or required
+via Packagist or from another source.
 
 extra
 -----
@@ -212,19 +228,40 @@ the same thing:
       }
    },
 
-
-
 Properties no longer used
 =========================
 
 version
 -------
 
-(*not recommended*)
-
 Was used in earlier TYPO3 versions.
-For versions 7.6 and above you should not use the version property.
+For TYPO3 versions 7.6 and above you should not use the version property.
 The version for the extension is set in the file :ref:`ext_emconf.php <ext_emconf-php>`.
+
+replace with ``"ext_key": "self.version"``
+------------------------------------------
+
+.. code-block:: json
+
+   "replace": {
+      "ext_key": "self.version"
+   }
+
+This was used previously, but is not compatible with latest Composer
+versions and will result in a warning using `composer validate` or
+result in an error with Composer version >=2.0:
+
+.. code-block:: shell
+
+   $ Deprecation warning: replace.ext_key is invalid, it should have a vendor name, a forward slash, and a package name.
+     The vendor and package name can be words separated by -, . or _. The complete name should match
+     "^[a-z0-9]([_.-]?[a-z0-9]+)*/[a-z0-9](([_.]?|-{0,2})[a-z0-9]+)*$".
+     Make sure you fix this as Composer 2.0 will error.
+
+
+See
+`comment on helhum/composer.json <https://gist.github.com/helhum/0ffd82525c90f305b81a8285329eb4f8#gistcomment-3239391>`__
+and `revisions on helhum/composer.json <https://gist.github.com/helhum/0ffd82525c90f305b81a8285329eb4f8/revisions>`__.
 
 More Information
 ================
