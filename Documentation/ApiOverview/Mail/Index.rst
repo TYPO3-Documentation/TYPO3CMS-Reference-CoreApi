@@ -277,7 +277,7 @@ This shows how to generate and send a mail in TYPO3::
       ->text('Here is the message itself')
 
       // And optionally a HTML message
-      ->html('<q>Here is the message itself</q>')
+      ->html('<p>Here is the message itself</p>')
 
       // Optionally add any attachments
       ->attachFromPath('/path/to/my-document.pdf')
@@ -301,7 +301,7 @@ Or if you prefer, don't concatenate the calls::
    );
    $mail->subject('Your subject');
    $mail->text('Here is the message itself');
-   $mail->html('<q>Here is the message itself</q>');
+   $mail->html('<p>Here is the message itself</p>');
    $mail->attachFromPath('/path/to/my-document.pdf');
    $mail->send();
 
