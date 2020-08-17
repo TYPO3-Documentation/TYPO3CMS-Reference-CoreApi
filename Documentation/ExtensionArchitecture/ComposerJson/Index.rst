@@ -28,6 +28,7 @@ Including a :file:`composer.json` is strongly recommended for a number of reason
    If you are not using Composer for your projects yet, see :ref:`t3install:migrate-to-composer`
    in the "Installation & Upgrade Guide".
 
+.. _ext-composer-json-minimal:
 
 Minimal composer.json
 =====================
@@ -57,11 +58,6 @@ Subsequently:
            "vendorname/my-extension": "self.version",
            "typo3-ter/my-extension": "self.version"
        },
-       "extra": {
-           "typo3/cms": {
-               "extension-key": "my_extension"
-           }
-       },
        "autoload": {
            "psr-4": {
                "Vendorname\\MyExtension\\": "Classes/"
@@ -69,48 +65,166 @@ Subsequently:
        }
    }
 
-``name`` (*required*)
-   `<vendorname>/<dashed extension key>` "Dashed extension key" means that every underscore (`_`) has been changed to a dash (`-`).
-   You must be owner of the vendor name and should register it on packagist.
-   Typically, the name will correspond to your namespaces used in the :file:`Classes` folder,
-   but with different uppercase / lowercase spelling,
-   e.g. `GeorgRinger\News` namespace and `georgringer/news` name in :file:`composer.json`.
+* see `composer.json schema <https://getcomposer.org/doc/04-schema.md>`__ for
+  general Composer information
+* see :ref:`ext-composer-json-properties` below for TYPO3 specific hints
 
-``type`` (*required*)
-   Just use `typo3-cms-extension` for TYPO3 extensions
+.. _ext-composer-json-extended:
 
-``description`` (*required*)
-   Description of your extension (1 line)
+Extended composer.json
+======================
 
-``license`` (*recommended*)
-   Has to be `GPL-2.0-only` or `GPL-2.0-or-later`.
-   See: https://typo3.org/project/licenses/.
+.. code-block:: json
+   :linenos:
 
-``require`` (*required*)
-   At the least, you will want to require `typo3/cms-core`.
-   You can add other system extensions and third party extensions,
-   if your extension depends on them.
+   {
+       "name": "vendorname/my-extension",
+       "type": "typo3-cms-extension",
+       "description": "An example extension",
+       "license": "GPL-2.0-or-later",
+       "require": {
+           "php" : "^7.2",
+           "typo3/cms-backend": "^v8.7 || ^9.5 || ^10.4",
+           "typo3/cms-core": "^v8.7 || ^9.5 || ^10.4"
+       },
+       "authors": [
+          "name": "John Doe",
+          "role": "Developer",
+          "email": "john.doe@example.org",
+          "homepage": "www.johndoe.example.org"
+       ],
+       "keywords": [
+          "typo3",
+          "blog"
+       ],
+       "support": {
+          "issues": "https://github.com/vendorname/my-extensions/issues"
+       },
+       "funding": {
+          "type": "other",
+          "url:" : "myfundpage.org/vendorname"
+       }
+       "replace": {
+           "typo3-ter/my-extension": "self.version"
+       },
+       "autoload": {
+           "psr-4": {
+               "Vendorname\\MyExtension\\": "Classes/"
+           }
+       }
+       "require-dev": {
+          "nimut/testing-framework": "^4.2 || ^5.1"
+       },
 
-``replace``
-  The replace part allows you to modify the extension locally and to avoid conflicts with a code for 
-  this extension coming from an external repository.
+   }
 
-``extra``
-   The extra `typo3/cms` section can be used to provide a TYPO3 extension_key for the package.
-   This will be used when found. If not provided, the package-key will be used with all dashes (`-`)
-   replaced by underscores (`_`) to follow TYPO3 and Packagist conventions.
+* see `composer.json schema <https://getcomposer.org/doc/04-schema.md>`__ for
+  general Composer information
+* see :ref:`ext-composer-json-properties` below for TYPO3 specific hints
 
-``autoload``
-   Define namespace - path mapping for PSR-4 autoloading.
-   In TYPO3 we follow the convention that all classes (except test classes)
-   are in the directory :file:`Classes`.
 
-Properties no longer used:
+.. _ext-composer-json-properties:
 
-``version`` (*not recommended*)
-  Was used in earlier TYPO3 versions.
-  For versions 7.6 and above you should not use the version property.
-  The version for the extension is set in the file :ref:`ext_emconf.php <ext_emconf-php>`.
+Properties
+==========
+
+name
+----
+
+(*required*)
+
+`<vendorname>/<dashed extension key>` "Dashed extension key" means that every underscore (`_`) has been changed to a dash (`-`).
+You must be owner of the vendor name and should register it on packagist.
+Typically, the name will correspond to your namespaces used in the :file:`Classes` folder,
+but with different uppercase / lowercase spelling,
+e.g. `GeorgRinger\News` namespace and `georgringer/news` name in :file:`composer.json`.
+
+description
+-----------
+
+(*required*)
+
+Description of your extension (1 line)
+
+type
+----
+
+(*required*)
+
+Just use `typo3-cms-extension` for TYPO3 extensions
+
+
+license
+-------
+
+(*recommended*)
+
+Has to be `GPL-2.0-only` or `GPL-2.0-or-later`.
+See: https://typo3.org/project/licenses/.
+
+
+require
+-------
+
+(*required*)
+
+At the least, you will want to require `typo3/cms-core`.
+You can add other system extensions and third party extensions,
+if your extension depends on them.
+
+
+autoload
+--------
+
+(*required*)
+
+Define namespace - path mapping for PSR-4 autoloading.
+In TYPO3 we follow the convention that all classes (except test classes)
+are in the directory :file:`Classes`.
+
+replace
+-------
+
+.. todo:: add replace section
+
+
+extra
+-----
+
+(*usually not required*)
+
+The extra `typo3/cms` section can be used to provide a TYPO3 extension_key for the package.
+This will be used when found. If not provided, the package-key will be used with all dashes (`-`)
+replaced by underscores (`_`) to follow TYPO3 and Packagist conventions.
+
+This is usually not required as per default Composer package key and TYPO3
+extension key are already mapped correctly. The dash in the package key is
+replaced by an underscore for the extension key.
+
+So, the following section can be provided, but the default will result in
+the same thing:
+
+.. code-block:: json
+
+   "extra": {
+      "typo3/cms": {
+         "extension-key": "my_extension"
+      }
+   },
+
+
+
+Properties no longer used
+=========================
+
+version
+-------
+
+(*not recommended*)
+
+Was used in earlier TYPO3 versions.
+For versions 7.6 and above you should not use the version property.
+The version for the extension is set in the file :ref:`ext_emconf.php <ext_emconf-php>`.
 
 More Information
 ================
