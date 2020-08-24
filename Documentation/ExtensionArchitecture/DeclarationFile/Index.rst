@@ -20,6 +20,9 @@ The keys are described in the table below.
 This file is overwritten, when extensions are imported from the online repository. So don't write your custom code in this file - only change
 values in the :php:`$EM_CONF` array if needed.
 
+.. important::
+However, due to limitations to TER, the `$_EXTKEY` option should be kept within an extension’s ext_emconf.php. Do **not** use a constant or a string.
+
 .. t3-field-list-table::
  :header-rows: 1
 
