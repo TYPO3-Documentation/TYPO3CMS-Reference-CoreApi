@@ -81,7 +81,7 @@ Classes involved in the backend bootstrapping process are :php:`\TYPO3\CMS\Core\
 The following steps are performed during bootstrapping.
 
 1. Define Legacy Constants
-""""""""""""""""""""""""""
+--------------------------
 
 In :php:`Application::defineLegacyConstants` some constants are defined, which will eventually
 be dropped, but are still initialized for now.
@@ -246,7 +246,7 @@ or be part of the web server configuration:
 .. _bootstrapping-context-custom:
 
 Custom Contexts
-"""""""""""""""
+---------------
 
 In certain situations, more specific contexts are desirable:
 
@@ -282,7 +282,7 @@ necessary settings while the ``Production/Live`` context is used on the live ins
 .. _bootstrapping-context-example:
 
 Usage Example
--------------
+~~~~~~~~~~~~~
 
 The current Application Context is set very early in the bootstrap process and can be accessed
 through public API for example in the :file:`AdditionalConfiguration.php` file to automatically set

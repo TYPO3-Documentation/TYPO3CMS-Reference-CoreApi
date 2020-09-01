@@ -30,8 +30,7 @@ More information about the file ending:
 
 .. seealso::
 
-   `Feature #78161 Introduce .typoscript file extension
-   <https://docs.typo3.org/typo3cms/extensions/core/Changelog/8.7.x/Feature-78161-IntroduceTypoScriptFileExtension.html>`__
+   Changelog: :doc:`t3core:Changelog/8.7.x/Feature-78161-IntroduceTypoScriptFileExtension`
 
 Format
 ======

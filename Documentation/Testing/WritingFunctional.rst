@@ -46,7 +46,7 @@ The :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase` contains a 
 of class properties. Most of them are designed to be overwritten by single test cases,
 they tell :php:`setUp()` what to do. For instance, there is a property to specify which
 extensions should be active for the given scenario. Everyone looking or creating
-functional tests should have a look at these properties: The are well documented and
+functional tests should have a look at these properties: They are well documented and
 contain examples how to use. These properties are the key to instruct `typo3/testing-framework`
 what to do.
 
@@ -189,7 +189,7 @@ database schema analyzer to create all database tables specified in the :file:`e
 Database fixtures
 =================
 
-To populate the test database tables with rows to prepare any gives scenario, the helper method
+To populate the test database tables with rows to prepare any given scenario, the helper method
 :php:`$this->importCSVDataSet()` can be used. Note it is not possible to inject a fully prepared
 database, for instance it is not possible to provide a full `.sqlite` database and work on this
 in the test case. Instead, database rows should be provided as `.csv` files to be loaded into

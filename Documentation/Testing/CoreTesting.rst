@@ -34,13 +34,13 @@ reliable environment to run tests and also remove the need to manage niche depen
 environment for tests such as "execute functional test "X" using MSSQL with xdebug".
 
 Git, docker and docker-compose are all required. For standalone test execution, a local installation of
-PHP is not required. You can even `composer install` a core by calling `Build/Script/runTests.sh -s
+PHP is not required. You can even `composer install` a core by calling `Build/Scripts/runTests.sh -s
 composerInstall` in a container.
 
 If you're using a Mac, install or update Docker to the most recent version using the packaging system of
 your choice.
 
-If you are using Ubuntu Linux 18.04 or higher, everthing should be ok after
+If you are using Ubuntu Linux 18.04 or higher, everything should be ok after
 calling `sudo apt-get install git docker docker-compose` once. For other Linux distributions
 including older releases of Ubuntu, users should have a look at the Docker homepage to see how to update
 to a recent version. It usually involves adding some other package repository and updating / installing using it.
@@ -88,7 +88,7 @@ can be found at `TYPO3 GmbH bitbucket <https://bitbucket.typo3.com/projects/T3CO
 These are the exact same containers Bamboo based testing is executed in. In Bamboo, the combination of
 :file:`Build/bamboo/src/main/java/core/PreMergeSpec.java` and :file:`Build/testing-docker/bamboo/docker-compose.yml`
 specify what Bamboo executes for patches pushed to the review system. On local testing, this is the
-combination of :file:`Build/Script/runTests.sh`, :file:`Build/testing-docker/local/.env` (created by
+combination of :file:`Build/Scripts/runTests.sh`, :file:`Build/testing-docker/local/.env` (created by
 runTests.sh) and :file:`Build/testing-docker/local/docker-compose.yml`.
 
 Whats impressive is that runTests.sh can do everything locally that Bamboo executes as `pre-merge

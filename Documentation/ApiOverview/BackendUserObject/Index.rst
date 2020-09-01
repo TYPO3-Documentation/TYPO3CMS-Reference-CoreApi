@@ -12,10 +12,6 @@ as the global variable :php:`$GLOBALS['BE_USER']`. The object is created in
 and is an instance of the class :code:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
 (which extends :php:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
 
-In addition to :php:`$GLOBALS['BE_USER']` one other global variables is of interest -
-:php:`$FILEMOUNTS`, holding an array with the File mounts of the :php:`$GLOBALS['BE_USER']`.
-
-
 .. _be-user-check:
 
 Checking User Access
@@ -35,7 +31,7 @@ the access scope for the module. This function call will check if the
 :php:`$GLOBALS['BE_USER']` is allowed to access the module and if not, the function
 will exit with an error message. ::
 
-      $GLOBALS['BE_USER']->modAccess($MCONF, 1);
+      $GLOBALS['BE_USER']->modAccess($MCONF);
 
 
 .. _be-user-access-any:
@@ -161,8 +157,8 @@ Getting TSconfig
 This function can return a value from the "User TSconfig" structure of
 the user. In this case the value for "options.clipboardNumberPads"::
 
-   $tsconfig = $GLOBALS['BE_USER']->getTSConfig('');
-   $clipboardNumberPads = $tsconfig['options.clipboardNumberPads'] ?? '';
+   $tsconfig = $GLOBALS['BE_USER']->getTSConfig();
+   $clipboardNumberPads = $tsconfig['options.']['clipboardNumberPads'] ?? '';
 
 
 .. _be-user-name:

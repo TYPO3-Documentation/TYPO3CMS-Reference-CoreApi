@@ -7,7 +7,7 @@
 Mail API
 ========
 
-.. versionadded:: 10.2
+.. versionadded:: 10.0
 
    Symfony mailer and mime support was added with this change:
    :doc:`t3core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
@@ -15,8 +15,8 @@ Mail API
 .. versionadded:: 10.3
 
    TYPO3 now supports sending template-based emails for multi-part and HTML-based
-   emails out-of-the-box. The email contents are built with Fluid Templating Engine.
-   :doc:`t3core:Changelog/master/Feature-90266-Fluid-basedTemplatedEmails`
+   emails out-of-the-box. The email contents are built with the Fluid Templating Engine.
+   :doc:`t3core:Changelog/10.3/Feature-90266-Fluid-basedTemplatedEmails`
 
 TYPO3 CMS provides a RFC-compliant mailing solution based on
 `symfony/mailer <https://symfony.com/doc/current/components/mailer.html>`__
@@ -90,9 +90,9 @@ smtp
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = '<server:port>';`
    Mail server name and port to connect to. Port defaults to "25".
 
-:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = '<transport protocol>';`
-   Connect to the server using the specified transport protocol. Requires openssl library.
-   Usually available: ssl, sslv2, sslv3, tls. Check :php:`stream_get_transports()`.
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = '<bool>';`
+   Determines whether the transport protocol should be encrypted. Requires openssl library.
+   If :php:`false`, symfony/mailer will use STARTTLS.
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username] = '<username>';`
    If your SMTP server requires authentication, the username.
@@ -156,6 +156,38 @@ mbox
    possible to add custom settings.
 
 
+.. _mail-spooling:
+
+Spooling
+============================
+
+The default behavior of the TYPO3 mailer is to send the email messages immediately. You may, however, want to avoid
+the performance hit of the communication to the email server, which could cause the user to wait for the next page to
+load while the email is being sent. This can be avoided by choosing to "spool" the emails instead of sending them directly.
+
+Spool Using Memory
+------------------
+
+.. code-block:: php
+
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_type'] = 'memory';
+
+When you use spooling to store the emails to memory, they will get sent right before the kernel terminates. This means
+the email only gets sent if the whole request got executed without any unhandled exception or any errors.
+
+Spool Using Files
+-----------------
+
+.. code-block:: php
+
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_type'] = 'file';
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_filepath'] = '/folder/of/choice';
+
+When using the filesystem for spooling, you need to define in which folder TYPO3 stores the spooled files.
+This folder will contain files for each email in the spool. So make sure this directory is writable by TYPO3 and not
+accessible to the world (outside of the webroot).
+
+
 
 .. _mail-create:
 
@@ -166,20 +198,25 @@ Both :php:`\TYPO3\CMS\Core\Mail\MailMessage` and :php:`\TYPO3\CMS\Core\Mail\Flui
 from :php:`Symfony\Component\Mime\Email` and have a similar API. **FluidEmail** is specific
 for sending emails based on Fluid.
 
+.. _mail-fluid-email:
+
 Send email with `FluidEmail`
 ----------------------------
 
-This sends an email using an existing Fluid template :file:`TipsAndTricks.html`.
-Make sure the paths are setup as described in :ref:`mail-configuration-fluid`.
+This sends an email using an existing Fluid template :file:`TipsAndTricks.html`,
+make sure the paths are setup as described in :ref:`mail-configuration-fluid`:
 
 .. code-block:: php
+
+   use Symfony\Component\Mime\Address;
+   use TYPO3\CMS\Core\Mail\FluidEmail;
 
    $email = GeneralUtility::makeInstance(FluidEmail::class);
    $email
        ->to('contact@acme.com')
        ->from(new Address('jeremy@acme.com', 'Jeremy'))
        ->subject('TYPO3 loves you - here is why')
-       ->setFormat('html') // only HTML mail
+       ->format('html') // only HTML mail
        ->setTemplate('TipsAndTricks')
        ->assign('mySecretIngredient', 'Tomato and TypoScript');
    GeneralUtility::makeInstance(Mailer::class)->send($email);
@@ -234,7 +271,7 @@ This shows how to generate and send a mail in TYPO3::
       ->text('Here is the message itself')
 
       // And optionally a HTML message
-      ->html('<q>Here is the message itself</q>')
+      ->html('<p>Here is the message itself</p>')
 
       // Optionally add any attachments
       ->attachFromPath('/path/to/my-document.pdf')
@@ -255,7 +292,7 @@ Or if you prefer, don't concatenate the calls::
    );
    $mail->subject('Your subject');
    $mail->text('Here is the message itself');
-   $mail->html('<q>Here is the message itself</q>');
+   $mail->html('<p>Here is the message itself</p>');
    $mail->attachFromPath('/path/to/my-document.pdf');
    $mail->send();
 

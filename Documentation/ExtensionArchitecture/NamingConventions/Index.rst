@@ -156,7 +156,7 @@ The vendor name is used in:
 
 
 Use common PHP naming conventions for vendor names in namespaces and check
-`PSR-1 <https://www.php-fig.org/psr/psr-0/>`__. There are currently no strict
+`PSR-0 <https://www.php-fig.org/psr/psr-0/>`__. There are currently no strict
 rules, but commonly used vendor names begin with a capital letter,
 followed by all lowercase.
 
@@ -175,7 +175,7 @@ Examples:
 
 .. seealso::
 
-   * `PSR-1 <https://www.php-fig.org/psr/psr-0/>`__
+   * `PSR-0 <https://www.php-fig.org/psr/psr-0/>`__
 
 
 Database table name

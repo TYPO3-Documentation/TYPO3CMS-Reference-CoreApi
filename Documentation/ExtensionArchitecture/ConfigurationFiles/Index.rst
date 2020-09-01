@@ -42,16 +42,16 @@ Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes
 <xclasses>` or any simple array assignments to
 :php:`$GLOBALS['TYPO3_CONF_VARS']` options will not work for the following:
 
- * class loader
- * package manager
- * cache manager
- * configuration manager
- * log manager (= :ref:`Logging Framework <logging>`)
- * time zone
- * memory limit
- * locales
- * stream wrapper
- * :ref:`error handler <error-handling-extending>`
+* class loader
+* package manager
+* cache manager
+* configuration manager
+* log manager (= :ref:`Logging Framework <logging>`)
+* time zone
+* memory limit
+* locales
+* stream wrapper
+* :ref:`error handler <error-handling-extending>`
 
 This would not work because the extension files :file:`ext_localconf.php` are
 included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the
@@ -304,6 +304,9 @@ See any system extension for best practice on this behaviour.
   that would make the cached script concept break.
 - You must **never** use a :php:`use` statement in the files global scope -
   that would make the cached script concept break and could conflict with other extensions.
+- The same goes for :php:`declare(strict_types=1)` and similar directives which must be placed
+  at the very top of files: once all files of all extensions are merged, this condition is not
+  fulfilled anymore leading to errors. So these must **never** be used here.
 - You should **not** rely on the PHP constant :php:`__FILE__` for detection of
   include path of the script - the configuration might be executed from
   a cached script and therefore such information should be derived from
@@ -317,7 +320,7 @@ avoids unexpected side-effects with files of other extensions.
 The following example contains the complete code::
 
     <?php
-    defined('TYPO3_MODE') || die();
+    defined('TYPO3_MODE') or die();
 
     (function () {
         // Add your code here

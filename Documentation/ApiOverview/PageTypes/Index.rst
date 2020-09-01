@@ -21,41 +21,40 @@ allowed on a certain page type.
 
 This is the default array as set in :file:`EXT:core/ext_tables.php`::
 
-   $GLOBALS['PAGES_TYPES'] = array(
-    (string) \TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_LINK => array(
-    ),
-    (string) \TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_SHORTCUT => array(
-    ),
-    // ...
-    //  Doktype 254 is a 'Folder' - a general purpose storage folder for whatever you like. In CMS context it's NOT a viewable page. Can contain any element.
-    (string) \TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_SYSFOLDER => array(
-        'type' => 'sys',
-        'allowedTables' => '*'
-    ),
-    // ...
-    'default' => array(
-        'type' => 'web',
-        'allowedTables' => 'pages',
-        'onlyAllowedTables' => '0'
-    )
-   );
+   $GLOBALS['PAGES_TYPES'] = [
+      (string)\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_BE_USER_SECTION => [
+         'allowedTables' => '*'
+      ],
+      (string)\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_SYSFOLDER => [
+         //  Doktype 254 is a 'Folder' - a general purpose storage folder for whatever you like.
+         // In CMS context it's NOT a viewable page. Can contain any element.
+         'allowedTables' => '*'
+      ],
+      (string)\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_RECYCLER => [
+         // Doktype 255 is a recycle-bin.
+         'allowedTables' => '*'
+      ],
+      'default' => [
+         'allowedTables' => 'pages,sys_category,sys_file_reference,sys_file_collection',
+         'onlyAllowedTables' => false
+      ],
+   ];
 
 
 The key used in the array above is the value that will be stored in the
 :code:`doktype` field of the "pages" table.
 
 .. tip::
-   As for other :php:`$GLOBALS` values, you can view current settings in the backend in
-   :guilabel:`SYSTEM > Configuration`.
+   As for other :php:`$GLOBALS` values, you can view current settings in the
+   backend in :guilabel:`System > Configuration` (with installed lowlevel
+   system extension).
 
-.. important::
+.. note::
 
-   The choice of value for the :code:`doktype` is critical.
-   If you want your custom page type to be displayed in the frontend,
-   you must make sure to choose a :code:`doktype` smaller than 200.
-   If it's supposed to be just some storage, choose a :code:`doktype`
-   larger than 200.
-
+   In TYPO3 versions below 10.4, the :code:`doktype` was restricted to numbers
+   smaller than 200 if the custom page type should be displayed in the
+   frontend, and larger than 200 when it is just some storage. This limitation
+   no longer exists, so you can choose a number at will.
 
 Each array has the following options available:
 
@@ -89,8 +88,8 @@ Each array has the following options available:
 
 
 .. note::
-   **All above options** must be set for the default type while
-   the rest can choose as they like.
+   The options :code:`allowedTables` and :code:`onlyAllowedTables` must be set
+   for the default type while the rest can choose as they like.
 
 .. _list-of-page-types:
 
@@ -156,77 +155,75 @@ The whole code to add a page type is shown below with the according file names a
 The first step is to add the new page type to the global array described above. Then you need to add
 the icon chosen for the new page type and allow users to drag and drop the new page type to the page
 tree.
-Note: You have to change 'example' in the :php:`call_user_func()` method to your own extension key.
+
+.. note::
+
+   You have to change :code:`example` in the argument of the anonymous function
+   to your own extension key.
 
 All the changes are applied in :file:`ext_tables.php`::
 
-    call_user_func(
-        function ($extKey) {
-            $archiveDoktype = 116;
+   (function ($extKey='example') {
+      $archiveDoktype = 116;
 
-            // Add new page type:
-            $GLOBALS['PAGES_TYPES'][$archiveDoktype] = [
-                'type' => 'web',
-                'allowedTables' => '*',
-            ];
+      // Add new page type:
+      $GLOBALS['PAGES_TYPES'][$archiveDoktype] = [
+          'type' => 'web',
+          'allowedTables' => '*',
+      ];
 
-            // Provide icon for page tree, list view, ... :
-            \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class)
-                ->registerIcon(
-                    'apps-pagetree-archive',
-                    TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-                    [
-                        'source' => 'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg',
-                    ]
-                );
+      // Provide icon for page tree, list view, ... :
+      \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class)
+          ->registerIcon(
+              'apps-pagetree-archive',
+              TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+              [
+                  'source' => 'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg',
+              ]
+          );
 
-            // Allow backend users to drag and drop the new page type:
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
-                'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $archiveDoktype . ')'
-            );
-        },
-        'example'
-    );
+      // Allow backend users to drag and drop the new page type:
+      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
+          'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $archiveDoktype . ')'
+      );
+   })();
 
-Furthermore we need to modify the configuration of "pages" records. As one can modify the pages. We
+Furthermore we need to modify the configuration of "pages" records. As one can modify the pages, we
 need to add the new doktype as select item and associate it with the configured icon. That's done in
 :file:`Configuration/TCA/Overrides/pages.php`::
 
-    call_user_func(
-        function ($extKey, $table) {
-            $archiveDoktype = 116;
+   (function ($extKey='example', $table='pages') {
+      $archiveDoktype = 116;
 
-            // Add new page type as possible select item:
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-                $table,
-                'doktype',
-                [
-                    'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
-                    $archiveDoktype,
-                    'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg'
-                ],
-                '1',
-                'after'
-            );
+      // Add new page type as possible select item:
+      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+          $table,
+          'doktype',
+          [
+              'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
+              $archiveDoktype,
+              'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg'
+          ],
+          '1',
+          'after'
+      );
 
-            \TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule(
-                $GLOBALS['TCA'][$table],
-                [
-                    // add icon for new page type:
-                    'ctrl' => [
-                        'typeicon_classes' => [
-                            $archiveDoktype => 'apps-pagetree-archive',
-                        ],
-                    ],
-                    // add all page standard fields and tabs to your new page type
-                    'types' => [
-                        (string) $archiveDoktype => [
-                            'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_DEFAULT]['showitem']
-                        ]
-                    ]
-                ]
-            );
-        },
-        'example',
-        'pages'
-    );
+      \TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule(
+          $GLOBALS['TCA'][$table],
+          [
+              // add icon for new page type:
+              'ctrl' => [
+                  'typeicon_classes' => [
+                      $archiveDoktype => 'apps-pagetree-archive',
+                  ],
+              ],
+              // add all page standard fields and tabs to your new page type
+              'types' => [
+                  (string) $archiveDoktype => [
+                      'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_DEFAULT]['showitem']
+                  ]
+              ]
+          ]
+      );
+   })();
+

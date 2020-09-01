@@ -203,3 +203,42 @@ getenv
 
 :aspect:`Example`
     `getenv("TYPO3_BASE_URL")`
+
+
+date
+------
+
+:aspect:`Datatype`
+    string
+
+:aspect:`Description`
+    Get the current date in given format.
+
+:aspect:`Example for checking the current month`
+    `date("j") == 7`
+
+
+feature
+------
+
+:aspect:`Datatype`
+    string
+
+:aspect:`Description`
+    Check whether a feature ("feature toggle") is enabled in TYPO3.
+
+:aspect:`Example`
+    `feature("TypoScript.strictSyntax")`
+
+
+traverse
+------
+
+:aspect:`Datatype`
+    array and string
+
+:aspect:`Description`
+    This function has two parameters: - first parameter is the array to traverse - second parameter is the path to traverse Syntax.
+
+:aspect:`Example`
+    `traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0`

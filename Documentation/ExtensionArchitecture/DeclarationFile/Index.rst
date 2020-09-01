@@ -128,8 +128,9 @@ values in the :php:`$EM_CONF` array if needed.
          suggests
            List of suggestions of extensions that work together or
            enhance this extension.
-           Extensions defined here will be loaded *before* the current extension.
+           Extensions defined here will be loaded *before* the current extension. 
            Dependencies take precedence over suggestions.
+           Loading order especially matters when overriding TCA or SQL of another extension.
 
          The above example indicates that the extension depends on a
          version of TYPO3 between 9.5 and 10.4 (as only bug and security fixes are
@@ -139,6 +140,8 @@ values in the :php:`$EM_CONF` array if needed.
          tested and is known to work properly with PHP 7.2, 7.3 and 7.4. It
          will conflict with "templavoilaplus" (any version) and it is suggested
          that it might be worth installing "news" (version at least 7.3.0).
+         Be aware that you should add *at least* the TYPO3 and PHP version constraints
+         to this file to make sure everything is working properly.
 
  - :Key:
          state
@@ -187,14 +190,6 @@ values in the :php:`$EM_CONF` array if needed.
            mechanism, nor by uploading a newer version to the installation). This
            is very useful if you made local changes to an extension for a
            specific installation and don't want any admin to overwrite them.
-
- - :Key:
-         uploadfolder
-   :Data type:
-         boolean
-   :Description:
-         If set, then the folder named :file:`uploads/tx\_[extKey-with-no-underscore]`
-         should be present!
 
  - :Key:
          clearCacheOnLoad
@@ -292,3 +287,5 @@ The following fields are deprecated and should not be used anymore:
 - lockType
 - TYPO3_version
 - PHP_version
+- uploadfolder
+- createDirs

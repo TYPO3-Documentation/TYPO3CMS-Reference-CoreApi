@@ -49,7 +49,7 @@ If :code:`appendFullBackTrace` is set, the full backtrace stack is added instead
 ====================  =========  ===========================================================================  ============
 Option                Mandatory  Description                                                                   Default
 ====================  =========  ===========================================================================  ============
-appendFullBackTrace   no         Adds a full backtrace stack to the log.                                      :code:`TRUE`
+appendFullBackTrace   no         Adds a full backtrace stack to the log.                                      :code:`FALSE`
 shiftBackTraceLevel   no         Removes the given number of entries from the top of the backtrace stack.     :code:`0`
 ====================  =========  ===========================================================================  ============
 

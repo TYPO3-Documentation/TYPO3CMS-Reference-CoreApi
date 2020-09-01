@@ -162,7 +162,7 @@ HTTPS redirect either on the webserver level, via a .htaccess rewrite rule, or b
   + Site 1: /mysite/
   + Site 2: www.mydomain.com
 
-  will be unspecific when detecting a URL like www.mydomain/mysite/ and can lead to side-effects.
+  will be unspecific when detecting a URL like www.mydomain.com/mysite/ and can lead to side-effects.
 
   In this case, it is necessary by the Site Administrator to define unique Site base prefixes.
 
@@ -188,4 +188,7 @@ dependent on the current site (as opposed to containing the same content for the
 routeEnhancers
 --------------
 
-While page routing works out of the box with no further settings, routeEnhancers allow the configuration of routing for TYPO3 extensions. The TYPO3 Changelog comes with some `more information <https://docs.typo3.org/typo3cms/extensions/core/latest/Changelog/9.5/Feature-86365-RoutingEnhancersAndAspects.html>`_ regarding routeEnhancers.
+.. todo:: Add some more documentation here from the changelog?
+
+While page routing works out of the box with no further settings, routeEnhancers allow the configuration of
+routing for TYPO3 extensions. Read more at :ref:`routing-advanced-routing-configuration`

@@ -29,21 +29,22 @@ Feature names should NEVER be named "enable" or have a negation, or contain vers
 
 Bad examples:
 
- - `enableFeatureXyz`
- - `disableOverlays`
- - `schedulerRevamped2018`
- - `useDoctrineQueries`
- - `disablePreparedStatements`
- - `disableHooksInFE`
+- `enableFeatureXyz`
+- `disableOverlays`
+- `schedulerRevamped2018`
+- `useDoctrineQueries`
+- `disablePreparedStatements`
+- `disableHooksInFE`
 
 Good examples:
 
- - `ExtendedRichtextFormat`
- - `NativeYamlParser`
- - `InlinePageTranslations`
- - `TypoScriptParserIncludesAsXml`
- - `NativeDoctrineQueries`
+- `ExtendedRichtextFormat`
+- `NativeYamlParser`
+- `InlinePageTranslations`
+- `TypoScriptParserIncludesAsXml`
+- `NativeDoctrineQueries`
 
+.. _feature-toggles-api:
 
 Using the API as Extension Author
 =================================
@@ -68,11 +69,15 @@ To check if a feature is enabled use this code::
    
    To change the setting for your extension feature either use :file:`Localconfiguration.php`:
    or :file:`AdditionalConfiguration.php`: like
+   
+   .. code-block:: php
       
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true
 
 The name can be any arbitrary string, but an extension author should prefix the feature with the
 extension name as the features are global switches which otherwise might lead to naming conflicts.
+
+.. _feature-toggles-core:
 
 Core Feature Toggles
 ====================
@@ -84,6 +89,7 @@ Some examples for feature toggles in the TYPO3 Core:
   Enabling this feature means old condition syntax (which is deprecated) will
   trigger deprecation messages.
 
+.. _feature-toggles-enable:
 
 Enable / Disable Feature Toggle
 ===============================

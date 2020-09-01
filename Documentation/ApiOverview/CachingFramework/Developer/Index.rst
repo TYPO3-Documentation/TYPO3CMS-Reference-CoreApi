@@ -90,7 +90,7 @@ Here is some example code::
        {
            $cacheIdentifier = $this->calculateCacheIdentifier();
 
-           // If $entry is null, it hasn't been cached. Calculate the value and store it in the cache:
+           // If $entry is false, it hasn't been cached. Calculate the value and store it in the cache:
            if (($entry = $this->cache->get($cacheIdentifier)) === false) {
                $entry = $this->calculateMagic();
 
@@ -103,8 +103,8 @@ Here is some example code::
        }
 
 Since the auto-wiring feature of the dependency injection container cannot detect
-which cache configuration should be used for the :php:`$cache` argument, the container
-service configuration needs to be extended as well:
+which cache configuration should be used for the :php:`$cache` argument, the :ref:`container
+service configuration <configure-dependency-injection-in-extensions>` needs to be extended as well:
 
 .. code-block:: yaml
 

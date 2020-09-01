@@ -373,21 +373,21 @@ setups.
               october: 10
               november: 11
               december: 12
-          localeMap:
-            - locale: 'de_.*'
-              map:
-                januar: 1
-                februar: 2
-                maerz: 3
-                april: 4
-                mai: 5
-                juni: 6
-                juli: 7
-                august: 8
-                september: 9
-                oktober: 10
-                november: 11
-                dezember: 12
+            localeMap:
+              - locale: 'de_.*'
+                map:
+                  januar: 1
+                  februar: 2
+                  maerz: 3
+                  april: 4
+                  mai: 5
+                  juni: 6
+                  juli: 7
+                  august: 8
+                  september: 9
+                  oktober: 10
+                  november: 11
+                  dezember: 12
 
 
 LocaleModifier

@@ -43,7 +43,7 @@ The `RequestFactory` class can be used like this:
 
 .. code-block:: php
 
-      use Psr\Http\Message\ResponseFactoryInterface;
+      use Psr\Http\Message\RequestFactoryInterface;
 
       /** @var RequestFactoryInterface */
       private $requestFactory;

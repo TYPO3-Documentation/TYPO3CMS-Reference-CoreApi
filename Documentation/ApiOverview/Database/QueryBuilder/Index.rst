@@ -31,15 +31,16 @@ don't have to deal with anything not mentioned here.
 
 The `QueryBuilder` comes with a happy little list of small methods:
 
-   * Set type of query: :php:`->select()`, :php:`->count()`, :php:`->update()`, :php:`->insert()` and :php:`delete()`
+* Set type of query: :php:`->select()`, :php:`->count()`, :php:`->update()`, :php:`->insert()` and :php:`delete()`
 
-   * Prepare `WHERE` conditions
+* Prepare `WHERE` conditions
 
-   * Manipulate default `WHERE` restrictions added by TYPO3 for :php:`->select()`
+* Manipulate default `WHERE` restrictions added by TYPO3 for :php:`->select()`
 
-   * Add `LIMIT`, `GROUP BY` and other SQL stuff
+* Add `LIMIT`, `GROUP BY` and other SQL stuff
 
-   * :php:`->execute()` a query and retrieve a `Statement` (a query result) object
+* :php:`->execute()` a query and retrieve a `Statement` (a query result) object
+
 
 Most methods of the `QueryBuilder` return `$this` and can be chained::
 
@@ -235,19 +236,19 @@ Create an `UPDATE` query. Typical usage::
       ->execute();
 
 
-:php:`->update()` requires the table to update as first argument and a table alias as optional second argument.
+:php:`->update()` requires the table to update as first argument and a table alias (e.g. 't') as optional second argument.
 The table alias can then be used in :php:`->set()` and :php:`->where()` expressions::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'peter' WHERE `u`.`bodytext` = 'klaus'
+   // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'peter' WHERE `t`.`bodytext` = 'klaus'
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder
-      ->update('tt_content', 'u')
+      ->update('tt_content', 't')
       ->where(
-         $queryBuilder->expr()->eq('u.bodytext', $queryBuilder->createNamedParameter('klaus'))
+         $queryBuilder->expr()->eq('t.bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
-      ->set('u.bodytext', 'peter')
+      ->set('t.bodytext', 'peter')
       ->execute();
 
 :php:`->set()` requires a field name as first argument and automatically quotes it internally. The second mandatory
@@ -255,7 +256,7 @@ argument is the value a field should be set to, **the value is automatically tra
 of a prepared statement**. This way, :php:`->set()` key/value pairs are **automatically SQL injection safe by default**.
 
 If a field should be set to the value of another field from the row, the quoting needs to be turned off and
-:php:`->quoteIdentifier()` has to be used::
+:php:`->quoteIdentifier()` and :php:`false` have to be used:
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -394,6 +395,11 @@ Remarks:
 * The three methods are `variadic <https://en.wikipedia.org/wiki/Variadic_function>`__. They can handle
   any number of arguments. If for instance :php:`->where()` receives four arguments, they are handled as single
   expressions, all of them combined with `AND`.
+
+* :ref:`createNamedParameter <database-query-builder-create-named-parameter>`
+  is used to create a placeholder for a prepared statement field value.
+  **Always** use that when dealing with user input in expressions to make
+  the statement SQL injection safe.
 
 * :php:`->where()` should be called only once per query and it resets any previously set :php:`->where()`, :php:`->andWhere()`
   and :php:`->orWhere()` expression. Having a :php:`->where()` call after a previous :php:`->where()`, :php:`->andWhere()` or :php:`->orWhere()`
@@ -569,8 +575,8 @@ Remarks:
   example calling :php:`->orderBy('sys_language.sorting')` would have been identical. All identifiers are quoted
   automatically.
 
-* The second, optional argument of both methods specifies the sorting order. The two allowed values are `ASC` and `DESC`
-  where `ASC` is default and can be omited.
+* The second, optional argument of both methods specifies the sorting order. The two allowed values are `'ASC'` and `'DESC'`
+  where `'ASC'` is default and can be omited.
 
 * To create a chain of orders, use :php:`->orderBy()` and then multiple :php:`->addOrderBy()` calls. Calling
   :php:`->orderBy('header')->addOrderBy('bodytext')->addOrderBy('uid', 'DESC')` creates
@@ -806,8 +812,35 @@ a list of backend user names!
    Wrapping the second parameter in a :php:`->createNamedParameter()` call will result in an error upon execution. This
    behaviour can be disabled by passing :php:`false` as a third parameter to :php:`->set()`.
 
+More examples
+-------------
+
+Use integer, integer array::
+
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+    // use TYPO3\CMS\Core\Database\ConnectionPool;
+    // use TYPO3\CMS\Core\Database\Connection;
+    // SELECT * FROM `tt_content`
+    //     WHERE `bodytext` = 'kl\'aus'
+    //     AND   sys_language_uid = 0
+    //     AND   pid in (2, 42,13333)
+    $searchWord = "kl'aus"; // $searchWord = GeneralUtility::_GP('searchword');
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+    $queryBuilder->getRestrictions()->removeAll();
+    $queryBuilder
+        ->select('uid')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter($searchWord)),
+            $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($language, \PDO::PARAM_INT)),
+            $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter($pageIds, Connection::PARAM_INT_ARRAY))
+        )
+        ->execute();
+
+
 
 Rules:
+------
 
 * **Always** use :php:`->createNamedParameter()` around **any** input, no matter where it comes from.
 

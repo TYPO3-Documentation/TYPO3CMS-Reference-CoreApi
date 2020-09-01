@@ -31,6 +31,10 @@ Templates. But a condition can theoretically evaluate any circumstance
 and return either TRUE or FALSE which subsequently means the parsing
 of the TypoScript code that follows.
 
+.. seealso::
+
+   For conditions usage examples, and available variables and function reference, please refer to
+   :ref:`the TypoScript Reference conditions chapter <t3tsref:conditions>`.
 
 .. _typoscript-syntax-conditions-usage:
 
@@ -60,11 +64,11 @@ A condition is written on its own line and is detected by :code:`[`
 
 .. code-block:: typoscript
 
-   (Some TypoScript)
+   # ... some TypoScript
 
-   [ condition 1 ][ condition 2 ]
+   [ condition ]
 
-   (Some TypoScript only parsed if condition 1 or condition 2 are met.)
+   # .... some more TypoScript (only parsed if the condition is met.)
 
    [GLOBAL]
 
@@ -72,23 +76,12 @@ A condition is written on its own line and is detected by :code:`[`
 
 As you can see from this example, the line :code:`[GLOBAL]` also is a
 condition. It is built into TypoScript and always returns TRUE. The
-line :code:`[ condition 1 ][ condition 2 ]` is another condition.
-If :code:`[ condition 1 ][ condition 2 ]` is TRUE, then the TypoScript in the
+line :code:`[ condition ]` is another condition.
+If :code:`[ condition ]` is TRUE, then the TypoScript in the
 middle would be parsed until :code:`[GLOBAL]` (or :code:`[END]`) resets the
-conditions. After that point the TypoScript is parsed for any case
+condition. After that point the TypoScript is parsed for any case
 again.
 
-.. note::
-
-   The condition line :code:`[ condition 1 ][ condition 2 ]` conveys
-   the idea of *two conditions* being set, but from the TypoScript
-   parser point of view the *whole line* is the condition. It is only
-   when the condition is actually evaluated that the line content gets
-   broken down into smaller units (:code:`[ condition 1 ]` and
-   :code:`[ condition 2 ]`) which are individually evaluated and
-   connected by a logical OR before they return the resulting
-   TRUE or FALSE value. (That is all done within the class
-   :code:`\TYPO3\CMS\Core\Configuration\TypoScript\ConditionMatching\AbstractConditionMatcher`.
 
 Here is an example of some TypoScript (from the context of TypoScript
 Templates) where another text is output if you are logged in or
@@ -96,20 +89,17 @@ working locally:
 
 .. code-block:: typoscript
 
-   pageObj.10 = TEXT
-   pageObj.10.value = Hello World
-   pageObj.10.stdWrap.case = upper
+   page = PAGE
+   page.10 = TEXT
+   page.10.value = HELLO WORLD!
 
-   [loginUser = *][IP = 127.0.0.01]
-   pageObj.20 = TEXT
-   pageObj.20 {
-      value = Only for logged in users or local setup
-      stdWrap.case = upper
-   }
-
+   [loginUser('*') or ip('127.0.0.1')]
+      page.20 = TEXT
+      page.20 {
+         value = Only for logged in users or local setup
+         stdWrap.case = upper
+      }
    [GLOBAL]
-   pageObj.30 = TEXT
-   pageObj.30.value = <hr>
 
 You can now use the Object Browser to actually see the difference in
 the parsed object tree depending on whether the condition evaluates to
@@ -126,18 +116,32 @@ see):
 Combining Conditions
 ====================
 
-As we saw above two or more tests can be written on the same line
-and the condition will be TRUE if any of these tests matches. It
-is also possible to use logical operators, for more complex
-conditions. The following operators are available:
+As we saw above two or more tests can be combined using logical operators.
+The following operators are available:
 
-||
-  Also available as :code:`OR`. This is equivalent to the default behaviour
-  but makes it more explicit.
+or
+  Also available as :code:`||`.
 
-&&
-  Also available as :code:`AND`. Takes precedence over :code:`||` (:code:`OR`).
+and
+  Also available as :code:`&&`.
 
+not
+  Also available as :code:`!`.
+
+TypoScript conditions are using the Symfony Expression Language. For more
+information on writing such expressions, you can look up the
+`symfony documentation on the expression language <https://symfony.com/doc/current/components/expression_language/syntax.html>`__.
+
+.. note::
+
+   Before TYPO3 10, it was possible to "chain" multiple condition blocks
+   together with :code:`AND`, :code:`OR`, :code:`&&` and :code:`||` by writing
+   something like :code:`[ condition 1 ][ condition 2 ]` or
+   :code:`[ condition 1 ] AND [ condition 2 ]`. This is no longer possible or
+   necessary, as with the new :ref:`symfony-expression-language`,
+   only single condition blocks on one line are now allowed. Logical operators
+   like :code:`and`, :code:`or`  or :code:`not` are now used *inside* the
+   condition block to allow for writing complex expressions.
 
 
 .. _typoscript-syntax-else-condition:
@@ -157,16 +161,13 @@ of TypoScript Templates):
 
 .. code-block:: typoscript
 
-   page.typeNum = 0
    page = PAGE
    page.10 = TEXT
 
-   [loginUser = *]
-   page.10.value = Logged in
-
+   [loginUser('*')]
+      page.10.value = Logged in
    [ELSE]
-   page.10.value = Not logged in
-
+      page.10.value = Not logged in
    [END]
 
    page.10.stdWrap.wrap = <strong>|</strong>
@@ -191,10 +192,8 @@ but you could do this:
 
 .. code-block:: typoscript
 
-   [loginUser = *] || [usergroup = 3]
-     # Enter nothing here!
-   [ELSE]
-     page.10.value = This text is only displayed if the conditions above are not TRUE!
+   [!loginUser('*')]
+     page.10.value = No user is logged in!
    [END]
 
 
@@ -213,7 +212,7 @@ So, this is valid:
    someObject {
       1property = 234
    }
-   [loginUser = *]
+   [loginUser('*')]
    someObject {
       2property = 567
    }
@@ -224,7 +223,7 @@ But this is **not valid:**
 
    someObject {
       1property = 234
-      [loginUser = *]
+      [loginUser('*')]
       2property = 567
    }
 
@@ -232,11 +231,6 @@ When parsed with syntax highlighting you will see this error:
 
 .. figure:: ../Images/ConditionsSyntaxError.png
    :alt: Error after having used a condition where it is not allowed.
-
-Clicking on the details link will show the following:
-
-.. figure:: ../Images/ConditionsSyntaxErrorDetails.png
-   :alt: The error details
 
 This means that the line was perceived as a regular definition of
 TypoScript and not as a condition.

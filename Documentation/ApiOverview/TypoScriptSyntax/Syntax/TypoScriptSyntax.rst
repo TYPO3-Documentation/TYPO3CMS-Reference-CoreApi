@@ -448,7 +448,7 @@ of any curly braces).
 
 .. code-block:: typoscript
 
-   [dayofmonth = 9]
+   [date("j") == 9]
    page.10.value = It is the 9th day of the month!
    [ELSE]
    page.10.value = It is NOT the 9th day of the month!

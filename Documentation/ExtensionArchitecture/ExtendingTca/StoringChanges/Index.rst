@@ -25,12 +25,21 @@ The advantage of putting your changes inside an extension is that they
 are nicely packaged in a self-contained entity which can be easily
 deployed on multiple servers.
 
-The drawback is that the extension loading order must be
-finely controlled. Indeed if your extension modifies another extension,
-your extension must be loaded *after* the extension you are modifying.
-This can be achieved by registering that other extension as
-a dependency of yours. See the
-:ref:`description of constraints in Core APIs <extension-declaration>`.
+The drawback is that the extension loading order must be finely controlled. However, **in
+case you are modifying core TCA, you usually don't have to worry about that**. Since
+custom extensions are always loaded *after* the core's TCA, changes from custom extensions
+will usually take effect without any special measures.
+
+.. important::
+
+   If your extension modifies another extension, you actively need to make sure your
+   extension is loaded *after* the extension you are modifying. This can be achieved
+   by registering that other extension as a dependency (or suggestion) of yours. See
+   the :ref:`description of constraints in Core APIs <extension-declaration>`.
+
+   Loading order also matters if you have multiple extensions overriding the same field,
+   probably even contradicting each other.
+
 
 For more information about an extension's structure, please refer to the
 :ref:`extension architecture <extension-architecture>` chapter in
@@ -52,6 +61,16 @@ you'd create the file :file:`Configuration/TCA/Overrides/tx_foo_domain_model_bar
 
 The advantage of this method is that all such changes are incorporated into
 :php:`$GLOBALS['TCA']` **before** it is cached. This is thus far more efficient.
+
+.. note::
+
+   All files within :file:`Configuration/TCA/Overrides` will be loaded, you are not forced
+   to have a single file for table "tt\_content" for instance. When dealing with custom
+   content elements this file can get 1000+ lines very quickly and maintainability can get
+   hard quickly as well.
+   Also names don't matter in that folder, at least not to TYPO3. They only might influence
+   loading order. Proper naming is only relevant for the real definition of tables one
+   folder up in :file:`Configuration/TCA`
 
 .. important::
 

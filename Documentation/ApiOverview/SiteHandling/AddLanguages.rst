@@ -8,6 +8,7 @@ Adding Languages
 
 The site module allows you to define which languages are active for your site, which languages are available
 in the frontend and how they should behave.
+To add new languages to the system, follow :ref:`t3editors:languages`, afterwards those languages can be configured like mentioned below.
 
 For an explanation of each of the properties, see below.
 

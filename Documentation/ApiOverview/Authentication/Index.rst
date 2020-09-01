@@ -199,14 +199,14 @@ a form of final transformation on the login data.
 For "authUserFE" and "authUserBE" subtypes, the :php:`authUser()` method may
 return different values:
 
-- a negative value indicates that the authentication has definitely failed
+- a negative value or 0 indicates that the authentication has definitely failed
   and that no other "auth" service should be called up.
 
-- a positive value smaller than 100 indicates that the authentication
+- a value larger than 0 and smaller than 100 indicates that the authentication
   was successful, but that further services should also perform their
   own authentication.
 
-- a value of 0 or a value of 100 or more indicates that the authentication has failed,
+- value of 100 or more indicates that the authentication has failed,
   but that further services should keep trying.
 
 - a value of 200 or more indicates that the authentication was successful

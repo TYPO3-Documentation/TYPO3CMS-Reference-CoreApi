@@ -14,6 +14,7 @@ Quick Links
    Database (doctrine-dbal)                 <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/Database/Index.html>
    Dependency Injection                     <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/DependencyInjection/Index.html>
    Digital Assets Management                <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/Fal/Index.html>
+   Fluid                                    <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/Fluid/Index.html>
    Internationalization and Localization    <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/Internationalization/Index.html>
    Mail API                                 <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/Mail/Index.html>
    Request Handling (Middlewares)           <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/RequestHandling/Index.html>
@@ -26,6 +27,7 @@ Quick Links
 - :ref:`Doctrine-dbal <database>`
 - :ref:`DependencyInjection`
 - :ref:`FAL <fal>`
+- :ref:`fluid`
 - :ref:`Internationalization <internationalization>`
 - :ref:`mail`
 - :ref:`PSR-15 middlewares <request-handling>`

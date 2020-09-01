@@ -1,6 +1,5 @@
 .. include:: ../../Includes.txt
 
-
 .. _cli-mode:
 .. _cli-mode-dispatcher:
 .. _cli-mode-command-controllers:
@@ -10,32 +9,57 @@
 Symfony Console Commands (cli)
 ==============================
 
-It is possible to run some TYPO3 CMS scripts from the
-command line. This makes it possible - for example -
-to set up cronjobs.
+It is possible to run TYPO3 CMS scripts from the command line.
+This functionality can be used to set up cronjobs, for example.
 
-TYPO3 uses Symfony commands to provide an easy to use, well-documented API for
-writing CLI (command line interface) commands.
-
+TYPO3 uses Symfony commands API for writing CLI (command line interface) commands.
 These commands can also be run from the TYPO3 :ref:`scheduler <symfony-console-commands-scheduler>`.
 
 .. versionadded:: 8
+   :doc:`t3core:Changelog/8.0/Feature-73042-IntroduceNativeSupportForSymfonyConsole`
 
-   TYPO3 supports Symfony Console commands natively since TYPO3 v8.
+.. deprecated:: 9
+    :doc:`t3core:Changelog/9.4/Deprecation-85977-ExtbaseCommandControllersAndCliAnnotation`
 
-   Extbase Command Controllers are deprecated since v9.4.
+.. deprecated:: 10
+    :doc:`t3core:Changelog/10.3/Deprecation-89139-ConsoleCommandsConfigurationFormatCommandsPhp`
 
-Creating a new Symfony Command in Your Extension
-================================================
+.. versionadded:: 10
+    :doc:`t3core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands`
+
+Creating a new Command in Extensions
+====================================
 
 .. rst-class:: bignums-xxl
 
-#. Add :file:`Configuration/Commands.php` to your extension
+#. Register Commands
 
-   TYPO3 looks in this file for configured commands. It should
-   return a simple array with the command name and class.
+   Commands can be registered via :ref:`DependencyInjection` or a PHP file.
+   Detailed information can be read on the corresponding Symfony component
+   documentation: https://symfony.com/doc/current/console/commands_as_services.html.
+   E.g. how to setup aliases via :file:`Services.yaml`,
+   or how to use dependency injection in commands.
 
-   For example to add a command named `yourext:dothings`::
+   The following example will add a command named ``yourext:dothings``.
+
+   Register via DI in :file:`Configuration/Services.yaml`::
+
+     services:
+       _defaults:
+         autowire: true
+         autoconfigure: true
+         public: false
+
+       Vendor\Extension\:
+         resource: '../Classes/*'
+
+       Vendor\Extension\Command\DoThingsCommand:
+         tags:
+           - name: 'console.command'
+             command: 'yourext:dothings'
+
+   Or register :file:`Configuration/Commands.php`.
+   Deprecated since v10 and will be removed in v11::
 
        return [
            'yourext:dothings' => [
@@ -51,18 +75,16 @@ Creating a new Symfony Command in Your Extension
 
    :php:`configure()`
       As the name would suggest allows to configure the command.
-      Allows to add a description or a help text, or mandatory and optional
-      arguments and parameters defined.
+      Allows to add a description, a help text,
+      and / or define arguments.
 
    :php:`execute()`
       Contains the logic when executing the command.
-
 
 .. seealso::
 
    A detailed description and an example can be found in
    `the Symfony Command Documentation <https://symfony.com/doc/current/console.html>`_.
-
 
 Command Class
 -------------
@@ -82,8 +104,8 @@ Example taken from :php:`ListSysLogCommand` in the core and simplified::
          */
         protected function configure()
         {
-            $this->setDescription('Show entries from the sys_log database table of the last 24 hours.');
-            $this->setHelp('Prints a list of recent sys_log entries.' . LF . 'If you want to get more detailed information, use the --verbose option.');
+            $this->setDescription('Show entries from the sys_log database table of the last 24 hours.')
+               ->setHelp('Prints a list of recent sys_log entries.' . LF . 'If you want to get more detailed information, use the --verbose option.');
         }
 
         /**
@@ -91,6 +113,7 @@ Example taken from :php:`ListSysLogCommand` in the core and simplified::
          *
          * @param InputInterface $input
          * @param OutputInterface $output
+         * @return int error code
          */
         protected function execute(InputInterface $input, OutputInterface $output)
         {
@@ -99,50 +122,106 @@ Example taken from :php:`ListSysLogCommand` in the core and simplified::
 
             // ...
             $io->writeln('Write something');
+            return 0;
         }
     }
 
 Passing Arguments
 -----------------
 
-:php:`\TYPO3\CMS\Install\Command\UpgradeWizardRunCommand`::
+Since your command is inherited from :php:`Symfony\Component\Console\Command\Command`,
+it is possible to define arguments (ordered) and options (unordered) using the Symfony
+command API. This is explained in depth on the following Symfony Documentation page:
 
+.. seealso::
+
+   * `Symfony: Console Input (Arguments & Options) <https://symfony.com/doc/current/console/input.html>`__
+
+
+Add an optional argument and an optional option to your command::
 
     /**
      * Configure the command by defining the name, options and arguments
      */
     protected function configure()
     {
-        $this->setDescription('Run upgrade wizard. Without arguments all available wizards will be run.')
+        $this->setDescription('Run content importer. Without arguments all available wizards will be run.')
             ->addArgument(
                 'wizardName',
-                InputArgument::OPTIONAL
-            )->setHelp(
-                'This command allows running upgrade wizards on CLI. To run a single wizard add the ' .
-                'identifier of the wizard as argument. The identifier of the wizard is the name it is ' .
-                'registered with in ext_localconf.'
-            );
+                InputArgument::OPTIONAL,
+                'Here is a description for your argument'
+            )
+            ->addOption(
+               'brute-force',
+               'b',
+               InputOption::VALUE_OPTIONAL,
+               'Some optional option for your wizard(s). You can use --brute-force or -b when running command';
     }
 
 
-This command takes one optional argument `wizardName`, which can be passed on the command line:
+This command takes one optional argument :php:`wizardName` and one optional option,
+which can be passed on the command line:
 
 .. code-block:: bash
 
-   vendor/bin/typo3 upgrade:run [wizardName]
+   vendor/bin/typo3 yourext:dothings [-b] [wizardName]
+   
+
+This argument can be retrieved with :php:`$input->getArgument()`, the options with
+:php:`$input->getOption()`, for example::
+
+   protected function execute(InputInterface $input, OutputInterface $output)
+   {
+      // ...
+
+      if ($input->getArgument('wizardName')) {
+
+         // ...
+
+      }
+
+      if ($input->getOption('brute-force')) {
+
+      // ...
+
+      }
 
 
+
+.. _symfony-console-commands-scheduler:
 .. _deactivating-the-command-in-scheduler:
 .. _schedulable:
 
 Deactivating the Command in Scheduler
 -------------------------------------
 
-.. versionadded:: 9.4
-    :doc:`t3core:Changelog/9.4/Feature-85991-ExcludeSymfonyCommandsFromScheduler`
+.. versionadded:: 9
+   :doc:`t3core:Changelog/9.0/Feature-79462-IntroduceSchedulerTaskToExecuteConsoleCommand`
 
-By default, the command can be used in the scheduler too. You can deactivate
-this by setting `schedulable` to `false` in :file:`Configuration/Commands.php`::
+.. versionadded:: 9
+   :doc:`t3core:Changelog/9.4/Feature-85991-ExcludeSymfonyCommandsFromScheduler`
+
+By default, the command can be used in the scheduler too.
+This can be disabled by setting ``schedulable`` to ``false`` in :file:`Configuration/Services.yaml`::
+
+   services:
+     _defaults:
+       autowire: true
+       autoconfigure: true
+       public: false
+
+     Vendor\Extension\:
+       resource: '../Classes/*'
+
+     Vendor\Extension\Command\DoThingsCommand:
+       tags:
+         - name: 'console.command'
+           command: 'yourext:dothings'
+           schedulable: false
+
+
+Or inside :file:`Configuration/Commands.php`.
+Deprecated since v10 and will be removed in v11::
 
    return [
        'yourext:dothings' => [
@@ -151,16 +230,15 @@ this by setting `schedulable` to `false` in :file:`Configuration/Commands.php`::
        ],
    ];
 
-
 Initialize Backend User
 -----------------------
 
-If anything related to :ref:`DataHandler  <datahandler-basics>` and backend
-permission handling is necessary, you should call this initialization
-method once in your :php:`execute()` function::
+A backend user can be initialized with this call inside :php:`execute()` method::
 
    Bootstrap::initializeBackendAuthentication();
 
+This is necessary when using :ref:`DataHandler  <datahandler-basics>`
+or other backend permission handling related tasks.
 
 .. _symfony-console-commands-cli:
 
@@ -173,12 +251,11 @@ The above example can be run via command line:
 
    vendor/bin/typo3 yourext:dothings
 
-
 Show help for the command:
 
 .. code-block:: bash
 
-   vendor/bin/typo3 help yourext:dothings
+   vendor/bin/typo3 yourext:dothings -h
 
 .. tip::
 
@@ -200,3 +277,10 @@ Running the Command From the Scheduler
 By default, it is possible to run the command from the :ref:`TYPO3 scheduler
 <sched:start>` as well. In order to deactivate this, see
 :ref:`deactivating-the-command-in-scheduler`.
+
+More information
+================
+
+* see existing command controllers in the core: :file:`typo3/sysext/*/Classes/Command`
+* `Symfony Command Documentation <https://symfony.com/doc/current/console.html>`_
+* `Symfony Commands: Console Input (Arguments & Options) <https://symfony.com/doc/current/console/input.html>`__

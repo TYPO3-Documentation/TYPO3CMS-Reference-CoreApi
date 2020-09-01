@@ -260,6 +260,12 @@ fullQuoteStr()
       ->execute();
 
 
+escapeStrForLike()
+==================
+
+:php:`$GLOBALS['TYPO3_DB']->escapeStrForLike()` is replaced by :php:`$queryBuilder->escapeLikeWildcards()`.
+
+
 ext_tables.sql
 ==============
 

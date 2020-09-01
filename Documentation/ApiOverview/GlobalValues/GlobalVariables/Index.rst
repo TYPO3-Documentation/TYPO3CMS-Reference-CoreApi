@@ -2,9 +2,9 @@
 
 .. _globals-variables:
 
-================
-Global Variables
-================
+========
+$GLOBALS
+========
 
 .. note::
 
@@ -140,27 +140,6 @@ Global Variables
          Global registration of services.
    :FE:
          Yes
-
-
- - :Variable:
-         $GLOBALS['T3\_VAR']
-   :Defined:
-         :php:`SystemEnvironmentBuilder::initializeGlobalVariables()`
-   :Description:
-         Space for various internal global data storage in TYPO3. Each key in
-         this array is a data space for an application. Keys currently defined
-         for use is:
-
-         ['callUserFunction'] + ['callUserFunction\_classPool']: Used by
-         :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction` to store singleton objects.
-
-         ['RTEobj'] : Used to hold the current RTE object if any. See
-         :php:`\TYPO3\CMS\Backend\Utility\BackendUtility`.
-
-         ['ext'][ *extension-key* ] : Free space for extensions.
-   :FE:
-         Yes
-
 
 
  - :Variable:

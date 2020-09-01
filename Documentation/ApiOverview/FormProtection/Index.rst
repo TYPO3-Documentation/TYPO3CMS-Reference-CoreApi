@@ -126,3 +126,41 @@ will always return :code:`FALSE` for the second call.
 It is important that the tokens get validated **before** the tokens are persisted.
 This makes sure that the tokens that get invalidated by :code:`validateToken`
 cannot be used again.
+
+Usage in the Frontend
+=====================
+
+.. versionadded:: 7.6
+
+:doc:`t3core:Changelog/7.6/Feature-56633-FormProtectionAPIForFrontEndUsage` introduced a new
+class to allow usage of the FormProtection (CSRF protection) API in the frontend.
+
+Usage is the same as in backend context:
+
+.. code-block:: php
+
+	$formToken = \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()
+		->getFormProtection()->generateToken('news', 'edit', $uid);
+
+
+	if ($dataHasBeenSubmitted
+		&& \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->validateToken(
+			\TYPO3\CMS\Core\Utility\GeneralUtility::_POST('formToken'),
+			'news',
+			'edit',
+			$uid
+		)
+	) {
+		// Processes the data.
+	} else {
+		// Create a flash message for the invalid token or just discard this request.
+	}
+
+
+Note that :code:`validateToken` invalidates the token with the token ID.
+So calling the validation with the same parameters twice in a row
+will always return :code:`FALSE` for the second call.
+
+It is important that the tokens get validated **before** the tokens are persisted.
+This makes sure that the tokens that get invalidated by :code:`validateToken`
+cannot be used again.
