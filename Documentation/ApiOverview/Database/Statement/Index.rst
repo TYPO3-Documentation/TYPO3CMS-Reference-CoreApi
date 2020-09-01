@@ -141,4 +141,7 @@ The log shows one statement preparation with two executions.
 
 .. note::
 
-   In TYPO3 v8.7 calling :php:`$statement->closeCursor();` in order to free the resources for a result will lead to unexpected results due to a bug in `doctrine/dbal#2546 <https://github.com/doctrine/dbal/pull/2546>`__. In TYPO3 >= v9.5 calling :php:`$statement->closeCursor();` after :php:`$statement->fetch();` is recommended.
+   In TYPO3 v8.7 calling :php:`$statement->closeCursor();` in order to free the resources
+   for a result will lead to unexpected results due to a bug
+   in `doctrine/dbal#2546 <https://github.com/doctrine/dbal/pull/2546>`__. In TYPO3 >= v9.5
+   calling :php:`$statement->closeCursor();` after :php:`$statement->fetch();` is recommended.
