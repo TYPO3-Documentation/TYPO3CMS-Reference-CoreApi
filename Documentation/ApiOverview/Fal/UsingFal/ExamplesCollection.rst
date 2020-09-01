@@ -14,7 +14,7 @@ provides a convenience method to retrieve a
 
 .. code-block:: php
 
-     $resourceFactory = ResourceFactory::getInstance();
+     $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
      $collection = $resourceFactory->getCollectionObject(1);
      // Load the contents of the collection
      $collection->loadContents();
