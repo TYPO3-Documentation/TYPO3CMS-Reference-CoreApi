@@ -74,9 +74,9 @@ This can be achieved by using the **null** backend (see below) as storage backen
 
    Do not use this in production, it will strongly slow down the system!
 
-Example entry to switch the *runtime* cache to use the **null** backend:
+Example entry to switch the *extbase_reflection* cache to use the **null** backend:
 
 .. code-block:: php
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']
-      ['cache_runtime']['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
+      ['extbase_reflection']['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
