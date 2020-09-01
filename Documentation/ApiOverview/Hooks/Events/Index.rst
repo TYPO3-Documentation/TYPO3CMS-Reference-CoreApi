@@ -41,6 +41,7 @@ in the TYPO3 core. For a full list of available events refer to the
    :glob:
 
    Extbase/Mvc/*
+   Extbase/Persistence/*
 
 .. toctree::
    :titlesonly:
