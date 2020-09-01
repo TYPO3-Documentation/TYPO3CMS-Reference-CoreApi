@@ -38,7 +38,10 @@ The syntax of argument 1 for getFileObjectFromCombinedIdentifier is
    [[storage uid]:]<file identifier>
 
 The storage uid is optional. If it is not specified, the default storage
-(virtual storage with uid=0) is used.
+(virtual storage with uid=0) is used. In the case of a storage uid=0 the local filesystem is checked
+for the given file. If the file is found, then its local path will be used. If the file is not found,
+then the fileadmin on the public web path will be used. 
+The file identifier is adapted accordingly to match the new storage's base path.
 
 .. _fal-using-fal-examples-file-folder-copy-file:
 
