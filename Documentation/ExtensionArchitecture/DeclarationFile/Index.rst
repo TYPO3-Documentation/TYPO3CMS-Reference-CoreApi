@@ -305,3 +305,5 @@ The following fields are deprecated and should not be used anymore:
 - lockType
 - TYPO3_version
 - PHP_version
+- uploadfolder
+- createDirs
