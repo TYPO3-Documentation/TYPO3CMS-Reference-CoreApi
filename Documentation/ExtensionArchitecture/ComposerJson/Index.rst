@@ -120,4 +120,3 @@ TYPO3 specific:
 * `Helmut Hummel: composer.json specification for TYPO3 extensions <https://insight.helhum.io/post/148886148725/composerjson-specification-for-typo3-extensions>`__
 * `Helmut Hummel: minimal composer.json <https://gist.github.com/helhum/0ffd82525c90f305b81a8285329eb4f8>`__
 * `Helmut Hummel: TYPO3 Extension dependencies revisited <https://insight.helhum.io/post/155297666635/typo3-extension-dependencies-revisited>`__
-* `Daniel Goerz: COMPOSER AND TYPO3 7LTS AND 8LTS  <https://usetypo3.com/typo3-and-composer.html>`__ (last updated: August 24, 2019)
