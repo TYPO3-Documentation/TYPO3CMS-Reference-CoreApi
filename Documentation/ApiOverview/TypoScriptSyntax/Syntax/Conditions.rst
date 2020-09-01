@@ -64,11 +64,11 @@ A condition is written on its own line and is detected by :code:`[`
 
 .. code-block:: typoscript
 
-   (Some TypoScript)
+   # ... some TypoScript
 
    [ condition ]
 
-   (Some TypoScript only parsed if the condition is met.)
+   # .... some more TypoScript (only parsed if the condition is met.)
 
    [GLOBAL]
 
