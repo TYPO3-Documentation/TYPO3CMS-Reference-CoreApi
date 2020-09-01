@@ -188,8 +188,6 @@ which requires heavy duty processing.
    if (getenv('TYPO3_CONTEXT') == 'Development') {
        $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['host'] = 'mysql-be';
    }
-   ?>
-
 
 
 .. _typo3ConfVars-defaultConfiguration:
