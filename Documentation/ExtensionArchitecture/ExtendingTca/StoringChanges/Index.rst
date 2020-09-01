@@ -25,12 +25,18 @@ The advantage of putting your changes inside an extension is that they
 are nicely packaged in a self-contained entity which can be easily
 deployed on multiple servers.
 
-The drawback is that the extension loading order must be
-finely controlled. Indeed if your extension modifies another extension,
-your extension must be loaded *after* the extension you are modifying.
-This can be achieved by registering that other extension as
-a dependency of yours. See the
-:ref:`description of constraints in Core APIs <extension-declaration>`.
+The drawback is that the extension loading order must be finely controlled. However, **in case you are modifying core TCA, you usually don't have to worry about that**. Since custom extensions are always loaded *after* the core's TCA, changes from custom extensions will usually take effect without any special measures. 
+
+.. important::
+
+   If your extension modifies another extension, you actively need to make sure your 
+   extension is loaded *after* the extension you are modifying. This can be achieved 
+   by registering that other extension as a dependency (or suggestion) of yours. See 
+   the :ref:`description of constraints in Core APIs <extension-declaration>`.
+   
+   Loading order also matters if you have multiple extensions overriding the same field, 
+   probably even contradicting each other. 
+
 
 For more information about an extension's structure, please refer to the
 :ref:`extension architecture <extension-architecture>` chapter in
