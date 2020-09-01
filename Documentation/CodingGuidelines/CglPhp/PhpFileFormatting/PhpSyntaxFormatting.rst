@@ -208,26 +208,6 @@ Wrong usage of the ternary conditional operator::
 
    $result = ($useComma ? ',' : $useDot ? '.' : ';');
 
-Assignment in conditions should be avoided. However if it makes sense
-to do an assignment in a condition, it should be surrounded by the
-extra pair of brackets. Example::
-
-   if (($fields = $this->getFields())) {
-       // Do something
-   }
-
-The following is allowed, but not recommended::
-
-   if (false !== ($fields = $this->getFields())) {
-       // Do something
-   }
-
-The following is not allowed (missing the extra pair of brackets)::
-
-   while ($fields = $this->getFields()) {
-       // Do something
-   }
-
 
 Switch
 ======
