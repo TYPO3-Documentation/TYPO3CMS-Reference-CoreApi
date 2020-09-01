@@ -209,7 +209,7 @@ return different values:
   definitely **failed** and that no other "auth" service should be
   called up.
 
-- a positive value smaller than 100 (<100) indicates that the authentication
+- a value larger than 0 and smaller than 100 indicates that the authentication
   was **successful**, but that further services should also perform their
   own authentication.
 
