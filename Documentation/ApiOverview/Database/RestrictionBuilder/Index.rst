@@ -146,7 +146,8 @@ Restrictions
    records need to be handled after the SQL results are fetched, by overlaying the records with
    :php:`BackendUtility::getRecordWSOL()`, :php:`PageRepository->versionOL()` or `PlainDataResolver`.
 
-If a restriction needs to be enforced, a restriction could implement the interface `EnforceableQueryRestrictionInterface`. If a restriction implements `EnforceableQueryRestrictionInterface`, the following applies:
+If a restriction needs to be enforced, a restriction could implement the interface `EnforceableQueryRestrictionInterface`.
+If a restriction implements `EnforceableQueryRestrictionInterface`, the following applies:
 
 * `->removeAll()` will remove all restrictions except the ones that implement the interface `EnforceableQueryRestrictionInterface`
 
@@ -232,7 +233,7 @@ deliver and use an own set of restrictions for own query statements if needed.
 
 If you want to apply one or more restriction/s to only one table, that is possible as follows. Let's say,
 that you have content in table `tt_content` that could have another record as parent record assigned in field
-`parent`. Now you would like to get all records except the child records where the parent record is hidden. ::
+`parent`. Now you would like to get all records except the child records where the parent record is hidden.::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
