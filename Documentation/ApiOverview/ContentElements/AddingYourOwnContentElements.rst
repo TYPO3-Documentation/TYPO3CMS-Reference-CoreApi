@@ -215,6 +215,11 @@ saved by the richtext editor:
 4. Optional: Configure Custom Backend Preview
 =============================================
 
+.. note::
+
+    With TYPO3 10.3, the backend rendering process is being replaced by the new Fluid-based `PreviewRenderer pattern. <https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/10.3/Feature-78450-IntroducePreviewRendererPattern.html>`__
+    The process described below can still be used after disabling the option in *Settings > Feature Toggles > Fluid based page module*.
+
 If you want to generate a special preview in the backend :guilabel:`Web > Page` module, you can use a hook for this:
 
 .. code-block:: php

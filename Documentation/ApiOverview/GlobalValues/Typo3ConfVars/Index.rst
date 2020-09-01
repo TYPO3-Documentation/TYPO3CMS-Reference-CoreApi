@@ -181,6 +181,14 @@ the code it contains is included on **every** request to TYPO3 CMS
 - whether frontend or backend - you should avoid inserting code
 which requires heavy duty processing.
 
+.. code-block:: php
+   :caption: Changing the database hostname for development machines
+
+   <?php
+   if (getenv('TYPO3_CONTEXT') == 'Development') {
+       $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['host'] = 'mysql-be';
+   }
+
 
 .. _typo3ConfVars-defaultConfiguration:
 

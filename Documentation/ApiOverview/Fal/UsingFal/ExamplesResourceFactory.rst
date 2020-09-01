@@ -27,7 +27,7 @@ when not using a :ref:`combined identifier <fal-architecture-components-files-fo
 
 .. code-block:: php
 
-   $resourceFactory = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $storage = $resourceFactory->getDefaultStorage();
 
 
@@ -48,5 +48,5 @@ its :php:`findByUid()` method.
 
 .. code-block:: php
 
-   $resourceFactory = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $storage = $resourceFactory->getStorageObject(3);
