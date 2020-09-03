@@ -63,16 +63,16 @@ A service is registered with TYPO3 CMS by calling
 This method takes the following parameters:
 
 $extKey
-  (string) The key of the extension containing the service.
+    (string) The key of the extension containing the service.
 
 $serviceType
-  (string) Service type of the service. Choose something explicit.
+    (string) Service type of the service. Choose something explicit.
 
 $serviceKey
- (string) Unique key for the service. Choose something explicit.
+    (string) Unique key for the service. Choose something explicit.
 
 $info
-  (array) Additional information about the service:
+    (array) Additional information about the service:
 
     title
       (string) The title of the service.
@@ -80,11 +80,11 @@ $info
     description
       (string) The description. If it makes sense it should contain information about
 
-        - the quality of the service (if it's better or not than normal)
+      - the quality of the service (if it's better or not than normal)
 
-        - the OS dependency (either WIN or UNIX)
+      - the OS dependency (either WIN or UNIX)
 
-        - the dependency on external programs (perl, pdftotext, etc.)
+      - the dependency on external programs (perl, pdftotext, etc.)
 
     subtype
       (string / comma-separated list) The subtype is not predefined.

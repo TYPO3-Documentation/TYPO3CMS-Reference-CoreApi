@@ -305,10 +305,10 @@ by the helper method :php:`renderFieldWizards()`, which uses the :php:`Dependenc
 
 It is possible to:
 
-  * Override existing expansion nodes with own ones from extensions, even using the resolver mechanics is possible.
-  * It is possible to disable single wizards via TCA
-  * It is possible to add own expansion nodes at any position relative to the other nodes by specifying "before" and
-    "after" in TCA.
+* Override existing expansion nodes with own ones from extensions, even using the resolver mechanics is possible.
+* It is possible to disable single wizards via TCA
+* It is possible to add own expansion nodes at any position relative to the other nodes by specifying "before" and
+  "after" in TCA.
 
 
 Add fieldControl Example

@@ -130,4 +130,4 @@ A custom session storage backend can be used like this (similarly to the Redis b
 References
 ==========
 
- - The Redis documentation https://redis.io/documentation
+- The Redis documentation https://redis.io/documentation
