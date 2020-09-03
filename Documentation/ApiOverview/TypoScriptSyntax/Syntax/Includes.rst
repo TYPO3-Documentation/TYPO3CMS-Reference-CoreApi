@@ -3,8 +3,10 @@
 
 .. _typoscript-syntax-includes:
 
+========
 Includes
-^^^^^^^^
+========
+
 You can also add include-instructions in TypoScript code. Availability
 depends on the context, but it works with TypoScript templates, Page
 TSconfig and User TSconfig.
@@ -70,7 +72,7 @@ TypoScript in future.
 
 
 Alternative, traditional Syntax
-"""""""""""""""""""""""""""""""
+===============================
 
 A traditional include-instruction will work as well and for example looks like
 this:
@@ -132,7 +134,7 @@ DIR      This includes all files from a directory relative to :php:`\TYPO3\CMS\C
 .. _typoscript-syntax-includes-conditions:
 
 Conditions
-""""""""""
+==========
 
 Since TYPO3 CMS 7, it is possible to use conditions on include directives.
 The conditions are the same as was presented in the :ref:`previous chapter <typoscript-syntax-conditions>`.
@@ -159,7 +161,7 @@ Example:
 .. _typoscript-syntax-includes-best-practices:
 
 Best practices
-""""""""""""""
+==============
 
 The option to filter by extension has been included exactly for the
 purpose of covering as many use cases as possible. In TYPO3 CMS we often
