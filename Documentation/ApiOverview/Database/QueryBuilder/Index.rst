@@ -236,19 +236,19 @@ Create an `UPDATE` query. Typical usage::
       ->execute();
 
 
-:php:`->update()` requires the table to update as first argument and a table alias as optional second argument.
+:php:`->update()` requires the table to update as first argument and a table alias (e.g. 't') as optional second argument.
 The table alias can then be used in :php:`->set()` and :php:`->where()` expressions::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'peter' WHERE `u`.`bodytext` = 'klaus'
+   // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'peter' WHERE `t`.`bodytext` = 'klaus'
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder
-      ->update('tt_content', 'u')
+      ->update('tt_content', 't')
       ->where(
-         $queryBuilder->expr()->eq('u.bodytext', $queryBuilder->createNamedParameter('klaus'))
+         $queryBuilder->expr()->eq('t.bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
-      ->set('u.bodytext', 'peter')
+      ->set('t.bodytext', 'peter')
       ->execute();
 
 :php:`->set()` requires a field name as first argument and automatically quotes it internally. The second mandatory
@@ -256,7 +256,7 @@ argument is the value a field should be set to, **the value is automatically tra
 of a prepared statement**. This way, :php:`->set()` key/value pairs are **automatically SQL injection safe by default**.
 
 If a field should be set to the value of another field from the row, the quoting needs to be turned off and
-:php:`->quoteIdentifier()` has to be used::
+:php:`->quoteIdentifier()` and :php:`false` have to be used::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;

@@ -3,8 +3,9 @@
 
 .. _typoscript-syntax-syntax:
 
+======
 Syntax
-------
+======
 
 .. toctree::
    :maxdepth: 5

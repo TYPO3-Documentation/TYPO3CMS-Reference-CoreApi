@@ -2,9 +2,9 @@
 
 .. _globals-variables:
 
-================
-Global Variables
-================
+========
+$GLOBALS
+========
 
 .. note::
 

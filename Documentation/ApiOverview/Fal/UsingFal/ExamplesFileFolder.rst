@@ -21,14 +21,14 @@ A file can be retrieved using its uid:
 
 .. code-block:: php
 
-   $resourceFactory = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $file = $resourceFactory->getFileObject(4);
 
 or its combined identifier:
 
 .. code-block:: php
 
-   $resourceFactory = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $file = $resourceFactory->getFileObjectFromCombinedIdentifier('1:/foo.txt');
 
 The syntax of argument 1 for getFileObjectFromCombinedIdentifier is
@@ -38,7 +38,10 @@ The syntax of argument 1 for getFileObjectFromCombinedIdentifier is
    [[storage uid]:]<file identifier>
 
 The storage uid is optional. If it is not specified, the default storage
-(virtual storage with uid=0) is used.
+(virtual storage with uid=0) is used. In the case of a storage uid=0 the local filesystem is checked
+for the given file. If the file is found, then its local path will be used. If the file is not found,
+then the fileadmin on the public web path will be used. 
+The file identifier is adapted accordingly to match the new storage's base path.
 
 .. _fal-using-fal-examples-file-folder-copy-file:
 
@@ -51,7 +54,7 @@ Copying a File
    $someFileIdentifier = 'templates/images/banner.jpg';
    $someFolderIdentifier = 'website/images/';
 
-   $resourceFactory = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $storage = $resourceFactory->getStorageObject($storageUid);
 
    // $file returns a TYPO3\CMS\Core\Resource\File object
@@ -73,7 +76,7 @@ Storage:
 
 .. code-block:: php
 
-   $resourceFactory = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $storage = $resourceFactory->getDefaultStorage();
    $newFile = $storage->addFile(
          '/tmp/temporary_file_name.ext',
@@ -109,7 +112,7 @@ the "sys\_file\_reference" entry and the relation to the other item
 
 .. code-block:: php
 
-     $resourceFactory = ResourceFactory::getInstance();
+     $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
      $fileObject = $resourceFactory->getFileObject((int)$file);
      $contentElement = BackendUtility::getRecord(
              'tt_content',
@@ -206,7 +209,7 @@ Storage (path relative to Storage root), finally retrieve the files.
 
 .. code-block:: php
 
-   $resourceFactory = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $defaultStorage = $resourceFactory->getDefaultStorage();
    $folder = $defaultStorage->getFolder('/some/path/in/storage/');
    $files = $defaultStorage->getFilesInFolder($folder);

@@ -18,9 +18,9 @@ Both TYPO3 Core and Extensions can provide alternative functionality for a certa
 
 Examples for features are:
 
- - Throw exceptions in new code instead of just returning a string message as error message.
- - Disable obsolete functionality which might still be used, but slows down the system.
- - Enable alternative PageNotFound handling for an installation.
+- Throw exceptions in new code instead of just returning a string message as error message.
+- Disable obsolete functionality which might still be used, but slows down the system.
+- Enable alternative PageNotFound handling for an installation.
 
 Naming of Feature Toggles
 =========================
@@ -44,6 +44,7 @@ Good examples:
 - `TypoScriptParserIncludesAsXml`
 - `NativeDoctrineQueries`
 
+.. _feature-toggles-api:
 
 Using the API as Extension Author
 =================================
@@ -76,6 +77,8 @@ To check if a feature is enabled use this code::
 The name can be any arbitrary string, but an extension author should prefix the feature with the
 extension name as the features are global switches which otherwise might lead to naming conflicts.
 
+.. _feature-toggles-core:
+
 Core Feature Toggles
 ====================
 
@@ -86,6 +89,7 @@ Some examples for feature toggles in the TYPO3 Core:
   Enabling this feature means old condition syntax (which is deprecated) will
   trigger deprecation messages.
 
+.. _feature-toggles-enable:
 
 Enable / Disable Feature Toggle
 ===============================

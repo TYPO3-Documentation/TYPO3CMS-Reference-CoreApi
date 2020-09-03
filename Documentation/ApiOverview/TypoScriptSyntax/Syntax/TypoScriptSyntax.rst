@@ -3,8 +3,9 @@
 
 .. _typoscript-syntax-typoscript-syntax:
 
+=================
 TypoScript syntax
-^^^^^^^^^^^^^^^^^
+=================
 
 TypoScript is parsed in a very simple way; line by line. This means
 that abstractly said each line normally contains three parts based on
@@ -28,7 +29,7 @@ and a value :code:`value 2`.
 .. _typoscript-syntax-syntax-object-path:
 
 Object Path
-"""""""""""
+===========
 
 The object path (in this case :code:`myObject.myProperty`) is like the
 variable name in a programming language. The object path is the first
@@ -54,7 +55,7 @@ Here we do **not** have three hierarchically structured objects :code:`my`,
 .. _typoscript-syntax-syntax-operator:
 
 Operator
-""""""""
+========
 
 The operator (in the example it is :code:`=`) can be one of the characters
 :code:`=<>{(`. The various operators are described below.
@@ -65,7 +66,7 @@ The operator (in the example it is :code:`=`) can be one of the characters
 .. _typoscript-syntax-syntax-value-assignment:
 
 Value assignment: The "=" operator
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 This simply assigns a value to an object path.
 
@@ -85,7 +86,7 @@ whitespace at both ends.
 .. _typoscript-syntax-syntax-value-modification:
 
 Value modifications: The ":=" operator
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------
 
 This operator assigns a value to an object path by calling a
 predefined function which modifies the existing value of the current
@@ -180,7 +181,7 @@ produces the same result as:
 .. _typoscript-syntax-syntax-curly-brackets:
 
 Code blocks: The { } signs
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 Opening and closing curly braces are used to assign many object
 properties in a simple way at once. It's called a block or nesting of
@@ -238,7 +239,7 @@ could also be written as:
 .. _typoscript-syntax-syntax-multiline-values:
 
 Multi-line values: The ( ) signs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
 Opening and closing parenthesis are used to assign a *multi-line
 value* . With this method you can define values which span several
@@ -275,7 +276,7 @@ it!
 .. _typoscript-syntax-syntax-object-copying:
 
 Object copying: The "<" sign
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 
 The :code:`<` sign is used to copy one object path to another. The whole
 object is copied - both value and properties - and it overrides any
@@ -353,7 +354,7 @@ which – in tree view – translates to:
 .. _typoscript-syntax-syntax-object-referencing:
 
 References: the "=<" sign
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 **In the context of TypoScript Templates** it is possible to create
 references from one object to another. References mean that multiple
@@ -407,7 +408,7 @@ Remember:
 .. _typoscript-syntax-syntax-unsetting-operator:
 
 Object unsetting: The ">" Sign
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
 This is used to unset an object and all of its properties.
 
@@ -428,7 +429,7 @@ In this last line :code:`myObject` is totally wiped out (removed).
 .. _typoscript-syntax-syntax-conditions:
 
 Conditions: Lines starting with "["
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
 Conditions break the parsing of TypoScript in order to evaluate the
 content of the condition line. If the evaluation returns true, parsing
@@ -461,7 +462,7 @@ of any curly braces).
 .. _typoscript-syntax-syntax-value:
 
 Value
-"""""
+=====
 
 The value (in case of the above example "value 2") is whatever characters
 follow the operator until the end of the line, but trimmed for whitespace
@@ -472,13 +473,13 @@ value starts after the operator and ends with the line break.
 .. _typoscript-syntax-syntax-comments:
 
 Comments
-""""""""
+========
 
 TypoScript support single line comments as well as multiline comment blocks.
 
 
 Single line comments
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 When a line starts with :code:`//` or :code:`#` it is considered to be a comment
 and will be ignored.
@@ -501,7 +502,7 @@ style however is deprecated and should not be used.
 .. _typoscript-syntax-syntax-comment-blocks:
 
 Comment blocks
-~~~~~~~~~~~~~~
+--------------
 
 When a line starts with :code:`/*` or :code:`*/` it defines the beginning or the
 end of a comment section respectively. Anything inside a comment

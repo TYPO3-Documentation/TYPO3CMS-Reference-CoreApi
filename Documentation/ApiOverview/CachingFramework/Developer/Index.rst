@@ -90,7 +90,7 @@ Here is some example code::
        {
            $cacheIdentifier = $this->calculateCacheIdentifier();
 
-           // If $entry is null, it hasn't been cached. Calculate the value and store it in the cache:
+           // If $entry is false, it hasn't been cached. Calculate the value and store it in the cache:
            if (($entry = $this->cache->get($cacheIdentifier)) === false) {
                $entry = $this->calculateMagic();
 

@@ -135,7 +135,6 @@ baseVariants
     get active if the condition matches.
 
 :aspect:`Example`
-
    .. code-block:: yaml
 
       baseVariants:

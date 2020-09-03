@@ -9,10 +9,18 @@ Flexforms
 Flexforms can be used to store data within an XML structure inside a single DB
 column.
 
+Flexforms can be used to configure :ref:`content elements (CE) or plugins
+<content-elements>`, but they are optional so you can create plugins or
+content elements without using Flexforms.
+
+Most of the configuration below is the same, whether you are adding configuration
+for a plugin or content element. The main difference is how :php:`addPiFlexFormValue()`
+is used.
+
 You may want to configure
-individual plugins differently, depending on where they are added. The
+individual plugins or content elements differently, depending on where they are added. The
 configuration set via the Flexform mechanism applies to only the content
-record it has been configured for. The Flexforms configuration for a plugin
+record it has been configured for. The Flexforms configuration for a plugin or CE
 can be changed by editors in the backend. This gives editors more control
 over plugin features and what is to be rendered.
 
@@ -25,7 +33,7 @@ Example Use Cases
 The `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
 uses Flexforms to configure rendering options,
 e.g. a transition interval and transition type (slide, fade)
-for the carousel.
+for the carousel content element.
 
 .. image:: Images/FlexFormCarousel.png
    :class: with-shadow
@@ -39,8 +47,10 @@ Some more extensions that utilize FlexForms are:
 How it Works
 ============
 
-#. In the extension, a configuration schema is defined and attached to one or more plugins.
-#. When the plugin is added to a page, it can be configured as defined by the configuration
+#. In the extension, a configuration schema is defined and attached to
+   one or more content elements or plugins.
+#. When the CE or plugin is added to a page, it can be configured as defined
+   by the configuration
    schema.
 #. The configuration for this content element is automatically saved to `tt_content.pi_flexform`.
 #. The extension can read current configuration and act according to
@@ -119,7 +129,19 @@ Steps to Perform (Extension Developer)
       how to handle underscores and upper / lowercase, check there to see
       what your plugin signature is.
 
-      Also look on the page :ref:`extension-naming`.
+   Also look on the page :ref:`extension-naming`.
+
+   If you are using a content element instead of a plugin, the example
+   will look like this::
+
+       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+           // 'list_type' does not apply here
+           '*',
+           // Flexform configuration schema file
+           'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
+           // ctype
+           'accordion'
+       );
 
 #. Access the settings in your extension:
 
