@@ -123,7 +123,7 @@ Plugin Enhancer
 The Plugin Enhancer works with plugins on a page that are commonly known as `Pi-Based Plugins`, where previously
 the following GET/POST variables were used:
 
-   `index.php?id=13&tx_felogin_pi1[forgot]=1&&tx_felogin_pi1[user]=82&tx_felogin_pi1[hash]=ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
+`index.php?id=13&tx_felogin_pi1[forgot]=1&&tx_felogin_pi1[user]=82&tx_felogin_pi1[hash]=ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
 
 The base for the plugin enhancer is to configure a so-called "namespace", in this case `tx_felogin_pi1` - the plugin's
 namespace.
@@ -147,7 +147,7 @@ we would need to set up multiple configurations of Plugin Enhancer for forgot an
 
 If a URL is generated with the given parameters to link to a page, the result will look like this:
 
-   `https://www.example.com/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
+`https://www.example.com/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
 
 .. note:: 
     If the input given to generate the URL does not meet the requirements, the route enhancer does not offer the

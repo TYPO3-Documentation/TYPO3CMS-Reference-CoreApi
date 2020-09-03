@@ -128,10 +128,10 @@ Steps to Perform (Extension Developer)
       how to handle underscores and upper / lowercase, check there to see
       what your plugin signature is.
 
-      Also look on the page :ref:`extension-naming`.
+   Also look on the page :ref:`extension-naming`.
 
-    If you are using a content element instead of a plugin, the example
-    will look like this::
+   If you are using a content element instead of a plugin, the example
+   will look like this::
 
        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
            // 'list_type' does not apply here

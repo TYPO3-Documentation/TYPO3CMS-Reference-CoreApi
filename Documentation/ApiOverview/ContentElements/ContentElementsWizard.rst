@@ -56,7 +56,7 @@ Our extension key is `example` and the name of the plugin is `registration`.
 
 #. Include TSconfig in ext_localconf.php
 
-    .. code-block:: typoscript
+   .. code-block:: typoscript
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
             '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig">'

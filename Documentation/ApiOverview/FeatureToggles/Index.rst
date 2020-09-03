@@ -18,9 +18,9 @@ Both TYPO3 Core and Extensions can provide alternative functionality for a certa
 
 Examples for features are:
 
- - Throw exceptions in new code instead of just returning a string message as error message.
- - Disable obsolete functionality which might still be used, but slows down the system.
- - Enable alternative PageNotFound handling for an installation.
+- Throw exceptions in new code instead of just returning a string message as error message.
+- Disable obsolete functionality which might still be used, but slows down the system.
+- Enable alternative PageNotFound handling for an installation.
 
 Naming of Feature Toggles
 =========================

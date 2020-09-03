@@ -135,12 +135,11 @@ Building on that you can have :php:`Vendor\MyExt\Exception\AFunctionality\ASpeci
 Vendor\MyExt\Exception` for more specific exceptions. All of your exceptions
 should extend your extension-specific base exception.
 
-So, rule:
-
-   As soon as multiple different specific exceptions are thrown within
-   some extension, there should be a generic base exception within the extension
-   that is not thrown itself, and the specific exceptions that are thrown
-   then extend from this class.
+So, as rule:
+As soon as multiple different specific exceptions are thrown within
+some extension, there should be a generic base exception within the extension
+that is not thrown itself, and the specific exceptions that are thrown
+then extend from this class.
 
 Typically, only the specific exceptions are
 caught however. In general, the inheritance hierarchy shouldn’t be
