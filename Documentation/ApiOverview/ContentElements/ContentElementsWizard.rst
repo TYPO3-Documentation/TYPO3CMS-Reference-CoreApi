@@ -51,7 +51,7 @@ plugin is `registration`.
 
    :file:`ext_localconf.php`:
 
-    .. code-block:: typoscript
+   .. code-block:: typoscript
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
             '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig">'

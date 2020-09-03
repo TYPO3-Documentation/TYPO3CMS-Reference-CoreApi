@@ -33,30 +33,30 @@ with a huge array of data record details.
 
 So, what happens here in detail?
 
-   * Variable :php:`$formDataCompilerInput` maps input values to keys specified by :php:`FormDataCompiler` as "init" data.
+* Variable :php:`$formDataCompilerInput` maps input values to keys specified by :php:`FormDataCompiler` as "init" data.
 
-   * FormDataCompiler returns a unified array of data. This array is enriched by single data providers.
+* FormDataCompiler returns a unified array of data. This array is enriched by single data providers.
 
-   * A data provider group is a list of single data providers for a specific scope and enriches the array with information.
+* A data provider group is a list of single data providers for a specific scope and enriches the array with information.
 
-   * Each data provider is called by the DataGroup to add or change data in the array.
+* Each data provider is called by the DataGroup to add or change data in the array.
 
 
 The variable :php:`$formData` roughly consists of this data after calling :php:`$formDataCompiler->compile()`:
 
-   * A validated and initialized list of current database row field variables.
+* A validated and initialized list of current database row field variables.
 
-   * A processed version of :php:`$TCA['givenTable']` containing only those column fields a current user has access to.
+* A processed version of :php:`$TCA['givenTable']` containing only those column fields a current user has access to.
 
-   * A processed list of items for single fields like select and group types.
+* A processed list of items for single fields like select and group types.
 
-   * A list of relevant localizations.
+* A list of relevant localizations.
 
-   * Information of expanded :code:`inline` record details if needed.
+* Information of expanded :code:`inline` record details if needed.
 
-   * Resolved flex form data structures and data.
+* Resolved flex form data structures and data.
 
-   * A lot more
+* A lot more
 
 
 Basic goal of this step is to create an array in a specified format with all data needed by the render-part of FormEngine.
@@ -87,19 +87,20 @@ has the responsibility to find out, which specific single data providers should 
    :alt: Data compiling by multiple providers
 
 Why do we need this?
-   * Which data providers are relevant depends on the specific scope: For instance, if editing a full database based record,
-     one provider fetches the according row from the database and initializes :php:`$data['databaseRow']` . But if flex form
-     data is calculated, the flex form values are fetched from table fields directly. So, while the :php:`DatabaseEditRow` data
-     provider is needed in the first case, it's not needed or even counter productive in the second case.
-     The :php:`FormDataGroup`'s are used to manage providers for specific scopes.
 
-   * FormDataGroups know which providers should be used in a specific scope. They usually fetch a list of providers from
-     some global configuration array. Extensions can add own providers to this configuration array for further data munging.
+* Which data providers are relevant depends on the specific scope: For instance, if editing a full database based record,
+  one provider fetches the according row from the database and initializes :php:`$data['databaseRow']` . But if flex form
+  data is calculated, the flex form values are fetched from table fields directly. So, while the :php:`DatabaseEditRow` data
+  provider is needed in the first case, it's not needed or even counter productive in the second case.
+  The :php:`FormDataGroup`'s are used to manage providers for specific scopes.
 
-   * Single data providers have dependencies to each other and must be executed in a specific order. For Instance, the
-     PageTsConfig of a record can only be determined, if the rootline of a record has been determined, which can only happen
-     after the pid of a given record has been consolidated, which relies on the record being fetched from the database.
-     This makes data providers a *linked list* and it is the task of a :php:`FormDataGroup` to manage the correct order.
+* FormDataGroups know which providers should be used in a specific scope. They usually fetch a list of providers from
+  some global configuration array. Extensions can add own providers to this configuration array for further data munging.
+
+* Single data providers have dependencies to each other and must be executed in a specific order. For Instance, the
+  PageTsConfig of a record can only be determined, if the rootline of a record has been determined, which can only happen
+  after the pid of a given record has been consolidated, which relies on the record being fetched from the database.
+  This makes data providers a *linked list* and it is the task of a :php:`FormDataGroup` to manage the correct order.
 
 Main data groups:
 
@@ -128,24 +129,27 @@ OnTheFly
 
 Let's have a closer look at the data providers. The main :php:`TcaDatabaseRecord` group consists mostly of three parts:
 
-Main record data and dependencies
-  * Fetch record from DB or initialize a new row depending on :php:`$data['command']` being "new" or "edit", set row as :php:`$data['databaseRow']`
-  * Add userTs and pageTsConfig to data array
-  * Add table TCA as :php:`$data['processedTca']`
-  * Determine record type value
-  * Fetch record translations and other details and add to data array
+Main record data and dependencies:
 
-Single field processing
-  * Process values and items of simple types like :php:`type=input`, :php:`type=radio`, :php:`type=check` and so on. Validate
-    their :php:`databaseRow` values and validate and sanitize their :php:`processedTca` settings.
-  * Process more complex types that may have relations to other tables like :php:`type=group` and :php:`type=select`, set
-    possible selectable items in :php:`$data['processedTca']` of the according fields, sanitize their TCA settings.
-  * Process :php:`type=inline` and :php:`type=flex` fields and prepare their child fields by using new instances of
-    :php:`FormDataCompiler` and adding their results to :php:`$data['processedTca']`.
+* Fetch record from DB or initialize a new row depending on :php:`$data['command']` being "new" or "edit", set row as :php:`$data['databaseRow']`
+* Add userTs and pageTsConfig to data array
+* Add table TCA as :php:`$data['processedTca']`
+* Determine record type value
+* Fetch record translations and other details and add to data array
 
-Post process after single field values are prepared
-  * Execute display conditions and remove fields from :php:`$data['processedTca']` that shouldn't be shown.
-  * Determine main record title and set as :php:`$data['recordTitle']`
+Single field processing:
+
+* Process values and items of simple types like :php:`type=input`, :php:`type=radio`, :php:`type=check` and so on. Validate
+  their :php:`databaseRow` values and validate and sanitize their :php:`processedTca` settings.
+* Process more complex types that may have relations to other tables like :php:`type=group` and :php:`type=select`, set
+  possible selectable items in :php:`$data['processedTca']` of the according fields, sanitize their TCA settings.
+* Process :php:`type=inline` and :php:`type=flex` fields and prepare their child fields by using new instances of
+  :php:`FormDataCompiler` and adding their results to :php:`$data['processedTca']`.
+
+Post process after single field values are prepared:
+
+* Execute display conditions and remove fields from :php:`$data['processedTca']` that shouldn't be shown.
+* Determine main record title and set as :php:`$data['recordTitle']`
 
 
 Extending Data Groups With Own Providers
@@ -185,10 +189,11 @@ This is pretty powerful since it allows extensions to hook in additional stuff a
 it does not depend on the load order of extensions.
 
 Limitations:
-  * It is not easily possible to "kick out" an existing provider if other providers have dependencies to them - which is
-    usually the case.
 
-  * It is not easily possible to substitute an existing provider with an own one.
+* It is not easily possible to "kick out" an existing provider if other providers have dependencies to them - which is
+  usually the case.
+
+* It is not easily possible to substitute an existing provider with an own one.
 
 .. note::
   It may happen that the core splits or deletes the one or the other DataProvider in the future. If then an extension
