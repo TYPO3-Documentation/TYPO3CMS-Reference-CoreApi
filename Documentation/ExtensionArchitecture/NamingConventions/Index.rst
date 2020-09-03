@@ -134,9 +134,9 @@ Examples for names that are derived from the extkey:
 
 Here, extkey is `my_extension`:
 
-   * namespace: ``\Vendorname\MyExtension\...``
-   * package name in :file:`composer.json`: `vendorname/my-extension` (the underscore is replaced by
-     a dash)
+* namespace: ``\Vendorname\MyExtension\...``
+* package name in :file:`composer.json`: `vendorname/my-extension` (the underscore is replaced by
+  a dash)
 
 
 Vendor name
