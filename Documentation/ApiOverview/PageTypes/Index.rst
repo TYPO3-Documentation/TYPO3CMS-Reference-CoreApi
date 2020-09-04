@@ -161,7 +161,7 @@ tree.
    You have to change :code:`example` in the argument of the anonymous function
    to your own extension key.
 
-All the changes are applied in :file:`ext_tables.php`::
+The new page type is added to :php:`$GLOBALS['PAGES_TYPES']` in :file:`ext_tables.php`::
 
    (function ($extKey='example') {
       $archiveDoktype = 116;
@@ -172,6 +172,11 @@ All the changes are applied in :file:`ext_tables.php`::
           'allowedTables' => '*',
       ];
 
+   })();
+
+User TSconfig is added and an icon is registed in :file:`ext_localconf.php`::
+
+   (function ($extKey='example') {
       // Provide icon for page tree, list view, ... :
       \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class)
           ->registerIcon(
