@@ -269,9 +269,9 @@ on database fields of current record or be defined by a user function.
 
     <config>
         <type>select</type>
-        <!-- Hide field if value of neighbour field "settings.orderBy" on same sheet is not "title" -->
-        <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
     </config>
+    <!-- Hide field if value of neighbour field "settings.orderBy" on same sheet is not "title" -->
+    <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
 
 Again, the syntax and available fields and comparison operators is documented
 in the TCA reference:
