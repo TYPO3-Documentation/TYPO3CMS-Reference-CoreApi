@@ -271,7 +271,7 @@ that you have content in table `tt_content` that could have another record as pa
 
 With this you will end up with the following query:
 
-.. code-block: sql
+.. code-block:: sql
 
    SELECT `c1`.*
    FROM `tt_content` `c1`
