@@ -121,6 +121,7 @@ Example taken from :php:`ListSysLogCommand` in the core and simplified::
 
             // ...
             $io->writeln('Write something');
+            return Command::SUCCESS;
         }
     }
 
