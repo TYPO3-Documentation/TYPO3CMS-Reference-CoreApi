@@ -212,7 +212,7 @@ typo3Language
     `en`
 
 
-flagIdentifier
+flag
 --------------
 
 :aspect:`Datatype`
