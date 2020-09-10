@@ -30,7 +30,7 @@ Backend Layout Definition
 Backend Layouts can be configured either as "Backend Layout" record in a sysfolder or as PageTsConfig entry in
 :typoscript:`mod.web_layout.BackendLayouts`. Each layout will be saved with a key. The Backend Layout records are
 using their uid as a key, therefore layouts defined via PageTsConfig should use a non-numeral String key. It is a good
-practise to use a descriptive name as key.
+practice to use a descriptive name as key.
 
 The entries title and icon are being used to display the Backend Layout options in the page properties.
 
