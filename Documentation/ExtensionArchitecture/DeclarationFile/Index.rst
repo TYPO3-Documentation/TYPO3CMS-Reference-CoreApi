@@ -44,7 +44,7 @@ values in the :php:`$EM_CONF` array if needed.
            'suggests' => [
            ],
        ],
-   );
+   ];
 
 $_EXTKEY is set globally and contains the extension key.
 
