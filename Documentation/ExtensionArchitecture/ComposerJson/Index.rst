@@ -65,44 +65,87 @@ Subsequently:
        }
    }
 
-``name`` (*required*)
-   `<vendorname>/<dashed extension key>` "Dashed extension key" means that every underscore (`_`) has been changed to a dash (`-`).
-   You must be owner of the vendor name and should register it on packagist.
-   Typically, the name will correspond to your namespaces used in the :file:`Classes` folder,
-   but with different uppercase / lowercase spelling,
-   e.g. `GeorgRinger\News` namespace and `georgringer/news` name in :file:`composer.json`.
+.. _ext-composer-json-properties:
 
-``type`` (*required*)
-   Just use `typo3-cms-extension` for TYPO3 extensions
+Properties
+==========
 
-``description`` (*required*)
-   Description of your extension (1 line)
+name
+----
 
-``license`` (*recommended*)
-   Has to be `GPL-2.0-only` or `GPL-2.0-or-later`.
-   See: https://typo3.org/project/licenses/.
+(*required*)
 
-``require`` (*required*)
-   At the least, you will want to require `typo3/cms-core`.
-   You can add other system extensions and third party extensions,
-   if your extension depends on them.
+`<vendorname>/<dashed extension key>` "Dashed extension key" means that every underscore (`_`) has been changed to a dash (`-`).
+You must be owner of the vendor name and should register it on packagist.
+Typically, the name will correspond to your namespaces used in the :file:`Classes` folder,
+but with different uppercase / lowercase spelling,
+e.g. `GeorgRinger\News` namespace and `georgringer/news` name in :file:`composer.json`.
 
-``extra``
-   The extra `typo3/cms` section can be used to provide a TYPO3 extension_key for the package.
-   This will be used when found. If not provided, the package-key will be used with all dashes (`-`)
-   replaced by underscores (`_`) to follow TYPO3 and Packagist conventions.
+description
+-----------
 
-``autoload``
-   Define namespace - path mapping for PSR-4 autoloading.
-   In TYPO3 we follow the convention that all classes (except test classes)
-   are in the directory :file:`Classes`.
+(*required*)
 
-Properties no longer used:
+Description of your extension (1 line)
 
-``version`` (*not recommended*)
-  Was used in earlier TYPO3 versions.
-  For versions 7.6 and above you should not use the version property.
-  The version for the extension is set in the file :ref:`ext_emconf.php <ext_emconf-php>`.
+type
+----
+
+(*required*)
+
+Use `typo3-cms-extension` for third party extensions. This will result in
+the extension to be installed in `{web-dir}/typo3conf/ext` instead
+of `vendor/{vendor}/{package}`. 
+
+Use `typo3-cms-framework` for system extensions. They will be installed
+in `web-dir/typo3/sysext`.
+
+See `typo3/cms-composer-installers <https://github.com/TYPO3/CmsComposerInstallers>`__
+(required by `typo3/cms-core`).
+
+
+license
+-------
+
+(*recommended*)
+
+Has to be `GPL-2.0-only` or `GPL-2.0-or-later`.
+See: https://typo3.org/project/licenses/.
+
+require
+-------
+
+(*required*)
+
+At the least, you will want to require `typo3/cms-core`.
+You can add other system extensions and third party extensions,
+if your extension depends on them.
+
+extra
+-----
+
+The extra `typo3/cms` section can be used to provide a TYPO3 extension_key for the package.
+This will be used when found. If not provided, the package-key will be used with all dashes (`-`)
+replaced by underscores (`_`) to follow TYPO3 and Packagist conventions.
+
+autoload
+--------
+
+Define namespace - path mapping for PSR-4 autoloading.
+In TYPO3 we follow the convention that all classes (except test classes)
+are in the directory :file:`Classes`.
+
+Properties no longer used
+=========================
+
+version
+-------
+
+(*not recommended*)
+
+Was used in earlier TYPO3 versions.
+For versions 7.6 and above you should not use the version property.
+The version for the extension is set in the file :ref:`ext_emconf.php <ext_emconf-php>`.
 
 More Information
 ================
