@@ -8,13 +8,12 @@ General Configuration
 
 The following examples are basically meant to add one single
 cropping configuration to sys_file_reference,  which will then apply in every
-record, which reference images.
+record referencing images.
 
 In this example we configure two crop variants, one with the id "mobile",
 one with the id "desktop". The array key defines the crop variant id, which will be used
 when rendering an image with the image view helper.
 
-The allowed crop areas are now also configured differently.
 The array key is used as identifier for the ratio and the label is specified with the "title"
 and the actual (floating point) ratio with the "value" key.
 The value **should** be of PHP type float, not only a string.
@@ -110,7 +109,7 @@ Cover Area
 
 Very often images are used in a context, where there are overlaid with other DOM elements
 like a headline. To give editors a hint which area of the image is affected, when selecting a crop area,
-it is possible to define multiple so called cover areas. These areas are shown inside
+it is possible to define multiple so-called cover areas. These areas are shown inside
 the crop area. The focus area cannot intersect with any of the cover areas.
 
 .. code-block:: php
