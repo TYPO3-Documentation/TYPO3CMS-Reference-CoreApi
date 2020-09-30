@@ -150,8 +150,15 @@ type
 
 (*required*)
 
-Just use `typo3-cms-extension` for TYPO3 extensions
+Use `typo3-cms-extension` for third party extensions. This will result in
+the extension to be installed in `{web-dir}/typo3conf/ext` instead
+of `vendor/{vendor}/{package}`. 
 
+Use `typo3-cms-framework` for system extensions. They will be installed
+in `web-dir/typo3/sysext`.
+
+See `typo3/cms-composer-installers <https://github.com/TYPO3/CmsComposerInstallers>`__
+(required by `typo3/cms-core`).
 
 license
 -------
