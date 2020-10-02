@@ -24,7 +24,7 @@ record it has been configured for. The Flexforms configuration for a plugin or C
 can be changed by editors in the backend. This gives editors more control
 over plugin features and what is to be rendered.
 
-Using Flexforms you have all the features of TCA, so it is possible to
+Using Flexforms you have all the features of TCA, so it is possible
 to use input fields, select lists, show options conditionally and more.
 
 Example Use Cases
