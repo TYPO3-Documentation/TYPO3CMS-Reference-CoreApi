@@ -93,7 +93,10 @@ smtp
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = <bool>;`
    Determines whether the transport protocol should be encrypted. Requires openssl library.
    If :php:`false`, symfony/mailer will use STARTTLS.
-   The allowed values fo this settings has changed (from string to boolean) in 10.4. see https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/10.4.x/Important-91070-SMTPTransportOptionTransport_smtp_encryptChangedToBoolean.html
+
+   .. versionchanged:: 10.4
+      The allowed values fo this settings has changed (from string to boolean),
+      see :doc:`t3core:Changelog/10.4.x/Important-91070-SMTPTransportOptionTransport_smtp_encryptChangedToBoolean`
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username] = '<username>';`
    If your SMTP server requires authentication, the username.
