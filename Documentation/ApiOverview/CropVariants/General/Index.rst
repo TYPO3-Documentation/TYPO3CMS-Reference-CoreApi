@@ -6,8 +6,8 @@
 General Configuration
 =====================
 
-The following examples are basically meant to add one single
-cropping configuration to sys_file_reference,  which will then apply in every
+The following examples are meant to add one single
+cropping configuration to sys_file_reference, which will then apply to every
 record referencing images.
 
 In this example we configure two crop variants, one with the id "mobile",
@@ -27,11 +27,11 @@ The value **should** be of PHP type float, not only a string.
                  'title' => 'LLL:EXT:ext_key/Resources/Private/Language/locallang.xlf:imageManipulation.mobile',
                  'allowedAspectRatios' => [
                      '4:3' => [
-                         'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
+                         'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
                          'value' => 4 / 3
                      ],
                      'NaN' => [
-                         'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+                         'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
                          'value' => 0.0
                      ],
                  ],
@@ -40,11 +40,11 @@ The value **should** be of PHP type float, not only a string.
                  'title' => 'LLL:EXT:ext_key/Resources/Private/Language/locallang.xlf:imageManipulation.desktop',
                  'allowedAspectRatios' => [
                      '4:3' => [
-                         'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
+                         'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
                          'value' => 4 / 3
                      ],
                      'NaN' => [
-                         'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+                         'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
                          'value' => 0.0
                      ],
                  ],
@@ -80,9 +80,10 @@ Focus Area
 ==========
 
 Users can also select a focus area, when configured. The focus area is always **inside**
-the crop area and mark the area in the image which must be visible for the image to transport
+the crop area and marks the area of the image which must be visible for the image to transport
 its meaning. The selected area is persisted to the database but will have no effect on image processing.
-The data points are however made available as data attribute when using the `<f:image />` view helper.
+The data points are however made available as data attribute when using the `<f:image />` view helper and
+can be used by Javascript libraries.
 
 The below example adds a focus area, which is initially one third of the size of the image
 and centered.
@@ -107,7 +108,7 @@ and centered.
 Cover Area
 ==========
 
-Very often images are used in a context, where there are overlaid with other DOM elements
+Images are often used in a context where they are overlaid with other DOM elements
 like a headline. To give editors a hint which area of the image is affected, when selecting a crop area,
 it is possible to define multiple so-called cover areas. These areas are shown inside
 the crop area. The focus area cannot intersect with any of the cover areas.
@@ -131,7 +132,11 @@ the crop area. The focus area cannot intersect with any of the cover areas.
         ],
     ]
 
-To render crop variants, the variants can be specified as argument to the image view helper:
+
+Rendering crop variants
+=======================
+
+To render specific crop variants, the variant can be specified as argument of the image view helper:
 
 .. code-block:: html
 
