@@ -6,8 +6,9 @@
 Crop variants configuration per content element
 ===============================================
 
-It is however also possible to provide a configuration per content element. If you for example want a different
-cropping configuration for tt_content images, then you can add the following to your `image` field configuration of tt_content records:
+It is possible to provide a configuration per content element. If you want a different
+cropping configuration for tt_content images, then you can add the following to 
+your `image` field configuration of tt_content records:
 
 .. code-block:: php
 
@@ -33,7 +34,7 @@ cropping configuration for tt_content images, then you can add the following to 
         ],
     ]
 
-Please note, that you need to specify the target column name as array key. Most of the time this will be `crop`
+Please note, you need to specify the target column name as array key. Most of the time this will be `crop`
 as this is the default field name for image manipulation in `sys_file_reference`
 
 It is also possible to set the cropping configuration only for a **specific tt_content element type** by using the
@@ -56,11 +57,11 @@ It is also possible to set the cropping configuration only for a **specific tt_c
                ],
                'allowedAspectRatios' => [
                    '4:3' => [
-                       'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
+                       'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
                        'value' => 4 / 3
                    ],
                    'NaN' => [
-                       'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+                       'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
                        'value' => 0.0
                    ],
                ],
@@ -71,12 +72,8 @@ It is also possible to set the cropping configuration only for a **specific tt_c
 Disable crop variants
 =====================
 
-Please note, that the array for ``overrideChildTca`` is merged with the child TCA, so are the crop variants that are defined
+Please note, as the array for ``overrideChildTca`` is merged with the child TCA, so are the crop variants that are defined
 in the child TCA (most likely sys_file_reference). Because you cannot remove crop variants easily, it is possible to disable them
-for certain field types by setting the array key for a crop variant ``disabled`` to the value ``true``
+for certain field types by setting the array key for a crop variant ``disabled`` to the value ``true`` as you can see in the
+example above for the default variant.
 
-To render crop variants, the variants can be specified as argument to the image view helper:
-
-.. code-block:: html
-
-    <f:image image="{data.image}" cropVariant="mobile" width="800" />
