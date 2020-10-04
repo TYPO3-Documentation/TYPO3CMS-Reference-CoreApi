@@ -2,9 +2,9 @@
 
 .. _cropvariants:
 
-===================
-Image Crop Variants
-===================
+========================
+Crop Variants for Images
+========================
 
 The `imageManipulation` TCA type is capable of handling multiple crop variants if configured.
 
