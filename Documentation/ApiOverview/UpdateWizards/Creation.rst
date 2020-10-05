@@ -40,7 +40,7 @@ abstract methods::
        * @param string $customMessage Custom message to be displayed after the update process finished
        * @return bool Whether everything went smoothly or not
        */
-       public function performUpdate(array &$databaseQueries, &$customMessage)
+       public function performUpdate(array &$dbQueries, &$customMessage)
        {
            return true;
        }
