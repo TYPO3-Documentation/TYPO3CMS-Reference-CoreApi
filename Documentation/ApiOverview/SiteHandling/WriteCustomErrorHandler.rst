@@ -66,8 +66,18 @@ The ErrorHandler class:
    use TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface;
    use TYPO3\CMS\Core\Http\RedirectResponse;
 
-   class ErrorHandling implements PageErrorHandlerInterface 
+   class ErrorHandling implements PageErrorHandlerInterface
    {
+       protected int $statusCode;
+       protected array $errorHandlerConfiguration;
+
+       public function __construct(int $statusCode, array $configuration)
+       {
+           $this->statusCode = $statusCode;
+           // This contains the configuration of the error handler which is
+           // set in site configuration - this example does not use it.
+           $this->errorHandlerConfiguration = $configuration;
+       }
 
        /**
         * @param ServerRequestInterface $request
@@ -80,7 +90,7 @@ The ErrorHandler class:
            string $message,
            array $reasons = []
        ): ResponseInterface {
-              return new RedirectResponse('/404-page', 404);
+              return new RedirectResponse('/404-page', $this->statusCode);
        }
-       
+
    }
