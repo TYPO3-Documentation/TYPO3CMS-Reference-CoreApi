@@ -132,16 +132,12 @@ This is how the composer.json file looks before we add a test setup:
           "Lolli\\Enetcache\\": "Classes"
         }
       },
-      "replace": {
-        "enetcache": "self.version",
-        "typo3-ter/enetcache": "self.version"
-      },
       "extra": {
         "branch-alias": {
           "dev-master": "2.x-dev"
         },
         "typo3/cms": {
-          "cms-package-dir": "{$vendor-dir}/typo3/cms",
+          "cms-package-dir": "{$vendor-dir}/typo3/cms"
         }
       }
     }
@@ -349,7 +345,7 @@ On some versions of MacOS you might get the following error message when executi
 
 .. code-block:: shell
 
-    $ ./Build/Scripts/runTests.sh 
+    $ ./Build/Scripts/runTests.sh
     readlink: illegal option -- f
     usage: readlink [-n] [file ...]
     Creating network "local_default" with the default driver
