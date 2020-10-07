@@ -68,8 +68,15 @@ The ErrorHandler class:
 
    class ErrorHandling implements PageErrorHandlerInterface
    {
-       protected int $statusCode;
-       protected array $errorHandlerConfiguration;
+       /**
+        * @var int
+        */
+       protected $statusCode;
+       
+       /**
+        * @var array
+        */
+       protected $errorHandlerConfiguration;
 
        public function __construct(int $statusCode, array $configuration)
        {
