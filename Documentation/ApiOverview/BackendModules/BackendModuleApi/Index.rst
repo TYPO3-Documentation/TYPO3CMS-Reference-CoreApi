@@ -43,7 +43,7 @@ using the following API:
             'icon' => 'EXT:beuser/Resources/Public/Icons/module-beuser.svg',
             'labels' => 'LLL:EXT:beuser/Resources/Private/Language/locallang_mod.xlf',
             'navigationComponentId' => 'TYPO3/CMS/Backend/PageTree/PageTreeElement',
-            'inheritNavigationComponentFromMainModule' => true
+            'inheritNavigationComponentFromMainModule' => false,
         ]
     );
 
