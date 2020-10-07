@@ -42,6 +42,8 @@ using the following API:
             'access' => 'admin',
             'icon' => 'EXT:beuser/Resources/Public/Icons/module-beuser.svg',
             'labels' => 'LLL:EXT:beuser/Resources/Private/Language/locallang_mod.xlf',
+            'navigationComponentId' => 'TYPO3/CMS/Backend/PageTree/PageTreeElement',
+            'inheritNavigationComponentFromMainModule' => true
         ]
     );
 
@@ -82,6 +84,7 @@ Parameters:
      for building the module menu and for the display of information in the
      **About Modules** module (found in the main help menu in the top bar).
      The `LLL:` prefix is mandatory here and is there for historical reasons.
+   * Navigation component ``navigationComponentId`` - you can specify which navigation component you want to use, for example ``TYPO3/CMS/Backend/PageTree/PageTreeElement`` If you don't want to show a page tree at all you can either set this to an empty string or not declare it at all. In case the main module (e.g. "web") has a navigationComponent defined by default you'll have to also set ``'inheritNavigationComponentFromMainModule' => false``.
 
 
 .. note::
