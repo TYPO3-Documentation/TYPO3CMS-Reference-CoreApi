@@ -111,7 +111,7 @@ site setup. This ends up with only content related stuff being located in
 .. _distribution-kickstart-site:
 
 Site configuration
--------------
+------------------
 
 In order to import a site configuration upon installation, supply a site config file
 to :file:`Initialisation/Site/<SITE_IDENTIFIER>/config.yaml`.
@@ -119,6 +119,7 @@ to :file:`Initialisation/Site/<SITE_IDENTIFIER>/config.yaml`.
 .. note::
 
     Existing site configuration folders with the same identifier will neither be overwritten nor changed.
+    See :doc:`t3core:Changelog/10.1/Feature-89010-IntroduceSiteConfigForDistributionPackages`
 
 
 .. _distribution-kickstart-database:
