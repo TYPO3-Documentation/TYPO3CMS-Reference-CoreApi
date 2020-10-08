@@ -18,6 +18,12 @@ Example:
 
     base: 'https://%env(BASE_DOMAIN)%/'
 
+When using environment variables in conditions, make sure to quote them correctly:
+
+.. code-block:: yaml
+
+    condition: '"%env(my_env)%" == "my_comparison_string"'
+
 
 .. note::
     TYPO3 does not provide a loader for .env files - you have to take care of loading them yourself.
