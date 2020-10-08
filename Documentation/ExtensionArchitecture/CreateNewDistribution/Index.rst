@@ -108,6 +108,18 @@ database dump and the asset files, while ext:bootstrap_package is the real
 site setup. This ends up with only content related stuff being located in
 :file:`fileadmin`, delivered by ext:introduction.
 
+.. _distribution-kickstart-site:
+
+Site configuration
+-------------
+
+In order to import a site configuration upon installation, supply a site config file
+to :file:`Initialisation/Site/<SITE_IDENTIFIER>/config.yaml`.
+
+.. note::
+
+    Existing site configuration folders with the same identifier will neither be overwritten nor changed.
+
 
 .. _distribution-kickstart-database:
 
