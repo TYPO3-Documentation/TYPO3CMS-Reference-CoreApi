@@ -214,7 +214,7 @@ And generate the following URLs
        requirements:
          page: '\d+'
        aspects:
-         news-title:
+         news_title:
            type: PersistedAliasMapper
            tableName: tx_news_domain_model_news
            routeFieldName: path_segment
@@ -230,7 +230,7 @@ And generate the following URLs
            type: StaticRangeMapper
            start: '1984'
            end: '2525'
-         tag-name:
+         tag_name:
            type: PersistedAliasMapper
            tableName: tx_news_domain_model_tag
            routeFieldName: slug
