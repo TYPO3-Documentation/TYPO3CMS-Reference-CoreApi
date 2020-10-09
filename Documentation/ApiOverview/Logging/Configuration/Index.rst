@@ -44,12 +44,21 @@ The Log Writer configuration is read from the subkey :code:`writerConfiguration`
            // add a FileWriter
            \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
                // configuration for the writer
-               'logFile' => 'typo3temp/var/log/typo3_7ac500bce5.log'
+               'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_7ac500bce5.log'
            ]
        ]
    ];
 
 The above configuration applies to **all** log entries of level "ERROR" or above.
+
+.. important::
+
+    Since TYPO3 v9 the default folder for log files is :file:`<var-path>/log`.
+    The `<var-path>` in a non-Composer installation (Classic Mode) is :file:`typo3temp/var/`,
+    in a Composer based installation it is :file:`<project-root>/var/` instead, unless configured otherwise.
+    See class :php:`\TYPO3\CMS\Core\Core\Environment` for defaults in both cases.
+    Since TYPO3 v9 it is possible (and a good practice) to store temporary files
+    outside the document root.
 
 To apply a special configuration for the controllers of the *examples* extension,
 use the following configuration:
