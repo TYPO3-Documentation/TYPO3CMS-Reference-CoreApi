@@ -21,14 +21,14 @@ As a developer you should always instantiate classes either through
 Autoloading Classes Since TYPO3 7.x
 ===================================
 
-TYPO3 6.2 was still delivered with a couple of different autoloaders, that all had different approaches and rules to find a class. Since TYPO3 7.0, there is only a single autoloader left, the one of composer. No matter if you run TYPO3 in composer mode or not, TYPO3 uses the composer autoloader to resolve all class file locations. However, the autoloader is a little bit more sophisticated in composer mode as it then supports `PSR-4` autoloading.
+TYPO3 6.2 was still delivered with a couple of different autoloaders, that all had different approaches and rules to find a class. Since TYPO3 7.0, there is only a single autoloader left, the one of Composer. No matter if you run TYPO3 in Composer mode or not (Classic Mode), TYPO3 uses the Composer autoloader to resolve all class file locations.
 
 .. _autoloading_without_composer_mode:
 
 Loading Classes Without Composer Mode
 =====================================
 
-This means, you did not install TYPO3 via a require-statement inside your composer.json. It's a regular old-school install where the TYPO3 source and the symlinks (:file:`typo3/index.php`) are setup manually. In this case, every time you install an extension, the autoloader scans the whole extension directory for classes. No matter if they follow any convention at all. There is just one rule. Put each class into its own file. The generated classmap is a huge array with a mapping of classnames to their location on the disk.
+This means, you did not install TYPO3 via a `require` statement inside your :file:`composer.json`. It's a regular old-school install where the TYPO3 source and the symlinks (:file:`typo3/index.php`) are setup manually. In this case, every time you install an extension, the autoloader scans the whole extension directory for classes. No matter if they follow any convention at all. There is just one rule. Put each class into its own file. The generated classmap is a huge array with a mapping of classnames to their location on the disk.
 
 Example::
 
