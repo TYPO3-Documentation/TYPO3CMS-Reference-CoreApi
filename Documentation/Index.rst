@@ -125,6 +125,7 @@ address the task at hand.
    ApiOverview/CropVariants/Index
    ApiOverview/FileProcessing/Index
    ApiOverview/Database/Index
+   ApiOverview/Debugging/Index
    ApiOverview/DependencyInjection/Index
    ApiOverview/Deprecation/Index
    ApiOverview/Fal/Index
