@@ -51,7 +51,7 @@ Main Data Structure:
                      <type>check</type>
                      <items type="array">
                         <numIndex index="1" type="array">
-                           <numIndex index="0">LLL:EXT:lang/locallang_core.xml:labels.enabled</numIndex>
+                           <numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_core.xml:labels.enabled</numIndex>
                            <numIndex index="1">1</numIndex>
                         </numIndex>
                      </items>
@@ -66,7 +66,7 @@ Main Data Structure:
                      <type>check</type>
                      <items type="array">
                         <numIndex index="1" type="array">
-                           <numIndex index="0">LLL:EXT:lang/locallang_core.xml:labels.enabled</numIndex>
+                           <numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_core.xml:labels.enabled</numIndex>
                            <numIndex index="1">1</numIndex>
                         </numIndex>
                      </items>
