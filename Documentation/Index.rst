@@ -122,6 +122,7 @@ address the task at hand.
    ApiOverview/ContextSensitiveHelp/Index
    ApiOverview/CropVariants/Index
    ApiOverview/Database/Index
+   ApiOverview/Deprecation/Index
    ApiOverview/Fal/Index
    ApiOverview/DirectoryStructure/Index
    ApiOverview/Enumerations/Index
