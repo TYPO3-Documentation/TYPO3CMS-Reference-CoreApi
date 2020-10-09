@@ -219,3 +219,24 @@ can add stuff to :php:`$data['customData']`. This key is not filled with data by
 for extensions to add things. Those data components can be used in own code parts of the rendering later. It is advisable
 to prefix own data in :php:`$data['customData']` with some unique key (for instance the extension name) to not collide
 with other data a different extension may add.
+
+
+Disable Single FormEngine Data Provider
+=======================================
+
+Single data providers used in the FormEngine data compilation step can be disabled to allow extension authors to substitute
+existing data providers with their solutions.
+
+As an example, if editing a full database record, the default `TcaCheckboxItems` could be removed by setting
+:php:`disabled` in the :php:`tcaDatabaseRecord` group in an extensions :file:`ext_localconf.php` file:
+
+.. code-block:: php
+
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['formDataGroup']['tcaDatabaseRecord']
+    [\TYPO3\CMS\Backend\Form\FormDataProvider\TcaCheckboxItems::class]['disabled'] = true;
+
+Extension authors can then add an own data provider, which :php:`depends`
+on the disabled one and is configured as :php:`before` of the
+next one. Therefore effectively substituting single providers with their
+solutions if needed.
+
