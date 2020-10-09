@@ -92,13 +92,21 @@ getCurrentScript()
 
 Returns the path and filename to the current PHP script.
 
+.. _Environment-configuring-paths:
+
 Configuring Environment Paths
 =============================
 
-The environment variable called :php:`TYPO3_PATH_APP` is used
-to allow to store data outside of the document root.
+The TYPO3 constant :php:`PATH_site` acts as a basis for any PHP entry point. It
+can be overwritten via the environment variable :php:`TYPO3_PATH_ROOT`.
 
-All composer-based installations benefit from this functionality, as data that was previously
+The variable :php:`TYPO3_PATH_ROOT` is automatically calculated and set for any Composer-based TYPO3 installation,
+making it possible to e.g. run the TYPO3 command line interface from any location.
+
+The environment variable called :php:`TYPO3_PATH_APP` is used
+to allow to store **data** outside of the document root.
+
+All Composer-based installations benefit from this functionality, as data that was previously
 stored and hard-coded within :file:`typo3temp/var/` is now stored within the **project root** folder :file:`var/`.
 
 For non-composer installations (Classic Mode), it is possible to set the environment variable to a folder, usually one level
