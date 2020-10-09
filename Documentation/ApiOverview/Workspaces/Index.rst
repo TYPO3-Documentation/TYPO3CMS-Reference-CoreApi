@@ -210,9 +210,9 @@ These issues are not planned to be supported for preview:
 
 - In :code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::getPageShortcut()`,
   :code:`PageRepository->getMenu()` is called with an
-  additional WHERE clause which will ignore changes made in workspaces.
-  This could be the case other places where getmenu() is used
-  (but a search shows it is not a big problem).
+  additional :sql:`WHERE` clause which will ignore changes made in workspaces.
+  This could also be the case in other places where :code:`PageRepository->getMenu()`
+  is used (but a search shows it is not a big problem).
   In this case we will for now accept that a wrong shortcut destination
   can be experienced during previews.
 
