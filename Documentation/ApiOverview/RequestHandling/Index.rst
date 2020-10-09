@@ -41,7 +41,7 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 
 .. rst-class:: bignums
 
-#. TYPO3 will create a PSR-7 request.
+#. TYPO3 will create a :ref:`typo3-request`.
 
 #. TYPO3 will collect and sort all configured PSR-15 middlewares.
 
@@ -271,3 +271,12 @@ within the "Configuration" module:
 
 .. _PSR-15: https://www.php-fig.org/psr/psr-15/
 .. _PSR-7: https://www.php-fig.org/psr/psr-7/
+
+More Information
+================
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Typo3Request
