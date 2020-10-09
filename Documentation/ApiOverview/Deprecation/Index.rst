@@ -27,6 +27,11 @@ Therefore calls to deprecated functions within the core are no longer written to
    Even though calls to functions within the core are no longer being written to the old deprecation log
    calls to functions within extensions might still be written to the old deprecation log.
 
+.. attention::
+   The methods :php:`GeneralUtility::deprecationLog()`, :php:`GeneralUtility::logDeprecatedViewHelperAttribute()`
+   and :php:`GeneralUtility::logDeprecatedFunction()` have been deprecated. The mentioned :php:`trigger_error()`
+   function should be used instead.
+
 .. _deprecation_disable_errors:
 
 Disabling Deprecation Errors
