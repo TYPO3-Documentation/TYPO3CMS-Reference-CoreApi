@@ -100,7 +100,7 @@ WebProcessor
 ------------
 
 The web processor adds selected webserver environment variables to the log record,
-i.e. all possible values from :code:`\TYPO3\CMS\Core\Http\NormalizedParams`.
+i.e. all possible values from :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('_ARRAY')`.
 
 
 .. _logging-processors-custom:

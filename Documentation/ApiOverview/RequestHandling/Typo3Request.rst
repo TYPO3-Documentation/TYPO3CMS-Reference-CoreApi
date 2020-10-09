@@ -28,8 +28,8 @@ The request object is passed to controllers, example:
 
 The request object is also available as a global variable in :php:`$GLOBALS['TYPO3_REQUEST']`. This is a workaround for
 the core which has to access the server parameters at places where $request is not available. So, while this object is
-globally available during any HTTP request, it is considered bad practice to use it if it is possible to access the
-request in another way. The global object is scheduled to vanish at a later point once the code has been refactored
+globally available during any HTTP request, it is considered bad practice to use this global object if the request is
+accessible in another, official way. The global object is scheduled to vanish at a later point once the code has been refactored
 enough to not rely on it anymore.
 
 Migrating from :php:`GeneralUtility::getIndpEnv()`
@@ -60,7 +60,7 @@ Some further old :php:`getIndpEnv()` arguments directly access :php:`$request->s
 normalization. These have been transferred to the new class, too, but will be deprecated later if the core does not use
 them anymore:
 
-- :php:`PATH_INFO` is now :php:`->getPathInfo()`, but better use :php:`->getScriptPath()` instead
+- :php:`PATH_INFO` is now :php:`->getPathInfo()`, but better use :php:`->getScriptName()` instead
 - :php:`HTTP_REFERER` is now :php:`->getHttpReferer()`, but better use :php:`$request->getServerParams()['HTTP_REFERER']` instead
 - :php:`HTTP_USER_AGENT` is now :php:`->getHttpUserAgent()`, but better use :php:`$request->getServerParams()['HTTP_USER_AGENT']` instead
 - :php:`HTTP_ACCEPT_ENCODING` is now :php:`->getHttpAcceptEncoding()`, but better use :php:`$request->getServerParams()['HTTP_ACCEPT_ENCODING']` instead
