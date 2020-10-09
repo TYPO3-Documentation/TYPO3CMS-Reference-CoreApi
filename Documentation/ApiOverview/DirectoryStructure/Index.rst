@@ -102,3 +102,4 @@ the paths within PHP code.
     :Description:
       Directory for temporary files that contains private files (e.g. cached
       Fluid templates) and should not be publicly available.
+      See also :ref:`Environment-configuring-paths` for a more detailed description.
