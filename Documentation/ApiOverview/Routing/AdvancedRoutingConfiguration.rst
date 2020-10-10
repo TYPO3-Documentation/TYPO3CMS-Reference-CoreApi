@@ -551,6 +551,49 @@ how the placeholder will be output. As mentioned above however, special characte
 a problem. The `PersistedPatternMapper` might be a good choice if you are upgrading from a previous version and had
 URLs with an appended UID for uniqueness.
 
+Aspect Precedence
+=================
+
+Route `requirements` are ignored for route variables having a corresponding
+setting in `aspects`. Imagine an aspect that is mapping internal
+value `1` to route value `one` and vice versa - it is not possible to explicitly
+define the `requirements` for this case - which is why `aspects` take precedence.
+
+The following example illustrates the mentioned dilemma between route generation
+and resolving:
+
+.. code-block:: yaml
+
+   routeEnhancers:
+     MyPlugin
+       type: 'Plugin'
+       namespace: 'my'
+       routePath: 'overview/{month}'
+       requirements:
+         # note: it does not make any sense to declare all values here again
+         month: '^(\d+|january|february|march|april|...|december)$'
+       aspects:
+         month:
+           type: 'StaticValueMapper'
+           map:
+             january: '1'
+             february: '2'
+             march: '3'
+             april: '4'
+             may: '5'
+             june: '6'
+             july: '7'
+             august: '8'
+             september: '9'
+             october: '10'
+             november: '11'
+             december: '12'
+
+The `map` in the previous example is already defining all valid values.
+That's why `aspects` take precedence over `requirements` for a specific
+`routePath` definition.
+
+
 Behind the Scenes
 =================
 
