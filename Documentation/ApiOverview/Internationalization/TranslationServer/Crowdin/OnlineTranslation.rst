@@ -22,6 +22,8 @@ If you want to participate, it only takes a few easy steps to get started:
 4. Select your preferred language
 5. Start translation
 
+Crowdin's pricing model is based on projects and not individuals. And using Crowdin is free for Open Source projects. 
+
 Teams and roles
 ===============
 
