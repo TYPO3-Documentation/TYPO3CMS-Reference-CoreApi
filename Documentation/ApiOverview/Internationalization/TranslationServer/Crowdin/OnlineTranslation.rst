@@ -22,6 +22,8 @@ If you want to participate, it only takes a few easy steps to get started:
 4. Select your preferred language
 5. Start translation
 
+Using Crowdin is free for Open Source projects. For private projects, Crowdin's pricing model is based on projects and not on individual users.  
+
 Teams and roles
 ===============
 
@@ -102,7 +104,7 @@ There are many good resources when it comes to translation, language, dictionari
 FAQ
 ===
 
-Should I localize both 9.5 and master?
+Should I localize both 10.4 and master?
 --------------------------------------
 
 Master is the leading version. Every string which exists in the previous version as well is automatically filled during the export and only needs to be localized if it is different in the previous version.
