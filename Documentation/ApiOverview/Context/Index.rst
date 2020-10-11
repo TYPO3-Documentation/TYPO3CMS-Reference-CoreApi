@@ -144,6 +144,24 @@ Property        Call                                                            
 ``isPreview``   :php:`$context->getPropertyFromAspect('frontend.preview', 'isPreview');`  whether the frontend is currently in preview mode
 ==============  ========================================================================  ======
 
+.. _context_api_aspects_typoscript:
+
+TypoScript Aspect
+-----------------
+
+The `TypoScriptAspect` can be used to manipulate/check whether TemplateRendering is forced.
+
+.. _context_api_aspects_typoscript_properties:
+
+
+The Preview Aspect contains the following properties:
+
+=========================  ==============================================================================  ======
+Property                   Call                                                                            Result
+=========================  ==============================================================================  ======
+``forcedTemplateParsing``  :php:`$context->getPropertyFromAspect('typoscript', 'forcedTemplateParsing');`  whether TypoScript template parsing is forced
+=========================  ==============================================================================  ======
+
 .. _context_api_aspects_user:
 
 User Aspect
