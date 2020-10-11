@@ -248,7 +248,7 @@ definition:
 
 :php:`['ctrl']['versioningWS'] = true` - :php:`t3ver_*` columns
   Columns that make a table workspace aware. All those fields are prefixed with
-  :php:`t3ver_`, for example :php:`t3ver_oid` and :php:`t3ver_id`. A default
+  :php:`t3ver_`, for example :php:`t3ver_oid`. A default
   index named :php:`t3ver_oid` to fields :php:`t3ver_oid` and :php:`t3ver_wsid` is
   added, too.
 
