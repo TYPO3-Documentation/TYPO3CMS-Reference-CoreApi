@@ -38,7 +38,7 @@ Extensions like **extbase** define default caches this way, giving administrator
 possibly quicker setups (eg. a memory driven cache for the Extbase reflection cache).
 
 Administrators can overwrite specific settings of the cache configuration in :file:`LocalConfiguration.php`,
-example configuration to switch **cache_pages** to the **redis** backend using database 3:
+example configuration to switch **pages** to the **redis** backend using database 3:
 
 .. code-block:: php
 
@@ -46,7 +46,7 @@ example configuration to switch **cache_pages** to the **redis** backend using d
        'SYS' => [
            'caching' => [
                'cacheConfigurations' => [
-                   'cache_pages' => [
+                   'pages' => [
                        'backend' => \TYPO3\CMS\Core\Cache\Backend\RedisBackend::class,
                        'options' => [
                            'database' => 3,
