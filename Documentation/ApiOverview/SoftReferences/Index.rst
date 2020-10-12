@@ -155,22 +155,20 @@ The default set up is found in :file:`typo3/sysext/core/Configuration/DefaultCon
 
 .. code-block:: php
 
-	'SC_OPTIONS' => array(
-		'GLOBAL' => array(
-			'softRefParser' => array(
-				'substitute' => 'TYPO3\\CMS\\Core\\Database\\SoftReferenceIndex',
-				'notify' => 'TYPO3\\CMS\\Core\\Database\\SoftReferenceIndex',
-				'images' => 'TYPO3\\CMS\\Core\\Database\\SoftReferenceIndex',
-				'typolink' => 'TYPO3\\CMS\\Core\\Database\\SoftReferenceIndex',
-				'typolink_tag' => 'TYPO3\\CMS\\Core\\Database\\SoftReferenceIndex',
-				'ext_fileref' => 'TYPO3\\CMS\\Core\\Database\\SoftReferenceIndex',
-				'email' => 'TYPO3\\CMS\\Core\\Database\\SoftReferenceIndex',
-				'url' => 'TYPO3\\CMS\\Core\\Database\\SoftReferenceIndex',
-			),
-			...
-		),
-		...
-	),
+    'SC_OPTIONS' => [
+        'GLOBAL' => [
+            'softRefParser' => [
+                'substitute' => \TYPO3\CMS\Core\Database\SoftReferenceIndex::class,
+                'notify' => \TYPO3\CMS\Core\Database\SoftReferenceIndex::class,
+                'typolink' => \TYPO3\CMS\Core\Database\SoftReferenceIndex::class,
+                'typolink_tag' => \TYPO3\CMS\Core\Database\SoftReferenceIndex::class,
+                'ext_fileref' => \TYPO3\CMS\Core\Database\SoftReferenceIndex::class,
+                'email' => \TYPO3\CMS\Core\Database\SoftReferenceIndex::class,
+                'url' => \TYPO3\CMS\Core\Database\SoftReferenceIndex::class,
+            ],
+        ],
+        // ...
+    ],
 
 
 .. _soft-references-custom-parsers:
@@ -187,3 +185,11 @@ The class containing the soft reference parser must have a function
 named :code:`findRef`. Please refer to class
 :php:`TYPO3\CMS\Core\Database\SoftReferenceIndex`
 for API usage and expected return values.
+
+Using the soft reference parser
+===============================
+
+To use the soft reference parser in your own extensions, use
+:php:`\TYPO3\CMS\Backend\Utility\BackendUtility::softRefParserObj` to get
+the parser for a specific soft reference type. For an example, take a look at
+:php:`\TYPO3\CMS\Linkvalidator\LinkAnalyzer::analyzeRecord`.
