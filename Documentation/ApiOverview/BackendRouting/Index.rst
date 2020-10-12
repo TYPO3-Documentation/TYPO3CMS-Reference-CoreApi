@@ -19,38 +19,91 @@ Here is an extract of :file:`typo3/sysext/backend/Configuration/Backend/Routes.p
 
 .. code-block:: php
 
-	<?php
-	use TYPO3\CMS\Backend\Controller;
+   <?php
 
-	/**
-	 * Definitions for routes provided by EXT:backend
-	 * Contains all "regular" routes for entry points
-	 *
-	 * Please note that this setup is preliminary until all core use-cases are set up here.
-	 * Especially some more properties regarding modules will be added until TYPO3 CMS 7 LTS, and might change.
-	 *
-	 * Currently the "access" property is only used so no token creation + validation is made,
-	 * but will be extended further.
-	 */
-	return [
-		// Login screen of the TYPO3 Backend
-		'login' => [
-			'path' => '/login',
-			'access' => 'public',
-			'target' => Controller\LoginController::class . '::formAction',
-		],
+   use TYPO3\CMS\Backend\Controller;
 
-		// Main backend rendering setup (previously called backend.php) for the TYPO3 Backend
-		'main' => [
-			'path' => '/main',
-			'target' => Controller\BackendController::class . '::mainAction',
-		],
-		// ...
-	];
+   /**
+    * Definitions for routes provided by EXT:backend
+    * Contains all "regular" routes for entry points
+    *
+    * Please note that this setup is preliminary until all core use-cases are set up here.
+    * Especially some more properties regarding modules will be added until TYPO3 CMS 7 LTS, and might change.
+    *
+    * Currently the "access" property is only used so no token creation + validation is made,
+    * but will be extended further.
+    */
+   return [
+       // Login screen of the TYPO3 Backend
+       'login' => [
+           'path' => '/login',
+           'access' => 'public',
+           'target' => Controller\LoginController::class . '::formAction'
+       ],
+
+       // Main backend rendering setup (previously called backend.php) for the TYPO3 Backend
+       'main' => [
+           'path' => '/main',
+           'referrer' => 'required,refresh-always',
+           'target' => Controller\BackendController::class . '::mainAction'
+       ],
+      // ...
+   ];
 
 So a routes file essentially returns an array containing routes mapping.
-A route is defined by a key, a path and a target. The "public" :code:`access`
+A route is defined by a key, a path, a referrer and a target. The "public" :code:`access`
 property indicates that no authentication is required for that action.
+
+Public backend routes (those having option :php:`'access' => 'public'`) do not
+require any session token, but can be used to redirect to a route that requires
+a session token internally. For this context, the backend user logged in must
+have a valid session.
+
+This scenario can lead to situations where an existing cross-site scripting
+vulnerability (XSS) bypasses the mentioned session token, which can be
+considered cross-site request forgery (CSRF). The difference in terminology is
+that this scenario occurs on same-site requests and not cross-site - however,
+potential security implications are still the same.
+
+Backend routes can enforce an HTTP Referer header's existence by adding a
+:php:`referrer` to routes to mitigate the described scenario.
+
+.. code-block:: php
+
+    'main' => [
+        'path' => '/main',
+        'referrer' => 'required,refresh-empty',
+        'target' => Controller\BackendController::class . '::mainAction'
+    ],
+
+Values for :php:`referrer` are declared as comma-separated list:
+
+* `required` enforces existence of HTTP `Referer` header that has to match the
+  currently used backend URL (e.g. `https://example.org/typo3/`), the request
+  will be denied otherwise.
+* `refresh-empty` triggers a HTML based refresh in case HTTP `Referer` header
+  is not given or empty - this attempt uses an HTML refresh, since regular HTTP
+  `Location` redirect still would not set a referrer. It implies this technique
+  should only be used on plain HTML responses and won't have any impact e.g. on
+  JSON or XML response types.
+
+This technique should be used on all public routes (without session token) that
+internally redirect to a restricted route (having a session token). The goal is
+to protect and keep information about the current session token internal.
+
+The request sequence in the TYPO3 core looks like this:
+
+* HTTP request to `https://example.org/typo3/` having a valid user session
+* internally **public** backend route `/login` is processed
+* internally redirects to **restricted** backend route `/main` since an
+  existing and valid backend user session was found
+  + HTTP redirect to `https://example.org/typo3/index.php?route=/main&token=...`
+  + exposing the token is mitigated with `referrer` route option mentioned above
+
+.. important::
+
+   Please keep in mind these steps are part of a mitigation strategy, which requires
+   to be aware of mentioned implications when implementing custom web applications.
 
 More Information
 ================
