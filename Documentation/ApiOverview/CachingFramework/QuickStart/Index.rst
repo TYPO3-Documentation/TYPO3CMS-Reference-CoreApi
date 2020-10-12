@@ -37,7 +37,7 @@ database backend with compression for the pages cache:
       // ...
          'caching' => [
             // ...
-            'cache_pages' => [
+            'pages' => [
                'backend' => \TYPO3\CMS\Core\Cache\Backend\RedisBackend::class,
                'options' => [
                   'database' => 42,
