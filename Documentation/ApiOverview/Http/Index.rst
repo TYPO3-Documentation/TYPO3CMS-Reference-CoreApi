@@ -84,3 +84,57 @@ API directly in order to ensure a clear upgrade path when updates to the underly
 .. note::
 
    Some information on this page was moved to :ref:`backend-routing`.
+
+
+HTTP Utility Methods
+====================
+
+TYPO3 provides a small set of helper methods related to HTTP Requests in the class :php:`HttpUtility`:
+
+HttpUtility::redirect
+---------------------
+
+Sends a redirect header response and exits. Additionally the URL is checked and
+if needed corrected to match the format required for a Location redirect header.
+By default the HTTP status code sent is `HTTP/1.1 303 See Other`.
+
+HttpUtility::setResponseCode
+----------------------------
+
+Set a specific response code like `404`. Response codes should be taken from
+the :php:`HttpUtility` class constants - for example :php:`HttpUtility::HTTP_STATUS_404`.
+
+HttpUtility::setResponseCodeAndExit
+-----------------------------------
+
+Set a specific response code like `404` and exit directly.
+Response codes should be taken from the :php:`HttpUtility` class constants -
+for example :php:`HttpUtility::HTTP_STATUS_404`.
+
+HttpUtility::buildUrl
+---------------------
+
+Builds a URL string from an array with the URL parts, as e.g. output by :php:`parse_url()`.
+
+HttpUtility::buildQueryString
+-----------------------------
+
+The method :php:`buildQueryString()` is an enhancement to the `PHP function`_ :php:`http_build_query()`.
+It implodes multidimensional parameter arrays and properly encodes parameter names as well as values to a valid query string.
+with an optional prepend of :php:`?` or :php:`&`.
+
+If the query is not empty, `?` or `&` are prepended in the correct sequence.
+Empty parameters are skipped.
+
+.. _`PHP function`: https://secure.php.net/manual/de/function.http-build-query.php
+
+HttpUtility::idn_to_ascii
+-------------------------
+
+Compatibility layer for PHP versions running ICU 4.4, as the constant :php:`INTL_IDNA_VARIANT_UTS46`
+is only available as of ICU 4.6.
+
+.. important::
+
+   Once PHP 7.4 is the minimum requirement, this method will vanish without further notice
+   as it is recommended to use the native method instead, when working against a modern environment.
