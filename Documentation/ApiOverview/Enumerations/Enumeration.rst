@@ -48,11 +48,11 @@ Example::
 Use an Enumeration
 ==================
 
-You always *have to* use the :php:`Enumeration::cast()` method
-for instantiation.
-
-((The :php:`::cast()` itself calls the constructor of the enumeration if it's
-not always an instance of the enum.))((make sentence clearer!))
+You can create an instance of the :php:`Enumeration` class like you would usually do,
+or you can use the :php:`Enumeration::cast()` method
+for instantiation. The :php:`Enumeration::cast()` method can handle both :php:`Enumeration`
+instances (where it will simply return the value) and simple types with a valid :php:`Enumeration`
+value, whereas the "normal" :php:`__construct` will always try to create a new instance.
 
 That allows to deprecate enumeration values or do special value
 casts before finding a suitable value in the enumeration.
