@@ -207,7 +207,7 @@ the same thing:
       "typo3/cms": {
          "extension-key": "my_extension"
       }
-   }
+   },
 
 replace
 -------
