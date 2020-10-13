@@ -121,19 +121,62 @@ At the least, you will want to require `typo3/cms-core`.
 You can add other system extensions and third party extensions,
 if your extension depends on them.
 
-extra
------
-
-The extra `typo3/cms` section can be used to provide a TYPO3 extension_key for the package.
-This will be used when found. If not provided, the package-key will be used with all dashes (`-`)
-replaced by underscores (`_`) to follow TYPO3 and Packagist conventions.
-
 autoload
 --------
+
+(*required*)
 
 Define namespace - path mapping for PSR-4 autoloading.
 In TYPO3 we follow the convention that all classes (except test classes)
 are in the directory :file:`Classes`.
+
+extra
+-----
+
+(*required*)
+
+The extra `typo3/cms` section is used to provide a TYPO3 extension_key for the package.
+If not provided, the package-key will be used with all dashes (`-`)
+replaced by underscores (`_`) to follow TYPO3 and Packagist conventions.
+
+Not providing this property will emit a deprecation notice and will fail in future versions.
+
+So, the following section can be provided, but the default will result in
+the same thing:
+
+.. code-block:: json
+
+   "extra": {
+      "typo3/cms": {
+         "extension-key": "my_extension"
+      }
+   },
+
+replace
+-------
+
+(*usually not required*)
+
+`replace <https://getcomposer.org/doc/04-schema.md#replace>`__ in a
+:file:`composer.json` file specifies which other packages can be
+replaced by this package. This means that packages with different
+vendor name or package name will be treated as the same package by
+Composer.
+
+.. code-block:: json
+
+   "replace": {
+      "typo3-ter/my-extension": "self.version"
+   },
+
+
+As all extensions available in the TER can be installed
+with `composer require typo3-ter/ext-key`, this makes sure that
+there will be no conflicts with packages installed or required
+via Packagist or from another source.
+
+Since the TER Composer repository is deprecated and not all extensions
+must be available in TER, this property is usually not required.
 
 Properties no longer used
 =========================
