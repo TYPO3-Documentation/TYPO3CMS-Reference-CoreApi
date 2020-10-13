@@ -188,10 +188,32 @@ Define namespace - path mapping for PSR-4 autoloading.
 In TYPO3 we follow the convention that all classes (except test classes)
 are in the directory :file:`Classes`.
 
+extra
+-----
+
+(*required*)
+
+The extra `typo3/cms` section is used to provide a TYPO3 extension_key for the package.
+If not provided, the package-key will be used with all dashes (`-`)
+replaced by underscores (`_`) to follow TYPO3 and Packagist conventions.
+
+Not providing this property will emit a deprecation notice and will fail in future versions.
+
+So, the following section can be provided, but the default will result in
+the same thing:
+
+.. code-block:: json
+
+   "extra": {
+      "typo3/cms": {
+         "extension-key": "my_extension"
+      }
+   },
+
 replace
 -------
 
-(*recommended*)
+(*usually not required*)
 
 `replace <https://getcomposer.org/doc/04-schema.md#replace>`__ in a
 :file:`composer.json` file specifies which other packages can be
@@ -211,29 +233,8 @@ with `composer require typo3-ter/ext-key`, this makes sure that
 there will be no conflicts with packages installed or required
 via Packagist or from another source.
 
-extra
------
-
-(*usually not required*)
-
-The extra `typo3/cms` section can be used to provide a TYPO3 extension_key for the package.
-This will be used when found. If not provided, the package-key will be used with all dashes (`-`)
-replaced by underscores (`_`) to follow TYPO3 and Packagist conventions.
-
-This is usually not required as per default Composer package key and TYPO3
-extension key are already mapped correctly. The dash in the package key is
-replaced by an underscore for the extension key.
-
-So, the following section can be provided, but the default will result in
-the same thing:
-
-.. code-block:: json
-
-   "extra": {
-      "typo3/cms": {
-         "extension-key": "my_extension"
-      }
-   },
+Since the TER Composer repository is deprecated and not all extensions
+must be available in TER, this property is usually not required.
 
 Properties no longer used
 =========================
