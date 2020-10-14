@@ -182,7 +182,7 @@ Posts by Author
 ^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
-   :linenos: 
+   :linenos:
 
     routeEnhancers:
         AuthorPosts:
@@ -219,7 +219,7 @@ Category pages
 ^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
-   :linenos: 
+   :linenos:
 
     routeEnhancers:
         BlogCategory:
@@ -336,8 +336,8 @@ BlogStaticDatabaseMapper
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: php
-   :linenos: 
-   
+   :linenos:
+
    <?php
         declare(strict_types = 1);
 
@@ -496,7 +496,7 @@ Usage with imports
 On typo3.com we are using imports to make routing configurations easier to manage:
 
 .. code-block:: yaml
-   :linenos: 
+   :linenos:
 
     imports:
         - { resource: "EXT:template/Configuration/Routes/Blog/BlogCategory.yaml" }
@@ -664,7 +664,9 @@ EXT: DpnGlossary
 
 **Prerequisites:**
 
-The plugin for *list view* and *detail view* is added on one page.
+* The plugin for *list view* and *detail view* is added on one page.
+* The `StaticMultiRangeMapper <https://github.com/featdd/dpn_glossary/blob/master/Classes/Routing/Aspect/StaticMultiRangeMapper.php>`__
+  (a custom mapper) is available in the project.
 
 **Result:**
 
@@ -672,7 +674,7 @@ The plugin for *list view* and *detail view* is added on one page.
 * Detail view: ``https://www.example.com/[YOUR_PLUGINPAGE_SLUG]/term/the-term-title``
 
 .. code-block:: yaml
-   :linenos: 
+   :linenos:
 
    routeEnhancers:
      DpnGlossary:
