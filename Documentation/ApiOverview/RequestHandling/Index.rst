@@ -300,6 +300,56 @@ identifier. This will circumvent the risk of circularity::
    Always check the integrity of the middleware stack after changing the default ordering.
    This can be done in the configuration module that comes with EXT:lowlevel.
 
+.. _request-handling-psr-17:
+
+Creating new Request / Response Objects
+=======================================
+
+PSR-17_ HTTP Factory interfaces are provided by `psr/http-factory` and should be used as
+dependencies for PSR-15_ request handlers or services that need to create PSR-7_ message objects.
+
+It is discouraged to explicitly create PSR-7_ instances of classes from the :php:`\TYPO3\CMS\Core\Http`
+namespace (they are not public API). Use type declarations against PSR-17_ HTTP Message Factory
+interfaces and dependency injection instead.
+
+Example
+-------
+
+A middleware that needs to send a JSON response when a certain condition is met, uses the
+PSR-17_ response factory interface (the concrete TYPO3 implementation is injected as constructor
+dependency) to create a new PSR-7_ response object:
+
+.. code-block:: php
+
+    use Psr\Http\Message\ResponseFactoryInterface;
+    use Psr\Http\Message\ResponseInterface;
+    use Psr\Http\Message\ServerRequestInterface;
+    use Psr\Http\Server\MiddlewareInterface;
+    use Psr\Http\Server\RequestHandlerInterface;
+
+    class StatusCheckMiddleware implements MiddlewareInterface
+    {
+        /** @var ResponseFactoryInterface */
+        private $responseFactory;
+
+        public function __construct(ResponseFactoryInterface $responseFactory)
+        {
+            $this->responseFactory = $responseFactory;
+        }
+
+        public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
+        {
+            if ($request->getRequestTarget() === '/check') {
+                $data = ['status' => 'ok'];
+                $response = $this->responseFactory->createResponse()
+                    ->withHeader('Content-Type', 'application/json; charset=utf-8');
+                $response->getBody()->write(json_encode($data));
+                return $response;
+            }
+            return $handler->handle($request);
+        }
+    }
+
 .. _request-handling-debugging:
 
 Debugging
@@ -314,6 +364,7 @@ within the "Configuration" module:
 
    Figure 1-2: TYPO3 configuration module listing configured middlewares.
 
+.. _PSR-17: https://www.php-fig.org/psr/psr-17/
 .. _PSR-15: https://www.php-fig.org/psr/psr-15/
 .. _PSR-7: https://www.php-fig.org/psr/psr-7/
 
