@@ -13,13 +13,13 @@ be used by extensions.
 Modals
 ======
 
-Actions that require a users' attention must be visualized by modal windows.
+Actions that require a user's attention must be visualized by modal windows.
 
 TYPO3 provides an API as basis to create modal windows with severity representation. For better UX,
 if actions (buttons) are attached to the modal, one button must be a positive action. This button
-should get a `btnClass` and is set as active.
+should get a `btnClass` to highlight it.
 
-Modals should be used rarely and only for confirmations. For information the TYPO3.Flashmessage API should be used.
+Modals should be used rarely and only for confirmations. For information the :code:`TYPO3.Flashmessage` API should be used.
 For complex content, like forms or a lot of information, please use normal pages.
 
 API
@@ -33,14 +33,14 @@ The API provides only two public methods:
 Modal Settings
 ~~~~~~~~~~~~~~
 
-========= =============== ============ ======================================================================================================
+========= =============== ============ ==============================================================================================================
 Name      DataType        Mandatory    Description
-========= =============== ============ ======================================================================================================
+========= =============== ============ =====================================================================--------=================================
 title     string          Yes          The title displayed in the modal
 content   string|jQuery   Yes          The content displayed in the modal
-severity  int                          Represents the severity of a modal. Please see TYPO3.Severity. Default is :code:`TYPO3.Severity.info`.
+severity  int                          Represents the severity of a modal. Please see :code:`TYPO3.Severity`. Default is :code:`TYPO3.Severity.info`.
 buttons   object[]                     Actions rendered into the modal footer. If empty, the footer is not rendered. See table below.
-========= =============== ============ ======================================================================================================
+========= =============== ============ ==============================================================================================================
 
 Button Settings
 ~~~~~~~~~~~~~~~
@@ -54,22 +54,22 @@ active             bool                         Marks the button as active. If t
 btnClass           string                       The css class for the button
 ================== =============== ============ ========================================================================================================
 
-Data-Attributes
+Data Attributes
 ~~~~~~~~~~~~~~~
 
 It is also possible to use data-attributes to trigger a modal.
 e.g. on an anchor element, which prevents the default behavior.
 
-========================= ==================================================================
+========================= ==========================================================================
 Name                      Description
-========================= ==================================================================
+========================= ==========================================================================
 data-title                the title text for the modal
 data-content              the content text for the modal
-data-severity             the severity for the modal, default is info (see TYPO3.Severity.*)
+data-severity             the severity for the modal, default is info (see :code:`TYPO3.Severity.*`)
 data-href                 the target URL, default is the href attribute of the element
 data-button-close-text    button text for the close/cancel button
 data-button-ok-text       button text for the ok button
-========================= ==================================================================
+========================= ==========================================================================
 
 :code:`class="t3js-modal-trigger"` marks the element as modal trigger
 
