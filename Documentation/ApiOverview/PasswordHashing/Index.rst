@@ -193,15 +193,22 @@ used to increase or lower the needed computation power to calculated hashes. Adm
 not need to fiddle with these and should go with defaults configured by the core. If changing these options,
 administrators should know exactly what they are doing.
 
-Argon2i
--------
+Argon2i / Argon2id
+------------------
 
-`Argon2i`_ is a modern key derivation function that was selected as the winner of the Password Hashing
-Competition in July 2015. It should be available on all PHP builds since PHP version 7.2. Options:
+`Argon2`_ is a modern key derivation function that was selected as the winner of the Password Hashing
+Competition in July 2015. There are two available versions:
+
+* `Argon2i`: It should be available on all PHP builds since PHP version 7.2.
+* `Argon2id`: It should be available on all PHP builds since PHP version 7.3.
+
+Options:
 
 * memory_cost: Maximum memory (in kibibytes) that may be used to compute the Argon2 hash. Defaults to 16384.
 * time_cost: Maximum amount of time it may take to compute the Argon2 hash. Defaults to 16.
 * threads: Number of threads to use for computing the Argon2 hash. Defaults to 2.
+
+
 
 bcrypt
 ------
@@ -293,7 +300,7 @@ To add an additional hash algorithm, these steps are necessary:
 
 .. _hash: https://en.wikipedia.org/wiki/Cryptographic_hash_function
 .. _password hash: https://en.wikipedia.org/wiki/Key_derivation_function
-.. _Argon2i: https://en.wikipedia.org/wiki/Argon2
+.. _Argon2: https://en.wikipedia.org/wiki/Argon2
 .. _bcrypt: https://en.wikipedia.org/wiki/Bcrypt
 .. _PBKDF2: https://en.wikipedia.org/wiki/PBKDF2
 .. _phpass: http://www.openwall.com/phpass/
