@@ -40,7 +40,7 @@ The syntax of argument 1 for getFileObjectFromCombinedIdentifier is
 The storage uid is optional. If it is not specified, the default storage
 (virtual storage with uid=0) is used. In the case of a storage uid=0 the local filesystem is checked
 for the given file. If the file is found, then its local path will be used. If the file is not found,
-then the fileadmin on the public web path will be used. 
+then the fileadmin on the public web path will be used.
 The file identifier is adapted accordingly to match the new storage's base path.
 
 .. _fal-using-fal-examples-file-folder-copy-file:
@@ -213,3 +213,75 @@ Storage (path relative to Storage root), finally retrieve the files.
    $defaultStorage = $resourceFactory->getDefaultStorage();
    $folder = $defaultStorage->getFolder('/some/path/in/storage/');
    $files = $defaultStorage->getFilesInFolder($folder);
+
+Dumping a File via eID Script
+=============================
+
+TYPO3 registers an `eID` script that allows dumping / downloading / referencing files via their FAL ids. Non-public storages use this script
+to make their files available to view or download. File retrieval is done via PHP and delivered through the `eID` script.
+
+An example URL looks like this: :code:`index.php?eID=dumpFile&t=f&f=1230&token=135b17c52f5e718b7cc94e44186eb432e0cc6d2f`.
+
+Following URI-Parameters are available:
+
++ :php:`t` (*Type*): Can be one of :php:`f` (`sys_file`), :php:`r` (`sys_file_reference`) or :php:`p` (`sys_file_processedfile`)
++ :php:`f` (*File*): UID of table :sql:`sys_file`
++ :php:`r` (*Reference*): UID of table :sql:`sys_file_reference`
++ :php:`p` (*Processed*): UID of table :sql:`sys_file_processedfile`
++ :php:`s` (*Size*): UID of table :sql:`sys_file_processedfile`
++ :php:`cv` (*CropVariant*): In case of :sql:`sys_file_reference`, you can assign a cropping variant
+
+You have to choose one of these parameters: :php:`f`, :php:`r` or :php:`p`. It is not possible
+to combine them in one request.
+
+The Parameter :php:`s` has following syntax: `width:height:minW:minH:maxW:maxH`. You
+can leave this parameter empty to load the file in its original size. Parameter :php:`width`
+and :php:`height` can feature the trailing :ts:`c` or :ts:`m` indicator, as known from TypoScript.
+
+The PHP class responsible for handling the file dumping is the :php:`FileDumpController`, which you
+may also use in your code.
+
+See the following example on how to create a URI using the :php:`FileDumpController` for
+a :sql:`sys_file` record with a fixed image size:
+
+.. code-block:: php
+
+   $queryParameterArray = ['eID' => 'dumpFile', 't' => 'f'];
+   $queryParameterArray['f'] = $resourceObject->getUid();
+   $queryParameterArray['s'] = '320c:280c';
+   $queryParameterArray['token'] = GeneralUtility::hmac(implode('|', $queryParameterArray), 'resourceStorageDumpFile');
+   $publicUrl = GeneralUtility::locationHeaderUrl(PathUtility::getAbsoluteWebPath(Environment::getPublicPath() . '/index.php'));
+   $publicUrl .= '?' . http_build_query($queryParameterArray, '', '&', PHP_QUERY_RFC3986);
+
+
+In this example crop variant :php:`default` and an image size of 320:280 will be
+applied to a sys_file_reference record:
+
+.. code-block:: php
+
+   $queryParameterArray = ['eID' => 'dumpFile', 't' => 'r'];
+   $queryParameterArray['f'] = $resourceObject->getUid();
+   $queryParameterArray['s'] = '320c:280c:320:280:320:280';
+   $queryParameterArray['cv'] = 'default';
+   $queryParameterArray['token'] = GeneralUtility::hmac(implode('|', $queryParameterArray), 'resourceStorageDumpFile');
+   $publicUrl = GeneralUtility::locationHeaderUrl(PathUtility::getAbsoluteWebPath(Environment::getPublicPath() . '/index.php'));
+   $publicUrl .= '?' . http_build_query($queryParameterArray, '', '&', PHP_QUERY_RFC3986);
+
+
+This example shows how to create a URI to load an image of
+`sys_file_processedfile`:
+
+.. code-block:: php
+
+   $queryParameterArray = ['eID' => 'dumpFile', 't' => 'p'];
+   $queryParameterArray['p'] = $resourceObject->getUid();
+   $queryParameterArray['token'] = GeneralUtility::hmac(implode('|', $queryParameterArray), 'resourceStorageDumpFile');
+   $publicUrl = GeneralUtility::locationHeaderUrl(PathUtility::getAbsoluteWebPath(Environment::getPublicPath() . '/index.php'));
+   $publicUrl .= '?' . http_build_query($queryParameterArray, '', '&', PHP_QUERY_RFC3986);
+
+
+The following restrictions apply:
+
++ You can't assign any size parameter to processed files, as they are already resized.
++ You can't apply CropVariants to :sql:`sys_file` and :sql:`sys_file_processedfile` records, only to :sql:`sys_file_reference`
+
