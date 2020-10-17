@@ -15,19 +15,19 @@ table for example (with some parts skipped).
 
 .. code-block:: php
 
-   'image' => array(
+   'image' => [
        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.images',
-       'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image', array(
-           'appearance' => array(
+       'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image', [
+           'appearance' => [
                'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-           ),
+           ],
            // custom configuration for displaying fields in the overlay/reference table
            // to use the imageoverlayPalette instead of the basicoverlayPalette
-           'foreign_types' => array(
+           'foreign_types' => [
                // ...
-           )
-       ), $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'])
-   ),
+           ]
+       ], $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'])
+   ],
 
 
 The API call is :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig()`.
