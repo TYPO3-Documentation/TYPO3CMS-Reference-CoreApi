@@ -6,6 +6,10 @@
 Configure Custom Backend Preview for Content Element
 ====================================================
 
+To allow editors a smoother experience, all custom content elements and plugins should be configured with a corresponding backend
+preview that shows an approximation of the element's appearance in the TYPO3 page module. The following sections describe how to
+achieve that.
+
 .. note::
 
    With TYPO3 10.3, the backend rendering process of content elements has been replaced by the new Fluid based `PreviewRenderer` if
