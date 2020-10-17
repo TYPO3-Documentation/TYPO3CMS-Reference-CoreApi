@@ -46,21 +46,6 @@ Example:
 Available in Frontend:
    Yes
 
-TYPO3_copyright_year
---------------------
-
-The TYPO3 version Branch, as a "x.y" number. Without the patch level.
-
-Defined in:
-   :php:`SystemEnvironmentBuilder::defineBaseConstants()`
-
-Example:
-   "1998-2019"
-
-Available in Frontend:
-   Yes
-
-
 TYPO3_version
 -------------
 
