@@ -30,6 +30,7 @@ these terms in this chapter.
    ../FeatureToggles/Index
    ../GlobalValues/GlobalVariables/Index
    ../GlobalValues/Typo3ConfVars/Index
+   ../GlobalValues/Typo3Information/Index
    ../Tsconfig/Index
    ../TypoScriptSyntax/Index
    ../UserSettingsConfiguration/Index
