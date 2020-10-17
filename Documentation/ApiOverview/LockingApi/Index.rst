@@ -24,14 +24,19 @@ result in incomplete or corrupt data, if locking is not used.
 Locking Strategies
 ==================
 
-A locking strategy must implement the LockingStrategyInterface. Several locking strategies
+A locking strategy must implement the :php:`LockingStrategyInterface`. Several locking strategies
 are shipped with the core. If a locking strategy uses a mechanism
 or function, that is not available on your system, TYPO3 will automatically detect this and
-not use this mechanism and respective locking strategy (e.g. if function sem_get() is not
-available, SemaphoreLockStrategy will not be used).
+not use this mechanism and respective locking strategy (e.g. if function :php:`sem_get()` is not
+available, :php:`SemaphoreLockStrategy` will not be used).
 
 * **FileLockStrategy**: uses the PHP function `flock() <http://php.net/manual/en/function.flock.php>`__
   and creates a file in `typo3temp/var/lock`
+  The directory can be overwritten by configuration::
+
+     // The directory specified here must exist und must be a subdirectory of `Environment::getProjectPath()`
+     $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][\TYPO3\CMS\Core\Locking\FileLockStrategy::class]['lockFileDir'] = 'mylockdir';
+
 * **SemaphoreLockStrategy**: uses the PHP function `sem_get()
   <http://php.net/manual/en/function.sem-get.php>`__
 * **SimpleLockStrategy** is a simple method of file locking. It also uses the folder
@@ -69,29 +74,29 @@ LOCK_CAPABILITY_EXCLUSIVE
    A lock can only be acquired exclusively once and is then locked (in use). If another
    process or thread tries to acquire the same lock, it will:
 
-   * If locking strategy **without** LOCK_CAPABILITY_NOBLOCK is used either:
+   * If locking strategy **without** `LOCK_CAPABILITY_NOBLOCK` is used either:
 
      * block or
-     * throw LockAcquireException, if the lock could not be acquired - even with blocking
+     * throw :php:`LockAcquireException`, if the lock could not be acquired - even with blocking
 
-   * If locking strategy **with** LOCK_CAPABILITY_NOBLOCK is used, this should not block and do either:
+   * If locking strategy **with** `LOCK_CAPABILITY_NOBLOCK` is used, this should not block and do either:
 
      * return false or
-     * throw LockAcquireWouldBlockException, if trying to acquire lock would block
-     * throw LockAcquireException, if the lock could not be acquired
+     * throw :php:`LockAcquireWouldBlockException`, if trying to acquire lock would block
+     * throw :php:`LockAcquireException`, if the lock could not be acquired
 
 LOCK_CAPABILITY_SHARED
    A lock can be acquired by multiple processes, if it has this capability and the lock is
-   acquired with LOCK_CAPABILITY_SHARED. The lock cannot be acquired shared, if it has
+   acquired with `LOCK_CAPABILITY_SHARED`. The lock cannot be acquired shared, if it has
    already been acquired exclusively, until the exclusive lock is released.
 
 
 LOCK_CAPABILITY_NOBLOCK
    If a locking strategy includes this as capability, it should be capable of acquiring
-   a lock without blocking. The function acquire() can pass the non-blocking requirement
-   by adding LOCK_CAPABILITY_NOBLOCK to the first argument $mode.
+   a lock without blocking. The function :php:`acquire()` can pass the non-blocking requirement
+   by adding `LOCK_CAPABILITY_NOBLOCK` to the first argument $mode.
 
-You can use bitwise OR to combine them::
+You can use bitwise `OR` to combine them::
 
    $capabilities = LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE
        | LockingStrategyInterface::LOCK_CAPABILITY_SHARED
@@ -103,18 +108,19 @@ Priorities
 ----------
 
 Every locking strategy must have a priority. This is returned by the function
-LockingStrategyInterface::getPriority() which must be implemented in each
+:php:`LockingStrategyInterface::getPriority()` which must be implemented in each
 locking strategy.
-
-The priority for each locking strategy is currently static and cannot be changed
-by configuration. It can be changed by overriding the current strategies in
-an extension.
 
 Currently, these are the priorities of the locking strategies supplied by the core:
 
 * FileLockStrategy: 75
 * SimpleLockStrategy: 50
 * SemaphoreLockStrategy: 25
+
+To change the locking strategy priority, the priority can be overwritten by configuration,
+for example in additional configuration::
+
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][\TYPO3\CMS\Core\Locking\FileLockStrategy::class]['priority'] = 10;
 
 Examples
 --------
@@ -163,7 +169,7 @@ Acquire and use an exclusive, non-blocking lock::
 Usage in the Core
 =================
 
-The locking API is used in the core for caching, see TypoScriptFrontendController.
+The locking API is used in the core for caching, see :php:`TypoScriptFrontendController`.
 
 
 .. _use-locking-api-in-extensions:
@@ -178,7 +184,16 @@ strategy. This can be done by writing a new class which implements the
 
 Each locking strategy has a set of capabilities (getCapabilities()), and a
 priority (getPriority()), so give your strategy a priority higher than 75
-if it should override the current top choice FileLockStrategy.
+if it should override the current top choice :php:`FileLockStrategy` by default.
+
+If you want to release your file locking strategy extension, make sure to make the priority configurable,
+as is done in the TYPO3 core::
+
+   public static function getPriority()
+   {
+       return $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][self::class]['priority']
+           ?? self::DEFAULT_PRIORITY;
+   }
 
 See `FileLockStrategy
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/core/Classes/Locking/FileLockStrategy.php>`__
@@ -202,10 +217,10 @@ issue for more information
 
 or check if PHP flock works on your filesystem.
 
-The FileLockStrategy uses flock(). This will create a file in `typo3temp/var/lock`.
+The FileLockStrategy uses :php:`flock()`. This will create a file in `typo3temp/var/lock`.
 
-Because of its capabilities (LOCK_CAPABILITY_EXCLUSIVE, LOCK_CAPABILITY_SHARED
-and LOCK_CAPABILITY_NOBLOCK) and priority (75), FileLockStrategy is used as
+Because of its capabilities (`LOCK_CAPABILITY_EXCLUSIVE`, `LOCK_CAPABILITY_SHARED`
+and `LOCK_CAPABILITY_NOBLOCK`) and priority (75), FileLockStrategy is used as
 first choice for most locking operations in TYPO3.
 
 
@@ -213,14 +228,14 @@ Multiple Servers & Cache Locking
 --------------------------------
 
 Since the core uses the locking API for some cache operations (see for
-example TypoScriptFrontendController), make sure that you correctly
+example :php:`TypoScriptFrontendController`), make sure that you correctly
 setup your caching and locking if you share your TYPO3 instance on multiple
 servers for load balancing or high availability.
 
 Specifically, this may be a problem:
 
 * **Do not** use a local locking mechanism (e.g. semaphores or file locks
-  in typo3temp/var, *if* `typo3temp/var` is mapped to local storage and
+  in `typo3temp/var`, *if* `typo3temp/var` is mapped to local storage and
   not shared) in combination with a central cache mechanism (e.g. central Redis
   or DB used for page caching in TYPO3)
 
