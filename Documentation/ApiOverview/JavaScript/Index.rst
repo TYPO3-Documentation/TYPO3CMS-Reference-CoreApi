@@ -18,3 +18,5 @@ APIs in that regard.
 
    RequireJS/Index
    Modules/Index
+   Navigation/Index
+   Forms/Index
