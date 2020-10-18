@@ -17,6 +17,13 @@ which extends :code:`\TYPO3\CMS\Core\Utility\File\BasicFileUtility`.
 The instructions for file manipulation are passed to this class as a
 multidimensional array.
 
+.. note::
+
+   Do not use :code:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility` or
+   :code:`\TYPO3\CMS\Core\Utility\File\BasicFileUtility` directly - both classes are
+   marked as internal. Use :code:`\TYPO3\CMS\Core\Resource\ResourceStorage` and
+   :code:`\TYPO3\CMS\Core\Resource\ResourceFactory` for handling files in your code.
+
 
 .. _tce-files-array:
 
