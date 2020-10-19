@@ -389,7 +389,7 @@ A middleware might need to request an external service in order to transform the
 into a new response. The PSR-18 HTTP client interface is used to perform the external
 HTTP request. The PSR-17 Request Factory Interface is used to create the HTTP request that
 the PSR-18 HTTP Client expects. The PSR-7 Response Factory is then used to create a new
-response to be returned to the user. All off these interface implementations are injected
+response to be returned to the user. All of these interface implementations are injected
 as constructor dependencies:
 
 .. code-block:: php
