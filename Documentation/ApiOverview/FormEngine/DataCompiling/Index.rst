@@ -236,6 +236,6 @@ As an example, if editing a full database record, the default `TcaCheckboxItems`
     [\TYPO3\CMS\Backend\Form\FormDataProvider\TcaCheckboxItems::class]['disabled'] = true;
 
 Extension authors can then add an own data provider, which :php:`depends`
-on the disabled one and is configured as :php:`before` of the
+on the disabled one and is configured as :php:`before` the
 next one. Therefore effectively substituting single providers with their
-solutions if needed.
+solution if needed.
