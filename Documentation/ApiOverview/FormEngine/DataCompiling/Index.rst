@@ -218,7 +218,7 @@ Sometimes, own DataProviders need to add additional data that does not fit into 
 can add stuff to :php:`$data['customData']`. This key is not filled with data by core DataProviders and serves as a place
 for extensions to add things. Those data components can be used in own code parts of the rendering later. It is advisable
 to prefix own data in :php:`$data['customData']` with some unique key (for instance the extension name) to not collide
-with other data a different extension may add.
+with other data that a different extension may add.
 
 
 Disable Single FormEngine Data Provider
