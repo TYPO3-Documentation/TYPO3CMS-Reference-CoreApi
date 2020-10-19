@@ -41,10 +41,10 @@ dynamic parts.
 
 .. hint::
 
-   For developers: If you are developing a plugin think about your plugins' cache lifetime.
+   For developers: If you are developing a plugin think about your plugin's cache lifetime.
    Ideally, it can be fully cached, but if not, read the section about the caching framework
    to learn how to leverage TYPO3's caching mechanism to cache your plugin for however long
-   you can - even 30seconds might improve performance in some scenarios.
+   you can - even 30 seconds might improve performance in some scenarios.
 
 
 Caching Variants - or: What is a "cache hash"?
@@ -73,9 +73,11 @@ To avoid that, TYPO3 generates a so-called `cHash` parameter, which is a hash th
 for that request. So any parameter that validly influences the rendered page needs to be part of that `cHash`.
 
 With :ref:`Routing` you can configure TYPO3 not to display the `cHash` in your URLs in most cases.
+Routing adds an explicit mapping of incoming readable URL slugs to internal parameter values.
+This both adds an additional layer for validating slugs as well as reduces the parameters to a limited (and predictable) set of values.
 
 Various configuration options exist to configure the `cHash` behavior via :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']`
-in the file `LocalConfiguration.php` or `AdditionalConfiguration.php`:
+in the file :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
 
 ================================== ====================================================================================================================================================================
 Option                             Description
@@ -108,7 +110,6 @@ Example (excerpt of `LocalConfiguration.php`)
      'excludedParameters' => [
        'utm_source',
        'utm_medium',
-       '^utm_', // making previous two obsolete
      ],
      'excludedParametersIfEmpty' => [
        '^tx_my_plugin[aspects]',
