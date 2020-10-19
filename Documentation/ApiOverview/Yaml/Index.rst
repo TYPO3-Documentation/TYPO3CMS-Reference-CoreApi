@@ -79,7 +79,7 @@ There are some options available to sort or disable placeholder processors if ne
       'after' => [
          \TYPO3\CMS\Core\Configuration\Processor\Placeholder\EnvVariableProcessor::class
       ],
-      'disabled' => false
+      'disabled' => false,
    ];
 
 New placeholder processors must implement the :php:`\TYPO3\CMS\Core\Configuration\Processor\Placeholder\PlaceholderProcessorInterface`
@@ -100,10 +100,21 @@ An implementation may look like the following:
          $result = $this->getValue($value);
 
          // Throw this exception if the placeholder can't be substituted
-         if (!$envVar) {
+         if ($result === null) {
             throw new \UnexpectedValueException('Value not found', 1581596096);
          }
          return $result;
+      }
+
+      private function getValue(string $value): ?string
+      {
+         // implement logic to fetch specific values from an external service
+         // or just add simple mapping logic - whatever is appropriate
+         $aliases = [
+            'foo' => 'F-O-O',
+            'bar' => 'ARRRRR',
+         ];
+         return $aliases[$value] ?? null;
       }
    }
 
