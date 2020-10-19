@@ -29,54 +29,6 @@ are the fully qualified class names referred to below:
 Check :php:`SystemEnvironmentBuilder::defineBaseConstants()`
 for more constants.
 
-Version, Branch and Copyright
-=============================
-
-TYPO3_branch
-------------
-
-The TYPO3 version Branch, as a "x.y" number. Without the patch level.
-
-Defined in:
-   :php:`SystemEnvironmentBuilder::defineBaseConstants()`
-
-Example:
-   "10.2"
-
-Available in Frontend:
-   Yes
-
-TYPO3_copyright_year
---------------------
-
-The TYPO3 version Branch, as a "x.y" number. Without the patch level.
-
-Defined in:
-   :php:`SystemEnvironmentBuilder::defineBaseConstants()`
-
-Example:
-   "1998-2019"
-
-Available in Frontend:
-   Yes
-
-
-TYPO3_version
--------------
-
-The TYPO3 version, as a "x.y.z" number. Development versions will be either
-"x.y.z-dev" for stable versions or "x.y-dev" for the current master.
-
-
-Defined in:
-   :php:`SystemEnvironmentBuilder::defineBaseConstants()`
-
-Example:
-   "10.2.0"
-
-Available in Frontend:
-   Yes
-
 Paths
 =====
 
