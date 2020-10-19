@@ -228,7 +228,7 @@ Single data providers used in the FormEngine data compilation step can be disabl
 existing data providers with their solutions.
 
 As an example, if editing a full database record, the default `TcaCheckboxItems` could be removed by setting
-:php:`disabled` in the :php:`tcaDatabaseRecord` group in an extensions :file:`ext_localconf.php` file:
+:php:`disabled` in the :php:`tcaDatabaseRecord` group in an extension's :file:`ext_localconf.php` file:
 
 .. code-block:: php
 
@@ -239,4 +239,3 @@ Extension authors can then add an own data provider, which :php:`depends`
 on the disabled one and is configured as :php:`before` of the
 next one. Therefore effectively substituting single providers with their
 solutions if needed.
-
