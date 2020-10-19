@@ -309,14 +309,14 @@ PSR-17_ HTTP Factory interfaces are provided by `psr/http-factory` and should be
 dependencies for PSR-15_ request handlers or services that need to create PSR-7_ message objects.
 
 It is discouraged to explicitly create PSR-7_ instances of classes from the :php:`\TYPO3\CMS\Core\Http`
-namespace (they are not public API). Use type declarations against PSR-17_ HTTP Message Factory
-interfaces and dependency injection instead.
+namespace (they are not public APIs). Instead, use type declarations against PSR-17_ HTTP Message Factory
+interfaces and dependency injection.
 
 Example
 -------
 
 A middleware that needs to send a JSON response when a certain condition is met, uses the
-PSR-17_ response factory interface (the concrete TYPO3 implementation is injected as constructor
+PSR-17_ response factory interface (the concrete TYPO3 implementation is injected as a constructor
 dependency) to create a new PSR-7_ response object:
 
 .. code-block:: php
@@ -365,7 +365,7 @@ PSR-18_ consists of a client interface and three exception interfaces:
 - :php:`\Psr\Http\Client\NetworkExceptionInterface`
 - :php:`\Psr\Http\Client\RequestExceptionInterface`
 
-Request handlers shall use dependency injection to retrieve the concrete implementation
+Request handlers use dependency injection to retrieve the concrete implementation
 of the PSR-18_ HTTP client interface :php:`\Psr\Http\Client\ClientInterface`.
 
 The PSR-18_ HTTP Client interface is provided by `psr/http-client` and may be used as
@@ -375,8 +375,8 @@ PSR-7_ request objects can be created with the :ref:`PSR-17 Request Factory inte
 .. note::
 
    This does not replace the currently available Guzzle wrapper
-   :php:`\TYPO3\CMS\Core\Http\RequestFactory->request()`, but is available as a more generic, 
-   framework-agnostic alternative. The PSR-18 interface does not allow you to pass 
+   :php:`\TYPO3\CMS\Core\Http\RequestFactory->request()`, but is available as a more generic,
+   framework-agnostic alternative. The PSR-18 interface does not allow you to pass
    request-specific guzzle options. But global options defined in :php:`$GLOBALS['TYPO3_CONF_VARS']['HTTP']`
    are taken into account because GuzzleHTTP is used as the backend for this PSR-18 implementation.
    The concrete implementation is internal and will be replaced by a native guzzle PSR-18
