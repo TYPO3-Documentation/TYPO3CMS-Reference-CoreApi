@@ -247,13 +247,13 @@ need to add the new doktype as select item and associate it with the configured 
 
 As you can see from the example, to make sure you get the correct icons, you can utilize :php:`typeicon_classes`.
 
-For the following cases you need to configure icons explictly, otherwise they will automatically fall back to the
+For the following cases you need to configure icons explicitly, otherwise they will automatically fall back to the
 variant for regular page doktypes.
 
-* Page is hidden in navigation
-* Page is site-root
-* Page contains content from another page
+* Page contains content from another page (`<doktype>-contentFromPid`)
+* Page is hidden in navigation (`<doktype>-hideinmenu`)
+* Page is site-root (`<doktype>-root`)
 
 .. note::
 
-   Make sure to add the additional icons using the IconRegistry!
+   Make sure to add the additional icons using the icon registry!
