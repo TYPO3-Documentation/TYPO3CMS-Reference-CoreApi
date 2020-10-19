@@ -40,12 +40,12 @@ The :php:`AssetCollector` helps to work with content elements as components, eff
 It also incorporates the HTTP/2 power, where it is not relevant to have all
 files compressed and concatenated into one file.
 
-The :php:`AssetCollector` is implemented as a singleton and should slowly replace the various existing options
+The :php:`AssetCollector` is implemented as a singleton and should slowly replace the various other existing options
 in TypoScript.
 
 The :php:`AssetCollector` also collects information about "imagesOnPage", which can be used in cached and non-cached components.
 
-The new API
+The API
 -----------
 
 - :php:`\TYPO3\CMS\Core\Page\AssetCollector::addJavaScript(string $identifier, string $source, array $attributes, array $options = []): self`
@@ -64,17 +64,22 @@ The new API
 - :php:`\TYPO3\CMS\Core\Page\AssetCollector::getInlineStyleSheets(?bool $priority = null): array`
 - :php:`\TYPO3\CMS\Core\Page\AssetCollector::getMedia(): array`
 
-New ViewHelpers
+.. note::
+
+   If the same asset is registered multiple times using different attributes or options, both sets are merged. If the
+   same attributes or options are given with different values, those registered last will overwrite the existing ones.
+
+ViewHelpers
+-----------
+
+There are also two ViewHelpers, the :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the :ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>` ViewHelper which use the :php:`AssetCollector` API.
+
+
+Rendering order
 ---------------
 
-There are also two new ViewHelpers, the :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the :ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>` ViewHelper which use the :php:`AssetCollector` API.
-
-
-Considerations
---------------
-
-Currently, CSS and JavaScript registered with the AssetCollector will be rendered after their
-PageRenderer counterparts. The order is:
+Currently, CSS and JavaScript registered with the :php:`AssetCollector` will be rendered after their
+:php:`PageRenderer` counterparts. The order is:
 
 - :html:`<head>`
 - :ts:`page.includeJSLibs.forceOnTop`
@@ -122,3 +127,12 @@ Add a JavaScript file to the collector with :html:`type="module"` (by default, n
 
     GeneralUtility::makeInstance(AssetCollector::class)
        ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['type' => 'module']);
+
+Events
+------
+
+There are two events available that allow additional adjusting of assets:
+
+* :ref:`BeforeJavaScriptsRenderingEvent`
+* :ref:`BeforeStylesheetsRenderingEvent`
+
