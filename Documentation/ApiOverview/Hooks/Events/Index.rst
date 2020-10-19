@@ -32,6 +32,7 @@ in the TYPO3 core. For a full list of available events refer to the
    Core/DataHandling/*
    Core/Html/*
    Core/Mail/*
+   Core/Package/*
    Core/Resource/*
    Core/Tree/*
 
@@ -42,6 +43,14 @@ in the TYPO3 core. For a full list of available events refer to the
 
    Extbase/Mvc/*
    Extbase/Persistence/*
+
+
+.. toctree::
+   :titlesonly:
+   :caption: extensionmanager
+   :glob:
+
+   ExtensionManager/*
 
 .. toctree::
    :titlesonly:

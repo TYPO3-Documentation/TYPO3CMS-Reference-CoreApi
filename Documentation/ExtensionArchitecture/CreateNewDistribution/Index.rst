@@ -182,7 +182,7 @@ Distribution Configuration
 A distribution is technically handled as an extension. Therefore you
 can make use of all :ref:`configuration options <extension-options>` as needed.
 
-After installing the extension, the signal :code:`afterExtensionInstall` is
+After installing the extension, the event :ref:`AfterPackageActivationEvent<AfterPackageActivationEvent>` is
 dispatched. You may use this to alter your website configuration (e.g. color
 scheme) on the fly.
 
