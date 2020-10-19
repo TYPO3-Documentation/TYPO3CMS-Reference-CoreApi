@@ -199,8 +199,8 @@ Argon2i / Argon2id
 `Argon2`_ is a modern key derivation function that was selected as the winner of the Password Hashing
 Competition in July 2015. There are two available versions:
 
-* `Argon2i`: It should be available on all PHP builds since PHP version 7.2.
-* `Argon2id`: It should be available on all PHP builds since PHP version 7.3.
+* `Argon2i`: should be available on all PHP builds since PHP version 7.2.
+* `Argon2id`: should be available on all PHP builds since PHP version 7.3.
 
 Options:
 
