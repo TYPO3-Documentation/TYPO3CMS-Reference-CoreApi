@@ -9,6 +9,12 @@ MetaTag API
 
 In order to have the possibility to set metatags in a flexible (but regulated way), a new Meta Tag API is introduced.
 
+.. note::
+
+    Usually, it is sufficient to just use the API of :php:`PageRenderer` for most simple cases like setting 
+    MetaTags from Extensions. :php:`PageRenderer` uses the MetaTag API internally. If the :php:`PageRenderer` API 
+    doesn't fit your needs, you should consider using the MetaTag API directly.
+
 The API uses :php:`MetaTagManagers` to manage the tags for a "family" of meta tags. The core e.g. ships an
 OpenGraph MetaTagManager that is responsible for all OpenGraph tags.
 In addition to the MetaTagManagers included in the core, you can also register your own
