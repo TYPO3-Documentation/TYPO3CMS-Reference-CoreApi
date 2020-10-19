@@ -56,3 +56,75 @@ Examples:
      - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
      - { resource: "misc/my_options.yaml" }
      - { resource: "../path/to/something/within/the/project-folder/generic.yaml" }
+
+
+Custom Placeholder Processing
+-----------------------------
+
+It is possible to register custom placeholder processors to allow fetching data from
+different sources. To do so, register a custom processor via :file:`LocalConfiguration.php`:
+
+.. code-block:: php
+
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors'][\Vendor\MyExtension\PlaceholderProcessor\CustomPlaceholderProcessor::class] = [];
+
+There are some options available to sort or disable placeholder processors if necessary:
+
+.. code-block:: php
+
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors'][\Vendor\MyExtension\PlaceholderProcessor\CustomPlaceholderProcessor::class] = [
+      'before' => [
+         \TYPO3\CMS\Core\Configuration\Processor\Placeholder\ValueFromReferenceArrayProcessor::class
+      ],
+      'after' => [
+         \TYPO3\CMS\Core\Configuration\Processor\Placeholder\EnvVariableProcessor::class
+      ],
+      'disabled' => false,
+   ];
+
+New placeholder processors must implement the :php:`\TYPO3\CMS\Core\Configuration\Processor\Placeholder\PlaceholderProcessorInterface`
+An implementation may look like the following:
+
+.. code-block:: php
+
+   class ExamplePlaceholderProcessor implements PlaceholderProcessorInterface
+   {
+      public function canProcess(string $placeholder, array $referenceArray): bool
+      {
+         return strpos($placeholder, '%example(') !== false;
+      }
+
+      public function process(string $value, array $referenceArray)
+      {
+         // do some processing
+         $result = $this->getValue($value);
+
+         // Throw this exception if the placeholder can't be substituted
+         if ($result === null) {
+            throw new \UnexpectedValueException('Value not found', 1581596096);
+         }
+         return $result;
+      }
+
+      private function getValue(string $value): ?string
+      {
+         // implement logic to fetch specific values from an external service
+         // or just add simple mapping logic - whatever is appropriate
+         $aliases = [
+            'foo' => 'F-O-O',
+            'bar' => 'ARRRRR',
+         ];
+         return $aliases[$value] ?? null;
+      }
+   }
+
+
+This may be used for example in the site configuration:
+
+.. code-block:: yaml
+
+   someVariable: '%example(somevalue)%'
+   anotherVariable: 'inline::%example(anotherValue)%::placeholder'
+
+If a new processor returns a string or number, it may also be used inline as above.
+If it returns an array, it cannot be used inline since the whole content will be replaced with the new value.
