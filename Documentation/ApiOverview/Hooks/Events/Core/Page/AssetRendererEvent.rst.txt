@@ -4,7 +4,7 @@ The :php:`AssetRenderer` is amended by two events which allow post-processing of
 * :php:`\TYPO3\CMS\Core\Page\Event\BeforeJavaScriptsRenderingEvent`
 * :php:`\TYPO3\CMS\Core\Page\Event\BeforeStylesheetsRenderingEvent`
 
-The events are fired exactly once for every combination of
+The events are fired once for every combination of
 :php:`inline`/:php:`priority` before the corresponding section of JS/CSS assets
 is rendered by the AssetRenderer.
 
