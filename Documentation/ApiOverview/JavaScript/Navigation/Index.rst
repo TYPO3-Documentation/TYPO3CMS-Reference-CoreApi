@@ -10,7 +10,7 @@ Navigation via JavaScript
 Navigate to URL
 ===============
 
-Navigates to URL once selected drop-down was changed:
+Navigate to a URL once selected drop-down is changed:
 
 .. code-block:: html
 
