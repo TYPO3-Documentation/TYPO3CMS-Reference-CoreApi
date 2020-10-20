@@ -33,6 +33,7 @@ in the TYPO3 core. For a full list of available events refer to the
    Core/Html/*
    Core/Mail/*
    Core/Package/*
+   Core/Page/*
    Core/Resource/*
    Core/Tree/*
 

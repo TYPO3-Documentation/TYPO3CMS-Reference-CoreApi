@@ -107,6 +107,7 @@ address the task at hand.
    :maxdepth: 2
 
    ApiOverview/Ajax/Index
+   ApiOverview/Assets/Index
    ApiOverview/Authentication/Index
    ApiOverview/Autoloading/Index
    ApiOverview/AccessControl/Index
