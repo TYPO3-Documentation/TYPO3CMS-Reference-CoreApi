@@ -8,7 +8,7 @@
 AddJavaScriptModulesEvent
 =========================
 
-JavaScript events in custom User Settings Configuration options shall not be placed as inline JavaScript anymore, but utilize a dedicated JavaScript module to handle custom events.
+JavaScript events in custom User Settings Configuration options should no longer be placed as inline JavaScript. Instead, use a dedicated JavaScript module to handle custom events.
 
 
 Example
@@ -74,4 +74,3 @@ API
          Returns the list of module names to be loaded.
    :ReturnType:
          array
-
