@@ -106,8 +106,8 @@ Example:
 DebounceEvent
 -------------
 
-The :js:`DebounceEvent` is most suitable if an event is triggered rather often
-but executing the event listener may called only once after a certain wait time.
+The :js:`DebounceEvent` is most suitable if an event is triggered quite often
+but executing the event listener is called only after a certain wait time.
 
 Arguments:
 
