@@ -18,3 +18,4 @@ APIs in that regard.
 
    RequireJS/Index
    Modules/Index
+   EventApi/Index
