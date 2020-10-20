@@ -76,7 +76,7 @@ data-button-ok-text       button text for the ok button
 Examples
 --------
 
-A basic modal without any specials can be created this way:
+A basic modal (without anything special) can be created this way:
 
 .. code-block:: javascript
 
