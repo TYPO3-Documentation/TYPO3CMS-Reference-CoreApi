@@ -21,7 +21,7 @@ Navigate to a URL once selected drop-down is changed:
 Navigate to URL with Data
 =========================
 
-Navigate to an URL on change of a drop-down, including the selected value in the URL:
+Navigate to a URL on change of a drop-down, including the selected value in the URL:
 
 .. code-block:: html
 
