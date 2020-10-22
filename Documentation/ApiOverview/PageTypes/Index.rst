@@ -178,7 +178,8 @@ User TSconfig is added and an icon is registed in :file:`ext_localconf.php`::
 
    (function ($extKey='example') {
       // Provide icon for page tree, list view, ... :
-      \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class)
+      $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+      $iconRegistry
           ->registerIcon(
               'apps-pagetree-archive',
               TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
@@ -186,6 +187,15 @@ User TSconfig is added and an icon is registed in :file:`ext_localconf.php`::
                   'source' => 'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg',
               ]
           );
+      $iconRegistry
+          ->registerIcon(
+              'apps-pagetree-archive-contentFromPid',
+              TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+              [
+                  'source' => 'EXT:' . $extKey . '/Resources/Public/Icons/ArchiveContentFromPid.svg',
+              ]
+          );
+      // ... register other icons in the same way, see below.
 
       // Allow backend users to drag and drop the new page type:
       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
@@ -220,6 +230,9 @@ need to add the new doktype as select item and associate it with the configured 
               'ctrl' => [
                   'typeicon_classes' => [
                       $archiveDoktype => 'apps-pagetree-archive',
+                      $archiveDoktype . '-contentFromPid' => "apps-pagetree-archive-contentFromPid",
+                      $archiveDoktype . '-root' => "apps-pagetree-archive-root",
+                      $archiveDoktype . '-hideinmenu' => "apps-pagetree-archive-hideinmenu",
                   ],
               ],
               // add all page standard fields and tabs to your new page type
@@ -232,3 +245,15 @@ need to add the new doktype as select item and associate it with the configured 
       );
    })();
 
+As you can see from the example, to make sure you get the correct icons, you can utilize :php:`typeicon_classes`.
+
+For the following cases you need to configure icons explicitly, otherwise they will automatically fall back to the
+variant for regular page doktypes.
+
+* Page contains content from another page (`<doktype>-contentFromPid`)
+* Page is hidden in navigation (`<doktype>-hideinmenu`)
+* Page is site-root (`<doktype>-root`)
+
+.. note::
+
+   Make sure to add the additional icons using the icon registry!
