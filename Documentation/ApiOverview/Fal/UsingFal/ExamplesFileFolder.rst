@@ -72,9 +72,7 @@ Adding a File
 =============
 
 This example adds a new file in the root folder of the default
-Storage:
-
-.. code-block:: php
+Storage::
 
    $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $storage = $resourceFactory->getDefaultStorage();
@@ -88,7 +86,19 @@ The default storage uses :file:`fileadmin` unless this was configured
 differently, as explained in :ref:`fal-concepts-storages-drivers`.
 
 So, for this example, the resulting file path would typically be
-:file:`<document-root>/fileadmin/tmp/temporary_file_name.ext`
+:file:`<document-root>/fileadmin/final_file_name.ext`
+
+To store the file in a sub folder use :php:`$storage->getFolder()`::
+
+   $newFile = $storage->addFile(
+         '/tmp/temporary_file_name.ext',
+         $storage->getFolder('some/nested/folder'),
+         'final_file_name.ext'
+   );
+
+In this example, the file path would likely be
+:file:`<document-root>/fileadmin/some/nested/folder/final_file_name.ext`
+
 
 .. _fal-using-fal-examples-file-folder-create-reference:
 
