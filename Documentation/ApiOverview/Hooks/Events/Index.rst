@@ -97,6 +97,13 @@ in the TYPO3 core. For a full list of available events refer to the
 
 .. toctree::
    :titlesonly:
+   :caption: setup
+   :glob:
+
+   Setup/*
+
+.. toctree::
+   :titlesonly:
    :caption: workspaces
    :glob:
 
