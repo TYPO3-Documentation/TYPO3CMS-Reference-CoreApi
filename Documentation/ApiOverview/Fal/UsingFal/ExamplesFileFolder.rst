@@ -96,6 +96,9 @@ To store the file in a sub folder use :php:`$storage->getFolder()`::
          'final_file_name.ext'
    );
 
+In this example, the file path would likely be
+:file:`<document-root>/fileadmin/some/nested/folder/final_file_name.ext`
+
 
 .. _fal-using-fal-examples-file-folder-create-reference:
 
