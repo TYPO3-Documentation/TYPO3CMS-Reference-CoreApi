@@ -169,7 +169,7 @@ HTTPS redirect either on the webserver level, via a .htaccess rewrite rule, or b
 languages
 ---------
 
-Available languages for a site can be specified here. These settings determine language avaialability as well as behavior. For a detailed
+Available languages for a site can be specified here. These settings determine language availability as well as behavior. For a detailed
 description see  :ref:`Language configuration<sitehandling-addingLanguages>`.
 
 errorHandling
