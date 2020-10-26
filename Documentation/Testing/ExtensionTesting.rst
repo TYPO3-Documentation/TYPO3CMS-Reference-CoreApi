@@ -146,7 +146,7 @@ This is a typical composer.json file without any complexity: It's a `typo3-cms-e
 author and a license. We are stating that "I need at least 9.5.0 of cms-core" and we tell the auto loader
 "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
-The extension already contains some unit tests that extend form typo3/testing-framework`s base
+The extension already contains some unit tests that extend typo3/testing-framework`s base
 unit test class in directory :file:`Tests/Unit/Hooks` (stripped)::
 
     <?php
