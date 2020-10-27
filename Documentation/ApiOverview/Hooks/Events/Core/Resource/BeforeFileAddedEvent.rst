@@ -14,50 +14,45 @@ This allows to do custom checks to a file or restrict access to a file before th
 API
 ---
 
-
- - :Method:
-         getFileName()
-   :Description:
-         Returns the filename.
-   :ReturnType:
-         string
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         setFileName(string $fileName)
-   :Description:
-         Set the file name.
-   :ReturnType:
-         void
+.. rst-class:: dl-parameters
 
+getFileName()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         getSourceFilePath()
-   :Description:
-         Returns the file path from where the current file should be added.
-   :ReturnType:
-         string
+   |nbsp|
 
+setFileName(string $fileName)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         getTargetFolder()
-   :Description:
-         Returns the target folder where the file should be stored.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+   |nbsp|
 
+getSourceFilePath()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         getStorage()
-   :Description:
-         Returns the current file storage.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\ResourceStorage
+   |nbsp|
 
+getTargetFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
 
- - :Method:
-         getDriver()
-   :Description:
-         Returns the current FAL driver.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Driver\DriverInterface
+   |nbsp|
+
+getStorage()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\ResourceStorage`
+   :sep:`|`
+
+   |nbsp|
+
+getDriver()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Driver\DriverInterface`
+   :sep:`|`
+
+   |nbsp|
+

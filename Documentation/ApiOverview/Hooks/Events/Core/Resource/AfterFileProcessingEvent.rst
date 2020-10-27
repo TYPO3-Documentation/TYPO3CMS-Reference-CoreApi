@@ -14,49 +14,45 @@ This allows to further customize a file object's processed file.
 API
 ---
 
-
- - :Method:
-         getProcessedFile()
-   :Description:
-         Returns the processed file object.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\ProcessedFile
-
- - :Method:
-         setProcessedFile(\TYPO3\CMS\Core\Resource\ProcessedFile $processedFile)
-   :Description:
-         Allows overwriting / manipulating the currently processed file.
-   :ReturnType:
-         void
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getDriver()
-   :Description:
-         Returns the currently used driver.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Driver\DriverInterface
+.. rst-class:: dl-parameters
 
+getProcessedFile()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\ProcessedFile`
+   :sep:`|`
 
- - :Method:
-         getFile()
-   :Description:
-         Returns the file object.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\FileInterface
+   |nbsp|
 
+setProcessedFile(\TYPO3\CMS\Core\Resource\ProcessedFile $processedFile)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         getTaskType()
-   :Description:
-         Returns the current task type (see Constants in `ProcessedFile`).
-   :ReturnType:
-         string
+   |nbsp|
 
+getDriver()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Driver\DriverInterface`
+   :sep:`|`
 
- - :Method:
-         getConfiguration()
-   :Description:
-         Returns the processing configuration.
-   :ReturnType:
-         array
+   |nbsp|
+
+getFile()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\FileInterface`
+   :sep:`|`
+
+   |nbsp|
+
+getTaskType()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
+
+getConfiguration()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
+

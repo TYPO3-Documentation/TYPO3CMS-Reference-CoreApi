@@ -14,59 +14,51 @@ to modify the icon or overlay in an event listener.
 API
 ---
 
-
- - :Method:
-         getResource()
-   :Description:
-         Returns the current resource (file or folder).
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\ResourceInterface
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getSize()
-   :Description:
-         Returns the size of the current file or folder.
-   :ReturnType:
-         string
+.. rst-class:: dl-parameters
 
+getResource()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\ResourceInterface`
+   :sep:`|`
 
- - :Method:
-         getOptions()
-   :Description:
-         Returns the currently set options.
-   :ReturnType:
-         array
+   |nbsp|
 
+getSize()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         getIconIdentifier()
-   :Description:
-         Get the currently set icon identifier, if any. 
-   :ReturnType:
-         ?string
+   |nbsp|
 
+getOptions()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         setIconIdentifier(?string $iconIdentifier)
-   :Description:
-         Set / Overwrite the current icon identifier, or remove the identifier (by setting `null`). 
-   :ReturnType:
-         void
+   |nbsp|
 
+getIconIdentifier()
+   :sep:`|` :aspect:`ReturnType:` ?string
+   :sep:`|`
 
- - :Method:
-         getOverlayIdentifier()
-   :Description:
-         Get the currently set overlay identifier, if any. 
-   :ReturnType:
-         ?string
+   |nbsp|
 
+setIconIdentifier(?string $iconIdentifier)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         setOverlayIdentifier(?string $overlayIdentifier)
-   :Description:
-         Set / Overwrite the current overlay identifier, or remove the identifier (by setting `null`). 
-   :ReturnType:
-         void
+   |nbsp|
+
+getOverlayIdentifier()
+   :sep:`|` :aspect:`ReturnType:` ?string
+   :sep:`|`
+
+   |nbsp|
+
+setOverlayIdentifier(?string $overlayIdentifier)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
 

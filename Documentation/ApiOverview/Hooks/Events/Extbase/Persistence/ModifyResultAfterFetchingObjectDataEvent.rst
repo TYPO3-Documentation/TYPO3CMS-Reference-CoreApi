@@ -9,30 +9,32 @@ ModifyResultAfterFetchingObjectDataEvent
 Event which is fired after the storage backend has pulled results from a given query.
 
 API
-===
+---
 
- - :Method:
-         getQuery()
-   :Description:
-         Returns the query that was executed.
-   :ReturnType:
-         TYPO3\CMS\Extbase\Persistence\QueryInterface
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
-- :Method:
-         getResult()
-   :Description:
-         Returns the query results.
-   :ReturnType:
-         array
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
+.. rst-class:: dl-parameters
 
- - :Method:
-         setResults()
-   :Arguments:
-      - `$result`: Array of results
-   :Description:
-         Overwrites result array.
-   :ReturnType:
-          void
+getQuery()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Extbase\Persistence\QueryInterface`
+   :sep:`|`
+
+   |nbsp|
+
+getResult()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
+
+setResults()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|` :aspect:`Argument:` `$result`: Array of results
+
+   Overwrites result array.
 
 

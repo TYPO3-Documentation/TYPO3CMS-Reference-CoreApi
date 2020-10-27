@@ -9,29 +9,31 @@ The events are fired once for every combination of
 is rendered by the AssetRenderer.
 
 API
-===
+---
 
- - :Method:
-         getAssetCollector()
-   :Description:
-         Returns the :php:`AssetCollector` instance
-   :ReturnType:
-         :php:`AssetCollector`
-
- - :Method:
-         isInline()
-   :Description:
-         Returns true, if asset was registered as inline script.
-   :ReturnType:
-         bool
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         isPriority()
-   :Description:
-         Returns true, if asset was registered as a prioritized asset.
-   :ReturnType:
-         bool
+.. rst-class:: dl-parameters
+
+getAssetCollector()
+   :sep:`|` :aspect:`ReturnType:` :php:`AssetCollector`
+   :sep:`|`
+
+   |nbsp|
+
+isInline()
+   :sep:`|` :aspect:`ReturnType:` bool
+   :sep:`|`
+
+   |nbsp|
+
+isPriority()
+   :sep:`|` :aspect:`ReturnType:` bool
+   :sep:`|`
+
+   |nbsp|
 
 To make the events easier to use, the :php:`AssetCollector::get*()` methods
 have an optional parameter :html:`?bool $priority = null` which when given a

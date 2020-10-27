@@ -10,25 +10,27 @@ AfterFileReplacedEvent
 
 This event is fired after a file was replaced.
 
-*Example*: Further process a file or create variants, or index the 
+*Example*: Further process a file or create variants, or index the
 contents of a file for AI analysis etc.
 
 API
 ---
 
-
- - :Method:
-         getFile()
-   :Description:
-         Returns the file object.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\FileInterface
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getLocalFilePath()
-   :Description:
-         Returns the path to the local file (with which the file object will be replaced).
-   :ReturnType:
-         string
+.. rst-class:: dl-parameters
+
+getFile()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\FileInterface`
+   :sep:`|`
+
+   |nbsp|
+
+getLocalFilePath()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
 

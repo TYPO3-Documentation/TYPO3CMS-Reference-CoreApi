@@ -1,7 +1,7 @@
 .. include:: ../../../../Includes.txt
 
 
-.. _AfterExtensionStaticDatabaseContentHasBeenImportedEvent:
+.. _AfterExtensionFilesHaveBeenImportedEvent:
 
 
 ========================================
@@ -13,30 +13,30 @@ AfterExtensionFilesHaveBeenImportedEvent
 Event that is triggered after a package has imported all extension files (from `Initialisation/Files`).
 
 API
-===
+---
 
- - :Method:
-         getPackageKey()
-   :Description:
-         Returns the package key.
-   :ReturnType:
-         string
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getDestinationAbsolutePath()
-   :Description:
-         Returns the (absolute) path to the new file destination.
-   :ReturnType:
-         string
+.. rst-class:: dl-parameters
 
+getPackageKey()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         getEmitter()
-   :Description:
-         Returns the current instance of :php:`InstallUtility`.
-   :ReturnType:
-         `InstallUtility`
+   |nbsp|
 
+getDestinationAbsolutePath()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
+   |nbsp|
 
+getEmitter()
+   :sep:`|` :aspect:`ReturnType:` `InstallUtility`
+   :sep:`|`
+
+   |nbsp|

@@ -14,29 +14,28 @@ Event that is triggered before any Extbase Action is called within the ActionCon
 of its subclasses.
 
 API
-===
+---
 
- - :Method:
-         getControllerClassName()
-   :Description:
-         Returns the controller classname that was passed in the constructor.
-   :ReturnType:
-         string
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
+.. rst-class:: dl-parameters
 
- - :Method:
-         getActionMethodName()
-   :Description:
-         Returns the method name passed in the constructor.
-   :ReturnType:
-         string
+getControllerClassName()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
+   |nbsp|
 
- - :Method:
-         getPreparedArguments()
-   :Description:
-         Returns the prepared arguments passed in the constructor.
-   :ReturnType:
-          array
+getActionMethodName()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
+   |nbsp|
+
+getPreparedArguments()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
 

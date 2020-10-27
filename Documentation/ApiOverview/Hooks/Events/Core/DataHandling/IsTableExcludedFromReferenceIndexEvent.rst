@@ -15,36 +15,33 @@ ReferenceIndex only handles those.
 API
 ---
 
-
- - :Method:
-         getTable()
-   :Description:
-         Returns the current table to be indexed.
-   :ReturnType:
-         string
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         markAsExcluded()
-   :Description:
-         Mark a table as excluded from the reference index.
-   :ReturnType:
-         void
+.. rst-class:: dl-parameters
 
+getTable()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         isTableExcluded()
-   :Description:
-         Returns `true` if table is currently excluded from the reference index.
-   :ReturnType:
-         bool
+   |nbsp|
 
+markAsExcluded()
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         isPropagationStopped()
-   :Description:
-         This event is stoppable - the first listener marking a table as excluded will 
-         stop propagation.
-   :ReturnType:
-         bool
+   |nbsp|
 
+isTableExcluded()
+   :sep:`|` :aspect:`ReturnType:` bool
+   :sep:`|`
+
+   |nbsp|
+
+isPropagationStopped()
+   :sep:`|` :aspect:`ReturnType:` bool
+   :sep:`|`
+
+   This event is stoppable - the first listener marking a table as excluded will
+   stop propagation.

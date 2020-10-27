@@ -13,37 +13,33 @@ AfterExtensionDatabaseContentHasBeenImportedEvent
 Event that is triggered after a package has imported the database file shipped within a t3d/xml import file.
 
 API
-===
+---
 
- - :Method:
-         getPackageKey()
-   :Description:
-         Returns the package key.
-   :ReturnType:
-         string
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
+.. rst-class:: dl-parameters
 
- - :Method:
-         getImportFileName()
-   :Description:
-         Returns the imported file name.
-   :ReturnType:
-         string
+getPackageKey()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         getImportResult()
-   :Description:
-         Returns the number of pages imported.
-   :ReturnType:
-         int
+   |nbsp|
 
+getImportFileName()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         getEmitter()
-   :Description:
-         Returns the current instance of :php:`InstallUtility`.
-   :ReturnType:
-         `InstallUtility`
+   |nbsp|
 
+getImportResult()
+   :sep:`|` :aspect:`ReturnType:` int
+   :sep:`|`
 
+   |nbsp|
 
+getEmitter()
+   :sep:`|` :aspect:`ReturnType:` `InstallUtility`
+   :sep:`|`
+
+   |nbsp|

@@ -14,19 +14,16 @@ API
 ---
 
 
- - :Method:
-         getController()
-   :Description:
-         Returns the EditDocumentController instance used.
-   :ReturnType:
-         \TYPO3\CMS\Backend\Controller\EditDocumentController
+.. rst-class:: dl-parameters
 
+getController()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Backend\Controller\EditDocumentController`
+   :sep:`|`
 
- - :Method:
-         getRequest()
-   :Description:
-         Returns the current request.
-   :ReturnType:
-         \Psr\Http\Message\ServerRequestInterface
+   Returns the EditDocumentController instance used.
 
+getRequest()
+   :sep:`|` :aspect:`ReturnType:` `\Psr\Http\Message\ServerRequestInterface`
+   :sep:`|`
 
+   Returns the current request.

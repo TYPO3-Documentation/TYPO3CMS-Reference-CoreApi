@@ -13,43 +13,34 @@ This event is fired after a history record rollback finished.
 API
 ---
 
+.. rst-class:: dl-parameters
 
- - :Method:
-         getRecordHistoryRollback()
-   :Description:
-         Returns the RecordHistoryRollback object of the current operation.
-   :ReturnType:
-         \TYPO3\CMS\Backend\History\RecordHistoryRollback
-  
+getRecordHistoryRollback()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Backend\History\RecordHistoryRollback`
+   :sep:`|`
 
- - :Method:
-         getRollbackFields()
-   :Description:
-         Get fields to be rolled back.
-   :ReturnType:
-         string
-  
+   Returns the RecordHistoryRollback object of the current operation.
 
- - :Method:
-         getDiff()
-   :Description:
-         Get the diff between the rollback data and the current version.
-   :ReturnType:
-         array
-  
+getRollbackFields()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         getDataHandlerInput()
-   :Description:
-         Get the data array that was handed to the datahandler for rollback.
-   :ReturnType:
-         array
-  
+   Get fields to be rolled back.
 
- - :Method:
-         getBackendUserAuthentication()
-   :Description:
-         Get the current BE User Authentication object.
-   :ReturnType:
-         \TYPO3\CMS\Core\Authentication\BackendUserAuthentication
-  
+getDiff()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   Get the diff between the rollback data and the current version.
+
+getDataHandlerInput()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   Get the data array that was handed to the datahandler for rollback.
+
+getBackendUserAuthentication()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
+   :sep:`|`
+
+   Get the current BE User Authentication object.

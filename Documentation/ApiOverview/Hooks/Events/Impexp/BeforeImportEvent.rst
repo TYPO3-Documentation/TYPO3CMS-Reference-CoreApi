@@ -13,11 +13,13 @@ This event is triggered when an import file is about to be imported.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getImport()
-   :Description:
-         Returns the import object.
-   :ReturnType:
-         \TYPO3\CMS\Impexp\Import
+.. rst-class:: dl-parameters
 
+getImport()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Impexp\Import`
+   :sep:`|`
+
+   |nbsp|
