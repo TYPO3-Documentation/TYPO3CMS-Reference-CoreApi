@@ -90,7 +90,7 @@ Example::
 
    try {
       $foo = LikeWildcard::cast($valueFromPageTs);
-   } catch (\TYPO3\CMS\Core\Type\Exception\InvalidEnumerationValueException) {
+   } catch (\TYPO3\CMS\Core\Type\Exception\InvalidEnumerationValueException $exception) {
       $foo = LikeWildcard::cast(LikeWildcard::NONE);
    }
 
