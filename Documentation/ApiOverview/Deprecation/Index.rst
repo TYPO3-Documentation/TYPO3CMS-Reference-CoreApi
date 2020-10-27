@@ -6,6 +6,11 @@
 Deprecation
 ===========
 
+.. note::
+
+   For information how to handle deprecations in the TYPO3 CMS core,
+   see the Contribution Guide: :ref:`t3contrib:deprecations`.
+
 Since TYPO3 4.3, calls to deprecated functions are logged to track usage of
 deprecated/outdated methods in the TYPO3 Core. Developers have to make sure to adjust their code to avoid
 using this old functionality since deprecated methods will be removed in future TYPO3 releases.
