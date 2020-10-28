@@ -13,30 +13,27 @@ AfterExtensionStaticDatabaseContentHasBeenImportedEvent
 Event that is triggered after a package has imported the database file shipped within "ext_tables_static+adt.sql".
 
 API
-===
+---
 
- - :Method:
-         getPackageKey()
-   :Description:
-         Returns the package key.
-   :ReturnType:
-         string
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
+.. rst-class:: dl-parameters
 
- - :Method:
-         getSqlFileName()
-   :Description:
-         Returns the sql file name.
-   :ReturnType:
-         string
+getPackageKey()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
+   |nbsp|
 
- - :Method:
-         getEmitter()
-   :Description:
-         Returns the current instance of :php:`InstallUtility`.
-   :ReturnType:
-         `InstallUtility`
+getSqlFileName()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
+   |nbsp|
 
+getEmitter()
+   :sep:`|` :aspect:`ReturnType:` `InstallUtility`
+   :sep:`|`
 
+   |nbsp|

@@ -21,67 +21,58 @@ The procedure for marking the broken links in the RTE is as follow:
    the link as "checked".
 #. If a link is detected as broken, RTE will mark it as broken.
 
-This functionality is implemented in the system extension "linkvalidator". 
+This functionality is implemented in the system extension "linkvalidator".
 Other extensions can use the event to override the default behaviour.
 
 API
 ---
 
-
- - :Method:
-         isPropagationStopped()
-   :Description:
-         This is a stoppable event. If the link was checked by any responsible listener,
-         other listeners are not called anymore. (see `markAsCheckedLink` below).
-   :ReturnType:
-         bool
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getLinkType()
-   :Description:
-         Return the current link type (see constants in `LinkService`, for example: "page" or "file").
-   :ReturnType:
-         string
+.. rst-class:: dl-parameters
 
+isPropagationStopped()
+   :sep:`|` :aspect:`ReturnType:` bool
+   :sep:`|`
 
- - :Method:
-         getLinkData()
-   :Description:
-         Return the current link data.
-   :ReturnType:
-         array
+   This is a stoppable event. If the link was checked by any responsible listener,
+   other listeners are not called anymore. (see `markAsCheckedLink` below).
 
+getLinkType()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         markAsCheckedLink()
-   :Description:
-         Mark a link as checked - other listeners will not be called afterwards, so only 
-         call this method, if your listener was capable of checking this type of link.
-   :ReturnType:
-         void
+   |nbsp|
 
+getLinkData()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         markAsBrokenLink(string $reason = '')
-   :Description:
-         Mark a link as broken. Optionally add a reason.
-   :ReturnType:
-         void
+   |nbsp|
 
+markAsCheckedLink()
+   :sep:`|` :aspect:`ReturnType:` void
 
- - :Method:
-         isBrokenLink()
-   :Description:
-         Check if the link is marked as broken.
-   :ReturnType:
-         bool
+   Mark a link as checked - other listeners will not be called afterwards, so only
+   call this method, if your listener was capable of checking this type of link.
 
+markAsBrokenLink(string $reason = '')
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         getReason()
-   :Description:
-         Get reason for marking the link as broken.
-   :ReturnType:
-         string
+   |nbsp|
+
+isBrokenLink()
+   :sep:`|` :aspect:`ReturnType:` bool
+   :sep:`|`
+
+   |nbsp|
+
+getReason()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
 

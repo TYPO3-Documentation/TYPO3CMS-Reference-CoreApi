@@ -16,19 +16,21 @@ specific analysis of files like additional metadata analysis after adding them t
 API
 ---
 
-
- - :Method:
-         getFile()
-   :Description:
-         Returns the file object.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\FileInterface
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getFolder()
-   :Description:
-         Returns the folder where the file is stored.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. rst-class:: dl-parameters
+
+getFile()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\FileInterface`
+   :sep:`|`
+
+   |nbsp|
+
+getFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
 

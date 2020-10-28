@@ -16,19 +16,21 @@ The folder represents the "target folder".
 API
 ---
 
-
- - :Method:
-         getFileName()
-   :Description:
-         Returns the filename.
-   :ReturnType:
-         string
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getFolder()
-   :Description:
-         Returns the folder where the file should be created.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. rst-class:: dl-parameters
+
+getFileName()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
+
+getFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
 

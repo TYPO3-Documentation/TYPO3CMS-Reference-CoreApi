@@ -11,21 +11,22 @@ AfterObjectThawedEvent
 Allows to modify values when creating domain objects.
 
 API
-===
+---
 
- - :Method:
-         getObject()
-   :Description:
-         Returns the domain object that was passed in the constructor.
-   :ReturnType:
-         TYPO3\CMS\Extbase\DomainObject\DomainObjectInterface
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
+.. rst-class:: dl-parameters
 
- - :Method:
-         getRecord()
-   :Description:
-         Return the record that was passed in the constructor.
-   :ReturnType:
-          array
+getObject()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Extbase\DomainObject\DomainObjectInterface`
+   :sep:`|`
 
+   |nbsp|
+
+getRecord()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
 

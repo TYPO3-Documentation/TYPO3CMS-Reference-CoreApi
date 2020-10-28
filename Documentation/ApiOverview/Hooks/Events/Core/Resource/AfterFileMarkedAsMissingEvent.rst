@@ -16,12 +16,15 @@ where editors also work via FTP.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getFileUid()
-   :Description:
-         Returns the uid of the missing file.
-   :ReturnType:
-         int
 
+.. rst-class:: dl-parameters
+
+getFileUid()
+   :sep:`|` :aspect:`ReturnType:` int
+   :sep:`|`
+
+   |nbsp|
 

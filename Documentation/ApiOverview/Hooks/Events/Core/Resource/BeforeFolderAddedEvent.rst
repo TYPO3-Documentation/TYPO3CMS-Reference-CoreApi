@@ -14,17 +14,21 @@ This allows to further specify folder names according to regulations for a speci
 API
 ---
 
- - :Method:
-         getParentFolder()
-   :Description:
-         Returns the parent folder where the folder should be stored.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getFolderName()
-   :Description:
-         Returns the folder name of the folder to be added.
-   :ReturnType:
-         string
+.. rst-class:: dl-parameters
+
+getParentFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
+
+getFolderName()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
+

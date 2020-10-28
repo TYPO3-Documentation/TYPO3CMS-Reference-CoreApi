@@ -10,27 +10,30 @@ AfterTcaCompilationEvent
 
 Event after `$GLOBALS['TCA']` is built to allow to further manipulate the TCA.
 
-.. note:: 
-   
-   Side note: It is possible to check against the original TCA as this is stored within $GLOBALS['TCA'] 
+.. note::
+
+   Side note: It is possible to check against the original TCA as this is stored within $GLOBALS['TCA']
    before this event is fired.
 
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getTCA()
-   :Description:
-         Returns the current TCA (Table Configuration Array).
-   :ReturnType:
-         array
+.. rst-class:: dl-parameters
+
+getTCA()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
 
 
- - :Method:
-         setTca(array $tca)
-   :Description:
-         Sets (overwrites) the TCA. 
-   :ReturnType:
-         void
+setTca(array $tca)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
+
 

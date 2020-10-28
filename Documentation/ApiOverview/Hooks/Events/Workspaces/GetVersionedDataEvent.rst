@@ -15,59 +15,50 @@ cleaned / prepared data with an optional limit applied depending on the view.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getGridService()
-   :Description:
-         Returns the current instance of the GridDataService.
-   :ReturnType:
-         `\TYPO3\CMS\Workspaces\Service\GridDataService`
+.. rst-class:: dl-parameters
 
+getGridService()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Workspaces\Service\GridDataService`
+   :sep:`|`
 
- - :Method:
-         getData()
-   :Description:
-         Returns the cacheable data of versions.
-   :ReturnType:
-         array
+   |nbsp|
 
+getData()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         setData(array $data)
-   :Description:
-         Set / Overwrite the cacheable data of versions.
-   :ReturnType:
-         void
+   |nbsp|
 
+setData(array $data)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         getDataArrayPart()
-   :Description:
-         Returns currently relevant (with applied limit) part of the data array.
-   :ReturnType:
-         array
+   |nbsp|
 
+getDataArrayPart()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         setDataArrayPart(array $dataArrayPart)
-   :Description:
-         Set / overwrite currently relevant (with applied limit) part of the data array.
-   :ReturnType:
-         void
+   |nbsp|
 
+setDataArrayPart(array $dataArrayPart)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         getStart()
-   :Description:
-         Returns current start index.
-   :ReturnType:
-         int
+   |nbsp|
 
+getStart()
+   :sep:`|` :aspect:`ReturnType:` int
+   :sep:`|`
 
- - :Method:
-         getLimit()
-   :Description:
-         Returns current limit / maximum number of data sets.
-   :ReturnType:
-         int
+   |nbsp|
+
+getLimit()
+   :sep:`|` :aspect:`ReturnType:` int
+   :sep:`|`
+
+   |nbsp|
 

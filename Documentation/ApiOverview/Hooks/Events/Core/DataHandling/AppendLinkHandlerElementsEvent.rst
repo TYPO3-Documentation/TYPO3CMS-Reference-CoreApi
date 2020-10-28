@@ -8,91 +8,77 @@
 AppendLinkHandlerElementsEvent
 ==============================
 
-Event fired so listeners can intercept add elements when checking 
+Event fired so listeners can intercept add elements when checking
 links within the SoftRef parser.
 
 API
 ---
 
-
- - :Method:
-         getLinkParts()
-   :Description:
-         Returns the different parts of the current link.
-   :ReturnType:
-         array
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getContent()
-   :Description:
-         Returns the content of the link.
-   :ReturnType:
-         string
+.. rst-class:: dl-parameters
 
+getLinkParts()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         getElements()
-   :Description:
-         Returns elements of link.
-   :ReturnType:
-         array
+   |nbsp|
 
+getContent()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         getIdx()
-   :Description:
-         Gets index of current element.
-   :ReturnType:
-         int
+   |nbsp|
 
+getElements()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         getTokenId()
-   :Description:
-         Gets current token ID.
-   :ReturnType:
-         string
+   |nbsp|
 
+getIdx()
+   :sep:`|` :aspect:`ReturnType:` int
+   :sep:`|`
 
- - :Method:
-         setLinkParts(array $linkParts)
-   :Description:
-         Overwrites / sets current link parts.
-   :ReturnType:
-         void
+   |nbsp|
 
+getTokenId()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         setContent(string $content)
-   :Description:
-         Overwrites / sets the link content.
-   :ReturnType:
-         void
+   |nbsp|
 
+setLinkParts(array $linkParts)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         setElements(array $elements)
-   :Description:
-         Overwrites / sets the elements.
-   :ReturnType:
-         void
+   |nbsp|
 
+setContent(string $content)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         addElements(array $elements)
-   :Description:
-         Appends elements (with `array_replace_recursive`) - 
-         existing elements with the same key will be overwritten.
-         Sets `isResolved` to true (see below).
-   :ReturnType:
-         void
+   |nbsp|
 
+setElements(array $elements)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         isResolved()
-   :Description:
-         Whether the link has been resolved already.
-   :ReturnType:
-         bool
+   |nbsp|
+
+addElements(array $elements)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   Appends elements (with `array_replace_recursive`) -
+   existing elements with the same key will be overwritten.
+   Sets `isResolved` to true (see below).
+
+isResolved()
+   :sep:`|` :aspect:`ReturnType:` bool
+   :sep:`|`
+
+   |nbsp|
 

@@ -14,10 +14,15 @@ This allows to customize permissions or set up editor permissions automatically 
 API
 ---
 
- - :Method:
-         getFolder()
-   :Description:
-         Returns the folder that has been added.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. |nbsp| unicode:: 0xA0
+   :trim:
+
+
+.. rst-class:: dl-parameters
+
+getFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
 

@@ -16,51 +16,45 @@ authorized deeplinks.
 API
 ---
 
-
- - :Method:
-         getResource()
-   :Description:
-         Returns the currently handled resource.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\ResourceInterface
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getStorage()
-   :Description:
-         Returns the current storage object of the resource.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\ResourceStorage
+.. rst-class:: dl-parameters
 
+getResource()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\ResourceInterface`
+   :sep:`|`
 
- - :Method:
-         getDriver()
-   :Description:
-         Returns the current FAL driver for the resource.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Driver\DriverInterface
+   |nbsp|
 
+getStorage()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\ResourceStorage`
+   :sep:`|`
 
- - :Method:
-         isRelativeToCurrentScript()
-   :Description:
-         Returns `true` if the resource is relative to the currently executed script.
-   :ReturnType:
-         bool
+   |nbsp|
 
+getDriver()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Driver\DriverInterface`
+   :sep:`|`
 
- - :Method:
-         getPublicUrl()
-   :Description:
-         Returns current public URL of resource if one is available.
-   :ReturnType:
-         ?string
+   |nbsp|
 
+isRelativeToCurrentScript()
+   :sep:`|` :aspect:`ReturnType:` bool
+   :sep:`|`
 
- - :Method:
-         setPublicUrl(?string $publicUrl)
-   :Description:
-         Sets new public URL of resource - or removes public url (by setting `null`), disallowing public access.
-   :ReturnType:
-         void
+   |nbsp|
+
+getPublicUrl()
+   :sep:`|` :aspect:`ReturnType:` ?string
+   :sep:`|`
+
+   |nbsp|
+
+setPublicUrl(?string $publicUrl)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
 
