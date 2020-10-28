@@ -13,27 +13,27 @@ Event to intercept the "CREATE TABLE" statement from all loaded extensions.
 API
 ---
 
-
- - :Method:
-         addSqlData(string $data)
-   :Description:
-         Add SQL statements to be executed.
-   :ReturnType:
-         void
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getSqlData()
-   :Description:
-         Returns an array of statements to be executed.
-   :ReturnType:
-         array
+.. rst-class:: dl-parameters
 
+addSqlData(string $data)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         setSqlData(array $sqlData)
-   :Description:
-         Set / Overwrite SQL statements array to be executed.
-   :ReturnType:
-         void
+   |nbsp|
+
+getSqlData()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
+
+setSqlData(array $sqlData)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
 

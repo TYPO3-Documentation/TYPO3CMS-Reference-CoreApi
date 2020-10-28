@@ -14,18 +14,21 @@ Custom handlers can be initialized at this moment for any kind of resource as we
 API
 ---
 
-
- - :Method:
-         getStorage()
-   :Description:
-         Returns the current file storage.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\ResourceStorage
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         setStorage(ResourceStorage $storage)
-   :Description:
-         Set / Overwrite the storage.
-   :ReturnType:
-         void
+.. rst-class:: dl-parameters
+
+getStorage()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\ResourceStorage`
+   :sep:`|`
+
+   |nbsp|
+
+setStorage(ResourceStorage $storage)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
+

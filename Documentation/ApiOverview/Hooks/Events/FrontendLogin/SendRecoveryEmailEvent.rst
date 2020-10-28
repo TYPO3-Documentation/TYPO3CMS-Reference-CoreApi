@@ -15,19 +15,20 @@ Additional validation can happen here.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getUserInformation()
-   :Description:
-         Returns an array with user data.
-   :ReturnType:
-         array
+.. rst-class:: dl-parameters
 
+getUserInformation()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         getEmail()
-   :Description:
-         Returns the email address of the user.
-   :ReturnType:
-         \Symfony\Component\Mime\Email
+   |nbsp|
+
+getEmail()
+   :sep:`|` :aspect:`ReturnType:` :php:`\Symfony\Component\Mime\Email`
+   :sep:`|`
+
+   |nbsp|
 

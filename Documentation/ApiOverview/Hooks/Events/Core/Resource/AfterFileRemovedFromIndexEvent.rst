@@ -14,10 +14,15 @@ This event is fired once a file was just removed in the database (sys_file).
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getFileUid()
-   :Description:
-         Returns the uid of the removed file.
-   :ReturnType:
-         int
+
+.. rst-class:: dl-parameters
+
+getFileUid()
+   :sep:`|` :aspect:`ReturnType:` int
+   :sep:`|`
+
+   |nbsp|
+

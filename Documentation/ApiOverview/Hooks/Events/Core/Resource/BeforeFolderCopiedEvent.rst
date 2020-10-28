@@ -14,27 +14,27 @@ Listeners could add deferred processing / queuing of large folders.
 API
 ---
 
-
- - :Method:
-         getFolder()
-   :Description:
-         Returns the folder about to be copied.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getTargetParentFolder()
-   :Description:
-         Returns the parent folder to be copied to.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. rst-class:: dl-parameters
 
+getFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
 
- - :Method:
-         getTargetFolderName()
-   :Description:
-         Returns the name of the target folder.
-   :ReturnType:
-         string
+   |nbsp|
+
+getTargetParentFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
+
+getTargetFolderName()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
 

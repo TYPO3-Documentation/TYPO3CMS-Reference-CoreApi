@@ -13,27 +13,27 @@ Allows to modify tree data for any database tree.
 API
 ---
 
-
- - :Method:
-         getTreeData()
-   :Description:
-         Returns the tree data.
-   :ReturnType:
-         TreeNode
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         setTreeData(TreeNode $treeData)
-   :Description:
-         Sets (overwrites) the tree data. 
-   :ReturnType:
-         void
+.. rst-class:: dl-parameters
 
+getTreeData()
+   :sep:`|` :aspect:`ReturnType:` TreeNode
+   :sep:`|`
 
- - :Method:
-         getProvider()
-   :Description:
-         Returns the current data provider for the used tree.
-   :ReturnType:
-         \TYPO3\CMS\Core\Tree\TableConfiguration\AbstractTableConfigurationTreeDataProvider
+   |nbsp|
+
+setTreeData(TreeNode $treeData)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
+
+getProvider()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Tree\TableConfiguration\AbstractTableConfigurationTreeDataProvider`
+   :sep:`|`
+
+   |nbsp|
 

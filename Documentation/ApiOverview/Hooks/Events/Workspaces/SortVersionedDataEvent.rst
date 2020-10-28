@@ -13,59 +13,50 @@ Used in the workspaces module after sorting all data for versions of a workspace
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getGridService()
-   :Description:
-         Returns the current instance of the GridDataService.
-   :ReturnType:
-         \TYPO3\CMS\Workspaces\Service\GridDataService
+.. rst-class:: dl-parameters
 
+getGridService()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Workspaces\Service\GridDataService`
+   :sep:`|`
 
- - :Method:
-         getData()
-   :Description:
-         Returns the cacheable data of versions.
-   :ReturnType:
-         array
+   |nbsp|
 
+getData()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         setData(array $data)
-   :Description:
-         Set / Overwrite the cacheable data of versions.
-   :ReturnType:
-         void
+   |nbsp|
 
+setData(array $data)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         getSortColumn()
-   :Description:
-         Returns column to sort by.
-   :ReturnType:
-         string
+   |nbsp|
 
+getSortColumn()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         setSortColumn(string $sortColumn)
-   :Description:
-         Set / Overwrite column to sort by.
-   :ReturnType:
-         string
+   |nbsp|
 
+setSortColumn(string $sortColumn)
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         getSortDirection()
-   :Description:
-         Returns the current sorting direction (ASC | DESC)
-   :ReturnType:
-         string
+   |nbsp|
 
+getSortDirection()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         setSortDirection(string $sortDirection)
-   :Description:
-         Set the current sorting direction (ASC | DESC)
-   :ReturnType:
-         void
+   |nbsp|
+
+setSortDirection(string $sortDirection)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
 

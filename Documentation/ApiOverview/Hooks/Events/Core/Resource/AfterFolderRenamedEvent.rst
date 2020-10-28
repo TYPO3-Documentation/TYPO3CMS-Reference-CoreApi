@@ -14,11 +14,15 @@ This event is fired after a folder was renamed.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getFolder()
-   :Description:
-         Returns the folder after renaming.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+
+.. rst-class:: dl-parameters
+
+getFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
 

@@ -11,21 +11,22 @@ ModifyQueryBeforeFetchingObjectDataEvent
 Event which is fired before the storage backend is asked for results from a given query.
 
 API
-===
+---
 
- - :Method:
-         getQuery()
-   :Description:
-         Get query.
-   :ReturnType:
-         TYPO3\CMS\Extbase\Persistence\QueryInterface
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
+.. rst-class:: dl-parameters
 
- - :Method:
-         setQuery()
-   :Description:
-         Set query.
-   :ReturnType:
-          void
+getQuery()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Extbase\Persistence\QueryInterface`
+   :sep:`|`
 
+   |nbsp|
+
+setQuery()
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
 

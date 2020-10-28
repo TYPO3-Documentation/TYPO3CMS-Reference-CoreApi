@@ -14,26 +14,27 @@ Custom listeners can update further index values when a file was updated.
 API
 ---
 
-
- - :Method:
-         getFile()
-   :Description:
-         Returns the file.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\File
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getRelevantProperties()
-   :Description:
-         Returns the currently updated property names.
-   :ReturnType:
-         array
+.. rst-class:: dl-parameters
 
+getFile()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\File`
+   :sep:`|`
 
- - :Method:
-         getUpdatedFields()
-   :Description:
-         Returns the currently updated fields and values.
-   :ReturnType:
-         array
+   |nbsp|
+
+getRelevantProperties()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
+
+getUpdatedFields()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
+

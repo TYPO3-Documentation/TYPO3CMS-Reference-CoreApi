@@ -30,11 +30,15 @@ could look like this:
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getMailer()
-   :Description:
-         Get the current mailer instance.
-   :ReturnType:
-         \TYPO3\CMS\Core\Mail\Mailer
+
+.. rst-class:: dl-parameters
+
+getMailer()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Mail\Mailer`
+   :sep:`|`
+
+   |nbsp|
 

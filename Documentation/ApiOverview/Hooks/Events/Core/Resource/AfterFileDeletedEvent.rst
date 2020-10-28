@@ -10,18 +10,22 @@ AfterFileDeletedEvent
 
 This event is fired after a file was deleted.
 
-*Example*: If an extension provides additional functionality (e.g. variants), 
+*Example*: If an extension provides additional functionality (e.g. variants),
 this event allows listener to also clean
 up their custom handling. This can also be used for versioning of files.
 
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getFile()
-   :Description:
-         Returns the file object.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\FileInterface
+
+.. rst-class:: dl-parameters
+
+getFile()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\FileInterface`
+   :sep:`|`
+
+   |nbsp|
 

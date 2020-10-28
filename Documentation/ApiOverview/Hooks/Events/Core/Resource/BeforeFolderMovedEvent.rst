@@ -15,27 +15,27 @@ or specific rules when moving folders.
 API
 ---
 
-
- - :Method:
-         getFolder()
-   :Description:
-         Returns the folder to be moved.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getTargetParentFolder()
-   :Description:
-         Returns the folder where the moved folder will be stored.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. rst-class:: dl-parameters
 
+getFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
 
- - :Method:
-         getTargetFolderName()
-   :Description:
-         Returns the new folder name of the folder to be moved.
-   :ReturnType:
-         string
+   |nbsp|
+
+getTargetParentFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
+
+getTargetFolderName()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
 

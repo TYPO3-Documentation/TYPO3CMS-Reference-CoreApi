@@ -56,21 +56,21 @@ A listener using mentioned PSR-14 event could look like the following.
          }
 
 API
-===
+---
 
- - :Method:
-         addModule(string $moduleName)
-   :Arguments:
-      - :php:`$moduleName`: The JavaScript module name
-   :Description:
-         Add a module to be loaded with RequireJS (e.g. :code:`TYPO3/CMS/MyExtension/CustomUserSettingsModule`)
-   :ReturnType:
-         void
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
+.. rst-class:: dl-parameters
 
- - :Method:
-         getModules()
-   :Description:
-         Returns the list of module names to be loaded.
-   :ReturnType:
-         array
+addModule(string $moduleName)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|` :aspect:`Arguments:` :php:`$moduleName`: The JavaScript module name
+
+   Add a module to be loaded with RequireJS (e.g. :code:`TYPO3/CMS/MyExtension/CustomUserSettingsModule`)
+
+getModules()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
