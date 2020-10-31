@@ -77,7 +77,6 @@ These are the typical functions that extension authors should place within :file
 * Adding default TypoScript via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility` APIs
 * Registering Scheduler Tasks
 * Adding reports to the reports module
-* Adding slots to signals via Extbase's SignalSlotDispatcher
 * Registering Icons to the :ref:`IconRegistry <icon-registration>`
 * Registering Services via the :ref:`Service API <services-developer-service-api>`
 
@@ -139,7 +138,7 @@ ext_tables.php
 frontend context.
 
 This file is only included when
-  
+
 * a TYPO3 Backend or CLI request is happening
 * or the TYPO3 Frontend is called and a valid Backend User is authenticated
 
