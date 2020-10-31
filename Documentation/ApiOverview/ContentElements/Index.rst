@@ -20,6 +20,7 @@ created, how existing content elements or plugins can be customized etc.
    Introduction
    AddingYourOwnContentElements
    CreatePlugins
+   CustomBackendPreview
    ContentElementsWizard
    ../FlexForms/Index
    ../../DataFormats/T3datastructure/Index
