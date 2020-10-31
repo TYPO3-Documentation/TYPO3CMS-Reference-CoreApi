@@ -46,6 +46,70 @@ which will never be added again, as it is now part of the URL path.
 Using MountPoint functionality on a website plays a vital role for menus as this
 is the only way to link to the subpages in a MountPoint context.
 
+Examples
+-------------
+
+Basic MountPoint - "Show this page"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Example Pagetree:
+
+*  Root
+
+   *  Basic MountPoint
+   *  Company
+
+      *  About us
+
+MountPoint Configuration:
+
+:Title:
+ Basic MountPoint
+:URL Segment:
+ basic-mountpoint
+:Target Page:
+ Company
+:Mount Point Display Option:
+ "Show this page"
+
+Generated URLs:
+
+- `https://example.com/basic-mountpoint` -> shows content on this page
+- `https://example.com/basic-mountpoint/about-us` -> shows `company/about-us` content
+- `https://example.com/company/`
+- `https://example.com/company/about-us`
+
+Basic MountPoint - "Show the mounted page"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Example Pagetree:
+
+
+*  Root
+
+   *  Basic MountPoint
+   *  Company
+
+      *  About us
+
+MountPoint Configuration:
+
+:Title:
+ Basic MountPoint
+:URL Segment:
+ basic-mountpoint
+:Target Page:
+ Company
+:Display Option:
+ "Show the mounted page"
+
+Generated URLs:
+
+- `https://example.com/basic-mountpoint` -> shows `company` content
+- `https://example.com/basic-mountpoint/about-us` -> shows `company/about-us` content
+- `https://example.com/company/`
+- `https://example.com/company/about-us`
+
 Multi-Site support
 -------------------
 
@@ -53,15 +117,50 @@ The context for cross-domain sites is also kept, ensuring that the user will
 never notice that content might be coming from a completely different site or pagetree within TYPO3.
 Creating links for multi-site support is the same as if a Mounted Page is on the same site.
 
+Example
+~~~~~~~
+
+Example Pagetree:
+
+*  Site 1 (example.com)
+
+   *  Company
+
+      *  About us
+
+*  Site 2 (company.example.com)
+
+   *  Cross-Site Mount
+
+Mountpoint Configuration:
+
+:Title:
+ Cross-Site Mount
+:URL Segment:
+ cross-site-mount
+:Target Page:
+ Company
+:Display Option:
+ "Show the mounted page"
+
+Generated URLs:
+
+- `https://example.com/company`
+- `https://example.com/company/about-us`
+- `https://company.example.com/cross-site-mount/` -> shows `company` content
+- `https://company.example.com/cross-site-mount/about-us` -> shows `company/about-us` content
+
 
 Limitations
 -----------
 
-1. Multi-language support
+1. *Multi-language support*
+
    Please be aware that multi-language setups are generally supported, but this would
    only work if both sites use the same language IDs.
 
-2. Slug uniqueness when using Multi-Site setups cannot be ensured
+2. *Slug uniqueness when using Multi-Site setups cannot be ensured*
+
    If a MountPoint Page has the slug "/more", mounting a page with "/imprint" subpage,
    but the MountPoint Page has a regular sibling page with "/more/imprint" a collision cannot
    be detected. In contrast, the non-mounted page would always work, and a subpage of a
