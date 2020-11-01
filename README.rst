@@ -11,4 +11,4 @@ This official TYPO3 documentation is *the* main document about the enterprise co
 management system TYPO3.
 
 :Repository:  https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi
-:Read online: https://docs.typo3.org/typo3cms/CoreApiReference/
+:Read online: https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/
