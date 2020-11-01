@@ -176,6 +176,7 @@ address the task at hand.
 .. toctree::
    :maxdepth: 1
 
+   genindex
    Sitemap
    About
    Targets
