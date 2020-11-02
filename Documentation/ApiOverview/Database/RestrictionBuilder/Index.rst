@@ -165,6 +165,14 @@ QueryRestrictionContainer
   be added by a developer to a query if creating query statements in frontend context or if handling
   frontend stuff from within cli calls.
 
+limitRestrictionsToTables()
+===========================
+
+With the :php:`\TYPO3\CMS\Core\Database\Query\Restriction\LimitToTablesRestrictionContainer`
+it is possible to apply restrictions to a query only for a given set of tables, or - to be precise - table aliases.
+Since it is a restriction container, it can be added to the restrictions of the query builder and
+can hold restrictions itself.
+
 
 Examples
 ========
@@ -232,50 +240,49 @@ deliver and use an own set of restrictions for own query statements if needed.
 
 
 If you want to apply one or more restriction/s to only one table, that is possible as follows. Let's say,
-that you have content in table `tt_content` that could have another record as parent record assigned in field
-`parent`. Now you would like to get all records except the child records where the parent record is hidden.::
-
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
-   // use TYPO3\CMS\Core\Database\Query\Restriction\EndTimeRestriction;
-   // use TYPO3\CMS\Core\Database\Query\Restriction\StartTimeRestriction;
-   // use TYPO3\CMS\Core\Database\Query\Restriction\DefaultRestrictionContainer;
+that you have content in table `tt_content` with a relation to categories. Now you would like to get all records with their categories, except those that are hidden. The hidden restriction in this case should only apply to
+the :sql:`tt_content` table, not to the :sql:`sys_category` or :sql:`sys_category_*_mm` table.::
 
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+   $queryBuilder->getRestrictions()
+       ->removeByType(HiddenRestriction::class)
+       ->add(
+           GeneralUtility::makeInstance(LimitToTablesRestrictionContainer::class)
+               ->addForTables(GeneralUtility::makeInstance(HiddenRestriction::class), ['tt'])
+       );
+   $queryBuilder->select('tt.uid', 'tt.header', 'sc.title')
+       ->from('tt_content', 'tt')
+       ->from('sys_category', 'sc')
+       ->from('sys_category_record_mm', 'scmm')
+       ->where(
+           $queryBuilder->expr()->eq('scmm.uid_foreign', $queryBuilder->quoteIdentifier('tt.uid')),
+           $queryBuilder->expr()->eq('scmm.uid_local', $queryBuilder->quoteIdentifier('sc.uid')),
+           $queryBuilder->expr()->eq('tt.uid', $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT))
+       );
 
-   // Remove all restrictions first
-   $queryBuilder
-      ->getRestrictions()
-      ->removeAll()
 
-   // build a custom restriction container
-   $myRestrictionContainer = new DefaultRestrictionContainer();
+In this example the :php:`HiddenRestriction` is only applied to :sql:`tt` table alias of :sql:`tt_content`.
 
-   // remove all restrictions that should not be used
-   // with this, only the HiddenRestriction stays in the restriction container
-   $myRestrictionContainer
-      ->removeByType(DeletedRestriction::class)
-      ->removeByType(EndTimeRestriction::class)
-      ->removeByType(StartTimeRestriction::class);
+Furthermore it is possible to restrict the complete set of restrictions of a query builder to a
+given set of table aliases.
 
-   // apply the restrictions in "$myRestrictionContainer" only to one table
-   $doctrineQueryBuilderExpressions = $myRestrictionContainer->buildExpression(['c2' => 'tt_content'], $queryBuilder->expr());
+.. code-block:: php
 
-   // add those restrictions to the orWhere query part
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+   $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(HiddenRestriction::class));
+   $queryBuilder->getRestrictions()->limitRestrictionsToTables(['c2']);
    $queryBuilder
       ->select('c1.*')
       ->from('tt_content', 'c1')
-      ->leftJoin('c1', 'tt_content', 'c2', 'c1.parent = c2.uid')
-      ->orWhere($queryBuilder->expr()->isNull('c2.uid'), $doctrineQueryBuilderExpressions);
+      ->leftJoin('c1', 'tt_content', 'c2', 'c1.parent_field = c2.uid')
+      ->orWhere($queryBuilder->expr()->isNull('c2.uid'), $queryBuilder->expr()->eq('c2.pid', $queryBuilder->createNamedParameter(1, \PDO::PARAM_INT)));
 
-With this you will end up with the following query:
+Which will result in:
 
 .. code-block:: sql
 
-   SELECT `c1`.*
-   FROM `tt_content` `c1`
-         LEFT JOIN `tt_content` `c2` ON c1.parent = c2.uid
-   WHERE (`c2`.`uid` IS NULL) OR (`c2`.`hidden` = 0);
-
+   SELECT "c1".*
+   FROM "tt_content" "c1"
+   LEFT JOIN "tt_content" "c2" ON c1.parent_field = c2.uid
+   WHERE (("c2"."uid" IS NULL) OR ("c2"."pid" = 1)) AND ("c2"."hidden" = 0))
 
