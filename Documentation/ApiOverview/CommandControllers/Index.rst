@@ -15,12 +15,6 @@ This functionality can be used to set up cronjobs, for example.
 TYPO3 uses Symfony commands API for writing CLI (command line interface) commands.
 These commands can also be run from the TYPO3 :ref:`scheduler <symfony-console-commands-scheduler>`.
 
-.. versionadded:: 8
-   :doc:`t3core:Changelog/8.0/Feature-73042-IntroduceNativeSupportForSymfonyConsole`
-
-.. deprecated:: 9
-    :doc:`t3core:Changelog/9.4/Deprecation-85977-ExtbaseCommandControllersAndCliAnnotation`
-
 .. deprecated:: 10
     :doc:`t3core:Changelog/10.3/Deprecation-89139-ConsoleCommandsConfigurationFormatCommandsPhp`
 
@@ -193,12 +187,6 @@ This argument can be retrieved with :php:`$input->getArgument()`, the options wi
 Deactivating the Command in Scheduler
 -------------------------------------
 
-.. versionadded:: 9
-   :doc:`t3core:Changelog/9.0/Feature-79462-IntroduceSchedulerTaskToExecuteConsoleCommand`
-
-.. versionadded:: 9
-   :doc:`t3core:Changelog/9.4/Feature-85991-ExcludeSymfonyCommandsFromScheduler`
-
 By default, the command can be used in the scheduler too.
 This can be disabled by setting ``schedulable`` to ``false`` in :file:`Configuration/Services.yaml`::
 
@@ -265,12 +253,6 @@ Show help for the command:
 
 Running the Command From the Scheduler
 ======================================
-
-.. versionadded:: 9.0
-
-   Running Symfony Console Commands via the scheduler is possible since TYPO3 v9.0.
-
-   The :ref:`schedulable` option is available since v9.4.
 
 By default, it is possible to run the command from the :ref:`TYPO3 scheduler
 <sched:start>` as well. In order to deactivate this, see
