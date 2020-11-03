@@ -42,18 +42,29 @@ Optionally it is possible to restrict this feature to non-admins only by setting
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['passwordResetForAdmins']`
 
-Both options are available to be configured within the :guilabel:`Maintenance Area => Settings`
+Both options are available to be configured within the :guilabel:`Maintenance Area > Settings`
 module or in the :guilabel:`Install Tool` but can be set manually via :file:`typo3conf/LocalConfiguration.php` or :file:`typo3conf/AdditionalConfiguration.php`.
 
 Reset password for user
 =======================
 
-Administrators can reset a user's password. This is especially useful for security purposes, so an administrator does not need to send a password over the wire in plaintext (e.g., email) to a user.
+Administrators can reset a user's password. This is especially useful for security purposes, so an administrator does not need to send a password over the wire in plaintext (e.g. email) to a user.
 
 The administrator can use the CLI command:
 
-`./typo3/sysext/core/bin/typo3 backend:resetpassword https://www.example.com/typo3/ editor@example.com`
+.. code-block:: bash
+
+   ./typo3/sysext/core/bin/typo3 backend:resetpassword https://www.example.com/typo3/ editor@example.com
 
 where usage is described like this:
 
-`backend:resetpassword <backendurl> <email>`
+.. code-block:: bash
+
+   backend:resetpassword <backendurl> <email>
+
+
+.. note::
+
+   The backend URL is necessary to generate the correct links to the TYPO3 instance
+   from CLI context.
+
