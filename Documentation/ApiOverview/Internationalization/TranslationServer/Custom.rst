@@ -35,12 +35,13 @@ The class (listener) which receives the event
    namespace Company\Extensions\Listener;
    use \TYPO3\CMS\Install\Service\Event\ModifyLanguagePackRemoteBaseUrlEvent;
    class CustomMirror {
-      static protected $extKey = 'myext';
+      static protected $extensionKey = 'myext';
 
-      public function postProcessMirrorUrl(ModifyLanguagePackRemoteBaseUrlEvent $evt) {
-         if ($evt->getPackageKey() === self::$extKey) {
+      public function postProcessMirrorUrl(ModifyLanguagePackRemoteBaseUrlEvent $event): void
+      {
+         if ($event->getPackageKey() === self::$extensionKey) {
             $mirrorUrl = 'http://mycompany.tld/typo3-packages/';
-            $evt->setBaseUrl($mirrorUrl);
+            $event->setBaseUrl($mirrorUrl);
          }
       }
    }
