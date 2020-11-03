@@ -9,9 +9,8 @@
 List of Core PSR-14 Events
 ==========================
 
-The following list contains noticable :ref:`PSR-14 events <EventDispatcher>`
-in the TYPO3 core. For a full list of available events refer to the
-"Configuration" module in the TYPO3 backend.
+The following list contains :ref:`PSR-14 events <EventDispatcher>`
+in the TYPO3 core.
 
 **Contents:**
 
