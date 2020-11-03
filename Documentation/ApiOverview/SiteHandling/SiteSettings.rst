@@ -27,6 +27,11 @@ Add a `settings` block to the :file:`config.yml`:
             loginform:
                pid: 23
 
+.. note::
+
+   This example shows how to fill two constants of EXT:felogin via site settings.
+
+
 Accessing Site Settings in Page TSConfig or TypoScript
 ======================================================
 
