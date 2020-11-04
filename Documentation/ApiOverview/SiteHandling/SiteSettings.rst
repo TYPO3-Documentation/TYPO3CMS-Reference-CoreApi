@@ -29,7 +29,8 @@ Add a `settings` block to the :file:`config.yml`:
 
 .. note::
 
-   This example shows how to fill two constants of EXT:felogin via site settings.
+   This example shows how to fill a constant of EXT:felogin via site settings (`styles.content.loginform.pid`) and
+   configures a custom `categoryPid`.
 
 
 Accessing Site Settings in Page TSConfig or TypoScript
