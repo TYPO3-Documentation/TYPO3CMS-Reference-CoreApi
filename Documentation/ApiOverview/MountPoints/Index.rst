@@ -1,5 +1,5 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.txt
+.. index:: Mount points
 
 
 .. _MountPoints:
@@ -52,7 +52,7 @@ accordingly.
 
 
 Simple usage example
---------------------
+====================
 
 Consider this setup::
 
@@ -90,7 +90,7 @@ about-us
 
 
 Multi-Site support
--------------------
+==================
 
 Mount points generally support cross-site mounts. The context for cross-domain
 sites is kept, ensuring that the user will never notice that content might be coming
@@ -138,7 +138,7 @@ company/about-us
 
 
 Limitations
------------
+===========
 
 1. *Multi-language support*
 
