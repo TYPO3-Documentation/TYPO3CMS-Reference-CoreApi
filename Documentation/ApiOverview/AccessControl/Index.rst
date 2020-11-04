@@ -2,9 +2,9 @@
 
 .. _access:
 
-======================
-Backend Access Control
-======================
+======================================
+Backend Access Control (Users & Roles)
+======================================
 
 .. toctree::
    :maxdepth: 5
@@ -12,6 +12,7 @@ Backend Access Control
    :glob:
 
    UsersAndGroups/Index
+   PasswordReset/Index
    Roles/Index
    AccessControlOptions/Index
    OtherOptions/Index
