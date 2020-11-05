@@ -22,22 +22,22 @@ allowed on a certain page type.
 This is the default array as set in :file:`EXT:core/ext_tables.php`::
 
    $GLOBALS['PAGES_TYPES'] = [
-      (string)\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_BE_USER_SECTION => [
-         'allowedTables' => '*'
-      ],
-      (string)\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_SYSFOLDER => [
-         //  Doktype 254 is a 'Folder' - a general purpose storage folder for whatever you like.
-         // In CMS context it's NOT a viewable page. Can contain any element.
-         'allowedTables' => '*'
-      ],
-      (string)\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_RECYCLER => [
-         // Doktype 255 is a recycle-bin.
-         'allowedTables' => '*'
-      ],
-      'default' => [
-         'allowedTables' => 'pages,sys_category,sys_file_reference,sys_file_collection',
-         'onlyAllowedTables' => false
-      ],
+       (string)\TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_BE_USER_SECTION => [
+           'allowedTables' => '*'
+       ],
+       (string)\TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SYSFOLDER => [
+           //  Doktype 254 is a 'Folder' - a general purpose storage folder for whatever you like.
+           // In CMS context it's NOT a viewable page. Can contain any element.
+           'allowedTables' => '*'
+       ],
+       (string)\TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_RECYCLER => [
+           // Doktype 255 is a recycle-bin.
+           'allowedTables' => '*'
+       ],
+       'default' => [
+           'allowedTables' => 'pages,sys_category,sys_file_reference,sys_file_collection',
+           'onlyAllowedTables' => false
+       ],
    ];
 
 
@@ -163,20 +163,17 @@ tree.
 
 The new page type is added to :php:`$GLOBALS['PAGES_TYPES']` in :file:`ext_tables.php`::
 
-   (function ($extKey='example') {
-      $archiveDoktype = 116;
-
-      // Add new page type:
-      $GLOBALS['PAGES_TYPES'][$archiveDoktype] = [
-          'type' => 'web',
-          'allowedTables' => '*',
-      ];
-
-   })();
+    (function ($archiveDoktype = 116) {
+        // Add new page type:
+        $GLOBALS['PAGES_TYPES'][$archiveDoktype] = [
+            'type' => 'web',
+            'allowedTables' => '*',
+        ];
+    })();
 
 User TSconfig is added and an icon is registed in :file:`ext_localconf.php`::
 
-   (function ($extKey='example') {
+   (function ($extKey='example', $archiveDoktype = 116) {
       // Provide icon for page tree, list view, ... :
       $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
       $iconRegistry
@@ -207,8 +204,7 @@ Furthermore we need to modify the configuration of "pages" records. As one can m
 need to add the new doktype as select item and associate it with the configured icon. That's done in
 :file:`Configuration/TCA/Overrides/pages.php`::
 
-   (function ($extKey='example', $table='pages') {
-      $archiveDoktype = 116;
+   (function ($extKey='example', $table='pages', $archiveDoktype = 116) {
 
       // Add new page type as possible select item:
       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
@@ -238,7 +234,7 @@ need to add the new doktype as select item and associate it with the configured 
               // add all page standard fields and tabs to your new page type
               'types' => [
                   (string) $archiveDoktype => [
-                      'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_DEFAULT]['showitem']
+                      'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_DEFAULT]['showitem']
                   ]
               ]
           ]
