@@ -608,8 +608,6 @@ the generation of a `cHash` is not optional anymore, but strictly built-in to en
 really have the requirement to not have a cHash argument, ensure that all placeholders are having strict definitions
 on what could be the result of the page segment (e.g. pagination), and feel free to build custom mappers.
 
-Setting the TypoScript option `typolink.useCacheHash` is not necessary anymore when running with a site configuration.
-
 All existing APIs like `typolink` or functionality evaluate the new Page Routing API directly.
 
 .. note::

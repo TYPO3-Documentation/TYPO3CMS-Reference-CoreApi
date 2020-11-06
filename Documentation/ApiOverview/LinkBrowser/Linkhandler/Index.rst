@@ -47,7 +47,6 @@ The configuration consists of the following parts:
               parameter = 123
               additionalParams.data = field:uid
               additionalParams.wrap = &tx_example_pi1[item]=|&tx_example_pi1[controller]=Item&tx_example_pi1[action]=show
-              useCacheHash = 1
           }
       }
 
@@ -155,7 +154,6 @@ A configuration could look like this::
            parameter = 123
            additionalParams.data = field:uid
            additionalParams.wrap = &tx_example_pi1[item]=|
-           useCacheHash = 1
        }
    }
 
@@ -172,7 +170,6 @@ The following displays the link to the news on a detail page::
          parameter = 123
          additionalParams.data = field:uid
          additionalParams.wrap = &tx_news_pi1[controller]=News&tx_news_pi1[action]=detail&tx_news_pi1[news]=|
-         useCacheHash = 1
       }
    }
 
@@ -184,6 +181,5 @@ detail page you can do it like this::
          parameter = 123
          additionalParams.data = field:uid
          additionalParams.wrap = &tx_news_pi1[controller]=News&tx_news_pi1[action]=detail&tx_news_pi1[news]=|
-         useCacheHash = 1
       }
    }
