@@ -88,7 +88,6 @@ RecordsXmlSitemapDataProvider. You can add for example a sitemap for news record
                         tx_extension_pi1.controller = News
                         tx_extension_pi1.action = detail
                      }
-                     useCacheHash = 1
                   }
                }
             }
