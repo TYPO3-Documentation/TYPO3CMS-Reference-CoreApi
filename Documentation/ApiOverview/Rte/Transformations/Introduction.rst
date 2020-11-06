@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _transformations-introduction:
@@ -69,9 +69,9 @@ This is how the content in the database could look for a hybrid mode
 
 
 As you can see the TYPO3-specific tag,
-:code:`<a href="t3://page?uid=123">` is used for the link to page 123. 
-This tag is designed to be easy for editors to insert and easy for TYPO3 
-to parse and understand. The t3:// scheme is later resolved to a real 
+:code:`<a href="t3://page?uid=123">` is used for the link to page 123.
+This tag is designed to be easy for editors to insert and easy for TYPO3
+to parse and understand. The t3:// scheme is later resolved to a real
 link in the frontend by the :ref:`linkhandler`. Further line 2 shows
 bold text. In line 3 the situation is that the paragraph should be
 centered - and there seems to be no other way than wrapping the line
@@ -81,7 +81,7 @@ can do no better without an RTE. Line 4 is just plain.
 Generally this content will be processed before output on a page of
 course. Typically the rule will be this: "Wrap each line in a :code:`<p>` tag
 which is not already wrapped in a :code:`<p>` tag and run all
-:code:`<a>`-tags with TYPO3-specific schemes through a Linkhandler to 
+:code:`<a>`-tags with TYPO3-specific schemes through a Linkhandler to
 resolve them to real uris." and thus the final result will be valid HTML.
 
 
@@ -93,7 +93,7 @@ In RTE
 The content in the database can easily be edited as plain text thanks
 to the "hybrid-mode" used to store the content. But when the content
 above from the database has to go into the RTE it *will not* work if
-every line is not wrapped in a :code:`<p>` tag! 
+every line is not wrapped in a :code:`<p>` tag!
 This is what eventually goes into the RTE:
 
 .. code-block:: xml
@@ -132,10 +132,10 @@ direction; From DB to RTE and from RTE to DB.
 
 The transformations are invoked in two cases:
 
-- **Before content enters the editing form** This is done by calling the method 
+- **Before content enters the editing form** This is done by calling the method
   :code:`\TYPO3\CMS\Core\Html\RteHtmlParser::transformTextForRichTextEditor()`.
 
-- **Before content is saved in the database** This is done by calling the method 
+- **Before content is saved in the database** This is done by calling the method
   :code:`\TYPO3\CMS\Core\Html\RteHtmlParser::transformTextForPersistence()`.
 
 The rationale for transformations is discussed in :ref:`appendix-a`.

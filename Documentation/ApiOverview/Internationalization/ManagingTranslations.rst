@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _managing-translating:
@@ -192,7 +192,7 @@ would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
    defined for "de_AT" if it were just falling back on "de".
 
 .. seealso::
-   
+
    Configure :yaml:`typo3Language` for using custom languages in the frontend,
    see :ref:`sitehandling-addinglanguages` for details.
 

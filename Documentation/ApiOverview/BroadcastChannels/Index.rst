@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 .. highlight:: javascript
 
 .. _broadcast_channels:

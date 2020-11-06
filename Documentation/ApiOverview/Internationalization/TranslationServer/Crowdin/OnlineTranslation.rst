@@ -1,4 +1,4 @@
-.. include:: ../../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _crowdin-crowdin-translation:
@@ -22,7 +22,7 @@ If you want to participate, it only takes a few easy steps to get started:
 4. Select your preferred language
 5. Start translation
 
-Using Crowdin is free for Open Source projects. For private projects, Crowdin's pricing model is based on projects and not on individual users.  
+Using Crowdin is free for Open Source projects. For private projects, Crowdin's pricing model is based on projects and not on individual users.
 
 Teams and roles
 ===============

@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _sitehandling-customErrorHandler:
 
@@ -72,7 +72,7 @@ The ErrorHandler class:
         * @var int
         */
        protected $statusCode;
-       
+
        /**
         * @var array
         */

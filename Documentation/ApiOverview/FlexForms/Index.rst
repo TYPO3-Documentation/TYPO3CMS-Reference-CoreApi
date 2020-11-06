@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _flexforms:
 
@@ -382,7 +382,7 @@ How to Access Flexforms From TypoScript
             }
         }
     }
-    
+
 The key `flexform` is followed by the field which holds the Flexform data (`pi_flexform`) and the name of the property whose content should be retrieved (`settings.categories`).
 
 .. seealso::

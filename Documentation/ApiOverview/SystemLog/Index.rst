@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _syslog:
 
@@ -8,7 +8,7 @@ System Log
 
 .. warning::
 
-   A :ref:`new logging API <logging>` was introduced in TYPO3 CMS 6.0. It should be used by extension 
+   A :ref:`new logging API <logging>` was introduced in TYPO3 CMS 6.0. It should be used by extension
    authors starting with TYPO3 v9 LTS. The following section is here as legacy reference,
    but should not be used in installations with TYPO3 >= 9.
 

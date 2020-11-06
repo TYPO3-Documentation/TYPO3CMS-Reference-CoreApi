@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _cli-mode:
 .. _cli-mode-dispatcher:
@@ -159,7 +159,7 @@ which can be passed on the command line:
 .. code-block:: bash
 
    vendor/bin/typo3 yourext:dothings [-b] [wizardName]
-   
+
 
 This argument can be retrieved with :php:`$input->getArgument()`, the options with
 :php:`$input->getOption()`, for example::

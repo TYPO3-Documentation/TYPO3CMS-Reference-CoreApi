@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _error-handling-extending:
@@ -53,7 +53,7 @@ of the functionality::
            // do it ;-)
        }
    }
-   
+
 :file:`typo3conf/AdditionalConfiguration.php`::
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\PostExceptionsOnTwitter::class;

@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _extension-declaration:
@@ -161,7 +161,7 @@ $_EXTKEY is set globally and contains the extension key.
          suggests
            List of suggestions of extensions that work together or
            enhance this extension.
-           Extensions defined here will be loaded *before* the current extension. 
+           Extensions defined here will be loaded *before* the current extension.
            Dependencies take precedence over suggestions.
            Loading order especially matters when overriding TCA or SQL of another extension.
 
