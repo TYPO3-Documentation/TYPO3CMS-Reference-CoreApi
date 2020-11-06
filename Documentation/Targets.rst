@@ -1,4 +1,4 @@
-.. include:: Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _targets-for-crossreferencing:
 .. _Targets-for-Cross-Referencing:

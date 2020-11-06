@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _transformations-overview:
@@ -51,11 +51,11 @@ Transformation Filters
          css\_transform
 
    Description
-         Transforms the html markup either for display in the richtext editor or for saving in the db. 
-         The name "css_transform" is historical; earlier TYPO3 versions had a long since removed 
-         "ts_transform" mode, which basically only saved a minimum amount of HTML in the db and 
-         produced a lot of nowadays outdated markup like :code:`<font>` tag style rendering in the 
-         frontend. 
+         Transforms the html markup either for display in the richtext editor or for saving in the db.
+         The name "css_transform" is historical; earlier TYPO3 versions had a long since removed
+         "ts_transform" mode, which basically only saved a minimum amount of HTML in the db and
+         produced a lot of nowadays outdated markup like :code:`<font>` tag style rendering in the
+         frontend.
 
 
 .. container:: table-row
@@ -66,7 +66,7 @@ Transformation Filters
    Description
          Processes anchor tags and resolves them via :code:`\TYPO3\CMS\Core\LinkHandling\LinkService`
          before saving them to the db, while using the TYPO3-internal t3:// syntax.
-         
+
 .. ###### END~OF~TABLE ######
 
 

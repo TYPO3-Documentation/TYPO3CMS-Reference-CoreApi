@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -66,12 +66,12 @@ To check if a feature is enabled use this code::
 .. attention::
 
    Currently, only the core features can be (de-)activated in the Install Tool.
-   
+
    To change the setting for your extension feature either use :file:`Localconfiguration.php`:
    or :file:`AdditionalConfiguration.php`: like
-   
+
    .. code-block:: php
-      
+
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true
 
 The name can be any arbitrary string, but an extension author should prefix the feature with the
