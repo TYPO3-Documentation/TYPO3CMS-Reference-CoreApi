@@ -186,30 +186,6 @@ After installing the extension, the event :ref:`AfterPackageActivationEvent<Afte
 dispatched. You may use this to alter your website configuration (e.g. color
 scheme) on the fly.
 
-
-.. _distribution-kickstart-custom-dependencies:
-
-Delivering Custom Dependencies
-------------------------------
-
-Normally extension dependencies are setup in the
-:ref:`Extension declaration file <extension-declaration>`.
-
-However sometimes, extensions are not available in the
-*TYPO3 Extension Repository (TER)*, or you need to deliver a modified version.
-Therefore, a distribution can act as its own extension repository.
-Add unpacked extensions to :file:`Initialisation/Extensions/` to provide
-dependencies. Your main extension has to be dependent on these
-extensions as normal dependencies in :file:`ext_emconf.php`.
-
-Extensions delivered inside an extension have the highest priority when extensions
-need to be fetched.
-
-.. caution::
-
-  This will not overwrite extensions already present in the system.
-
-
 .. _distribution-testing:
 
 Test Your Distribution
