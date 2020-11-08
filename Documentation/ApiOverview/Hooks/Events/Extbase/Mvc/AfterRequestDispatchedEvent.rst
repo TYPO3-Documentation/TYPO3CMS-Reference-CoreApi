@@ -27,7 +27,7 @@ getRequest()
    |nbsp|
 
 getResponse()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Extbase\Mvc\ResponseInterface`
+   :sep:`|` :aspect:`ReturnType:` :php:`\Psr\Http\Message\ResponseInterface`
    :sep:`|`
 
    |nbsp|
