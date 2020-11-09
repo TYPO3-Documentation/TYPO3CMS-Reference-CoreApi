@@ -152,10 +152,7 @@ authUserFE, authUserBE
 getGroupsFE
   This subtype exists only for the FE. The method to implement
   is :php:`getGroups()`, which is tasked with gathering the various
-  groups the user is part of (by default, taking into account such
-  configuration options as
-  :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['IPmaskMountGroups']`
-  and the fact that FE user groups may be locked to a given domain).
+  groups the user is part of.
 
   The :php:`getGroups()` method receives as arguments the user data
   and a list of already assigned groups, if any. It is expected to return
