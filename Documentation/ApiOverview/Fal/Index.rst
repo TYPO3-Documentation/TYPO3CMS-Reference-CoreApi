@@ -16,3 +16,4 @@ Digital Assets Management (FAL)
     Architecture/Index
     Administration/Index
     UsingFal/Index
+    Collections/Index
