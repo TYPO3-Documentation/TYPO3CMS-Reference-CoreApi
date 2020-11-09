@@ -114,7 +114,6 @@ This logic can be implemented by a custom method::
       const DEFAULT_STATE = 0;
       const NEW_PLACEHOLDER = 1;
       const DELETE_PLACEHOLDER = 2;
-      const MOVE_PLACEHOLDER = 3;
       const MOVE_POINTER = 4;
 
       /**
