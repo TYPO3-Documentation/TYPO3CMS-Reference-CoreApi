@@ -144,19 +144,18 @@ GeneratePublicUrlForResourceEvent
   script or absolute and a reference to the public URL (which is null at
   this point, but can be then modified by the event).
 
+.. _fal-architecture-events-storage-repository:
 
-.. _fal-architecture-events-resource-factory:
-
-\\TYPO3\\CMS\\Core\\Resource\\ResourceFactory
-=============================================
+\\TYPO3\\CMS\\Core\\Resource\\StorageRepository
+===============================================
 
 BeforeResourceStorageInitializationEvent
-  This event is dispatched by method :code:`\TYPO3\CMS\Core\Resource\ResourceFactory::getStorageObject()`
+  This event is dispatched by method :code:`\TYPO3\CMS\Core\Resource\StorageRepository::getStorageObject()`
   before a Storage object has been fetched. The event receives a reference
   to the Storage.
 
 AfterResourceStorageInitializationEvent
-  This event is dispatched by method :code:`\TYPO3\CMS\Core\Resource\ResourceFactory::getStorageObject()`
+  This event is dispatched by method :code:`\TYPO3\CMS\Core\Resource\StorageRepository::getStorageObject()`
   after a Storage object has been fetched. The event receives a reference
   to the Storage.
 
