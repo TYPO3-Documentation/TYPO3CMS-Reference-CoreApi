@@ -32,7 +32,6 @@ another whole lot of examples.
    :titlesonly:
    :name: examples-toctree
 
-   PageTrees/Index
    Clipboard/Index
    ContextualMenu/Index
    ParsingHtml/Index
