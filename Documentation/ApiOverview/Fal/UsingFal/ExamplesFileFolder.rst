@@ -54,8 +54,8 @@ Copying a File
    $someFileIdentifier = 'templates/images/banner.jpg';
    $someFolderIdentifier = 'website/images/';
 
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
-   $storage = $storageRepository->getStorageObject($storageUid);
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
+   $storage = $resourceFactory->getStorageObject($storageUid);
 
    // $file returns a TYPO3\CMS\Core\Resource\File object
    $file = $storage->getFile($someFileIdentifier);
@@ -74,8 +74,8 @@ Adding a File
 This example adds a new file in the root folder of the default
 Storage::
 
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
-   $storage = $storageRepository->getDefaultStorage();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
+   $storage = $resourceFactory->getDefaultStorage();
    $newFile = $storage->addFile(
          '/tmp/temporary_file_name.ext',
          $storage->getRootLevelFolder(),
@@ -219,8 +219,8 @@ Storage (path relative to Storage root), finally retrieve the files.
 
 .. code-block:: php
 
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
-   $defaultStorage = $storageRepository->getDefaultStorage();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
+   $defaultStorage = $resourceFactory->getDefaultStorage();
    $folder = $defaultStorage->getFolder('/some/path/in/storage/');
    $files = $defaultStorage->getFilesInFolder($folder);
 
