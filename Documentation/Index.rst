@@ -148,6 +148,7 @@ address the task at hand.
    ApiOverview/LockingApi/Index
    ApiOverview/Logging/Index
    ApiOverview/Mail/Index
+   ApiOverview/MountPoints/Index
    ApiOverview/Namespaces/Index
    ApiOverview/PageTypes/Index
    ApiOverview/Pagination/Index
