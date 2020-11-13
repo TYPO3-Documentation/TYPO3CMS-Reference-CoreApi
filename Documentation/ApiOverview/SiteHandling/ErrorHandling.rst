@@ -16,9 +16,11 @@ The configuration consists of two parts:
 
 You can define one error handler per HTTP error code and add a generic one that serves all error pages.
 
-.. tip::
-    No more trouble with translated 404 error pages. With the new site handling getting translated
-    404 is easy!
+No more trouble with translated 404 error pages. With the new site handling getting translated 404 is easy!
+
+.. attention::
+   Exceptions must be handled via :ref:`error-handling` since they occur on a much lower level.
+   These are currently not covered by site error handling.
 
 .. figure:: ../../Images/SiteHandlingErrorHandling-1.png
    :class: with-shadow
