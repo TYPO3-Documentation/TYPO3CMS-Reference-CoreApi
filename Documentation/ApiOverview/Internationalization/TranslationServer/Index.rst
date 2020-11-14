@@ -11,6 +11,7 @@ A translation server holds all translations which can be fetched by multiple TYP
 .. toctree::
    :titlesonly:
 
+   Weblate
    Crowdin
    Pootle
    Custom
