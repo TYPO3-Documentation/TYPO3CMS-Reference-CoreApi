@@ -10,30 +10,6 @@ order - not in the order of importance (all are relevant but the usage
 depends on your specific site and requirements).
 
 
-cookieSecure
-""""""""""""
-
-This configuration should be used in combination with
-:ref:`lockSSL <security-global-typo3-options-lockSSL>`. It indicates that
-the cookie should only be transmitted over a secure HTTPS connection between
-client and server. Possible values are: `0`, `1` and `2` (integer) with the following meaning:
-
-`0`
-   A cookie is always sent, independently from which protocol is used currently.
-   This is the default setting.
-
-`1`
-   The cookie will only be set if a secure connection exists (HTTPS).
-   Use this in combination with :ref:`lockSSL <security-global-typo3-options-lockSSL>`
-   since otherwise the application will fail and throw an exception.
-
-`2`
-   The cookie will be set in each case, but uses the secure flag if a secure (HTTPS)
-   connection exists.
-
-The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['cookieSecure']`
-
-
 displayErrors
 """""""""""""
 
