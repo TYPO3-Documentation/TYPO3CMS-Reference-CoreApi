@@ -89,6 +89,13 @@ in the TYPO3 core.
 
 .. toctree::
    :titlesonly:
+   :caption: recordlist
+   :glob:
+
+   Recordlist/*
+
+.. toctree::
+   :titlesonly:
    :caption: seo
    :glob:
 
