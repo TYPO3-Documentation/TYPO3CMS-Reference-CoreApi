@@ -23,7 +23,7 @@ API
 
 .. rst-class:: dl-parameters
 
-getTCA()
+getTca()
    :sep:`|` :aspect:`ReturnType:` array
    :sep:`|`
 
