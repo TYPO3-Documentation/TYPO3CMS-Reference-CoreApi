@@ -28,6 +28,9 @@ Guidelines for System Administrators
 .. _security-file-extension-handling:
 .. include:: FileExtensionHandling.rst.txt
 
+.. _security-content-security-policy:
+.. include:: ContentSecurityPolicy.rst.txt
+
 .. _security-database-access:
 .. include:: DatabaseAccess.rst.txt
 
