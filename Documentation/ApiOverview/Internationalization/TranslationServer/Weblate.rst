@@ -10,6 +10,12 @@ Localization with Weblate
 .. tip::
 
    Weblate is used for TYPO3, but not for everything yet.
+   
+   
+.. seealso::
+
+    *  `Issue tracking Weblate use <https://github.com/TYPO3-Documentation/T3DocTeam/issues/148>`__.
+   
 
 What is Weblate
 ===============
@@ -26,7 +32,7 @@ Weblate is a continuous localization management platform, offering the best expe
 - **Weblate** is a copylefted libre software localization solution.
 
 
-.. _crowdin-initiative:
+.. _weblate-initiative:
 
 Weblate Initiative
 ==================
