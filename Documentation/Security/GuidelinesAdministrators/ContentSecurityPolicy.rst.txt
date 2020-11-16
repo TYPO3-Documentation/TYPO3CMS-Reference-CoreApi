@@ -29,7 +29,7 @@ these directories - basically all public available base directories of
 file storages (`sys_file_storage`).
 
 The following example sends a corresponding CSP_ header for any file
-accessed via https://example.org/fileadmin/...
+accessed via https://example.org/fileadmin/...::
 
    # placed in fileadmin/.htaccess on Apache 2.x webserver
    <IfModule mod_headers.c>
@@ -39,5 +39,5 @@ accessed via https://example.org/fileadmin/...
 CSP rules can be verified with a CSP-Evaluator_
 
 .. _CSP: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-.. _TYPO3_PSA-2019-010: https://typo3.org/security/advisory/typo3-psa-2019-010
+.. _TYPO3-PSA-2019-010: https://typo3.org/security/advisory/typo3-psa-2019-010
 .. _CSP-Evaluator: https://csp-evaluator.withgoogle.com/
