@@ -160,10 +160,39 @@ mbox
    possible to add custom settings.
 
 
+.. _mail-validators:
+
+validators
+----------
+
+.. versionadded:: 11.0
+
+Using additional validators can help to identify if a provided email address
+is valid or not. By default, the validator
+:php:`\Egulias\EmailValidator\Validation\RFCValidation` is used. The following
+validators are available:
+
+- :php:`\Egulias\EmailValidator\Validation\DNSCheckValidation`
+- :php:`\Egulias\EmailValidator\Validation\SpoofCheckValidation`
+- :php:`\Egulias\EmailValidator\Validation\NoRFCWarningsValidation`
+
+Additionally it is possible to provide an own implementation by implementing the
+interface :php:`\Egulias\EmailValidator\Validation\EmailValidation`.
+
+If multiple validators are provided, each validator must return :php:`true`.
+
+Example::
+
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['validators'] = [
+      \Egulias\EmailValidator\Validation\RFCValidation::class,
+      \Egulias\EmailValidator\Validation\DNSCheckValidation::class
+   ];
+
+
 .. _mail-spooling:
 
 Spooling
-============================
+========
 
 The default behavior of the TYPO3 mailer is to send the email messages immediately. You may, however, want to avoid
 the performance hit of the communication to the email server, which could cause the user to wait for the next page to
