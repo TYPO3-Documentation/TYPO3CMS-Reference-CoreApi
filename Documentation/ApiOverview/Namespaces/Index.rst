@@ -98,12 +98,13 @@ Inside the class, the namespace is declared as::
 Namespaces in Extbase
 ---------------------
 
-When registering components in Extbase, the vendor name must be used on top of the extension key.
+When registering components in Extbase, the "UpperCamelCase" notation of the
+extension key is used.
 
 For a backend module::
 
    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-       '<vendorName>.<ExtensionName>',
+       '<ExtensionName>',
        // ...
    );
 
@@ -111,14 +112,9 @@ For a backend module::
 For a frontend module::
 
    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-       '<vendorName>.<ExtensionName>',
+       '<ExtensionName>',
        // ...
    );
-
-
-.. important::
-   - Do not forget the dot after the vendor name.
-   - Do not use dots inside the vendor name.
 
 
 .. _namespaces-test:
@@ -171,5 +167,5 @@ References
 ----------
 
 For more information about PHP namespaces in general, you may want to refer to the
-`PHP documentation <http://www.php.net/manual/en/language.namespaces.php>`_ and
-in particular the `Namespaces FAQ <http://www.php.net/manual/en/language.namespaces.faq.php>`_.
+`PHP documentation <https://www.php.net/manual/en/language.namespaces.php>`_ and
+in particular the `Namespaces FAQ <https://www.php.net/manual/en/language.namespaces.faq.php>`_.
