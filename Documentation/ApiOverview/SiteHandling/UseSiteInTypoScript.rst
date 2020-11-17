@@ -47,6 +47,38 @@ To access the current siteLanguage use the :ref:`siteLanguage <t3tsref:data-type
 
 Site configuration can also be used in :ref:`TypoScript conditions <sitehandling-inConditions>`.
 
+constants
+~~~~~~~~~
+
+Site configuration :yaml:`settings` can be accessed directly as constant. 
+
+See :issue:`91080`
+See :issue:`91081`
+
+An example configuration in the :file:`config/sites/<site-name>/config.yml`:
+
+.. code-block:: yaml
+
+   settings:
+     categoryPid: 658
+     styles:
+       content:
+         loginform:
+           pid: 23
+
+This will make these constants available in the TypoScript template:
+
+* :ts:`{$categoryPid}`
+* :ts:`{$styles.content.loginform.pid}`
+
+.. note::
+
+   The TypoScript constants are now evaluated in this order:
+
+   #. Global :php:`'defaultTypoScript_constants'`
+   #. Site specific settings from the site configuration
+   #. Constants from sys_template database records
+
 FLUIDTEMPLATE
 ~~~~~~~~~~~~~
 
