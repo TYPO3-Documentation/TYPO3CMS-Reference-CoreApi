@@ -79,7 +79,7 @@ errorFluidTemplatesRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler == `Fluid`**: Paths to Fluid Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -93,7 +93,7 @@ errorFluidPartialsRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler == `Fluid`**: Paths to Fluid Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -107,7 +107,7 @@ errorFluidLayoutsRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler == `Fluid`**: Paths to Fluid Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
