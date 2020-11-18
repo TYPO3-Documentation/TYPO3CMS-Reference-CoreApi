@@ -55,7 +55,7 @@ errorHandler
 
 :aspect:`Description`
     Define how to handle these errors. May be `Fluid` for rendering a fluid template,
-    `page` for fetching content from a page or `PHP` for a custom implementation.
+    `Page` for fetching content from a page or `PHP` for a custom implementation.
 
 :aspect:`Example`
     `Fluid`
@@ -85,7 +85,7 @@ errorFluidTemplatesRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler == `Fluid`**: Paths to Fluid Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -99,7 +99,7 @@ errorFluidPartialsRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler == `Fluid`**: Paths to Fluid Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -113,7 +113,7 @@ errorFluidLayoutsRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler == `Fluid`**: Paths to Fluid Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -127,7 +127,7 @@ errorContentSource
     string
 
 :aspect:`Description`
-    May be either an External URL or TYPO3 Page that will be fetched with curl and displayed
+    **Only if `errorHandler: Page`**: May be either an External URL or TYPO3 Page that will be fetched with curl and displayed
     in case of an error.
 
 :aspect:`Example`
@@ -141,7 +141,7 @@ errorPhpClassFQCN
     string
 
 :aspect:`Description`
-    Fully qualified class name of a custom error handler implementing `PageErrorHandlerInterface`.
+    **Only if `errorHandler: PHP`**: Fully qualified class name of a custom error handler implementing `PageErrorHandlerInterface`.
 
 :aspect:`Example`
     `My\Site\Error\Handler`
