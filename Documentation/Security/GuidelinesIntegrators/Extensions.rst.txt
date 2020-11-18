@@ -67,8 +67,8 @@ risks.
 Executable binaries shipped with extensions
 """""""""""""""""""""""""""""""""""""""""""
 
-TYPO3 extensions (:file:`.t3x` files) are packages, which may contain any kind
-of data/files. This can not only be readable PHP or Javascript source
+TYPO3 extensions (:file:`.zip` files) are packages, which may contain any kind
+of data/files. This cannot only be readable PHP or Javascript source
 code, but also binary files, e.g. Unix/Linux ELF files or Microsoft
 Windows .exe files (compiled executables).
 
