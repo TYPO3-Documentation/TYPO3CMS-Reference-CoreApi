@@ -52,6 +52,7 @@ for the selection of pages. You also have the possibility to exclude certain dok
              config {
                excludedDoktypes = 137, 138
                additionalWhere = AND (no_index = 0 OR no_follow = 0)
+               #rootPage = <optionally specify a different root page. (default: rootPageId from site configuration)>
              }
            }
          }
