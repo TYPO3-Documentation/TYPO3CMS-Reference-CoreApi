@@ -68,9 +68,9 @@ Executable binaries shipped with extensions
 """""""""""""""""""""""""""""""""""""""""""
 
 TYPO3 extensions (:file:`.zip` files) are packages, which may contain any kind
-of data/files. This cannot only be readable PHP or Javascript source
-code, but also binary files, e.g. Unix/Linux ELF files or Microsoft
-Windows .exe files (compiled executables).
+of data/files. This can be readable PHP or Javascript source code, as well as
+binary files like compiled executables, e.g. Unix/Linux ELF files or Microsoft
+Windows .exe files.
 
 Executing these files on a server is a security risk, because it can not
 be verified what these files really do (unless they are
