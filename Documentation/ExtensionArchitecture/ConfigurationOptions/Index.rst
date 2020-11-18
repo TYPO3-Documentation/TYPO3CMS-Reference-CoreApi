@@ -93,14 +93,14 @@ file and is available as array :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['
 
 To retrieve the configuration use the API provided by the :php:`\TYPO3\CMS\Core\Configuration\ExtensionConfiguration` class::
 
-   $backendConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
+   $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
       ->get('your_extension_key');
 
 This will return the whole configuration as an array.
 
 To directly fetch specific values like :ts:`temporaryDirectory` from the example above::
 
-   $backendConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
+   $temporaryDirectory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
       ->get('your_extension_key', 'temporaryDirectory');
 
 
@@ -122,12 +122,5 @@ You can also define nested options using the TypoScript notation:
 
 This will result in a multidimensional array::
 
-   $extensionConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['your_extension_key'];
-   $extensionConfiguration['directories.']['tmp']
-   $extensionConfiguration['directories.']['cache']
-
-.. important::
-
-   Notice the dot at the end of the :code:`directories` key.
-   This notation must be used for every grouping key and
-   is a convention of the TypoScript parser.
+   $extensionConfiguration['directories']['tmp']
+   $extensionConfiguration['directories']['cache']
