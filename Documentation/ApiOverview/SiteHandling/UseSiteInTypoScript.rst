@@ -45,7 +45,8 @@ To access the current siteLanguage use the :ref:`siteLanguage <t3tsref:data-type
     or CLI context as long as the rootPageId of the site is known. To avoid duplicating configuration options,
     TypoScript can now access these properties, too.
 
-Site configuration can also be used in :ref:`TypoScript conditions <sitehandling-inConditions>`.
+Site configuration can also be used in :ref:`TypoScript conditions <sitehandling-inConditions>` and as
+:ref:`TypoScript constants <sitehandling-settings>`.
 
 FLUIDTEMPLATE
 ~~~~~~~~~~~~~
