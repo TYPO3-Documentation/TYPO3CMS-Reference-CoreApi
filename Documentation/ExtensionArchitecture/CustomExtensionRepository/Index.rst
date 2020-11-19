@@ -48,7 +48,7 @@ To disable an already registered remote, :yaml:`enabled: false` can be set.
 
 .. code-block:: yaml
 
-  extension.remote.myremote:
+  extension.remote.ter:
     tags:
       - name: 'extension.remote'
         enabled: false
