@@ -20,3 +20,4 @@ be used by extensions.
    Modals
    MultiStepWizard
    DocumentService
+   SessionStorageWrapper
