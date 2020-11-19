@@ -46,3 +46,11 @@ STEPS TOWARDS CREATING AN EXTENSION
    Documentation/Index
    PublishExtension/Index
    Resources/Index
+
+ADVANCED
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   CustomExtensionRepository/Index
