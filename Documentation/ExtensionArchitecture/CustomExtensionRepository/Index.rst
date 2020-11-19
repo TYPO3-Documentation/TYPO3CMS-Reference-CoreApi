@@ -9,9 +9,9 @@ Custom Extension Repository
 
 .. note::
 
-   This section is only relevant for non-composer-mode installations,
-   as composer-based installations use the download functionality
-   of composer.
+   This section is only relevant for Classic Mode installations,
+   as Composer Mode installations use the download functionality
+   of Composer.
 
 TYPO3 provides functionality that connects to a different repository type
 than the "official" TER_ (TYPO3 Extension Repository) to download third-party extensions.
