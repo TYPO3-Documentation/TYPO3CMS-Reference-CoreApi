@@ -154,22 +154,6 @@ Frontend Implementation Guidelines
          workspace (only for "element" type versioning)
 
 
- - :Function:
-         $GLOBALS['TSFE']->sys\_page->fixVersioningPid()
-   :Description:
-         Finding online PID for offline version record.
-
-         Will look if the "pid" value of the input record is -1 (it is an
-         offline version) and if the table supports versioning; if so, it will
-         translate the -1 PID into the PID of the original record
-
-         Used whenever you are tracking something back, like making the root
-         line. In fact, it is currently only used by the root line function and
-         chances are that you will not need this function often.
-
-         Principle: Record offline! => Find online?
-
-
 .. _workspaces-frontend-problems:
 
 Frontend Scenarios Impossible to Preview
@@ -279,11 +263,6 @@ Workspace-related API for Backend Modules
             \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL($table, $row);
 
 
- - :Function:
-         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::fixVersioningPid()
-   :Description:
-         Translating versioning PID -1 to the pid of the live record. Same as
-         :code:`sys_page->fixVersioningPid()` but for the backend.
 
 
  - :Function:
