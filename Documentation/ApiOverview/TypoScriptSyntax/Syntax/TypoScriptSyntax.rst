@@ -128,10 +128,6 @@ removeFromList
   Removes a comma-separated list of values from an
   existing comma-separated list of values.
 
-uniqueList
-  Removes duplicate entries from a comma-separated list
-  of values.
-
 reverseList
   Reverses the order of entries in a comma-separated
   list of values.
