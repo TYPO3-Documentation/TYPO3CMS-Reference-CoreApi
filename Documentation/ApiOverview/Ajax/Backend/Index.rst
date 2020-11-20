@@ -30,7 +30,8 @@ will be our AJAX endpoint.
 
    use Psr\Http\Message\ServerRequestInterface;
    use TYPO3\CMS\Core\Http\Response;
-
+   use TYPO3\CMS\Core\Http\JsonResponse;
+   
    class ExampleController
    {
        public function doSomethingAction(ServerRequestInterface $request): Response
@@ -103,7 +104,7 @@ $reasonPhrase
    {
        // our previous computation
 
-       return new Response(json_encode(['result' => $result]), 200, ['Content-Type' => 'application/json; charset=utf-8']);
+       return new JsonResponse(['result' => $result], 200);
    }
 
 
