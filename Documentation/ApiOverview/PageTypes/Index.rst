@@ -175,27 +175,3 @@ need to add the new doktype as select item and associate it with the configured 
         'pages'
     );
 
-The same must be done with the "pages_language_overlay", so that the new page type
-can also be translated :file:`Configuration/TCA/Overrides/pages_language_overlay.php`::
-
-    // Also add the new doktype to the page language overlays type selector (so that translations can inherit the same type)
-    call_user_func(
-        function ($extKey, $table) {
-            $archiveDoktype = 116;
-
-            // Add new page type as possible select item:
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-                $table,
-                'doktype',
-                [
-                    'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
-                    $archiveDoktype,
-                    'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg'
-                ],
-                '1',
-                'after'
-            );
-        },
-        'example',
-        'pages_language_overlay'
-    );
