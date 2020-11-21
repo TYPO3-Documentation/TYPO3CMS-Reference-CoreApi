@@ -4,7 +4,7 @@
 .. _linkhandler:
 
 ===============
-LinkHandler Api
+LinkHandler API
 ===============
 
 .. versionadded:: 8.6

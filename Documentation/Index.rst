@@ -161,7 +161,6 @@ address the task at hand.
    ApiOverview/Services/Index
    ApiOverview/SessionStorageFramework/Index
    ApiOverview/SiteHandling/Index
-   ApiOverview/SoftReferences/Index
    ApiOverview/CommandControllers/Index
    ApiOverview/SymfonyExpressionLanguage/Index
    ApiOverview/Categories/Index
