@@ -22,6 +22,19 @@ Some important fields:
 storage
   Id of the storage where the file is stored.
 
+type
+  The type of the file represented by an integer defined in
+  :php:`\TYPO3\CMS\Core\Resource\AbstractFile`.
+
+  Possible values:
+
+  * 0 = unknown
+  * 1 = text
+  * 2 = image
+  * 3 = audio
+  * 4 = video
+  * 5 = application
+
 identifier
   A string which should uniquely identify a file within its storage.
   Duplicate identifiers are possible, but will create a confusion.
