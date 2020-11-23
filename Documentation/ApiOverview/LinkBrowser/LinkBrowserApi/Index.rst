@@ -4,7 +4,7 @@
 .. _linkbrowser-api:
 
 ===============
-Linkbrowser API
+LinkBrowser API
 ===============
 
 .. versionadded:: 7.6
