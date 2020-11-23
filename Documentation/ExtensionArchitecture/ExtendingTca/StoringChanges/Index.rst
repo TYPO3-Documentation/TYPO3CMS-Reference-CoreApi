@@ -110,5 +110,4 @@ Changing the TCA "on the Fly"
 
 It is also possible to perform some special manipulations on
 :php:`$GLOBALS['TCA']` right before it is stored into cache, thanks to the
-:code:`tcaIsBeingBuilt` signal. This signal was introduced in
-TYPO3 CMS 6.2.1.
+:ref:`PSR-14 event <EventDispatcher>` :ref:`AfterTcaCompilationEvent <AfterTcaCompilationEvent>`.
