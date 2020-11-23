@@ -58,22 +58,6 @@ notify
          Just report if a value is found, nothing more.
 
 
-
-.. _soft-references-default-parsers-images:
-
-images
-------
-
-.. container:: table-row
-
-   softref key
-         images
-
-   Description
-         HTML :code:`<img>` tags for RTE images / images from :file:`upload/`.
-
-
-
 .. _soft-references-default-parsers-typolink:
 
 typolink
