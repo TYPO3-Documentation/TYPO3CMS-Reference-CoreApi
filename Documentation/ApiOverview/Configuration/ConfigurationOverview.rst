@@ -32,7 +32,7 @@ Global files
    are written to this file.
 
 :file:`<webroot>/typo3conf/AdditionalConfiguration.php`:
-   Cam be used to **override** settings defined in :file:`LocalConfiguration.php`
+   Can be used to **override** settings defined in :file:`LocalConfiguration.php`
 
 :file:`config/sites/<site>/config.yaml`
    This file is located in :file:`webroot/typo3conf/sites` in non-Composer installations.
@@ -58,17 +58,19 @@ Extension files
    Define the "Extension Configuration" settings that can be changed in the backend.
 
 :file:`Configuration/Services.yaml`
-   Can be used to configure :ref:`Event listeners <EventDispatcher>` and
-   :ref:`Dependency injection <DependencyInjection>`
+   Can be used to configure :ref:`Console commands <symfony-console-commands>`,
+   :ref:`Dashboard widgets <t3dashboard:register-new-widget>`,
+   :ref:`Event listeners <EventDispatcher>` and
+   :ref:`Dependency injection <DependencyInjection>`.
 
 :file:`Configuration/TCA`
-   TCA configuration.
+   :ref:`TCA configuration <t3tca:start>`.
 
 :file:`Configuration/TSconfig/`
-   TSconfig configuration.
+   :ref:`TSconfig configuration <t3tsconfig:start>`.
 
 :file:`Configuration/TypoScript/`
-   TypoScript configuration.
+   :ref:`TypoScript configuration <t3tsref:start>`.
 
 
 .. hint::
@@ -85,10 +87,11 @@ These are the main languages TYPO3 uses for configuration:
   and TSconfig.
 * :ref:`TypoScript constant syntax <t3tsref:typoscript-syntax-constant-editor>` is
   used for Extension Configuration and for defining constants for TypoScript.
-* :ref:`Yaml <yaml-syntax>` is the configuration language of choice for newer TYPO3 system extensions
-  like rte_ckeditor, form and the sites module. It has partly replaced TypoScript
-  and TSconfig as configuration languages.
-* XML is used in FlexForms.
+* :ref:`Yaml <yaml-syntax>` is the configuration language of choice for newer
+  TYPO3 system extensions like :ref:`rte_ckeditor <ckedit:start>`,
+  :ref:`form <form:start>` and the :ref:`sites module <sitehandling>`. It has
+  partly replaced TypoScript and TSconfig as configuration languages.
+* XML is used in :ref:`Flexforms <flexforms>`.
 * PHP is used for the :php:`$GLOBALS` array which includes TCA
   (:php:`$GLOBALS['TCA']`, Global Configuration (:php:`GLOBALS['TYPO3_CONF_VARS']`),
   User Settings (:php:`$GLOBALS['TYPO3_USER_SETTINGS']`, etc.
@@ -170,7 +173,7 @@ For an introduction, you may want to read one of the following tutorials:
    ├── $GLOBALS['TCA'] = "TCA"
    ├── GLOBALS['TYPO3_CONF_VARS'] = "Global configuration"
    │   ├── GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'] = "Extension configuration"
-   │   └── GLOBALS['TYPO3_CONF_VARS']['SYS'][']features'] = "Feature Toggles"
+   │   └── GLOBALS['TYPO3_CONF_VARS']['SYS']['features'] = "Feature Toggles"
    └── $GLOBALS['TYPO3_USER_SETTINGS'] = "User settings"
    └── ...
 
@@ -204,7 +207,7 @@ The :php:`$GLOBALS` PHP array consists of:
 :ref:`feature-toggles`:
    are used to switch a specific functionality of
    TYPO3 on or off. The values are written to
-   :php:`GLOBALS['TYPO3_CONF_VARS']['SYS'][']features']`.
+   :php:`GLOBALS['TYPO3_CONF_VARS']['SYS']['features']`.
    The feature toggles can be switched on or off in the backend
    :guilabel:`ADMIN TOOLS > Settings > Feature Toggles` with **Admin**
    privileges. The :ref:`API <feature-toggles-api>` should be used
@@ -219,7 +222,8 @@ This is not a complete list of the entire :php:`$GLOBALS` array.
 
    You can find more and view the configuration in the TYPO3 backend
    :guilabel:`SYSTEM > Configuration` (read only) or by viewing the
-   :php:`$GLOBALS` array in a debugger.
+   :php:`$GLOBALS` array in a debugger. The backend module is available with
+   activated `lowlevel` system extension.
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']`, Extension configuration and feature toggles
 can be changed in the backend in :guilabel:`ADMIN TOOLS > Settings` by
