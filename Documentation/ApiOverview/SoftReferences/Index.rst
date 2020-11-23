@@ -9,7 +9,7 @@ Soft References
 
 "Soft References" are references to database elements, files, email
 addresses, URLs etc. which are found inside text fields. The
-:code:`<link[page_id]>` tag found in bodytext fields is an example of this.
+:html:`<a href="t3://page?[page_id]>` tag for page links found in bodytext fields is an example of this.
 
 The Soft Reference parsers are used by the system to find these
 references and process them accordingly in import/export actions and
@@ -85,7 +85,7 @@ typolink\_tag
          typolink\_tag
 
    Description
-         As typolink, but searching for a :code:`<link>` tag encapsulating it.
+         As typolink, with an :code:`<a>` tag encapsulating it.
 
 
 
