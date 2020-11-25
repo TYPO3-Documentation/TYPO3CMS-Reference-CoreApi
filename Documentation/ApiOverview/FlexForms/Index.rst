@@ -382,8 +382,69 @@ The key `flexform` is followed by the field which holds the Flexform data (`pi_f
 How to Access FlexFroms From Fluid
 ----------------------------------
 
-Flexform settings can be read from within a Fluid template using
-:html:`{settings}`. Note that this only works for Flexform variables which are prefixed with `settings.` - variables which are not prefixed will have to be extracted from within a controller, data processor or other PHP context which allows arbitrary access to the Flexform values.
+If you are using an Extbase controller, FlexForm settings can be read from within a Fluid template using
+:html:`{settings}`. Note that this only works for Flexform variables which are prefixed with `settings.`
+ - variables which are not prefixed will have to be extracted from within a controller, data processor
+ or other PHP context which allows arbitrary access to the Flexform values.
+
+If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign single variables like that:
+
+.. code-block:: typoscript
+
+   my_content = FLUIDTEMPLATE
+   my_content {
+     variables {
+       categories = TEXT
+       categories.data = flexform: pi_flexform:categories
+     } 
+   }
+
+In order to have all FlexForm fields available, you can add a custom DataProcessor. 
+This example would make your FlexForm data available as Fluid variable :html:`{flexform}`:
+
+.. code-block:: typoscript
+
+   my_content = FLUIDTEMPLATE
+   my_content {
+     dataProcessing {
+       10 = Your\Ext\DataProcessing\FlexFormProcessor
+     }
+   }
+
+.. code-block:: php
+   namespace Your\Ext\DataProcessing;
+   
+   use TYPO3\CMS\Core\Service\FlexFormService;
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
+   
+   class FlexFormProcessor implements DataProcessorInterface
+   {
+       /**
+        * @var FlexFormService
+        */
+       protected $flexFormService;
+       
+       public function __construct() {
+           $this->flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
+       }
+       
+       public function process(
+           ContentObjectRenderer $cObj,
+           array $contentObjectConfiguration,
+           array $processorConfiguration,
+           array $processedData
+       ): array {
+           $originalValue = $processedData['data']['pi_flexform'];
+           if (!is_string($originalValue)) {
+               return $processedData;
+           }
+   
+           $flexformData = $this->flexFormService->convertFlexFormContentToArray($originalValue);
+           $processedData['flexform'] = $flexformData;
+           return $processedData;
+       }
+   }
 
 
 Steps to Perform (Editor)
