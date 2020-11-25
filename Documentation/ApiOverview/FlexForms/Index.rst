@@ -430,28 +430,38 @@ In order to have all FlexForm settings available, you can add a custom DataProce
    
    class FlexFormProcessor implements DataProcessorInterface
    {
+       /**
+        * @var FlexFormService
+        */
+       protected $flexFormService;
+       
+       public function __construct(FlexFormService $flexFormService) {
+           $this->flexFormService = $flexFormService;
+       }
+       
        public function process(
            ContentObjectRenderer $cObj,
            array $contentObjectConfiguration,
            array $processorConfiguration,
            array $processedData
        ): array {
-           $flexFormService = GeneralUtility::makeInstance(FlexFormService::class); // or use Dependency Injection
-   
            $originalValue = $processedData['data']['pi_flexform'];
            if (!is_string($originalValue)) {
                return $processedData;
            }
    
-           $flexformData = $flexFormService->convertFlexFormContentToArray($originalValue);
+           $flexformData = $this->flexFormService->convertFlexFormContentToArray($originalValue);
            $processedData['flexform'] = $flexformData;
            return $processedData;
        }
    }
 
-
-
-
+.. code-block:: yaml
+   # Configuration/Services.yaml
+   services:
+     Your\Ext\DataProcessing\FlexFormProcessor:
+       autowire: true
+       autoconfigure: true
 
 
 Steps to Perform (Editor)
