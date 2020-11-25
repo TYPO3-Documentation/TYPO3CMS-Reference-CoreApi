@@ -423,6 +423,7 @@ This example would make your FlexForm data available as Fluid variable :html:`{f
    }
 
 .. code-block:: php
+
    namespace Your\Ext\DataProcessing;
    
    use TYPO3\CMS\Core\Service\FlexFormService;
