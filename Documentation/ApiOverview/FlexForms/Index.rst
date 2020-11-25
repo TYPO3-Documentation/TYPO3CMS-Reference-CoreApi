@@ -457,7 +457,8 @@ This example would make your FlexForm data available as Fluid variable :html:`{f
        }
    }
 
-You will need to setup the dependency injection with a :yaml:`autowire` directive. See :ref:`configure-dependency-injection-in-extensions`.
+.. seealso::
+   :ref:`configure-dependency-injection-in-extensions`.
 
 
 Steps to Perform (Editor)
