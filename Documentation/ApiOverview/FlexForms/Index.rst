@@ -410,7 +410,8 @@ If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign si
      } 
    }
 
-In order to have all FlexForm settings available, you can add a custom DataProcessor:
+In order to have all FlexForm fields available, you can add a custom DataProcessor. 
+This example would make your FlexForm data available as Fluid variable :html:`{flexform}`:
 
 .. code-block:: typoscript
 
@@ -456,12 +457,7 @@ In order to have all FlexForm settings available, you can add a custom DataProce
        }
    }
 
-.. code-block:: yaml
-   # Configuration/Services.yaml
-   services:
-     Your\Ext\DataProcessing\FlexFormProcessor:
-       autowire: true
-       autoconfigure: true
+You will need to setup the dependency injection with a :yaml:`autowire` directive. See :ref:`configure-dependency-injection-in-extensions`.
 
 
 Steps to Perform (Editor)
