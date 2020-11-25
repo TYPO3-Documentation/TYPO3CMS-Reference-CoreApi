@@ -40,7 +40,7 @@ using the following API:
         ],
         [
             'access' => 'admin',
-            'icon' => 'EXT:beuser/Resources/Public/Icons/module-beuser.svg',
+            'iconIdentifier' => 'module-beuser',
             'labels' => 'LLL:EXT:beuser/Resources/Private/Language/locallang_mod.xlf',
             'navigationComponentId' => 'TYPO3/CMS/Backend/PageTree/PageTreeElement',
             'inheritNavigationComponentFromMainModule' => false,
@@ -79,7 +79,7 @@ Parameters:
      * ``user``: the module can be made accessible per user
      * ``group``: the module can be made accessible per usergroup
 
-   * Module ``icon``
+   * Module ``iconIdentifier``
    * A language file containing ``labels`` like the module title and description,
      for building the module menu and for the display of information in the
      **About Modules** module (found in the main help menu in the top bar).
@@ -107,7 +107,7 @@ Toplevel modules like "Web" or "File" are registered with the same API:
         [],
         [
             'access' => '...',
-            'icon' => '...',
+            'iconIdentifier' => '...',
             'labels' => '...',
         ]
     );
