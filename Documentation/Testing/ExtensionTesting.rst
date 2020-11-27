@@ -364,59 +364,67 @@ Rather than changing the :file:`runTests.sh` to then use `greadlink` and thus ri
 The :file:`runTests.sh` file of enetcache comes with some additional features, for example it is possible to execute `composer install` from within a container using `Build/Scripts/runTests.sh -s composerInstall`, it is possible to execute unit tests with PHP 7.3 instead of 7.2 (option `-p 7.3`). This is available for PHP linting, too (`-s lint`). Similar to :ref:`core test execution <testing-core-examples>` it is possible to break point tests using xdebug (`-x` option), typo3gmbh containers
 can be updated using `runTests.sh -u`, verbose output is available with `-v` and a help is available with `runTests.sh -h`. Have a look around.
 
-Travis CI
----------
+Github Actions
+--------------
 
 With basic testing in place we now want automatic execution of tests whenever something is merged to the repository and if
 people create pull requests for our extension, we want to make sure our carefully crafted test setup actually
-work. We'll use the continuous integration service `Travis CI <https://travis-ci.org/>`_ to take care of
-that. It's free for open source projects. So, log in to travis using your github account. After login, the
-user settings page will list all your github repositories and travis-ci can be enabled with one click for single
-repositories. All we need is a :file:`.travis.yml` file in the `root directory
-<https://github.com/lolli42/enetcache/blob/master/.travis.yml>`_ of our extension telling travis-ci what
-exactly should be done:
+work. We'll use the continuous integration service of Github Actions to take care of
+that. It's free for open source projects.
+In order to tell the CI what to do, create a new workflow file in `.github/workflows/ci.yml <https://github.com/lolli42/enetcache/blob/master/.github/workflows/ci.yml>`_
 
 .. code-block:: yaml
 
-    language: php
+   name: CI
 
-    php:
-      - 7.2
-      - 7.3
+   on: [push, pull_request]
 
-    sudo: true
+   jobs:
 
-    cache:
-      directories:
-        - $HOME/.composer/cache
+     testsuite:
+       name: all tests
+       runs-on: ubuntu-latest
+       strategy:
+         matrix:
+           php: [ '7.2', '7.3', '7.4' ]
+           minMax: [ 'composerInstallMin', 'composerInstallMax' ]
+       steps:
+         - name: Checkout
+           uses: actions/checkout@v2
 
-    before_script:
-      - Build/Scripts/runTests.sh -s composerInstall -p $TRAVIS_PHP_VERSION
+         - name: Composer
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s ${{ matrix.minMax }}
 
-    script:
-      - >
-        echo "Running composer validate"
-        Build/Scripts/runTests.sh -s composerValidate -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running unit tests";
-        Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running php lint";
-        Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
+         - name: Composer validate
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerValidate
 
-In case of enetcache, we let Travis CI test the extension with the two PHP versions 7.2 and 7.3. Travis exposes
-the current version as the variable `$TRAVIS_PHP_VERSION`, so we use that to feed it to `runTests.sh`. We instruct
-Travis to always `composer install` first, then run the test suites `composer validate`, the unit testing
-and the PHP linting. It's possible to see executed test runs `online <https://travis-ci.org/lolli42/enetcache>`_.
-Green :) Maybe it's now time to add the `travis-ci status badge <https://docs.travis-ci.com/user/status-images/>`_
-to our README.md file.
+         - name: Lint PHP
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
 
+         - name: Unit tests
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s unit
+
+         - name: Functional tests with mariadb
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -s functional
+
+         - name: Functional tests with mssql
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mssql -s functional
+
+         - name: Functional tests with postgres
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
+
+         - name: Functional tests with sqlite
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
+
+In case of enetcache, we let Github Actions test the extension with the three PHP versions 7.2, 7.3 and 7.4.
+Each of these PHP Versions will also be tested with the highest and lowest compatible dependencies (defined in `strategy.matrix.minMax`).
+All defined steps run on the same checkout, so we will see six test runs in total, one per PHP version with each minMax property.
+Each run will do a separate checkout, `composer install` first, then all the test and linting jobs we defined.
+It's possible to see executed test runs `online <https://github.com/lolli42/enetcache/actions>`_.
+Green :)
 Note we again use :file:`runTests.sh` to actually run tests. So the environment our tests are executed in is
-identical to our local environment. It's all dockerized. We don't care about the PHP versions travis-ci loaded
-and installed for us. Travis CI needs the setting `sudo: true` to allow starting own containers, though.
-
-Travis CI comes with many additional options and possibilities. If for instance we want to run multiple jobs
-in parallel check out `Travis' Build Stages feature <https://docs.travis-ci.com/user/build-stages/>`_.
+identical to our local environment. It's all dockerized. The environment provided by Github Actions is only used
+to set up the docker environment.
 
 
 .. _testing-extensions-styleguide:
@@ -425,7 +433,7 @@ Testing styleguide
 ==================
 
 The above enetcache extension is an example for a common extension that has few testing
-needs: It just comes with a couple of unit tests. Executing these and maybe adding PHP linting is recommended.
+needs: It just comes with a couple of unit and functional tests. Executing these and maybe adding PHP linting is recommended.
 More ambitious testing needs additional effort. As an example, we pick the `styleguide
 <https://github.com/TYPO3/styleguide>`_ extension. This extension is developed "core near", core itself
 uses styleguide to test various FormEngine details with acceptance tests and if developing core, that
@@ -434,8 +442,7 @@ to composer's `packagist.org <https://packagist.org/packages/typo3/cms-styleguid
 dependency (or require-dev dependency) in any project.
 
 The styleguide extension follows the core branching principle, too: At the time of this writing, it's "master"
-branch is dedicated to be compatible with core version 9. This will change later if core v10 gains traction,
-and there are branches compatible with older core versions.
+branch is dedicated to be compatible with upcoming core version 11. There are branches compatible with older core versions, too.
 
 In comparison to enetcache, styleguide comes with additional test suites: It has functional and
 acceptance tests! Our goal is to run the functional tests with different database platforms, and to
@@ -737,65 +744,62 @@ Ok, this setup is a bit more effort, but we end up with a browser automatically 
 an ad-hoc TYPO3 instance to verify this extension can perform its job. If something goes wrong, screenshots
 of the failed run can be found in :file:`.Build/Web/typo3temp/var/tests/AcceptanceReports/`.
 
-travis-ci
----------
+Github Actions
+--------------
 
-Now we want all of this automatically checked using travis-ci:
+Now we want all of this automatically checked using Github Actions. As before, we define the jobs in `.github/workflows/ci.yml <https://github.com/TYPO3/styleguide/blob/master/.github/workflows/ci.yml>`_:
 
 .. code-block:: yaml
 
-    language: php
+   name: CI
 
-    php:
-      - 7.2
-      - 7.3
+   on: [push, pull_request]
 
-    sudo: true
+   jobs:
 
-    cache:
-      directories:
-        - $HOME/.composer/cache
+     testsuite:
+       name: all tests
+       runs-on: ubuntu-latest
+       strategy:
+         matrix:
+           php: [ '7.2', '7.3', '7.4' ]
+       steps:
+         - name: Checkout
+           uses: actions/checkout@v2
 
-    notifications:
-      email:
-        recipients:
-          - lolli@schwarzbu.ch
-        on_success: change
-        on_failure: change
+         - name: Install testing system
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerInstall
 
-    before_script:
-      - Build/Scripts/runTests.sh -s composerInstall -p $TRAVIS_PHP_VERSION
+         - name: Composer validate
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerValidate
 
-    script:
-      - >
-        echo "Running composer validate"
-        Build/Scripts/runTests.sh -s composerValidate -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running unit tests";
-        Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running php lint";
-        Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running functional tests with mariadb";
-        Build/Scripts/runTests.sh -s functional -d mariadb -p $TRAVIS_PHP_VERSION
-      - >
-        if [ ${TRAVIS_PHP_VERSION} = "7.2" ]; then
-          echo "Running functional tests with mssql";
-          Build/Scripts/runTests.sh -s functional -d mssql -p $TRAVIS_PHP_VERSION;
-        else
-          echo "Running functional tests with mssql not supported with PHP 7.3 yet";
-        fi
-      - >
-        echo "Running functional tests with postgres";
-        Build/Scripts/runTests.sh -s functional -d postgres -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running functional tests with sqlite";
-        Build/Scripts/runTests.sh -s functional -d sqlite -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running acceptance tests";
-        Build/Scripts/runTests.sh -s acceptance -p $TRAVIS_PHP_VERSION
+         - name: Lint PHP
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
+
+         - name: CGL
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s cgl
+
+         - name: phpstan
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s phpstan
+
+         - name: Unit Tests
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s unit
+
+         - name: Functional Tests with mariadb
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -s functional
+
+         - name: Functional Tests with mssql
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mssql -s functional
+
+         - name: Functional Tests with postgres
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
+
+         - name: Functional Tests with sqlite
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
+
+         - name: Acceptance Tests
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s acceptance
 
 This is similar to the enetcache example, but does some more: The functional tests are executed
 with four different DBMS (MariaDB, MSSQL, Postgres, sqlite), and the acceptance tests are executed, too.
-This setup takes some time to complete on travis-ci. But, `it's green <https://travis-ci.org/TYPO3/styleguide>`_!
+This setup takes some time to complete on Github Actions. But, `it's green <https://github.com/TYPO3/styleguide/actions>`_!
