@@ -140,3 +140,12 @@ in case a log writer is throwing an exception while executing the :code:`writeLo
 Only in the case that all registered writers fail, the log entry plus additional information
 will be added to the configured fallback logger (which defaults to
 the :ref:`PhpErrorLog <logging-writers-php>` writer).
+
+.. _logging-writers-examples:
+
+Examples
+========
+
+Working examples of the usage of different Log writers can be found in the extension
+`examples <https://extensions.typo3.org/extension/examples/>`__. they are configured in
+the :file:`ext_localconf.php`.
