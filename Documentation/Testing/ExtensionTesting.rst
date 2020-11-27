@@ -416,8 +416,9 @@ In order to tell the CI what to do, create a new workflow file in `.github/workf
          - name: Functional tests with sqlite
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
 
-In case of enetcache, we let Github Actions test the extension with the two PHP versions 7.2, 7.3 and 7.4.
-All defined steps run on the same checkout, so we will see three test runs in total, one per PHP version.
+In case of enetcache, we let Github Actions test the extension with the three PHP versions 7.2, 7.3 and 7.4.
+Each of these PHP Versions will also be tested with the highest and lowest compatible dependencies (defined in `strategy.matrix.minMax`).
+All defined steps run on the same checkout, so we will see six test runs in total, one per PHP version with each minMax property.
 Each run will do a separate checkout, `composer install` first, then all the test and linting jobs we defined.
 It's possible to see executed test runs `online <https://github.com/lolli42/enetcache/actions>`_.
 Green :)
@@ -441,8 +442,7 @@ to composer's `packagist.org <https://packagist.org/packages/typo3/cms-styleguid
 dependency (or require-dev dependency) in any project.
 
 The styleguide extension follows the core branching principle, too: At the time of this writing, it's "master"
-branch is dedicated to be compatible with core version 11. This will change later if core v11 gains traction,
-and there are branches compatible with older core versions.
+branch is dedicated to be compatible with upcoming core version 11. There are branches compatible with older core versions, too.
 
 In comparison to enetcache, styleguide comes with additional test suites: It has functional and
 acceptance tests! Our goal is to run the functional tests with different database platforms, and to
