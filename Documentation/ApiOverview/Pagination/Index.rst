@@ -9,7 +9,7 @@ Pagination
 
 .. note::
 
-   Pagination via Fluid widgets is deprecated, see
+   Pagination via Fluid widgets was removed for `master` and follows this approach for `10.0`, see
    :doc:`t3core:Changelog/master/Breaking-92529-AllFluidWidgetFunctionalityRemoved`.
    Use the API documented here to implement your own pagination.
 
