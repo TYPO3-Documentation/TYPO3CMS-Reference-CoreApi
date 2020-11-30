@@ -121,6 +121,15 @@ For each of the severity levels mentioned above, a shorthand method exists in
 - :code:`$this->logger->notice($message, array $data = array());`
 - etc.
 
+.. _logging-logger-examples:
+
+Examples
+========
+
+Examples of the usage of the Logger can be found in the extension
+`examples <https://extensions.typo3.org/extension/examples/>`__. in file
+:file:`/Classes/Controller/ModuleController.php`
+
 .. _logging-logger-best-practices:
 
 Best Practices
