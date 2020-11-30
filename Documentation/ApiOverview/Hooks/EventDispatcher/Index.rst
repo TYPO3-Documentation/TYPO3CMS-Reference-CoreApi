@@ -113,7 +113,7 @@ Implementing an Event Listener in your Extension
 
 .. _EventDispatcherRegistration:
 
-Registrating the Event Listener:
+Registering the Event Listener:
 --------------------------------
 
 If an extension author wants to provide a custom Event Listener, an according entry with the tag
