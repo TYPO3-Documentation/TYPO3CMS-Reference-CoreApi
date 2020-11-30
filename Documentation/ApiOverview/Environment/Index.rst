@@ -92,6 +92,14 @@ getCurrentScript()
 
 Returns the path and filename to the current PHP script.
 
+.. _Environment-context:
+
+getContext()
+------------
+
+Delivers an `ApplicationContext` object, usually defined in `TYPO3_CONTEXT` environment variables.
+May be one of "Production", "Testing", or "Development" or any additional information like "Production/Staging".
+
 .. _Environment-configuring-paths:
 
 Configuring Environment Paths
