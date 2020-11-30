@@ -7,6 +7,12 @@
 Pagination
 ===============================
 
+.. note::
+
+   Pagination via Fluid widgets was removed, see
+   :doc:`t3core:Changelog/master/Breaking-92529-AllFluidWidgetFunctionalityRemoved`.
+   Use the API documented here to implement your own pagination.
+
 The TYPO3 core provides an interface to implement the native pagination of lists like arrays or
 query results of Extbase.
 
