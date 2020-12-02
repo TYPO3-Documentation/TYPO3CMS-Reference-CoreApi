@@ -297,7 +297,7 @@ file with all configuration of other extensions!
 
 -  You **MUST NOT** rely on the PHP constant :php:`__FILE__` for detection of
    include path of the script - the configuration might be executed from
-   a cached script and therefore such information should be derived from
+   a cached file with a different location and therefore such information should be derived from
    e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName()` or
    :php:`ExtensionManagementUtility::extPath()`.
 
