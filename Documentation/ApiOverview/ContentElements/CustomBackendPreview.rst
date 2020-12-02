@@ -21,7 +21,7 @@ With Fluid Based Page Module
 
 .. important::
 
-   The :php:`PreviewRenderer` usage is only active if the :guilabel:`fluid based page layout module` feature is enabled. This feature
+   The :php:`PreviewRenderer` usage is only active if the :guilabel:`fluid based page module` feature is enabled. This feature
    is activated by default in new installations of TYPO3 versions 10.3 and later.
 
    The feature toggle can be located in the :guilabel:`Settings` admin module under :guilabel:`Feature Toggles`. Or it can be set in
