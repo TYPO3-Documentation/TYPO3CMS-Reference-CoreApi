@@ -299,7 +299,7 @@ file with all configuration of other extensions!
    include path of the script - the configuration might be executed from
    a cached file with a different location and therefore such information should be derived from
    e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName()` or
-   :php:`ExtensionManagementUtility::extPath()`.
+   :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath()`.
 
 
 -  You **MUST NOT** use :php:`use` inside :file:`ext_localconf.php` or :file:`ext_tables.php` since this can lead to conflicts with other :php:`use` in files of other extensions.
