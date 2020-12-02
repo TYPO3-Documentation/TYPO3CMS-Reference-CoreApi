@@ -290,7 +290,7 @@ The following apply for both :php:`ext_tables.php` and :php:`ext_localconf.php`.
 
 As a rule of thumb: Your :file:`ext_tables.php` and :file:`ext_localconf.php` files must be designed in a way
 that they can safely be read and subsequently imploded into one single
-file with all the other configuration scripts!
+file with all configuration of other extensions!
 
 -  You **MUST NOT** use a :php:`return` statement in the files global scope -
    that would make the cached script concept break.
