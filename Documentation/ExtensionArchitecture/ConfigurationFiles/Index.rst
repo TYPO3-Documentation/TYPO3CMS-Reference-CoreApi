@@ -302,7 +302,7 @@ file with all configuration of other extensions!
    :php:`ExtensionManagementUtility::extPath()`.
 
 
--  You **MUST NOT** use :php:`use` inside :file:`ext_localconf.php` or :file:`ext_tables.php`.
+-  You **MUST NOT** use :php:`use` inside :file:`ext_localconf.php` or :file:`ext_tables.php` since this can lead to conflicts with other :php:`use` in files of other extensions.
 
 .. code-block:: diff
 
