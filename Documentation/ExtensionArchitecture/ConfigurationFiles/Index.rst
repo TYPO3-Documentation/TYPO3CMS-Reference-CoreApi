@@ -310,6 +310,7 @@ file with all configuration of other extensions!
    -use TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect;
    -
    -$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = FileMetadataPermissionsAspect::class;
+    // Use the full class name instead:
    +$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = \TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect::class;
 
 - You **MUST NOT** use :php:`declare(strict_types=1)` and similar directives which must be placed
