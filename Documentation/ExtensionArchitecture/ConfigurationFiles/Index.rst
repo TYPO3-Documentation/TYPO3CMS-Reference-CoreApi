@@ -18,6 +18,12 @@ every request. They should therefore be optimized for speed.
 See :ref:`extension-files-locations` for a full list of file and
 directory names typically used in extensions.
 
+.. important::
+
+   Since the :file:`ext_tables.php` and :file:`ext_localconf.php` of
+   every extension will be concatenated together by TYPO3, you MUST
+   follow some rules, such as not use :php:`use` or :php:`declare(strict_types=1)`
+   inside these files, see :ref:`rules_ext_tables_localconf_php`.
 
 .. _ext-localconf-php:
 
@@ -267,54 +273,88 @@ to be installed for this to work.
 
 For more information see the documentation of the Sys-Extension scheduler.
 
-Best Practices for :php:`ext_tables.php` and :php:`ext_localconf.php`
-=====================================================================
 
-Additionally, it is possible to extend TYPO3 in a lot of different ways (adding TCA, Backend Routes,
-Symfony Console Commands etc) which do not need to touch these files.
+.. _rules_ext_tables_localconf_php:
 
-It is recommended to AVOID checks for values on :php:`TYPO3_MODE` or :php:`TYPO3_REQUESTTYPE`
-constants (e.g. :php:`if (TYPO3_MODE === 'BE')`) within these files as it limits the functionality
-to cache the whole systems' configuration. Any extension author should remove the checks if not
-explicitly necessary, and re-evaluate if these context-depending checks could go inside
-the hooks / caller function directly.
+Rules and best practices
+========================
 
-It is recommended to check for the existence of the constants :php:`defined('TYPO3_MODE') or die();`
-at the top of :file:`ext_tables.php` and :file:`ext_localconf.php` files to make sure the file is
-executed only indirectly within TYPO3 context. This is a security measure since this code in global
-scope should not be executed through the web server directly as entry point.
+The following apply for both :php:`ext_tables.php` and :php:`ext_localconf.php`.
 
-Additionally, it is recommended to use the extension name (e.g. "tt_address") instead of :php:`$_EXTKEY`
-within the two configuration files as this variable will be removed in the future. This also applies
-to :php:`$_EXTCONF`.
+.. important::
 
-However, due to limitations to TER, the :php:`$_EXTKEY` option should be kept within an extension's
-:file:`ext_emconf.php`.
+   Since the :file:`ext_tables.php` and :file:`ext_localconf.php` of
+   every extension will be concatenated together by TYPO3, you MUST
+   follow some rules, such as not use :php:`use` or :php:`declare(strict_types=1)`
+   inside these files. More information below:
 
-See any system extension for best practice on this behaviour.
+As a rule of thumb: Your :file:`ext_tables.php` and :file:`ext_localconf.php` files must be designed in a way
+that they can safely be read and subsequently imploded into one single
+file with all configuration of other extensions!
 
-- :php:`TYPO3\CMS\Core\Package\PackageManager::getActivePackages()` contains information about
-  whether the module is loaded as *local* or *system* type in the `packagePath` key,
-  including the proper paths you might use, absolute and relative.
-- Your :file:`ext_tables.php` and :file:`ext_localconf.php` files must be designed in a way
-  that they can safely be read and subsequently imploded into one single
-  file with all the other configuration scripts!
-- You must **never** use a :php:`return` statement in the files global scope -
-  that would make the cached script concept break.
-- You must **never** use a :php:`use` statement in the files global scope -
-  that would make the cached script concept break and could conflict with other extensions.
-- The same goes for :php:`declare(strict_types=1)` and similar directives which must be placed
+-  You **MUST NOT** use a :php:`return` statement in the files global scope -
+   that would make the cached script concept break.
+
+-  You **MUST NOT** rely on the PHP constant :php:`__FILE__` for detection of
+   include path of the script - the configuration might be executed from
+   a cached file with a different location and therefore such information should be derived from
+   e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName()` or
+   :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath()`.
+
+
+-  You **MUST NOT** use :php:`use` inside :file:`ext_localconf.php` or :file:`ext_tables.php` since this can lead to conflicts with other :php:`use` in files of other extensions.
+
+.. code-block:: diff
+
+   // do NOT use use:
+   -use TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect;
+   -
+   -$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = FileMetadataPermissionsAspect::class;
+    // Use the full class name instead:
+   +$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = \TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect::class;
+
+- You **MUST NOT** use :php:`declare(strict_types=1)` and similar directives which must be placed
   at the very top of files: once all files of all extensions are merged, this condition is not
   fulfilled anymore leading to errors. So these must **never** be used here.
-- You should **not** rely on the PHP constant :php:`__FILE__` for detection of
-  include path of the script - the configuration might be executed from
-  a cached script and therefore such information should be derived from
-  e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName()` or
-  :php:`ExtensionManagementUtility::extPath()`.
 
-It is a good practice to use a directly called closure function to encapsulate all
-locally defined variables and thus keep them out of the surrounding scope. This
-avoids unexpected side-effects with files of other extensions.
+.. code-block:: diff
+
+   // do NOT use declare strict and other directives which MUST be placed at the top of the file
+   -declare(strict_types=1)
+
+
+-  You **MUST NOT** check for values of :php:`TYPO3_MODE` or :php:`TYPO3_REQUESTTYPE`
+   constants (e.g. :php:`if (TYPO3_MODE === 'BE')`) within these files as it limits the functionality
+   to cache the whole systems' configuration. Any extension author should remove the checks if not
+   explicitly necessary, and re-evaluate if these context-depending checks could go inside
+   the hooks / caller function directly., e.g. do not do::
+
+.. code-block:: diff
+
+   // do NOT do this:
+   -if (TYPO3_MODE === 'BE')
+
+-  You **SHOULD** check for the existence of the constants :php:`defined('TYPO3_MODE') or die();`
+   at the top of :file:`ext_tables.php` and :file:`ext_localconf.php` files to make sure the file is
+   executed only indirectly within TYPO3 context. This is a security measure since this code in global
+   scope should not be executed through the web server directly as entry point.
+
+.. code-block:: php
+
+   <?php
+   // put this at top of every ext_tables.php and ext_localconf.php
+   defined('TYPO3') or die();
+
+-  You **SHOULD** use the extension name (e.g. "tt_address") instead of :php:`$_EXTKEY`
+   within the two configuration files as this variable will be removed in the future. This also applies
+   to :php:`$_EXTCONF`.
+
+-  However, due to limitations to TER, the :php:`$_EXTKEY` option **MUST** be kept within an extension's
+   :ref:`ext_emconf.php <extension-declaration>`.
+
+-  You **SHOULD** use a directly called closure function to encapsulate all
+   locally defined variables and thus keep them out of the surrounding scope. This
+   avoids unexpected side-effects with files of other extensions.
 
 The following example contains the complete code::
 
@@ -325,3 +365,12 @@ The following example contains the complete code::
         // Add your code here
     })();
 
+
+Additionally, it is possible to extend TYPO3 in a lot of different ways (adding TCA, Backend Routes,
+Symfony Console Commands etc) which do not need to touch these files.
+
+Additional tips:
+
+-  :php:`TYPO3\CMS\Core\Package\PackageManager::getActivePackages()` contains information about
+   whether the module is loaded as *local* or *system* type in the `packagePath` key,
+   including the proper paths you might use, absolute and relative.
