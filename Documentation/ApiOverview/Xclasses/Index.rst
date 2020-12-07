@@ -1,5 +1,11 @@
 .. include:: /Includes.rst.txt
 
+.. index:: ! XCLASS
+
+.. index::
+   single: Extending Classes
+   single: Overwriting Methods
+
 .. _xclasses:
 
 ============================
@@ -14,17 +20,19 @@ Introduction
 
 XCLASSing is a mechanism in TYPO3 CMS to extend classes or overwrite methods from the Core or extensions
 with one's own code. This enables a developer to easily change a given functionality,
-if other options like :ref:`hooks <hooks>`, signals or the Extbase dependency injection mechanisms
-do not work or do not exist.
+if other options like :ref:`hooks <hooks>`, signals, :ref:`events <EventDispatcher>`
+or the Extbase dependency injection mechanisms do not work or do not exist.
 
-However there are :ref:`several limitations <xclasses-limitations>`.
+.. warning::
 
-.. note::
+   Using XCLASSes is risky: Your XCLASS may break if the underlying
+   code is changed. If possible, you should use a hook instead of a XCLASS.
+   For other limitations see :ref:`XClass limitations <xclasses-limitations>`
 
-   If you need a hook or a signal that does not exist, feel free to submit
-   a feature request and - even better - a patch. Consult the
-   `TYPO3 Contribution Guide <https://docs.typo3.org/typo3cms/ContributionWorkflowGuide/>`__
-   about how to do this.
+If you need a hook or event that does not exist, feel free to submit
+a feature request and - even better - a patch. Consult the
+`TYPO3 Contribution Guide <https://docs.typo3.org/typo3cms/ContributionWorkflowGuide/>`__
+about how to do this.
 
 
 .. _xclasses-mechanism:
@@ -39,6 +47,9 @@ The methods takes care of singletons and also searches for existing XCLASSes.
 If there is an XCLASS registered for the specific class that should be instantiated,
 an instance of that XCLASS is returned instead of an instance of the original class.
 
+
+.. index::
+   single: XCLASS; limitations
 
 .. _xclasses-limitations:
 
@@ -60,6 +71,8 @@ Limitations
   before configuration and other things are loaded. XCLASSing those classes will fail if they are singletons
   or might have unexpected side-effects.
 
+.. index::
+   single: XCLASS; declaration
 
 .. _xclasses-declaration:
 
@@ -77,17 +90,12 @@ The syntax is as follows and is commonly located in an extension's :file:`ext_lo
 
 
 In this example, we declare that the :code:`\TYPO3\CMS\Backend\Controller\NewRecordController` class
-will be overridden by the :code:`\Documentation\Examples\Xclass\NewRecordController` class, the
-latter being part of the "examples" extension.
+will be overridden by the :code:`\T3docs\Examples\Xclass\NewRecordController`
+class, the latter being part of the
+`"examples" extension <https://extensions.typo3.org/extension/examples/>`__ .
 
 When XCLASSing a class that does not use namespaces, simply use that class' name
 in the declaration.
-
-.. note::
-
-   To be compatible with older versions of TYPO3 CMS, you need to also add old-style
-   XCLASS declarations. Please refer to older versions of this document for more
-   information.
 
 
 .. _xclasses-coding:
@@ -109,16 +117,16 @@ method and then adds its own content::
 
    class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController
    {
-      function regularNew()
-      {
-         parent::regularNew();
-         $this->code .= $this->doc->section(
-            $GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:help'),
-            $GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:make_choice'),
-            0,
-            1
-         );
-      }
+       protected function renderNewRecordControls(ServerRequestInterface $request): void
+       {
+           parent::renderNewRecordControls($request);
+           $ll = 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf'
+           $label = $GLOBALS['LANG']->sL($ll . ':help');
+           $text = $GLOBALS['LANG']->sL($ll . ':make_choice');
+           $str = '<div><h2 class="uppercase" >' .  htmlspecialchars($label)
+               . '</h2>' . $text . '</div>';
+           $this->code .= $str;
+       }
    }
 
 The result can be seen here:
@@ -127,3 +135,8 @@ The result can be seen here:
    :alt: Adding an element to the new record wizard
 
    A help section is added at the bottom of the new record wizard.
+
+The object oriented rules of PHP 7 such as rules about visibility apply here.
+As you are extending the original Class you can overload or call methods
+marked as public and protected but not private or static ones. Read more about
+`visibility and inheritance at php.net <https://www.php.net/manual/en/language.oop5.visibility.php>`__
