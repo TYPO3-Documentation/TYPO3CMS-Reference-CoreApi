@@ -26,7 +26,7 @@ or the Extbase dependency injection mechanisms do not work or do not exist.
 .. warning::
 
    Using XCLASSes is risky: Your XCLASS may break if the underlying
-   code is changed. If possible, you should use a hook instead of a XCLASS.
+   code is changed. Preferably use events or hooks to extend class functionality.
    For other limitations see :ref:`XClass limitations <xclasses-limitations>`
 
 If you need a hook or event that does not exist, feel free to submit
