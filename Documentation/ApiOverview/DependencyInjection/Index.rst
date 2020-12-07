@@ -101,11 +101,16 @@ Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers a
 marked public by default. Additionally some classes cannot be private as well.
 As the Symfony documentation puts it:
 
-.. this indent is intentional to create a blockquote!
+.. The following indent is intentional to create a blockquote:
+..
 
-    "Simply said: A service can be marked as private if you do not want to access it directly from your code."
+   "Simply said: A service can be marked as private if you do not want to
+   access it directly from your code."
 
-    -- `Official documentation <https://symfony.com/doc/current/service_container/alias_private.html>`_ for public and private services.
+   -- `Symfony official documentation
+   <https://symfony.com/doc/current/service_container/alias_private.html>`_ for
+   public and private services.
+
 
 Direct access includes instantiation via :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`.
 This means every class that should make use of dependency injection and is not instantiated via injection
