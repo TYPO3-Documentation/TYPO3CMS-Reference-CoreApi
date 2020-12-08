@@ -66,8 +66,7 @@ Typical Cases for Exceptions That are Designed to be Caught
   connection …".
 
 
-.. index::
-   single: RuntimeException
+.. index:: RuntimeException
 
 Typical Cases for Exceptions That Should not be Caught
 ------------------------------------------------------
