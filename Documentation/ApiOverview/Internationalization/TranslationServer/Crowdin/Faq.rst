@@ -78,6 +78,33 @@ You need to exlude those in your `.crowdin.yaml` configuration which can be foun
 
 More information can be found in the documtation on crowdin: https://support.crowdin.com/configuration-file/
 
+How can I migrate Translations from Pootle?
+-------------------------------------------
+If translations exist on Pootle there is no need to retranslate everything on Crowdin again - you can import those.
+
+
+#. **Fetch translations**
+   Download the translations you need. The given example will download the german translations of the extension *powermail*:
+   `wget 'https://extensions.typo3.org/fileadmin/ter/p/o/powermail-l10n/powermail-l10n-de.zip'`
+
+#. **Open and Cleanup**
+   Unzip the translations and switch to e.g. `Resources/Private/Language` which is the typical directory
+   of translations. Remove the *xml* files as only the *xlf* files are important.
+#. **Match the Files**
+   The attribute `original` of the translations must match the ones of the default translations.
+   **Example**: The file :file:`Resources/Private/Language/locallang.xlf` starts with the following snippet:
+
+   .. code-block:: xml
+
+      <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+         <xliff version="1.0">
+            <file source-language="en" datatype="plaintext" original="EXT:powermail/Resources/Private/Language/locallang.xlf">
+
+   The file :file:`de.locallang.xlf` must be modified and `original="messages"` must be changed to `original="EXT:powermail/Resources/Private/Language/locallang.xlf"`
+
+#. **Upload the Translations**
+   Just keep on reading the next question.
+
 Can I upload Translated xlf Files?
 ----------------------------------
 Yes, you can! Switch to the settings area of your project (you need to have the proper permissions for that) and you can upload xlf files or even zip files containg the xlf files.
