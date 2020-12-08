@@ -1,9 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
-.. index::
-   single: Coding Guidelines; Localization
-
+.. index:: Coding guidelines; Localization
 .. _cgl-localization:
 
 ============

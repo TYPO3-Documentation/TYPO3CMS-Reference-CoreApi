@@ -1,10 +1,8 @@
 .. include:: /Includes.rst.txt
-
-
 .. index::
-   pair: Coding Guidelines; TSconfig
-   pair: Coding Guidelines; Page TSconfig
-   pair: Coding Guidelines; User TSconfig
+   pair: Coding guidelines; TSconfig
+   pair: Coding guidelines; Page TSconfig
+   pair: Coding guidelines; User TSconfig
 
 .. _cgl-tsconfig:
 

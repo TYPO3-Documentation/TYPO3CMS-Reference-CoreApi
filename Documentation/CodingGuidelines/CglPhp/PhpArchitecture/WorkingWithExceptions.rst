@@ -1,8 +1,6 @@
 .. include:: /Includes.rst.txt
-
-
 .. index::
-   single: Coding Guidelines; Exceptions
+   single: Coding guidelines; Exceptions
    pair: PHP; Exceptions
 
 .. _cgl-working-with-exceptions:

@@ -1,8 +1,5 @@
 .. include:: /Includes.rst.txt
-
-.. index::
-   pair: Coding Guidelines; TypoScript
-
+.. index:: pair: Coding guidelines; TypoScript
 .. _cgl-typoscript:
 
 ============================

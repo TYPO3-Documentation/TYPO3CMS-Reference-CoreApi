@@ -2,7 +2,7 @@
 
 
 .. index::
-   pair: Coding Guidelines; Database
+   pair: Coding guidelines; Database
 
 .. _cgl-database-access:
 

@@ -1,9 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
-.. index::
-   pair: Coding Guidelines; TypeScript
-
+.. index:: pair: Coding guidelines; TypeScript
 .. _cgl-typescript:
 
 ============================

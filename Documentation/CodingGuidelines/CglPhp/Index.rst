@@ -1,9 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
-.. index::
-   pair: Coding Guidelines; PHP
-
+.. index:: pair: Coding guidelines; PHP
 .. _cgl-php:
 
 =====================

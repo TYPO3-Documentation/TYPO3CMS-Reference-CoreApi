@@ -1,9 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
-.. index::
-   single: Coding Guidelines; Namespaces
-
+.. index:: Coding guidelines; Namespaces
 .. _cgl-namespaces-class-names:
 
 ========================================

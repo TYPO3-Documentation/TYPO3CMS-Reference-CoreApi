@@ -1,9 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
-.. index::
-   pair: Coding Guidelines; JavaScript
-
+.. index:: pair: Coding guidelines; JavaScript
 .. _cgl-javascript:
 
 ============================

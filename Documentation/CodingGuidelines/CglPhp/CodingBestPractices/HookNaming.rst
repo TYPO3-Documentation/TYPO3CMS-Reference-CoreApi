@@ -1,7 +1,5 @@
 .. include:: /Includes.rst.txt
-
-.. index::
-   single: Coding Guidelines; Hooks
+.. index:: Coding guidelines; Hooks
 
 .. _cgl-hook-naming:
 
