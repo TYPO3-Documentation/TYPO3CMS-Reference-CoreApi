@@ -1,5 +1,9 @@
 .. include:: /Includes.rst.txt
 
+.. index::
+   ! Coding Guidelines
+   see: CGL; Coding Guidelines
+
 .. _cgl:
 
 =================

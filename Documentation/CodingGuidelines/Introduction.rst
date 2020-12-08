@@ -20,6 +20,8 @@ This chapter defines how TYPO3 code, files and directories should be
 outlined and formatted. It gives some thoughts on general coding
 flavors the core tries to follow.
 
+.. index:: single: Coding Guidelines; Quality Assurance
+
 .. _cgl-quality-assurance:
 
 The CGL as a Means of Quality Assurance
@@ -49,6 +51,10 @@ and pushed another time. For details on core contributions, have a look at the
 General Recommendations
 =======================
 
+.. index::
+   pair: Coding Guidelines; Editor
+   pair: Coding Guidelines; IDE
+
 .. _cgl-ide:
 
 Setup IDE / Editor
@@ -59,6 +65,9 @@ Setup IDE / Editor
    You are strongly advised to set up your editor / IDE properly so that the
    standards get checked and enforced automatically!
 
+
+.. index::
+   pair: Coding Guidelines; EditorConfig
 
 .. _cgl-editorconfig:
 

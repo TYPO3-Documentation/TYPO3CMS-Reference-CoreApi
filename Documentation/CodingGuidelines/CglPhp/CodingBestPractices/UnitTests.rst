@@ -1,5 +1,9 @@
 .. include:: /Includes.rst.txt
 
+
+.. index::
+   pair: Coding Guidelines; Unit Tests
+
 .. _cgl-unit-tests:
 
 ==========

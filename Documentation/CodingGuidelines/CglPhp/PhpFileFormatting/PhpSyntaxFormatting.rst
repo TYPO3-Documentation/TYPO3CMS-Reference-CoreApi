@@ -1,6 +1,9 @@
 .. include:: /Includes.rst.txt
 
 
+.. index::
+   single: Coding Guidelines; PHP Syntax
+
 .. _cgl-php-syntax-formatting:
 
 =====================

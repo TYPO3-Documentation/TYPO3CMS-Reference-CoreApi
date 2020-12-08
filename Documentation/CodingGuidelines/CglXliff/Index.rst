@@ -1,5 +1,10 @@
 .. include:: /Includes.rst.txt
 
+
+.. index::
+   pair: Coding Guidelines; Xliff
+   pair: Coding Guidelines; Language files
+
 .. _cgl-xliff:
 
 =======================

@@ -3,6 +3,10 @@
 
 .. _cgl-services:
 
+
+.. index::
+   pair: Coding Guidelines; Services
+
 ========
 Services
 ========

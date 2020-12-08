@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
 
-
 .. _cgl-traits:
 
 ======
