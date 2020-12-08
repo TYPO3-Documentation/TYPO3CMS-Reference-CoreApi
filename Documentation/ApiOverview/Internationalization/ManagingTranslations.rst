@@ -88,7 +88,7 @@ looks like this:
 
    <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
    <xliff version="1.0">
-      <file source-language="en" datatype="plaintext" original="messages" date="2013-03-09T18:44:59Z" product-name="examples">
+      <file source-language="en" datatype="plaintext" date="2013-03-09T18:44:59Z" product-name="examples">
          <header/>
          <body>
             <trans-unit id="pages.title_formlabel" xml:space="preserve">
@@ -169,7 +169,7 @@ would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
 
    <?xml version='1.0' encoding='utf-8'?>
    <xliff version="1.0">
-      <file source-language="en" target-language="gsw_CH" datatype="plaintext" original="messages" product-name="setup">
+      <file source-language="en" target-language="gsw_CH" datatype="plaintext">
          <header/>
          <body>
             <trans-unit id="lang_gsw_CH" approved="yes">
