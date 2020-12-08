@@ -9,11 +9,8 @@ Storing the Changes
 
 There are various ways to store changes to :php:`$GLOBALS['TCA']`. They
 depend - partly - on what you are trying to achieve and - a lot -
-on the version of TYPO3 CMS which you are targeting.
-
-There are two main ways to store your changes to the TCA: inside an extension
-or straight in the :file:`typo3conf` folder. Both are described below in
-more details.
+on the version of TYPO3 CMS which you are targeting. The TCA can only be 
+changed from within an extension.
 
 
 .. _storing-changes-extension:
