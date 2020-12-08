@@ -1,9 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
-.. index::
-   pair: Coding guidelines; Database
-
+.. index:: pair: Coding guidelines; Database
 .. _cgl-database-access:
 
 ======================
