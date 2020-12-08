@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Coding guidelines; Static methods
 .. _cgl-model-static-methods:
 
 Static Methods, static Classes, Utility Classes

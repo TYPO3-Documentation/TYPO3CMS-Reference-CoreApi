@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   single: Coding guidelines; Exceptions
+   pair: PHP; Exceptions
 
 .. _cgl-working-with-exceptions:
 
@@ -42,7 +44,6 @@ be thrown. For PHP built-in exceptions, the actual class is not crucial,
 if in doubt, a :php:`\RuntimeException` fits - it is much more important
 to throw a meaningful exception message in those cases.
 
-
 Typical Cases for Exceptions That are Designed to be Caught
 -----------------------------------------------------------
 
@@ -64,6 +65,8 @@ Typical Cases for Exceptions That are Designed to be Caught
   user "Can not connect to update servers, please check internet
   connection …".
 
+
+.. index:: RuntimeException
 
 Typical Cases for Exceptions That Should not be Caught
 ------------------------------------------------------

@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Coding guidelines; Static methods
 .. _cgl-static-methods:
 
 ==============

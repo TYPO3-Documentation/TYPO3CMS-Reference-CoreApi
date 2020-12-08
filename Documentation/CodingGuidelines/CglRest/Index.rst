@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Coding guidelines; reStructuredText
 .. _cgl-rest:
 
 =======================

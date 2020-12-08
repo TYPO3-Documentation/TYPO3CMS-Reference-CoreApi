@@ -1,5 +1,4 @@
 .. include:: /Includes.rst.txt
-
 .. _cgl-introduction:
 
 ============
@@ -20,6 +19,7 @@ This chapter defines how TYPO3 code, files and directories should be
 outlined and formatted. It gives some thoughts on general coding
 flavors the core tries to follow.
 
+.. index:: Coding guidelines; Quality assurance
 .. _cgl-quality-assurance:
 
 The CGL as a Means of Quality Assurance
@@ -49,6 +49,10 @@ and pushed another time. For details on core contributions, have a look at the
 General Recommendations
 =======================
 
+.. index::
+   pair: Coding guidelines; Editor
+   pair: Coding guidelines; IDE
+
 .. _cgl-ide:
 
 Setup IDE / Editor
@@ -60,6 +64,7 @@ Setup IDE / Editor
    standards get checked and enforced automatically!
 
 
+.. index:: pair: Coding guidelines; EditorConfig
 .. _cgl-editorconfig:
 
 EditorConfig

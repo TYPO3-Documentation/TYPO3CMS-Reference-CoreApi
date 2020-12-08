@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: pair: Coding guidelines; Services
 .. _cgl-services:
 
 ========
