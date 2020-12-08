@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 
-
+.. index:: Custom Extension Repository
 .. _custom-extension-repository:
 
 ===========================
@@ -22,6 +22,7 @@ an extension via the :php:`ExtensionDownloaderRemoteInterface`.
 It is possible to add new remotes, disable registered remotes
 or change the default remote.
 
+.. index:: File; EXT:{extkey}/Configuration/Services.yaml
 Custom remote configuration can be added in the
 :file:`Configuration/Services.yaml` of the corresponding extension.
 

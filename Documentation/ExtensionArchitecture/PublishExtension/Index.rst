@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Extension development; Publishing
 .. _publish-extension:
 
 ======================
-Publish Your Extension
+Publish your extension
 ======================
 
 By publishing an extension to the
@@ -14,9 +13,10 @@ of these.
 
 *TYPO3 - Inspiring people to share*
 
+.. index:: Extension development; Git
 .. rst-class:: bignums-xxl
 
-#. Publish Source Code on a Public Git Hosting Platform
+#. Publish source code on a public Git hosting platform
 
    The TYPO3 community currently uses GitHub, GitLab and Atlassian Bitbucket to
    host the Git repositories of their extensions.
@@ -29,7 +29,8 @@ of these.
    * Contributors can add issues or make pull requests
    * Render the documentation on docs.typo3.org (see below) by adding a webhook
 
-#. Publish Your Extension on Packagist
+.. index:: Extension development; Packagist
+#. Publish your extension on Packagist
 
    This is described well on `Packagist <https://packagist.org/>`__.
 
@@ -43,7 +44,8 @@ of these.
    * An update of the extension can be done easily by your users with
      `composer update`
 
-#. Publish Your Extension on TER
+.. index:: Extension development; TER
+#. Publish your extension on TER
 
    See `Publish an Extension <https://extensions.typo3.org/faq/publish-an-extension/>`__
    for more information on how to publish an extension and check out the
@@ -60,7 +62,8 @@ of these.
    * Link to the source code (optional)
    * Link to the issue tracker (optional)
 
-#. Add Webhook for Documentation
+.. index:: Extension development; webhook for documentation
+#. Add webhook for documentation
 
    In order for this to work, you must have a :file:`composer.json` and push
    some changes after you registered the webhook.

@@ -1,6 +1,9 @@
 .. include:: /Includes.rst.txt
 
 
+.. index::
+   File; EXT:{extkey}/composer.json
+   Extension development; composer.json
 .. _composer-json:
 
 =====================

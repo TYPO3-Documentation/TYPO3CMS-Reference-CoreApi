@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 
-
+.. index:: ! Extension key
 .. _extension-key:
 
 =========================

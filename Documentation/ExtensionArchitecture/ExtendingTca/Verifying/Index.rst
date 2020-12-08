@@ -1,6 +1,7 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   TCA; Verification
+   Module; Configuration
 .. _verifying:
 
 =================

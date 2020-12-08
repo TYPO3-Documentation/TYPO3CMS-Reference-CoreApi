@@ -45,7 +45,7 @@ additions to TYPO3. The main types are:
 
 .. _extensions-and-core:
 
-Extensions and the Core
+Extensions and the core
 -----------------------
 
 Extensions are designed in a way so that extensions can supplement the
@@ -62,6 +62,7 @@ can be entirely specific to a given project and contain only files and functiona
 related to a single implementation.
 
 
+.. index:: System extensions
 .. _extensions-core:
 
 Notable system extensions
