@@ -84,7 +84,7 @@ If translations exist on Pootle there is no need to retranslate everything on Cr
 
 
 #. **Fetch translations**
-   Download the translations you need. The given example will download the german translations of the extension *powermail*:
+   Download the translations you need. The given example will download the German translations of the extension *powermail*:
    `wget 'https://extensions.typo3.org/fileadmin/ter/p/o/powermail-l10n/powermail-l10n-de.zip'`
 
 #. **Open and Cleanup**
