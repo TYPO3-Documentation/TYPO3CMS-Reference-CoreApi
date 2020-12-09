@@ -13,7 +13,7 @@ of these.
 
 *TYPO3 - Inspiring people to share*
 
-.. index:: Extension development; Git
+.. index:: Extension development; GIT
 .. rst-class:: bignums-xxl
 
 #. Publish source code on a public Git hosting platform
@@ -30,6 +30,7 @@ of these.
    * Render the documentation on docs.typo3.org (see below) by adding a webhook
 
 .. index:: Extension development; Packagist
+
 #. Publish your extension on Packagist
 
    This is described well on `Packagist <https://packagist.org/>`__.
@@ -45,6 +46,7 @@ of these.
      `composer update`
 
 .. index:: Extension development; TER
+
 #. Publish your extension on TER
 
    See `Publish an Extension <https://extensions.typo3.org/faq/publish-an-extension/>`__
@@ -63,6 +65,7 @@ of these.
    * Link to the issue tracker (optional)
 
 .. index:: Extension development; webhook for documentation
+
 #. Add webhook for documentation
 
    In order for this to work, you must have a :file:`composer.json` and push
