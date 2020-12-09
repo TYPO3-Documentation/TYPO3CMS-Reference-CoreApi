@@ -1,8 +1,9 @@
 .. include:: /Includes.rst.txt
 .. index::
-   Extension development; TCA
+   single: Extension development; TCA
    pair: TCA; Extension
-   $GLOBALS; TCA
+   single: $GLOBALS; TCA
+
 .. _extending:
 .. _extending-tca:
 
