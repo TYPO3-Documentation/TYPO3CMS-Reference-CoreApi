@@ -16,10 +16,10 @@ of these.
 .. index:: Extension development; GIT
 .. rst-class:: bignums-xxl
 
-#. Publish source code on a public Git hosting platform
+#. Publish source code on a public GIT hosting platform
 
    The TYPO3 community currently uses GitHub, GitLab and Atlassian Bitbucket to
-   host the Git repositories of their extensions.
+   host the GIT repositories of their extensions.
 
    Typically, the :ref:`extension key <extension-key>` is used for the
    repository name, but that is not necessary.
@@ -37,7 +37,7 @@ of these.
 
    **Depends on:**
 
-   * Public Git repository
+   * Public GIT repository
 
    **Advantages:**
 
@@ -76,7 +76,7 @@ of these.
 
    **Depends on:**
 
-   * Public Git repository
+   * Public GIT repository
    * Extension published to TER (This is not strictly necessary for documentation
      rendering. But it makes the workflow easier for the Documentation Team,
      specifically for the approval process if your extension is already registered
