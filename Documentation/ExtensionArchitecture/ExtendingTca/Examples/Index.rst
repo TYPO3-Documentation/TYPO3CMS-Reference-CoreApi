@@ -9,7 +9,7 @@ Customization Examples
 Many extracts can be found throughout the manual, but this section
 provides more complete examples.
 
-.. index::TCA; Example fe\_users
+.. index::TCA; Example fe_users
 .. _extending-examples-feusers:
 
 Example 1: Extending the fe\_users Table
