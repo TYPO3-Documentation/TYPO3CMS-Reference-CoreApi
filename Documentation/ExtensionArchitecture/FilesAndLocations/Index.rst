@@ -1,5 +1,4 @@
 .. include:: /Includes.rst.txt
-
 .. index:: Extension development; File name conventions
 .. _extension-files-locations:
 .. _extension-reserved-folders-legacy:
@@ -530,7 +529,7 @@ Documentation/Index.rst
 .. index::
    Path; EXT:{extkey}/Resources
    pair: Extensions; JavaScript
-   pair: Extensions; Css
+   pair: Extensions; CSS
 Resources
   Contains the subfolders :code:`Public/` and :code:`Private/`, which
   contain resources, possibly in further subfolders, e.g.
