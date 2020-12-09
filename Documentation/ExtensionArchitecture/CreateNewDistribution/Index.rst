@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: ! Distributions
 .. _distribution:
 
 ===========================
-Creating a new Distribution
+Creating a new distribution
 ===========================
 
 This chapter describes the main steps in creating a new
@@ -14,7 +13,7 @@ tutorial.
 
 .. _distribution_concept:
 
-Concept of Distributions
+Concept of distributions
 ========================
 
 Distributions are full TYPO3 CMS websites ready to be unpacked. They provide

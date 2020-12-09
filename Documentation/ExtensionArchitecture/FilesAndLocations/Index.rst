@@ -1,11 +1,10 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Extension development; File name conventions
 .. _extension-files-locations:
 .. _extension-reserved-folders-legacy:
 
 ===================
-Files and Locations
+Files and locations
 ===================
 
 .. _extension-files:
@@ -24,10 +23,10 @@ An extension consists of:
 
 3. Any number of additional files for the extension functionality itself.
 
-
+.. index:: Extension development; Reserved file names
 .. _extension-reserved-filenames:
 
-Reserved File Names
+Reserved file names
 ===================
 
 This lists files within an extension that have a specific meaning
@@ -43,7 +42,7 @@ extension recognized by TYPO3 without this file.
 In general, do not introduce your own files in the root directory of
 extensions with the name prefix :file:`ext_`, because that is reserved.
 
-
+.. index:: File; EXT:{extkey}/composer.json
 .. _files-composer-json:
 
 :file:`composer.json`
@@ -53,7 +52,7 @@ extensions with the name prefix :file:`ext_`, because that is reserved.
 
 For more information, see :ref:`composer-json`.
 
-
+.. index:: File; EXT:{extkey}/ext_emconf.php
 .. _ext_emconf-php:
 
 :file:`ext_emconf.php`
@@ -73,7 +72,9 @@ that it is auto-written by the Extension Manager when extensions are imported fr
    If this file is *not* present, the Extension Manager will *not* find the
    extension.
 
-
+.. index::
+   File; EXT:{extkey}/ext_localconf.php
+   File; typo3conf/LocalConfiguration.php
 .. _ext_localconf-php:
 
 :file:`ext_localconf.php`
@@ -95,7 +96,7 @@ and :file:`typo3conf/AdditionalConfiguration.php` during TYPO3
 Pay attention to the rules for the contents of these files.
 For more details, see the :ref:`section below <extension-configuration-files>`.
 
-
+.. index:: File; EXT:{extkey}/ext_tables.php
 .. _ext_tables-php:
 
 :file:`ext_tables.php`
@@ -125,7 +126,7 @@ For more details, see the :ref:`section below <extension-configuration-files>`.
    Customizations of existing tables must be done entirely
    in :file:`Configuration/TCA/Overrides/<table name>.php`.
 
-
+.. index:: File; EXT:{extkey}/ext_tables.sql
 .. _ext_tables-sql:
 
 :file:`ext_tables.sql`
@@ -252,7 +253,9 @@ definition:
   index named :php:`t3ver_oid` to fields :php:`t3ver_oid` and :php:`t3ver_wsid` is
   added, too.
 
-.. _:file:`ext_tables_static+adt.sql`:
+
+.. index:: File; EXT:{extkey}/ext_tables_static+adt.sql
+.. _ext_tables_static+adt.sql:
 
 :file:`ext_tables_static+adt.sql`
 ---------------------------------
@@ -287,7 +290,8 @@ You can also drop the table content using the Extension Manager in the backend.
    statements.
 
 
-.. _:file:`ext_typoscript_constants.typoscript`:
+.. index:: File; EXT:{extkey}/ext_typoscript_constants.typoscript
+.. _ext_typoscript_constants.typoscript:
 
 :file:`ext_typoscript_constants.typoscript`
 -------------------------------------------
@@ -303,7 +307,8 @@ of all TypoScript templates.
    :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` are preferred.
 
 
-.. _:file:`ext_typoscript_setup.typoscript`:
+.. _ext_typoscript_setup.typoscript:
+.. index:: File; EXT:{extkey}/ext_typoscript_setup.typoscript
 
 :file:`ext_typoscript_setup.typoscript`
 ---------------------------------------
@@ -319,7 +324,8 @@ TypoScript templates.
    :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` are preferred.
 
 
-.. _:file:`ext_conf_template.txt`:
+.. index:: File; EXT:{extkey}/ext_conf_template.txt
+.. _ext_conf_template.txt:
 
 :file:`ext_conf_template.txt`
 -----------------------------
@@ -336,7 +342,8 @@ written as an array to :file:`LocalConfiguration.php`
 in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][`:code:`*extension_key*` :php:`]`
 
 
-.. _:file:`requestmiddlewares.php`:
+.. _requestmiddlewares.php:
+.. index:: File; EXT:{extkey}/Configuration/RequestMiddlewares.php
 
 :file:`RequestMiddlewares.php`
 ------------------------------
@@ -349,7 +356,11 @@ file. The file must return an array with the configuration. For more details,
 see :ref:`request-handling-configuring-middlewares`.
 
 
-.. _:file:`routes.php`-and-:file:`ajaxroutes.php`:
+.. index::
+   File; EXT:{extkey}/Configuration/Backend/Routes.php
+   File; EXT:{extkey}/Configuration/Backend/AjaxRoutes.php
+
+.. _routes.php-and-ajaxroutes.php:
 
 :file:`Routes.php` and :file:`AjaxRoutes.php`
 ---------------------------------------------
@@ -364,6 +375,7 @@ like :php:`backend` for examples.
 
 
 .. _ServicesYaml:
+.. index:: File; EXT:{extkey}/Configuration/Services.yaml
 
 :file:`Configuration/Services.yaml`
 -----------------------------------
@@ -412,7 +424,8 @@ A typical :file:`Configuration/Services.yaml` may look like this:
    * TYPO3 does use the Symfony component, so official documentation can be found at
      https://symfony.com/doc/current/service_container.html
 
-.. _:file:`resources/public/icons/extension.svg`:
+.. _resources/public/icons/extension.svg:
+.. index:: File; EXT:{extkey}/Resources/Public/Icons/Extension.svg
 
 :file:`Resources/Public/Icons/Extension.svg`
 --------------------------------------------
@@ -445,61 +458,89 @@ the correct structure for you.
 
 It is described below:
 
+.. index:: Path; EXT:{extkey}/Classes
+
 Classes
   Contains all PHP classes. One class per file. Should have sub folders like
   :code:`Controller/`, :code:`Domain/`, :code:`Service/` or :code:`View/`.
   For more details on class file namings an PHP namespaces, see chapter
   :ref:`namespaces <namespaces>`.
 
+.. index:: Path; EXT:{extkey}/Classes/Controller
+
 Classes/Controller
   Contains MVC Controller classes.
+
+.. index:: Path; EXT:{extkey}/Classes/Domain/Model
 
 Classes/Domain/Model
   Contains MVC Domain model classes.
 
+.. index:: Path; EXT:{extkey}/Classes/Domain/Repository
+
 Classes/Domain/Repository
   Contains data repository classes.
 
+.. index:: Path; EXT:{extkey}/Classes/ViewHelpers
+
 Classes/ViewHelpers
   Helper classes used in (Fluid) views.
+
+.. index:: Path; EXT:{extkey}/Configuration
 
 Configuration
   General configuration folder. Some of the sub directories in here like :file:`TCA`
   and :file:`Backend` have special meaning and files in there are automatically
   included during TYPO3 bootstrap.
 
+.. index:: Path; EXT:{extkey}/Configuration/Backend
+
 Configuration/Backend/
   Contains backend routing configurations. See files description of :php:`Routes.php`
   and :php:`AjaxRoutes.php` :ref:`above <extension-reserved-filenames>`.
 
+.. index:: Path; EXT:{extkey}/Configuration/TCA
+
 Configuration/TCA
   One file per database table, using the name of the table for the file, plus
   ".php". Only for new tables.
+
+.. index:: Path; EXT:{extkey}/Configuration/TCA/Overrides
 
 Configuration/TCA/Overrides
   For extending existing tables.
   General advice: One file per database table, using the name of the table for the file, plus ".php".
   For more informations, see chapter :ref:`Extending the TCA Array <storing-changes-extension>`.
 
+.. index:: Path; EXT:{extkey}/Configuration/TSconfig/Page
+
 Configuration/TSconfig/Page
   Page TSconfig, see chapter :ref:`'Page TSconfig' in the TSconfig Reference
   <t3tsconfig:PageTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.
+
+.. index:: Path; EXT:{extkey}/Configuration/TSconfig/User
 
 Configuration/TSconfig/User
   User TSconfig, see chapter :ref:`'User TSconfig' in the TSconfig Reference
   <t3tsconfig:UserTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.
 
+.. index:: Path; EXT:{extkey}/Configuration/TypoScript
+
 Configuration/TypoScript
   TypoScript static setup (:file:`setup.typoscript`) and constants
   (:file:`constants.typoscript`). Use subfolders if you have several static
   templates.
 
+.. index:: Path; EXT:{extkey}/Documentation
+
 Documentation
   Contains the extension documentation in ReStructuredText (ReST, .rst) format.
   Read more on the topic in chapter :ref:`extension documentation <extension-documentation>`.
   :file:`Documentation/` and its subfolders may contain several ReST files, images and other resources.
+
+.. index:: File; EXT:{extkey}/Documentation/Index.rst
 
 Documentation/Index.rst
   This file contains the cover page of the extension manual in ReST
@@ -508,6 +549,11 @@ Documentation/Index.rst
   for more information about structure and syntax of extension manuals.
 
   .. _"Extension Template" on docs.typo3.org: https://docs.typo3.org/typo3cms/ExtensionManualExample/
+
+.. index::
+   Path; EXT:{extkey}/Resources
+   pair: Extensions; JavaScript
+   pair: Extensions; CSS
 
 Resources
   Contains the subfolders :code:`Public/` and :code:`Private/`, which
@@ -518,29 +564,47 @@ Resources
   Any non–TYPO3 code must be compatible with GPL version 2 or any later
   version.
 
+.. index:: Path; EXT:{extkey}/Resources/Private/Language
+
 Resources/Private/Language
   XLIFF files for localized labels.
+
+.. index:: Path; EXT:{extkey}/Resources/Private/Layouts
 
 Resources/Private/Layouts
   Main layouts for (Fluid) views.
 
+.. index:: Path; EXT:{extkey}/Resources/Private/Partials
+
 Resources/Private/Partials
   Partial templates for repetitive use.
+
+.. index:: Path; EXT:{extkey}/Resources/Private/Templates
 
 Resources/Private/Templates
   One template per action, stored in a folder named after each Controller.
 
+.. index:: Path; EXT:{extkey}/Resources/Public/Css
+
 Resources/Public/Css
   Any CSS file used by the extension.
+
+.. index:: Path; EXT:{extkey}/Resources/Public/Images
 
 Resources/Public/Images
   Any images used by the extension.
 
+.. index:: Path; EXT:{extkey}/Resources/Public/JavaScript
+
 Resources/Public/JavaScript
   Any JS file used by the extension.
 
+.. index:: Path; EXT:{extkey}/Tests/Unit
+
 Tests/Unit
   Contains unit tests and fixtures.
+
+.. index:: Path; EXT:{extkey}/Tests/Functiona
 
 Tests/Functional
   Contains functional tests and fixtures.

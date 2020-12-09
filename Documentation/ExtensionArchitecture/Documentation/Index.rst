@@ -1,10 +1,11 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   Extension development; Documentation
+   Path; EXT:{extkey}/Documentation/
 .. _extension-documentation:
 
 ====================
-Adding Documentation
+Adding documentation
 ====================
 
 If you plan to upload your extension to the TYPO3 Extension Repository (TER), you should first consider adding
@@ -26,9 +27,10 @@ different kinds of documentation:
 #. Other formats, such as a simple README file stored as :file:`EXT:{extkey}/README.rst`, see :ref:`h2document:supported-filenames-and-formats`
 
 
+.. index:: Extension development; Sphinx project
 .. _extension-documentation-sphinx:
 
-Sphinx Project
+Sphinx project
 ==============
 
 Sphinx is the format used for official TYPO3 documentation. A Sphinx-based documentation is a set of
@@ -63,6 +65,9 @@ as described here.
 There are some rendering issues with Markdown, so even if it is possible to use Markdown, please consider
 using reST, because that is what is commonly used in TYPO3 documentation projects and that is what is
 supported best.
+
+
+.. index:: File; EXT:{extkey}/README.rst
 
 README.rst
 ----------

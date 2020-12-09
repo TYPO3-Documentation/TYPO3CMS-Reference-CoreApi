@@ -1,8 +1,6 @@
 .. include:: /Includes.rst.txt
-
 .. highlight:: php
-
-
+.. index:: Extension development; Configuration Files
 .. _extension-configuration-files:
 
 
@@ -25,6 +23,8 @@ directory names typically used in extensions.
    follow some rules, such as not use :php:`use` or :php:`declare(strict_types=1)`
    inside these files, see :ref:`rules_ext_tables_localconf_php`.
 
+
+.. index:: ! File; EXT:{extkey}/ext_localconf.php
 .. _ext-localconf-php:
 
 ext_localconf.php
@@ -109,6 +109,9 @@ The skeletton of the :file:`ext_localconf.php` looks like this::
        // Add your code here
    })();
 
+
+.. index:: Extension development; PageTSconfig
+
 Adding default PageTSconfig
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -124,6 +127,8 @@ PageTSconfig available via static files can be added inside
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile();
 
 
+.. index:: Extension development; UserTSconfig
+
 Adding default UserTSconfig
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -133,6 +138,8 @@ As for default PageTSconfig, UserTSconfig can be added inside
 
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig();
 
+
+.. index:: ! File; EXT:{extkey}/ext_tables.php
 .. _ext-tables.php:
 
 ext_tables.php
@@ -202,6 +209,7 @@ file does not need to be registered but will be loaded automatically::
      // Add your code here
    })();
 
+.. index:: Extension development; Backend module registration
 .. _extension-configuration-files-backend-module:
 
 Registering a Backend Module
@@ -225,6 +233,7 @@ You can register a new Backend Module for your extension via :php:`ExtensionUtil
 
 For more information on Backend Modules see :ref:`Backend Module API <backend-modules-api>`.
 
+.. index:: Extension development; Context sensitive help
 .. _extension-configuration-files-csh:
 
 Adding Context Sensitive Help to fields
@@ -240,6 +249,7 @@ the corresponding field::
 
 For more information see :ref:`Context-Sensitive-Help <csh-implementation>`.
 
+.. index:: Extension development; allowTableOnStandardPages
 .. _extension-configuration-files-allow-table-standard:
 
 Allowing a tables records to be added to Standard pages
@@ -253,9 +263,10 @@ new records of your table to be added on Standard pages call:
       'tx_myextension_domain_model_mymodel'
    );
 
+.. index:: Extension development; Scheduler task registration
 .. _extension-configuration-files-scheduler:
 
-Registering a scheduler Task
+Registering a scheduler task
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Scheduler tasks get registered in the ext_tables.php as well. Note that the Sysext "scheduler" has

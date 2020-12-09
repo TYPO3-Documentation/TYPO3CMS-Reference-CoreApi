@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Extension development; Publishing
 .. _publish-extension:
 
 ======================
-Publish Your Extension
+Publish your extension
 ======================
 
 By publishing an extension to the
@@ -14,12 +13,13 @@ of these.
 
 *TYPO3 - Inspiring people to share*
 
+.. index:: Extension development; GIT
 .. rst-class:: bignums-xxl
 
-#. Publish Source Code on a Public Git Hosting Platform
+#. Publish source code on a public GIT hosting platform
 
    The TYPO3 community currently uses GitHub, GitLab and Atlassian Bitbucket to
-   host the Git repositories of their extensions.
+   host the GIT repositories of their extensions.
 
    Typically, the :ref:`extension key <extension-key>` is used for the
    repository name, but that is not necessary.
@@ -29,13 +29,15 @@ of these.
    * Contributors can add issues or make pull requests
    * Render the documentation on docs.typo3.org (see below) by adding a webhook
 
-#. Publish Your Extension on Packagist
+.. index:: Extension development; Packagist
+
+#. Publish your extension on Packagist
 
    This is described well on `Packagist <https://packagist.org/>`__.
 
    **Depends on:**
 
-   * Public Git repository
+   * Public GIT repository
 
    **Advantages:**
 
@@ -43,7 +45,9 @@ of these.
    * An update of the extension can be done easily by your users with
      `composer update`
 
-#. Publish Your Extension on TER
+.. index:: Extension development; TER
+
+#. Publish your extension on TER
 
    See `Publish an Extension <https://extensions.typo3.org/faq/publish-an-extension/>`__
    for more information on how to publish an extension and check out the
@@ -60,7 +64,9 @@ of these.
    * Link to the source code (optional)
    * Link to the issue tracker (optional)
 
-#. Add Webhook for Documentation
+.. index:: Extension development; webhook for documentation
+
+#. Add webhook for documentation
 
    In order for this to work, you must have a :file:`composer.json` and push
    some changes after you registered the webhook.
@@ -70,7 +76,7 @@ of these.
 
    **Depends on:**
 
-   * Public Git repository
+   * Public GIT repository
    * Extension published to TER (This is not strictly necessary for documentation
      rendering. But it makes the workflow easier for the Documentation Team,
      specifically for the approval process if your extension is already registered
