@@ -1,5 +1,4 @@
 .. include:: /Includes.rst.txt
-
 .. index:: ! Distributions
 .. _distribution:
 
