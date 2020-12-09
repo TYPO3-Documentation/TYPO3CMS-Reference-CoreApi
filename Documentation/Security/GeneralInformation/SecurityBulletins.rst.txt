@@ -1,5 +1,9 @@
 .. include:: /Includes.rst.txt
 
+.. index::
+   Security guidelines; Security bulletins
+   Security bulletins
+
 Security bulletins
 ^^^^^^^^^^^^^^^^^^
 
@@ -74,8 +78,12 @@ standard core review process. This implies that the development of the
 fix including the review and deployment is publicly visible and can be
 monitored by everyone.
 
+.. index::
+   Security guidelines; Public service announcements
+   Public service announcements
+   see: PSA; Public service announcements
 
-Public Service Announcements
+Public service announcements
 """"""""""""""""""""""""""""
 
 Important security related information regarding TYPO3 products or the
@@ -91,8 +99,12 @@ party software, possible misconfigurations in TYPO3 products, security
 related information about the server infrastructure of typo3.org and
 other important recommendations how to securely use TYPO3 products.
 
+.. index::
+   Security guidelines; Common vulnerability scoring system
+   Common vulnerability scoring system
+   see: CVSS; Common vulnerability scoring system
 
-Common Vulnerability Scoring System (CVSS)
+Common vulnerability scoring system (CVSS)
 """"""""""""""""""""""""""""""""""""""""""
 
 Since 2010 the TYPO3 Security Team also publishes a CVSS rating with

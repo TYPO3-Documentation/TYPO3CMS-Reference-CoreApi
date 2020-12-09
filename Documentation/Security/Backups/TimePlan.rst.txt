@@ -1,4 +1,5 @@
 .. include:: /Includes.rst.txt
+.. index:: Backup; Time plan
 
 Time plan and retention time
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

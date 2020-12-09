@@ -1,11 +1,11 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Security team
 .. _security-team:
 
-The TYPO3 Security Team
+The TYPO3 security team
 -----------------------
 
+.. index:: Security; Reporting
 .. _security-team-contact:
 
 Report a security issue
@@ -22,6 +22,10 @@ to respond in 2 working days, but please allow a reasonable amount of
 time to assess the issue and get back to you with an answer. If you
 suspect that your report has been overlooked, feel free to submit a
 reminder a few days after your initial submission.
+
+.. index::
+   Security; Extension review
+   Extension review
 
 Review of your extension
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -41,6 +45,7 @@ Please find further details about the TYPO3 Security Team at
 
 
 
+.. index:: Security; Incident handling
 .. _security-incident-handling:
 
 Incident handling

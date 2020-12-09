@@ -1,6 +1,9 @@
 .. include:: /Includes.rst.txt
+.. index::
+   pair: Security guidelines; Cross-site request forgery
+   see: XSRF; Cross-site request forgery
 
-Cross Site Request Forgery (XSRF)
+Cross-site request forgery (XSRF)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this type of attack unauthorized commands are sent from a user a

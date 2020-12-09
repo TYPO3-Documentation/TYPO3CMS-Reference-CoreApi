@@ -1,4 +1,9 @@
 .. include:: /Includes.rst.txt
+.. index::
+   pair: Security guidelines; TYPO3 versions
+   Security guidelines; Long term support
+   Long term support
+   see: LTS; Long term support
 
 TYPO3 versions and lifecycle
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

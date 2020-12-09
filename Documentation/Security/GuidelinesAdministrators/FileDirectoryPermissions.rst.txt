@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Security guidelines; File permissions
 .. -----------------------------------------------------------------------
 .. This file is included via include.
 .. Technically, it is as if this file is inserted **into** the including file
@@ -7,7 +7,7 @@
 .. -----------------------------------------------------------------------
 
 
-File/directory Permissions
+File/directory permissions
 ==========================
 
 The correct and secure setup of the underlying server is an essential

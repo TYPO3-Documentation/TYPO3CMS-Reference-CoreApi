@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Security guidelines; Encryption
 .. -----------------------------------------------------------------------
 .. This file is included via include.
 .. Technically, it is as if this file is inserted **into** the including file
@@ -49,6 +49,12 @@ be considered.
 The most secure first paradigm in most cases is: do neither transmit
 nor store any sensitive data if not absolutely required.
 
+.. index::
+   pair: Security guidelines; Transport layer security
+   pair: Security guidelines; SSL
+   pair: Security guidelines; https
+   Transport layer security
+   see: TLS; Transport layer security
 
 Frontend
 --------
@@ -92,6 +98,7 @@ TYPO3 supports a `TLS` encrypted backend and offers some specific
 configuration options for this purpose, see configuration option
 :ref:`lockSSL <security-global-typo3-options-lockSSL>`.
 
+.. index:: pair: Security guidelines; FTP
 
 Drop FTP
 --------

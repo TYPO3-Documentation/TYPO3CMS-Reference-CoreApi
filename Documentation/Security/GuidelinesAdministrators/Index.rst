@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Security guidelines; Administrators
 .. _security-administrators:
 
 ====================================

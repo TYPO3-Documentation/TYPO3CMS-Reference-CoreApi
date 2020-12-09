@@ -1,18 +1,19 @@
 .. include:: /Includes.rst.txt
-
+.. index:: ! Security guidelines
 .. _security-general-guidelines:
 
 ==================
-General Guidelines
+General guidelines
 ==================
 
 The recommendations in this chapter apply for all roles: system
 administrators, TYPO3 integrators, editors and strictly speaking even
 for (frontend) users.
 
+.. index:: pair: Security guidelines; passwords
 .. _security-secure-passwords:
 
-Secure Passwords
+Secure passwords
 ================
 
 It is critical that every user is using secure passwords to
@@ -123,10 +124,10 @@ The security bulletins may also include specific advice such as
 configuration changes or similar. Check your individual TYPO3 instance
 and follow these recommendations.
 
-
+.. index:: pair: Security guidelines; TYPO3 update
 .. _security-updating-typo3:
 
-Keep the TYPO3 Core up-to-date
+Keep the TYPO3 core up-to-date
 ==============================
 
 As described in :ref:`TYPO3 versions <security-typo3-versions>` chapter, a
@@ -153,6 +154,7 @@ web root directory (so they are not accessible via web requests) as
 a general rule and use symbolic links inside the web root to point to
 the correct and secure TYPO3 version.
 
+.. index:: pair: Security guidelines; Extensions update
 .. _security-updating-extensions:
 
 Keep TYPO3 Extensions Up-to-date
@@ -203,9 +205,10 @@ The advice is to move the directory of the old version outside of the
 web root directory, so the insecure extension code is not accessible.
 
 
+.. index:: pair: Security guidelines; Staging servers
 .. _security-staging-servers:
 
-Use Staging Servers for Developments and Tests
+Use staging servers for developments and tests
 ==============================================
 
 During the development phase of a project and also after the launch of

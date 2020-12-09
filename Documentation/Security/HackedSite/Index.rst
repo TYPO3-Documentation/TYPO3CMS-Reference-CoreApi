@@ -1,9 +1,8 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Hacked site
 .. _security-detect-analyze-repair:
 
-Detect, Analyze and Repair a Hacked Site
+Detect, analyze and repair a hacked site
 ----------------------------------------
 
 Most websites do not get hacked. If yours did, there is something wrong

@@ -1,5 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   Security guidelines; Content security policy
+   Content security policy
+   Cross-site scripting; Content security policy
+   see: CSP, Content security policy
 .. highlight:: apacheconf
 
 .. -----------------------------------------------------------------------
@@ -8,12 +12,12 @@
 .. Continue from header level of including file ...
 .. -----------------------------------------------------------------------
 
-Content Security Policy
+Content security policy
 =======================
 
-Content Security Policy (CSP_) is an added layer of security that helps
-to detect and mitigate certain types of attacks, including Cross-Site
-Scripting (XSS) and data injection attacks. These attacks are used for
+Content security policy (CSP_) is an added layer of security that helps
+to detect and mitigate certain types of attacks, including cross-site
+scripting (XSS) and data injection attacks. These attacks are used for
 everything from data theft to site defacement to the distribution of malware.
 
 According to TYPO3-PSA-2019-010_ authenticated users - but not having

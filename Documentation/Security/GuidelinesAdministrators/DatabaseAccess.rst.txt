@@ -1,4 +1,5 @@
 .. include:: /Includes.rst.txt
+.. index:: pair; Security guidelines; Database access
 
 .. -----------------------------------------------------------------------
 .. This file is included via include.
@@ -6,14 +7,17 @@
 .. Continue from header level of including file ...
 .. -----------------------------------------------------------------------
 
-Database Access
+Database access
 ===============
 
 The TYPO3 database contains all data of backend and frontend users and
 therefore special care must be taken not to grant unauthorized access.
 
+.. index::
+    Database; Secure passwords
+    Database; Access privileges
 
-Secure Passwords and Minimum Access Privileges With MySQL
+Secure passwords and minimum access privileges with MySQL
 ---------------------------------------------------------
 
 If using MySQL, the privilege system authenticates a (database-)user who
@@ -39,8 +43,11 @@ context of administrative privileges and not required in most cases.
 See the documentation of your database system on how to set up
 database users and access privileges.
 
+.. index::
+    Database; SQLite
+    pair: Security guidelines; SQLite
 
-Database not Within Web Document Root With SQLite
+Database not within web document root with SQLite
 ---------------------------------------------------------
 
 If using SQLite as underlying database, a database is stored in a single
@@ -51,7 +58,7 @@ file will end up in the web server accessible document root directory :file:`typ
 In such a setup it is important to configure Web servers to not deliver :file:`.sqlite` files.
 
 
-Disallow External Access
+Disallow external access
 ------------------------
 
 The database server should only be reachable from the server that your
@@ -64,8 +71,11 @@ If you are using MySQL, read the chapter
 in the manual and check for the "skip-networking" and "bind-address" options
 in particular.
 
+.. index::
+    pair: Security guidelines; Database administration tools
+    pair: Security guidelines; phpMyAdmin
 
-Database Administration Tools
+Database administration tools
 -----------------------------
 
 `phpMyAdmin` and similar tools intend to allow the administration of

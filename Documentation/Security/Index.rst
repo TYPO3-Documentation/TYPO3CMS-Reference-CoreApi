@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Security guidelines
 .. _security:
 
 ===================
-Security Guidelines
+Security guidelines
 ===================
 
 

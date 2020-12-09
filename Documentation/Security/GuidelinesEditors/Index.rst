@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Security guidelines; Editors
 .. _security-editors:
 
 Guidelines for Editors
