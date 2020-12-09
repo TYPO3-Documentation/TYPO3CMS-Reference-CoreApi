@@ -209,7 +209,7 @@ file does not need to be registered but will be loaded automatically::
      // Add your code here
    })();
 
-.. index:: Extension development; Backend Module registration
+.. index:: Extension development; Backend module registration
 .. _extension-configuration-files-backend-module:
 
 Registering a Backend Module
@@ -233,7 +233,7 @@ You can register a new Backend Module for your extension via :php:`ExtensionUtil
 
 For more information on Backend Modules see :ref:`Backend Module API <backend-modules-api>`.
 
-.. index:: Extension development; Context Sensitive Help
+.. index:: Extension development; Context sensitive help
 .. _extension-configuration-files-csh:
 
 Adding Context Sensitive Help to fields
