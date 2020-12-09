@@ -90,6 +90,7 @@ If translations exist on Pootle there is no need to retranslate everything on Cr
 #. **Open and Cleanup**
    Unzip the translations and switch to e.g. `Resources/Private/Language` which is the typical directory
    of translations. Remove the *xml* files as only the *xlf* files are important.
+
 #. **Match the Files**
    The attribute `original` of the translations must match the ones of the default translations.
    **Example**: The file :file:`Resources/Private/Language/locallang.xlf` starts with the following snippet:
