@@ -1,6 +1,4 @@
 .. include:: /Includes.rst.txt
-
-
 .. index:: Extension development; Naming conventions
 .. _extension-naming:
 
@@ -141,6 +139,7 @@ Here, extkey is `my_extension`:
   a dash)
 
 .. index:: Vendor name
+
 Vendor name
 ===========
 
