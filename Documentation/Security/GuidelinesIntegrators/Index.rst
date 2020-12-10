@@ -1,8 +1,8 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Security guidelines; Integrators
 .. _security-integrators:
 
-Guidelines for TYPO3 Integrators
+Guidelines for TYPO3 integrators
 --------------------------------
 
 .. _security-integrator-definition:

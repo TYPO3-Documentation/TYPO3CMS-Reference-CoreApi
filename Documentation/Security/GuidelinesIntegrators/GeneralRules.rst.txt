@@ -1,4 +1,6 @@
 .. include:: /Includes.rst.txt
+.. index:: Security guidelines; General rules
+.. index:: Security guidelines;
 
 General rules
 ^^^^^^^^^^^^^

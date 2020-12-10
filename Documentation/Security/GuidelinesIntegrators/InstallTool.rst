@@ -1,6 +1,9 @@
 .. include:: /Includes.rst.txt
+.. index::
+   Security guidelines; Install tool
+   File; typo3conf/ENABLE_INSTALL_TOOL
 
-Install Tool
+Install tool
 ^^^^^^^^^^^^
 
 The Install Tool allows you to configure the TYPO3 system on a very

@@ -1,7 +1,10 @@
 .. include:: /Includes.rst.txt
+.. index:: Security guidelines; Users and access
 
 Users and access privileges
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. index:: pair: Security guidelines; Backend users
 
 Backend
 """""""
@@ -49,6 +52,8 @@ users that are allowed to continue using the system.
     :class: with-shadow
     :alt: Screenshot showing the screen to set an expiry date for a BE user
 
+
+.. index:: pair: Security guidelines; Frontend users
 
 Frontend
 """"""""

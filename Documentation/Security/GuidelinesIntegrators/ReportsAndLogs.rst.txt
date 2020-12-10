@@ -1,6 +1,9 @@
 .. include:: /Includes.rst.txt
+.. index::
+   pair: Security guidelines; Logs
+   pair: Security guidelines; Reports
 
-Reports and Logs
+Reports and logs
 ^^^^^^^^^^^^^^^^
 
 Two backend modules in TYPO3 require special attention: *Reports*

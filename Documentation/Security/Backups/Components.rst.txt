@@ -1,4 +1,5 @@
 .. include:: /Includes.rst.txt
+.. index:: Backup; Components
 
 Components included in the backups
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

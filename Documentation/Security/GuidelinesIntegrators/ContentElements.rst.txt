@@ -1,4 +1,8 @@
 .. include:: /Includes.rst.txt
+.. index::
+   pair: Security guidelines; Content elements
+   pair: Security guidelines; RTE
+
 
 Content elements
 ^^^^^^^^^^^^^^^^

@@ -9,7 +9,9 @@
 Further Actions
 ===============
 
-Hosting Environment
+.. index:: pair: Security guidelines; Hosting environment
+
+Hosting environment
 -------------------
 
 A system administrator is usually responsible for the entirety of an
@@ -26,7 +28,9 @@ database server, `DNS` server, `IMAP/POP3` server, etc.). In short words:
 keep your hosting environment as slim as possible for performance and
 security purposes.
 
-Security-related PHP Settings
+.. index:: pair: Security guidelines; PHP settings
+
+Security-related PHP settings
 -----------------------------
 
 Due to the fact that TYPO3 is a PHP application, secure PHP settings
@@ -50,6 +54,9 @@ Due to the fact that this incident is logged in the web server's
 error log file, it can be handled by external tools, such as
 `fail2ban <http://www.fail2ban.org>`_.
 
+.. index::
+   pair: Security guidelines; Clickjacking
+   pair: Security guidelines; X-Frame-Options
 
 Defending Against Clickjacking
 ------------------------------

@@ -1,4 +1,8 @@
 .. include:: /Includes.rst.txt
+.. index::
+   Security guidelines; SQL injection
+   SQL; injection
+   SQL; Security
 
 SQL injection
 ^^^^^^^^^^^^^

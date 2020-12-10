@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Security guidelines; Backup
 .. _security-backups:
 
 ===============
-Backup Strategy
+Backup strategy
 ===============
 
 Backups are usually in the responsibility of the system administrator.

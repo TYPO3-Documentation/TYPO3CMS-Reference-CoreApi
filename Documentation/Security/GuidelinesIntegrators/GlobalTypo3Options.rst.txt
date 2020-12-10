@@ -1,4 +1,7 @@
 .. include:: /Includes.rst.txt
+.. index::
+   pair: Security guidelines; Global TYPO3 configuration
+   pair: Security guidelines; Debugging
 
 Global TYPO3 configuration options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

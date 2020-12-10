@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Security guidelines; File extensions
 .. highlight:: apacheconf
 
 .. -----------------------------------------------------------------------
@@ -8,7 +8,7 @@
 .. Continue from header level of including file ...
 .. -----------------------------------------------------------------------
 
-File Extension Handling
+File extension handling
 =======================
 
 Most web servers have a default configuration

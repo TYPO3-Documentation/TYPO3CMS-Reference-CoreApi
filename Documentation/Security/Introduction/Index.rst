@@ -22,6 +22,7 @@ It is important to understand that security is not a condition –
 security is a process with ongoing tasks and regular reviews are
 essential.
 
+.. index:: Security; Reporting
 
 Reporting a security issue
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

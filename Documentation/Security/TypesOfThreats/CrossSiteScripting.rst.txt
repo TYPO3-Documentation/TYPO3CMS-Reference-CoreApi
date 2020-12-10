@@ -1,6 +1,9 @@
 .. include:: /Includes.rst.txt
+.. index::
+   pair: Security guidelines; Cross-site scripting
+   see: XSS; Cross-site scripting
 
-Cross Site Scripting (XSS)
+Cross-site scripting (XSS)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Cross-site scripting occurs when data that is being processed by an
