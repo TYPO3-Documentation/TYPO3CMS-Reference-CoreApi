@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   ! Testing; Unit
+   Unit tests
 .. _testing-writing-unit:
 
 ==================
@@ -86,6 +88,7 @@ the unit tests needs lots of lines of code to mock dependencies, just to test so
 read some unit tests provided by the core: We're sure you'll find a bad unit test that could be improved
 by creating a functional test from it.
 
+.. index:: Unit tests; Conventions
 
 Unit test conventions
 =====================
@@ -154,6 +157,7 @@ system under test. That is ok. It's better if a single test is very simple and t
 lines from one to the other test over and over again than trying to abstract that away.
 Keep tests as simple as possible to read and don't use fancy abstraction features.
 
+.. index:: Unit tests; Extending UnitTestCase
 
 Extending UnitTestCase
 ======================
@@ -285,6 +289,7 @@ to the test and it helps avoiding duplicate sets. Additionally, put the data pro
 test and name it "test name" + "DataProvider". Data providers are often not used in multiple tests, so that should
 almost always work.
 
+.. index:: Unit tests; Mocking
 
 Mocking
 =======
@@ -356,6 +361,7 @@ class as dependency is often very painful. There is not much developers can do i
 core tries to slowly improve these areas over time and indeed BackendUtility is shrinking
 each version.
 
+.. index:: pair: Unit tests; Exceptions
 
 Exception handling
 ==================

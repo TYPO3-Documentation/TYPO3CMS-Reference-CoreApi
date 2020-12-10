@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Testing; Core
 .. _testing-core:
 
 ============
@@ -188,6 +188,11 @@ One interesting detail should be mentioned: runTests.sh uses `typo3gmbh/phpXY <h
 as main PHP containers. Those are loosely maintained and may be updated. Use the command
 `Build/Scripts/runTests.sh -u` to fetch the latest versions of these containers.
 
+.. index::
+   Testing; Debugging
+   Testing; Xdebug
+   Debugging
+   Xdebug
 
 Debugging
 =========

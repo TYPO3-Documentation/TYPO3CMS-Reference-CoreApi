@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: ! Testing; Acceptance
 .. _testing-writing-acceptance:
 
 ========================
