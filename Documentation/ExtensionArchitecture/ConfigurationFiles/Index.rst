@@ -190,7 +190,7 @@ Should Be Used For
 These are the typical functions that should be placed inside :file:`ext_tables.php`
 
 * Registering of :ref:`Backend modules <backend-modules-api>` or Adding a new Main Module :ref: 'Example <extension-configuration-files-backend-module>'
-* Adding :ref:`Context-Sensitive-Help <csh-implementation>` to fields (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`) :ref:`Example <extension-configuration-files-csh>`
+* Adding :ref:`Context-sensitive-help <csh-implementation>` to fields (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`) :ref:`Example <extension-configuration-files-csh>`
 * Adding TCA descriptions (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`)
 * Adding table options via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages()` :ref:`Example <extension-configuration-files-allow-table-standard>`
 * Registering a scheduler tasks `Scheduler Task <https://docs.typo3.org/c/typo3/cms-scheduler/master/en-us/DevelopersGuide/CreatingTasks/Index.html>`__ :ref:`Example <extension-configuration-files-scheduler>`
@@ -233,13 +233,13 @@ You can register a new Backend Module for your extension via :php:`ExtensionUtil
 
 For more information on Backend Modules see :ref:`Backend Module API <backend-modules-api>`.
 
-.. index:: Extension development; Context Sensitive Help
+.. index:: Extension development; Context-sensitive help
 .. _extension-configuration-files-csh:
 
-Adding Context Sensitive Help to fields
+Adding context-sensitive help to fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add the following to your extensions ext_tables.php in order to add Context Sensitive Help for
+Add the following to your extensions ext_tables.php in order to add context-sensitive help for
 the corresponding field::
 
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
@@ -247,7 +247,7 @@ the corresponding field::
        'EXT:myext/Resources/Private/Language/locallang_csh_tx_domain_model_foo.xlf'
    );
 
-For more information see :ref:`Context-Sensitive-Help <csh-implementation>`.
+For more information see :ref:`Context-sensitive-help <csh-implementation>`.
 
 .. index:: Extension development; allowTableOnStandardPages
 .. _extension-configuration-files-allow-table-standard:
