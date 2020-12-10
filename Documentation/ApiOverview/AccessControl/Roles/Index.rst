@@ -1,4 +1,5 @@
 .. include:: /Includes.rst.txt
+.. index:: pair: Backend; Roles
 
 =====
 Roles

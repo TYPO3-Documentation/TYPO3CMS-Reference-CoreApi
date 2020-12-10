@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Backend; Access control
 .. _access:
 
 ======================================
-Backend Access Control (Users & Roles)
+Backend access control (Users & Roles)
 ======================================
 
 .. toctree::

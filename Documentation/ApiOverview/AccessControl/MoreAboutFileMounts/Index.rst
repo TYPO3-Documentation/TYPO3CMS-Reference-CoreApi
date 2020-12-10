@@ -1,10 +1,12 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   Backend; File mounts
+   pair: Backend; File abstraction layer
+   File mounts
 .. _access-filemounts-more:
 
 ======================
-More About File Mounts
+More about file mounts
 ======================
 
 File mounts require a little more description of the concepts provided
@@ -34,13 +36,17 @@ File Mounts
   actually give access to users to some directories. A file mount is always
   related to a storage.
 
-
+.. index::
+   TYPO3_CONF_VARS; BE fileadminDir
+   TYPO3_CONF_VARS; BE lockRootPath
+   Local driver storage
+   Path: fileadmin
 .. _access-filemounts-more-local-driver:
 
-Paths for Local Driver Storage
+Paths for local driver storage
 ==============================
 
-The File Storages based on the "local file system" driver have an
+The File storages based on the "local file system" driver have an
 option for relative or absolute paths.
 
 .. figure:: ../../../Images/AccessLocalStoragePath.png
@@ -75,10 +81,15 @@ pointing to :file:`/home/foo/bar` and one pointing to
 :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']` to be
 equal to :code:`/home/foo/`.
 
-
+.. index::
+   TYPO3_CONF_VARS; BE userHomePath
+   TYPO3_CONF_VARS; BE groupHomePath
+   TYPO3_CONF_VARS; BE userUploadDir
+   Home directories
+   TSconfig; DefaultUploadFolder
 .. _access-filemounts-home-directories:
 
-Home Directories
+Home directories
 ================
 
 TYPO3 CMS also features the concept of "home directories". These are paths
