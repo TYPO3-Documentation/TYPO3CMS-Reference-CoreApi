@@ -233,7 +233,7 @@ You can register a new Backend Module for your extension via :php:`ExtensionUtil
 
 For more information on Backend Modules see :ref:`Backend Module API <backend-modules-api>`.
 
-.. index:: Extension development; Context sensitive help
+.. index:: Extension development; Context Sensitive Help
 .. _extension-configuration-files-csh:
 
 Adding Context Sensitive Help to fields
