@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Testing; Extensions
 .. _testing-extensions:
 
 =================
@@ -75,7 +75,6 @@ That file then serves two needs at the same time: It is used by projects that re
 as a dependency and it is used as the root composer.json to specify dependencies turning the extension
 into a project on its own for testing. The latter allows us to set up a full TYPO3
 environment in a sub folder of the extension and execute the tests within this sub folder.
-
 
 Testing enetcache
 =================
@@ -364,6 +363,8 @@ Rather than changing the :file:`runTests.sh` to then use `greadlink` and thus ri
 The :file:`runTests.sh` file of enetcache comes with some additional features, for example it is possible to execute `composer install` from within a container using `Build/Scripts/runTests.sh -s composerInstall`, it is possible to execute unit tests with PHP 7.3 instead of 7.2 (option `-p 7.3`). This is available for PHP linting, too (`-s lint`). Similar to :ref:`core test execution <testing-core-examples>` it is possible to break point tests using xdebug (`-x` option), typo3gmbh containers
 can be updated using `runTests.sh -u`, verbose output is available with `-v` and a help is available with `runTests.sh -h`. Have a look around.
 
+.. index:: Testing; Github Actions
+
 Github Actions
 --------------
 
@@ -471,6 +472,8 @@ With this in place we can run unit tests:
     # Run unit tests
     Build/Scripts/runTests.sh
     # ... OK (1 test, 4 assertions)
+
+.. index:: Testing; Functional
 
 Functional testing
 ------------------
@@ -605,6 +608,8 @@ of `typo3temp/` of `.Build/`, in this test case it is `functional-9ad521a`:
 This can be confusing at first, but it starts making sense the more you use it.
 Also, the docker-compose.yml file contains a setup to start needed databases for the functional tests
 and runTests.sh is tuned to call the different scenarios.
+
+.. index:: Testing; Acceptance
 
 Acceptance testing
 ------------------

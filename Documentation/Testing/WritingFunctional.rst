@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: ! Testing; Functional
 .. _testing-writing-functional:
 
 ========================
