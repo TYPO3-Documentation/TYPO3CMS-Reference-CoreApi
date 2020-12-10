@@ -109,7 +109,7 @@ $reasonPhrase
 
 .. index:: Ajax; Endpoint
 .. index:: Ajax; Routes
-.. index:: File: Configuration/Backend/AjaxRoutes.ph
+.. index:: File; EXT:{extkey}/Configuration/Backend/AjaxRoutes.php
 
 Register the endpoint
 =====================
