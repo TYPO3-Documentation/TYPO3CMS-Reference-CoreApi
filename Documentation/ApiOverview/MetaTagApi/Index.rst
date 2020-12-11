@@ -74,7 +74,7 @@ Creating Your Own MetaTagManager
 
 If you need to specify the settings and rendering of a specific meta tag (for example when you want to make it possible
 to have multiple occurrences of a specific tag), you can create your own :php:`MetaTagManager`.
-This MetaTagManager should implement :php:`\TYPO3\CMS\Core\MetaTag\MetaTagManagerInterface`.
+This :php:`MetaTagManager` must implement :php:`\TYPO3\CMS\Core\MetaTag\MetaTagManagerInterface`.
 
 To use the manager, you must register it in :php:`ext_localconf.php`:
 
