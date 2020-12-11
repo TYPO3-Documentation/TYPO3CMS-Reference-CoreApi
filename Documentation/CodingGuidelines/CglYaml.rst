@@ -1,12 +1,12 @@
 .. include:: /Includes.rst.txt
-.. index:: pair: Coding guidelines; Yaml
+.. index:: pair: Coding guidelines; YAML
 .. _cgl-yaml:
 
 ======================
-Yaml Coding Guidelines
+YAML Coding Guidelines
 ======================
 
-Yaml is (one of the languages) used for configuration in TYPO3.
+YAML is (one of the languages) used for configuration in TYPO3.
 
 Directory and File Names
 ========================
