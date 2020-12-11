@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 
 .. http://wiki.typo3.org/Caching_framework
-
+.. index:: ! Caching
 .. _caching:
 
 =======
@@ -46,6 +46,7 @@ dynamic parts.
    to learn how to leverage TYPO3's caching mechanism to cache your plugin for however long
    you can - even 30 seconds might improve performance in some scenarios.
 
+.. index:: Caching; Cache hash
 
 Caching Variants - or: What is a "cache hash"?
 ----------------------------------------------

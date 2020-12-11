@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Context-sensitive help; Language files
 .. _csh-files:
 
 ==========================
-The Language Files for CSH
+The language files for CSH
 ==========================
 
 The files used for storing CSH data are standard
@@ -94,9 +93,10 @@ table or module (by selecting it from the CSH table of contents).
    This is historical and has no meaning anymore.
 
 
+.. index:: Context-sensitive help; Type keys
 .. _csh-files-syntax:
 
-Syntax for Type Keys
+Syntax for type keys
 ====================
 
 .. note::
@@ -183,9 +183,10 @@ seeAlso
      pages:starttime , pages:endtime , tt\_content:header , Link to TYPO3.org \| http://typo3.org/
 
 
+.. index:: Context-sensitive help; Label extension
 .. _csh-files-extend-label:
 
-Extending an Existing Label
+Extending an existing label
 ===========================
 
 It is also possible to extend an existing label. Here is an extract from

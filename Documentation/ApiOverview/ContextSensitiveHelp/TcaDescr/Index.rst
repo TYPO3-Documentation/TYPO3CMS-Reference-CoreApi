@@ -1,6 +1,7 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   pair: Context-sensitive help; TCA
+   $TCA_DESCR
 .. _csh-tca-descr:
 
 =====================

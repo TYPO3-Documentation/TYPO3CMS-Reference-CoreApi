@@ -1,15 +1,15 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Context-sensitive help; Implementation
 .. _csh-implementation:
 
 ================
 Implementing CSH
 ================
 
+.. index:: pair: Context-sensitive help; Tables
 .. _csh-implementation-new-table:
 
-For new Tables and Fields
+For new tables and fields
 =========================
 
 Create a language file following the
@@ -28,9 +28,10 @@ The rest of the work is automatically handled by the TYPO3 CMS
 form engine.
 
 
+.. index:: pair: Context-sensitive help; Fields
 .. _csh-implementation-extend-table:
 
-Adding CSH for Fields Added to Existing Tables
+Adding CSH for fields added to existing tables
 ==============================================
 
 Create a language file in your extension
@@ -47,10 +48,13 @@ as usual, but for the table that you are extending:
 
 The example assumes that you are extending the "pages" table.
 
+.. index::
+   pair: Context-sensitive help; Backend modules
+   BackendUtility; cshItem
 .. _csh-implementation-modules:
 
-For Modules
-===========
+For backend modules
+===================
 
 Implementing CSH for your backend module requires a bit more work,
 because you don't have the form engine doing everything for you.

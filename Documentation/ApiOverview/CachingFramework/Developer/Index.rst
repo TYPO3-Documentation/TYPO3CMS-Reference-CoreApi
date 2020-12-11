@@ -1,11 +1,8 @@
 .. include:: /Includes.rst.txt
-
-
-
 .. _caching-developer:
 
 =====================
-Developer Information
+Developer information
 =====================
 
 This chapter is targeted at extension authors who want to use the caching framework
@@ -16,10 +13,12 @@ Example usages can be found throughout the TYPO3 CMS Core, in particular in
 system extension "core" and "extbase".
 
 
+.. index::
+   Caching; Registration
 .. _caching-developer-usage:
 .. _caching-developer-registration:
 
-Cache Registration
+Cache registration
 ==================
 
 Registration of a new cache should be done in :file:`ext_localconf.php`. The example below just defines
@@ -62,6 +61,9 @@ should hint an integrator about specific caching needs or setups in this case.
    }
 
 
+.. index::
+   Caching; Dependency injection
+   Caching; CacheManager
 .. _caching-developer-example:
 .. _caching-developer-access:
 

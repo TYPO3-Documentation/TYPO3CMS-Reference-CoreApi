@@ -7,6 +7,11 @@
 Introduction
 ============
 
+.. index::
+   ! Content elements
+   tt_content
+   CType
+
 What are content elements?
 ==========================
 
@@ -31,6 +36,7 @@ Content elements are arranged on a page, depending on their
 * column (field: ``tt_content.colPos``)
 * etc.
 
+.. index:: ! Plugins
 
 What are plugins?
 =================
@@ -58,6 +64,7 @@ The "Tutorial for Editors" describes the :ref:`basic TYPO3 content elements <t3e
 and how to work with them. Additional descriptions can be found the
 :ref:`fluid_styled_content <fsc:content-elements>` documentation.
 
+.. index:: Content elements; Customization
 .. _cePluginsCustomize:
 
 Customizing
@@ -77,6 +84,8 @@ displayed in the backend. There are a number of ways to do this:
 * Fields can be hidden in the backend by using :ref:`TSconfig TCEFORM <t3tsconfig:tceform>`.
 * Page TSconfig can be used to :ref:`configure <content-element-wizard>` what is displayed in the "Content Element
   Wizard".
+
+.. index:: Content elements; Creation
 
 Creating new content elements
 =============================

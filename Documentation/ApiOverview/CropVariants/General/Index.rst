@@ -52,7 +52,10 @@ The value **should** be of PHP type float, not only a string.
          ]
     ]
 
-Crop Area
+
+.. index:: Images; Crop area
+
+Crop area
 =========
 
 It is also possible to define an initial crop area. If no initial crop area is defined, the default selected crop area will cover the complete image.
@@ -76,7 +79,9 @@ The below example has an initial crop area in the size the previous image croppe
         ],
     ]
 
-Focus Area
+.. index:: Images; Focus area
+
+Focus area
 ==========
 
 Users can also select a focus area, when configured. The focus area is always **inside**
@@ -105,7 +110,9 @@ and centered.
         ],
     ]
 
-Cover Area
+.. index:: Images; Cover area
+
+Cover area
 ==========
 
 Images are often used in a context where they are overlaid with other DOM elements

@@ -1,5 +1,4 @@
 .. include:: /Includes.rst.txt
-
 .. _config-overview:
 
 ======================
@@ -18,9 +17,18 @@ configuration files. Additionally, configuration can be extended by
 extensions.
 
 
+.. index:: pair: Configuration; File
+
 Configuration overview: files
 =============================
 
+
+.. index::
+   ! TYPO3_CONF_VARS
+   File: typo3conf/LocalConfiguration.php
+   File; typo3conf/AdditionalConfiguration.php
+   File; config/sites/<site>/config.yaml
+   File; typo3conf/sites/<site>/config.yaml
 
 Global files
 ------------
@@ -38,6 +46,19 @@ Global files
    This file is located in :file:`webroot/typo3conf/sites` in non-Composer installations.
    The Site configuration configured in the :guilabel:`SITE MANAGEMENT > Sites`
    backend module is written to this file.
+
+
+.. index::
+   File; EXT:{extkey}/composer.json
+   File; EXT:{extkey}/ext_emconf.php
+   File; EXT:{extkey}/ext_tables.php
+   File; EXT:{extkey}/ext_localconf.php
+   File; EXT:{extkey}/ext_conf_template.txt
+   File; EXT:{extkey}/Configuration/Services.yaml
+   Path; EXT:{extkey}/Configuration
+   Path; EXT:{extkey}/Configuration/TCA
+   Path; EXT:{extkey}/Configuration/TSconfig/
+   Path; EXT:{extkey}/Configuration/TypoScript/
 
 Extension files
 ---------------
@@ -78,6 +99,8 @@ Extension files
 
    * :ref:`extension-files-locations`
 
+.. index:: Configuration; Languages
+
 Configuration languages
 =======================
 
@@ -113,6 +136,8 @@ what they mean) are not.
 Configuration methods
 =====================
 
+.. index:: Pair: Configuration; TSconfig
+
 :ref:`TSconfig <t3tsconfig:start>`
 ----------------------------------
 
@@ -131,7 +156,7 @@ load orders can be found in the :ref:`TSconfig Reference document <t3tsconfig:st
 should have an eye on this document, it is mostly used as a reference for Integrators who make life as
 easy as possible for backend users.
 
-
+.. index:: Pair: Configuration; TypoScript
 
 :ref:`TypoScript Templating <t3tsref:start>`
 --------------------------------------------
@@ -163,6 +188,7 @@ For an introduction, you may want to read one of the following tutorials:
    used mostly for templating, but is still used quite heavily to define
    configuration options for extensions.
 
+.. index:: ! $GLOBALS
 
 :ref:`PHP $GLOBALS <globals-variables>`
 ---------------------------------------
@@ -179,6 +205,8 @@ For an introduction, you may want to read one of the following tutorials:
 
 The :php:`$GLOBALS` PHP array consists of:
 
+.. index:: $GLOBALS; TCA
+
 :ref:`$GLOBALS['TCA'] <t3tca:start>`:
    TCA is the backbone of database tables displayed in the backend, it configures
    how data is stored if editing records in the backend, how fields are displayed,
@@ -190,11 +218,19 @@ The :php:`$GLOBALS` PHP array consists of:
    on a daily basis. See :ref:`extending-tca` about how to extend the TCA in
    extensions.
 
+.. index::
+   $GLOBALS; TYPO3_CONF_VARS
+   ! TYPO3_CONF_VARS
+
 :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`:
    is used for system wide configuration. Most of the settings can be
    modified in the backend :guilabel:`ADMIN TOOLS > Settings > Global Configuration`
    and will be persisted to the file file:`typo3conf/LocalConfiguration.php`.
    The settings can be overridden by using :file:`typo3conf/AdditionalConfiguration.php`.
+
+.. index::
+   pair: Extensions; Configuration
+   TYPO3_CONF_VARS; EXTENSIONS
 
 :ref:`Extension Configuration <extension-options>`:
    is a subset of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
@@ -204,12 +240,16 @@ The :php:`$GLOBALS` PHP array consists of:
    Configuration`. Do not set the values directly, use the
    :ref:`API <extension-options-api>`.
 
+.. index::
+   Feature toggles
+   TYPO3_CONF_VARS; SYS features
+
 :ref:`feature-toggles`:
    are used to switch a specific functionality of
    TYPO3 on or off. The values are written to
    :php:`GLOBALS['TYPO3_CONF_VARS']['SYS']['features']`.
    The feature toggles can be switched on or off in the backend
-   :guilabel:`ADMIN TOOLS > Settings > Feature Toggles` with **Admin**
+   :guilabel:`ADMIN TOOLS > Settings > Feature toggles` with **Admin**
    privileges. The :ref:`API <feature-toggles-api>` should be used
    to register and read feature toggles.
 
@@ -235,6 +275,8 @@ Configuration of the :ref:`Logging Framework <logging-configuration>` and
 backend. They must be modified in the file :file:`typo3conf/AdditionalConfiguration.php`.
 
 
+.. index:: pair: Configuration; Flexforms
+
 :ref:`Flexform <flexforms>`
 ---------------------------
 
@@ -246,6 +288,7 @@ Flexform values can be changed while editing content elements in the backend.
 A schema defining the values that can be changed in the Flexform is
 specified in the extension which supplies the plugin or content element.
 
+.. index:: pair: Configuration; YAML
 
 YAML
 ----

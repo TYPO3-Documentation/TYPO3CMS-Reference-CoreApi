@@ -1,9 +1,11 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   ! Context API
+   ! Aspects
 .. _context-api:
 
 =======================
-Context API and Aspects
+Context API and aspects
 =======================
 
 Introduction
@@ -29,9 +31,14 @@ It can be retrieved anywhere via :php:`GeneralUtility::makeInstance()`:
 
 This information is separated in so-called "Aspects", each being responsible for a certain area:
 
+.. index::
+   Context API; DateTime aspect
+   Aspects; DateTime
+   $GLOBALS; EXEC_TIME
+   $GLOBALS; SIM_EXEC_TIME
 .. _context_api_aspects_datetime:
 
-DateTime Aspect
+DateTime aspect
 ---------------
 
 Contains time, date and timezone information for the current request.
@@ -66,6 +73,9 @@ Example
     $currentTimestamp = $context->getPropertyFromAspect('date', 'timestamp');
 
 
+.. index::
+   Context API; Language aspect
+   Aspects; Language
 .. _context_api_aspects_language:
 
 Language Aspect
@@ -74,7 +84,7 @@ Language Aspect
 Contains information about language settings for the current request, including fallback and overlay logic.
 
 In comparison to known behaviour until TYPO3 v9, :php:`LanguageAspect` replaces various properties related
-to language Id, overlay and fallback logic, mostly within Frontend.
+to language Id, overlay and fallback logic, mostly within frontend.
 
 
 .. _context_api_aspects_language_properties:
@@ -125,6 +135,10 @@ Example
     // Reading the current fallback chain instead $TSFE->sys_language_mode
     $fallbackChain = $context->getPropertyFromAspect('language', 'fallbackChain');
 
+
+.. index::
+   Context API; Preview aspect
+   Aspects; Preview
 .. _context_api_aspects_preview:
 
 Preview Aspect
@@ -144,6 +158,10 @@ Property        Call                                                            
 ``isPreview``   :php:`$context->getPropertyFromAspect('frontend.preview', 'isPreview');`  whether the frontend is currently in preview mode
 ==============  ========================================================================  ======
 
+
+.. index::
+   Context API; TypoScript aspect
+   Aspects; TypoScript
 .. _context_api_aspects_typoscript:
 
 TypoScript Aspect
@@ -162,6 +180,11 @@ Property                   Call                                                 
 ``forcedTemplateParsing``  :php:`$context->getPropertyFromAspect('typoscript', 'forcedTemplateParsing');`  whether TypoScript template parsing is forced
 =========================  ==============================================================================  ======
 
+.. index::
+   Context API; User aspect
+   Aspects; User
+   $GLOBALS; BE_USER
+   $GLOBALS; TSFE fe_user
 .. _context_api_aspects_user:
 
 User Aspect
@@ -200,9 +223,12 @@ Example
     $userIsLoggedIn = $context->getPropertyFromAspect('frontend.user', 'isLoggedIn');
 
 
+.. index::
+   Context API; Visibility aspect
+   Aspects; Visibility
 .. _context_api_aspects_visibility:
 
-Visibility Aspect
+Visibility aspect
 -----------------
 
 The aspect contains whether to show hidden pages, records (content) or even deleted records.
@@ -235,9 +261,13 @@ Example
     $showHiddenPages = $context->getPropertyFromAspect('visibility', 'includeHiddenPages');
 
 
+.. index::
+   Context API; Workspace aspect
+   Aspects; Workspace
+   $GLOBALS; BE_USER workspace
 .. _context_api_aspects_workspace:
 
-Workspace Aspect
+Workspace aspect
 ----------------
 
 The aspect contains information about the currently accessed workspace
@@ -247,7 +277,7 @@ In comparison to known behaviour until TYPO3 v9, :php:`WorkspaceAspect` replaces
 
 .. _context_api_aspects_workspace_properties:
 
-The Workspace Aspect accepts following properties:
+The workspace aspect accepts following properties:
 
 =============  =================================================================  ======
 Property       Call                                                               Result

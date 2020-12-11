@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Content elements; Wizard
 .. _content-element-wizard:
 
 ==========================================
-Add Elements to the Content Element Wizard
+Add elements to the content element wizard
 ==========================================
 
 The content elements wizard is opened when a new content element is

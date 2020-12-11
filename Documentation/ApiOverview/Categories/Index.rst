@@ -1,10 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
-
-
-
-
+.. index:: ! Categories
 .. _categories:
 
 =================
@@ -18,16 +13,14 @@ categories.
 
 Since version 6.2, pages, content elements and files are categorizable by default.
 
-
 .. _categories-using:
 
-Using Categories
+Using categories
 ================
-
 
 .. _categories-managing:
 
-Managing Categories
+Managing categories
 -------------------
 
 System categories are defined just like any other record. Each category
@@ -43,6 +36,10 @@ The "items" tab shows all related records, i.e. all records that have been marke
 as belonging to this category.
 
 
+.. index::
+   Categories; makeCategorizable
+   TYPO3_CONF_VARS; SYS defaultCategorizedTables
+   pair: Categories; TCA
 .. _categories-activating:
 
 Making a Table Categorizable
@@ -115,10 +112,10 @@ This is the result of the above code:
 
    The newly added field to define relations to categories (on top of the default one)
 
-
+.. index:: pair: Categories; FlexForms
 .. _categories-flexforms:
 
-Using Categories in FlexForms
+Using categories in FlexForms
 =============================
 
 It is possible to create relations to categories also in
@@ -162,6 +159,7 @@ Properties :code:`tablenames` and :code:`fieldname` would need
 to be adjusted.
 
 
+.. index:: Categories; API
 .. _categories-api:
 
 System Categories API
@@ -176,9 +174,10 @@ They are all quite specialized and should not be needed
 most of the time.
 
 
+.. index:: Categories; Collections
 .. _categories-collections:
 
-Category Collections
+Category collections
 ====================
 
 The :php:`\TYPO3\CMS\Core\Category\Collection\CategoryCollection`
@@ -220,9 +219,12 @@ Iterator interface, it is also possible to use expected methods like
 The relations are not persisted in the database.
 
 
+.. index::
+   pair: Categories; TypoScript
+   Categories; HMENU
 .. _categories-typoscript:
 
-Usage With TypoScript
+Usage with TypoScript
 =====================
 
 *(since TYPO3 CMS 6.2)*

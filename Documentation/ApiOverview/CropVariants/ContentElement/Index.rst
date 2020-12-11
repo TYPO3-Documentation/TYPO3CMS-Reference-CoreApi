@@ -1,5 +1,6 @@
 .. include:: /Includes.rst.txt
 
+.. index:: Content Elements; Crop variant
 .. _cropvariants:
 
 ===============================================

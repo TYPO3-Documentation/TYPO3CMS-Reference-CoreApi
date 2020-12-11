@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Plugins; Creation
 .. _create plugins:
 
 ==============
-Create Plugins
+Create plugins
 ==============
 
 How to create plugins with the Extbase framework and Fluid templating engine is handled

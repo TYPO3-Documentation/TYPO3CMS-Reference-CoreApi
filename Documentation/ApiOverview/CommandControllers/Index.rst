@@ -1,12 +1,15 @@
 .. include:: /Includes.rst.txt
 
+.. index::
+   ! Symfony console commands
+   see: cli; Symfony console commands
 .. _cli-mode:
 .. _cli-mode-dispatcher:
 .. _cli-mode-command-controllers:
 .. _symfony-console-commands:
 
 ==============================
-Symfony Console Commands (cli)
+Symfony console commands (cli)
 ==============================
 
 It is possible to run TYPO3 CMS scripts from the command line.
@@ -20,6 +23,8 @@ These commands can also be run from the TYPO3 :ref:`scheduler <symfony-console-c
 
 .. versionadded:: 10
     :doc:`t3core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands`
+
+.. index:: Symfony console commands; Creation
 
 Creating a new Command in Extensions
 ====================================
@@ -80,7 +85,7 @@ Creating a new Command in Extensions
    A detailed description and an example can be found in
    `the Symfony Command Documentation <https://symfony.com/doc/current/console.html>`_.
 
-Command Class
+Command class
 -------------
 
 Example taken from :php:`ListSysLogCommand` in the core and simplified::
@@ -120,7 +125,9 @@ Example taken from :php:`ListSysLogCommand` in the core and simplified::
         }
     }
 
-Passing Arguments
+.. index:: Symfony console commands; arguments
+
+Passing arguments
 -----------------
 
 Since your command is inherited from :php:`Symfony\Component\Console\Command\Command`,
@@ -181,12 +188,11 @@ This argument can be retrieved with :php:`$input->getArgument()`, the options wi
       }
 
 
-
-.. _symfony-console-commands-scheduler:
+.. index:: Symfony console commands; Deactivation
 .. _deactivating-the-command-in-scheduler:
 .. _schedulable:
 
-Deactivating the Command in Scheduler
+Deactivating the command in scheduler
 -------------------------------------
 
 By default, the command can be used in the scheduler too.
@@ -218,7 +224,9 @@ Deprecated since v10 and will be removed in v11::
        ],
    ];
 
-Initialize Backend User
+.. index:: pair: Symfony console commands; Backend user
+
+Initialize backend user
 -----------------------
 
 A backend user can be initialized with this call inside :php:`execute()` method::
@@ -228,9 +236,10 @@ A backend user can be initialized with this call inside :php:`execute()` method:
 This is necessary when using :ref:`DataHandler  <datahandler-basics>`
 or other backend permission handling related tasks.
 
+.. index:: pair: Symfony console commands; Command line
 .. _symfony-console-commands-cli:
 
-Running the Command From the Command Line
+Running the command From the command line
 =========================================
 
 The above example can be run via command line:
@@ -251,9 +260,10 @@ Show help for the command:
    is :file:`typo3/sysext/core/bin/typo3`.
 
 
+.. index:: pair: Symfony console commands; Scheduler
 .. _symfony-console-commands-scheduler:
 
-Running the Command From the Scheduler
+Running the command from the scheduler
 ======================================
 
 By default, it is possible to run the command from the :ref:`TYPO3 scheduler

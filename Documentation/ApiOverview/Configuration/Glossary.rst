@@ -10,6 +10,9 @@ Glossary
 This page explains how some terms are used but is also an attempt
 to classify the various configuration methods.
 
+
+.. index:: pair: Configuration; Settings
+
 Configuration vs settings
 =========================
 
@@ -24,7 +27,6 @@ configuration:
 settings:
    Are options that can be modified in the backend, mostly in
    :guilabel:`ADMIN TOOLS > Settings`
-
 
 
 Syntax vs method
@@ -44,6 +46,7 @@ TypoScript templating, which can be considered a configuration method.
 TypoScript syntax is used in both TypoScript templating and TSconfig.
 
 
+.. index:: Configuration; Method
 .. _classification-config-methods:
 
 Configuration methods
@@ -73,6 +76,7 @@ uses the TypoScript syntax. The values can be
 changed in the backend only by admins or in extensions.
 
 
+.. index:: Configuration; Syntax
 .. _classification-syntax:
 .. _configuration-syntax:
 
@@ -130,6 +134,10 @@ These are the main languages TYPO3 uses for configuration:
    confusion, we will use the term "TypoScript syntax" and "TypoScript configuration
    method", at least in this chapter.
 
+.. index::
+   Configuration; Definition
+   Configuration; Schema
+
 Configuration definition
 ========================
 
@@ -154,7 +162,7 @@ the parsing and validation is done in the PHP source.
 
 Examples for using a configuration definition file in TYPO3:
 
-* TypoScript constant syntax is used to define Extension Configuration in the
+* TypoScript constant syntax is used to define the extension configuration in the
   file :file:`ext_conf_template.txt` of an extension.
 * Flexforms are defined using XML in an extension.
 

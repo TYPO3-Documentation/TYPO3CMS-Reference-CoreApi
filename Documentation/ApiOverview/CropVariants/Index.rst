@@ -1,9 +1,11 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   Images; Crop variants
+   TCA; imageManipulation
 .. _cropvariants:
 
 ========================
-Crop Variants for Images
+Crop variants for images
 ========================
 
 The `imageManipulation` TCA type is capable of handling multiple crop variants if configured.

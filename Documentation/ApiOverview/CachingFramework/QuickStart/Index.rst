@@ -1,11 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
-
+.. index:: Caching; Quick start
 .. _caching-quickstart:
 
 ===========================
-Quick Start for Integrators
+Quick start for integrators
 ===========================
 
 This section gives some simple instructions for getting started using
@@ -47,9 +45,10 @@ database backend with compression for the pages cache:
       ],
    ];
 
+.. index:: Caching; Garbage collection task
 .. _caching-quickstart-garbage:
 
-Garbage Collection Task
+Garbage collection task
 =======================
 
 Most cache backends do not have an internal system to remove old cache entries that exceeded their lifetime.

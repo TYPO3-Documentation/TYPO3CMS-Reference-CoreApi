@@ -1,7 +1,8 @@
 .. include:: /Includes.rst.txt
 
-
-
+.. index::
+   Caching; Configuration
+   TYPO3_CONF_VARS; SYS caching
 .. _caching-configuration:
 
 =============
@@ -16,6 +17,10 @@ and consists of the single section:
   by its array key. Each cache can have the sub keys **frontend**, **backend**
   and **options** to configure the used frontend, backend and possible backend options.
 
+.. index::
+   File; EXT:{extkey}/ext_localconf.php
+   File; typo3conf/LocalConfiguration.php
+   TYPO3_CONF_VARS; SYS caching cacheConfigurations
 .. _caching-configuration-cache:
 
 Cache Configurations
@@ -61,9 +66,10 @@ example configuration to switch **pages** to the **redis** backend using databas
 Some backends have mandatory as well as optional parameters (which are documented below).
 If not all mandatory options are defined, the specific backend will throw an exception if accessed.
 
+.. index:: Caching; Disable
 .. _caching-disable:
 
-How to Disable Specific Caches
+How to disable specific caches
 ==============================
 
 During development, it can be convenient to disable certain caches.

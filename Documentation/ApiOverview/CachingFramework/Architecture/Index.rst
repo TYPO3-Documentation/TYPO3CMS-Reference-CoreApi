@@ -1,18 +1,15 @@
 .. include:: /Includes.rst.txt
-
-
-
+.. index:: Caching framework; Architecture
 .. _caching-architecture:
 
 ==============================
-Caching Framework Architecture
+Caching framework architecture
 ==============================
-
 
 .. _caching-architecture-base:
 
-Basic Knowhow
-=============
+Basic know-how
+==============
 
 The caching framework can handle multiple caches with different configurations.
 A single cache consists of any number of cache entries.
@@ -30,10 +27,10 @@ A single cache entry is defined by these fields:
    and a tag is additional data applied to an entry (used for cache eviction). Thus, an identifier refers to a
    single cache entry to store and retrieve an entry, and a tag can refer to multiple cache entries.
 
-
+.. index:: Caching framework; Identifier
 .. _caching-architecture-identifier:
 
-About the Identifier
+About the identifier
 --------------------
 
 The identifier is used to store ("set") and retrieve ("get") entries
@@ -72,10 +69,10 @@ information which already exist in the system at the point of its calculation.
 In the above scenario the page id and whether or not a user is logged in
 are already determined during the frontend bootstrap and can be retrieved from the system quickly.
 
-
+.. index:: Caching framework; Tags
 .. _caching-architecture-tags:
 
-About Tags
+About tags
 ----------
 
 Tags are used to drop specific cache entries when some information they are based on
@@ -103,12 +100,13 @@ can be assigned to multiple cache entries. All tags a cache entry has are given 
 the cache when the entry is stored ("set").
 
 
+.. index:: Caching framework; TYPO3 Core
 .. _caching-architecture-core:
 
 Caches in the TYPO3 Core
 ========================
 
-The TYPO3 core defines and uses several caching framework caches by default.
+The TYPO3 Core defines and uses several caching framework caches by default.
 This section gives an overview of default caches, its usage and behaviour. If not stated otherwise,
 the default database backend with variable frontend is used.
 
@@ -223,9 +221,10 @@ The following caches exist in the TYPO3 CMS Core:
    :file:`typo3temp/var/cache/code/` or :file:`var/cache/code/` (for composer-based installation).
 
 
+.. index:: Caching framework; Garbage collection
 .. _caching-architecture-task:
 
-Garbage Collection Task
+Garbage collection task
 =======================
 
 The core system provides a Scheduler task to collect the garbage of all cache backends.
@@ -235,6 +234,7 @@ and tags internally. It is highly recommended to add this Scheduler task and run
 their lifetime on their own to free up memory or hard disk space.
 
 
+.. index:: Caching framework; Cache API
 .. _caching-architecture-api:
 
 Cache API

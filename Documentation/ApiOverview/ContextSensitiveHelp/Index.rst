@@ -1,12 +1,14 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   ! Context-sensitive help
+   see: CSH Context-sensitive help
 .. _csh:
 
 ============================
-Context Sensitive Help (CSH)
+Context-sensitive help (CSH)
 ============================
 
-TYPO3 CMS offers a full API for adding Context Sensitive Help to
+TYPO3 CMS offers a full API for adding context-sensitive help to
 backend modules and - especially - to all database tables and fields.
 CSH then appears either as a help icon in the docheader (for modules)
 or as a popup on field labels when editing database records.

@@ -1,5 +1,6 @@
 .. include:: /Includes.rst.txt
 
+.. index:: Content elements; Custom
 .. _adding-your-own-content-elements:
 
 ==============================
@@ -43,6 +44,7 @@ The following example uses the extension key `your_extension_key`.
 
 If you have plans to publish your extension, follow :ref:`extension-key-registration`.
 
+.. index:: Content elements; Registration
 .. _AddingCE-PageTSconfig:
 .. _RegisterCE:
 .. _AddingCE-TCA-Overrides-tt_content:
@@ -94,6 +96,9 @@ This is done in the file :file:`Configuration/TCA/Overrides/tt_content.php`.
        'after'
    );
 
+.. index::
+   pair: Content elements; Configuration
+   pair: Content elements; TCA
 .. _ConfigureCE-Fields:
 
 2. Configure Fields
@@ -134,9 +139,10 @@ Then you need to configure the backend fields for your new content element in th
        ],
    ];
 
+.. index:: Content elements; Frontend template
 .. _ConfigureCE-Frontend:
 
-3. Configure the Frontend Template
+3. Configure the frontend template
 ==================================
 
 TypoScript configuration is needed as well.
@@ -218,9 +224,10 @@ saved by the richtext editor:
 
    This will be filled in another patch.
 
+.. index:: pair: Content elements; Data processors
 .. _ConfigureCE-DataProcessors:
 
-5. Optional: Use Data Processors
+5. Optional: Use data processors
 ================================
 
 Data processors can be used for some data manipulation or other actions you

@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Content elements; Backend preview
 .. _ConfigureCE-Preview:
 
 ====================================================
-Configure Custom Backend Preview for Content Element
+Configure custom backend preview for content element
 ====================================================
 
 To allow editors a smoother experience, all custom content elements and plugins should be configured with a corresponding backend
@@ -16,7 +16,7 @@ achieve that.
    the feature toggle :guilabel:`Fluid based page module` is activated.
    The section below describes both the "classic" as well as the new way.
 
-With Fluid Based Page Module
+With fluid based page module
 ============================
 
 .. important::
@@ -34,8 +34,9 @@ The feature consists of two concepts:
 * :php:`PreviewRendererResolver` which is a global implementation to detect which :php:`PreviewRenderer` a given record needs.
 * :php:`PreviewRenderer` which is the class responsible for generating the preview and the wrapping.
 
+.. index:: Content elements; Preview renderer
 
-Writing a PreviewRenderer
+Writing a preview renderer
 -------------------------
 
 A custom :php:`PreviewRenderer` must implement the interface :php:`\TYPO3\CMS\Backend\Preview\PreviewRendererInterface` which contains

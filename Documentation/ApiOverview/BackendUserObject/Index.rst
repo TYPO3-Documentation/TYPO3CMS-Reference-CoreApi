@@ -25,7 +25,7 @@ but contains other helpful information. This is presented here by a few examples
 
 
 .. index::
-   pair: Backend user; Backend module
+   pair: Backend user; Backend modules
    $MCONF
 .. _be-user-access-current:
 
