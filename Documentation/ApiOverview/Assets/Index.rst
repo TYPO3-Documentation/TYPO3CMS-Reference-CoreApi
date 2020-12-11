@@ -51,7 +51,7 @@ in TypoScript.
 The :php:`AssetCollector` also collects information about "imagesOnPage", which can be used in cached and non-cached components.
 
 The API
------------
+-------
 
 - :php:`\TYPO3\CMS\Core\Page\AssetCollector::addJavaScript(string $identifier, string $source, array $attributes, array $options = []): self`
 - :php:`\TYPO3\CMS\Core\Page\AssetCollector::addInlineJavaScript(string $identifier, string $source, array $attributes, array $options = []): self`
@@ -77,7 +77,7 @@ The API
 .. index:: pair: Assets; Viewhelpers
 
 Viewhelper
------------
+----------
 
 There are also two Viewhelpers, the :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the :ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>` Viewhelper which use the :php:`AssetCollector` API.
 
@@ -139,8 +139,8 @@ Add a JavaScript file to the collector with :html:`type="module"` (by default, n
 
 .. index::
    pair: Assets; Events
-   pair: Events, BeforeJavaScriptsRenderingEvent
-   pair: Events, BeforeStylesheetsRenderingEvent
+   Events; BeforeJavaScriptsRenderingEvent
+   Events; BeforeStylesheetsRenderingEvent
 
 Events
 ------
