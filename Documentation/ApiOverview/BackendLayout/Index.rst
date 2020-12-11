@@ -1,35 +1,37 @@
 .. include:: /Includes.rst.txt
-
+.. index:: !Backend Layout
 .. _be-layout:
 
 ==============
-Backend Layout
+Backend layout
 ==============
 
-Since TYPO3 4.5 there has been a database record type "Backend Layout" to define a combination of rows and columns
+Since TYPO3 4.5 there has been a database record type "backend Layout" to define a combination of rows and columns
 to which content can be added in the page module.
 
-With TYPO3 7.4 a new feature was introduced to define backend layouts in TYPO3 via PageTSConfig. It implements a
+With TYPO3 7.4 a new feature was introduced to define backend layouts in TYPO3 via page TSconfig. It implements a
 generic PageTS provider for backend layouts to make backend layouts reusable across installations.
 
 .. _be-layout-video:
 
-Backend Layout Video
+Backend layout video
 ================================
 
-Benjamin Kott: How to implement frontend layouts in TYPO3 using Backend Layouts
+Benjamin Kott: How to implement frontend layouts in TYPO3 using backend layouts
 
 .. youtube:: RoHaeo4fq34
 
-
+.. index::
+   Backend layout; Record
+   Backend layout; TSconfig
 .. _be-layout-definition:
 
-Backend Layout Definition
+Backend layout definition
 =========================
 
-Backend layouts can be configured either as "Backend Layout" record in a sysfolder or as Page Tsconfig entry in
-:typoscript:`mod.web_layout.BackendLayouts`. Each layout will be saved with a key. The "Backend Layout" records are
-using their uid as a key, therefore layouts defined via Page Tsconfig should use a non-numeric string key. It is a good
+Backend layouts can be configured either as "backend ayout" record in a sysfolder or as Page TSconfig entry in
+:typoscript:`mod.web_layout.BackendLayouts`. Each layout will be saved with a key. The "backend layout" records are
+using their uid as a key, therefore layouts defined via page TSconfig should use a non-numeric string key. It is a good
 practice to use a descriptive name as key.
 
 The entries title and icon are being used to display the backend layout options in the page properties.
@@ -44,13 +46,13 @@ main column. Multiple backend layouts that contain similar parts, i.e. header, f
 assigned the same number within one project. This leads to a uniform position of the content, which makes it more clear
 for further use.
 
-
+.. index:: Backend layout; Example
 .. _be-layout-simple-example:
 
-backend layout Simple Example
+Backend layout simple example
 =============================
 
-The following PageTsConfig example creates a simple backend layout consisting of two rows and just one column.
+The following page TSconfig example creates a simple backend layout consisting of two rows and just one column.
 
 .. code-block:: typoscript
 
@@ -93,10 +95,10 @@ The following PageTsConfig example creates a simple backend layout consisting of
 
 .. _be-layout-advanced-example:
 
-Backend Layout Advanced Example
+Backend layout advanced example
 ===============================
 
-The following Page Tsconfig example creates a 3x3 backend layout with 5 column position sections in total. The topmost
+The following page TSconfig example creates a 3x3 backend layout with 5 column position sections in total. The topmost
 row (here called "header") spans all 3 columns. There is an "aside" spanning two rows on the right.
 
 .. code-block:: typoscript
@@ -154,7 +156,7 @@ row (here called "header") spans all 3 columns. There is an "aside" spanning two
 
 .. _be-layout-frontend:
 
-Output of a Backend Layout in the Frontend
+Output of a backend layout in the frontend
 ==========================================
 
 The backend layout to be used on a certain page gets determined either by the backend layout being chosen directly and
@@ -195,16 +197,18 @@ Using  `data = pagelayout` is the same as using as
 In the fluid template the column positions can be accessed now via content mapping as described here
 :ref:`t3sitepackage:content-mapping`.
 
+.. index:: Backend layout, Reference implementation
 .. _be-layout-reference-implementations:
 
-Reference Implementations of Backend Layouts
+Reference implementations of backend layouts
 ============================================
 
 The extension `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__ ships several `Backend
-Layouts <https://github.com/benjaminkott/bootstrap_package/tree/master/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts>`__
-as well as an example configuration of how to include frontend templates for Backend Layouts (see `setup.typoscript
+layouts <https://github.com/benjaminkott/bootstrap_package/tree/master/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts>`__
+as well as an example configuration of how to include frontend templates for backend layouts (see `setup.typoscript
 Line 95 ff <https://github.com/benjaminkott/bootstrap_package/blob/master/Configuration/TypoScript/setup.typoscript>`__)
 
+.. index:: pair: Backend layout, Extensions
 .. _be-layout-extensions:
 
 Extensions for backend layouts

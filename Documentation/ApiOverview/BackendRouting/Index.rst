@@ -1,10 +1,10 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: ! Backend routing
+   File; EXT:{extkey}/Configuration/Backend/Routes.php
 .. _backend-routing:
 
 ===============
-Backend Routing
+Backend routing
 ===============
 
 Each request to the backend is eventually executed by a controller.
@@ -53,6 +53,13 @@ Here is an extract of :file:`typo3/sysext/backend/Configuration/Backend/Routes.p
 So a routes file essentially returns an array containing routes mapping.
 A route is defined by a key, a path, a referrer and a target. The "public" :code:`access`
 property indicates that no authentication is required for that action.
+
+.. index::
+   pair: Backend routing; Cross-site scripting
+   Backend routing; Public
+
+Backend routing and cross-site scripting
+========================================
 
 Public backend routes (those having option :php:`'access' => 'public'`) do not
 require any session token, but can be used to redirect to a route that requires
