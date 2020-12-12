@@ -18,20 +18,22 @@ priority and quality.
 
 The following example is an extract of the user authentication process::
 
-   // Use 'auth' service to find the user. First user found will be used
+   // Use 'auth' service to find the user
+   // First found user will be used
    $subType = 'getUser' . $this->loginType;
+   /** @var AuthenticationService $serviceObj */
    foreach ($this->getAuthServices($subType, $loginData, $authInfo) as $serviceObj) {
-      if ($row = $serviceObj->getUser()) {
-         $tempuserArr[] = $row;
-         $this->logger->debug('User found', [
-            $this->userid_column => $row[$this->userid_column],
-            $this->username_column => $row[$this->username_column],
-         ]);
-         // User found, just stop to search for more if not configured to go on
-         if (!$this->svConfig['setup'][$this->loginType . '_fetchAllUsers']) {
-            break;
-         }
-      }
+       if ($row = $serviceObj->getUser()) {
+           $tempuserArr[] = $row;
+           $this->logger->debug('User found', [
+               $this->userid_column => $row[$this->userid_column],
+               $this->username_column => $row[$this->username_column],
+           ]);
+           // User found, just stop to search for more if not configured to go on
+           if (empty($authConfiguration[$this->loginType . '_fetchAllUsers'])) {
+               break;
+           }
+       }
    }
 
    protected function getAuthServices(string $subType, array $loginData, array $authInfo): \Traversable
