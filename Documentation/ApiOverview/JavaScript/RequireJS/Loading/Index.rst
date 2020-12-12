@@ -22,14 +22,14 @@ add the argument :html:`includeRequireJsModules`:
       0:'TYPO3/CMS/FooBar/Wisdom'
    }" />
 
-However, if you don't use Fluid you may use :php:`PageRenderer` in e.g `ext_localconf.php`:
+However, if you don't use Fluid you may use :php:`PageRenderer` in your controller:
 
 .. code-block:: php
 
-   if (TYPO3_MODE=="BE" )   {
-      $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
-      $pageRenderer->loadRequireJsModule('TYPO3/CMS/FooBar/MyMagicModule');
-   }
+
+   $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+   $pageRenderer->loadRequireJsModule('TYPO3/CMS/FooBar/MyMagicModule');
+
 
 **Bonus**: :php:`loadRequireJsModule` takes a second argument
 :php:`$callBackFunction` which is executed right after the module

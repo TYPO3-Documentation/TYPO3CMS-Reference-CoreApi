@@ -30,9 +30,7 @@ file. Let's look at what is inside.
 .. code-block:: php
 
     <?php
-    if (!defined ('TYPO3_MODE')) {
-        die ('Access denied.');
-    }
+    defined('TYPO3') or die();
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addService(
         // Extension Key

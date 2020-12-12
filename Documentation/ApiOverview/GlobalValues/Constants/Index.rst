@@ -107,45 +107,6 @@ The different status codes available are defined in :php:`TYPO3\CMS\Core\Utility
 These constants are defined as documented in https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
 
 
-
-
-Legacy Constants
-================
-
-
-TYPO3_MODE
-----------
-
-Mode of TYPO3: Set to either "FE" or "BE" depending on frontend or
-backend execution and context.
-
-.. important::
-
-   About using TYPO3\_MODE in :file:`ext_localconf.php` and :file:`ext_tables.php`:
-
-   It is recommended to AVOID checks for values on TYPO3_MODE or TYPO3_REQUESTTYPE constants
-   (e.g. :php:`if (TYPO3_MODE === 'BE')` within these files (:file:`ext_localconf.php` and :file:`ext_tables.php`)
-   as it limits the functionality to cache the whole systems configuration.
-   Any extension author should remove the checks if not explicitly
-   necessary, and re-evaluate if these context-depending checks could go inside the hooks / caller
-   function directly.
-
-   For more best practices of using these files, see :ref:`extension-configuration-files`.
-
-Defined in:
-   * :php:`\TYPO3\CMS\Backend\Http\Application::defineLegacyConstants()`
-   * :php:`\TYPO3\CMS\Core\Console\CommandApplication::defineLegacyConstants()`
-   * :php:`\TYPO3\CMS\Frontend\Http\Application::defineLegacyConstants()`
-   * :php:`\TYPO3\CMS\Install\Http\Application::defineLegacyConstants()`
-
-Example:
-   "FE" or "BE"
-
-Available in Frontend:
-   Yes, value = "FE"
-
-
-
 .. _removed-constants:
 
 Removed Constants
@@ -211,4 +172,7 @@ Other constants
 ---------------
 
 * :php:`TYPO3_OS` (Use :php:`Environment::isWindows()` and :php:`Environment::isUnix()` instead)
-* :php:`TYPO3_REQUESTTYPE_CLI`
+* :php:`TYPO3_REQUESTTYPE_CLI` (Use :php:`Environment::isCli()` instead)
+* :php:`TYPO3_REQUESTTYPE_FE` (Use :php:`ApplicationType->isFrontend()` instead)
+* :php:`TYPO3_REQUESTTYPE_BE` (Use :php:`ApplicationType->isBackend()` instead)
+* :php:`TYPO3_MODE` (For security guards in PHP script files use :php:`defined('TYPO3') or die();` instead)
