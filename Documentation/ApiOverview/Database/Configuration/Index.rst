@@ -6,7 +6,7 @@
 Configuration
 =============
 
-Configuring `doctrine-dbal` for `TYPO3 CMS` is all about specifying the single database endpoints
+Configuring `Doctrine DBAL` for `TYPO3 CMS` is all about specifying the single database endpoints
 and handing over connection credentials. The framework supports the parallel usage of multiple
 database connections, a specific connection is mapped depending on its table name. The table space
 can be seen as a transparent layer that determines which specific connection is chosen for a query
@@ -46,7 +46,7 @@ Remarks:
   connection even for `localhost`, the `IPv4` or `IPv6` address `127.0.0.1` and `::1/128` respectively
   must be used as `host` value.
 
-* The connect options are hand over to `doctrine-dbal` without much manipulation from `TYPO3 CMS` side.
+* The connect options are hand over to `Doctrine DBAL` without much manipulation from `TYPO3 CMS` side.
   Please refer to the
   `doctrine connection docs <http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html>`__
   for a full overview of settings.
@@ -55,7 +55,7 @@ Remarks:
 
 * The option `wrapperClass` is used by TYPO3 to insert the extended
   :ref:`Connection <database-connection>` class :php:`TYPO3\CMS\Database\Connection` as main facade
-  around `doctrine-dbal`.
+  around `Doctrine DBAL`.
 
 
 A slightly more complex example with two connections, mapping the `sys_log` table to a different endpoint::

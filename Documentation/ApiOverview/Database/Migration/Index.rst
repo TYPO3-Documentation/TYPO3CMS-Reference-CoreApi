@@ -7,7 +7,7 @@ Migrating from TYPO3_DB
 =======================
 
 This chapter is for those poor souls who want to migrate old and busted :php:`$GLOBALS['TYPO3_DB']`
-calls to new hotness `doctrine-dbal` based API.
+calls to new hotness `Doctrine DBAL` based API.
 
 It tries to give some hints on typical pitfalls and areas a special eye should be kept on.
 

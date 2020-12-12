@@ -16,7 +16,7 @@ The whole class is marked as `@internal`, **should not be used by extension
 authors** and may - if things go wrong - change at will. The class will hopefully
 vanish mid-term. However, there may be situations when the class methods can become
 handy if extension authors :ref:`migrate <database-migration>` their own extensions away
-from `TYPO3_DB` to `doctrine-dbal`. In practice, the core will *most likely* add proper
+from `TYPO3_DB` to `Doctrine DBAL`. In practice, the core will *most likely* add proper
 deprecations to single methods if they are target of removal later.
 
 Extension developers may keep this class in mind for migration, but **must not** use
@@ -107,7 +107,7 @@ stripLogicalOperatorPrefix()
 
 Removes the prefixes `AND` / `OR` from an input string.
 
-Those prefixes are added in `doctrine-dbal` via :php:`QueryBuilder->where()`, :php:`QueryBuilder->orWhere()`,
+Those prefixes are added in `Doctrine DBAL` via :php:`QueryBuilder->where()`, :php:`QueryBuilder->orWhere()`,
 :php:`ExpressionBuilder->andX()` and friends. Some parts of the `TYPO3` framework however carry SQL fragments
 prefixed with `AND` or `OR` around and it's not always possible to easily get rid of those. The method
 helps by killing those prefixes before they are handed over to the `doctrine` API::
