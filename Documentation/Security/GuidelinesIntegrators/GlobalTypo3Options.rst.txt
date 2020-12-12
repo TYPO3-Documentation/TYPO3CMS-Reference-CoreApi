@@ -3,6 +3,8 @@
    pair: Security guidelines; Global TYPO3 configuration
    pair: Security guidelines; Debugging
 
+.. _security-global-typo3-options-enabledBeUserIPLock:
+
 Global TYPO3 configuration options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -54,26 +56,6 @@ which means "localhost" only.
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']``
 
 
-.. _security-global-typo3-options-enabledBeUserIPLock:
-
-enabledBeUserIPLock
-"""""""""""""""""""
-
-If this configuration is enabled (value `1`), backend user accounts
-can be locked to specific IP addresses by using user/group TSconfig.
-Possible values are: `0` or `1` (boolean), where `0` deactivates the
-option and `1` enables it (default).
-
-In order to lock a specific user to the IP address 123.45.67.89, add
-the following TSconfig to the backend user's TSconfig field::
-
-   options.lockToIP = 123.45.67.89
-
-The use of wildcards is also possible to specify a network instead –
-please see :ref:`TSconfig documentation <t3tsconfig:useroptions-lockToIP>` for
-further explanations on how to use the `lockToIP` option.
-
-The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['enabledBeUserIPLock']`
 
 
 fileDenyPattern
