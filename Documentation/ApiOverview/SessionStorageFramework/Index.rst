@@ -2,8 +2,10 @@
 
 .. _sessions:
 
+.. index:: Sessions; Handling
+
 =========================
-Session Handling in TYPO3
+Session handling in TYPO3
 =========================
 
 The session API in TYPO3 consists of two parts:

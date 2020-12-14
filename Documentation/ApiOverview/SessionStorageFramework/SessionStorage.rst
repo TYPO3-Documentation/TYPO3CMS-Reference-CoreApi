@@ -3,7 +3,7 @@
 .. _session-storage:
 
 =========================
-Session Storage Framework
+Session storage framework
 =========================
 
 As of version 8.6, TYPO3 comes with the option to choose between different storages for both frontend end backend user
@@ -17,7 +17,7 @@ By default user sessions are still stored in the database using the database sto
 
 .. _sessions-database:
 
-Database Storage Backend
+Database storage backend
 ========================
 
 The database storage backend only requires two configuration options:
@@ -48,7 +48,9 @@ The default configuration used for sessions by the Core is:
 
 .. _sessions-redis:
 
-Using Redis to Store Sessions
+.. index:: Sessions; Redis Storage
+
+Using Redis to store sessions
 =============================
 
 TYPO3 also comes with the possibility to store sessions in a Redis key-value database.
@@ -102,7 +104,9 @@ The available options are:
 
 .. _sessions-custom:
 
-Writing Your Own Session Storage
+.. index:: Sessions; Custom Storage
+
+Writing your own session storage
 ================================
 
 Custom sessions storage backends can be created by implementing the interface

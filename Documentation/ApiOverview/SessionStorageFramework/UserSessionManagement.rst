@@ -2,6 +2,8 @@
 
 .. _session-management:
 
+..index:: pair: Sessions; Users
+
 =======================
 User session management
 =======================
@@ -24,6 +26,8 @@ since this manager acts as the main factory for user
 sessions and therefore handles all necessary tasks like fetching, evaluating
 and persisting them. Effectively encapsulating all calls to the
 :php:`SessionManager` which is used for the :ref:`session backend <session-storage>`.
+
+.. index:: UserSessionManager
 
 Public API of :php:`UserSessionManager`
 =======================================
