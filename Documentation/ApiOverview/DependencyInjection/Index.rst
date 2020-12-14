@@ -1,17 +1,17 @@
 
 .. include:: /Includes.rst.txt
-
+.. index:: !Dependency injection
 .. _DependencyInjection:
 
 ====================
-Dependency Injection
+Dependency injection
 ====================
 
 .. versionadded:: 10.0
 
    :doc:`Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
 
-TYPO3 uses a Dependency Injection solution based on the corresponding `PSR-11 <https://www.php-fig.org/psr/psr-11/>`_
+TYPO3 uses a dependency injection solution based on the corresponding `PSR-11 <https://www.php-fig.org/psr/psr-11/>`_
 compliant Symfony component to standardize object initialization throughout the core as well as in extensions.
 
 The recommended way of injecting dependencies is to use constructor injection::
@@ -27,9 +27,13 @@ injection.
 .. contents::
    :depth: 3
 
+.. index::
+   pair: Dependency injection; Extensions
+   pair: Dependency injection; Services
+   File; EXT:{extkey}/Configuration/Services.yaml
 .. _configure-dependency-injection-in-extensions:
 
-Configure Dependency Injection in Extensions
+Configure dependency injection in Extensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Extensions have to configure their classes to make use of the
@@ -57,7 +61,6 @@ This is how a basic :file:`Services.yaml` of an extension looks like. The meanin
    Whenever service configuration or class dependencies change, the core cache needs
    to be flushed to rebuild the compiled Symfony container.
 
-
 .. _autowire:
 
 Autowire
@@ -72,7 +75,6 @@ which is cached in php code (in TYPO3 core cache).
 
    An extension doesn't need to use autowiring, it is free to manually
    wire dependencies in the service configuration file.
-
 
 Autoconfigure
 -------------
@@ -93,6 +95,7 @@ be public, will be marked public automatically due to :yaml:`autoconfigure: true
 These classes include Singletons, because they need to be shared with code that uses
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` and Extbase controllers.
 
+.. index::Dependency injection; Public
 .. _knowing-what-to-make-public:
 
 Knowing what to make public
@@ -138,6 +141,7 @@ With this configuration you can use dependency injection in :php:`\Vendor\MyExte
 when it is created in the context of a :ts:`USER` TypoScript object which would not be possible if this
 class was private.
 
+.. index::Dependency injection; Errors
 .. _errors-resulting-from-wrong-configuration:
 
 Errors resulting from wrong configuration
@@ -169,16 +173,17 @@ An :php:`Error` is raised on missing dependency injection for
 
 .. _supported-ways-of-dependency-injection:
 
-Supported Ways of Dependency Injection
+Supported ways of dependency injection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Classes should be adapted to avoid both, :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` and
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` whenever possible.
 Class dependencies should be injected via constructor injection or
 setter methods.
 
+.. index::Dependency injection; Constructor injection
 .. _constructor-injection:
 
-Constructor Injection
+Constructor injection
 ---------------------
 
 A class dependency can simply be specified as a constructor argument::
@@ -189,9 +194,10 @@ A class dependency can simply be specified as a constructor argument::
    }
 
 
+.. index::Dependency injection; Method injection
 .. _method-injection:
 
-Method Injection
+Method injection
 ----------------
 
 As an alternative to constructor injection :php:`injectDependency()` Methods can be used.
@@ -216,9 +222,10 @@ Additionally a :php:`setDependency()` will also work if it has the annotation :p
    }
 
 
+.. index::Dependency injection; Interface injection
 .. _interface-injection:
 
-Interface Injection
+Interface injection
 -------------------
 
 It is possible to inject interfaces as well. If there is only one implementation for a certain
@@ -233,7 +240,7 @@ When multiple implementation of the same interface exist, an extension needs to 
 implementation should be injected when the interface is type hinted. Find out more about how this
 is achieved in the official `Symfony documentation <https://symfony.com/doc/current/service_container/autowiring.html#working-with-interfaces>`_.
 
-Further Information
+Further information
 ^^^^^^^^^^^^^^^^^^^
 
 * `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`__
