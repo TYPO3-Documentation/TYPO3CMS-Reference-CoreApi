@@ -3,9 +3,9 @@
 
 .. _backend-modules-api:
 
-==================
-Backend Module API
-==================
+============================
+Backend Module API (Extbase)
+============================
 
 
 As for frontend plugins, you can use :ref:`Fluid templates <t3extbasebook:fluid-start>` to
