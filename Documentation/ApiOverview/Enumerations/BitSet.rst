@@ -1,10 +1,11 @@
-
 .. include:: /Includes.rst.txt
-
+.. index::
+   Bitsets; Usage
+   Boolean flags
 .. _BitSet:
 
 ==================
-How To Use BitSets
+How to use bitsets
 ==================
 
 To efficiently handle boolean flags, bit sets can be used since TYPO3 v10.

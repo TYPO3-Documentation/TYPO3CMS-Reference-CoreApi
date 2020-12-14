@@ -1,16 +1,14 @@
-
 .. include:: /Includes.rst.txt
-
+.. index:: Enumerations; Usage
 .. _Enumerations-How-to-use:
 
 =======================
-How To Use Enumerations
+How to use enumerations
 =======================
-
 
 .. _Enumerations-Create-an-Enumeration:
 
-Create an Enumeration
+Create an enumeration
 =====================
 
 To create a new enumeration you have to extend the class :php:`TYPO3\CMS\Core\Type\Enumeration`,
@@ -22,6 +20,8 @@ Values are defined as constants in your implementation. The names of the constan
 A special, optional constant :php:`__default` represents the default value of your enumeration
 if it is present. In that case the enumeration can be instantiated without a value and
 will be set to the default.
+
+.. index:: Enumerations; Example
 
 Example::
 
@@ -45,7 +45,7 @@ Example::
 
 .. _Enumerations-Use-an-Enumeration:
 
-Use an Enumeration
+Use an enumeration
 ==================
 
 You can create an instance of the :php:`Enumeration` class like you would usually do,
@@ -97,7 +97,7 @@ Example::
 
 .. _Enumerations-Implement-custom-logic:
 
-Implement Custom Logic
+Implement custom logic
 ======================
 
 Sometimes it not only makes sense to validate a value but to also
