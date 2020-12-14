@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   Database; Statement
+   QueryBuilder
 .. _database-statement:
 
 =========
