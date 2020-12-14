@@ -49,6 +49,8 @@ $_EXTKEY is set globally and contains the extension key.
 .. important::
    Due to limitations to the TER (`TYPO3 Extension Repository <https://extensions.typo3.org>`__),
    `$_EXTKEY` should be used here and **not** a constant or a string.
+   
+   Do not use :php:`defined('TYPO3') or die();` in this file.
 
 
 .. t3-field-list-table::
