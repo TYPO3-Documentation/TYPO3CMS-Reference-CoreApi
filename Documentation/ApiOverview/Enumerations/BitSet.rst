@@ -1,6 +1,7 @@
 .. include:: /Includes.rst.txt
 .. index::
    Bitsets; Usage
+   Enumerations; Bitsets
    Boolean flags
 .. _BitSet:
 
