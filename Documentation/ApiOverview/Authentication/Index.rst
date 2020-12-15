@@ -131,9 +131,8 @@ processLoginDataBE, processLoginDataFE
   which indicates that no further login data processing should
   take place (see :ref:`The service chain <authentication-service-chain>`).
 
-  In particular, this subtype is implemented by system extension
-  "rsaauth", which decrypts the submitted password. The decrypted
-  password is stored in the login data with key "uident_text".
+  In particular, this subtype is implemented by the TYPO3 core
+  :php:`AuthenticationService`, which trims the given login data.
 
 getUserFE, getUserBE
   This subtype corresponds to the operation of searching in the
@@ -158,6 +157,14 @@ getGroupsFE
   and a list of already assigned groups, if any. It is expected to return
   an associative array containing the information about each group the
   user is member of (with the group's id as key).
+
+authGroupsFE
+   This subtype exists only for the FE. The method to implement is :php:`authGroup`,
+   which can be used to authenticate the given groups for a user.
+
+   The :php:`authGroup` method receives the user data and the data of the current
+   group to check. It is expected to return a boolean with value :php:`true` if
+   the user is authenticated for the given group and :php:`false` if not.
 
 .. note::
 
