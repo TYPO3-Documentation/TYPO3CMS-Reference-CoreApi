@@ -276,7 +276,7 @@ an extension scanner run the following points should be considered:
   positive (see above). That means that even well maintained extensions may not report green.
 
 * A green status in the scanner does not imply that the extension also works, just that it neither
-  uses deprecated methods nor Core any API which received breaking changes. It also does not indicate
+  uses deprecated methods nor any Core API which received breaking changes. It also does not indicate
   anything about the quality of the extension: false positives can be caused by for example supporting
   multiple TYPO3 versions in the same extension release.
 
