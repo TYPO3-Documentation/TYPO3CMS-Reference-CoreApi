@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: Extension Scanner
+.. index:: Extension scanner
 .. _extension-scanner:
 
 
@@ -37,7 +37,7 @@ This module has been featured on the TYPO3 youtube channel:
    .. youtube:: UdIYDZgBrQU
 
 
-.. index:: Admin tool; Scan Extension Files
+.. index:: Admin tool; Scan extension files
 
 Quick start
 ===========
@@ -95,7 +95,7 @@ Goals and non goals
 * The extension scanner is not meant to be used on Core extensions - it is not a Core development helper.
 
 
-.. index:: Extension Scanner; Limits
+.. index:: Extension scanner; Limits
 
 Limits
 ======
@@ -200,7 +200,7 @@ on one Core version and a different one on another Core version. The extension s
 understand these constructs and would still show the deprecated call as a match, even if it was wrapped
 in a Core version check.
 
-.. index:: Extension Scanner; Extension authors
+.. index:: Extension scanner; Extension authors
 
 Extension authors
 =================
@@ -262,7 +262,7 @@ may need attention when upgrading to a newer Core version, the following points 
   annotations this could be an indication to the extension author to consider branching off
   an extensions to support individual Core versions instead of supporting multiple versions in the same release.
 
-.. index:: Extension Scanner; Project developers
+.. index:: Extension scanner; Project developers
 
 Project developers
 ==================
@@ -280,7 +280,7 @@ an extension scanner run the following points should be considered:
   anything about the quality of the extension: false positives can be caused by for example supporting
   multiple TYPO3 versions in the same extension release.
 
-.. index:: Extension Scanner; Core developers
+.. index:: Extension scanner; Core developers
 
 Core developers
 ===============
@@ -290,7 +290,7 @@ configurations if possible. This is typically the case if PHP API was changed an
 a deprecation or breaking ReST file to document the change.
 
 
-.. index:: Extension Scanner; changelog
+.. index:: Extension scanner; Changelog connection
 
 Connection to the changelog reStructuredText files
 --------------------------------------------------

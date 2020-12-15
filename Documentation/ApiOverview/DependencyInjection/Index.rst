@@ -95,7 +95,7 @@ be public, will be marked public automatically due to :yaml:`autoconfigure: true
 These classes include Singletons, because they need to be shared with code that uses
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` and Extbase controllers.
 
-.. index::Dependency injection; Public
+.. index:: Dependency injection; Public
 .. _knowing-what-to-make-public:
 
 Knowing what to make public
@@ -141,7 +141,7 @@ With this configuration you can use dependency injection in :php:`\Vendor\MyExte
 when it is created in the context of a :ts:`USER` TypoScript object which would not be possible if this
 class was private.
 
-.. index::Dependency injection; Errors
+.. index:: Dependency injection; Errors
 .. _errors-resulting-from-wrong-configuration:
 
 Errors resulting from wrong configuration
@@ -180,7 +180,7 @@ Classes should be adapted to avoid both, :php:`\TYPO3\CMS\Extbase\Object\ObjectM
 Class dependencies should be injected via constructor injection or
 setter methods.
 
-.. index::Dependency injection; Constructor injection
+.. index:: Dependency injection; Constructor injection
 .. _constructor-injection:
 
 Constructor injection
@@ -194,7 +194,7 @@ A class dependency can simply be specified as a constructor argument::
    }
 
 
-.. index::Dependency injection; Method injection
+.. index:: Dependency injection; Method injection
 .. _method-injection:
 
 Method injection
@@ -222,7 +222,7 @@ Additionally a :php:`setDependency()` will also work if it has the annotation :p
    }
 
 
-.. index::Dependency injection; Interface injection
+.. index:: Dependency injection; Interface injection
 .. _interface-injection:
 
 Interface injection
