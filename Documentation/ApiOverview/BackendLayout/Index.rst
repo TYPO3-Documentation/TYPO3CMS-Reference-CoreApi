@@ -15,7 +15,7 @@ generic PageTS provider for backend layouts to make backend layouts reusable acr
 .. _be-layout-video:
 
 Backend layout video
-================================
+====================
 
 Benjamin Kott: How to implement frontend layouts in TYPO3 using backend layouts
 
@@ -220,4 +220,3 @@ integrates the grid layout concept also to regular content elements.
 
 The extension `content_defender <https://extensions.typo3.org/extension/content_defender/>`__ offers advanced options to
 the column positions i.e. allowed or disallowed content elements, a maximal number of contend elements.
-
