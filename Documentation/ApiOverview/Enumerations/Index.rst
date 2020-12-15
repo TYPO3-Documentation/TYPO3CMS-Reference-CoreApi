@@ -31,9 +31,6 @@ Background and history
 PHP has no enumeration concept as part of the language up to date. Therefore
 the TYPO3 CMS core includes a custom enumeration implementation.
 
-An enumeration or bitset should be preferred over using pure constants, as the
-latter cannot be deprecated.
-
 In TYPO3 enumerations are implemented by extending the abstract class
 :php:`TYPO3\CMS\Core\Type\Enumeration`. It was originally implemented similar to
 `SplEnum <https://www.php.net/manual/en/class.splenum.php>`__ which is
