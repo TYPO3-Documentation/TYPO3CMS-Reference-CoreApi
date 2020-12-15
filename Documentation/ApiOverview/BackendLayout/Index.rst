@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: !Backend Layout
+.. index:: !Backend layout
 .. _be-layout:
 
 ==============
@@ -10,7 +10,7 @@ Since TYPO3 4.5 there has been a database record type "backend layout" to define
 to which content can be added in the page module.
 
 With TYPO3 7.4 a new feature was introduced to define backend layouts in TYPO3 via page TSconfig. It implements a
-generic PageTS provider for backend layouts to make backend layouts reusable across installations.
+generic page TSconfig provider for backend layouts to make backend layouts reusable across installations.
 
 .. _be-layout-video:
 
@@ -29,7 +29,7 @@ Benjamin Kott: How to implement frontend layouts in TYPO3 using backend layouts
 Backend layout definition
 =========================
 
-Backend layouts can be configured either as "backend layout" record in a sysfolder or as Page TSconfig entry in
+Backend layouts can be configured either as "backend layout" record in a sysfolder or as page TSconfig entry in
 :typoscript:`mod.web_layout.BackendLayouts`. Each layout will be saved with a key. The "backend layout" records are
 using their uid as a key, therefore layouts defined via page TSconfig should use a non-numeric string key. It is a good
 practice to use a descriptive name as key.
