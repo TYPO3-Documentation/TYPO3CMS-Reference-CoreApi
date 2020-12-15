@@ -48,7 +48,7 @@ Quick start
 
    :guilabel:`ADMIN TOOLS`: :guilabel:`Upgrade` > :guilabel:`Scan Extension Files`
 
-   .. figure:: ../../Images/ExtensionScanner/extensionscanner_open.png
+   .. figure:: ../../Images/ExtensionScanner/ExtensionScannerOpen.png
       :class: with-shadow
 
       Open extension scanner from the backend
@@ -63,7 +63,7 @@ Quick start
 
    Click on the Changelog to view it.
 
-   .. figure:: ../../Images/ExtensionScanner/extensionscanner_report.png
+   .. figure:: ../../Images/ExtensionScanner/ExtensionScannerReport.png
       :class: with-shadow
 
       View extension scanner report
