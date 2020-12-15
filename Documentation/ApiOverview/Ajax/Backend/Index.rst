@@ -1,17 +1,18 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Ajax; Backend
 .. _ajax-backend:
 
 =======
 Backend
 =======
 
-An AJAX endpoint in the TYPO3 backend is usually implemented as a method in a regular controller. The method receives a
+An ajax endpoint in the TYPO3 backend is usually implemented as a method in a regular controller. The method receives a
 request object implementing the :php:`Psr\Http\Message\ServerRequestInterface`, which allows to access all aspects of
 the requests and returns an appropriate response in a normalized way. This approach is standardized as `PSR-7`_.
 
+.. index:: pair: Ajax; Controller
 
-Create a Controller
+Create a controller
 ===================
 
 By convention, a controller is placed within the extension's :file:`Controller` directory, optionally in a subdirectory.
@@ -19,7 +20,7 @@ To have such controller, create a new :php:`ExampleController` in :file:`Classes
 inside your extension.
 
 The controller doesn't need that much logic right now. We'll create a method called :php:`doSomethingAction()` which
-will be our AJAX endpoint.
+will be our ajax endpoint.
 
 .. code-block:: php
 
@@ -106,8 +107,11 @@ $reasonPhrase
        return new Response(json_encode(['result' => $result]), 200, ['Content-Type' => 'application/json; charset=utf-8']);
    }
 
+.. index:: Ajax; Endpoint
+.. index:: Ajax; Routes
+.. index:: File; EXT:{extkey}/Configuration/Backend/AjaxRoutes.php
 
-Register the Endpoint
+Register the endpoint
 =====================
 
 The endpoint must be registered as route. Create a file called :file:`Configuration/Backend/AjaxRoutes.php` in your
@@ -135,14 +139,14 @@ For further reading, take a look at :ref:`backend-routing`.
    Flushing caches is mandatory after modifying any route definition.
 
 
-Use in AJAX
+Use in ajax
 ===========
 
 Since the route is registered in :file:`AjaxRoutes.php` its exposed to JavaScript now and stored in the global
 :js:`TYPO3.settings.ajaxUrls` object identified by the used key in the registration. In this example it's
 :js:`TYPO3.settings.ajaxUrls.example_dosomething`.
 
-You are now free to use the endpoint in any of your AJAX calls. To complete this example, we'll ask the server to
+You are now free to use the endpoint in any of your ajax calls. To complete this example, we'll ask the server to
 compute our input and write the result into the console.
 
 .. code-block:: js

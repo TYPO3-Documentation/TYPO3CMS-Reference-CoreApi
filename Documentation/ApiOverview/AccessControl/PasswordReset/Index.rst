@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: pair: Backend; Password reset
 .. _access-password-reset:
 
 ============================
-Password Reset Functionality
+Password reset functionality
 ============================
 
 It is possible for TYPO3 Backend users to reset their password if using the
@@ -30,7 +29,10 @@ Notes on security
 *  Tokens are stored in the database but hashed again, just like the password.
 *  When a user has logged in successfully (e.g., because they remembered the password), the token is removed from the database, effectively invalidating all existing email links.
 
-Global Configuration
+.. index:: Backend; passwordReset
+.. index:: Backend; passwordResetForAdmins
+
+Global configuration
 ====================
 
 The feature is active by default and can be deactivated entirely via the

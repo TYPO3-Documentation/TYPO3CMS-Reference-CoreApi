@@ -1,7 +1,5 @@
-
 .. include:: /Includes.rst.txt
-
-
+.. index:: Autoloader
 .. _autoload:
 
 ===========
@@ -18,14 +16,15 @@ As a developer you should always instantiate classes either through
 
 .. _autoloading_since_typo3_7:
 
-Autoloading Classes Since TYPO3 7.x
+Autoloading classes since TYPO3 7.x
 ===================================
 
 TYPO3 6.2 was still delivered with a couple of different autoloaders, that all had different approaches and rules to find a class. Since TYPO3 7.0, there is only a single autoloader left, the one of Composer. No matter if you run TYPO3 in Composer mode or not (Classic Mode), TYPO3 uses the Composer autoloader to resolve all class file locations.
 
+.. index:: Autoloader; Without Composer
 .. _autoloading_without_composer_mode:
 
-Loading Classes Without Composer Mode
+Loading classes without Composer mode
 =====================================
 
 This means, you did not install TYPO3 via a `require` statement inside your :file:`composer.json`. It's a regular old-school install where the TYPO3 source and the symlinks (:file:`typo3/index.php`) are setup manually. In this case, every time you install an extension, the autoloader scans the whole extension directory for classes. No matter if they follow any convention at all. There is just one rule. Put each class into its own file. The generated classmap is a huge array with a mapping of classnames to their location on the disk.
@@ -54,9 +53,10 @@ If your classes cannot be found, try the following approaches.
 - If that command itself fails, please (manually) uninstall the extension and simply try reinstalling it (via the Extension Manager).
 - If you are still not lucky, the issue is definitely on your side and you should double check the write permissions on :file:`typo3temp`.
 
+.. index:: pair: Autoloader; Composer
 .. _autoloading_with_composer_mode:
 
-Loading Classes With Composer Mode
+Loading classes with Composer mode
 ==================================
 
 In composer mode, the autoloader checks for (classmap and `PSR-4`) autoloading information inside your extensions' :file:`composer.json`. If you do not provide any information, the autoloader falls back to the classmap autoloading like in non composer mode.
@@ -80,8 +80,9 @@ Example::
    ├── include_paths.php
    └── installed.json
 
+.. index:: pair: Autoloader; PSR-4
 
-Best Practices
+Best practices
 ==============
 
 - If you didn't do so before, have a look at the `PSR-4` standard. It defines very good rules for naming classes and the files they reside in. Really, read the specs and start using `PSR-4` in your projects. It's unlikely that there will be any other more advanced standard in the near future in the PHP world. `PSR-4` is the way to go and you should embrace it.

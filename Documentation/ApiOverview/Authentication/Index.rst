@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Authentication
 .. _authentication:
 
 ==============
@@ -43,7 +42,11 @@ view:
 .. figure:: ../../Images/AuthenticationInstalledAuthServices.png
    :alt: All installed authentication services and their priority
 
-
+.. index::
+   Authentication; Process
+   BackendUserAuthentication
+   FrontendUserAuthentication
+   AbstractUserAuthentication
 .. _authentication-process:
 
 The Authentication Process
@@ -73,10 +76,10 @@ by a login request. In the FE, this happens when a form field
 called "logintype" is submitted with value "login". The same
 happens for the BE, but with a form field called "login_status".
 
-
+.. index:: Authentication; Login data
 .. _authentication-data:
 
-The Login Data
+The login data
 ==============
 
 There is a typical set of data that is transmitted to authentication
@@ -100,9 +103,10 @@ Inside an authentication service, this data is available in
 :php:`$this->login`.
 
 
+.. index:: Authentication; Services API
 .. _authentication-api:
 
-The "auth" Services API
+The "auth" services API
 =======================
 
 The services of type "auth" are further divided into subtypes,
@@ -181,9 +185,10 @@ authGroupsFE
    initialization.
 
 
+.. index:: Authentication; Service chain
 .. _authentication-service-chain:
 
-The Service Chain
+The service chain
 =================
 
 No matter what subtype, authentication services are always called
@@ -238,9 +243,10 @@ For "getUserFE" and "getUserBE" subtypes, the logic is reversed.
 The service chain will stop as soon as one user is found.
 
 
+.. index:: Authentication; Development
 .. _authentication-service-development:
 
-Developing an Authentication Service
+Developing an authentication service
 ====================================
 
 When developing your own "auth" services, the chances are high
@@ -286,7 +292,6 @@ exist only in TYPO3 CMS. In such a case, you want to make sure that
 your service returns definite authentication failures only for those
 users which depend on the remote system and let the default
 authentication proceed for "local" TYPO3 CMS users.
-
 
 .. _authentication-advanced-options:
 
