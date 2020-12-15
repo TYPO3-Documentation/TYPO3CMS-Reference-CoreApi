@@ -29,7 +29,7 @@ Benjamin Kott: How to implement frontend layouts in TYPO3 using backend layouts
 Backend layout definition
 =========================
 
-Backend layouts can be configured either as "backend ayout" record in a sysfolder or as Page TSconfig entry in
+Backend layouts can be configured either as "backend layout" record in a sysfolder or as Page TSconfig entry in
 :typoscript:`mod.web_layout.BackendLayouts`. Each layout will be saved with a key. The "backend layout" records are
 using their uid as a key, therefore layouts defined via page TSconfig should use a non-numeric string key. It is a good
 practice to use a descriptive name as key.
