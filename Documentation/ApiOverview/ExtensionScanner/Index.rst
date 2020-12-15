@@ -295,7 +295,7 @@ a deprecation or breaking ReST file to document the change.
 Connection to the changelog reStructuredText files
 --------------------------------------------------
 
-All changelog type reStructuredText (reST) file since Core version 9 have to be tagged with one of the three tags
+All changelog type reStructuredText (reST) files since Core version 9 have to be tagged with one of the three tags
 ``FullyScanned``, ``PartiallyScanned`` or ``NotScanned``. In particular, the ``FullyScanned`` tag is
 used by the extension scanner to mark instances as "not affected by this change", as such they should
 be added with care and only if the scanner configuration matches all changes mentioned in the reST file.
