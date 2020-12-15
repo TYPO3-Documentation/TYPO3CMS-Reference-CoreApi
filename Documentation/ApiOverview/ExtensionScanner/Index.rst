@@ -303,7 +303,7 @@ If only parts of the reST file are covered, ``PartiallyScanned`` has to be added
 mention which parts are and are not covered. If the scanner does not cover a reST file at all then
 ``NotScanned`` can be added.
 
-If an reST file is renamed the file may be covered in a matcher configuration which then needs to be
+If a reST file is renamed the file may be covered in a matcher configuration which then needs to be
 adapted, too. The reST files are not bound to specific directories in the matcher configuration
 so moving a reST file to a different location within the ``Changelog`` directory has no effect.
 
