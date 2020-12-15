@@ -6,7 +6,7 @@
 Backend layout
 ==============
 
-Since TYPO3 4.5 there has been a database record type "backend Layout" to define a combination of rows and columns
+Since TYPO3 4.5 there has been a database record type "backend layout" to define a combination of rows and columns
 to which content can be added in the page module.
 
 With TYPO3 7.4 a new feature was introduced to define backend layouts in TYPO3 via page TSconfig. It implements a
@@ -220,5 +220,4 @@ integrates the grid layout concept also to regular content elements.
 
 The extension `content_defender <https://extensions.typo3.org/extension/content_defender/>`__ offers advanced options to
 the column positions i.e. allowed or disallowed content elements, a maximal number of contend elements.
-
 
