@@ -1,9 +1,11 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   Backend user
+   $GLOBALS; BE_USER
 .. _be-user:
 
 ===================
-Backend User Object
+Backend user object
 ===================
 
 The backend user of a session is always available in extensions
@@ -12,9 +14,10 @@ as the global variable :php:`$GLOBALS['BE_USER']`. The object is created in
 and is an instance of the class :code:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
 (which extends :php:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
 
+.. index:: Backend user; Access
 .. _be-user-check:
 
-Checking User Access
+Checking user access
 ====================
 
 The :php:`$GLOBALS['BE_USER']` object is mostly used to check user access right,
@@ -23,7 +26,7 @@ but contains other helpful information. This is presented here by a few examples
 
 .. _be-user-access-current:
 
-Checking Access to Current Backend Module
+Checking access to current backend module
 =========================================
 
 :php:`$MCONF` is module configuration and the key :php:`$MCONF['access']` determines
@@ -36,7 +39,7 @@ will exit with an error message. ::
 
 .. _be-user-access-any:
 
-Checking Access to any Backend Module
+Checking access to any backend module
 =====================================
 
 If you know the module key you can check if the module is included in
@@ -47,9 +50,12 @@ the access list by this function call::
 Here access to the module **WEB > List** is checked.
 
 
+.. index::
+   Backend user; Table access
+   Backend user; check
 .. _be-user-access-tables:
 
-Access to Tables and Fields?
+Access to tables and fields?
 ============================
 
 The same function :php:`->check()` can actually check all the :php:`->groupLists`
@@ -68,7 +74,7 @@ Checking if a table/field pair is allowed explicitly through the
 
       $GLOBALS['BE_USER']->check('non_exclude_fields', $table . ':' . $field);
 
-
+.. index:: Backend user; isAdmin
 .. _be-user-admin:
 
 Is "admin"?
@@ -80,9 +86,12 @@ access), just call this method::
       $GLOBALS['BE_USER']->isAdmin();
 
 
+.. index::
+   Backend user; Page access
+   Backend user; doesUserHaveAccess
 .. _be-user-page:
 
-Read Access to a Page?
+Read access to a page?
 ======================
 
 This function call will return true if the user has read access to a
@@ -96,9 +105,12 @@ Changing the "1" for other values will check other permissions:
 - use "4" for checking if the user may delete the page.
 
 
+.. index::
+   Backend user; DB mount
+   Backend user; isInWebMount
 .. _be-user-mount:
 
-Is a Page Inside a DB Mount?
+Is a page inside a DB mount?
 ============================
 
 Access to a page should not be checked only based on page permissions
@@ -108,9 +120,11 @@ be checked by this function call (:php:`$id` is the page uid)::
       $GLOBALS['BE_USER']->isInWebMount($id)
 
 
+.. index::
+   Backend user; getPagePermsClause
 .. _be-user-pageperms:
 
-Selecting Readable Pages From Database?
+Selecting readable pages from database?
 =======================================
 
 If you wish to make a SQL statement which selects pages from the
@@ -126,9 +140,10 @@ and "4" is "delete" permission. The result from the above query could be this st
    ((pages.perms_everybody & 1 = 1)OR(pages.perms_userid = 2 AND pages.perms_user & 1 = 1)OR(pages.perms_groupid in (1) AND pages.perms_group & 1 = 1))
 
 
+.. index:: Backend user; getModuleData
 .. _be-user-module-save:
 
-Saving Module Data
+Saving module data
 ==================
 
 This stores the input variable :php:`$compareFlags` (an array!) with the key
@@ -138,9 +153,10 @@ This stores the input variable :php:`$compareFlags` (an array!) with the key
        $GLOBALS['BE_USER']->pushModuleData('tools_beuser/index.php/compare', $compareFlags);
 
 
+.. index:: Backend user; pushModuleData
 .. _be-user-module-get:
 
-Getting Module Data
+Getting module data
 ===================
 
 This gets the module data with the key
@@ -149,6 +165,9 @@ This gets the module data with the key
        $compareFlags = $GLOBALS['BE_USER']->getModuleData('tools_beuser/index.php/compare', 'ses');
 
 
+.. index::
+   Backend user; getTSConfig
+   Backend user; TSConfig
 .. _be-user-tsconfig:
 
 Getting TSconfig
@@ -161,6 +180,7 @@ the user. In this case the value for "options.clipboardNumberPads"::
    $clipboardNumberPads = $tsconfig['options.']['clipboardNumberPads'] ?? '';
 
 
+.. index:: Backend user; User record
 .. _be-user-name:
 
 Getting the Username
