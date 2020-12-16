@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: ! Environment
 .. _Environment:
 
 ===========
@@ -22,6 +22,9 @@ be called to adjust the information.
 Environment PHP API
 ===================
 
+.. index::
+   Environment; getProjectPath
+   File; composer.json
 .. _Environment-project-path:
 
 getProjectPath()
@@ -31,6 +34,9 @@ The environment provides the path to the folder containing the :file:`composer.j
 For projects without Composer setup, this is equal to :ref:`Environment-public-path`.
 
 
+.. index::
+   Environment; getPublicPath
+   PATH_site
 .. _Environment-public-path:
 
 getPublicPath()
@@ -41,6 +47,10 @@ The environment provides the path to the public web folder with
 For projects without Composer setup, this is equal to :ref:`Environment-project-path`.
 
 
+.. index::
+   Environment; getVarPath
+   Path; var
+   Path; typo3temp/var
 .. _Environment-var-path:
 
 getVarPath()
@@ -56,6 +66,9 @@ Without Composer, the value is :php:`getPublicPath() . '/typo3temp/var'`, so wit
 the web document root - a situation that is not optimal from a security point of view.
 
 
+.. index::
+   Environment; getConfigPath
+   Path; typo3conf
 .. _Environment-config-path:
 
 getConfigPath()
@@ -71,6 +84,10 @@ Without Composer, the value is :php:`getPublicPath() . '/typo3conf'`, so within
 the web document root - a situation that is not optimal from a security point of view.
 
 
+.. index::
+   Environment; getConfigPath
+   Path; var/labels
+   Path; typo3conf/l10n
 .. _Environment-labels-path:
 
 getLabelsPath()
@@ -85,6 +102,7 @@ so it is outside of the web document root - not within :php:`getPublicPath()`.
 Without Composer, the value is :php:`getPublicPath() . '/typo3conf/l10n'`, so within
 the web document root - a situation that is not optimal from a security point of view.
 
+.. index:: Environment; getCurrentScript
 .. _Environment-current-script:
 
 getCurrentScript()
@@ -92,6 +110,10 @@ getCurrentScript()
 
 Returns the path and filename to the current PHP script.
 
+.. index::
+   Environment; getContext
+   Application context
+   TYPO3_CONTEXT
 .. _Environment-context:
 
 getContext()
@@ -100,9 +122,14 @@ getContext()
 Returns the current :ref:`application-context`, usually defined via the `TYPO3_CONTEXT` environment variable.
 May be one of `Production`, `Testing`, or `Development` with optional sub-contexts like `Production/Staging`.
 
+.. index::
+   Environment; Configuration
+   PATH_site
+   TYPO3_PATH_ROOT
+   TYPO3_PATH_APP
 .. _Environment-configuring-paths:
 
-Configuring Environment Paths
+Configuring environment paths
 =============================
 
 The TYPO3 constant :php:`PATH_site` acts as a basis for any PHP entry point. It

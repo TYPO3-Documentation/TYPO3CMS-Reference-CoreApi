@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Errors; ErrorHandler
 .. _error-handling-error-handler:
 
 =============

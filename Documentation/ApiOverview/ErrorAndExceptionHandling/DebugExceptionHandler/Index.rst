@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Exceptions; DebugExceptionHandler
 .. _error-handling-debug-exception-handler:
 
 =======================
-Debug Exception Handler
+Debug exception handler
 =======================
 
 Functions of :php:`\TYPO3\CMS\Core\Error\DebugExceptionHandler`:

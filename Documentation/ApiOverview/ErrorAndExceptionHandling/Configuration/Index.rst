@@ -1,5 +1,9 @@
 .. include:: /Includes.rst.txt
 
+.. index::
+   Errors; Configuration
+   Exceptions; Configuration
+   TYPO3_CONF_VARS; SYS
 .. _error-handling-configuration:
 
 =============
@@ -176,6 +180,8 @@ Values in plain text can be changed in LocalConfiguration.php.
 .. tip::
 
    Search for **php error calculator** in the web.
+
+..index:: Errors; PHP constants
 
 *PHP constants:*
 

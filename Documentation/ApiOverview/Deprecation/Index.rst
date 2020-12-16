@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: ! Deprecation
 .. _deprecation:
 
 ===========
@@ -15,6 +15,7 @@ Since TYPO3 4.3, calls to deprecated functions are logged to track usage of
 deprecated/outdated methods in the TYPO3 Core. Developers have to make sure to adjust their code to avoid
 using this old functionality since deprecated methods will be removed in future TYPO3 releases.
 
+.. index:: Deprecation; Log
 .. _deprecation_introduction:
 
 Introduction
@@ -32,9 +33,10 @@ Therefore calls to deprecated functions within the core are no longer written to
    Even though calls to functions within the core are no longer being written to the old deprecation log
    calls to functions within extensions might still be written to the old deprecation log.
 
+.. index:: Deprecation; Log disabling
 .. _deprecation_disable_errors:
 
-Disabling Deprecation Errors
+Disabling deprecation errors
 ============================
 
 Deprecation errors are automatically being ignored in production context. If you need to disable them in development
@@ -47,9 +49,12 @@ context you can do so in the :file:`AdditionalConfiguration.php`::
 
 For more information on how to configure the writing of deprecation logs see :ref:`logging-configuration-writer`.
 
+.. index::
+   Deprecation; Find deprecated functions
+   Deprecation; Extension scanner
 .. _deprecation_finding_calls:
 
-Finding Calls to Deprecated Functions
+Finding calls to deprecated functions
 =====================================
 
 The extension scanner which has been introduced with TYPO3 core version 9 as part of the system
@@ -59,9 +64,10 @@ for usage of TYPO3 core API which has been removed or deprecated. See :ref:`exte
 It is also possible to do a file search for "@deprecated" and "E_USER_DEPRECATED". Then using an IDE you can find all
 calls to the affected functions.
 
+.. index:: Deprecation; Functions
 .. _deprecate_functions:
 
-Deprecate Functions in Extensions
+Deprecate functions in extensions
 =================================
 
 Functions that will be removed in future versions of your extension should be marked as deprecated by both the
