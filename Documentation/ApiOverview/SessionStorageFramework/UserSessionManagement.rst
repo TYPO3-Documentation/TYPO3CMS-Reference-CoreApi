@@ -2,7 +2,7 @@
 
 .. _session-management:
 
-..index:: pair: Sessions; Users
+.. index:: pair: Sessions; Users
 
 =======================
 User session management
