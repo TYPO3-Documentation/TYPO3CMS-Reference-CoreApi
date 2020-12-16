@@ -1,13 +1,15 @@
 .. include:: /Includes.rst.txt
 .. index:: Security guidelines; Users and access
+.. _security-access-privileges:
 
+===========================
 Users and access privileges
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===========================
 
 .. index:: pair: Security guidelines; Backend users
 
 Backend
-"""""""
+=======
 
 TYPO3 offers a very sophisticated and complex access concept: you can
 define permissions on a user-level, on a group-level, on pages, on
@@ -56,7 +58,7 @@ users that are allowed to continue using the system.
 .. index:: pair: Security guidelines; Frontend users
 
 Frontend
-""""""""
+========
 
 Access to pages and content in the TYPO3 frontend can be configured with
 frontend user groups. Similar suggestions like for backend users also apply here.

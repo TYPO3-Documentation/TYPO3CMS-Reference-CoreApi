@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
-
 .. _security-introduction:
 
+============
 Introduction
 ============
 
@@ -25,7 +25,7 @@ essential.
 .. index:: Security; Reporting
 
 Reporting a security issue
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+==========================
 
 If you would like to report a security issue in a TYPO3 extension or
 the TYPO3 core system, please report it to the TYPO3 Security Team.
@@ -35,7 +35,7 @@ TYPO3 Security Team in the :ref:`next chapter <security-team>`.
 
 
 Target audience
-^^^^^^^^^^^^^^^
+===============
 
 This chapter is intended for all users of TYPO3, from editors to
 system administrators, from TYPO3 integrators to software developers.

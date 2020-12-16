@@ -1,8 +1,10 @@
 .. include:: /Includes.rst.txt
 .. index:: Hacked site; Further actions
+.. _security-further-actions:
 
+===============
 Further actions
-^^^^^^^^^^^^^^^
+===============
 
 Given the fact that the TYPO3 site is now working again, is clean and
 that the security hole has been identified and fixed, you can switch

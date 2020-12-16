@@ -2,14 +2,15 @@
 .. index:: Security team
 .. _security-team:
 
-The TYPO3 security team
------------------------
+=======================
+The TYPO3 Security Team
+=======================
 
 .. index:: Security; Reporting
 .. _security-team-contact:
 
-Report a security issue
-^^^^^^^^^^^^^^^^^^^^^^^
+Reporting a security issue
+==========================
 
 If you find a security issue in the TYPO3 core system or in a TYPO3
 extension (even if it is your own development), please report it to
@@ -27,8 +28,8 @@ reminder a few days after your initial submission.
    Security; Extension review
    Extension review
 
-Review of your extension
-^^^^^^^^^^^^^^^^^^^^^^^^
+Extension review
+================
 
 The Security Team does not review extensions pro-actively, but can be
 engaged if someone wants to have his/her extension reviewed. It is not
@@ -44,19 +45,18 @@ Please find further details about the TYPO3 Security Team at
 `https://typo3.org/community/teams/security/ <https://typo3.org/community/teams/security/>`_ .
 
 
-
 .. index:: Security; Incident handling
 .. _security-incident-handling:
 
 Incident handling
-^^^^^^^^^^^^^^^^^
+=================
 
 This chapter provides detailed information about the differences between
 the TYPO3 core system and TYPO3 extensions and how the TYPO3 Security
 Team deals with security issues of those.
 
-TYPO3 core system
-"""""""""""""""""
+Security issues in the TYPO3 Core
+---------------------------------
 
 If the TYPO3 Security Team gains knowledge about a security issue in
 the TYPO3 core system, they work closely together with the developers
@@ -66,8 +66,8 @@ tested and reviewed. Together with a public security bulletin, a TYPO3
 core update will be released. Please see next chapter for further
 details about TYPO3 CMS versions and security bulletins.
 
-TYPO3 extensions
-""""""""""""""""
+Security issues in TYPO3 extensions
+-----------------------------------
 
 When the TYPO3 Security Team receives a report of a security issue in
 an extension, the issue will be checked in the first stage. If a
@@ -75,16 +75,13 @@ security problem can be confirmed, the Security Team tries to get in
 touch with the extension developer and requests a fix. Then one of the
 following situations usually occurs:
 
-- the developer acknowledges the security vulnerability and delivers a
+* the developer acknowledges the security vulnerability and delivers a
   fix
-
-- the developer acknowledges the security vulnerability but does not
+* the developer acknowledges the security vulnerability but does not
   provide a fix
-
-- the developer refuses to produce a security fix (e.g. because he does
+* the developer refuses to produce a security fix (e.g. because he does
   not maintain the extension anymore)
-
-- the developer cannot be contacted or does not react
+* the developer cannot be contacted or does not react
 
 In the case where the extension author fails to provide a security fix
 in an appropriate time frame (see below), all affected versions of the

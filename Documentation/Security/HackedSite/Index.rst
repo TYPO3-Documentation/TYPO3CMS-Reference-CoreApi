@@ -2,8 +2,9 @@
 .. index:: Hacked site
 .. _security-detect-analyze-repair:
 
+========================================
 Detect, analyze and repair a hacked site
-----------------------------------------
+========================================
 
 Most websites do not get hacked. If yours did, there is something wrong
 with it, or with the server, or with the hosting environment, or with
@@ -19,18 +20,17 @@ always keep in mind: if you are already in the situation that you have
 to restore a hacked site, focus on the limitation of damage and do not
 react over-hastily.
 
-.. _security-detect:
-.. include:: Detect.rst.txt
+Steps to take when a site got hacked
+====================================
 
-.. _security-take-offline:
-.. include:: TakeOffline.rst.txt
+Please see the following chapters on the actions to take:
 
-.. _security-analyze:
-.. include:: Analyze.rst.txt
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
 
-.. _security-repair-restore:
-.. include:: RepairRestore.rst.txt
-
-.. _security-further-actions:
-.. include:: FurtherActions.rst.txt
-
+   Detect
+   TakeOffline
+   Analyze
+   RepairRestore
+   FurtherActions

@@ -1,8 +1,10 @@
 .. include:: /Includes.rst.txt
 .. index:: Hacked site; Repair
+.. _security-repair-restore:
 
+==============
 Repair/restore
-^^^^^^^^^^^^^^
+==============
 
 When you know what the problem was and how the attacker gained access
 to your system, double check if there are no other security

@@ -1,7 +1,9 @@
 .. include:: /Includes.rst.txt
+.. _security-security-warnings:
 
+=====================================
 Security-related warnings after login
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=====================================
 
 A TYPO3 integrator is responsible for the correct configuration of the
 TYPO3 system. Usually, an integrator has administrator privileges and

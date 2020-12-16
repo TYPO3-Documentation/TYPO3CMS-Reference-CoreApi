@@ -1,8 +1,10 @@
 .. include:: /Includes.rst.txt
 .. index:: Hacked site; Take offline
+.. _security-take-offline:
 
+========================
 Take the website offline
-^^^^^^^^^^^^^^^^^^^^^^^^
+========================
 
 Assuming you have detected that your site has been hacked, you should
 take it offline for the duration of the analysis and restoration

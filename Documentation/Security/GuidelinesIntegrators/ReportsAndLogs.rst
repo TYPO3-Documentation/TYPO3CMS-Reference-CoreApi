@@ -2,9 +2,11 @@
 .. index::
    pair: Security guidelines; Logs
    pair: Security guidelines; Reports
+.. _security-reports-logs:
 
+================
 Reports and logs
-^^^^^^^^^^^^^^^^
+================
 
 Two backend modules in TYPO3 require special attention: *Reports*
 and *Log*:

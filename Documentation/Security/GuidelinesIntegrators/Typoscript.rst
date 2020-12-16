@@ -1,15 +1,17 @@
 .. include:: /Includes.rst.txt
 .. index:: pair: Security guidelines; TypoScript
+.. _security-typoscript:
 
+==========
 TypoScript
-^^^^^^^^^^
+==========
 
 .. index::
    pair: TypoScript; SQL injection
    pair: Security guidelines; SQL injection
 
 SQL injection
-"""""""""""""
+=============
 
 The `CWE/SANS list <http://cwe.mitre.org/top25/>`_ of top 25 most dangerous software
 errors ranks "SQL injection" first! The TYPO3 Security Team comes across this security
@@ -56,10 +58,10 @@ user input, other servers, etc.).
 
 .. index::
    pair: TypoScript; Cross-site scripting
-   pair: Security guidelines; Cross-site scripting
+   ! Cross-site scripting
 
 Cross-site scripting (XSS)
-""""""""""""""""""""""""""
+==========================
 
 Similar applies for XSS placed in `TypoScript` code. The following code
 snippet gives an example:
@@ -115,7 +117,7 @@ using `TypoScript`.
 .. index:: Security guidelines; External files
 
 External file inclusion
-"""""""""""""""""""""""
+=======================
 
 TYPO3 allows to include external files which implement `TypoScript`
 code. Some integrators appreciate the option of having `TypoScript`
@@ -154,10 +156,10 @@ This attack scenario even does not require access to the TYPO3 backend.
 
 .. index::
    pair: TypoScript; Clickjacking
-   pair: Security guidelines; Clickjacking
+   ! Clickjacking
 
 Clickjacking
-""""""""""""
+============
 
 Clickjacking is an attack scenario where an attacker tricks a web
 user into clicking on a button or following a link different from what
@@ -177,7 +179,7 @@ The following TypoScript adds the appropriate line to the HTTP header:
 .. index:: Security guidelines; External JavaScript
 
 Integrity of external JavaScript files
-""""""""""""""""""""""""""""""""""""""
+======================================
 
 The TypoScript property :code:`integrity` has been introduced with TYPO3 v7. This
 configuration allows integrators to specify a SRI hash in order to allow a verification
@@ -208,7 +210,7 @@ A typical example in TypoScript looks like:
 
 
 Risk of externally hosted JavaScript libraries
-""""""""""""""""""""""""""""""""""""""""""""""
+==============================================
 
 In many cases, it makes perfect sense to include `JavaScript` libraries, which are
 externally hosted. Like the example above, many libraries are hosted by CDN

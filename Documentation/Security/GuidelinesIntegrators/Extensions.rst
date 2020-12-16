@@ -1,8 +1,10 @@
 .. include:: /Includes.rst.txt
 .. index:: pair: Security guidelines; Extensions
+.. _security-extensions:
 
+================
 TYPO3 extensions
-^^^^^^^^^^^^^^^^
+================
 
 As already mentioned above, most of the security issues have been
 discovered in TYPO3 extensions, not in the TYPO3 core. Due to the fact
@@ -15,7 +17,7 @@ the basic countermeasures to address security related issues.
 
 
 Stable and reviewed extensions
-""""""""""""""""""""""""""""""
+==============================
 
 Only a small percentage of the extensions available in the TER have
 been reviewed by the TYPO3 Security team. This does not imply that
@@ -66,7 +68,7 @@ risks.
 
 
 Executable binaries shipped with extensions
-"""""""""""""""""""""""""""""""""""""""""""
+===========================================
 
 TYPO3 extensions (:file:`.zip` files) are packages, which may contain any kind
 of data/files. This can be readable PHP or Javascript source code, as well as
@@ -84,7 +86,7 @@ discovered in these components.
 
 
 Remove unused extensions and other code
-"""""""""""""""""""""""""""""""""""""""
+=======================================
 
 TYPO3 distinguishes between "imported" and "loaded" extensions.
 Imported extensions exist in the system and are ready to be integrated
@@ -111,7 +113,7 @@ administrator backend account is required.
 .. _security-extensions-low-level:
 
 Low-level extensions
-""""""""""""""""""""
+====================
 
 So called "low-level" extensions provide "questionable" functionality
 to a level below what a standard CMS would allow you to access. This
@@ -129,7 +131,7 @@ Extensions that allow editors to include PHP code must be avoided, too.
 
 
 Check for extension updates regularly
-"""""""""""""""""""""""""""""""""""""
+=====================================
 
 The importance of the knowledge that security updates are available
 has been discussed above (see :ref:`TYPO3 security-bulletins
@@ -160,7 +162,7 @@ notification by email when extension updates are available.
 
 
 Security-related core extensions
-""""""""""""""""""""""""""""""""
+================================
 
 .. deprecated:: 9.1
    The extension rsaauth was deprecated in TYPO3 9.1. Please see
@@ -169,7 +171,7 @@ Security-related core extensions
 
 
 Other security-related extensions
-"""""""""""""""""""""""""""""""""
+=================================
 
 TYPO3 extensions which are not part of the core (and so are not
 official system extensions) are out of scope of this document, due to

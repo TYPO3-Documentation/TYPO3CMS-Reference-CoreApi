@@ -1,8 +1,10 @@
 .. include:: /Includes.rst.txt
 .. index:: Hacked site; Detection
+.. _security-detect:
 
+=======================
 Detect a hacked website
-^^^^^^^^^^^^^^^^^^^^^^^
+=======================
 
 Typical signs which could indicate that a website or the server was
 hacked are listed below. Please note that these are common situations
@@ -13,7 +15,7 @@ done.
 
 
 Manipulated frontpage
-"""""""""""""""""""""
+=====================
 
 One of the most obvious "hacks" are manipulated landing or home page
 or other pages. Someone who has compromised a system and just wants to
@@ -35,7 +37,7 @@ quick glance.
 
 
 Malicious code in the HTML source
-"""""""""""""""""""""""""""""""""
+=================================
 
 Malicious code (e.g. JavaScript, iframes, etc.) placed in the HTML
 source code (the code that the system sends to the clients) may lead
@@ -49,7 +51,7 @@ site <security-detect-reports-from-search-engines>`.
 
 
 Embedded elements in the site's content
-"""""""""""""""""""""""""""""""""""""""
+=======================================
 
 Unknown embedded elements (e.g. binary files) in the content of the
 website, which are offered to website visitors to download (and maybe
@@ -63,7 +65,7 @@ See also the explanations below :ref:`Reports from visitors or users
 
 
 Unusual traffic increase or decrease
-""""""""""""""""""""""""""""""""""""
+====================================
 
 A significant unusual, unexpected increase of traffic may be an
 indication that the website was compromised and large files have been
@@ -84,7 +86,7 @@ behavior should definitely make you investigating the cause.
 .. _security-detect-reports-from-visitors:
 
 Reports from visitors or users
-""""""""""""""""""""""""""""""
+==============================
 
 If visitors or users report that they get viruses from browsing
 through your site, or that their anti-virus software raises an alarm
@@ -97,7 +99,7 @@ explanations above.
 .. _security-detect-reports-from-search-engines:
 
 Search engines or browsers warn about your site
-"""""""""""""""""""""""""""""""""""""""""""""""
+===============================================
 
 Google, Yahoo and other search engines have implemented a warning
 system showing if a website content has been detected as containing
@@ -111,7 +113,7 @@ Database". This database is also used by various browsers.
 
 
 Leaked credentials
-""""""""""""""""""
+==================
 
 One of the "hacks" most difficult to detect is the case where a hacker
 gained access to a perfectly configured and secured TYPO3 site. In

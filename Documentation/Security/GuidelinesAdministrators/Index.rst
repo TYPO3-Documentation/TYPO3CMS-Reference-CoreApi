@@ -33,6 +33,12 @@ General Rules
    follow the steps for TYPO3 integrators carefully, documented in the
    next chapter.
 
+Further topics
+==============
+
+Please see the chapters below for further security related topics of interest
+for administrators:
+
 .. toctree::
    :maxdepth: 1
    :titlesonly:

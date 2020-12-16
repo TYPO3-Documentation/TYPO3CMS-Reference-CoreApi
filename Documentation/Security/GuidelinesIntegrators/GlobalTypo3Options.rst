@@ -2,9 +2,11 @@
 .. index::
    pair: Security guidelines; Global TYPO3 configuration
    pair: Security guidelines; Debugging
+.. _security-global-typo3-options:
 
+==================================
 Global TYPO3 configuration options
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==================================
 
 The following configuration options are accessible and changeable via
 the Install Tool (recommended way) or directly in the file
@@ -14,7 +16,7 @@ depends on your specific site and requirements).
 
 
 displayErrors
-"""""""""""""
+=============
 
 This configuration option controls whether PHP errors should be
 displayed or not (information disclosure). Possible values are: `-1`, `0`,
@@ -41,7 +43,7 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'
 .. _security-global-typo3-options-devIpMask:
 
 devIPmask
-"""""""""
+=========
 
 Defines a comma-separated list of IP addresses which will allow
 development-output to display (information disclosure). The :php:`debug()`
@@ -57,7 +59,7 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']``
 .. _security-global-typo3-options-enabledBeUserIPLock:
 
 enabledBeUserIPLock
-"""""""""""""""""""
+===================
 
 If this configuration is enabled (value `1`), backend user accounts
 can be locked to specific IP addresses by using user/group TSconfig.
@@ -77,7 +79,7 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['enabledBeUserIP
 
 
 fileDenyPattern
-"""""""""""""""
+===============
 
 The `fileDenyPattern` is a perl-compatible regular expression that (if
 it matches a file name) will prevent TYPO3 from accessing or processing
@@ -98,7 +100,7 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern
 
 
 lockIP / lockIPv6
-"""""""""""""""""
+=================
 
 If a frontend or backend user logs into TYPO3, the user's session can be
 locked to its IP address. The `lockIP` configuration for IPv4 and `lockIPv6` for IPv6 control how
@@ -182,7 +184,7 @@ and :php:`['BE']['lockIPv6']`) sessions separately, so four PHP variables are av
 .. _security-global-typo3-options-lockSSL:
 
 lockSSL
-"""""""
+=======
 
 As described in :ref:`encrypted client/server communication
 <security-encrypted-client-server-connection>`, the use of `https://` scheme
@@ -199,7 +201,7 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSL']`
 
 
 IPmaskList
-""""""""""
+==========
 
 Some TYPO3 instances are maintained by a selected group of integrators
 and editors who only work from a specific IP range or (in an ideal
@@ -222,7 +224,7 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList']`
 
 
 trustedHostsPattern
-"""""""""""""""""""
+===================
 
 TYPO3 uses the HTTP header `Host:` to generate absolute URLs in several
 places such as 404 handling, http(s) enforcement, password reset links
@@ -251,7 +253,7 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPa
 .. _security-global-typo3-options-warning-email-addr:
 
 warning_email_addr
-""""""""""""""""""
+==================
 
 The email address defined here will receive notifications, whenever an
 attempt to login to the Install Tool is made. TYPO3 will also send a
@@ -264,7 +266,7 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['warning_email_a
 
 
 warning_mode
-""""""""""""
+============
 
 This setting specifies if mails should be sen to :ref:`warning_email_addr
 <security-global-typo3-options-warning-email-addr>` upon successful backend user login.

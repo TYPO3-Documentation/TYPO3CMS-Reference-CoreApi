@@ -1,8 +1,10 @@
 .. include:: /Includes.rst.txt
 .. index:: Hacked site; Analyze
+.. _security-analyze:
 
-Analyze
-^^^^^^^
+=======================
+Analyzing a hacked site
+=======================
 
 In most cases, attackers are adding malicious code to the files on
 your server. All files that have code injected need to be cleaned or

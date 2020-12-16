@@ -2,13 +2,18 @@
 .. index::
    pair: Security guidelines; Content elements
    pair: Security guidelines; RTE
+.. _security-content-elements:
 
-
+================
 Content elements
-^^^^^^^^^^^^^^^^
+================
 
-.. note::
-    This section is outdated and needs an update.
+.. todo:: Needs review: Outdated: This section is outdated and needs an update.
+
+.. warning::
+
+   The information on this page is outdated!
+
 
 Besides the :ref:`low-level extensions <security-extensions-low-level>`, there
 are also system-internal functions available which could allow the insertion of
