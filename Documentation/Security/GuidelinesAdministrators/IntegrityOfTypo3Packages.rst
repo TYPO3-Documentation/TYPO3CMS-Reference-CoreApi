@@ -1,12 +1,8 @@
 .. include:: /Includes.rst.txt
 .. index:: Security guidelines; Checksums
+.. _security-integrity-packages:
 
-.. -----------------------------------------------------------------------
-.. This file is included via include.
-.. Technically, it is as if this file is inserted **into** the including file
-.. Continue from header level of including file ...
-.. -----------------------------------------------------------------------
-
+===========================
 Integrity of TYPO3 Packages
 ===========================
 

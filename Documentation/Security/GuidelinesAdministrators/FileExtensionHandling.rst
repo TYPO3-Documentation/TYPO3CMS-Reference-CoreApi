@@ -1,13 +1,9 @@
 .. include:: /Includes.rst.txt
 .. index:: pair: Security guidelines; File extensions
 .. highlight:: apacheconf
+.. _security-file-extension-handling:
 
-.. -----------------------------------------------------------------------
-.. This file is included via include.
-.. Technically, it is as if this file is inserted **into** the including file
-.. Continue from header level of including file ...
-.. -----------------------------------------------------------------------
-
+=======================
 File extension handling
 =======================
 

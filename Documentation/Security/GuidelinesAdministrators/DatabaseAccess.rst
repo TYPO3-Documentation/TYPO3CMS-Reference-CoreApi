@@ -1,12 +1,8 @@
 .. include:: /Includes.rst.txt
 .. index:: pair: Security guidelines; Database access
+.. _security-database-access:
 
-.. -----------------------------------------------------------------------
-.. This file is included via include.
-.. Technically, it is as if this file is inserted **into** the including file
-.. Continue from header level of including file ...
-.. -----------------------------------------------------------------------
-
+===============
 Database access
 ===============
 
@@ -18,7 +14,7 @@ therefore special care must be taken not to grant unauthorized access.
     Database; Access privileges
 
 Secure passwords and minimum access privileges with MySQL
----------------------------------------------------------
+=========================================================
 
 If using MySQL, the privilege system authenticates a (database-)user who
 connects from the TYPO3 host (which is possibly on the same machine)
@@ -48,7 +44,7 @@ database users and access privileges.
     pair: Security guidelines; SQLite
 
 Database not within web document root with SQLite
----------------------------------------------------------
+=================================================
 
 If using SQLite as underlying database, a database is stored in a single
 file. In TYPO3, its default location is the :ref:`var/sqlite <Environment-var-path>` path
@@ -59,7 +55,7 @@ In such a setup it is important to configure Web servers to not deliver :file:`.
 
 
 Disallow external access
-------------------------
+========================
 
 The database server should only be reachable from the server that your
 TYPO3 installation is running on. Make sure to disable any access from
@@ -76,7 +72,7 @@ in particular.
     pair: Security guidelines; phpMyAdmin
 
 Database administration tools
------------------------------
+=============================
 
 `phpMyAdmin` and similar tools intend to allow the administration of
 MySQL database servers over the Web. Under certain circumstances, it

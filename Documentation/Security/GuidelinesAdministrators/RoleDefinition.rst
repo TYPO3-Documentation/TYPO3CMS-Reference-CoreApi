@@ -1,11 +1,7 @@
 .. include:: /Includes.rst.txt
+.. _security-administrator-definition:
 
-.. -----------------------------------------------------------------------
-.. This file is included via include.
-.. Technically, it is as if this file is inserted **into** the including file
-.. Continue from header level of including file ...
-.. -----------------------------------------------------------------------
-
+===============
 Role Definition
 ===============
 

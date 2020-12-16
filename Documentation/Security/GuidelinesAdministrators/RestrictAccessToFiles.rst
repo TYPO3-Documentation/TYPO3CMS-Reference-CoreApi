@@ -1,11 +1,7 @@
 .. include:: /Includes.rst.txt
+.. _security-restrict-access-server-level:
 
-.. -----------------------------------------------------------------------
-.. This file is included via include.
-.. Technically, it is as if this file is inserted **into** the including file
-.. Continue from header level of including file ...
-.. -----------------------------------------------------------------------
-
+==========================================
 Restrict access to files on a server-level
 ==========================================
 
@@ -26,8 +22,7 @@ cannot predict which file names could occur in the future).
 
 
 Verification of access restrictions
------------------------------------
-
+===================================
 
 Administrators should *test and verify* file access to these files are actually denied.
 The following list provides some files as an example that should not be retrievable
@@ -67,7 +62,7 @@ provided above should not be accessible anymore and result in a HTTP `403` error
 
 
 Apache and Microsoft IIS Web Servers
-------------------------------------
+====================================
 
 To increase protection of TYPO3 instances, the core team however decided to
 install default web server configuration files since TYPO3 core version v9 under certain
@@ -90,7 +85,7 @@ and adapt or update local versions if needed.
 
 
 NGINX Web Servers
------------------
+=================
 
 Administrators running the popular web server `NGINX <https://www.nginx.com/>`_ need to
 take additional measures: NGINX does not support an approach like Apache or IIS to configure

@@ -1,11 +1,7 @@
 .. include:: /Includes.rst.txt
+.. _security-other-services:
 
-.. -----------------------------------------------------------------------
-.. This file is included via include.
-.. Technically, it is as if this file is inserted **into** the including file
-.. Continue from header level of including file ...
-.. -----------------------------------------------------------------------
-
+==============
 Other Services
 ==============
 

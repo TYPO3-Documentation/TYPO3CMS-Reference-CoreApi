@@ -1,18 +1,14 @@
 .. include:: /Includes.rst.txt
+.. _security-administrators-furtheractions:
 
-.. -----------------------------------------------------------------------
-.. This file is included via include.
-.. Technically, it is as if this file is inserted **into** the including file
-.. Continue from header level of including file ...
-.. -----------------------------------------------------------------------
-
+===============
 Further Actions
 ===============
 
 .. index:: pair: Security guidelines; Hosting environment
 
 Hosting environment
--------------------
+===================
 
 A system administrator is usually responsible for the entirety of an
 IT infrastructure. This includes several services (e.g. web server,
@@ -31,7 +27,7 @@ security purposes.
 .. index:: pair: Security guidelines; PHP settings
 
 Security-related PHP settings
------------------------------
+=============================
 
 Due to the fact that TYPO3 is a PHP application, secure PHP settings
 are also important, of course. PHP settings, such as `open_basedir`,
@@ -46,7 +42,7 @@ TYPO3 extension list, which allows you to check if extension updates
 are available, or on retrival of translation files.
 
 Events in Log Files
--------------------
+===================
 
 Login attempts to the TYPO3 backend, which are unsuccessful, result in
 a server response to the client with HTTP code 401 ("Unauthorized").
@@ -57,9 +53,10 @@ error log file, it can be handled by external tools, such as
 .. index::
    pair: Security guidelines; Clickjacking
    pair: Security guidelines; X-Frame-Options
+.. _security-administrators-furtheractions-clickjacking:
 
 Defending Against Clickjacking
-------------------------------
+==============================
 
 Clickjacking, also known as *user interface (UI) redress attack* or
 *UI redressing*, is an attack scenario where an attacker tricks a web

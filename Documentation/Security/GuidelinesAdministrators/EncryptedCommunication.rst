@@ -1,16 +1,13 @@
 .. include:: /Includes.rst.txt
 .. index:: pair: Security guidelines; Encryption
-.. -----------------------------------------------------------------------
-.. This file is included via include.
-.. Technically, it is as if this file is inserted **into** the including file
-.. Continue from header level of including file ...
-.. -----------------------------------------------------------------------
+.. _security-encrypted-client-server-connection:
 
+=====================================
 Encrypted Client/server Communication
 =====================================
 
 Data Classification
--------------------
+===================
 
 It depends on the nature of the data but in general "sensitive"
 information could be: user logins, passwords, user details (such as
@@ -57,7 +54,7 @@ nor store any sensitive data if not absolutely required.
    see: TLS; Transport layer security
 
 Frontend
---------
+========
 
 `Transport Layer Security (TLS) <https://de.wikipedia.org/wiki/Transport_Layer_Security>`_
 is an industry standard and the current security technology for establishing an encrypted
@@ -85,7 +82,7 @@ solutions.
 
 
 Backend
--------
+=======
 
 A risk of unencrypted client/server communication is that an attacker
 could eavesdrop the data transmission and "sniff" sensitive
@@ -101,7 +98,7 @@ configuration options for this purpose, see configuration option
 .. index:: pair: Security guidelines; FTP
 
 Drop FTP
---------
+========
 
 An encrypted communication between client and server for further
 services than the TYPO3 frontend and backend should be considered,

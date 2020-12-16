@@ -5,13 +5,9 @@
    Cross-site scripting; Content security policy
    see: CSP, Content security policy
 .. highlight:: apacheconf
+.. _security-content-security-policy:
 
-.. -----------------------------------------------------------------------
-.. This file is included via include.
-.. Technically, it is as if this file is inserted **into** the including file
-.. Continue from header level of including file ...
-.. -----------------------------------------------------------------------
-
+=======================
 Content security policy
 =======================
 
