@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-.. index:: pair: Security guidelines; Backup
+.. index::
+   Backup
+   pair: Security guidelines; Backup
 .. _security-backups:
 
 ===============

@@ -1,4 +1,6 @@
 .. include:: /Includes.rst.txt
+.. index::
+   Security guidelines; Administrator role
 .. _security-administrator-definition:
 
 ===============

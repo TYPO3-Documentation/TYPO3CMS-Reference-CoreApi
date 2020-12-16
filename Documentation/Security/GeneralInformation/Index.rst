@@ -1,15 +1,16 @@
 .. include:: /Includes.rst.txt
-
 .. _security-general-information:
 
+===================
 General Information
--------------------
+===================
 
 .. index::
    pair: Security guidelines; TYPO3 versions
    Security guidelines; Long term support
    Long term support
    see: LTS; Long term support
+   LTS
 .. _security-typo3-versions:
 
 TYPO3 versions and lifecycle
@@ -197,9 +198,10 @@ fix including the review and deployment is publicly visible and can be
 monitored by everyone.
 
 .. index::
-   Security guidelines; Public service announcements
+   Security bulletins; Public service announcements
    Public service announcements
    see: PSA; Public service announcements
+   PSA
 
 Public service announcements
 ----------------------------
@@ -218,9 +220,10 @@ related information about the server infrastructure of typo3.org and
 other important recommendations how to securely use TYPO3 products.
 
 .. index::
-   Security guidelines; Common vulnerability scoring system
+   Security bulletins; Common vulnerability scoring system
    Common vulnerability scoring system
    see: CVSS; Common vulnerability scoring system
+   CVSS
 
 Common vulnerability scoring system (CVSS)
 ------------------------------------------

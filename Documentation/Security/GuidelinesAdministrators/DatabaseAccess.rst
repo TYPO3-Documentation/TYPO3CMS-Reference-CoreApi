@@ -9,9 +9,10 @@ Database access
 The TYPO3 database contains all data of backend and frontend users and
 therefore special care must be taken not to grant unauthorized access.
 
+
 .. index::
-    Database; Secure passwords
-    Database; Access privileges
+   Database; Secure passwords
+   Database; Access privileges
 
 Secure passwords and minimum access privileges with MySQL
 =========================================================
@@ -39,9 +40,10 @@ context of administrative privileges and not required in most cases.
 See the documentation of your database system on how to set up
 database users and access privileges.
 
+
 .. index::
-    Database; SQLite
-    pair: Security guidelines; SQLite
+   Database; SQLite
+   pair: Security guidelines; SQLite
 
 Database not within web document root with SQLite
 =================================================
@@ -66,6 +68,7 @@ If you are using MySQL, read the chapter
 `Server Options <https://dev.mysql.com/doc/refman/8.0/en/server-option-variable-reference.html>`_
 in the manual and check for the "skip-networking" and "bind-address" options
 in particular.
+
 
 .. index::
     pair: Security guidelines; Database administration tools

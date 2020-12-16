@@ -5,6 +5,7 @@
 Further Actions
 ===============
 
+
 .. index:: pair: Security guidelines; Hosting environment
 
 Hosting environment
@@ -24,6 +25,7 @@ database server, `DNS` server, `IMAP/POP3` server, etc.). In short words:
 keep your hosting environment as slim as possible for performance and
 security purposes.
 
+
 .. index:: pair: Security guidelines; PHP settings
 
 Security-related PHP settings
@@ -41,6 +43,7 @@ front of the TYPO3 server) may have an impact on the retrieval of the
 TYPO3 extension list, which allows you to check if extension updates
 are available, or on retrival of translation files.
 
+
 Events in Log Files
 ===================
 
@@ -54,6 +57,7 @@ error log file, it can be handled by external tools, such as
    pair: Security guidelines; Clickjacking
    pair: Security guidelines; X-Frame-Options
 .. _security-administrators-furtheractions-clickjacking:
+
 
 Defending Against Clickjacking
 ==============================

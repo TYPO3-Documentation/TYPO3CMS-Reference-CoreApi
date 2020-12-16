@@ -26,7 +26,6 @@ Steps to take when a site got hacked
 Please see the following chapters on the actions to take:
 
 .. toctree::
-   :maxdepth: 1
    :titlesonly:
 
    Detect

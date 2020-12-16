@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: Hacked site; Further actions
+.. index:: Hacked site; What to do
 .. _security-further-actions:
 
 ===============

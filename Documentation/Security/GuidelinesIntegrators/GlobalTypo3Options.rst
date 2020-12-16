@@ -108,11 +108,13 @@ many parts of the IP address have to match with the IP address used at
 authentication time.
 
 .. ATTENTION::
+
    IP locking breaks modern IPv6 setups because of the
    `Fast Fallback aka. Happy Eyeballs <https://en.wikipedia.org/wiki/Happy_Eyeballs>`__
    algorithm that can cause users to jump between IPv4 and IPv6
    arbitrarily. Enabling an IP lock should be a very conscious decision. Therefore,
    this is disabled by default.
+
 
 Possible values for **IPv4** are: `0`, `1`, `2`, `3` or `4` (integer)
 with the following meaning:

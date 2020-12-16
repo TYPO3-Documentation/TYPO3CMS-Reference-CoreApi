@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: Hacked site; Detection
+.. index:: Hacked site; Detect
 .. _security-detect:
 
 =======================

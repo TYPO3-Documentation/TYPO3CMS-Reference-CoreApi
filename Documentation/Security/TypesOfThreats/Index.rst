@@ -10,7 +10,7 @@ threats to give the reader a basic understanding of them. The sections
 for system administrators, TYPO3 integrators and editors explain in
 more detail how to secure a system against those threats.
 
-.. index:: Information disclosure
+.. index:: pair: Security; Information disclosure
 .. _security-information-disclosure:
 
 Information disclosure
@@ -34,6 +34,7 @@ or a specific version of TYPO3 is used. Security experts say, that
 solve the root of a problem (e.g. a security vulnerability) but tries
 to obscure the facts only.
 
+.. index:: pair: Security; Identity theft
 .. _security-identity-theft:
 
 Identity theft
@@ -48,6 +49,7 @@ consent of the owner of the website.
 
 .. index::
    SQL; Injection
+   pair: Security; SQL injections
 .. _security-sql-injection:
 
 SQL injection
@@ -62,7 +64,7 @@ necessary to carefully analyze and filter any parameters that are used
 in a database query.
 
 
-.. index:: Code injection
+.. index:: pair: Security; Code injection
 .. _security-code-injection:
 
 Code injection
@@ -80,7 +82,8 @@ Local file inclusion can lead to information disclosure (see above),
 for example reveal system internal files which contain configuration
 settings, passwords, encryption keys, etc.
 
-.. index:: Authentication bypass
+
+.. index:: pair: Security; Authentication bypass
 .. _security-authorization-bypass:
 
 Authentication bypass
@@ -97,6 +100,7 @@ solutions. The code quality and security aspects may vary, see chapter
 
 .. index::
    ! Cross-site scripting
+   XSS
    see: XSS; Cross-site scripting
 .. _security-xss:
 
@@ -117,6 +121,7 @@ load code from a 3rd party website.
 
 .. index::
    ! Cross-site request forgery
+   XSRF
    see: XSRF; Cross-site request forgery
 .. _security-xsrf:
 

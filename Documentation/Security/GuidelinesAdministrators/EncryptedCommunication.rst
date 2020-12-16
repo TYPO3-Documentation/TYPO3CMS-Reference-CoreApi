@@ -6,6 +6,7 @@
 Encrypted Client/server Communication
 =====================================
 
+
 Data Classification
 ===================
 
@@ -23,9 +24,6 @@ and value. The outcome of this assessment can be a categorization
 based on a data classification model, which then defines how to
 protect the data.
 
-
-.. ### BEGIN~OF~SIMPLE~TABLE ###
-
 ========================  ================  =========================  ===========================  ====================
  .. Comment (invisible)   Public            Public Restricted          Organization Confidential    Organization Secret
 ========================  ================  =========================  ===========================  ====================
@@ -36,9 +34,6 @@ protect the data.
 **Data transport**        unencrypted       unencrypted but protected  encrypted                    highly encrypted
 **Storage requirements**  none              unencrypted but protected  encrypted                    highly encrypted
 ========================  ================  =========================  ===========================  ====================
-
-.. ###### END~OF~SIMPLE~TABLE ######
-
 
 The secure and maybe encrypted storage of sensitive data should also
 be considered.
@@ -52,6 +47,7 @@ nor store any sensitive data if not absolutely required.
    pair: Security guidelines; https
    Transport layer security
    see: TLS; Transport layer security
+   TLS
 
 Frontend
 ========

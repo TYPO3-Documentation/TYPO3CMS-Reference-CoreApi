@@ -6,7 +6,9 @@
 Guidelines for TYPO3 integrators
 ================================
 
-.. index:: Security guidelines; User roles
+.. index::
+   Security guidelines; User roles
+   Security guidelines; Integrator role
 .. _security-integrator-definition:
 
 Role definition
@@ -78,7 +80,6 @@ Please see the chapters below for further security related topics of interest
 for integrators:
 
 .. toctree::
-   :maxdepth: 1
    :titlesonly:
 
    InstallTool

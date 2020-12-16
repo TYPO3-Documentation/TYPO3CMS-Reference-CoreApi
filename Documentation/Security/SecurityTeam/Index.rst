@@ -6,6 +6,7 @@
 The TYPO3 Security Team
 =======================
 
+
 .. index:: Security; Reporting
 .. _security-team-contact:
 
@@ -23,6 +24,7 @@ to respond in 2 working days, but please allow a reasonable amount of
 time to assess the issue and get back to you with an answer. If you
 suspect that your report has been overlooked, feel free to submit a
 reminder a few days after your initial submission.
+
 
 .. index::
    Security; Extension review
@@ -55,6 +57,7 @@ This chapter provides detailed information about the differences between
 the TYPO3 core system and TYPO3 extensions and how the TYPO3 Security
 Team deals with security issues of those.
 
+
 Security issues in the TYPO3 Core
 ---------------------------------
 
@@ -65,6 +68,7 @@ problem. A fix for the vulnerability will be developed, carefully
 tested and reviewed. Together with a public security bulletin, a TYPO3
 core update will be released. Please see next chapter for further
 details about TYPO3 CMS versions and security bulletins.
+
 
 Security issues in TYPO3 extensions
 -----------------------------------

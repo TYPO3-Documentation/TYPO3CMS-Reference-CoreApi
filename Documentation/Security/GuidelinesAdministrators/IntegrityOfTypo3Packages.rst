@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-.. index:: Security guidelines; Checksums
+.. index::
+   Security guidelines; Checksums
+   Security guidelines; Package integrity
 .. _security-integrity-packages:
 
 ===========================

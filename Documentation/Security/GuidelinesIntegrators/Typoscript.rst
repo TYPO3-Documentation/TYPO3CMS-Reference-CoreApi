@@ -6,7 +6,9 @@
 TypoScript
 ==========
 
+
 .. index::
+   SQL injection
    pair: TypoScript; SQL injection
    pair: Security guidelines; SQL injection
 
@@ -57,8 +59,9 @@ you do not control without proper verification and validation (e.g.
 user input, other servers, etc.).
 
 .. index::
-   pair: TypoScript; Cross-site scripting
    ! Cross-site scripting
+   XSS
+   pair: TypoScript; Cross-site scripting
 
 Cross-site scripting (XSS)
 ==========================
@@ -154,9 +157,10 @@ This attack scenario even does not require access to the TYPO3 backend.
     as HTML templates, JavaScript, CSS and other types of files are "system" or "project"
     files and not content. All this should be placed in an instance specific "project" extension.
 
+
 .. index::
-   pair: TypoScript; Clickjacking
    ! Clickjacking
+   pair: TypoScript; Clickjacking
 
 Clickjacking
 ============
@@ -175,6 +179,7 @@ The following TypoScript adds the appropriate line to the HTTP header:
 .. code-block:: typoscript
 
    config.additionalHeaders = X-Frame-Options: SAMEORIGIN
+
 
 .. index:: Security guidelines; External JavaScript
 
@@ -208,6 +213,8 @@ A typical example in TypoScript looks like:
      }
    }
 
+
+.. index:: Security guidelines; External JavaScript libraries
 
 Risk of externally hosted JavaScript libraries
 ==============================================

@@ -1,4 +1,7 @@
 .. include:: /Includes.rst.txt
+.. index::
+   Security guidelines; Restrict file access
+   Security guidelines; Web servers
 .. _security-restrict-access-server-level:
 
 ==========================================
@@ -61,7 +64,7 @@ The list above is probably not complete. However, if general deny rules are in p
 provided above should not be accessible anymore and result in a HTTP `403` error response.
 
 
-Apache and Microsoft IIS Web Servers
+Apache and Microsoft IIS web servers
 ====================================
 
 To increase protection of TYPO3 instances, the core team however decided to
@@ -84,7 +87,7 @@ and `root-web-config
 and adapt or update local versions if needed.
 
 
-NGINX Web Servers
+NGINX web servers
 =================
 
 Administrators running the popular web server `NGINX <https://www.nginx.com/>`_ need to

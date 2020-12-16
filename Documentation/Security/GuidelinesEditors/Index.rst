@@ -2,10 +2,13 @@
 .. index:: Security guidelines; Editors
 .. _security-editors:
 
-Guidelines for Editors
-----------------------
+======================
+Guidelines for editors
+======================
 
-.. index:: pair: Security guidelines; User roles
+.. index::
+   pair: Security guidelines; User roles
+   pair: Security guidelines; Editor role
 .. _security-editor-definition:
 
 Role definition
@@ -62,7 +65,7 @@ instance, a TYPO3 integrator or system administrator) if you determine
 a system setup that does not match with the guidelines described here.
 
 
-.. index:: pair: Security guidelines; Backend users
+.. index:: pair: Security guidelines; Backend access
 .. _security-backend-access:
 
 Backend access

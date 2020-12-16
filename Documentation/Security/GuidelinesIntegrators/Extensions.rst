@@ -161,7 +161,7 @@ the task "System Status Update (reports)", it is possible to get a
 notification by email when extension updates are available.
 
 
-Security-related core extensions
+Security-related Core extensions
 ================================
 
 .. deprecated:: 9.1

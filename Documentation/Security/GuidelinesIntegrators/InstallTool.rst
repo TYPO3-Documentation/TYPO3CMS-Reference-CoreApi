@@ -78,6 +78,7 @@ these measures have an impact on the usability of the system. If you
 are not the only person who uses the Install Tool, you should
 definitely discuss your intention with the team.
 
+
 TYPO3 Core updates
 ==================
 

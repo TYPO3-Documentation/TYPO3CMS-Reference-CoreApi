@@ -3,7 +3,8 @@
    Security guidelines; Content security policy
    Content security policy
    Cross-site scripting; Content security policy
-   see: CSP, Content security policy
+   see: CSP; Content security policy
+   CSP
 .. highlight:: apacheconf
 .. _security-content-security-policy:
 
