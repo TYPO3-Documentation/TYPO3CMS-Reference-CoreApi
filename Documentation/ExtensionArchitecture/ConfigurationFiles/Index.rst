@@ -338,12 +338,13 @@ file with all configuration of other extensions!
    constants (e.g. :php:`if (TYPO3_MODE === 'BE')`) or the :php:`ApplicationType` within these files as
    it limits the functionality to cache the whole systems' configuration.
    Any extension author should remove the checks, and re-evaluate if these context-depending checks could go inside
-   the hooks / caller function directly., e.g. do not do::
+   the hooks / caller function directly., e.g. do not do:
 
 .. code-block:: diff
 
    // do NOT do this:
    -if (TYPO3_MODE === 'BE')
+
 
 -  You **SHOULD** check for the existence of the constant :php:`defined('TYPO3') or die();`
    at the top of :file:`ext_tables.php` and :file:`ext_localconf.php` files to make sure the file is

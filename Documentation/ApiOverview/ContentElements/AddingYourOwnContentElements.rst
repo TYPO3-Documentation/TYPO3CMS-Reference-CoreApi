@@ -13,7 +13,7 @@ more code examples in the system extension `fluid_styled_content`.
 A content element can be based on fields already available in the `tt_content` table.
 
 It is also possible to add extra fields that can be added to the `tt_content` table.
-Adding fields is done by :ref:`extending the TCA <t3coreapi:extending>`.
+Adding fields is done by :ref:`extending the TCA <extending-tca>`.
 
 Depending on the data in the `tt_content` table,
 the data can be passed to the :ref:`cobj-fluidtemplate`.
@@ -300,7 +300,7 @@ The file :file:`NewContentElementProcessor.php` could look like this:
    }
 
 
-To use the variable `variableName` defined in :ref:`ConfigureCE-Data-Processor`
+To use the variable `variableName` defined in :ref:`ConfigureCE-DataProcessors`
 as h1 headline, you can use the following markup:
 
 .. code-block:: html

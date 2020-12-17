@@ -42,6 +42,7 @@ for administrators:
 .. toctree::
    :titlesonly:
 
+   RoleDefinition
    IntegrityOfTypo3Packages
    FileDirectoryPermissions
    RestrictAccessToFiles

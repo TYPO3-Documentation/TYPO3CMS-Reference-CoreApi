@@ -206,7 +206,7 @@ getenv
 
 
 date
-------
+----
 
 :aspect:`Datatype`
     string
@@ -219,7 +219,7 @@ date
 
 
 feature
-------
+-------
 
 :aspect:`Datatype`
     string
@@ -232,7 +232,7 @@ feature
 
 
 traverse
-------
+--------
 
 :aspect:`Datatype`
     array and string

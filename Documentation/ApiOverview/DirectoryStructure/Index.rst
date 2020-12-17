@@ -27,8 +27,6 @@ the paths within PHP code.
   - :Directory,20: Directory
     :Description,80: Description
 
-.. index:: Path; fileadmin
-
   - :Directory: :file:`fileadmin/`
     :Description:
       This is a directory in which editors store files. Typically images,
@@ -47,8 +45,6 @@ the paths within PHP code.
         layout in here is considered bad practice. Integrators should locate
         and ship these files within a project specific extension.
 
-.. index:: Path; typo3
-
   - :Directory: :file:`typo3/`
     :Description:
       TYPO3 Backend directory. This directory contains most of the files
@@ -62,18 +58,10 @@ the paths within PHP code.
       for more information on how single extensions are structured.
 
 
-.. index::
-   Path; typo3conf
-   Path; config
-
   - :Directory: :ref:`Environment-config-path` either :file:`typo3conf/` or :file:`config/`
     :Description:
       TYPO3 configuration directory. This directory contains installation wide
       configuration.
-
-.. index::
-   File; typo3conf/LocalConfiguration.php
-   File; typo3conf/AdditionalConfiguration.php
 
       The most important file within this folder is
       :file:`LocalConfiguration.php`. This one contains local settings of the
@@ -90,37 +78,24 @@ the paths within PHP code.
       automatic upgrades and should be used with care and only if you know what
       you are doing.
 
-.. index:: Path; typo3conf/ext
-
   - :Directory: :file:`typo3conf/ext/`
     :Description:
       Directory for local TYPO3 extensions. Each subdirectory contains one extension.
-
-
-.. index::
-   Path; typo3conf/l10n
-   Path; var/labels
 
   - :Directory: :ref:`Environment-labels-path` either :file:`typo3conf/l10n` or :file:`var/labels`
     :Description:
       Directory for extension localisations. Contains all downloaded translation
       files.
 
-.. index:: Path; typo3temp
-
   - :Directory: :file:`typo3temp/`
     :Description:
       Directory for temporary files. It contains subdirectories (see below)
       for temporary files of extensions and TYPO3 components.
 
-.. index:: Path; typo3temp/assets
-
   - :Directory: :file:`typo3temp/assets/`
     :Description:
       Directory for temporary files that should be public available
       (e.g. generated images).
-
-.. index:: Path; typo3temp/var
 
   - :Directory: :file:`typo3temp/var/`
     :Description:
