@@ -1,5 +1,8 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   pair: Configuration; Module
+   TYPO3_CONF_VARS; Validation
+   TCA; Validation
 .. _config-module:
 
 ====================
@@ -20,6 +23,10 @@ the configuration of newly introduced features like the middleware stack or
 the event listeners.
 
 
+.. index::
+   Configuration; Module extension
+   Configuration; Module provider
+
 Extending the configuration module
 ==================================
 
@@ -31,7 +38,7 @@ By the nature of the API it is even possible to not just add new
 configuration but to also disable the display of existing configuration,
 if not needed in the specific installation.
 
-Basic Implementation
+Basic implementation
 --------------------
 
 To extend the configuration module, a custom configuration provider needs to
@@ -114,6 +121,11 @@ Either a static text or a locallang label can be used.
 Since the registration uses the Symfony service container and provides all
 attributes using :php:`__invoke()`, it is even possible to use DI with
 constructor arguments in the provider classes.
+
+
+.. index::
+   $GLOBALS; Display
+   GlobalVariableProvider
 
 Displaying values from `$GLOBALS`
 ---------------------------------
