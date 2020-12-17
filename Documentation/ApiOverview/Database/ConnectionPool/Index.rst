@@ -6,7 +6,7 @@
 ConnectionPool
 ==============
 
-TYPO3's interface to execute queries via `doctrine-dbal` typically starts by asking
+TYPO3's interface to execute queries via Doctrine DBAL typically starts by asking
 the `ConnectionPool` for a `QueryBuilder` or a `Connection` object, handing over the table name to be queried::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;

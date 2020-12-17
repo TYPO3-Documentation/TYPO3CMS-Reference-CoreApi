@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: ! Database
 .. _database:
 
 ========================
-Database (doctrine-dbal)
+Database (Doctrine DBAL)
 ========================
 
 **Contents:**

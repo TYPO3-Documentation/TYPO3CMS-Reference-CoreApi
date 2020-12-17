@@ -10,7 +10,7 @@ An instance of class :php:`TYPO3\CMS\Core\Database\Connection` is retrieved from
 :ref:`ConnectionPool <database-connection-pool>` by calling `->getConnectionForTable()`
 and handing over the table name a query should executed on.
 
-The class extends the basic `doctrine-dbal` `Doctrine\DBAL\Connection` class and is mainly
+The class extends the basic Doctrine DBAL `Doctrine\DBAL\Connection` class and is mainly
 used internally within the `TYPO3 CMS` framework to establish, maintain and terminate
 connections to single database endpoints. Those internal methods are not scope of this
 documentation since an extension developer usually doesn't have to deal with that.
