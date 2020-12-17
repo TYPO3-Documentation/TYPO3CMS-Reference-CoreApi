@@ -22,7 +22,7 @@ Here's the complete code, taken from file
 .. code-block:: php
 
 	<?php
-	defined('TYPO3_MODE') or die();
+	defined('TYPO3') or die();
 
 	// Add some fields to FE Users table to show TCA fields definitions
 	// USAGE: TCA Reference > $GLOBALS['TCA'] array reference > ['columns'][fieldname]['config'] / TYPE: "select"
