@@ -49,5 +49,5 @@ custom processes provided by extensions.
 This folder contains active files from your older TYPO3 CMS
 installation. It should not be deleted unless you are sure that
 you are not using any of these files anymore. It would be advisable
-to move all files out if this folder over time and into a more
+to move all files out of this folder over time and into a more
 explicit structure.
