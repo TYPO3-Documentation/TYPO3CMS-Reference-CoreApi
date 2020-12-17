@@ -27,6 +27,7 @@ these terms in this chapter.
 
    ConfigurationOverview
    Glossary
+   ConfigurationModule/Index
    ../FeatureToggles/Index
    ../GlobalValues/GlobalVariables/Index
    ../GlobalValues/Typo3ConfVars/Index
