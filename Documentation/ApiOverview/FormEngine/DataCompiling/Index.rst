@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: FormEngine; Data compiling
 .. _FormEngine-DataCompiling:
 
 ==============
-Data Compiling
+Data compiling
 ==============
 
 This is the first step of FormEngine. The data compiling creates an array containing all data

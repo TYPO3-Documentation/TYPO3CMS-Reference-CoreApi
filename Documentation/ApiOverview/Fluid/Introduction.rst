@@ -1,7 +1,5 @@
 .. include:: /Includes.rst.txt
-
 .. highlight:: xml
-
 .. _fluid-introduction:
 
 =====================
@@ -56,6 +54,9 @@ Object Accessors:
 
 Conditions:
     The conditions are supplied here by the if / then / else ViewHelpers.
+
+
+.. index:: Fluid; Directory structure
 
 Directory structure
 ===================
@@ -131,6 +132,7 @@ Templates can be used with or without a Layout.
 
 Partials are a Fluid component. Partials can be used as reusable components from within
 a template.
+
 
 Example: Using Fluid to create a theme
 ======================================
