@@ -396,7 +396,7 @@ How to Access FlexForms From Fluid
 ----------------------------------
 
 If you are using an Extbase controller, FlexForm settings can be read from within a Fluid template using
-:html:`{settings}`. See the note on naming restrictions in :ref:`How to Read Flexforms From an Extbase Controller Action <_read-flexforms-extbase>`.
+:html:`{settings}`. See the note on naming restrictions in :ref:`How to Read Flexforms From an Extbase Controller Action <read-flexforms-extbase>`.
 
 If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign single variables like that:
 

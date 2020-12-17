@@ -88,12 +88,12 @@ Extended composer.json
            "typo3/cms-backend": "^v8.7 || ^9.5 || ^10.4",
            "typo3/cms-core": "^v8.7 || ^9.5 || ^10.4"
        },
-       "authors": [
+       "authors": {
           "name": "John Doe",
           "role": "Developer",
           "email": "john.doe@example.org",
           "homepage": "www.johndoe.example.org"
-       ],
+       },
        "keywords": [
           "typo3",
           "blog"
@@ -104,7 +104,7 @@ Extended composer.json
        "funding": {
           "type": "other",
           "url:" : "myfundpage.org/vendorname"
-       }
+       },
        "replace": {
            "typo3-ter/my-extension": "self.version"
        },
@@ -112,11 +112,10 @@ Extended composer.json
            "psr-4": {
                "Vendorname\\MyExtension\\": "Classes/"
            }
-       }
+       },
        "require-dev": {
           "nimut/testing-framework": "^4.2 || ^5.1"
-       },
-
+       }
    }
 
 * see `composer.json schema <https://getcomposer.org/doc/04-schema.md>`__ for
@@ -206,11 +205,13 @@ the same thing:
 
 .. code-block:: json
 
-   "extra": {
-      "typo3/cms": {
-         "extension-key": "my_extension"
+   {
+      "extra": {
+         "typo3/cms": {
+            "extension-key": "my_extension"
+         }
       }
-   },
+   }
 
 replace
 -------
@@ -225,9 +226,11 @@ Composer.
 
 .. code-block:: json
 
-   "replace": {
-      "typo3-ter/my-extension": "self.version"
-   },
+   {
+      "replace": {
+         "typo3-ter/my-extension": "self.version"
+      }
+   }
 
 
 As all extensions available in the TER can be installed
@@ -253,8 +256,10 @@ replace with ``"ext_key": "self.version"``
 
 .. code-block:: json
 
-   "replace": {
-      "ext_key": "self.version"
+   {
+      "replace": {
+         "ext_key": "self.version"
+      }
    }
 
 This was used previously, but is not compatible with latest Composer

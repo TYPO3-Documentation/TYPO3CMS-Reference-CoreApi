@@ -152,7 +152,7 @@ The severity is an indication on how important the issue is:
 .. ### BEGIN~OF~SIMPLE~TABLE ###
 
 .. Note: The exact "styling" of the following table is important.
-There may be no text in the column margin.
+   There may be no text in the column margin.
 
 ============   ======================================================
 Severity       Meaning

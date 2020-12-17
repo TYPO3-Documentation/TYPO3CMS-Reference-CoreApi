@@ -178,7 +178,7 @@ The loc element, is the URL of the page that the search engine has to crawl. The
 date of the last update of the specific item. This value is a UNIX-timestamp.
 
 
-.. _sitemap-xslFile::
+.. _sitemap-xslFile:
 
 Path to sitemap xslFile
 =======================
@@ -186,7 +186,7 @@ Path to sitemap xslFile
 .. versionadded:: 10.3
 
    It is now possible to configure the path to the sitemap xslFile.
-   See changelog :doc:`t3core:Changelog/master/Feature-88147-AddPossibilityToConfigureThePathToSitemapXslFile`
+   See changelog :doc:`t3core:Changelog/10.3/Feature-88147-AddPossibilityToConfigureThePathToSitemapXslFile`
 
 The xsl file to create a layout for a XML sitemap can now be configured on three levels:
 

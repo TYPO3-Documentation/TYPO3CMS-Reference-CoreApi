@@ -387,7 +387,7 @@ Services can be configured in this file. TYPO3 uses it for:
 * :ref:`Dependency Injection <configure-dependency-injection-in-extensions>`
 * :ref:`Event Listeners <EventDispatcherRegistration>`
 * Command Controllers (see :doc:`Feature: #89139 - Add dependency injection support for console commands <t3core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands>`)
-* :ref:`Registering a widget with the dashboard <dashboard:register-new-widget>`
+* :ref:`Registering a widget with the dashboard <t3dashboard:register-new-widget>`
 
 A typical :file:`Configuration/Services.yaml` may look like this:
 

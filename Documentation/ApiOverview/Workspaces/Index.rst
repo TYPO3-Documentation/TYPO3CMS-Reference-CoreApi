@@ -636,7 +636,6 @@ Scenario: Create new record, then move to different page
   (exactly like in :ref:`scenario-create-new-record-on-existing-page`), then record :code:`uid = 25`
   has been moved to target target page :code:`pid = 30`
 * record :code:`uid = 25` directly uses target page :code:`pid = 30`
-  (in contrary to :ref:`scenario-move-record-to-different-page`)
 
 Scenario: Create new record, then delete
 ----------------------------------------

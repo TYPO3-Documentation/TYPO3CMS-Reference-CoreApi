@@ -49,6 +49,7 @@ values in the :php:`$EM_CONF` array if needed.
    ];
 
 .. index:: $_EXTKEY
+
 $_EXTKEY is set globally and contains the extension key.
 
 .. important::

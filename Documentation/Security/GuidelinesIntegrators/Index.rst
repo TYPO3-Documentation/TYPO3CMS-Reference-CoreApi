@@ -46,7 +46,7 @@ administrator and often one person is in both roles.
 General rules
 =============
 
-All :ref:`general rules <security-administrator-rules>` for a system administrator
+All :ref:`general rules <security-administrators>` for a system administrator
 also apply for a TYPO3 integrator. One of the most important rules is to change the
 username and password of the "admin" account immediately after a TYPO3 system
 was handed over from a system administrator to an integrator, if not
