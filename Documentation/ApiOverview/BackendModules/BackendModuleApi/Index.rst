@@ -4,7 +4,7 @@
 .. _backend-modules-api:
 
 ============================
-Backend Module API (Extbase)
+Backend module API (Extbase)
 ============================
 
 
