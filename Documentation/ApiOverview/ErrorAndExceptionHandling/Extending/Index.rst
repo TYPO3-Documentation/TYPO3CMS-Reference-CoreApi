@@ -1,6 +1,7 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   Errors; Custom error handler
+   Exceptions; Custom exception handler
 .. _error-handling-extending:
 
 ==============================================

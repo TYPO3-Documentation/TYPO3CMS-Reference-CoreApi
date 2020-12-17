@@ -6,40 +6,50 @@
 Guidelines for System Administrators
 ====================================
 
-.. _security-administrator-definition:
-.. include:: RoleDefinition.rst.txt
+General Rules
+=============
 
-.. _security-administrator-rules:
-.. include:: GeneralRules.rst.txt
+#. Subscribe to the "TYPO3 Announce" mailing list at
+   `http://lists.typo3.org <http://lists.typo3.org/>`_ , so that you are
+   informed about TYPO3 security bulletins and TYPO3 updates.
 
-.. _security-integrity-packages:
-.. include:: IntegrityOfTypo3Packages.rst.txt
+#. React as soon as possible and update the relevant components of the
+   site(s) when new vulnerabilities become public (e.g. security issues
+   published in the mailing list).
 
-.. _security-file-directory-permissions:
-.. include:: FileDirectoryPermissions.rst.txt
+#. Use different passwords for the Install Tool and the backend login.
+   Follow the guidelines for secure passwords in this document.
 
-.. _security-restrict-access-server-level:
-.. include:: RestrictAccessToFiles.rst.txt
+#. If you are administrating several TYPO3 installations, use different
+   passwords for all logins and components for every installation.
 
-.. _security-directory-indexing:
-.. include:: DirectoryIndexing.rst.txt
+#. Never use the same password for a TYPO3 installation and any other
+   service such as `FTP`, `SSH`, etc.
 
-.. _security-file-extension-handling:
-.. include:: FileExtensionHandling.rst.txt
+#. Change the username and password of the "admin" account after the
+   installation of TYPO3 immediately.
 
-.. _security-content-security-policy:
-.. include:: ContentSecurityPolicy.rst.txt
+#. If you are also responsible for the setup and configuration of TYPO3,
+   follow the steps for TYPO3 integrators carefully, documented in the
+   next chapter.
 
-.. _security-database-access:
-.. include:: DatabaseAccess.rst.txt
+Further topics
+==============
 
-.. _security-encrypted-client-server-connection:
-.. include:: EncryptedCommunication.rst.txt
+Please see the chapters below for further security related topics of interest
+for administrators:
 
-.. _security-other-services:
-.. include:: OtherServices.rst.txt
+.. toctree::
+   :titlesonly:
 
-.. _security-administrators-furtheractions:
-.. _security-administrators-furtheractions-clickjacking:
-.. include:: FurtherActions.rst.txt
+   IntegrityOfTypo3Packages
+   FileDirectoryPermissions
+   RestrictAccessToFiles
+   DirectoryIndexing
+   FileExtensionHandling
+   ContentSecurityPolicy
+   DatabaseAccess
+   EncryptedCommunication
+   OtherServices
+   FurtherActions
 

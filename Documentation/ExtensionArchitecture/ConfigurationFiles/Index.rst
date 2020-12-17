@@ -101,8 +101,8 @@ The skeletton of the :file:`ext_localconf.php` looks like this::
 
    <?php
 
-   // Prevent Script from beeing called directly
-   defined('TYPO3_MODE') || die();
+   // Prevent Script from being called directly
+   defined('TYPO3') or die();
 
    // encapsulate all locally defined variables
    (function () {
@@ -203,7 +203,7 @@ Put the following in a file called :file:`ext_tables.php` in the main directory 
 file does not need to be registered but will be loaded automatically::
 
    <?php
-   defined('TYPO3_MODE') || die();
+   defined('TYPO3') or die();
 
    (function () {
      // Add your code here
@@ -334,10 +334,10 @@ file with all configuration of other extensions!
    -declare(strict_types=1)
 
 
--  You **MUST NOT** check for values of :php:`TYPO3_MODE` or :php:`TYPO3_REQUESTTYPE`
-   constants (e.g. :php:`if (TYPO3_MODE === 'BE')`) within these files as it limits the functionality
-   to cache the whole systems' configuration. Any extension author should remove the checks if not
-   explicitly necessary, and re-evaluate if these context-depending checks could go inside
+-  You **MUST NOT** check for values of the deprecated :php:`TYPO3_MODE` or :php:`TYPO3_REQUESTTYPE`
+   constants (e.g. :php:`if (TYPO3_MODE === 'BE')`) or the :php:`ApplicationType` within these files as
+   it limits the functionality to cache the whole systems' configuration.
+   Any extension author should remove the checks, and re-evaluate if these context-depending checks could go inside
    the hooks / caller function directly., e.g. do not do::
 
 .. code-block:: diff
@@ -345,7 +345,7 @@ file with all configuration of other extensions!
    // do NOT do this:
    -if (TYPO3_MODE === 'BE')
 
--  You **SHOULD** check for the existence of the constants :php:`defined('TYPO3_MODE') or die();`
+-  You **SHOULD** check for the existence of the constant :php:`defined('TYPO3') or die();`
    at the top of :file:`ext_tables.php` and :file:`ext_localconf.php` files to make sure the file is
    executed only indirectly within TYPO3 context. This is a security measure since this code in global
    scope should not be executed through the web server directly as entry point.
@@ -370,7 +370,7 @@ file with all configuration of other extensions!
 The following example contains the complete code::
 
     <?php
-    defined('TYPO3_MODE') or die();
+    defined('TYPO3') or die();
 
     (function () {
         // Add your code here

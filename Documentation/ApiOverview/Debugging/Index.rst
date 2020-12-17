@@ -1,7 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
-
+.. index:: ! Debugging
 .. _examples-debug:
 
 =========
@@ -10,7 +8,13 @@ Debugging
 
 Let's take a look at what debugging possibilities TYPO3 provides.
 
-Debugging PHP Code
+.. index::
+   pair: Debugging; PHP
+   GlobalDebugFunctions
+   DebugUtility
+   TYPO3_CONF_VARS; SYS devIPmask
+
+Debugging PHP code
 ==================
 
 The TYPO3 Core provides a simple :code:`debug()` (defined in
@@ -34,7 +38,11 @@ will produce such an output:
 In general, look at class :code:`\TYPO3\CMS\Core\Utility\DebugUtility` for useful
 debugging tools.
 
-Backend Debug Mode
+.. index::
+   pair: Debugging; Backend
+   TYPO3_CONF_VARS; BE debug
+
+Backend debug mode
 ==================
 
 To display additional debug information in the backend, set :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['debug']`
@@ -50,7 +58,11 @@ to the select options in the “Full Search” module.
 Additionally, in debug mode, the page renderer does not compress or concatenate JavaScript or CSS
 resources.
 
-Backend Language Debug
+.. index::
+   pair: Debugging; Backend language
+   TYPO3_CONF_VARS; BE languageDebug
+
+Backend language debug
 ======================
 
 Setting :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['languageDebug']`

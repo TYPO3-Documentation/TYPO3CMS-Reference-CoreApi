@@ -1,12 +1,10 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Backend modules; API
 .. _backend-modules-api:
 
 ============================
 Backend module API (Extbase)
 ============================
-
 
 As for frontend plugins, you can use :ref:`Fluid templates <t3extbasebook:fluid-start>` to
 create the view and :ref:`controller actions <t3extbasebook:controlling-the-flow-with-controllers>`
@@ -18,9 +16,12 @@ for the functionality.
    The :ref:`extension builder <extension-builder>` can be used to generate basic code
    for a new extension. You can also use this to create backend modules.
 
+.. index::
+   Backend modules; Registration
+   File; EXT:{extkey}/ext_tables.php
 .. _backend-modules-api-registration:
 
-Registering new Modules
+Registering new modules
 =======================
 
 Modules added by extensions are registered in the file :ref:`ext_tables.php <ext-tables.php>`
@@ -92,7 +93,9 @@ Parameters:
    in the cache. This is not necessary for backend modules, because the actions are
    generally not being cached in the backend.
 
-Registering a Toplevel Module
+.. index:: Backend modules; Toplevel
+
+Registering a toplevel module
 =============================
 
 Toplevel modules like "Web" or "File" are registered with the same API:
@@ -132,6 +135,7 @@ be used to add submodules to this new toplevel module:
 .. note::
    The main module name should contain only lowercase characters. Do not use an underscore or dash.
 
+.. index:: $GLOBALS; TBE_MODULES
 .. _backend-modules-api-tbemodules:
 
 $TBE\_MODULES
@@ -152,8 +156,9 @@ navigation frame).
 
 The list of modules is parsed by the class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader`.
 
+.. index:: Backend modules; TypoScript
 
-Configuration With TypoScript
+Configuration with TypoScript
 =============================
 
 Backend modules can, like frontend plugins, be configured via TypoScript. While the frontend plugins

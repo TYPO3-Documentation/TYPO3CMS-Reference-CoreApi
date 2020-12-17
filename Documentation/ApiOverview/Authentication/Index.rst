@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Authentication
 .. _authentication:
 
 ==============
@@ -43,7 +42,11 @@ view:
 .. figure:: ../../Images/AuthenticationInstalledAuthServices.png
    :alt: All installed authentication services and their priority
 
-
+.. index::
+   Authentication; Process
+   BackendUserAuthentication
+   FrontendUserAuthentication
+   AbstractUserAuthentication
 .. _authentication-process:
 
 The Authentication Process
@@ -73,10 +76,10 @@ by a login request. In the FE, this happens when a form field
 called "logintype" is submitted with value "login". The same
 happens for the BE, but with a form field called "login_status".
 
-
+.. index:: Authentication; Login data
 .. _authentication-data:
 
-The Login Data
+The login data
 ==============
 
 There is a typical set of data that is transmitted to authentication
@@ -100,9 +103,10 @@ Inside an authentication service, this data is available in
 :php:`$this->login`.
 
 
+.. index:: Authentication; Services API
 .. _authentication-api:
 
-The "auth" Services API
+The "auth" services API
 =======================
 
 The services of type "auth" are further divided into subtypes,
@@ -131,9 +135,8 @@ processLoginDataBE, processLoginDataFE
   which indicates that no further login data processing should
   take place (see :ref:`The service chain <authentication-service-chain>`).
 
-  In particular, this subtype is implemented by system extension
-  "rsaauth", which decrypts the submitted password. The decrypted
-  password is stored in the login data with key "uident_text".
+  In particular, this subtype is implemented by the TYPO3 core
+  :php:`AuthenticationService`, which trims the given login data.
 
 getUserFE, getUserBE
   This subtype corresponds to the operation of searching in the
@@ -159,6 +162,14 @@ getGroupsFE
   an associative array containing the information about each group the
   user is member of (with the group's id as key).
 
+authGroupsFE
+   This subtype exists only for the FE. The method to implement is :php:`authGroup`,
+   which can be used to authenticate the given groups for a user.
+
+   The :php:`authGroup` method receives the user data and the data of the current
+   group to check. It is expected to return a boolean with value :php:`true` if
+   the user is authenticated for the given group and :php:`false` if not.
+
 .. note::
 
    Before any of the above-mentioned methods are called, the authentication
@@ -174,9 +185,10 @@ getGroupsFE
    initialization.
 
 
+.. index:: Authentication; Service chain
 .. _authentication-service-chain:
 
-The Service Chain
+The service chain
 =================
 
 No matter what subtype, authentication services are always called
@@ -231,9 +243,10 @@ For "getUserFE" and "getUserBE" subtypes, the logic is reversed.
 The service chain will stop as soon as one user is found.
 
 
+.. index:: Authentication; Development
 .. _authentication-service-development:
 
-Developing an Authentication Service
+Developing an authentication service
 ====================================
 
 When developing your own "auth" services, the chances are high
@@ -279,7 +292,6 @@ exist only in TYPO3 CMS. In such a case, you want to make sure that
 your service returns definite authentication failures only for those
 users which depend on the remote system and let the default
 authentication proceed for "local" TYPO3 CMS users.
-
 
 .. _authentication-advanced-options:
 

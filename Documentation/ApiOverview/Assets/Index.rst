@@ -1,6 +1,7 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   ! Assets
+   PageRenderer
 .. _assets:
 
 ===============================
@@ -24,12 +25,16 @@ both directly using the :php:`PageRenderer` as well as using the more convenient
 
    The :php:`AssetCollector` is available since TYPO3 10.3.
 
+.. index::
+   AssetCollector
+   Fluid; asset.script
+   Fluid; asset.css
 
 AssetCollector
 ==============
 
 The :php:`AssetCollector` is a concept to allow custom CSS/JS code, inline or external, to be added multiple
-times in e.g. a Fluid template (via :html:`<f:asset.script>` or :html:`<f:asset.css>` ViewHelpers)
+times in e.g. a Fluid template (via :html:`<f:asset.script>` or :html:`<f:asset.css>` Viewhelpers)
 but rendered only once in the output.
 
 It supports best practices for optimizing page performance by having a "priority" flag to either
@@ -46,7 +51,7 @@ in TypoScript.
 The :php:`AssetCollector` also collects information about "imagesOnPage", which can be used in cached and non-cached components.
 
 The API
------------
+-------
 
 - :php:`\TYPO3\CMS\Core\Page\AssetCollector::addJavaScript(string $identifier, string $source, array $attributes, array $options = []): self`
 - :php:`\TYPO3\CMS\Core\Page\AssetCollector::addInlineJavaScript(string $identifier, string $source, array $attributes, array $options = []): self`
@@ -69,11 +74,14 @@ The API
    If the same asset is registered multiple times using different attributes or options, both sets are merged. If the
    same attributes or options are given with different values, those registered last will overwrite the existing ones.
 
-ViewHelpers
------------
+.. index:: pair: Assets; Viewhelpers
 
-There are also two ViewHelpers, the :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the :ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>` ViewHelper which use the :php:`AssetCollector` API.
+Viewhelper
+----------
 
+There are also two Viewhelpers, the :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the :ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>` Viewhelper which use the :php:`AssetCollector` API.
+
+.. index:: pair: Assets; Rendering order
 
 Rendering order
 ---------------
@@ -127,6 +135,12 @@ Add a JavaScript file to the collector with :html:`type="module"` (by default, n
 
     GeneralUtility::makeInstance(AssetCollector::class)
        ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['type' => 'module']);
+
+
+.. index::
+   pair: Assets; Events
+   Events; BeforeJavaScriptsRenderingEvent
+   Events; BeforeStylesheetsRenderingEvent
 
 Events
 ------
