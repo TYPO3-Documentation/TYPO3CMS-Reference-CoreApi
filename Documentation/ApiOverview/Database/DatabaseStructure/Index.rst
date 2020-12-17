@@ -63,7 +63,7 @@ There are certain requirements for such managed tables:
    consistency it is recommended to name them that way.
 
 
-.. index:: Tables; Pages
+.. index:: Tables; pages
 .. _database-structure-pages:
 
 The "pages" table
