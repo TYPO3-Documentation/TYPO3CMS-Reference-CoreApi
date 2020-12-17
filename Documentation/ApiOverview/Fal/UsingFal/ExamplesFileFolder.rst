@@ -5,16 +5,16 @@
 .. _fal-using-fal-examples-file-folder:
 
 ===============================================
-Working With Files, Folders and File References
+Working With files, folders and file References
 ===============================================
 
 This chapter provides some examples about interacting
-with File, Folder and FileReference objects.
+with file, folder and FileReference objects.
 
 
 .. _fal-using-fal-examples-file-folder-get-file:
 
-Getting a File
+Getting a file
 ==============
 
 A file can be retrieved using its uid:
@@ -45,7 +45,7 @@ The file identifier is adapted accordingly to match the new storage's base path.
 
 .. _fal-using-fal-examples-file-folder-copy-file:
 
-Copying a File
+Copying a file
 ==============
 
 .. code-block:: php
@@ -68,11 +68,11 @@ Copying a File
 
 .. _fal-using-fal-examples-file-folder-add-file:
 
-Adding a File
+Adding a file
 =============
 
 This example adds a new file in the root folder of the default
-Storage::
+storage::
 
    $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
    $storage = $storageRepository->getDefaultStorage();
@@ -102,7 +102,7 @@ In this example, the file path would likely be
 
 .. _fal-using-fal-examples-file-folder-create-reference:
 
-Creating a File Reference
+Creating a file Reference
 =========================
 
 
@@ -191,7 +191,7 @@ can be found here: https://github.com/helhum/upload_example
 
 .. _fal-using-fal-examples-file-folder-get-references:
 
-Getting Referenced Files
+Getting Referenced files
 ========================
 
 This snippet shows how to retrieve FAL items that have been attached
@@ -210,12 +210,12 @@ of :php:`\TYPO3\CMS\Core\Resource\FileReference` objects.
 
 .. _fal-using-fal-examples-file-folder-list-files:
 
-Listing Files in a Folder
+Listing files in a folder
 =========================
 
 These would be the shortest steps to get the list of files in a given
-folder: get the Storage, get a Folder object for some path in that
-Storage (path relative to Storage root), finally retrieve the files.
+folder: get the storage, get a folder object for some path in that
+storage (path relative to storage root), finally retrieve the files.
 
 .. code-block:: php
 
@@ -224,7 +224,7 @@ Storage (path relative to Storage root), finally retrieve the files.
    $folder = $defaultStorage->getFolder('/some/path/in/storage/');
    $files = $defaultStorage->getFilesInFolder($folder);
 
-Dumping a File via eID Script
+Dumping a file via eID Script
 =============================
 
 TYPO3 registers an `eID` script that allows dumping / downloading / referencing files via their FAL ids. Non-public storages use this script

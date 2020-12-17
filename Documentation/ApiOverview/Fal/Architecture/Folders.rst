@@ -1,42 +1,43 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: File abstraction layer; Folders
 .. _architecture-folders:
 
 =======
 Folders
 =======
 
-The actual storage structure depends on which Driver each Storage
+The actual storage structure depends on which Driver each storage
 is based on. When using the local file system Driver provided by
-the TYPO3 CMS Core, a Storage will correspond to some existing
+the TYPO3 CMS Core, a storage will correspond to some existing
 folder on the local storage system (e.g. hard drive). Other
 Drivers may use virtual structures.
 
-By default, a Storage pointing to the :file:`fileadmin` folder
+By default, a storage pointing to the :file:`fileadmin` folder
 is created automatically in every TYPO3 CMS installation.
 
 
+.. index:: File abstraction layer; Processed files
 .. _fal-architecture-folders-processed-files:
 
-Processed Files
+Processed files
 ===============
 
-Inside each Storage there will be a folder named :file:`_processed_`
+Inside each storage there will be a folder named :file:`_processed_`
 which contains all resized images, be they rendered in the frontend
 or thumbnails from the backend. The name of this folder is not
-hard-coded. It can be defined as a property of the Storage.
+hard-coded. It can be defined as a property of the storage.
 It may even point to a different storage.
 
 .. figure:: ../Images/ArchitectureFoldersProcessedFolder.png
    :alt: Defining a location for processed files
 
-   Editing a File Storage to define a location for processed files
+   Editing a File storage to define a location for processed files
 
 
+.. index:: File abstraction layer; Migrated files
 .. _fal-architecture-folders-migrated-files:
 
-Migrated Files
+Migrated files
 ==============
 
 When upgrading from a pre-FAL installation (i.e. a TYPO3 CMS version

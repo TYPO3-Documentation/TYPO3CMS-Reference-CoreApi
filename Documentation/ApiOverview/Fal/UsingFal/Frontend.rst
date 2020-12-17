@@ -28,7 +28,7 @@ Fluid
 The ImageViewHelper
 -------------------
 
-If you have the uid of a File Reference, you can use it directly
+If you have the uid of a file Reference, you can use it directly
 in the :php:`\TYPO3\CMS\Fluid\ViewHelpers\ImageViewHelper`:
 
 .. code-block:: html
@@ -41,7 +41,7 @@ Here :code:`{image}` is an object of one of the following types:
 * :code:`TYPO3\CMS\Core\Resource\FileReference`
 * :code:`TYPO3\CMS\Extbase\Domain\Model\FileReference`
 
-Get File Properties
+Get file Properties
 -------------------
 
 Example:
@@ -108,7 +108,7 @@ This requires first a bit of TypoScript:
 	}
 
 
-This will fetch all Files related to the content element being rendered
+This will fetch all files related to the content element being rendered
 (referenced in the "image" field) and make them available in a variable
 called :code:`images`. This can then be used in the Fluid template:
 

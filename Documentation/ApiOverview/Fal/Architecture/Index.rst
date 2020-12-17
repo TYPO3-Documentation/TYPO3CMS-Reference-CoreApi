@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: File abstraction layer; Architecture
 .. _fal-architecture:
 
 ============

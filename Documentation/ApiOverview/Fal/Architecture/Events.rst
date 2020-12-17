@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: pair: File abstraction layer; Events
 .. _fal-architecture-events:
 
 =============
@@ -20,10 +19,10 @@ operation, the other one **after**.
 
 .. note::
 
-   Unless mentioned otherwise, mentions of class "File" below actually refer
+   Unless mentioned otherwise, mentions of class :php:`File` below actually refer
    to the :php:`\TYPO3\CMS\Core\Resource\FileInterface` interface.
 
-   "Folder" objects actually refer to the :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :php:`Folder` objects actually refer to the :php:`\TYPO3\CMS\Core\Resource\Folder`
    class.
 
 .. _fal-architecture-events-resource-storage:
@@ -151,8 +150,8 @@ GeneratePublicUrlForResourceEvent
 
 BeforeResourceStorageInitializationEvent
   This event is dispatched by method :code:`\TYPO3\CMS\Core\Resource\StorageRepository::getStorageObject()`
-  before a Storage object has been fetched. The event receives a reference
-  to the Storage.
+  before a storage object has been fetched. The event receives a reference
+  to the storage.
 
 AfterResourceStorageInitializationEvent
   This event is dispatched by method :code:`\TYPO3\CMS\Core\Resource\StorageRepository::getStorageObject()`
