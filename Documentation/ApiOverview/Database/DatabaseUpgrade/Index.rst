@@ -55,7 +55,7 @@ the :ref:`Installation and Upgrade Guide <t3install:upgrade>`.
 
 .. index::
    File; EXT:{extkey}/ext_tables.sql
-   Database; CREATE TABLE statement
+   Database; CREATE TABLE
 .. _database-exttables-sql:
 
 The ext\_tables.sql files

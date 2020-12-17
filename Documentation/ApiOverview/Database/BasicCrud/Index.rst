@@ -4,9 +4,9 @@
    Database; Create, read, update, and delete operations
 .. _database-basic-crud:
 
-==========
+========================================================
 Basic create, read, update, and delete operations (CRUD)
-==========
+========================================================
 
 A list of basic usage examples of the query API. This is just a kickstart.
 Details on the single methods are found in the following chapters, especially
