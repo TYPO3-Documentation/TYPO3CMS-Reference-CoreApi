@@ -41,12 +41,22 @@ using the following API:
         ],
         [
             'access' => 'admin',
-            'icon' => 'EXT:beuser/Resources/Public/Icons/module-beuser.svg',
+            'iconIdentifier' => 'module-beuser',
             'labels' => 'LLL:EXT:beuser/Resources/Private/Language/locallang_mod.xlf',
             'navigationComponentId' => 'TYPO3/CMS/Backend/PageTree/PageTreeElement',
             'inheritNavigationComponentFromMainModule' => false,
         ]
     );
+
+.. index:: icon, iconIdentifier
+`'iconIdentifier'` versus `'icon'`
+   `'iconIdentifier'` is the better and more modern way to go. It should always be used
+   for core icons. Other icons however need to be registered first at the IconRegistry to
+   create identifiers. Note that `'icon'` still works. Within custom packages it is easier
+   to use. Example::
+   
+      'icon' => 'EXT:extkey/Resources/Public/Icons/smile.svg',
+   
 
 Here the module ``tx_Beuser`` is declared as a submodule of the already existing
 main module ``system``.
@@ -80,7 +90,7 @@ Parameters:
      * ``user``: the module can be made accessible per user
      * ``group``: the module can be made accessible per usergroup
 
-   * Module ``icon``
+   * Module ``iconIdentifier``
    * A language file containing ``labels`` like the module title and description,
      for building the module menu and for the display of information in the
      **About Modules** module (found in the main help menu in the top bar).
@@ -110,7 +120,7 @@ Toplevel modules like "Web" or "File" are registered with the same API:
         [],
         [
             'access' => '...',
-            'icon' => '...',
+            'iconIdentifier' => '...',
             'labels' => '...',
         ]
     );
