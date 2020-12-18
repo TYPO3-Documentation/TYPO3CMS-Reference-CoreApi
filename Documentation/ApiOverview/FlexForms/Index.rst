@@ -27,6 +27,7 @@ over plugin features and what is to be rendered.
 Using Flexforms you have all the features of TCA, so it is possible
 to use input fields, select lists, show options conditionally and more.
 
+
 Example use cases
 =================
 
@@ -55,6 +56,7 @@ How it works
 #. The configuration for this content element is automatically saved to `tt_content.pi_flexform`.
 #. The extension can read current configuration and act according to
    the configuration.
+
 
 Steps to perform (Extension developer)
 ======================================
@@ -482,6 +484,7 @@ to the tab "Plugin" or whatever string you defined to replace this.
 
 .. image:: Images/FlexformBackend.png
    :class: with-shadow
+
 
 Credits
 =======
