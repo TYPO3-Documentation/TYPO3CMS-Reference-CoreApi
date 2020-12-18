@@ -1,15 +1,11 @@
 .. include:: /Includes.rst.txt
-
-
-
 .. _hooks:
 
-
 =========================
-Events, Signals and Hooks
+Events, signals and hooks
 =========================
 
-Events, Hooks and Signals provide an easy way to extend the functionality of the TYPO3 Core and
+Events, signals and hooks provide an easy way to extend the functionality of the TYPO3 Core and
 its extensions without blocking others to do the same.
 
 

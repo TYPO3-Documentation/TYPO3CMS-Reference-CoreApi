@@ -1,7 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
-
+.. index:: Core; Extend
 .. _hooks-concept:
 
 ========================
@@ -35,6 +33,7 @@ Lina Wolf: Extending Extensions @ TYPO3 Developer Days 2019
 .. youtube:: HFO2d2QzTek
 
 
+.. index:: Events; vs. XCLASS
 .. _hooks-xclass:
 
 Events, Signals and Hooks vs. XCLASS Extensions
@@ -53,11 +52,12 @@ PHP class via the XCLASS method allows you to extend any class you like.
 
 
 .. _hooks-proposing:
+.. _events-proposing:
 
-Proposing Events, Hooks or Signals
-==================================
+Proposing Events
+================
 
 If you need to extend something which has no event, hook or signal yet, then you
-should suggest emitting or implementing one. Normally that is rather easily done by the
+should suggest emitting an event. Normally that is rather easily done by the
 author of the source you want to extend.
 

@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: ! EventDispatcher
 .. _EventDispatcher:
 
 ===============================
@@ -25,6 +24,7 @@ Benni Mack: "Don't get hooked, listen to events! PSR-14 within TYPO3 v10" @ TYPO
   Additional background on the implementation can be found at https://usetypo3.com/psr-14-events.html
 
 
+.. index:: ! PSR-14
 .. _EventDispatcherDescription:
 
 Description of PSR-14 in the Context of TYPO3
@@ -49,6 +49,7 @@ dispatcher with another. The EventDispatcher's main method :php:`dispatch()` is 
 or extensions, that receives a PHP object and will then be handed to all available listeners.
 
 
+.. index:: EventDispatcher; ListenerProvider
 .. _EventDispatcherListenerProvider:
 
 The ListenerProvider
@@ -59,9 +60,10 @@ TYPO3 has a custom ListenerProvider that collects all listeners during compile t
 is not exposed outside of TYPO3's Core Framework.
 
 
+.. index:: EventDispatcher; Event
 .. _EventDispatcherEvents:
 
-The Events
+The events
 ----------
 
 An :php:`Event` object can be any PHP object and is called from TYPO3 Core or
@@ -75,6 +77,9 @@ If an event can be modified, appropriate methods should be available, although d
 nature of handling objects and the PSR-14 Listener signature, it cannot be guaranteed to be immutable.
 
 
+.. index::
+   EventDispatcher; Listener
+   Event Listener
 .. _EventDispatcherListeners:
 
 The Listeners
@@ -85,17 +90,17 @@ associated to Event objects by the fully qualified name of the event to be liste
 the :php:`ListenerProvider` to provide configuration mechanisms to represent this relationship.
 
 
-Advantages of the EventDispatcher over Hooks and Signals and Slots
+Advantages of the EventDispatcher over hooks and signals and slots
 ==================================================================
 
-The main benefits of the EventDispatcher approach over Hooks and Extbase's SignalSlot Dispatcher
+The main benefits of the EventDispatcher approach over Hooks and Extbase's SignalSlot dispatcher
 is an implementation which helps extension authors to better understand the possibilities
 by having a strongly typed system based on PHP. In addition, it serves as a bridge to also
-incorporate other Events provided by frameworks that support PSR-14.
+incorporate other events provided by frameworks that support PSR-14.
 
 .. _EventDispatcherImpact:
 
-Impact on TYPO3 Core Development in the Future
+Impact on TYPO3 Core development in the future
 ==============================================
 
 TYPO3's EventDispatcher serves as the basis to replace all Signal/Slots and hooks in the future,
@@ -106,14 +111,20 @@ Some hooks / signal/slots might not be replaced 1:1 to EventDispatcher, but rath
 a more robust or future-proof API.
 
 
+.. index:: Event Listener; Implementation
 .. _EventDispatcherImplementation:
 
-Implementing an Event Listener in your Extension
+Implementing an event listener in your extension
 ================================================
 
+
+.. index::
+   Event Listener; Registration
+   YAML; event.listener
+   File; EXT:{extkey}/Configuration/Services.yaml
 .. _EventDispatcherRegistration:
 
-Registering the Event Listener:
+Registering the event listener:
 --------------------------------
 
 If an extension author wants to provide a custom Event Listener, an according entry with the tag
@@ -141,9 +152,10 @@ The :yaml:`event` attribute is the Fully Qualified Name of the Event object.
 If no attribute :yaml:`method` is given, the class is treated as Invokable, thus :php:`__invoke` method is called.
 
 
+.. index:: Event Listener; Implementation
 .. _EventDispatcherEventListenerClass:
 
-The Event Listener Class
+The event listener class
 ------------------------
 
 An example listener, which hooks into the Mailer API to modify Mailer settings to not send any emails,
@@ -168,9 +180,10 @@ Once the emitter is triggering an Event, this listener is called automatically. 
 to inspect the Event PHP class to fully understand the capabilities provided by an Event.
 
 
+.. index:: Event Listener; Best practices
 .. _EventDispatcherBestPractises:
 
-Best Practices:
+Best practices:
 ---------------
 
 1. When configuring Listeners, it is recommended to add one Listener class per Event type, and

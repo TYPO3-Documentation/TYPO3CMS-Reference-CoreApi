@@ -1,3 +1,10 @@
+.. include:: /Includes.rst.txt
+.. index:: Events; Asset rendering
+
+==========================
+The asset rendering events
+==========================
+
 The :php:`AssetRenderer` is amended by two events which allow post-processing of
 :php:`AssetCollector` assets.
 
@@ -8,8 +15,31 @@ The events are fired once for every combination of
 :php:`inline`/:php:`priority` before the corresponding section of JS/CSS assets
 is rendered by the AssetRenderer.
 
+
+.. index:: Events; BeforeJavaScriptsRenderingEvent
+.. _BeforeJavaScriptsRenderingEvent:
+
+BeforeJavaScriptsRenderingEvent
+===============================
+
+.. versionadded:: 10.4
+
+This event is fired once before :php:`\TYPO3\CMS\Core\Page\AssetRenderer::render[Inline]JavaScript` renders the output.
+
+
+.. index:: Events; BeforeStylesheetsRenderingEvent
+.. _BeforeStylesheetsRenderingEvent:
+
+BeforeStylesheetsRenderingEvent
+===============================
+
+.. versionadded:: 10.4
+
+This event is fired once before :php:`\TYPO3\CMS\Core\Page\AssetRenderer::render[Inline]Stylesheets` renders the output.
+
+
 API
----
+===
 
 .. |nbsp| unicode:: 0xA0
    :trim:
