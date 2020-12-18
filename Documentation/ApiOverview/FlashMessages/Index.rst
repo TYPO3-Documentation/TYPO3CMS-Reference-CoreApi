@@ -1,11 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
-
+.. index:: Flash messages
 .. _flash-messages:
 
 ==============
-Flash Messages
+Flash messages
 ==============
 
 There exists a generic system to show users that an action
@@ -36,9 +34,10 @@ The different severity levels are described below:
   and the like.
 
 
+.. index:: Flash messages; API
 .. _flash-messages-api:
 
-Flash Messages API
+Flash messages API
 ==================
 
 Creating a flash message is achieved by simply instantiating an object
@@ -52,7 +51,7 @@ of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`::
    );
 
 
-Flash Messages Severities
+Flash messages severities
 -------------------------
 
 The severity is defined by using class constants provided by
@@ -100,7 +99,7 @@ to find the correct renderer for the current context.
 
 .. _flash-messages-renderer:
 
-Flash Messages Renderer
+Flash messages renderer
 =======================
 
 The implementation of rendering FlashMessages in the core has been optimized.
@@ -139,9 +138,10 @@ Any third party extension should use the provided :php:`FlashMessageViewHelper` 
       ->render($flashMessages);
 
 
+.. index:: pair: Flash messages; Extbase
 .. _flash-messages-extbase:
 
-Flash Messages in Extbase
+Flash messages in Extbase
 =========================
 
 In Extbase the standard way of issuing flash messages is to add them
@@ -176,16 +176,19 @@ Where to display the flash messages in an Extbase-based BE module is
 as simple as moving the View Helper around.
 
 
+.. index::
+   pair: Flash messages; JavaScript
+   Notification API
 .. _flash-messages-javascript:
 
-JavaScript-based Flash Messages (Notification API)
+JavaScript-based flash messages (Notification API)
 ==================================================
 
 .. important::
-   The Notification API is designed for TYPO3 Backend purposes only.
+   The notification API is designed for TYPO3 Backend purposes only.
 
 The TYPO3 Core provides a JavaScript-based API to trigger flash messages ("Notifications") that appear on the upper
-right corner of the TYPO3 backend. To use the Notification API, load the :js:`TYPO3/CMS/Backend/Notification` module and
+right corner of the TYPO3 backend. To use the notification API, load the :js:`TYPO3/CMS/Backend/Notification` module and
 use one of its methods:
 
 * :js:`notice()`
@@ -242,7 +245,7 @@ Example:
 Actions
 -------
 
-Since TYPO3 10.1 the Notification API may bind actions to a notification that execute certain tasks when invoked. Each
+Since TYPO3 10.1 the notification API may bind actions to a notification that execute certain tasks when invoked. Each
 action item is an object containing the fields :js:`label` and :js:`action`:
 
 .. rst-class:: dl-parameters
