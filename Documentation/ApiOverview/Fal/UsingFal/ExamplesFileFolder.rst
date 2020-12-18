@@ -5,7 +5,7 @@
 .. _fal-using-fal-examples-file-folder:
 
 ===============================================
-Working With files, folders and file References
+Working With files, folders and file references
 ===============================================
 
 This chapter provides some examples about interacting
@@ -102,7 +102,7 @@ In this example, the file path would likely be
 
 .. _fal-using-fal-examples-file-folder-create-reference:
 
-Creating a file Reference
+Creating a file reference
 =========================
 
 
@@ -178,7 +178,7 @@ In the Frontend Context
 -----------------------
 
 In a frontend context, the :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`
-class cannot be used and there is no specific API to create a File Reference.
+class cannot be used and there is no specific API to create a file reference.
 You are on your own.
 
 The simplest solution is to create a database entry into
