@@ -28,7 +28,7 @@ Fluid
 The ImageViewHelper
 -------------------
 
-If you have the uid of a file Reference, you can use it directly
+If you have the uid of a file reference, you can use it directly
 in the :php:`\TYPO3\CMS\Fluid\ViewHelpers\ImageViewHelper`:
 
 .. code-block:: html
@@ -83,7 +83,7 @@ Example:
 FLUIDTEMPLATE
 -------------
 
-More often the File Reference information will not be
+More often the file reference information will not be
 available explicitly. The :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>` content object
 has a :ref:`dataProcessing <t3tsref:cobj-fluidtemplate-properties-dataprocessing>` property
 which can be used to call up the :php:`\TYPO3\CMS\Frontend\DataProcessing\FilesProcessor`
