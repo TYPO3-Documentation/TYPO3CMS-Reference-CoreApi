@@ -177,6 +177,7 @@ content object type.
 
 
 .. index::
+   Services
    pair: File abstraction layer; Services
    Services; FileProcessingService
    Services; MagicImageService
