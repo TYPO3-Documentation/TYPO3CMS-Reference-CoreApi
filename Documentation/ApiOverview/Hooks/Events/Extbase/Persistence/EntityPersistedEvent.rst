@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Events; EntityPersistedEvent
 .. _EntityPersistedEvent:
 
 ====================

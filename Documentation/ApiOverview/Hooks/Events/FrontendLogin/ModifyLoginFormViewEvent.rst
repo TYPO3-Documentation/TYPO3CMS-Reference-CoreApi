@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Events; ModifyLoginFormViewEvent
 .. _ModifyLoginFormViewEvent:
 
 
