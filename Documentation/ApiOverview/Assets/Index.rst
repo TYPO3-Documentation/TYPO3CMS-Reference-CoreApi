@@ -16,7 +16,7 @@ tags.
 
 There are multiple ways to add assets to the :php:`PageRenderer` in TYPO3.
 For configuration options via TypoScript (usually used for the main theme files),
-see the :ref:`TypoScript Reference<t3tsref:setup-page-includecss-array`. In extensions,
+see the :ref:`TypoScript Reference <t3tsref:setup-page-includecss-array>`. In extensions,
 both directly using the :php:`PageRenderer` as well as using the more convenient
 :php:`AssetCollector` is possible.
 
