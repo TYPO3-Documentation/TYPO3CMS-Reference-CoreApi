@@ -111,7 +111,7 @@ Internally, the changes are written to :file:`LocalConfiguration.php`::
 Feature toggles in TypoScript
 ===============================
 
-To check weather a feature is enabled in TypoScript was introduced in v9.5 in :issue:`86881`
+To check whether a feature is enabled in TypoScript was introduced in v9.5 in :issue:`86881`
 
 Support for feature toggle check in the symfony expression language DefaultFunctionProvider is provided.
 With the new function :typoscript:`feature()` the feature toggle can be checked.
