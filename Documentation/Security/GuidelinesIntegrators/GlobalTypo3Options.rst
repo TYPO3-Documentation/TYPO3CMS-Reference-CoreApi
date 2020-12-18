@@ -4,8 +4,6 @@
    pair: Security guidelines; Debugging
 .. _security-global-typo3-options:
 
-.. _security-global-typo3-options-enabledBeUserIPLock:
-
 ==================================
 Global TYPO3 configuration options
 ==================================
