@@ -2,6 +2,7 @@
 .. index::
     Form protection tool
     Cross-site request forgery
+    CSRF
 .. _csrf:
 
 ====================
