@@ -152,10 +152,7 @@ someone coming from an unauthorized IP address.
 
 Implementing this additional login limitation is the responsibility of
 the person or company who hosts and/or administers the TYPO3 site.
-Discuss the options with it and keep in mind that this is usually
-a 10 minutes job for someone who knows TYPO3 (the configuration
-directive :ref:`enabledBeUserIPLock <security-global-typo3-options-enabledBeUserIPLock>`
-does exactly this.
+Discuss the options with them.
 
 
 .. _security-restrict-to-required-functions:
