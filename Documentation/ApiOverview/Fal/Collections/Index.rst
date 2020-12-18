@@ -1,12 +1,11 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: pair: File abstraction layer; File collections
 .. _collections:
 .. _collections-records:
 .. _collections-files:
 
 ================
-File Collections
+File collections
 ================
 
 File collections are collections of file references.
@@ -28,7 +27,6 @@ all files inside the folder will be returned when calling that collection.
    :alt: A folder collection
 
    A file collection referencing a folder
-
 
 
 .. _collections-api:
