@@ -53,7 +53,7 @@ hybrid mode:
 .. _transformations-hybrid-modes-db:
 
 In the database
------------
+---------------
 
 This is how the content in the database could look for a hybrid mode
 (such as :code:`css_transform`):

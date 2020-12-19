@@ -70,11 +70,3 @@ Transformation filters
 
 .. ###### END~OF~TABLE ######
 
-
-.. _transformations-overview-meta:
-
-
-In addition, it is possible to define :ref:`custom transformations <transformations-custom>`
-can be created allowing your to add your own tailor made transformations with a PHP class where you
-can program how content is processed to and from the database.
-
