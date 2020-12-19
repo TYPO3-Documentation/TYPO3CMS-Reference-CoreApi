@@ -150,7 +150,7 @@ Enable the field with the following User-/PageTSConfig::
 .. _linkhandler-typoscript:
 
 LinkHandler TypoScript options
-================================
+==============================
 
 A configuration could look like this::
 
