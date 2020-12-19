@@ -1,12 +1,16 @@
 .. include:: /Includes.rst.txt
-
 .. _page-types-intro:
 
 ============
 Introduction
 ============
 
-The $GLOBALS['PAGE_TYPES'] Array
+
+.. index::
+   Page types; Configuration
+   $GLOBALS; PAGE_TYPES
+
+The $GLOBALS['PAGE_TYPES'] array
 ================================
 
 Global array :php:`$GLOBALS['PAGES_TYPES']` defines the various types of pages (field: :code:`doktype`) the

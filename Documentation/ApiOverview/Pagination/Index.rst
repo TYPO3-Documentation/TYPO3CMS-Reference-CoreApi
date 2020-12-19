@@ -1,11 +1,10 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Pagination
 .. _pagination:
 
-===============================
+==========
 Pagination
-===============================
+==========
 
 .. note::
 
@@ -13,7 +12,7 @@ Pagination
    :doc:`t3core:Changelog/master/Breaking-92529-AllFluidWidgetFunctionalityRemoved`.
    Use the API documented here to implement your own pagination.
 
-The TYPO3 core provides an interface to implement the native pagination of lists like arrays or
+The TYPO3 Core provides an interface to implement the native pagination of lists like arrays or
 query results of Extbase.
 
 The foundation of that new interface :php:`\TYPO3\CMS\Core\Pagination\PaginatorInterface` is that

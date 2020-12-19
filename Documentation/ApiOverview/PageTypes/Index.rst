@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Page types
 .. _page-types:
 
 ==========
-Page Types
+Page types
 ==========
 
 .. toctree::

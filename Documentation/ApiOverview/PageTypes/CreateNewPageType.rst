@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: Create new Page Type
-
+.. index:: Page types; Custom
 .. _page-types-example:
 
 ====================

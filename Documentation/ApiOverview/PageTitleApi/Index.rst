@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: PageTitle
 .. _pagetitle:
 
 =============
@@ -24,6 +23,9 @@ by a provider, this provider will return the title of the page.
 
 Besides the providers shipped by core, you can add own providers. An integrator can define the priority of the
 providers for his project.
+
+
+.. index:: PageTitle; Custom PageTitleProvider
 
 Create Your Own PageTitleProvider
 =================================
@@ -60,8 +62,9 @@ Usage example e.g. in an Extbase controller:
    $titleProvider->setTitle(‘Title from controller action’);
 
 
+.. index:: PageTitle; Priority
 
-Define Priority of PageTitleProviders
+Define priority of PageTitleProviders
 =====================================
 
 The priority of the providers are set by the TypoScript property :typoscript:`config.pageTitleProviders`. This
