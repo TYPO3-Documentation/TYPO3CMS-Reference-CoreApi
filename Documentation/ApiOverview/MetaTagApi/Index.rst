@@ -19,7 +19,7 @@ In addition to the MetaTagManagers included in the core, you can also register y
 :php:`MetaTagManager` in the :php:`\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry`.
 
 
-.. index:: MetaTag; API
+.. index:: pair: MetaTag; API
 .. _metatagapi-usage:
 
 Using the MetaTag API
