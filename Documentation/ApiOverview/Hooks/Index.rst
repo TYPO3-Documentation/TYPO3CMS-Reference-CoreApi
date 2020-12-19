@@ -1,4 +1,5 @@
 .. include:: /Includes.rst.txt
+.. index:: Events, Signals, Hooks
 .. _hooks:
 
 =========================

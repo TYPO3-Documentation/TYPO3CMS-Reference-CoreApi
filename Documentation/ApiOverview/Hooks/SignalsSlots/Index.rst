@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: ! Signal and slots
+.. index:: ! Signals and slots
 .. _signals-slots:
 
 ==============================
@@ -57,7 +57,7 @@ there is no programmatic way of ensuring the returned array contains all expecte
    :class: with-shadow
 
 
-.. index:: Signal and slots; Dispatch
+.. index:: Signals and slots; Dispatch
 .. _signals-dispatch:
 
 Dispatching signals

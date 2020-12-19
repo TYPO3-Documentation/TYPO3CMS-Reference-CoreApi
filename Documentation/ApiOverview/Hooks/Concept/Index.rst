@@ -51,6 +51,7 @@ in the TYPO3 core or an Extension before you can use them, while extending a
 PHP class via the XCLASS method allows you to extend any class you like.
 
 
+.. index:: Events; Proposing
 .. _hooks-proposing:
 .. _events-proposing:
 
