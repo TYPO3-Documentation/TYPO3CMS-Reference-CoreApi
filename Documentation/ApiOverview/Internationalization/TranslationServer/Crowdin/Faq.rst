@@ -23,7 +23,7 @@ General Questions
 
 Will the old translation server be disabled?
 --------------------------------------------
-The existing translation server will be turned off some time after Crowdin has been announced stable.
+The existing translation server will be turned off some time after Crowdin will have been announced stable.
 
 The existing and exported translations which are downloaded within the Install Tool will be available for longer time.
 
