@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   $GLOBALS; TYPO3_CONF_VARS
+   TYPO3_CONF_VARS
 .. _typo3ConfVars:
 
 ===========================
@@ -12,7 +14,9 @@ stored in a global array called :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 This chapter describes this global configuration in more details and hints
 at other configuration possibilities.
 
-
+.. index::
+   ! File; typo3conf/LocalConfiguration.php
+   File; EXT:{extkey}/ext_localconf.php
 .. _typo3ConfVars-localConfiguration:
 
 File LocalConfiguration.php
@@ -154,7 +158,8 @@ most importantly section **Configure installation-wide options**:
    :alt: Configure installation-wide options in Install Tool with an active search
 
 
-
+.. index::
+   ! File; typo3conf/AdditionalConfiguration.php
 .. _typo3ConfVars-additionalConfiguration:
 
 File AdditionalConfiguration.php
@@ -190,6 +195,7 @@ which requires heavy duty processing.
    }
 
 
+.. index:: File; typo3/sysext/core/Configuration/DefaultConfiguration.php
 .. _typo3ConfVars-defaultConfiguration:
 
 File DefaultConfiguration.php

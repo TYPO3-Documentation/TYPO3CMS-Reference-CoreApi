@@ -3,10 +3,13 @@
 .. _typo3Information:
 
 ===================================
-Global Meta Information about TYPO3
+Global meta information about TYPO3
 ===================================
 
-General Information
+
+..
+
+General information
 ===================
 
 The PHP class :php:`TYPO3\CMS\Core\Information\Typo3Information` provides an API for general
