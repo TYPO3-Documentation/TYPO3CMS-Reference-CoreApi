@@ -48,8 +48,8 @@ class which implements the :php:`IconProviderInterface`.
 
 .. _icon-usage:
 
-Use Icons in your Code
-======================
+Using icons in your code
+========================
 
 You can use the Icon API to receive icons in your PHP
 code or directly in Fluid.
@@ -76,7 +76,7 @@ You can use the :php:`IconFactory` to request an icon:
 
 
 .. index::
-   Fluid; core:icon
+   Fluid; Core icon
    pair: Icon API; Fluid
 
 The Fluid ViewHelper
@@ -163,15 +163,16 @@ Here's an example code how a usage of the JavaScript Icon API may look like:
    });
 
 
-.. index:: Icon Api; Available Icons
+.. index:: Icon Api; Available icons
 .. _available-icons:
 
-Available Icons
+Available icons
 ===============
 
 The TYPO3 Core comes with a number of icons that may be used in your extensions.
 
 To search for available icons, you can use one of these possibilities:
+
 
 Install styleguide extension
 ----------------------------
@@ -189,6 +190,7 @@ the argument :code:`identifier` in Fluid (see code examples above).
 
 .. image:: Images/styleguide.png
    :class: with-shadow
+
 
 Use TYPO3.Icons
 ---------------
