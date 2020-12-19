@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: JavaScript (Backend); Navigation
 .. _javascript-navigation:
 
 =========================

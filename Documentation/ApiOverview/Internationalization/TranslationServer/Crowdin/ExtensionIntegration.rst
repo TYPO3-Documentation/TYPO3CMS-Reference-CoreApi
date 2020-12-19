@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: pair: Crowdin; Extensions
 .. _crowdin-extension-integration:
 
 =====================
-Extension Integration
+Extension integration
 =====================
 
 This section describes how an extension author can get his extension setup at Crowdin.
@@ -40,7 +39,7 @@ Go to the url of your project at Crowdin (e.g. `<https://crowdin.com/project/typ
 
 A modal will open and will allow you to to select the proper repository.
 
-Select Branches
+Select branches
 ---------------
 
 Select the **main** branch you want to be translated.
@@ -58,7 +57,7 @@ Select the **main** branch you want to be translated.
    Typically you should select the master branch.
 
 
-Push Translations
+Push translations
 -----------------
 
 Click on the *Show advanced settings* link below to decide now how you want your translations to behave:
@@ -71,7 +70,7 @@ Click on the *Show advanced settings* link below to decide now how you want your
 
 Uncheck the checkbox to avoid pushing back the translations to your project directly.
 
-Branch Configuration
+Branch configuration
 --------------------
 
 Now click on the edit button next to the branch name to setup your branch configuration.

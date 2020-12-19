@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: JavaScript (Backend); Multi-Step wizard
 .. _modules-multistepwizard:
 
 =================
-Multi-Step Wizard
+Multi-Step wizard
 =================
 
 The JavaScript module :js:`MultiStepWizard` can be used to show a modal multi-step

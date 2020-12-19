@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Crowdin; Online translation
 .. _crowdin-crowdin-translation:
 
 ===============================
-Online Translation with Crowdin
+Online translation with Crowdin
 ===============================
 
 .. tip::
@@ -83,7 +82,7 @@ But very often a machine translated text breaks all of the rules above, unless y
 7. Work together. As in all other aspects of Open Source, things get so much better, if we work together. So, reach out for help if you get stuck. Or offer your knowledge if someone ask.
 Crowdin offers a good platform for cooperating with your team translators, and please join the `Translation Slack channel <https://typo3.slack.com/archives/C032FRT0W>`__.
 
-Translation Styles
+Translation styles
 ==================
 
 In general and where it makes sense, we follow the style guide from the Content Team: `<https://typo3.org/community/teams/content/writing-style-guide/>`__
@@ -105,7 +104,7 @@ FAQ
 ===
 
 Should I localize both 10.4 and master?
---------------------------------------
+---------------------------------------
 
 Master is the leading version. Every string which exists in the previous version as well is automatically filled during the export and only needs to be localized if it is different in the previous version.
 

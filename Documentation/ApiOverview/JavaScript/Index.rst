@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   pair: JavaScript; Backend
+   JavaScript (Backend); RequireJS
 .. _javascript:
 
 ===========================
