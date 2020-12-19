@@ -230,8 +230,8 @@ accessible to the world (outside of the webroot).
 
 
 .. index::
-   Mails; How to create
-   Mails; How to send
+   Mail; How to create mails
+   Mails; How to send mails
 .. _mail-create:
 
 How to create and send mails
@@ -242,7 +242,7 @@ from :php:`Symfony\Component\Mime\Email` and have a similar API. **FluidEmail** 
 for sending emails based on Fluid.
 
 
-.. index:: Mails; FluidEmail
+.. index:: Mail; FluidEmail
 .. _mail-fluid-email:
 
 Send mail with `FluidEmail`
@@ -289,7 +289,7 @@ In Fluid, you can now use the defined language key ("language"):
    <f:translate languageKey="{language}" id="LLL:my_ext/Resources/Private/Language/emails.xml:subject" />
 
 
-.. index:: Mails; MailMessage
+.. index:: Mail; MailMessage
 
 Send email with `MailMessage`
 -----------------------------
@@ -355,7 +355,7 @@ Or if you prefer, don't concatenate the calls::
    :php:`MailMessage` in own extensions is recommended.
 
 
-.. index:: Mails; Attachments
+.. index:: Mail; Attachments
 .. _mail-attachments:
 
 How to add attachments
@@ -374,7 +374,7 @@ Attach files that exist in your file system::
 
 
 
-.. index:: Mails; Inline media
+.. index:: Mail; Inline media
 .. _mail-inline:
 
 How to add inline media
@@ -394,7 +394,7 @@ Add some inline media like images in a mail::
 
 
 .. index::
-   Mails; Default sender
+   Mail; Default sender
    TYPO3_CONF_VARS; MAIL defaultMailFromAddress
 .. _mail-sender:
 
@@ -429,7 +429,7 @@ In case of the problem "Mails are not sent" in your extension, try to set a
    }
    $mail->send();
 
-.. index:: pair: Mails; Symfony
+.. index:: pair: Mail; Symfony
 .. _mail-symfony-mime:
 
 Symfony mail documentation
