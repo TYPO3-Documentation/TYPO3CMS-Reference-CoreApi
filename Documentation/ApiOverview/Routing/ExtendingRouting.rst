@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Routing; Extending
 .. _routing-extending-routing:
 
 =================
@@ -10,6 +10,9 @@ The TYPO3 Routing is extendable by design, so you can write both custom aspects 
 
 * You should write a custom enhancer if you need to manipulate how the full route looks like and gets resolved.
 * You should write a custom aspect if you want to manipulate how a single route parameter ("variable") gets mapped and resolved.
+
+
+.. index:: Routing; Custom aspects
 
 Writing custom aspects
 ======================
@@ -50,6 +53,9 @@ Routing aspects respecting the site language are now using the `SiteLanguageAwar
 to the `SiteLanguageAwareTrait`. The `AspectFactory` check has been adjusted to check for the interface
 _or_ the trait. If you are currently using the trait, you should implement the interface as well.
 
+
+.. index:: Routing; Custom enhancers
+
 Writing custom enhancers
 ========================
 
@@ -68,6 +74,9 @@ To register the enhancer, add the following to your `ext_localconf.php`:
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['routing']['enhancers']['MyCustomEnhancerAsUsedInYaml'] = \MyVendor\MyExtension\Routing\Enhancer\MyCustomEnhancer::class;
 
 Now you can use your new enhancer in the routing configuration as `type`. The example above could be used as `type: MyCustomEnhancerAsUsedInYaml`.
+
+
+.. index:: Routing; Manipulating slugs
 
 Manipulating generated slugs
 =============================

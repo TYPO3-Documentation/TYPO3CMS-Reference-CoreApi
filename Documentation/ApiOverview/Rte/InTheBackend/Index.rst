@@ -1,10 +1,8 @@
 .. include:: /Includes.rst.txt
-
-
 .. _rte-backend:
 
 ======================================
-Rich Text Editors in the TYPO3 Backend
+Rich text editors in the TYPO3 backend
 ======================================
 
 .. toctree::

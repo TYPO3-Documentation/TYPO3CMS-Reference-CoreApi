@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: ! Routing
 .. _routing-introduction:
 
 =======================
@@ -20,8 +20,14 @@ Additionally, routing will take care of beautifying URL parameters, for example 
 Key Terminology
 ===============
 
+
+.. index:: Routing; Route
+
 :aspect:`Route`
    The "speaking URL" as a whole (without the domain part); for example `/news/detail/2019-software-update`
+
+
+.. index:: Routing; Slug
 
 :aspect:`Slug`
     Unique name for a ressource to use when creating URLs; for example the slug of the news detail page could be `/news/detail` and
@@ -68,7 +74,7 @@ Tips
 ====
 
 Use imports in yaml files
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 
 As routing configuration (and site configuration in general) can get pretty long fast, you should make use of imports
 in your yaml configuration which allows you to add routing configurations from different files and different extensions.

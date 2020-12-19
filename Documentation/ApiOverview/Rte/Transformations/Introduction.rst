@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Rich text editor; Transformation
 .. _transformations-introduction:
 
 ============
@@ -33,7 +32,7 @@ Generally transformations are needed for two reasons:
 
 .. _transformations-hybrid-modes:
 
-Hybrid Modes
+Hybrid modes
 ============
 
 Many of the transformations performed back and forth in the TYPO3
@@ -53,7 +52,7 @@ hybrid mode:
 
 .. _transformations-hybrid-modes-db:
 
-In Database
+In the database
 -----------
 
 This is how the content in the database could look for a hybrid mode
@@ -123,7 +122,7 @@ which means that RTE behaviour can be determined even on page branch level!
 
 .. _transformations-where:
 
-Where Transformations are Performed
+Where transformations are performed
 ===================================
 
 The transformations you can do with TYPO3 are done in the class

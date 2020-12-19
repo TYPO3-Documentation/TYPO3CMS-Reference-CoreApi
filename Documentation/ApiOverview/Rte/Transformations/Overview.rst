@@ -25,7 +25,7 @@
 .. _transformations-tsconfig-processing-user:
 
 =======================
-Transformation Overview
+Transformation overview
 =======================
 
 The transformation of the content can be configured by listing which
@@ -38,9 +38,10 @@ Processing can also be overwritten by Page TSconfig, see the
 :ref:`according section of the Page TSconfig reference <t3tsconfig:pageTsRte>` for details.
 
 
+.. index:: Rich text editor; Transformation filters
 .. _transformations-overview-filters:
 
-Transformation Filters
+Transformation filters
 ======================
 
 .. ### BEGIN~OF~TABLE ###
