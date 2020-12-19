@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-.. index:: XLIFF; Files
+.. index:: 
+   XLIFF; Files
+   File; XLIFF
 .. _xliff_api:
 
 ========================
