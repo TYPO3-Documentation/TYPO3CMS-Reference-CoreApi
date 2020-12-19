@@ -8,6 +8,7 @@
 .. role:: sep (strong)
 .. role:: sql(code)
 .. role:: typoscript(code)
+.. role:: xml(code)
 .. role:: yaml(code)
 
 .. role:: ts(typoscript)

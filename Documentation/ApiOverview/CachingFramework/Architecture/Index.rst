@@ -191,7 +191,7 @@ The following caches exist in the TYPO3 CMS Core:
 
    - Cache for assets.
    - Examples: Backend Icons, RTE or RequireJS Configuration
-   **groups**: system
+   - **groups**: system
 
 - `l10n`
 

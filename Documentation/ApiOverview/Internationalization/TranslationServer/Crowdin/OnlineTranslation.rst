@@ -105,7 +105,7 @@ FAQ
 ===
 
 Should I localize both 10.4 and master?
---------------------------------------
+---------------------------------------
 
 Master is the leading version. Every string which exists in the previous version as well is automatically filled during the export and only needs to be localized if it is different in the previous version.
 

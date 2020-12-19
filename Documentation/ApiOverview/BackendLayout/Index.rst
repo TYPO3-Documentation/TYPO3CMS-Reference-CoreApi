@@ -208,7 +208,7 @@ layouts <https://github.com/benjaminkott/bootstrap_package/tree/master/Configura
 as well as an example configuration of how to include frontend templates for backend layouts (see `setup.typoscript
 Line 95 ff <https://github.com/benjaminkott/bootstrap_package/blob/master/Configuration/TypoScript/setup.typoscript>`__)
 
-.. index:: pair: Backend layout, Extensions
+.. index:: pair: Backend layout; Extensions
 .. _be-layout-extensions:
 
 Extensions for backend layouts
