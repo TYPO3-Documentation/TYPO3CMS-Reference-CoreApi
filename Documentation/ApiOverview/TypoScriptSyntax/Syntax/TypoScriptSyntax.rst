@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: TypoScript; Syntax
 .. _typoscript-syntax-typoscript-syntax:
 
 =================
@@ -26,9 +25,10 @@ In this example we have the object :code:`myObject` with the property :code:`myP
 and a value :code:`value 2`.
 
 
+.. index:: TypoScript; Object path
 .. _typoscript-syntax-syntax-object-path:
 
-Object Path
+Object path
 ===========
 
 The object path (in this case :code:`myObject.myProperty`) is like the
@@ -52,6 +52,7 @@ Here we do **not** have three hierarchically structured objects :code:`my`,
 :code:`escaped` and :code:`key`.
 
 
+.. index:: TypoScript; Operator
 .. _typoscript-syntax-syntax-operator:
 
 Operator
@@ -61,7 +62,9 @@ The operator (in the example it is :code:`=`) can be one of the characters
 :code:`=<>{(`. The various operators are described below.
 
 
-
+.. index::
+   TypoScript; Operator "="
+   TypoScript; Value assignment
 .. _typoscript-syntax-syntax-equal-operator:
 .. _typoscript-syntax-syntax-value-assignment:
 
@@ -73,7 +76,6 @@ This simply assigns a value to an object path.
 
 **Rules:**
 
-
 Everything after the :code:`=` sign and *up to the end of the line* is
 considered to be the value. In other words: You don't need to quote
 anything!
@@ -82,6 +84,9 @@ Be aware that the value will be trimmed, which means stripped of
 whitespace at both ends.
 
 
+.. index::
+   TypoScript; Operator ":="
+   TypoScript; Value modifications
 .. _typoscript-syntax-syntax-colon-equal-operator:
 .. _typoscript-syntax-syntax-value-modification:
 
@@ -177,6 +182,9 @@ produces the same result as:
    myObject.value = 3,4,5
 
 
+.. index::
+   TypoScript; Operator "{ }"
+   TypoScript; Code blocks
 .. _typoscript-syntax-syntax-code-blocks:
 .. _typoscript-syntax-syntax-curly-brackets:
 
@@ -235,6 +243,9 @@ could also be written as:
    }
 
 
+.. index::
+   TypoScript; Operator "( )"
+   TypoScript; Multi-line values
 .. _typoscript-syntax-syntax-round-brackets:
 .. _typoscript-syntax-syntax-multiline-values:
 
@@ -272,6 +283,9 @@ it!
    )
 
 
+.. index::
+   TypoScript; Operator "<"
+   TypoScript; Object copying
 .. _typoscript-syntax-syntax-smaller-than-operator:
 .. _typoscript-syntax-syntax-object-copying:
 
@@ -350,6 +364,9 @@ which – in tree view – translates to:
    it's easy to loose the oversight in larger pieces of TypoScript.
 
 
+.. index::
+   TypoScript; Operator "=<"
+   TypoScript; References
 .. _typoscript-syntax-syntax-equal-smaller-than-operator:
 .. _typoscript-syntax-syntax-object-referencing:
 
@@ -404,6 +421,9 @@ Remember:
   The value you get will be just :code:`< plugin.tx_example.settings.foo` instead.
 
 
+.. index::
+   TypoScript; Operator ">"
+   TypoScript; Object unsetting
 .. _typoscript-syntax-syntax-bigger-than-operator:
 .. _typoscript-syntax-syntax-unsetting-operator:
 
@@ -425,6 +445,9 @@ This is used to unset an object and all of its properties.
 In this last line :code:`myObject` is totally wiped out (removed).
 
 
+.. index::
+   TypoScript; Operator "["
+   TypoScript; Conditions
 .. _typoscript-syntax-syntax-square-brackets:
 .. _typoscript-syntax-syntax-conditions:
 
@@ -459,6 +482,8 @@ of any curly braces).
 
 
 
+.. index::
+   TypoScript; Value
 .. _typoscript-syntax-syntax-value:
 
 Value
@@ -470,6 +495,8 @@ at both ends. Notice that values are *not* encapsulated in quotes! The
 value starts after the operator and ends with the line break.
 
 
+.. index::
+   TypoScript; Comments
 .. _typoscript-syntax-syntax-comments:
 
 Comments
@@ -477,6 +504,11 @@ Comments
 
 TypoScript support single line comments as well as multiline comment blocks.
 
+
+.. index::
+   TypoScript; Operator "//"
+   TypoScript; Operator "#"
+   TypoScript; Single line comments
 
 Single line comments
 --------------------
@@ -499,6 +531,9 @@ Up to TYPO3 7.6, a line starting with only one single slash,
 style however is deprecated and should not be used.
 
 
+.. index::
+   TypoScript; Operator "/*"
+   TypoScript; Comment blocks
 .. _typoscript-syntax-syntax-comment-blocks:
 
 Comment blocks

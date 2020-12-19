@@ -1,12 +1,11 @@
 .. include:: /Includes.rst.txt
-
 .. preferably, use label upgrade-wizards-concept
-
+.. index:: Upgrade wizards; Concept
 .. _update-wizards-concept:
 .. _upgrade-wizards-concept:
 
 ==============================
-The Concept of Upgrade Wizards
+The concept of upgrade wizards
 ==============================
 
 Upgrade wizards are single PHP classes that provide an automated way to update certain

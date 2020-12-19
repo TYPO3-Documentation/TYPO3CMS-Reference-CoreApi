@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: EXT:{extkey}/class.ext_update.php
 .. _update-wizards-extupdatefile:
 
 ====================

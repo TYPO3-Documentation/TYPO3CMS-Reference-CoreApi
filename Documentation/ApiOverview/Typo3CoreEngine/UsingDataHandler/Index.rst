@@ -1,11 +1,11 @@
 .. include:: /Includes.rst.txt
-
+.. index:: DataHandler; Usage
 .. _Using-DataHandler:
 .. _using-tcemain:
 
-============================
-Using DataHandler in Scripts
-============================
+================================
+Using the DataHandler in scripts
+================================
 
 It's really easy to use the class :php:`\TYPO3\CMS\Core\DataHandling\DataHandler` in your own
 scripts. All you need to do is include the class, build a $data/$cmd
@@ -15,7 +15,10 @@ array you want to pass to the class and call a few methods.
    Mind that these scripts have to be run in the
    **backend scope**! There must be a global :php:`$GLOBALS['BE_USER']` object.
 
-Using the DataHandler in a Symfony Command
+
+.. index:: pair: DataHandler; Symfony
+
+Using the DataHandler in a Symfony command
 ==========================================
 
 It is possible to use the DataHandler for scripts started from the command line or by
@@ -30,6 +33,7 @@ Look in the `typo3/cms-lowlevel <https://github.com/TYPO3/TYPO3.CMS/tree/master/
 system extension for more examples.
 
 
+.. index:: pair: DataHandler; PHP
 .. _dataHandler-examples:
 .. _tcemain-examples:
 
@@ -43,7 +47,7 @@ syntax for these two arrays is explained in the :ref:`previous chapter <tce-data
 
 .. _tcemain-submit-data:
 
-Submitting Data
+Submitting data
 ---------------
 
 This is the most basic example of how to submit data into the
@@ -63,7 +67,7 @@ database.
 
 .. _tcemain-execute-commands:
 
-Executing Commands
+Executing commands
 ------------------
 
 The most basic way of executing commands:
@@ -82,7 +86,7 @@ The most basic way of executing commands:
 
 .. _tcemain-clear-cache:
 
-Clearing Cache
+Clearing cache
 --------------
 
 In this example the cache clearing API is used. No data is submitted, no
@@ -107,7 +111,7 @@ for more details about available caches and groups.
 
 .. _tcemain-complex-submission:
 
-Complex Data Submission
+Complex data submission
 -----------------------
 
 Imagine the $data array something like this:
@@ -155,7 +159,7 @@ all pages is cleared.
 
 .. _tcemain-data-command-user:
 
-Both Data and Commands Executed With Alternative User Object
+Both data and commands executed with alternative user object
 ------------------------------------------------------------
 
 In this case it is shown how you can use the same object instance to
@@ -177,10 +181,12 @@ should not set this argument since you want TCE to use the global
    $dataHandler->process_datamap();
    $dataHandler->process_cmdmap();
 
+
+.. index:: pair: DataHandler; Error handling
 .. _tcemain-error-handling:
 
 Error handling
-============================
+==============
 
 The data handler has a property `errorLog` as an `array`.
 In this property, the data handler collects all errors.

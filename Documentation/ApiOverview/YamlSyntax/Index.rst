@@ -1,10 +1,10 @@
 .. include:: /Includes.rst.txt
-
+.. index:: YAML; Syntax
 .. _yaml-syntax:
 
-=============
+===========
 YAML syntax
-=============
+===========
 
 Following is an introduction to the YAML syntax. If you are familiar with YAML, skip to
 the **TYPO3 specific information**:

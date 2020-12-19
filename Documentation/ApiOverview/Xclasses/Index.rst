@@ -1,11 +1,8 @@
 .. include:: /Includes.rst.txt
-
-.. index:: ! XCLASS
-
 .. index::
-   single: Extending Classes
-   single: Overwriting Methods
-
+   ! XCLASS
+   Extending Classes
+   Overwriting Methods
 .. _xclasses:
 
 ============================
@@ -37,7 +34,7 @@ about how to do this.
 
 .. _xclasses-mechanism:
 
-How Does it Work?
+How does it work?
 =================
 
 In general every class instance in the Core and in extensions that stick to
@@ -100,7 +97,7 @@ in the declaration.
 
 .. _xclasses-coding:
 
-Coding Practices
+Coding practices
 ================
 
 The recommended way of writing an XCLASS is to **extend** the original class and
