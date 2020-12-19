@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-.. index:: Crowdin; Workflow
+.. index:: 
+   Workflow
+   pair: Crowdin; Workflow
 .. _crowdin-workflow:
 
 ========
