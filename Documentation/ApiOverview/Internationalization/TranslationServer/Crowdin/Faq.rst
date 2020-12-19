@@ -37,7 +37,7 @@ It is a simple process and done within minutes.
 
 .. _crowdin-faq-extension-language-missing:
 
-My favorite language is not available for an Extension
+My favorite language is not available for an extension
 ------------------------------------------------------
 If you are missing the support for a specific language in an extension on Crowdin please contact either the maintainer
 of the extension or the :ref:`crowdin-initiative`.
@@ -46,7 +46,7 @@ of the extension or the :ref:`crowdin-initiative`.
 
    The language needs to be supported by TYPO3 itself as well, see :ref:`i18n_languages` for a list of all languages.
 
-Questions about Extension integration
+Questions about extension integration
 =====================================
 
 .. _crowdin-faq-duplicated-labels:
