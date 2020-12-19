@@ -41,6 +41,7 @@ view:
 
 .. figure:: ../../Images/AuthenticationInstalledAuthServices.png
    :alt: All installed authentication services and their priority
+   :class: with-border with-shadow
 
 .. index::
    Authentication; Process
