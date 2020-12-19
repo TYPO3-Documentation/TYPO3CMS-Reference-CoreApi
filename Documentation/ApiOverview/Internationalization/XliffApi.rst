@@ -81,3 +81,4 @@ In Fluid, a typical call to fetch a string in the language selected by a user lo
 If the correct context is set, the current extension name and language is provided by the request. Otherwise it must be provided.
 
 The documentation for the ViewHelper can be found at :ref:`t3viewhelper:typo3-fluid-translate`.
+
