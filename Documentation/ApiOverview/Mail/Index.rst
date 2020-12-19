@@ -204,7 +204,7 @@ the performance hit of the communication to the email server, which could cause 
 load while the email is being sent. This can be avoided by choosing to "spool" the emails instead of sending them directly.
 
 
-Spool using memory
+Spooling in memory
 ------------------
 
 .. code-block:: php
@@ -215,8 +215,8 @@ When you use spooling to store the emails to memory, they will get sent right be
 the email only gets sent if the whole request got executed without any unhandled exception or any errors.
 
 
-Spool using files
------------------
+Spooling using files
+--------------------
 
 .. code-block:: php
 
@@ -229,7 +229,9 @@ accessible to the world (outside of the webroot).
 
 
 
-.. index:: Mails; Send mails
+.. index::
+   Mails; How to create
+   Mails; How to send
 .. _mail-create:
 
 How to create and send mails
@@ -430,8 +432,8 @@ In case of the problem "Mails are not sent" in your extension, try to set a
 .. index:: pair: Mails; Symfony
 .. _mail-symfony-mime:
 
-Symfony documentation
-=====================
+Symfony mail documentation
+==========================
 
 Please refer to the Symfony documentation for more information about
 available methods.
