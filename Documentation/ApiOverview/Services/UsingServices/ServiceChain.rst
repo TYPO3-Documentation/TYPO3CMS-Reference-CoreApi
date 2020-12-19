@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Services API; Service chain
 .. _services-using-services-service-chain:
 
 ===========================
-Calling a Chain of Services
+Calling a chain of services
 ===========================
 
 It is also possible to use services in a "chain". This means using all

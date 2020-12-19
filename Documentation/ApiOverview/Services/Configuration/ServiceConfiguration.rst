@@ -1,10 +1,11 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   Services API; Service configuration
+   TYPO3_CONF_VARS; SVCONF
 .. _services-configuration-service-configuration:
 
 =====================
-Service Configuration
+Service configuration
 =====================
 
 Some services will not need additional configuration. Others may have

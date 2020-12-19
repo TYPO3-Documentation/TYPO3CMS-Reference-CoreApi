@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   Site handling; Basics
+   Module; Site Management
 .. _sitehandling-basics:
 
 ======
@@ -7,9 +9,9 @@ Basics
 ======
 
 .. note::
-   Site Handling as described here is available since TYPO3 9 LTS.
+   Site handling as described here is available since TYPO3 9 LTS.
 
-TYPO3 Site Handling and Configuration is the starting point for creating new web sites. The corresponding modules are found in the TYPO3 backend
+TYPO3 site handling and configuration is the starting point for creating new web sites. The corresponding modules are found in the TYPO3 backend
 in the section "Site Management".
 
 A site configuration consists of the following parts:
@@ -36,7 +38,12 @@ Most parts of the site configuration can be edited via the graphical interface i
    other forms, site configuration is stored in the file system and not in database tables.
 
 
-Site Configuration Storage
+.. index::
+   Site handling; Directory
+   Path; <project-root>/config/sites
+   Path; typo3conf/sites
+
+Site configuration storage
 ==========================
 
 When creating a new site configuration, a folder in the file system is created located at
@@ -51,7 +58,9 @@ file called `config.yaml`.
     Add this folder to your version control.
 
 
-The Configuration File
+.. index:: Site handling; File
+
+The configuration file
 ======================
 
 The following part explains the configuration file and options:
@@ -127,7 +136,9 @@ Most settings can also be edited via the backend module `Site Management > Sites
 exceptions being custom settings and additional routing configuration.
 
 
-site identifier
+.. index:: Site handling; Site identifier
+
+Site identifier
 ---------------
 
 The site identifier is the name of the folder within `<project-root>/config/sites/` that will hold your configuration file(s). When

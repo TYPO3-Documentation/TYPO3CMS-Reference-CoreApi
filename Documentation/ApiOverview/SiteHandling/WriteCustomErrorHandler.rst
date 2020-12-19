@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Site handling; Custom error handler
 .. _sitehandling-customErrorHandler:
 
 ===================================
-Writing a Custom Page Error Handler
+Writing a custom page error handler
 ===================================
 
 The error handling configuration for sites allows implementing a custom error handler if the existing

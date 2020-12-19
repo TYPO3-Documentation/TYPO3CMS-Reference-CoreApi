@@ -1,13 +1,15 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Site handling; TypoScript
 .. _sitehandling-inTypoScript:
 
 ======================================
-Using Site Configuration in TypoScript
+Using site configuration in TypoScript
 ======================================
 
+.. index:: pair: Site handling; getText
+
 getText
-~~~~~~~
+=======
 
 Site configuration can be accessed via the :ref:`site <t3tsref:data-type-site>` property in TypoScript.
 
@@ -48,8 +50,14 @@ To access the current siteLanguage use the :ref:`siteLanguage <t3tsref:data-type
 Site configuration can also be used in :ref:`TypoScript conditions <sitehandling-inConditions>` and as
 :ref:`TypoScript constants <sitehandling-settings>`.
 
+
+.. index::
+   Site handling; FLUIDTEMPLATE
+   Site handling; SiteProcessor
+   SiteProcessor
+
 FLUIDTEMPLATE
-~~~~~~~~~~~~~
+=============
 
 You can use the SiteProcessor in the The :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>` content object
 to fetch data from the site entity:

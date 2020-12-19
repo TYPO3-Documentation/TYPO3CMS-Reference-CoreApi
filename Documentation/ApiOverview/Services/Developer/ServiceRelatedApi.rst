@@ -1,16 +1,19 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Services API; API
 .. _services-developer-service-related-api:
 
-===================
-Service-related API
-===================
+============
+Services API
+============
 
 This section describes the methods of the TYPO3 CMS core that are related
 to the use of services.
 
 
+.. index::
+   Services API; ExtensionManagementUtility
+   ExtensionManagementUtility; addService
+   ExtensionManagementUtility; findService
 .. _services-developer-service-related-api-extension-management-utility:
 
 \\TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility
@@ -41,6 +44,9 @@ deactivateService
   be called directly unless you're sure of what you're doing.
 
 
+.. index::
+   Services API; GeneralUtility
+   GeneralUtility; makeInstanceService
 .. _services-developer-service-related-api-general-utility:
 
 \\TYPO3\\CMS\\Core\\Utility\\GeneralUtility

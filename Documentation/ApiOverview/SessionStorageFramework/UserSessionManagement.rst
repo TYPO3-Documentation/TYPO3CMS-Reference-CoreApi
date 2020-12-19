@@ -1,8 +1,6 @@
 .. include:: /Includes.rst.txt
-
-.. _session-management:
-
 .. index:: pair: Sessions; Users
+.. _session-management:
 
 =======================
 User session management
@@ -26,6 +24,7 @@ since this manager acts as the main factory for user
 sessions and therefore handles all necessary tasks like fetching, evaluating
 and persisting them. Effectively encapsulating all calls to the
 :php:`SessionManager` which is used for the :ref:`session backend <session-storage>`.
+
 
 .. index:: UserSessionManager
 

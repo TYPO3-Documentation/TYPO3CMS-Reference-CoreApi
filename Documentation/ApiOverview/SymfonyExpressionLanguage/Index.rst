@@ -1,22 +1,24 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Symfony expression language
 .. _symfony-expression-language:
 
 ===========================
-Symfony Expression Language
+Symfony expression language
 ===========================
 
-Symfony Expression Language is used by TYPO3 in certain places. These are
+Symfony expression language is used by TYPO3 in certain places. These are
 documented in below sections, together with explanations how they can be
 extended:
 
 .. contents::
    :depth: 2
 
+
+.. index:: pair: Symfony expression language; TypoScript
 .. _sel-within-typoscript-conditions:
 
-Within TypoScript Conditions
-----------------------------
+Within TypoScript conditions
+============================
 
 In order to provide custom conditions, its essential to understand how
 conditions are written. Refer to :ref:`typoscript-syntax-conditions-syntax` if
@@ -30,9 +32,11 @@ parts that can be added to the language, which are variables and functions.
 
 The following section explain how to add variables and functions.
 
+
+.. index:: pair: Symfony expression language; Custom provider
 .. _sel-ts-registering-new-provider-within-extension:
 
-Registering new Provider within Extension
+Registering new provider within an extension
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There has to be a provider, no matter whether variables or functions should be provided.
@@ -50,7 +54,7 @@ This will register the defined class as provider within context `typoscript`.
 
 .. _sel-ts-implement-provider-within-extension:
 
-Implement Provider within Extension
+Implement provider within extension
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The provider itself is written as PHP Class within

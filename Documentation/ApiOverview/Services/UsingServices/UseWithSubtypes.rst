@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Services API; Subtypes
 .. _services-using-services-subtypes:
 
 =================
-Use With Subtypes
+Use with subtypes
 =================
 
 A service can also be requested for not just a type, but a subtype

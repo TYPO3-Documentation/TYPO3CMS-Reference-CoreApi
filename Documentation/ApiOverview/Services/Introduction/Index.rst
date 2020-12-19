@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: ! Services API
 .. _services-introduction:
 
 ============
@@ -12,7 +11,7 @@ TYPO3 CMS core.
 
 .. note::
 
-    The "Services" API is one of the older core API's that did not found
+    The "Services" API is one of the older core API's that did not find
     much traction over the years. The core itself only uses it for frontend
     and backend user :ref:`authentication. <authentication>`
 
@@ -34,7 +33,7 @@ TYPO3 CMS core.
     as "casual" service class, see the :ref:`coding guidelines. <cgl-services>`
 
 
-The whole services API works as a registry. Services are registered
+The whole Services API works as a registry. Services are registered
 with a number of parameters, and each service can easily be overridden
 by another one with improved features or more specific capabilities,
 for example. This can be achieved without having to change the original
@@ -61,13 +60,13 @@ is chosen automatically for you.
 
 .. _services-introduction-good-reasons:
 
-Two Reasons to Use Services
-===========================
+Two reasons to use the  Services API
+====================================
 
 
 .. _services-introduction-good-reasons-implementation:
 
-1. Freedom of Implementation
+1. Freedom of implementation
 ============================
 
 A service may be implemented multiple times to take into account
@@ -84,7 +83,7 @@ availability or not of Perl on the server.
 
 .. _services-introduction-good-reasons-extensibility:
 
-2. Extend Functionality with Extensions
+2. Extend functionality with extensions
 =======================================
 
 Services are able to handle subtypes. Consider the services of type

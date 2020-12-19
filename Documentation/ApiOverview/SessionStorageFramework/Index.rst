@@ -1,8 +1,7 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Sessions; Handling
 .. _sessions:
 
-.. index:: Sessions; Handling
 
 =========================
 Session handling in TYPO3

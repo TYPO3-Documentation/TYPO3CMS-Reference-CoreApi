@@ -1,10 +1,13 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   ! SEO
+   Search engine optimization
+   see: Search engine optimization; SEO
 .. _seo:
 
-===
-SEO
-===
+================================
+Search engine optimization (SEO)
+================================
 
 TYPO3 contains various SEO related functionality out of the box. The following provides an introduction in those features.
 
