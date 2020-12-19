@@ -1,5 +1,8 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   ! $GLOBALS
+   Global variables
+   see: Global variables; $GLOBALS
 .. _globals-variables:
 
 ========
@@ -175,9 +178,10 @@ $GLOBALS
          No
 
 
+.. index:: $GLOBALS; Admin Tools
 .. _globals-exploring:
 
-Exploring Global Variables
+Exploring global variables
 ==========================
 
 Many of the global variables described above can be inspected using the
