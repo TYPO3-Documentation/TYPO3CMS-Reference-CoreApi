@@ -70,8 +70,9 @@ The list of supported languages is defined in :php:`\TYPO3\CMS\Core\Localization
 
 .. tip::
 
-   If you need additional languages there are 2 possible options:
+   If you need additional languages there are two possible options:
 
-   - Open an issue at https://forge.typo3.org/projects/typo3cms-core/issues and
-     describe your usecase. The language might be added to the next major release of TYPO3.
-   - Take a look at the section :ref:`xliff-translating-languages` to solve it in your project.
+   *  Open an issue at https://forge.typo3.org/projects/typo3cms-core/issues and
+      describe your usecase. The language might be added to the next major release of TYPO3.
+     
+   *  Take a look at the section :ref:`xliff-translating-languages` to solve it in your project.
