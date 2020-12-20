@@ -58,7 +58,7 @@ Here access to the module **WEB > List** is checked.
 Access to tables and fields?
 ============================
 
-The same function :php:`->check()` can actually check all the :php:`->groupLists`
+The same function :php:`->check()` can actually check all the group-based permissions
 inside :php:`$GLOBALS['BE_USER']`. For instance:
 
 Checking modify access to the table "pages"::
