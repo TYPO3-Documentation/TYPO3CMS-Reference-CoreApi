@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: JavaScript; Debounce event
 .. _Events_JavaScript_Debounce:
 
 ==============
-Debounce Event
+Debounce event
 ==============
 
 A "debounced event" executes its handler only once in a series of the same events. If the event listener is configured

@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Internationalization; Custom translation servers
 .. _custom-translation-server:
 
 ==========================
-Custom Translation Servers
+Custom translation servers
 ==========================
 
 With the usage of XLIFF and the freely available `Pootle <http://pootle.translatehouse.org/>`__

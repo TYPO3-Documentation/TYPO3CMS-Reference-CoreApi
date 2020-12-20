@@ -1,8 +1,6 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Events; BeforePackageActivationEvent
 .. _BeforePackageActivationEvent:
-
 
 ============================
 BeforePackageActivationEvent

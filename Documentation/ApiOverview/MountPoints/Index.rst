@@ -1,11 +1,9 @@
 .. include:: /Includes.rst.txt
 .. index:: Mount points
-
-
 .. _MountPoints:
 
 ============
-Mount Points
+Mount points
 ============
 
 Mount points allow TYPO3 editors to mount a page (and its subpages) from a different
@@ -89,7 +87,9 @@ about-us
    Both URLs will show the same content, namely that of page 4.
 
 
-Multi-Site support
+.. index:: Mount points; Multi-site
+
+Multi-site support
 ==================
 
 Mount points generally support cross-site mounts. The context for cross-domain

@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: ! XLIFF
 .. _xliff:
 
 ============
@@ -28,6 +27,7 @@ even when you have changed your typo3 backend to another language, so
 source-language must always be `source-language="en"`.
 
 
+.. index:: XLIFF; Basics
 .. _xliff-basics:
 
 Basics
@@ -96,9 +96,10 @@ Only one language can be stored per file and each translation in a different lan
 goes to an additional file.
 
 
+.. index:: ! Path; EXT:{extkey}/Resources/Private/Language
 .. _xliff-files:
 
-File Locations and Naming
+File locations and naming
 =========================
 
 In the TYPO3 Core, XLIFF files are located in the various system extensions
@@ -113,9 +114,10 @@ are prepended with the language code and a dot. They are stored alongside the de
 language files.
 
 
+.. index:: XLIFF; ID naming
 .. _xliff-id-naming:
 
-ID Naming
+ID naming
 =========
 
 There is no strict rule or guideline in place for defining identifiers
@@ -139,6 +141,9 @@ Bad examples:
 
     CType_menu_abstract
     CType-menu_abstract
+
+
+.. index:: XLIFF; Namespace
 
 Namespace
 ---------

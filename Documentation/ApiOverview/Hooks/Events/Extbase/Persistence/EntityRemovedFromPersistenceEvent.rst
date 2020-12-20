@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Events; EntityRemovedFromPersistenceEvent
 .. _EntityRemovedFromPersistenceEvent:
 
 =================================

@@ -161,17 +161,8 @@ the task "System Status Update (reports)", it is possible to get a
 notification by email when extension updates are available.
 
 
-Security-related Core extensions
-================================
-
-.. deprecated:: 9.1
-   The extension rsaauth was deprecated in TYPO3 9.1. Please see
-   the related changelog :doc:`t3core:Changelog/9.1/Deprecation-81852-DeprecatedUsageOfEXTrsaauth>`
-   for more information.
-
-
-Other security-related extensions
-=================================
+Security-related extensions
+===========================
 
 TYPO3 extensions which are not part of the Core (and so are not
 official system extensions) are out of scope of this document, due to

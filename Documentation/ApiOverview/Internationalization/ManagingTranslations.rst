@@ -1,17 +1,18 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Internationalization; Manage translations
 .. _managing-translating:
 
 =================================
-Managing Translations for Backend
+Managing translations for backend
 =================================
 
 This sections highlights the different ways to translate and manage XLIFF files.
 
+
+.. index:: Internationalization; Fetch translations
 .. _xliff-translating-fetch:
 
-Fetching Translations
+Fetching translations
 =====================
 
 The interface of the Install Tool in :guilabel:`ADMIN TOOLS > Maintenance > Manage language packs`
@@ -33,22 +34,11 @@ Language packs can also be fetched using the command line.
    /path/to/typo3/bin/typo3 language:update
 
 
-.. _xliff-translating-featuretoggle:
-
-Feature toggle (9 LTS only)
----------------------------
-Since **TYPO3 9.5.14** it is possible to use :ref:`Crowdin <xliff-translating-server-crowdin>` as translation server.
-This can be configured in the Install Tool at :guilabel:`Settings > Feature Toggles > newTranslationServer`.
-
-.. tip::
-
-   Crowdin is used for TYPO3 10 by default.
-
-
+.. index:: Internationalization; Local translations
 .. _xliff-translating-local:
 
-Translating Locally
-===================
+Local translations
+==================
 
 Using `Virtaal <http://translate.sourceforge.net/wiki/virtaal/index>`_,
 it is possible to translate XLIFF files locally.
@@ -63,9 +53,10 @@ Translating files locally is useful for extensions which are not meant to be
 published or for creating :ref:`custom translations <xliff-translating-custom>`.
 
 
+.. index:: Internationalization; Custom translations
 .. _xliff-translating-custom:
 
-Custom Translations
+Custom translations
 ===================
 
 The :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` allows to
@@ -126,9 +117,10 @@ and the result can be easily seen in the backend:
      translation file in extensions, for example in :file:`typo3conf/ext/myext/Resources/Private/Language/`.
 
 
+.. index:: Internationalization; Custom languages
 .. _xliff-translating-languages:
 
-Custom Languages
+Custom languages
 ================
 
 :ref:`i18n_languages` describes the languages which are supported by default.

@@ -1,18 +1,23 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: ! Hooks
 .. _hooks-general:
 
 =====
 Hooks
 =====
+
 Hooks are basically places in the source code where a user function will be called for processing
 if such has been configured. While there are conventions and best practises of how hooks should be
 implemented the Hook Concept itself doesn't prevent it from being used in any way.
 
+
+.. index::
+   Hooks;  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']
+   Hooks; Usage
+   TYPO3_CONF_VARS; SC_OPTIONS
 .. _hooks-basics:
 
-Using Hooks
+Using hooks
 ===========
 
 The two lines of code below are an example of how a hook is used for
@@ -69,9 +74,12 @@ The syntax of a function reference can be seen in the API documentation of
    names were left in hooks, for obvious reasons of backwards-compatibility.
 
 
+.. index::
+   GeneralUtility; callUserFunction
+   Hooks; Creation
 .. _hooks-creation:
 
-Creating Hooks
+Creating hooks
 ==============
 
 You are encouraged to create hooks in your extensions if they seem
@@ -102,7 +110,6 @@ TYPO3.
   instantiated only once in the global scope.
 
 Here are some examples:
-
 
 .. _hooks-creation-object:
 
@@ -135,9 +142,10 @@ Constructor post-processing::
    }
 
 
+.. index:: Hooks; Configuration
 .. _hooks-configuration:
 
-Hook Configuration
+Hook configuration
 ==================
 
 There is no complete index of hooks in the Core. But they are easy to
@@ -152,6 +160,9 @@ The index below also includes some variable spaces which not only
 carry hook configuration but might be used for other purposes as well.
 
 
+.. index::
+   Hooks;  $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']
+   pair: Hooks; Extensions
 .. _hooks-extensions:
 
 $GLOBALS['TYPO3\_CONF\_VARS']['EXTCONF']
@@ -200,6 +211,9 @@ and used at a later point. ::
    }
 
 
+.. index::
+   Hooks;  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']
+   pair: Hooks; Core
 .. _hooks-core:
 
 $GLOBALS['TYPO3\_CONF\_VARS']['SC\_OPTIONS']
@@ -291,6 +305,9 @@ the parent object. ::
    }
 
 
+.. index::
+   Hooks;  $GLOBALS['TYPO3_CONF_VARS']['TBE_MODULES_EXT']
+   pair: Hooks; Modules
 .. _hooks-modules:
 
 $GLOBALS['TYPO3\_CONF\_VARS']['TBE\_MODULES\_EXT']
