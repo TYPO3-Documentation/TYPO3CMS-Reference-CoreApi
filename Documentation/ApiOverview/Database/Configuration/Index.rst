@@ -18,7 +18,7 @@ to point them to a different database endpoint.
 
 As with other central configuration options, the database endpoint and mapping configuration happens
 within :file:`typo3conf/LocalConfiguration.php` and ends up in :php:`$GLOBALS['TYPO3_CONF_VARS']` after
-core bootstrap. The specific sub-array is :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']`.
+the Core bootstrap. The specific sub-array is :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']`.
 
 A typical, basic example using only the `Default` connection with a single database endpoint::
 

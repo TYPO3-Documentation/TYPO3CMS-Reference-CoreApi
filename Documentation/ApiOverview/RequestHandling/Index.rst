@@ -258,7 +258,7 @@ disabled
 Override ordering of middlewares
 ================================
 
-To change the ordering of middlewares shipped by the core an extension can override the registration in
+To change the ordering of middlewares shipped by the Core an extension can override the registration in
 :file:`Configuration/RequestMiddlewares.php`::
 
    return [

@@ -72,16 +72,16 @@ List of TYPO3 LTS releases:
 
 .. _security-difference-core-extensions:
 
-Difference between core and extensions
+Difference between Core and extensions
 ======================================
 
-The TYPO3 base system is called the core. The functionality of the
-core can be expanded, using extensions. A small, selected number of
+The TYPO3 base system is called the Core. The functionality of the
+Core can be expanded, using extensions. A small, selected number of
 extensions (the system extensions) are being distributed as part of
-the TYPO3 core. The core and its system extensions are being developed
+the TYPO3 Core. The Core and its system extensions are being developed
 by a relatively small team (40-50 people), consisting of experienced
-and skilled developers. All code being submitted to the core is
-reviewed for quality by other core team members.
+and skilled developers. All code being submitted to the Core is
+reviewed for quality by other Core Team members.
 
 Currently there are more than 5500 extensions available in the TYPO3
 Extension Repository (TER), written by some 2000 individual
@@ -89,7 +89,7 @@ programmers. Since everybody can submit extensions to the TER, the
 code quality varies greatly. Some extensions show a very high level of
 code quality, while others have been written by amateurs. Most of the
 known security issues in TYPO3 have been found in these extensions,
-which are not part of the core system.
+which are not part of the Core system.
 
 
 .. _security-announcement-updates:
@@ -133,10 +133,10 @@ official TYPO3 Security Team website at
 `https://typo3.org/help/security-advisories/
 <https://typo3.org/help/security-advisories/>`_
 
-Security bulletins for the TYPO3 core are separated from security
+Security bulletins for the TYPO3 Core  are separated from security
 bulletins for TYPO3 extensions. Every bulletin has a unique advisory
 identifier such as TYPO3-CORE-SA-yyyy-nnn (for bulletins applying to
-the TYPO3 core) and TYPO3-EXT-SA-yyyy-nnn (for bulletins applying to
+the TYPO3 Core ) and TYPO3-EXT-SA-yyyy-nnn (for bulletins applying to
 TYPO3 extensions), where yyyy stands for the appropriate year of
 publication and nnn for a consecutively increasing number.
 
@@ -189,11 +189,11 @@ list. This is to inform system administrators about the date and time
 of an upcoming important bulletin, so that they can schedule the
 update.
 
-Security issues in the TYPO3 core which are only exploitable by users
+Security issues in the TYPO3 Core  which are only exploitable by users
 with administrator privileges (including system components that are
 accessible by administrators only, such as the Install Tool) are
 treated as normal software "bugs" and are fixed as part of the
-standard core review process. This implies that the development of the
+standard Core review process. This implies that the development of the
 fix including the review and deployment is publicly visible and can be
 monitored by everyone.
 

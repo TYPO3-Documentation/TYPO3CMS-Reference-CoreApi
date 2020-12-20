@@ -28,7 +28,7 @@ based on the implementation of ext:rte_ckeditor.
 
 - In the :file:`ext_localconf.php` you can use the FormEngine's NodeResolver
   to implement your own RichTextNodeResolver and give it a higher priority
-  than the core's implementation:
+  than the Core's implementation:
 
 .. code-block:: php
 

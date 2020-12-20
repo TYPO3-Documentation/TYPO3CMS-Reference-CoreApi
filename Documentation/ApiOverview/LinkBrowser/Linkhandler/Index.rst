@@ -8,7 +8,7 @@ LinkHandler Api
 ===============
 
 .. versionadded:: 8.6
-    The LinkHandler Api has been included in the core with the change
+    The LinkHandler Api has been included in the Core with the change
     :doc:`t3core:Changelog/8.6/Feature-79626-IntegrateRecordLinkHandler`.
     Before, it had only been available as third party extension.
 

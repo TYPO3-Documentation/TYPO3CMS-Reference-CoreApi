@@ -59,7 +59,7 @@ this:
 
 
 As you can see it is possible to add both an icon and a description text, that will
-be displayed as context-sensitive help. If icons not provided by the core are used,
+be displayed as context-sensitive help. If icons not provided by the Core are used,
 they need to be registered with the icon API.
 
 

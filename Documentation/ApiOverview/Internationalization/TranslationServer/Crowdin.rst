@@ -14,7 +14,7 @@ Localization with Crowdin
 What is Crowdin
 ===============
 
-Crowdin is a localization management platform and offers the core features essential for delivering great translation:
+Crowdin is a localization management platform and offers the Core features essential for delivering great translation:
 
 - **Single source**: Translate text once that is used in different versions and parts of the software.
 - **Machine translation**: Let machines do the first pass and then human-translators can edit the suggestions.
@@ -41,8 +41,8 @@ Contribute translations
 There are basically two cases, where you can provide a helping hand:
 
 
-1. Contribution in general translation of TYPO3 core and extensions: As TYPO3 is growing in features and functionality, the need for translating new labels is growing too.
-   You can contribute with help while TYPO3 is growing. Join in and give a hand where you can. It can be translating a whole extension into your language or take a part of core for a makeover.
+1. Contribution in general translation of TYPO3 Core  and extensions: As TYPO3 is growing in features and functionality, the need for translating new labels is growing too.
+   You can contribute with help while TYPO3 is growing. Join in and give a hand where you can. It can be translating a whole extension into your language or take a part of Core for a makeover.
 
 2. If you are developing extensions, you can make the extension available for translating. Just follow :ref:`crowdin-extension-integration` to make it available for the translation team.
 

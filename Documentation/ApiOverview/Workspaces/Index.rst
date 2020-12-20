@@ -217,7 +217,7 @@ frontend.
 
 .. _workspaces-backend-api:
 
-Workspace-related API for Backend Modules
+Workspace-related API for backend modules
 -----------------------------------------
 
 .. t3-field-list-table::
@@ -358,7 +358,7 @@ Workspace-related API for Backend Modules
 
 .. _workspaces-backend-acess:
 
-Backend Module Access
+Backend module access
 =====================
 
 You can restrict access to backend modules by using

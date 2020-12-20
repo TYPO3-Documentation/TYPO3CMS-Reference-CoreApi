@@ -60,11 +60,11 @@ In addition, the following general rules apply for a TYPO3 integrator:
    explanations below.
 
 #. Ensure, the TYPO3 sites they are responsible for, always run a stable
-   and secure TYPO3 core version and always and only contain secure extensions
+   and secure TYPO3 Core  version and always and only contain secure extensions
    (integrators update them immediately if a vulnerability has been
    discovered).
 
-#. Stay informed about TYPO3 core updates. Integrators should know the
+#. Stay informed about TYPO3 Core  updates. Integrators should know the
    changes when new TYPO3 major versions are released and should be aware
    of the impacts and risks of an update.
 

@@ -8,7 +8,7 @@
 Locking API
 ===========
 
-TYPO3 uses the locking API in the core. You can do the same in your extension
+TYPO3 uses the locking API in the Core. You can do the same in your extension
 for operations which require locking. This is the case if you use a resource,
 where concurrent access can be a problem. For example if you are getting a
 cache entry, while another process sets the same entry. This may
@@ -25,7 +25,7 @@ Locking Strategies
 ==================
 
 A locking strategy must implement the :php:`LockingStrategyInterface`. Several locking strategies
-are shipped with the core. If a locking strategy uses a mechanism
+are shipped with the Core. If a locking strategy uses a mechanism
 or function, that is not available on your system, TYPO3 will automatically detect this and
 not use this mechanism and respective locking strategy (e.g. if function :php:`sem_get()` is not
 available, :php:`SemaphoreLockStrategy` will not be used).
@@ -111,7 +111,7 @@ Every locking strategy must have a priority. This is returned by the function
 :php:`LockingStrategyInterface::getPriority()` which must be implemented in each
 locking strategy.
 
-Currently, these are the priorities of the locking strategies supplied by the core:
+Currently, these are the priorities of the locking strategies supplied by the Core:
 
 * FileLockStrategy: 75
 * SimpleLockStrategy: 50
@@ -169,7 +169,7 @@ Acquire and use an exclusive, non-blocking lock::
 Usage in the Core
 =================
 
-The locking API is used in the core for caching, see :php:`TypoScriptFrontendController`.
+The locking API is used in the Core for caching, see :php:`TypoScriptFrontendController`.
 
 
 .. _use-locking-api-in-extensions:
@@ -187,7 +187,7 @@ priority (getPriority()), so give your strategy a priority higher than 75
 if it should override the current top choice :php:`FileLockStrategy` by default.
 
 If you want to release your file locking strategy extension, make sure to make the priority configurable,
-as is done in the TYPO3 core::
+as is done in the TYPO3 Core ::
 
    public static function getPriority()
    {
@@ -227,7 +227,7 @@ first choice for most locking operations in TYPO3.
 Multiple Servers & Cache Locking
 --------------------------------
 
-Since the core uses the locking API for some cache operations (see for
+Since the Core uses the locking API for some cache operations (see for
 example :php:`TypoScriptFrontendController`), make sure that you correctly
 setup your caching and locking if you share your TYPO3 instance on multiple
 servers for load balancing or high availability.

@@ -39,7 +39,7 @@ additional fields in pages to be filled out:
 .. index:: Page types; DOKTYPE_BE_USER_SECTION
 
 `DOKTYPE_BE_USER_SECTION` - ID: `6`
-   Backend User Section
+   Backend user Section
 
 .. index:: Page types; DOKTYPE_MOUNTPOINT
 

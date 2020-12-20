@@ -65,7 +65,7 @@ To check if a feature is enabled use this code::
 
 .. attention::
 
-   Currently, only the core features can be (de-)activated in the Install Tool.
+   Currently, only the Core features can be (de-)activated in the Install Tool.
 
    To change the setting for your extension feature either use :file:`Localconfiguration.php`:
    or :file:`AdditionalConfiguration.php`: like

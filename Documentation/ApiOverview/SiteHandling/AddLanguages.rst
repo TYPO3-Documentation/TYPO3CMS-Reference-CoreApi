@@ -22,7 +22,7 @@ This allows editors to start translating pages without them directly being live.
 
 .. note::
     In case no site configuration has been created for a tree, all language records are shown. In this case the
-    Page TSconfig options `mod.SHARED.defaultLanguageFlag`, `mod.SHARED.defaultLanguageLabel`
+    page TSconfig options `mod.SHARED.defaultLanguageFlag`, `mod.SHARED.defaultLanguageLabel`
     and `mod.SHARED.disableLanguages` settings are also considered - those are obsolete if a site configuration exists.
 
 Language fallbacks can be configured for every language but the default one. A language fallback means that if content

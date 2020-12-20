@@ -7,7 +7,7 @@ Authentication
 ==============
 
 The TYPO3 CMS Core uses :ref:`Services <services>` for the authentication process.
-This family of services (of type "auth") are the only core usage that consumes the
+This family of services (of type "auth") are the only Core usage that consumes the
 Services API.
 
 The aim of this chapter is to describe the authentication
@@ -136,7 +136,7 @@ processLoginDataBE, processLoginDataFE
   which indicates that no further login data processing should
   take place (see :ref:`The service chain <authentication-service-chain>`).
 
-  In particular, this subtype is implemented by the TYPO3 core
+  In particular, this subtype is implemented by the TYPO3 Core
   :php:`AuthenticationService`, which trims the given login data.
 
 getUserFE, getUserBE

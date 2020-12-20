@@ -16,7 +16,7 @@ plugin is `registration`.
 
 .. rst-class:: bignums-xxl
 
-#. Create Page TSconfig
+#. Create page TSconfig
 
    :file:`Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig`:
 
@@ -57,8 +57,8 @@ plugin is `registration`.
             '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig">'
         );
 
-   This always includes the above Page TSconfig. It is better practice to make this configurable by
-   :ref:`registering the file as static Page TSconfig <t3tsconfig:pagesettingstaticpagetsconfigfiles>`:
+   This always includes the above page TSconfig. It is better practice to make this configurable by
+   :ref:`registering the file as static page TSconfig <t3tsconfig:pagesettingstaticpagetsconfigfiles>`:
 
 
 #. :ref:`Register your icon <icon-registration>` with the icon API
@@ -101,7 +101,7 @@ You can add it to one of the other existing tabs or create a new one.
 
 .. tip::
 
-   Look in the :guilabel:`Info` module > :guilabel:`Page TSconfig` for existing
+   Look in the :guilabel:`Info` module > :guilabel:`page TSconfig` for existing
    configuration of ``mod.wizards.newContentElement.wizardItems``.
 
 
@@ -125,7 +125,7 @@ the name to ``show`` as well:
        show := addToList(example_registration)
    }
 
-* When you look at existing Page TSconfig in the :guilabel:`Info` module, you may
+* When you look at existing page TSconfig in the :guilabel:`Info` module, you may
   notice that ``show`` has been set to include all for the "plugins" tab:
 
 .. code-block:: typoscript

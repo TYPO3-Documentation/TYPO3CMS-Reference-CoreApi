@@ -51,7 +51,7 @@ TYPO3 to run on a long list of `ANSI SQL` compatible `DBMS`. If used properly,
 queries created with this API are translated to the specific database engine by
 doctrine without an extension developer taking care of that specifically.
 
-The API provided by the core is basically a pretty small and lightweight facade
+The API provided by the Core is basically a pretty small and lightweight facade
 in front of Doctrine DBAL that adds some convenient methods as well as some
 `TYPO3 CMS` specific sugar. The facade additionally provides methods to retrieve
 specific connection objects per configured database connection based on the table
@@ -79,7 +79,7 @@ being the low-level database abstraction and query building interface to specifi
 `Doctrine ORM <http://www.doctrine-project.org/projects/orm.html>`__
 is a high-level object relational mapping on top of Doctrine DBAL.
 
-The TYPO3 CMS core - only - implements the dbal part. `Doctrine ORM` is neither required nor
+The TYPO3 Core - only - implements the dbal part. `Doctrine ORM` is neither required nor
 implemented nor used at the time of this writing.
 
 .. index::

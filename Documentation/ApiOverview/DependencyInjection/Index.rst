@@ -12,7 +12,7 @@ Dependency injection
    :doc:`Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
 
 TYPO3 uses a dependency injection solution based on the corresponding `PSR-11 <https://www.php-fig.org/psr/psr-11/>`_
-compliant Symfony component to standardize object initialization throughout the core as well as in extensions.
+compliant Symfony component to standardize object initialization throughout the Core as well as in extensions.
 
 The recommended way of injecting dependencies is to use constructor injection::
 
@@ -21,7 +21,7 @@ The recommended way of injecting dependencies is to use constructor injection::
        $this->dependency = $dependency;
    }
 
-By default all classes shipped by the TYPO3 core system extensions are available for dependency
+By default all classes shipped by the TYPO3 Core  system extensions are available for dependency
 injection.
 
 .. contents::
@@ -58,7 +58,7 @@ This is how a basic :file:`Services.yaml` of an extension looks like. The meanin
 
 .. note::
 
-   Whenever service configuration or class dependencies change, the core cache needs
+   Whenever service configuration or class dependencies change, the Core cache needs
    to be flushed to rebuild the compiled Symfony container.
 
 .. _autowire:
@@ -69,7 +69,7 @@ Autowire
 :yaml:`autowire: true` instructs the dependency injection component
 to calculate the required dependencies from type declarations. This works for constructor
 and inject methods. The calculation yields to a service initialization recipe
-which is cached in php code (in TYPO3 core cache).
+which is cached in php code (in TYPO3 Core  cache).
 
 .. note::
 
@@ -246,4 +246,4 @@ Further information
 * `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`__
 * `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
 * :doc:`t3core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
-  of the TYPO3 core.
+  of the TYPO3 Core .

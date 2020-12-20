@@ -48,7 +48,7 @@ With TYPO3 10 the EventDispatcher was introduced. It is a strongly typed method 
 extending TYPO3 and therefore recommended to use wherever available.
 
 However, Events have to be emitted, Hooks and Signals have to be implemented,
-in the TYPO3 core or an Extension before you can use them, while extending a
+in the TYPO3 Core  or an Extension before you can use them, while extending a
 PHP class via the XCLASS method allows you to extend any class you like.
 
 

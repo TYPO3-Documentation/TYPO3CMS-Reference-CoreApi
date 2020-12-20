@@ -14,7 +14,7 @@ rough categories:
 
 - Tables that are used by the system internally and are invisible to backend
   users (eg. `be_sessions`, `sys_registry`, cache related tables). There are
-  often dedicated PHP API's in the core extension to manage entries of these
+  often dedicated PHP API's in the Core extension to manage entries of these
   tables, for instance the :ref:`Caching framework API <caching>`.
 
 - Tables that can be managed via the TYPO3 CMS backend, are shown in the List

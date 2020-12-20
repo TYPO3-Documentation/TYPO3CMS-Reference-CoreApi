@@ -175,8 +175,8 @@ having :file:`.typoscript<something>` as extension).
 It is recommended to separate files with different directories:
 
 * For TSconfig code use a directory called TSconfig/, possibly with
-  subdirectories named Page/ for Page TSconfig and User/ for
-  User TSconfig.
+  subdirectories named Page/ for page TSconfig and User/ for
+  user TSconfig.
 * For TypoScript template code, use a directory named
   TypoScript/.
 

@@ -163,12 +163,12 @@ registered within any enhancer, see below for details.
 Extbase Plugin Enhancer
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-When creating extbase plugins, it is very common to have multiple controller/action combinations. The Extbase Plugin
+When creating Extbase plugins, it is very common to have multiple controller/action combinations. The Extbase Plugin
 Enhancer is therefore an extension to the regular Plugin Enhancer, providing the functionality of generating multiple variants,
 typically based on the available controller/action pairs.
 
 .. warning::
-   Do not set `features.skipDefaultArguments` in your extbase plugin configuration as that will result in missing parameters to
+   Do not set `features.skipDefaultArguments` in your Extbase plugin configuration as that will result in missing parameters to
    be mapped - then no matching route configuration can be found.
 
 The Extbase Plugin enhancer with the configuration below would now apply to the following URLs:

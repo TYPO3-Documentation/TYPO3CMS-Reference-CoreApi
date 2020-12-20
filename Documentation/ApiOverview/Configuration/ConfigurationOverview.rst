@@ -119,7 +119,7 @@ Configuration methods
 While Frontend TypoScript is used to steer the rendering of the frontend, TSconfig is used
 to configure **backend** details for backend users. Using TSconfig it is possible to enable or
 disable certain views, change the editing interfaces, and much more. All that without coding a single
-line of PHP. `TSconfig` can be set on a page (Page TSconfig), as well as a user / group (User TSconfig)
+line of PHP. `TSconfig` can be set on a page (page TSconfig), as well as a user / group (user TSconfig)
 basis.
 
 TSconfig uses the same syntax as Frontend TypoScript, the syntax is outlined in detail

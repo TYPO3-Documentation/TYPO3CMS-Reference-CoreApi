@@ -34,7 +34,7 @@ the cache system falls back to the default backend and default frontend settings
        $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] = [];
    }
 
-Extensions like **extbase** define default caches this way, giving administrators full freedom for specific and
+Extensions like **Extbase** define default caches this way, giving administrators full freedom for specific and
 possibly quicker setups (eg. a memory driven cache for the Extbase reflection cache).
 
 Administrators can overwrite specific settings of the cache configuration in :file:`LocalConfiguration.php`,

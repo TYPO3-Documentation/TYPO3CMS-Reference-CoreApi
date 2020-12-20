@@ -40,8 +40,8 @@ System Extensions
 System extensions are located in the :file:`typo3/sysext/` directory.
 
 This is system default extensions which cannot and should not be
-updated by the EM. They are distributed with TYPO3 core source code
-and generally understood to be a part of the core system.
+updated by the EM. They are distributed with TYPO3 Core  source code
+and generally understood to be a part of the Core system.
 
 
 .. _extension-loading-precedence:

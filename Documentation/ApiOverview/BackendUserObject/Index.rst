@@ -173,7 +173,7 @@ This gets the module data with the key
 Getting TSconfig
 ================
 
-This function can return a value from the "User TSconfig" structure of
+This function can return a value from the "user TSconfig" structure of
 the user. In this case the value for "options.clipboardNumberPads"::
 
    $tsconfig = $GLOBALS['BE_USER']->getTSConfig();

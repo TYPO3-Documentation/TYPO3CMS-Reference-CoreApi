@@ -412,7 +412,7 @@ Remarks:
 
 * It is possible to feed the methods with strings directly, but that is discouraged and typically only used
   in rare cases where expression strings are created at a different place that can not be resolved easily. In
-  the core, those places are usually combined with :php:`QueryHelper::stripLogicalOperatorPrefix()` to remove leading
+  the Core, those places are usually combined with :php:`QueryHelper::stripLogicalOperatorPrefix()` to remove leading
   `AND` or `OR` parts. Using this gives an additional risk of missing or wrong quoting and is a potential security
   issue. Use with care if ever.
 
