@@ -102,7 +102,7 @@ The available options are:
 
 
 
-.. index:: Sessions; Custom Storage
+.. index:: Sessions; Custom storage
 .. _sessions-custom:
 
 Writing your own session storage
