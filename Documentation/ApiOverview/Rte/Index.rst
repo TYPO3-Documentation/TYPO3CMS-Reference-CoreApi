@@ -1,10 +1,13 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   Rich text editor
+   RTE
+   see: RTE; Rich text editor
+   CKEditor
 .. _rte:
 
 =======================
-Rich Text Editors (RTE)
+Rich text editors (RTE)
 =======================
 
 This chapter contains general information about Rich Text Editors (RTE)

@@ -1,9 +1,11 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   Routing; Advanced configuration
+   pair: Routing; Extensions
 .. _routing-advanced-routing-configuration:
 
 ===============================================
-Advanced Routing Configuration (for Extensions)
+Advanced routing configuration (for extensions)
 ===============================================
 
 While Page based routing works out of the box, routing for extensions has to be configured explicitely in your site configuration.
@@ -41,6 +43,9 @@ However, custom enhancers can be built to overcome special use cases where e.g. 
 each could be configured. Otherwise, the first variant matching the URL parameters is used for generation and
 resolving.
 
+
+.. index:: Routing; Enhancers
+
 Enhancers
 =========
 
@@ -68,6 +73,9 @@ Within a configuration, an enhancer always evaluates the following properties:
 * `limitToPages` - an array of page IDs where this enhancer should be called. This is optional. This property (array)
   only triggers an enhancer for specific pages. In case of special plugin pages it is
   recommended to only enhance those pages with the plugin, to speed up performance for building page routes of all other pages.
+
+
+.. index:: Routing; Simple Enhancer
 
 Simple Enhancer
 ^^^^^^^^^^^^^^^
@@ -117,6 +125,9 @@ The `_arguments` section defines what Route Parameters should be available to th
 placeholder is called `category_id` but the URL generation receives the argument `category`, so this is mapped to
 that name (so you can access/use it as `category` in your custom code).
 
+
+.. index:: Routing; Plugin Enhancer
+
 Plugin Enhancer
 ^^^^^^^^^^^^^^^
 
@@ -160,7 +171,9 @@ If you want to replace the user ID (in this example "82") with the username, you
 registered within any enhancer, see below for details.
 
 
-Extbase Plugin Enhancer
+.. index:: Routing; Extbase Plugin Enhancer
+
+Extbase Plugin enhancer
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 When creating extbase plugins, it is very common to have multiple controller/action combinations. The Extbase Plugin
@@ -246,7 +259,9 @@ To understand what's happening in the `aspects` part, read on.
     and `plugin` properties and just using the `namespace` property as in the regular Plugin Enhancer.
 
 
-Page Type Decorator
+.. index:: Routing; PageType decorator
+
+PageType decorator
 ^^^^^^^^^^^^^^^^^^^
 
 The PageType Enhancer (Decorator) allows to add a suffix to the existing route (including existing other enhancers)
@@ -313,6 +328,7 @@ The :yaml:`index` property is used when generating links on root-level page, thu
     is only there for adding suffixes to an existing route / variant, but not to substitute something
     within the middle of a human readable URL segment.
 
+.. index:: Routing; Aspects
 
 Aspects
 =======
@@ -330,6 +346,8 @@ enhancer.
 
 Let's start with some simpler examples first:
 
+
+.. index:: Routing; StaticValueMapper
 
 StaticValueMapper
 ^^^^^^^^^^^^^^^^^
@@ -422,6 +440,8 @@ setups.
                   dezember: 12
 
 
+.. index:: Routing; LocaleModifier
+
 LocaleModifier
 ^^^^^^^^^^^^^^
 
@@ -456,6 +476,8 @@ You'll see the placeholder "localized_archive" where the aspect replaces the loc
 the language of that page.
 
 
+.. index:: Routing; StaticRangeMapper
+
 StaticRangeMapper
 ^^^^^^^^^^^^^^^^^
 
@@ -485,6 +507,9 @@ and to explicitly define a range for a value, which is recommended for all kinds
 
 This limits down the pagination to max. 100 pages, if a user calls the news list with page 101, then the route enhancer
 does not match and would not apply the placeholder.
+
+
+.. index:: Routing; PersistedAliasMapper
 
 PersistedAliasMapper
 ^^^^^^^^^^^^^^^^^^^^
@@ -521,6 +546,9 @@ If a field is used for `routeFieldName` that is not prepared to be put into the 
 you *must* ensured that this is unique and suitable for the use in an URL. On top, if there are special characters
 like spaces will not be converted automatically. Therefor, usage of a slug TCA field is recommended.
 
+
+.. index:: Routing; PersistedPatternMapper
+
 PersistedPatternMapper
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -551,7 +579,10 @@ how the placeholder will be output. As mentioned above however, special characte
 a problem. The `PersistedPatternMapper` might be a good choice if you are upgrading from a previous version and had
 URLs with an appended UID for uniqueness.
 
-Aspect Precedence
+
+.. index:: Routing; Aspect precedence
+
+Aspect precedence
 =================
 
 Route `requirements` are ignored for route variables having a corresponding
@@ -593,6 +624,11 @@ The `map` in the previous example is already defining all valid values.
 That's why `aspects` take precedence over `requirements` for a specific
 `routePath` definition.
 
+
+.. index::
+   Routing; PageArguments
+   Routing; cHash
+   Routing; typolink
 
 Behind the Scenes
 =================

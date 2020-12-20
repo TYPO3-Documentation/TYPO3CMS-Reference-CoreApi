@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Routing; Examples
 .. _routing-examples:
 
 ======================================
@@ -9,6 +9,8 @@ Collection of various routing examples
 .. note::
    If you have additional examples and are willing to share, please create a Pull Request on Github and add it to this page.
 
+
+.. index:: Routing; EXT: News
 
 EXT: News
 =========
@@ -73,7 +75,10 @@ If you use the *category menu* or *tag list* plugins to filter news records, the
 
 For more examples and background information see `News manual <https://docs.typo3.org/p/georgringer/news/master/en-us/AdministratorManual/BestPractice/Routing/Index.html>`__.
 
-EXT: Blog with custom Aspect
+
+.. index:: Routing; EXT: Blog
+
+EXT: Blog with custom aspect
 ============================
 
 Taken from https://typo3.com routing configuration and the blog extension.
@@ -657,6 +662,9 @@ Taken from an anonymous live project:
          'videos/categories/videos.json': 1381404386
          'videos/favorites/videos.json': 1381404389
          'videos/newest/videos.json': 1381404390
+
+
+.. index:: Routing; EXT: DpnGlossary
 
 EXT: DpnGlossary
 ================

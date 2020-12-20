@@ -1,6 +1,7 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   Rich text editor; CKEditor
+   CKEditor
 .. _rte_ckeditor:
 
 =========================

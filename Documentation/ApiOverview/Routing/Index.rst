@@ -1,5 +1,8 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   Routing
+   Speaking URLs
+   see: Speaking URLs; Routing
 .. _routing:
 
 ==================================

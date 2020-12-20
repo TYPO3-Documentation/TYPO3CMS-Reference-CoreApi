@@ -25,7 +25,7 @@
 .. _transformations-tsconfig-processing-user:
 
 =======================
-Transformation Overview
+Transformation overview
 =======================
 
 The transformation of the content can be configured by listing which
@@ -38,9 +38,10 @@ Processing can also be overwritten by Page TSconfig, see the
 :ref:`according section of the Page TSconfig reference <t3tsconfig:pageTsRte>` for details.
 
 
+.. index:: Rich text editor; Transformation filters
 .. _transformations-overview-filters:
 
-Transformation Filters
+Transformation filters
 ======================
 
 .. ### BEGIN~OF~TABLE ###
@@ -68,12 +69,4 @@ Transformation Filters
          before saving them to the db, while using the TYPO3-internal t3:// syntax.
 
 .. ###### END~OF~TABLE ######
-
-
-.. _transformations-overview-meta:
-
-
-In addition, it is possible to define :ref:`custom transformations <transformations-custom>`
-can be created allowing your to add your own tailor made transformations with a PHP class where you
-can program how content is processed to and from the database.
 

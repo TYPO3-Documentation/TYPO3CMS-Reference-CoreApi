@@ -1,11 +1,12 @@
 .. include:: /Includes.rst.txt
-
 .. highlight:: php
-
+.. index::
+   Request handling; request object
+   $GLOBALS; TYPO3_REQUEST
 .. _typo3-request:
 
 ====================
-TYPO3 Request Object
+TYPO3 request object
 ====================
 
 The TYPO3 request object is a PSR-7 based `ServerRequest` object containing a TYPO3-specific attribute object for normalized
@@ -31,6 +32,9 @@ the core which has to access the server parameters at places where $request is n
 globally available during any HTTP request, it is considered bad practice to use this global object if the request is
 accessible in another, official way. The global object is scheduled to vanish at a later point once the code has been refactored
 enough to not rely on it anymore.
+
+
+.. index:: Request handling; Migration from getIndpEnv
 
 Migrating from :php:`GeneralUtility::getIndpEnv()`
 ==================================================
