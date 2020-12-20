@@ -13,7 +13,9 @@ using the TypoScript syntax. The :ref:`TSconfig Reference <t3tsconfig:start>`
 describes in detail how this works and what can be done with it.
 
 
-.. index:: User TSconfig
+.. index:: 
+   User TSconfig
+   TSconfig; User
 .. _tsconfig-user:
 
 User TSconfig
@@ -30,7 +32,9 @@ and backend module configuration
 TSconfig).
 
 
-.. index:: Page TSconfig
+.. index:: 
+   Page TSconfig
+   TSconfig; Page
 .. _tsconfig-page:
 
 Page TSconfig
