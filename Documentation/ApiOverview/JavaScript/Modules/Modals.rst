@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-.. index:: Modal window
+.. index:: 
+   JavaScript (Backend); Modals
+   Modal window
 .. _modules-modals:
 
 ======

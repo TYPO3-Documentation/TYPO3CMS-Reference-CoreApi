@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Crowdin; FAQ
 .. _crowdin-faq:
 
 ================================
@@ -22,29 +21,23 @@ General Questions
 
 .. _crowdin-faq-pootle:
 
-Will the old Translation Server be Disabled?
+Will the old translation server be disabled?
 --------------------------------------------
-The existing translation server will be turned off some time after Crowdin has been announced stable.
+The existing translation server will be turned off some time after Crowdin will have been announced stable.
 
 The existing and exported translations which are downloaded within the Install Tool will be available for longer time.
 
-.. _crowdin-faq-support-87:
-
-Will TYPO3 8.7 Be Supported?
-----------------------------
-Short answer: **No**!
-Long answer: A lot of work has been done for version 9.5 by moving translations to proper places. TYPO3 8.7 will be end of life in April 2020 and you should really upgrade to 9 or 10 - not only because of better translations!
 
 .. _crowdin-faq-extension-missing:
 
-My Favorite Extension Is not Available on Crowdin
+My favorite extension is not available on Crowdin
 -------------------------------------------------
 If you miss an extension on Crowdin, contact the extension owner to create a project on Crowdin.
 It is a simple process and done within minutes.
 
 .. _crowdin-faq-extension-language-missing:
 
-My Favorite Language Is not Available for an Extension
+My favorite language is not available for an extension
 ------------------------------------------------------
 If you are missing the support for a specific language in an extension on Crowdin please contact either the maintainer
 of the extension or the :ref:`crowdin-initiative`.
@@ -53,7 +46,7 @@ of the extension or the :ref:`crowdin-initiative`.
 
    The language needs to be supported by TYPO3 itself as well, see :ref:`i18n_languages` for a list of all languages.
 
-Questions About Extension Integration
+Questions about extension integration
 =====================================
 
 .. _crowdin-faq-duplicated-labels:
@@ -78,7 +71,10 @@ You need to exlude those in your `.crowdin.yaml` configuration which can be foun
 
 More information can be found in the documentation on crowdin: https://support.crowdin.com/configuration-file/
 
-How can I migrate Translations from Pootle?
+
+.. index:: Crowdin; Migration from Pootle
+
+How can I migrate translations from Pootle?
 -------------------------------------------
 If translations exist on Pootle there is no need to retranslate everything on Crowdin again - you can import those.
 
@@ -106,7 +102,10 @@ If translations exist on Pootle there is no need to retranslate everything on Cr
 #. **Upload the Translations**
    Just keep on reading the next question.
 
-Can I upload Translated xlf Files?
+
+.. index:: Crowdin; Upload xlf files
+
+Can I upload translated xlf files?
 ----------------------------------
 Yes, you can! Switch to the settings area of your project (you need to have the proper permissions for that) and you can upload xlf files or even zip files containg the xlf files.
 

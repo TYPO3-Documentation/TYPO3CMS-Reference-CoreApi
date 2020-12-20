@@ -1,6 +1,7 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   Internationalization; Crowdin
+   Crowdin
 .. _xliff-translating-server-crowdin:
 
 =========================
@@ -9,10 +10,10 @@ Localization with Crowdin
 
 .. tip::
 
-   Crowdin is used for TYPO3 10 by default. Since 9.5.14 it can be enabled for TYPO3 9 by using a :ref:`feature toggle <xliff-translating-featuretoggle>`.
+   Crowdin is used since TYPO3 10 by default.
 
-What is Crowdin
-===============
+What is Crowdin?
+================
 
 Crowdin is a localization management platform and offers the core features essential for delivering great translation:
 
@@ -23,9 +24,10 @@ Crowdin is a localization management platform and offers the core features essen
 - **Crowdin** is a cloud-based content localization solution.
 
 
+.. index:: Crowdin; Initiative
 .. _crowdin-initiative:
 
-Crowdin Initiative
+Crowdin initiative
 ==================
 
 A TYPO3 initiative has been created which takes care of integrating Crowdin into TYPO3.
@@ -34,6 +36,9 @@ The initiative’s scope is to fulfill all features which have been available wi
 .. seealso::
 
     *  `Localization with Crowdin Initiative <https://typo3.org/community/teams/typo3-development/initiatives/localization-with-crowdin/>`__.
+
+
+.. index:: Crowdin; Translations
 
 Contribute translations
 =======================
