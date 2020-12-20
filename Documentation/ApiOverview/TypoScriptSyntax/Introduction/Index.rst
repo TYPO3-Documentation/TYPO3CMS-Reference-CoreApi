@@ -34,10 +34,10 @@ will probably never see TypoScript used to store information like a
 database of addresses - you would use XML or SQL for that.
 
 
-.. index:: TypoScript; PHP Arrays
+.. index:: TypoScript; PHP arrays
 .. _typoscript-syntax-php-arrays:
 
-PHP Arrays
+PHP arrays
 ==========
 
 In the scope of its use you can also understand TypoScript as a non-
