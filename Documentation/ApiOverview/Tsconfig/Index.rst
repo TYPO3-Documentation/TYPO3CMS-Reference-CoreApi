@@ -49,7 +49,7 @@ active for certain branches of the page tree which is very practical
 in projects running many sites in the same page tree.
 
 
-.. index:: pair; Page TSconfig; PHP
+.. index:: pair: Page TSconfig; PHP
 
 Get Page TSConfig via PHP in an extension
 -----------------------------------------
