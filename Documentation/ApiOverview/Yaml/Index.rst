@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-.. index:: ! YAML
+.. index:: 
+   ! YAML
+   pair: API; YAML
 .. _yaml-api:
 
 ========
