@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: pair: Sessions; Users
+.. index:: pair: Session; User
 .. _session-management:
 
 =======================
