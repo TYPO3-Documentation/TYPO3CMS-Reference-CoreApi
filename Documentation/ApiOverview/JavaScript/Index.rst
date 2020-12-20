@@ -19,6 +19,7 @@ APIs in that regard.
 .. toctree::
 
    RequireJS/Index
+   Templating/Index
    Modules/Index
    EventApi/Index
    Navigation/Index
