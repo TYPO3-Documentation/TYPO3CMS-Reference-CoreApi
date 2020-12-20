@@ -7,7 +7,7 @@ Users and access privileges
 ===========================
 
 
-.. index:: pair: Security guidelines; Backend users
+.. index:: pair: Security guidelines; Backend user
 
 Backend
 =======
