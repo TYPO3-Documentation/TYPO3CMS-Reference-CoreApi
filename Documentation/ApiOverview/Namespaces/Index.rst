@@ -1,7 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
-
+.. index:: ! Namespaces
 .. _namespaces:
 
 Namespaces
@@ -33,9 +31,10 @@ Finally the *class name* is the same as the corresponding file name, without the
    It may help you with migrating code from old to new conventions.
 
 
+.. index:: pair: Namespaces; Core
 .. _namespaces-example:
 
-Core Example
+Core example
 ------------
 
 The good old :php:`t3lib_div` class has been renamed to::
@@ -46,9 +45,10 @@ This means that the class is now found in the "core" system extension, in folder
 :file:`Classes/Utility`, in a file named :file:`GeneralUtility.php`.
 
 
+.. index:: pair: Namespaces; Extensions
 .. _namespaces-extensions:
 
-Usage in Extensions
+Usage in extensions
 -------------------
 
 Extension developers are free to use their own vendor name. *Important:* It may consist of *one* segment only. Vendor names must start with an uppercase character and are usually written in UpperCamelCase style. In order to avoid problems with different filesystems, only the characters a-z, A-Z, 0-9 and the dash sign "-" are allowed for package names – don't use special characters::
@@ -92,7 +92,7 @@ Inside the class, the namespace is declared as::
    namespace Documentation\Examples\Controller;
 
 
-
+.. index:: pair: Namespaces; Extbase
 .. _namespaces-extbase:
 
 Namespaces in Extbase
@@ -117,9 +117,10 @@ For a frontend module::
    );
 
 
+.. index:: pair: Namespaces; Tests
 .. _namespaces-test:
 
-Namespaces for Test Classes
+Namespaces for test classes
 ---------------------------
 
 As for ordinary classes, namespaces for test classes start with a vendor name
@@ -153,8 +154,8 @@ Or, use :php:`use` to make the code more readable::
    $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
 
 
-include and required
---------------------
+`include` and `required`
+------------------------
 
 There is no need for :php:`require()` or :php:`include()` statements. All
 classes adhering to namespace conventions will automatically be located and

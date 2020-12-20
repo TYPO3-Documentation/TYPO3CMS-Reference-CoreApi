@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Mail
 .. _mail:
 
 ========
@@ -32,6 +31,9 @@ which can be tested out in TYPO3’s install tool test email functionality.
    :local:
 
 
+.. index::
+   pair: Mail; Configuration
+   TYPO3_CONF_VARS; MAIL
 .. _mail-configuration:
 
 Configuration
@@ -43,7 +45,7 @@ Several settings are available in the "Configure Installation-Wide Options"
 
 .. _mail-configuration-format:
 
-format
+Format
 ------
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['format']` can be `both`,
@@ -189,6 +191,9 @@ Example::
    ];
 
 
+.. index::
+   Mail; Spooling
+   Mail; transport_spool_type
 .. _mail-spooling:
 
 Spooling
@@ -198,7 +203,8 @@ The default behavior of the TYPO3 mailer is to send the email messages immediate
 the performance hit of the communication to the email server, which could cause the user to wait for the next page to
 load while the email is being sent. This can be avoided by choosing to "spool" the emails instead of sending them directly.
 
-Spool Using Memory
+
+Spooling in memory
 ------------------
 
 .. code-block:: php
@@ -208,8 +214,9 @@ Spool Using Memory
 When you use spooling to store the emails to memory, they will get sent right before the kernel terminates. This means
 the email only gets sent if the whole request got executed without any unhandled exception or any errors.
 
-Spool Using Files
------------------
+
+Spooling using files
+--------------------
 
 .. code-block:: php
 
@@ -222,18 +229,23 @@ accessible to the world (outside of the webroot).
 
 
 
+.. index::
+   Mail; How to create mails
+   Mails; How to send mails
 .. _mail-create:
 
-How to Create and Send Mails
+How to create and send mails
 ============================
 
 Both :php:`\TYPO3\CMS\Core\Mail\MailMessage` and :php:`\TYPO3\CMS\Core\Mail\FluidEmail` inherit
 from :php:`Symfony\Component\Mime\Email` and have a similar API. **FluidEmail** is specific
 for sending emails based on Fluid.
 
+
+.. index:: Mail; FluidEmail
 .. _mail-fluid-email:
 
-Send email with `FluidEmail`
+Send mail with `FluidEmail`
 ----------------------------
 
 This sends an email using an existing Fluid template :file:`TipsAndTricks.html`,
@@ -275,6 +287,9 @@ In Fluid, you can now use the defined language key ("language"):
 .. code-block:: html
 
    <f:translate languageKey="{language}" id="LLL:my_ext/Resources/Private/Language/emails.xml:subject" />
+
+
+.. index:: Mail; MailMessage
 
 Send email with `MailMessage`
 -----------------------------
@@ -340,9 +355,10 @@ Or if you prefer, don't concatenate the calls::
    :php:`MailMessage` in own extensions is recommended.
 
 
+.. index:: Mail; Attachments
 .. _mail-attachments:
 
-How to Add Attachments
+How to add attachments
 ======================
 
 Attach files that exist in your file system::
@@ -358,9 +374,10 @@ Attach files that exist in your file system::
 
 
 
+.. index:: Mail; Inline media
 .. _mail-inline:
 
-How to Add Inline Media
+How to add inline media
 =======================
 
 Add some inline media like images in a mail::
@@ -376,9 +393,12 @@ Add some inline media like images in a mail::
 
 
 
+.. index::
+   Mail; Default sender
+   TYPO3_CONF_VARS; MAIL defaultMailFromAddress
 .. _mail-sender:
 
-How to Set and Use a Default Sender
+How to set and use a default sender
 ===================================
 
 It is possible to define a default email sender ("From:") in the *Install
@@ -409,10 +429,11 @@ In case of the problem "Mails are not sent" in your extension, try to set a
    }
    $mail->send();
 
+.. index:: pair: Mail; Symfony
 .. _mail-symfony-mime:
 
-Symfony Documentation
-=====================
+Symfony mail documentation
+==========================
 
 Please refer to the Symfony documentation for more information about
 available methods.
