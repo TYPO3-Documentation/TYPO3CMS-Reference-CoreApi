@@ -166,7 +166,6 @@ address the task at hand.
    ApiOverview/CommandControllers/Index
    ApiOverview/SymfonyExpressionLanguage/Index
    ApiOverview/Categories/Index
-   ApiOverview/SystemLog/Index
    ApiOverview/SystemRegistry/Index
    ApiOverview/Typo3CoreEngine/Index
    Testing/Index
