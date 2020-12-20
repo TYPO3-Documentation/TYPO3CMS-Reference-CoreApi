@@ -6,15 +6,15 @@
 AfterGroupsResolvedEvent
 ========================
 
-When user groups are loaded, for example when a backend editors' groups and permissions
+When user groups are loaded, for example when a backend editor's groups and permissions
 are calculated, a new PSR-14 event `AfterGroupsResolvedEvent` is fired.
 
-This event contains a list of retrieved groups from the database, which can
-be modified (e.g. adding more groups when a particular user or a user from a
-given location is logged in) via Event listeners.
+This event contains a list of retrieved groups from the database which can
+be modified via event listeners. For example, more groups might be added when a 
+particular user logs in or is seated at a special location.
 
 
-.. note::
+.. hint::
 
    This event acts as a substitution for the removed TYPO3 Hook
    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_userauthgroup.php']['fetchGroups_postProcessing']`.
@@ -44,7 +44,7 @@ getGroups()
    .. note::
 
       Order is important: A user with main groups "1,2", where 1 has sub group 3,
-      results in "3,1,2" as record list array - sub groups are listed before the group
+      results in "3,1,2" as record list array since sub groups are listed *before* the group
       that includes the sub group.
 
 setGroups(array $groups)
