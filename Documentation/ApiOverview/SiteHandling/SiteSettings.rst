@@ -33,12 +33,12 @@ Add a `settings` block to the :file:`config.yml`:
    configures a custom `categoryPid`.
 
 
-.. index:: Site handling; Settings TypoScript
+.. index:: Site handling; TypoScript access to settings
 
 Accessing site settings in page TSConfig or TypoScript
 ======================================================
 
-.. code-block:: ts
+.. code-block:: typoscript
 
    // store tx_ext_data records on the given storage page by default (e.g. through IRRE)
    TCAdefaults.tx_ext_data.pid = {$categoryPid}
