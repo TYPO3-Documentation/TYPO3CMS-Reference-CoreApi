@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Events; ModifyResultAfterFetchingObjectDataEvent
 .. _ModifyResultAfterFetchingObjectDataEvent:
 
 ========================================
@@ -10,9 +10,6 @@ Event which is fired after the storage backend has pulled results from a given q
 
 API
 ---
-
-.. |nbsp| unicode:: 0xA0
-   :trim:
 
 .. |nbsp| unicode:: 0xA0
    :trim:

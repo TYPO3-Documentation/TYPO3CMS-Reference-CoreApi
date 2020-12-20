@@ -1,8 +1,8 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   Events; AfterPageColumnsSelectedForLocalizationEvent
+   Events; LocalizationController
 .. _AfterPageColumnsSelectedForLocalizationEvent:
-
 
 ============================================
 AfterPageColumnsSelectedForLocalizationEvent
@@ -30,7 +30,6 @@ translation modal when a user has clicked the ``Translate`` button in the page m
 
 API
 ---
-
 
 .. rst-class:: dl-parameters
 
