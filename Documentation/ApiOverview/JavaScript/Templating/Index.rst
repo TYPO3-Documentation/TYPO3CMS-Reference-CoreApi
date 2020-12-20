@@ -1,5 +1,8 @@
 .. include:: /Includes.rst.txt
-.. index:: JavaScript (Backend); lit-html
+.. index:: 
+   JavaScript (Backend); lit-html engine
+   Templating
+   pair: Templating; Client-side
 
 .. _js-templating:
 
@@ -22,15 +25,17 @@ using modern web technologies like template-strings_ and template-elements_.
 .. _template-strings: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 .. _template-elements: https://developer.mozilla.org/de/docs/Web/HTML/Element/template
 
-Rendering is handled by the AMD-modules `lit-html` and `lit-element`.
-Please consult the `lit-html` template-reference_ and lit-element-guide_ for more
+Rendering is handled by the AMD-modules `lit-html`_ and `lit-element`_.
+Please consult the lit-html template-reference_ and the lit-element-guide_ for more
 information.
 
 .. _template-reference: https://lit-html.polymer-project.org/guide/template-reference
 .. _lit-element-guide: https://lit-element.polymer-project.org/guide
 
+
 Examples
 ========
+
 
 Variable assignment
 -------------------
@@ -43,9 +48,11 @@ Variable assignment
    const target = document.getElementById('target');
    render(html`<div>Hello ${value}!</div>`, target);
 
+
 .. code-block:: html
 
    <div>Hello World!</div>
+
 
 Unsafe tags would have been encoded (e.g. :html:`<b>World</b>`
 as :html:`&lt;b&gt;World&lt;/b&gt;`).
@@ -84,8 +91,8 @@ JavaScript instruction - as long as their result can be casted to `string`
 again or is of type `lit-html.TemplateResult`. This allows to
 make use of custom conditions as well as iterations:
 
-* condition: :js:`${condition ? thenReturn : elseReturn}`
-* iteration: :js:`${array.map((item) => { return item; })}`
+*  condition: :js:`${condition ? thenReturn : elseReturn}`
+*  iteration: :js:`${array.map((item) => { return item; })}`
 
 
 Events
@@ -109,6 +116,7 @@ Events can be bound using the `@` attribute prefix.
 The result won't look much different than the first example - however the
 custom attribute :html:`@click` will be transformed into an according event
 listener bound to the element where it has been declared.
+
 
 Custom HTML elements
 --------------------
@@ -147,7 +155,7 @@ This is rendered as:
 .. code-block:: html
 
    <my-element value="World">
-     <p>Hellow world!</p>
+      <p>Hellow world!</p>
    </my-element>
 
 .. _web-components: https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements
