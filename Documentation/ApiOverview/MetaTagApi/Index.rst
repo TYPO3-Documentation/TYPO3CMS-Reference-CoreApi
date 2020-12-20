@@ -1,27 +1,28 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: ! MetaTag
 .. _metatagapi:
 
-=================
+============
 MetaTag API
-=================
+============
 
-In order to have the possibility to set metatags in a flexible (but regulated way), a new Meta Tag API is introduced.
+In order to have the possibility to set metatags in a flexible (but regulated way), a new MetaTag API is introduced.
 
 .. note::
 
-    Usually, it is sufficient to set met tags using the API of the :php:`PageRenderer` which uses the Meta Tag API
-    internally. For all other cases, use the Meta Tag API directly.
+    Usually, it is sufficient to set met tags using the API of the :php:`PageRenderer` which uses the MetaTag API
+    internally. For all other cases, use the MetaTag API directly.
 
 The API uses :php:`MetaTagManagers` to manage the tags for a "family" of meta tags. The core e.g. ships an
 OpenGraph MetaTagManager that is responsible for all OpenGraph tags.
 In addition to the MetaTagManagers included in the core, you can also register your own
 :php:`MetaTagManager` in the :php:`\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry`.
 
+
+.. index:: pair: MetaTag; API
 .. _metatagapi-usage:
 
-Using the Meta Tag API
+Using the MetaTag API
 ======================
 
 To use the API, first get the right :php:`MetaTagManager` for your tag from the :php:`MetaTagManagerRegistry`.
@@ -67,6 +68,8 @@ Or remove all previously set meta tags of a specific manager:
     $metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('og:title');
     $metaTagManager->removeAllProperties();
 
+
+.. index:: MetaTag; Custom MetaTagManager
 .. _metatagapi-create-your-own:
 
 Creating Your Own MetaTagManager
@@ -102,6 +105,7 @@ want to implement your own :php:`OpenGraphMetaTagManager`, you can use the follo
 This will result in :php:`MyOpenGraphMetaTagManager` having a higher priority and it will first check if your own
 manager can handle the tag before it checks the default manager provided by the core.
 
+.. index:: pair: MetaTag; TypoScript
 .. _metatagapi-configuration:
 
 TypoScript and PHP
