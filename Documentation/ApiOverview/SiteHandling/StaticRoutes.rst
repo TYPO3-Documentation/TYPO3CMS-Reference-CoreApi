@@ -52,6 +52,7 @@ YAML configuration example:
    Site handling; TYPO3 URL
    TYPO3 URL
    t3://
+   see: t3://; TYPO3 URL
 
 TYPO3 URL (t3://)
 =================
