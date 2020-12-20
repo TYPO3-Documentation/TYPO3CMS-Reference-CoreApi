@@ -2,10 +2,11 @@
 .. index::
    Translation
    Translation; Crowdin
+   Crowdin; Online translation
 .. _crowdin-crowdin-translation:
 
 ===============================
-Online Translation with Crowdin
+Online translation with Crowdin
 ===============================
 
 .. tip::
@@ -90,7 +91,7 @@ How to create (good) translations
 7. Work together. As in all other aspects of Open Source, things get so much better, if we work together. So, reach out for help if you get stuck. Or offer your knowledge if someone ask.
    Crowdin offers a good platform for cooperating with your team translators, and please join the `Translation Slack channel <https://typo3.slack.com/archives/C032FRT0W>`__.
 
-Translation Styles
+Translation styles
 ==================
 
 In general and where it makes sense, we follow the style guide from the Content Team: `<https://typo3.org/community/teams/content/writing-style-guide/>`__

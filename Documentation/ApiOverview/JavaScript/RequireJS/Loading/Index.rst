@@ -1,14 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
-
-
-
-
+.. index:: RequireJS; Loading modules
 .. _requirejs-loading:
 
 ===========================================
-Loading Your Own or Other RequireJS Modules
+Loading your own or other RequireJS modules
 ===========================================
 
 

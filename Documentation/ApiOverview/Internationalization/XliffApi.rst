@@ -1,16 +1,23 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: 
+   XLIFF; Files
+   File; XLIFF
 .. _xliff_api:
 
 ========================
 Working with XLIFF files
 ========================
 
+
+.. index:: XLIFF; Access labels
+
 Access labels
 =============
 
-Label Access in PHP
+
+.. index:: pair: Language labels; PHP
+
+Label access in PHP
 -------------------
 
 In PHP, a typical call in the Backend to fetch a string in the language selected by a user
@@ -55,7 +62,12 @@ whose :php:`translate()` method also takes an array as argument and runs PHP's
 specific class will melt down and somehow merged into the core API classes to get rid of this
 duplication.
 
-Label Access in Fluid
+
+.. index::
+   pair: Language labels; Fluid
+   Fluid; f:translate
+
+Label access in Fluid
 ---------------------
 
 In Fluid, a typical call to fetch a string in the language selected by a user looks like this:
