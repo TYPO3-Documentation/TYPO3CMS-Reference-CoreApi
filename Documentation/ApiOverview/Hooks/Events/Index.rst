@@ -24,6 +24,7 @@ in the TYPO3 core.
    :caption: core
    :glob:
 
+   Core/Authentication/*
    Core/Configuration/*
    Core/Database/*
    Core/DataHandling/*
