@@ -31,7 +31,7 @@ or you can create this file as a backend user with administrator
 privileges.
 
 .. figure:: ../../Images/Security/enable-install-tool.png
-    :class: with-shadow
+    :class: with-border with-shadow
     :alt: Screen to enable the Install Tool
 
 Conversely, this also means, you should delete this file as soon as
@@ -58,7 +58,7 @@ a system administrator, is to change the password to a new and secure one.
 Log-in to the Install Tool and change it there.
 
 .. figure:: ../../Images/Security/change-install-tool-password.png
-    :class: with-shadow
+    :class: with-border with-shadow
     :alt: Screen to change the Install Tool password
 
 Since TYPO3 v9, the role of system maintainer has been introduced. It allows for selected
@@ -88,7 +88,7 @@ TYPO3 Core with a click of a button. This feature can be found under
 bug fixes and security updates).
 
 .. figure:: ../../Images/Security/core-updates.png
-    :class: with-shadow
+    :class: with-border with-shadow
     :alt: Install Tool function to update the TYPO3 Core
 
 It should be noted that this feature can be disabled by an environment
