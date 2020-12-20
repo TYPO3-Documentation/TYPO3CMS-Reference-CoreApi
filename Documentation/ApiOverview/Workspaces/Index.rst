@@ -360,7 +360,7 @@ Workspace-related API for Backend Modules
 
 .. _workspaces-backend-acess:
 
-Backend module ccess
+Backend module access
 =====================
 
 You can restrict access to backend modules by using
