@@ -1,7 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
-
+.. index:: pair: Events; Core
 .. _eventlist:
 
 
