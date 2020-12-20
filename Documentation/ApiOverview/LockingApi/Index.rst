@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 
 .. highlight:: php
-
+.. index:: ! Locking
 .. _locking-api:
 
 ===========
@@ -21,7 +21,9 @@ result in incomplete or corrupt data, if locking is not used.
    want to use the locking API as well.
 
 
-Locking Strategies
+.. index:: Locking; Strategy
+
+Locking strategies
 ==================
 
 A locking strategy must implement the :php:`LockingStrategyInterface`. Several locking strategies
@@ -59,6 +61,11 @@ locking strategy supported on system
    Some locking strategies do basic checks, e.g. semaphore locking is only available
    on Linux systems.
 
+.. index::
+   Locking; Capabilities
+   Locking; LOCK_CAPABILITY_NOBLOCK
+   Locking; LOCK_CAPABILITY_EXCLUSIVE
+   Locking; LOCK_CAPABILITY_SHARED
 
 Capabilities
 ------------
@@ -103,6 +110,11 @@ You can use bitwise `OR` to combine them::
        | LockingStrategyInterface::LOCK_CAPABILITY_NOBLOCK
 
 
+.. index::
+   Locking; Priorities
+   Locking; FileLockStrategy
+   Locking; SimpleLockStrategy
+   Locking; SemaphoreLockStrategy
 
 Priorities
 ----------
@@ -163,8 +175,7 @@ Acquire and use an exclusive, non-blocking lock::
    }
 
 
-
-
+.. index::  pair: Locking; Core
 
 Usage in the Core
 =================
@@ -172,9 +183,11 @@ Usage in the Core
 The locking API is used in the core for caching, see :php:`TypoScriptFrontendController`.
 
 
+.. index::  pair: Locking; Extensions
+
 .. _use-locking-api-in-extensions:
 
-Extend Locking in Extensions
+Extend locking in Extensions
 ============================
 
 An extension can extend the locking functionality by adding a new locking
@@ -200,10 +213,14 @@ See `FileLockStrategy
 for an example.
 
 
+.. index:: Locking; Caveats
 .. _locking-api-caveats:
 
 Caveats
 =======
+
+
+.. index:: Locking; FileLockStrategy & NFS
 
 FileLockStrategy & NFS
 ----------------------
@@ -224,7 +241,9 @@ and `LOCK_CAPABILITY_NOBLOCK`) and priority (75), FileLockStrategy is used as
 first choice for most locking operations in TYPO3.
 
 
-Multiple Servers & Cache Locking
+.. index:: Locking; Multiple servers
+
+Multiple servers & Cache locking
 --------------------------------
 
 Since the core uses the locking API for some cache operations (see for
