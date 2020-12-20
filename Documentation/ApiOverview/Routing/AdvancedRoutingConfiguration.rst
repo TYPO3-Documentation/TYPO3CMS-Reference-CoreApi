@@ -5,7 +5,7 @@
 .. _routing-advanced-routing-configuration:
 
 ===============================================
-Advanced Routing configuration (for extensions)
+Advanced routing configuration (for extensions)
 ===============================================
 
 While Page based routing works out of the box, routing for extensions has to be configured explicitely in your site configuration.
