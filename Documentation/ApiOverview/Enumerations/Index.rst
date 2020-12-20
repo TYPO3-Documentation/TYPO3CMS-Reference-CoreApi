@@ -29,7 +29,7 @@ Background and history
 ======================
 
 PHP has no enumeration concept as part of the language up to date. Therefore
-the TYPO3 CMS core includes a custom enumeration implementation.
+the TYPO3 Core includes a custom enumeration implementation.
 
 In TYPO3 enumerations are implemented by extending the abstract class
 :php:`TYPO3\CMS\Core\Type\Enumeration`. It was originally implemented similar to

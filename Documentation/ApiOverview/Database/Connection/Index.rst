@@ -311,7 +311,7 @@ createQueryBuilder()
 The :ref:`QueryBuilder <database-query-builder>` should not be re-used for multiple different queries. However,
 it sometimes becomes handy to first fetch a `Connection` object for a specific table and to execute a simple
 query, and to create a `QueryBuilder` for a more complex query from this connection object later. The methods
-usefulness is limited however and no good example within the core can be found at the time of this writing.
+usefulness is limited however and no good example within the Core can be found at the time of this writing.
 
 The method can be helpful in loops to save some precious code characters, too::
 

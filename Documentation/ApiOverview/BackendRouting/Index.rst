@@ -27,7 +27,7 @@ Here is an extract of :file:`typo3/sysext/backend/Configuration/Backend/Routes.p
     * Definitions for routes provided by EXT:backend
     * Contains all "regular" routes for entry points
     *
-    * Please note that this setup is preliminary until all core use-cases are set up here.
+    * Please note that this setup is preliminary until all Core use-cases are set up here.
     * Especially some more properties regarding modules will be added until TYPO3 CMS 7 LTS, and might change.
     *
     * Currently the "access" property is only used so no token creation + validation is made,
@@ -98,7 +98,7 @@ This technique should be used on all public routes (without session token) that
 internally redirect to a restricted route (having a session token). The goal is
 to protect and keep information about the current session token internal.
 
-The request sequence in the TYPO3 core looks like this:
+The request sequence in the TYPO3 Core  looks like this:
 
 * HTTP request to `https://example.org/typo3/` having a valid user session
 * internally **public** backend route `/login` is processed
@@ -121,5 +121,5 @@ handles backend routing in your TYPO3 version.
 * `Scripting-Base: "PSR-7 for backend modules" <https://scripting-base.de/blog/psr-7-for-backend-modules>`__
 * `Scripting-Base: "AJAX with PSR-7" <https://scripting-base.de/blog/ajax-with-psr-7.html>`__
 * `PSR-7 <https://www.php-fig.org/psr/psr-7/>`__
-* TYPO3 core: `backend : AjaxRoutes.php <https://github.com/TYPO3/TYPO3.CMS/blob/9.5/typo3/sysext/backend/Configuration/Backend/AjaxRoutes.php>`__ (GitHub)
-* TYPO3 core: `backend : Routes.php <https://github.com/TYPO3/TYPO3.CMS/blob/9.5/typo3/sysext/backend/Configuration/Backend/Routes.php>`__ (GitHub)
+* TYPO3 Core : `backend : AjaxRoutes.php <https://github.com/TYPO3/TYPO3.CMS/blob/9.5/typo3/sysext/backend/Configuration/Backend/AjaxRoutes.php>`__ (GitHub)
+* TYPO3 Core : `backend : Routes.php <https://github.com/TYPO3/TYPO3.CMS/blob/9.5/typo3/sysext/backend/Configuration/Backend/Routes.php>`__ (GitHub)

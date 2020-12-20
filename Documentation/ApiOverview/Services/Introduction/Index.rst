@@ -8,12 +8,12 @@ Introduction
 ============
 
 This document describes the services functionality included in the
-TYPO3 CMS core.
+TYPO3 Core.
 
 .. note::
 
-    The "Services" API is one of the older core API's that did not found
-    much traction over the years. The core itself only uses it for frontend
+    The "Services" API is one of the older Core API's that did not found
+    much traction over the years. The Core itself only uses it for frontend
     and backend user :ref:`authentication. <authentication>`
 
     Additionally, only a couple of extensions use the Services API, and not
@@ -23,14 +23,14 @@ TYPO3 CMS core.
 
 .. important::
 
-    This chapter is about the "Services API" provided by the core. Don't confuse
+    This chapter is about the "Services API" provided by the Core. Don't confuse
     it with casual PHP classes within the directory :file:`Classes/Service` found in many
     extensions - they usually do not use the API mentioned here.
 
     Classes in the scope of this chapter - directly or indirectly - extend the
     service class :php:`TYPO3\CMS\Core\Service\AbstractService`.
 
-    In comparison, for additional information on what the core usually understands
+    In comparison, for additional information on what the Core usually understands
     as "casual" service class, see the :ref:`coding guidelines. <cgl-services>`
 
 

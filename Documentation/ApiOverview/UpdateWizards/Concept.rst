@@ -14,7 +14,7 @@ database (e.g. contents of fields change) as well as segments in the file system
 (e.g. locations of files have changed).
 
 Wizards should be provided to ease updates for integrators and administrators. They
-are an addition to the database migration, which is handled by the core based on
+are an addition to the database migration, which is handled by the Core based on
 :file:`ext_tables.sql`.
 
 The execution order is not defined. Each administrator is able to execute wizards and
@@ -33,5 +33,5 @@ exactly one specific update.
 Examples
 ========
 
-The TYPO3 core itself provides update wizards inside
+The TYPO3 Core  itself provides update wizards inside
 :file:`typo3/sysext/install/Classes/Updates/`.

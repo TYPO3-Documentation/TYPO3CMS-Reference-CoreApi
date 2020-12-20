@@ -9,7 +9,7 @@ FAQ
 Introduction
 ============
 
-The core took some decisions regarding testing that may not be obvious at first sight. This
+The Core took some decisions regarding testing that may not be obvious at first sight. This
 chapter tries to answer some of the most frequent asked ones.
 
 
@@ -20,7 +20,7 @@ Executing tests in a containerized environment like docker has significant advan
 local execution. It takes away all the demanding setup needs of additional services like
 selenium, various database systems, different php versions in parallel on the same system and
 so on. It also creates a well defined environment that is identical for everyone: Extension
-authors rely on the same system dependencies as the core does, local test execution is identical
+authors rely on the same system dependencies as the Core does, local test execution is identical
 to what the continuous integration system bamboo does. All dependencies and setup details are open
 sourced and available for everyone. Even Travis CI is forced to create the exact same environment
 in our examples, and it plays well with other dockerized solutions like `ddev <https://www.drud.com/>`_.
@@ -45,7 +45,7 @@ Why do you need runTests.sh?
 The script `runTests.sh` is a wrapper around docker-compose. While docker and docker-compose are
 great software, this stack has its own type of issues. In the end, runTests.sh just creates a `.env`
 file read by docker-compose to work around a couple of things. For instance, all tests mount the
-local git checkout of core or an extension into one or multiple containers. Executing tests then
+local git checkout of Core or an extension into one or multiple containers. Executing tests then
 may write files to that volume. These files should be written with the same local user that starts
 the tests, otherwise local files are created with permissions a local user may not be able to delete again.
 Specifying the user that runs a container is however not possible in docker directly and a `long standing issue
@@ -53,7 +53,7 @@ Specifying the user that runs a container is however not possible in docker dire
 issues which runTests.sh hides away. The goal was to have a dead simple mechanism to
 execute tests. runTests.sh does that.
 
-Additionally, wrapping details in runTests.sh gives the core the opportunity to change docker-compose
+Additionally, wrapping details in runTests.sh gives the Core the opportunity to change docker-compose
 details without affecting the outer caller API: We can change things on docker level, adapt the script
 and nothing changes on the consuming side. This detail is pretty convenient since it reduces the
 risk of breaking consuming scripts like other CI systems.
@@ -72,7 +72,7 @@ deliver some more generic solution later.
 Why don't you use runTests.sh in bamboo?
 ========================================
 
-For TYPO3 core testing, bamboo has its own specification in :file:`Build/bamboo/src/main/java/core/PreMergeSpec.java`
+For TYPO3 Core testing, bamboo has its own specification in :file:`Build/bamboo/src/main/java/core/PreMergeSpec.java`
 (and a similar nightly setup in :file:`Build/bamboo/src/main/java/core/NightlySpec.java`) and uses
 an own docker-compose file in :file:`Build/testing-docker/bamboo/docker-compose.yml`. The main reason
 for that is the bamboo agents are not local processes on the given hardware directly, but are also
@@ -118,7 +118,7 @@ time being it is how it is.
 Can I provide more hardware for bamboo?
 =======================================
 
-Yes and no. We indeed consume quite some hardware to keep the TYPO3 core testing at a decent speed
+Yes and no. We indeed consume quite some hardware to keep the TYPO3 Core  testing at a decent speed
 and we are always looking for more. Under normal operation, we currently consume 64 CPU's and
 half a terabyte of RAM. This is something. However, it is not trivial to help us: With the current
 system, we need root access to the host, a host needs 8 hardware CPU's with 64 GB of RAM, the
@@ -148,7 +148,7 @@ Can i run tests with Windows?
 
 Well. Maybe. We've had some successful reports using runTests.sh with `WSL: Windows Subsystem for Linux
 <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_ but we did not get too much information
-and experience on this, yet. Please go ahead, push patches for core runTests.sh or the docker-compose.yml
+and experience on this, yet. Please go ahead, push patches for Core runTests.sh or the docker-compose.yml
 files and improve this documentation with hints about Windows. We already know there are some details
-to take care of, a starter can be found in a core patch `commit message
+to take care of, a starter can be found in a Core patch `commit message
 <https://review.typo3.org/#/c/58750/3//COMMIT_MSG>`_.

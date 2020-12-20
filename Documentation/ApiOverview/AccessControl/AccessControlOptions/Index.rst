@@ -28,7 +28,7 @@ User TSconfig
    permission settings and options for the user or group which can be used to
    customize the backend and individual modules.
 
-   All User TSconfig options are described in the
+   All user TSconfig options are described in the
    :ref:`TSconfig Reference <t3tsconfig:usertsconfig>`
 
 
@@ -130,7 +130,7 @@ the page tree (typically visible in the **WEB** module) and the folder
 tree (typically visible in the **FILE** module). Each tree is
 generated based on the *mount points* configured for the current user. So a
 page tree is drawn from the *DB Mounts* which are one or more page ids
-telling the core from which "start page" to draw the tree(s). Likewise
+telling the Core from which "start page" to draw the tree(s). Likewise
 is the folder tree drawn based on *filemounts* configured for the user.
 
 **DB mounts** (page mounts) are easily set by simply pointing out the
@@ -266,7 +266,7 @@ permissions.
 When a user creates new pages in TYPO3 CMS they will by default get the
 creating user as owner. The owner group will be set to the *first
 listed user group* configured for the users record (if any). These defaults
-can be changed through :ref:`Page TSconfig <t3tsconfig:pagetcemain-permissions-user-group>`.
+can be changed through :ref:`page TSconfig <t3tsconfig:pagetcemain-permissions-user-group>`.
 
 
 .. _access-options-user-tsconfig:

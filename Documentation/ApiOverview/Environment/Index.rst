@@ -6,7 +6,7 @@
 Environment
 ===========
 
-Since version 9.x the TYPO3 core includes an environment class.
+Since version 9.x the TYPO3 Core  includes an environment class.
 This class contains all environment-specific information, e.g. paths within the
 filesystem. This implementation replaces previously used global variables and
 constants like :php:`PATH_site`.
@@ -160,7 +160,7 @@ Non-public files are then put to
 - :file:`/var/www/my-project/var/lock` (Files related to locking)
 - :file:`/var/www/my-project/var/log` (Files related to logging)
 - :file:`/var/www/my-project/var/extensionmanager` (Files related to extension manager data)
-- :file:`/var/www/my-project/var/transient` (Files related to import/export, core updater, FAL)
+- :file:`/var/www/my-project/var/transient` (Files related to import/export, Core updater, FAL)
 
 For installations without this setting, there are minor differences in the folder structure:
 

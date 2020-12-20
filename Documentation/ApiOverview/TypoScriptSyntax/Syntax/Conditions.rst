@@ -48,7 +48,7 @@ highlighting (no context) conditions are just highlighted and nothing
 more. In the context of TypoScript Templates there is a
 :ref:`whole section of TSref <t3tsref:conditions>` which defines the
 syntax of the condition contents for TypoScript Templates. For "Page
-TSconfig" and "User TSconfig" conditions are implemented as well.
+TSconfig" and "user TSconfig" conditions are implemented as well.
 Basically they work the same way as conditions in TypoScript
 templates do, but there are some small differences. For details see the
 :ref:`chapter on conditions in TSconfig <t3tsconfig:conditions>`.
@@ -291,7 +291,7 @@ Summary
 
 - Conditions are evaluated in relation to the context where TypoScript
   is used. They are widely used in TypoScript Templates and can also be
-  used in Page TSconfig or User TSconfig.
+  used in page TSconfig or user TSconfig.
 
 - Special conditions :code:`[ELSE]`, :code:`[END]` and :code:`[GLOBAL]` exist.
 

@@ -80,7 +80,7 @@ Typical Cases for Exceptions That Should not be Caught
 * Programming error/ wrong API usage: Code that can not do its job
   because a developer did not take care and used an API in a wrong way.
   This is a common reason to throw an exception and can be found at lots
-  of places in the core. A top-level exception like
+  of places in the Core. A top-level exception like
   :php:`\RuntimeException` should be thrown.
 
 
@@ -130,7 +130,7 @@ Example::
 Exception Inheritance
 =====================
 
-A typical exception hierarchy for specific exceptions in the core
+A typical exception hierarchy for specific exceptions in the Core
 looks like :php:`Vendor\MyExt\Exception extends TYPO3\CMS\Core\Exception`,
 where :php:`TYPO3\CMS\Core\Exception` is the base of all exceptions in TYPO3.
 

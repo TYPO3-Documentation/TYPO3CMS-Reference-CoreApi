@@ -53,7 +53,7 @@ an instance of that XCLASS is returned instead of an instance of the original cl
 Limitations
 ===========
 
-- Using XCLASSes is risky: neither the core, nor extensions authors
+- Using XCLASSes is risky: neither the Core, nor extensions authors
   can guarantee that XCLASSes will not break if the underlying code changes
   (for example during upgrades). Be aware that your XCLASS can easily break
   and has to be maintained and fixed if the underlying code changes.

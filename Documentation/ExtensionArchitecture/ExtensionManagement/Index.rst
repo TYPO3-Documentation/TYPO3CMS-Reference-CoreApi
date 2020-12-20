@@ -114,7 +114,7 @@ Package manager
 On a low level, the list of loaded extensions is written to the file
 :file:`typo3conf/PackageStates.php`. PHP class :code:`\TYPO3\CMS\Core\Package\PackageManager`
 manages this file as part of the "Package management", it is part of the
-core extension, but mostly used by the Extension Manager as the low level work horse.
+Core extension, but mostly used by the Extension Manager as the low level work horse.
 
 The :file:`typo3conf/PackageStates.php` file contains a list of all active packages, example::
 

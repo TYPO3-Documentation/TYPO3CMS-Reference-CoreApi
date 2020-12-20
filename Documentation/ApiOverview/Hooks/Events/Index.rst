@@ -8,7 +8,7 @@ List of Core PSR-14 Events
 ==========================
 
 The following list contains :ref:`PSR-14 events <EventDispatcher>`
-in the TYPO3 core.
+in the TYPO3 Core .
 
 **Contents:**
 
@@ -21,7 +21,7 @@ in the TYPO3 core.
 
 .. toctree::
    :titlesonly:
-   :caption: core
+   :caption: Core
    :glob:
 
    Core/Configuration/*
@@ -36,7 +36,7 @@ in the TYPO3 core.
 
 .. toctree::
    :titlesonly:
-   :caption: extbase
+   :caption: Extbase
    :glob:
 
    Extbase/Mvc/*

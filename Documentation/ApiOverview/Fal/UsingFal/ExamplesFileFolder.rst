@@ -108,7 +108,7 @@ Creating a file reference
 
 .. _fal-using-fal-examples-file-folder-create-reference-backend:
 
-In the Backend Context
+In the backend context
 ----------------------
 
 In the backend or command-line context, it is possible to create

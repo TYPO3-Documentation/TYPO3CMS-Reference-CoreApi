@@ -221,7 +221,7 @@ scripts like you will need :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. It
 is fairly uncommon to need the file manipulations in own scripts unless you
 make a special application. Therefore the most typical usage of this API is
 from :ref:`\\TYPO3\\CMS\Backend\\Controller\\File\\FileController <tce-file-api>`
-and the core scripts that are activated by the "File > List" module.
+and the Core scripts that are activated by the "File > List" module.
 
 However, if needed, this is an example of how to initialize usage. It is taken
 from :file:`ImportExportController.php`:

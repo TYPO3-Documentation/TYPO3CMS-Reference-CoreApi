@@ -7,7 +7,7 @@ TYPO3 extensions
 ================
 
 As already mentioned above, most of the security issues have been
-discovered in TYPO3 extensions, not in the TYPO3 core. Due to the fact
+discovered in TYPO3 extensions, not in the TYPO3 Core . Due to the fact
 that everybody can publish an extension in the TYPO3 repository, you
 never know how savvy and experienced the programmer is and how the
 code was developed from a security perspective.
@@ -164,7 +164,7 @@ notification by email when extension updates are available.
 Security-related extensions
 ===========================
 
-TYPO3 extensions which are not part of the core (and so are not
+TYPO3 extensions which are not part of the Core (and so are not
 official system extensions) are out of scope of this document, due to
 the fact that this Security Guide focuses on a TYPO3 standard setup.
 
@@ -181,6 +181,6 @@ specific technology (e.g. "intrusion detection") or a security threat
 could be reviewed and tested.
 
 Please note that these extensions are often not developed/maintained
-by TYPO3 core developers and the code quality may vary. Also, check
+by TYPO3 Core  developers and the code quality may vary. Also, check
 for extensions reviewed by the Security Team and the date of the last
 update.

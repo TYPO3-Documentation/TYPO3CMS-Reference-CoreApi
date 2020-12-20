@@ -7,7 +7,7 @@ Introduction to Fluid
 =====================
 
 Fluid is TYPO3’s default rendering engine but can also be used in a standalone PHP project.
-The Fluid source code is being developed as an independent project outside of the TYPO3 core.
+The Fluid source code is being developed as an independent project outside of the TYPO3 Core.
 
 Fluid is based on XML.
 You can use HTML markup in Fluid, but you can do much more with Fluid, such as use conditions,
@@ -44,8 +44,8 @@ ViewHelpers:
    :ref:`write your own <t3extbasebook:developing-a-custom-viewhelper>`.
 
    ViewHelpers can do simple processing such as remove spaces with the
-   :ref:`t3viewhelper:typo3fluid-fluid-spaceless` ViewHelper or create a link
-   as is done in the TYPO3 Fluid ViewHelper :ref:`t3viewhelper:typo3-fluid-link-page`.
+   :ref:`t3viewhelper:typo3fluid-fluid-spaceless` Viewhelper or create a link
+   as is done in the TYPO3 Fluid Viewhelper :ref:`t3viewhelper:typo3-fluid-link-page`.
 
 Object Accessors:
    Fluid can access variables that have been defined. Just use braces
@@ -286,6 +286,6 @@ Once you have successfully completed your fist steps, these references might com
 in handy:
 
 * `24 TIPS & TRICKS FOR FLUID <https://usetypo3.com/24-fluid-tips.html>`__
-* :ref:`Fluid ViewHelper Reference <t3viewhelper:start>`
+* :ref:`Fluid Viewhelper Reference <t3viewhelper:start>`
 
 

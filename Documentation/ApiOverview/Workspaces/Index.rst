@@ -219,7 +219,7 @@ frontend.
 
 .. _workspaces-backend-api:
 
-Workspace-related API for Backend Modules
+Workspace-related API for backend modules
 -----------------------------------------
 
 .. t3-field-list-table::

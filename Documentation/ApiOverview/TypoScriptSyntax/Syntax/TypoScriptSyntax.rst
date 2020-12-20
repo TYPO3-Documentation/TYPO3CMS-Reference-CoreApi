@@ -413,7 +413,7 @@ of the reference are not shown. Only the reference itself is visible:
 Remember:
 
 - References are only available in TypoScript templates, not in TSconfig
-  (User TSconfig or Page TSconfig)
+  (user TSconfig or page TSconfig)
 
 - References are only resolved for Content Objects, otherwise references are
   not resolved. For example, you **cannot** use a

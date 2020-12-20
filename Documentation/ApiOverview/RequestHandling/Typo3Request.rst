@@ -28,7 +28,7 @@ The request object is passed to controllers, example:
 
 
 The request object is also available as a global variable in :php:`$GLOBALS['TYPO3_REQUEST']`. This is a workaround for
-the core which has to access the server parameters at places where $request is not available. So, while this object is
+the Core which has to access the server parameters at places where $request is not available. So, while this object is
 globally available during any HTTP request, it is considered bad practice to use this global object if the request is
 accessible in another, official way. The global object is scheduled to vanish at a later point once the code has been refactored
 enough to not rely on it anymore.
@@ -61,7 +61,7 @@ arguments can be substituted with these calls:
 - :php:`TYPO3_SSL` is now :php:`->isHttps()`
 
 Some further old :php:`getIndpEnv()` arguments directly access :php:`$request->serverParams()` and do not apply any
-normalization. These have been transferred to the new class, too, but will be deprecated later if the core does not use
+normalization. These have been transferred to the new class, too, but will be deprecated later if the Core does not use
 them anymore:
 
 - :php:`PATH_INFO` is now :php:`->getPathInfo()`, but better use :php:`->getScriptName()` instead

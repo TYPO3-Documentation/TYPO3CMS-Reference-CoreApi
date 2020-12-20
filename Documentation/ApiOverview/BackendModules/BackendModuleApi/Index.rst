@@ -52,7 +52,7 @@ using the following API:
 
 `'iconIdentifier'` versus `'icon'`
    `'iconIdentifier'` is the better and more modern way to go. It should always be used
-   for core icons. Other icons however need to be registered first at the IconRegistry to
+   for Core icons. Other icons however need to be registered first at the IconRegistry to
    create identifiers. Note that `'icon'` still works. Within custom packages it is easier
    to use. Example::
    

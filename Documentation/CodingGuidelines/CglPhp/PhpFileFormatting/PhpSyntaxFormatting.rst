@@ -323,7 +323,7 @@ level.
 .. note::
 
    The old rule allowed the operator only at the end. Both are still
-   valid. Please do no "mass-change" across the core. Use the new rule for
+   valid. Please do no "mass-change" across the Core. Use the new rule for
    future changes or patches currently under review but do **not** block reviews
    because of the legacy concatenation. If you change a line/method anyway,
    you can of course adapt CGL-changes as well (as long as it's no
@@ -384,7 +384,7 @@ PHP Features
 ============
 
 The use of the newest PHP features is strongly recommended for
-extensions and mandatory for the TYPO3 core.
+extensions and mandatory for the TYPO3 Core .
 
 Class functions must have access type specifiers: :php:`public`,
 :php:`protected` or :php:`private`. Notice that :php:`private` may

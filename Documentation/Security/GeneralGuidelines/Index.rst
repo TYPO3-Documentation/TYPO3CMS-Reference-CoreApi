@@ -104,7 +104,7 @@ TYPO3 is open source software as well as all TYPO3 extensions
 published in the TYPO3 Extension Repository (TER). This means,
 everyone can download and investigate the code base. From a security
 perspective, this usually improves the software, simply because more
-people review the code, not only a few core developers. Currently,
+people review the code, not only a few Core developers. Currently,
 there are hundreds of developers actively involved in the TYPO3
 community and if someone discovers and reports a security issue,
 he/she will be honored by being credited in the appropriate security
@@ -127,7 +127,7 @@ and follow these recommendations.
 .. index:: pair: Security guidelines; TYPO3 update
 .. _security-updating-typo3:
 
-Keep the TYPO3 core up-to-date
+Keep the TYPO3 Core up-to-date
 ==============================
 
 As described in :ref:`TYPO3 versions <security-typo3-versions>` chapter, a
@@ -143,7 +143,7 @@ for further details.
 When you extract the archive file of new TYPO3 sources into the
 existing install directory (e.g. the web root of your web server) and
 update the symbolic links, pointing to the directory of the new version,
-do not forget to **delete** the old and possibly insecure TYPO3 core
+do not forget to **delete** the old and possibly insecure TYPO3 Core
 version. Failing doing this creates the risk of leaving the source code
 of the previous TYPO3 version on the system and as a consequence, the
 insecure code may still be accessible and a security vulnerability

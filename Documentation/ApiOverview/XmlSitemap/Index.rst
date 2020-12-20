@@ -8,7 +8,7 @@ XML sitemap
 
 .. versionadded:: 9.4
 
-   XML Sitemap support was added to the core with change :doc:`t3core:Changelog/9.4/Feature-84525-XMLSitemap`.
+   XML Sitemap support was added to the Core with change :doc:`t3core:Changelog/9.4/Feature-84525-XMLSitemap`.
 
 It is possible to generate XML sitemaps for SEO purposes without using 3rd-party plugins.
 When enabled, this new feature will create a sitemapindex with one or more sitemaps in it.

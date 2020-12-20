@@ -41,7 +41,7 @@ The good old :php:`t3lib_div` class has been renamed to::
 
    \TYPO3\CMS\Core\Utility\GeneralUtility
 
-This means that the class is now found in the "core" system extension, in folder
+This means that the class is now found in the `core` system extension, in folder
 :file:`Classes/Utility`, in a file named :file:`GeneralUtility.php`.
 
 

@@ -406,7 +406,7 @@ The key `flexform` is followed by the field which holds the Flexform data (`pi_f
 .. index:: pair: Flexforms; Fluid
 .. _read-flexforms-fluid:
 
-How to access flexForms from fluid
+How to access flexForms from Fluid
 ----------------------------------
 
 If you are using an Extbase controller, FlexForm settings can be read from within a Fluid template using

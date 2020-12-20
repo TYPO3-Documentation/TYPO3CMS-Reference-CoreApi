@@ -93,8 +93,8 @@ messages from the queue. Here's how such a message looks like in a module:
    A typical (success) message shown at the top of a module
 
 
-The recommend way to show flash messages is to use the fluid ViewHelper :html:`<f:flashMessages />`.
-This ViewHelper works in any context because it use the :php:`FlashMessageRendererResolver` class
+The recommend way to show flash messages is to use the Fluid Viewhelper :html:`<f:flashMessages />`.
+This Viewhelper works in any context because it use the :php:`FlashMessageRendererResolver` class
 to find the correct renderer for the current context.
 
 .. _flash-messages-renderer:
@@ -102,12 +102,12 @@ to find the correct renderer for the current context.
 Flash messages renderer
 =======================
 
-The implementation of rendering FlashMessages in the core has been optimized.
+The implementation of rendering FlashMessages in the Core has been optimized.
 
 A new class called :php:`FlashMessageRendererResolver` has been introduced.
 This class detects the context and renders the given FlashMessages in the correct output format.
 It can handle any kind of output format.
-The core ships with the following FlashMessageRenderer classes:
+The Core ships with the following FlashMessageRenderer classes:
 
 * :php:`TYPO3\CMS\Core\Messaging\Renderer\BootstrapRenderer`
   This renderer is used by default in the TYPO3 backend.
@@ -128,7 +128,7 @@ If you need a special output format, you can implement your own renderer class a
       ->render($flashMessages);
 
 
-The core has been modified to use the new :php:`FlashMessageRendererResolver`.
+The Core has been modified to use the new :php:`FlashMessageRendererResolver`.
 Any third party extension should use the provided :php:`FlashMessageViewHelper` or the new :php:`FlashMessageRendererResolver` class:
 
 .. code-block:: php
@@ -160,7 +160,7 @@ The full API of this function is::
    );
 
 
-The messages are then displayed by Fluid with the relevant ViewHelper
+The messages are then displayed by Fluid with the relevant Viewhelper
 as shown in this excerpt of :file:`EXT:examples/Resources/Private/Layouts/Module.html`:
 
 .. code-block:: html
