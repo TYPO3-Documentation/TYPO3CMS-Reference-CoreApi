@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 .. highlight:: php
-
+.. index:: LinkBrowser
 .. _linkbrowser-api:
 
 ===============
@@ -27,6 +27,8 @@ and possible future, usages flawlessly.
 Each tab rendered in the LinkBrowser has an associated LinkHandler,
 responsible for rendering the tab and for creating and editing of links belonging to this tab.
 
+
+.. index:: LinkBrowser; Tab registration
 .. _linkbrowser-api-tab-registration:
 
 Tab registration
@@ -55,6 +57,7 @@ Therefore you should register your tab at least before the 'url' handler, so you
 The 'url' handler should be treated as last resort as it will work with any link.
 
 
+.. index:: LinkBrowser; LinkHandler implementation
 .. _linkbrowser-api-handler-implementation:
 
 Handler implementation
@@ -121,6 +124,8 @@ which is the point where the link is handed over to the LinkBrowser for further 
 
 As an example for a working LinkHandler implementations you can have a look at the LinkHandlers being defined in the
 sysext.
+
+.. index:: pair: LinkBrowser; Hooks
 
 Hooks
 -----

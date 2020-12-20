@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: pair: Logging; Configuration
 .. _logging-configuration:
 
 ===================================
-Configuration of the Logging System
+Configuration of the logging system
 ===================================
 
 Instantiation of Loggers is configuration-free, as the LogManager automatically applies its configuration.
@@ -29,9 +28,10 @@ searched for in :code:`$GLOBALS['TYPO3_CONF_VARS']['LOG']['tx']` or :code:`$GLOB
 from Core classes (as extension class names start with :code:`tx` or :code:`Tx`).
 
 
+.. index:: Logging; Writer configuration
 .. _logging-configuration-writer:
 
-Writer Configuration
+Writer configuration
 ====================
 
 The Log Writer configuration is read from the subkey :code:`writerConfiguration` of the configuration array:
@@ -106,9 +106,10 @@ For a list of writers shipped with the TYPO3 Core see the section about
 :ref:`logging-writers`.
 
 
+.. index:: Logging; Processor configuration
 .. _logging-configuration-processor:
 
-Processor Configuration
+Processor configuration
 =======================
 
 Similar to the writer configuration, log record processors can be configured on a per-class and per-namespace
