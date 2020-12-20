@@ -1,12 +1,10 @@
 .. include:: /Includes.rst.txt
-
-
 .. _typoscript-syntax-myths:
 .. _typoscript-syntax-faq:
 .. _typoscript-syntax-acknowledgements:
 
 ===============================
-Myths, FAQ and Acknowledgements
+Myths, FAQ and acknowledgements
 ===============================
 
 This section contains a few remarks and answers to questions you may
@@ -15,7 +13,7 @@ still have.
 
 .. _typoscript-syntax-myth-scripting-language:
 
-Myth: "TypoScript Is a Scripting Language"
+Myth: "TypoScript Is a scripting language"
 ==========================================
 
 This is misleading to say since you will think that TypoScript is like
@@ -35,7 +33,7 @@ about that; too late to change that now.
 
 .. _typoscript-syntax-myth-javascript:
 
-Myth: "TypoScript has the Same Syntax as JavaScript"
+Myth: "TypoScript has the same syntax as JavaScript"
 ====================================================
 
 TypoScript was designed to be simple to use and understand. Therefore
@@ -46,7 +44,7 @@ TypoScript is still not a procedural programming language!
 
 .. _typoscript-syntax-myth-proprietary:
 
-Myth: "TypoScript Is a Proprietary Standard"
+Myth: "TypoScript is a proprietary standard"
 ============================================
 
 Since TypoScript is not a scripting language it does not make sense to
@@ -85,7 +83,7 @@ TypoScript was not invented!
 
 .. _typoscript-syntax-myth-complex:
 
-Myth: "TypoScript Is very Complex"
+Myth: "TypoScript is very complex"
 ==================================
 
 TypoScript is simple in nature. But certainly it can quickly become
@@ -99,6 +97,7 @@ This can partly be solved by:
   gives you overview as well.
 
 
+.. index:: TypoScript; vs. XML
 .. _typoscript-syntax-xml:
 
 Why not XML Instead?

@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: TypoScript; Includes
 .. _typoscript-syntax-includes:
 
 ========
@@ -8,8 +7,8 @@ Includes
 ========
 
 You can also add include-instructions in TypoScript code. Availability
-depends on the context, but it works with TypoScript templates, Page
-TSconfig and User TSconfig.
+depends on the context, but it works with TypoScript templates, page
+TSconfig and user TSconfig.
 
 Since TYPO3 version 9 a new syntax for importing external TypoScript files has
 been introduced, which acts as a preprocessor before the actual parsing
@@ -68,7 +67,6 @@ The syntax is designed to stay and there are absolutely no plans to
 extend the :ts:`@import` statement in the future. However, the
 :ts:`@...` syntax for annotations may be used to add more preparsing logic to
 TypoScript in future.
-
 
 
 Alternative, traditional Syntax
@@ -130,6 +128,8 @@ DIR      This includes all files from a directory relative to :php:`\TYPO3\CMS\C
          file extension :file:`.typoscript`.
 =======  ==========================================================================
 
+
+.. index:: TypoScript; Includes by conditions
 
 .. _typoscript-syntax-includes-conditions:
 

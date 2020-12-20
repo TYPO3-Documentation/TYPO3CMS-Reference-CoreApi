@@ -1,12 +1,14 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   Upgrade wizards
+   Update wizards
+   see: Update wizards; Upgrade wizards
 .. preferably use label "upgrade-wizards"
-
 .. _update-wizards:
 .. _upgrade-wizards:
 
 ===============
-Upgrade Wizards
+Upgrade wizards
 ===============
 
 .. versionadded:: 9.4

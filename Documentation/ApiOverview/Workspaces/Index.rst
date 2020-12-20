@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   Versioning
+   Workspaces
 .. _workspaces:
 
 =========================
@@ -40,7 +42,7 @@ you are facing.
 
 .. _workspaces-frontend:
 
-Frontend Challenges in General
+Frontend challenges in general
 ==============================
 
 For the frontend the challenges are mostly related to creating correct
@@ -92,7 +94,7 @@ live records and check for them in versionOL on input record.
 
 .. _workspaces-frontend-guidelines:
 
-Frontend Implementation Guidelines
+Frontend implementation guidelines
 ==================================
 
 - Any place where enableFields() are not used for selecting in the
@@ -156,7 +158,7 @@ Frontend Implementation Guidelines
 
 .. _workspaces-frontend-problems:
 
-Frontend Scenarios Impossible to Preview
+Frontend scenarios impossible to preview
 ========================================
 
 These issues are not planned to be supported for preview:
@@ -203,7 +205,7 @@ These issues are not planned to be supported for preview:
 
 .. _workspaces-backend:
 
-Backend Challenges
+Backend challenges
 ==================
 
 The main challenge in the backend is to reflect how the system will
@@ -358,7 +360,7 @@ Workspace-related API for Backend Modules
 
 .. _workspaces-backend-acess:
 
-Backend Module Access
+Backend module access
 =====================
 
 You can restrict access to backend modules by using
@@ -374,7 +376,7 @@ like. This is done by an argument sent to the function
 
 .. _workspaces-detection:
 
-Detecting Current Workspace
+Detecting current workspace
 ===========================
 
 You can always check what the current workspace of the backend user is
@@ -388,7 +390,7 @@ corresponding entry in the :code:`sys_workspace` table.
 
 .. _workspaces-tcemain:
 
-Using DataHandler With Workspaces
+Using DataHandler with workspaces
 =================================
 
 Since admin users are also restricted by the workspace it is not
@@ -403,7 +405,7 @@ User Settings" module; that actually allows them to save to a live record
 
 .. _workspaces-moving:
 
-Moving in Workspaces
+Moving in workspaces
 ====================
 
 TYPO3 4.2 and beyond supports moving for "Element" type versions in
@@ -425,7 +427,7 @@ record is selected it should simply be discarded in case shown in
 context where ordering or position matters (like in menus or column
 based page content). This is done in the appropriate places.
 
-Persistence In-Depth Scenarios
+Persistence in-depth scenarios
 ==============================
 
 The following section represents how database records are actually persisted in a database

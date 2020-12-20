@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: TypoScript; Contexts
 .. _typoscript-syntax-typoscript-contexts:
 
 ========

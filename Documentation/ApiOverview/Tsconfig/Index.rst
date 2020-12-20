@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: TSconfig
 .. _tsconfig:
 
 ========
@@ -14,6 +13,9 @@ using the TypoScript syntax. The :ref:`TSconfig Reference <t3tsconfig:start>`
 describes in detail how this works and what can be done with it.
 
 
+.. index:: 
+   User TSconfig
+   TSconfig; User
 .. _tsconfig-user:
 
 User TSconfig
@@ -30,6 +32,9 @@ and backend module configuration
 TSconfig).
 
 
+.. index:: 
+   Page TSconfig
+   TSconfig; Page
 .. _tsconfig-page:
 
 Page TSconfig
@@ -46,6 +51,9 @@ to edit content in TYPO3) and the :ref:`DataHandler <datahandler-basics>`
 structures) behaviours. Again, the point is that the configuration is
 active for certain branches of the page tree which is very practical
 in projects running many sites in the same page tree.
+
+
+.. index:: pair: Page TSconfig; PHP
 
 Get Page TSConfig via PHP in an extension
 -----------------------------------------
