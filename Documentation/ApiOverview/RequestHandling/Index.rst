@@ -1,6 +1,9 @@
 .. include:: /Includes.rst.txt
 .. highlight:: php
-.. index:: Request handling
+.. index:: 
+   Request handling
+   PSR-15
+   Request handling; PSR-15
 .. _request-handling:
 
 ==============================
