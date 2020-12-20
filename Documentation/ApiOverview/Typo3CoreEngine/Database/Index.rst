@@ -2,6 +2,7 @@
 .. index::
    DataHandler
    TCEmain
+   see: TCEmain; DataHandler
 .. _tce-database-basics:
 .. _datahandler-basics:
 
