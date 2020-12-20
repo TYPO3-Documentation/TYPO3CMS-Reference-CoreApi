@@ -10,8 +10,10 @@ Symfony expression language is used by TYPO3 in certain places. These are
 documented in below sections, together with explanations how they can be
 extended:
 
-.. contents::
-   :depth: 2
+.. contents:: This page
+   :backlinks: top
+   :class: compact-list
+   :local:
 
 
 .. index:: pair: Symfony expression language; TypoScript
@@ -37,7 +39,7 @@ The following section explain how to add variables and functions.
 .. _sel-ts-registering-new-provider-within-extension:
 
 Registering new provider within an extension
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+============================================
 
 There has to be a provider, no matter whether variables or functions should be provided.
 
@@ -52,10 +54,11 @@ The provider is registered within :file:`/Configuration/ExpressionLanguage.php`:
 
 This will register the defined class as provider within context `typoscript`.
 
+
 .. _sel-ts-implement-provider-within-extension:
 
 Implement provider within extension
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===================================
 
 The provider itself is written as PHP Class within
 :file:`/Classes/ExpressionLanguage/CustomTypoScriptConditionProvider.php`, depending on
@@ -74,10 +77,11 @@ registered class name::
        }
    }
 
+
 .. _sel-ts-additional-variables:
 
 Additional variables
-^^^^^^^^^^^^^^^^^^^^
+====================
 
 Additional variables can already be provided within the
 :php:`CustomTypoScriptConditionProvider` PHP class::
@@ -104,10 +108,11 @@ can be used within Conditions:
        page.10.value = Matched
    [GLOBAL]
 
+
 .. _sel-ts-additional-functions:
 
 Additional functions
-^^^^^^^^^^^^^^^^^^^^
+====================
 
 Additional functions can be provided through another class, which has to be
 returned by :php:`CustomTypoScriptConditionProvider` PHP class::
