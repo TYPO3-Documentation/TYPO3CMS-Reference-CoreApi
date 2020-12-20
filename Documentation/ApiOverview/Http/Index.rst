@@ -1,9 +1,12 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   HTTP request
+   Guzzle
+   PSR-7
 .. _http:
 
 =====================================
-HTTP Request Library / Guzzle / PSR-7
+HTTP request library / Guzzle / PSR-7
 =====================================
 
 Since TYPO3 CMS 8.1 the PHP library `Guzzle` has been added via composer dependency
@@ -33,10 +36,10 @@ The existing TYPO3-specific wrapper :php:`GeneralUtility::getUrl()` now uses Guz
 automatically for remote files, removing the need to configure settings based on certain
 implementations like stream wrappers or cURL directly.
 
-
+.. index:: HTTP request; RequestFactory
 .. _http-basic:
 
-Basic Usage
+Basic usage
 ===========
 
 The `RequestFactory` class can be used like this:
@@ -94,9 +97,11 @@ API directly in order to ensure a clear upgrade path when updates to the underly
 
    Some information on this page was moved to :ref:`backend-routing`.
 
+
+.. index:: HTTP request; Custom middleware handlers
 .. _http-custom-handlers:
 
-Custom Middleware Handlers
+Custom middleware handlers
 ==========================
 
 Guzzle will accept a stack of custom middleware handlers, which can be configured using :php:`$GLOBALS['TYPO3_CONF_VARS']`.
@@ -109,6 +114,9 @@ If a custom configuration is given, the default handler stack is extended, but o
       (\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\ACME\Middleware\Guzzle\CustomMiddleware::class))->handler();
    $GLOBALS['TYPO3_CONF_VARS']['HTTP']['handler'][] =
       (\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\ACME\Middleware\Guzzle\SecondCustomMiddleware::class))->handler();
+
+
+.. index:: HTTP request; HttpUtility
 
 HTTP Utility Methods
 ====================

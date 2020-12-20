@@ -1,9 +1,12 @@
 .. include:: /Includes.rst.txt
-.. index:: Redirect Headers
+.. index::
+   Redirect headers
+   Http; X-Redirect-By
+   Page types; Redirect headers
 
-====================================================================
-X-Redirect-By Header for pages with redirect types
-====================================================================
+==================================================
+X-Redirect-By header for pages with redirect types
+==================================================
 
 The following page types trigger a redirect:
 

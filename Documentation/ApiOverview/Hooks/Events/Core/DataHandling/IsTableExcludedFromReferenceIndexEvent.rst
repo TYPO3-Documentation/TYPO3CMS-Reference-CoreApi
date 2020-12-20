@@ -1,8 +1,6 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Events; IsTableExcludedFromReferenceIndexEvent
 .. _IsTableExcludedFromReferenceIndexEvent:
-
 
 ======================================
 IsTableExcludedFromReferenceIndexEvent

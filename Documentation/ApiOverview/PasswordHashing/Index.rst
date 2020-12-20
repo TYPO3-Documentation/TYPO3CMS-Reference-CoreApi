@@ -1,11 +1,10 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Password hashing
 .. _password-hashing:
 
-===============================
-Password Hashing
-===============================
+================
+Password hashing
+================
 
 
 .. _password-hashing-introduction:
@@ -25,7 +24,7 @@ have a basic understanding of hashing algorithms and configuration in TYPO3.
 
 .. _password-hashing-basic-knowledge:
 
-Basic Knowledge
+Basic knowledge
 ===============
 
 If a database has been compromised and the passwords have been stored as plain text,
@@ -122,6 +121,8 @@ used hash algorithm. In this case it is `$argon2i` which denotes the Argon2i has
     1 row in set (0.01 sec)
 
 
+.. index:: Password hashing; Configuration
+
 Configuration
 =============
 
@@ -161,7 +162,12 @@ rely on different PHP capabilities and might be suitable fall backs if Argon2i i
 reason.
 
 
-Configuration Options
+.. index::
+   TYPO3_CONF_VARS; SYS availablePasswordHashAlgorithms
+   TYPO3_CONF_VARS; FE passwordHashing
+   TYPO3_CONF_VARS; BE passwordHashing
+
+Configuration options
 =====================
 
 Configuration of password hashing is stored in :file:`LocalConfiguration.php` with defaults in
@@ -184,6 +190,8 @@ Configuration of password hashing is stored in :file:`LocalConfiguration.php` wi
   hash algorithm. This is usually an empty array to fall back to defaults, see below for more details.
 
 
+.. index:: Password hashing;
+
 Available Hash Algorithms
 =========================
 
@@ -192,6 +200,9 @@ if better hash algorithms over time. Most algorithms have additional configurati
 used to increase or lower the needed computation power to calculated hashes. Administrators usually do
 not need to fiddle with these and should go with defaults configured by the core. If changing these options,
 administrators should know exactly what they are doing.
+
+
+.. index:: Password hashing;
 
 Argon2i / Argon2id
 ------------------
@@ -209,6 +220,7 @@ Options:
 * threads: Number of threads to use for computing the Argon2 hash. Defaults to 2.
 
 
+.. index:: Password hashing;
 
 bcrypt
 ------
@@ -217,6 +229,9 @@ bcrypt
 additional quirks for long passwords in PHP and should only be used if Argon2i is not available. Options:
 
 * cost: Denotes the algorithmic cost that should be used. Defaults to 12.
+
+
+.. index:: Password hashing;
 
 PBKDF2
 ------
@@ -227,6 +242,9 @@ It could be a preferred password hash algorithm if storing passwords in a FIPS c
 
 * hash_count: Number of hash iterations. Defaults to 25000.
 
+
+.. index:: Password hashing;
+
 phpass
 ------
 
@@ -234,6 +252,9 @@ phpass
 The implementation should work on almost all PHP builds. Options:
 
 * hash_count: The default log2 number of iterations for password stretching. Defaults to 14.
+
+
+.. index:: Password hashing;
 
 blowfish
 --------

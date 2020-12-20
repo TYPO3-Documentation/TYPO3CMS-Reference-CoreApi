@@ -197,7 +197,7 @@ Using  `data = pagelayout` is the same as using as
 In the fluid template the column positions can be accessed now via content mapping as described here
 :ref:`t3sitepackage:content-mapping`.
 
-.. index:: Backend layout, Reference implementation
+.. index:: Backend layout; Reference implementation
 .. _be-layout-reference-implementations:
 
 Reference implementations of backend layouts
@@ -208,7 +208,7 @@ layouts <https://github.com/benjaminkott/bootstrap_package/tree/master/Configura
 as well as an example configuration of how to include frontend templates for backend layouts (see `setup.typoscript
 Line 95 ff <https://github.com/benjaminkott/bootstrap_package/blob/master/Configuration/TypoScript/setup.typoscript>`__)
 
-.. index:: pair: Backend layout, Extensions
+.. index:: pair: Backend layout; Extensions
 .. _be-layout-extensions:
 
 Extensions for backend layouts
