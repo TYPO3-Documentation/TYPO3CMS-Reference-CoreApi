@@ -129,7 +129,7 @@ DIR      This includes all files from a directory relative to :php:`\TYPO3\CMS\C
 =======  ==========================================================================
 
 
-.. index:: TypoScript; Includes by Conditions
+.. index:: TypoScript; Includes by conditions
 
 .. _typoscript-syntax-includes-conditions:
 
