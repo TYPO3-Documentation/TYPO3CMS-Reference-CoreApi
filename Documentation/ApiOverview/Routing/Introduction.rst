@@ -73,8 +73,8 @@ To ensure Routing in TYPO3 is fully functional the following prerequisites need 
 Tips
 ====
 
-Use imports in yaml files
--------------------------
+Using imports in yaml files
+---------------------------
 
 As routing configuration (and site configuration in general) can get pretty long fast, you should make use of imports
 in your yaml configuration which allows you to add routing configurations from different files and different extensions.
