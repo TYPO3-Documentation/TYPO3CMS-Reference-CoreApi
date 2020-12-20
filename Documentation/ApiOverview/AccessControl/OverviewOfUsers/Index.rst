@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-.. index:: pair: Backend; users module
+.. index:: 
+   Backend; Backend users module
+   Module; Backend users
 .. _access-backend-users-module:
 
 ====================
