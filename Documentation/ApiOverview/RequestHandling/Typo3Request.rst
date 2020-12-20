@@ -1,7 +1,6 @@
 .. include:: /Includes.rst.txt
-.. highlight:: php
 .. index::
-   Request handling; request object
+   Request handling; Request object
    $GLOBALS; TYPO3_REQUEST
 .. _typo3-request:
 
