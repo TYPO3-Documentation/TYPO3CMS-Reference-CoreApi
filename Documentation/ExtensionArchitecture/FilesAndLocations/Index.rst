@@ -106,7 +106,7 @@ For more details, see the :ref:`section below <extension-configuration-files>`.
 
 Contains extensions of existing tables,
 declaration of backend modules, etc. All code in such files
-is included after all the default definitions provided by the core and
+is included after all the default definitions provided by the Core and
 loaded after :file:`ext_localconf.php` files during TYPO3
 :ref:`bootstrap <bootstrapping>`.
 
@@ -114,8 +114,8 @@ Pay attention to the rules for the contents of these files.
 For more details, see the :ref:`section below <extension-configuration-files>`.
 
 .. note::
-   In old TYPO3 core versions, this file contained additions to the
-   global :php:`$GLOBALS['TCA']` array. This changed since core version 6.2
+   In old TYPO3 Core  versions, this file contained additions to the
+   global :php:`$GLOBALS['TCA']` array. This changed since Core version 6.2
    to allow effective caching:
 
    TCA definition of new database tables must be done entirely
@@ -156,7 +156,7 @@ TYPO3 will merge this table definition to the existing table definition when
 comparing expected and actual table definitions. Partial definitions
 can also contain indexes and other directives. They can also change
 existing table fields though that is not recommended, because it may
-create problems with the TYPO3 core and/or other extensions.
+create problems with the TYPO3 Core  and/or other extensions.
 
 The :file:`ext_tables.sql` file may not necessarily be "dumpable"
 directly to MySQL (because of the semi-complete table definitions allowed
@@ -178,7 +178,7 @@ Auto generated structure
 The database schema analyzer automatically creates TYPO3 "management" related
 database columns by reading a tables TCA and checking the :ref:`t3tca:ctrl`
 section for table capabilities. Field definitions in :file:`ext_tables.sql` take
-precedence over automatically generated fields, so the core never overrides a
+precedence over automatically generated fields, so the Core never overrides a
 manually specified column definition from an :file:`ext_tables.sql` file.
 
 These columns below are automatically added if not defined in
@@ -370,7 +370,7 @@ Full paths to these files are: :file:`Configuration/Backend/Routes.php` and
 
 Registry of backend routes. Extensions that add backend modules must
 register their routes here to be correctly linkable in the backend.
-The file must return an array with routing details. See core extensions
+The file must return an array with routing details. See Core extensions
 like :php:`backend` for examples.
 
 
@@ -392,7 +392,7 @@ Services can be configured in this file. TYPO3 uses it for:
 A typical :file:`Configuration/Services.yaml` may look like this:
 
 .. code-block:: yaml
-   :caption: Simplified Services.yaml from sysext: core
+   :caption: Simplified Services.yaml from sysext: `core`
 
    # Configuration/Services.yaml
    services:
@@ -515,14 +515,14 @@ Configuration/TCA/Overrides
 .. index:: Path; EXT:{extkey}/Configuration/TSconfig/Page
 
 Configuration/TSconfig/Page
-  Page TSconfig, see chapter :ref:`'Page TSconfig' in the TSconfig Reference
+  page TSconfig, see chapter :ref:`'page TSconfig' in the TSconfig Reference
   <t3tsconfig:PageTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.
 
 .. index:: Path; EXT:{extkey}/Configuration/TSconfig/User
 
 Configuration/TSconfig/User
-  User TSconfig, see chapter :ref:`'User TSconfig' in the TSconfig Reference
+  User TSconfig, see chapter :ref:`'user TSconfig' in the TSconfig Reference
   <t3tsconfig:UserTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.
 

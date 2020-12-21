@@ -103,7 +103,7 @@ The assignment in TypoScript syntax would look like this:
 
 Without defining what are correct keys, values and data types, we
 have no idea about the meaning (**semantics**) of the file and cannot interpret
-it. We (or rather the TYPO3 core) have no idea, what `foo` (in the example
+it. We (or rather the TYPO3 Core ) have no idea, what `foo` (in the example
 above) means, whether
 it is a valid assignment, what data type can be used as value etc. We can only
 check whether the syntax is correct.

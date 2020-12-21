@@ -49,8 +49,8 @@ Methods::
 
 
 .. warning::
-    The `PSR-7` Request and the extbase request are different things. You cannot
-    access the site configuration via the extbase request. When in extbase context
+    The `PSR-7` Request and the Extbase request are different things. You cannot
+    access the site configuration via the Extbase request. When in Extbase context
     use the global access - a better way will be introduced in future versions.
 
 

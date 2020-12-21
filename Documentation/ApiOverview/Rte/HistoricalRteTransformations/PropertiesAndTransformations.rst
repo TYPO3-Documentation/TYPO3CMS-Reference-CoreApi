@@ -33,7 +33,7 @@ etc.
 
 The answer to this problem is a so called 'transformation' which you
 can configure in the $TCA (global, authoritative configuration) and
-which you may further customize through Page TSconfig (local
+which you may further customize through page TSconfig (local
 configuration for specific branches of the website). The issue of
 transformations is best explained by the following example from the
 table, tt\_content (the content elements).

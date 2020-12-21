@@ -170,7 +170,7 @@ list of the most important stuff happening at this point:
 After all that the :php:`Application::run()` method is called, which
 basically dispatches the request to the right handler.
 
-10. Initialization of the TYPO3 Backend
+10. Initialization of the TYPO3 backend
 ---------------------------------------
 
 The backend request handler has its own :php:`boot()` method, which performs
@@ -196,7 +196,7 @@ contexts:
 
 * ``Production`` (default) - should be used for a live site
 * ``Development`` - used for development
-* ``Testing`` - is only used internally when executing TYPO3 **core** tests. It must not be used otherwise.
+* ``Testing`` - is only used internally when executing TYPO3 **Core** tests. It must not be used otherwise.
 
 The context TYPO3 runs in is specified through the environment variable
 ``TYPO3_CONTEXT``. It can be set on the command line:
@@ -274,7 +274,7 @@ necessary settings while the ``Production/Live`` context is used on the live ins
 
 .. attention::
 
-   ``Testing`` Is reserved for internal use when executing TYPO3 **core** functional and unit tests
+   ``Testing`` Is reserved for internal use when executing TYPO3 **Core** functional and unit tests
    It must not be used otherwise. Instead sub-contexts must be used:
    ``Production/Testing`` or ``Development/Testing``
 

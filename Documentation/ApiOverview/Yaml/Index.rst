@@ -1,10 +1,12 @@
 .. include:: /Includes.rst.txt
-
+.. index:: 
+   ! YAML
+   pair: API; YAML
 .. _yaml-api:
 
-=============
+========
 YAML API
-=============
+========
 
 YAML is used in TYPO3 for various configurations; most notable are
 
@@ -15,7 +17,7 @@ YAML is used in TYPO3 for various configurations; most notable are
 * System extension :ref:`rte_ckeditor  <ckedit:start>` configuration
 
 
-
+.. index:: YamlFileLoader
 .. _yamlFileLoader:
 
 YamlFileLoader
@@ -58,7 +60,10 @@ Examples:
      - { resource: "../path/to/something/within/the/project-folder/generic.yaml" }
 
 
-Custom Placeholder Processing
+
+.. index:: YAML; Custom placeholder
+
+Custom placeholder processing
 -----------------------------
 
 It is possible to register custom placeholder processors to allow fetching data from

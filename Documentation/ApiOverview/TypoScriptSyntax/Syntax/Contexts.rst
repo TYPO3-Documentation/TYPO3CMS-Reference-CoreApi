@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: TypoScript; Contexts
 .. _typoscript-syntax-typoscript-contexts:
 
 ========
@@ -10,8 +9,8 @@ Contexts
 There are two contexts where TypoScript is used: templates, where
 TypoScript is used to actually define what will appear in the TYPO3 CMS
 frontend, and TSconfig, where it is used to configure settings of the
-TYPO3 backend. TSconfig is further subdivided into **User TSconfig**
-(defined for backend users or user groups) and **Page TSconfig** (defined
+TYPO3 backend. TSconfig is further subdivided into **user TSconfig**
+(defined for backend users or user groups) and **page TSconfig** (defined
 for pages in the page tree).
 
 Page TSconfig is used for customizing the TYPO3 CMS backend according

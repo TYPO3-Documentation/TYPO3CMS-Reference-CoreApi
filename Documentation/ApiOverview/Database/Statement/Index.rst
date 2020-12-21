@@ -14,7 +14,7 @@ query types and by :php:`Connection->select()` and :php:`Connection->count()` ca
 The object represents a query result set and comes with methods to :php:`->fetch()` single rows
 or to :php:`->fetchAll()` of them. Additionally, it can also be used to execute a single prepared
 statement with different values multiple times. This part is however not widely used within
-the `TYPO3 CMS` core yet, and thus not fully documented here.
+the TYPO3 Core yet, and thus not fully documented here.
 
 .. note::
 

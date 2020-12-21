@@ -1,10 +1,13 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   DataHandler
+   TCEmain
+   see: TCEmain; DataHandler
 .. _tce-database-basics:
 .. _datahandler-basics:
 
 ========================================================
-Database: DataHandler Basics (Formerly Known as TCEmain)
+Database: DataHandler basics (Formerly Known as TCEmain)
 ========================================================
 
 When you are using TCE from your backend applications you need to
@@ -32,9 +35,11 @@ hierarchy of these two arrays.
    type is specified. In that case the DataHandler is not
    able to determine the correct value of the field.
 
+
+.. index:: DataHandler; Commands array
 .. _tce-commands:
 
-Commands Array
+Commands array
 ==============
 
 Syntax::
@@ -91,9 +96,10 @@ Description of keywords in syntax:
          See table below for :ref:`command keywords and values <tce-command-keywords>`
 
 
+.. index:: DataHandler; Commands keywords
 .. _tce-command-keywords:
 
-Command Keywords and Values
+Command keywords and values
 ---------------------------
 
 .. t3-field-list-table::
@@ -280,9 +286,10 @@ Command Keywords and Values
              - [comment]: Comment string that goes into the log.
 
 
+.. index:: DataHandler; Commands examples
 .. _tce-command-examples:
 
-Examples of Commands:
+Examples of commands:
 ---------------------
 
 ::
@@ -293,9 +300,10 @@ Examples of Commands:
    $cmd['tt_content'][1203]['move'] = 400;  // Moves tt_content uid=1203 to the first position in page uid=400
 
 
+.. index:: DataHandler; Data array
 .. _tce-data:
 
-Data Array
+Data array
 ==========
 
 Syntax::
@@ -358,9 +366,10 @@ Description of keywords in syntax:
    FlexForm fields always end with a "regular value" of course.
 
 
+.. index:: DataHandler; Data submission
 .. _tce-data-examples:
 
-Examples of Data Submission
+Examples of data submission
 ---------------------------
 
 This creates a new page titled "The page title" as the first page
@@ -429,9 +438,10 @@ this page", and no\_cache checked::
 
 
 
+.. index:: DataHandler; Clear cache
 .. _tce-clear-cache:
 
-Clear Cache
+Clear cache
 ===========
 
 TCE also has an API for clearing the cache tables of TYPO3:
@@ -472,6 +482,7 @@ Syntax::
          TSconfig "options.clearCache.pages".
 
 
+.. index:: Hook; Clear cache
 .. _tce-cache-hook:
 
 Hook for Cache Post-processing
@@ -484,6 +495,7 @@ function. Configuration of the hook can be done from
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = \Vendor\Package\Hook\DataHandlerHook::class . '->postProcessClearCache';
 
 
+.. index:: DataHandler; Flags
 .. _tce-flags:
 
 Flags in DataHandler

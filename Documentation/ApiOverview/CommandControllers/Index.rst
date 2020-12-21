@@ -83,7 +83,7 @@ Creating a new Command in Extensions
 Command Class
 -------------
 
-Example taken from :php:`ListSysLogCommand` in the core and simplified::
+Example taken from :php:`ListSysLogCommand` in the Core and simplified::
 
     use Symfony\Component\Console\Command\Command;
     use Symfony\Component\Console\Input\InputArgument;
@@ -216,7 +216,7 @@ Deprecated since v10 and will be removed in v11::
        ],
    ];
 
-Initialize Backend User
+Initialize backend user
 -----------------------
 
 A backend user can be initialized with this call inside :php:`execute()` method::
@@ -261,6 +261,6 @@ By default, it is possible to run the command from the :ref:`TYPO3 scheduler
 More information
 ================
 
-* see existing command controllers in the core: :file:`typo3/sysext/*/Classes/Command`
+* see existing command controllers in the Core: :file:`typo3/sysext/*/Classes/Command`
 * `Symfony Command Documentation <https://symfony.com/doc/current/console.html>`_
 * `Symfony Commands: Console Input (Arguments & Options) <https://symfony.com/doc/current/console/input.html>`__

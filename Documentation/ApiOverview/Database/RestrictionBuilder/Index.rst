@@ -100,7 +100,7 @@ the `DefaultRestrictionContainer` if not explicitly told otherwise by an extensi
     as example the frontend behaves much more like a backend call if the admin panel is used.
 
     The currently active variant is much easier: It always adds sane defaults everywhere, a
-    developer only has to deal with details if they don't fit. The core team hopes this
+    developer only has to deal with details if they don't fit. The Core Team hopes this
     approach is a good balance between hidden magic, security, transparency and convenience.
 
 

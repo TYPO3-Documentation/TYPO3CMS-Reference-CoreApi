@@ -141,7 +141,7 @@ Several TYPO3 Core modules are already using this API for adding or modifying it
 
 
 
-Adding Context Menu to Elements in Your Backend Module
+Adding context menu to elements in your backend module
 ======================================================
 
 Enabling context menu in your own backend modules is quite straightforward.

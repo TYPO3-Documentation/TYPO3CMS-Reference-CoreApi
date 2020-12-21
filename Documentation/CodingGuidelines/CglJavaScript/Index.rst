@@ -8,9 +8,9 @@ JavaScript Coding Guidelines
 
 The rules suggested in the `Airbnb JavaScript Style Guide
 <https://github.com/airbnb/javascript>`__ should be used throughout the TYPO3
-CMS core for JavaScript files.
+Core for JavaScript files.
 
-Note that the TYPO3 core typically uses TypeScript now and automatically converts it to JavaScript.
+Note that the TYPO3 Core  typically uses TypeScript now and automatically converts it to JavaScript.
 
 Directories and Filenames
 =========================

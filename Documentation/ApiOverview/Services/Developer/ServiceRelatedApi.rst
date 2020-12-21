@@ -6,7 +6,7 @@
 Services API
 ============
 
-This section describes the methods of the TYPO3 CMS core that are related
+This section describes the methods of the TYPO3 Core that are related
 to the use of services.
 
 

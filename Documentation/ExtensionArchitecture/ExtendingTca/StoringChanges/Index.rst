@@ -23,8 +23,8 @@ are nicely packaged in a self-contained entity which can be easily
 deployed on multiple servers.
 
 The drawback is that the extension loading order must be finely controlled. However, **in
-case you are modifying core TCA, you usually don't have to worry about that**. Since
-custom extensions are always loaded *after* the core's TCA, changes from custom extensions
+case you are modifying Core TCA, you usually don't have to worry about that**. Since
+custom extensions are always loaded *after* the Core's TCA, changes from custom extensions
 will usually take effect without any special measures.
 
 .. important::

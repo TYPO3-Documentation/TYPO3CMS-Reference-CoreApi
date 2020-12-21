@@ -43,10 +43,10 @@ User permissions
 
 User permissions for files can be set in the
 :ref:`"Fileoperation permissions" section <t3start:file-permissions>`
-of the Backend User or Backend User Group records.
+of the backend user or backend user group records.
 
-It is also possible to set permissions using :ref:`User TSconfig <t3tsconfig:usertsconfig>`,
-defined either at Backend User or Backend User Group level. The TSconfig way is recommended because
+It is also possible to set permissions using :ref:`user TSconfig <t3tsconfig:usertsconfig>`,
+defined either at backend user or backend user group level. The TSconfig way is recommended because
 it allows for more flexibility. See some examples below and read on in the section about
 :ref:`permissions <t3tsconfig:userTsConfigPermissions>` in the user TSconfig reference.
 
@@ -73,8 +73,8 @@ are **read-only**:
       recursivedeleteFolder = 0
    }
 
-If no permissions are defined in TSconfig, the settings in the Backend User
-and in the Backend User Group record are taken into account and treated as
+If no permissions are defined in TSconfig, the settings in the backend user
+and in the backend user group record are taken into account and treated as
 default permissions for all storages.
 
 
@@ -83,7 +83,7 @@ default permissions for all storages.
 User permissions per storage
 ----------------------------
 
-Using :ref:`User TSconfig <t3tsconfig:usertsconfig>` it is possible to set different permissions
+Using :ref:`user TSconfig <t3tsconfig:usertsconfig>` it is possible to set different permissions
 for different storages. This syntax uses the uid of the targeted
 storage record.
 

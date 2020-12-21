@@ -55,7 +55,7 @@ errorHandler
     string / enum
 
 :aspect:`Description`
-    Define how to handle these errors. May be `Fluid` for rendering a fluid template,
+    Define how to handle these errors. May be `Fluid` for rendering a Fluid template,
     `Page` for fetching content from a page or `PHP` for a custom implementation.
 
 :aspect:`Example`

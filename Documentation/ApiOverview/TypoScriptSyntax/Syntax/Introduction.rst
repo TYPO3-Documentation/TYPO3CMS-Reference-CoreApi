@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: TypoScript; Introduction
 .. _typoscript-syntax-syntax-introduction:
 
 ============

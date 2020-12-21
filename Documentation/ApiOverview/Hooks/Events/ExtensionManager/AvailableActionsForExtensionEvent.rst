@@ -9,7 +9,7 @@ AvailableActionsForExtensionEvent
 
 .. versionadded:: 10.3
 
-Event that is triggered when rendering an additional action (currently within a Fluid ViewHelper) in the Extension Manager.::
+Event that is triggered when rendering an additional action (currently within a Fluid Viewhelper) in the Extension Manager.::
 
    public function getActions(): array
    {

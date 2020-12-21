@@ -5,7 +5,7 @@
 Introduction
 ============
 
-Security is taken very seriously by the core developers of TYPO3 projects
+Security is taken very seriously by the Core developers of TYPO3 projects
 and especially by the members of the official TYPO3 Security Team. It is
 also in the interest of system administrators, website owners, editors
 and everybody who is responsible for a TYPO3 site, to protect the site
@@ -29,7 +29,7 @@ Reporting a security issue
 ==========================
 
 If you would like to report a security issue in a TYPO3 extension or
-the TYPO3 core system, please report it to the TYPO3 Security Team.
+the TYPO3 Core  system, please report it to the TYPO3 Security Team.
 Please refrain from making anything public before an official fix is
 released. Read more about the process of incident handling by the
 TYPO3 Security Team in the :ref:`next chapter <security-team>`.

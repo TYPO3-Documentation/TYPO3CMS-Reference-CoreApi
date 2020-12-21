@@ -11,7 +11,7 @@ The purpose of a log writer is (usually) to save all log records into a persiste
 like a log file, a database table, or to a remote syslog server.
 
 Different log writers offer possibilities to log into different targets.
-Custom log writers can extend the functionality shipped with TYPO3 core.
+Custom log writers can extend the functionality shipped with TYPO3 Core .
 
 
 .. _logging-writers-builtin:
@@ -19,7 +19,7 @@ Custom log writers can extend the functionality shipped with TYPO3 core.
 Built-in Log Writers
 ====================
 
-This section describes the log writers shipped with the TYPO3 core.
+This section describes the log writers shipped with the TYPO3 Core .
 Some writers have options to allow customization of the particular writer.
 See the :ref:`Configuration <logging-configuration-writer>` section for how to use these options.
 

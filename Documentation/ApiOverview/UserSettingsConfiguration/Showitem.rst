@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: User settings; Showitem section
 .. _user-settings-showitem:
 
 ====================
-['showitem'] Section
+['showitem'] section
 ====================
 
 This string is used for rendering the form in the user setup module.

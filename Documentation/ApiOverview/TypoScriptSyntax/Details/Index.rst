@@ -1,10 +1,8 @@
 .. include:: /Includes.rst.txt
-
-
 .. _typoscript-syntax-details:
 
 ===================
-Sorting out Details
+Sorting out details
 ===================
 
 This chapter looks at some more technical details about TypoScript.

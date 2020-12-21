@@ -13,7 +13,7 @@ The TYPO3 Security Team
 Reporting a security issue
 ==========================
 
-If you find a security issue in the TYPO3 core system or in a TYPO3
+If you find a security issue in the TYPO3 Core system or in a TYPO3
 extension (even if it is your own development), please report it to
 the `TYPO3 Security Team <mailto:security@typo3.org>`_ – the Security Team only.
 Do not disclose the issue in public (for example in mailing lists, forums, on Twitter,
@@ -54,7 +54,7 @@ Incident handling
 =================
 
 This chapter provides detailed information about the differences between
-the TYPO3 core system and TYPO3 extensions and how the TYPO3 Security
+the TYPO3 Core system and TYPO3 extensions and how the TYPO3 Security
 Team deals with security issues of those.
 
 
@@ -62,11 +62,11 @@ Security issues in the TYPO3 Core
 ---------------------------------
 
 If the TYPO3 Security Team gains knowledge about a security issue in
-the TYPO3 core system, they work closely together with the developers
+the TYPO3 Core system, they work closely together with the developers
 of the appropriate component of the system, after verifying the
 problem. A fix for the vulnerability will be developed, carefully
 tested and reviewed. Together with a public security bulletin, a TYPO3
-core update will be released. Please see next chapter for further
+Core update will be released. Please see next chapter for further
 details about TYPO3 CMS versions and security bulletins.
 
 

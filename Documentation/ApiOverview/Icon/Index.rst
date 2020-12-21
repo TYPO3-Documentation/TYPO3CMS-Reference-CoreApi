@@ -37,7 +37,7 @@ code in your :php:`ext_localconf.php` file:
 IconProvider
 ------------
 
-The TYPO3 core ships three icon providers which can be used:
+The TYPO3 Core ships three icon providers which can be used:
 
 * :php:`BitmapIconProvider` – For all kinds of bitmap icons (GIF, PNG, JPEG, etc.)
 * :php:`SvgIconProvider` – For SVG icons
@@ -79,10 +79,10 @@ You can use the :php:`IconFactory` to request an icon:
    Fluid; Core icon
    pair: Icon API; Fluid
 
-The Fluid ViewHelper
+The Fluid Viewhelper
 --------------------
 
-You can also use the :ref:`Fluid core:icon ViewHelper <t3viewhelper:typo3-core-icon>` to render an icon in your view:
+You can also use the :ref:`Fluid core:icon Viewhelper <t3viewhelper:typo3-core-icon>` to render an icon in your view:
 
 .. code-block:: html
 
@@ -181,7 +181,7 @@ Install the extension *styleguide* as described in the Readme in the `installati
 <https://github.com/TYPO3/styleguide#installation>`__ section.
 
 Once, installed, you can view available icons by selecting help (?) on the top in the
-TYPO3 Backend, then *Styleguide* and then *Icons*, *All Icons*.
+TYPO3 backend, then *Styleguide* and then *Icons*, *All Icons*.
 
 There, browse through existing icons. Use the name under the icon (for example
 :code:`actions-add`) as first parameter for :php:`IconFactory::getIcon()` in PHP or as value for

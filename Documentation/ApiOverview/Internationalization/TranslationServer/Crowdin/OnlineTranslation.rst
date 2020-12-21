@@ -20,7 +20,7 @@ Getting started
 If you want to participate, it only takes a few easy steps to get started:
 
 1. Create an account at Crowdin: `<https://accounts.crowdin.com/register>`__
-2. Either find a TYPO3-project or go straight to TYPO3-core (`<https://crowdin.com/project/typo3-cms>`__). There is also a list of extensions available for translation at the `TYPO3 Crowdin Bridge <https://localize.typo3.org/fileadmin/ter/status.html>`__
+2. Either find a TYPO3-project or go straight to TYPO3 Core (`<https://crowdin.com/project/typo3-cms>`__). There is also a list of extensions available for translation at the `TYPO3 Crowdin Bridge <https://localize.typo3.org/fileadmin/ter/status.html>`__
 3. Join the project
 4. Select your preferred language
 5. Start translation

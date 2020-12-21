@@ -21,7 +21,7 @@ a convenient way to upload files and file transfers via `FTP` are
 simpler and faster to do. The main problem with this is that to enable
 "other services" with write access to the document root directory,
 bypasses the security measures mentioned above. A malicious PHP script
-for example could manipulate or destroy other files – maybe TYPO3 core
+for example could manipulate or destroy other files – maybe TYPO3 Core
 files. Sometimes access details of editors are stolen, intercepted or
 accidentally fallen into the wrong hands.
 

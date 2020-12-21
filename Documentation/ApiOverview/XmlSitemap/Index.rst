@@ -1,15 +1,14 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: XML sitemap
 .. _xmlsitemap:
 
 ===========
-XML Sitemap
+XML sitemap
 ===========
 
 .. versionadded:: 9.4
 
-   XML Sitemap support was added to the core with change :doc:`t3core:Changelog/9.4/Feature-84525-XMLSitemap`.
+   XML Sitemap support was added to the Core with change :doc:`t3core:Changelog/9.4/Feature-84525-XMLSitemap`.
 
 It is possible to generate XML sitemaps for SEO purposes without using 3rd-party plugins.
 When enabled, this new feature will create a sitemapindex with one or more sitemaps in it.
@@ -23,7 +22,7 @@ The XML sitemap is disabled by default. You can easily enable it by installing t
 extension "seo" and including the static TypoScript template XML Sitemap (seo). It is also
 mandatory to have a site configuration for your rootpage(s).
 
-How to Access Your XML Sitemap
+How to access your XML sitemap
 ==============================
 
 Until it is possible to have a default route with the new URL handling mechanism, you can access
@@ -33,6 +32,9 @@ index. By default you will see one sitemap in the index. This is the sitemap for
 If you have multiple siteroots or multiple languages with different domains or language prefixes,
 you can just go to the domain that handles the siteroot / language. The sitemap will be based on
 the settings for that domain.
+
+
+.. index:: XmlSitemapDataProviders
 
 XmlSitemapDataProviders
 =======================
@@ -133,7 +135,7 @@ Use different types to have multiple, independent sitemaps:
        }
    }
 
-Change Frequency and Priority
+Change frequency and priority
 -----------------------------
 
 Change frequencies define how often each page is approximately updated and hence how often it should be revisited
@@ -155,7 +157,7 @@ to a field with a decimal value between 0 and 1.
    in which order and how often you would like a crawler to visit your pages.
 
 
-Create Your Own XmlSitemapDataProvider
+Create your own XmlSitemapDataProvider
 ======================================
 
 If you need more logic in your sitemap, you can also write your own XmlSitemapProvider. You can do this by

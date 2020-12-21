@@ -7,7 +7,7 @@ Authentication
 ==============
 
 The TYPO3 CMS Core uses :ref:`Services <services>` for the authentication process.
-This family of services (of type "auth") are the only core usage that consumes the
+This family of services (of type "auth") are the only Core usage that consumes the
 Services API.
 
 The aim of this chapter is to describe the authentication
@@ -136,7 +136,7 @@ processLoginDataBE, processLoginDataFE
   which indicates that no further login data processing should
   take place (see :ref:`The service chain <authentication-service-chain>`).
 
-  In particular, this subtype is implemented by the TYPO3 core
+  In particular, this subtype is implemented by the TYPO3 Core
   :php:`AuthenticationService`, which trims the given login data.
 
 getUserFE, getUserBE
@@ -152,24 +152,6 @@ authUserFE, authUserBE
   It receives the user information (as returned by :php:`getUser()`)
   as an input and is expected to return a numerical value,
   :ref:`which is described later <authentication-service-chain>`.
-
-getGroupsFE
-  This subtype exists only for the FE. The method to implement
-  is :php:`getGroups()`, which is tasked with gathering the various
-  groups the user is part of.
-
-  The :php:`getGroups()` method receives as arguments the user data
-  and a list of already assigned groups, if any. It is expected to return
-  an associative array containing the information about each group the
-  user is member of (with the group's id as key).
-
-authGroupsFE
-   This subtype exists only for the FE. The method to implement is :php:`authGroup`,
-   which can be used to authenticate the given groups for a user.
-
-   The :php:`authGroup` method receives the user data and the data of the current
-   group to check. It is expected to return a boolean with value :php:`true` if
-   the user is authenticated for the given group and :php:`false` if not.
 
 .. note::
 

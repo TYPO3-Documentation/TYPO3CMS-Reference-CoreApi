@@ -58,7 +58,7 @@ Here access to the module **WEB > List** is checked.
 Access to tables and fields?
 ============================
 
-The same function :php:`->check()` can actually check all the :php:`->groupLists`
+The same function :php:`->check()` can actually check all the group-based permissions
 inside :php:`$GLOBALS['BE_USER']`. For instance:
 
 Checking modify access to the table "pages"::
@@ -173,7 +173,7 @@ This gets the module data with the key
 Getting TSconfig
 ================
 
-This function can return a value from the "User TSconfig" structure of
+This function can return a value from the "user TSconfig" structure of
 the user. In this case the value for "options.clipboardNumberPads"::
 
    $tsconfig = $GLOBALS['BE_USER']->getTSConfig();

@@ -23,7 +23,7 @@ Signals and slots decouple the sender (sending a signal) and the receiver(s)
 Concept of signals and slots
 ============================
 
-Whenever the sender (i.e. a core class or the class of an extension) wants to send a signal it calls :php:`dispatch` on
+Whenever the sender (i.e. a Core class or the class of an extension) wants to send a signal it calls :php:`dispatch` on
 the SignalSlot :php:`Dispatcher`. The sender does not have or need any information about the receivers (slots). (See
 :ref:`Dispatching Signals <signals-dispatch>`)
 
@@ -128,6 +128,6 @@ Finding signals
 ===============
 
 There is no complete list of signals available, but they are easily found by
-searching the TYPO3 core or the extensions code for :php:`dispatch(`.
+searching the TYPO3 Core  or the extensions code for :php:`dispatch(`.
 
 For finding hooks, look in the :ref:`Hooks Configuration <hooks-configuration>`.

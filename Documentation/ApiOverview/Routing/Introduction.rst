@@ -6,6 +6,7 @@
 Introduction to Routing
 =======================
 
+
 What is Routing?
 ================
 
@@ -23,13 +24,13 @@ Key Terminology
 
 .. index:: Routing; Route
 
-:aspect:`Route`
+Route
    The "speaking URL" as a whole (without the domain part); for example `/news/detail/2019-software-update`
 
 
 .. index:: Routing; Slug
 
-:aspect:`Slug`
+Slug
     Unique name for a ressource to use when creating URLs; for example the slug of the news detail page could be `/news/detail` and
     the slug of a news record could be `2019-software-update`.
 
@@ -61,6 +62,7 @@ Routing in TYPO3 is implemented based on the Symfony Routing components. It cons
 Page Routing describes the process of resolving the concrete page (in earlier TYPO3 versions this were the `id` and `L` `$_GET` parameters),
 whereas Route Enhancements and Aspects take care of all additionally configured parameters (such as beautifying plugin parameters, handling `type` etc.).
 
+
 Prerequisites
 =============
 
@@ -87,5 +89,3 @@ Example - Main :file:`config.yaml`
       - { resource: "EXT:myblog/Configuration/Routes/Default.yaml" }
       - { resource: "EXT:mynews/Configuration/Routes/Default.yaml" }
       - { resource: "EXT:template/Configuration/Routes/Default.yaml" }
-
-

@@ -17,7 +17,7 @@ Fetching translations
 
 The interface of the Install Tool in :guilabel:`ADMIN TOOLS > Maintenance > Manage language packs`
 allows to manage the list of available languages to your users and can fetch and
-update language packs of TER and core extensions from the official translation server.
+update language packs of TER and Core extensions from the official translation server.
 The module is rather straight forward to use and should be pretty much self explanatory.
 Downloaded language packs are stored in :ref:`Environment-labels-path`.
 

@@ -1,7 +1,6 @@
 .. include:: /Includes.rst.txt
-
 .. preferably, use label "upgrade-wizards-creation"
-
+.. index:: Upgrade wizards; Creation
 .. _update-wizards-creation-generic:
 .. _upgrade-wizards-creation:
 .. _upgrade-wizard-interface:
@@ -124,6 +123,7 @@ Method :php:`getPrerequisites`
        ];
    }
 
+.. index:: Upgrade wizards; Marking wizard as done
 .. _upgrade-wizards-mark-as-done:
 .. _repeatable-interface:
 
@@ -139,10 +139,11 @@ To force TYPO3 to check the wizard every time, the interface
 This interface works as a marker and does not force any methods to be
 implemented.
 
+.. index:: Upgrade wizards; Generating output
 .. _upgrade-wizards-generate-output:
 .. _uprade-wizards-chatty-interface:
 
-Generating Output
+Generating output
 =================
 
 The :php:`ChattyInterface` can be implemented for wizards which should generate output.
@@ -206,6 +207,9 @@ We show a simplified example here, based on this class::
 
     }
 
+
+.. index:: Upgrade wizards; Registration
+
 Registering wizard
 ==================
 
@@ -214,6 +218,9 @@ Once the wizard is created, it needs to be registered. Registration is done in
 
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['exampleUpdateWizard']
       = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
+
+
+.. index:: Upgrade wizards; Execution
 
 Executing wizard
 ================

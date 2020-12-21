@@ -67,8 +67,8 @@ provided above should not be accessible anymore and result in a HTTP `403` error
 Apache and Microsoft IIS web servers
 ====================================
 
-To increase protection of TYPO3 instances, the core team however decided to
-install default web server configuration files since TYPO3 core version v9 under certain
+To increase protection of TYPO3 instances, the Core Team however decided to
+install default web server configuration files since TYPO3 Core  version v9 under certain
 circumstances: If an Apache web server is detected by the web based installation
 procedure, a default :file:`.htaccess` file is written to the document root, and if
 a Microsoft IIS web server is detected, a default :file:`web.config` file is written
@@ -78,7 +78,7 @@ directories like :file:`.git/`, all private template directories like :file:`Res
 and common package files like :file:`composer.json`.
 
 
-This "black list" approach needs maintenance: The core team tries to keep the template files
+This "black list" approach needs maintenance: The Core Team tries to keep the template files
 :file:`.htaccess` and :file:`web.config` updated. If running Apache or IIS, administrators
 should compare their specific version with the reference files found at `root-htaccess
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess>`_

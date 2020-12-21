@@ -1,13 +1,12 @@
 .. include:: /Includes.rst.txt
-
-
-
-
-
+.. index::
+   TYPO3 Core engine
+   TCE
+   see: TCE; TYPO3 Core engine
 .. _tce:
 
 =====================================
-TCE (TYPO3 Core Engine) & DataHandler
+TCE (TYPO3 Core engine) & DataHandler
 =====================================
 
 

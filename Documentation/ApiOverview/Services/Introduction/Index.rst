@@ -7,7 +7,7 @@ Introduction
 ============
 
 This document describes the services functionality included in the
-TYPO3 CMS core.
+TYPO3 Core.
 
 .. note::
 
@@ -29,8 +29,8 @@ TYPO3 CMS core.
     Classes in the scope of this chapter - directly or indirectly - are extending the
     service class :php:`TYPO3\CMS\Core\Service\AbstractService`.
 
-    In comparison, for additional information on what the core usually understands
-    as "casual" service class, see the :ref:`coding guidelines <cgl-services>`.
+    In comparison, for additional information on what the Core usually understands
+    as "casual" service class, see the :ref:`coding guidelines. <cgl-services>`
 
 
 The whole Services API works as a registry. Services are registered

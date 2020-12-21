@@ -27,7 +27,7 @@ TYPO3 Explained
       en
 
 :Description:
-      Main TYPO3 core documentation
+      Main TYPO3 Core documentation
 
 :Keywords:
       forEditors, forBeginners, forDevelopers, forAdmins, forAdvanced, security

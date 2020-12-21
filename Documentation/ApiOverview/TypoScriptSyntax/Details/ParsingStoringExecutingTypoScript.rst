@@ -1,12 +1,11 @@
 .. include:: /Includes.rst.txt
-
-
 .. _typoscript-syntax-parsing-storing-executing-typoscript:
 
 =========================================
 Parsing, Storing and Executing TypoScript
 =========================================
 
+.. index:: TypoScript; Parsing
 .. _typoscript-syntax-parsing-typoscript:
 
 Parsing TypoScript
@@ -28,9 +27,10 @@ TypoScript content. Please see the section :ref:`typoscript-syntax-typoscript-pa
 in this document for details.
 
 
+.. index:: TypoScript; Storage
 .. _typoscript-syntax-storing-typoscript:
 
-Storing Parsed TypoScript
+Storing parsed TypoScript
 =========================
 
 When TypoScript has been parsed it is stored in a *PHP array* (which
@@ -83,6 +83,7 @@ direct access to PHP code, which is the very reason why TypoScript came into
 existence.
 
 
+.. index:: TypoScript; Execution
 .. _typoscript-syntax-executing-typoscript:
 
 Executing TypoScript

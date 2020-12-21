@@ -1,10 +1,10 @@
 .. include:: /Includes.rst.txt
-
+.. index:: YAML; Syntax
 .. _yaml-syntax:
 
-=============
+===========
 YAML syntax
-=============
+===========
 
 Following is an introduction to the YAML syntax. If you are familiar with YAML, skip to
 the **TYPO3 specific information**:
@@ -19,7 +19,7 @@ the **TYPO3 specific information**:
 
 
 The :ref:`TYPO3 coding guidelines for YAML <cgl-yaml>` define some basic rules to
-be used in the TYPO3 core and extensions. Additionally, yaml has general syntax rules.
+be used in the TYPO3 Core  and extensions. Additionally, yaml has general syntax rules.
 
 These are recommendations that should be followed for TYPO3. We pointed out where things
 might break badly if not followed, by using MUST.

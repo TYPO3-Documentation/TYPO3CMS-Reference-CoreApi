@@ -13,9 +13,9 @@ In order to have the possibility to set metatags in a flexible (but regulated wa
     Usually, it is sufficient to set met tags using the API of the :php:`PageRenderer` which uses the MetaTag API
     internally. For all other cases, use the MetaTag API directly.
 
-The API uses :php:`MetaTagManagers` to manage the tags for a "family" of meta tags. The core e.g. ships an
+The API uses :php:`MetaTagManagers` to manage the tags for a "family" of meta tags. The Core e.g. ships an
 OpenGraph MetaTagManager that is responsible for all OpenGraph tags.
-In addition to the MetaTagManagers included in the core, you can also register your own
+In addition to the MetaTagManagers included in the Core, you can also register your own
 :php:`MetaTagManager` in the :php:`\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry`.
 
 
@@ -103,7 +103,7 @@ want to implement your own :php:`OpenGraphMetaTagManager`, you can use the follo
     );
 
 This will result in :php:`MyOpenGraphMetaTagManager` having a higher priority and it will first check if your own
-manager can handle the tag before it checks the default manager provided by the core.
+manager can handle the tag before it checks the default manager provided by the Core.
 
 .. index:: pair: MetaTag; TypoScript
 .. _metatagapi-configuration:

@@ -34,7 +34,7 @@ be defined in the :php:`PageRenderer`::
 
 
 In this example we configure RequireJS to use plupload. The only dependency is jquery. We already have
-jquery in the TYPO3 core extension.
+jquery in the TYPO3 Core  extension.
 
 After the shim and export of plupload it is usable in the dependency handling:
 

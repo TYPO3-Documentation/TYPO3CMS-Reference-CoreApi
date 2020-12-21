@@ -9,7 +9,7 @@ Project testing
 Introduction
 ============
 
-Testing entire projects is somehow different from core and extension testing. As a developer
+Testing entire projects is somehow different from Core and extension testing. As a developer
 or maintainer of a specific TYPO3 instance, you probably do not want to test extension details
 too much - those should have been tested on an extension level already. And you probably also
 do not want to check too many TYPO3 backend details but look for acceptance testing of your

@@ -55,10 +55,10 @@ an appropriate class name, instantiates and initializes the class, gives it the 
 on it.
 
 .. note::
-   The :php:`SingleFieldContainer` and :php:`FlexFormElementContainer` will probably vanish with core version 9.
+   The :php:`SingleFieldContainer` and :php:`FlexFormElementContainer` will probably vanish with Core version 9.
 
 .. note::
-   Data set by containers and given down to children will likely change in core version 9: All fields not registered
+   Data set by containers and given down to children will likely change in Core version 9: All fields not registered
    in the main data array of :php:`FormDataCompiler` and only added within containers will move into section
    :php:`renderData`. Furthermore, it is planned to *remove* :php:`parameterArray` and substitute it with something
    better. This will affect most elements and will probably break a lot of these elements.
@@ -90,7 +90,7 @@ always routed through it, and the NodeFactory takes care of finding and validati
 should be called for a specific :php:`renderType`. This is supported by an API that allows registering *new*
 renderTypes and overriding *existing* renderTypes with own implementations. This is true for *all* classes,
 including containers, elements, fieldInformation, fieldWizards and fieldControls. This means the child routing
-can be fully adapted and extended if needed. It is possible to transparently "kick-out" a core container and to
+can be fully adapted and extended if needed. It is possible to transparently "kick-out" a Core container and to
 substitute it with an own implementation.
 
 As example, the TemplaVoila implementation needs to add additional render capabilities of the flex form rendering
@@ -113,7 +113,7 @@ This re-routes the :php:`renderType` "flex" to an own class. If multiple registr
 the one with highest priority wins.
 
 .. note::
-   The :php:`NodeFactory` uses :php:`$data['renderType']`. This has been introduced with core version 7 in TCA, and
+   The :php:`NodeFactory` uses :php:`$data['renderType']`. This has been introduced with Core version 7 in TCA, and
    a couple of TCA fields actively use this renderType. However, it is important to understand the renderType is *only*
    used within the FormEngine and :php:`type` is still a must-have setting for columns fields in TCA. Additionally,
    :php:`type` can *not* be overridden in :php:`columnsOverrides`. Basically, :php:`type` specifies how the DataHandler
@@ -153,7 +153,7 @@ is not enough, the :php:`NodeFactory` can be extended with a resolver that is ca
 This resolver gets the full current data array at runtime and can either return :php:`NULL` saying "not my job", or return
 the name of a class that should handle this node.
 
-An example of this are the core internal rich text editors. Both "ckeditor" and "rtehtmlarea" register a resolver class
+An example of this are the Core internal rich text editors. Both "ckeditor" and "rtehtmlarea" register a resolver class
 that are called for node name "text", and if the TCA config enables the editor, and if the user has enabled rich text
 editing in his user settings, then the resolvers return their own :php:`RichTextElement` class names to render a given text
 field:
@@ -224,7 +224,7 @@ Node Expansion
 The "node expansion" classes :php:`FieldControl`, :php:`FieldInformation` and :php:`FieldWizard` are called by containers
 and elements and allow "enriching" containers and elements. Which enrichments are called can be configured via TCA.
 
-This API is the substitution of the old "TCA wizards array" and has been introduced with core version 8.
+This API is the substitution of the old "TCA wizards array" and has been introduced with Core version 8.
 
 FieldInformation
   Additional information. In elements, their output is shown between the field label and the element itself. They can

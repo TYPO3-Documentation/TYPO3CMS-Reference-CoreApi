@@ -59,7 +59,7 @@ table:
    :Description:
          Represents an entry's namespace. In general, the namespace is an
          extension key starting with `tx_`, a user script's prefix `user_`,
-         or `core` for entries that belong to the core.
+         or `core` for entries that belong to the Core.
 
          The purpose of namespaces is that entries with the same key can exist
          within different namespaces.
@@ -126,7 +126,7 @@ first time an entry is accessed. Setting a value is also easy with the
    :Description:
          Represents an entry's namespace. In general, the namespace is an
          extension key that starts with `tx_`, a user script's prefix `user_`,
-         or `core` for entries that belong to the core.
+         or `core` for entries that belong to the Core.
 
 
  - :Method:

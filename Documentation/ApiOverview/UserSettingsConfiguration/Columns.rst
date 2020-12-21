@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: User settings; Columns
 .. _user-settings-columns:
 
 ===================

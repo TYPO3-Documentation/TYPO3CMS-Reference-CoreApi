@@ -8,13 +8,13 @@ Coding Guidelines
 
 This chapter contains description of the formal requirements or standards
 regarding coding that you should adhere to when you develop TYPO3
-extensions or core parts.
+extensions or Core parts.
 
 .. tip::
 
    You can find an
    `.editorconfig <https://github.com/TYPO3/TYPO3.CMS/blob/master/.editorconfig>`__
-   file in the TYPO3 core repository.
+   file in the TYPO3 Core  repository.
    `Some editors and IDEs <https://editorconfig.org/>`__ can use this
    file and the rules defined within.
 
