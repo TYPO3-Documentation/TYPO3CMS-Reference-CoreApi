@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Site handling; PHP
 .. _sitehandling-php-api:
 
 =====================================
-PHP API: Accessing Site Configuration
+PHP API: accessing site configuration
 =====================================
 
 The PHP API for Sites comes in two parts:
@@ -21,7 +21,7 @@ site identifier.
 
 Let's look at both cases in detail:
 
-Accessing the Current Site Object
+Accessing the current site object
 =================================
 
 When rendering the frontend or backend TYPO3 builds a HTTP request object
@@ -54,7 +54,9 @@ Methods::
     use the global access - a better way will be introduced in future versions.
 
 
-Finding a Site Object
+.. index:: pair: Site handling; SiteFinder
+
+Finding a site object
 =====================
 
 When you need to access site configuration for a specific page ID or by identifier,
@@ -71,10 +73,12 @@ The :php:`SiteFinder` offers the following methods for finding a site:
 All methods for finding a specific site throw an exception if no site was found.
 
 
-The Site Object
+.. index:: pair: Site handling; Site object
+
+The Site object
 ===============
 
-Now we know how to find a site object, but what can it do?
+Now we know how to find a :php:`Site` object, but what can it do?
 
 First of all, it gives us access to the site configuration options via
 
@@ -91,7 +95,9 @@ It additionally provides methods for accessing related objects (languages / erro
 Take a look at the class to find out more: :php:`\TYPO3\CMS\Core\Site\Entity\Site`
 
 
-The SiteLanguage Object
+.. index:: pair: Site handling; SiteLanguage object
+
+The SiteLanguage object
 =======================
 
 The :php:`SiteLanguage` object is basically a simple model that represents the configuration options of

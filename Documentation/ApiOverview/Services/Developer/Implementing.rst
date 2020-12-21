@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Services API; Implementation
 .. _services-developer-implementing:
 
 ======================
-Implementing a Service
+Implementing a service
 ======================
 
 There are no tools to get you started coding a new service.
@@ -19,9 +18,10 @@ Finally the service registration is placed in the extension's
 :file:`ext_localconf.php` file.
 
 
+.. index:: Services API; Registration
 .. _services-developer-implementing-registration:
 
-Service Registration
+Service registration
 ====================
 
 Registering a service is done inside the :file:`ext_localconf.php`
@@ -184,9 +184,10 @@ $info
 			'className' => \Foo\Babelfish\Service\Translator::class
 
 
+.. index:: Services API; AbstractService
 .. _services-developer-implementing-php:
 
-PHP Class
+PHP class
 =========
 
 The PHP class corresponding to the registered service

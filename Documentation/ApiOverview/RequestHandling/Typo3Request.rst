@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 .. index::
-   Request handling; Request object
+   Request handling; request object
    $GLOBALS; TYPO3_REQUEST
 .. _typo3-request:
 

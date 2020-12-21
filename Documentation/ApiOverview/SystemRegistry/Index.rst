@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: System registry
 .. _registry:
 
 ===============
-System Registry
+System registry
 ===============
 
 The purpose of the registry is to store key-value pairs of information. It can
@@ -28,9 +27,10 @@ The registry is not intended to store things that are supposed to go into
 a session or a cache, use the appropriate API for them instead.
 
 
+.. index:: Table; sys_registry
 .. _registry-table:
 
-The Registry Table (sys\_registry)
+The registry table (sys\_registry)
 ==================================
 
 Here's a description of the fields that can be found in the `sys_registry`
@@ -88,6 +88,7 @@ table:
          binary.
 
 
+.. index:: System registry; API
 .. _registry-api:
 
 The Registry API

@@ -1,10 +1,9 @@
 ﻿.. include:: /Includes.rst.txt
-
-
+.. index:: Soft references
 .. _soft-references:
 
 ===============
-Soft References
+Soft references
 ===============
 
 "Soft References" are references to database elements, files, email
@@ -16,6 +15,9 @@ references and process them accordingly in import/export actions and
 copy operations. Also, the soft references are used by integrity
 checking functions.
 
+.. index::
+   Soft references; Default parsers
+   Soft references; SoftReferenceIndex
 
 .. _soft-references-default-parsers:
 
@@ -155,9 +157,10 @@ The default set up is found in :file:`typo3/sysext/core/Configuration/DefaultCon
     ],
 
 
+.. index:: Soft references; Custom parsers
 .. _soft-references-custom-parsers:
 
-User-defined Soft Reference Parsers
+User-defined soft reference parsers
 ===================================
 
 Soft References can also be user-defined. It is easy to set them up by
@@ -169,6 +172,11 @@ The class containing the soft reference parser must have a function
 named :code:`findRef`. Please refer to class
 :php:`TYPO3\CMS\Core\Database\SoftReferenceIndex`
 for API usage and expected return values.
+
+
+.. index::
+   Soft references; Usage
+   BackendUtility; softRefParserObj
 
 Using the soft reference parser
 ===============================

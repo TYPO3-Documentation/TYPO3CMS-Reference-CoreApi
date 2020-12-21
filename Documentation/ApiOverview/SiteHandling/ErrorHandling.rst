@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Site handling; Error handling
 .. _sitehandling-errorHandling:
 
 ==============
-Error Handling
+Error handling
 ==============
 
 Error handling can be configured on site level and is automatically dependent on the
@@ -27,6 +27,8 @@ You can define one error handler per HTTP error code and add a generic one that 
 
    Add custom error handling.
 
+
+.. index:: pair: Site handling; Error handling properties
 
 Properties
 ==========

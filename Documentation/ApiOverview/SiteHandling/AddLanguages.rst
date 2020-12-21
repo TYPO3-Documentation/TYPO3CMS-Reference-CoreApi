@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Site handling; Languages
 .. _sitehandling-addingLanguages:
 
 ================
@@ -43,7 +43,9 @@ fallback levels - for example "Modern Chinese" might fall back to "Chinese (Trad
     * `config.sys_language_isocode_default`
 
 
-Configuration Properties
+.. index:: pair: Site handling; Languages properties
+
+Configuration properties
 ========================
 
 enabled
