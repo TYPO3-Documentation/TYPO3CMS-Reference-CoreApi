@@ -1,11 +1,14 @@
-﻿.. This is 'Includes.txt'. It is included at the very top of each and
+.. This is 'Includes.txt'. It is included at the very top of each and
    every ReST source file in THIS documentation project (= manual).
+   
+   added: pn textrole, "proper name", like `TYPO3 Core Team`:pn:
 
-.. role:: aspect (emphasis)
+.. role:: aspect(emphasis)
 .. role:: html(code)
 .. role:: js(code)
 .. role:: php(code)
-.. role:: sep (strong)
+.. role:: pn(emphasis)
+.. role:: sep(strong)
 .. role:: sql(code)
 .. role:: typoscript(code)
 .. role:: xml(code)
