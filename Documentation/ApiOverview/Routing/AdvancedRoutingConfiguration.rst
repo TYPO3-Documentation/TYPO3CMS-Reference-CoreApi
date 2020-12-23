@@ -269,7 +269,7 @@ to map a page type (GET parameter &type=) to a suffix.
 
 It is possible to map various page types to endings:
 
-Example `TypoScript`:pn::
+Example `TypoScript`:pn:\:
 
 .. code-block:: typoscript
 

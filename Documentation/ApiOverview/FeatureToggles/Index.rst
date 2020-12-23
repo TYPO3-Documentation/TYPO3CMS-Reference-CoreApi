@@ -82,7 +82,7 @@ extension name as the features are global switches which otherwise might lead to
 `Core`:pn: feature toggles
 ==========================
 
-Some examples for feature toggles in the `TYPO3 Core`:pn::
+Some examples for feature toggles in the `TYPO3 Core`:pn:\:
 
 - `redirects.hitCount`: Enables hit statistics in the redirects backend module
 - `TypoScript.strictSyntax`: If on, `TypoScript`:pn: is parsed in strict syntax modes.

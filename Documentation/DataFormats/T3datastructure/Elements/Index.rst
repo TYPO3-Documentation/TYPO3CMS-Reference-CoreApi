@@ -195,7 +195,7 @@ Example
 Below is the (truncated) structure for the plugin options of
 system extension "felogin". It shows an example of relative complex
 data structure used in a `Flexform`:pn:. More information about such usage
-of `FlexForms`:pn: can be found in the :ref:`relevant section of the `TCA`:pn: reference <t3tca:columns-flex>`.
+of `FlexForms`:pn: can be found in the :ref:`relevant section of the TCA reference <t3tca:columns-flex>`.
 
 .. code-block:: xml
 

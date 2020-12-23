@@ -27,7 +27,7 @@ instructions.
 Installing extensions
 ^^^^^^^^^^^^^^^^^^^^^
 
-There are only two (possibly three) steps involved in using extensions with `TYPO3`:pn::
+There are only two (possibly three) steps involved in using extensions with `TYPO3`:pn:\:
 
 #. You must *import* it.
 

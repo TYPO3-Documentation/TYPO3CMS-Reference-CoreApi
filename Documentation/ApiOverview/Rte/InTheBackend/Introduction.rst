@@ -8,7 +8,7 @@
 Introduction
 ============
 
-When you configure a table in :php:`$TCA`:php: and add a field of the type "text"
+When you configure a table in :php:`$TCA` and add a field of the type "text"
 which is edited by a :code:`<textarea>`, you can choose to use a Rich Text
 Editor (RTE) instead of the simple form field. A RTE enables the users
 to use visual formatting aids to create bold, italic, paragraphs,

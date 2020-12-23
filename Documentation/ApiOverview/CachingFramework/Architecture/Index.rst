@@ -106,7 +106,7 @@ the cache when the entry is stored ("set").
 .. _caching-architecture-core:
 
 Caches in the `TYPO3 Core`:pn:
-========================
+==============================
 
 The `TYPO3 Core`:pn: defines and uses several caching framework caches by default.
 This section gives an overview of default caches, its usage and behaviour. If not stated otherwise,
@@ -135,7 +135,7 @@ but such caches should normally be transient anyway.
 There are :ref:`TSconfig options for permissions <t3tsconfig:useroptions>`
 corresponding to each group.
 
-The following caches exist in the `TYPO3 CMS Core`:pn::
+The following caches exist in the `TYPO3 CMS Core`:pn:\:
 
 - `core`
 

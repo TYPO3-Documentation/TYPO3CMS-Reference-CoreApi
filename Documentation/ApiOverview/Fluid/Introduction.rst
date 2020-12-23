@@ -268,7 +268,7 @@ Set the `Fluid`:pn: paths with `TypoScript`:pn: using :ref:`t3tsref:cobj-fluidte
 Further information
 ===================
 
-To get an introduction to the basics of `Fluid`:pn::
+To get an introduction to the basics of `Fluid`:pn:\:
 
 * `The Fluid Syntax <https://github.com/TYPO3/Fluid/blob/master/doc/FLUID_SYNTAX.md>`__
 * `ViewHelpers - what these classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/master/doc/FLUID_VIEWHELPERS.md>`__

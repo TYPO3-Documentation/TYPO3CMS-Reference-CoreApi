@@ -444,7 +444,7 @@ this page", and no\_cache checked::
 Clear cache
 ===========
 
-`TCE`:pn: also has an API for clearing the cache tables of `TYPO3`:pn::
+`TCE`:pn: also has an API for clearing the cache tables of `TYPO3`:pn:\:
 
 Syntax::
 

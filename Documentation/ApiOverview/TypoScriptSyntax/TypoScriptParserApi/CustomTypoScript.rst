@@ -290,7 +290,7 @@ simply configuration values that make our underlying PHP code act
 accordingly - parameters, function arguments, as you please;
 `TypoScript`:pn: is an API to instruct an underlying system.**
 
-This example also highlights one of the "risk" of `TypoScript`:pn::
+This example also highlights one of the "risk" of `TypoScript`:pn:\:
 it is perfectly possible to define arbitrary properties without
 triggering any error. Wrongly-named properties will just be
 ignored. As such they do not cause any harm, but may be confusing

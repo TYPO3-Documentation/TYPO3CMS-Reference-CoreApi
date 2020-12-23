@@ -38,7 +38,7 @@ we use the term **configuration method**. Thus, the *configuration
 language* is part of the *configuration method*.
 
 This differentiation is important to make because there is often
-confusion about the term `TypoScript`:pn:: `TypoScript`:pn: can be used to
+confusion about the term `TypoScript`:pn:\: `TypoScript`:pn: can be used to
 describe the `TypoScript`:pn: syntax, but it can also be used to describe
 `TypoScript`:pn: templating, which can be considered a configuration method.
 `TypoScript`:pn: syntax is used in both `TypoScript`:pn: templating and `TSconfig`:pn:.
@@ -152,9 +152,8 @@ advantage, that configuration can be validated with that schema.
 `TYPO3`:pn: does not use an explicit schema for most configuration methods. Often,
 the parsing and validation is done in the PHP source.
 
-Examples for using a configuration definition file in `TYPO3`:pn::
+Examples for using a configuration definition file in `TYPO3`:pn:
 
 * `TypoScript`:pn: constant syntax is used to define Extension Configuration in the
   file :file:`ext_conf_template.txt` of an extension.
 * `FlexForms`:pn: are defined using XML in an extension.
-

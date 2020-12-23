@@ -16,7 +16,7 @@ We will give you a short overview here, but for more information, please see the
 :ref:`Writing documentation <h2document:start>` and specifically:
 
 * General information about TYPO3 documentation: :ref:`h2document:basic-principles`
-* Get started using `reST`:pn:: :ref:`h2document:Formatting-with-reST`
+* Get started using `reST`:pn:\: :ref:`h2document:Formatting-with-reST`
 * More information about starting documentation for your TYPO3 extension: :ref:`h2document:how-to-start-docs-extension`
 * If you want to test your documentation, you need to render it: :ref:`h2document:rendering-docs`
 

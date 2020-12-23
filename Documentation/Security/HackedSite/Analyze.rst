@@ -47,7 +47,7 @@ on your system which could be affected, too.
 
 If you have any proof or a reasonable ground for suspecting that `TYPO3`:pn:
 or an extension could be the cause, and no security-bulletin lists
-this specific version, please :ref:`contact the `TYPO3 Security Team`:pn:
+this specific version, please :ref:`contact the TYPO3 Security Team
 <security-team-contact>`. The policy dictates not to disclose the issue
 in public (mailing lists, forums, Twitter or any other third party website).
 

@@ -34,7 +34,7 @@ about that; too late to change that now.
 .. _typoscript-syntax-myth-javascript:
 
 Myth: "`TypoScript`:pn: has the same syntax as `JavaScript`:pn:"
-===============================================================
+================================================================
 
 `TypoScript`:pn: was designed to be simple to use and understand. Therefore
 the syntax looks like `JavaScript`:pn: objects to some degree. But again; it
@@ -45,7 +45,7 @@ is very dangerous to say this since it all stops with the syntax -
 .. _typoscript-syntax-myth-proprietary:
 
 Myth: "`TypoScript`:pn: is a proprietary standard"
-============================================
+==================================================
 
 Since `TypoScript`:pn: is not a scripting language it does not make sense to
 claim this in comparison to PHP, `JavaScript`:pn:, `Java`:pn: or whatever
@@ -84,7 +84,7 @@ time it would take to learn about them would not be eliminated, if
 .. _typoscript-syntax-myth-complex:
 
 Myth: "`TypoScript`:pn: is very complex"
-==================================
+========================================
 
 `TypoScript`:pn: is simple in nature. But certainly it can quickly become
 complex and get "out of hand" when the amount of code lines grows!

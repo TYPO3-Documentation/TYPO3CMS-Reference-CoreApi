@@ -230,22 +230,23 @@ This is done in the :ref:`dataProcessing <t3tsref:cobj-fluidtemplate-properties-
 section where you can add an arbitrary number of data processors.
 
 Each one has to be added with a fully qualified class name (FQCN) and optional
-parameters to be used in the `Data Processor`:pn::
+parameters to be used in the `Data Processor`:pn:\:
 
 .. code-block:: typoscript
 
    tt_content {
        yourextensionkey_newcontentelement =< lib.contentElement
        yourextensionkey_newcontentelement {
-           templateName = NewContentElement
-           dataProcessing {
-               1 = Vendor\YourExtensionKey\DataProcessing\NewContentElementProcessor
-               1 {
-                   exampleOptionName = exampleOptionValue
-               }
-           }
+          templateName = NewContentElement
+          dataProcessing {
+             1 = Vendor\YourExtensionKey\DataProcessing\NewContentElementProcessor
+             1 {
+                exampleOptionName = exampleOptionValue
+             }
+          }
        }
    }
+
 
 In the example :file:`setup.typoscript` above, the `Data Processor`:pn: is located in the directory :file:`Classes/DataProcessing/`.
 The file :file:`NewContentElementProcessor.php` could look like this:

@@ -35,7 +35,7 @@ Is publicly available?
      anyone who knows the path to the file. To implement a strict access restriction
      the storage must point to some path outside the web root or the folder it points
      to must contain web server restrictions to block direct access to the files it
-     contains (for example, in an `Apache`:pn::file:`.htaccess` file).
+     contains (for example, in an `Apache`:pn:\:file:`.htaccess` file).
 
 Is writable?
   This property simply enables to make any storage read-only.

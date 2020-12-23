@@ -2,9 +2,9 @@
 .. index:: Security team
 .. _security-team:
 
-=======================
+=============================
 The `TYPO3 Security Team`:pn:
-=======================
+=============================
 
 
 .. index:: Security; Reporting

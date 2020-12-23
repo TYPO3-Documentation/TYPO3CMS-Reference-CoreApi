@@ -147,6 +147,6 @@ Events
 
 There are two events available that allow additional adjusting of assets:
 
-* :ref:`BeforeJavaScriptsRenderingEvent`
-* :ref:`BeforeStylesheetsRenderingEvent`
+* BeforeJavaScriptsRenderingEvent
+* BeforeStylesheetsRenderingEvent
 

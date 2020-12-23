@@ -29,8 +29,8 @@ protect the data.
 ========================  ================  =========================  ===========================  ====================
 **Type**                  non-sensitive     externally sensitive       internally sensitive         extremely sensitive
 **Disclosure impact**     none              limited                    significant                  sever
-**Access restrictions**   none              low (for example username/        high (for example public/private    very high
-                                            password)                  key + geolocation)
+**Access restrictions**   none              low (for example           high (for example public     very high
+                                            username/ password)        /private key + geolocation)
 **Data transport**        unencrypted       unencrypted but protected  encrypted                    highly encrypted
 **Storage requirements**  none              unencrypted but protected  encrypted                    highly encrypted
 ========================  ================  =========================  ===========================  ====================

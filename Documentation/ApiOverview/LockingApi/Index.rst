@@ -123,7 +123,7 @@ Every locking strategy must have a priority. This is returned by the function
 :php:`LockingStrategyInterface::getPriority()` which must be implemented in each
 locking strategy.
 
-Currently, these are the priorities of the locking strategies supplied by the `Core`:pn::
+Currently, these are the priorities of the locking strategies supplied by the `Core`:pn:\:
 
 * FileLockStrategy: 75
 * SimpleLockStrategy: 50

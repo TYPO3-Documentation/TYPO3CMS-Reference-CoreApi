@@ -1,9 +1,8 @@
 .. include:: /Includes.rst.txt
-
-.. _cropvariants:
+.. _cropvariants_general:
 
 =====================
-General Configuration
+General configuration
 =====================
 
 The following examples are meant to add one single
@@ -136,7 +135,7 @@ the crop area. The focus area cannot intersect with any of the cover areas.
 Rendering crop variants
 =======================
 
-To render specific crop variants, the variant can be specified as argument of the image `ViewHelper`:pn::
+To render specific crop variants, the variant can be specified as argument of the image `ViewHelper`:pn:\:
 
 .. code-block:: html
 

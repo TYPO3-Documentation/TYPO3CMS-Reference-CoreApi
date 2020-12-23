@@ -85,7 +85,7 @@ birds with one stone. This has many more benefits than trying to unit test glue 
 A good sign that your unit test would be more useful if it is turned into a functional test is if
 the unit tests needs lots of lines of code to mock dependencies, just to test something using
 :php:`->shouldBeCalled()` on some mock to verify on some dependency is actually called. Go ahead and
-read some unit tests provided by the `Core`:pn:: We're sure you'll find a bad unit test that could be improved
+read some unit tests provided by the `Core`:pn:\: We're sure you'll find a bad unit test that could be improved
 by creating a functional test from it.
 
 .. index:: Unit tests; Conventions

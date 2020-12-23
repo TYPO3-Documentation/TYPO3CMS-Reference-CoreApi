@@ -139,7 +139,7 @@ or is able to guess the path/file name can access/download this file
 which often causes an information disclosure.
 
 In order to deny access to all files with the file ending :file:`.typoscript`, the
-following ```Apache`:pn: configuration could be used::
+following `Apache`:pn: configuration could be used::
 
    <FilesMatch "\.typoscript">
      deny from all

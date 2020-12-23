@@ -161,7 +161,7 @@ improved by setting up a database in a memory driven ram disk and some other tri
 functional test execution is clearly not a super charged turbo.
 
 Additionally, we had to increase the test isolation even more: There are test scenarios that execute
-both backend and frontend functionality. This is hard in `TYPO3`:pn:: A backend request is a backend
+both backend and frontend functionality. This is hard in `TYPO3`:pn:\: A backend request is a backend
 request and it can't be used as a frontend request at the same time. Extension developers may know
 this: In `TYPO3`:pn: it's hard to do frontend requests from within the backend or from cli - extensions
 like *solr* or *direct_mail* struggle at this point, too and need to find some solution working

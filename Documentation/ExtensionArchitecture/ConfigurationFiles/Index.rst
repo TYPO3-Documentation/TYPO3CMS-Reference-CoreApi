@@ -130,7 +130,7 @@ page `TSconfig`:pn: available via static files can be added inside
 .. index:: Extension development; User TSconfig
 
 Adding default user `TSconfig`:pn:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As for default page `TSconfig`:pn:, user `TSconfig`:pn: can be added inside
 :file:`ext_localconf.php`, see:

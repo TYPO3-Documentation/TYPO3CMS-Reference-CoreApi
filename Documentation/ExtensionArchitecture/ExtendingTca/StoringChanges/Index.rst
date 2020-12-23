@@ -32,7 +32,7 @@ will usually take effect without any special measures.
    If your extension modifies another extension, you actively need to make sure your
    extension is loaded *after* the extension you are modifying. This can be achieved
    by registering that other extension as a dependency (or suggestion) of yours. See
-   the :ref:`description of constraints in `Core`:pn: APIs <extension-declaration>`.
+   the :ref:`description of constraints in Core APIs <extension-declaration>`.
 
    Loading order also matters if you have multiple extensions overriding the same field,
    probably even contradicting each other.

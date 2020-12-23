@@ -82,6 +82,7 @@ Extended composer.json
 
 .. code-block:: json
    :linenos:
+
    {
      "name": "vendorname/my-extension",
      "type": "typo3-cms-extension",

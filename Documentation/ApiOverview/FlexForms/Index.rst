@@ -158,7 +158,7 @@ More examples
 =============
 
 The definition of the data types and parameters used complies to the
-:ref:`column types defined by `TCA`:pn: <t3tca:columns-types>`.
+:ref:`column types defined by TCA <t3tca:columns-types>`.
 
 The settings must be added within the :html:`<el>` element in the `Flexform`:pn:
 configuration schema file.
@@ -410,7 +410,7 @@ How to access `FlexForms`:pn: from `Fluid`:pn:
 ----------------------------------------------
 
 If you are using an `Extbase`:pn: controller, `FlexForm`:pn: settings can be read from within a `Fluid`:pn: template using
-:html:`{settings}`. See the note on naming restrictions in :ref:`How to read FlexForms from an `Extbase`:pn: controller action <read-flexforms-extbase>`.
+:html:`{settings}`. See the note on naming restrictions in :ref:`How to read FlexForms from an Extbase controller action <read-flexforms-extbase>`.
 
 If you defined your :typoscript:`FLUIDTEMPLATE` in `TypoScript`:pn:, you can assign single variables like that:
 

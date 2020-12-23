@@ -68,7 +68,7 @@ with user sessions. A couple of public methods are available:
 |                                                               | object. See regenerateSession() below.                                |
 +---------------------------------------------------------------+-----------------------------------------------------------------------+
 | regenerateSession($sessionId, $sessionRecord, $anonymous)     | Regenerates the given session. This method should be used whenever a  |
-|                                                               | user proceeds to a higher authorization level, for example when an           |
+|                                                               | user proceeds to a higher authorization level, for example when an    |
 |                                                               | anonymous session is now authenticated.                               |
 +---------------------------------------------------------------+-----------------------------------------------------------------------+
 | updateSessionTimestamp($session)                              | Updates the session timestamp for the given user session if the       |

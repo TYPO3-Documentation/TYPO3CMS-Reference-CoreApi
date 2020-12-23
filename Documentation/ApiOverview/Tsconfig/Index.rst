@@ -13,7 +13,9 @@ using the `TypoScript`:pn: syntax. The :ref:`TSconfig Reference <t3tsconfig:star
 describes in detail how this works and what can be done with it.
 
 
-.. index:: pair: User TSconfig
+.. index::
+   User TSconfig
+   TSconfig; User
 .. _tsconfig-user:
 
 User `TSconfig`:pn:

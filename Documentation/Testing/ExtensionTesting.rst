@@ -314,7 +314,7 @@ Next we need to setup our tests. These are the two files we need: `Build/Scripts
 <https://github.com/lolli42/enetcache/blob/master/Build/Scripts/runTests.sh>`_ and `Build/testing-docker/
 docker-compose.yml <https://github.com/lolli42/enetcache/blob/master/Build/testing-docker/docker-compose.yml>`_.
 
-These files are re-purposed from the `TYPO3 Core`:pn:: `core Build/Scripts/runTests.sh
+These files are re-purposed from the `TYPO3 Core`:pn:\: `core Build/Scripts/runTests.sh
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
 docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/tree/master/Build/testing-docker/local>`_. You can
 copy and paste these files from extensions like enetcache or styleguide to your own extension, but you should then look

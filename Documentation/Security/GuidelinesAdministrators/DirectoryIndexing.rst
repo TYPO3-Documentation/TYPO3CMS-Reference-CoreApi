@@ -7,7 +7,7 @@ Directory indexing
 ==================
 
 Depending on the operating system and distribution, the default
-configuration of ````Apache`:pn: allows the indexing of directories. This
+configuration of `Apache`:pn: allows the indexing of directories. This
 enables search engines to index your file structure and possibly
 reveals sensitive data. The screenshot below shows an example of such
 data that can be retrieved with a simple HTTP request.
@@ -17,7 +17,7 @@ data that can be retrieved with a simple HTTP request.
     :alt: Screenshot of an example directory index
 
 In this case only the list of extensions is revealed, but more
-sensitive data can be found easily. The ```Apache`:pn: configuration allows
+sensitive data can be found easily. The `Apache`:pn: configuration allows
 you to enable or disable the indexing of directories by the `Options`
 directive as shown in the following example::
 
@@ -25,7 +25,7 @@ directive as shown in the following example::
      Options Indexes FollowSymLinks
    </Directory>
 
-By removing the `Indexes` option, ```Apache`:pn: does not show the list of
+By removing the `Indexes` option, `Apache`:pn: does not show the list of
 files and directories. Please note that the `Options` directive can be
 used in several containers (for example `<VirtualHost>`, `<Directory>`,
 `<Location>`, etc.). The correct configuration could look like the

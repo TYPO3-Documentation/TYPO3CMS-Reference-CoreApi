@@ -31,7 +31,6 @@ in the `TYPO3 Core`:pn: .
    Core/Html/*
    Core/Mail/*
    Core/Package/*
-   Core/Page/*
    Core/Resource/*
    Core/Tree/*
 

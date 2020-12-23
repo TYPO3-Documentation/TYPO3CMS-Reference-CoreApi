@@ -55,7 +55,7 @@ in their use cases.
 .. _mail-configuration-fluid:
 
 `Fluid`:pn: paths
------------
+-----------------
 
 All `Fluid`:pn:-based template paths can be configured via
 

@@ -36,7 +36,7 @@ Storing parsed `TypoScript`:pn:
 When `TypoScript`:pn: has been parsed it is stored in a *PHP array* (which
 is often serialized and cached in the database afterward).
 
-Consider the following `TypoScript`:pn::
+Consider the following `TypoScript`:pn:\:
 
 .. code-block:: typoscript
 

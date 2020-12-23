@@ -9,7 +9,7 @@ Create plugins
 How to create plugins with the `Extbase`:pn: framework and `Fluid`:pn: templating engine is handled
 in depth in the chapter :ref:`t3extbasebook:configuring-the-plugin` in the "Extbase / Fluid book".
 
-There are basically two ways to create plugins in `TYPO3`:pn::
+There are basically two ways to create plugins in `TYPO3`:pn:
 
 #. With the `Extbase`:pn: framework using :php:`configurePlugin()` in the file :file:`ext_localconf.php`
    and :php:`registerPlugin()` in the file :file:`Configuration/TCA/Overrides/tt_content.php`

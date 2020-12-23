@@ -1,5 +1,4 @@
 .. include:: /Includes.rst.txt
-
 .. _fal-using-fal-frontend:
 
 =========================
@@ -90,7 +89,7 @@ which can be used to call up the :php:`\TYPO3\CMS\Frontend\DataProcessing\FilesP
 class, whose task it is to load all media referenced for the current
 database record being processed.
 
-This requires first a bit of `TypoScript`:pn::
+This requires first a bit of `TypoScript`:pn:
 
 .. code-block:: typoscript
 
