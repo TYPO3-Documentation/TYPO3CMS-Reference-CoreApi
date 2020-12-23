@@ -11,7 +11,7 @@ to execute immediately, it's executed right after the first event is fired until
 event. If its not configured to execute immediately, which is the default setting, the event listener is executed after
 the period of time passed since the last event fired.
 
-This type of event listening is suitable when a series of the same event is fired, e.g. the `mousewheel` or `resize`
+This type of event listening is suitable when a series of the same event is fired, for example the `mousewheel` or `resize`
 events.
 
 To construct the event listener, the module :js:`TYPO3/CMS/Core/Event/DebounceEvent` must be imported. The constructor

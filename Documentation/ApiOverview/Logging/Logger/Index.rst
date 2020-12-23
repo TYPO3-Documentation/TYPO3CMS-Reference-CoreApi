@@ -181,7 +181,7 @@ Good example:
 
 .. code-block:: none
 
-   "Connection to mysql database could not be established"
+   "Connection to `MySQL`:pn: database could not be established"
 
 
 This includes "connection", "mysql" and "database" as possible keywords.
@@ -215,7 +215,7 @@ and one can scan the same position for either "mysql" or "memcache".
 Provide useful information
 --------------------------
 
-TYPO3 already uses the component of the logger to give some context.
+`TYPO3`:pn: already uses the component of the logger to give some context.
 Still further individual context might be available that should be added.
 In case of an exception, the code, stacktrace, file and line number would be helpful.
 

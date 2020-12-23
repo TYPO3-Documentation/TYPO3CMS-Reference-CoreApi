@@ -4,19 +4,19 @@
    PageRenderer
 .. _assets:
 
-===============================
-Assets (CSS, JavaScript, Media)
-===============================
+=====================================
+Assets (CSS, `JavaScript`:pn:, Media)
+=====================================
 
-The TYPO3 component responsible for rendering the HTML and adding assets to a TYPO3
+The TYPO3 component responsible for rendering the HTML and adding assets to a `TYPO3`:pn:
 frontend or backend page is called :php:`PageRenderer`.
 
 The :php:`PageRenderer` collects all assets to be rendered, takes care of
 options such as concatenation or compression and finally generates the necessary
 tags.
 
-There are multiple ways to add assets to the :php:`PageRenderer` in TYPO3.
-For configuration options via TypoScript (usually used for the main theme files),
+There are multiple ways to add assets to the :php:`PageRenderer` in `TYPO3`:pn:.
+For configuration options via `TypoScript`:pn: (usually used for the main theme files),
 see the :ref:`TypoScript Reference <t3tsref:setup-page-includecss-array>`. In extensions,
 both directly using the :php:`PageRenderer` as well as using the more convenient
 :php:`AssetCollector` is possible.
@@ -34,7 +34,7 @@ AssetCollector
 ==============
 
 The :php:`AssetCollector` is a concept to allow custom CSS/JS code, inline or external, to be added multiple
-times in e.g. a Fluid template (via :html:`<f:asset.script>` or :html:`<f:asset.css>` Viewhelpers)
+times in for example a `Fluid`:pn: template (via :html:`<f:asset.script>` or :html:`<f:asset.css>` `ViewHelpers`:pn:)
 but rendered only once in the output.
 
 It supports best practices for optimizing page performance by having a "priority" flag to either
@@ -46,7 +46,7 @@ It also incorporates the HTTP/2 power, where it is not relevant to have all
 files compressed and concatenated into one file.
 
 The :php:`AssetCollector` is implemented as a singleton and should slowly replace the various other existing options
-in TypoScript.
+in `TypoScript`:pn:.
 
 The :php:`AssetCollector` also collects information about "imagesOnPage", which can be used in cached and non-cached components.
 
@@ -74,19 +74,19 @@ The API
    If the same asset is registered multiple times using different attributes or options, both sets are merged. If the
    same attributes or options are given with different values, those registered last will overwrite the existing ones.
 
-.. index:: pair: Assets; Viewhelpers
+.. index:: pair: Assets; ViewHelper
 
-Viewhelper
-----------
+`ViewHelper`:pn:
+----------------
 
-There are also two Viewhelpers, the :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the :ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>` Viewhelper which use the :php:`AssetCollector` API.
+There are also two `ViewHelpers`:pn:, the :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the :ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>` `ViewHelper`:pn: which use the :php:`AssetCollector` API.
 
 .. index:: pair: Assets; Rendering order
 
 Rendering order
 ---------------
 
-Currently, CSS and JavaScript registered with the :php:`AssetCollector` will be rendered after their
+Currently, CSS and `JavaScript`:pn: registered with the :php:`AssetCollector` will be rendered after their
 :php:`PageRenderer` counterparts. The order is:
 
 - :html:`<head>`
@@ -109,27 +109,27 @@ Currently, CSS and JavaScript registered with the :php:`AssetCollector` will be 
 
 .. note::
 
-   JavaScript registered with AssetCollector is not affected by
+   `JavaScript`:pn: registered with AssetCollector is not affected by
    :ts:`config.moveJsFromHeaderToFooter`.
 
 Examples
 --------
 
-Add a JavaScript file to the collector with script attribute :code:`data-foo="bar"`:
+Add a `JavaScript`:pn: file to the collector with script attribute :code:`data-foo="bar"`:
 
 .. code-block:: php
 
     GeneralUtility::makeInstance(AssetCollector::class)
        ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['data-foo' => 'bar']);
 
-Add a JavaScript file to the collector with script attribute :html:`data-foo="bar"` and priority which means rendering before other script tags:
+Add a `JavaScript`:pn: file to the collector with script attribute :html:`data-foo="bar"` and priority which means rendering before other script tags:
 
 .. code-block:: php
 
     GeneralUtility::makeInstance(AssetCollector::class)
        ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['data-foo' => 'bar'], ['priority' => true]);
 
-Add a JavaScript file to the collector with :html:`type="module"` (by default, no type= is output for JavaScript):
+Add a `JavaScript`:pn: file to the collector with :html:`type="module"` (by default, no type= is output for `JavaScript`:pn:):
 
 .. code-block:: php
 

@@ -15,7 +15,7 @@ Configuration module
    installed.
 
 The configuration module can be found at :guilabel:`System > Configuration`.
-It allows integrators to view and validate the global configuration of TYPO3.
+It allows integrators to view and validate the global configuration of `TYPO3`:pn:.
 The module displays all relevant global variables such as
 :php:`TYPO3_CONF_VARS`, :php:`TCA` and many more, in a tree format which is
 easy to browse through. Over time this module got extended to also display
@@ -118,7 +118,7 @@ Please note, when extending this class, the attribute `label` is expected in the
 `__invoke()` method and must therefore be defined in the :file:`Services.yaml`.
 Either a static text or a locallang label can be used.
 
-Since the registration uses the Symfony service container and provides all
+Since the registration uses the `Symfony`:pn: service container and provides all
 attributes using :php:`__invoke()`, it is even possible to use DI with
 constructor arguments in the provider classes.
 

@@ -27,7 +27,7 @@ Notes on security
 *  No information disclosure is built-in, so if the email address is not in the system, it is not disclosed to the outside.
 *  Rate limiting is activated for allowing three emails to be sent within 30 minutes per email address.
 *  Tokens are stored in the database but hashed again, just like the password.
-*  When a user has logged in successfully (e.g., because they remembered the password), the token is removed from the database, effectively invalidating all existing email links.
+*  When a user has logged in successfully (for example, because they remembered the password), the token is removed from the database, effectively invalidating all existing email links.
 
 .. index:: Backend; passwordReset
 .. index:: Backend; passwordResetForAdmins
@@ -50,7 +50,7 @@ module or in the :guilabel:`Install Tool` but can be set manually via :file:`typ
 Reset password for user
 =======================
 
-Administrators can reset a user's password. This is especially useful for security purposes, so an administrator does not need to send a password over the wire in plaintext (e.g. email) to a user.
+Administrators can reset a user's password. This is especially useful for security purposes, so an administrator does not need to send a password over the wire in plaintext (for example email) to a user.
 
 The administrator can use the CLI command:
 

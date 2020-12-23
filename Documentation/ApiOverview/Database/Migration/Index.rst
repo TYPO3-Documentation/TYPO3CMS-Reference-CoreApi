@@ -7,7 +7,7 @@ Migrating from TYPO3_DB
 =======================
 
 This chapter is for those poor souls who want to migrate old and busted :php:`$GLOBALS['TYPO3_DB']`
-calls to new hotness Doctrine DBAL based API.
+calls to new hotness `Doctrine`:pn: DBAL based API.
 
 It tries to give some hints on typical pitfalls and areas a special eye should be kept on.
 
@@ -54,7 +54,7 @@ enableFields() and deleteClause()
 :php:`BackendUtility::deleteClause()` adds `deleted=0` if `['ctrl']['deleted']` is specified in the
 table's `TCA`. The method call *should* be removed during migration. If there is no other restriction
 method involved in the old call like `enableFields()`, the migrated code typically removes all
-doctrine default restrictions and just adds the `DeletedRestriction` again::
+`Doctrine`:pn: default restrictions and just adds the `DeletedRestriction` again::
 
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
@@ -271,18 +271,18 @@ ext_tables.sql
 
 The schema migrator that compiles :file:`ext_tables.sql` files from all loaded extensions and compares them with
 current schema definitions in the database has been fully rewritten. It mostly should work as before, some
-specific fields however tend to grow a little larger on `mysql` platforms than before. This usually
+specific fields however tend to grow a little larger on `MySQL`:pn: platforms than before. This usually
 shouldn't have negative side effects, typically no :file:`ext_tables.sql` changes are needed when migrating an
 extension to the new query API.
 
 
-TCA and TypoScript
-==================
+`TCA`:pn: and `TypoScript`:pn:
+==============================
 
-`TCA` and `TypoScript` needs to be adapted at places where SQL fragments are specified. Table and field
+`TCA`:pn: and `TypoScript`:pn: needs to be adapted at places where SQL fragments are specified. Table and field
 names are quoted differently on different platforms and extension developers should never hard code
-quoting for specific target platforms, but let the Core quote the field according to the currently used
-platform. This leads to a new syntax in various places, for instance in `TCA` property
+quoting for specific target platforms, but let the `Core`:pn: quote the field according to the currently used
+platform. This leads to a new syntax in various places, for instance in `TCA`:pn: property
 :ref:`foreign_table_where <t3tca:columns-select-properties-foreign-table-where>`. In general it applies to all
 places where SQL fragments are specified::
 
@@ -292,14 +292,14 @@ places where SQL fragments are specified::
     // After:
     'foreign_table_where' => 'AND {#tx_some_foreign_table_name}.{#pid} = 42',
 
-If using MySQL, this fragment will be parsed to ``AND `tx_some_foreign_table_name`.`pid` = 42`` (note the backticks)
+If using `MySQL`:pn:, this fragment will be parsed to ``AND `tx_some_foreign_table_name`.`pid` = 42`` (note the backticks)
 with the help of :ref:`QueryHelper::quoteDatabaseIdentifiers() <database-query-helper-quoteDatabaseIdentifiers>`.
 
 
-Extbase QueryBuilder
-====================
+`Extbase`:pn: QueryBuilder
+==========================
 
-The `extbase` internal `QueryBuilder` used in `Repositories` still exists and works a before. There is
-usually no manual migration needed. It is theoretically possible to use the doctrine based query builder
-object in Extbase which can become handy since the new one is much more feature rich, but that topic
-didn't yet fully settle in the Core and no general recommendation can be given yet.
+The `Extbase`:pn: internal `QueryBuilder` used in `Repositories` still exists and works a before. There is
+usually no manual migration needed. It is theoretically possible to use the `Doctrine`:pn:-based query builder
+object in `Extbase`:pn: which can become handy since the new one is much more feature rich, but that topic
+didn't yet fully settle in the `Core`:pn: and no general recommendation can be given yet.

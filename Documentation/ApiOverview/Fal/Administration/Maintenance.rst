@@ -7,7 +7,7 @@ Maintenance
 ===========
 
 There are various maintenance tasks which can be performed
-to maintain a healthy TYPO3 CMS installation with the
+to maintain a healthy `TYPO3 CMS`:pn: installation with the
 file abstraction layer.
 
 
@@ -22,11 +22,11 @@ file abstraction layer.
 
 File abstraction layer: Update storage index
   This task goes through a storage and makes sures that every file
-  is properly indexed. When files are manipulated only via the TYPO3 CMS
+  is properly indexed. When files are manipulated only via the `TYPO3 CMS`:pn:
   backend, they are always indexed. However if files get added via other
-  means (e.g. FTP) or if some storages are based on drivers accessing
+  means (for example FTP) or if some storages are based on drivers accessing
   remote systems, it is crucial to run this task regularly so that
-  the TYPO3 CMS installation knows about all existing files in order
+  the `TYPO3 CMS`:pn: installation knows about all existing files in order
   to make them available to users.
 
   This task is defined per storage.

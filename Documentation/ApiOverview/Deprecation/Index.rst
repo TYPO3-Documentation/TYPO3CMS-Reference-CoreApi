@@ -8,11 +8,11 @@ Deprecation
 
 .. note::
 
-   For information how to handle deprecations in the TYPO3 Core,
+   For information how to handle deprecations in the `TYPO3 Core`:pn:,
    see the Contribution Guide: :ref:`t3contribute:deprecations`.
 
 Since TYPO3 4.3, calls to deprecated functions are logged to track usage of
-deprecated/outdated methods in the TYPO3 Core. Developers have to make sure to adjust their code to avoid
+deprecated/outdated methods in the `TYPO3 Core`:pn:. Developers have to make sure to adjust their code to avoid
 using this old functionality since deprecated methods will be removed in future TYPO3 releases.
 
 .. index:: Deprecation; Log
@@ -22,15 +22,15 @@ Introduction
 ============
 
 Deprecations since TYPO3 9 use the PHP method :php:`trigger_error('a message', E_USER_DEPRECATED)` and run
-through the logging and exception stack of the TYPO3 Core . There are several methods that help extension developers in
+through the logging and exception stack of the `TYPO3 Core`:pn: . There are several methods that help extension developers in
 dispatching deprecation errors. In development context deprecations are turned into exceptions by default
 and ignored in production context.
 
-Therefore calls to deprecated functions within the Core are no longer written to their own log file
+Therefore calls to deprecated functions within the `Core`:pn: are no longer written to their own log file
 (:file:`typo3conf/deprecation_xxxxxxx.log`). The deprecation log related methods have been deprecated themselves.
 
 .. hint::
-   Even though calls to functions within the Core are no longer being written to the old deprecation log
+   Even though calls to functions within the `Core`:pn: are no longer being written to the old deprecation log
    calls to functions within extensions might still be written to the old deprecation log.
 
 .. index:: Deprecation; Log disabling
@@ -57,9 +57,9 @@ For more information on how to configure the writing of deprecation logs see :re
 Finding calls to deprecated functions
 =====================================
 
-The extension scanner which has been introduced with TYPO3 Core  version 9 as part of the system
+The extension scanner which has been introduced with `TYPO3 Core`:pn:  version 9 as part of the system
 management (formerly "Install Tool") provides an interactive interface to scan extension code
-for usage of TYPO3 Core  API which has been removed or deprecated. See :ref:`extension-scanner` for more information.
+for usage of `TYPO3 Core`:pn:  API which has been removed or deprecated. See :ref:`extension-scanner` for more information.
 
 It is also possible to do a file search for "@deprecated" and "E_USER_DEPRECATED". Then using an IDE you can find all
 calls to the affected functions.
@@ -89,5 +89,5 @@ doc-comment and a call to the PHP error method::
       //[ ...]
    }
 
-For more information about how to deprecate classes, arguments and hooks and how the TYPO3 Core  handles deprecations,
+For more information about how to deprecate classes, arguments and hooks and how the `TYPO3 Core`:pn:  handles deprecations,
 see :ref:`t3contribute:deprecations`.

@@ -9,7 +9,7 @@ GeneratePublicUrlForResourceEvent
 
 This event is fired before TYPO3 FAL's native URL generation for a Resource is instantiated.
 
-This allows for listeners to create custom links to certain files (e.g. restrictions) for creating
+This allows for listeners to create custom links to certain files (for example restrictions) for creating
 authorized deeplinks.
 
 API

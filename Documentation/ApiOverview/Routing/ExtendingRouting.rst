@@ -81,7 +81,7 @@ Now you can use your new enhancer in the routing configuration as `type`. The ex
 Manipulating generated slugs
 =============================
 
-The "slug" TCA type includes a possibility to hook into the generation of a slug via custom TCA generation options.
+The "slug" `TCA`:pn: type includes a possibility to hook into the generation of a slug via custom `TCA`:pn: generation options.
 
 Hooks can be registered via
 
@@ -90,7 +90,7 @@ Hooks can be registered via
     $GLOBALS['TCA'][$tableName]['columns'][$fieldName]['config']['generatorOptions']['postModifiers'][] = My\Class::class . '->method';
 
 in :file:`EXT:myextension/Configuration/TCA/Overrides/table.php`, where $tableName can be a table like `pages` and
-`$fieldName` matches the slug field name, e.g. `slug`.
+`$fieldName` matches the slug field name, for example `slug`.
 
 .. code-block:: php
 

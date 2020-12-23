@@ -2,12 +2,12 @@
 .. index:: pair: Security guidelines; Extensions
 .. _security-extensions:
 
-================
-TYPO3 extensions
-================
+======================
+`TYPO3`:pn: extensions
+======================
 
 As already mentioned above, most of the security issues have been
-discovered in TYPO3 extensions, not in the TYPO3 Core . Due to the fact
+discovered in TYPO3 extensions, not in the `TYPO3 Core`:pn:. Due to the fact
 that everybody can publish an extension in the TYPO3 repository, you
 never know how savvy and experienced the programmer is and how the
 code was developed from a security perspective.
@@ -20,10 +20,10 @@ Stable and reviewed extensions
 ==============================
 
 Only a small percentage of the extensions available in the TER have
-been reviewed by the TYPO3 Security team. This does not imply that
+been reviewed by the `TYPO3 Security Team`:pn:. This does not imply that
 extensions without such an audit are insecure, but they probably have
 not been checked for potential security issues by an independent 3rd
-party (such as the TYPO3 Security Team).
+party (such as the `TYPO3 Security Team`:pn:).
 
 The status of an extension (`alpha`, `beta`, `stable`, etc.) should
 also give you an indication in which state the developer claims the
@@ -60,7 +60,7 @@ risks.
   reviews have been undertaken so far.
 
 - Be careful with extensions and versions marked as `stable`, but not
-  reviewed by the TYPO3 Security Team.
+  reviewed by the `TYPO3 Security Team`:pn:.
 
 - Check every extension and extension update before you install it on a
   production site and review it in regards to security, see
@@ -70,10 +70,10 @@ risks.
 Executable binaries shipped with extensions
 ===========================================
 
-TYPO3 extensions (:file:`.zip` files) are packages, which may contain any kind
+`TYPO3`:pn: extensions (:file:`.zip` files) are packages, which may contain any kind
 of data/files. This can be readable PHP or Javascript source code, as well as
-binary files like compiled executables, e.g. Unix/Linux ELF files or Microsoft
-Windows .exe files.
+binary files like compiled executables, for example `Unix`:pn: / `Linux`:pn: ELF files or Microsoft
+`Windows`:pn: .exe files.
 
 Executing these files on a server is a security risk, because it can not
 be verified what these files really do (unless they are
@@ -88,7 +88,7 @@ discovered in these components.
 Remove unused extensions and other code
 =======================================
 
-TYPO3 distinguishes between "imported" and "loaded" extensions.
+`TYPO3`:pn: distinguishes between "imported" and "loaded" extensions.
 Imported extensions exist in the system and are ready to be integrated
 into TYPO3 but they are not installed yet. Loaded extensions are
 available for being used (or are being used automatically, depending
@@ -103,10 +103,10 @@ used to attack the system.
 
 As a general rule, it is highly recommended you remove all code from
 the system that is not in use. This includes TYPO3 extensions, any
-TypoScript (see below), PHP scripts as well as all other functional
+`TypoScript`:pn: (see below), PHP scripts as well as all other functional
 components. In regards to TYPO3 extensions, you should remove unused
 extensions from the system (not only unload/deinstall them). The
-*Extension Manager* offers an appropriate function for this - an
+*`Extension Manager`:pn:* offers an appropriate function for this - an
 administrator backend account is required.
 
 
@@ -120,10 +120,10 @@ to a level below what a standard CMS would allow you to access. This
 could be for example direct read/write access to the file system or
 direct access to the database (see :ref:`Guidelines for System
 Administrators: Database access <security-database-access>`). If a TYPO3 integrator
-or a backend user (e.g. an editor) depends on those extensions, it is most
+or a backend user (for example an editor) depends on those extensions, it is most
 likely that a misconfiguration of the system exists in general.
 
-TYPO3 extensions like `phpMyAdmin`, various file browser/manager
+`TYPO3`:pn: extensions like `phpMyAdmin`, various file browser/manager
 extensions, etc. may be a good choice for a development or test
 environment but are definitely out of place at production sites.
 
@@ -136,11 +136,11 @@ Check for extension updates regularly
 The importance of the knowledge that security updates are available
 has been discussed above (see :ref:`TYPO3 security-bulletins
 <security-bulletins>`). It is also essential to know how to check for
-extension updates: the *Extension Manager* (EM) is a TYPO3 backend module
+extension updates: the *`Extension Manager`:pn:* (EM) is a TYPO3 backend module
 accessible for backend users with administrator privileges.
 A manual check for extension updates is available in this module.
 
-The EM uses a cached version of the extension list from the TYPO3
+The EM uses a cached version of the extension list from the `TYPO3`:pn:
 Extension Repository (TER) to compare the extensions currently
 installed and the latest versions available. Therefore, you should
 retrieve an up-to-date version of the extension list from TER before
@@ -156,7 +156,7 @@ Often a new version of an extension published by the developer is not
 security-related.
 
 A scheduler task is available that lets you update the extension list
-automatically and periodically (e.g. once a day). In combination with
+automatically and periodically (for example once a day). In combination with
 the task "System Status Update (reports)", it is possible to get a
 notification by email when extension updates are available.
 
@@ -164,23 +164,23 @@ notification by email when extension updates are available.
 Security-related extensions
 ===========================
 
-TYPO3 extensions which are not part of the Core (and so are not
+`TYPO3`:pn: extensions which are not part of the Core (and so are not
 official system extensions) are out of scope of this document, due to
 the fact that this Security Guide focuses on a TYPO3 standard setup.
 
 However, there is a wide range of very useful TYPO3 extensions
-available in the TYPO3 Extension Repository (TER) which increase the
-level of security and/or support system administrators and TYPO3
+available in the `TYPO3 Extension Repository`:pn: (TER) which increase the
+level of security and/or support system administrators and `TYPO3`:pn:
 integrators to monitor their TYPO3 installations, check for
 security-related issues, access additional reports and be notified in
 various ways.
 
 Searching for relevant keywords such as "security", "monitoring" or a
-specific technology (e.g. "intrusion detection") or a security threat
-(e.g. "XSS", "SQL injection") or similar shows some results, which
+specific technology (for example "intrusion detection") or a security threat
+(for example "XSS", "SQL injection") or similar shows some results, which
 could be reviewed and tested.
 
 Please note that these extensions are often not developed/maintained
-by TYPO3 Core  developers and the code quality may vary. Also, check
+by `TYPO3 Core`:pn: developers and the code quality may vary. Also, check
 for extensions reviewed by the Security Team and the date of the last
 update.

@@ -6,7 +6,7 @@
 Services API
 ============
 
-This section describes the methods of the TYPO3 Core that are related
+This section describes the methods of the `TYPO3 Core`:pn: that are related
 to the use of services.
 
 
@@ -23,7 +23,7 @@ This extension management class contains three methods related to
 services:
 
 addService
-  This method is used to register services with TYPO3 CMS. It checks for
+  This method is used to register services with `TYPO3 CMS`:pn:. It checks for
   availability of a service with regards to OS dependency (if any) and
   fills the :code:`$GLOBALS['T3_SERVICES']` array, where information
   about all registered services is kept.

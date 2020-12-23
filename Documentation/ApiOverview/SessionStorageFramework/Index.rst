@@ -3,9 +3,9 @@
 .. _sessions:
 
 
-=========================
-Session handling in TYPO3
-=========================
+===============================
+Session handling in `TYPO3`:pn:
+===============================
 
 The session API in TYPO3 consists of two parts:
 

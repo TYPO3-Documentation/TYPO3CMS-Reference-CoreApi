@@ -11,7 +11,7 @@ Basics
 .. note::
    Site handling as described here is available since TYPO3 9 LTS.
 
-TYPO3 site handling and configuration is the starting point for creating new web sites. The corresponding modules are found in the TYPO3 backend
+`TYPO3`:pn: site handling and configuration is the starting point for creating new web sites. The corresponding modules are found in the TYPO3 backend
 in the section "Site management".
 
 A site configuration consists of the following parts:
@@ -52,7 +52,7 @@ file called `config.yaml`.
 
 .. note::
     If you are using a non-composer based installation, the location is `typo3conf/sites/`.
-    In the future this folder can (and should) be used for more files like Fluid templates, and Backend layouts.
+    In the future this folder can (and should) be used for more files like `Fluid`:pn: templates, and Backend layouts.
 
 .. hint::
     Add this folder to your version control.
@@ -164,8 +164,8 @@ base
 The base is the base domain to run a site on. It either accepts a fully qualified URL or a relative segment "/" to react to any domain name.
 It is possible to set a site base prefix to just "/site1" and "/site2" or "www.mydomain.com" instead of entering a full URI.
 
-This allows to have a Site base e.g. www.mydomain.com to be detected with http and https protocols, although it is recommended to do a HTTP to
-HTTPS redirect either on the webserver level, via a .htaccess rewrite rule, or by adding a redirect in TYPO3.
+This allows to have a Site base for example www.mydomain.com to be detected with http and https protocols, although it is recommended to do a HTTP to
+HTTPS redirect either on the webserver level, via a .htaccess rewrite rule, or by adding a redirect in `TYPO3`:pn:.
 
 .. note::
   Please note that this flexibility will introduce side-effects when having multiple sites with mixed configuration settings as Site base:

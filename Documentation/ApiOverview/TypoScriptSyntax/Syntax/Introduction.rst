@@ -6,10 +6,10 @@
 Introduction
 ============
 
-TypoScript is internally handled as a (large) multidimensional PHP
+`TypoScript`:pn: is internally handled as a (large) multidimensional PHP
 array (see ":ref:`typoscript-syntax-what-is-typoscript`"). Values are arranged in a
 tree-like hierarchy. The "branches" are indicated with periods
-(".") - a syntax borrowed from for example JavaScript and which
+(".") - a syntax borrowed from for example `JavaScript`:pn: and which
 conveys the idea of defining objects/properties.
 
 
@@ -30,12 +30,12 @@ Referring to :code:`myObject` we might call it: "*an object with the value
 Furthermore 'myProperty' has its own two properties, 'firstProperty'
 and 'secondProperty' with a value each ([value 3] and [value 4]).*"
 
-The TYPO3 CMS backend contains tools that can be used to visualize the
-tree structure of TypoScript. They are described in the relevant
+The `TYPO3 CMS`:pn: backend contains tools that can be used to visualize the
+tree structure of `TypoScript`:pn:. They are described in the relevant
 section further of the two using reference documents
 :ref:`TypoScript Reference <t3tsref:typoscript-syntax-typoscript-templates>` and
 :ref:`TSconfig Reference <t3tsconfig:typoscript-syntax-using-setting>`.
-The above piece of TypoScript would look like this:
+The above piece of `TypoScript`:pn: would look like this:
 
 .. figure:: ../Images/SyntaxIntroduction.png
-   :alt: Example TypoScript code
+   :alt: Example `TypoScript`:pn: code

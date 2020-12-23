@@ -35,7 +35,7 @@ implementations of the interface for a specific class.
 
 One usage of traits is the removal of boilerplate code. While object
 creation and dependency injection is still a not resolved issue in the
-Core, this area is probably a good example where a couple of traits
+`Core`:pn:, this area is probably a good example where a couple of traits
 would be really useful to autowire default functionality like logging
 into classes with very little developer effort and in a simple and
 understandable way. It should however be kept in mind that traits must
@@ -79,7 +79,7 @@ Bad Examples
   * No interface.
 
   * It would have probably been better to add the trait code to a full
-    class and just use it in the according view helpers (composition) or
+    class and just use it in the according `ViewHelpers`:pn: (composition) or
     implement it as abstract.
 
 For these reasons the trait has been dissolved into an `AbstractMenuViewHelper`.

@@ -22,7 +22,7 @@ This allows editors to start translating pages without them directly being live.
 
 .. note::
     In case no site configuration has been created for a tree, all language records are shown. In this case the
-    page TSconfig options `mod.SHARED.defaultLanguageFlag`, `mod.SHARED.defaultLanguageLabel`
+    page `TSconfig`:pn: options `mod.SHARED.defaultLanguageFlag`, `mod.SHARED.defaultLanguageLabel`
     and `mod.SHARED.disableLanguages` settings are also considered - those are obsolete if a site configuration exists.
 
 Language fallbacks can be configured for every language but the default one. A language fallback means that if content
@@ -30,8 +30,8 @@ is not available in the current language, content of the fallback language will 
 fallback levels - for example "Modern Chinese" might fall back to "Chinese (Traditional)" which may then fallback to "English". All languages can be configured separately, so you can have different fallback chains and behavior for each language.
 
 .. tip::
-    Used to older TYPO3 versions? The following TypoScript settings will be set based on `config.yaml` - you don't need
-    to have them in your TypoScript template:
+    Used to older TYPO3 versions? The following `TypoScript`:pn: settings will be set based on `config.yaml` - you don't need
+    to have them in your `TypoScript`:pn: template:
 
     * `config.language`
     * `config.locale_all`

@@ -20,9 +20,9 @@ a :code:`<source>` element to store the source text and a (non-mandatory) :code:
 element to store the translated text.
 
 Note that having several :code:`<file>` elements in the same XLIFF document is not
-supported by the TYPO3 CMS Core.
+supported by the `TYPO3 CMS Core`:pn:.
 
-Keep in mind that the default language is always considered to be english,
+Keep in mind that the default language is always considered to be English,
 even when you have changed your typo3 backend to another language, so
 source-language must always be `source-language="en"`.
 
@@ -65,8 +65,8 @@ Here is a sample XLIFF file:
 
 The translated file is very similar. If the original file was named
 :file:`locallang.xlf`, the translated file for German (code "de") will
-be named :file:`de.locallang.xlf`. Note that the original file must always be in english,
-so it is not allowed to create a file with the prefix "en" e.g. :file:`en.locallang.xlf`.
+be named :file:`de.locallang.xlf`. Note that the original file must always be in English,
+so it is not allowed to create a file with the prefix "en" for example :file:`en.locallang.xlf`.
 Inside the file itself, a :code:`<target-language>` attribute is added in the :code:`<file>` tag to
 indicate the translation language ("de" in our example). Then for each
 :code:`<source>` tag there's a sibling :code:`<target>` tag containing the
@@ -102,11 +102,11 @@ goes to an additional file.
 File locations and naming
 =========================
 
-In the TYPO3 Core, XLIFF files are located in the various system extensions
+In the `TYPO3 Core`:pn:, XLIFF files are located in the various system extensions
 as needed and are expected to be located in :file:`Resources/Private/Language`.
 
-In Extbase, the main file (:file:`locallang.xlf`) will be loaded automatically and
-available in the controller and Fluid views without further work needed. Other files will
+In `Extbase`:pn:, the main file (:file:`locallang.xlf`) will be loaded automatically and
+available in the controller and `Fluid`:pn: views without further work needed. Other files will
 need to be referred to explicitly using the :code:`EXT:LLL:extkey/path/to/file:my.label` syntax.
 
 As mentioned above, the translation files follow the same naming conventions, but

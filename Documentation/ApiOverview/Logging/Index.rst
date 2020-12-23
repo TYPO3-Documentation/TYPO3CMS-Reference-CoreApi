@@ -8,7 +8,7 @@ Logging Framework
 
 - Chapter :ref:`logging-quickstart` helps to get going
 
-TYPO3 Logging consists of the following components:
+`TYPO3`:pn: logging consists of the following components:
 
 - A :ref:`Logger <logging-logger>` that receives the log message and related details, like a severity
 - A :ref:`LogRecord model <logging-model>` which encapsulates the data

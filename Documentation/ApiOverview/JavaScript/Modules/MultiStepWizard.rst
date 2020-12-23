@@ -6,7 +6,7 @@
 Multi-step wizard
 =================
 
-The JavaScript module :js:`MultiStepWizard` can be used to show a modal multi-step
+The `JavaScript`:pn: module :js:`MultiStepWizard` can be used to show a modal multi-step
 wizard with the following features:
 
 * Navigation to previous / next steps

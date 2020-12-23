@@ -32,7 +32,7 @@ the file :file:`test.php` when executed by the PHP function :php:`eval()``.
 This is a simple example only and more sophisticated obscurity strategies
 are imaginable.
 
-Other scenarios also show that PHP or JavaScript Code has been
+Other scenarios also show that PHP or `JavaScript`:pn: code has been
 injected in normal CSS files. In order that the code in those files
 will be executed on the server (rather than just being sent to the
 browser), modifications of the server configuration are made. This
@@ -45,9 +45,9 @@ It is absolutely necessary that you learn which vulnerability the
 attacker exploited and to fix it. Check log files and other components
 on your system which could be affected, too.
 
-If you have any proof or a reasonable ground for suspecting that TYPO3
+If you have any proof or a reasonable ground for suspecting that `TYPO3`:pn:
 or an extension could be the cause, and no security-bulletin lists
-this specific version, please :ref:`contact the TYPO3 Security Team
+this specific version, please :ref:`contact the `TYPO3 Security Team`:pn:
 <security-team-contact>`. The policy dictates not to disclose the issue
-in public (mailing lists, forums, Twitter or any other 3rd party website).
+in public (mailing lists, forums, Twitter or any other third party website).
 

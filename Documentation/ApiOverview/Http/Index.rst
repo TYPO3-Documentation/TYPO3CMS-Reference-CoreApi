@@ -9,9 +9,9 @@
 HTTP request library / Guzzle / PSR-7
 =====================================
 
-Since TYPO3 CMS 8.1 the PHP library `Guzzle` has been added via composer dependency
+Since `TYPO3 CMS`:pn: 8.1 the PHP library `Guzzle` has been added via composer dependency
 to work as a feature rich solution for creating HTTP requests based on the PSR-7 interfaces
-already used within TYPO3.
+already used within `TYPO3`:pn:.
 
 Guzzle auto-detects available underlying adapters available on the system, like cURL or
 stream wrappers and chooses the best solution for the system.
@@ -121,7 +121,7 @@ If a custom configuration is given, the default handler stack is extended, but o
 HTTP Utility Methods
 ====================
 
-TYPO3 provides a small set of helper methods related to HTTP Requests in the class :php:`HttpUtility`:
+`TYPO3`:pn: provides a small set of helper methods related to HTTP Requests in the class :php:`HttpUtility`:
 
 HttpUtility::redirect
 ---------------------
@@ -146,7 +146,7 @@ for example :php:`HttpUtility::HTTP_STATUS_404`.
 HttpUtility::buildUrl
 ---------------------
 
-Builds a URL string from an array with the URL parts, as e.g. output by :php:`parse_url()`.
+Builds a URL string from an array with the URL parts, as for example output by :php:`parse_url()`.
 
 HttpUtility::buildQueryString
 -----------------------------

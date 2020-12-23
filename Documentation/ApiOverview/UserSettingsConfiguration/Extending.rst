@@ -32,7 +32,7 @@ after the existing "email" field.
 
 In this example the field is also added to the "be_users" table. This is
 not described here as it belongs to 'extending the $TCA array'.
-See label 'extending' in older versions of the TCA-Reference.
+See label 'extending' in older versions of the `TCA`:pn: reference.
 
 And here is the new field in the User Tools > User Settings module:
 
@@ -41,10 +41,10 @@ And here is the new field in the User Tools > User Settings module:
 
    The new field visible in the User Settings configuration
 
-"On Click" / "On Confirmation" JavaScript Callbacks
-===================================================
+"On Click" / "On Confirmation" `JavaScript`:pn: callbacks
+==========================================================
 
-To extend the User Settings module with JavaScript callbacks - for example with
+To extend the user settings module with `JavaScript`:pn: callbacks - for example with
 a custom button or special handling on confirmation, use :code:`clickData` or
 :code:`confirmData`:
 
@@ -66,7 +66,7 @@ a custom button or special handling on confirmation, use :code:`clickData` or
             // ...
 
 Events declared in corresponding `eventName` options have to be handled by
-a custom static JavaScript module. Following snippets show the relevant parts:
+a custom static `JavaScript`:pn: module. Following snippets show the relevant parts:
 
 .. code-block:: javascript
 
@@ -84,4 +84,4 @@ a custom static JavaScript module. Following snippets show the relevant parts:
        });
 
 PSR-14 event :php:`\TYPO3\CMS\Setup\Event\AddJavaScriptModulesEvent` can be used
-to inject a JavaScript module to handle those custom JavaScript events.
+to inject a `JavaScript`:pn: module to handle those custom `JavaScript`:pn: events.

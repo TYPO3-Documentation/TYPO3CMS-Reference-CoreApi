@@ -13,9 +13,9 @@ In order to have the possibility to set metatags in a flexible (but regulated wa
     Usually, it is sufficient to set met tags using the API of the :php:`PageRenderer` which uses the MetaTag API
     internally. For all other cases, use the MetaTag API directly.
 
-The API uses :php:`MetaTagManagers` to manage the tags for a "family" of meta tags. The Core e.g. ships an
+The API uses :php:`MetaTagManagers` to manage the tags for a "family" of meta tags. The `Core`:pn: for example ships an
 OpenGraph MetaTagManager that is responsible for all OpenGraph tags.
-In addition to the MetaTagManagers included in the Core, you can also register your own
+In addition to the MetaTagManagers included in the `Core`:pn:, you can also register your own
 :php:`MetaTagManager` in the :php:`\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry`.
 
 
@@ -38,7 +38,7 @@ You can use that manager to add your meta tag; see the example below for the :ht
 
 This code will result in a :html:`<meta property="og:title" content="This is the OG title from a controller" />` tag in frontend.
 
-If you need to specify sub-properties, e.g. :html:`og:image:width`, you can use the following code:
+If you need to specify sub-properties, for example :html:`og:image:width`, you can use the following code:
 
 .. code-block:: php
 
@@ -103,27 +103,27 @@ want to implement your own :php:`OpenGraphMetaTagManager`, you can use the follo
     );
 
 This will result in :php:`MyOpenGraphMetaTagManager` having a higher priority and it will first check if your own
-manager can handle the tag before it checks the default manager provided by the Core.
+manager can handle the tag before it checks the default manager provided by the `Core`:pn:.
 
 .. index:: pair: MetaTag; TypoScript
 .. _metatagapi-configuration:
 
-TypoScript and PHP
-==================
+`TypoScript`:pn: and PHP
+========================
 
-You can set your meta tags by TypoScript and PHP (for example from plugins). First the meta tags from content (plugins)
-will be handled. After that the meta tags defined in TypoScript will be handled.
+You can set your meta tags by `TypoScript`:pn: and PHP (for example from plugins). First the meta tags from content (plugins)
+will be handled. After that the meta tags defined in `TypoScript`:pn: will be handled.
 
-It is possible to override earlier set meta tags by TypoScript if you explicitly say this should happen. Therefore the
+It is possible to override earlier set meta tags by `TypoScript`:pn: if you explicitly say this should happen. Therefore the
 :ts:`meta.*.replace` option was introduced. It is a boolean flag with these values:
 
-* :ts:`1`: The meta tag set by TypoScript will replace earlier set meta tags
-* :ts:`0`: (default) If the meta tag is not set before, the meta tag will be created. If it is already set, it will ignore the meta tag set by TypoScript.
+* :ts:`1`: The meta tag set by `TypoScript`:pn: will replace earlier set meta tags
+* :ts:`0`: (default) If the meta tag is not set before, the meta tag will be created. If it is already set, it will ignore the meta tag set by `TypoScript`:pn:.
 
 .. code-block:: typoscript
 
     page.meta {
-        og:site_name = TYPO3
+        og:site_name = `TYPO3`:pn:
         og:site_name.attribute = property
         og:site_name.replace = 1
     }

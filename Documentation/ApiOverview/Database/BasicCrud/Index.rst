@@ -75,7 +75,7 @@ Result in $row:
        bodytext => 'some content' (12 chars)
 
 
-The engine quotes field names, adds default TCA restrictions like "deleted=0",
+The engine quotes field names, adds default `TCA`:pn: restrictions like "deleted=0",
 and prepares a query executed with this final statement:
 
 .. code-block:: sql
@@ -91,7 +91,7 @@ and prepares a query executed with this final statement:
 
 .. note::
 
-   Default restrictions `deleted`, `hidden`, `startime` and `endtime` based on `TCA` setting of a table
+   Default restrictions `deleted`, `hidden`, `startime` and `endtime` based on `TCA`:pn: setting of a table
    are only applied to `select()` calls, they are *not* added for `delete()` or other query types.
 
 

@@ -2,11 +2,11 @@
 .. index:: TypoScript; Syntax
 .. _typoscript-syntax-typoscript-syntax:
 
-=================
-TypoScript syntax
-=================
+=======================
+`TypoScript`:pn: syntax
+=======================
 
-TypoScript is parsed in a very simple way; line by line. This means
+`TypoScript`:pn: is parsed in a very simple way; line by line. This means
 that abstractly said each line normally contains three parts based on
 this formula:
 
@@ -217,7 +217,7 @@ properties.
 .. note::
 
   Excessive end braces are ignored, but generate warnings in
-  the TypoScript parser.
+  the `TypoScript`:pn: parser.
 
 
 **Example:**
@@ -258,7 +258,7 @@ lines and thus include line breaks.
 
 .. important::
 
-   You cannot use multi-line values in constants. They are only available in the setup part of TypoScript.
+   You cannot use multi-line values in constants. They are only available in the setup part of `TypoScript`:pn:.
 
 
 
@@ -266,7 +266,7 @@ lines and thus include line breaks.
 
 The end-parenthesis is extremely important. If it is not
 found, the parser considers the following lines to be part of the
-value and does not return to parsing TypoScript. This includes the
+value and does not return to parsing `TypoScript`:pn:. This includes the
 :code:`[GLOBAL]` condition which will not save you in this case! So don't miss
 it!
 
@@ -306,7 +306,7 @@ old objects and values at that position.
 
    myOtherObject < myObject
 
-The result of the above TypoScript is two independent sets of
+The result of the above `TypoScript`:pn: is two independent sets of
 objects/properties which are exactly the same (duplicates). They are
 *not* references to each other but actual copies:
 
@@ -361,7 +361,7 @@ which – in tree view – translates to:
    The value of the :code:`stdWrap.wrap` property of :code:`anotherObject`
    is :code:`<p>|</p>`. It is **not** :code:`<h1>|<h1>` because this change
    happens **after** the copying. This example may seem trivial, but
-   it's easy to loose the oversight in larger pieces of TypoScript.
+   it's easy to loose the oversight in larger pieces of `TypoScript`:pn:.
 
 
 .. index::
@@ -373,7 +373,7 @@ which – in tree view – translates to:
 References: the "=<" sign
 -------------------------
 
-**In the context of TypoScript Templates** it is possible to create
+**In the context of `TypoScript`:pn: Templates** it is possible to create
 references from one object to another. References mean that multiple
 positions in an object tree can use the same object at another
 position without making an actual copy of the object but by simply
@@ -412,8 +412,8 @@ of the reference are not shown. Only the reference itself is visible:
 
 Remember:
 
-- References are only available in TypoScript templates, not in TSconfig
-  (user TSconfig or page TSconfig)
+- References are only available in `TypoScript`:pn: templates, not in `TSconfig`:pn:
+  (user `TSconfig`:pn: or page `TSconfig`:pn:)
 
 - References are only resolved for Content Objects, otherwise references are
   not resolved. For example, you **cannot** use a
@@ -454,9 +454,9 @@ In this last line :code:`myObject` is totally wiped out (removed).
 Conditions: Lines starting with "["
 -----------------------------------
 
-Conditions break the parsing of TypoScript in order to evaluate the
+Conditions break the parsing of `TypoScript`:pn: in order to evaluate the
 content of the condition line. If the evaluation returns true, parsing
-continues, otherwise the following TypoScript is ignored until the
+continues, otherwise the following `TypoScript`:pn: is ignored until the
 next condition is found, at which point a new evaluation takes place.
 The next section in this document describes conditions in more
 details.
@@ -502,7 +502,7 @@ value starts after the operator and ends with the line break.
 Comments
 ========
 
-TypoScript support single line comments as well as multiline comment blocks.
+`TypoScript`:pn: support single line comments as well as multiline comment blocks.
 
 
 .. index::

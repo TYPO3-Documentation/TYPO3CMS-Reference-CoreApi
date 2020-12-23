@@ -17,7 +17,7 @@ Fetching translations
 
 The interface of the Install Tool in :guilabel:`ADMIN TOOLS > Maintenance > Manage language packs`
 allows to manage the list of available languages to your users and can fetch and
-update language packs of TER and Core extensions from the official translation server.
+update language packs of TER and `Core`:pn: extensions from the official translation server.
 The module is rather straight forward to use and should be pretty much self explanatory.
 Downloaded language packs are stored in :ref:`Environment-labels-path`.
 
@@ -103,7 +103,7 @@ and the result can be easily seen in the backend:
    - Please note that you do not have to copy the full reference file, but only the labels you want to translate.
 
    - The path to the file to override must be expressed as :file:`EXT:foo/bar/...`. For the
-     extension "xlf" or "xml" can be used interchangeably. The TYPO3 Core will try both anyway,
+     extension "xlf" or "xml" can be used interchangeably. The `TYPO3 Core`:pn: will try both anyway,
      but using "xlf" is more correct and future-proof.
 
 .. attention::

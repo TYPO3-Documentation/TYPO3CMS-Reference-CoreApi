@@ -6,8 +6,8 @@
 Environment
 ===========
 
-Since version 9.x the TYPO3 Core  includes an environment class.
-This class contains all environment-specific information, e.g. paths within the
+Since version 9.x the `TYPO3 Core`:pn:  includes an environment class.
+This class contains all environment-specific information, for example paths within the
 filesystem. This implementation replaces previously used global variables and
 constants like :php:`PATH_site`.
 
@@ -31,7 +31,7 @@ getProjectPath()
 ----------------
 
 The environment provides the path to the folder containing the :file:`composer.json`.
-For projects without Composer setup, this is equal to :ref:`Environment-public-path`.
+For projects without `Composer`:pn: setup, this is equal to :ref:`Environment-public-path`.
 
 
 .. index::
@@ -44,7 +44,7 @@ getPublicPath()
 
 The environment provides the path to the public web folder with
 :file:`index.php` for the TYPO3 frontend. This was previously :php:`PATH_site`.
-For projects without Composer setup, this is equal to :ref:`Environment-project-path`.
+For projects without `Composer`:pn: setup, this is equal to :ref:`Environment-project-path`.
 
 
 .. index::
@@ -59,10 +59,10 @@ getVarPath()
 The environment provides the path to the :file:`var` folder. This folder contains
 data like logs, sessions, locks, and cache files.
 
-For projects with Composer setup, the value is :php:`getProjectPath() . '/var'`,
+For projects with `Composer`:pn: setup, the value is :php:`getProjectPath() . '/var'`,
 so it is outside of the web document root - not within :php:`getPublicPath()`.
 
-Without Composer, the value is :php:`getPublicPath() . '/typo3temp/var'`, so within
+Without `Composer`:pn:, the value is :php:`getPublicPath() . '/typo3temp/var'`, so within
 the web document root - a situation that is not optimal from a security point of view.
 
 
@@ -74,13 +74,13 @@ the web document root - a situation that is not optimal from a security point of
 getConfigPath()
 ---------------
 
-The environment provides the path to :file:`typo3conf`. This folder contains TYPO3
-global configuration files and folders, e.g. :file:`LocalConfiguration.php`.
+The environment provides the path to :file:`typo3conf`. This folder contains `TYPO3`:pn:
+global configuration files and folders, for example :file:`LocalConfiguration.php`.
 
-For projects with Composer setup, the value is :php:`getProjectPath() . '/config'`,
+For projects with `Composer`:pn: setup, the value is :php:`getProjectPath() . '/config'`,
 so it is outside of the web document root - not within :php:`getPublicPath()`.
 
-Without Composer, the value is :php:`getPublicPath() . '/typo3conf'`, so within
+Without `Composer`:pn:, the value is :php:`getPublicPath() . '/typo3conf'`, so within
 the web document root - a situation that is not optimal from a security point of view.
 
 
@@ -96,10 +96,10 @@ getLabelsPath()
 The environment provides the path to :file:`labels`, respective :file:`l10n`
 folder. This folder contains downloaded translation files.
 
-For projects with Composer setup, the value is :php:`getVarPath() . '/labels'`,
+For projects with `Composer`:pn: setup, the value is :php:`getVarPath() . '/labels'`,
 so it is outside of the web document root - not within :php:`getPublicPath()`.
 
-Without Composer, the value is :php:`getPublicPath() . '/typo3conf/l10n'`, so within
+Without `Composer`:pn:, the value is :php:`getPublicPath() . '/typo3conf/l10n'`, so within
 the web document root - a situation that is not optimal from a security point of view.
 
 .. index:: Environment; getCurrentScript
@@ -135,13 +135,13 @@ Configuring environment paths
 The TYPO3 constant :php:`PATH_site` acts as a basis for any PHP entry point. It
 can be overwritten via the environment variable :php:`TYPO3_PATH_ROOT`.
 
-The variable :php:`TYPO3_PATH_ROOT` is automatically calculated and set for any Composer-based TYPO3 installation,
-making it possible to e.g. run the TYPO3 command line interface from any location.
+The variable :php:`TYPO3_PATH_ROOT` is automatically calculated and set for any `Composer`:pn:-based TYPO3 installation,
+making it possible to for example run the TYPO3 command line interface from any location.
 
 The environment variable called :php:`TYPO3_PATH_APP` is used
 to allow to store **data** outside of the document root.
 
-All Composer-based installations benefit from this functionality, as data that was previously
+All `Composer`:pn:-based installations benefit from this functionality, as data that was previously
 stored and hard-coded within :file:`typo3temp/var/` is now stored within the **project root** folder :file:`var/`.
 
 For non-composer installations (Classic Mode), it is possible to set the environment variable to a folder, usually one level
@@ -159,8 +159,8 @@ Non-public files are then put to
 - :file:`/var/www/my-project/var/cache` (Caching Framework data)
 - :file:`/var/www/my-project/var/lock` (Files related to locking)
 - :file:`/var/www/my-project/var/log` (Files related to logging)
-- :file:`/var/www/my-project/var/extensionmanager` (Files related to extension manager data)
-- :file:`/var/www/my-project/var/transient` (Files related to import/export, Core updater, FAL)
+- :file:`/var/www/my-project/var/extensionmanager` (Files related to `Extension Manager`:pn: data)
+- :file:`/var/www/my-project/var/transient` (Files related to import/export, `Core`:pn: updater, FAL)
 
 For installations without this setting, there are minor differences in the folder structure:
 

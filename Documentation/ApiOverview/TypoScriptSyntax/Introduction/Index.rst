@@ -3,34 +3,34 @@
 .. _typoscript-syntax-introduction:
 .. _typoscript-syntax-what-is-typoscript:
 
-===================
-What Is TypoScript?
-===================
+=========================
+What Is `TypoScript`:pn:?
+=========================
 
-People are often confused about what TypoScript (TS) is, where it can
+People are often confused about what `TypoScript`:pn: (TS) is, where it can
 be used and have a tendency to think of it as something complex. This
 chapter has been written in the hope of clarifying these issues.
 
 First let's start with a basic truth:
 
-- TypoScript is a *syntax* for defining information in a hierarchical
+- `TypoScript`:pn: is a *syntax* for defining information in a hierarchical
   structure using simple ASCII text content.
 
 This means that:
 
-- TypoScript itself does not "do" anything - it just contains
+- `TypoScript`:pn: itself does not "do" anything - it just contains
   information.
 
-- TypoScript is *only* transformed into function when it is passed to a
+- `TypoScript`:pn: is *only* transformed into function when it is passed to a
   program which is designed to act according to the information in a
-  TypoScript information structure.
+  `TypoScript`:pn: information structure.
 
-So strictly speaking TypoScript has no function in itself, only when
+So strictly speaking `TypoScript`:pn: has no function in itself, only when
 used in a certain context. Since the context is almost always to
-*configure* something you can often understand TypoScript as
+*configure* something you can often understand `TypoScript`:pn: as
 *parameters* (or function arguments) passed to a function which acts
-accordingly (e.g. :ts:`background_color = red`). And on the contrary you
-will probably never see TypoScript used to store information like a
+accordingly (for example :ts:`background_color = red`). And on the contrary you
+will probably never see `TypoScript`:pn: used to store information like a
 database of addresses - you would use XML or SQL for that.
 
 
@@ -40,24 +40,24 @@ database of addresses - you would use XML or SQL for that.
 PHP arrays
 ==========
 
-In the scope of its use you can also understand TypoScript as a non-
+In the scope of its use you can also understand `TypoScript`:pn: as a non-
 strict way to enter information into a *multidimensional array* . In
-fact when TypoScript is parsed, it is *transformed into a PHP array*
+fact when `TypoScript`:pn: is parsed, it is *transformed into a PHP array*
 ! So when would you define static information in PHP arrays? You would
 do that in configuration files - but probably not to build your
 address database!
 
 This can be summarized as follows:
 
-- When TypoScript is *parsed* it means that the information is
+- When `TypoScript`:pn: is *parsed* it means that the information is
   transformed into a *PHP array* from where TYPO3 applications can
   access it.
 
-- So the *same* information could in fact be defined in TypoScript *or
+- So the *same* information could in fact be defined in `TypoScript`:pn: *or
   directly* in PHP; but the syntax would be different for the two of
   course.
 
-- TypoScript offers convenient features which is the reason why we don't
+- `TypoScript`:pn: offers convenient features which is the reason why we don't
   just define the information directly with PHP syntax into arrays.
   These features include a relaxed handling of syntax errors, definition
   of values with less language symbols needed and the ability of using
@@ -66,19 +66,19 @@ This can be summarized as follows:
 
 .. _typoscript-syntax-object-paths:
 
-TypoScript syntax, object paths, objects and properties
-=======================================================
+`TypoScript`:pn: syntax, object paths, objects and properties
+=============================================================
 
 See, that is what this chapter is about - the *syntax* of
 TypoScript; the rules you must obey in order to store information in
 this structure. Obviously we'll not explain the full syntax here again
 but just give an example to convey the idea.
 
-Remember it is about storing information, so think about TypoScript as
+Remember it is about storing information, so think about `TypoScript`:pn: as
 *assigning values to variables* : The "variables" are called "object
-paths" because TypoScript easily lends itself to the metaphor of
+paths" because `TypoScript`:pn: easily lends itself to the metaphor of
 "objects" and "properties". This has some advantages as we shall see
-but at the same time TypoScript is designed to allow a very simple and
+but at the same time `TypoScript`:pn: is designed to allow a very simple and
 straight forward assignment of values; simply by using the equal sign
 as an operator:
 
@@ -97,7 +97,7 @@ Another example:
 
 Now the object path "asdf.zxcvbnm" contains the value "uiop" and
 "asdf.backgroundColor" contains the value "blue". According to *the
-syntax* of TypoScript this could also have been written more
+syntax* of `TypoScript`:pn: this could also have been written more
 comfortably as:
 
 .. code-block:: typoscript
@@ -145,13 +145,13 @@ that in the *English language* we understand the words "background
 color" and "blue" and automatically imply some meaning. We understand
 the **semantics** of it. But to a machine like a computer the word
 "backgroundColor" makes just as little sense as "zxcvbnm" unless it
-has been programmed to understand either one, e.g. to take its value
+has been programmed to understand either one, for example to take its value
 as the background color for something. In fact "uiop" could be an
 alias for blue color values and "zxcvbnm" could be programmed as the
 property setting the background color of something.
 
 This just serves to point one thing out: Although most programming
-languages and also TypoScript use function, method, keyword and
+languages and also `TypoScript`:pn: use function, method, keyword and
 property names which humans can often deduct some meaning from, it
 ultimately is the programming reference, DTD or XML-Schema which
 defines the meaning.
@@ -163,7 +163,7 @@ defines the meaning.
 Note about the internal structure when parsed into a PHP array
 ==============================================================
 
-Let's take the TypoScript from above as an example:
+Let's take the `TypoScript`:pn: from above as an example:
 
 .. code-block:: typoscript
 

@@ -6,7 +6,7 @@
 Yaml Coding Guidelines
 ======================
 
-Yaml is (one of the languages) used for configuration in TYPO3.
+Yaml is (one of the languages) used for configuration in `TYPO3`:pn:.
 
 Directory and File Names
 ========================

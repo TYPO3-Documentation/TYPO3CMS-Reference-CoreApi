@@ -12,9 +12,9 @@ EventDispatcher (PSR-14 Events)
 
    :doc:`t3core:Changelog/10.0/Feature-88770-PSR-14BasedEventDispatcher`
 
-The EventDispatcher system was added to extend TYPO3's Core behaviour in TYPO3 10.0 via PHP code. In the past,
-this was done via Extbase's SignalSlot and TYPO3's custom hook system. The new EventDispatcher
-system is a fully capable replacement for new code in TYPO3, as well as a possibility to
+The EventDispatcher system was added to extend TYPO3's `Core`:pn: behaviour in TYPO3 10.0 via PHP code. In the past,
+this was done via `Extbase's`:pn: SignalSlot and TYPO3's custom hook system. The new EventDispatcher
+system is a fully capable replacement for new code in `TYPO3`:pn:, as well as a possibility to
 migrate away from previous TYPO3 solutions.
 
 Benni Mack: "Don't get hooked, listen to events! PSR-14 within TYPO3 v10" @ TYPO3 Developer Days 2019
@@ -29,8 +29,8 @@ Benni Mack: "Don't get hooked, listen to events! PSR-14 within TYPO3 v10" @ TYPO
 .. index:: ! PSR-14
 .. _EventDispatcherDescription:
 
-Description of PSR-14 in the context of TYPO3
-=============================================
+Description of PSR-14 in the context of `TYPO3`:pn:
+===================================================
 
 
 PSR-14 [https://www.php-fig.org/psr/psr-14/] is a lean solution that builds upon wide-spread
@@ -47,7 +47,7 @@ The EventDispatcher object
 The `EventDispatcher` object is used to trigger an Event. TYPO3 has a custom EventDispatcher
 implementation. In PSR-14 all EventDispatchers of all frameworks are implementing
 :php:`Psr\EventDispatcher\EventDispatcherInterface` thus it is possible to replace the event
-dispatcher with another. The EventDispatcher's main method :php:`dispatch()` is called in TYPO3 Core
+dispatcher with another. The EventDispatcher's main method :php:`dispatch()` is called in `TYPO3 Core`:pn:
 or extensions, that receives a PHP object and will then be handed to all available listeners.
 
 
@@ -58,8 +58,8 @@ The ListenerProvider
 --------------------
 
 A :php:`ListenerProvider` object that contains all listeners which have been registered for all events.
-TYPO3 has a custom ListenerProvider that collects all listeners during compile time. This component
-is not exposed outside of TYPO3's Core Framework.
+`TYPO3`:pn: has a custom ListenerProvider that collects all listeners during compile time. This component
+is not exposed outside of the `TYPO3 Core`:pn:  framework.
 
 
 .. index:: EventDispatcher; Event
@@ -68,7 +68,7 @@ is not exposed outside of TYPO3's Core Framework.
 The events
 ----------
 
-An :php:`Event` object can be any PHP object and is called from TYPO3 Core or
+An :php:`Event` object can be any PHP object and is called from `TYPO3 Core`:pn: or
 an extension ("Emitter") containing all information to be transported to the listeners. By default,
 all registered listeners get triggered by an Event, however, if an Event has the interface
 :php:`Psr\EventDispatcher\StoppableEventInterface` implemented, a listener can stop further execution
@@ -95,15 +95,15 @@ the :php:`ListenerProvider` to provide configuration mechanisms to represent thi
 Advantages of the EventDispatcher over hooks and signals and slots
 ==================================================================
 
-The main benefits of the EventDispatcher approach over Hooks and Extbase's SignalSlot dispatcher
+The main benefits of the EventDispatcher approach over Hooks and `Extbase's`:pn: SignalSlot dispatcher
 is an implementation which helps extension authors to better understand the possibilities
 by having a strongly typed system based on PHP. In addition, it serves as a bridge to also
 incorporate other events provided by frameworks that support PSR-14.
 
 .. _EventDispatcherImpact:
 
-Impact on TYPO3 Core development in the future
-==============================================
+Impact on `TYPO3 Core`:pn: development in the future
+=====================================================
 
 TYPO3's EventDispatcher serves as the basis to replace all Signal/Slots and hooks in the future,
 however for the time being, hooks and registered Slots work the same way as before, unless migrated
@@ -195,13 +195,13 @@ Best practices
    and to move it into an appropriate folder like :php:`Classes/Database/Event` to easily discover
    events provided by a package. Be careful about the context that should be exposed.
 
-3. Emitters (TYPO3 Core or Extension authors) should always use *Dependency Injection* to receive the
+3. Emitters (`TYPO3 Core`:pn: or Extension authors) should always use *Dependency Injection* to receive the
    EventDispatcher object as a constructor argument, where possible, by adding a type declaration
    for :php:`Psr\EventDispatcher\EventDispatcherInterface`.
 
-Any kind of event provided by TYPO3 Core falls under TYPO3's Core API deprecation policy, except
-for its constructor arguments, which may vary. Events that should only be used within TYPO3 Core,
-are marked as :php:`@internal`, just like other non-API parts of TYPO3, but :php:`@internal` events will be
+Any kind of event provided by `TYPO3 Core`:pn: falls under the `TYPO3 Core`:pn: API deprecation policy, except
+for its constructor arguments, which may vary. Events that should only be used within `TYPO3 Core`:pn:,
+are marked as :php:`@internal`, just like other non-API parts of `TYPO3`:pn:, but :php:`@internal` events will be
 avoided whenever technically possible.
 
 

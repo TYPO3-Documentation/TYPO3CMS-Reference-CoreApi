@@ -261,7 +261,7 @@ In terms of performance the database backend is already pretty well optimized
 and should be used as default backend if in doubt. This backend is the default backend if no backend
 is specifically set in the configuration.
 
-The Core takes care of creating and updating required database tables "on the fly".
+The `Core`:pn: takes care of creating and updating required database tables "on the fly".
 
 .. note::
 
@@ -269,7 +269,7 @@ The Core takes care of creating and updating required database tables "on the fl
 
 ..
 
-For caches with a lot of read and write operations, it is important to tune the MySQL setup.
+For caches with a lot of read and write operations, it is important to tune the `MySQL`:pn:setup.
 The most important setting is :code:`innodb_buffer_pool_size`. A generic goal is to give MySQL
 as much RAM as needed to have the main table space loaded completely in memory.
 
@@ -278,20 +278,20 @@ and big caches which do not fit into memory because of slow harddrive seek and w
 If the data table grows too big to fit into memory, it is possible to compress given data transparently
 with this backend, which often shrinks the amount of needed space to 1/4 or less.
 The overhead of the compress/uncompress operation is usually not high.
-A good candidate for a cache with enabled compression is the Core pages cache:
+A good candidate for a cache with enabled compression is the `Core`:pn: pages cache:
 it is only read or written once per request and the data size is pretty large.
 The compression should not be enabled for caches which are read or written
 multiple times during one request.
 
 .. _caching-backend-db-innodb:
 
-InnoDB Issues
--------------
+`InnoDB`:pn: Issues
+-------------------
 
-The database backend for MySQL uses InnoDB tables. Due to the nature of InnoDB, deleting records
+The database backend for `MySQL`:pn: uses `InnoDB`:pn: tables. Due to the nature of `InnoDB`:pn:, deleting records
 `does not reclaim <http://bugs.mysql.com/bug.php?id=1287>`_ the actual disk space. E.g. if the cache uses 10GB,
 cleaning it will still keep 10GB allocated on the disk even though phpMyAdmin will show 0 as the cache table size.
-To reclaim the space, turn on the MySQL option file_per_table, drop the cache tables and re-create
+To reclaim the space, turn on the `MySQL`:pn: option file_per_table, drop the cache tables and re-create
 them using the Install Tool.
 This does not by any mean that you should skip the scheduler task. Deleting records still improves performance.
 
@@ -533,7 +533,7 @@ Options
    :Description:
       Number of the database to store entries. Each cache should use its own database,
       otherwise all caches sharing a database are flushed if the flush operation
-      is issued to one of them. Database numbers 0 and 1 are used and flushed by the Core unit tests
+      is issued to one of them. Database numbers 0 and 1 are used and flushed by the `Core`:pn: unit tests
       and should not be used if possible.
    :Mandatory:
       No
@@ -591,8 +591,9 @@ Options
 Wincache Backend
 ================
 
-`Wincache <http://www.iis.net/downloads/microsoft/wincache-extension>`_ is a PHP opcode cache similar to APC, but
-dedicated to the Windows OS platform. Similar to APC, the cache can also be used as in-memory key/value cache.
+`Wincache <http://www.iis.net/downloads/microsoft/wincache-extension>`_ is a
+PHP opcode cache similar to APC, but dedicated to the `Windows`:pn: OS platform.
+Similar to APC, the cache can also be used as in-memory key/value cache.
 
 The cache backend implementation is nearly identical to the implementation of `APC backend <https://docs.typo3.org/m/typo3/reference-coreapi/9.5/en-us/ApiOverview/CachingFramework/FrontendsBackends/Index.html#apc-backend>`_ and has the same design constrains.
 
@@ -612,7 +613,7 @@ the simple file backend it furthermore implements :code:`TaggableInterface` and 
 A frozen cache does no lifetime check and has a list of all existing cache entries that is reconstituted during initialization.
 As a result, a frozen cache needs less file system look ups and calculation time if accessing cache entries. On the other
 hand, a frozen cache can not manipulate (remove, set) cache entries anymore. A frozen cache must flush the complete cache
-again to make cache entries writable again. Freezing caches is currently not used in the TYPO3 Core. It can be an option
+again to make cache entries writable again. Freezing caches is currently not used in the TYPO3 `Core`:pn:. It can be an option
 for code logic that is able to calculate and set all possible cache entries during some initialization phase, to then freeze
 the cache and use those entries until the whole thing is flushed again. This can be useful especially if caching PHP code.
 
@@ -627,7 +628,7 @@ backend if cached data has many tags.
    On the contrary performance of :code:`get()` and :code:`set()` operations.
    is good and scales well. Of course if many entries have to be handled, this might
    still slow down after a while and a different storage strategy should be used
-   (e.g. RAM disks, battery backed up RAID systems or SSD hard disks).
+   (for example RAM disks, battery backed up RAID systems or SSD hard disks).
 
 
 .. _caching-backend-file-options:
@@ -665,8 +666,8 @@ Simple File Backend
 
 The simple file backend is the small brother of the :ref:`file backend <caching-backend-file>`. In contrast to most
 other backends, it does not implement the :code:`TaggableInterface`, so cache entries can not be tagged and flushed
-by tag. This improves the performance if cache entries do not need such tagging. The TYPO3 Core uses this backend
-for its central Core cache (that hold autoloader cache entries and other important cache entries). The Core cache is
+by tag. This improves the performance if cache entries do not need such tagging. The `TYPO3 Core`:pn: uses this backend
+for its central `Core`:pn: cache (that hold autoloader cache entries and other important cache entries). The `Core`:pn: cache is
 usually flushed completely and does not need specific cache entry eviction.
 
 
@@ -745,7 +746,7 @@ The transient memory backend stores data in a PHP array. It is only valid for on
 logic needs to do expensive calculations or must look up identical information from a database over and over again
 during its execution. In this case it is useful to store the data in an array once and just lookup the entry from the
 cache for consecutive calls to get rid of the otherwise additional overhead. Since caches are available system wide and
-shared between Core and extensions they can profit from each other if they need the same information.
+shared between `Core`:pn: and extensions they can profit from each other if they need the same information.
 
 Since the data is stored directly in memory, this backend is the quickest backend available. The stored data adds to
 the memory consumed by the PHP process and can hit the :code:`memory_limit` PHP setting.

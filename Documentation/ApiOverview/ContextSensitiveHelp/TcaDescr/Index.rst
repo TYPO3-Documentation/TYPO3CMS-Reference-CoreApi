@@ -29,7 +29,7 @@ The content of the :php:`$TCA_DESCR` array can be reviewed in the
 As can be seen, several files can be registered for the same table.
 This makes it possible to:
 
-- override existing CSH labels (e.g. for providing more dedicated help)
+- override existing CSH labels (for example for providing more dedicated help)
 
 - extending existing labels
 

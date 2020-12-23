@@ -6,7 +6,7 @@
 Page based Routing
 ==================
 
-TYPO3 allows page based routing (that is mapping pages to routes) out of the box.
+`TYPO3`:pn: allows page based routing (that is mapping pages to routes) out of the box.
 
 Configuration
 =============
@@ -18,8 +18,8 @@ To see which route gets mapped to which page, open the page properties and look 
     To enable editors to change the slug (or update the slug when they change the page title for example) make sure that your
     editor groups have access to the `slug` field.
 
-How a page slug is generated is configured via TCA configuration of the pages table (field `slug`). You can adjust that configuration
-in your extensions' :file:`TCA/Overrides/pages.php`. See TCA reference (see :ref:`t3tca:columns-slug` for available options).
+How a page slug is generated is configured via `TCA`:pn: configuration of the pages table (field `slug`). You can adjust that configuration
+in your extensions' :file:`TCA/Overrides/pages.php`. See `TCA`:pn: reference (see :ref:`t3tca:columns-slug` for available options).
 
 
 .. index::

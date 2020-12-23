@@ -12,7 +12,7 @@ This chapter is targeted at extension authors who want to use the caching framew
 for their needs. It is about how to use the framework properly. For details about
 its inner working, please refer to the :ref:`section about architecture <caching-architecture>`.
 
-Example usages can be found throughout the TYPO3 CMS Core, in particular in
+Example usages can be found throughout the `TYPO3 CMS Core`:pn:, in particular in
 system extension `core` and `extbase`.
 
 

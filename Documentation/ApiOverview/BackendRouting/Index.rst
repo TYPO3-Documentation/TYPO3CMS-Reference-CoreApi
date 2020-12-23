@@ -27,8 +27,8 @@ Here is an extract of :file:`typo3/sysext/backend/Configuration/Backend/Routes.p
     * Definitions for routes provided by EXT:backend
     * Contains all "regular" routes for entry points
     *
-    * Please note that this setup is preliminary until all Core use-cases are set up here.
-    * Especially some more properties regarding modules will be added until TYPO3 CMS 7 LTS, and might change.
+    * Please note that this setup is preliminary until all `Core`:pn: use-cases are set up here.
+    * Especially some more properties regarding modules will be added until `TYPO3 CMS`:pn: 7 LTS, and might change.
     *
     * Currently the "access" property is only used so no token creation + validation is made,
     * but will be extended further.
@@ -86,19 +86,19 @@ Backend routes can enforce an HTTP Referer header's existence by adding a
 Values for :php:`referrer` are declared as comma-separated list:
 
 * `required` enforces existence of HTTP `Referer` header that has to match the
-  currently used backend URL (e.g. `https://example.org/typo3/`), the request
+  currently used backend URL (for example `https://example.org/typo3/`), the request
   will be denied otherwise.
 * `refresh-empty` triggers a HTML based refresh in case HTTP `Referer` header
   is not given or empty - this attempt uses an HTML refresh, since regular HTTP
   `Location` redirect still would not set a referrer. It implies this technique
-  should only be used on plain HTML responses and won't have any impact e.g. on
+  should only be used on plain HTML responses and won't have any impact for example on
   JSON or XML response types.
 
 This technique should be used on all public routes (without session token) that
 internally redirect to a restricted route (having a session token). The goal is
 to protect and keep information about the current session token internal.
 
-The request sequence in the TYPO3 Core  looks like this:
+The request sequence in the `TYPO3 Core`:pn:  looks like this:
 
 * HTTP request to `https://example.org/typo3/` having a valid user session
 * internally **public** backend route `/login` is processed
@@ -121,5 +121,5 @@ handles backend routing in your TYPO3 version.
 * `Scripting-Base: "PSR-7 for backend modules" <https://scripting-base.de/blog/psr-7-for-backend-modules>`__
 * `Scripting-Base: "AJAX with PSR-7" <https://scripting-base.de/blog/ajax-with-psr-7.html>`__
 * `PSR-7 <https://www.php-fig.org/psr/psr-7/>`__
-* TYPO3 Core : `backend : AjaxRoutes.php <https://github.com/TYPO3/TYPO3.CMS/blob/9.5/typo3/sysext/backend/Configuration/Backend/AjaxRoutes.php>`__ (GitHub)
-* TYPO3 Core : `backend : Routes.php <https://github.com/TYPO3/TYPO3.CMS/blob/9.5/typo3/sysext/backend/Configuration/Backend/Routes.php>`__ (GitHub)
+* `TYPO3 Core`:pn: : `backend : AjaxRoutes.php <https://github.com/TYPO3/TYPO3.CMS/blob/9.5/typo3/sysext/backend/Configuration/Backend/AjaxRoutes.php>`__ (GitHub)
+* `TYPO3 Core`:pn: : `backend : Routes.php <https://github.com/TYPO3/TYPO3.CMS/blob/9.5/typo3/sysext/backend/Configuration/Backend/Routes.php>`__ (GitHub)

@@ -2,9 +2,9 @@
 
 .. _typo3Information:
 
-===================================
-Global meta information about TYPO3
-===================================
+=========================================
+Global meta information about `TYPO3`:pn:
+=========================================
 
 
 ..
@@ -13,13 +13,13 @@ General information
 ===================
 
 The PHP class :php:`TYPO3\CMS\Core\Information\Typo3Information` provides an API for general
-information, links and copyright information about TYPO3.
+information, links and copyright information about `TYPO3`:pn:.
 
 The following methods are available:
 
 - :php:`getCopyrightYear()` will return a string with the current copyright years (for example "1998-2020")
 - :php:`getHtmlGeneratorTagContent()` will return the backend meta generator tag with copyright information
-- :php:`getInlineHeaderComment()` will return the TYPO3 header comment rendered in all frontend requests ("This website is powered by TYPO3...")
+- :php:`getInlineHeaderComment()` will return the TYPO3 header comment rendered in all frontend requests ("This website is powered by `TYPO3`:pn:...")
 - :php:`getCopyrightNotice()` will return the TYPO3 copyright notice
 
 .. warning::

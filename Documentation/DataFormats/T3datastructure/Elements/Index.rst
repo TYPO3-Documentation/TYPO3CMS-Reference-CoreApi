@@ -95,7 +95,7 @@ must be arrays.)
          Title of the sheet. Mandatory for any sheet except the first (which
          gets "General" in this case). Can be a plain string or a reference to
          language file using standard LLL syntax. Ignored if sheets are not
-         defined for the flexform.
+         defined for the `Flexform`:pn:.
    :Child elements:
          -
 
@@ -167,7 +167,7 @@ must be strings or integers.)
 
          - Default value means that the object does not contain sub objects. The
            meaning of such an object is determined by the application using the
-           data structure. For FlexForms this object would draw a form element.
+           data structure. For `FlexForms`:pn: this object would draw a form element.
 
          .. note::
 
@@ -181,7 +181,7 @@ must be strings or integers.)
    :Description:
          Defines for an object of the type <array> that it must contain other
          "array" type objects in each item of <el>. The meaning of this is application specific. For
-         FlexForms it will allow the user to select between possible arrays of
+         `FlexForms`:pn: it will allow the user to select between possible arrays of
          objects to create in the form. For TemplaVoila it will select a
          "container" element for another set of elements inside. This is quite
          fuzzy unless you understand the contexts.
@@ -194,8 +194,8 @@ Example
 
 Below is the (truncated) structure for the plugin options of
 system extension "felogin". It shows an example of relative complex
-data structure used in a FlexForm. More information about such usage
-of FlexForms can be found in the :ref:`relevant section of the TCA reference <t3tca:columns-flex>`.
+data structure used in a `Flexform`:pn:. More information about such usage
+of `FlexForms`:pn: can be found in the :ref:`relevant section of the `TCA`:pn: reference <t3tca:columns-flex>`.
 
 .. code-block:: xml
 

@@ -6,7 +6,7 @@
 Types of pages
 ==============
 
-TYPO3 has predefined a number of pages types as constants in
+`TYPO3`:pn: has predefined a number of pages types as constants in
 :file:`typo3/sysext/core/Classes/Domain/Repository/PageRepository.php`.
 
 What role each page type plays and when to use it is explained in more

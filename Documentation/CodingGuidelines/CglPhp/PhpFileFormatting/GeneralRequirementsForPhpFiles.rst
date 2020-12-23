@@ -18,7 +18,7 @@ in the :code:`frontend` system extension there is the file
 It is recommended to use only PHP classes and avoid non-class files.
 
 Files that contain PHP interfaces must have the file name end on
-"Interface", e.g. :file:`FileListEditIconHookInterface.php`.
+"Interface", for example :file:`FileListEditIconHookInterface.php`.
 
 One file can contain only one class or interface.
 
@@ -36,7 +36,7 @@ tags in the middle of the file). Example::
    declare(strict_types = 1);
    // File content goes here
 
-Closing PHP tags (e.g. at the end of the file) are not used.
+Closing PHP tags (for example at the end of the file) are not used.
 
 Each newly introduced file **MUST** declare strict types for the given file.
 
@@ -44,9 +44,9 @@ Each newly introduced file **MUST** declare strict types for the given file.
 Line Breaks
 ===========
 
-TYPO3 uses Unix line endings (`\n`, PHP `chr(10)`). If
-a developer uses Windows or Mac OS X platform, the editor must be
-configured to use Unix line endings.
+`TYPO3`:pn: uses `Unix`:pn: line endings (`\n`, PHP `chr(10)`). If
+a developer uses `Windows`:pn: or `macOS`:pn: platform, the editor must be
+configured to use `Unix`:pn: line endings.
 
 
 Line Length
@@ -85,7 +85,7 @@ Comment lines should be kept within a limit of about 80 characters
 Whitespace and Indentation
 ==========================
 
-TYPO3 uses space characters to indent source code. Following PSR-2,
+`TYPO3`:pn: uses space characters to indent source code. Following PSR-2,
 one indentation level consists of four spaces.
 
 There must be no white spaces in the end of a line. This can be done
@@ -121,5 +121,5 @@ All TYPO3 source files use the UTF-8 character set without byte order
 mark (BOM). Encoding declarations like `declare(encoding = 'utf-8');`
 must not be used. They might lead to problems, especially in
 :file:`ext_tables.php` and :file:`ext_localconf.php` files of extensions, which are
-merged internally in TYPO3 CMS. Files from third-party libraries may
+merged internally in `TYPO3 CMS`:pn:. Files from third-party libraries may
 have different encodings.

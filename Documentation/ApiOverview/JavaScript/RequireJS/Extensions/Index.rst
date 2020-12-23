@@ -9,7 +9,7 @@ Use RequireJS in your own extension
 To be able to use RequireJS at all, some prerequisites must be fulfilled:
 
 * Your extension *must* have a `Resources/Public/JavaScript` directory. That directory is used for autoloading the modules stored in your extension.
-* Each module has a namespace and a module name. The namespace is `TYPO3/CMS/<EXTKEY>`, <EXTKEY> is your extension key in UpperCamelCase, e.g. foo_bar = FooBar
+* Each module has a namespace and a module name. The namespace is `TYPO3/CMS/<EXTKEY>`, <EXTKEY> is your extension key in UpperCamelCase, for example foo_bar = FooBar
 * The namespace maps automatic to your `Resources/Public/JavaScript` directory
 * The filename is the modulename + `.js`
 
@@ -27,7 +27,7 @@ Every AMD (Asynchronous Module Definition) is wrapped in the same construct:
 
 This is the "container" of the module. It holds the module logic and takes care of dependencies.
 
-TYPO3 defines in its own modules an object to hold the module logic in properties and methods.
+`TYPO3`:pn: defines in its own modules an object to hold the module logic in properties and methods.
 The object has the same name as the module. In our case "MyMagicModule":
 
 .. code-block:: js

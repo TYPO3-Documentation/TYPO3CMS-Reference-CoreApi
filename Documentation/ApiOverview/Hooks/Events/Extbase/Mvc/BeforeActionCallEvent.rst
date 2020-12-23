@@ -9,7 +9,7 @@ BeforeActionCallEvent
 
 :php:`TYPO3\CMS\Extbase\Event\Mvc\BeforeActionCallEvent`
 
-Event that is triggered before any Extbase Action is called within the ActionController or one
+Event that is triggered before any `Extbase`:pn: action is called within the ActionController or one
 of its subclasses.
 
 API

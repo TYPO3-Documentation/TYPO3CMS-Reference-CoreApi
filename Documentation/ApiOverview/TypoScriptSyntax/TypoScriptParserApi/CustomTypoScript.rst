@@ -3,16 +3,16 @@
 
 .. _typoscript-syntax-custom-typoscript:
 
-=========================
-Parsing Custom TypoScript
-=========================
+===============================
+Parsing custom `TypoScript`:pn:
+===============================
 
 .. note::
 
    This example will probably seem rather quaint. However it is
    still useful to illustrate this topic.
 
-Let's imagine that you have created an application in TYPO3 CMS, for
+Let's imagine that you have created an application in `TYPO3 CMS`:pn:, for
 example a plug-in. You have defined certain parameters editable
 directly in the form fields of the plug-in content element. However
 you want advanced users to be able to set up more detailed parameters.
@@ -191,7 +191,7 @@ Root Level
 
 So these are the "objects" and "properties" you have chosen to offer
 to your users of the plug-in. This reference defines *what
-information makes sense* to put into the TypoScript field
+information makes sense* to put into the `TypoScript`:pn: field
 (semantically), because you will program your application to use this
 information as needed.
 
@@ -199,8 +199,8 @@ information as needed.
 A Case Story
 ------------
 
-Now let's imagine that a user inputs this TypoScript configuration in
-whatever medium you have offered (e.g. a textarea field):
+Now let's imagine that a user inputs this `TypoScript`:pn: configuration in
+whatever medium you have offered (for example a textarea field):
 
 .. code-block:: typoscript
 
@@ -227,8 +227,8 @@ whatever medium you have offered (e.g. a textarea field):
    // Wonder if this works... :-)
    wakeMeUp = 7:00
 
-In order to parse this TypoScript we can use the following code
-provided that the variable :php:`$tsString` contains the above TypoScript as
+In order to parse this `TypoScript`:pn: we can use the following code
+provided that the variable :php:`$tsString` contains the above `TypoScript`:pn: as
 its value:
 
 .. code-block:: php
@@ -282,15 +282,15 @@ Now your application could use this information like this, for example:
           </table>
      ';
 
-As you can see some of the TypoScript properties (or *object paths*)
+As you can see some of the `TypoScript`:pn: properties (or *object paths*)
 which are found in the reference tables above are implemented here.
 There is not much mystique about this and in fact this is how all
-TypoScript is used in its respective contexts; **TypoScript contains
+`TypoScript`:pn: is used in its respective contexts; **TypoScript contains
 simply configuration values that make our underlying PHP code act
 accordingly - parameters, function arguments, as you please;
-TypoScript is an API to instruct an underlying system.**
+`TypoScript`:pn: is an API to instruct an underlying system.**
 
-This example also highlights one of the "risk" of TypoScript:
+This example also highlights one of the "risk" of `TypoScript`:pn::
 it is perfectly possible to define arbitrary properties without
 triggering any error. Wrongly-named properties will just be
 ignored. As such they do not cause any harm, but may be confusing

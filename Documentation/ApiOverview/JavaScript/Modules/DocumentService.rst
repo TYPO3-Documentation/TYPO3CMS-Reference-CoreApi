@@ -6,7 +6,7 @@
 DocumentService (jQuery.ready substitute)
 =========================================
 
-The module :js:`TYPO3/CMS/Core/DocumentService` provides native JavaScript
+The module :js:`TYPO3/CMS/Core/DocumentService` provides native `JavaScript`:pn:
 functions to detect DOM ready-state returning a :js:`Promise<Document>`.
 
 Internally the Promise is resolved when native :js:`DOMContentLoaded` event has

@@ -25,7 +25,7 @@ the syntax for the configuration is as above.
 
 For older extensions, configuration is
 searched for in :code:`$GLOBALS['TYPO3_CONF_VARS']['LOG']['tx']` or :code:`$GLOBALS['TYPO3_CONF_VARS']['LOG']['Tx']` to differentiate extension classes
-from Core classes (as extension class names start with :code:`tx` or :code:`Tx`).
+from `Core`:pn: classes (as extension class names start with :code:`tx` or :code:`Tx`).
 
 
 .. index:: Logging; Writer configuration
@@ -54,8 +54,8 @@ The above configuration applies to **all** log entries of level "ERROR" or above
 .. important::
 
     Since TYPO3 v9 the default folder for log files is :file:`<var-path>/log`.
-    The `<var-path>` in a non-Composer installation (Classic Mode) is :file:`typo3temp/var/`,
-    in a Composer based installation it is :file:`<project-root>/var/` instead, unless configured otherwise.
+    The `<var-path>` in a non-`Composer`:pn: installation (Classic Mode) is :file:`typo3temp/var/`,
+    in a `Composer`:pn:-based installation it is :file:`<project-root>/var/` instead, unless configured otherwise.
     See class :php:`\TYPO3\CMS\Core\Core\Environment` for defaults in both cases.
     Since TYPO3 v9 it is possible (and a good practice) to store temporary files
     outside the document root.
@@ -102,7 +102,7 @@ For the above example code that means:
 - Calling :code:`$logger->debug($msg);` will result in $msg being written
   only to the default log file (:file:`typo3temp/var/log/typo3_<hash>.log`).
 
-For a list of writers shipped with the TYPO3 Core see the section about
+For a list of writers shipped with the `TYPO3 Core`:pn: see the section about
 :ref:`logging-writers`.
 
 
@@ -127,4 +127,4 @@ basis from the subkey :code:`processorConfiguration`
        ]
    ];
 
-For a list of processors shipped with the TYPO3 Core, see the section about :ref:`logging-processors`.
+For a list of processors shipped with the `TYPO3 Core`:pn:, see the section about :ref:`logging-processors`.

@@ -13,7 +13,7 @@ Declaration File (ext_emconf.php)
 *-- required*
 
 The :file:`ext_emconf.php` is the single most important file in an extension.
-Without it, the Extension Manager (EM) will not detect the extension, much less
+Without it, the `Extension Manager`:pn: (EM) will not detect the extension, much less
 be able to install it. This file contains a declaration of what the extension
 is or does for the EM. The only thing included
 is an associative array, :php:`$EM_CONF[extension key]`.
@@ -128,7 +128,7 @@ $_EXTKEY is set globally and contains the extension key.
 
          - **doc**
 
-           Documentation (e.g. tutorials, FAQ's etc.)
+           Documentation (for example tutorials, FAQ's etc.)
 
          - **distribution**
 
@@ -167,7 +167,7 @@ $_EXTKEY is set globally and contains the extension key.
            enhance this extension.
            Extensions defined here will be loaded *before* the current extension.
            Dependencies take precedence over suggestions.
-           Loading order especially matters when overriding TCA or SQL of another extension.
+           Loading order especially matters when overriding `TCA`:pn: or SQL of another extension.
 
          The above example indicates that the extension depends on a
          version of TYPO3 between 9.5 and 10.4 (as only bug and security fixes are
@@ -223,7 +223,7 @@ $_EXTKEY is set globally and contains the extension key.
          - **excludeFromUpdates**
 
            This state makes it impossible to update the
-           extension through the Extension Manager (neither by the Update
+           extension through the `Extension Manager`:pn: (neither by the Update
            mechanism, nor by uploading a newer version to the installation). This
            is very useful if you made local changes to an extension for a
            specific installation and don't want any admin to overwrite them.
@@ -268,7 +268,7 @@ $_EXTKEY is set globally and contains the extension key.
 
          **Extensions having one folder with classes or single files**
 
-         Considering you have an Extbase extension (or an extension where all classes
+         Considering you have an `Extbase`:pn: extension (or an extension where all classes
          and interfaces reside in a :file:`Classes` folder) or single classes you can simply
          add the following to your :file:`ext_emconf.php` file::
 

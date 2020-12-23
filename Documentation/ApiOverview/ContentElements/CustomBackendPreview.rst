@@ -10,7 +10,7 @@ To allow editors a smoother experience, all custom content elements and plugins 
 preview that shows an approximation of the element's appearance in the TYPO3 page module. The following sections describe how to
 achieve that.
 
-A :php:`PreviewRenderer` is used to facilitate (record) previews in TYPO3.
+A :php:`PreviewRenderer` is used to facilitate (record) previews in `TYPO3`:pn:.
 
 The feature consists of two concepts:
 
@@ -66,7 +66,7 @@ the following API methods:
 
 .. note::
 
-   Further methods are expected to be added in the future to support generic preview rendering, e.g. usages outside :php:`PageLayoutView`.
+   Further methods are expected to be added in the future to support generic preview rendering, for example usages outside :php:`PageLayoutView`.
 
 Implementing these methods allows you to control the exact composition of the preview.
 
@@ -99,8 +99,8 @@ Or if your table has a "type" field/attribute:
 
 This specifies the PreviewRenderer only for records of type :php:`$type` as determined by the type field of your table.
 
-Or finally, if your table and field have a :php:`subtype_value_field` TCA setting (like :php:`tt_content.list_type` for example)
-and you want to register a preview renderer that applies only when that value is selected (e.g. when a certain plugin type
+Or finally, if your table and field have a :php:`subtype_value_field` `TCA`:pn: setting (like :php:`tt_content.list_type` for example)
+and you want to register a preview renderer that applies only when that value is selected (for example when a certain plugin type
 is selected and you can't match it with the "type" of the record alone):
 
 .. code-block:: php
@@ -113,7 +113,7 @@ type of plugin you want to target is selected as plugin type.
 .. note::
    The recommended location is in the :php:`ctrl` array in your extension's :file:`Configuration/TCA/$table.php` or
    :file:`Configuration/TCA/Overrides/$table.php` file. The former is used when your extension is the one that creates the table,
-   the latter is used when you need to override TCA properties of tables added by the Core or other extensions.
+   the latter is used when you need to override `TCA`:pn: properties of tables added by the `Core`:pn: or other extensions.
 
 
 Overriding the `PreviewRendererResolver`

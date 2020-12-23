@@ -20,7 +20,7 @@ no matter what component triggered them.
 
 Administrators always have full access. The only reason they might not
 have access is that the underlying file system or storage service does
-not allow access to a resource (e.g. some file is read-only in the
+not allow access to a resource (for example some file is read-only in the
 local file system).
 
 
@@ -46,9 +46,9 @@ User permissions for files can be set in the
 of the backend user or backend user group records.
 
 It is also possible to set permissions using :ref:`user TSconfig <t3tsconfig:usertsconfig>`,
-defined either at backend user or backend user group level. The TSconfig way is recommended because
+defined either at backend user or backend user group level. The `TSconfig`:pn: way is recommended because
 it allows for more flexibility. See some examples below and read on in the section about
-:ref:`permissions <t3tsconfig:userTsConfigPermissions>` in the user TSconfig reference.
+:ref:`permissions <t3tsconfig:userTsConfigPermissions>` in the user `TSconfig`:pn: reference.
 
 The default permissions for backend users and backend user groups
 are **read-only**:
@@ -73,7 +73,7 @@ are **read-only**:
       recursivedeleteFolder = 0
    }
 
-If no permissions are defined in TSconfig, the settings in the backend user
+If no permissions are defined in `TSconfig`:pn:, the settings in the backend user
 and in the backend user group record are taken into account and treated as
 default permissions for all storages.
 
@@ -122,7 +122,7 @@ User permissions details
 ------------------------
 
 This model for permissions behaves very similar to permission systems
-on Unix and Linux systems. Folders are seen as a collection of files and
+on `Unix`:pn: and `Linux`:pn: systems. Folders are seen as a collection of files and
 folders. If you want to change *that collection* by adding, removing or renaming
 files or folders you need to have **write permissions for the folder** as well.
 If you only want to change the content of a file you need write permissions
@@ -187,7 +187,7 @@ Default upload folder
 =====================
 
 When nothing else is defined, any file uploaded by a user will end up
-in :file:`fileadmin/user_upload`. The user TSconfig property
+in :file:`fileadmin/user_upload`. The user `TSconfig`:pn: property
 :ref:`defaultUploadFolder <t3tsconfig:useroptions-defaultuploadfolder>`, allows to define a
 different default upload folder on a backend user or backend user group level, example:
 
@@ -201,7 +201,7 @@ to change the default upload folder. A hook exists to provide
 maximum flexibility in that regard. For example, take a look at
 extension `default_upload_folder <https://github.com/beechit/default_upload_folder>`_,
 which makes it possible to define a default upload folder for
-a given field of a given table (using custom TSconfig).
+a given field of a given table (using custom `TSconfig`:pn:).
 
 
 .. _fal-administration-permissions-frontend:
@@ -212,7 +212,7 @@ Frontend permissions
 System extension "filemetadata" adds a "fe_groups" field to the
 "sys\_file\_metadata" table. This makes it possible to attach
 frontend permissions to files. However these permissions are not
-enforced in any way by the TYPO3 CMS Core. It is up to extension
+enforced in any way by the `TYPO3 CMS Core`:pn:. It is up to extension
 developers to create tools which make use of these permissions.
 
 As an example, you may want to take a look at extension

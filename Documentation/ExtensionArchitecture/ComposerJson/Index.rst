@@ -25,9 +25,9 @@ Including a :file:`composer.json` is strongly recommended for a number of reason
    See :ref:`h2document:migrate` for more information on the necessary changes for
    extension documentation rendering.
 
-#. Working with Composer in general is strongly recommended for TYPO3.
+#. Working with `Composer`:pn: in general is strongly recommended for `TYPO3`:pn:.
 
-   If you are not using Composer for your projects yet, see :ref:`t3install:migrate-to-composer`
+   If you are not using `Composer`:pn: for your projects yet, see :ref:`t3install:migrate-to-composer`
    in the "Installation & Upgrade Guide".
 
 .. _ext-composer-json-minimal:
@@ -72,7 +72,7 @@ Subsequently:
   }
 
 * see `composer.json schema <https://getcomposer.org/doc/04-schema.md>`__ for
-  general Composer information
+  general `Composer`:pn: information
 * see :ref:`ext-composer-json-properties` below for TYPO3 specific hints
 
 .. _ext-composer-json-extended:
@@ -129,7 +129,7 @@ Extended composer.json
 
 
 * see `composer.json schema <https://getcomposer.org/doc/04-schema.md>`__ for
-  general Composer information
+  general `Composer`:pn: information
 * see :ref:`ext-composer-json-properties` below for TYPO3 specific hints
 
 
@@ -147,7 +147,7 @@ name
 You must be owner of the vendor name and should register it on packagist.
 Typically, the name will correspond to your namespaces used in the :file:`Classes` folder,
 but with different uppercase / lowercase spelling,
-e.g. `GeorgRinger\News` namespace and `georgringer/news` name in :file:`composer.json`.
+for example `GeorgRinger\News` namespace and `georgringer/news` name in :file:`composer.json`.
 
 description
 -----------
@@ -232,7 +232,7 @@ replace
 :file:`composer.json` file specifies which other packages can be
 replaced by this package. This means that packages with different
 vendor name or package name will be treated as the same package by
-Composer.
+`Composer`:pn:.
 
 .. code-block:: json
 
@@ -248,7 +248,7 @@ with `composer require typo3-ter/ext-key`, this makes sure that
 there will be no conflicts with packages installed or required
 via Packagist or from another source.
 
-Since the TER Composer repository is deprecated and not all extensions
+Since the TER `Composer`:pn: repository is deprecated and not all extensions
 must be available in TER, this property is usually not required.
 
 Properties no longer used
@@ -272,9 +272,9 @@ replace with ``"ext_key": "self.version"``
       }
    }
 
-This was used previously, but is not compatible with latest Composer
+This was used previously, but is not compatible with latest `Composer`:pn:
 versions and will result in a warning using `composer validate` or
-result in an error with Composer version >=2.0:
+result in an error with `Composer`:pn: version >=2.0:
 
 .. code-block:: shell
 
@@ -297,7 +297,7 @@ Not TYPO3 specific:
 * `composer.json schema <https://getcomposer.org/doc/04-schema.md>`__
 * `Composer Getting Started <https://getcomposer.org/doc/00-intro.md>`__
 
-TYPO3 specific:
+`TYPO3`:pn: specific:
 
 * The :ref:`section on testing <testing-extensions>` (in this manual) contains further information
   about adding additional properties to :file:`composer.json` that are relevant for testing.

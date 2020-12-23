@@ -55,7 +55,7 @@ errorHandler
     string / enum
 
 :aspect:`Description`
-    Define how to handle these errors. May be `Fluid` for rendering a Fluid template,
+    Define how to handle these errors. May be `Fluid` for rendering a `Fluid`:pn: template,
     `Page` for fetching content from a page or `PHP` for a custom implementation.
 
 :aspect:`Example`
@@ -69,7 +69,7 @@ errorFluidTemplate
     string
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Path to fluid template file. Path may be
+    **Only if errorHandler == `fluid`**: Path to `Fluid`:pn: template file. Path may be
 
     * absolute
     * relative to site root
@@ -86,7 +86,7 @@ errorFluidTemplatesRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `Fluid`**: Paths to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler == `Fluid`**: Paths to `Fluid`:pn: Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -100,7 +100,7 @@ errorFluidPartialsRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `Fluid`**: Paths to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler == `Fluid`**: Paths to `Fluid`:pn: Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -114,7 +114,7 @@ errorFluidLayoutsRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `Fluid`**: Paths to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler == `Fluid`**: Paths to `Fluid`:pn: Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`

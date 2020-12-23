@@ -32,7 +32,7 @@ Terms
 
 .. If there is something to say about a term
 
-`for example` - Do not write 'e.g.'.
+`for example` - Do not write 'for example'.
 
 `third party extension` - Do not write '3rd'.
 

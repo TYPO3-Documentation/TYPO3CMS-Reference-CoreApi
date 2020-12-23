@@ -72,8 +72,8 @@ It is also possible to set the cropping configuration only for a **specific tt_c
 Disable crop variants
 =====================
 
-Please note, as the array for ``overrideChildTca`` is merged with the child TCA, so are the crop variants that are defined
-in the child TCA (most likely sys_file_reference). Because you cannot remove crop variants easily, it is possible to disable them
+Please note, as the array for ``overrideChildTca`` is merged with the child `TCA`:pn:, so are the crop variants that are defined
+in the child `TCA`:pn: (most likely sys_file_reference). Because you cannot remove crop variants easily, it is possible to disable them
 for certain field types by setting the array key for a crop variant ``disabled`` to the value ``true`` as you can see in the
 example above for the default variant.
 

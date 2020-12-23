@@ -13,7 +13,7 @@ You have to figure out how this happened so you can prevent it from
 happening again. It is not enough to simply restore a hacked site – it
 will most likely be hacked again, sooner or later.
 
-In case your server or TYPO3 website has been hacked, a number of
+In case your server or `TYPO3`:pn: website has been hacked, a number of
 steps should be taken to restore the system and to prevent further
 attacks. Some recommended actions are described in this chapter but
 always keep in mind: if you are already in the situation that you have

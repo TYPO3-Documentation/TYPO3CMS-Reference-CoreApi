@@ -16,7 +16,7 @@ While Page based routing works out of the box, routing for extensions has to be 
 
 To map `$_GET` parameters to routes, a concept called `Enhancers and Aspects` has been introduced.
 
-An enhancer creates variants of a specific page-based route for a specific purpose (e.g. one plugin, one Extbase plugin)
+An enhancer creates variants of a specific page-based route for a specific purpose (for example one plugin, one `Extbase`:pn: plugin)
 and enhances the existing route path which can then contain flexible values, so-called "placeholders".
 
 On top, aspects can be registered to a specific enhancer to modify a specific placeholder, like static human readable names
@@ -39,7 +39,7 @@ commonly known as a Mapper).
 It is possible to use the same enhancer multiple times with different configurations. However, be aware that
 it is not possible to combine multiple variants / enhancers matching multiple configurations.
 
-However, custom enhancers can be built to overcome special use cases where e.g. two plugins with multiple parameters
+However, custom enhancers can be built to overcome special use cases where for example two plugins with multiple parameters
 each could be configured. Otherwise, the first variant matching the URL parameters is used for generation and
 resolving.
 
@@ -53,13 +53,13 @@ There are two types of enhancers: decorators and route enhancers. An route enhan
 later-on. Substitution of the values with aliases can be achieved by Aspects. To simplify: A route enhancer specifies how the full
 route path looks like and which variables are available whereas an aspect takes care of mapping a single variable to a value.
 
-TYPO3 comes with the following route enhancers out of the box:
+`TYPO3`:pn: comes with the following route enhancers out of the box:
 
 - Simple Enhancer (enhancer type "Simple")
 - Plugin Enhancer (enhancer type "Plugin")
-- Extbase Plugin Enhancer (enhancer type "Extbase")
+- `Extbase`:pn: Plugin Enhancer (enhancer type "Extbase")
 
-TYPO3 provides the following decorators out of the box:
+`TYPO3`:pn: provides the following decorators out of the box:
 
 - PageTypeDecorator (enhancer type "PageType")
 
@@ -115,7 +115,7 @@ can receive a default value, and do not need a placeholder - it is possible to a
 `routePath`.
 
 The `requirements` section exactly specifies what kind of parameter should be added to that route as regular expression.
-This way, it is configurable to only allow integer values for e.g. pagination. If the requirements are too loose, a
+This way, it is configurable to only allow integer values for for example pagination. If the requirements are too loose, a
 URL signature parameter ("cHash") is added to the end of the URL which cannot be removed.
 
 .. hint::
@@ -162,7 +162,7 @@ If a URL is generated with the given parameters to link to a page, the result wi
 
 .. note::
     If the input given to generate the URL does not meet the requirements, the route enhancer does not offer the
-    variant and the parameters are added to the URL as regular query parameters. If e.g. the user parameter would be more
+    variant and the parameters are added to the URL as regular query parameters. If for example the user parameter would be more
     than three characters, or non-numeric, this enhancer would not match anymore.
 
 As you see, the Plugin Enhancer is used to specify placeholders and requirements, with a given namespace.
@@ -173,18 +173,18 @@ registered within any enhancer, see below for details.
 
 .. index:: Routing; Extbase Plugin Enhancer
 
-Extbase Plugin enhancer
-^^^^^^^^^^^^^^^^^^^^^^^
+`Extbase`:pn: Plugin enhancer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When creating Extbase plugins, it is very common to have multiple controller/action combinations. The Extbase Plugin
+When creating `Extbase`:pn: plugins, it is very common to have multiple controller/action combinations. The `Extbase`:pn: Plugin
 Enhancer is therefore an extension to the regular Plugin Enhancer, providing the functionality of generating multiple variants,
 typically based on the available controller/action pairs.
 
 .. warning::
-   Do not set `features.skipDefaultArguments` in your Extbase plugin configuration as that will result in missing parameters to
+   Do not set `features.skipDefaultArguments` in your `Extbase`:pn: plugin configuration as that will result in missing parameters to
    be mapped - then no matching route configuration can be found.
 
-The Extbase Plugin enhancer with the configuration below would now apply to the following URLs:
+The `Extbase`:pn: plugin enhancer with the configuration below would now apply to the following URLs:
 
 * `index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=list`
 * `index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=list&tx_news_pi1[page]=5`
@@ -255,7 +255,7 @@ and the long form of writing route configurations.
 To understand what's happening in the `aspects` part, read on.
 
 .. note::
-    For the Extbase Plugin Enhancer, it is also possible to configure the namespace directly by skipping `extension`
+    For the `Extbase`:pn: plugin enhancer, it is also possible to configure the namespace directly by skipping `extension`
     and `plugin` properties and just using the `namespace` property as in the regular Plugin Enhancer.
 
 
@@ -269,7 +269,7 @@ to map a page type (GET parameter &type=) to a suffix.
 
 It is possible to map various page types to endings:
 
-Example TypoScript:
+Example `TypoScript`:pn::
 
 .. code-block:: typoscript
 
@@ -306,7 +306,7 @@ Now configure the Enhancer in your site's :file:`config.yaml` file like this:
 
 The :yaml:`map` allows to add a filename or a file ending and map this to a :ts:`page.typeNum` value.
 
-It is also possible to set :yaml:`default` to e.g. ".html" to add a ".html" suffix to all default pages.
+It is also possible to set :yaml:`default` to for example ".html" to add a ".html" suffix to all default pages.
 
 .. code-block:: yaml
 
@@ -319,7 +319,7 @@ It is also possible to set :yaml:`default` to e.g. ".html" to add a ".html" suff
             'rss.feed': 13
             '.json': 26
 
-The :yaml:`index` property is used when generating links on root-level page, thus, instead of e.g. having
+The :yaml:`index` property is used when generating links on root-level page, thus, instead of for example having
 `/en/.json` thus would then result in `/en/index.json`.
 
 
@@ -336,7 +336,7 @@ Aspects
 Now that we've looked into ways on how to extend a route to a page with arguments, and to put them into the URL
 path as segments, the detailed logic within one placeholder is in an aspect. The most common practice of an aspect
 is a so-called mapper. For example mapping a parameter `{news}` which is a UID within TYPO3 to the actual news slug, which is a field
-within the database table containing the cleaned/sanitized title of the news (e.g. "software-updates-2019" maps to news ID 10).
+within the database table containing the cleaned/sanitized title of the news (for example "software-updates-2019" maps to news ID 10).
 
 An aspect can be a way to modify, beautify or map an argument from the URL generation into a placeholder. That's why
 the terms "Mapper" and "Modifier" will pop up, depending on the different cases.
@@ -539,12 +539,12 @@ The PersistedAliasMapper looks up the table and field to map the given value to 
 The property `tableName` points to the database table, the property `routeFieldName` is the field which will be
 used within the route path for example.
 
-The special `routeValuePrefix` is used for TCA type `slug` fields where the prefix `/` is within all fields of the
+The special `routeValuePrefix` is used for `TCA`:pn: type `slug` fields where the prefix `/` is within all fields of the
 field names, which should be removed in the case above.
 
-If a field is used for `routeFieldName` that is not prepared to be put into the route path, e.g. the news title field,
+If a field is used for `routeFieldName` that is not prepared to be put into the route path, for example the news title field,
 you *must* ensured that this is unique and suitable for the use in an URL. On top, if there are special characters
-like spaces will not be converted automatically. Therefor, usage of a slug TCA field is recommended.
+like spaces will not be converted automatically. Therefor, usage of a slug `TCA`:pn: field is recommended.
 
 
 .. index:: Routing; PersistedPatternMapper
@@ -553,7 +553,7 @@ PersistedPatternMapper
 ^^^^^^^^^^^^^^^^^^^^^^
 
 When a placeholder should be fetched from multiple fields of the database, the PersistedPatternMapper is for you.
-It allows to combine various fields into one variable, ensuring a unique value by e.g. adding the UID to the field
+It allows to combine various fields into one variable, ensuring a unique value by for example adding the UID to the field
 without having the need of adding a custom slug field to the system.
 
 .. code-block:: yaml
@@ -642,7 +642,7 @@ If there are dynamic parameters (= parameters which are not strictly limited), a
 is added, which *can and should not be removed* from the URL. The concept of manually activating or deactivating
 the generation of a `cHash` is not optional anymore, but strictly built-in to ensure proper URL handling. If you
 really have the requirement to not have a cHash argument, ensure that all placeholders are having strict definitions
-on what could be the result of the page segment (e.g. pagination), and feel free to build custom mappers.
+on what could be the result of the page segment (for example pagination), and feel free to build custom mappers.
 
 All existing APIs like `typolink` or functionality evaluate the new Page Routing API directly.
 

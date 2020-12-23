@@ -11,7 +11,7 @@ authentication service chain <authentication>` creates or updates user sessions
 when authenticating users.
 
 The :php:`UserSession` object contains all information regarding a users' session,
-for website visitors with session data (e.g. basket for anonymous / not-logged-in users),
+for website visitors with session data (for example basket for anonymous / not-logged-in users),
 for frontend users as well as authenticated backend users. These are for example,
 the session id, the session data, if a session was updated, if the session is anonymous,
 or if it is marked as permanent and so on.
@@ -68,7 +68,7 @@ with user sessions. A couple of public methods are available:
 |                                                               | object. See regenerateSession() below.                                |
 +---------------------------------------------------------------+-----------------------------------------------------------------------+
 | regenerateSession($sessionId, $sessionRecord, $anonymous)     | Regenerates the given session. This method should be used whenever a  |
-|                                                               | user proceeds to a higher authorization level, e.g. when an           |
+|                                                               | user proceeds to a higher authorization level, for example when an           |
 |                                                               | anonymous session is now authenticated.                               |
 +---------------------------------------------------------------+-----------------------------------------------------------------------+
 | updateSessionTimestamp($session)                              | Updates the session timestamp for the given user session if the       |

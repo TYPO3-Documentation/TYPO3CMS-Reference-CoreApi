@@ -6,7 +6,7 @@
 Crop Variants for Images
 ========================
 
-The `imageManipulation` TCA type is capable of handling multiple crop variants if configured.
+The `imageManipulation` `TCA`:pn: type is capable of handling multiple crop variants if configured.
 
 The default configuration is to have only one variant with the same possible aspect ratios
 as in previous TYPO3 versions.

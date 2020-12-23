@@ -52,7 +52,7 @@ File references
 
 A :php:`\TYPO3\CMS\Core\Resource\FileReference` basically
 represents a usage of a File in a specific location,
-e.g. as an image attached to a content element ("tt_content") record.
+for example as an image attached to a content element ("tt_content") record.
 A FileReference always references a real, underlying File,
 but can add context-specific information such as a caption text for an image
 when used at a specific location.
@@ -61,7 +61,7 @@ In the database, each FileReference is represented by a record in the
 :ref:`sys_file_reference table <fal-architecture-database-sys-file-reference>`.
 
 Creating a reference to a file requires the file to be indexed first,
-as the reference is done through the normal record relation handling of TYPO3 CMS.
+as the reference is done through the normal record relation handling of `TYPO3 CMS`:pn:.
 
 .. note::
 
@@ -71,7 +71,7 @@ as the reference is done through the normal record relation handling of TYPO3 CM
    as well. This makes it possible to use both files and references to them.
 
    Additionally, there is a property "originalFile" on the FileReference which
-   lets you get information about the underlying file (e.g.
+   lets you get information about the underlying file (for example
    :code:`$fileReference->getOriginalFile()->getName()`).
 
 
@@ -104,7 +104,7 @@ and :php:`\TYPO3\CMS\Core\Resource\Folder` objects.
 Drivers
 =======
 
-The driver does the actual actions on a file (e.g. moving, copying, etc.).
+The driver does the actual actions on a file (for example moving, copying, etc.).
 It can rely on the storage having done all the necessary checks before,
 so it doesn't need to worry about permissions and other rights.
 
@@ -134,7 +134,7 @@ The file index
 ==============
 
 Indexing a file creates a database record for the file, containing meta-information both
-*about* the file (file-system properties) and *from* the file (e.g. EXIF information for
+*about* the file (file-system properties) and *from* the file (for example EXIF information for
 images). Collecting file-system data is done by the Driver, while all additional properties
 have to be fetched by additional services.
 
@@ -172,7 +172,7 @@ individually, by the selection of a folder or by the selection of one or
 more categories. Collections can be used by content elements or plugins
 for various needs.
 
-The TYPO3 CMS Core makes usage of collections for the "File Links"
+The `TYPO3 CMS Core`:pn: makes usage of collections for the "File Links"
 content object type.
 
 

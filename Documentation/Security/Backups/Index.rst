@@ -9,7 +9,7 @@ Backup strategy
 ===============
 
 Backups are usually in the responsibility of the system administrator.
-Creating backups obviously does not improve the security of a TYPO3
+Creating backups obviously does not improve the security of a `TYPO3`:pn:
 site but they quickly become incredibly useful when you need to
 restore a website after your site has been compromised or in the case
 of a data loss.
@@ -21,7 +21,7 @@ of a data loss.
 Components included in the backups
 ==================================
 
-To restore a TYPO3 project you need to have a backup of at least the
+To restore a `TYPO3`:pn: project you need to have a backup of at least the
 following data directories:
 
 * :file:`fileadmin`
@@ -30,7 +30,7 @@ following data directories:
 
 .. note::
     The directory structure is not *that* fixed: Especially with
-    modern `Composer` based instances, a separation of the :ref:`project root
+    modern `Composer`:pn:-based instances, a separation of the :ref:`project root
     <Environment-project-path>`
     and the :ref:`web server document root <Environment-public-path>` can be achieved.
     This is recommended from a security point of view since critical parts of
@@ -46,12 +46,12 @@ fact that all files are re-generated automatically if they do not
 exist. Also a backup of the TYPO3 source code is not needed (unless
 changes were made to the source code, which is not recommended). You
 can always download the TYPO3 source packages from the TYPO3 website,
-even for older versions of TYPO3.
+even for older versions of `TYPO3`:pn:.
 
 In addition to the data directories listed above, a backup of the
-database is required. For MySQL the command line tool `mysqldump` (or
-`mysqldump.exe` for Microsoft Windows) is a good way to export the
-content of the database to a file without any manual interaction (e.g.
+database is required. For `MySQL`:pn: the command line tool `mysqldump` (or
+`mysqldump.exe` for Microsoft `Windows`:pn:) is a good way to export the
+content of the database to a file without any manual interaction (for example
 as an automated, scheduled system task).
 
 Once a backup has been created, it should be verified that it is

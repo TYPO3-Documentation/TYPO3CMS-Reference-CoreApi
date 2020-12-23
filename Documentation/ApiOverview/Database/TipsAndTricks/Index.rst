@@ -6,7 +6,7 @@
 Various Tips and Tricks
 =======================
 
-* Use `Find usages` of `PhpStorm` for examples! The source code of the Core is a great way to
+* Use `Find usages` of `PhpStorm` for examples! The source code of the `Core`:pn: is a great way to
   learn how specific methods of the API are used. In `PhpStorm` it is extremely helpful to right
   click on a single method and list all method usages with `Find usages`. This is especially handy
   to quickly see usage examples of complex methods like :php:`join()` from the `QueryBuilder`.

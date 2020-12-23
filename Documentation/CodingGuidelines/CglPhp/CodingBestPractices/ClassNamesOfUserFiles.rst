@@ -3,11 +3,11 @@
 .. _cgl-namespaces-class-names:
 
 ========================================
-Namespaces and Class Names of User Files
+Namespaces and class names of user files
 ========================================
 
 The namespace and class names of user files follow the same rules as
-class names of the TYPO3 Core files do.
+class names of the `TYPO3 Core`:pn: files do.
 
 The namespace declaration of each user file should show where the file
 belongs inside its extension. The namespace starts with
@@ -22,4 +22,4 @@ with the class :php:`AliasesController` is in the namespace
 User files with these class names are commonly found in the
 :file:`typo3conf/ext/` directory. Optionally these files can be
 installed to the :file:`typo3/ext/` directory to be shared by many
-TYPO3 installations.
+`TYPO3`:pn: installations.

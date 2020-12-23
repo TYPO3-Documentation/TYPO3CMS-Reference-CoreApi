@@ -5,19 +5,19 @@
 .. _typoscript-syntax-about:
 
 
-=================
-TypoScript syntax
-=================
+=======================
+`TypoScript`:pn: syntax
+=======================
 
-This chapter describes the syntax of TypoScript. The TypoScript syntax
-and its parser logic is used in two different contexts: `Frontend TypoScript`
+This chapter describes the syntax of `TypoScript`:pn:. The `TypoScript`:pn: syntax
+and its parser logic is used in two different contexts: Frontend `TypoScript`:pn:
 to configure frontend rendering and `TSconfig` to configure backend details
 for backend users.
 
-While the underlying TypoScript syntax is described in this chapter, both usages
+While the underlying `TypoScript`:pn: syntax is described in this chapter, both usages
 and their details are found in standalone manuals:
 
-- The :ref:`TypoScript Reference <t3tsref:start>` goes into details about `Frontend TypoScript`.
+- The :ref:`TypoScript Reference <t3tsref:start>` goes into details about frontend `TypoScript`:pn:.
 
 - The :ref:`TSconfig Reference <t3tsconfig:start>` goes into details about configuring the
   TYPO3 backend for backend users.

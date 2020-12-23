@@ -11,8 +11,8 @@ Dependency injection
 
    :doc:`Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
 
-TYPO3 uses a dependency injection solution based on the corresponding `PSR-11 <https://www.php-fig.org/psr/psr-11/>`_
-compliant Symfony component to standardize object initialization throughout the Core as well as in extensions.
+`TYPO3`:pn: uses a dependency injection solution based on the corresponding `PSR-11 <https://www.php-fig.org/psr/psr-11/>`_
+compliant `Symfony`:pn: component to standardize object initialization throughout the `Core`:pn: as well as in extensions.
 
 The recommended way of injecting dependencies is to use constructor injection::
 
@@ -21,7 +21,7 @@ The recommended way of injecting dependencies is to use constructor injection::
        $this->dependency = $dependency;
    }
 
-By default all classes shipped by the TYPO3 Core  system extensions are available for dependency
+By default all classes shipped by the `TYPO3 Core`:pn:  system extensions are available for dependency
 injection.
 
 .. contents::
@@ -58,8 +58,8 @@ This is how a basic :file:`Services.yaml` of an extension looks like. The meanin
 
 .. note::
 
-   Whenever service configuration or class dependencies change, the Core cache needs
-   to be flushed to rebuild the compiled Symfony container.
+   Whenever service configuration or class dependencies change, the `Core`:pn: cache needs
+   to be flushed to rebuild the compiled `Symfony`:pn: container.
 
 .. _autowire:
 
@@ -69,7 +69,7 @@ Autowire
 :yaml:`autowire: true` instructs the dependency injection component
 to calculate the required dependencies from type declarations. This works for constructor
 and inject methods. The calculation yields to a service initialization recipe
-which is cached in php code (in TYPO3 Core  cache).
+which is cached in php code (in `TYPO3 Core`:pn:  cache).
 
 .. note::
 
@@ -80,10 +80,10 @@ Autoconfigure
 -------------
 
 It is suggested to enable :yaml:`autoconfigure: true` as this will automatically
-add Symfony service tags based on implemented interfaces or base classes.
+add `Symfony`:pn: service tags based on implemented interfaces or base classes.
 For example autoconfiguration ensures that classes which implement
 :php:`\TYPO3\CMS\Core\SingletonInterface` will be publicly available from the
-Symfony container.
+`Symfony`:pn: container.
 
 Public
 ------
@@ -93,16 +93,16 @@ set in extensions. This settings controls which services are available
 through :php:`\Psr\Container\ContainerInterface->get()`. However some classes, that need to
 be public, will be marked public automatically due to :yaml:`autoconfigure: true`.
 These classes include Singletons, because they need to be shared with code that uses
-:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` and Extbase controllers.
+:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` and `Extbase`:pn: controllers.
 
 .. index:: Dependency injection; Public
 .. _knowing-what-to-make-public:
 
 Knowing what to make public
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
+Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and `Extbase`:pn: controllers are
 marked public by default. Additionally some classes cannot be private as well.
-As the Symfony documentation puts it:
+As the `Symfony`:pn: documentation puts it:
 
 .. this indent is intentional to create a blockquote!
 
@@ -112,7 +112,7 @@ As the Symfony documentation puts it:
 
 Direct access includes instantiation via :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`.
 This means every class that should make use of dependency injection and is not instantiated via injection
-itself but by e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` have to be marked
+itself but by for example :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` have to be marked
 as public. Some examples for this are:
 
 * User Functions
@@ -138,7 +138,7 @@ For such classes an extension can override the global :yaml:`public: false` conf
         public: true
 
 With this configuration you can use dependency injection in :php:`\Vendor\MyExtension\UserFunction\ClassA`
-when it is created in the context of a :ts:`USER` TypoScript object which would not be possible if this
+when it is created in the context of a :ts:`USER` `TypoScript`:pn: object which would not be possible if this
 class was private.
 
 .. index:: Dependency injection; Errors
@@ -246,4 +246,4 @@ Further information
 * `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`__
 * `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
 * :doc:`t3core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
-  of the TYPO3 Core .
+  of the `TYPO3 Core`:pn: .

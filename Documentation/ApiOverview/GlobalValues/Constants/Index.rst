@@ -96,7 +96,7 @@ These constants are available for different groups of files as documented in
 https://www.iana.org/assignments/media-types/media-types.xhtml
 
 These file types are assigned to all FAL resources. They can, for example, be
-used in Fluid to decide how to render different types of files.
+used in `Fluid`:pn: to decide how to render different types of files.
 
 ==================== ===== =======================
 Constant             Value Description

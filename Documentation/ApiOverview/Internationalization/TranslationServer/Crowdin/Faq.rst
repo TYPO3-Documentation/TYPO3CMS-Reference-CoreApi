@@ -23,23 +23,26 @@ General Questions
 
 Will the old translation server be disabled?
 --------------------------------------------
-The existing translation server will be turned off some time after Crowdin will have been announced stable.
+The existing translation server will be turned off some time after `Crowdin`:pn:
+will have been announced stable.
 
 The existing and exported translations which are downloaded within the Install Tool will be available for longer time.
 
 
 .. _crowdin-faq-extension-missing:
 
-My favorite extension is not available on Crowdin
--------------------------------------------------
-If you miss an extension on Crowdin, contact the extension owner to create a project on Crowdin.
+My favorite extension is not available on `Crowdin`:pn:
+-------------------------------------------------------
+If you miss an extension on `Crowdin`:pn:, contact the extension owner to
+create a project on `Crowdin`:pn:.
 It is a simple process and done within minutes.
 
 .. _crowdin-faq-extension-language-missing:
 
 My favorite language is not available for an extension
 ------------------------------------------------------
-If you are missing the support for a specific language in an extension on Crowdin please contact either the maintainer
+If you are missing the support for a specific language in an extension
+on `Crowdin`:pn: please contact either the maintainer
 of the extension or the :ref:`crowdin-initiative`.
 
 .. seealso::
@@ -51,9 +54,10 @@ Questions about extension integration
 
 .. _crowdin-faq-duplicated-labels:
 
-Why does Crowdin show me translations in source language?
----------------------------------------------------------
-If you just have setup Crowdin and you ship translated xlf files within your extension, those will be shown as well as to be translated.
+Why does `Crowdin`:pn: show me translations in source language?
+---------------------------------------------------------------
+
+If you just have setup `Crowdin`:pn: and you ship translated xlf files within your extension, those will be shown as well as to be translated.
 
 You need to exlude those in your `.crowdin.yaml` configuration which can be found in the extension root directory.
 
@@ -72,11 +76,12 @@ You need to exlude those in your `.crowdin.yaml` configuration which can be foun
 More information can be found in the documentation on crowdin: https://support.crowdin.com/configuration-file/
 
 
-.. index:: Crowdin; Migration from Pootle
+.. index:: `Crowdin`:pn:; Migration from Pootle
 
 How can I migrate translations from Pootle?
 -------------------------------------------
-If translations exist on Pootle there is no need to retranslate everything on Crowdin again - you can import those.
+If translations exist on Pootle there is no need to retranslate everything on
+`Crowdin`:pn: again - you can import those.
 
 
 #. **Fetch translations**
@@ -84,7 +89,7 @@ If translations exist on Pootle there is no need to retranslate everything on Cr
    `wget 'https://extensions.typo3.org/fileadmin/ter/p/o/powermail-l10n/powermail-l10n-de.zip'`
 
 #. **Open and Cleanup**
-   Unzip the translations and switch to e.g. `Resources/Private/Language` which is the typical directory
+   Unzip the translations and switch to for example `Resources/Private/Language` which is the typical directory
    of translations. Remove the *xml* files as only the *xlf* files are important.
 
 #. **Match the Files**
@@ -97,7 +102,8 @@ If translations exist on Pootle there is no need to retranslate everything on Cr
          <xliff version="1.0">
             <file source-language="en" datatype="plaintext" original="EXT:powermail/Resources/Private/Language/locallang.xlf">
 
-   The file :file:`de.locallang.xlf` must be modified and `original="messages"` must be changed to `original="EXT:powermail/Resources/Private/Language/locallang.xlf"`
+   The file :file:`de.locallang.xlf` must be modified and `original="messages"`
+   must be changed to `original="EXT:powermail/Resources/Private/Language/locallang.xlf"`
 
 #. **Upload the Translations**
    Just keep on reading the next question.
@@ -107,7 +113,9 @@ If translations exist on Pootle there is no need to retranslate everything on Cr
 
 Can I upload translated xlf files?
 ----------------------------------
-Yes, you can! Switch to the settings area of your project (you need to have the proper permissions for that) and you can upload xlf files or even zip files containg the xlf files.
+Yes, you can! Switch to the settings area of your project (you need to have the
+proper permissions for that) and you can upload xlf files or even zip files
+containing the xlf files.
 
 .. figure:: ../../../../Images/I18n/Crowdin/crowdin-upload.png
    :alt: Upload translations
@@ -115,5 +123,5 @@ Yes, you can! Switch to the settings area of your project (you need to have the 
 
    Upload translations
 
-After triggering the upload Crowdin tries to find the matching source files and the target languages.
+After triggering the upload `Crowdin`:pn: tries to find the matching source files and the target languages.
 It might be that you need to adopt both if not found automatically.

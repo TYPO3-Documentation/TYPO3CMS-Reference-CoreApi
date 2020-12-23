@@ -6,7 +6,7 @@
 Broadcast channels
 ==================
 
-It is possible to send broadcast messages from anywhere in TYPO3 that are listened to via JavaScript.
+It is possible to send broadcast messages from anywhere in TYPO3 that are listened to via `JavaScript`:pn:.
 
 .. warning::
 
@@ -20,11 +20,11 @@ Send a message
 Any backend module may send a message using the :js:`TYPO3/CMS/Backend/BroadcastService` module.
 The payload of such message is an object that consists at least of the following properties:
 
-* :js:`componentName` - the name of the component that sends the message (e.g. extension name)
+* :js:`componentName` - the name of the component that sends the message (for example extension name)
 * :js:`eventName` - the event name used to identify the message
 
 A message may contain any other property as necessary. The final event name to listen is a composition of "typo3", the
-component name and the event name, e.g. `typo3:my_extension:my_event`.
+component name and the event name, for example `typo3:my_extension:my_event`.
 
 .. attention::
 
@@ -55,7 +55,7 @@ Receive a message
 -----------------
 
 To receive and thus react on a message, an event handler needs to be registered that listens to the composed event
-name (e.g. `typo3:my_component:my_event`) sent to :js:`document`.
+name (for example `typo3:my_component:my_event`) sent to :js:`document`.
 
 The event itself contains a property called `detail` **excluding** the component name and event name.
 
@@ -71,7 +71,7 @@ Example code::
 
 
 Hook into :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/backend.php']['constructPostProcess']` to load a custom
-:php:`BackendController` hook that loads the event handler, e.g. via RequireJS.
+:php:`BackendController` hook that loads the event handler, for example via RequireJS.
 
 Example code:
 

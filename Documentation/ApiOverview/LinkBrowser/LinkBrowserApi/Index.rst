@@ -19,12 +19,12 @@ Description
 ===========
 
 This API allows to extend the LinkBrowser with new tabs,
-which allow to implement custom link functionality in a generic way in a so called LinkHandler.
-Since the LinkBrowser is used by FormEngine and RTE,
-the new API ensures that your custom LinkHandler works with those two,
+which allow to implement custom link functionality in a generic way in a so called `LinkHandler`:pn:.
+Since the LinkBrowser is used by the `FormEngine`:pn: and the RTE,
+the new API ensures that your custom `LinkHandler`:pn: works with those two,
 and possible future, usages flawlessly.
 
-Each tab rendered in the LinkBrowser has an associated LinkHandler,
+Each tab rendered in the LinkBrowser has an associated `LinkHandler`:pn:,
 responsible for rendering the tab and for creating and editing of links belonging to this tab.
 
 
@@ -34,7 +34,7 @@ responsible for rendering the tab and for creating and editing of links belongin
 Tab registration
 ----------------
 
-LinkBrowser tabs are registered in page TSconfig like this:
+LinkBrowser tabs are registered in page `TSconfig`:pn: like this:
 
 .. code:: typoscript
 
@@ -63,7 +63,7 @@ The 'url' handler should be treated as last resort as it will work with any link
 Handler implementation
 ----------------------
 
-A LinkHandler has to implement the :php:`\TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface` interface,
+A `LinkHandler`:pn: has to implement the :php:`\TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface` interface,
 which defines all necessary methods for communication with the LinkBrowser.
 The function actually doing the output of the link is function :php:`formatCurrentUrl()`::
 
@@ -80,7 +80,7 @@ The function actually doing the output of the link is function :php:`formatCurre
    }
 
 The function :php:`render()` renders the backend display inside the tab of the LinkBrowser.
-It can utilize a Fluid template::
+It can utilize a `Fluid`:pn: template::
 
    public function render(ServerRequestInterface $request): string
    {
@@ -91,7 +91,7 @@ It can utilize a Fluid template::
        return $this->view->render('Telephone');
    }
 
-Additionally, each LinkHandler should also provide a JavaScript module (requireJS),
+Additionally, each `LinkHandler`:pn: should also provide a `JavaScript`:pn: module (requireJS),
 which takes care of passing a link to the LinkBrowser.
 
 A minimal implementation of such a module looks like this:
@@ -122,7 +122,7 @@ A minimal implementation of such a module looks like this:
 Notice the call to `LinkBrowser.finalizeFunction()`,
 which is the point where the link is handed over to the LinkBrowser for further processing and storage.
 
-As an example for a working LinkHandler implementations you can have a look at the LinkHandlers being defined in the
+As an example for a working `LinkHandler`:pn: implementations you can have a look at the LinkHandlers being defined in the
 sysext.
 
 .. index:: pair: LinkBrowser; Hooks

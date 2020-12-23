@@ -6,7 +6,7 @@
 Basic concepts
 ==============
 
-This chapter presents the general concepts underlying the TYPO3 CMS
+This chapter presents the general concepts underlying the `TYPO3 CMS`:pn:
 file abstraction layer (FAL). The whole point of FAL - as its name
 implies - is to provide information about files abstracted with
 regards to their actual nature and storage.
@@ -29,9 +29,9 @@ these different places requires an appropriate driver.
 
 Each storage relies on a driver to provide the user with the
 ability to use and manipulate the files that exist in the storage.
-By default TYPO3 CMS provides only a local file system driver.
+By default `TYPO3 CMS`:pn: provides only a local file system driver.
 
-A new TYPO3 CMS installation comes with a predefined storage,
+A new `TYPO3 CMS`:pn: installation comes with a predefined storage,
 using the local file system driver and pointing to the
 :file:`fileadmin/` directory.
 
@@ -51,7 +51,7 @@ to hold a large variety of additional information about the file
 
 .. tip::
 
-   Although FAL is part of the TYPO3 CMS Core, there is a
+   Although FAL is part of the `TYPO3 CMS Core`:pn:, there is a
    system extension called "filemetadata", which is not installed
    by default. It extends the "sys\_file\_metadata" table with
    fields such as copyright notice, author name, location, etc.
@@ -71,7 +71,7 @@ use for this file just for this reference.
 
 This central reference table ("sys\_file\_reference") makes
 it easy to track every place where a file is used inside a
-TYPO3 CMS installation.
+`TYPO3 CMS`:pn: installation.
 
 All these elements are explored in greater depth in the chapter
 about :ref:`FAL components <fal-architecture-components>`.

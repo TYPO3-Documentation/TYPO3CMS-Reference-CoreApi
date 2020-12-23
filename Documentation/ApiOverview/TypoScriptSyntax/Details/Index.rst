@@ -5,7 +5,7 @@
 Sorting out details
 ===================
 
-This chapter looks at some more technical details about TypoScript.
+This chapter looks at some more technical details about `TypoScript`:pn:.
 
 
 .. toctree::

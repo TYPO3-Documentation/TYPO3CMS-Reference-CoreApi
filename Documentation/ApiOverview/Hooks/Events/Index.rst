@@ -3,12 +3,12 @@
 .. _eventlist:
 
 
-==========================
-List of Core PSR-14 Events
-==========================
+================================
+List of `Core`:pn: PSR-14 Events
+================================
 
 The following list contains :ref:`PSR-14 events <EventDispatcher>`
-in the TYPO3 Core .
+in the `TYPO3 Core`:pn: .
 
 **Contents:**
 

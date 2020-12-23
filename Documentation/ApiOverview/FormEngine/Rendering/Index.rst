@@ -7,7 +7,7 @@ Rendering
 =========
 
 This is the second step of the processing chain: The rendering part gets the data array prepared
-by :php:`FormDataCompiler` and creates a result array containing HTML, CSS and JavaScript. This
+by :php:`FormDataCompiler` and creates a result array containing HTML, CSS and `JavaScript`:pn:. This
 is then post-processed by a controller to feed it to the :php:`PageRenderer` or to create an ajax
 response.
 
@@ -25,7 +25,7 @@ Each container creates some "outer" part of the result, calls some sub-container
 sub-result with its own content and returns the merged array up again. The data array is given to each sub class
 along the way, and containers can add further render relevant data to it before giving it "down". The data array
 can *not* be given "up" in a changed way again. Inheritance of a data array is always top-bottom. Only HTML, CSS
-or JavaScript created by a sub-class is returned by the sub-class "up" again in a "result" array of a specified
+or `JavaScript`:pn: created by a sub-class is returned by the sub-class "up" again in a "result" array of a specified
 format.
 
 .. code-block:: php
@@ -46,7 +46,7 @@ format.
 
 Above example lets :php:`NodeFactory` find and compile some data from "subContainer", and merges the child result
 with its own. The helper methods :php:`initializeResultArray()` and :php:`mergeChildReturnIntoExistingResult()`
-help with combining CSS and JavaScript.
+help with combining CSS and `JavaScript`:pn:.
 
 An upper container does not directly create an instance of a sub node (element or container) and never calls it
 directly. Instead, a node that wants to call a sub node only refers to it by a name, sets this name into the data
@@ -55,10 +55,10 @@ an appropriate class name, instantiates and initializes the class, gives it the 
 on it.
 
 .. note::
-   The :php:`SingleFieldContainer` and :php:`FlexFormElementContainer` will probably vanish with Core version 9.
+   The :php:`SingleFieldContainer` and :php:`FlexFormElementContainer` will probably vanish with `Core`:pn: version 9.
 
 .. note::
-   Data set by containers and given down to children will likely change in Core version 9: All fields not registered
+   Data set by containers and given down to children will likely change in `Core`:pn: version 9: All fields not registered
    in the main data array of :php:`FormDataCompiler` and only added within containers will move into section
    :php:`renderData`. Furthermore, it is planned to *remove* :php:`parameterArray` and substitute it with something
    better. This will affect most elements and will probably break a lot of these elements.
@@ -90,7 +90,7 @@ always routed through it, and the NodeFactory takes care of finding and validati
 should be called for a specific :php:`renderType`. This is supported by an API that allows registering *new*
 renderTypes and overriding *existing* renderTypes with own implementations. This is true for *all* classes,
 including containers, elements, fieldInformation, fieldWizards and fieldControls. This means the child routing
-can be fully adapted and extended if needed. It is possible to transparently "kick-out" a Core container and to
+can be fully adapted and extended if needed. It is possible to transparently "kick-out" a `Core`:pn: container and to
 substitute it with an own implementation.
 
 As example, the TemplaVoila implementation needs to add additional render capabilities of the flex form rendering
@@ -113,13 +113,13 @@ This re-routes the :php:`renderType` "flex" to an own class. If multiple registr
 the one with highest priority wins.
 
 .. note::
-   The :php:`NodeFactory` uses :php:`$data['renderType']`. This has been introduced with Core version 7 in TCA, and
-   a couple of TCA fields actively use this renderType. However, it is important to understand the renderType is *only*
-   used within the FormEngine and :php:`type` is still a must-have setting for columns fields in TCA. Additionally,
-   :php:`type` can *not* be overridden in :php:`columnsOverrides`. Basically, :php:`type` specifies how the DataHandler
+   The :php:`NodeFactory` uses :php:`$data['renderType']`. This has been introduced with `Core`:pn: version 7 in `TCA`:pn:, and
+   a couple of `TCA`:pn: fields actively use this renderType. However, it is important to understand the renderType is *only*
+   used within the `FormEngine`:pn: and :php:`type` is still a must-have setting for columns fields in `TCA`:pn:. Additionally,
+   :php:`type` can *not* be overridden in :php:`columnsOverrides`. Basically, :php:`type` specifies how the `DataHandler`:pn:
    should put data into the database, while :php:`renderType` specifies how a single field is rendered. This additionally
    means there can exist multiple different renderTypes for a single type, and it means it is possible to invent a new
-   renderType to render a single field differently, but still let the DataHandler persist it the usual way.
+   renderType to render a single field differently, but still let the `DataHandler`:pn: persist it the usual way.
 
 
 Adding a new renderType in :file:`ext_localconf.php`
@@ -133,7 +133,7 @@ Adding a new renderType in :file:`ext_localconf.php`
         'class' => \MyVendor\CoolTagCloud\Form\Element\SelectTagCloudElement::class,
     ];
 
-And use it in TCA for a specific field, keeping the full database functionality in DataHandler together with the
+And use it in `TCA`:pn: for a specific field, keeping the full database functionality in `DataHandler`:pn: together with the
 data preparation of FormDataCompiler, but just routing the rendering of that field to the new element:
 
 .. code-block:: php
@@ -153,8 +153,8 @@ is not enough, the :php:`NodeFactory` can be extended with a resolver that is ca
 This resolver gets the full current data array at runtime and can either return :php:`NULL` saying "not my job", or return
 the name of a class that should handle this node.
 
-An example of this are the Core internal rich text editors. Both "ckeditor" and "rtehtmlarea" register a resolver class
-that are called for node name "text", and if the TCA config enables the editor, and if the user has enabled rich text
+An example of this are the `Core`:pn: internal rich text editors. Both "ckeditor" and "rtehtmlarea" register a resolver class
+that are called for node name "text", and if the `TCA`:pn: config enables the editor, and if the user has enabled rich text
 editing in his user settings, then the resolvers return their own :php:`RichTextElement` class names to render a given text
 field:
 
@@ -203,15 +203,15 @@ takes care of basic keys:
     ]
 
 CSS and language labels (which can be used in JS) are added with their file names in format :php:`EXT:extName/path/to/file`.
-JavaScript is added only via RequireJS modules, the registration allows an init method to be called if the
+`JavaScript`:pn: is added only via RequireJS modules, the registration allows an init method to be called if the
 module is loaded by the browser.
 
 .. note::
    The result array handled by :php:`$this->mergeChildReturnIntoExistingResult()` contains a couple of more keys, those
-   will vanish with further FormEngine refactoring steps. If using them, be prepared to adapt extensions later.
+   will vanish with further `FormEngine`:pn: refactoring steps. If using them, be prepared to adapt extensions later.
 
 .. note::
-   Nodes must never add JavaScript or CSS or similar stuff using the :php:`PageRenderer`. This fails as soon
+   Nodes must never add `JavaScript`:pn: or CSS or similar stuff using the :php:`PageRenderer`. This fails as soon
    as this container / element / wizard is called via AJAX, for instance within inline. Instead, those resources
    must be registered via the result array only, using :php:`stylesheetFiles` and :php:`requireJsModules`.
 
@@ -222,9 +222,9 @@ Node Expansion
 ==============
 
 The "node expansion" classes :php:`FieldControl`, :php:`FieldInformation` and :php:`FieldWizard` are called by containers
-and elements and allow "enriching" containers and elements. Which enrichments are called can be configured via TCA.
+and elements and allow "enriching" containers and elements. Which enrichments are called can be configured via `TCA`:pn:.
 
-This API is the substitution of the old "TCA wizards array" and has been introduced with Core version 8.
+This API is the substitution of the old "TCA wizards array" and has been introduced with `Core`:pn: version 8.
 
 FieldInformation
   Additional information. In elements, their output is shown between the field label and the element itself. They can
@@ -242,11 +242,11 @@ FieldControl
 
 Currently, all elements usually implement all three of these, except in cases where it does not make sense. This API allows
 adding functionality to single nodes, without overriding the whole node. Containers and elements can come with default
-expansions (and usually do). TCA configuration can be used to add own stuff. On container side the implementation is still
+expansions (and usually do). `TCA`:pn: configuration can be used to add own stuff. On container side the implementation is still
 basic, only :php:`OuterWrapContainer` and :php:`InlineControlContainer` currently implement FieldInformation and FieldWizard.
 
 See the :ref:`TCA reference ctrl section <t3tca:ctrl-reference-container>` for more information on how to configure these
-for containers in TCA.
+for containers in `TCA`:pn:.
 
 Example. The :php:`InputTextElement` (standard input element) defines a couple of default wizards and embeds them in its
 main result HTML:
@@ -300,15 +300,15 @@ main result HTML:
 
 This element defines three wizards to be called by default. The :php:`renderType` concept is re-used, the
 values :php:`localizationStateSelector` are registered within the :php:`NodeFactory` and resolve to class names. They
-can be overridden and extended like all other nodes. The :php:`$defaultFieldWizards` are merged with TCA settings
+can be overridden and extended like all other nodes. The :php:`$defaultFieldWizards` are merged with `TCA`:pn: settings
 by the helper method :php:`renderFieldWizards()`, which uses the :php:`DependencyOrderingService` again.
 
 It is possible to:
 
 * Override existing expansion nodes with own ones from extensions, even using the resolver mechanics is possible.
-* It is possible to disable single wizards via TCA
+* It is possible to disable single wizards via `TCA`:pn:
 * It is possible to add own expansion nodes at any position relative to the other nodes by specifying "before" and
-  "after" in TCA.
+  "after" in `TCA`:pn:.
 
 
 Add fieldControl Example
@@ -367,7 +367,7 @@ Add the php class for rendering the control in
       }
    }
 
-Add the JavaScript for defining the behavior of the control in
+Add the `JavaScript`:pn: for defining the behavior of the control in
 :file:`Resources/Public/JavaScript/ImportData.js`:
 
 .. code-block:: javascript

@@ -56,7 +56,7 @@ file. Let's look at what is inside.
         )
     );
 
-A service is registered with TYPO3 CMS by calling
+A service is registered with `TYPO3 CMS`:pn: by calling
 :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addService()`.
 This method takes the following parameters:
 
@@ -80,7 +80,7 @@ $info
 
       - the quality of the service (if it's better or not than normal)
 
-      - the OS dependency (either WIN or UNIX)
+      - the OS dependency (either WIN or `Unix`:pn:)
 
       - the dependency on external programs (perl, pdftotext, etc.)
 
@@ -151,7 +151,7 @@ $info
 
       .. code-block:: php
 
-             // runs only on UNIX
+             // runs only on `Unix`:pn:
              'os' => 'UNIX',
 
              // runs only on Windows
@@ -195,5 +195,5 @@ should extend the base service class (:code:`\TYPO3\CMS\Core\Service\AbstractSer
 
 It should then implement the methods that you defined
 for your service's public API, plus whatever method is
-relevant from the base TYPO3 CMS service API, which is
+relevant from the base `TYPO3 CMS`:pn: service API, which is
 described in details in :ref:`the next chapter <services-developer-service-api>`.

@@ -6,7 +6,7 @@
 Autoloading
 ===========
 
-The autoloader takes care of finding classes in TYPO3. It is closely related to
+The autoloader takes care of finding classes in `TYPO3`:pn:. It is closely related to
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` which takes care of singleton
 and :ref:`XCLASS <xclasses>` handling.
 
@@ -19,13 +19,17 @@ As a developer you should always instantiate classes either through
 Autoloading classes since TYPO3 7.x
 ===================================
 
-TYPO3 6.2 was still delivered with a couple of different autoloaders, that all had different approaches and rules to find a class. Since TYPO3 7.0, there is only a single autoloader left, the one of Composer. No matter if you run TYPO3 in Composer mode or not (Classic Mode), TYPO3 uses the Composer autoloader to resolve all class file locations.
+`TYPO3`:pn: 6.2 was still delivered with a couple of different autoloaders, that
+all had different approaches and rules to find a class. Since TYPO3 7.0, there is
+only a single autoloader left, the one of `Composer`:pn:.
+No matter if you run TYPO3 in `Composer`:pn: mode or not (Classic mode), TYPO3 uses the
+`Composer`:pn: autoloader to resolve all class file locations.
 
 .. index:: Autoloader; Without Composer
 .. _autoloading_without_composer_mode:
 
-Loading classes without Composer mode
-=====================================
+Loading classes without `Composer`:pn: mode
+===========================================
 
 This means, you did not install TYPO3 via a `require` statement inside your :file:`composer.json`. It's a regular old-school install where the TYPO3 source and the symlinks (:file:`typo3/index.php`) are setup manually. In this case, every time you install an extension, the autoloader scans the whole extension directory for classes. No matter if they follow any convention at all. There is just one rule. Put each class into its own file. The generated classmap is a huge array with a mapping of classnames to their location on the disk.
 
@@ -50,14 +54,14 @@ This method is failsafe unless the autoload information cannot be written. In th
 If your classes cannot be found, try the following approaches.
 
 - Dump the class loading information manually with the following command: `php typo3/sysext/core/bin/typo3 dumpautoload`
-- If that command itself fails, please (manually) uninstall the extension and simply try reinstalling it (via the Extension Manager).
+- If that command itself fails, please (manually) uninstall the extension and simply try reinstalling it (via the `Extension Manager`:pn:).
 - If you are still not lucky, the issue is definitely on your side and you should double check the write permissions on :file:`typo3temp`.
 
 .. index:: pair: Autoloader; Composer
 .. _autoloading_with_composer_mode:
 
-Loading classes with Composer mode
-==================================
+Loading classes with `Composer`:pn: mode
+========================================
 
 In composer mode, the autoloader checks for (classmap and `PSR-4`) autoloading information inside your extensions' :file:`composer.json`. If you do not provide any information, the autoloader falls back to the classmap autoloading like in non composer mode.
 

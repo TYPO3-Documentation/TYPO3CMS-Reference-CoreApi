@@ -3,9 +3,9 @@
 .. _start:
 .. _api-overview:
 
-===============
-TYPO3 Explained
-===============
+======================
+`TYPO3`:pn: Explained
+======================
 
 .. rst-class:: horizbuttons-tip-m
 
@@ -27,7 +27,7 @@ TYPO3 Explained
       en
 
 :Description:
-      Main TYPO3 Core documentation
+      Main `TYPO3 Core`:pn: documentation
 
 :Keywords:
       forEditors, forBeginners, forDevelopers, forAdmins, forAdvanced, security
@@ -36,7 +36,7 @@ TYPO3 Explained
       Since 2000
 
 :Authors:
-      Core Team, Documentation Team & community (see :ref:`credits`)
+      `Core Team`:pn:, `Documentation Team`:pn: & community (see :ref:`credits`)
 
 :Email:
       documentation@typo3.org
@@ -53,29 +53,29 @@ TYPO3 Explained
 - :ref:`Sitemap`
 
 
-The content of this document is related to TYPO3 CMS,
+The content of this document is related to `TYPO3 CMS`:pn:,
 a GNU/GPL CMS/Framework available from `www.typo3.org
 <https://typo3.org/>`_
 
 **Official Documentation**
 
-This document is included as part of the official TYPO3 documentation.
+This document is included as part of the official `TYPO3`:pn: documentation.
 
 If you find an error or something is missing, please create an `issue
 <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/new>`__
 or make the change yourself. You can find out more about how to do this in
 :ref:`contribute`.
 
-**Core Manual**
+**`Core`:pn: Manual**
 
-This document is a Core Manual. Core Manuals address the built in
-functionality of TYPO3 CMS and are designed to provide the reader with in-
-depth information. Each Core Manual addresses a particular process or
-function and how it is implemented within the TYPO3 source code. These
+This document is a `Core Manual`:pn:. `Core Manuals`:pn: address the built in
+functionality of `TYPO3 CMS`:pn: and are designed to provide the reader with in-
+depth information. Each `Core Manual`:pn: addresses a particular process or
+function and how it is implemented within the `TYPO3`:pn: source code. These
 may include information on available APIs, specific configuration
 options, etc.
 
-Core Manuals are written as reference manuals. The reader should rely
+`Core Manuals` are written as reference manuals. The reader should rely
 on the Table of Contents to identify what particular section will best
 address the task at hand.
 

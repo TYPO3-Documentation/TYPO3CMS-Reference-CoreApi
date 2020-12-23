@@ -9,7 +9,7 @@ Context API and Aspects
 Introduction
 ============
 
-Context API encapsulates various information for data retrieval (e.g. inside
+Context API encapsulates various information for data retrieval (for example inside
 the database) and analysis of current permissions and caching information.
 
 Previously, various information was distributed inside globally accessible objects (:php:`$TSFE` or :php:`$GLOBALS['BE_USER']`)
@@ -47,9 +47,9 @@ The DateTime Aspect accepts following properties:
 =============  ============================================================  ======
 Property       Call                                                          Result
 =============  ============================================================  ======
-``timestamp``  :php:`$context->getPropertyFromAspect('date', 'timestamp');`  unix timestamp as integer value
-``timezone``   :php:`$context->getPropertyFromAspect('date', 'timezone');`   timezone name, e.g. `Germany/Berlin`
-``iso``        :php:`$context->getPropertyFromAspect('date', 'iso');`        datetime as string in ISO 8601 format, e.g. `2004-02-12T15:19:21+00:00`
+``timestamp``  :php:`$context->getPropertyFromAspect('date', 'timestamp');`  `Unix`:pn: timestamp as integer value
+``timezone``   :php:`$context->getPropertyFromAspect('date', 'timezone');`   timezone name, for example `Germany/Berlin`
+``iso``        :php:`$context->getPropertyFromAspect('date', 'iso');`        datetime as string in ISO 8601 format, for example `2004-02-12T15:19:21+00:00`
 ``full``       :php:`$context->getPropertyFromAspect('date', 'full');`       the complete DateTimeImmutable object
 =============  ============================================================  ======
 
@@ -144,10 +144,11 @@ Property        Call                                                            
 ``isPreview``   :php:`$context->getPropertyFromAspect('frontend.preview', 'isPreview');`  whether the frontend is currently in preview mode
 ==============  ========================================================================  ======
 
+
 .. _context_api_aspects_typoscript:
 
-TypoScript Aspect
------------------
+`TypoScript`:pn: Aspect
+-----------------------
 
 The `TypoScriptAspect` can be used to manipulate/check whether TemplateRendering is forced.
 
@@ -159,7 +160,7 @@ The Preview Aspect contains the following properties:
 =========================  ==============================================================================  ======
 Property                   Call                                                                            Result
 =========================  ==============================================================================  ======
-``forcedTemplateParsing``  :php:`$context->getPropertyFromAspect('typoscript', 'forcedTemplateParsing');`  whether TypoScript template parsing is forced
+``forcedTemplateParsing``  :php:`$context->getPropertyFromAspect('typoscript', 'forcedTemplateParsing');`  whether `TypoScript`:pn: template parsing is forced
 =========================  ==============================================================================  ======
 
 .. _context_api_aspects_user:
@@ -242,7 +243,7 @@ Workspace Aspect
 
 The aspect contains information about the currently accessed workspace
 
-In comparison to known behaviour until TYPO3 v9, :php:`WorkspaceAspect` replaces e.g. :php:`$GLOBALS['BE_USER']->workspace`.
+In comparison to known behaviour until TYPO3 v9, :php:`WorkspaceAspect` replaces for example :php:`$GLOBALS['BE_USER']->workspace`.
 
 
 .. _context_api_aspects_workspace_properties:

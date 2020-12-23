@@ -6,13 +6,13 @@
 .. _tce-database-basics:
 .. _datahandler-basics:
 
-========================================================
-Database: DataHandler basics (Formerly Known as TCEmain)
-========================================================
+====================================================================
+Database: `DataHandler`:pn: basics (Formerly known as `TCEmain`:pn:)
+====================================================================
 
-When you are using TCE from your backend applications you need to
+When you are using `TCE`:pn: from your backend applications you need to
 prepare two arrays of information which contain the instructions to
-DataHandler (:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`)
+the `DataHandler`:pn: (:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`)
 of what actions to perform. They fall into two categories:
 data and commands.
 
@@ -23,16 +23,16 @@ create a new record.
 system.
 
 The data and commands are created as multidimensional arrays and to
-understand the API of DataHandler you simply need to understand the
+understand the API of the `DataHandler`:pn: you simply need to understand the
 hierarchy of these two arrays.
 
 .. caution::
 
-   The DataHandler needs a properly configured TCA. If your field
-   is not configured in the TCA the DataHandler will not be able to
+   The `DataHandler`:pn: needs a properly configured `TCA`:pn:. If your field
+   is not configured in the `TCA`:pn: the `DataHandler`:pn: will not be able to
    interact with it. This also is the case if you configured
    "type"="none" (which is in fact a valid type) or if an invalid
-   type is specified. In that case the DataHandler is not
+   type is specified. In that case the `DataHandler`:pn: is not
    able to determine the correct value of the field.
 
 
@@ -189,7 +189,7 @@ Command keywords and values
            exist.
 
          - The record to be localized by currently be set to "Default" language
-           and not have any value set for the TCA :php:`transOrigPointerField` either.
+           and not have any value set for the `TCA`:pn: :php:`transOrigPointerField` either.
 
          - There cannot exist another localization to the given language for the
            record (looking in the original record PID).
@@ -197,7 +197,7 @@ Command keywords and values
          Apart from this, ordinary permissions apply as if the user wants to
          make a copy of the record on the same page.
 
-         The :php:`localize` DataHandler command should be used when translating records in "Connected Mode"
+         The :php:`localize` `DataHandler`:pn: command should be used when translating records in "Connected Mode"
          (strict translation of records from the default language).
          This command is used when selecting the "Translate" strategy in the content elements translation wizard.
 
@@ -208,7 +208,7 @@ Command keywords and values
          integer
    :Value:
          It behaves like :php:`localize` command (both record and child records are copied to given language),
-         but does not set :php:`transOrigPointerField` fields (e.g. :php:`l10n_parent`).
+         but does not set :php:`transOrigPointerField` fields (for example :php:`l10n_parent`).
 
          The :php:`copyToLanguage` command should be used when localizing records in the "Free Mode".
          This command is used when localizing content elements using translation wizard's "Copy" strategy.
@@ -336,7 +336,7 @@ Description of keywords in syntax:
    :Description:
          The UID of the record that is modified. If the record already exists,
          this is an integer. If you're creating new records, use a random
-         string prefixed with "NEW", e.g. "NEW7342abc5e6d".
+         string prefixed with "NEW", for example "NEW7342abc5e6d".
 
 
  - :Key:
@@ -360,10 +360,10 @@ Description of keywords in syntax:
 
 
 .. note::
-   For FlexForms the data array of the FlexForm field is
-   deeper than three levels. The number of possible levels for FlexForms
-   is infinite and defined by the data structure of the FlexForm. But
-   FlexForm fields always end with a "regular value" of course.
+   For `FlexForms`:pn: the data array of the FlexForm field is
+   deeper than three levels. The number of possible levels for `FlexForms`:pn:
+   is infinite and defined by the data structure of the `Flexform`:pn:. But
+   `Flexform`:pn: fields always end with a "regular value" of course.
 
 
 .. index:: DataHandler; Data submission
@@ -426,7 +426,7 @@ one new system category::
    ];
 
 .. note::
-   To get real uid of the record you have just created use DataHandler's `substNEWwithIDs` property like: :php:`$uid = $dataHandler->substNEWwithIDs['NEW9823be87'];`
+   To get real uid of the record you have just created use `DataHandler's`:pn: `substNEWwithIDs` property like: :php:`$uid = $dataHandler->substNEWwithIDs['NEW9823be87'];`
 
 This updates the page with uid=9834 to a new title, "New title for
 this page", and no\_cache checked::
@@ -444,7 +444,7 @@ this page", and no\_cache checked::
 Clear cache
 ===========
 
-TCE also has an API for clearing the cache tables of TYPO3:
+`TCE`:pn: also has an API for clearing the cache tables of `TYPO3`:pn::
 
 Syntax::
 
@@ -470,7 +470,7 @@ Syntax::
          :code:`cache_hash`).
 
          Only available for admin-users unless explicitly allowed by User
-         TSconfig "options.clearCache.all".
+         `TSconfig`:pn: "options.clearCache.all".
 
 
  - :Value:
@@ -479,7 +479,7 @@ Syntax::
          Clears all pages from :code:`cache_pages`.
 
          Only available for admin-users unless explicitly allowed by User
-         TSconfig "options.clearCache.pages".
+         `TSconfig`:pn: "options.clearCache.pages".
 
 
 .. index:: Hook; Clear cache
@@ -498,8 +498,8 @@ function. Configuration of the hook can be done from
 .. index:: DataHandler; Flags
 .. _tce-flags:
 
-Flags in DataHandler
-====================
+Flags in `DataHandler`:pn:
+==========================
 
 There are a few internal variables you can set prior to executing
 commands or data submission. These are the most significant:

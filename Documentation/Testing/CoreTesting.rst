@@ -2,22 +2,22 @@
 .. index:: pair: Testing; Core
 .. _testing-core:
 
-============
-Core testing
-============
+==================
+`Core`:pn: testing
+==================
 
 Introduction
 ============
 
-This chapter is about executing TYPO3 Core tests locally and is intended to give you a better understanding of testing within TYPO3's Core. A full Core git checkout comes with everything needed
-to run tests in TYPO3 as of version 9. We don't use older versions in this chapter
-since Core development is most likely bound to the Core master branch - back porting patches to older
-branches are usually handled by Core maintainers and often don't affect other Core contributors.
+This chapter is about executing `TYPO3 Core`:pn: tests locally and is intended to give you a better understanding of testing within the `TYPO3 Core`:pn:. A full `Core`:pn: `Git`:pn: checkout comes with everything needed
+to run tests in `TYPO3`:pn: as of version 9. We don't use older versions in this chapter
+since `Core`:pn: development is most likely bound to the `Core`:pn: master branch - back porting patches to older
+branches are usually handled by `Core`:pn: maintainers and often don't affect other `Core`:pn: contributors.
 
 Note, the main script :file:`Build/Scripts/runTests.sh` is relatively new. It works best
-when executed on a Linux based host but can be run under macOS and Windows with some performance drawbacks on macOS.
+when executed on a `Linux`:pn: based host but can be run under `macOS`:pn: and `Windows`:pn: with some performance drawbacks on `macOS`:pn:.
 
-Additionally, it *is* possible to execute tests on a local system without using Docker. Depending on
+Additionally, it *is* possible to execute tests on a local system without using `Docker`:pn:. Depending on
 which test suite is executed, developers may need to configure their environments to run the
 desired test. We however learned not too many people actually do that as it can become tricky. This
 chapter does not talk about test execution outside of :file:`Build/Scripts/runTests.sh`.
@@ -33,28 +33,28 @@ Many developers are familiar with `Docker <https://www.docker.com/>`_. As outlin
 reliable environment to run tests and also remove the need to manage niche dependencies on your local
 environment for tests such as "execute functional test "X" using MSSQL with xdebug".
 
-Git, docker and docker-compose are all required. For standalone test execution, a local installation of
-PHP is not required. You can even `composer install` a Core by calling `Build/Scripts/runTests.sh -s
+`Git`:pn:, `Docker`:pn: and `Docker Compose`:pn: are all required. For standalone test execution, a local installation of
+PHP is not required. You can even `composer install` a `Core`:pn: by calling `Build/Scripts/runTests.sh -s
 composerInstall` in a container.
 
-If you're using a Mac, install or update Docker to the most recent version using the packaging system of
+If you're using a `macOS`:pn:, install or update `Docker`:pn: to the most recent version using the packaging system of
 your choice.
 
-If you are using Ubuntu Linux 18.04 or higher, everything should be ok after
-calling `sudo apt-get install git docker docker-compose` once. For other Linux distributions
-including older releases of Ubuntu, users should have a look at the Docker homepage to see how to update
+If you are using Ubuntu `Linux`:pn: 18.04 or higher, everything should be ok after
+calling `sudo apt-get install git docker docker-compose` once. For other `Linux`:pn: distributions
+including older releases of Ubuntu, users should have a look at the `Docker`:pn: homepage to see how to update
 to a recent version. It usually involves adding some other package repository and updating / installing using it.
 Make sure your local user is a member of the `docker` group, else the script will fail with something like
 `/var/run/docker.sock: connect: permission denied`.
 
-Windows can rely on WSL to have a decent docker version, too.
+`Windows`:pn: can rely on WSL to have a decent `Docker`:pn: version, too.
 
 
 Quick start
 ===========
 
-From now on, it is assumed that git, docker and docker-compose are available with the most up-to-date release
-running on the host system. Executing the basic Core unit test suite boils down to:
+From now on, it is assumed that `Git`:pn:, `Docker`:pn: and `Docker Compose`:pn: are available with the most up-to-date release
+running on the host system. Executing the basic `Core`:pn: unit test suite boils down to:
 
 .. code-block:: shell
 
@@ -66,22 +66,22 @@ running on the host system. Executing the basic Core unit test suite boils down 
     Build/Scripts/runTests.sh
 
 That's it. You just executed the entire unit test suite.
-initial Core clone and a composer install, other parts of this chapter are about different permutations of.
-Now that we have examined the initial Core clone and a composer install process, we will then look at the
+initial `Core`:pn: clone and a composer install, other parts of this chapter are about different permutations of.
+Now that we have examined the initial `Core`:pn: clone and a composer install process, we will then look at the
 different ways we can apply the `runTests.sh` or other scenarios
 
 
 Overview
 ========
 
-So what just happened? We cloned a Core, composer install`ed dependencies and executed Core
+So what just happened? We cloned a `Core`:pn:, composer install`ed dependencies and executed `Core`:pn:
 unit tests. Let's have a look at more some details: `runTests.sh` is a shell script that figures out
 which test suite with which options a user wants to execute, does some error handling for broken
 combinations, writes the file `Build/testing-docker/local/.env` according to its findings and then executes a
-couple of `docker-compose` commands to prepare containers, run tests and stop containers after execution
+couple of `docker-compose`:pn commands to prepare containers, run tests and stop containers after execution
 again.
 
-A Core developer doing this for the first time may notice `docker-compose` pulling several container images
+A `Core`:pn: developer doing this for the first time may notice `docker-compose`:pn: pulling several container images
 before continuing. These are the dependent images needed to execute certain jobs. For instance the
 container `typo3gmbh/php72 <https://hub.docker.com/r/typo3gmbh/php72/>`_ may be fetched. It's definition
 can be found at `TYPO3 GmbH bitbucket <https://bitbucket.typo3.com/projects/T3COM/repos/bamboo-remote-agent/browse>`_.
@@ -137,8 +137,8 @@ Let's pick a runTests.sh example and have a closer look:
 
 The command asks runTests.sh to execute the "functional" test suite `-s functional` and to not execute all
 available tests but only those within `typo3/sysext/core/Tests/Functional/Authentication/`. The script first
-starts the containers it needs: Redis, memcached and a MariaDB. All in one network. It then waits until
-the MariaDB container opens its database port, then starts a PHP 7.2 container and calls phpunit to execute
+starts the containers it needs: Redis, memcached and a `MariaDB`:pn:. All in one network. It then waits until
+the `MariaDB`:pn: container opens its database port, then starts a PHP 7.2 container and calls phpunit to execute
 the tests. phpunit executes only one test in this case, that one is green. The containers and networks are then
 removed again. Note the exit code of runTests.sh (`echo $?`) is identical to the exit code of the phpunit
 call: If phpunit reports green, runTests.sh returns 0, and if phpunit is red, the exit code would be non zero.
@@ -156,8 +156,8 @@ are not valid:
 .. code-block:: shell
 
     lolli@apoc /var/www/local/cms/Web $ Build/Scripts/runTests.sh -h
-    TYPO3 Core test runner. Execute acceptance, unit, functional and other test suites in
-    a docker based test environment. Handles execution of single test files, sending
+    `TYPO3 Core`:pn: test runner. Execute acceptance, unit, functional and other test suites in
+    a `Docker`:pn: based test environment. Handles execution of single test files, sending
     xdebug information to a local IDE and more.
     ...
 
@@ -172,7 +172,7 @@ tests, but there is more:
     # Execute some backend acceptance tests
     Build/Scripts/runTests.sh -s acceptance typo3/sysext/core/Tests/Acceptance/Backend/Topbar/
 
-    # Execute some functional tests with PHP 7.3 and postgres DBMS
+    # Execute some functional tests with PHP 7.3 and PostgreSQL DBMS
     Build/Scripts/runTests.sh -s functional -p 7.3 -d postgres typo3/sysext/core/Tests/Functional/Package/
 
     # Execute the cgl fixer

@@ -15,8 +15,8 @@ The Backend Template View
    this manual if you need a reference to the old way of programming
    backend modules.
 
-Modern backend modules are written using the Extbase/Fluid combination.
-Thus, templates are Fluid-based. On top of that the "backend" system extension
+Modern backend modules are written using the `Extbase`:pn:/`Fluid`:pn: combination.
+Thus, templates are `Fluid`:pn:-based. On top of that the "backend" system extension
 provides a general view class :php:`TYPO3\CMS\Backend\View\BackendTemplateView`
 which provides common features for all backend modules, like the management
 of the action menu or the registration of docheader buttons.
@@ -84,7 +84,7 @@ the generation of buttons for the Docheader, the initialization
 of the Flash message queue and the registration of a JS library
 to be loaded using RequireJS.
 
-Using this :php:`BackendTemplateView` class, the Fluid templates for
+Using this :php:`BackendTemplateView` class, the `Fluid`:pn: templates for
 your module need only take care of the actual content of your module.
 As such, the Layout may be as simple as (again from "beuser"):
 
@@ -114,5 +114,5 @@ the "beuser" extension:
 	</f:section>
 
 The best resources for learning is to look at existing modules
-from TYPO3 CMS. With the information given here, you should be
+from`TYPO3 CMS`:pn:. With the information given here, you should be
 able to find your way around the code.

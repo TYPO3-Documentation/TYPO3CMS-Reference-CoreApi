@@ -6,7 +6,7 @@
 ConnectionPool
 ==============
 
-TYPO3's interface to execute queries via Doctrine DBAL typically starts by asking
+TYPO3's interface to execute queries via `Doctrine`:pn: DBAL typically starts by asking
 the `ConnectionPool` for a `QueryBuilder` or a `Connection` object, handing over the table name to be queried::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -25,7 +25,7 @@ while a `Connection` instance can be used as shortcut to deal with some simple q
 Pooling
 =======
 
-TYPO3 can handle multiple connections to different database endpoints at the same time. This
+`TYPO3`:pn: can handle multiple connections to different database endpoints at the same time. This
 can be configured on a per-table basis in :php:`$GLOBALS['TYPO3_CONF_VARS']`. It allows running tables
 on different databases, without an extension developer taking care of that.
 
@@ -38,12 +38,12 @@ The transparency of tables to different database endpoints is limited, though:
 
 Executing a table `JOIN` between two tables that point to different connections will throw an exception.
 This restriction may in practice create implicit "groups" of tables that need to point to one connection
-at once if an extension or the TYPO3 Core  joins those tables.
+at once if an extension or the `TYPO3 Core`:pn:  joins those tables.
 
-This can turn out as a headache if multiple different extensions use for instance the Core category or
-collection API with their mm table joins between Core internal tables and their extension's counterparts.
+This can turn out as a headache if multiple different extensions use for instance the `Core`:pn: category or
+collection API with their mm table joins between `Core`:pn: internal tables and their extension's counterparts.
 
-That situation is not easy to deal with. At the time of this writing the Core development will
+That situation is not easy to deal with. At the time of this writing the `Core`:pn: development will
 eventually implement some non-join fallbacks for typical cases that would be good to decouple, though.
 
 .. tip::

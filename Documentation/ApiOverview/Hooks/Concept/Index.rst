@@ -2,14 +2,14 @@
 .. index:: Core; Extend
 .. _hooks-concept:
 
-========================
-Extending the TYPO3 Core
-========================
+==============================
+Extending the `TYPO3 Core`:pn:
+==============================
 
-Events, Hooks and Signals provide an easy way to extend the functionality of the TYPO3 Core and
+Events, Hooks and Signals provide an easy way to extend the functionality of the `TYPO3 Core`:pn: and
 its extensions without blocking others to do the same.
 
-:ref:`Events <EventDispatcherEvents>` are being emitted by the TYPO3 Core or an Extension via the
+:ref:`Events <EventDispatcherEvents>` are being emitted by the `TYPO3 Core`:pn: or an Extension via the
 :ref:`EventDispatcher <EventDispatcher>`. The Event
 will be received by all implemented Event Listeners for the Event in question. Events are strongly
 typed. Events only allow changes to variables that are intended to be changed by the Event.
@@ -25,8 +25,8 @@ receivers listening to that signal will be executed.
 
 .. _hooks-video:
 
-TYPO3 Extending Mechanisms Video
-================================
+`TYPO3`:pn: extending mechanisms video
+======================================
 
 Lina Wolf: Extending Extensions @ TYPO3 Developer Days 2019
 
@@ -36,7 +36,7 @@ Lina Wolf: Extending Extensions @ TYPO3 Developer Days 2019
 .. index:: Events; vs. XCLASS
 .. _hooks-xclass:
 
-Events, Signals and Hooks vs. XCLASS Extensions
+Events, signals and hooks vs. XCLASS extensions
 ===============================================
 
 Events, Signals and Hooks are the recommended way of extending TYPO3 compared to
@@ -47,7 +47,7 @@ With TYPO3 10 the EventDispatcher was introduced. It is a strongly typed method 
 extending TYPO3 and therefore recommended to use wherever available.
 
 However, Events have to be emitted, Hooks and Signals have to be implemented,
-in the TYPO3 Core  or an Extension before you can use them, while extending a
+in the `TYPO3 Core`:pn:  or an Extension before you can use them, while extending a
 PHP class via the XCLASS method allows you to extend any class you like.
 
 

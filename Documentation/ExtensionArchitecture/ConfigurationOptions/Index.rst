@@ -21,7 +21,7 @@ Syntax
 ======
 
 There's a specific syntax to declare these options properly, which is
-similar to the one used for TypoScript constants (see "Declaring
+similar to the one used for `TypoScript`:pn: constants (see "Declaring
 constants for the Constant editor" in
 :ref:`Constants section in TypoScript Reference <t3tsref:typoscript-syntax-constant-editor>`.
 This syntax applies to the comment line that should be placed just before the constant.
@@ -110,7 +110,7 @@ To directly fetch specific values like :ts:`temporaryDirectory` from the example
 Nested structure
 ================
 
-You can also define nested options using the TypoScript notation:
+You can also define nested options using the `TypoScript`:pn: notation:
 
 .. code-block:: typoscript
 

@@ -6,9 +6,9 @@
 Using site configuration in conditions
 ======================================
 
-Site configuration may be used in all conditions that use Symfony Expression language
+Site configuration may be used in all conditions that use `Symfony`:pn: expression language
 `Typo3ConditionFunctionsProvider` - at the moment this means in EXT:form variants
-and TypoScript conditions.
+and `TypoScript`:pn: conditions.
 
 Two objects are available: `site` and `siteLanguage`.
 With `site` you can access the properties of the top level site configuration.
@@ -17,8 +17,8 @@ With `site` you can access the properties of the top level site configuration.
 
 .. index:: Site handling; TypoScript conditions
 
-TypoScript Examples
-===================
+`TypoScript`:pn: Examples
+=========================
 
 The identifier of the site name is evaluated:
 

@@ -183,9 +183,9 @@ You are on your own.
 
 The simplest solution is to create a database entry into
 table "sys\_file\_reference" by using the database connection
-class provided by TYPO3 CMS.
+class provided by `TYPO3 CMS`:pn:.
 
-A cleaner solution using Extbase requires far more work. An example
+A cleaner solution using `Extbase`:pn: requires far more work. An example
 can be found here: https://github.com/helhum/upload_example
 
 
@@ -227,7 +227,7 @@ storage (path relative to storage root), finally retrieve the files.
 Dumping a file via eID Script
 =============================
 
-TYPO3 registers an `eID` script that allows dumping / downloading / referencing files via their FAL ids. Non-public storages use this script
+`TYPO3`:pn: registers an `eID` script that allows dumping / downloading / referencing files via their FAL ids. Non-public storages use this script
 to make their files available to view or download. File retrieval is done via PHP and delivered through the `eID` script.
 
 An example URL looks like this: :code:`index.php?eID=dumpFile&t=f&f=1230&token=135b17c52f5e718b7cc94e44186eb432e0cc6d2f`.
@@ -246,7 +246,7 @@ to combine them in one request.
 
 The Parameter :php:`s` has following syntax: `width:height:minW:minH:maxW:maxH`. You
 can leave this parameter empty to load the file in its original size. Parameter :php:`width`
-and :php:`height` can feature the trailing :ts:`c` or :ts:`m` indicator, as known from TypoScript.
+and :php:`height` can feature the trailing :ts:`c` or :ts:`m` indicator, as known from `TypoScript`:pn:.
 
 The PHP class responsible for handling the file dumping is the :php:`FileDumpController`, which you
 may also use in your code.

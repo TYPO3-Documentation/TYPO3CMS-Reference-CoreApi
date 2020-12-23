@@ -6,7 +6,7 @@
 Events, signals and hooks
 =========================
 
-Events, signals and hooks provide an easy way to extend the functionality of the TYPO3 Core and
+Events, signals and hooks provide an easy way to extend the functionality of the `TYPO3 Core`:pn: and
 its extensions without blocking others to do the same.
 
 

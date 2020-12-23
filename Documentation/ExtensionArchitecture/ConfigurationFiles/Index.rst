@@ -10,7 +10,7 @@ Configuration Files (ext_tables.php & ext_localconf.php)
 
 Files :file:`ext_tables.php` and :file:`ext_localconf.php` are the two
 most important files for the execution of extensions
-within TYPO3. They contain configuration used by the system on almost
+within `TYPO3`:pn:. They contain configuration used by the system on almost
 every request. They should therefore be optimized for speed.
 
 See :ref:`extension-files-locations` for a full list of file and
@@ -19,7 +19,7 @@ directory names typically used in extensions.
 .. important::
 
    Since the :file:`ext_tables.php` and :file:`ext_localconf.php` of
-   every extension will be concatenated together by TYPO3, you MUST
+   every extension will be concatenated together by `TYPO3`:pn:, you MUST
    follow some rules, such as not use :php:`use` or :php:`declare(strict_types=1)`
    inside these files, see :ref:`rules_ext_tables_localconf_php`.
 
@@ -79,8 +79,8 @@ These are the typical functions that extension authors should place within :file
 * Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes <xclasses>`
   or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
 * Registering additional Request Handlers within the :ref:`Bootstrap <bootstrapping>`
-* Adding any :ref:`PageTSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>`
-* Adding default TypoScript via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility` APIs
+* Adding any :ref:`Page TSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>`
+* Adding default `TypoScript`:pn: via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility` APIs
 * Registering Scheduler Tasks
 * Adding reports to the reports module
 * Registering Icons to the :ref:`IconRegistry <icon-registration>`
@@ -88,7 +88,7 @@ These are the typical functions that extension authors should place within :file
 
 deprecated
 
-* *Registering Extbase Command Controllers* (Extbase command controllers are deprecated since
+* *Registering `Extbase`:pn: Command Controllers* (Extbase command controllers are deprecated since
   TYPO3 9. Use symfony commands as explained in :ref:`cli-mode`)
 
 Examples
@@ -110,29 +110,29 @@ The skeletton of the :file:`ext_localconf.php` looks like this::
    })();
 
 
-.. index:: Extension development; PageTSconfig
+.. index:: Extension development; Page TSconfig
 
-Adding default PageTSconfig
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Adding default page `TSconfig`:pn:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Default PageTSconfig can be added inside :file:`ext_localconf.php`, see
+Default page `TSconfig`:pn: can be added inside :file:`ext_localconf.php`, see
 :ref:`t3tsconfig:pagesettingdefaultpagetsconfig`::
 
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig();
 
-PageTSconfig available via static files can be added inside
+page `TSconfig`:pn: available via static files can be added inside
 :file:`Configuration/TCA/Overrides/pages.php`, see
 :ref:`t3tsconfig:pagesettingstaticpagetsconfigfiles`::
 
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile();
 
 
-.. index:: Extension development; UserTSconfig
+.. index:: Extension development; User TSconfig
 
-Adding default UserTSconfig
+Adding default user `TSconfig`:pn:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As for default PageTSconfig, UserTSconfig can be added inside
+As for default page `TSconfig`:pn:, user `TSconfig`:pn: can be added inside
 :file:`ext_localconf.php`, see:
 :ref:`t3tsconfig:usersettingdefaultusertsconfig`::
 
@@ -155,26 +155,26 @@ This file is only included when
 * a TYPO3 Backend or CLI request is happening
 * or the TYPO3 Frontend is called and a valid backend user is authenticated
 
-This file usually gets included later within the request and after TCA information is loaded,
+This file usually gets included later within the request and after `TCA`:pn: information is loaded,
 and a backend user is authenticated as well.
 
 .. hint::
 
-   In many cases, the file :file:`ext_tables.php` is no longer needed, since `TCA` definitions
+   In many cases, the file :file:`ext_tables.php` is no longer needed, since `TCA`:pn: definitions
    must be placed in :file:`Configuration/TCA/\*.php` files.
 
 
 Should Not Be Used For
 ----------------------
 
-* TCA configurations for new tables. They should go in :file:`Configuration/TCA/tablename.php`
-* TCA overrides of existing tables. They should go in :file:`Configuration/TCA/Overrides/tablename.php`
+* `TCA`:pn: configurations for new tables. They should go in :file:`Configuration/TCA/tablename.php`
+* `TCA`:pn: overrides of existing tables. They should go in :file:`Configuration/TCA/Overrides/tablename.php`
 * calling :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToInsertRecords()`
   as this might break the frontend. They should go in :file:`Configuration/TCA/Overrides/tablename.php`
 * calling :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile()`
   as this might break the frontend. They should go in :file:`Configuration/TCA/Overrides/sys_template.php`
 
-For a descriptions of the changes for TCA (compared to older TYPO3 versions), please see
+For a descriptions of the changes for `TCA`:pn: (compared to older TYPO3 versions), please see
 the blogpost `"Cleaning the hood: TCA" by Andreas Fernandez <https://scripting-base.de/blog/cleaning-the-hood-tca.html>`__.
 
 More information can be found in the blogpost `Good practices in extensions
@@ -191,7 +191,7 @@ These are the typical functions that should be placed inside :file:`ext_tables.p
 
 * Registering of :ref:`backend modules <backend-modules-api>` or Adding a new Main Module :ref: 'Example <extension-configuration-files-backend-module>'
 * Adding :ref:`context-sensitive help <csh-implementation>` to fields (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`) :ref:`Example <extension-configuration-files-csh>`
-* Adding TCA descriptions (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`)
+* Adding `TCA`:pn: descriptions (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`)
 * Adding table options via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages()` :ref:`Example <extension-configuration-files-allow-table-standard>`
 * Registering a scheduler tasks `Scheduler Task <https://docs.typo3.org/c/typo3/cms-scheduler/master/en-us/DevelopersGuide/CreatingTasks/Index.html>`__ :ref:`Example <extension-configuration-files-scheduler>`
 * Assignments to the global configuration arrays :php:`$GLOBALS['TBE_STYLES']` and :php:`$GLOBALS['PAGES_TYPES']`
@@ -254,7 +254,7 @@ For more information see :ref:`context-sensitive help <csh-implementation>`.
 
 Allowing a tables records to be added to Standard pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-By default new records of tables may only be added to Sysfolders in TYPO3. If you need to allow
+By default new records of tables may only be added to Sysfolders in `TYPO3`:pn:. If you need to allow
 new records of your table to be added on Standard pages call:
 
 .. code-block:: php
@@ -295,7 +295,7 @@ The following apply for both :php:`ext_tables.php` and :php:`ext_localconf.php`.
 .. important::
 
    Since the :file:`ext_tables.php` and :file:`ext_localconf.php` of
-   every extension will be concatenated together by TYPO3, you MUST
+   every extension will be concatenated together by `TYPO3`:pn:, you MUST
    follow some rules, such as not use :php:`use` or :php:`declare(strict_types=1)`
    inside these files. More information below:
 
@@ -309,7 +309,7 @@ file with all configuration of other extensions!
 -  You **MUST NOT** rely on the PHP constant :php:`__FILE__` for detection of
    include path of the script - the configuration might be executed from
    a cached file with a different location and therefore such information should be derived from
-   e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName()` or
+   for example :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName()` or
    :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath()`.
 
 
@@ -335,10 +335,10 @@ file with all configuration of other extensions!
 
 
 -  You **MUST NOT** check for values of the deprecated :php:`TYPO3_MODE` or :php:`TYPO3_REQUESTTYPE`
-   constants (e.g. :php:`if (TYPO3_MODE === 'BE')`) or the :php:`ApplicationType` within these files as
+   constants (for example :php:`if (TYPO3_MODE === 'BE')`) or the :php:`ApplicationType` within these files as
    it limits the functionality to cache the whole systems' configuration.
    Any extension author should remove the checks, and re-evaluate if these context-depending checks could go inside
-   the hooks / caller function directly., e.g. do not do:
+   the hooks / caller function directly., for example do not do:
 
 .. code-block:: diff
 
@@ -357,7 +357,7 @@ file with all configuration of other extensions!
    // put this at top of every ext_tables.php and ext_localconf.php
    defined('TYPO3') or die();
 
--  You **SHOULD** use the extension name (e.g. "tt_address") instead of :php:`$_EXTKEY`
+-  You **SHOULD** use the extension name (for example "tt_address") instead of :php:`$_EXTKEY`
    within the two configuration files as this variable will be removed in the future. This also applies
    to :php:`$_EXTCONF`.
 
@@ -378,8 +378,8 @@ The following example contains the complete code::
     })();
 
 
-Additionally, it is possible to extend TYPO3 in a lot of different ways (adding TCA, Backend Routes,
-Symfony Console Commands etc) which do not need to touch these files.
+Additionally, it is possible to extend TYPO3 in a lot of different ways (adding `TCA`:pn:, backend routes,
+`Symfony`:pn: console commands etc) which do not need to touch these files.
 
 Additional tips:
 

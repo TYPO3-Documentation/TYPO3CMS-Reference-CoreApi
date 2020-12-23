@@ -12,7 +12,7 @@ Hosting environment
 ===================
 
 A system administrator is usually responsible for the entirety of an
-IT infrastructure. This includes several services (e.g. web server,
+IT infrastructure. This includes several services (for example web server,
 mail server, database server, SSH, DNS, etc.) on one or on
 several servers. If one component is compromised, it is likely that
 this opens holes to attack other services.
@@ -20,7 +20,7 @@ this opens holes to attack other services.
 As a consequence, it is desired to secure all components of an IT
 infrastructure and keep them up-to-date and secure with only a little
 or no dependencies to other system. It is also wise to abandon
-services which are not necessarily required (e.g. an additional
+services which are not necessarily required (for example an additional
 database server, `DNS` server, `IMAP/POP3` server, etc.). In short words:
 keep your hosting environment as slim as possible for performance and
 security purposes.
@@ -38,9 +38,9 @@ are also important, of course. PHP settings, such as `open_basedir`,
 In use cases where you rely on outbound connections and your php comes without support
 for curl it might be required to set `allow_url_fopen` to true.
 
-Note that disallowing remote connections (e.g. by blocking outgoing traffic on a firewall in
+Note that disallowing remote connections (for example by blocking outgoing traffic on a firewall in
 front of the TYPO3 server) may have an impact on the retrieval of the
-TYPO3 extension list, which allows you to check if extension updates
+`TYPO3`:pn: extension list, which allows you to check if extension updates
 are available, or on retrival of translation files.
 
 

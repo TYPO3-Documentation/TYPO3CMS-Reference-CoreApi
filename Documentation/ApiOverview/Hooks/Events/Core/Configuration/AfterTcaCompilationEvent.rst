@@ -6,11 +6,11 @@
 AfterTcaCompilationEvent
 ========================
 
-Event after `$GLOBALS['TCA']` is built to allow to further manipulate the TCA.
+Event after `$GLOBALS['TCA']` is built to allow to further manipulate the `TCA`:pn:.
 
 .. note::
 
-   Side note: It is possible to check against the original TCA as this is stored within $GLOBALS['TCA']
+   Side note: It is possible to check against the original `TCA`:pn: as this is stored within $GLOBALS['TCA']
    before this event is fired.
 
 API

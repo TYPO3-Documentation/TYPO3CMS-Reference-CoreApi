@@ -3,17 +3,17 @@
 .. _custom-extension-repository:
 
 ===========================
-Custom Extension Repository
+Custom extension repository
 ===========================
 
 .. note::
 
    This section is only relevant for Classic Mode installations,
-   as Composer Mode installations use the download functionality
-   of Composer.
+   as `Composer`:pn: mode installations use the download functionality
+   of `Composer`:pn:.
 
-TYPO3 provides functionality that connects to a different repository type
-than the "official" TER_ (TYPO3 Extension Repository) to download third-party extensions.
+`TYPO3`:pn: provides functionality that connects to a different repository type
+than the "official" TER_ (`TYPO3 Extension Repository`:pn:) to download third-party extensions.
 The API is called "Extension Remotes". These remotes are adapters that allow
 fetching a list of extensions via the :php:`ListableRemoteInterface` or downloading
 an extension via the :php:`ExtensionDownloaderRemoteInterface`.

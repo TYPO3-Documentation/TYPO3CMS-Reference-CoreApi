@@ -8,7 +8,7 @@ Security guidelines
 
 
 This chapter describes some typical risks and advises how to protect a
-TYPO3 site in order to ensure it is and stays secure and stable.
+`TYPO3`:pn: site in order to ensure it is and stays secure and stable.
 
 .. toctree::
    :titlesonly:

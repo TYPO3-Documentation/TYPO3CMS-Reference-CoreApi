@@ -28,11 +28,11 @@ This file overrides default settings from :file:`typo3/sysext/core/Configuration
 .. important::
 
    Since configuration settings can be manipulated from within the
-   TYPO3 CMS backend, the :file:`typo3conf/LocalConfiguration.php`
+   `TYPO3 CMS`:pn: backend, the :file:`typo3conf/LocalConfiguration.php`
    must be writable by the web server user.
 
 The local configuration file is basically a long array which is simply returned
-when the file is included. It represents the global TYPO3 CMS configuration.
+when the file is included. It represents the global`TYPO3 CMS`:pn: configuration.
 This configuration can be modified/extended/overridden by extensions,
 by setting configuration options inside an extension's
 :file:`ext_localconf.php` file. :ref:`See extension files and locations <extension-files-locations>`
@@ -115,7 +115,7 @@ may themselves be arrays.
 The configuration categories are:
 
 BE
-  Options related to the TYPO3 CMS backend.
+  Options related to the`TYPO3 CMS`:pn: backend.
 
 DB
   Database connection configuration.
@@ -133,7 +133,7 @@ FE
   Frontend-related options.
 
 HTTP
-  Settings for tuning HTTP requests made by TYPO3.
+  Settings for tuning HTTP requests made by `TYPO3`:pn:.
 
 GFX
   Options related to image manipulation.
@@ -169,11 +169,11 @@ Although you can manually edit the :file:`typo3conf/LocalConfiguration.php`
 file, it is limited in scope because the file is expected to return
 a PHP array. Also the file is rewritten every time an option is
 changed in the Install Tool or some other operation (like changing
-an extension configuration in the Extension Manager). Thus custom
+an extension configuration in the `Extension Manager`:pn:). Thus custom
 code cannot reside in that file.
 
 Such code should be placed in the :file:`typo3conf/AdditionalConfiguration.php`
-file. This file is never touched by TYPO3, so any code will be
+file. This file is never touched by `TYPO3`:pn:, so any code will be
 left alone.
 
 Furthermore this file is loaded **after** :file:`typo3conf/LocalConfiguration.php`,
@@ -182,7 +182,7 @@ values programmatically if needed.
 
 :file:`typo3conf/AdditionalConfiguration.php` is a plain PHP file.
 There are no specific rules about what it may contain. However since
-the code it contains is included on **every** request to TYPO3 CMS
+the code it contains is included on **every** request to the`TYPO3 CMS`:pn:
 - whether frontend or backend - you should avoid inserting code
 which requires heavy duty processing.
 
@@ -201,7 +201,7 @@ which requires heavy duty processing.
 File DefaultConfiguration.php
 =============================
 
-TYPO3 CMS comes with some default settings, which are defined in
+`TYPO3 CMS`:pn: comes with some default settings, which are defined in
 file :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 
 This is the base configuration, the other files like :file:`LocalConfiguration.php`

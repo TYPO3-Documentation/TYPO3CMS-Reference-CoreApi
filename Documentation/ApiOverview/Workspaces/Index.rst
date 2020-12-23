@@ -8,7 +8,7 @@
 Versioning and Workspaces
 =========================
 
-TYPO3 CMS provides a feature called "workspaces", whereby changes
+`TYPO3`:pn:  provides a feature called "workspaces", whereby changes
 can be made to the content of the web site without affecting the
 currently visible (live) version. Changes can be previewed and
 go through an approval process before publishing.
@@ -18,19 +18,19 @@ are provided in the :ref:`"workspaces" system extension manual <workspaces:start
 
 All the information necessary for making any database table
 compatible with workspaces is described in the
-TCA reference (in the :ref:`description of the "ctrl" section <t3tca:ctrl>`
+`TCA`:pn: reference (in the :ref:`description of the "ctrl" section <t3tca:ctrl>`
 and in the :ref:`description of the "versioningWS" property <t3tca:ctrl-reference-versioningws>`).
 
 The concept of workspaces needs attention from extension programmers.
 The implementation of workspaces is however made so that no critical
 problems can appear with old extensions;
 
-- First of all the "Live workspace" is no different from how TYPO3 has
+- First of all the "Live workspace" is no different from how `TYPO3`:pn: has
   been working for years so that will be supported out of the box
   (except placeholder records must be filtered out in the frontend with
   :code:`t3ver_state !=` , see below).
 
-- Secondly, all permission related issues are implemented in DataHandler so
+- Secondly, all permission related issues are implemented in the `DataHandler`:pn: so
   the worst your users can experience is an error message.
 
 However, you probably want to update your extension so that in the
@@ -47,7 +47,7 @@ Frontend challenges in general
 
 For the frontend the challenges are mostly related to creating correct
 previews of content in workspaces. For most extensions this will work
-transparently as long as they use the API functions in TYPO3 to
+transparently as long as they use the API functions in `TYPO3`:pn: to
 request records from the system.
 
 The most basic form of a preview is when a live record is selected and
@@ -124,7 +124,7 @@ Frontend implementation guidelines
          Versioning Preview Overlay.
 
          Generally ALWAYS used when records are selected based on uid or pid.
-         If records are selected on other fields than uid or pid (e.g. "email =
+         If records are selected on other fields than uid or pid (for example "email =
          ....") then usage might produce undesired results and that should be
          evaluated on individual basis.
 
@@ -182,7 +182,7 @@ These issues are not planned to be supported for preview:
     after the record is first created anyway! But in theory the preview
     can fail.
 
-  - When changing the type of a page (e.g. from "Standard" to "External
+  - When changing the type of a page (for example from "Standard" to "External
     URL") the preview might fail in cases where a look up is done on the
     :code:`doktype` field of the live record.
 
@@ -390,8 +390,8 @@ corresponding entry in the :code:`sys_workspace` table.
 
 .. _workspaces-tcemain:
 
-Using DataHandler with workspaces
-=================================
+Using the `DataHandler`:pn: with workspaces
+===========================================
 
 Since admin users are also restricted by the workspace it is not
 possible to save any live records when in a workspace. However for
@@ -408,7 +408,7 @@ User Settings" module; that actually allows them to save to a live record
 Moving in workspaces
 ====================
 
-TYPO3 4.2 and beyond supports moving for "Element" type versions in
+`TYPO3`:pn: 4.2 and beyond supports moving for "Element" type versions in
 workspaces. A new version of the
 source record is made and has :code:`t3ver_state = 4` (move-to pointer).
 This version is necessary in order for the versioning system to
@@ -475,7 +475,7 @@ Overview
    41,30,0,128,1,0,1,0,0,Topic #1 new
    42,-1,0,128,1,41,-1,0,0,Topic #2 new
 
-.. csv-table:: Overview of regular records (e.g. `tx_record`, `tt_content`, ... but not `pages`)
+.. csv-table:: Overview of regular records (for example `tx_record`, `tt_content`, ... but not `pages`)
    :header-rows: 1
    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 

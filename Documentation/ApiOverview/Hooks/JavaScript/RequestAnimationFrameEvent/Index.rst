@@ -10,7 +10,7 @@ A "request animation frame event" is similar to using :js:`ThrottleEvent` with a
 incorporates the browser's RequestAnimationFrame API (rAF) which aims to run at 60 fps (:math:`16 = \frac{1}{60}`) but
 decides internally the best timing to schedule the rendering.
 
-The best suited use-case for this event type is on "paint jobs", e.g. calculating the size of an element or move
+The best suited use-case for this event type is on "paint jobs", for example calculating the size of an element or move
 elements around.
 
 .. important::

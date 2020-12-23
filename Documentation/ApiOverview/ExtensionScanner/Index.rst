@@ -10,25 +10,25 @@ Extension scanner
 Introduction
 ============
 
-The extension scanner which has been introduced with TYPO3 Core version 9 as part of the system
+The extension scanner which has been introduced with `TYPO3 Core`:pn: version 9 as part of the system
 management (formerly "Install Tool") provides an interactive interface to scan extension code
-for usage of TYPO3 Core API which has been removed or deprecated.
+for usage of `TYPO3 Core`:pn: API which has been removed or deprecated.
 
 
 .. figure:: ../../Images/ExtensionScanner/ExtensionScanner.png
-    :alt: Scan Extension Files in Core 9.0 backend
+    :alt: Scan Extension Files in `Core`:pn: 9.0 backend
 
     The Extension scanner in 9.0
 
 
 The module can be a great help for extension developers and site maintainers when upgrading to
-new Core versions. It can point out code places within extensions that need attention. However,
+new `Core`:pn: versions. It can point out code places within extensions that need attention. However,
 the detection approach - based on static code analysis - is limited by concept: false positives/negatives
 are impossible to avoid.
 
 This document has been written to explain the design goals of the scanner, to point out what it can
 and can't do. The document should help extension and project developers to get the best out of the tool,
-and it should help Core developers to add Core patches which use the scanner.
+and it should help `Core`:pn: developers to add `Core`:pn: patches which use the scanner.
 
 This module has been featured on the TYPO3 youtube channel:
 
@@ -72,27 +72,27 @@ Goals and non goals
 ===================
 
 * Help extension authors quickly find code in extensions that may need attention when upgrading to
-  newer Core versions.
+  newer `Core`:pn: versions.
 
-* Extend the existing reST documentation files which are shown in the ``Upgrade Analysis`` section
+* Extend the existing `reST`:pn: documentation files which are shown in the ``Upgrade Analysis`` section
   with additional information giving extension authors and site developers hints if they are affected
   by a specific change.
 
-* It is not a design goal to scan for every TYPO3 Core API change.
+* It is not a design goal to scan for every `TYPO3 Core`:pn: API change.
 
-* It should later be possible to scan different languages - not only PHP - TypoScript or Fluid could be examples.
+* It should later be possible to scan different languages - not only PHP - `TypoScript`:pn: or `Fluid`:pn: could be examples.
 
-* Core developers should be able to easily register and maintain matchers for new deprecations or breaking patches.
+* `Core`:pn: developers should be able to easily register and maintain matchers for new deprecations or breaking patches.
 
-* Implementation within the TYPO3 Core backend has been primary goal. While it might be possible, integration
-  into IDEs like PhpStorm has not been a design goal. Also, matcher configuration is bound to the Core version,
-  e.g. tests concerning v9 are not intended to be executed on v8.
+* Implementation within the `TYPO3 Core`:pn: backend has been primary goal. While it might be possible, integration
+  into IDEs like PhpStorm has not been a design goal. Also, matcher configuration is bound to the `Core`:pn: version,
+  for example tests concerning v9 are not intended to be executed on v8.
 
-* Some of reST files that document a breaking change or deprecated API can be used to scan extensions.
-  If those find no matches, the reST documentation files are tagged with a "no match" label telling integrators
+* Some of `reST`:pn: files that document a breaking change or deprecated API can be used to scan extensions.
+  If those find no matches, the `reST`:pn: documentation files are tagged with a "no match" label telling integrators
   and project developers that they do not need to concern themselves with that particular change.
 
-* The extension scanner is not meant to be used on Core extensions - it is not a Core development helper.
+* The extension scanner is not meant to be used on `Core`:pn: extensions - it is not a `Core`:pn: development helper.
 
 
 .. index:: Extension scanner; Limits
@@ -196,9 +196,9 @@ The example above looks for static method calls, which are relatively reliable t
 all matches for such cases will be weak matches.
 
 Additionally, an extension may already have a version check around a function call to run one function
-on one Core version and a different one on another Core version. The extension scanner does not
+on one `Core`:pn: version and a different one on another `Core`:pn: version. The extension scanner does not
 understand these constructs and would still show the deprecated call as a match, even if it was wrapped
-in a Core version check.
+in a `Core`:pn: version check.
 
 .. index:: Extension scanner; Extension authors
 
@@ -206,16 +206,16 @@ Extension authors
 =================
 
 Even though the extension scanner can be a great help to quickly see which places of an extension
-may need attention when upgrading to a newer Core version, the following points should be considered:
+may need attention when upgrading to a newer `Core`:pn: version, the following points should be considered:
 
 * It should not be a goal to always have a green output of the extension scanner, especially
   if the extension scanner shows a false positive.
 
 * A green output when scanning an extension does *not* imply that the extension actually works with
-  that Core version: Some deprecations or breaking changes are not scanned (for example those causing
+  that `Core`:pn: version: Some deprecations or breaking changes are not scanned (for example those causing
   too many false positives) and the scanner does not support all script/markup languages.
 
-* The breaking change / deprecation reST files shipped with a Core version are still relevant and should
+* The breaking change / deprecation `reST`:pn: files shipped with a `Core`:pn: version are still relevant and should
   be read.
 
 * If the extension scanner shows one or more false positives the extension author has the following options:
@@ -230,7 +230,7 @@ may need attention when upgrading to a newer Core version, the following points 
         $foo->someFalsePositiveMatch('foo');
 
   * Suppress all matches in an entire file with a comment. This is especially useful for
-    dedicated classes which act as proxies for Core API:
+    dedicated classes which act as proxies for `Core`:pn: API:
 
     .. code-block:: php
 
@@ -244,7 +244,7 @@ may need attention when upgrading to a newer Core version, the following points 
             ...
         }
 
-  * The author could request a Core patch to remove a specific match from the extension scanner
+  * The author could request a `Core`:pn: patch to remove a specific match from the extension scanner
     if it triggers too many false positives. If multiple authors experience the same false positives
     they are even more likely to be removed upon request.
 
@@ -260,7 +260,7 @@ may need attention when upgrading to a newer Core version, the following points 
 
 * If an extension is cluttered with ``@extensionScannerIgnoreLine`` or ``@extensionScannerIgnoreFile``
   annotations this could be an indication to the extension author to consider branching off
-  an extensions to support individual Core versions instead of supporting multiple versions in the same release.
+  an extensions to support individual `Core`:pn: versions instead of supporting multiple versions in the same release.
 
 .. index:: Extension scanner; Project developers
 
@@ -276,36 +276,36 @@ an extension scanner run the following points should be considered:
   positive (see above). That means that even well maintained extensions may not report green.
 
 * A green status in the scanner does not imply that the extension also works, just that it neither
-  uses deprecated methods nor any Core API which received breaking changes. It also does not indicate
+  uses deprecated methods nor any `Core`:pn: API which received breaking changes. It also does not indicate
   anything about the quality of the extension: false positives can be caused by for example supporting
   multiple TYPO3 versions in the same extension release.
 
 .. index:: Extension scanner; Core developers
 
-Core developers
-===============
+`Core`:pn: developers
+=====================
 
-When changing Core API, Core developers should keep an eye on the extension scanner and add matcher
+When changing the `Core`:pn: API, `Core`:pn: developers should keep an eye on the extension scanner and add matcher
 configurations if possible. This is typically the case if PHP API was changed and the patch comes with
 a deprecation or breaking ReST file to document the change.
 
 
 .. index:: Extension scanner; Changelog connection
 
-Connection to the changelog reStructuredText files
---------------------------------------------------
+Connection to the changelog `reStructuredText`:pn: files
+--------------------------------------------------------
 
-All changelog type reStructuredText (reST) files since Core version 9 have to be tagged with one of the three tags
+All changelog type `reStructuredText`:pn: (`reST`:pn:) files since `Core`:pn: version 9 have to be tagged with one of the three tags
 ``FullyScanned``, ``PartiallyScanned`` or ``NotScanned``. In particular, the ``FullyScanned`` tag is
 used by the extension scanner to mark instances as "not affected by this change", as such they should
-be added with care and only if the scanner configuration matches all changes mentioned in the reST file.
-If only parts of the reST file are covered, ``PartiallyScanned`` has to be added and the reST file should
-mention which parts are and are not covered. If the scanner does not cover a reST file at all then
+be added with care and only if the scanner configuration matches all changes mentioned in the `reST`:pn: file.
+If only parts of the `reST`:pn: file are covered, ``PartiallyScanned`` has to be added and the `reST`:pn: file should
+mention which parts are and are not covered. If the scanner does not cover a `reST`:pn: file at all then
 ``NotScanned`` can be added.
 
-If a reST file is renamed the file may be covered in a matcher configuration which then needs to be
-adapted, too. The reST files are not bound to specific directories in the matcher configuration
-so moving a reST file to a different location within the ``Changelog`` directory has no effect.
+If a `reST`:pn: file is renamed the file may be covered in a matcher configuration which then needs to be
+adapted, too. The `reST`:pn: files are not bound to specific directories in the matcher configuration
+so moving a `reST`:pn: file to a different location within the ``Changelog`` directory has no effect.
 
 .. index:: Extension Scanner; Configuration
 
@@ -333,4 +333,4 @@ an argument then the according matcher class is :php:`TYPO3\CMS\Install\Extensio
 
 Single matcher configurations are pretty obvious, new ones should be added at the end. When adding
 matcher configurations it should be verified the match it is not already covered by some other matcher
-(possibly in another reST file).
+(possibly in another `reST`:pn: file).

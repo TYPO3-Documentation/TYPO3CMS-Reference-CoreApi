@@ -2,22 +2,22 @@
 .. index:: pair: Coding guidelines; JavaScript
 .. _cgl-javascript:
 
-============================
-JavaScript Coding Guidelines
-============================
+===================================
+`JavaScript`:pn: coding guidelines
+===================================
 
 The rules suggested in the `Airbnb JavaScript Style Guide
-<https://github.com/airbnb/javascript>`__ should be used throughout the TYPO3
-Core for JavaScript files.
+<https://github.com/airbnb/javascript>`__ should be used throughout the `TYPO3`:pn:
+`Core`:pn: for `JavaScript`:pn: files.
 
-Note that the TYPO3 Core  typically uses TypeScript now and automatically converts it to JavaScript.
+Note that the `TYPO3 Core`:pn: typically uses TypeScript now and automatically converts it to `JavaScript`:pn:.
 
 Directories and Filenames
 =========================
 
-* JavaScript files should have the file ending :file:`.js`
+* `JavaScript`:pn: files should have the file ending :file:`.js`
 
-* JavaScript files are located under :file:`<extension>/Resources/Public/JavaScript/`
+* `JavaScript`:pn: files are located under :file:`<extension>/Resources/Public/JavaScript/`
 
 Format
 ======

@@ -17,7 +17,7 @@ DB.
 
 Generally transformations are needed for two reasons:
 
-- **Data Formats:** If the agreed format of the stored content in TYPO3
+- **Data Formats:** If the agreed format of the stored content in `TYPO3`:pn:
   is different from the HTML format the RTE produces. This could be
   issues like XHTML, banning of certain tags or maybe a hybrid format in
   the database. (See section 3 in the illustration some pages ahead)
@@ -35,7 +35,7 @@ Generally transformations are needed for two reasons:
 Hybrid modes
 ============
 
-Many of the transformations performed back and forth in the TYPO3
+Many of the transformations performed back and forth in the `TYPO3`:pn:
 backend date back to when it was a challenge to incorporate a RTE
 in a browser. It was then sometimes needed to fall back an a simple
 :code:`<textarea>` where rich text had to be presented in a simple enough
@@ -69,7 +69,7 @@ This is how the content in the database could look for a hybrid mode
 
 As you can see the TYPO3-specific tag,
 :code:`<a href="t3://page?uid=123">` is used for the link to page 123.
-This tag is designed to be easy for editors to insert and easy for TYPO3
+This tag is designed to be easy for editors to insert and easy for `TYPO3`:pn:
 to parse and understand. The t3:// scheme is later resolved to a real
 link in the frontend by the :ref:`linkhandler`. Further line 2 shows
 bold text. In line 3 the situation is that the paragraph should be
@@ -114,7 +114,7 @@ Configuration
 
 Transformations are mainly defined in the
 'special configurations' of the $TCA "types"-configuration.
-See label 'special-configuration' in older versions of the TCA-Reference.
+See label 'special-configuration' in older versions of the `TCA`:pn: reference.
 
 In addition :ref:`transformations can be fine-tuned by page TSconfig <t3tsconfig:pageTsRte>`
 which means that RTE behaviour can be determined even on page branch level!

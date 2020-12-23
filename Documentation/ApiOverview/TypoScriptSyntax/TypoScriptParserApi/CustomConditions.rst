@@ -7,6 +7,6 @@
 Implementing Custom Conditions
 ==============================
 
-As conditions are implemented via Symfony Expression Language, extensions are
-documented in section :ref:`Symfony Expression Language within TypoScript
+As conditions are implemented via `Symfony`:pn: expression language, extensions are
+documented in section :ref:`Symfony expression language within TypoScript
 Conditions <sel-within-typoscript-conditions>`.

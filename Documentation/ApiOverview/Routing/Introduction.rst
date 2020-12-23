@@ -34,9 +34,9 @@ Slug
     Unique name for a ressource to use when creating URLs; for example the slug of the news detail page could be `/news/detail` and
     the slug of a news record could be `2019-software-update`.
 
-    Within TYPO3, a slug is always part of the URL "path" - it does not contain scheme, host, HTTP verb, etc.
+    Within `TYPO3`:pn:, a slug is always part of the URL "path" - it does not contain scheme, host, HTTP verb, etc.
 
-    A slug is usually added to a TCA-based database table, containing rules for evaluation and definition.
+    A slug is usually added to a `TCA`:pn:-based database table, containing rules for evaluation and definition.
 
     The default behaviour of a slug is as follows:
 
@@ -51,10 +51,10 @@ Slug
     to be separated by slashes. Therefore, a slug can contain slashes.
 
 
-Routing in TYPO3
-================
+Routing in `TYPO3`:pn:
+======================
 
-Routing in TYPO3 is implemented based on the Symfony Routing components. It consists of two parts:
+Routing in TYPO3 is implemented based on the `Symfony`:pn: routing components. It consists of two parts:
 
 * Page Routing
 * Route Enhancements and Aspects

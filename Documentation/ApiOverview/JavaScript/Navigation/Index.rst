@@ -2,9 +2,9 @@
 .. index:: JavaScript (Backend); Navigation
 .. _javascript-navigation:
 
-=========================
-Navigation via JavaScript
-=========================
+===============================
+Navigation via `JavaScript`:pn:
+===============================
 
 Navigate to URL
 ===============

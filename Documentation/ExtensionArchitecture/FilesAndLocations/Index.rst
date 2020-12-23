@@ -18,7 +18,7 @@ An extension consists of:
    identification string for the extension), usually located in :file:`typo3conf/ext`
    for local extensions, or :file:`typo3/sysext` for system extensions.
 
-2. Standard files with reserved names for configuration related to TYPO3
+2. Standard files with reserved names for configuration related to `TYPO3`:pn:
    (of which most are optional, see list below)
 
 3. Any number of additional files for the extension functionality itself.
@@ -32,11 +32,11 @@ Reserved file names
 This lists files within an extension that have a specific meaning
 by convention. TYPO3 will scan for reserved file names and
 use the content for specific functionality. For example, if a svg logo of your extension
-is placed at :file:`Resources/Public/Icons/Extension.svg`, the Extension Manager
+is placed at :file:`Resources/Public/Icons/Extension.svg`, the `Extension Manager`:pn:
 will show that image.
 
 Most of these files are not required. The exception is :file:`ext_emconf.php`:
-You can not have a TYPO3
+You can not have a `TYPO3`:pn:
 extension recognized by TYPO3 without this file.
 
 In general, do not introduce your own files in the root directory of
@@ -63,13 +63,13 @@ For more information, see :ref:`composer-json`.
 Definition of extension properties. This is the only mandatory file in the extension.
 It describes the extension.
 
-Name, category, status etc. are used by the Extension Manager. The content of this file
+Name, category, status etc. are used by the `Extension Manager`:pn:. The content of this file
 is described in more details in :ref:`extension-declaration`. Note
-that it is auto-written by the Extension Manager when extensions are imported from the repository.
+that it is auto-written by the `Extension Manager`:pn: when extensions are imported from the repository.
 
 .. note::
 
-   If this file is *not* present, the Extension Manager will *not* find the
+   If this file is *not* present, the `Extension Manager`:pn: will *not* find the
    extension.
 
 .. index::
@@ -90,7 +90,7 @@ not contain a PHP encoding declaration.
 
 All :file:`ext_localconf.php` files of loaded extensions are
 included right  *after* the files :file:`typo3conf/LocalConfiguration.php`
-and :file:`typo3conf/AdditionalConfiguration.php` during TYPO3
+and :file:`typo3conf/AdditionalConfiguration.php` during `TYPO3`:pn:
 :ref:`bootstrap <bootstrapping>`.
 
 Pay attention to the rules for the contents of these files.
@@ -106,21 +106,21 @@ For more details, see the :ref:`section below <extension-configuration-files>`.
 
 Contains extensions of existing tables,
 declaration of backend modules, etc. All code in such files
-is included after all the default definitions provided by the Core and
-loaded after :file:`ext_localconf.php` files during TYPO3
+is included after all the default definitions provided by the `Core`:pn: and
+loaded after :file:`ext_localconf.php` files during `TYPO3`:pn:
 :ref:`bootstrap <bootstrapping>`.
 
 Pay attention to the rules for the contents of these files.
 For more details, see the :ref:`section below <extension-configuration-files>`.
 
 .. note::
-   In old TYPO3 Core  versions, this file contained additions to the
-   global :php:`$GLOBALS['TCA']` array. This changed since Core version 6.2
+   In old `TYPO3 Core`:pn: versions, this file contained additions to the
+   global :php:`$GLOBALS['TCA']` array. This changed since `Core`:pn: version 6.2
    to allow effective caching:
 
-   TCA definition of new database tables must be done entirely
+   `TCA`:pn: definition of new database tables must be done entirely
    in :file:`Configuration/TCA/<table name>.php`.
-   These files are expected to contain the full TCA of the given table
+   These files are expected to contain the full `TCA`:pn: of the given table
    (as an array) and simply return it (with a :php:`return` statement).
 
    Customizations of existing tables must be done entirely
@@ -152,22 +152,22 @@ here is an example adding a column to the pages table:
          tx_myext_field int(11) DEFAULT '0' NOT NULL,
    );
 
-TYPO3 will merge this table definition to the existing table definition when
+`TYPO3`:pn: will merge this table definition to the existing table definition when
 comparing expected and actual table definitions. Partial definitions
 can also contain indexes and other directives. They can also change
 existing table fields though that is not recommended, because it may
-create problems with the TYPO3 Core  and/or other extensions.
+create problems with the `TYPO3 Core`:pn: and/or other extensions.
 
 The :file:`ext_tables.sql` file may not necessarily be "dumpable"
-directly to MySQL (because of the semi-complete table definitions allowed
-defining only required fields). But the Extension Manager or Install Tool can handle this.
+directly to `MySQL`:pn:(because of the semi-complete table definitions allowed
+defining only required fields). But the `Extension Manager`:pn: or Install Tool can handle this.
 
-TYPO3 parses :code:`ext_tables.sql` files. TYPO3 expects that all
+`TYPO3`:pn: parses :code:`ext_tables.sql` files. TYPO3 expects that all
 table definitions in this file look like the ones produced by the
 :code:`mysqldump` utility. Incorrect definitions may not be recognized
-by the TYPO3 SQL parser or may lead to MySQL errors, when TYPO3 tries
-to apply them. If TYPO3 is not running on MySQL or directly compatible
-other DBMS like MariaDB, the system will parse the file towards the
+by the TYPO3 SQL parser or may lead to `MySQL`:pn:errors, when TYPO3 tries
+to apply them. If TYPO3 is not running on `MySQL`:pn:or directly compatible
+other DBMS like `MariaDB`:pn:, the system will parse the file towards the
 target DBMS like PostgreSQL.
 
 .. _auto-generated-db-structure:
@@ -176,9 +176,9 @@ Auto generated structure
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 The database schema analyzer automatically creates TYPO3 "management" related
-database columns by reading a tables TCA and checking the :ref:`t3tca:ctrl`
+database columns by reading a tables `TCA`:pn: and checking the :ref:`t3tca:ctrl`
 section for table capabilities. Field definitions in :file:`ext_tables.sql` take
-precedence over automatically generated fields, so the Core never overrides a
+precedence over automatically generated fields, so the `Core`:pn: never overrides a
 manually specified column definition from an :file:`ext_tables.sql` file.
 
 These columns below are automatically added if not defined in
@@ -263,7 +263,7 @@ definition:
 Static SQL tables and their data.
 
 If the extension requires static data you can dump it into an SQL file
-by this name. Example for dumping mysql data from bash (being in the
+by this name. Example for dumping `MySQL`:pn:data from bash (being in the
 extension directory):
 
 .. code-block:: shell
@@ -275,7 +275,7 @@ extension directory):
 :code:`--add-drop-table` will make sure to include a DROP TABLE
 statement so any data is inserted in a fresh table.
 
-You can also drop the table content using the Extension Manager in the backend.
+You can also drop the table content using the `Extension Manager`:pn: in the backend.
 
 .. note::
 
@@ -296,8 +296,8 @@ You can also drop the table content using the Extension Manager in the backend.
 :file:`ext_typoscript_constants.typoscript`
 -------------------------------------------
 
-Preset TypoScript constants. Will be included in the constants section
-of all TypoScript templates.
+Preset `TypoScript`:pn: constants. Will be included in the constants section
+of all `TypoScript`:pn: templates.
 
 .. warning::
 
@@ -313,8 +313,8 @@ of all TypoScript templates.
 :file:`ext_typoscript_setup.typoscript`
 ---------------------------------------
 
-Preset TypoScript setup. Will be included in the setup section of all
-TypoScript templates.
+Preset `TypoScript`:pn: setup. Will be included in the setup section of all
+`TypoScript`:pn: templates.
 
 .. warning::
 
@@ -332,7 +332,7 @@ TypoScript templates.
 
 Extension Configuration template.
 
-Configuration code in TypoScript syntax setting up a series of values
+Configuration code in `TypoScript`:pn: syntax setting up a series of values
 which can be configured for the extension in the Install Tool.
 :ref:`Read more about the file format here <extension-options>`.
 
@@ -370,7 +370,7 @@ Full paths to these files are: :file:`Configuration/Backend/Routes.php` and
 
 Registry of backend routes. Extensions that add backend modules must
 register their routes here to be correctly linkable in the backend.
-The file must return an array with routing details. See Core extensions
+The file must return an array with routing details. See `Core`:pn: extensions
 like :php:`backend` for examples.
 
 
@@ -421,7 +421,7 @@ A typical :file:`Configuration/Services.yaml` may look like this:
 
 .. seealso::
 
-   * TYPO3 does use the Symfony component, so official documentation can be found at
+   * TYPO3 does use the `Symfony`:pn: component, so official documentation can be found at
      https://symfony.com/doc/current/service_container.html
 
 .. _resources/public/icons/extension.svg:
@@ -430,7 +430,7 @@ A typical :file:`Configuration/Services.yaml` may look like this:
 :file:`Resources/Public/Icons/Extension.svg`
 --------------------------------------------
 
-Extension icon. If exists, this icon is displayed in the Extension Manager.
+Extension icon. If exists, this icon is displayed in the `Extension Manager`:pn:.
 Preferred is using an SVG file, Extension icon will look nicer when provided
 as vector graphics (SVG) rather than bitmaps (GIF or PNG).
 
@@ -445,7 +445,7 @@ Reserved Folders
 In the early days, every extension baked it own bread when it came to
 file locations of PHP classes, public web resources and templates.
 
-With the rise of Extbase, a generally accepted structure for file
+With the rise of `Extbase`:pn:, a generally accepted structure for file
 locations inside extensions has been established. If extension authors
 stick to this, the system helps in various ways. For instance, if putting
 PHP classes into the :file:`Classes/` folder and naming classes accordingly,
@@ -557,7 +557,7 @@ Documentation/Index.rst
 
 Resources
   Contains the subfolders :code:`Public/` and :code:`Private/`, which
-  contain resources, possibly in further subfolders, e.g.
+  contain resources, possibly in further subfolders, for example
   :code:`Templates/`, :code:`Css/`, :code:`Language/`, :code:`Images/`
   or :code:`JavaScript/`. This is also the directory for non–TYPO3 files supplied with the
   extension. TYPO3 is licensed under GPL version 2 or any later version.

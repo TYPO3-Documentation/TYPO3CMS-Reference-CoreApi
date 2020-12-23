@@ -6,7 +6,7 @@
 Backend modules
 ===============
 
-TYPO3 CMS offers a number of ways to attach custom functionality to the
+`TYPO3 CMS`:pn: offers a number of ways to attach custom functionality to the
 backend. They are described in this chapter.
 
 

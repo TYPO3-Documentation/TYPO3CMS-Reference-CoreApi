@@ -8,15 +8,15 @@
 Caching
 =======
 
-Caching in TYPO3
-----------------
+Caching in `TYPO3`:pn:
+----------------------
 
-TYPO3 uses multiple caching strategies to ensure fast content delivery. Depending
+`TYPO3`:pn: uses multiple caching strategies to ensure fast content delivery. Depending
 on the content a page contains, TYPO3 chooses the best caching strategy for that use case.
 
 For example, you might have a fully-cacheable page, a page that is at least partially
 cacheable or a page that is completely dynamic. Dynamic elements in TYPO3 are also known
-as `USER_INT` or `COA_INT` objects - as these are the matching TypoScript objects used
+as `USER_INT` or `COA_INT` objects - as these are the matching `TypoScript`:pn: objects used
 to render non-cacheable content.
 
 When visiting a TYPO3 web site, TYPO3 knows the following states:
@@ -50,7 +50,7 @@ dynamic parts.
 Caching Variants - or: What is a "cache hash"?
 ----------------------------------------------
 
-TYPO3 ideally delivers fully cached pages for maximum performance. However, in scenarios where
+`TYPO3`:pn: ideally delivers fully cached pages for maximum performance. However, in scenarios where
 the same page will deliver different content depending on URL parameters, TYPO3 needs a possibility
 to identify these "variants" and cache each of them differently. For example, if you have a
 news plugin and a detail page, the detail page is different for every news entry.
@@ -144,7 +144,7 @@ partial matches allow to simplify the configuration and consider all items havin
 Caching Framework
 -----------------
 
-Since TYPO3 CMS 4.3, the Core contains a data caching framework
+Since`TYPO3 CMS`:pn: 4.3, the `Core`:pn: contains a data caching framework
 which supports a wide variety of storage solutions and options
 for different caching needs. Each cache can be configured individually
 and can implement its own specific storage strategy.

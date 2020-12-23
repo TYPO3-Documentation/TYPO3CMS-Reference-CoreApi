@@ -24,7 +24,7 @@ extension's :file:`ext_tables.php` file:
 	);
 
 
-The rest of the work is automatically handled by the TYPO3 CMS
+The rest of the work is automatically handled by the`TYPO3 CMS`:pn:
 form engine.
 
 
@@ -60,7 +60,7 @@ and register it.
 
 The main method that renders a help button is
 :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::cshItem()`. This renders
-the question mark icon and the necessary markup for the JavaScript
+the question mark icon and the necessary markup for the `JavaScript`:pn:
 that takes care of the tool tip display. To make the markup
 into a button some wrapping must be added around it:
 
@@ -98,7 +98,7 @@ with which the CSH file was registered, the one passe to :code:`setFieldName`
 is whatever field name is used in the file.
 
 To place a help button at some arbitrary location in your module,
-you can rely on a Fluid view helper (which - again - needs some
+you can rely on a `Fluid`:pn: `ViewHelper`:pn: (which - again - needs some
 wrapping to create a true button):
 
 .. code-block:: html

@@ -9,7 +9,7 @@ Service configuration
 =====================
 
 Some services will not need additional configuration. Others may have
-some options that can be set in the Extension Manager. Yet others may
+some options that can be set in the `Extension Manager`:pn:. Yet others may
 be configured via local configuration files (:file:`ext_localconf.php` ).
 Example:
 

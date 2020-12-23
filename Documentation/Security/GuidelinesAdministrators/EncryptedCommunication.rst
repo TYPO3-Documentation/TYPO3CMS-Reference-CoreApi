@@ -13,7 +13,7 @@ Data Classification
 It depends on the nature of the data but in general "sensitive"
 information could be: user logins, passwords, user details (such as
 names, addresses, contact details, etc.), email addresses and other
-data which are not public. Medical, financial data (e.g. credit card
+data which are not public. Medical, financial data (for example credit card
 details, account numbers, access codes, etc.) and others, are
 confidential by their nature and must not be transmitted unencrypted
 at all.
@@ -29,7 +29,7 @@ protect the data.
 ========================  ================  =========================  ===========================  ====================
 **Type**                  non-sensitive     externally sensitive       internally sensitive         extremely sensitive
 **Disclosure impact**     none              limited                    significant                  sever
-**Access restrictions**   none              low (e.g. username/        high (e.g. public/private    very high
+**Access restrictions**   none              low (for example username/        high (for example public/private    very high
                                             password)                  key + geolocation)
 **Data transport**        unencrypted       unencrypted but protected  encrypted                    highly encrypted
 **Storage requirements**  none              unencrypted but protected  encrypted                    highly encrypted
@@ -59,7 +59,7 @@ authenticated communications across the Internet and ensures that all
 data passed between client and server remains private and integral. It
 is based on a public/private key technology and uses certificates
 which typically contain the domain name and details about the website
-operator (e.g. company name, address, geographical location, etc.).
+operator (for example company name, address, geographical location, etc.).
 Recent discussions are questioning the organizational concept behind
 SSL certificates and the "chain of trust", but the fact is that SSL is
 the de facto standard today and still is considered secure from a
@@ -71,7 +71,7 @@ connection should be used. Most often his means the protocol `https`
 is used instead of `http`.
 
 When using payment gateways to process payments for online shops for
-example, most financial institutions (e.g. credit card vendors)
+example, most financial institutions (for example credit card vendors)
 require appropriate security actions. Check the policies of the
 gateway operator and card issuers before you institute online payment
 solutions.
@@ -82,12 +82,12 @@ Backend
 
 A risk of unencrypted client/server communication is that an attacker
 could eavesdrop the data transmission and "sniff" sensitive
-information such as access details. Unauthorized access to the TYPO3
+information such as access details. Unauthorized access to the `TYPO3`:pn:
 backend, especially with an administrator user account, has a
 significant impact on the security of your website. It is clear that
 the use of `TLS` for the backend of TYPO3 improves the security.
 
-TYPO3 supports a `TLS` encrypted backend and offers some specific
+`TYPO3`:pn: supports a `TLS` encrypted backend and offers some specific
 configuration options for this purpose, see configuration option
 :ref:`lockSSL <security-global-typo3-options-lockSSL>`.
 

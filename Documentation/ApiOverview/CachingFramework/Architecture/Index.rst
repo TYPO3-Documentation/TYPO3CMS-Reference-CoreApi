@@ -105,14 +105,14 @@ the cache when the entry is stored ("set").
 
 .. _caching-architecture-core:
 
-Caches in the TYPO3 Core
+Caches in the `TYPO3 Core`:pn:
 ========================
 
-The TYPO3 Core  defines and uses several caching framework caches by default.
+The `TYPO3 Core`:pn: defines and uses several caching framework caches by default.
 This section gives an overview of default caches, its usage and behaviour. If not stated otherwise,
 the default database backend with variable frontend is used.
 
-Since TYPO3 CMS 6.2, the various caches are organized in groups.
+Since `TYPO3 CMS`:pn: 6.2, the various caches are organized in groups.
 Three groups currently exist:
 
 pages
@@ -135,13 +135,13 @@ but such caches should normally be transient anyway.
 There are :ref:`TSconfig options for permissions <t3tsconfig:useroptions>`
 corresponding to each group.
 
-The following caches exist in the TYPO3 CMS Core:
+The following caches exist in the `TYPO3 CMS Core`:pn::
 
 - `core`
 
-  - Core cache for compiled php code. It should **not** be used by extensions.
+  - `Core`:pn: cache for compiled php code. It should **not** be used by extensions.
   - Uses **PhpFrontend** with the **SimpleFileBackend** for maximum performance.
-  - Stores Core internal compiled PHP code like concatenated :file:`ext_tables.php` and :file:`ext_localconf.php`
+  - Stores `Core`:pn: internal compiled PHP code like concatenated :file:`ext_tables.php` and :file:`ext_localconf.php`
     files, autoloader and sprite configuration PHP files.
   - This cache is instantiated very early during bootstrap and **can not** be re configured
     by instance specific :file:`LocalConfiguration.php` or similar.
@@ -163,7 +163,7 @@ The following caches exist in the TYPO3 CMS Core:
 
 - `pagesection`
 
-  - Used to store "parts of a page", for example used to store Typoscript snippets and
+  - Used to store "parts of a page", for example used to store `TypoScript`:pn: snippets and
     compiled frontend templates.
   - Content is compressed by default to reduce database memory and storage overhead.
   - **groups**: all, pages
@@ -171,14 +171,14 @@ The following caches exist in the TYPO3 CMS Core:
 - `runtime`
 
   - Runtime cache to store data specific for current request.
-  - Used by several Core parts during rendering to re-use already calculated data.
+  - Used by several `Core`:pn: parts during rendering to re-use already calculated data.
   - Valid for one request only.
   - Can be re-used by extensions that have similar caching needs.
 
 - `rootline`
 
   - Cache for rootline calculations.
-  - Quick and simple cache dedicated for Core usage, Should **not** be re-used by extensions.
+  - Quick and simple cache dedicated for `Core`:pn: usage, Should **not** be re-used by extensions.
   - **groups**: all, pages
 
 - `imagesizes`
@@ -200,10 +200,10 @@ The following caches exist in the TYPO3 CMS Core:
 
 - `fluid_template`
 
-   - Cache for Fluid templates.
+   - Cache for `Fluid`:pn: templates.
    - **groups**: system
 
-- Extbase
+- `Extbase`:pn:
 
   - Contains detailed information about a class' member variables and methods.
   - **group**: system
@@ -217,7 +217,7 @@ The following caches exist in the TYPO3 CMS Core:
 .. tip::
 
    In rare cases, for example when classes that are required during the
-   bootstrap process are introduced (usually when working on the TYPO3 Core ),
+   bootstrap process are introduced (usually when working on the `TYPO3 Core`:pn:),
    cache clearings requests themselves might throw fatal errors.
    The solution here is to manually remove the cache files from
    :file:`typo3temp/var/cache/code/` or :file:`var/cache/code/` (for composer-based installation).
@@ -228,7 +228,7 @@ The following caches exist in the TYPO3 CMS Core:
 Garbage Collection Task
 =======================
 
-The Core system provides a Scheduler task to collect the garbage of all cache backends.
+The `Core`:pn: system provides a Scheduler task to collect the garbage of all cache backends.
 This is important for backends like the database backend that do not remove old cache entries
 and tags internally. It is highly recommended to add this Scheduler task and run it once in a while
 (maybe once a day at night) for all used backends that do not delete entries which exceeded

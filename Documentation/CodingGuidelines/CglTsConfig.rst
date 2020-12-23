@@ -10,7 +10,7 @@
 TSconfig Coding Guidelines
 ==========================
 
-TSconfig files use TypoScript syntax.
+TSconfig files use `TypoScript`:pn: syntax.
 
 Directory and File Names
 ========================

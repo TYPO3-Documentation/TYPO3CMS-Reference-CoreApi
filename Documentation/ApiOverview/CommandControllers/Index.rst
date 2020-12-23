@@ -5,14 +5,14 @@
 .. _cli-mode-command-controllers:
 .. _symfony-console-commands:
 
-==============================
-Symfony Console Commands (cli)
-==============================
+====================================
+`Symfony`:pn: console commands (cli)
+====================================
 
-It is possible to run TYPO3 CMS scripts from the command line.
+It is possible to run`TYPO3 CMS`:pn: scripts from the command line.
 This functionality can be used to set up cronjobs, for example.
 
-TYPO3 uses Symfony commands API for writing CLI (command line interface) commands.
+`TYPO3`:pn: uses `Symfony`:pn: commands API for writing CLI (command line interface) commands.
 These commands can also be run from the TYPO3 :ref:`scheduler <symfony-console-commands-scheduler>`.
 
 .. deprecated:: 10
@@ -29,7 +29,7 @@ Creating a new Command in Extensions
 #. Register Commands
 
    Commands can be registered via :ref:`DependencyInjection` or a PHP file.
-   Detailed information can be read on the corresponding Symfony component
+   Detailed information can be read on the corresponding `Symfony`:pn: component
    documentation: https://symfony.com/doc/current/console/commands_as_services.html.
    E.g. how to setup aliases via :file:`Services.yaml`,
    or how to use dependency injection in commands.
@@ -63,7 +63,7 @@ Creating a new Command in Extensions
 
 #. Create the corresponding class file: :file:`Classes/Command/DoThingsCommand.php`
 
-   Symfony commands should extend the class :php:`\Symfony\Component\Console\Command\Command`.
+   `Symfony`:pn: commands should extend the class :php:`\Symfony\Component\Console\Command\Command`.
 
    The command should implement at least a :php:`configure()` and an :php:`execute()` method.
 
@@ -78,12 +78,12 @@ Creating a new Command in Extensions
 .. seealso::
 
    A detailed description and an example can be found in
-   `the Symfony Command Documentation <https://symfony.com/doc/current/console.html>`_.
+   `the Symfony command documentation <https://symfony.com/doc/current/console.html>`_.
 
 Command Class
 -------------
 
-Example taken from :php:`ListSysLogCommand` in the Core and simplified::
+Example taken from :php:`ListSysLogCommand` in the `Core`:pn: and simplified::
 
     use Symfony\Component\Console\Command\Command;
     use Symfony\Component\Console\Input\InputArgument;
@@ -124,8 +124,8 @@ Passing Arguments
 -----------------
 
 Since your command is inherited from :php:`Symfony\Component\Console\Command\Command`,
-it is possible to define arguments (ordered) and options (unordered) using the Symfony
-command API. This is explained in depth on the following Symfony Documentation page:
+it is possible to define arguments (ordered) and options (unordered) using the `Symfony`:pn:
+command API. This is explained in depth on the following `Symfony`:pn: documentation page:
 
 .. seealso::
 
@@ -245,7 +245,7 @@ Show help for the command:
 
 .. tip::
 
-   If you installed TYPO3 without Composer, the path for the executable
+   If you installed TYPO3 without `Composer`:pn:, the path for the executable
    is :file:`typo3/sysext/core/bin/typo3`.
 
 
@@ -261,6 +261,6 @@ By default, it is possible to run the command from the :ref:`TYPO3 scheduler
 More information
 ================
 
-* see existing command controllers in the Core: :file:`typo3/sysext/*/Classes/Command`
+* see existing command controllers in the `Core`:pn:: :file:`typo3/sysext/*/Classes/Command`
 * `Symfony Command Documentation <https://symfony.com/doc/current/console.html>`_
 * `Symfony Commands: Console Input (Arguments & Options) <https://symfony.com/doc/current/console/input.html>`__

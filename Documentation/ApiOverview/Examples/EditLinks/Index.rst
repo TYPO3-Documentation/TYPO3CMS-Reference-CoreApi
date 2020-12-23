@@ -16,7 +16,7 @@ Links to Edit Records
 
 It is often needed to create links to edit records in the TYPO3 backend.
 The same syntax is also used for creating new records.
-TYPO3 provides an API for creating such links, namely
+`TYPO3`:pn: provides an API for creating such links, namely
 :code:`\TYPO3\CMS\Backend\Routing\UriBuilder`.
 
 .. hint::
@@ -27,7 +27,7 @@ TYPO3 provides an API for creating such links, namely
    The variable available as :code:`$this->uriBuilder` in a controller is the
    web routing UriBuilder and can only be used for frontend links.
 
-When using Fluid templates, you cannot call PHP code directly. Therefore the uri
+When using `Fluid`:pn: templates, you cannot call PHP code directly. Therefore the uri
 either has to be created via PHP in the controller or a viewhelper to be used.
 
 Below are a different examples, how edit links can be output in the backend.
@@ -60,9 +60,9 @@ Below are a different examples, how edit links can be output in the backend.
 The links appear as one can expect:
 
 .. figure:: ../../../Images/EditLinksDisplay.png
-   :alt: Edit links in the examples BE module
+   :alt: Edit links in the examples backend module
 
-   The two links in the "examples" BE module
+   The two links in the "examples" backend module
 
 For the first link the variable :code:`editPage1Link` has to be set in the controler
 for example like this:
@@ -128,7 +128,7 @@ Also the fields to be displayed can be restricted.
    $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
 
 The fields to be included can be listed in the "columnsOnly" parameter, as a comma-separated list.
-The order of the fields doesn't matter, they get displayed in the order they appear in the TCA.
+The order of the fields doesn't matter, they get displayed in the order they appear in the `TCA`:pn:.
 If a field is missing or access restricted in one of the tables it just doesn't appear.
 However if one record to be edited is missing none of the records gets displayed.
 

@@ -7,7 +7,7 @@ General guidelines
 ==================
 
 The recommendations in this chapter apply for all roles: system
-administrators, TYPO3 integrators, editors and strictly speaking even
+administrators, `TYPO3`:pn: integrators, editors and strictly speaking even
 for (frontend) users.
 
 .. index:: pair: Security guidelines; passwords
@@ -17,7 +17,7 @@ Secure passwords
 ================
 
 It is critical that every user is using secure passwords to
-authenticate themselfs at systems like TYPO3. Below are rules that
+authenticate themselfs at systems like `TYPO3`:pn:. Below are rules that
 should be implemented in a password policy:
 
 #. Ensure that the passwords you use have a minimum length of 9 or more
@@ -36,7 +36,7 @@ should be implemented in a password policy:
    your wallet, unencrypted on USB sticks or somewhere else.
 
 #. Always use a different password for different logins! Never use the
-   same password for your e-mail account, the TYPO3 backend, an online
+   same password for your e-mail account, the `TYPO3`:pn: backend, an online
    forum and so on.
 
 #. Change your passwords in regular intervals but not too often (this
@@ -70,7 +70,7 @@ Operating System and Browser Version
 
 Make sure that you are using up-to-date software versions of your
 browser and that you have installed the latest updates for your
-operating system (such as Microsoft Windows, Mac OS X or Linux). Check
+operating system (such as `Microsoft Windows`:pn:, `macOS`:pn: or `Linux`:pn:). Check
 for software updates regularly and install security patches
 immediately or at least as soon as possible.
 
@@ -90,7 +90,7 @@ related actions need to be done as soon as possible.
 
 A central point of contact, for example a person or a team responsible
 for coordinating these actions, is generally a good idea. This also
-lets others (e.g. integrators, editors, end-users) know, to whom they
+lets others (for example integrators, editors, end-users) know, to whom they
 can report issues.
 
 
@@ -100,12 +100,12 @@ can report issues.
 React Quickly
 =============
 
-TYPO3 is open source software as well as all TYPO3 extensions
-published in the TYPO3 Extension Repository (TER). This means,
+`TYPO3`:pn: is open source software as well as all `TYPO3`:pn: extensions
+published in the `TYPO3 Extension Repository`:pn: (TER). This means,
 everyone can download and investigate the code base. From a security
 perspective, this usually improves the software, simply because more
-people review the code, not only a few Core developers. Currently,
-there are hundreds of developers actively involved in the TYPO3
+people review the code, not only a few `Core`:pn: developers. Currently,
+there are hundreds of developers actively involved in the `TYPO3`:pn:
 community and if someone discovers and reports a security issue,
 he/she will be honored by being credited in the appropriate security
 bulletin.
@@ -121,47 +121,47 @@ react as soon as possible and to update the software or deinstall the
 affected component.
 
 The security bulletins may also include specific advice such as
-configuration changes or similar. Check your individual TYPO3 instance
+configuration changes or similar. Check your individual `TYPO3`:pn: instance
 and follow these recommendations.
 
 .. index:: pair: Security guidelines; TYPO3 update
 .. _security-updating-typo3:
 
-Keep the TYPO3 Core up-to-date
-==============================
+Keep the `TYPO3 Core`:pn: up-to-date
+====================================
 
 As described in :ref:`TYPO3 versions <security-typo3-versions>` chapter, a
-new version of TYPO3 can either be a major update (e.g. from version 7.x.x to
-version 8.x.x), a minor update (e.g. from version 8.4.x to version
-8.5.x) or a maintenance/bugfix/security release (e.g. from version
+new version of `TYPO3`:pn: can either be a major update (for example from version 7.x.x to
+version 8.x.x), a minor update (for example from version 8.4.x to version
+8.5.x) or a maintenance/bugfix/security release (for example from version
 8.7.11 to 8.7.12).
 
 In most cases, a maintenance/bugfix/security update is a no-brainer,
 see :ref:`TYPO3 Installation and Upgrade Guide <t3install:start>`
 for further details.
 
-When you extract the archive file of new TYPO3 sources into the
-existing install directory (e.g. the web root of your web server) and
+When you extract the archive file of new `TYPO3`:pn: sources into the
+existing install directory (for example the web root of your web server) and
 update the symbolic links, pointing to the directory of the new version,
-do not forget to **delete** the old and possibly insecure TYPO3 Core
+do not forget to **delete** the old and possibly insecure `TYPO3 Core`:pn:
 version. Failing doing this creates the risk of leaving the source code
-of the previous TYPO3 version on the system and as a consequence, the
+of the previous `TYPO3`:pn: version on the system and as a consequence, the
 insecure code may still be accessible and a security vulnerability
 possibly exploitable.
 
-Another option is to store the extracted TYPO3 sources outside of the
+Another option is to store the extracted `TYPO3`:pn: sources outside of the
 web root directory (so they are not accessible via web requests) as
 a general rule and use symbolic links inside the web root to point to
-the correct and secure TYPO3 version.
+the correct and secure `TYPO3`:pn: version.
 
 .. index:: pair: Security guidelines; Extensions update
 .. _security-updating-extensions:
 
-Keep TYPO3 Extensions Up-to-date
-================================
+Keep `TYPO3`:pn: extensions Up-to-date
+======================================
 
 Do not rely on publicly released security announcements only. Reading
-the official security bulletins and updating TYPO3 extensions which
+the official security bulletins and updating `TYPO3`:pn: extensions which
 are listed in the bulletins is an essential task but not sufficient to
 have a "secure" system.
 
@@ -176,11 +176,11 @@ required.
 Also keep in mind that attackers often scan for system components that
 contain known security vulnerabilities to detect points of attack.
 These "components" can be specific software packages on a system
-level, scripts running on the web server but also specific TYPO3
-versions or TYPO3 extensions.
+level, scripts running on the web server but also specific `TYPO3`:pn:
+versions or `TYPO3`:pn: extensions.
 
-The recommended way to update TYPO3 extensions is to use TYPO3's
-internal Extension Manager (EM). The EM takes care of the download of
+The recommended way to update `TYPO3`:pn: extensions is to use TYPO3's
+internal `Extension Manager`:pn: (EM). The EM takes care of the download of
 the extension source code, extracts the archive and stores the files in
 the correct place, overwriting an existing old version by default. This
 ensures, the source code containing a possible security vulnerability
@@ -198,7 +198,7 @@ server. For example::
     ...
 
 The risk of exploiting a vulnerability is minimal, because the source
-code of the extension is not loaded by TYPO3, but it depends on the type
+code of the extension is not loaded by `TYPO3`:pn:, but it depends on the type
 of vulnerability of course.
 
 The advice is to move the directory of the old version outside of the
@@ -212,8 +212,8 @@ Use staging servers for developments and tests
 ==============================================
 
 During the development phase of a project and also after the launch of
-a TYPO3 site as ongoing maintenance work, it is often required to test
-if new or updated extensions, `PHP`, `TypoScript` or other code meets the
+a `TYPO3`:pn: site as ongoing maintenance work, it is often required to test
+if new or updated extensions, `PHP`, `TypoScript`:pn: or other code meets the
 requirements.
 
 A website that is already "live" and publicly accessible should not be
@@ -226,7 +226,7 @@ implemented on the production site.
 This is not security-related on the first view but "tests" are often
 grossly negligent implemented, without security aspects in mind.
 Staging servers also help keeping the production sites slim and clean
-and reduce maintenance work (e.g. updating extensions which are not in
+and reduce maintenance work (for example updating extensions which are not in
 use).
 
 

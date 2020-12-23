@@ -6,13 +6,13 @@
 Extension integration
 =====================
 
-This section describes how an extension author can get his extension setup at Crowdin.
+This section describes how an extension author can get his extension setup at `Crowdin`:pn:.
 
 .. tip::
 
    **Important to know**
 
-   - Your extension must be on GitHub, BitBucket or GitLab
+   - Your extension must be on `GitHub`:pn:, BitBucket or `GitLab`:pn:
    - Currently TYPO3 can only handle one branch/version for languages, more to that later.
 
 Setup
@@ -22,20 +22,20 @@ Get in contact with the team in the TYPO3 slack channel *cig-crowdin-localizatio
 
 #. Extension name
 #. Information if your extension is already available on the previous translation server
-#. Your email address for an invitation to Crowdin, so you will get the correct role for your project.
+#. Your email address for an invitation to `Crowdin`:pn:, so you will get the correct role for your project.
 
 Integration
 ===========
 
-You need to handle the integration yourself as you got the permissions on GitHub.
+You need to handle the integration yourself as you got the permissions on `GitHub`:pn:.
 
-Go to the url of your project at Crowdin (e.g. `<https://crowdin.com/project/typo3-extension-ttaddress>`_) and switch to **Settings** & then switch to the tab **Integrations**. Click on the button **Setup integration**.
+Go to the url of your project at `Crowdin`:pn: (for example `<https://crowdin.com/project/typo3-extension-ttaddress>`_) and switch to **Settings** & then switch to the tab **Integrations**. Click on the button **Setup integration**.
 
 .. figure:: ../../../../Images/I18n/Crowdin/crowdin-integration-setup.png
-   :alt: Start of Crowdin integration for an extension
+   :alt: Start of `Crowdin`:pn: integration for an extension
    :width: 600px
 
-   Start of Crowdin integration for an extension
+   Start of `Crowdin`:pn: integration for an extension
 
 A modal will open and will allow you to to select the proper repository.
 

@@ -11,11 +11,11 @@ Writing unit tests
 Introduction
 ============
 
-This chapter goes into details about writing and maintaining unit tests in the TYPO3
-world. Core developers over the years gained quite some knowledge and experience on
+This chapter goes into details about writing and maintaining unit tests in the `TYPO3`:pn:
+world. `Core`:pn: developers over the years gained quite some knowledge and experience on
 this topic, this section outlines some best practices and goes into details about
-some of the TYPO3 specific unit testing details that have been put on top of the native
-phpunit stack: At the time of this writing the TYPO3 Core contains about ten thousand
+some of the `TYPO3`:pn: specific unit testing details that have been put on top of the native
+phpunit stack: At the time of this writing the `TYPO3 Core`:pn: contains about ten thousand
 unit tests - many of them are good, some are bad and we're constantly improving
 details. Unit testing is a great playground for interested contributors, and most
 extension developers probably learn something useful from reading this section, too.
@@ -61,7 +61,7 @@ usually does not make sense to unit test glue code. What is glue code? Well, cod
 that fetches things from one underlying part and feeds it to some other part: Code that "glues"
 framework functionality together.
 
-Good examples are often Extbase MVC controller actions: A typical controller usually does not do much
+Good examples are often `Extbase`:pn: MVC controller actions: A typical controller usually does not do much
 more than fetching some objects from a repository just to assign them to the view. There is no benefit in
 adding a unit test for this: A unit test can't do much more than verifying some specific framework
 methods are actually called. It thus needs to mock the object dependencies to only verify some
@@ -69,7 +69,7 @@ method is hit with some argument. This is tiresome to set up and you're then tes
 part of your controller: Looking at the controller clearly shows the underlying method *is* called.
 Why bother?
 
-Another example are Extbase models: Most Extbase model properties consist of a protected property,
+Another example are `Extbase`:pn: models: Most `Extbase`:pn: model properties consist of a protected property,
 a getter and a setter method. This is near no-brainer code, and many developers auto-generate
 getters and setters by an IDE anyway. Unit testing this code leads to broken tests with each trivial
 change of the model class. That's tiresome and likely some waste of time. Concentrate unit testing
@@ -85,7 +85,7 @@ birds with one stone. This has many more benefits than trying to unit test glue 
 A good sign that your unit test would be more useful if it is turned into a functional test is if
 the unit tests needs lots of lines of code to mock dependencies, just to test something using
 :php:`->shouldBeCalled()` on some mock to verify on some dependency is actually called. Go ahead and
-read some unit tests provided by the Core: We're sure you'll find a bad unit test that could be improved
+read some unit tests provided by the `Core`:pn:: We're sure you'll find a bad unit test that could be improved
 by creating a functional test from it.
 
 .. index:: Unit tests; Conventions
@@ -93,9 +93,9 @@ by creating a functional test from it.
 Unit test conventions
 =====================
 
-TYPO3 unit testing means using the `phpunit <https://phpunit.de/>`_ testing framework. TYPO3 comes with
+`TYPO3`:pn: unit testing means using the `phpunit <https://phpunit.de/>`_ testing framework. `TYPO3`:pn: comes with
 as basic `UnitTests.xml <https://github.com/TYPO3/testing-framework/blob/master/Resources/Core/Build/UnitTests.xml>`_
-file that can be used by Core and extensions. This references a phpunit `bootstrap file
+file that can be used by `Core`:pn: and extensions. This references a phpunit `bootstrap file
 <https://github.com/TYPO3/testing-framework/blob/master/Resources/Core/Build/UnitTestsBootstrap.php>`_ so
 phpunit does find our main classes. Apart from that, there are little conventions: Tests for some "system under test"
 class in the :file:`Classes/` folder should be located at the same position within the :file:`Test/Unit`
@@ -178,7 +178,7 @@ adds some functionality on top of phpunit:
   certain files or entire directories that have been created by unit tests. This property is useful
   to keep the system clean.
 
-* A generic :php:`tearDown()` method: That method is designed to test for TYPO3 specific global state changes
+* A generic :php:`tearDown()` method: That method is designed to test for `TYPO3`:pn: specific global state changes
   and to let a unit test fail if it does not take care of these. For instance, if a unit tests add a singleton
   class to the system but does not declare that singletons should be flushed, the system will recognize this
   and let the according test fail. This is a great help for test developers to not run into side effects
@@ -203,12 +203,12 @@ General hints
 * Only use :php:`getAccessibleMock()` if parts of the system under test class itself needs to be
   mocked. Never use it for an object that is created by the system under test itself.
 
-* Since TYPO3 v9, unit tests are by default configured to fail if a notice level PHP error is triggered.
-  This has been used in the Core to slowly make the framework notice free. Extension authors may fall
+* Since `TYPO3`:pn: v9, unit tests are by default configured to fail if a notice level PHP error is triggered.
+  This has been used in the `Core`:pn: to slowly make the framework notice free. Extension authors may fall
   into a trap here: First, the unit test code itself, or the system under test may trigger notices.
-  Developers should fix that. But, TYPO3 v9 is not yet fully notice free, and it may happen a Core
+  Developers should fix that. But, `TYPO3`:pn: v9 is not yet fully notice free, and it may happen a `Core`:pn:
   dependency triggers a notice that in turn lets the extensions unit test fail. At best, the extension
-  developer pushes a patch to the Core to fix that notice. Another solution is to mock the dependency
+  developer pushes a patch to the `Core`:pn: to fix that notice. Another solution is to mock the dependency
   away, which may however not be desired or possible - especially with static dependencies.
 
 
@@ -358,7 +358,7 @@ to mock that method away. And yeah, that is ugly. Unit tests can quite quickly s
 of the framework are not modelled in a good way. A typical case is
 :php:`TYPO3\CMS\Backend\Utility\BackendUtility` - trying to unit test systems that have this
 class as dependency is often very painful. There is not much developers can do in this case. The
-Core tries to slowly improve these areas over time and indeed BackendUtility is shrinking
+`Core`:pn: tries to slowly improve these areas over time and indeed BackendUtility is shrinking
 each version.
 
 .. index:: pair: Unit tests; Exceptions

@@ -28,7 +28,7 @@ UpperCamelCase
     `UpperCamelCase <https://en.wikipedia.org/wiki/Camel_case>`__ begins
     with a capital letter and begins all subparts of a word with a
     capital letter. The rest of the word is in lowercase with no spaces,
-    e.g. CoolShop.
+    for example CoolShop.
 
 lowerCamelCase
     `lowerCamelCase <https://en.wikipedia.org/wiki/Camel_case>`__ is
@@ -49,7 +49,7 @@ ExtensionName
     If the term ExtensionName is used, this means the extension key in
     UpperCamelCase. Example: extkey="bootstrap_package", ExtensionName="BootstrapPackage".
     The ExtensionName is used as first parameter
-    in Extbase :php:`ExtensionUtility::configurePlugin` or
+    in `Extbase`:pn: :php:`ExtensionUtility::configurePlugin` or
     :php:`ExtensionUtility::registerModule()`.
 
 modkey
@@ -146,7 +146,7 @@ Vendor name
 The vendor name is used in:
 
 * namespaces
-* package name in :file:`composer.json`, e.g. ``myvendor/cool-shop`` (all lowercase)
+* package name in :file:`composer.json`, for example ``myvendor/cool-shop`` (all lowercase)
 
 .. important::
 
@@ -195,18 +195,18 @@ Examples:
     * `tx_coolshop_category`
     * `tx_coolshop_domain_model_tag`
 
-Extbase has the following naming convention for database models:
+`Extbase`:pn: has the following naming convention for database models:
 
 `"tx_"` `extkey (without underscores)` `"_domain_model_"` `name`
 
 * name: what does the table contain (use singular and same name as model)
 
-Example for Extbase table name for the model "Post":
+Example for `Extbase`:pn: table name for the model "Post":
     * `tx_blogexample_domain_model_post`
 
 .. tip::
 
-   You may notice, that the names above uses the singular, e.g. post and
+   You may notice, that the names above uses the singular, for example post and
    not posts. This is recommended, but not always followed.
 
 Backend module key
@@ -251,20 +251,20 @@ Plugin key
 The plugin key is registered in:
 
 * second parameter in :php:`registerPlugin()` (Extbase)
-* or in :php:`addPlugin()` (for non Extbase plugins)
+* or in :php:`addPlugin()` (for non-Extbase plugins)
 
 The same plugin key is then used in the following:
 
 * second parameter in :php:`configurePlugin()` (Extbase): MUST match registered plugin key exactly
 * the :ref:`plugin signature <naming-conventions-plugin-signature>`
-* in TypoScript, e.g. :ts:`plugin.tx_myexample_myplugin`
-* in TCA
+* in TypoScript, for example :ts:`plugin.tx_myexample_myplugin`
+* in `TCA`:pn:
 * etc.
 
 The plugin key can be freely chosen by the extension author, but you SHOULD follow these conventions:
 
 * do not use underscore
-* use UpperCamelCase, e.g. InventoryList
+* use UpperCamelCase, for example InventoryList
 * use alphanumeric characters
 
 For the plugin key, `Pi1`, `Pi2` etc. are often used, but it can be named differently.
@@ -319,10 +319,10 @@ Examples:
    This follows `PSR-1 <https://www.php-fig.org/psr/psr-1/>`__ conventions.
 
 
-Extbase
-=======
+`Extbase`:pn:
+=============
 
-Extbase has some of its own conventions.
+`Extbase`:pn: has some of its own conventions.
 
 .. seealso::
 
@@ -337,7 +337,7 @@ Note on "old" extensions
 Some the "classic" extensions from before the extension structure came
 about do not comply with these naming conventions. That is an
 exception made for backwards compatibility. The assignment of new keys
-from the TYPO3 Extension Repository will make sure that any of these
+from the `TYPO3 Extension Repository`:pn: will make sure that any of these
 old names are not accidentally reassigned to new extensions.
 
 Furthermore, some of the classic plugins (tt\_board, tt\_guest etc) use

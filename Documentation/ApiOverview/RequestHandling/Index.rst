@@ -7,10 +7,10 @@
 .. _request-handling:
 
 ==============================
-Request handling (Middlewares)
+Request handling (middlewares)
 ==============================
 
-TYPO3 CMS has implemented `PSR-15`_ for handling incoming HTTP requests. The
+`TYPO3 CMS`:pn: has implemented `PSR-15`_ for handling incoming HTTP requests. The
 implementation within TYPO3 is often called "Middlewares", as PSR-15 consists of
 two interfaces where one is called :php:`Middleware`.
 
@@ -31,10 +31,10 @@ request and response.
 
 .. _request-handling-typo3-implementation:
 
-TYPO3 implementation
-====================
+`TYPO3`:pn: implementation
+==========================
 
-TYPO3 has implemented the PSR-15 approach in the following way:
+`TYPO3`:pn: has implemented the PSR-15 approach in the following way:
 
 .. figure:: Files/FlowOfMiddlewareExecution.svg
    :align: center
@@ -95,7 +95,7 @@ Each middleware has to implement the PSR-15 :php:`MiddlewareInterface`::
 
 By doing so, the middleware can do one or multiple of the following:
 
-* Adjust the incoming request, e.g. add further information.
+* Adjust the incoming request, for example add further information.
 
 * Create and return a PSR-7 response.
 
@@ -145,7 +145,7 @@ called, and its response is returned instead.
 Enriching the request
 ---------------------
 
-The current request can be extended with further information, e.g. the current
+The current request can be extended with further information, for example the current
 resolved site and language could be attached to the request.
 
 In order to do so, a new request is built with additional attributes, before
@@ -203,7 +203,7 @@ Configuring middlewares
 =======================
 
 In order to implement a custom middleware, this middleware has to be configured.
-TYPO3 already provides some middlewares out of the box. Beside adding your own
+`TYPO3`:pn: already provides some middlewares out of the box. Beside adding your own
 middlewares, it's also possible to remove existing middlewares from
 the configuration.
 
@@ -235,7 +235,7 @@ The configuration is provided within
        ],
    ];
 
-TYPO3 has multiple stacks where one middleware might only be necessary in one
+`TYPO3`:pn: has multiple stacks where one middleware might only be necessary in one
 of them. Therefore the configuration defines the context on its first level to define the
 context. Within each context the middleware is registered as new subsection with
 an unique identifier as key.
@@ -272,7 +272,7 @@ disabled
 Override ordering of middlewares
 ================================
 
-To change the ordering of middlewares shipped by the Core an extension can override the registration in
+To change the ordering of middlewares shipped by the `Core`:pn:, an extension can override the registration in
 :file:`Configuration/RequestMiddlewares.php`::
 
    return [

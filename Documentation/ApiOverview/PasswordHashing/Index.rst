@@ -12,14 +12,14 @@ Password hashing
 Introduction
 ============
 
-TYPO3 never stores passwords in plain text in the database. If the latest configured hash algorithm has been changed,
-TYPO3 will update the stored frontend and backend user password hashes upon user login.
+`TYPO3`:pn: never stores passwords in plain text in the database. If the latest configured hash algorithm has been changed,
+`TYPO3`:pn: will update the stored frontend and backend user password hashes upon user login.
 
-TYPO3 uses modern hash algorithms suitable for the given PHP platform, the default being Argon2i since
-the release of TYPO3 Core  version 9.
+`TYPO3`:pn: uses modern hash algorithms suitable for the given PHP platform, the default being Argon2i since
+the release of `TYPO3 Core`:pn: version 9.
 
 This section is for administrators and users who want to know more about TYPO3 password hashing and
-have a basic understanding of hashing algorithms and configuration in TYPO3.
+have a basic understanding of hashing algorithms and configuration in `TYPO3`:pn:.
 
 
 .. _password-hashing-basic-knowledge:
@@ -79,15 +79,15 @@ is expensive in terms of memory and CPU time even for short input string like pa
 (short as in "not a book of text") and they can not be easily split into parallel sections to run on many
 systems in parallel or optimized into chunks by re-using already computed sections for different input again.
 
-TYPO3 improved its standards in `password hash`_ storing over a long time and always went with more modern
-approaches: Core version v4.3 from 2009 added salted password storing, v4.5 from 2011 added salted passwords
+`TYPO3`:pn: improved its standards in `password hash`_ storing over a long time and always went with more modern
+approaches: `Core`:pn: version v4.3 from 2009 added salted password storing, v4.5 from 2011 added salted passwords
 storing using the algorithm 'phpass' by default, v6.2 from 2014 made salted passwords storing mandatory,
 v8 added the improved hash algorithm 'PBKDF2' and used it by default.
 
-With TYPO3 Core  version 9, the password hashing has been refactored and modern hash algorithms such as
+With the `TYPO3 Core`:pn: version 9, the password hashing has been refactored and modern hash algorithms such as
 Argon2i have been added. PHP improved in this area a lot and PHP 7.2 brings `Argon2i` by default, so this
-algorithm could be easily integrated as available Core hash mechanism to the existing hash family.
-Argon2i is rather resilient against GPU and some other attacks, the default TYPO3 Core  configuration even raises
+algorithm could be easily integrated as available `Core`:pn: hash mechanism to the existing hash family.
+Argon2i is rather resilient against GPU and some other attacks, the default `TYPO3 Core`:pn: configuration even raises
 the default PHP configuration to make attacks on stored Argon2i user password hashes even more unfeasible.
 
 This is the current state if you are reading this document. The rest is about details: It is possible
@@ -127,8 +127,8 @@ Configuration
 =============
 
 Configuration of password hashing is done by TYPO3 automatically and administrators usually do not need
-to worry about details too much: If installing a TYPO3 instance with Core version v9 or higher, the
-installation process will configure the best available hash algorithm by default. Since Core version v9 requires
+to worry about details too much: If installing a TYPO3 instance with `Core`:pn: version v9 or higher, the
+installation process will configure the best available hash algorithm by default. Since `Core`:pn: version v9 requires
 at least PHP version 7.2, this is usually Argon2i. Only if the PHP build is incomplete, some less secure
 fallback will be selected.
 
@@ -150,7 +150,7 @@ comply with the idea of data minimisation of person related data. TYPO3 helps he
 "Table garbage collection" task of the scheduler extension, details on this are however out-of-scope of this section.
 
 To verify and select which specific hash algorithm is currently configured for frontend and backend users, a
-preset of the settings module has been established with Core v9. It can be found in "Admin Tools" -> "Settings"
+preset of the settings module has been established with `Core`:pn: version 9. It can be found in "Admin Tools" -> "Settings"
 -> "Configuration presets" -> "Password hashing settings":
 
 .. figure:: ../../Images/PasswordHashingSettings.png
@@ -195,10 +195,10 @@ Configuration of password hashing is stored in :file:`LocalConfiguration.php` wi
 Available Hash Algorithms
 =========================
 
-The list of available hash mechanisms is pretty rich since Core version v9 and may be extended further
+The list of available hash mechanisms is pretty rich since `Core`:pn: version v9 and may be extended further
 if better hash algorithms over time. Most algorithms have additional configuration options that may be
 used to increase or lower the needed computation power to calculated hashes. Administrators usually do
-not need to fiddle with these and should go with defaults configured by the Core. If changing these options,
+not need to fiddle with these and should go with defaults configured by the `Core`:pn:. If changing these options,
 administrators should know exactly what they are doing.
 
 

@@ -3,9 +3,9 @@
 .. _Using-DataHandler:
 .. _using-tcemain:
 
-================================
-Using the DataHandler in scripts
-================================
+======================================
+Using the `DataHandler`:pn: in scripts
+======================================
 
 It's really easy to use the class :php:`\TYPO3\CMS\Core\DataHandling\DataHandler` in your own
 scripts. All you need to do is include the class, build a $data/$cmd
@@ -18,13 +18,13 @@ array you want to pass to the class and call a few methods.
 
 .. index:: pair: DataHandler; Symfony
 
-Using the DataHandler in a Symfony command
-==========================================
+Using the `DataHandler`:pn: in a `Symfony`:pn: command
+======================================================
 
-It is possible to use the DataHandler for scripts started from the command line or by
-the scheduler as well. You can do this by creating a :ref:`Symfony Command <cli-mode-command-controllers>`.
+It is possible to use the `DataHandler`:pn: for scripts started from the command line or by
+the scheduler as well. You can do this by creating a :ref:`Symfony command <cli-mode-command-controllers>`.
 
-These scripts use the `_cli_` backend user. Before using the DataHandler in your :php:`execute()`
+These scripts use the `_cli_` backend user. Before using the `DataHandler`:pn: in your :php:`execute()`
 function, you should make sure that this user is initialized like this::
 
    \TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication();
@@ -37,8 +37,8 @@ system extension for more examples.
 .. _dataHandler-examples:
 .. _tcemain-examples:
 
-DataHandler Examples
-====================
+`DataHandler`:pn: Examples
+==========================
 
 What follows are a few code listings with comments which will provide you with
 enough knowledge to get started. It is assumed that you have populated
@@ -104,7 +104,7 @@ calling the :php:`start()` method (which will initialize internal state).
    $dataHandler->start([], []);
    $dataHandler->clear_cacheCmd('all');
 
-Since TYPO3 CMS 6.2, caches are organized in groups. Clearing "all"
+Since`TYPO3 CMS`:pn: 6.2, caches are organized in groups. Clearing "all"
 caches will actually clear caches from the "all" group and not really
 **all** caches. Check the :ref:`caching framework architecture section <caching-architecture-core>`
 for more details about available caches and groups.
@@ -170,7 +170,7 @@ First the :php:`start()` method is called, but this time with the third
 possible argument which is an alternative :php:`$GLOBALS['BE_USER']` object.
 This allows you to force another backend user account to create stuff in the
 database. This may be useful in certain special cases. Normally you
-should not set this argument since you want TCE to use the global
+should not set this argument since you want `TCE`:pn: to use the global
 :php:`$GLOBALS['BE_USER']`.
 
 .. code-block:: php
@@ -198,7 +198,7 @@ You can use these e.g to logging or another error handling.
    if (!empty($dataHandler->errorLog)) {
        $this->logger->error('Error(s) while creating content element');
        foreach ($dataHandler->errorLog as $log) {
-           // handle error e.g. in a log
+           // handle error for example in a log
            $this->logger->error($log);
        }
    }

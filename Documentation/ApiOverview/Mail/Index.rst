@@ -8,16 +8,16 @@ Mail API
 
 .. versionadded:: 10.0
 
-   Symfony mailer and mime support was added with this change:
+   `Symfony`:pn: mailer and mime support was added with this change:
    :doc:`t3core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
 
 .. versionadded:: 10.3
 
    TYPO3 now supports sending template-based emails for multi-part and HTML-based
-   emails out-of-the-box. The email contents are built with the Fluid Templating Engine.
+   emails out-of-the-box. The email contents are built with the `Fluid`:pn: templating engine.
    :doc:`t3core:Changelog/10.3/Feature-90266-Fluid-basedTemplatedEmails`
 
-TYPO3 CMS provides a RFC-compliant mailing solution based on
+`TYPO3 CMS`:pn: provides a RFC-compliant mailing solution based on
 `symfony/mailer <https://symfony.com/doc/current/components/mailer.html>`__
 for sending emails and
 `symfony/mime <https://symfony.com/doc/current/components/mime.html>`__
@@ -54,10 +54,10 @@ in their use cases.
 
 .. _mail-configuration-fluid:
 
-Fluid paths
+`Fluid`:pn: paths
 -----------
 
-All Fluid-based template paths can be configured via
+All `Fluid`:pn:-based template paths can be configured via
 
 * :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths']`
 * :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['partialRootPaths']`
@@ -86,7 +86,7 @@ smtp
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'smtp';`
    Sends messages over SMTP. It can deal with encryption and authentication.
-   Works exactly the same on Windows, Unix and MacOS. Requires a mail server
+   Works exactly the same on `Windows`:pn:, `Unix`:pn: and `macOS`:pn:. Requires a mail server
    and the following additional settings:
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = '<server:port>';`
@@ -128,7 +128,7 @@ sendmail
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command'] = '<command>';`
    The command to call to send a mail locally. The default works on most modern
-   UNIX based mail servers (sendmail, postfix, exim).
+   `Unix`:pn: based mail servers (sendmail, postfix, exim).
 
    Example::
 
@@ -239,7 +239,7 @@ How to create and send mails
 
 Both :php:`\TYPO3\CMS\Core\Mail\MailMessage` and :php:`\TYPO3\CMS\Core\Mail\FluidEmail` inherit
 from :php:`Symfony\Component\Mime\Email` and have a similar API. **FluidEmail** is specific
-for sending emails based on Fluid.
+for sending emails based on `Fluid`:pn:.
 
 
 .. index:: Mail; FluidEmail
@@ -248,7 +248,7 @@ for sending emails based on Fluid.
 Send mail with `FluidEmail`
 ----------------------------
 
-This sends an email using an existing Fluid template :file:`TipsAndTricks.html`,
+This sends an email using an existing `Fluid`:pn: template :file:`TipsAndTricks.html`,
 make sure the paths are setup as described in :ref:`mail-configuration-fluid`:
 
 .. code-block:: php
@@ -266,14 +266,14 @@ make sure the paths are setup as described in :ref:`mail-configuration-fluid`:
        ->assign('mySecretIngredient', 'Tomato and TypoScript');
    GeneralUtility::makeInstance(Mailer::class)->send($email);
 
-Defining a custom email subject in a custom Fluid template:
+Defining a custom email subject in a custom `Fluid`:pn: template:
 
 .. code-block:: html
 
    <f:section name="Subject">New Login at "{typo3.sitename}"</f:section>
 
-Building templated emails with Fluid also allows to define the language key,
-and use this within the Fluid template:
+Building templated emails with `Fluid`:pn: also allows to define the language key,
+and use this within the `Fluid`:pn: template:
 
 .. code-block:: php
 
@@ -282,7 +282,7 @@ and use this within the Fluid template:
        ->to('contact@acme.com')
        ->assign('language', 'de');
 
-In Fluid, you can now use the defined language key ("language"):
+In `Fluid`:pn:, you can now use the defined language key ("language"):
 
 .. code-block:: html
 
@@ -294,7 +294,7 @@ In Fluid, you can now use the defined language key ("language"):
 Send email with `MailMessage`
 -----------------------------
 
-This shows how to generate and send a mail in TYPO3::
+This shows how to generate and send a mail in `TYPO3`:pn:::
 
    // Create the message
    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
@@ -350,7 +350,7 @@ Or if you prefer, don't concatenate the calls::
    Before TYPO3 v10 the :php:`MailMessage` class only had methods like
    :php:`->setTo()`, :php:`setFrom()`, :php:`->setSubject()` etc.
    Now the class inherits from :php:`\Symfony\Component\Mime\Email` which
-   provides the methods from the example. To make migration from older TYPO3
+   provides the methods from the example. To make migration from older `TYPO3`:pn:
    versions easier the previous methods still exist. The use of
    :php:`MailMessage` in own extensions is recommended.
 
@@ -432,10 +432,10 @@ In case of the problem "Mails are not sent" in your extension, try to set a
 .. index:: pair: Mail; Symfony
 .. _mail-symfony-mime:
 
-Symfony mail documentation
-==========================
+`Symfony`:pn: mail documentation
+================================
 
-Please refer to the Symfony documentation for more information about
+Please refer to the `Symfony`:pn: documentation for more information about
 available methods.
 
 .. seealso::

@@ -6,16 +6,16 @@
 Includes
 ========
 
-You can also add include-instructions in TypoScript code. Availability
-depends on the context, but it works with TypoScript templates, page
-TSconfig and user TSconfig.
+You can also add include-instructions in `TypoScript`:pn: code. Availability
+depends on the context, but it works with `TypoScript`:pn: templates, page
+`TSconfig`:pn: and user `TSconfig`:pn:.
 
-Since TYPO3 version 9 a new syntax for importing external TypoScript files has
+Since TYPO3 version 9 a new syntax for importing external `TypoScript`:pn: files has
 been introduced, which acts as a preprocessor before the actual parsing
 (condition evaluation) takes place.
 
-Its main purpose is ease the use of TypoScript includes and making it easier
-for integrators and frontend developers to work with distributed TypoScript
+Its main purpose is ease the use of `TypoScript`:pn: includes and making it easier
+for integrators and frontend developers to work with distributed `TypoScript`:pn:
 files. The syntax is inspired by SASS imports and works as follows:
 
 .. code-block:: typoscript
@@ -59,14 +59,14 @@ The following rules apply:
   (") or single quotes (') can be used.
 
 *Internals:*
-Under the hood, Symfony Finder is use to find the file and provides the
+Under the hood, the `Symfony`:pn: finder is use to find the file and provides the
 "globbing" feature (\* syntax).
 
 *Outlook:*
 The syntax is designed to stay and there are absolutely no plans to
 extend the :ts:`@import` statement in the future. However, the
 :ts:`@...` syntax for annotations may be used to add more preparsing logic to
-TypoScript in future.
+`TypoScript`:pn: in future.
 
 
 Alternative, traditional Syntax
@@ -79,12 +79,12 @@ this:
 
    <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/html/mainmenu_typoscript.txt">
 
-- It must have its own line in the TypoScript template, otherwise it is
+- It must have its own line in the `TypoScript`:pn: template, otherwise it is
   not recognized.
 
-- It is processed BEFORE any parsing of TypoScript (contrary to
+- It is processed BEFORE any parsing of `TypoScript`:pn: (contrary to
   conditions) and therefore does not care about the nesting of
-  confinements within the TypoScript code.
+  confinements within the `TypoScript`:pn: code.
 
 The "source" parameter points to the source of the included content.
 The string before the first ":" (in the example it is the word "FILE")
@@ -100,7 +100,7 @@ FILE     A reference to a file relative to :php:`\TYPO3\CMS\Core\Core\Environmen
          passed to INCLUDE_TYPOSCRIPT, if the inclusion is called from inside a
          file. These paths start with :file:`./` or :file:`../`. The :file:`./`
          is needed to distinguish them from paths relative to :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`. This
-         mechanism allows simple, nested TypoScript templates that can be moved
+         mechanism allows simple, nested `TypoScript`:pn: templates that can be moved
          or copied without the need to adapt all includes.
 
          If you use a syntax like :file:`EXT:myext/directory/file.txt`
@@ -110,7 +110,7 @@ FILE     A reference to a file relative to :php:`\TYPO3\CMS\Core\Core\Environmen
 DIR      This includes all files from a directory relative to :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`,
          including subdirectories. If the optional property :file:`extensions="..."`
          is provided, only files with these file extensions are included;
-         multiple extensions are separated by comma. This allows e.g. to include
+         multiple extensions are separated by comma. This allows for example to include
          both setup and constants from the same directory tree, using different
          file extensions for both.
 
@@ -136,7 +136,7 @@ DIR      This includes all files from a directory relative to :php:`\TYPO3\CMS\C
 Conditions
 ==========
 
-Since TYPO3 CMS 7, it is possible to use conditions on include directives.
+Since `TYPO3 CMS`:pn: 7, it is possible to use conditions on include directives.
 The conditions are the same as was presented in the :ref:`previous chapter <typoscript-syntax-conditions>`.
 The files or directories will be included only if the condition is met.
 
@@ -149,7 +149,7 @@ Example:
 
 .. important::
 
-   Please note that since TYPO3 9.4, the syntax of condition has switched to the `symfony expression language <https://symfony.com/doc/4.1/components/expression_language.html>`__ which :ref:`is covered in this section of TSref <t3tsref:conditions>`. If the condition requires double quotes, they must be converted to single quotes or escaped, e.g.:
+   Please note that since TYPO3 9.4, the syntax of condition has switched to the `symfony expression language <https://symfony.com/doc/4.1/components/expression_language.html>`__ which :ref:`is covered in this section of TSref <t3tsref:conditions>`. If the condition requires double quotes, they must be converted to single quotes or escaped, for example:
 
    .. code-block:: text
 
@@ -164,11 +164,11 @@ Best practices
 ==============
 
 The option to filter by extension has been included exactly for the
-purpose of covering as many use cases as possible. In TYPO3 CMS we often
+purpose of covering as many use cases as possible. In `TYPO3 CMS`:pn: we often
 have many different ways of configuring something, with pros and cons
 and the extended inclusion command serves this purpose of letting you
 organize your files with different directories using whichever extension
-fits your needs better (e.g., :file:`.typoscript`) and/or filter by extension (e.g.,
+fits your needs better (for example, :file:`.typoscript`) and/or filter by extension (for example,
 because you may have :file:`.typoscript` and :file:`.txt` in the directory or because you prefer
 having :file:`.typoscript<something>` as extension).
 
@@ -177,7 +177,7 @@ It is recommended to separate files with different directories:
 * For TSconfig code use a directory called TSconfig/, possibly with
   subdirectories named Page/ for page TSconfig and User/ for
   user TSconfig.
-* For TypoScript template code, use a directory named
+* For `TypoScript`:pn: template code, use a directory named
   TypoScript/.
 
 However, we understand that filtering by extension could make sense in

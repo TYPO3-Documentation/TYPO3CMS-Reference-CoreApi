@@ -5,14 +5,14 @@
 Namespaces
 ==========
 
-Since version 6.0, TYPO3 CMS uses PHP namespaces for all classes in the Core.
+Since version 6.0,`TYPO3 CMS`:pn: uses PHP namespaces for all classes in the `Core`:pn:.
 
 The general structure of namespaces is the following::
 
    \{VendorName}\{PackageName}\({CategoryName}\)*{ClassName}
 
 
-For the Core, the *vendor name* is :php:`TYPO3\CMS` and the *package name* corresponds
+For the `Core`:pn:, the *vendor name* is :php:`TYPO3\CMS` and the *package name* corresponds
 to a system extension.
 
 All classes must be located inside the :file:`Classes` folder at the root of the
@@ -34,8 +34,8 @@ Finally the *class name* is the same as the corresponding file name, without the
 .. index:: pair: Namespaces; Core
 .. _namespaces-example:
 
-Core example
-------------
+`Core`:pn: example
+------------------
 
 The good old :php:`t3lib_div` class has been renamed to::
 
@@ -95,10 +95,10 @@ Inside the class, the namespace is declared as::
 .. index:: pair: Namespaces; Extbase
 .. _namespaces-extbase:
 
-Namespaces in Extbase
----------------------
+Namespaces in `Extbase`:pn:
+---------------------------
 
-When registering components in Extbase, the "UpperCamelCase" notation of the
+When registering components in `Extbase`:pn:, the "UpperCamelCase" notation of the
 extension key is used.
 
 For a backend module::

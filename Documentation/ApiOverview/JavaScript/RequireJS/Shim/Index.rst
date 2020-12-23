@@ -11,7 +11,7 @@
 Shim Library to Use it as Own RequireJS Modules
 ===============================================
 
-Not all javascript libraries are compatible with RequireJS. In the rarest cases, you can
+Not all `JavaScript`:pn: libraries are compatible with RequireJS. In the rarest cases, you can
 adjust the library code to be AMD or UMD compatible. So you need to configure RequireJS to
 accept the library.
 
@@ -34,7 +34,7 @@ be defined in the :php:`PageRenderer`::
 
 
 In this example we configure RequireJS to use plupload. The only dependency is jquery. We already have
-jquery in the TYPO3 Core  extension.
+jquery in the `TYPO3 Core`:pn:  extension.
 
 After the shim and export of plupload it is usable in the dependency handling:
 

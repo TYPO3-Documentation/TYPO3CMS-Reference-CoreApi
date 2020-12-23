@@ -12,7 +12,7 @@ record referencing images.
 
 In this example we configure two crop variants, one with the id "mobile",
 one with the id "desktop". The array key defines the crop variant id, which will be used
-when rendering an image with the image view helper.
+when rendering an image with the image `ViewHelper`:pn:.
 
 The array key is used as identifier for the ratio and the label is specified with the "title"
 and the actual (floating point) ratio with the "value" key.
@@ -82,8 +82,8 @@ Focus Area
 Users can also select a focus area, when configured. The focus area is always **inside**
 the crop area and marks the area of the image which must be visible for the image to transport
 its meaning. The selected area is persisted to the database but will have no effect on image processing.
-The data points are however made available as data attribute when using the `<f:image />` view helper and
-can be used by Javascript libraries.
+The data points are however made available as data attribute when using the `<f:image />` `ViewHelper`:pn: and
+can be used by `JavaScript`:pn: libraries.
 
 The below example adds a focus area, which is initially one third of the size of the image
 and centered.
@@ -136,7 +136,7 @@ the crop area. The focus area cannot intersect with any of the cover areas.
 Rendering crop variants
 =======================
 
-To render specific crop variants, the variant can be specified as argument of the image view helper:
+To render specific crop variants, the variant can be specified as argument of the image `ViewHelper`:pn::
 
 .. code-block:: html
 

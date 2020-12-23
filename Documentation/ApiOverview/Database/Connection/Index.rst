@@ -10,8 +10,8 @@ An instance of class :php:`TYPO3\CMS\Core\Database\Connection` is retrieved from
 :ref:`ConnectionPool <database-connection-pool>` by calling `->getConnectionForTable()`
 and handing over the table name a query should executed on.
 
-The class extends the basic Doctrine DBAL `Doctrine\DBAL\Connection` class and is mainly
-used internally within the `TYPO3 CMS` framework to establish, maintain and terminate
+The class extends the basic `Doctrine`:pn: DBAL `Doctrine\DBAL\Connection` class and is mainly
+used internally within the `TYPO3 CMS`:pn: framework to establish, maintain and terminate
 connections to single database endpoints. Those internal methods are not scope of this
 documentation since an extension developer usually doesn't have to deal with that.
 
@@ -116,10 +116,10 @@ if omitted, everything will be quoted to strings.
 
 .. note::
 
-    `mysql` is rather forgiving when it comes to insufficient field quoting: Inserting a string to an `int` field will
-    not raise an error and `mysql` will adapt internally. However, other `dbms` are not that relaxed and may raise
+    `MySQL`:pn: is rather forgiving when it comes to insufficient field quoting: Inserting a string to an `int` field will
+    not raise an error and `MySQL`:pn: will adapt internally. However, other `dbms` are not that relaxed and may raise
     errors. It is good practice to specify field types for each field, especially if they are not strings. Doing
-    so right away will reduce the number of raised bugs if people run your extension an anything else than `mysql`.
+    so right away will reduce the number of raised bugs if people run your extension an anything else than `MySQL`:pn:.
 
 
 .. _database-connection-update:
@@ -177,7 +177,7 @@ argument specifies the quoting of `WHERE` values. There is a pattern ;)
 
 .. note::
 
-    `TYPO3 CMS` uses a "soft delete" approach for many tables. Instead of directly deleting a rows in the database,
+    `TYPO3 CMS`:pn: uses a "soft delete" approach for many tables. Instead of directly deleting a rows in the database,
     a field - often called `deleted` - is set from 0 to 1. Executing a `DELETE` query circumvents this and really
     removes rows from a table. For most tables, it is better to use the :ref:`DataHandler <tce-database-basics>` API
     to handle deletes instead of executing such low level queries directly.
@@ -234,7 +234,7 @@ Remarks:
 * The third argument expects all `WHERE` values to be strings, each single expression is combined with `AND`.
 
 * The :ref:`RestrictionBuilder <database-restriction-builder>` kicks in and adds additional `WHERE` conditions
-  based on `TCA` settings.
+  based on `TCA`:pn: settings.
 
 * Field names and values are quoted automatically.
 
@@ -299,7 +299,7 @@ Returns the `uid` of the last :php:`->insert()` statement. Useful if this id nee
 Remarks:
 
 * :php:`->lastInsertId($tableName)` needs the table name as first argument. While this is optional, you should always
-  supply the table name for DBAL compatibility with engines like postgres.
+  supply the table name for DBAL compatibility with engines like PostgreSQL.
 
 * If the auto increment field name is not `uid`, the second argument with the name of this field must be supplied.
   For casual TYPO3 tables, `uid` is ok and the argument can be left out.
@@ -311,7 +311,7 @@ createQueryBuilder()
 The :ref:`QueryBuilder <database-query-builder>` should not be re-used for multiple different queries. However,
 it sometimes becomes handy to first fetch a `Connection` object for a specific table and to execute a simple
 query, and to create a `QueryBuilder` for a more complex query from this connection object later. The methods
-usefulness is limited however and no good example within the Core can be found at the time of this writing.
+usefulness is limited however and no good example within the `Core`:pn: can be found at the time of this writing.
 
 The method can be helpful in loops to save some precious code characters, too::
 

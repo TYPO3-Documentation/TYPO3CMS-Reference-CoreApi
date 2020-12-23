@@ -2,21 +2,21 @@
 .. highlight:: xml
 .. _fluid-introduction:
 
-=====================
-Introduction to Fluid
-=====================
+===========================
+Introduction to `Fluid`:pn:
+===========================
 
-Fluid is TYPO3’s default rendering engine but can also be used in a standalone PHP project.
-The Fluid source code is being developed as an independent project outside of the TYPO3 Core.
+`Fluid`:pn: is TYPO3’s default rendering engine but can also be used in a standalone PHP project.
+The `Fluid`:pn: source code is being developed as an independent project outside of the `TYPO3 Core`:pn:.
 
-Fluid is based on XML.
-You can use HTML markup in Fluid, but you can do much more with Fluid, such as use conditions,
+`Fluid`:pn: is based on XML.
+You can use HTML markup in `Fluid`:pn:, but you can do much more with `Fluid`:pn:, such as use conditions,
 variables or custom ViewHelpers which are PHP components.
 
-Example Fluid snippet
-=====================
+Example `Fluid`:pn: snippet
+===========================
 
-This is how a simple Fluid snippet could look like::
+This is how a simple `Fluid`:pn: snippet could look like::
 
    <h4>This is your headline</h4>
    <p>
@@ -35,21 +35,21 @@ The resulting HTML may look like this::
    <h4>This is your headline</h4>
    <p>This is the content of variable "somevariable"</p>
 
-The above Fluid snippet contains:
+The above `Fluid`:pn: snippet contains:
 
 ViewHelpers:
    The XML elements that start with `f:` like `<f:if>` etc. are ViewHelpers. These
-   are PHP components that are supplied by Fluid and can be used in your Fluid templates.
-   TYPO3 adds some more ViewHelpers for TYPO3 specific functionality. And, you can
+   are PHP components that are supplied by `Fluid`:pn: and can be used in your `Fluid`:pn: templates.
+   `TYPO3`:pn: adds some more ViewHelpers for `TYPO3`:pn: specific functionality. And, you can
    :ref:`write your own <t3extbasebook:developing-a-custom-viewhelper>`.
 
    ViewHelpers can do simple processing such as remove spaces with the
-   :ref:`t3viewhelper:typo3fluid-fluid-spaceless` Viewhelper or create a link
-   as is done in the TYPO3 Fluid Viewhelper :ref:`t3viewhelper:typo3-fluid-link-page`.
+   :ref:`t3viewhelper:typo3fluid-fluid-spaceless` `ViewHelper`:pn: or create a link
+   as is done in the `TYPO3 Fluid ViewHelper`:pn: :ref:`t3viewhelper:typo3-fluid-link-page`.
 
 Object Accessors:
-   Fluid can access variables that have been defined. Just use braces
-   and the name of the variable: `{somevariable}`. In Fluid, these placeholders
+   `Fluid`:pn: can access variables that have been defined. Just use braces
+   and the name of the variable: `{somevariable}`. In `Fluid`:pn:, these placeholders
    are called `Object Accessors`.
 
 Conditions:
@@ -61,7 +61,7 @@ Conditions:
 Directory structure
 ===================
 
-In your extension, the following directory structure should be used for Fluid files:
+In your extension, the following directory structure should be used for `Fluid`:pn: files:
 
 .. code-block:: none
 
@@ -71,12 +71,12 @@ In your extension, the following directory structure should be used for Fluid fi
         ├── Partials
         └── Templates
 
-This directory structure is the convention used by TYPO3 CMS. When using Fluid outside of
-TYPO3 CMS you can use any folder structure you like.
+This directory structure is the convention used by `TYPO3 CMS`:pn:. When using `Fluid`:pn: outside of
+`TYPO3 CMS`:pn: you can use any folder structure you like.
 
-If you are using Extbase controller actions in combination with Fluid,
-Extbase defines how files and directories should be named within these directories.
-Extbase uses sub directories located within the "Templates" directory to group
+If you are using `Extbase`:pn: controller actions in combination with `Fluid`:pn:,
+`Extbase`:pn: defines how files and directories should be named within these directories.
+`Extbase`:pn: uses sub directories located within the "Templates" directory to group
 templates by controller name and the filename of templates to correspond to a
 certain action on that controller
 (see :ref:`t3extbasebook:template-creation-by-example`).
@@ -91,20 +91,20 @@ certain action on that controller
                    └── Show.html (for Blog->show() action)
 
 
-If you don't use Extbase you can still use this convention, but it is not a
+If you don't use `Extbase`:pn: you can still use this convention, but it is not a
 requirement to use this structure to group templates into logical groups, such
 as "Page" and "Content" to group different types of templates.
 
-In Fluid, the location of these paths is defined with
+In `Fluid`:pn:, the location of these paths is defined with
 :php:`\TYPO3Fluid\Fluid\Core\Rendering\RenderingContext->setTemplatePaths()`.
 
-TYPO3 provides the possibility to set the paths using TypoScript.
+`TYPO3`:pn: provides the possibility to set the paths using `TypoScript`:pn:.
 
 
 :file:`Templates`
 -----------------
 
-The template contains the main Fluid template. When using a layout (this is optional),
+The template contains the main `Fluid`:pn: template. When using a layout (this is optional),
 you must define the sections that are referenced by the layout.
 
 :file:`Layouts`
@@ -112,7 +112,7 @@ you must define the sections that are referenced by the layout.
 
 *optional*
 
-Layouts serve as a wrapper for a web page or a specific block of content. If using Fluid
+Layouts serve as a wrapper for a web page or a specific block of content. If using `Fluid`:pn:
 for a sitepackage, a single layout file will often contain multiple components such as your
 sites menu, footer, and any other items that are reused throughout your website.
 
@@ -130,18 +130,18 @@ Templates can be used with or without a Layout.
 
 *optional*
 
-Partials are a Fluid component. Partials can be used as reusable components from within
+Partials are a `Fluid`:pn: component. Partials can be used as reusable components from within
 a template.
 
 
-Example: Using Fluid to create a theme
-======================================
+Example: Using `Fluid`:pn: to create a theme
+============================================
 
 This example was taken from the `example extension <https://github.com/TYPO3-Documentation/TYPO3CMS-Tutorial-SitePackage-Code/>`__
 for :ref:`t3sitepackage:start` and reduced to a very basic example.
 
 The Sitepackage Tutorial walks you through the creation of a sitepackage
-(theme) using Fluid. In our simplified example, the overall structure of
+(theme) using `Fluid`:pn:. In our simplified example, the overall structure of
 a page is defined by a layout "Default". We show an example of a three
 column layout. Further templates can be added later, using the same layout.
 
@@ -160,7 +160,7 @@ column layout. Further templates can be added later, using the same layout.
                └── ThreeColumn.html
 
 
-Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
+Set the `Fluid`:pn: paths with `TypoScript`:pn: using :ref:`t3tsref:cobj-fluidtemplate`
 
 .. code-block:: typoscript
 
@@ -250,7 +250,7 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
 * In the section "Main", a partial "Jumbotron" is used.
 * The template makes use of column positions (colPos). The content elements for each section
   on the page will be rendered into the correct `div`. Find out more about this in :ref:`be-layout`.
-* Again, we are using Object Accessors to access data (e.g. `{colPos: '2'}`) that has been
+* Again, we are using Object Accessors to access data (for example `{colPos: '2'}`) that has been
   generated elsewhere.
 
 
@@ -268,7 +268,7 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
 Further information
 ===================
 
-To get an introduction to the basics of Fluid:
+To get an introduction to the basics of `Fluid`:pn::
 
 * `The Fluid Syntax <https://github.com/TYPO3/Fluid/blob/master/doc/FLUID_SYNTAX.md>`__
 * `ViewHelpers - what these classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/master/doc/FLUID_VIEWHELPERS.md>`__
@@ -277,15 +277,15 @@ Depending on what you plan to do, you may want to follow one of these comprehens
 tutorials:
 
 * :ref:`t3sitepackage:start` which shows you how to create a theme for your site
-  using Fluid.
+  using `Fluid`:pn:.
 * :ref:`Create custom content elements <adding-your-own-content-elements>`
 * :ref:`t3extbasebook:start`
-* Use Fluid to create emails using the :ref:`TYPO3 Mail API <mail-fluid-email>`
+* Use `Fluid`:pn: to create emails using the :ref:`TYPO3 Mail API <mail-fluid-email>`
 
 Once you have successfully completed your fist steps, these references might come
 in handy:
 
 * `24 TIPS & TRICKS FOR FLUID <https://usetypo3.com/24-fluid-tips.html>`__
-* :ref:`Fluid Viewhelper Reference <t3viewhelper:start>`
+* :ref:`Fluid ViewHelper Reference <t3viewhelper:start>`
 
 

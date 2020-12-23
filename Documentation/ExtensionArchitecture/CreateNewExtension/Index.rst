@@ -35,7 +35,7 @@ TER.
    `official github repository <https://github.com/FriendsOfTYPO3/extension_builder>`__.
 
 The `Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
-comes with its own BE module:
+comes with its own backend module:
 
 .. figure:: ../../Images/ExtensionBuilder.png
    :alt: A view from the Extension Builder

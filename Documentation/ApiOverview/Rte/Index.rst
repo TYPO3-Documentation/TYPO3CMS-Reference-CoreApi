@@ -11,7 +11,7 @@ Rich text editors (RTE)
 =======================
 
 This chapter contains general information about Rich Text Editors (RTE)
-in TYPO3, how they are integrated
+in `TYPO3`:pn:, how they are integrated
 in the TYPO3 Backend and what transformations get applied along the
 various processes (saving to the database, rendering to the frontend, etc.)
 

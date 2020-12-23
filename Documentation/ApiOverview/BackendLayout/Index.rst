@@ -9,8 +9,8 @@ Backend layout
 Since TYPO3 4.5 there has been a database record type "backend layout" to define a combination of rows and columns
 to which content can be added in the page module.
 
-With TYPO3 7.4 a new feature was introduced to define backend layouts in TYPO3 via page TSconfig. It implements a
-generic page TSconfig provider for backend layouts to make backend layouts reusable across installations.
+With TYPO3 7.4 a new feature was introduced to define backend layouts in TYPO3 via page `TSconfig`:pn:. It implements a
+generic page `TSconfig`:pn: provider for backend layouts to make backend layouts reusable across installations.
 
 .. _be-layout-video:
 
@@ -29,9 +29,9 @@ Benjamin Kott: How to implement frontend layouts in TYPO3 using backend layouts
 Backend layout definition
 =========================
 
-Backend layouts can be configured either as "backend layout" record in a sysfolder or as page TSconfig entry in
+Backend layouts can be configured either as "backend layout" record in a sysfolder or as page `TSconfig`:pn: entry in
 :typoscript:`mod.web_layout.BackendLayouts`. Each layout will be saved with a key. The "backend layout" records are
-using their uid as a key, therefore layouts defined via page TSconfig should use a non-numeric string key. It is a good
+using their uid as a key, therefore layouts defined via page `TSconfig`:pn: should use a non-numeric string key. It is a good
 practice to use a descriptive name as key.
 
 The entries title and icon are being used to display the backend layout options in the page properties.
@@ -52,7 +52,7 @@ for further use.
 Backend layout simple example
 =============================
 
-The following page TSconfig example creates a simple backend layout consisting of two rows and just one column.
+The following page `TSconfig`:pn: example creates a simple backend layout consisting of two rows and just one column.
 
 .. code-block:: typoscript
 
@@ -98,7 +98,7 @@ The following page TSconfig example creates a simple backend layout consisting o
 Backend layout advanced example
 ===============================
 
-The following page TSconfig example creates a 3x3 backend layout with 5 column position sections in total. The topmost
+The following page `TSconfig`:pn: example creates a 3x3 backend layout with 5 column position sections in total. The topmost
 row (here called "header") spans all 3 columns. There is an "aside" spanning two rows on the right.
 
 .. code-block:: typoscript
@@ -162,10 +162,10 @@ Output of a backend layout in the frontend
 The backend layout to be used on a certain page gets determined either by the backend layout being chosen directly and
 stored in the pages field "backend_layout" or by the field "backend_layout_next_level" of a parent page up the rootline.
 
-To avoid complex TypoScript for integrators, the handling of backend layouts has
+To avoid complex `TypoScript`:pn: for integrators, the handling of backend layouts has
 been simplified for the frontend.
 
-To get the correct backend layout, the following TypoScript code can be used:
+To get the correct backend layout, the following `TypoScript`:pn: code can be used:
 
 .. code-block:: typoscript
 
@@ -194,7 +194,7 @@ Using  `data = pagelayout` is the same as using as
 	ifEmpty.data = levelfield:-2,backend_layout_next_level,slide
 	ifEmpty.ifEmpty = default
 
-In the Fluid template the column positions can be accessed now via content mapping as described here
+In the `Fluid`:pn: template the column positions can be accessed now via content mapping as described here
 :ref:`t3sitepackage:content-mapping`.
 
 .. index:: Backend layout; Reference implementation

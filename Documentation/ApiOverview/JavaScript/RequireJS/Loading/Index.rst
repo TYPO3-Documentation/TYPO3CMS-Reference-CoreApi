@@ -6,9 +6,8 @@
 Loading your own or other RequireJS modules
 ===========================================
 
-
 In case you use the ready event, you may wonder how to use the module.
-Answer: it depends! If you use Fluid's :html:`f:be.pageRenderer` view helper
+Answer: it depends! If you use `Fluid's`:pn: :html:`f:be.pageRenderer` `ViewHelper`:pn:
 add the argument :html:`includeRequireJsModules`:
 
 .. code-block:: html
@@ -17,7 +16,7 @@ add the argument :html:`includeRequireJsModules`:
       0:'TYPO3/CMS/FooBar/Wisdom'
    }" />
 
-However, if you don't use Fluid you may use :php:`PageRenderer` in your controller:
+However, if you don't use `Fluid`:pn: you may use :php:`PageRenderer` in your controller:
 
 .. code-block:: php
 

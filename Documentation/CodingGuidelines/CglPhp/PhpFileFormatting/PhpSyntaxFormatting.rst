@@ -112,9 +112,9 @@ Debug Output
 During development it is allowed to use :php:`debug()` or
 :php:`GeneralUtility::debug()` function calls to produce debug output.
 However all debug statements must be removed (not only commented!)
-before pushing the code to the Git repository. Only very exceptionally
+before pushing the code to the `Git`:pn: repository. Only very exceptionally
 is it allowed to even *think* of leaving a debug statement, if it is
-definitely a major help when developing user code for the TYPO3 Core.
+definitely a major help when developing user code for the `TYPO3 Core`:pn:.
 
 
 Curly Braces
@@ -323,7 +323,7 @@ level.
 .. note::
 
    The old rule allowed the operator only at the end. Both are still
-   valid. Please do no "mass-change" across the Core. Use the new rule for
+   valid. Please do no "mass-change" across the `Core`:pn:. Use the new rule for
    future changes or patches currently under review but do **not** block reviews
    because of the legacy concatenation. If you change a line/method anyway,
    you can of course adapt CGL-changes as well (as long as it's no
@@ -373,7 +373,7 @@ developer's choice. Example::
    ];
 
 Nested arrays follow the same pattern. This formatting applies even to
-very small and simple array declarations, e.g. ::
+very small and simple array declarations, for example ::
 
    $a = [
        0 => 'b',
@@ -384,7 +384,7 @@ PHP Features
 ============
 
 The use of the newest PHP features is strongly recommended for
-extensions and mandatory for the TYPO3 Core .
+extensions and mandatory for the `TYPO3 Core`:pn:.
 
 Class functions must have access type specifiers: :php:`public`,
 :php:`protected` or :php:`private`. Notice that :php:`private` may

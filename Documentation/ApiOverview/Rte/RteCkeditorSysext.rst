@@ -8,9 +8,9 @@
 CKEditor Rich Text Editor
 =========================
 
-TYPO3 comes with the system extension "CKEditor Rich Text Editor"
+`TYPO3`:pn: comes with the system extension "CKEditor Rich Text Editor"
 (rte_ckeditor) which integrates CKEditor
-functionality into the Core for editing of rich text content.
+functionality into the `Core`:pn: for editing of rich text content.
 
 * :ref:`Configuration quickstart (rte_ckeditor) ➜ <ckedit:config-quickstart>`
 * :ref:`Configuration examples (rte_ckeditor) ➜ <ckedit:config-examples>`

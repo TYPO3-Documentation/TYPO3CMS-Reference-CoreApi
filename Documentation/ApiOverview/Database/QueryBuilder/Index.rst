@@ -132,7 +132,7 @@ Default Restrictions
 
 .. note::
 
-   `->select()` and `->count()` queries trigger TYPO3 CMS magic that adds further default where
+   `->select()` and `->count()` queries trigger`TYPO3 CMS`:pn: magic that adds further default where
    clauses if the queried table is also registered via `$GLOBALS['TCA']`. See the
    :ref:`RestrictionBuilder <database-restriction-builder>` section for details on that topic.
 
@@ -236,7 +236,7 @@ Create an `UPDATE` query. Typical usage::
       ->execute();
 
 
-:php:`->update()` requires the table to update as first argument and a table alias (e.g. 't') as optional second argument.
+:php:`->update()` requires the table to update as first argument and a table alias (for example 't') as optional second argument.
 The table alias can then be used in :php:`->set()` and :php:`->where()` expressions::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -412,7 +412,7 @@ Remarks:
 
 * It is possible to feed the methods with strings directly, but that is discouraged and typically only used
   in rare cases where expression strings are created at a different place that can not be resolved easily. In
-  the Core, those places are usually combined with :php:`QueryHelper::stripLogicalOperatorPrefix()` to remove leading
+  the `Core`:pn:, those places are usually combined with :php:`QueryHelper::stripLogicalOperatorPrefix()` to remove leading
   `AND` or `OR` parts. Using this gives an additional risk of missing or wrong quoting and is a potential security
   issue. Use with care if ever.
 
@@ -478,7 +478,7 @@ Notes to the above example:
   to increase readability of `->where()` expressions.
 
 * The `RestrictionBuilder` added additional `WHERE` conditions for both involved tables! Table `sys_language` obviously
-  only specifies a `'disabled' => 'hidden'` as `enableColumns` in its `TCA` `ctrl` section, while table
+  only specifies a `'disabled' => 'hidden'` as `enableColumns` in its `TCA`:pn: `ctrl` section, while table
   `pages` specifies `deleted`, `hidden`, `starttime` and `stoptime` fields.
 
 
@@ -629,7 +629,7 @@ Remarks:
 * It's allowed to call :php:`->setMaxResults()` but not to call :php:`->setFirstResult()`.
 
 * It is possible to call :php:`->setFirstResult()` without calling :php:`setMaxResults()`: This equals to "Fetch everything, but
-  leave out the first n records". Internally, `LIMIT` will be added by Doctrine DBAL and set to a very high value.
+  leave out the first n records". Internally, `LIMIT` will be added by `Doctrine`:pn: DBAL and set to a very high value.
 
 
 .. _database-query-builder-add:
@@ -684,7 +684,7 @@ Remarks:
 
 * The method is a simple way to see which restrictions the `RestrictionBuilder` added.
 
-* Doctrine DBAL always creates prepared statements: Any value that is added via :php:`->createNamedParameter()` creates
+* `Doctrine`:pn: DBAL always creates prepared statements: Any value that is added via :php:`->createNamedParameter()` creates
   a placeholder that is later substituted when the real query is fired via :php:`->execute()`. :php:`->getSQL()` does not show
   those values, instead the placeholder names are displayed, usually with a string like `:dcValue1`. There is no
   simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getParameters()` to see the
@@ -711,7 +711,7 @@ Remarks:
 
 * The method is typically called directly before :php:`->execute()` to output the final values for the statement.
 
-* Doctrine DBAL always creates prepared statements: Any value that added via :php:`->createNamedParameter()` creates
+* `Doctrine`:pn: DBAL always creates prepared statements: Any value that added via :php:`->createNamedParameter()` creates
   a placeholder that is later substituted when the real query is fired via :php:`->execute()`. :php:`->getparameters()` does not show
   the statement or those placeholders, instead the values are displayed, usually within an array using keys like `:dcValue1`. There is no simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getSQL()` to see the string with placeholders used as a prepared statement.
 
@@ -849,7 +849,7 @@ Rules:
 * The second argument of :php:`->createNamedParameter()` specifies the type of input. For string, this can be omitted,
   but it is good practice to add `\PDO::PARAM_INT` for integers or similar for other field types. This is currently
   no strict rule, but following this will reduces headaches in the future, especially for `DBMS` that are not as
-  relaxed as `mysql` when it comes to field types. The \PDO constants can be used for simple types like `bool`, `string`,
+  relaxed as `MySQL`:pn: when it comes to field types. The \PDO constants can be used for simple types like `bool`, `string`,
   `null`, `lob` and `integer`. Additionally, the two constants `Connection::PARAM_INT_ARRAY` and `Connection::PARAM_STR_ARRAY`
   can be used if an array of strings or integers is handled, for instance in an `IN()` expression.
 

@@ -7,13 +7,13 @@ System registry
 ===============
 
 The purpose of the registry is to store key-value pairs of information. It can
-be considered an equivalent to the Windows registry (only not as complicated).
+be considered an equivalent to the `Windows`:pn: registry (only not as complicated).
 
 You might use the registry to hold information that your script needs
 to store across sessions or requests.
 
 An example would be a setting that needs to be altered by a PHP
-script, which currently is not possible with TypoScript.
+script, which currently is not possible with `TypoScript`:pn:.
 
 Another example: The Scheduler system extension stores when it ran the
 last time. The Reports system extension then checks that value, in
@@ -59,7 +59,7 @@ table:
    :Description:
          Represents an entry's namespace. In general, the namespace is an
          extension key starting with `tx_`, a user script's prefix `user_`,
-         or `core` for entries that belong to the Core.
+         or `core` for entries that belong to the `Core`:pn:.
 
          The purpose of namespaces is that entries with the same key can exist
          within different namespaces.
@@ -73,7 +73,7 @@ table:
          The entry's key. Together with the namespace, the key is unique for the
          whole table. The key can be any string to identify the entry. It's
          recommended to use dots as dividers if necessary. In this way, the
-         naming is similar to the syntax already known in TypoScript.
+         naming is similar to the syntax already known in `TypoScript`:pn:.
 
 
  - :Field:
@@ -126,7 +126,7 @@ first time an entry is accessed. Setting a value is also easy with the
    :Description:
          Represents an entry's namespace. In general, the namespace is an
          extension key that starts with `tx_`, a user script's prefix `user_`,
-         or `core` for entries that belong to the Core.
+         or `core` for entries that belong to the `Core`:pn:.
 
 
  - :Method:

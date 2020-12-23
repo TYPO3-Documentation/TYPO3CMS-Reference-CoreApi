@@ -24,7 +24,7 @@ Here's the complete code, taken from file
 	<?php
 	defined('TYPO3') or die();
 
-	// Add some fields to FE Users table to show TCA fields definitions
+	// Add some fields to frontend Users table to show TCA fields definitions
 	// USAGE: TCA Reference > $GLOBALS['TCA'] array reference > ['columns'][fieldname]['config'] / TYPE: "select"
 	$temporaryColumns = array (
 		'tx_examples_options' => array (
@@ -93,7 +93,7 @@ extension:
 .. warning::
 
    The above statement uses the SQL CREATE TABLE statement. This is the
-   way TYPO3 expects it to be. The Extension Manager will automatically
+   way TYPO3 expects it to be. The `Extension Manager`:pn: will automatically
    transform this into a ALTER TABLE statement when it detects that the
    table already exists.
 
@@ -172,13 +172,13 @@ The result is the following:
 
    Obviously this new field will now magically exclude a content element
    from being printed. For it to have any effect, it must be used during
-   the rendering by modifying the TypoScript used to render the
+   the rendering by modifying the `TypoScript`:pn: used to render the
    "tt\_content" table. Although this is outside the scope of this
    manual, here is an example of what you could do, for the sake of
    showing a complete process.
 
    Assuming you are using "fluid\_styled\_content" (which is installed by
-   default), you could add the following TypoScript to your template:
+   default), you could add the following `TypoScript`:pn: to your template:
 
    .. code-block:: typoscript
 

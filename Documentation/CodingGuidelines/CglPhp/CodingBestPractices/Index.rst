@@ -6,7 +6,7 @@
 Coding: Best practices
 ======================
 
-This section documents some best practices when developing for TYPO3.
+This section documents some best practices when developing for `TYPO3`:pn:.
 Most areas are documented in more detail at different places, this
 part is just an overview of common pitfalls and generic tips.
 

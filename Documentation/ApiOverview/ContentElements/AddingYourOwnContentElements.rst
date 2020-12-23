@@ -7,7 +7,7 @@ Create Custom Content Elements
 ==============================
 
 This page explains how to create your own custom content element types, in
-addition to the content elements already supplied by TYPO3. You can find
+addition to the content elements already supplied by `TYPO3`:pn:. You can find
 more code examples in the system extension `fluid_styled_content`.
 
 A content element can be based on fields already available in the `tt_content` table.
@@ -18,12 +18,12 @@ Adding fields is done by :ref:`extending the TCA <extending-tca>`.
 Depending on the data in the `tt_content` table,
 the data can be passed to the :ref:`cobj-fluidtemplate`.
 Some data might need additional processing by
-:ref:`data processor <t3tsref:cobj-fluidtemplate-properties-dataprocessing>` e.g. to resolve file relations.
+:ref:`data processor <t3tsref:cobj-fluidtemplate-properties-dataprocessing>` for example to resolve file relations.
 The content elements in the extension *fluid_styled_content* are using both methods.
-A data processor can be used to convert a string to an array,
+A `Data Processor`:pn: can be used to convert a string to an array,
 like done for the *table* content element with the field `bodytext`,
-or to fetch a related record, e.g. a FAL file.
-In these cases Fluid does not have to deal with these manipulations or transformation.
+or to fetch a related record, for example a FAL file.
+In these cases `Fluid`:pn: does not have to deal with these manipulations or transformation.
 
 
 Prerequisites
@@ -31,7 +31,7 @@ Prerequisites
 
 Some of the following steps (specifically the ones using ``lib.contentElement``) require the system
 extension :ref:`fluid_styled_content <fsc:start>`. If you do not use **fluid_styled_content**, you
-must create and initialize the ``lib.contentElement`` TypoScript object yourself.
+must create and initialize the ``lib.contentElement`` `TypoScript`:pn: object yourself.
 
 .. _AddingCE-use-an-extension:
 
@@ -50,7 +50,7 @@ If you have plans to publish your extension, follow :ref:`extension-key-registra
 1. Register the Content Element
 ===============================
 
-First add the new content element to :guilabel:`New Content Element Wizard` and define its `CType` in PageTSconfig.
+First add the new content element to :guilabel:`New Content Element Wizard` and define its `CType` in page `TSconfig`:pn:.
 
 The example content element is called `yourextensionkey_newcontentelement`:
 
@@ -139,7 +139,7 @@ Then you need to configure the backend fields for your new content element in th
 3. Configure the Frontend Template
 ==================================
 
-TypoScript configuration is needed as well.
+`TypoScript`:pn: configuration is needed as well.
 Therefore add an entry in the static template list found in `sys_templates`.
 This should be done within :file:`Configuration/TCA/Overrides/sys_template.php`:
 
@@ -152,10 +152,10 @@ This should be done within :file:`Configuration/TCA/Overrides/sys_template.php`:
        'Your description'
    );
 
-This API call will register the file :file:`Configuration/TypoScript/setup.typoscript` to be loaded as static TypoScript.
+This API call will register the file :file:`Configuration/TypoScript/setup.typoscript` to be loaded as static `TypoScript`:pn:.
 The definitions inside this file will be effective when the file is loaded.
 
-As Fluid templates, partials and layouts will be shipped in the custom extension,
+As `Fluid`:pn: templates, partials and layouts will be shipped in the custom extension,
 paths for them need to be added to the file.
 Therefore adjust the properties:
 
@@ -196,12 +196,12 @@ The template is identified by the :ref:`t3tsref:cobj-fluidtemplate-properties-te
 
 This will load a :file:`NewContentElement.html` template file from the :typoscript:`templateRootPaths`.
 
-For the final rendering you need a Fluid template.
+For the final rendering you need a `Fluid`:pn: template.
 
 This template will be located at the directory and file name entered in :file:`setup.typoscript` using
 the parameter :typoscript:`templateName`.
 
-`tt_content` fields can now be used in the Fluid template by accessing them via the `data` variable.
+`tt_content` fields can now be used in the `Fluid`:pn: template by accessing them via the `data` variable.
 The following example shows the text entered in the richtext enabled field `bodytext`, using the html
 saved by the richtext editor:
 
@@ -230,7 +230,7 @@ This is done in the :ref:`dataProcessing <t3tsref:cobj-fluidtemplate-properties-
 section where you can add an arbitrary number of data processors.
 
 Each one has to be added with a fully qualified class name (FQCN) and optional
-parameters to be used in the data processor:
+parameters to be used in the `Data Processor`:pn::
 
 .. code-block:: typoscript
 
@@ -247,7 +247,7 @@ parameters to be used in the data processor:
        }
    }
 
-In the example :file:`setup.typoscript` above, the data processor is located in the directory :file:`Classes/DataProcessing/`.
+In the example :file:`setup.typoscript` above, the `Data Processor`:pn: is located in the directory :file:`Classes/DataProcessing/`.
 The file :file:`NewContentElementProcessor.php` could look like this:
 
 .. code-block:: php
@@ -284,7 +284,7 @@ The file :file:`NewContentElementProcessor.php` could look like this:
         * @param ContentObjectRenderer $cObj The data of the content element or page
         * @param array $contentObjectConfiguration The configuration of Content Object
         * @param array $processorConfiguration The configuration of this processor
-        * @param array $processedData Key/value store of processed data (e.g. to be passed to a Fluid View)
+        * @param array $processedData Key/value store of processed data (for example to be passed to a `Fluid`:pn: View)
         * @return array the processed data as key/value store
         */
        public function process(

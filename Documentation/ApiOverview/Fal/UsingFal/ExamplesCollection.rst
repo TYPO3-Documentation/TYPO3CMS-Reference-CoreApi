@@ -25,7 +25,7 @@ In this example, we retrieve and load the content from the
 the :php:`\Iterator` interface, which means that a Collection
 can be looped over (once its content has been loaded). Thus
 if the above code passed the :php:`$collection` variable to
-a Fluid view, you could do the following:
+a `Fluid`:pn: view, you could do the following:
 
 .. code-block:: html
 

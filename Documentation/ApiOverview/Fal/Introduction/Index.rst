@@ -5,8 +5,8 @@
 Introduction
 ============
 
-This part of the Core API document contains details about the file abstraction layer (FAL),
-TYPO3 CMS' toolbox for handling media. It explains its architecture and
+This part of the `Core`:pn: API document contains details about the file abstraction layer (FAL),
+`TYPO3 CMS`:pn:' toolbox for handling media. It explains its architecture and
 concepts and details what a web site administrator should know about
 FAL maintenance and permissions.
 

@@ -2,15 +2,15 @@
 
 .. _fal-using-fal-tca:
 
-==============
-TCA Definition
-==============
+=====================
+`TCA`:pn: Definition
+=====================
 
 This chapter explains how to create a field that makes it possible to
 create relations to files.
 
-TYPO3 CMS provides a convenient API for this.
-Let's look at the TCA configuration the `image` field of the `tt_content`
+`TYPO3 CMS`:pn: provides a convenient API for this.
+Let's look at the `TCA`:pn: configuration the `image` field of the `tt_content`
 table for example (with some parts skipped).
 
 .. code-block:: php
@@ -37,12 +37,12 @@ fourth argument is the list of disallowed file extensions. All arguments but the
 are optional.
 
 A call to :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig()`
-will generate a standard TCA configuration for an :ref:`inline-type field <t3tca:columns-inline>`,
+will generate a standard `TCA`:pn: configuration for an :ref:`inline-type field <t3tca:columns-inline>`,
 with relation to the `sys_file` table via the `sys_file_reference`
 table as "MM" table.
 
 The override configuration array (the second argument) can be used to tweak
-this default TCA definition. Any valid property from the `config` section
+this default `TCA`:pn: definition. Any valid property from the `config` section
 of inline-type fields can be used.
 
 Additionally, there is an extra section for providing media sources, that come as three buttons per default.
@@ -53,7 +53,7 @@ Additionally, there is an extra section for providing media sources, that come a
 
     A typical FAL relation field
 
-Which ones should appear for the editor to use, can be configures using TCA appearance settings::
+Which ones should appear for the editor to use, can be configures using `TCA`:pn: appearance settings::
 
    $GLOBALS['TCA']['pages']['columns']['media']['config']['appearance'] = [
       'fileUploadAllowed' => false,
@@ -64,7 +64,7 @@ This will suppress two buttons and only leave "Create new relation".
 
 .. note::
 
-   Such FAL-enabled fields can also be used inside FlexForms, but there's no API
+   Such FAL-enabled fields can also be used inside `FlexForms`:pn:, but there's no API
    to generate the code in such a case.
 
 

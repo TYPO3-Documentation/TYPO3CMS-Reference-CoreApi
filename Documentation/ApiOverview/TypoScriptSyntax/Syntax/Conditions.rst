@@ -10,7 +10,7 @@ Conditions
 There is a *possibility* of using so called *conditions* in
 TypoScript. Conditions are simple control structures, that evaluate to
 TRUE or FALSE based on some criteria (externally validated) and
-thereby determine, whether the TypoScript code following the condition
+thereby determine, whether the `TypoScript`:pn: code following the condition
 and ending where the next condition is found, should be parsed or not.
 
 Examples of a condition could be:
@@ -26,10 +26,10 @@ Examples of a condition could be:
 - Do I feel lucky today?
 
 Of these examples admittedly the first few are the most realistic. In
-fact they are readily available in the context of TypoScript
+fact they are readily available in the context of `TypoScript`:pn:
 Templates. But a condition can theoretically evaluate any circumstance
 and return either TRUE or FALSE which subsequently means the parsing
-of the TypoScript code that follows.
+of the `TypoScript`:pn: code that follows.
 
 .. seealso::
 
@@ -41,15 +41,15 @@ of the TypoScript code that follows.
 Where Conditions Can Be Used
 ============================
 
-The *detection of conditions* is a part of the TypoScript syntax but
+The *detection of conditions* is a part of the `TypoScript`:pn: syntax but
 the *validation* of the condition content always relies on the
-context where TypoScript is used. Therefore in plain syntax
+context where `TypoScript`:pn: is used. Therefore in plain syntax
 highlighting (no context) conditions are just highlighted and nothing
-more. In the context of TypoScript Templates there is a
+more. In the context of `TypoScript`:pn: templates there is a
 :ref:`whole section of TSref <t3tsref:conditions>` which defines the
-syntax of the condition contents for TypoScript Templates. For "Page
-TSconfig" and "user TSconfig" conditions are implemented as well.
-Basically they work the same way as conditions in TypoScript
+syntax of the condition contents for `TypoScript`:pn: templates. For "Page
+`TSconfig`:pn:" and "user `TSconfig`:pn:" conditions are implemented as well.
+Basically they work the same way as conditions in `TypoScript`:pn:
 templates do, but there are some small differences. For details see the
 :ref:`chapter on conditions in TSconfig <t3tsconfig:conditions>`.
 
@@ -72,18 +72,18 @@ A condition is written on its own line and is detected by :code:`[`
 
    [GLOBAL]
 
-   (Some TypoScript)
+   (Some `TypoScript`:pn:)
 
 As you can see from this example, the line :code:`[GLOBAL]` also is a
-condition. It is built into TypoScript and always returns TRUE. The
+condition. It is built into `TypoScript`:pn: and always returns TRUE. The
 line :code:`[ condition ]` is another condition.
-If :code:`[ condition ]` is TRUE, then the TypoScript in the
+If :code:`[ condition ]` is TRUE, then the `TypoScript`:pn: in the
 middle would be parsed until :code:`[GLOBAL]` (or :code:`[END]`) resets the
-condition. After that point the TypoScript is parsed for any case
+condition. After that point the `TypoScript`:pn: is parsed for any case
 again.
 
 
-Here is an example of some TypoScript (from the context of TypoScript
+Here is an example of some `TypoScript`:pn: (from the context of `TypoScript`:pn:
 Templates) where another text is output if you are logged in or
 working locally:
 
@@ -128,7 +128,7 @@ and
 not
   Also available as :code:`!`.
 
-TypoScript conditions are using the Symfony Expression Language. For more
+`TypoScript`:pn: conditions are using the `Symfony`:pn: expression language. For more
 information on writing such expressions, you can look up the
 `symfony documentation on the expression language <https://symfony.com/doc/current/components/expression_language/syntax.html>`__.
 
@@ -157,7 +157,7 @@ can use either :code:`[END]` or :code:`[GLOBAL]`. For all three conditions you c
 also use them in lower case.
 
 Here's an example of using the :code:`[ELSE]` condition (also in the context
-of TypoScript Templates):
+of `TypoScript`:pn: templates):
 
 .. code-block:: typoscript
 
@@ -175,14 +175,14 @@ of TypoScript Templates):
 Here we have one output text if a user is logged in and
 another if not. No matter what the text is wrapped in a :code:`<strong>` tag,
 because, as we can see, this wrap is added outside of the condition block
-(e.g. after the :code:`[END]` condition).
+(for example after the :code:`[END]` condition).
 
 .. figure:: ../Images/ConditionsSyntaxElse.png
-   :alt: The TypoScript object browser showing the output of an ELSE condition.
+   :alt: The `TypoScript`:pn: object browser showing the output of an ELSE condition.
 
-The fact that you can "enable" the condition in the TypoScript Object
+The fact that you can "enable" the condition in the `TypoScript`:pn: Object
 Browser is a facility provided to simulate the outcome of any
-conditions you insert in a TypoScript Template. Whether or not the
+conditions you insert in a `TypoScript`:pn: template. Whether or not the
 conditions validate correctly is only verified by actually getting
 (in this example) a logged in user and hitting the site.
 
@@ -200,8 +200,8 @@ but you could do this:
 .. _typoscript-syntax-conditions-confinements:
 .. _typoscript-syntax-conditions-braces:
 
-Where to insert conditions in TypoScript?
-=========================================
+Where to insert conditions in `TypoScript`:pn:?
+===============================================
 
 Conditions can be used *outside* of confinements (curly braces) only!
 
@@ -233,7 +233,7 @@ When parsed with syntax highlighting you will see this error:
    :alt: Error after having used a condition where it is not allowed.
 
 This means that the line was perceived as a regular definition of
-TypoScript and not as a condition.
+`TypoScript`:pn: and not as a condition.
 
 
 .. _typoscript-syntax-the-global-condition:
@@ -265,21 +265,22 @@ end brace is now in excess since the "brace level" was reset by
 :code:`[GLOBAL]`.
 
 So, in summary; the special :code:`[global]` (or :code:`[GLOBAL]`) condition will
-break TypoScript parsing within braces at any time and return to the
+break `TypoScript`:pn: parsing within braces at any time and return to the
 global scope (unless entered in a multiline value). This is true for
-any TypoScript implementation whether other condition types are
+any `TypoScript`:pn: implementation whether other condition types are
 possible or not. Therefore you can use :code:`[GLOBAL]` (put on a single line
-for itself) to make sure that following TypoScript is correctly parsed
-from the top level. This is normally done when TypoScript code from
+for itself) to make sure that following `TypoScript`:pn: is correctly parsed
+from the top level. This is normally done when `TypoScript`:pn: code from
 various records is combined.
 
 
 .. _typoscript-syntax-conditions-expression-language:
 
-Custom Conditions With Symfony Expression Language
-==================================================
+Custom conditions with `Symfony`:pn: expression language
+========================================================
 
-Further information about how to extend TypoScript with your own custom conditions can be found within :ref:`sel-within-typoscript-conditions`.
+Further information about how to extend `TypoScript`:pn: with your own custom
+conditions can be found within :ref:`sel-within-typoscript-conditions`.
 
 .. _typoscript-syntax-conditions-summary:
 
@@ -289,9 +290,9 @@ Summary
 - Conditions are detected by :code:`[` as the first line character (whitespace
   ignored).
 
-- Conditions are evaluated in relation to the context where TypoScript
-  is used. They are widely used in TypoScript Templates and can also be
-  used in page TSconfig or user TSconfig.
+- Conditions are evaluated in relation to the context where `TypoScript`:pn:
+  is used. They are widely used in `TypoScript`:pn: templates and can also be
+  used in page `TSconfig`:pn: or user `TSconfig`:pn:.
 
 - Special conditions :code:`[ELSE]`, :code:`[END]` and :code:`[GLOBAL]` exist.
 

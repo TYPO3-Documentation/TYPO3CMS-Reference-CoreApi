@@ -6,7 +6,7 @@
 Context Sensitive Help (CSH)
 ============================
 
-TYPO3 CMS offers a full API for adding Context Sensitive Help to
+`TYPO3 CMS`:pn: offers a full API for adding Context Sensitive Help to
 backend modules and - especially - to all database tables and fields.
 CSH then appears either as a help icon in the docheader (for modules)
 or as a popup on field labels when editing database records.

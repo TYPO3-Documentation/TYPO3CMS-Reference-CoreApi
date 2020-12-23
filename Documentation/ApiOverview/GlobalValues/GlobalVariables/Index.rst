@@ -30,7 +30,7 @@ $GLOBALS
  - :Variable,20: Global variable
    :Defined,20: Defined in
    :Description,50: Description
-   :FE,10: Avail. in FE
+   :FE,10: Avail. in frontend
 
 
  - :Variable:
@@ -82,7 +82,7 @@ $GLOBALS
          :php:`SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
    :Description:
          Is set to :php:`$GLOBALS['EXEC_TIME']` but can be altered later in the script if we
-         want to simulate another execution-time when selecting from e.g. a
+         want to simulate another execution-time when selecting from for example a
          database (used in the frontend for preview of future and past dates)
 
          .. note::
@@ -130,7 +130,7 @@ $GLOBALS
    :Defined:
          :file:`typo3/sysext/core/ext_tables.php`
    :Description:
-         Contains information related to BE skinning.
+         Contains information related to backend skinning.
    :FE:
          (occasionally)
 
@@ -188,8 +188,8 @@ Many of the global variables described above can be inspected using the
 **ADMIN TOOLS > Configuration** module.
 
 .. warning::
-   This module is always viewed in the BE context. Variables defined
-   only in the FE context will not be visible there.
+   This module is always viewed in the backend context. Variables defined
+   only in the frontend context will not be visible there.
 
 .. note::
 

@@ -6,7 +6,7 @@
 Singletons
 ==========
 
-TYPO3 supports the singleton patterns for classes. Singletons are
+`TYPO3`:pn: supports the singleton patterns for classes. Singletons are
 instantiated only once per request regardless of the number of
 calls to :php:`GeneralUtility::makeInstance()`. To use a singleton
 pattern, a class must implement the :php:`SingletonInterface`::

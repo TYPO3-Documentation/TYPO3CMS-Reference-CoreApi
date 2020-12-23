@@ -7,7 +7,7 @@
 AddJavaScriptModulesEvent
 =========================
 
-JavaScript events in custom User Settings Configuration options should no longer be placed as inline JavaScript. Instead, use a dedicated JavaScript module to handle custom events.
+`JavaScript`:pn: events in custom User Settings Configuration options should no longer be placed as inline `JavaScript`:pn:. Instead, use a dedicated `JavaScript`:pn: module to handle custom events.
 
 
 Example
@@ -31,7 +31,7 @@ A listener using mentioned PSR-14 event could look like the following.
                  event: TYPO3\CMS\SetupEvent\AddJavaScriptModulesEvent
 
 
-   2. Implement Listener to load JavaScript module `TYPO3/CMS/MyExtension/CustomUserSettingsModule`
+   2. Implement Listener to load `JavaScript`:pn: module `TYPO3/CMS/MyExtension/CustomUserSettingsModule`
 
       .. code-block:: php
 
@@ -64,9 +64,9 @@ API
 
 addModule(string $moduleName)
    :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|` :aspect:`Arguments:` :php:`$moduleName`: The JavaScript module name
+   :sep:`|` :aspect:`Arguments:` :php:`$moduleName`: The `JavaScript`:pn: module name
 
-   Add a module to be loaded with RequireJS (e.g. :code:`TYPO3/CMS/MyExtension/CustomUserSettingsModule`)
+   Add a module to be loaded with RequireJS (for example :code:`TYPO3/CMS/MyExtension/CustomUserSettingsModule`)
 
 getModules()
    :sep:`|` :aspect:`ReturnType:` array

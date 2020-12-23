@@ -7,7 +7,7 @@
 T3DataStructure
 ===============
 
-TYPO3 offers an XML format, T3DataStructure, which defines a
+`TYPO3`:pn: offers an XML format, T3DataStructure, which defines a
 hierarchical data structure. In itself the data structure definition
 doesn't do much - it is only a back bone for higher level applications
 which can add their own configuration inside.
@@ -24,7 +24,7 @@ Such applications can be:
   an extension which uses the Data Structure as backbone for mapping template HTML to data.
 
 This documentation of a data structure will document the general
-aspects of the XML format and leave the details about FlexForms and
+aspects of the XML format and leave the details about `FlexForms`:pn: and
 TemplaVoila to be documented elsewhere.
 
 Some other facts about Data Structures (DS):

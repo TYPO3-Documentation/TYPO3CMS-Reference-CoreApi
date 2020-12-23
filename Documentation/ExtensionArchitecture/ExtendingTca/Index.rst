@@ -7,13 +7,13 @@
 .. _extending:
 .. _extending-tca:
 
-========================
-Extending the TCA array
-========================
+==============================
+Extending the `TCA`:pn: array
+==============================
 
 Being a PHP array, the Table Configuration Array can be easily
 extended. It can be accessed as the global variable :php:`$GLOBALS['TCA']`.
-TYPO3 also provides APIs for making this simpler.
+`TYPO3`:pn: also provides APIs for making this simpler.
 
 
 .. toctree::

@@ -6,7 +6,7 @@
 Data compiling
 ==============
 
-This is the first step of FormEngine. The data compiling creates an array containing all data
+This is the first step of the `FormEngine`:pn:. The data compiling creates an array containing all data
 the rendering needs to come up with a result.
 
 A basic call looks like this:
@@ -59,10 +59,10 @@ The variable :php:`$formData` roughly consists of this data after calling :php:`
 * A lot more
 
 
-Basic goal of this step is to create an array in a specified format with all data needed by the render-part of FormEngine.
+Basic goal of this step is to create an array in a specified format with all data needed by the render-part of the `FormEngine`:pn:.
 A controller initializes this with init data, and then lets single data providers fetch additional data and write it
 to the main array. The deal is here that the data within that array is *not* structured in an arbitrary way, and each single
-data provider only adds data the render part of FormEngine understands and needs later. This is why the main array keys are restricted:
+data provider only adds data the render part of the `FormEngine`:pn: understands and needs later. This is why the main array keys are restricted:
 The main array is initialized by :php:`FormDataCompiler`, and each :php:`DataProvider` can only add data to sub-parts of that array.
 
 .. note::
@@ -70,12 +70,12 @@ The main array is initialized by :php:`FormDataCompiler`, and each :php:`DataPro
    which data is expected to reside in this array, those comments are worth a look.
 
 .. note::
-   It may happen in future versions of FormEngine (Core version 9+) that the responsibility for the main structure and integrity
+   It may happen in future versions of the `FormEngine`:pn: (`Core`:pn: version 9+) that the responsibility for the main structure and integrity
    of the data array will be moved away from :php:`FormDataCompiler` into the single :php:`FormDataGroup` class. This may even make
    the :php:`FormDataCompiler` obsolete in total.
 
 
-Data Groups and Providers
+Data groups and providers
 =========================
 
 So we have this empty data array, pre-set with data by a controller and then initialized by :php:`FormDataCompiler`,
@@ -119,7 +119,7 @@ InlineParentRecord
 OnTheFly
   A special data group that can be initialized with a list of to-execute data providers directly. In contrast to the
   others, it does not resort the data provider list by its dependencies and does not fetch the list of data providers
-  from a global config. Used in the Core at a couple of places, where a small number of data providers should be called
+  from a global config. Used in the `Core`:pn: at a couple of places, where a small number of data providers should be called
   right away without being extensible.
 
 .. note::
@@ -133,7 +133,7 @@ Main record data and dependencies:
 
 * Fetch record from DB or initialize a new row depending on :php:`$data['command']` being "new" or "edit", set row as :php:`$data['databaseRow']`
 * Add userTs and pageTsConfig to data array
-* Add table TCA as :php:`$data['processedTca']`
+* Add table `TCA`:pn: as :php:`$data['processedTca']`
 * Determine record type value
 * Fetch record translations and other details and add to data array
 
@@ -142,7 +142,7 @@ Single field processing:
 * Process values and items of simple types like :php:`type=input`, :php:`type=radio`, :php:`type=check` and so on. Validate
   their :php:`databaseRow` values and validate and sanitize their :php:`processedTca` settings.
 * Process more complex types that may have relations to other tables like :php:`type=group` and :php:`type=select`, set
-  possible selectable items in :php:`$data['processedTca']` of the according fields, sanitize their TCA settings.
+  possible selectable items in :php:`$data['processedTca']` of the according fields, sanitize their `TCA`:pn: settings.
 * Process :php:`type=inline` and :php:`type=flex` fields and prepare their child fields by using new instances of
   :php:`FormDataCompiler` and adding their results to :php:`$data['processedTca']`.
 
@@ -156,14 +156,14 @@ Extending Data Groups With Own Providers
 ========================================
 
 The base set of DataProviders for all DataGroups is defined within :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
-in section :php:`['SYS']['formEngine']['formDataGroup']`, and ends up in variable :php:`$GLOBALS['TYPO3_CONF_VARS']` after Core
+in section :php:`['SYS']['formEngine']['formDataGroup']`, and ends up in variable :php:`$GLOBALS['TYPO3_CONF_VARS']` after `Core`:pn:
 bootstrap. The provider list can be read top-down, so the :php:`DependencyOrderingService` typically does not resort this
 list to a different order.
 
 Adding an own provider to this list means adding an array key to that array having a specification *where* the new data provider
 should be added in the list. This is done by the arrays :php:`depends` and :php:`before`.
 
-As an example, the extension "news" uses an own data provider to do additional flex form data structure preparation. The Core internal
+As an example, the extension "news" uses an own data provider to do additional flex form data structure preparation. The `Core`:pn: internal
 flex preparation is already split into two providers: :php:`TcaFlexPrepare` determines the data structure and parses
 it, :php:`TcaFlexProcess` uses the prepared data structure, processes values and applies defaults if needed. The data provider
 from the extension "news" hooks in between these two to add some own preparation stuff. The registration happens with this
@@ -171,7 +171,7 @@ code in :file:`ext_localconf.php`:
 
 .. code-block:: php
 
-    // Modify flexform fields since Core 8.5 via formEngine: Inject a data provider
+    // Modify FlexForm fields since Core 8.5 via formEngine: Inject a data provider
     // between TcaFlexPrepare and TcaFlexProcess
     if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 8005000) {
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['formDataGroup']['tcaDatabaseRecord']
@@ -196,13 +196,13 @@ Limitations:
 * It is not easily possible to substitute an existing provider with an own one.
 
 .. note::
-  It may happen that the Core splits or deletes the one or the other DataProvider in the future. If then an extension
+  It may happen that the `Core`:pn: splits or deletes the one or the other DataProvider in the future. If then an extension
   has a dependency to a removed provider, the :php:`DependencyOrderingService`, which takes care of the sorting, throws
-  an exception. There is currently no good solution in the Core on how to mitigate this issue.
+  an exception. There is currently no good solution in the `Core`:pn: on how to mitigate this issue.
 
 .. note::
   Data providers in general should not know about :php:`renderType`, but only about :php:`type`. Their goal is to prepare
-  and sanitize data independent of a specific :php:`renderType`. At the moment, the Core data provider just has one
+  and sanitize data independent of a specific :php:`renderType`. At the moment, the `Core`:pn: data provider just has one
   or two places, where specific :php:`renderType`'s are taken into account to process data, and those show that these areas
   are a technical debt that should be changed.
 
@@ -215,16 +215,16 @@ record initialization for specific fields in :php:`$data['databaseRow']` or addi
 :php:`$data['processedTca']`. The main data array is documented in :php:`FormDataCompiler->initializeResultArray()`.
 
 Sometimes, own DataProviders need to add additional data that does not fit into existing places. In those cases they
-can add stuff to :php:`$data['customData']`. This key is not filled with data by Core DataProviders and serves as a place
+can add stuff to :php:`$data['customData']`. This key is not filled with data by `Core`:pn: DataProviders and serves as a place
 for extensions to add things. Those data components can be used in own code parts of the rendering later. It is advisable
 to prefix own data in :php:`$data['customData']` with some unique key (for instance the extension name) to not collide
 with other data that a different extension may add.
 
 
-Disable Single FormEngine Data Provider
-=======================================
+Disable single `FormEngine`:pn: data providers
+==============================================
 
-Single data providers used in the FormEngine data compilation step can be disabled to allow extension authors to substitute
+Single data providers used in the `FormEngine`:pn: data compilation step can be disabled to allow extension authors to substitute
 existing data providers with their solutions.
 
 As an example, if editing a full database record, the default `TcaCheckboxItems` could be removed by setting

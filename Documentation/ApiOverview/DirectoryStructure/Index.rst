@@ -35,7 +35,7 @@ the paths within PHP code.
       Note this is only the default editor's file storage. This directory
       is handled via the :ref:`FAL API <fal>` internally, there may be
       further storage locations configured outside of :file:`fileadmin/`, even
-      pointing to different servers or using 3rd party digital asset management
+      pointing to different servers or using third party digital asset management
       systems.
 
       .. note::
@@ -48,7 +48,7 @@ the paths within PHP code.
   - :Directory: :file:`typo3/`
     :Description:
       TYPO3 Backend directory. This directory contains most of the files
-      coming with the TYPO3 Core. The files are arranged logically in the
+      coming with the `TYPO3 Core`:pn:. The files are arranged logically in the
       different system extensions in the :file:`sysext/` directory,
       according to the application area of the particular file. For example,
       the ":code:`frontend`" extension amongst other things contains the
@@ -67,12 +67,12 @@ the paths within PHP code.
       :file:`LocalConfiguration.php`. This one contains local settings of the
       main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS`], crucial settings
       like database connect credentials are in here. The file is managed by the
-      Install Tool and the Extension Manager and the content should not be
-      managed manually since Extension Manager or Install Tool may override
+      Install Tool and the `Extension Manager`:pn: and the content should not be
+      managed manually since `Extension Manager`:pn: or Install Tool may override
       manually changed settings again.
 
       The file :file:`LocalConfiguration.php` can be enriched by
-      :file:`AdditionalConfiguration.php` which is never touched by TYPO3
+      :file:`AdditionalConfiguration.php` which is never touched by `TYPO3`:pn:
       internal management tools. Be aware that having settings within
       :file:`AdditionalConfiguration.php` may prevent the system from doing
       automatic upgrades and should be used with care and only if you know what
@@ -95,10 +95,10 @@ the paths within PHP code.
   - :Directory: :file:`typo3temp/assets/`
     :Description:
       Directory for temporary files that should be public available
-      (e.g. generated images).
+      (for example generated images).
 
   - :Directory: :file:`typo3temp/var/`
     :Description:
-      Directory for temporary files that contains private files (e.g. cached
-      Fluid templates) and should not be publicly available.
+      Directory for temporary files that contains private files (for example cached
+      `Fluid`:pn: templates) and should not be publicly available.
       See also :ref:`Environment-configuring-paths` for a more detailed description.

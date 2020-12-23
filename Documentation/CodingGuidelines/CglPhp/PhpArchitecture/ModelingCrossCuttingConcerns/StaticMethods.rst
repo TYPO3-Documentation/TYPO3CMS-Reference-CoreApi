@@ -37,13 +37,13 @@ Characteristica
 Rationale
 =========
 
-Static methods as cross-cutting concern solution have been in the Core
+Static methods as cross-cutting concern solution have been in the `Core`:pn:
 ever since. They are an easy way to extract recurring coding problems
 to helper methods.
 
 Static methods however have a list of issues that need to be taken
 into consideration before deciding to use them. First, they can not be
-extended in a sane way and the Core framework has no way to re-route a
+extended in a sane way and the `Core`:pn: framework has no way to re-route a
 static method call to a different implementation. They are a hard coded
 dependency in a system. They can not be easily “mocked away” in unit
 tests if a class uses a static method from a different class. They
@@ -56,14 +56,14 @@ becoming god methods in long run. Big and complex utility methods doing
 too much at a time is a strong sign something else was not modeled
 properly at a different place.
 
-The Core has a long history of static utility class misuse and is in an
+The `Core`:pn: has a long history of static utility class misuse and is in an
 ongoing effort to model stuff correctly and getting rid of static
 utility god classes that happily mix different concerns. Solving some
 of these utility methods to proper class structures typically improves
-code separation significantly and renders Core parts more flexible and
+code separation significantly and renders `Core`:pn: parts more flexible and
 less error prone.
 
-With this history in mind, Core development is rather sensible when new
+With this history in mind, `Core`:pn: development is rather sensible when new
 static utility classes should be added. During reviews, a heavy
 introduction of static classes or methods should raise red lights, it
 is likely some abstraction went wrong and the problem domain was not
@@ -75,8 +75,8 @@ mostly an extraction of a common programming problem that can not be
 abstracted within the class hierarchy since multiple different class
 hierarchies have the same challenge. Good static methods contain helper
 code like dedicated array manipulations or string operations. This is
-why the majority of static utility classes is located within the Core
-extension in the Core and other extension have little number of utility
+why the majority of static utility classes is located within the `Core`:pn:
+extension in the `Core`:pn: and other extension have little number of utility
 classes.
 
 Good static methods calls are not “mocked away” in unit tests of a

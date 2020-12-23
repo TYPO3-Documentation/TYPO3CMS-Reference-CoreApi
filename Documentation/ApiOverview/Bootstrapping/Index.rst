@@ -6,7 +6,7 @@
 Bootstrapping
 =============
 
-TYPO3 CMS has a clean bootstrapping process driven mostly
+`TYPO3 CMS`:pn: has a clean bootstrapping process driven mostly
 by class :php:`\TYPO3\CMS\Core\Core\Bootstrap`. This class
 contains a host of methods each responsible for a little
 step along the initialization of a full TYPO3 process,
@@ -68,7 +68,7 @@ Bootstrap class itself, allowing calls to be chained.
 Initialization
 ==============
 
-Whenever a call to TYPO3 CMS is made, the application goes through a
+Whenever a call to `TYPO3 CMS`:pn: is made, the application goes through a
 bootstrapping process managed by a dedicated API. This process is also
 used in the frontend, but only the backend process is described here.
 
@@ -191,7 +191,7 @@ Application Context
 ===================
 
 Each request, no matter if it runs from the command line or through HTTP,
-runs in a specific *application context*. TYPO3 CMS provides exactly three built-in
+runs in a specific *application context*. `TYPO3 CMS`:pn: provides exactly three built-in
 contexts:
 
 * ``Production`` (default) - should be used for a live site
@@ -234,7 +234,7 @@ or be part of the web server configuration:
 
 .. code-block:: nginx
 
-   # In your Nginx configuration, you can pass the context as a fastcgi parameter
+   # In your nginx configuration, you can pass the context as a fastcgi parameter
    location ~ \.php$ {
       include         fastcgi_params;
       fastcgi_index   index.php;
@@ -253,7 +253,7 @@ In certain situations, more specific contexts are desirable:
 * a staging system may run in a *Production* context, but requires a different set of
   credentials than the production server.
 * developers working on a project may need different application specific settings
-  but prefer to maintain all configuration files in a common Git repository.
+  but prefer to maintain all configuration files in a common `Git`:pn: repository.
 
 By defining custom contexts which inherit from one of the three base contexts,
 more specific configuration sets can be realized.

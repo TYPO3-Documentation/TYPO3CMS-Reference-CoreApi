@@ -11,7 +11,7 @@
 System Categories
 =================
 
-Since version 6.0, TYPO3 CMS provides a generic categorization system.
+Since version 6.0, `TYPO3 CMS`:pn: provides a generic categorization system.
 Categories can be created in the backend like any other type of record.
 Any table can be made categorizable and thus be attached to system
 categories.
@@ -57,7 +57,7 @@ The default value is :code:`pages,tt_content,sys_file_metadata`.
 
    It is recommended to avoid changing this setting. You should rather use the
    API described just below so as to avoid overriding a default which may
-   change in future versions of TYPO3 CMS. The API is also more powerful.
+   change in future versions of `TYPO3 CMS`:pn:. The API is also more powerful.
 
 The second way is to call :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable()`.
 This method adds a new entry into the registry managed by :php:`\TYPO3\CMS\Core\\Category\CategoryRegistry`.
@@ -65,7 +65,7 @@ The registry will take care of adding the relevant :ref:`$TCA <t3tca:start>` def
 create a field for making relations to the system categories.
 
 The call to :code:`makeCategorizable()` must be located in an extension's
-:file:`Configuration/TCA/Overrides` folder (or :file:`ext_tables.php` file before TYPO3 CMS 6.2.1).
+:file:`Configuration/TCA/Overrides` folder (or :file:`ext_tables.php` file before `TYPO3 CMS`:pn: 6.2.1).
 
 The default :code:`$GLOBALS['TCA']` structure provided by the registry
 can be overridden by an array options passed to :code:`makeCategorizable()`.
@@ -84,7 +84,7 @@ The example below illustrates how this is done:
          'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:additional_categories',
          // This field should not be an exclude-field
          'exclude' => FALSE,
-         // Override generic configuration, e.g. sort by title rather than by sorting
+         // Override generic configuration, for example sort by title rather than by sorting
          'fieldConfiguration' => array(
             'foreign_table_where' => ' AND {#sys_category}.{#sys_language_uid} IN (-1, 0) ORDER BY sys_category.title ASC',
          ),
@@ -118,8 +118,8 @@ This is the result of the above code:
 
 .. _categories-flexforms:
 
-Using Categories in FlexForms
-=============================
+Using categories in `FlexForms`:pn:
+===================================
 
 It is possible to create relations to categories also in
 :ref:`Flexforms <t3tca:columns-flex>`, although this has
@@ -183,7 +183,7 @@ Category Collections
 
 The :php:`\TYPO3\CMS\Core\Category\Collection\CategoryCollection`
 class provides the API for retrieving records related
-to a given category. Since TYPO3 CMS 6.2, it is extended by class
+to a given category. Since `TYPO3 CMS`:pn: 6.2, it is extended by class
 :php:`\TYPO3\CMS\Frontend\Category\Collection\CategoryCollection`
 which does the same job but in the frontend, i.e.
 respecting all enable fields and performing version
@@ -213,7 +213,7 @@ Here is an example usage, taken from the RECORDS content object:
       }
    }
 
-As all collection classes in the TYPO3 CMS Core implement the
+As all collection classes in the `TYPO3 CMS Core`:pn: implement the
 Iterator interface, it is also possible to use expected methods like
 :code:`next()`, :code:`rewind()`, etc. Note that methods such as
 :code:`add()` will only add items to the collection temporarily.
@@ -222,10 +222,10 @@ The relations are not persisted in the database.
 
 .. _categories-typoscript:
 
-Usage With TypoScript
-=====================
+Usage with `TypoScript`:pn:
+===========================
 
-*(since TYPO3 CMS 6.2)*
+*(since `TYPO3 CMS`:pn: 6.2)*
 
 In the frontend, it is possible to get collections of
 categorized records loaded into a RECORDS content object

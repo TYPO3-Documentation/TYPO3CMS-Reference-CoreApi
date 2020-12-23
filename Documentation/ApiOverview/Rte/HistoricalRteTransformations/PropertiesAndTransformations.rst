@@ -17,7 +17,7 @@ The editor has the ability to paste in formatted content copied/cut
 from other websites (in which case images are included!) or from text
 processing applications like MS Word or Star Office. This is a great
 feature and may solve the issue of transferring formatted content from
-e.g. Word into TYPO3.
+for example `Word`:pn: into `TYPO3`:pn:.
 
 However these inherent features - good or bad - raises the issue how
 to handle content in a field which we do not wish to 'pollute' with
@@ -33,7 +33,7 @@ etc.
 
 The answer to this problem is a so called 'transformation' which you
 can configure in the $TCA (global, authoritative configuration) and
-which you may further customize through page TSconfig (local
+which you may further customize through page `TSconfig`:pn: (local
 configuration for specific branches of the website). The issue of
 transformations is best explained by the following example from the
 table, tt\_content (the content elements).

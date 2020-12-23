@@ -2,24 +2,24 @@
 .. index:: pair: Coding guidelines; TypoScript
 .. _cgl-typoscript:
 
-============================
-TypoScript Coding Guidelines
-============================
+===================================
+`TypoScript`:pn: coding guidelines
+===================================
 
 Directory and File Names
 ========================
 
 * As of TYPO3 8.7, the file ending can and should be :file:`.typoscript`.
 
-* TypoScript files are located in the directory :file:`<extension>/Configuration/TypoScript`.
+* `TypoScript`:pn: files are located in the directory :file:`<extension>/Configuration/TypoScript`.
 
 * File name for constants in static templates: :file:`constants.typoscript`.
 
-* File name for TypoScript in static templates: :file:`setup.typoscript`.
+* File name for `TypoScript`:pn: in static templates: :file:`setup.typoscript`.
 
 More information about the file ending:
 
-* TypoScript files used to have the ending :file:`.txt`.
+* `TypoScript`:pn: files used to have the ending :file:`.txt`.
 
 * Since TYPO3 7, it is also possible to use the ending :file:`.ts`. This is
   not recommended because it is also used by TypeScript.

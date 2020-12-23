@@ -16,11 +16,11 @@ tutorial.
 Concept of distributions
 ========================
 
-Distributions are full TYPO3 CMS websites ready to be unpacked. They provide
-an easy quick start for using TYPO3 CMS. The most well known distribution is
-"The official Introduction Package". Distributions can most easily be installed
-in the backend Extension Manager in "Get preconfigured distribution", it lists
-all available distributions for the given Core version.
+Distributions are full`TYPO3 CMS`:pn: websites ready to be unpacked. They provide
+an easy quick start for using`TYPO3 CMS`:pn:. The most well known distribution is
+"The official `Introduction Package`:pn:". Distributions can most easily be installed
+in the backend `Extension Manager`:pn: in "Get preconfigured distribution", it lists
+all available distributions for the given `Core`:pn: version.
 
 A distribution is just an extension enriched with some further data that is
 loaded or executed upon installing that extension. A distribution takes
@@ -35,7 +35,7 @@ care of the following parts:
 - Hook into the process after saving configuration to
   trigger actions dependent on configuration values
 
-- Deliver dependent extensions if needed (e.g., customized versions or
+- Deliver dependent extensions if needed (for example, customized versions or
   extensions not available through TER)
 
 
@@ -60,10 +60,10 @@ Configuring the Distribution Display in the EM
 ----------------------------------------------
 
 You should provide two preview images for your distribution. Provide
-a small 220x150 pixels for the list in the Extension Manager as
+a small 220x150 pixels for the list in the `Extension Manager`:pn: as
 :file:`Resources/Public/Images/Distribution.png` and a larger 300x400 pixels
 welcome image as :file:`Resources/Public/Images/DistributionWelcome.png`.
-The welcome image is displayed in the distribution detail view inside the Extension Manager.
+The welcome image is displayed in the distribution detail view inside the `Extension Manager`:pn:.
 
 
 .. _distribution-kickstart-fileadmin:
@@ -126,7 +126,7 @@ to :file:`Initialisation/Site/<SITE_IDENTIFIER>/config.yaml`.
 Database Data
 -------------
 
-The database data is delivered as TYPO3 CMS export :file:`data.xml`.
+The database data is delivered as`TYPO3 CMS`:pn: export :file:`data.xml`.
 Generate this file by exporting your whole installation
 from the tree root with the import/export module.
 
@@ -149,12 +149,12 @@ prepare that.
 
 .. note::
 
-    Due to Core bugs, importing extracted files from standalone file folder
-    only works since Core version *8.7.10* and *9.1.0*. For older target
-    Core versions, files must not be extracted (tab Advanced options), but
+    Due to `Core`:pn: bugs, importing extracted files from standalone file folder
+    only works since `Core`:pn: version *8.7.10* and *9.1.0*. For older target
+    `Core`:pn: versions, files must not be extracted (tab Advanced options), but
     directly included in :file:`data.xml`.
 
-    Another Core issue prevents loading :file:`data.xml` if it is bigger than
+    Another `Core`:pn: issue prevents loading :file:`data.xml` if it is bigger than
     10MB. In this case the only option left is going with :file:`data.t3d`
 
 
@@ -182,7 +182,7 @@ A distribution is technically handled as an extension. Therefore you
 can make use of all :ref:`configuration options <extension-options>` as needed.
 
 After installing the extension, the event :ref:`AfterPackageActivationEvent<AfterPackageActivationEvent>` is
-dispatched. You may use this to alter your website configuration (e.g. color
+dispatched. You may use this to alter your website configuration (for example color
 scheme) on the fly.
 
 .. _distribution-testing:
@@ -191,19 +191,19 @@ Test Your Distribution
 ======================
 
 To test your distribution, simply copy your extension to an empty
-TYPO3 CMS installation and try to install it from the Extension
+`TYPO3 CMS`:pn: installation and try to install it from the Extension
 Manager.
 
 To test a distribution locally without uploading to TER, just install
 a blank TYPO3 (last step in installer "Just get me to the Backend"),
-then go to Extension Manager, select "Get extensions" once to let the
-Extension Manager initialize the extension list (this is needed if your
+then go to `Extension Manager`:pn:, select "Get extensions" once to let the
+`Extension Manager`:pn: initialize the extension list (this is needed if your
 distribution has dependencies to other extensions, for instance ext:introduction
 depends on ext:bootstrap_package). Next, copy or move the distribution extension
-to :file:`typo3conf/ext`, it will then show up in Extension Manager default
+to :file:`typo3conf/ext`, it will then show up in `Extension Manager`:pn: default
 tab "Installed Extensions".
 
-Install the distribution extension from there. The Extension Manager will then resolve
+Install the distribution extension from there. The `Extension Manager`:pn: will then resolve
 TER dependencies, loads the database dump and will handle the file operations.
 Under the hood, this does the same as later installing the distribution
 via "Get preconfigured distribution", when it has been uploaded or updated in
@@ -213,7 +213,7 @@ locally *without* uploading to TER first.
 .. warning::
 
    It is not enough to clean all files and the page tree if you want to
-   try again to install your distribution. Indeed, TYPO3 CMS remembers that it
+   try again to install your distribution. Indeed, the`TYPO3 CMS`:pn: remembers that it
    previously imported your distribution and will skip any known files and
    the database import. Make sure to clean the table "sys_registry" if you want
    to work around that, or, even better, install a new blank TYPO3 to test again.

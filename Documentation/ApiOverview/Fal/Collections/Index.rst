@@ -34,11 +34,11 @@ all files inside the folder will be returned when calling that collection.
 Collections API
 ===============
 
-The TYPO3 CMS Core provides an API to enable usage of collections
+The `TYPO3 CMS Core`:pn: provides an API to enable usage of collections
 inside extensions. The most important classes are:
 
 :code:`\TYPO3\CMS\Core\Resource\FileCollectionRepository`
-  Used to retrieve collections. It's not exactly an Extbase repository
+  Used to retrieve collections. It's not exactly an `Extbase`:pn: repository
   but works in a similar way. The default "find" methods refer
   to the "sys_file_collection" table and will fetch "static"-type collections.
 

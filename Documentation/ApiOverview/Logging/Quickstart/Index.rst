@@ -82,7 +82,7 @@ and pass the severity level::
 Set logging output
 ==================
 
-TYPO3 has the :ref:`FileWriter <logging-writers-FileWriter>` enabled by default,
+`TYPO3`:pn: has the :ref:`FileWriter <logging-writers-FileWriter>` enabled by default,
 so all log entries are written to a file. If the filename is not set,
 then the file will contain a hash like :file:`typo3temp/var/logs/typo3_<hash>.log`,
 for example :file:`typo3temp/var/logs/typo3_7ac500bce5.log`.

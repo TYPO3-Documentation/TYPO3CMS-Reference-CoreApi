@@ -11,7 +11,7 @@ Client-side templating
 ======================
 
 To avoid custom jQuery template building a slim client-side templating
-engine `lit-html`_ together with `lit-element`_ is used in the TYPO3 Core.
+engine `lit-html`_ together with `lit-element`_ is used in the `TYPO3 Core`:pn:.
 
 This templating engine supports conditions, iterations, events, virtual DOM,
 data-binding and mutation/change detections in templates.
@@ -19,7 +19,7 @@ data-binding and mutation/change detections in templates.
 .. _lit-html: https://lit-html.polymer-project.org/
 .. _lit-element: https://lit-element.polymer-project.org/
 
-Individual client-side templates can be processed in JavaScript directly
+Individual client-side templates can be processed in `JavaScript`:pn: directly
 using modern web technologies like template-strings_ and template-elements_.
 
 .. _template-strings: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
@@ -54,7 +54,7 @@ Variable assignment
    <div>Hello World!</div>
 
 
-Unsafe tags would have been encoded (e.g. :html:`<b>World</b>`
+Unsafe tags would have been encoded (for example :html:`<b>World</b>`
 as :html:`&lt;b&gt;World&lt;/b&gt;`).
 
 
@@ -87,7 +87,7 @@ Conditions and iteration
    </ul>
 
 The :js:`${...}` literal used in template tags can basically contain any
-JavaScript instruction - as long as their result can be casted to `string`
+`JavaScript`:pn: instruction - as long as their result can be casted to `string`
 again or is of type `lit-html.TemplateResult`. This allows to
 make use of custom conditions as well as iterations:
 

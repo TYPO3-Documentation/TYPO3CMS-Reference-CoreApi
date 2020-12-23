@@ -7,7 +7,7 @@ Introduction
 ============
 
 This document describes the services functionality included in the
-TYPO3 Core.
+`TYPO3 Core`:pn:.
 
 .. note::
 
@@ -29,7 +29,7 @@ TYPO3 Core.
     Classes in the scope of this chapter - directly or indirectly - are extending the
     service class :php:`TYPO3\CMS\Core\Service\AbstractService`.
 
-    In comparison, for additional information on what the Core usually understands
+    In comparison, for additional information on what the `Core`:pn: usually understands
     as "casual" service class, see the :ref:`coding guidelines. <cgl-services>`
 
 
@@ -37,10 +37,10 @@ The whole Services API works as a registry. Services are registered
 with a number of parameters, and each service can easily be overridden
 by another one with improved features or more specific capabilities,
 for example. This can be achieved without having to change the original
-code of TYPO3 CMS or of an extension.
+code of the`TYPO3 CMS`:pn: or of an extension.
 
 Services are simply PHP classes packaged inside an extension.
-The usual way to instantiate a class in TYPO3 CMS is::
+The usual way to instantiate a class in`TYPO3 CMS`:pn: is::
 
    $object = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
       \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
@@ -70,7 +70,7 @@ Two reasons for using the Services API
 ----------------------------
 
 A service may be implemented multiple times to take into account
-different environments like operating systems (Unix, Windows, Mac),
+different environments like operating systems (`Unix`:pn:, `Windows`:pn:, `macOS`:pn:),
 available PHP extensions or other third-party dependencies (other
 programming languages, binaries, etc.).
 

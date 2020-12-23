@@ -10,7 +10,7 @@ Typical signs which could indicate that a website or the server was
 hacked are listed below. Please note that these are common situations
 and examples only, others have been seen. Even if you are the victim
 of one of them only, it does not mean that the attacker has not gained
-more access or further damage (e.g. stolen user details) has been
+more access or further damage (for example stolen user details) has been
 done.
 
 
@@ -21,7 +21,7 @@ One of the most obvious "hacks" are manipulated landing or home page
 or other pages. Someone who has compromised a system and just wants to
 be honored for his/her achievement, often replaces a page (typically
 the home page as it is usually the first entry point for most of the
-visitors) with other content, e.g. stating his/her nickname or
+visitors) with other content, for example stating his/her nickname or
 similar.
 
 Less obvious is manipulated page content that is only visible to
@@ -39,11 +39,11 @@ quick glance.
 Malicious code in the HTML source
 =================================
 
-Malicious code (e.g. JavaScript, iframes, etc.) placed in the HTML
+Malicious code (for example `JavaScript`:pn:, iframes, etc.) placed in the HTML
 source code (the code that the system sends to the clients) may lead
 to XSS attacks, display dubious content or redirect visitors to other
 websites. Latter could steal user data if the site which the user was
-redirected to convinces users to enter their access details (e.g. if
+redirected to convinces users to enter their access details (for example if
 it looks the same as or similar to your site).
 
 See alse the explanations below :ref:`Search engines warn about your
@@ -53,10 +53,10 @@ site <security-detect-reports-from-search-engines>`.
 Embedded elements in the site's content
 =======================================
 
-Unknown embedded elements (e.g. binary files) in the content of the
+Unknown embedded elements (for example binary files) in the content of the
 website, which are offered to website visitors to download (and maybe
 execute), and do not come from you or your editors, are more than
-suspicious. A hacker possibly has placed harmful files (e.g. virus-
+suspicious. A hacker possibly has placed harmful files (for example virus-
 infected software) on your site, hoping your visitors trust you and
 download/execute these files.
 
@@ -119,19 +119,19 @@ One of the "hacks" most difficult to detect is the case where a hacker
 gained access to a perfectly configured and secured TYPO3 site. In
 previous chapters we discussed how important it is to use secure
 passwords, not to use unencrypted connections, not to store backups
-(e.g. MySQL database "dumpfiles") in a publicly accessible directory,
+(for example `MySQL`:pn:database "dumpfiles") in a publicly accessible directory,
 etc. All these examples could lead to the result that access details
 fall into the hands of an attacker, who possibly uses them, simply
 logs into your system and edits some pages as a usual editor.
 
 Depending on how sophisticated, tricky, small and frequently the
-changes are and how large the TYPO3 system is (e.g. how many editors
+changes are and how large the TYPO3 system is (for example how many editors
 and pages are active), it may take a long time to realize that this is
 actually a hack and possibly takes much longer to find the cause,
 simply because there is no technical issue but maybe an organizational
 vulnerability.
 
 The combination of some of the recommendations in this document
-reduces the risk (e.g. locking backend users to specific IP addresses,
+reduces the risk (for example locking backend users to specific IP addresses,
 store your backup files outside the web server's document root, etc.).
 

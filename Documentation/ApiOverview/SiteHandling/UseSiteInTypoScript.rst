@@ -2,16 +2,16 @@
 .. index:: pair: Site handling; TypoScript
 .. _sitehandling-inTypoScript:
 
-======================================
-Using site configuration in TypoScript
-======================================
+============================================
+Using site configuration in `TypoScript`:pn:
+============================================
 
 .. index:: pair: Site handling; getText
 
 getText
 =======
 
-Site configuration can be accessed via the :ref:`site <t3tsref:data-type-site>` property in TypoScript.
+Site configuration can be accessed via the :ref:`site <t3tsref:data-type-site>` property in `TypoScript`:pn:.
 
 Example:
 
@@ -41,11 +41,11 @@ To access the current siteLanguage use the :ref:`siteLanguage <t3tsref:data-type
 
 
 .. tip::
-    Accessing site configuration is possible in TypoScript, which enables to store site specific configuration options
+    Accessing site configuration is possible in `TypoScript`:pn:, which enables to store site specific configuration options
     in one central place (the site configuration) and allows usage of that configuration from different contexts.
-    While this sounds similar to using TypoScript, with using site configuration this may also be used from backend
+    While this sounds similar to using `TypoScript`:pn:, with using site configuration this may also be used from backend
     or CLI context as long as the rootPageId of the site is known. To avoid duplicating configuration options,
-    TypoScript can now access these properties, too.
+    `TypoScript`:pn: can now access these properties, too.
 
 Site configuration can also be used in :ref:`TypoScript conditions <sitehandling-inConditions>` and as
 :ref:`TypoScript constants <sitehandling-settings>`.
@@ -74,7 +74,7 @@ to fetch data from the site entity:
        }
    }
 
-In the Fluid template the properties of the site entity can be accessed with:
+In the `Fluid`:pn: template the properties of the site entity can be accessed with:
 
 .. code-block:: html
 

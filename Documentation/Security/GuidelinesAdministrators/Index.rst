@@ -14,7 +14,7 @@ General Rules
    informed about TYPO3 security bulletins and TYPO3 updates.
 
 #. React as soon as possible and update the relevant components of the
-   site(s) when new vulnerabilities become public (e.g. security issues
+   site(s) when new vulnerabilities become public (for example security issues
    published in the mailing list).
 
 #. Use different passwords for the Install Tool and the backend login.
@@ -29,7 +29,7 @@ General Rules
 #. Change the username and password of the "admin" account after the
    installation of TYPO3 immediately.
 
-#. If you are also responsible for the setup and configuration of TYPO3,
+#. If you are also responsible for the setup and configuration of `TYPO3`:pn:,
    follow the steps for TYPO3 integrators carefully, documented in the
    next chapter.
 

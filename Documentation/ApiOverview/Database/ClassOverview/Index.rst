@@ -6,7 +6,7 @@
 Class Overview
 ==============
 
-Doctrine provides a set of `php` objects to represent, create and handle SQL queries and
+`Doctrine`:pn: provides a set of `php` objects to represent, create and handle SQL queries and
 their results. The basic class structure was slightly enriched by TYPO3 to add CMS
 specific features. Extension authors will typically interact with these classes and objects:
 
@@ -32,11 +32,11 @@ QueryBuilder
 
 QueryHelper
    :php:`TYPO3\CMS\Core\Database\Query\QueryHelper`: :ref:`Set of static helper methods <database-query-helper>`
-   that can simplify the transition from old `TYPO3_DB` based code to the doctrine base API.
+   that can simplify the transition from old `TYPO3_DB` based code to the `Doctrine`:pn: base API.
 
 Restriction ...
    :php:`TYPO3\CMS\Core\Database\Query\Restriction\...`: :ref:`Set of classes that add expressions
-   <database-restriction-builder>` like "deleted=0" to a query based on `TCA` settings of a table.
+   <database-restriction-builder>` like "deleted=0" to a query based on `TCA`:pn: settings of a table.
    This automatically adds TYPO3 specific restrictions like starttime and endtime, as well as deleted
    and hidden flags. Further restrictions for language overlays and workspaces are available. This
    documentation refers to these classes as the `RestrictionBuilder`.

@@ -166,7 +166,7 @@ User-defined soft reference parsers
 Soft References can also be user-defined. It is easy to set them up by
 simply adding new keys in
 :code:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['GLOBAL']['softRefParser']`. Use key
-names based on the extension you put it in, e.g. :code:`tx_myextensionkey`.
+names based on the extension you put it in, for example :code:`tx_myextensionkey`.
 
 The class containing the soft reference parser must have a function
 named :code:`findRef`. Please refer to class

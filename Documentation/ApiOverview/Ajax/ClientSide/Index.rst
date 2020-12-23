@@ -6,11 +6,11 @@
 Client-side programming
 =======================
 
-TYPO3 Core ships an API to send ajax requests to the server. This API is based on the `fetch API`_, which is implemented
-in every modern browser (e.g. Chrome, Safari, Firefox, Edge).
+`TYPO3 Core`:pn: ships an API to send ajax requests to the server. This API is based on the `fetch API`_, which is implemented
+in every modern browser (for example Chrome, Safari, Firefox, Edge).
 
 .. note::
-   TYPO3 ships jQuery as well, but is considered discouraged for new code.
+   `TYPO3`:pn: ships jQuery as well, but is considered discouraged for new code.
 
 .. index:: Ajax; Request
 

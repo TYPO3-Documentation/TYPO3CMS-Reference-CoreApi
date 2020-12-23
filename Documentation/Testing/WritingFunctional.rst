@@ -9,7 +9,7 @@ Writing functional tests
 Introduction
 ============
 
-Functional testing in TYPO3 world is basically the opposite of unit testing: Instead
+Functional testing in `TYPO3`:pn: world is basically the opposite of unit testing: Instead
 of looking at rather small, isolated pieces of code, functional testing looks at
 bigger scenarios with many involved dependencies. A typical scenario creates a full
 instance with some extensions, puts some rows into the database and calls an entry method,
@@ -32,10 +32,10 @@ tests are executed using this scenario definition.
 
 Single test cases extend :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase`.
 The default implementation of method :php:`setUp()` contains all the main magic to set
-up a new TYPO3 instance in a sub folder of the existing system, create a database,
+up a new `TYPO3`:pn: instance in a sub folder of the existing system, create a database,
 create :file:`LocalConfiguration.php`, load extensions, populate the database with tables
 needed by the extensions and to link or copy additional fixture files around and finally
-bootstrap a basic TYPO3 backend. :php:`setUp()` is called before each test, so each single
+bootstrap a basic `TYPO3`:pn: backend. :php:`setUp()` is called before each test, so each single
 test is isolated from other tests, even within one test case. There is only one optimization
 step: The instance between single tests of one test case is not fully created from scratch,
 but the existing instance is just cleaned up (all database tables truncated). This is a measure
@@ -51,7 +51,7 @@ contain examples how to use. These properties are the key to instruct `typo3/tes
 what to do.
 
 The "external dependencies" like credentials for the database are submitted as environment
-variables. If using the recommended docker based setup to execute tests, these details
+variables. If using the recommended `Docker`:pn: based setup to execute tests, these details
 are taken care off by the :file:`runTests.sh` and :file:`docker-compose.yml` files. See
 the :ref:`styleguide example <testing-extensions-styleguide>` for details on how this is
 set up and used. Executing the functional tests on different databases is handled by these
@@ -64,7 +64,7 @@ chapter is about writing tests and setting up the scenario.
 Simple Example
 ==============
 
-At the time of this writing, TYPO3 Core  contains more than 2600 functional tests, so
+At the time of this writing, `TYPO3 Core`:pn:  contains more than 2600 functional tests, so
 there are plenty of test files to look at to learn about writing functional tests. Do not
 hesitate looking around, there is plenty to discover.
 
@@ -157,12 +157,12 @@ Loaded extensions
 =================
 
 The :php:`FunctionalTestCase` has a couple of defaults and properties to specify the set of
-loaded extensions of a test case: First, there is a set of default Core extensions that are
+loaded extensions of a test case: First, there is a set of default `Core`:pn: extensions that are
 always loaded. Those should be `require` or at least `require-dev` dependencies in a
 :file:`composer.json` file, too: `core`, `backend`, `frontend`, `extbase`, `install` and
 `recordlist`.
 
-Apart from that default list, it is possible to load additional Core extensions, an extension
+Apart from that default list, it is possible to load additional `Core`:pn: extensions, an extension
 that wants to test if it works well together with workspaces, would for example specify
 the workspaces extension as additional to-load extension::
 
@@ -181,7 +181,7 @@ In this case the fictive extension `some_extension` comes with an own fixture ex
 be loaded, and another `base_extension` should be loaded. These extensions will be linked into
 `typo3conf/ext` of the test case instance.
 
-The functional test bootstrap links all extensions to either `typo3/sysext` for Core extensions or
+The functional test bootstrap links all extensions to either `typo3/sysext` for `Core`:pn: extensions or
 `typo3conf/ext` for third party extensions, creates a :file:`PackageStates.php` and then uses the
 database schema analyzer to create all database tables specified in the :file:`ext_tables.sql` files.
 
@@ -259,7 +259,7 @@ Setting TYPO3_CONF_VARS
 =======================
 
 A default :file:`LocalConfiguration.php` file of the instance is created by the default :php:`setUp()`.
-It contains the database credentials and everything else to end up with a working TYPO3 instance.
+It contains the database credentials and everything else to end up with a working `TYPO3`:pn: instance.
 
 If extensions need additional settings in :file:`LocalConfiguration.php`, the property
 :php:`$configurationToUseInTestInstance` can be used to specify these::
@@ -276,9 +276,9 @@ Frontend tests
 
 .. note::
 
-    Frontend functional testing is currently still a subject to change and the Core did
+    Frontend functional testing is currently still a subject to change and the `Core`:pn: did
     not fully settle in this area, yet. The docs below outline only the bare minimum to
-    set up and execute these tests and Core usages are hard to explain here in detail
+    set up and execute these tests and `Core`:pn: usages are hard to explain here in detail
     since most of them work with additional abstracts and set up tricks.
 
 To prepare a frontend test, the system can be instructed to load a set of :file:`.typoscript`
@@ -286,7 +286,7 @@ files for a working frontend::
 
     $this->setUpFrontendRootPage(1, ['EXT:fluid_test/Configuration/TypoScript/Basic.ts']);
 
-This instructs the system to load the :file:`Basic.ts` as typoscript file for the frontend
+This instructs the system to load the :file:`Basic.ts` as `TypoScript`:pn: file for the frontend
 page with uid 1.
 
 A frontend request can be executed calling :php:`$this->executeFrontendRequest()`. It will

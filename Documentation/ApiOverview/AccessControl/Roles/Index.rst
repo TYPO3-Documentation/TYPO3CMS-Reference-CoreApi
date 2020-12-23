@@ -10,10 +10,10 @@ concept is basically about identifying certain roles that users can
 take and then allow for a very easy application of these roles to
 users.
 
-TYPO3 CMS access control is far more flexible and allows for such detailed
+`TYPO3 CMS`:pn: access control is far more flexible and allows for such detailed
 configuration that it lies very far from the simple and straight
 forward concept of roles. This is necessary as the foundation of a
-system like TYPO3 CMS should fit many possible usages.
+system like `TYPO3 CMS`:pn: should fit many possible usages.
 
 However it is perfectly possible to create groups that act like "roles".
 This is what you should do:

@@ -6,7 +6,7 @@
 Backend
 =======
 
-An ajax endpoint in the TYPO3 backend is usually implemented as a method in a regular controller. The method receives a
+An ajax endpoint in the `TYPO3`:pn: backend is usually implemented as a method in a regular controller. The method receives a
 request object implementing the :php:`Psr\Http\Message\ServerRequestInterface`, which allows to access all aspects of
 the requests and returns an appropriate response in a normalized way. This approach is standardized as `PSR-7`_.
 
@@ -58,7 +58,7 @@ incoming number by 2. The incoming value will be passed as a query string argume
 
 .. note::
    This is a really simple example. Something like this should not be used in production, as such feature is available
-   in JavaScript as well.
+   in `JavaScript`:pn: as well.
 
 
 We have computed our result by using the `exponentiation operator`_, but we don't do anything with it yet. It's time to
@@ -116,7 +116,7 @@ Register the endpoint
 
 The endpoint must be registered as route. Create a file called :file:`Configuration/Backend/AjaxRoutes.php` in your
 extension. The file basically just returns an array of route definitions. Every route in this file will be exposed to
-JavaScript automatically. Let's register our endpoint now:
+`JavaScript`:pn: automatically. Let's register our endpoint now:
 
 .. code-block:: php
 
@@ -142,7 +142,7 @@ For further reading, take a look at :ref:`backend-routing`.
 Use in ajax
 ===========
 
-Since the route is registered in :file:`AjaxRoutes.php` its exposed to JavaScript now and stored in the global
+Since the route is registered in :file:`AjaxRoutes.php` its exposed to `JavaScript`:pn: now and stored in the global
 :js:`TYPO3.settings.ajaxUrls` object identified by the used key in the registration. In this example it's
 :js:`TYPO3.settings.ajaxUrls.example_dosomething`.
 

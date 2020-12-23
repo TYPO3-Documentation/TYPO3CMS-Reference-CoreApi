@@ -50,7 +50,7 @@ part of :php:`$GLOBALS['TYPO3_CONF_VARS'][SYS]`:
 
          Default: :php:`\TYPO3\CMS\Core\Error\ErrorHandler`. This class will register itself
          as error handler. It is able to write error messages to all available
-         logging systems in TYPO3. See :ref:`logging` for more.
+         logging systems in `TYPO3`:pn:. See :ref:`logging` for more.
 
          Additionally the errors can be displayed as flash messages in the
          Backend or in the adminpanel in Frontend. The flash messages in
@@ -143,11 +143,11 @@ part of :php:`$GLOBALS['TYPO3_CONF_VARS'][SYS]`:
 
 
 The table below shows which values can be set by the user and which
-are set by TYPO3.
+are set by `TYPO3`:pn:.
 
 Values in plain text can be changed in LocalConfiguration.php.
 
-**Values in bold are set by TYPO3.**
+**Values in bold are set by `TYPO3`:pn:.**
 
 +-------------+--------------------+-------------------+----------------+-----------+-----------------------------+-----------------+
 |displayErrors| errorHandlerErrors | exceptionalErrors | errorHandler   | devIPmask | exceptionHandler            | display\_errors |

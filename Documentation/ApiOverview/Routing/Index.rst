@@ -5,9 +5,9 @@
    see: Speaking URLs; Routing
 .. _routing:
 
-==================================
-Routing - "Speaking URLs" in TYPO3
-==================================
+========================================
+Routing - "Speaking URLs" in `TYPO3`:pn:
+========================================
 
 
 .. toctree::

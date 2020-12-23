@@ -52,7 +52,7 @@ using the following API:
 
 `'iconIdentifier'` versus `'icon'`
    `'iconIdentifier'` is the better and more modern way to go. It should always be used
-   for Core icons. Other icons however need to be registered first at the IconRegistry to
+   for `Core`:pn: icons. Other icons however need to be registered first at the IconRegistry to
    create identifiers. Note that `'icon'` still works. Within custom packages it is easier
    to use. Example::
    
@@ -96,7 +96,7 @@ Parameters:
      for building the module menu and for the display of information in the
      **About Modules** module (found in the main help menu in the top bar).
      The `LLL:` prefix is mandatory here and is there for historical reasons.
-   * Navigation component ``navigationComponentId`` - you can specify which navigation component you want to use, for example ``TYPO3/CMS/Backend/PageTree/PageTreeElement`` If you don't want to show a page tree at all you can either set this to an empty string or not declare it at all. In case the main module (e.g. "web") has a navigationComponent defined by default you'll have to also set ``'inheritNavigationComponentFromMainModule' => false``.
+   * Navigation component ``navigationComponentId`` - you can specify which navigation component you want to use, for example ``TYPO3/CMS/Backend/PageTree/PageTreeElement`` If you don't want to show a page tree at all you can either set this to an empty string or not declare it at all. In case the main module (for example "web") has a navigationComponent defined by default you'll have to also set ``'inheritNavigationComponentFromMainModule' => false``.
 
 
 .. note::
@@ -170,14 +170,14 @@ The list of modules is parsed by the class :php:`\TYPO3\CMS\Backend\Module\Modul
 
 .. index:: Backend modules; TypoScript
 
-Configuration with TypoScript
-=============================
+Configuration with `TypoScript`:pn:
+===================================
 
-Backend modules can, like frontend plugins, be configured via TypoScript. While the frontend plugins
+Backend modules can, like frontend plugins, be configured via `TypoScript`:pn:. While the frontend plugins
 are configured with :ts:`plugin.tx_[pluginkey]`, for the configuration of the backend
 :ts:`module.tx_[pluginkey]` is used.
 
-Example for configuring the paths of Fluid files:
+Example for configuring the paths of `Fluid`:pn: files:
 
 .. code-block:: typoscript
 

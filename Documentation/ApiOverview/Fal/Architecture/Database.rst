@@ -52,7 +52,7 @@ sha1
 
 metadata
   Foreign side of the "sys\_file\_metadata" relation. Always "0" in the
-  database, but necessary for the TCA of the "sys\_file".
+  database, but necessary for the `TCA`:pn: of the "sys\_file".
 
 
 .. index:: Tables; sys_file_metadata
@@ -117,7 +117,7 @@ sys\_file\_processedfile
 ========================
 
 This table is similar to "sys\_file", but for "temporary" files,
-like image previews. This table does not have a TCA representation,
+like image previews. This table does not have a `TCA`:pn: representation,
 as it is only written for using direct SQL queries in the source code.
 
 

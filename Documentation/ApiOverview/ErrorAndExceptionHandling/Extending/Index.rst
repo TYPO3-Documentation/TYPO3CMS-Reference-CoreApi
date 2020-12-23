@@ -12,7 +12,7 @@ If you want to register your own error or exception handler:
 
 #. Create a corresponding class in your extension
 
-#. Override the Core defaults for `productionExceptionHandler`, `debugExceptionHandler`
+#. Override the `Core`:pn: defaults for `productionExceptionHandler`, `debugExceptionHandler`
    or `errorHandler` in :file:`typo3conf/AdditionalConfiguration.php`::
 
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = \Vendor\Ext\Error\MyOwnErrorHandler::class;
@@ -31,12 +31,12 @@ to see how this should be done.
 
 If you want to use the built-in error and exception handling but
 extend it with your own functionality, derive your class from the
-error and exception handling classes shipped with TYPO3.
+error and exception handling classes shipped with `TYPO3`:pn:.
 
 Example Debug Exception Handler
 ===============================
 
-This uses the default Core exception handler `DebugExceptionHandler` and overrides some
+This uses the default `Core`:pn: exception handler `DebugExceptionHandler` and overrides some
 of the functionality::
 
 

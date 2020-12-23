@@ -54,8 +54,8 @@ YAML configuration example:
    t3://
    see: t3://; TYPO3 URL
 
-TYPO3 URL (t3://)
-=================
+`TYPO3`:pn: URL (t3://)
+=======================
 
 The type :code:`uri` for TYPO3 URL provides the option to render either a file, page or url. Internally
 a request to the file or URL is done and its content delivered.

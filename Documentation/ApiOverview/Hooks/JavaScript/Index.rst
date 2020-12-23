@@ -2,18 +2,18 @@
 .. index:: pair: JavaScript; Events
 .. _Events_JavaScript:
 
-====================
-JavaScript Event API
-====================
+===========================
+`JavaScript`:pn: event API
+===========================
 
 .. versionadded:: 10.3
 
    :doc:`t3core:Changelog/10.3/Feature-90471-JavaScriptEventAPI`
 
-The Event API in TYPO3 incorporates different techniques to handle JavaScript events in an easy, convenient and
+The Event API in TYPO3 incorporates different techniques to handle `JavaScript`:pn: events in an easy, convenient and
 performant manner. Event listeners may be bound directly to an element or to multiple elements using event delegation.
 
-TYPO3 ships different event strategies, implementing the same interface which makes all strategies API-wise
+`TYPO3`:pn: ships different event strategies, implementing the same interface which makes all strategies API-wise
 interchangeable.
 
 
@@ -40,7 +40,7 @@ Bind to multiple elements
 -------------------------
 
 To bind an event listener to multiple elements, the so-called "event delegation" may be used. An event listener is
-attached to a super element (e.g. a table) but reacts on events triggered by child elements within that super element.
+attached to a super element (for example a table) but reacts on events triggered by child elements within that super element.
 
 This approach reduces the overhead in the browser as no listener must be installed for each element.
 

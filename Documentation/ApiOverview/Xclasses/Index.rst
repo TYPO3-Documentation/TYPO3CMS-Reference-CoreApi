@@ -15,7 +15,7 @@ XCLASSes (Extending Classes)
 Introduction
 ============
 
-XCLASSing is a mechanism in TYPO3 CMS to extend classes or overwrite methods from the Core or extensions
+XCLASSing is a mechanism in the`TYPO3 CMS`:pn: to extend classes or overwrite methods from the `Core`:pn: or extensions
 with one's own code. This enables a developer to easily change a given functionality,
 if other options like :ref:`hooks <hooks>`, signals, :ref:`events <EventDispatcher>`
 or the dependency injection mechanisms do not work or do not exist.
@@ -37,7 +37,7 @@ about how to do this.
 How does it work?
 =================
 
-In general every class instance in the Core and in extensions that stick to
+In general every class instance in the `Core`:pn: and in extensions that stick to
 the recommended :ref:`coding guidelines <cgl>` is created with the API call
 :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`.
 The methods takes care of singletons and also searches for existing XCLASSes.
@@ -53,7 +53,7 @@ an instance of that XCLASS is returned instead of an instance of the original cl
 Limitations
 ===========
 
-- Using XCLASSes is risky: neither the Core, nor extensions authors
+- Using XCLASSes is risky: neither the `Core`:pn:, nor extensions authors
   can guarantee that XCLASSes will not break if the underlying code changes
   (for example during upgrades). Be aware that your XCLASS can easily break
   and has to be maintained and fixed if the underlying code changes.
@@ -64,7 +64,7 @@ Limitations
 - There can be **only one** XCLASS per base class, but an XCLASS can be XCLASSed again.
   Be aware that such a construct is even more risky and definitely not advisable.
 
-- A small number of Core classes are required very early during bootstrap
+- A small number of `Core`:pn: classes are required very early during bootstrap
   before configuration and other things are loaded. XCLASSing those classes will fail if they are singletons
   or might have unexpected side-effects.
 

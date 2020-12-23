@@ -9,7 +9,7 @@
 Form protection tool
 ====================
 
-Since TYPO3 4.5, the TYPO3 Core provides a generic way of protecting
+Since TYPO3 4.5, the `TYPO3 Core`:pn: provides a generic way of protecting
 forms against cross-site request forgery (CSRF).
 
 
@@ -19,7 +19,7 @@ forms against cross-site request forgery (CSRF).
 Usage in the backend
 ====================
 
-For each form in the BE (or link that changes some data), create a token and insert is as a hidden form element.
+For each form in the backend (or link that changes some data), create a token and insert is as a hidden form element.
 The name of the form element does not matter; you only need it to get the form token for verifying it.
 
 .. code-block:: php
@@ -31,7 +31,7 @@ The name of the form element does not matter; you only need it to get the form t
 
 The three parameters :code:`$formName`, :code:`$action` and :code:`$formInstanceName` can be arbitrary strings,
 but they should make the form token as specific as possible. For different forms
-(e.g. BE user setup and editing a tt_content record) or different records (with different UIDs)
+(for example backend user setup and editing a tt_content record) or different records (with different UIDs)
 from the same table, those values should be different.
 
 For editing a tt_content record, the call could look like this:
@@ -47,7 +47,7 @@ and also that removed tokens stay removed:
 
    TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->persistTokens();
 
-In BE lists, it might be necessary to generate hundreds of tokens.
+In backend lists, it might be necessary to generate hundreds of tokens.
 So the tokens do not get automatically persisted after creation for performance reasons.
 
 When processing the data that has been submitted by the form,
@@ -62,7 +62,7 @@ you can check that the form token is valid like this:
       ) ) {
       // processes the data
    } else {
-      // no need to do anything here as the BE form protection will create a
+      // no need to do anything here as the backend form protection will create a
       // flash message for an invalid token
  }
 
@@ -93,7 +93,7 @@ you only need it to get the form token for verifying it.
 
 The three parameters :code:`$formName`, :code:`$action` and :code:`$formInstanceName`
 can be arbitrary strings, but they should make the form token as specific as possible.
-For different forms (e.g. the password change and editing a the configuration),
+For different forms (for example the password change and editing a the configuration),
 those values should be different.
 
 At the end of the form, you need to persist the tokens.

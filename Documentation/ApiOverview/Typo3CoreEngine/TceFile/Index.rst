@@ -7,8 +7,8 @@
 The "tce\_file.php" API
 =======================
 
-This script serves as the file administration part of the TYPO3 Core
-Engine. It's a gateway for TCE (TYPO3 Core Engine) file-handling
+This script serves as the file administration part of the `TYPO3 Core`:pn:
+Engine. It's a gateway for `TCE`:pn: (`TYPO3 Core Engine`:pn:) file-handling
 through POST forms. It uses :code:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility` for the manipulation
 of the files.
 

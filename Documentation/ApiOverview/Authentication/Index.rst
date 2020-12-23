@@ -6,8 +6,8 @@
 Authentication
 ==============
 
-The TYPO3 CMS Core uses :ref:`Services <services>` for the authentication process.
-This family of services (of type "auth") are the only Core usage that consumes the
+The `TYPO3 CMS Core`:pn: uses :ref:`Services <services>` for the authentication process.
+This family of services (of type "auth") are the only `Core`:pn: usage that consumes the
 Services API.
 
 The aim of this chapter is to describe the authentication
@@ -26,12 +26,12 @@ process of authentication, where many methods may be desirable
 such as LDAP, etc.) depending on the context.
 
 The ease with which such services can be developed is a strong
-point in favor of TYPO3 CMS, especially in corporate environments.
+point in favor of the`TYPO3 CMS`:pn:, especially in corporate environments.
 
 Being able to toy with priority and quality allows for
 precise fine-tuning of the authentication chain.
 
-Alternative services are available in the TYPO3 Extension Repository.
+Alternative services are available in the `TYPO3 Extension Repository`:pn:.
 It is thus possible to find solutions for using LDAP as an
 authentication server, for example.
 
@@ -68,14 +68,14 @@ users based on whatever form of credentials a given service
 relies on (by default, a username and a password).
 
 The authentication process kicks in on every page request,
-be it in the FE or the BE. However if a valid session already exists,
+be it in the frontend or the backend. However if a valid session already exists,
 that session is kept. Strictly speaking, no authentication
 is performed in such a case.
 
 When no session exists, the authentication process is triggered
-by a login request. In the FE, this happens when a form field
+by a login request. In the frontend, this happens when a form field
 called "logintype" is submitted with value "login". The same
-happens for the BE, but with a form field called "login_status".
+happens for the backend, but with a form field called "login_status".
 
 .. index:: Authentication; Login data
 .. _authentication-data:
@@ -90,7 +90,7 @@ uname
   This is the user name. This can be whatever makes sense for the
   available authentication services. For the default service, this
   will match data from the "username" column of the "be_users" or
-  "fe_users" table for BE or FE authentication respectively.
+  "fe_users" table for backend or frontend authentication respectively.
 
 uident
   This is the password, possibly encrypted.
@@ -112,7 +112,7 @@ The "auth" services API
 
 The services of type "auth" are further divided into subtypes,
 which correspond to various steps in the authentication process.
-Most subtypes exist for both FE and BE and are differentiated
+Most subtypes exist for both frontend and backend and are differentiated
 accordingly.
 
 To each subtype corresponds a part of the "auth" services public
@@ -136,7 +136,7 @@ processLoginDataBE, processLoginDataFE
   which indicates that no further login data processing should
   take place (see :ref:`The service chain <authentication-service-chain>`).
 
-  In particular, this subtype is implemented by the TYPO3 Core
+  In particular, this subtype is implemented by the `TYPO3 Core`:pn:
   :php:`AuthenticationService`, which trims the given login data.
 
 getUserFE, getUserBE
@@ -241,21 +241,21 @@ be able to find examples to inspire and guide you. Anyway authentication
 services can be very different from one another, so it wouldn't make much
 sense to try and provide an example in this manual.
 
-One important thing to know is that the TYPO3 CMS authentication
+One important thing to know is that the`TYPO3 CMS`:pn: authentication
 process *needs* to have users inside database records ("fe_users" or
 "be_users"). This means that if you interface with a third-party
-server, you will need to create records on the TYPO3 CMS side. It is
+server, you will need to create records on the`TYPO3 CMS`:pn: side. It is
 up to you to choose whether this process happens on the fly (during
 authentication) or if you want to create an import process (as a
 Scheduler task, for example) that will synchronize users between
-TYPO3 CMS and the remote system.
+`TYPO3 CMS`:pn: and the remote system.
 
 .. note::
 
    You probably do not want to store the actual password of imported
-   users in the TYPO3 CMS database. It is recommended to store
+   users in the`TYPO3 CMS`:pn: database. It is recommended to store
    an arbitrary string in such case, making sure that such string
-   is random enough for security reasons. TYPO3 CMS provides method
+   is random enough for security reasons. The`TYPO3 CMS`:pn: provides the method
    :php:`\TYPO3\CMS\Core\Crypto\Random::generateRandomHexString()`
    which can be used for such a purpose.
 
@@ -265,16 +265,16 @@ authority for authentication, it should not only have a high priority,
 but also return values which stop the service chain (i.e.
 a negative value for failed authentication, 200 or more for a
 successful one). On the other hand, if your service is an alternative
-authentication, but should fall back on TYPO3 CMS if unavailable,
+authentication, but should fall back on`TYPO3 CMS`:pn: if unavailable,
 you will want to return 100 on failure, so that the default service
 can take over.
 
 Things can get a bit hairy if you have a scenario with mixed sources,
 for example some users come from a third-party server but others
-exist only in TYPO3 CMS. In such a case, you want to make sure that
+exist only in the`TYPO3 CMS`:pn:. In such a case, you want to make sure that
 your service returns definite authentication failures only for those
 users which depend on the remote system and let the default
-authentication proceed for "local" TYPO3 CMS users.
+authentication proceed for "local"`TYPO3 CMS`:pn: users.
 
 .. _authentication-advanced-options:
 
@@ -286,10 +286,10 @@ to modify the behaviour of the authentication process. Some
 impact the inner working of the services themselves, others
 influence when services are called.
 
-It is possible to force TYPO3 CMS to go through the
+It is possible to force the`TYPO3 CMS`:pn: to go through the
 authentication process for **every** request no matter any
 existing session. By setting the following local configuration
-either for the FE or the BE::
+either for the frontend or the backend::
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysFetchUser'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysAuthUser'] = true;
@@ -315,7 +315,7 @@ yet exist. The settings are::
 .. note::
 
    This could be used in a scenario where users go through a login portal
-   and then choose to access the TYPO3 CMS BE, for example. In such a case
+   and then choose to access the`TYPO3 CMS`:pn: backend, for example. In such a case
    we would want the users to be automatically authenticated, but would not
    need to repeat the process upon each request.
 
@@ -325,5 +325,5 @@ all services for the "getUser\*" subtype by setting::
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_fetchAllUsers'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_fetchAllUsers'] = true;
 
-for BE or FE respectively. This will collect all possible users rather than
+for backend or frontend respectively. This will collect all possible users rather than
 stopping at the first one available.

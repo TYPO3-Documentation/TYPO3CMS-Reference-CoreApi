@@ -21,12 +21,12 @@ includes only a subset of the total available buttons. The reason is
 that the text content of these types, 'Text' and 'Text & Images' is
 *traditionally* not meant to be filled up with HTML-codes. But more
 important is the fact that the content is usually (by the standard
-TypoScript content rendering used on the vast majority of TYPO3
+`TypoScript`:pn: content rendering used on the vast majority of `TYPO3`:pn:
 websites!) parsed through a number of routines.
 
 In order to understand this, here is an outline of what typically
 happens with the content of the two Text-types when rendered by
-TypoScript for frontend display:
+`TypoScript`:pn: for frontend display:
 
 #. All line breaks are converted to :code:`<br />` codes.
 
@@ -40,11 +40,11 @@ TypoScript for frontend display:
    (This is a quick way to insert links to URLs and email address)
 
 #. The text is parsed for special tags, so called 'typotags', configured
-   in TypoScript. The default typotags tags are :code:`<LINK>` (making links),
+   in `TypoScript`:pn:. The default typotags tags are :code:`<LINK>` (making links),
    :code:`<TYPOLIST>` (making bulletlists), :code:`<TYPOHEAD>` (making headlines) and
    :code:`<TYPOCODE>` (making monospaced formatting).
 
-   (The :code:`<LINK>` tag is used to create links between pages inside TYPO3.
+   (The :code:`<LINK>` tag is used to create links between pages inside `TYPO3`:pn:.
    Target and additional parameters are automatically added which makes
    it a very easy way to make sure, links are correct. :code:`<TYPOLIST>` renders
    each line between the start and end tag as a line in a bulletlist,
@@ -106,8 +106,8 @@ mentioned above. (Numbers refer to the previous bulletlist):
    specific typotags.
 
    Other typotags (non-standard) can be preserved by being converted to a
-   :code:`<SPAN>`-section and back. This must be configured through Page
-   TSconfig.
+   :code:`<SPAN>`-section and back. This must be configured through page
+   `TSconfig`:pn:.
 
    (Update: With "css\_styled\_content" and the transformation "ts\_css"
    only the :code:`<link>` typotag is left. The :code:`<typolist>` and :code:`<typohead>` tags

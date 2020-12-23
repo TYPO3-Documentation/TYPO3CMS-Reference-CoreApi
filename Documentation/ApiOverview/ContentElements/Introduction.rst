@@ -11,12 +11,12 @@ What are content elements?
 ==========================
 
 **Content elements** (often abbreviated as CE) are the building blocks
-that make up a page in TYPO3.
+that make up a page in `TYPO3`:pn:.
 
 Content elements are stored in the database table ``tt_content``. Each content
 element has a specific content element type, specified by the database field
 ``tt_content.CType``. A content element can be of a type
-supplied by TYPO3, such as 'textmedia' (text with or without images or videos).
+supplied by `TYPO3`:pn:, such as 'textmedia' (text with or without images or videos).
 Or it can have a custom type supplied
 by an extension such as 'carousel' provided by the bootstrap_package extension.
 
@@ -39,7 +39,7 @@ What are plugins?
 plugins are:
 
 * Used if more complex functionality is required
-* Plugins can be created using the Extbase framework or as pibase (AbstractPlugin)
+* Plugins can be created using the `Extbase`:pn: framework or as pibase (AbstractPlugin)
   plugin.
 * ``tt_content.CType`` = ``list`` and ``tt_content.list_type`` contains the
   :ref:`plugin signature <naming-conventions-plugin-signature>`.
@@ -65,7 +65,7 @@ Customizing
 
 :ref:`Backend Layouts <be-layout>` can be configured to define how content elements
 are arranged in the TYPO3 backend (in rows, columns, grids). This can be used in
-the frontend to determine how the content elements are to be arranged (e.g. in
+the frontend to determine how the content elements are to be arranged (for example in
 the footer of the page, left column etc.).
 
 Often content elements and plugins contain a number of fields. Not all of these may
@@ -75,7 +75,7 @@ displayed in the backend. There are a number of ways to do this:
 * :ref:`Backend user and group permissions <access-options>` can be used to restrict access to
   content elements, to content on specific pages etc.
 * Fields can be hidden in the backend by using :ref:`TSconfig TCEFORM <t3tsconfig:tceform>`.
-* page TSconfig can be used to :ref:`configure <content-element-wizard>` what is displayed in the "Content Element
+* page `TSconfig`:pn: can be used to :ref:`configure <content-element-wizard>` what is displayed in the "Content Element
   Wizard".
 
 Creating new content elements

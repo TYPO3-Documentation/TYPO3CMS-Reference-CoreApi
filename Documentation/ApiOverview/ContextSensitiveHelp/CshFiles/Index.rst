@@ -25,10 +25,10 @@ This is an extract of a typical file
          <header/>
          <body>
             <trans-unit id=".description">
-               <source>A 'Page' record usually represents a webpage in TYPO3. All pages have an ID number (UID) by which they can be linked and referenced. The 'Page' record itself does not contain the content of the page. 'Page Content' records (Content Elements) are used for this.</source>
+               <source>A 'Page' record usually represents a webpage in `TYPO3`:pn:. All pages have an ID number (UID) by which they can be linked and referenced. The 'Page' record itself does not contain the content of the page. 'Page Content' records (Content Elements) are used for this.</source>
             </trans-unit>
             <trans-unit id=".details" xml:space="preserve">
-               <source>The 'pages' table is the backbone of TYPO3. All records editable by the main modules in TYPO3 must belong to a page. It's exactly like files and folders on your computer's hard drive.
+               <source>The 'pages' table is the backbone of `TYPO3`:pn:. All records editable by the main modules in TYPO3 must belong to a page. It's exactly like files and folders on your computer's hard drive.
 
    &lt;b&gt;The Page Tree&lt;/b&gt;
    The pages are organized in a tree structure that reflects the organization of your website.
@@ -37,7 +37,7 @@ This is an extract of a typical file
    All database elements have a field 'uid' which is a unique identification number. They also have a field 'pid' (page id) which holds the ID number of the page to which they belong. If the 'pid' field is zero, the record is found in the 'root.' Only administrators are allowed access to the root. Table records must be configured to either belong to a page or be found in the root.
 
    &lt;b&gt;Storage of Database Records&lt;/b&gt;
-   Depending on the 'Type', a page may also represent general storage for database elements in TYPO3. In this case, it is not available as a webpage but is used internally in the page tree as a place to store items such as users, subscriptions, etc. Such pages are typically of the type "Folder".</source>
+   Depending on the 'Type', a page may also represent general storage for database elements in `TYPO3`:pn:. In this case, it is not available as a webpage but is used internally in the page tree as a place to store items such as users, subscriptions, etc. Such pages are typically of the type "Folder".</source>
             </trans-unit>
             <trans-unit id="_.seeAlso" xml:space="preserve">
                <source>xMOD_csh_corebe:pagetree,
@@ -52,7 +52,7 @@ This is an extract of a typical file
             </trans-unit>
             <trans-unit id=".image_descr" xml:space="preserve">
                <source>The most basic fields on a page are the 'Disable Page' option, the 'Type' of page ("doktype") and the 'Page Title'.
-   Pages are arranged in a page tree in TYPO3. The page from the editing form in the previous screenshot was the "Intro" page from this page tree. As you can see it belongs in the root of the page tree and has a number of subpages pages under it.</source>
+   Pages are arranged in a page tree in `TYPO3`:pn:. The page from the editing form in the previous screenshot was the "Intro" page from this page tree. As you can see it belongs in the root of the page tree and has a number of subpages pages under it.</source>
             </trans-unit>
             <trans-unit id="title.description">
                <source>Enter the title of the page or folder. This field is required.</source>
@@ -127,7 +127,7 @@ syntax
 alttitle
   Alternative title shown in CSH pop-up window.
 
-  For database tables and fields the title from TCA is fetched by
+  For database tables and fields the title from `TCA`:pn: is fetched by
   default, however overridden by this value if it is not blank.
 
   For modules you must specify this value, otherwise you will see the bare module key.
@@ -180,7 +180,7 @@ seeAlso
 
   .. code-block:: text
 
-     pages:starttime , pages:endtime , tt\_content:header , Link to TYPO3.org \| http://typo3.org/
+     pages:starttime , pages:endtime , tt\_content:header , Link to typo3.org \| http://typo3.org/
 
 
 .. _csh-files-extend-label:

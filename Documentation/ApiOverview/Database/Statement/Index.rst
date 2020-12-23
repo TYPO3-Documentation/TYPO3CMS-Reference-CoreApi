@@ -14,7 +14,7 @@ query types and by :php:`Connection->select()` and :php:`Connection->count()` ca
 The object represents a query result set and comes with methods to :php:`->fetch()` single rows
 or to :php:`->fetchAll()` of them. Additionally, it can also be used to execute a single prepared
 statement with different values multiple times. This part is however not widely used within
-the TYPO3 Core yet, and thus not fully documented here.
+the `TYPO3 Core`:pn: yet, and thus not fully documented here.
 
 .. note::
 
@@ -29,7 +29,7 @@ the TYPO3 Core yet, and thus not fully documented here.
    The return type of single field values is NOT type safe! If selecting a value from a field that is
    defined as `int`, the `Statement` result may very well return that as `PHP` :php:`string`. This is
    true for other database column types like `FLOAT`, `DOUBLE` and others.
-   This is an issue with the database drivers used below, it may happen that `MySQL` returns an integer
+   This is an issue with the database drivers used below, it may happen that `MySQL`:pn: returns an integer
    value for an `int` field, while `MSSQL` returns a string.
    In general, the application must take care of an according type cast on their own to reach maximum
    `DBMS` compatibility.
@@ -112,7 +112,7 @@ instead of counting the number of records in a :php:`->fetch()` loop manually.
 Re-use Prepared Statement()
 ===========================
 
-Doctrine usually prepares a statement first, and then executes it with given parameters. Implementing
+`Doctrine`:pn: usually prepares a statement first, and then executes it with given parameters. Implementing
 prepared statements depends on the given driver. A driver
 not properly implementing prepared statements fall back to a direct execution of given query.
 
@@ -138,7 +138,7 @@ and executes it twice with different arguments::
     $statement->closeCursor(); // free the resources for this result
 
 
-Looking at a mysql debug log:
+Looking at a `MySQL`:pn: debug log:
 
 .. code-block:: sql
 

@@ -34,7 +34,7 @@ The functionality is best described by an example:
    $bitSet->get(PERMISSIONS_PAGE_SHOW); // true
    $bitSet->get(PERMISSIONS_CONTENT_EDIT); // false
 
-This is directly using the TYPO3 Core class. Implementing that via an extending class
+This is directly using the `TYPO3 Core`:pn: class. Implementing that via an extending class
 makes it clearer and easier to use:
 
 ::

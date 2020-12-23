@@ -29,7 +29,7 @@ Background and history
 ======================
 
 PHP has no enumeration concept as part of the language up to date. Therefore
-the TYPO3 Core includes a custom enumeration implementation.
+the `TYPO3 Core`:pn: includes a custom enumeration implementation.
 
 In TYPO3 enumerations are implemented by extending the abstract class
 :php:`TYPO3\CMS\Core\Type\Enumeration`. It was originally implemented similar to
@@ -39,4 +39,4 @@ unfortunately part of the unmaintained package
 
 It was proposed to include an enumeration concept in future versions of PHP (see
 `Enumeration proposal in PHP <https://wiki.php.net/rfc/enumerations>`__) this
-might make it possible to drop the concept from the Core.
+might make it possible to drop the concept from the `Core`:pn:.

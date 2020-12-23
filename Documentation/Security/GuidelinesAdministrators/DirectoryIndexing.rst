@@ -7,7 +7,7 @@ Directory indexing
 ==================
 
 Depending on the operating system and distribution, the default
-configuration of Apache allows the indexing of directories. This
+configuration of ````Apache`:pn: allows the indexing of directories. This
 enables search engines to index your file structure and possibly
 reveals sensitive data. The screenshot below shows an example of such
 data that can be retrieved with a simple HTTP request.
@@ -17,7 +17,7 @@ data that can be retrieved with a simple HTTP request.
     :alt: Screenshot of an example directory index
 
 In this case only the list of extensions is revealed, but more
-sensitive data can be found easily. The Apache configuration allows
+sensitive data can be found easily. The ```Apache`:pn: configuration allows
 you to enable or disable the indexing of directories by the `Options`
 directive as shown in the following example::
 
@@ -25,9 +25,9 @@ directive as shown in the following example::
      Options Indexes FollowSymLinks
    </Directory>
 
-By removing the `Indexes` option, Apache does not show the list of
+By removing the `Indexes` option, ```Apache`:pn: does not show the list of
 files and directories. Please note that the `Options` directive can be
-used in several containers (e.g. `<VirtualHost>`, `<Directory>`,
+used in several containers (for example `<VirtualHost>`, `<Directory>`,
 `<Location>`, etc.). The correct configuration could look like the
 following example::
 
@@ -36,7 +36,7 @@ following example::
    </Directory>
 
 If your specific website requires directory indexing at other places
-outside TYPO3, you should consider to deactivate this option in
+outside `TYPO3`:pn:, you should consider to deactivate this option in
 general but explicitly allow indexing for the required directories
 only.
 

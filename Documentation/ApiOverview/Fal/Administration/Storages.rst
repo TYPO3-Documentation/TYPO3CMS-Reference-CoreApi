@@ -22,7 +22,7 @@ Is browsable?
 Is publicly available?
   When this box is unchecked, the "publicUrl" property of files is
   replaced by an eID call pointing to a file dumping script provided
-  by the TYPO3 CMS Core. The public URL looks something like
+  by the `TYPO3 CMS Core`:pn:. The public URL looks something like
   :code:`index.php?eID=dumpFile&t=f&f=1230&token=135b17c52f5e718b7cc94e44186eb432e0cc6d2f`.
   Behind the scene, class :php:`\TYPO3\CMS\Core\Controller\FileDumpController`
   is invoked to manage the download. The class itself does not implement
@@ -31,11 +31,11 @@ Is publicly available?
   .. warning::
 
      This does not magically protect your files if they are within your web root
-     (e.g. below the :file:`fileadmin` folder). They will still be available to
+     (for example below the :file:`fileadmin` folder). They will still be available to
      anyone who knows the path to the file. To implement a strict access restriction
      the storage must point to some path outside the web root or the folder it points
      to must contain web server restrictions to block direct access to the files it
-     contains (for example, in an Apache :file:`.htaccess` file).
+     contains (for example, in an `Apache`:pn::file:`.htaccess` file).
 
 Is writable?
   This property simply enables to make any storage read-only.

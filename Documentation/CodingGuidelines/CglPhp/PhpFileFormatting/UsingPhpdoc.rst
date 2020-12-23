@@ -24,7 +24,7 @@ source code. TYPO3 code typically uses the following phpDoc_ keywords:
 For more information on phpDoc_ see the phpDoc_ web site at
 https://www.phpdoc.org/.
 
-TYPO3 does **not** require that *each class, function* and *method* be
+`TYPO3`:pn: does **not** require that *each class, function* and *method* be
 documented with phpDoc_.
 
 But documenting types is required. If you cannot use *type hints* then a
@@ -83,7 +83,7 @@ short description is the first piece of text inside the phpDoc block.
 It ends with the next blank line. Any additional text after that line
 and before the first tag is the long description.
 
-In the comment blocks use the *short* forms of the type names (e.g.
+In the comment blocks use the *short* forms of the type names (for example
 :php:`int`, :php:`bool`, :php:`string`, :php:`array` or
 :php:`mixed`).
 

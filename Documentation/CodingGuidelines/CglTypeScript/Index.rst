@@ -8,7 +8,7 @@ TypeScript Coding Guidelines
 
 `Excel Micro TypeScript Style Guide for TypeScript
 <https://github.com/excelmicro/typescript>`__ should be used throughout the
-TYPO3 Core for TypeScript files.
+`TYPO3 Core`:pn: for TypeScript files.
 
 Directories and File Names
 ==========================

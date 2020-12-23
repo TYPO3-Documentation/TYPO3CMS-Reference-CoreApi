@@ -14,7 +14,7 @@ severity levels of messages that can be emitted.
 .. figure:: ../../Images/FlashMessagesAll.png
    :alt: All levels of flash messages
 
-   The "examples" BE module shows one of each type of flash message
+   The "examples" backend module shows one of each type of flash message
 
 The different severity levels are described below:
 
@@ -93,8 +93,8 @@ messages from the queue. Here's how such a message looks like in a module:
    A typical (success) message shown at the top of a module
 
 
-The recommend way to show flash messages is to use the Fluid Viewhelper :html:`<f:flashMessages />`.
-This Viewhelper works in any context because it use the :php:`FlashMessageRendererResolver` class
+The recommend way to show flash messages is to use the `Fluid ViewHelper`:pn: :html:`<f:flashMessages />`.
+This `ViewHelper`:pn: works in any context because it use the :php:`FlashMessageRendererResolver` class
 to find the correct renderer for the current context.
 
 .. _flash-messages-renderer:
@@ -102,12 +102,12 @@ to find the correct renderer for the current context.
 Flash messages renderer
 =======================
 
-The implementation of rendering FlashMessages in the Core has been optimized.
+The implementation of rendering FlashMessages in the `Core`:pn: has been optimized.
 
 A new class called :php:`FlashMessageRendererResolver` has been introduced.
 This class detects the context and renders the given FlashMessages in the correct output format.
 It can handle any kind of output format.
-The Core ships with the following FlashMessageRenderer classes:
+The `Core`:pn: ships with the following FlashMessageRenderer classes:
 
 * :php:`TYPO3\CMS\Core\Messaging\Renderer\BootstrapRenderer`
   This renderer is used by default in the TYPO3 backend.
@@ -128,7 +128,7 @@ If you need a special output format, you can implement your own renderer class a
       ->render($flashMessages);
 
 
-The Core has been modified to use the new :php:`FlashMessageRendererResolver`.
+The `Core`:pn: has been modified to use the new :php:`FlashMessageRendererResolver`.
 Any third party extension should use the provided :php:`FlashMessageViewHelper` or the new :php:`FlashMessageRendererResolver` class:
 
 .. code-block:: php
@@ -141,10 +141,10 @@ Any third party extension should use the provided :php:`FlashMessageViewHelper` 
 .. index:: pair: Flash messages; Extbase
 .. _flash-messages-extbase:
 
-Flash messages in Extbase
-=========================
+Flash messages in `Extbase`:pn:
+===============================
 
-In Extbase the standard way of issuing flash messages is to add them
+In `Extbase`:pn: the standard way of issuing flash messages is to add them
 in the controller. Code from the "examples" extension::
 
    $this->addFlashMessage('This is a simple success message');
@@ -160,7 +160,7 @@ The full API of this function is::
    );
 
 
-The messages are then displayed by Fluid with the relevant Viewhelper
+The messages are then displayed by `Fluid`:pn: with the relevant `ViewHelper`:pn:
 as shown in this excerpt of :file:`EXT:examples/Resources/Private/Layouts/Module.html`:
 
 .. code-block:: html
@@ -172,8 +172,8 @@ as shown in this excerpt of :file:`EXT:examples/Resources/Private/Layouts/Module
       </div>
    </div>
 
-Where to display the flash messages in an Extbase-based BE module is
-as simple as moving the View Helper around.
+Where to display the flash messages in an `Extbase`:pn:-based backend module is
+as simple as moving the `ViewHelper`:pn: around.
 
 
 .. index::
@@ -181,13 +181,13 @@ as simple as moving the View Helper around.
    Notification API
 .. _flash-messages-javascript:
 
-JavaScript-based flash messages (Notification API)
-==================================================
+`JavaScript`:pn:-based flash messages (Notification API)
+========================================================
 
 .. important::
    The notification API is designed for TYPO3 Backend purposes only.
 
-The TYPO3 Core provides a JavaScript-based API to trigger flash messages ("Notifications") that appear on the upper
+The `TYPO3 Core`:pn: provides a `JavaScript`:pn:-based API to trigger flash messages ("Notifications") that appear on the upper
 right corner of the TYPO3 backend. To use the notification API, load the :js:`TYPO3/CMS/Backend/Notification` module and
 use one of its methods:
 
@@ -271,7 +271,7 @@ Immediate action
 ~~~~~~~~~~~~~~~~
 
 An action of type :js:`ImmediateAction` (:js:`TYPO3/CMS/Backend/ActionButton/ImmediateAction`) is executed directly on
-click and closes the notification. This action type is suitable for e.g. linking to a backend module.
+click and closes the notification. This action type is suitable for for example linking to a backend module.
 
 The class accepts a callback method executing very simple logic.
 
@@ -299,7 +299,7 @@ Deferred action
 ~~~~~~~~~~~~~~~
 
 An action of type :js:`DeferredAction` (:js:`TYPO3/CMS/Backend/ActionButton/DeferredAction`) is recommended when a
-long-lasting task is executed, e.g. an AJAX request.
+long-lasting task is executed, for example an AJAX request.
 
 This class accepts a callback method which must return a :js:`Promise` (read more at `developer.mozilla.org`_).
 

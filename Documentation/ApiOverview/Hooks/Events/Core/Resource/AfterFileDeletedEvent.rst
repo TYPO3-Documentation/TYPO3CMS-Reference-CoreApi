@@ -9,7 +9,7 @@ AfterFileDeletedEvent
 
 This event is fired after a file was deleted.
 
-*Example*: If an extension provides additional functionality (e.g. variants),
+*Example*: If an extension provides additional functionality (for example variants),
 this event allows listener to also clean
 up their custom handling. This can also be used for versioning of files.
 

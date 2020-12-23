@@ -18,7 +18,7 @@ backend modules::
 
 
 In this simple piece of code we instantiate a clipboard object and make it
-load its content. We then simply dump this content into the BE module's debug
+load its content. We then simply dump this content into the backend module's debug
 window, with the following result:
 
 .. figure:: ../../../Images/ClipboardDump.png
@@ -29,12 +29,12 @@ window, with the following result:
 This tells us what objects are registered on the default tab ("normal")
 (a content element with id 216 in "copy" mode) and the numeric tabs (which can
 each contain more than one element). It also tells us that the current
-tab is number 2. We can compare with the BE view of the clipboard:
+tab is number 2. We can compare with the backend view of the clipboard:
 
 .. figure:: ../../../Images/ClipboardContent.png
    :alt: Clipboard content
 
-   The clipboard as seen in the BE
+   The clipboard as seen in the backend
 
 which indeed contains two files.
 
@@ -59,7 +59,7 @@ Here we first try to get all files and then all page records on the
 current pad (which is pad 2). Then we change to the "Normal" pad, call
 the :code:`elFromTable()` method again.
 
-In the "examples" extension, this data is passed to a BE module view
+In the "examples" extension, this data is passed to a backend module view
 for display, which is really just information:
 
 

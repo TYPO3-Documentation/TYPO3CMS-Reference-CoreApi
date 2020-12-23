@@ -17,7 +17,7 @@ the caching framework without giving the whole details under the hood.
 Change Specific Cache Options
 =============================
 
-By default, most Core caches use the database backend. Default cache configuration
+By default, most `Core`:pn: caches use the database backend. Default cache configuration
 is defined in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
 and can be overridden in :file:`LocalConfiguration.php`.
 

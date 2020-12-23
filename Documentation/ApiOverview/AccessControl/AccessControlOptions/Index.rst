@@ -22,13 +22,13 @@ Mounts
 Page permissions
    Access to work on individual pages based on the user id and group ids.
 
-User TSconfig
+User `TSconfig`:pn:
    A flexible and hierarchical configuration structure
-   defined by TypoScript syntax. This typically describes "soft"
+   defined by `TypoScript`:pn: syntax. This typically describes "soft"
    permission settings and options for the user or group which can be used to
    customize the backend and individual modules.
 
-   All user TSconfig options are described in the
+   All user `TSconfig`:pn: options are described in the
    :ref:`TSconfig Reference <t3tsconfig:usertsconfig>`
 
 
@@ -45,7 +45,7 @@ additional technical details, where necessary.
 .. note::
 
    Access list don't apply to admin users. As mentioned before, admin
-   users have access to every single feature of the TYPO3 CMS backend.
+   users have access to every single feature of the `TYPO3 CMS`:pn: backend.
 
 Modules
    This is a list of submodules a user may be given access to. Access to a main
@@ -92,24 +92,24 @@ Tables for editing
    modification rights.
 
 Page types
-   TYPO3 CMS defines a number of page types. A user can be restricted
+   `TYPO3 CMS`:pn: defines a number of page types. A user can be restricted
    to access only some of them.
 
    For a full discussion on page types, please refer to the
    :ref:`page types chapter <page-types>`.
 
 Excludefields
-   When defining column tables in TCA, it is possible to set the
+   When defining column tables in `TCA`:pn:, it is possible to set the
    :ref:`"exclude" property <t3tca:columns-properties-exclude>` to "1".
    This ensures that the field is hidden to users by default.
    Access to it must be explicitly granted in this access list.
 
 Explicitly allow/deny field values
    When a field offers a list of options to select from, it is possible
-   to tell TYPO3 CMS that access to these options is restricted and should
+   to tell `TYPO3 CMS`:pn: that access to these options is restricted and should
    be granted explicitly. Such fields and their values appear here.
 
-   The related TCA property is :ref:`"authMode" <t3tca:columns-select-properties-authmode>`.
+   The related `TCA`:pn: property is :ref:`"authMode" <t3tca:columns-select-properties-authmode>`.
 
 Limit to languages
    By default users can edit records regardless of what language they are assigned to.
@@ -125,12 +125,12 @@ the groups are "added" together.
 Mounts
 ======
 
-TYPO3 CMS natively supports two kinds of hierarchical tree structures:
+`TYPO3 CMS`:pn: natively supports two kinds of hierarchical tree structures:
 the page tree (typically visible in the **WEB** module) and the folder
 tree (typically visible in the **FILE** module). Each tree is
 generated based on the *mount points* configured for the current user. So a
 page tree is drawn from the *DB Mounts* which are one or more page ids
-telling the Core from which "start page" to draw the tree(s). Likewise
+telling the `Core`:pn: from which "start page" to draw the tree(s). Likewise
 is the folder tree drawn based on *filemounts* configured for the user.
 
 **DB mounts** (page mounts) are easily set by simply pointing out the
@@ -156,13 +156,13 @@ This is what the user will see:
 involve several steps. First of all, you need to have at least
 one :ref:`File Storage <fal-concepts-storages-drivers>`. By
 default, you will always have one, pointing
-to the :file:`fileadmin` directory. It is created by TYPO3 CMS
+to the :file:`fileadmin` directory. It is created by `TYPO3 CMS`:pn:
 upon installation.
 
 .. note::
 
    The :file:`fileadmin` directory is the default place where
-   TYPO3 CMS expects media resources to be located. It can be
+   `TYPO3 CMS`:pn: expects media resources to be located. It can be
    changed using the global configuration option
    :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
 
@@ -217,7 +217,7 @@ to every part of the installation.
 Page Permissions
 ----------------
 
-Page permissions are designed to work like file permissions on UNIX
+Page permissions are designed to work like file permissions on `Unix`:pn:
 systems. Each page record has an owner user and group and
 permission settings for the owner, the group and "everybody". This is
 summarized here:
@@ -263,7 +263,7 @@ Editing permissions is described in details in the
 A user must be "admin" *or* the owner of a page in order to edit its
 permissions.
 
-When a user creates new pages in TYPO3 CMS they will by default get the
+When a user creates new pages in `TYPO3 CMS`:pn: they will by default get the
 creating user as owner. The owner group will be set to the *first
 listed user group* configured for the users record (if any). These defaults
 can be changed through :ref:`page TSconfig <t3tsconfig:pagetcemain-permissions-user-group>`.
@@ -271,11 +271,11 @@ can be changed through :ref:`page TSconfig <t3tsconfig:pagetcemain-permissions-u
 
 .. _access-options-user-tsconfig:
 
-User TSconfig
-=============
+User `TSconfig`:pn:
+===================
 
-User TSconfig is a hierarchical configuration structure entered in
-plain text TypoScript. It can be used by all kinds of applications
-inside of TYPO3 CMS to retrieve customized settings for users which
+User `TSconfig`:pn: is a hierarchical configuration structure entered in
+plain text `TypoScript`:pn:. It can be used by all kinds of applications
+inside of `TYPO3 CMS`:pn: to retrieve customized settings for users which
 relates to a certain module or part. The options available are
 described in the :ref:`document TSconfig <t3tsconfig:usertsconfig>` .

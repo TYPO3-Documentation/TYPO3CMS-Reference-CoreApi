@@ -9,10 +9,10 @@ Project testing
 Introduction
 ============
 
-Testing entire projects is somehow different from Core and extension testing. As a developer
-or maintainer of a specific TYPO3 instance, you probably do not want to test extension details
+Testing entire projects is somehow different from `Core`:pn: and extension testing. As a developer
+or maintainer of a specific `TYPO3`:pn: instance, you probably do not want to test extension details
 too much - those should have been tested on an extension level already. And you probably also
-do not want to check too many TYPO3 backend details but look for acceptance testing of your
+do not want to check too many `TYPO3`:pn: backend details but look for acceptance testing of your
 local development, stage and live frontend website instead.
 
 Project testing is thus probably wired into your specific CI and deployment environment. Maybe
@@ -31,7 +31,7 @@ This is thought as an inspiration you may want to adapt for your project.
 Project site-introduction
 =========================
 
-The `site-introduction <https://github.com/benjaminkott/site-introduction>`_ TYPO3 project is a
+The `site-introduction <https://github.com/benjaminkott/site-introduction>`_ `TYPO3`:pn: project is a
 straight ddev based setup that aims to simplify handling the `introduction
 <https://github.com/FriendsOfTYPO3/introduction>`_ extension. It delivers everything needed
 to have a working introduction based project, to manage content and export it for new
@@ -39,7 +39,7 @@ introduction extension releases.
 
 Since we're lazy and like well defined but simply working environments, this project is
 based on ddev. The repository is a simple project setup that defines a working
-TYPO3 instance. And we want to make sure we do not break main parts if we fiddle with it.
+`TYPO3`:pn: instance. And we want to make sure we do not break main parts if we fiddle with it.
 Just like any other projects wants.
 
 The quick start for an own site based on this repository boils down to these commands, with
@@ -89,7 +89,7 @@ that for the selenium-chrome container that pilots the acceptance tests as :file
           - ddev-router:$DDEV_HOSTNAME
 
 With this in place and calling `ddev start`, another container with name `ddev-introduction-chrome`
-is added to the other containers, running in the same docker network. More information about
+is added to the other containers, running in the same `Docker`:pn: network. More information about
 setups like these can be found in the `ddev documentation
 <https://ddev.readthedocs.io/en/stable/users/extend/custom-compose-files/>`_.
 
@@ -202,8 +202,8 @@ Done: Local test execution of a projects acceptance test!
 Travis CI
 =========
 
-Travis CI needs slightly more love: Travis comes with rather outdated docker versions by default that
-are not compatible with ddev, so our :file:`.travis.yml` first updates docker and docker-compose, then
+Travis CI needs slightly more love: Travis comes with rather outdated `Docker`:pn: versions by default that
+are not compatible with ddev, so our :file:`.travis.yml` first updates `Docker`:pn: and `Docker Compose`:pn:, then
 installs ddev, sets up the instance and executes the tests. Ready to rumble:
 
 .. code-block:: yaml
@@ -216,12 +216,12 @@ installs ddev, sets up the instance and executes the tests. Ready to rumble:
     sudo: true
 
     before_install:
-      # Update docker
+      # Update `Docker`:pn:
       - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
       - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
       - sudo apt-get update
       - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-      # Update docker-compose
+      # Update `Docker Compose`:pn:
       - sudo rm /usr/local/bin/docker-compose
       - curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` > docker-compose
       - chmod +x docker-compose

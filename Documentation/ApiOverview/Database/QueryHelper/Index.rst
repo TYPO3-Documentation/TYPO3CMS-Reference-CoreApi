@@ -16,7 +16,7 @@ The whole class is marked as `@internal`, **should not be used by extension
 authors** and may - if things go wrong - change at will. The class will hopefully
 vanish mid-term. However, there may be situations when the class methods can become
 handy if extension authors :ref:`migrate <database-migration>` their own extensions away
-from `TYPO3_DB` to Doctrine DBAL. In practice, the Core will *most likely* add proper
+from `TYPO3_DB` to `Doctrine`:pn: DBAL. In practice, the `Core`:pn: will *most likely* add proper
 deprecations to single methods if they are target of removal later.
 
 Extension developers may keep this class in mind for migration, but **must not** use
@@ -36,8 +36,8 @@ The migration benefits are the only reason the methods are documented here.
 parseOrderBy()
 ==============
 
-Some parts of the Core framework allow string definitions like `ORDER BY sorting` for instance
-in `TCA` and `TypoScript`. The method rips those strings apart and prepares them to be fed
+Some parts of the `Core`:pn: framework allow string definitions like `ORDER BY sorting` for instance
+in `TCA`:pn: and `TypoScript`:pn:. The method rips those strings apart and prepares them to be fed
 to :php:`QueryBuilder->orderBy()`::
 
    // 'ORDER BY aField ASC,anotherField, aThirdField DESC'
@@ -107,10 +107,10 @@ stripLogicalOperatorPrefix()
 
 Removes the prefixes `AND` / `OR` from an input string.
 
-Those prefixes are added in Doctrine DBAL via :php:`QueryBuilder->where()`, :php:`QueryBuilder->orWhere()`,
+Those prefixes are added in `Doctrine`:pn: DBAL via :php:`QueryBuilder->where()`, :php:`QueryBuilder->orWhere()`,
 :php:`ExpressionBuilder->andX()` and friends. Some parts of the `TYPO3` framework however carry SQL fragments
 prefixed with `AND` or `OR` around and it's not always possible to easily get rid of those. The method
-helps by killing those prefixes before they are handed over to the `doctrine` API::
+helps by killing those prefixes before they are handed over to the `Doctrine`:pn: API::
 
    // 'AND 1=1'
    // ->
@@ -134,10 +134,10 @@ for extension authors. This one is hopefully one of the first methods to vanish 
 quoteDatabaseIdentifiers()
 ==========================
 
-This helper method is used especially in `TCA` and `TypoScript` at places where SQL fragments are specified to
+This helper method is used especially in `TCA`:pn: and `TypoScript`:pn: at places where SQL fragments are specified to
 correctly quote table and field names for the specific database platform. It for example
-substitutes :php:`{#aIdentifier}` to ```aIdentifier``` if using MySQL or to `"aIdentifier"`
-if using PostgreSQL. Let's suppose a simple `TCA` columns select field like this::
+substitutes :php:`{#aIdentifier}` to ```aIdentifier``` if using `MySQL`:pn:or to `"aIdentifier"`
+if using PostgreSQL. Let's suppose a simple `TCA`:pn: columns select field like this::
 
     'aSelectFieldWithForeignTableWhere' => [
         'label' => 'some label',
@@ -154,11 +154,11 @@ MySQL, this fragment will be substituted to::
 
     AND `tx_some_foreign_table_name`.`pid` = 42
 
-The Core had to come up with this special syntax since the Core API contains various places
+The `Core`:pn: had to come up with this special syntax since the `Core`:pn: API contains various places
 where SQL fragments can be specified by extension developers who do not know and should not
 restrict on which actual platform a query is performed.
 
 As an extension developer it is important to use this :php:`{#...}` syntax in order to make
-extensions database platform agnostic. The TCA reference and TypoScript reference contains
-hints at the according properties that need this, in general the Core calls this helper
-method whenever SQL fragments can be specified in `TCA` and `TypoScript`.
+extensions database platform agnostic. The `TCA`:pn: reference and `TypoScript`:pn: reference contains
+hints at the according properties that need this, in general the `Core`:pn: calls this helper
+method whenever SQL fragments can be specified in `TCA`:pn: and `TypoScript`:pn:.

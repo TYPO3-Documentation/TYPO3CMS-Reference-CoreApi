@@ -7,7 +7,7 @@
 Event Api
 =========
 
-The TYPO3 JavaScript Event API enables JavaScript developers to have a stable event listening
+The TYPO3 `JavaScript`:pn: Event API enables `JavaScript`:pn: developers to have a stable event listening
 interface. The API takes care of common pitfalls like event delegation and clean
 event unbinding.
 

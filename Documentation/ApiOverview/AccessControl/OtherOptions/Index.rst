@@ -40,7 +40,7 @@ Access options
 
 Lock to domain
   This setting constrains the user to use a specific domain for logging
-  into the TYPO3 CMS backend. This is very useful in setups with multiple
+  into the `TYPO3 CMS`:pn: backend. This is very useful in setups with multiple
   sites.
 
 
@@ -59,7 +59,7 @@ Lock to domain
 
 Hide in lists
   This flag will prevent the group from appearing in various
-  listings in TYPO3 CMS. This includes modules like **SYSTEM > Access**.
+  listings in `TYPO3 CMS`:pn:. This includes modules like **SYSTEM > Access**.
 
 Inherit settings from groups (Sub Groups)
   Assigns sub-groups to this group. Sub-groups are

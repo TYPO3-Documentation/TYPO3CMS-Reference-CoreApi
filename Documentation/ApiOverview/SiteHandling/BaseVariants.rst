@@ -18,7 +18,7 @@ Variants consist of two parts:
 * a base to use for this variant
 * a condition that decides when this variant shall be active
 
-Conditions are based on Symfony expression language and allow flexible conditions. For example::
+Conditions are based on `Symfony`:pn: expression language and allow flexible conditions. For example::
 
     applicationContext == "Development"
 
@@ -36,7 +36,7 @@ would define a base variant to use in Development context.
 .. seealso::
     Read :ref:`application-context` for more information on how to set the application context.
 
-The following variables and functions are available in addition to the default Symfony functionality:
+The following variables and functions are available in addition to the default `Symfony`:pn: functionality:
 
 Example
 =======
@@ -232,7 +232,7 @@ feature
     string
 
 :aspect:`Description`
-    Check whether a feature ("feature toggle") is enabled in TYPO3.
+    Check whether a feature ("feature toggle") is enabled in `TYPO3`:pn:.
 
 :aspect:`Example`
     `feature("TypoScript.strictSyntax")`

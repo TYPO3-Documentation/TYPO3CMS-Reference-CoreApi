@@ -11,7 +11,7 @@ The purpose of a log writer is (usually) to save all log records into a persiste
 like a log file, a database table, or to a remote syslog server.
 
 Different log writers offer possibilities to log into different targets.
-Custom log writers can extend the functionality shipped with TYPO3 Core .
+Custom log writers can extend the functionality shipped with the `TYPO3 Core`:pn:.
 
 
 .. _logging-writers-builtin:
@@ -19,7 +19,7 @@ Custom log writers can extend the functionality shipped with TYPO3 Core .
 Built-in Log Writers
 ====================
 
-This section describes the log writers shipped with the TYPO3 Core .
+This section describes the log writers shipped with the `TYPO3 Core`:pn:.
 Some writers have options to allow customization of the particular writer.
 See the :ref:`Configuration <logging-configuration-writer>` section for how to use these options.
 
@@ -80,7 +80,7 @@ The corresponding configuration might look like this for example:
 
 .. warning::
 
-   If you are using a MariaDB Galera Cluster you should definitely add a primary key field
+   If you are using a `MariaDB`:pn: Galera Cluster you should definitely add a primary key field
    to the database definition, since it is required by Galera (this can be a normal `uid` field as known from other tables):
    `MariaDB Galera Cluster - Known Limitations <https://mariadb.com/kb/en/mariadb/mariadb-galera-cluster-known-limitations/>`__.
 
@@ -138,7 +138,7 @@ Logs into the PHP error log using `error_log()`_
 SyslogWriter
 ------------
 
-Logs into the syslog (Unix only).
+Logs into the syslog (`Unix`:pn: only).
 
 
 ========  =========  ================  ========

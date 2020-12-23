@@ -32,6 +32,6 @@ When using environment variables in conditions, make sure to quote them correctl
     Since TYPO3 v10.2 it's also possible to use env variables in imports:
     `resource: 'MyFile_%env("foo")%.yaml'`
 
-TYPO3 does not provide a loader for .env files - you have to take care of loading them yourself.
+`TYPO3`:pn: does not provide a loader for .env files - you have to take care of loading them yourself.
 Common options include setting environment configuration via server configuration or
 using `vlucas/phpdotenv <https://packagist.org/packages/vlucas/phpdotenv>`_.

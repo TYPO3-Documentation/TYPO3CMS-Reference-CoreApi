@@ -37,7 +37,7 @@ The new page type is added to :php:`$GLOBALS['PAGES_TYPES']` in :file:`ext_table
 
    })();
 
-User TSconfig is added and an icon is registed in :file:`ext_localconf.php`::
+User `TSconfig`:pn: is added and an icon is registed in :file:`ext_localconf.php`::
 
    (function ($extKey='example') {
       // Provide icon for page tree, list view, ... :

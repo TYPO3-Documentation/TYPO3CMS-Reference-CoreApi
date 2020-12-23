@@ -18,15 +18,15 @@ The following workflow is used to bring a translation into a TYPO3 installation.
 
 2. Creating translations on Crowdin.com
 
-   The translations are managed on Crowdin at https://crowdin.com/project/typo3-cms.
+   The translations are managed on `Crowdin`:pn: at https://crowdin.com/project/typo3-cms.
 
-   You can either translate all strings on the Crowdin platform or directly in the TYPO3 backend.
+   You can either translate all strings on the `Crowdin`:pn: platform or directly in the TYPO3 backend.
 
    .. todo:: Add link to usage
 
-3. Crowdin Bridge
+3. `Crowdin`:pn: Bridge
 
-   A separate project is accountable for exporting the translations from Crowdin.
+   A separate project is accountable for exporting the translations from `Crowdin`:pn:.
    This consists of several steps:
 
    - Trigger a build of all projects

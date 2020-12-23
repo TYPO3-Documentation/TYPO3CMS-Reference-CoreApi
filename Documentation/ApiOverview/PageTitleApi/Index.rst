@@ -13,7 +13,7 @@ Based on the priority of the providers, the :php:`PageTitleProviderManager` will
 is given by the provider. It will start with the highest priority PageTitleProviders and will end with the lowest
 in priority.
 
-By default, the Core ships two providers. If you have installed the system extension SEO, the provider with the (by default) highest priority will be the
+By default, the `Core`:pn: ships two providers. If you have installed the system extension SEO, the provider with the (by default) highest priority will be the
 :php:`SeoTitlePageTitleProvider`. When an editor has set a value for the SEO title in the page properties of the page,
 this provider will provide that title to the :php:`PageTitleProviderManager`. If you have not installed the SEO system
 extension, this fields and provider are not available.
@@ -21,7 +21,7 @@ extension, this fields and provider are not available.
 The fallback provider with the lowest priority is the :php:`RecordPageTitleProvider`. When no other title is set
 by a provider, this provider will return the title of the page.
 
-Besides the providers shipped by the Core, you can add own providers. An integrator can define the priority of the
+Besides the providers shipped by the `Core`:pn:, you can add own providers. An integrator can define the priority of the
 providers for his project.
 
 
@@ -54,7 +54,7 @@ First of all create a PHP class in your extension that implements the :php:`Page
    }
 
 
-Usage example e.g. in an Extbase controller:
+Usage example for example in an `Extbase`:pn: controller:
 
 .. code-block:: php
 
@@ -67,10 +67,10 @@ Usage example e.g. in an Extbase controller:
 Define priority of PageTitleProviders
 =====================================
 
-The priority of the providers are set by the TypoScript property :typoscript:`config.pageTitleProviders`. This
+The priority of the providers are set by the `TypoScript`:pn: property :typoscript:`config.pageTitleProviders`. This
 way an integrator is able to set the priorities for his project and can even have conditions in place.
 
-By default, the Core has the following setup:
+By default, the `Core`:pn: has the following setup:
 
 .. code-block:: typoscript
 

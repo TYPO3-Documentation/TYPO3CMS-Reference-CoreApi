@@ -130,7 +130,7 @@ Method :php:`getPrerequisites`
 Marking wizard as done
 ======================
 
-As soon as the wizard has completely finished, e.g. it detected that no update is
+As soon as the wizard has completely finished, for example it detected that no update is
 necessary anymore, or that all updates were completed successfully, the wizard
 is marked as done and won't be checked anymore.
 
@@ -147,7 +147,7 @@ Generating output
 =================
 
 The :php:`ChattyInterface` can be implemented for wizards which should generate output.
-:php:`ChattyInterface` uses the Symfony interface
+:php:`ChattyInterface` uses the `Symfony`:pn: interface
 `OutputInterface <https://github.com/symfony/symfony/blob/master/src/Symfony/Component/Console/Output/OutputInterface.php>`__.
 
 Classes using this interface must implement the following method::

@@ -3,22 +3,22 @@
 .. index:: LinkHandler
 .. _linkhandler:
 
-===============
-LinkHandler API
-===============
+=====================
+`LinkHandler`:pn: API
+=====================
 
 .. versionadded:: 8.6
-    The LinkHandler Api has been included in the Core with the change
+    The `LinkHandler`:pn: Api has been included in the `Core`:pn: with the change
     :doc:`t3core:Changelog/8.6/Feature-79626-IntegrateRecordLinkHandler`.
     Before, it had only been available as third party extension.
 
-The LinkHandler enables editors to link to single records i.e. a single news record.
+The `LinkHandler`:pn: enables editors to link to single records i.e. a single news record.
 
 The configuration consists of the following parts:
 
 .. rst-class:: bignums-xxl
 
-#. PageTSconfig is used to create a new tab in the LinkBrowser to be able to select records.
+#. Page `TSconfig`:pn: is used to create a new tab in the LinkBrowser to be able to select records.
 
    .. code-block:: typoscript
 
@@ -36,7 +36,7 @@ The configuration consists of the following parts:
    The links are now stored in the database with the syntax
    `<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
 
-#. TypoScript is used to generate the actual link in the frontend.
+#. `TypoScript`:pn: is used to generate the actual link in the frontend.
 
    .. code-block:: typoscript
 
@@ -52,7 +52,7 @@ The configuration consists of the following parts:
 
    .. important::
 
-      Do not change the identifier after links have been created  using the LinkHandler. The identifier will be
+      Do not change the identifier after links have been created  using the `LinkHandler`:pn:. The identifier will be
       stored as part of the link in the database.
 
 
@@ -61,10 +61,10 @@ The configuration consists of the following parts:
    TCEMAIN; linkHandler
 .. _linkhandler-pagetsconfig:
 
-LinkHandler page TSconfig options
-=================================
+LinkHandler page `TSconfig`:pn: options
+=======================================
 
-The minimal PageTSconfig Configuration is::
+The minimal page `TSconfig`:pn: configuration is::
 
    TCEMAIN.linkHandler.anIdentifier {
        handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
@@ -123,7 +123,7 @@ This configuration shows a reduced page tree starting at page with uid 42::
        }
    }
 
-The PageTSconfig of the LinkHandler is being used in sysext `recordlist`
+The page `TSconfig`:pn: of the `LinkHandler`:pn: is being used in sysext `recordlist`
 in class :php:`\TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler`
 which does not contain Hooks or Slots.
 
@@ -134,7 +134,7 @@ It is possible to enable an additional field in the link browser to enter the ui
 The uid will be used directly instead of selecting it from the page tree.
 
 This only works for the :php:`PageLinkHandler`.
-It will **not** work for custom added LinkHandler configurations.
+It will **not** work for custom added `LinkHandler`:pn: configurations.
 
 .. figure:: ../../../Images/LinkBrowserTSConfigExamplepageIdSelector.png
    :alt: The link browser field for entering a page uid.
@@ -149,8 +149,8 @@ Enable the field with the following User-/PageTSConfig::
    TypoScript; config.recordLinks
 .. _linkhandler-typoscript:
 
-LinkHandler TypoScript options
-==============================
+`LinkHandler`:pn: `TypoScript`:pn: options
+==========================================
 
 A configuration could look like this::
 
@@ -164,7 +164,7 @@ A configuration could look like this::
        }
    }
 
-The TypoScript Configuration of the LinkHandler is being used in sysext `frontend`
+The `TypoScript`:pn: Configuration of the `LinkHandler`:pn: is being used in sysext `frontend`
 in class :php:`TYPO3\CMS\Frontend\Typolink\DatabaseRecordLinkBuilder`.
 
 Example: news records displayed on fixed detail page

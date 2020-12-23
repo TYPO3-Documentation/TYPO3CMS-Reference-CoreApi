@@ -6,7 +6,7 @@
 SessionStorage wrapper
 ======================
 
-TYPO3 ships a module acting as a wrapper for :js:`sessionStorage`. It
+`TYPO3`:pn: ships a module acting as a wrapper for :js:`sessionStorage`. It
 behaves similar to the :js:`localStorage`, except that the stored data is dropped
 after the browser session has ended.
 

@@ -23,10 +23,10 @@ YAML is used in TYPO3 for various configurations; most notable are
 YamlFileLoader
 ==============
 
-TYPO3 is using a custom YAML loader for handling YAML in TYPO3 based on the Symfony YAML package. It's located at
+`TYPO3`:pn: is using a custom YAML loader for handling YAML in TYPO3 based on the `Symfony`:pn: YAML package. It's located at
 :php:`\TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader` and can be used when YAML parsing is required.
 
-The TYPO3 Core YAML resolves environment variables. Resolving of variables in the loader can be enabled or
+The `TYPO3 Core`:pn: YAML resolves environment variables. Resolving of variables in the loader can be enabled or
 disabled via flags. For example, when editing the site configuration through the backend interface the resolving
 of environment variables needs to be disabled to be able to add environment configuration through
 the interface.

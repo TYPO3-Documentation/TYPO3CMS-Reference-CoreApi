@@ -64,7 +64,7 @@ fileDenyPattern
 The `fileDenyPattern` is a perl-compatible regular expression that (if
 it matches a file name) will prevent TYPO3 from accessing or processing
 this file (deny uploading, renaming, etc). For security reasons, PHP files
-as well as Apache's :file:`.htaccess` file should be included in this regular
+as well as `Apache`:pn: 's :file:`.htaccess` file should be included in this regular
 expression string. The default value is: :php:`\\.(php[3-7]?|phpsh|phtml|pht)(\\..*)?$|^\\.htaccess$`,
 initially defined in constant :php:`FILE_DENY_PATTERN_DEFAULT`.
 
@@ -82,7 +82,7 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern
 lockIP / lockIPv6
 =================
 
-If a frontend or backend user logs into TYPO3, the user's session can be
+If a frontend or backend user logs into `TYPO3`:pn:, the user's session can be
 locked to its IP address. The `lockIP` configuration for IPv4 and `lockIPv6` for IPv6 control how
 many parts of the IP address have to match with the IP address used at
 authentication time.
@@ -103,16 +103,16 @@ with the following meaning:
    Disable IP locking entirely.
 
 `1`
-   Only the first part of the IPv4 address needs to match, e.g. `123.xxx.xxx.xxx`.
+   Only the first part of the IPv4 address needs to match, for example `123.xxx.xxx.xxx`.
 
 `2`
-   Only the first and second part of the IPv4 address need to match, e.g. `123.45.xxx.xxx`.
+   Only the first and second part of the IPv4 address need to match, for example `123.45.xxx.xxx`.
 
 `3`
-   Only the first, second and third part of the IPv4 address need to match, e.g. `123.45.67.xxx`.
+   Only the first, second and third part of the IPv4 address need to match, for example `123.45.67.xxx`.
 
 `4`
-   The complete IPv4 address has to match (e.g. `123.45.67.89`).
+   The complete IPv4 address has to match (for example `123.45.67.89`).
 
 Possible values for **IPv6** are: `0`, `1`, `2`, `3`, `4`,  `5`,  `6`, `7`, `8` (integer)
 with the following meaning:
@@ -121,28 +121,28 @@ with the following meaning:
    Disable IP locking entirely.
 
 `1`
-   Only the first block (16 bits) of the IPv6 address needs to match, e.g. `2001:`
+   Only the first block (16 bits) of the IPv6 address needs to match, for example `2001:`
 
 `2`
-   The first two blocks (32 bits) of the IPv6 address need to match, e.g. `2001:0db8`.
+   The first two blocks (32 bits) of the IPv6 address need to match, for example `2001:0db8`.
 
 `3`
-   The first three blocks (48 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3`
+   The first three blocks (48 bits) of the IPv6 address need to match, for example `2001:0db8:85a3`
 
 `4`
-   The first four blocks (64 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3`
+   The first four blocks (64 bits) of the IPv6 address need to match, for example `2001:0db8:85a3:08d3`
 
 `5`
-   The first five blocks (80 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3:1319`
+   The first five blocks (80 bits) of the IPv6 address need to match, for example `2001:0db8:85a3:08d3:1319`
 
 `6`
-   The first six blocks (96 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3:1319:8a2e`
+   The first six blocks (96 bits) of the IPv6 address need to match, for example `2001:0db8:85a3:08d3:1319:8a2e`
 
 `7`
-   The first seven blocks (112 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3:1319:8a2e:0370`
+   The first seven blocks (112 bits) of the IPv6 address need to match, for example `2001:0db8:85a3:08d3:1319:8a2e:0370`
 
 `8`
-   The full IPv6 address has to match, e.g. `2001:0db8:85a3:08d3:1319:8a2e:0370:7344`
+   The full IPv6 address has to match, for example `2001:0db8:85a3:08d3:1319:8a2e:0370:7344`
 
 If your users experience that their sessions sometimes drop out, it
 might be because of a changing IP address (this may happen with
@@ -208,7 +208,7 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList']`
 trustedHostsPattern
 ===================
 
-TYPO3 uses the HTTP header `Host:` to generate absolute URLs in several
+`TYPO3`:pn: uses the HTTP header `Host:` to generate absolute URLs in several
 places such as 404 handling, http(s) enforcement, password reset links
 and many more. Since the host header itself is provided by the client,
 it can be forged to any value, even in a name based virtual hosts
@@ -216,7 +216,7 @@ environment.
 
 The `trustedHostsPattern" configuration option can contain either the
 value `SERVER_NAME` or a regular expression pattern that matches all
-host names that are considered trustworthy for the particular TYPO3
+host names that are considered trustworthy for the particular `TYPO3`:pn:
 installation. `SERVER_NAME` is the default value and with this option
 value in effect, TYPO3 checks the currently submitted host-header
 against the `SERVER_NAME` variable. Please see security bulletin

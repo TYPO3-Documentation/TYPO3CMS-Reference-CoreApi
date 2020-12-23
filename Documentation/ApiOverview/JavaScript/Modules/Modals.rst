@@ -10,7 +10,7 @@ Modals
 
 Actions that require a user's attention must be visualized by modal windows.
 
-TYPO3 provides an API as basis to create modal windows with severity representation. For better UX,
+`TYPO3`:pn: provides an API as basis to create modal windows with severity representation. For better UX,
 if actions (buttons) are attached to the modal, one button must be a positive action. This button
 should get a `btnClass` to highlight it.
 
@@ -57,7 +57,7 @@ Data Attributes
 ---------------
 
 It is also possible to use data-attributes to trigger a modal.
-e.g. on an anchor element, which prevents the default behavior.
+for example on an anchor element, which prevents the default behavior.
 
 ========================= ===========
 Name                      Description

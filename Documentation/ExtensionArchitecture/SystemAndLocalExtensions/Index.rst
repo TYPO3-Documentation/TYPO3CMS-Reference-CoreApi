@@ -24,9 +24,9 @@ Local Extensions
 Local extensions are located in the :file:`typo3conf/ext/` directory.
 
 This is where to put extensions *which are local* for a particular
-TYPO3 installation. The :file:`typo3conf` directory is always local, containing
-local configuration (e.g. :file:`LocalConfiguration.php`), local modules etc.
-If you put an extension here it will be available for a single TYPO3
+`TYPO3`:pn: installation. The :file:`typo3conf` directory is always local, containing
+local configuration (for example :file:`LocalConfiguration.php`), local modules etc.
+If you put an extension here it will be available for a single `TYPO3`:pn:
 installation only. This is a "per-database" way to install an
 extension.
 
@@ -40,8 +40,8 @@ System Extensions
 System extensions are located in the :file:`typo3/sysext/` directory.
 
 This is system default extensions which cannot and should not be
-updated by the EM. They are distributed with TYPO3 Core  source code
-and generally understood to be a part of the Core system.
+updated by the EM. They are distributed with the `TYPO3 Core's`:pn:  source code
+and generally understood to be a part of the `Core`:pn: system.
 
 
 .. _extension-loading-precedence:

@@ -40,8 +40,8 @@ accordingly.
 
    Linking to a subpage will result in adding "MP" GET Parameters and altering the root
    line (tree structure) of the website, as the "MP" is containing the context.
-   The MP parameter found throughout the TYPO3 Core includes the ID of the Mounted Page and
-   the mount point ID - e.g. "13-23," whereas 13 would be the Mounted Page and 23
+   The MP parameter found throughout the `TYPO3 Core`:pn: includes the ID of the Mounted Page and
+   the mount point ID - for example "13-23," whereas 13 would be the Mounted Page and 23
    the mount point (`doktype` set to 7).
 
    Recursive mount points are added to the "MP" parameter with ",", like "13-23,84-26".
@@ -94,7 +94,7 @@ Multi-site support
 
 Mount points generally support cross-site mounts. The context for cross-domain
 sites is kept, ensuring that the user will never notice that content might be coming
-from a completely different site or pagetree within TYPO3.
+from a completely different site or pagetree within `TYPO3`:pn:.
 
 Creating links for multi-site mount points works the same way as in a
 same site setup.
@@ -168,7 +168,7 @@ Limitations
 See also
 ========
 
-Related TypoScript properties:
+Related `TypoScript`:pn: properties:
 
 * :ref:`config.MP_defaults <t3tsref:setup-config-mp-defaults>`
 

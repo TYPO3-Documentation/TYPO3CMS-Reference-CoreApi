@@ -8,13 +8,13 @@
 Feature toggles
 ===============
 
-TYPO3 provides an API class for creating so-called 'feature toggles'. Feature toggles provide an easy way to add
+`TYPO3`:pn: provides an API class for creating so-called 'feature toggles'. Feature toggles provide an easy way to add
 new implementations of features next to their legacy version. By using a feature toggle, the integrator or site admin
 can decide when to switch to the new feature.
 
 The API checks against a system-wide option array within :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']` which an integrator
 or admin can set in the :file:`LocalConfiguration.php` file.
-Both TYPO3 Core and Extensions can provide alternative functionality for a certain feature.
+Both `TYPO3 Core`:pn: and Extensions can provide alternative functionality for a certain feature.
 
 Examples for features are:
 
@@ -65,7 +65,7 @@ To check if a feature is enabled use this code::
 
 .. attention::
 
-   Currently, only the Core features can be (de-)activated in the Install Tool.
+   Currently, only the `Core`:pn: features can be (de-)activated in the Install Tool.
 
    To change the setting for your extension feature either use :file:`Localconfiguration.php`:
    or :file:`AdditionalConfiguration.php`: like
@@ -79,13 +79,13 @@ extension name as the features are global switches which otherwise might lead to
 
 .. _feature-toggles-core:
 
-Core feature toggles
-====================
+`Core`:pn: feature toggles
+==========================
 
-Some examples for feature toggles in the TYPO3 Core:
+Some examples for feature toggles in the `TYPO3 Core`:pn::
 
 - `redirects.hitCount`: Enables hit statistics in the redirects backend module
-- `TypoScript.strictSyntax`: If on, TypoScript is parsed in strict syntax modes.
+- `TypoScript.strictSyntax`: If on, `TypoScript`:pn: is parsed in strict syntax modes.
   Enabling this feature means old condition syntax (which is deprecated) will
   trigger deprecation messages.
 
@@ -108,10 +108,10 @@ Internally, the changes are written to :file:`LocalConfiguration.php`::
       ],
    ]
 
-Feature toggles in TypoScript
-===============================
+Feature toggles in `TypoScript`:pn:
+===================================
 
-To check whether a feature is enabled in TypoScript was introduced in v9.5 in :issue:`86881`
+To check whether a feature is enabled in `TypoScript`:pn: was introduced in v9.5 in :issue:`86881`
 
 Support for feature toggle check in the symfony expression language DefaultFunctionProvider is provided.
 With the new function :typoscript:`feature()` the feature toggle can be checked.

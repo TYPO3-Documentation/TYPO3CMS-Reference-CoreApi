@@ -2,9 +2,9 @@
 .. index:: pair: Coding guidelines; reStructuredText
 .. _cgl-rest:
 
-=======================
-reStructuredText (reST)
-=======================
+===================================
+`reStructuredText`:pn: (`reST`:pn:)
+===================================
 
 Documentation is typically stored in `reST <https://en.wikipedia.org/wiki/ReStructuredText>`__
 files.

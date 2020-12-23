@@ -41,4 +41,4 @@ getBackendUserAuthentication()
    :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
    :sep:`|`
 
-   Get the current BE User Authentication object.
+   Get the current backend User Authentication object.

@@ -9,7 +9,7 @@ Restrict access to files on a server-level
 ==========================================
 
 This is a controversial topic: Some experts recommend to restrict the
-access to specific files on a server-level by using Apache's
+access to specific files on a server-level by using `Apache`:pn: 's
 `FilesMatch` directive for example. Such files could be files with the
 endings :file:`.bak`, :file:`.tmp`, :file:`.sql`, :file:`.old`, etc. in their
 file names. The purpose of this restriction is, that even if backup files or
@@ -64,12 +64,12 @@ The list above is probably not complete. However, if general deny rules are in p
 provided above should not be accessible anymore and result in a HTTP `403` error response.
 
 
-Apache and Microsoft IIS web servers
-====================================
+`Apache`:pn: and Microsoft IIS web servers
+==========================================
 
-To increase protection of TYPO3 instances, the Core Team however decided to
-install default web server configuration files since TYPO3 Core  version v9 under certain
-circumstances: If an Apache web server is detected by the web based installation
+To increase protection of TYPO3 instances, the `Core Team`:pn: however decided to
+install default web server configuration files since `TYPO3 Core`:pn: version v9 under certain
+circumstances: If an ```Apache`:pn: web server is detected by the web based installation
 procedure, a default :file:`.htaccess` file is written to the document root, and if
 a Microsoft IIS web server is detected, a default :file:`web.config` file is written
 to the document root. These files contain web server configurations to deny direct web
@@ -78,8 +78,8 @@ directories like :file:`.git/`, all private template directories like :file:`Res
 and common package files like :file:`composer.json`.
 
 
-This "black list" approach needs maintenance: The Core Team tries to keep the template files
-:file:`.htaccess` and :file:`web.config` updated. If running Apache or IIS, administrators
+This "black list" approach needs maintenance: The `Core Team`:pn: tries to keep the template files
+:file:`.htaccess` and :file:`web.config` updated. If running ```Apache`:pn: or IIS, administrators
 should compare their specific version with the reference files found at `root-htaccess
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess>`_
 and `root-web-config
@@ -87,11 +87,11 @@ and `root-web-config
 and adapt or update local versions if needed.
 
 
-NGINX web servers
+`nginx`:pn: web servers
 =================
 
 Administrators running the popular web server `NGINX <https://www.nginx.com/>`_ need to
-take additional measures: NGINX does not support an approach like Apache or IIS to configure
+take additional measures: `nginx`:pn: does not support an approach like `Apache`:pn: or IIS to configure
 access by putting files into the web document directories - the TYPO3 install procedure can
 not install good default files and administrators must merge deny patterns into the web
 servers virtual host configuration. A typical example looks like this::

@@ -16,10 +16,10 @@ of these.
 .. index:: Extension development; Git
 .. rst-class:: bignums-xxl
 
-#. Publish source code on a public Git hosting platform
+#. Publish source code on a public `Git`:pn: hosting platform
 
-   The TYPO3 community currently uses GitHub, GitLab and Atlassian Bitbucket to
-   host the Git repositories of their extensions.
+   The TYPO3 community currently uses `GitHub`:pn:, `GitLab`:pn: and Atlassian Bitbucket to
+   host the `Git`:pn: repositories of their extensions.
 
    Typically, the :ref:`extension key <extension-key>` is used for the
    repository name, but that is not necessary.
@@ -37,7 +37,7 @@ of these.
 
    **Depends on:**
 
-   * Public Git repository
+   * Public `Git`:pn: repository
 
    **Advantages:**
 
@@ -58,7 +58,7 @@ of these.
    * Easy finding of your extension in the central Extension Repository
    * The community can vote for your extension
    * Users can subscribe to notifications on new releases
-   * Composer package is announced (optional)
+   * `Composer`:pn: package is announced (optional)
    * Sponsoring link (optional)
    * Link to the documentation (optional)
    * Link to the source code (optional)
@@ -76,9 +76,9 @@ of these.
 
    **Depends on:**
 
-   * Public Git repository
+   * Public `Git`:pn: repository
    * Extension published to TER (This is not strictly necessary for documentation
-     rendering. But it makes the workflow easier for the Documentation Team,
+     rendering. But it makes the workflow easier for the `Documentation Team`:pn:,
      specifically for the approval process if your extension is already registered
      on extensions.typo3.org).
 

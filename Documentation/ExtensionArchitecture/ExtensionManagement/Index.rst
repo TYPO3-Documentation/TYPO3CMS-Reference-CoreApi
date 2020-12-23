@@ -2,20 +2,20 @@
 .. index:: Extension Manager
 .. _extension-manager:
 
-Extension management
-====================
+The `Extension Manager`:pn:
+===========================
 
-Extensions are managed from the Extension Manager inside TYPO3 by
+Extensions are managed from the `Extension Manager`:pn: inside TYPO3 by
 "admin" users. The module is located at **ADMIN TOOLS > Extensions**
 and offers a menu with options to see loaded extensions (those that
 are installed or activated), available extensions on the server and
 the possibility to import extensions from online resources, typically
-the TER (TYPO3 Extension Repository) located at typo3.org.
+the TER (`TYPO3 Extension Repository`:pn:) located at typo3.org.
 
 .. figure:: ../../Images/ExtensionManager76To86.png
-   :alt: The Extension Manager
+   :alt: The `Extension Manager`:pn:
 
-   Interface of the Extension Manager showing all available extensions.
+   Interface of the `Extension Manager`:pn: showing all available extensions.
 
 The interface is really easy to use. You just click the +/- icon to
 the left of an extension in order to install it and follow the
@@ -27,20 +27,20 @@ instructions.
 Installing extensions
 ^^^^^^^^^^^^^^^^^^^^^
 
-There are only two (possibly three) steps involved in using extensions with TYPO3:
+There are only two (possibly three) steps involved in using extensions with `TYPO3`:pn::
 
 #. You must *import* it.
 
    This simply means to copy the extensions files into the correct directory into.
-   More commonly you import an extension directly from the online TYPO3 Extension Repository (TER)
-   using the Extension Manager. When an extension is found located in one of the extension locations,
+   More commonly you import an extension directly from the online `TYPO3 Extension Repository`:pn: (TER)
+   using the `Extension Manager`:pn:. When an extension is found located in one of the extension locations,
    it is  *available* to the system.
 
-   The Extension Manager (EM) should take care of this process, including updates to
+   The `Extension Manager`:pn: (EM) should take care of this process, including updates to
    newer versions if needed.
 
-   Another convenient way to install extensions is offered by using Composer (https://getcomposer.org/)
-   along with the TYPO3 Composer Repository (https://composer.typo3.org/). The TYPO3 Composer Repository
+   Another convenient way to install extensions is offered by using `Composer`:pn: (https://getcomposer.org/)
+   along with the TYPO3 `Composer`:pn: Repository (https://composer.typo3.org/). The TYPO3 `Composer`:pn: Repository
    includes all TYPO3 extensions that are uploaded to TER.
 
 #. You must *load* it.
@@ -64,7 +64,7 @@ There are only two (possibly three) steps involved in using extensions with TYPO
    thus reside in :file:`typo3conf/LocalConfiguration.php`.
 
 Loaded extensions can be fetched with :php:`TYPO3\CMS\Core\Package\PackageManager::getActivePackages()`,
-available in both frontend and backend of TYPO3.
+available in both frontend and backend of `TYPO3`:pn:.
 
 This will return an array of :php:`TYPO3\CMS\Core\Package\Package` objects,
 containing the data structure for each extension. These include the properties:
@@ -114,7 +114,7 @@ Package manager
 On a low level, the list of loaded extensions is written to the file
 :file:`typo3conf/PackageStates.php`. PHP class :code:`\TYPO3\CMS\Core\Package\PackageManager`
 manages this file as part of the "Package management", it is part of the
-Core extension, but mostly used by the Extension Manager as the low level work horse.
+`Core`:pn: extension, but mostly used by the `Extension Manager`:pn: as the low level work horse.
 
 The :file:`typo3conf/PackageStates.php` file contains a list of all active packages, example::
 
@@ -122,7 +122,7 @@ The :file:`typo3conf/PackageStates.php` file contains a list of all active packa
     # PackageStates.php
 
     # This file is maintained by TYPO3's package management. Although you can edit it
-    # manually, you should rather use the Extension Manager for maintaining packages.
+    # manually, you should rather use the `Extension Manager`:pn: for maintaining packages.
     # This file will be regenerated automatically if it doesn't exist. Deleting this file
     # should, however, never become necessary if you use the package commands.
 

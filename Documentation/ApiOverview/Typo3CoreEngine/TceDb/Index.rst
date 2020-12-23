@@ -71,7 +71,7 @@ takes precedence. The variable names you can use are:
    :Type:
          array
    :Description:
-         Accepts options to be set in TCE object. Currently it supports
+         Accepts options to be set in `TCE`:pn: object. Currently it supports
          "reverseOrder" (boolean).
 
 

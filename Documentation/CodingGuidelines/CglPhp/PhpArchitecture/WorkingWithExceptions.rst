@@ -15,7 +15,7 @@ Introduction
 
 Working with exceptions in a sane way is a frequently asked topic. This
 section aims to give some good advice on how to deal with exceptions in
-TYPO3 world and especially which types of exceptions should be thrown
+`TYPO3`:pn: world and especially which types of exceptions should be thrown
 under which circumstances.
 
 First of, exceptions are a good thing - there is nothing bad with
@@ -59,7 +59,7 @@ Typical Cases for Exceptions That are Designed to be Caught
     into a localized error message shown to the user "The record 12
     from table tt_content you tried to open has been deleted …".
 
-* Temporary issues: Updating the extension list in the Extension Manager
+* Temporary issues: Updating the extension list in the `Extension Manager`:pn:
   fails because of a network issue - The code throws a catchable, named
   exception that is turned into a localized error message shown to the
   user "Can not connect to update servers, please check internet
@@ -71,7 +71,7 @@ Typical Cases for Exceptions That are Designed to be Caught
 Typical Cases for Exceptions That Should not be Caught
 ------------------------------------------------------
 
-* Wrong configuration: A flexform contains a :code:`type=inline` field.
+* Wrong configuration: A `Flexform`:pn: contains a :code:`type=inline` field.
   At the time of this writing, this case was not implemented, so the
   code checks for this case and throws a top-level PHP built-in
   exception (:php:`\RuntimeException` in this case) to point developers
@@ -80,7 +80,7 @@ Typical Cases for Exceptions That Should not be Caught
 * Programming error/ wrong API usage: Code that can not do its job
   because a developer did not take care and used an API in a wrong way.
   This is a common reason to throw an exception and can be found at lots
-  of places in the Core. A top-level exception like
+  of places in the `Core`:pn:. A top-level exception like
   :php:`\RuntimeException` should be thrown.
 
 
@@ -91,8 +91,8 @@ The standard exception signature::
 
    public function __construct($message = "", $code = 0, Exception $previous = null) { }
 
-TYPO3 typically uses a meaningful exception message and a unique code.
-Uniqueness of :php:`$code` is created by using a UNIX timestamp of :php:`now`
+`TYPO3`:pn: typically uses a meaningful exception message and a unique code.
+Uniqueness of :php:`$code` is created by using a `Unix`:pn: timestamp of :php:`now`
 (the time when the exception is created): This can be easily created,
 for instance using the trivial shell command :code:`date +%s`. The resulting
 number of this command should be directly used as the exception code and never changed again.
@@ -130,9 +130,9 @@ Example::
 Exception Inheritance
 =====================
 
-A typical exception hierarchy for specific exceptions in the Core
+A typical exception hierarchy for specific exceptions in the `Core`:pn:
 looks like :php:`Vendor\MyExt\Exception extends TYPO3\CMS\Core\Exception`,
-where :php:`TYPO3\CMS\Core\Exception` is the base of all exceptions in TYPO3.
+where :php:`TYPO3\CMS\Core\Exception` is the base of all exceptions in `TYPO3`:pn:.
 
 Building on that you can have :php:`Vendor\MyExt\Exception\AFunctionality\ASpecificException extends
 Vendor\MyExt\Exception` for more specific exceptions. All of your exceptions

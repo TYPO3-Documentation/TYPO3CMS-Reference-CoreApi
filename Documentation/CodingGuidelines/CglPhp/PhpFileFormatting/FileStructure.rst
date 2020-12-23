@@ -7,7 +7,7 @@
 File Structure
 ==============
 
-TYPO3 files use the following structure:
+`TYPO3`:pn: files use the following structure:
 
 #. Opening PHP tag (including strict_types declaration)
 
@@ -29,8 +29,8 @@ The following sections discuss each of these parts.
 Namespace
 =========
 
-The namespace declaration of each PHP file in the TYPO3 Core shows
-where the file belongs inside TYPO3 CMS. The namespace starts with
+The namespace declaration of each PHP file in the `TYPO3 Core`:pn: shows
+where the file belongs inside `TYPO3 CMS`:pn:. The namespace starts with
 :php:`TYPO3\CMS`, then the extension name in UpperCamelCase, a
 backslash and then the name of the subfolder of :file:`Classes/`, in
 which the file is located (if any). E.g. the file
@@ -43,7 +43,7 @@ with the class :php:`ContentObjectRenderer` is in the namespace
 Copyright Notice
 ================
 
-TYPO3 is released under the terms of GNU General Public License
+`TYPO3`:pn: is released under the terms of GNU General Public License
 version 2 or any later version. The copyright notice with a reference
 to the license text must be included at the top of every TYPO3 PHP class
 file. user files must have this copyright notice as well. Example::

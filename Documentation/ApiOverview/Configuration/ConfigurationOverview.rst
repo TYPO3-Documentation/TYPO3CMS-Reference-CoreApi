@@ -8,7 +8,7 @@ Configuration overview
 
 This page will give you an overview of various configuration files, syntax
 languages and :ref:`configuration methods <classification-config-methods>`
-in TYPO3. For more extensive information we will refer you to the
+in `TYPO3`:pn:. For more extensive information we will refer you to the
 respective chapter or reference.
 
 A primary feature of TYPO3 is its configurability. Not only can
@@ -35,7 +35,7 @@ Global files
    Can be used to **override** settings defined in :file:`LocalConfiguration.php`
 
 :file:`config/sites/<site>/config.yaml`
-   This file is located in :file:`webroot/typo3conf/sites` in non-Composer installations.
+   This file is located in :file:`webroot/typo3conf/sites` in non-`Composer`:pn: installations.
    The Site configuration configured in the :guilabel:`SITE MANAGEMENT > Sites`
    backend module is written to this file.
 
@@ -43,13 +43,14 @@ Extension files
 ---------------
 
 :ref:`composer.json <composer-json>`
-   Composer configuration
+   `Composer`:pn: configuration
 
 :ref:`ext_emconf.php <extension-declaration>`
    (required) Extension declaration
 
 :ref:`ext_tables.php <extension-configuration-files>`
-   Various configuration. Is used only for backend or CLI requests or when a valid BE user is authenticated.
+   Various configuration. Is used only for backend or CLI requests or when a
+   valid backend user is authenticated.
 
 :ref:`ext_localconf.php <extension-configuration-files>`
    Various configuration. Is always included, whether frontend or backend.
@@ -83,28 +84,28 @@ Configuration languages
 
 These are the main languages TYPO3 uses for configuration:
 
-* :ref:`TypoScript syntax <typoscript-syntax-start>` is used for TypoScript
-  and TSconfig.
+* :ref:`TypoScript syntax <typoscript-syntax-start>` is used for `TypoScript`:pn:
+  and `TSconfig`:pn:.
 * :ref:`TypoScript constant syntax <t3tsref:typoscript-syntax-constant-editor>` is
-  used for Extension Configuration and for defining constants for TypoScript.
+  used for Extension Configuration and for defining constants for `TypoScript`:pn:.
 * :ref:`Yaml <yaml-syntax>` is the configuration language of choice for newer
   TYPO3 system extensions like :ref:`rte_ckeditor <ckedit:start>`,
   :ref:`form <form:start>` and the :ref:`sites module <sitehandling>`. It has
-  partly replaced TypoScript and TSconfig as configuration languages.
+  partly replaced `TypoScript`:pn: and `TSconfig`:pn: as configuration languages.
 * XML is used in :ref:`Flexforms <flexforms>`.
-* PHP is used for the :php:`$GLOBALS` array which includes TCA
+* PHP is used for the :php:`$GLOBALS` array which includes `TCA`:pn:
   (:php:`$GLOBALS['TCA']`, Global Configuration (:php:`GLOBALS['TYPO3_CONF_VARS']`),
   User Settings (:php:`$GLOBALS['TYPO3_USER_SETTINGS']`, etc.
 
-What is most important here, is that TypoScript has its own syntax. And the
-TypoScript syntax is used for the configuration methods **TypoScript and TSconfig**.
+What is most important here, is that `TypoScript`:pn: has its own syntax. And the
+`TypoScript`:pn: syntax is used for the configuration methods **TypoScript and `TSconfig`:pn:**.
 The syntax for both is the same, while the semantics (what variables can be used and
 what they mean) are not.
 
 .. tip::
 
-   Hence, the term **TypoScript** is used to both define the pure syntax TypoScript
-   and the configuration method TypoScript. These are different things. To avoid
+   Hence, the term **TypoScript** is used to both define the pure syntax `TypoScript`:pn:
+   and the configuration method `TypoScript`:pn:. These are different things. To avoid
    confusion, we will use the terms:
 
    #. "TypoScript syntax" or "TypoScript language"
@@ -116,14 +117,14 @@ Configuration methods
 :ref:`TSconfig <t3tsconfig:start>`
 ----------------------------------
 
-While Frontend TypoScript is used to steer the rendering of the frontend, TSconfig is used
-to configure **backend** details for backend users. Using TSconfig it is possible to enable or
+While frontend `TypoScript`:pn: is used to steer the rendering of the frontend, `TSconfig`:pn: is used
+to configure **backend** details for backend users. Using `TSconfig`:pn: it is possible to enable or
 disable certain views, change the editing interfaces, and much more. All that without coding a single
-line of PHP. `TSconfig` can be set on a page (page TSconfig), as well as a user / group (user TSconfig)
+line of PHP. `TSconfig`:pn: can be set on a page (page `TSconfig`:pn:), as well as a user / group (user `TSconfig`:pn:)
 basis.
 
-TSconfig uses the same syntax as Frontend TypoScript, the syntax is outlined in detail
-in :ref:`typoscript-syntax-start`. Other than that, TSconfig and Frontend TypoScript
+`TSconfig`:pn: uses the same syntax as frontend `TypoScript`:pn:, the syntax is outlined in detail
+in :ref:`typoscript-syntax-start`. Other than that, `TSconfig`:pn: and frontend `TypoScript`:pn:
 don't have much more in common - they consist of entirely different properties.
 
 A full reference of properties as well as an introduction to explain details configuration usage, API and
@@ -136,30 +137,30 @@ easy as possible for backend users.
 :ref:`TypoScript Templating <t3tsref:start>`
 --------------------------------------------
 
-TypoScript - or more precisely "TypoScript Templating" - is used in TYPO3 to steer
+`TypoScript`:pn: - or more precisely "TypoScript Templating" - is used in TYPO3 to steer
 the frontend rendering (the actual website) of a TYPO3 instance. It is based on the
-TypoScript syntax which is outlined in detail in :ref:`typoscript-syntax-start`.
+`TypoScript`:pn: syntax which is outlined in detail in :ref:`typoscript-syntax-start`.
 
-TypoScript Templating is very powerful and has been the backbone of frontend rendering ever since.
-However, with the rise of the Fluid templating engine, many parts of Frontend TypoScript are much less
-often used. Nowadays, TypoScript in real life projects is often not much more than a way to
+`TypoScript`:pn: templating is very powerful and has been the backbone of frontend rendering ever since.
+However, with the rise of the `Fluid`:pn: templating engine, many parts of  frontend `TypoScript`:pn: are much less
+often used. Nowadays, `TypoScript`:pn: in real life projects is often not much more than a way to
 set a series of options for plugins, to set some global config options, and to act as a simple
-pre processor between database data and Fluid templates.
+pre processor between database data and `Fluid`:pn: templates.
 
 Still, the :ref:`TypoScript Reference <t3tsref:start>` manual that goes deep into
-the incredible power of TypoScript Templating is daily bread for Integrators.
+the incredible power of `TypoScript`:pn: Templating is daily bread for Integrators.
 
 
 For an introduction, you may want to read one of the following tutorials:
 
 
-* :ref:`t3ts45:start` - Introduction to TypoScript Templating.
+* :ref:`t3ts45:start` - Introduction to `TypoScript`:pn: templating.
 * :ref:`t3sitepackage:start` - Start a Sitepackage Extension to create a theme
-  for your site using TypoScript and Fluid.
+  for your site using `TypoScript`:pn: and `Fluid`:pn:.
 
 .. note::
 
-   There is some overlap between templating and configuration. TypoScript is
+   There is some overlap between templating and configuration. `TypoScript`:pn: is
    used mostly for templating, but is still used quite heavily to define
    configuration options for extensions.
 
@@ -180,14 +181,14 @@ For an introduction, you may want to read one of the following tutorials:
 The :php:`$GLOBALS` PHP array consists of:
 
 :ref:`$GLOBALS['TCA'] <t3tca:start>`:
-   TCA is the backbone of database tables displayed in the backend, it configures
+   `TCA`:pn: is the backbone of database tables displayed in the backend, it configures
    how data is stored if editing records in the backend, how fields are displayed,
    relations to other tables and much more. It is a huge array loaded in almost all
-   access contexts. TCA is documented in the :ref:`TCA Reference <t3tca:start>`.
+   access contexts. `TCA`:pn: is documented in the :ref:`TCA Reference <t3tca:start>`.
    Next to a small introduction, the document forms a complete reference of all
-   different TCA options, with bells and whistles. The document is a must-read for
+   different `TCA`:pn: options, with bells and whistles. The document is a must-read for
    Developers, partially for Integrators, and is often used as a reference book
-   on a daily basis. See :ref:`extending-tca` about how to extend the TCA in
+   on a daily basis. See :ref:`extending-tca` about how to extend the `TCA`:pn: in
    extensions.
 
 :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`:
@@ -227,7 +228,7 @@ This is not a complete list of the entire :php:`$GLOBALS` array.
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']`, Extension configuration and feature toggles
 can be changed in the backend in :guilabel:`ADMIN TOOLS > Settings` by
-system maintainers. TCA cannot be modified in the backend.
+system maintainers. `TCA`:pn: cannot be modified in the backend.
 
 Configuration of the :ref:`Logging Framework <logging-configuration>` and
 :ref:`Caching Framework <caching-configuration>` - while being a part of the
@@ -238,12 +239,12 @@ backend. They must be modified in the file :file:`typo3conf/AdditionalConfigurat
 :ref:`Flexform <flexforms>`
 ---------------------------
 
-Flexforms are used to define some options in plugins and content elements.
-With Flexforms, every content element can be configured differently.
+`FlexForms`:pn: are used to define some options in plugins and content elements.
+With `FlexForms`:pn:, every content element can be configured differently.
 
-Flexform values can be changed while editing content elements in the backend.
+`Flexform`:pn: values can be changed while editing content elements in the backend.
 
-A schema defining the values that can be changed in the Flexform is
+A schema defining the values that can be changed in the `Flexform`:pn: is
 specified in the extension which supplies the plugin or content element.
 
 

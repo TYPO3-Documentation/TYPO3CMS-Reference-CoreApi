@@ -7,7 +7,7 @@
 Parsing HTML
 ============
 
-TYPO3 CMS provides its own HTML parsing class:
+`TYPO3 CMS`:pn: provides its own HTML parsing class:
 :code:`\TYPO3\CMS\Core\Html\HtmlParser`. This chapter
 shows some example uses.
 

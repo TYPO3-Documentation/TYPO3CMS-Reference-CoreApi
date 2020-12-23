@@ -2,11 +2,11 @@
 .. index:: Symfony expression language
 .. _symfony-expression-language:
 
-===========================
-Symfony expression language
-===========================
+=================================
+`Symfony`:pn: expression language
+=================================
 
-Symfony expression language is used by TYPO3 in certain places. These are
+`Symfony`:pn: expression language is used by TYPO3 in certain places. These are
 documented in below sections, together with explanations how they can be
 extended:
 
@@ -19,17 +19,17 @@ extended:
 .. index:: pair: Symfony expression language; TypoScript
 .. _sel-within-typoscript-conditions:
 
-Within TypoScript conditions
-============================
+Within `TypoScript`:pn: conditions
+==================================
 
 In order to provide custom conditions, its essential to understand how
 conditions are written. Refer to :ref:`typoscript-syntax-conditions-syntax` if
 syntax of conditions is not known yet.
 
-Conditions are evaluated by the `Symfony Expression Language`_ and are evaluated
+Conditions are evaluated by the `Symfony`:pn: expression language and are evaluated
 to boolean results. Therefore an integrator can write :ts:`[true === true]`
 which would evaluate to true. In order to provide further functionality within
-conditions, the Symfony Expression Language needs to be extended. There are two
+conditions, the `Symfony`:pn: expression language needs to be extended. There are two
 parts that can be added to the language, which are variables and functions.
 
 The following section explain how to add variables and functions.
@@ -170,7 +170,7 @@ currently lacks implementation. That's the last step::
    }
 
 The first argument :php:`$existingVariables` always provides all registered variables to the function.
-All further arguments need to be provided by TypoScript. The above example could look like:
+All further arguments need to be provided by `TypoScript`:pn:. The above example could look like:
 
 .. code-block:: typoscript
 

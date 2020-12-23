@@ -14,7 +14,7 @@ Context-Sensitive Menus
    Both page tree context menu and list view context menu are generated and configured in the same way.
 
 
-Contextual menus exist in many places in the TYPO3 CMS backend. Just try your luck clicking on any **icon** that you see. Chances are good that a contextual menu will appear, offering useful functions to execute.
+Contextual menus exist in many places in the `TYPO3 CMS`:pn: backend. Just try your luck clicking on any **icon** that you see. Chances are good that a contextual menu will appear, offering useful functions to execute.
 
 
 .. figure:: ../../../Images/ContextMenuTtContent.png
@@ -35,7 +35,7 @@ Markup
 
 The context menu is shown after click on the HTML element which has `class="t3js-contextmenutrigger"` together with `data-table`, `data-uid` and optional `data-context` attributes.
 
-The JavaScript click event handler is implemented in the `TYPO3/CMS/Backend/ContextMenu` requireJS module. It takes the data attributes mentioned above and executes an ajax call to the :php:`\TYPO3\CMS\Backend\Controller\ContextMenuController->getContextMenuAction()`.
+The `JavaScript`:pn: click event handler is implemented in the `TYPO3/CMS/Backend/ContextMenu` requireJS module. It takes the data attributes mentioned above and executes an ajax call to the :php:`\TYPO3\CMS\Backend\Controller\ContextMenuController->getContextMenuAction()`.
 
 
 ContextMenuController
@@ -70,8 +70,8 @@ A list of providers is sorted by priority, and then each provider is asked to ad
 After that, a compiled list of items is returned to the :php:`ContextMenuController` which passes it back to the `ContextMenu.js` as JSON.
 
 
-Menu rendering in JavaScript
-----------------------------
+Menu rendering in `JavaScript`:pn:
+----------------------------------
 
 Based on the JSON data `ContextMenu.js` is rendering a context menu. If one of the items is clicked, the according JS `callbackAction` is executed on the :js:`TYPO3/CMS/Backend/ContextMenuActions` JS module or other modules defined in the JSON as `additionalAttributes['data-callback-module']`.
 
@@ -128,10 +128,10 @@ Example of the JSON response:
     }
 
 
-API usage in the Core
-=====================
+API usage in the `Core`:pn:
+===========================
 
-Several TYPO3 Core modules are already using this API for adding or modifying items. See following places for a reference:
+Several `TYPO3 Core`:pn: modules are already using this API for adding or modifying items. See following places for a reference:
 
 - EXT:beuser module adds an item with a link to the Access (page permissions) module for pages context menu. See item provider :php:`\TYPO3\CMS\Beuser\ContextMenu\ItemProvider` and requireJS module :js:`TYPO3/CMS/Beuser/ContextMenuActions`
 - EXT:impexp module adds import and export options for pages, content elements and other records. See item provider :php:`\TYPO3\CMS\Impexp\ContextMenu\ItemProvider` and requireJS module :js:`TYPO3/CMS/Impexp/ContextMenuActions`
@@ -146,10 +146,10 @@ Adding context menu to elements in your backend module
 
 Enabling context menu in your own backend modules is quite straightforward.
 The examples below are taken from the "beuser" system extension and
-assume that the module is Extbase-based.
+assume that the module is `Extbase`:pn:-based.
 
-The first step is to include the needed JavaScript using an `includeRequireJsModules` property
-of the standard BE container Fluid view helper (or BE page renderer view helper).
+The first step is to include the needed `JavaScript`:pn: using an `includeRequireJsModules` property
+of the standard backend container `Fluid`:pn: `ViewHelper`:pn: (or backend page renderer `ViewHelper`:pn:).
 Doing so in your Layout is sufficient (see :file:`typo3/sysext/beuser/Resources/Private/Layouts/Default.html`).
 
 .. code-block:: xml
@@ -172,7 +172,7 @@ is required (taken from :file:`typo3/sysext/beuser/Resources/Private/Templates/B
    </td>
 
 the relevant line being highlighted. The class `t3js-contextmenutrigger` triggers a context menu functionality for the current element. The `data-table` attribute contains a table name of the record and `data-uid` the `uid` of the record.
-One additional data attribute can be used `data-context` with values being e.g. `tree` for context menu triggered from the page tree. Context is used to hide menu items independently for page tree independently from other places (disabled items can be configured in TSConfig).
+One additional data attribute can be used `data-context` with values being for example `tree` for context menu triggered from the page tree. Context is used to hide menu items independently for page tree independently from other places (disabled items can be configured in TSConfig).
 
 .. note::
 
@@ -190,7 +190,7 @@ For example, disabling `edit` and `new` items for table `pages` use:
 
    options.contextMenu.table.pages.disableItems = edit,new
 
-If you want to disable the items just for certain context (e.g. tree) add the `.tree` key after table name like that:
+If you want to disable the items just for certain context (for example tree) add the `.tree` key after table name like that:
 
 .. code-block:: typoscript
 
@@ -317,7 +317,7 @@ This file goes to EXT:extension_key/Classes/ContextMenu/HelloWorldItemProvider.p
            return [
                // BEWARE!!! RequireJS MODULES MUST ALWAYS START WITH "TYPO3/CMS/" (and no "Vendor" segment here)
                'data-callback-module' => 'TYPO3/CMS/ExtensionKey/ContextMenuActions',
-               // Here you can also add any other useful "data-" attribute you'd like to use in your JavaScript (e.g. localized messages)
+               // Here you can also add any other useful "data-" attribute you'd like to use in your JavaScript (for example localized messages)
            ];
        }
 
@@ -373,22 +373,22 @@ This file goes to EXT:extension_key/Classes/ContextMenu/HelloWorldItemProvider.p
        }
 
        /**
-        * Helper method implementing e.g. access check for certain item
+        * Helper method implementing for example access check for certain item
         *
         * @return bool
         */
        protected function canSayHello(): bool
        {
-            //usually here you can find more sophisticated condition. See e.g. PageProvider::canBeEdited()
+            //usually here you can find more sophisticated condition. See for example PageProvider::canBeEdited()
             return true;
        }
    }
 
 
-Step 3: JavaScript Actions
---------------------------
+Step 3: `JavaScript`:pn: Actions
+--------------------------------
 
-Third step is to provide a JavaScript file (RequireJS module) which will be called after clicking on the context menu item.
+Third step is to provide a `JavaScript`:pn: file (RequireJS module) which will be called after clicking on the context menu item.
 This file goes to EXT:extension_key/Resources/Public/JavaScript/ContextMenuActions.js
 
 .. code-block:: js

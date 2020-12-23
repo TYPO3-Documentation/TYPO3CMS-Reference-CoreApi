@@ -9,21 +9,21 @@
 Database Structure
 ==================
 
-The database tables used by TYPO3 CMS can be divided into two
+The database tables used by the`TYPO3 CMS`:pn: can be divided into two
 rough categories:
 
 - Tables that are used by the system internally and are invisible to backend
   users (eg. `be_sessions`, `sys_registry`, cache related tables). There are
-  often dedicated PHP API's in the Core extension to manage entries of these
+  often dedicated PHP API's in the `Core`:pn: extension to manage entries of these
   tables, for instance the :ref:`Caching framework API <caching>`.
 
-- Tables that can be managed via the TYPO3 CMS backend, are shown in the List
+- Tables that can be managed via the`TYPO3 CMS`:pn: backend, are shown in the List
   module and can be edited using :ref:`FormEngine <FormEngine>`.
 
 There are certain requirements for such managed tables:
 
 - The table must be configured in the :ref:`global TCA array <t3tca:start>`.
-  This will tell TYPO3 CMS things like the table name,
+  This will tell the`TYPO3 CMS`:pn: things like the table name,
   features you have configured, the fields of the table and how to
   render these in the backend, relations to other tables, etc.
 
@@ -47,12 +47,12 @@ There are certain requirements for such managed tables:
 
     - A "sorting" field holding an order if records are sorted manually.
 
-    - A "deleted" field which tells TYPO3 CMS that the record is deleted
+    - A "deleted" field which tells the`TYPO3 CMS`:pn: that the record is deleted
       (in effect implementing a "soft delete" feature; records with a
       "deleted" field are not truly deleted from the database).
 
     - A "hidden" or "disabled" field for records which exist but should not
-      be used (e.g. disabled backend users, content not visible in the frontend).
+      be used (for example disabled backend users, content not visible in the frontend).
 
 .. note::
 
@@ -69,8 +69,8 @@ There are certain requirements for such managed tables:
 The "pages" table
 =================
 
-The `pages` table has a special status: It is the backbone of TYPO3 CMS, as it provides
-the hierarchical page structure into which all other TYPO3 CMS managed records are positioned.
+The `pages` table has a special status: It is the backbone of the`TYPO3 CMS`:pn:, as it provides
+the hierarchical page structure into which all other`TYPO3 CMS`:pn: managed records are positioned.
 All other managed tables in TYPO3 have a `pid` field that points to a `uid` record in this table.
 So any managed table record in TYPO3 is always positioned on exactly one page in the page tree.
 This makes the `pages` table the mother of all other managed tables. It can be seen as a directory
@@ -95,7 +95,7 @@ table records may only be created on a real page.
 Other Tables
 ============
 
-The tables which are not managed via the TYPO3 CMS backend fill various
+The tables which are not managed via the`TYPO3 CMS`:pn: backend fill various
 roles. Some of the most common are:
 
 - MM relations: when tables are related using a many-to-many relationship,
@@ -108,7 +108,7 @@ roles. Some of the most common are:
   as part of :ref:`inline records <t3tca:columns-inline>`.
 
 - Cache: when a cache is defined as using the database as a cache backend,
-  TYPO3 CMS will automatically create and manage the relevant cache tables.
+  the `TYPO3 CMS`:pn: will automatically create and manage the relevant cache tables.
 
 - System information: there exist tables storing information about sessions,
   both frontend and backend ("fe\_sessions" and "be\_sessions" respectively),
@@ -118,7 +118,7 @@ All these tables are not subject to the uid/pid constraint mentioned
 above, but they may have such fields if it is convenient for whatever
 reason.
 
-There is no way such tables can be managed via the TYPO3 CMS
+There is no way such tables can be managed via the`TYPO3 CMS`:pn:
 backend unless a specific module provides a form of access to it.
 For example, the **SYSTEM > Log** module provides an interface
 to browse records from the "sys\_log" table.

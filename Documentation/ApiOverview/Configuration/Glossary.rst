@@ -38,10 +38,10 @@ we use the term **configuration method**. Thus, the *configuration
 language* is part of the *configuration method*.
 
 This differentiation is important to make because there is often
-confusion about the term TypoScript: TypoScript can be used to
-describe the TypoScript syntax, but it can also be used to describe
-TypoScript templating, which can be considered a configuration method.
-TypoScript syntax is used in both TypoScript templating and TSconfig.
+confusion about the term `TypoScript`:pn:: `TypoScript`:pn: can be used to
+describe the `TypoScript`:pn: syntax, but it can also be used to describe
+`TypoScript`:pn: templating, which can be considered a configuration method.
+`TypoScript`:pn: syntax is used in both `TypoScript`:pn: templating and `TSconfig`:pn:.
 
 
 .. _classification-config-methods:
@@ -63,13 +63,13 @@ type of configuration method, the following may differ:
 * What do these variables mean, how will they be interpreted?
 * Where the values are stored (**persistence**): In a configuration file,
   the database, etc.
-* Who can change the values (**privileges**), e.g. only a system
+* Who can change the values (**privileges**), for example only a system
   maintainer or admin in the TYPO3 backend.
 * To what the values apply (**scope**). Are they global or do they only
   apply to certain extension, page, plugin, users or usergroups?
 
-An example for a TYPO3 specific configuration methods is TSconfig. This
-uses the TypoScript syntax. The values can be
+An example for a TYPO3 specific configuration methods is `TSconfig`:pn:. This
+uses the `TypoScript`:pn: syntax. The values can be
 changed in the backend only by admins or in extensions.
 
 
@@ -79,7 +79,7 @@ changed in the backend only by admins or in extensions.
 Configuration syntax
 ====================
 
-**Syntax** describes common rules for a language (e.g. how are lines terminated,
+**Syntax** describes common rules for a language (for example how are lines terminated,
 how are values assigned, what are separators, etc.) while semantics define the meaning.
 
 For example, using only the basic syntax of yaml, this is a syntactically
@@ -95,7 +95,7 @@ variables in one way another. In its simplest form, these can be simple
 string assignments as in the yaml example, which may result in assigning
 the value 'bar' to a variable `foo`.
 
-The assignment in TypoScript syntax would look like this:
+The assignment in `TypoScript`:pn: syntax would look like this:
 
 .. code-block:: typoscript
 
@@ -103,7 +103,7 @@ The assignment in TypoScript syntax would look like this:
 
 Without defining what are correct keys, values and data types, we
 have no idea about the meaning (**semantics**) of the file and cannot interpret
-it. We (or rather the TYPO3 Core ) have no idea, what `foo` (in the example
+it. We (or rather the `TYPO3 Core`:pn:) have no idea, what `foo` (in the example
 above) means, whether
 it is a valid assignment, what data type can be used as value etc. We can only
 check whether the syntax is correct.
@@ -111,23 +111,23 @@ check whether the syntax is correct.
 
 These are the main languages TYPO3 uses for configuration:
 
-* :ref:`TypoScript syntax <typoscript-syntax-start>` is used for TypoScript
-  and TSconfig.
+* :ref:`TypoScript syntax <typoscript-syntax-start>` is used for `TypoScript`:pn:
+  and `TSconfig`:pn:.
 * :ref:`TypoScript constant syntax <t3tsref:typoscript-syntax-constant-editor>` is
-  used for Extension Configuration and for defining constants for TypoScript.
+  used for the extension configuration and for defining constants for `TypoScript`:pn:.
 * :ref:`Yaml <yaml-syntax>` is the configuration language of choice for newer TYPO3 system extensions
-  like rte_ckeditor, form and the sites module. It has partly replaced TypoScript
-  and TSconfig as configuration languages.
-* XML is used to define a schema for FlexForms.
-* PHP is used for the :php:`$GLOBALS` array which includes TCA
+  like rte_ckeditor, form and the sites module. It has partly replaced `TypoScript`:pn:
+  and `TSconfig`:pn: as configuration languages.
+* XML is used to define a schema for `FlexForms`:pn:.
+* PHP is used for the :php:`$GLOBALS` array which includes `TCA`:pn:
   (:php:`$GLOBALS['TCA']`), Global Configuration (:php:`GLOBALS['TYPO3_CONF_VARS']`),
   etc.
 
 .. tip::
 
-   The term **TypoScript** is used to both define the pure syntax TypoScript
-   and the configuration method TypoScript. These are different things. To avoid
-   confusion, we will use the term "TypoScript syntax" and "TypoScript configuration
+   The term **TypoScript** is used to both define the pure syntax `TypoScript`:pn:
+   and the configuration method `TypoScript`:pn:. These are different things. To avoid
+   confusion, we will use the term "`TypoScript`:pn: syntax" and "TypoScript configuration
    method", at least in this chapter.
 
 Configuration definition
@@ -149,12 +149,12 @@ YAML as language for the schema.
 If you use a schema to define the configuration, this often has the additional
 advantage, that configuration can be validated with that schema.
 
-TYPO3 does not use an explicit schema for most configuration methods. Often,
+`TYPO3`:pn: does not use an explicit schema for most configuration methods. Often,
 the parsing and validation is done in the PHP source.
 
-Examples for using a configuration definition file in TYPO3:
+Examples for using a configuration definition file in `TYPO3`:pn::
 
-* TypoScript constant syntax is used to define Extension Configuration in the
+* `TypoScript`:pn: constant syntax is used to define Extension Configuration in the
   file :file:`ext_conf_template.txt` of an extension.
-* Flexforms are defined using XML in an extension.
+* `FlexForms`:pn: are defined using XML in an extension.
 

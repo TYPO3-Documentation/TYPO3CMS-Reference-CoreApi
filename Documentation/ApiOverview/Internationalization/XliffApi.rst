@@ -55,11 +55,11 @@ Various classes are involved in the localization process, with
 methods to retrieve a localized label. :php:`sL()` loads a language file if needed first, and then
 returns a label from it (using a string with the :php:`LLL:EXT:...` syntax as argument).
 
-Extbase class :php:`\TYPO3\CMS\Extbase\Utility\LocalizationUtility` is essentially a
+`Extbase`:pn: class :php:`\TYPO3\CMS\Extbase\Utility\LocalizationUtility` is essentially a
 convenience wrapper around the :php:`\TYPO3\CMS\Core\Localization\LanguageService` class,
 whose :php:`translate()` method also takes an array as argument and runs PHP's
-:php:`vsprintf()` on the localized string. However, in the future it is expected this Extbase
-specific class will melt down and somehow merged into the Core API classes to get rid of this
+:php:`vsprintf()` on the localized string. However, in the future it is expected this `Extbase`:pn:
+specific class will melt down and somehow merged into the `Core`:pn: API classes to get rid of this
 duplication.
 
 
@@ -67,10 +67,10 @@ duplication.
    pair: Language labels; Fluid
    Fluid; f:translate
 
-Label access in Fluid
----------------------
+Label access in `Fluid`:pn:
+---------------------------
 
-In Fluid, a typical call to fetch a string in the language selected by a user looks like this:
+In `Fluid`:pn:, a typical call to fetch a string in the language selected by a user looks like this:
 
 .. code-block:: html
 
@@ -80,4 +80,4 @@ In Fluid, a typical call to fetch a string in the language selected by a user lo
 
 If the correct context is set, the current extension name and language is provided by the request. Otherwise it must be provided.
 
-The documentation for the Viewhelper can be found at :ref:`t3viewhelper:typo3-fluid-translate`.
+The documentation for the `ViewHelper`:pn: can be found at :ref:`t3viewhelper:typo3-fluid-translate`.

@@ -11,22 +11,22 @@ Database tables in `TYPO3 CMS` that can be administrated in the backend come wit
 specify how single fields and rows of the table should be handled and displayed
 by the framework.
 
-The `ctrl` section of a tables `TCA` array specifies optional framework internal
+The `ctrl` section of a tables `TCA`:pn: array specifies optional framework internal
 handling of soft deletes and language overlays: For instance, if a row in the backend
 is deleted using the page or list module, many tables are configured to not
 entirely drop that row from the table, instead a field (often `deleted`) is set
 from zero to one for that row. Similar mechanics kick in for start- and endtime as
 well as language and workspace overlays. See the :ref:`t3tca:ctrl` chapter in the
-TCA reference for details on this topic.
+`TCA`:pn: reference for details on this topic.
 
 These mechanics however come with a price tag attached to it: Extension developers
 dealing with low-level query stuff must take care overlayed or deleted rows
 are not in the result set of a casual query.
 
 This is where this "automatic restriction" stuff kicks in: The construct is created
-on top of native Doctrine DBAL as `TYPO3 CMS` specific extension. It automatically
+on top of native `Doctrine`:pn: DBAL as `TYPO3 CMS` specific extension. It automatically
 adds `WHERE` expressions that suppress rows which are marked as deleted or exceeded
-their "active" life cycle. All that is based on the `TCA` configuration of the affected table.
+their "active" life cycle. All that is based on the `TCA`:pn: configuration of the affected table.
 
 
 Rationale
@@ -38,7 +38,7 @@ construct implements some important design goals:
 
 * **Simple:**
   Query creation should be easy to use without forcing a developer thinking
-  too much about those nasty `TCA` details.
+  too much about those nasty `TCA`:pn: details.
 
 * **Cope with developer laziness:**
   If the framework would force a developer to always add casual
@@ -76,7 +76,7 @@ tables in a join, restrictions for all affected tables are added.
 
 Each single restriction like a `DeletedRestriction` or a `StartTimeRestriction` is modeled as
 a single class implementing the `QueryRestrictionInterface`. Each restriction looks up in
-`TCA` if it should kick in. If so, it adds according expressions to the `WHERE` clause when
+`TCA`:pn: if it should kick in. If so, it adds according expressions to the `WHERE` clause when
 the final statement is compiled.
 
 Multiple restrictions can be grouped in containers which implement the
@@ -100,7 +100,7 @@ the `DefaultRestrictionContainer` if not explicitly told otherwise by an extensi
     as example the frontend behaves much more like a backend call if the admin panel is used.
 
     The currently active variant is much easier: It always adds sane defaults everywhere, a
-    developer only has to deal with details if they don't fit. The Core Team hopes this
+    developer only has to deal with details if they don't fit. The `Core Team`:pn: hopes this
     approach is a good balance between hidden magic, security, transparency and convenience.
 
 

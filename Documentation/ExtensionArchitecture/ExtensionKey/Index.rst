@@ -45,11 +45,11 @@ There are two ways to name an extension:
 - **Project specific extensions** (not generally usable or shareable):
   Select any name you like and prepend it "user\_" (which is the only
   allowed use of a key starting with "u"). This prefix denotes that it is
-  a local extension that does not originate from the central TYPO3
+  a local extension that does not originate from the central `TYPO3`:pn:
   Extension Repository or is ever intended for sharing. Probably this
   is an "adhoc" extension you made for some special occasion.
 
-- **General extensions:** Register an extension name online at the TYPO3
+- **General extensions:** Register an extension name online at the `TYPO3`:pn:
   Extension Repository. Your extension name will be validated automatically
   and you are sure to have a unique name will be returned which no
   one else in the world will use. This makes it very easy to share your
@@ -58,8 +58,8 @@ There are two ways to name an extension:
   extension you make is defined as "private", which means no one else but
   you have access to it until you permit it to be public. It's free of
   charge to register an extension name. By definition, all code in the
-  TYPO3 Extension Repository is covered by the GPL license because it
-  interfaces with TYPO3. You should really consider making general
+  `TYPO3 Extension Repository`:pn: is covered by the GPL license because it
+  interfaces with `TYPO3`:pn:. You should really consider making general
   extensions!
 
 
@@ -74,18 +74,18 @@ About GPL and extensions
 ========================
 
 Remember that TYPO3 is GPL software and at the
-same moment when you extend TYPO3, your extensions are legally covered by
+same moment when you extend `TYPO3`:pn:, your extensions are legally covered by
 GPL. This does not *force* you to share your extension, but it should
 *inspire* you to do so and legally you cannot prevent anyone who gets
 hold of your extension code from using it and further develop it. The
-TYPO3 Extension API is designed to make sharing of your work easy as
-well as using others' work easy. Remember TYPO3 is Open Source Software
+`TYPO3`:pn: Extension API is designed to make sharing of your work easy as
+well as using others' work easy. Remember TYPO3 is open source software
 and we rely on each other in the community to develop it further.
 
 .. important::
    It's also your responsibility to make sure that
    all content of your extensions is legally covered by GPL. The
-   webmaster of TYPO3.org reserves the right to kick out any extension
+   webmaster of typo3.org reserves the right to kick out any extension
    *without notice* that is reported to contain non-GPL material.
 
 .. _extensions-security:
@@ -101,7 +101,7 @@ touch with the Security Team which will validate the security fixes.
 They will also include information about your (fixed) extension in
 their next Security bulletin. If you don't respond to requests from
 the Security Team, your extension will be removed by force from the
-TYPO3 Extension Repository.
+`TYPO3 Extension Repository`:pn:.
 
 More details on the security team's policy on handling security issues
 can be found at https://typo3.org/teams/security/extension-security-policy/.

@@ -9,7 +9,7 @@ Session storage framework
 As of version 8.6, TYPO3 comes with the option to choose between different storages for both frontend end backend user
 sessions (called session backends). Previously, all sessions were stored in the database in the tables `fe_sessions`, `fe_session_data` and `be_sessions` respectively.
 
-The Core ships two session backends by default:
+The `Core`:pn: ships two session backends by default:
 - Database storage
 - Redis storage
 
@@ -24,7 +24,7 @@ Database storage backend
 The database storage backend only requires two configuration options:
 The table name (`table` option) and whether anonymous sessions (`has_anonymous` option) may be stored.
 
-The default configuration used for sessions by the Core is:
+The default configuration used for sessions by the `Core`:pn: is:
 
 .. code-block:: php
 
@@ -53,7 +53,7 @@ The default configuration used for sessions by the Core is:
 Using Redis to store sessions
 =============================
 
-TYPO3 also comes with the possibility to store sessions in a Redis key-value database.
+`TYPO3`:pn: also comes with the possibility to store sessions in a Redis key-value database.
 
 .. note::
 

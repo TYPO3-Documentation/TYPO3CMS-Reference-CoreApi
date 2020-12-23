@@ -10,7 +10,7 @@ It is possible to define a `settings` block in a site's :file:`config.yml` which
 can be accessed both in backend and frontend via the site object.
 
 Additionally, these settings are available as "constants" in both TSConfig
-and TypoScript templates making it possible to configure for example site-wide
+and `TypoScript`:pn: templates making it possible to configure for example site-wide
 storage PIDs which can be used in both frontend and backend.
 
 Adding site settings
@@ -35,12 +35,12 @@ Add a `settings` block to the :file:`config.yml`:
 
 .. index:: Site handling; TypoScript access to settings
 
-Accessing site settings in page TSConfig or TypoScript
-======================================================
+Accessing site settings in page TSConfig or `TypoScript`:pn:
+============================================================
 
 .. code-block:: typoscript
 
-   // store tx_ext_data records on the given storage page by default (e.g. through IRRE)
+   // store tx_ext_data records on the given storage page by default (for example through IRRE)
    TCAdefaults.tx_ext_data.pid = {$categoryPid}
 
    // load category selection for plugin from out dedicated storage page
@@ -49,7 +49,7 @@ Accessing site settings in page TSConfig or TypoScript
 
 .. note::
 
-   The TypoScript constants are evaluated in this order:
+   The `TypoScript`:pn: constants are evaluated in this order:
 
    #. Global :php:`'defaultTypoScript_constants'`
    #. Site specific settings from the site configuration

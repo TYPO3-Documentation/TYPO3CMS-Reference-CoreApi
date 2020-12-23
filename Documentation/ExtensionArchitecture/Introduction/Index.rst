@@ -5,7 +5,7 @@
 Introduction
 ============
 
-TYPO3 CMS is entirely built around the concept of extensions. The Core itself
+`TYPO3 CMS`:pn: is entirely built around the concept of extensions. The `Core`:pn:
 is entirely comprised of extensions, called "system extensions".
 Some are required and will always be activated. Others can be activated
 or deactivated at will.
@@ -16,19 +16,19 @@ Many more extensions - developed by the community - are available in the
 Yet more extensions are not officially published and are available straight
 from source code repositories like `GitHub <https://github.com/>`_.
 
-It is also possible to set up TYPO3 CMS using Composer. This opens
+It is also possible to set up `TYPO3 CMS`:pn: using `Composer`:pn:. This opens
 the possibility of including any library published on
 `Packagist <https://packagist.org/>`_.
 
-TYPO3 can be extended in nearly any direction without losing
+`TYPO3`:pn: can be extended in nearly any direction without losing
 backwards compatibility. The Extension API provides a powerful
 framework for easily adding, removing, installing and developing such
-extensions to TYPO3.
+extensions to `TYPO3`:pn:.
 
 "*Extensions*" is a general term in TYPO3 which covers many kinds of
-additions to TYPO3. The main types are:
+additions to `TYPO3`:pn:. The main types are:
 
-- **Plugins** which play a role on the website itself, e.g. a discussion
+- **Plugins** which play a role on the website itself, for example a discussion
   board, guestbook, shop, etc. Therefore plugins are content elements, that can
   be placed on a page like a text element or an image.
 
@@ -39,20 +39,20 @@ additions to TYPO3. The main types are:
   itself to the function menu of existing modules. A module is an
   extension in the backend.
 
-- **Distributions** are fully packaged TYPO3 CMS web installations,
+- **Distributions** are fully packaged`TYPO3 CMS`:pn: web installations,
   complete with files, templates, extensions, etc. Distributions are
   covered :ref:`in their own chapter <distribution>`.
 
 .. _extensions-and-core:
 
-Extensions and the Core
------------------------
+Extensions and the `Core`:pn:
+-----------------------------
 
 Extensions are designed in a way so that extensions can supplement the
-Core seamlessly. This means that a TYPO3 system will appear as "a
-whole" while actually being composed of the Core application *and* a
+`Core`:pn: seamlessly. This means that a TYPO3 system will appear as "a
+whole" while actually being composed of the `Core`:pn: application *and* a
 set of extensions providing various features. This philosophy allows
-TYPO3 to be developed by many individuals without losing fine control
+`TYPO3`:pn: to be developed by many individuals without losing fine control
 since each developer will have a special area (typically a system
 extension) of responsibility which is effectively encapsulated.
 
@@ -72,17 +72,17 @@ This section describes the main system extensions, their use and
 what main resources and libraries they contain. The system extensions
 are located in directory :file:`typo3/sysext`.
 
-Core
-  As its name implies, this extension is crucial to the working of TYPO3 CMS.
-  It defines the main database tables (BE users, BE groups, pages and all the
+`core`
+  As its name implies, this extension is crucial to the working of`TYPO3 CMS`:pn:.
+  It defines the main database tables (backend users, backend groups, pages and all the
   "sys\_*" tables. It also contains the default global configuration
   (in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`). Last
   but not least, it delivers a huge number of base PHP classes, far too many
   to describe here.
 
 backend
-  This system extension provides all that is necessary to run the TYPO3 CMS
-  backend. This means quite a few PHP classes, a lot of controllers and Fluid templates.
+  This system extension provides all that is necessary to run the`TYPO3 CMS`:pn:
+  backend. This means quite a few PHP classes, a lot of controllers and `Fluid`:pn: templates.
 
 frontend
   This system extension contains all the tools for performing rendering in
@@ -91,19 +91,19 @@ frontend
   which are used for rendering the various content objects (one class per object
   type, plus a number of base and utility classes).
 
-Extbase
-  Extbase is an MVC framework, with the "View" part being actually the system extension "fluid".
-  Not all of the TYPO3 CMS backend is written in Extbase, but some modules are.
+`Extbase`:pn:
+  `Extbase`:pn: is an MVC framework, with the "View" part being actually the system extension "fluid".
+  Not all of the`TYPO3 CMS`:pn: backend is written in `Extbase`:pn:, but some modules are.
 
-Fluid
-  Fluid is a templating engine. It forms the "View" part of the MVC framework.
-  The templating engine itself is provided as "fluid standalone" which can be used
+`Fluid`:pn:
+  `Fluid`:pn: is a templating engine. It forms the "View" part of the MVC framework.
+  The templating engine itself is provided as `Fluid`:pn:  standalone which can be used
   in other frameworks or as a standalone templating engine.
-  This system extension provides a number of classes and many View Helpers
+  This system extension provides a number of classes and many `ViewHelpers`:pn:
   (in :file:`typo3/sysext/fluid/Classes/ViewHelpers`), which
-  extend the basic templating features of standalone Fluid. Fluid can be used in conjunction
-  with Extbase (where it is the default template engine), but also in non-extbase extensions.
+  extend the basic templating features of standalone `Fluid`:pn:. `Fluid`:pn: can be used in conjunction
+  with `Extbase`:pn: (where it is the default template engine), but also in non-extbase extensions.
 
 install
-  This system extension is the package containing the TYPO3 CMS Install Tool.
+  This system extension is the package containing the`TYPO3 CMS`:pn: Install Tool.
 

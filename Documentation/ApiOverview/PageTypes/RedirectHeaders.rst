@@ -30,7 +30,7 @@ For *Links to External URL*: ::
    # exposeRedirectInformation is enabled
    X-Redirect-By: TYPO3 External URL at page with ID 456
 
-The header `X-Redirect-By` makes it easier to understand why a redirect happens when checking URLs, e.g. by using `curl`: ::
+The header `X-Redirect-By` makes it easier to understand why a redirect happens when checking URLs, for example by using `curl`: ::
 
   curl -I 'https://my-typo3-site.com/examples/pages/link-to-external-url/'
 

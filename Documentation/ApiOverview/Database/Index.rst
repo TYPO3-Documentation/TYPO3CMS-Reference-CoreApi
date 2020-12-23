@@ -2,9 +2,9 @@
 .. index:: ! Database
 .. _database:
 
-========================
-Database (Doctrine DBAL)
-========================
+==============================
+Database (`Doctrine`:pn: DBAL)
+==============================
 
 **Contents:**
 

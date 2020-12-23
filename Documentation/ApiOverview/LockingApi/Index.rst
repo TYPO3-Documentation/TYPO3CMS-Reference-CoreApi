@@ -8,7 +8,7 @@
 Locking API
 ===========
 
-TYPO3 uses the locking API in the Core. You can do the same in your extension
+`TYPO3`:pn: uses the locking API in the `Core`:pn:. You can do the same in your extension
 for operations which require locking. This is the case if you use a resource,
 where concurrent access can be a problem. For example if you are getting a
 cache entry, while another process sets the same entry. This may
@@ -27,9 +27,9 @@ Locking strategies
 ==================
 
 A locking strategy must implement the :php:`LockingStrategyInterface`. Several locking strategies
-are shipped with the Core. If a locking strategy uses a mechanism
-or function, that is not available on your system, TYPO3 will automatically detect this and
-not use this mechanism and respective locking strategy (e.g. if function :php:`sem_get()` is not
+are shipped with the `Core`:pn:. If a locking strategy uses a mechanism
+or function, that is not available on your system, `TYPO3`:pn: will automatically detect this and
+not use this mechanism and respective locking strategy (for example if function :php:`sem_get()` is not
 available, :php:`SemaphoreLockStrategy` will not be used).
 
 * **FileLockStrategy**: uses the PHP function `flock() <http://php.net/manual/en/function.flock.php>`__
@@ -52,14 +52,14 @@ the requested capabilities. This is done by a combination of:
 
 capabilities
    The capability of the locking strategy and the requested capability must
-   match (e.g. if you need a non-blocking lock, only the locking strategies that support
+   match (for example if you need a non-blocking lock, only the locking strategies that support
    acquiring a lock without blocking are available for this lock).
 priority
    Each locking strategy assigns itself a priority. If more than one strategy is available
-   for a specific capability (e.g. exclusive lock), the one with the highest priority is chosen.
+   for a specific capability (for example exclusive lock), the one with the highest priority is chosen.
 locking strategy supported on system
-   Some locking strategies do basic checks, e.g. semaphore locking is only available
-   on Linux systems.
+   Some locking strategies do basic checks, for example semaphore locking is only available
+   on `Linux`:pn: systems.
 
 .. index::
    Locking; Capabilities
@@ -123,7 +123,7 @@ Every locking strategy must have a priority. This is returned by the function
 :php:`LockingStrategyInterface::getPriority()` which must be implemented in each
 locking strategy.
 
-Currently, these are the priorities of the locking strategies supplied by the Core:
+Currently, these are the priorities of the locking strategies supplied by the `Core`:pn::
 
 * FileLockStrategy: 75
 * SimpleLockStrategy: 50
@@ -166,7 +166,7 @@ Acquire and use an exclusive, non-blocking lock::
        LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE | LockingStrategyInterface::LOCK_CAPABILITY_NOBLOCK);
 
    // now use the locker to lock something exclusively, this will not block, so handle retry / abort yourself,
-   // e.g. by using a loop
+   // for example by using a loop
    if ($locker->acquire(LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE)) {
        // ... some work to be done that requires locking
 
@@ -177,10 +177,10 @@ Acquire and use an exclusive, non-blocking lock::
 
 .. index::  pair: Locking; Core
 
-Usage in the Core
-=================
+Usage in the `Core`:pn:
+=======================
 
-The locking API is used in the Core for caching, see :php:`TypoScriptFrontendController`.
+The locking API is used in the `Core`:pn: for caching, see :php:`TypoScriptFrontendController`.
 
 
 .. index::  pair: Locking; Extensions
@@ -200,7 +200,7 @@ priority (getPriority()), so give your strategy a priority higher than 75
 if it should override the current top choice :php:`FileLockStrategy` by default.
 
 If you want to release your file locking strategy extension, make sure to make the priority configurable,
-as is done in the TYPO3 Core ::
+as is done in the `TYPO3 Core`:pn: ::
 
    public static function getPriority()
    {
@@ -238,7 +238,7 @@ The FileLockStrategy uses :php:`flock()`. This will create a file in `typo3temp/
 
 Because of its capabilities (`LOCK_CAPABILITY_EXCLUSIVE`, `LOCK_CAPABILITY_SHARED`
 and `LOCK_CAPABILITY_NOBLOCK`) and priority (75), FileLockStrategy is used as
-first choice for most locking operations in TYPO3.
+first choice for most locking operations in `TYPO3`:pn:.
 
 
 .. index:: Locking; Multiple servers
@@ -246,16 +246,16 @@ first choice for most locking operations in TYPO3.
 Multiple servers & Cache locking
 --------------------------------
 
-Since the Core uses the locking API for some cache operations (see for
+Since the `Core`:pn: uses the locking API for some cache operations (see for
 example :php:`TypoScriptFrontendController`), make sure that you correctly
-setup your caching and locking if you share your TYPO3 instance on multiple
+setup your caching and locking if you share your `TYPO3`:pn: instance on multiple
 servers for load balancing or high availability.
 
 Specifically, this may be a problem:
 
-* **Do not** use a local locking mechanism (e.g. semaphores or file locks
+* **Do not** use a local locking mechanism (for example semaphores or file locks
   in `typo3temp/var`, *if* `typo3temp/var` is mapped to local storage and
-  not shared) in combination with a central cache mechanism (e.g. central Redis
+  not shared) in combination with a central cache mechanism (for example central Redis
   or DB used for page caching in TYPO3)
 
 .. _locking-api-more-info:
@@ -265,7 +265,7 @@ Related Information
 
 Some of these resources are for specific systems. We link to these, if the
 general concepts are explained quite well. Not everything will apply to
-locking in TYPO3 though.
+locking in `TYPO3`:pn: though.
 
 If you do find better resources, feel free to make changes or add to this list!
 

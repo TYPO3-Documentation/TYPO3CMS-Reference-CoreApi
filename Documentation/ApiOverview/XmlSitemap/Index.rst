@@ -8,9 +8,9 @@ XML sitemap
 
 .. versionadded:: 9.4
 
-   XML Sitemap support was added to the Core with change :doc:`t3core:Changelog/9.4/Feature-84525-XMLSitemap`.
+   XML Sitemap support was added to the `Core`:pn: with change :doc:`t3core:Changelog/9.4/Feature-84525-XMLSitemap`.
 
-It is possible to generate XML sitemaps for SEO purposes without using 3rd-party plugins.
+It is possible to generate XML sitemaps for SEO purposes without using third party plugins.
 When enabled, this new feature will create a sitemapindex with one or more sitemaps in it.
 Out-of-the-box it will have one sitemap containing all the pages of the current site and
 language. Per site and per language you have the possibility to render a different sitemap.
@@ -19,7 +19,7 @@ Installation
 ============
 
 The XML sitemap is disabled by default. You can easily enable it by installing the system
-extension "seo" and including the static TypoScript template XML Sitemap (seo). It is also
+extension "seo" and including the static `TypoScript`:pn: template XML Sitemap (seo). It is also
 mandatory to have a site configuration for your rootpage(s).
 
 How to access your XML sitemap
@@ -146,9 +146,9 @@ stated in a value from 0 to 1. Your most important pages can get an higher prior
 not affect how important your pages are compared to pages of other websites. All pages and records get a priority of
 0.5 by default.
 
-The settings can be defined in TypoScript by mapping the properties to fields of the record by using the options
+The settings can be defined in `TypoScript`:pn: by mapping the properties to fields of the record by using the options
 :ts:`changeFreqField` and :ts:`priorityField`. :ts:`changeFreqField` needs to point to a field containing
-string values (see :ts:`pages` TCA definition of field :ts:`sitemap_changefreq`), :ts:`priorityField` needs to point
+string values (see :ts:`pages` `TCA`:pn: definition of field :ts:`sitemap_changefreq`), :ts:`priorityField` needs to point
 to a field with a decimal value between 0 and 1.
 
 .. note::
@@ -177,7 +177,7 @@ The :php:`getItems` method have to return an array with the items for the sitema
     ];
 
 The loc element, is the URL of the page that the search engine has to crawl. The lastMod element contains the
-date of the last update of the specific item. This value is a UNIX-timestamp.
+date of the last update of the specific item. This value is a `Unix`:pn:-timestamp.
 
 
 .. _sitemap-xslFile:

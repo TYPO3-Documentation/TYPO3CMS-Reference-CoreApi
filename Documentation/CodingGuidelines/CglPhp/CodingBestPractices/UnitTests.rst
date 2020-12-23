@@ -24,8 +24,8 @@ Using Unit Tests
 ================
 
 Although the coverage is far from complete, there are already quite a
-lot of unit tests for the TYPO3 Core. Anytime something is changed in
-the Core, all existing unit tests are run to ensure that nothing
+lot of unit tests for the TYPO3 `Core`:pn:. Anytime something is changed in
+the `Core`:pn:, all existing unit tests are run to ensure that nothing
 is broken.
 
 

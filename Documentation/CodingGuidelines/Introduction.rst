@@ -5,19 +5,19 @@
 Introduction
 ============
 
-This chapter defines coding guidelines for the TYPO3 CMS project.
-Following these guidelines is mandatory for TYPO3 Core  developers and
-contributors to the TYPO3 Core .
+This chapter defines coding guidelines for the `TYPO3 CMS`:pn: project.
+Following these guidelines is mandatory for `TYPO3 Core`:pn: developers and
+contributors to the `TYPO3 Core`:pn:.
 
 Extension authors are encouraged to follow these guidelines
-when developing extensions for TYPO3. Following these guidelines makes
+when developing extensions for `TYPO3`:pn:. Following these guidelines makes
 it easier to read the code, analyze it for learning or performing code
 reviews. These guidelines also help preventing typical errors in the
-TYPO3 code.
+`TYPO3`:pn: code.
 
 This chapter defines how TYPO3 code, files and directories should be
 outlined and formatted. It gives some thoughts on general coding
-flavors the Core tries to follow.
+flavors the `Core`:pn: tries to follow.
 
 .. index:: Coding guidelines; Quality assurance
 .. _cgl-quality-assurance:
@@ -36,11 +36,11 @@ give a negative vote in the review system and point to the according
 problem.
 
 Following the coding guidelines not necessarily means more work for
-Core contributors: The automatic CGL check performed by bamboo can
+`Core`:pn: contributors: The automatic CGL check performed by bamboo can
 be easily replayed locally: If the test setup votes negative on a
-Core patch in the review system due to CGL violations, the patch
+`Core`:pn: patch in the review system due to CGL violations, the patch
 can be easily fixed locally by calling :file:`./Build/Scripts/cglFixMyCommit.sh`
-and pushed another time. For details on Core contributions, have a look at the
+and pushed another time. For details on `Core`:pn: contributions, have a look at the
 :ref:`TYPO3 Contribution Guide <t3contribute:start>`.
 
 

@@ -5,7 +5,7 @@
 Users and groups
 ================
 
-TYPO3 CMS features an access control system based on users and groups.
+`TYPO3 CMS`:pn: features an access control system based on users and groups.
 
 
 .. index:: pair: Backend; Users
@@ -19,11 +19,11 @@ the table "be\_users". This record contains the username and password,
 other meta data and some permissions settings.
 
 .. figure:: ../../../Images/AccessBackendUser.png
-   :alt: Part of the editing form for user "simple\_editor" of the Introduction Package
+   :alt: Part of the editing form for user "simple\_editor" of the `Introduction Package`:pn:
 
 
 The above screenshot shows a part of the editing form for the backend
-user "simple\_editor" from the Introduction Package. If you have an Introduction
+user "simple\_editor" from the `Introduction Package`:pn:. If you have an Introduction
 Package available, you can check further properties of that user. It is
 part of the "Simple editors" group, has a name, an email address and
 its default language for the backend is English.
@@ -47,7 +47,7 @@ permission settings are added together so that the more groups a user
 is a member of, the more access is granted to him.
 
 .. figure:: ../../../Images/AccessBackendGroup.png
-   :alt: Part of the editing form for group "Simple editors" of the Introduction Package
+   :alt: Part of the editing form for group "Simple editors" of the `Introduction Package`:pn:
 
 
 This screenshot shows just an extract of the group editing form.
@@ -63,8 +63,8 @@ There is a special kind of backend users called "Admin".
 When creating a backend user, just check the "Admin!" box in the
 "General" tab and that user will become an administrator.
 There's no need to set further access options for such a user:
-an admin user can access every single feature of the TYPO3 CMS
-backend, like the "root" user on a UNIX system.
+an admin user can access every single feature of the `TYPO3 CMS`:pn:
+backend, like the "root" user on a `Unix`:pn: system.
 
 All systems must have at least one "admin" user and most systems
 should have *only* "admin" users for the developers - not for any
@@ -83,12 +83,12 @@ Admin users are differentiated with an orange icon.
 
    There's no other level between admin and ordinary users.
    This seems to be a strong limitation, especially
-   when you consider that ordinary users may not access TypoScript
+   when you consider that ordinary users may not access `TypoScript`:pn:
    templates.
 
-   However, there is a security reason for this. From a TypoScript template,
+   However, there is a security reason for this. From a `TypoScript`:pn: template,
    you can call a PHP script. So - in effect - a user with access to
-   TypoScript can run arbitrary PHP code on the server, for example
+   `TypoScript`:pn: can run arbitrary PHP code on the server, for example
    in order to create an admin account for himself. This type of escalation
    cannot be allowed.
 

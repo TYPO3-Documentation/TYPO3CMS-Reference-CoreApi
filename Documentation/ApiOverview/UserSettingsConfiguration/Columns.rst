@@ -102,7 +102,7 @@ settings. This array allows the following configurations:
          array
    :Description:
          Defines an external method for rendering items of select-type fields.
-         Contrary to what is done with the TCA you have to render the <select>
+         Contrary to what is done with the `TCA`:pn: you have to render the <select>
          tag too. Only used by type=select.
 
          Use the usual class->method syntax.
@@ -113,7 +113,7 @@ settings. This array allows the following configurations:
    :Data type:
          string
    :Description:
-         JavaScript event triggered on click.
+         `JavaScript`:pn: event triggered on click.
 
 
  - :Key:
@@ -121,14 +121,14 @@ settings. This array allows the following configurations:
    :Data type:
          boolean
    :Description:
-         If true, JavaScript confirmation dialog is displayed.
+         If true, `JavaScript`:pn: confirmation dialog is displayed.
 
  - :Key:
          confirmData.eventName
    :Data type:
          string
    :Description:
-         JavaScript event triggered on confirmation.
+         `JavaScript`:pn: event triggered on confirmation.
 
  - :Key:
          confirmData.message

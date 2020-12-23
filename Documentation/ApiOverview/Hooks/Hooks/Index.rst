@@ -148,7 +148,7 @@ Constructor post-processing::
 Hook configuration
 ==================
 
-There is no complete index of hooks in the Core. But they are easy to
+There is no complete index of hooks in the `Core`:pn:. But they are easy to
 search for and find. And typically it comes quite naturally since you
 will find the hooks in the code you want to extend - if they exist.
 
@@ -219,10 +219,10 @@ and used at a later point. ::
 $GLOBALS['TYPO3\_CONF\_VARS']['SC\_OPTIONS']
 ============================================
 
-**Configuration space for Core scripts.**
+**Configuration space for `Core`:pn: scripts.**
 
 This array is created as an ad hoc space for creating hooks from any
-script. This will typically be used from the Core scripts of TYPO3
+script. This will typically be used from the `Core`:pn: scripts of `TYPO3`:pn:
 which do not have a natural identifier like extensions have their
 extension keys. ::
 

@@ -4,10 +4,10 @@
 .. _custom-permissions:
 
 ===============================
-Using Custom Permission Options
+Using custom permission options
 ===============================
 
-TYPO3 allows extension developers to register their own
+`TYPO3`:pn: allows extension developers to register their own
 permission options, managed automatically by the built-in user group
 access lists. The options can be grouped in categories. A custom
 permission option is always a checkbox (on/off).
@@ -59,7 +59,7 @@ this:
 
 
 As you can see it is possible to add both an icon and a description text, that will
-be displayed as context-sensitive help. If icons not provided by the Core are used,
+be displayed as context-sensitive help. If icons not provided by the `Core`:pn: are used,
 they need to be registered with the icon API.
 
 

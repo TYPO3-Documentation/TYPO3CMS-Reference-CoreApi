@@ -2,16 +2,16 @@
 .. index:: Flexforms
 .. _flexforms:
 
-=========
-Flexforms
-=========
+===============
+`FlexForms`:pn:
+===============
 
-Flexforms can be used to store data within an XML structure inside a single DB
+`FlexForms`:pn: can be used to store data within an XML structure inside a single DB
 column.
 
-Flexforms can be used to configure :ref:`content elements (CE) or plugins
+`FlexForms`:pn: can be used to configure :ref:`content elements (CE) or plugins
 <content-elements>`, but they are optional so you can create plugins or
-content elements without using Flexforms.
+content elements without using `FlexForms`:pn:.
 
 Most of the configuration below is the same, whether you are adding configuration
 for a plugin or content element. The main difference is how :php:`addPiFlexFormValue()`
@@ -19,12 +19,12 @@ is used.
 
 You may want to configure
 individual plugins or content elements differently, depending on where they are added. The
-configuration set via the Flexform mechanism applies to only the content
-record it has been configured for. The Flexforms configuration for a plugin or CE
+configuration set via the `Flexform`:pn: mechanism applies to only the content
+record it has been configured for. The `FlexForms`:pn: configuration for a plugin or CE
 can be changed by editors in the backend. This gives editors more control
 over plugin features and what is to be rendered.
 
-Using Flexforms you have all the features of TCA, so it is possible
+Using `FlexForms`:pn: you have all the features of `TCA`:pn:, so it is possible
 to use input fields, select lists, show options conditionally and more.
 
 
@@ -32,17 +32,17 @@ Example use cases
 =================
 
 The `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
-uses Flexforms to configure rendering options,
-e.g. a transition interval and transition type (slide, fade)
+uses `FlexForms`:pn: to configure rendering options,
+for example a transition interval and transition type (slide, fade)
 for the carousel content element.
 
 .. image:: Images/FlexFormCarousel.png
    :class: with-shadow
 
-Some more extensions that utilize FlexForms are:
+Some more extensions that utilize `FlexForms`:pn: are:
 
 * `blog <https://github.com/TYPO3GmbH/blog>`__: This has a very small and
-  basic FlexForm, so it might be a good starting point to look at.
+  basic `Flexform`:pn:, so it might be a good starting point to look at.
 
 
 How it works
@@ -147,10 +147,10 @@ Steps to perform (Extension developer)
 
 #. Access the settings in your extension:
 
-   The settings can be read using one of the methods described below, e.g.
+   The settings can be read using one of the methods described below, for example
    :ref:`from an Extbase controller action <read-flexforms-extbase>`,
    :ref:`from a PHP function <read-flexforms-php>` (without using the
-   Extbase framework), from :ref:`TypoScript <read-flexforms-ts>` or
+   `Extbase`:pn: framework), from :ref:`TypoScript <read-flexforms-ts>` or
    from within a :ref:`Fluid template <read-flexforms-fluid>`.
 
 
@@ -158,9 +158,9 @@ More examples
 =============
 
 The definition of the data types and parameters used complies to the
-:ref:`column types defined by TCA <t3tca:columns-types>`.
+:ref:`column types defined by `TCA`:pn: <t3tca:columns-types>`.
 
-The settings must be added within the :html:`<el>` element in the Flexform
+The settings must be added within the :html:`<el>` element in the `Flexform`:pn:
 configuration schema file.
 
 
@@ -193,7 +193,7 @@ Select field
 
 .. seealso::
 
-   * :ref:`t3tca:columns-select` in TCA reference.
+   * :ref:`t3tca:columns-select` in `TCA`:pn: reference.
 
 
 .. _flexforms-itemsProcFunc:
@@ -250,7 +250,7 @@ How this looks when configuring the plugin:
 
 .. seealso::
 
-   * :ref:`t3tca:columns-select-properties-itemsprocfunc` in TCA reference.
+   * :ref:`t3tca:columns-select-properties-itemsprocfunc` in `TCA`:pn: reference.
 
 
 .. index:: Flexforms; Display conditions
@@ -266,7 +266,7 @@ should only be visible, if sort order "title" was not selected.
 
 You can define conditions using displayCond. This dynamically defines
 whether a setting should be displayed when the plugin is configured.
-The conditions may for example depend on one or more other settings in the Flexform,
+The conditions may for example depend on one or more other settings in the `Flexform`:pn:,
 on database fields of current record or be defined by a user function.
 
 
@@ -279,11 +279,11 @@ on database fields of current record or be defined by a user function.
     <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
 
 Again, the syntax and available fields and comparison operators is documented
-in the TCA reference:
+in the `TCA`:pn: reference:
 
 .. seealso::
 
-   * :ref:`t3tca:columns-properties-displaycond` in TCA Reference
+   * :ref:`t3tca:columns-properties-displaycond` in `TCA`:pn: Reference
 
 
 .. index:: Flexforms; switchableControllerActions
@@ -295,7 +295,7 @@ switchableControllerActions
 .. deprecated:: 10.3
 
    It is no longer considered best practice to use
-   `switchableControllerActions` in a Flexform. The reasons
+   `switchableControllerActions` in a `Flexform`:pn:. The reasons
    for the deprecation and possible alternatives are outlined
    in the changelog :doc:`t3core:Changelog/10.3/Deprecation-89463-SwitchableControllerActions`.
 
@@ -323,11 +323,11 @@ This element is optional and must go inside the `<config>` element.
 .. _read-flexforms:
 .. _read-flexforms-extbase:
 
-How to read flexforms from an Extbase controller action
--------------------------------------------------------
+How to read `FlexForms`:pn: from an `Extbase`:pn: controller action
+-------------------------------------------------------------------
 
 The settings can be read using :php:`$this->settings` in an
-Extbase controller.
+`Extbase`:pn: controller.
 
 .. code-block:: php
 
@@ -344,13 +344,13 @@ Extbase controller.
 .. index:: pair: Flexforms; PHP
 .. _read-flexforms-php:
 
-How to read and write flexforms from PHP
-----------------------------------------
+How to read and write `FlexForms`:pn: from PHP
+----------------------------------------------
 
-Some situation make it necessary to access Flexforms via PHP. The following APIs
-are available to work with Flexforms from within PHP:
+Some situation make it necessary to access `FlexForms`:pn: via PHP. The following APIs
+are available to work with `FlexForms`:pn: from within PHP:
 
-In order to convert a Flexform to a PHP array, the :php:`xml2array` method can
+In order to convert a `Flexform`:pn: to a PHP array, the :php:`xml2array` method can
 be used:
 
 .. code-block:: php
@@ -358,7 +358,7 @@ be used:
    $flexFormArray = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($flexFormString);
 
 
-In order to convert an PHP array into an Flexform, the :php`flexArray2Xml`
+In order to convert an PHP array into an `Flexform`:pn:, the :php`flexArray2Xml`
 method can be used:
 
 .. code-block:: php
@@ -370,11 +370,11 @@ method can be used:
 .. index:: pair: Flexforms; TypoScript
 .. _read-flexforms-ts:
 
-How to access flexforms From TypoScript
----------------------------------------
+How to access `FlexForms`:pn: from `TypoScript`:pn:
+---------------------------------------------------
 
 .. versionadded:: 8.4
-   It is now possible to read Flexform properties from TypoScript,
+   It is now possible to read `Flexform`:pn: properties from `TypoScript`:pn:,
    see :doc:`t3core:Changelog/8.4/Feature-17309-AccessFlexformValueViaTS`.
 
 
@@ -396,7 +396,7 @@ How to access flexforms From TypoScript
         }
     }
 
-The key `flexform` is followed by the field which holds the Flexform data (`pi_flexform`) and the name of the property whose content should be retrieved (`settings.categories`).
+The key `flexform`:typoscript: is followed by the field which holds the `Flexform`:pn: data (`pi_flexform`) and the name of the property whose content should be retrieved (`settings.categories`).
 
 .. seealso::
 
@@ -406,13 +406,13 @@ The key `flexform` is followed by the field which holds the Flexform data (`pi_f
 .. index:: pair: Flexforms; Fluid
 .. _read-flexforms-fluid:
 
-How to access flexForms from Fluid
-----------------------------------
+How to access `FlexForms`:pn: from `Fluid`:pn:
+----------------------------------------------
 
-If you are using an Extbase controller, FlexForm settings can be read from within a Fluid template using
-:html:`{settings}`. See the note on naming restrictions in :ref:`How to Read Flexforms From an Extbase Controller Action <read-flexforms-extbase>`.
+If you are using an `Extbase`:pn: controller, `FlexForm`:pn: settings can be read from within a `Fluid`:pn: template using
+:html:`{settings}`. See the note on naming restrictions in :ref:`How to read FlexForms from an `Extbase`:pn: controller action <read-flexforms-extbase>`.
 
-If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign single variables like that:
+If you defined your :typoscript:`FLUIDTEMPLATE` in `TypoScript`:pn:, you can assign single variables like that:
 
 .. code-block:: typoscript
 
@@ -424,8 +424,8 @@ If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign si
      } 
    }
 
-In order to have all FlexForm fields available, you can add a custom DataProcessor. 
-This example would make your FlexForm data available as Fluid variable :html:`{flexform}`:
+In order to have all `Flexform`:pn: fields available, you can add a custom DataProcessor.
+This example would make your `Flexform`:pn: data available as `Fluid`:pn: variable :html:`{flexform}`:
 
 .. code-block:: typoscript
 

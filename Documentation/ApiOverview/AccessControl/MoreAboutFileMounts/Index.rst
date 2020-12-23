@@ -10,7 +10,7 @@ More about file mounts
 ======================
 
 File mounts require a little more description of the concepts provided
-by TYPO3 CMS. All files are handled by an application layer called
+by `TYPO3 CMS`:pn:. All files are handled by an application layer called
 the "File Abstraction Layer" (FAL). You can find more information
 about the basic concepts of :ref:`FAL <fal-concepts>`.
 
@@ -18,7 +18,7 @@ The FAL is comprised of the following components:
 
 Drivers
   Drivers are what makes it possible to access a given type of media
-  storage. The Core provides a driver to access the local file system.
+  storage. The `Core`:pn: provides a driver to access the local file system.
   Extensions exist that provide a driver for remote systems, like SFTP
   or platforms like Amazon S3.
 
@@ -29,7 +29,7 @@ Storages
   "directories". The storage configuration depends on the driver it uses.
 
   Thanks to the storage and its driver, the user is able to browse
-  files from within the TYPO3 CMS backend as if they were stored locally.
+  files from within the `TYPO3 CMS`:pn: backend as if they were stored locally.
 
 File mounts
   As discussed before, a file mount is the element which is used to
@@ -57,7 +57,7 @@ option for relative or absolute paths.
 folder (or whatever other folder was configured using
 :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
 Absolute paths are full paths starting at the root of the file system
-(i.e. :code:`/` on Unix systems).
+(i.e. :code:`/` on `Unix`:pn: systems).
 
 .. important::
 
@@ -92,7 +92,7 @@ equal to :code:`/home/foo/`.
 Home directories
 ================
 
-TYPO3 CMS also features the concept of "home directories". These are paths
+`TYPO3 CMS`:pn: also features the concept of "home directories". These are paths
 that are automatically mounted if they are present at a path
 configured in the global configuration. Thus they don't need to have a file
 mount record representing them - they just need a properly named
@@ -162,6 +162,6 @@ A different icon visually distinguishes automatic file mounts.
    This does not apply to group home directories.
 
 The concept of home directories can be efficiently combined with
-the TSconfig :ref:`defaultUploadFolder <t3tsconfig:useroptions>` option,
+the `TSconfig`:pn: :ref:`defaultUploadFolder <t3tsconfig:useroptions>` option,
 which automatically directs all files uploaded by the user to the
 given directory.
