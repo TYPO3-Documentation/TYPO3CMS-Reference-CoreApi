@@ -1,5 +1,6 @@
 .. include:: /Includes.rst.txt
-.. index:: TypoScript; Conditions!
+
+
 .. _typoscript-syntax-conditions:
 
 ==========
@@ -35,10 +36,9 @@ of the TypoScript code that follows.
    For conditions usage examples, and available variables and function reference, please refer to
    :ref:`the TypoScript Reference conditions chapter <t3tsref:conditions>`.
 
-
 .. _typoscript-syntax-conditions-usage:
 
-Where conditions can be used
+Where Conditions Can Be Used
 ============================
 
 The *detection of conditions* is a part of the TypoScript syntax but
@@ -56,7 +56,7 @@ templates do, but there are some small differences. For details see the
 
 .. _typoscript-syntax-conditions-syntax:
 
-The syntax of conditions
+The Syntax of Conditions
 ========================
 
 A condition is written on its own line and is detected by :code:`[`
@@ -113,7 +113,7 @@ see):
 
 .. _typoscript-syntax-conditions-combine:
 
-Combining conditions
+Combining Conditions
 ====================
 
 As we saw above two or more tests can be combined using logical operators.
@@ -236,10 +236,9 @@ This means that the line was perceived as a regular definition of
 TypoScript and not as a condition.
 
 
-.. index:: TypoScript; [GLOBAL] condition
 .. _typoscript-syntax-the-global-condition:
 
-The [GLOBAL] condition
+The [GLOBAL] Condition
 ======================
 
 The :code:`[GLOBAL]` special condition (which resets any previous
@@ -275,123 +274,12 @@ from the top level. This is normally done when TypoScript code from
 various records is combined.
 
 
-.. index:: TypoScript; Symfony expression language
 .. _typoscript-syntax-conditions-expression-language:
 
-Custom conditions with the `Symfony`:pn: expression language
-============================================================
+Custom Conditions With Symfony Expression Language
+==================================================
 
-Further information about how to extend TypoScript with your own custom
-conditions can be found within :ref:`sel-within-typoscript-conditions`.
-
-
-.. _typoscript-syntax-conditions-migration:
-
-Migration from the pre-`Symfony`:pn: condition syntax
-=====================================================
-
-Variables and functions
------------------------
-
-For a detailed list of the available objects and functions refer to the
-:ref:`the TypoScript Reference <t3tsref:conditions>`.
-
-Variables::
-
-   [page["backend_layout"] == 1]
-      # Old syntax: [globalVar = TSFE:page|backend_layout = 1]
-      page.42.value = Backend layout 1 choosen
-   [END]
-
-Functions::
-
-   [loginUser('*')]
-      # Old syntax: [loginUser = *]
-      page.42.value = Frontend user logged in
-   [END]
-   [getTSFE().isBackendUserLoggedIn()]
-      # Old syntax [globalVar = TSFE : beUserLogin > 0]
-      page.42.value = Backend user logged in
-   [END]
-
-Migrating literals
-------------------
-
-Have a look at the
-`SEL supported literals <https://symfony.com/doc/current/components/expression_language/syntax.html#supported-literals`__.
-
-Strings::
-
-   [request.getNormalizedParams().getHttpHost() == 'www.example.org']
-      # Old syntax: [globalString = IENV:HTTP_HOST = www.example.org]
-      page.42.value = Http Host is www.example.org
-   [END]
-
-Arrays::
-
-   [page["pid"] in [17,24]]
-      # Old syntax: [globalVar = TSFE:page|pid=17, TSFE:page|pid=24]
-      page.42.value = This page is a child of page 17 or page 24
-   [END]
-
-
-Migrating operators
--------------------
-
-Please see a complete list of availible operators here:
-`SEL syntax operators <https://symfony.com/doc/current/components/expression_language/syntax.html#comparison-operators>`__
-
-Equality::
-
-   [applicationContext == "Development"]
-      # Old syntax: [applicationContext = Development]
-      page.42.value = The application context is exactly "Development"
-   [END]
-
-Wildcards / regular expressions::
-
-   [like(applicationContext, "Development*")]
-      # Old syntax: [applicationContext = Development*]
-      page.42.value = The application context starts with "Development"
-   [END]
-   [applicationContext matches "/^Development/"]
-      # Old syntax: [applicationContext = Development*]
-      page.42.value = The application context starts with "Development"
-   [END]
-
-Array operators::
-
-   [17 in tree.rootLineIds || 24 in tree.rootLineIds]
-      # Old syntax: [PIDinRootline = 17, 24]
-   [END]
-
-Migrating combined conditions
------------------------------
-
-And conditions::
-
-   [condition1() and condition2()]
-      # Old syntax [ condition1 ][ condition2 ]
-      page.42.value = Condition 1 and condition 2 met
-   [END]
-
-Or conditions::
-
-   [condition1() or condition2()]
-      # used to be [ condition1 ] || [ condition2 ]
-      temp.value = Condition 1 or condition 2 met
-   [END]
-
-
-Migrating user functions
-------------------------
-
-In order to migrate user functions for example
-:code:`# Old syntax [userFunc = user_match(checkLocalIP, 192.168)]` provide
-:ref:`custom variables <sel-ts-additional-variables>` or
-:ref:`functions <sel-ts-additional-functions>` with the `Symfony`:pn:
-expression language.
-
+Further information about how to extend TypoScript with your own custom conditions can be found within :ref:`sel-within-typoscript-conditions`.
 
 .. _typoscript-syntax-conditions-summary:
 
