@@ -132,18 +132,6 @@ TypoScript conditions are using the Symfony Expression Language. For more
 information on writing such expressions, you can look up the
 `symfony documentation on the expression language <https://symfony.com/doc/current/components/expression_language/syntax.html>`__.
 
-.. note::
-
-   Before TYPO3 10, it was possible to "chain" multiple condition blocks
-   together with :code:`AND`, :code:`OR`, :code:`&&` and :code:`||` by writing
-   something like :code:`[ condition 1 ][ condition 2 ]` or
-   :code:`[ condition 1 ] AND [ condition 2 ]`. This is no longer possible or
-   necessary, as with the new :ref:`symfony-expression-language`,
-   only single condition blocks on one line are now allowed. Logical operators
-   like :code:`and`, :code:`or`  or :code:`not` are now used *inside* the
-   condition block to allow for writing complex expressions.
-
-
 .. _typoscript-syntax-else-condition:
 .. _typoscript-syntax-end-condition:
 .. _typoscript-syntax-global-condition:
