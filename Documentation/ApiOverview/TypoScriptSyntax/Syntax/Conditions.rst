@@ -285,10 +285,10 @@ Further information about how to extend TypoScript with your own custom
 conditions can be found within :ref:`sel-within-typoscript-conditions`.
 
 
-.. _typoscript-syntax-conditions-migration:
+.. _typoscript-syntax-conditions-examples:
 
-Migration from the pre-`Symfony`:pn: condition syntax
-=====================================================
+Syntax examples
+===============
 
 Variables and functions
 -----------------------
@@ -299,98 +299,81 @@ For a detailed list of the available objects and functions refer to the
 Variables::
 
    [page["backend_layout"] == 1]
-      # Old syntax: [globalVar = TSFE:page|backend_layout = 1]
       page.42.value = Backend layout 1 choosen
    [END]
 
 Functions::
 
    [loginUser('*')]
-      # Old syntax: [loginUser = *]
       page.42.value = Frontend user logged in
    [END]
    [getTSFE().isBackendUserLoggedIn()]
-      # Old syntax [globalVar = TSFE : beUserLogin > 0]
       page.42.value = Backend user logged in
    [END]
 
-Migrating literals
-------------------
+Literals
+--------
 
-Have a look at the
-`SEL supported literals <https://symfony.com/doc/current/components/expression_language/syntax.html#supported-literals`__.
+For a complete list have a look at the
+`SEL supported literals <https://symfony.com/doc/current/components/expression_language/syntax.html#supported-literals>`__.
 
 Strings::
 
    [request.getNormalizedParams().getHttpHost() == 'www.example.org']
-      # Old syntax: [globalString = IENV:HTTP_HOST = www.example.org]
       page.42.value = Http Host is www.example.org
    [END]
 
 Arrays::
 
    [page["pid"] in [17,24]]
-      # Old syntax: [globalVar = TSFE:page|pid=17, TSFE:page|pid=24]
       page.42.value = This page is a child of page 17 or page 24
    [END]
 
 
-Migrating operators
--------------------
+Operators
+---------
 
-Please see a complete list of availible operators here:
+Please see a complete list of available operators here:
 `SEL syntax operators <https://symfony.com/doc/current/components/expression_language/syntax.html#comparison-operators>`__
 
 Equality::
 
    [applicationContext == "Development"]
-      # Old syntax: [applicationContext = Development]
       page.42.value = The application context is exactly "Development"
    [END]
 
-Wildcards / regular expressions::
+Wildcards::
 
    [like(applicationContext, "Development*")]
-      # Old syntax: [applicationContext = Development*]
       page.42.value = The application context starts with "Development"
    [END]
+
+Regular expressions::
+
    [applicationContext matches "/^Development/"]
-      # Old syntax: [applicationContext = Development*]
       page.42.value = The application context starts with "Development"
    [END]
 
 Array operators::
 
    [17 in tree.rootLineIds || 24 in tree.rootLineIds]
-      # Old syntax: [PIDinRootline = 17, 24]
+      page.42.value = Pid with id 17 or 24 is in the rootline.
    [END]
 
-Migrating combined conditions
------------------------------
+Combined conditions
+-------------------
 
 And conditions::
 
    [condition1() and condition2()]
-      # Old syntax [ condition1 ][ condition2 ]
       page.42.value = Condition 1 and condition 2 met
    [END]
 
 Or conditions::
 
    [condition1() or condition2()]
-      # used to be [ condition1 ] || [ condition2 ]
       temp.value = Condition 1 or condition 2 met
    [END]
-
-
-Migrating user functions
-------------------------
-
-In order to migrate user functions for example
-:code:`# Old syntax [userFunc = user_match(checkLocalIP, 192.168)]` provide
-:ref:`custom variables <sel-ts-additional-variables>` or
-:ref:`functions <sel-ts-additional-functions>` with the `Symfony`:pn:
-expression language.
 
 
 .. _typoscript-syntax-conditions-summary:
