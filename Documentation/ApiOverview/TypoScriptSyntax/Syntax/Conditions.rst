@@ -12,6 +12,10 @@ TRUE or FALSE based on some criteria (externally validated) and
 thereby determine, whether the TypoScript code following the condition
 and ending where the next condition is found, should be parsed or not.
 
+.. note::
+   The condition syntax got changed with 9.4, the old syntax removed in 10.
+   See :ref:`typoscript-syntax-conditions-migration-sel`
+
 Examples of a condition could be:
 
 - Is a usergroup set for the current session?
@@ -278,17 +282,47 @@ various records is combined.
 .. index:: TypoScript; Symfony expression language
 .. _typoscript-syntax-conditions-expression-language:
 
-Custom conditions with the `Symfony`:pn: expression language
-============================================================
+Custom conditions with the Symfony expression language
+======================================================
 
 Further information about how to extend TypoScript with your own custom
 conditions can be found within :ref:`sel-within-typoscript-conditions`.
 
 
-.. _typoscript-syntax-conditions-migration:
+.. _typoscript-syntax-conditions-summary:
 
-Migration from the pre-`Symfony`:pn: condition syntax
-=====================================================
+Summary
+=======
+
+- Conditions are detected by :code:`[` as the first line character (whitespace
+  ignored).
+
+- Conditions are evaluated in relation to the context where TypoScript
+  is used. They are widely used in TypoScript Templates and can also be
+  used in Page TSconfig or User TSconfig.
+
+- Special conditions :code:`[ELSE]`, :code:`[END]` and :code:`[GLOBAL]` exist.
+
+- Conditions can be used outside of confinements (curly braces) only.
+  However the :code:`[GLOBAL]` condition will always break a confinement if
+  entered inside of one.
+
+
+.. _typoscript-syntax-conditions-migration-sel:
+
+Migration from the pre-Symfony condition syntax
+===============================================
+
+.. versionadded:: 9.4
+
+   The old condition syntax got deprecated in TYPO3 version 9.4 and removed in 10
+   with the introduction of this change
+   :doc:`t3core:Changelog/9.4/Feature-85829-ImplementSymfonyExpressionLanguageForTypoScriptConditions`
+
+
+For information on how to migrate from the old pre-SEL style TypoScript conditions
+to the new SEL-conditions please see below:
+
 
 Variables and functions
 -----------------------
@@ -318,7 +352,7 @@ Migrating literals
 ------------------
 
 Have a look at the
-`SEL supported literals <https://symfony.com/doc/current/components/expression_language/syntax.html#supported-literals`__.
+`SEL supported literals <https://symfony.com/doc/current/components/expression_language/syntax.html#supported-literals>`__.
 
 Strings::
 
@@ -389,24 +423,5 @@ Migrating user functions
 In order to migrate user functions for example
 :code:`# Old syntax [userFunc = user_match(checkLocalIP, 192.168)]` provide
 :ref:`custom variables <sel-ts-additional-variables>` or
-:ref:`functions <sel-ts-additional-functions>` with the `Symfony`:pn:
+:ref:`functions <sel-ts-additional-functions>` with the Symfony
 expression language.
-
-
-.. _typoscript-syntax-conditions-summary:
-
-Summary
-=======
-
-- Conditions are detected by :code:`[` as the first line character (whitespace
-  ignored).
-
-- Conditions are evaluated in relation to the context where TypoScript
-  is used. They are widely used in TypoScript Templates and can also be
-  used in Page TSconfig or User TSconfig.
-
-- Special conditions :code:`[ELSE]`, :code:`[END]` and :code:`[GLOBAL]` exist.
-
-- Conditions can be used outside of confinements (curly braces) only.
-  However the :code:`[GLOBAL]` condition will always break a confinement if
-  entered inside of one.
