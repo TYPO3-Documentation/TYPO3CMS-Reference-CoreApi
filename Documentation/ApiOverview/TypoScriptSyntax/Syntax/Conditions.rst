@@ -1,4 +1,4 @@
-.. include:: /Includes.rst.txt
+.. include:: ../../../Includes.txt
 .. index:: TypoScript; Conditions!
 .. _typoscript-syntax-conditions:
 
