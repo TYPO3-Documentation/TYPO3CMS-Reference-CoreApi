@@ -313,7 +313,7 @@ Summary
 Migration from the pre-Symfony condition syntax
 ===============================================
 
-.. versionadded:: 9.4
+.. versionchanged:: 9.4
 
    The old condition syntax got deprecated in TYPO3 version 9.4 and removed in 10
    with the introduction of this change
