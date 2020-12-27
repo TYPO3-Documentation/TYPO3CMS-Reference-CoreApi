@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: /Includes.rst.txt
 
 ======================================================
 Using TypoScript for rendering: The cObject ViewHelper
