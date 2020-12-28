@@ -266,8 +266,8 @@ various records is combined.
 .. index:: TypoScript; Symfony expression language
 .. _typoscript-syntax-conditions-expression-language:
 
-Custom conditions with the `Symfony`:pn: expression language
-============================================================
+Custom conditions with the Symfony expression language
+======================================================
 
 Further information about how to extend TypoScript with your own custom
 conditions can be found within :ref:`sel-within-typoscript-conditions`.
@@ -335,6 +335,13 @@ Wildcards::
    [like(applicationContext, "Development*")]
       page.42.value = The application context starts with "Development"
    [END]
+
+..note::
+
+   While the other operator are inherent features of the Symphony expression
+   language :typoscript:`like` is a function defined by TYPO3. Read more about
+   it in :ref:`TypoScript Reference, Conditions,
+   function like <tsref:condition-function-like>`
 
 Regular expressions::
 
