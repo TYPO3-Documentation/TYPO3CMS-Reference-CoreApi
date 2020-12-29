@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: File abstraction layer; Maintenance
 .. _fal-administration-maintenance:
 
 ===========
@@ -9,39 +8,41 @@ Maintenance
 
 There are various maintenance tasks which can be performed
 to maintain a healthy TYPO3 CMS installation with the
-File Abstraction Layer.
+file abstraction layer.
 
 
+.. index:: pair: File abstraction layer; Scheduler
 .. _fal-administration-maintenance-scheduler:
 
-Scheduler Tasks
+Scheduler tasks
 ===============
 
 Two base tasks provided by the Scheduler are related to the
-File Abstraction Layer.
+file abstraction layer.
 
-File Abstraction Layer: Update storage index
-  This task goes through a Storage and makes sures that every file
+File abstraction layer: Update storage index
+  This task goes through a storage and makes sures that every file
   is properly indexed. When files are manipulated only via the TYPO3 CMS
   backend, they are always indexed. However if files get added via other
-  means (e.g. FTP) or if some Storages are based on drivers accessing
+  means (e.g. FTP) or if some storages are based on drivers accessing
   remote systems, it is crucial to run this task regularly so that
   the TYPO3 CMS installation knows about all existing files in order
   to make them available to users.
 
-  This task is defined per Storage.
+  This task is defined per storage.
 
-File Abstraction Layer: Extract metadata in storage
-  This task goes through all files in a Storage and updates their
+File abstraction layer: Extract metadata in storage
+  This task goes through all files in a storage and updates their
   metadata. Again this is especially important when files can be
   manipulated by other means or actually reside on external systems.
 
-  This task is defined per Storage.
+  This task is defined per storage.
 
 
+.. index:: File abstraction layer; Processed files
 .. _fal-administration-maintenance-processed-files:
 
-Processed Files
+Processed files
 ===============
 
 If you change some graphics-related settings, it may be necessary

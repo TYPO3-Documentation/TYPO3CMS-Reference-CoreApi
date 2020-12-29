@@ -27,7 +27,7 @@ TYPO3 Explained
       en
 
 :Description:
-      Main TYPO3 core documentation
+      Main TYPO3 Core documentation
 
 :Keywords:
       forEditors, forBeginners, forDevelopers, forAdmins, forAdvanced, security
@@ -90,6 +90,7 @@ address the task at hand.
    :hidden:
 
    Quicklinks
+   genindex
 
 .. toctree::
    :maxdepth: 1
@@ -165,7 +166,6 @@ address the task at hand.
    ApiOverview/CommandControllers/Index
    ApiOverview/SymfonyExpressionLanguage/Index
    ApiOverview/Categories/Index
-   ApiOverview/SystemLog/Index
    ApiOverview/SystemRegistry/Index
    ApiOverview/Typo3CoreEngine/Index
    Testing/Index
@@ -176,7 +176,6 @@ address the task at hand.
 .. toctree::
    :maxdepth: 1
 
-   genindex
    Sitemap
    About
    Targets

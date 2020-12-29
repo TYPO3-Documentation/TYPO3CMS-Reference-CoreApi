@@ -1,7 +1,6 @@
 .. include:: /Includes.rst.txt
-
 .. highlight:: xml
-
+.. index:: ! Fluid
 .. _fluid:
 
 =====
@@ -19,7 +18,7 @@ Fluid
 You can use Fluid in TYPO3 to do one of the following:
 
 * Create a template (theme) using a combination of TypoScript
-  :ref:`FLUIDTEMPLATE <t3tsref:t3tsrefcobj-fluidtemplate>` and Fluid.
+  :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>` and Fluid.
   Check out the :ref:`t3sitepackage:start` which walks you through the
   creation of a sitepackage extension.
 * :ref:`adding-your-own-content-elements` in addition to the already existing content
@@ -29,7 +28,7 @@ You can use Fluid in TYPO3 to do one of the following:
   or flexibility in your content element, you can create a content plugin using
   a combination of Extbase and Fluid. This is explained in :ref:`t3extbasebook:start`
 * Use Fluid to create emails using the :ref:`TYPO3 Mail API <mail-fluid-email>`.
-* Use Fluid in :ref:`Backend Modules <backend-modules-template>`.
+* Use Fluid in :ref:`backend modules <backend-modules-template>`.
 
 .. note::
 

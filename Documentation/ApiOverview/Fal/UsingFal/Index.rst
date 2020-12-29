@@ -15,7 +15,7 @@ or useful examples for common use-cases.
 
    Frontend
    Tca
-   ExamplesResourceFactory
+   ExamplesStorageRepository
    ExamplesFileFolder
    ExamplesCollection
    ExamplesFileSearch

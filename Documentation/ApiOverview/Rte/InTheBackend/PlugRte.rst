@@ -1,11 +1,11 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   pair: Rich text editor; Custom
 .. _rte-plug:
 
-==============
-Plugging a RTE
-==============
+========================
+Plugging in a custom RTE
+========================
 
 
 TYPO3 supports any Rich Text Editor for which someone might write a
@@ -20,7 +20,7 @@ own RTE if you like.
 
 .. _rte-api:
 
-API for Rich Text Editors
+API for rich text editors
 =========================
 
 Connecting an RTE in an extension to TYPO3 is easy. The following example is
@@ -28,7 +28,7 @@ based on the implementation of ext:rte_ckeditor.
 
 - In the :file:`ext_localconf.php` you can use the FormEngine's NodeResolver
   to implement your own RichTextNodeResolver and give it a higher priority
-  than the core's implementation:
+  than the Core's implementation:
 
 .. code-block:: php
 

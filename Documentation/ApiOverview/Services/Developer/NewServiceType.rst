@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Services API; Custom service
 .. _services-developer-new-service-type:
 
 ==============================
-Introducing a New Service Type
+Introducing a new service type
 ==============================
 
 Every service belongs to a given service type. A service type is

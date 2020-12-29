@@ -1,16 +1,23 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: 
+   XLIFF; Files
+   File; XLIFF
 .. _xliff_api:
 
 ========================
 Working with XLIFF files
 ========================
 
+
+.. index:: XLIFF; Access labels
+
 Access labels
 =============
 
-Label Access in PHP
+
+.. index:: pair: Language labels; PHP
+
+Label access in PHP
 -------------------
 
 In PHP, a typical call in the Backend to fetch a string in the language selected by a user
@@ -52,10 +59,15 @@ Extbase class :php:`\TYPO3\CMS\Extbase\Utility\LocalizationUtility` is essential
 convenience wrapper around the :php:`\TYPO3\CMS\Core\Localization\LanguageService` class,
 whose :php:`translate()` method also takes an array as argument and runs PHP's
 :php:`vsprintf()` on the localized string. However, in the future it is expected this Extbase
-specific class will melt down and somehow merged into the core API classes to get rid of this
+specific class will melt down and somehow merged into the Core API classes to get rid of this
 duplication.
 
-Label Access in Fluid
+
+.. index::
+   pair: Language labels; Fluid
+   Fluid; f:translate
+
+Label access in Fluid
 ---------------------
 
 In Fluid, a typical call to fetch a string in the language selected by a user looks like this:
@@ -68,4 +80,4 @@ In Fluid, a typical call to fetch a string in the language selected by a user lo
 
 If the correct context is set, the current extension name and language is provided by the request. Otherwise it must be provided.
 
-The documentation for the ViewHelper can be found at :ref:`t3viewhelper:typo3-fluid-translate`.
+The documentation for the Viewhelper can be found at :ref:`t3viewhelper:typo3-fluid-translate`.

@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Events; AfterExtensionFilesHaveBeenImportedEvent
 .. _AfterExtensionFilesHaveBeenImportedEvent:
 
 
@@ -14,9 +13,6 @@ Event that is triggered after a package has imported all extension files (from `
 
 API
 ---
-
-.. |nbsp| unicode:: 0xA0
-   :trim:
 
 .. |nbsp| unicode:: 0xA0
    :trim:

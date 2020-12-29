@@ -1,5 +1,4 @@
 .. include:: /Includes.rst.txt
-
 .. _cgl-introduction:
 
 ============
@@ -7,8 +6,8 @@ Introduction
 ============
 
 This chapter defines coding guidelines for the TYPO3 CMS project.
-Following these guidelines is mandatory for TYPO3 core developers and
-contributors to the TYPO3 core.
+Following these guidelines is mandatory for TYPO3 Core  developers and
+contributors to the TYPO3 Core .
 
 Extension authors are encouraged to follow these guidelines
 when developing extensions for TYPO3. Following these guidelines makes
@@ -18,8 +17,9 @@ TYPO3 code.
 
 This chapter defines how TYPO3 code, files and directories should be
 outlined and formatted. It gives some thoughts on general coding
-flavors the core tries to follow.
+flavors the Core tries to follow.
 
+.. index:: Coding guidelines; Quality assurance
 .. _cgl-quality-assurance:
 
 The CGL as a Means of Quality Assurance
@@ -36,11 +36,11 @@ give a negative vote in the review system and point to the according
 problem.
 
 Following the coding guidelines not necessarily means more work for
-core contributors: The automatic CGL check performed by bamboo can
+Core contributors: The automatic CGL check performed by bamboo can
 be easily replayed locally: If the test setup votes negative on a
-core patch in the review system due to CGL violations, the patch
+Core patch in the review system due to CGL violations, the patch
 can be easily fixed locally by calling :file:`./Build/Scripts/cglFixMyCommit.sh`
-and pushed another time. For details on core contributions, have a look at the
+and pushed another time. For details on Core contributions, have a look at the
 :ref:`TYPO3 Contribution Guide <t3contribute:start>`.
 
 
@@ -48,6 +48,10 @@ and pushed another time. For details on core contributions, have a look at the
 
 General Recommendations
 =======================
+
+.. index::
+   pair: Coding guidelines; Editor
+   pair: Coding guidelines; IDE
 
 .. _cgl-ide:
 
@@ -60,6 +64,7 @@ Setup IDE / Editor
    standards get checked and enforced automatically!
 
 
+.. index:: pair: Coding guidelines; EditorConfig
 .. _cgl-editorconfig:
 
 EditorConfig

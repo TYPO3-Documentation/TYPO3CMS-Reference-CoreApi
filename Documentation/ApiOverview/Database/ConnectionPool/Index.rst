@@ -6,7 +6,7 @@
 ConnectionPool
 ==============
 
-TYPO3's interface to execute queries via `doctrine-dbal` typically starts by asking
+TYPO3's interface to execute queries via Doctrine DBAL typically starts by asking
 the `ConnectionPool` for a `QueryBuilder` or a `Connection` object, handing over the table name to be queried::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -38,12 +38,12 @@ The transparency of tables to different database endpoints is limited, though:
 
 Executing a table `JOIN` between two tables that point to different connections will throw an exception.
 This restriction may in practice create implicit "groups" of tables that need to point to one connection
-at once if an extension or the TYPO3 core joins those tables.
+at once if an extension or the TYPO3 Core  joins those tables.
 
-This can turn out as a headache if multiple different extensions use for instance the core category or
-collection API with their mm table joins between core internal tables and their extension's counterparts.
+This can turn out as a headache if multiple different extensions use for instance the Core category or
+collection API with their mm table joins between Core internal tables and their extension's counterparts.
 
-That situation is not easy to deal with. At the time of this writing the core development will
+That situation is not easy to deal with. At the time of this writing the Core development will
 eventually implement some non-join fallbacks for typical cases that would be good to decouple, though.
 
 .. tip::

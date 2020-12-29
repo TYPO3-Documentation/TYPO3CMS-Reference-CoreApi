@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: ! Distributions
 .. _distribution:
 
 ===========================
-Creating a new Distribution
+Creating a new distribution
 ===========================
 
 This chapter describes the main steps in creating a new
@@ -14,14 +13,14 @@ tutorial.
 
 .. _distribution_concept:
 
-Concept of Distributions
+Concept of distributions
 ========================
 
 Distributions are full TYPO3 CMS websites ready to be unpacked. They provide
 an easy quick start for using TYPO3 CMS. The most well known distribution is
 "The official Introduction Package". Distributions can most easily be installed
 in the backend Extension Manager in "Get preconfigured distribution", it lists
-all available distributions for the given core version.
+all available distributions for the given Core version.
 
 A distribution is just an extension enriched with some further data that is
 loaded or executed upon installing that extension. A distribution takes
@@ -150,12 +149,12 @@ prepare that.
 
 .. note::
 
-    Due to core bugs, importing extracted files from standalone file folder
-    only works since core version *8.7.10* and *9.1.0*. For older target
-    core versions, files must not be extracted (tab Advanced options), but
+    Due to Core bugs, importing extracted files from standalone file folder
+    only works since Core version *8.7.10* and *9.1.0*. For older target
+    Core versions, files must not be extracted (tab Advanced options), but
     directly included in :file:`data.xml`.
 
-    Another core issue prevents loading :file:`data.xml` if it is bigger than
+    Another Core issue prevents loading :file:`data.xml` if it is bigger than
     10MB. In this case the only option left is going with :file:`data.t3d`
 
 

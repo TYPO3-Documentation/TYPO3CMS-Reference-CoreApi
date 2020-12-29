@@ -1,11 +1,12 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   ! File; EXT:{extkey}/ext_conf_template.txt
+   Extension development; Extension configuration
 .. _extension-options:
 .. _extension-configuration:
 
 ===============================================
-Extension Configuration (ext_conf_template.txt)
+Extension configuration (ext_conf_template.txt)
 ===============================================
 
 *-- optional*

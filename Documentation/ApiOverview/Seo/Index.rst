@@ -1,10 +1,13 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   ! SEO
+   Search engine optimization
+   see: Search engine optimization; SEO
 .. _seo:
 
-===
-SEO
-===
+================================
+Search engine optimization (SEO)
+================================
 
 TYPO3 contains various SEO related functionality out of the box. The following provides an introduction in those features.
 
@@ -27,7 +30,7 @@ Hreflang Tags
 Canonical Tags
     TYPO3 provides built-in support for the :html:`<link rel="canonical" href="">` tag.
 
-    If the core extension "seo" is installed, it will automatically add the canonical link to the page.
+    If the Core extension "seo" is installed, it will automatically add the canonical link to the page.
 
     The canonical link is basically the same absolute link as the link to the current hreflang and is meant
     to indicate where the original source of the content is. It is a tool to prevent duplicate content
@@ -43,7 +46,7 @@ Canonical Tags
 
 .. warning::
     If you have other SEO extensions installed that generate canonical links, you have to make sure only one creates it.
-    If both core and an extension are generating a canonical link, it will
+    If both the Core and an extension are generating a canonical link, it will
     result in 2 canonical links which might cause confusion for search engines.
 
 XML Sitemap

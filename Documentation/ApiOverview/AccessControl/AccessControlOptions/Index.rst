@@ -14,22 +14,22 @@ belong to.
 The permissions are divided into the following conceptual categories:
 
 Access lists
-  These grant access to backend modules, database tables and fields.
+   These grant access to backend modules, database tables and fields.
 
 Mounts
-  Parts of the page tree and server file system.
+   Parts of the page tree and server file system.
 
 Page permissions
-  Access to work on individual pages based on the user id and group ids.
+   Access to work on individual pages based on the user id and group ids.
 
 User TSconfig
-  A flexible and hierarchical configuration structure
-  defined by TypoScript syntax. This typically describes "soft"
-  permission settings and options for the user or group which can be used to
-  customize the backend and individual modules.
+   A flexible and hierarchical configuration structure
+   defined by TypoScript syntax. This typically describes "soft"
+   permission settings and options for the user or group which can be used to
+   customize the backend and individual modules.
 
-  All User TSconfig options are described in the
-  :ref:`TSconfig Reference <t3tsconfig:usertsconfig>`
+   All user TSconfig options are described in the
+   :ref:`TSconfig Reference <t3tsconfig:usertsconfig>`
 
 
 .. _access-options-access-lists:
@@ -48,64 +48,73 @@ additional technical details, where necessary.
    users have access to every single feature of the TYPO3 CMS backend.
 
 Modules
-  This is a list of submodules a user may be given access to. Access to a main
-  module is implicit, as soon as a user has access to at least one of its
-  submodules.
+   This is a list of submodules a user may be given access to. Access to a main
+   module is implicit, as soon as a user has access to at least one of its
+   submodules.
 
-  Not all submodules appear in this list. It is possible to restrict a
-  submodule to admin users only. This is the case, in particular, of all
-  **ADMIN TOOLS** and **SYSTEM** modules, as well as the **WEB > Template**
-  module.
+   Not all submodules appear in this list. It is possible to restrict a
+   submodule to admin users only. This is the case, in particular, for all
+   :guilabel:`Admin Tools` and :guilabel:`System` modules, as well as the
+   :guilabel:`Web > Template` module.
 
-  .. note::
+   .. note::
 
-     This is the only access list that is also available for definition
-     at user-level.
+      This is the only access list that is also available for definition
+      at user-level.
+
+Dashboard widgets
+   A :ref:`list of the available dashboard widgets <t3dashboard:permission-handling-of-widgets>`
+   a user may be allowed to use on the dashboard.
+
+   .. note::
+
+      This section is only available with activated
+      :ref:`dashboard <t3dashboard:start>` system extension.
 
 Tables for listing
-  A list of all tables a user may be allowed to read in the backend.
-  Again this in not a list of all tables in the database. Some tables
-  are low level and never appear in the backend at all, even for admin
-  users. Other tables are restricted to admin users and thus do not show
-  up in the access list.
+   A list of all tables a user may be allowed to read in the backend.
+   Again this in not a list of all tables in the database. Some tables
+   are low level and never appear in the backend at all, even for admin
+   users. Other tables are restricted to admin users and thus do not show
+   up in the access list.
 
-  Restricting a table to admin users only is done using the
-  :ref:`TCA property "adminOnly" <t3tca:ctrl-reference-adminonly>`.
+   Restricting a table to admin users only is done using the
+   :ref:`TCA property "adminOnly" <t3tca:ctrl-reference-adminonly>`.
 
-  .. note::
+   .. note::
 
-     All tables that are allowed for modification (see below) are
-     also allowed for read access, so no need to select them in this
-     list as well.
+      All tables that are allowed for modification (see below) are
+      also allowed for read access, so no need to select them in this
+      list as well.
 
 Tables for editing
-  This is exactly the same list of tables as before, but for granting
-  modification rights.
+   This is exactly the same list of tables as before, but for granting
+   modification rights.
 
 Page types
-  TYPO3 CMS defines a number of page types. A user can be restricted
-  to access only some of them.
+   TYPO3 CMS defines a number of page types. A user can be restricted
+   to access only some of them.
 
-  For a full discussion on page types, please refer to the
-  :ref:`page types chapter <page-types>`.
+   For a full discussion on page types, please refer to the
+   :ref:`page types chapter <page-types>`.
 
 Excludefields
-  When defining column tables in TCA, it is possible to set the
-  :ref:`"exclude" property <t3tca:columns-properties-exclude>` to "1".
-  This ensures that the field is hidden to users by default.
-  Access to it must be explicitly granted in this access list.
+   When defining column tables in TCA, it is possible to set the
+   :ref:`"exclude" property <t3tca:columns-properties-exclude>` to "1".
+   This ensures that the field is hidden to users by default.
+   Access to it must be explicitly granted in this access list.
 
 Explicitly allow/deny field values
-  When a field offers a list of options to select from, it is possible
-  to tell TYPO3 CMS that access to these options is restricted and should
-  be granted explicitly. Such fields and their values appear here.
+   When a field offers a list of options to select from, it is possible
+   to tell TYPO3 CMS that access to these options is restricted and should
+   be granted explicitly. Such fields and their values appear here.
 
-  The related TCA property is :ref:`"authMode" <t3tca:columns-select-properties-authmode>`.
+   The related TCA property is :ref:`"authMode" <t3tca:columns-select-properties-authmode>`.
 
 Limit to languages
-  By default users can edit records regardless of what language they are assigned to.
-  Using this list it is possible to restrict users to working only in selected
-  languages.
+   By default users can edit records regardless of what language they are assigned to.
+   Using this list it is possible to restrict users to working only in selected
+   languages.
 
 When a user is a member of more than one group, the access lists for
 the groups are "added" together.
@@ -121,7 +130,7 @@ the page tree (typically visible in the **WEB** module) and the folder
 tree (typically visible in the **FILE** module). Each tree is
 generated based on the *mount points* configured for the current user. So a
 page tree is drawn from the *DB Mounts* which are one or more page ids
-telling the core from which "start page" to draw the tree(s). Likewise
+telling the Core from which "start page" to draw the tree(s). Likewise
 is the folder tree drawn based on *filemounts* configured for the user.
 
 **DB mounts** (page mounts) are easily set by simply pointing out the
@@ -241,7 +250,8 @@ summarized here:
    Here "Page content" means all records related to that page,
    except other pages.
 
-Page permissions are set and viewed with the module **SYSTEM > Access** module:
+Page permissions are set and viewed with the module :guilabel:`System > Access`
+module:
 
 .. figure:: ../../../Images/AccessAccessModule.png
    :alt: The Access module and its overview of page rights and owners
@@ -256,7 +266,7 @@ permissions.
 When a user creates new pages in TYPO3 CMS they will by default get the
 creating user as owner. The owner group will be set to the *first
 listed user group* configured for the users record (if any). These defaults
-can be changed through :ref:`Page TSconfig <t3tsconfig:pagetcemain-permissions-user-group>`.
+can be changed through :ref:`page TSconfig <t3tsconfig:pagetcemain-permissions-user-group>`.
 
 
 .. _access-options-user-tsconfig:

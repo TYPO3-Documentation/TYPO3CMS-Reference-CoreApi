@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Crowdin; FAQ
 .. _crowdin-faq:
 
 ================================
@@ -22,29 +21,23 @@ General Questions
 
 .. _crowdin-faq-pootle:
 
-Will the old Translation Server be Disabled?
+Will the old translation server be disabled?
 --------------------------------------------
-The existing translation server will be turned off some time after Crowdin has been announced stable.
+The existing translation server will be turned off some time after Crowdin will have been announced stable.
 
 The existing and exported translations which are downloaded within the Install Tool will be available for longer time.
 
-.. _crowdin-faq-support-87:
-
-Will TYPO3 8.7 Be Supported?
-----------------------------
-Short answer: **No**!
-Long answer: A lot of work has been done for version 9.5 by moving translations to proper places. TYPO3 8.7 will be end of life in April 2020 and you should really upgrade to 9 or 10 - not only because of better translations!
 
 .. _crowdin-faq-extension-missing:
 
-My Favorite Extension Is not Available on Crowdin
+My favorite extension is not available on Crowdin
 -------------------------------------------------
 If you miss an extension on Crowdin, contact the extension owner to create a project on Crowdin.
 It is a simple process and done within minutes.
 
 .. _crowdin-faq-extension-language-missing:
 
-My Favorite Language Is not Available for an Extension
+My favorite language is not available for an extension
 ------------------------------------------------------
 If you are missing the support for a specific language in an extension on Crowdin please contact either the maintainer
 of the extension or the :ref:`crowdin-initiative`.
@@ -53,7 +46,7 @@ of the extension or the :ref:`crowdin-initiative`.
 
    The language needs to be supported by TYPO3 itself as well, see :ref:`i18n_languages` for a list of all languages.
 
-Questions About Extension Integration
+Questions about extension integration
 =====================================
 
 .. _crowdin-faq-duplicated-labels:
@@ -78,7 +71,41 @@ You need to exlude those in your `.crowdin.yaml` configuration which can be foun
 
 More information can be found in the documentation on crowdin: https://support.crowdin.com/configuration-file/
 
-Can I upload Translated xlf Files?
+
+.. index:: Crowdin; Migration from Pootle
+
+How can I migrate translations from Pootle?
+-------------------------------------------
+If translations exist on Pootle there is no need to retranslate everything on Crowdin again - you can import those.
+
+
+#. **Fetch translations**
+   Download the translations you need. The given example will download the German translations of the extension *powermail*:
+   `wget 'https://extensions.typo3.org/fileadmin/ter/p/o/powermail-l10n/powermail-l10n-de.zip'`
+
+#. **Open and Cleanup**
+   Unzip the translations and switch to e.g. `Resources/Private/Language` which is the typical directory
+   of translations. Remove the *xml* files as only the *xlf* files are important.
+
+#. **Match the Files**
+   The attribute `original` of the translations must match the ones of the default translations.
+   **Example**: The file :file:`Resources/Private/Language/locallang.xlf` starts with the following snippet:
+
+   .. code-block:: xml
+
+      <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+         <xliff version="1.0">
+            <file source-language="en" datatype="plaintext" original="EXT:powermail/Resources/Private/Language/locallang.xlf">
+
+   The file :file:`de.locallang.xlf` must be modified and `original="messages"` must be changed to `original="EXT:powermail/Resources/Private/Language/locallang.xlf"`
+
+#. **Upload the Translations**
+   Just keep on reading the next question.
+
+
+.. index:: Crowdin; Upload xlf files
+
+Can I upload translated xlf files?
 ----------------------------------
 Yes, you can! Switch to the settings area of your project (you need to have the proper permissions for that) and you can upload xlf files or even zip files containg the xlf files.
 

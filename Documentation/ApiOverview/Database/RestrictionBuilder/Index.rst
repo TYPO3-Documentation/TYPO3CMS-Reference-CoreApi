@@ -24,7 +24,7 @@ dealing with low-level query stuff must take care overlayed or deleted rows
 are not in the result set of a casual query.
 
 This is where this "automatic restriction" stuff kicks in: The construct is created
-on top of native `doctrine-dbal` as `TYPO3 CMS` specific extension. It automatically
+on top of native Doctrine DBAL as `TYPO3 CMS` specific extension. It automatically
 adds `WHERE` expressions that suppress rows which are marked as deleted or exceeded
 their "active" life cycle. All that is based on the `TCA` configuration of the affected table.
 
@@ -100,7 +100,7 @@ the `DefaultRestrictionContainer` if not explicitly told otherwise by an extensi
     as example the frontend behaves much more like a backend call if the admin panel is used.
 
     The currently active variant is much easier: It always adds sane defaults everywhere, a
-    developer only has to deal with details if they don't fit. The core team hopes this
+    developer only has to deal with details if they don't fit. The Core Team hopes this
     approach is a good balance between hidden magic, security, transparency and convenience.
 
 

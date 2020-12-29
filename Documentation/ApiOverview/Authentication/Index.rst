@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Authentication
 .. _authentication:
 
 ==============
@@ -8,7 +7,7 @@ Authentication
 ==============
 
 The TYPO3 CMS Core uses :ref:`Services <services>` for the authentication process.
-This family of services (of type "auth") are the only core usage that consumes the
+This family of services (of type "auth") are the only Core usage that consumes the
 Services API.
 
 The aim of this chapter is to describe the authentication
@@ -42,8 +41,13 @@ view:
 
 .. figure:: ../../Images/AuthenticationInstalledAuthServices.png
    :alt: All installed authentication services and their priority
+   :class: with-border with-shadow
 
-
+.. index::
+   Authentication; Process
+   BackendUserAuthentication
+   FrontendUserAuthentication
+   AbstractUserAuthentication
 .. _authentication-process:
 
 The Authentication Process
@@ -73,10 +77,10 @@ by a login request. In the FE, this happens when a form field
 called "logintype" is submitted with value "login". The same
 happens for the BE, but with a form field called "login_status".
 
-
+.. index:: Authentication; Login data
 .. _authentication-data:
 
-The Login Data
+The login data
 ==============
 
 There is a typical set of data that is transmitted to authentication
@@ -100,9 +104,10 @@ Inside an authentication service, this data is available in
 :php:`$this->login`.
 
 
+.. index:: Authentication; Services API
 .. _authentication-api:
 
-The "auth" Services API
+The "auth" services API
 =======================
 
 The services of type "auth" are further divided into subtypes,
@@ -131,9 +136,8 @@ processLoginDataBE, processLoginDataFE
   which indicates that no further login data processing should
   take place (see :ref:`The service chain <authentication-service-chain>`).
 
-  In particular, this subtype is implemented by system extension
-  "rsaauth", which decrypts the submitted password. The decrypted
-  password is stored in the login data with key "uident_text".
+  In particular, this subtype is implemented by the TYPO3 Core
+  :php:`AuthenticationService`, which trims the given login data.
 
 getUserFE, getUserBE
   This subtype corresponds to the operation of searching in the
@@ -148,16 +152,6 @@ authUserFE, authUserBE
   It receives the user information (as returned by :php:`getUser()`)
   as an input and is expected to return a numerical value,
   :ref:`which is described later <authentication-service-chain>`.
-
-getGroupsFE
-  This subtype exists only for the FE. The method to implement
-  is :php:`getGroups()`, which is tasked with gathering the various
-  groups the user is part of.
-
-  The :php:`getGroups()` method receives as arguments the user data
-  and a list of already assigned groups, if any. It is expected to return
-  an associative array containing the information about each group the
-  user is member of (with the group's id as key).
 
 .. note::
 
@@ -174,9 +168,10 @@ getGroupsFE
    initialization.
 
 
+.. index:: Authentication; Service chain
 .. _authentication-service-chain:
 
-The Service Chain
+The service chain
 =================
 
 No matter what subtype, authentication services are always called
@@ -231,9 +226,10 @@ For "getUserFE" and "getUserBE" subtypes, the logic is reversed.
 The service chain will stop as soon as one user is found.
 
 
+.. index:: Authentication; Development
 .. _authentication-service-development:
 
-Developing an Authentication Service
+Developing an authentication service
 ====================================
 
 When developing your own "auth" services, the chances are high
@@ -279,7 +275,6 @@ exist only in TYPO3 CMS. In such a case, you want to make sure that
 your service returns definite authentication failures only for those
 users which depend on the remote system and let the default
 authentication proceed for "local" TYPO3 CMS users.
-
 
 .. _authentication-advanced-options:
 

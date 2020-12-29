@@ -1,6 +1,7 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   Backend; Icon API
+   Icon API
 .. _icon:
 
 ========
@@ -9,7 +10,7 @@ Icon API
 
 Since version 7.5 TYPO3 CMS provides an Icon API for all icons in the TYPO3 backend.
 
-
+.. index:: IconRegistry; registerIcon
 .. _icon-registration:
 
 Registration
@@ -31,10 +32,12 @@ code in your :php:`ext_localconf.php` file:
    );
 
 
+.. index:: Icon API; IconProviderInterface
+
 IconProvider
 ------------
 
-The TYPO3 core ships three icon providers which can be used:
+The TYPO3 Core ships three icon providers which can be used:
 
 * :php:`BitmapIconProvider` – For all kinds of bitmap icons (GIF, PNG, JPEG, etc.)
 * :php:`SvgIconProvider` – For SVG icons
@@ -45,13 +48,16 @@ class which implements the :php:`IconProviderInterface`.
 
 .. _icon-usage:
 
-Use Icons in Your Code
-======================
+Using icons in your code
+========================
 
 You can use the Icon API to receive icons in your PHP
 code or directly in Fluid.
 
-The PHP Way
+
+.. index:: Icon API; IconFactory
+
+The PHP way
 -----------
 
 You can use the :php:`IconFactory` to request an icon:
@@ -69,10 +75,14 @@ You can use the :php:`IconFactory` to request an icon:
    $this->view->assign('icon', $icon);
 
 
-The Fluid ViewHelper
+.. index::
+   Fluid; Core icon
+   pair: Icon API; Fluid
+
+The Fluid Viewhelper
 --------------------
 
-You can also use the :ref:`Fluid core:icon ViewHelper <t3viewhelper:typo3-core-icon>` to render an icon in your view:
+You can also use the :ref:`Fluid core:icon Viewhelper <t3viewhelper:typo3-core-icon>` to render an icon in your view:
 
 .. code-block:: html
 
@@ -87,10 +97,14 @@ This will render the desired icon using an `img`-tag. If you prefer having the S
    <core:icon identifier="my-icon-identifier" size="small" alternativeMarkupIdentifier="inline" />
 
 
+.. index:: JavaScript; getIcon
+
 The JavaScript way
 ------------------
 
-In JavaScript, icons can be only fetched from the Icon Registry. To achieve this, add the following dependency to your RequireJS module: :js:`TYPO3/CMS/Backend/Icons`. In this section, the module is known as `Icons`.
+In JavaScript, icons can be only fetched from the Icon Registry. To achieve this,
+add the following dependency to your RequireJS module: :js:`TYPO3/CMS/Backend/Icons`.
+In this section, the module is known as `Icons`.
 
 The module has a single public method :js:`getIcon()` which accepts up to five arguments:
 
@@ -149,23 +163,25 @@ Here's an example code how a usage of the JavaScript Icon API may look like:
    });
 
 
+.. index:: Icon Api; Available icons
 .. _available-icons:
 
-Available Icons
+Available icons
 ===============
 
 The TYPO3 Core comes with a number of icons that may be used in your extensions.
 
 To search for available icons, you can use one of these possibilities:
 
-Install Styleguide Extension
+
+Install styleguide extension
 ----------------------------
 
 Install the extension *styleguide* as described in the Readme in the `installation
 <https://github.com/TYPO3/styleguide#installation>`__ section.
 
 Once, installed, you can view available icons by selecting help (?) on the top in the
-TYPO3 Backend, then *Styleguide* and then *Icons*, *All Icons*.
+TYPO3 backend, then *Styleguide* and then *Icons*, *All Icons*.
 
 There, browse through existing icons. Use the name under the icon (for example
 :code:`actions-add`) as first parameter for :php:`IconFactory::getIcon()` in PHP or as value for
@@ -175,7 +191,8 @@ the argument :code:`identifier` in Fluid (see code examples above).
 .. image:: Images/styleguide.png
    :class: with-shadow
 
+
 Use TYPO3.Icons
 ---------------
 
-An alternative way to look for existing icons is to browse through https://typo3.github.io/TYPO3.Icons/.
+An alternative way to look for existing icons is to browse through `TYPO3.Icons <https://typo3.github.io/TYPO3.Icons/>`__.

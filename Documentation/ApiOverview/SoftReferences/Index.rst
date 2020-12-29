@@ -1,10 +1,9 @@
 ﻿.. include:: /Includes.rst.txt
-
-
+.. index:: Soft references
 .. _soft-references:
 
 ===============
-Soft References
+Soft references
 ===============
 
 "Soft References" are references to database elements, files, email
@@ -34,6 +33,11 @@ Which soft reference parsers will be used can be defined in the TCA
 field :ref:`softref <t3tca:columns-text-properties-softref>` which is
 available for TCA column types :ref:`text <t3tca:columns-text>`
 and :ref:`input <t3tca:columns-input>`.
+
+
+.. index::
+   Soft references; Default parsers
+   Soft references; SoftReferenceIndex
 
 .. _soft-references-default-parsers:
 
@@ -208,9 +212,10 @@ The parsers will return an array containing information about
 #. An email link
 
 
+.. index:: Soft references; Custom parsers
 .. _soft-references-custom-parsers:
 
-User-defined Soft Reference Parsers
+User-defined soft reference parsers
 ===================================
 
 Soft References can also be user-defined. It is easy to set them up by
@@ -222,6 +227,11 @@ The class containing the soft reference parser must have a function
 named :code:`findRef`. Please refer to class
 :php:`TYPO3\CMS\Core\Database\SoftReferenceIndex`
 for API usage and expected return values.
+
+
+.. index::
+   Soft references; Usage
+   BackendUtility; softRefParserObj
 
 Using the soft reference parser
 ===============================

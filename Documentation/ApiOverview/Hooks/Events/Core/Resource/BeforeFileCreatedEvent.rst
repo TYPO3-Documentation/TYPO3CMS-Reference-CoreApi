@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Events; BeforeFileCreatedEvent
 .. _BeforeFileCreatedEvent:
 
 

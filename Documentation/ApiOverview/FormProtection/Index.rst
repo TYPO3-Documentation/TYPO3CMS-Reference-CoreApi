@@ -1,23 +1,22 @@
 .. include:: /Includes.rst.txt
-
-
-
-
-
-
+.. index::
+    Form protection tool
+    Cross-site request forgery
+    CSRF
 .. _csrf:
 
 ====================
-Form Protection Tool
+Form protection tool
 ====================
 
 Since TYPO3 4.5, the TYPO3 Core provides a generic way of protecting
-forms against Cross-Site Request Forgery (CSRF).
+forms against cross-site request forgery (CSRF).
 
 
+.. index:: pair; Form protection tool; Backend
 .. _csrf-backend:
 
-Usage in the Backend
+Usage in the backend
 ====================
 
 For each form in the BE (or link that changes some data), create a token and insert is as a hidden form element.
@@ -76,9 +75,10 @@ This makes sure that the tokens that get invalidated by :code:`validateToken`
 cannot be used again.
 
 
+.. index:: pair: Form protection tool; Install tool
 .. _csrf-install:
 
-Usage in the Install Tool
+Usage in the install tool
 =========================
 
 For each form in the Install Tool (or link that changes some data),
@@ -127,7 +127,10 @@ It is important that the tokens get validated **before** the tokens are persiste
 This makes sure that the tokens that get invalidated by :code:`validateToken`
 cannot be used again.
 
-Usage in the Frontend
+
+.. index:: pair: Form protection tool; Frontend
+
+Usage in the frontend
 =====================
 
 .. versionadded:: 7.6

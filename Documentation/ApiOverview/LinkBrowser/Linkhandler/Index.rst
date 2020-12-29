@@ -1,14 +1,14 @@
 .. include:: /Includes.rst.txt
 .. highlight:: typoscript
-
+.. index:: LinkHandler
 .. _linkhandler:
 
 ===============
-LinkHandler Api
+LinkHandler API
 ===============
 
 .. versionadded:: 8.6
-    The LinkHandler Api has been included in the core with the change
+    The LinkHandler Api has been included in the Core with the change
     :doc:`t3core:Changelog/8.6/Feature-79626-IntegrateRecordLinkHandler`.
     Before, it had only been available as third party extension.
 
@@ -55,10 +55,14 @@ The configuration consists of the following parts:
       Do not change the identifier after links have been created  using the LinkHandler. The identifier will be
       stored as part of the link in the database.
 
+
+.. index::
+   pair: LinkHandler; Page TSconfig
+   TCEMAIN; linkHandler
 .. _linkhandler-pagetsconfig:
 
-LinkHandler PageTSconfig Options
-================================
+LinkHandler page TSconfig options
+=================================
 
 The minimal PageTSconfig Configuration is::
 
@@ -123,7 +127,7 @@ The PageTSconfig of the LinkHandler is being used in sysext `recordlist`
 in class :php:`\TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler`
 which does not contain Hooks or Slots.
 
-Enable Page id field
+Enable page id field
 --------------------
 
 It is possible to enable an additional field in the link browser to enter the uid of a page.
@@ -140,10 +144,13 @@ Enable the field with the following User-/PageTSConfig::
    TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1
 
 
+.. index::
+   pair: LinkHandler; TypoScript
+   TypoScript; config.recordLinks
 .. _linkhandler-typoscript:
 
-LinkHandler TypoScript Options
-================================
+LinkHandler TypoScript options
+==============================
 
 A configuration could look like this::
 

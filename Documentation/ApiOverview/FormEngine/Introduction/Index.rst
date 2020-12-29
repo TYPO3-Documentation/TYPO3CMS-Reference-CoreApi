@@ -1,5 +1,4 @@
 .. include:: /Includes.rst.txt
-
 .. _FormEngine-Introduction:
 
 ============
@@ -40,8 +39,8 @@ and render forms that have the full power of TCA but look like all other parts o
 The FormEngine code base has been significantly refactored in TYPO3 CMS version 7 and version 8 to be much more
 flexible, more easy to use and extend, and much more powerful than before. This is an ongoing process and some
 areas still need a major overhaul. The current state of the documentation aims to explain the main constructs of
-FormEngine and gives an insight on how to re-use, adapt and extend it with extensions. The core team expects to see more
-usages of FormEngine within core itself and within extensions in the future, and encourages developers to solve
+FormEngine and gives an insight on how to re-use, adapt and extend it with extensions. The Core Team expects to see more
+usages of FormEngine within the Core itself and within extensions in the future, and encourages developers to solve
 feature needs based on FormEngine. With the ongoing changes, those areas that may need code adaptions in the
 foreseeable future have notes within the documentation and developers should be available to adapt with younger
-cores. Watch out for breaking changes if using FormEngine and updating core.
+cores. Watch out for breaking changes if using FormEngine and updating the Core.

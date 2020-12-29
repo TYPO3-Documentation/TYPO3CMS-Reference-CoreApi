@@ -1,18 +1,19 @@
 .. include:: /Includes.rst.txt
-
+.. index:: ! Security guidelines
 .. _security-general-guidelines:
 
 ==================
-General Guidelines
+General guidelines
 ==================
 
 The recommendations in this chapter apply for all roles: system
 administrators, TYPO3 integrators, editors and strictly speaking even
 for (frontend) users.
 
+.. index:: pair: Security guidelines; passwords
 .. _security-secure-passwords:
 
-Secure Passwords
+Secure passwords
 ================
 
 It is critical that every user is using secure passwords to
@@ -103,7 +104,7 @@ TYPO3 is open source software as well as all TYPO3 extensions
 published in the TYPO3 Extension Repository (TER). This means,
 everyone can download and investigate the code base. From a security
 perspective, this usually improves the software, simply because more
-people review the code, not only a few core developers. Currently,
+people review the code, not only a few Core developers. Currently,
 there are hundreds of developers actively involved in the TYPO3
 community and if someone discovers and reports a security issue,
 he/she will be honored by being credited in the appropriate security
@@ -123,7 +124,7 @@ The security bulletins may also include specific advice such as
 configuration changes or similar. Check your individual TYPO3 instance
 and follow these recommendations.
 
-
+.. index:: pair: Security guidelines; TYPO3 update
 .. _security-updating-typo3:
 
 Keep the TYPO3 Core up-to-date
@@ -142,7 +143,7 @@ for further details.
 When you extract the archive file of new TYPO3 sources into the
 existing install directory (e.g. the web root of your web server) and
 update the symbolic links, pointing to the directory of the new version,
-do not forget to **delete** the old and possibly insecure TYPO3 core
+do not forget to **delete** the old and possibly insecure TYPO3 Core
 version. Failing doing this creates the risk of leaving the source code
 of the previous TYPO3 version on the system and as a consequence, the
 insecure code may still be accessible and a security vulnerability
@@ -153,6 +154,7 @@ web root directory (so they are not accessible via web requests) as
 a general rule and use symbolic links inside the web root to point to
 the correct and secure TYPO3 version.
 
+.. index:: pair: Security guidelines; Extensions update
 .. _security-updating-extensions:
 
 Keep TYPO3 Extensions Up-to-date
@@ -203,9 +205,10 @@ The advice is to move the directory of the old version outside of the
 web root directory, so the insecure extension code is not accessible.
 
 
+.. index:: pair: Security guidelines; Staging servers
 .. _security-staging-servers:
 
-Use Staging Servers for Developments and Tests
+Use staging servers for developments and tests
 ==============================================
 
 During the development phase of a project and also after the launch of

@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: TypoScript; Conditions!
 .. _typoscript-syntax-conditions:
 
 ==========
@@ -36,9 +35,10 @@ of the TypoScript code that follows.
    For conditions usage examples, and available variables and function reference, please refer to
    :ref:`the TypoScript Reference conditions chapter <t3tsref:conditions>`.
 
+
 .. _typoscript-syntax-conditions-usage:
 
-Where Conditions Can Be Used
+Where conditions can be used
 ============================
 
 The *detection of conditions* is a part of the TypoScript syntax but
@@ -48,7 +48,7 @@ highlighting (no context) conditions are just highlighted and nothing
 more. In the context of TypoScript Templates there is a
 :ref:`whole section of TSref <t3tsref:conditions>` which defines the
 syntax of the condition contents for TypoScript Templates. For "Page
-TSconfig" and "User TSconfig" conditions are implemented as well.
+TSconfig" and "user TSconfig" conditions are implemented as well.
 Basically they work the same way as conditions in TypoScript
 templates do, but there are some small differences. For details see the
 :ref:`chapter on conditions in TSconfig <t3tsconfig:conditions>`.
@@ -56,7 +56,7 @@ templates do, but there are some small differences. For details see the
 
 .. _typoscript-syntax-conditions-syntax:
 
-The Syntax of Conditions
+The syntax of conditions
 ========================
 
 A condition is written on its own line and is detected by :code:`[`
@@ -113,7 +113,7 @@ see):
 
 .. _typoscript-syntax-conditions-combine:
 
-Combining Conditions
+Combining conditions
 ====================
 
 As we saw above two or more tests can be combined using logical operators.
@@ -131,18 +131,6 @@ not
 TypoScript conditions are using the Symfony Expression Language. For more
 information on writing such expressions, you can look up the
 `symfony documentation on the expression language <https://symfony.com/doc/current/components/expression_language/syntax.html>`__.
-
-.. note::
-
-   Before TYPO3 10, it was possible to "chain" multiple condition blocks
-   together with :code:`AND`, :code:`OR`, :code:`&&` and :code:`||` by writing
-   something like :code:`[ condition 1 ][ condition 2 ]` or
-   :code:`[ condition 1 ] AND [ condition 2 ]`. This is no longer possible or
-   necessary, as with the new :ref:`symfony-expression-language`,
-   only single condition blocks on one line are now allowed. Logical operators
-   like :code:`and`, :code:`or`  or :code:`not` are now used *inside* the
-   condition block to allow for writing complex expressions.
-
 
 .. _typoscript-syntax-else-condition:
 .. _typoscript-syntax-end-condition:
@@ -236,9 +224,10 @@ This means that the line was perceived as a regular definition of
 TypoScript and not as a condition.
 
 
+.. index:: TypoScript; [GLOBAL] condition
 .. _typoscript-syntax-the-global-condition:
 
-The [GLOBAL] Condition
+The [GLOBAL] condition
 ======================
 
 The :code:`[GLOBAL]` special condition (which resets any previous
@@ -274,12 +263,113 @@ from the top level. This is normally done when TypoScript code from
 various records is combined.
 
 
+.. index:: TypoScript; Symfony expression language
 .. _typoscript-syntax-conditions-expression-language:
 
-Custom Conditions With Symfony Expression Language
-==================================================
+Custom conditions with the Symfony expression language
+======================================================
 
-Further information about how to extend TypoScript with your own custom conditions can be found within :ref:`sel-within-typoscript-conditions`.
+Further information about how to extend TypoScript with your own custom
+conditions can be found within :ref:`sel-within-typoscript-conditions`.
+
+
+.. _typoscript-syntax-conditions-examples:
+
+Syntax examples
+===============
+
+Variables and functions
+-----------------------
+
+For a detailed list of the available objects and functions refer to the
+:ref:`the TypoScript Reference <t3tsref:conditions>`.
+
+Variables::
+
+   [page["backend_layout"] == 1]
+      page.42.value = Backend layout 1 choosen
+   [END]
+
+Functions::
+
+   [loginUser('*')]
+      page.42.value = Frontend user logged in
+   [END]
+   [getTSFE().isBackendUserLoggedIn()]
+      page.42.value = Backend user logged in
+   [END]
+
+Literals
+--------
+
+For a complete list have a look at the
+`SEL supported literals <https://symfony.com/doc/current/components/expression_language/syntax.html#supported-literals>`__.
+
+Strings::
+
+   [request.getNormalizedParams().getHttpHost() == 'www.example.org']
+      page.42.value = Http Host is www.example.org
+   [END]
+
+Arrays::
+
+   [page["pid"] in [17,24]]
+      page.42.value = This page is a child of page 17 or page 24
+   [END]
+
+
+Operators
+---------
+
+Please see a complete list of available operators here:
+`SEL syntax operators <https://symfony.com/doc/current/components/expression_language/syntax.html#comparison-operators>`__
+
+Equality::
+
+   [applicationContext == "Development"]
+      page.42.value = The application context is exactly "Development"
+   [END]
+
+Wildcards::
+
+   [like(applicationContext, "Development*")]
+      page.42.value = The application context starts with "Development"
+   [END]
+
+..note::
+
+   While the other operator are inherent features of the Symphony expression
+   language :typoscript:`like` is a function defined by TYPO3. Read more about
+   it in :ref:`TypoScript Reference, Conditions,
+   function like <tsref:condition-function-like>`
+
+Regular expressions::
+
+   [applicationContext matches "/^Development/"]
+      page.42.value = The application context starts with "Development"
+   [END]
+
+Array operators::
+
+   [17 in tree.rootLineIds || 24 in tree.rootLineIds]
+      page.42.value = Pid with id 17 or 24 is in the rootline.
+   [END]
+
+Combined conditions
+-------------------
+
+And conditions::
+
+   [condition1() and condition2()]
+      page.42.value = Condition 1 and condition 2 met
+   [END]
+
+Or conditions::
+
+   [condition1() or condition2()]
+      temp.value = Condition 1 or condition 2 met
+   [END]
+
 
 .. _typoscript-syntax-conditions-summary:
 
@@ -291,7 +381,7 @@ Summary
 
 - Conditions are evaluated in relation to the context where TypoScript
   is used. They are widely used in TypoScript Templates and can also be
-  used in Page TSconfig or User TSconfig.
+  used in page TSconfig or user TSconfig.
 
 - Special conditions :code:`[ELSE]`, :code:`[END]` and :code:`[GLOBAL]` exist.
 

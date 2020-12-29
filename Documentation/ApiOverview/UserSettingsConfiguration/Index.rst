@@ -1,14 +1,16 @@
 .. include:: /Includes.rst.txt
-
-
+.. index::
+   User settings
+   Module; User settings
+   $GLOBALS; TYPO3_USER_SETTINGS
 .. _user-settings-reference:
 .. _user-settings:
 
 ===========================
-User Settings Configuration
+User settings configuration
 ===========================
 
-The User Settings module determines what user settings are available
+The user settings module determines what user settings are available
 for backend users. The users can access the settings by clicking on their name in
 the :ref:`top bar <t3start:top-bar>` and then "User settings".
 

@@ -1,11 +1,10 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Password hashing
 .. _password-hashing:
 
-===============================
-Password Hashing
-===============================
+================
+Password hashing
+================
 
 
 .. _password-hashing-introduction:
@@ -17,7 +16,7 @@ TYPO3 never stores passwords in plain text in the database. If the latest config
 TYPO3 will update the stored frontend and backend user password hashes upon user login.
 
 TYPO3 uses modern hash algorithms suitable for the given PHP platform, the default being Argon2i since
-the release of TYPO3 core version 9.
+the release of TYPO3 Core  version 9.
 
 This section is for administrators and users who want to know more about TYPO3 password hashing and
 have a basic understanding of hashing algorithms and configuration in TYPO3.
@@ -25,7 +24,7 @@ have a basic understanding of hashing algorithms and configuration in TYPO3.
 
 .. _password-hashing-basic-knowledge:
 
-Basic Knowledge
+Basic knowledge
 ===============
 
 If a database has been compromised and the passwords have been stored as plain text,
@@ -85,10 +84,10 @@ approaches: Core version v4.3 from 2009 added salted password storing, v4.5 from
 storing using the algorithm 'phpass' by default, v6.2 from 2014 made salted passwords storing mandatory,
 v8 added the improved hash algorithm 'PBKDF2' and used it by default.
 
-With TYPO3 core version 9, the password hashing has been refactored and modern hash algorithms such as
-Argon2i have been added. PHP improved in this area a lot and PHP 7.2 brings `Argon2i`_ by default, so this
-algorithm could be easily integrated as available core hash mechanism to the existing hash family.
-Argon2i is rather resilient against GPU and some other attacks, the default TYPO3 core configuration even raises
+With TYPO3 Core  version 9, the password hashing has been refactored and modern hash algorithms such as
+Argon2i have been added. PHP improved in this area a lot and PHP 7.2 brings `Argon2i` by default, so this
+algorithm could be easily integrated as available Core hash mechanism to the existing hash family.
+Argon2i is rather resilient against GPU and some other attacks, the default TYPO3 Core  configuration even raises
 the default PHP configuration to make attacks on stored Argon2i user password hashes even more unfeasible.
 
 This is the current state if you are reading this document. The rest is about details: It is possible
@@ -122,12 +121,14 @@ used hash algorithm. In this case it is `$argon2i` which denotes the Argon2i has
     1 row in set (0.01 sec)
 
 
+.. index:: Password hashing; Configuration
+
 Configuration
 =============
 
 Configuration of password hashing is done by TYPO3 automatically and administrators usually do not need
-to worry about details too much: If installing a TYPO3 instance with core version v9 or higher, the
-installation process will configure the best available hash algorithm by default. Since core version v9 requires
+to worry about details too much: If installing a TYPO3 instance with Core version v9 or higher, the
+installation process will configure the best available hash algorithm by default. Since Core version v9 requires
 at least PHP version 7.2, this is usually Argon2i. Only if the PHP build is incomplete, some less secure
 fallback will be selected.
 
@@ -149,7 +150,7 @@ comply with the idea of data minimisation of person related data. TYPO3 helps he
 "Table garbage collection" task of the scheduler extension, details on this are however out-of-scope of this section.
 
 To verify and select which specific hash algorithm is currently configured for frontend and backend users, a
-preset of the settings module has been established with core v9. It can be found in "Admin Tools" -> "Settings"
+preset of the settings module has been established with Core v9. It can be found in "Admin Tools" -> "Settings"
 -> "Configuration presets" -> "Password hashing settings":
 
 .. figure:: ../../Images/PasswordHashingSettings.png
@@ -161,7 +162,12 @@ rely on different PHP capabilities and might be suitable fall backs if Argon2i i
 reason.
 
 
-Configuration Options
+.. index::
+   TYPO3_CONF_VARS; SYS availablePasswordHashAlgorithms
+   TYPO3_CONF_VARS; FE passwordHashing
+   TYPO3_CONF_VARS; BE passwordHashing
+
+Configuration options
 =====================
 
 Configuration of password hashing is stored in :file:`LocalConfiguration.php` with defaults in
@@ -184,14 +190,19 @@ Configuration of password hashing is stored in :file:`LocalConfiguration.php` wi
   hash algorithm. This is usually an empty array to fall back to defaults, see below for more details.
 
 
+.. index:: Password hashing;
+
 Available Hash Algorithms
 =========================
 
-The list of available hash mechanisms is pretty rich since core version v9 and may be extended further
+The list of available hash mechanisms is pretty rich since Core version v9 and may be extended further
 if better hash algorithms over time. Most algorithms have additional configuration options that may be
 used to increase or lower the needed computation power to calculated hashes. Administrators usually do
-not need to fiddle with these and should go with defaults configured by the core. If changing these options,
+not need to fiddle with these and should go with defaults configured by the Core. If changing these options,
 administrators should know exactly what they are doing.
+
+
+.. index:: Password hashing;
 
 Argon2i / Argon2id
 ------------------
@@ -209,6 +220,7 @@ Options:
 * threads: Number of threads to use for computing the Argon2 hash. Defaults to 2.
 
 
+.. index:: Password hashing;
 
 bcrypt
 ------
@@ -217,6 +229,9 @@ bcrypt
 additional quirks for long passwords in PHP and should only be used if Argon2i is not available. Options:
 
 * cost: Denotes the algorithmic cost that should be used. Defaults to 12.
+
+
+.. index:: Password hashing;
 
 PBKDF2
 ------
@@ -227,6 +242,9 @@ It could be a preferred password hash algorithm if storing passwords in a FIPS c
 
 * hash_count: Number of hash iterations. Defaults to 25000.
 
+
+.. index:: Password hashing;
+
 phpass
 ------
 
@@ -234,6 +252,9 @@ phpass
 The implementation should work on almost all PHP builds. Options:
 
 * hash_count: The default log2 number of iterations for password stretching. Defaults to 14.
+
+
+.. index:: Password hashing;
 
 blowfish
 --------

@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Testing; Project
 .. _testing-projects:
 
 ===============
@@ -9,7 +9,7 @@ Project testing
 Introduction
 ============
 
-Testing entire projects is somehow different from core and extension testing. As a developer
+Testing entire projects is somehow different from Core and extension testing. As a developer
 or maintainer of a specific TYPO3 instance, you probably do not want to test extension details
 too much - those should have been tested on an extension level already. And you probably also
 do not want to check too many TYPO3 backend details but look for acceptance testing of your
@@ -56,6 +56,7 @@ more details mentioned in `README.md <https://github.com/benjaminkott/site-intro
 This will start various containers: A database, a phpmyadmin instance, and a web server. If all
 goes well, the instance is reachable on `localhost <http://introduction.ddev.local>`_.
 
+.. index:: Testing; Acceptance
 
 Local acceptance testing
 ========================
@@ -196,6 +197,7 @@ ddev PHP container:
 
 Done: Local test execution of a projects acceptance test!
 
+.. index:: Testing; Travis CI
 
 Travis CI
 =========

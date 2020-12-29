@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: ! Extension key
 .. _extension-key:
 
 =========================
@@ -29,7 +28,7 @@ The extension key must comply with the following rules:
   * **ts_language**
   * **csh_**
 
-* They key may not start with a number. Also an underscore at the beginning or
+* The key may not start with a number. Also an underscore at the beginning or
   the end is not allowed.
 * The length must be between 3 and 30 characters (underscores not included).
 * The extension key must still be unique even if underscores are removed,

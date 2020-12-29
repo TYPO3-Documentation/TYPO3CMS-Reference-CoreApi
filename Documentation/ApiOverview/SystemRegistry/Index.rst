@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: System registry
 .. _registry:
 
 ===============
-System Registry
+System registry
 ===============
 
 The purpose of the registry is to store key-value pairs of information. It can
@@ -28,9 +27,10 @@ The registry is not intended to store things that are supposed to go into
 a session or a cache, use the appropriate API for them instead.
 
 
+.. index:: Table; sys_registry
 .. _registry-table:
 
-The Registry Table (sys\_registry)
+The registry table (sys\_registry)
 ==================================
 
 Here's a description of the fields that can be found in the `sys_registry`
@@ -59,7 +59,7 @@ table:
    :Description:
          Represents an entry's namespace. In general, the namespace is an
          extension key starting with `tx_`, a user script's prefix `user_`,
-         or `core` for entries that belong to the core.
+         or `core` for entries that belong to the Core.
 
          The purpose of namespaces is that entries with the same key can exist
          within different namespaces.
@@ -88,6 +88,7 @@ table:
          binary.
 
 
+.. index:: System registry; API
 .. _registry-api:
 
 The Registry API
@@ -125,7 +126,7 @@ first time an entry is accessed. Setting a value is also easy with the
    :Description:
          Represents an entry's namespace. In general, the namespace is an
          extension key that starts with `tx_`, a user script's prefix `user_`,
-         or `core` for entries that belong to the core.
+         or `core` for entries that belong to the Core.
 
 
  - :Method:

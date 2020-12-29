@@ -1,10 +1,12 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   Site handling; Environment variables
+   %env(BASE_DOMAIN)%
 .. _sitehandling-using-env-vars:
 
-=================================================
-Using Environment Variables in Site Configuration
-=================================================
+=====================================================
+Using environment variables in the site configuration
+=====================================================
 
 Environment Variables in site configuration allows setting placeholders for configuration options
 that get replaced by environment variables specific to the current environment.

@@ -1,10 +1,11 @@
 .. include:: /Includes.rst.txt
-
+.. index:: ! Routing
 .. _routing-introduction:
 
 =======================
 Introduction to Routing
 =======================
+
 
 What is Routing?
 ================
@@ -20,10 +21,16 @@ Additionally, routing will take care of beautifying URL parameters, for example 
 Key Terminology
 ===============
 
-:aspect:`Route`
+
+.. index:: Routing; Route
+
+Route
    The "speaking URL" as a whole (without the domain part); for example `/news/detail/2019-software-update`
 
-:aspect:`Slug`
+
+.. index:: Routing; Slug
+
+Slug
     Unique name for a ressource to use when creating URLs; for example the slug of the news detail page could be `/news/detail` and
     the slug of a news record could be `2019-software-update`.
 
@@ -55,6 +62,7 @@ Routing in TYPO3 is implemented based on the Symfony Routing components. It cons
 Page Routing describes the process of resolving the concrete page (in earlier TYPO3 versions this were the `id` and `L` `$_GET` parameters),
 whereas Route Enhancements and Aspects take care of all additionally configured parameters (such as beautifying plugin parameters, handling `type` etc.).
 
+
 Prerequisites
 =============
 
@@ -67,8 +75,8 @@ To ensure Routing in TYPO3 is fully functional the following prerequisites need 
 Tips
 ====
 
-Use imports in yaml files
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Using imports in yaml files
+---------------------------
 
 As routing configuration (and site configuration in general) can get pretty long fast, you should make use of imports
 in your yaml configuration which allows you to add routing configurations from different files and different extensions.
@@ -81,5 +89,3 @@ Example - Main :file:`config.yaml`
       - { resource: "EXT:myblog/Configuration/Routes/Default.yaml" }
       - { resource: "EXT:mynews/Configuration/Routes/Default.yaml" }
       - { resource: "EXT:template/Configuration/Routes/Default.yaml" }
-
-

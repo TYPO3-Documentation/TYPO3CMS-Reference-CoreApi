@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: ! Extension development
 .. _extension-architecture:
 .. _extension-development:
 

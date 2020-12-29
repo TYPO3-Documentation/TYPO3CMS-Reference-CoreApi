@@ -141,7 +141,7 @@ Several TYPO3 Core modules are already using this API for adding or modifying it
 
 
 
-Adding Context Menu to Elements in Your Backend Module
+Adding context menu to elements in your backend module
 ======================================================
 
 Enabling context menu in your own backend modules is quite straightforward.
@@ -222,12 +222,12 @@ First you need to add an item provider registration to the `ext_localconf.php` o
 .. code-block:: php
 
    <?php
-   defined('TYPO3_MODE') or die();
-   if (TYPO3_MODE === 'BE') {
-       // You should use current timestamp (not this very value) or leave it empty
-       $GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders'][1488274371] =
-           \Vendor\ExtensionKey\ContextMenu\HelloWorldItemProvider::class;
-   }
+   defined('TYPO3') or die();
+
+    // You should use current timestamp (not this very value) or leave it empty
+    $GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders'][1488274371] =
+        \Vendor\ExtensionKey\ContextMenu\HelloWorldItemProvider::class;
+
 
 
 Step 2: Implementation of the Item Provider Class

@@ -49,8 +49,8 @@ Extensions and the Core
 -----------------------
 
 Extensions are designed in a way so that extensions can supplement the
-core seamlessly. This means that a TYPO3 system will appear as "a
-whole" while actually being composed of the core application *and* a
+Core seamlessly. This means that a TYPO3 system will appear as "a
+whole" while actually being composed of the Core application *and* a
 set of extensions providing various features. This philosophy allows
 TYPO3 to be developed by many individuals without losing fine control
 since each developer will have a special area (typically a system
@@ -62,6 +62,7 @@ can be entirely specific to a given project and contain only files and functiona
 related to a single implementation.
 
 
+.. index:: System extensions
 .. _extensions-core:
 
 Notable system extensions
@@ -71,7 +72,7 @@ This section describes the main system extensions, their use and
 what main resources and libraries they contain. The system extensions
 are located in directory :file:`typo3/sysext`.
 
-core
+Core
   As its name implies, this extension is crucial to the working of TYPO3 CMS.
   It defines the main database tables (BE users, BE groups, pages and all the
   "sys\_*" tables. It also contains the default global configuration
@@ -90,11 +91,11 @@ frontend
   which are used for rendering the various content objects (one class per object
   type, plus a number of base and utility classes).
 
-extbase
+Extbase
   Extbase is an MVC framework, with the "View" part being actually the system extension "fluid".
   Not all of the TYPO3 CMS backend is written in Extbase, but some modules are.
 
-fluid
+Fluid
   Fluid is a templating engine. It forms the "View" part of the MVC framework.
   The templating engine itself is provided as "fluid standalone" which can be used
   in other frameworks or as a standalone templating engine.

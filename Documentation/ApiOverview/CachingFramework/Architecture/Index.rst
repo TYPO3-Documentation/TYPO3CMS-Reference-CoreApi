@@ -108,7 +108,7 @@ the cache when the entry is stored ("set").
 Caches in the TYPO3 Core
 ========================
 
-The TYPO3 core defines and uses several caching framework caches by default.
+The TYPO3 Core  defines and uses several caching framework caches by default.
 This section gives an overview of default caches, its usage and behaviour. If not stated otherwise,
 the default database backend with variable frontend is used.
 
@@ -141,7 +141,7 @@ The following caches exist in the TYPO3 CMS Core:
 
   - Core cache for compiled php code. It should **not** be used by extensions.
   - Uses **PhpFrontend** with the **SimpleFileBackend** for maximum performance.
-  - Stores core internal compiled PHP code like concatenated :file:`ext_tables.php` and :file:`ext_localconf.php`
+  - Stores Core internal compiled PHP code like concatenated :file:`ext_tables.php` and :file:`ext_localconf.php`
     files, autoloader and sprite configuration PHP files.
   - This cache is instantiated very early during bootstrap and **can not** be re configured
     by instance specific :file:`LocalConfiguration.php` or similar.
@@ -171,14 +171,14 @@ The following caches exist in the TYPO3 CMS Core:
 - `runtime`
 
   - Runtime cache to store data specific for current request.
-  - Used by several core parts during rendering to re-use already calculated data.
+  - Used by several Core parts during rendering to re-use already calculated data.
   - Valid for one request only.
   - Can be re-used by extensions that have similar caching needs.
 
 - `rootline`
 
   - Cache for rootline calculations.
-  - Quick and simple cache dedicated for core usage, Should **not** be re-used by extensions.
+  - Quick and simple cache dedicated for Core usage, Should **not** be re-used by extensions.
   - **groups**: all, pages
 
 - `imagesizes`
@@ -191,7 +191,7 @@ The following caches exist in the TYPO3 CMS Core:
 
    - Cache for assets.
    - Examples: Backend Icons, RTE or RequireJS Configuration
-   **groups**: system
+   - **groups**: system
 
 - `l10n`
 
@@ -200,10 +200,10 @@ The following caches exist in the TYPO3 CMS Core:
 
 - `fluid_template`
 
-   - Cache for fluid templates.
+   - Cache for Fluid templates.
    - **groups**: system
 
-- extbase
+- Extbase
 
   - Contains detailed information about a class' member variables and methods.
   - **group**: system
@@ -217,7 +217,7 @@ The following caches exist in the TYPO3 CMS Core:
 .. tip::
 
    In rare cases, for example when classes that are required during the
-   bootstrap process are introduced (usually when working on the TYPO3 core),
+   bootstrap process are introduced (usually when working on the TYPO3 Core ),
    cache clearings requests themselves might throw fatal errors.
    The solution here is to manually remove the cache files from
    :file:`typo3temp/var/cache/code/` or :file:`var/cache/code/` (for composer-based installation).
@@ -228,7 +228,7 @@ The following caches exist in the TYPO3 CMS Core:
 Garbage Collection Task
 =======================
 
-The core system provides a Scheduler task to collect the garbage of all cache backends.
+The Core system provides a Scheduler task to collect the garbage of all cache backends.
 This is important for backends like the database backend that do not remove old cache entries
 and tags internally. It is highly recommended to add this Scheduler task and run it once in a while
 (maybe once a day at night) for all used backends that do not delete entries which exceeded

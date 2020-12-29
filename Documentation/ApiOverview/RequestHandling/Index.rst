@@ -1,11 +1,13 @@
 .. include:: /Includes.rst.txt
-
 .. highlight:: php
-
+.. index:: 
+   Request handling
+   PSR-15
+   Request handling; PSR-15
 .. _request-handling:
 
 ==============================
-Request Handling (Middlewares)
+Request handling (Middlewares)
 ==============================
 
 TYPO3 CMS has implemented `PSR-15`_ for handling incoming HTTP requests. The
@@ -34,7 +36,7 @@ TYPO3 implementation
 
 TYPO3 has implemented the PSR-15 approach in the following way:
 
-.. figure:: flow-of-middleware-execution.svg
+.. figure:: Files/FlowOfMiddlewareExecution.svg
    :align: center
 
    Figure 1-1: Application flow
@@ -55,6 +57,8 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 
 #. This response is passed back to the execution flow.
 
+
+.. index:: Request handling; Middleware
 .. _request-handling-middlewares:
 
 Middlewares
@@ -106,6 +110,8 @@ Middleware examples
 
 The following list shows typical use cases for middlewares.
 
+
+.. index:: Request handling; Custom response
 .. _request-handling-returning-custom-response:
 
 Returning a custom response
@@ -132,6 +138,8 @@ called, and its response is returned instead.
        return $handler->handle($request);
    }
 
+
+.. index:: Request handling; Enriched request
 .. _request-handling-enriching-request:
 
 Enriching the request
@@ -157,6 +165,8 @@ calling the next request handler with the enhanced request.
        return $handler->handle($request);
    }
 
+
+.. index:: Request handling; Enriched response
 .. _request-handling-enriching-response:
 
 Enriching the response
@@ -186,6 +196,7 @@ response, which can be enriched before it gets returned.
        return $response;
    }
 
+.. index:: Request handling; Configuration
 .. _request-handling-configuring-middlewares:
 
 Configuring middlewares
@@ -255,10 +266,13 @@ disabled
 
    Allows to disable specific middlewares.
 
+
+.. index:: Request handling; Ordering
+
 Override ordering of middlewares
 ================================
 
-To change the ordering of middlewares shipped by the core an extension can override the registration in
+To change the ordering of middlewares shipped by the Core an extension can override the registration in
 :file:`Configuration/RequestMiddlewares.php`::
 
    return [
@@ -302,7 +316,7 @@ identifier. This will circumvent the risk of circularity::
 
 .. _request-handling-psr-17:
 
-Creating new Request / Response Objects
+Creating new request / response objects
 =======================================
 
 PSR-17_ HTTP Factory interfaces are provided by `psr/http-factory` and should be used as
@@ -350,9 +364,11 @@ dependency) to create a new PSR-7_ response object:
         }
     }
 
+
+.. index:: Request handling; Execution
 .. _request-handling-psr-18:
 
-Executing HTTP Requests in Middlewares
+Executing HTTP requests in middlewares
 ======================================
 
 The PSR-18_ HTTP Client is intended to be used by PSR-15_ request handlers in order to perform HTTP
@@ -443,6 +459,7 @@ as constructor dependencies:
     }
 
 
+.. index:: Request handling; Debugging
 .. _request-handling-debugging:
 
 Debugging

@@ -20,9 +20,9 @@ other code samples provided in this chapter.
 Getting the Default Storage
 ===========================
 
-Of all available Storages, one may be marked as default. This
-is the Storage that will be used for any operation whenever
-no Storage has been explicitly chosen or defined (for example,
+Of all available storages, one may be marked as default. This
+is the storage that will be used for any operation whenever
+no storage has been explicitly chosen or defined (for example,
 when not using a :ref:`combined identifier <fal-architecture-components-files-folders>`).
 
 .. code-block:: php
@@ -50,11 +50,11 @@ when not using a :ref:`combined identifier <fal-architecture-components-files-fo
 
 .. _fal-using-fal-examples-storage-repository-getting-storage:
 
-Getting any Storage
+Getting any storage
 ===================
 
 The :php:`StorageRepository` should be used when retrieving
-any Storage.
+any storage.
 
 .. code-block:: php
 

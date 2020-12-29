@@ -10,7 +10,7 @@ An instance of class :php:`TYPO3\CMS\Core\Database\Connection` is retrieved from
 :ref:`ConnectionPool <database-connection-pool>` by calling `->getConnectionForTable()`
 and handing over the table name a query should executed on.
 
-The class extends the basic `doctrine-dbal` `Doctrine\DBAL\Connection` class and is mainly
+The class extends the basic Doctrine DBAL `Doctrine\DBAL\Connection` class and is mainly
 used internally within the `TYPO3 CMS` framework to establish, maintain and terminate
 connections to single database endpoints. Those internal methods are not scope of this
 documentation since an extension developer usually doesn't have to deal with that.
@@ -311,7 +311,7 @@ createQueryBuilder()
 The :ref:`QueryBuilder <database-query-builder>` should not be re-used for multiple different queries. However,
 it sometimes becomes handy to first fetch a `Connection` object for a specific table and to execute a simple
 query, and to create a `QueryBuilder` for a more complex query from this connection object later. The methods
-usefulness is limited however and no good example within the core can be found at the time of this writing.
+usefulness is limited however and no good example within the Core can be found at the time of this writing.
 
 The method can be helpful in loops to save some precious code characters, too::
 

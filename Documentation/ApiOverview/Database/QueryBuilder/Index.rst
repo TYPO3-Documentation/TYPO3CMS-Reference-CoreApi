@@ -412,7 +412,7 @@ Remarks:
 
 * It is possible to feed the methods with strings directly, but that is discouraged and typically only used
   in rare cases where expression strings are created at a different place that can not be resolved easily. In
-  the core, those places are usually combined with :php:`QueryHelper::stripLogicalOperatorPrefix()` to remove leading
+  the Core, those places are usually combined with :php:`QueryHelper::stripLogicalOperatorPrefix()` to remove leading
   `AND` or `OR` parts. Using this gives an additional risk of missing or wrong quoting and is a potential security
   issue. Use with care if ever.
 
@@ -629,7 +629,7 @@ Remarks:
 * It's allowed to call :php:`->setMaxResults()` but not to call :php:`->setFirstResult()`.
 
 * It is possible to call :php:`->setFirstResult()` without calling :php:`setMaxResults()`: This equals to "Fetch everything, but
-  leave out the first n records". Internally, `LIMIT` will be added by `doctrine-dbal` and set to a very high value.
+  leave out the first n records". Internally, `LIMIT` will be added by Doctrine DBAL and set to a very high value.
 
 
 .. _database-query-builder-add:
@@ -684,7 +684,7 @@ Remarks:
 
 * The method is a simple way to see which restrictions the `RestrictionBuilder` added.
 
-* `doctrine-dbal` always creates prepared statements: Any value that is added via :php:`->createNamedParameter()` creates
+* Doctrine DBAL always creates prepared statements: Any value that is added via :php:`->createNamedParameter()` creates
   a placeholder that is later substituted when the real query is fired via :php:`->execute()`. :php:`->getSQL()` does not show
   those values, instead the placeholder names are displayed, usually with a string like `:dcValue1`. There is no
   simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getParameters()` to see the
@@ -711,7 +711,7 @@ Remarks:
 
 * The method is typically called directly before :php:`->execute()` to output the final values for the statement.
 
-* `doctrine-dbal` always creates prepared statements: Any value that added via :php:`->createNamedParameter()` creates
+* Doctrine DBAL always creates prepared statements: Any value that added via :php:`->createNamedParameter()` creates
   a placeholder that is later substituted when the real query is fired via :php:`->execute()`. :php:`->getparameters()` does not show
   the statement or those placeholders, instead the values are displayed, usually within an array using keys like `:dcValue1`. There is no simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getSQL()` to see the string with placeholders used as a prepared statement.
 

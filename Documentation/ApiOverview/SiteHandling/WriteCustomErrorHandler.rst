@@ -1,13 +1,13 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Site handling; Custom error handler
 .. _sitehandling-customErrorHandler:
 
 ===================================
-Writing a Custom Page Error Handler
+Writing a custom page error handler
 ===================================
 
 The error handling configuration for sites allows implementing a custom error handler if the existing
-options of rendering a fluid template or page are not enough. An example would be an error page
+options of rendering a Fluid template or page are not enough. An example would be an error page
 that uses the requested page or its parameters to search for relevant content on the web site.
 
 A custom error handler needs to have a constructor that takes exactly two arguments:

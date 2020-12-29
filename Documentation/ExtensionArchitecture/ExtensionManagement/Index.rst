@@ -1,9 +1,8 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Extension Manager
 .. _extension-manager:
 
-Extension Management
+Extension management
 ====================
 
 Extensions are managed from the Extension Manager inside TYPO3 by
@@ -22,7 +21,7 @@ The interface is really easy to use. You just click the +/- icon to
 the left of an extension in order to install it and follow the
 instructions.
 
-
+.. index:: Extensions; Installation
 .. _extension-install:
 
 Installing extensions
@@ -104,16 +103,18 @@ containing the data structure for each extension. These include the properties:
 The order of the registered extensions in this array corresponds to
 the order they were listed in :file:`PackageStates.php`.
 
-
+.. index::
+   Extensions; Package Manager
+   PackageStates.php
 .. _extension-package-manager:
 
-Package Manager
+Package manager
 ^^^^^^^^^^^^^^^
 
 On a low level, the list of loaded extensions is written to the file
 :file:`typo3conf/PackageStates.php`. PHP class :code:`\TYPO3\CMS\Core\Package\PackageManager`
 manages this file as part of the "Package management", it is part of the
-core extension, but mostly used by the Extension Manager as the low level work horse.
+Core extension, but mostly used by the Extension Manager as the low level work horse.
 
 The :file:`typo3conf/PackageStates.php` file contains a list of all active packages, example::
 

@@ -1,6 +1,4 @@
 .. include:: /Includes.rst.txt
-
-
 .. _cgl-traits:
 
 ======
@@ -37,7 +35,7 @@ implementations of the interface for a specific class.
 
 One usage of traits is the removal of boilerplate code. While object
 creation and dependency injection is still a not resolved issue in the
-core, this area is probably a good example where a couple of traits
+Core, this area is probably a good example where a couple of traits
 would be really useful to autowire default functionality like logging
 into classes with very little developer effort and in a simple and
 understandable way. It should however be kept in mind that traits must

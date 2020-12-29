@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: ! Backend interface
 .. _backend-modules-structure:
 
 =================
-Backend Interface
+Backend interface
 =================
 
 The backend interface is essentially driven by the "backend"

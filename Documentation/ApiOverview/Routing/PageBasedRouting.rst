@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Routing; Page based
 .. _routing-page-based-routing:
 
 ==================
@@ -20,6 +20,12 @@ To see which route gets mapped to which page, open the page properties and look 
 
 How a page slug is generated is configured via TCA configuration of the pages table (field `slug`). You can adjust that configuration
 in your extensions' :file:`TCA/Overrides/pages.php`. See TCA reference (see :ref:`t3tca:columns-slug` for available options).
+
+
+.. index::
+   Routing; Upgrade
+   RealURL
+   see: RealURL; Routing
 
 Upgrading
 =========

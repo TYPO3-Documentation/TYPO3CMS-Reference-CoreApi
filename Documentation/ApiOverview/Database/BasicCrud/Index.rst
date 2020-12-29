@@ -1,10 +1,12 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   Database; CRUD
+   Database; Create, read, update, and delete operations
 .. _database-basic-crud:
 
-==========
-Basic CRUD
-==========
+========================================================
+Basic create, read, update, and delete operations (CRUD)
+========================================================
 
 A list of basic usage examples of the query API. This is just a kickstart.
 Details on the single methods are found in the following chapters, especially
@@ -14,6 +16,7 @@ Details on the single methods are found in the following chapters, especially
 
     The examples use the shorthand syntax for class names. Please refer to :ref:`Class overview <database-class-overview>` for the full namespace.
 
+.. index:: Database; INSERT
 
 INSERT a Row
 ============
@@ -38,6 +41,8 @@ A straight insert to a table:
 
     INSERT INTO `tt_content` (`pid`, `bodytext`) VALUES ('42', 'bernd')
 
+
+.. index:: Database; SELECT
 
 SELECT a Single Row
 ===================
@@ -145,6 +150,7 @@ The executed query looks like:
         WHERE ((`bodytext` = 'klaus') OR (`uid` = 4))
             AND (`tt_content`.`deleted` = 0)
 
+.. index:: Database; UPDATE
 
 UPDATE Multiple Rows
 ====================

@@ -1,10 +1,11 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: 
+   Backend; Backend users module
+   Module; Backend users
 .. _access-backend-users-module:
 
 ====================
-Backend Users Module
+Backend users module
 ====================
 
 The :guilabel:`SYSTEM > Backend users` module offers a convenient way

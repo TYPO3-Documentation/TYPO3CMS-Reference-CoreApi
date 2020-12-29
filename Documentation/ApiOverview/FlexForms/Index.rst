@@ -1,10 +1,10 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Flexforms
 .. _flexforms:
 
-==============
+=========
 Flexforms
-==============
+=========
 
 Flexforms can be used to store data within an XML structure inside a single DB
 column.
@@ -27,7 +27,8 @@ over plugin features and what is to be rendered.
 Using Flexforms you have all the features of TCA, so it is possible
 to use input fields, select lists, show options conditionally and more.
 
-Example Use Cases
+
+Example use cases
 =================
 
 The `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
@@ -44,7 +45,7 @@ Some more extensions that utilize FlexForms are:
   basic FlexForm, so it might be a good starting point to look at.
 
 
-How it Works
+How it works
 ============
 
 #. In the extension, a configuration schema is defined and attached to
@@ -56,7 +57,8 @@ How it Works
 #. The extension can read current configuration and act according to
    the configuration.
 
-Steps to Perform (Extension Developer)
+
+Steps to perform (Extension developer)
 ======================================
 
 .. rst-class:: bignums-xxl
@@ -152,7 +154,7 @@ Steps to Perform (Extension Developer)
    from within a :ref:`Fluid template <read-flexforms-fluid>`.
 
 
-More Examples
+More examples
 =============
 
 The definition of the data types and parameters used complies to the
@@ -161,7 +163,10 @@ The definition of the data types and parameters used complies to the
 The settings must be added within the :html:`<el>` element in the Flexform
 configuration schema file.
 
-Select Field
+
+.. index:: Flexforms; Select field
+
+Select field
 ------------
 
 .. code-block:: xml
@@ -189,6 +194,7 @@ Select Field
 .. seealso::
 
    * :ref:`t3tca:columns-select` in TCA reference.
+
 
 .. _flexforms-itemsProcFunc:
 
@@ -247,11 +253,10 @@ How this looks when configuring the plugin:
    * :ref:`t3tca:columns-select-properties-itemsprocfunc` in TCA reference.
 
 
-
-
+.. index:: Flexforms; Display conditions
 .. _flexformDisplayCond:
 
-Display Fields Conditionally (displayCond)
+Display fields conditionally (displayCond)
 ------------------------------------------
 
 Some settings may only make sense, depending on other settings.
@@ -280,6 +285,8 @@ in the TCA reference:
 
    * :ref:`t3tca:columns-properties-displaycond` in TCA Reference
 
+
+.. index:: Flexforms; switchableControllerActions
 .. _flexformSwitchableControllerActions:
 
 switchableControllerActions
@@ -311,10 +318,12 @@ can do that with:
 
 This element is optional and must go inside the `<config>` element.
 
+
+.. index:: pair: Flexforms; Extbase
 .. _read-flexforms:
 .. _read-flexforms-extbase:
 
-How to Read Flexforms From an Extbase Controller Action
+How to read flexforms from an Extbase controller action
 -------------------------------------------------------
 
 The settings can be read using :php:`$this->settings` in an
@@ -331,9 +340,11 @@ Extbase controller.
    :php:`$this->settings`, the name of the setting must begin with
    **settings** directly followed by a dot (`.`).
 
+
+.. index:: pair: Flexforms; PHP
 .. _read-flexforms-php:
 
-How to Read and Write Flexforms From PHP
+How to read and write flexforms from PHP
 ----------------------------------------
 
 Some situation make it necessary to access Flexforms via PHP. The following APIs
@@ -355,9 +366,11 @@ method can be used:
    $flexFormTools = new \TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools();
    $flexFormString = $flexFormTools->flexArray2Xml($flexFormArray, true);
 
+
+.. index:: pair: Flexforms; TypoScript
 .. _read-flexforms-ts:
 
-How to Access Flexforms From TypoScript
+How to access flexforms From TypoScript
 ---------------------------------------
 
 .. versionadded:: 8.4
@@ -390,13 +403,77 @@ The key `flexform` is followed by the field which holds the Flexform data (`pi_f
    * :ref:`TypoScript: flexform <t3tsref:data-type-gettext-flexform>`
 
 
+.. index:: pair: Flexforms; Fluid
 .. _read-flexforms-fluid:
 
-How to Access FlexForms From Fluid
+How to access flexForms from Fluid
 ----------------------------------
 
-Flexform settings can be read from within a Fluid template using
-:html:`{settings}`.
+If you are using an Extbase controller, FlexForm settings can be read from within a Fluid template using
+:html:`{settings}`. See the note on naming restrictions in :ref:`How to Read Flexforms From an Extbase Controller Action <read-flexforms-extbase>`.
+
+If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign single variables like that:
+
+.. code-block:: typoscript
+
+   my_content = FLUIDTEMPLATE
+   my_content {
+     variables {
+       categories = TEXT
+       categories.data = flexform: pi_flexform:categories
+     } 
+   }
+
+In order to have all FlexForm fields available, you can add a custom DataProcessor. 
+This example would make your FlexForm data available as Fluid variable :html:`{flexform}`:
+
+.. code-block:: typoscript
+
+   my_content = FLUIDTEMPLATE
+   my_content {
+     dataProcessing {
+       10 = Your\Ext\DataProcessing\FlexFormProcessor
+     }
+   }
+
+.. code-block:: php
+
+   namespace Your\Ext\DataProcessing;
+   
+   use TYPO3\CMS\Core\Service\FlexFormService;
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
+   
+   class FlexFormProcessor implements DataProcessorInterface
+   {
+       /**
+        * @var FlexFormService
+        */
+       protected $flexFormService;
+       
+       public function __construct(FlexFormService $flexFormService) {
+           $this->flexFormService = $flexFormService;
+       }
+       
+       public function process(
+           ContentObjectRenderer $cObj,
+           array $contentObjectConfiguration,
+           array $processorConfiguration,
+           array $processedData
+       ): array {
+           $originalValue = $processedData['data']['pi_flexform'];
+           if (!is_string($originalValue)) {
+               return $processedData;
+           }
+   
+           $flexformData = $this->flexFormService->convertFlexFormContentToArray($originalValue);
+           $processedData['flexform'] = $flexformData;
+           return $processedData;
+       }
+   }
+
+.. seealso::
+   :ref:`configure-dependency-injection-in-extensions`.
 
 
 Steps to Perform (Editor)
@@ -407,6 +484,7 @@ to the tab "Plugin" or whatever string you defined to replace this.
 
 .. image:: Images/FlexformBackend.png
    :class: with-shadow
+
 
 Credits
 =======

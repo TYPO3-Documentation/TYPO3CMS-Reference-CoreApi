@@ -1,19 +1,18 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: File abstraction layer; Permissions
 .. _fal-administration-permissions:
 
 ===========
 Permissions
 ===========
 
-Permissions in the File Abstraction Layer are the result of a
+Permissions in the file abstraction layer are the result of a
 combination of various mechanisms.
 
 
 .. _fal-administration-permissions-system:
 
-System Permissions
+System permissions
 ==================
 
 System permissions are strictly enforced and may prevent an action
@@ -25,28 +24,29 @@ not allow access to a resource (e.g. some file is read-only in the
 local file system).
 
 
+.. index:: File abstraction layer; File mounts
 .. _fal-administration-permissions-mounts:
 
-File Mounts
+File mounts
 ===========
 
 Files mounts (discussed in the :ref:`Getting Started Tutorial <t3start:file-mounts>`)
-restrict users to a certain folder in a certain Storage. This is
+restrict users to a certain folder in a certain storage. This is
 an obvious permission restriction: users will never be able to act
 on a file or folder outside of their allotted file mounts.
 
 
 .. _fal-administration-permissions-user:
 
-User Permissions
+User permissions
 ================
 
 User permissions for files can be set in the
 :ref:`"Fileoperation permissions" section <t3start:file-permissions>`
-of the Backend User or Backend User Group records.
+of the backend user or backend user group records.
 
-It is also possible to set permissions using :ref:`User TSconfig <t3tsconfig:usertsconfig>`,
-defined either at Backend User or Backend User Group level. The TSconfig way is recommended because
+It is also possible to set permissions using :ref:`user TSconfig <t3tsconfig:usertsconfig>`,
+defined either at backend user or backend user group level. The TSconfig way is recommended because
 it allows for more flexibility. See some examples below and read on in the section about
 :ref:`permissions <t3tsconfig:userTsConfigPermissions>` in the user TSconfig reference.
 
@@ -73,21 +73,21 @@ are **read-only**:
       recursivedeleteFolder = 0
    }
 
-If no permissions are defined in TSconfig, the settings in the Backend User
-and in the Backend User Group record are taken into account and treated as
-default permissions for all Storages.
+If no permissions are defined in TSconfig, the settings in the backend user
+and in the backend user group record are taken into account and treated as
+default permissions for all storages.
 
 
 .. _fal-administration-permissions-user-storage:
 
-User Permissions per Storage
+User permissions per storage
 ----------------------------
 
-Using :ref:`User TSconfig <t3tsconfig:usertsconfig>` it is possible to set different permissions
-for different Storages. This syntax uses the uid of the targeted
-Storage record.
+Using :ref:`user TSconfig <t3tsconfig:usertsconfig>` it is possible to set different permissions
+for different storages. This syntax uses the uid of the targeted
+storage record.
 
-The following example grants all permission for the Storage with uid "1":
+The following example grants all permission for the storage with uid "1":
 
 .. code-block:: typoscript
 
@@ -111,14 +111,14 @@ The following example grants all permission for the Storage with uid "1":
 
 .. note::
 
-   Configured permissions for a *specific* Storage take precedence over
+   Configured permissions for a *specific* storage take precedence over
    default permissions.
 
 
 
 .. _fal-administration-permissions-user-details:
 
-User Permissions Details
+User permissions details
 ------------------------
 
 This model for permissions behaves very similar to permission systems
@@ -180,9 +180,10 @@ recursivedeleteFolder
   Remove a folder even if it has contents; needs write folder permissions.
 
 
+.. index:: File abstraction layer; Default upload folder
 .. _fal-administration-permissions-upload-folder:
 
-Default Upload Folder
+Default upload folder
 =====================
 
 When nothing else is defined, any file uploaded by a user will end up
@@ -205,7 +206,7 @@ a given field of a given table (using custom TSconfig).
 
 .. _fal-administration-permissions-frontend:
 
-Frontend Permissions
+Frontend permissions
 ====================
 
 System extension "filemetadata" adds a "fe_groups" field to the
@@ -217,4 +218,4 @@ developers to create tools which make use of these permissions.
 As an example, you may want to take a look at extension
 `fal_securedownload <https://extensions.typo3.org/extension/fal_securedownload>`_
 which also makes use of the "Is publicly available?" property of
-:ref:`File Storages <fal-administration-storages>`.
+:ref:`File storages <fal-administration-storages>`.

@@ -10,23 +10,6 @@ To allow editors a smoother experience, all custom content elements and plugins 
 preview that shows an approximation of the element's appearance in the TYPO3 page module. The following sections describe how to
 achieve that.
 
-.. note::
-
-   With TYPO3 10.3, the backend rendering process of content elements has been replaced by the new Fluid based `PreviewRenderer` if
-   the feature toggle :guilabel:`Fluid based page module` is activated.
-   The section below describes both the "classic" as well as the new way.
-
-With Fluid Based Page Module
-============================
-
-.. important::
-
-   The :php:`PreviewRenderer` usage is only active if the :guilabel:`fluid based page layout module` feature is enabled. This feature
-   is activated by default in new installations of TYPO3 versions 10.3 and later.
-
-   The feature toggle can be located in the :guilabel:`Settings` admin module under :guilabel:`Feature Toggles`. Or it can be set in
-   PHP using :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['fluidBasedPageModule'] = true;`.
-
 A :php:`PreviewRenderer` is used to facilitate (record) previews in TYPO3.
 
 The feature consists of two concepts:
@@ -130,7 +113,7 @@ type of plugin you want to target is selected as plugin type.
 .. note::
    The recommended location is in the :php:`ctrl` array in your extension's :file:`Configuration/TCA/$table.php` or
    :file:`Configuration/TCA/Overrides/$table.php` file. The former is used when your extension is the one that creates the table,
-   the latter is used when you need to override TCA properties of tables added by the core or other extensions.
+   the latter is used when you need to override TCA properties of tables added by the Core or other extensions.
 
 
 Overriding the `PreviewRendererResolver`
@@ -148,70 +131,3 @@ Once overridden, the old resolver will no longer be consulted.
 contains a single API method, :php:`public function resolveRendererFor($table, array $row, int $pageUid);` which
 needs to return a single :php:`PreviewRenderer` based on the given input.
 
-
-With "Classic" Page Module
-============================
-
-If you want to generate a special preview in the "classic" backend :guilabel:`Web > Page` module, you can use a hook for this:
-
-.. code-block:: php
-
-   // Register for hook to show preview of tt_content element of CType="yourextensionkey_newcontentelement" in page module
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['yourextensionkey_newcontentelement'] =
-      \Vendor\YourExtensionKey\Hooks\PageLayoutView\NewContentElementPreviewRenderer::class;
-
-According to the used namespace, a new file :file:`Classes/Hooks/PageLayoutView/NewContentElementPreviewRenderer.php`
-has to be created with the following content:
-
-.. code-block:: php
-
-   <?php
-   namespace Vendor\YourExtensionKey\Hooks\PageLayoutView;
-
-   /*
-    * This file is part of the TYPO3 CMS project.
-    *
-    * It is free software; you can redistribute it and/or modify it under
-    * the terms of the GNU General Public License, either version 2
-    * of the License, or any later version.
-    *
-    * For the full copyright and license information, please read the
-    * LICENSE.txt file that was distributed with this source code.
-    *
-    * The TYPO3 project - inspiring people to share!
-    */
-
-   use TYPO3\CMS\Backend\View\PageLayoutView;
-   use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
-
-   /**
-    * Contains a preview rendering for the page module of CType="yourextensionkey_newcontentelement"
-    */
-   class NewContentElementPreviewRenderer implements PageLayoutViewDrawItemHookInterface
-   {
-
-       /**
-        * Preprocesses the preview rendering of a content element of type "My new content element"
-        *
-        * @param \TYPO3\CMS\Backend\View\PageLayoutView $parentObject Calling parent object
-        * @param bool $drawItem Whether to draw the item using the default functionality
-        * @param string $headerContent Header content
-        * @param string $itemContent Item content
-        * @param array $row Record row of tt_content
-        *
-        * @return void
-        */
-       public function preProcess(
-           PageLayoutView &$parentObject,
-           &$drawItem,
-           &$headerContent,
-           &$itemContent,
-           array &$row
-       ) {
-           if ($row['CType'] === 'yourextensionkey_newcontentelement') {
-               $itemContent .= '<p>We can change our preview here!</p>';
-
-               $drawItem = false;
-           }
-       }
-   }

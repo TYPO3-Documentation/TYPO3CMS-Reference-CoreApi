@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Site handling
 .. _sitehandling:
 
 =============
-Site Handling
+Site handling
 =============
 
 The site handling defines entry points to the frontend sites of a

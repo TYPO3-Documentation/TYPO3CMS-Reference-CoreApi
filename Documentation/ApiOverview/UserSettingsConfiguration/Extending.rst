@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: User settings; Custom settings
 .. _user-settings-extending:
 
 ===========================
-Extending the User Settings
+Extending the user settings
 ===========================
 
 Adding fields to the User Settings is done in two steps.

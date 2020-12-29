@@ -1,12 +1,11 @@
 .. include:: /Includes.rst.txt
-
-
 .. _error-handling-configuration-examples:
 
 ========
 Examples
 ========
 
+.. index:: Errors; Debugging setup
 .. _error-handling-configuration-examples-debug:
 
 Debugging and development setup
@@ -61,6 +60,7 @@ See :ref:`contentObjectExceptionHandler <t3tsref:setup-config-contentObjectExcep
 information.
 
 
+.. index:: Errors; Production setup
 .. _error-handling-configuration-examples-production:
 
 Production setup
@@ -88,7 +88,7 @@ In :file:`.htaccess`::
    php_value error_log /path/to/php_error.log
 
 
-
+.. index:: Errors; Performance setup
 .. _error-handling-configuration-examples-performance:
 
 Performance setup

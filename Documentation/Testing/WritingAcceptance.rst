@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: ! Testing; Acceptance
 .. _testing-writing-acceptance:
 
 ========================
@@ -122,7 +122,7 @@ select specific pages in the page tree. A typical class looks like this::
     class PageTree extends AbstractPageTree
     {
         /**
-         * Inject our core AcceptanceTester actor into PageTree
+         * Inject our Core AcceptanceTester actor into PageTree
          *
          * @param BackendTester $I
          */
@@ -132,7 +132,7 @@ select specific pages in the page tree. A typical class looks like this::
         }
     }
 
-This example is taken from the core extension, other extensions should use their own
+This example is taken from the Core extension, other extensions should use their own
 instance in an own extension based namespace. If this is done, the PageTree support
 class can be injected into a test::
 

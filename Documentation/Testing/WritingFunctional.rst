@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: ! Testing; Functional
 .. _testing-writing-functional:
 
 ========================
@@ -64,7 +64,7 @@ chapter is about writing tests and setting up the scenario.
 Simple Example
 ==============
 
-At the time of this writing, TYPO3 core contains more than 2600 functional tests, so
+At the time of this writing, TYPO3 Core  contains more than 2600 functional tests, so
 there are plenty of test files to look at to learn about writing functional tests. Do not
 hesitate looking around, there is plenty to discover.
 
@@ -157,12 +157,12 @@ Loaded extensions
 =================
 
 The :php:`FunctionalTestCase` has a couple of defaults and properties to specify the set of
-loaded extensions of a test case: First, there is a set of default core extensions that are
+loaded extensions of a test case: First, there is a set of default Core extensions that are
 always loaded. Those should be `require` or at least `require-dev` dependencies in a
 :file:`composer.json` file, too: `core`, `backend`, `frontend`, `extbase`, `install` and
 `recordlist`.
 
-Apart from that default list, it is possible to load additional core extensions, an extension
+Apart from that default list, it is possible to load additional Core extensions, an extension
 that wants to test if it works well together with workspaces, would for example specify
 the workspaces extension as additional to-load extension::
 
@@ -170,7 +170,7 @@ the workspaces extension as additional to-load extension::
         'workspaces',
     ];
 
-Furthermore, non-core extensions and fixture extensions can be loaded for any given test case::
+Furthermore, third party extensions and fixture extensions can be loaded for any given test case::
 
     protected $testExtensionsToLoad = [
         'typo3conf/ext/some_extension/Tests/Functional/Fixtures/Extensions/test_extension',
@@ -181,8 +181,8 @@ In this case the fictive extension `some_extension` comes with an own fixture ex
 be loaded, and another `base_extension` should be loaded. These extensions will be linked into
 `typo3conf/ext` of the test case instance.
 
-The functional test bootstrap links all extensions to either `typo3/sysext` for core extensions or
-`typo3conf/ext` for non-core extensions, creates a :file:`PackageStates.php` and then uses the
+The functional test bootstrap links all extensions to either `typo3/sysext` for Core extensions or
+`typo3conf/ext` for third party extensions, creates a :file:`PackageStates.php` and then uses the
 database schema analyzer to create all database tables specified in the :file:`ext_tables.sql` files.
 
 
@@ -276,9 +276,9 @@ Frontend tests
 
 .. note::
 
-    Frontend functional testing is currently still a subject to change and the core did
+    Frontend functional testing is currently still a subject to change and the Core did
     not fully settle in this area, yet. The docs below outline only the bare minimum to
-    set up and execute these tests and core usages are hard to explain here in detail
+    set up and execute these tests and Core usages are hard to explain here in detail
     since most of them work with additional abstracts and set up tricks.
 
 To prepare a frontend test, the system can be instructed to load a set of :file:`.typoscript`

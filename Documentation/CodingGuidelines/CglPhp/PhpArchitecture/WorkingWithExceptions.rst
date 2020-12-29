@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   single: Coding guidelines; Exceptions
+   pair: PHP; Exceptions
 
 .. _cgl-working-with-exceptions:
 
@@ -42,7 +44,6 @@ be thrown. For PHP built-in exceptions, the actual class is not crucial,
 if in doubt, a :php:`\RuntimeException` fits - it is much more important
 to throw a meaningful exception message in those cases.
 
-
 Typical Cases for Exceptions That are Designed to be Caught
 -----------------------------------------------------------
 
@@ -65,6 +66,8 @@ Typical Cases for Exceptions That are Designed to be Caught
   connection …".
 
 
+.. index:: RuntimeException
+
 Typical Cases for Exceptions That Should not be Caught
 ------------------------------------------------------
 
@@ -77,7 +80,7 @@ Typical Cases for Exceptions That Should not be Caught
 * Programming error/ wrong API usage: Code that can not do its job
   because a developer did not take care and used an API in a wrong way.
   This is a common reason to throw an exception and can be found at lots
-  of places in the core. A top-level exception like
+  of places in the Core. A top-level exception like
   :php:`\RuntimeException` should be thrown.
 
 
@@ -127,7 +130,7 @@ Example::
 Exception Inheritance
 =====================
 
-A typical exception hierarchy for specific exceptions in the core
+A typical exception hierarchy for specific exceptions in the Core
 looks like :php:`Vendor\MyExt\Exception extends TYPO3\CMS\Core\Exception`,
 where :php:`TYPO3\CMS\Core\Exception` is the base of all exceptions in TYPO3.
 

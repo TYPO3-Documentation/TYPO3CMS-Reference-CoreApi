@@ -1,21 +1,20 @@
 .. include:: /Includes.rst.txt
-
-
-
-
-
 .. _tce-introduction:
 
 ============
 Introduction
 ============
 
+
+.. index::
+   pair: TYPO3 Core engine; Database
+   pair: TYPO3 Core engine; TCA
 .. _tce-database:
 
 Database
 ========
 
-The TYPO3 Core Engine is the class that handles *all* ***data***
+The TYPO3 Core engine is the class that handles *all* ***data***
 *writing to database tables configured in $TCA*. In addition the
 class handles **commands** such as copy, move, delete. It will handle
 undo/history and versioning of records and everything will be logged
@@ -39,6 +38,7 @@ to be done from the frontend *without* DataHandler.
 The features of the $TCA are described in the :ref:`TCA Reference<t3tca:start>`.
 
 
+.. index:: pair: TYPO3 Core engine; Files
 .. _tce-files:
 
 Files
@@ -47,7 +47,7 @@ Files
 TCE also has a part for handling files. The file operations are
 normally performed in the **FILE > Filelist** module where you can manage a
 directory on the server by copying, moving, deleting and editing files
-and directories. The file operations are managed by two core classes,
+and directories. The file operations are managed by two Core classes,
 :php:`\TYPO3\CMS\Core\Utility\File\BasicFileUtility` and
 :php:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility`.
 

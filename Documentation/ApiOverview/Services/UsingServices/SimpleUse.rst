@@ -1,11 +1,10 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Services API; Usage
 .. _services-using-services-simple:
 
-==========
-Simple Use
-==========
+============
+Simple usage
+============
 
 The most basic use is when you just want an object that handles a
 given service type:

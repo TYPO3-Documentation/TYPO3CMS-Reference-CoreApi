@@ -1,10 +1,9 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Extension development; Naming conventions
 .. _extension-naming:
 
 ==================
-Naming Conventions
+Naming conventions
 ==================
 
 The first thing you should decide on is the :ref:`extension key <extension-key>`
@@ -88,6 +87,7 @@ do not follow the conventions.
 
 
 
+.. index:: Extension key
 .. _naming-conventions-extkey:
 
 Extension key (extkey)
@@ -138,6 +138,7 @@ Here, extkey is `my_extension`:
 * package name in :file:`composer.json`: `vendorname/my-extension` (the underscore is replaced by
   a dash)
 
+.. index:: Vendor name
 
 Vendor name
 ===========
@@ -330,7 +331,7 @@ Extbase has some of its own conventions.
 
 .. _extension-old-extensions:
 
-Note on "old" Extensions
+Note on "old" extensions
 ========================
 
 Some the "classic" extensions from before the extension structure came
@@ -346,7 +347,7 @@ the "user\_" prefix for their classes as well.
 .. _TER: https://extensions.typo3.org/
 .. _Packagist: https://packagist.org/
 
-Further Reading
+Further reading
 ===============
 
 .. seealso::
