@@ -259,7 +259,7 @@ replaced by soft reference tokens.
 For example: :html:' <p>Contact: {softref:123456}</p>'
 
 Tokens are strings like {softref:123456} which are placeholders for a values
-extracted by a Soft reference parser.
+extracted by a soft reference parser.
 
 For each token there in an entry in the :php:`elements` key which has a
 :php:`subst` key defining the tokenID and the tokenValue. See below.
