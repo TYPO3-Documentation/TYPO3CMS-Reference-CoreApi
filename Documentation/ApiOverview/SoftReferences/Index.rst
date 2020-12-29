@@ -210,7 +210,7 @@ contained in the string::
 
    [
        'content' => '
-          <p><a href="{424242}">Congratulations</a></p>
+          <p><a href="{softref:424242}">Congratulations</a></p>
           <p>To read more about <a href="{softref:78910}">this cool feature</a></p>
           <p>Contact: {softref:123456}</p>
        ',
@@ -219,7 +219,8 @@ contained in the string::
                'matchString' => '<a href="t3://page?uid=96">',
                'error' => 'There is a glitch in the universe, page 42 not found.',
                'subst' => [
-                   'type' => 'db','424242',
+                   'type' => 'db',
+                   'tokenID' => '424242',
                    'tokenValue' => 't3://page?uid=96',
                    'recordRef' => 'pages:96',
                ]
