@@ -26,8 +26,8 @@ copy operations. Also, the soft references are used by integrity
 checking functions. For example, when you try to delete a page,
 TYPO3 will warn you if there are incoming page links to this page.
 
-The soft references - as well as the ordinary references - are
-written to the soft reference index (table `sys_refindex`).
+All references, soft and ordinary ones, are
+written to the reference index (table `sys_refindex`).
 
 Which soft reference parsers will be used can be defined in the TCA
 field :ref:`softref <t3tca:columns-text-properties-softref>` which is
@@ -205,11 +205,89 @@ The content could look like this:
    <p>To read more about <a href="http://example.org/some-cool-feature">this cool feature</a></p>
    <p>Contact: email@example.org</p>
 
-The parsers will return an array containing information about
+The parsers will return an array containing information about the references
+contained in the string::
 
-#. A page link
-#. An external link
-#. An email link
+   [
+       'content' => '
+          <p><a href="{424242}">Congratulations</a></p>
+          <p>To read more about <a href="{softref:78910}">this cool feature</a></p>
+          <p>Contact: {softref:123456}</p>
+       ',
+       'elements' => [
+           [
+               'matchString' => '<a href="t3://page?uid=96">',
+               'error' => 'There is a glitch in the universe, page 42 not found.',
+               'subst' => [
+                   'type' => 'db','424242',
+                   'tokenValue' => 't3://page?uid=96',
+                   'recordRef' => 'pages:96',
+               ]
+           ],
+           [
+               'matchString' => '<a href="http://example.org/some-cool-feature">',
+               'subst' => [
+                   'type' => 'string',
+                   'tokenID' => '78910',
+                   'tokenValue' => 'http://example.org/some-cool-feature',
+               ]
+           ],
+           [
+               'matchString' => 'email@example.org',
+               'subst' => [
+                   'type' => 'string',
+                   'tokenID' => '123456',
+                   'tokenValue' => 'test@example.com',
+               ]
+           ]
+       ],
+   ],
+
+
+The result array
+----------------
+
+In most cases the result array contains two keys: :php:`content` and :php:`elements`.
+
+
+Key :php:`content`
+~~~~~~~~~~~~~~~~~~
+
+This part contains the input content. Links to be substitutet have been
+replaced by soft reference tokens.
+
+For example: :html:' <p>Contact: {softref:123456}</p>'
+
+Tokens are strings like {softref:123456} which are placeholders for a values
+extracted by a Soft reference parser.
+
+For each token there in an entry in the :php:`elements` key which has a
+:php:`subst` key defining the tokenID and the tokenValue. See below.
+
+
+Key :php:`elements`
+~~~~~~~~~~~~~~~~~~~
+
+This part is an array of arrays, each with these keys:
+
+* :php:`matchString`: The value of the match. This is only for informational
+   purposes to show what was found.
+* :php:`error`: An error message can be set here, like "file not found" etc.
+* :php:`subst`: If this array is found there MUST be a token in the output
+   content as well!
+
+   * :php:`tokenID`: The tokenID string corresponding to the token in output
+      content, `{softref:[tokenID]}`. This is typically an md5 hash of a string
+      defining uniquely the position of the element.
+   * :php:`tokenValue`: The value that the token substitutes in the text.
+      Basically, if this value is inserted instead of the token the content
+      should match what was inputted originally.
+   * :php:`type`: the type of substitution. `file` is a relative file reference,
+      `db` is a database record reference, `string` is a manually
+      modified string content (email, external url, phone number)
+   * :php:`relFileName`: (for `file` type): Relative filename.
+   * :php:`recordRef`: (for `db` type): Reference to DB record on the form
+      [table]:[uid].
 
 
 .. index:: Soft references; Custom parsers
