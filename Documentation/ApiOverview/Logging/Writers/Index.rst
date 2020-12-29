@@ -184,7 +184,8 @@ All log writers can be used in your own classes. You can initialize the loggers 
     class MyClass implements LoggerAwareInterface {
         use LoggerAwareTrait;
         
-        private $logger;
+        // The logger object is already available through the LoggerAwareTrait and instantiated by TYPO3:
+        // private $logger; 
 
         ...
     }
