@@ -1,13 +1,13 @@
-.. include:: ../../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: File abstraction layer; Concepts
 .. _fal-concepts:
 
 ==============
-Basic Concepts
+Basic concepts
 ==============
 
 This chapter presents the general concepts underlying the TYPO3 CMS
-File Abstraction Layer (FAL). The whole point of FAL - as its name
+file abstraction layer (FAL). The whole point of FAL - as its name
 implies - is to provide information about files abstracted with
 regards to their actual nature and storage.
 
@@ -16,10 +16,10 @@ using a given file is mostly about creating a database relation
 to the record representing that file.
 
 
+.. index:: File abstraction layer; Storage
 .. _fal-concepts-storages-drivers:
 
-
-Storages and Drivers
+Storages and drivers
 ====================
 
 Every file belongs to a storage, which is a very general concept
@@ -36,9 +36,10 @@ using the local file system driver and pointing to the
 :file:`fileadmin/` directory.
 
 
+.. index:: File abstraction layer; Metadata
 .. _fal-concepts-files-metadata:
 
-Files and Metadata
+Files and metadata
 ==================
 
 For each available file in all present storages, there exists a
@@ -56,9 +57,10 @@ to hold a large variety of additional information about the file
    fields such as copyright notice, author name, location, etc.
 
 
+.. index:: File abstraction layer; File references
 .. _fal-concepts-file-references:
 
-File References
+File references
 ===============
 
 Whenever a file is used - for example an image attached to a

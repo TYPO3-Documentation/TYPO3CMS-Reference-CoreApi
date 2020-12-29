@@ -1,10 +1,9 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: JavaScript; RequestAnimationFrame event
 .. _Events_JavaScript_rAF:
 
 ===========================
-RequestAnimationFrame Event
+RequestAnimationFrame event
 ===========================
 
 A "request animation frame event" is similar to using :js:`ThrottleEvent` with a limit of `16`, as this event type

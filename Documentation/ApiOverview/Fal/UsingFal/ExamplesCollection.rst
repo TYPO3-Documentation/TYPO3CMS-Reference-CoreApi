@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -14,14 +14,14 @@ provides a convenience method to retrieve a
 
 .. code-block:: php
 
-     $resourceFactory = ResourceFactory::getInstance();
+     $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
      $collection = $resourceFactory->getCollectionObject(1);
      // Load the contents of the collection
      $collection->loadContents();
 
 
 In this example, we retrieve and load the content from the
-File Collection with a uid of "1". Any Collection implements
+:ref:`File Collection <collections-files>` with a uid of "1". Any Collection implements
 the :php:`\Iterator` interface, which means that a Collection
 can be looped over (once its content has been loaded). Thus
 if the above code passed the :php:`$collection` variable to

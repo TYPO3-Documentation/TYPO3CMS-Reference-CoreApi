@@ -1,8 +1,6 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; ModifyHrefLangTagsEvent
 .. _ModifyHrefLangTagsEvent:
-
 
 =======================
 ModifyHrefLangTagsEvent
@@ -74,42 +72,34 @@ executed after or before the given identifiers.
 
 
 API
-===
+---
 
- - :Method:
-         getHrefLangs()
-   :Description:
-         Returns the hreflang tags.
-   :ReturnType:
-         array
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
+.. rst-class:: dl-parameters
 
- - :Method:
-         setHrefLangs()
-   :Description:
-         Set the hreflang tags.
-   :Arguments:
-         array $hrefLangs
-   :ReturnType:
-         void
+getHrefLangs()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         addHrefLang()
-   :Description:
-         Add a hreflang tag to the current list of hreflang tags.
-   :Arguments:
-         * string $languageCode The language of the hreflang tag you would like to add. For example: nl-NL
-         * string $url The URL of the translation. For example: https://example.com/nl
-   :ReturnType:
-         void
+   |nbsp|
 
+setHrefLangs()
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         getRequest()
-   :Description:
-         Returns the current request.
-   :ReturnType:
-         \Psr\Http\Message\ServerRequestInterface
+   Set the hreflang tags.
 
+addHrefLang()
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|` :aspect:`Arguments:` `$languageCode` The language of the hreflang tag you would like to add. For example: nl-NL - `$url` The URL of the translation. For example: https://example.com/nl
+   :sep:`|`
 
+   Add a hreflang tag to the current list of hreflang tags.
 
+getRequest()
+   :sep:`|` :aspect:`ReturnType:` `\Psr\Http\Message\ServerRequestInterface`
+   :sep:`|`
+
+   |nbsp|

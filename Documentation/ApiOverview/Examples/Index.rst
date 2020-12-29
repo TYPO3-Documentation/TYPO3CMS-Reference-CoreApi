@@ -1,6 +1,6 @@
 :orphan:
 
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. todo:: merge examples into other chapters in TYPO3 API
@@ -32,8 +32,6 @@ another whole lot of examples.
    :titlesonly:
    :name: examples-toctree
 
-   Debugging/Index
-   PageTrees/Index
    Clipboard/Index
    ContextualMenu/Index
    ParsingHtml/Index

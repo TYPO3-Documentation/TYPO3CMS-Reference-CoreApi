@@ -1,13 +1,13 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: pair: Site handling; Custom error handler
 .. _sitehandling-customErrorHandler:
 
 ===================================
-Writing a Custom Page Error Handler
+Writing a custom page error handler
 ===================================
 
 The error handling configuration for sites allows implementing a custom error handler if the existing
-options of rendering a fluid template or page are not enough. An example would be an error page
+options of rendering a Fluid template or page are not enough. An example would be an error page
 that uses the requested page or its parameters to search for relevant content on the web site.
 
 A custom error handler needs to have a constructor that takes exactly two arguments:
@@ -66,8 +66,25 @@ The ErrorHandler class:
    use TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface;
    use TYPO3\CMS\Core\Http\RedirectResponse;
 
-   class ErrorHandling implements PageErrorHandlerInterface 
+   class ErrorHandling implements PageErrorHandlerInterface
    {
+       /**
+        * @var int
+        */
+       protected $statusCode;
+
+       /**
+        * @var array
+        */
+       protected $errorHandlerConfiguration;
+
+       public function __construct(int $statusCode, array $configuration)
+       {
+           $this->statusCode = $statusCode;
+           // This contains the configuration of the error handler which is
+           // set in site configuration - this example does not use it.
+           $this->errorHandlerConfiguration = $configuration;
+       }
 
        /**
         * @param ServerRequestInterface $request
@@ -80,7 +97,7 @@ The ErrorHandler class:
            string $message,
            array $reasons = []
        ): ResponseInterface {
-              return new RedirectResponse('/404-page', 404);
+              return new RedirectResponse('/404-page', $this->statusCode);
        }
-       
+
    }

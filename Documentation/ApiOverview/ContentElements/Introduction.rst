@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _cePluginsIntroduction:
@@ -75,7 +75,7 @@ displayed in the backend. There are a number of ways to do this:
 * :ref:`Backend user and group permissions <access-options>` can be used to restrict access to
   content elements, to content on specific pages etc.
 * Fields can be hidden in the backend by using :ref:`TSconfig TCEFORM <t3tsconfig:tceform>`.
-* Page TSconfig can be used to :ref:`configure <content-element-wizard>` what is displayed in the "Content Element
+* page TSconfig can be used to :ref:`configure <content-element-wizard>` what is displayed in the "Content Element
   Wizard".
 
 Creating new content elements

@@ -1,6 +1,5 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: pair: Coding guidelines; phpDoc
 .. _cgl-using-phpdoc:
 
 ============

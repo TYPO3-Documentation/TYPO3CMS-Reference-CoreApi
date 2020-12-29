@@ -1,14 +1,9 @@
-.. include:: ../../../../Includes.txt
-
-
-
-
-
-
+.. include:: /Includes.rst.txt
+.. index:: RequireJS; Dependency handling
 .. _requirejs-dependency:
 
 ===================
-Dependency Handling
+Dependency handling
 ===================
 
 Let us try to explain the dependency handling with the most used JS lib: jQuery

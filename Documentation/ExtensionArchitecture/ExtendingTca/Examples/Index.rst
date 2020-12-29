@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _extending-examples:
@@ -9,7 +9,7 @@ Customization Examples
 Many extracts can be found throughout the manual, but this section
 provides more complete examples.
 
-
+.. index::TCA; Example fe_users
 .. _extending-examples-feusers:
 
 Example 1: Extending the fe\_users Table
@@ -22,7 +22,7 @@ Here's the complete code, taken from file
 .. code-block:: php
 
 	<?php
-	defined('TYPO3_MODE') or die();
+	defined('TYPO3') or die();
 
 	// Add some fields to FE Users table to show TCA fields definitions
 	// USAGE: TCA Reference > $GLOBALS['TCA'] array reference > ['columns'][fieldname]['config'] / TYPE: "select"

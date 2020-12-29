@@ -1,22 +1,23 @@
-.. include:: ../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Internationalization; Manage translations
 .. _managing-translating:
 
 =================================
-Managing Translations for Backend
+Managing translations for backend
 =================================
 
 This sections highlights the different ways to translate and manage XLIFF files.
 
+
+.. index:: Internationalization; Fetch translations
 .. _xliff-translating-fetch:
 
-Fetching Translations
+Fetching translations
 =====================
 
 The interface of the Install Tool in :guilabel:`ADMIN TOOLS > Maintenance > Manage language packs`
 allows to manage the list of available languages to your users and can fetch and
-update language packs of TER and core extensions from the official translation server.
+update language packs of TER and Core extensions from the official translation server.
 The module is rather straight forward to use and should be pretty much self explanatory.
 Downloaded language packs are stored in :ref:`Environment-labels-path`.
 
@@ -33,22 +34,11 @@ Language packs can also be fetched using the command line.
    /path/to/typo3/bin/typo3 language:update
 
 
-.. _xliff-translating-featuretoggle:
-
-Feature toggle (9 LTS only)
----------------------------
-Since **TYPO3 9.5.14** it is possible to use :ref:`Crowdin <xliff-translating-server-crowdin>` as translation server.
-This can be configured in the Install Tool at :guilabel:`Settings > Feature Toggles > newTranslationServer`.
-
-.. tip::
-
-   Crowdin is used for TYPO3 10 by default.
-
-
+.. index:: Internationalization; Local translations
 .. _xliff-translating-local:
 
-Translating Locally
-===================
+Local translations
+==================
 
 Using `Virtaal <http://translate.sourceforge.net/wiki/virtaal/index>`_,
 it is possible to translate XLIFF files locally.
@@ -63,9 +53,10 @@ Translating files locally is useful for extensions which are not meant to be
 published or for creating :ref:`custom translations <xliff-translating-custom>`.
 
 
+.. index:: Internationalization; Custom translations
 .. _xliff-translating-custom:
 
-Custom Translations
+Custom translations
 ===================
 
 The :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` allows to
@@ -75,7 +66,7 @@ syntax is as follows (to be placed in an extension's :file:`ext_localconf.php` f
 
 .. code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/custom.xlf';
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/custom.xlf';
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:news/Resources/Private/Language/locallang_modadministration.xlf'][] = 'EXT:examples/Resources/Private/Language/Overrides/de.locallang_modadministration.xlf';
 
 
@@ -87,7 +78,7 @@ looks like this:
 
    <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
    <xliff version="1.0">
-      <file source-language="en" datatype="plaintext" original="messages" date="2013-03-09T18:44:59Z" product-name="examples">
+      <file source-language="en" datatype="plaintext" date="2013-03-09T18:44:59Z" product-name="examples">
          <header/>
          <body>
             <trans-unit id="pages.title_formlabel" xml:space="preserve">
@@ -126,9 +117,10 @@ and the result can be easily seen in the backend:
      translation file in extensions, for example in :file:`typo3conf/ext/myext/Resources/Private/Language/`.
 
 
+.. index:: Internationalization; Custom languages
 .. _xliff-translating-languages:
 
-Custom Languages
+Custom languages
 ================
 
 :ref:`i18n_languages` describes the languages which are supported by default.
@@ -168,7 +160,7 @@ would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
 
    <?xml version='1.0' encoding='utf-8'?>
    <xliff version="1.0">
-      <file source-language="en" target-language="gsw_CH" datatype="plaintext" original="messages" product-name="setup">
+      <file source-language="en" target-language="gsw_CH" datatype="plaintext">
          <header/>
          <body>
             <trans-unit id="lang_gsw_CH" approved="yes">
@@ -192,7 +184,7 @@ would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
    defined for "de_AT" if it were just falling back on "de".
 
 .. seealso::
-   
+
    Configure :yaml:`typo3Language` for using custom languages in the frontend,
    see :ref:`sitehandling-addinglanguages` for details.
 

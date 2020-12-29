@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _adding-your-own-content-elements:
 
@@ -13,7 +13,7 @@ more code examples in the system extension `fluid_styled_content`.
 A content element can be based on fields already available in the `tt_content` table.
 
 It is also possible to add extra fields that can be added to the `tt_content` table.
-Adding fields is done by :ref:`extending the TCA <t3coreapi:extending>`.
+Adding fields is done by :ref:`extending the TCA <extending-tca>`.
 
 Depending on the data in the `tt_content` table,
 the data can be passed to the :ref:`cobj-fluidtemplate`.
@@ -209,79 +209,9 @@ saved by the richtext editor:
 
    <div>{data.bodytext -> f:format.html()}</div>
 
-
-.. _ConfigureCE-Preview:
-
-4. Optional: Configure Custom Backend Preview
-=============================================
-
-If you want to generate a special preview in the backend :guilabel:`Web > Page` module, you can use a hook for this:
-
-.. code-block:: php
-
-   // Register for hook to show preview of tt_content element of CType="yourextensionkey_newcontentelement" in page module
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['yourextensionkey_newcontentelement'] =
-      \Vendor\YourExtensionKey\Hooks\PageLayoutView\NewContentElementPreviewRenderer::class;
-
-According to the used namespace, a new file :file:`Classes/Hooks/PageLayoutView/NewContentElementPreviewRenderer.php`
-has to be created with the following content:
-
-.. code-block:: php
-
-   <?php
-   namespace Vendor\YourExtensionKey\Hooks\PageLayoutView;
-
-   /*
-    * This file is part of the TYPO3 CMS project.
-    *
-    * It is free software; you can redistribute it and/or modify it under
-    * the terms of the GNU General Public License, either version 2
-    * of the License, or any later version.
-    *
-    * For the full copyright and license information, please read the
-    * LICENSE.txt file that was distributed with this source code.
-    *
-    * The TYPO3 project - inspiring people to share!
-    */
-
-   use TYPO3\CMS\Backend\View\PageLayoutView;
-   use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
-
-   /**
-    * Contains a preview rendering for the page module of CType="yourextensionkey_newcontentelement"
-    */
-   class NewContentElementPreviewRenderer implements PageLayoutViewDrawItemHookInterface
-   {
-
-       /**
-        * Preprocesses the preview rendering of a content element of type "My new content element"
-        *
-        * @param \TYPO3\CMS\Backend\View\PageLayoutView $parentObject Calling parent object
-        * @param bool $drawItem Whether to draw the item using the default functionality
-        * @param string $headerContent Header content
-        * @param string $itemContent Item content
-        * @param array $row Record row of tt_content
-        *
-        * @return void
-        */
-       public function preProcess(
-           PageLayoutView &$parentObject,
-           &$drawItem,
-           &$headerContent,
-           &$itemContent,
-           array &$row
-       ) {
-           if ($row['CType'] === 'yourextensionkey_newcontentelement') {
-               $itemContent .= '<p>We can change our preview here!</p>';
-
-               $drawItem = false;
-           }
-       }
-   }
-
 .. _ConfigureCE-Extend-tt_content:
 
-5. Optional: Extend tt_content
+4. Optional: Extend tt_content
 ==============================
 
 .. todo::
@@ -290,7 +220,7 @@ has to be created with the following content:
 
 .. _ConfigureCE-DataProcessors:
 
-6. Optional: Use Data Processors
+5. Optional: Use Data Processors
 ================================
 
 Data processors can be used for some data manipulation or other actions you
@@ -370,7 +300,7 @@ The file :file:`NewContentElementProcessor.php` could look like this:
    }
 
 
-To use the variable `variableName` defined in :ref:`ConfigureCE-Data-Processor`
+To use the variable `variableName` defined in :ref:`ConfigureCE-DataProcessors`
 as h1 headline, you can use the following markup:
 
 .. code-block:: html

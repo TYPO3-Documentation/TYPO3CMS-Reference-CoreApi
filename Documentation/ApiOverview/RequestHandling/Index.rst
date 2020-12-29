@@ -1,11 +1,13 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
 .. highlight:: php
-
+.. index:: 
+   Request handling
+   PSR-15
+   Request handling; PSR-15
 .. _request-handling:
 
 ==============================
-Request Handling (Middlewares)
+Request handling (Middlewares)
 ==============================
 
 TYPO3 CMS has implemented `PSR-15`_ for handling incoming HTTP requests. The
@@ -34,14 +36,14 @@ TYPO3 implementation
 
 TYPO3 has implemented the PSR-15 approach in the following way:
 
-.. figure:: flow-of-middleware-execution.svg
+.. figure:: Files/FlowOfMiddlewareExecution.svg
    :align: center
 
    Figure 1-1: Application flow
 
 .. rst-class:: bignums
 
-#. TYPO3 will create a PSR-7 request.
+#. TYPO3 will create a :ref:`typo3-request`.
 
 #. TYPO3 will collect and sort all configured PSR-15 middlewares.
 
@@ -55,6 +57,8 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 
 #. This response is passed back to the execution flow.
 
+
+.. index:: Request handling; Middleware
 .. _request-handling-middlewares:
 
 Middlewares
@@ -106,6 +110,8 @@ Middleware examples
 
 The following list shows typical use cases for middlewares.
 
+
+.. index:: Request handling; Custom response
 .. _request-handling-returning-custom-response:
 
 Returning a custom response
@@ -132,6 +138,8 @@ called, and its response is returned instead.
        return $handler->handle($request);
    }
 
+
+.. index:: Request handling; Enriched request
 .. _request-handling-enriching-request:
 
 Enriching the request
@@ -157,6 +165,8 @@ calling the next request handler with the enhanced request.
        return $handler->handle($request);
    }
 
+
+.. index:: Request handling; Enriched response
 .. _request-handling-enriching-response:
 
 Enriching the response
@@ -186,6 +196,7 @@ response, which can be enriched before it gets returned.
        return $response;
    }
 
+.. index:: Request handling; Configuration
 .. _request-handling-configuring-middlewares:
 
 Configuring middlewares
@@ -255,10 +266,13 @@ disabled
 
    Allows to disable specific middlewares.
 
+
+.. index:: Request handling; Ordering
+
 Override ordering of middlewares
 ================================
 
-To change the ordering of middlewares shipped by the core an extension can override the registration in
+To change the ordering of middlewares shipped by the Core an extension can override the registration in
 :file:`Configuration/RequestMiddlewares.php`::
 
    return [
@@ -300,6 +314,152 @@ identifier. This will circumvent the risk of circularity::
    Always check the integrity of the middleware stack after changing the default ordering.
    This can be done in the configuration module that comes with EXT:lowlevel.
 
+.. _request-handling-psr-17:
+
+Creating new request / response objects
+=======================================
+
+PSR-17_ HTTP Factory interfaces are provided by `psr/http-factory` and should be used as
+dependencies for PSR-15_ request handlers or services that need to create PSR-7_ message objects.
+
+It is discouraged to explicitly create PSR-7_ instances of classes from the :php:`\TYPO3\CMS\Core\Http`
+namespace (they are not public APIs). Instead, use type declarations against PSR-17_ HTTP Message Factory
+interfaces and dependency injection.
+
+Example
+-------
+
+A middleware that needs to send a JSON response when a certain condition is met, uses the
+PSR-17_ response factory interface (the concrete TYPO3 implementation is injected as a constructor
+dependency) to create a new PSR-7_ response object:
+
+.. code-block:: php
+
+    use Psr\Http\Message\ResponseFactoryInterface;
+    use Psr\Http\Message\ResponseInterface;
+    use Psr\Http\Message\ServerRequestInterface;
+    use Psr\Http\Server\MiddlewareInterface;
+    use Psr\Http\Server\RequestHandlerInterface;
+
+    class StatusCheckMiddleware implements MiddlewareInterface
+    {
+        /** @var ResponseFactoryInterface */
+        private $responseFactory;
+
+        public function __construct(ResponseFactoryInterface $responseFactory)
+        {
+            $this->responseFactory = $responseFactory;
+        }
+
+        public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
+        {
+            if ($request->getRequestTarget() === '/check') {
+                $data = ['status' => 'ok'];
+                $response = $this->responseFactory->createResponse()
+                    ->withHeader('Content-Type', 'application/json; charset=utf-8');
+                $response->getBody()->write(json_encode($data));
+                return $response;
+            }
+            return $handler->handle($request);
+        }
+    }
+
+
+.. index:: Request handling; Execution
+.. _request-handling-psr-18:
+
+Executing HTTP requests in middlewares
+======================================
+
+The PSR-18_ HTTP Client is intended to be used by PSR-15_ request handlers in order to perform HTTP
+requests based on PSR-7_ message objects without relying on a specific HTTP client implementation.
+
+PSR-18_ consists of a client interface and three exception interfaces:
+
+- :php:`\Psr\Http\Client\ClientInterface`
+- :php:`\Psr\Http\Client\ClientExceptionInterface`
+- :php:`\Psr\Http\Client\NetworkExceptionInterface`
+- :php:`\Psr\Http\Client\RequestExceptionInterface`
+
+Request handlers use dependency injection to retrieve the concrete implementation
+of the PSR-18_ HTTP client interface :php:`\Psr\Http\Client\ClientInterface`.
+
+The PSR-18_ HTTP Client interface is provided by `psr/http-client` and may be used as
+dependency for services in order to perform HTTP requests using PSR-7_ request objects.
+PSR-7_ request objects can be created with the :ref:`PSR-17 Request Factory interface<request-handling-psr-17>`.
+
+.. note::
+
+   This does not replace the currently available Guzzle wrapper
+   :php:`\TYPO3\CMS\Core\Http\RequestFactory->request()`, but is available as a more generic,
+   framework-agnostic alternative. The PSR-18 interface does not allow you to pass
+   request-specific guzzle options. But global options defined in :php:`$GLOBALS['TYPO3_CONF_VARS']['HTTP']`
+   are taken into account because GuzzleHTTP is used as the backend for this PSR-18 implementation.
+   The concrete implementation is internal and will be replaced by a native guzzle PSR-18
+   implementation once it is available.
+
+Example usage
+-------------
+
+A middleware might need to request an external service in order to transform the response
+into a new response. The PSR-18 HTTP client interface is used to perform the external
+HTTP request. The PSR-17 Request Factory Interface is used to create the HTTP request that
+the PSR-18 HTTP Client expects. The PSR-7 Response Factory is then used to create a new
+response to be returned to the user. All of these interface implementations are injected
+as constructor dependencies:
+
+.. code-block:: php
+
+    use Psr\Http\Client\ClientInterface;
+    use Psr\Http\Message\RequestFactoryInterface;
+    use Psr\Http\Message\ResponseFactoryInterface;
+    use Psr\Http\Message\ResponseInterface;
+    use Psr\Http\Message\ServerRequestInterface;
+    use Psr\Http\Server\MiddlewareInterface;
+    use Psr\Http\Server\RequestHandlerInterface;
+
+    class ExampleMiddleware implements MiddlewareInterface
+    {
+        /** @var ResponseFactory */
+        private $responseFactory;
+
+        /** @var RequestFactory */
+        private $requestFactory;
+
+        /** @var ClientInterface */
+        private $client;
+
+        public function __construct(
+            ResponseFactoryInterface $responseFactory,
+            RequestFactoryInterface $requestFactory,
+            ClientInterface $client
+        ) {
+            $this->responseFactory = $responseFactory;
+            $this->requestFactory = $requestFactory;
+            $this->client = $client;
+        }
+
+        public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
+        {
+            if ($request->getRequestTarget() === '/example') {
+                $req = $this->requestFactory->createRequest('GET', 'https://api.external.app/endpoint.json')
+                // Perform HTTP request
+                $res = $this->client->sendRequest($req);
+                // Process data
+                $data = [
+                    'content' => json_decode((string)$res->getBody());
+                ];
+                $response = $this->responseFactory->createResponse()
+                    ->withHeader('Content-Type', 'application/json; charset=utf-8');
+                $response->getBody()->write(json_encode($data));
+                return $response;
+            }
+            return $handler->handle($request);
+        }
+    }
+
+
+.. index:: Request handling; Debugging
 .. _request-handling-debugging:
 
 Debugging
@@ -314,5 +474,16 @@ within the "Configuration" module:
 
    Figure 1-2: TYPO3 configuration module listing configured middlewares.
 
+.. _PSR-18: https://www.php-fig.org/psr/psr-18/
+.. _PSR-17: https://www.php-fig.org/psr/psr-17/
 .. _PSR-15: https://www.php-fig.org/psr/psr-15/
 .. _PSR-7: https://www.php-fig.org/psr/psr-7/
+
+More Information
+================
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Typo3Request

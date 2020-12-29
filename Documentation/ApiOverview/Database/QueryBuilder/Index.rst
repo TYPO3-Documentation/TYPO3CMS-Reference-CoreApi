@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _database-query-builder:
 
@@ -31,15 +31,16 @@ don't have to deal with anything not mentioned here.
 
 The `QueryBuilder` comes with a happy little list of small methods:
 
-   * Set type of query: :php:`->select()`, :php:`->count()`, :php:`->update()`, :php:`->insert()` and :php:`delete()`
+* Set type of query: :php:`->select()`, :php:`->count()`, :php:`->update()`, :php:`->insert()` and :php:`delete()`
 
-   * Prepare `WHERE` conditions
+* Prepare `WHERE` conditions
 
-   * Manipulate default `WHERE` restrictions added by TYPO3 for :php:`->select()`
+* Manipulate default `WHERE` restrictions added by TYPO3 for :php:`->select()`
 
-   * Add `LIMIT`, `GROUP BY` and other SQL stuff
+* Add `LIMIT`, `GROUP BY` and other SQL stuff
 
-   * :php:`->execute()` a query and retrieve a `Statement` (a query result) object
+* :php:`->execute()` a query and retrieve a `Statement` (a query result) object
+
 
 Most methods of the `QueryBuilder` return `$this` and can be chained::
 
@@ -235,19 +236,19 @@ Create an `UPDATE` query. Typical usage::
       ->execute();
 
 
-:php:`->update()` requires the table to update as first argument and a table alias as optional second argument.
+:php:`->update()` requires the table to update as first argument and a table alias (e.g. 't') as optional second argument.
 The table alias can then be used in :php:`->set()` and :php:`->where()` expressions::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'peter' WHERE `u`.`bodytext` = 'klaus'
+   // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'peter' WHERE `t`.`bodytext` = 'klaus'
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder
-      ->update('tt_content', 'u')
+      ->update('tt_content', 't')
       ->where(
-         $queryBuilder->expr()->eq('u.bodytext', $queryBuilder->createNamedParameter('klaus'))
+         $queryBuilder->expr()->eq('t.bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
-      ->set('u.bodytext', 'peter')
+      ->set('t.bodytext', 'peter')
       ->execute();
 
 :php:`->set()` requires a field name as first argument and automatically quotes it internally. The second mandatory
@@ -255,7 +256,7 @@ argument is the value a field should be set to, **the value is automatically tra
 of a prepared statement**. This way, :php:`->set()` key/value pairs are **automatically SQL injection safe by default**.
 
 If a field should be set to the value of another field from the row, the quoting needs to be turned off and
-:php:`->quoteIdentifier()` has to be used::
+:php:`->quoteIdentifier()` and :php:`false` have to be used::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -411,7 +412,7 @@ Remarks:
 
 * It is possible to feed the methods with strings directly, but that is discouraged and typically only used
   in rare cases where expression strings are created at a different place that can not be resolved easily. In
-  the core, those places are usually combined with :php:`QueryHelper::stripLogicalOperatorPrefix()` to remove leading
+  the Core, those places are usually combined with :php:`QueryHelper::stripLogicalOperatorPrefix()` to remove leading
   `AND` or `OR` parts. Using this gives an additional risk of missing or wrong quoting and is a potential security
   issue. Use with care if ever.
 
@@ -628,7 +629,7 @@ Remarks:
 * It's allowed to call :php:`->setMaxResults()` but not to call :php:`->setFirstResult()`.
 
 * It is possible to call :php:`->setFirstResult()` without calling :php:`setMaxResults()`: This equals to "Fetch everything, but
-  leave out the first n records". Internally, `LIMIT` will be added by `doctrine-dbal` and set to a very high value.
+  leave out the first n records". Internally, `LIMIT` will be added by Doctrine DBAL and set to a very high value.
 
 
 .. _database-query-builder-add:
@@ -683,11 +684,11 @@ Remarks:
 
 * The method is a simple way to see which restrictions the `RestrictionBuilder` added.
 
-* `doctrine-dbal` always creates prepared statements: Any value that is added via :php:`->createNamedParameter()` creates
+* Doctrine DBAL always creates prepared statements: Any value that is added via :php:`->createNamedParameter()` creates
   a placeholder that is later substituted when the real query is fired via :php:`->execute()`. :php:`->getSQL()` does not show
   those values, instead the placeholder names are displayed, usually with a string like `:dcValue1`. There is no
-  simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getParameters()` to see the 
-  array of parameters used to replace these placeholders within the query. In the frontend, the queries and parameters are shown 
+  simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getParameters()` to see the
+  array of parameters used to replace these placeholders within the query. In the frontend, the queries and parameters are shown
   in the admin panel.
 
 
@@ -710,7 +711,7 @@ Remarks:
 
 * The method is typically called directly before :php:`->execute()` to output the final values for the statement.
 
-* `doctrine-dbal` always creates prepared statements: Any value that added via :php:`->createNamedParameter()` creates
+* Doctrine DBAL always creates prepared statements: Any value that added via :php:`->createNamedParameter()` creates
   a placeholder that is later substituted when the real query is fired via :php:`->execute()`. :php:`->getparameters()` does not show
   the statement or those placeholders, instead the values are displayed, usually within an array using keys like `:dcValue1`. There is no simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getSQL()` to see the string with placeholders used as a prepared statement.
 

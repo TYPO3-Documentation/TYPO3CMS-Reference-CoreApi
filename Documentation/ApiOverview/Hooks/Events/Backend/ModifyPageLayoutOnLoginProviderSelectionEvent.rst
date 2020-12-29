@@ -1,40 +1,36 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; ModifyPageLayoutOnLoginProviderSelectionEvent
 .. _ModifyPageLayoutOnLoginProviderSelectionEvent:
-
 
 =============================================
 ModifyPageLayoutOnLoginProviderSelectionEvent
 =============================================
 
-Allows to modify variables for the view depending 
+Allows to modify variables for the view depending
 on a special login provider set in the controller.
 
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getController()
-   :Description:
-         Returns the current controller instance.
-   :ReturnType:
-         \TYPO3\CMS\Backend\Controller\LoginController
+.. rst-class:: dl-parameters
 
+getController()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Backend\Controller\LoginController`
+   :sep:`|`
 
- - :Method:
-         getView()
-   :Description:
-         Returns the current view object.
-   :ReturnType:
-         \TYPO3\CMS\Fluid\View\StandaloneView
+   |nbsp|
 
+getView()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Fluid\View\StandaloneView`
+   :sep:`|`
 
- - :Method:
-         getPageRenderer()
-   :Description:
-         Returns an instance of the PageRenderer.
-   :ReturnType:
-         \TYPO3\CMS\Core\Page\PageRenderer
+   |nbsp|
 
+getPageRenderer()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Page\PageRenderer`
+   :sep:`|`
+
+   |nbsp|

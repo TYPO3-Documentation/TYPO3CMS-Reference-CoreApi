@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; AfterFileMetaDataDeletedEvent
 .. _AfterFileMetaDataDeletedEvent:
 
 
@@ -14,11 +13,15 @@ added previously.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getFileUid()
-   :Description:
-         Get the file uid of the current file.
-   :ReturnType:
-         int
+
+.. rst-class:: dl-parameters
+
+getFileUid()
+   :sep:`|` :aspect:`ReturnType:` int
+   :sep:`|`
+
+   |nbsp|
 

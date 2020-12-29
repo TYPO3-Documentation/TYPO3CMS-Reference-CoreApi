@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _database-expression-builder:
 
@@ -12,7 +12,7 @@ for `WHERE` and `JOIN ON` conditions, functions like :php:`->min()` may also be 
 
 It takes care of building query conditions while ensuring table and column names
 are quoted within the created expressions / SQL fragments. It is a facade to
-the actual `doctrine-dbal` `ExpressionBuilder`.
+the actual Doctrine DBAL `ExpressionBuilder`.
 
 The `ExpressionBuilder` is used within the context of the :ref:`QueryBuilder <database-query-builder>`
 to ensure queries are being build based on the requirements of the database platform in use.

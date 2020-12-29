@@ -1,6 +1,5 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Internationalization; Pootle
 .. _xliff-translating-server-pootle:
 
 =========================

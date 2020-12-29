@@ -1,12 +1,14 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   Upgrade wizards
+   Update wizards
+   see: Update wizards; Upgrade wizards
 .. preferably use label "upgrade-wizards"
-
 .. _update-wizards:
 .. _upgrade-wizards:
 
 ===============
-Upgrade Wizards
+Upgrade wizards
 ===============
 
 .. versionadded:: 9.4
@@ -22,7 +24,7 @@ wizards.
 The API for upgrade wizards comes with the following interfaces:
 
 * (required) :ref:`UpgradeWizardInterface <upgrade-wizard-interface>`: Main interface for UpgradeWizards. All
-  upgrade wizards using the new API MUST implement this interface.
+  upgrade wizards using the API MUST implement this interface.
 * (optional) :ref:`RepeatableInterface <repeatable-interface>`: Semantic interface to denote wizards that can be repeated
 * (optional) :ref:`ChattyInterface <uprade-wizards-chatty-interface>`:  Interface for wizards generating output
 * (optional) :php:`ConfirmableInferface`: Interface for wizards that need user confirmation
@@ -32,4 +34,3 @@ The API for upgrade wizards comes with the following interfaces:
 
    Concept
    Creation
-   ExtUpdateFile

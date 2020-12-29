@@ -1,11 +1,11 @@
-.. include:: ../../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: DataHandler; Usage
 .. _Using-DataHandler:
 .. _using-tcemain:
 
-============================
-Using DataHandler in Scripts
-============================
+================================
+Using the DataHandler in scripts
+================================
 
 It's really easy to use the class :php:`\TYPO3\CMS\Core\DataHandling\DataHandler` in your own
 scripts. All you need to do is include the class, build a $data/$cmd
@@ -15,7 +15,10 @@ array you want to pass to the class and call a few methods.
    Mind that these scripts have to be run in the
    **backend scope**! There must be a global :php:`$GLOBALS['BE_USER']` object.
 
-Using the DataHandler in a Symfony Command
+
+.. index:: pair: DataHandler; Symfony
+
+Using the DataHandler in a Symfony command
 ==========================================
 
 It is possible to use the DataHandler for scripts started from the command line or by
@@ -24,12 +27,13 @@ the scheduler as well. You can do this by creating a :ref:`Symfony Command <cli-
 These scripts use the `_cli_` backend user. Before using the DataHandler in your :php:`execute()`
 function, you should make sure that this user is initialized like this::
 
-   Bootstrap::initializeBackendAuthentication();
+   \TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication();
 
 Look in the `typo3/cms-lowlevel <https://github.com/TYPO3/TYPO3.CMS/tree/master/typo3/sysext/lowlevel>`__
 system extension for more examples.
 
 
+.. index:: pair: DataHandler; PHP
 .. _dataHandler-examples:
 .. _tcemain-examples:
 
@@ -43,7 +47,7 @@ syntax for these two arrays is explained in the :ref:`previous chapter <tce-data
 
 .. _tcemain-submit-data:
 
-Submitting Data
+Submitting data
 ---------------
 
 This is the most basic example of how to submit data into the
@@ -63,7 +67,7 @@ database.
 
 .. _tcemain-execute-commands:
 
-Executing Commands
+Executing commands
 ------------------
 
 The most basic way of executing commands:
@@ -82,7 +86,7 @@ The most basic way of executing commands:
 
 .. _tcemain-clear-cache:
 
-Clearing Cache
+Clearing cache
 --------------
 
 In this example the cache clearing API is used. No data is submitted, no
@@ -107,7 +111,7 @@ for more details about available caches and groups.
 
 .. _tcemain-complex-submission:
 
-Complex Data Submission
+Complex data submission
 -----------------------
 
 Imagine the $data array something like this:
@@ -129,19 +133,18 @@ Imagine the $data array something like this:
    );
 
 This aims to create two new pages in the page with uid "456". In the
-follow code this is submitted to the database. Notice how line 3
-reverses the order of the array. This is done because otherwise "page
-1" is created first, then "page 2" in the *same* PID meaning that
-"page 2" will end up above "page 1" in the order. Reversing the array
-will create "page 2" first and then "page 1" so the "expected order"
-is preserved.
+following code this is submitted to the database. Notice the reversing of
+the order of the array: This is done because otherwise "page 1" is created
+first, then "page 2" in the *same* PID meaning that "page 2" will end up
+above "page 1" in the order. Reversing the array will create "page 2" first and
+then "page 1" so the "expected order" is preserved.
 
 To insert a record after a given record, set the other record's negative
 `uid` as `pid` in the new record you're setting as data.
 
-Apart from this line 5 will send a "signal" that the page tree should
+Apart from this a "signal" will be send that the page tree should
 be updated at the earliest occasion possible. Finally, the cache for
-all pages is cleared in line 6.
+all pages is cleared.
 
 .. code-block:: php
    :linenos:
@@ -156,16 +159,16 @@ all pages is cleared in line 6.
 
 .. _tcemain-data-command-user:
 
-Both Data and Commands Executed With Alternative User Object
+Both data and commands executed with alternative user object
 ------------------------------------------------------------
 
 In this case it is shown how you can use the same object instance to
 submit both data and execute commands if you like. The order will
-depend on the order of line 4 and 5.
+depend on the order in the code.
 
-In line 2 the :php:`start()` method is called, but this time with the third
-possible argument which is an alternative :php:`$GLOBALS['BE_USER']` object. This allows
-you to force another backend user account to create stuff in the
+First the :php:`start()` method is called, but this time with the third
+possible argument which is an alternative :php:`$GLOBALS['BE_USER']` object.
+This allows you to force another backend user account to create stuff in the
 database. This may be useful in certain special cases. Normally you
 should not set this argument since you want TCE to use the global
 :php:`$GLOBALS['BE_USER']`.
@@ -178,10 +181,12 @@ should not set this argument since you want TCE to use the global
    $dataHandler->process_datamap();
    $dataHandler->process_cmdmap();
 
+
+.. index:: pair: DataHandler; Error handling
 .. _tcemain-error-handling:
 
 Error handling
-============================
+==============
 
 The data handler has a property `errorLog` as an `array`.
 In this property, the data handler collects all errors.

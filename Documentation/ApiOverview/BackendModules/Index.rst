@@ -1,10 +1,9 @@
-.. include:: ../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: ! Backend modules
 .. _backend-modules:
 
 ===============
-Backend Modules
+Backend modules
 ===============
 
 TYPO3 CMS offers a number of ways to attach custom functionality to the

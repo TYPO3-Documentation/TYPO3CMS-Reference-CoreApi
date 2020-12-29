@@ -1,6 +1,5 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; BeforeRecordIsAnalyzedEvent
 .. _BeforeRecordIsAnalyzedEvent:
 
 
@@ -14,59 +13,50 @@ the record.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getTableName()
-   :Description:
-         Returns the table name of the currently analyzed record.
-   :ReturnType:
-         string
+.. rst-class:: dl-parameters
 
+getTableName()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         getRecord()
-   :Description:
-         Returns the current record array.
-   :ReturnType:
-         array
+   |nbsp|
 
+getRecord()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         setRecord(array $record)
-   :Description:
-         Set / Overwrite the current record.
-   :ReturnType:
-         void
+   Returns the current record array.
 
+setRecord(array $record)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         getFields()
-   :Description:
-         Returns the current fields.
-   :ReturnType:
-         array
+   |nbsp|
 
+getFields()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         getResults()
-   :Description:
-         Returns the results of the current analysis.
-   :ReturnType:
-         array
+   Returns the current fields.
 
+getResults()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         setResults(array $results)
-   :Description:
-         Set results of current analysis.
-   :ReturnType:
-         void
+   |nbsp|
 
+setResults(array $results)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         getLinkAnalyzer()
-   :Description:
-         Returns the current link analyzer instance
-   :ReturnType:
-         \TYPO3\CMS\Linkvalidator\LinkAnalyzer
+   Set results of current analysis.
+
+getLinkAnalyzer()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Linkvalidator\LinkAnalyzer`
+   :sep:`|`
+
+   |nbsp|
 

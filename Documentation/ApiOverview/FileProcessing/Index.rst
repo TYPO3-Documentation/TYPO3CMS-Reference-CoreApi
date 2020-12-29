@@ -1,16 +1,18 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: File processors
 .. _file_processing:
 
-Custom File Processors
+======================
+Custom file processors
 ======================
 
 For custom needs in terms of file processing, registration of custom file processors is available.
 
+
 .. _file_processing-create:
 
 Create a new processor class
-----------------------------
+============================
 
 The file must implement the :php:`\TYPO3\CMS\Core\Resource\Processing\ProcessorInterface` and two required methods.
 
@@ -20,10 +22,11 @@ The file must implement the :php:`\TYPO3\CMS\Core\Resource\Processing\ProcessorI
 :php:`processTask()`
    Will then do whatever needs to be done to process the given file.
 
+
 .. _file_processing-register:
 
 Register the file processor
----------------------------
+============================
 
 To register a new processor, add the following code to :file:`ext_localconf.php`
 

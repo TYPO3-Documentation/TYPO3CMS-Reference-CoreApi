@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; AfterFolderCopiedEvent
 .. _AfterFolderCopiedEvent:
 
 
@@ -14,27 +13,27 @@ This event is fired after a folder was copied to the Resource Storage / Driver.
 API
 ---
 
-
- - :Method:
-         getFolder()
-   :Description:
-         Returns the folder about to be copied.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getTargetParentFolder()
-   :Description:
-         Returns the parent folder to be copied to.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. rst-class:: dl-parameters
 
+getFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
 
- - :Method:
-         getTargetFolder()
-   :Description:
-         Returns the target folder after copying.
-   :ReturnType:
-         ?\TYPO3\CMS\Core\Resource\Folder
+   |nbsp|
+
+getTargetParentFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
+
+getTargetFolder()
+   :sep:`|` :aspect:`ReturnType:` `?\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
 

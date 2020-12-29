@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _csm:
@@ -59,8 +59,8 @@ They must implement :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderI
 
 There are two item providers which are always available (without aforementioned registration):
 
-  - :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\PageProvider`
-  - :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\RecordProvider`
+- :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\PageProvider`
+- :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\RecordProvider`
 
 Gathering items
 ~~~~~~~~~~~~~~~
@@ -133,15 +133,15 @@ API usage in the Core
 
 Several TYPO3 Core modules are already using this API for adding or modifying items. See following places for a reference:
 
- - EXT:beuser module adds an item with a link to the Access (page permissions) module for pages context menu. See item provider :php:`\TYPO3\CMS\Beuser\ContextMenu\ItemProvider` and requireJS module :js:`TYPO3/CMS/Beuser/ContextMenuActions`
- - EXT:impexp module adds import and export options for pages, content elements and other records. See item provider :php:`\TYPO3\CMS\Impexp\ContextMenu\ItemProvider` and requireJS module :js:`TYPO3/CMS/Impexp/ContextMenuActions`
- - EXT:filelist module provides several item providers for files, folders, filemounts, filestorage, and drag-drop context menu for the folder tree. See following item providers: :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileDragProvider`, :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileProvider`,
-   :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileStorageProvider`, :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FilemountsProvider`
-   and requireJS module :js:`TYPO3/CMS/Filelist/ContextMenuActions`
+- EXT:beuser module adds an item with a link to the Access (page permissions) module for pages context menu. See item provider :php:`\TYPO3\CMS\Beuser\ContextMenu\ItemProvider` and requireJS module :js:`TYPO3/CMS/Beuser/ContextMenuActions`
+- EXT:impexp module adds import and export options for pages, content elements and other records. See item provider :php:`\TYPO3\CMS\Impexp\ContextMenu\ItemProvider` and requireJS module :js:`TYPO3/CMS/Impexp/ContextMenuActions`
+- EXT:filelist module provides several item providers for files, folders, filemounts, filestorage, and drag-drop context menu for the folder tree. See following item providers: :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileDragProvider`, :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileProvider`,
+  :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileStorageProvider`, :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FilemountsProvider`
+  and requireJS module :js:`TYPO3/CMS/Filelist/ContextMenuActions`
 
 
 
-Adding Context Menu to Elements in Your Backend Module
+Adding context menu to elements in your backend module
 ======================================================
 
 Enabling context menu in your own backend modules is quite straightforward.
@@ -222,12 +222,12 @@ First you need to add an item provider registration to the `ext_localconf.php` o
 .. code-block:: php
 
    <?php
-   defined('TYPO3_MODE') or die();
-   if (TYPO3_MODE === 'BE') {
-       // You should use current timestamp (not this very value) or leave it empty
-       $GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders'][1488274371] =
-           \Vendor\ExtensionKey\ContextMenu\HelloWorldItemProvider::class;
-   }
+   defined('TYPO3') or die();
+
+    // You should use current timestamp (not this very value) or leave it empty
+    $GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders'][1488274371] =
+        \Vendor\ExtensionKey\ContextMenu\HelloWorldItemProvider::class;
+
 
 
 Step 2: Implementation of the Item Provider Class

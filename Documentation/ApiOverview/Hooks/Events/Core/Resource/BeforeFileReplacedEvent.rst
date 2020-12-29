@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; BeforeFileReplacedEvent
 .. _BeforeFileReplacedEvent:
 
 
@@ -14,19 +13,21 @@ Custom listeners can check for file integrity or analyze the content of the file
 API
 ---
 
-
- - :Method:
-         getFile()
-   :Description:
-         Returns the file object.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\FileInterface
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getLocalFilePath()
-   :Description:
-         Returns the path to the local file (with which the file object will be replaced).
-   :ReturnType:
-         string
+.. rst-class:: dl-parameters
+
+getFile()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\FileInterface`
+   :sep:`|`
+
+   |nbsp|
+
+getLocalFilePath()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
 

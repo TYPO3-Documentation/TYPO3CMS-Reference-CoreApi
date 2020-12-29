@@ -1,51 +1,51 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Internationalization; Custom translation servers
 .. _custom-translation-server:
 
 ==========================
-Custom Translation Servers
+Custom translation servers
 ==========================
 
 With the usage of XLIFF and the freely available `Pootle <http://pootle.translatehouse.org/>`__
 translation server, companies and individuals may easily set up a custom translation server
 for their extensions.
 
-There is a signal that can be caught to change the translation server URL to use. The first
-step is to register one's code for handling the signal. Such code would be placed in an
-extension's :file:`ext_localconf.php` file:
+There is an event that can be caught to change the translation server URL to use. The first
+step is to register one's listener for the event. Such code would be placed in an
+extension's :file:`services.yml` file:
 
 .. code-block:: php
 
-   $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
-   $signalSlotDispatcher->connect(
-      version_compare(TYPO3_version, '7.0', '<')
-         ? 'TYPO3\\CMS\\Lang\\Service\\UpdateTranslationService'
-         : 'TYPO3\\CMS\\Lang\\Service\\TranslationService',
-      'postProcessMirrorUrl',
-      'Company\\Extension\Slots\\CustomMirror',
-      'postProcessMirrorUrl'
-   );
+   services:
+     Company\Extensions\Listener\CustomMirror:
+       tags:
+         - name: event.listener
+           identifier: 'ext-extensions/customMirror'
+           method: 'postProcessMirrorUrl'
+           event: \TYPO3\CMS\Install\Service\Event\ModifyLanguagePackRemoteBaseUrlEvent
 
-The class (slot) which receives the signal (:file:`EXT:myext/Classes/Slots/CustomMirror.php`)
-could look something like:
+
+The class (listener) which receives the event
+(:file:`EXT:extensions/Classes/Listeners/CustomMirror.php`) could look something like:
 
 .. code-block:: php
 
    <?php
-   namespace Company\Extensions\Slots;
+   namespace Company\Extensions\Listener;
+   use \TYPO3\CMS\Install\Service\Event\ModifyLanguagePackRemoteBaseUrlEvent;
    class CustomMirror {
-      static protected $extKey = 'myext';
+      static protected $extensionKey = 'myext';
 
-      public function postProcessMirrorUrl($extensionKey, &$mirrorUrl) {
-         if ($extensionKey === self::$extKey) {
+      public function postProcessMirrorUrl(ModifyLanguagePackRemoteBaseUrlEvent $event): void
+      {
+         if ($event->getPackageKey() === self::$extensionKey) {
             $mirrorUrl = 'http://mycompany.tld/typo3-packages/';
+            $event->setBaseUrl($mirrorUrl);
          }
       }
    }
 
-Note that the mirror URL is passed as a reference, so that it can be
-modified. In the above example, the URL is changed only for a given
+In the above example, the URL is changed only for a given
 extension, but of course it could be changed on a more general basis.
 
 On the custom translation server side, the structure needs to be:

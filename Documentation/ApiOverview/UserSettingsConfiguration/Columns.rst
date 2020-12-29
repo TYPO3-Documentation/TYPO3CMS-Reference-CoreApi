@@ -1,6 +1,5 @@
-.. include:: ../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: User settings; Columns
 .. _user-settings-columns:
 
 ===================
@@ -110,21 +109,30 @@ settings. This array allows the following configurations:
 
 
  - :Key:
-         onClick
+         clickData.eventName
    :Data type:
          string
    :Description:
-         JavaScript code added to a button's onClick attribute.
-         Only used by type=button. May contain :code:`sprintf()`
-         markers which will be replaced by the strings provided
-         in property :code:`onClickLabels`.
+         JavaScript event triggered on click.
 
 
  - :Key:
-         onClickLabels
+         confirm
    :Data type:
-         array
+         boolean
    :Description:
-         List of strings used to replace the markers defined in
-         :code:`onClick`. Each string should point to a localized
-         label using the :code:`LLL:` syntax.
+         If true, JavaScript confirmation dialog is displayed.
+
+ - :Key:
+         confirmData.eventName
+   :Data type:
+         string
+   :Description:
+         JavaScript event triggered on confirmation.
+
+ - :Key:
+         confirmData.message
+   :Data type:
+         string
+   :Description:
+         Confirmation message.

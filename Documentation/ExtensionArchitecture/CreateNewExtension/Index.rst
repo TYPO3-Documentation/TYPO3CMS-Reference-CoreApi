@@ -1,10 +1,10 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _extension-create-new:
 
 ========================
-Creating a new Extension
+Creating a new extension
 ========================
 
 This chapter is not a tutorial about how to create an Extension.
@@ -14,9 +14,12 @@ to remember.
 First you have to :ref:`register an extension key <extension-key>`.
 This is the unique identifier for your extension.
 
+.. index::
+   Extension development; Builder
+   Extension development; Kickstarter
 .. _extension-builder:
 
-Kickstarting the Extension
+Kickstarting the extension
 ==========================
 
 Although it is possible to write every single line of an extension from

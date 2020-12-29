@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; AfterFileMetaDataCreatedEvent
 .. _AfterFileMetaDataCreatedEvent:
 
 
@@ -8,41 +7,39 @@
 AfterFileMetaDataCreatedEvent
 =============================
 
-This event is fired once metadata of a file was added to the database, 
+This event is fired once metadata of a file was added to the database,
 so it can be enriched with more information.
 
 API
 ---
 
-
- - :Method:
-         getFileUid()
-   :Description:
-         Get the file uid of the current file.
-   :ReturnType:
-         int
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getMetaDataUid()
-   :Description:
-         Get the uid of the currently loaded meta data.
-   :ReturnType:
-         int
+.. rst-class:: dl-parameters
 
+getFileUid()
+   :sep:`|` :aspect:`ReturnType:` int
+   :sep:`|`
 
- - :Method:
-         getRecord()
-   :Description:
-         Get the meta data record.
-   :ReturnType:
-         array
+   |nbsp|
 
+getMetaDataUid()
+   :sep:`|` :aspect:`ReturnType:` int
+   :sep:`|`
 
- - :Method:
-         setRecord()
-   :Description:
-         Set / overwrite the meta data record.
-   :ReturnType:
-         array
+   |nbsp|
+
+getRecord()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
+
+setRecord()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
 

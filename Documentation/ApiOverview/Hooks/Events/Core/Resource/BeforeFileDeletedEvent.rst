@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; BeforeFileDeletedEvent
 .. _BeforeFileDeletedEvent:
 
 
@@ -15,11 +14,15 @@ Event listeners can clean up third-party references with this event.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getFile()
-   :Description:
-         Returns the file object.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\FileInterface
+
+.. rst-class:: dl-parameters
+
+getFile()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\FileInterface`
+   :sep:`|`
+
+   |nbsp|
 

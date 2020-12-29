@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; AfterFolderMovedEvent
 .. _AfterFolderMovedEvent:
 
 
@@ -14,27 +13,27 @@ Custom references can be updated via listeners of this event.
 API
 ---
 
-
- - :Method:
-         getFolder()
-   :Description:
-         Returns the folder to be moved.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getTargetParentFolder()
-   :Description:
-         Returns the folder where the moved folder will be stored.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. rst-class:: dl-parameters
 
+getFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
 
- - :Method:
-         getTargetFolder()
-   :Description:
-         Returns the target folder of the folder to be moved.
-   :ReturnType:
-         ?\TYPO3\CMS\Core\Resource\Folder
+   |nbsp|
+
+getTargetParentFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
+
+getTargetFolder()
+   :sep:`|` :aspect:`ReturnType:` `?\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
 

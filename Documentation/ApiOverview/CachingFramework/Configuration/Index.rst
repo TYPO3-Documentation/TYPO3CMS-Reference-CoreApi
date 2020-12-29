@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -34,11 +34,11 @@ the cache system falls back to the default backend and default frontend settings
        $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] = [];
    }
 
-Extensions like **extbase** define default caches this way, giving administrators full freedom for specific and
+Extensions like **Extbase** define default caches this way, giving administrators full freedom for specific and
 possibly quicker setups (eg. a memory driven cache for the Extbase reflection cache).
 
 Administrators can overwrite specific settings of the cache configuration in :file:`LocalConfiguration.php`,
-example configuration to switch **cache_pages** to the **redis** backend using database 3:
+example configuration to switch **pages** to the **redis** backend using database 3:
 
 .. code-block:: php
 
@@ -46,7 +46,7 @@ example configuration to switch **cache_pages** to the **redis** backend using d
        'SYS' => [
            'caching' => [
                'cacheConfigurations' => [
-                   'cache_pages' => [
+                   'pages' => [
                        'backend' => \TYPO3\CMS\Core\Cache\Backend\RedisBackend::class,
                        'options' => [
                            'database' => 3,
@@ -74,9 +74,9 @@ This can be achieved by using the **null** backend (see below) as storage backen
 
    Do not use this in production, it will strongly slow down the system!
 
-Example entry to switch the *runtime* cache to use the **null** backend:
+Example entry to switch the *extbase_reflection* cache to use the **null** backend:
 
 .. code-block:: php
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']
-      ['cache_runtime']['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
+      ['extbase_reflection']['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;

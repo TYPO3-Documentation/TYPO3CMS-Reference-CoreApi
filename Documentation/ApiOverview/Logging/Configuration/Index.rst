@@ -1,10 +1,9 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: pair: Logging; Configuration
 .. _logging-configuration:
 
 ===================================
-Configuration of the Logging System
+Configuration of the logging system
 ===================================
 
 Instantiation of Loggers is configuration-free, as the LogManager automatically applies its configuration.
@@ -29,9 +28,10 @@ searched for in :code:`$GLOBALS['TYPO3_CONF_VARS']['LOG']['tx']` or :code:`$GLOB
 from Core classes (as extension class names start with :code:`tx` or :code:`Tx`).
 
 
+.. index:: Logging; Writer configuration
 .. _logging-configuration-writer:
 
-Writer Configuration
+Writer configuration
 ====================
 
 The Log Writer configuration is read from the subkey :code:`writerConfiguration` of the configuration array:
@@ -53,12 +53,12 @@ The above configuration applies to **all** log entries of level "ERROR" or above
 
 .. important::
 
-    Since TYPO3 v9 the default folder for log files is `typo3temp/var/log`. In v8 it was `typo3temp/var/logs`
-    and older versions used `typo3temp/logs`.
-
-.. important::
-
-    Since TYPO3 v9 it is possible (and a good practice) to store temporary files (`typo3temp/var`) outside the document root).
+    Since TYPO3 v9 the default folder for log files is :file:`<var-path>/log`.
+    The `<var-path>` in a non-Composer installation (Classic Mode) is :file:`typo3temp/var/`,
+    in a Composer based installation it is :file:`<project-root>/var/` instead, unless configured otherwise.
+    See class :php:`\TYPO3\CMS\Core\Core\Environment` for defaults in both cases.
+    Since TYPO3 v9 it is possible (and a good practice) to store temporary files
+    outside the document root.
 
 To apply a special configuration for the controllers of the *examples* extension,
 use the following configuration:
@@ -106,9 +106,10 @@ For a list of writers shipped with the TYPO3 Core see the section about
 :ref:`logging-writers`.
 
 
+.. index:: Logging; Processor configuration
 .. _logging-configuration-processor:
 
-Processor Configuration
+Processor configuration
 =======================
 
 Similar to the writer configuration, log record processors can be configured on a per-class and per-namespace

@@ -1,4 +1,4 @@
-.. include:: Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _start:
 .. _api-overview:
@@ -27,7 +27,7 @@ TYPO3 Explained
       en
 
 :Description:
-      Main TYPO3 core documentation
+      Main TYPO3 Core documentation
 
 :Keywords:
       forEditors, forBeginners, forDevelopers, forAdmins, forAdvanced, security
@@ -90,6 +90,7 @@ address the task at hand.
    :hidden:
 
    Quicklinks
+   genindex
 
 .. toctree::
    :maxdepth: 1
@@ -107,6 +108,7 @@ address the task at hand.
    :maxdepth: 2
 
    ApiOverview/Ajax/Index
+   ApiOverview/Assets/Index
    ApiOverview/Authentication/Index
    ApiOverview/Autoloading/Index
    ApiOverview/AccessControl/Index
@@ -122,8 +124,10 @@ address the task at hand.
    ApiOverview/ContentElements/Index
    ApiOverview/Context/Index
    ApiOverview/ContextSensitiveHelp/Index
+   ApiOverview/CropVariants/Index
    ApiOverview/FileProcessing/Index
    ApiOverview/Database/Index
+   ApiOverview/Debugging/Index
    ApiOverview/DependencyInjection/Index
    ApiOverview/Deprecation/Index
    ApiOverview/Fal/Index
@@ -145,6 +149,7 @@ address the task at hand.
    ApiOverview/LockingApi/Index
    ApiOverview/Logging/Index
    ApiOverview/Mail/Index
+   ApiOverview/MountPoints/Index
    ApiOverview/Namespaces/Index
    ApiOverview/PageTypes/Index
    ApiOverview/Pagination/Index
@@ -161,8 +166,6 @@ address the task at hand.
    ApiOverview/CommandControllers/Index
    ApiOverview/SymfonyExpressionLanguage/Index
    ApiOverview/Categories/Index
-   ApiOverview/Collections/Index
-   ApiOverview/SystemLog/Index
    ApiOverview/SystemRegistry/Index
    ApiOverview/Typo3CoreEngine/Index
    Testing/Index
@@ -172,8 +175,6 @@ address the task at hand.
 
 .. toctree::
    :maxdepth: 1
-   :caption: meta
-
 
    Sitemap
    About

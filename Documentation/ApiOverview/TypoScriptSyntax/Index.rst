@@ -1,13 +1,12 @@
-.. include:: ../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: TypoScript; Syntax
 .. _typoscript-syntax-start:
 .. _typoscript-syntax-next-steps:
 .. _typoscript-syntax-about:
 
 
 =================
-TypoScript Syntax
+TypoScript syntax
 =================
 
 This chapter describes the syntax of TypoScript. The TypoScript syntax

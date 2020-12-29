@@ -1,8 +1,6 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; BeforeHistoryRollbackStartEvent
 .. _BeforeHistoryRollbackStartEvent:
-
 
 ===============================
 BeforeHistoryRollbackStartEvent
@@ -13,35 +11,32 @@ This event is fired before a history record rollback starts.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getRecordHistoryRollback()
-   :Description:
-         Returns the RecordHistoryRollback object of the current operation.
-   :ReturnType:
-         \TYPO3\CMS\Backend\History\RecordHistoryRollback
-  
+.. rst-class:: dl-parameters
 
- - :Method:
-         getRollbackFields()
-   :Description:
-         Returs list of fields to be rolled back.
-   :ReturnType:
-         string
-  
+getRecordHistoryRollback()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Backend\History\RecordHistoryRollback`
+   :sep:`|`
 
- - :Method:
-         getDiff()
-   :Description:
-         Returns the diff between the rollback data and the current version.
-   :ReturnType:
-         array
-  
+   |nbsp|
 
- - :Method:
-         getBackendUserAuthentication()
-   :Description:
-         Get the current BE User Authentication object.
-   :ReturnType:
-         \TYPO3\CMS\Core\Authentication\BackendUserAuthentication
-  
+getRollbackFields()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
+
+getDiff()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
+
+getBackendUserAuthentication()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
+   :sep:`|`
+
+   |nbsp|
+

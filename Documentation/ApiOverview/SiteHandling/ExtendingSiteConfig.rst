@@ -1,13 +1,15 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: Site handling; Extending
 .. _sitehandling-extendingSiteConfiguration:
 
 ============================
-Extending Site Configuration
+Extending site configuration
 ============================
 
 
-Adding Custom / Project Specific Options to Site Configuration
+.. index:: Site handling; Custom options
+
+Adding Custom / Project specific options to site configuration
 ==============================================================
 
 Site configuration is stored as yaml and provides per definition context independent configuration of
@@ -39,6 +41,8 @@ Access it via the API:
 
     $site->getConfiguration()['myProject']['recordStorage']
 
+
+.. index:: Site handling; Extending the Form
 
 Extending the Form / GUI
 ========================

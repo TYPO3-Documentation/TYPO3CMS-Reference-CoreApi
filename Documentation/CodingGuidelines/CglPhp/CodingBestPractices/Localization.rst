@@ -1,6 +1,5 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Coding guidelines; Localization
 .. _cgl-localization:
 
 ============
@@ -20,8 +19,8 @@ Here are some rules to respect when working with labels in :file:`locallang`
 files:
 
 * Always check the existing locallang files to see if a given localized
-  string already exists, in particular :file:`EXT:lang/locallang_common.xlf`
-  and :file:`EXT:lang/locallang_core.xlf`.
+  string already exists, in particular :file:`EXT:core/Resources/Private/Language/locallang_common.xlf`
+  and :file:`EXT:core/Resources/Private/Language/locallang_core.xlf`.
 
 * Localized strings should never be all uppercase. If uppercase is needed,
   then appropriate methods should be used to transform them to uppercase.

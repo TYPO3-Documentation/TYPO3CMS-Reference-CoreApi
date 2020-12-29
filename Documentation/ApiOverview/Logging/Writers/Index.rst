@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _logging-writers:
@@ -11,7 +11,7 @@ The purpose of a log writer is (usually) to save all log records into a persiste
 like a log file, a database table, or to a remote syslog server.
 
 Different log writers offer possibilities to log into different targets.
-Custom log writers can extend the functionality shipped with TYPO3 core.
+Custom log writers can extend the functionality shipped with TYPO3 Core .
 
 
 .. _logging-writers-builtin:
@@ -19,7 +19,7 @@ Custom log writers can extend the functionality shipped with TYPO3 core.
 Built-in Log Writers
 ====================
 
-This section describes the log writers shipped with the TYPO3 core.
+This section describes the log writers shipped with the TYPO3 Core .
 Some writers have options to allow customization of the particular writer.
 See the :ref:`Configuration <logging-configuration-writer>` section for how to use these options.
 
@@ -52,11 +52,11 @@ Example of a CREATE TABLE statement for logTable:
 .. code-block:: mysql
 
    #
-   # Table structure for table 'tx_myextname_log'
+   # Table structure for table 'tx_examples_log'
    #
    # The KEY on request_id is optional
    #
-   CREATE TABLE tx_myextname_log (
+   CREATE TABLE tx_examples_log (
            request_id varchar(13) DEFAULT '' NOT NULL,
            time_micro double(16,4) NOT NULL default '0.0000',
            component varchar(255) DEFAULT '' NOT NULL,
@@ -66,6 +66,16 @@ Example of a CREATE TABLE statement for logTable:
 
            KEY request (request_id)
    );
+
+The corresponding configuration might look like this for example:
+
+.. code-block:: php
+
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG] = [
+      \TYPO3\CMS\Core\Log\Writer\DatabaseWriter::class => [
+        'logTable' => 'tx_examples_log'
+      ],
+   ];
 
 
 .. warning::
@@ -96,6 +106,22 @@ Option        Mandatory  Description                                           D
 logFile       no         Path to log file                                      :file:`typo3temp/logs/typo3_<hash>.log` like for example :file:`typo3temp/logs/typo3_7ac500bce5.log`
 logFileInfix  no         Different file name to the default log configuration  :php:`'logFileInfix' => 'special'` results in :file:`typo3\_special\_<hash>.log`
 ============  =========  ====================================================  ================
+
+The corresponding configuration might look like this for example:
+
+.. code-block:: php
+
+   // Add example configuration for the logging API
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
+       // configuration for ERROR level log entries
+       \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
+           // add a FileWriter
+           \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+               // configuration for the writer
+               'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_examples.log'
+           ]
+       ]
+   ];
 
 
 .. _logging-writers-php:
@@ -140,3 +166,12 @@ in case a log writer is throwing an exception while executing the :code:`writeLo
 Only in the case that all registered writers fail, the log entry plus additional information
 will be added to the configured fallback logger (which defaults to
 the :ref:`PhpErrorLog <logging-writers-php>` writer).
+
+.. _logging-writers-examples:
+
+Examples
+========
+
+Working examples of the usage of different Log writers can be found in the extension
+`examples <https://extensions.typo3.org/extension/examples/>`__. they are configured in
+the :file:`ext_localconf.php`.

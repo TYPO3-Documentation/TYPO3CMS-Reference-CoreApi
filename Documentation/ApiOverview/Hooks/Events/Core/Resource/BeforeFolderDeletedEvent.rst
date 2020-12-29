@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; BeforeFolderDeletedEvent
 .. _BeforeFolderDeletedEvent:
 
 
@@ -16,11 +15,15 @@ to a folder / files in this folder.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getFolder()
-   :Description:
-         Returns the folder about to be deleted.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+
+.. rst-class:: dl-parameters
+
+getFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
 

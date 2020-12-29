@@ -1,10 +1,9 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Services API; Implementation
 .. _services-developer-implementing:
 
 ======================
-Implementing a Service
+Implementing a service
 ======================
 
 There are no tools to get you started coding a new service.
@@ -19,9 +18,10 @@ Finally the service registration is placed in the extension's
 :file:`ext_localconf.php` file.
 
 
+.. index:: Services API; Registration
 .. _services-developer-implementing-registration:
 
-Service Registration
+Service registration
 ====================
 
 Registering a service is done inside the :file:`ext_localconf.php`
@@ -30,9 +30,7 @@ file. Let's look at what is inside.
 .. code-block:: php
 
     <?php
-    if (!defined ('TYPO3_MODE')) {
-        die ('Access denied.');
-    }
+    defined('TYPO3') or die();
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addService(
         // Extension Key
@@ -63,16 +61,16 @@ A service is registered with TYPO3 CMS by calling
 This method takes the following parameters:
 
 $extKey
-  (string) The key of the extension containing the service.
+    (string) The key of the extension containing the service.
 
 $serviceType
-  (string) Service type of the service. Choose something explicit.
+    (string) Service type of the service. Choose something explicit.
 
 $serviceKey
- (string) Unique key for the service. Choose something explicit.
+    (string) Unique key for the service. Choose something explicit.
 
 $info
-  (array) Additional information about the service:
+    (array) Additional information about the service:
 
     title
       (string) The title of the service.
@@ -80,11 +78,11 @@ $info
     description
       (string) The description. If it makes sense it should contain information about
 
-        - the quality of the service (if it's better or not than normal)
+      - the quality of the service (if it's better or not than normal)
 
-        - the OS dependency (either WIN or UNIX)
+      - the OS dependency (either WIN or UNIX)
 
-        - the dependency on external programs (perl, pdftotext, etc.)
+      - the dependency on external programs (perl, pdftotext, etc.)
 
     subtype
       (string / comma-separated list) The subtype is not predefined.
@@ -186,9 +184,10 @@ $info
 			'className' => \Foo\Babelfish\Service\Translator::class
 
 
+.. index:: Services API; AbstractService
 .. _services-developer-implementing-php:
 
-PHP Class
+PHP class
 =========
 
 The PHP class corresponding to the registered service

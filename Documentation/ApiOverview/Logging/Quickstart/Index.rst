@@ -1,16 +1,18 @@
-.. include:: ../../../Includes.txt
-
-
-
+.. include:: /Includes.rst.txt
+.. index:: Logging; Quickstart
 .. _logging-quickstart:
 
 ==========
 Quickstart
 ==========
 
+
+.. index::
+   Logging; Instantiation
+   Logging; LoggerAwareTrait
 .. _logging-quicksart-instantiate-logger:
 
-Instantiate a Logger for the Current Class
+Instantiate a logger for the current class
 ==========================================
 
 .. versionadded:: 9.0
@@ -37,6 +39,12 @@ Or instantiate the logger in the classic way with makeInstance::
    $this->logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
 
 .. _logging-quickstart-log:
+
+.. index::
+   Logging; Write to Log
+   Logging; logger->log
+   Logging; logger->info
+   Logging; logger->warning
 
 Log
 ===
@@ -67,7 +75,11 @@ and pass the severity level::
    );
 
 
-Set Logging Output
+.. index::
+   Logging; Output
+   Logging; FileWriter
+
+Set logging output
 ==================
 
 TYPO3 has the :ref:`FileWriter <logging-writers-FileWriter>` enabled by default,

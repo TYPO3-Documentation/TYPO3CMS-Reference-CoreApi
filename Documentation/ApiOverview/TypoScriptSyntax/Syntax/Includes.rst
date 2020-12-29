@@ -1,13 +1,14 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: TypoScript; Includes
 .. _typoscript-syntax-includes:
 
+========
 Includes
-^^^^^^^^
+========
+
 You can also add include-instructions in TypoScript code. Availability
-depends on the context, but it works with TypoScript templates, Page
-TSconfig and User TSconfig.
+depends on the context, but it works with TypoScript templates, page
+TSconfig and user TSconfig.
 
 Since TYPO3 version 9 a new syntax for importing external TypoScript files has
 been introduced, which acts as a preprocessor before the actual parsing
@@ -68,9 +69,8 @@ extend the :ts:`@import` statement in the future. However, the
 TypoScript in future.
 
 
-
 Alternative, traditional Syntax
-"""""""""""""""""""""""""""""""
+===============================
 
 A traditional include-instruction will work as well and for example looks like
 this:
@@ -129,10 +129,12 @@ DIR      This includes all files from a directory relative to :php:`\TYPO3\CMS\C
 =======  ==========================================================================
 
 
+.. index:: TypoScript; Includes by conditions
+
 .. _typoscript-syntax-includes-conditions:
 
 Conditions
-""""""""""
+==========
 
 Since TYPO3 CMS 7, it is possible to use conditions on include directives.
 The conditions are the same as was presented in the :ref:`previous chapter <typoscript-syntax-conditions>`.
@@ -147,7 +149,7 @@ Example:
 
 .. important::
 
-   Please note that since TYPO3 9.4, the syntax of condition has switched to the `symfony expression language <https://symfony.com/doc/4.1/components/expression_language.html>`__ which :ref:`is covered in this section of TSref <t3tsref:conditions>`. If the condition requires double quotes, they must be converted to single quotes or escaped, e.g.: 
+   Please note that since TYPO3 9.4, the syntax of condition has switched to the `symfony expression language <https://symfony.com/doc/4.1/components/expression_language.html>`__ which :ref:`is covered in this section of TSref <t3tsref:conditions>`. If the condition requires double quotes, they must be converted to single quotes or escaped, e.g.:
 
    .. code-block:: text
 
@@ -159,7 +161,7 @@ Example:
 .. _typoscript-syntax-includes-best-practices:
 
 Best practices
-""""""""""""""
+==============
 
 The option to filter by extension has been included exactly for the
 purpose of covering as many use cases as possible. In TYPO3 CMS we often
@@ -173,8 +175,8 @@ having :file:`.typoscript<something>` as extension).
 It is recommended to separate files with different directories:
 
 * For TSconfig code use a directory called TSconfig/, possibly with
-  subdirectories named Page/ for Page TSconfig and User/ for
-  User TSconfig.
+  subdirectories named Page/ for page TSconfig and User/ for
+  user TSconfig.
 * For TypoScript template code, use a directory named
   TypoScript/.
 

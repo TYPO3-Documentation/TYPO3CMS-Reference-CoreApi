@@ -1,10 +1,12 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index::
+   Backend; File mounts
+   pair: Backend; File abstraction layer
+   File mounts
 .. _access-filemounts-more:
 
 ======================
-More About File Mounts
+More about file mounts
 ======================
 
 File mounts require a little more description of the concepts provided
@@ -21,7 +23,7 @@ Drivers
   or platforms like Amazon S3.
 
 Storages
-  A File Storage uses a driver to connect to a given storage system.
+  A file storage uses a driver to connect to a given storage system.
   It is defined by a path pointing into that storage system. There can
   be several storages using the same driver and pointing to different
   "directories". The storage configuration depends on the driver it uses.
@@ -29,18 +31,22 @@ Storages
   Thanks to the storage and its driver, the user is able to browse
   files from within the TYPO3 CMS backend as if they were stored locally.
 
-File Mounts
+File mounts
   As discussed before, a file mount is the element which is used to
   actually give access to users to some directories. A file mount is always
   related to a storage.
 
-
+.. index::
+   TYPO3_CONF_VARS; BE fileadminDir
+   TYPO3_CONF_VARS; BE lockRootPath
+   Local driver storage
+   Path: fileadmin
 .. _access-filemounts-more-local-driver:
 
-Paths for Local Driver Storage
+Paths for local driver storage
 ==============================
 
-The File Storages based on the "local file system" driver have an
+The file storages based on the "local file system" driver have an
 option for relative or absolute paths.
 
 .. figure:: ../../../Images/AccessLocalStoragePath.png
@@ -65,7 +71,7 @@ Absolute paths are full paths starting at the root of the file system
 Absolute paths outside of the web root
 must be explicitly declared in the global configuration option
 :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']`. Any absolute
-path that you want to declare in a File Storage needs to have its
+path that you want to declare in a file storage needs to have its
 first part match the value of :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']`
 (or of the web root, which can be retrieved with :code:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`).
 
@@ -75,10 +81,15 @@ pointing to :file:`/home/foo/bar` and one pointing to
 :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']` to be
 equal to :code:`/home/foo/`.
 
-
+.. index::
+   TYPO3_CONF_VARS; BE userHomePath
+   TYPO3_CONF_VARS; BE groupHomePath
+   TYPO3_CONF_VARS; BE userUploadDir
+   Home directories
+   TSconfig; DefaultUploadFolder
 .. _access-filemounts-home-directories:
 
-Home Directories
+Home directories
 ================
 
 TYPO3 CMS also features the concept of "home directories". These are paths
@@ -104,8 +115,8 @@ respectively. Let's say we define the following:
 
 
 The first part of the definition (before the colon :code:`:`) is
-the id of a File Storage. The second part is a path relative to
-that File Storage. Assuming File Storage with a uid of "1" is the
+the id of a file storage. The second part is a path relative to
+that file storage. Assuming file storage with a uid of "1" is the
 default one pointing to :file:`fileadmin/`, the following path
 needs to exist on the server: :file:`/path/to/web/root/fileadmin/user_homes/`.
 
@@ -134,7 +145,7 @@ should see the following when moving to the **FILE > Filelist**
 module:
 
 .. figure:: ../../../Images/AccessUserAndGroupHomeDirectories.png
-   :alt: The File list with automatically mounted user and group directories
+   :alt: The file list with automatically mounted user and group directories
 
 
 where only the first mount was explicitly assigned to that user.

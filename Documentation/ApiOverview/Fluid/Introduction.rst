@@ -1,7 +1,5 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
 .. highlight:: xml
-
 .. _fluid-introduction:
 
 =====================
@@ -9,7 +7,7 @@ Introduction to Fluid
 =====================
 
 Fluid is TYPO3’s default rendering engine but can also be used in a standalone PHP project.
-The Fluid source code is being developed as an independent project outside of the TYPO3 core.
+The Fluid source code is being developed as an independent project outside of the TYPO3 Core.
 
 Fluid is based on XML.
 You can use HTML markup in Fluid, but you can do much more with Fluid, such as use conditions,
@@ -46,8 +44,8 @@ ViewHelpers:
    :ref:`write your own <t3extbasebook:developing-a-custom-viewhelper>`.
 
    ViewHelpers can do simple processing such as remove spaces with the
-   :ref:`t3viewhelper:typo3fluid-fluid-spaceless` ViewHelper or create a link
-   as is done in the TYPO3 Fluid ViewHelper :ref:`t3viewhelper:typo3-fluid-link-page`.
+   :ref:`t3viewhelper:typo3fluid-fluid-spaceless` Viewhelper or create a link
+   as is done in the TYPO3 Fluid Viewhelper :ref:`t3viewhelper:typo3-fluid-link-page`.
 
 Object Accessors:
    Fluid can access variables that have been defined. Just use braces
@@ -56,6 +54,9 @@ Object Accessors:
 
 Conditions:
     The conditions are supplied here by the if / then / else ViewHelpers.
+
+
+.. index:: Fluid; Directory structure
 
 Directory structure
 ===================
@@ -132,6 +133,7 @@ Templates can be used with or without a Layout.
 Partials are a Fluid component. Partials can be used as reusable components from within
 a template.
 
+
 Example: Using Fluid to create a theme
 ======================================
 
@@ -162,11 +164,36 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
 
 .. code-block:: typoscript
 
+   lib.dynamicContent = COA
+   lib.dynamicContent {
+      10 = LOAD_REGISTER
+      10.colPos.cObject = TEXT
+      10.colPos.cObject {
+         field = colPos
+         ifEmpty.cObject = TEXT
+         ifEmpty.cObject {
+            value.current = 1
+            ifEmpty = 0
+         }
+      }
+      20 = CONTENT
+      20 {
+         table = tt_content
+         select {
+            orderBy = sorting
+            where = colPos={register:colPos}
+            where.insertData = 1
+         }
+      }
+      90 = RESTORE_REGISTER
+   }
+
    page = PAGE
    page {
       // Part 1: Fluid template section
       10 = FLUIDTEMPLATE
       10 {
+         templateName = Default
          templateRootPaths {
             0 = EXT:site_package/Resources/Private/Templates/Page/
          }
@@ -259,6 +286,6 @@ Once you have successfully completed your fist steps, these references might com
 in handy:
 
 * `24 TIPS & TRICKS FOR FLUID <https://usetypo3.com/24-fluid-tips.html>`__
-* :ref:`Fluid ViewHelper Reference <t3viewhelper:start>`
+* :ref:`Fluid Viewhelper Reference <t3viewhelper:start>`
 
 

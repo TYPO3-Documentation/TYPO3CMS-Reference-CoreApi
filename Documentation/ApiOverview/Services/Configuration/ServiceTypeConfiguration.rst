@@ -1,10 +1,12 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
+.. index:: Services API; Service type configuration
+   TYPO3_CONF_VARS; SVCONF
 
 
 .. _services-configuration-service-type-configuration:
 
 ==========================
-Service Type Configuration
+Service type configuration
 ==========================
 
 It may also be necessary to provide configuration options for the code

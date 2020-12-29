@@ -1,6 +1,5 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; ModifyLanguagePackRemoteBaseUrlEvent
 .. _ModifyLanguagePackRemoteBaseUrlEvent:
 
 
@@ -13,27 +12,26 @@ Event to modify the main URL of a language.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getBaseUrl()
-   :Description:
-         Returns the base URL for fetching language packs.
-   :ReturnType:
-         \Psr\Http\Message\UriInterface
+.. rst-class:: dl-parameters
 
+getBaseUrl()
+   :sep:`|` :aspect:`ReturnType:` :php:`\Psr\Http\Message\UriInterface`
+   :sep:`|`
 
- - :Method:
-         setBaseUrl(UriInterface $baseUrl)
-   :Description:
-         Set / overwrite base URL for fetching language packs.
-   :ReturnType:
-         void
+   |nbsp|
 
+setBaseUrl(UriInterface $baseUrl)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         getPackageKey()
-   :Description:
-         Get the current package key.
-   :ReturnType:
-         string
+   |nbsp|
+
+getPackageKey()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
 

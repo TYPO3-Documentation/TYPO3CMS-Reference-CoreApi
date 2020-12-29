@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _testing-history:
 
@@ -13,7 +13,7 @@ History
 Introduction
 ============
 
-The TYPO3 core development has quite an impressive history on automatic testing. This chapter
+The TYPO3 Core  development has quite an impressive history on automatic testing. This chapter
 outlines some of the important steps the system went through over the years. It may be just
 an interesting read but may also explain why things are as they are now.
 
@@ -26,8 +26,8 @@ testing saves time and money on a project, the series starting with `Serious Sof
 2009
 ====
 
-The `first core unit test <https://github.com/TYPO3/TYPO3.CMS/commit/5fd947c8a1d7b009a920761ecc25c32889d5ee9a>`_
-has been committed in early 2009. The core was still using SVN as version control system at this point. More
+The `first Core unit test <https://github.com/TYPO3/TYPO3.CMS/commit/5fd947c8a1d7b009a920761ecc25c32889d5ee9a>`_
+has been committed in early 2009. The Core was still using SVN as version control system at this point. More
 than ten years ago. The tests have later been released with TYPO3 version 4.3 in fall 2009. The system
 back then relied on the TYPO3 extension *phpunit*. This TER extension bundled the native `phpunit package
 <https://phpunit.de/>`_ and added a TYPO3 backend module on top. It found all extensions that delivered
@@ -38,24 +38,24 @@ This was the first time "green bar feeling" came up: All tests green.
 2012
 ====
 
-This was after TYPO3 4.5 times - a version that carried us for a long time. Several TYPO3 core
-contributors meanwhile added some hundreds of unit tests in various core extensions. There was an
-issue, though: Not too many persons developing the TYPO3 core cared about unit tests and executed
+This was after TYPO3 4.5 times - a version that carried us for a long time. Several TYPO3 Core
+contributors meanwhile added some hundreds of unit tests in various Core extensions. There was an
+issue, though: Not too many persons developing the TYPO3 Core  cared about unit tests and executed
 them before providing or merging patches. As a result, tests were frequently failing and only a
 small group of persons took care and fixed them once in a while. Unit tests and system under test
 are symbiotic: If one is changed, the other one needs changes, too. If that does not happen, unit
 tests fail.
 
 However, the young project `Travis CI <https://travis-ci.com/>`_ came online and allowed free test
-environments for open source projects. The TYPO3 core quickly started using that, a first `.travis.yml
+environments for open source projects. The TYPO3 Core  quickly started using that, a first `.travis.yml
 <https://github.com/TYPO3/TYPO3.CMS/commit/4302056ce55c34e977b7b8616ddd90e00cdc50b3>`_ has been added
 early 2012 and all merged patches executed the test suite. Persons merging patches got feedback on failed
-builds and were able to act upon: Either fix the build or revert the patch. The core team established an
-"always green" rule for core development.
+builds and were able to act upon: Either fix the build or revert the patch. The Core Team established an
+"always green" rule for Core development.
 
-The Travis CI setup at this point basically created a working instance around the checked out core
+The Travis CI setup at this point basically created a working instance around the checked out the Core
 to run tests: It additionally cloned a helper repository, cloned the phpunit extension, did set up
-a database and other stuff, then executed the core unit tests to result with "good" or "bad".
+a database and other stuff, then executed the Core unit tests to result with "good" or "bad".
 
 Until 2018, this first .travis.yml file went through more than 100 changes.
 
@@ -63,7 +63,7 @@ Until 2018, this first .travis.yml file went through more than 100 changes.
 2013
 ====
 
-With frequent test execution via travis-ci more and more developers working on the core were
+With frequent test execution via travis-ci more and more developers working on the Core were
 forced to run tests locally to debug tests or add new ones. We slowly got an idea in which
 situations unit tests are helpful and when they are not.
 
@@ -81,8 +81,8 @@ Moreover, we had many tests that somehow changed global state and then influence
 This part lead to the situation that a test worked if executed as single test but failed if
 executed together with all others - or vice versa.
 
-We ultimately learned at this time that managing system state is an essential part of the core
-framework. And so we started refactoring: The core bootstrap has been hacked into manageable
+We ultimately learned at this time that managing system state is an essential part of the Core
+framework. And so we started refactoring: The Core bootstrap has been hacked into manageable
 pieces that could be called by the unit test bootstrap in small steps. The tests started to
 become "real" unit tests that test only one small piece of code at a time.
 
@@ -134,7 +134,7 @@ Second, the test execution was changed to use a composer based setup instead of 
 its own. This was at TYPO3 6.2 times when composer was first introduced in TYPO3 world - testing was
 one of the first usages. In this process we were able to ditch the TYPO3 specific extension based
 flavor of phpunit and switched to the native version instead. This turned out to be a wise decision
-since TYPO3 core testing now no longer relied on development of a third party TER extension but could
+since TYPO3 Core  testing now no longer relied on development of a third party TER extension but could
 use the native testing stack directly and for instance pick up new versions quickly.
 
 
@@ -142,7 +142,7 @@ use the native testing stack directly and for instance pick up new versions quic
 ====
 
 Functional testing gained a lot of traction: The *DataHandler* and various related classes in the
-TYPO3 core are the most crucial and at the same time complex part of the framework. All the language,
+TYPO3 Core  are the most crucial and at the same time complex part of the framework. All the language,
 multi-site, workspace and inline handling is nifty and it's hard to change code in this area without
 breaking something. This is still an issue and improving this situation is a mid- to long-term goal.
 So we decided to use functional tests to specify what the DataHandler does in which situations. There
@@ -167,16 +167,16 @@ this: In TYPO3 it's hard to do frontend requests from within the backend or from
 like *solr* or *direct_mail* struggle at this point, too and need to find some solution working
 around this. In functional testing, a test scenario that does a frontend request thus forks
 processes twice: First, the backend part is executed as standalone process as explained above,
-which then forks another process to execute the frontend request. As a result, only hard-boiled core
+which then forks another process to execute the frontend request. As a result, only hard-boiled Core
 developers tend to work on such functional tests: They are slow, hard to debug and complex to set up.
 
 
 2016
 ====
 
-In early 2016, core developers added another type of testing: Acceptance tests. Those tests use a
+In early 2016, Core developers added another type of testing: Acceptance tests. Those tests use a
 browser to actually click around in the backend to verify various parts of the system. For instance,
-TYPO3 core had a history of breaking the installation procedure once in a while: Most core developers
+TYPO3 Core  had a history of breaking the installation procedure once in a while: Most Core developers
 set up a local development system once and then never or only seldom see the installation procedure
 again. If code is changed that breaks the installer, this may go through not noticed. Acceptance testing
 put an end to this: There are tests to install a fresh TYPO3, log in to the backend,
@@ -189,16 +189,16 @@ stabilized very well meanwhile - they do not break at arbitrary places. Acceptan
 more complex: A web server is needed, some system to pilot the browser is needed, single clicks may
 run into timeouts if the system is loaded, pages are sometimes not fully loaded before the next click
 is performed. Additionally the TYPO3 backend still relies on iframes for all main modules, which again
-does not simplify things. It took the core development two further years to stabilize this well enough so
+does not simplify things. It took the Core development two further years to stabilize this well enough so
 acceptance tests could be executed often without throwing false positives at various places. In the end
-acceptance testing is another great leap forward to ensure major parts of the TYPO3 core do work as
+acceptance testing is another great leap forward to ensure major parts of the TYPO3 Core  do work as
 expected.
 
 Another thing became more and more pressing in 2016: The automatic testing via Travis CI started to show
 drawbacks. We continued adding lots of tests and test suites over the years and executing everything
 after each code merge took an increasing amount of time. Even with all sorts of tricks, Travis CI was
 busy for more than half an hour to go through the suite, merging more than two patches per hour thus
-added to a queue. There were core code sprints were Travis reported green or red on a just
+added to a queue. There were Core code sprints were Travis reported green or red on a just
 merged patch only half a day later. We tried to pay the service for more processing power, but payed plans
 do not work with Travis CI for open source repositories (maybe they changed that restriction meanwhile).
 We also knew that the amount of tests will increase and thus lead to even longer run times. Additionally,
@@ -222,10 +222,10 @@ on one of their clusters to perform the tests.
 2017
 ====
 
-To the end of TYPO3 core v8 development the bootstrap, helper and set up code to execute core
-tests has been extracted from the core to an own repository, the `typo3/testing-framework
+To the end of TYPO3 Core  v8 development the bootstrap, helper and set up code to execute Core
+tests has been extracted from the Core to an own repository, the `typo3/testing-framework
 <https://github.com/TYPO3/testing-framework>`_. This allowed re-using this package within
-extensions to execute own tests. It however took that repository another major core version
+extensions to execute own tests. It however took that repository another major Core version
 to mature well enough to easily do that. Writing and executing tests for TYPO3 extensions is
 possible for a long time already, but extension authors were mostly on their own in finding a
 suitable solution to do that. This chapter may put an end to this confusion.
@@ -234,39 +234,39 @@ suitable solution to do that. This chapter may put an end to this confusion.
 2018
 ====
 
-Since 2016, the TYPO3 core test setup went through further changes and improvements: Various test
+Since 2016, the TYPO3 Core  test setup went through further changes and improvements: Various test
 details were added that checked the integrity of the system. TYPO3 v8 switched to doctrine so we
 started executing the functional tests on meanwhile four different database systems, a nighly test
 setup has been established that checks even more system permutations and software dependencies and
 much more.
 
-As another important step, the core developers worked on the functional test isolation again in
+As another important step, the Core developers worked on the functional test isolation again in
 TYPO3 v9: As explained above, the functional tests forked processes twice if frontend testing was
-involved. With TYPO3 v9 however, the TYPO3 core bootstrap has been heavily improved,
+involved. With TYPO3 v9 however, the TYPO3 Core  bootstrap has been heavily improved,
 with having a special eye on system state encapsulation: Next to the incredible PSR-15 works in
 this area, two further API's have been established: :ref:`Context <context-api>` and
 :ref:`Environment <Environment>`. Remember each functional tests case runs in an own instance within
-typo3temp? TYPO3 core always had the PHP constant *PATH_site* that contained the path to the document
+typo3temp? TYPO3 Core  always had the PHP constant *PATH_site* that contained the path to the document
 root. With having test cases in different locations, this constant would have to change. But it
 can't, it's constant and PHP luckily does not allow redefining constants. The environment API
-of TYPO3 core v9 however is an object that is initialized during core bootstrap. Next to some other
+of TYPO3 Core  v9 however is an object that is initialized during Core bootstrap. Next to some other
 details, it also contains the path to the document root. Adding this class allowed us to ditch the
-usage of PATH_site in the entire core. This removed the main blocker to execute many functional test
+usage of PATH_site in the entire Core. This removed the main blocker to execute many functional test
 suites in one PHP process. After solving another series of hidden state of the framework, the functional
 test setup could finally be changed to not fork new processes for each and every test anymore. So now,
 we can proof that one TYPO3 backend instance can handle many backend requests in one process - we are
 sure our framework state is encapsulated well enough to allow such things. This change in the TYPO3
-core and dropping the process isolation for functional backend tests significantly simplified working
-with functional tests now and debugging is much easier and improved core code at the same time. This
-pattern repeated often over the years: The test suites show quite well which parts of the core need
-attention. Working in these areas in turn improves the core for everyone and allows usages that
+Core and dropping the process isolation for functional backend tests significantly simplified working
+with functional tests now and debugging is much easier and improved Core code at the same time. This
+pattern repeated often over the years: The test suites show quite well which parts of the Core need
+attention. Working in these areas in turn improves the Core for everyone and allows usages that
 have not been possible before.
 
-In late 2018 another thing has been established: The *runTests.sh* script allows core developers
+In late 2018 another thing has been established: The *runTests.sh* script allows Core developers
 to easily execute tests within a container based environment that takes care of all the nasty
 system dependency problems. The test setup for some test suites is far from trivial: Acceptance
 tests need a web server, chrome and selenium, functional tests need different database systems
-that at best run in RAM, and so forth. Not too many core developers went through all that to
+that at best run in RAM, and so forth. Not too many Core developers went through all that to
 actually run and develop tests locally. The script now hides away all that complexity and creates a
 well defined and simple to use environment to run the tests, the only dependencies are recent docker
 and docker-compose versions.
@@ -275,8 +275,8 @@ and docker-compose versions.
 2019
 ====
 
-The above milestones show that efforts in the core testing area have positive effects on
-core and extension code and allow system usages that have not been possible before.
+The above milestones show that efforts in the Core testing area have positive effects on
+Core and extension code and allow system usages that have not been possible before.
 
 There are some further hard nuts we have to crack, though: For example, while the process isolation
 for functional backend tests has been dropped in 2018, the tests still fork processes to execute

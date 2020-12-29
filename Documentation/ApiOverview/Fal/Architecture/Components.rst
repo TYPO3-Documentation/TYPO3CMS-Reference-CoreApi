@@ -1,6 +1,5 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: File abstraction layer; Components
 .. _fal-architecture-components:
 
 ==========
@@ -12,39 +11,43 @@ Each component has a clear role in the architecture, which is
 detailed in this section.
 
 
+.. index::
+   pair: File abstraction layer; Files
+   pair: File abstraction layer; Folders
 .. _fal-architecture-components-files-folders:
 
-Files and Folders
+Files and folders
 =================
 
-The Files and Folders are facades representing files and folders
+The files and folders are facades representing files and folders
 or whatever equivalent there is in the system the Driver is connecting to
 (it could be categories from Digital Asset Management tool, for example).
-They are tightly coupled with the Storage, which they use to actually
+They are tightly coupled with the storage, which they use to actually
 perform any actions. For example a copying action (:php:`$file->copyTo($targetFolder)`)
 is technically not implemented by the :php:`\TYPO3\CMS\Core\Resource\File`
-object itself but in the Storage and Driver.
+object itself but in the storage and Driver.
 
-Apart from the shorthand methods to the action methods of the Storage,
-the Files and Folders are pretty lightweight objects with properties
+Apart from the shorthand methods to the action methods of the storage,
+the files and folders are pretty lightweight objects with properties
 (and related getters and setters) for obtaining information
 about their respective file or folder on the file system, such as name or size.
 
-A File can be indexed, which makes it possible to reference the file
+A file can be indexed, which makes it possible to reference the file
 from any database record in order to use it, but also speeds up obtaining
 cached information such as various metadata or other file properties like size or file name.
 
-A File may be referenced by its uid in the :ref:`sys_file table <fal-architecture-database-sys-file>`, but will
+A file may be referenced by its uid in the :ref:`sys_file table <fal-architecture-database-sys-file>`, but will
 also often be referred to by its identifier, which is the path to the
-file from the root of the Storage the file belongs to. The
-**combined identifier** includes the File's identifier prepended
-by the Storage's uid and a colon (:code:`:`). Example:
+file from the root of the storage the file belongs to. The
+**combined identifier** includes the file's identifier prepended
+by the storage's uid and a colon (:code:`:`). Example:
 :code:`1:/path/to/file/filename.foo`.
 
 
+.. index:: File abstraction layer; File reference
 .. _fal-architecture-components-file-references:
 
-File References
+File references
 ===============
 
 A :php:`\TYPO3\CMS\Core\Resource\FileReference` basically
@@ -64,7 +67,7 @@ as the reference is done through the normal record relation handling of TYPO3 CM
 
    Technically, the :php:`\TYPO3\CMS\Core\Resource\FileReference` implements
    the same interface as the :php:`\TYPO3\CMS\Core\Resource\File` itself.
-   So you have all the methods and properties of a File available in the FileReference
+   So you have all the methods and properties of a file available in the FileReference
    as well. This makes it possible to use both files and references to them.
 
    Additionally, there is a property "originalFile" on the FileReference which
@@ -72,16 +75,16 @@ as the reference is done through the normal record relation handling of TYPO3 CM
    :code:`$fileReference->getOriginalFile()->getName()`).
 
 
-
+.. index:: File abstraction layer; Storage
 .. _fal-architecture-components-storage:
 
 Storage
 =======
 
-The Storage is the focal point of the FAL architecture. Even though it doesn't do the actual
-low-level actions on a File (that's up to the Driver), it still does the largest part of the logic.
+The storage is the focal point of the FAL architecture. Even though it doesn't do the actual
+low-level actions on a file (that's up to the driver), it still does the largest part of the logic.
 
-Among the many things done by the Storage layer are:
+Among the many things done by the storage layer are:
 
 - the capabilities check (is the driver capable of writing a file to the target location?)
 - the action permission checks (is the user allowed to do file actions at all?)
@@ -91,20 +94,21 @@ Among the many things done by the Storage layer are:
 - logging and throwing of exceptions for successful and unsuccessful file operations
   (although some exceptions are also thrown in other layers if necessary, of course)
 
-The Storage essentially works with :php:`\TYPO3\CMS\Core\Resource\File`
+The storage essentially works with :php:`\TYPO3\CMS\Core\Resource\File`
 and :php:`\TYPO3\CMS\Core\Resource\Folder` objects.
 
 
+.. index:: File abstraction layer; Drivers
 .. _fal-architecture-components-drivers:
 
 Drivers
 =======
 
 The driver does the actual actions on a file (e.g. moving, copying, etc.).
-It can rely on the Storage having done all the necessary checks before,
+It can rely on the storage having done all the necessary checks before,
 so it doesn't need to worry about permissions and other rights.
 
-In the communication between Storage and Driver, the Storage hands over identifiers
+In the communication between storage and Driver, the storage hands over identifiers
 to the Driver where appropriate. For example, the :php:`copyFileWithinStorage()`
 method of the Driver API has the following method signature:
 
@@ -123,9 +127,10 @@ method of the Driver API has the following method signature:
     public function copyFileWithinStorage($fileIdentifier, $targetFolderIdentifier, $fileName);
 
 
+.. index:: File abstraction layer; File index
 .. _fal-architecture-components-file-index:
 
-The File Index
+The file index
 ==============
 
 Indexing a file creates a database record for the file, containing meta-information both
@@ -141,7 +146,7 @@ contents, the latter heavily depends on the file itself and thus is considered l
 driver-dependent stuff.
 
 Managing the *asset* properties of a file (related to its contents) is not done by the
-Storage/Driver combination, but by services that build on these low-level parts.
+storage/Driver combination, but by services that build on these low-level parts.
 
 Technically, both indexed and non-indexed files are represented by the same object type
 (:php:`\TYPO3\CMS\Core\Resource\File`), but being indexed is nevertheless an important
@@ -150,12 +155,13 @@ step for a file.
 .. note::
 
    An object of an indexed file could theoretically even live without
-   its Storage as long as it is only about querying the object for file properties,
+   its storage as long as it is only about querying the object for file properties,
    as all these properties reside in the database and are read from there when constructing
    the object. This is currently not the case, as Files are always retrieved
-   via Storages.
+   via storages.
 
 
+.. index:: pair: File abstraction layer; Collections
 .. _fal-architecture-components-collections:
 
 Collections
@@ -170,12 +176,19 @@ The TYPO3 CMS Core makes usage of collections for the "File Links"
 content object type.
 
 
+.. index::
+   Services
+   pair: File abstraction layer; Services
+   Services; FileProcessingService
+   Services; MagicImageService
+   Services; UserFileInlineLabelService
+   Services; UserFileMountService
 .. _fal-architecture-components-services:
 
 Services
 ========
 
-The File Abstraction Layer also comes with a number of services:
+The File abstraction layer also comes with a number of services:
 
 :php:`\TYPO3\CMS\Core\Resource\Service\FileProcessingService`
   This service processes files to generate previews or scaled/cropped images.
@@ -203,5 +216,5 @@ The File Abstraction Layer also comes with a number of services:
 
 :php:`\TYPO3\CMS\Core\Resource\Service\UserFileMountService`
   This service provides a single public method which builds a list of
-  folders (and subfolders, recursively) inside any given Storage. It is
+  folders (and subfolders, recursively) inside any given storage. It is
   used when defining File Mounts.

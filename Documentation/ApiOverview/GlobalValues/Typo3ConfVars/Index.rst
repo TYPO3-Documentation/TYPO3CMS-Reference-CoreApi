@@ -1,5 +1,7 @@
-.. include:: ../../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   $GLOBALS; TYPO3_CONF_VARS
+   TYPO3_CONF_VARS
 .. _typo3ConfVars:
 
 ===========================
@@ -12,7 +14,9 @@ stored in a global array called :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 This chapter describes this global configuration in more details and hints
 at other configuration possibilities.
 
-
+.. index::
+   ! File; typo3conf/LocalConfiguration.php
+   File; EXT:{extkey}/ext_localconf.php
 .. _typo3ConfVars-localConfiguration:
 
 File LocalConfiguration.php
@@ -154,7 +158,8 @@ most importantly section **Configure installation-wide options**:
    :alt: Configure installation-wide options in Install Tool with an active search
 
 
-
+.. index::
+   ! File; typo3conf/AdditionalConfiguration.php
 .. _typo3ConfVars-additionalConfiguration:
 
 File AdditionalConfiguration.php
@@ -181,7 +186,16 @@ the code it contains is included on **every** request to TYPO3 CMS
 - whether frontend or backend - you should avoid inserting code
 which requires heavy duty processing.
 
+.. code-block:: php
+   :caption: Changing the database hostname for development machines
 
+   <?php
+   if (getenv('TYPO3_CONTEXT') == 'Development') {
+       $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['host'] = 'mysql-be';
+   }
+
+
+.. index:: File; typo3/sysext/core/Configuration/DefaultConfiguration.php
 .. _typo3ConfVars-defaultConfiguration:
 
 File DefaultConfiguration.php

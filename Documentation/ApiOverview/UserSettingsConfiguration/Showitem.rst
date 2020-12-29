@@ -1,10 +1,9 @@
-.. include:: ../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: User settings; Showitem section
 .. _user-settings-showitem:
 
 ====================
-['showitem'] Section
+['showitem'] section
 ====================
 
 This string is used for rendering the form in the user setup module.
@@ -17,7 +16,7 @@ Example (taken from :file:`typo3/sysext/setup/ext_tables.php`):
 
 .. code-block:: php
 
-   'showitem' => '--div--;LLL:EXT:setup/mod/locallang.xlf:personal_data,realName,email,emailMeAtLogin,password,password2,lang,
-         --div--;LLL:EXT:setup/mod/locallang.xlf:opening,startModule,thumbnailsByDefault,titleLen,
-         --div--;LLL:EXT:setup/mod/locallang.xlf:editFunctionsTab,edit_RTE,edit_wideDocument,edit_docModuleUpload,showHiddenFilesAndFolders,resizeTextareas,resizeTextareas_Flexible,resizeTextareas_MaxHeight,copyLevels,recursiveDelete,resetConfiguration,clearSessionVars,
-         --div--;LLL:EXT:setup/mod/locallang.xlf:adminFunctions,simulate,debugInWindow'
+   'showitem' => '--div--;LLL:EXT:setup/Resources/Private/Language/locallang.xlf:personal_data,realName,email,emailMeAtLogin,avatar,lang,
+               --div--;LLL:EXT:setup/Resources/Private/Language/locallang.xlf:passwordHeader,passwordCurrent,password,password2,
+               --div--;LLL:EXT:setup/Resources/Private/Language/locallang.xlf:opening,startModule,
+               --div--;LLL:EXT:setup/Resources/Private/Language/locallang.xlf:editFunctionsTab,edit_RTE,resizeTextareas_MaxHeight,titleLen,edit_docModuleUpload,showHiddenFilesAndFolders,copyLevels,resetConfiguration'

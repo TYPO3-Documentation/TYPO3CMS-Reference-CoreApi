@@ -1,5 +1,7 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   pair: JavaScript; Backend
+   JavaScript (Backend); RequireJS
 .. _javascript:
 
 ===========================
@@ -17,4 +19,8 @@ APIs in that regard.
 .. toctree::
 
    RequireJS/Index
+   Templating/Index
    Modules/Index
+   EventApi/Index
+   Navigation/Index
+   Forms/Index

@@ -1,6 +1,7 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index::
+   Database; Structure
+   Tables
 .. _database-structure:
 .. _database-structure-requirements:
 
@@ -13,8 +14,8 @@ rough categories:
 
 - Tables that are used by the system internally and are invisible to backend
   users (eg. `be_sessions`, `sys_registry`, cache related tables). There are
-  often dedicated PHP API's in the core extension to manage entries of these
-  tables, for instance the :ref:`Cache framework API <caching>`.
+  often dedicated PHP API's in the Core extension to manage entries of these
+  tables, for instance the :ref:`Caching framework API <caching>`.
 
 - Tables that can be managed via the TYPO3 CMS backend, are shown in the List
   module and can be edited using :ref:`FormEngine <FormEngine>`.
@@ -62,9 +63,10 @@ There are certain requirements for such managed tables:
    consistency it is recommended to name them that way.
 
 
+.. index:: Tables; pages
 .. _database-structure-pages:
 
-The "pages" Table
+The "pages" table
 =================
 
 The `pages` table has a special status: It is the backbone of TYPO3 CMS, as it provides
@@ -84,7 +86,10 @@ a row in the `pages` table, only admin-users can access records on it and these 
 to be :ref:`explicitly configured to reside in the root page <t3tca:ctrl-reference-rootlevel>` - usually
 table records may only be created on a real page.
 
-
+.. index::
+   Tables; MM relations
+   Tables; Cache
+   Tables; System information
 .. _database-structure-other-tables:
 
 Other Tables
@@ -102,10 +107,10 @@ roles. Some of the most common are:
   because it does actually appear in the backend, although only
   as part of :ref:`inline records <t3tca:columns-inline>`.
 
-- cache: when a cache is defined as using the database as a cache backend,
+- Cache: when a cache is defined as using the database as a cache backend,
   TYPO3 CMS will automatically create and manage the relevant cache tables.
 
-- system information: there exist tables storing information about sessions,
+- System information: there exist tables storing information about sessions,
   both frontend and backend ("fe\_sessions" and "be\_sessions" respectively),
   a table for a central registry ("sys\_registry") and quite a few others.
 

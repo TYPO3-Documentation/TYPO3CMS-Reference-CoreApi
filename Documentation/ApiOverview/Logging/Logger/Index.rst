@@ -1,6 +1,5 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Logging; Logger
 .. _logging-logger:
 
 ======
@@ -8,6 +7,7 @@ Logger
 ======
 
 
+.. index:: Logging; LoggerAwareTrait
 .. _logging-logger-instantiation:
 
 Instantiation
@@ -47,6 +47,9 @@ Using :code:`__CLASS__` as name for the logger is recommended to enable logging 
 based on the class hierarchy.
 
 
+.. index::
+   Logging; logger->log
+   Logging; LogLevels
 .. _logging-logger-log:
 
 Log() Method
@@ -108,9 +111,14 @@ The Logger then forwards the log records to all of its configured :ref:`Writers 
 which will then persist the log record.
 
 
+.. index::
+   Logging; Shorthand methods
+   Logging; logger->debug
+   Logging; logger->info
+   Logging; logger->warning
 .. _logging-logger-shortcuts:
 
-Shorthand Methods
+Shorthand methods
 =================
 
 For each of the severity levels mentioned above, a shorthand method exists in
@@ -121,16 +129,28 @@ For each of the severity levels mentioned above, a shorthand method exists in
 - :code:`$this->logger->notice($message, array $data = array());`
 - etc.
 
+.. _logging-logger-examples:
+
+Examples
+========
+
+Examples of the usage of the Logger can be found in the extension
+`examples <https://extensions.typo3.org/extension/examples/>`__. in file
+:file:`/Classes/Controller/ModuleController.php`
+
+
+.. index:: Logging; Best practices
 .. _logging-logger-best-practices:
 
-Best Practices
+Best practices
 ==============
 
 There are no strict rules or guidelines about logging.
 Still it can be considered to be best practice to follow these rules:
 
-Meaningful Message
+Meaningful message
 ------------------
+
 
 The message itself has to be meaningful, for example exception messages.
 
@@ -146,7 +166,8 @@ Good example:
 
     "Could not connect to database"
 
-Searchable Message
+
+Searchable message
 ------------------
 
 Most of the times log entries will be stored.
@@ -165,7 +186,8 @@ Good example:
 
 This includes "connection", "mysql" and "database" as possible keywords.
 
-Distinguishable and Grouped
+
+Distinguishable and grouped
 ---------------------------
 
 Log entries might be collected and people might scroll through them.
@@ -189,9 +211,9 @@ Good examples:
 This way the same issue is grouped by the same structure,
 and one can scan the same position for either "mysql" or "memcache".
 
-Provide Useful Information
---------------------------
 
+Provide useful information
+--------------------------
 
 TYPO3 already uses the component of the logger to give some context.
 Still further individual context might be available that should be added.

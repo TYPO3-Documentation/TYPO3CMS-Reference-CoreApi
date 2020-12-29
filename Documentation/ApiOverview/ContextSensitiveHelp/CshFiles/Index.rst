@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _csh-files:
@@ -46,8 +46,8 @@ This is an extract of a typical file
                <note from="developer">A part of this string is an internal text, which must not be changed. Just copy this part into the translation field and do not change it. For more information have a look at the Tutorial.</note>
             </trans-unit>
             <trans-unit id="_.image" xml:space="preserve">
-               <source>EXT:lang/cshimages/pages_1.png,
-   EXT:lang/cshimages/pages_2.png,</source>
+               <source>EXT:core/Resources/Public/Images/cshimages/pages_1.png,
+   EXT:core/Resources/Public/Images/cshimages/pages_2.png,</source>
                <note from="developer">This string contains an internal text, which must not be changed. Just copy the original text into the translation field. For more information have a look at the Tutorial.</note>
             </trans-unit>
             <trans-unit id=".image_descr" xml:space="preserve">
@@ -63,7 +63,7 @@ This is an extract of a typical file
    You can use any characters in the 'Page Title'.</source>
             </trans-unit>
             <trans-unit id="_title.image">
-               <source>EXT:lang/cshimages/pages_3.png</source>
+               <source>EXT:core/Resources/Public/Images/cshimages/pages_3.png</source>
                <note from="developer">This string contains an internal text, which must not be changed. Just copy the original text into the translation field. For more information have a look at the Tutorial.</note>
             </trans-unit>
             <trans-unit id="title.image_descr">

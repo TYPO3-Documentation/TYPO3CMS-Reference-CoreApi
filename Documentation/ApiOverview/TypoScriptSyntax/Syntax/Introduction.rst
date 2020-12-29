@@ -1,10 +1,10 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: TypoScript; Introduction
 .. _typoscript-syntax-syntax-introduction:
 
+============
 Introduction
-^^^^^^^^^^^^
+============
 
 TypoScript is internally handled as a (large) multidimensional PHP
 array (see ":ref:`typoscript-syntax-what-is-typoscript`"). Values are arranged in a
@@ -16,7 +16,7 @@ conveys the idea of defining objects/properties.
 .. _typoscript-syntax-syntax-example:
 
 Example
-"""""""
+=======
 
 .. code-block:: typoscript
 

@@ -1,8 +1,6 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; SystemInformationToolbarCollectorEvent
 .. _SystemInformationToolbarCollectorEvent:
-
 
 ======================================
 SystemInformationToolbarCollectorEvent
@@ -14,11 +12,13 @@ with various information.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getToolbarItem()
-   :Description:
-         Returns the toolbar item to be manipulated.
-   :ReturnType:
-         \TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem
-  
+.. rst-class:: dl-parameters
+
+getToolbarItem()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem`
+   :sep:`|`
+
+   |nbsp|

@@ -1,6 +1,5 @@
-.. include:: ../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Authentication
 .. _authentication:
 
 ==============
@@ -8,7 +7,7 @@ Authentication
 ==============
 
 The TYPO3 CMS Core uses :ref:`Services <services>` for the authentication process.
-This family of services (of type "auth") are the only core usage that consumes the
+This family of services (of type "auth") are the only Core usage that consumes the
 Services API.
 
 The aim of this chapter is to describe the authentication
@@ -42,8 +41,13 @@ view:
 
 .. figure:: ../../Images/AuthenticationInstalledAuthServices.png
    :alt: All installed authentication services and their priority
+   :class: with-border with-shadow
 
-
+.. index::
+   Authentication; Process
+   BackendUserAuthentication
+   FrontendUserAuthentication
+   AbstractUserAuthentication
 .. _authentication-process:
 
 The Authentication Process
@@ -73,10 +77,10 @@ by a login request. In the FE, this happens when a form field
 called "logintype" is submitted with value "login". The same
 happens for the BE, but with a form field called "login_status".
 
-
+.. index:: Authentication; Login data
 .. _authentication-data:
 
-The Login Data
+The login data
 ==============
 
 There is a typical set of data that is transmitted to authentication
@@ -100,9 +104,10 @@ Inside an authentication service, this data is available in
 :php:`$this->login`.
 
 
+.. index:: Authentication; Services API
 .. _authentication-api:
 
-The "auth" Services API
+The "auth" services API
 =======================
 
 The services of type "auth" are further divided into subtypes,
@@ -131,9 +136,8 @@ processLoginDataBE, processLoginDataFE
   which indicates that no further login data processing should
   take place (see :ref:`The service chain <authentication-service-chain>`).
 
-  In particular, this subtype is implemented by system extension
-  "rsaauth", which decrypts the submitted password. The decrypted
-  password is stored in the login data with key "uident_text".
+  In particular, this subtype is implemented by the TYPO3 Core
+  :php:`AuthenticationService`, which trims the given login data.
 
 getUserFE, getUserBE
   This subtype corresponds to the operation of searching in the
@@ -148,19 +152,6 @@ authUserFE, authUserBE
   It receives the user information (as returned by :php:`getUser()`)
   as an input and is expected to return a numerical value,
   :ref:`which is described later <authentication-service-chain>`.
-
-getGroupsFE
-  This subtype exists only for the FE. The method to implement
-  is :php:`getGroups()`, which is tasked with gathering the various
-  groups the user is part of (by default, taking into account such
-  configuration options as
-  :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['IPmaskMountGroups']`
-  and the fact that FE user groups may be locked to a given domain).
-
-  The :php:`getGroups()` method receives as arguments the user data
-  and a list of already assigned groups, if any. It is expected to return
-  an associative array containing the information about each group the
-  user is member of (with the group's id as key).
 
 .. note::
 
@@ -177,9 +168,10 @@ getGroupsFE
    initialization.
 
 
+.. index:: Authentication; Service chain
 .. _authentication-service-chain:
 
-The Service Chain
+The service chain
 =================
 
 No matter what subtype, authentication services are always called
@@ -199,27 +191,45 @@ a form of final transformation on the login data.
 For "authUserFE" and "authUserBE" subtypes, the :php:`authUser()` method may
 return different values:
 
-- a negative value indicates that the authentication has definitely failed
-  and that no other "auth" service should be called up.
+.. warning::
 
-- a positive value smaller than 100 indicates that the authentication
-  was successful, but that further services should also perform their
+   Previously, there was an error in the documentation. It did not match
+   the actual behaviour. This has now been fixed. For details, see
+   :issue:`91993`.
+
+- a negative value or 0 (<=0) indicates that the authentication has
+  definitely **failed** and that no other "auth" service should be
+  called up.
+
+- a value larger than 0 and smaller than 100 indicates that the authentication
+  was **successful**, but that further services should also perform their
   own authentication.
 
-- a value of 0 or a value of 100 or more indicates that the authentication has failed,
-  but that further services should keep trying.
+- a value of 100 or more (>= 100) indicates that the user was **not authenticated**,
+  this service is not responsible for the authentication and that further
+  services should authenticate.
 
-- a value of 200 or more indicates that the authentication was successful
-  and that no further tries should be made by other services down
+- a value of 200 or more (>=200) indicates that the authentication was **successful**
+  and that **no further tries** should be made by other services down
   the chain.
+
++------------+--------------+--------------+--------------+
+|            | auth failed  | auth success | no auth      |
++============+==============+==============+==============+
+| continue   |              | 1..99        | 100..199     |
++------------+--------------+--------------+--------------+
+| stop       | <= 0         | >= 200       |              |
++------------+--------------+--------------+--------------+
+
 
 For "getUserFE" and "getUserBE" subtypes, the logic is reversed.
 The service chain will stop as soon as one user is found.
 
 
+.. index:: Authentication; Development
 .. _authentication-service-development:
 
-Developing an Authentication Service
+Developing an authentication service
 ====================================
 
 When developing your own "auth" services, the chances are high
@@ -265,7 +275,6 @@ exist only in TYPO3 CMS. In such a case, you want to make sure that
 your service returns definite authentication failures only for those
 users which depend on the remote system and let the default
 authentication proceed for "local" TYPO3 CMS users.
-
 
 .. _authentication-advanced-options:
 

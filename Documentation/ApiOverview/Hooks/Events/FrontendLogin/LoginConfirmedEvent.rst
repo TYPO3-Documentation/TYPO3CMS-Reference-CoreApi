@@ -1,6 +1,5 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; LoginConfirmedEvent
 .. _LoginConfirmedEvent:
 
 
@@ -14,19 +13,19 @@ via the view and the controller.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getView()
-   :Description:
-         Returns the view object.
-   :ReturnType:
-         \TYPO3\CMS\Extbase\Mvc\View\ViewInterface
+.. rst-class:: dl-parameters
 
+getView()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Extbase\Mvc\View\ViewInterface`
+   :sep:`|`
 
- - :Method:
-         getController()
-   :Description:
-         Returns the login controller object.
-   :ReturnType:
-         \TYPO3\CMS\FrontendLogin\Controller\LoginController
+   |nbsp|
 
+getController()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\FrontendLogin\Controller\LoginController`
+   :sep:`|`
+
+   |nbsp|

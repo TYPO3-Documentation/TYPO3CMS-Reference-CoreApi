@@ -1,14 +1,14 @@
-.. include:: ../../Includes.txt
-
-
-
+.. include:: /Includes.rst.txt
+.. index::
+   Feature toggles
+   TYPO3_CONF_VARS; SYS features
 .. _feature-toggles:
 
 ===============
-Feature Toggles
+Feature toggles
 ===============
 
-TYPO3 provides an API class for creating so-called 'Feature Toggles'. Feature toggles provide an easy way to add
+TYPO3 provides an API class for creating so-called 'feature toggles'. Feature toggles provide an easy way to add
 new implementations of features next to their legacy version. By using a feature toggle, the integrator or site admin
 can decide when to switch to the new feature.
 
@@ -18,34 +18,35 @@ Both TYPO3 Core and Extensions can provide alternative functionality for a certa
 
 Examples for features are:
 
- - Throw exceptions in new code instead of just returning a string message as error message.
- - Disable obsolete functionality which might still be used, but slows down the system.
- - Enable alternative PageNotFound handling for an installation.
+- Throw exceptions in new code instead of just returning a string message as error message.
+- Disable obsolete functionality which might still be used, but slows down the system.
+- Enable alternative PageNotFound handling for an installation.
 
-Naming of Feature Toggles
+Naming of feature toggles
 =========================
 
 Feature names should NEVER be named "enable" or have a negation, or contain versions or years.
 
 Bad examples:
 
- - `enableFeatureXyz`
- - `disableOverlays`
- - `schedulerRevamped2018`
- - `useDoctrineQueries`
- - `disablePreparedStatements`
- - `disableHooksInFE`
+- `enableFeatureXyz`
+- `disableOverlays`
+- `schedulerRevamped2018`
+- `useDoctrineQueries`
+- `disablePreparedStatements`
+- `disableHooksInFE`
 
 Good examples:
 
- - `ExtendedRichtextFormat`
- - `NativeYamlParser`
- - `InlinePageTranslations`
- - `TypoScriptParserIncludesAsXml`
- - `NativeDoctrineQueries`
+- `ExtendedRichtextFormat`
+- `NativeYamlParser`
+- `InlinePageTranslations`
+- `TypoScriptParserIncludesAsXml`
+- `NativeDoctrineQueries`
 
+.. _feature-toggles-api:
 
-Using the API as Extension Author
+Using the API as extension author
 =================================
 
 For extension authors, the API can be used for any custom feature provided by an extension.
@@ -64,17 +65,21 @@ To check if a feature is enabled use this code::
 
 .. attention::
 
-   Currently, only the core features can be (de-)activated in the Install Tool.
-   
+   Currently, only the Core features can be (de-)activated in the Install Tool.
+
    To change the setting for your extension feature either use :file:`Localconfiguration.php`:
    or :file:`AdditionalConfiguration.php`: like
-      
+
+   .. code-block:: php
+
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true
 
 The name can be any arbitrary string, but an extension author should prefix the feature with the
 extension name as the features are global switches which otherwise might lead to naming conflicts.
 
-Core Feature Toggles
+.. _feature-toggles-core:
+
+Core feature toggles
 ====================
 
 Some examples for feature toggles in the TYPO3 Core:
@@ -84,8 +89,9 @@ Some examples for feature toggles in the TYPO3 Core:
   Enabling this feature means old condition syntax (which is deprecated) will
   trigger deprecation messages.
 
+.. _feature-toggles-enable:
 
-Enable / Disable Feature Toggle
+Enable / disable feature toggle
 ===============================
 
 Features can be toggled in the *Settings* module via *Feature Toggles*:
@@ -102,10 +108,10 @@ Internally, the changes are written to :file:`LocalConfiguration.php`::
       ],
    ]
 
-Feature Toggles in TypoScript
+Feature toggles in TypoScript
 ===============================
 
-To check wether a feature is enabled in TypoScript was introduced in v9.5 in :issue:`86881`
+To check whether a feature is enabled in TypoScript was introduced in v9.5 in :issue:`86881`
 
 Support for feature toggle check in the symfony expression language DefaultFunctionProvider is provided.
 With the new function :typoscript:`feature()` the feature toggle can be checked.

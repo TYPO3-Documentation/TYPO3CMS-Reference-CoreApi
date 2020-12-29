@@ -1,6 +1,5 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; AfterDataGeneratedForWorkspaceEvent
 .. _AfterDataGeneratedForWorkspaceEvent:
 
 
@@ -13,43 +12,38 @@ Used in the workspaces module to find all data of versions of a workspace.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getGridService()
-   :Description:
-         Returns the current instance of the GridDataService.
-   :ReturnType:
-         `\TYPO3\CMS\Workspaces\Service\GridDataService`
+.. rst-class:: dl-parameters
 
+getGridService()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Workspaces\Service\GridDataService`
+   :sep:`|`
 
- - :Method:
-         getData()
-   :Description:
-         Returns the cacheable data of versions.
-   :ReturnType:
-         array
+   |nbsp|
 
+getData()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         setData(array $data)
-   :Description:
-         Set / Overwrite the cacheable data of versions.
-   :ReturnType:
-         void
+   |nbsp|
 
+setData(array $data)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         getVersions()
-   :Description:
-         Returns versions.
-   :ReturnType:
-         array
+   |nbsp|
 
+getVersions()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         setVersions(array $versions)
-   :Description:
-         Set / overwrite workspace versions.
-   :ReturnType:
-         void
+   |nbsp|
+
+setVersions(array $versions)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
 

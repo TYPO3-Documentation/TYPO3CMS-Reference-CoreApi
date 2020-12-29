@@ -1,14 +1,9 @@
-.. include:: ../../../../Includes.txt
-
-
-
-
-
-
+.. include:: /Includes.rst.txt
+.. index:: pair: Extensions; RequireJS
 .. _requirejs-extensions:
 
 ===================================
-Use RequireJS in Your Own Extension
+Use RequireJS in your own extension
 ===================================
 
 To be able to use RequireJS at all, some prerequisites must be fulfilled:

@@ -1,5 +1,5 @@
-.. include:: ../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: ! Extension development
 .. _extension-architecture:
 .. _extension-development:
 
@@ -46,3 +46,11 @@ STEPS TOWARDS CREATING AN EXTENSION
    Documentation/Index
    PublishExtension/Index
    Resources/Index
+
+ADVANCED
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   CustomExtensionRepository/Index

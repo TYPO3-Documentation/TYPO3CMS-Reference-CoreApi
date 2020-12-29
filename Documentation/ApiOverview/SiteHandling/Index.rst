@@ -1,9 +1,9 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: Site handling
 .. _sitehandling:
 
 =============
-Site Handling
+Site handling
 =============
 
 The site handling defines entry points to the frontend sites of a
@@ -24,6 +24,7 @@ through the features of the module and goes into API and programming details.
    UsingEnvVars
    UseSiteInTypoScript
    UseSiteInConditions
+   SiteSettings
    CliTools
    AccessingSiteConfiguration
    ExtendingSiteConfig

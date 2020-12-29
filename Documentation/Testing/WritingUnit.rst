@@ -1,5 +1,7 @@
-.. include:: ../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   ! Testing; Unit
+   Unit tests
 .. _testing-writing-unit:
 
 ==================
@@ -13,7 +15,7 @@ This chapter goes into details about writing and maintaining unit tests in the T
 world. Core developers over the years gained quite some knowledge and experience on
 this topic, this section outlines some best practices and goes into details about
 some of the TYPO3 specific unit testing details that have been put on top of the native
-phpunit stack: At the time of this writing the TYPO3 core contains about ten thousand
+phpunit stack: At the time of this writing the TYPO3 Core contains about ten thousand
 unit tests - many of them are good, some are bad and we're constantly improving
 details. Unit testing is a great playground for interested contributors, and most
 extension developers probably learn something useful from reading this section, too.
@@ -59,7 +61,7 @@ usually does not make sense to unit test glue code. What is glue code? Well, cod
 that fetches things from one underlying part and feeds it to some other part: Code that "glues"
 framework functionality together.
 
-Good examples are often extbase MVC controller actions: A typical controller usually does not do much
+Good examples are often Extbase MVC controller actions: A typical controller usually does not do much
 more than fetching some objects from a repository just to assign them to the view. There is no benefit in
 adding a unit test for this: A unit test can't do much more than verifying some specific framework
 methods are actually called. It thus needs to mock the object dependencies to only verify some
@@ -67,7 +69,7 @@ method is hit with some argument. This is tiresome to set up and you're then tes
 part of your controller: Looking at the controller clearly shows the underlying method *is* called.
 Why bother?
 
-Another example are extbase models: Most extbase model properties consist of a protected property,
+Another example are Extbase models: Most Extbase model properties consist of a protected property,
 a getter and a setter method. This is near no-brainer code, and many developers auto-generate
 getters and setters by an IDE anyway. Unit testing this code leads to broken tests with each trivial
 change of the model class. That's tiresome and likely some waste of time. Concentrate unit testing
@@ -83,16 +85,17 @@ birds with one stone. This has many more benefits than trying to unit test glue 
 A good sign that your unit test would be more useful if it is turned into a functional test is if
 the unit tests needs lots of lines of code to mock dependencies, just to test something using
 :php:`->shouldBeCalled()` on some mock to verify on some dependency is actually called. Go ahead and
-read some unit tests provided by the core: We're sure you'll find a bad unit test that could be improved
+read some unit tests provided by the Core: We're sure you'll find a bad unit test that could be improved
 by creating a functional test from it.
 
+.. index:: Unit tests; Conventions
 
 Unit test conventions
 =====================
 
 TYPO3 unit testing means using the `phpunit <https://phpunit.de/>`_ testing framework. TYPO3 comes with
 as basic `UnitTests.xml <https://github.com/TYPO3/testing-framework/blob/master/Resources/Core/Build/UnitTests.xml>`_
-file that can be used by core and extensions. This references a phpunit `bootstrap file
+file that can be used by Core and extensions. This references a phpunit `bootstrap file
 <https://github.com/TYPO3/testing-framework/blob/master/Resources/Core/Build/UnitTestsBootstrap.php>`_ so
 phpunit does find our main classes. Apart from that, there are little conventions: Tests for some "system under test"
 class in the :file:`Classes/` folder should be located at the same position within the :file:`Test/Unit`
@@ -154,6 +157,7 @@ system under test. That is ok. It's better if a single test is very simple and t
 lines from one to the other test over and over again than trying to abstract that away.
 Keep tests as simple as possible to read and don't use fancy abstraction features.
 
+.. index:: Unit tests; Extending UnitTestCase
 
 Extending UnitTestCase
 ======================
@@ -200,11 +204,11 @@ General hints
   mocked. Never use it for an object that is created by the system under test itself.
 
 * Since TYPO3 v9, unit tests are by default configured to fail if a notice level PHP error is triggered.
-  This has been used in the core to slowly make the framework notice free. Extension authors may fall
+  This has been used in the Core to slowly make the framework notice free. Extension authors may fall
   into a trap here: First, the unit test code itself, or the system under test may trigger notices.
-  Developers should fix that. But, TYPO3 v9 is not yet fully notice free, and it may happen a core
+  Developers should fix that. But, TYPO3 v9 is not yet fully notice free, and it may happen a Core
   dependency triggers a notice that in turn lets the extensions unit test fail. At best, the extension
-  developer pushes a patch to the core to fix that notice. Another solution is to mock the dependency
+  developer pushes a patch to the Core to fix that notice. Another solution is to mock the dependency
   away, which may however not be desired or possible - especially with static dependencies.
 
 
@@ -285,6 +289,7 @@ to the test and it helps avoiding duplicate sets. Additionally, put the data pro
 test and name it "test name" + "DataProvider". Data providers are often not used in multiple tests, so that should
 almost always work.
 
+.. index:: Unit tests; Mocking
 
 Mocking
 =======
@@ -353,9 +358,10 @@ to mock that method away. And yeah, that is ugly. Unit tests can quite quickly s
 of the framework are not modelled in a good way. A typical case is
 :php:`TYPO3\CMS\Backend\Utility\BackendUtility` - trying to unit test systems that have this
 class as dependency is often very painful. There is not much developers can do in this case. The
-core tries to slowly improve these areas over time and indeed BackendUtility is shrinking
+Core tries to slowly improve these areas over time and indeed BackendUtility is shrinking
 each version.
 
+.. index:: pair: Unit tests; Exceptions
 
 Exception handling
 ==================

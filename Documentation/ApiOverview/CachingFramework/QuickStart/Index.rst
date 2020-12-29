@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -17,13 +17,13 @@ the caching framework without giving the whole details under the hood.
 Change Specific Cache Options
 =============================
 
-By default, most core caches use the database backend. Default cache configuration
+By default, most Core caches use the database backend. Default cache configuration
 is defined in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
 and can be overridden in :file:`LocalConfiguration.php`.
 
 If specific settings should be applied to the configuration, they should be added to :file:`LocalConfiguration.php`.
 All settings in :file:`LocalConfiguration.php` will be merged with :file:`DefaultConfiguration.php`. The easiest way to see
-the final cache configuration is to use the TYPO3 Backend module **SYSTEM > Configuration > $GLOBALS['TYPO3_CONF_VARS']** (with installed lowlevel system extension).
+the final cache configuration is to use the TYPO3 backend module **SYSTEM > Configuration > $GLOBALS['TYPO3_CONF_VARS']** (with installed lowlevel system extension).
 
 Example for a configuration of redis cache backend on redis database number 42 instead of the default
 database backend with compression for the pages cache:
@@ -37,7 +37,7 @@ database backend with compression for the pages cache:
       // ...
          'caching' => [
             // ...
-            'cache_pages' => [
+            'pages' => [
                'backend' => \TYPO3\CMS\Core\Cache\Backend\RedisBackend::class,
                'options' => [
                   'database' => 42,

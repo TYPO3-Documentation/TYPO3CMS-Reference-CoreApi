@@ -1,31 +1,29 @@
-.. include:: ../../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: ! Signals and slots
 .. _signals-slots:
 
-=================
-Signals and Slots
-=================
+==============================
+Signals and slots (deprecated)
+==============================
 
-.. versionchanged:: 10.2
-   A number of signals have been replaced in the core with :ref:`PSR-14 events <eventlist>`.
-   See changelogs:
+.. warning::
 
-   * :doc:`t3core:Changelog/10.2/Feature-89733-NewPSR-14EventsForExistingSignalSlotsInCoreExtension`
-   * :doc:`t3core:Changelog/10.3/Feature-89870-NewPSR-14EventsForExtbase-relatedSignals`
+   The extbase :php:`SignalSlotDispatcher` and the concept of using signals and slots
+   has been superseded by :ref:`PSR-14 events <EventDispatcher>`
 
-Signals and Slots provide a way to extend TYPO3s Core functionality or the functionality of Extensions. Signals roughly
+Signals and slots provide a way to extend TYPO3s Core functionality or the functionality of Extensions. Signals roughly
 follow the `observer pattern <https://en.wikipedia.org/wiki/Observer_pattern>`__.
 
-Signals and Slots decouple the sender (sending a signal) and the receiver(s)
+Signals and slots decouple the sender (sending a signal) and the receiver(s)
 (called slots). :ref:`Hooks <hooks-general>` depend on directly calling functions in the implementing class.
 
 
 .. _signals-concept:
 
-Concept of Signals and Slots
+Concept of signals and slots
 ============================
 
-Whenever the sender (i.e. a core class or the class of an extension) wants to send a signal it calls :php:`dispatch` on
+Whenever the sender (i.e. a Core class or the class of an extension) wants to send a signal it calls :php:`dispatch` on
 the SignalSlot :php:`Dispatcher`. The sender does not have or need any information about the receivers (slots). (See
 :ref:`Dispatching Signals <signals-dispatch>`)
 
@@ -59,9 +57,10 @@ there is no programmatic way of ensuring the returned array contains all expecte
    :class: with-shadow
 
 
+.. index:: Signals and slots; Dispatch
 .. _signals-dispatch:
 
-Dispatching Signals
+Dispatching signals
 ===================
 
 .. _signals-basics:
@@ -82,7 +81,9 @@ Emitting a signal is a mere call of the function :php:`dispatch` on the SignalSl
 
 The data returned by the dispatch should not be taken for granted. Always perform sanity checks before using it.
 
-Using Signals
+.. index:: Signal and slots; Usage
+
+Using signals
 =============
 
 To connect a slot to a signal, use the :php:`\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::connect()` method.
@@ -99,13 +100,13 @@ Usage example:
 .. code-block:: php
    :linenos:
 
-   $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::
-      makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
+   $signalSlotDispatcher = `\TYPO3\CMS\Core\Utility\GeneralUtility::`
+   makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
    $signalSlotDispatcher->connect(
-     \TYPO3\CMS\Extensionmanager\Utility\InstallUtility::class,  // Signal class name
-     'afterExtensionUninstall',                                  // Signal name
-     \TYPO3\CMS\Core\Core\ClassLoadingInformation::class,        // Slot class name
-     'dumpClassLoadingInformation'                               // Slot name
+       `\TYPO3\CMS\Extensionmanager\Utility\InstallUtility::class,  // Signal class name`
+       'afterExtensionUninstall',                                  // Signal name
+       `\TYPO3\CMS\Core\Core\ClassLoadingInformation::class,        // Slot class name`
+       'dumpClassLoadingInformation'                               // Slot name
    );
 
 In this example, we define that we want to call the method
@@ -123,10 +124,10 @@ In this case, the :php:`dumpClassLoadingInformation` method will get the
 extension key and an instance of the dispatching class as parameters.
 
 
-Finding Signals
+Finding signals
 ===============
 
 There is no complete list of signals available, but they are easily found by
-searching the TYPO3 core or the extensions code for :php:`dispatch(`.
+searching the TYPO3 Core  or the extensions code for :php:`dispatch(`.
 
 For finding hooks, look in the :ref:`Hooks Configuration <hooks-configuration>`.

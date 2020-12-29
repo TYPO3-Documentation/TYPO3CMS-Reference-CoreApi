@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _t3ds-elements:
@@ -86,8 +86,6 @@ must be arrays.)
    :Child elements:
          <sheetTitle>
 
-         <cshFile>
-
          <displayCond>
 
 
@@ -98,17 +96,6 @@ must be arrays.)
          gets "General" in this case). Can be a plain string or a reference to
          language file using standard LLL syntax. Ignored if sheets are not
          defined for the flexform.
-   :Child elements:
-         -
-
-
- - :Element:
-         <cshFile>
-   :Description:
-         CSH language file for fields inside the flexform. Refer to section on
-         :ref:`T3locallang <locallang>` for the format of language files and to
-         section Content Sensitive Help of "Inside TYPO3" document for
-         information about CSH.
    :Child elements:
          -
 
@@ -231,7 +218,7 @@ of FlexForms can be found in the :ref:`relevant section of the TCA reference <t3
                            <type>check</type>
                            <items type="array">
                               <numIndex index="1" type="array">
-                                 <numIndex index="0">LLL:EXT:lang/locallang_core.xml:labels.enabled</numIndex>
+                                 <numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_core.xml:labels.enabled</numIndex>
                                  <numIndex index="1">1</numIndex>
                               </numIndex>
                            </items>
@@ -246,7 +233,7 @@ of FlexForms can be found in the :ref:`relevant section of the TCA reference <t3
                            <type>check</type>
                            <items type="array">
                               <numIndex index="1" type="array">
-                                 <numIndex index="0">LLL:EXT:lang/locallang_core.xml:labels.enabled</numIndex>
+                                 <numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_core.xml:labels.enabled</numIndex>
                                  <numIndex index="1">1</numIndex>
                               </numIndex>
                            </items>

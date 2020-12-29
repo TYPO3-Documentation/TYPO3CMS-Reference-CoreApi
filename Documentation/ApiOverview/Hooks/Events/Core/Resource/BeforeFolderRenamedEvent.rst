@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; BeforeFolderRenamedEvent
 .. _BeforeFolderRenamedEvent:
 
 
@@ -15,19 +14,21 @@ or specific rules when renaming folders.
 API
 ---
 
-
- - :Method:
-         getFolder()
-   :Description:
-         Returns the folder about to be renamed.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getTargetName()
-   :Description:
-         Returns the renamed name.
-   :ReturnType:
-         string
+.. rst-class:: dl-parameters
+
+getFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
+
+getTargetName()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
 

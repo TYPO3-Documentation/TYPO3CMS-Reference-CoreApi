@@ -1,4 +1,6 @@
-.. include:: ../../../Includes.txt
+:orphan:
+
+.. include:: /Includes.rst.txt
 
 =====================================================
 Adding Elements to the Content Element Wizard (Moved)

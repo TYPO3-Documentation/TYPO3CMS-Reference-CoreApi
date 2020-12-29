@@ -1,11 +1,12 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index::
+   Services API; Override service registration
+   TYPO3_CONF_VARS; T3_SERVICES
 .. _services-configuration-registration-changes:
 
-====================
-Registration Changes
-====================
+=============================
+Override service registration
+=============================
 
 The priority and other values of the original service registration can be
 overridden in any extension's :file:`ext_localconf.php` file. Example:

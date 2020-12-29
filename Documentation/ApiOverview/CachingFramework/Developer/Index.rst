@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -13,7 +13,7 @@ for their needs. It is about how to use the framework properly. For details abou
 its inner working, please refer to the :ref:`section about architecture <caching-architecture>`.
 
 Example usages can be found throughout the TYPO3 CMS Core, in particular in
-system extension "core" and "extbase".
+system extension `core` and `extbase`.
 
 
 .. _caching-developer-usage:
@@ -90,7 +90,7 @@ Here is some example code::
        {
            $cacheIdentifier = $this->calculateCacheIdentifier();
 
-           // If $entry is null, it hasn't been cached. Calculate the value and store it in the cache:
+           // If $entry is false, it hasn't been cached. Calculate the value and store it in the cache:
            if (($entry = $this->cache->get($cacheIdentifier)) === false) {
                $entry = $this->calculateMagic();
 
@@ -103,8 +103,8 @@ Here is some example code::
        }
 
 Since the auto-wiring feature of the dependency injection container cannot detect
-which cache configuration should be used for the :php:`$cache` argument, the container
-service configuration needs to be extended as well:
+which cache configuration should be used for the :php:`$cache` argument, the :ref:`container
+service configuration <configure-dependency-injection-in-extensions>` needs to be extended as well:
 
 .. code-block:: yaml
 

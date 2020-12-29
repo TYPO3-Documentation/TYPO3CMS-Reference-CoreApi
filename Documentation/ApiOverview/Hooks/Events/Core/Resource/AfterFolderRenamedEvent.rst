@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; AfterFolderRenamedEvent
 .. _AfterFolderRenamedEvent:
 
 
@@ -14,11 +13,15 @@ This event is fired after a folder was renamed.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getFolder()
-   :Description:
-         Returns the folder after renaming.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+
+.. rst-class:: dl-parameters
+
+getFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
 

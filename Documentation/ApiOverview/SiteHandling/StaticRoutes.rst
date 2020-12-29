@@ -1,9 +1,9 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: pair: Site handling; Static routes
 .. _sitehandling-staticRoutes:
 
 =============
-Static Routes
+Static routes
 =============
 
 Static routes provide a way to create seemingly static content on a per site base.
@@ -26,6 +26,8 @@ There are two options: deliver static text or resolve a TYPO3 URL.
     get parameters as the matching is done solely on the path level.
 
 
+.. index:: Site handling; StaticText
+
 StaticText
 ==========
 
@@ -33,7 +35,7 @@ The :code:`staticText` option allows to deliver simple text content. The text ca
 text field directly in the site configuration. This is suitable for files like :file:`robots.txt`
 or :file:`humans.txt`.
 
-YAML Configuration Example:
+YAML configuration example:
 
 .. code-block:: yaml
 
@@ -46,13 +48,19 @@ YAML Configuration Example:
      Disallow: /forbidden/
 
 
+.. index::
+   Site handling; TYPO3 URL
+   TYPO3 URL
+   t3://
+   see: t3://; TYPO3 URL
+
 TYPO3 URL (t3://)
 =================
 
 The type :code:`uri` for TYPO3 URL provides the option to render either a file, page or url. Internally
 a request to the file or URL is done and its content delivered.
 
-YAML Configuration Examples:
+YAML configuration examples:
 
 .. code-block:: yaml
 

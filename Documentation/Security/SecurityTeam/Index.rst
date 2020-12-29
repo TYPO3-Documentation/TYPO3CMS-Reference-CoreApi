@@ -1,17 +1,19 @@
-.. include:: ../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Security team
 .. _security-team:
 
+=======================
 The TYPO3 Security Team
------------------------
+=======================
 
+
+.. index:: Security; Reporting
 .. _security-team-contact:
 
-Report a security issue
-^^^^^^^^^^^^^^^^^^^^^^^
+Reporting a security issue
+==========================
 
-If you find a security issue in the TYPO3 core system or in a TYPO3
+If you find a security issue in the TYPO3 Core system or in a TYPO3
 extension (even if it is your own development), please report it to
 the `TYPO3 Security Team <mailto:security@typo3.org>`_ – the Security Team only.
 Do not disclose the issue in public (for example in mailing lists, forums, on Twitter,
@@ -23,8 +25,13 @@ time to assess the issue and get back to you with an answer. If you
 suspect that your report has been overlooked, feel free to submit a
 reminder a few days after your initial submission.
 
-Review of your extension
-^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. index::
+   Security; Extension review
+   Extension review
+
+Extension review
+================
 
 The Security Team does not review extensions pro-actively, but can be
 engaged if someone wants to have his/her extension reviewed. It is not
@@ -40,29 +47,31 @@ Please find further details about the TYPO3 Security Team at
 `https://typo3.org/community/teams/security/ <https://typo3.org/community/teams/security/>`_ .
 
 
-
+.. index:: Security; Incident handling
 .. _security-incident-handling:
 
 Incident handling
-^^^^^^^^^^^^^^^^^
+=================
 
 This chapter provides detailed information about the differences between
-the TYPO3 core system and TYPO3 extensions and how the TYPO3 Security
+the TYPO3 Core system and TYPO3 extensions and how the TYPO3 Security
 Team deals with security issues of those.
 
-TYPO3 core system
-"""""""""""""""""
+
+Security issues in the TYPO3 Core
+---------------------------------
 
 If the TYPO3 Security Team gains knowledge about a security issue in
-the TYPO3 core system, they work closely together with the developers
+the TYPO3 Core system, they work closely together with the developers
 of the appropriate component of the system, after verifying the
 problem. A fix for the vulnerability will be developed, carefully
 tested and reviewed. Together with a public security bulletin, a TYPO3
-core update will be released. Please see next chapter for further
+Core update will be released. Please see next chapter for further
 details about TYPO3 CMS versions and security bulletins.
 
-TYPO3 extensions
-""""""""""""""""
+
+Security issues in TYPO3 extensions
+-----------------------------------
 
 When the TYPO3 Security Team receives a report of a security issue in
 an extension, the issue will be checked in the first stage. If a
@@ -70,22 +79,19 @@ security problem can be confirmed, the Security Team tries to get in
 touch with the extension developer and requests a fix. Then one of the
 following situations usually occurs:
 
-- the developer acknowledges the security vulnerability and delivers a
+* the developer acknowledges the security vulnerability and delivers a
   fix
-
-- the developer acknowledges the security vulnerability but does not
+* the developer acknowledges the security vulnerability but does not
   provide a fix
-
-- the developer refuses to produce a security fix (e.g. because he does
+* the developer refuses to produce a security fix (e.g. because he does
   not maintain the extension anymore)
-
-- the developer cannot be contacted or does not react
+* the developer cannot be contacted or does not react
 
 In the case where the extension author fails to provide a security fix
 in an appropriate time frame (see below), all affected versions of the
 extension will be removed from the TYPO3 Extension Repository (TER)
 and a security bulletin will be published (see below), recommending to
-deinstall the extension.
+uninstall the extension.
 
 If the developer provides the TYPO3 Security Team with an updated
 version of the extension, the team reviews the fix and checks if the

@@ -1,6 +1,5 @@
-.. include:: ../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Mail
 .. _mail:
 
 ========
@@ -32,6 +31,9 @@ which can be tested out in TYPO3’s install tool test email functionality.
    :local:
 
 
+.. index::
+   pair: Mail; Configuration
+   TYPO3_CONF_VARS; MAIL
 .. _mail-configuration:
 
 Configuration
@@ -43,7 +45,7 @@ Several settings are available in the "Configure Installation-Wide Options"
 
 .. _mail-configuration-format:
 
-format
+Format
 ------
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['format']` can be `both`,
@@ -90,9 +92,13 @@ smtp
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = '<server:port>';`
    Mail server name and port to connect to. Port defaults to "25".
 
-:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = '<transport protocol>';`
-   Connect to the server using the specified transport protocol. Requires openssl library.
-   Usually available: ssl, sslv2, sslv3, tls. Check :php:`stream_get_transports()`.
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = <bool>;`
+   Determines whether the transport protocol should be encrypted. Requires openssl library.
+   If :php:`false`, symfony/mailer will use STARTTLS.
+
+   .. versionchanged:: 10.4
+      The allowed values fo this settings has changed (from string to boolean),
+      see :doc:`t3core:Changelog/10.4.x/Important-91070-SMTPTransportOptionTransport_smtp_encryptChangedToBoolean`
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username] = '<username>';`
    If your SMTP server requires authentication, the username.
@@ -104,7 +110,7 @@ Example::
 
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'smtp';
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = 'localhost';
-  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = 'tls'; // ssl, sslv3, tls
+  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = true;
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username'] = 'johndoe';
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password'] = 'cooLSecret';
   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'bounces@example.org';  // fetches all 'returning' emails
@@ -156,19 +162,90 @@ mbox
    possible to add custom settings.
 
 
+.. _mail-validators:
 
+validators
+----------
+
+.. versionadded:: 11.0
+
+Using additional validators can help to identify if a provided email address
+is valid or not. By default, the validator
+:php:`\Egulias\EmailValidator\Validation\RFCValidation` is used. The following
+validators are available:
+
+- :php:`\Egulias\EmailValidator\Validation\DNSCheckValidation`
+- :php:`\Egulias\EmailValidator\Validation\SpoofCheckValidation`
+- :php:`\Egulias\EmailValidator\Validation\NoRFCWarningsValidation`
+
+Additionally it is possible to provide an own implementation by implementing the
+interface :php:`\Egulias\EmailValidator\Validation\EmailValidation`.
+
+If multiple validators are provided, each validator must return :php:`true`.
+
+Example::
+
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['validators'] = [
+      \Egulias\EmailValidator\Validation\RFCValidation::class,
+      \Egulias\EmailValidator\Validation\DNSCheckValidation::class
+   ];
+
+
+.. index::
+   Mail; Spooling
+   Mail; transport_spool_type
+.. _mail-spooling:
+
+Spooling
+========
+
+The default behavior of the TYPO3 mailer is to send the email messages immediately. You may, however, want to avoid
+the performance hit of the communication to the email server, which could cause the user to wait for the next page to
+load while the email is being sent. This can be avoided by choosing to "spool" the emails instead of sending them directly.
+
+
+Spooling in memory
+------------------
+
+.. code-block:: php
+
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_type'] = 'memory';
+
+When you use spooling to store the emails to memory, they will get sent right before the kernel terminates. This means
+the email only gets sent if the whole request got executed without any unhandled exception or any errors.
+
+
+Spooling using files
+--------------------
+
+.. code-block:: php
+
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_type'] = 'file';
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_filepath'] = '/folder/of/choice';
+
+When using the filesystem for spooling, you need to define in which folder TYPO3 stores the spooled files.
+This folder will contain files for each email in the spool. So make sure this directory is writable by TYPO3 and not
+accessible to the world (outside of the webroot).
+
+
+
+.. index::
+   Mail; How to create mails
+   Mails; How to send mails
 .. _mail-create:
 
-How to Create and Send Mails
+How to create and send mails
 ============================
 
 Both :php:`\TYPO3\CMS\Core\Mail\MailMessage` and :php:`\TYPO3\CMS\Core\Mail\FluidEmail` inherit
 from :php:`Symfony\Component\Mime\Email` and have a similar API. **FluidEmail** is specific
 for sending emails based on Fluid.
 
+
+.. index:: Mail; FluidEmail
 .. _mail-fluid-email:
 
-Send email with `FluidEmail`
+Send mail with `FluidEmail`
 ----------------------------
 
 This sends an email using an existing Fluid template :file:`TipsAndTricks.html`,
@@ -211,6 +288,9 @@ In Fluid, you can now use the defined language key ("language"):
 
    <f:translate languageKey="{language}" id="LLL:my_ext/Resources/Private/Language/emails.xml:subject" />
 
+
+.. index:: Mail; MailMessage
+
 Send email with `MailMessage`
 -----------------------------
 
@@ -239,7 +319,7 @@ This shows how to generate and send a mail in TYPO3::
       ->text('Here is the message itself')
 
       // And optionally a HTML message
-      ->html('<q>Here is the message itself</q>')
+      ->html('<p>Here is the message itself</p>')
 
       // Optionally add any attachments
       ->attachFromPath('/path/to/my-document.pdf')
@@ -260,7 +340,7 @@ Or if you prefer, don't concatenate the calls::
    );
    $mail->subject('Your subject');
    $mail->text('Here is the message itself');
-   $mail->html('<q>Here is the message itself</q>');
+   $mail->html('<p>Here is the message itself</p>');
    $mail->attachFromPath('/path/to/my-document.pdf');
    $mail->send();
 
@@ -275,9 +355,10 @@ Or if you prefer, don't concatenate the calls::
    :php:`MailMessage` in own extensions is recommended.
 
 
+.. index:: Mail; Attachments
 .. _mail-attachments:
 
-How to Add Attachments
+How to add attachments
 ======================
 
 Attach files that exist in your file system::
@@ -293,9 +374,10 @@ Attach files that exist in your file system::
 
 
 
+.. index:: Mail; Inline media
 .. _mail-inline:
 
-How to Add Inline Media
+How to add inline media
 =======================
 
 Add some inline media like images in a mail::
@@ -311,9 +393,12 @@ Add some inline media like images in a mail::
 
 
 
+.. index::
+   Mail; Default sender
+   TYPO3_CONF_VARS; MAIL defaultMailFromAddress
 .. _mail-sender:
 
-How to Set and Use a Default Sender
+How to set and use a default sender
 ===================================
 
 It is possible to define a default email sender ("From:") in the *Install
@@ -344,10 +429,11 @@ In case of the problem "Mails are not sent" in your extension, try to set a
    }
    $mail->send();
 
+.. index:: pair: Mail; Symfony
 .. _mail-symfony-mime:
 
-Symfony Documentation
-=====================
+Symfony mail documentation
+==========================
 
 Please refer to the Symfony documentation for more information about
 available methods.

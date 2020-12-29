@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -16,6 +16,13 @@ File operations in the TCE are handled by the class
 which extends :code:`\TYPO3\CMS\Core\Utility\File\BasicFileUtility`.
 The instructions for file manipulation are passed to this class as a
 multidimensional array.
+
+.. note::
+
+   Do not use :code:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility` or
+   :code:`\TYPO3\CMS\Core\Utility\File\BasicFileUtility` directly - both classes are
+   marked as internal. Use :code:`\TYPO3\CMS\Core\Resource\ResourceStorage` and
+   :code:`\TYPO3\CMS\Core\Resource\ResourceFactory` for handling files in your code.
 
 
 .. _tce-files-array:
@@ -213,8 +220,8 @@ It is unlikely that you will need to use this internally in your
 scripts like you will need :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. It
 is fairly uncommon to need the file manipulations in own scripts unless you
 make a special application. Therefore the most typical usage of this API is
-from :ref:`\TYPO3\CMS\Backend\Controller\File\FileController <tce-file-api>`
-and the core scripts that are activated by the "File > List" module.
+from :ref:`\\TYPO3\\CMS\Backend\\Controller\\File\\FileController <tce-file-api>`
+and the Core scripts that are activated by the "File > List" module.
 
 However, if needed, this is an example of how to initialize usage. It is taken
 from :file:`ImportExportController.php`:

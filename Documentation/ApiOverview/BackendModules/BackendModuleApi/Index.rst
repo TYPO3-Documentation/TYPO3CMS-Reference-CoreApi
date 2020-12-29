@@ -1,12 +1,10 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Backend modules; API
 .. _backend-modules-api:
 
-==================
-Backend Module API
-==================
-
+============================
+Backend module API (Extbase)
+============================
 
 As for frontend plugins, you can use :ref:`Fluid templates <t3extbasebook:fluid-start>` to
 create the view and :ref:`controller actions <t3extbasebook:controlling-the-flow-with-controllers>`
@@ -18,9 +16,12 @@ for the functionality.
    The :ref:`extension builder <extension-builder>` can be used to generate basic code
    for a new extension. You can also use this to create backend modules.
 
+.. index::
+   Backend modules; Registration
+   File; EXT:{extkey}/ext_tables.php
 .. _backend-modules-api-registration:
 
-Registering new Modules
+Registering new modules
 =======================
 
 Modules added by extensions are registered in the file :ref:`ext_tables.php <ext-tables.php>`
@@ -40,10 +41,23 @@ using the following API:
         ],
         [
             'access' => 'admin',
-            'icon' => 'EXT:beuser/Resources/Public/Icons/module-beuser.svg',
+            'iconIdentifier' => 'module-beuser',
             'labels' => 'LLL:EXT:beuser/Resources/Private/Language/locallang_mod.xlf',
+            'navigationComponentId' => 'TYPO3/CMS/Backend/PageTree/PageTreeElement',
+            'inheritNavigationComponentFromMainModule' => false,
         ]
     );
+
+.. index:: icon, iconIdentifier
+
+`'iconIdentifier'` versus `'icon'`
+   `'iconIdentifier'` is the better and more modern way to go. It should always be used
+   for Core icons. Other icons however need to be registered first at the IconRegistry to
+   create identifiers. Note that `'icon'` still works. Within custom packages it is easier
+   to use. Example::
+   
+      'icon' => 'EXT:extkey/Resources/Public/Icons/smile.svg',
+   
 
 Here the module ``tx_Beuser`` is declared as a submodule of the already existing
 main module ``system``.
@@ -77,11 +91,12 @@ Parameters:
      * ``user``: the module can be made accessible per user
      * ``group``: the module can be made accessible per usergroup
 
-   * Module ``icon``
+   * Module ``iconIdentifier``
    * A language file containing ``labels`` like the module title and description,
      for building the module menu and for the display of information in the
      **About Modules** module (found in the main help menu in the top bar).
      The `LLL:` prefix is mandatory here and is there for historical reasons.
+   * Navigation component ``navigationComponentId`` - you can specify which navigation component you want to use, for example ``TYPO3/CMS/Backend/PageTree/PageTreeElement`` If you don't want to show a page tree at all you can either set this to an empty string or not declare it at all. In case the main module (e.g. "web") has a navigationComponent defined by default you'll have to also set ``'inheritNavigationComponentFromMainModule' => false``.
 
 
 .. note::
@@ -89,7 +104,9 @@ Parameters:
    in the cache. This is not necessary for backend modules, because the actions are
    generally not being cached in the backend.
 
-Registering a Toplevel Module
+.. index:: Backend modules; Toplevel
+
+Registering a toplevel module
 =============================
 
 Toplevel modules like "Web" or "File" are registered with the same API:
@@ -104,7 +121,7 @@ Toplevel modules like "Web" or "File" are registered with the same API:
         [],
         [
             'access' => '...',
-            'icon' => '...',
+            'iconIdentifier' => '...',
             'labels' => '...',
         ]
     );
@@ -129,6 +146,7 @@ be used to add submodules to this new toplevel module:
 .. note::
    The main module name should contain only lowercase characters. Do not use an underscore or dash.
 
+.. index:: $GLOBALS; TBE_MODULES
 .. _backend-modules-api-tbemodules:
 
 $TBE\_MODULES
@@ -145,12 +163,14 @@ navigation frame).
 
 .. figure:: ../../../Images/BackendModulesConfiguration.png
    :alt: Exploring the TBE_MODULES array using the Configuration module
+   :class: with-border with-shadow
 
 
 The list of modules is parsed by the class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader`.
 
+.. index:: Backend modules; TypoScript
 
-Configuration With TypoScript
+Configuration with TypoScript
 =============================
 
 Backend modules can, like frontend plugins, be configured via TypoScript. While the frontend plugins

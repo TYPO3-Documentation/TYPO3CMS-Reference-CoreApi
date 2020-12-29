@@ -1,9 +1,11 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   ! Errors
+   ! Exceptions
 .. _error-handling:
 
 ================================
-Error and Exception Handling
+Error and exception handling
 ================================
 
 As of version 4.3.0 TYPO3 has come with a built-in error and exception

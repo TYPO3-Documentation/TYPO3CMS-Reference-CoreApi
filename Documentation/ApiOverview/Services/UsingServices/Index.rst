@@ -1,6 +1,4 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
 .. _services-using-services:
 
 ==============

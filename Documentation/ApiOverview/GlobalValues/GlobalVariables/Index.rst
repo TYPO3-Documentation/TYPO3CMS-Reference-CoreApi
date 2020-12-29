@@ -1,10 +1,13 @@
-.. include:: ../../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   ! $GLOBALS
+   Global variables
+   see: Global variables; $GLOBALS
 .. _globals-variables:
 
-================
-Global Variables
-================
+========
+$GLOBALS
+========
 
 .. note::
 
@@ -143,27 +146,6 @@ Global Variables
 
 
  - :Variable:
-         $GLOBALS['T3\_VAR']
-   :Defined:
-         :php:`SystemEnvironmentBuilder::initializeGlobalVariables()`
-   :Description:
-         Space for various internal global data storage in TYPO3. Each key in
-         this array is a data space for an application. Keys currently defined
-         for use is:
-
-         ['callUserFunction'] + ['callUserFunction\_classPool']: Used by
-         :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction` to store singleton objects.
-
-         ['RTEobj'] : Used to hold the current RTE object if any. See
-         :php:`\TYPO3\CMS\Backend\Utility\BackendUtility`.
-
-         ['ext'][ *extension-key* ] : Free space for extensions.
-   :FE:
-         Yes
-
-
-
- - :Variable:
          $GLOBALS['BE\_USER']
    :Defined:
          :php:`Bootstrap::initializeBackendUser()`
@@ -196,9 +178,10 @@ Global Variables
          No
 
 
+.. index:: $GLOBALS; Admin Tools
 .. _globals-exploring:
 
-Exploring Global Variables
+Exploring global variables
 ==========================
 
 Many of the global variables described above can be inspected using the

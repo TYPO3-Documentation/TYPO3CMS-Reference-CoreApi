@@ -1,7 +1,5 @@
-.. include:: ../../../Includes.txt
-
-
-
+.. include:: /Includes.rst.txt
+.. index:: pair: Events; Core
 .. _eventlist:
 
 
@@ -9,9 +7,8 @@
 List of Core PSR-14 Events
 ==========================
 
-The following list contains noticable :ref:`PSR-14 events <EventDispatcher>`
-in the TYPO3 core. For a full list of available events refer to the
-"Configuration" module in the TYPO3 backend.
+The following list contains :ref:`PSR-14 events <EventDispatcher>`
+in the TYPO3 Core .
 
 **Contents:**
 
@@ -24,16 +21,35 @@ in the TYPO3 core. For a full list of available events refer to the
 
 .. toctree::
    :titlesonly:
-   :caption: core
+   :caption: Core
    :glob:
 
+   Core/Authentication/*
    Core/Configuration/*
    Core/Database/*
    Core/DataHandling/*
    Core/Html/*
    Core/Mail/*
+   Core/Package/*
+   Core/Page/*
    Core/Resource/*
    Core/Tree/*
+
+.. toctree::
+   :titlesonly:
+   :caption: Extbase
+   :glob:
+
+   Extbase/Mvc/*
+   Extbase/Persistence/*
+
+
+.. toctree::
+   :titlesonly:
+   :caption: extensionmanager
+   :glob:
+
+   ExtensionManager/*
 
 .. toctree::
    :titlesonly:
@@ -41,7 +57,6 @@ in the TYPO3 core. For a full list of available events refer to the
    :glob:
 
    Frontend/*
-
 
 .. toctree::
    :titlesonly:
@@ -73,10 +88,24 @@ in the TYPO3 core. For a full list of available events refer to the
 
 .. toctree::
    :titlesonly:
+   :caption: recordlist
+   :glob:
+
+   Recordlist/*
+
+.. toctree::
+   :titlesonly:
    :caption: seo
    :glob:
 
    SEO/*
+
+.. toctree::
+   :titlesonly:
+   :caption: setup
+   :glob:
+
+   Setup/*
 
 .. toctree::
    :titlesonly:

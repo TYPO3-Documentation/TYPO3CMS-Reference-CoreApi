@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _database-restriction-builder:
 
@@ -24,7 +24,7 @@ dealing with low-level query stuff must take care overlayed or deleted rows
 are not in the result set of a casual query.
 
 This is where this "automatic restriction" stuff kicks in: The construct is created
-on top of native `doctrine-dbal` as `TYPO3 CMS` specific extension. It automatically
+on top of native Doctrine DBAL as `TYPO3 CMS` specific extension. It automatically
 adds `WHERE` expressions that suppress rows which are marked as deleted or exceeded
 their "active" life cycle. All that is based on the `TCA` configuration of the affected table.
 
@@ -100,7 +100,7 @@ the `DefaultRestrictionContainer` if not explicitly told otherwise by an extensi
     as example the frontend behaves much more like a backend call if the admin panel is used.
 
     The currently active variant is much easier: It always adds sane defaults everywhere, a
-    developer only has to deal with details if they don't fit. The core team hopes this
+    developer only has to deal with details if they don't fit. The Core Team hopes this
     approach is a good balance between hidden magic, security, transparency and convenience.
 
 
@@ -146,6 +146,12 @@ Restrictions
    records need to be handled after the SQL results are fetched, by overlaying the records with
    :php:`BackendUtility::getRecordWSOL()`, :php:`PageRepository->versionOL()` or `PlainDataResolver`.
 
+If a restriction needs to be enforced, a restriction could implement the interface `EnforceableQueryRestrictionInterface`.
+If a restriction implements `EnforceableQueryRestrictionInterface`, the following applies:
+
+* `->removeAll()` will remove all restrictions except the ones that implement the interface `EnforceableQueryRestrictionInterface`
+
+* `->removeByType()` will remove a restriction completely, also restrictions that implement the interface `EnforceableQueryRestrictionInterface`
 
 
 QueryRestrictionContainer
@@ -158,6 +164,14 @@ QueryRestrictionContainer
   `EndTimeRestriction`, `FrontendWorkspaceRestriction` and `FrontendGroupRestriction`. This container should be
   be added by a developer to a query if creating query statements in frontend context or if handling
   frontend stuff from within cli calls.
+
+limitRestrictionsToTables()
+===========================
+
+With the :php:`\TYPO3\CMS\Core\Database\Query\Restriction\LimitToTablesRestrictionContainer`
+it is possible to apply restrictions to a query only for a given set of tables, or - to be precise - table aliases.
+Since it is a restriction container, it can be added to the restrictions of the query builder and
+can hold restrictions itself.
 
 
 Examples
@@ -223,3 +237,52 @@ deliver and use an own set of restrictions for own query statements if needed.
    It can be very helpful to debug the final statements created by the `RestrictionBuilder` using
    :php:`debug($queryBuilder->getSQL())` right before the final call to :php:`$queryBuilder->execute()`. Just
    take care these calls **do not** :ref:`end up in production <database-query-builder-get-sql>` code.
+
+
+If you want to apply one or more restriction/s to only one table, that is possible as follows. Let's say,
+that you have content in table `tt_content` with a relation to categories. Now you would like to get all records with their categories, except those that are hidden. The hidden restriction in this case should only apply to
+the :sql:`tt_content` table, not to the :sql:`sys_category` or :sql:`sys_category_*_mm` table.::
+
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+   $queryBuilder->getRestrictions()
+       ->removeByType(HiddenRestriction::class)
+       ->add(
+           GeneralUtility::makeInstance(LimitToTablesRestrictionContainer::class)
+               ->addForTables(GeneralUtility::makeInstance(HiddenRestriction::class), ['tt'])
+       );
+   $queryBuilder->select('tt.uid', 'tt.header', 'sc.title')
+       ->from('tt_content', 'tt')
+       ->from('sys_category', 'sc')
+       ->from('sys_category_record_mm', 'scmm')
+       ->where(
+           $queryBuilder->expr()->eq('scmm.uid_foreign', $queryBuilder->quoteIdentifier('tt.uid')),
+           $queryBuilder->expr()->eq('scmm.uid_local', $queryBuilder->quoteIdentifier('sc.uid')),
+           $queryBuilder->expr()->eq('tt.uid', $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT))
+       );
+
+
+In this example the :php:`HiddenRestriction` is only applied to :sql:`tt` table alias of :sql:`tt_content`.
+
+Furthermore it is possible to restrict the complete set of restrictions of a query builder to a
+given set of table aliases.
+
+.. code-block:: php
+
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+   $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(HiddenRestriction::class));
+   $queryBuilder->getRestrictions()->limitRestrictionsToTables(['c2']);
+   $queryBuilder
+      ->select('c1.*')
+      ->from('tt_content', 'c1')
+      ->leftJoin('c1', 'tt_content', 'c2', 'c1.parent_field = c2.uid')
+      ->orWhere($queryBuilder->expr()->isNull('c2.uid'), $queryBuilder->expr()->eq('c2.pid', $queryBuilder->createNamedParameter(1, \PDO::PARAM_INT)));
+
+Which will result in:
+
+.. code-block:: sql
+
+   SELECT "c1".*
+   FROM "tt_content" "c1"
+   LEFT JOIN "tt_content" "c2" ON c1.parent_field = c2.uid
+   WHERE (("c2"."uid" IS NULL) OR ("c2"."pid" = 1)) AND ("c2"."hidden" = 0))
+

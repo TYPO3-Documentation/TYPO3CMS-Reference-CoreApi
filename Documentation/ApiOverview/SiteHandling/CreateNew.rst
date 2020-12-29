@@ -1,9 +1,9 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: Site handling; Create new
 .. _sitehandling-create-new:
 
 ===================
-Creating a new Site
+Creating a new site
 ===================
 
 A new site can be created for every page record that either **is on rootLevel (pid = 0)**

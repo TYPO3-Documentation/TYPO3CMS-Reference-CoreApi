@@ -1,5 +1,7 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   Versioning
+   Workspaces
 .. _workspaces:
 
 =========================
@@ -40,7 +42,7 @@ you are facing.
 
 .. _workspaces-frontend:
 
-Frontend Challenges in General
+Frontend challenges in general
 ==============================
 
 For the frontend the challenges are mostly related to creating correct
@@ -92,22 +94,18 @@ live records and check for them in versionOL on input record.
 
 .. _workspaces-frontend-guidelines:
 
-Frontend Implementation Guidelines
+Frontend implementation guidelines
 ==================================
 
 - Any place where enableFields() are not used for selecting in the
   frontend you must at least check that :code:`t3ver_state != 1` so
   placeholders for new records are not displayed.
 
-- Make sure never to select any record with :code:`pid = -1`! (offline records -
-  related to versioning).
-
 - If you need to detect preview mode for versioning and workspaces you
-  can read this variable:
-
-  - :code:`$GLOBALS['TSFE']->sys_page->versioningWorkspaceId`: Will tell you the
-    id of the workspace of the current backend user. Used for preview of
-    workspaces.
+  can use the Context object.
+  :code:`GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('workspace', 'id', 0);`
+  gives you the id of the workspace of the current backend user. Used
+  for preview of workspaces.
 
 - Use these API functions for support of version previews in the
   frontend:
@@ -158,25 +156,9 @@ Frontend Implementation Guidelines
          workspace (only for "element" type versioning)
 
 
- - :Function:
-         $GLOBALS['TSFE']->sys\_page->fixVersioningPid()
-   :Description:
-         Finding online PID for offline version record.
-
-         Will look if the "pid" value of the input record is -1 (it is an
-         offline version) and if the table supports versioning; if so, it will
-         translate the -1 PID into the PID of the original record
-
-         Used whenever you are tracking something back, like making the root
-         line. In fact, it is currently only used by the root line function and
-         chances are that you will not need this function often.
-
-         Principle: Record offline! => Find online?
-
-
 .. _workspaces-frontend-problems:
 
-Frontend Scenarios Impossible to Preview
+Frontend scenarios impossible to preview
 ========================================
 
 These issues are not planned to be supported for preview:
@@ -202,7 +184,7 @@ These issues are not planned to be supported for preview:
 
   - When changing the type of a page (e.g. from "Standard" to "External
     URL") the preview might fail in cases where a look up is done on the
-    :code`doktype` field of the live record.
+    :code:`doktype` field of the live record.
 
     - Page shortcuts might not work properly in preview.
 
@@ -212,18 +194,18 @@ These issues are not planned to be supported for preview:
   we would have to traverse all records and pass them through
   :code:`->versionOL()` before we would have a reliable result!
 
-- In :code:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController::getPageShortcut()`,
-  :code:`sys_page->getMenu()` is called with an
-  additional WHERE clause which will not respect if those fields are
-  changed for a future version. This could be the case other places
-  where getmenu() is used (but a search shows it is not a big problem).
+- In :code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::getPageShortcut()`,
+  :code:`PageRepository->getMenu()` is called with an
+  additional :sql:`WHERE` clause which will ignore changes made in workspaces.
+  This could also be the case in other places where :code:`PageRepository->getMenu()`
+  is used (but a search shows it is not a big problem).
   In this case we will for now accept that a wrong shortcut destination
   can be experienced during previews.
 
 
 .. _workspaces-backend:
 
-Backend Challenges
+Backend challenges
 ==================
 
 The main challenge in the backend is to reflect how the system will
@@ -237,7 +219,7 @@ frontend.
 
 .. _workspaces-backend-api:
 
-Workspace-related API for Backend Modules
+Workspace-related API for backend modules
 -----------------------------------------
 
 .. t3-field-list-table::
@@ -283,11 +265,6 @@ Workspace-related API for Backend Modules
             \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL($table, $row);
 
 
- - :Function:
-         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::fixVersioningPid()
-   :Description:
-         Translating versioning PID -1 to the pid of the live record. Same as
-         :code:`sys_page->fixVersioningPid()` but for the backend.
 
 
  - :Function:
@@ -383,7 +360,7 @@ Workspace-related API for Backend Modules
 
 .. _workspaces-backend-acess:
 
-Backend Module Access
+Backend module access
 =====================
 
 You can restrict access to backend modules by using
@@ -399,7 +376,7 @@ like. This is done by an argument sent to the function
 
 .. _workspaces-detection:
 
-Detecting Current Workspace
+Detecting current workspace
 ===========================
 
 You can always check what the current workspace of the backend user is
@@ -413,7 +390,7 @@ corresponding entry in the :code:`sys_workspace` table.
 
 .. _workspaces-tcemain:
 
-Using DataHandler With Workspaces
+Using DataHandler with workspaces
 =================================
 
 Since admin users are also restricted by the workspace it is not
@@ -428,23 +405,14 @@ User Settings" module; that actually allows them to save to a live record
 
 .. _workspaces-moving:
 
-Moving in Workspaces
+Moving in workspaces
 ====================
 
 TYPO3 4.2 and beyond supports moving for "Element" type versions in
-workspaces. Technically this works by creating a new online
-placeholder record (like for new elements in a workspace) in the
-target location with :code:`t3ver_state = 3` (move-to placeholder) and a
-field, :code:`t3ver_move_id`, holding the uid of the record to move
-(source record) upon publishing. In addition, a new version of the
+workspaces. A new version of the
 source record is made and has :code:`t3ver_state = 4` (move-to pointer).
-This version is simply necessary in order for the versioning system to
+This version is necessary in order for the versioning system to
 have something to publish for the move operation.
-
-So in summary, two records are created for a move operation in a
-workspace: The placeholder (online, with :code:`t3ver_state = 3` and :code:`t3ver_move_id`
-set) and a new version (:code:`t3ver_state = 4`) of the online source record (the one
-being moved).
 
 When the version of the source is published a look up will be made to
 see if a placeholder exists for a move operation and if so the record
@@ -459,7 +427,7 @@ record is selected it should simply be discarded in case shown in
 context where ordering or position matters (like in menus or column
 based page content). This is done in the appropriate places.
 
-Persistence In-Depth Scenarios
+Persistence in-depth scenarios
 ==============================
 
 The following section represents how database records are actually persisted in a database
@@ -486,13 +454,6 @@ Workspace placeholders are stored in field :code:`t3ver_state` which can have th
    * **delete placeholder**
    * representing a record that is deleted in workspace
 
-`3`
-   * **move placeholder**
-   * live pendant indicating that record referenced in :code:`t3ver_move_id` is moved in workspace
-
-     * either moved to different page - value :code:`pid` has the target :code:`pages.uid` of live version
-     * or changed :code:`sorting` - :code:`pid` is preserved to same value as live version pendant of record
-
 `4`
    * **move pointer**
    * workspace pendant of a record that shall be moved
@@ -504,40 +465,39 @@ Overview
    :header-rows: 1
    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
-   10,0,0,128,0,0,0,0,0,0,example.org website
-   20,10,0,128,0,0,0,0,0,0,Current issues
-   21,10,0,256,0,0,0,0,20,1,Actualité
-   22,10,0,384,0,0,0,0,20,2,Neuigkeiten
-   30,10,0,512,0,0,0,0,0,0,Other topics
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+   10,0,0,128,0,0,0,0,0,example.org website
+   20,10,0,128,0,0,0,0,0,Current issues
+   21,10,0,256,0,0,0,20,1,Actualité
+   22,10,0,384,0,0,0,20,2,Neuigkeiten
+   30,10,0,512,0,0,0,0,0,Other topics
    ...,...,...,...,...,...,...,...,...,...,...
-   41,30,0,128,1,0,1,0,0,0,Topic #1 new
-   42,-1,0,128,1,41,-1,0,0,0,Topic #2 new
+   41,30,0,128,1,0,1,0,0,Topic #1 new
+   42,-1,0,128,1,41,-1,0,0,Topic #2 new
 
 .. csv-table:: Overview of regular records (e.g. `tx_record`, `tt_content`, ... but not `pages`)
    :header-rows: 1
    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
-   11,20,0,128,0,0,0,0,0,0,Article #1
-   12,20,0,256,0,0,0,0,0,0,Article #2
-   13,20,0,384,0,0,0,0,0,0,Article #3
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+   11,20,0,128,0,0,0,0,0,Article #1
+   12,20,0,256,0,0,0,0,0,Article #2
+   13,20,0,384,0,0,0,0,0,Article #3
    ...,...,...,...,...,...,...,...,...,...,...
-   21,-1,0,128,1,11,0,0,0,0,Article #1 modified
-   22,-1,0,256,1,12,2,0,0,0,Article #2 deleted
-   23,-1,0,384,1,13,4,0,0,0,Article #3 moved
-   24,30,0,64,1,0,3,13,0,0,[MOVE_TO PLACEHOLDER for ...]
-   25,20,0,512,1,0,1,0,0,0,Article #4 new
-   26,-1,0,512,1,25,-1,0,0,0,Article #4 new
-   27,20,1,640,0,0,1,0,0,0,Article #5 discarded
-   28,-1,1,640,0,27,-1,0,0,0,Article #5 discarded
-   29,41,0,128,1,0,1,0,0,0,Topic #1 Article new
-   30,-1,0,128,1,29,-1,0,0,0,Topic #1 Article new
+   21,-1,0,128,1,11,0,0,0,Article #1 modified
+   22,-1,0,256,1,12,2,0,0,Article #2 deleted
+   23,-1,0,384,1,13,4,0,0,Article #3 moved
+   25,20,0,512,1,0,1,0,0,Article #4 new
+   26,-1,0,512,1,25,-1,0,0,Article #4 new
+   27,20,1,640,0,0,1,0,0,Article #5 discarded
+   28,-1,1,640,0,27,-1,0,0,Article #5 discarded
+   29,41,0,128,1,0,1,0,0,Topic #1 Article new
+   30,-1,0,128,1,29,-1,0,0,Topic #1 Article new
    ...,...,...,...,...,...,...,...,...,...,...
-   31,20,0,192,1,0,1,0,11,1,Entrefilet #1 (fr)
-   32,-1,0,192,1,31,-1,0,11,1,Entrefilet #1 (fr)
-   33,20,0,224,1,0,1,0,11,2,Beitrag #1 (de)
-   34,-1,0,224,1,33,-1,0,11,2,Beitrag #1 (de)
+   31,20,0,192,1,0,1,11,1,Entrefilet #1 (fr)
+   32,-1,0,192,1,31,-1,11,1,Entrefilet #1 (fr)
+   33,20,0,224,1,0,1,11,2,Beitrag #1 (de)
+   34,-1,0,224,1,33,-1,11,2,Beitrag #1 (de)
 
 Scenario: Create new page
 -------------------------
@@ -546,13 +506,13 @@ Scenario: Create new page
    :header-rows: 1
    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
-   10,0,0,128,0,0,0,0,0,0,example.org website
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+   10,0,0,128,0,0,0,0,0,example.org website
    ...,...,...,...,...,...,...,...,...,...,...
-   30,10,0,512,0,0,0,0,0,0,Other topics
+   30,10,0,512,0,0,0,0,0,Other topics
    ...,...,...,...,...,...,...,...,...,...,...
-   41,**30**,0,128,1,0,**1**,0,0,0,Topic #1 new
-   42,-1,0,128,1,**41**,**-1**,0,0,0,Topic #2 new
+   41,**30**,0,128,1,0,**1**,0,0,Topic #1 new
+   42,-1,0,128,1,**41**,**-1**,0,0,Topic #2 new
 
 * record :code:`uid = 41` defines :code:`sorting` insertion point page :code:`pid = 30` in live workspace, :code:`t3ver_state = 1`
 * record :code:`uid = 42` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 41`,
@@ -565,10 +525,10 @@ Scenario: Modify record
    :header-rows: 1
    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
-   11,20,0,128,0,0,0,0,0,0,Article #1
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+   11,20,0,128,0,0,0,0,0,Article #1
    ...,...,...,...,...,...,...,...,...,...,...
-   21,-1,0,128,1,**11**,0,0,0,0,Article #1 modified
+   21,-1,0,128,1,**11**,0,0,0,Article #1 modified
 
 * record :code:`uid = 21` contains actual version information, pointing back to live pendant, :code:`t3ver_oid = 11`,
   using default version state :code:`t3ver_state = 0`
@@ -580,30 +540,13 @@ Scenario: Delete record
    :header-rows: 1
    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
-   12,20,0,256,0,0,0,0,0,0,Article #2
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+   12,20,0,256,0,0,0,0,0,Article #2
    ...,...,...,...,...,...,...,...,...,...,...
-   22,-1,0,256,1,**12**,**2**,0,0,0,Article #2 deleted
+   22,-1,0,256,1,**12**,**2**,0,0,Article #2 deleted
 
 * record :code:`uid = 22` represents delete placeholder :code:`t3ver_state = 2`, pointing back to live pendant, :code:`t3ver_oid = 12`
 
-.. _scenario-move-record-to-different-page:
-
-Scenario: Move record to different page
----------------------------------------
-
-.. csv-table:: Record "Article #3" is moved to different page
-   :header-rows: 1
-   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
-
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
-   13,20,0,384,0,0,0,0,0,0,Article #3
-   ...,...,...,...,...,...,...,...,...,...,...
-   23,-1,0,384,1,**13**,**4**,0,0,0,Article #3 moved
-   24,**30**,0,64,1,0,**3**,**13**,0,0,[MOVE_TO PLACEHOLDER for ...]
-
-* record :code:`uid = 23` represents move pointer :code:`t3ver_state = 4`, pointing back to move placeholder, :code:`t3ver_oid = 24`
-* record :code:`uid = 24` represents move placeholder :code:`t3ver_state = 3`, pointing back to live pendant, :code:`t3ver_move_id = 13`
 
 .. _scenario-create-new-record-on-existing-page:
 
@@ -614,10 +557,10 @@ Scenario: Create new record on existing page
    :header-rows: 1
    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
    ...,...,...,...,...,...,...,...,...,...,...
-   25,**20**,0,512,1,0,**1**,0,0,0,Article #4 new
-   26,-1,0,512,1,**25**,**-1**,0,0,0,Article #4 new
+   25,**20**,0,512,1,0,**1**,0,0,Article #4 new
+   26,-1,0,512,1,**25**,**-1**,0,0,Article #4 new
 
 * record :code:`uid = 25` defines :code:`sorting` insertion point on page :code:`pid = 20` in live workspace, :code:`t3ver_state = 1`
 * record :code:`uid = 26` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 25`,
@@ -630,10 +573,10 @@ Scenario: Create new record on page that is new in workspace
    :header-rows: 1
    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
    ...,...,...,...,...,...,...,...,...,...,...
-   29,**41**,0,128,1,0,**1**,0,0,0,Topic #1 Article new
-   30,-1,0,128,1,**29**,**-1**,0,0,0,Topic #1 Article new
+   29,**41**,0,128,1,0,**1**,0,0,Topic #1 Article new
+   30,-1,0,128,1,**29**,**-1**,0,0,Topic #1 Article new
 
 * record :code:`uid = 29` defines :code:`sorting` insertion point on page :code:`pid = 41` in live workspace, :code:`t3ver_state = 1`
 * record :code:`uid = 30` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 29`,
@@ -649,10 +592,10 @@ Scenario: Discard record workspace modifications
    :header-rows: 1
    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
    ...,...,...,...,...,...,...,...,...,...,...
-   27,20,**1**,640,**0**,0,1,0,0,0,Article #5 discarded
-   28,-1,**1**,640,**0**,27,-1,0,0,0,Article #5 discarded
+   27,20,**1**,640,**0**,0,1,0,0,Article #5 discarded
+   28,-1,**1**,640,**0**,27,-1,0,0,Article #5 discarded
 
 * previously records :code:`uid = 27` and :code:`uid = 28` have been created in workspace
   (similar to :ref:`scenario-create-new-record-on-existing-page`)
@@ -665,13 +608,13 @@ Scenario: Create new record localization
    :header-rows: 1
    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
-   11,20,0,128,0,0,0,0,0,0,Article #1
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+   11,20,0,128,0,0,0,0,0,Article #1
    ...,...,...,...,...,...,...,...,...,...,...
-   31,20,0,192,1,0,1,0,**11**,**1**,Entrefilet #1 (fr)
-   32,-1,0,192,1,31,-1,0,**11**,**1**,Entrefilet #1 (fr)
-   33,20,0,224,1,0,1,0,**11**,**2**,Beitrag #1 (de)
-   34,-1,0,224,1,33,-1,0,**11**,**2**,Beitrag #1 (de)
+   31,20,0,192,1,1,0,**11**,**1**,Entrefilet #1 (fr)
+   32,-1,0,192,1,31,-1,**11**,**1**,Entrefilet #1 (fr)
+   33,20,0,224,1,0,1,**11**,**2**,Beitrag #1 (de)
+   34,-1,0,224,1,33,-1,**11**,**2**,Beitrag #1 (de)
 
 * *principles of creating new records with according placeholders applies in this scenario*
 * records :code:`uid = 31` and :code:`uid = 32` represent localization to French :code:`sys_language_uid = 1`,
@@ -686,16 +629,15 @@ Scenario: Create new record, then move to different page
    :header-rows: 1
    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
    ...,...,...,...,...,...,...,...,...,...,...
-   25,**30**,0,512,1,0,1,0,0,0,Article #4 new & moved
-   26,-1,0,512,1,25,-1,0,0,0,Article #4 new & moved
+   25,**30**,0,512,1,0,1,0,0,Article #4 new & moved
+   26,-1,0,512,1,25,-1,0,0,Article #4 new & moved
 
 * previously records :code:`uid = 25` and :code:`uid = 26` have been created in workspace
   (exactly like in :ref:`scenario-create-new-record-on-existing-page`), then record :code:`uid = 25`
   has been moved to target target page :code:`pid = 30`
 * record :code:`uid = 25` directly uses target page :code:`pid = 30`
-  (in contrary to :ref:`scenario-move-record-to-different-page`)
 
 Scenario: Create new record, then delete
 ----------------------------------------
@@ -704,10 +646,10 @@ Scenario: Create new record, then delete
    :header-rows: 1
    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,t3ver_move_id,l10n_parent,sys_language_uid,title
+   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
    ...,...,...,...,...,...,...,...,...,...,...
-   25,20,**1**,512,**0**,0,1,0,0,0,Article #4 new & deleted
-   26,-1,**1**,512,**0**,25,-1,0,0,0,Article #4 new & deleted
+   25,20,**1**,512,**0**,0,1,0,0,Article #4 new & deleted
+   26,-1,**1**,512,**0**,25,-1,0,0,Article #4 new & deleted
 
 * previously records :code:`uid = 25` and :code:`uid = 26` have been created in workspace
   (exactly like in :ref:`scenario-create-new-record-on-existing-page`), then record :code:`uid = 25`

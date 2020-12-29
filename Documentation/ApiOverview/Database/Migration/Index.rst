@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _database-migration:
 
@@ -7,7 +7,7 @@ Migrating from TYPO3_DB
 =======================
 
 This chapter is for those poor souls who want to migrate old and busted :php:`$GLOBALS['TYPO3_DB']`
-calls to new hotness `doctrine-dbal` based API.
+calls to new hotness Doctrine DBAL based API.
 
 It tries to give some hints on typical pitfalls and areas a special eye should be kept on.
 
@@ -281,7 +281,7 @@ TCA and TypoScript
 
 `TCA` and `TypoScript` needs to be adapted at places where SQL fragments are specified. Table and field
 names are quoted differently on different platforms and extension developers should never hard code
-quoting for specific target platforms, but let the core quote the field according to the currently used
+quoting for specific target platforms, but let the Core quote the field according to the currently used
 platform. This leads to a new syntax in various places, for instance in `TCA` property
 :ref:`foreign_table_where <t3tca:columns-select-properties-foreign-table-where>`. In general it applies to all
 places where SQL fragments are specified::
@@ -302,4 +302,4 @@ Extbase QueryBuilder
 The `extbase` internal `QueryBuilder` used in `Repositories` still exists and works a before. There is
 usually no manual migration needed. It is theoretically possible to use the doctrine based query builder
 object in Extbase which can become handy since the new one is much more feature rich, but that topic
-didn't yet fully settle in the core and no general recommendation can be given yet.
+didn't yet fully settle in the Core and no general recommendation can be given yet.

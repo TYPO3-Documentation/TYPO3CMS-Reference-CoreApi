@@ -1,11 +1,14 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   single: Extension development; TCA
+   pair: TCA; Extension
+   single: $GLOBALS; TCA
 
 .. _extending:
 .. _extending-tca:
 
 ========================
-Extending the TCA Array
+Extending the TCA array
 ========================
 
 Being a PHP array, the Table Configuration Array can be easily

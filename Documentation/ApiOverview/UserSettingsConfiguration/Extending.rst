@@ -1,10 +1,9 @@
-.. include:: ../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: User settings; Custom settings
 .. _user-settings-extending:
 
 ===========================
-Extending the User Settings
+Extending the user settings
 ===========================
 
 Adding fields to the User Settings is done in two steps.
@@ -41,3 +40,48 @@ And here is the new field in the User Tools > User Settings module:
    :alt: Extending the User Settings configuration
 
    The new field visible in the User Settings configuration
+
+"On Click" / "On Confirmation" JavaScript Callbacks
+===================================================
+
+To extend the User Settings module with JavaScript callbacks - for example with
+a custom button or special handling on confirmation, use :code:`clickData` or
+:code:`confirmData`:
+
+.. code-block:: php
+
+   $GLOBALS['TYPO3_USER_SETTINGS'] = [
+       'columns' => [
+           'customButton' => [
+               'type' => 'button',
+               'clickData' => [
+                   'eventName' => 'setup:customButton:clicked',
+               ],
+               'confirm' => true,
+               'confirmData' => [
+                   'message' => 'Please confirm...',
+                   'eventName' => 'setup:customButton:confirmed',
+               ]
+            ],
+            // ...
+
+Events declared in corresponding `eventName` options have to be handled by
+a custom static JavaScript module. Following snippets show the relevant parts:
+
+.. code-block:: javascript
+
+   document.querySelectorAll('[data-event-name]')
+       .forEach((element: HTMLElement) => {
+           element.addEventListener('setup:customButton:clicked', (evt: Event) => {
+               alert('clicked the button');
+           });
+       });
+   document.querySelectorAll('[data-event-name]')
+       .forEach((element: HTMLElement) => {
+           element.addEventListener('setup:customButton:confirmed', (evt: Event) => {
+               evt.detail.result && alert('confirmed the modal dialog');
+           });
+       });
+
+PSR-14 event :php:`\TYPO3\CMS\Setup\Event\AddJavaScriptModulesEvent` can be used
+to inject a JavaScript module to handle those custom JavaScript events.

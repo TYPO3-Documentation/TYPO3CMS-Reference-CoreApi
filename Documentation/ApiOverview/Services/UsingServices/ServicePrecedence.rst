@@ -1,10 +1,9 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Services API; Service precedence
 .. _services-using-services-precedence:
 
 ==================
-Service Precedence
+Service precedence
 ==================
 
 Several services may be declared to do the same job. What will

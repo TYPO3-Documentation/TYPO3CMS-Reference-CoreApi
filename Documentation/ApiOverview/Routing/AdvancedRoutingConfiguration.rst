@@ -1,18 +1,20 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   Routing; Advanced configuration
+   pair: Routing; Extensions
 .. _routing-advanced-routing-configuration:
 
 ===============================================
-Advanced Routing Configuration (for Extensions)
+Advanced routing configuration (for extensions)
 ===============================================
 
 While Page based routing works out of the box, routing for extensions has to be configured explicitely in your site configuration.
 
 .. note::
-    There is currently no graphical user interface available to configure extended routing. All adjustments need to be done via 
+    There is currently no graphical user interface available to configure extended routing. All adjustments need to be done via
     manually editing your web sites' site configuration :file:`config.yaml` file (located in :file:`config/sites/<yoursite>/config.yaml`).
 
-To map `$_GET` parameters to routes, a concept called `Enhancers and Aspects` has been introduced. 
+To map `$_GET` parameters to routes, a concept called `Enhancers and Aspects` has been introduced.
 
 An enhancer creates variants of a specific page-based route for a specific purpose (e.g. one plugin, one Extbase plugin)
 and enhances the existing route path which can then contain flexible values, so-called "placeholders".
@@ -41,11 +43,14 @@ However, custom enhancers can be built to overcome special use cases where e.g. 
 each could be configured. Otherwise, the first variant matching the URL parameters is used for generation and
 resolving.
 
+
+.. index:: Routing; Enhancers
+
 Enhancers
 =========
 
 There are two types of enhancers: decorators and route enhancers. An route enhancer is there to replace a set of placeholders and fill in URL parameters on URL generation and resolving them properly
-later-on. Substitution of the values with aliases can be achieved by Aspects. To simplify: A route enhancer specifies how the full 
+later-on. Substitution of the values with aliases can be achieved by Aspects. To simplify: A route enhancer specifies how the full
 route path looks like and which variables are available whereas an aspect takes care of mapping a single variable to a value.
 
 TYPO3 comes with the following route enhancers out of the box:
@@ -68,6 +73,9 @@ Within a configuration, an enhancer always evaluates the following properties:
 * `limitToPages` - an array of page IDs where this enhancer should be called. This is optional. This property (array)
   only triggers an enhancer for specific pages. In case of special plugin pages it is
   recommended to only enhance those pages with the plugin, to speed up performance for building page routes of all other pages.
+
+
+.. index:: Routing; Simple Enhancer
 
 Simple Enhancer
 ^^^^^^^^^^^^^^^
@@ -99,7 +107,7 @@ The configuration looks like this:
 The configuration option `routePath` defines the static keyword and the available placeholders.
 
 .. note::
-    For people coming from RealURL usage in previous versions: The `routePath` can be loosely compared to some as 
+    For people coming from RealURL usage in previous versions: The `routePath` can be loosely compared to some as
     "postVarSets".
 
 The `defaults` section defines which URL parameters are optional. If the parameters are omitted on generation, they
@@ -117,13 +125,16 @@ The `_arguments` section defines what Route Parameters should be available to th
 placeholder is called `category_id` but the URL generation receives the argument `category`, so this is mapped to
 that name (so you can access/use it as `category` in your custom code).
 
+
+.. index:: Routing; Plugin Enhancer
+
 Plugin Enhancer
 ^^^^^^^^^^^^^^^
 
 The Plugin Enhancer works with plugins on a page that are commonly known as `Pi-Based Plugins`, where previously
 the following GET/POST variables were used:
 
-   `index.php?id=13&tx_felogin_pi1[forgot]=1&&tx_felogin_pi1[user]=82&tx_felogin_pi1[hash]=ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
+`index.php?id=13&tx_felogin_pi1[forgot]=1&&tx_felogin_pi1[user]=82&tx_felogin_pi1[hash]=ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
 
 The base for the plugin enhancer is to configure a so-called "namespace", in this case `tx_felogin_pi1` - the plugin's
 namespace.
@@ -147,9 +158,9 @@ we would need to set up multiple configurations of Plugin Enhancer for forgot an
 
 If a URL is generated with the given parameters to link to a page, the result will look like this:
 
-   `https://www.example.com/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
+`https://www.example.com/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
 
-.. note:: 
+.. note::
     If the input given to generate the URL does not meet the requirements, the route enhancer does not offer the
     variant and the parameters are added to the URL as regular query parameters. If e.g. the user parameter would be more
     than three characters, or non-numeric, this enhancer would not match anymore.
@@ -160,32 +171,34 @@ If you want to replace the user ID (in this example "82") with the username, you
 registered within any enhancer, see below for details.
 
 
-Extbase Plugin Enhancer
+.. index:: Routing; Extbase Plugin Enhancer
+
+Extbase Plugin enhancer
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-When creating extbase plugins, it is very common to have multiple controller/action combinations. The Extbase Plugin
-Enhancer is therefore an extension to the regular Plugin Enhancer, providing the functionality that multiple variants
-are generated, typically built on the amount of controller/action pairs.
-
-The `namespace` option is omitted, as this is built with `extension` and `plugin` name.
+When creating Extbase plugins, it is very common to have multiple controller/action combinations. The Extbase Plugin
+Enhancer is therefore an extension to the regular Plugin Enhancer, providing the functionality of generating multiple variants,
+typically based on the available controller/action pairs.
 
 .. warning::
-   Do not set `features.skipDefaultArguments` in your extbase plugin configuration as that will result in missing parameters to 
+   Do not set `features.skipDefaultArguments` in your Extbase plugin configuration as that will result in missing parameters to
    be mapped - then no matching route configuration can be found.
 
 The Extbase Plugin enhancer with the configuration below would now apply to the following URLs:
 
 * `index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=list`
 * `index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=list&tx_news_pi1[page]=5`
+* `index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=list&tx_news_pi1[year]=2018&tx_news_pi1[month]=8`
 * `index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=detail&tx_news_pi1[news]=13`
-* `index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=archive&tx_news_pi1[year]=2018&&tx_news_pi1[month]=8`
+* `index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=tag&tx_news_pi1[tag]=11`
 
 And generate the following URLs
 
 * `https://www.example.com/path-to/my-page/list/`
 * `https://www.example.com/path-to/my-page/list/5`
-* `https://www.example.com/path-to/my-page/detail/13`
-* `https://www.example.com/path-to/my-page/archive/2018/8`
+* `https://www.example.com/path-to/my-page/list/2018/8`
+* `https://www.example.com/path-to/my-page/detail/in-the-year-2525`
+* `https://www.example.com/path-to/my-page/tag/future`
 
 .. code-block:: yaml
 
@@ -196,25 +209,59 @@ And generate the following URLs
        extension: News
        plugin: Pi1
        routes:
+         - { routePath: '/list/', _controller: 'News::list' }
          - { routePath: '/list/{page}', _controller: 'News::list', _arguments: {'page': '@widget_0/currentPage'} }
+         - { routePath: '/detail/{news_title}', _controller: 'News::detail', _arguments: {'news_title': 'news'} }
          - { routePath: '/tag/{tag_name}', _controller: 'News::list', _arguments: {'tag_name': 'overwriteDemand/tags'}}
-         - { routePath: '/blog/{news_title}', _controller: 'News::detail', _arguments: {'news_title': 'news'} }
-         - { routePath: '/archive/{year}/{month}', _controller: 'News::archive' }
+         - routePath: '/list/{year}/{month}'
+           _controller: 'News::list',
+           _arguments:
+             year: 'overwriteDemand/year'
+             month: 'overwriteDemand/month'
+           requirements:
+             month: '\d+'
+             year: '\d+'
        defaultController: 'News::list'
        defaults:
          page: '0'
        requirements:
          page: '\d+'
+       aspects:
+         news_title:
+           type: PersistedAliasMapper
+           tableName: tx_news_domain_model_news
+           routeFieldName: path_segment
+         page:
+           type: StaticRangeMapper
+           start: '1'
+           end: '100'
+         month:
+           type: StaticRangeMapper
+           start: '1'
+           end: '12'
+         year:
+           type: StaticRangeMapper
+           start: '1984'
+           end: '2525'
+         tag_name:
+           type: PersistedAliasMapper
+           tableName: tx_news_domain_model_tag
+           routeFieldName: slug
 
-In this example, you also see that the `_arguments` parameter can be used to bring them into sub properties of an array,
-which is typically the case within demand objects for filtering functionality.
+In this example, the `_arguments` parameter is used to set sub properties of an array,
+which is typically used within demand objects for filtering functionality. Additionally, it is using both the short
+and the long form of writing route configurations.
+
+To understand what's happening in the `aspects` part, read on.
 
 .. note::
     For the Extbase Plugin Enhancer, it is also possible to configure the namespace directly by skipping `extension`
     and `plugin` properties and just using the `namespace` property as in the regular Plugin Enhancer.
 
 
-Page Type Decorator
+.. index:: Routing; PageType decorator
+
+PageType decorator
 ^^^^^^^^^^^^^^^^^^^
 
 The PageType Enhancer (Decorator) allows to add a suffix to the existing route (including existing other enhancers)
@@ -276,11 +323,12 @@ The :yaml:`index` property is used when generating links on root-level page, thu
 `/en/.json` thus would then result in `/en/index.json`.
 
 
-.. note:: 
+.. note::
     Please note that the implementation is a Decorator Enhancer, which means that the PageTypeEnhancer
     is only there for adding suffixes to an existing route / variant, but not to substitute something
     within the middle of a human readable URL segment.
 
+.. index:: Routing; Aspects
 
 Aspects
 =======
@@ -298,6 +346,8 @@ enhancer.
 
 Let's start with some simpler examples first:
 
+
+.. index:: Routing; StaticValueMapper
 
 StaticValueMapper
 ^^^^^^^^^^^^^^^^^
@@ -390,6 +440,8 @@ setups.
                   dezember: 12
 
 
+.. index:: Routing; LocaleModifier
+
 LocaleModifier
 ^^^^^^^^^^^^^^
 
@@ -424,6 +476,8 @@ You'll see the placeholder "localized_archive" where the aspect replaces the loc
 the language of that page.
 
 
+.. index:: Routing; StaticRangeMapper
+
 StaticRangeMapper
 ^^^^^^^^^^^^^^^^^
 
@@ -453,6 +507,9 @@ and to explicitly define a range for a value, which is recommended for all kinds
 
 This limits down the pagination to max. 100 pages, if a user calls the news list with page 101, then the route enhancer
 does not match and would not apply the placeholder.
+
+
+.. index:: Routing; PersistedAliasMapper
 
 PersistedAliasMapper
 ^^^^^^^^^^^^^^^^^^^^
@@ -486,8 +543,11 @@ The special `routeValuePrefix` is used for TCA type `slug` fields where the pref
 field names, which should be removed in the case above.
 
 If a field is used for `routeFieldName` that is not prepared to be put into the route path, e.g. the news title field,
-you *must* ensured that this is unique and suitable for the use in an URL. On top, if there are special characters 
+you *must* ensured that this is unique and suitable for the use in an URL. On top, if there are special characters
 like spaces will not be converted automatically. Therefor, usage of a slug TCA field is recommended.
+
+
+.. index:: Routing; PersistedPatternMapper
 
 PersistedPatternMapper
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -515,16 +575,67 @@ without having the need of adding a custom slug field to the system.
            routeFieldResult: '{title}-{uid}'
 
 The `routeFieldPattern` option builds the title and uid fields from the database, the `routeFieldResult` shows
-how the placeholder will be output. As mentioned above however, special characters in the title might still be 
-a problem. The `PersistedPatternMapper` might be a good choice if you are upgrading from a previous version and had 
+how the placeholder will be output. As mentioned above however, special characters in the title might still be
+a problem. The `PersistedPatternMapper` might be a good choice if you are upgrading from a previous version and had
 URLs with an appended UID for uniqueness.
+
+
+.. index:: Routing; Aspect precedence
+
+Aspect precedence
+=================
+
+Route `requirements` are ignored for route variables having a corresponding
+setting in `aspects`. Imagine an aspect that is mapping internal
+value `1` to route value `one` and vice versa - it is not possible to explicitly
+define the `requirements` for this case - which is why `aspects` take precedence.
+
+The following example illustrates the mentioned dilemma between route generation
+and resolving:
+
+.. code-block:: yaml
+
+   routeEnhancers:
+     MyPlugin
+       type: 'Plugin'
+       namespace: 'my'
+       routePath: 'overview/{month}'
+       requirements:
+         # note: it does not make any sense to declare all values here again
+         month: '^(\d+|january|february|march|april|...|december)$'
+       aspects:
+         month:
+           type: 'StaticValueMapper'
+           map:
+             january: '1'
+             february: '2'
+             march: '3'
+             april: '4'
+             may: '5'
+             june: '6'
+             july: '7'
+             august: '8'
+             september: '9'
+             october: '10'
+             november: '11'
+             december: '12'
+
+The `map` in the previous example is already defining all valid values.
+That's why `aspects` take precedence over `requirements` for a specific
+`routePath` definition.
+
+
+.. index::
+   Routing; PageArguments
+   Routing; cHash
+   Routing; typolink
 
 Behind the Scenes
 =================
 
 While accessing a page in TYPO3 in the Frontend, all arguments are currently built back into the global
-GET parameters, but are also available as so-called `PageArguments` object. The `PageArguments` object 
-is then used to sign and verify the parameters, to ensure that they are valid, 
+GET parameters, but are also available as so-called `PageArguments` object. The `PageArguments` object
+is then used to sign and verify the parameters, to ensure that they are valid,
 when handing them further down the frontend request chain.
 
 If there are dynamic parameters (= parameters which are not strictly limited), a verification GET parameter `cHash`
@@ -532,8 +643,6 @@ is added, which *can and should not be removed* from the URL. The concept of man
 the generation of a `cHash` is not optional anymore, but strictly built-in to ensure proper URL handling. If you
 really have the requirement to not have a cHash argument, ensure that all placeholders are having strict definitions
 on what could be the result of the page segment (e.g. pagination), and feel free to build custom mappers.
-
-Setting the TypoScript option `typolink.useCacheHash` is not necessary anymore when running with a site configuration.
 
 All existing APIs like `typolink` or functionality evaluate the new Page Routing API directly.
 

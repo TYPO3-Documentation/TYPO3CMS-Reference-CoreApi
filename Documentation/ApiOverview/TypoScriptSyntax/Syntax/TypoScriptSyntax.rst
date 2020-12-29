@@ -1,10 +1,10 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: TypoScript; Syntax
 .. _typoscript-syntax-typoscript-syntax:
 
+=================
 TypoScript syntax
-^^^^^^^^^^^^^^^^^
+=================
 
 TypoScript is parsed in a very simple way; line by line. This means
 that abstractly said each line normally contains three parts based on
@@ -25,10 +25,11 @@ In this example we have the object :code:`myObject` with the property :code:`myP
 and a value :code:`value 2`.
 
 
+.. index:: TypoScript; Object path
 .. _typoscript-syntax-syntax-object-path:
 
-Object Path
-"""""""""""
+Object path
+===========
 
 The object path (in this case :code:`myObject.myProperty`) is like the
 variable name in a programming language. The object path is the first
@@ -51,27 +52,29 @@ Here we do **not** have three hierarchically structured objects :code:`my`,
 :code:`escaped` and :code:`key`.
 
 
+.. index:: TypoScript; Operator
 .. _typoscript-syntax-syntax-operator:
 
 Operator
-""""""""
+========
 
 The operator (in the example it is :code:`=`) can be one of the characters
 :code:`=<>{(`. The various operators are described below.
 
 
-
+.. index::
+   TypoScript; Operator "="
+   TypoScript; Value assignment
 .. _typoscript-syntax-syntax-equal-operator:
 .. _typoscript-syntax-syntax-value-assignment:
 
 Value assignment: The "=" operator
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 This simply assigns a value to an object path.
 
 
 **Rules:**
-
 
 Everything after the :code:`=` sign and *up to the end of the line* is
 considered to be the value. In other words: You don't need to quote
@@ -81,11 +84,14 @@ Be aware that the value will be trimmed, which means stripped of
 whitespace at both ends.
 
 
+.. index::
+   TypoScript; Operator ":="
+   TypoScript; Value modifications
 .. _typoscript-syntax-syntax-colon-equal-operator:
 .. _typoscript-syntax-syntax-value-modification:
 
 Value modifications: The ":=" operator
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------
 
 This operator assigns a value to an object path by calling a
 predefined function which modifies the existing value of the current
@@ -176,11 +182,14 @@ produces the same result as:
    myObject.value = 3,4,5
 
 
+.. index::
+   TypoScript; Operator "{ }"
+   TypoScript; Code blocks
 .. _typoscript-syntax-syntax-code-blocks:
 .. _typoscript-syntax-syntax-curly-brackets:
 
 Code blocks: The { } signs
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 Opening and closing curly braces are used to assign many object
 properties in a simple way at once. It's called a block or nesting of
@@ -234,11 +243,14 @@ could also be written as:
    }
 
 
+.. index::
+   TypoScript; Operator "( )"
+   TypoScript; Multi-line values
 .. _typoscript-syntax-syntax-round-brackets:
 .. _typoscript-syntax-syntax-multiline-values:
 
 Multi-line values: The ( ) signs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
 Opening and closing parenthesis are used to assign a *multi-line
 value* . With this method you can define values which span several
@@ -271,11 +283,14 @@ it!
    )
 
 
+.. index::
+   TypoScript; Operator "<"
+   TypoScript; Object copying
 .. _typoscript-syntax-syntax-smaller-than-operator:
 .. _typoscript-syntax-syntax-object-copying:
 
 Object copying: The "<" sign
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 
 The :code:`<` sign is used to copy one object path to another. The whole
 object is copied - both value and properties - and it overrides any
@@ -349,11 +364,14 @@ which – in tree view – translates to:
    it's easy to loose the oversight in larger pieces of TypoScript.
 
 
+.. index::
+   TypoScript; Operator "=<"
+   TypoScript; References
 .. _typoscript-syntax-syntax-equal-smaller-than-operator:
 .. _typoscript-syntax-syntax-object-referencing:
 
 References: the "=<" sign
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 **In the context of TypoScript Templates** it is possible to create
 references from one object to another. References mean that multiple
@@ -395,7 +413,7 @@ of the reference are not shown. Only the reference itself is visible:
 Remember:
 
 - References are only available in TypoScript templates, not in TSconfig
-  (User TSconfig or Page TSconfig)
+  (user TSconfig or page TSconfig)
 
 - References are only resolved for Content Objects, otherwise references are
   not resolved. For example, you **cannot** use a
@@ -403,11 +421,14 @@ Remember:
   The value you get will be just :code:`< plugin.tx_example.settings.foo` instead.
 
 
+.. index::
+   TypoScript; Operator ">"
+   TypoScript; Object unsetting
 .. _typoscript-syntax-syntax-bigger-than-operator:
 .. _typoscript-syntax-syntax-unsetting-operator:
 
 Object unsetting: The ">" Sign
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
 This is used to unset an object and all of its properties.
 
@@ -424,11 +445,14 @@ This is used to unset an object and all of its properties.
 In this last line :code:`myObject` is totally wiped out (removed).
 
 
+.. index::
+   TypoScript; Operator "["
+   TypoScript; Conditions
 .. _typoscript-syntax-syntax-square-brackets:
 .. _typoscript-syntax-syntax-conditions:
 
 Conditions: Lines starting with "["
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
 Conditions break the parsing of TypoScript in order to evaluate the
 content of the condition line. If the evaluation returns true, parsing
@@ -448,7 +472,7 @@ of any curly braces).
 
 .. code-block:: typoscript
 
-   [dayofmonth = 9]
+   [date("j") == 9]
    page.10.value = It is the 9th day of the month!
    [ELSE]
    page.10.value = It is NOT the 9th day of the month!
@@ -458,10 +482,12 @@ of any curly braces).
 
 
 
+.. index::
+   TypoScript; Value
 .. _typoscript-syntax-syntax-value:
 
 Value
-"""""
+=====
 
 The value (in case of the above example "value 2") is whatever characters
 follow the operator until the end of the line, but trimmed for whitespace
@@ -469,16 +495,23 @@ at both ends. Notice that values are *not* encapsulated in quotes! The
 value starts after the operator and ends with the line break.
 
 
+.. index::
+   TypoScript; Comments
 .. _typoscript-syntax-syntax-comments:
 
 Comments
-""""""""
+========
 
 TypoScript support single line comments as well as multiline comment blocks.
 
 
+.. index::
+   TypoScript; Operator "//"
+   TypoScript; Operator "#"
+   TypoScript; Single line comments
+
 Single line comments
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 When a line starts with :code:`//` or :code:`#` it is considered to be a comment
 and will be ignored.
@@ -498,10 +531,13 @@ Up to TYPO3 7.6, a line starting with only one single slash,
 style however is deprecated and should not be used.
 
 
+.. index::
+   TypoScript; Operator "/*"
+   TypoScript; Comment blocks
 .. _typoscript-syntax-syntax-comment-blocks:
 
 Comment blocks
-~~~~~~~~~~~~~~
+--------------
 
 When a line starts with :code:`/*` or :code:`*/` it defines the beginning or the
 end of a comment section respectively. Anything inside a comment

@@ -1,10 +1,6 @@
-.. include:: Includes.txt
-
-.. _targets-for-crossreferencing:
-.. _Targets-for-Cross-Referencing:
-.. _labels-for-crossreferencing:
-
-.. only:: html
+.. include:: /Includes.rst.txt
+.. index:: Link targets
+.. _Link-Targets:
 
 Link Targets
 ============

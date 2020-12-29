@@ -1,9 +1,11 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   ! Path
+   see: Directory structure; Path
 .. _directory-structure:
 
 ===================
-Directory Structure
+Directory structure
 ===================
 
 By default a TYPO3 installation consists of a structure of
@@ -76,17 +78,14 @@ the paths within PHP code.
       automatic upgrades and should be used with care and only if you know what
       you are doing.
 
-
   - :Directory: :file:`typo3conf/ext/`
     :Description:
       Directory for local TYPO3 extensions. Each subdirectory contains one extension.
-
 
   - :Directory: :ref:`Environment-labels-path` either :file:`typo3conf/l10n` or :file:`var/labels`
     :Description:
       Directory for extension localisations. Contains all downloaded translation
       files.
-
 
   - :Directory: :file:`typo3temp/`
     :Description:
@@ -102,3 +101,4 @@ the paths within PHP code.
     :Description:
       Directory for temporary files that contains private files (e.g. cached
       Fluid templates) and should not be publicly available.
+      See also :ref:`Environment-configuring-paths` for a more detailed description.

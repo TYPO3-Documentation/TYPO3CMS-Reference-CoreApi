@@ -1,10 +1,9 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: JavaScript; Regular event
 .. _Events_JavaScript_Regular:
 
 =============
-Regular Event
+Regular event
 =============
 
 A "regular event" is a very simple mechanism to bind an event listener to an element. The event listener is executed

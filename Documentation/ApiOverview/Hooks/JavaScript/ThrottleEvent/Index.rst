@@ -1,10 +1,9 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: JavaScript; Throttle event
 .. _Events_JavaScript_Throttle:
 
 ==============
-Throttle Event
+Throttle event
 ==============
 
 A "throttled event" executes its handler after a configured waiting time over a time span. This event type is similar to

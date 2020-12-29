@@ -1,5 +1,5 @@
-.. include:: ../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: pair: Testing; Core
 .. _testing-core:
 
 ============
@@ -9,10 +9,10 @@ Core testing
 Introduction
 ============
 
-This chapter is about executing TYPO3 core tests locally and is intended to give you a better understanding of testing within TYPO3's core. A full core git checkout comes with everything needed
+This chapter is about executing TYPO3 Core tests locally and is intended to give you a better understanding of testing within TYPO3's Core. A full Core git checkout comes with everything needed
 to run tests in TYPO3 as of version 9. We don't use older versions in this chapter
-since core development is most likely bound to the core master branch - back porting patches to older
-branches are usually handled by core maintainers and often don't affect other core contributors.
+since Core development is most likely bound to the Core master branch - back porting patches to older
+branches are usually handled by Core maintainers and often don't affect other Core contributors.
 
 Note, the main script :file:`Build/Scripts/runTests.sh` is relatively new. It works best
 when executed on a Linux based host but can be run under macOS and Windows with some performance drawbacks on macOS.
@@ -34,7 +34,7 @@ reliable environment to run tests and also remove the need to manage niche depen
 environment for tests such as "execute functional test "X" using MSSQL with xdebug".
 
 Git, docker and docker-compose are all required. For standalone test execution, a local installation of
-PHP is not required. You can even `composer install` a core by calling `Build/Scripts/runTests.sh -s
+PHP is not required. You can even `composer install` a Core by calling `Build/Scripts/runTests.sh -s
 composerInstall` in a container.
 
 If you're using a Mac, install or update Docker to the most recent version using the packaging system of
@@ -54,11 +54,11 @@ Quick start
 ===========
 
 From now on, it is assumed that git, docker and docker-compose are available with the most up-to-date release
-running on the host system. Executing the basic core unit test suite boils down to:
+running on the host system. Executing the basic Core unit test suite boils down to:
 
 .. code-block:: shell
 
-    # Initial core clone
+    # Initial Core clone
     git clone git://git.typo3.org/Packages/TYPO3.CMS.git && cd TYPO3.CMS
     # Install composer dependencies
     Build/Scripts/runTests.sh -s composerInstall
@@ -66,22 +66,22 @@ running on the host system. Executing the basic core unit test suite boils down 
     Build/Scripts/runTests.sh
 
 That's it. You just executed the entire unit test suite.
-initial core clone and a composer install, other parts of this chapter are about different permutations of.
-Now that we have examined the initial core clone and a composer install process, we will then look at the
+initial Core clone and a composer install, other parts of this chapter are about different permutations of.
+Now that we have examined the initial Core clone and a composer install process, we will then look at the
 different ways we can apply the `runTests.sh` or other scenarios
 
 
 Overview
 ========
 
-So what just happened? We cloned a core, composer install`ed dependencies and executed core
+So what just happened? We cloned a Core, composer install`ed dependencies and executed Core
 unit tests. Let's have a look at more some details: `runTests.sh` is a shell script that figures out
 which test suite with which options a user wants to execute, does some error handling for broken
 combinations, writes the file `Build/testing-docker/local/.env` according to its findings and then executes a
 couple of `docker-compose` commands to prepare containers, run tests and stop containers after execution
 again.
 
-A core developer doing this for the first time may notice `docker-compose` pulling several container images
+A Core developer doing this for the first time may notice `docker-compose` pulling several container images
 before continuing. These are the dependent images needed to execute certain jobs. For instance the
 container `typo3gmbh/php72 <https://hub.docker.com/r/typo3gmbh/php72/>`_ may be fetched. It's definition
 can be found at `TYPO3 GmbH bitbucket <https://bitbucket.typo3.com/projects/T3COM/repos/bamboo-remote-agent/browse>`_.
@@ -156,7 +156,7 @@ are not valid:
 .. code-block:: shell
 
     lolli@apoc /var/www/local/cms/Web $ Build/Scripts/runTests.sh -h
-    TYPO3 core test runner. Execute acceptance, unit, functional and other test suites in
+    TYPO3 Core test runner. Execute acceptance, unit, functional and other test suites in
     a docker based test environment. Handles execution of single test files, sending
     xdebug information to a local IDE and more.
     ...
@@ -188,6 +188,11 @@ One interesting detail should be mentioned: runTests.sh uses `typo3gmbh/phpXY <h
 as main PHP containers. Those are loosely maintained and may be updated. Use the command
 `Build/Scripts/runTests.sh -u` to fetch the latest versions of these containers.
 
+.. index::
+   Testing; Debugging
+   Testing; Xdebug
+   Debugging
+   Xdebug
 
 Debugging
 =========

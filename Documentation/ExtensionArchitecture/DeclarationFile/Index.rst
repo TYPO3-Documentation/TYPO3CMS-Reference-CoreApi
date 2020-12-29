@@ -1,6 +1,8 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
-
+.. index::
+   ! File; EXT:{extkey}/ext_emconf.php
+   File; Declaration File
 .. _extension-declaration:
 
 
@@ -19,6 +21,41 @@ The keys are described in the table below.
 
 This file is overwritten, when extensions are imported from the online repository. So don't write your custom code in this file - only change
 values in the :php:`$EM_CONF` array if needed.
+
+
+.. code-block:: php
+
+   <?php
+   $EM_CONF[$_EXTKEY] = [
+       'title' => 'Extension title',
+       'description' => 'Extension description',
+       'category' => 'plugin',
+       'author' => 'John Doe',
+       'author_email' => 'john@example.org',
+       'author_company' => 'some company',
+       'state' => 'stable',
+       'createDirs' => '',
+       'clearCacheOnLoad' => 0,
+       'version' => '1.0.0',
+       'constraints' => [
+           'depends' => [
+               'typo3' => '11.0.0-11.99.99',
+           ],
+           'conflicts' => [
+           ],
+           'suggests' => [
+           ],
+       ],
+   ];
+
+.. index:: $_EXTKEY
+
+$_EXTKEY is set globally and contains the extension key.
+
+.. important::
+   Due to limitations to the TER (`TYPO3 Extension Repository <https://extensions.typo3.org>`__),
+   `$_EXTKEY` should be used here and **not** a constant or a string.
+
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -128,7 +165,7 @@ values in the :php:`$EM_CONF` array if needed.
          suggests
            List of suggestions of extensions that work together or
            enhance this extension.
-           Extensions defined here will be loaded *before* the current extension. 
+           Extensions defined here will be loaded *before* the current extension.
            Dependencies take precedence over suggestions.
            Loading order especially matters when overriding TCA or SQL of another extension.
 
@@ -287,3 +324,5 @@ The following fields are deprecated and should not be used anymore:
 - lockType
 - TYPO3_version
 - PHP_version
+- uploadfolder
+- createDirs

@@ -1,6 +1,5 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: ! TypoScript
 .. _typoscript-syntax-introduction:
 .. _typoscript-syntax-what-is-typoscript:
 
@@ -35,10 +34,11 @@ will probably never see TypoScript used to store information like a
 database of addresses - you would use XML or SQL for that.
 
 
+.. index:: TypoScript; PHP arrays
 .. _typoscript-syntax-php-arrays:
 
-PHP Arrays
-----------
+PHP arrays
+==========
 
 In the scope of its use you can also understand TypoScript as a non-
 strict way to enter information into a *multidimensional array* . In
@@ -66,8 +66,8 @@ This can be summarized as follows:
 
 .. _typoscript-syntax-object-paths:
 
-TypoScript Syntax, Object Paths, Objects and Properties
--------------------------------------------------------
+TypoScript syntax, object paths, objects and properties
+=======================================================
 
 See, that is what this chapter is about - the *syntax* of
 TypoScript; the rules you must obey in order to store information in
@@ -132,10 +132,11 @@ of (the object) "asdf". Further, "transparency" is a property of (the
 object / the property) "backgroundColor" (or "asdf.backgroundColor").
 
 
+.. index:: TypoScript; Semantics
 .. _typoscript-syntax-semantics:
 
-Note About Perceived Semantics
-------------------------------
+Note about perceived semantics
+==============================
 
 You may now think that "backgroundColor = blue" makes more sense than
 "zxcvbnm = uiop" but having a look at the **syntax** only it doesn't!
@@ -156,10 +157,11 @@ ultimately is the programming reference, DTD or XML-Schema which
 defines the meaning.
 
 
+.. index:: TypoScript; Parsed array
 .. _typoscript-syntax-parsed-php-array:
 
-Note About the Internal Structure When Parsed Into a PHP Array
---------------------------------------------------------------
+Note about the internal structure when parsed into a PHP array
+==============================================================
 
 Let's take the TypoScript from above as an example:
 

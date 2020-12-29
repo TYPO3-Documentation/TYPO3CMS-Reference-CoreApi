@@ -1,8 +1,6 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
 .. highlight:: php
-
-
+.. index:: Extension development; Configuration Files
 .. _extension-configuration-files:
 
 
@@ -18,7 +16,15 @@ every request. They should therefore be optimized for speed.
 See :ref:`extension-files-locations` for a full list of file and
 directory names typically used in extensions.
 
+.. important::
 
+   Since the :file:`ext_tables.php` and :file:`ext_localconf.php` of
+   every extension will be concatenated together by TYPO3, you MUST
+   follow some rules, such as not use :php:`use` or :php:`declare(strict_types=1)`
+   inside these files, see :ref:`rules_ext_tables_localconf_php`.
+
+
+.. index:: ! File; EXT:{extkey}/ext_localconf.php
 .. _ext-localconf-php:
 
 ext_localconf.php
@@ -77,7 +83,6 @@ These are the typical functions that extension authors should place within :file
 * Adding default TypoScript via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility` APIs
 * Registering Scheduler Tasks
 * Adding reports to the reports module
-* Adding slots to signals via Extbase's SignalSlotDispatcher
 * Registering Icons to the :ref:`IconRegistry <icon-registration>`
 * Registering Services via the :ref:`Service API <services-developer-service-api>`
 
@@ -96,13 +101,16 @@ The skeletton of the :file:`ext_localconf.php` looks like this::
 
    <?php
 
-   // Prevent Script from beeing called directly
-   defined('TYPO3_MODE') || die();
+   // Prevent Script from being called directly
+   defined('TYPO3') or die();
 
    // encapsulate all locally defined variables
    (function () {
        // Add your code here
    })();
+
+
+.. index:: Extension development; PageTSconfig
 
 Adding default PageTSconfig
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -119,6 +127,8 @@ PageTSconfig available via static files can be added inside
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile();
 
 
+.. index:: Extension development; UserTSconfig
+
 Adding default UserTSconfig
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -128,6 +138,8 @@ As for default PageTSconfig, UserTSconfig can be added inside
 
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig();
 
+
+.. index:: ! File; EXT:{extkey}/ext_tables.php
 .. _ext-tables.php:
 
 ext_tables.php
@@ -139,12 +151,12 @@ ext_tables.php
 frontend context.
 
 This file is only included when
-  
+
 * a TYPO3 Backend or CLI request is happening
-* or the TYPO3 Frontend is called and a valid Backend User is authenticated
+* or the TYPO3 Frontend is called and a valid backend user is authenticated
 
 This file usually gets included later within the request and after TCA information is loaded,
-and a Backend User is authenticated as well.
+and a backend user is authenticated as well.
 
 .. hint::
 
@@ -177,13 +189,13 @@ Should Be Used For
 
 These are the typical functions that should be placed inside :file:`ext_tables.php`
 
-* Registering of :ref:`Backend modules <backend-modules-api>` or Adding a new Main Module :ref: 'Example <extension-configuration-files-backend-module>'
-* Adding :ref:`Context-Sensitive-Help <csh-implementation>` to fields (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`) :ref:`Example <extension-configuration-files-csh>`
+* Registering of :ref:`backend modules <backend-modules-api>` or Adding a new Main Module :ref: 'Example <extension-configuration-files-backend-module>'
+* Adding :ref:`context-sensitive help <csh-implementation>` to fields (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`) :ref:`Example <extension-configuration-files-csh>`
 * Adding TCA descriptions (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`)
 * Adding table options via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages()` :ref:`Example <extension-configuration-files-allow-table-standard>`
 * Registering a scheduler tasks `Scheduler Task <https://docs.typo3.org/c/typo3/cms-scheduler/master/en-us/DevelopersGuide/CreatingTasks/Index.html>`__ :ref:`Example <extension-configuration-files-scheduler>`
 * Assignments to the global configuration arrays :php:`$GLOBALS['TBE_STYLES']` and :php:`$GLOBALS['PAGES_TYPES']`
-* Extending the :ref:`Backend User Settings <user-settings-extending>`
+* Extending the :ref:`Backend user settings <user-settings-extending>`
 
 Examples
 --------
@@ -191,17 +203,18 @@ Put the following in a file called :file:`ext_tables.php` in the main directory 
 file does not need to be registered but will be loaded automatically::
 
    <?php
-   defined('TYPO3_MODE') || die();
+   defined('TYPO3') or die();
 
    (function () {
      // Add your code here
    })();
 
+.. index:: Extension development; Backend module registration
 .. _extension-configuration-files-backend-module:
 
-Registering a Backend Module
+Registering a backend module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You can register a new Backend Module for your extension via :php:`ExtensionUtility::registerModule()`::
+You can register a new backend module for your extension via :php:`ExtensionUtility::registerModule()`::
 
    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
       'Vendor.ExtensionName', // Vendor dot Extension Name in CamelCase
@@ -218,14 +231,15 @@ You can register a new Backend Module for your extension via :php:`ExtensionUtil
       ]
    );
 
-For more information on Backend Modules see :ref:`Backend Module API <backend-modules-api>`.
+For more information on backend modules see :ref:`backend module API <backend-modules-api>`.
 
+.. index:: Extension development; Context-sensitive help
 .. _extension-configuration-files-csh:
 
-Adding Context Sensitive Help to fields
+Adding context-sensitive help to fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add the following to your extensions ext_tables.php in order to add Context Sensitive Help for
+Add the following to your extensions ext_tables.php in order to add context-sensitive help for
 the corresponding field::
 
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
@@ -233,8 +247,9 @@ the corresponding field::
        'EXT:myext/Resources/Private/Language/locallang_csh_tx_domain_model_foo.xlf'
    );
 
-For more information see :ref:`Context-Sensitive-Help <csh-implementation>`.
+For more information see :ref:`context-sensitive help <csh-implementation>`.
 
+.. index:: Extension development; allowTableOnStandardPages
 .. _extension-configuration-files-allow-table-standard:
 
 Allowing a tables records to be added to Standard pages
@@ -248,9 +263,10 @@ new records of your table to be added on Standard pages call:
       'tx_myextension_domain_model_mymodel'
    );
 
+.. index:: Extension development; Scheduler task registration
 .. _extension-configuration-files-scheduler:
 
-Registering a scheduler Task
+Registering a scheduler task
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Scheduler tasks get registered in the ext_tables.php as well. Note that the Sysext "scheduler" has
@@ -268,61 +284,105 @@ to be installed for this to work.
 
 For more information see the documentation of the Sys-Extension scheduler.
 
-Best Practices for :php:`ext_tables.php` and :php:`ext_localconf.php`
-=====================================================================
 
-Additionally, it is possible to extend TYPO3 in a lot of different ways (adding TCA, Backend Routes,
-Symfony Console Commands etc) which do not need to touch these files.
+.. _rules_ext_tables_localconf_php:
 
-It is recommended to AVOID checks for values on :php:`TYPO3_MODE` or :php:`TYPO3_REQUESTTYPE`
-constants (e.g. :php:`if (TYPO3_MODE === 'BE')`) within these files as it limits the functionality
-to cache the whole systems' configuration. Any extension author should remove the checks if not
-explicitly necessary, and re-evaluate if these context-depending checks could go inside
-the hooks / caller function directly.
+Rules and best practices
+========================
 
-It is recommended to check for the existence of the constants :php:`defined('TYPO3_MODE') or die();`
-at the top of :file:`ext_tables.php` and :file:`ext_localconf.php` files to make sure the file is
-executed only indirectly within TYPO3 context. This is a security measure since this code in global
-scope should not be executed through the web server directly as entry point.
+The following apply for both :php:`ext_tables.php` and :php:`ext_localconf.php`.
 
-Additionally, it is recommended to use the extension name (e.g. "tt_address") instead of :php:`$_EXTKEY`
-within the two configuration files as this variable will be removed in the future. This also applies
-to :php:`$_EXTCONF`.
+.. important::
 
-However, due to limitations to TER, the :php:`$_EXTKEY` option should be kept within an extension's
-:file:`ext_emconf.php`.
+   Since the :file:`ext_tables.php` and :file:`ext_localconf.php` of
+   every extension will be concatenated together by TYPO3, you MUST
+   follow some rules, such as not use :php:`use` or :php:`declare(strict_types=1)`
+   inside these files. More information below:
 
-See any system extension for best practice on this behaviour.
+As a rule of thumb: Your :file:`ext_tables.php` and :file:`ext_localconf.php` files must be designed in a way
+that they can safely be read and subsequently imploded into one single
+file with all configuration of other extensions!
 
-- :php:`TYPO3\CMS\Core\Package\PackageManager::getActivePackages()` contains information about
-  whether the module is loaded as *local* or *system* type in the `packagePath` key,
-  including the proper paths you might use, absolute and relative.
-- Your :file:`ext_tables.php` and :file:`ext_localconf.php` files must be designed in a way
-  that they can safely be read and subsequently imploded into one single
-  file with all the other configuration scripts!
-- You must **never** use a :php:`return` statement in the files global scope -
-  that would make the cached script concept break.
-- You must **never** use a :php:`use` statement in the files global scope -
-  that would make the cached script concept break and could conflict with other extensions.
-- The same goes for :php:`declare(strict_types=1)` and similar directives which must be placed
+-  You **MUST NOT** use a :php:`return` statement in the files global scope -
+   that would make the cached script concept break.
+
+-  You **MUST NOT** rely on the PHP constant :php:`__FILE__` for detection of
+   include path of the script - the configuration might be executed from
+   a cached file with a different location and therefore such information should be derived from
+   e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName()` or
+   :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath()`.
+
+
+-  You **MUST NOT** use :php:`use` inside :file:`ext_localconf.php` or :file:`ext_tables.php` since this can lead to conflicts with other :php:`use` in files of other extensions.
+
+.. code-block:: diff
+
+   // do NOT use use:
+   -use TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect;
+   -
+   -$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = FileMetadataPermissionsAspect::class;
+    // Use the full class name instead:
+   +$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = \TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect::class;
+
+- You **MUST NOT** use :php:`declare(strict_types=1)` and similar directives which must be placed
   at the very top of files: once all files of all extensions are merged, this condition is not
   fulfilled anymore leading to errors. So these must **never** be used here.
-- You should **not** rely on the PHP constant :php:`__FILE__` for detection of
-  include path of the script - the configuration might be executed from
-  a cached script and therefore such information should be derived from
-  e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName()` or
-  :php:`ExtensionManagementUtility::extPath()`.
 
-It is a good practice to use a directly called closure function to encapsulate all
-locally defined variables and thus keep them out of the surrounding scope. This
-avoids unexpected side-effects with files of other extensions.
+.. code-block:: diff
+
+   // do NOT use declare strict and other directives which MUST be placed at the top of the file
+   -declare(strict_types=1)
+
+
+-  You **MUST NOT** check for values of the deprecated :php:`TYPO3_MODE` or :php:`TYPO3_REQUESTTYPE`
+   constants (e.g. :php:`if (TYPO3_MODE === 'BE')`) or the :php:`ApplicationType` within these files as
+   it limits the functionality to cache the whole systems' configuration.
+   Any extension author should remove the checks, and re-evaluate if these context-depending checks could go inside
+   the hooks / caller function directly., e.g. do not do:
+
+.. code-block:: diff
+
+   // do NOT do this:
+   -if (TYPO3_MODE === 'BE')
+
+
+-  You **SHOULD** check for the existence of the constant :php:`defined('TYPO3') or die();`
+   at the top of :file:`ext_tables.php` and :file:`ext_localconf.php` files to make sure the file is
+   executed only indirectly within TYPO3 context. This is a security measure since this code in global
+   scope should not be executed through the web server directly as entry point.
+
+.. code-block:: php
+
+   <?php
+   // put this at top of every ext_tables.php and ext_localconf.php
+   defined('TYPO3') or die();
+
+-  You **SHOULD** use the extension name (e.g. "tt_address") instead of :php:`$_EXTKEY`
+   within the two configuration files as this variable will be removed in the future. This also applies
+   to :php:`$_EXTCONF`.
+
+-  However, due to limitations to TER, the :php:`$_EXTKEY` option **MUST** be kept within an extension's
+   :ref:`ext_emconf.php <extension-declaration>`.
+
+-  You **SHOULD** use a directly called closure function to encapsulate all
+   locally defined variables and thus keep them out of the surrounding scope. This
+   avoids unexpected side-effects with files of other extensions.
 
 The following example contains the complete code::
 
     <?php
-    defined('TYPO3_MODE') || die();
+    defined('TYPO3') or die();
 
     (function () {
         // Add your code here
     })();
 
+
+Additionally, it is possible to extend TYPO3 in a lot of different ways (adding TCA, Backend Routes,
+Symfony Console Commands etc) which do not need to touch these files.
+
+Additional tips:
+
+-  :php:`TYPO3\CMS\Core\Package\PackageManager::getActivePackages()` contains information about
+   whether the module is loaded as *local* or *system* type in the `packagePath` key,
+   including the proper paths you might use, absolute and relative.

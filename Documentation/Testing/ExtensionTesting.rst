@@ -1,5 +1,5 @@
-.. include:: ../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: pair: Testing; Extensions
 .. _testing-extensions:
 
 =================
@@ -21,36 +21,36 @@ Scope
 
 About this chapter and what it does *not* cover, first.
 
-* This documentation assumes an extension is tested with only one major core version. It
-  does not support extension testing with multiple target core versions. Extensions that
-  support multiple core versions at the same time in the same branch are *not* scope of this document.
-  The core team encourages extension developers to have dedicated core branches
-  per core version. This has various advantages, it is for instance easy to create deprecation
+* This documentation assumes an extension is tested with only one major Core version. It
+  does not support extension testing with multiple target Core versions. Extensions that
+  support multiple Core versions at the same time in the same branch are *not* scope of this document.
+  The Core Team encourages extension developers to have dedicated Core branches
+  per Core version. This has various advantages, it is for instance easy to create deprecation
   free extensions this way.
 
   If you need test setups for an extension that supports
-  multiple major core versions at the same time, you may run into trouble if using
+  multiple major Core versions at the same time, you may run into trouble if using
   the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>`_ package. The
-  development of that package is closely bound to core development and has a relatively high
-  development speed. It does contain breaking patches per major core versions, but it should
-  not contain breaking patches for existing major core branches. If you now set up testing
-  using typo3/testing-framework with TYPO3 core version 9, it should not break within v9's
+  development of that package is closely bound to Core development and has a relatively high
+  development speed. It does contain breaking patches per major Core versions, but it should
+  not contain breaking patches for existing major Core branches. If you now set up testing
+  using typo3/testing-framework with TYPO3 Core version 9, it should not break within v9's
   lifetime. But it is likely to break if you upgrade to version 10 or later and may need adaption
   in your extension codes or setup.
 
-  If you are looking for test setups that support multiple core versions at once,
+  If you are looking for test setups that support multiple Core versions at once,
   `nimut/testing-framework <https://github.com/Nimut/testing-framework>`_ may better suit your
   needs. This is however out of scope for this chapter.
 
-* This documentation relies on TYPO3 core version 9 and higher. It is possible to
-  run tests using older core versions and various extensions have done this before. This
+* This documentation relies on TYPO3 Core version 9 and higher. It is possible to
+  run tests using older Core versions and various extensions have done this before. This
   is however out of scope for this chapter.
 
 * We assume a Composer based setup. Extensions should provide a :file:`composer.json`
   file anyway and using Composer for extension testing is quite convenient.
 
-* Similar to core testing, this documentation relies on docker and docker-compose. See the
-  :ref:`core testing requirements <testing-core-dependencies>` for more details.
+* Similar to Core testing, this documentation relies on docker and docker-compose. See the
+  :ref:`Core testing requirements <testing-core-dependencies>` for more details.
 
 * We assume your extensions code is located within github and automatic testing is carried out using Travis CI.
   The integration of Travis CI into github is easy to set up with plenty of documentation already available.
@@ -61,7 +61,7 @@ About this chapter and what it does *not* cover, first.
 General strategy
 ================
 
-Third party extensions often rely on TYPO3 core extensions to add key functionality.
+Third party extensions often rely on TYPO3 Core extensions to add key functionality.
 
 If a project needs a TYPO3 extension, it will add the required extension using `composer require`
 to its own root composer.json file. The extensions composer.json then specifies additional detail, for
@@ -76,26 +76,25 @@ as a dependency and it is used as the root composer.json to specify dependencies
 into a project on its own for testing. The latter allows us to set up a full TYPO3
 environment in a sub folder of the extension and execute the tests within this sub folder.
 
-
 Testing enetcache
 =================
 
 The extension `enetcache <https://github.com/lolli42/enetcache>`_ is a small extension that helps
 with frontend plugin based caches. It has been available as composer package and a TER extension for quite
-some time and is loosely maintained to keep up with current core versions. At the time of
+some time and is loosely maintained to keep up with current Core versions. At the time of
 writing, it has three branches:
 
-* `1.2` compatible with core v7, released to TER as 1.x.y
+* `1.2` compatible with Core v7, released to TER as 1.x.y
 
-* `2` compatible with core v8, released to TER as 2.x.y
+* `2` compatible with Core v8, released to TER as 2.x.y
 
-* `master` compatible with core v9, released to TER as 3.x.y
+* `master` compatible with Core v9, released to TER as 3.x.y
 
-Branch master will be branched later as `3` when core version 10 gains traction. This document
-focuses on the master / core v9 compatible branch. The extension comes with a couple of unit tests
+Branch master will be branched later as `3` when Core version 10 gains traction. This document
+focuses on the master / Core v9 compatible branch. The extension comes with a couple of unit tests
 in `Tests/Unit`, we want to run these locally and in travis-ci, along with some PHP linting to verify
 there is no fatal PHP error. We'll test that extension with both PHP 7.2 and PHP 7.3 - the two PHP
-versions TYPO3 core v9 currently supports at the time of writing.
+versions TYPO3 Core v9 currently supports at the time of writing.
 
 Starting point
 --------------
@@ -132,16 +131,12 @@ This is how the composer.json file looks before we add a test setup:
           "Lolli\\Enetcache\\": "Classes"
         }
       },
-      "replace": {
-        "enetcache": "self.version",
-        "typo3-ter/enetcache": "self.version"
-      },
       "extra": {
         "branch-alias": {
           "dev-master": "2.x-dev"
         },
         "typo3/cms": {
-          "cms-package-dir": "{$vendor-dir}/typo3/cms",
+          "cms-package-dir": "{$vendor-dir}/typo3/cms"
         }
       }
     }
@@ -150,7 +145,7 @@ This is a typical composer.json file without any complexity: It's a `typo3-cms-e
 author and a license. We are stating that "I need at least 9.5.0 of cms-core" and we tell the auto loader
 "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
-The extension already contains some unit tests that extend form typo3/testing-framework`s base
+The extension already contains some unit tests that extend typo3/testing-framework`s base
 unit test class in directory :file:`Tests/Unit/Hooks` (stripped)::
 
     <?php
@@ -254,7 +249,7 @@ We ignore the entire `.Build` directory, these are on-the-fly files that do not 
 functionality. We also ignore the `.idea` directory - this is a directory where PhpStorm stores its settings.
 We also ignore `Build/testing-docker/.env` - this is a test runtime file created by `runTests.sh` later.
 And we ignore the `composer.lock` file: We don't specify our dependency versions and a
-`composer install` will later always fetch for instance the youngest core dependencies marked as
+`composer install` will later always fetch for instance the youngest Core dependencies marked as
 compatible in our `composer.json` file.
 
 Let's clone that repository and call `composer install` (stripped):
@@ -299,13 +294,13 @@ our tests in:
     lolli@apoc /var/www/local/git/enetcache/.Build $ ls Web/
     index.php  typo3  typo3conf
     lolli@apoc /var/www/local/git/enetcache/.Build $ ls Web/typo3/sysext/
-    backend  core  extbase  fluid  frontend  recordlist
+    backend  Core  Extbase  fluid  frontend  recordlist
     lolli@apoc /var/www/local/git/enetcache/.Build $ ls -l Web/typo3conf/ext/
     total 0
     lrwxrwxrwx 1 lolli www-data 29 Nov  5 14:19 enetcache -> /var/www/local/git/enetcache/
 
-The package `typo3/testing-framework` that we added as `require-dev` dependency has some basic core
-extensions set as dependency, we end up with the core extensions `backend`, `core`, `extbase`,
+The package `typo3/testing-framework` that we added as `require-dev` dependency has some basic Core
+extensions set as dependency, we end up with the Core extensions `backend`, `core`, `extbase`,
 `fluid`, `frontend` and `recordlist` in `.Build/Web/typo3/sysext`. Additionally, the
 :php:`ExtensionTestEnvironment` hook linked our git root checkout as extension into `.Build/Web/typo3conf/ext`.
 
@@ -319,7 +314,7 @@ Next we need to setup our tests. These are the two files we need: `Build/Scripts
 <https://github.com/lolli42/enetcache/blob/master/Build/Scripts/runTests.sh>`_ and `Build/testing-docker/
 docker-compose.yml <https://github.com/lolli42/enetcache/blob/master/Build/testing-docker/docker-compose.yml>`_.
 
-These files are re-purposed from TYPO3's core: `core Build/Scripts/runTests.sh
+These files are re-purposed from TYPO3's Core: `core Build/Scripts/runTests.sh
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
 docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/tree/master/Build/testing-docker/local>`_. You can
 copy and paste these files from extensions like enetcache or styleguide to your own extension, but you should then look
@@ -349,7 +344,7 @@ On some versions of MacOS you might get the following error message when executi
 
 .. code-block:: shell
 
-    $ ./Build/Scripts/runTests.sh 
+    $ ./Build/Scripts/runTests.sh
     readlink: illegal option -- f
     usage: readlink [-n] [file ...]
     Creating network "local_default" with the default driver
@@ -365,62 +360,72 @@ Rather than changing the :file:`runTests.sh` to then use `greadlink` and thus ri
 
    ln -s "$(which greadlink)" "$(dirname "$(which greadlink)")/readlink"
 
-The :file:`runTests.sh` file of enetcache comes with some additional features, for example it is possible to execute `composer install` from within a container using `Build/Scripts/runTests.sh -s composerInstall`, it is possible to execute unit tests with PHP 7.3 instead of 7.2 (option `-p 7.3`). This is available for PHP linting, too (`-s lint`). Similar to :ref:`core test execution <testing-core-examples>` it is possible to break point tests using xdebug (`-x` option), typo3gmbh containers
+The :file:`runTests.sh` file of enetcache comes with some additional features, for example it is possible to execute `composer install` from within a container using `Build/Scripts/runTests.sh -s composerInstall`, it is possible to execute unit tests with PHP 7.3 instead of 7.2 (option `-p 7.3`). This is available for PHP linting, too (`-s lint`). Similar to :ref:`Core test execution <testing-core-examples>` it is possible to break point tests using xdebug (`-x` option), typo3gmbh containers
 can be updated using `runTests.sh -u`, verbose output is available with `-v` and a help is available with `runTests.sh -h`. Have a look around.
 
-Travis CI
----------
+.. index:: Testing; Github Actions
+
+Github Actions
+--------------
 
 With basic testing in place we now want automatic execution of tests whenever something is merged to the repository and if
 people create pull requests for our extension, we want to make sure our carefully crafted test setup actually
-work. We'll use the continuous integration service `Travis CI <https://travis-ci.org/>`_ to take care of
-that. It's free for open source projects. So, log in to travis using your github account. After login, the
-user settings page will list all your github repositories and travis-ci can be enabled with one click for single
-repositories. All we need is a :file:`.travis.yml` file in the `root directory
-<https://github.com/lolli42/enetcache/blob/master/.travis.yml>`_ of our extension telling travis-ci what
-exactly should be done:
+work. We'll use the continuous integration service of Github Actions to take care of
+that. It's free for open source projects.
+In order to tell the CI what to do, create a new workflow file in `.github/workflows/ci.yml <https://github.com/lolli42/enetcache/blob/master/.github/workflows/ci.yml>`__
 
 .. code-block:: yaml
 
-    language: php
+   name: CI
 
-    php:
-      - 7.2
-      - 7.3
+   on: [push, pull_request]
 
-    sudo: true
+   jobs:
 
-    cache:
-      directories:
-        - $HOME/.composer/cache
+     testsuite:
+       name: all tests
+       runs-on: ubuntu-latest
+       strategy:
+         matrix:
+           php: [ '7.2', '7.3', '7.4' ]
+           minMax: [ 'composerInstallMin', 'composerInstallMax' ]
+       steps:
+         - name: Checkout
+           uses: actions/checkout@v2
 
-    before_script:
-      - Build/Scripts/runTests.sh -s composerInstall -p $TRAVIS_PHP_VERSION
+         - name: Composer
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s ${{ matrix.minMax }}
 
-    script:
-      - >
-        echo "Running composer validate"
-        Build/Scripts/runTests.sh -s composerValidate -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running unit tests";
-        Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running php lint";
-        Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
+         - name: Composer validate
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerValidate
 
-In case of enetcache, we let Travis CI test the extension with the two PHP versions 7.2 and 7.3. Travis exposes
-the current version as the variable `$TRAVIS_PHP_VERSION`, so we use that to feed it to `runTests.sh`. We instruct
-Travis to always `composer install` first, then run the test suites `composer validate`, the unit testing
-and the PHP linting. It's possible to see executed test runs `online <https://travis-ci.org/lolli42/enetcache>`_.
-Green :) Maybe it's now time to add the `travis-ci status badge <https://docs.travis-ci.com/user/status-images/>`_
-to our README.md file.
+         - name: Lint PHP
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
 
+         - name: Unit tests
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s unit
+
+         - name: Functional tests with mariadb
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -s functional
+
+         - name: Functional tests with mssql
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mssql -s functional
+
+         - name: Functional tests with postgres
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
+
+         - name: Functional tests with sqlite
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
+
+In case of enetcache, we let Github Actions test the extension with the three PHP versions 7.2, 7.3 and 7.4.
+Each of these PHP Versions will also be tested with the highest and lowest compatible dependencies (defined in `strategy.matrix.minMax`).
+All defined steps run on the same checkout, so we will see six test runs in total, one per PHP version with each minMax property.
+Each run will do a separate checkout, `composer install` first, then all the test and linting jobs we defined.
+It's possible to see executed test runs `online <https://github.com/lolli42/enetcache/actions>`_.
+Green :)
 Note we again use :file:`runTests.sh` to actually run tests. So the environment our tests are executed in is
-identical to our local environment. It's all dockerized. We don't care about the PHP versions travis-ci loaded
-and installed for us. Travis CI needs the setting `sudo: true` to allow starting own containers, though.
-
-Travis CI comes with many additional options and possibilities. If for instance we want to run multiple jobs
-in parallel check out `Travis' Build Stages feature <https://docs.travis-ci.com/user/build-stages/>`_.
+identical to our local environment. It's all dockerized. The environment provided by Github Actions is only used
+to set up the docker environment.
 
 
 .. _testing-extensions-styleguide:
@@ -429,17 +434,16 @@ Testing styleguide
 ==================
 
 The above enetcache extension is an example for a common extension that has few testing
-needs: It just comes with a couple of unit tests. Executing these and maybe adding PHP linting is recommended.
+needs: It just comes with a couple of unit and functional tests. Executing these and maybe adding PHP linting is recommended.
 More ambitious testing needs additional effort. As an example, we pick the `styleguide
-<https://github.com/TYPO3/styleguide>`_ extension. This extension is developed "core near", core itself
-uses styleguide to test various FormEngine details with acceptance tests and if developing core, that
+<https://github.com/TYPO3/styleguide>`_ extension. This extension is developed "core-near", Core itself
+uses styleguide to test various FormEngine details with acceptance tests and if developing Core, that
 extension is installed as a dependency by default. However, styleguide is just a casual extension: It is released
 to composer's `packagist.org <https://packagist.org/packages/typo3/cms-styleguide>`_ and can be loaded as
 dependency (or require-dev dependency) in any project.
 
-The styleguide extension follows the core branching principle, too: At the time of this writing, it's "master"
-branch is dedicated to be compatible with core version 9. This will change later if core v10 gains traction,
-and there are branches compatible with older core versions.
+The styleguide extension follows the Core branching principle, too: At the time of this writing, it's "master"
+branch is dedicated to be compatible with upcoming Core version 11. There are branches compatible with older Core versions, too.
 
 In comparison to enetcache, styleguide comes with additional test suites: It has functional and
 acceptance tests! Our goal is to run the functional tests with different database platforms, and to
@@ -452,7 +456,7 @@ The setup is similar to what has been outlined in detail with enetcache above: W
 `composer.json <https://github.com/TYPO3/styleguide/blob/master/composer.json>`_ file to make it a valid
 root composer.json defining a project. The `require-dev` section is a bit longer as we also
 need `codeception <https://codeception.com/>`_ to run acceptance tests and specify a couple of additional
-core extensions for a basic TYPO3 instance. We additionally add an `app-dir` directive in the extra section.
+Core extensions for a basic TYPO3 instance. We additionally add an `app-dir` directive in the extra section.
 
 Next, we have another iteration of `runTests.sh <https://github.com/TYPO3/styleguide/blob/master/Build/Scripts/runTests.sh>`_
 and `docker-compose.yml <https://github.com/TYPO3/styleguide/blob/master/Build/testing-docker/docker-compose.yml>`_ that are
@@ -469,6 +473,8 @@ With this in place we can run unit tests:
     Build/Scripts/runTests.sh
     # ... OK (1 test, 4 assertions)
 
+.. index:: Testing; Functional
+
 Functional testing
 ------------------
 
@@ -476,7 +482,7 @@ At the time writing, there is only a single functional test, but this one is imp
 it tests crucial functionality within styleguide: The extension comes with several different TCA scenarios
 to show all sorts of database relation and field possibilities supported within TYPO3. To simplify testing,
 code can generate a page tree and demo data for all of these scenarios. Codewise, this is a huge
-section of the extension and it uses quite some core API to do its job. And yes, the generator breaks
+section of the extension and it uses quite some Core API to do its job. And yes, the generator breaks
 once in a while. A perfect scenario for a `functional test!
 <https://github.com/TYPO3/styleguide/blob/master/Tests/Functional/TcaDataGenerator/GeneratorTest.php>`_
 (slightly stripped)::
@@ -577,7 +583,7 @@ That's it. It executes fine using runTests.sh:
     lolli@apoc /var/www/local/git/styleguide $
 
 The good thing about this test is that it actually triggers quite some functionality below. It does tons of
-database inserts and updates and uses the core DataHandler for various details. If something goes wrong in
+database inserts and updates and uses the Core DataHandler for various details. If something goes wrong in
 this entire area, it would throw an exception, the functional test would recognize this and fail. But if
 its green, we know that a large parts of that extension are working correctly.
 
@@ -602,6 +608,8 @@ of `typo3temp/` of `.Build/`, in this test case it is `functional-9ad521a`:
 This can be confusing at first, but it starts making sense the more you use it.
 Also, the docker-compose.yml file contains a setup to start needed databases for the functional tests
 and runTests.sh is tuned to call the different scenarios.
+
+.. index:: Testing; Acceptance
 
 Acceptance testing
 ------------------
@@ -741,65 +749,62 @@ Ok, this setup is a bit more effort, but we end up with a browser automatically 
 an ad-hoc TYPO3 instance to verify this extension can perform its job. If something goes wrong, screenshots
 of the failed run can be found in :file:`.Build/Web/typo3temp/var/tests/AcceptanceReports/`.
 
-travis-ci
----------
+Github Actions
+--------------
 
-Now we want all of this automatically checked using travis-ci:
+Now we want all of this automatically checked using Github Actions. As before, we define the jobs in `.github/workflows/ci.yml <https://github.com/TYPO3/styleguide/blob/master/.github/workflows/ci.yml>`__:
 
 .. code-block:: yaml
 
-    language: php
+   name: CI
 
-    php:
-      - 7.2
-      - 7.3
+   on: [push, pull_request]
 
-    sudo: true
+   jobs:
 
-    cache:
-      directories:
-        - $HOME/.composer/cache
+     testsuite:
+       name: all tests
+       runs-on: ubuntu-latest
+       strategy:
+         matrix:
+           php: [ '7.2', '7.3', '7.4' ]
+       steps:
+         - name: Checkout
+           uses: actions/checkout@v2
 
-    notifications:
-      email:
-        recipients:
-          - lolli@schwarzbu.ch
-        on_success: change
-        on_failure: change
+         - name: Install testing system
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerInstall
 
-    before_script:
-      - Build/Scripts/runTests.sh -s composerInstall -p $TRAVIS_PHP_VERSION
+         - name: Composer validate
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerValidate
 
-    script:
-      - >
-        echo "Running composer validate"
-        Build/Scripts/runTests.sh -s composerValidate -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running unit tests";
-        Build/Scripts/runTests.sh -s unit -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running php lint";
-        Build/Scripts/runTests.sh -s lint -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running functional tests with mariadb";
-        Build/Scripts/runTests.sh -s functional -d mariadb -p $TRAVIS_PHP_VERSION
-      - >
-        if [ ${TRAVIS_PHP_VERSION} = "7.2" ]; then
-          echo "Running functional tests with mssql";
-          Build/Scripts/runTests.sh -s functional -d mssql -p $TRAVIS_PHP_VERSION;
-        else
-          echo "Running functional tests with mssql not supported with PHP 7.3 yet";
-        fi
-      - >
-        echo "Running functional tests with postgres";
-        Build/Scripts/runTests.sh -s functional -d postgres -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running functional tests with sqlite";
-        Build/Scripts/runTests.sh -s functional -d sqlite -p $TRAVIS_PHP_VERSION
-      - >
-        echo "Running acceptance tests";
-        Build/Scripts/runTests.sh -s acceptance -p $TRAVIS_PHP_VERSION
+         - name: Lint PHP
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
+
+         - name: CGL
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s cgl
+
+         - name: phpstan
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s phpstan
+
+         - name: Unit Tests
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s unit
+
+         - name: Functional Tests with mariadb
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -s functional
+
+         - name: Functional Tests with mssql
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mssql -s functional
+
+         - name: Functional Tests with postgres
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
+
+         - name: Functional Tests with sqlite
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
+
+         - name: Acceptance Tests
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s acceptance
 
 This is similar to the enetcache example, but does some more: The functional tests are executed
 with four different DBMS (MariaDB, MSSQL, Postgres, sqlite), and the acceptance tests are executed, too.
-This setup takes some time to complete on travis-ci. But, `it's green <https://travis-ci.org/TYPO3/styleguide>`_!
+This setup takes some time to complete on Github Actions. But, `it's green <https://github.com/TYPO3/styleguide/actions>`_!

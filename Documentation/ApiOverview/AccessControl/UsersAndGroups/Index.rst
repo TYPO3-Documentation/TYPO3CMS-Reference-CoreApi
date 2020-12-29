@@ -1,15 +1,14 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
 .. _access-users-groups:
 
 ================
-Users and Groups
+Users and groups
 ================
 
 TYPO3 CMS features an access control system based on users and groups.
 
 
+.. index:: pair: Backend; Users
 .. _access-users-groups-users:
 
 Users
@@ -32,7 +31,7 @@ its default language for the backend is English.
 It is possible to assign rights directly to a user, but it is much better
 done using groups. Furthermore groups offer far more options.
 
-
+.. index:: pair: Backend; Groups
 .. _access-users-groups-groups:
 
 Groups
@@ -54,10 +53,10 @@ is a member of, the more access is granted to him.
 This screenshot shows just an extract of the group editing form.
 It contains many more fields!
 
-
+.. index:: Admin user
 .. _access-users-groups-admin:
 
-The "admin" User
+The "admin" user
 ================
 
 There is a special kind of backend users called "Admin".
@@ -96,7 +95,7 @@ Admin users are differentiated with an orange icon.
 
 .. _access-users-groups-location:
 
-Location of Users and Groups
+Location of users and groups
 ============================
 
 Since both backend users and backend groups are represented by records

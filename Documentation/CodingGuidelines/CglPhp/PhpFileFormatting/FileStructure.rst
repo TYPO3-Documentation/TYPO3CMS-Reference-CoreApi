@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _cgl-file-structure:
@@ -11,9 +11,9 @@ TYPO3 files use the following structure:
 
 #. Opening PHP tag (including strict_types declaration)
 
-#. Namespace
-
 #. Copyright notice
+
+#. Namespace
 
 #. Namespace imports
 
@@ -50,7 +50,6 @@ file. user files must have this copyright notice as well. Example::
 
    <?php
    declare(strict_types = 1);
-   namespace TYPO3\CMS\XXX;
 
    /*
     * This file is part of the TYPO3 CMS project.
@@ -64,6 +63,8 @@ file. user files must have this copyright notice as well. Example::
     *
     * The TYPO3 project - inspiring people to share!
     */
+
+    namespace TYPO3\CMS\XXX;
 
 The wording must not be changed/updated/extended, under any circumstances.
 

@@ -1,5 +1,5 @@
-.. include:: ../../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: File abstraction layer; Architecture
 .. _fal-architecture:
 
 ============
@@ -15,4 +15,4 @@ architecture of FAL.
    Folders
    Database
    Components
-   Signals
+   Events

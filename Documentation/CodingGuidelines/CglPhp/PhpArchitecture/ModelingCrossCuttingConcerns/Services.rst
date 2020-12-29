@@ -1,6 +1,5 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: pair: Coding guidelines; Services
 .. _cgl-services:
 
 ========
@@ -35,7 +34,7 @@ process of putting a class into a :file:`Service/` subfolder and calling
 it a :code:`WhateverService`. It does not have too much to do with the
 DDD Service context, which is broader. This section is just about which
 scope can be expected for classes residing in a Service folder within
-core extensions.
+Core extensions.
 
 From this point of view, services in TYPO3 world are a relatively slim
 class construct that encapsulates a specific concern. It is too big for

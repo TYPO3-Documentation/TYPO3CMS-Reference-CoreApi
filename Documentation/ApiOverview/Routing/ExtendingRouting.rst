@@ -1,5 +1,5 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: Routing; Extending
 .. _routing-extending-routing:
 
 =================
@@ -11,19 +11,22 @@ The TYPO3 Routing is extendable by design, so you can write both custom aspects 
 * You should write a custom enhancer if you need to manipulate how the full route looks like and gets resolved.
 * You should write a custom aspect if you want to manipulate how a single route parameter ("variable") gets mapped and resolved.
 
+
+.. index:: Routing; Custom aspects
+
 Writing custom aspects
 ======================
 
 Custom aspects can either be modifiers or mappers. A modifier provides static modifications to a route path based on a given context (for example "language").
 A mapper provides a mapping table (either a static table or one with dynamic values from the database).
 
-All aspects derive from the interface :php:`\TYPO3\CMS\Core\Routing\Aspect\AspectInterface`. 
+All aspects derive from the interface :php:`\TYPO3\CMS\Core\Routing\Aspect\AspectInterface`.
 
 To write a custom **modifier**, your aspect has to
-extend :php:`\TYPO3\CMS\Core\Routing\Aspect\ModifiableAspectInterface` and implement the :php:`modify` method 
+extend :php:`\TYPO3\CMS\Core\Routing\Aspect\ModifiableAspectInterface` and implement the :php:`modify` method
 (see `\TYPO3\CMS\Core\Routing\Aspect\LocaleModifier` as example).
 
-To write a custom **mapper**, your aspect should either implement :php:`\TYPO3\CMS\Core\Routing\Aspect\StaticMappableAspectInterface` 
+To write a custom **mapper**, your aspect should either implement :php:`\TYPO3\CMS\Core\Routing\Aspect\StaticMappableAspectInterface`
 or :php:`\TYPO3\CMS\Core\Routing\Aspect\PersistedMappableAspectInterface`, depending on whether you have a static or dynamic mapping table.
 The latter interface is used for mappers that need more expensive - for example database related - queries as execution is deferred to improve performance.
 
@@ -32,7 +35,7 @@ All mappers need to implement the methods :php:`generate` and :php:`resolve`. Th
 After implementing the matching interface, your aspect needs to be registered in :file:`ext_localconf.php`:
 
 .. code-block:: php
-   :linenos: 
+   :linenos:
 
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['routing']['aspects']['MyCustomMapperNameAsUsedInYamlConfig'] =
         \MyVendor\MyExtension\Routing\Aspect\MyCustomMapper::class;
@@ -50,6 +53,9 @@ Routing aspects respecting the site language are now using the `SiteLanguageAwar
 to the `SiteLanguageAwareTrait`. The `AspectFactory` check has been adjusted to check for the interface
 _or_ the trait. If you are currently using the trait, you should implement the interface as well.
 
+
+.. index:: Routing; Custom enhancers
+
 Writing custom enhancers
 ========================
 
@@ -62,12 +68,15 @@ The interfaces contain methods you need to implement as well as a description of
 
 To register the enhancer, add the following to your `ext_localconf.php`:
 
-.. code-block:: php 
-   :linenos: 
+.. code-block:: php
+   :linenos:
 
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['routing']['enhancers']['MyCustomEnhancerAsUsedInYaml'] = \MyVendor\MyExtension\Routing\Enhancer\MyCustomEnhancer::class;
 
 Now you can use your new enhancer in the routing configuration as `type`. The example above could be used as `type: MyCustomEnhancerAsUsedInYaml`.
+
+
+.. index:: Routing; Manipulating slugs
 
 Manipulating generated slugs
 =============================

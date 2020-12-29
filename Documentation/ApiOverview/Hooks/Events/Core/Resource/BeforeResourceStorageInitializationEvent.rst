@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; BeforeResourceStorageInitializationEvent
 .. _BeforeResourceStorageInitializationEvent:
 
 
@@ -15,49 +14,45 @@ creation of a storage.
 API
 ---
 
-
- - :Method:
-         getStorageUid()
-   :Description:
-         Returns the Uid of the current file storage.
-   :ReturnType:
-         int
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         setStorageUid(int $storageUid)
-   :Description:
-         Set / Overwrite the storage uid (basically moving the file to a different storage).
-   :ReturnType:
-         void
+.. rst-class:: dl-parameters
 
+getStorageUid()
+   :sep:`|` :aspect:`ReturnType:` int
+   :sep:`|`
 
- - :Method:
-         getRecord()
-   :Description:
-         Returns the current file record.
-   :ReturnType:
-         array
+   |nbsp|
 
+setStorageUid(int $storageUid)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         setRecord(array $record)
-   :Description:
-         Overwrite / set the current record.
-   :ReturnType:
-         void
+   |nbsp|
 
+getRecord()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         getFileIdentifier()
-   :Description:
-         Returns the current file identifier if one is available.
-   :ReturnType:
-         ?string
+   |nbsp|
 
- - :Method:
-         setFileIdentifier(?string $fileIdentifier)
-   :Description:
-         Set or remove ("set to `null`") the current file identifier.
-   :ReturnType:
-         void
+setRecord(array $record)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
+
+getFileIdentifier()
+   :sep:`|` :aspect:`ReturnType:` ?string
+   :sep:`|`
+
+   |nbsp|
+
+setFileIdentifier(?string $fileIdentifier)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
+

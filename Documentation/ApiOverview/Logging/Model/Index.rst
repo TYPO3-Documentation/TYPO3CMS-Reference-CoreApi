@@ -1,10 +1,11 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index::
+   Logging; LogRecord
+   Logging; Model
 .. _logging-model:
 
 ===================
-The LogRecord Model
+The LogRecord model
 ===================
 
 All logging data is modeled using :php:`\TYPO3\CMS\Core\Log\LogRecord`.

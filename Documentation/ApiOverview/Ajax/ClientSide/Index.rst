@@ -1,19 +1,20 @@
-.. include:: ../../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: Ajax; Client-side
 .. _ajax-client-side:
 
 =======================
-Client-Side Programming
+Client-side programming
 =======================
 
-TYPO3 Core ships an API to send AJAX requests to the server. This API is based on the `fetch API`_, which is implemented
+TYPO3 Core ships an API to send ajax requests to the server. This API is based on the `fetch API`_, which is implemented
 in every modern browser (e.g. Chrome, Safari, Firefox, Edge).
 
 .. note::
    TYPO3 ships jQuery as well, but is considered discouraged for new code.
 
+.. index:: Ajax; Request
 
-Prepare a Request
+Prepare a request
 =================
 
 To be able to send a request, the module :js:`TYPO3/CMS/Core/Ajax/AjaxRequest` must be imported. To prepare a request,
@@ -99,8 +100,9 @@ Example:
      }
    });
 
+.. index:: Ajax; Response
 
-Handle the Response
+Handle the response
 ===================
 
 In the examples above :js:`promise` is, as the name already spoils, a `Promise`_ object. To fetch the actual response,
@@ -132,13 +134,14 @@ which contains the received response.
 
 .. hint::
    The fetch API handles responses with faulty statuses like 404 or 500 still as "successful", but sets the response's
-   :js:`ok` field to `false`. The AJAX API converts such responses into errors for convenience reasons.
+   :js:`ok` field to `false`. The ajax API converts such responses into errors for convenience reasons.
 
+.. index:: Ajax; Abort
 
-Abort a Request
+Abort a request
 ===============
 
-In some cases it might be necessary to abort a running request. The AJAX API has you covered then, an instance of
+In some cases it might be necessary to abort a running request. The ajax API has you covered then, an instance of
 `AbortController`_ is attached to each request. To abort the request, just call the :js:`abort()` method:
 
 .. code-block:: js

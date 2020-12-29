@@ -1,10 +1,15 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   ! File abstraction layer
+   FAL
+   Digital assets management
+   see: Digital assets management; FAL
+   see: File abstraction layer; FAL
 .. _fal:
 
-===============================
-Digital Assets Management (FAL)
-===============================
+============================
+File abstraction layer (FAL)
+============================
 
 **Contents:**
 
@@ -16,3 +21,4 @@ Digital Assets Management (FAL)
     Architecture/Index
     Administration/Index
     UsingFal/Index
+    Collections/Index

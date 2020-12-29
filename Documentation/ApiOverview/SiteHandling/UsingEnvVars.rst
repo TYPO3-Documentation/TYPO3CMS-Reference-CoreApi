@@ -1,10 +1,12 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   Site handling; Environment variables
+   %env(BASE_DOMAIN)%
 .. _sitehandling-using-env-vars:
 
-=================================================
-Using Environment Variables in Site Configuration
-=================================================
+=====================================================
+Using environment variables in the site configuration
+=====================================================
 
 Environment Variables in site configuration allows setting placeholders for configuration options
 that get replaced by environment variables specific to the current environment.
@@ -18,10 +20,16 @@ Example:
 
     base: 'https://%env(BASE_DOMAIN)%/'
 
+When using environment variables in conditions, make sure to quote them correctly:
+
+.. code-block:: yaml
+
+    condition: '"%env(my_env)%" == "my_comparison_string"'
+
 
 .. note::
 
-    Since TYPO3 v10.2 it's also possible to use env variables in imports: 
+    Since TYPO3 v10.2 it's also possible to use env variables in imports:
     `resource: 'MyFile_%env("foo")%.yaml'`
 
 TYPO3 does not provide a loader for .env files - you have to take care of loading them yourself.

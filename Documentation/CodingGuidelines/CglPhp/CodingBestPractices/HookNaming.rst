@@ -1,6 +1,5 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Coding guidelines; Hooks
 .. _cgl-hook-naming:
 
 ===========

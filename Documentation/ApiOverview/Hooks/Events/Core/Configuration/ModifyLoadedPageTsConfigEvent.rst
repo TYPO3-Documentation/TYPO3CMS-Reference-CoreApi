@@ -1,8 +1,6 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; ModifyLoadedPageTsConfigEvent
 .. _ModifyLoadedPageTsConfigEvent:
-
 
 =============================
 ModifyLoadedPageTsConfigEvent
@@ -14,35 +12,33 @@ Extensions can modify Page TSConfig entries that can be overridden or added, bas
 API
 ---
 
-
- - :Method:
-         getTsConfig()
-   :Description:
-         Returns current Page TSConfig
-   :ReturnType:
-         array
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         addTsConfig(string $tsConfig)
-   :Description:
-         Add additional TSConfig (appending).
-   :ReturnType:
-         void
+.. rst-class:: dl-parameters
 
+getTsConfig()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         setTsConfig(array $tsConfig)
-   :Description:
-         Overwrite / Set TSConfig.
-   :ReturnType:
-         void
+   |nbsp|
 
+addTsConfig(string $tsConfig)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
 
- - :Method:
-         getRootLine()
-   :Description:
-         Get the current root line.
-   :ReturnType:
-         array
+   |nbsp|
+
+setTsConfig(array $tsConfig)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
+
+getRootLine()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
 

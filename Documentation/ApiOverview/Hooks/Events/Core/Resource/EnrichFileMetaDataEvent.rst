@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; EnrichFileMetaDataEvent
 .. _EnrichFileMetaDataEvent:
 
 
@@ -15,35 +14,33 @@ for example translation and workspace overlay.
 API
 ---
 
-
- - :Method:
-         getFileUid()
-   :Description:
-         Get the file uid of the current file.
-   :ReturnType:
-         int
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getMetaDataUid()
-   :Description:
-         Get the uid of the currently loaded meta data.
-   :ReturnType:
-         int
+.. rst-class:: dl-parameters
 
+getFileUid()
+   :sep:`|` :aspect:`ReturnType:` int
+   :sep:`|`
 
- - :Method:
-         getRecord()
-   :Description:
-         Get the meta data record.
-   :ReturnType:
-         array
+   |nbsp|
 
+getMetaDataUid()
+   :sep:`|` :aspect:`ReturnType:` int
+   :sep:`|`
 
- - :Method:
-         setRecord()
-   :Description:
-         Set / overwrite the meta data record at runtime.
-   :ReturnType:
-         array
+   |nbsp|
+
+getRecord()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
+
+setRecord()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
 

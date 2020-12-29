@@ -1,10 +1,10 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: pair: Backend; Access control
 .. _access:
 
-======================
-Backend Access Control
-======================
+======================================
+Backend access control (Users & Roles)
+======================================
 
 .. toctree::
    :maxdepth: 5
@@ -12,6 +12,7 @@ Backend Access Control
    :glob:
 
    UsersAndGroups/Index
+   PasswordReset/Index
    Roles/Index
    AccessControlOptions/Index
    OtherOptions/Index

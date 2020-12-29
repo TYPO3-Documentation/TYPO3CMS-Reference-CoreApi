@@ -1,5 +1,7 @@
-.. include:: ../../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index::
+   DataHandler; Record / commit route
+   SimpleDataHandlerController
 .. _tce-db-api:
 .. _record-commit-route:
 

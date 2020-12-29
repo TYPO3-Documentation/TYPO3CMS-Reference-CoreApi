@@ -1,6 +1,5 @@
-.. include:: ../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; SwitchUserEvent
 .. _SwitchUserEvent:
 
 
@@ -13,27 +12,27 @@ This event is dispatched when a "SU" (switch user) action has been triggered.
 API
 ---
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
- - :Method:
-         getSessionId()
-   :Description:
-         Returns the session ID of the current session.
-   :ReturnType:
-         string
+.. rst-class:: dl-parameters
 
+getSessionId()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
 
- - :Method:
-         getTargetUser()
-   :Description:
-         Returns the target user record.
-   :ReturnType:
-         array
+   |nbsp|
 
+getTargetUser()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
 
- - :Method:
-         getCurrentUser()
-   :Description:
-         Returns the current user record.
-   :ReturnType:
-         array
+   |nbsp|
+
+getCurrentUser()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
+
 

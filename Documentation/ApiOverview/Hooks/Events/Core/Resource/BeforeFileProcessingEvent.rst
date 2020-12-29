@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; BeforeFileProcessingEvent
 .. _BeforeFileProcessingEvent:
 
 
@@ -14,42 +13,39 @@ Allows to add further information or enrich the file before the processing is ki
 API
 ---
 
-
- - :Method:
-         getProcessedFile()
-   :Description:
-         Returns the processed file object.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\ProcessedFile
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getDriver()
-   :Description:
-         Returns the currently used driver.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Driver\DriverInterface
+.. rst-class:: dl-parameters
 
+getProcessedFile()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\ProcessedFile`
+   :sep:`|`
 
- - :Method:
-         getFile()
-   :Description:
-         Returns the file object.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\FileInterface
+   |nbsp|
 
+getDriver()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Driver\DriverInterface`
+   :sep:`|`
 
- - :Method:
-         getTaskType()
-   :Description:
-         Returns the current task type (see Constants in `ProcessedFile`).
-   :ReturnType:
-         string
+   |nbsp|
 
+getFile()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\FileInterface`
+   :sep:`|`
 
- - :Method:
-         getConfiguration()
-   :Description:
-         Returns the processing configuration.
-   :ReturnType:
-         array
+   |nbsp|
+
+getTaskType()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
+
+getConfiguration()
+   :sep:`|` :aspect:`ReturnType:` array
+   :sep:`|`
+
+   |nbsp|
+

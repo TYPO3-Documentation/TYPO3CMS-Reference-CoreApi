@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _context-api:
 
@@ -94,8 +94,6 @@ Property                Call                                                    
 
 **Overlay types:**
 
-:ref:`legacy settings sys_language_overlay documented in TypoScript Reference <t3tsref:setup-config-sys-language-overlay>`.
-
 * :php:`LanguageAspect::OVERLAYS_OFF`:
     Just fetch records from the selected language as given by :php:`$GLOBALS['TSFE']->sys_language_content`. No overlay will happen, no fetching of the records from the default language. This boils down to "free mode" language handling.
     Records without a default language parent are included.
@@ -127,6 +125,42 @@ Example
     // Reading the current fallback chain instead $TSFE->sys_language_mode
     $fallbackChain = $context->getPropertyFromAspect('language', 'fallbackChain');
 
+.. _context_api_aspects_preview:
+
+Preview Aspect
+--------------
+
+The `PreviewAspect` may be used to indicate that the frontend is in preview mode
+(for example in case a workspace is previewed or hidden pages or records should be shown).
+
+.. _context_api_aspects_preview_properties:
+
+
+The Preview Aspect contains the following properties:
+
+==============  ========================================================================  ======
+Property        Call                                                                      Result
+==============  ========================================================================  ======
+``isPreview``   :php:`$context->getPropertyFromAspect('frontend.preview', 'isPreview');`  whether the frontend is currently in preview mode
+==============  ========================================================================  ======
+
+.. _context_api_aspects_typoscript:
+
+TypoScript Aspect
+-----------------
+
+The `TypoScriptAspect` can be used to manipulate/check whether TemplateRendering is forced.
+
+.. _context_api_aspects_typoscript_properties:
+
+
+The Preview Aspect contains the following properties:
+
+=========================  ==============================================================================  ======
+Property                   Call                                                                            Result
+=========================  ==============================================================================  ======
+``forcedTemplateParsing``  :php:`$context->getPropertyFromAspect('typoscript', 'forcedTemplateParsing');`  whether TypoScript template parsing is forced
+=========================  ==============================================================================  ======
 
 .. _context_api_aspects_user:
 

@@ -1,12 +1,12 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: Site handling; Base variants
 .. _sitehandling-baseVariants:
 
 =============
-Base Variants
+Base variants
 =============
 
-In Site Handling base variants represent different bases for a web site depending on a specified
+In site handling "base variants" represent different bases for a web site depending on a specified
 condition. For example a "live" base URL might be `https://example.org` but on local machine
 it's `https://example.test` as a domain - that's when variants are used.
 
@@ -18,7 +18,7 @@ Variants consist of two parts:
 * a base to use for this variant
 * a condition that decides when this variant shall be active
 
-Conditions are based on Symfony Expression Language and allow flexible conditions. For example::
+Conditions are based on Symfony expression language and allow flexible conditions. For example::
 
     applicationContext == "Development"
 
@@ -92,6 +92,9 @@ Example
         fallbackType: strict
         flag: de
 
+
+.. index:: Site handling; Base variant properties
+
 Properties
 ==========
 
@@ -146,6 +149,10 @@ applicationContext
 :aspect:`Example`
     `Development`
 
+
+.. index::
+   Site handling; Base variant functions
+   DefaultFunctionsProvider
 
 Functions
 =========
@@ -203,3 +210,42 @@ getenv
 
 :aspect:`Example`
     `getenv("TYPO3_BASE_URL")`
+
+
+date
+----
+
+:aspect:`Datatype`
+    string
+
+:aspect:`Description`
+    Get the current date in given format.
+
+:aspect:`Example for checking the current month`
+    `date("j") == 7`
+
+
+feature
+-------
+
+:aspect:`Datatype`
+    string
+
+:aspect:`Description`
+    Check whether a feature ("feature toggle") is enabled in TYPO3.
+
+:aspect:`Example`
+    `feature("TypoScript.strictSyntax")`
+
+
+traverse
+--------
+
+:aspect:`Datatype`
+    array and string
+
+:aspect:`Description`
+    This function has two parameters: - first parameter is the array to traverse - second parameter is the path to traverse Syntax.
+
+:aspect:`Example`
+    `traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0`

@@ -1,6 +1,5 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Errors; ErrorHandler
 .. _error-handling-error-handler:
 
 =============
@@ -23,13 +22,7 @@ Functions:
 
 -  Displays errors as TsLog messages in the adminpanel.
 
--  Logs error messages to
-   :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::syslog()` which is able to
-   write error messages to a file, to the web server's error\_log, the system's
-   log and it can send error- and exception-messages by mail.
-   :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::syslog()` offers a hook and
-   can be extended by userdefined logging methods.
-
+-  Logs error messages  via the :ref:`logging API <logging>`.
 
 -  Logs error messages to the sys\_log table. Logged errors are displayed
    in the belog extension (**ADMIN TOOLS > Log**). This will work only with an

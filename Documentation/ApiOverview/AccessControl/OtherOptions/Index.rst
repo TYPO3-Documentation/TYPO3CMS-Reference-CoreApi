@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _access-other-options:
@@ -13,7 +13,7 @@ backend users and groups.
 
 .. _access-other-options-users:
 
-Backend Users
+Backend users
 =============
 
 Default language

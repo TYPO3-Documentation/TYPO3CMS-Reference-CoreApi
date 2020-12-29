@@ -1,4 +1,4 @@
-.. include:: Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _about:
 
@@ -15,7 +15,7 @@ same amount of detail, but at least some pointers are provided.
 The document does *not* contain any significant information about
 the frontend of TYPO3. Creating templates, setting up TypoScript
 objects etc. is not the scope of the document, it addresses the
-*backend* and management part of the core only.
+*backend* and management part of the Core only.
 
 The TYPO3 Documentation Team hopes that this document will form a complete picture
 of the TYPO3 Core architecture. It will hopefully be the knowledge base

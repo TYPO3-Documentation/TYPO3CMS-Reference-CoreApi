@@ -1,9 +1,9 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: Ajax
 .. _ajax:
 
 ====
-AJAX
+Ajax
 ====
 
 .. toctree::

@@ -1,7 +1,5 @@
-.. include:: ../../../Includes.txt
-
-
-
+.. include:: /Includes.rst.txt
+.. index:: Core; Extend
 .. _hooks-concept:
 
 ========================
@@ -35,6 +33,7 @@ Lina Wolf: Extending Extensions @ TYPO3 Developer Days 2019
 .. youtube:: HFO2d2QzTek
 
 
+.. index:: Events; vs. XCLASS
 .. _hooks-xclass:
 
 Events, Signals and Hooks vs. XCLASS Extensions
@@ -48,16 +47,18 @@ With TYPO3 10 the EventDispatcher was introduced. It is a strongly typed method 
 extending TYPO3 and therefore recommended to use wherever available.
 
 However, Events have to be emitted, Hooks and Signals have to be implemented,
-in the TYPO3 core or an Extension before you can use them, while extending a
+in the TYPO3 Core  or an Extension before you can use them, while extending a
 PHP class via the XCLASS method allows you to extend any class you like.
 
 
+.. index:: Events; Proposing
 .. _hooks-proposing:
+.. _events-proposing:
 
-Proposing Events, Hooks or Signals
-==================================
+Proposing Events
+================
 
 If you need to extend something which has no event, hook or signal yet, then you
-should suggest emitting or implementing one. Normally that is rather easily done by the
+should suggest emitting an event. Normally that is rather easily done by the
 author of the source you want to extend.
 

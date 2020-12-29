@@ -1,6 +1,4 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
 .. _fal-architecture-overview:
 
 ========
@@ -17,7 +15,7 @@ Usage Layer
 Storage Layer
   This layer is made of several parts. First of all there are the files
   and their associated metadata. Then each file is associated with
-  a Storage.
+  a storage.
 
 Driver Layer
   This layer is the deepest one. It consists of the Drivers, managing
@@ -27,7 +25,7 @@ Driver Layer
 
   Indeed Drivers are explicitly *not* part of the public interface.
   Developers will only interact with File, Folder, FileReference or
-  Storage objects, but never with a Driver object, unless actually
+  storage objects, but never with a Driver object, unless actually
   developing one.
 
 This layered architecture makes it easy to use different Drivers for accessing files,

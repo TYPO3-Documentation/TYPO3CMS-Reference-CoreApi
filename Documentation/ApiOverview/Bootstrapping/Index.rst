@@ -1,5 +1,5 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: ! Bootstrapping
 .. _bootstrapping:
 
 =============
@@ -78,10 +78,17 @@ Whenever a call to TYPO3 CMS is made, the application goes through a
 bootstrapping process managed by a dedicated API. This process is also
 used in the frontend, but only the backend process is described here.
 
+
 Classes involved in the backend bootstrapping process are :php:`\TYPO3\CMS\Core\Core\Bootstrap`,
 :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder` and :php:`TYPO3\CMS\Backend\Http\Application`.
 
-The following steps are performed during bootstrapping:
+.. note::
+   This chapter is outdated and should probably be merged with the "HTTP request library / Guzzle / PSR-7"
+   chapter below. The chapter should include an overview of single bootstrap steps, PSR-15 and routing.
+
+Classes involved in the backend bootstrapping process are :php:`\TYPO3\CMS\Core\Core\Bootstrap` and :php:`TYPO3\CMS\Backend\Http\Application`.
+
+The following steps are performed during bootstrapping.
 
 1. Initialize Class Loader
 --------------------------
@@ -155,8 +162,9 @@ After all that the, the newly created container receives the Application object
 and :php:`Application::run()` method is called, which basically dispatches the
 request to the right handler.
 
+
 5. Initialization of the TYPO3 Backend
----------------------------------------
+--------------------------------------
 
 The backend request handler then calls the :php:`MiddlewareDispatcher` which
 then manages and dispatches a PSR-15 middleware stack. In the backend context
@@ -185,7 +193,7 @@ contexts:
 
 * ``Production`` (default) - should be used for a live site
 * ``Development`` - used for development
-* ``Testing`` - is only used internally when executing TYPO3 **core** tests. It must not be used otherwise.
+* ``Testing`` - is only used internally when executing TYPO3 **Core** tests. It must not be used otherwise.
 
 The context TYPO3 runs in is specified through the environment variable
 ``TYPO3_CONTEXT``. It can be set on the command line:
@@ -235,7 +243,7 @@ or be part of the web server configuration:
 .. _bootstrapping-context-custom:
 
 Custom Contexts
-"""""""""""""""
+---------------
 
 In certain situations, more specific contexts are desirable:
 
@@ -263,7 +271,7 @@ necessary settings while the ``Production/Live`` context is used on the live ins
 
 .. attention::
 
-   ``Testing`` Is reserved for internal use when executing TYPO3 **core** functional and unit tests
+   ``Testing`` Is reserved for internal use when executing TYPO3 **Core** functional and unit tests
    It must not be used otherwise. Instead sub-contexts must be used:
    ``Production/Testing`` or ``Development/Testing``
 
@@ -271,7 +279,7 @@ necessary settings while the ``Production/Live`` context is used on the live ins
 .. _bootstrapping-context-example:
 
 Usage Example
--------------
+~~~~~~~~~~~~~
 
 The current Application Context is set very early in the bootstrap process and can be accessed
 through public API for example in the :file:`AdditionalConfiguration.php` file to automatically set

@@ -1,4 +1,7 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
+.. index::
+   pair: Coding guidelines; Xliff
+   pair: Coding guidelines; Language files
 
 .. _cgl-xliff:
 

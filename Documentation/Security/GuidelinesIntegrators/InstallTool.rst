@@ -1,7 +1,12 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
+.. index::
+   Security guidelines; Install tool
+   File; typo3conf/ENABLE_INSTALL_TOOL
+.. _security-install-tool:
 
-Install Tool
-^^^^^^^^^^^^
+============
+Install tool
+============
 
 The Install Tool allows you to configure the TYPO3 system on a very
 low level, which means, not only the basic settings but also the most
@@ -26,7 +31,7 @@ or you can create this file as a backend user with administrator
 privileges.
 
 .. figure:: ../../Images/Security/enable-install-tool.png
-    :class: with-shadow
+    :class: with-border with-shadow
     :alt: Screen to enable the Install Tool
 
 Conversely, this also means, you should delete this file as soon as
@@ -53,11 +58,11 @@ a system administrator, is to change the password to a new and secure one.
 Log-in to the Install Tool and change it there.
 
 .. figure:: ../../Images/Security/change-install-tool-password.png
-    :class: with-shadow
+    :class: with-border with-shadow
     :alt: Screen to change the Install Tool password
 
 Since TYPO3 v9, the role of system maintainer has been introduced. It allows for selected
-BE users to access the Install Tool components from within the Backend without further
+BE users to access the Install Tool components from within the backend without further
 security measures.
 The number of system maintainers should be as small as possible to mitigate the risks of corrupted accounts.
 
@@ -73,19 +78,39 @@ these measures have an impact on the usability of the system. If you
 are not the only person who uses the Install Tool, you should
 definitely discuss your intention with the team.
 
-TYPO3 core updates
-""""""""""""""""""
+
+TYPO3 Core updates
+==================
 
 Since TYPO3 CMS 6.2, the Install Tool allows integrators to update the
-core of TYPO3 with a click of a button. This feature can be found under
+TYPO3 Core with a click of a button. This feature can be found under
 "Important actions" and it checks/installs revision updates only (e.g.
 bug fixes and security updates).
 
 .. figure:: ../../Images/Security/core-updates.png
-    :class: with-shadow
-    :alt: Install Tool function to update the TYPO3 core
+    :class: with-border with-shadow
+    :alt: Install Tool function to update the TYPO3 Core
 
 It should be noted that this feature can be disabled by an environment
 variable::
 
    TYPO3_DISABLE_CORE_UPDATER=1
+
+
+.. index:: Security guidelines; Encryption key
+.. _security-encryption-key:
+
+Encryption key
+==============
+
+The `encryptionKey` can be found in the Install Tool (module
+*Settings > Configure Installation-Wide Options*). This string, usually a
+hexadecimal hash value of 96 characters, is used as the "salt" for
+various kinds of encryption, check sums and validations (e.g. for
+the `cHash`). Therefore, a change of this value invalidates temporary
+information, cache content, etc. and you should clear all caches after
+you changed this value in order to force the rebuild of this data with
+the new encryption key.
+
+Keep in mind that this string is security-related and you should keep
+it in a safe place.

@@ -1,10 +1,9 @@
-.. include:: ../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: ! Distributions
 .. _distribution:
 
 ===========================
-Creating a new Distribution
+Creating a new distribution
 ===========================
 
 This chapter describes the main steps in creating a new
@@ -14,14 +13,14 @@ tutorial.
 
 .. _distribution_concept:
 
-Concept of Distributions
+Concept of distributions
 ========================
 
 Distributions are full TYPO3 CMS websites ready to be unpacked. They provide
 an easy quick start for using TYPO3 CMS. The most well known distribution is
 "The official Introduction Package". Distributions can most easily be installed
 in the backend Extension Manager in "Get preconfigured distribution", it lists
-all available distributions for the given core version.
+all available distributions for the given Core version.
 
 A distribution is just an extension enriched with some further data that is
 loaded or executed upon installing that extension. A distribution takes
@@ -108,6 +107,19 @@ database dump and the asset files, while ext:bootstrap_package is the real
 site setup. This ends up with only content related stuff being located in
 :file:`fileadmin`, delivered by ext:introduction.
 
+.. _distribution-kickstart-site:
+
+Site configuration
+------------------
+
+In order to import a site configuration upon installation, supply a site config file
+to :file:`Initialisation/Site/<SITE_IDENTIFIER>/config.yaml`.
+
+.. note::
+
+    Existing site configuration folders with the same identifier will neither be overwritten nor changed.
+    See :doc:`t3core:Changelog/10.1/Feature-89010-IntroduceSiteConfigForDistributionPackages`
+
 
 .. _distribution-kickstart-database:
 
@@ -137,12 +149,12 @@ prepare that.
 
 .. note::
 
-    Due to core bugs, importing extracted files from standalone file folder
-    only works since core version *8.7.10* and *9.1.0*. For older target
-    core versions, files must not be extracted (tab Advanced options), but
+    Due to Core bugs, importing extracted files from standalone file folder
+    only works since Core version *8.7.10* and *9.1.0*. For older target
+    Core versions, files must not be extracted (tab Advanced options), but
     directly included in :file:`data.xml`.
 
-    Another core issue prevents loading :file:`data.xml` if it is bigger than
+    Another Core issue prevents loading :file:`data.xml` if it is bigger than
     10MB. In this case the only option left is going with :file:`data.t3d`
 
 
@@ -169,33 +181,9 @@ Distribution Configuration
 A distribution is technically handled as an extension. Therefore you
 can make use of all :ref:`configuration options <extension-options>` as needed.
 
-After installing the extension, the signal :code:`hasInstalledExtensions` is
+After installing the extension, the event :ref:`AfterPackageActivationEvent<AfterPackageActivationEvent>` is
 dispatched. You may use this to alter your website configuration (e.g. color
 scheme) on the fly.
-
-
-.. _distribution-kickstart-custom-dependencies:
-
-Delivering Custom Dependencies
-------------------------------
-
-Normally extension dependencies are setup in the
-:ref:`Extension declaration file <extension-declaration>`.
-
-However sometimes, extensions are not available in the
-*TYPO3 Extension Repository (TER)*, or you need to deliver a modified version.
-Therefore, a distribution can act as its own extension repository.
-Add unpacked extensions to :file:`Initialisation/Extensions/` to provide
-dependencies. Your main extension has to be dependent on these
-extensions as normal dependencies in :file:`ext_emconf.php`.
-
-Extensions delivered inside an extension have the highest priority when extensions
-need to be fetched.
-
-.. caution::
-
-  This will not overwrite extensions already present in the system.
-
 
 .. _distribution-testing:
 

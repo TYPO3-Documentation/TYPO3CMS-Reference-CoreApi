@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; BeforeFileContentsSetEvent
 .. _BeforeFileContentsSetEvent:
 
 
@@ -14,27 +13,27 @@ This allows to further analyze or modify the content of a file before it is writ
 API
 ---
 
-
- - :Method:
-         getFile()
-   :Description:
-         Returns the file object.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\FileInterface
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getContent()
-   :Description:
-         Returns the current file content.
-   :ReturnType:
-         string
+.. rst-class:: dl-parameters
 
+getFile()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\FileInterface`
+   :sep:`|`
 
- - :Method:
-         setContent(string $content)
-   :Description:
-         Set / Overwrite the current file content.
-   :ReturnType:
-         void
+   |nbsp|
+
+getContent()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
+
+setContent(string $content)
+   :sep:`|` :aspect:`ReturnType:` void
+   :sep:`|`
+
+   |nbsp|
 

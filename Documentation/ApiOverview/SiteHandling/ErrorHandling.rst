@@ -1,9 +1,9 @@
-.. include:: ../../Includes.txt
-
+.. include:: /Includes.rst.txt
+.. index:: pair: Site handling; Error handling
 .. _sitehandling-errorHandling:
 
 ==============
-Error Handling
+Error handling
 ==============
 
 Error handling can be configured on site level and is automatically dependent on the
@@ -16,9 +16,10 @@ The configuration consists of two parts:
 
 You can define one error handler per HTTP error code and add a generic one that serves all error pages.
 
-.. tip::
-    No more trouble with translated 404 error pages. With the new site handling getting translated
-    404 is easy!
+.. attention::
+   Exceptions must be handled via :ref:`error-handling` since they occur on a much lower level.
+   These are currently not covered by site error handling.
+
 
 .. figure:: ../../Images/SiteHandlingErrorHandling-1.png
    :class: with-shadow
@@ -26,6 +27,8 @@ You can define one error handler per HTTP error code and add a generic one that 
 
    Add custom error handling.
 
+
+.. index:: pair: Site handling; Error handling properties
 
 Properties
 ==========
@@ -52,8 +55,8 @@ errorHandler
     string / enum
 
 :aspect:`Description`
-    Define how to handle these errors. May be `Fluid` for rendering a fluid template,
-    `page` for fetching content from a page or `PHP` for a custom implementation.
+    Define how to handle these errors. May be `Fluid` for rendering a Fluid template,
+    `Page` for fetching content from a page or `PHP` for a custom implementation.
 
 :aspect:`Example`
     `Fluid`
@@ -83,7 +86,7 @@ errorFluidTemplatesRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler == `Fluid`**: Paths to Fluid Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -97,7 +100,7 @@ errorFluidPartialsRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler == `Fluid`**: Paths to Fluid Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -111,7 +114,7 @@ errorFluidLayoutsRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler == `Fluid`**: Paths to Fluid Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -125,7 +128,7 @@ errorContentSource
     string
 
 :aspect:`Description`
-    May be either an External URL or TYPO3 Page that will be fetched with curl and displayed
+    **Only if `errorHandler: Page`**: May be either an External URL or TYPO3 Page that will be fetched with curl and displayed
     in case of an error.
 
 :aspect:`Example`
@@ -139,7 +142,7 @@ errorPhpClassFQCN
     string
 
 :aspect:`Description`
-    Fully qualified class name of a custom error handler implementing `PageErrorHandlerInterface`.
+    **Only if `errorHandler: PHP`**: Fully qualified class name of a custom error handler implementing `PageErrorHandlerInterface`.
 
 :aspect:`Example`
     `My\Site\Error\Handler`

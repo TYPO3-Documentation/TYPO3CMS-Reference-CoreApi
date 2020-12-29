@@ -1,49 +1,22 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: JavaScript (Backend); Modules
 .. _modules:
 
 ==========================
-Various JavaScript Modules
+Various JavaScript modules
 ==========================
 
-The following APIs are usually used in the TYPO3 backend by the core itself but may also
+The following APIs are usually used in the TYPO3 backend by the Core itself but may also
 be used by extensions.
 
 
-Multi-Step Wizard
-=================
+**Contents:**
 
-The JavaScript module :js:`MultiStepWizard` can be used to show a modal multi-step 
-wizard with the following features:
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
 
-* Navigation to previous / next steps
-* Steps may have descriptive labels like "Start" or "Finish!"
-* Steps may require actions before becoming available.
-
-Code examples:
-
-.. code-block:: js
-
-   // Show/ hide the wizard
-   MultiStepWizard.show();
-   MultiStepWizard.dismiss();
-
-   // Add a slide to the wizard
-   MultiStepWizard.addSlide(
-       identifier,
-       stepTitle,
-       content,
-       severity,
-       progressBarTitle,
-       function() {
-       ...
-       }
-   );
-
-   // Lock/ unlock navigation buttons
-   MultiStepWizard.lockNextStep();
-   MultiStepWizard.unlockNextStep();
-   MultiStepWizard.lockPrevStep();
-   MultiStepWizard.unlockPrevStep();
-
+   Modals
+   MultiStepWizard
+   DocumentService
+   SessionStorageWrapper

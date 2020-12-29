@@ -1,6 +1,5 @@
-.. include:: ../../../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: Events; BeforeFileCreatedEvent
 .. _BeforeFileCreatedEvent:
 
 
@@ -16,19 +15,21 @@ This allows to further analyze or modify the file or filename before it is writt
 API
 ---
 
-
- - :Method:
-         getFileName()
-   :Description:
-         Returns the filename.
-   :ReturnType:
-         string
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
 
- - :Method:
-         getFolder()
-   :Description:
-         Returns the folder where the file should be created.
-   :ReturnType:
-         \TYPO3\CMS\Core\Resource\Folder
+.. rst-class:: dl-parameters
+
+getFileName()
+   :sep:`|` :aspect:`ReturnType:` string
+   :sep:`|`
+
+   |nbsp|
+
+getFolder()
+   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
+   :sep:`|`
+
+   |nbsp|
 

@@ -1,6 +1,4 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
 .. _transformations:
 
 ===================
@@ -12,8 +10,6 @@ RTE Transformations
    :titlesonly:
 
    Introduction
-   Process
    Overview
-   CustomApi
 
 

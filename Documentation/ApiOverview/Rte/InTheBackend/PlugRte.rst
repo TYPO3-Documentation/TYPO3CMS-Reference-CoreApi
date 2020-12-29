@@ -1,84 +1,120 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index::
+   pair: Rich text editor; Custom
 .. _rte-plug:
 
-==============
-Plugging a RTE
-==============
+========================
+Plugging in a custom RTE
+========================
 
-
-.. attention:: This page needs an update!
-
-   `Issue #78 <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/78>`_
-   states that this contents needs an update. It says:
-
-      The documentation of "Plugging a RTE" seems to be deprecated since TYPO3 CMS 7.4.
-      RTE registration isn't made via :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['RTE_reg']` anymore.
-      Instead the NodeFactory API is used.
 
 TYPO3 supports any Rich Text Editor for which someone might write a
 connector to the RTE API. This means that you can freely choose
 whatever RTE you want to use among those available from the Extension
 Repository on typo3.org.
 
-TYPO3 comes with a built-in RTE called "rtehtmlarea", but other RTEs
-are available in the TYPO3 Extension Repository.
-
-You can enable more than one RTE if you like but only one will be
-active at a time. Since Rich Text Editors often depend on browser
-versions, operating systems etc. each RTE must have a method in the
-API class which reports back to the system if the RTE is available in
-the current environment. The Rich Text Editor available to the backend
-user will be the *first loaded* RTE which reports back to TYPO3 that
-it *is available* in the environment. If the RTE is not available,
-the next RTE Extension loaded will be asked.
+TYPO3 comes with a built-in RTE called "ckeditor", but other RTEs
+are available in the TYPO3 Extension Repository and you can implement your
+own RTE if you like.
 
 
 .. _rte-api:
 
-API for Rich Text Editors
+API for rich text editors
 =========================
 
-Connecting an RTE in an extension to TYPO3 is easy.
+Connecting an RTE in an extension to TYPO3 is easy. The following example is
+based on the implementation of ext:rte_ckeditor.
 
-- Create a class file in your extension that extends
-  the system class, :code:`\TYPO3\CMS\Backend\Rte\AbstractRte`
-  and override functions from the parent class to the degree
-  needed.
+- In the :file:`ext_localconf.php` you can use the FormEngine's NodeResolver
+  to implement your own RichTextNodeResolver and give it a higher priority
+  than the Core's implementation:
 
-- In the :file:`ext_localconf.php` file put an entry in
-  :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['RTE_reg']` which registers the new RTE with
-  the system. For example::
+.. code-block:: php
 
-     $GLOBALS['TYPO3_CONF_VARS']['BE']['RTE_reg']['myrte'] = array(
-        'objRef' => 'Foo\\MyRte\\Editors\\RteBase');
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeResolver'][1593194137] = [
+       'nodeName' => 'text',
+       'priority' => 50, // rte_ckeditor uses priority 50
+       'class' => \Vendor\MyExt\Form\Resolver\RichTextNodeResolver::class,
+   ];
 
-where the value of :code:`objRef` is the fully qualified name
-of the class you declared in the first step.
+- Now create the class :code:`\Vendor\MyExt\Form\Resolver\RichTextNodeResolver`.
+  The RichTextNodeResolver needs to implement the NodeResolverInterface and
+  the major parts happen in the resolve() function, where, if all conditions
+  are met, the RichTextElement class name is returned:
 
-There are three main methods of interest in the base class
-for the RTE API (:code:`\TYPO3\CMS\Backend\Rte\AbstractRte`):
+.. code-block:: php
 
-- :code:`isAvailable()` This method is asked for the availability
-  of the RTE. This is where you should check for environmental
-  requirements that is needed for your RTE. Basically the method must
-  return TRUE if the RTE is available. If it is not, the RTE can put
-  text entries in the internal array :code:`->errorLog` which is used to report
-  back the reason why it was not available.
+   <?php
 
-- :code:`drawRTE(&$pObj, $table, $field, $row, $PA, $specConf, $thisConfig, $RTEtypeVal, $RTErelPath, $thePidValue)`
-  This method draws the content for the editing form of the RTE. It is called from the
-  :code:`\TYPO3\CMS\Backend\Form\FormEngine` class which also passes a reference to itself in
-  :code:`$pObj`. For details on the arguments in the method call, please see
-  inside :code:`\TYPO3\CMS\Backend\Rte\AbstractRte`.
+   namespace Vendor\MyExt\Form\Resolver;
 
-- :code:`transformContent($dirRTE, $value, $table, $field, $row, $specConf, $thisConfig, $RTErelPath,$pid)`
-  This method is used both from :code:`->drawRTE()` and from
-  :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` to transform the content between
-  the database and RTE. When content is loaded from the database to the
-  RTE (and vice versa) it may need some degree of transformation. For
-  instance references to links and images in the database might have to
-  be relative while the RTE requires absolute references. This is just a
-  simple example of what "transformations" can do for you and why you
-  need them. See the next chapter for more details about :ref:`transformations <transformations>`.
+   use TYPO3\CMS\Backend\Form\NodeFactory;
+   use TYPO3\CMS\Backend\Form\NodeResolverInterface;
+   use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
+   use Vendor\MyExt\Form\Element\RichTextElement;
+
+   /**
+    * This resolver will return the RichTextElement render class if RTE is enabled for this field.
+    */
+   class RichTextNodeResolver implements NodeResolverInterface
+   {
+       /**
+        * Global options from NodeFactory
+        *
+        * @var array
+        */
+       protected $data;
+
+       /**
+        * Default constructor receives full data array
+        *
+        * @param NodeFactory $nodeFactory
+        * @param array $data
+        */
+       public function __construct(NodeFactory $nodeFactory, array $data)
+       {
+           $this->data = $data;
+       }
+
+       /**
+        * Returns RichTextElement as class name if RTE widget should be rendered.
+        *
+        * @return string|void New class name or void if this resolver does not change current class name.
+        */
+       public function resolve()
+       {
+           $parameterArray = $this->data['parameterArray'];
+           $backendUser = $this->getBackendUserAuthentication();
+           if (// This field is not read only
+               !$parameterArray['fieldConf']['config']['readOnly']
+               // If RTE is generally enabled by user settings and RTE object registry can return something valid
+               && $backendUser->isRTE()
+               // If RTE is enabled for field
+               && isset($parameterArray['fieldConf']['config']['enableRichtext'])
+               && (bool)$parameterArray['fieldConf']['config']['enableRichtext'] === true
+               // If RTE config is found (prepared by TcaText data provider)
+               && isset($parameterArray['fieldConf']['config']['richtextConfiguration'])
+               && is_array($parameterArray['fieldConf']['config']['richtextConfiguration'])
+               // If RTE is not disabled on configuration level
+               && !$parameterArray['fieldConf']['config']['richtextConfiguration']['disabled']
+           ) {
+               return RichTextElement::class;
+           }
+           return null;
+       }
+
+       /**
+        * @return BackendUserAuthentication
+        */
+       protected function getBackendUserAuthentication()
+       {
+           return $GLOBALS['BE_USER'];
+       }
+   }
+
+- Next step is to implement the RichtTextElement class. You can look up the
+  code of `\\TYPO3\\CMS\\RteCKEditor\\Form\\Element\\RichTextElement <https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/rte_ckeditor/Classes/Form/Element/RichTextElement.php>`__, which
+  does the same for ckeditor. What basically happens in its render() function,
+  is to apply any settings from the fields TCA config and then printing out all
+  of the html markup and javascript necessary for booting up the ckeditor.

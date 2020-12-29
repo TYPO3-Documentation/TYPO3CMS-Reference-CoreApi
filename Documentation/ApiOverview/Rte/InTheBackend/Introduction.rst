@@ -1,6 +1,7 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index::
+   pair: Rich text editor; Backend
+   pair: Rich text editor; TCA
 .. _rte-backend-introduction:
 
 ============

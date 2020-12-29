@@ -1,16 +1,16 @@
-.. include:: ../../../Includes.txt
-
-
+.. include:: /Includes.rst.txt
+.. index:: File abstraction layer; Database structure
 .. _fal-architecture-database:
 
 ==================
-Database Structure
+Database structure
 ==================
 
 This chapter lists the various tables related to FAL
 and highlights some of their important fields.
 
 
+.. index:: Tables; sys_file
 .. _fal-architecture-database-sys-file:
 
 sys\_file
@@ -21,6 +21,19 @@ Some important fields:
 
 storage
   Id of the storage where the file is stored.
+
+type
+  The type of the file represented by an integer defined in
+  :php:`\TYPO3\CMS\Core\Resource\AbstractFile`.
+
+  Possible values:
+
+  * 0 = unknown
+  * 1 = text
+  * 2 = image
+  * 3 = audio
+  * 4 = video
+  * 5 = application
 
 identifier
   A string which should uniquely identify a file within its storage.
@@ -42,6 +55,7 @@ metadata
   database, but necessary for the TCA of the "sys\_file".
 
 
+.. index:: Tables; sys_file_metadata
 .. _fal-architecture-database-sys-file-metadata:
 
 sys\_file\_metadata
@@ -62,7 +76,7 @@ The "sys\_file\_metadata" table is extended by system extension
 "filemetadata". In particular, it adds the necessary definitions
 to categorize files with system categories.
 
-
+.. index:: Tables; sys_file_reference
 .. _fal-architecture-database-sys-file-reference:
 
 sys\_file\_reference
@@ -96,6 +110,7 @@ title
   The fields "description", "alternative" and "downloadname" obey the same principle.
 
 
+.. index:: Tables; sys_file_processedfile
 .. _fal-architecture-database-sys-file-processedfile:
 
 sys\_file\_processedfile
@@ -106,6 +121,7 @@ like image previews. This table does not have a TCA representation,
 as it is only written for using direct SQL queries in the source code.
 
 
+.. index:: Tables; sys_file_collection
 .. _fal-architecture-database-sys-file-collection:
 
 sys\_file\_collection
@@ -135,30 +151,32 @@ category
   The chosen categories, for category-type Collections.
 
 
+.. index:: Tables; sys_file_storage
 .. _fal-architecture-database-sys-file-storage:
 
 sys\_file\_storage
 ==================
 
-This table is used to store the Storages available in the installation.
+This table is used to store the storages available in the installation.
 The most important fields are:
 
 driver
   The type of Driver used for the storage.
 
 configuration
-  The Storage configuration with regards to its Driver. This is a
+  The storage configuration with regards to its Driver. This is a
   :ref:`FlexForm field <t3tca:columns-flex>` and the current options
   depend on the selected Driver.
 
 
+.. index:: Tables; sys_filemounts
 .. _fal-architecture-database-sys-filemounts:
 
 sys\_filemounts
 ===============
 
-File Mounts are not specifically part of the FAL (they existed long
-before), but their definition is based on Storages. Each File Mount is
+File mounts are not specifically part of the FAL (they existed long
+before), but their definition is based on storages. Each file mount is
 related to a specific storage. The most important fields are:
 
 base
@@ -166,5 +184,5 @@ base
 
 path
   Folder which will actually be mounted (absolute path, considering
-  that :file:`/` is the root of the selected Storage).
+  that :file:`/` is the root of the selected storage).
 

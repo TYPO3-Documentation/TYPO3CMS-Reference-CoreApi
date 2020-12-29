@@ -1,23 +1,22 @@
-.. include:: ../../Includes.txt
-
-
-
-
-
-
+.. include:: /Includes.rst.txt
+.. index::
+    Form protection tool
+    Cross-site request forgery
+    CSRF
 .. _csrf:
 
 ====================
-Form Protection Tool
+Form protection tool
 ====================
 
 Since TYPO3 4.5, the TYPO3 Core provides a generic way of protecting
-forms against Cross-Site Request Forgery (CSRF).
+forms against cross-site request forgery (CSRF).
 
 
+.. index:: pair; Form protection tool; Backend
 .. _csrf-backend:
 
-Usage in the Backend
+Usage in the backend
 ====================
 
 For each form in the BE (or link that changes some data), create a token and insert is as a hidden form element.
@@ -76,9 +75,10 @@ This makes sure that the tokens that get invalidated by :code:`validateToken`
 cannot be used again.
 
 
+.. index:: pair: Form protection tool; Install tool
 .. _csrf-install:
 
-Usage in the Install Tool
+Usage in the install tool
 =========================
 
 For each form in the Install Tool (or link that changes some data),
@@ -118,6 +118,47 @@ When processing the data that has been submitted by the form, you can check that
       // no need to do anything here as the Install Tool form protection will
       // create an error message for an invalid token
    }
+
+Note that :code:`validateToken` invalidates the token with the token ID.
+So calling the validation with the same parameters twice in a row
+will always return :code:`FALSE` for the second call.
+
+It is important that the tokens get validated **before** the tokens are persisted.
+This makes sure that the tokens that get invalidated by :code:`validateToken`
+cannot be used again.
+
+
+.. index:: pair: Form protection tool; Frontend
+
+Usage in the frontend
+=====================
+
+.. versionadded:: 7.6
+
+:doc:`t3core:Changelog/7.6/Feature-56633-FormProtectionAPIForFrontEndUsage` introduced a new
+class to allow usage of the FormProtection (CSRF protection) API in the frontend.
+
+Usage is the same as in backend context:
+
+.. code-block:: php
+
+	$formToken = \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()
+		->getFormProtection()->generateToken('news', 'edit', $uid);
+
+
+	if ($dataHasBeenSubmitted
+		&& \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->validateToken(
+			\TYPO3\CMS\Core\Utility\GeneralUtility::_POST('formToken'),
+			'news',
+			'edit',
+			$uid
+		)
+	) {
+		// Processes the data.
+	} else {
+		// Create a flash message for the invalid token or just discard this request.
+	}
+
 
 Note that :code:`validateToken` invalidates the token with the token ID.
 So calling the validation with the same parameters twice in a row

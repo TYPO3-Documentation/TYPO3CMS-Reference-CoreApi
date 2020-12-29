@@ -1,45 +1,54 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _storing-changes:
 
 ===================
-Storing the Changes
+Storing the changes
 ===================
 
 There are various ways to store changes to :php:`$GLOBALS['TCA']`. They
 depend - partly - on what you are trying to achieve and - a lot -
-on the version of TYPO3 CMS which you are targeting.
-
-There are two main ways to store your changes to the TCA: inside an extension
-or straight in the :file:`typo3conf` folder. Both are described below in
-more details.
+on the version of TYPO3 CMS which you are targeting. The TCA can only be 
+changed from within an extension.
 
 
 .. _storing-changes-extension:
 
-Storing in Extensions
+Storing in extensions
 =====================
 
 The advantage of putting your changes inside an extension is that they
 are nicely packaged in a self-contained entity which can be easily
 deployed on multiple servers.
 
-The drawback is that the extension loading order must be
-finely controlled. Indeed if your extension modifies another extension,
-your extension must be loaded *after* the extension you are modifying.
-This can be achieved by registering that other extension as
-a dependency of yours. See the
-:ref:`description of constraints in Core APIs <extension-declaration>`.
+The drawback is that the extension loading order must be finely controlled. However, **in
+case you are modifying Core TCA, you usually don't have to worry about that**. Since
+custom extensions are always loaded *after* the Core's TCA, changes from custom extensions
+will usually take effect without any special measures.
+
+.. important::
+
+   If your extension modifies another extension, you actively need to make sure your
+   extension is loaded *after* the extension you are modifying. This can be achieved
+   by registering that other extension as a dependency (or suggestion) of yours. See
+   the :ref:`description of constraints in Core APIs <extension-declaration>`.
+
+   Loading order also matters if you have multiple extensions overriding the same field,
+   probably even contradicting each other.
+
 
 For more information about an extension's structure, please refer to the
 :ref:`extension architecture <extension-architecture>` chapter in
 Core APIs.
 
-
+.. index::
+   TCA; Overrides folder
+   Extension development; TCA overrides folder
+   Path; EXT:{extkey}/Configuration/TCA/Overrides
 .. _storing-changes-extension-overrides:
 
-Storing in the Overrides Folder
+Storing in the overrides folder
 -------------------------------
 
 Since TYPO3 CMS 6.2 (6.2.1 to be precise) changes to :php:`$GLOBALS['TCA']`
@@ -52,6 +61,16 @@ you'd create the file :file:`Configuration/TCA/Overrides/tx_foo_domain_model_bar
 
 The advantage of this method is that all such changes are incorporated into
 :php:`$GLOBALS['TCA']` **before** it is cached. This is thus far more efficient.
+
+.. note::
+
+   All files within :file:`Configuration/TCA/Overrides` will be loaded, you are not forced
+   to have a single file for table "tt\_content" for instance. When dealing with custom
+   content elements this file can get 1000+ lines very quickly and maintainability can get
+   hard quickly as well.
+   Also names don't matter in that folder, at least not to TYPO3. They only might influence
+   loading order. Proper naming is only relevant for the real definition of tables one
+   folder up in :file:`Configuration/TCA`
 
 .. important::
 
@@ -69,10 +88,10 @@ The advantage of this method is that all such changes are incorporated into
    :file:`Configuration/TCA/Overrides/tt_content.php` because that API call only
    modifies :php:`$GLOBALS['TCA']` for table "tt\_content".
 
-
+.. index:: File; EXT:{extkey}/ext_tables.php
 .. _storing-changes-extension-exttables:
 
-Storing in ext_tables.php Files
+Storing in ext_tables.php files
 -------------------------------
 
 Until TYPO3 CMS 6.1 (still supported for 6.2) changes to :php:`$GLOBALS['TCA']` are packaged
@@ -83,13 +102,12 @@ Nowadays the only usecase for TCA changes in :file:`ext_tables.php` is to overri
 done in the :file:`ext_tables.php` of a legacy extension. TCA overrides cannot be used in this case
 until the author of the legacy extension migrates his code.
 
-
+.. index::triple:PSR-14 event; TCA; AfterTcaCompilationEvent;
 .. _storing-changes-on-the-fly:
 
-Changing the TCA "on the Fly"
+Changing the TCA "on the fly"
 =============================
 
 It is also possible to perform some special manipulations on
 :php:`$GLOBALS['TCA']` right before it is stored into cache, thanks to the
-:code:`tcaIsBeingBuilt` signal. This signal was introduced in
-TYPO3 CMS 6.2.1.
+:ref:`PSR-14 event <EventDispatcher>` :ref:`AfterTcaCompilationEvent <AfterTcaCompilationEvent>`.
