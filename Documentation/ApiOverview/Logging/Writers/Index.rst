@@ -178,20 +178,18 @@ All log writers can be used in your own classes. You can initialize the loggers 
 
     namespace MyDomain\MyExtension\MyFolder;
 
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Log\LogManager;
+    use Psr\Log\LoggerAwareTrait;
 
     class MyClass {
+        use LoggerAwareTrait;
+        
         private $logger;
 
-        public function __construct()
-        {
-            $this->logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
-        }
+        ...
     }
 
 
-The logger can be configured via :file:`ext_localconf.php` then:
+The logger must be configured via :file:`ext_localconf.php` :
 
 .. code-block:: php
 
@@ -215,5 +213,4 @@ Examples
 ========
 
 Working examples of the usage of different Log writers can be found in the extension
-`examples <https://extensions.typo3.org/extension/examples/>`__. they are configured in
-the :file:`ext_localconf.php`.
+`examples <https://extensions.typo3.org/extension/examples/>`__. 
