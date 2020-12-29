@@ -273,8 +273,7 @@ This part is an array of arrays, each with these keys:
 * :php:`matchString`: The value of the match. This is only for informational
    purposes to show what was found.
 * :php:`error`: An error message can be set here, like "file not found" etc.
-* :php:`subst`: If this array is found there MUST be a token in the output
-   content as well!
+* :php:`subst`: exists on a successful match and defines the token from :php:`content`
 
    * :php:`tokenID`: The tokenID string corresponding to the token in output
       content, `{softref:[tokenID]}`. This is typically an md5 hash of a string
