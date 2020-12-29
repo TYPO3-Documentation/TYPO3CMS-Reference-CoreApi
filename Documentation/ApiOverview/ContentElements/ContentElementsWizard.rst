@@ -120,7 +120,7 @@ the name to ``show`` as well:
                    CType = list
                    list_type = example_registration
                }
-
+           }
        }
        show := addToList(example_registration)
    }
