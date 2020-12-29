@@ -191,7 +191,7 @@ All log writers can be used in your own classes. You can initialize the loggers 
     }
 
 
-The file ext_localconf.php must have the needed configuration entries for the class from above:
+The logger can be configured via :file:`ext_localconf.php` then:
 
 .. code-block:: php
 
