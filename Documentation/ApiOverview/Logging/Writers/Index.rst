@@ -180,7 +180,7 @@ All log writers can be used in your own classes. You can initialize the loggers 
 
     use Psr\Log\LoggerAwareTrait;
 
-    class MyClass {
+    class MyClass implements \Psr\Log\LoggerAwareInterface {
         use LoggerAwareTrait;
         
         private $logger;
