@@ -281,8 +281,8 @@ This part is an array of arrays, each with these keys:
    * :php:`tokenValue`: The value that the token substitutes in the text.
       Basically, if this value is inserted instead of the token the content
       should match what was inputted originally.
-   * :php:`type`: the type of substitution. `file` is a relative file reference,
-      `db` is a database record reference, `string` is a manually
+   * :php:`type`: the type of substitution. :php:`file` is a relative file reference,
+      :php:`db` is a database record reference, :php:`string` is a manually
       modified string content (email, external url, phone number)
    * :php:`relFileName`: (for `file` type): Relative filename.
    * :php:`recordRef`: (for `db` type): Reference to DB record on the form
