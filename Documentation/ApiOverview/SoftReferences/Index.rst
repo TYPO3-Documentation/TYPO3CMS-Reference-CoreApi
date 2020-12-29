@@ -262,7 +262,7 @@ Tokens are strings like {softref:123456} which are placeholders for a values
 extracted by a soft reference parser.
 
 For each token there in an entry in the :php:`elements` key which has a
-:php:`subst` key defining the tokenID and the tokenValue. See below.
+:php:`subst` key defining the :php:`tokenID` and the :php:`tokenValue`. See below.
 
 
 Key :php:`elements`
