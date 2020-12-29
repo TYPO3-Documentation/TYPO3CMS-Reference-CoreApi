@@ -178,6 +178,7 @@ All log writers can be used in your own classes. You can initialize the loggers 
 
     namespace MyDomain\MyExtension\MyFolder;
 
+    use Psr\Log\LoggerAwareInterface;
     use Psr\Log\LoggerAwareTrait;
 
     class MyClass implements \Psr\Log\LoggerAwareInterface {
