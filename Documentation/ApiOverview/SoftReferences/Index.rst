@@ -254,7 +254,7 @@ In most cases the result array contains two keys: :php:`content` and :php:`eleme
 Key :php:`content`
 ~~~~~~~~~~~~~~~~~~
 
-This part contains the input content. Links to be substitutet have been
+This part contains the input content. Links to be substituted have been
 replaced by soft reference tokens.
 
 For example: :html:' <p>Contact: {softref:123456}</p>'
