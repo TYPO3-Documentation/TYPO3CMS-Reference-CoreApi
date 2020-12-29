@@ -17,35 +17,50 @@ run a certain request type (e.g. eID or TSFE-logic, or AJAX requests in the Back
 over the Class Loader provided by Composer.
 
 Applications
-""""""""""""
+============
 
 There are four types of Applications provided by the TYPO3 Core:
 
+
 \\TYPO3\\CMS\\Frontend\\Http\\Application
 -----------------------------------------
-All incoming web requests coming to index.php in the main directory, handling all TSFE and eID requests.
-The Application sets TYPO3_MODE=FE very early.
-The Application checks if all configuration is given, otherwise redirects to the TYPO3 Install Tool.
+
+This class handles all incoming web requests coming through :file:`index.php`
+in the main directory. It handles all TSFE and eID requests.
+
+It checks if all configuration is set, otherwise redirects to the TYPO3 Install
+Tool.
+
 
 \\TYPO3\\CMS\\Backend\\Http\\Application
 ----------------------------------------
-All incoming web requests for any regular Backend call inside typo3/\*. This handles three types of Request Handlers:
 
-- The AJAX Request Handler, which is triggered on requests with an "ajaxID" GET Parameter given.
-- The Backend Module Request Handler, which handles all types of modules triggered on requests with an "M" GET Parameter
-- The regular Request handler for typical other backend calls on index.php.
+This class handles all incoming web requests for any regular backend call
+inside :file:`typo3/\*`.
 
-The Application checks if all configuration is given, otherwise redirects to the TYPO3 Install Tool.
+Its :php:`TYPO3\CMS\Backend\Http\RequestHandler` is used for all Backend
+requests, including AJAX routes. If a get/post parameter "route" is set, the
+Backend Routing is called by the :php:`RequestHandler` and
+searches for a matching route inside the Router. The corresponding controller
+/ action is called then which returns the response.
 
-\\TYPO3\\CMS\\Backend\\Console\\Application
--------------------------------------------
-All CLI Requests handled by cli_dispatch.php. Only executes the parts that are necessary for Backend CLI Scripts used
-with the cliKey syntax. The typical CliRequestHandler is used for handling requests set up by this Application.
+The :php:`Application` checks if all configuration is set, otherwise it
+redirects to the TYPO3 Install Tool.
+
+
+\\TYPO3\\CMS\\Core\\Console\\CommandApplication
+-----------------------------------------------
+
+This class is the entry point for the TYPO3 command line for console commands.
+In addition to a simple Symfony command, this also sets up a CLI user.
+
 
 \\TYPO3\\CMS\\Install\\Http\\Application
 ----------------------------------------
-The install tool Application only runs with a very limited bootstrap set up with a Failsafe Package Manager not taking
-the ext_localconf.php scripts of installed extensions into account.
+
+The install tool :php:`Application` only runs with a very limited bootstrap
+set up. The failsafe package manager does not take
+the :php:`ext_localconf.php` scripts of installed extensions into account.
 
 .. warning::
 
@@ -54,8 +69,6 @@ the ext_localconf.php scripts of installed extensions into account.
    Use this class only if other extensibility possibilities such as
    :ref:`Hooks <hooks>`, Signals or :ref:`XCLASS <xclasses>`
    are not enough to reach your goals.
-
-
 
 Example of bootstrapping the TYPO3 Backend:
 
@@ -72,7 +85,7 @@ Example of bootstrapping the TYPO3 Backend:
 .. _backend-initialization:
 
 Initialization
-""""""""""""""
+==============
 
 Whenever a call to TYPO3 CMS is made, the application goes through a
 bootstrapping process managed by a dedicated API. This process is also
@@ -90,8 +103,8 @@ Classes involved in the backend bootstrapping process are :php:`\TYPO3\CMS\Core\
 
 The following steps are performed during bootstrapping.
 
-1. Initialize Class Loader
---------------------------
+1. Initialize the class loader
+------------------------------
 
 This defines which autoloader to use.
 
@@ -128,7 +141,7 @@ to have an overview of these base values, it is worth taking a look into the fol
    defines special variables which contain, for example, the current time or
    a simulated time as may be set using the Admin Panel.
 
-3.  Initialize Bootstrap
+3.  Initialize bootstrap
 ------------------------
 
 :php:`\TYPO3\CMS\Core\Core\Bootstrap` boots up TYPO3 and returns a container
@@ -163,7 +176,7 @@ and :php:`Application::run()` method is called, which basically dispatches the
 request to the right handler.
 
 
-5. Initialization of the TYPO3 Backend
+5. Initialization of the TYPO3 backend
 --------------------------------------
 
 The backend request handler then calls the :php:`MiddlewareDispatcher` which
@@ -184,7 +197,7 @@ this will typically go through such important steps like:
 .. _bootstrapping-context:
 .. _application-context:
 
-Application Context
+Application context
 ===================
 
 Each request, no matter if it runs from the command line or through HTTP,
@@ -242,7 +255,7 @@ or be part of the web server configuration:
 
 .. _bootstrapping-context-custom:
 
-Custom Contexts
+Custom contexts
 ---------------
 
 In certain situations, more specific contexts are desirable:
@@ -278,7 +291,7 @@ necessary settings while the ``Production/Live`` context is used on the live ins
 
 .. _bootstrapping-context-example:
 
-Usage Example
+Usage example
 ~~~~~~~~~~~~~
 
 The current Application Context is set very early in the bootstrap process and can be accessed
