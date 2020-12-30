@@ -16,7 +16,6 @@ at other configuration possibilities.
 
 .. index::
    ! File; typo3conf/LocalConfiguration.php
-   File; EXT:{extkey}/ext_localconf.php
 .. _typo3ConfVars-localConfiguration:
 
 File LocalConfiguration.php
