@@ -9,17 +9,16 @@ Bootstrapping
 TYPO3 CMS has a clean bootstrapping process driven mostly
 by class :php:`\TYPO3\CMS\Core\Core\Bootstrap`. This class is initialized by
 calling  :php:`Bootstrap::init()` and serves as an entry point for later calling
-an Application class, depending on the TYPO3_MODE and several context-dependant
-constraints.
+an application class, depending on several context-dependant constraints.
 
-Each Application class registers Request Handlers to the TYPO3 Bootstrap to
-run a certain request type (e.g. eID or TSFE-logic, or AJAX requests in the Backend). Each Application is handed
-over the Class Loader provided by Composer.
+Each application class registers Request Handlers to the TYPO3 Bootstrap to
+run a certain request type (e.g. eID or TSFE-logic, or AJAX requests in the Backend). Each application is handed
+over the class loader provided by Composer.
 
 Applications
 ============
 
-There are four types of Applications provided by the TYPO3 Core:
+There are four types of applications provided by the TYPO3 Core:
 
 
 \\TYPO3\\CMS\\Frontend\\Http\\Application
@@ -145,7 +144,7 @@ to have an overview of these base values, it is worth taking a look into the fol
 ------------------------
 
 :php:`\TYPO3\CMS\Core\Core\Bootstrap` boots up TYPO3 and returns a container
-that is later used to run an Application. As a basic overview it does the
+that is later used to run an application. As a basic overview it does the
 following:
 
 -  :php:`Bootstrap::initializeClassLoader()` processes all the information
@@ -171,7 +170,7 @@ following:
 4. Dispatch
 -----------
 
-After all that the, the newly created container receives the Application object
+After all that the, the newly created container receives the application object
 and :php:`Application::run()` method is called, which basically dispatches the
 request to the right handler.
 
