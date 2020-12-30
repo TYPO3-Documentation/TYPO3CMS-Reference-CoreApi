@@ -15,6 +15,16 @@ Most LinkHandlers cannot receive additional configuration, they are marked as
 :php:`@internal` and contains neither hooks nor events. They are therefore
 of interest to Core developers only.
 
+There are the following LinkHandlers:
+
+* :ref:`pagelinkhandler`: for linking pages and content
+* :ref:`recordlinkhandler`: for linking any kind of record
+* UrlLinkHandler: for linking external urls
+* FileLinkHandler: for linking files in the :ref:`fal`
+* FolderLinkHandler: for linking to directories
+* MailLinkHandler: for linking mails
+* TelephoneLinkHandler: for linking phone numbers
+
 .. note::
 
    In the system extension :file:`core` there are also classes ending on
