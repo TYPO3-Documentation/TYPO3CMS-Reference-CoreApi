@@ -1,6 +1,8 @@
 .. include:: /Includes.rst.txt
-.. index:: Data processors; Custom processor
-.. _adding-your-own-content-elements:
+.. index::
+   Data processors; Custom data processor
+   Custom data processor
+.. _content-elements-custom-data-processor:
 
 ======================
 Custom data processors
@@ -13,6 +15,11 @@ data processor by implementing the :php:`DataProcessorInterface`.
 You can find the example below in the TYPO3 Documentation Team extension
 `examples <https://extensions.typo3.org/extension/examples/>`__.
 
+
+.. index::
+   Custom data processor; TypoScript
+   Custom data processor; Usage
+.. _content-elements-custom-data-processor_typoscript:
 
 Using a custom data processor in TypoScript
 ===========================================
@@ -49,6 +56,11 @@ separated categories are being stored.
    tables like :php:`tt_content`. For that further logic would need to be
    implemented.
 
+
+.. index::
+   Custom data processor; Impementation
+   Interface; DataProcessorInterface
+.. _content-elements-custom-data-processor_implementation:
 
 Implementing the custom data processor
 ======================================
