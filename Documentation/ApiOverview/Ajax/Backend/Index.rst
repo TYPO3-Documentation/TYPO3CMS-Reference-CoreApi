@@ -18,8 +18,10 @@ By convention, a controller is placed within the extension's :file:`Controller` 
 To have such controller, create a new :php:`ExampleController` in :file:`Classes/Controller/ExampleController.php`
 inside your extension.
 
-The controller doesn't need that much logic right now. We'll create a method called :php:`doSomethingAction()` which
-will be our AJAX endpoint.
+The controller doesn't need that much logic right now. We'll create a method
+called :php:`doSomethingAction()` which will be our AJAX endpoint. And we
+inject the :php:`ResponseFactoryInterface` later needed to create our response.
+See :ref:`Creating Response Objects in PSR 17 <request-handling-psr-17>`.
 
 .. code-block:: php
 
@@ -28,14 +30,23 @@ will be our AJAX endpoint.
 
    namespace Vendor\MyExtension\Controller;
 
+   use Psr\Http\Message\ResponseFactoryInterface;
    use Psr\Http\Message\ServerRequestInterface;
    use TYPO3\CMS\Core\Http\Response;
-
+   
    class ExampleController
    {
-       public function doSomethingAction(ServerRequestInterface $request): Response
-       {
-       }
+      /** @var ResponseFactoryInterface */
+      private $responseFactory;
+
+      public function __construct(ResponseFactoryInterface $responseFactory)
+      {
+         $this->responseFactory = $responseFactory;
+      }
+
+      public function doSomethingAction(ServerRequestInterface $request): Response
+      {
+      }
    }
 
 
@@ -101,9 +112,13 @@ $reasonPhrase
 
    public function doSomethingAction(ServerRequestInterface $request): Response
    {
-       // our previous computation
+      // our previous computation
 
-       return new Response(json_encode(['result' => $result]), 200, ['Content-Type' => 'application/json; charset=utf-8']);
+      $data = ['result' => $result];
+      $response = $this->responseFactory->createResponse()
+         ->withHeader('Content-Type', 'application/json; charset=utf-8');
+      $response->getBody()->write(json_encode($data));
+      return $response;
    }
 
 
