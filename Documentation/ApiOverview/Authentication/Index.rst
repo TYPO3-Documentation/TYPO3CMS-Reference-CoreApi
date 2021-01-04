@@ -39,7 +39,7 @@ You can check which authentication services are installed
 using the **SYSTEM > Reports** module, in the *Installed Services*
 view:
 
-.. figure:: Images/AuthenticationInstalledAuthServices.png
+.. figure:: Images/InstalledAuthServices.png
    :alt: All installed authentication services and their priority
    :class: with-border with-shadow
 
