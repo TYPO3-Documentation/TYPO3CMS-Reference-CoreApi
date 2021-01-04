@@ -39,7 +39,11 @@ File abstraction layer: Extract metadata in storage
   This task is defined per storage.
 
 
-.. index:: File abstraction layer; Processed files
+.. index::
+   File abstraction layer; Processed files
+   Folder; fileadmin/_processed_
+   Folder; _processed_
+   Maintenance tool; Remove Temporary Assets
 .. _fal-administration-maintenance-processed-files:
 
 Processed files
@@ -47,12 +51,15 @@ Processed files
 
 If you change some graphics-related settings, it may be necessary
 to force a regeneration of all processed files. This can be achieved
-by deleting all existing processed files via the Install Tool.
+by deleting all existing processed files in
+:guilabel:`Admin Tools > Maintenance > Remove Temporary Assets`.
 
-.. figure:: ../Images/AdministrationCleanupProcessedFiles.png
+.. figure:: ../Images/MaintenanceRemoveTemporaryAssets.png
    :alt: Cleaning up processed files
 
-   Removing all processed files in the Install Tool
+   Removing all processed files in the Maintenance Tool
+
+Here you can choose to delete all files in :file:`fileadmin/_processed_/`
 
 This cleanup is also good if processed files have accumulated for a
 long time. Many of them may then be obsolete.

@@ -18,7 +18,7 @@ Each user of the backend must be represented with a single record in
 the table "be\_users". This record contains the username and password,
 other meta data and some permissions settings.
 
-.. figure:: ../../../Images/AccessBackendUser.png
+.. figure:: ../Images/AccessBackendUser.png
    :alt: Part of the editing form for user "simple\_editor" of the Introduction Package
 
 
@@ -46,7 +46,7 @@ When a user is a member of many groups (including sub-groups) then the
 permission settings are added together so that the more groups a user
 is a member of, the more access is granted to him.
 
-.. figure:: ../../../Images/AccessBackendGroup.png
+.. figure:: ../Images/AccessBackendGroup.png
    :alt: Part of the editing form for group "Simple editors" of the Introduction Package
 
 
@@ -75,7 +75,7 @@ will most likely grant them access to more than they need.
 
 Admin users are differentiated with an orange icon.
 
-.. figure:: ../../../Images/AccessBackendUserAdmin.png
+.. figure:: ../Images/AccessBackendUserAdmin.png
    :alt: In Web > List view, the different icon for admin users
 
 
@@ -104,7 +104,7 @@ system. However backend users and groups are configured to exist
 *only* in the root of the page tree where *only* admin users have
 access:
 
-.. figure:: ../../../Images/AccessBackendUserList.png
+.. figure:: ../Images/AccessBackendUserList.png
    :alt: Users and groups reside on the root page
 
 

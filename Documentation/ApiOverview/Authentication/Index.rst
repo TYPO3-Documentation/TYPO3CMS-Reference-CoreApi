@@ -39,9 +39,18 @@ You can check which authentication services are installed
 using the **SYSTEM > Reports** module, in the *Installed Services*
 view:
 
-.. figure:: ../../Images/AuthenticationInstalledAuthServices.png
+.. figure:: Images/AuthenticationInstalledAuthServices.png
    :alt: All installed authentication services and their priority
    :class: with-border with-shadow
+
+.. note::
+
+   For the :guilabel:`Reports` module to be visible, the system extension
+   reports has to be installed. You can install it via composer:
+
+   .. code-block:: console
+
+      composer require typo3/cms-reports
 
 .. index::
    Authentication; Process
