@@ -37,7 +37,7 @@ is itself split (on the colon ":") into a title and a description
 (this should actually be a localized string). The
 above example will be rendered like this in the Settings module:
 
-.. figure:: ../../Images/ExtensionConfigurationOptions.png
+.. figure:: ../Images/ExtensionConfigurationOptions.png
    :alt: Configuration screen for the backend extension
 
 The configuration tab displays all options from a single category. A

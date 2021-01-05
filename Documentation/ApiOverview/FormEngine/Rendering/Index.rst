@@ -18,7 +18,7 @@ a fraction of the full result, and delegates details to another container. The s
 and calls a third one. This continues to happen until a single field should be rendered, at which point an
 element class is called taking care of one element.
 
-.. figure:: ../../../Images/FormEngineRenderTree.svg
+.. figure:: ../Images/FormEngineRenderTree.svg
    :alt: Render tree example
 
 Each container creates some "outer" part of the result, calls some sub-container or element, merges the
@@ -69,7 +69,7 @@ on it.
 Class Inheritance
 =================
 
-.. figure:: ../../../Images/FormEngineRenderClasses.svg
+.. figure:: ../Images/FormEngineRenderClasses.svg
    :alt: Main render class inheritance
 
 All classes must implement :php:`NodeInterface` to be routed through the :php:`NodeFactory`. The :php:`AbstractNode`

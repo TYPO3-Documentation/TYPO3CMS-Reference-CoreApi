@@ -120,7 +120,7 @@ Go to `extensions.typo3.org <https://extensions.typo3.org>`__, log in with your
 menu. Click on the :guilabel:`Register extension key` tab. On that page enter
 the extension key you want to register.
 
-.. figure:: ../../Images/RegisterExtensionKey.png
+.. figure:: ../Images/RegisterExtensionKey.png
    :alt: The extension key registration form
    :class: with-border
 

@@ -37,7 +37,7 @@ TER.
 The `Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
 comes with its own BE module:
 
-.. figure:: ../../Images/ExtensionBuilder.png
+.. figure:: ../Images/ExtensionBuilder.png
    :alt: A view from the Extension Builder
 
    The Domain Modeller screen of the Extension Builder. The comfort of building
