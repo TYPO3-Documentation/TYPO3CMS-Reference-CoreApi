@@ -13,7 +13,7 @@ can be found in the system extension `fluid_styled_content`.
 A content element can be based on fields already available in the `tt_content`
 table.
 
-It is also possible to add extra fields that can be added to the `tt_content`
+It is also possible to add extra fields to the `tt_content`
 table, see :ref:`ConfigureCE-Extend-tt_content`.
 
 The data of the content element is then passed to a TypoScript object, in most
@@ -429,4 +429,3 @@ The output would look like this (we added a debug of the variable `myTable`):
 .. image:: Images/ContentElementWithDataProcessorOutput.png
    :class: with-shadow
    :alt: Output of the CommaSeparatedValueProcessor
-
