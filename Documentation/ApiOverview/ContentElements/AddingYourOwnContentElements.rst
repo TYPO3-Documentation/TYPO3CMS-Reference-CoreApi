@@ -91,7 +91,7 @@ The following call needs to be added to the file
    );
 
 Now the new content element is available in the backend form. However it
-contains no fields but the CType field yet.
+currently contains no fields but the CType field.
 
 .. image:: Images/CType.png
    :class: with-shadow
