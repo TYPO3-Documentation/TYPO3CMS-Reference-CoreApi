@@ -188,6 +188,10 @@ All log writers can be used in your own classes. You can initialize the loggers 
         // private $logger; 
 
         ...
+        $this->logger->info('My class is executed.');
+        if ($error) {
+           $this->logger->error('error in class MyClass');
+        }
     }
 
 
