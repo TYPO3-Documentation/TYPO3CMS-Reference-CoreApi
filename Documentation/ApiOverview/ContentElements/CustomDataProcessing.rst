@@ -149,7 +149,7 @@ of integers that represent uids of the table :php:`sys_category`. It then
 fetches the category data from the :php:`CategoryRepository` by calling
 :php:`findByUid`.
 
-The data of the category records gets then stored in the desired key in the
+The data of the category records then gets stored in the desired key in the
 :php:`$processedData` array.
 
 In order to make the data processor more configurable we test for a TypoScript
