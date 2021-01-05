@@ -130,8 +130,8 @@ This is an example implementation of a custom data processor::
 In the extension *examples* you can find the code in
 :file:`typo3conf/ext/examples/Classes/DataProcessing/CustomCategoryProcessor.php`.
 
-On being called the :php:`CustomCategoryProcessor` runs stdWrap on the calling
-ContentObjectRenderer, which has the data of the table :php:`tt_content` the
+On being called, the :php:`CustomCategoryProcessor` runs stdWrap on the calling
+ContentObjectRenderer, which has the data of the table :php:`tt_content` in the
 calling content element.
 
 Since the field :php:`categoryList` got configured in TypoScript as follows:
