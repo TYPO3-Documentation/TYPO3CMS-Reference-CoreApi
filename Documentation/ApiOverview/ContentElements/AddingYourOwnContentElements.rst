@@ -282,7 +282,7 @@ creating a simple new content element as above need to be repeated. We use the
 key *examples_newcontentcsv* in this example.
 
 We want to output comma separated values (CSV) stored in the field bodytext.
-As different programms use different separators to store CSV we want to make
+As different programs use different separators to store CSV we want to make
 the separator configurable.
 
 
