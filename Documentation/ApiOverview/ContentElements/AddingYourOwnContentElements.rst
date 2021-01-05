@@ -259,7 +259,7 @@ formatting. Read more about :ref:`fluid`.
 
 .. tip::
 
-   during development you can output all available variables in a Fluid
+   During development you can output all available variables in a Fluid
    template by adding :html:`<f:debug>{_all}</f:debug>`
 
 Below you can see the example output of the new content element and a
