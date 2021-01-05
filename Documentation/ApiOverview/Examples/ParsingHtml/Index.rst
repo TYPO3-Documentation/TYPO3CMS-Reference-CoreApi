@@ -50,7 +50,7 @@ After loading some dummy HTML code into a variable, we create an instance of
 :code:`\TYPO3\CMS\Core\Html\HtmlParser` and ask it to split the HTML structure
 on "div" and "table" tags. A debug output of the result shows the following:
 
-.. figure:: ../../../Images/HtmlParsingBlocks.png
+.. figure:: Images/HtmlParsingBlocks.png
    :alt: Debug output of HTML parsing
 
    The HTML parsed into several blocks
@@ -81,7 +81,7 @@ It is also possible to split by non-block tags, for example "img" and "br"::
 
 with the following result:
 
-.. figure:: ../../../Images/HtmlParsingTags.png
+.. figure:: Images/HtmlParsingTags.png
    :alt: Debug output of HTML parsing
 
    The HTML split along some tags
@@ -145,7 +145,7 @@ Lastly - in the call to :code:`HTMLcleaner()` itself, we request
 
 This is the result:
 
-.. figure:: ../../../Images/HtmlParsingCleanup.png
+.. figure:: Images/HtmlParsingCleanup.png
    :alt: Debug output of cleaned up HTML
 
    The cleaned up HTML code
