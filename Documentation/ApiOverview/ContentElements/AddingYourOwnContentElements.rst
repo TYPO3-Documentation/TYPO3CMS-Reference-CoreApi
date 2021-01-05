@@ -69,7 +69,7 @@ Register the content element
 First we need to define the key of the new content element type. We use
 `examples_newcontentelement` throughout the simple example.
 
-First the key needs to be added to the select field `CType`. This will make it
+Next the key needs to be added to the select field `CType`. This will make it
 available in :guilabel:`Type` dropdown in the backend.
 
 The following call needs to be added to the file
