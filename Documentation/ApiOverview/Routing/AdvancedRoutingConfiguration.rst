@@ -140,9 +140,9 @@ we would need to set up multiple configurations of Plugin Enhancer for forgot an
        routePath: '/forgot-password/{user}/{hash}'
        namespace: 'tx_felogin_pi1'
        defaults:
-         forgot: "1"
+         forgot: '1'
        requirements:
-         user: '[0-9]{1..3}'
+         user: '[0-9]{1,6}'
          hash: '^[a-zA-Z0-9]{32}$'
 
 If a URL is generated with the given parameters to link to a page, the result will look like this:
