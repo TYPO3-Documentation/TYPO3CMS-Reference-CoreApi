@@ -42,7 +42,7 @@ element`:
       }
    }
 
-In the extension *examples* you can finde the code in
+In the extension *examples* you can find the code in
 :file:`typo3conf/ext/examples/Configuration/TypoScript/setup.typoscript`.
 
 Where :typoscript:`tx_examples_main_category` is the field in which the comma
