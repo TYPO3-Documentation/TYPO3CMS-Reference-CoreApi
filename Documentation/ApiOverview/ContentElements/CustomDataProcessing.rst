@@ -83,7 +83,7 @@ The main function :php:`process` gets called with the following parameters:
 
 
 :php:`array $processedData`
-   On calling containt the processed data of all previously called data 
+   On calling, contains the processed data of all previously called data 
    processors on this content element. Your custom data processor also stores
    the variables to be send to Fluid here.
 
