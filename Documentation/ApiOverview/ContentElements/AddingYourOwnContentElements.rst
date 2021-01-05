@@ -39,7 +39,7 @@ Prerequisites
 The following examples require the system extension
 :ref:`fluid_styled_content <fsc:start>`.
 
-It can be via installed via composer with:
+It can be installed via Composer with:
 
 .. code-block:: console
 
