@@ -153,5 +153,5 @@ The data of the category records then gets stored in the desired key in the
 :php:`$processedData` array.
 
 In order to make the data processor more configurable we test for a TypoScript
-:ref:`if <t3tsref:if>` condition in the beginning and make the name of the key to store
+:ref:`if <t3tsref:if>` condition in the beginning, and make the name of the key that we use to store
 the data configurable by the configuration :typoscript:`as`;
