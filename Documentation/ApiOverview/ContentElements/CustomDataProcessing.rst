@@ -53,7 +53,7 @@ separated categories are being stored.
    The custom data processor described here was intended to be kept as a
    simple example. It can therefore only work with comma separated values,
    not a m-n relationship as is used in the field :php:`categories` of
-   tables like :php:`tt_content`. For that further logic would need to be
+   tables like :php:`tt_content`. For that, further logic would need to be
    implemented.
 
 
