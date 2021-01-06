@@ -402,7 +402,7 @@ Array operators::
 Migrating combined conditions
 -----------------------------
 
-And conditions::
+Conjunctions (AND conditions)::
 
    [condition1() and condition2()]
       # Old syntax [ condition1 ][ condition2 ]
