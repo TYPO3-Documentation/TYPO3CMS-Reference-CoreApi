@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: TypoScript; Conditions!
+.. index:: ! TypoScript; Conditions
 .. _typoscript-syntax-conditions:
 
 ==========
