@@ -286,7 +286,7 @@ Custom conditions with the Symfony expression language
 ======================================================
 
 Further information about how to extend TypoScript with your own custom
-conditions can be found within :ref:`sel-within-typoscript-conditions`.
+conditions can be found within :ref:`TypoScript conditions <sel-within-typoscript-conditions>`.
 
 
 .. _typoscript-syntax-conditions-summary:
