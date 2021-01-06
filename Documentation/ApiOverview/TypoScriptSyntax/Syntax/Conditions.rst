@@ -409,7 +409,7 @@ Conjunctions (AND conditions)::
       page.42.value = Condition 1 and condition 2 met
    [END]
 
-Or conditions::
+Disjunctions (OR conditions)::
 
    [condition1() or condition2()]
       # used to be [ condition1 ] || [ condition2 ]
