@@ -31,14 +31,14 @@ The receiver generates a slot by calling :php:`connect` on the SignalSlot :php:`
 signals with name i.e. "afterExtensionUninstall" on a certain class, i.e. "InstallUtility::class". (See `Using Signals
 <signals-basics>`)
 
-.. image:: ../../../Images/Hooks/RegisteringSignalsAndSlots.png
+.. image:: ../Images/RegisteringSignalsAndSlots.png
    :class: with-shadow
 
 The function representing the slot will be called automatically by the SignalSlot :php:`Dispatcher` whenever a signal gets
 dispatched. The slot will be called with one array parameter. If several slots registered for a
 signal all of them will be called. However the order in which they are being called cannot be defined or depended upon.
 
-.. image:: ../../../Images/Hooks/EmittingASignal.png
+.. image:: ../Images/EmittingASignal.png
    :class: with-shadow
 
 The slot may provide an array as return value that may or may not be used be the dispatching class depending on its
@@ -53,7 +53,7 @@ Slots should never take the content of the input data array for granted, because
 there is no programmatic way of ensuring the returned array contains all expected data, .
 
 
-.. image:: ../../../Images/Hooks/ReturningSignalData.png
+.. image:: ../Images/ReturningSignalData.png
    :class: with-shadow
 
 
