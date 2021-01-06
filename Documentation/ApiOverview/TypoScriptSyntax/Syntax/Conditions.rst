@@ -310,7 +310,7 @@ Summary
 
 .. _typoscript-syntax-conditions-migration-sel:
 
-Migration from the pre-Symfony condition syntax
+Migration from the legacy condition syntax
 ===============================================
 
 .. versionchanged:: 9.4
