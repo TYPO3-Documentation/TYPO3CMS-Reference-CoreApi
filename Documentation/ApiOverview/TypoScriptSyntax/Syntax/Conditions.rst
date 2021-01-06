@@ -13,7 +13,7 @@ thereby determine, whether the TypoScript code following the condition
 and ending where the next condition is found, should be parsed or not.
 
 .. note::
-   The condition syntax got changed with 9.4, the old syntax removed in 10.
+   The condition syntax was changed with TYPO3v9, support for the old syntax was removed in TYPO3v10.
    See :ref:`typoscript-syntax-conditions-migration-sel`
 
 Examples of a condition could be:
