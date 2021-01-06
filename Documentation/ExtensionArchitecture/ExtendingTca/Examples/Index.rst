@@ -1,19 +1,21 @@
 .. include:: /Includes.rst.txt
-
-
 .. _extending-examples:
 
+======================
 Customization Examples
-^^^^^^^^^^^^^^^^^^^^^^
+======================
 
 Many extracts can be found throughout the manual, but this section
 provides more complete examples.
 
-.. index::TCA; Example fe_users
+
+.. index::
+   TCA; fe_users
+   File; EXT:{extkey}Configuration/TCA/Overrides/fe_users.php
 .. _extending-examples-feusers:
 
-Example 1: Extending the fe\_users Table
-""""""""""""""""""""""""""""""""""""""""
+Example 1: Extending the fe\_users table
+========================================
 
 The "examples" extension adds two fields to the "fe\_users" table.
 Here's the complete code, taken from file
@@ -21,53 +23,61 @@ Here's the complete code, taken from file
 
 .. code-block:: php
 
-	<?php
-	defined('TYPO3') or die();
+   <?php
+   defined('TYPO3') or die();
 
-	// Add some fields to FE Users table to show TCA fields definitions
-	// USAGE: TCA Reference > $GLOBALS['TCA'] array reference > ['columns'][fieldname]['config'] / TYPE: "select"
-	$temporaryColumns = array (
-		'tx_examples_options' => array (
-			'exclude' => 0,
-			'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options',
-			'config' => array (
-				'type' => 'select',
-				'items' => array (
-					array('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.0', '1'),
-					array('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.1', '2'),
-					array('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.2', '--div--'),
-					array('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.3', '3'),
-				),
-				'size' => 1,
-				'maxitems' => 1,
-			)
-		),
-		'tx_examples_special' => array (
-			'exclude' => 0,
-			'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_special',
-			'config' => array (
-				'type' => 'user',
-				'size' => '30',
-				'userFunc' => 'Documentation\\Examples\\Userfuncs\\Tca->specialField',
-				'parameters' => array(
-					'color' => 'blue'
-				)
-			)
-		),
-	);
+   // Add some fields to fe_users table to show TCA fields definitions
+   $temporaryColumns = [
+      'tx_examples_options' => [
+         'exclude' => 0,
+         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options',
+         'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+               ['',0,],
+               ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.0',1,],
+               ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.1',2,],
+               ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.2','--div--',],
+               ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.3',3,],
+            ],
+            'size' => 1,
+            'maxitems' => 1,
+         ],
+      ],
+      'tx_examples_special' => [
+         'exclude' => 0,
+         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_special',
+         'config' => [
+            'type' => 'user',
+            // renderType needs to be registered in ext_localconf.php
+            'renderType' => 'specialField',
+            'parameters' => [
+               'size' => '30',
+               'color' => '#F49700',
+            ],
+         ],
+      ],
+   ];
 
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
-		'fe_users',
-		$temporaryColumns
-	);
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-		'fe_users',
-		'tx_examples_options, tx_examples_special'
-	);
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users', $temporaryColumns);
 
-First of all, the fields that we want to add are detailed according to
-the :php:`$GLOBALS['TCA']` syntax for columns. This configuration is stored in the
-:php:`$temporaryColumns` array.
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+      'fe_users',
+      'tx_examples_options, tx_examples_special'
+   );
+
+.. note::
+
+   The second example :php:`tx_examples_special` only works when the
+   :php:`renderType` has been registered implemented and then registered in
+   the ext_localconf.php. Please refer to the the following chapter of the
+   TCA reference on how to implement it: `t3tca:columns-user`.
+
+
+First of all, the fields that we want to add are configured in
+the :php:`$GLOBALS['TCA']` syntax for columns. The configuration is stored
+in the :php:`$temporaryColumns` array.
 
 Then two essential steps are performed:
 
@@ -75,10 +85,11 @@ Then two essential steps are performed:
   :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns()`.
 
 - then the fields are added to the "types" definition of the
-  "fe\_users" table by using :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes()`.
+  "fe\_users" table by using
+  :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes()`.
   It is possible to be more fine-grained.
 
-This does not create the corresponding fields in the database. The new
+Neither step creates the corresponding fields in the database: The new
 fields must also be defined in the :file:`ext_tables.sql` file of the
 extension:
 
@@ -90,7 +101,7 @@ extension:
 	);
 
 
-.. warning::
+.. note::
 
    The above statement uses the SQL CREATE TABLE statement. This is the
    way TYPO3 expects it to be. The Extension Manager will automatically
@@ -100,8 +111,8 @@ extension:
 
 By default new fields are added at the bottom of the form when editing
 a record from that table. If the table uses tabs, new fields are added
-at the bottom of the "Extended" tab (this tab is created if it does
-not exist). The following screenshot shows the placement of the two
+at the bottom of the "Extended" tab. This tab is created automatically if it
+does not exist. The following screen shot shows the placement of the two
 new fields when editing a "fe\_users" record:
 
 .. figure:: ../Images/ExtendingTcaFeUsers.png
@@ -112,10 +123,13 @@ new fields when editing a "fe\_users" record:
 The next example shows how to place a field more precisely.
 
 
+.. index::
+   TCA; tt_content
+   File; EXT:{extkey}Configuration/TCA/Overrides/tt_content.php
 .. _extending-examples-ttcontent:
 
 Example 2: Extending the tt\_content Table
-""""""""""""""""""""""""""""""""""""""""""
+==========================================
 
 In this second example, we will add a "No print" field to all content
 element types. First of all, we add its SQL definition in
