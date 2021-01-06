@@ -209,18 +209,28 @@ And generate the following URLs
        extension: News
        plugin: Pi1
        routes:
-         - { routePath: '/list/', _controller: 'News::list' }
-         - { routePath: '/list/{page}', _controller: 'News::list', _arguments: {'page': '@widget_0/currentPage'} }
-         - { routePath: '/detail/{news_title}', _controller: 'News::detail', _arguments: {'news_title': 'news'} }
-         - { routePath: '/tag/{tag_name}', _controller: 'News::list', _arguments: {'tag_name': 'overwriteDemand/tags'}}
+         - routePath: '/list/'
+           _controller: 'News::list'
+         - routePath: '/list/{page}'
+           _controller: 'News::list'
+           _arguments:
+             page: '@widget_0/currentPage'
+         - routePath: '/detail/{news_title}'
+           _controller: 'News::detail'
+           _arguments:
+             news_title: 'news'
+         - routePath: '/tag/{tag_name}'
+           _controller: 'News::list'
+           _arguments:
+             tag_name: 'overwriteDemand/tags'
          - routePath: '/list/{year}/{month}'
-           _controller: 'News::list',
+           _controller: 'News::list'
            _arguments:
              year: 'overwriteDemand/year'
              month: 'overwriteDemand/month'
            requirements:
-             month: '\d+'
              year: '\d+'
+             month: '\d+'
        defaultController: 'News::list'
        defaults:
          page: '0'
