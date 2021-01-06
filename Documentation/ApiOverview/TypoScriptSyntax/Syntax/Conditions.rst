@@ -424,4 +424,4 @@ In order to migrate user functions for example
 :code:`# Old syntax [userFunc = user_match(checkLocalIP, 192.168)]` provide
 :ref:`custom variables <sel-ts-additional-variables>` or
 :ref:`functions <sel-ts-additional-functions>` with the Symfony
-expression language.
+Expression Language.
