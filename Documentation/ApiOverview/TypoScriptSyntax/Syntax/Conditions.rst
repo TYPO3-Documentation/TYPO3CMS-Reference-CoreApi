@@ -328,7 +328,7 @@ Variables and functions
 -----------------------
 
 For a detailed list of the available objects and functions refer to the
-:ref:`the TypoScript Reference <t3tsref:conditions>`.
+:ref:`TypoScript Reference <t3tsref:conditions>`.
 
 Variables::
 
