@@ -104,7 +104,7 @@ at the bottom of the "Extended" tab (this tab is created if it does
 not exist). The following screenshot shows the placement of the two
 new fields when editing a "fe\_users" record:
 
-.. figure:: ../../../Images/ExtendingTcaFeUsers.png
+.. figure:: ../Images/ExtendingTcaFeUsers.png
    :alt: New fields for fe\_users table
 
    The new fields added at the bottom of the "Extended" tab
@@ -131,39 +131,49 @@ Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrid
 
 .. code-block:: php
 
-	$temporaryColumn = array(
-		'tx_examples_noprint' => array (
-			'exclude' => 0,
-			'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_noprint',
-			'config' => array (
-				'type' => 'check',
-			)
-		)
-	);
+	$temporaryColumn = [
+      'tx_examples_noprint' => [
+         'exclude' => 0,
+         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_noprint',
+         'config' => [
+            'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'items' => [
+               [
+                  0 => '',
+                  1 => ''
+               ]
+            ],
+         ],
+      ],
+   ];
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
-		'tt_content',
-		$temporaryColumn
-	);
+      'tt_content',
+      $temporaryColumn
+   );
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
-		'tt_content',
-		'appearanceLinks',
-		'tx_examples_noprint',
-		'after:linkToTop'
-	);
+      'tt_content',
+      'access',
+      'tx_examples_noprint',
+      'before:editlock'
+   );
 
 The code is mostly the same as in the first example, but the last line
-is very different and requires an explanation. The "pages" and "tt\_content"
-use :ref:`palettes <palettes>` extensively for all fields
-and not just for secondary options, for increased flexibility.
-So in this case we use :code:`addFieldsToPalette()` instead of :code:`addToAllTCAtypes()`.
-We need to specify the palette's key as the second argument (:code:`appearanceLinks`).
+is different and requires an explanation. The tables :code:`pages` and
+:code:`tt\_content` use :ref:`palettes <palettes>` extensively. This increases
+flexibility.
+
+In this case we therefore use :code:`addFieldsToPalette()` instead of
+:code:`addToAllTCAtypes()`.
+We need to specify the palette's key as the second argument (:code:`access`).
 Precise placement of the new field is achieved with the fourth parameter
-(:code:`after:linkToTop`). This will place the "no print" field right after the
-"link to top" field, instead of putting it in the "Extended" tab.
+(:code:`before:editlock`). This will place the "no print" field right before the
+:guilabel:`Restrict editing by non-Admins` field, instead of putting it in the
+:guilabel:`Extended` tab.
 
 The result is the following:
 
-.. figure:: ../../../Images/ExtendingTcaTtContent.png
+.. figure:: ../Images/ExtendingTcaTtContent.png
    :alt: New fields for tt\_content table
 
    The new field added next to an existing one
