@@ -316,7 +316,7 @@ Migration from the legacy condition syntax
 .. versionchanged:: 9.4
 
    The old condition syntax was deprecated in TYPO3v9 and removed in TYPO3v10
-   with the introduction of this change
+   with the introduction of the Symfony Expression Language (SEL) in this change:
    :doc:`t3core:Changelog/9.4/Feature-85829-ImplementSymfonyExpressionLanguageForTypoScriptConditions`
 
 
