@@ -17,9 +17,9 @@ extended:
 
 
 .. index:: pair: Symfony expression language; TypoScript
-.. _sel-within-typoscript-conditions:
+.. _sel-symfony-typoscript-conditions:
 
-Within TypoScript conditions
+Symfony TypoScript conditions
 ============================
 
 In order to provide custom conditions, its essential to understand how
