@@ -182,7 +182,7 @@ All further arguments need to be provided by TypoScript. The above example could
        page.10.value = Matched
    [GLOBAL]
 
-In the case when a simple string like a title is returned, this can be further checked:
+In case a simple string like a title is returned, this can be further checked:
 
 .. code-block:: typoscript
 
