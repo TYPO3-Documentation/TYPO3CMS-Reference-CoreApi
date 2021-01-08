@@ -27,41 +27,40 @@ Here's the complete code, taken from file
    defined('TYPO3') or die();
 
    // Add some fields to fe_users table to show TCA fields definitions
-   $temporaryColumns = [
-      'tx_examples_options' => [
-         'exclude' => 0,
-         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options',
-         'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-               ['',0,],
-               ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.0',1,],
-               ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.1',2,],
-               ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.2','--div--',],
-               ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.3',3,],
-            ],
-            'size' => 1,
-            'maxitems' => 1,
-         ],
-      ],
-      'tx_examples_special' => [
-         'exclude' => 0,
-         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_special',
-         'config' => [
-            'type' => 'user',
-            // renderType needs to be registered in ext_localconf.php
-            'renderType' => 'specialField',
-            'parameters' => [
-               'size' => '30',
-               'color' => '#F49700',
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users',
+      [
+         'tx_examples_options' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options',
+            'config' => [
+               'type' => 'select',
+               'renderType' => 'selectSingle',
+               'items' => [
+                  ['',0,],
+                  ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.0',1,],
+                  ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.1',2,],
+                  ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.2','--div--',],
+                  ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.3',3,],
+               ],
+               'size' => 1,
+               'maxitems' => 1,
             ],
          ],
-      ],
-   ];
-
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users', $temporaryColumns);
-
+         'tx_examples_special' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_special',
+            'config' => [
+               'type' => 'user',
+               // renderType needs to be registered in ext_localconf.php
+               'renderType' => 'specialField',
+               'parameters' => [
+                  'size' => '30',
+                  'color' => '#F49700',
+               ],
+            ],
+         ],
+      ]
+   );
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
       'fe_users',
       'tx_examples_options, tx_examples_special'
@@ -75,21 +74,35 @@ Here's the complete code, taken from file
    TCA reference on how to implement it: `t3tca:columns-user`.
 
 
-First of all, the fields that we want to add are configured in
-the :php:`$GLOBALS['TCA']` syntax for columns. The configuration is stored
-in the :php:`$temporaryColumns` array.
+In the first statement the fields are added by calling
+:php:`ExtensionManagementUtility::addTCAcolumns()'. The first parameter is the
+name of the table to which the fields should be added. The second parameter is
+and array of the fields to be added. Each field is represented in the
+:ref:`TCA syntax for columns <t3tca:columns>`.
 
-Then two essential steps are performed:
+In the second statement the fields are added to the "types" definition of the
+"fe\_users" table by calling
+:php:`ExtensionManagementUtility::addToAllTCAtypes()`. The first parameter is
+the table name once more. The second parameter is a string, in the syntax as
+used in the :ref:`showitem property of types in TCA
+<t3tca:types-properties-showitem>`. An optional third
+specify the position (:php:`'before'` or :php:`'after'`) in relation to an
+existing field. So you could call optionally::
 
-- first the columns are actually added to the table by using
-  :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns()`.
 
-- then the fields are added to the "types" definition of the
-  "fe\_users" table by using
-  :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes()`.
-  It is possible to be more fine-grained.
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+      'fe_users',
+      'tx_examples_options, tx_examples_special',
+      'after:password'
+   );
 
-Neither step creates the corresponding fields in the database: The new
+If the third parameter is omitted ot the specified field not found,
+new fields are added at the bottom of the form. If the table uses tabs,
+new fields are added at the bottom of the :guilabel:`Extended` tab. This tab
+is created automatically if it
+does not exist.
+
+Neither statement creates the corresponding fields in the database. The new
 fields must also be defined in the :file:`ext_tables.sql` file of the
 extension:
 
@@ -109,10 +122,7 @@ extension:
    table already exists.
 
 
-By default new fields are added at the bottom of the form when editing
-a record from that table. If the table uses tabs, new fields are added
-at the bottom of the "Extended" tab. This tab is created automatically if it
-does not exist. The following screen shot shows the placement of the two
+The following screen shot shows the placement of the two
 new fields when editing a "fe\_users" record:
 
 .. figure:: ../Images/ExtendingTcaFeUsers.png
@@ -131,7 +141,7 @@ The next example shows how to place a field more precisely.
 Example 2: Extending the tt\_content Table
 ==========================================
 
-In this second example, we will add a "No print" field to all content
+In the second example, we will add a "No print" field to all content
 element types. First of all, we add its SQL definition in
 :file:`ext_tables.sql`:
 
@@ -145,25 +155,24 @@ Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrid
 
 .. code-block:: php
 
-	$temporaryColumn = [
-      'tx_examples_noprint' => [
-         'exclude' => 0,
-         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_noprint',
-         'config' => [
-            'type' => 'check',
-            'renderType' => 'checkboxToggle',
-            'items' => [
-               [
-                  0 => '',
-                  1 => ''
-               ]
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
+      'tt_content',
+      [
+         'tx_examples_noprint' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_noprint',
+            'config' => [
+               'type' => 'check',
+               'renderType' => 'checkboxToggle',
+               'items' => [
+                  [
+                     0 => '',
+                     1 => ''
+                  ]
+               ],
             ],
          ],
-      ],
-   ];
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
-      'tt_content',
-      $temporaryColumn
+      ]
    );
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
       'tt_content',
@@ -172,13 +181,13 @@ Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrid
       'before:editlock'
    );
 
-The code is mostly the same as in the first example, but the last line
+The code is mostly the same as in the first example, but the last statement
 is different and requires an explanation. The tables :code:`pages` and
 :code:`tt\_content` use :ref:`palettes <palettes>` extensively. This increases
 flexibility.
 
-In this case we therefore use :code:`addFieldsToPalette()` instead of
-:code:`addToAllTCAtypes()`.
+Therefore we call :code:`ExtensionManagementUtility::addFieldsToPalette()`
+instead of :code:`ExtensionManagementUtility::addToAllTCAtypes()`.
 We need to specify the palette's key as the second argument (:code:`access`).
 Precise placement of the new field is achieved with the fourth parameter
 (:code:`before:editlock`). This will place the "no print" field right before the
