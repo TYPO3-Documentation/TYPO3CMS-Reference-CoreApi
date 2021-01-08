@@ -41,7 +41,7 @@ The following sections explain how to add variables and functions.
 Registering new provider within an extension
 ============================================
 
-There has to be a provider, no matter whether variables or functions shall be provided.
+There has to be a provider, no matter whether variables or functions will be provided.
 
 The provider is registered in the extension file :file:`/Configuration/ExpressionLanguage.php`, depending on
 the extension's custom PHP class name:
@@ -128,7 +128,7 @@ returned by the example :php:`CustomTypoScriptConditionProvider` PHP class::
        }
    }
 
-The returned class shall look like the following::
+The returned class will look like the following::
 
    <?php
 
@@ -153,7 +153,8 @@ The returned class shall look like the following::
    }
 
 
-The class is already trying to return a new :php:`ExpressionFunction`, but
+The class is already trying to return a new :ph
+p:`ExpressionFunction`, but
 currently lacks implementation. That is the last step::
 
    protected function getWebserviceFunction(): ExpressionFunction
