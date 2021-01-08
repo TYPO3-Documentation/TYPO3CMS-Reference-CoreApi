@@ -118,6 +118,9 @@ The request sequence in the TYPO3 Core looks like this:
    Please keep in mind these steps are part of a mitigation strategy, which requires
    to be aware of mentioned implications when implementing custom web applications.
    
+   
+.. index:: Backend routing; Generating backend URLs
+   
 Generating backend URLs
 =======================
 
