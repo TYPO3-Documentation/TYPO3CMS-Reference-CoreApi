@@ -182,11 +182,11 @@ All further arguments need to be provided by TypoScript. The above example could
        page.10.value = Matched
    [GLOBAL]
 
-In case a simple string like a title is returned, this can be further checked:
+If a simple string like a page title is returned, this can be further compared:
 
 .. code-block:: typoscript
 
-   [webservice('pages', 10) === 'Expected title']
+   [webservice('pages', 10) === 'Expected page title']
        page.10 >
        page.10 = TEXT
        page.10.value = Matched
