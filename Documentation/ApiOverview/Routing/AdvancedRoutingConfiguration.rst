@@ -142,7 +142,7 @@ we would need to set up multiple configurations of Plugin Enhancer for forgot an
        defaults:
          forgot: '1'
        requirements:
-         user: '[0-9]{1,6}'
+         user: '[0-9]{1,3}'
          hash: '^[a-zA-Z0-9]{32}$'
 
 If a URL is generated with the given parameters to link to a page, the result will look like this:
