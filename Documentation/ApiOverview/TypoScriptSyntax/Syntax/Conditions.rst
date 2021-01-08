@@ -270,7 +270,7 @@ Custom conditions with the Symfony expression language
 ======================================================
 
 Further information about how to extend TypoScript with your own custom
-conditions can be found within :ref:`sel-within-typoscript-conditions`.
+conditions can be found at :ref:`sel-within-typoscript-conditions`.
 
 
 .. _typoscript-syntax-conditions-examples:
@@ -282,7 +282,7 @@ Variables and functions
 -----------------------
 
 For a detailed list of the available objects and functions refer to the
-:ref:`the TypoScript Reference <t3tsref:conditions>`.
+:ref:`TypoScript Reference <t3tsref:conditions>`.
 
 Variables::
 
