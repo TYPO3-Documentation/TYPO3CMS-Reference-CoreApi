@@ -24,7 +24,7 @@ Conditions are based on Symfony expression language and allow flexible condition
 
 would define a base variant to use in Development context.
 
-.. figure:: ../../Images/SiteHandlingBaseVariants-1.png
+.. figure:: Images/SiteHandlingBaseVariants-1.png
    :class: with-shadow
    :alt: Add a base variant
 

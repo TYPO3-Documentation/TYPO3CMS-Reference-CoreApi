@@ -16,7 +16,6 @@ at other configuration possibilities.
 
 .. index::
    ! File; typo3conf/LocalConfiguration.php
-   File; EXT:{extkey}/ext_localconf.php
 .. _typo3ConfVars-localConfiguration:
 
 File LocalConfiguration.php
@@ -151,11 +150,16 @@ The documentation shown in the Install Tool is automatically extracted from
 those values of :file:`DefaultConfigurationDescription.yaml`.
 
 The Install Tool provides various dedicated modules that change parts of
-:file:`LocalConfiguration.php`, those can be found in **ADMIN TOOLS > Settings**,
-most importantly section **Configure installation-wide options**:
+:file:`LocalConfiguration.php`, those can be found in
+:guilabel:`ADMIN TOOLS > Settings`, most importantly section
+:guilabel:`Configure installation-wide options`:
 
-.. figure:: ../../../Images/InstallToolAllConfiguration.png
+.. figure:: ../Images/InstallToolAllConfiguration.png
+   :alt: Configure installation-wide options :guilabel:`ADMIN TOOLS > Settings`
+
+.. figure:: ../Images/InstallationWideOptions.png
    :alt: Configure installation-wide options in Install Tool with an active search
+
 
 
 .. index::

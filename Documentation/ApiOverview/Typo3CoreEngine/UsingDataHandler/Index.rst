@@ -90,7 +90,7 @@ Clearing cache
 --------------
 
 In this example the cache clearing API is used. No data is submitted, no
-are commands executed. Still you will have to initialize the class by
+commands are executed. Still you will have to initialize the class by
 calling the :php:`start()` method (which will initialize internal state).
 
 .. note::

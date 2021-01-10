@@ -49,7 +49,7 @@ Paths for local driver storage
 The file storages based on the "local file system" driver have an
 option for relative or absolute paths.
 
-.. figure:: ../../../Images/AccessLocalStoragePath.png
+.. figure:: ../Images/AccessLocalStoragePath.png
    :alt: The paths options for a storage based on the local file system driver
 
 
@@ -144,7 +144,7 @@ Having set up all these properties and folders, the user
 should see the following when moving to the **FILE > Filelist**
 module:
 
-.. figure:: ../../../Images/AccessUserAndGroupHomeDirectories.png
+.. figure:: ../Images/AccessUserFileTree.png
    :alt: The file list with automatically mounted user and group directories
 
 

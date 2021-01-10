@@ -11,7 +11,7 @@ or **has `is_siteroot` flag set**. So at least one page is needed in the page tr
 
 To create a new site configuration, go to the `Site` module at `Site Management`.
 
-.. figure:: ../../Images/SiteHandlingCreateNewSite-1.png
+.. figure:: Images/SiteHandlingCreateNewSite-1.png
    :class: with-shadow
    :alt: Create a new site
 
@@ -19,7 +19,7 @@ To create a new site configuration, go to the `Site` module at `Site Management`
 
 After pressing the "big blue button" an edit form is displayed:
 
-.. figure:: ../../Images/SiteHandlingCreateNewSite-2.png
+.. figure:: Images/SiteHandlingCreateNewSite-2.png
    :class: with-shadow
    :alt: Create a new site
 
@@ -45,7 +45,7 @@ Then, enter a base for your site at (2).
 On the next tab ("Languages") you are required to configure the default language settings for your site.
 These will determine the default behavior - setting direction and lang tags in frontend as well as locale settings.
 
-.. figure:: ../../Images/SiteHandlingCreateNewSite-3.png
+.. figure:: Images/SiteHandlingCreateNewSite-3.png
    :class: with-shadow
    :alt: Set default language settings
 

@@ -19,6 +19,7 @@ created, how existing content elements or plugins can be customized etc.
 
    Introduction
    AddingYourOwnContentElements
+   CustomDataProcessing
    CreatePlugins
    CustomBackendPreview
    ContentElementsWizard

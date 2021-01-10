@@ -33,11 +33,16 @@ Consider the following example (taken from system extension "backend"):
    loginLogo =
 
 First a category (cat) is defined ("Login"). Then a type is given ("string") and finally a label, which
-is itself split (on the colon ":") into a title and a description
-(this should actually be a localized string). The
-above example will be rendered like this in the Settings module:
+is itself split (on the colon ":") into a title and a description. The Label should actually be a localized string, like this:
 
-.. figure:: ../../Images/ExtensionConfigurationOptions.png
+.. code-block:: typoscript
+
+   # cat=Login; type=string; label=LLL:EXT:my_extension_key/Resources/Private/Language/locallang_be.xlf:loginLogo
+   loginLogo =
+
+The above example will be rendered like this in the Settings module:
+
+.. figure:: ../Images/ExtensionConfigurationOptions.png
    :alt: Configuration screen for the backend extension
 
 The configuration tab displays all options from a single category. A
@@ -90,19 +95,19 @@ Accessing saved options
 =======================
 
 When saved in the Settings module, the configuration will be kept in the :file:`LocalConfiguration.php`
-file and is available as array :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['your_extension_key']`.
+file and is available as array :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['my_extension_key']`.
 
 To retrieve the configuration use the API provided by the :php:`\TYPO3\CMS\Core\Configuration\ExtensionConfiguration` class::
 
    $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
-      ->get('your_extension_key');
+      ->get('my_extension_key');
 
 This will return the whole configuration as an array.
 
-To directly fetch specific values like :ts:`temporaryDirectory` from the example above::
+To directly fetch specific values like :ts:`myVariable` from the example above::
 
    $temporaryDirectory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
-      ->get('your_extension_key', 'temporaryDirectory');
+      ->get('my_extension_key', 'myVariable');
 
 
 .. _extension-options-nested-structure:

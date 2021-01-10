@@ -104,7 +104,7 @@ at the bottom of the "Extended" tab (this tab is created if it does
 not exist). The following screenshot shows the placement of the two
 new fields when editing a "fe\_users" record:
 
-.. figure:: ../../../Images/ExtendingTcaFeUsers.png
+.. figure:: ../Images/ExtendingTcaFeUsers.png
    :alt: New fields for fe\_users table
 
    The new fields added at the bottom of the "Extended" tab
@@ -163,7 +163,7 @@ Precise placement of the new field is achieved with the fourth parameter
 
 The result is the following:
 
-.. figure:: ../../../Images/ExtendingTcaTtContent.png
+.. figure:: ../Images/ExtendingTcaTtContent.png
    :alt: New fields for tt\_content table
 
    The new field added next to an existing one

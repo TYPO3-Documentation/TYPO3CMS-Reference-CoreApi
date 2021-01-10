@@ -22,7 +22,7 @@ These principles are expressed as an API (Application
 Programming Interface) for use in *extensions* which ultimately
 add most of the real functionality.
 
-.. figure:: ../Images/Typo3CmsStructure.png
+.. figure:: Images/Typo3CmsStructure.png
    :alt: Main TYPO3 Core architecture
 
 
@@ -51,7 +51,7 @@ module. You will see all extensions which are loaded by default.
 Required extensions are not only loaded by default, they have no
 "Activate/Deactivate" button, too.
 
-.. figure:: ../Images/ExtensionsMinimalList.png
+.. figure:: Images/ExtensionsMinimalList.png
    :alt: The Extension Manager with a bare bones installation
 
 

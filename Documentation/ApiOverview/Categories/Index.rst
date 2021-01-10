@@ -34,7 +34,7 @@ System categories are defined just like any other record. Each category
 can have a parent, making for a tree-like structure.
 
 
-.. figure:: ../../Images/Categories/Editing.png
+.. figure:: Images/Editing.png
    :alt: Editing a category
 
    A category with a parent defined
@@ -110,7 +110,7 @@ can be used to override this.
 This is the result of the above code:
 
 
-.. figure:: ../../Images/Categories/AddingWithApi.png
+.. figure:: Images/AddingWithApi.png
    :alt: The new categories-relation field
 
    The newly added field to define relations to categories (on top of the default one)

@@ -48,28 +48,28 @@ Subsequently:
 .. code-block:: json
    :linenos:
 
-  {
-    "name": "vendorname/my-extension",
-    "type": "typo3-cms-extension",
-    "description": "An example extension",
-    "license": "GPL-2.0-or-later",
-    "require": {
-      "typo3/cms-core": "^10.4 || ^11.0"
-    },
-    "replace": {
-      "typo3-ter/my-extension": "self.version"
-    },
-    "autoload": {
-      "psr-4": {
-        "Vendorname\\MyExtension\\": "Classes/"
+   {
+      "name": "vendorname/my-extension",
+      "type": "typo3-cms-extension",
+      "description": "An example extension",
+      "license": "GPL-2.0-or-later",
+      "require": {
+         "typo3/cms-core": "^10.4 || ^11.0"
+      },
+      "replace": {
+         "typo3-ter/my-extension": "self.version"
+      },
+      "autoload": {
+         "psr-4": {
+            "Vendorname\\MyExtension\\": "Classes/"
+         }
+      },
+      "extra": {
+         "typo3/cms": {
+            "extension-key": "my_extension"
+         }
       }
-    },
-    "extra": {
-      "typo3/cms": {
-        "extension-key": "my_extension"
-      }
-    }
-  }
+   }
 
 * see `composer.json schema <https://getcomposer.org/doc/04-schema.md>`__ for
   general Composer information
@@ -82,49 +82,50 @@ Extended composer.json
 
 .. code-block:: json
    :linenos:
+
    {
-     "name": "vendorname/my-extension",
-     "type": "typo3-cms-extension",
-     "description": "An example extension",
-     "license": "GPL-2.0-or-later",
-     "require": {
-       "php" : "^7.2",
-       "typo3/cms-backend": "^9.5 || ^10.4 || ^11.0",
-       "typo3/cms-core": "^9.5 || ^10.4 || ^11.0"
-     },
-     "authors": {
-       "name": "John Doe",
-       "role": "Developer",
-       "email": "john.doe@example.org",
-       "homepage": "www.johndoe.example.org"
-     },
-     "keywords": [
-       "typo3",
-       "blog"
-     ],
-     "support": {
-       "issues": "https://github.com/vendorname/my-extensions/issues"
-     },
-     "funding": {
-       "type": "other",
-       "url:" : "myfundpage.org/vendorname"
-     },
-     "replace": {
-       "typo3-ter/my-extension": "self.version"
-     },
-     "autoload": {
-       "psr-4": {
-         "Vendorname\\MyExtension\\": "Classes/"
-       }
-     },
-     "require-dev": {
-       "nimut/testing-framework": "^4.2 || ^5.1"
-     },
-     "extra": {
-       "typo3/cms": {
-         "extension-key": "my_extension"
-       }
-     }
+      "name": "vendorname/my-extension",
+      "type": "typo3-cms-extension",
+      "description": "An example extension",
+      "license": "GPL-2.0-or-later",
+      "require": {
+         "php" : "^7.2",
+         "typo3/cms-backend": "^9.5 || ^10.4 || ^11.0",
+         "typo3/cms-core": "^9.5 || ^10.4 || ^11.0"
+      },
+      "authors": {
+         "name": "John Doe",
+         "role": "Developer",
+         "email": "john.doe@example.org",
+         "homepage": "www.johndoe.example.org"
+      },
+      "keywords": [
+         "typo3",
+         "blog"
+      ],
+      "support": {
+         "issues": "https://github.com/vendorname/my-extensions/issues"
+      },
+      "funding": {
+         "type": "other",
+         "url:" : "myfundpage.org/vendorname"
+      },
+      "replace": {
+         "typo3-ter/my-extension": "self.version"
+      },
+      "autoload": {
+         "psr-4": {
+            "Vendorname\\MyExtension\\": "Classes/"
+         }
+      },
+      "require-dev": {
+         "nimut/testing-framework": "^4.2 || ^5.1"
+      },
+      "extra": {
+         "typo3/cms": {
+            "extension-key": "my_extension"
+         }
+      }
    }
 
 

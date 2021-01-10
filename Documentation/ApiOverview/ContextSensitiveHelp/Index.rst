@@ -13,7 +13,7 @@ or as a popup on field labels when editing database records.
 The text is meant to help the user understand what the module does
 or what the database field means.
 
-.. figure:: ../../Images/ContextSensitiveHelpDatabaseRecord.png
+.. figure:: Images/ContextSensitiveHelpDatabaseRecord.png
    :alt: CSH for the "Title" field
 
    Viewing the context sensitive help of the "Title" field of the "pages" table
@@ -28,7 +28,7 @@ icon after the text (as in the screenshot above). Clicking on that icon
 opens a popup window with lengthier explanations, possible enriched
 with images.
 
-.. figure:: ../../Images/ContextSensitiveHelpPopup.png
+.. figure:: Images/ContextSensitiveHelpPopup.png
    :alt: Popup help window
 
    Popup help window for the "Subtitle" field of the "pages" table
@@ -37,7 +37,7 @@ with images.
 Clicking on the "Back" icon at the top of the popup window leads
 to a table of contents of all the available CSH.
 
-.. figure:: ../../Images/ContextSensitiveHelpPopupToc.png
+.. figure:: Images/ContextSensitiveHelpPopupToc.png
    :alt: Popup help window with TOC
 
    Popup help window with the table of contents of all available help topics
