@@ -11,7 +11,7 @@ system extension and extended by many other system extensions.
 
 It is divided into the following main areas:
 
-.. figure:: ../../../Images/BackendModulesAreas.png
+.. figure:: ../Images/BackendModulesAreas.png
    :alt: An overview of the visual structure of the backend
 
 Top bar
@@ -67,5 +67,5 @@ Contextual menus
   mechanisms vary: the page tree behaves differently than the
   rest of the backend.
 
-  .. figure:: ../../../Images/BackendModulesContextualMenu.png
+  .. figure:: ../Images/BackendModulesContextualMenu.png
      :alt: A typical contextual menu appear when clicking on a record icon

@@ -36,7 +36,7 @@ TYPO3 implementation
 
 TYPO3 has implemented the PSR-15 approach in the following way:
 
-.. figure:: Files/FlowOfMiddlewareExecution.svg
+.. figure:: Images/FlowOfMiddlewareExecution.svg
    :align: center
 
    Figure 1-1: Application flow
@@ -469,7 +469,7 @@ In order to see which middlewares are configured and to see the order of
 execution, TYPO3 offers a the menu entry :guilabel:`HTTP Middlewares (PSR-15)`
 within the "Configuration" module:
 
-.. figure:: /Images/ConfigurationMiddleware.png
+.. figure:: Images/ConfigurationMiddleware.png
    :align: center
 
    Figure 1-2: TYPO3 configuration module listing configured middlewares.

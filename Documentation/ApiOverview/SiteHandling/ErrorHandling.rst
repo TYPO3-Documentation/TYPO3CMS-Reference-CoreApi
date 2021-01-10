@@ -21,7 +21,7 @@ You can define one error handler per HTTP error code and add a generic one that 
    These are currently not covered by site error handling.
 
 
-.. figure:: ../../Images/SiteHandlingErrorHandling-1.png
+.. figure:: Images/SiteHandlingErrorHandling-1.png
    :class: with-shadow
    :alt: Error Handling
 

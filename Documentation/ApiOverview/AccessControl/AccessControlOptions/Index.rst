@@ -136,13 +136,13 @@ is the folder tree drawn based on *filemounts* configured for the user.
 **DB mounts** (page mounts) are easily set by simply pointing out the
 page that should be mounted for the user (at user or group-level):
 
-.. figure:: ../../../Images/AccessDbMounts.png
+.. figure:: ../Images/AccessDbMounts.png
    :alt: The DB mounts for group "Editors"
 
 
 This is what the user will see:
 
-.. figure:: ../../../Images/AccessUserPageTree.png
+.. figure:: ../Images/AccessUserPageTree.png
    :alt: Only selected pages are accessible to the user
 
 
@@ -166,7 +166,7 @@ upon installation.
    changed using the global configuration option
    :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
 
-.. figure:: ../../../Images/AccessFileStorage.png
+.. figure:: ../Images/AccessFileStorage.png
    :alt: The default file storage points to "fileadmin"
 
 
@@ -176,7 +176,7 @@ and the path to which it points.
 Next we can create a *File Mount* record (on the root page),
 which refers to a File Storage:
 
-.. figure:: ../../../Images/AccessCreateFilemount.png
+.. figure:: ../Images/AccessCreateFilemount.png
    :alt: A file mount poiting to the "user_upload" directory
 
 
@@ -184,14 +184,14 @@ When defining a File Mount, you can point to a specific folder
 within the chosen File Storage. Finally the mount is assigned
 to a user or group:
 
-.. figure:: ../../../Images/AccessAssignFilemount.png
+.. figure:: ../Images/AccessAssignFilemount.png
    :alt: The file mount is assigned to the "Editors" group
 
 
 After a successful configuration, the file mount will appear to
 the user:
 
-.. figure:: ../../../Images/AccessUserFileTree.png
+.. figure:: ../Images/AccessUserFileTree.png
    :alt: The file tree as visible by the user
 
 
@@ -204,7 +204,7 @@ the default behaviour. So make sure to unset these flags if users
 should see only their "private" mount points and not those from their
 groups:
 
-.. figure:: ../../../Images/AccessMountFromGroups.png
+.. figure:: ../Images/AccessMountFromGroups.png
    :alt: By default BD and File Mounts from groups are set for member users
 
 
@@ -253,7 +253,7 @@ summarized here:
 Page permissions are set and viewed with the module :guilabel:`System > Access`
 module:
 
-.. figure:: ../../../Images/AccessAccessModule.png
+.. figure:: ../Images/AccessAccessModule.png
    :alt: The Access module and its overview of page rights and owners
 
 

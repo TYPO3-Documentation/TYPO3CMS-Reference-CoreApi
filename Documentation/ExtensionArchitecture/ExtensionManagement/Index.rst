@@ -12,7 +12,7 @@ are installed or activated), available extensions on the server and
 the possibility to import extensions from online resources, typically
 the TER (TYPO3 Extension Repository) located at typo3.org.
 
-.. figure:: ../../Images/ExtensionManager76To86.png
+.. figure:: ../Images/ExtensionManager.png
    :alt: The Extension Manager
 
    Interface of the Extension Manager showing all available extensions.

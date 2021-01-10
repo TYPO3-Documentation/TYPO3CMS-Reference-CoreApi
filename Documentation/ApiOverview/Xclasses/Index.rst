@@ -128,7 +128,7 @@ method and then adds its own content::
 
 The result can be seen here:
 
-.. figure:: ../../Images/XclassNewElementWizard.png
+.. figure:: Images/XclassNewElementWizard.png
    :alt: Adding an element to the new record wizard
 
    A help section is added at the bottom of the new record wizard.

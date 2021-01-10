@@ -136,7 +136,7 @@ The uid will be used directly instead of selecting it from the page tree.
 This only works for the :php:`PageLinkHandler`.
 It will **not** work for custom added LinkHandler configurations.
 
-.. figure:: ../../../Images/LinkBrowserTSConfigExamplepageIdSelector.png
+.. figure:: Images/LinkBrowserTSConfigExamplepageIdSelector.png
    :alt: The link browser field for entering a page uid.
 
 Enable the field with the following User-/PageTSConfig::

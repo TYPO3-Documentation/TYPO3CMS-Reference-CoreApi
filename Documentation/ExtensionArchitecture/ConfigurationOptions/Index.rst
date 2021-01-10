@@ -42,7 +42,7 @@ is itself split (on the colon ":") into a title and a description. The Label sho
 
 The above example will be rendered like this in the Settings module:
 
-.. figure:: ../../Images/ExtensionConfigurationOptions.png
+.. figure:: ../Images/ExtensionConfigurationOptions.png
    :alt: Configuration screen for the backend extension
 
 The configuration tab displays all options from a single category. A

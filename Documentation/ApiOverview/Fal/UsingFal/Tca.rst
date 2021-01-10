@@ -47,7 +47,7 @@ of inline-type fields can be used.
 
 Additionally, there is an extra section for providing media sources, that come as three buttons per default.
 
-.. figure:: /Images/FalTCAStyleGuide1.png
+.. figure:: ../Images/FalRelationTca.png
     :alt: FAL relation with all three media sources visible
     :class: with-shadow
 
