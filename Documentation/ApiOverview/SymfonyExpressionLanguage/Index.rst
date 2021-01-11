@@ -32,7 +32,7 @@ which would evaluate to true. In order to provide further functionality within
 conditions, the Symfony Expression Language needs to be extended. There are two
 parts that can be added to the language, which are variables and functions.
 
-The following section explain how to add variables and functions.
+The following sections explain how to add variables and functions.
 
 
 .. index:: pair: Symfony expression language; Custom provider
@@ -41,9 +41,10 @@ The following section explain how to add variables and functions.
 Registering new provider within an extension
 ============================================
 
-There has to be a provider, no matter whether variables or functions should be provided.
+There has to be a provider, no matter whether variables or functions will be provided.
 
-The provider is registered within :file:`/Configuration/ExpressionLanguage.php`::
+The provider is registered in the extension file :file:`/Configuration/ExpressionLanguage.php`, depending on
+the extension's custom PHP class name:
 
    <?php
    return [
@@ -52,7 +53,7 @@ The provider is registered within :file:`/Configuration/ExpressionLanguage.php`:
        ]
    ];
 
-This will register the defined class as provider within context `typoscript`.
+This will register the defined class as provider within the context `typoscript`.
 
 
 .. _sel-ts-implement-provider-within-extension:
@@ -60,9 +61,9 @@ This will register the defined class as provider within context `typoscript`.
 Implement provider within extension
 ===================================
 
-The provider itself is written as PHP Class within
+The provider itself is written as PHP Class within the extension file
 :file:`/Classes/ExpressionLanguage/CustomTypoScriptConditionProvider.php`, depending on
-registered class name::
+registered PHP class name:
 
    <?php
 
@@ -97,7 +98,7 @@ Additional variables can already be provided within the
    }
 
 In above example a new variable `variableA` with value `valueB` is added, this
-can be used within Conditions:
+can be used within conditions:
 
 .. code-block:: typoscript
 
@@ -115,7 +116,7 @@ Additional functions
 ====================
 
 Additional functions can be provided through another class, which has to be
-returned by :php:`CustomTypoScriptConditionProvider` PHP class::
+returned by the example :php:`CustomTypoScriptConditionProvider` PHP class::
 
    class CustomTypoScriptConditionProvider extends AbstractProvider
    {
@@ -127,7 +128,7 @@ returned by :php:`CustomTypoScriptConditionProvider` PHP class::
        }
    }
 
-The returned class looks like the following::
+The returned class will look like the following::
 
    <?php
 
@@ -152,8 +153,9 @@ The returned class looks like the following::
    }
 
 
-The class is already trying to return a new :php:`ExpressionFunction`, but
-currently lacks implementation. That's the last step::
+The class is already trying to return a new :ph
+p:`ExpressionFunction`, but
+currently lacks implementation. That is the last step::
 
    protected function getWebserviceFunction(): ExpressionFunction
    {
@@ -180,11 +182,11 @@ All further arguments need to be provided by TypoScript. The above example could
        page.10.value = Matched
    [GLOBAL]
 
-In case a simple string like a title is returned this can be further checked:
+If a simple string like a page title is returned, this can be further compared:
 
 .. code-block:: typoscript
 
-   [webservice('pages', 10) === 'Expected title']
+   [webservice('pages', 10) === 'Expected page title']
        page.10 >
        page.10 = TEXT
        page.10.value = Matched
