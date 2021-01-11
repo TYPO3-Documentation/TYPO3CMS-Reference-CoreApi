@@ -44,7 +44,7 @@ Registering new provider within an extension
 There has to be a provider, no matter whether variables or functions will be provided.
 
 The provider is registered in the extension file :file:`/Configuration/ExpressionLanguage.php`, depending on
-the extension's custom PHP class name:
+the extension's custom PHP class name::
 
    <?php
 
