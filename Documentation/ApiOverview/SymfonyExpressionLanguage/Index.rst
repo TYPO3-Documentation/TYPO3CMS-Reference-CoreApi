@@ -44,16 +44,18 @@ Registering new provider within an extension
 There has to be a provider, no matter whether variables or functions will be provided.
 
 The provider is registered in the extension file :file:`/Configuration/ExpressionLanguage.php`, depending on
-the extension's custom PHP class name:
+the extension's custom PHP class name::
 
    <?php
+
    return [
        'typoscript' => [
            \Vendor\ExtensionName\ExpressionLanguage\CustomTypoScriptConditionProvider::class,
        ]
    ];
 
-This will register the defined class as provider within the context `typoscript`.
+
+This will register the defined :php:`CustomTypoScriptConditionProvider` PHP class as provider within the context `typoscript`.
 
 
 .. _sel-ts-implement-provider-within-extension:
@@ -63,7 +65,7 @@ Implement provider within extension
 
 The provider itself is written as PHP Class within the extension file
 :file:`/Classes/ExpressionLanguage/CustomTypoScriptConditionProvider.php`, depending on
-registered PHP class name:
+the formerly registered PHP class name::
 
    <?php
 
