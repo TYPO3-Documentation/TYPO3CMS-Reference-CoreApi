@@ -212,9 +212,9 @@ make sure the paths are setup as described in :ref:`mail-configuration-fluid`:
 
 .. code-block:: php
 
-   use Symfony\Component\Mailer\Mailer;
    use Symfony\Component\Mime\Address;
    use TYPO3\CMS\Core\Mail\FluidEmail;
+   use TYPO3\CMS\Core\Mail\Mailer;
 
    $email = GeneralUtility::makeInstance(FluidEmail::class);
    $email
