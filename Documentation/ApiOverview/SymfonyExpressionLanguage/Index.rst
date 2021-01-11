@@ -65,7 +65,7 @@ Implement provider within extension
 
 The provider itself is written as PHP Class within the extension file
 :file:`/Classes/ExpressionLanguage/CustomTypoScriptConditionProvider.php`, depending on
-registered PHP class name:
+the formerly registered PHP class name::
 
    <?php
 
