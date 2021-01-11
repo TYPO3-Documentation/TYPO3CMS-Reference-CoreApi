@@ -67,7 +67,7 @@ Example of a CREATE TABLE statement for logTable:
            KEY request (request_id)
    );
 
-The corresponding configuration might look like this for example:
+The corresponding configuration might look like this for the example class :code:`\T3docs\Examples\Controller`:
 
 .. code-block:: php
 
@@ -107,7 +107,7 @@ logFile       no         Path to log file                                      :
 logFileInfix  no         Different file name to the default log configuration  :php:`'logFileInfix' => 'special'` results in :file:`typo3\_special\_<hash>.log`
 ============  =========  ====================================================  ================
 
-The corresponding configuration might look like this for example:
+The corresponding configuration might look like this for the example class :code:`\T3docs\Examples\Controller` :
 
 .. code-block:: php
 
@@ -167,11 +167,56 @@ Only in the case that all registered writers fail, the log entry plus additional
 will be added to the configured fallback logger (which defaults to
 the :ref:`PhpErrorLog <logging-writers-php>` writer).
 
+.. _logging-writers-usage:
+
+Usage in Custom Class
+---------------------
+
+All log writers can be used in your own classes. You can initialize the loggers in the __construct method of your class :code:`\MyDomain\MyExtension\MyFolder\MyClass`.
+
+.. code-block:: php
+
+    namespace MyDomain\MyExtension\MyFolder;
+
+    use Psr\Log\LoggerAwareInterface;
+    use Psr\Log\LoggerAwareTrait;
+
+    class MyClass implements LoggerAwareInterface {
+        use LoggerAwareTrait;
+        
+        // The logger object is already available through the LoggerAwareTrait and instantiated by TYPO3:
+        // private $logger; 
+
+        ...
+        $this->logger->info('My class is executed.');
+        if ($error) {
+           $this->logger->error('error in class MyClass');
+        }
+    }
+
+
+The logger must be configured via :file:`ext_localconf.php` :
+
+.. code-block:: php
+
+   // Add example configuration for the logging API
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['MyDomain']['MyExtension']['MyFolder']['MyClass']['writerConfiguration'] = [
+       // configuration for ERROR level log entries
+       \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
+           // add a FileWriter
+           \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+               // configuration for the writer
+               'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_examples.log'
+           ]
+       ]
+   ];
+
+
+
 .. _logging-writers-examples:
 
 Examples
 ========
 
 Working examples of the usage of different Log writers can be found in the extension
-`examples <https://extensions.typo3.org/extension/examples/>`__. they are configured in
-the :file:`ext_localconf.php`.
+`examples <https://extensions.typo3.org/extension/examples/>`__. 
