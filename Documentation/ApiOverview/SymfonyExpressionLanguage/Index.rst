@@ -55,7 +55,7 @@ the extension's custom PHP class name::
    ];
 
 
-This will register the defined :php:`CustomTypoScriptConditionProvider` PHP class:: as provider within the context `typoscript`.
+This will register the defined :php:`CustomTypoScriptConditionProvider` PHP class as provider within the context `typoscript`.
 
 
 .. _sel-ts-implement-provider-within-extension:
