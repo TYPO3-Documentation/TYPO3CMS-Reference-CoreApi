@@ -183,7 +183,7 @@ The first argument :php:`$existingVariables` is an array of which each associati
    *  workspace - stdClass
    *  page - array: page record
 
-If you have an undefined count of variables, then you can use three dots::
+If you need an undefined number of variables, then you can write the same function in a variadic form::
 
     // ...
     }, function (...$args) {
