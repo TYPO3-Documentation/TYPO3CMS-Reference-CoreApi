@@ -155,8 +155,7 @@ The returned class will look like the following::
    }
 
 
-The class is already trying to return a new :ph
-p:`ExpressionFunction`, but
+The class is already trying to return a new :php:`ExpressionFunction`, but
 currently lacks implementation. That is the last step::
 
    protected function getWebserviceFunction(): ExpressionFunction
@@ -173,8 +172,27 @@ currently lacks implementation. That is the last step::
        });
    }
 
-The first argument :php:`$existingVariables` always provides all registered variables to the function.
-All further arguments need to be provided by TypoScript. The above example could look like:
+The first argument :php:`$existingVariables` is an array of which each associative key corresponds to a registered variable.
+
+   *  request (TYPO3\CMS\Core\ExpressionLanguage\RequestWrapper)
+   *  applicationContext - string
+   *  typo3 . stdClass
+   *  tree - stdClass
+   *  frontend - stdClass
+   *  backend - stdClass
+   *  workspace - stdClass
+   *  page - array: page record
+
+If you need an undefined number of variables, then you can write the same function in a variadic form::
+
+    // ...
+    }, function (...$args) {
+        $existingVariables = $args['0'];
+        // ...
+    }
+
+
+All further arguments are provided by TypoScript. The above example could look like:
 
 .. code-block:: typoscript
 
