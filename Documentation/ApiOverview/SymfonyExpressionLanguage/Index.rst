@@ -187,8 +187,9 @@ If you need an undefined number of variables, then you can write the same functi
 
     // ...
     }, function (...$args) {
-      `$existingVariables = $args['0'];
-    // ...
+        $existingVariables = $args['0'];
+        // ...
+    }
 
 
 All further arguments are provided by TypoScript. The above example could look like:
