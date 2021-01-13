@@ -336,7 +336,7 @@ Wildcards::
       page.42.value = The application context starts with "Development"
    [END]
 
-..note::
+.. note::
 
    While the other operator are inherent features of the Symphony expression
    language :typoscript:`like` is a function defined by TYPO3. Read more about
