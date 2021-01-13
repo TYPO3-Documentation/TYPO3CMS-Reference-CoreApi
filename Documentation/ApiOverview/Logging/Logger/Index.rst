@@ -31,7 +31,7 @@ Use the :code:`LoggerAwareTrait` in your class to automatically instantiate :cod
    }
 
 
-Or, you can instantiate the Logger with :code:`makeInstance`. Be aware that a simple Logger configuration must be made also.
+Or, you can instantiate the Logger with :code:`makeInstance`. >ou can configure it specifically, or the default TYPO3 configuration will be active.
 
 The :code:`LogManager` enables an auto-configured usage of loggers in your PHP code
 by reading the logging configuration and setting the minimum severity level of the Logger
