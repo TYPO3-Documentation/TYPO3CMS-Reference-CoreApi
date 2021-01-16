@@ -7,7 +7,7 @@ Symfony expression language
 ===========================
 
 Symfony expression language is used by TYPO3 in certain places. These are
-documented in below sections, together with explanations how they can be
+documented in the following sections, together with explanations how they can be
 extended:
 
 .. contents:: This page
@@ -23,8 +23,7 @@ Symfony within TypoScript conditions
 ====================================
 
 In order to provide custom conditions, its essential to understand how
-conditions are written. Refer to :ref:`typoscript-syntax-conditions-syntax` if
-syntax of conditions is not known yet.
+conditions are written. Refer to :ref:`typoscript-syntax-conditions-syntax` for details.
 
 Conditions are evaluated by the `Symfony Expression Language`_ and are evaluated
 to boolean results. Therefore an integrator can write :ts:`[true === true]`
