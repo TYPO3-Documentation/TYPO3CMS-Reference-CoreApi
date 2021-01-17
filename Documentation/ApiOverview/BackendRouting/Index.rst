@@ -126,7 +126,7 @@ Generating backend URLs
 
 Using the UriBuilder API, you can generate any kind of URL for the Backend, may it be
 a module, a typical route or an AJAX call. Therefore use either :php:`buildUriFromRoute()`
-or :php:`buildUriFromRoutePath()`. The UriBuilder then returns a PSR-7 conform Uri object
+or :php:`buildUriFromRoutePath()`. The :php:`UriBuilder` then returns a PSR-7 conform :php:`Uri` object
 that can be casted to string when needed. Furthermore does the UriBuilder automatically
 generate and apply the mentioned session token.
 
