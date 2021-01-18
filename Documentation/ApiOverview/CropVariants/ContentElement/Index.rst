@@ -1,6 +1,6 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.txt
 
-.. _cropvariants:
+.. _cropvariants_configuration_content_element:
 
 ===============================================
 Crop variants configuration per content element

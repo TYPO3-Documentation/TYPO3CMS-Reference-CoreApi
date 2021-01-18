@@ -384,8 +384,8 @@ How to Access FlexFroms From Fluid
 
 If you are using an Extbase controller, FlexForm settings can be read from within a Fluid template using
 :html:`{settings}`. Note that this only works for Flexform variables which are prefixed with `settings.`
- - variables which are not prefixed will have to be extracted from within a controller, data processor
- or other PHP context which allows arbitrary access to the Flexform values.
+- variables which are not prefixed will have to be extracted from within a controller, data processor
+or other PHP context which allows arbitrary access to the Flexform values.
 
 If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign single variables like that:
 
