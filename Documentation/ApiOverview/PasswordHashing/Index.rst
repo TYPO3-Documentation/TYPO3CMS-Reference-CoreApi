@@ -3,9 +3,9 @@
 
 .. _password-hashing:
 
-===============================
+================
 Password Hashing
-===============================
+================
 
 
 .. _password-hashing-introduction:
@@ -86,7 +86,7 @@ storing using the algorithm 'phpass' by default, v6.2 from 2014 made salted pass
 v8 added the improved hash algorithm 'PBKDF2' and used it by default.
 
 With TYPO3 core version 9, the password hashing has been refactored and modern hash algorithms such as
-Argon2i have been added. PHP improved in this area a lot and PHP 7.2 brings `Argon2i`_ by default, so this
+Argon2i have been added. PHP improved in this area a lot and PHP 7.2 brings `Argon2`_ by default, so this
 algorithm could be easily integrated as available core hash mechanism to the existing hash family.
 Argon2i is rather resilient against GPU and some other attacks, the default TYPO3 core configuration even raises
 the default PHP configuration to make attacks on stored Argon2i user password hashes even more unfeasible.

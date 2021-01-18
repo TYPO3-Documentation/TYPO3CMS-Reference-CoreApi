@@ -1,6 +1,6 @@
 .. include:: ../../Includes.txt
 
-.. highlight:: xml
+.. highlight:: html
 
 .. _fluid-introduction:
 
@@ -119,7 +119,7 @@ Templates can be used with or without a Layout.
 
 * *With a Layout* anything that's not inside a section is ignored. When a
   Layout is used,   the Layout determines which sections will be rendered
-  from the template through the use of   :xml:`<f:render>` in the Layout file.
+  from the template through the use of   :html:`<f:render>` in the Layout file.
 * *Without a Layout* anything that's not inside a section is rendered. You
   can still use sections of course, but you then must use f:render in the
   template file itself, outside of a section, to render a section.
@@ -213,7 +213,7 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
 
 :file:`Resources/Private/Templates/Page/ThreeColumn.html`:
 
-.. code-block:: xml
+.. code-block:: html
    :linenos:
 
    <f:layout name="Default" />

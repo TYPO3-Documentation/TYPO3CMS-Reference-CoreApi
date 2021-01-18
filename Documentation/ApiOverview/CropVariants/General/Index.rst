@@ -1,6 +1,6 @@
 .. include:: /Includes.txt
 
-.. _cropvariants:
+.. _cropvariants_configuration:
 
 =====================
 General Configuration

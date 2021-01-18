@@ -110,11 +110,10 @@ Extended composer.json
            "psr-4": {
                "Vendorname\\MyExtension\\": "Classes/"
            }
-       }
+       },
        "require-dev": {
           "nimut/testing-framework": "^4.2 || ^5.1"
-       },
-
+       }
    }
 
 * see `composer.json schema <https://getcomposer.org/doc/04-schema.md>`__ for
@@ -208,7 +207,7 @@ the same thing:
       "typo3/cms": {
          "extension-key": "my_extension"
       }
-   },
+   }
 
 replace
 -------
@@ -225,7 +224,7 @@ Composer.
 
    "replace": {
       "typo3-ter/my-extension": "self.version"
-   },
+   }
 
 
 As all extensions available in the TER can be installed

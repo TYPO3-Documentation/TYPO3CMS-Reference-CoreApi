@@ -371,7 +371,8 @@ With basic testing in place we now want automatic execution of tests whenever so
 people create pull requests for our extension, we want to make sure our carefully crafted test setup actually
 work. We'll use the continuous integration service of Github Actions to take care of
 that. It's free for open source projects.
-In order to tell the CI what to do, create a new workflow file in `.github/workflows/ci.yml <https://github.com/lolli42/enetcache/blob/master/.github/workflows/ci.yml>`_
+In order to tell the CI what to do, create a new workflow file in
+`.github/workflows/ci.yml <https://github.com/lolli42/enetcache/blob/master/.github/workflows/ci.yml>`__
 
 .. code-block:: yaml
 

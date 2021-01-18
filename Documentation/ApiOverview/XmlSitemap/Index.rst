@@ -178,7 +178,7 @@ The loc element, is the URL of the page that the search engine has to crawl. The
 date of the last update of the specific item. This value is a UNIX-timestamp.
 
 
-.. _sitemap-xslFile::
+.. _sitemap-xslFile:
 
 Path to sitemap xslFile
 =======================

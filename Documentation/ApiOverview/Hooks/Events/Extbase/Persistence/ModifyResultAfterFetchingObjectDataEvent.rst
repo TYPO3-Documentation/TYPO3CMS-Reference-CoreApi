@@ -14,9 +14,6 @@ API
 .. |nbsp| unicode:: 0xA0
    :trim:
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
 .. rst-class:: dl-parameters
 
 getQuery()

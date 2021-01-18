@@ -28,7 +28,7 @@ Modal Settings
 
 ========= =============== ============ ==============================================================================================================
 Name      DataType        Mandatory    Description
-========= =============== ============ =====================================================================--------=================================
+========= =============== ============ ==============================================================================================================
 title     string          Yes          The title displayed in the modal
 content   string|jQuery   Yes          The content displayed in the modal
 severity  int                          Represents the severity of a modal. Please see :code:`TYPO3.Severity`. Default is :code:`TYPO3.Severity.info`.

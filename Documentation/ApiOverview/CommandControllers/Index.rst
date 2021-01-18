@@ -180,7 +180,6 @@ This argument can be retrieved with :php:`$input->getArgument()`, the options wi
       }
 
 
-.. _symfony-console-commands-scheduler:
 .. _deactivating-the-command-in-scheduler:
 .. _schedulable:
 

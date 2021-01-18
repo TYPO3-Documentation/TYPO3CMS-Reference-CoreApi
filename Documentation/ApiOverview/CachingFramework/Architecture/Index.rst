@@ -19,10 +19,10 @@ A single cache consists of any number of cache entries.
 
 A single cache entry is defined by these fields:
 
-- **identifier**: A string as unique identifier within this cache. Used to store and retrieve entries.
-- **data**: The data to be cached.
-- **lifetime**: A lifetime in seconds of this cache entry. An entry can not be retrieved from cache if lifetime expired.
-- **tags**: Additional tags (an array of strings) assigned to the entry. Used to remove specific cache entries.
+-  **identifier**: A string as unique identifier within this cache. Used to store and retrieve entries.
+-  **data**: The data to be cached.
+-  **lifetime**: A lifetime in seconds of this cache entry. An entry can not be retrieved from cache if lifetime expired.
+-  **tags**: Additional tags (an array of strings) assigned to the entry. Used to remove specific cache entries.
 
 .. tip::
 
@@ -45,10 +45,10 @@ The calculated content depends on the page on which it is inserted and if a user
 So, the plugin creates at maximum four different content outputs,
 which can be cached in four different cache entries:
 
-- page 1, no user logged in
-- page 1, a user is logged in
-- page 2, no user logged in
-- page 2, a user is logged in
+-  page 1, no user logged in
+-  page 1, a user is logged in
+-  page 2, no user logged in
+-  page 2, a user is logged in
 
 To differentiate all entries from each other, the identifier is built from the page ID
 where the plugin is located, combined with the information whether a user is logged in.
@@ -90,8 +90,8 @@ on the next frontend call.
 If - for example - the plugin uses news number one and two on one page,
 and news one on another page, the related cache entries should be tagged with these tags:
 
-- page 1, tags news_1, news_2
-- page 2, tag news_1
+-  page 1, tags news_1, news_2
+-  page 2, tag news_1
 
 If entry 2 is changed, a simple backend logic (probably a hook in :ref:`DataHandler <using-tcemain>`) could be created,
 which drops all cache entries tagged with :code:`news_2`. In this case the first entry would be
@@ -137,81 +137,81 @@ corresponding to each group.
 
 The following caches exist in the TYPO3 CMS Core:
 
-- `core`
+-  `core`
 
-  - Core cache for compiled php code. It should **not** be used by extensions.
-  - Uses **PhpFrontend** with the **SimpleFileBackend** for maximum performance.
-  - Stores core internal compiled PHP code like concatenated :file:`ext_tables.php` and :file:`ext_localconf.php`
-    files, autoloader and sprite configuration PHP files.
-  - This cache is instantiated very early during bootstrap and **can not** be re configured
-    by instance specific :file:`LocalConfiguration.php` or similar.
-  - Cache entries are located in directory :file:`typo3temp/var/cache/code/core` or :file:`var/cache/code/core` (for composer-based installations). The full directory and any file
-    in this directory can be safely removed and will be re-created upon next request. This is especially useful during
-    development
-  - **group**: system
+  -  Core cache for compiled php code. It should **not** be used by extensions.
+  -  Uses **PhpFrontend** with the **SimpleFileBackend** for maximum performance.
+  -  Stores core internal compiled PHP code like concatenated :file:`ext_tables.php` and :file:`ext_localconf.php`
+     files, autoloader and sprite configuration PHP files.
+  -  This cache is instantiated very early during bootstrap and **can not** be re configured
+     by instance specific :file:`LocalConfiguration.php` or similar.
+  -  Cache entries are located in directory :file:`typo3temp/var/cache/code/core` or :file:`var/cache/code/core` (for composer-based installations). The full directory and any file
+     in this directory can be safely removed and will be re-created upon next request. This is especially useful during
+     development
+  -  **group**: system
 
-- `hash`
+-  `hash`
 
-  - Stores several key-value based cache entries, mostly used during frontend rendering.
-  - **groups**: all, pages
+  -  Stores several key-value based cache entries, mostly used during frontend rendering.
+  -  **groups**: all, pages
 
-- `pages`
+-  `pages`
 
-  - The frontend page cache. Stores full frontend pages.
-  - Content is compressed by default to reduce database memory and storage overhead.
-  - **groups**: all, pages
+  -  The frontend page cache. Stores full frontend pages.
+  -  Content is compressed by default to reduce database memory and storage overhead.
+  -  **groups**: all, pages
 
-- `pagesection`
+-  `pagesection`
 
-  - Used to store "parts of a page", for example used to store Typoscript snippets and
-    compiled frontend templates.
-  - Content is compressed by default to reduce database memory and storage overhead.
-  - **groups**: all, pages
+  -  Used to store "parts of a page", for example used to store Typoscript snippets and
+     compiled frontend templates.
+  -  Content is compressed by default to reduce database memory and storage overhead.
+  -  **groups**: all, pages
 
-- `runtime`
+-  `runtime`
 
-  - Runtime cache to store data specific for current request.
-  - Used by several core parts during rendering to re-use already calculated data.
-  - Valid for one request only.
-  - Can be re-used by extensions that have similar caching needs.
+  -  Runtime cache to store data specific for current request.
+  -  Used by several core parts during rendering to re-use already calculated data.
+  -  Valid for one request only.
+  -  Can be re-used by extensions that have similar caching needs.
 
-- `rootline`
+-  `rootline`
 
-  - Cache for rootline calculations.
-  - Quick and simple cache dedicated for core usage, Should **not** be re-used by extensions.
-  - **groups**: all, pages
+  -  Cache for rootline calculations.
+  -  Quick and simple cache dedicated for core usage, Should **not** be re-used by extensions.
+  -  **groups**: all, pages
 
-- `imagesizes`
+-  `imagesizes`
 
-   - Cache for imagesizes.
-   - Should _only_ be cleared manually, if you know what you are doing.
-   - **groups**: lowlevel
+   -  Cache for imagesizes.
+   -  Should _only_ be cleared manually, if you know what you are doing.
+   -  **groups**: lowlevel
 
-- `assets`
+-  `assets`
 
-   - Cache for assets.
-   - Examples: Backend Icons, RTE or RequireJS Configuration
-   **groups**: system
+   -  Cache for assets.
+   -  Examples: Backend Icons, RTE or RequireJS Configuration
+   -  **groups**: system
 
-- `l10n`
+-  `l10n`
 
-  - Cache for the localized labels.
-  - **groups**: system
+  -  Cache for the localized labels.
+  -  **groups**: system
 
-- `fluid_template`
+-  `fluid_template`
 
-   - Cache for fluid templates.
-   - **groups**: system
+   -  Cache for fluid templates.
+   -  **groups**: system
 
-- extbase
+-  extbase
 
-  - Contains detailed information about a class' member variables and methods.
-  - **group**: system
+  -  Contains detailed information about a class' member variables and methods.
+  -  **group**: system
 
-- dashboard_rss
+-  dashboard_rss
 
-  - Contains the contents of RSS-Feeds retrieved by RSS widgets on the dashboard.
-  - This cache can be used by extension authors for their own RSS widgets.
+  -  Contains the contents of RSS-Feeds retrieved by RSS widgets on the dashboard.
+  -  This cache can be used by extension authors for their own RSS widgets.
 
 
 .. tip::
@@ -242,11 +242,11 @@ Cache API
 
 The caching framework architecture is based on the following classes:
 
-- **\\TYPO3\\CMS\\Core\\Cache\\Frontend\\FrontendInterface**: Main interface to handle cache entries of a specific cache.
-  Different frontends and further interfaces exist to handle different data types.
-- **\\TYPO3\\CMS\\Core\\Cache\\Backend\\BackendInterface**: Main interface that every valid storage backend must implement.
-  Several backends and further interfaces exist to specify specific backend capabilities. Some frontends require backends
-  to implement additional interfaces.
+-  **\\TYPO3\\CMS\\Core\\Cache\\Frontend\\FrontendInterface**: Main interface to handle cache entries of a specific cache.
+   Different frontends and further interfaces exist to handle different data types.
+-  **\\TYPO3\\CMS\\Core\\Cache\\Backend\\BackendInterface**: Main interface that every valid storage backend must implement.
+   Several backends and further interfaces exist to specify specific backend capabilities. Some frontends require backends
+   to implement additional interfaces.
 
 .. note::
 
