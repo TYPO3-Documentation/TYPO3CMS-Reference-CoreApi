@@ -124,7 +124,7 @@ to have an overview of these base values, it is worth taking a look into the fol
    blank character codes and error codes related to services.
 
 -  :php:`SystemEnvironmentBuilder::initializeEnvironment()` initializes the
-   Environment class that points to various parts of the TYPO3 installation like
+   :php:`Environment` class that points to various parts of the TYPO3 installation like
    the absolute path to the :file:`typo3` directory or the absolute
    path to the installation root.
 
