@@ -90,15 +90,9 @@ Whenever a call to TYPO3 CMS is made, the application goes through a
 bootstrapping process managed by a dedicated API. This process is also
 used in the frontend, but only the backend process is described here.
 
-
-Classes involved in the backend bootstrapping process are :php:`\TYPO3\CMS\Core\Core\Bootstrap`,
-:php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder` and :php:`TYPO3\CMS\Backend\Http\Application`.
-
 .. note::
    This chapter is outdated and should probably be merged with the "HTTP request library / Guzzle / PSR-7"
    chapter below. The chapter should include an overview of single bootstrap steps, PSR-15 and routing.
-
-Classes involved in the backend bootstrapping process are :php:`\TYPO3\CMS\Core\Core\Bootstrap` and :php:`TYPO3\CMS\Backend\Http\Application`.
 
 The following steps are performed during bootstrapping.
 
