@@ -66,7 +66,7 @@ the :php:`ext_localconf.php` scripts of installed extensions into account.
    This bootstrapping API is internal and may change at any time in the near future
    even in minor updates. It is thus discouraged to use it in third party code.
    Use this class only if other extensibility possibilities such as
-   :ref:`Hooks <hooks>`, Signals or :ref:`XCLASS <xclasses>`
+   :ref:`Events <eventdispatcher>`, :ref:`Hooks <hooks>`, or :ref:`XCLASS <xclasses>`
    are not enough to reach your goals.
 
 Example of bootstrapping the TYPO3 Backend:
