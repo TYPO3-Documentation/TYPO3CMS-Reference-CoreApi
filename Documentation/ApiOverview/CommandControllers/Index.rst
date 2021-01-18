@@ -148,7 +148,8 @@ Add an optional argument and an optional option to your command::
                'brute-force',
                'b',
                InputOption::VALUE_OPTIONAL,
-               'Some optional option for your wizard(s). You can use --brute-force or -b when running command';
+               'Some optional option for your wizard(s). You can use --brute-force or -b when running command'
+           );
     }
 
 
