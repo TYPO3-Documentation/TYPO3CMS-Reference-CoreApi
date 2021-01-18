@@ -59,7 +59,7 @@ In addition to a simple Symfony command, this also sets up a CLI user.
 
 The install tool :php:`Application` only runs with a very limited bootstrap
 set up. The failsafe package manager does not take
-the :php:`ext_localconf.php` scripts of installed extensions into account.
+the :php:`ext_localconf.php` of installed extensions into account.
 
 .. warning::
 
