@@ -158,8 +158,8 @@ following:
 -  :php:`Bootstrap::createConfigurationManager()` creates the Configuration
    Manager which is then populated with the the main configuration ("TYPO3_CONF_VARS").
 
--  :php:`$builder->createDependencyInjectionContainer()` creates a dependency
-   injection container which is later returned by :php:`Bootstrap::init()`.
+-  :php:`$builder->createDependencyInjectionContainer()` creates a :ref:`dependency
+   injection <dependency-injection>` container which is later returned by :php:`Bootstrap::init()`.
 
 -  The caching framework and the package management are set up.
 
