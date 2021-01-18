@@ -23,8 +23,8 @@ Here's the complete code, taken from file
 
 .. code-block:: php
 
-	<?php
-	defined('TYPO3_MODE') or die();
+   <?php
+   defined('TYPO3_MODE') or die();
 
    // Add some fields to fe_users table to show TCA fields definitions
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users',
@@ -108,10 +108,10 @@ extension:
 
 .. code-block:: mysql
 
-	CREATE TABLE fe_users (
-		tx_examples_options int(11) DEFAULT '0' NOT NULL,
-		tx_examples_special varchar(255) DEFAULT '' NOT NULL
-	);
+   CREATE TABLE fe_users (
+      tx_examples_options int(11) DEFAULT '0' NOT NULL,
+      tx_examples_special varchar(255) DEFAULT '' NOT NULL
+   );
 
 
 .. note::
@@ -147,9 +147,9 @@ element types. First of all, we add its SQL definition in
 
 .. code-block:: mysql
 
-	CREATE TABLE tt_content (
-		tx_examples_noprint tinyint(4) DEFAULT '0' NOT NULL
-	);
+   CREATE TABLE tt_content (
+      tx_examples_noprint tinyint(4) DEFAULT '0' NOT NULL
+   );
 
 Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrides/tt_content.php`:
 
@@ -174,7 +174,7 @@ Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrid
          ],
       ]
    );
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
       'tt_content',
       'access',
       'tx_examples_noprint',
