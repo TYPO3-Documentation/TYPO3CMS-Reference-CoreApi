@@ -11,7 +11,7 @@ by class :php:`\TYPO3\CMS\Core\Core\Bootstrap`. This class is initialized by
 calling  :php:`Bootstrap::init()` and serves as an entry point for later calling
 an application class, depending on several context-dependant constraints.
 
-Each application class registers Request Handlers to the TYPO3 Bootstrap to
+Each application class registers request handlers to
 run a certain request type (e.g. eID or TSFE-logic, or AJAX requests in the Backend). Each application is handed
 over the class loader provided by Composer.
 
