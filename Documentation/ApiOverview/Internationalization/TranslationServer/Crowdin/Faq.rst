@@ -110,7 +110,7 @@ Can I upload Translated xlf Files?
 ----------------------------------
 Yes, you can! Switch to the settings area of your project (you need to have the proper permissions for that) and you can upload xlf files or even zip files containg the xlf files.
 
-.. figure:: ../../../../Images/I18n/Crowdin/crowdin-upload.png
+.. figure:: /Images/I18n/Crowdin/crowdin-upload.png
    :alt: Upload translations
    :width: 600px
 

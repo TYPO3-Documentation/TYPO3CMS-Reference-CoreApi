@@ -382,7 +382,7 @@ How to Access Flexforms From TypoScript
             }
         }
     }
-    
+
 The key `flexform` is followed by the field which holds the Flexform data (`pi_flexform`) and the name of the property whose content should be retrieved (`settings.categories`).
 
 .. seealso::
@@ -396,7 +396,9 @@ How to Access FlexFroms From Fluid
 ----------------------------------
 
 If you are using an Extbase controller, FlexForm settings can be read from within a Fluid template using
-:html:`{settings}`. See the note on naming restrictions in :ref:`How to Read Flexforms From an Extbase Controller Action <_read-flexforms-extbase>`.
+:html:`{settings}`. Note that this only works for Flexform variables which are prefixed with `settings.`
+- variables which are not prefixed will have to be extracted from within a controller, data processor
+or other PHP context which allows arbitrary access to the Flexform values.
 
 If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign single variables like that:
 
@@ -407,10 +409,10 @@ If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign si
      variables {
        categories = TEXT
        categories.data = flexform: pi_flexform:categories
-     } 
+     }
    }
 
-In order to have all FlexForm fields available, you can add a custom DataProcessor. 
+In order to have all FlexForm fields available, you can add a custom DataProcessor.
 This example would make your FlexForm data available as Fluid variable :html:`{flexform}`:
 
 .. code-block:: typoscript
@@ -425,22 +427,22 @@ This example would make your FlexForm data available as Fluid variable :html:`{f
 .. code-block:: php
 
    namespace Your\Ext\DataProcessing;
-   
+
    use TYPO3\CMS\Core\Service\FlexFormService;
    use TYPO3\CMS\Core\Utility\GeneralUtility;
    use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-   
+
    class FlexFormProcessor implements DataProcessorInterface
    {
        /**
         * @var FlexFormService
         */
        protected $flexFormService;
-       
+
        public function __construct(FlexFormService $flexFormService) {
            $this->flexFormService = $flexFormService;
        }
-       
+
        public function process(
            ContentObjectRenderer $cObj,
            array $contentObjectConfiguration,
@@ -451,7 +453,7 @@ This example would make your FlexForm data available as Fluid variable :html:`{f
            if (!is_string($originalValue)) {
                return $processedData;
            }
-   
+
            $flexformData = $this->flexFormService->convertFlexFormContentToArray($originalValue);
            $processedData['flexform'] = $flexformData;
            return $processedData;
