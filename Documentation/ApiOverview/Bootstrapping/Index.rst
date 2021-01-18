@@ -37,7 +37,7 @@ Tool.
 This class handles all incoming web requests for any regular backend call
 inside :file:`typo3/\*`.
 
-Its :php:`TYPO3\CMS\Backend\Http\RequestHandler` is used for all Backend
+Its :php:`TYPO3\CMS\Backend\Http\RequestHandler` is used for all backend
 requests, including AJAX routes. If a get/post parameter "route" is set, the
 Backend Routing is called by the :php:`RequestHandler` and
 searches for a matching route inside the Router. The corresponding controller
