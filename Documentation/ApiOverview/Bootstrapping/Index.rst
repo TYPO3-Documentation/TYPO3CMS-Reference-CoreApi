@@ -39,7 +39,7 @@ inside :file:`typo3/\*`.
 
 Its :php:`TYPO3\CMS\Backend\Http\RequestHandler` is used for all backend
 requests, including AJAX routes. If a get/post parameter "route" is set, the
-Backend Routing is called by the :php:`RequestHandler` and
+backend routing is called by the :php:`RequestHandler` and
 searches for a matching route inside the Router. The corresponding controller
 / action is called then which returns the response.
 
