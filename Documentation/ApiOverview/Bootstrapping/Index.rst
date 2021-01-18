@@ -161,7 +161,7 @@ following:
 -  :php:`$builder->createDependencyInjectionContainer()` creates a dependency
    injection container which is later returned by :php:`Bootstrap::init()`.
 
--  The Caching Framework and the Package Management are set up.
+-  The caching framework and the package management are set up.
 
 -  All configuration items from extensions are loaded
 
