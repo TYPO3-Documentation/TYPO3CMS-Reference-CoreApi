@@ -25,7 +25,7 @@ There are four types of applications provided by the TYPO3 Core:
 -----------------------------------------
 
 This class handles all incoming web requests coming through :file:`index.php`
-in the main directory. It handles all TSFE and eID requests.
+in the public web directory. It handles all regular page (TSFE) and eID requests.
 
 It checks if all configuration is set, otherwise redirects to the TYPO3 Install
 Tool.
