@@ -12,7 +12,7 @@ The LinkHandler API currently consists of 7 LinkHandler classes and the
 LinkHandlerInterface can be implemented to create custom LinkHandlers.
 
 Most LinkHandlers cannot receive additional configuration, they are marked as
-:php:`@internal` and contains neither hooks nor events. They are therefore
+:php:`@internal` and contain neither hooks nor events. They are therefore
 of interest to Core developers only.
 
 There are the following LinkHandlers:
