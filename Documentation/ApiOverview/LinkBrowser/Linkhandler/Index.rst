@@ -7,7 +7,7 @@
 The LinkHandler API
 ===================
 
-The LinkHandler API consists of currently 7 LinkHandler classes and the
+The LinkHandler API currently consists of 7 LinkHandler classes and the
 :php:`TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface`. The
 LinkHandlerInterface can be implemented to create custom LinkHandlers.
 
