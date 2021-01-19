@@ -57,7 +57,7 @@ In order to use the RecordLinkHandler it can be configured as following:
 
    .. important::
 
-      Do not change the identifier after links have been created  using the
+      Do not change the identifier after links have been created using the
       RecordLinkHandler. The identifier will be stored as part of the link in the
       database.
 
