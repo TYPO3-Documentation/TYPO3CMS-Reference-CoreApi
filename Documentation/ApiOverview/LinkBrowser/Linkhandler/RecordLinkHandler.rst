@@ -1,49 +1,47 @@
 .. include:: /Includes.rst.txt
 .. highlight:: typoscript
-.. index:: LinkHandlers
-.. _linkhandler:
+.. index:: LinkHandlers; RecordLinkHandler
+.. _recordlinkhandler:
 
-===================
-The LinkHandler API
-===================
+=====================
+The RecordLinkHandler
+=====================
 
-The LinkHandler API currently consists of 7 LinkHandler classes and the
-:php:`TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface`. The
-LinkHandlerInterface can be implemented to create custom LinkHandlers.
+.. versionadded:: 8.6
+    The RecordLinkHandler has been included in the Core with 8.6.
+    Before, it had only been available as the third party extension "linkhandler".
 
-Most LinkHandlers cannot receive additional configuration, they are marked as
-:php:`@internal` and contain neither hooks nor events. They are therefore
-of interest to Core developers only.
+The RecordLinkHandler enables editors to link to single records, for example a
+single news record.
 
-Current LinkHandlers:
+It is implemented in class :php:`\TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler`
+of the system extension :file:`recordlist`. The class is marked as
+:php:`@internal` and contains neither hooks nor events.
 
-* :ref:`pagelinkhandler`: for linking pages and content
-* :ref:`recordlinkhandler`: for linking any kind of record
-* UrlLinkHandler: for linking external urls
-* FileLinkHandler: for linking files in the :ref:`fal`
-* FolderLinkHandler: for linking to directories
-* MailLinkHandler: for linking mail
-* TelephoneLinkHandler: for linking phone numbers
+In order to use the RecordLinkHandler it can be configured as following:
 
-.. note::
+.. rst-class:: bignums-xxl
 
-   In the system extension :file:`core` there are also classes ending on
-   "LinkHandler". However those implement the :php:`interface LinkHandlingInterface`
-   and are part of the LinkHandling API, not the LinkHandler API.
+#. Page TSconfig is used to create a new tab in the LinkBrowser to
+   be able to select records.
 
-The following LinkHandlers are of interest:
+   .. code-block:: typoscript
 
-.. toctree::
-   :titlesonly:
+      TCEMAIN.linkHandler.anIdentifier {
+          handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+          label = LLL:EXT:extension/Resources/Private/Language/locallang.xlf:link.customTab
+          configuration {
+              table = tx_example_domain_model_item
+          }
+          scanAfter = page
+      }
 
-   PageLinkHandler
-   RecordLinkHandler
-   CustomLinkHandlers
-   
+   You can position your own handlers in order as defined in the :ref:`linkbrowser-api`.
+
    The links are now stored in the database with the syntax
    `<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
 
-#. TypoScript is used to generate the actual link in the frontend.
+#. TypoScript configures how the link will be displayed in the frontend.
 
    .. code-block:: typoscript
 
@@ -59,19 +57,20 @@ The following LinkHandlers are of interest:
 
    .. important::
 
-      Do not change the identifier after links have been created  using the LinkHandler. The identifier will be
-      stored as part of the link in the database.
+      Do not change the identifier after links have been created using the
+      RecordLinkHandler. The identifier will be stored as part of the link in the
+      database.
 
 
 .. index::
-   pair: LinkHandler; Page TSconfig
-   TCEMAIN; linkHandler
+   pair: RecordLinkHandler; Page TSconfig
+   TCEMAIN; RecordLinkHandler
 .. _linkhandler-pagetsconfig:
 
-LinkHandler page TSconfig options
-=================================
+RecordLinkHandler page TSconfig options
+=======================================
 
-The minimal PageTSconfig Configuration is::
+The minimal page TSconfig configuration is::
 
    TCEMAIN.linkHandler.anIdentifier {
        handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
@@ -94,16 +93,18 @@ The following optional configuration is available:
 
 Furthermore the following options are available from the LinkBrowser Api:
 
-:ts:`scanAfter = page` or :ts:`scanBefore = page`
-   define the order in which handlers are queried when determining the responsible tab for an existing link
+:ts:`configuration.scanAfter = page` or :ts:`configuration.scanBefore = page`
+   Define the order in which handlers are queried when determining the responsible tab for an existing link
 
-:ts:`displayBefore = page` or :ts:`displayAfter = page`
-   define the order how the various tabs are displayed in the link browser.
+:ts:`configuration.displayBefore = page` or :ts:`configuration.displayAfter = page`
+   Define the order of how the various tabs are displayed in the link browser.
+
 
 Example: news records from one storage pid
 ------------------------------------------
 
-The following configuration hides the page tree and shows news records only from the defined storage page::
+The following configuration hides the page tree and shows news records only
+from the defined storage page::
 
    TCEMAIN.linkHandler.news {
        handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
@@ -116,7 +117,9 @@ The following configuration hides the page tree and shows news records only from
        displayAfter = mail
    }
 
-It is possible to have another configuration using another storagePid which also contains news records.
+It is possible to have another configuration using another storagePid which also
+contains news records.
+
 This configuration shows a reduced page tree starting at page with uid 42::
 
    TCEMAIN.linkHandler.bookreports {
@@ -129,26 +132,6 @@ This configuration shows a reduced page tree starting at page with uid 42::
            hidePageTree = 0
        }
    }
-
-The PageTSconfig of the LinkHandler is being used in sysext `recordlist`
-in class :php:`\TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler`
-which does not contain Hooks or Slots.
-
-Enable page id field
---------------------
-
-It is possible to enable an additional field in the link browser to enter the uid of a page.
-The uid will be used directly instead of selecting it from the page tree.
-
-This only works for the :php:`PageLinkHandler`.
-It will **not** work for custom added LinkHandler configurations.
-
-.. figure:: Images/LinkBrowserTSConfigExamplepageIdSelector.png
-   :alt: The link browser field for entering a page uid.
-
-Enable the field with the following User-/PageTSConfig::
-
-   TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1
 
 
 .. index::
@@ -175,7 +158,7 @@ The TypoScript Configuration of the LinkHandler is being used in sysext `fronten
 in class :php:`TYPO3\CMS\Frontend\Typolink\DatabaseRecordLinkBuilder`.
 
 Example: news records displayed on fixed detail page
-----------------------------------------------------
+====================================================
 
 The following displays the link to the news on a detail page::
 
