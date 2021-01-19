@@ -15,7 +15,7 @@ Most LinkHandlers cannot receive additional configuration, they are marked as
 :php:`@internal` and contain neither hooks nor events. They are therefore
 of interest to Core developers only.
 
-There are the following LinkHandlers:
+Current LinkHandlers:
 
 * :ref:`pagelinkhandler`: for linking pages and content
 * :ref:`recordlinkhandler`: for linking any kind of record
