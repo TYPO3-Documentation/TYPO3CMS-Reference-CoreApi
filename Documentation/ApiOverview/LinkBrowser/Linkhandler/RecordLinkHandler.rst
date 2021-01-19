@@ -41,7 +41,7 @@ In order to use the RecordLinkHandler it can be configured as following:
    The links are now stored in the database with the syntax
    `<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
 
-#. TypoScript configures how the link will be displayed int the frontend.
+#. TypoScript configures how the link will be displayed in the frontend.
 
    .. code-block:: typoscript
 
