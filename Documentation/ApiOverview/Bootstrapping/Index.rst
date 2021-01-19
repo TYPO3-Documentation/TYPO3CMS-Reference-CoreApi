@@ -51,7 +51,7 @@ redirects to the TYPO3 Install Tool.
 -----------------------------------------------
 
 This class is the entry point for the TYPO3 command line for console commands.
-In addition to a simple Symfony command, this also sets up a CLI user.
+In addition to registering all available commands, this also sets up a CLI user.
 
 
 \\TYPO3\\CMS\\Install\\Http\\Application
