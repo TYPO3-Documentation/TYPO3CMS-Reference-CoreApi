@@ -22,7 +22,7 @@ Current LinkHandlers:
 * UrlLinkHandler: for linking external urls
 * FileLinkHandler: for linking files in the :ref:`fal`
 * FolderLinkHandler: for linking to directories
-* MailLinkHandler: for linking mails
+* MailLinkHandler: for linking mail
 * TelephoneLinkHandler: for linking phone numbers
 
 .. note::
