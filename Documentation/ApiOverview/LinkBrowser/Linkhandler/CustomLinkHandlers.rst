@@ -198,5 +198,5 @@ This would create a link looking like this:
 
    <a href="github:123">Example Link</a>
 
-Which could for example be interpreted by a custom protocol handler on a
-company computers operating system.
+Which could, for example, be interpreted by a custom protocol handler on a
+company computer's operating system.
