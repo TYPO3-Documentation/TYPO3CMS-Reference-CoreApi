@@ -74,8 +74,8 @@ Adding a file
 This example adds a new file in the root folder of the default
 storage::
 
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
-   $storage = $storageRepository->getDefaultStorage();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
+   $storage = $resourceFactory->getDefaultStorage();
    $newFile = $storage->addFile(
          '/tmp/temporary_file_name.ext',
          $storage->getRootLevelFolder(),
