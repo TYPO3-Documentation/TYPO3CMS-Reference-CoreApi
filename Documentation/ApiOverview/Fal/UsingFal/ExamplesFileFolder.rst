@@ -54,8 +54,8 @@ Copying a file
    $someFileIdentifier = 'templates/images/banner.jpg';
    $someFolderIdentifier = 'website/images/';
 
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
-   $storage = $storageRepository->getStorageObject($storageUid);
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
+   $storage = $resourceFactory->getStorageObject($storageUid);
 
    // $file returns a TYPO3\CMS\Core\Resource\File object
    $file = $storage->getFile($someFileIdentifier);
