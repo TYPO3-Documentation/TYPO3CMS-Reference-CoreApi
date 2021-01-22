@@ -87,6 +87,7 @@ Parameters:
 
    * ``access``: can contain several, separated by comma
 
+     * ``systemMaintainer``: the module is accessible to system maintainers only.
      * ``admin``: the module is accessible to admins only
      * ``user``: the module can be made accessible per user
      * ``group``: the module can be made accessible per usergroup
