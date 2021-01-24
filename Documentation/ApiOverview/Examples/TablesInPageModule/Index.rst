@@ -6,6 +6,9 @@
 Support for custom tables in the Page module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. deprecated:: 8.4
+   Records in the page module have been deprecated with 8.4 and removed with 9.
+
 In the Web > Page module you can have listings of other records than
 Content Elements. Any table can be displayed by adding to the array
 :code:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']`.
