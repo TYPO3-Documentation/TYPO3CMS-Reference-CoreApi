@@ -116,20 +116,69 @@ Database Data
 
 The database data is delivered as TYPO3 CMS export :file:`data.xml`.
 Generate this file by exporting your whole installation
-from the tree root with the import/export module.
+from the root of the page tree with the export module.
+
+.. rst-class:: bignums-xxl
+
+#. Page tree
+
+   Open the export module by right-clicking on the root of the page tree and
+   selecting :guilabel:`More Options > Export`.
+
+#. Export module: Configuration
+
+   Select the tables to be included in the export and click the
+   :guilabel:`Update` button. Make sure that the table tx_impexp_presets is
+   included, which contains the saved export configurations for repeated use
+   (see next step). Fine-tune the export configuration by evaluating the
+   list of records at the bottom of the page under "Inside pagetree":
+   This is a pre-calculation of the records to be included in the export.
+
+   Do not forget to click :guilabel:`Update` before proceeding to the next tab.
+
+#. Export module: File & Preset
+
+   To reuse your export configuration during the running
+   distribution development, you should now save it as a preset. Find a
+   descriptive title and click the :guilabel:`Save` button.
+
+   Currently, after saving the export configuration, you jump to the first tab,
+   so navigate back to the :guilabel:`File & Preset` tab.
+
+   To finish the export, select the file format :guilabel:`XML` and click on
+   the :guilabel:`Download export` button.
+
+.. image:: ../../Images/DistributionDatabaseExport.png
+   :alt: Database export
+   :class: with-shadow
+
+The file has to be named :file:`data.xml` (or :file:`data.t3d`, where the .t3d
+format is harder to maintain). The dump file must be located in the
+:file:`Initialisation` folder.
 
 .. warning::
 
-    Do NOT include backend users in the dump! If you do, you end up
+    Do *not* include backend users in the dump! If you do, you end up
     having your user on other systems who loaded your distribution. Give
     the export a special check in this area. Having your backend user
     in the dump is most likely a security vulnerability of your distribution
     if that distribution is uploaded to the public.
 
+.. seealso::
 
-The file has to be named :file:`data.xml` (or :file:`data.t3d`, where the .t3d
-format is harder to maintain). The dump file must be located in the
-:file:`Initialisation` folder.
+   The introduction distribution comes with a maintained export preset within its
+   `database export <https://github.com/FriendsOfTYPO3/introduction/blob/master/Initialisation/data.xml>`_
+   that could be useful as kick start. Just import that preset into your
+   installation and adapt to the needs of your distribution. The import works
+   similar to the export.
+
+   The export preset is configured as:
+
+   * Export database data as :file:`data.xml`
+   * Export only referenced FAL file relations into :file:`data.xml.files` directory,
+     do not just export *all* files from fileadmin
+   * Do not export be_users (!)
+   * Do not export some other tables like sys_log and friends
 
 It is also possible to have referenced files (images / media) in an own folder
 called :file:`Initialisation/data.xml.files/` - a good export preset should
@@ -144,21 +193,6 @@ prepare that.
 
     Another core issue prevents loading :file:`data.xml` if it is bigger than
     10MB. In this case the only option left is going with :file:`data.t3d`
-
-
-Exporting the correct data can be a bit tricky to get right. It is a good
-idea to create an "Export preset" within the Export module for that and deliver
-an sql dump of that preset within the distribution. The introduction
-distribution comes with a maintained
-`sql dump <https://github.com/FriendsOfTYPO3/introduction/blob/master/Resources/Private/ImportExportPreset.sql>`_
-that could be useful as kick start. Just load that row into table :php:`tx_impexp_presets` and adapt
-to the needs of your distribution. The ext:introduction preset is configured as:
-
-* Export db data as :file:`data.xml`
-* Export only referenced FAL file relations into :file:`data.xml.files` directory,
-  do not just export *all* files from fileadmin
-* Do not export be_users (!)
-* Do not export some other tables like sys_log and friends
 
 
 .. _distribution-kickstart-configuration:
