@@ -1,4 +1,7 @@
 .. include:: /Includes.rst.txt
+.. index::
+   TypoScript ViewHelper
+   Fluid; f:cObject
 
 ======================================================
 Using TypoScript for rendering: The cObject ViewHelper
