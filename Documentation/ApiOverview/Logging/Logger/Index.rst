@@ -46,10 +46,44 @@ accordingly.
 Using :code:`__CLASS__` as name for the logger is recommended to enable logging configuration
 based on the class hierarchy.
 
+.. _logging-logger-log-level:
+
+
+Log level
+=========
+
+ Log levels according to RFC 3164, starting from lowest level.
+
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::DEBUG`
+            Debug: Debug information
+            Example: Detailed status information during the development of new PHP code.
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::INFO`
+            Informational: informational messages.
+            Example: User logs in, SQL logs.
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::NOTICE`
+            Notice: Normal but significant condition.
+            Example: Things you should have a look at, nothing to worry about though.
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::WARNING`
+            Warning: Warning conditions
+            Example: Use of deprecated APIs. Undesirable events that are not necessarily wrong.
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::ERROR`
+            Error: Error conditions. 
+            Example: Runtime error
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::CRITICAL`
+            Critical: Critical conditions. 
+            Example: unexpected exception.
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::ALERT`
+            Alert: Action must be taken immediately. 
+            Example: Entire website down, database unavailable.
+         - :code:`\TYPO3\CMS\Core\Log\LogLevel::EMERGENCY`:
+            Emergency: System is unusable. You will likely not be able to reach the system.
+            You better have a system admin reachable when this happens.
+            
+
 
 .. _logging-logger-log:
 
-Log() Method
+Log() method
 ============
 
 :code:`\TYPO3\CMS\Core\Log\Logger` provides a central point for submitting log messages,
@@ -73,16 +107,7 @@ which takes three parameters:
    :Type: Type
          integer
    :Description:
-         One of either:
-
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::EMERGENCY`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::ALERT`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::CRITICAL`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::ERROR`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::WARNING`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::NOTICE`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::INFO`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::DEBUG`
+         See above chapter.
 
  - :Parameter: $message
    :Type: Type
