@@ -49,7 +49,7 @@ based on the class hierarchy.
 .. _logging-logger-log-level:
 
 
-Log Level
+Log level
 =========
 
  Log levels according to RFC 3164, starting from lowest level.
@@ -83,7 +83,7 @@ Log Level
 
 .. _logging-logger-log:
 
-Log() Method
+Log() method
 ============
 
 :code:`\TYPO3\CMS\Core\Log\Logger` provides a central point for submitting log messages,
