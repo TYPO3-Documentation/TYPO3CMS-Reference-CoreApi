@@ -52,33 +52,88 @@ based on the class hierarchy.
 Log level
 =========
 
- Log levels according to RFC 3164, starting from lowest level.
+Log levels according to RFC 3164, starting from the lowest level.
 
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::DEBUG`
-            Debug: Debug information
-            Example: Detailed status information during the development of new PHP code.
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::INFO`
-            Informational: informational messages.
-            Example: User logs in, SQL logs.
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::NOTICE`
-            Notice: Normal but significant condition.
-            Example: Things you should have a look at, nothing to worry about though.
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::WARNING`
-            Warning: Warning conditions
-            Example: Use of deprecated APIs. Undesirable events that are not necessarily wrong.
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::ERROR`
-            Error: Error conditions. 
-            Example: Runtime error
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::CRITICAL`
-            Critical: Critical conditions. 
-            Example: unexpected exception.
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::ALERT`
-            Alert: Action must be taken immediately. 
-            Example: Entire website down, database unavailable.
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::EMERGENCY`:
-            Emergency: System is unusable. You will likely not be able to reach the system.
-            You better have a system admin reachable when this happens.
-            
+.. _label-Debug:
+.. rst-class:: dl-parameters
+
+Debug
+   :sep:`|` debug information
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::DEBUG`
+   :sep:`|`
+
+   Detailed status information during the development of new PHP code.
+
+.. _label-Informational:
+.. rst-class:: dl-parameters
+
+Informational
+   :sep:`|` informational messages
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::INFO`
+   :sep:`|`
+
+   User logs in, SQL logs.
+   
+.. _label-notice:
+.. rst-class:: dl-parameters
+
+Notice
+   :sep:`|` significant condition
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::NOTICE`
+   :sep:`|`
+
+   Things you should have a look at, nothing to worry about though.
+   
+.. _label-warning:
+.. rst-class:: dl-parameters
+
+Warning
+   :sep:`|` warning condition
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::WARNING`
+   :sep:`|`
+
+   Use of deprecated APIs. Undesirable events that are not necessarily wrong.
+   
+.. _label-error:
+.. rst-class:: dl-parameters
+
+Error
+   :sep:`|` error condition
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::ERROR`
+   :sep:`|`
+
+   Runtime error. Some PHP coding error has happened. A white screen is shown.
+
+.. _label-critical:
+.. rst-class:: dl-parameters
+
+Critical
+   :sep:`|` critical condition
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::CRITICAL`
+   :sep:`|`
+
+   Unexpected exception.  An important file has not been found, data is corrupt or outdated.
+
+.. _label-alert:
+.. rst-class:: dl-parameters
+
+Alert
+   :sep:`|` blocking condition
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::ALERT`
+   :sep:`|`
+
+   Action must be taken immediately. Entire website down, database unavailable.
+
+.. _label-emergency:
+.. rst-class:: dl-parameters
+
+Emergency
+   :sep:`|` nothing works
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::EMERGENCY`
+   :sep:`|`
+
+   The system is unusable. You will likely not be able to reach the system.
+   You better have a system admin reachable when this happens.
 
 
 .. _logging-logger-log:
@@ -107,7 +162,7 @@ which takes three parameters:
    :Type: Type
          integer
    :Description:
-         See above chapter.
+         See the chapter above.
 
  - :Parameter: $message
    :Type: Type
