@@ -494,7 +494,7 @@ Further remarks:
 
 * :php:`->leftJoin()` creates a `LEFT JOIN` query, this is identical to a `LEFT OUTER JOIN` query.
 
-* :php:`->rightJoin()` creates a `RIGHT JOIN` query, this is identical to a `RIGT OUTER JOIN` query.
+* :php:`->rightJoin()` creates a `RIGHT JOIN` query, this is identical to a `RIGHT OUTER JOIN` query.
 
 * Calls on join() methods are only considered for :php:`->select()` and :php:`->count()` type queries. :php:`->delete()`, :php:`->insert()`
   and :php:`update()` do not support joins, those query parts are ignored and do not end up in the final statement.
