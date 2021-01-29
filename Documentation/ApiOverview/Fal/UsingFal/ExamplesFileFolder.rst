@@ -17,12 +17,12 @@ with file, folder and FileReference objects.
 Getting a file
 ==============
 
-A file can be retrieved using its uid:
+A file can be retrieved using its uid::
 
    $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $file = $resourceFactory->getFileObject(4);
 
-or its combined identifier:
+or its combined identifier::
 
    $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $file = $resourceFactory->getFileObjectFromCombinedIdentifier('1:/foo.txt');
@@ -52,6 +52,8 @@ In case the file is not found, a search for another storage best fitting to this
 
 Copying a file
 ==============
+
+.. code-block:: php
 
    $storageUid = 17;
    $someFileIdentifier = 'templates/images/banner.jpg';
@@ -123,7 +125,7 @@ processes (:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`).
 Assuming you have the "uid" of both the File and whatever other item
 you want to create a relation to, the following code will create
 the "sys\_file\_reference" entry and the relation to the other item
-(in this case a "tt\_content" record).
+(in this case a "tt\_content" record)::
 
      $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
      $fileObject = $resourceFactory->getFileObject((int)$file);
@@ -165,7 +167,7 @@ Here, the :php:`'fieldname'` :php:`'assets'` is used instead of
 :php:`image`. Content elements of ctype 'textmedia' use the field 'assets'.
 
 For another table than "tt\_content", you need to define
-the "pid" explicitly when creating the relation:
+the "pid" explicitly when creating the relation::
 
    $data['tt_address'][$address['uid']] = [
        'pid' => $address['pid'],
@@ -197,7 +199,7 @@ Getting Referenced files
 
 This snippet shows how to retrieve FAL items that have been attached
 to some other element, in this case the "media" field of the "pages"
-table:
+table::
 
    $fileRepository = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
    $fileObjects = $fileRepository->findByRelation('pages', 'media', $uid);
@@ -214,7 +216,7 @@ Listing files in a folder
 
 These would be the shortest steps to get the list of files in a given
 folder: get the storage, get a folder object for some path in that
-storage (path relative to storage root), finally retrieve the files.
+storage (path relative to storage root), finally retrieve the files::
 
    $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
    $defaultStorage = $storageRepository->getDefaultStorage();
@@ -249,7 +251,7 @@ The PHP class responsible for handling the file dumping is the :php:`FileDumpCon
 may also use in your code.
 
 See the following example on how to create a URI using the :php:`FileDumpController` for
-a :sql:`sys_file` record with a fixed image size:
+a :sql:`sys_file` record with a fixed image size::
 
    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'f'];
    $queryParameterArray['f'] = $resourceObject->getUid();
@@ -260,7 +262,7 @@ a :sql:`sys_file` record with a fixed image size:
 
 
 In this example crop variant :php:`default` and an image size of 320:280 will be
-applied to a sys_file_reference record:
+applied to a sys_file_reference record::
 
    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'r'];
    $queryParameterArray['f'] = $resourceObject->getUid();
@@ -272,7 +274,7 @@ applied to a sys_file_reference record:
 
 
 This example shows how to create a URI to load an image of
-`sys_file_processedfile`:
+`sys_file_processedfile`::
 
    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'p'];
    $queryParameterArray['p'] = $resourceObject->getUid();
