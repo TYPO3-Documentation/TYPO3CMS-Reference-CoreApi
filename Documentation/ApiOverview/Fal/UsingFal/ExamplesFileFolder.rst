@@ -37,11 +37,20 @@ The syntax of argument 1 for getFileObjectFromCombinedIdentifier is
 
    [[storage uid]:]<file identifier>
 
-The storage uid is optional. If it is not specified, the default storage
-(virtual storage with uid=0) is used. In the case of a storage uid=0 the local filesystem is checked
-for the given file. If the file is found, then its local path will be used. If the file is not found,
-then the fileadmin on the public web path will be used.
-The file identifier is adapted accordingly to match the new storage's base path.
+The return value is
+
+.. code-block:: none
+
+   File|ProcessedFile|null
+
+The storage uid is optional. If it is not specified, the default storage 0 will be assumed for the beginning.
+The default storage is virtual with :php:`$uid === 0` in its class :php:`\TYPO3\CMS\Core\Resource\ResourceStorage`. In this case the local filesystem is checked for the given file. 
+The file identifier is the local path and filename relative to the TYPO3 fileadmin folder.
+Example: `/templates/stylesheets/fonts.css`, if the file `/server-path/mydomain/fileadmin/templates/stylesheets/fonts.css` exists on the file system.
+
+The file is found at the default storage, if it exists under the given local path below fileadmin. 
+Otherwise the file is not found at the default storage. In this case a search for another storage best fitting to this local path will be started. Afterwards the file identifier is adapted accordingly inside of TYPO3 to match the new storage's base path.
+
 
 .. _fal-using-fal-examples-file-folder-copy-file:
 
@@ -74,6 +83,8 @@ Adding a file
 This example adds a new file in the root folder of the default
 storage::
 
+.. code-block:: php
+
    $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
    $storage = $storageRepository->getDefaultStorage();
    $newFile = $storage->addFile(
@@ -81,6 +92,7 @@ storage::
          $storage->getRootLevelFolder(),
          'final_file_name.ext'
    );
+
 
 The default storage uses :file:`fileadmin` unless this was configured
 differently, as explained in :ref:`fal-concepts-storages-drivers`.
@@ -90,11 +102,14 @@ So, for this example, the resulting file path would typically be
 
 To store the file in a sub folder use :php:`$storage->getFolder()`::
 
+.. code-block:: php
+
    $newFile = $storage->addFile(
          '/tmp/temporary_file_name.ext',
          $storage->getFolder('some/nested/folder'),
          'final_file_name.ext'
    );
+
 
 In this example, the file path would likely be
 :file:`<document-root>/fileadmin/some/nested/folder/final_file_name.ext`
