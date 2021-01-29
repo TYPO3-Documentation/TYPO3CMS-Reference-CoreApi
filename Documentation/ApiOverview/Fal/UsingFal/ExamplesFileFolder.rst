@@ -19,14 +19,10 @@ Getting a file
 
 A file can be retrieved using its uid:
 
-.. code-block:: php
-
    $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $file = $resourceFactory->getFileObject(4);
 
 or its combined identifier:
-
-.. code-block:: php
 
    $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $file = $resourceFactory->getFileObjectFromCombinedIdentifier('1:/foo.txt');
@@ -57,8 +53,6 @@ In case the file is not found, a search for another storage best fitting to this
 Copying a file
 ==============
 
-.. code-block:: php
-
    $storageUid = 17;
    $someFileIdentifier = 'templates/images/banner.jpg';
    $someFolderIdentifier = 'website/images/';
@@ -83,8 +77,6 @@ Adding a file
 This example adds a new file in the root folder of the default
 storage::
 
-.. code-block:: php
-
    $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
    $storage = $storageRepository->getDefaultStorage();
    $newFile = $storage->addFile(
@@ -101,8 +93,6 @@ So, for this example, the resulting file path would typically be
 :file:`<document-root>/fileadmin/final_file_name.ext`
 
 To store the file in a sub folder use :php:`$storage->getFolder()`::
-
-.. code-block:: php
 
    $newFile = $storage->addFile(
          '/tmp/temporary_file_name.ext',
@@ -134,8 +124,6 @@ Assuming you have the "uid" of both the File and whatever other item
 you want to create a relation to, the following code will create
 the "sys\_file\_reference" entry and the relation to the other item
 (in this case a "tt\_content" record).
-
-.. code-block:: php
 
      $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
      $fileObject = $resourceFactory->getFileObject((int)$file);
@@ -179,8 +167,6 @@ Here, the :php:`'fieldname'` :php:`'assets'` is used instead of
 For another table than "tt\_content", you need to define
 the "pid" explicitly when creating the relation:
 
-.. code-block:: php
-
    $data['tt_address'][$address['uid']] = [
        'pid' => $address['pid'],
        'image' => 'NEW1234' // changed automatically
@@ -213,8 +199,6 @@ This snippet shows how to retrieve FAL items that have been attached
 to some other element, in this case the "media" field of the "pages"
 table:
 
-.. code-block:: php
-
    $fileRepository = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
    $fileObjects = $fileRepository->findByRelation('pages', 'media', $uid);
 
@@ -231,8 +215,6 @@ Listing files in a folder
 These would be the shortest steps to get the list of files in a given
 folder: get the storage, get a folder object for some path in that
 storage (path relative to storage root), finally retrieve the files.
-
-.. code-block:: php
 
    $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
    $defaultStorage = $storageRepository->getDefaultStorage();
@@ -269,8 +251,6 @@ may also use in your code.
 See the following example on how to create a URI using the :php:`FileDumpController` for
 a :sql:`sys_file` record with a fixed image size:
 
-.. code-block:: php
-
    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'f'];
    $queryParameterArray['f'] = $resourceObject->getUid();
    $queryParameterArray['s'] = '320c:280c';
@@ -281,8 +261,6 @@ a :sql:`sys_file` record with a fixed image size:
 
 In this example crop variant :php:`default` and an image size of 320:280 will be
 applied to a sys_file_reference record:
-
-.. code-block:: php
 
    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'r'];
    $queryParameterArray['f'] = $resourceObject->getUid();
@@ -295,8 +273,6 @@ applied to a sys_file_reference record:
 
 This example shows how to create a URI to load an image of
 `sys_file_processedfile`:
-
-.. code-block:: php
 
    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'p'];
    $queryParameterArray['p'] = $resourceObject->getUid();
