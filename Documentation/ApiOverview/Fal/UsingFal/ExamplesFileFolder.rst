@@ -49,7 +49,7 @@ The file identifier is the local path and filename relative to the TYPO3 :file:`
 Example: `/templates/stylesheets/fonts.css`, if the file `/absolute/path/to/fileadmin/templates/stylesheets/fonts.css` exists on the file system.
 
 The file can be accessed from the default storage, if it exists under the given local path in :file:`fileadmin/`.
-Otherwise the file is not found at the default storage. In this case a search for another storage best fitting to this local path will be started. Afterwards the file identifier is adapted accordingly inside of TYPO3 to match the new storage's base path.
+In case the file is not found, a search for another storage best fitting to this local path will be started. Afterwards the file identifier is adapted accordingly inside of TYPO3 to match the new storage's base path.
 
 
 .. _fal-using-fal-examples-file-folder-copy-file:
