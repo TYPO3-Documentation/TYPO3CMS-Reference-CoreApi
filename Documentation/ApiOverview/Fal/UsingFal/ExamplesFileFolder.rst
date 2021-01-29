@@ -48,7 +48,7 @@ The default storage is virtual with :php:`$uid === 0` in its class :php:`\TYPO3\
 The file identifier is the local path and filename relative to the TYPO3 :file:`fileadmin/` folder.
 Example: `/templates/stylesheets/fonts.css`, if the file `/server-path/mydomain/fileadmin/templates/stylesheets/fonts.css` exists on the file system.
 
-The file is found at the default storage, if it exists under the given local path below fileadmin. 
+The file can be accessed from the default storage, if it exists under the given local path in :file:`fileadmin/`.
 Otherwise the file is not found at the default storage. In this case a search for another storage best fitting to this local path will be started. Afterwards the file identifier is adapted accordingly inside of TYPO3 to match the new storage's base path.
 
 
