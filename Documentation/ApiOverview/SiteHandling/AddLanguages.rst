@@ -158,6 +158,7 @@ locale
 
 :aspect:`Description`
     The locale to use for this language (Is set during frontend rendering for example)
+    See `locale identifiers <https://gist.github.com/jasef/337431c43c3addb2cbd5eb215b376179>`__   
 
 :aspect:`Example`
     `en_UK`
@@ -170,7 +171,7 @@ iso-639-1
     string
 
 :aspect:`Description`
-    Two-letter code for the language according to ISO-639 nomenclature (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+    Two-letter code for the language according to ISO-639 nomenclature (see `ISO 639-1 codes <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`__)
 
 :aspect:`Example`
     `en`
