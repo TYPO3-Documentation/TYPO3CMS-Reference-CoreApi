@@ -46,7 +46,7 @@ The return value is
 The storage uid is optional. If it is not specified, the default storage 0 will be assumed initially.
 The default storage is virtual with :php:`$uid === 0` in its class :php:`\TYPO3\CMS\Core\Resource\ResourceStorage`. In this case the local filesystem is checked for the given file. 
 The file identifier is the local path and filename relative to the TYPO3 :file:`fileadmin/` folder.
-Example: `/templates/stylesheets/fonts.css`, if the file `/server-path/mydomain/fileadmin/templates/stylesheets/fonts.css` exists on the file system.
+Example: `/templates/stylesheets/fonts.css`, if the file `/absolute/path/to/fileadmin/templates/stylesheets/fonts.css` exists on the file system.
 
 The file can be accessed from the default storage, if it exists under the given local path in :file:`fileadmin/`.
 Otherwise the file is not found at the default storage. In this case a search for another storage best fitting to this local path will be started. Afterwards the file identifier is adapted accordingly inside of TYPO3 to match the new storage's base path.
