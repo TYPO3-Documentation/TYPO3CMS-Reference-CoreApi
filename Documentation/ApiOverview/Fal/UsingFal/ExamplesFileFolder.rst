@@ -17,16 +17,12 @@ with file, folder and FileReference objects.
 Getting a file
 ==============
 
-A file can be retrieved using its uid:
-
-.. code-block:: php
+A file can be retrieved using its uid::
 
    $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $file = $resourceFactory->getFileObject(4);
 
-or its combined identifier:
-
-.. code-block:: php
+or its combined identifier::
 
    $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $file = $resourceFactory->getFileObjectFromCombinedIdentifier('1:/foo.txt');
@@ -37,11 +33,20 @@ The syntax of argument 1 for getFileObjectFromCombinedIdentifier is
 
    [[storage uid]:]<file identifier>
 
-The storage uid is optional. If it is not specified, the default storage
-(virtual storage with uid=0) is used. In the case of a storage uid=0 the local filesystem is checked
-for the given file. If the file is found, then its local path will be used. If the file is not found,
-then the fileadmin on the public web path will be used.
-The file identifier is adapted accordingly to match the new storage's base path.
+The return value is
+
+.. code-block:: none
+
+   File|ProcessedFile|null
+
+The storage uid is optional. If it is not specified, the default storage 0 will be assumed initially.
+The default storage is virtual with :php:`$uid === 0` in its class :php:`\TYPO3\CMS\Core\Resource\ResourceStorage`. In this case the local filesystem is checked for the given file. 
+The file identifier is the local path and filename relative to the TYPO3 :file:`fileadmin/` folder.
+Example: `/templates/stylesheets/fonts.css`, if the file `/absolute/path/to/fileadmin/templates/stylesheets/fonts.css` exists on the file system.
+
+The file can be accessed from the default storage, if it exists under the given local path in :file:`fileadmin/`.
+In case the file is not found, a search for another storage best fitting to this local path will be started. Afterwards the file identifier is adapted accordingly inside of TYPO3 to match the new storage's base path.
+
 
 .. _fal-using-fal-examples-file-folder-copy-file:
 
@@ -82,6 +87,7 @@ storage::
          'final_file_name.ext'
    );
 
+
 The default storage uses :file:`fileadmin` unless this was configured
 differently, as explained in :ref:`fal-concepts-storages-drivers`.
 
@@ -95,6 +101,7 @@ To store the file in a sub folder use :php:`$storage->getFolder()`::
          $storage->getFolder('some/nested/folder'),
          'final_file_name.ext'
    );
+
 
 In this example, the file path would likely be
 :file:`<document-root>/fileadmin/some/nested/folder/final_file_name.ext`
@@ -118,9 +125,7 @@ processes (:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`).
 Assuming you have the "uid" of both the File and whatever other item
 you want to create a relation to, the following code will create
 the "sys\_file\_reference" entry and the relation to the other item
-(in this case a "tt\_content" record).
-
-.. code-block:: php
+(in this case a "tt\_content" record)::
 
      $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
      $fileObject = $resourceFactory->getFileObject((int)$file);
@@ -162,9 +167,7 @@ Here, the :php:`'fieldname'` :php:`'assets'` is used instead of
 :php:`image`. Content elements of ctype 'textmedia' use the field 'assets'.
 
 For another table than "tt\_content", you need to define
-the "pid" explicitly when creating the relation:
-
-.. code-block:: php
+the "pid" explicitly when creating the relation::
 
    $data['tt_address'][$address['uid']] = [
        'pid' => $address['pid'],
@@ -196,9 +199,7 @@ Getting Referenced files
 
 This snippet shows how to retrieve FAL items that have been attached
 to some other element, in this case the "media" field of the "pages"
-table:
-
-.. code-block:: php
+table::
 
    $fileRepository = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
    $fileObjects = $fileRepository->findByRelation('pages', 'media', $uid);
@@ -215,9 +216,7 @@ Listing files in a folder
 
 These would be the shortest steps to get the list of files in a given
 folder: get the storage, get a folder object for some path in that
-storage (path relative to storage root), finally retrieve the files.
-
-.. code-block:: php
+storage (path relative to storage root), finally retrieve the files::
 
    $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
    $defaultStorage = $storageRepository->getDefaultStorage();
@@ -252,9 +251,7 @@ The PHP class responsible for handling the file dumping is the :php:`FileDumpCon
 may also use in your code.
 
 See the following example on how to create a URI using the :php:`FileDumpController` for
-a :sql:`sys_file` record with a fixed image size:
-
-.. code-block:: php
+a :sql:`sys_file` record with a fixed image size::
 
    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'f'];
    $queryParameterArray['f'] = $resourceObject->getUid();
@@ -265,9 +262,7 @@ a :sql:`sys_file` record with a fixed image size:
 
 
 In this example crop variant :php:`default` and an image size of 320:280 will be
-applied to a sys_file_reference record:
-
-.. code-block:: php
+applied to a sys_file_reference record::
 
    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'r'];
    $queryParameterArray['f'] = $resourceObject->getUid();
@@ -279,9 +274,7 @@ applied to a sys_file_reference record:
 
 
 This example shows how to create a URI to load an image of
-`sys_file_processedfile`:
-
-.. code-block:: php
+`sys_file_processedfile`::
 
    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'p'];
    $queryParameterArray['p'] = $resourceObject->getUid();
@@ -294,4 +287,3 @@ The following restrictions apply:
 
 + You can't assign any size parameter to processed files, as they are already resized.
 + You can't apply CropVariants to :sql:`sys_file` and :sql:`sys_file_processedfile` records, only to :sql:`sys_file_reference`
-
