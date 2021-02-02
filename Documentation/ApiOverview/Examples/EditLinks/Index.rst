@@ -36,8 +36,8 @@ Below are a different examples, how edit links can be output in the backend.
 
    <html data-namespace-typo3-fluid="true"
 			xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-			xmlns:core="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
-			xmlns:be="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+			xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+			xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
 			xmlns:ex="http://typo3.org/ns/T3docs/Examples/ViewHelpers"
    >
       <p>
