@@ -9,17 +9,17 @@ Basics
 ======
 
 .. note::
-   Site handling as described here is available since TYPO3 9 LTS.
+   Site handling is available since TYPO3 9 LTS.
 
-TYPO3 site handling and configuration is the starting point for creating new web sites. The corresponding modules are found in the TYPO3 backend
-in the section "Site management".
+TYPO3 site handling and configuration is the starting point for creating new web sites. 
+The corresponding modules are found in the TYPO3 backend in the section :guilabel:`Site management`.
 
 A site configuration consists of the following parts:
 
-* Base URL configuration: Under which domain(s) is my site accessible
-* :ref:`Language configuration<sitehandling-addingLanguages>`: Which languages are available for my site
-* :ref:`Error Handling<sitehandling-errorHandling>`: How should errors for this site behave (For example: configure custom 404 pages)
-* :ref:`Static Routes<sitehandling-staticRoutes>`: Add static routes to a site (For example for robots.txt on a per site base)
+* Base URL configurations: the domain(s) to access my site:
+* :ref:`Language configuration<sitehandling-addingLanguages>`: the languages of my site.
+* :ref:`Error Handling<sitehandling-errorHandling>`: error behavior of my site (For example: configuration of custom 404 pages)
+* :ref:`Static Routes<sitehandling-staticRoutes>`: static routes of my site (For example :file:`robots.txt` on a per site base)
 * Routing Configuration: How shall routing behave for this site
 
 When creating a new page on root level via TYPO3 Backend, a very basic site configuration is generated on the fly. It prevents immediate errors
@@ -48,10 +48,10 @@ Site configuration storage
 
 When creating a new site configuration, a folder in the file system is created located at
 :file:`<project-root>/config/sites/<identifier>/`. The site configuration is stored in a
-file called `config.yaml`.
+file called :file:`config.yaml`.
 
 .. note::
-    If you are using a non-composer based installation, the location is `typo3conf/sites/`.
+    If you are using a non-composer based installation, the location is :file:`typo3conf/sites/`.
     In the future this folder can (and should) be used for more files like Fluid templates, and Backend layouts.
 
 .. hint::
