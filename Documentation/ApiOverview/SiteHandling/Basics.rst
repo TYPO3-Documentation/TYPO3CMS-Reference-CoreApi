@@ -19,7 +19,7 @@ A site configuration consists of the following parts:
 * Base URL configurations: the domain(s) to access my site:
 * :ref:`Language configuration<sitehandling-addingLanguages>`: the languages of my site.
 * :ref:`Error Handling<sitehandling-errorHandling>`: How should errors for this site behave (For example: configuration of custom 404 pages)
-* :ref:`Static Routes<sitehandling-staticRoutes>`: Add static routes to a site (For example :file:`robots.txt` on a per site base)
+* :ref:`Static Routes<sitehandling-staticRoutes>`: static routes of my site (For example :file:`robots.txt` on a per site base)
 * Routing Configuration: How shall routing behave for this site
 
 When creating a new page on root level via TYPO3 Backend, a very basic site configuration is generated on the fly. It prevents immediate errors
