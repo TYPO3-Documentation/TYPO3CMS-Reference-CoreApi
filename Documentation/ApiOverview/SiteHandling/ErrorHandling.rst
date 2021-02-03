@@ -37,8 +37,8 @@ errorCode
     int
 
 :aspect:`Description`
-    The HTTP (Error) Status Code to handle. The predefined list contains the most common errors,
-    a free definition of other error codes is also possible. Special value `0` will take care of
+    The HTTP (Error) Status Code to handle. The predefined list contains the most common errors.
+    A free definition of other error codes is also possible. The special value `0` will take care of
     all errors.
 
 :aspect:`Example`
@@ -66,7 +66,7 @@ errorFluidTemplate
     string
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Path to fluid template file. Path may be
+    **Only if errorHandler is of type Fluid**: Path to fluid template file. Path may be
 
     * absolute
     * relative to site root
@@ -83,7 +83,7 @@ errorFluidTemplatesRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler is of type Fluid**: Paths to Fluid Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -97,7 +97,7 @@ errorFluidPartialsRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler is of type Fluid**: Paths to Fluid Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -111,7 +111,7 @@ errorFluidLayoutsRootPath
     string [optional]
 
 :aspect:`Description`
-    **Only if errorHandler == `fluid`**: Pathes to Fluid Templates, Partials and Layouts in
+    **Only if errorHandler is of type Fluid**: Paths to Fluid Templates, Partials and Layouts in
     case more flexibility is needed.
 
 :aspect:`Example`
@@ -125,7 +125,7 @@ errorContentSource
     string
 
 :aspect:`Description`
-    May be either an External URL or TYPO3 Page that will be fetched with curl and displayed
+    **Only if errorHandler is of type Page**: May be either an External URL or TYPO3 Page that will be fetched with curl and displayed
     in case of an error.
 
 :aspect:`Example`
@@ -139,7 +139,7 @@ errorPhpClassFQCN
     string
 
 :aspect:`Description`
-    Fully qualified class name of a custom error handler implementing `PageErrorHandlerInterface`.
+    **Only if errorHandler is of type PHP**: Fully qualified class name of a custom error handler implementing `PageErrorHandlerInterface`.
 
 :aspect:`Example`
     `My\Site\Error\Handler`
