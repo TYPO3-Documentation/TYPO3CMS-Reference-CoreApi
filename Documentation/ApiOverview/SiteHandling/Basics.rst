@@ -17,7 +17,7 @@ The corresponding modules are found in the TYPO3 backend in the section :guilabe
 A site configuration consists of the following parts:
 
 * Base URL configurations: the domain(s) to access my site:
-* :ref:`Language configuration<sitehandling-addingLanguages>`: These languages are available for my site.
+* :ref:`Language configuration<sitehandling-addingLanguages>`: the languages of my site.
 * :ref:`Error Handling<sitehandling-errorHandling>`: How should errors for this site behave (For example: configuration of custom 404 pages)
 * :ref:`Static Routes<sitehandling-staticRoutes>`: Add static routes to a site (For example :file:`robots.txt` on a per site base)
 * Routing Configuration: How shall routing behave for this site
