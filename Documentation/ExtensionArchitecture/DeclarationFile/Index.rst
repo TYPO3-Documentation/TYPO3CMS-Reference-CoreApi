@@ -304,7 +304,7 @@ $_EXTKEY is set globally and contains the extension key.
 Deprecated Configuration
 ========================
 
-The following fields are deprecated and should not be used anymore:
+The following fields are deprecated or have been removed. They have no effect in the latest TYPO3 version.
 
 - dependencies
 - conflicts
