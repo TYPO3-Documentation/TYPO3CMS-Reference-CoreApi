@@ -304,24 +304,6 @@ $_EXTKEY is set globally and contains the extension key.
 Deprecated Configuration
 ========================
 
-The following fields are deprecated or have been removed. They have no effect in the latest TYPO3 version.
+The following fields have become deprecated since this TYPO3 version. They have no effect any more.
 
-- dependencies
-- conflicts
-- suggests
-- docPath
-- CGLcompliance
-- CGLcompliance_note
-- private
-- download_password
-- shy
-- loadOrder
-- priority
-- internal
-- modify_tables
-- module
-- lockType
-- TYPO3_version
-- PHP_version
-- uploadfolder
-- createDirs
+- (No new entries are listed here. For formerly deprecated fiels: see older versions of this page).
