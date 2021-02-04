@@ -34,7 +34,6 @@ values in the :php:`$EM_CONF` array if needed.
        'author_email' => 'john@example.org',
        'author_company' => 'some company',
        'state' => 'stable',
-       'createDirs' => '',
        'clearCacheOnLoad' => 0,
        'version' => '1.0.0',
        'constraints' => [
