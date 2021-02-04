@@ -68,43 +68,8 @@ should hint an integrator about specific caching needs or setups in this case.
 Using the Cache
 ===============
 
-Since TYPO3 10.1, you should prefer :ref:`dependency injection <DependencyInjection>`
-to retrieve cache frontends whenever possible and no longer use the `CacheManager` directly.
-
-
-Here is some example code::
-
-   class MyClass
-   {
-       /**
-        * @var TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
-        */
-       private $cache;
-
-       public function __construct(FrontendInterface $cache)
-       {
-           $this->cache = $cache;
-       }
-
-       protected function getCachedMagic()
-       {
-           $cacheIdentifier = $this->calculateCacheIdentifier();
-
-           // If $entry is false, it hasn't been cached. Calculate the value and store it in the cache:
-           if (($entry = $this->cache->get($cacheIdentifier)) === false) {
-               $entry = $this->calculateMagic();
-
-               // [calculate lifetime and assigned tags]
-
-               // Save value in cache
-               $this->cache->set($cacheIdentifier, $entry, $tags, $lifetime);
-           }
-           return $entry;
-       }
-
-Since the auto-wiring feature of the dependency injection container cannot detect
-which cache configuration should be used for the :php:`$cache` argument, the :ref:`container
-service configuration <configure-dependency-injection-in-extensions>` needs to be extended as well:
+First, we need to prepare injection of our cache by setting it up as service in the :ref:`container
+service configuration <configure-dependency-injection-in-extensions>`:
 
 .. code-block:: yaml
 
@@ -114,11 +79,65 @@ service configuration <configure-dependency-injection-in-extensions>` needs to b
         factory: ['@TYPO3\CMS\Core\Cache\CacheManager', 'getCache']
         arguments: ['myext_mycache']
 
-      MyClass:
-        arguments:
-          $cache: '@cache.my_cache'
+The name of the service for the injection configuration is :`cache.mycache`, the name of the cache is `myext_mycache`.
+Both can be anything you like, just make sure they are unique and clearly hint at the purpose of your cache.
+
+.. note::
+
+   Since TYPO3v10, you should prefer :ref:`dependency injection <DependencyInjection>`
+   to retrieve cache frontends whenever possible and no longer use the :php:`CacheManager` directly.
+
+Here is some example code which retrieves the cache via dependency injection::
+
+   namespace Acme\MyExt;
+   
+   use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
+   
+   class MyClass
+   {
+       /**
+        * @var FrontendInterface
+        */
+       private $cache;
+
+       public function __construct(FrontendInterface $cache)
+       {
+           $this->cache = $cache;
+       }
+
+       protected function getCachedValue()
+       {
+           $cacheIdentifier = /* ... logic to determine the cache identifier ... */;
+
+           // If $entry is false, it hasn't been cached. Calculate the value and store it in the cache:
+           if (($value = $this->cache->get($cacheIdentifier)) === false) {
+               $value = /* ... Logic to calculate value ... */;
+               $tags = /* ... Tags for the cache entry ... */
+               $lifetime = /* ... Calculate/Define cache entry lifetime ... */
+
+               // Save value in cache
+               $this->cache->set($cacheIdentifier, $value, $tags, $lifetime);
+           }
+           
+           return $value;
+       }
 
 .. tip::
 
    It isn't needed to call :code:`has()` before accessing cache entries with :code:`get()`
    as the latter returns :code:`false` if no entry exists.
+
+Since the auto-wiring feature of the dependency injection container cannot detect
+which cache configuration should be used for the :php:`$cache` argument of :php:`MyClass`,
+the :ref:`container service configuration <configure-dependency-injection-in-extensions>`
+needs to be extended:
+
+.. code-block:: yaml
+
+    services:
+      Acme\MyExt\MyClass:
+        arguments:
+          $cache: '@cache.my_cache'
+
+Here `@cache.my_cache` refers to the cache service we defined above. This setup allows you
+to freely inject the very same cache into any class.
