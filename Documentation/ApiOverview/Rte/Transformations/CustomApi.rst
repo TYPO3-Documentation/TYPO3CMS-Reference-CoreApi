@@ -7,6 +7,9 @@
 Custom Transformations API
 ==========================
 
+.. attention::
+   This approach is scheduled for deprecation in TYPO3 11. Consider using :ref:`page TSconfig <t3tsconfig:pageTsRte>` instead.
+
 Instead of using the built-in transformations of TYPO3 you can program
 your own. This is done by creating a PHP class with two methods for
 transformation. Additionally you have to define a key (like
@@ -35,6 +38,9 @@ contain dashes (see :ref:`transformations-custom`).
 
 Registering the Transformation Key in the System
 ================================================
+
+.. deprecated:: 11.0
+   This hook will be deprecated in TYPO3 11.
 
 In :code:`ext_localconf.php`, simply set a :code:`$GLOBALS['TYPO3_CONF_VARS']` variable
 to point to the class which contains the transformation methods::
