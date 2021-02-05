@@ -136,7 +136,7 @@ calling content element.
 
 Since the field :php:`categoryList` got configured in TypoScript as follows:
 
-..code-block:: typoscript
+.. code-block:: typoscript
 
    categoryList.field = tx_examples_main_category
 
