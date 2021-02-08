@@ -237,7 +237,7 @@ Following URI-Parameters are available:
 + :php:`f` (*File*): UID of table :sql:`sys_file`
 + :php:`r` (*Reference*): UID of table :sql:`sys_file_reference`
 + :php:`p` (*Processed*): UID of table :sql:`sys_file_processedfile`
-+ :php:`s` (*Size*): UID of table :sql:`sys_file_processedfile`
++ :php:`s` (*Size*): Size (width and height) of the file
 + :php:`cv` (*CropVariant*): In case of :sql:`sys_file_reference`, you can assign a cropping variant
 
 You have to choose one of these parameters: :php:`f`, :php:`r` or :php:`p`. It is not possible
