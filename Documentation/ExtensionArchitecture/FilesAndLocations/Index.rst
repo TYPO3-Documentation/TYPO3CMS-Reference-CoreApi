@@ -430,18 +430,20 @@ A typical :file:`Configuration/Services.yaml` may look like this:
 :file:`Resources/Public/Icons/Extension.svg`
 --------------------------------------------
 
-Extension icon. If exists, this icon is displayed in the Extension Manager.
-Preferred is using an SVG file, Extension icon will look nicer when provided
-as vector graphics (SVG) rather than bitmaps (GIF or PNG).
+Alternatives: :file:`Resources/Public/Icons/Extension.png`, :file:`Resources/Public/Icons/Extension.gif`
 
-18x16 GIF, PNG or SVG icon for the extension.
+SVG, PNG or 18x16 GIF extension icon
+
+If it exists, this icon is displayed in the Extension Manager.
+Preferred is using a SVG file, because the extension icon will look nicer
+as a vector graphic (SVG) rather than a bitmap (PNG or GIF).
 
 
 .. _extension-reserved-folders:
 
 Reserved Folders
 ================
-
+s
 In the early days, every extension baked it own bread when it came to
 file locations of PHP classes, public web resources and templates.
 
