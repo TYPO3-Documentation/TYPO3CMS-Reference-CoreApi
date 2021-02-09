@@ -490,8 +490,8 @@ Classes/ViewHelpers
 .. index:: Path; EXT:{extkey}/Configuration
 
 Configuration
-  General configuration folder. Some of the sub directories in here like :file:`TCA`
-  and :file:`Backend` have special meaning and files in there are automatically
+  General configuration folder. Some of the sub directories in here have reserved names with special meanings.
+  All files in this directory and in the 2 sub directories :file:`TCA` and :file:`Backend` are automatically
   included during TYPO3 bootstrap.
 
 .. index:: Path; EXT:{extkey}/Configuration/Backend
