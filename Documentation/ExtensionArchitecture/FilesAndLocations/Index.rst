@@ -430,11 +430,13 @@ A typical :file:`Configuration/Services.yaml` may look like this:
 :file:`Resources/Public/Icons/Extension.svg`
 --------------------------------------------
 
-Extension icon. If exists, this icon is displayed in the Extension Manager.
-Preferred is using an SVG file, Extension icon will look nicer when provided
-as vector graphics (SVG) rather than bitmaps (GIF or PNG).
+Alternatives: :file:`Resources/Public/Icons/Extension.png`, :file:`Resources/Public/Icons/Extension.gif`
 
-18x16 GIF, PNG or SVG icon for the extension.
+SVG, PNG or 18x16 GIF extension icon
+
+If it exists, this icon is displayed in the Extension Manager.
+Preferred is using a SVG file, because the extension icon will look nicer
+as a vector graphic (SVG) rather than a bitmap (PNG or GIF).
 
 
 .. _extension-reserved-folders:
@@ -442,15 +444,14 @@ as vector graphics (SVG) rather than bitmaps (GIF or PNG).
 Reserved Folders
 ================
 
-In the early days, every extension baked it own bread when it came to
+In the early days, every extension author baked his own bread when it came to
 file locations of PHP classes, public web resources and templates.
 
 With the rise of Extbase, a generally accepted structure for file
-locations inside extensions has been established. If extension authors
-stick to this, the system helps in various ways. For instance, if putting
-PHP classes into the :file:`Classes/` folder and naming classes accordingly,
-the system will be able to autoload these without further action from the
-developer.
+locations inside of extensions has been established. If extension authors
+stick to this and the other Coding Guidelines, the system helps in various ways. For instance, if putting
+PHP classes into the :file:`Classes/` folder and using appropriate namespaces for the classes,
+the system will be able to autoload these files.
 
 Extension kickstarters like the `Extension Builder extension
 <https://extensions.typo3.org/extension/extension_builder>`_ will create
@@ -463,7 +464,7 @@ It is described below:
 Classes
   Contains all PHP classes. One class per file. Should have sub folders like
   :code:`Controller/`, :code:`Domain/`, :code:`Service/` or :code:`View/`.
-  For more details on class file namings an PHP namespaces, see chapter
+  For more details on class file namings and PHP namespaces, see chapter
   :ref:`namespaces <namespaces>`.
 
 .. index:: Path; EXT:{extkey}/Classes/Controller
@@ -489,9 +490,9 @@ Classes/ViewHelpers
 .. index:: Path; EXT:{extkey}/Configuration
 
 Configuration
-  General configuration folder. Some of the sub directories in here like :file:`TCA`
-  and :file:`Backend` have special meaning and files in there are automatically
-  included during TYPO3 bootstrap.
+  General configuration folder. Some of the sub directories in here have reserved names with special meanings.
+  All files in this directory and in the 2 sub directories :file:`TCA` and :file:`Backend` are automatically
+  included during the TYPO3 bootstrap.
 
 .. index:: Path; EXT:{extkey}/Configuration/Backend
 
