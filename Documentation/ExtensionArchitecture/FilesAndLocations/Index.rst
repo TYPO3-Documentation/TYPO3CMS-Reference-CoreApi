@@ -443,7 +443,6 @@ as a vector graphic (SVG) rather than a bitmap (PNG or GIF).
 
 Reserved Folders
 ================
-s
 In the early days, every extension baked it own bread when it came to
 file locations of PHP classes, public web resources and templates.
 
