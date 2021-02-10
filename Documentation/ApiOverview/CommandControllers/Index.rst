@@ -52,6 +52,11 @@ Creating a new Command in Extensions
            - name: 'console.command'
              command: 'yourext:dothings'
 
+   .. note::
+
+   Despite using :file:`autoconfigure: true` the commands 
+   have to be explicitly defined in :file:`Services.yaml` for TYPO3s custom command processing.
+
    Or register :file:`Configuration/Commands.php`.
    Deprecated since v10 and will be removed in v11::
 
