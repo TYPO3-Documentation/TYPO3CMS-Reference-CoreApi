@@ -193,7 +193,7 @@ Configure the frontend rendering
 ================================
 
 The output in the frontend gets configured in the setup TypoScript. See
-`Add TypoScript to your extension <t3tsref:extdev-add-typoscript>` about how
+:ref:`Add TypoScript to your extension <t3tsref:extdev-add-typoscript>` about how
 to add TypoScript.
 
 In the :file:`examples` extension the TypoScript can be found at
