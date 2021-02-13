@@ -24,7 +24,8 @@ settings. This array allows the following configurations:
    :Description:
          Defines the type of the input field
 
-         If type=user you need to define userFunc too.
+         If `type == user`, then you need to define your own `renderType` too.
+         If selectable items shall be filled by your own function, then you can use `type == select` and `itemsProcFunc`.
 
          **Example:**
 
