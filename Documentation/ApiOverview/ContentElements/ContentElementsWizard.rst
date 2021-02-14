@@ -94,8 +94,8 @@ plugin is `registration`.
    * :ref:`adding-your-own-content-elements`
 
 
-Add your plugin or CE to different tab
-======================================
+Add your plugin or content element to a different tab
+=====================================================
 
 The above example adds your plugin to the tab "Plugin" in the content element wizard.
 You can add it to one of the other existing tabs or create a new one.
