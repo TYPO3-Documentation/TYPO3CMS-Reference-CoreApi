@@ -1,10 +1,10 @@
 .. include:: /Includes.rst.txt
-
+.. index:: pair: Add; Content elements
 .. _content-element-wizard:
 
-==========================================
-Add Elements to the Content Element Wizard
-==========================================
+==================================================
+Add content elements to the Content Element Wizard
+==================================================
 
 The content elements wizard is opened when a new content element is
 created.
@@ -93,8 +93,9 @@ plugin is `registration`.
    * :ref:`Register your icon <icon-registration>` in TYPO3 Explained
    * :ref:`adding-your-own-content-elements`
 
-Add Your Plugin or CE to Different Tab
-======================================
+
+Add your plugin or content element to a different tab
+=====================================================
 
 The above example adds your plugin to the tab "Plugin" in the content element wizard.
 You can add it to one of the other existing tabs or create a new one.
@@ -132,7 +133,8 @@ the name to ``show`` as well:
 
    show = *
 
-Create a New Tab
+
+Create a new tab
 ================
 
 See `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
