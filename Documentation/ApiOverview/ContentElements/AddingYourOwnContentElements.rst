@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-.. index:: Content elements; custom
+.. index:: 
+   Content elements; custom
+   pair: Create; Content elements
 .. _adding-your-own-content-elements:
 
 =================================
