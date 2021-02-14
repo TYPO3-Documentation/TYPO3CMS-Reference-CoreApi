@@ -28,8 +28,8 @@ Furthermore, this documentation is a general guide. There can be reasons to viol
 These are no hard rules to always follow.
 
 
-When to unit tests
-==================
+When to unit test
+=================
 
 It depends on the code you're writing if unit testing that specific code is useful or not.
 There are certain areas that scream to be unit tested: You're writing a method that does some PHP
@@ -52,8 +52,8 @@ targets for unit testing, sometimes some detail method of a class that has not b
 to an own class, too.
 
 
-When not to unit tests
-======================
+When not to unit test
+=====================
 
 Simply put: Do not unit test "glue code". There are persons proclaiming "100% unit test coverage".
 This does not make sense. As an extension developer working on top of framework functionality, it
