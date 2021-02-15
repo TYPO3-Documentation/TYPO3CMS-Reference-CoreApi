@@ -269,10 +269,10 @@ formatting. Read more about :ref:`fluid`.
    lets you easily turn debugging on or off, depending on whether you
    fill in "1" or "0" for *condition*.
    
-   | Examples:
-   |    `<f:if condition="1"><f:debug>{settings}</f:debug></f:if>`
-   |    `<f:if condition="0"><f:debug>{data}</f:debug></f:if>`
-   |    `<f:if condition="1"><f:debug>{current}</f:debug></f:if>`
+   | Example lines:
+   |    :html:`<f:if condition="1"><f:debug>{settings}</f:debug></f:if>`
+   |    :html:`<f:if condition="0"><f:debug>{data}</f:debug></f:if>`
+   |    :html:`<f:if condition="1"><f:debug>{current}</f:debug></f:if>`
 
 
 Below you can see the example output of the new content element and a
