@@ -264,9 +264,15 @@ formatting. Read more about :ref:`fluid`.
    During development you can output all available variables in a Fluid
    template by adding :html:`<f:debug>{_all}</f:debug>`.
    
-   Even better: :html:`<f:if condition="{condition}"><f:debug>{_all}</f:debug></f:if>`
+   Even more convenient: 
+   :html:`<f:if condition="{condition}"><f:debug>{_all}</f:debug></f:if>`
    lets you easily turn debugging on or off, depending on whether you
-   set *condition* to "1" or "0".
+   fill in "1" or "0" for *condition*.
+   
+   | Examples:
+   |    `<f:if condition="1"><f:debug>{settings}</f:debug></f:if>`
+   |    `<f:if condition="0"><f:debug>{data}</f:debug></f:if>`
+   |    `<f:if condition="1"><f:debug>{current}</f:debug></f:if>`
 
 
 Below you can see the example output of the new content element and a
