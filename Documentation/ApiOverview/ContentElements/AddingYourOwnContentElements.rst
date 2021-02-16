@@ -280,7 +280,7 @@ dump of all available data:
 
 
 .. image:: Images/NewContentElementOutput.png
-   :class: with-shadow
+   :class: with-border with-shadow
    :alt: The example output
 
 
