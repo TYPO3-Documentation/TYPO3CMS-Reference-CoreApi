@@ -178,8 +178,6 @@ address the task at hand.
 
    Sitemap
    About
-   Targets
-
 
 .. todo:: ApiOverview/Examples/
 
