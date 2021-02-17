@@ -120,6 +120,8 @@ as public. Some examples for this are:
 * User Functions
 * Non-Extbase Controllers
 * Classes registered in Hooks
+* Authentication services
+* DataProcessors
 
 For such classes an extension can override the global :yaml:`public: false` configuration in the
 :file:`Configuration/Services.yaml` for each class.
