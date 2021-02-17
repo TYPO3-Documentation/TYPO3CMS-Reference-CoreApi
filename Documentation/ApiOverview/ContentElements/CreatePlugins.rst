@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: pair: Create; Plugin
+.. index:: pair: Create; Plugins
 .. _Create-plugins:
 
 ==============
