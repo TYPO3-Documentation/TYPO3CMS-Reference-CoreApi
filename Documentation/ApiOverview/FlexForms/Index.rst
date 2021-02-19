@@ -312,11 +312,13 @@ can do that with:
 
 .. code-block:: xml
 
+   <onChange>reload</onChange>
    <config>
        <!-- ... -->
-       <onChange>reload</onChange>
+   </config>
+       
 
-This element is optional and must go inside the `<config>` element.
+This element is optional and must go above the `<config>` element.
 
 
 .. index:: pair: Flexforms; Extbase
