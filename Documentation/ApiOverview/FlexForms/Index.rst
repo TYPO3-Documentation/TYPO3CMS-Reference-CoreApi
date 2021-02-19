@@ -318,7 +318,7 @@ can do that with:
    </config>
        
 
-This element is optional and must go above the `<config>` element.
+The :xml:`onChange` element is optional and must be placed on the same level as the :xml:`<config>` element.
 
 
 .. index:: pair: Flexforms; Extbase
@@ -497,4 +497,3 @@ and `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package
 (by Benjamin Kott).
 
 Further enhancements by the TYPO3 community are welcome!
-
