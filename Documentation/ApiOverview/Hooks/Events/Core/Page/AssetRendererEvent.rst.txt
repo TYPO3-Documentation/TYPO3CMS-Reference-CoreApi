@@ -46,10 +46,10 @@ boolean only returns assets of the given priority.
    TypoScript :ts:`page.include...` or the :php:`PageRenderer::add*()`
    functions are still provided by these hooks:
 
-   * :php:`$GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['cssCompressHandler']`
-   * :php:`$GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['jsCompressHandler']`
-   * :php:`$GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['cssConcatenateHandler']`
-   * :php:`$GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['jsConcatenateHandler']`
+   * :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cssCompressHandler']`
+   * :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['jsCompressHandler']`
+   * :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cssConcatenateHandler']`
+   * :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['jsConcatenateHandler']`
    * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess']`
 
    Assets registered with the AssetCollector (and output through the
