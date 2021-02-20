@@ -336,3 +336,11 @@ all services for the "getUser\*" subtype by setting::
 
 for BE or FE respectively. This will collect all possible users rather than
 stopping at the first one available.
+
+Multi-Factor Authentication
+===========================
+
+.. toctree::
+   :titlesonly:
+
+   MultiFactorAuthentication.rst
