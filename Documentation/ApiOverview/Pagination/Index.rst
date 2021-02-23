@@ -10,7 +10,7 @@ Pagination
 .. note::
 
    Pagination via Fluid widgets will be removed in TYPO3v11, see
-   :doc:`t3core:Changelog/master/Breaking-92529-AllFluidWidgetFunctionalityRemoved`.
+   :doc:`t3core:Changelog/11.0/Breaking-92529-AllFluidWidgetFunctionalityRemoved`.
    Use the API documented here to implement your own pagination.
 
 The TYPO3 core provides an interface to implement the native pagination of lists like arrays or
