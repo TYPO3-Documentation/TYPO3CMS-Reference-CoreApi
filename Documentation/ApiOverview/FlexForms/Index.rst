@@ -2,9 +2,9 @@
 
 .. _flexforms:
 
-==============
+=========
 Flexforms
-==============
+=========
 
 Flexforms can be used to store data within an XML structure inside a single DB
 column.
@@ -27,7 +27,7 @@ over plugin features and what is to be rendered.
 Using Flexforms you have all the features of TCA, so it is possible
 to use input fields, select lists, show options conditionally and more.
 
-Example Use Cases
+Example use Cases
 =================
 
 The `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
@@ -56,7 +56,7 @@ How it Works
 #. The extension can read current configuration and act according to
    the configuration.
 
-Steps to Perform (Extension Developer)
+Steps to perform (Extension Developer)
 ======================================
 
 .. rst-class:: bignums-xxl
@@ -269,7 +269,7 @@ on database fields of current record or be defined by a user function.
     <config>
         <type>select</type>
         <!-- Hide field if value of neighbour field "settings.orderBy" on same sheet is not "title" -->
-    </config>    
+    </config>
     <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
 
 Again, the syntax and available fields and comparison operators is documented
@@ -296,7 +296,7 @@ can do that with:
        <!-- ... -->
        <onChange>reload</onChange>
 
-This element is optional and must go inside the `<config>` element.
+The :xml:`onChange` element is optional and must be placed on the same level as the :xml:`<config>` element.
 
 .. _read-flexforms:
 .. _read-flexforms-extbase:
@@ -369,7 +369,7 @@ How to Access Flexforms From TypoScript
             }
         }
     }
-    
+
 The key `flexform` is followed by the field which holds the Flexform data (`pi_flexform`) and the name of the property whose content should be retrieved (`settings.categories`).
 
 .. seealso::
@@ -396,10 +396,10 @@ If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign si
      variables {
        categories = TEXT
        categories.data = flexform: pi_flexform:categories
-     } 
+     }
    }
 
-In order to have all FlexForm fields available, you can add a custom DataProcessor. 
+In order to have all FlexForm fields available, you can add a custom DataProcessor.
 This example would make your FlexForm data available as Fluid variable :html:`{flexform}`:
 
 .. code-block:: typoscript
@@ -414,22 +414,22 @@ This example would make your FlexForm data available as Fluid variable :html:`{f
 .. code-block:: php
 
    namespace Your\Ext\DataProcessing;
-   
+
    use TYPO3\CMS\Core\Service\FlexFormService;
    use TYPO3\CMS\Core\Utility\GeneralUtility;
    use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-   
+
    class FlexFormProcessor implements DataProcessorInterface
    {
        /**
         * @var FlexFormService
         */
        protected $flexFormService;
-       
+
        public function __construct() {
            $this->flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
        }
-       
+
        public function process(
            ContentObjectRenderer $cObj,
            array $contentObjectConfiguration,
@@ -440,7 +440,7 @@ This example would make your FlexForm data available as Fluid variable :html:`{f
            if (!is_string($originalValue)) {
                return $processedData;
            }
-   
+
            $flexformData = $this->flexFormService->convertFlexFormContentToArray($originalValue);
            $processedData['flexform'] = $flexformData;
            return $processedData;
@@ -466,4 +466,3 @@ and `bootstrap_package <https://extensions.typo3.org/extension/example/>`__
 (by Benjamin Kott).
 
 Further enhancements by the TYPO3 community are welcome!
-
