@@ -21,24 +21,22 @@ Kickstarting the Extension
 
 Although it is possible to write every single line of an extension from
 scratch, there is a tool which makes it easier to start. It is called
-"Extension builder" (key: "extension_builder") and can be installed from
-TER.
+`Extension builder <https://extensions.typo3.org/extension/extension_builder>`_
+(key: :literal:`extension_builder`) and can be installed from TER or from the
+`official GitHub repository <https://github.com/FriendsOfTYPO3/extension_builder>`__.
 
-.. hint::
+.. attention::
 
-   The extension builder in TER is usually not up to date. If you can't
-   find a version supporting the latest TYPO3 version in TER, you can
-   take a look into the
-   `official github repository <https://github.com/FriendsOfTYPO3/extension_builder>`__.
+   For TYPO3 10 you must retrieve the extension from the :literal:`v10-compatibility` branch
+   from `GitHub <https://github.com/FriendsOfTYPO3/extension_builder/tree/v10-compatibility>`__.
 
-The `Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
-comes with its own BE module:
+The Extension builder comes with its own :abbr:`BE (backend)` module:
 
 .. figure:: ../../Images/ExtensionBuilder.png
    :alt: A view from the Extension Builder
 
-   The Domain Modeller screen of the Extension Builder. The comfort of building
-   your model with drag and drop.
+   The :guilabel:`Domain Modelling` screen of the Extension Builder provides a comfortable way of
+   modelling with drag and drop.
 
 Note that this tool is not a complete editor. It helps you creating the scaffolding
 of your extension, generating the necessary files. It's then up to you to fill these
