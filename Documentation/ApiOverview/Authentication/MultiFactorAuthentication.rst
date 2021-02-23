@@ -8,8 +8,8 @@ Multi-Factor Authentication
 
 TYPO3 is capable of authentication via multiple factors, in short
 "multi-factor authentication" or "MFA". This is sometimes also referred to
-"2FA" as a 2-Factor Authentication process, where - in order to log in - the user
-needs
+"2FA" as a 2-Factor Authentication process, where - in order to log in - the
+user needs
 
 1) "something you know" (= the password) and
 2) "something you own" (= an authenticator device, or an authenticator app
@@ -42,7 +42,7 @@ The :guilabel:`Account security` tab displays the current state:
 
 - whether MFA can be configured
 - whether MFA is activated or
-- if additional providers can be configured
+- whether some MFA providers are locked
 
 Included MFA providers
 ----------------------
@@ -57,7 +57,7 @@ Authenticator, Microsoft Authenticator, 1Password, Authly or others to the
 system and then synchronize a token, which changes every 30 seconds.
 
 On each log-in, after successfully entering the password, the 6-digit code
-shown of the Authenticator App must be entered.
+shown by the Authenticator App must be entered.
 
 2. Recovery codes
 
@@ -73,13 +73,13 @@ to activate this provider, and keep the codes at a safe place.
 Setting up MFA for a backend user
 ---------------------------------
 
-Each provider is displayed with its icon, the name and a short description.
-In case a provider is active this is indicated by a corresponding label, next to
-the providers' title. The same goes for a locked provider - an active provider,
-which can currently not be used since the provider specific implementation
-detected some unusual behaviour, e.g. to many false authentication attempts.
-Additionally, the configured default provider indicates this state with a
-"star" icon, next to the providers' title.
+Each provider is displayed with its icon, the name and a short description in
+the MFA configuration module. In case a provider is active this is indicated by
+a corresponding label, next to the providers' title. The same goes for a locked
+provider - an active provider, which can currently not be used since the provider
+specific implementation detected some unusual behaviour, e.g. to many false
+authentication attempts. Additionally, the configured default provider indicates
+this state with a "star" icon, next to the providers' title.
 
 Each inactive provider contains a :guilabel:`Setup` button which opens the corresponding
 configuration view. This view can be different depending on the MFA provider.
@@ -101,6 +101,10 @@ title to :guilabel:`Unlock`. This button can be used to unlock the provider.
 This, depending on the provider to unlock, may require further actions by the
 user.
 
+The "Deactivate" button can be used to deactivate the provider. This will,
+depending on the provider, usually also completely remove all provider specific
+settings.
+
 The "Authentication view" is displayed as soon as a user
 with at least one active provider has successfully passed the username and
 password mask.
@@ -120,8 +124,8 @@ entered or the user unlocks the provider in the backend.
 All TYPO3 core providers also feature the "Last used" and "Last updated" information
 which can be retrieved in the "Edit/Change" view.
 
-By default, MFA can be configured by every backend user. It is possible to
-disable this field for editors via userTSconfig:
+By default, the new field in the :guilabel:`User Settings` module is displayed for
+every backend user. It is possible to disable it for specific users via userTSconfig:
 
 .. code-block:: typoscript
 
@@ -143,9 +147,9 @@ only a specific MFA provider.
    All of these deactivate buttons are executed immediately, after
    confirming the dialog, and cannot be undone.
 
-The backend users listing in the backend user module also displays the current
-MFA status ("enabled", "disabled" or "locked") for each user. This allows an
-administrator to analyze their users' MFA usage at a glance.
+The backend users listing in the backend user module also displays whether MFA
+is enabled or currently locked, for each user. This allows an administrator to
+analyze their users' MFA usage at a glance.
 
 The :guilabel:`System => Configuration` admin module shows an overview
 of all currently registered providers in the installation. This is especially
@@ -172,8 +176,8 @@ allows 4 options:
 * `3`: Require multi-factor authentication only for admin users
 
 To set this requirement only for a specific user or user group, a new
-userTSconfig option `auth.mfa.required` is introduced. The userTSconfig option
-overrules the global configuration.
+userTSconfig option `auth.mfa.required` is introduced. The userTSconfig
+option overrules the global configuration.
 
 .. code-block:: typoscript
 
@@ -193,24 +197,17 @@ It is possible to only allow a subset of the available providers for some users
 or user groups.
 
 A configuration option "Allowed multi-factor authentication providers" is
-available in the users and user groups record in the "Access Rights/List" tab.
-
-.. note::
-
-   Allowed MFA providers from a user record are merged with the settings
-   defined in user group records.
+available in the user groups record in the "Access List" tab.
 
 There may be use cases in which a single provider should be
 disallowed for a specific user, which is configured to be allowed in
-one of the assigned user groups. Another use case is to disallow providers
-for users, which do not have the "Access Rights/List" tab.
-The userTSconfig option `auth.mfa.disableProviders` can be used.
-It overrules the configuration from the "Access Rights/List", which means if
-a provider is allowed in "Access Rights/List" but disallowed via userTSconfig,
-it will be disallowed for the user or user group the TSconfig applies to.
+one of the assigned user groups. Therefore, the userTSconfig option
+`auth.mfa.disableProviders` can be used. It overrules the configuration
+from the "Access List", which means if a provider is allowed in "Access List"
+but disallowed via userTSconfig, it will be disallowed for the user or user
+group the TSconfig applies to.
 
-This does not affect the remaining allowed providers from the
-"Access Rights/List".
+This does not affect the remaining allowed providers from the "Access List".
 
 .. code-block:: typoscript
 
@@ -263,7 +260,7 @@ show up prior to any other provider in the MFA configuration module. The
 ordering is also taken into account in the authentication step while logging
 in. Note that the user defined default provider will always take precedence.
 
-If you dont want your provider to be selectable as a default provider, set the
+If you don't want your provider to be selectable as a default provider, set the
 :yaml:`defaultProviderAllowed` argument to `false`.
 
 You can also completely deactivate existing providers with:
@@ -286,7 +283,7 @@ can be used to retrieve and update the provider specific properties and
 also contains the :php:`getUser` method, providing the current user object.
 
 To store provider specific data, the MFA API uses a new database field `mfa`,
-which can be freely used by the providers. The field contains of a JSON encoded
+which can be freely used by the providers. The field contains a JSON encoded
 Array with each provider as array key. Common properties of such provider array
 could be `active` or `lastUsed`. Since the information is stored in either the
 `be_users` or the `fe_users` table, the context is implicit. Same goes for the
