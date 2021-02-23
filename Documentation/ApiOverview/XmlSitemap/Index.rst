@@ -183,7 +183,7 @@ Create your own XmlSitemapDataProvider
 ======================================
 
 If you need more logic in your sitemap, you can also write your own XmlSitemapProvider. You can do this by
-extending the \TYPO3\CMS\Seo\XmlSitemap\AbstractXmlSitemapDataProvider class. The most important methods are
+extending the :php:`\TYPO3\CMS\Seo\XmlSitemap\AbstractXmlSitemapDataProvider` class. The most important methods are
 :php:`getLastModified` and :php:`getItems`.
 
 The :php:`getLastModified` is used in the sitemap index and have to return the date of the last modified
