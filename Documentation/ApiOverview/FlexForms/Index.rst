@@ -2,9 +2,9 @@
 
 .. _flexforms:
 
-==============
+=========
 Flexforms
-==============
+=========
 
 Flexforms can be used to store data within an XML structure inside a single DB
 column.
@@ -27,7 +27,7 @@ over plugin features and what is to be rendered.
 Using Flexforms you have all the features of TCA, so it is possible
 to use input fields, select lists, show options conditionally and more.
 
-Example Use Cases
+Example use Cases
 =================
 
 The `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
@@ -56,7 +56,7 @@ How it Works
 #. The extension can read current configuration and act according to
    the configuration.
 
-Steps to Perform (Extension Developer)
+Steps to perform (Extension Developer)
 ======================================
 
 .. rst-class:: bignums-xxl
@@ -309,7 +309,7 @@ can do that with:
        <!-- ... -->
    </config>
 
-This element is optional and must go next to the `<config>` element.
+The :xml:`onChange` element is optional and must be placed on the same level as the :xml:`<config>` element.
 
 .. _read-flexforms:
 .. _read-flexforms-extbase:
@@ -482,4 +482,3 @@ and `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package
 (by Benjamin Kott).
 
 Further enhancements by the TYPO3 community are welcome!
-
