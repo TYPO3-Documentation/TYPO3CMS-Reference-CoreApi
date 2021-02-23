@@ -33,7 +33,7 @@ Code-Example for the :php:`ArrayPaginator`:
 
    // use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 
-   $itemsToBePaginated = ['apple', 'banana', 'strawberry', 'raspberry', 'ananas'];
+   $itemsToBePaginated = ['apple', 'banana', 'strawberry', 'raspberry', 'pineapple'];
    $itemsPerPage = 2;
    $currentPageNumber = 3;
 
