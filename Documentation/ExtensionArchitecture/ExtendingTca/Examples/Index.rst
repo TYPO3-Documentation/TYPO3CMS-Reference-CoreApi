@@ -93,6 +93,7 @@ existing field. So you could call optionally::
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
       'fe_users',
       'tx_examples_options, tx_examples_special',
+      '',
       'after:password'
    );
 
