@@ -107,7 +107,7 @@ Events can be bound using the `@` attribute prefix.
    const value = 'World';
    const target = document.getElementById('target');
    const template = html`
-      <div @click="${(evt: Event): void => { console.log(value); })}">
+      <div @click="${(evt: Event): void => { console.log(value); }}">
          Hello ${value}!
       </div>
    `;
