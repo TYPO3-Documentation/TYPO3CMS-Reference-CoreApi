@@ -3,9 +3,9 @@
 
 .. _backend-modules-template:
 
-=========================
-The Backend Template View
-=========================
+======================================
+The Backend Template View with Extbase
+======================================
 
 .. warning::
 
@@ -14,6 +14,14 @@ The Backend Template View
    things. It may yet change. Please refer to older versions of
    this manual if you need a reference to the old way of programming
    backend modules.
+
+.. tip::
+
+   If you don't want to do extensive data modelling templates can be written
+   :ref:`without Extbase. <backend-modules-template-without-extbase>`
+
+
+
 
 Modern backend modules are written using the Extbase/Fluid combination.
 Thus, templates are Fluid-based. On top of that the "backend" system extension

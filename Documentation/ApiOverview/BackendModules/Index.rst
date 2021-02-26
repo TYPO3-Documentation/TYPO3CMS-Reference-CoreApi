@@ -17,6 +17,7 @@ backend. They are described in this chapter.
 
    Structure/Index
    TemplateClass/Index
+   TemplateClass/BackendTemplateViewWithoutExtbase
    BackendModuleApi/Index
 
 
