@@ -31,7 +31,7 @@ You need to handle the integration yourself as you got the permissions on GitHub
 
 Go to the url of your project at Crowdin (e.g. `<https://crowdin.com/project/typo3-extension-ttaddress>`_) and switch to **Settings** & then switch to the tab **Integrations**. Click on the button **Setup integration**.
 
-.. figure:: ../../../../Images/I18n/Crowdin/crowdin-integration-setup.png
+.. figure:: Images/IntegrationSetup.png
    :alt: Start of Crowdin integration for an extension
    :width: 600px
 
@@ -45,7 +45,7 @@ Select branches
 Select the **main** branch you want to be translated.
 
 
-.. figure:: ../../../../Images/I18n/Crowdin/crowdin-integration-branches.png
+.. figure:: Images/IntegrationBranches.png
    :alt: Branch configuration
    :width: 600px
 
@@ -62,7 +62,7 @@ Push translations
 
 Click on the *Show advanced settings* link below to decide now how you want your translations to behave:
 
-.. figure:: ../../../../Images/I18n/Crowdin/crowdin-integration-push-translations.png
+.. figure:: Images/IntegrationPushTranslations.png
    :alt: Setting for translation pushes
    :width: 600px
 
@@ -75,13 +75,13 @@ Branch configuration
 
 Now click on the edit button next to the branch name to setup your branch configuration.
 
-.. figure:: ../../../../Images/I18n/Crowdin/crowdin-integration-branch-configuration.png
+.. figure:: Images/IntegrationBranchConfiguration.png
    :alt: Branch configuration
    :width: 600px
 
 This will open a new modal and will ask for the **Configuration file name**. We propose the file name `.crowdin.yaml`
 
-.. figure:: ../../../../Images/I18n/Crowdin/crowdin-integration-configuration-file.png
+.. figure:: Images/IntegrationConfigurationFile.png
    :alt: Setting for translation pushes
    :width: 600px
 
@@ -89,7 +89,7 @@ Adopt the file name and press **Continue**.
 
 Now you need to define where the language files are located.
 
-.. figure:: ../../../../Images/I18n/Crowdin/crowdin-integration-overview.png
+.. figure:: Images/IntegrationOverview.png
    :alt: Location of translation files
    :width: 600px
 
@@ -106,7 +106,7 @@ Now press the last save button and you are done!
 
 After a short time you should see something like that
 
-.. figure:: ../../../../Images/I18n/Crowdin/crowdin-integration-result.png
+.. figure:: Images/IntegrationResult.png
    :alt: Result
    :width: 600px
 

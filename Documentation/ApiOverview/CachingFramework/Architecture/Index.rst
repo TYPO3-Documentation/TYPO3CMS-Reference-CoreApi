@@ -102,6 +102,8 @@ an arbitrary number of tags can be assigned to an entry and one specific tag
 can be assigned to multiple cache entries. All tags a cache entry has are given to
 the cache when the entry is stored ("set").
 
+Also see :ref:`clear cache in DataHandler using cache tags <clear-cache-using-cache-tags>`.
+
 
 .. _caching-architecture-core:
 

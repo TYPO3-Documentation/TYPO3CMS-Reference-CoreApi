@@ -293,3 +293,18 @@ resolved with TYPO3 v10. As soon as this last process isolation is dropped from 
 test setup, extension authors will know that executing a frontend request from within the backend
 must be easily possible. We're looking forward to that - it will be one of the last steps to finally
 manage framework state in a good way and maybe we can rewrite this documentation section soon.
+
+
+2020
+====
+
+The pending milestone of 2019 has been achieved in late 2020: The core functional tests no longer
+spawn PHP processes to execute frontend requests. A PSR-7 sub request is initiated with core v11
+instead.
+
+This is quite an achievement: It is the proof that core framework state is encapsulated
+well enough to finally execute a frontend request from within a backend request or CLI. As one
+major pre-condition, the broken constant TYPO3_MODE is finally gone (deprecated and unused in core).
+Further core versions can drop that constant and extensions will have to drop their usage, too.
+So with v12, TYPO3_MODE will be gone, and TYPO3 can create cool features from this. So again, the
+core testing paved the way for new opportunities and TYPO3 usages.

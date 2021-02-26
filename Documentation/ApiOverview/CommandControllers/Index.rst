@@ -28,7 +28,7 @@ Creating a new Command in Extensions
 
 #. Register Commands
 
-   Commands can be registered via :ref:`DependencyInjection` or a PHP file.
+   Commands can be registered via :ref:`DependencyInjection`.
    Detailed information can be read on the corresponding Symfony component
    documentation: https://symfony.com/doc/current/console/commands_as_services.html.
    E.g. how to setup aliases via :file:`Services.yaml`,
@@ -51,15 +51,16 @@ Creating a new Command in Extensions
          tags:
            - name: 'console.command'
              command: 'yourext:dothings'
+             description: 'An example description for a command'
+             # not required, defaults to false
+             hidden: false
 
-   Or register :file:`Configuration/Commands.php`.
-   Deprecated since v10 and will be removed in v11::
+   .. note::
 
-       return [
-           'yourext:dothings' => [
-               'class' => \Vendor\Extension\Command\DoThingsCommand::class,
-           ],
-       ];
+   Despite using :file:`autoconfigure: true` the commands
+   have to be explicitly defined in :file:`Services.yaml` for TYPO3s custom command processing
+   by adding the tag including the command name, the command to execute and a description.
+
 
 #. Create the corresponding class file: :file:`Classes/Command/DoThingsCommand.php`
 
@@ -69,8 +70,7 @@ Creating a new Command in Extensions
 
    :php:`configure()`
       As the name would suggest allows to configure the command.
-      Allows to add a description, a help text,
-      and / or define arguments.
+      Allows to add a help text and / or define arguments.
 
    :php:`execute()`
       Contains the logic when executing the command.
@@ -98,8 +98,7 @@ Example taken from :php:`ListSysLogCommand` in the Core and simplified::
          */
         protected function configure()
         {
-            $this->setDescription('Show entries from the sys_log database table of the last 24 hours.')
-               ->setHelp('Prints a list of recent sys_log entries.' . LF . 'If you want to get more detailed information, use the --verbose option.');
+            $this->setHelp('Prints a list of recent sys_log entries.' . LF . 'If you want to get more detailed information, use the --verbose option.');
         }
 
         /**
@@ -149,7 +148,8 @@ Add an optional argument and an optional option to your command::
                'brute-force',
                'b',
                InputOption::VALUE_OPTIONAL,
-               'Some optional option for your wizard(s). You can use --brute-force or -b when running command';
+               'Some optional option for your wizard(s). You can use --brute-force or -b when running command'
+           );
     }
 
 
@@ -215,6 +215,23 @@ Deprecated since v10 and will be removed in v11::
            'schedulable' => false,
        ],
    ];
+
+Hide a command
+--------------
+
+A command can be hidden from the command list by setting :yaml:`hidden` to :yaml:`true`
+in the :file:`Services.yaml` file:
+
+.. code-block:: yaml
+
+    # Configuration/Services.yaml
+    services:
+      My\Namespace\Command\ExampleCommand:
+        tags:
+          - name: 'console.command'
+            command: 'my:example'
+            description: 'An example command that demonstrates some stuff'
+            hidden: true
 
 Initialize backend user
 -----------------------

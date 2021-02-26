@@ -34,7 +34,6 @@ values in the :php:`$EM_CONF` array if needed.
        'author_email' => 'john@example.org',
        'author_company' => 'some company',
        'state' => 'stable',
-       'createDirs' => '',
        'clearCacheOnLoad' => 0,
        'version' => '1.0.0',
        'constraints' => [
@@ -305,24 +304,6 @@ $_EXTKEY is set globally and contains the extension key.
 Deprecated Configuration
 ========================
 
-The following fields are deprecated and should not be used anymore:
+The following fields have become deprecated since this TYPO3 version. They have no effect any more.
 
-- dependencies
-- conflicts
-- suggests
-- docPath
-- CGLcompliance
-- CGLcompliance_note
-- private
-- download_password
-- shy
-- loadOrder
-- priority
-- internal
-- modify_tables
-- module
-- lockType
-- TYPO3_version
-- PHP_version
-- uploadfolder
-- createDirs
+- (No new entries are listed here. For formerly deprecated fiels: see older versions of this page).

@@ -90,7 +90,7 @@ password to a secure one as soon as possible. You should be able to
 change your password in the *User settings* menu, reachable by clicking on your
 user name in the :ref:`top bar <backend-modules-structure>`:
 
-.. figure:: ../../Images/Security/editor-change-password.png
+.. figure:: ../Images/editor-change-password.png
     :class: with-shadow
     :alt: The "User Settings" menu, where you can change your password
 
@@ -111,7 +111,7 @@ As an indicator, if you see a *Template* entry under the *WEB*
 TOOLS*, you definitely have the wrong permissions as an editor and you
 should get in touch with the system provider to solve this issue.
 
-.. figure:: ../../Images/Security/editor-admin-privileges.png
+.. figure:: ../Images/editor-admin-privileges.png
     :class: with-shadow
     :alt: Screenshot of a menu with the section "ADMIN TOOLS"
 
@@ -126,7 +126,7 @@ user settings, you will receive an email from TYPO3 each time you (or
 notification is an additional security measure because you will know
 if someone else picked up your password and uses your account.
 
-.. figure:: ../../Images/Security/editor-notify-on-login.png
+.. figure:: ../Images/editor-notify-on-login.png
     :class: with-shadow
     :alt: The screen "User Settings" with the "Notify" checkbox
 

@@ -37,7 +37,7 @@ The rendering part of the :php:`EditDocumentController` job splits into these pa
 * Let the :php:`PageRenderer` output its compiled result.
 
 
-.. figure:: ../../../Images/FormEngineMainWorkflow.svg
+.. figure:: ../Images/FormEngineMainWorkflow.svg
    :alt: Main FormEngine workflow
 
 The controller does two distinct things here: First, it initializes a data array and lets it get enriched by

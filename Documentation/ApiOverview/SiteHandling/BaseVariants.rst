@@ -1,12 +1,12 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Site handling; Base variants
 .. _sitehandling-baseVariants:
 
 =============
-Base Variants
+Base variants
 =============
 
-In Site Handling base variants represent different bases for a web site depending on a specified
+In site handling "base variants" represent different bases for a web site depending on a specified
 condition. For example a "live" base URL might be `https://example.org` but on local machine
 it's `https://example.test` as a domain - that's when variants are used.
 
@@ -18,13 +18,13 @@ Variants consist of two parts:
 * a base to use for this variant
 * a condition that decides when this variant shall be active
 
-Conditions are based on Symfony Expression Language and allow flexible conditions. For example::
+Conditions are based on Symfony expression language and allow flexible conditions. For example::
 
     applicationContext == "Development"
 
 would define a base variant to use in Development context.
 
-.. figure:: ../../Images/SiteHandlingBaseVariants-1.png
+.. figure:: Images/SiteHandlingBaseVariants-1.png
    :class: with-shadow
    :alt: Add a base variant
 
@@ -92,6 +92,9 @@ Example
         fallbackType: strict
         flag: de
 
+
+.. index:: Site handling; Base variant properties
+
 Properties
 ==========
 
@@ -146,6 +149,10 @@ applicationContext
 :aspect:`Example`
     `Development`
 
+
+.. index::
+   Site handling; Base variant functions
+   DefaultFunctionsProvider
 
 Functions
 =========

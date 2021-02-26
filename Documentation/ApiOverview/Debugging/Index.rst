@@ -30,7 +30,7 @@ For example, the following code::
 
 will produce such an output:
 
-.. figure:: ../../Images/DebugOutput.png
+.. figure:: Images/DebugOutput.png
    :alt: Debug output
 
    Typical TYPO3 debug output

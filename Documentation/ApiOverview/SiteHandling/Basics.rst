@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   Site handling; Basics
+   Module; Site management
 .. _sitehandling-basics:
 
 ======
@@ -7,17 +9,17 @@ Basics
 ======
 
 .. note::
-   Site Handling as described here is available since TYPO3 9 LTS.
+   Site handling is available since TYPO3 9 LTS.
 
-TYPO3 Site Handling and Configuration is the starting point for creating new web sites. The corresponding modules are found in the TYPO3 backend
-in the section "Site Management".
+TYPO3 site handling and configuration is the starting point for creating new web sites. 
+The corresponding modules are found in the TYPO3 backend in the section :guilabel:`Site management`.
 
 A site configuration consists of the following parts:
 
-* Base URL configuration: Under which domain(s) is my site accessible
-* :ref:`Language configuration<sitehandling-addingLanguages>`: Which languages are available for my site
-* :ref:`Error Handling<sitehandling-errorHandling>`: How should errors for this site behave (For example: configure custom 404 pages)
-* :ref:`Static Routes<sitehandling-staticRoutes>`: Add static routes to a site (For example for robots.txt on a per site base)
+* Base URL configurations: the domain(s) to access my site:
+* :ref:`Language configuration<sitehandling-addingLanguages>`: the languages of my site.
+* :ref:`Error Handling<sitehandling-errorHandling>`: error behavior of my site (For example: configuration of custom 404 pages)
+* :ref:`Static Routes<sitehandling-staticRoutes>`: static routes of my site (For example :file:`robots.txt` on a per site base)
 * Routing Configuration: How shall routing behave for this site
 
 When creating a new page on root level via TYPO3 Backend, a very basic site configuration is generated on the fly. It prevents immediate errors
@@ -25,7 +27,7 @@ due to missing configuration and can also serve as a starting point for all furt
 
 Most parts of the site configuration can be edited via the graphical interface in the backend module "Site".
 
-.. figure:: ../../Images/SiteHandlingSiteModule.png
+.. figure:: Images/SiteHandlingSiteModule.png
    :class: with-shadow
    :alt: Site Module
 
@@ -36,22 +38,29 @@ Most parts of the site configuration can be edited via the graphical interface i
    other forms, site configuration is stored in the file system and not in database tables.
 
 
-Site Configuration Storage
+.. index::
+   Site handling; Directory
+   Path; <project-root>/config/sites
+   Path; typo3conf/sites
+
+Site configuration storage
 ==========================
 
 When creating a new site configuration, a folder in the file system is created located at
 :file:`<project-root>/config/sites/<identifier>/`. The site configuration is stored in a
-file called `config.yaml`.
+file called :file:`config.yaml`.
 
 .. note::
-    If you are using a non-composer based installation, the location is `typo3conf/sites/`.
+    If you are using a non-composer based installation, the location is :file:`typo3conf/sites/`.
     In the future this folder can (and should) be used for more files like Fluid templates, and Backend layouts.
 
 .. hint::
     Add this folder to your version control.
 
 
-The Configuration File
+.. index:: Site handling; File
+
+The configuration file
 ======================
 
 The following part explains the configuration file and options:
@@ -127,7 +136,9 @@ Most settings can also be edited via the backend module `Site Management > Sites
 exceptions being custom settings and additional routing configuration.
 
 
-site identifier
+.. index:: Site handling; Site identifier
+
+Site identifier
 ---------------
 
 The site identifier is the name of the folder within `<project-root>/config/sites/` that will hold your configuration file(s). When

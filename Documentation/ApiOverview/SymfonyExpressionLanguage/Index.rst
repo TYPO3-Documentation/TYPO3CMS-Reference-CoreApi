@@ -1,26 +1,29 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Symfony expression language
 .. _symfony-expression-language:
 
 ===========================
-Symfony Expression Language
+Symfony expression language
 ===========================
 
-Symfony Expression Language is used by TYPO3 in certain places. These are
-documented in below sections, together with explanations how they can be
+Symfony expression language is used by TYPO3 in certain places. These are
+documented in the following sections, together with explanations how they can be
 extended:
 
-.. contents::
-   :depth: 2
+.. contents:: This page
+   :backlinks: top
+   :class: compact-list
+   :local:
 
+
+.. index:: pair: Symfony expression language; TypoScript
 .. _sel-within-typoscript-conditions:
 
-Within TypoScript Conditions
-----------------------------
+Symfony within TypoScript conditions
+====================================
 
 In order to provide custom conditions, its essential to understand how
-conditions are written. Refer to :ref:`typoscript-syntax-conditions-syntax` if
-syntax of conditions is not known yet.
+conditions are written. Refer to :ref:`typoscript-syntax-conditions-syntax` for details.
 
 Conditions are evaluated by the `Symfony Expression Language`_ and are evaluated
 to boolean results. Therefore an integrator can write :ts:`[true === true]`
@@ -28,34 +31,40 @@ which would evaluate to true. In order to provide further functionality within
 conditions, the Symfony Expression Language needs to be extended. There are two
 parts that can be added to the language, which are variables and functions.
 
-The following section explain how to add variables and functions.
+The following sections explain how to add variables and functions.
 
+
+.. index:: pair: Symfony expression language; Custom provider
 .. _sel-ts-registering-new-provider-within-extension:
 
-Registering new Provider within Extension
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Registering new provider within an extension
+============================================
 
-There has to be a provider, no matter whether variables or functions should be provided.
+There has to be a provider, no matter whether variables or functions will be provided.
 
-The provider is registered within :file:`/Configuration/ExpressionLanguage.php`::
+The provider is registered in the extension file :file:`/Configuration/ExpressionLanguage.php`, depending on
+the extension's custom PHP class name::
 
    <?php
+
    return [
        'typoscript' => [
            \Vendor\ExtensionName\ExpressionLanguage\CustomTypoScriptConditionProvider::class,
        ]
    ];
 
-This will register the defined class as provider within context `typoscript`.
+
+This will register the defined :php:`CustomTypoScriptConditionProvider` PHP class as provider within the context `typoscript`.
+
 
 .. _sel-ts-implement-provider-within-extension:
 
-Implement Provider within Extension
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Implement provider within extension
+===================================
 
-The provider itself is written as PHP Class within
+The provider itself is written as PHP Class within the extension file
 :file:`/Classes/ExpressionLanguage/CustomTypoScriptConditionProvider.php`, depending on
-registered class name::
+the formerly registered PHP class name::
 
    <?php
 
@@ -70,10 +79,11 @@ registered class name::
        }
    }
 
+
 .. _sel-ts-additional-variables:
 
 Additional variables
-^^^^^^^^^^^^^^^^^^^^
+====================
 
 Additional variables can already be provided within the
 :php:`CustomTypoScriptConditionProvider` PHP class::
@@ -89,7 +99,7 @@ Additional variables can already be provided within the
    }
 
 In above example a new variable `variableA` with value `valueB` is added, this
-can be used within Conditions:
+can be used within conditions:
 
 .. code-block:: typoscript
 
@@ -100,13 +110,14 @@ can be used within Conditions:
        page.10.value = Matched
    [GLOBAL]
 
+
 .. _sel-ts-additional-functions:
 
 Additional functions
-^^^^^^^^^^^^^^^^^^^^
+====================
 
 Additional functions can be provided through another class, which has to be
-returned by :php:`CustomTypoScriptConditionProvider` PHP class::
+returned by the example :php:`CustomTypoScriptConditionProvider` PHP class::
 
    class CustomTypoScriptConditionProvider extends AbstractProvider
    {
@@ -118,7 +129,7 @@ returned by :php:`CustomTypoScriptConditionProvider` PHP class::
        }
    }
 
-The returned class looks like the following::
+The returned class will look like the following::
 
    <?php
 
@@ -144,7 +155,7 @@ The returned class looks like the following::
 
 
 The class is already trying to return a new :php:`ExpressionFunction`, but
-currently lacks implementation. That's the last step::
+currently lacks implementation. That is the last step::
 
    protected function getWebserviceFunction(): ExpressionFunction
    {
@@ -160,8 +171,27 @@ currently lacks implementation. That's the last step::
        });
    }
 
-The first argument :php:`$existingVariables` always provides all registered variables to the function.
-All further arguments need to be provided by TypoScript. The above example could look like:
+The first argument :php:`$existingVariables` is an array of which each associative key corresponds to a registered variable.
+
+   *  request (TYPO3\CMS\Core\ExpressionLanguage\RequestWrapper)
+   *  applicationContext - string
+   *  typo3 . stdClass
+   *  tree - stdClass
+   *  frontend - stdClass
+   *  backend - stdClass
+   *  workspace - stdClass
+   *  page - array: page record
+
+If you need an undefined number of variables, then you can write the same function in a variadic form::
+
+    // ...
+    }, function (...$args) {
+        $existingVariables = $args['0'];
+        // ...
+    }
+
+
+All further arguments are provided by TypoScript. The above example could look like:
 
 .. code-block:: typoscript
 
@@ -171,11 +201,11 @@ All further arguments need to be provided by TypoScript. The above example could
        page.10.value = Matched
    [GLOBAL]
 
-In case a simple string like a title is returned this can be further checked:
+If a simple string like a page title is returned, this can be further compared:
 
 .. code-block:: typoscript
 
-   [webservice('pages', 10) === 'Expected title']
+   [webservice('pages', 10) === 'Expected page title']
        page.10 >
        page.10 = TEXT
        page.10.value = Matched

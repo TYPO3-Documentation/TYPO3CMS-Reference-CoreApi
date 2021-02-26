@@ -20,7 +20,7 @@ actual labels. This task is performed by method
 The content of the :php:`$TCA_DESCR` array can be reviewed in the
 **SYSTEM > Configuration** module:
 
-.. figure:: ../../../Images/ContextSensitiveHelpTcaDescr.png
+.. figure:: ../Images/ContextSensitiveHelpTcaDescr.png
    :alt: Content of the $TCA\_DESCR array
 
    List of file references for the CSH labels of the "pages" table

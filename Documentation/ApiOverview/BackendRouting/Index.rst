@@ -54,6 +54,12 @@ So a routes file essentially returns an array containing routes mapping.
 A route is defined by a key, a path, a referrer and a target. The "public" :code:`access`
 property indicates that no authentication is required for that action.
 
+.. note::
+
+   The current route object is available as `route` attribute on the PSR-7 request
+   object of every backend request. It is added through the PSR-15 middleware stack
+   and can be retrieved using :php:`$request->getAttribute('route')`.
+
 .. index::
    pair: Backend routing; Cross-site scripting
    Backend routing; Public
@@ -98,19 +104,50 @@ This technique should be used on all public routes (without session token) that
 internally redirect to a restricted route (having a session token). The goal is
 to protect and keep information about the current session token internal.
 
-The request sequence in the TYPO3 Core  looks like this:
+The request sequence in the TYPO3 Core looks like this:
 
 * HTTP request to `https://example.org/typo3/` having a valid user session
 * internally **public** backend route `/login` is processed
 * internally redirects to **restricted** backend route `/main` since an
   existing and valid backend user session was found
-  + HTTP redirect to `https://example.org/typo3/index.php?route=/main&token=...`
+  + HTTP redirect to `https://example.org/typo3/main?token=...`
   + exposing the token is mitigated with `referrer` route option mentioned above
 
 .. important::
 
    Please keep in mind these steps are part of a mitigation strategy, which requires
    to be aware of mentioned implications when implementing custom web applications.
+   
+   
+.. index:: Backend routing; Generating backend URLs
+   
+Generating backend URLs
+=======================
+
+Using the UriBuilder API, you can generate any kind of URL for the Backend, may it be
+a module, a typical route or an AJAX call. Therefore use either :php:`buildUriFromRoute()`
+or :php:`buildUriFromRoutePath()`. The :php:`UriBuilder` then returns a PSR-7 conform :php:`Uri` object
+that can be cast to string when needed. Furthermore does the :php:`UriBuilder` automatically
+generates and applies the mentioned session token.
+
+.. code-block:: php
+
+   // Using a route identifier
+   $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
+   $uri = $uriBuilder->buildUriFromRoute('web_layout', ['id' => $pageId]);
+   
+   // Using a route path
+   $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
+   $uri = $uriBuilder->buildUriFromRoutePath(
+      '/record/edit',
+      [
+         'edit' => [
+            'pages' => [
+               123 => 'edit'
+            ]
+         ]
+      ]
+   );
 
 More Information
 ================

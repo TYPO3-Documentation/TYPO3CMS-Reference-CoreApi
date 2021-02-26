@@ -37,13 +37,14 @@ The :php:`AssetCollector` is a concept to allow custom CSS/JS code, inline or ex
 times in e.g. a Fluid template (via :html:`<f:asset.script>` or :html:`<f:asset.css>` Viewhelpers)
 but rendered only once in the output.
 
-It supports best practices for optimizing page performance by having a "priority" flag to either
-move the asset to the :html:`<head>` section (useful for CSS in above-the-fold concepts) or the
-bottom of the :html:`<body>` tag.
+The :php:`priority` flag (default: :php:`false`) controls where the asset is included: 
+
+- JavaScript will be output inside :html:`<head>` (:php:`priority`=true) or at the bottom of the :html:`<body>` tag (:php:`priority`=false)
+- CSS will always be output inside :html:`<head>`, yet grouped by :php:`priority`.
 
 The :php:`AssetCollector` helps to work with content elements as components, effectively reducing the CSS to be loaded.
-It also incorporates the HTTP/2 power, where it is not relevant to have all
-files compressed and concatenated into one file.
+It leverages making use of HTTP/2 which removes the necessity to have all
+files concatenated into one file.
 
 The :php:`AssetCollector` is implemented as a singleton and should slowly replace the various other existing options
 in TypoScript.

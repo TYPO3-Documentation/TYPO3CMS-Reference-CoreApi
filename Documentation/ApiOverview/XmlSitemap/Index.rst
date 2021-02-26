@@ -156,12 +156,34 @@ to a field with a decimal value between 0 and 1.
    Both priority and change frequency does have no impact on your rankings. These options only give hints to search engines
    in which order and how often you would like a crawler to visit your pages.
 
+Sitemap of records without sorting field
+========================================
+Sitemaps are paginated by default. To make sure as less as possible pages of the sitemap changes after the amount of records
+is changed, the items in the sitemaps are ordered. By default this is done on the sorting field. If you do not have such a
+field, make sure to configure this in your sitemap configuration and use another field. An example you can use to order based on
+the uid field:
+
+.. code-block:: typoscript
+
+   plugin.tx_seo {
+      config {
+         <sitemapType> {
+            sitemaps {
+               <unique key> {
+                  config {
+                     sortField = uid
+                  }
+               }
+            }
+         }
+      }
+   }
 
 Create your own XmlSitemapDataProvider
 ======================================
 
 If you need more logic in your sitemap, you can also write your own XmlSitemapProvider. You can do this by
-extending the \TYPO3\CMS\Seo\XmlSitemap\AbstractXmlSitemapDataProvider class. The most important methods are
+extending the :php:`\TYPO3\CMS\Seo\XmlSitemap\AbstractXmlSitemapDataProvider` class. The most important methods are
 :php:`getLastModified` and :php:`getItems`.
 
 The :php:`getLastModified` is used in the sitemap index and have to return the date of the last modified

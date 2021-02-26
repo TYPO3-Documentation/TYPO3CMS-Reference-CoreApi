@@ -1,38 +1,45 @@
 .. include:: /Includes.rst.txt
 .. highlight:: typoscript
-.. index:: LinkHandler
+.. index:: LinkHandlers
 .. _linkhandler:
 
-===============
-LinkHandler API
-===============
+===================
+The LinkHandler API
+===================
 
-.. versionadded:: 8.6
-    The LinkHandler Api has been included in the Core with the change
-    :doc:`t3core:Changelog/8.6/Feature-79626-IntegrateRecordLinkHandler`.
-    Before, it had only been available as third party extension.
+The LinkHandler API currently consists of 7 LinkHandler classes and the
+:php:`TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface`. The
+LinkHandlerInterface can be implemented to create custom LinkHandlers.
 
-The LinkHandler enables editors to link to single records i.e. a single news record.
+Most LinkHandlers cannot receive additional configuration, they are marked as
+:php:`@internal` and contain neither hooks nor events. They are therefore
+of interest to Core developers only.
 
-The configuration consists of the following parts:
+Current LinkHandlers:
 
-.. rst-class:: bignums-xxl
+* :ref:`pagelinkhandler`: for linking pages and content
+* :ref:`recordlinkhandler`: for linking any kind of record
+* UrlLinkHandler: for linking external urls
+* FileLinkHandler: for linking files in the :ref:`fal`
+* FolderLinkHandler: for linking to directories
+* MailLinkHandler: for linking mail
+* TelephoneLinkHandler: for linking phone numbers
 
-#. PageTSconfig is used to create a new tab in the LinkBrowser to be able to select records.
+.. note::
 
-   .. code-block:: typoscript
+   In the system extension :file:`core` there are also classes ending on
+   "LinkHandler". However those implement the :php:`interface LinkHandlingInterface`
+   and are part of the LinkHandling API, not the LinkHandler API.
 
-      TCEMAIN.linkHandler.anIdentifier {
-          handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
-          label = LLL:EXT:extension/Resources/Private/Language/locallang.xlf:link.customTab
-          configuration {
-              table = tx_example_domain_model_item
-          }
-          scanAfter = page
-      }
+The following LinkHandlers are of interest:
 
-   You can position your own handlers in order as defined in the :ref:`linkbrowser-api`.
+.. toctree::
+   :titlesonly:
 
+   PageLinkHandler
+   RecordLinkHandler
+   CustomLinkHandlers
+   
    The links are now stored in the database with the syntax
    `<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
 
@@ -87,10 +94,10 @@ The following optional configuration is available:
 
 Furthermore the following options are available from the LinkBrowser Api:
 
-:ts:`configuration.scanAfter = page` or :ts:`configuration.scanBefore = page`
+:ts:`scanAfter = page` or :ts:`scanBefore = page`
    define the order in which handlers are queried when determining the responsible tab for an existing link
 
-:ts:`configuration.displayBefore = page` or :ts:`configuration.displayAfter = page`
+:ts:`displayBefore = page` or :ts:`displayAfter = page`
    define the order how the various tabs are displayed in the link browser.
 
 Example: news records from one storage pid
@@ -136,7 +143,7 @@ The uid will be used directly instead of selecting it from the page tree.
 This only works for the :php:`PageLinkHandler`.
 It will **not** work for custom added LinkHandler configurations.
 
-.. figure:: ../../../Images/LinkBrowserTSConfigExamplepageIdSelector.png
+.. figure:: Images/LinkBrowserTSConfigExamplepageIdSelector.png
    :alt: The link browser field for entering a page uid.
 
 Enable the field with the following User-/PageTSConfig::

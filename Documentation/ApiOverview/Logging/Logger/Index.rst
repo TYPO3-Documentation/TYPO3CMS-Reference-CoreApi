@@ -50,6 +50,94 @@ based on the class hierarchy.
 .. index::
    Logging; logger->log
    Logging; LogLevels
+
+Log level
+=========
+
+Log levels according to RFC 3164, starting from the lowest level.
+
+.. _label-Debug:
+.. rst-class:: dl-parameters
+
+Debug
+   :sep:`|` debug information
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::DEBUG`
+   :sep:`|`
+
+   Detailed status information during the development of new PHP code.
+
+.. _label-Informational:
+.. rst-class:: dl-parameters
+
+Informational
+   :sep:`|` informational messages
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::INFO`
+   :sep:`|`
+
+   User logs in, SQL logs.
+
+.. _label-notice:
+.. rst-class:: dl-parameters
+
+Notice
+   :sep:`|` significant condition
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::NOTICE`
+   :sep:`|`
+
+   Things you should have a look at, nothing to worry about though.
+
+.. _label-warning:
+.. rst-class:: dl-parameters
+
+Warning
+   :sep:`|` warning condition
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::WARNING`
+   :sep:`|`
+
+   Use of deprecated APIs. Undesirable events that are not necessarily wrong.
+
+.. _label-error:
+.. rst-class:: dl-parameters
+
+Error
+   :sep:`|` error condition
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::ERROR`
+   :sep:`|`
+
+   Runtime error. Some PHP coding error has happened. A white screen is shown.
+
+.. _label-critical:
+.. rst-class:: dl-parameters
+
+Critical
+   :sep:`|` critical condition
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::CRITICAL`
+   :sep:`|`
+
+   Unexpected exception.  An important file has not been found, data is corrupt or outdated.
+
+.. _label-alert:
+.. rst-class:: dl-parameters
+
+Alert
+   :sep:`|` blocking condition
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::ALERT`
+   :sep:`|`
+
+   Action must be taken immediately. Entire website down, database unavailable.
+
+.. _label-emergency:
+.. rst-class:: dl-parameters
+
+Emergency
+   :sep:`|` nothing works
+   :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::EMERGENCY`
+   :sep:`|`
+
+   The system is unusable. You will likely not be able to reach the system.
+   You better have a system admin reachable when this happens.
+
+
 .. _logging-logger-log:
 
 Log() Method
@@ -76,16 +164,7 @@ which takes three parameters:
    :Type: Type
          integer
    :Description:
-         One of either:
-
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::EMERGENCY`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::ALERT`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::CRITICAL`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::ERROR`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::WARNING`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::NOTICE`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::INFO`
-         - :code:`\TYPO3\CMS\Core\Log\LogLevel::DEBUG`
+         See the chapter above.
 
  - :Parameter: $message
    :Type: Type

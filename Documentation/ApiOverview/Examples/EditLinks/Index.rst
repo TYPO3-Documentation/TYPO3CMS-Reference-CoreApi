@@ -36,8 +36,8 @@ Below are a different examples, how edit links can be output in the backend.
 
    <html data-namespace-typo3-fluid="true"
 			xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-			xmlns:core="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
-			xmlns:be="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+			xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+			xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
 			xmlns:ex="http://typo3.org/ns/T3docs/Examples/ViewHelpers"
    >
       <p>
@@ -59,7 +59,7 @@ Below are a different examples, how edit links can be output in the backend.
 
 The links appear as one can expect:
 
-.. figure:: ../../../Images/EditLinksDisplay.png
+.. figure:: Images/EditLinksDisplay.png
    :alt: Edit links in the examples BE module
 
    The two links in the "examples" BE module
@@ -88,7 +88,7 @@ Editing a Record
 
 The examples above leads to the normal edit form for a page:
 
-.. figure:: ../../../Images/EditLinksEditFull.png
+.. figure:: Images/EditLinksEditFull.png
    :alt: The standard form for editing a page
 
    Page 1 ready for editing with the standard form
@@ -134,7 +134,7 @@ However if one record to be edited is missing none of the records gets displayed
 
 The example above results in the following:
 
-.. figure:: ../../../Images/EditLinksEditRestricted.png
+.. figure:: Images/EditLinksEditRestricted.png
    :alt: The restricted form for editing a page
 
    Editing of fields of two pages and one haiku at once
@@ -200,7 +200,7 @@ Note the following things:
 This results in the following new record form with a pre-filled
 title and season field.
 
-.. figure:: ../../../Images/EditLinksNew.png
+.. figure:: Images/EditLinksNew.png
    :alt: Creating a new haiku
 
    Form for creating a new haiku with pre-filled title and season and restricted columns

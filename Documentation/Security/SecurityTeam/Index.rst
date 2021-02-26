@@ -6,6 +6,13 @@
 The TYPO3 Security Team
 =======================
 
+You can find details about the TYPO3 Security Team at
+`https://typo3.org/community/teams/security/ <https://typo3.org/community/teams/security/>`_ .
+
+You can contact the TYPO3 Security Team at `security@typo3.org <mailto:security@typo3.org>`_ .
+
+TYPO3 Core security updates, extension security updates, and unmaintained insecure extensions are announced in formal `TYPO3 Security Bulletins <https://typo3.org/help/security-advisories>`_. 
+
 
 .. index:: Security; Reporting
 .. _security-team-contact:
@@ -19,12 +26,11 @@ the `TYPO3 Security Team <mailto:security@typo3.org>`_ – the Security Team onl
 Do not disclose the issue in public (for example in mailing lists, forums, on Twitter,
 your website or any 3rd party website).
 
-The team tries to answer all requests as soon as possible and strives
-to respond in 2 working days, but please allow a reasonable amount of
+The team strives to respond to all reports within
+2 working days, but please allow a reasonable amount of
 time to assess the issue and get back to you with an answer. If you
 suspect that your report has been overlooked, feel free to submit a
 reminder a few days after your initial submission.
-
 
 .. index::
    Security; Extension review
@@ -33,18 +39,9 @@ reminder a few days after your initial submission.
 Extension review
 ================
 
-The Security Team does not review extensions pro-actively, but can be
-engaged if someone wants to have his/her extension reviewed. It is not
-required that the extension code is publicly available ("private"
-extensions can also be reviewed on request). If the extension has been
-published in the TYPO3 Extension Repository (TER), it must be "stable"
-and if it passed the security review, the investigated version (and
-this version only) may be classified as "reviewed".
-
-You can contact the TYPO3 Security Team at `security@typo3.org <mailto:security@typo3.org>`_ .
-
-Please find further details about the TYPO3 Security Team at
-`https://typo3.org/community/teams/security/ <https://typo3.org/community/teams/security/>`_ .
+The Security Team does not review extensions. 
+You can engage the TYPO3 GmbH to conduct an independent security audit on your
+extension or site as a part of their `Project Review service <https://typo3.com/services/project-reviews>`_
 
 
 .. index:: Security; Incident handling
@@ -53,7 +50,7 @@ Please find further details about the TYPO3 Security Team at
 Incident handling
 =================
 
-This chapter provides detailed information about the differences between
+This section provides detailed information about the differences between
 the TYPO3 Core system and TYPO3 extensions and how the TYPO3 Security
 Team deals with security issues of those.
 

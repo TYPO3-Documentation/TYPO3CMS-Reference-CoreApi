@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Sessions; Storage
 .. _session-storage:
 
 =========================
@@ -15,6 +15,7 @@ The Core ships two session backends by default:
 
 By default user sessions are still stored in the database using the database storage backend, but the former table `fe_session_data` is obsolete and has therefore been removed.
 
+.. index:: Sessions; Database storage
 .. _sessions-database:
 
 Database storage backend
@@ -46,9 +47,8 @@ The default configuration used for sessions by the Core is:
     ],
 
 
-.. _sessions-redis:
-
 .. index:: Sessions; Redis Storage
+.. _sessions-redis:
 
 Using Redis to store sessions
 =============================
@@ -102,9 +102,8 @@ The available options are:
 
 
 
+.. index:: Sessions; Custom storage
 .. _sessions-custom:
-
-.. index:: Sessions; Custom Storage
 
 Writing your own session storage
 ================================
