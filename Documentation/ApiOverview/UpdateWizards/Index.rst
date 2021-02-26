@@ -24,7 +24,7 @@ wizards.
 The API for upgrade wizards comes with the following interfaces:
 
 * (required) :ref:`UpgradeWizardInterface <upgrade-wizard-interface>`: Main interface for UpgradeWizards. All
-  upgrade wizards using the API MUST implement this interface.
+  upgrade wizards using the API **must** implement this interface.
 * (optional) :ref:`RepeatableInterface <repeatable-interface>`: Semantic interface to denote wizards that can be repeated
 * (optional) :ref:`ChattyInterface <uprade-wizards-chatty-interface>`:  Interface for wizards generating output
 * (optional) :php:`ConfirmableInferface`: Interface for wizards that need user confirmation
