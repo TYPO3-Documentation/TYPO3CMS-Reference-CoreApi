@@ -8,14 +8,14 @@ The Backend Template View without Extbase
 
 .. tip::
 
-   If you want to do extensive data modelling you may want to
+   If you want to do extensive data modeling you may want to
    use :ref:`Extbase templating <backend-modules-template>`.
-   If you build a simple backend module it makes sense to to work without Extbase.
+   If you build a simple backend module it makes sense to work without Extbase.
 
 Basic controller
 ----------------
 
-When creating a controller without Extbase a instance of :php:`ModuleTemplate` is required
+When creating a controller without Extbase an instance of :php:`ModuleTemplate` is required
 to return the rendered template:
 
 .. code-block:: php
@@ -40,7 +40,7 @@ to return the rendered template:
 Main entry point
 ----------------
 
-:php:`handleRequest()` method is the main entry point which triggeres only the allowed actions.
+:php:`handleRequest()` method is the main entry point which triggers only the allowed actions.
 This makes it possible to include e.g. Javascript for all actions in the controller.
 
 .. code-block:: php
@@ -84,7 +84,7 @@ This makes it possible to include e.g. Javascript for all actions in the control
 Actions
 -------
 
-Now create a :php:`indexAction()` and assign variables to your view as you would normally do
+Now create an :php:`indexAction()` and assign variables to your view as you would normally do
 
 .. code-block:: php
 
