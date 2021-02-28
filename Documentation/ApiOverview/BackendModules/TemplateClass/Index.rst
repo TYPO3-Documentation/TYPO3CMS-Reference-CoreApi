@@ -3,9 +3,9 @@
 
 .. _backend-modules-template:
 
-=========================
-The Backend Template View
-=========================
+======================================
+The Backend Template View with Extbase
+======================================
 
 .. warning::
 
@@ -15,9 +15,15 @@ The Backend Template View
    this manual if you need a reference to the old way of programming
    backend modules.
 
-Modern backend modules are written using the Extbase/Fluid combination.
-Thus, templates are Fluid-based. On top of that the "backend" system extension
-provides a general view class :php:`TYPO3\CMS\Backend\View\BackendTemplateView`
+.. tip::
+
+   If you don't want to do extensive data modelling templates can be written
+   :ref:`without Extbase. <backend-modules-template-without-extbase>`
+
+
+Modern backend modules can be written using the Extbase/Fluid combination.
+The "backend" system extension provides a general view class 
+:php:`TYPO3\CMS\Backend\View\BackendTemplateView`
 which provides common features for all backend modules, like the management
 of the action menu or the registration of docheader buttons.
 
