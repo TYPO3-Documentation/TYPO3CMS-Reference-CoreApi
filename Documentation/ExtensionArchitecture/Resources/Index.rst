@@ -15,3 +15,6 @@ developers:
 - :ref:`custom-permissions`
 
 - :ref:`namespaces`
+
+- :ref:`assets` :
+  add inline Javascript, CSS
