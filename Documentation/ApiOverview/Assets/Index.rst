@@ -46,8 +46,8 @@ The :php:`AssetCollector` helps to work with content elements as components, eff
 It leverages making use of HTTP/2 which removes the necessity to have all
 files concatenated into one file.
 
-The :php:`AssetCollector` is implemented as a singleton and should slowly replace the various other existing options
-in TypoScript.
+The :php:`AssetCollector` class is implemented as a singleton. It replaces various other existing options
+in TypoScript and methods in PHP (:php:`$GLOBALS['TSFE']->additionalHeaderData`, :php:`$pageRenderer->addHeaderData($javascriptcode)`, :php:`$GLOBALS['TSFE']->setJS($key, $javascriptcode)`).
 
 The :php:`AssetCollector` also collects information about "imagesOnPage", which can be used in cached and non-cached components.
 
