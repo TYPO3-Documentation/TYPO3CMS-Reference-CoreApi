@@ -39,8 +39,8 @@ but rendered only once in the output.
 
 The :php:`priority` flag (default: :php:`false`) controls where the asset is included: 
 
-- JavaScript will be output inside :html:`<head>` (:php:`priority`=true) or at the bottom of the :html:`<body>` tag (:php:`priority`=false)
-- CSS will always be output inside :html:`<head>`, yet grouped by :php:`priority`.
+- JavaScript will be output inside :html:`<head>` if :php:`$priority == true` or at the bottom of the :html:`<body>` tag if :php:`$priority == false` .
+- CSS will always be output inside :html:`<head>`, yet grouped by :php:`$priority`.
 
 The :php:`AssetCollector` helps to work with content elements as components, effectively reducing the CSS to be loaded.
 It leverages making use of HTTP/2 which removes the necessity to have all
