@@ -56,12 +56,14 @@ XML Sitemap
 SEO for Developers
     TYPO3 provides various APIs for developers to implement further SEO features:
 
+    - The CanonicalApi (see :ref:`canonicalapi`) to set dynamic canonical url
     - The MetaTagApi (see :ref:`metatagapi`) to add dynamic meta tags
     - The PageTitleAPI (see :ref:`pagetitle`) to manipulate the page title
 
 .. toctree::
    :maxdepth: 1
 
+   ../CanonicalApi/Index
    ../MetaTagApi/Index
    ../PageTitleApi/Index
    ../XmlSitemap/Index
