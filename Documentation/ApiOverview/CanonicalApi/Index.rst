@@ -12,8 +12,8 @@ A brief explanation happens in :ref:`seo`.
 In general the system will generate the canonical using the same logic as for
 cHash.
 
-Excluding arguments from generation
------------------------------------
+Excluding arguments from the generation
+=======================================
 
 TYPO3 will fallback to building a URL of current page and appending query strings.
 It is possible to exclude specific arguments from being appended.
@@ -30,12 +30,12 @@ See the possible options in :ref:`caching`, regarding excluding arguments from c
 
 The idea behind that is:
 
-   If an URL is worth caching (because it has different content) it is worth having a canonical as well.
+If a URL is worth caching (because it has different content) it is worth having a canonical as well.
 
    — https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/pull/1326#issuecomment-788741312
 
-Using Event to define URL
--------------------------
+Using an event to define the URL
+================================
 
 The process will trigger the event :ref:`ModifyUrlForCanonicalTagEvent` which can be used to set the actual URL to use.
 
