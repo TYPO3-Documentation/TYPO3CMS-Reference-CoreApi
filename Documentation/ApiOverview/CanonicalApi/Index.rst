@@ -30,7 +30,7 @@ See the possible options in :ref:`caching`, regarding excluding arguments from c
 
 The idea behind that is:
 
-If a URL is worth caching (because it has different content) it is worth having a canonical as well.
+   If a URL is worth caching (because it has different content) it is worth having a canonical as well.
 
    — https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/pull/1326#issuecomment-788741312
 
