@@ -44,8 +44,8 @@ comes with its own BE module:
    your model with drag and drop.
 
 Note that this tool is not a complete editor. It helps you to create the scaffolding
-of your extension and to generate all necessary PHP files. It is then up to you to complete these files
-with your intended code.
+of your extension and to generate all necessary PHP files. Then you can enhance these files
+with your own code.
 
 .. warning::
    The Extension Builder has the feature to
