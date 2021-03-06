@@ -306,4 +306,4 @@ Deprecated Configuration
 
 The following fields have become deprecated since this TYPO3 version. They have no effect any more.
 
-- (No new entries are listed here. For formerly deprecated fiels: see older versions of this page).
+- (No new entries are listed here. For formerly deprecated fields: see older versions of this page).
