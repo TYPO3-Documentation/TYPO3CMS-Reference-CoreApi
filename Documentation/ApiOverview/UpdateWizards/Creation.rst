@@ -219,6 +219,10 @@ Once the wizard is created, it needs to be registered. Registration is done in
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['exampleUpdateWizard']
       = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
 
+**Important:** Use the same identifier as key (here: `exampleUpdateWizard`), which
+is returned by :php:`UpgradeWizardInterface::getIdentifier()` in your wizard
+class.
+
 
 .. index:: Upgrade wizards; Execution
 
@@ -227,3 +231,14 @@ Executing wizard
 
 Wizards are listed inside the install tool, inside navigation "Upgrade" and the card "Upgrade Wizard".
 The registered wizard should be shown there, as long as he is not done.
+
+It is also possible to execute the wizard from the command line.
+
+.. code-block:: bash
+
+   # Run using our identifier 'exampleUpdateWizard' which was specified when registering
+   vendor/bin/typo3 upgrade:run exampleUpdateWizard
+
+You can find more information about running upgrade wizards in the
+:ref:`Upgrade wizard section <t3install:use-the-upgrade-wizard>` of the
+Installation Guide.
