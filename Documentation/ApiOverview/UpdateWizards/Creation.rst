@@ -9,6 +9,29 @@
 Creating Generic Upgrade Wizards
 ================================
 
+The following is required in order to create an upgrade wizard:
+
+.. rst-class:: bignums
+
+#. A class implementing :ref:`UpgradeWizardInterface <upgrade-wizards-interface>`
+
+#. The class may implement other interfaces (optional):
+
+   *  :ref:`RepeatableInterface <repeatable-interface>` to not mark the wizard
+      as done after execution
+   *  :ref:`ChattyInterface <uprade-wizards-chatty-interface>` for generating
+      output
+   *  :php:`ConfirmableInferface` for wizards that need user confirmation
+
+#. :ref:`Register the wizard <upgrade-wizards-register>` in the file
+   :file:`ext_localconf.php`
+
+
+.. _upgrade-wizards-interface:
+
+UpgradeWizardInterface
+======================
+
 Each upgrade wizard consists of a single PHP file containing a single PHP class. This
 class has to implement :php:`TYPO3\CMS\Install\Updates\UpgradeWizardInterface` and its
 methods::
@@ -123,6 +146,18 @@ Method :php:`getPrerequisites`
        ];
    }
 
+.. index:: Upgrade wizards; Registration
+.. _upgrade-wizards-register:
+
+Registering wizard
+==================
+
+Once the wizard is created, it needs to be registered. Registration is done in
+:file:`ext_localconf.php`::
+
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['exampleUpdateWizard']
+      = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
+
 .. index:: Upgrade wizards; Marking wizard as done
 .. _upgrade-wizards-mark-as-done:
 .. _repeatable-interface:
@@ -207,17 +242,6 @@ We show a simplified example here, based on this class::
 
     }
 
-
-.. index:: Upgrade wizards; Registration
-
-Registering wizard
-==================
-
-Once the wizard is created, it needs to be registered. Registration is done in
-:file:`ext_localconf.php`::
-
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['exampleUpdateWizard']
-      = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
 
 
 .. index:: Upgrade wizards; Execution

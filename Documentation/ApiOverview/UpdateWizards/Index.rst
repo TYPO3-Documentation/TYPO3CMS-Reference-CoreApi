@@ -21,14 +21,6 @@ extensions. TYPO3 itself provides upgrade wizards to ease updates of TYPO3
 versions. This chapter will explain the concept and how to write upgrade
 wizards.
 
-The API for upgrade wizards comes with the following interfaces:
-
-* (required) :ref:`UpgradeWizardInterface <upgrade-wizard-interface>`: Main interface for UpgradeWizards. All
-  upgrade wizards using the API **must** implement this interface.
-* (optional) :ref:`RepeatableInterface <repeatable-interface>`: Semantic interface to denote wizards that can be repeated
-* (optional) :ref:`ChattyInterface <uprade-wizards-chatty-interface>`:  Interface for wizards generating output
-* (optional) :php:`ConfirmableInferface`: Interface for wizards that need user confirmation
-
 .. toctree::
    :titlesonly:
 
