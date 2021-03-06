@@ -42,3 +42,5 @@ You can use Fluid in TYPO3 to do one of the following:
    :titlesonly:
 
    Introduction
+   Syntax
+   ViewHelper reference <https://docs.typo3.org/other/typo3/view-helper-reference/master/en-us/>
