@@ -12,49 +12,76 @@ Introduction
 System Overview
 ===============
 
-For most people TYPO3 is equivalent to a CMS providing a backend for
-management of the content and a frontend engine for website display.
-However the Core of TYPO3 is natively designed to be a general purpose
-framework for management of database content. The Core of TYPO3 CMS
-delivers a set of principles for storage of this content, user access
-management, editing of the content, uploading and managing files, etc.
-These principles are expressed as an API (Application
-Programming Interface) for use in *extensions* which ultimately
-add most of the real functionality.
+The TYPO3 system is multi-layered. The backend and frontend user interfaces
+sit on top of the application layer, which in turn sits on the infrastructure
+layer. The webserver, database and PHP in the infrastructure layer are
+prerequisites for running TYPO3.
+
+TYPO3 Core primarily consists of the API (Application Programming Interface),
+which defines a framework for managing the project content. The base features
+of the API include content storage, user permissions and access, content
+editing, and file management. These features are delivered via system
+**extensions** that use the API. All of the content is stored in a database
+that TYPO3 then accesses via the API.
+
+Extensions are clearly confined code additions, such as plugins, backend
+modules, application logic, skins, and third-party apps.
+
+The most important thing to note is that everything is an extension in TYPO3
+CMS. Even the most basic functions are packaged in a system extension called
+"core".
 
 .. figure:: Images/Typo3CmsStructure.png
-   :alt: Main TYPO3 Core architecture
+   :alt: TYPO3 System layers diagram
+   :class: with-border
+
+   Diagram showing the layers of the TYPO3 system
 
 
-So the *core* is the skeleton and  *extensions* are the muscles,
-fibers and skin making a full bodied CMS. In this document I cut to
-the bone and provide a detailed look at the Core of TYPO3 CMS including
-the API available to the outside. This is supposed to be the final
-technical reference apart from source code itself which
-is - of course - the ultimate documentation.
+Application layer
+-----------------
 
+The TYPO3 Core framework interacts with system and 3rd party extensions via
+the TYPO3 extension API.
+
+The core and extensions interact with each other seamlessly and operate as a
+single, unified system.
+
+User interface layer
+--------------------
+
+The backend is the **content-creation** side. It is the administrative area
+where you manage content and configuration based on the extensions that are
+installed.
+
+The frontend is the **content-delivery** side. Typically a website, it is the
+meeting place for templates, CSS, content, and logic from extensions,
+delivering your project to the world.
+The frontend doesn't have to be a website, it could be a native mobile
+application, a web application built in a frontend framework,  or an API to
+interface with other systems.
 
 .. _installation:
 
 A basic installation
 ====================
 
-To follow this document, it might help to have a totally trimmed down installation
-of TYPO3 CMS with *only* the Core and the required system extensions at hand.
+To follow this document, it might help to have a totally trimmed down
+installation of TYPO3 CMS with *only* the Core and the required system
+extensions at hand.
 
-The installation process is covered in the :ref:`Installation and Upgrade Guide <t3install:start>`.
-You should perform the basic installation steps and not install any distribution.
-This will give you the "lightest" possible version of TYPO3 CMS.
+The installation process is covered in the :ref:`Installation and Upgrade
+Guide <t3install:start>`.
+You should perform the basic installation steps and not install any
+distribution. This will give you the "lightest" possible version of TYPO3 CMS.
 
-Log into your basic installation and move to the **ADMIN TOOLS > Extensions**
-module. You will see all extensions which are loaded by default.
-Required extensions are not only loaded by default, they have no
-"Activate/Deactivate" button, too.
+In your basic installation, go to the :guilabel:`ADMIN TOOLS > Extensions`
+module. You will see all the extensions that are loaded by default.
+Required extensions that are loaded by default have no
+"Activate/Deactivate" button.
 
 .. figure:: Images/ExtensionsMinimalList.png
    :alt: The Extension Manager with a bare bones installation
+   :class: with-border
 
-
-The most important thing to note for now is that **everything** is an
-extension in TYPO3 CMS. Even the most basic functions are packaged in a
-system extension called "core".
+   Screenshot of the backend showing the Extensions module
