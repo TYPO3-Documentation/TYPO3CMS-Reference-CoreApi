@@ -43,16 +43,16 @@ comes with its own BE module:
    The Domain Modeller screen of the Extension Builder. The comfort of building
    your model with drag and drop.
 
-Note that this tool is not a complete editor. It helps you creating the scaffolding
-of your extension, generating the necessary files. It's then up to you to fill these
-with the relevant code.
+Note that this tool is not a complete editor. It helps you to create the scaffolding
+of your extension and to generate all necessary PHP files. Then you can enhance these files
+with your own code.
 
 .. warning::
-   The Extension Builder has some possibility to
+   The Extension Builder has the feature to
    preserve code, but it should still be used with care.
 
 
-After the extension is written to your computer's disk you will be able to install
+After the extension has been written to the folder :file:`typo3conf/ext`, you will be able to activate
 it locally and start using it.
 
 Please refer to the `Extension Builder's manual <https://docs.typo3.org/typo3cms/extensions/extension_builder/>`__ for more information.
