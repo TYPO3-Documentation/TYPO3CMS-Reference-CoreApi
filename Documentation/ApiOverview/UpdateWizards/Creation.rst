@@ -69,7 +69,7 @@ methods::
         * Is used to determine whether a wizard needs to be run.
         * Check if data for migration exists.
         *
-        * @return bool
+        * @return bool Whether an update is required (TRUE) or not (FALSE)
         */
        public function updateNecessary(): bool
        {
@@ -104,8 +104,9 @@ Method :php:`executeUpdate`
    returned.
 
 Method :php:`updateNecessary`
-   Is called to check whether the updater has to run. Therefore a boolean has to be
-   returned.
+   Is called to check whether the upgrade wizard has to run. Return :php:`true`, if an
+   update is necessary, :php:`false` if not. If :php:`false` is returned, the upgrade
+   wizard will not be displayed in the list of available wizards.
 
 Method :php:`getPrerequisites`
    Returns an array of class names of prerequisite classes. This way a wizard can
