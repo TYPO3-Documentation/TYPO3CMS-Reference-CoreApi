@@ -159,9 +159,9 @@ The following displays the link to the news on a detail page::
 Once more if the book reports that are also saved as `tx_news_domain_model_news` record should be displayed on their own
 detail page you can do it like this::
 
-   config.recordLinks.news {
+   config.recordLinks.bookreports  {
       typolink {
-         parameter = 123
+         parameter = 987
          additionalParams.data = field:uid
          additionalParams.wrap = &tx_news_pi1[controller]=News&tx_news_pi1[action]=detail&tx_news_pi1[news]=|
       }
