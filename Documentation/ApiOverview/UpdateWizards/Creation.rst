@@ -103,8 +103,8 @@ Method :php:`executeUpdate`
    returned.
 
 Method :php:`updateNecessary`
-   Is called to check whether the updater has to run. Return :php:`true`, if an
-   update is necessary, :php:`false` if not. If false is returned, the upgrade
+   Is called to check whether the upgrade wizard has to run. Return :php:`true`, if an
+   update is necessary, :php:`false` if not. If :php:`false` is returned, the upgrade
    wizard will not be displayed in the list of available wizards.
 
 Method :php:`getPrerequisites`
