@@ -1,10 +1,12 @@
 .. include:: /Includes.rst.txt
-.. index:: Autoloader
-.. _autoload:
+.. index:: 
+   Autoloader; ComposerClassLoader
+   ClassLoader
+.. _composer-class-loader:
 
-============================================
-ComposerClassLoader - background information
-============================================
+===================
+ComposerClassLoader
+===================
 
 Integrating Composer class loader into TYPO3 CMS
 ================================================
