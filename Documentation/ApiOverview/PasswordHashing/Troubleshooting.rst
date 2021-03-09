@@ -37,11 +37,11 @@ Solutions
 Recommended: Fix the server side
 --------------------------------
 
-It is highly recommended to run PHP 7.2 with argon2i support.
+It is highly recommended to run PHP >= 7.2 with argon2i support.
 Install a PHP build that supports this or make the project hoster support
 PHP 7.2 or above with argon2i. Usually, the argon library is just not installed
 and PHP is compiled without argon2i support. There is little reason to have a
-PHP 7.2 build without argon support.
+PHP >= 7.2 build without argon support.
 
 Disable argon2i support in the install tool
 -------------------------------------------
@@ -60,7 +60,7 @@ working algorithm.
 Manually disable argon2i in the LocalConfiguration.php
 ------------------------------------------------------
 
-This might be nessesary, if access to install tool is not possible:
+This might be necessary, if access to install tool is not possible:
 This could happen when first installation was done on a system with argon2i
 and copied to a target system that doesn't support this encryption type.
 
