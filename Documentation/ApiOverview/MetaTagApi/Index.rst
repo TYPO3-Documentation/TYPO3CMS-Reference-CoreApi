@@ -10,7 +10,7 @@ In order to have the possibility to set metatags in a flexible (but regulated wa
 
 .. note::
 
-    Usually, it is sufficient to set met tags using the API of the :php:`PageRenderer` which uses the MetaTag API
+    Usually, it is sufficient to set meta tags using the API of the :php:`PageRenderer` which uses the MetaTag API
     internally. For all other cases, use the MetaTag API directly.
 
 The API uses :php:`MetaTagManagers` to manage the tags for a "family" of meta tags. The Core e.g. ships an
