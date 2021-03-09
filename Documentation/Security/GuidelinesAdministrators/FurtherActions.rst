@@ -44,14 +44,23 @@ TYPO3 extension list, which allows you to check if extension updates
 are available, or on retrival of translation files.
 
 
-Events in Log Files
-===================
+Events in TYPO3 Log Files
+=========================
 
-Login attempts to the TYPO3 backend, which are unsuccessful, result in
-a server response to the client with HTTP code 401 ("Unauthorized").
-Due to the fact that this incident is logged in the web server's
-error log file, it can be handled by external tools, such as
-`fail2ban <http://www.fail2ban.org>`_.
+Login attempts to the TYPO3 backend, which are unsuccessful, are logged
+using the TYPO3 logging API. It is possible to create a dedicated 
+logfile for messages from TYPO3 authentication classes which can be
+handled by external tools, such as `fail2ban <http://www.fail2ban.org>`_.
+
+Example logging configuration::
+
+  $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['Core']['Authentication']['writerConfiguration'] = [
+      \TYPO3\CMS\Core\Log\LogLevel::INFO => [
+          \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+              'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_auth.log',
+          ]
+      ]
+  ];
 
 .. index::
    pair: Security guidelines; Clickjacking
