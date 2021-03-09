@@ -5,9 +5,9 @@
 .. _upgrade-wizards-creation:
 .. _upgrade-wizard-interface:
 
-================================
-Creating Generic Upgrade Wizards
-================================
+========================
+Creating upgrade wizards
+========================
 
 Each upgrade wizard consists of a single PHP file containing a single PHP class. This
 class has to implement :php:`TYPO3\CMS\Install\Updates\UpgradeWizardInterface` and its
@@ -130,8 +130,8 @@ Method :php:`getPrerequisites`
 Marking wizard as done
 ======================
 
-As soon as the wizard has completely finished, e.g. it detected that no update is
-necessary anymore, or that all updates were completed successfully, the wizard
+As soon as the wizard has completely finished (e.g. it detected that no update is
+necessary anymore) the wizard
 is marked as done and won't be checked anymore.
 
 To force TYPO3 to check the wizard every time, the interface
@@ -210,8 +210,8 @@ We show a simplified example here, based on this class::
 
 .. index:: Upgrade wizards; Registration
 
-Registering wizard
-==================
+Registering the wizard
+======================
 
 Once the wizard is created, it needs to be registered. Registration is done in
 :file:`ext_localconf.php`::
@@ -226,11 +226,11 @@ class.
 
 .. index:: Upgrade wizards; Execution
 
-Executing wizard
-================
+Executing the wizard
+====================
 
 Wizards are listed inside the install tool, inside navigation "Upgrade" and the card "Upgrade Wizard".
-The registered wizard should be shown there, as long as he is not done.
+The registered wizard should be shown there, as long as it is not done.
 
 It is also possible to execute the wizard from the command line.
 
