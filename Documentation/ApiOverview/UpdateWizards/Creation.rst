@@ -6,21 +6,23 @@
 .. _upgrade-wizard-interface:
 
 ================================
-Creating Generic Upgrade Wizards
+Creating generic upgrade wizards
 ================================
 
-The following is required in order to create an upgrade wizard:
+These steps create an upgrade wizard:
 
 .. rst-class:: bignums
 
-#. A class implementing :ref:`UpgradeWizardInterface <upgrade-wizards-interface>`
+#. Add a class implementing :ref:`UpgradeWizardInterface <upgrade-wizards-interface>`
 
-#. The class may implement other interfaces (optional):
+#. The class *may* implement other interfaces (optional):
 
    *  :ref:`RepeatableInterface <repeatable-interface>` to not mark the wizard
       as done after execution
+
    *  :ref:`ChattyInterface <uprade-wizards-chatty-interface>` for generating
       output
+
    *  :php:`ConfirmableInferface` for wizards that need user confirmation
 
 #. :ref:`Register the wizard <upgrade-wizards-register>` in the file
@@ -146,17 +148,19 @@ Method :php:`getPrerequisites`
        ];
    }
 
+
 .. index:: Upgrade wizards; Registration
 .. _upgrade-wizards-register:
 
-Registering wizard
-==================
+Registering wizards
+===================
 
 Once the wizard is created, it needs to be registered. Registration is done in
 :file:`ext_localconf.php`::
 
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['exampleUpdateWizard']
       = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
+
 
 .. index:: Upgrade wizards; Marking wizard as done
 .. _upgrade-wizards-mark-as-done:
@@ -165,7 +169,7 @@ Once the wizard is created, it needs to be registered. Registration is done in
 Marking wizard as done
 ======================
 
-As soon as the wizard has completely finished, e.g. it detected that no update is
+As soon as the wizard has completely finished, for example it detected that no update is
 necessary anymore, or that all updates were completed successfully, the wizard
 is marked as done and won't be checked anymore.
 
@@ -173,6 +177,7 @@ To force TYPO3 to check the wizard every time, the interface
 :php:`\TYPO3\CMS\Install\Updates\RepeatableInterface` has to be implemented.
 This interface works as a marker and does not force any methods to be
 implemented.
+
 
 .. index:: Upgrade wizards; Generating output
 .. _upgrade-wizards-generate-output:
@@ -195,10 +200,8 @@ Classes using this interface must implement the following method::
     public function setOutput(OutputInterface $output): void;
 
 
-
-
 The class :php:`FormFileExtensionUpdate` in the extension "form" implements this interface.
-We show a simplified example here, based on this class::
+We are showing a simplified example here, based on this class::
 
     use Symfony\Component\Console\Output\OutputInterface;
     use TYPO3\CMS\Install\Updates\ChattyInterface;
@@ -243,11 +246,10 @@ We show a simplified example here, based on this class::
     }
 
 
-
 .. index:: Upgrade wizards; Execution
 
-Executing wizard
-================
+Executing wizards
+=================
 
-Wizards are listed inside the install tool, inside navigation "Upgrade" and the card "Upgrade Wizard".
-The registered wizard should be shown there, as long as he is not done.
+Wizards are listed within the install tool, specifically inside navigation "Upgrade" and the card "Upgrade Wizard".
+The registered wizard should appear there as an options as long as it is not flagged done.
