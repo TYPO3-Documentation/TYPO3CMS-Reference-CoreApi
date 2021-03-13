@@ -5,9 +5,9 @@
 .. _upgrade-wizards-creation:
 .. _upgrade-wizard-interface:
 
-================================
-Creating generic upgrade wizards
-================================
+========================
+Creating upgrade wizards
+========================
 
 These steps create an upgrade wizard:
 
@@ -93,7 +93,7 @@ methods::
         * Is used to determine whether a wizard needs to be run.
         * Check if data for migration exists.
         *
-        * @return bool
+        * @return bool Whether an update is required (TRUE) or not (FALSE)
         */
        public function updateNecessary(): bool
        {
@@ -128,8 +128,9 @@ Method :php:`executeUpdate`
    returned.
 
 Method :php:`updateNecessary`
-   Is called to check whether the updater has to run. Therefore a boolean has to be
-   returned.
+   Is called to check whether the upgrade wizard has to run. Return :php:`true`, if an
+   update is necessary, :php:`false` if not. If :php:`false` is returned, the upgrade
+   wizard will not be displayed in the list of available wizards.
 
 Method :php:`getPrerequisites`
    Returns an array of class names of prerequisite classes. This way a wizard can
@@ -161,6 +162,9 @@ Once the wizard is created, it needs to be registered. Registration is done in
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['exampleUpdateWizard']
       = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
 
+**Important:** Use the same identifier as key (here: `exampleUpdateWizard`), which
+is returned by :php:`UpgradeWizardInterface::getIdentifier()` in your wizard
+class.
 
 .. index:: Upgrade wizards; Marking wizard as done
 .. _upgrade-wizards-mark-as-done:
@@ -170,7 +174,7 @@ Marking wizard as done
 ======================
 
 As soon as the wizard has completely finished, for example it detected that no update is
-necessary anymore, or that all updates were completed successfully, the wizard
+necessary anymore, the wizard
 is marked as done and won't be checked anymore.
 
 To force TYPO3 to check the wizard every time, the interface
@@ -245,11 +249,21 @@ We are showing a simplified example here, based on this class::
 
     }
 
-
 .. index:: Upgrade wizards; Execution
 
-Executing wizards
-=================
+Executing the wizard
+====================
 
-Wizards are listed within the install tool, specifically inside navigation "Upgrade" and the card "Upgrade Wizard".
-The registered wizard should appear there as an options as long as it is not flagged done.
+Wizards are listed inside the install tool, inside navigation "Upgrade" and the card "Upgrade Wizard".
+The registered wizard should be shown there, as long as it is not done.
+
+It is also possible to execute the wizard from the command line.
+
+.. code-block:: bash
+
+   # Run using our identifier 'exampleUpdateWizard' which was specified when registering
+   vendor/bin/typo3 upgrade:run exampleUpdateWizard
+
+You can find more information about running upgrade wizards in the
+:ref:`Upgrade wizard section <t3install:use-the-upgrade-wizard>` of the
+Installation Guide.

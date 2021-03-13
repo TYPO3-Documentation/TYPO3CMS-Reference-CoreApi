@@ -20,7 +20,7 @@ You can have a look at the existing LinkHandler in the system Extension
 recordlist, found at :file:`typo3/sysext/recordlist/Classes/LinkHandler`.
 
 However please note that all these extensions extend the :php:`AbstractLinkHandler`,
-which is marked as :php:`@interenal` and subject to change without further notice.
+which is marked as :php:`@internal` and subject to change without further notice.
 
 You should therefore implement the :php:`interface LinkHandlerInterface` in your
 own custom LinkHandlers::
