@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _routing-examples:
 
@@ -541,7 +541,7 @@ Taken from an anonymous live project:
             extension: myvideos
             plugin: myvideos
             routes:
-                - 
+                -
                     routePath: '/video-detail/detail/{videos}'
                     _controller: 'Videos::show'
                     _arguments:
@@ -564,7 +564,7 @@ Taken from an anonymous live project:
             extension: myvideos
             plugin: overviewlist
             routes:
-               - 
+               -
                     routePath: '/video-uebersicht/disziplin/{discipline}'
                     _controller: 'Overview::discipline'
                     _arguments:
@@ -582,12 +582,12 @@ Taken from an anonymous live project:
             extension: myapidata
             plugin: events
             routes:
-                - 
+                -
                     routePath: '/events/detail/{uid}'
                     _controller: 'Events::showByUid'
                     _arguments:
                         uid: uid
-                - 
+                -
                     routePath: '/events/search-result/{searchFormHash}'
                     _controller: 'Events::list'
                     _arguments:
@@ -607,12 +607,12 @@ Taken from an anonymous live project:
             extension: myapidata
             plugin: results
             routes:
-            - 
+            -
                 routePath: '/resultset/detail/{uid}'
                 _controller: 'Results::showByUid'
                 _arguments:
                     uid: uid
-            -   
+            -
                 routePath: '/resultset/search-result/{searchFormHash}'
                 _controller: 'Results::list'
                 _arguments:
@@ -630,12 +630,12 @@ Taken from an anonymous live project:
             extension: myapidata
             plugin: teams
             routes:
-              - 
+              -
                 routePath: '/detail/{team}'
                 _controller: 'Team::show'
                 _arguments:
                     team: team
-              - 
+              -
                 routePath: '/player/result/{searchFormHash}'
                 _controller: 'Team::list'
                 _arguments:

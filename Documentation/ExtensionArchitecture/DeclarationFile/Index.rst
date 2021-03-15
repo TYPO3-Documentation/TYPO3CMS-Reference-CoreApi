@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _extension-declaration:
@@ -49,7 +49,7 @@ $_EXTKEY is set globally and contains the extension key.
 .. important::
    Due to limitations to the TER (`TYPO3 Extension Repository <https://extensions.typo3.org>`__),
    `$_EXTKEY` should be used here and **not** a constant or a string.
-   
+
    Do not use :php:`defined('TYPO3') or die();` in this file.
 
 
@@ -280,12 +280,12 @@ $_EXTKEY is set globally and contains the extension key.
    :Data type:
          array
    :Description:
-         To get better class loading support for websites in **non-composer mode+** 
+         To get better class loading support for websites in **non-composer mode+**
          the following information can be provided.
-         
+
          **Extensions having one folder with classes or single files**
-         
-         Considering you have an Extbase extension (or an extension where all classes 
+
+         Considering you have an Extbase extension (or an extension where all classes
          and interfaces reside in a :file:`Classes` folder) or single classes you can simply
          add the following to your :file:`ext_emconf.php` file::
 
@@ -295,28 +295,28 @@ $_EXTKEY is set globally and contains the extension key.
                   'a-class.php',
                ]
             ],
-            
+
          **Extensions using namespaces**
-         
-         If the extension has namespaced classes following the PSR-4 standard, then you 
+
+         If the extension has namespaced classes following the PSR-4 standard, then you
          can add the following to your :file:`ext_emconf.php` file::
-         
+
             'autoload' => [
                'psr-4' => [
                   'Vendor\\ExtName\\' => 'Classes'
                ]
             ],
-            
-         // Important: The prefix must end with a backslash.          
+
+         // Important: The prefix must end with a backslash.
 
  - :Key:
          autoload-dev
    :Data type:
          array
    :Description:
-         Same as the configuration "autoload" but it is only used if the 
+         Same as the configuration "autoload" but it is only used if the
          *ApplicationContext* is set to *Testing*.
-  
+
 
 Deprecated Configuration
 ========================
@@ -325,8 +325,8 @@ The following fields are deprecated and should not be used anymore:
 
 - dependencies
 - conflicts
-- suggests 
-- docPath 
+- suggests
+- docPath
 - CGLcompliance
 - CGLcompliance_note
 - private

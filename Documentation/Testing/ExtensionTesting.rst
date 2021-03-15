@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _testing-extensions:
 
@@ -349,7 +349,7 @@ On some versions of MacOS you might get the following error message when executi
 
 .. code-block:: shell
 
-    $ ./Build/Scripts/runTests.sh 
+    $ ./Build/Scripts/runTests.sh
     readlink: illegal option -- f
     usage: readlink [-n] [file ...]
     Creating network "local_default" with the default driver

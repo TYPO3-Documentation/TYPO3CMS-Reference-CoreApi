@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. --- EDIT NOTE ---
 .. please see this open issue:

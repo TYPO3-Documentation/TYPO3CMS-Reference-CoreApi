@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _extension-configuration-files:
@@ -102,7 +102,7 @@ ext_tables.php
 frontend context.
 
 This file is only included when
-  
+
 * a TYPO3 Backend or CLI request is happening
 * or the TYPO3 Frontend is called and a valid Backend User is authenticated
 

@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _hooks-creation:
@@ -46,7 +46,7 @@ Here follows some examples.
 Using \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()
 ============================================================
 
-.. warning:: 
+.. warning::
    The hook shown here is deprecated since TYPO3 v9 - use a custom :ref:`PSR-15 middleware<request-handling>` instead.
 
 Data submission to extensions::
@@ -64,7 +64,7 @@ Data submission to extensions::
 Using with \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()
 =====================================================================
 
-.. warning:: 
+.. warning::
    The hook shown here is deprecated since TYPO3 v9 - use a custom :ref:`PSR-15 middleware<request-handling>` instead.
 
 Constructor post-processing::

@@ -1,6 +1,6 @@
 :orphan:
 
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. todo:: merge examples into other chapters in TYPO3 API

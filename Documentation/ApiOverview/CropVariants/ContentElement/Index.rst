@@ -1,4 +1,4 @@
-.. include:: /Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _cropvariants_configuration_content_element:
 
@@ -7,7 +7,7 @@ Crop variants configuration per content element
 ===============================================
 
 It is possible to provide a configuration per content element. If you want a different
-cropping configuration for tt_content images, then you can add the following to 
+cropping configuration for tt_content images, then you can add the following to
 your `image` field configuration of tt_content records:
 
 .. code-block:: php

@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _database-restriction-builder:
 
@@ -145,7 +145,7 @@ Restrictions
    As an important note and limitation of any workspace-related restrictions, fetching the exact
    records need to be handled after the SQL results are fetched, by overlaying the records with
    :php:`BackendUtility::getRecordWSOL()`, :php:`PageRepository->versionOL()` or `PlainDataResolver`.
-  
+
 
 
 QueryRestrictionContainer
