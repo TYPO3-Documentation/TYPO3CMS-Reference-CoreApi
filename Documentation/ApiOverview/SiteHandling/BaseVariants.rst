@@ -24,6 +24,11 @@ Conditions are based on Symfony expression language and allow flexible condition
 
 would define a base variant to use in Development context.
 
+.. note::
+
+   Notice that environment variables can be used in the :yaml:`base` via ``%env(...)%``.
+   :yaml:`condition` needs ``getenv(...)`` instead.
+
 .. figure:: Images/SiteHandlingBaseVariants-1.png
    :class: with-shadow
    :alt: Add a base variant
@@ -34,7 +39,9 @@ would define a base variant to use in Development context.
     For those coming from earlier TYPO3 versions: With site handling, there is no need for `sys_domain` records anymore! :)
 
 .. seealso::
-    Read :ref:`application-context` for more information on how to set the application context.
+   Read :ref:`application-context` for more information on how to set the application context.
+
+   Read :ref:`yaml-api` for more information on YAML parsing.
 
 The following variables and functions are available in addition to the default Symfony functionality:
 
@@ -55,6 +62,9 @@ Example
       -
         base: 'https://testing.example.com/'
         condition: 'applicationContext == "Testing/Paris"'
+      -
+        base: '%env("TYPO3_BASE")%'
+        condition: 'getenv("TYPO3_BASE")'
     languages:
       -
         title: 'Global'
