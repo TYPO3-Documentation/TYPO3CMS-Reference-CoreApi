@@ -6,13 +6,35 @@
 Autoloading
 ===========
 
-The autoloader takes care of finding classes in TYPO3. It is closely related to
-:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` which takes care of singleton
+The class autoloader takes care of finding classes in TYPO3.
+
+About :php:`makeInstance()`
+===========================
+
+:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` is the generic way
+throughout core and extensions to create objects. It takes care of singleton
 and :ref:`XCLASS <xclasses>` handling.
 
-As a developer you should always instantiate classes either through
-:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` or use
-:ref:`Dependency Injection <dependencyinjection>`.
+A developer should usually instantiate classes using :php:`makeInstance()` - it is
+the normal way to go. This has been a hard rule in the past. With younger core version
+however, there are some situations where :php:`new` is used over :php:`makeInstance(),
+effectively dropping especially the direct ability to :ref:`XCLASS <xclasses>`:
+
+- When dependent services are injected via :ref:`Dependency Injection <dependencyinjection>`,
+  there is no need for :php:`makeInstance()`: Injecting a different object is done by
+  configuration - that's what dependency injection is for.
+
+- Data transfer objects are often created with :php:`new`. A good example are
+  :ref:`PSR-14 events <EventDispatcher>`: The calling class creates a data transfer
+  object that is hand over to the consumer. These DTO's must never be changed by an
+  extension, since they are a contract both caller and consumer must stick to. They
+  are thus created using :php:`new` to prevent XCLASS'ing.
+
+- Structures with a dedicated API that allows own implementations on a configuration
+  level sometimes do not use :php:`makeInstance`: Many core constructs come with API
+  to allow custom classes by dedicated configuration. Those implement a factory
+  pattern to deal with this. An example is the :ref:`PSR-15 middleware stack <request-handling>`.
+
 
 .. _autoloading_since_typo3_7:
 
