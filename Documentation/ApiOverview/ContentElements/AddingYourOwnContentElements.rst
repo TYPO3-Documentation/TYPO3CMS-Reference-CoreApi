@@ -209,6 +209,30 @@ saved by the richtext editor:
 
    <div>{data.bodytext -> f:format.html()}</div>
 
+
+.. image:: Images/NewContentElementOutput.png
+   :class: with-border with-shadow
+   :alt: The example output
+
+
+.. _AddingCE-Extended-Example:
+
+Extended example: Extend tt_content and use data processing
+===========================================================
+
+You can find the complete example in the  TYPO3 Documentation Team extension
+`examples <https://extensions.typo3.org/extension/examples/>`__. The steps for
+creating a simple new content element as above need to be repeated. We use the
+key *examples_newcontentcsv* in this example.
+
+We want to output comma separated values (CSV) stored in the field bodytext.
+As different programs use different separators to store CSV we want to make
+the separator configurable.
+
+
+.. index::
+   pair: Content element; Extending tt_content
+   Extension development; Extending tt_content
 .. _ConfigureCE-Extend-tt_content:
 
 4. Optional: Extend tt_content
@@ -216,8 +240,76 @@ saved by the richtext editor:
 
 .. todo::
 
-   This will be filled in another patch.
+The new field *tx_examples_separator* is added to the TCA definition of the table *tt_content* in the file
+:file:`Configuration/TCA/Overrides/tt_content.php`::
 
+   $temporaryColumn = [
+      'tx_examples_separator' => [
+         'exclude' => 0,
+         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_separator',
+         'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+               ['Standard CSV data formats', '--div--'],
+               ['Comma separated', ','],
+               ['Semicolon separated', ';'],
+               ['Special formats', '--div--'],
+               ['Pipe separated (TYPO3 tables)', '|'],
+               ['Tab separated', "\t"],
+            ],
+            'default' => ','
+         ],
+      ],
+   ];
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumn);
+
+You can read more about defining fields via TCA in the :ref:`t3tca:start`.
+
+Now the new field can be used in your Fluid template just like any other
+tt_content field.
+
+Another example shows the connection to a foreign table. This allows you to be more flexible with the possible values in the select box. The new field *tx_examples_main_category* is a connection to the TYPO3 system category table *sys_category*.
+
+   'tx_examples_main_category' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_main_category',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                ['None', '0'],
+            ],
+            'foreign_table' => 'sys_category',
+            'foreign_table_where' => 'AND {#sys_category}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#sys_category}.{#hidden} = 0 ' .
+                'AND {#sys_category}.{#deleted} = 0 AND {#sys_category}.{#sys_language_uid} IN (0,-1) ORDER BY sys_category.uid',
+            'default' => '0'
+        ],
+   ],
+
+
+Defining the field in the TCE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+An individual modification of the newly added field *tx_examples_main_category* to the TCA definition of the table *tt_content* can be done in the TCE (TYPO3 Core Engine) TSConfig. In most cases it is necessary to set the page id of the general storage folder (available as a plugin select box to select a starting point page until TYPO3 6.2). Tnen the examples extension will only use the content records from the given page id. ::
+
+   TCEFORM.tt_content.tx_examples_main_category.PAGE_TSCONFIG_ID = 18
+
+If more than one page id is allowed, this configuration must be used instead (and the above TCA must be modified to use the marker ###PAGE_TSCONFIG_IDLIST### instead of ###PAGE_TSCONFIG_ID###)::
+
+   TCEFORM.tt_content.tx_examples_main_category.PAGE_TSCONFIG_IDLIST = 18, 19, 20
+
+.. code-block:: html
+
+   <h2>Content separated by sign {data.tx_examples_separator}</h2>
+
+.. note::
+
+   As we are working with pure Fluid without Extbase here the new fields can
+   be used right away. They need not be added to a model.
+
+
+.. index:: pair: Content element; Data processing
 .. _ConfigureCE-DataProcessors:
 
 5. Optional: Use Data Processors
