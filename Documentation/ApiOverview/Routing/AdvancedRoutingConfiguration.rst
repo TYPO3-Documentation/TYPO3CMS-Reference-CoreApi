@@ -255,6 +255,10 @@ To understand what's happening in the `aspects` part, read on.
     For the Extbase Plugin Enhancer, it is also possible to configure the namespace directly by skipping `extension`
     and `plugin` properties and just using the `namespace` property as in the regular Plugin Enhancer.
 
+.. attention::
+    Please ensure not to register the same `routePath` more than once, for example through multiple extensions.
+    In that case, the enhancer imported last will override any duplicate routes that are in place.
+
 
 Page Type Decorator
 ^^^^^^^^^^^^^^^^^^^
