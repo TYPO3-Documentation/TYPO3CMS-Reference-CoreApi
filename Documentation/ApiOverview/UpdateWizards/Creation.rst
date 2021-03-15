@@ -9,6 +9,31 @@
 Creating upgrade wizards
 ========================
 
+These steps create an upgrade wizard:
+
+.. rst-class:: bignums
+
+#. Add a class implementing :ref:`UpgradeWizardInterface <upgrade-wizards-interface>`
+
+#. The class *may* implement other interfaces (optional):
+
+   *  :ref:`RepeatableInterface <repeatable-interface>` to not mark the wizard
+      as done after execution
+
+   *  :ref:`ChattyInterface <uprade-wizards-chatty-interface>` for generating
+      output
+
+   *  :php:`ConfirmableInferface` for wizards that need user confirmation
+
+#. :ref:`Register the wizard <upgrade-wizards-register>` in the file
+   :file:`ext_localconf.php`
+
+
+.. _upgrade-wizards-interface:
+
+UpgradeWizardInterface
+======================
+
 Each upgrade wizard consists of a single PHP file containing a single PHP class. This
 class has to implement :php:`TYPO3\CMS\Install\Updates\UpgradeWizardInterface` and its
 methods::
@@ -124,6 +149,23 @@ Method :php:`getPrerequisites`
        ];
    }
 
+
+.. index:: Upgrade wizards; Registration
+.. _upgrade-wizards-register:
+
+Registering wizards
+===================
+
+Once the wizard is created, it needs to be registered. Registration is done in
+:file:`ext_localconf.php`::
+
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['exampleUpdateWizard']
+      = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
+
+**Important:** Use the same identifier as key (here: `exampleUpdateWizard`), which
+is returned by :php:`UpgradeWizardInterface::getIdentifier()` in your wizard
+class.
+
 .. index:: Upgrade wizards; Marking wizard as done
 .. _upgrade-wizards-mark-as-done:
 .. _repeatable-interface:
@@ -131,14 +173,15 @@ Method :php:`getPrerequisites`
 Marking wizard as done
 ======================
 
-As soon as the wizard has completely finished (e.g. it detected that no update is
-necessary anymore) the wizard
+As soon as the wizard has completely finished, for example it detected that no update is
+necessary anymore, the wizard
 is marked as done and won't be checked anymore.
 
 To force TYPO3 to check the wizard every time, the interface
 :php:`\TYPO3\CMS\Install\Updates\RepeatableInterface` has to be implemented.
 This interface works as a marker and does not force any methods to be
 implemented.
+
 
 .. index:: Upgrade wizards; Generating output
 .. _upgrade-wizards-generate-output:
@@ -161,10 +204,8 @@ Classes using this interface must implement the following method::
     public function setOutput(OutputInterface $output): void;
 
 
-
-
 The class :php:`FormFileExtensionUpdate` in the extension "form" implements this interface.
-We show a simplified example here, based on this class::
+We are showing a simplified example here, based on this class::
 
     use Symfony\Component\Console\Output\OutputInterface;
     use TYPO3\CMS\Install\Updates\ChattyInterface;
@@ -207,23 +248,6 @@ We show a simplified example here, based on this class::
         // etc.
 
     }
-
-
-.. index:: Upgrade wizards; Registration
-
-Registering the wizard
-======================
-
-Once the wizard is created, it needs to be registered. Registration is done in
-:file:`ext_localconf.php`::
-
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['exampleUpdateWizard']
-      = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
-
-**Important:** Use the same identifier as key (here: `exampleUpdateWizard`), which
-is returned by :php:`UpgradeWizardInterface::getIdentifier()` in your wizard
-class.
-
 
 .. index:: Upgrade wizards; Execution
 
