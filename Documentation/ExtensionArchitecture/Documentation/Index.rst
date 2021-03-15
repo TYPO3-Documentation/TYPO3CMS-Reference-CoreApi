@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _extension-documentation:
@@ -11,7 +11,7 @@ If you plan to upload your extension to the TYPO3 Extension Repository (TER), yo
 documentation to your extension. Documentation will help users and administrators to install, configure
 and use your extension.
 
-We will give you a short overview here, but for more information, please see the guide 
+We will give you a short overview here, but for more information, please see the guide
 :ref:`Writing documentation <h2document:start>` and specifically:
 
 * General information about TYPO3 documentation: :ref:`h2document:basic-principles`
@@ -19,7 +19,7 @@ We will give you a short overview here, but for more information, please see the
 * More information about starting documentation for your TYPO3 extension: :ref:`h2document:how-to-start-docs-extension`
 * If you want to test your documentation, you need to render it: :ref:`h2document:rendering-docs`
 
-The documentation platform https://docs.typo3.org centralizes documentation for every project. It supports 
+The documentation platform https://docs.typo3.org centralizes documentation for every project. It supports
 different kinds of documentation:
 
 #. **(recommended)** A Sphinx project, stored within :file:`EXT:{extkey}/Documentation/`
@@ -58,11 +58,11 @@ Other Formats
 
 Other formats besides the recommended format are possible as described in :ref:`h2document:supported-filenames-and-formats`.
 However, please consider using the recommended format (sphinx project in `Documentation` directory)
-as described here. 
+as described here.
 
 There are some rendering issues with Markdown, so even if it is possible to use Markdown, please consider
 using reST, because that is what is commonly used in TYPO3 documentation projects and that is what is
-supported best. 
+supported best.
 
 README.rst
 ----------

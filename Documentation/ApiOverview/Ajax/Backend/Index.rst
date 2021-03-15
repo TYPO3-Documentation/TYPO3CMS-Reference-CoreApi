@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _ajax-backend:
 
@@ -33,7 +33,7 @@ See :ref:`Creating Response Objects in PSR 17 <request-handling-psr-17>`.
    use Psr\Http\Message\ResponseFactoryInterface;
    use Psr\Http\Message\ServerRequestInterface;
    use TYPO3\CMS\Core\Http\Response;
-   
+
    class ExampleController
    {
       /** @var ResponseFactoryInterface */

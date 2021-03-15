@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _storing-changes:
@@ -9,7 +9,7 @@ Storing the Changes
 
 There are various ways to store changes to :php:`$GLOBALS['TCA']`. They
 depend - partly - on what you are trying to achieve and - a lot -
-on the version of TYPO3 CMS which you are targeting. The TCA can only be 
+on the version of TYPO3 CMS which you are targeting. The TCA can only be
 changed from within an extension.
 
 

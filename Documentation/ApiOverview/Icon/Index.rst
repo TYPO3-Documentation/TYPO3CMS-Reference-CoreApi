@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _icon:
@@ -78,7 +78,7 @@ You can also use the :ref:`Fluid core:icon ViewHelper <t3viewhelper:typo3-core-i
 
    {namespace core = TYPO3\CMS\Core\ViewHelpers}
    <core:icon identifier="my-icon-identifier" size="small" />
-   
+
 This will render the desired icon using an `img`-tag. If you prefer having the SVG inlined into your HTML (e.g. for being able to change colors with CSS), you can set the optional `alternativeMarkupIdentifier` attribute to `inline`. By default, the icon will pick up the font-color of its surrounding element if you use this option.
 
 .. code-block:: html
@@ -130,9 +130,9 @@ markupIdentifier
    :sep:`|`
 
    Defines how the markup is returned. All values of the :js:`Icons.markupIdentifiers` enum are allowed, these are: `default` and `inline`. Please note that `inline` is only meaningful for SVG icons.
- 
+
 The method :js:`getIcon()` returns a jQuery Promise object, as internally an AJAX request is done.
- 
+
 .. note::
    Since TYPO3 9, the icons are cached in the localStorage of the client to reduce the workload off the server.
 

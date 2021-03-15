@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 TYPO3 versions and lifecycle
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -31,7 +31,7 @@ outdated and the regular support of these versions has ended, including security
 Users of these versions are strongly encouraged to update their systems
 as soon as possible.
 
-In cases where users can't yet upgrade to a supported version, the TYPO3 GmbH is offering 
+In cases where users can't yet upgrade to a supported version, the TYPO3 GmbH is offering
 an Extended Long Term Support (ELTS) service for up to three years after the regular support has ended.
 Subscribers to the ELTS plans receive security and compatibility updates.
 

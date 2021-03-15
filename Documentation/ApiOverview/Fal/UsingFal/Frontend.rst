@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _fal-using-fal-frontend:
 
@@ -51,10 +51,10 @@ Example:
 	{filereference.title}
 	{filereference.description}
 	{filereference.publicUrl}
-   
+
 .. tip::
 
-   If you are in Extbase context, you usually have a :code:`TYPO3\CMS\Extbase\Domain\Model\FileReference` Domain Model instead of a "pure" :code:`\TYPO3\CMS\Core\Resource\FileReference` Object. In order to get the meta data, you need to resolve the    :code:`\TYPO3\CMS\Core\Resource\FileReference` first by accessing the "originalResource" property: 
+   If you are in Extbase context, you usually have a :code:`TYPO3\CMS\Extbase\Domain\Model\FileReference` Domain Model instead of a "pure" :code:`\TYPO3\CMS\Core\Resource\FileReference` Object. In order to get the meta data, you need to resolve the    :code:`\TYPO3\CMS\Core\Resource\FileReference` first by accessing the "originalResource" property:
 
 .. code-block:: html
 
@@ -70,11 +70,11 @@ Example:
 
 	{filereference.properties.copyright}
 	{filereference.properties.creator}
-   
+
 .. tip::
 
-   Please also note that the additional fields provided by the "filemetadata" extension are not listed as properties when you use :code:`<f:debug>` on a :code:`\TYPO3\CMS\Core\Resource\FileReference` object. 
-  
+   Please also note that the additional fields provided by the "filemetadata" extension are not listed as properties when you use :code:`<f:debug>` on a :code:`\TYPO3\CMS\Core\Resource\FileReference` object.
+
 *Note:* Some metadata fields, like title and description, can be entered either in the referenced file itself or in the reference or both. TYPO3 automatically merges both sources when you access originalResource in Fluid. So `originalResource` returns the merged value. Values which are entered in the reference will override values from the file itself.
 
 

@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _sitehandling-customErrorHandler:
 
@@ -66,7 +66,7 @@ The ErrorHandler class:
    use TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface;
    use TYPO3\CMS\Core\Http\RedirectResponse;
 
-   class ErrorHandling implements PageErrorHandlerInterface 
+   class ErrorHandling implements PageErrorHandlerInterface
    {
 
        /**
@@ -82,5 +82,5 @@ The ErrorHandler class:
        ): ResponseInterface {
               return new RedirectResponse('/404-page', 404);
        }
-       
+
    }

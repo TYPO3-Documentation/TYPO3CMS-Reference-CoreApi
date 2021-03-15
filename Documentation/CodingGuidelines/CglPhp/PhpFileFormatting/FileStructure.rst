@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _cgl-file-structure:
@@ -63,7 +63,7 @@ file. user files must have this copyright notice as well. Example::
     *
     * The TYPO3 project - inspiring people to share!
     */
-    
+
     namespace TYPO3\CMS\XXX;
 
 The wording must not be changed/updated/extended, under any circumstances.

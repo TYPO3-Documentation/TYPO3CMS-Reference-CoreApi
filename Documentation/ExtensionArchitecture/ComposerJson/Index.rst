@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _composer-json:
@@ -151,7 +151,7 @@ type
 
 Use `typo3-cms-extension` for third party extensions. This will result in
 the extension to be installed in `{web-dir}/typo3conf/ext` instead
-of `vendor/{vendor}/{package}`. 
+of `vendor/{vendor}/{package}`.
 
 Use `typo3-cms-framework` for system extensions. They will be installed
 in `web-dir/typo3/sysext`.

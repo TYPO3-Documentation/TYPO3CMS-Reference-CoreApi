@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _EventDispatcher:
@@ -22,7 +22,7 @@ Benni Mack: "Don't get hooked, listen to events! PSR-14 within TYPO3 v10" @ TYPO
 
 .. hint::
 
-  Additional background on the implementation can be found at https://usetypo3.com/psr-14-events.html 
+  Additional background on the implementation can be found at https://usetypo3.com/psr-14-events.html
 
 
 .. _EventDispatcherDescription:

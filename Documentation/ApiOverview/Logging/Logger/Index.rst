@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _logging-logger:
@@ -73,7 +73,7 @@ Informational
    :sep:`|`
 
    User logs in, SQL logs.
-   
+
 .. _label-notice:
 .. rst-class:: dl-parameters
 
@@ -83,7 +83,7 @@ Notice
    :sep:`|`
 
    Things you should have a look at, nothing to worry about though.
-   
+
 .. _label-warning:
 .. rst-class:: dl-parameters
 
@@ -93,7 +93,7 @@ Warning
    :sep:`|`
 
    Use of deprecated APIs. Undesirable events that are not necessarily wrong.
-   
+
 .. _label-error:
 .. rst-class:: dl-parameters
 

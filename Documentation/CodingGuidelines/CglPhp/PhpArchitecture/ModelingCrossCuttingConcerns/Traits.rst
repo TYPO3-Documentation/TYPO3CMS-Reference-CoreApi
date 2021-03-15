@@ -1,4 +1,4 @@
-.. include:: ../../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _cgl-traits:
@@ -81,7 +81,7 @@ Bad Examples
   * No interface.
 
   * It would have probably been better to add the trait code to a full
-    class and just use it in the according view helpers (composition) or 
+    class and just use it in the according view helpers (composition) or
     implement it as abstract.
 
 For these reasons the trait has been dissolved into an `AbstractMenuViewHelper`.
