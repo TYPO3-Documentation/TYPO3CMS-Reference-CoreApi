@@ -17,7 +17,7 @@ and :ref:`XCLASS <xclasses>` handling.
 
 A developer should usually instantiate classes using :php:`makeInstance()` - it is
 the normal way to go. This has been a hard rule in the past. With younger core version
-however, there are some situations where :php:`new` is used over :php:`makeInstance(),
+however, there are some situations where :php:`new` is used over :php:`makeInstance()`,
 effectively dropping especially the direct ability to :ref:`XCLASS <xclasses>`:
 
 - When dependent services are injected via :ref:`Dependency Injection <dependencyinjection>`,
