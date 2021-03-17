@@ -21,9 +21,9 @@ your projects develop branch and pushed to a staging system?
 
 Documenting all the different decisions that may have been taken by agencies and other project
 developers is way too much for this little document. We thus document only one example
-how project testing could work: We set up have some "site" repository based on `ddev
+how project testing could work: We have some "site" repository based on `ddev
 <https://www.drud.com/what-is-ddev/>`_ and add basic acceptance testing to it, executed
-using travis-ci.
+locally and by travis-ci.
 
 This is thought as an inspiration you may want to adapt for your project.
 

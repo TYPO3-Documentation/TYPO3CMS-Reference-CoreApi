@@ -6,17 +6,6 @@
 Writing acceptance tests
 ========================
 
--  Introduction
-   -  acceptance test
-      -  what to acceptance test: user interactions = controllers
-      -  what to not acceptance test: nothing? everything in the browser is worth being tested.
-   -  architecture with diagram
-   -  testing framework
-      -  library of TYPO3 specific helpers
-      -  workflow like in functional tests: which folders are created etc.
-   -  minimal typo3 acceptance test setup
-   -  testing framework acceptance test setup
-
 Introduction
 ============
 
