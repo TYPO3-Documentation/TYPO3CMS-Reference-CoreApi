@@ -103,6 +103,21 @@ Example taken from :php:`ListSysLogCommand` in the core and simplified::
         }
     }
 
+Return value
+------------
+
+.. versionchanged:: 9
+
+   `It is now recommended to return a value <https://symfony.com/blog/new-in-symfony-4-4-console-improvements>`__
+   in :php:`execute()`. In TYPO3 version 10 (and `symfony/console` version 5),
+   using :php:`execute()` without return will result in an exception. In TYPO3
+   9, it is recommended to return a value, but the constants
+   :php:`Command::SUCCESS` or :php:`Command::FAILURE` are not available (in
+   `symfony/console` version 4), so you can just return 0 (SUCCESS) or 1
+   (FAILURE).
+
+The return type is :php:`int`.
+
 Passing Arguments
 -----------------
 
