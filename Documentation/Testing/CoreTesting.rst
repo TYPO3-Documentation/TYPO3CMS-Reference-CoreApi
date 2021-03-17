@@ -84,7 +84,7 @@ again.
 A Core developer doing this for the first time may notice `docker-compose` pulling several container images
 before continuing. These are the dependent images needed to execute certain jobs. For instance the
 container `typo3gmbh/php72 <https://hub.docker.com/r/typo3gmbh/php72/>`_ may be fetched. It's definition
-can be found at `TYPO3 GmbH bitbucket <https://bitbucket.typo3.com/projects/T3COM/repos/bamboo-remote-agent/browse>`_.
+can be found at `TYPO3 GmbH GitHub <https://github.com/TYPO3GmbH/infra-bamboo-remote-agent>`_.
 These are the exact same containers Bamboo based testing is executed in. In Bamboo, the combination of
 :file:`Build/bamboo/src/main/java/core/PreMergeSpec.java` and :file:`Build/testing-docker/bamboo/docker-compose.yml`
 specify what Bamboo executes for patches pushed to the review system. On local testing, this is the
