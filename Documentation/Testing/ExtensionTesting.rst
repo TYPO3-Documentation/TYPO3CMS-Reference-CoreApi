@@ -12,7 +12,7 @@ Introduction
 As an Extension author, it likely that you may want to test your extension during its development.
 This chapter details how extension authors can set up automatic extension testing. We'll do that with
 two examples. Both embed the given extension in a TYPO3 instance and run tests within this environment,
-both examples also configure Travis CI to execute tests. We'll use Docker containers for test execution again and use
+both examples also configure GitHub Actions to execute tests. We'll use Docker containers for test execution again and use
 an extension specific runTests.sh script for executing test setup and execution.
 
 
@@ -52,8 +52,8 @@ About this chapter and what it does *not* cover, first.
 * Similar to Core testing, this documentation relies on docker and docker-compose. See the
   :ref:`Core testing requirements <testing-core-dependencies>` for more details.
 
-* We assume your extensions code is located within github and automatic testing is carried out using Travis CI.
-  The integration of Travis CI into github is easy to set up with plenty of documentation already available.
+* We assume your extensions code is located within github and automatic testing is carried out using GitHub Actions.
+  The integration of GitHub Actions into github is easy to set up with plenty of documentation already available.
   If your extensions code is located elsewhere or a different CI is used, this chapter may still be of use
   in helping you build a general understanding of the testing process.
 
@@ -92,7 +92,7 @@ writing, it has three branches:
 
 Branch master will be branched later as `3` when Core version 10 gains traction. This document
 focuses on the master / Core v9 compatible branch. The extension comes with a couple of unit tests
-in `Tests/Unit`, we want to run these locally and in travis-ci, along with some PHP linting to verify
+in `Tests/Unit`, we want to run these locally and by GitHub Actions, along with some PHP linting to verify
 there is no fatal PHP error. We'll test that extension with both PHP 7.2 and PHP 7.3 - the two PHP
 versions TYPO3 Core v9 currently supports at the time of writing.
 
@@ -354,7 +354,7 @@ On some versions of MacOS you might get the following error message when executi
 
 To solve this issue follow the steps described `here <http://biercoff.com/fixing-readlink-illegal-option-f-error-on-a-mac/>`_ to install greadlink which supports the needed --f option.
 
-Rather than changing the :file:`runTests.sh` to then use `greadlink` and thus risk breaking your automated testing via Travis CI consider symlinking your readlink executable to the newly installed greadlink with the following command as mentioned in the comments:
+Rather than changing the :file:`runTests.sh` to then use `greadlink` and thus risk breaking your automated testing via GitHub Actions consider symlinking your readlink executable to the newly installed greadlink with the following command as mentioned in the comments:
 
 .. code-block:: shell
 
@@ -447,7 +447,7 @@ branch is dedicated to be compatible with upcoming Core version 11. There are br
 
 In comparison to enetcache, styleguide comes with additional test suites: It has functional and
 acceptance tests! Our goal is to run the functional tests with different database platforms, and to
-execute the acceptance tests. Both locally and on travis-ci and with different PHP versions.
+execute the acceptance tests. Both locally and by GitHub Actions and with different PHP versions.
 
 Basic setup
 -----------
