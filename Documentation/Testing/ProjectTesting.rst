@@ -23,7 +23,7 @@ Documenting all the different decisions that may have been taken by agencies and
 developers is way too much for this little document. We thus document only one example
 how project testing could work: We have some "site" repository based on `ddev
 <https://www.drud.com/what-is-ddev/>`_ and add basic acceptance testing to it, executed
-locally and by travis-ci.
+locally and by Travis CI.
 
 This is thought as an inspiration you may want to adapt for your project.
 
@@ -66,7 +66,7 @@ There has been one `main patch
 acceptance testing to the site-introduction repository.
 
 The goal is to run some acceptance tests against the current website that has been
-set up using ddev and execute this via travis-ci on each run.
+set up using ddev and execute this via Travis CI on each run.
 
 The solution is to add the basic selenium-chrome container as additional ddev container, add
 codeception as require-dev dependency, add some codeception actor, a test and a basic codeception.yml

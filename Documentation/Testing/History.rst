@@ -63,7 +63,7 @@ Until 2018, this first .travis.yml file went through more than 100 changes.
 2013
 ====
 
-With frequent test execution via travis-ci more and more developers working on the Core were
+With frequent test execution via Travis CI more and more developers working on the Core were
 forced to run tests locally to debug tests or add new ones. We slowly got an idea in which
 situations unit tests are helpful and when they are not.
 
@@ -73,7 +73,7 @@ tests were executed with all the state the backend created to run modules. This 
 since lots of unit tests now directly or indirectly relied on this state, too. And worse, this state
 changed depending on the developers local test system - other extensions that hooked into the
 system could lead to failing unit tests. With this system, tests tend to execute fine locally but
-then broke on travis-ci or on some other persons development system. Test execution has at this
+then broke on Travis CI or on some other persons development system. Test execution has at this
 point already been done via CLI by most developers, and the unit test bootstrap basically created a
 full TYPO3 backend context similar to the GUI based phpunit extension.
 
