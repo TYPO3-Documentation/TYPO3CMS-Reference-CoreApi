@@ -9,7 +9,7 @@ Extension testing
 Introduction
 ============
 
-As an Extension author, it likely that you may want to test your extension during its development.
+As an extension author, it is likely that you may want to test your extension during its development.
 This chapter details how extension authors can set up automatic extension testing. We'll do that with
 two examples. Both embed the given extension in a TYPO3 instance and run tests within this environment,
 both examples also configure GitHub Actions to execute tests. We'll use Docker containers for test execution again and use
@@ -145,7 +145,7 @@ This is a typical composer.json file without any complexity: It's a `typo3-cms-e
 author and a license. We are stating that "I need at least 9.5.0 of cms-core" and we tell the auto loader
 "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
-The extension already contains some unit tests that extend typo3/testing-framework`s base
+The extension already contains some unit tests that extend typo3/testing-framework's base
 unit test class in directory :file:`Tests/Unit/Hooks` (stripped)::
 
     <?php
@@ -442,7 +442,7 @@ extension is installed as a dependency by default. However, styleguide is just a
 to composer's `packagist.org <https://packagist.org/packages/typo3/cms-styleguide>`_ and can be loaded as
 dependency (or require-dev dependency) in any project.
 
-The styleguide extension follows the Core branching principle, too: At the time of this writing, it's "master"
+The styleguide extension follows the Core branching principle, too: At the time of this writing, its "master"
 branch is dedicated to be compatible with upcoming Core version 11. There are branches compatible with older Core versions, too.
 
 In comparison to enetcache, styleguide comes with additional test suites: It has functional and
