@@ -96,7 +96,7 @@ Whats impressive is that runTests.sh can do everything locally that Bamboo execu
 and splitting to different jobs is slightly different, for instance Bamboo does multiple tests in
 the "integration" test at once that are single "check" suites in runTests.sh. But if a patch is
 pushed to Bamboo and it complains about something being broken, it is possible to replay and fix the
-failing suite locally to then push an updated patch and hopefully enable the Bamboo test to pass.
+failing suite locally, then push an updated patch and hopefully enable the Bamboo test to pass.
 
 
 A runTests.sh run
