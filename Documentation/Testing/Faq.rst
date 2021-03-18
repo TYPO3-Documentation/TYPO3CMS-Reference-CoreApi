@@ -138,7 +138,7 @@ issues that have not been solved in a satisfiable way when it comes to mounting 
 directories as docker container volumes. github is full of issues with mac users complaining
 about poor docker performance. There may be some tricks to speed that up in our tiny TYPO3
 testing world and we're open to persons having a look at this to reduce pain for mac users.
-Other than that, there is little we can do. Eventually, maybe macOS gets it's name spacing,
+Other than that, there is little we can do. Eventually, maybe macOS gets its name spacing,
 file system layers and containerization right in the future? Windows is better and quicker in
 this area by now. Let that sink in. Please keep us posted.
 

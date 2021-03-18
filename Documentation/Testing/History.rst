@@ -98,7 +98,7 @@ to work on a per-request basis. A cli or web request comes in, the system bootst
 then dies. The next request does a new bootstrap from scratch. This simplifies things a lot for
 developers since they don't need to take care of request overlapping state and don't need to take
 care too much about consumed memory. And if a single request dies in the middle of the execution,
-the next one still may happily work and successfully do it's job. This characteristic of a scripting
+the next one still may happily work and successfully do its job. This characteristic of a scripting
 language can be a huge advantage over other server-side languages. And TYPO3 uses this a lot: If a request
 is finished in TYPO3 context, the system is "tainted" and can't be used for a second request again.
 
@@ -248,7 +248,7 @@ this area, two further API's have been established: :ref:`Context <context-api>`
 :ref:`Environment <Environment>`. Remember each functional tests case runs in an own instance within
 typo3temp? TYPO3 Core  always had the PHP constant *PATH_site* that contained the path to the document
 root. With having test cases in different locations, this constant would have to change. But it
-can't, it's constant and PHP luckily does not allow redefining constants. The environment API
+can't, its constant and PHP luckily does not allow redefining constants. The environment API
 of TYPO3 Core  v9 however is an object that is initialized during Core bootstrap. Next to some other
 details, it also contains the path to the document root. Adding this class allowed us to ditch the
 usage of PATH_site in the entire Core. This removed the main blocker to execute many functional test
