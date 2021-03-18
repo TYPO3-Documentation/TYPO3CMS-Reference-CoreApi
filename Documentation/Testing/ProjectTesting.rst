@@ -23,7 +23,7 @@ Documenting all the different decisions that may have been taken by agencies and
 developers is way too much for this little document. We thus document only one example
 how project testing could work: We have some "site" repository based on `ddev
 <https://www.drud.com/what-is-ddev/>`_ and add basic acceptance testing to it, executed
-locally and by Travis CI.
+locally and by GitHub Actions.
 
 This is thought as an inspiration you may want to adapt for your project.
 
@@ -52,9 +52,10 @@ more details mentioned in `README.md <https://github.com/benjaminkott/site-intro
     lolli@apoc /var/www/local/site-introduction $ ddev start
     lolli@apoc /var/www/local/site-introduction $ ddev import-db --src=./data/db.sql
     lolli@apoc /var/www/local/site-introduction $ ddev import-files --src=./assets
+    lolli@apoc /var/www/local/site-introduction $ ddev composer install
 
 This will start various containers: A database, a phpmyadmin instance, and a web server. If all
-goes well, the instance is reachable on `localhost <http://introduction.ddev.local>`_.
+goes well, the instance is reachable on `localhost <https://introduction.ddev.site>`_.
 
 .. index:: Testing; Acceptance
 
@@ -66,7 +67,7 @@ There has been one `main patch
 acceptance testing to the site-introduction repository.
 
 The goal is to run some acceptance tests against the current website that has been
-set up using ddev and execute this via Travis CI on each run.
+set up using ddev and execute this via GitHub Actions on each run.
 
 The solution is to add the basic selenium-chrome container as additional ddev container, add
 codeception as require-dev dependency, add some codeception actor, a test and a basic codeception.yml
@@ -107,7 +108,7 @@ basic :file:`Tests/codeception.yml` file:
           enabled:
             - Asserts
             - WebDriver:
-                url: http://introduction.ddev.local
+                url: https://introduction.ddev.site
                 browser: chrome
                 host: ddev-introduction-chrome
                 wait: 1
@@ -129,11 +130,11 @@ basic :file:`Tests/codeception.yml` file:
       colors: true
 
 This tells codeception there is a selenium instance at `ddev-introduction-chrome` with chrome,
-the website is reachable as `http://introduction.ddev.local`, it enables some codeception plugins
+the website is reachable as `https://introduction.ddev.site`, it enables some codeception plugins
 and specifies a couple of logging details. The `codeception documentation <https://codeception.com/>`_
 goes into details about these.
 
-Now we need a simple first test is added as :file:`Tests/Acceptance/Frontend/FrontendPagesCest.php`::
+Now we need a simple first test which is added as :file:`Tests/Acceptance/Frontend/FrontendPagesCest.php`::
 
     <?php
     declare(strict_types = 1);
@@ -163,9 +164,9 @@ ddev PHP container:
 
 .. code-block:: shell
 
-    lolli@apoc /var/www/local/site-introduction $ ddev exec ../bin/codecept run acceptance -d -c ../Tests/codeception.yml
-    Codeception PHP Testing Framework v2.5.1
-    Powered by PHPUnit 7.1.5 by Sebastian Bergmann and contributors.
+    lolli@apoc /var/www/local/site-introduction $ ddev exec bin/codecept run acceptance -d -c Tests/codeception.yml
+    Codeception PHP Testing Framework v2.5.6
+    Powered by PHPUnit 7.5.20 by Sebastian Bergmann and contributors.
     Running with seed:
 
 
@@ -179,7 +180,7 @@ ddev PHP container:
     Test: Acceptance/Frontend/FrontendPagesCest.php:firstPageIsRendered
     Scenario --
      I am on page "/"
-      [GET] http://introduction.ddev.local/
+      [GET] https://introduction.ddev.site/
      I see "Open source, enterprise CMS delivering  content-rich digital experiences on any channel,  any device, in any language"
      I click "Customize"
      I see "Incredible flexible"
@@ -197,49 +198,55 @@ ddev PHP container:
 
 Done: Local test execution of a projects acceptance test!
 
-.. index:: Testing; Travis CI
+.. index:: Testing; GitHub Actions
 
-Travis CI
-=========
+GitHub Actions
+==============
 
-Travis CI needs slightly more love: Travis comes with rather outdated docker versions by default that
-are not compatible with ddev, so our :file:`.travis.yml` first updates docker and docker-compose, then
-installs ddev, sets up the instance and executes the tests. Ready to rumble:
+With local testing in place, we now want tests to run automatically when something is merged
+into the repository, and when people create pull requests for our project, we want to make sure
+that our carefully crafted test setup actually works. We're going to use Github's Actions CI
+service to get that done. It's free for open source projects.
+To tell the CI what to do, create a new workflow file in
+`.github/workflows/tests.yml <https://github.com/benjaminkott/site-introduction/blob/master/.github/workflows/tests.yml>`__
 
 .. code-block:: yaml
 
-    language: php
+   name: tests
 
-    php:
-      - 7.2
+   on:
+     push:
+     pull_request:
+     workflow_dispatch:
 
-    sudo: true
+   jobs:
+     testsuite:
+       name: all tests
+       runs-on: ubuntu-20.04
+       steps:
+         - name: Checkout
+           uses: actions/checkout@v2
 
-    before_install:
-      # Update docker
-      - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-      - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-      - sudo apt-get update
-      - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-      # Update docker-compose
-      - sudo rm /usr/local/bin/docker-compose
-      - curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` > docker-compose
-      - chmod +x docker-compose
-      - sudo mv docker-compose /usr/local/bin
-      # Install ddev
-      - curl -L https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh | sudo bash
-      # ddev should not ask for usage stats
-      - ddev config global --instrumentation-opt-in=false
+         - name: Start DDEV
+           uses: jonaseberle/github-action-setup-ddev@v1
 
-    script:
-      - >
-        echo "Running acceptance tests";
-        ddev start;
-        ddev import-db --src=./data/db.sql;
-        ddev import-files --src=./assets;
-        ddev exec bin/codecept run acceptance -d -c Tests/codeception.yml
+         - name: Import database
+           run: ddev import-db --src=./data/db.sql
 
-A Travis CI run can be found `online <https://travis-ci.org/benjaminkott/site-introduction>`_.
+         - name: Import files
+           run: ddev import-files --src=./assets
+
+         - name: Install composer packages
+           run: ddev composer install
+
+         - name: Allow public access of var folder
+           run: sudo chmod 0777 ./var
+
+         - name: Run acceptance tests
+           run: ddev exec bin/codecept run acceptance -d -c Tests/codeception.yml
+
+It's possible to see executed test runs `online <https://github.com/benjaminkott/site-introduction/actions>`_.
+Green :)
 
 
 Summary
