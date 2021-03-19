@@ -33,7 +33,8 @@ By default TYPO3 CMS provides only a local file system driver.
 
 A new TYPO3 CMS installation comes with a predefined storage,
 using the local file system driver and pointing to the
-:file:`fileadmin/` directory.
+:file:`fileadmin/` directory, located in your public folder.
+If it's missing/offline after installation you can create it yourself.
 
 
 .. index:: File abstraction layer; Metadata
