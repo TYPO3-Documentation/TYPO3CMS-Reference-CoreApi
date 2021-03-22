@@ -316,7 +316,7 @@ docker-compose.yml <https://github.com/lolli42/enetcache/blob/master/Build/testi
 
 These files are re-purposed from TYPO3's Core: `core Build/Scripts/runTests.sh
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
-docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/tree/master/Build/testing-docker/local>`_. You can
+docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/tree/master/Build/testing-docker/local/docker-compose.yml>`_. You can
 copy and paste these files from extensions like enetcache or styleguide to your own extension, but you should then look
 through the files and adapt to your needs (for instance search for the word "enetcache" in :file:`runTests.sh`).
 
@@ -606,7 +606,7 @@ of `typo3temp/` of `.Build/`, in this test case it is `functional-9ad521a`:
     drwxr-sr-x 2 lolli www-data 4096 Nov  5 17:35 uploads
 
 This can be confusing at first, but it starts making sense the more you use it.
-Also, the docker-compose.yml file contains a setup to start needed databases for the functional tests
+Also, the :file:`docker-compose.yml` file contains a setup to start needed databases for the functional tests
 and :file:`runTests.sh` is tuned to call the different scenarios.
 
 .. index:: Testing; Acceptance
@@ -703,7 +703,7 @@ a `codeception bootstrap extension
 <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/Extension/BackendStyleguideEnvironment.php>`_
 that instructs the basic `typo3/testing-framework` acceptance bootstrap to load the styleguide extension and
 have some database fixtures included to easily log in to the backend. Additionally, the :file:`runTests.sh` and
-docker-compose.yml files take care of adding selenium-chrome and a web server to actually execute the tests:
+:file:`docker-compose.yml` files take care of adding selenium-chrome and a web server to actually execute the tests:
 
 .. code-block:: shell
 

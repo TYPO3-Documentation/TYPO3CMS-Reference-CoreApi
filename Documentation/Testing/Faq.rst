@@ -148,7 +148,7 @@ Can i run tests with Windows?
 
 Well. Maybe. We've had some successful reports using :file:`runTests.sh` with `WSL: Windows Subsystem for Linux
 <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_ but we did not get too much information
-and experience on this, yet. Please go ahead, push patches for Core :file:`runTests.sh` or the docker-compose.yml
+and experience on this, yet. Please go ahead, push patches for Core :file:`runTests.sh` or the :file:`docker-compose.yml`
 files and improve this documentation with hints about Windows. We already know there are some details
 to take care of, a starter can be found in a Core patch `commit message
 <https://review.typo3.org/#/c/58750/3//COMMIT_MSG>`_.

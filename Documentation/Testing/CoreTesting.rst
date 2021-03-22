@@ -91,7 +91,8 @@ These are the exact same containers Bamboo based testing is executed in. In Bamb
 :file:`Build/bamboo/src/main/java/core/PreMergeSpec.java` and :file:`Build/testing-docker/bamboo/docker-compose.yml`
 specify what Bamboo executes for patches pushed to the review system. On local testing, this is the
 combination of :file:`Build/Scripts/runTests.sh`, :file:`Build/testing-docker/local/.env` (created by
-runTests.sh) and :file:`Build/testing-docker/local/docker-compose.yml`.
+runTests.sh) and
+`Build/testing-docker/local/docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/testing-docker/local/docker-compose.yml>`_.
 
 Whats impressive is that :file:`runTests.sh` can do everything locally that Bamboo executes as `pre-merge
 <https://bamboo.typo3.com/browse/CORE-GTC>`_ tests at the same time. It's just that the combinations of tests
