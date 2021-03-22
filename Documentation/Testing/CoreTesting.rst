@@ -14,8 +14,10 @@ to run tests in TYPO3 as of version 9. We don't use older versions in this chapt
 since Core development is most likely bound to the Core master branch - back porting patches to older
 branches are usually handled by Core maintainers and often don't affect other Core contributors.
 
-Note, the main script :file:`Build/Scripts/runTests.sh` is relatively new. It works best
-when executed on a Linux based host but can be run under macOS and Windows with some performance drawbacks on macOS.
+Note, the main script
+`Build/Scripts/runTests.sh <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_
+is relatively new. It works best when executed on a Linux based host but can be run under macOS and
+Windows with some performance drawbacks on macOS.
 
 Additionally, it *is* possible to execute tests on a local system without using Docker. Depending on
 which test suite is executed, developers may need to configure their environments to run the
@@ -68,14 +70,14 @@ running on the host system. Executing the basic Core unit test suite boils down 
 That's it. You just executed the entire unit test suite.
 initial Core clone and a composer install, other parts of this chapter are about different permutations of.
 Now that we have examined the initial Core clone and a composer install process, we will then look at the
-different ways we can apply the `runTests.sh` or other scenarios
+different ways we can apply the :file:`runTests.sh` or other scenarios
 
 
 Overview
 ========
 
 So what just happened? We cloned a Core, composer install`ed dependencies and executed Core
-unit tests. Let's have a look at more some details: `runTests.sh` is a shell script that figures out
+unit tests. Let's have a look at more some details: :file:`runTests.sh` is a shell script that figures out
 which test suite with which options a user wants to execute, does some error handling for broken
 combinations, writes the file `Build/testing-docker/local/.env` according to its findings and then executes a
 couple of `docker-compose` commands to prepare containers, run tests and stop containers after execution
@@ -91,10 +93,10 @@ specify what Bamboo executes for patches pushed to the review system. On local t
 combination of :file:`Build/Scripts/runTests.sh`, :file:`Build/testing-docker/local/.env` (created by
 runTests.sh) and :file:`Build/testing-docker/local/docker-compose.yml`.
 
-Whats impressive is that runTests.sh can do everything locally that Bamboo executes as `pre-merge
+Whats impressive is that :file:`runTests.sh` can do everything locally that Bamboo executes as `pre-merge
 <https://bamboo.typo3.com/browse/CORE-GTC>`_ tests at the same time. It's just that the combinations of tests
 and splitting to different jobs is slightly different, for instance Bamboo does multiple tests in
-the "integration" test at once that are single "check" suites in runTests.sh. But if a patch is
+the "integration" test at once that are single "check" suites in :file:`runTests.sh`. But if a patch is
 pushed to Bamboo and it complains about something being broken, it is possible to replay and fix the
 failing suite locally, then push an updated patch and hopefully enable the Bamboo test to pass.
 
@@ -102,7 +104,7 @@ failing suite locally, then push an updated patch and hopefully enable the Bambo
 A runTests.sh run
 =================
 
-Let's pick a runTests.sh example and have a closer look:
+Let's pick a :file:`runTests.sh` example and have a closer look:
 
 .. code-block:: shell
 
@@ -135,13 +137,13 @@ Let's pick a runTests.sh example and have a closer look:
     lolli@apoc /var/www/local/cms/Web $
 
 
-The command asks runTests.sh to execute the "functional" test suite `-s functional` and to not execute all
+The command asks :file:`runTests.sh` to execute the "functional" test suite `-s functional` and to not execute all
 available tests but only those within `typo3/sysext/core/Tests/Functional/Authentication/`. The script first
 starts the containers it needs: Redis, memcached and a MariaDB. All in one network. It then waits until
 the MariaDB container opens its database port, then starts a PHP 7.2 container and calls phpunit to execute
 the tests. phpunit executes only one test in this case, that one is green. The containers and networks are then
-removed again. Note the exit code of runTests.sh (`echo $?`) is identical to the exit code of the phpunit
-call: If phpunit reports green, runTests.sh returns 0, and if phpunit is red, the exit code would be non zero.
+removed again. Note the exit code of :file:`runTests.sh` (`echo $?`) is identical to the exit code of the phpunit
+call: If phpunit reports green, :file:`runTests.sh` returns 0, and if phpunit is red, the exit code would be non zero.
 
 
 .. _testing-core-examples:
@@ -184,7 +186,7 @@ tests, but there is more:
 As shown there are various combinations available. Just go ahead, read the help output and play around.
 There are tons of further test suites to try.
 
-One interesting detail should be mentioned: runTests.sh uses `typo3gmbh/phpXY <https://hub.docker.com/r/typo3gmbh/>`_
+One interesting detail should be mentioned: :file:`runTests.sh` uses `typo3gmbh/phpXY <https://hub.docker.com/r/typo3gmbh/>`_
 as main PHP containers. Those are loosely maintained and may be updated. Use the command
 `Build/Scripts/runTests.sh -u` to fetch the latest versions of these containers.
 
@@ -237,7 +239,7 @@ is listening on a non-default port, a different port can be specified with `-y`.
 If PhpStorm does *not* break as expected, some adjustments in this area may be required. First, make
 sure "local" debugging works. Set a breakpoint in a local project and see if it works. If it works
 locally, the container based debugging should also work. Next, make sure a proper break point has been set.
-Additionally, it may be useful to activate "Break at first line in PHP scripts" in your PhpStorm settings. runTests.sh
+Additionally, it may be useful to activate "Break at first line in PHP scripts" in your PhpStorm settings. :file:`runTests.sh`
 mounts the local path to the same location within the container, so path mapping is not needed. PhpStorm
 also comes with a `guide <https://www.jetbrains.com/help/phpstorm/configuring-xdebug.html>`_ how to set up
 debugging.

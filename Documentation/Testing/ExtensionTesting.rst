@@ -13,7 +13,7 @@ As an extension author, it is likely that you may want to test your extension du
 This chapter details how extension authors can set up automatic extension testing. We'll do that with
 two examples. Both embed the given extension in a TYPO3 instance and run tests within this environment,
 both examples also configure GitHub Actions to execute tests. We'll use Docker containers for test execution again and use
-an extension specific runTests.sh script for executing test setup and execution.
+an extension specific :file:`runTests.sh` script for executing test setup and execution.
 
 
 Scope
@@ -247,7 +247,7 @@ on-the-fly files. The :file:`.gitignore` looks like this::
 
 We ignore the entire `.Build` directory, these are on-the-fly files that do not belong to the extension
 functionality. We also ignore the `.idea` directory - this is a directory where PhpStorm stores its settings.
-We also ignore `Build/testing-docker/.env` - this is a test runtime file created by `runTests.sh` later.
+We also ignore `Build/testing-docker/.env` - this is a test runtime file created by :file:`runTests.sh` later.
 And we ignore the `composer.lock` file: We don't specify our dependency versions and a
 `composer install` will later always fetch for instance the youngest Core dependencies marked as
 compatible in our `composer.json` file.
@@ -318,7 +318,7 @@ These files are re-purposed from TYPO3's Core: `core Build/Scripts/runTests.sh
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
 docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/tree/master/Build/testing-docker/local>`_. You can
 copy and paste these files from extensions like enetcache or styleguide to your own extension, but you should then look
-through the files and adapt to your needs (for instance search for the word "enetcache" in runTests.sh).
+through the files and adapt to your needs (for instance search for the word "enetcache" in :file:`runTests.sh`).
 
 Let's run the tests:
 
@@ -340,7 +340,7 @@ Let's run the tests:
 
 Done. That's it. Execution of your extension`s unit tests.
 
-On some versions of MacOS you might get the following error message when executing runTests.sh:
+On some versions of MacOS you might get the following error message when executing :file:`runTests.sh`:
 
 .. code-block:: shell
 
@@ -559,7 +559,7 @@ Ah, shame on us! The data generator does not work well if executed using MSSQL a
 We extend from :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase`, instruct it to load
 the styleguide extension (:php:`$testExtensionsToLoad`), need some additional magic for the DataHandler, then
 call :php:`$generator->create();` and verify it created at least one record in one of our database tables.
-That's it. It executes fine using runTests.sh:
+That's it. It executes fine using :file:`runTests.sh`:
 
 .. code-block:: shell
 
@@ -587,7 +587,7 @@ database inserts and updates and uses the Core DataHandler for various details. 
 this entire area, it would throw an exception, the functional test would recognize this and fail. But if
 its green, we know that a large parts of that extension are working correctly.
 
-If looking at details - for instance if we try to fix the MSSQL issue - runTests.sh can be called with `-x`
+If looking at details - for instance if we try to fix the MSSQL issue - :file:`runTests.sh` can be called with `-x`
 again for xdebug break pointing. Also, the functional test execution becomes a bit funny: We are creating
 a TYPO3 test instance within `.Build/` folder anyway. But the functional test setup again creates instances
 for the single tests cases. The code that is actually executed is now located in a sub folder
@@ -607,7 +607,7 @@ of `typo3temp/` of `.Build/`, in this test case it is `functional-9ad521a`:
 
 This can be confusing at first, but it starts making sense the more you use it.
 Also, the docker-compose.yml file contains a setup to start needed databases for the functional tests
-and runTests.sh is tuned to call the different scenarios.
+and :file:`runTests.sh` is tuned to call the different scenarios.
 
 .. index:: Testing; Acceptance
 
@@ -702,7 +702,7 @@ a `backend tester <https://github.com/TYPO3/styleguide/blob/master/Tests/Accepta
 a `codeception bootstrap extension
 <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/Extension/BackendStyleguideEnvironment.php>`_
 that instructs the basic `typo3/testing-framework` acceptance bootstrap to load the styleguide extension and
-have some database fixtures included to easily log in to the backend. Additionally, the runTests.sh and
+have some database fixtures included to easily log in to the backend. Additionally, the :file:`runTests.sh` and
 docker-compose.yml files take care of adding selenium-chrome and a web server to actually execute the tests:
 
 .. code-block:: shell

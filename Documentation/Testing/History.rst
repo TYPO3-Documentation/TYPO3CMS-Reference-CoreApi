@@ -262,9 +262,10 @@ pattern repeated often over the years: The test suites show quite well which par
 attention. Working in these areas in turn improves the Core for everyone and allows usages that
 have not been possible before.
 
-In late 2018 another thing has been established: The *runTests.sh* script allows Core developers
-to easily execute tests within a container based environment that takes care of all the nasty
-system dependency problems. The test setup for some test suites is far from trivial: Acceptance
+In late 2018 another thing has been established: The
+`runTests.sh <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_
+script allows Core developers to easily execute tests within a container based environment that takes care
+of all the nasty system dependency problems. The test setup for some test suites is far from trivial: Acceptance
 tests need a web server, chrome and selenium, functional tests need different database systems
 that at best run in RAM, and so forth. Not too many Core developers went through all that to
 actually run and develop tests locally. The script now hides away all that complexity and creates a
