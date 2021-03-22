@@ -119,6 +119,18 @@ Example taken from :php:`ListSysLogCommand` in the core and simplified::
         }
     }
 
+Return value
+------------
+
+.. versionchanged:: 10
+
+   `It is now mandatory to return a value <https://symfony.com/blog/new-in-symfony-5-1-misc-improvements-part-1>`__
+   in :php:`execute()`. Since TYPO3 version 10 (and `symfony/console` version 5),
+   using :php:`execute()` without return will result in an exception.
+
+The return type is :php:`int`, :php:`Command::SUCCESS` or :php:`Command::FAILURE`
+can be used.
+
 Passing Arguments
 -----------------
 
