@@ -200,9 +200,6 @@ of FlexForms can be found in the :ref:`relevant section of the TCA reference <t3
 .. code-block:: xml
 
    <T3DataStructure>
-      <meta>
-         <langDisable>1</langDisable>
-      </meta>
       <sheets>
          <sDEF>
             <ROOT>
