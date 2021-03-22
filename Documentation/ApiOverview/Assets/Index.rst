@@ -46,8 +46,30 @@ The :php:`AssetCollector` helps to work with content elements as components, eff
 It leverages making use of HTTP/2 which removes the necessity to have all
 files concatenated into one file.
 
-The :php:`AssetCollector` is implemented as a singleton and should slowly replace the various other existing options
-in TypoScript.
+The :php:`AssetCollector` class is implemented as a singleton (:php:`SingletonInterface`). It replaces various other existing options
+in TypoScript and methods in PHP to insert Javascript code and CSS data. 
+
+Initialization:
+
+   use TYPO3\CMS\Core\Page\PageRenderer;
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+   $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
+
+
+   * :php:`$GLOBALS['TSFE']->additionalHeaderData[$name] = $javascriptcode;`
+   * :php:`$GLOBALS['TSFE']->setJS($name, $javascriptcode)`
+   * :php:`$pageRenderer->addHeaderData($javascriptcode)`
+   * :php:`$pageRenderer->addCssFile($file)`
+   * :php:`$pageRenderer->addCssInlineBlock($name, $csscode)`
+   * :php:`$pageRenderer->addCssLibrary($file)`
+   * :php:`$pageRenderer->addJsFile($file)`
+   * :php:`$pageRenderer->addJsFooterFile($file)`
+   * :php:`$pageRenderer->addJsFooterLibrary($name, $file)`
+   * :php:`$pageRenderer->addJsFooterInlineCode($name, $javascriptcode)`
+   * :php:`$pageRenderer->addJsInlineCode($name, $javascriptcode)`
+   * :php:`$pageRenderer->addJsLibrary($name, $file)`
+
 
 The :php:`AssetCollector` also collects information about "imagesOnPage", which can be used in cached and non-cached components.
 
