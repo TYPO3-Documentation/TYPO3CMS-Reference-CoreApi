@@ -68,19 +68,18 @@ running on the host system. Executing the basic Core unit test suite boils down 
     Build/Scripts/runTests.sh
 
 That's it. You just executed the entire unit test suite.
-initial Core clone and a composer install, other parts of this chapter are about different permutations of.
 Now that we have examined the initial Core clone and a composer install process, we will then look at the
-different ways we can apply the :file:`runTests.sh` or other scenarios
+different ways we can apply the :file:`runTests.sh` or other scenarios.
 
 
 Overview
 ========
 
-So what just happened? We cloned a Core, composer install`ed dependencies and executed Core
-unit tests. Let's have a look at more some details: :file:`runTests.sh` is a shell script that figures out
+So what just happened? We cloned a Core, composer installed dependencies and executed Core
+unit tests. Let's have a look at some more details: :file:`runTests.sh` is a shell script that figures out
 which test suite with which options a user wants to execute, does some error handling for broken
 combinations, writes the file `Build/testing-docker/local/.env` according to its findings and then executes a
-couple of `docker-compose` commands to prepare containers, run tests and stop containers after execution
+couple of `docker-compose` commands to prepare containers, runs tests and stops containers after execution
 again.
 
 A Core developer doing this for the first time may notice `docker-compose` pulling several container images
@@ -89,7 +88,7 @@ container `typo3gmbh/php72 <https://hub.docker.com/r/typo3gmbh/php72/>`_ may be 
 can be found at `TYPO3 GmbH GitHub <https://github.com/TYPO3GmbH/infra-bamboo-remote-agent>`_.
 These are the exact same containers Bamboo based testing is executed in. In Bamboo, the combination of
 :file:`Build/bamboo/src/main/java/core/PreMergeSpec.java` and :file:`Build/testing-docker/bamboo/docker-compose.yml`
-specify what Bamboo executes for patches pushed to the review system. On local testing, this is the
+specifies what Bamboo executes for patches pushed to the review system. On local testing, this is the
 combination of :file:`Build/Scripts/runTests.sh`, :file:`Build/testing-docker/local/.env` (created by
 runTests.sh) and
 `Build/testing-docker/local/docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/testing-docker/local/docker-compose.yml>`_.
