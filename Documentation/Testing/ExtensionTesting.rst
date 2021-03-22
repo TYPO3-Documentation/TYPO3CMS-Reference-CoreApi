@@ -34,7 +34,7 @@ About this chapter and what it does *not* cover, first.
   development of that package is closely bound to Core development and has a relatively high
   development speed. It does contain breaking patches per major Core versions, but it should
   not contain breaking patches for existing major Core branches. If you now set up testing
-  using typo3/testing-framework with TYPO3 Core version 9, it should not break within v9's
+  using `typo3/testing-framework` with TYPO3 Core version 9, it should not break within v9's
   lifetime. But it is likely to break if you upgrade to version 10 or later and may need adaption
   in your extension codes or setup.
 
@@ -145,7 +145,7 @@ This is a typical composer.json file without any complexity: It's a `typo3-cms-e
 author and a license. We are stating that "I need at least 9.5.0 of cms-core" and we tell the auto loader
 "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
-The extension already contains some unit tests that extend typo3/testing-framework's base
+The extension already contains some unit tests that extend `typo3/testing-framework`'s base
 unit test class in directory :file:`Tests/Unit/Hooks` (stripped)::
 
     <?php
@@ -701,7 +701,7 @@ extended by the `backend suite <https://github.com/TYPO3/styleguide/blob/master/
 a `backend tester <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/BackendTester.php>`_ and
 a `codeception bootstrap extension
 <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/Extension/BackendStyleguideEnvironment.php>`_
-that instructs the basic typo3/testing-framework acceptance bootstrap to load the styleguide extension and
+that instructs the basic `typo3/testing-framework` acceptance bootstrap to load the styleguide extension and
 have some database fixtures included to easily log in to the backend. Additionally, the runTests.sh and
 docker-compose.yml files take care of adding selenium-chrome and a web server to actually execute the tests:
 

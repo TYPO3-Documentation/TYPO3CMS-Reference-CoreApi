@@ -63,10 +63,10 @@ Is a generic runTests.sh available?
 ===================================
 
 No. Maybe later. The script runTests.sh is pretty young. It did not mature enough to make it generally
-available for example within the typo3/testing-framework to be used by extensions directly. At the moment
-each extension should maintain its own copy of :file:`runTests.sh` and :file:`docker-compose.yml`
-files on its own and adapt it to its extension specific needs. We'll see how this evolves and maybe
-deliver some more generic solution later.
+available for example within the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>`_
+to be used by extensions directly. At the moment each extension should maintain its own copy of
+:file:`runTests.sh` and :file:`docker-compose.yml` files on its own and adapt it to its extension
+specific needs. We'll see how this evolves and maybe deliver some more generic solution later.
 
 
 Why don't you use runTests.sh in bamboo?

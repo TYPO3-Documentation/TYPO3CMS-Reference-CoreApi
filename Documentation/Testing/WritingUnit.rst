@@ -21,7 +21,7 @@ details. Unit testing is a great playground for interested contributors, and mos
 extension developers probably learn something useful from reading this section, too.
 
 Note this chapter is not a full "How to write unit tests" documentation: It contains
-some examples, but mostly goes into details of the additions typo3/testing-framework
+some examples, but mostly goes into details of the additions `typo3/testing-framework <https://github.com/TYPO3/testing-framework>`_
 puts on top.
 
 Furthermore, this documentation is a general guide. There can be reasons to violate them.
@@ -163,7 +163,7 @@ Extending UnitTestCase
 ======================
 
 Extending a unit test from class :php:`TYPO3\TestingFramework\Core\Unit\UnitTestCase` of the
-:php:`typo3/testing-framework` package instead of the native phpunit class :php:`PHPUnit\Framework\TestCase`
+`typo3/testing-framework` package instead of the native phpunit class :php:`PHPUnit\Framework\TestCase`
 adds some functionality on top of phpunit:
 
 * Environment backup: If a unit test has to fiddle with the :ref:`Environment <Environment>` class, setting

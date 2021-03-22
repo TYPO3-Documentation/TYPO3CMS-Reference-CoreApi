@@ -17,7 +17,7 @@ for instance a controller action. That method triggers dependent logic that chan
 data. The tests end with comparing the changed data or output is identical to some
 expected data.
 
-This chapter goes into details on functional testing and how the `typo3/testing-framework`
+This chapter goes into details on functional testing and how the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>`_
 helps with setting up, running and verifying scenarios.
 
 
