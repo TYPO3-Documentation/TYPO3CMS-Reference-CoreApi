@@ -522,6 +522,8 @@ and to explicitly define a range for a value, which is recommended for all kinds
 This limits down the pagination to max. 100 pages, if a user calls the news list with page 101, then the route enhancer
 does not match and would not apply the placeholder.
 
+A range larger than 1000 is not allowed. 
+
 
 .. index:: Routing; PersistedAliasMapper
 
