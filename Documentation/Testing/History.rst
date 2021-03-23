@@ -248,7 +248,7 @@ this area, two further API's have been established: :ref:`Context <context-api>`
 :ref:`Environment <Environment>`. Remember each functional tests case runs in an own instance within
 typo3temp? TYPO3 Core  always had the PHP constant *PATH_site* that contained the path to the document
 root. With having test cases in different locations, this constant would have to change. But it
-can't, its constant and PHP luckily does not allow redefining constants. The environment API
+can't, it is a constant and PHP luckily does not allow redefining constants. The environment API
 of TYPO3 Core  v9 however is an object that is initialized during Core bootstrap. Next to some other
 details, it also contains the path to the document root. Adding this class allowed us to ditch the
 usage of PATH_site in the entire Core. This removed the main blocker to execute many functional test
