@@ -180,8 +180,7 @@ The wizard identifier is used:
 Since all upgrade wizards of TYPO3 core and extensions are registered using the
 identifier as key in the global array
 :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']`, it
-is recommended to prepend the identifier with something unique to the extension
-to make it unique.
+is recommended to prepend the wizard identifier with a prefix based on the extension key.
 
 You SHOULD use the following naming convention for the identifier:
 
