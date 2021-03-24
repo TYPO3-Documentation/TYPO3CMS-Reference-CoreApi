@@ -331,11 +331,11 @@ Extbase has some of its own conventions.
 Upgrade wizard identifier
 =========================
 
-You SHOULD use the following identifier:
+You SHOULD use the following naming convention for the identifier:
 
 `extKey_wizardName`
 
-This is not enforced
+This is not enforced.
 
 Please see :ref:`upgrade-wizards-identifier` in the Upgrade Wizard chapter
 for further explanations.
