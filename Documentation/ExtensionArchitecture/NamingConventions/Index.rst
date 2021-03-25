@@ -328,6 +328,18 @@ Extbase has some of its own conventions.
 
     * :ref:`Extbase CGL <t3extbasebook:extbase-cgl>`.
 
+Upgrade wizard identifier
+=========================
+
+You SHOULD use the following naming convention for the identifier:
+
+`extKey_wizardName`
+
+This is not enforced.
+
+Please see :ref:`upgrade-wizards-identifier` in the Upgrade Wizard chapter
+for further explanations.
+
 
 .. _extension-old-extensions:
 
