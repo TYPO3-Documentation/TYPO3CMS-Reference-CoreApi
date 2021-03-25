@@ -38,8 +38,8 @@ Here is a sample XLIFF file:
 .. code-block:: xml
 
    <?xml version="1.0" encoding="UTF-8"?>
-   <xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.1">
-      <file source-language="en" datatype="plaintext" original="EXT:my_ext/Resources/Private/Language/Modules/<ffile-name>.xlf" date="2011-10-18T18:20:51Z" product-name="my_ext">
+   <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+      <file source-language="en" datatype="plaintext" original="EXT:my_ext/Resources/Private/Language/Modules/<ffile-name>.xlf" date="2020-10-18T18:20:51Z" product-name="my_ext">
          <header/>
          <body>
             <trans-unit id="headerComment" resname="headerComment">
@@ -76,8 +76,9 @@ Here is what the translation of our sample file could look like:
 
 .. code-block:: xml
 
-   <xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.1">
-      <file source-language="en" target-language="de" datatype="plaintext" original="EXT:my_ext/Resources/Private/Language/Modules/<ffile-name>.xlf" date="2011-10-18T18:20:51Z" product-name="my_ext">
+   <?xml version="1.0" encoding="UTF-8"?>
+   <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+      <file source-language="en" target-language="de" datatype="plaintext" original="EXT:my_ext/Resources/Private/Language/Modules/<ffile-name>.xlf" date="2020-10-18T18:20:51Z" product-name="my_ext">
          <header/>
          <body>
             <trans-unit id="headerComment" resname="headerComment">
