@@ -54,7 +54,7 @@ methods::
         */
        public function getIdentifier(): string
        {
-         return 'exampleUpdateWizard';
+         return 'extName_exampleUpdateWizard';
        }
 
        /**
@@ -159,12 +159,57 @@ Registering wizards
 Once the wizard is created, it needs to be registered. Registration is done in
 :file:`ext_localconf.php`::
 
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['exampleUpdateWizard']
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['extName_exampleUpdateWizard']
       = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
 
-**Important:** Use the same identifier as key (here: `exampleUpdateWizard`), which
+**Important:** Use the same identifier as key (here: `extName_exampleUpdateWizard`), which
 is returned by :php:`UpgradeWizardInterface::getIdentifier()` in your wizard
 class.
+
+.. index:: Upgrade wizards; Identifier
+.. _upgrade-wizards-identifier:
+
+Wizard identifier
+=================
+
+The wizard identifier is used:
+
+*  when calling the wizard from the :ref:`command line <upgrade_wizard_execute>`.
+*  when marking the wizard as done in the table :sql:`sys_registry`
+
+Since all upgrade wizards of TYPO3 core and extensions are registered using the
+identifier as key in the global array
+:php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']`, it
+is recommended to prepend the wizard identifier with a prefix based on the extension key.
+
+You SHOULD use the following naming convention for the identifier:
+
+`extName_wizardName`, for example `bootstrapPackage_addNewDefaultTypes`
+
+*  extension key and wizard name in lowerCamelCase, separated by underscore
+*  existing underscores in extension keys are replaced by capitalizing the
+   following letter
+
+.. important::
+
+   Any identifier will still work, using these naming conventions is
+   not enforced. In fact, it is not recommended to change already
+   existing wizard identiers, as the information, that the wizard ran is
+   stored using the identifier in the :sql:`sys_registry` table and this
+   information would then be lost.
+
+Some examples:
+
++-------------------+-------------------------------------+
+| extension key     | wizard identifer                    |
++===================+=====================================+
+| container         | container_upgradeColumnPositions    |
++-------------------+-------------------------------------+
+| news_events       | newsEvents_migrateEvents            |
++-------------------+-------------------------------------+
+| bootstrap_package | bootstrapPackage_addNewDefaultTypes |
++-------------------+-------------------------------------+
+
 
 .. index:: Upgrade wizards; Marking wizard as done
 .. _upgrade-wizards-mark-as-done:
@@ -250,6 +295,8 @@ We are showing a simplified example here, based on this class::
 
 .. index:: Upgrade wizards; Execution
 
+.. _upgrade_wizard_execute:
+
 Executing the wizard
 ====================
 
@@ -260,8 +307,18 @@ It is also possible to execute the wizard from the command line.
 
 .. code-block:: bash
 
-   # Run using our identifier 'exampleUpdateWizard' which was specified when registering
-   vendor/bin/typo3 upgrade:run exampleUpdateWizard
+   # Run using our identifier 'extName_exampleUpdateWizard'
+   vendor/bin/typo3 upgrade:run extName_exampleUpdateWizard
+
+
+.. tip::
+
+   Some existing wizards use the convention of using the fully qualified class
+   name as identifer. You may have to quote the backslashes in the shell, e.g.
+
+   .. code-block:: bash
+
+      vendor/bin/typo3 upgrade:run '\\Vendor\\ExtKey\\Upgrade\\ExampleUpgradeWizard'
 
 You can find more information about running upgrade wizards in the
 :ref:`Upgrade wizard section <t3install:use-the-upgrade-wizard>` of the
