@@ -12,14 +12,13 @@ through the features of the module and goes into API and programming details.
 
 .. toctree::
    :titlesonly:
-   :maxdepth: 1
 
    Basics
    CreateNew
    BaseVariants
    AddLanguages
-   ErrorHandling
-   WriteCustomErrorHandler
+   ErrorHandling/Index
+   ErrorHandling/WriteCustomErrorHandler
    StaticRoutes
    UsingEnvVars
    UseSiteInTypoScript
