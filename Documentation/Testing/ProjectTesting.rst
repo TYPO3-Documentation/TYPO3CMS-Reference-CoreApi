@@ -31,7 +31,7 @@ This is thought as an inspiration you may want to adapt for your project.
 Project site-introduction
 =========================
 
-The `site-introduction <https://github.com/benjaminkott/site-introduction>`_ TYPO3 project is a
+The `site-introduction <https://github.com/TYPO3-Documentation/site-introduction>`_ TYPO3 project is a
 straight ddev based setup that aims to simplify handling the `introduction
 <https://github.com/FriendsOfTYPO3/introduction>`_ extension. It delivers everything needed
 to have a working introduction based project, to manage content and export it for new
@@ -43,11 +43,11 @@ TYPO3 instance. And we want to make sure we do not break main parts if we fiddle
 Just like any other projects wants.
 
 The quick start for an own site based on this repository boils down to these commands, with
-more details mentioned in `README.md <https://github.com/benjaminkott/site-introduction/blob/master/README.md>`_:
+more details mentioned in `README.md <https://github.com/TYPO3-Documentation/site-introduction/blob/master/README.md>`_:
 
 .. code-block:: shell
 
-    lolli@apoc /var/www/local $ git clone git@github.com:benjaminkott/site-introduction.git
+    lolli@apoc /var/www/local $ git clone git@github.com:TYPO3-Documentation/site-introduction.git
     lolli@apoc /var/www/local $ cd site-introduction
     lolli@apoc /var/www/local/site-introduction $ ddev start
     lolli@apoc /var/www/local/site-introduction $ ddev import-db --src=./data/db.sql
@@ -63,7 +63,7 @@ Local acceptance testing
 ========================
 
 There has been one `main patch
-<https://github.com/benjaminkott/site-introduction/commit/841d86e72f34982827af66f3015b53b127f1dc2f>`_ adding
+<https://github.com/TYPO3-Documentation/site-introduction/commit/841d86e72f34982827af66f3015b53b127f1dc2f>`_ adding
 acceptance testing to the site-introduction repository.
 
 The goal is to run some acceptance tests against the current website that has been
@@ -157,7 +157,7 @@ Now we need a simple first test which is added as :file:`Tests/Acceptance/Fronte
 It just calls the homepage of our instance, clicks one of the links and verifies some text is
 shown. Straight, but enough to see if the basic instance does work.
 
-Ah, and we need a "Tester" in the `Support directory <https://github.com/benjaminkott/site-introduction/tree/master/Tests/Acceptance/Support>`_.
+Ah, and we need a "Tester" in the `Support directory <https://github.com/TYPO3-Documentation/site-introduction/tree/master/Tests/Acceptance/Support>`_.
 
 That's it. We can now execute the acceptance test suite by executing a command in the
 ddev PHP container:
@@ -208,7 +208,7 @@ into the repository, and when people create pull requests for our project, we wa
 that our carefully crafted test setup actually works. We're going to use Github's Actions CI
 service to get that done. It's free for open source projects.
 To tell the CI what to do, create a new workflow file in
-`.github/workflows/tests.yml <https://github.com/benjaminkott/site-introduction/blob/master/.github/workflows/tests.yml>`__
+`.github/workflows/tests.yml <https://github.com/TYPO3-Documentation/site-introduction/blob/master/.github/workflows/tests.yml>`__
 
 .. code-block:: yaml
 
@@ -245,7 +245,7 @@ To tell the CI what to do, create a new workflow file in
          - name: Run acceptance tests
            run: ddev exec bin/codecept run acceptance -d -c Tests/codeception.yml
 
-It's possible to see executed test runs `online <https://github.com/benjaminkott/site-introduction/actions>`_.
+It's possible to see executed test runs `online <https://github.com/TYPO3-Documentation/site-introduction/actions>`_.
 Green :)
 
 
