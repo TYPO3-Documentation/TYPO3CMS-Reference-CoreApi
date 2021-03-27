@@ -135,20 +135,24 @@ extra
 
 (*required*)
 
-The extra `typo3/cms` section is used to provide a TYPO3 extension_key for the package.
-If not provided, the package-key will be used with all dashes (`-`)
-replaced by underscores (`_`) to follow TYPO3 and Packagist conventions.
+Not providing this property will emit a deprecation notice and will fail in
+future versions.
 
-Not providing this property will emit a deprecation notice and will fail in future versions.
+.. hint::
 
-So, the following section can be provided, but the default will result in
-the same thing:
+   The property "extension-key" means the **literal string** "extension-key",
+   not your actual extension key. The value on the right side should be your
+   actual extension key.
+
+Example for extension key **bootstrap_package**:
 
 .. code-block:: json
 
-   "extra": {
-      "typo3/cms": {
-         "extension-key": "my_extension"
+   {
+      "extra": {
+         "typo3/cms": {
+            "extension-key": "bootstrap_package"
+         }
       }
    },
 
@@ -163,12 +167,15 @@ replaced by this package. This means that packages with different
 vendor name or package name will be treated as the same package by
 Composer.
 
+Example for extension key **bootstrap_package**:
+
 .. code-block:: json
 
-   "replace": {
-      "typo3-ter/my-extension": "self.version"
-   },
-
+   {
+      "replace": {
+         "typo3-ter/bootstrap-package": "self.version"
+      }
+   }
 
 As all extensions available in the TER can be installed
 with `composer require typo3-ter/ext-key`, this makes sure that
