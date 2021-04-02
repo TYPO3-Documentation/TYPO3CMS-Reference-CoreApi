@@ -63,7 +63,7 @@ Until 2018, this first .travis.yml file went through more than 100 changes.
 2013
 ====
 
-With frequent test execution via travis-ci more and more developers working on the Core were
+With frequent test execution via Travis CI more and more developers working on the Core were
 forced to run tests locally to debug tests or add new ones. We slowly got an idea in which
 situations unit tests are helpful and when they are not.
 
@@ -73,7 +73,7 @@ tests were executed with all the state the backend created to run modules. This 
 since lots of unit tests now directly or indirectly relied on this state, too. And worse, this state
 changed depending on the developers local test system - other extensions that hooked into the
 system could lead to failing unit tests. With this system, tests tend to execute fine locally but
-then broke on travis-ci or on some other persons development system. Test execution has at this
+then broke on Travis CI or on some other persons development system. Test execution has at this
 point already been done via CLI by most developers, and the unit test bootstrap basically created a
 full TYPO3 backend context similar to the GUI based phpunit extension.
 
@@ -98,7 +98,7 @@ to work on a per-request basis. A cli or web request comes in, the system bootst
 then dies. The next request does a new bootstrap from scratch. This simplifies things a lot for
 developers since they don't need to take care of request overlapping state and don't need to take
 care too much about consumed memory. And if a single request dies in the middle of the execution,
-the next one still may happily work and successfully do it's job. This characteristic of a scripting
+the next one still may happily work and successfully do its job. This characteristic of a scripting
 language can be a huge advantage over other server-side languages. And TYPO3 uses this a lot: If a request
 is finished in TYPO3 context, the system is "tainted" and can't be used for a second request again.
 
@@ -248,7 +248,7 @@ this area, two further API's have been established: :ref:`Context <context-api>`
 :ref:`Environment <Environment>`. Remember each functional tests case runs in an own instance within
 typo3temp? TYPO3 Core  always had the PHP constant *PATH_site* that contained the path to the document
 root. With having test cases in different locations, this constant would have to change. But it
-can't, it's constant and PHP luckily does not allow redefining constants. The environment API
+can't, it is a constant and PHP luckily does not allow redefining constants. The environment API
 of TYPO3 Core  v9 however is an object that is initialized during Core bootstrap. Next to some other
 details, it also contains the path to the document root. Adding this class allowed us to ditch the
 usage of PATH_site in the entire Core. This removed the main blocker to execute many functional test
@@ -262,9 +262,10 @@ pattern repeated often over the years: The test suites show quite well which par
 attention. Working in these areas in turn improves the Core for everyone and allows usages that
 have not been possible before.
 
-In late 2018 another thing has been established: The *runTests.sh* script allows Core developers
-to easily execute tests within a container based environment that takes care of all the nasty
-system dependency problems. The test setup for some test suites is far from trivial: Acceptance
+In late 2018 another thing has been established: The
+`runTests.sh <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_
+script allows Core developers to easily execute tests within a container based environment that takes care
+of all the nasty system dependency problems. The test setup for some test suites is far from trivial: Acceptance
 tests need a web server, chrome and selenium, functional tests need different database systems
 that at best run in RAM, and so forth. Not too many Core developers went through all that to
 actually run and develop tests locally. The script now hides away all that complexity and creates a

@@ -17,7 +17,7 @@ for instance a controller action. That method triggers dependent logic that chan
 data. The tests end with comparing the changed data or output is identical to some
 expected data.
 
-This chapter goes into details on functional testing and how the `typo3/testing-framework`
+This chapter goes into details on functional testing and how the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>`_
 helps with setting up, running and verifying scenarios.
 
 
@@ -39,7 +39,7 @@ bootstrap a basic TYPO3 backend. :php:`setUp()` is called before each test, so e
 test is isolated from other tests, even within one test case. There is only one optimization
 step: The instance between single tests of one test case is not fully created from scratch,
 but the existing instance is just cleaned up (all database tables truncated). This is a measure
-to speed up execution, but still, the general thinking is that each test stands for it's own
+to speed up execution, but still, the general thinking is that each test stands for its own
 and should not have side effects on other tests.
 
 The :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase` contains a series
@@ -55,7 +55,7 @@ variables. If using the recommended docker based setup to execute tests, these d
 are taken care off by the :file:`runTests.sh` and :file:`docker-compose.yml` files. See
 the :ref:`styleguide example <testing-extensions-styleguide>` for details on how this is
 set up and used. Executing the functional tests on different databases is handled by these
-and it is possible to run one tests on different databases by calling :file:`runTests.sh`
+and it is possible to run one test on different databases by calling :file:`runTests.sh`
 with the according options to do this. The above chapter :ref:`Extension testing
 <testing-extensions>` is about executing tests and setting up the runtime, while this
 chapter is about writing tests and setting up the scenario.
@@ -149,7 +149,7 @@ call :php:`parent::setUp()` before doing own stuff. An example can be found in
 The above example overrides :php:`setUp()` to first call :php:`parent::setUp()`. This is
 critically important to do, if not done the entire test instance set up is not triggered.
 After calling parent, various things needed by all tests of this scenario are added: A database
-fixtures is loaded, a backend user is added, the language object is initialized
+fixture is loaded, a backend user is added, the language object is initialized
 and an instance of the system under test is parked as :php:`$this->subject` within the class.
 
 
@@ -162,7 +162,7 @@ always loaded. Those should be `require` or at least `require-dev` dependencies 
 :file:`composer.json` file, too: `core`, `backend`, `frontend`, `extbase`, `install` and
 `recordlist`.
 
-Apart from that default list, it is possible to load additional Core extensions, an extension
+Apart from that default list, it is possible to load additional Core extensions: An extension
 that wants to test if it works well together with workspaces, would for example specify
 the workspaces extension as additional to-load extension::
 
@@ -177,7 +177,7 @@ Furthermore, third party extensions and fixture extensions can be loaded for any
         'typo3conf/ext/base_extension',
     ];
 
-In this case the fictive extension `some_extension` comes with an own fixture extension that should
+In this case the fictional extension `some_extension` comes with an own fixture extension that should
 be loaded, and another `base_extension` should be loaded. These extensions will be linked into
 `typo3conf/ext` of the test case instance.
 

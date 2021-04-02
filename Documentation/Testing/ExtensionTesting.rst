@@ -9,11 +9,11 @@ Extension testing
 Introduction
 ============
 
-As an Extension author, it likely that you may want to test your extension during its development.
+As an extension author, it is likely that you may want to test your extension during its development.
 This chapter details how extension authors can set up automatic extension testing. We'll do that with
 two examples. Both embed the given extension in a TYPO3 instance and run tests within this environment,
-both examples also configure Travis CI to execute tests. We'll use Docker containers for test execution again and use
-an extension specific runTests.sh script for executing test setup and execution.
+both examples also configure GitHub Actions to execute tests. We'll use Docker containers for test execution again and use
+an extension specific :file:`runTests.sh` script for executing test setup and execution.
 
 
 Scope
@@ -34,7 +34,7 @@ About this chapter and what it does *not* cover, first.
   development of that package is closely bound to Core development and has a relatively high
   development speed. It does contain breaking patches per major Core versions, but it should
   not contain breaking patches for existing major Core branches. If you now set up testing
-  using typo3/testing-framework with TYPO3 Core version 9, it should not break within v9's
+  using `typo3/testing-framework` with TYPO3 Core version 9, it should not break within v9's
   lifetime. But it is likely to break if you upgrade to version 10 or later and may need adaption
   in your extension codes or setup.
 
@@ -52,8 +52,8 @@ About this chapter and what it does *not* cover, first.
 * Similar to Core testing, this documentation relies on docker and docker-compose. See the
   :ref:`Core testing requirements <testing-core-dependencies>` for more details.
 
-* We assume your extensions code is located within github and automatic testing is carried out using Travis CI.
-  The integration of Travis CI into github is easy to set up with plenty of documentation already available.
+* We assume your extensions code is located within github and automatic testing is carried out using GitHub Actions.
+  The integration of GitHub Actions into github is easy to set up with plenty of documentation already available.
   If your extensions code is located elsewhere or a different CI is used, this chapter may still be of use
   in helping you build a general understanding of the testing process.
 
@@ -92,7 +92,7 @@ writing, it has three branches:
 
 Branch master will be branched later as `3` when Core version 10 gains traction. This document
 focuses on the master / Core v9 compatible branch. The extension comes with a couple of unit tests
-in `Tests/Unit`, we want to run these locally and in travis-ci, along with some PHP linting to verify
+in `Tests/Unit`, we want to run these locally and by GitHub Actions, along with some PHP linting to verify
 there is no fatal PHP error. We'll test that extension with both PHP 7.2 and PHP 7.3 - the two PHP
 versions TYPO3 Core v9 currently supports at the time of writing.
 
@@ -145,7 +145,7 @@ This is a typical composer.json file without any complexity: It's a `typo3-cms-e
 author and a license. We are stating that "I need at least 9.5.0 of cms-core" and we tell the auto loader
 "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
-The extension already contains some unit tests that extend typo3/testing-framework`s base
+The extension already contains some unit tests that extend `typo3/testing-framework`'s base
 unit test class in directory :file:`Tests/Unit/Hooks` (stripped)::
 
     <?php
@@ -247,7 +247,7 @@ on-the-fly files. The :file:`.gitignore` looks like this::
 
 We ignore the entire `.Build` directory, these are on-the-fly files that do not belong to the extension
 functionality. We also ignore the `.idea` directory - this is a directory where PhpStorm stores its settings.
-We also ignore `Build/testing-docker/.env` - this is a test runtime file created by `runTests.sh` later.
+We also ignore `Build/testing-docker/.env` - this is a test runtime file created by :file:`runTests.sh` later.
 And we ignore the `composer.lock` file: We don't specify our dependency versions and a
 `composer install` will later always fetch for instance the youngest Core dependencies marked as
 compatible in our `composer.json` file.
@@ -316,9 +316,9 @@ docker-compose.yml <https://github.com/lolli42/enetcache/blob/master/Build/testi
 
 These files are re-purposed from TYPO3's Core: `core Build/Scripts/runTests.sh
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
-docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/tree/master/Build/testing-docker/local>`_. You can
+docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/tree/master/Build/testing-docker/local/docker-compose.yml>`_. You can
 copy and paste these files from extensions like enetcache or styleguide to your own extension, but you should then look
-through the files and adapt to your needs (for instance search for the word "enetcache" in runTests.sh).
+through the files and adapt to your needs (for instance search for the word "enetcache" in :file:`runTests.sh`).
 
 Let's run the tests:
 
@@ -340,7 +340,7 @@ Let's run the tests:
 
 Done. That's it. Execution of your extension`s unit tests.
 
-On some versions of MacOS you might get the following error message when executing runTests.sh:
+On some versions of MacOS you might get the following error message when executing :file:`runTests.sh`:
 
 .. code-block:: shell
 
@@ -354,7 +354,7 @@ On some versions of MacOS you might get the following error message when executi
 
 To solve this issue follow the steps described `here <http://biercoff.com/fixing-readlink-illegal-option-f-error-on-a-mac/>`_ to install greadlink which supports the needed --f option.
 
-Rather than changing the :file:`runTests.sh` to then use `greadlink` and thus risk breaking your automated testing via Travis CI consider symlinking your readlink executable to the newly installed greadlink with the following command as mentioned in the comments:
+Rather than changing the :file:`runTests.sh` to then use `greadlink` and thus risk breaking your automated testing via GitHub Actions consider symlinking your readlink executable to the newly installed greadlink with the following command as mentioned in the comments:
 
 .. code-block:: shell
 
@@ -370,7 +370,7 @@ Github Actions
 
 With basic testing in place we now want automatic execution of tests whenever something is merged to the repository and if
 people create pull requests for our extension, we want to make sure our carefully crafted test setup actually
-work. We'll use the continuous integration service of Github Actions to take care of
+works. We'll use the CI service of Github Actions to take care of
 that. It's free for open source projects.
 In order to tell the CI what to do, create a new workflow file in `.github/workflows/ci.yml <https://github.com/lolli42/enetcache/blob/master/.github/workflows/ci.yml>`__
 
@@ -442,12 +442,12 @@ extension is installed as a dependency by default. However, styleguide is just a
 to composer's `packagist.org <https://packagist.org/packages/typo3/cms-styleguide>`_ and can be loaded as
 dependency (or require-dev dependency) in any project.
 
-The styleguide extension follows the Core branching principle, too: At the time of this writing, it's "master"
+The styleguide extension follows the Core branching principle, too: At the time of this writing, its "master"
 branch is dedicated to be compatible with upcoming Core version 11. There are branches compatible with older Core versions, too.
 
 In comparison to enetcache, styleguide comes with additional test suites: It has functional and
 acceptance tests! Our goal is to run the functional tests with different database platforms, and to
-execute the acceptance tests. Both locally and on travis-ci and with different PHP versions.
+execute the acceptance tests. Both locally and by GitHub Actions and with different PHP versions.
 
 Basic setup
 -----------
@@ -559,7 +559,7 @@ Ah, shame on us! The data generator does not work well if executed using MSSQL a
 We extend from :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase`, instruct it to load
 the styleguide extension (:php:`$testExtensionsToLoad`), need some additional magic for the DataHandler, then
 call :php:`$generator->create();` and verify it created at least one record in one of our database tables.
-That's it. It executes fine using runTests.sh:
+That's it. It executes fine using :file:`runTests.sh`:
 
 .. code-block:: shell
 
@@ -587,7 +587,7 @@ database inserts and updates and uses the Core DataHandler for various details. 
 this entire area, it would throw an exception, the functional test would recognize this and fail. But if
 its green, we know that a large parts of that extension are working correctly.
 
-If looking at details - for instance if we try to fix the MSSQL issue - runTests.sh can be called with `-x`
+If looking at details - for instance if we try to fix the MSSQL issue - :file:`runTests.sh` can be called with `-x`
 again for xdebug break pointing. Also, the functional test execution becomes a bit funny: We are creating
 a TYPO3 test instance within `.Build/` folder anyway. But the functional test setup again creates instances
 for the single tests cases. The code that is actually executed is now located in a sub folder
@@ -606,8 +606,8 @@ of `typo3temp/` of `.Build/`, in this test case it is `functional-9ad521a`:
     drwxr-sr-x 2 lolli www-data 4096 Nov  5 17:35 uploads
 
 This can be confusing at first, but it starts making sense the more you use it.
-Also, the docker-compose.yml file contains a setup to start needed databases for the functional tests
-and runTests.sh is tuned to call the different scenarios.
+Also, the :file:`docker-compose.yml` file contains a setup to start needed databases for the functional tests
+and :file:`runTests.sh` is tuned to call the different scenarios.
 
 .. index:: Testing; Acceptance
 
@@ -701,9 +701,9 @@ extended by the `backend suite <https://github.com/TYPO3/styleguide/blob/master/
 a `backend tester <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/BackendTester.php>`_ and
 a `codeception bootstrap extension
 <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/Extension/BackendStyleguideEnvironment.php>`_
-that instructs the basic typo3/testing-framework acceptance bootstrap to load the styleguide extension and
-have some database fixtures included to easily log in to the backend. Additionally, the runTests.sh and
-docker-compose.yml files take care of adding selenium-chrome and a web server to actually execute the tests:
+that instructs the basic `typo3/testing-framework` acceptance bootstrap to load the styleguide extension and
+have some database fixtures included to easily log in to the backend. Additionally, the :file:`runTests.sh` and
+:file:`docker-compose.yml` files take care of adding selenium-chrome and a web server to actually execute the tests:
 
 .. code-block:: shell
 

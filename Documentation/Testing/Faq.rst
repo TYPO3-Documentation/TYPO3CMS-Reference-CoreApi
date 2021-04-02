@@ -42,7 +42,7 @@ and a (use with care, you have a backup right?) `docker volume prune` helps remo
 Why do you need runTests.sh?
 ============================
 
-The script `runTests.sh` is a wrapper around docker-compose. While docker and docker-compose are
+The script :file:`runTests.sh` is a wrapper around docker-compose. While docker and docker-compose are
 great software, this stack has its own type of issues. In the end, runTests.sh just creates a `.env`
 file read by docker-compose to work around a couple of things. For instance, all tests mount the
 local git checkout of Core or an extension into one or multiple containers. Executing tests then
@@ -63,10 +63,10 @@ Is a generic runTests.sh available?
 ===================================
 
 No. Maybe later. The script runTests.sh is pretty young. It did not mature enough to make it generally
-available for example within the typo3/testing-framework to be used by extensions directly. At the moment
-each extension should maintain its own copy of :file:`runTests.sh` and :file:`docker-compose.yml`
-files on its own and adapt it to its extension specific needs. We'll see how this evolves and maybe
-deliver some more generic solution later.
+available for example within the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>`_
+to be used by extensions directly. At the moment each extension should maintain its own copy of
+:file:`runTests.sh` and :file:`docker-compose.yml` files on its own and adapt it to its extension
+specific needs. We'll see how this evolves and maybe deliver some more generic solution later.
 
 
 Why don't you use runTests.sh in bamboo?
@@ -83,13 +83,13 @@ further services. To execute single test jobs, they start new "sibling" containe
 For instance, they start an ad hoc postgres, a redis and a memcached container, then start a PHP 7.3 container
 assigned to the same network and run the functional test suite. With multiple agents on one host (to make good
 use of many CPU's on one hardware system), these per-agent specific ad-hoc networks and volume mounts need to be
-separated from each other. This requires some additional setup efforts runTests.sh does not reflect. Additionally,
+separated from each other. This requires some additional setup efforts :file:`runTests.sh` does not reflect. Additionally,
 the ram disk, responsible shell user and home directory setup is different to speed up single runs and to
 efficiently cache network related stuff on the local host filesystem without agents colliding with each other.
 
 So while bamboo and local test execution use the same underlying containers, the network, local cache and volume
 mounts are different and this forces us to separate that from the local "one thing at a time" tailored script called
-runTests.sh.
+:file:`runTests.sh`.
 
 
 Why do you not use native PHP on Travis CI?
@@ -138,7 +138,7 @@ issues that have not been solved in a satisfiable way when it comes to mounting 
 directories as docker container volumes. github is full of issues with mac users complaining
 about poor docker performance. There may be some tricks to speed that up in our tiny TYPO3
 testing world and we're open to persons having a look at this to reduce pain for mac users.
-Other than that, there is little we can do. Eventually, maybe macOS gets it's name spacing,
+Other than that, there is little we can do. Eventually, maybe macOS gets its name spacing,
 file system layers and containerization right in the future? Windows is better and quicker in
 this area by now. Let that sink in. Please keep us posted.
 
@@ -146,9 +146,9 @@ this area by now. Let that sink in. Please keep us posted.
 Can i run tests with Windows?
 =============================
 
-Well. Maybe. We've had some successful reports using runTests.sh with `WSL: Windows Subsystem for Linux
+Well. Maybe. We've had some successful reports using :file:`runTests.sh` with `WSL: Windows Subsystem for Linux
 <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_ but we did not get too much information
-and experience on this, yet. Please go ahead, push patches for Core runTests.sh or the docker-compose.yml
+and experience on this, yet. Please go ahead, push patches for Core :file:`runTests.sh` or the :file:`docker-compose.yml`
 files and improve this documentation with hints about Windows. We already know there are some details
 to take care of, a starter can be found in a Core patch `commit message
 <https://review.typo3.org/#/c/58750/3//COMMIT_MSG>`_.
