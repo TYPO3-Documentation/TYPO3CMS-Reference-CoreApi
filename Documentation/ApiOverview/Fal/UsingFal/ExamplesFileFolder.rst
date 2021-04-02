@@ -71,7 +71,7 @@ Copying a file
    $copiedFile = $file->copyTo($folder);
 
 
-.. _fal-using-fal-examples-file-folder-add-file:
+.. _fal-using-fal-examples-file-folder-delete-file:
 
 
 Deleting a file
@@ -81,6 +81,8 @@ Deleting a file
 
    $file->delete();
 
+
+.. _fal-using-fal-examples-file-folder-add-file:
 
 Adding a file
 =============
