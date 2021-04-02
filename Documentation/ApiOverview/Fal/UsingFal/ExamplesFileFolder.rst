@@ -73,6 +73,15 @@ Copying a file
 
 .. _fal-using-fal-examples-file-folder-add-file:
 
+
+Deleting a file
+==============
+
+.. code-block:: php
+
+   $file->delete();
+
+
 Adding a file
 =============
 
