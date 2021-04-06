@@ -82,7 +82,7 @@ the final statement is compiled.
 Multiple restrictions can be grouped in containers which implement the
 `QueryRestrictionContainerInterface`.
 
-The `DefaultRestrictionContainer` is always added by ... uuhm ... default: It adds the
+The `DefaultRestrictionContainer` is always added by default: It adds the
 `DeletedRestriction`, the `HiddenRestriction`, the `StartTimeRestriction` and the
 `EndTimeRestriction`. Note this is true for all contexts a query is executed in: It does not
 matter whether a query is created from within a frontend, a backend or a cli call, they all add
