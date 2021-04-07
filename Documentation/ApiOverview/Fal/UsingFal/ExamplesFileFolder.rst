@@ -79,8 +79,8 @@ Adding a File
 This example adds a new file in the root folder of the default
 Storage::
 
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
-   $storage = $storageRepository->getDefaultStorage();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
+   $storage = $resourceFactory->getDefaultStorage();
    $newFile = $storage->addFile(
          '/tmp/temporary_file_name.ext',
          $storage->getRootLevelFolder(),
@@ -218,8 +218,8 @@ These would be the shortest steps to get the list of files in a given
 folder: get the storage, get a folder object for some path in that
 storage (path relative to storage root), finally retrieve the files::
 
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
-   $defaultStorage = $storageRepository->getDefaultStorage();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
+   $defaultStorage = $resourceFactory->getDefaultStorage();
    $folder = $defaultStorage->getFolder('/some/path/in/storage/');
    $files = $defaultStorage->getFilesInFolder($folder);
 
