@@ -218,7 +218,7 @@ These would be the shortest steps to get the list of files in a given
 folder: get the storage, get a folder object for some path in that
 storage (path relative to storage root), finally retrieve the files::
 
-   $resourceFactory = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance();
+   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $defaultStorage = $resourceFactory->getDefaultStorage();
    $folder = $defaultStorage->getFolder('/some/path/in/storage/');
    $files = $defaultStorage->getFilesInFolder($folder);
