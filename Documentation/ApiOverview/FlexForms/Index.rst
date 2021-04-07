@@ -339,8 +339,8 @@ Extbase controller.
 .. important::
 
    If you wish to access a setting from your controller via
-   :php:`$this->settings`, the name of the setting must begin with
-   **settings** directly followed by a dot (`.`).
+   :php:`$this->settings`, the name of the setting must be prefixed with `settings.`,
+   so literally `settings` directly followed by a dot (`.`).
 
 
 .. index:: pair: Flexforms; PHP
