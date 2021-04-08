@@ -75,14 +75,16 @@ Here's the complete code, taken from file
 
 
 In this example the first method call adds fields using
-:php:`ExtensionManagementUtility::addTCAcolumns()`. Parameters:
+:php:`ExtensionManagementUtility::addTCAcolumns()`. This ensures that the fields
+are registered in :php:`$GLOBALS['TCA']`. Parameters:
 
 1. Name of the table to which the fields should be added.
 2. An array of the fields to be added. Each field is represented in the
    :ref:`TCA syntax for columns <t3tca:columns>`.
 
-Afterwards the fields are added to the "types" definition of the :sql:`fe_users`
-table by calling :php:`ExtensionManagementUtility::addToAllTCAtypes()`. Parameters:
+Since the fields are only registered but not used anywhere,  the fields are
+afterwards added to the "types" definition of the :sql:`fe_users` table by
+calling :php:`ExtensionManagementUtility::addToAllTCAtypes()`. Parameters:
 
 1. Name of the table to which the fields should be added.
 2. Comma-separated string of fields, the same syntax used in the
