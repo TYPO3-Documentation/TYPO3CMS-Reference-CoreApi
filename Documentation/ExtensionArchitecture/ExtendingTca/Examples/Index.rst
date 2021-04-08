@@ -74,20 +74,24 @@ Here's the complete code, taken from file
    TCA reference on how to implement it: `t3tca:columns-user`.
 
 
-In the first statement the fields are added by calling
-:php:`ExtensionManagementUtility::addTCAcolumns()'. The first parameter is the
-name of the table to which the fields should be added. The second parameter is
-and array of the fields to be added. Each field is represented in the
-:ref:`TCA syntax for columns <t3tca:columns>`.
+In this example the first method call adds fields using
+:php:`ExtensionManagementUtility::addTCAcolumns()`. Parameters:
 
-In the second statement the fields are added to the "types" definition of the
-"fe\_users" table by calling
-:php:`ExtensionManagementUtility::addToAllTCAtypes()`. The first parameter is
-the table name once more. The second parameter is a string, in the syntax as
-used in the :ref:`showitem property of types in TCA
-<t3tca:types-properties-showitem>`. An optional third
-specify the position (:php:`'before'` or :php:`'after'`) in relation to an
-existing field. So you could call optionally::
+1. Name of the table to which the fields should be added.
+2. An array of the fields to be added. Each field is represented in the
+   :ref:`TCA syntax for columns <t3tca:columns>`.
+
+Afterwards the fields are added to the "types" definition of the :sql:`fe_users`
+table by calling :php:`ExtensionManagementUtility::addToAllTCAtypes()`. Parameters:
+
+1. Name of the table to which the fields should be added.
+2. Comma-separated string of fields, the same syntax used in the
+   :ref:`showitem property of types in TCA <t3tca:types-properties-showitem>`.
+3. Optional: record types of the table where the fields should be added,
+   see :ref:`types in TCA <t3tca:types>` for details.
+4. Optional: position (:php:`'before'` or :php:`'after'`) in relation to an existing field.
+
+So you could do this::
 
 
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
@@ -97,17 +101,15 @@ existing field. So you could call optionally::
       'after:password'
    );
 
-If the third parameter is omitted ot the specified field not found,
+If the fourth parameter (position) is omitted or the specified field is not found,
 new fields are added at the bottom of the form. If the table uses tabs,
 new fields are added at the bottom of the :guilabel:`Extended` tab. This tab
-is created automatically if it
-does not exist.
+is created automatically if it does not exist.
 
-Neither statement creates the corresponding fields in the database. The new
-fields must also be defined in the :file:`ext_tables.sql` file of the
-extension:
+These method calls do not create the corresponding fields in the database. The new
+fields must also be defined in the :file:`ext_tables.sql` file of the extension:
 
-.. code-block:: mysql
+.. code-block:: sql
 
 	CREATE TABLE fe_users (
 		tx_examples_options int(11) DEFAULT '0' NOT NULL,
@@ -117,9 +119,9 @@ extension:
 
 .. note::
 
-   The above statement uses the SQL CREATE TABLE statement. This is the
+   The above example uses the SQL :sql:`CREATE TABLE` statement. This is the
    way TYPO3 expects it to be. The Extension Manager will automatically
-   transform this into a ALTER TABLE statement when it detects that the
+   transform this into an :sql:`ALTER TABLE` statement when it detects that the
    table already exists.
 
 
@@ -146,7 +148,7 @@ In the second example, we will add a "No print" field to all content
 element types. First of all, we add its SQL definition in
 :file:`ext_tables.sql`:
 
-.. code-block:: mysql
+.. code-block:: sql
 
 	CREATE TABLE tt_content (
 		tx_examples_noprint tinyint(4) DEFAULT '0' NOT NULL
@@ -182,9 +184,9 @@ Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrid
       'before:editlock'
    );
 
-The code is mostly the same as in the first example, but the last statement
+The code is mostly the same as in the first example, but the last method call
 is different and requires an explanation. The tables :code:`pages` and
-:code:`tt\_content` use :ref:`palettes <palettes>` extensively. This increases
+:code:`tt_content` use :ref:`palettes <palettes>` extensively. This increases
 flexibility.
 
 Therefore we call :code:`ExtensionManagementUtility::addFieldsToPalette()`
@@ -204,10 +206,10 @@ The result is the following:
 
 .. note::
 
-   Obviously this new field will now magically exclude a content element
+   Obviously this new field will not magically exclude a content element
    from being printed. For it to have any effect, it must be used during
    the rendering by modifying the TypoScript used to render the
-   "tt\_content" table. Although this is outside the scope of this
+   :sql:`tt_content` table. Although this is outside the scope of this
    manual, here is an example of what you could do, for the sake of
    showing a complete process.
 
