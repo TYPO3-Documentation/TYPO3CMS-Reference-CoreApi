@@ -83,7 +83,7 @@ mentioned above. (Numbers refer to the previous bulletlist):
    itself by either inserting a :code:`<P>...</P>` section or :code:`<DIV>...</DIV>`.
    This means we'll have to convert existing lines to :code:`<P>...</P>` before
    passing the content to the RTE and further we need to revert the :code:`<DIV>`
-   and :code:`<P>` sections in addition to the :code:`<BR>`-tagsto line breaks when the
+   and :code:`<P>` sections in addition to the :code:`<BR>`-tags to line breaks when the
    content is returned to the database from the RTE.
 
    The greatest challenge here is however what to do if a :code:`<DIV>` or :code:`<P>`
