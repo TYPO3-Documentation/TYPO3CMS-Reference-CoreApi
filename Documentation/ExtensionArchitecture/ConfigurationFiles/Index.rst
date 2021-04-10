@@ -58,6 +58,7 @@ Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes
 * locales
 * stream wrapper
 * :ref:`error handler <error-handling-extending>`
+* calling `\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin()`. They should go in `Configuration/TCA/Overrides/tt_content.php`
 
 This would not work because the extension files :file:`ext_localconf.php` are
 included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the
@@ -85,6 +86,7 @@ These are the typical functions that extension authors should place within :file
 * Adding reports to the reports module
 * Registering Icons to the :ref:`IconRegistry <icon-registration>`
 * Registering Services via the :ref:`Service API <services-developer-service-api>`
+* Configuring Plugin via `\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin()`
 
 deprecated
 
