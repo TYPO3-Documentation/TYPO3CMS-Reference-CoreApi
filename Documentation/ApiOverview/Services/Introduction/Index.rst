@@ -12,7 +12,7 @@ TYPO3 Core.
 .. note::
 
     The Services API is one of the older core APIs that did not find
-    much traction over the years. The core itself only uses it for frontend
+    much attraction over the years. The core itself only uses it for frontend
     and backend user :ref:`authentication <authentication>`.
 
     Additionally, only a couple of extensions use the Services API, and not
@@ -93,9 +93,9 @@ by extensions.
 
 The base service class
 (:php:`\TYPO3\CMS\Core\Authentication\AuthenticationService`) provided
-by extension "core" is extended by both "saltedpasswords" and "rsaauth" extensions
-but for different subtypes ("authUserFE" and "authUserBE" for the former,
-"processLoginDataBE" and "processLoginDataFE" for the latter).
+by extension "core" is extended by the "rsaauth" extension
+for the subtypes "processLoginDataBE" and "processLoginDataFE".
+This base service class is also used in the install tool backend module controller for the subtype "authUserBE".
 
 These overrides do not change the public API of the "auth" service type,
 meaning that developers can rely on it without worrying about what other extensions
