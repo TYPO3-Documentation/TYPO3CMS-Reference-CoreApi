@@ -48,17 +48,18 @@ Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes
 <xclasses>` or any simple array assignments to
 :php:`$GLOBALS['TYPO3_CONF_VARS']` options will not work for the following:
 
-* class loader
-* package manager
-* cache manager
-* configuration manager
-* log manager (= :ref:`Logging Framework <logging>`)
-* time zone
-* memory limit
-* locales
-* stream wrapper
-* :ref:`error handler <error-handling-extending>`
-* calling `\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin()`. They should go in `Configuration/TCA/Overrides/tt_content.php`
+*  class loader
+*  package manager
+*  cache manager
+*  configuration manager
+*  log manager (= :ref:`Logging Framework <logging>`)
+*  time zone
+*  memory limit
+*  locales
+*  stream wrapper
+*  :ref:`error handler <error-handling-extending>`
+*  calling `\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin()`. 
+   They should go in `Configuration/TCA/Overrides/tt_content.php`
 
 This would not work because the extension files :file:`ext_localconf.php` are
 included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the
