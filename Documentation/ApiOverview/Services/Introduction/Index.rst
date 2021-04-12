@@ -104,7 +104,32 @@ availability or not of Perl on the server.
 Services are able to handle sub types. Consider the services of type
 "auth" which perform both the frontend and backend authentication. They provide
 a total of six sub types, each of which can be overridden independently
-by extensions. Then a chain of services may exist, out of which the appropriate "auth" service identified also by the subtype "authUserBE" will be taken.
+by extensions. Then a chain of services may exist, out of which the appropriate "auth" service identified also by the subtype "authUserBE" will be taken::
+
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+    /**
+     * Initializes authentication services to be used in a foreach loop
+     *
+     * @param BackendUserAuthentication $backendUser
+     * @param array $loginData
+     * @param array $authInfo
+     * @return \Generator<int, object>
+     */
+    protected function getAuthServices(BackendUserAuthentication $backendUser, array $loginData, array $authInfo): \Generator
+    {
+        $serviceChain = [];
+        $subType = 'authUserBE';
+        while ($service = GeneralUtility::makeInstanceService('auth', $subType, $serviceChain)) {
+            $serviceChain[] = $service->getServiceKey();
+            if (!is_object($service)) {
+                continue;
+            }
+            $service->initAuth($subType, $loginData, $authInfo, $backendUser);
+            yield $service;
+        }
+    }
+
 
 The base authentification service class
 (:php:`\TYPO3\CMS\Core\Authentication\AuthenticationService`), which extends 
