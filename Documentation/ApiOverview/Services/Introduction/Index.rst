@@ -51,7 +51,7 @@ Getting a service instance is achieved using a different API. The
 PHP class is not directly referenced. Instead a service is identified
 by its type, sub type and exclude service keys::
 
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
 
    $serviceObject = GeneralUtility::makeInstanceService(
       'my_service_type',
