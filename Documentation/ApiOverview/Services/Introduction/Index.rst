@@ -61,11 +61,14 @@ by its type, sub type and exclude service keys::
 
 
 parameters for makeInstanceService:
-* string $serviceType: 
+
+*  string $serviceType: 
    Type of service (service key)
-* string $serviceSubType (default ''):
+   
+*  string $serviceSubType (default ''):
    Sub type like file extensions or similar. Defined by the service.
-* array $excludeServiceKeys (default []):
+   
+*  array $excludeServiceKeys (default []):
    List of service keys which should be excluded in the search for a service. Array.
 
 The same service can be provided by different extensions.
