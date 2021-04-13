@@ -27,7 +27,8 @@ TYPO3 Core.
     extensions - they usually do not use the API mentioned here.
 
     Classes in the scope of this chapter - directly or indirectly - are extending the
-    service class :php:`TYPO3\CMS\Core\Service\AbstractService`.
+    service class :php:`TYPO3\CMS\Core\Service\AbstractService` or
+    the authentication service base class :php:`TYPO3\CMS\Core\Service\AbstractAuthenticationService`.
 
     In comparison, for additional information on what the Core usually understands
     as "casual" service class, see the :ref:`coding guidelines. <cgl-services>`
@@ -48,10 +49,27 @@ The usual way to instantiate a class in TYPO3 CMS is::
 
 Getting a service instance is achieved using a different API. The
 PHP class is not directly referenced. Instead a service is identified
-by its type::
+by its type, sub type and exclude service keys::
 
-   $serviceObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService('my_service_type');
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+   $serviceObject = GeneralUtility::makeInstanceService(
+      'my_service_type',
+      'my_service_subtype',
+      ['not_used_service_type1', 'not_used_service_type2']
+   );
+
+
+parameters for makeInstanceService:
+
+*  string $serviceType: 
+   Type of service (service key)
+   
+*  string $serviceSubType (default ''):
+   Sub type like file extensions or similar. Defined by the service.
+   
+*  array $excludeServiceKeys (default []):
+   List of service keys which should be excluded in the search for a service. Array.
 
 The same service can be provided by different extensions.
 The service with the highest priority and quality (more on that later)
@@ -70,7 +88,7 @@ Two reasons for using the Services API
 ----------------------------
 
 A service may be implemented multiple times to take into account
-different environments like operating systems (Unix, Windows, Mac),
+different environments like operating systems (Unix, Linux, Windows, Mac),
 available PHP extensions or other third-party dependencies (other
 programming languages, binaries, etc.).
 
@@ -86,17 +104,47 @@ availability or not of Perl on the server.
 2. Extend functionality with extensions
 ---------------------------------------
 
-Services are able to handle subtypes. Consider the services of type
+Services are able to handle sub types. Consider the services of type
 "auth" which perform both the frontend and backend authentication. They provide
-a total of six subtypes, each of which can be overridden independently
-by extensions.
+a total of six sub types, each of which can be overridden independently
+by extensions. Then a chain of services may exist, out of which the appropriate "auth" service identified also by the subtype "authUserBE" will be taken::
 
-The base service class
-(:php:`\TYPO3\CMS\Core\Authentication\AuthenticationService`) provided
-by extension "core" is extended by the "rsaauth" extension
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+    /**
+     * Initializes authentication services to be used in a foreach loop
+     *
+     * @param BackendUserAuthentication $backendUser
+     * @param array $loginData
+     * @param array $authInfo
+     * @return \Generator<int, object>
+     */
+    protected function getAuthServices(BackendUserAuthentication $backendUser, array $loginData, array $authInfo): \Generator
+    {
+        $serviceChain = [];
+        $subType = 'authUserBE';
+        while ($service = GeneralUtility::makeInstanceService('auth', $subType, $serviceChain)) {
+            $serviceChain[] = $service->getServiceKey();
+            if (!is_object($service)) {
+                continue;
+            }
+            $service->initAuth($subType, $loginData, $authInfo, $backendUser);
+            yield $service;
+        }
+    }
+
+
+The base authentification service class
+(:php:`\TYPO3\CMS\Core\Authentication\AuthenticationService`), which extends 
+(:php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService`) and is
+provided by extension "core", is extended by the "rsaauth" extension
 for the subtypes "processLoginDataBE" and "processLoginDataFE".
 This base service class is also used in the install tool backend module controller for the subtype "authUserBE".
+It is used for any kind of authentication or authorization towards backend and frontend users.
 
 These overrides do not change the public API of the "auth" service type,
 meaning that developers can rely on it without worrying about what other extensions
 might be doing.
+
+The abstract service class :php:`TYPO3\CMS\Core\Service\AbstractService` is used for any kind of Service API, which
+also includes manipulating files and execution of external applications, which is there for legacy reasons since TYPO3 3.x, where the Service API was added. This class is not used any more in the TYPO3 core.
