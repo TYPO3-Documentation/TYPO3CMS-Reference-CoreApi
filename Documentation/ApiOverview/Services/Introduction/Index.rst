@@ -106,7 +106,7 @@ Services are able to handle sub types. Consider the services of type
 a total of six sub types, each of which can be overridden independently
 by extensions. Then a chain of services may exist, out of which the appropriate "auth" service identified also by the subtype "authUserBE" will be taken::
 
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
 
     /**
      * Initializes authentication services to be used in a foreach loop
