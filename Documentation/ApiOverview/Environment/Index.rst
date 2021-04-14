@@ -126,7 +126,7 @@ Example, test for production context::
 
    // use \TYPO3\CMS\Core\Core\Environment; 
    
-   $applicationContext = Environment.getContext();
+   $applicationContext = Environment::getContext();
    if ($applicationContext->isProduction()) {
       // do something only when in production context
    }
@@ -184,4 +184,3 @@ For installations without this setting, there are minor differences in the folde
    Although it is a most common understanding in the TYPO3 world that :file:`typo3temp/` can be removed at any time,
    it is considered bad practice to remove the whole folder. Developers should selectively remove
    folders relevant to the changes made.
-
