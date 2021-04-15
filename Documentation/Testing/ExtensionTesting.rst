@@ -318,7 +318,13 @@ These files are re-purposed from TYPO3's Core: `core Build/Scripts/runTests.sh
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
 docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/tree/master/Build/testing-docker/local/docker-compose.yml>`_. You can
 copy and paste these files from extensions like enetcache or styleguide to your own extension, but you should then look
-through the files and adapt to your needs (for instance search for the word "enetcache" in :file:`runTests.sh`).
+through the files and adapt to your needs, for example.
+
+*  search for the word "enetcache" in runTests.sh and replace it with
+   your extension key.
+*  You may want to change the `PHP_VERSION` in runTests.sh to your minimally
+   supported PHP version. (You can also specify the version on the command line
+   using runTests.sh with -p.)
 
 Let's run the tests:
 
@@ -339,6 +345,18 @@ Let's run the tests:
     Removing network local_default
 
 Done. That's it. Execution of your extension`s unit tests.
+
+If there is no test output, try changing the verbosity when you run runTests.sh:
+
+.. code-block:: shell
+
+   enetcache> Build/Scripts/runTests.sh -v
+
+Use -h to see all options:
+
+.. code-block:: shell
+
+   enetcache> Build/Scripts/runTests.sh -h
 
 On some versions of MacOS you might get the following error message when executing :file:`runTests.sh`:
 
