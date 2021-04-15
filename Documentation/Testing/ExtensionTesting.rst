@@ -318,7 +318,7 @@ These files are re-purposed from TYPO3's Core: `core Build/Scripts/runTests.sh
 <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
 docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/tree/master/Build/testing-docker/local/docker-compose.yml>`_. You can
 copy and paste these files from extensions like enetcache or styleguide to your own extension, but you should then look
-through the files and adapt to your needs, e.g.
+through the files and adapt to your needs, for example.
 
 *  search for the word "enetcache" in runTests.sh and replace it with
    your extension key.
