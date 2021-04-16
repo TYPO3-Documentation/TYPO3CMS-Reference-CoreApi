@@ -70,7 +70,7 @@ calls to the affected functions.
 Deprecate functions in extensions
 =================================
 
-Functions, that will be removed in future versions of your extension, should be marked as deprecated by both the
+Functions that will be removed in future versions of your extension should be marked as deprecated by both the
 doc-comment and a call to the PHP error method::
 
    /**
