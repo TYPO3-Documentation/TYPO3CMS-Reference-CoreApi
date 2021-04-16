@@ -27,6 +27,9 @@ You can do so in the :file:`AdditionalConfiguration.php`::
    $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
 
 
+This will lead to all t3ver_* fields of the example table to be marked as obsolete,
+if they have not be defined explicitly in the extension. A subsequent DB schema update will then drop these fields.
+
 The concept of workspaces needs attention from extension programmers.
 The implementation of workspaces is however made so that no critical
 problems can appear with old extensions;
