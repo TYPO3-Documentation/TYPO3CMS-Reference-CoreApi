@@ -12,7 +12,7 @@ TYPO3 Core.
 .. note::
 
     The Services API is one of the older core APIs that did not find
-    much attraction over the years. The core itself only uses it for frontend
+    much traction over the years. The core itself only uses it for frontend
     and backend user :ref:`authentication <authentication>`.
 
     Additionally, only a couple of extensions use the Services API, and not
