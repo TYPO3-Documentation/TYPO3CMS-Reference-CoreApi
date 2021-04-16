@@ -57,9 +57,9 @@ For more information on how to configure the writing of deprecation logs see :re
 Finding calls to deprecated functions
 =====================================
 
-The extension scanner, which has been introduced with TYPO3 Core  version 9 as part of the system
-management (formerly "Install Tool"), provides an interactive interface to scan extension code
-for usage of TYPO3 Core API, which has been removed or deprecated. See :ref:`extension-scanner` for more information.
+The extension scanner which has been introduced with TYPO3 Core version 9 as part of the system
+management (formerly "Install Tool") provides an interactive interface to scan extension code
+for usage of TYPO3 Core API, because this has been removed or deprecated. See :ref:`extension-scanner` for more information.
 
 It is also possible to do a file search for "@deprecated" and "E_USER_DEPRECATED". Then using an IDE you can find all
 calls to the affected functions.
