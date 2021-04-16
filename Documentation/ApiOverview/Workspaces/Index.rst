@@ -21,6 +21,12 @@ compatible with workspaces is described in the
 TCA reference (in the :ref:`description of the "ctrl" section <t3tca:ctrl>`
 and in the :ref:`description of the "versioningWS" property <t3tca:ctrl-reference-versioningws>`).
 
+You might want to turn the workspace off for certain tables. 
+You can do so in the :file:`AdditionalConfiguration.php`::
+
+   $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
+
+
 The concept of workspaces needs attention from extension programmers.
 The implementation of workspaces is however made so that no critical
 problems can appear with old extensions;
