@@ -44,7 +44,7 @@ context you can do so in the :file:`AdditionalConfiguration.php`::
 
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['deprecations']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::NOTICE] = [];
 
-*Note:* Due to how the configuration files are being merged this disabling can only be done in
+*Note:* Due to how the configuration files are being merged, this disabling can only be done in
 :file:`AdditionalConfiguration.php` and not in :file:`LocalConfiguration.php`.
 
 For more information on how to configure the writing of deprecation logs see :ref:`logging-configuration-writer`.
@@ -57,9 +57,9 @@ For more information on how to configure the writing of deprecation logs see :re
 Finding calls to deprecated functions
 =====================================
 
-The extension scanner which has been introduced with TYPO3 Core  version 9 as part of the system
+The extension scanner which has been introduced with TYPO3 Core version 9 as part of the system
 management (formerly "Install Tool") provides an interactive interface to scan extension code
-for usage of TYPO3 Core  API which has been removed or deprecated. See :ref:`extension-scanner` for more information.
+for usage of removed or deprecated TYPO3 Core API. See :ref:`extension-scanner` for more information.
 
 It is also possible to do a file search for "@deprecated" and "E_USER_DEPRECATED". Then using an IDE you can find all
 calls to the affected functions.
