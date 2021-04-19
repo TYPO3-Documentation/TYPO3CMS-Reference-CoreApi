@@ -8,6 +8,10 @@
 Restrict access to files on a server-level
 ==========================================
 
+.. hint::
+
+   TYPO3 provides a recommended :file:`.htacess` file. See :ref:`t3install:system-environment` .
+
 This is a controversial topic: Some experts recommend to restrict the
 access to specific files on a server-level by using Apache's
 `FilesMatch` directive for example. Such files could be files with the
