@@ -22,7 +22,7 @@ TCA reference (in the :ref:`description of the "ctrl" section <t3tca:ctrl>`
 and in the :ref:`description of the "versioningWS" property <t3tca:ctrl-reference-versioningws>`).
 
 You might want to turn the workspace off for certain tables. 
-The only way to do so is with a :file:`Configuration\TCA\Overrides\example_table.php`::
+The only way to do so is with a :file:`Configuration/TCA/Overrides/example_table.php`::
 
    $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
 
