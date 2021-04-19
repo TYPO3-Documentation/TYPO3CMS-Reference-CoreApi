@@ -22,20 +22,19 @@ TCA reference (in the :ref:`description of the "ctrl" section <t3tca:ctrl>`
 and in the :ref:`description of the "versioningWS" property <t3tca:ctrl-reference-versioningws>`).
 
 You might want to turn the workspace off for certain tables. 
-You can do so in the :file:`Configuration\TCA\Overrides\example_table.php`::
+The only way to do so is with a :file:`Configuration\TCA\Overrides\example_table.php`::
 
    $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
 
 See :ref:`t3sitepackage:start` and :ref:`storing-changes-extension-overrides` .
-This will lead to all t3ver_* fields of the example table to be marked as obsolete,
-if they have not be defined explicitly in the extension. A subsequent DB schema update will then drop these fields.
 
 .. note::
 
-    You cannot use :file:`AdditionalConfiguration.php` for this.
+   This will lead to all t3ver_* fields of the example table to be marked as obsolete,
+   if they have not be defined explicitly in an extension. A subsequent DB schema update will then drop these fields.
 
 The concept of workspaces needs attention from extension programmers.
-The implementation of workspaces is however made so that no critical
+The implementation of workspaces is however made, so that no critical
 problems can appear with old extensions;
 
 - First of all the "Live workspace" is no different from how TYPO3 has
