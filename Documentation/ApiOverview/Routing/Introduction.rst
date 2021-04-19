@@ -30,7 +30,7 @@ Key Terminology
    The "speaking URL" as a whole (without the domain part); for example `/news/detail/2019-software-update`
 
 :aspect:`Slug`
-    Unique name for a ressource to use when creating URLs; for example the slug of the news detail page could be `/news/detail` and
+    Unique name for a resource to use when creating URLs; for example the slug of the news detail page could be `/news/detail` and
     the slug of a news record could be `2019-software-update`.
 
     Within TYPO3, a slug is always part of the URL "path" - it does not contain scheme, host, HTTP verb, etc.
