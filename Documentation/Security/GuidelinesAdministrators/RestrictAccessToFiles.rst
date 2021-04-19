@@ -8,10 +8,6 @@
 Restrict access to files on a server-level
 ==========================================
 
-.. hint::
-
-   TYPO3 provides a recommended :file:`.htacess` file. See :ref:`t3install:system-environment` .
-
 This is a controversial topic: Some experts recommend to restrict the
 access to specific files on a server-level by using Apache's
 `FilesMatch` directive for example. Such files could be files with the
@@ -70,6 +66,10 @@ provided above should not be accessible anymore and result in a HTTP `403` error
 
 Apache and Microsoft IIS web servers
 ====================================
+
+.. hint::
+
+   TYPO3 provides a recommended :file:`.htacess` file. See :ref:`t3install:system-environment` .
 
 To increase protection of TYPO3 instances, the Core Team however decided to
 install default web server configuration files since TYPO3 Core  version v9 under certain
