@@ -25,13 +25,13 @@ The concept of workspaces needs attention from extension programmers.
 The implementation of workspaces is however made so that no critical
 problems can appear with old extensions;
 
-- First of all the "Live workspace" is no different from how TYPO3 has
-  been working for years so that will be supported out of the box
-  (except placeholder records must be filtered out in the frontend with
-  :code:`t3ver_state !=` , see below).
+-  First of all the "Live workspace" is no different from how TYPO3 has
+   been working for years so that will be supported out of the box
+   (except placeholder records must be filtered out in the frontend with
+   :code:`t3ver_state !=` , see below).
 
-- Secondly, all permission related issues are implemented in DataHandler so
-  the worst your users can experience is an error message.
+-  Secondly, all permission related issues are implemented in DataHandler so
+   the worst your users can experience is an error message.
 
 However, you probably want to update your extension so that in the
 backend the current workspace is reflected in the records shown and
@@ -73,7 +73,8 @@ then overlay the future version and eventually check if it is hidden
 and if so exclude it. The same problem applies to all other
 "enableFields", future versions with "delete" flags and current
 versions which are invisible placeholders for future records. Anyway,
-all that is handled by the :code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository` class which includes
+all that is handled by the
+:code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository` class which includes
 functions for "enableFields" and "deleted" so it will work out of the
 box for you. But as soon as you do selection based on other fields
 like email, username, alias etc. it will fail.
@@ -97,63 +98,56 @@ live records and check for them in versionOL on input record.
 Frontend implementation guidelines
 ==================================
 
-- Any place where enableFields() are not used for selecting in the
-  frontend you must at least check that :code:`t3ver_state != 1` so
-  placeholders for new records are not displayed.
+-  Any place where enableFields() are not used for selecting in the
+   frontend you must at least check that :code:`t3ver_state != 1` so
+   placeholders for new records are not displayed.
 
-- If you need to detect preview mode for versioning and workspaces you
-  can use the Context object.
-  :code:`GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('workspace', 'id', 0);`
-  gives you the id of the workspace of the current backend user. Used
-  for preview of workspaces.
+-  If you need to detect preview mode for versioning and workspaces you
+   can use the Context object.
+   :code:`GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('workspace', 'id', 0);`
+   gives you the id of the workspace of the current backend user. Used
+   for preview of workspaces.
 
-- Use these API functions for support of version previews in the
-  frontend:
-
-.. t3-field-list-table::
- :header-rows: 1
-
- - :Function,30: Function
-   :Description,70: Description
+-  Use the following API function for support of version previews in the
+   frontend:
 
 
- - :Function:
-         $GLOBALS['TSFE']->sys\_page->versionOL($table, &$row,
-         $unsetMovePointers=FALSE)
-   :Description:
-         Versioning Preview Overlay.
+.. rst-class:: dl-parameters
 
-         Generally ALWAYS used when records are selected based on uid or pid.
-         If records are selected on other fields than uid or pid (e.g. "email =
-         ....") then usage might produce undesired results and that should be
-         evaluated on individual basis.
+$GLOBALS['TSFE']->sys\_page->versionOL($table, &$row, $unsetMovePointers=FALSE)
+   Versioning Preview Overlay.
 
-         Principle: Record online! => Find offline?
+   Generally ALWAYS used when records are selected based on uid or pid.
+   If records are selected on other fields than uid or pid (e.g. "email =
+   ....") then usage might produce undesired results and that should be
+   evaluated on individual basis.
 
-         **Example:**
+   Principle: Record online! => Find offline?
 
-         This is how simple it is to use this record in your frontend plugins
-         when you do queries directly (not using API functions already using
-         them)::
+   **Example:**
 
-            $result = $queryBuilder->execute();
-            foreach ($result as $row) {
-                $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
+   This is how simple it is to use this record in your frontend plugins
+   when you do queries directly (not using API functions already using
+   them)::
 
-                if (is_array($row)) {
-                    // ...
-                }
-                // ...
-            }
+      $result = $queryBuilder->execute();
+      foreach ($result as $row) {
+          $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
 
-         When the live record is selected, call :code:`->versionOL()` and make sure to
-         check if the input row (passed by reference) is still an array.
+          if (is_array($row)) {
+              // ...
+          }
+          // ...
+      }
 
-         The third argument, :code:`$unsetMovePointers = FALSE`, can be set to TRUE when
-         selecting records for display ordered by their position in the page
-         tree. Difficult to explain easily, so only use this option if you
-         don't get a correct preview of records that has been moved in a
-         workspace (only for "element" type versioning)
+   When the live record is selected, call :code:`->versionOL()` and make
+   sure to check if the input row (passed by reference) is still an array.
+
+   The third argument, :code:`$unsetMovePointers = FALSE`, can be set to
+   TRUE when selecting records for display ordered by their position in
+   the page tree. Difficult to explain easily, so only use this option if you
+   don't get a correct preview of records that has been moved in a
+   workspace (only for "element" type versioning)
 
 
 .. _workspaces-frontend-problems:
@@ -163,44 +157,44 @@ Frontend scenarios impossible to preview
 
 These issues are not planned to be supported for preview:
 
-- Lookups and searching for records based on other fields than
-  uid, pid or "enableFields" will never reflect workspace content since
-  overlays happen to online records *after* they are selected.
+-  Lookups and searching for records based on other fields than
+   uid, pid or "enableFields" will never reflect workspace content since
+   overlays happen to online records *after* they are selected.
 
-  - This problem can largely be avoided for  *versions of new records*
-    because versions of a "New"-placeholder can mirror certain fields down
-    onto the placeholder record. For the :code:`tt_content` table this is
-    configured as ::
+   -  This problem can largely be avoided for  *versions of new records*
+      because versions of a "New"-placeholder can mirror certain fields down
+      onto the placeholder record. For the :code:`tt_content` table this is
+      configured as ::
 
-       shadowColumnsForNewPlaceholders'=> 'sys_language_uid,l18n_parent,colPos,header'
+         shadowColumnsForNewPlaceholders'=> 'sys_language_uid,l18n_parent,colPos,header'
 
-    so that these fields used for column position, language and header title are also updated
-    in the placeholder thus creating a correct preview in the frontend.
+      so that these fields used for column position, language and header title are also updated
+      in the placeholder thus creating a correct preview in the frontend.
 
-  - For *versions of existing records* the problem is in reality reduced
-    a lot because normally you don't change the column or language fields
-    after the record is first created anyway! But in theory the preview
-    can fail.
+   -  For *versions of existing records* the problem is in reality reduced
+      a lot because normally you don't change the column or language fields
+      after the record is first created anyway! But in theory the preview
+      can fail.
 
-  - When changing the type of a page (e.g. from "Standard" to "External
-    URL") the preview might fail in cases where a look up is done on the
-    :code:`doktype` field of the live record.
+   -  When changing the type of a page (e.g. from "Standard" to "External
+      URL") the preview might fail in cases where a look up is done on the
+      :code:`doktype` field of the live record.
 
-    - Page shortcuts might not work properly in preview.
+      -  Page shortcuts might not work properly in preview.
 
-    - Mount Points might not work properly in preview.
+      -  Mount Points might not work properly in preview.
 
-- It is impossible to preview the value of :code:`count(*)` selections since
-  we would have to traverse all records and pass them through
-  :code:`->versionOL()` before we would have a reliable result!
+-  It is impossible to preview the value of :code:`count(*)` selections since
+   we would have to traverse all records and pass them through
+   :code:`->versionOL()` before we would have a reliable result!
 
-- In :code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::getPageShortcut()`,
-  :code:`PageRepository->getMenu()` is called with an
-  additional :sql:`WHERE` clause which will ignore changes made in workspaces.
-  This could also be the case in other places where :code:`PageRepository->getMenu()`
-  is used (but a search shows it is not a big problem).
-  In this case we will for now accept that a wrong shortcut destination
-  can be experienced during previews.
+-  In :code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::getPageShortcut()`,
+   :code:`PageRepository->getMenu()` is called with an
+   additional :sql:`WHERE` clause which will ignore changes made in workspaces.
+   This could also be the case in other places where :code:`PageRepository->getMenu()`
+   is used (but a search shows it is not a big problem).
+   In this case we will for now accept that a wrong shortcut destination
+   can be experienced during previews.
 
 
 .. _workspaces-backend:
@@ -222,140 +216,108 @@ frontend.
 Workspace-related API for backend modules
 -----------------------------------------
 
-.. t3-field-list-table::
- :header-rows: 1
+.. rst-class:: dl-parameters
 
- - :Function,30: Function
-   :Description,70: Description
+BackendUtility::workspaceOL()
+   Overlaying record with workspace version if any. Works like
+   :code:`->sys_page->versionOL()` does, but for the backend. Input record must
+   have fields only from the table (no pseudo fields) and the record is
+   passed by reference.
 
+   **Example:** ::
 
- - :Function:
-        \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::workspaceOL()
-   :Description:
-         Overlaying record with workspace version if any. Works like
-         :code:`->sys_page->versionOL()` does, but for the backend. Input record must
-         have fields only from the table (no pseudo fields) and the record is
-         passed by reference.
+      // use \TYPO3\CMS\Backend\Utility\BackendUtility
+      $result = $queryBuilder
+         ->select('*')
+         ->from('pages')
+         ->where(
+            $queryBuilder->expr()->eq('uid',
+               $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT)
+            )
+         )
+         ->execute();
+      $row = $result->fetch();
+      BackendUtility::workspaceOL('pages', $row);
 
-         **Example:** ::
+BackendUtility::getRecordWSOL()
+   Gets record from table and overlays the record with workspace version
+   if any.
 
-            $result = $queryBuilder
-                ->select('*')
-                ->from('pages')
-                ->where(
-                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT))
-                )
-                ->execute();
-            $row = $result->fetch();
-            \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL('pages', $row);
+   **Example:** ::
 
+      // use \TYPO3\CMS\Backend\Utility\BackendUtility
+      $row = BackendUtility::getRecordWSOL($table, $uid);
 
- - :Function:
-         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getRecordWSOL()
-   :Description:
-         Gets record from table and overlays the record with workspace version
-         if any.
+      // This is the same as:
+      $row = BackendUtility::getRecord($table, $uid);
+      BackendUtility::workspaceOL($table, $row);
 
-         **Example:** ::
-
-            $row = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecordWSOL($table, $uid);
-
-            // This is the same as:
-            $row = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord($table, $uid);
-            \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL($table, $row);
-
-
+BackendUtility::isPidInVersionizedBranch()
+   Will fetch the rootline for the pid, then check if anywhere in the
+   rootline there is a branch point. Returns either "branchpoint" (if
+   branch) or "first" (if page) or false if nothing. Alternatively, it
+   returns the value of :code:`t3ver_stage` for the branchpoint (if any).
 
 
- - :Function:
-         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::isPidInVersionizedBranch()
-   :Description:
-         Will fetch the rootline for the pid, then check if anywhere in the
-         rootline there is a branch point. Returns either "branchpoint" (if
-         branch) or "first" (if page) or false if nothing. Alternatively, it
-         returns the value of :code:`t3ver_stage` for the branchpoint (if any).
+BackendUtility::getWorkspaceVersionOfRecord()
+   Returns offline workspace version of a record, if found.
 
 
- - :Function:
-         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getWorkspaceVersionOfRecord()
-   :Description:
-         Returns offline workspace version of a record, if found.
+BackendUtility::getLiveVersionOfRecord()
+   Returns live version of workspace version.
 
 
- - :Function:
-         \\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getLiveVersionOfRecord()
-   :Description:
-         Returns live version of workspace version.
+BackendWorkspaceRestriction
+   Adds a WHERE-clause to the QueryBuilder which will deselect placeholder
+   records from other workspaces. This should be implemented almost everywhere
+   records are selected in the backend based on other fields than uid and where
+   a :code:`DeletedRestriction` is used.
+
+   **Example:** ::
+
+      // use TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction;
+      // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
+
+      $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
+          ->getQueryBuilderForTable('pages');
+      $queryBuilder->getRestrictions()
+          ->removeAll()
+          ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
+          ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
+
+FrontendWorkspaceRestriction
+   Restriction for filtering records for fronted workspaces preview::
+
+      // use TYPO3\CMS\Core\Database\Query\Restriction\FrontendWorkspaceRestriction;
 
 
- - :Function:
-         \\TYPO3\\CMS\\Core\\Database\\Query\\Restriction\\BackendWorkspaceRestriction()
-   :Description:
-         Adds a WHERE-clause to the QueryBuilder which will deselect placeholder
-         records from other workspaces. This should be implemented almost everywhere
-         records are selected in the backend based on other fields than uid and where
-         a :code:`DeletedRestriction` is used.
+WorkspaceRestriction
+   This `WorkspaceRestriction` has been added to overcome certain downsides of the `BackendWorkspaceRestriction`
+   and `FrontendWorkspaceRestriction`. It limits a SQL query to only select records which are "online" (pid != -1)
+   and in live or current workspace::
 
-         **Example:** ::
-
-            use TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction;
-            use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
-
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
-                ->getQueryBuilderForTable('pages');
-            $queryBuilder->getRestrictions()
-                ->removeAll()
-                ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
-                ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
-
- - :Function:
-         \\TYPO3\\CMS\\Core\\Database\\Query\\Restriction\\FrontendWorkspaceRestriction()
-   :Description:
-         Restriction for filtering records for fronted workspaces preview.
-
- - :Function:
-         \\TYPO3\\CMS\\Core\\Database\\Query\\Restriction\\WorkspaceRestriction()
-   :Description:
-         This `WorkspaceRestriction` has been added to overcome certain downsides of the `BackendWorkspaceRestriction`
-         and `FrontendWorkspaceRestriction`. It limits a SQL query to only select records which are "online" (pid != -1)
-         and in live or current workspace.
-
- - :Function:
-         $BE\_USER->workspaceCannotEditRecord()
-   :Description:
-         Checking if editing of an existing record is allowed in current
-         workspace if that is offline.
+      // use TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction
 
 
- - :Function:
-         $BE\_USER->workspaceCreateNewRecord()
-   :Description:
-         Checks if new records can be created in a certain page (according to
-         workspace restrictions).
+$BE\_USER->workspaceCannotEditRecord()
+   Checking if editing of an existing record is allowed in current
+   workspace if that is offline.
 
+$BE\_USER->workspaceCreateNewRecord()
+   Checks if new records can be created in a certain page (according to
+   workspace restrictions).
 
- - :Function:
-         $BE\_USER->checkWorkspace()
-   :Description:
-         Checks how the users access is for a specific workspace.
+$BE\_USER->checkWorkspace()
+   Checks how the users access is for a specific workspace.
 
+$BE\_USER->checkWorkspaceCurrent()
+   Like ->checkWorkspace() but returns status for the current workspace.
 
- - :Function:
-         $BE\_USER->checkWorkspaceCurrent()
-   :Description:
-         Like ->checkWorkspace() but returns status for the current workspace.
+$BE\_USER->setWorkspace()
+   Setting another workspace for backend user.
 
-
- - :Function:
-         $BE\_USER->setWorkspace()
-   :Description:
-         Setting another workspace for backend user.
-
-
- - :Function:
-         $BE\_USER->setWorkspacePreview()
-   :Description:
-         Setting frontend preview state.
+$BE\_USER->setWorkspacePreview()
+   Setting frontend preview state.
 
 
 .. _workspaces-backend-acess:
