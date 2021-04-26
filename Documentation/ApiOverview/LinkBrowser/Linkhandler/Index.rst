@@ -83,10 +83,10 @@ The following optional configuration is available:
 
 Furthermore the following options are available from the LinkBrowser Api:
 
-:ts:`configuration.scanAfter = page` or :ts:`configuration.scanBefore = page`
+:ts:`scanAfter = page` or :ts:`scanBefore = page`
    define the order in which handlers are queried when determining the responsible tab for an existing link
 
-:ts:`configuration.displayBefore = page` or :ts:`configuration.displayAfter = page`
+:ts:`displayBefore = page` or :ts:`displayAfter = page`
    define the order how the various tabs are displayed in the link browser.
 
 Example: news records from one storage pid
