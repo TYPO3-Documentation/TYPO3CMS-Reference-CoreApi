@@ -27,6 +27,23 @@ or its combined identifier::
    $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $file = $resourceFactory->getFileObjectFromCombinedIdentifier('1:/foo.txt');
 
+or by filename from its folder::
+
+   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
+   $defaultStorage = $storageRepository->getDefaultStorage();
+   $folder = $defaultStorage->getFolder('/some/path/in/storage/');
+   $folder->getStorage()->getFileInFolder("example.ext", $folder);
+
+   // TYPO3 11.2 and above
+   $folder->getFile("filename.ext");
+
+.. todo:: remove note below in Version 12
+
+.. note::
+   The :php:`FolderInterface` does not contain the definition for
+   :php:`getFile()` in v11, this will be added in TYPO3 v12  to prevent
+   breaking changes.
+
 The syntax of argument 1 for getFileObjectFromCombinedIdentifier is
 
 .. code-block:: none
