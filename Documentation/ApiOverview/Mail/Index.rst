@@ -262,10 +262,16 @@ make sure the paths are setup as described in :ref:`mail-configuration-fluid`:
        ->to('contact@acme.com')
        ->from(new Address('jeremy@acme.com', 'Jeremy'))
        ->subject('TYPO3 loves you - here is why')
-       ->format('html') // only HTML mail
+       ->format('both') // send HTML and plaintext mail
        ->setTemplate('TipsAndTricks')
        ->assign('mySecretIngredient', 'Tomato and TypoScript');
    GeneralUtility::makeInstance(Mailer::class)->send($email);
+
+
+A file :file:`TipsAndTricks.html` must exist in one of the paths
+defined in :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']`
+for sending the HTML content. For sending plaintext content, a file
+:file:`TipsAndTricks.txt` should exist.
 
 Defining a custom email subject in a custom Fluid template:
 
