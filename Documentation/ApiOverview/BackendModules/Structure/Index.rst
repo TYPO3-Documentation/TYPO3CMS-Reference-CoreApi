@@ -18,7 +18,7 @@ Top bar
   The top bar is always present. It is itself divided into two
   areas: the logo and top bar tools.
 
-  The logo can be changed in **Admin Tools > Settings** under `extension configuration > backend > backend.backendLogo`.
+  The logo can be changed using the :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['backend']['backendLogo']` option.
   Additional top bar tools can be registered using
   :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']`.
 
