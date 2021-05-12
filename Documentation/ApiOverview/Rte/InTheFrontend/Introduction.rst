@@ -44,7 +44,7 @@ The optional features
    This solution is used to format text (bold, italic, underlined, ...),
    create lists or tables, etc..
    Character of these options is that they are predefined in the RTE and
-   and wrap selected content in html-tags, usually without any attributes
+   and wrap selected content in html-tags, by default without any attributes
    like `id`, `class` or more.
 
 #. Advanced text-formatting can be achieved with predefined blocks and
@@ -52,11 +52,18 @@ The optional features
    with CSS-classes that can be styled in a stylesheet. The formats have
    to be defined by names, short description and according styling.
    CKEditor offers a dropdown button for those block-styles.
+   
+   Editing the Source could allow the user optionally to add special
+   HTML-elements or attributes like `id`, `class` or more.
 
 #. It might be desired to allow users to upload files like images,
    PDF-documents or other multi-media-content. Images and perhaps some
    other file-types could be displayed in the content, further file-types
    could be linked.
+
+#. Editing data in the frontend requires that applying forms are pre-filled
+   with existing data. This might require some considerations concerning
+   multiple aspects.
 
 #. Links might be choosen out of the existing pages of the website, those
    links can be added as internal instead of external links but require
