@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-.. _rte-fronend:
+.. _rte-frontend:
 
-=======================================
-Rich text editors in the TYPO3 frontend
-=======================================
+=============================================
+Rich Text Editors (RTE) in the TYPO3 frontend
+=============================================
 
 .. toctree::
 

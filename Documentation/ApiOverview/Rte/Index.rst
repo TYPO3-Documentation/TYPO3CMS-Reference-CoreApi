@@ -25,7 +25,9 @@ this extension and how it can be configured.
    :titlesonly:
 
    RteCkeditorSysext
+   RenderingInTheFrontend/Index
    InTheBackend/Index
+   InTheFrontend/Index
    Transformations/Index
    HistoricalRteTransformations/Index
 

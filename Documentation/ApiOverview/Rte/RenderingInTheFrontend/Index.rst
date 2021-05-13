@@ -16,15 +16,15 @@ of an RTE.
 
 .. note::
 
-   For including an RTE in the frontend you can read :ref:`Using a RTE in the frontend <rte-frontend-introduction>`.
+   For including an RTE in the frontend you can read :ref:`Using an RTE in the frontend <rte-frontend-introduction>`.
 
-Fluid-templates
+Fluid templates
 ===============
 
-Rendering in TYPO3 is nowadays done mostly with fluid-templates.
+Rendering in TYPO3 is nowadays done mostly with Fluid templates.
 
 RTEs enrich content in most cases with HTML, therefore it's advisable to use
-the fluid-ViewHelper `format.html` for this kind of content:
+the Fluid ViewHelper `format.html` for this kind of content:
 
 .. code-block:: xml
 
@@ -80,7 +80,7 @@ So for fields of the content-table in the database the TypoScript could look lik
    * :ref:`TypoScript Reference: stdWrap.parseFunc <t3tsref:stdwrap-parsefunc>`
    * :ref:`TypoScript Reference: TEXT <t3tsref:cobj-text>`
 
-Further Details
+Further details
 ===============
 
 The transformation process during content-rendering is highly configurable.
