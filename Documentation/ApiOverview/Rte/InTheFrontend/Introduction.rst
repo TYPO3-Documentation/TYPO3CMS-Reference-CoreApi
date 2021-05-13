@@ -7,12 +7,12 @@
 Including a Rich Text Editor (RTE) in the frontend
 ==================================================
 
-When forms are added to a website it is sometimes desired to offer
+When you add forms to a website you might want to offer
 formatting options like bold, italic etc.. Rich Text Editors offer
-here extensive options that are configurable for the individual needs.
+extensive options that are configurable for individual needs.
 
-This chapter is aimed to give conceptual and technical information
-about the challenge to add a RTE on frontend-pages.
+This chapter outlines conceptual and technical information
+about adding an RTE on frontend pages.
 
 .. figure:: ../Images/RteBackend.png
    :alt: A RTE in the TYPO3 BE
@@ -21,31 +21,30 @@ about the challenge to add a RTE on frontend-pages.
 
 .. tip::
 
-   The description about CKEditor includes challenges and examples for
+   This description about CKEditor includes examples and common challenges for
    the frontend.
    
-   Usage of other editors is nevertheless possible and some points like
-   handling of data on the server are independent of the distinct editor
+   You can use other editors with TYPO3 and some points, like
+   handling of data on the server, are independent of the distinct editor
    in the frontend.
 
 .. note::
 
-   If you feel eligible to provide a description for other editors
-   than CKEditor, this could be included or linked in this documentation.
+   If you feel able to provide a description about using other editors
+   with TYPO3, please add to this documentation.
 
-Efforts to include a RTE can differ very much depending on the offered
-features. The features and required efforts in the following list increase
-with every point.
+The following list describes features and corresponding implementation
+effort ordered from simple to complex. 
 
 The optional features
 =====================
 
-#. Simple text formatting can be reached with help of a few simple buttons.
+#. Simple text formatting can be achieved using well-known buttons.
    This solution is used to format text (bold, italic, underlined, ...),
    create lists or tables, etc..
-   Character of these options is that they are predefined in the RTE and
+   These options are predefined in the RTE and
    and wrap selected content in html-tags, by default without any attributes
-   like `id`, `class` or more.
+   like `id` or `class` for example.
 
 #. Advanced text-formatting can be achieved with predefined blocks and
    according style. Those blocks wrap selected content in html-elements 
@@ -79,10 +78,10 @@ The optional features
 
 .. important::
 
-   User input in the frontend represents in general always a security risk.
+   User input in the frontend always represents a general security risk.
 
-   **A Rich Text Editor might reduce this awarness** as it looks like a
-   professional solution but in fact might increase the risk if features
+   **A Rich Text Editor might reduce this awareness** because it looks like a
+   professional solution but in fact might increase vulnerability if features
    are enabled or included without proper handling on the server.
 
    It's advised to allow only required input and to disallow any further
@@ -92,7 +91,7 @@ Technical Overview
 ==================
 
 **Files**: Any required files to include a form in the frontend require
-an extension, this can be a sitepackage but also a separated extension.
+an extension, this can be a sitepackage but also a separate extension.
 Required filetypes include JavaScript, fluid-templates, CSS and PHP.
 
 **JavaScript**: Rendering the content in the RTE in the frontend is done

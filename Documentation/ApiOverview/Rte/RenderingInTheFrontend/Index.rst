@@ -10,13 +10,13 @@
 Rendering in the Frontend
 =========================
 
-The explanations on this page never show how to display any RTE but describe how
+The explanations on this page don't show how to display an RTE but rather, describe how
 rendering of content should be done in the frontend when it was entered with help
-of a RTE.
+of an RTE.
 
 .. note::
 
-   For including a RTE in the frontend you can read :ref:`Using a RTE in the frontend <rte-frontend-introduction>`.
+   For including an RTE in the frontend you can read :ref:`Using a RTE in the frontend <rte-frontend-introduction>`.
 
 Fluid-templates
 ===============
@@ -83,8 +83,8 @@ So for fields of the content-table in the database the TypoScript could look lik
 Further Details
 ===============
 
-The transformation process during content-rendering can be configured with many details.
-According explanations you can find here:
+The transformation process during content-rendering is highly configurable.
+You can find further information here:
 
 * :ref:`transformations`
 * :ref:`appendix-a`
