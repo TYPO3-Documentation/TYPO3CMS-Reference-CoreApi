@@ -110,6 +110,9 @@ The configuration option `routePath` defines the static keyword and the availabl
     For people coming from RealURL usage in previous versions: The `routePath` can be loosely compared to some as
     "postVarSets".
 
+.. note::
+    The SimpleEnhancer is meant for GET arguments without a namespace, thus - not nested.
+
 The `defaults` section defines which URL parameters are optional. If the parameters are omitted on generation, they
 can receive a default value, and do not need a placeholder - it is possible to add them at the very end of the
 `routePath`.
