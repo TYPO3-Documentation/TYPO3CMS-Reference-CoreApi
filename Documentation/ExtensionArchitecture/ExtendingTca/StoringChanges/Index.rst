@@ -52,8 +52,8 @@ Storing in the overrides folder
 -------------------------------
 
 Since TYPO3 CMS 6.2 (6.2.1 to be precise) changes to :php:`$GLOBALS['TCA']`
-must be stored inside a folder called :file:`Configuration/TCA/Overrides`
-with one file per modified table. These files are named along the pattern
+must be stored inside a folder called :file:`Configuration/TCA/Overrides`.
+For clarity files should be named along the pattern
 :file:`<tablename>.php`.
 
 Thus if you want to customize the TCA of :code:`tx_foo_domain_model_bar`,
