@@ -23,7 +23,6 @@ The extension key must comply with the following rules:
   * **tx**
   * **user_**
   * **pages**
-  * **tt_**
   * **sys_**
   * **ts_language**
   * **csh_**
