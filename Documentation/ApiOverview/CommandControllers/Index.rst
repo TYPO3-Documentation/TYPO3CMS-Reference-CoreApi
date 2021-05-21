@@ -46,6 +46,7 @@ Creating a new Command in Extensions
 
        Vendor\Extension\:
          resource: '../Classes/*'
+         exclude: '../Classes/Domain/Model/*'
 
        Vendor\Extension\Command\DoThingsCommand:
          tags:
