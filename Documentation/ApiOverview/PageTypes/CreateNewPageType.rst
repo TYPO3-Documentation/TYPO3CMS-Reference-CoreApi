@@ -100,7 +100,7 @@ need to add the new doktype as select item and associate it with the configured 
               ],
               // add all page standard fields and tabs to your new page type
               'types' => [
-                  (string) $archiveDoktype => [
+                  $archiveDoktype => [
                       'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_DEFAULT]['showitem']
                   ]
               ]
