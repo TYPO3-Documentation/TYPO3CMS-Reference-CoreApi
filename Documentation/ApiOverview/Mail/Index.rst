@@ -237,9 +237,17 @@ accessible to the world (outside of the webroot).
 How to create and send mails
 ============================
 
-Both :php:`\TYPO3\CMS\Core\Mail\MailMessage` and :php:`\TYPO3\CMS\Core\Mail\FluidEmail` inherit
+There are 2 ways to send emails in TYPO3 based on the Symfony API:
+
+1. With :ref:`Fluid <mail-fluid-email>`, using :php:`\TYPO3\CMS\Core\Mail\FluidEmail`
+2. :ref:`Without Fluid <mail-mail-message>`, using :php:`\TYPO3\CMS\Core\Mail\MailMessage`
+
+:php:`\TYPO3\CMS\Core\Mail\MailMessage` and :php:`\TYPO3\CMS\Core\Mail\FluidEmail` inherit
 from :php:`Symfony\Component\Mime\Email` and have a similar API. **FluidEmail** is specific
 for sending emails based on Fluid.
+
+Either method can be used to send emails with HTML content, text content or both
+HTML and text.
 
 
 .. index:: Mail; FluidEmail
@@ -291,11 +299,12 @@ In Fluid, you can now use the defined language key ("language"):
 
 
 .. index:: Mail; MailMessage
+.. _mail-mail-message:
 
 Send email with `MailMessage`
 -----------------------------
 
-This shows how to generate and send a mail in TYPO3::
+:php:`MailMessage` can be used to generate and send a mail without using Fluid::
 
    // Create the message
    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
