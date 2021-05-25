@@ -51,6 +51,7 @@ Alternatively :file:`Configuration/Services.php` can be used.
 
       Your\Namespace\:
         resource: '../Classes/*'
+        exclude: '../Classes/Domain/Model/*'
 
 This is how a basic :file:`Services.yaml` of an extension looks like. The meaning of :yaml:`autowire`,
 :yaml:`autoconfigure` and :yaml:`public` will be explained below.
@@ -60,6 +61,14 @@ This is how a basic :file:`Services.yaml` of an extension looks like. The meanin
 
    Whenever service configuration or class dependencies change, the Core cache needs
    to be flushed to rebuild the compiled Symfony container.
+
+.. note::
+
+   The path exclusion :yaml:`exclude: '../Classes/Domain/Model/*'` excludes
+   your Models from the DI Container, which means you can not inject them or inject
+   dependencies into them.
+   Models are not Services and should therefore not require dependency injection.
+   Also, these Objects are created by the extbase persistence layer which does not support the DI container.
 
 .. _autowire:
 
@@ -135,6 +144,7 @@ For such classes an extension can override the global :yaml:`public: false` conf
 
       Vendor\MyExtension\:
         resource: '../Classes/*'
+        exclude: '../Classes/Domain/Model/*'
 
       Vendor\MyExtension\UserFunction\ClassA:
         public: true
