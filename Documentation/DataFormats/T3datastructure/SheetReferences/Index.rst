@@ -27,13 +27,13 @@ Main Data Structure:
 
    <T3DataStructure>
      <sheets>
-           <sDEF>fileadmin/sheets/default_sheet.xml</sDEF>
+       <sDEF>fileadmin/sheets/default_sheet.xml</sDEF>
        <s_welcome>fileadmin/sheets/welcome_sheet.xml</s_welcome>
      </sheets>
    </T3DataStructure>
 
 
-:file:`EXT:news/Configuration/FlexForms/Sheets/Default.xml`:
+:file:`fileadmin/sheets/default_sheet.xml`:
 
 .. code-block:: xml
 
@@ -78,4 +78,4 @@ Main Data Structure:
       </ROOT>
    </T3DataStructure>
 
-and so on for the two other sheets.
+and the same for the other sheet :file:`welcome_sheet.xml`.
