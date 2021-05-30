@@ -32,10 +32,12 @@ or by filename from its folder::
    $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
    $defaultStorage = $storageRepository->getDefaultStorage();
    $folder = $defaultStorage->getFolder('/some/path/in/storage/');
-   $folder->getStorage()->getFileInFolder("example.ext", $folder);
+   $file = $folder->getStorage()->getFileInFolder("example.ext", $folder);
 
-   // TYPO3 11.2 and above
-   $folder->getFile("filename.ext");
+.. versionadded:: 10.2
+   Starting with version 10.2  a file can be retrieved directly by its filename from the folder::
+
+      $file = $folder->getFile("filename.ext");
 
 .. todo:: remove note below in Version 12
 
