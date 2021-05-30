@@ -409,11 +409,7 @@ one new system category::
    $data['tt_content']['NEWbe68s587'] = array(
        'header' => 'Look ma, categories!',
        'pid' => 45,
-       'categories' => array(
-           1,
-           2,
-           'NEW9823be87', // You can also use placeholders here
-       ),
+       'categories' => '1,2,NEW9823be87', // You can use uids but also placeholders
    );
 
 .. note::
