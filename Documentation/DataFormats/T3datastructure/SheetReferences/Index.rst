@@ -78,4 +78,4 @@ Main Data Structure:
       </ROOT>
    </T3DataStructure>
 
-and the same for the other sheet <s_welcome>.
+and the same for the other sheet :file:`welcome_sheet.xml`.
