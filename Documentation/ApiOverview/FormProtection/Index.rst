@@ -167,3 +167,7 @@ will always return :code:`FALSE` for the second call.
 It is important that the tokens get validated **before** the tokens are persisted.
 This makes sure that the tokens that get invalidated by :code:`validateToken`
 cannot be used again.
+
+Note that this **requires a logged on user** whether in frontend or backend. CSRF protection
+is not supported for anonymous users. Without a logged on user the token will always be
+:code:`dummyToken`. See https://forge.typo3.org/issues/77403 for details.
