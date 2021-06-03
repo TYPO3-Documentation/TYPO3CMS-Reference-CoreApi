@@ -10,18 +10,18 @@ Services
 Characteristica
 ===============
 
-* Services MUST be used as objects, they are never static
+* Services MUST be used as objects, they are never static.
 
-* A single service MUST consist of one class only
+* A single service MUST consist of one class only.
 
-* Services MUST be located in a :file:`Service/` directory and MUST end
-  with :code:`Service`, eg. :file:`Service/FoobarService.php`
+* Services MUST be located in a :file:`Service/` directory and the class and file name MUST end
+  with :code:`Service`, eg. :file:`Service/FoobarService.php`.
 
-* Service instances MAY hold state, but SHOULD be stateless
+* Service instances MAY hold a state, but they SHOULD be stateless.
 
-* Services MAY use configuration, but SHOULD not
+* Services MAY use their own configuration, but they SHOULD not.
 
-* Services MAY have multiple entry points, but SHOULD have only one
+* Services MAY have multiple entry points, but they SHOULD have only one.
 
 * Services SHOULD NOT be singletons
 
@@ -36,17 +36,17 @@ DDD Service context, which is broader. This section is just about which
 scope can be expected for classes residing in a Service folder within
 Core extensions.
 
-From this point of view, services in TYPO3 world are a relatively slim
+From this point of view, a service in the TYPO3 world is a relatively slim
 class construct that encapsulates a specific concern. It is too big for
-a small static method, it may hold state, but it is still just a
+a small static method, it may hold a state, but it is still just a
 relatively small scope. Each service consists typically of only a single
 class. A bigger construct with interfaces, multiple sub classes is not
 called a service anymore.
 
-The above MAY and SHOULD mean that a single service MAY do a single one
-or two of them, but if for instance a service is relatively big, has
-many entry points, keeps state and depends on configuration, this is
-too much and is a sign it should be modeled in a different and more
+The above characteristica MAY and SHOULD mean that a single service MAY do a single one
+or two of them, but if for instance a service would become relatively big, 
+if it would have many entry points, if it would keep states and depend on configuration, 
+this would be too much. This would be a sign that it should be modeled in a different and more
 dedicated and more disjoint way.
 
 The main risk with service classes is that they pile up to a
