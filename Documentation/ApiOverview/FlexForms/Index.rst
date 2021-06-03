@@ -98,20 +98,20 @@ Steps to Perform (Extension Developer)
 
    .. code-block:: php
 
-       $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['example_registration'] = 'pi_flexform';
+       // plugin signature: <extension key without underscores>_<plugin name in lowercase> 
+       $pluginSignature = 'example_registration';
+       $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-           // plugin signature: <extension key without underscores> '_' <plugin name in lowercase>
-           'example_registration',
-           // Flexform configuration schema file
+           $pluginSignature,
+           // Flexform configuration schema file from step 1
            'FILE:EXT:example/Configuration/FlexForms/Registration.xml'
        );
 
    .. tip::
 
       The plugin signature is used in the database field `tt_content.list_type`
-      as well, when the tt_content record is saved. If you are confused about
-      how to handle underscores and upper / lowercase, check there to see
-      what your plugin signature is.
+      as well, when the tt_content record is saved. It contains the lowercase extension key without underscores
+      appended by an underscore and the lowercase plugin name.
 
       Also look on the page :ref:`extension-naming`.
 
