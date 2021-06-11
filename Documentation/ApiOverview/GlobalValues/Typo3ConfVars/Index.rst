@@ -14,6 +14,12 @@ stored in a global array called :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 This chapter describes this global configuration in more details and hints
 at other configuration possibilities.
 
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   BE
+
 .. index::
    ! File; typo3conf/LocalConfiguration.php
 .. _typo3ConfVars-localConfiguration:
