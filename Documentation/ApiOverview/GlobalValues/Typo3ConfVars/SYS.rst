@@ -1,4 +1,13 @@
+.. include:: /Includes.rst.txt
 
+.. index::
+   TYPO3_CONF_VARS; SYS
+   TYPO3_CONF_VARS SYS
+.. _typo3ConfVars_sys:
+
+==================================
+$GLOBALS['TYPO3_CONF_VARS']['SYS']
+==================================
 
 .. index::
    TYPO3_CONF_VARS SYS; fileCreateMask
