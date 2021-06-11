@@ -1,7 +1,6 @@
 .. include:: /Includes.rst.txt
 
 .. index::
-   $GLOBALS; TYPO3_CONF_VARS
    TYPO3_CONF_VARS; BE
 .. _typo3ConfVars_be:
 
@@ -249,15 +248,15 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['lockIP']
       0:
          Default: Do not lock Backend User sessions to their IP address at all
       1:
-         Use the first part of the editors IPv4 address (e.g. "192.") as part of the session locking of Backend Users
+         Use the first part of the editors IPv4 address (for example "192.") as part of the session locking of Backend Users
       2:
-         Use the first two parts of the editors IPv4 address (e.g. "192.168") as part of the session locking of Backend Users
+         Use the first two parts of the editors IPv4 address (for example "192.168") as part of the session locking of Backend Users
       3:
-         Use the first three parts of the editors IPv4 address (e.g. "192.168.13") as part of the session locking of Backend Users
+         Use the first three parts of the editors IPv4 address (for example "192.168.13") as part of the session locking of Backend Users
       4:
-         Use the editors full IPv4 address (e.g. "192.168.13.84") as part of the session locking of Backend Users (highest security)
+         Use the editors full IPv4 address (for example "192.168.13.84") as part of the session locking of Backend Users (highest security)
 
-   Session IP locking for backend users. See <a href="#FE-lockIP">[FE][lockIP]</a> for details.
+   Session IP locking for backend users. See :ref:`[FE][lockIP]<typo3ConfVars_fe_lockIP>` for details.
 
 .. index::
    TYPO3_CONF_VARS BE; lockIPv6
@@ -274,23 +273,23 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['lockIPv6']
       0:
          Default: Do not lock Backend User sessions to their IP address at all
       1:
-         Use the first block (16 bits) of the editors IPv6 address (e.g. "2001:") as part of the session locking of Backend Users
+         Use the first block (16 bits) of the editors IPv6 address (for example "2001:") as part of the session locking of Backend Users
       2:
-         Use the first two blocks (32 bits) of the editors IPv6 address (e.g. "2001:0db8") as part of the session locking of Backend Users
+         Use the first two blocks (32 bits) of the editors IPv6 address (for example "2001:0db8") as part of the session locking of Backend Users
       3:
-         Use the first three blocks (48 bits) of the editors IPv6 address (e.g. "2001:0db8:85a3") as part of the session locking of Backend Users
+         Use the first three blocks (48 bits) of the editors IPv6 address (for example "2001:0db8:85a3") as part of the session locking of Backend Users
       4:
-         Use the first four blocks (64 bits) of the editors IPv6 address (e.g. "2001:0db8:85a3:08d3") as part of the session locking of Backend Users
+         Use the first four blocks (64 bits) of the editors IPv6 address (for example "2001:0db8:85a3:08d3") as part of the session locking of Backend Users
       5:
-         Use the first five blocks (80 bits) of the editors IPv6 address (e.g. "2001:0db8:85a3:08d3:1319") as part of the session locking of Backend Users
+         Use the first five blocks (80 bits) of the editors IPv6 address (for example "2001:0db8:85a3:08d3:1319") as part of the session locking of Backend Users
       6:
-         Use the first six blocks (96 bits) of the editors IPv6 address (e.g. "2001:0db8:85a3:08d3:1319:8a2e") as part of the session locking of Backend Users
+         Use the first six blocks (96 bits) of the editors IPv6 address (for example "2001:0db8:85a3:08d3:1319:8a2e") as part of the session locking of Backend Users
       7:
-         Use the first seven blocks (112 bits) of the editors IPv6 address (e.g. "2001:0db8:85a3:08d3:1319:8a2e:0370") as part of the session locking of Backend Users
+         Use the first seven blocks (112 bits) of the editors IPv6 address (for example "2001:0db8:85a3:08d3:1319:8a2e:0370") as part of the session locking of Backend Users
       8:
-         Use the editors full IPv6 address (e.g. "2001:0db8:85a3:08d3:1319:8a2e:0370:7344") as part of the session locking of Backend Users (highest security)
+         Use the editors full IPv6 address (for example "2001:0db8:85a3:08d3:1319:8a2e:0370:7344") as part of the session locking of Backend Users (highest security)
 
-   Session IPv6 locking for backend users. See <a href="#FE-lockIPv6">[FE][lockIPv6]</a> for details.
+   Session IPv6 locking for backend users. See :ref:`[FE][lockIPv6]<typo3ConfVars_fe_lockIPv6>` for details.
 
 .. index::
    TYPO3_CONF_VARS BE; sessionTimeout
@@ -369,7 +368,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieDomain']
    :type: text
    :Default: ''
 
-   Same as <a href="#SYS-cookieDomain">$TYPO3_CONF_VARS[SYS][cookieDomain]</a>
+   Same as `$TYPO3_CONF_VARS[SYS][cookieDomain]<typo3ConfVars_sys_cookieDomain>`
    but only for BE cookies. If empty, :php:`$TYPO3_CONF_VARS[SYS][cookieDomain]`
    value will be used.
 
@@ -480,7 +479,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['disable_exec_function']
    :Default: false
 
    Dont use exec() function (except for ImageMagick which is disabled by
-   <a href="#GFX-im">[GFX][im]</a>=0). If set, all file operations are done
+   `[GFX][im]<typo3ConfVars_gfx_im>` =0). If set, all file operations are done
    by the default PHP-functions. This is necessary under Windows! On Unix the
    system commands by exec() can be used, unless this is disabled.
 

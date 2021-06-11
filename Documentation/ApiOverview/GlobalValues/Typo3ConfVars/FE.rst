@@ -1,4 +1,12 @@
+.. include:: /Includes.rst.txt
 
+.. index::
+   TYPO3_CONF_VARS; FE
+.. _typo3ConfVars_fe:
+
+=================================
+$GLOBALS['TYPO3_CONF_VARS']['FE']
+=================================
 
 .. index::
    TYPO3_CONF_VARS FE; addAllowedPaths
@@ -81,7 +89,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['pageUnavailable_force']
    :Default: false
 
    If :php:`TRUE`, every frontend page is shown as "unavailable". If the
-   client matches `[SYS][devIPmask]<_typo3ConfVars_sys_devIPmask>`__, the page is
+   client matches :ref:`[SYS][devIPmask]<_typo3ConfVars_sys_devIPmask>`, the page is
    shown as normal. This is useful during temporary site maintenance.
 
 .. index::
@@ -208,7 +216,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['loginSecurityLevel']
    :Default: 'normal'
 
    See description for
-   `[BE][loginSecurityLevel]<_typo3ConfVars_be_loginSecurityLevel>`__.
+   :ref:`[BE][loginSecurityLevel]<_typo3ConfVars_be_loginSecurityLevel>`.
 
    The client/server communication should be secured with HTTPS.
 
@@ -282,7 +290,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['permalogin']
       Permanent login is forced to be enabled.
 
    In any case, permanent login is only possible if
-   `[FE][lifetime]<_typo3ConfVars_fe_lifetime>`__ lifetime is greater then 0.
+   :ref:`[FE][lifetime]<_typo3ConfVars_fe_lifetime>` lifetime is greater then 0.
 
 .. index::
    TYPO3_CONF_VARS FE; cookieDomain
@@ -295,7 +303,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieDomain']
    :type: text
    :Default: ''
 
-   Same as `$TYPO3_CONF_VARS[SYS][cookieDomain]<_typo3ConfVars_sys_cookieDomain>`__
+   Same as `$TYPO3_CONF_VARS[SYS][cookieDomain]<_typo3ConfVars_sys_cookieDomain>`
    but only for FE cookies. If empty, :php:`$TYPO3_CONF_VARS[SYS][cookieDomain]`
    value will be used.
 
@@ -458,7 +466,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['disableNoCacheParameter']
    only with plugins that dont use this parameter. However, using
    "&amp;no_cache=1" should be avoided anyway because there are better ways to
    disable caching for a certain part of the website
-   (see `COA_INT/USER_INT<t3tsref:cobj-coa-int>`__).
+   (see `COA_INT/USER_INT<t3tsref:cobj-coa-int>`).
 
 .. index::
    TYPO3_CONF_VARS FE; additionalCanonicalizedUrlParameters
