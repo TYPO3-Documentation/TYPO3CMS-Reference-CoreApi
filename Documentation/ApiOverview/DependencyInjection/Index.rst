@@ -252,6 +252,16 @@ When multiple implementation of the same interface exist, an extension needs to 
 implementation should be injected when the interface is type hinted. Find out more about how this
 is achieved in the official `Symfony documentation <https://symfony.com/doc/current/service_container/autowiring.html#working-with-interfaces>`_.
 
+Dependency injection in a XCLASSed class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If an existing class (for example an Extbase controller) is extended using XCLASS and additional 
+dependencies are injected using constructor injection, it must be ensured to add a 
+reference to the extended class in the :file:`Configuration/Services.yaml` file of the 
+extending extension as shown in the example below::
+
+   TYPO3\CMS\Belog\Controller\BackendLogController: '@Namespace\Extension\Controller\ExtendedBackendLogController'
+
 Further information
 ^^^^^^^^^^^^^^^^^^^
 
