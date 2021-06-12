@@ -145,21 +145,30 @@ EXTENSIONS
 FE
    :ref:`Frontend-related options <typo3ConfVars_fe>`.
 
+GFX
+   :ref:`Options related to image manipulation. <typo3ConfVars_gfx>`
+
 HTTP
    :ref:`Settings for tuning HTTP requests <typo3ConfVars_http>` made by TYPO3.
 
-GFX
-   :ref:`Options related to image manipulation. <typo3ConfVars_gfx>`
+LOG
+   :ref:`Configuration of the logging system <logging-configuration>`
 
 MAIL
    :ref:`Options related to the sending of emails <typo3ConfVars_gfx>`
    (transport, server, etc.).
 
+SVCONF
+   :ref:`Service API configuration<services-developer-service-api-getters>`
+
 SYS
   :ref:`General options <typo3ConfVars_sys>` which may affect both the frontend
+
+T3_SERVICES
+   :ref:`Service registration configuration <ervices-configuration-registration-changes>`
    and the backend.
 
-Details on the various configuration options can be found in the Install Tool
+Further details on the various configuration options can be found in the Install Tool
 as well as the TYPO3 source at
 :file:`typo3/sysext/core/Configuration/DefaultConfigurationDescription.yaml`.
 The documentation shown in the Install Tool is automatically extracted from

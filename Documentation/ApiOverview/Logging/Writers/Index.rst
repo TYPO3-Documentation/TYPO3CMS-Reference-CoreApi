@@ -94,7 +94,7 @@ If the log file does not exist, it will be created (including parent directories
 Please make sure that your web server has write-permissions to that path
 and it is below the root directory of your web site (defined by :code:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`). The filename is
 appended with a hash, that depends on the encryption key.
-If :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess']` is set,
+If :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess'] <typo3ConfVars_sys_generateApacheHtaccess>` is set,
 an :file:`.htaccess` file is added to the directory.
 It protects your log files from being accessed from the web.
 If the log file is not set, then TYPO3 will use a filename containing a random hash,
@@ -183,9 +183,9 @@ All log writers can be used in your own classes. You can initialize the loggers 
 
     class MyClass implements LoggerAwareInterface {
         use LoggerAwareTrait;
-        
+
         // The logger object is already available through the LoggerAwareTrait and instantiated by TYPO3:
-        // private $logger; 
+        // private $logger;
 
         ...
         $this->logger->info('My class is executed.');
@@ -219,4 +219,4 @@ Examples
 ========
 
 Working examples of the usage of different Log writers can be found in the extension
-`examples <https://extensions.typo3.org/extension/examples/>`__. 
+`examples <https://extensions.typo3.org/extension/examples/>`__.
