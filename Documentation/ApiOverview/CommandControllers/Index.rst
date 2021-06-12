@@ -50,9 +50,9 @@ Creating a new Command in Extensions
 
    .. note::
 
-   Despite using :file:`autoconfigure: true` the commands
-   have to be explicitly defined in :file:`Services.yaml` for TYPO3s custom command processing
-   by adding the tag including the command name, the command to execute and a description.
+      Despite using :file:`autoconfigure: true` the commands
+      have to be explicitly defined in :file:`Services.yaml` for TYPO3s custom command processing
+      by adding the tag including the command name, the command to execute and a description.
 
 
 #. Create the corresponding class file: :file:`Classes/Command/DoThingsCommand.php`

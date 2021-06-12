@@ -29,7 +29,7 @@ Enable direct input of the page id
 It is possible to enable an additional field in the link browser to enter the uid of a page.
 The uid will be used directly instead of selecting it from the page tree.
 
-.. figure:: ../../../Images/LinkBrowserTSConfigExamplepageIdSelector.png
+.. figure:: Images/LinkBrowserTSConfigExamplepageIdSelector.png
    :alt: The link browser field for entering a page uid.
 
 Enable the field with the following User-/PageTSConfig::

@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 
-.. _cropvariants:
+.. _cropvariants_general:
 
 =====================
 General Configuration
@@ -16,15 +16,15 @@ when rendering an image with the image view helper.
 
 For each crop variant there's at least one *ratio configuration* defined as ``allowedAspectRatios``:
 
-* its key **must not** contain the dot character (``.``):
+*  its key **must not** contain the dot character (``.``):
 
-  * good examples: ``NaN``, ``4:3`` or ``other-format``
-  * bad example: ``1:1.441``
- 
-* its value is an array consisting of two keys:
+   *  good examples: ``NaN``, ``4:3`` or ``other-format``
+   *  bad example: ``1:1.441``
 
-  * ``title``: should be a string (or even better: a LLL reference)
-  * ``value``: **should** be a float (not a string!)
+*  its value is an array consisting of two keys:
+
+   *  ``title``: should be a string (or even better: a LLL reference)
+   *  ``value``: **should** be a float (not a string!)
 
 .. code-block:: php
 
