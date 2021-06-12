@@ -77,20 +77,28 @@ Parameters:
    :doc:`t3core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
 #. **Module configuration**: The following options are available:
 
-   * ``access``: can contain several, separated by comma
+   *  ``access``: can contain several, separated by comma
 
-     * ``systemMaintainer``: the module is accessible to system maintainers only.
-     * ``admin``: the module is accessible to admins only
-     * ``user``: the module can be made accessible per user
-     * ``group``: the module can be made accessible per usergroup
+      *  ``systemMaintainer``: the module is accessible to system maintainers only.
+      *  ``admin``: the module is accessible to admins only
+      *  ``user``: the module can be made accessible per user
+      *  ``group``: the module can be made accessible per usergroup
 
-   * Module ``iconIdentifier``
-   * A language file containing ``labels`` like the module title and description,
-     for building the module menu and for the display of information in the
-     **About Modules** module (found in the main help menu in the top bar).
-     The `LLL:` prefix is mandatory here and is there for historical reasons.
-   * Navigation component ``navigationComponentId`` - you can specify which navigation component you want to use, for example ``TYPO3/CMS/Backend/PageTree/PageTreeElement`` for a page tree or `TYPO3/CMS/Backend/Tree/FileStorageTreeContainer`
-   for a folder tree. If you don't want to show a navigation component at all you can either set this to an empty string or not declare it at all. In case the main module (e.g. "web") has a navigationComponent defined by default you'll have to also set ``'inheritNavigationComponentFromMainModule' => false``.
+   *  Module ``iconIdentifier``
+
+   *  A language file containing ``labels`` like the module title and description,
+      for building the module menu and for the display of information in the
+      **About Modules** module (found in the main help menu in the top bar).
+      The `LLL:` prefix is mandatory here and is there for historical reasons.
+
+   *  Navigation component ``navigationComponentId`` - you can specify which
+      navigation component you want to use, for example
+      :php:`TYPO3/CMS/Backend/PageTree/PageTreeElement` for a page tree or
+      :php:`TYPO3/CMS/Backend/Tree/FileStorageTreeContainer` for a folder tree.
+      If you don't want to show a navigation component at all you can either
+      set this to an empty string or not declare it at all. In case the main
+      module (e.g. "web") has a navigationComponent defined by default you'll
+      have to also set :php:`'inheritNavigationComponentFromMainModule' => false`.
 
 
 .. note::
