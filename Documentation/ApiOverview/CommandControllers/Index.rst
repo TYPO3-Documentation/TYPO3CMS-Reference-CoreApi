@@ -36,16 +36,9 @@ Creating a new Command in Extensions
 
    The following example will add a command named ``yourext:dothings``.
 
-   Register via DI in :file:`Configuration/Services.yaml`::
+   Register via DI in :file:`Configuration/Services.yaml` by adding the service definition for your class::
 
      services:
-       _defaults:
-         autowire: true
-         autoconfigure: true
-         public: false
-
-       Vendor\Extension\:
-         resource: '../Classes/*'
 
        Vendor\Extension\Command\DoThingsCommand:
          tags:
