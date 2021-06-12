@@ -329,6 +329,8 @@ Description of keywords in syntax:
          The UID of the record that is modified. If the record already exists,
          this is an integer. If you're creating new records, use a random
          string prefixed with "NEW", e.g. "NEW7342abc5e6d".
+         Be aware that this string is limited to 30 charakters, due to database
+         field limitations.
 
 
  - :Key:
