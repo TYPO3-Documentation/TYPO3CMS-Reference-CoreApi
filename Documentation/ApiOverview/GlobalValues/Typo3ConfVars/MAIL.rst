@@ -140,8 +140,10 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport']
       such as sendmail. See setting transport_sendmail_command bellow.
 
    dsn
-      Sends messages with the Symfony Mailer. Configure
-      :ref:`[MAIL][dsn]<typo3ConfVars_mail_dsn>` setting below.
+      Sends messages with the Symfony mailer, see
+      `Symfony mailer documentation <https://symfony.com/doc/current/mailer.html>`__.
+      Configure this mailer with the :ref:`[MAIL][dsn]<typo3ConfVars_mail_dsn>`
+      setting.
 
    mbox
       This doesnt send any mail out, but instead will write every outgoing mail
@@ -297,10 +299,19 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['dsn']
    :Default: ''
 
    *only with transport=dsn* The DSN configuration of the Symfony mailer
-   (eg. smtp//userpass@smtp.example.com25). For 3rd party transports you
-   have to add additional dependencies. See
-   `Symfony mailer <https//symfony.com/doc/current/mailer.html>`__ for more
-   details.
+   (for example smtp//userpass@smtp.example.com25). Symfony provides different
+   mail transports like SMTP, sendmail or many 3rd party email providers like
+   AWS SES, Gmail, MailChimp, Mailgun and more. You can find all supported
+   providers in the
+   `Symfony mailer documentation <https//symfony.com/doc/current/mailer.html>`__.
+
+   Set :php:`[MAIL][dsn]` to the configuration value described in the
+   Symfony mailer documentation (see above).
+
+   Examples:
+
+   *  :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['dsn'] = "smtp://user:pass@smtp.example.com:25"`
+   *  :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['dsn'] = "sendmail://default"`
 
 .. index::
    TYPO3_CONF_VARS MAIL; defaultMailFromAddress
@@ -316,7 +327,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress']
 
    This default email address is used when no other "from" address is
    set for a TYPO3-generated email. You can specify an email address only
-   (eg. :php:`'info@example.org)'`.
+   (for example :php:`'info@example.org)'`.
 
 .. index::
    TYPO3_CONF_VARS MAIL; defaultMailFromName
@@ -347,7 +358,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailReplyToAddress']
 
    This default email address is used when no other "reply-to" address is set
    for a TYPO3-generated email. You can specify an email address only
-   (eg. :php:`'info@example.org'`).
+   (for example :php:`'info@example.org'`).
 
 .. index::
    TYPO3_CONF_VARS MAIL; defaultMailReplyToName
