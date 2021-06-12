@@ -245,7 +245,7 @@ is achieved in the official `Symfony documentation <https://symfony.com/doc/curr
 Dependency injection in a XCLASSed class
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If an existing class (e.g. an Extbase controller) is extended using XCLASS and additional 
+If an existing class (for example an Extbase controller) is extended using XCLASS and additional 
 dependencies are injected using constructor injection, it must be ensured to add a 
 reference to the extended class in the :file:`Configuration/Services.yaml` file of the 
 extending extension as shown in the example below::
