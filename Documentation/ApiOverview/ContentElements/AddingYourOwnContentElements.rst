@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: 
+.. index::
    Content elements; custom
    pair: Create; Content elements
 .. _adding-your-own-content-elements:
@@ -263,12 +263,12 @@ formatting. Read more about :ref:`fluid`.
 
    During development you can output all available variables in a Fluid
    template by adding :html:`<f:debug>{_all}</f:debug>`.
-   
-   Even more convenient: 
+
+   Even more convenient:
    :html:`<f:if condition="{condition}"><f:debug>{_all}</f:debug></f:if>`
    lets you easily turn debugging on or off, depending on whether you
    fill in "1" or "0" for *condition*.
-   
+
    | Example lines:
    |    :html:`<f:if condition="1"><f:debug>{settings}</f:debug></f:if>`
    |    :html:`<f:if condition="0"><f:debug>{data}</f:debug></f:if>`
@@ -308,7 +308,7 @@ Extending tt_content
 --------------------
 
 If the available fields in the table tt_content are not sufficient you can add
-your own fields. In this case we need a field :php:`tx_examples_separator` from 
+your own fields. In this case we need a field :php:`tx_examples_separator` from
 which to choose the desired separator.
 
 .. index::
@@ -342,7 +342,7 @@ First we extend the database schema by adding the following to the file
 Defining the field in the TCA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The new field *tx_examples_separator* is added to the TCA definition of the table *tt_content* in the file 
+The new field *tx_examples_separator* is added to the TCA definition of the table *tt_content* in the file
 :file:`Configuration/TCA/Overrides/tt_content.php`::
 
    $temporaryColumn = [
@@ -365,13 +365,16 @@ The new field *tx_examples_separator* is added to the TCA definition of the tabl
       ],
    ];
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumn);
-   
+
 You can read more about defining fields via TCA in the :ref:`t3tca:start`.
 
-Now the new field can be used in your Fluid template just like any other 
+Now the new field can be used in your Fluid template just like any other
 tt_content field.
 
-Another example shows the connection to a foreign table. This allows you to be more flexible with the possible values in the select box. The new field *tx_examples_main_category* is a connection to the TYPO3 system category table *sys_category*.
+Another example shows the connection to a foreign table. This allows you to be
+more flexible with the possible values in the select box. The new field
+:sql:`tx_examples_main_category` is a connection to the TYPO3 system category
+table :sql:`sys_category`::
 
    'tx_examples_main_category' => [
         'exclude' => 0,
@@ -397,7 +400,7 @@ An individual modification of the newly added field *tx_examples_main_category* 
 
    TCEFORM.tt_content.tx_examples_main_category.PAGE_TSCONFIG_ID = 18
 
-If more than one page id is allowed, this configuration must be used instead (and the above TCA must be modified to use the marker ###PAGE_TSCONFIG_IDLIST### instead of ###PAGE_TSCONFIG_ID###):: 
+If more than one page id is allowed, this configuration must be used instead (and the above TCA must be modified to use the marker ###PAGE_TSCONFIG_IDLIST### instead of ###PAGE_TSCONFIG_ID###)::
 
    TCEFORM.tt_content.tx_examples_main_category.PAGE_TSCONFIG_IDLIST = 18, 19, 20
 
@@ -406,8 +409,8 @@ If more than one page id is allowed, this configuration must be used instead (an
    <h2>Content separated by sign {data.tx_examples_separator}</h2>
 
 .. note::
-   
-   As we are working with pure Fluid without Extbase here the new fields can 
+
+   As we are working with pure Fluid without Extbase here the new fields can
    be used right away. They need not be added to a model.
 
 
@@ -417,10 +420,10 @@ If more than one page id is allowed, this configuration must be used instead (an
 Data processing
 ---------------
 
-Data processors can be used for data manipulation or fetching before the 
-variables get passed on to the template. 
+Data processors can be used for data manipulation or fetching before the
+variables get passed on to the template.
 
-This is done in the 
+This is done in the
 :ref:`dataProcessing <t3tsref:cobj-fluidtemplate-properties-dataprocessing>`
 section where you can add an arbitrary number of data processors.
 

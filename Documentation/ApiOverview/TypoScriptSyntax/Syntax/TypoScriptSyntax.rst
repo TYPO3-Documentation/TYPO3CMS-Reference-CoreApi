@@ -110,44 +110,54 @@ right next to the operator (trimmed) and holding the value in parentheses
 
 This is the list of predefined functions:
 
-*  prependString
-  Adds a string to the beginning of the existing
-  value.
-*  appendString
-  Adds a string to the end of the existing value.
-*  removeString
-  Removes a string from the existing value.
-*  replaceString
-  Replaces old with new value. Separate these using
-  :code:`|`.
-*  addToList
-  Adds a comma-separated list of values to the end of a
-  string value. There is no check for duplicate values, and the list is
-  not sorted in any way.
-*  removeFromList
-  Removes a comma-separated list of values from an
-  existing comma-separated list of values.
-*  uniqueList
-  Removes duplicate entries from a comma-separated list
-  of values.
-*  reverseList
-  Reverses the order of entries in a comma-separated
-  list of values.
-*  sortList
-  Sorts the entries in a comma-separated list of values.
-  Optional parameters are:
+prependString
+   Adds a string to the beginning of the existing
+   value.
 
-   *  ascending
-    Sort the items in ascending order: First numbers
-    from small to big, then letters in alphabetical order. This is the
-    default method.
-   *  descending
-    Sort the items in descending order: First letters
-    in descending order, then numbers from big to small.
-   *  numeric
-    Apply numeric sorting: Numbers from small to big,
-    letters sorted after "0".
-    *  Multiple parameters are separated by comma.
+appendString
+   Adds a string to the end of the existing value.
+
+removeString
+   Removes a string from the existing value.
+
+replaceString
+   Replaces old with new value. Separate these using
+   :code:`|`.
+
+addToList
+   Adds a comma-separated list of values to the end of a
+   string value. There is no check for duplicate values, and the list is
+   not sorted in any way.
+
+removeFromList
+   Removes a comma-separated list of values from an
+   existing comma-separated list of values.
+
+uniqueList
+   Removes duplicate entries from a comma-separated list
+   of values.
+
+reverseList
+   Reverses the order of entries in a comma-separated
+   list of values.
+
+sortList
+   Sorts the entries in a comma-separated list of values.
+   Optional parameters are:
+
+   ascending
+      Sort the items in ascending order: First numbers
+      from small to big, then letters in alphabetical order. This is the
+      default method.
+
+   descending
+      Sort the items in descending order: First letters
+      in descending order, then numbers from big to small.
+   numeric
+      Apply numeric sorting: Numbers from small to big,
+      letters sorted after "0".
+
+   Multiple parameters are separated by comma.
 
 There is a hook inside class :php:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser`
 which can be used to define more such functions.

@@ -17,13 +17,13 @@ of interest to Core developers only.
 
 Current LinkHandlers:
 
-* :ref:`pagelinkhandler`: for linking pages and content
-* :ref:`recordlinkhandler`: for linking any kind of record
-* UrlLinkHandler: for linking external urls
-* FileLinkHandler: for linking files in the :ref:`fal`
-* FolderLinkHandler: for linking to directories
-* MailLinkHandler: for linking mail
-* TelephoneLinkHandler: for linking phone numbers
+*  :ref:`pagelinkhandler`: for linking pages and content
+*  :ref:`recordlinkhandler`: for linking any kind of record
+*  UrlLinkHandler: for linking external urls
+*  FileLinkHandler: for linking files in the :ref:`fal`
+*  FolderLinkHandler: for linking to directories
+*  MailLinkHandler: for linking mail
+*  TelephoneLinkHandler: for linking phone numbers
 
 .. note::
 
@@ -39,9 +39,9 @@ The following LinkHandlers are of interest:
    PageLinkHandler
    RecordLinkHandler
    CustomLinkHandlers
-   
-   The links are now stored in the database with the syntax
-   `<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
+
+The links are now stored in the database with the syntax
+`<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
 
 #. TypoScript is used to generate the actual link in the frontend.
 
