@@ -17,8 +17,16 @@ at other configuration possibilities.
 .. toctree::
    :maxdepth: 1
    :titlesonly:
+   :hidden:
 
    BE
+   DB
+   EXT
+   FE
+   GFX
+   HTTP
+   MAIL
+   SYS
 
 .. index::
    ! File; typo3conf/LocalConfiguration.php
@@ -120,34 +128,36 @@ may themselves be arrays.
 The configuration categories are:
 
 BE
-  Options related to the TYPO3 CMS backend.
+   :ref:`Options related to the TYPO3 CMS backend <typo3ConfVars_be>`.
 
 DB
-  Database connection configuration.
+   :ref:`Database connection configuration <typo3ConfVars_db>`.
 
 EXT
-  Extension installation options.
+   :ref:`Extension installation options <typo3ConfVars_ext>`.
 
 EXTCONF
-  Backend related language pack configuration resides here.
+   Backend related language pack configuration resides here.
 
 EXTENSIONS
-  :ref:`Extension configuration <extension-configuration>`.
+   :ref:`Extension configuration <extension-configuration>`.
 
 FE
-  Frontend-related options.
+   :ref:`Frontend-related options <typo3ConfVars_fe>`.
 
 HTTP
-  Settings for tuning HTTP requests made by TYPO3.
+   :ref:`Settings for tuning HTTP requests <typo3ConfVars_http>` made by TYPO3.
 
 GFX
-  Options related to image manipulation.
+   :ref:`Options related to image manipulation. <typo3ConfVars_gfx>`
 
 MAIL
-  Options related to the sending of emails (transport, server, etc.).
+   :ref:`Options related to the sending of emails <typo3ConfVars_gfx>`
+   (transport, server, etc.).
 
 SYS
-  General options which may affect both the frontend and the backend.
+  :ref:`General options <typo3ConfVars_sys>` which may affect both the frontend
+   and the backend.
 
 Details on the various configuration options can be found in the Install Tool
 as well as the TYPO3 source at

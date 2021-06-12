@@ -17,6 +17,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['fileCreateMask']
 ====================================================
 
 .. confval:: fileCreateMask
+
    :type: text
    :Default: 0664
 
@@ -30,6 +31,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['folderCreateMask']
 ======================================================
 
 .. confval:: folderCreateMask
+
    :type: text
    :Default: 2775
 
@@ -43,6 +45,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['createGroup']
 =================================================
 
 .. confval:: createGroup
+
    :type: text
    :Default: ''
 
@@ -65,6 +68,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename']
 ==============================================
 
 .. confval:: sitename
+
    :type: text
    :Default: 'TYPO3'
 
@@ -78,6 +82,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey']
 ===================================================
 
 .. confval:: encryptionKey
+
    :type: text
    :Default: ''
 
@@ -95,6 +100,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['cookieDomain']
 ==================================================
 
 .. confval:: cookieDomain
+
    :type: text
    :Default: ''
 
@@ -119,6 +125,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern']
 =========================================================
 
 .. confval:: trustedHostsPattern
+
    :type: text
    :Default: 'SERVER_NAME'
 
@@ -156,6 +163,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']
 ===============================================
 
 .. confval:: devIPmask
+
    :type: text
    :Default: '127.0.0.1,::1'
 
@@ -173,10 +181,11 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy']
 ============================================
 
 .. confval:: ddmmyy
+
    :type: text
    :Default: 'd-m-y'
 
-   Format of Day-Month-Year - see PHP-function `date()<https//php.net/date>`__
+   Format of Day-Month-Year - see PHP-function `date() <https//php.net/date>`__
 
 .. index::
    TYPO3_CONF_VARS SYS; hhmm
@@ -186,10 +195,11 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm']
 ==========================================
 
 .. confval:: hhmm
+
    :type: text
    :Default: 'H:i'
 
-   Format of Hours-Minutes - see PHP-function `date()<https//php.net/date>`__
+   Format of Hours-Minutes - see PHP-function `date() <https//php.net/date>`__
 
 .. index::
    TYPO3_CONF_VARS SYS; USdateFormat
@@ -199,6 +209,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['USdateFormat']
 ==================================================
 
 .. confval:: USdateFormat
+
    :type: bool
    :Default: false
 
@@ -213,6 +224,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['loginCopyrightWarrantyProvider']
 ====================================================================
 
 .. confval:: loginCopyrightWarrantyProvider
+
    :type: text
    :Default: ''
 
@@ -228,6 +240,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['loginCopyrightWarrantyURL']
 ===============================================================
 
 .. confval:: loginCopyrightWarrantyURL
+
    :type: text
    :Default: ''
 
@@ -246,6 +259,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['textfile_ext']
 ==================================================
 
 .. confval:: textfile_ext
+
    :type: text
    :Default: 'txt,ts,typoscript,html,htm,css,tmpl,js,sql,xml,csv,xlf,yaml,yml'
 
@@ -260,6 +274,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
 ===================================================
 
 .. confval:: mediafile_ext
+
    :type: text
    :Default: 'gif,jpg,jpeg,bmp,png,pdf,svg,ai,mp3,wav,mp4,ogg,flac,opus,webm,youtube,vimeo'
 
@@ -274,6 +289,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['binPath']
 =============================================
 
 .. confval:: binPath
+
    :type: text
    :Default: ''
 
@@ -289,6 +305,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['binSetup']
 ==============================================
 
 .. confval:: binSetup
+
    :type: multiline
    :Default: ''
 
@@ -307,10 +324,11 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['setMemoryLimit']
 ====================================================
 
 .. confval:: setMemoryLimit
+
    :type: int
    :Default: 0
 
-   :emory limit in MB: If more than 16, TYPO3 will try to use :php:`ini_set()`
+   Memory limit in MB: If more than 16, TYPO3 will try to use :php:`ini_set()`
    to set the memory limit of PHP to the value. This works only if the function
    :php:`ini_set()` is not disabled by your sysadmin.
 
@@ -322,15 +340,16 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['phpTimeZone']
 =================================================
 
 .. confval:: phpTimeZone
+
    :type: text
    :Default: ''
 
    Timezone to force for all :php:`date()` and :php:`mktime()` functions.
    A list of supported values can be found at
-   `php.net<https//php.net/manual/en/timezones.php>`__.
+   `php.net <https//php.net/manual/en/timezones.php>`__.
 
    If blank, a valid fallback will be searched for by PHP (php.inis
-   `date.timezone<http//www.php.net/manual/en/datetime.configuration.php#ini.date.timezone>`__
+   `date.timezone <http//www.php.net/manual/en/datetime.configuration.php#ini.date.timezone>`__
    setting, server defaults, etc); and if no fallback is found, the value of
    "UTC" is used instead.
 
@@ -342,6 +361,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem']
 ====================================================
 
 .. confval:: UTF8filesystem
+
    :type: bool
    :Default: false
 
@@ -352,7 +372,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem']
    **IMPORTANT** This requires a UTF-8 compatible locale in order to work.
    Otherwise problems with filenames containing special characters will occur.
    See :ref:`[SYS][systemLocale]<typo3ConfVars_sys_UTF8filesystem>` and
-   `php function setlocale()<https//php.net/manual/en/function.setlocale.php>`__.
+   `php function setlocale() <https//php.net/manual/en/function.setlocale.php>`__.
 
 .. index::
    TYPO3_CONF_VARS SYS; systemLocale
@@ -362,13 +382,14 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemLocale']
 ==================================================
 
 .. confval:: systemLocale
+
    :type: text
    :Default: ''
 
    Locale used for certain system related functions, for example escaping shell
    commands. If problems with filenames containing special characters occur,
    the value of this option is probably wrong. See
-   `php function setlocale()<https//php.net/manual/en/function.setlocale.php>`__.
+   `php function setlocale() <https//php.net/manual/en/function.setlocale.php>`__.
 
 .. index::
    TYPO3_CONF_VARS SYS; reverseProxyIP
@@ -378,6 +399,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyIP']
 ====================================================
 
 .. confval:: reverseProxyIP
+
    :type: list
    :Default: ''
 
@@ -392,15 +414,19 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyHeaderMultiValue']
 ==================================================================
 
 .. confval:: reverseProxyHeaderMultiValue
+
    :type: text
    :allowedValues:
    :Default: 'none'
       none
          Do not evaluate the reverse proxy header
+
       first
          Use the first IP address in the proxy header
+
       last
          Use the last IP address in the proxy header
+
 
    Defines which values of a proxy header (for example HTTP_X_FORWARDED_FOR) to use,
    if more than one is found.
@@ -413,6 +439,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefix']
 =========================================================
 
 .. confval:: reverseProxyPrefix
+
    :type: text
    :Default: ''
 
@@ -430,6 +457,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxySSL']
 =====================================================
 
 .. confval:: reverseProxySSL
+
    :type: text
    :Default: ''
 
@@ -446,6 +474,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefixSSL']
 ============================================================
 
 .. confval:: reverseProxyPrefixSSL
+
    :type: text
    :Default: ''
 
@@ -461,6 +490,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultCategorizedTables']
 ==============================================================
 
 .. confval:: defaultCategorizedTables
+
    :type: list
    :Default: ''
 
@@ -474,17 +504,19 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']
 ===================================================
 
 .. confval:: displayErrors
+
    :type: int
    :Default: -1
    :allowedValues:
       -1
          TYPO3 does not touch the PHP setting. If
-         :ref:`[SYS][devIPmask]<typo3ConfVars_sys_devIPmask>` matches the users
+         :ref:`[SYS][devIPmask] <typo3ConfVars_sys_devIPmask>` matches the users
          IP address, the configured
-         :ref:`[SYS][debugExceptionHandler]<typo3ConfVars_sys_debugExceptionHandler>`
+         :ref:`[SYS][debugExceptionHandler] <typo3ConfVars_sys_debugExceptionHandler>`
          is used instead of the
-         :ref:`[SYS][productionExceptionHandler]<typo3ConfVars_sys_productionExceptionHandler>`
+         :ref:`[SYS][productionExceptionHandler] <typo3ConfVars_sys_productionExceptionHandler>`
          to handle exceptions.
+
       0
          Live: Do not display any PHP error message. Sets :php:`display_errors=0`.
          Overrides the value of
@@ -493,12 +525,14 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']
          (= no errors are turned into exceptions). The configured
          :ref:`[SYS][productionExceptionHandler]<typo3ConfVars_sys_productionExceptionHandler>`
          is used as exception handler.
+
       1
          Debug: Display error messages with the registered
-         :ref:`[SYS][errorHandler]<typo3ConfVars_sys_>errorHandler`.
+         :ref:`[SYS][errorHandler]<typo3ConfVars_sys_errorHandler>`.
          Sets :php:`display_errors=1`. The configured
          :ref:`[SYS][debugExceptionHandler]<typo3ConfVars_sys_debugExceptionHandler>`
          is used as exception handler.
+
 
    Configures whether PHP errors or Exceptions should be displayed,
    effectively setting the PHP option :php:`display_errors` during runtime.
@@ -511,6 +545,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler']
 ================================================================
 
 .. confval:: productionExceptionHandler
+
    :type: phpClass
    :Default: :php:`\TYPO3\CMS\Core\Error\ProductionExceptionHandler::class`
 
@@ -532,6 +567,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler']
 ===========================================================
 
 .. confval:: debugExceptionHandler
+
    :type: phpClass
    :Default: :php:`\TYPO3\CMS\Core\Error\DebugExceptionHandler::class`
 
@@ -553,6 +589,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler']
 ==================================================
 
 .. confval:: errorHandler
+
    :type: phpClass
    :Default: `\TYPO3\CMS\Core\Error\ErrorHandler::class`
 
@@ -574,6 +611,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandlerErrors']
 ========================================================
 
 .. confval:: errorHandlerErrors
+
    :type: errors
    :Default: :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR)`
 
@@ -584,7 +622,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandlerErrors']
    :php:`E_USER_DEPRECATED` will always be handled, regardless of this setting.
    Default is 30466 =
    :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR)`
-   (see `PHP documentation<https//php.net/manual/en/errorfunc.constants.php>`__).
+   (see `PHP documentation <https//php.net/manual/en/errorfunc.constants.php>`__).
 
 .. index::
    TYPO3_CONF_VARS SYS; exceptionalErrors
@@ -594,13 +632,14 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['exceptionalErrors']
 =======================================================
 
 .. confval:: exceptionalErrors
+
    :type: errors
    :Default: :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR | E_DEPRECATED | E_USER_DEPRECATED | E_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_WARNING)`
 
    The E_* constant that will be converted into an exception by the default
    ref:`[SYS][errorHandler]<typo3ConfVars_sys_errorHandler>`. Default is
    4096 = :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR | E_DEPRECATED | E_USER_DEPRECATED | E_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_WARNING)`
-   (see `PHP documentation<https//php.net/manual/en/errorfunc.constants.php>`__).
+   (see `PHP documentation <https//php.net/manual/en/errorfunc.constants.php>`__).
 
    E_USER_DEPRECATED is always excluded to avoid exceptions to be thrown for deprecation messages.
 
@@ -612,6 +651,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['belogErrorReporting']
 =========================================================
 
 .. confval:: belogErrorReporting
+
    :type: errors
    :Default: `E_ALL & ~(E_STRICT | E_NOTICE)`
 
@@ -619,7 +659,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['belogErrorReporting']
    (extension belog). If set to "0" no PHP errors are logged to the
    :sql:`sys_log` table. Default is 30711 =
    :php:`E_ALL & ~(E_STRICT | E_NOTICE)`
-   (see `PHP documentation<https//php.net/manual/en/errorfunc.constants.php>`__).
+   (see `PHP documentation <https//php.net/manual/en/errorfunc.constants.php>`__).
 
 .. index::
    TYPO3_CONF_VARS SYS; generateApacheHtaccess
@@ -629,6 +669,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess']
 ============================================================
 
 .. confval:: generateApacheHtaccess
+
    :type: bool
    :Default: 1
 
@@ -648,6 +689,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['ipAnonymization']
 =====================================================
 
 .. confval:: ipAnonymization
+
    :type: int
    :Default: 1
    :allowedValues:
@@ -672,6 +714,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemMaintainers']
 =======================================================
 
 .. confval:: systemMaintainers
+
    :type: array
    :Default: null
 
@@ -693,9 +736,10 @@ installations may still use the old behaviour.
 .. _typo3ConfVars_sys_features_form.legacyUploadMimeTypes:
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['form.legacyUploadMimeTypes']
-____________________________________________________________________________
+----------------------------------------------------------------------------
 
 .. confval:: form.legacyUploadMimeTypes:
+
    :type: bool
    :Default: true
 
@@ -708,9 +752,10 @@ ____________________________________________________________________________
 .. _typo3ConfVars_sys_features_redirects.hitCount:
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['redirects.hitCount']
-____________________________________________________________________
+--------------------------------------------------------------------
 
 .. confval:: redirects.hitCount
+
    :type: bool
    :Default: false
 
@@ -722,9 +767,10 @@ ____________________________________________________________________
 .. _typo3ConfVars_sys_features_security.backend.enforceReferrer:
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.backend.enforceReferrer']
-__________________________________________________________________________________
+----------------------------------------------------------------------------------
 
 .. confval:: security.backend.enforceReferrer
+
    :type: bool
    :Default: true
 
@@ -738,9 +784,10 @@ ________________________________________________________________________________
 .. _typo3ConfVars_sys_features_yamlImportsFollowDeclarationOrder:
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['yamlImportsFollowDeclarationOrder']
-___________________________________________________________________________________
+-----------------------------------------------------------------------------------
 
 .. confval:: yamlImportsFollowDeclarationOrder
+
    :type: bool
    :Default: false
 
@@ -756,6 +803,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms']
 =====================================================================
 
 .. confval:: availablePasswordHashAlgorithms
+
    :type: array
    :Default:
 

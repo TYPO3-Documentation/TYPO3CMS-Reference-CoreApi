@@ -1,3 +1,12 @@
+.. include:: /Includes.rst.txt
+
+.. index::
+   TYPO3_CONF_VARS; EXT
+.. _typo3ConfVars_ext:
+
+==================================
+$GLOBALS['TYPO3_CONF_VARS']['EXT']
+==================================
 
 .. index::
    TYPO3_CONF_VARS SYS; allowGlobalInstall
@@ -7,6 +16,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXT']['allowGlobalInstall']
 ========================================================
 
 .. confval:: allowGlobalInstall
+
    :type: bool
    :Default: false
 
@@ -21,6 +31,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXT']['allowLocalInstall']
 =======================================================
 
 .. confval:: allowLocalInstall
+
    :type: bool
    :Default: true
 
@@ -35,6 +46,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXT']['excludeForPackaging']
 =========================================================
 
 .. confval:: excludeForPackaging:
+
    :type: list
    :Default: :php:`'(?:\\.(?!htaccess$).*|.*~|.*\\.swp|.*\\.bak|node_modules|bower_components)'`
 
