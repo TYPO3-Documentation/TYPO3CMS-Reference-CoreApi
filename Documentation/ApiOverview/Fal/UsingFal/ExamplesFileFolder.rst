@@ -161,7 +161,7 @@ the "sys\_file\_reference" entry and the relation to the other item
 
 
 The above example comes from the "examples" extension
-(reference: https://github.com/TYPO3-Documentation/TYPO3CMS-Code-Examples/blob/master/Classes/Controller/ModuleController.php).
+(reference: https://github.com/TYPO3-Documentation/t3docs-examples/blob/master/Classes/Controller/ModuleController.php).
 
 Here, the :php:`'fieldname'` :php:`'assets'` is used instead of
 :php:`image`. Content elements of ctype 'textmedia' use the field 'assets'.
