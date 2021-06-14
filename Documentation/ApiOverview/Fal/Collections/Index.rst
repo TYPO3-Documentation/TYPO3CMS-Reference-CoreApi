@@ -63,7 +63,7 @@ inside extensions. The most important classes are:
 Example
 =======
 
-The `"examples" extension <https://github.com/TYPO3-Documentation/TYPO3CMS-Code-Examples>`_
+The `"examples" extension <https://github.com/TYPO3-Documentation/t3docs-examples>`_
 provides a simple frontend plugin to demonstrate
 usage of collections. Here is what happens in the controller:
 
