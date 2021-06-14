@@ -13,7 +13,6 @@ of these.
 
 *TYPO3 - Inspiring people to share*
 
-.. index:: Extension development; Git
 .. rst-class:: bignums-xxl
 
 #. Publish source code on a public Git hosting platform
@@ -29,8 +28,6 @@ of these.
    * Contributors can add issues or make pull requests
    * Render the documentation on docs.typo3.org (see below) by adding a webhook
 
-.. index:: Extension development; Packagist
-
 #. Publish your extension on Packagist
 
    This is described well on `Packagist <https://packagist.org/>`__.
@@ -44,8 +41,6 @@ of these.
    * It is possible to install your extension using `composer require`
    * An update of the extension can be done easily by your users with
      `composer update`
-
-.. index:: Extension development; TER
 
 #. Publish your extension on TER
 
@@ -63,8 +58,6 @@ of these.
    * Link to the documentation (optional)
    * Link to the source code (optional)
    * Link to the issue tracker (optional)
-
-.. index:: Extension development; webhook for documentation
 
 #. Add webhook for documentation
 
