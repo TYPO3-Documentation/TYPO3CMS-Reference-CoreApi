@@ -10,7 +10,7 @@ It is possible to implement a custom LinkHandler if links are to be created
 and handled that cannot be handled by any of the Core LinkHandlers.
 
 The example below is part of the TYPO3 Documentation Team extension `examples
-<https://github.com/TYPO3-Documentation/TYPO3CMS-Code-Examples>`__.
+<https://github.com/TYPO3-Documentation/t3docs-examples>`__.
 
 
 Implementing the LinkHandler
