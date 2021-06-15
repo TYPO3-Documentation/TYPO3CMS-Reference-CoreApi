@@ -11,79 +11,104 @@ By publishing an extension to the
 making it publicly available. Follow these four steps, we recommend to do all
 of these.
 
+
+#. :ref:`Publish source code on a public Git hosting platform <publishExtensionGit>`
+#. :ref:`Publish your extension on Packagist <publishExtensionPackagist>`
+#. :ref:`Publish your extension on TER <publishExtensionTer>`
+#. :ref:`Add webhook for documentation <publishExtensionDocumentation>`
+
 *TYPO3 - Inspiring people to share*
 
 .. index:: Extension development; Git
-.. rst-class:: bignums-xxl
 
-#. Publish source code on a public Git hosting platform
+.. _publishExtensionGit:
 
-   The TYPO3 community currently uses GitHub, GitLab and Atlassian Bitbucket to
-   host the Git repositories of their extensions.
+Git
+===
 
-   Typically, the :ref:`extension key <extension-key>` is used for the
-   repository name, but that is not necessary.
+Publish your source code on a public Git hosting platform.
 
-   **Advantages:**
+The TYPO3 community currently uses GitHub, GitLab and Atlassian Bitbucket to
+host the Git repositories of their extensions.
 
-   * Contributors can add issues or make pull requests
-   * Render the documentation on docs.typo3.org (see below) by adding a webhook
+Typically, the :ref:`extension key <extension-key>` is used for the
+repository name, but that is not necessary.
+
+**Advantages:**
+
+* Contributors can add issues or make pull requests
+* Render the documentation on docs.typo3.org (see below) by adding a webhook
 
 .. index:: Extension development; Packagist
 
-#. Publish your extension on Packagist
+.. _publishExtensionPackagist:
 
-   This is described well on `Packagist <https://packagist.org/>`__.
+Packagist
+=========
 
-   **Depends on:**
+Publish your extension on Packagist
 
-   * Public Git repository
+This is described on `Packagist <https://packagist.org/>`__.
 
-   **Advantages:**
+**Depends on:**
 
-   * It is possible to install your extension using `composer require`
-   * An update of the extension can be done easily by your users with
+* Public Git repository
+
+**Advantages:**
+
+* It is possible to install your extension using `composer require`
+* An update of the extension can be done easily by your users with
      `composer update`
 
 .. index:: Extension development; TER
 
-#. Publish your extension on TER
+.. _publishExtensionTer:
 
-   See `Publish an Extension <https://extensions.typo3.org/faq/publish-an-extension/>`__
-   for more information on how to publish an extension and check out the
-   `FAQ <https://extensions.typo3.org/faq/>`__ as well.
+TER
+===
 
-   **Advantages:**
+Publish your extension on TER.
 
-   * Easy finding of your extension in the central Extension Repository
-   * The community can vote for your extension
-   * Users can subscribe to notifications on new releases
-   * Composer package is announced (optional)
-   * Sponsoring link (optional)
-   * Link to the documentation (optional)
-   * Link to the source code (optional)
-   * Link to the issue tracker (optional)
+See `Publish an Extension <https://extensions.typo3.org/faq/publish-an-extension/>`__
+for more information on how to publish an extension and check out the
+`FAQ <https://extensions.typo3.org/faq/>`__ as well.
+
+**Advantages:**
+
+* Easy finding of your extension in the central Extension Repository
+* The community can vote for your extension
+* Users can subscribe to notifications on new releases
+* Composer package is announced (optional)
+* Sponsoring link (optional)
+* Link to the documentation (optional)
+* Link to the source code (optional)
+* Link to the issue tracker (optional)
 
 .. index:: Extension development; webhook for documentation
 
-#. Add webhook for documentation
+.. _publishExtensionDocumentation:
 
-   In order for this to work, you must have a :file:`composer.json` and push
-   some changes after you registered the webhook.
+Documentation
+============
 
-   All the necessary steps are outlined in :ref:`h2document:migrate` except for
-   step 4 (request redirects) which is not necessary for new documentation.
+Publish your documentation on docs.typo3.org.
 
-   **Depends on:**
+In order for this to work, you must have a :file:`composer.json` and push
+some changes after you registered the webhook.
 
-   * Public Git repository
-   * Extension published to TER (This is not strictly necessary for documentation
-     rendering. But it makes the workflow easier for the Documentation Team,
-     specifically for the approval process if your extension is already registered
-     on extensions.typo3.org).
+All the necessary steps are outlined in :ref:`h2document:migrate` except for
+step 4 (request redirects) which is not necessary for new documentation.
 
-   **Advantages:**
+**Depends on:**
 
-   * Your extension documentation will be rendered on `docs.typo3.org <https://docs.typo3.org/>`__
-   * The documentation link will be added automatically if your extension is
-     registered on extensions.typo3.org (TER).
+* Public Git repository
+* Extension published to TER (This is not strictly necessary for documentation
+  rendering. But it makes the workflow easier for the Documentation Team,
+  specifically for the approval process if your extension is already registered
+  on extensions.typo3.org).
+
+**Advantages:**
+
+* Your extension documentation will be rendered on `docs.typo3.org <https://docs.typo3.org/>`__
+* The documentation link will be added automatically if your extension is
+  registered on extensions.typo3.org (TER).
