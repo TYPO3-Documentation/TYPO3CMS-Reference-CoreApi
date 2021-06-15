@@ -112,3 +112,11 @@ step 4 (request redirects) which is not necessary for new documentation.
 * Your extension documentation will be rendered on `docs.typo3.org <https://docs.typo3.org/>`__
 * The documentation link will be added automatically if your extension is
   registered on extensions.typo3.org (TER).
+
+.. toctree::
+   :maxdepth: 3
+   :titlesonly:
+   :glob:
+
+   PublishToTER/Index
+   PublishViaTaylor/Index
