@@ -140,7 +140,7 @@ Emergency
 
 .. _logging-logger-log:
 
-Log() Method
+log() Method
 ============
 
 :code:`\TYPO3\CMS\Core\Log\Logger` provides a central point for submitting log messages,
