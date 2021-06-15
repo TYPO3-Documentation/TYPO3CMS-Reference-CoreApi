@@ -188,7 +188,7 @@ typo3Language
 
 
 flag
---------------
+----
 
 :aspect:`Datatype`
     string
