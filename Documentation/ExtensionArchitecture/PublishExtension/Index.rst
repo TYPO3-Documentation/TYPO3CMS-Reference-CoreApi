@@ -63,7 +63,7 @@ TER
 
 Publish your extension on TER.
 
-See `Publish an Extension <https://extensions.typo3.org/faq/publish-an-extension/>`__
+See :ref:`Publish an Extension <publishExtensionTer>`
 for more information on how to publish an extension and check out the
 `FAQ <https://extensions.typo3.org/faq/>`__ as well.
 
@@ -81,7 +81,7 @@ for more information on how to publish an extension and check out the
 .. _publishExtensionDocumentation:
 
 Documentation
-============
+=============
 
 Publish your documentation on docs.typo3.org.
 
@@ -104,3 +104,10 @@ step 4 (request redirects) which is not necessary for new documentation.
 * Your extension documentation will be rendered on `docs.typo3.org <https://docs.typo3.org/>`__
 * The documentation link will be added automatically if your extension is
   registered on extensions.typo3.org (TER).
+
+.. toctree::
+   :maxdepth: 3
+   :titlesonly:
+   :glob:
+
+   PublishToTER/Index
