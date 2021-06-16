@@ -69,7 +69,7 @@ TER
 
 Publish your extension on TER.
 
-See `Publish an Extension <https://extensions.typo3.org/faq/publish-an-extension/>`__
+See :ref:`Publish an Extension <publishExtensionTer>`
 for more information on how to publish an extension and check out the
 `FAQ <https://extensions.typo3.org/faq/>`__ as well.
 
@@ -89,7 +89,7 @@ for more information on how to publish an extension and check out the
 .. _publishExtensionDocumentation:
 
 Documentation
-============
+=============
 
 Publish your documentation on docs.typo3.org.
 
@@ -119,4 +119,3 @@ step 4 (request redirects) which is not necessary for new documentation.
    :glob:
 
    PublishToTER/Index
-   PublishViaTaylor/Index
