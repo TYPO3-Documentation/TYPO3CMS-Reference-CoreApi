@@ -62,7 +62,9 @@ Provide additional context information with the log message::
        'other_data' => $foo,
    ]);
 
-Values in the message string that should vary based on the error (such as specifying what an invalid value was) should use placeholders, denoted by `{ }`.  Provide the value for that placeholder in the context array.
+Values in the message string that should vary based on the error (such as
+specifying what an invalid value was) should use placeholders, denoted by
+`{ }`.  Provide the value for that placeholder in the context array.
 
 :php:`$this->logger->warning()` etc. are only shorthands - you can also call :php:`$this->logger->log()` directly
 and pass the severity level::
