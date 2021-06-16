@@ -55,16 +55,16 @@ Log a simple message::
    $this->logger->warning('Something went awry, check your configuration!');
 
 
-Provide additional information with the log message::
+Provide additional context information with the log message::
 
-   $this->logger->error(
-     'This was not a good idea',
-     array(
-       'foo' => $bar,
-       'bar' => $foo,
-     )
-   );
+   $this->logger->error('Passing {value} was unwise.', [
+       'value' => $value,
+       'other_data' => $foo,
+   ]);
 
+Values in the message string that should vary based on the error (such as
+specifying what an invalid value was) should use placeholders, denoted by
+`{ }`.  Provide the value for that placeholder in the context array.
 
 :php:`$this->logger->warning()` etc. are only shorthands - you can also call :php:`$this->logger->log()` directly
 and pass the severity level::
