@@ -33,9 +33,9 @@ repository name, but that is not necessary.
 
 **Advantages:**
 
-* Contributors can add issues or make pull requests.
-* Documentation can be published in the official TYPO3 documentation
-  by using a webhook (see below).
+*  Contributors can add issues or make pull requests.
+*  Documentation can be published in the official TYPO3 documentation
+   by using a webhook (see below).
 
 .. index:: Extension development; Packagist
 
@@ -52,16 +52,16 @@ about the publishing process.
 
 **Depends on:**
 
-* Public Git repository
+*  Public Git repository
 
 **Advantages:**
 
-* Extension can be installed in a
-  :ref:`Composer based <t3install:install-via-composer>`
-  TYPO3 instance using `composer require`.
-* All advantages of being listed in Packagist, for example
+*  Extension can be installed in a
+   :ref:`Composer based <t3install:install-via-composer>`
+   TYPO3 instance using `composer require`.
+*  All advantages of being listed in Packagist, for example
 
-  * Extension can be updated easily with `composer update`
+   *  Extension can be updated easily with `composer update`
 
 .. index:: Extension development; TER
 
@@ -80,19 +80,19 @@ page `FAQ <https://extensions.typo3.org/faq/>`__.
 
 **Advantages:**
 
-* Extension can be installed in a
-  :ref:`non-Composer based <t3install:install-typo3-without-composer>`
-  TYPO3 instance using the :ref:`Extension Manager <extension-manager>`.
-* All advantages of being listed in the TER, for example:
+*  Extension can be installed in a
+   :ref:`non-Composer based <t3install:install-typo3-without-composer>`
+   TYPO3 instance using the :ref:`Extension Manager <extension-manager>`.
+*  All advantages of being listed in the TER, for example:
 
-  * Easy finding of your extension
-  * The community can vote for your extension
-  * Users can subscribe to notifications on new releases
-  * Composer package is announced (optional)
-  * Sponsoring link (optional)
-  * Link to the documentation (optional)
-  * Link to the source code (optional)
-  * Link to the issue tracker (optional)
+   *  Easy finding of your extension
+   *  The community can vote for your extension
+   *  Users can subscribe to notifications on new releases
+   *  Composer package is announced (optional)
+   *  Sponsoring link (optional)
+   *  Link to the documentation (optional)
+   *  Link to the source code (optional)
+   *  Link to the issue tracker (optional)
 
 .. index:: Extension development; webhook for documentation
 
@@ -109,15 +109,15 @@ an appropriate webhook.
 
 **Depends on:**
 
-* Public Git repository
-* Extension published in TER (optional).
-  This is not mandatory, but makes the webhook approval easier for the TYPO3
-  Documentation Team.
+*  Public Git repository
+*  Extension published in TER (optional).
+   This is not mandatory, but makes the webhook approval easier for the TYPO3
+   Documentation Team.
 
 **Advantages:**
 
-* Easily find your extension documentation, which serves as a good companion
-  for getting started with your extension.
+*  Easily find your extension documentation, which serves as a good companion
+   for getting started with your extension.
 
 .. _publishExtensionTranslation:
 
