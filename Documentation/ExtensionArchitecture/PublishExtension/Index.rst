@@ -59,7 +59,7 @@ about the publishing process.
 * Extension can be installed in a
   :ref:`Composer based <t3install:install-via-composer>`
   TYPO3 instance using `composer require`.
-* All advantages of being listed in Packagist, e.g.
+* All advantages of being listed in Packagist, for example
 
   * Extension can be updated easily with `composer update`
 
@@ -83,7 +83,7 @@ page `FAQ <https://extensions.typo3.org/faq/>`__.
 * Extension can be installed in a
   :ref:`non-Composer based <t3install:install-typo3-without-composer>`
   TYPO3 instance using the :ref:`Extension Manager <extension-manager>`.
-* All advantages of being listed in the TER, e.g.
+* All advantages of being listed in the TER, for example:
 
   * Easy finding of your extension
   * The community can vote for your extension
