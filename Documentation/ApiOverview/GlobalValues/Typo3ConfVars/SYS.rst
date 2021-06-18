@@ -312,7 +312,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['binSetup']
    List of programs (separated by newline or comma). By default programs
    will be searched in default paths and the special paths defined by
    :ref:`binPath<typo3ConfVars_sys_binPath>`. When PHP has :php:`openbasedir`
-   enabled the programs can not be found and have to be configured here.
+   enabled, the programs can not be found and have to be configured here.
 
    Example: :php:`perl=/usr/bin/perl,unzip=/usr/local/bin/unzip`
 
