@@ -551,7 +551,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler']
 
    Classname to handle exceptions that might happen in the TYPO3-code. Leave
    this empty to disable exception handling.  The default exception handler displays
-   a nice error message when something went wrong. The error message is
+   a nice error message when something goes wrong. The error message is
    logged to the configured logs.
 
    Note: The configured "productionExceptionHandler" is used if
