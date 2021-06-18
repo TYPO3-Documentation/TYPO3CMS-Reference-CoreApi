@@ -66,7 +66,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']
    :type: text
    :Default: ''
 
-   This path is used to evaluate if paths outside of public web path should be
+   This path is used to evaluate if paths outside of the public web path should be
    allowed. Ending slash required!
 
 
