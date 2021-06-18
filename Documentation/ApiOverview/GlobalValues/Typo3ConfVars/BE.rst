@@ -49,8 +49,8 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']
    :Default: 'fileadmin/'
 
    Path to the primary directory of files for editors. This is relative to
-   the public web dir, DefaultStorage will be created with that configuration,
-   do not access manually but via
+   the public web dir. DefaultStorage will be created with that configuration.
+   Do not access manually but via
    :php:`\TYPO3\CMS\Core\Resource\ResourceFactory::getDefaultStorage().`
 
 
