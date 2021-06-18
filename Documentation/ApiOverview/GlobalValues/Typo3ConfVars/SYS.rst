@@ -744,7 +744,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['form.legacyUploadMimeTypes']
    :Default: true
 
    If on, some mime types are predefined for the "FileUpload" and "ImageUpload"
-   elements of the "form" extension which always allows file uploads of these
+   elements of the "form" extension, which always allows file uploads of these
    types, no matter the specific form element definition.
 
 .. index::
