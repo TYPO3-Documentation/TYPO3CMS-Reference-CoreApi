@@ -14,6 +14,20 @@ stored in a global array called :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 This chapter describes this global configuration in more details and hints
 at other configuration possibilities.
 
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+   :hidden:
+
+   BE
+   DB
+   EXT
+   FE
+   GFX
+   HTTP
+   MAIL
+   SYS
+
 .. index::
    ! File; typo3conf/LocalConfiguration.php
 .. _typo3ConfVars-localConfiguration:
@@ -114,36 +128,47 @@ may themselves be arrays.
 The configuration categories are:
 
 BE
-  Options related to the TYPO3 CMS backend.
+   :ref:`Options related to the TYPO3 CMS backend <typo3ConfVars_be>`.
 
 DB
-  Database connection configuration.
+   :ref:`Database connection configuration <typo3ConfVars_db>`.
 
 EXT
-  Extension installation options.
+   :ref:`Extension installation options <typo3ConfVars_ext>`.
 
 EXTCONF
-  Backend related language pack configuration resides here.
+   Backend related language pack configuration resides here.
 
 EXTENSIONS
-  :ref:`Extension configuration <extension-configuration>`.
+   :ref:`Extension configuration <extension-configuration>`.
 
 FE
-  Frontend-related options.
-
-HTTP
-  Settings for tuning HTTP requests made by TYPO3.
+   :ref:`Frontend-related options <typo3ConfVars_fe>`.
 
 GFX
-  Options related to image manipulation.
+   :ref:`Options related to image manipulation. <typo3ConfVars_gfx>`
+
+HTTP
+   :ref:`Settings for tuning HTTP requests <typo3ConfVars_http>` made by TYPO3.
+
+LOG
+   :ref:`Configuration of the logging system <logging-configuration>`
 
 MAIL
-  Options related to the sending of emails (transport, server, etc.).
+   :ref:`Options related to the sending of emails <typo3ConfVars_gfx>`
+   (transport, server, etc.).
+
+SVCONF
+   :ref:`Service API configuration<services-developer-service-api-getters>`
 
 SYS
-  General options which may affect both the frontend and the backend.
+  :ref:`General options <typo3ConfVars_sys>` which may affect both the frontend
 
-Details on the various configuration options can be found in the Install Tool
+T3_SERVICES
+   :ref:`Service registration configuration <ervices-configuration-registration-changes>`
+   and the backend.
+
+Further details on the various configuration options can be found in the Install Tool
 as well as the TYPO3 source at
 :file:`typo3/sysext/core/Configuration/DefaultConfigurationDescription.yaml`.
 The documentation shown in the Install Tool is automatically extracted from

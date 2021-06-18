@@ -11,6 +11,7 @@
 .. role:: typoscript(code)
 .. role:: xml(code)
 .. role:: yaml(code)
+.. role:: perl(code)
 
 .. role:: ts(typoscript)
    :class: typoscript
