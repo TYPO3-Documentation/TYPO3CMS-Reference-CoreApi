@@ -134,8 +134,8 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_email_addr']
    :type: text
    :Default: ''
 
-   Email address that will receive notification whenever an attempt to
-   login to the Install Tool is made and that will also receive warnings
+   Email address that will receive notifications whenever an attempt to
+   login to the Install Tool is made. This address will also receive warnings
    whenever more than 3 failed backend login attempts (regardless of user)
    are detected within an hour.
 
