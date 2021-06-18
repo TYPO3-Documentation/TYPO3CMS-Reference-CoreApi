@@ -791,7 +791,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['yamlImportsFollowDeclarationOrde
    :type: bool
    :Default: false
 
-   If on, the YAML imports are imported in the order they are defined in the importing YAML configuration.'
+   If on, the YAML imports are imported in the order they are defined in the importing YAML configuration.
 
 
 
