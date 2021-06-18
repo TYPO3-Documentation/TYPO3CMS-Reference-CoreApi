@@ -100,7 +100,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath']
    :type: text
    :Default: ''
 
-   Combined folder identifier of the directory where TYPO3 backend-groups have
+   Combined folder identifier of the directory where TYPO3 backend groups have
    their home-dirs. A combined folder identifier looks like this:
    :php:`[storageUid]:[folderIdentifier]`. For example :php:`2:groups/`.
    A home for backend group 1 would be: :php:`2:groups/1/`. Ending slash required!
