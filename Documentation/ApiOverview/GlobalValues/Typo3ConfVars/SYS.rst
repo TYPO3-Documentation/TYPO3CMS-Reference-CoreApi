@@ -312,7 +312,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['binSetup']
    List of programs (separated by newline or comma). By default programs
    will be searched in default paths and the special paths defined by
    :ref:`binPath<typo3ConfVars_sys_binPath>`. When PHP has :php:`openbasedir`
-   enabled, the programs can not be found and have to be configured here.
+   enabled the programs can not be found and have to be configured here.
 
    Example: :php:`perl=/usr/bin/perl,unzip=/usr/local/bin/unzip`
 
@@ -551,7 +551,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler']
 
    Classname to handle exceptions that might happen in the TYPO3-code. Leave
    this empty to disable exception handling.  The default exception handler displays
-   a nice error message when something goes wrong. The error message is
+   a nice error message when something went wrong. The error message is
    logged to the configured logs.
 
    Note: The configured "productionExceptionHandler" is used if
@@ -744,7 +744,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['form.legacyUploadMimeTypes']
    :Default: true
 
    If on, some mime types are predefined for the "FileUpload" and "ImageUpload"
-   elements of the "form" extension, which always allows file uploads of these
+   elements of the "form" extension which always allows file uploads of these
    types, no matter the specific form element definition.
 
 .. index::
@@ -791,7 +791,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['yamlImportsFollowDeclarationOrde
    :type: bool
    :Default: false
 
-   If on, the YAML imports are imported in the order they are defined in the importing YAML configuration.
+   If on, the YAML imports are imported in the order they are defined in the importing YAML configuration.'
 
 
 

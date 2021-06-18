@@ -49,8 +49,8 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']
    :Default: 'fileadmin/'
 
    Path to the primary directory of files for editors. This is relative to
-   the public web dir. DefaultStorage will be created with that configuration.
-   Do not access manually but via
+   the public web dir, DefaultStorage will be created with that configuration,
+   do not access manually but via
    :php:`\TYPO3\CMS\Core\Resource\ResourceFactory::getDefaultStorage().`
 
 
@@ -66,7 +66,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']
    :type: text
    :Default: ''
 
-   This path is used to evaluate if paths outside of the public web path should be
+   This path is used to evaluate if paths outside of public web path should be
    allowed. Ending slash required!
 
 
@@ -82,7 +82,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath']
    :type: text
    :Default: ''
 
-   Combined folder identifier of the directory where TYPO3 backend users have
+   Combined folder identifier of the directory where TYPO3 backend-users have
    their home-dirs. A combined folder identifier looks like this:
    :php:`[storageUid]:[folderIdentifier]`. For Example :php:`2:users/`.
    A home for backend user 2 would be: :php:`2:users/2/`. Ending slash required!
@@ -100,7 +100,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath']
    :type: text
    :Default: ''
 
-   Combined folder identifier of the directory where TYPO3 backend groups have
+   Combined folder identifier of the directory where TYPO3 backend-groups have
    their home-dirs. A combined folder identifier looks like this:
    :php:`[storageUid]:[folderIdentifier]`. For example :php:`2:groups/`.
    A home for backend group 1 would be: :php:`2:groups/1/`. Ending slash required!
@@ -134,8 +134,8 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_email_addr']
    :type: text
    :Default: ''
 
-   Email address that will receive notifications whenever an attempt to
-   login to the Install Tool is made. This address will also receive warnings
+   Email address that will receive notification whenever an attempt to
+   login to the Install Tool is made and that will also receive warnings
    whenever more than 3 failed backend login attempts (regardless of user)
    are detected within an hour.
 
