@@ -82,7 +82,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath']
    :type: text
    :Default: ''
 
-   Combined folder identifier of the directory where TYPO3 backend-users have
+   Combined folder identifier of the directory where TYPO3 backend users have
    their home-dirs. A combined folder identifier looks like this:
    :php:`[storageUid]:[folderIdentifier]`. For Example :php:`2:users/`.
    A home for backend user 2 would be: :php:`2:users/2/`. Ending slash required!
