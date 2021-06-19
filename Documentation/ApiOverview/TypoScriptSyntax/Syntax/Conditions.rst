@@ -106,7 +106,7 @@ the parsed object tree depending on whether the condition evaluates to
 TRUE or FALSE (which can be simulated with that module as you can
 see):
 
-.. figure:: ../Images/ConditionsSyntax.png
+.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/ConditionsSyntax.png
    :alt: The Object Browser showing different objects depending on whether
          a condition is set or unset.
 
@@ -165,7 +165,7 @@ another if not. No matter what the text is wrapped in a :code:`<strong>` tag,
 because, as we can see, this wrap is added outside of the condition block
 (e.g. after the :code:`[END]` condition).
 
-.. figure:: ../Images/ConditionsSyntaxElse.png
+.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/ConditionsSyntaxElse.png
    :alt: The TypoScript object browser showing the output of an ELSE condition.
 
 The fact that you can "enable" the condition in the TypoScript Object
@@ -217,7 +217,7 @@ But this is **not valid:**
 
 When parsed with syntax highlighting you will see this error:
 
-.. figure:: ../Images/ConditionsSyntaxError.png
+.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/ConditionsSyntaxError.png
    :alt: Error after having used a condition where it is not allowed.
 
 This means that the line was perceived as a regular definition of
@@ -244,7 +244,7 @@ condition scope) is yet different, in that will be detected at
 
 But you will still get some errors if you syntax highlight it:
 
-.. figure:: ../Images/ConditionsSyntaxErrorGlobal.png
+.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/ConditionsSyntaxErrorGlobal.png
    :alt: Error after having used a GLOBAL condition at thw wrong place.
 
 The reason for this is that the :code:`[GLOBAL]` condition aborts the

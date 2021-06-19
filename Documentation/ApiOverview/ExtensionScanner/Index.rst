@@ -15,7 +15,7 @@ management (formerly "Install Tool") provides an interactive interface to scan e
 for usage of TYPO3 Core API which has been removed or deprecated.
 
 
-.. figure:: Images/ExtensionScanner.png
+.. figure:: /Images/ManualScreenshots/ExtensionScanner/ExtensionScanner.png
     :alt: Scan Extension Files in Core 9.0 backend
 
     The Extension scanner in 9.0
@@ -48,7 +48,7 @@ Quick start
 
    :guilabel:`ADMIN TOOLS`: :guilabel:`Upgrade` > :guilabel:`Scan Extension Files`
 
-   .. figure:: Images/ExtensionScannerOpen.png
+   .. figure:: /Images/ManualScreenshots/ExtensionScanner/ExtensionScannerOpen.png
       :class: with-shadow
 
       Open extension scanner from the backend
@@ -63,7 +63,7 @@ Quick start
 
    Click on the Changelog to view it.
 
-   .. figure:: Images/ExtensionScannerReport.png
+   .. figure:: /Images/ManualScreenshots/ExtensionScanner/ExtensionScannerReport.png
       :class: with-shadow
 
       View extension scanner report

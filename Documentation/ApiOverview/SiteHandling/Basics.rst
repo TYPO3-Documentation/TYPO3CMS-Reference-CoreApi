@@ -11,7 +11,7 @@ Basics
 .. note::
    Site handling is available since TYPO3 9 LTS.
 
-TYPO3 site handling and configuration is the starting point for creating new web sites. 
+TYPO3 site handling and configuration is the starting point for creating new web sites.
 The corresponding modules are found in the TYPO3 backend in the section :guilabel:`Site management`.
 
 A site configuration consists of the following parts:
@@ -27,7 +27,7 @@ due to missing configuration and can also serve as a starting point for all furt
 
 Most parts of the site configuration can be edited via the graphical interface in the backend module "Site".
 
-.. figure:: Images/SiteHandlingSiteModule.png
+.. figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingSiteModule.png
    :class: with-shadow
    :alt: Site Module
 

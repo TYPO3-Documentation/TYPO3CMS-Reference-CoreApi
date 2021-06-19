@@ -160,7 +160,7 @@ from the root of the page tree with the export module.
    To finish the export, select the file format :guilabel:`XML` and click on
    the :guilabel:`Download export` button.
 
-.. image:: ../../Images/DistributionDatabaseExport.png
+.. figure:: /Images/ManualScreenshots/ExtensionArchitecture/DistributionDatabaseExport.png
    :alt: Database export
    :class: with-shadow
 

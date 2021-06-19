@@ -37,7 +37,7 @@ provides an overview of all installed services and their priority
 and quality. It also shows whether a given service is available
 or not.
 
-.. figure:: ../Images/ServicesReport.png
+.. figure:: /Images/ManualScreenshots/Services/ServicesReport.png
    :alt: The Installed Services report
 
    The Installed Services report showing details about registered services

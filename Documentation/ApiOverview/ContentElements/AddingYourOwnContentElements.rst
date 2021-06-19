@@ -95,7 +95,7 @@ The following call needs to be added to the file
 Now the new content element is available in the backend form. However it
 currently contains no fields but the CType field.
 
-.. image:: Images/CType.png
+.. figure:: /Images/ManualScreenshots/ContentElements/CType.png
    :class: with-shadow
    :alt: CType dropdown in tt_content
 
@@ -141,7 +141,7 @@ to this wizard.
       }
    }
 
-.. image:: Images/NewContenElementWizard.png
+.. figure:: /Images/ManualScreenshots/ContentElements/NewContenElementWizard.png
    :class: with-shadow
    :alt: The "New Content Element" wizard
 
@@ -183,7 +183,7 @@ the file :file:`Configuration/TCA/Overrides/tt_content.php`:
 
 Now the backend form for the new content elements looks like this:
 
-.. image:: Images/ContentElementFields.png
+.. figure:: /Images/ManualScreenshots/ContentElements/ContentElementFields.png
    :class: with-shadow
    :alt: The backend form
 
@@ -279,7 +279,7 @@ Below you can see the example output of the new content element and a
 dump of all available data:
 
 
-.. image:: Images/NewContentElementOutput.png
+.. figure:: /Images/ManualScreenshots/ContentElements/NewContentElementOutput.png
    :class: with-border with-shadow
    :alt: The example output
 
@@ -472,6 +472,6 @@ example :file:`Resources/Private/Templates/ContentElements/DataProcCsv.html`
 
 The output would look like this (we added a debug of the variable `myTable`):
 
-.. image:: Images/ContentElementWithDataProcessorOutput.png
+.. figure:: /Images/ManualScreenshots/ContentElements/ContentElementWithDataProcessorOutput.png
    :class: with-shadow
    :alt: Output of the CommaSeparatedValueProcessor

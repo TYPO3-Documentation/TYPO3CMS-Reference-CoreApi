@@ -24,7 +24,7 @@ version of TYPO3 CMS, you should normally go through the Upgrade
 Wizard, whose first step is to perform all necessary database
 changes:
 
-.. figure:: ../Images/DatabaseUpgradeWizard.png
+.. figure:: /Images/ManualScreenshots/Database/DatabaseUpgradeWizard.png
    :alt: The Upgrade Wizard indicating that the database needs updates
 
    The upgrade wizard indicating that the database needs updates
@@ -35,7 +35,7 @@ general - if you want to check the sanity of your system,
 you can go to **ADMIN TOOLS > Maintenance > Analyze Database Structure**:
 
 
-.. figure:: ../Images/AnalyzeDatabase.png
+.. figure:: /Images/ManualScreenshots/Database/AnalyzeDatabase.png
    :alt: The Database analyzer is part of the maintenance area
 
    The Database analyzer is part of the maintenance area
@@ -50,7 +50,7 @@ You can choose which updates you want to perform. You can even
 decide not to create new fields and tables, although that will
 very likely break your installation.
 
-.. figure:: ../Images/DatabaseDatabaseAnalyzer.png
+.. figure:: /Images/ManualScreenshots/Database/DatabaseDatabaseAnalyzer.png
    :alt: Analyze the database structure
 
    Analyze the database structure

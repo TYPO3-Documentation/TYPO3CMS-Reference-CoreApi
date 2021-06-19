@@ -21,7 +21,7 @@ In this simple piece of code we instantiate a clipboard object and make it
 load its content. We then simply dump this content into the BE module's debug
 window, with the following result:
 
-.. figure:: Images/ClipboardDump.png
+.. figure:: /Images/ManualScreenshots/Examples/Clipboard/ClipboardDump.png
    :alt: Clipboard dump
 
    A dump of the clipboard in the debug window
@@ -31,7 +31,7 @@ This tells us what objects are registered on the default tab ("normal")
 each contain more than one element). It also tells us that the current
 tab is number 2. We can compare with the BE view of the clipboard:
 
-.. figure:: Images/ClipboardContent.png
+.. figure:: /Images/ManualScreenshots/Examples/Clipboard/ClipboardContent.png
    :alt: Clipboard content
 
    The clipboard as seen in the BE
@@ -63,7 +63,7 @@ In the "examples" extension, this data is passed to a BE module view
 for display, which is really just information:
 
 
-.. figure:: Images/ClipboardItems.png
+.. figure:: /Images/ManualScreenshots/Examples/Clipboard/ClipboardItems.png
    :alt: Clipboard items
 
    Display of information about individual clipboard items

@@ -29,7 +29,7 @@ would define a base variant to use in Development context.
    Notice that environment variables can be used in the :yaml:`base` via ``%env(...)%``.
    :yaml:`condition` needs ``getenv(...)`` instead.
 
-.. figure:: Images/SiteHandlingBaseVariants-1.png
+.. figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingBaseVariants-1.png
    :class: with-shadow
    :alt: Add a base variant
 

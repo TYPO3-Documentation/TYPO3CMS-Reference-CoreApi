@@ -153,7 +153,7 @@ To verify and select which specific hash algorithm is currently configured for f
 preset of the settings module has been established with Core v9. It can be found in "Admin Tools" -> "Settings"
 -> "Configuration presets" -> "Password hashing settings":
 
-.. figure:: Images/PasswordHashingSettings.png
+.. figure:: /Images/ManualScreenshots/PasswordHashing/PasswordHashingSettings.png
     :alt: Argon2i active for frontend and backend users
 
 The image shows settings for an instance that runs with frontend and backend users having their passwords

@@ -10,11 +10,7 @@ RTE Transformations in Content Elements
 The RTE is used in the bodytext field of the content elements,
 configured for the types "Text" and "Text & Images".
 
-.. figure:: ../Images/RteBackend.png
-   :alt: The Rich-Text Editor
-
-   The Rich-Text Editor in a typical text content element
-
+.. include:: /Images/AutomaticScreenshots/Rte/RteInTable.rst.txt
 
 The configuration of the two 'Text'-types are the same: The toolbar
 includes only a subset of the total available buttons. The reason is

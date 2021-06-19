@@ -11,7 +11,7 @@ was performed successfully, or more importantly, failed. This system
 is known as "flash messages". The screenshot below shows the various
 severity levels of messages that can be emitted.
 
-.. figure:: Images/FlashMessagesAll.png
+.. figure:: /Images/ManualScreenshots/FlashMessages/FlashMessagesAll.png
    :alt: All levels of flash messages
 
    The "examples" BE module shows one of each type of flash message
@@ -87,7 +87,7 @@ The message is added to the queue and then the template class calls
 :php:`\TYPO3\CMS\Core\Messaging\FlashMessageQueue::renderFlashMessages()` which renders all
 messages from the queue. Here's how such a message looks like in a module:
 
-.. figure:: Images/FlashMessagesExample.png
+.. figure:: /Images/ManualScreenshots/FlashMessages/FlashMessagesExample.png
    :alt: A flash message in action
 
    A typical (success) message shown at the top of a module
