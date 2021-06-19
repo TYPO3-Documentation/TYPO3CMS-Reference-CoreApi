@@ -11,7 +11,7 @@ File collections
 File collections are collections of file references.
 They are used by the "File links" (download) content element.
 
-.. figure:: ../Images/FileDownloadWithCollection.png
+.. figure:: /Images/ManualScreenshots/Fal/FileDownloadWithCollection.png
    :alt: A file links content element
 
    A "File links" content element referencing a file collection
@@ -23,7 +23,7 @@ The selected files are stored in the :sql:`sys_file_reference` table.
 Note that a file collection may also reference a folder, in which case
 all files inside the folder will be returned when calling that collection.
 
-.. figure:: ../Images/FolderCollection.png
+.. figure:: /Images/ManualScreenshots/Fal/FolderCollection.png
    :alt: A folder collection
 
    A file collection referencing a folder
@@ -125,7 +125,7 @@ record selection:
 Here is what the result may look like (the exact result will obviously
 depend on the content of the selection):
 
-.. figure:: ../Images/CollectionsOutput.png
+.. figure:: /Images/ManualScreenshots/Fal/CollectionsOutput.png
    :alt: Collections plugin output
 
    Typical output from the "Collections" plugin of extension "examples"

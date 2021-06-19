@@ -8,7 +8,7 @@ Create new Page Type
 
 The following example adds a new page type called "Archive".
 
-.. figure:: Images/NewPageType.png
+.. figure:: /Images/ManualScreenshots/PageTypes/NewPageType.png
    :alt: The new page type in action
 
    The new page type visible in the TYPO3 backend

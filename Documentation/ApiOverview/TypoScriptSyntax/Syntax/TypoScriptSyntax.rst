@@ -308,7 +308,7 @@ The result of the above TypoScript is two independent sets of
 objects/properties which are exactly the same (duplicates). They are
 *not* references to each other but actual copies:
 
-.. figure:: ../Images/SyntaxCopying1.png
+.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/SyntaxCopying1.png
    :alt: An object and its copy
 
 Another example with a copy within a code block:
@@ -338,7 +338,7 @@ The following produces the same result as above:
 
 which – in tree view – translates to:
 
-.. figure:: ../Images/SyntaxCopying2.png
+.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/SyntaxCopying2.png
    :alt: Another object and its copy
 
 .. important::
@@ -411,7 +411,7 @@ In this case, the :code:`stdWrap.wrap` property of :code:`anotherObject`
 will indeed be :code:`<h1>|<h1>`. In tree view the properties
 of the reference are not shown. Only the reference itself is visible:
 
-.. figure:: ../Images/SyntaxReferencing.png
+.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/SyntaxReferencing.png
    :alt: An object and a reference of it.
 
 Remember:

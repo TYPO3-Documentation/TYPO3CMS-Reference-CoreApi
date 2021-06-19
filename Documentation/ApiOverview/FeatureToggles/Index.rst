@@ -96,7 +96,7 @@ Enable / disable feature toggle
 
 Features can be toggled in the *Settings* module via *Feature Toggles*:
 
-.. image:: Images/FeatureToggles.png
+.. figure:: /Images/ManualScreenshots/FeatureToggles/FeatureToggles.png
    :class: with-shadow
 
 

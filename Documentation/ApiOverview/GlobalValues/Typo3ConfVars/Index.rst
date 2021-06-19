@@ -179,10 +179,10 @@ The Install Tool provides various dedicated modules that change parts of
 :guilabel:`ADMIN TOOLS > Settings`, most importantly section
 :guilabel:`Configure installation-wide options`:
 
-.. figure:: ../Images/InstallToolAllConfiguration.png
+.. figure:: /Images/ManualScreenshots/GlobalValues/InstallToolAllConfiguration.png
    :alt: Configure installation-wide options :guilabel:`ADMIN TOOLS > Settings`
 
-.. figure:: ../Images/InstallationWideOptions.png
+.. figure:: /Images/ManualScreenshots/GlobalValues/InstallationWideOptions.png
    :alt: Configure installation-wide options in Install Tool with an active search
 
 

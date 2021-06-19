@@ -30,7 +30,7 @@ need write access to this directory on a server level (for example via SSH, SFTP
 or you can create this file as a backend user with administrator
 privileges.
 
-.. figure:: ../Images/enable-install-tool.png
+.. figure:: /Images/ManualScreenshots/Security/enable-install-tool.png
     :class: with-border with-shadow
     :alt: Screen to enable the Install Tool
 
@@ -57,7 +57,7 @@ The first thing you should do, after taking over a new TYPO3 system from
 a system administrator, is to change the password to a new and secure one.
 Log-in to the Install Tool and change it there.
 
-.. figure:: ../Images/change-install-tool-password.png
+.. figure:: /Images/ManualScreenshots/Security/change-install-tool-password.png
     :class: with-border with-shadow
     :alt: Screen to change the Install Tool password
 
@@ -87,7 +87,7 @@ TYPO3 Core with a click of a button. This feature can be found under
 "Important actions" and it checks/installs revision updates only (e.g.
 bug fixes and security updates).
 
-.. figure:: ../Images/core-updates.png
+.. figure:: /Images/ManualScreenshots/Security/core-updates.png
     :class: with-border with-shadow
     :alt: Install Tool function to update the TYPO3 Core
 

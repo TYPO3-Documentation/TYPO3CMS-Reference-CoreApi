@@ -31,7 +31,7 @@ The most important thing to note is that everything is an extension in TYPO3
 CMS. Even the most basic functions are packaged in a system extension called
 "core".
 
-.. figure:: Images/Typo3CmsStructure.png
+.. figure:: /Images/ManualScreenshots/Introduction/Typo3CmsStructure.png
    :alt: TYPO3 System layers diagram
    :class: with-border
 
@@ -80,7 +80,7 @@ module. You will see all the extensions that are loaded by default.
 Required extensions that are loaded by default have no
 "Activate/Deactivate" button.
 
-.. figure:: Images/ExtensionsMinimalList.png
+.. figure:: /Images/ManualScreenshots/Introduction/ExtensionsMinimalList.png
    :alt: The Extension Manager with a bare bones installation
    :class: with-border
 

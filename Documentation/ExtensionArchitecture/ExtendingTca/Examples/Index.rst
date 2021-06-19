@@ -130,7 +130,7 @@ fields must also be defined in the :file:`ext_tables.sql` file of the extension:
 The following screen shot shows the placement of the two
 new fields when editing a "fe\_users" record:
 
-.. figure:: ../Images/ExtendingTcaFeUsers.png
+.. figure:: /Images/ManualScreenshots/ExtensionArchitecture/ExtendingTca/ExtendingTcaFeUsers.png
    :alt: New fields for fe\_users table
 
    The new fields added at the bottom of the "Extended" tab
@@ -201,7 +201,7 @@ Precise placement of the new field is achieved with the fourth parameter
 
 The result is the following:
 
-.. figure:: ../Images/ExtendingTcaTtContent.png
+.. figure:: /Images/ManualScreenshots/ExtensionArchitecture/ExtendingTca/ExtendingTcaTtContent.png
    :alt: New fields for tt\_content table
 
    The new field added next to an existing one

@@ -54,7 +54,7 @@ to force a regeneration of all processed files. This can be achieved
 by deleting all existing processed files in
 :guilabel:`Admin Tools > Maintenance > Remove Temporary Assets`.
 
-.. figure:: ../Images/MaintenanceRemoveTemporaryAssets.png
+.. figure:: /Images/ManualScreenshots/Fal/MaintenanceRemoveTemporaryAssets.png
    :alt: Cleaning up processed files
 
    Removing all processed files in the Maintenance Tool

@@ -1,0 +1,34 @@
+{
+    "suites": {
+
+        "Styleguide": {
+            "screenshots": {
+                "_default": [
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {"action": "setScreenshotsDocumentationPath", "path": "Documentation"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
+                ],
+                "RTE": [
+                    {"include": "_default"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Rte"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Rte"},
+                    {
+                        "action": "makeScreenshotOfField",
+                        "table": "tx_styleguide_elements_rte",
+                        "uid": {
+                            "action": "getUidByField",
+                            "table": "tx_styleguide_elements_rte",
+                            "field": "sys_language_uid",
+                            "value": 0
+                        },
+                        "fields": "rte_1",
+                        "altText": "A RTE in the TYPO3 BE",
+                        "captionText": "The rtehtmlarea RTE activated in the TYPO3 backend",
+                        "fileName": "RteInTable"
+                    }
+                ]
+            }
+        }
+    }
+}

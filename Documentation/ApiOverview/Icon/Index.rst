@@ -188,7 +188,7 @@ There, browse through existing icons. Use the name under the icon (for example
 the argument :code:`identifier` in Fluid (see code examples above).
 
 
-.. image:: Images/styleguide.png
+.. figure:: /Images/ManualScreenshots/Icon/styleguide.png
    :class: with-shadow
 
 

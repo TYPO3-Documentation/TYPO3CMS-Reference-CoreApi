@@ -18,7 +18,7 @@ user needs
 Read more about the concepts of MFA here https://en.wikipedia.org/wiki/Multi-factor_authentication
 
 
-.. figure:: Images/mfa-enter-code.png
+.. figure:: /Images/ManualScreenshots/Authentication/mfa-enter-code.png
    :alt: TYPO3 Login Screen for entering MFA code (TOTP)
    :class: with-border with-shadow
 
@@ -66,7 +66,7 @@ provider is active, as it's only meant as a fallback provider, in case the
 authentication credentials for the "main" provider(s) are lost. It is encouraged
 to activate this provider, and keep the codes at a safe place.
 
-.. figure:: Images/mfa-select-provider.png
+.. figure:: /Images/ManualScreenshots/Authentication/mfa-select-provider.png
    :alt: Select a MFA provider screen
    :class: with-border with-shadow
 
@@ -84,7 +84,7 @@ this state with a "star" icon, next to the providers' title.
 Each inactive provider contains a :guilabel:`Setup` button which opens the corresponding
 configuration view. This view can be different depending on the MFA provider.
 
-.. figure:: Images/mfa-qr-code.png
+.. figure:: /Images/ManualScreenshots/Authentication/mfa-qr-code.png
    :alt: MFA TOTP provider configuration screen
    :class: with-border with-shadow
 
@@ -156,7 +156,7 @@ of all currently registered providers in the installation. This is especially
 helpful to find out the exact provider identifier, needed for some
 userTSconfig options.
 
-.. figure:: Images/mfa-configuration-module.png
+.. figure:: /Images/ManualScreenshots/Authentication/mfa-configuration-module.png
    :alt: MFA providers in the configuration module
    :class: with-border with-shadow
 

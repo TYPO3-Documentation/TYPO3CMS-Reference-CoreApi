@@ -52,7 +52,7 @@ under a given header:
 The result is that these options appear in the group access lists like
 this:
 
-.. figure:: Images/CustomOptions.png
+.. figure:: /Images/ManualScreenshots/Examples/CustomPermissions/CustomOptions.png
    :alt: Custom permissions
 
    The custom permissions appear in the Access List tab of backend user groups

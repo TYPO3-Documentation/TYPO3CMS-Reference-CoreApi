@@ -82,7 +82,7 @@ plugin is `registration`.
 
    You should now see the icon, title and description you just added!
 
-   .. figure:: Images/ContentElementWizard.png
+   .. figure:: /Images/ManualScreenshots/ContentElements/ContentElementWizard.png
       :class: with-shadow
 
       Content Element Wizard with the new "Event Registration" plugin

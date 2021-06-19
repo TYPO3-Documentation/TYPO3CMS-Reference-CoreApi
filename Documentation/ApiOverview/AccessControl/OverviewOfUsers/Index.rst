@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: 
+.. index::
    Backend; Backend users module
    Module; Backend users
 .. _access-backend-users-module:
@@ -21,7 +21,7 @@ Just add users using the
 For example, this is the comparison of the three different editors
 provided by the Introduction Package:
 
-.. figure:: ../Images/AccessCompareUsers.png
+.. figure:: /Images/ManualScreenshots/AccessControl/AccessCompareUsers.png
    :alt: Comparing users thanks to the Backers users module
 
 The same functionality is available for user groups, including a comparison
@@ -33,7 +33,7 @@ Impersonating Users ("Switch to")
 We can impersonate (switch) to a user by clicking the :guilabel:`Switch to user`
 action icon:
 
-.. figure:: ../Images/AccessSimulateUserButton.png
+.. figure:: /Images/ManualScreenshots/AccessControl/AccessSimulateUserButton.png
    :alt: The button to simulate another user
 
 
@@ -42,6 +42,6 @@ is prefixed with "SU" for "Simulated User"). To "switch back",
 use the "Exit" button (which replaces the usual "Logout"
 button).
 
-.. figure:: ../Images/AccessSimulatedUser.png
+.. figure:: /Images/ManualScreenshots/AccessControl/AccessSimulatedUser.png
    :alt: Backend with active simulate user
 

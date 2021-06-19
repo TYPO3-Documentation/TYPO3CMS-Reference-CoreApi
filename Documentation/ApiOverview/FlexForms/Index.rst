@@ -36,7 +36,7 @@ uses Flexforms to configure rendering options,
 e.g. a transition interval and transition type (slide, fade)
 for the carousel content element.
 
-.. image:: Images/FlexFormCarousel.png
+.. figure:: /Images/ManualScreenshots/FlexForms/FlexFormCarousel.png
    :class: with-shadow
 
 Some more extensions that utilize FlexForms are:
@@ -245,7 +245,7 @@ The function :php:`user_orderBy` populates the select field in
 
 How this looks when configuring the plugin:
 
-.. image:: Images/FlexFormsItemsProcFunc.png
+.. figure:: /Images/ManualScreenshots/FlexForms/FlexFormsItemsProcFunc.png
    :class: with-shadow
 
 .. seealso::
@@ -316,7 +316,7 @@ can do that with:
    <config>
        <!-- ... -->
    </config>
-       
+
 
 The :xml:`onChange` element is optional and must be placed on the same level as the :xml:`<config>` element.
 
@@ -423,10 +423,10 @@ If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign si
      variables {
        categories = TEXT
        categories.data = flexform: pi_flexform:categories
-     } 
+     }
    }
 
-In order to have all FlexForm fields available, you can add a custom DataProcessor. 
+In order to have all FlexForm fields available, you can add a custom DataProcessor.
 This example would make your FlexForm data available as Fluid variable :html:`{flexform}`:
 
 .. code-block:: typoscript
@@ -441,22 +441,22 @@ This example would make your FlexForm data available as Fluid variable :html:`{f
 .. code-block:: php
 
    namespace Your\Ext\DataProcessing;
-   
+
    use TYPO3\CMS\Core\Service\FlexFormService;
    use TYPO3\CMS\Core\Utility\GeneralUtility;
    use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-   
+
    class FlexFormProcessor implements DataProcessorInterface
    {
        /**
         * @var FlexFormService
         */
        protected $flexFormService;
-       
+
        public function __construct(FlexFormService $flexFormService) {
            $this->flexFormService = $flexFormService;
        }
-       
+
        public function process(
            ContentObjectRenderer $cObj,
            array $contentObjectConfiguration,
@@ -467,7 +467,7 @@ This example would make your FlexForm data available as Fluid variable :html:`{f
            if (!is_string($originalValue)) {
                return $processedData;
            }
-   
+
            $flexformData = $this->flexFormService->convertFlexFormContentToArray($originalValue);
            $processedData['flexform'] = $flexformData;
            return $processedData;
@@ -484,7 +484,7 @@ Steps to Perform (Editor)
 After inserting a plugin, the editor can configure this plugin by switching
 to the tab "Plugin" or whatever string you defined to replace this.
 
-.. image:: Images/FlexformBackend.png
+.. figure:: /Images/ManualScreenshots/FlexForms/FlexformBackend.png
    :class: with-shadow
 
 

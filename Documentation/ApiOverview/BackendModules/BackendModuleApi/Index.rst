@@ -261,7 +261,7 @@ navigation frame).
 :php:`$GLOBALS['TBE_MODULES']` can be explored using the
 **SYSTEM > Configuration** module.
 
-.. figure:: ../Images/BackendModulesConfiguration.png
+.. figure:: /Images/ManualScreenshots/BackendModules/BackendModulesConfiguration.png
    :alt: Exploring the TBE_MODULES array using the Configuration module
    :class: with-border with-shadow
 

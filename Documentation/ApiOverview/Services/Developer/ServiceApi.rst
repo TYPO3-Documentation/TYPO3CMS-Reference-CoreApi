@@ -70,7 +70,7 @@ The little schema below summarizes the process of getting a service
 instance and when each of :php:`init()` and :php:`reset()` are
 called.
 
-.. figure:: ../Images/InstanceLifeCycle.png
+.. figure:: /Images/ExternalImages/Services/InstanceLifeCycle.png
    :alt: The life cycle of a service instance
 
    The life cycle of a service instance
