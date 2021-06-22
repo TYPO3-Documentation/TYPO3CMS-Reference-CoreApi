@@ -128,7 +128,7 @@ Crowdin
 
 If you use language labels which should get translated in your extension
 (typically in :file:`Resources/Private/Languages`),
-you may want to configure the translation setup on http://crowdin.com.
+you may want to configure the translation setup on https://crowdin.com.
 Crowdin is the official translation server for TYPO3.
 
 This is documented on :ref:`crowdin-extension-integration`.
