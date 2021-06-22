@@ -8,7 +8,7 @@ Publish your extension
 
 By publishing an extension to the
 `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__, we mean
-making it publicly available. Follow these four steps, we recommend to do all
+making it publicly available. Follow these steps, we recommend to do all
 of these.
 
 
@@ -16,6 +16,7 @@ of these.
 #. :ref:`Publish your extension on Packagist <publishExtensionPackagist>`
 #. :ref:`Publish your extension on TER <publishExtensionTer>`
 #. :ref:`Add webhook for documentation <publishExtensionDocumentation>`
+#. :ref:`Set up translations <publishExtensionTranslation>` on Crowdin
 
 *TYPO3 - Inspiring people to share*
 
@@ -119,3 +120,15 @@ step 4 (request redirects) which is not necessary for new documentation.
    :glob:
 
    PublishToTER/Index
+
+.. _publishExtensionTranslation:
+
+Crowdin
+=======
+
+If you use language labels which should get translated in your extension
+(typically in :file:`Resources/Private/Languages`),
+you may want to configure the translation setup on https://crowdin.com.
+Crowdin is the official translation server for TYPO3.
+
+This is documented on :ref:`crowdin-extension-integration`.
