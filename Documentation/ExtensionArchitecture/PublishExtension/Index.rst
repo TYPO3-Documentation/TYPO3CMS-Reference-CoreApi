@@ -16,7 +16,7 @@ of these.
 #. :ref:`Publish your extension on Packagist <publishExtensionPackagist>`
 #. :ref:`Publish your extension on TER <publishExtensionTer>`
 #. :ref:`Add webhook for documentation <publishExtensionDocumentation>`
-#. :ref:`Configure on Crowdin <publishExtensionTranslation>` for translation
+#. :ref:`Set up translations <publishExtensionTranslation>` on Crowdin
 
 *TYPO3 - Inspiring people to share*
 
