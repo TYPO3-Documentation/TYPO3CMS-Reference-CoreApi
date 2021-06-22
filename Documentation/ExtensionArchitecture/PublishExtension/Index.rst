@@ -56,9 +56,9 @@ This is described on `Packagist <https://packagist.org/>`__.
 
 **Advantages:**
 
-* It is possible to install your extension using `composer require`
-* An update of the extension can be done easily by your users with
-     `composer update`
+*  It is possible to install your extension using `composer require`
+*  An update of the extension can be done easily by your users with
+   `composer update`
 
 .. index:: Extension development; TER
 
