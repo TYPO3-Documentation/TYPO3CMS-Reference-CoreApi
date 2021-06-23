@@ -8,18 +8,7 @@ Publish your extension
 
 Follow these steps to release your extension publicly in the TYPO3 world:
 
-.. important::
-
-   It is strongly recommended to register the extension on TER and on Packagist.
-   This way, it will be possible to install the extension via Composer or via the
-   TYPO3 Extension Manager (for non Composer installations). As first step,
-   you should register the extension key on https://extensions.typo3.org to
-   make sure, it is still available. If you fail to do this, the extension
-   key may be used by another extension which may lead to ugly conflicts
-   in installations (even if your extension is installed via Composer).
-
-
-#. :ref:`Publish source code on a public Git hosting platform <publishExtensionGit>`
+#. :ref:`Publish the source code on a public Git hosting platform <publishExtensionGit>`
 #. :ref:`Publish your extension on Packagist <publishExtensionPackagist>`
 #. :ref:`Publish your extension on TER <publishExtensionTer>`
 #. :ref:`Publish its documentation in the official TYPO3 documentation <publishExtensionDocumentation>`
@@ -64,7 +53,7 @@ about the publishing process.
 **Depends on:**
 
 *  Public Git repository
-*  Extension must have a valid :ref:`composer.json <composer-json>`.
+*  Valid :ref:`composer.json <composer-json>`
 
 **Advantages:**
 
@@ -92,20 +81,17 @@ page `FAQ <https://extensions.typo3.org/faq/>`__.
 
 **Depends on:**
 
-*  Unique extension key which conforms to the
-   :ref:`rules for extension keys <extension-key>`.
+*  :ref:`Extension key <extension-key>` registered in TER
 
 **Advantages:**
 
 *  Extension can be installed in a
    :ref:`non-Composer based <t3install:install-typo3-without-composer>`
    TYPO3 instance using the :ref:`Extension Manager <extension-manager>`.
-*  The extension key is reserved once it is registered on TER. This means,
-   no other extension author can register their extension on TER using the same
-   extension key.
 *  All advantages of being listed in the TER, for example:
 
    *  Easy finding of your extension
+   *  Reserved extension key in the TYPO3 world
    *  The community can vote for your extension
    *  Users can subscribe to notifications on new releases
    *  Composer package is announced (optional)
