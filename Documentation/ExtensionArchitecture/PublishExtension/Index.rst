@@ -54,6 +54,7 @@ about the publishing process.
 **Depends on:**
 
 *  Public Git repository
+*  Valid :ref:`composer.json <composer-json>`
 
 **Advantages:**
 
@@ -79,6 +80,10 @@ See page :ref:`publish-to-ter` for more information about the
 publishing process and check out the TYPO3 community Q&A at
 page `FAQ <https://extensions.typo3.org/faq/>`__.
 
+**Depends on:**
+
+*  :ref:`Extension key <extension-key>` registered in TER
+
 **Advantages:**
 
 *  Extension can be installed in a
@@ -87,6 +92,7 @@ page `FAQ <https://extensions.typo3.org/faq/>`__.
 *  All advantages of being listed in the TER, for example:
 
    *  Easy finding of your extension
+   *  Reserved extension key in the TYPO3 world
    *  The community can vote for your extension
    *  Users can subscribe to notifications on new releases
    *  Composer package is announced (optional)
