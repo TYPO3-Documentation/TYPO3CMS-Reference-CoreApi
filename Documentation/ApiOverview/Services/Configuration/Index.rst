@@ -1,20 +1,5 @@
-.. include:: /Includes.rst.txt
-.. index:: Services API; Configuration
-.. _services-configuration:
+:orphan:
 
-=============
-Configuration
-=============
+The Services API has been deprecated. See :ref:`Deprecated: Services API <services>`
 
-Each service will have its own configuration which should be
-documented in their manual. There are however properties common to all
-services as well as generic mechanisms which are described below.
-
-
-.. toctree::
-   :titlesonly:
-
-   RegistrationChanges
-   ServiceConfiguration
-   ServiceTypeConfiguration
-
+.. todo: remove on switching to TYPO3 12

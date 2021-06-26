@@ -165,8 +165,8 @@ SYS
   :ref:`General options <typo3ConfVars_sys>` which may affect both the frontend
 
 T3_SERVICES
-   :ref:`Service registration configuration <ervices-configuration-registration-changes>`
-   and the backend.
+   Was previously used to register services of the Service API, which has
+   been deprecated with TYPO3 11.3.
 
 Further details on the various configuration options can be found in the Install Tool
 as well as the TYPO3 source at

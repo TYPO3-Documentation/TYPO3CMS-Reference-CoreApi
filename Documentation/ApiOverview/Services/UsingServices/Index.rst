@@ -1,19 +1,5 @@
-.. include:: /Includes.rst.txt
-.. _services-using-services:
+:orphan:
 
-==============
-Using Services
-==============
+The Services API has been deprecated. See :ref:`Deprecated: Services API <services>`
 
-This chapter describes the different ways in which services
-can be used. It also explains the most important notion about
-services: precedence.
-
-.. toctree::
-   :titlesonly:
-
-   ServicePrecedence
-   SimpleUse
-   UseWithSubtypes
-   ServiceChain
-
+.. todo: remove on switching to TYPO3 12

@@ -1,21 +1,5 @@
-.. include:: /Includes.rst.txt
+:orphan:
 
+The Services API has been deprecated. See :ref:`Deprecated: Services API <services>`
 
-.. _services-developer:
-
-=================
-Developer's Guide
-=================
-
-This chapter describes all you need to know to develop a new service,
-including advice to developing good services.
-
-
-.. toctree::
-   :titlesonly:
-
-   NewServiceType
-   Implementing
-   ServiceApi
-   ServiceRelatedApi
-
+.. todo: remove on switching to TYPO3 12
