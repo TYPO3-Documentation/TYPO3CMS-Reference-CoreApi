@@ -221,7 +221,7 @@ every request. Therefore, they should be optimized for speed.
 
    <?php
    // put this at top of every ext_tables.php and ext_localconf.php
-   defined('TYPO3') or die();
+   defined('TYPO3_MODE') or die();
 
 -  You **SHOULD** use the extension name (e.g. "tt_address") instead of :php:`$_EXTKEY`
    within the two configuration files as this variable will be removed in the future. This also applies
