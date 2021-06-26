@@ -37,6 +37,27 @@ File mounts
   related to a storage.
 
 .. index::
+   File mounts; create
+
+.. _access-filemounts-create:
+
+Create a new filemount
+======================
+
+.. versionadded:: 11.3
+   Starting with TYPO3 11.3 it is possible to create a new filemount via
+   the context menu of the folder.
+
+To create a new filemount go to the module :guilabel:`Filelist` and create the
+folder for the mount if it didn't exist yet. Then open the context menu on that
+folder and choose :guilabel:`New Filemount`. Then give the new filemount a name.
+storage and folder are already set.
+
+It is also possible to create a filemount manually in the :guilabel:`List`
+module by creating a record of type :php:`Filemount`. In this case you have
+to choose the storage and folder manually.
+
+.. index::
    TYPO3_CONF_VARS; BE fileadminDir
    TYPO3_CONF_VARS; BE lockRootPath
    Local driver storage
