@@ -227,9 +227,37 @@ Best practices
 There are no strict rules or guidelines about logging.
 Still it can be considered to be best practice to follow these rules:
 
+Use placeholders
+----------------
+
+Adhere to the the PSR-3
+`placeholder specification <https://www.php-fig.org/psr/psr-3/>`__. This is
+necessary in order to use proper PSR-3 Logging.
+
+Bad example:
+
+.. code-block:: php
+
+   // $this->logger->alert(
+      'Password reset requested for email "' .
+      $emailAddress . '" . but was requested too many times.');
+
+Good example:
+
+.. code-block:: php
+
+   $this->logger->alert(
+      'Password reset requested for email {email} but was requested too many times.',
+      ['email' => $emailAddress]);
+
+The first argument is 'message', second (optional) argument is 'context'.
+A message can use :php:`{placeholders}`. All Core provided log writers will
+substitute placeholders in the message with data from the context array,
+if a context array key with same name exists.
+
+
 Meaningful message
 ------------------
-
 
 The message itself has to be meaningful, for example exception messages.
 
