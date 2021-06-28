@@ -39,6 +39,22 @@ hierarchy of these two arrays.
 .. index:: DataHandler; Commands array
 .. _tce-commands:
 
+Basic Usage
+===========
+
+.. highlight:: php
+
+::
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\DataHandling\DataHandler;
+   
+   $dataHandler = GeneralUtility::makeInstance(DataHandler:class);
+   
+   $cmd = [];
+   $data = [];
+   $dataHandler->start($data, $cmd);
+
 Commands array
 ==============
 
@@ -298,7 +314,6 @@ Examples of commands:
    $cmd['tt_content'][1203]['copy'] = -303; // Copies tt_content uid=1203 to the position after tt_content uid=303 (new record will have the same pid as tt_content uid=1203)
    $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
    $cmd['tt_content'][1203]['move'] = 400;  // Moves tt_content uid=1203 to the first position in page uid=400
-
 
 .. index:: DataHandler; Data array
 .. _tce-data:
