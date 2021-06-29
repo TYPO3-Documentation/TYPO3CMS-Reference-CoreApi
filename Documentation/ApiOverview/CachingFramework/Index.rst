@@ -14,10 +14,6 @@ Caching in TYPO3
 TYPO3 uses multiple caching strategies to ensure fast content delivery. Depending
 on the content a page contains, TYPO3 chooses the best strategy for the usage of caches.
 Each page has its own cache entry. There is no duplication of a cache between different pages. 
-However an extension developer can make an extension as uncached and use calls to the Caching Framework
-to do all cache handling. There are also cache options in TypoScript which may help to simplify this:
-t3tsref +++
-https://docs.typo3.org/m/typo3/reference-typoscript/10.4/en-us/Functions/Cache.html
 
 For example, you might have a fully-cacheable page, a page that is at least partially
 cacheable or a page that is completely dynamic. Dynamic elements in TYPO3 are also known
@@ -36,24 +32,27 @@ configured. In the second case, TYPO3 fetches those entries from the cache and
 delivers them to the user without re-triggering the rendering.
 
 In that second case, either the page is fully cached and directly delivered from
-the cache, or the page has non-cacheable elements on it. If a page has non-cacheable
-elements, TYPO3 first fetches the cached part of the page and then renders all
-dynamic parts.
+the cache, or the page is cached but has also non-cacheable elements on it. 
+If a page has non-cacheable elements, TYPO3 first fetches the cached part of the page and 
+then renders all dynamic parts.
 
 .. note::
 
-   The cache contains placeholders for dynamic elements to tell TYPO3 where to render
-   dynamic parts.
+   A stored cache contains placeholders for dynamic elements to tell TYPO3 where it has to render
+   which dynamic parts.
 
 
 .. hint::
 
-   For developers: If you are developing a plugin think about your plugin's cache lifetime.
-   Ideally, it can be fully cached, but if not, read the section about the caching framework
-   to learn how to leverage TYPO3's caching mechanism to cache your plugin for however long
-   you can - even 30 seconds might improve performance in some scenarios.
+   For developers: If you are developing a plugin, think about your plugin's cache lifetime.
+   Ideally, it can be fully in the cache for a long time. But if not, make the extension uncached and follow 
+   the steps in the section about the caching framework
+   in order to leverage TYPO3's caching mechanism. This is a means to cache your plugin for however long
+   you can - even only 30 seconds might improve performance in some scenarios.
+   There are also cache options in TypoScript which may help to simplify this:
+   :ref:`t3tsref/Functions/Cache.html:Cache`
 
-
+.. _cache_hash:
 Caching Variants - or: What is a "cache hash"?
 ----------------------------------------------
 
@@ -125,7 +124,7 @@ Example (excerpt of `LocalConfiguration.php`)
    ];
 
 
-For instance instead of having exclude items like
+For instance instead of having ti exclude items like
 
 .. code-block:: php
 
