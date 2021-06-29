@@ -12,12 +12,19 @@ Caching in TYPO3
 ----------------
 
 TYPO3 uses multiple caching strategies to ensure fast content delivery. Depending
-on the content a page contains, TYPO3 chooses the best caching strategy for that use case.
+on the content a page contains, TYPO3 chooses the best strategy for the usage of caches.
+Each page has its own cache entry. There is no duplication of a cache between different pages. 
+However an extension developer can make an extension as uncached and use calls to the Caching Framework
+to do all cache handling. There are also cache options in TypoScript which may help to simplify this:
+t3tsref +++
+https://docs.typo3.org/m/typo3/reference-typoscript/10.4/en-us/Functions/Cache.html
 
 For example, you might have a fully-cacheable page, a page that is at least partially
 cacheable or a page that is completely dynamic. Dynamic elements in TYPO3 are also known
 as `USER_INT` or `COA_INT` objects - as these are the matching TypoScript objects used
-to render non-cacheable content.
+to render non-cacheable content. Or they are added in the file file:`localconf.php` of an
+Extbase extension by the call of `\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin` 
+with the 4th parameter which is for non-cacheable actions.
 
 When visiting a TYPO3 web site, TYPO3 knows the following states:
 
