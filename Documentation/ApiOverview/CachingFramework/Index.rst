@@ -24,8 +24,10 @@ with the 4th parameter which is for non-cacheable actions.
 
 When visiting a TYPO3 web site, TYPO3 knows the following states:
 
-- first time hit, page has never been rendered ("cache miss")
-- consecutive hit, page has been rendered before ("cache hit")
+#. first time hit:
+   A page has never been rendered ("cache miss").
+#. consecutive hit:
+   A page has been rendered before ("cache hit")
 
 In the first case, TYPO3 renders the complete page and writes cache entries as
 configured. In the second case, TYPO3 fetches those entries from the cache and
@@ -159,7 +161,7 @@ The caching framework exists to help speeding up TYPO3 sites, especially heavily
 It is possible to move all caches to a dedicated cache server with specialized cache systems
 like the Redis key-value store (a so called `NoSQL database <http://en.wikipedia.org/wiki/NoSQL>`_).
 
-Major parts of the original caching framework were originally backported from TYPO3 Flow.
+Major parts of the original caching framework were formerly backported from TYPO3 Flow.
 
 .. toctree::
    :titlesonly:
