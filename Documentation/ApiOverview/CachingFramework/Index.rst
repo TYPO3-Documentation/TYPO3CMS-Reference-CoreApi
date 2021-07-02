@@ -18,9 +18,11 @@ Each page has its own cache entry. There is no duplication of a cache between di
 For example, you might have a fully-cacheable page, a page that is at least partially
 cacheable or a page that is completely dynamic. Dynamic elements in TYPO3 are also known
 as `USER_INT` or `COA_INT` objects - as these are the matching TypoScript objects used
-to render non-cacheable content. Or they are added in the file file:`localconf.php` of an
-Extbase extension by the call of `\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin` 
-with the 4th parameter which is for non-cacheable actions.
+to render non-cacheable content.
+Extensions can define actions that are not cacheable. They can have their own cache-settings.
+The configuration to avoid caching for those actions is different:
+In an Extbase extension this is added by the call of `\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin` in the file file:`localconf.php`.
+The 4th parameter determines if TYPO3 has to render cacheable or non-cacheable content.
 
 When visiting a TYPO3 web site, TYPO3 knows the following states:
 
