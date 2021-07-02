@@ -335,8 +335,10 @@ Description of keywords in syntax:
          mixed
    :Description:
          The UID of the record that is modified. If the record already exists,
-         this is an integer. If you're creating new records, use a random
-         string prefixed with "NEW", e.g. "NEW7342abc5e6d".
+         this is an integer.
+         
+         If you're creating new records, use a random string prefixed with `NEW`, e.g. `NEW7342abc5e6d`.
+         You can use static strings (`NEW1`, `NEW2`, ...) or generate them using :php:`StringUtility::getUniqueId('NEW')`.
 
 
  - :Key:
