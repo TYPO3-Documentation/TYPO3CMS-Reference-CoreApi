@@ -152,7 +152,7 @@ If no attribute :yaml:`method` is given, the class is treated as Invokable, thus
 
 .. versionchanged:: 11.3
    The :yaml:`event` tag can be omitted, since it is automatically derived
-   from the from the method signature of the listener implementation.
+   from the method signature of the listener implementation.
 
 
 .. index:: Event listener; Implementation
