@@ -47,7 +47,7 @@ a CSP_ header for any file accessed via https://example.org/fileadmin/...::
   server {
         # Add strict CSP header depending on mapping (fileadmin only)
         add_header Content-Security-Policy $csp_header;
-        # ... other add_header can follow here
+        # ... other add_header declarations can follow here
   }
 
 The nginx example configuration uses a map, since top level `add_header` 
