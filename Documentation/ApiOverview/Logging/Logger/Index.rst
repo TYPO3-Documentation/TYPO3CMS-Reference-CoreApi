@@ -230,7 +230,7 @@ Still it can be considered to be best practice to follow these rules:
 Use placeholders
 ----------------
 
-Adhere to the the PSR-3
+Adhere to the PSR-3
 `placeholder specification <https://www.php-fig.org/psr/psr-3/>`__. This is
 necessary in order to use proper PSR-3 Logging.
 
