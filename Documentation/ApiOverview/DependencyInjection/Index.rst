@@ -83,6 +83,53 @@ For example autoconfiguration ensures that classes which implement
 :php:`\TYPO3\CMS\Core\SingletonInterface` will be publicly available from the
 Symfony container.
 
+
+Arguments
+------
+
+In case you turned autowire off or need special arguments set, you can configure
+those as well.
+This means you could set :yaml:`autowire: false` for an extension but provide the needed
+arguments via config specifically for classes you want to.
+This can be done in chronological order or by naming them.
+
+.. code-block:: yaml
+
+    # Configuration/Services.yaml
+      Vendor\MyExtension\UserFunction\ClassA:
+        arguments:
+          $argA: '@TYPO3\CMS\Core\Database\ConnectionPool'
+
+      Vendor\MyExtension\UserFunction\ClassB:
+        arguments:
+          - '@TYPO3\CMS\Core\Database\ConnectionPool'
+
+This enables you to inject concrete objects like the QueryBuilder or Database Connection:
+
+.. code-block:: yaml
+
+   # Configuration/Services.yaml
+     querybuilder.pages:
+       class: 'TYPO3\CMS\Core\Database\Query\QueryBuilder'
+       factory:
+         - '@TYPO3\CMS\Core\Database\ConnectionPool'
+         - 'getQueryBuilderForTable'
+       arguments:
+         - 'pages'
+
+     Vendor\MyExtension\UserFunction\ClassA:
+       public: true
+       arguments:
+         - '@querybuilder.pages'
+
+Now you can access the QueryBuilder instance within ClassA. With this you can
+call your queries without further instantiation. Be aware to clone your object or
+resetting the query parts to prevent side effects in case of multiple usages.
+
+This method of injecting Objects does also work with e.g. extension configurations
+or typoscript settings.
+
+
 Public
 ------
 
