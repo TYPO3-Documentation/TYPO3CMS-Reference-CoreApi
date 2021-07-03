@@ -128,7 +128,7 @@ Example (excerpt of `LocalConfiguration.php`)
    ];
 
 
-For instance instead of having ti exclude items like
+For instance instead of having to exclude items like
 
 .. code-block:: php
 
