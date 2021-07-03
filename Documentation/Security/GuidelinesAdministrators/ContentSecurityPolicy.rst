@@ -37,6 +37,13 @@ accessed via https://example.org/fileadmin/...::
      Header set Content-Security-Policy "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';"
    </IfModule>
 
+For nginx webservers, the following configuration example can be used to send 
+a CSP_ header for any file accessed via https://example.org/fileadmin/...::
+
+  location ~ fileadmin {
+      add_header Content-Security-Policy "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';";
+  }
+
 CSP rules can be verified with a CSP-Evaluator_
 
 .. _CSP: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
