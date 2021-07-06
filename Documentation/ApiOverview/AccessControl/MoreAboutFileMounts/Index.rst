@@ -50,7 +50,7 @@ Create a new filemount
 
 To create a new filemount go to the module :guilabel:`Filelist` and create the
 folder for the mount if it didn't exist yet. Then open the context menu on that
-folder and choose :guilabel:`New Filemount`. Then give the new filemount a name.
+folder and choose :guilabel:`New Filemount`, then give the new filemount a name.
 storage and folder are already set.
 
 It is also possible to create a filemount manually in the :guilabel:`List`
