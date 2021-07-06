@@ -42,7 +42,6 @@ Code-Example for the :php:`ArrayPaginator`:
    $paginator->getCurrentPageNumber(); // returns 3, basically just returns the input value
    $paginator->getKeyOfFirstPaginatedItem(); // returns 5
    $paginator->getKeyOfLastPaginatedItem(); // returns 5
-   $paginator->getAllPageNumbers(); // returns [1,2,3]
    
    // use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
    $pagination = new SimplePagination($paginator);
