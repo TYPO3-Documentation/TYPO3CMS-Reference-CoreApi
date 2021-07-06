@@ -46,8 +46,7 @@ Code-Example for the :php:`ArrayPaginator`:
    
    // use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
    $pagination = new SimplePagination($paginator);
-   $pagination->getAllPageNumbers(); // returns 3
+   $pagination->getAllPageNumbers(); // returns [1, 2, 3]
    $pagination->getPreviousPageNumber(); // returns 2
    $pagination->getNextPageNumber(); // returns null
    // …
-
