@@ -417,17 +417,15 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieSameSite']
    TYPO3_CONF_VARS BE; loginSecurityLevel
 .. _typo3ConfVars_be_loginSecurityLevel:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['loginSecurityLevel']
-=======================================================
+Removed: $GLOBALS['TYPO3_CONF_VARS']['BE']['loginSecurityLevel']
+================================================================
 
-.. confval:: loginSecurityLevel
-
-   :type: text
-   :Default: 'normal'
-
-   Keywords that determines the security level of login to the backend.
-   "normal" means the password from the login form is sent in clear-text.
-   The client/server communication should be secured with HTTPS.
+.. deprecated:: 11.3
+   This option was removed with version 11.3. The only possible
+   value has been 'normal'. This behaviour stays unchanged.  When this option
+   has been set in your :file:`LocalConfiguration.php`
+   or :file:`AdditionalConfiguration.php` files, they are automatically
+   removed when accessing the admin tool or system maintenance area.
 
 .. index::
    TYPO3_CONF_VARS BE; showRefreshLoginPopup
