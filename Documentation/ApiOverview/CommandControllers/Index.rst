@@ -277,8 +277,14 @@ Running the Command From the Scheduler
 ======================================
 
 By default, it is possible to run the command from the :ref:`TYPO3 scheduler
-<sched:start>` as well. In order to deactivate this, see
-:ref:`deactivating-the-command-in-scheduler`.
+<sched:start>` as well. For this select the task :guilabel:`Execute console commands`
+followed by your command in the :guilabel:`Schedulable Command` field.
+
+.. note::
+   You need to save and reopen the task to define command arguments.
+
+In order to prevent commands from being set up as Scheduler tasks,
+see :ref:`deactivating-the-command-in-scheduler`.
 
 More information
 ================
