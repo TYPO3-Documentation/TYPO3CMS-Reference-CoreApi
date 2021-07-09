@@ -211,16 +211,6 @@ This can be disabled by setting ``schedulable`` to ``false`` in :file:`Configura
            schedulable: false
 
 
-Or inside :file:`Configuration/Commands.php`.
-Deprecated since v10 and will be removed in v11::
-
-   return [
-       'yourext:dothings' => [
-           'class' => \Vendor\Extension\Command\DoThingsCommand::class,
-           'schedulable' => false,
-       ],
-   ];
-
 Hide a command
 --------------
 
