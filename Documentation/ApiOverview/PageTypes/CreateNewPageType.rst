@@ -40,6 +40,8 @@ The new page type is added to :php:`$GLOBALS['PAGES_TYPES']` in :file:`ext_table
 User TSconfig is added and an icon is registed in :file:`ext_localconf.php`::
 
    (function ($extKey='example') {
+      $archiveDoktype = 116;
+      
       // Provide icon for page tree, list view, ... :
       $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
       $iconRegistry
