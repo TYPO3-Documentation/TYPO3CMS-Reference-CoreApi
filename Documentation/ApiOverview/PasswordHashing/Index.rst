@@ -300,15 +300,46 @@ To check a plain-text password against a password hash, these are the steps to b
 
 Example implementation for TYPO3 frontend::
 
-   // Given plain-text password
-   $password = 'someHopefullyGoodAndLongPassword';
-   // The stored password hash from database
-   $passwordHash = 'YYY';
-   // The context, either 'FE' or 'BE'
-   $mode = 'FE';
-   $success = GeneralUtility::makeInstance(PasswordHashFactory::class)
-       ->get($passwordHash, $mode) # or getDefaultHashInstance($mode)
-       ->checkPassword($password, $passwordHash);
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Crypto\PasswordHashing\InvalidPasswordHashException;
+    use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
+
+    ...
+
+    public function checkPassword($submittedUsername, $submittedPassword, $passwordHashInDatabase, $mode = 'FE')
+    {
+        $saltFactory = GeneralUtility::makeInstance(PasswordHashFactory::class);
+
+        // Get a hashed password instance for the hash stored in db of this user
+        $invalidPasswordHashException = null;
+        try {
+            $hashInstance = $saltFactory->get($passwordHashInDatabase, $mode);
+        } catch (InvalidPasswordHashException $invalidPasswordHashException) {
+            $message = 'Login-attempt from ###IP###, username \'%s\', no suitable hash method found!';
+            $this->writeLogMessage($message, $submittedUsername);
+            return false;
+        }
+
+        // An instance of the currently configured salted password mechanism
+        // Don't catch InvalidPasswordHashException here: Only install tool should handle those configuration failures
+        $defaultHashInstance = $saltFactory->getDefaultHashInstance($mode);
+
+        // We found a hash class that can handle this type of hash
+        $isValidPassword = $hashInstance->checkPassword($submittedPassword, $passwordHashInDatabase);
+        return $isValidPassword;
+    }
+
+    ...
+
+    $username = 'foobar';
+    // Given plain-text password
+    $password = 'someHopefullyGoodAndLongPassword';
+    // The stored password hash from database
+    $passwordHash = 'YYK02';
+    // The context, either 'FE' or 'BE'
+    $mode = 'FE';
+    $success = $this->checkPassword($username, $password, $passwordHash, $mode);
+
 
 Adding a new hash mechanism
 ---------------------------
