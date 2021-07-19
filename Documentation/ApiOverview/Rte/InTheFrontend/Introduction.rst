@@ -19,15 +19,6 @@ about adding an RTE on frontend pages.
 
    The rtehtmlarea RTE activated in the TYPO3 backend
 
-.. tip::
-
-   This description about :ref:`CKEditor (rte_ckeditor) <ckedit:start>` includes examples and common challenges for
-   the frontend.
-   
-   You can use other editors with TYPO3 and some points, like
-   handling of data on the server, are independent of the distinct editor
-   in the frontend.
-
 The following list describes features and corresponding implementation
 effort ordered from simple to complex. 
 
@@ -113,3 +104,12 @@ JavaScript.
    not related to any of those extensions, as it would exceed the context
    of this API. If an existing extension is used for forms then the manual
    or support in context of the corresponding extension should help.
+
+The solution
+============
+
+The chapter :ref:`CKEditor (rte_ckeditor) <ckedit:start>` includes examples
+and common challenges for the frontend. You can use other editors with TYPO3
+and some points, like handling of data on the server, are independent of the
+distinct editor in the frontend. Therefore the chapter is advised even if you
+use another editor.
