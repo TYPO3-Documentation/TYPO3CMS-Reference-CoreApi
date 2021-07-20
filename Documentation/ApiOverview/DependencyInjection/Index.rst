@@ -54,8 +54,9 @@ This is how a basic :file:`Services.yaml` of an extension looks like. The meanin
 
 .. note::
 
-   Whenever service configuration or class dependencies change, the core cache needs
-   to be flushed to rebuild the compiled Symfony container.
+   Whenever service configuration or class dependencies change, the Core cache needs
+   to be flushed in the Install Tool to rebuild the compiled Symfony container.
+   Flushing all caches from the cache clear menu does not flush the compiled Symfony container.
 
 
 .. _autowire:
