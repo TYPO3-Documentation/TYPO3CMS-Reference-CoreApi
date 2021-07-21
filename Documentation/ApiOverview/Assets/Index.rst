@@ -49,26 +49,27 @@ files concatenated into one file.
 The :php:`AssetCollector` class is implemented as a singleton (:php:`SingletonInterface`). It replaces various other existing options
 in TypoScript and methods in PHP to insert Javascript code and CSS data. 
 
-Initialization:
+Former methods:
+
+.. code-block:: php
 
    use TYPO3\CMS\Core\Page\PageRenderer;
    use TYPO3\CMS\Core\Utility\GeneralUtility;
 
    $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
 
-
-   * :php:`$GLOBALS['TSFE']->additionalHeaderData[$name] = $javascriptcode;`
-   * :php:`$GLOBALS['TSFE']->setJS($name, $javascriptcode)`
-   * :php:`$pageRenderer->addHeaderData($javascriptcode)`
-   * :php:`$pageRenderer->addCssFile($file)`
-   * :php:`$pageRenderer->addCssInlineBlock($name, $csscode)`
-   * :php:`$pageRenderer->addCssLibrary($file)`
-   * :php:`$pageRenderer->addJsFile($file)`
-   * :php:`$pageRenderer->addJsFooterFile($file)`
-   * :php:`$pageRenderer->addJsFooterLibrary($name, $file)`
-   * :php:`$pageRenderer->addJsFooterInlineCode($name, $javascriptcode)`
-   * :php:`$pageRenderer->addJsInlineCode($name, $javascriptcode)`
-   * :php:`$pageRenderer->addJsLibrary($name, $file)`
+* :php:`$GLOBALS['TSFE']->additionalHeaderData[$name] = $javascriptcode;`
+* :php:`$GLOBALS['TSFE']->setJS($name, $javascriptcode)`
+* :php:`$pageRenderer->addHeaderData($javascriptcode)`
+* :php:`$pageRenderer->addCssFile($file)`
+* :php:`$pageRenderer->addCssInlineBlock($name, $csscode)`
+* :php:`$pageRenderer->addCssLibrary($file)`
+* :php:`$pageRenderer->addJsFile($file)`
+* :php:`$pageRenderer->addJsFooterFile($file)`
+* :php:`$pageRenderer->addJsFooterLibrary($name, $file)`
+* :php:`$pageRenderer->addJsFooterInlineCode($name, $javascriptcode)`
+* :php:`$pageRenderer->addJsInlineCode($name, $javascriptcode)`
+* :php:`$pageRenderer->addJsLibrary($name, $file)`
 
 
 The :php:`AssetCollector` also collects information about "imagesOnPage", which can be used in cached and non-cached components.
