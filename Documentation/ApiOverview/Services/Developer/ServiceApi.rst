@@ -7,6 +7,10 @@
 Service API
 ===========
 
+.. deprecated:: 11.3
+   The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
+   deprecated. See :ref:`services-developer-service-api-migration`.
+
 All service classes must inherit from the base service class
 :php:`\TYPO3\CMS\Core\Service\AbstractService`,
 unless the service type provides a specific
@@ -250,3 +254,28 @@ getOutputFile
   Gets the name of the output file. If such file is not defined, a
   temporary file is created with the output content and that file's path
   is returned.
+
+
+.. _services-developer-service-api-migration:
+
+Migration
+=========
+
+.. deprecated:: 11.3
+   The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
+   deprecated. See :ref:`services-developer-service-api-migration`.
+
+Remove any usage of the class :php:`\TYPO3\CMS\Core\Service\AbstractService` in
+your extension. In case you currently
+extend :php:`AbstractService` for use in an authentication service, which
+might be the most common scenario, you have to change your service class
+to extend from :php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService`
+instead.
+
+In case you currently extend :php:`AbstractService` for another kind of
+service, which is rather unlikely, you have to implement the necessary
+methods in your service class yourself. Please see `Service Implementation
+<https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/Services/Developer/ServiceApi.html#service-implementation>`__
+for more details about the required methods. However, even better would be to
+completely migrate away from the Service API (look for :php:`GeneralUtility::makeInstanceService()`),
+since the Core will deprecate these related methods as well.
