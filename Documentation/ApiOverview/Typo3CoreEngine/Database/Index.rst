@@ -42,9 +42,7 @@ hierarchy of these two arrays.
 Basic Usage
 ===========
 
-.. highlight:: php
-
-::
+.. code-block:: php
 
    use TYPO3\CMS\Core\Utility\GeneralUtility;
    use TYPO3\CMS\Core\DataHandling\DataHandler;
@@ -54,6 +52,7 @@ Basic Usage
    $cmd = [];
    $data = [];
    $dataHandler->start($data, $cmd);
+
 
 Commands array
 ==============
