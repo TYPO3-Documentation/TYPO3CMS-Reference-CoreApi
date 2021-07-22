@@ -6,6 +6,10 @@
 Services API
 ============
 
+.. deprecated:: 11.3
+   The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
+   deprecated. See :ref:`services-developer-service-api-migration`.
+
 This section describes the methods of the TYPO3 Core that are related
 to the use of services.
 

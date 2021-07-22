@@ -11,15 +11,15 @@ Service API
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
    deprecated. See :ref:`services-developer-service-api-migration`.
 
-All service classes must inherit from the base service class
-:php:`\TYPO3\CMS\Core\Service\AbstractService`,
-unless the service type provides a specific
-base class (authentication services, for example, inherit from
-:php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService` instead).
-These specific classes should
-normally themselves extend :php:`\TYPO3\CMS\Core\Service\AbstractService`.
-This class provides a large number of important or useful methods which are
-described below, grouped by type of usage.
+.. important::
+   The Service API never found many usages in casual extensions. It is mainly
+   used for authentication services. It is planed to deprecate the complete
+   Service API in the future.
+
+All service classes should implement the methods mentioned below.
+
+Authentication services should inherit from
+:php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService`.
 
 
 .. _services-developer-service-api-implementation:
@@ -274,8 +274,9 @@ instead.
 
 In case you currently extend :php:`AbstractService` for another kind of
 service, which is rather unlikely, you have to implement the necessary
-methods in your service class yourself. Please see `Service Implementation
-<https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/Services/Developer/ServiceApi.html#service-implementation>`__
+methods in your service class yourself. Please see :ref:`Service Implementation
+<services-developer-service-api-implementation>`
 for more details about the required methods. However, even better would be to
-completely migrate away from the Service API (look for :php:`GeneralUtility::makeInstanceService()`),
-since the Core will deprecate these related methods as well.
+completely migrate away from the Service API (look for
+:php:`GeneralUtility::makeInstanceService()`),
+since the Core will deprecate these related methods in the future.
