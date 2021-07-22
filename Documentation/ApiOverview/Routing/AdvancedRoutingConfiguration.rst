@@ -580,7 +580,7 @@ and resolving:
 .. code-block:: yaml
 
    routeEnhancers:
-     MyPlugin
+     MyPlugin:
        type: 'Plugin'
        namespace: 'my'
        routePath: 'overview/{month}'
