@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AccessControl/LocalStoragePath.png
+   :class: with-shadow
+
+   The paths options for a storage based on the local file system driver

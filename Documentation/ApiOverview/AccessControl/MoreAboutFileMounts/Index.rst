@@ -70,8 +70,7 @@ Paths for local driver storage
 The file storages based on the "local file system" driver have an
 option for relative or absolute paths.
 
-.. figure:: /Images/ManualScreenshots/AccessControl/AccessLocalStoragePath.png
-   :alt: The paths options for a storage based on the local file system driver
+.. include:: /Images/AutomaticScreenshots/AccessControl/LocalStoragePath.rst.txt
 
 
 "Relative" means that the given path is relative to the :file:`fileadmin/`

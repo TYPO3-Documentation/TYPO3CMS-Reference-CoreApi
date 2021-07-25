@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AccessControl/SimulatedUser.png
+   :class: with-shadow
+
+   Backend with active simulate user

@@ -136,9 +136,7 @@ is the folder tree drawn based on *filemounts* configured for the user.
 **DB mounts** (page mounts) are easily set by simply pointing out the
 page that should be mounted for the user (at user or group-level):
 
-.. figure:: /Images/ManualScreenshots/AccessControl/AccessDbMounts.png
-   :alt: The DB mounts for group "Editors"
-
+.. include:: /Images/AutomaticScreenshots/AccessControl/DbMounts.rst.txt
 
 This is what the user will see:
 
@@ -166,8 +164,7 @@ upon installation.
    changed using the global configuration option
    :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
 
-.. figure:: /Images/ManualScreenshots/AccessControl/AccessFileStorage.png
-   :alt: The default file storage points to "fileadmin"
+.. include:: /Images/AutomaticScreenshots/AccessControl/FileStorage.rst.txt
 
 
 A *File Storage* is essentially defined by a *File Driver*
@@ -176,16 +173,14 @@ and the path to which it points.
 Next we can create a *File Mount* record (on the root page),
 which refers to a File Storage:
 
-.. figure:: /Images/ManualScreenshots/AccessControl/AccessCreateFilemount.png
-   :alt: A file mount poiting to the "user_upload" directory
+.. include:: /Images/AutomaticScreenshots/AccessControl/CreateFilemount.rst.txt
 
 
 When defining a File Mount, you can point to a specific folder
 within the chosen File Storage. Finally the mount is assigned
 to a user or group:
 
-.. figure:: /Images/ManualScreenshots/AccessControl/AccessAssignFilemount.png
-   :alt: The file mount is assigned to the "Editors" group
+.. include:: /Images/AutomaticScreenshots/AccessControl/AssignFilemount.rst.txt
 
 
 After a successful configuration, the file mount will appear to
@@ -204,8 +199,7 @@ the default behaviour. So make sure to unset these flags if users
 should see only their "private" mount points and not those from their
 groups:
 
-.. figure:: /Images/ManualScreenshots/AccessControl/AccessMountFromGroups.png
-   :alt: By default BD and File Mounts from groups are set for member users
+.. include:: /Images/AutomaticScreenshots/AccessControl/MountFromGroups.rst.txt
 
 
 "Admin" users do not need mount points. As always, they have access
@@ -253,8 +247,7 @@ summarized here:
 Page permissions are set and viewed with the module :guilabel:`System > Access`
 module:
 
-.. figure:: /Images/ManualScreenshots/AccessControl/AccessAccessModule.png
-   :alt: The Access module and its overview of page rights and owners
+.. include:: /Images/AutomaticScreenshots/AccessControl/AccessModule.rst.txt
 
 
 Editing permissions is described in details in the

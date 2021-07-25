@@ -8,10 +8,7 @@ Create new Page Type
 
 The following example adds a new page type called "Archive".
 
-.. figure:: /Images/ManualScreenshots/PageTypes/NewPageType.png
-   :alt: The new page type in action
-
-   The new page type visible in the TYPO3 backend
+.. include:: /Images/AutomaticScreenshots/PageTypes/NewPageType.rst.txt
 
 The whole code to add a page type is shown below with the according file names above.
 
@@ -41,7 +38,7 @@ User TSconfig is added and an icon is registed in :file:`ext_localconf.php`::
 
    (function ($extKey='example') {
       $archiveDoktype = 116;
-      
+
       // Provide icon for page tree, list view, ... :
       $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
       $iconRegistry

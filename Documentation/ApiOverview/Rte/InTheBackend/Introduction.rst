@@ -14,10 +14,7 @@ Editor (RTE) instead of the simple form field. A RTE enables the users
 to use visual formatting aids to create bold, italic, paragraphs,
 tables, etc.
 
-.. figure:: /Images/ManualScreenshots/Rte/RteBackend.png
-   :alt: A RTE in the TYPO3 BE
-
-   The rtehtmlarea RTE activated in the TYPO3 backend
+.. include:: /Images/AutomaticScreenshots/Rte/RteBackend.rst.txt
 
 For full details about setting up a field to use a RTE, please refer to the
 chapter labeled 'special-configuration-options' in older versions of the

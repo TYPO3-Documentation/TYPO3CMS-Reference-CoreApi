@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/RequestHandling/ConfigurationMiddleware.png
+   :class: with-shadow
+
+   TYPO3 configuration module listing configured middlewares.

@@ -1,6 +1,373 @@
 {
     "suites": {
 
+        "Core": {
+            "screenshots": {
+                "_default": [
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {"action": "setScreenshotsDocumentationPath", "path": "Documentation"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
+                ],
+                "RequestHandling": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/RequestHandling"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/RequestHandling"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Configuration')]"},
+                    {"action": "click", "link": "Configuration"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Configuration"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "HTTP Middlewares (PSR-15)"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "HTTP Middlewares (PSR-15)"
+                    },
+                    {
+                        "action": "click",
+                        "link": "li:nth-child(2) a"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "TYPO3\\CMS\\Core\\Middleware\\NormalizedParamsAttribute"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConfigurationMiddleware",
+                        "captionText": "TYPO3 configuration module listing configured middlewares."
+                    }
+                ],
+                "AdminTools": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 1024,"height": 780},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/AdminTools"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/AdminTools"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Settings')]"},
+                    {"action": "click", "link": "Settings"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "fillField", "field": "input#confirmationPassword", "value": "password"},
+                    {"action": "click", "link": "Confirm"},
+                    {
+                        "action": "waitForText",
+                        "text": "Configuration Presets"
+                    },
+                    {
+                        "action": "click",
+                        "link": "Choose Preset"
+                    },
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Configuration Presets"
+                    },
+                    {
+                        "action": "click",
+                        "link": "Password hashing settings"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "Argon2i"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "PasswordHashingSettings",
+                        "captionText": "Argon2i active for frontend and backend users"
+                    }
+                ]
+            }
+        },
+        "Examples": {
+            "screenshots": {
+                "_default": [
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {"action": "setScreenshotsDocumentationPath", "path": "Documentation"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
+                ],
+                "PageTypes": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 1024,"height": 300},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/PageTypes"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/PageTypes"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Page')]"},
+                    {"action": "click", "link": "Page"},
+                    {"action": "wait", "timeout": "1"},
+                    {
+                        "action": "drawBox",
+                        "selector": ".svg-toolbar__drag-node[title=\"Archive page\"]"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "NewPageType",
+                        "captionText": "The new page type visible in the TYPO3 backend"
+                    }
+                ]
+            }
+        },
+        "Introduction": {
+            "screenshots": {
+                "_default": [
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {"action": "setScreenshotsDocumentationPath", "path": "Documentation"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
+                ],
+                "RTE": [
+                    {"include": "_default"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Rte"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Rte"},
+                    {
+                        "action": "makeScreenshotOfField",
+                        "table": "tt_content",
+                        "uid": {
+                            "action": "getUidByField",
+                            "table": "tt_content",
+                            "field": "header",
+                            "value": "TYPO3's Built-in Rich Text Editor"
+                        },
+                        "fields": "bodytext",
+                        "captionText": "The rtehtmlarea RTE activated in the TYPO3 backend",
+                        "fileName": "RteBackend"
+                    }
+                ],
+                "AccessControl": [
+                    {"include": "_default"},
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/AccessControl"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/AccessControl"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "be_groups",
+                        "uid": 1
+                    },
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "BackendGroup",
+                        "captionText": "Part of the editing form for group \"Simple editors\" of the Introduction Package"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "DbMounts",
+                        "captionText": "The DB mounts for group \"Editors\""
+                    },
+                    {
+                        "action": "click",
+                        "link": "Mounts and Workspaces"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "DB Mounts"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "DbMounts",
+                        "captionText": "The DB mounts for group \"Editors\""
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "be_users",
+                        "uid": 1
+                    },
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "BackendUserAdmin",
+                        "captionText": "In Web > List view, the different icon for admin users"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "be_users",
+                        "uid": 2
+                    },
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "BackendUser",
+                        "captionText": "Part of the editing form for user \"simple\\_editor\" of the Introduction Package"
+                    },
+                    {
+                        "action": "click",
+                        "link": "Mounts and Workspaces"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "DB Mounts"
+                    },
+                    {
+                        "action": "drawBox",
+                        "selector": "//fieldset[contains(., 'Mount from groups')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "MountFromGroups",
+                        "captionText": "By default DB and File Mounts from groups are set for member users"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "sys_file_storage",
+                        "uid": 1
+                    },
+                    {"action": "wait", "timeout": 1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "FileStorage"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 1024},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".typo3-TCEforms",
+                        "fileName": "LocalStoragePath",
+                        "captionText": "The paths options for a storage based on the local file system driver"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {
+                        "action": "amOnPage",
+                        "page": "/typo3/record/edit?token=x&edit[sys_filemounts][0]=new"
+                    },
+                    {"action": "fillField", "field": "input[data-formengine-input-name*=\"title\"]", "value": "Another filemount"},
+                    {
+                        "action": "selectOption",
+                        "select": "select[name*=\"base\"]",
+                        "option": "1"
+                    },
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {"action": "clickButtonInModalDialog", "buttonLink": "OK"},
+                    {
+                        "action": "selectOption",
+                        "select": "select[name*=\"path\"]",
+                        "option": "/user_upload/"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "CreateFilemount",
+                        "captionText": "A file mount pointing to the \"user_upload\" directory"
+                    },
+                    {"action": "click", "link": "Save"},
+                    {
+                        "action": "waitForText",
+                        "text": "Edit Filemount"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 1024},
+                    {
+                        "action": "goToRecord",
+                        "table": "be_users",
+                        "uid": 2
+                    },
+                    {
+                        "action": "click",
+                        "link": "Mounts and Workspaces"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "DB Mounts"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "AssignFilemount",
+                        "captionText": "The file mount is assigned to the \"Editors\" group"
+                    },
+                    {"action": "reloadBackend"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1424,
+                        "height": 700
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Access')]"},
+                    {"action": "click", "link": "Access"},
+
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Permissions",
+                        "timeout": 5
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "openPageTreePath", "path": ["Congratulations", "Content Examples"]},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Form elements",
+                        "timeout": 5
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "AccessModule",
+                        "captionText": "The Access module and its overview of page rights and owners"
+                    },
+                    {
+                        "action": "resizeWindow",
+                        "width": 1200,
+                        "height": 800
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'List')]"},
+                    {"action": "click", "link": "List"},
+                    {"action": "openPageTreePath", "path": []},
+
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "BackendUserList",
+                        "captionText": "Users and groups reside on the root page"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Backend Users')]"},
+                    {"action": "click", "link": "Backend Users"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Backend User Listing"},
+                    {"action": "click", "link": "tr:nth-child(2) a[title=\"Compare\"]"},
+                    {"action": "wait", "timeout": 0.5},
+                    {"action": "click", "link": "tr:nth-child(3) a[title=\"Compare\"]"},
+                    {"action": "wait", "timeout": 0.5},
+                    {"action": "click", "link": "Compare user list"},
+                    {"action": "waitForText", "text": "Compare backend users"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "CompareUsers",
+                        "captionText": "Comparing users in the Backers users module"
+                    },
+                    {"action": "click", "link": "Go back"},
+                    {"action": "waitForText", "text": "Backend User Listing"},
+                    {"action": "click", "link": "Clear compare list"},
+                    {"action": "drawBox", "selector": "button[title=\"Switch to user\"]"},
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "SimulateUserButton",
+                        "captionText": "The button to simulate another user"
+                    },
+                    {"action": "click", "link": "button[title=\"Switch to user\"]"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "waitForText", "text": "SU"},
+                    {"action": "click", "link": "SU"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1200,
+                        "height": 400
+                    },
+                    {"action": "wait", "timeout": 1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "SimulatedUser",
+                        "captionText": "Backend with active simulate user"
+                    }
+                ]
+            }
+        },
         "Styleguide": {
             "screenshots": {
                 "_default": [
@@ -26,6 +393,24 @@
                         "altText": "A RTE in the TYPO3 BE",
                         "captionText": "The rtehtmlarea RTE activated in the TYPO3 backend",
                         "fileName": "RteInTable"
+                    }
+                ],
+                "Icon": [
+                    {"include": "_default"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Icon"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Icon"},
+                    {"action": "reloadBackend"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "#typo3-cms-backend-backend-toolbaritems-helptoolbaritem a"},
+                    {"action": "waitForText", "text": "TYPO3 Manual"},
+                    {"action": "click", "link": "Styleguide"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "TYPO3 CMS Backend Styleguide"},
+                    {"action": "click", "link": "Icons"},
+                    {"action": "waitForText", "text": "IconProvider"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "IconProviders"
                     }
                 ]
             }

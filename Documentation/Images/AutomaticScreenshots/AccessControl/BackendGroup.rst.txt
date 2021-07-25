@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AccessControl/BackendGroup.png
+   :class: with-shadow
+
+   Part of the editing form for group "Simple editors" of the Introduction Package

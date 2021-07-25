@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AccessControl/CreateFilemount.png
+   :class: with-shadow
+
+   A file mount pointing to the "user_upload" directory

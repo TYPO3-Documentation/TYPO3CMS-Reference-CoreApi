@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AccessControl/BackendUserList.png
+   :class: with-shadow
+
+   Users and groups reside on the root page
