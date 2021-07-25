@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AccessControl/SimulateUserButton.png
+   :class: with-shadow
+
+   The button to simulate another user

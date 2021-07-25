@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AccessControl/AssignFilemount.png
+   :class: with-shadow
+
+   The file mount is assigned to the "Editors" group

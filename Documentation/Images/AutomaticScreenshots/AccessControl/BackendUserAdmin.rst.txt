@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AccessControl/BackendUserAdmin.png
+   :class: with-shadow
+
+   In Web > List view, the different icon for admin users

@@ -469,10 +469,7 @@ In order to see which middlewares are configured and to see the order of
 execution, TYPO3 offers a the menu entry :guilabel:`HTTP Middlewares (PSR-15)`
 within the "Configuration" module:
 
-.. figure:: /Images/ManualScreenshots/RequestHandling/ConfigurationMiddleware.png
-   :align: center
-
-   Figure 1-2: TYPO3 configuration module listing configured middlewares.
+.. include:: /Images/AutomaticScreenshots/RequestHandling/ConfigurationMiddleware.rst.txt
 
 .. _PSR-18: https://www.php-fig.org/psr/psr-18/
 .. _PSR-17: https://www.php-fig.org/psr/psr-17/

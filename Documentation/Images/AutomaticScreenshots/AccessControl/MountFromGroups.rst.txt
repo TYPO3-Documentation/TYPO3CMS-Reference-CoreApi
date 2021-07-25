@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AccessControl/MountFromGroups.png
+   :class: with-shadow
+
+   By default DB and File Mounts from groups are set for member users

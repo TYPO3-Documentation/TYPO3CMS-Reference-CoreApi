@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AccessControl/AccessModule.png
+   :class: with-shadow
+
+   The Access module and its overview of page rights and owners

@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AccessControl/BackendUser.png
+   :class: with-shadow
+
+   Part of the editing form for user "simple\_editor" of the Introduction Package
