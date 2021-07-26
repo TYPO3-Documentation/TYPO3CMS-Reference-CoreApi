@@ -46,9 +46,9 @@ Basic Usage
 
    use TYPO3\CMS\Core\Utility\GeneralUtility;
    use TYPO3\CMS\Core\DataHandling\DataHandler;
-   
+
    $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
-   
+
    $cmd = [];
    $data = [];
    $dataHandler->start($data, $cmd);
@@ -341,7 +341,7 @@ The property contains the names of the manipulated tables as keys and a map of o
    $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
    $dataHandler->start([], $cmd);
    $dataHandler->process-cmdmap()
-   
+
    $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
 ..
 
@@ -378,7 +378,7 @@ Description of keywords in syntax:
    :Description:
          The UID of the record that is modified. If the record already exists,
          this is an integer.
-         
+
          If you're creating new records, use a random string prefixed with `NEW`, e.g. `NEW7342abc5e6d`.
          You can use static strings (`NEW1`, `NEW2`, ...) or generate them using :php:`StringUtility::getUniqueId('NEW')`.
 
