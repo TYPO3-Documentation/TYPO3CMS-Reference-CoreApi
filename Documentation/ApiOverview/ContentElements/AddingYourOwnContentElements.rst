@@ -271,6 +271,8 @@ tt_content field.
 
 Another example shows the connection to a foreign table. This allows you to be more flexible with the possible values in the select box. The new field *tx_examples_main_category* is a connection to the TYPO3 system category table *sys_category*.
 
+.. code-block:: php
+
    'tx_examples_main_category' => [
         'exclude' => 0,
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_main_category',
