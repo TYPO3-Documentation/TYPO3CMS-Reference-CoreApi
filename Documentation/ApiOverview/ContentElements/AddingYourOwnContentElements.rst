@@ -269,7 +269,7 @@ You can read more about defining fields via TCA in the :ref:`t3tca:start`.
 Now the new field can be used in your Fluid template just like any other
 tt_content field.
 
-Another example shows the connection to a foreign table. This allows you to be more flexible with the possible values in the select box. The new field *tx_examples_main_category* is a connection to the TYPO3 system category table *sys_category*.
+Another example shows the connection to a foreign table. This allows you to be more flexible with the possible values in the select box. The new field *tx_examples_main_category* is a connection to the TYPO3 system category table *sys_category*::
 
    'tx_examples_main_category' => [
         'exclude' => 0,
