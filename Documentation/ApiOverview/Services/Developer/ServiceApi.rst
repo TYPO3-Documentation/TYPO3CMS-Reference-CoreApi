@@ -10,12 +10,7 @@ Service API
 .. deprecated:: 11.3
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
    deprecated. See :ref:`services-developer-service-api-migration`.
-
-.. important::
-   The Service API never found many usages in casual extensions. It is mainly
-   used for authentication services. It is planed to deprecate the complete
-   Service API in the future.
-
+   
 All service classes should implement the methods mentioned below.
 
 Authentication services should inherit from
