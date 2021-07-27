@@ -263,8 +263,8 @@ Migration
 Remove any usage of the class :php:`\TYPO3\CMS\Core\Service\AbstractService` in
 your extension. In case you currently
 extend :php:`AbstractService` for use in an authentication service, which
-might be the most common scenario, you have to change your service class
-to extend from :php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService`
+might be the most common scenario, you can extend the  
+:php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService`
 instead.
 
 In case you currently extend :php:`AbstractService` for another kind of
