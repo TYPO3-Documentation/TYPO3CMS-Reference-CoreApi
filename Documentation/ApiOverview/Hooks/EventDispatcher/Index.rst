@@ -139,8 +139,8 @@ If an extension author wants to provide a custom Event Listener, an according en
        tags:
          - name: event.listener
            identifier: 'myListener'
-           event: TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent
            before: 'redirects, anotherIdentifier'
+           event: TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent
 
 
 The tag name :yaml:`event.listener` identifies that a listener should be registered.
@@ -149,9 +149,12 @@ The custom PHP class :php:`MyCompany\MyPackage\EventListener\NullMailer` serves 
 whereas the :yaml:`identifier` is a common name so orderings can be built upon the identifier,
 the optional :yaml:`before` and :yaml:`after` attributes allow for custom sorting against :yaml:`identifier`.
 
-The :yaml:`event` attribute is the Fully Qualified Name of the Event object.
-
 If no attribute :yaml:`method` is given, the class is treated as Invokable, thus :php:`__invoke` method is called.
+
+.. versionchanged:: 11.3
+   The :yaml:`event` tag can be omitted if the listener implementation has a corresponding 
+   event type in the method signature. In that case the event class it is automatically derived
+   from the method signature of the listener implementation.
 
 
 .. index:: Event listener; Implementation
