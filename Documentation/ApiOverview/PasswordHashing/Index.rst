@@ -322,7 +322,8 @@ Example implementation for TYPO3 frontend::
 
         // An instance of the currently configured salted password mechanism
         // Don't catch InvalidPasswordHashException here: Only install tool should handle those configuration failures
-        $defaultHashInstance = $saltFactory->getDefaultHashInstance($mode);
+        // Alternative to the above :
+        // $hashInstance = $saltFactory->getDefaultHashInstance($mode);
 
         // We found a hash class that can handle this type of hash
         $isValidPassword = $hashInstance->checkPassword($submittedPassword, $passwordHashInDatabase);
