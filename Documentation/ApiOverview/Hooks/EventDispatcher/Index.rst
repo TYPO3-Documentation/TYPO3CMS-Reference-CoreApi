@@ -140,6 +140,7 @@ If an extension author wants to provide a custom Event Listener, an according en
          - name: event.listener
            identifier: 'myListener'
            before: 'redirects, anotherIdentifier'
+           event: TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent
 
 
 The tag name :yaml:`event.listener` identifies that a listener should be registered.
