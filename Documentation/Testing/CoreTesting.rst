@@ -59,7 +59,7 @@ running on the host system. Executing the basic core unit test suite boils down 
 .. code-block:: shell
 
     # Initial core clone
-    git clone git://git.typo3.org/Packages/TYPO3.CMS.git && cd TYPO3.CMS
+    git clone git@github.com:typo3/typo3.git && cd typo3
     # Install composer dependencies
     Build/Scripts/runTests.sh -s composerInstall
     # Run unit tests
