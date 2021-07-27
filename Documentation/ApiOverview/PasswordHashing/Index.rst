@@ -315,7 +315,7 @@ Example implementation for TYPO3 frontend::
         try {
             $hashInstance = $saltFactory->get($passwordHashInDatabase, $mode);
         } catch (InvalidPasswordHashException $invalidPasswordHashException) {
-            $message = 'Login-attempt from ###IP###, username \'%s\', no suitable hash method found!';
+            $message = 'Login-attempt for username \'%s\': No suitable hash method found!';
             $this->writeLogMessage($message, $submittedUsername);
             return false;
         }
