@@ -82,8 +82,8 @@ releasing an extension:
    Use the PHP CLI application `Tailor <https://github.com/TYPO3/tailor>`__
    which lets you register new extension keys and helps you maintain
    your extensions, update extension information and publish new extension
-   versions. You can find full documentation and examples on its
-   `homepage <https://github.com/TYPO3/tailor>`__.
+   versions. For complete instructions and examples, see the official
+   :doc:`Tailor documentation <t3tailor:Index>`.
 
    Besides manual publishing, *Tailor* is the perfect complement for
    automatic publishing via CI / CD pipelines. On the application's homepage
