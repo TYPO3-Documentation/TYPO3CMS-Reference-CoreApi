@@ -7,15 +7,14 @@
 Service API
 ===========
 
-All service classes must inherit from the base service class
-:php:`\TYPO3\CMS\Core\Service\AbstractService`,
-unless the service type provides a specific
-base class (authentication services, for example, inherit from
-:php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService` instead).
-These specific classes should
-normally themselves extend :php:`\TYPO3\CMS\Core\Service\AbstractService`.
-This class provides a large number of important or useful methods which are
-described below, grouped by type of usage.
+.. deprecated:: 11.3
+   The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
+   deprecated. See :ref:`services-developer-service-api-migration`.
+   
+All service classes should implement the methods mentioned below.
+
+Authentication services should inherit from
+:php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService`.
 
 
 .. _services-developer-service-api-implementation:
@@ -250,3 +249,29 @@ getOutputFile
   Gets the name of the output file. If such file is not defined, a
   temporary file is created with the output content and that file's path
   is returned.
+
+
+.. _services-developer-service-api-migration:
+
+Migration
+=========
+
+.. deprecated:: 11.3
+   The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
+   deprecated. See :ref:`services-developer-service-api-migration`.
+
+Remove any usage of the class :php:`\TYPO3\CMS\Core\Service\AbstractService` in
+your extension. In case you currently
+extend :php:`AbstractService` for use in an authentication service, which
+might be the most common scenario, you can extend the  
+:php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService`
+instead.
+
+In case you currently extend :php:`AbstractService` for another kind of
+service, which is rather unlikely, you have to implement the necessary
+methods in your service class yourself. Please see :ref:`Service Implementation
+<services-developer-service-api-implementation>`
+for more details about the required methods. However, even better would be to
+completely migrate away from the Service API (look for
+:php:`GeneralUtility::makeInstanceService()`),
+since the Core will deprecate these related methods in the future.

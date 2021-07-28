@@ -44,8 +44,8 @@ class. A bigger construct with interfaces, multiple sub classes is not
 called a service anymore.
 
 The above characteristica MAY and SHOULD mean that a single service MAY do a single one
-or two of them, but if for instance a service would become relatively big, 
-if it would have many entry points, if it would keep states and depend on configuration, 
+or two of them, but if for instance a service would become relatively big,
+if it would have many entry points, if it would keep states and depend on configuration,
 this would be too much. This would be a sign that it should be modeled in a different and more
 dedicated and more disjoint way.
 
@@ -69,7 +69,7 @@ Good Examples
 Bad Examples
 ============
 
-* :php:`\TYPO3\CMS\Core\Service\AbstractService`,
+* :php:`\TYPO3\CMS\Core\Service\AbstractAuthenticationService`,
 
   * Not modeled in a sane way, this should be within :file:`Core/Authentication`
 
