@@ -119,6 +119,115 @@
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
                 ],
+
+                "BackendModules": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1232,
+                        "height": 400
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/BackendModules"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/BackendModules"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Page"},
+                    {"action": "openPageTreePath", "path": ["Congratulations"]},
+                    {
+                        "action": "drawBadge",
+                        "selector": "typo3-backend-navigation-component-pagetree-toolbar",
+                        "label": "Page tree",
+                        "position": "bottom"
+                    },
+                    {
+                        "action": "drawBadge",
+                        "selector": "#dashboard",
+                        "label": "Module menu",
+                        "position": "bottom"
+                    },
+                    {
+                        "action": "drawBadge",
+                        "selector": ".toolbar",
+                        "label": "Top bar",
+                        "position": "left"
+                    },
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Congratulations"
+                    },
+                    {
+                        "action": "drawBadge",
+                        "selector": ".module-docheader-bar-navigation",
+                        "label": "Docheader",
+                        "position": "bottom"
+                    },
+                    {
+                        "action": "drawBadge",
+                        "selector": ".t3js-title-inlineedit",
+                        "label": "Content area",
+                        "position": "bottom"
+                    },
+                    {
+                        "action": "drawBox",
+                        "selector": ".t3-page-ce-dragitem:first-child .t3js-contextmenutrigger"
+                    },
+                    {
+                        "action": "drawBadge",
+                        "selector": ".t3-page-ce-dragitem:first-child .t3js-contextmenutrigger",
+                        "label": "Context Menu",
+                        "position": "bottom"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "BackendModulesAreas",
+                        "captionText": "An overview of the visual structure of the backend"
+                    },
+                    {"action": "clearDrawings"},
+                    {
+                        "action": "click",
+                        "link": ".t3-page-ce-dragitem:first-child .t3js-contextmenutrigger"
+                    },
+                    {
+                        "action": "wait",
+                        "timeout": 1
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "BackendModulesContextualMenu",
+                        "captionText": "A typical contextual menu appears when clicking on a record icon"
+                    },
+                    {"action": "clearDrawings"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 500
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Configuration')]"},
+                    {"action": "click", "link": "Configuration"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Configuration"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "$GLOBALS['TBE_MODULES'] (BE Modules)"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "BackendModulesConfiguration",
+                        "captionText": "Exploring the TBE_MODULES array using the Configuration module"
+                    }
+                ],
                 "RTE": [
                     {"include": "_default"},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Rte"},

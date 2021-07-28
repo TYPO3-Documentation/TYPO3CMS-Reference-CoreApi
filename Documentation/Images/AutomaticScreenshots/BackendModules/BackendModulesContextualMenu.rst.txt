@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/BackendModules/BackendModulesContextualMenu.png
+   :class: with-shadow
+
+   A typical contextual menu appears when clicking on a record icon
