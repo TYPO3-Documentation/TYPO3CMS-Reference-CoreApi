@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AdminTools/DatabaseUpgradeWizard.png
+   :class: with-shadow
+
+   The Upgrade Wizard indicating that the database needs updates

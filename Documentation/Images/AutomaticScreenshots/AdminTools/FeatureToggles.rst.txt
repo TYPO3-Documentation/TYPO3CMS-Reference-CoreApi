@@ -1,0 +1,4 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AdminTools/FeatureToggles.png
+   :class: with-shadow

@@ -79,7 +79,77 @@
                         "action": "makeScreenshotOfWindow",
                         "fileName": "PasswordHashingSettings",
                         "captionText": "Argon2i active for frontend and backend users"
-                    }
+                    },
+                    {"action": "closeModalDialog"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Maintenance')]"},
+                    {"action": "click", "link": "Maintenance"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Maintenance"
+                    },
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[@class='card card-size-fixed-small' and contains(., 'Analyze Database')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "AnalyzeDatabase",
+                        "captionText": "The Database analyzer is part of the maintenance area"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 780},
+                    {"action": "clearDrawings"},
+                    {
+                        "action": "click",
+                        "link": "Analyze database"
+                    },
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "DatabaseAnalyzer",
+                        "captionText": "Analyze the database structure"
+                    },
+                    {"action": "closeModalDialog"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Upgrade')]"},
+                    {"action": "click", "link": "Upgrade"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Upgrade"
+                    },
+                    {
+                        "action": "click",
+                        "link": "Run Upgrade Wizard"
+                    },
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "DatabaseUpgradeWizard",
+                        "captionText": "The Upgrade Wizard indicating that the database needs updates"
+                    },
+                    {"action": "closeModalDialog"},
+
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Settings')]"},
+                    {"action": "click", "link": "Settings"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Settings"
+                    },
+                    {"action": "click", "link": "Configure Features"},
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Feature Toggles"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "FeatureToggles"
+                    },
+                    {"action": "closeModalDialog"}
                 ]
             }
         },
@@ -108,6 +178,64 @@
                         "fileName": "NewPageType",
                         "captionText": "The new page type visible in the TYPO3 backend"
                     }
+                ],
+
+                "AdminTools": [
+                    {"include": "_default"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/AdminTools"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/AdminTools"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Upgrade')]"},
+                    {"action": "click", "link": "Upgrade"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "fillField", "field": "input#confirmationPassword", "value": "password"},
+                    {"action": "click", "link": "Confirm"},
+                    {
+                        "action": "waitForText",
+                        "text": "Upgrade"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "scrollModuleBodyToBottom"},
+                    {
+                        "action": "waitForText",
+                        "text": "Scan Extension Files"
+                    },
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[contains(@class, 'card-size-fixed-small') and contains(., 'Scan Extension Files')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ExtensionScannerOpen",
+                        "captionText": "Open the extension scanner from the Admin Tools"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 650},
+                    {"action": "clearDrawings"},
+                    {
+                        "action": "click",
+                        "link": "Scan Extension Files"
+                    },
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {"action": "click", "link": "examples"},
+                    {
+                        "action": "waitForText",
+                        "text": "Rescan"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ExtensionScanner",
+                        "captionText": "The Extension Scanner"
+                    },
+                    {"action": "click", "link": ".panel-collapse.show a.t3js-extensionScanner-hit-file-panel-head"},
+                    {"action": "waitForElement", "element": ".panel-body .panel-body a.t3js-extensionScanner-hit-rest-panel-head"},
+                    {"action": "click", "link": ".panel-body .panel-body a.t3js-extensionScanner-hit-rest-panel-head"},
+                    {"action": "wait", "timeout": 1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ExtensionScannerReport",
+                        "captionText": "View extension scanner report"
+                    },
+                    {"action": "closeModalDialog"}
                 ]
             }
         },

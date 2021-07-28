@@ -14,12 +14,7 @@ The extension scanner which has been introduced with TYPO3 Core version 9 as par
 management (formerly "Install Tool") provides an interactive interface to scan extension code
 for usage of TYPO3 Core API which has been removed or deprecated.
 
-
-.. figure:: /Images/ManualScreenshots/ExtensionScanner/ExtensionScanner.png
-    :alt: Scan Extension Files in Core 9.0 backend
-
-    The Extension scanner in 9.0
-
+.. include:: /Images/AutomaticScreenshots/AdminTools/ExtensionScanner.rst.txt
 
 The module can be a great help for extension developers and site maintainers when upgrading to
 new Core versions. It can point out code places within extensions that need attention. However,
@@ -46,12 +41,9 @@ Quick start
 
 1. Open extension scanner from the TYPO3 backend:
 
-   :guilabel:`ADMIN TOOLS`: :guilabel:`Upgrade` > :guilabel:`Scan Extension Files`
+   :guilabel:`Admin Tools > Upgrade > Scan Extension Files`
 
-   .. figure:: /Images/ManualScreenshots/ExtensionScanner/ExtensionScannerOpen.png
-      :class: with-shadow
-
-      Open extension scanner from the backend
+   .. include:: /Images/AutomaticScreenshots/AdminTools/ExtensionScannerOpen.rst.txt
 
 2. Scan one extension by clicking on it or click :guilabel:`"Scan all"`.
 
@@ -63,10 +55,7 @@ Quick start
 
    Click on the Changelog to view it.
 
-   .. figure:: /Images/ManualScreenshots/ExtensionScanner/ExtensionScannerReport.png
-      :class: with-shadow
-
-      View extension scanner report
+   .. include:: /Images/AutomaticScreenshots/AdminTools/ExtensionScannerReport.rst.txt
 
 Goals and non goals
 ===================
