@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AdminTools/AnalyzeDatabase.png
+   :class: with-shadow
+
+   The Database analyzer is part of the maintenance area

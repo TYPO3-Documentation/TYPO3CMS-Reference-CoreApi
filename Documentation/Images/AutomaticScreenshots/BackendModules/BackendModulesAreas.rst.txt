@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/BackendModules/BackendModulesAreas.png
+   :class: with-shadow
+
+   An overview of the visual structure of the backend

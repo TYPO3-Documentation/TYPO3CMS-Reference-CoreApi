@@ -94,9 +94,7 @@ Enable / disable feature toggle
 
 Features can be toggled in the *Settings* module via *Feature Toggles*:
 
-.. figure:: /Images/ManualScreenshots/FeatureToggles/FeatureToggles.png
-   :class: with-shadow
-
+.. include:: /Images/AutomaticScreenshots/AdminTools/FeatureToggles.rst.txt
 
 Internally, the changes are written to :file:`LocalConfiguration.php`::
 

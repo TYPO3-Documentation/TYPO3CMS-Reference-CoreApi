@@ -259,12 +259,9 @@ navigation component (the components which may be loaded into the
 navigation frame).
 
 :php:`$GLOBALS['TBE_MODULES']` can be explored using the
-**SYSTEM > Configuration** module.
+:guilabel:`System > Configuration` module.
 
-.. figure:: /Images/ManualScreenshots/BackendModules/BackendModulesConfiguration.png
-   :alt: Exploring the TBE_MODULES array using the Configuration module
-   :class: with-border with-shadow
-
+.. include:: /Images/AutomaticScreenshots/BackendModules/BackendModulesConfiguration.rst.txt
 
 The list of modules is parsed by the class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader`.
 
