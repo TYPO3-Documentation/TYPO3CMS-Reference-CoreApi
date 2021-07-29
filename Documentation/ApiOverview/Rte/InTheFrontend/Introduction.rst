@@ -14,10 +14,10 @@ extensive options that are configurable for individual needs.
 This chapter outlines conceptual and technical information
 about adding an RTE on frontend pages.
 
-.. figure:: ../Images/RteBackend.png
-   :alt: An RTE in the TYPO3 BE
+.. figure:: ../Images/CKEditor-frontend.png
+   :alt: An RTE in the TYPO3 FE
 
-   The rtehtmlarea RTE activated in the TYPO3 backend
+   The CKEditor integrated in the frontend
 
 The following list describes features and corresponding implementation
 effort ordered from simple to complex. 
