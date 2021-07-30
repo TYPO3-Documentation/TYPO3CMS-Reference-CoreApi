@@ -417,7 +417,6 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyHeaderMultiValue']
 
    :type: text
    :allowedValues:
-   :Default: 'none'
       none
          Do not evaluate the reverse proxy header
 
@@ -427,6 +426,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyHeaderMultiValue']
       last
          Use the last IP address in the proxy header
 
+   :Default: 'none'
 
    Defines which values of a proxy header (for example HTTP_X_FORWARDED_FOR) to use,
    if more than one is found.
