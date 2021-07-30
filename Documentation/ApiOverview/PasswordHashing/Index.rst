@@ -151,8 +151,8 @@ comply with the idea of data minimisation of person related data. TYPO3 helps he
 
 To verify and select which specific hash algorithm is currently configured for frontend and backend users, a
 preset of the settings module has been established with Core v9. It can be found in
-:guilabel:`Admin Tools -> Settings
--> Configuration presets -> Password hashing settings:
+:guilabel:`Admin Tools > Settings
+> Configuration presets > Password hashing settings`:
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/PasswordHashingSettings.rst.txt
 

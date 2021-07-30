@@ -165,7 +165,7 @@ SYS
   :ref:`General options <typo3ConfVars_sys>` which may affect both the frontend
 
 T3_SERVICES
-   :ref:`Service registration configuration <ervices-configuration-registration-changes>`
+   :ref:`Service registration configuration <services-configuration-registration-changes>`
    and the backend.
 
 Further details on the various configuration options can be found in the Install Tool
