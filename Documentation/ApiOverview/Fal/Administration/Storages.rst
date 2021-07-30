@@ -8,7 +8,7 @@ File storages
 
 File storages can be administered through the List module. They have a few properties which deserve further explanation.
 
-.. figure:: ../Images/AdministrationFileStorageAccessTab.png
+.. figure:: /Images/ManualScreenshots/Fal/AdministrationFileStorageAccessTab.png
    :alt: The Access tab of a File storage
 
    Special properties in the Access tab of a File storage
@@ -42,8 +42,8 @@ Is writable?
 
 Is online?
   A storage that is not online cannot be accessed in any way. This flag is
-  set automatically when files are not accessible (for example, when a 
-  third-party storage service is not available) and the underlying Driver 
+  set automatically when files are not accessible (for example, when a
+  third-party storage service is not available) and the underlying Driver
   detects someone trying to access files in that storage.
 
   The important thing to note is that a storage must be turned online again

@@ -39,6 +39,21 @@ hierarchy of these two arrays.
 .. index:: DataHandler; Commands array
 .. _tce-commands:
 
+Basic Usage
+===========
+
+.. code-block:: php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\DataHandling\DataHandler;
+   
+   $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+   
+   $cmd = [];
+   $data = [];
+   $dataHandler->start($data, $cmd);
+
+
 Commands array
 ==============
 
@@ -299,7 +314,6 @@ Examples of commands:
    $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
    $cmd['tt_content'][1203]['move'] = 400;  // Moves tt_content uid=1203 to the first position in page uid=400
 
-
 .. index:: DataHandler; Data array
 .. _tce-data:
 
@@ -335,8 +349,10 @@ Description of keywords in syntax:
          mixed
    :Description:
          The UID of the record that is modified. If the record already exists,
-         this is an integer. If you're creating new records, use a random
-         string prefixed with "NEW", e.g. "NEW7342abc5e6d".
+         this is an integer.
+         
+         If you're creating new records, use a random string prefixed with `NEW`, e.g. `NEW7342abc5e6d`.
+         You can use static strings (`NEW1`, `NEW2`, ...) or generate them using :php:`StringUtility::getUniqueId('NEW')`.
 
 
  - :Key:
@@ -492,9 +508,20 @@ Every processing of data or commands is finalized with flushing a few caches in 
 
 By default the following cache tags are flushed:
 
-* The table name of the updated record, e.g. `pages` when updating a page or `tx_myextension_mytable` when updating a record of this table.
-* A combination of table name and record UID, e.g. `pages_10` when updating the page with UID 10 or `tx_myextension_mytable_20` when updating the record with UID 20 of this table.
-* A page UID prefixed with `pageID_` (`pageId_<page-uid>`), e.g. `pageId_10` when updating a page with UID 10 (additionally all related pages, see :ref:`t3tsconfig:clearcache-pagegrandparent` and :ref:`t3tsconfig:clearcache-pagesiblingchildren`) and `pageId_10` when updating a record if a record of any table placed on the page with UID 10 (`<table>.pid = 10`) is updated.
+*  The table name of the updated record, e.g. :php:`pages` when updating a page or
+   :php:`tx_myextension_mytable` when updating a record of this table.
+*  A combination of table name and record UID, e.g. :php:`pages_10` when
+   updating the page with UID 10 or :php:`tx_myextension_mytable_20` when
+   updating the record with UID 20 of this table.
+*  A page UID prefixed with :php:`pageID_` (:php:`pageId_<page-uid>`), e.g.
+   :php:`pageId_10` when updating a page with UID 10 (additionally all related
+   pages, see
+   :ref:`t3tsconfig:clearcache-pagegrandparent <pagetcemain-clearcache-pagegrandparent>`
+   and
+   :ref:`t3tsconfig:clearcache-pagesiblingchildren <pagetcemain-clearcache-pagesiblingchildren>`)
+   and :php:`pageId_10` when
+   updating a record if a record of any table placed on the page with UID 10
+   (:php:`<table>.pid = 10`) is updated.
 
 Notice that you can also use the :php:`TypoScriptFrontendController::addCacheTags()` method to register additional tags for the cache entry of the current page while it is rendered. This way you can implement an elaborate caching behavior which ensures that every record update in the TYPO3 backend (which is processed by the :php:`DataHandler`) automatically flushes the cache of all pages where that record is displayed.
 

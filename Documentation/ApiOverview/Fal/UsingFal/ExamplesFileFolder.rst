@@ -27,6 +27,25 @@ or its combined identifier::
    $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $file = $resourceFactory->getFileObjectFromCombinedIdentifier('1:/foo.txt');
 
+or by filename from its folder::
+
+   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
+   $defaultStorage = $storageRepository->getDefaultStorage();
+   $folder = $defaultStorage->getFolder('/some/path/in/storage/');
+   $file = $folder->getStorage()->getFileInFolder("example.ext", $folder);
+
+.. versionadded:: 10.2
+   Starting with version 10.2  a file can be retrieved directly by its filename from the folder::
+
+      $file = $folder->getFile("filename.ext");
+
+.. todo:: remove note below in Version 12
+
+.. note::
+   The :php:`FolderInterface` does not contain the definition for
+   :php:`getFile()` in v11, this will be added in TYPO3 v12  to prevent
+   breaking changes.
+
 The syntax of argument 1 for getFileObjectFromCombinedIdentifier is
 
 .. code-block:: none
@@ -40,7 +59,7 @@ The return value is
    File|ProcessedFile|null
 
 The storage uid is optional. If it is not specified, the default storage 0 will be assumed initially.
-The default storage is virtual with :php:`$uid === 0` in its class :php:`\TYPO3\CMS\Core\Resource\ResourceStorage`. In this case the local filesystem is checked for the given file. 
+The default storage is virtual with :php:`$uid === 0` in its class :php:`\TYPO3\CMS\Core\Resource\ResourceStorage`. In this case the local filesystem is checked for the given file.
 The file identifier is the local path and filename relative to the TYPO3 :file:`fileadmin/` folder.
 Example: `/templates/stylesheets/fonts.css`, if the file `/absolute/path/to/fileadmin/templates/stylesheets/fonts.css` exists on the file system.
 
@@ -75,7 +94,7 @@ Copying a file
 
 
 Deleting a file
-==============
+===============
 
 .. code-block:: php
 
@@ -172,7 +191,7 @@ the "sys\_file\_reference" entry and the relation to the other item
 
 
 The above example comes from the "examples" extension
-(reference: https://github.com/TYPO3-Documentation/TYPO3CMS-Code-Examples/blob/master/Classes/Controller/ModuleController.php).
+(reference: https://github.com/TYPO3-Documentation/t3docs-examples/blob/master/Classes/Controller/ModuleController.php).
 
 Here, the :php:`'fieldname'` :php:`'assets'` is used instead of
 :php:`image`. Content elements of ctype 'textmedia' use the field 'assets'.

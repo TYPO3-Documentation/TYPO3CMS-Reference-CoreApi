@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 
-.. _cropvariants:
+.. _CE_cropvariants:
 
 ===============================================
 Crop variants configuration per content element

@@ -65,7 +65,7 @@ In order to use the RecordLinkHandler it can be configured as following:
 .. index::
    pair: RecordLinkHandler; Page TSconfig
    TCEMAIN; RecordLinkHandler
-.. _linkhandler-pagetsconfig:
+.. _linkhandler-pagetsconfig_options:
 
 RecordLinkHandler page TSconfig options
 =======================================
@@ -137,7 +137,7 @@ This configuration shows a reduced page tree starting at page with uid 42::
 .. index::
    pair: LinkHandler; TypoScript
    TypoScript; config.recordLinks
-.. _linkhandler-typoscript:
+.. _linkhandler-typoscript_options:
 
 LinkHandler TypoScript options
 ==============================

@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 .. highlight:: php
-.. index:: 
+.. index::
    Request handling
    PSR-15
    Request handling; PSR-15
@@ -36,7 +36,7 @@ TYPO3 implementation
 
 TYPO3 has implemented the PSR-15 approach in the following way:
 
-.. figure:: Images/FlowOfMiddlewareExecution.svg
+.. figure:: /Images/Plantuml/RequestHandling/FlowOfMiddlewareExecution.svg
    :align: center
 
    Figure 1-1: Application flow
@@ -469,10 +469,7 @@ In order to see which middlewares are configured and to see the order of
 execution, TYPO3 offers a the menu entry :guilabel:`HTTP Middlewares (PSR-15)`
 within the "Configuration" module:
 
-.. figure:: Images/ConfigurationMiddleware.png
-   :align: center
-
-   Figure 1-2: TYPO3 configuration module listing configured middlewares.
+.. include:: /Images/AutomaticScreenshots/RequestHandling/ConfigurationMiddleware.rst.txt
 
 .. _PSR-18: https://www.php-fig.org/psr/psr-18/
 .. _PSR-17: https://www.php-fig.org/psr/psr-17/

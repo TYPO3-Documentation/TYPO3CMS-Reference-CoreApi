@@ -36,16 +36,9 @@ Creating a new Command in Extensions
 
    The following example will add a command named ``yourext:dothings``.
 
-   Register via DI in :file:`Configuration/Services.yaml`::
+   Register via DI in :file:`Configuration/Services.yaml` by adding the service definition for your class::
 
      services:
-       _defaults:
-         autowire: true
-         autoconfigure: true
-         public: false
-
-       Vendor\Extension\:
-         resource: '../Classes/*'
 
        Vendor\Extension\Command\DoThingsCommand:
          tags:
@@ -57,9 +50,9 @@ Creating a new Command in Extensions
 
    .. note::
 
-   Despite using :file:`autoconfigure: true` the commands
-   have to be explicitly defined in :file:`Services.yaml` for TYPO3s custom command processing
-   by adding the tag including the command name, the command to execute and a description.
+      Despite using :file:`autoconfigure: true` the commands
+      have to be explicitly defined in :file:`Services.yaml` for TYPO3s custom command processing
+      by adding the tag including the command name, the command to execute and a description.
 
 
 #. Create the corresponding class file: :file:`Classes/Command/DoThingsCommand.php`
@@ -218,16 +211,6 @@ This can be disabled by setting ``schedulable`` to ``false`` in :file:`Configura
            schedulable: false
 
 
-Or inside :file:`Configuration/Commands.php`.
-Deprecated since v10 and will be removed in v11::
-
-   return [
-       'yourext:dothings' => [
-           'class' => \Vendor\Extension\Command\DoThingsCommand::class,
-           'schedulable' => false,
-       ],
-   ];
-
 Hide a command
 --------------
 
@@ -284,8 +267,14 @@ Running the Command From the Scheduler
 ======================================
 
 By default, it is possible to run the command from the :ref:`TYPO3 scheduler
-<sched:start>` as well. In order to deactivate this, see
-:ref:`deactivating-the-command-in-scheduler`.
+<sched:start>` as well. To do this, select the task :guilabel:`Execute console commands`
+followed by your command in the :guilabel:`Schedulable Command` field.
+
+.. note::
+   You need to save and reopen the task to define command arguments.
+
+In order to prevent commands from being set up as Scheduler tasks,
+see :ref:`deactivating-the-command-in-scheduler`.
 
 More information
 ================

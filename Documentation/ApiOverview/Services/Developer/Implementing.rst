@@ -6,6 +6,10 @@
 Implementing a service
 ======================
 
+.. deprecated:: 11.3
+   The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
+   deprecated. See :ref:`services-developer-service-api-migration`.
+
 There are no tools to get you started coding a new service.
 However there is not much that needs to be done.
 
@@ -191,7 +195,8 @@ PHP class
 =========
 
 The PHP class corresponding to the registered service
-should extend the base service class (:code:`\TYPO3\CMS\Core\Service\AbstractService`).
+should provide the methods mentioned in :ref:`Service Implementation
+<services-developer-service-api-implementation>`.
 
 It should then implement the methods that you defined
 for your service's public API, plus whatever method is

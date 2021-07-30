@@ -75,7 +75,7 @@ getters and setters by an IDE anyway. Unit testing this code leads to broken tes
 change of the model class. That's tiresome and likely some waste of time. Concentrate unit testing
 efforts on stuff that does data munging magic as outlined above! One of your model getters initializes
 some object storage, then sorts and filters objects? *That* can be helpful if unit tested, your filter
-code is otherwise most likely broken. Add unit tests to proof it's not.
+code is otherwise most likely broken. Add unit tests to prove it's not.
 
 A much better way of testing glue code are functional tests: Set up a proper scenario in your
 database, then call your controller that will use your repository and models, then verify your

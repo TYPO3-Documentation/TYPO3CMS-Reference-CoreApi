@@ -37,5 +37,5 @@ section further of the two using reference documents
 :ref:`TSconfig Reference <t3tsconfig:typoscript-syntax-using-setting>`.
 The above piece of TypoScript would look like this:
 
-.. figure:: ../Images/SyntaxIntroduction.png
+.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/SyntaxIntroduction.png
    :alt: Example TypoScript code

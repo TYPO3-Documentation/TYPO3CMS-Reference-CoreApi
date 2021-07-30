@@ -150,11 +150,11 @@ comply with the idea of data minimisation of person related data. TYPO3 helps he
 "Table garbage collection" task of the scheduler extension, details on this are however out-of-scope of this section.
 
 To verify and select which specific hash algorithm is currently configured for frontend and backend users, a
-preset of the settings module has been established with Core v9. It can be found in "Admin Tools" -> "Settings"
--> "Configuration presets" -> "Password hashing settings":
+preset of the settings module has been established with Core v9. It can be found in
+:guilabel:`Admin Tools -> Settings
+-> Configuration presets -> Password hashing settings:
 
-.. figure:: Images/PasswordHashingSettings.png
-    :alt: Argon2i active for frontend and backend users
+.. include:: /Images/AutomaticScreenshots/AdminTools/PasswordHashingSettings.rst.txt
 
 The image shows settings for an instance that runs with frontend and backend users having their passwords
 stored as Argon2i hashes in the database. The other listed algorithms are deemed less secure, they however

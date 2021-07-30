@@ -232,8 +232,8 @@ $_EXTKEY is set globally and contains the extension key.
    :Data type:
          boolean
    :Description:
-         If set, the EM will request the cache to be cleared when this
-         extension is loaded.
+         If set, the EM will request all caches (incl. FE cache) to be cleared when this
+         extension is loaded. If false (default), only system cache will be cleared.
 
  - :Key:
          author

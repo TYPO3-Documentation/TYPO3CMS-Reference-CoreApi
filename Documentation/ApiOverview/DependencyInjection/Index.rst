@@ -2,6 +2,7 @@
 .. include:: /Includes.rst.txt
 .. index:: !Dependency injection
 .. _DependencyInjection:
+.. _dependency-injection:
 
 ====================
 Dependency injection
@@ -51,6 +52,7 @@ Alternatively :file:`Configuration/Services.php` can be used.
 
       Your\Namespace\:
         resource: '../Classes/*'
+        exclude: '../Classes/Domain/Model/*'
 
 This is how a basic :file:`Services.yaml` of an extension looks like. The meaning of :yaml:`autowire`,
 :yaml:`autoconfigure` and :yaml:`public` will be explained below.
@@ -59,7 +61,16 @@ This is how a basic :file:`Services.yaml` of an extension looks like. The meanin
 .. note::
 
    Whenever service configuration or class dependencies change, the Core cache needs
-   to be flushed to rebuild the compiled Symfony container.
+   to be flushed in the Install Tool to rebuild the compiled Symfony container.
+   Flushing all caches from the cache clear menu does not flush the compiled Symfony container.
+
+.. note::
+
+   The path exclusion :yaml:`exclude: '../Classes/Domain/Model/*'` excludes
+   your Models from the DI Container, which means you can not inject them or inject
+   dependencies into them.
+   Models are not Services and should therefore not require dependency injection.
+   Also, these Objects are created by the extbase persistence layer which does not support the DI container.
 
 .. _autowire:
 
@@ -84,6 +95,53 @@ add Symfony service tags based on implemented interfaces or base classes.
 For example autoconfiguration ensures that classes which implement
 :php:`\TYPO3\CMS\Core\SingletonInterface` will be publicly available from the
 Symfony container.
+
+
+Arguments
+------
+
+In case you turned autowire off or need special arguments set, you can configure
+those as well.
+This means you could set :yaml:`autowire: false` for an extension but provide the needed
+arguments via config specifically for classes you want to.
+This can be done in chronological order or by naming them.
+
+.. code-block:: yaml
+
+    # Configuration/Services.yaml
+      Vendor\MyExtension\UserFunction\ClassA:
+        arguments:
+          $argA: '@TYPO3\CMS\Core\Database\ConnectionPool'
+
+      Vendor\MyExtension\UserFunction\ClassB:
+        arguments:
+          - '@TYPO3\CMS\Core\Database\ConnectionPool'
+
+This enables you to inject concrete objects like the QueryBuilder or Database Connection:
+
+.. code-block:: yaml
+
+   # Configuration/Services.yaml
+     querybuilder.pages:
+       class: 'TYPO3\CMS\Core\Database\Query\QueryBuilder'
+       factory:
+         - '@TYPO3\CMS\Core\Database\ConnectionPool'
+         - 'getQueryBuilderForTable'
+       arguments:
+         - 'pages'
+
+     Vendor\MyExtension\UserFunction\ClassA:
+       public: true
+       arguments:
+         - '@querybuilder.pages'
+
+Now you can access the QueryBuilder instance within ClassA. With this you can
+call your queries without further instantiation. Be aware to clone your object or
+resetting the query parts to prevent side effects in case of multiple usages.
+
+This method of injecting Objects does also work with e.g. extension configurations
+or typoscript settings.
+
 
 Public
 ------
@@ -135,6 +193,7 @@ For such classes an extension can override the global :yaml:`public: false` conf
 
       Vendor\MyExtension\:
         resource: '../Classes/*'
+        exclude: '../Classes/Domain/Model/*'
 
       Vendor\MyExtension\UserFunction\ClassA:
         public: true
@@ -241,6 +300,16 @@ interface the interface injection is simply resolved to this implementation::
 When multiple implementation of the same interface exist, an extension needs to specify which
 implementation should be injected when the interface is type hinted. Find out more about how this
 is achieved in the official `Symfony documentation <https://symfony.com/doc/current/service_container/autowiring.html#working-with-interfaces>`_.
+
+Dependency injection in a XCLASSed class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If an existing class (for example an Extbase controller) is extended using XCLASS and additional
+dependencies are injected using constructor injection, it must be ensured to add a
+reference to the extended class in the :file:`Configuration/Services.yaml` file of the
+extending extension as shown in the example below::
+
+   TYPO3\CMS\Belog\Controller\BackendLogController: '@Namespace\Extension\Controller\ExtendedBackendLogController'
 
 Further information
 ^^^^^^^^^^^^^^^^^^^

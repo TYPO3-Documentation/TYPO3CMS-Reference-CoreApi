@@ -12,7 +12,7 @@ enables search engines to index your file structure and possibly
 reveals sensitive data. The screenshot below shows an example of such
 data that can be retrieved with a simple HTTP request.
 
-.. figure:: ../Images/directory-indexing.png
+.. figure:: /Images/ManualScreenshots/Security/directory-indexing.png
     :class: with-shadow
     :alt: Screenshot of an example directory index
 

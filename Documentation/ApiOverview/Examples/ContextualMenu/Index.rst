@@ -17,7 +17,7 @@ Context-Sensitive Menus
 Contextual menus exist in many places in the TYPO3 CMS backend. Just try your luck clicking on any **icon** that you see. Chances are good that a contextual menu will appear, offering useful functions to execute.
 
 
-.. figure:: Images/ContextMenuTtContent.png
+.. figure:: /Images/ManualScreenshots/Examples/ContextualMenu/ContextMenuTtContent.png
    :alt: Context-sensitive menu in mode Web > List
 
    The context menu shown after clicking on the Content Element icon
@@ -207,7 +207,7 @@ Tutorial: How to Add a Custom Context Menu Item
 Follow these steps to add a custom menu item for pages records. You will add a "Hello world" item which will show an info after clicking.
 
 
-.. figure:: Images/ContextMenuHelloWorld.png
+.. figure:: /Images/ManualScreenshots/Examples/ContextualMenu/ContextMenuHelloWorld.png
    :alt: Context menu with custom item
 
    Context menu with custom item

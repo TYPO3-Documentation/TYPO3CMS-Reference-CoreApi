@@ -126,22 +126,68 @@ TYPO3 provides a small set of helper methods related to HTTP Requests in the cla
 HttpUtility::redirect
 ---------------------
 
-Sends a redirect header response and exits. Additionally the URL is checked and
-if needed corrected to match the format required for a Location redirect header.
-By default the HTTP status code sent is `HTTP/1.1 303 See Other`.
+.. deprecated:: 11.3
+   With TYPO3 11.3 this method has been deprecated. Create a direct response
+   using the :ref:`ResponseFactory <request-handling>` instead.
+
+.. _http_utility_response_migration:
+
+Migration
+~~~~~~~~~
+
+Most of the time, a proper PSR-7 Response
+can be passed back to the call stack (request handler). Unfortunately there
+might still be some places, inside the call stack, where it is not possible to
+directly return a PSR-7 response. In such case, a :php:`PropagateResponseException`
+could be thrown. It will automatically be caught by a PSR-15 middleware and the
+given PSR-7 Response will then directly be returned.
+
+.. code-block:: php
+
+   // Before
+   HttpUtility::redirect('https://example.com', HttpUtility::HTTP_STATUS_303);
+
+   // After
+
+   // Inject PSR-17 ResponseFactoryInterface
+   public function __construct(ResponseFactoryInterface $responseFactory)
+   {
+      $this->responseFactory = $responseFactory
+   }
+
+   // Create redirect response
+   $response = $this->responseFactory
+      ->createResponse(303)
+      ->withAddedHeader('location', 'https://example.com')
+
+   // Return Response directly
+   return $reponse;
+
+   // or throw PropagateResponseException
+   new PropagateResponseException($response);
+
+.. note::
+
+   Throwing exceptions for returning an immediate PSR-7 Response is considered
+   as an intermediate solution only, until it's possible to return PSR-7
+   responses in every relevant place. Therefore, the exception is marked
+   as :php:`@internal` and will most likely vanish again in the future.
 
 HttpUtility::setResponseCode
 ----------------------------
 
-Set a specific response code like `404`. Response codes should be taken from
-the :php:`HttpUtility` class constants - for example :php:`HttpUtility::HTTP_STATUS_404`.
+.. deprecated:: 11.3
+   With TYPO3 11.3 this method has been deprecated. Create a direct response
+   using the :ref:`ResponseFactory <request-handling>` instead. See also
+   :ref:`Migration <http_utility_response_migration>`.
 
 HttpUtility::setResponseCodeAndExit
 -----------------------------------
 
-Set a specific response code like `404` and exit directly.
-Response codes should be taken from the :php:`HttpUtility` class constants -
-for example :php:`HttpUtility::HTTP_STATUS_404`.
+.. deprecated:: 11.3
+   With TYPO3 11.3 this method has been deprecated. Create a direct response
+   using the :ref:`ResponseFactory <request-handling>` instead. See also
+   :ref:`Migration <http_utility_response_migration>`.
 
 HttpUtility::buildUrl
 ---------------------

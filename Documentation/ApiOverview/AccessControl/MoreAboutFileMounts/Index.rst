@@ -37,6 +37,27 @@ File mounts
   related to a storage.
 
 .. index::
+   File mounts; create
+
+.. _access-filemounts-create:
+
+Create a new filemount
+======================
+
+.. versionadded:: 11.3
+   Starting with TYPO3 11.3 it is possible to create a new filemount via
+   the context menu of the folder.
+
+To create a new filemount go to the module :guilabel:`Filelist` and create the
+folder for the mount if it didn't exist yet. Then open the context menu on that
+folder and choose :guilabel:`New Filemount`, then give the new filemount a name.
+storage and folder are already set.
+
+It is also possible to create a filemount manually in the :guilabel:`List`
+module by creating a record of type :php:`Filemount`. In this case you have
+to choose the storage and folder manually.
+
+.. index::
    TYPO3_CONF_VARS; BE fileadminDir
    TYPO3_CONF_VARS; BE lockRootPath
    Local driver storage
@@ -49,8 +70,7 @@ Paths for local driver storage
 The file storages based on the "local file system" driver have an
 option for relative or absolute paths.
 
-.. figure:: ../Images/AccessLocalStoragePath.png
-   :alt: The paths options for a storage based on the local file system driver
+.. include:: /Images/AutomaticScreenshots/AccessControl/LocalStoragePath.rst.txt
 
 
 "Relative" means that the given path is relative to the :file:`fileadmin/`
@@ -144,7 +164,7 @@ Having set up all these properties and folders, the user
 should see the following when moving to the **FILE > Filelist**
 module:
 
-.. figure:: ../Images/AccessUserFileTree.png
+.. figure:: /Images/ManualScreenshots/AccessControl/AccessUserFileTree.png
    :alt: The file list with automatically mounted user and group directories
 
 

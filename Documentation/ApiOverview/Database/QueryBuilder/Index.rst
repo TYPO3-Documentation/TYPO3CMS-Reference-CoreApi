@@ -6,6 +6,10 @@
 QueryBuilder
 ============
 
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
+
 The `QueryBuilder` is a rather huge class that takes care of the main query dealing.
 
 An instance can get hold of by calling the :php:`ConnectionPool->getQueryBuilderForTable()` and handing

@@ -80,7 +80,14 @@ If translations exist on Pootle there is no need to retranslate everything on Cr
 
 
 #. **Fetch translations**
-   Download the translations you need. The given example will download the German translations of the extension *powermail*:
+   Download the translations you need. You will need to download them directly from the TER with the following URL pattern:
+
+   `https://extensions.typo3.org/fileadmin/ter/{e}/{x}/{extension_key}-l10n/{extension_key}-l10n-{lang}.zip`
+
+   Here `{extension_key}` is the full extension key, `{e}` the 1st and `{x}` the 2nd letter of that extension key.
+   Finally `{lang}` is the 2-lettered language identifier, e.g. `de`.
+
+   For example to download the German translations of the extension *powermail*:
    `wget 'https://extensions.typo3.org/fileadmin/ter/p/o/powermail-l10n/powermail-l10n-de.zip'`
 
 #. **Open and Cleanup**
@@ -109,7 +116,7 @@ Can I upload translated xlf files?
 ----------------------------------
 Yes, you can! Switch to the settings area of your project (you need to have the proper permissions for that) and you can upload xlf files or even zip files containg the xlf files.
 
-.. figure:: Images/Upload.png
+.. figure:: /Images/ExternalImages/Crowdin/Upload.png
    :alt: Upload translations
    :width: 600px
 

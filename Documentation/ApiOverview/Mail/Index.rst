@@ -237,9 +237,17 @@ accessible to the world (outside of the webroot).
 How to create and send mails
 ============================
 
-Both :php:`\TYPO3\CMS\Core\Mail\MailMessage` and :php:`\TYPO3\CMS\Core\Mail\FluidEmail` inherit
+There are 2 ways to send emails in TYPO3 based on the Symfony API:
+
+1. With :ref:`Fluid <mail-fluid-email>`, using :php:`\TYPO3\CMS\Core\Mail\FluidEmail`
+2. :ref:`Without Fluid <mail-mail-message>`, using :php:`\TYPO3\CMS\Core\Mail\MailMessage`
+
+:php:`\TYPO3\CMS\Core\Mail\MailMessage` and :php:`\TYPO3\CMS\Core\Mail\FluidEmail` inherit
 from :php:`Symfony\Component\Mime\Email` and have a similar API. **FluidEmail** is specific
 for sending emails based on Fluid.
+
+Either method can be used to send emails with HTML content, text content or both
+HTML and text.
 
 
 .. index:: Mail; FluidEmail
@@ -262,10 +270,16 @@ make sure the paths are setup as described in :ref:`mail-configuration-fluid`:
        ->to('contact@acme.com')
        ->from(new Address('jeremy@acme.com', 'Jeremy'))
        ->subject('TYPO3 loves you - here is why')
-       ->format('html') // only HTML mail
+       ->format('both') // send HTML and plaintext mail
        ->setTemplate('TipsAndTricks')
        ->assign('mySecretIngredient', 'Tomato and TypoScript');
    GeneralUtility::makeInstance(Mailer::class)->send($email);
+
+
+A file :file:`TipsAndTricks.html` must exist in one of the paths
+defined in :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']`
+for sending the HTML content. For sending plaintext content, a file
+:file:`TipsAndTricks.txt` should exist.
 
 Defining a custom email subject in a custom Fluid template:
 
@@ -291,11 +305,12 @@ In Fluid, you can now use the defined language key ("language"):
 
 
 .. index:: Mail; MailMessage
+.. _mail-mail-message:
 
 Send email with `MailMessage`
 -----------------------------
 
-This shows how to generate and send a mail in TYPO3::
+:php:`MailMessage` can be used to generate and send a mail without using Fluid::
 
    // Create the message
    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);

@@ -24,21 +24,14 @@ version of TYPO3 CMS, you should normally go through the Upgrade
 Wizard, whose first step is to perform all necessary database
 changes:
 
-.. figure:: ../Images/DatabaseUpgradeWizard.png
-   :alt: The Upgrade Wizard indicating that the database needs updates
-
-   The upgrade wizard indicating that the database needs updates
+.. include:: /Images/AutomaticScreenshots/AdminTools/DatabaseUpgradeWizard.rst.txt
 
 
 When performing smaller updates, after updating extensions or - in
 general - if you want to check the sanity of your system,
-you can go to **ADMIN TOOLS > Maintenance > Analyze Database Structure**:
+you can go to :guilabel:`Admin Tools > Maintenance > Analyze database`:
 
-
-.. figure:: ../Images/AnalyzeDatabase.png
-   :alt: The Database analyzer is part of the maintenance area
-
-   The Database analyzer is part of the maintenance area
+.. include:: /Images/AutomaticScreenshots/AdminTools/AnalyzeDatabase.rst.txt
 
 This tool is collating the information from all
 :file:`ext_tables.sql` files of all active extensions and compares it with
@@ -50,10 +43,7 @@ You can choose which updates you want to perform. You can even
 decide not to create new fields and tables, although that will
 very likely break your installation.
 
-.. figure:: ../Images/DatabaseDatabaseAnalyzer.png
-   :alt: Analyze the database structure
-
-   Analyze the database structure
+.. include:: /Images/AutomaticScreenshots/AdminTools/DatabaseAnalyzer.rst.txt
 
 More information about the process of upgrading TYPO3 CMS can be found in
 the :ref:`Installation and Upgrade Guide <t3install:upgrade>`.

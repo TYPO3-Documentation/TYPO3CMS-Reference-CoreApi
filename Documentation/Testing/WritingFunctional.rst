@@ -200,16 +200,12 @@ the database using :php:`$this->importCSVDataSet()`. An example file could look 
     "pages",,,,,,,,,
     ,"uid","pid","sorting","deleted","t3_origuid","title",,,
     ,1,0,256,0,0,"Connected mode",,,
-    "sys_language",,,,,,,,,
-    ,"uid","pid","hidden","title","flag",,,,
-    ,1,0,0,"Dansk","dk",,,,
-    ,2,0,0,"Deutsch","de",,,,
     "tt_content",,,,,,,,,
     ,"uid","pid","sorting","deleted","sys_language_uid","l18n_parent","l10n_source","t3_origuid","header"
     ,297,1,256,0,0,0,0,0,"Regular Element #1"
 
-This file defines one row for the `pages` table, two rows for the `sys_language` table
-and finally one `tt_content` row. So one `.csv` file can contain rows of multiple tables.
+This file defines one row for the `pages` table
+and one `tt_content` row. So one `.csv` file can contain rows of multiple tables.
 
 There is a similar method called :php:`$this->importDataSet()` that allows loading database
 rows defined as XML instead of CSV, too.

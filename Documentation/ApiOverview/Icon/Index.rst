@@ -188,9 +188,7 @@ There, browse through existing icons. Use the name under the icon (for example
 the argument :code:`identifier` in Fluid (see code examples above).
 
 
-.. image:: Images/styleguide.png
-   :class: with-shadow
-
+.. include:: /Images/AutomaticScreenshots/Icon/IconProviders.rst.txt
 
 Use TYPO3.Icons
 ---------------

@@ -6,84 +6,143 @@
 Publish your extension
 ======================
 
-By publishing an extension to the
-`TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__, we mean
-making it publicly available. Follow these four steps, we recommend to do all
-of these.
+Follow these steps to release your extension publicly in the TYPO3 world:
 
-*TYPO3 - Inspiring people to share*
+#. :ref:`Publish the source code on a public Git hosting platform <publishExtensionGit>`
+#. :ref:`Publish your extension on Packagist <publishExtensionPackagist>`
+#. :ref:`Publish your extension on TER <publishExtensionTer>`
+#. :ref:`Publish its documentation in the official TYPO3 documentation <publishExtensionDocumentation>`
+#. :ref:`Set up translations <publishExtensionTranslation>` on Crowdin
+
+– *TYPO3 - Inspiring people to share*
 
 .. index:: Extension development; Git
-.. rst-class:: bignums-xxl
 
-#. Publish source code on a public Git hosting platform
+.. _publishExtensionGit:
 
-   The TYPO3 community currently uses GitHub, GitLab and Atlassian Bitbucket to
-   host the Git repositories of their extensions.
+Git
+===
 
-   Typically, the :ref:`extension key <extension-key>` is used for the
-   repository name, but that is not necessary.
+Publish your source code on a public Git hosting platform.
 
-   **Advantages:**
+The TYPO3 community currently uses GitHub, GitLab and Atlassian Bitbucket to
+host the Git repositories of their extensions.
 
-   * Contributors can add issues or make pull requests
-   * Render the documentation on docs.typo3.org (see below) by adding a webhook
+Typically, the :ref:`extension key <extension-key>` is used for the
+repository name, but that is not necessary.
+
+**Advantages:**
+
+*  Contributors can add issues or make pull requests.
+*  Documentation can be published in the official TYPO3 documentation
+   by using a webhook (see below).
 
 .. index:: Extension development; Packagist
 
-#. Publish your extension on Packagist
+.. _publishExtensionPackagist:
 
-   This is described well on `Packagist <https://packagist.org/>`__.
+Packagist
+=========
 
-   **Depends on:**
+Publish your extension on `Packagist <https://packagist.org/>`__
+- the main Composer repository.
 
-   * Public Git repository
+See their `homepage <https://packagist.org/>`__ for more details
+about the publishing process.
 
-   **Advantages:**
+**Depends on:**
 
-   * It is possible to install your extension using `composer require`
-   * An update of the extension can be done easily by your users with
-     `composer update`
+*  Public Git repository
+*  Valid :ref:`composer.json <composer-json>`
+
+**Advantages:**
+
+*  Extension can be installed in a
+   :ref:`Composer based <t3install:install-via-composer>`
+   TYPO3 instance using `composer require`.
+*  All advantages of being listed in Packagist, for example
+
+   *  Extension can be updated easily with `composer update`
 
 .. index:: Extension development; TER
 
-#. Publish your extension on TER
+.. _publishExtensionTer:
 
-   See `Publish an Extension <https://extensions.typo3.org/faq/publish-an-extension/>`__
-   for more information on how to publish an extension and check out the
-   `FAQ <https://extensions.typo3.org/faq/>`__ as well.
+TER
+===
 
-   **Advantages:**
+Publish your extension in the
+`TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__
+- the central storage for public TYPO3 extensions.
 
-   * Easy finding of your extension in the central Extension Repository
-   * The community can vote for your extension
-   * Users can subscribe to notifications on new releases
-   * Composer package is announced (optional)
-   * Sponsoring link (optional)
-   * Link to the documentation (optional)
-   * Link to the source code (optional)
-   * Link to the issue tracker (optional)
+See page :ref:`publish-to-ter` for more information about the
+publishing process and check out the TYPO3 community Q&A at
+page `FAQ <https://extensions.typo3.org/faq/>`__.
+
+**Depends on:**
+
+*  :ref:`Extension key <extension-key>` registered in TER
+
+**Advantages:**
+
+*  Extension can be installed in a
+   :ref:`non-Composer based <t3install:install-typo3-without-composer>`
+   TYPO3 instance using the :ref:`Extension Manager <extension-manager>`.
+*  All advantages of being listed in the TER, for example:
+
+   *  Easy finding of your extension
+   *  Reserved extension key in the TYPO3 world
+   *  The community can vote for your extension
+   *  Users can subscribe to notifications on new releases
+   *  Composer package is announced (optional)
+   *  Sponsoring link (optional)
+   *  Link to the documentation (optional)
+   *  Link to the source code (optional)
+   *  Link to the issue tracker (optional)
 
 .. index:: Extension development; webhook for documentation
 
-#. Add webhook for documentation
+.. _publishExtensionDocumentation:
 
-   In order for this to work, you must have a :file:`composer.json` and push
-   some changes after you registered the webhook.
+Documentation
+=============
 
-   All the necessary steps are outlined in :ref:`h2document:migrate` except for
-   step 4 (request redirects) which is not necessary for new documentation.
+Publish the documentation of your extension in the
+`official TYPO3 documentation <https://docs.typo3.org/>`__.
 
-   **Depends on:**
+Please follow the instructions on page :ref:`h2document:migrate` to set up
+an appropriate webhook.
 
-   * Public Git repository
-   * Extension published to TER (This is not strictly necessary for documentation
-     rendering. But it makes the workflow easier for the Documentation Team,
-     specifically for the approval process if your extension is already registered
-     on extensions.typo3.org).
+**Depends on:**
 
-   **Advantages:**
+*  Public Git repository
+*  Extension published in TER (optional).
+   This is not mandatory, but makes the webhook approval easier for the TYPO3
+   Documentation Team.
 
-   * Your extension documentation will be rendered on `docs.typo3.org <https://docs.typo3.org/>`__
-   * The documentation link will be added automatically if your extension is
-     registered on extensions.typo3.org (TER).
+**Advantages:**
+
+*  Easily find your extension documentation, which serves as a good companion
+   for getting started with your extension.
+
+.. _publishExtensionTranslation:
+
+Crowdin
+=======
+
+If you use language labels which should get translated in your extension
+(typically in :file:`Resources/Private/Languages`),
+you may want to configure the translation setup on https://crowdin.com.
+Crowdin is the official translation server for TYPO3.
+
+This is documented on :ref:`crowdin-extension-integration`.
+
+Further reading
+===============
+
+.. toctree::
+   :maxdepth: 3
+   :titlesonly:
+   :glob:
+
+   PublishToTER/Index
