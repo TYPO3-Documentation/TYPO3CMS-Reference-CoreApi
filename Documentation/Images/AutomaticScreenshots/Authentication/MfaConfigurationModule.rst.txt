@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Authentication/MfaConfigurationModule.png
+   :class: with-shadow
+
+   MFA providers in the configuration module

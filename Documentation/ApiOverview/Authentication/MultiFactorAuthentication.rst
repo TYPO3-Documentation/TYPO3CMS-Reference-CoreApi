@@ -18,7 +18,7 @@ user needs
 Read more about the concepts of MFA here https://en.wikipedia.org/wiki/Multi-factor_authentication
 
 
-.. figure:: /Images/ManualScreenshots/Authentication/mfa-enter-code.png
+.. figure:: /Images/ManualScreenshots/Authentication/MfaEnterCode.png
    :alt: TYPO3 Login Screen for entering MFA code (TOTP)
    :class: with-border with-shadow
 
@@ -38,11 +38,14 @@ Authentication or Frontend Authentication with a multi-factor step in-between.
 
 Managing MFA providers is currently possible via the :guilabel:`User Settings` module in
 the tab called :guilabel:`Account security`.
+
+.. include:: /Images/AutomaticScreenshots/Authentication/MfaActivate.rst.txt
+
 The :guilabel:`Account security` tab displays the current state:
 
-- whether MFA can be configured
-- whether MFA is activated or
-- whether some MFA providers are locked
+-  whether MFA can be configured
+-  whether MFA is activated or
+-  whether some MFA providers are locked
 
 Included MFA providers
 ----------------------
@@ -66,9 +69,7 @@ provider is active, as it's only meant as a fallback provider, in case the
 authentication credentials for the "main" provider(s) are lost. It is encouraged
 to activate this provider, and keep the codes at a safe place.
 
-.. figure:: /Images/ManualScreenshots/Authentication/mfa-select-provider.png
-   :alt: Select a MFA provider screen
-   :class: with-border with-shadow
+.. include:: /Images/AutomaticScreenshots/Authentication/MfaSelectProvider.rst.txt
 
 Setting up MFA for a backend user
 ---------------------------------
@@ -84,9 +85,7 @@ this state with a "star" icon, next to the providers' title.
 Each inactive provider contains a :guilabel:`Setup` button which opens the corresponding
 configuration view. This view can be different depending on the MFA provider.
 
-.. figure:: /Images/ManualScreenshots/Authentication/mfa-qr-code.png
-   :alt: MFA TOTP provider configuration screen
-   :class: with-border with-shadow
+.. include:: /Images/AutomaticScreenshots/Authentication/MfaQrCode.rst.txt
 
 Each provider contains an :guilabel:`Edit/Change` button, which allows to adjust the
 providers' settings. This view allows for example to set a provider as the
@@ -151,14 +150,13 @@ The backend users listing in the backend user module also displays whether MFA
 is enabled or currently locked, for each user. This allows an administrator to
 analyze their users' MFA usage at a glance.
 
-The :guilabel:`System => Configuration` admin module shows an overview
+The :guilabel:`System > Configuration` admin module shows an overview
 of all currently registered providers in the installation. This is especially
 helpful to find out the exact provider identifier, needed for some
-userTSconfig options.
+user TSconfig options.
 
-.. figure:: /Images/ManualScreenshots/Authentication/mfa-configuration-module.png
-   :alt: MFA providers in the configuration module
-   :class: with-border with-shadow
+.. include:: /Images/AutomaticScreenshots/Authentication/MfaConfigurationModule.rst.txt
+
 
 Configuration
 -------------

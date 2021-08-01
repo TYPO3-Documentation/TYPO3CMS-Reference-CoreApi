@@ -36,12 +36,10 @@ It is thus possible to find solutions for using LDAP as an
 authentication server, for example.
 
 You can check which authentication services are installed
-using the **SYSTEM > Reports** module, in the *Installed Services*
+using the :guilabel:`System > Reports > Installed Services`
 view:
 
-.. figure:: /Images/ManualScreenshots/Authentication/InstalledAuthServices.png
-   :alt: All installed authentication services and their priority
-   :class: with-border with-shadow
+.. include:: /Images/AutomaticScreenshots/Authentication/InstalledAuthServices.rst.txt
 
 .. note::
 
