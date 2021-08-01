@@ -150,6 +150,81 @@
                         "fileName": "FeatureToggles"
                     },
                     {"action": "closeModalDialog"}
+                ],
+                "Authentication": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Authentication"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Authentication"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Reports')]"},
+                    {"action": "click", "link": "Reports"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Reports"},
+                    {"action": "click", "link": "Installed Services"},
+                    {
+                        "action": "waitForText",
+                        "text": "Service type: auth"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "InstalledAuthServices",
+                        "captionText": "All installed authentication services and their priority"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Minimize/maximize module menu"},
+                    {"action": "click", "link": "Klaus"},
+                    {"action": "waitForText", "text": "User Settings"},
+                    {"action": "click", "link": "User Settings"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "User Settings"},
+                    {"action": "click", "link": "Account security"},
+                    {"action": "waitForText", "text": "Multi-factor authentication"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "Klaus"},
+                    {"action": "waitForText", "text": "User Settings"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "MfaActivate",
+                        "captionText": "Manage your MFA providers in the User Settings module"
+                    },
+                    {"action": "click", "link": "Klaus"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "click", "link": "Setup multi-factor authentication"},
+                    {"action": "waitForText", "text": "Multi-factor Authentication Overview"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "MfaSelectProvider",
+                        "captionText": "Select a MFA provider screen"
+                    },
+                    {"action": "click", "link": "Setup Time-based one-time password"},
+                    {"action": "waitForText", "text": "Set up Time-based one-time password"},
+                    {"action": "resizeWindow", "width": 1024,"height": 780},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "MfaQrCode",
+                        "captionText": "MFA TOTP provider configuration screen"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "Minimize/maximize module menu"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Configuration')]"},
+                    {"action": "click", "link": "Configuration"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Configuration"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "MFA providers"
+                    },
+                    {"action": "waitForText", "text": "MFA providers"},
+                    {"action": "click", "link": "a.list-tree-control-closed"},
+                    {"action": "waitForText", "text": "isDefaultAllowed"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "MfaConfigurationModule",
+                        "captionText": "MFA providers in the configuration module"
+                    }
                 ]
             }
         },
