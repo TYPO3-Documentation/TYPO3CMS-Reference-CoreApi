@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: 
+.. index::
    ! YAML
    pair: API; YAML
 .. _yaml-api:
@@ -46,7 +46,7 @@ to make use of the loader in your extensions::
 
    // ...
 
-   YamlFileLoader::load(string $fileName, int $flags = self::PROCESS_PLACEHOLDERS | self::PROCESS_IMPORTS)
+   (new YamlFileLoader())->load(string $fileName, int $flags = self::PROCESS_PLACEHOLDERS | self::PROCESS_IMPORTS)
 
 Configuration files can make use of import functionality to reference to the contents of different files.
 
