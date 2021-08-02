@@ -26,7 +26,7 @@ function, you should make sure that this user is initialized like this::
 
    Bootstrap::initializeBackendAuthentication();
 
-Look in the `typo3/cms-lowlevel <https://github.com/TYPO3/TYPO3.CMS/tree/master/typo3/sysext/lowlevel>`__
+Look in the `typo3/cms-lowlevel <https://github.com/typo3/typo3/tree/master/typo3/sysext/lowlevel>`__
 system extension for more examples.
 
 
