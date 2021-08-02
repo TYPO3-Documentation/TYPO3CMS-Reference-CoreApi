@@ -26,7 +26,7 @@ testing saves time and money on a project, the series starting with `Serious Sof
 2009
 ====
 
-The `first core unit test <https://github.com/TYPO3/TYPO3.CMS/commit/5fd947c8a1d7b009a920761ecc25c32889d5ee9a>`_
+The `first core unit test <https://github.com/typo3/typo3/commit/5fd947c8a1d7b009a920761ecc25c32889d5ee9a>`_
 has been committed in early 2009. The core was still using SVN as version control system at this point. More
 than ten years ago. The tests have later been released with TYPO3 version 4.3 in fall 2009. The system
 back then relied on the TYPO3 extension *phpunit*. This TER extension bundled the native `phpunit package
@@ -48,7 +48,7 @@ tests fail.
 
 However, the young project `Travis CI <https://travis-ci.com/>`_ came online and allowed free test
 environments for open source projects. The TYPO3 core quickly started using that, a first `.travis.yml
-<https://github.com/TYPO3/TYPO3.CMS/commit/4302056ce55c34e977b7b8616ddd90e00cdc50b3>`_ has been added
+<https://github.com/typo3/typo3/commit/4302056ce55c34e977b7b8616ddd90e00cdc50b3>`_ has been added
 early 2012 and all merged patches executed the test suite. Persons merging patches got feedback on failed
 builds and were able to act upon: Either fix the build or revert the patch. The core team established an
 "always green" rule for core development.
