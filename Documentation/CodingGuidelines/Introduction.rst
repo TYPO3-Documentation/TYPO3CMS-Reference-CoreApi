@@ -77,5 +77,5 @@ an additional plugin.
 
 For example, for PhpStorm there is an `EditorConfig plugin <https://plugins.jetbrains.com/plugin/7294-editorconfig>`__.
 
-An `.editorconfig <https://github.com/TYPO3/TYPO3.CMS/blob/master/.editorconfig>`__
+An `.editorconfig <https://github.com/typo3/typo3/blob/master/.editorconfig>`__
 file is included in the TYPO3 source code.

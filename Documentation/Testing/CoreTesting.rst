@@ -15,7 +15,7 @@ since Core development is most likely bound to the Core master branch - back por
 branches are usually handled by Core maintainers and often don't affect other Core contributors.
 
 Note, the main script
-`Build/Scripts/runTests.sh <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/Scripts/runTests.sh>`_
+`Build/Scripts/runTests.sh <https://github.com/typo3/typo3/blob/master/Build/Scripts/runTests.sh>`_
 is relatively new. It works best when executed on a Linux based host but can be run under macOS and
 Windows with some performance drawbacks on macOS.
 
@@ -91,7 +91,7 @@ These are the exact same containers Bamboo based testing is executed in. In Bamb
 specifies what Bamboo executes for patches pushed to the review system. On local testing, this is the
 combination of :file:`Build/Scripts/runTests.sh`, :file:`Build/testing-docker/local/.env` (created by
 runTests.sh) and
-`Build/testing-docker/local/docker-compose.yml <https://github.com/TYPO3/TYPO3.CMS/blob/master/Build/testing-docker/local/docker-compose.yml>`_.
+`Build/testing-docker/local/docker-compose.yml <https://github.com/typo3/typo3/blob/master/Build/testing-docker/local/docker-compose.yml>`_.
 
 Whats impressive is that :file:`runTests.sh` can do everything locally that Bamboo executes as `pre-merge
 <https://bamboo.typo3.com/browse/CORE-GTC>`_ tests at the same time. It's just that the combinations of tests
