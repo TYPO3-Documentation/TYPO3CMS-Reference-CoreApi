@@ -41,7 +41,10 @@ effectively dropping especially the direct ability to :ref:`XCLASS <xclasses>`:
 Autoloading classes since TYPO3 7.x
 ===================================
 
-TYPO3 6.2 was still delivered with a couple of different autoloaders, that all had different approaches and rules to find a class. Since TYPO3 7.0, there is only a single autoloader left, the one of Composer. No matter if you run TYPO3 in Composer mode or not (Classic Mode), TYPO3 uses the Composer autoloader to resolve all class file locations.
+TYPO3 6.2 was still delivered with a couple of different autoloaders, that all had different
+approaches and rules to find a class. Since TYPO3 7.0, there is only a single autoloader left,
+the one of Composer. No matter if you run TYPO3 in Composer mode or not (Classic Mode), TYPO3
+uses the Composer autoloader to resolve all class file locations.
 
 .. index:: Autoloader; Without Composer
 .. _autoloading_without_composer_mode:
@@ -49,7 +52,12 @@ TYPO3 6.2 was still delivered with a couple of different autoloaders, that all h
 Loading classes without Composer mode
 =====================================
 
-This means, you did not install TYPO3 via a `require` statement inside your :file:`composer.json`. It's a regular old-school install where the TYPO3 source and the symlinks (:file:`typo3/index.php`) are setup manually. In this case, every time you install an extension, the autoloader scans the whole extension directory for classes. No matter if they follow any convention at all. There is just one rule. Put each class into its own file. The generated classmap is a huge array with a mapping of classnames to their location on the disk.
+This means, you did not install TYPO3 via a `require` statement inside your :file:`composer.json`. It's a
+regular old-school install where the TYPO3 source and the symlinks (:file:`typo3/index.php`) are setup
+manually. In this case, every time you install an extension, the autoloader scans the whole extension
+directory for classes. No matter if they follow any convention at all. There is just one rule.
+Put each class into its own file. The generated classmap is a huge array with a mapping of
+classnames to their location on the disk.
 
 Example::
 
@@ -65,15 +73,18 @@ Example::
       ...
    );
 
-This method is failsafe unless the autoload information cannot be written. In this case, check the Install Tool for warnings and **make sure that** :file:`typo3temp` **is writable**.
+This method is failsafe unless the autoload information cannot be written. In this case, check the Install
+Tool for warnings and **make sure that** :file:`typo3temp` **is writable**.
 
 **Troubleshooting:**
 
 If your classes cannot be found, try the following approaches.
 
 - Dump the class loading information manually with the following command: `php typo3/sysext/core/bin/typo3 dumpautoload`
-- If that command itself fails, please (manually) uninstall the extension and simply try reinstalling it (via the Extension Manager).
-- If you are still not lucky, the issue is definitely on your side and you should double check the write permissions on :file:`typo3temp`.
+- If that command itself fails, please (manually) uninstall the extension and simply
+  try reinstalling it (via the Extension Manager).
+- If you are still not lucky, the issue is definitely on your side and you should double check
+  the write permissions on :file:`typo3temp`.
 
 .. index:: pair: Autoloader; Composer
 .. _autoloading_with_composer_mode:
@@ -81,11 +92,15 @@ If your classes cannot be found, try the following approaches.
 Loading classes with Composer mode
 ==================================
 
-In composer mode, the autoloader checks for (classmap and `PSR-4`) autoloading information inside your extensions' :file:`composer.json`. If you do not provide any information, the autoloader falls back to the classmap autoloading like in non composer mode.
+In composer mode, the autoloader checks for (classmap and `PSR-4`) autoloading information inside
+your extensions' :file:`composer.json`. If you do not provide any information, the autoloader falls
+back to the classmap autoloading like in non composer mode.
 
 **Troubleshooting:**
 
-- Dump the class loading information manually via `composer dumpautoload` and check that the autoload information is updated. Typically you would check :file:`vendor/composer` to hold files like :file:`autoload_classmap.php` and :file:`autoload_psr4.php` etc.
+* Dump the class loading information manually via `composer dumpautoload` and check that
+  the autoload information is updated. Typically you would check :file:`vendor/composer` to hold
+  files like :file:`autoload_classmap.php` and :file:`autoload_psr4.php` etc.
 
 Example::
 
@@ -107,11 +122,18 @@ Example::
 Best practices
 ==============
 
-- If you didn't do so before, have a look at the `PSR-4` standard. It defines very good rules for naming classes and the files they reside in. Really, read the specs and start using `PSR-4` in your projects. It's unlikely that there will be any other more advanced standard in the near future in the PHP world. `PSR-4` is the way to go and you should embrace it.
+* If you didn't do so before, have a look at the `PSR-4` standard. It defines very good rules
+  for naming classes and the files they reside in. Really, read the specs and start
+  using `PSR-4` in your projects. It's unlikely that there will be any other more advanced
+  standard in the near future in the PHP world. `PSR-4` is the way to go and you should embrace it.
 
-- Even if you do not use composer mode and the class mapping of the autoloader allows you to use whatever you want, stick to `PSR-4`. It's not only a very good standard to find classes, but it will also help organizing your code.
+* Even if you do not use composer mode and the class mapping of the autoloader allows you
+  to use whatever you want, stick to `PSR-4`. It's not only a very good standard to find classes,
+  but it will also help organizing your code.
 
-- `PSR-4` is all about namespaces. No matter if you like namespaces or not, use them. Namespaces exist since PHP 5.3, so you will be able to use them in any modern TYPO3 project due to the minimum PHP requirements of TYPO3 itself.
+* `PSR-4` is all about namespaces. No matter if you like namespaces or not, use them. Namespaces
+  exist since PHP 5.3, so you will be able to use them in any modern TYPO3 project due to the
+  minimum PHP requirements of TYPO3 itself.
 
 .. tip::
 
