@@ -67,7 +67,7 @@ Capabilities
 ------------
 
 These are the current capabilities, that can be used (see `LockingStrategyInterface
-<https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/core/Classes/Locking/LockingStrategyInterface.php>`__):
+<https://github.com/typo3/typo3/blob/master/typo3/sysext/core/Classes/Locking/LockingStrategyInterface.php>`__):
 
 In general, the concept of locking, using shared or exclusive + blocking or non-blocking
 locks is not TYPO3-specific. You can find more resources under :ref:`locking-api-more-info`.
@@ -182,14 +182,14 @@ Extend Locking in Extensions
 An extension can extend the locking functionality by adding a new locking
 strategy. This can be done by writing a new class which implements the
 `LockingStrategyInterface
-<https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/core/Classes/Locking/LockingStrategyInterface.php>`__.
+<https://github.com/typo3/typo3/blob/master/typo3/sysext/core/Classes/Locking/LockingStrategyInterface.php>`__.
 
 Each locking strategy has a set of capabilities (getCapabilities()), and a
 priority (getPriority()), so give your strategy a priority higher than 75
 if it should override the current top choice FileLockStrategy.
 
 See `FileLockStrategy
-<https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/core/Classes/Locking/FileLockStrategy.php>`__
+<https://github.com/typo3/typo3/blob/master/typo3/sysext/core/Classes/Locking/FileLockStrategy.php>`__
 for an example.
 
 
