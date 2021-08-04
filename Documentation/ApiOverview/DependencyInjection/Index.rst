@@ -199,7 +199,7 @@ In general, we're still somehow using them in the right direction ;)
   to get this more clean over time.
 
 * **Data object**: Data objects are the opposite of services. They are *not* available
-  through service containers (:php:`$container->has() returns false and they can not be
+  through service containers (:php:`$container->has()` returns false and they can not be
   injected). They are instantiated either with :php:`new()` or :php:`GeneralUtility::makeInstance()`.
   Models are the default example of data objects. *Data objects* are *not* service container aware
   and do not support DI. Note the TYPO3 core does not strictly follow this at all places
