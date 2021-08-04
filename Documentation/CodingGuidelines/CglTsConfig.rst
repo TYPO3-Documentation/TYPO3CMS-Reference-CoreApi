@@ -27,7 +27,7 @@ Format
 * Use spaces, not tabs
 * Indent with 2 spaces per indent level
 
-See `.editorconfig <https://github.com/TYPO3/TYPO3.CMS/blob/master/.editorconfig>`__ in core.
+See `.editorconfig <https://github.com/typo3/typo3/blob/master/.editorconfig>`__ in core.
 
 
 More Information
