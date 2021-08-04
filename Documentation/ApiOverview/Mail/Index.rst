@@ -227,7 +227,12 @@ When using the filesystem for spooling, you need to define in which folder TYPO3
 This folder will contain files for each email in the spool. So make sure this directory is writable by TYPO3 and not
 accessible to the world (outside of the webroot).
 
+Additional notes about the mailspool path:
 
+* If the path is absolute, the path must either start with the root path of the TYPO3 project or the public web folder path
+* If the path is relative, the public web path is prepended to the path
+* Must not contain symlinks (important for environments with auto deployment)
+* Must not contain ``//``, ``..`` or ``\``
 
 .. index::
    Mail; How to create mails
