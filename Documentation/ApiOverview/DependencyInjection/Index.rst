@@ -212,7 +212,10 @@ Using DI
 ========
 
 Now that we have a general understanding of what is a service and what is a data
-object, let's go a bit deeper into usages of services.
+object, let's go a bit deeper into usages of services. We'll do most of that by
+example, since it's much easier to understand than some abstract documentation.
+Let's simply say that whenever your class has a service dependency to another class,
+one of the solutions below should be used.
 
 .. _constructor-injection:
 
@@ -221,7 +224,8 @@ Constructor injection
 
 Assume we're writing a controller that renders a list of users. Those users are
 found using a UserRepository, so the repository service is a direct dependency of the
-controller service. A typical constructor dependency injection looks like this:
+controller service. A typical constructor dependency injection to resolve the
+dependency by the framework looks like this:
 
 .. code-block:: php
 
@@ -271,7 +275,7 @@ A second way to get services injected is by using :php:`inject*()` methods:
 This ends up with the exact same situation as above: The controller instance has
 an object of type :php:`UserRepository` in class property :php:`$userRepository`.
 This inject* way came from extbase and TYPO3 core implemented it in addition to
-the default symfony constructor injection. Why did we do that, you may ask. Both
+the default symfony constructor injection. Why did we do that, you may ask? Both
 strategies have subtle differences: First, when using inject* methods, the type
 hinted class property needs to be nullable, otherwise PHP >= 7.4 throws a warning
 since the instance is not set during :php:`__construct()`. But that's just a
@@ -314,7 +318,7 @@ own dependency to the constructor, and then call :php:`parent::__construct($logg
 satisfy the dependency of the abstract. This would hardcode all dependencies
 of the abstract into extending classes. If later the abstract is changed and
 another dependency is added to the constructor, this would break consuming
-classes since they did not know that yet.
+classes since they did not know that.
 
 Differently put: When core classes "pollute" :php:`__construct()` with dependencies,
 the core can not add dependencies without being breaking. This is the reason why
@@ -364,11 +368,11 @@ useful dependency injection scenario. Look at this example:
    }
 
 See the difference? We're requesting the injecting of an interface and not a class!
-This forces the service container to look up which specific class is configured as
-implementation of the interface and inject and instance of it. This is the
-true heart of dependency injection: A consuming class no longer codes on
-a specific implementation, but on the signature of the interface. The
-framework makes sure something is injected that satisfies the interface,
+It works for both constructor and method injection. It forces the service container
+to look up which specific class is configured as implementation of the interface and
+inject and instance of it. This is the true heart of dependency injection: A consuming
+class no longer codes on a specific implementation, but on the signature of the interface.
+The framework makes sure something is injected that satisfies the interface,
 the consuming class does not care, it just knows about the interface methods. An
 instance administrator can decide to configure the framework to inject some
 different implementation than the default, and that's fully transparent
