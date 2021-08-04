@@ -367,7 +367,7 @@ useful dependency injection scenario. Look at this example:
       }
    }
 
-See the difference? We're requesting the injecting of an interface and not a class!
+See the difference? We're requesting the injection of an interface and not a class!
 It works for both constructor and method injection. It forces the service container
 to look up which specific class is configured as implementation of the interface and
 inject and instance of it. This is the true heart of dependency injection: A consuming
