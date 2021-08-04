@@ -1,4 +1,3 @@
-
 .. include:: /Includes.rst.txt
 .. index:: !Dependency injection
 .. _DependencyInjection:
@@ -9,33 +8,396 @@ Dependency injection
 ====================
 
 .. versionadded:: 10.0
-
    :doc:`Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
 
-TYPO3 uses a dependency injection solution based on the corresponding `PSR-11 <https://www.php-fig.org/psr/psr-11/>`_
-compliant Symfony component to standardize object initialization throughout the Core as well as in extensions.
+.. contents:: This page
+   :depth: 3
+   :local:
 
-The recommended way of injecting dependencies is to use constructor injection::
+Introduction
+============
 
-   public function __construct(Dependency $dependency)
+The title of this chapter is "dependency injection" (DI), but the scope is a bit
+broader: In general, this chapter is about TYPO3 object lifecycle management,
+how to obtain objects, with one sub-part of it being dependency injection.
+
+The underlying interfaces are based on the PHP-FIG standard
+`PSR-11 ContainerInterface <https://www.php-fig.org/psr/psr-11/>`_, and the
+implementation is based on `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
+and `Symfony dependency injection <https://symfony.com/doc/current/components/dependency_injection.html>`_ components,
+plus some TYPO3 specific sugar.
+
+This chapter not only talks about symfony DI and its configuration via :file:`Services.yaml`,
+but also a bit about Services in general, about :php:`GeneralUtility::makeInstance()` and the
+:php:`SingletonInterface`. And since the TYPO3 core already had an object lifecycle management
+solution with the extbase :php:`ObjectManager` before symfony services have been implemented, we'll
+also talk about how to transition away from it towards the core-wide symfony solution.
+
+
+Background and history
+======================
+
+Obtaining object instances in TYPO3 has always been pretty straight: Just call
+:php:`GeneralUtility::makeInstance(\Vendor\Extension\Some\Class::class)` and hand over
+mandatory and optional :php:`__construct()` arguments as additional arguments.
+
+There are two additional quirks to that:
+
+* First, a class instantiated through makeInstance() can implement :php:`SingletonInterface`.
+  This empty interface definition tells makeInstance() to instantiate the object exactly once
+  for this request, and if another makeInstance() call asks for it, *the same object instance*
+  is returned - otherwise makeInstance() always creates a new object instance and returns it.
+
+* Second, makeInstance() allows :ref:`"XCLASS'ing" <xclasses>`. This is a (rather dirty
+  way to substitute a (usually core) class with an own implementation. XCLASS'ing in general is
+  brittle and seen as a last resort hack if no better solution is available. In connection
+  with symfony containers, XCLASS'ing services should be avoided in general and service
+  overrides should be used instead. Core is still working on this, though. In contrast, XCLASS'ing
+  is still useful for data objects, and there is no good other solution on the horizon.
+
+Using :php:`makeInstance()` worked very well for a long time. It however lacked a feature
+that has been added to the PHP world after makeInstance() has been invented: Dependency injection.
+There are lots of articles about dependency injection on the net, so we won't go too deep
+here, and just want to give the main idea: The general issue appears when classes follow the
+`separation of concerns <https://en.wikipedia.org/wiki/Separation_of_concerns>`_
+principle: One of the standard examples is logging. Let's say a class responsibility is the
+creation of users - it checks everything and finally writes a row to database. Now, since
+this is an important operation, the class wants to log an information like "I just created user 'foo'".
+And this is where dependency injection enters the game: Logging is a huge topic, there are
+various error levels, the information can be written to various destinations and so on. The
+little class does not want to deal with all those details, but just tell the framework: "Please
+give me some logger I can use and take care of all details, I don't want to know them". This
+separation is the heart of "single responsibility" and "separation of concerns".
+
+Dependency injection does two things for us here: First, it allows separating concerns, and second,
+it hands the task of finding an appropriate implementation of a dependency over to the framework,
+so the framework decides - based on configuration - which specific instance is given to the
+consumer. Note in our example, the log instance itself may have dependencies again - the process
+of object creation and preparation may be recursive!
+
+In more abstract software engineering terms: `Dependency injection <https://en.wikipedia.org/wiki/Dependency_injection>`_
+is a pattern used to delegate the task of resolving class dependencies away from a consumer
+towards the underlying framework.
+
+Back to history: After :php:`makeInstance()` has been around for quite a while and lacked an
+implementation of dependency injection, extbase appeared in 2009. Extbase brought a first container
+and dependency injection solution, it's main interface being the extbase :php:`ObjectManager`.
+The extbase object manager has been widely used for a long time, but suffered from some
+issues younger approaches didn't face. One of the main drawbacks of extbase object manager
+was the fact that it's based on runtime reflection: Whenever an object had to be instantiated,
+the object manager scanned the class for needed injections and prepared dependencies to be
+injected. This process was quite slow and has been mitigated by various caches that also
+came with a cost. In the end, these issues have been the main reasons the object manager
+has never been established as a main core concept, but only lived in extbase scope.
+
+The object lifecycle and dependency injection solution based on symfony DI has been
+implemented with TYPO3 core v10 and is a general core concept: Next to the native
+dependency injection, it is also wired into :php:`makeInstance()` as a long living
+backwards compatible solution, but it fully substitutes the extbase object manager. In
+contrast to the extbase solution, symfony based object management is *not* bound to
+expensive runtime calculations, but is an instance wide build-time solution: When
+the TYPO3 bootstraps, all object creation details of all classes are read from
+a single cache file once up front, the actual creation does not need any expensive
+calculation.
+
+While symfony based DI has been implemented in TYPO3 v10 and the use of extbase
+ObjectManager has been marked as discouraged, all left over core usages of the
+ObjectManager have been dropped with TYPO3 v11, it is actively deprecated in v11
+and logs a deprecation level log entry. With TYPO3 v12, the extbase ObjectManager
+has been dropped. The symfony DI integration into TYPO3 does not stop here, there
+are still various places where core itself does things in a non optimal way. This
+will be further streamlined over time. For instance the final fate of makeInstance()
+and the SingletonInterface have not been fully decided yet, and there are various
+further tasks to solve with younger TYPO3 versions to sharpen the core provided
+object lifecycle management.
+
+
+Build-time caches
+=================
+
+To get a basic understanding of the core's lifecycle management, it's helpful to
+get a rough insight on the main construct. As already mentioned, object lifecycle
+management is a build-time based thing. It is done very early during TYPO3
+bootstrap and only once. On subsequent requests a cache file is loaded: All calculated
+information is written to a special cache that can not be reconfigured and is available
+early: Extensions can not mess with the construct if they follow the general core API's.
+
+Next to the container being created early, the state it contains is independent and
+not different in frontend, backend and CLI scope. The same container instance may
+even be used for multiple requests, which becomes more and more important with the
+core being able to execute sub requests nowadays. The only exception to this is the
+install tool: It uses a more basic container that "can't fail". But that difference
+isn't important for extension developers since they can't hook into the install tool
+at these places anyways.
+
+The symfony container implementation is usually configured to actively scan all
+extension classes for needed injections. The casual configuration of just a couple
+of lines within :file:`Services.yaml` should be done within all extensions that
+contain PHP classes and is the basic setup we'll outline in detail below.
+
+For developers, it is important to understand that dealing with symfony DI is
+an early core bootstrap thing. The system will fail upon misconfiguration, so
+frontend and backend may be unreachable.
+
+The container cache entry (at the time of this writing) *is not* deleted when a
+backend admin user clicks "Clear all cache" in the backend top toolbar. The only
+way to force a DI recalculation is using the "Admin tools" -> "Maintenance" -> "Flush Caches"
+button of the backend embedded install tool, or the standalone install tool. This
+means: Whenever core or an extension fiddles with DI (or more general "Container") configuration,
+this cache has to be manually dropped for a running instance by clicking this button.
+The backend extension manager does that automatically when loading or unloading extensions,
+though. Another way to quickly drop this cache during development is by removing
+:file:`var/cache/code/di/*` files, which reside in :file:`typo3temp/` in non-composer based
+instances, or elsewhere in composer based instances (see :ref:`Environment`). TYPO3 will
+then recalculate the cache upon next instance call, no matter if it's a frontend, a backend
+or a CLI call.
+
+The main takeaway is: When a developer fiddles with container configuration,
+the cache needs to be manually cleared. And if some configuration issue slipped in,
+which made the container / DI calculation fail, the system does *not* heal itself and
+needs both a fix of the configuration plus probably a cache removal. The standalone install
+tool however should *always* work, even if the backend breaks down, so the "Flush caches"
+button is always reachable. Note that *if* the container calculation fails, the
+:file:`var/log/typo3_*` files contain the exception with backtrace!
+
+
+Important terms
+===============
+
+We will continue to use a couple of technical terms in this chapter, so let's quickly
+define them to align. Some of them are not precisely used in our world, for
+instance some Java devs may stumble upon "our" understanding of a prototype.
+In general, we're still somehow using them in the right direction ;)
+
+* **Prototype**: The broad understanding of a *prototype* within the TYPO3 community is
+  that it's simply an object that is created a-new every time. Basically the direct
+  opposite of a *singleton*. In fact, the prototype pattern describes a base object that
+  is created once, so :php:`__construct()` is called to set it up, after that it is
+  cloned each time one wants to have a new instance of it. The community isn't well aware
+  of that, and the core provides no "correct" prototype API, so the word *prototype* is
+  often misused for an object that is always created a-new when the framework is
+  asked to create one.
+
+* **Singleton**: That's pretty clear. A *singleton* is an object that is instantiated
+  exactly once within one process. If an instance is requested and the object has been
+  created already once, the same instance is returned. Codewise, this is sometimes done by
+  implementing a static :php:`getInstance()` method that parks the instance in a property.
+  In TYPO3, this can also be achieved by implementing the :php:`SingletonInterface`,
+  :php:`makeInstance()` then stores the object internally. Within containers, this can be done
+  by declaring the object :yaml:`shared: true`, which is usually the default. We'll come back to
+  details later. Singletons must not have state - they must act the same way any time
+  they're used, no matter where, how often or when they've been used before.
+
+* **Service**: This is another "not by the book" definition. We use the understanding
+  "What is a service?" from symfony: In symfony, everything that is instantiated through
+  the service container (both directly via :php:`$container->get()` and indirectly via DI)
+  *is a service*. These are many things - for instance controllers are services, as well as
+  (non static) utilities, repositories and obvious classes like mailers and similar. It
+  does not matter much if those services are stateless or not (controllers are for instance
+  usually *not* stateless) - this is just a configuration detail from this point of view.
+  Note the TYPO3 core does not strictly follow this at all places yet, but strives
+  to get this more clean over time.
+
+* **Data object**: Data objects are the opposite of services. They are *not* available
+  through service containers (:php:`$container->has() returns false and they can not be
+  injected). They are instantiated either with :php:`new()` or :php:`GeneralUtility::makeInstance()`.
+  Models are the default example of data objects. *Data objects* are *not* service container aware
+  and do not support DI. Note the TYPO3 core does not strictly follow this at all places
+  up until now, but strives to get this more clean over time.
+
+
+.. _supported-ways-of-dependency-injection:
+
+Using DI
+========
+
+Now that we have a general understanding of what is a service and what is a data
+object, let's go a bit deeper into usages of services.
+
+.. _constructor-injection:
+
+Constructor injection
+---------------------
+
+Assume we're writing a controller that renders a list of users. Those users are
+found using a UserRepository, so the repository service is a direct dependency of the
+controller service. A typical constructor dependency injection looks like this:
+
+.. code-block:: php
+
+   namespace MyVendor\MyExtension\Controller;
+
+   use MyVendor\MyExtension\Repository\UserRepository;
+
+   class UserController
    {
-       $this->dependency = $dependency;
+      protected UserRepository $userRepository;
+
+      public function __construct(UserRepository $userRepository)
+      {
+         $this->userRepository = $userRepository;
+      }
    }
 
-By default all classes shipped by the TYPO3 Core  system extensions are available for dependency
-injection.
+This is straight and easy DI: The controller class is configured to be autowired
+as symfony DI service container entry (more on that below), symfony container finds a
+dependency to :php:`UserRepository` when scanning :php:`__construct()` and then knows that
+:php:`UserController` needs an instance of the repository service when the controller
+service is instantiated.
 
-.. contents::
-   :depth: 3
+.. _method-injection:
 
-.. index::
-   pair: Dependency injection; Extensions
-   pair: Dependency injection; Services
-   File; EXT:{extkey}/Configuration/Services.yaml
+Method injection
+----------------
+
+A second way to get services injected is by using :php:`inject*()` methods:
+
+.. code-block:: php
+
+   namespace MyVendor\MyExtension\Controller;
+
+   use MyVendor\MyExtension\Repository\UserRepository;
+
+   class UserController
+   {
+      protected ?UserRepository $userRepository = null;
+
+      public function injectUserRepository(UserRepository $userRepository)
+      {
+         $this->userRepository = $userRepository;
+      }
+   }
+
+This ends up with the exact same situation as above: The controller instance has
+an object of type :php:`UserRepository` in class property :php:`$userRepository`.
+This inject* way came from extbase and TYPO3 core implemented it in addition to
+the default symfony constructor injection. Why did we do that, you may ask. Both
+strategies have subtle differences: First, when using inject* methods, the type
+hinted class property needs to be nullable, otherwise PHP >= 7.4 throws a warning
+since the instance is not set during :php:`__construct()`. But that's just a
+language detail. More important is an abstraction scenario. Consider this case:
+
+.. code-block:: php
+
+   namespace MyVendor\MyExtension\Controller;
+
+   use MyVendor\MyExtension\Repository\UserRepository;
+   use MyVendor\MyExtension\Logger\Logger;
+
+   abstract class AbstractController
+   {
+      protected ?Logger $logger = null;
+
+      public function injectLogger(Logger $logger)
+      {
+         $this->logger = $logger;
+      }
+   }
+
+   class UserController extends AbstractController
+   {
+      protected UserRepository $userRepository;
+
+      public function __construct(UserRepository $userRepository)
+      {
+         $this->userRepository = $userRepository;
+      }
+   }
+
+We have an abstract service with a dependency plus a service that extends
+the abstract and has further dependencies.
+
+Now assume the abstract class is provided by TYPO3 core and the consuming class
+is provided by an extension. If the abstract class would use constructor injection,
+the consuming class would need to know the dependencies of the abstract, add it's
+own dependency to the constructor, and then call :php:`parent::__construct($logger)` to
+satisfy the dependency of the abstract. This would hardcode all dependencies
+of the abstract into extending classes. If later the abstract is changed and
+another dependency is added to the constructor, this would break consuming
+classes since they did not know that yet.
+
+Differently put: When core classes "pollute" :php:`__construct()` with dependencies,
+the core can not add dependencies without being breaking. This is the reason why
+for example the extbase :php:`AbstractController` uses inject* methods for its
+dependencies: Extending classes can then use constructor injection, do not need
+to call :php:`parent::__construct()`, and the core is free to change dependencies of
+the abstract.
+
+In general, when the core provides abstract classes that are expected to be
+extended by extensions, the abstract class should use inject* methods instead of
+constructor injection. Extensions of course can follow this idea in similar
+scenarios.
+
+This construct has some further implications: Abstract classes should
+think about making their dependency properties :php:`private`, so extending classes
+can not rely on them. Furthermore, classes that should *not* be extended by extensions
+are free to use constructor injection and *should* be marked :php:`final`, making
+sure they can't be extended to allow internal changes.
+
+As a last note on method injection, there is another way to do it: It is possible
+to use a :php:`setFooDependency()` method if it has the annotation :php:`@required`.
+This second way of method injection however is not used within the TYPO3
+framework, should be avoided in general, and is just mentioned here for completeness.
+
+.. _interface-injection:
+
+Interface injection
+-------------------
+
+Apart from constructor injection and inject*() method injection, there is another
+useful dependency injection scenario. Look at this example:
+
+.. code-block:: php
+
+   namespace MyVendor\MyExtension\Controller;
+
+   use MyVendor\MyExtension\Logger\LoggerInterface;
+
+   class UserController extends AbstractController
+   {
+      protected LoggerInterface $logger;
+
+      public function __construct(LoggerInterface $logger)
+      {
+         $this->logger = $logger;
+      }
+   }
+
+See the difference? We're requesting the injecting of an interface and not a class!
+This forces the service container to look up which specific class is configured as
+implementation of the interface and inject and instance of it. This is the
+true heart of dependency injection: A consuming class no longer codes on
+a specific implementation, but on the signature of the interface. The
+framework makes sure something is injected that satisfies the interface,
+the consuming class does not care, it just knows about the interface methods. An
+instance administrator can decide to configure the framework to inject some
+different implementation than the default, and that's fully transparent
+for consuming classes.
+
+
+Using container->get()
+======================
+
+[WIP] Service containers provide two methods to obtain objects, first via :php:`$container->get()`,
+and via DI. This is only available for services itself: Classes that are registered
+as a service via configuration can use injection or :php:`$container->get()`. DI is
+supported in two ways: As constructor injection, and as inject*() method injection.
+They lead to the same result, but have subtle differences. More on that later.
+
+In general, services should use DI (constructor or method injection) to obtain dependencies.
+This is what you'll most often find when looking at core implementations. However, it
+is also possible to *get the container injected* and then use :php:`$container->get()`
+to instantiate services. This is useful for factory-like services.
+
+
 .. _configure-dependency-injection-in-extensions:
 
+[WIP] Configuration
+===================
+
+
 Configure dependency injection in Extensions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------------------
 
 Extensions have to configure their classes to make use of the
 dependency injection. This can be done in :file:`Configuration/Services.yaml`.
@@ -157,7 +519,8 @@ These classes include Singletons, because they need to be shared with code that 
 .. _knowing-what-to-make-public:
 
 Knowing what to make public
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
+
 Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
 marked public by default. Additionally some classes cannot be private as well.
 As the Symfony documentation puts it:
@@ -232,77 +595,8 @@ An :php:`Error` is raised on missing dependency injection for
    Call to a member function methodName() on null
 
 
-.. _supported-ways-of-dependency-injection:
-
-Supported ways of dependency injection
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Classes should be adapted to avoid both, :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` and
-:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` whenever possible.
-Class dependencies should be injected via constructor injection or
-setter methods.
-
-.. index:: Dependency injection; Constructor injection
-.. _constructor-injection:
-
-Constructor injection
----------------------
-
-A class dependency can simply be specified as a constructor argument::
-
-   public function __construct(Dependency $dependency)
-   {
-       $this->dependency = $dependency;
-   }
-
-
-.. index:: Dependency injection; Method injection
-.. _method-injection:
-
-Method injection
-----------------
-
-As an alternative to constructor injection :php:`injectDependency()` Methods can be used.
-Additionally a :php:`setDependency()` will also work if it has the annotation :php:`@required`::
-
-
-   /**
-    * @param MyDependency $myDependency
-    */
-   public function injectMyDependency(MyDependency $myDependency)
-   {
-       $this->myDependency = $myDependency;
-   }
-
-   /**
-    * @param MyOtherDependency $myOtherDependency
-    * @required
-    */
-   public function setMyOtherDependency(MyOtherDependency $myOtherDependency)
-   {
-       $this->myOtherDependency = $myOtherDependency;
-   }
-
-
-.. index:: Dependency injection; Interface injection
-.. _interface-injection:
-
-Interface injection
--------------------
-
-It is possible to inject interfaces as well. If there is only one implementation for a certain
-interface the interface injection is simply resolved to this implementation::
-
-   public function __construct(DependencyInterface $dependency)
-   {
-       $this->dependency = $dependency;
-   }
-
-When multiple implementation of the same interface exist, an extension needs to specify which
-implementation should be injected when the interface is type hinted. Find out more about how this
-is achieved in the official `Symfony documentation <https://symfony.com/doc/current/service_container/autowiring.html#working-with-interfaces>`_.
-
 Dependency injection in a XCLASSed class
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------
 
 If an existing class (for example an Extbase controller) is extended using XCLASS and additional
 dependencies are injected using constructor injection, it must be ensured to add a
@@ -312,7 +606,7 @@ extending extension as shown in the example below::
    TYPO3\CMS\Belog\Controller\BackendLogController: '@Namespace\Extension\Controller\ExtendedBackendLogController'
 
 Further information
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 * `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`__
 * `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
