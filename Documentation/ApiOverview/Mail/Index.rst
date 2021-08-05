@@ -229,10 +229,11 @@ accessible to the world (outside of the webroot).
 
 Additional notes about the mailspool path:
 
-* If the path is absolute, the path must either start with the root path of the TYPO3 project or the public web folder path
-* If the path is relative, the public web path is prepended to the path
-* Must not contain symlinks (important for environments with auto deployment)
-* Must not contain ``//``, ``..`` or ``\``
+*  If the path is absolute, the path must either start with the root path of 
+   the TYPO3 project or the public web folder path
+*  If the path is relative, the public web path is prepended to the path
+*  Must not contain symlinks (important for environments with auto deployment)
+*  Must not contain ``//``, ``..`` or ``\``
 
 .. index::
    Mail; How to create mails
