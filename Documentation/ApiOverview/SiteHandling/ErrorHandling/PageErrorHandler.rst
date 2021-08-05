@@ -12,7 +12,7 @@ in place of the missing page.
 
 The page-based error handler is defined in
 `\TYPO3\CMS\Core\Error\PageErrorHandler\PageContentErrorHandler
-<https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/core/Classes/Error/PageErrorHandler/PageContentErrorHandler.php>`__.
+<https://github.com/typo3/typo3/blob/master/typo3/sysext/core/Classes/Error/PageErrorHandler/PageContentErrorHandler.php>`__.
 
 In order to prevent possible denial-of-service attacks when the page-based error
 handler is used, the content of the error page is cached in the TYPO3
