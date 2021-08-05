@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
-
+.. index::
+   ! YAML
+   pair: API; YAML
 .. _yaml-api:
 
 =============
@@ -44,5 +46,5 @@ to make use of the loader in your extensions::
 
    // ...
 
-   YamlFileLoader::load(string $fileName, int $flags = self::PROCESS_PLACEHOLDERS | self::PROCESS_IMPORTS)
+   (new YamlFileLoader())->load(string $fileName, int $flags = self::PROCESS_PLACEHOLDERS | self::PROCESS_IMPORTS)
 
