@@ -130,6 +130,62 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['checkFeUserPid']
 
    This will do :php:`$TCA[fe_users][columns][username][config][eval]= nospace,lower,required,unique;`
 
+
+
+
+.. index::
+   TYPO3_CONF_VARS FE; loginRateLimit
+.. _typo3ConfVars_fe_loginRateLimit:
+
+$GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimit']
+===================================================
+
+.. confval:: loginRateLimit
+
+   :type: int
+   :Default: 5
+
+   Maximum amount of login attempts for the time interval in
+   :ref:`[FE][loginRateLimitInterval]<typo3ConfVars_fe_loginRateLimitInterval>`,
+   before further login requests will be denied. Setting this value to
+   :php:`"0"` will disable login rate limiting.
+
+
+.. index::
+   TYPO3_CONF_VARS FE; loginRateLimitInterval
+.. _typo3ConfVars_fe_loginRateLimitInterval:
+
+$GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitInterval']
+===========================================================
+
+.. confval:: loginRateLimit
+
+   :type: string, PHP relative format
+   :Default: '15 minutes'
+   :allowedValues: '1 minute', '5 minutes', '15 minutes', '30 minutes'
+
+   Allowed time interval for the configured rate limit. Individual values
+   using
+   `PHP relative formats <https://www.php.net/manual/de/datetime.formats.relative.php>`__
+   can be set in :file:`AdditionalConfiguration.php`.
+
+
+.. index::
+   TYPO3_CONF_VARS FE; loginRateLimitIpExcludeList
+.. _typo3ConfVars_fe_loginRateLimitIpExcludeList:
+
+$GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitIpExcludeList']
+================================================================
+
+.. confval:: loginRateLimit
+
+   :type: string
+   :Default: ''
+
+   IP-numbers (with *-wildcards) that are excluded from rate limiting.
+   Syntax similar to :ref:`[BE][IPmaskList]<typo3ConfVars_be_IPmaskList>`.
+   An empty value disables the exclude list check.
+
 .. index::
    TYPO3_CONF_VARS FE; lockIP
 .. _typo3ConfVars_fe_lockIP:
