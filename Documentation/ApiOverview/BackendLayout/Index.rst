@@ -22,6 +22,29 @@ Benjamin Kott: How to implement frontend layouts in TYPO3 using backend layouts
 .. youtube:: RoHaeo4fq34
 
 .. index::
+   Backend layout; Info module
+   Backend layout; Configuration
+.. _be-layout-info-module:
+
+Backend layout configuration
+=============================
+
+The backend layout to be used can be configurated for each page and/or a pages'
+subpages in the :guilabel:`Page properties > Appearance`. Multiple backend
+layouts are available if an
+:ref:`extension providing backend layouts<be-layout-extensions>` is installed or
+backend layouts have been
+:ref:`defined as records or page TSconfig <be-layout-definition>`.
+
+.. include:: /Images/AutomaticScreenshots/BackendLayouts/PagePropertiesAppearance.rst.txt
+
+The Info module gives an overview of the backend layouts configured or
+inherited from a parent page at
+:guilabel:`Web > Info > Pagetree overview > Type: Layouts`:
+
+.. include:: /Images/AutomaticScreenshots/BackendLayouts/PageTreeLayoutOverview.rst.txt
+
+.. index::
    Backend layout; Record
    Backend layout; TSconfig
 .. _be-layout-definition:
@@ -196,6 +219,7 @@ Using  `data = pagelayout` is the same as using as
 
 In the Fluid template the column positions can be accessed now via content mapping as described here
 :ref:`t3sitepackage:content-mapping`.
+
 
 .. index:: Backend layout; Reference implementation
 .. _be-layout-reference-implementations:

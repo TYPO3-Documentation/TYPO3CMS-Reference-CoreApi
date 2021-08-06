@@ -322,7 +322,71 @@
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
                 ],
-
+                "BackendLayouts": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1232,
+                        "height": 600
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/BackendLayouts"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/BackendLayouts"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Info"},
+                    {"action": "openPageTreePath", "path": ["Congratulations"]},
+                    {"action": "click", "link": "Hide Navigation"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "wait",
+                        "timeout": 1
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select[name=\"SET[depth]\"]",
+                        "option": "2"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "Customize"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select[data-menu-identifier=\"pages\"]",
+                        "option": "3"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "Actual backend layout"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select[data-menu-identifier=\"depth\"]",
+                        "option": "2"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "PageTreeLayoutOverview",
+                        "captionText": "Overview of the backend layouts used"
+                    },
+                    {"action": "click", "link": "Edit default language page properties"},
+                    {
+                        "action": "waitForText",
+                        "text": "Edit Page"
+                    },
+                    {"action": "click", "link": "Appearance"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "PagePropertiesAppearance",
+                        "captionText": "Choose the backend layout in the page properties"
+                    }
+                ],
                 "BackendModules": [
                     {"include": "_default"},
                     {
