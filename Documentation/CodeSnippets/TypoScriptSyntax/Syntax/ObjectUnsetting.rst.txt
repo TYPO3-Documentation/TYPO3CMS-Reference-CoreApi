@@ -1,0 +1,10 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/ObjectUnsetting/setup.typoscript
+
+   myObject = TEXT
+   myObject.value = <strong> HTML - code </strong>
+   
+   myObject >
+   

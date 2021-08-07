@@ -1,0 +1,10 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/CommentsSingleLine/setup.typoscript
+
+   // This is a comment
+   myObject = TEXT
+   myObject.value = <strong>Some HTML code</strong>
+   # This line also is a comment.
+   

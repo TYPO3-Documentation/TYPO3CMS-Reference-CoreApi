@@ -1,0 +1,14 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Conditions/InvalidGlobal/setup.typoscript
+
+   # Invalid: This example is not valid on purpose
+   # Conditions must not be used within value blocks
+   someObject {
+      1property = 234
+      [GLOBAL]
+      2property = 567
+   }
+   
+   

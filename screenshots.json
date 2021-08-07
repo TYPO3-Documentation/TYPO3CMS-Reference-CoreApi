@@ -236,6 +236,319 @@
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
                 ],
+                "TypoScriptSyntax": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/TypoScriptSyntax"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/TypoScriptSyntax"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Template')]"},
+                    {"action": "click", "link": "Template"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Conditions", "Simple"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Template tools"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "TypoScript Object Browser"
+                    },
+                    {"action": "waitForText", "text": "Conditions"},
+                    {
+                        "action": "selectOption",
+                        "select": "select[name=\"SET[ts_browser_type]\"]",
+                        "option": "Setup"
+                    },
+                    {"action": "waitForText", "text": "SETUP ROOT"},
+                    {"action": "click", "link": "//li[contains(., 'page')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "waitForText", "text": "TEXT"},
+                    {"action": "click", "link": "//li[contains(., 'page')]//li[contains(., '10')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": "Conditions"},
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConditionsSyntaxDisabled",
+                        "captionText": "The above example with the condition disabled"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 860},
+                    {"action": "click", "link": "//input[contains(@value, 'loginUser')]"},
+                    {"action": "click", "link": "Set conditions"},
+                    {"action": "waitForElement", "element": "input[value=\"Set conditions\"]"},
+                    {"action": "click", "link": "//li[contains(., 'page')]//li[contains(., '20')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": "Conditions"},
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConditionsSyntaxEnabled",
+                        "captionText": "The above example withthe condition enabled"
+                    },
+                    {"action": "click", "link": "//input[contains(@value, 'loginUser')]"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Conditions", "Else"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Template tools"},
+                    {"action": "click", "link": "Conditions"},
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConditionsElseDisabled",
+                        "captionText": "The above example with the condition disabled"
+                    },
+                    {"action": "click", "link": "//input[contains(@value, 'loginUser')]"},
+                    {"action": "click", "link": "Set conditions"},
+                    {"action": "waitForElement", "element": "input[value=\"Set conditions\"]"},
+                    {"action": "click", "link": "Conditions"},
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConditionsElseEnabled",
+                        "captionText": "The above example with the condition enabled"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Conditions", "Invalid"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Invalid"},
+                    {"action": "click", "link": "//li[contains(., 'someObject')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConditionsSyntaxError",
+                        "captionText": "Error after having used a condition where it is not allowed."
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Conditions", "Invalid"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Template Analyzer"
+                    },
+                    {"action": "waitForText", "text": "Invalid"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConditionsSyntaxErrorGlobal",
+                        "captionText": "Error after having used a GLOBAL condition at thw wrong place."
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Syntax", "ObjectCopying"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "TypoScript Object Browser"
+                    },
+                    {"action": "waitForText", "text": "ObjectCopying"},
+
+                    {"action": "click", "link": "//li[contains(., 'myObject')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": "//li[contains(., 'myOtherObject')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".panel-default",
+                        "fileName": "SyntaxCopying1",
+                        "captionText": "An object and its copy"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Syntax", "ObjectCopying2"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "ObjectCopying2"},
+                    {"action": "click", "link": "//li[contains(., 'pageObj')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": "//li[contains(., 'pageObj')]//li[contains(., '10')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": "//li[contains(., 'pageObj')]//li[contains(., '20')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".panel-default",
+                        "fileName": "SyntaxCopying2",
+                        "captionText": "Another object and its copy"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Syntax", "ObjectReference"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "ObjectReference"},
+                    {"action": "wait", "timeout": 0.1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".panel-default",
+                        "fileName": "SyntaxReferencing",
+                        "captionText": "An object and a reference to it."
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "resizeWindow", "width": 1024,"height": 640},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Syntax", "Introduction"]},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Introduction"},
+                    {"action": "click", "link": "//li[contains(., 'myObject')]//li[contains(., 'myProperty')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "SyntaxIntroduction",
+                        "captionText": "Example TypoScript code viewed in the TypoScript object browser"
+                    },
+                    {"action": "switchToMainFrame"}
+                ],
+                "TypoScriptSyntaxCodeSnippets": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/TypoScriptSyntax/Conditions"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples/Configuration/TypoScript/Conditions"},
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "AndConditions/setup.typoscript", "targetFileName": "AndConditions",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/AndConditions/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ArrayOperators/setup.typoscript", "targetFileName": "ArrayOperators",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/ArrayOperators/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Arrays/setup.typoscript", "targetFileName": "Arrays",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Arrays/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Else/setup.typoscript", "targetFileName": "Else",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Else/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Equality/setup.typoscript", "targetFileName": "Equality",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Equality/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Functions/setup.typoscript", "targetFileName": "Functions",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Functions/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Invalid/setup.typoscript", "targetFileName": "Invalid",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Invalid/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "InvalidGlobal/setup.typoscript", "targetFileName": "InvalidGlobal",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/InvalidGlobal/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Not/setup.typoscript", "targetFileName": "Not",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Not/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "OrConditions/setup.typoscript", "targetFileName": "OrConditions",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/OrConditions/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "RegularExpressions/setup.typoscript", "targetFileName": "RegularExpressions",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/RegularExpressions/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Simple/setup.typoscript", "targetFileName": "Simple",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Simple/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Strings/setup.typoscript", "targetFileName": "Strings",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Strings/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Syntax/setup.typoscript", "targetFileName": "Syntax",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Syntax/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Valid/setup.typoscript", "targetFileName": "Valid",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Valid/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Variables/setup.typoscript", "targetFileName": "Variables",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Variables/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Wildcards/setup.typoscript", "targetFileName": "Wildcards",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Wildcards/setup.typoscript"
+                    },
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/TypoScriptSyntax/Syntax"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples/Configuration/TypoScript/Syntax"},
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "CodeBlock/setup.typoscript", "targetFileName": "CodeBlock",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/CodeBlock/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "CodeBlock2/setup.typoscript", "targetFileName": "CodeBlock2",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/CodeBlock2/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "CommentsBlock/setup.typoscript", "targetFileName": "CommentsBlock",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/CommentsBlock/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "CommentsSingleLine/setup.typoscript", "targetFileName": "CommentsSingleLine",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/CommentsSingleLine/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Conditions/setup.typoscript", "targetFileName": "Conditions",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/Conditions/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Escaping/setup.typoscript", "targetFileName": "Escaping",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/Escaping/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "General/setup.typoscript", "targetFileName": "General",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/General/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Introduction/setup.typoscript", "targetFileName": "Introduction",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/Introduction/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "MultiLine/setup.typoscript", "targetFileName": "MultiLine",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/MultiLine/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ObjectCopying/setup.typoscript", "targetFileName": "ObjectCopying",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ObjectCopying/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ObjectCopying2/setup.typoscript", "targetFileName": "ObjectCopying2",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ObjectCopying2/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ObjectCopying3/setup.typoscript", "targetFileName": "ObjectCopying3",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ObjectCopying3/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ObjectCopying4/setup.typoscript", "targetFileName": "ObjectCopying4",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ObjectCopying4/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ObjectReference/setup.typoscript", "targetFileName": "ObjectReference",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ObjectReference/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ObjectUnsetting/setup.typoscript", "targetFileName": "ObjectUnsetting",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ObjectUnsetting/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ValueModification/setup.typoscript", "targetFileName": "ValueModification",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ValueModification/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ValueModification2/setup.typoscript", "targetFileName": "ValueModification2",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ValueModification2/setup.typoscript"
+                    }
+                ],
                 "PageTypes": [
                     {"include": "_default"},
                     {"action": "resizeWindow", "width": 1024,"height": 300},
@@ -254,7 +567,6 @@
                         "captionText": "The new page type visible in the TYPO3 backend"
                     }
                 ],
-
                 "AdminTools": [
                     {"include": "_default"},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/AdminTools"},

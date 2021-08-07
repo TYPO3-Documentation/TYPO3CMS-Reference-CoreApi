@@ -1,0 +1,10 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Conditions/Equality/setup.typoscript
+
+   [applicationContext == "Development"]
+      page.42.value = The application context is exactly "Development"
+   [END]
+   
+   

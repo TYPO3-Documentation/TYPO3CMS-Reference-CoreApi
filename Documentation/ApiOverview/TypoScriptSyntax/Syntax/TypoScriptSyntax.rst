@@ -17,9 +17,7 @@ this formula:
 
 **Example:**
 
-.. code-block:: typoscript
-
-   myObject.myProperty = value 2
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/General.rst.txt
 
 In this example we have the object :code:`myObject` with the property :code:`myProperty`
 and a value :code:`value 2`.
@@ -43,9 +41,7 @@ Dots in the object path can be escaped using a backslash.
 
 **Escaping example:**
 
-.. code-block:: typoscript
-
-   my\.escaped\.key = test
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/Escaping.rst.txt
 
 This will result in an object named :code:`my.escaped.key` with the value "test".
 Here we do **not** have three hierarchically structured objects :code:`my`,
@@ -165,19 +161,11 @@ which can be used to define more such functions.
 
 **Example:**
 
-.. code-block:: typoscript
-
-   myObject = TEXT
-   myObject.value = 1,2,3
-   myObject.value := addToList(4,5)
-   myObject.value := removeFromList(2,1)
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/ValueModification.rst.txt
 
 produces the same result as:
 
-.. code-block:: typoscript
-
-   myObject = TEXT
-   myObject.value = 3,4,5
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/ValueModification2.rst.txt
 
 
 .. index::
@@ -196,15 +184,15 @@ properties.
 
 **Rules:**
 
-- Everything on the same line as the opening brace (:code:`{`), but that comes
-  *after* it is ignored.
+-  Everything on the same line as the opening brace (:code:`{`), but that comes
+   *after* it is ignored.
 
-- The :code:`}` sign *must* be the first non-space character on a line in
-  order to close the block. Everything on the same line, but after :code:`}`
-  is ignored.
+-  The :code:`}` sign *must* be the first non-space character on a line in
+   order to close the block. Everything on the same line, but after :code:`}`
+   is ignored.
 
-- Blocks can be nested. This is actually recommended for **improved
-  readability**.
+-  Blocks can be nested. This is actually recommended for **improved
+   readability**.
 
 .. important::
 
@@ -220,25 +208,11 @@ properties.
 
 **Example:**
 
-.. code-block:: typoscript
-
-   myObject = TEXT
-   myObject.stdWrap.field = title
-   myObject.stdWrap.ifEmpty.data = leveltitle:0
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/CodeBlock.rst.txt
 
 could also be written as:
 
-.. code-block:: typoscript
-
-   myObject = TEXT
-   myObject {
-      stdWrap {
-         field = title
-         ifEmpty {
-            data = leveltitle:0
-         }
-      }
-   }
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/CodeBlock2.rst.txt
 
 
 .. index::
@@ -256,9 +230,8 @@ lines and thus include line breaks.
 
 .. important::
 
-   You cannot use multi-line values in constants. They are only available in the setup part of TypoScript.
-
-
+   You cannot use multi-line values in constants. They are only available in
+   the setup part of TypoScript.
 
 **Rules:**
 
@@ -271,14 +244,7 @@ it!
 
 **Example:**
 
-.. code-block:: typoscript
-
-   myObject = TEXT
-   myObject.value (
-      <p class="warning">
-         This is HTML code.
-      </p>
-   )
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/MultiLine.rst.txt
 
 
 .. index::
@@ -297,29 +263,17 @@ old objects and values at that position.
 
 **Example:**
 
-.. code-block:: typoscript
-
-   myObject = TEXT
-   myObject.value = <p class="warning">This is HTML code.</p>
-
-   myOtherObject < myObject
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/ObjectCopying.rst.txt
 
 The result of the above TypoScript is two independent sets of
 objects/properties which are exactly the same (duplicates). They are
 *not* references to each other but actual copies:
 
-.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/SyntaxCopying1.png
-   :alt: An object and its copy
+.. include:: /Images/AutomaticScreenshots/TypoScriptSyntax/SyntaxCopying1.rst.txt
 
 Another example with a copy within a code block:
 
-.. code-block:: typoscript
-
-   pageObj {
-      10 = TEXT
-      10.value = <p class="warning">This is HTML code.</p>
-      20 < pageObj.10
-   }
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/ObjectCopying2.rst.txt
 
 Here also a copy is made, although inside the :code:`pageObj` object. Note
 that the copied object is referred to with its full path
@@ -328,33 +282,18 @@ refer to the copied object's name, **prepended by a dot**.
 
 The following produces the same result as above:
 
-.. code-block:: typoscript
-
-   pageObj {
-      10 = TEXT
-      10.value = <p class="warning">This is HTML code.</p>
-      20 < .10
-   }
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/ObjectCopying3.rst.txt
 
 which – in tree view – translates to:
 
-.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/SyntaxCopying2.png
-   :alt: Another object and its copy
+.. include:: /Images/AutomaticScreenshots/TypoScriptSyntax/SyntaxCopying2.rst.txt
 
 .. important::
 
    When the original object is changed after copying, the
    copy does not change! Take a look at the following code:
 
-   .. code-block:: typoscript
-
-      someObject = TEXT
-      someObject {
-         value = Hello world!
-         stdWrap.wrap = <p>|<p>
-      }
-      anotherObject < someObject
-      someObject.stdWrap.wrap = <h1>|<h1>
+   .. include:: /CodeSnippets/TypoScriptSyntax/Syntax/ObjectCopying4.rst.txt
 
    The value of the :code:`stdWrap.wrap` property of :code:`anotherObject`
    is :code:`<p>|</p>`. It is **not** :code:`<h1>|<h1>` because this change
@@ -397,32 +336,23 @@ will not change the original object that was referenced.
 
 **Example:**
 
-.. code-block:: typoscript
-
-   someObject = TEXT
-   someObject {
-      value = Hello world!
-      stdWrap.wrap = <p>|<p>
-   }
-   anotherObject =< someObject
-   someObject.stdWrap.wrap = <h1>|<h1>
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/ObjectReference.rst.txt
 
 In this case, the :code:`stdWrap.wrap` property of :code:`anotherObject`
 will indeed be :code:`<h1>|<h1>`. In tree view the properties
 of the reference are not shown. Only the reference itself is visible:
 
-.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/SyntaxReferencing.png
-   :alt: An object and a reference of it.
+.. include:: /Images/AutomaticScreenshots/TypoScriptSyntax/SyntaxReferencing.rst.txt
 
 Remember:
 
-- References are only available in TypoScript templates, not in TSconfig
-  (user TSconfig or page TSconfig)
+-  References are only available in TypoScript templates, not in TSconfig
+   (user TSconfig or page TSconfig)
 
-- References are only resolved for Content Objects, otherwise references are
-  not resolved. For example, you **cannot** use a
-  reference :code:`< plugin.tx_example.settings.foo` to find the value of `foo`.
-  The value you get will be just :code:`< plugin.tx_example.settings.foo` instead.
+-  References are only resolved for Content Objects, otherwise references are
+   not resolved. For example, you **cannot** use a
+   reference :code:`< plugin.tx_example.settings.foo` to find the value of `foo`.
+   The value you get will be just :code:`< plugin.tx_example.settings.foo` instead.
 
 
 .. index::
@@ -439,12 +369,7 @@ This is used to unset an object and all of its properties.
 
 **Example:**
 
-.. code-block:: typoscript
-
-   myObject = TEXT
-   myObject.value = <strong> HTML - code </strong>
-
-   myObject >
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/ObjectUnsetting.rst.txt
 
 In this last line :code:`myObject` is totally wiped out (removed).
 
@@ -474,17 +399,7 @@ of any curly braces).
 
 **Example:**
 
-.. code-block:: typoscript
-
-   [date("j") == 9]
-   page.10.value = It is the 9th day of the month!
-   [ELSE]
-   page.10.value = It is NOT the 9th day of the month!
-   [END]
-
-
-
-
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/Conditions.rst.txt
 
 .. index::
    TypoScript; Value
@@ -523,12 +438,7 @@ and will be ignored.
 
 **Example:**
 
-.. code-block:: typoscript
-
-   // This is a comment
-   myObject = TEXT
-   myObject.value = <strong>Some HTML code</strong>
-   # This line also is a comment.
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/CommentsSingleLine.rst.txt
 
 Up to TYPO3 7.6, a line starting with only one single slash,
 :code:`/`, has also been considered a comment. Since TYPO3 8, this
@@ -559,17 +469,5 @@ parenthesis operator below).
 
 **Example:**
 
-.. code-block:: typoscript
-
-   /* This is a comment
-    .. and this line is within that comment which...
-     ends here:
-   */  ... this is not parsed either though - the whole line is still within the comment
-   myObject = TEXT
-   myObject.value (
-      Here is a multiline value which
-      /*
-       This is not a comment because it is inside a multi-line value block
-      */
-   )
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/CommentsBlock.rst.txt
 

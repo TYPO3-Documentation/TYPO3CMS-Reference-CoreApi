@@ -18,12 +18,7 @@ conveys the idea of defining objects/properties.
 Example
 =======
 
-.. code-block:: typoscript
-
-   myObject = [value 1]
-   myObject.myProperty = [value 2]
-   myObject.myProperty.firstProperty = [value 3]
-   myObject.myProperty.secondProperty = [value 4]
+.. include:: /CodeSnippets/TypoScriptSyntax/Syntax/Introduction.rst.txt
 
 Referring to :code:`myObject` we might call it: "*an object with the value
 [value 1] and the property, 'myProperty' with the value [value 2].
@@ -37,5 +32,4 @@ section further of the two using reference documents
 :ref:`TSconfig Reference <t3tsconfig:typoscript-syntax-using-setting>`.
 The above piece of TypoScript would look like this:
 
-.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/SyntaxIntroduction.png
-   :alt: Example TypoScript code
+.. include:: /Images/AutomaticScreenshots/TypoScriptSyntax/SyntaxIntroduction.rst.txt

@@ -1,0 +1,9 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Conditions/Not/setup.typoscript
+
+   [!loginUser('*')]
+      page.10.value = No user is logged in!
+   [END]
+   

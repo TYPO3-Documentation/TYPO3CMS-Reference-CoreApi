@@ -1,0 +1,10 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/ValueModification/setup.typoscript
+
+   myObject = TEXT
+   myObject.value = 1,2,3
+   myObject.value := addToList(4,5)
+   myObject.value := removeFromList(2,1)
+   

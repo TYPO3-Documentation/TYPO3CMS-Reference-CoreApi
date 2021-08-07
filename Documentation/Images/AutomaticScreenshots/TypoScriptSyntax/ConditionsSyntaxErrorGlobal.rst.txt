@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/TypoScriptSyntax/ConditionsSyntaxErrorGlobal.png
+   :class: with-shadow
+
+   Error after having used a GLOBAL condition at thw wrong place.

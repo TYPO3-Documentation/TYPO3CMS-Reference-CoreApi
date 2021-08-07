@@ -1,0 +1,9 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/CodeBlock/setup.typoscript
+
+   myObject = TEXT
+   myObject.stdWrap.field = title
+   myObject.stdWrap.ifEmpty.data = leveltitle:0
+   

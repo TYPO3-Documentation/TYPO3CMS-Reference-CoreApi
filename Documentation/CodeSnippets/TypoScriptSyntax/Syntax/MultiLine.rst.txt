@@ -1,0 +1,12 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/MultiLine/setup.typoscript
+
+   myObject = TEXT
+   myObject.value (
+      <p class="warning">
+         This is HTML code.
+      </p>
+   )
+   

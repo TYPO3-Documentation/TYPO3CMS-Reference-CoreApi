@@ -14,15 +14,15 @@ and ending where the next condition is found, should be parsed or not.
 
 Examples of a condition could be:
 
-- Is a usergroup set for the current session?
+-  Is a usergroup set for the current session?
 
-- Is it Monday?
+-  Is it Monday?
 
-- Is the GET parameter "&language=uk" set?
+-  Is the GET parameter "&language=uk" set?
 
-- Is it my mother's birthday?
+-  Is it my mother's birthday?
 
-- Do I feel lucky today?
+-  Do I feel lucky today?
 
 Of these examples admittedly the first few are the most realistic. In
 fact they are readily available in the context of TypoScript
@@ -62,17 +62,7 @@ The syntax of conditions
 A condition is written on its own line and is detected by :code:`[`
 (square bracket) being the first character on that line:
 
-.. code-block:: typoscript
-
-   # ... some TypoScript
-
-   [ condition ]
-
-   # .... some more TypoScript (only parsed if the condition is met.)
-
-   [GLOBAL]
-
-   (Some TypoScript)
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/Syntax.rst.txt
 
 As you can see from this example, the line :code:`[GLOBAL]` also is a
 condition. It is built into TypoScript and always returns TRUE. The
@@ -87,28 +77,16 @@ Here is an example of some TypoScript (from the context of TypoScript
 Templates) where another text is output if you are logged in or
 working locally:
 
-.. code-block:: typoscript
-
-   page = PAGE
-   page.10 = TEXT
-   page.10.value = HELLO WORLD!
-
-   [loginUser('*') or ip('127.0.0.1')]
-      page.20 = TEXT
-      page.20 {
-         value = Only for logged in users or local setup
-         stdWrap.case = upper
-      }
-   [GLOBAL]
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/Simple.rst.txt
 
 You can now use the Object Browser to actually see the difference in
 the parsed object tree depending on whether the condition evaluates to
 TRUE or FALSE (which can be simulated with that module as you can
 see):
 
-.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/ConditionsSyntax.png
-   :alt: The Object Browser showing different objects depending on whether
-         a condition is set or unset.
+.. include:: /Images/AutomaticScreenshots/TypoScriptSyntax/ConditionsSyntaxDisabled.rst.txt
+
+.. include:: /Images/AutomaticScreenshots/TypoScriptSyntax/ConditionsSyntaxEnabled.rst.txt
 
 
 .. _typoscript-syntax-conditions-combine:
@@ -147,26 +125,16 @@ also use them in lower case.
 Here's an example of using the :code:`[ELSE]` condition (also in the context
 of TypoScript Templates):
 
-.. code-block:: typoscript
-
-   page = PAGE
-   page.10 = TEXT
-
-   [loginUser('*')]
-      page.10.value = Logged in
-   [ELSE]
-      page.10.value = Not logged in
-   [END]
-
-   page.10.stdWrap.wrap = <strong>|</strong>
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/Else.rst.txt
 
 Here we have one output text if a user is logged in and
 another if not. No matter what the text is wrapped in a :code:`<strong>` tag,
 because, as we can see, this wrap is added outside of the condition block
 (e.g. after the :code:`[END]` condition).
 
-.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/ConditionsSyntaxElse.png
-   :alt: The TypoScript object browser showing the output of an ELSE condition.
+.. include:: /Images/AutomaticScreenshots/TypoScriptSyntax/ConditionsElseDisabled.rst.txt
+
+.. include:: /Images/AutomaticScreenshots/TypoScriptSyntax/ConditionsElseEnabled.rst.txt
 
 The fact that you can "enable" the condition in the TypoScript Object
 Browser is a facility provided to simulate the outcome of any
@@ -178,11 +146,7 @@ Another example could be if you wanted to do something special in case
 a bunch of conditions is NOT true. There's **no negate-character**,
 but you could do this:
 
-.. code-block:: typoscript
-
-   [!loginUser('*')]
-     page.10.value = No user is logged in!
-   [END]
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/Not.rst.txt
 
 
 .. _typoscript-syntax-conditions-confinements:
@@ -195,30 +159,15 @@ Conditions can be used *outside* of confinements (curly braces) only!
 
 So, this is valid:
 
-.. code-block:: typoscript
-
-   someObject {
-      1property = 234
-   }
-   [loginUser('*')]
-   someObject {
-      2property = 567
-   }
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/Valid.rst.txt
 
 But this is **not valid:**
 
-.. code-block:: typoscript
-
-   someObject {
-      1property = 234
-      [loginUser('*')]
-      2property = 567
-   }
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/Invalid.rst.txt
 
 When parsed with syntax highlighting you will see this error:
 
-.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/ConditionsSyntaxError.png
-   :alt: Error after having used a condition where it is not allowed.
+.. include:: /Images/AutomaticScreenshots/TypoScriptSyntax/ConditionsSyntaxError.rst.txt
 
 This means that the line was perceived as a regular definition of
 TypoScript and not as a condition.
@@ -234,18 +183,11 @@ The :code:`[GLOBAL]` special condition (which resets any previous
 condition scope) is yet different, in that will be detected at
 *any line* except within multiline value definitions.
 
-.. code-block:: typoscript
-
-   someObject {
-      1property = 234
-      [GLOBAL]
-      2property = 567
-   }
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/InvalidGlobal.rst.txt
 
 But you will still get some errors if you syntax highlight it:
 
-.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/ConditionsSyntaxErrorGlobal.png
-   :alt: Error after having used a GLOBAL condition at thw wrong place.
+.. include:: /Images/AutomaticScreenshots/TypoScriptSyntax/ConditionsSyntaxErrorGlobal.rst.txt
 
 The reason for this is that the :code:`[GLOBAL]` condition aborts the
 confinement started in the first line resulting in the first error
@@ -284,20 +226,14 @@ Variables and functions
 For a detailed list of the available objects and functions refer to the
 :ref:`TypoScript Reference <t3tsref:conditions>`.
 
-Variables::
+Variables:
 
-   [page["backend_layout"] == 1]
-      page.42.value = Backend layout 1 choosen
-   [END]
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/Variables.rst.txt
 
-Functions::
+Functions:
 
-   [loginUser('*')]
-      page.42.value = Frontend user logged in
-   [END]
-   [getTSFE().isBackendUserLoggedIn()]
-      page.42.value = Backend user logged in
-   [END]
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/Functions.rst.txt
+
 
 Literals
 --------
@@ -305,17 +241,13 @@ Literals
 For a complete list have a look at the
 `SEL supported literals <https://symfony.com/doc/current/components/expression_language/syntax.html#supported-literals>`__.
 
-Strings::
+Strings:
 
-   [request.getNormalizedParams().getHttpHost() == 'www.example.org']
-      page.42.value = Http Host is www.example.org
-   [END]
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/Strings.rst.txt
 
-Arrays::
+Arrays:
 
-   [page["pid"] in [17,24]]
-      page.42.value = This page is a child of page 17 or page 24
-   [END]
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/Arrays.rst.txt
 
 
 Operators
@@ -324,17 +256,13 @@ Operators
 Please see a complete list of available operators here:
 `SEL syntax operators <https://symfony.com/doc/current/components/expression_language/syntax.html#comparison-operators>`__
 
-Equality::
+Equality:
 
-   [applicationContext == "Development"]
-      page.42.value = The application context is exactly "Development"
-   [END]
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/Equality.rst.txt
 
-Wildcards::
+Wildcards:
 
-   [like(applicationContext, "Development*")]
-      page.42.value = The application context starts with "Development"
-   [END]
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/Wildcards.rst.txt
 
 .. note::
 
@@ -343,48 +271,39 @@ Wildcards::
    it in :ref:`TypoScript Reference, Conditions,
    function like <tsref:condition-function-like>`
 
-Regular expressions::
+Regular expressions:
 
-   [applicationContext matches "/^Development/"]
-      page.42.value = The application context starts with "Development"
-   [END]
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/RegularExpressions.rst.txt
 
-Array operators::
+Array operators:
 
-   [17 in tree.rootLineIds || 24 in tree.rootLineIds]
-      page.42.value = Pid with id 17 or 24 is in the rootline.
-   [END]
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/ArrayOperators.rst.txt
 
 Combined conditions
 -------------------
 
-And conditions::
+And conditions:
 
-   [condition1() and condition2()]
-      page.42.value = Condition 1 and condition 2 met
-   [END]
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/AndConditions.rst.txt
 
-Or conditions::
+Or conditions:
 
-   [condition1() or condition2()]
-      temp.value = Condition 1 or condition 2 met
-   [END]
-
+.. include:: /CodeSnippets/TypoScriptSyntax/Conditions/OrConditions.rst.txt
 
 .. _typoscript-syntax-conditions-summary:
 
 Summary
 =======
 
-- Conditions are detected by :code:`[` as the first line character (whitespace
-  ignored).
+-  Conditions are detected by :code:`[` as the first line character (whitespace
+   ignored).
 
-- Conditions are evaluated in relation to the context where TypoScript
-  is used. They are widely used in TypoScript Templates and can also be
-  used in page TSconfig or user TSconfig.
+-  Conditions are evaluated in relation to the context where TypoScript
+   is used. They are widely used in TypoScript Templates and can also be
+   used in page TSconfig or user TSconfig.
 
-- Special conditions :code:`[ELSE]`, :code:`[END]` and :code:`[GLOBAL]` exist.
+-  Special conditions :code:`[ELSE]`, :code:`[END]` and :code:`[GLOBAL]` exist.
 
-- Conditions can be used outside of confinements (curly braces) only.
-  However the :code:`[GLOBAL]` condition will always break a confinement if
-  entered inside of one.
+-  Conditions can be used outside of confinements (curly braces) only.
+   However the :code:`[GLOBAL]` condition will always break a confinement if
+   entered inside of one.

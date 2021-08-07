@@ -1,0 +1,9 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Conditions/RegularExpressions/setup.typoscript
+
+   [applicationContext matches "/^Development/"]
+      page.42.value = The application context starts with "Development"
+   [END]
+   

@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/TypoScriptSyntax/SyntaxReferencing.png
+   :class: with-shadow
+
+   An object and a reference to it.

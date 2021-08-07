@@ -1,0 +1,10 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/Introduction/setup.typoscript
+
+   myObject = [value 1]
+   myObject.myProperty = [value 2]
+   myObject.myProperty.firstProperty = [value 3]
+   myObject.myProperty.secondProperty = [value 4]
+   
