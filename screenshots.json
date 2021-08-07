@@ -384,7 +384,6 @@
                     {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
                     {"action": "switchToContentFrame"},
                     {"action": "waitForText", "text": "ObjectReference"},
-                    {"action": "click", "link": "//li[contains(., 'someObject')]//a"},
                     {"action": "wait", "timeout": 0.1},
                     {
                         "action": "makeScreenshotOfElement",
@@ -394,19 +393,18 @@
                     },
                     {"action": "switchToMainFrame"},
                     {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "resizeWindow", "width": 1024,"height": 640},
                     {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Syntax", "Introduction"]},
-                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
                     {"action": "switchToContentFrame"},
                     {"action": "waitForText", "text": "Introduction"},
-                    {"action": "click", "link": "//li[contains(., 'myObject')]//a"},
-                    {"action": "wait", "timeout": 0.2},
+                    {"action": "click", "link": "//li[contains(., 'myObject')]//li[contains(., 'myProperty')]//a"},
+                    {"action": "wait", "timeout": 0.1},
                     {
                         "action": "makeScreenshotOfElement",
                         "fileName": "SyntaxIntroduction",
                         "captionText": "Example TypoScript code viewed in the TypoScript object browser"
                     },
-                    {"action": "switchToMainFrame"},
-                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"}
+                    {"action": "switchToMainFrame"}
                 ],
                 "TypoScriptSyntaxCodeSnippets": [
                     {"include": "_default"},
@@ -511,7 +509,7 @@
                         "caption": "Extension examples, file Configuration/TypoScript/Syntax/General/setup.typoscript"
                     },
                     {
-                        "action": "createCodeSnippet", "sourceFile": "General/setup.typoscript", "targetFileName": "Introduction",
+                        "action": "createCodeSnippet", "sourceFile": "Introduction/setup.typoscript", "targetFileName": "Introduction",
                         "caption": "Extension examples, file Configuration/TypoScript/Syntax/Introduction/setup.typoscript"
                     },
                     {

@@ -342,8 +342,7 @@ In this case, the :code:`stdWrap.wrap` property of :code:`anotherObject`
 will indeed be :code:`<h1>|<h1>`. In tree view the properties
 of the reference are not shown. Only the reference itself is visible:
 
-.. figure:: /Images/ManualScreenshots/TypoScriptSyntax/SyntaxReferencing.png
-   :alt: An object and a reference of it.
+.. include:: /Images/AutomaticScreenshots/TypoScriptSyntax/SyntaxReferencing.rst.txt
 
 Remember:
 
