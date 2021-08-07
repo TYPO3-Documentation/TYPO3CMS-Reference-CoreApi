@@ -239,11 +239,14 @@ Supported ways of dependency injection
 
 .. deprecated:: 11.4
    The class :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` has been deprecated
-   with TYPO3 11.4.  Classes should be updated to avoid both, :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` and
+   with TYPO3 11.4.  Classes should be updated to avoid both, 
+   :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` and
    :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` whenever possible.
 
 Class dependencies should be injected via constructor injection or
-setter methods. Where possible, Symfony  :ref:`dependency injection<dependency-injection>` should be used for all cases where DI is required.
+setter methods. Where possible, Symfony  
+:ref:`dependency injection<dependency-injection>` should be used for all cases 
+where DI is required.
 
 
 .. index:: Dependency injection; Constructor injection
