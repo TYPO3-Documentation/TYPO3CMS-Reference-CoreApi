@@ -1,0 +1,7 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Examples/ContextualMenuExtended/ContextMenuTtContent.png
+   :alt: The context menu now contains an additional item "Hello World"
+   :class: with-shadow
+
+   The context menu shown after clicking on the Content Element icon

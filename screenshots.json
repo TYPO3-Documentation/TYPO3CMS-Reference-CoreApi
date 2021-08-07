@@ -623,6 +623,83 @@
                         "captionText": "View extension scanner report"
                     },
                     {"action": "closeModalDialog"}
+                ],
+                "ContextualMenu": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1232,
+                        "height": 400
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/ContextualMenuExtended"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/ContextualMenuExtended"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Page"},
+                    {"action": "openPageTreePath", "path": ["Root page"]},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Root page\n"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "clickWithRightButton", "cssOrXPath": "//*[@id='typo3-pagetree-treeContainer']//*[text()='Root page']/.."},
+                    {"action": "waitForElement", "element": "#contentMenu0", "timeout": 1},
+                    {"action": "drawBox", "selector": "//*[@id='contentMenu0']//*[contains(text(), 'Hello World')]"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ContextMenuHelloWorld",
+                        "altText": "The context menu now contains an additional item \"Hello World\"",
+                        "captionText": "Context menu with custom item"
+                    },
+                    {"action": "reloadBackend"},
+                    {"action": "click", "link": "Page"},
+                    {"action": "openPageTreePath", "path": ["Root page"]},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Root page\n"
+                    },
+                    {
+                        "action": "click",
+                        "link": ".t3-page-ce-dragitem:first-child .t3js-contextmenutrigger"
+                    },
+                    {
+                        "action": "wait",
+                        "timeout": 1
+                    },
+                    {"action": "drawBox", "selector": "//*[contains(text(), 'Hello World')]"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ContextMenuTtContent",
+                        "altText": "The context menu now contains an additional item \"Hello World\"",
+                        "captionText": "The context menu shown after clicking on the Content Element icon"
+                    }
+                ],
+
+                "ContextualMenuCodeSnippets": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Examples/ContextualMenuExtended"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples"},
+                    {
+                        "action": "createCodeSnippet",
+                        "sourceFile": "Classes/ContextMenu/HelloWorldItemProvider.php",
+                        "targetFileName": "HelloWorldItemProvider",
+                        "caption": "Extension examples, file Classes/ContextMenu/HelloWorldItemProvider.php"
+                    },
+                    {
+                        "action": "createCodeSnippet",
+                        "language": "javascript",
+                        "sourceFile": "Resources/Public/JavaScript/ContextMenuActions.js",
+                        "targetFileName": "ContextMenuActions",
+                        "caption": "Extension examples, file Resources/Public/JavaScript/ContextMenuActions.js"
+                    }
                 ]
             }
         },
