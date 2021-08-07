@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/TypoScriptSyntax/ConditionsElseEnabled.png
+   :class: with-shadow
+
+   The above example with the condition enabled

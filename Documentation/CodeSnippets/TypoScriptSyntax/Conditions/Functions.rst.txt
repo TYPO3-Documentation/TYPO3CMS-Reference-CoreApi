@@ -1,0 +1,12 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Conditions/Functions/setup.typoscript
+
+   [loginUser('*')]
+      page.42.value = Frontend user logged in
+   [END]
+   [getTSFE().isBackendUserLoggedIn()]
+      page.42.value = Backend user logged in
+   [END]
+   

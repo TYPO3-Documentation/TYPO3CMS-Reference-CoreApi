@@ -1,0 +1,14 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Conditions/Valid/setup.typoscript
+
+   someObject {
+      1property = 234
+   }
+   [loginUser('*')]
+      someObject {
+         2property = 567
+      }
+   [GLOBAL]
+   

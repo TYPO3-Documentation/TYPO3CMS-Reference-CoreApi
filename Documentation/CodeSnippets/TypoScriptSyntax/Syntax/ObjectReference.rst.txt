@@ -1,0 +1,13 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/ObjectReference/setup.typoscript
+
+   someObject = TEXT
+   someObject {
+      value = Hello world!
+      stdWrap.wrap = <p>|<p>
+   }
+   anotherObject =< someObject
+   someObject.stdWrap.wrap = <h1>|<h1>
+   

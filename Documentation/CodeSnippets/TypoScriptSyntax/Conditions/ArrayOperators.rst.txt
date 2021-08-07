@@ -1,0 +1,9 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Conditions/ArrayOperators/setup.typoscript
+
+   [17 in tree.rootLineIds || 24 in tree.rootLineIds]
+      page.42.value = Pid with id 17 or 24 is in the rootline.
+   [END]
+   
