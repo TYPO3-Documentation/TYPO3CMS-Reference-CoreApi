@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Examples/Debugging/DebugOutput.png
+   :class: with-shadow
+
+   Typical TYPO3 debug output
