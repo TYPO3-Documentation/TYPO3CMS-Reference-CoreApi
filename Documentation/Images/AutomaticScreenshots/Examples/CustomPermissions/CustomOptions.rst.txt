@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Examples/CustomPermissions/CustomOptions.png
+   :class: with-shadow
+
+   The custom permissions appear in the Access List tab of backend user groups

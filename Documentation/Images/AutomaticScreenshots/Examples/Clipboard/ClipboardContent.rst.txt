@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Examples/Clipboard/ClipboardContent.png
+   :class: with-shadow
+
+   The clipboard as seen in the backend

@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksNew.png
+   :class: with-shadow
+
+   Form for creating a new haiku with pre-filled title and season and restricted columns

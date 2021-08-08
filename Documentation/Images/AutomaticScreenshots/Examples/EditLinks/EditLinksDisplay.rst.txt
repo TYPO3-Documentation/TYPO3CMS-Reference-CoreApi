@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksDisplay.png
+   :class: with-shadow
+
+   The two links in the Examples module

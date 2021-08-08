@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Examples/Clipboard/ClipboardDump.png
+   :class: with-shadow
+
+   A dump of the clipboard in the debug window

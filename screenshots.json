@@ -682,7 +682,6 @@
                         "captionText": "The context menu shown after clicking on the Content Element icon"
                     }
                 ],
-
                 "ContextualMenuCodeSnippets": [
                     {"include": "_default"},
                     {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Examples/ContextualMenuExtended"},
@@ -699,6 +698,237 @@
                         "sourceFile": "Resources/Public/JavaScript/ContextMenuActions.js",
                         "targetFileName": "ContextMenuActions",
                         "caption": "Extension examples, file Resources/Public/JavaScript/ContextMenuActions.js"
+                    }
+                ],
+                "EditLinks": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 860
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/EditLinks"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/EditLinks"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Examples"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Flash messages"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Edit links"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "Edit links"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".t3js-module-body",
+                        "fileName": "EditLinksDisplay",
+                        "captionText": "The two links in the Examples module"
+                    },
+                    {"action": "click", "link": "Edit page 1"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".t3js-module-body",
+                        "fileName": "EditLinksEditFull",
+                        "captionText": "Page 1 ready for editing with the standard form"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Examples"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Flash messages"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Edit links"
+                    },
+                    {"action": "waitForText", "text": "Edit links"},
+                    {"action": "click", "link": "Edit title and doktype of pages 1 and 2"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".t3js-module-body",
+                        "fileName": "EditLinksEditRestricted",
+                        "captionText": "Editing of fields of two pages and one haiku at once"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Examples"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Flash messages"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Edit links"
+                    },
+                    {"action": "waitForText", "text": "Edit links"},
+                    {"action": "click", "link": "Create a new haiku for season spring with a predefined title"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".t3js-module-body",
+                        "fileName": "EditLinksNew",
+                        "captionText": "Form for creating a new haiku with pre-filled title and season and restricted columns"
+                    }
+                ],
+                "EditLinksCodeSnippets": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Examples/EditLinks"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples"},
+                    {
+                        "action": "createCodeSnippet",
+                        "sourceFile": "Resources/Private/Templates/Module/Links.html",
+                        "targetFileName": "EditLinksDisplay",
+                        "caption": "Extension examples, file Resources/Private/Templates/Module/Links.html"
+                    },
+                    {
+                        "action": "createPhpClassCodeSnippet",
+                        "class": "T3docs\\Examples\\Controller\\ModuleController",
+                        "targetFileName": "LinksAction",
+                        "members": ["linksAction"],
+                        "caption": "Extension examples, file Classes/Controller/ModuleController.php"
+                    }
+                ],
+                "CustomPermissions": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 860
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/CustomPermissions"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/CustomPermissions"
+                    },
+                    {
+                        "action": "goToField",
+                        "table": "be_groups",
+                        "uid": 1,
+                        "fields": "custom_options"
+                    },
+                    {"action": "click", "link": "Custom permissions"},
+                    {"action": "waitForText", "text": "Custom permission #1"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".form-section",
+                        "fileName": "CustomOptions",
+                        "captionText": "The custom permissions appear in the Access List tab of backend user groups"
+                    }
+                ],
+                "Clipboard": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 2048
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/Clipboard"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/Clipboard"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "List"},
+                    {"action": "openPageTreePath", "path": ["Root page"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Root page"},
+                    {"action": "click", "link": "Page"},
+                    {"action": "wait", "timeout": 0.5},
+                    {"action": "click", "link": "Clipboard #2"},
+                    {"action": "wait", "timeout": 0.5},
+
+                    {
+                        "action": "click",
+                        "link": "tr.t3js-entity:nth-child(2) td.col-clipboard label.btn-checkbox"
+                    },
+                    {
+                        "action": "click",
+                        "link": "tr.t3js-entity:nth-child(3) td.col-clipboard label.btn-checkbox"
+                    },
+                    {
+                        "action": "click",
+                        "link": "a[aria-label=\"Transfer the selection of records to clipboard\"]"
+                    },
+                    {"action": "waitForText", "text": "Remove item"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": "#clipboard_form",
+                        "fileName": "ClipboardContent",
+                        "captionText": "The clipboard as seen in the backend"
+                    },
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 860
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "click", "link": "Examples"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Flash messages"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Clipboard"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "Clipboard"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".t3js-module-body",
+                        "fileName": "ClipboardItems",
+                        "captionText": "Clipboard items"
+                    },
+                    {"action": "click", "link": "Show"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ClipboardDump",
+                        "captionText": "A dump of the clipboard in the debug window"
+                    },
+                    {"action": "switchToMainFrame"}
+                ],
+                "ClipboardCodeSnippets": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Examples/Clipboard"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples"},
+                    {
+                        "action": "createPhpClassCodeSnippet",
+                        "class": "T3docs\\Examples\\Controller\\ModuleController",
+                        "targetFileName": "GetCurrentClipboard",
+                        "members": ["getCurrentClipboard"],
+                        "caption": "Extension examples, file Classes/Controller/ModuleController.php"
+                    },
+                    {
+                        "action": "createPhpClassCodeSnippet",
+                        "class": "T3docs\\Examples\\Controller\\ModuleController",
+                        "targetFileName": "DebugClipboard",
+                        "members": ["debugClipboard"],
+                        "caption": "Extension examples, file Classes/Controller/ModuleController.php"
                     }
                 ]
             }

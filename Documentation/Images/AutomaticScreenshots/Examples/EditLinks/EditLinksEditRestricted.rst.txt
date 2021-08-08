@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksEditRestricted.png
+   :class: with-shadow
+
+   Editing of fields of two pages and one haiku at once
