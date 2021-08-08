@@ -1,0 +1,65 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: php
+   :caption: Extension examples, file Classes/Controller/ModuleController.php
+
+   use Psr\Http\Message\ResponseInterface;
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
+   
+   class ModuleController extends ActionController implements LoggerAwareInterface
+   {
+       public function linksAction(): ResponseInterface
+       {
+           $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
+           $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
+           $editPage1Link = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+   
+           $uriParameters =
+               [
+                   'edit' =>
+                       [
+                           'pages' =>
+                               [
+                                   1 => 'edit',
+                                   2 => 'edit'
+                               ],
+                           'tx_examples_haiku' =>
+                               [
+                                   1 => 'edit'
+                               ]
+                       ],
+                   'columnsOnly' => 'title,doktype'
+               ];
+           $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+           $uriParameters =
+               [
+                   'edit' =>
+                       [
+                           'tx_examples_haiku' =>
+                               [
+                                   1 => 'new'
+                               ]
+                       ],
+                   'defVals' =>
+                       [
+                           'tx_examples_haiku' =>
+                               [
+                                   'title' => 'New Haiku?',
+                                   'season' => 'Spring'
+                               ]
+                       ],
+                   'columnsOnly' => 'title,season,color'
+               ];
+           $createHaikuLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+           $this->view->assignMultiple(
+               [
+                   'editPage1Link' => $editPage1Link,
+                   'editPagesDoktypeLink' => $editPagesDoktypeLink,
+                   'createHaikuLink' => $createHaikuLink,
+               ]
+           );
+           return $this->htmlResponse();
+       }
+   }
+   

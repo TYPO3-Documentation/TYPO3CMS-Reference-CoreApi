@@ -52,10 +52,7 @@ under a given header:
 The result is that these options appear in the group access lists like
 this:
 
-.. figure:: /Images/ManualScreenshots/Examples/CustomPermissions/CustomOptions.png
-   :alt: Custom permissions
-
-   The custom permissions appear in the Access List tab of backend user groups
+.. include:: /Images/AutomaticScreenshots/Examples/CustomPermissions/CustomOptions.rst.txt
 
 
 As you can see it is possible to add both an icon and a description text, that will

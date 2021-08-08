@@ -1,13 +1,5 @@
 .. include:: /Includes.rst.txt
 
-.. --- EDIT NOTE ---
-.. please see this open issue:
-.. https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/73
-.. If this is resolved, please close the issue and remove this note.
-.. 2018-04-24
-.. ------------------
-
-
 .. _edit-links:
 
 =====================
@@ -32,54 +24,17 @@ either has to be created via PHP in the controller or a viewhelper to be used.
 
 Below are a different examples, how edit links can be output in the backend.
 
-.. code-block:: xml
-
-   <html data-namespace-typo3-fluid="true"
-			xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-			xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
-			xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
-			xmlns:ex="http://typo3.org/ns/T3docs/Examples/ViewHelpers"
-   >
-      <p>
-         <a href="{editPage1Link}">
-            <core:icon identifier="actions-document-open"/>
-            <f:translate key="function_links_edit_page_1"/>
-         </a>
-      </p>
-      <p>
-         <f:comment>Would only output the uri: <be:uri.editRecord uid="2" table="pages"
-            returnUrl="foo/bar" /></f:comment>
-         <a href="{be:uri.editRecord(uid:1, table:'pages', returnUrl:'foo/bar')}">
-            <core:icon identifier="actions-document-open"/>
-            <f:translate key="function_links_edit_page_2"/>
-         </a>
-      </p>
-   </html>
+.. include:: /CodeSnippets/Examples/EditLinks/EditLinksDisplay.rst.txt
 
 
 The links appear as one can expect:
 
-.. figure:: /Images/ManualScreenshots/Examples/EditLinks/EditLinksDisplay.png
-   :alt: Edit links in the examples BE module
+.. include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksDisplay.rst.txt
 
-   The two links in the "examples" BE module
-
-For the first link the variable :code:`editPage1Link` has to be set in the controler
+For the first link the variable :code:`editPage1Link` has to be set in the controller
 for example like this:
 
-.. code-block:: php
-
-    public function linksAction()
-    {
-        $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
-        $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
-        $editPage1Link = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
-        $this->view->assignMultiple(
-            [
-                'editPage1Link' => $editPage1Link,
-            ]
-        );
-    }
+.. include:: /CodeSnippets/Examples/EditLinks/LinksAction.rst.txt
 
 .. _edit-links-edit:
 
@@ -88,10 +43,7 @@ Editing a Record
 
 The examples above leads to the normal edit form for a page:
 
-.. figure:: /Images/ManualScreenshots/Examples/EditLinks/EditLinksEditFull.png
-   :alt: The standard form for editing a page
-
-   Page 1 ready for editing with the standard form
+.. include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksEditFull.rst.txt
 
 
 .. _edit-links-edit-restricted:
@@ -134,10 +86,7 @@ However if one record to be edited is missing none of the records gets displayed
 
 The example above results in the following:
 
-.. figure:: /Images/ManualScreenshots/Examples/EditLinks/EditLinksEditRestricted.png
-   :alt: The restricted form for editing a page
-
-   Editing of fields of two pages and one haiku at once
+.. include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksEditRestricted.rst.txt
 
 
 .. _edit-links-new:
@@ -189,18 +138,15 @@ selects the season "Spring". It only displays the fields defined by "columnsOnly
 
 Note the following things:
 
-- the first parameter is still called "edit" even if this is about creating a new record.
-  The creation of a record is indicated by the value "new".
+-  the first parameter is still called "edit" even if this is about creating a new record.
+   The creation of a record is indicated by the value "new".
 
-- the key of the entry with value "new" indicates the pid on which the record is to be created.
+-  the key of the entry with value "new" indicates the pid on which the record is to be created.
 
-- the values get automatically url-encoded so you can use any special char in the defaults
+-  the values get automatically url-encoded so you can use any special char in the defaults
 
 
 This results in the following new record form with a pre-filled
 title and season field.
 
-.. figure:: /Images/ManualScreenshots/Examples/EditLinks/EditLinksNew.png
-   :alt: Creating a new haiku
-
-   Form for creating a new haiku with pre-filled title and season and restricted columns
+.. include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksNew.rst.txt
