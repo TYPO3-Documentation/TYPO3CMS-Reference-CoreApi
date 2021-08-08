@@ -23,17 +23,14 @@ The TYPO3 Core provides a simple :code:`debug()` (defined in
 information only if it matches a set of IP addresses (defined in
 :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']`).
 
-For example, the following code::
+For example, the following code:
 
-   debug($_COOKIE, 'cookie');
+.. include:: /CodeSnippets/Debugging/DebugCookies.rst.txt
 
 
 will produce such an output:
 
-.. figure:: /Images/ManualScreenshots/Debugging/DebugOutput.png
-   :alt: Debug output
-
-   Typical TYPO3 debug output
+.. include:: /Images/AutomaticScreenshots/Examples/Debugging/DebugOutput.rst.txt
 
 In general, look at class :code:`\TYPO3\CMS\Core\Utility\DebugUtility` for useful
 debugging tools.

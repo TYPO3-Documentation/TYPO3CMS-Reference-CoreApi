@@ -930,6 +930,58 @@
                         "members": ["debugClipboard"],
                         "caption": "Extension examples, file Classes/Controller/ModuleController.php"
                     }
+                ],
+                "Debugging": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 500
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/Debugging"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/Debugging"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Examples"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Flash messages"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Debug"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "Debug"
+                    },
+                    {"action": "click", "link": "Debug Cookies"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "DebugOutput",
+                        "captionText": "Typical TYPO3 debug output"
+                    },
+                    {"action": "switchToMainFrame"}
+                ],
+                "DebuggingCodeSnippets": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Debugging"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples"},
+                    {
+                        "action": "createPhpClassCodeSnippet",
+                        "class": "T3docs\\Examples\\Controller\\ModuleController",
+                        "targetFileName": "DebugCookies",
+                        "members": ["debugCookies"],
+                        "caption": "Extension examples, file Classes/Controller/ModuleController.php"
+                    }
                 ]
             }
         },
