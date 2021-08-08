@@ -2,10 +2,16 @@
 
 
 .. _examples-clipboard:
+.. _examples-clipboard-put:
 
 =========
 Clipboard
 =========
+
+.. note::
+   The class :php:`\TYPO3\CMS\Backend\Clipboard\Clipboard` is marked
+   :php:`@internal`. It is a specific Backend implementation and is not
+   considered part of the Public TYPO3 API. It might change without notice.
 
 You can easily access the internal clipboard in TYPO3 from your
 backend modules::
@@ -67,40 +73,3 @@ for display, which is really just information:
    :alt: Clipboard items
 
    Display of information about individual clipboard items
-
-
-.. _examples-clipboard-put:
-
-Putting Elements Into the Clipboard
-===================================
-
-This is too complicated to describe in detail. The following
-codelisting is from the Web > List module where selections for the
-clipboard are posted from a form and registered::
-
-      // Clipboard is initialized:
-      // Start clipboard
-      $dblist->clipObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Clipboard\Clipboard::class);
-      // Initialize - reads the clipboard content from the user session
-      $dblist->clipObj->initializeClipboard();
-      // Clipboard actions are handled:
-      // CB is the clipboard command array
-      $CB = \TYPO3\CMS\Core\Utility\GeneralUtility::_GET('CB');
-      if ($this->cmd == 'setCB') {
-         // CBH is all the fields selected for the clipboard, CBC is the checkbox fields which were checked.
-         // By merging we get a full array of checked/unchecked elements
-         // This is set to the 'el' array of the CB after being parsed so only the table in question is registered.
-         $CB['el'] = $dblist->clipObj->cleanUpCBC(array_merge((array) \TYPO3\CMS\Core\Utility\GeneralUtility::_POST('CBH'), (array) \TYPO3\CMS\Core\Utility\GeneralUtility::_POST('CBC')), $this->cmd_table);
-      }
-      if (!$this->MOD_SETTINGS['clipBoard']) {
-         // If the clipboard is NOT shown, set the pad to 'normal'.
-         $CB['setP'] = 'normal';
-      }
-      // Execute commands.
-      $dblist->clipObj->setCmd($CB);
-      // Clean up pad
-      $dblist->clipObj->cleanCurrent();
-      // Save the clipboard content
-      $dblist->clipObj->endClipboard();
-
-
