@@ -1026,6 +1026,36 @@
                         "fileName": "FlashMessagesExample",
                         "captionText": "A typical (success) message shown at the top of a module"
                     }
+                ],
+                "Xclasses": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/Xclasses"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/Xclasses"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "List"},
+                    {"action": "openPageTreePath", "path": ["Root page"]},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Page"},
+                    {"action": "click", "link": "Create new record"},
+                    {"action": "waitForText", "text": "make a choice"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "XclassNewElementWizard",
+                        "captionText": "A help section is added at the bottom of the new record wizard"
+                    },
+                    {"action": "switchToMainFrame"}
                 ]
             }
         },

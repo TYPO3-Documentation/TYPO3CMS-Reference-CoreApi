@@ -128,10 +128,7 @@ method and then adds its own content::
 
 The result can be seen here:
 
-.. figure:: /Images/ManualScreenshots/Xclasses/XclassNewElementWizard.png
-   :alt: Adding an element to the new record wizard
-
-   A help section is added at the bottom of the new record wizard.
+.. include:: /Images/AutomaticScreenshots/Examples/Xclasses/XclassNewElementWizard.rst.txt
 
 The object oriented rules of PHP 7 such as rules about visibility apply here.
 As you are extending the original Class you can overload or call methods
