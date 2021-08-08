@@ -982,6 +982,50 @@
                         "members": ["debugCookies"],
                         "caption": "Extension examples, file Classes/Controller/ModuleController.php"
                     }
+                ],
+                "FlashMessages": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 860
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/FlashMessages"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/FlashMessages"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Examples')]"},
+                    {"action": "click", "link": "Examples"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Flash messages"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "FlashMessagesAll",
+                        "captionText": "The \"EXT:examples\" backend module shows one of each type of flash message"
+                    },
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 300
+                    },
+                    {"action": "scrollModuleBodyToBottom"},
+                    {"action": "click", "link": "Count pages"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Examples')]"},
+                    {"action": "waitForText", "text": "Record count"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "FlashMessagesExample",
+                        "captionText": "A typical (success) message shown at the top of a module"
+                    }
                 ]
             }
         },

@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Examples/FlashMessages/FlashMessagesExample.png
+   :class: with-shadow
+
+   A typical (success) message shown at the top of a module

@@ -11,27 +11,24 @@ was performed successfully, or more importantly, failed. This system
 is known as "flash messages". The screenshot below shows the various
 severity levels of messages that can be emitted.
 
-.. figure:: /Images/ManualScreenshots/FlashMessages/FlashMessagesAll.png
-   :alt: All levels of flash messages
-
-   The "examples" BE module shows one of each type of flash message
+.. include:: /Images/AutomaticScreenshots/Examples/FlashMessages/FlashMessagesAll.rst.txt
 
 The different severity levels are described below:
 
-- *Notifications* are used to show very low severity information. Such
-  information usually is so unimportant that it can be left out, unless
-  running in some kind of debug mode.
+*  *Notifications* are used to show very low severity information. Such
+   information usually is so unimportant that it can be left out, unless
+   running in some kind of debug mode.
 
-- *Information messages* are to give the user some information that might
-  be good to know.
+*  *Information messages* are to give the user some information that might
+   be good to know.
 
-- *OK messages* are to signal a user about a successfully executed action.
+*  *OK messages* are to signal a user about a successfully executed action.
 
-- *Warning messages* show a user that some action might be dangerous,
-  cause trouble or might have partially failed.
+*  *Warning messages* show a user that some action might be dangerous,
+   cause trouble or might have partially failed.
 
-- *Error messages* are to signal failed actions, security issues, errors
-  and the like.
+*  *Error messages* are to signal failed actions, security issues, errors
+   and the like.
 
 
 .. index:: Flash messages; API
@@ -57,15 +54,15 @@ Flash messages severities
 The severity is defined by using class constants provided by
 :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
 
-- :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::NOTICE` for notifications
+*  :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::NOTICE` for notifications
 
-- :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::INFO` for information messages
+*  :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::INFO` for information messages
 
-- :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::OK` for success messages
+*  :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::OK` for success messages
 
-- :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::WARNING` for warnings
+*  :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::WARNING` for warnings
 
-- :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::ERROR` for errors
+*  :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::ERROR` for errors
 
 The fourth parameter passed to the constructor is a flag that
 indicates whether the message should be stored in the session or not (the
@@ -87,11 +84,7 @@ The message is added to the queue and then the template class calls
 :php:`\TYPO3\CMS\Core\Messaging\FlashMessageQueue::renderFlashMessages()` which renders all
 messages from the queue. Here's how such a message looks like in a module:
 
-.. figure:: /Images/ManualScreenshots/FlashMessages/FlashMessagesExample.png
-   :alt: A flash message in action
-
-   A typical (success) message shown at the top of a module
-
+.. include:: /Images/AutomaticScreenshots/Examples/FlashMessages/FlashMessagesExample.rst.txt
 
 The recommend way to show flash messages is to use the Fluid Viewhelper :html:`<f:flashMessages />`.
 This Viewhelper works in any context because it use the :php:`FlashMessageRendererResolver` class
@@ -109,15 +102,15 @@ This class detects the context and renders the given FlashMessages in the correc
 It can handle any kind of output format.
 The Core ships with the following FlashMessageRenderer classes:
 
-* :php:`TYPO3\CMS\Core\Messaging\Renderer\BootstrapRenderer`
-  This renderer is used by default in the TYPO3 backend.
-  The output is based on Bootstrap markup
-* :php:`TYPO3\CMS\Core\Messaging\Renderer\ListRenderer`
-  This renderer is used by default in the TYPO3 frontend.
-  The output is a simple <ul> list
-* :php:`TYPO3\CMS\Core\Messaging\Renderer\PlaintextRenderer`
-  This renderer is used by default in the CLI context.
-  The output is plain text
+*  :php:`TYPO3\CMS\Core\Messaging\Renderer\BootstrapRenderer`
+   This renderer is used by default in the TYPO3 backend.
+   The output is based on Bootstrap markup
+*  :php:`TYPO3\CMS\Core\Messaging\Renderer\ListRenderer`
+   This renderer is used by default in the TYPO3 frontend.
+   The output is a simple <ul> list
+*  :php:`TYPO3\CMS\Core\Messaging\Renderer\PlaintextRenderer`
+   This renderer is used by default in the CLI context.
+   The output is plain text
 
 All new rendering classes have to implement the :php:`TYPO3\CMS\Core\Messaging\Renderer\FlashMessageRendererInterface` interface.
 If you need a special output format, you can implement your own renderer class and use it:
@@ -191,11 +184,11 @@ The TYPO3 Core provides a JavaScript-based API to trigger flash messages ("Notif
 right corner of the TYPO3 backend. To use the notification API, load the :js:`TYPO3/CMS/Backend/Notification` module and
 use one of its methods:
 
-* :js:`notice()`
-* :js:`info()`
-* :js:`success()`
-* :js:`warning()`
-* :js:`error()`
+*  :js:`notice()`
+*  :js:`info()`
+*  :js:`success()`
+*  :js:`warning()`
+*  :js:`error()`
 
 All methods accept the same arguments.
 

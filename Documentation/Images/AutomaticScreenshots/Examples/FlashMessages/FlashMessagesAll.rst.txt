@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Examples/FlashMessages/FlashMessagesAll.png
+   :class: with-shadow
+
+   The "EXT:examples" backend module shows one of each type of flash message
