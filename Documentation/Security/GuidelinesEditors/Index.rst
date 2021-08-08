@@ -111,9 +111,7 @@ As an indicator, if you see a *Template* entry under the *WEB*
 TOOLS*, you definitely have the wrong permissions as an editor and you
 should get in touch with the system provider to solve this issue.
 
-.. figure:: /Images/ManualScreenshots/Security/editor-admin-privileges.png
-    :class: with-shadow
-    :alt: Screenshot of a menu with the section "ADMIN TOOLS"
+.. include:: /Images/AutomaticScreenshots/AdminTools/EditorAdminPrivileges.rst.txt
 
 
 Notify at login

@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AdminTools/EnableInstallTool.png
+   :class: with-shadow
+
+   Screen to enable the Install Tool

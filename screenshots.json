@@ -83,12 +83,27 @@
                     {"action": "closeModalDialog"},
                     {"action": "switchToMainFrame"},
                     {"action": "resizeWindow", "width": 1024,"height": 500},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Maintenance')]"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Filelist')]"},
+                    {"action": "click", "link": "Extensions"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Installed Extensions" },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ExtensionManager",
+                        "captionText": "Interface of the Extension Manager showing all available extensions."
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Filelist')]"},
                     {"action": "click", "link": "Maintenance"},
                     {"action": "switchToContentFrame"},
                     {
                         "action": "waitForText",
                         "text": "Maintenance"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "EditorAdminPrivileges",
+                        "captionText": "Screenshot of a menu with the section \"Admin Tools\""
                     },
                     {
                         "action": "drawBox",
@@ -149,7 +164,55 @@
                         "action": "makeScreenshotOfElement",
                         "fileName": "FeatureToggles"
                     },
-                    {"action": "closeModalDialog"}
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "closeModalDialog"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "scrollModuleBodyTo", "toSelector": "//div[@class='card card-size-fixed-small' and contains(., 'Configure Installation')]"},
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[@class='card card-size-fixed-small' and contains(., 'Configure Installation')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "AllConfiguration",
+                        "captionText": "Configure installation-wide options :guilabel:`Admin Tools > Settings`"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "click", "link": "Configure options"},
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "InstallationWideOptions",
+                        "captionText": "Configure installation-wide options with an active search"
+                    },
+                    {"action": "closeModalDialog"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "clearDrawings"},
+                    {"action": "scrollModuleBodyToTop"},
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[@class='card card-size-fixed-small' and contains(., 'Change Install Tool Password')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ChangeInstallToolPassword",
+                        "captionText": "Screen to change the Install Tool password"
+                    },
+                    {
+                        "action": "amOnPage",
+                        "page": "/typo3/install.php"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "The Install Tool is locked"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".col-md-6",
+                        "fileName": "EnableInstallTool",
+                        "captionText": "Screen to enable the Install Tool"
+                    },
+                    {"action": "reloadBackend"}
                 ],
                 "Authentication": [
                     {"include": "_default"},
