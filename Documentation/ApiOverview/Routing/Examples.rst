@@ -211,14 +211,14 @@ Posts by Author
          author_title: '^[a-z0-9].*$'
          page: '\d+'
        aspects:
-       author_title:
-         type: PersistedAliasMapper
-         tableName: 'tx_blog_domain_model_author'
-         routeFieldName: 'slug'
-       page:
-         type: StaticRangeMapper
-         start: '1'
-         end: '99'
+         author_title:
+           type: PersistedAliasMapper
+           tableName: 'tx_blog_domain_model_author'
+           routeFieldName: 'slug'
+         page:
+           type: StaticRangeMapper
+           start: '1'
+           end: '99'
 
 Category pages
 ^^^^^^^^^^^^^^^
