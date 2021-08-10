@@ -9,7 +9,7 @@ Error handling
 Error handling can be configured on site level and is automatically dependent
 on the current site and language.
 
-There are currently to error handler implementations and the option to write
+There are currently two error handler implementations and the option to write
 a custom handler:
 
 .. toctree::
