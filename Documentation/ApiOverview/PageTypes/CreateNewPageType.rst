@@ -21,6 +21,12 @@ tree.
    You have to change :code:`example` in the argument of the anonymous function
    to your own extension key.
 
+.. note::
+
+   A page of the new type can be selected as a link target in the page browser if the selected
+   doktype is less than 199. If oyu select a higher number the page will be handled like a 
+   separator in the page browser when creating or changing a link.
+
 The new page type is added to :php:`$GLOBALS['PAGES_TYPES']` in :file:`ext_tables.php`::
 
    (function ($extKey='example') {
