@@ -218,7 +218,7 @@ Examples for Extbase domain models and table names of an extension named `cool_s
 
    You may notice, that the names above use the singular form, e.g. `post` and
    not `posts`. This is recommended, but not always followed. If you do not follow this pattern,
-   you may :ref:`need manual mapping <t3extbasebook:using-foreign-data-sources>`.
+   you may need :ref:`manual mapping <t3extbasebook:using-foreign-data-sources>`.
    
 Database column name
 ====================
@@ -227,8 +227,8 @@ When extending a common table like :sql:`tt_content`, column names SHOULD follow
 
    tx_<extension-prefix>_<column-name>
 
-* `extension-prefix` is the extension key without underscores, so `foo_bar` becomes `foobar`
-* `table-name` should clearly describe the purpose of the column
+* `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
+* `<column-name>` should clearly describe the purpose of the column
 
 Backend module key
 ==================
