@@ -10,9 +10,10 @@ Extension Configuration (ext_conf_template.txt)
 
 *-- optional*
 
-In the :file:`ext_conf_template.txt` file configuration options
-for an extension can be defined. They will be accessible in the TYPO3 backend
-from Settings module.
+In the :file:`ext_conf_template.txt` file, the configuration options
+for an extension can be defined and set with default values. 
+These configuration options are accessible via the TYPO3 backend and can be overwritten
+in :guilabel:`Admin Tools` -> :guilabel:`Settings` -> :guilabel:`Extension Configuration`.
 
 .. _extension-options-syntax:
 
