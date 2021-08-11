@@ -184,30 +184,51 @@ Database table name
 
 These rules apply to public extensions, but should be followed nevertheless.
 
-Database table names SHOULD be named:
+Database table names SHOULD follow this pattern::
 
-`"tx_"` `extkey (without underscores)` `"_"` `name`
+   tx_<extension-prefix>_<table-name>
 
-* name: What does the table contain?
+* `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
+* `<table-name>` should clearly describe the purpose of the table
 
-Examples:
-    * `tx_coolshop_product`
-    * `tx_coolshop_category`
-    * `tx_coolshop_domain_model_tag`
+Examples for an extension named `cool_shop`:
 
-Extbase has the following naming convention for database models:
+    * :sql:`tx_coolshop_product`
+    * :sql:`tx_coolshop_category`
 
-`"tx_"` `extkey (without underscores)` `"_domain_model_"` `name`
+Extbase domain model tables SHOULD follow this pattern::
 
-* name: what does the table contain (use singular and same name as model)
+   tx_<extension-prefix>_domain_model_<table-name>
 
-Example for Extbase table name for the model "Post":
-    * `tx_blogexample_domain_model_post`
+* `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
+* `<table-name>` should match the domain model name
+
+Examples for Extbase domain models and table names of an extension named `cool_shop`:
+
++-----------------------------------------------------+-------------------------------------------------+
+| Domain model                                        | Table name                                      |
++=====================================================+=================================================+
+| :php:`Vendor\BlogExample\Domain\Model\Post`         | :sql:`tx_blogexample_domain_model_post`         |
+| :php:`Vendor\CoolShop\Domain\Model\Tag`             | :sql:`tx_coolshop_domain_model_tag`             |
+| :php:`Vendor\CoolShop\Domain\Model\ProcessedOrder`  | :sql:`tx_coolshop_domain_model_processedorder`  |
+| :php:`Vendor\CoolShop\Domain\Model\Billing\Address` | :sql:`tx_coolshop_domain_model_billing_address` |
++-----------------------------------------------------+-------------------------------------------------+
 
 .. tip::
 
-   You may notice, that the names above uses the singular, e.g. post and
-   not posts. This is recommended, but not always followed.
+   You may notice, that the names above use the singular form, e.g. `post` and
+   not `posts`. This is recommended, but not always followed. If you do not follow this pattern,
+   you may :ref:`need manual mapping <t3extbasebook:using-foreign-data-sources>`.
+   
+Database column name
+====================
+
+When extending a common table like :sql:`tt_content`, column names SHOULD follow this pattern::
+
+   tx_<extension-prefix>_<column-name>
+
+* `extension-prefix` is the extension key without underscores, so `foo_bar` becomes `foobar`
+* `table-name` should clearly describe the purpose of the column
 
 Backend module key
 ==================
