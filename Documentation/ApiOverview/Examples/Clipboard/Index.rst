@@ -11,7 +11,7 @@ Clipboard
 .. note::
    The class :php:`\TYPO3\CMS\Backend\Clipboard\Clipboard` is marked
    :php:`@internal`. It is a specific Backend implementation and is not
-   considered part of the Public TYPO3 API. It might change without notice.
+   considered part of the public TYPO3 API. It might change without notice.
 
 You can easily access the internal clipboard in TYPO3 from your
 backend modules::
