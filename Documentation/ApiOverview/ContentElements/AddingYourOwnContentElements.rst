@@ -95,9 +95,7 @@ The following call needs to be added to the file
 Now the new content element is available in the backend form. However it
 currently contains no fields but the CType field.
 
-.. figure:: /Images/ManualScreenshots/ContentElements/CType.png
-   :class: with-shadow
-   :alt: CType dropdown in tt_content
+.. include:: /Images/AutomaticScreenshots/CustomContentElements/CType.rst.txt
 
 
 .. index:: Content element; Icon
@@ -141,9 +139,7 @@ to this wizard.
       }
    }
 
-.. figure:: /Images/ManualScreenshots/ContentElements/NewContenElementWizard.png
-   :class: with-shadow
-   :alt: The "New Content Element" wizard
+.. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementWizard.rst.txt
 
 The content element wizard configuration is described in detail in
 :ref:`content-element-wizard`.
@@ -183,9 +179,7 @@ the file :file:`Configuration/TCA/Overrides/tt_content.php`:
 
 Now the backend form for the new content elements looks like this:
 
-.. figure:: /Images/ManualScreenshots/ContentElements/ContentElementFields.png
-   :class: with-shadow
-   :alt: The backend form
+.. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementFields.rst.txt
 
 
 .. index:: Content element; Frontend rendering
@@ -225,7 +219,7 @@ Now you can register the rendering of your custom content element:
        }
    }
 
-The :`lib.contentElement` path is defined in file
+The :typoscript:`lib.contentElement` path is defined in file
 :file:`EXT:fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
 and uses a :ref:`t3tsref:cobj-fluidtemplate`.
 
@@ -240,19 +234,14 @@ The Fluid template is configured by the
 This will load a :file:`NewContentElement.html` template file from the path
 defined at the :typoscript:`templateRootPaths`.
 
-In the example extension you can find the file at :file:``
+In the example extension you can find the file at
+:file:`EXT:examples/Resources/Private/Templates/NewContentElement.html`
 
 `tt_content` fields can now be used in the Fluid template by accessing them via the `data` variable.
 The following example shows the text entered in the richtext enabled field `bodytext`, using the html
 saved by the richtext editor:
 
-.. code-block:: html
-
-   <html data-namespace-typo3-fluid="true"
-      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
-      <h2>Output.</h2>
-      <div><f:format.html>{data.bodytext}</f:format.html></div>
-   </html>
+.. include:: /CodeSnippets/CustomContentElements/CustomContentElement.rst.txt
 
 All fields of the table :php:`tt_content` are now available in the variable
 `data`. Since we saved the content of `bodytext` in the richt text editor we
@@ -278,8 +267,7 @@ formatting. Read more about :ref:`fluid`.
 Below you can see the example output of the new content element and a
 dump of all available data:
 
-
-.. figure:: /Images/ManualScreenshots/ContentElements/NewContentElementOutput.png
+.. figure:: /Images/ManualScreenshots/Frontend/ContentElements/NewContentElementOutput.png
    :class: with-border with-shadow
    :alt: The example output
 
@@ -455,23 +443,11 @@ parameters to be used in the data processor:
 You can now iterate over the variable `myTable` in the Fluid template, in this
 example :file:`Resources/Private/Templates/ContentElements/DataProcCsv.html`
 
-.. code-block:: html
-
-   <h2>Output, separated by char {data.tx_examples_separator}</h2>
-   <table class="table table-hover">
-      <f:for each="{myTable}" as="columns" iteration="i">
-         <tr>
-            <th scope="row">{i.cycle}</th>
-            <f:for as="column" each="{columns}">
-               <td>{column}</td>
-            </f:for>
-         <tr>
-      </f:for>
-   </table>
+.. include:: /CodeSnippets/CustomContentElements/DataProcCsv.rst.txt
 
 
 The output would look like this (we added a debug of the variable `myTable`):
 
-.. figure:: /Images/ManualScreenshots/ContentElements/ContentElementWithDataProcessorOutput.png
+.. figure:: /Images/ManualScreenshots/Frontend/ContentElements/ContentElementWithDataProcessorOutput.png
    :class: with-shadow
    :alt: Output of the CommaSeparatedValueProcessor
