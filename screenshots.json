@@ -1121,7 +1121,6 @@
                     {"action": "switchToMainFrame"}
                 ],
                 "CustomContentElements": [
-
                     {"include": "_default"},
                     {
                         "action": "resizeWindow",
@@ -1175,7 +1174,8 @@
                         "fields": "CType",
                         "fileName": "CType",
                         "captionText": "CType dropdown in tt_content"
-                    }
+                    },
+                    {"action": "reloadBackend"}
                 ],
                 "CustomContentElementsSnippets": [
                     {"include": "_default"},
@@ -1193,6 +1193,53 @@
                         "targetFileName": "CustomContentElement",
                         "caption": "EXT:examples/Resources/Private/Templates/NewContentElement.html"
                     }
+                ],
+                "Categories": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Categories"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Categories"
+                    },
+
+                    {
+                        "action": "resizeWindow",
+                        "width": 640,
+                        "height": 640
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "sys_category",
+                        "uid": {"action": "getUidByField", "table": "sys_category", "field": "title", "value": "Poodle"}
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "Editing",
+                        "captionText": "A category with a parent defined"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "pages",
+                        "uid": 1
+                    },
+                    {"action": "click", "link": "Extended"},
+                    {"action": "waitForText", "text": "Additional categories"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "AddingWithApi",
+                        "captionText": "The newly added field to define relations to categories"
+                    },
+                    {"action": "reloadBackend"}
                 ]
             }
         },

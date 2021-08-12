@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Categories/AddingWithApi.png
+   :class: with-shadow
+
+   The newly added field to define relations to categories
