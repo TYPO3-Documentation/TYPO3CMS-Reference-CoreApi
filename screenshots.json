@@ -1119,6 +1119,80 @@
                         "captionText": "A help section is added at the bottom of the new record wizard"
                     },
                     {"action": "switchToMainFrame"}
+                ],
+                "CustomContentElements": [
+
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/CustomContentElements"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/CustomContentElements"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Page"},
+                    {"action": "openPageTreePath", "path": ["Root page", "Custom Content Element"]},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Custom Content Element"},
+                    {"action": "click", "link": "Create new content element"},
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {"action": "drawBox", "selector": "//div[contains(@class, 'media-new-content-element-wizard') and contains(., 'Example of a custom content element')]"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ContentElementWizard",
+                        "captionText": "Content element wizard with thCTypee new content element"
+                    },
+                    {"action": "closeModalDialog"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 640,
+                        "height": 640
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "tt_content",
+                        "uid": {"action": "getUidByField", "table": "tt_content", "field": "CType", "value": "examples_newcontentelement"}
+                    },
+                    {"action": "wait", "timeout": 1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "ContentElementFields",
+                        "captionText": "The backend form"
+                    },
+                    {
+                        "action": "makeScreenshotOfField",
+                        "table": "tt_content",
+                        "uid":  {"action": "getUidByField", "table": "tt_content", "field": "CType", "value": "examples_newcontentelement"},
+                        "fields": "CType",
+                        "fileName": "CType",
+                        "captionText": "CType dropdown in tt_content"
+                    }
+                ],
+                "CustomContentElementsSnippets": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/CustomContentElements"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples"},
+                    {
+                        "action": "createCodeSnippet",
+                        "sourceFile": "Resources/Private/Templates/ContentElements/DataProcCsv.html",
+                        "targetFileName": "DataProcCsv",
+                        "caption": "EXT:examples/Resources/Private/Templates/ContentElements/DataProcCsv.html"
+                    },
+                    {
+                        "action": "createCodeSnippet",
+                        "sourceFile": "Resources/Private/Templates/NewContentElement.html",
+                        "targetFileName": "CustomContentElement",
+                        "caption": "EXT:examples/Resources/Private/Templates/NewContentElement.html"
+                    }
                 ]
             }
         },
