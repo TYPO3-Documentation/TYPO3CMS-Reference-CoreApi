@@ -9,8 +9,8 @@ Soft references
 **Soft References** are references to database elements, files, email addresses,
 URLs etc. which are found inside of text fields.
 
-For example, `tt_content.bodytext` can contain soft references to pages, to
-content elements, to files etc. The page reference can look like this:
+For example, `tt_content.bodytext` can contain soft references to pages, 
+content elements and files. The page reference looks like this:
 
 .. code-block:: html
 
@@ -297,7 +297,7 @@ This property is an array of arrays, each with these keys:
       content, `{softref:[tokenID]}`. This is typically a md5 hash of a string
       uniquely defining the position of the element.
    *  :php:`tokenValue`: The value that the token substitutes in the text.
-      Basically, if this value is inserted instead of the token, the content
+      If this value is inserted instead of the token, the content
       should match what was inputted originally.
    *  :php:`type`: the type of substitution. :php:`file` is a relative file
       reference, :php:`db` is a database record reference, :php:`string` is a
@@ -312,8 +312,8 @@ This property is an array of arrays, each with these keys:
 User-defined soft reference parsers
 ===================================
 
-Soft Reference Parsers can also be user-defined. It is easy to set them up by
-simply registering them in your Services.(yaml|php) file. This will load them
+Soft Reference Parsers can also be user-defined. It is easy to set them up by 
+registering them in your Services.(yaml|php) file. This will load them
 via dependency injection:
 
 .. code-block:: yaml
@@ -351,7 +351,7 @@ Using the soft reference parser
 To get an instance of a soft reference parser, it is recommended to use the
 :php:`TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserFactory`
 class. This factory class already holds all registered instances of the parsers.
-They can be simply retrieved with the :php:`getSoftReferenceParser` method. You
+They can be retrieved with the :php:`getSoftReferenceParser` method. You
 have to provide the desired key as the first and only argument.
 
 .. code-block:: php
