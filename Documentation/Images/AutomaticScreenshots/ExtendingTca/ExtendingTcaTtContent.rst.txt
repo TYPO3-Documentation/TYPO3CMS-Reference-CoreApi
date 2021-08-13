@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/ExtendingTca/ExtendingTcaTtContent.png
+   :class: with-shadow
+
+   The new field added next to an existing one

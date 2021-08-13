@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/ExtendingTca/ExtendingTcaFeUsers.png
+   :class: with-shadow
+
+   The new fields added at the bottom of the "Extended" tab
