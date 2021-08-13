@@ -17,10 +17,7 @@ complete :php:`$GLOBALS['TCA']`, with all customizations taken into account.
 
       composer req typo3/cms-lowlevel
 
-.. figure:: /Images/ManualScreenshots/ExtensionArchitecture/ExtendingTca/VerifyingTca.png
-   :alt: The Configuration module
-
-   Checking the existence of the new field via the Configuration module
+.. include:: /Images/AutomaticScreenshots/ExtendingTca/VerifyingTca.rst.txt
 
 If you cannot find your new field, it probably means that you have
 made some mistake.

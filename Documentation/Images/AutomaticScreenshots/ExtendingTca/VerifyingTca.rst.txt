@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/ExtendingTca/VerifyingTca.png
+   :class: with-shadow
+
+   Checking the existence of the new field via the Configuration module

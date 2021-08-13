@@ -1240,6 +1240,79 @@
                         "captionText": "The newly added field to define relations to categories"
                     },
                     {"action": "reloadBackend"}
+                ],
+                "ExtendingTca": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/ExtendingTca"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/ExtendingTca"
+                    },
+
+                    {
+                        "action": "resizeWindow",
+                        "width": 640,
+                        "height": 1024
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "fe_users",
+                        "uid": 1
+                    },
+                    {"action": "click", "link": "Extended"},
+                    {"action": "waitForText", "text": "Special field"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "ExtendingTcaFeUsers",
+                        "captionText": "The new fields added at the bottom of the \"Extended\" tab"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "tt_content",
+                        "uid": 1
+                    },
+                    {"action": "click", "link": "Access"},
+                    {"action": "waitForText", "text": "No print"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".typo3-TCEforms",
+                        "fileName": "ExtendingTcaTtContent",
+                        "captionText": "The new field added next to an existing one"
+                    },
+                    {"action": "reloadBackend"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Configuration')]"},
+                    {"action": "click", "link": "Configuration"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "$GLOBALS['TCA'] (Table configuration array)"
+                    },
+                    {"action": "waitForText", "text": "backend_layout"},
+                    {"action": "scrollModuleBodyTo", "toSelector": "//li[contains(., 'tx_examples_haiku')]"},
+                    {"action": "click", "link": "//a[contains(@href, 'tx_examples_haiku')]"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": "//a[contains(@href, 'columns')]"},
+                    {"action": "wait", "timeout": 0.1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "VerifyingTca",
+                        "captionText": "Checking the existence of the new field via the Configuration module"
+                    }
                 ]
             }
         },
