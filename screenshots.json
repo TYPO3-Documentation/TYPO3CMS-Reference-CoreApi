@@ -114,6 +114,17 @@
                         "fileName": "AnalyzeDatabase",
                         "captionText": "The Database analyzer is part of the maintenance area"
                     },
+                    {"action": "clearDrawings"},
+                    {"action": "scrollModuleBodyTo", "toSelector": "//div[@class='card card-size-fixed-small' and contains(., 'Remove Temporary Assets')]"},
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[@class='card card-size-fixed-small' and contains(., 'Remove Temporary Assets')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "MaintenanceRemoveTemporaryAssets",
+                        "captionText": "Removing all processed files in the Maintenance Tool"
+                    },
                     {"action": "resizeWindow", "width": 1024,"height": 780},
                     {"action": "clearDrawings"},
                     {
@@ -1313,6 +1324,67 @@
                         "fileName": "VerifyingTca",
                         "captionText": "Checking the existence of the new field via the Configuration module"
                     }
+                ],
+                "Fal": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Fal"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Fal"
+                    },
+
+                    {
+                        "action": "resizeWindow",
+                        "width": 640,
+                        "height": 480
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "sys_file_storage",
+                        "uid": 1
+                    },
+                    {"action": "scrollModuleBodyToBottom"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".typo3-TCEforms",
+                        "fileName": "ArchitectureFoldersProcessedFolder",
+                        "captionText": "Editing a file storage to define a location for processed files"
+                    },
+                    {
+                        "action": "resizeWindow",
+                        "width": 640,
+                        "height": 1024
+                    },
+                    {"action": "scrollModuleBodyToTop"},
+                    {"action": "click", "link": "Access capabilities"},
+                    {"action": "waitForText", "text": "Capabilities"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".typo3-TCEforms",
+                        "fileName": "AdministrationFileStorageAccessTab",
+                        "captionText": "Special properties in the \"Access capabilities\" tab of a File storage"
+                    },
+                    {
+                        "action": "goToField",
+                        "table": "tt_content",
+                        "uid": {"action": "getUidByField", "table": "tt_content", "field": "header", "value": "The TYPO3 Documentation Team"},
+                        "fields": "image"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".typo3-TCEforms",
+                        "fileName": "FalRelationTca",
+                        "captionText": "A typical FAL relation field"
+                    },
+                    {"action": "reloadBackend"}
                 ]
             }
         },
