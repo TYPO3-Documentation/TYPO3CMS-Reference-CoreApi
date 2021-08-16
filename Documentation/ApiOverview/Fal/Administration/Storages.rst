@@ -8,15 +8,12 @@ File storages
 
 File storages can be administered through the List module. They have a few properties which deserve further explanation.
 
-.. figure:: /Images/ManualScreenshots/Fal/AdministrationFileStorageAccessTab.png
-   :alt: The Access tab of a File storage
-
-   Special properties in the Access tab of a File storage
+.. include:: /Images/AutomaticScreenshots/Fal/AdministrationFileStorageAccessTab.rst.txt
 
 
 Is browsable?
   If this box is not checked, the storage will not be browsable by
-  users via the **FILE > Filelist** module, nor via the link browser
+  users via the :guilabel:`File > Filelist` module, nor via the link browser
   window.
 
 Is publicly available?

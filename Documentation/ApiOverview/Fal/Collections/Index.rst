@@ -125,7 +125,7 @@ record selection:
 Here is what the result may look like (the exact result will obviously
 depend on the content of the selection):
 
-.. figure:: /Images/ManualScreenshots/Fal/CollectionsOutput.png
+.. figure:: /Images/ManualScreenshots/Frontend/Fal/CollectionsOutput.png
    :alt: Collections plugin output
 
    Typical output from the "Collections" plugin of extension "examples"

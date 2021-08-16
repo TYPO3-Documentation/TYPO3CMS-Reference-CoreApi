@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Fal/ArchitectureFoldersProcessedFolder.png
+   :class: with-shadow
+
+   Special properties in the "Access capabilities" tab of a File storage
