@@ -47,11 +47,7 @@ of inline-type fields can be used.
 
 Additionally, there is an extra section for providing media sources, that come as three buttons per default.
 
-.. figure:: /Images/ManualScreenshots/Fal/FalRelationTca.png
-    :alt: FAL relation with all three media sources visible
-    :class: with-shadow
-
-    A typical FAL relation field
+.. include:: /Images/AutomaticScreenshots/Fal/FalRelationTca.rst.txt
 
 Which ones should appear for the editor to use, can be configures using TCA appearance settings::
 

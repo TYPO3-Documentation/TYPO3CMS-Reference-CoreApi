@@ -18,7 +18,7 @@ user needs
 Read more about the concepts of MFA here https://en.wikipedia.org/wiki/Multi-factor_authentication
 
 
-.. figure:: /Images/ManualScreenshots/Authentication/MfaEnterCode.png
+.. figure:: /Images/ManualScreenshots/Frontend/Authentication/MfaEnterCode.png
    :alt: TYPO3 Login Screen for entering MFA code (TOTP)
    :class: with-border with-shadow
 
