@@ -22,8 +22,16 @@ The recommended way of injecting dependencies is to use constructor injection::
        $this->dependency = $dependency;
    }
 
-By default all classes shipped by the TYPO3 Core  system extensions are available for dependency
+By default all API services shipped by the TYPO3 Core system extensions are available for dependency
 injection.
+
+.. note::
+
+   The following document aims at explaining dependency injection as used in TYPO3.
+   For those new to the concepts and principles behind dependency injection, please
+   read more general introductions on the topic first - for example at
+   `PHP The Right Way <https://phptherightway.com/#dependency_injection>`_ and
+   at `Fabien Potenciers blog <http://fabien.potencier.org/what-is-dependency-injection.html>`_.
 
 .. contents::
    :depth: 3
@@ -32,6 +40,27 @@ injection.
    pair: Dependency injection; Extensions
    pair: Dependency injection; Services
    File; EXT:{extkey}/Configuration/Services.yaml
+
+When to use Dependency Injection in TYPO3
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. deprecated:: 11.4
+
+   The class :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` has been deprecated
+   with TYPO3 11.4.  Classes should be updated to avoid both,
+   :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` and
+   :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` whenever possible
+   when requiring service dependencies.
+
+Class dependencies to services should be injected via constructor injection or
+setter methods. Where possible, Symfony dependency injection
+should be used for all cases where DI is required.
+
+Non-service "data objects" like extbase model instances or DTOs should
+be instantiated via :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` if
+they are non-final and support XCLASSing. For final classes without dependencies
+the `new` keyword can be used.
+
 .. _configure-dependency-injection-in-extensions:
 
 Configure dependency injection in Extensions
@@ -67,10 +96,10 @@ This is how a basic :file:`Services.yaml` of an extension looks like. The meanin
 .. note::
 
    The path exclusion :yaml:`exclude: '../Classes/Domain/Model/*'` excludes
-   your Models from the DI Container, which means you can not inject them or inject
+   your models from the DI container, which means you cannot inject them or inject
    dependencies into them.
-   Models are not Services and should therefore not require dependency injection.
-   Also, these Objects are created by the extbase persistence layer which does not support the DI container.
+   Models are not services and should therefore not require dependency injection.
+   Also, these objects are created by the extbase persistence layer which does not support the DI container.
 
 .. _autowire:
 
@@ -140,7 +169,7 @@ call your queries without further instantiation. Be aware to clone your object o
 resetting the query parts to prevent side effects in case of multiple usages.
 
 This method of injecting Objects does also work with e.g. extension configurations
-or typoscript settings.
+or TypoScript settings.
 
 
 Public
@@ -237,18 +266,6 @@ An :php:`Error` is raised on missing dependency injection for
 Supported ways of dependency injection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. deprecated:: 11.4
-   The class :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` has been deprecated
-   with TYPO3 11.4.  Classes should be updated to avoid both, 
-   :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` and
-   :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` whenever possible.
-
-Class dependencies should be injected via constructor injection or
-setter methods. Where possible, Symfony  
-:ref:`dependency injection<dependency-injection>` should be used for all cases 
-where DI is required.
-
-
 .. index:: Dependency injection; Constructor injection
 .. _constructor-injection:
 
@@ -269,7 +286,7 @@ A class dependency can simply be specified as a constructor argument::
 Method injection
 ----------------
 
-As an alternative to constructor injection :php:`injectDependency()` Methods can be used.
+As an alternative to constructor injection :php:`injectDependency()` methods can be used.
 Additionally a :php:`setDependency()` will also work if it has the annotation :php:`@required`::
 
 
@@ -309,12 +326,12 @@ When multiple implementation of the same interface exist, an extension needs to 
 implementation should be injected when the interface is type hinted. Find out more about how this
 is achieved in the official `Symfony documentation <https://symfony.com/doc/current/service_container/autowiring.html#working-with-interfaces>`_.
 
-Dependency injection in a XCLASSed class
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Dependency injection in an XCLASSed class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If an existing class (for example an Extbase controller) is extended using XCLASS and additional
-dependencies are injected using constructor injection, it must be ensured to add a
-reference to the extended class in the :file:`Configuration/Services.yaml` file of the
+dependencies are injected using constructor injection, it must be ensured that a
+reference to the extended class is added in the :file:`Configuration/Services.yaml` file of the
 extending extension as shown in the example below::
 
    TYPO3\CMS\Belog\Controller\BackendLogController: '@Namespace\Extension\Controller\ExtendedBackendLogController'
@@ -322,7 +339,9 @@ extending extension as shown in the example below::
 Further information
 ^^^^^^^^^^^^^^^^^^^
 
-* `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`__
+* `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`_
 * `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
 * :doc:`t3core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
   of the TYPO3 Core .
+* :doc:`t3core:Changelog/10.4/Deprecation-90803-DeprecationOfObjectManagergetInExtbaseContext`
+* `Dependency Injection in TYPO3 - Blog Article by Daniel Goerz <https://usetypo3.com/dependency-injection.html>`_
