@@ -47,7 +47,7 @@ more details mentioned in `README.md <https://github.com/TYPO3-Documentation/sit
 
 .. code-block:: shell
 
-    lolli@apoc /var/www/local $ git clone git@github.com:TYPO3-Documentation/site-introduction.git
+    lolli@apoc /var/www/local $ git clone git://github.com/TYPO3-Documentation/site-introduction.git
     lolli@apoc /var/www/local $ cd site-introduction
     lolli@apoc /var/www/local/site-introduction $ ddev start
     lolli@apoc /var/www/local/site-introduction $ ddev import-db --src=./data/db.sql
