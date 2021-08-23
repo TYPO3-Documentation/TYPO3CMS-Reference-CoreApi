@@ -56,7 +56,7 @@ Class dependencies to services should be injected via constructor injection or
 setter methods. Where possible, Symfony dependency injection
 should be used for all cases where DI is required.
 
-Non-service "data objects" like extbase model instances or DTOs should
+Non-service "data objects" like Extbase model instances or DTOs should
 be instantiated via :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` if
 they are non-final and support XCLASSing. For final classes without dependencies
 the `new` keyword can be used.
@@ -99,7 +99,7 @@ This is how a basic :file:`Services.yaml` of an extension looks like. The meanin
    your models from the DI container, which means you cannot inject them or inject
    dependencies into them.
    Models are not services and should therefore not require dependency injection.
-   Also, these objects are created by the extbase persistence layer which does not support the DI container.
+   Also, these objects are created by the Extbase persistence layer which does not support the DI container.
 
 .. _autowire:
 
