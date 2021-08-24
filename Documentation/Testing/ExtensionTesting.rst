@@ -258,7 +258,7 @@ Let's clone that repository and call `composer install` (stripped):
 .. code-block:: shell
     :emphasize-lines: 1, 10, 11
 
-    lolli@apoc /var/www/local/git $ git clone git://github.com/lolli42/enetcache.git
+    lolli@apoc /var/www/local/git $ git clone git@github.com:lolli42/enetcache.git
     Cloning into 'enetcache'...
     X11 forwarding request failed on channel 0
     remote: Enumerating objects: 76, done.
@@ -466,7 +466,7 @@ With this in place we can run unit tests:
 
 .. code-block:: shell
 
-    git clone git://github.com/TYPO3/styleguide.git
+    git clone git@github.com:TYPO3/styleguide.git
     cd styleguide
     Build/Scripts/runTests.sh -s composerInstall
     # Run unit tests
