@@ -62,7 +62,7 @@ put each class into its own file. This also means that there can only be a singl
 
 You can also explicitly configure autoloading in the :ref:`extension-declaration`.
 
-The generated :file:`typo3conf/autoload_classmap.php` is a huge array with a mapping of classnames
+The generated :file:`typo3conf/autoload_classmap.php` is a large array with a mapping of classnames
 to their location on the disk::
 
    <?php
