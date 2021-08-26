@@ -84,8 +84,11 @@ The following call needs to be added to the file
       'tt_content',
       'CType',
        [
+           // title
            'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentelement_title',
+           // plugin signature: extkey_identifier
            'examples_newcontentelement',
+           // icon identifier
            'content-text',
        ],
        'textmedia',
