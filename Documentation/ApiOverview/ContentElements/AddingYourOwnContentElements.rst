@@ -118,7 +118,9 @@ Add it to the new content element wizard
 
 Content elements in the :guilabel:`New Content Element Wizard` are easier
 to find for editors. It is therefore advised to add the new content element
-to this wizard.
+to this wizard (via Page TSconfig).
+
+:file:`Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig`:
 
 .. code-block:: typoscript
 
