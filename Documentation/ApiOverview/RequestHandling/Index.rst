@@ -447,7 +447,7 @@ as constructor dependencies:
                 $res = $this->client->sendRequest($req);
                 // Process data
                 $data = [
-                    'content' => json_decode((string)$res->getBody());
+                    'content' => json_decode((string)$res->getBody())
                 ];
                 $response = $this->responseFactory->createResponse()
                     ->withHeader('Content-Type', 'application/json; charset=utf-8');
