@@ -323,16 +323,11 @@ Rules and best practices
 
 The following apply for both :php:`ext_tables.php` and :php:`ext_localconf.php`.
 
-.. important::
 
-   Since the :file:`ext_tables.php` and :file:`ext_localconf.php` of
-   every extension will be concatenated together by TYPO3, you MUST
-   follow some rules, such as not use :php:`use` or :php:`declare(strict_types=1)`
-   inside these files. More information below:
-
-As a rule of thumb: Your :file:`ext_tables.php` and :file:`ext_localconf.php` files must be designed in a way
+As a rule of thumb: Your :file:`ext_tables.php` and :file:`ext_localconf.php`
+files must be designed in a way
 that they can safely be read and subsequently imploded into one single
-file with all configuration of other extensions!
+file with all configuration of other extensions.
 
 -  You **MUST NOT** use a :php:`return` statement in the files global scope -
    that would make the cached script concept break.
@@ -346,30 +341,35 @@ file with all configuration of other extensions!
 -  You **MUST NOT** wrap the file in a local namespace. This will result in
    nested namespaces.
 
+   .. code-block:: diff
+
+      -namespace {
+      -}
+
 -  You **CAN** use :php:`use` statements starting with TYPO3 11.4:
 
+   .. code-block:: diff
+
+      // you can use use:
+      +use TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect;
+      +
+      +$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] =
+      +   FileMetadataPermissionsAspect::class;
+       // Instead of the full class name:
+      -$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] =
+      -   \TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect::class;
+
+-  You **CAN** use :php:`declare(strict_types=1)` and similar directives which
+   must be placed at the very top of files. They will bes stripped and added
+   once in the concatenated cache file.
+
 .. code-block:: diff
 
-   // you can use use:
-   +use TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect;
-   +
-   +$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] =
-   +   FileMetadataPermissionsAspect::class;
-    // Instead of the full class name:
-   -$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] =
-   -   \TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect::class;
-
-- You **MUST NOT** use :php:`declare(strict_types=1)` and similar directives which must be placed
-  at the very top of files: once all files of all extensions are merged, this condition is not
-  fulfilled anymore leading to errors. So these must **never** be used here.
-
-.. code-block:: diff
-
-   // do NOT use declare strict and other directives which MUST be placed at the top of the file
-   -declare(strict_types=1)
+   // You can use declare strict and other directives which must be placed at the top of the file
+   +declare(strict_types=1)
 
 
--  You **MUST NOT** check for values of the deprecated :php:`TYPO3_MODE` or :php:`TYPO3_REQUESTTYPE`
+-  You **MUST NOT** check for values of the removed :php:`TYPO3_MODE` or :php:`TYPO3_REQUESTTYPE`
    constants (e.g. :php:`if (TYPO3_MODE === 'BE')`) or the :php:`ApplicationType` within these files as
    it limits the functionality to cache the whole systems' configuration.
    Any extension author should remove the checks, and re-evaluate if these context-depending checks could go inside
