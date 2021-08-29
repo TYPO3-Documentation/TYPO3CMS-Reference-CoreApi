@@ -1574,7 +1574,7 @@
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Rte"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Rte"},
                     {
-                        "action": "makeScreenshotOfField",
+                        "action": "goToField",
                         "table": "tt_content",
                         "uid": {
                             "action": "getUidByField",
@@ -1582,7 +1582,11 @@
                             "field": "header",
                             "value": "TYPO3's Built-in Rich Text Editor"
                         },
-                        "fields": "bodytext",
+                        "fields": "bodytext"
+                    },
+                    {"action": "wait", "timeout": 1},
+                    {
+                        "action": "makeScreenshotOfElement",
                         "captionText": "The rtehtmlarea RTE activated in the TYPO3 backend",
                         "fileName": "RteBackend"
                     }
