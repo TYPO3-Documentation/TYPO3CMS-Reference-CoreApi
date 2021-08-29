@@ -16,12 +16,25 @@ every request. They should therefore be optimized for speed.
 See :ref:`extension-files-locations` for a full list of file and
 directory names typically used in extensions.
 
-.. important::
+.. versionchanged:: 10.0
+   These variables are no longer declared in :file:`ext_tables.php`
+   and :file:`ext_localconf.php` files: :php:`$_EXTKEY`, :php:`$_EXTCONF`,
+   :php:`T3_SERVICES`, :php:`T3_VAR`, :php:`TYPO3_CONF_VARS`,
+   :php:`TBE_MODULES`, :php:`TBE_MODULES_EXT`, :php:`TCA`,
+   :php:`PAGES_TYPES`, :php:`TBE_STYLES`
 
-   Since the :file:`ext_tables.php` and :file:`ext_localconf.php` of
-   every extension will be concatenated together by TYPO3, you MUST
-   follow some rules, such as not use :php:`use` or :php:`declare(strict_types=1)`
-   inside these files, see :ref:`rules_ext_tables_localconf_php`.
+.. versionchanged:: 11.4
+   With 11.4 the files :file:`ext_localconf.php` and :file:`ext_tables.php`
+   are scoped into the global namespace on being warmed up from the cache.
+   Therefore :php:`use` statements can now be used inside these files.
+
+.. warning::
+
+   The content of the files :file:`ext_localconf.php` and
+   :file:`ext_tables.php` **must not** be wrapped in a
+   local namespace by extension author. This will result in nested namespaces
+   and therefore cause PHP errors only solvable by clearing the caches via the
+   Install Tool.
 
 
 .. index:: ! File; EXT:{extkey}/ext_localconf.php
@@ -97,9 +110,11 @@ Examples
 Put a file called :file:`ext_localconf.php` in the main directory of your
 Extension. It does not need to be registered anywhere but will be loaded
 automatically as soon as the extension is installed.
-The skeletton of the :file:`ext_localconf.php` looks like this::
+The skeleton of the :file:`ext_localconf.php` looks like this::
 
    <?php
+   // all use statements must come first
+   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
    // Prevent Script from being called directly
    defined('TYPO3') or die();
@@ -118,13 +133,15 @@ Adding default PageTSconfig
 Default PageTSconfig can be added inside :file:`ext_localconf.php`, see
 :ref:`t3tsconfig:pagesettingdefaultpagetsconfig`::
 
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig();
+   //use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+   ExtensionManagementUtility::addPageTSConfig();
 
 PageTSconfig available via static files can be added inside
 :file:`Configuration/TCA/Overrides/pages.php`, see
 :ref:`t3tsconfig:pagesettingstaticpagetsconfigfiles`::
 
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile();
+   ExtensionManagementUtility::registerPageTSConfigFile();
 
 
 .. index:: Extension development; UserTSconfig
@@ -136,7 +153,9 @@ As for default PageTSconfig, UserTSconfig can be added inside
 :file:`ext_localconf.php`, see:
 :ref:`t3tsconfig:usersettingdefaultusertsconfig`::
 
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig();
+   //use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+   ExtensionManagementUtility::addUserTSConfig();
 
 
 .. index:: ! File; EXT:{extkey}/ext_tables.php
@@ -203,6 +222,9 @@ Put the following in a file called :file:`ext_tables.php` in the main directory 
 file does not need to be registered but will be loaded automatically::
 
    <?php
+   // all use statements must come first
+   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
    defined('TYPO3') or die();
 
    (function () {
@@ -216,7 +238,9 @@ Registering a backend module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You can register a new backend module for your extension via :php:`ExtensionUtility::registerModule()`::
 
-   \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+   // use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+   ExtensionUtility::registerModule(
       'Vendor.ExtensionName', // Vendor dot Extension Name in CamelCase
       'web', // the main module
       'mysubmodulekey', // Submodule key
@@ -242,7 +266,9 @@ Adding context-sensitive help to fields
 Add the following to your extensions ext_tables.php in order to add context-sensitive help for
 the corresponding field::
 
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
+   // use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+   ExtensionManagementUtility::addLLrefForTCAdescr(
        'tx_domain_model_foo',
        'EXT:myext/Resources/Private/Language/locallang_csh_tx_domain_model_foo.xlf'
    );
@@ -259,7 +285,9 @@ new records of your table to be added on Standard pages call:
 
 .. code-block:: php
 
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages(
+   // use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+   ExtensionManagementUtility::allowTableOnStandardPages(
       'tx_myextension_domain_model_mymodel'
    );
 
@@ -274,12 +302,15 @@ to be installed for this to work.
 
 .. code-block:: php
 
+   // use TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionTask;
+   // use TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionAdditionalFieldProvider;
+
    // Add caching framework garbage collection task
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][\TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionTask::class] = array(
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][CachingFrameworkGarbageCollectionTask::class] = array(
         'extension' => 'your_extension_key',
         'title' => 'LLL:EXT:your_extension_key/locallang.xlf:cachingFrameworkGarbageCollection.name',
         'description' => 'LLL:EXT:your_extension_key/locallang.xlf:cachingFrameworkGarbageCollection.description',
-        'additionalFields' => \TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionAdditionalFieldProvider::class
+        'additionalFields' => \CachingFrameworkGarbageCollectionAdditionalFieldProvider::class
    );
 
 For more information see the documentation of the Sys-Extension scheduler.
@@ -312,17 +343,21 @@ file with all configuration of other extensions!
    e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName()` or
    :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath()`.
 
+-  You **MUST NOT** wrap the file in a local namespace. This will result in
+   nested namespaces.
 
--  You **MUST NOT** use :php:`use` inside :file:`ext_localconf.php` or :file:`ext_tables.php` since this can lead to conflicts with other :php:`use` in files of other extensions.
+-  You **CAN** use :php:`use` statements starting with TYPO3 11.4:
 
 .. code-block:: diff
 
-   // do NOT use use:
-   -use TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect;
-   -
-   -$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = FileMetadataPermissionsAspect::class;
-    // Use the full class name instead:
-   +$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = \TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect::class;
+   // you can use use:
+   +use TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect;
+   +
+   +$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] =
+   +   FileMetadataPermissionsAspect::class;
+    // Instead of the full class name:
+   -$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] =
+   -   \TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect::class;
 
 - You **MUST NOT** use :php:`declare(strict_types=1)` and similar directives which must be placed
   at the very top of files: once all files of all extensions are merged, this condition is not
@@ -347,19 +382,21 @@ file with all configuration of other extensions!
 
 
 -  You **SHOULD** check for the existence of the constant :php:`defined('TYPO3') or die();`
-   at the top of :file:`ext_tables.php` and :file:`ext_localconf.php` files to make sure the file is
+   at the top of :file:`ext_tables.php` and :file:`ext_localconf.php` files
+   right agter the use statements to make sure the file is
    executed only indirectly within TYPO3 context. This is a security measure since this code in global
    scope should not be executed through the web server directly as entry point.
 
 .. code-block:: php
 
    <?php
-   // put this at top of every ext_tables.php and ext_localconf.php
+   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+   // put this at top of every ext_tables.php and ext_localconf.php right after
+   // the use statements
    defined('TYPO3') or die();
 
--  You **SHOULD** use the extension name (e.g. "tt_address") instead of :php:`$_EXTKEY`
-   within the two configuration files as this variable will be removed in the future. This also applies
-   to :php:`$_EXTCONF`.
+-  You **MUST** use the extension name (e.g. "tt_address") instead of :php:`$_EXTKEY`
+   within the two configuration files as this variable is no longer loaded automatically.
 
 -  However, due to limitations to TER, the :php:`$_EXTKEY` option **MUST** be kept within an extension's
    :ref:`ext_emconf.php <extension-declaration>`.
@@ -371,6 +408,7 @@ file with all configuration of other extensions!
 The following example contains the complete code::
 
     <?php
+    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
     defined('TYPO3') or die();
 
     (function () {
