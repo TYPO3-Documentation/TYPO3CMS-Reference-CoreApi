@@ -360,7 +360,7 @@ file with all configuration of other extensions.
       -   \TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect::class;
 
 -  You **CAN** use :php:`declare(strict_types=1)` and similar directives which
-   must be placed at the very top of files. They will bes stripped and added
+   must be placed at the very top of files. They will be stripped and added
    once in the concatenated cache file.
 
 .. code-block:: diff
@@ -383,7 +383,7 @@ file with all configuration of other extensions.
 
 -  You **SHOULD** check for the existence of the constant :php:`defined('TYPO3') or die();`
    at the top of :file:`ext_tables.php` and :file:`ext_localconf.php` files
-   right agter the use statements to make sure the file is
+   right after the use statements to make sure the file is
    executed only indirectly within TYPO3 context. This is a security measure since this code in global
    scope should not be executed through the web server directly as entry point.
 
