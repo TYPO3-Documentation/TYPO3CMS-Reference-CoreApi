@@ -221,8 +221,6 @@ And generate the following URLs
        defaultController: 'News::list'
        defaults:
          page: '0'
-       requirements:
-         page: '\d+'
        aspects:
          news_title:
            type: PersistedAliasMapper
@@ -489,8 +487,6 @@ and to explicitly define a range for a value, which is recommended for all kinds
        defaultController: 'News::list'
        defaults:
          page: '0'
-       requirements:
-         page: '\d+'
        aspects:
          page:
            type: StaticRangeMapper
