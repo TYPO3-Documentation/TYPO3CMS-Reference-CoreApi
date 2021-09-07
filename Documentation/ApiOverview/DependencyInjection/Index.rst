@@ -177,19 +177,20 @@ Public
 
 :yaml:`public: false` is a performance optimization and is therefore suggested to be
 set in extensions. This settings controls which services are available
-through :php:`\Psr\Container\ContainerInterface->get()`. However some classes, that need to
-be public, will be marked public automatically due to :yaml:`autoconfigure: true`.
-These classes include Singletons, because they need to be shared with code that uses
-:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` and Extbase controllers.
+through the dependency injection container which is used internally by
+:php:`GeneralUtility::makeInstance()`.
+
+However some classes that need to be public will be marked public automatically
+due to :yaml:`autoconfigure: true`.
+
+These classes include singletons, because they need to be shared with code that uses
+:php:`GeneralUtility::makeInstance()` and Extbase controllers.
 
 .. index:: Dependency injection; Public
 .. _knowing-what-to-make-public:
 
 Knowing what to make public
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
-marked public by default. Additionally some classes cannot be private as well.
-As the Symfony documentation puts it:
 
 .. this indent is intentional to create a blockquote!
 
@@ -197,19 +198,27 @@ As the Symfony documentation puts it:
 
     -- `Official documentation <https://symfony.com/doc/current/service_container/alias_private.html>`_ for public and private services.
 
-Direct access includes instantiation via :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`.
-This means every class that should make use of dependency injection and is not instantiated via injection
-itself but by e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` have to be marked
-as public. Some examples for this are:
+Direct access includes instantiation via :php:`GeneralUtility::makeInstance()` with constructor arguments.
 
-* User Functions
-* Non-Extbase Controllers
-* Classes registered in Hooks
+This means every class that needs dependency injection and is retrieved directly, e.g.
+using :php:`GeneralUtility::makeInstance()` must be marked as public.
+
+Any other class which needs dependency injection and is retrieved by dependency injection
+itself can be private.
+
+Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
+automatically marked as public since they are retrieved using :php:`GeneralUtility::makeInstance()`.
+
+More examples for classes which must be marked as public:
+
+* User functions
+* Non-Extbase controllers
+* Classes registered in hooks
 * Authentication services
-* DataProcessors
+* Fluid data processors
 
 For such classes an extension can override the global :yaml:`public: false` configuration in the
-:file:`Configuration/Services.yaml` for each class.
+:file:`Configuration/Services.yaml` for each affected class.
 
 .. code-block:: yaml
 
@@ -228,7 +237,7 @@ For such classes an extension can override the global :yaml:`public: false` conf
         public: true
 
 With this configuration you can use dependency injection in :php:`\Vendor\MyExtension\UserFunction\ClassA`
-when it is created in the context of a :ts:`USER` TypoScript object which would not be possible if this
+when it is created e.g. in the context of a :ts:`USER` TypoScript object which would not be possible if this
 class was private.
 
 .. index:: Dependency injection; Errors
