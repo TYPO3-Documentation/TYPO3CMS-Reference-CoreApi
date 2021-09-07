@@ -296,9 +296,10 @@ Examples of Commands:
 .. _tce-data:
 
 Accessing the uid of copied records:
----------------------
+------------------------------------
 
 ::
+
    $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
    $dataHandler->start([], $cmd);
    $dataHandler->process-cmdmap()
@@ -306,7 +307,7 @@ Accessing the uid of copied records:
    $uid = $dataHandler->copyMappingArray_merged['tt_content][1203];
 
 
-.. _tce-data:
+..
 
 Data Array
 ==========
