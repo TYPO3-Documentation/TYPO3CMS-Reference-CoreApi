@@ -21,23 +21,94 @@ in the TYPO3 Core .
 
 .. toctree::
    :titlesonly:
-   :caption: Core
+   :caption: core/Authentication
    :glob:
 
    Core/Authentication/*
+
+
+.. toctree::
+   :titlesonly:
+   :caption: core/Configuration
+   :glob:
+
    Core/Configuration/*
+
+
+.. toctree::
+   :titlesonly:
+   :caption: core/Core
+   :glob:
+
+   Core/Core/*
+
+
+.. toctree::
+   :titlesonly:
+   :caption: core/Database
+   :glob:
+
    Core/Database/*
+
+
+.. toctree::
+   :titlesonly:
+   :caption: core/DataHandling
+   :glob:
+
    Core/DataHandling/*
+
+
+.. toctree::
+   :titlesonly:
+   :caption: core/Html
+   :glob:
+
    Core/Html/*
+
+
+.. toctree::
+   :titlesonly:
+   :caption: core/Mail
+   :glob:
+
    Core/Mail/*
+
+
+.. toctree::
+   :titlesonly:
+   :caption: core/Package
+   :glob:
+
    Core/Package/*
+
+
+.. toctree::
+   :titlesonly:
+   :caption: core/Page
+   :glob:
+
    Core/Page/*
+
+
+.. toctree::
+   :titlesonly:
+   :caption: core/Resource
+   :glob:
+
    Core/Resource/*
+
+
+.. toctree::
+   :titlesonly:
+   :caption: core/Tree
+   :glob:
+
    Core/Tree/*
 
 .. toctree::
    :titlesonly:
-   :caption: Extbase
+   :caption: extbase
    :glob:
 
    Extbase/Mvc/*
@@ -50,6 +121,13 @@ in the TYPO3 Core .
    :glob:
 
    ExtensionManager/*
+
+.. toctree::
+   :titlesonly:
+   :caption: filelist
+   :glob:
+
+   Filelist/*
 
 .. toctree::
    :titlesonly:
