@@ -303,7 +303,7 @@ Accessing the uid of copied records:
    $dataHandler->start([], $cmd);
    $dataHandler->process-cmdmap()
    
-   $uid = $dataHandler->copyMappingArray_merged['tt_content]['1203];
+   $uid = $dataHandler->copyMappingArray_merged['tt_content][1203];
 
 
 .. _tce-data:
