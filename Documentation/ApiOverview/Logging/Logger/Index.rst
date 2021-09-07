@@ -13,38 +13,22 @@ Logger
 Instantiation
 =============
 
-.. versionadded:: 9.0
-   You no longer need to call makeInstance to create an
-   instance of the logger. You can use the LoggerAwareTrait:
-   :doc:`Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects`
+.. versionadded:: 11.4
+   :doc:`Changelog/11.4/Feature-95044-SupportAutowiredLoggerInterfaceInjection`
 
-Use the :code:`LoggerAwareTrait` in your class to automatically instantiate :code:`$this->logger`:
+Constructor injection can be used to automatically instantiate the logger:
 
 .. code-block:: php
 
-   use Psr\Log\LoggerAwareInterface;
-   use Psr\Log\LoggerAwareTrait;
+   use Psr\Log\LoggerInterface;
 
-   class Example implements LoggerAwareInterface
-   {
-      use LoggerAwareTrait;
+   class MyClass {
+       private LoggerInterface $logger;
+
+       public function __construct(LoggerInterface $logger) {
+           $this->logger = $logger;
+       }
    }
-
-
-Or, you can instantiate the Logger with :code:`makeInstance`.
-
-The :code:`LogManager` enables an auto-configured usage of loggers in your PHP code
-by reading the logging configuration and setting the minimum severity level of the Logger
-accordingly.
-
-.. code-block:: php
-
-   /** @var $logger \TYPO3\CMS\Core\Log\Logger */
-   $this->logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
-
-
-Using :code:`__CLASS__` as name for the logger is recommended to enable logging configuration
-based on the class hierarchy.
 
 
 .. index::
@@ -207,6 +191,76 @@ For each of the severity levels mentioned above, a shorthand method exists in
 - :code:`$this->logger->info($message, array $data = array());`
 - :code:`$this->logger->notice($message, array $data = array());`
 - etc.
+
+Channels
+========
+
+It is possible to group several classes into channels, regardless of the
+PHP namespace.
+
+Services are able to control the component name that an
+injected logger is created with.
+This allows to group logs of related classes and is basically
+a channel system as often used in monolog.
+
+The :php:`TYPO3\CMS\Core\Log\Channel` attribute is supported for constructor
+argument injection as a class and parameter specific attribute and for
+:php:`LoggerAwareInterface` dependency injection services as a class attribute.
+
+This feature is only available with PHP 8.
+The channel attribute will be gracefully ignored in PHP 7,
+and the classic component name will be used instead.
+
+Registration via class attribute for :php:`LoggerInterface` injection:
+
+.. code-block:: php
+
+   use Psr\Log\LoggerInterface;
+   use TYPO3\CMS\Core\Log\Channel;
+   #[Channel('security')]
+   class MyClass
+   {
+     private LoggerInterface $logger;
+     public function __construct(LoggerInterface $logger)
+     {
+         $this->logger = $logger;
+         // do your magic
+     }
+   }
+
+Registration via parameter attribute for :php:`LoggerInterface` injection,
+overwrites possible class attributes:
+
+.. code-block:: php
+
+   use Psr\Log\LoggerInterface;
+   use TYPO3\CMS\Core\Log\Channel;
+   class MyClass
+   {
+     private LoggerInterface $logger;
+     public function __construct(
+         #[Channel('security')]
+         LoggerInterface $logger
+     ) {
+         $this->logger = $logger;
+         // do your magic
+     }
+   }
+
+
+Registration via class attribute for :php:`LoggerAwareInterface` services.
+
+.. code-block:: php
+
+   use Psr\Log\LoggerAwareInterface;
+   use Psr\Log\LoggerAwareTrait;
+   use TYPO3\CMS\Core\Log\Channel;
+   #[Channel('security')]
+   class MyClass implements LoggerAwareInterface
+   {
+     use LoggerAwareTrait;
+   }
+
 
 .. _logging-logger-examples:
 
