@@ -1,0 +1,10 @@
+.. Manually adjusted
+
+.. code-block:: php
+
+   $GLOBALS['TCA'][$myTable]['columns']['mainCategory'] = [
+      'config' => [
+         'type' => 'category',
+         'relationship' => 'oneToOne'
+      ]
+   ];
