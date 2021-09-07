@@ -8,7 +8,7 @@
 Icon API
 ========
 
-Since version 7.5 TYPO3 CMS provides an Icon API for all icons in the TYPO3 backend.
+TYPO3 CMS provides an icon API for all icons in the TYPO3 backend.
 
 .. index:: IconRegistry; registerIcon
 .. _icon-registration:
@@ -17,19 +17,44 @@ Registration
 ============
 
 All icons must be registered in the :php:`IconRegistry`.
-To register icons for your own extension use the following
-code in your :php:`ext_localconf.php` file:
+To register icons for your own extension, create a file called
+:file:`Configuration/Icons.php` in your extension - for example:
+:file:`typo3conf/ext/my_extension/Configuration/Icons.php`.
+
+.. note::
+
+   In versions below TYPO3 11.4 the configuration was done in the :file:`ext_localconf.php`,
+   please use the version selector to look-up the syntax in the corresponding
+   documentation version.
+
+The file needs to return a flat PHP configuration array with the following keys:
 
 .. code-block:: php
 
-   $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-      \TYPO3\CMS\Core\Imaging\IconRegistry::class
-   );
-   $iconRegistry->registerIcon(
-      $identifier, // Icon-Identifier, e.g. tx-myext-action-preview
-      \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-      ['source' => 'EXT:myext/Resources/Public/Icons/action-preview.svg']
-   );
+   <?php
+      return [
+          // icon identifier
+          'mysvgicon' => [
+               // icon provider class
+              'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+               // the source SVG for the SvgIconProvider
+              'source' => 'EXT:my_extension/Resources/Public/Icons/mysvg.svg'
+          ],
+          'mybitmapicon' => [
+              'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
+               // the source bitmap file
+              'source' => 'EXT:my_extension/Resources/Public/Icons/mybitmap.png'
+          ],
+          'myfontawesomeicon' => [
+              'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
+               // the fontawesome icon name
+              'name' => 'spinner',
+               // additional css classes
+              'additionalClasses' => 'fa-fw'
+               // all icon providers provide the possibility to register an icon that spins
+              'spinning' => true
+          ],
+      ];
 
 
 .. index:: Icon API; IconProviderInterface
