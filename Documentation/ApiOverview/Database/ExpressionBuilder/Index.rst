@@ -108,6 +108,8 @@ A set of methods to create various comparison expressions or SQL functions:
 
 * :php:`->inSet($fieldName, $value)` "FIND_IN_SET('42', `aField`)" Find a value in a comma separated list of values
 
+* :php:`->notInSet($fieldName, $value)` "NOT FIND_IN_SET('42', `aField`)" Find a value not in a comma separated list of values
+
 * :php:`->bitAnd($fieldName, $value)` A bitwise AND operation `&`
 
 
@@ -154,6 +156,9 @@ Examples::
       'bodytext',
       $queryBuilder->createNamedParameter('%' . $queryBuilder->escapeLikeWildcards('klaus') . '%')
    )
+
+   // usergroup does not contain 42
+   ->notInSet('usergroup', $queryBuilder->createNamedParameter('42'))
 
    // use TYPO3\CMS\Core\Database\Connection;
    // `uid` IN (42, 0, 44) - properly sanitized, mind the intExplode and PARAM_INT_ARRAY
