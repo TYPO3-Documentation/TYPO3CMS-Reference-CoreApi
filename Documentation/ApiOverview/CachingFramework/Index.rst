@@ -46,6 +46,7 @@ dynamic parts.
    to learn how to leverage TYPO3's caching mechanism to cache your plugin for however long
    you can - even 30 seconds might improve performance in some scenarios.
 
+.. _chash:
 
 Caching Variants - or: What is a "cache hash"?
 ----------------------------------------------

@@ -69,11 +69,38 @@ Custom enhancers can be registered by adding an entry to an extensions :file:`ex
 
 Within a configuration, an enhancer always evaluates the following properties:
 
-* `type` - the short name of the enhancer as registered within :php:`$GLOBALS['TYPO3_CONF_VARS']`. This is mandatory.
-* `limitToPages` - an array of page IDs where this enhancer should be called. This is optional. This property (array)
-  only triggers an enhancer for specific pages. In case of special plugin pages it is
-  recommended to only enhance those pages with the plugin, to speed up performance for building page routes of all other pages.
+`type`
+   The short name of the enhancer as registered within :php:`$GLOBALS['TYPO3_CONF_VARS']`. This is mandatory.
 
+`limitToPages`
+   An array of page IDs where this enhancer should be called. This is optional. This property (array)
+   only triggers an enhancer for specific pages. In case of special plugin pages it is
+   recommended to only enhance those pages with the plugin, to speed up performance for building page routes of all other pages.
+
+All enhancers allow to configure at least one route with the following
+configuration:
+
+`defaults`
+   Defines which URL parameters are optional.
+   If the parameters are omitted on generation, they can receive a default value, and do not need a placeholder
+   - it is possible to add them at the very end of the `routePath`.
+
+`requirements`
+   Exactly specifies what kind of parameter should be added to that route as regular expression.
+   This way, it is configurable to only allow integer values for e.g. pagination.
+
+   Make sure you define your requirements as strict as possible.
+   This is necessary to not loose performance and allow TYPO3 to match the expected route.
+
+`_arguments`
+   Defines what Route Parameters should be available to the system. In this example,
+   the placeholder is called `category_id` but the URL generation receives the argument `category`,
+   so this is mapped to that name (so you can access/use it as `category` in your custom code).
+
+TYPO3 will add the parameter ``cHash`` to URLs when necessary, see :ref:`chash`.
+The ``cHash`` can be removed by converting dynamic arguments into static arguments.
+All captured arguments are dynamic by default. They can be converted to static arguments by defining the possible expected values for these arguments.
+This is done by adding Aspects for those arguments to provide a static list of expected values, see :ref:`routing-advanced-routing-configuration-aspects`.
 
 .. index:: Routing; Simple Enhancer
 
@@ -109,22 +136,6 @@ The configuration option `routePath` defines the static keyword and the availabl
 .. note::
     For people coming from RealURL usage in previous versions: The `routePath` can be loosely compared to some as
     "postVarSets".
-
-The `defaults` section defines which URL parameters are optional. If the parameters are omitted on generation, they
-can receive a default value, and do not need a placeholder - it is possible to add them at the very end of the
-`routePath`.
-
-The `requirements` section exactly specifies what kind of parameter should be added to that route as regular expression.
-This way, it is configurable to only allow integer values for e.g. pagination. If the requirements are too loose, a
-URL signature parameter ("cHash") is added to the end of the URL which cannot be removed.
-
-.. hint::
-    Make sure you define your requirements as strict as possible.
-
-The `_arguments` section defines what Route Parameters should be available to the system. In this example, the
-placeholder is called `category_id` but the URL generation receives the argument `category`, so this is mapped to
-that name (so you can access/use it as `category` in your custom code).
-
 
 .. index:: Routing; Plugin Enhancer
 
@@ -341,6 +352,7 @@ The :yaml:`index` property is used when generating links on root-level page, thu
     within the middle of a human readable URL segment.
 
 .. index:: Routing; Aspects
+.. _routing-advanced-routing-configuration-aspects:
 
 Aspects
 =======
