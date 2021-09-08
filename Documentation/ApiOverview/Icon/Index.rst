@@ -38,21 +38,21 @@ The file needs to return a flat PHP configuration array with the following keys:
                // icon provider class
               'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
                // the source SVG for the SvgIconProvider
-              'source' => 'EXT:my_extension/Resources/Public/Icons/mysvg.svg'
+              'source' => 'EXT:my_extension/Resources/Public/Icons/mysvg.svg',
           ],
           'mybitmapicon' => [
               'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
                // the source bitmap file
-              'source' => 'EXT:my_extension/Resources/Public/Icons/mybitmap.png'
+              'source' => 'EXT:my_extension/Resources/Public/Icons/mybitmap.png',
           ],
           'myfontawesomeicon' => [
               'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
                // the fontawesome icon name
               'name' => 'spinner',
                // additional css classes
-              'additionalClasses' => 'fa-fw'
+              'additionalClasses' => 'fa-fw',
                // all icon providers provide the possibility to register an icon that spins
-              'spinning' => true
+              'spinning' => true,
           ],
       ];
 
