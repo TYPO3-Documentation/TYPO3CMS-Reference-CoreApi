@@ -325,7 +325,7 @@ The :php:`DataHandler` keeps track of records created by :code:`copy` operations
 .. caution::
    The :php:`$copyMappingArray_merged` property should not be confused with the :php:`$copyMappingArray` property which contains only information about the last copy operation and is cleared between each operation.
 
-::
+The structure of the :php:`$copyMappingArray_merged` property looks like this::
 
    $copyMappingArray = [
       'tt_content' => [
