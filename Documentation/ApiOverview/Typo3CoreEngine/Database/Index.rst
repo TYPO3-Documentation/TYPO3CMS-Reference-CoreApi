@@ -320,7 +320,7 @@ Examples of commands:
 Accessing the uid of copied records:
 ------------------------------------
 
-Every instance of DataHandler contains an array called :php:`$copyMappingArray_merged` which holds information about all copy operations the instance has performed.
+The :php:`DataHandler` keeps track of records created by :code:`copy` operations in its :php:`$copyMappingArray_merged` property. This property is public and can be used to determine the UID of a record copy based on the UID of the copied record.
 
 .. caution::
    Not to be confused with :php:`$copyMappingArray` which contains only information about the last copy operation and is cleared between new ones.
