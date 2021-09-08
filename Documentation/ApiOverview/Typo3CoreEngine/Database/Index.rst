@@ -320,15 +320,33 @@ Examples of commands:
 Accessing the uid of copied records:
 ------------------------------------
 
+Every instance of DataHandler contains an array called :php:`$copyMappingArray_merged` which holds information about all copy operations the instance has performed.
+
+.. caution::
+   Not to be confused with :php:`$copyMappingArray` which contains only information about the last copy operation and is cleared between new ones.
+
+::
+
+   $copyMappingArray = [
+      'tt_content' => [
+         1203 => 1275,
+         54 => 1276
+      ],
+      'pages' => [
+         891 => 1277
+      ]
+   ];
+..
+
+The keys of the array represent the names of the manipulated tables which in return contain arrays with the uids of original records as keys. The values of each index in the innermost arrays represent the newly copied records uid.
+
 ::
 
    $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
    $dataHandler->start([], $cmd);
    $dataHandler->process-cmdmap()
    
-   $uid = $dataHandler->copyMappingArray_merged['tt_content][1203];
-
-
+   $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
 ..
 
 Data Array
