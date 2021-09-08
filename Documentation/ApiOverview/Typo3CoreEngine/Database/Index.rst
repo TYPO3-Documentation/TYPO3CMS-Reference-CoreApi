@@ -323,7 +323,7 @@ Accessing the uid of copied records:
 The :php:`DataHandler` keeps track of records created by :code:`copy` operations in its :php:`$copyMappingArray_merged` property. This property is public and can be used to determine the UID of a record copy based on the UID of the copied record.
 
 .. caution::
-   Not to be confused with :php:`$copyMappingArray` which contains only information about the last copy operation and is cleared between new ones.
+   The :php:`$copyMappingArray_merged` property should not be confused with the :php:`$copyMappingArray` property which contains only information about the last copy operation and is cleared between each operation.
 
 ::
 
