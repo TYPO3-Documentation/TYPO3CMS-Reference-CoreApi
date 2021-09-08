@@ -317,7 +317,35 @@ Examples of commands:
 .. index:: DataHandler; Data array
 .. _tce-data:
 
-Data array
+Accessing the uid of copied records:
+------------------------------------
+
+The :php:`DataHandler` keeps track of records created by :code:`copy` operations in its :php:`$copyMappingArray_merged` property. This property is public and can be used to determine the UID of a record copy based on the UID of the copied record.
+
+.. caution::
+   The :php:`$copyMappingArray_merged` property should not be confused with the :php:`$copyMappingArray` property which contains only information about the last copy operation and is cleared between each operation.
+
+The structure of the :php:`$copyMappingArray_merged` property looks like this::
+
+   $copyMappingArray_merged = [
+      <table> => [
+         <original-record-uid> => <record-copy-uid>,
+      ],
+   ];
+..
+
+The property contains the names of the manipulated tables as keys and a map of original record UIDs and UIDs of record copies as values.
+
+::
+
+   $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
+   $dataHandler->start([], $cmd);
+   $dataHandler->process-cmdmap()
+   
+   $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
+..
+
+Data Array
 ==========
 
 Syntax::
