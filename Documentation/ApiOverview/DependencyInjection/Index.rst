@@ -207,7 +207,7 @@ Any other class which needs dependency injection and is retrieved by dependency 
 itself can be private.
 
 Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
-automatically marked as public since they are retrieved using :php:`GeneralUtility::makeInstance()`.
+automatically marked as public because they are retrieved using :php:`GeneralUtility::makeInstance()`.
 
 More examples for classes which must be marked as public:
 
