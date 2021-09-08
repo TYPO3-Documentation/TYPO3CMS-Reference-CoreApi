@@ -141,6 +141,138 @@ partial matches allow to simplify the configuration and consider all items havin
       ...
    ],
 
+Clearing/Flushing and warming up caches
+---------------------------------------
+
+TYPO3 provides different possibilities to clear all or specific caches.
+Depending on the context, you might want to
+
+- clear the cache for a single page (for example to make changes visible)
+- clear the frontend cache (for example after templating changes)
+- clear all caches (for example during development, when making TypoScript changes)
+- clear all caches incl. dependency injection (mainly useful during development)
+
+Clearing the cache for a single page is done by using the "clear cache button"
+on that page in the backend (usually visualized with a "bolt" icon). Depending on
+user rights this option is available for editors.
+
+Clearing the frontend caches and all caches can be done via the system toolbar
+in the TYPO3 backend. This option should only be available to administrators. Clearing
+all caches can have a significant impact on the performance of the web site and
+should be used sparingly on production systems.
+
+The "fullest" option to clear all caches can be reached via the
+:guilabel:`System Tools > Maintenance` section. In the development context when
+new classes have been added to the system or in case of problems with the system
+using this cache clearing option will clear all caches including compiled code
+like the dependency injection container.
+
+Clear Cache Command
+^^^^^^^^^^^^^^^^^^^^
+
+In addition to the GUI options explained above, caches can also be cleared
+via a CLI command:
+
+.. code-block:: bash
+
+   `./typo3/sysext/core/bin/typo3 cache:flush`
+
+
+Specific cache groups can be defined via the group option.
+The usage is described as this:
+
+.. code-block:: bash
+
+ cache:flush [--group <all|system|di|pages|...¦>]
+
+All available cache groups can be supplied as option. The command defaults to
+flush all available cache groups as the :guilabel:`System Tools > Maintenance` area
+does.
+
+Extensions that register custom caches may listen to the
+via :php:`TYPO3\CMS\Core\Cache\Event\CacheFlushEvent`, but usually the
+cache flush via CacheManager groups will suffice to clear those caches, too.
+
+Cache Warmup
+^^^^^^^^^^^^
+
+It is possible to warmup TYPO3 caches using the command line.
+
+The administrator can use the following CLI command:
+
+.. code-block:: bash
+
+   ./typo3/sysext/core/bin/typo3 cache:warmup
+
+Specific cache groups can be defined via the group option.
+The usage is described as this:
+
+ .. code-block:: bash
+
+    cache:warmup [--group <all|system|di|pages|â€¦>]
+
+All available cache groups can be supplied as option. The command defaults to
+warm all available cache groups.
+
+Extensions that register custom caches are encouraged to implement cache warmers
+via :php:`TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent`.
+
+.. note::
+
+   TYPO3 frontend caches will not be warmed by TYPO3 core, such functionality
+   could be added by third party extensions with the help of
+   :php:`TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent`.
+
+Use Case - Deployment
+^^^^^^^^^^^^^^^^^^^^^
+
+It is often required to clear caches during deployment of TYPO3 instance.
+The integrator may decide to flush all caches or may alternatively flush selected groups
+(e.g. 'pages'). It is common practice to clear *all* caches during deployment of a
+TYPO3 instance update. This means that the first request after a deployment
+usually takes a major amount of time and blocks other requests due to cache-locks.
+
+TYPO3 caches can now be warmed during deployment in release preparatory steps in
+symlink based deployment/release procedures. The enables fast first requests
+with all (or at least system) caches being prepared and warmed.
+
+Caches are often filesystem relevant (filepaths are calculated into cache
+hashes), therefore cache warmup should only be performed on the the live system,
+in the *final* folder of a new release, and ideally before switching
+to that new release (via symlink switch).
+
+.. warning::
+
+   Caches that have been pre-created on the continuous integration server
+   will likely be useless as cache hashes will not match (as the final file system
+   path is relevant to the hash generation).
+
+To summarize: Cache warmup is to be used during deployment, on the live system
+server, inside the new release folder and before switching to the new release.
+
+An example deployment could consist of:
+
+*  Before the release:
+   *  git-checkout/rsync your codebase to the continuous integration / build server
+   *  `composer install` on the continuous integration / build server
+   *  `vendor/bin/typo3 cache:warmup --group system` (*only* on the live system)
+*  Change release symlink to the new release folder
+*  After the release:
+   * `vendor/bin/typo3 cache:flush --group pages`
+
+The conceptional idea is to warmup all file-related caches *before* (symlink)
+switching to a new release and to *only* flush database and frontend (shared)
+caches after the symlink switch. Database warmup could be implemented with
+the help of the :php:`TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent` as an
+additionally functionality by third party extensions.
+
+Note that file-related caches (summarized into the group "system") can safely be
+cleared before doing a release switch, as it is recommended to keep file caches
+per release. In other words, share :file:`var/session`, :file:`var/log`,
+:file:`var/lock` and :file:`var/charset` between releases, but keep
+:file:`var/cache` be associated only with one release.
+
+
 
 Caching Framework
 -----------------
