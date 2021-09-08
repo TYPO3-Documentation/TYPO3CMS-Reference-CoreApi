@@ -334,7 +334,7 @@ The structure of the :php:`$copyMappingArray_merged` property looks like this::
    ];
 ..
 
-The keys of the array represent the names of the manipulated tables which in return contain arrays with the uids of original records as keys. The values of each index in the innermost arrays represent the newly copied records uid.
+The property contains the names of the manipulated tables as keys and a map of original record UIDs and UIDs of record copies as values.
 
 ::
 
