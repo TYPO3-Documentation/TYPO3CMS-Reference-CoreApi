@@ -168,7 +168,7 @@ Preparing composer.json
 -----------------------
 
 Now let's add our properties to put these tests into action. First, we add a series of properties to :file:`composer.json`
-to add root composer.json details, turning the extension into a project at the same time:
+to add root :file:`composer.json` details, turning the extension into a project at the same time:
 
 .. code-block:: json
     :emphasize-lines: 18-24, 30-34, 39-43, 50-51
@@ -222,13 +222,14 @@ to add root composer.json details, turning the extension into a project at the s
         },
         "typo3/cms": {
           "cms-package-dir": "{$vendor-dir}/typo3/cms",
-          "web-dir": ".Build/Web",
-          "extension-key": "enetcache"
+          "extension-key": "enetcache",
+          "ignore-as-root": false,
+          "web-dir": ".Build/Web"
         }
       }
     }
 
-Note all added properties are only used within our root composer.json files, they are ignored if the
+Note all added properties are only used within our root :file:`composer.json` files, they are ignored if the
 extension is loaded as a dependency in our project. Note: We specify `.Build` as
 build directory. This is where our TYPO3 instance will be set up. We add `typo3/testing-framework`
 in a v9 compatible version as `require-dev` dependency. We add a `autoload-dev` to tell composer
@@ -236,6 +237,9 @@ that test classes are found in the `Tests` directory. In the `scripts` section w
 hook. This one is interesting. That class of the testing framework links the main directory as
 extension `.Build/Web/typo3conf/ext/enetcache` in our extension specific TYPO3 instance. It needs the
 two additional properties `web-dir` and `extension-key` to do that.
+
+The `ignore-as-root` entry allows our project to be recognized as an extension
+even though it is the root project (which is disabled by default in TYPO3 11.4 and up).
 
 Now, before we start playing around with this setup, we instruct `git` to ignore runtime
 on-the-fly files. The :file:`.gitignore` looks like this::
