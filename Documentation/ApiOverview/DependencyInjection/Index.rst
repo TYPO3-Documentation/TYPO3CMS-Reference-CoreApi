@@ -125,6 +125,7 @@ For example autoconfiguration ensures that classes which implement
 :php:`\TYPO3\CMS\Core\SingletonInterface` will be publicly available from the
 Symfony container.
 
+.. _DependencyInjectionArguments:
 
 Arguments
 ---------

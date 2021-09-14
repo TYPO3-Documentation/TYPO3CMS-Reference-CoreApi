@@ -12,14 +12,6 @@ QueryBuilder
 
 The `QueryBuilder` provides a set of methods that allow queries to be built programmatically.
 
-An instance can get hold of by calling the :php:`ConnectionPool->getQueryBuilderForTable()` and handing
-over the table. Never instantiate and initialize the `QueryBuilder` directly via :php:`makeInstance()`! ::
-
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('aTable');
-
-
 This documentation provides examples for the most commonly used queries.
 
 .. warning::
@@ -50,6 +42,24 @@ Most methods of the `QueryBuilder` return `$this` and can be chained::
    // use TYPO3\CMS\Core\Database\Connection;
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('pages')->createQueryBuilder();
    $queryBuilder->select('uid')->from('pages');
+
+.. _database-query-builder-instantiation:
+
+Instantiation
+=============
+
+To create an instance of the :php:`QueryBuilder`, call
+:php:`ConnectionPool::getQueryBuilderForTable()` and pass the table as an argument::
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('aTable');
+
+.. attention::
+   Never instantiate and initialize the `QueryBuilder` manually using :php:`GeneralUtility::makeInstance()` since you'll miss essential dependencies and runtime setup.
+
+The :ref:`dependency injection arguments <DependencyInjectionArguments>` section
+contains information on how to inject a QueryBuilder instance.
 
 .. note::
 
