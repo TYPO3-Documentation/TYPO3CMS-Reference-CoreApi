@@ -51,15 +51,15 @@ Most methods of the `QueryBuilder` return `$this` and can be chained::
 Instantiation
 =============
 
-To create an instance of the QueryBuilder, call
-:php:`ConnectionPool->getQueryBuilderForTable()` and pass the table as an argument.
-Never instantiate and initialize the `QueryBuilder` using :php:`makeInstance()`.
-
-::
+To create an instance of the :php:`QueryBuilder`, call
+:php:`ConnectionPool::getQueryBuilderForTable()` and pass the table as an argument::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('aTable');
+
+.. attention::
+   Never instantiate and initialize the `QueryBuilder` manually using :php:`GeneralUtility::makeInstance()` since you'll miss essential dependencies and runtime setup.
 
 The :ref:`dependency injection arguments <DependencyInjectionArguments>` section
 contains information on how to inject a QueryBuilder instance.
