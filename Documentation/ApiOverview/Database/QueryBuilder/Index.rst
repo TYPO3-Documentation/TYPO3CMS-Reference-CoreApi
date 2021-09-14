@@ -10,7 +10,7 @@ QueryBuilder
    :depth: 1
    :local:
 
-The `QueryBuilder` takes care of the main query dealing.
+The `QueryBuilder` provides a set of methods that allow queries to be built programmatically.
 
 An instance can get hold of by calling the :php:`ConnectionPool->getQueryBuilderForTable()` and handing
 over the table. Never instantiate and initialize the `QueryBuilder` directly via :php:`makeInstance()`! ::
