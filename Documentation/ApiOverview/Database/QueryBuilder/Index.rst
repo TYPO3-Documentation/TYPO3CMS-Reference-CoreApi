@@ -10,12 +10,9 @@ QueryBuilder
    :depth: 1
    :local:
 
-The `QueryBuilder` is a rather huge class that takes care of the main query dealing.
+The `QueryBuilder` provides a set of methods that allow queries to be built programmatically.
 
-This documentation does not mention every single available method but sticks to those
-used in casual queries and normal code flow. There are a couple of not mentioned methods,
-most of them are either very seldom used or marked as internal. Extension authors typically
-don't have to deal with anything not mentioned here.
+This documentation provides examples for the most commonly used queries.
 
 .. warning::
 
