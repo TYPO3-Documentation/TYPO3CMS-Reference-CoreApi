@@ -20,8 +20,7 @@ over the table. Never instantiate and initialize the `QueryBuilder` directly via
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('aTable');
 
 
-This documentation does not mention every single available method but sticks to those
-commonly used.
+This documentation provides examples for the most commonly used queries.
 
 .. warning::
 
