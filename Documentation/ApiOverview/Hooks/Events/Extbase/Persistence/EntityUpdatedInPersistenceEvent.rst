@@ -6,7 +6,7 @@
 EntityUpdatedInPersistenceEvent
 ===============================
 
-Event which is fired after an object/entity was sent to persistence layer to be updated.
+Event which is fired after an object/entity was persisted on update.
 
 API
 ---
