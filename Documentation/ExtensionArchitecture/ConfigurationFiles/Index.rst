@@ -241,7 +241,7 @@ You can register a new backend module for your extension via :php:`ExtensionUtil
    // use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
    ExtensionUtility::registerModule(
-      'Vendor.ExtensionName', // Vendor dot Extension Name in CamelCase
+      'ExtensionName', // Extension Name in CamelCase
       'web', // the main module
       'mysubmodulekey', // Submodule key
       'bottom', // Position
