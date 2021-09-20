@@ -175,15 +175,14 @@ via a CLI command:
 
 .. code-block:: bash
 
-   `./typo3/sysext/core/bin/typo3 cache:flush`
-
+   ./typo3/sysext/core/bin/typo3 cache:flush
 
 Specific cache groups can be defined via the group option.
 The usage is described as this:
 
 .. code-block:: bash
 
- cache:flush [--group <all|system|di|pages|...¦>]
+   cache:flush [--group <all|system|di|pages|...¦>]
 
 All available cache groups can be supplied as option. The command defaults to
 flush all available cache groups as the :guilabel:`System Tools > Maintenance` area
@@ -207,9 +206,9 @@ The administrator can use the following CLI command:
 Specific cache groups can be defined via the group option.
 The usage is described as this:
 
- .. code-block:: bash
+.. code-block:: bash
 
-    cache:warmup [--group <all|system|di|pages|â€¦>]
+   cache:warmup [--group <all|system|di|pages|â€¦>]
 
 All available cache groups can be supplied as option. The command defaults to
 warm all available cache groups.
