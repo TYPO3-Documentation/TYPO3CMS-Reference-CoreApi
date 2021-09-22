@@ -6,8 +6,9 @@
 EntityAddedToPersistenceEvent
 =============================
 
-Event which is fired after an object/entity was sent to persistence layer to be added,
-but before updating the reference index and current session.
+Event which is fired after an object/entity was persisted on add.
+
+The event is dispatched after persisting the object, before updating the reference index and adding the object to the persistence session.
 
 API
 ---
