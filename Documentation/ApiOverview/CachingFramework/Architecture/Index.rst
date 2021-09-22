@@ -185,15 +185,15 @@ The following caches exist in the TYPO3 CMS Core:
 
 - `imagesizes`
 
-   - Cache for imagesizes.
-   - Should _only_ be cleared manually, if you know what you are doing.
-   - **groups**: lowlevel
+  - Cache for imagesizes.
+  - Should _only_ be cleared manually, if you know what you are doing.
+  - **groups**: lowlevel
 
 - `assets`
 
-   - Cache for assets.
-   - Examples: Backend Icons, RTE or RequireJS Configuration
-   - **groups**: system
+  - Cache for assets.
+  - Examples: Backend Icons, RTE or RequireJS Configuration
+  - **groups**: system
 
 - `l10n`
 
@@ -202,8 +202,8 @@ The following caches exist in the TYPO3 CMS Core:
 
 - `fluid_template`
 
-   - Cache for Fluid templates.
-   - **groups**: system
+  - Cache for Fluid templates.
+  - **groups**: system
 
 - Extbase
 
