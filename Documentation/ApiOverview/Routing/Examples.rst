@@ -120,10 +120,6 @@ Archive
            month: month
            page: '@widget_0/currentPage'
        defaultController: 'Post::listPostsByDate'
-       requirements:
-         year: '[0-9]{1..4}'
-         month: '[a-z]+'
-         page: '\d+'
        aspects:
          year:
            type: BlogStaticDatabaseMapper
@@ -207,9 +203,6 @@ Posts by Author
              author_title: author
              page: '@widget_0/currentPage'
        defaultController: 'Post::listPostsByAuthor'
-       requirements:
-         author_title: '^[a-z0-9].*$'
-         page: '\d+'
        aspects:
          author_title:
            type: PersistedAliasMapper
@@ -244,9 +237,6 @@ Category pages
              category_title: category
              page: '@widget_0/currentPage'
        defaultController: 'Post::listPostsByCategory'
-       requirements:
-         category_title: '^[a-z0-9].*$'
-         page: '\d+'
        aspects:
          category_title:
            type: PersistedAliasMapper
@@ -292,8 +282,6 @@ Blog Posts
            _arguments:
              page: '@widget_0/currentPage'
         defaultController: 'Post::listRecentPosts'
-        requirements:
-          page: '\d+'
         aspects:
           page:
             type: StaticRangeMapper
@@ -324,9 +312,6 @@ Posts by Tag
              tag_title: tag
              page: '@widget_0/currentPage'
         defaultController: 'Post::listPostsByTag'
-        requirements:
-          tag_title: '^[a-z0-9].*$'
-          page: '\d+'
         aspects:
           tag_title:
             type: PersistedAliasMapper
@@ -598,8 +583,6 @@ Taken from an anonymous live project:
            _arguments:
              searchForm: searchForm
        defaultController: 'Events::showByUid'
-       requirements:
-         uid: '[a-zA-Z0-9-_]+'
        aspects:
          uid:
            routeValuePrefix: ''
@@ -646,8 +629,6 @@ Taken from an anonymous live project:
            _arguments:
              searchForm: searchForm
        defaultController: 'Team::show'
-       requirements:
-         team: '[a-zA-Z0-9-_]+'
        aspects:
          team:
            routeValuePrefix: ''
