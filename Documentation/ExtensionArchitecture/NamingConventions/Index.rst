@@ -15,10 +15,10 @@ are based on the extension key.
     Some of the names, such as extension key or vendor name, will be spelled differently,
     depending on where they are used, for example:
 
-    * underscores (`_`) in the extension key are replaced by dashes (`-`), when used in the
-      package name in the file :file:`composer.json` (`cool_shop` -> `cool-shop`)
-    * underscores in the extension key are removed by converting the extension key
-      to UpperCamelCase in namespaces (`cool_shop` -> `CoolShop`)
+    * underscores (`_`) in the extension key should be replaced by dashes (`-`), when used in the
+      package name in the file :file:`composer.json` (e.g. `cool_shop` becomes `<vendor>/cool-shop`)
+    * underscores in the extension key should be removed by converting the extension key
+      to UpperCamelCase in namespaces (e.g. `cool_shop` becomes :php:`VendorName\CoolShop`)
 
 
 Abbreviations & Glossary
@@ -26,34 +26,35 @@ Abbreviations & Glossary
 
 UpperCamelCase
     `UpperCamelCase <https://en.wikipedia.org/wiki/Camel_case>`__ begins
-    with a capital letter and begins all subparts of a word with a
-    capital letter. The rest of the word is in lowercase with no spaces,
-    e.g. CoolShop.
+    with a capital letter and begins all following subparts of a word with a
+    capital letter. The rest of each word is in lowercase with no spaces,
+    e.g. `CoolShop`.
 
 lowerCamelCase
     `lowerCamelCase <https://en.wikipedia.org/wiki/Camel_case>`__ is
     the same as UpperCamelCase, but begins with a lowercase letter.
 
 TER
-    = `"TYPO3 extension repository" <https://extensions.typo3.org/>`__:
+    The `"TYPO3 Extension Repository" <https://extensions.typo3.org/>`__:
     A catalogue of extensions where you can find information about
     extensions and where you can search and filter by TYPO3 version
     etc. Once registered on https://my.typo3.org, you can login and register
     an extension key for your extension in https://extensions.typo3.org
-    > "My Extensions".
+    :guilabel:`My Extensions`.
 
 extkey
-    = extension key.
+    The extension key.
 
 ExtensionName
-    If the term ExtensionName is used, this means the extension key in
-    UpperCamelCase. Example: extkey="bootstrap_package", ExtensionName="BootstrapPackage".
-    The ExtensionName is used as first parameter
-    in Extbase :php:`ExtensionUtility::configurePlugin` or
-    :php:`ExtensionUtility::registerModule()`.
+    The term ExtensionName means the extension key in UpperCamelCase.
+    
+    Example: for an extkey `bootstrap_package` the ExtensionName would be `BootstrapPackage`.
+    
+    The ExtensionName is used as first parameter in the Extbase methods
+    :php:`ExtensionUtility::configurePlugin()` or :php:`ExtensionUtility::registerModule()`.
 
 modkey
-    = backend module key. There is a main module key and a submodule key.
+    The backend module key.
 
 Public extensions
    Public extensions are publicly available. They are usually registered in TER
@@ -82,8 +83,8 @@ do not follow the conventions.
    stripped off, sometimes not, sometimes a name in UpperCamelCase is created.
 
    The best practice you can follow is to  *avoid using underscores* in
-   your extensions keys at all! That will make the rules simpler. This is
-   highly encouraged.
+   your extensions keys altogether. That will make the rules simpler and is
+   highly recommended.
 
 
 
@@ -96,14 +97,14 @@ Extension key (extkey)
 The extension key (extkey) is used **as is** in:
 
 * directory name of extension in :file:`typo3conf/ext`
-  (or :file:`typo3/sysext` for sytem extensions)
+  (or :file:`typo3/sysext` for system extensions)
 
 Derived names are:
 
-* package name in :file:`composer.json` ``<vendorname>/<extkey>``. Underscores (`_`)
-  are replaced by dashes (`-`)
+* package name in :file:`composer.json` `<vendor-name>/<package-name>`.
+  Underscores (`_`) should be replaced by dashes (`-`)
 * namespaces: Underscores in the extension key are removed by converting the extension key
-  to UpperCamelCase in namespaces (`cool_shop` -> `CoolShop`).
+  to UpperCamelCase in namespaces (e.g. `cool_shop` becomes `VendorName\CoolShop`).
 
 
 .. important::
@@ -115,27 +116,28 @@ Derived names are:
    The *extkey* is valid if the TER accepts it. This also makes sure that the
    name follows the rules and is unique.
 
-   Do this early!
+   Do this early! An already reserved key can usually only be transferred if the
+   original author agrees to this.
 
 
 
-#. The extension key MUST be unique within your installation.
+#. The *extkey* MUST be unique within your installation.
 
 #. The *extkey* MUST be made up of lowercase alphanumeric characters
    and underscores only and MUST start with a letter.
 
 #. More, see :ref:`extension key <extension-key>`
 
-Examples for extkeys:
+Examples for *extkeys*:
    * `cool_shop`
    * `blog`
 
 Examples for names that are derived from the extkey:
 
-Here, extkey is `my_extension`:
+Here, the *extkey* is `my_extension`:
 
-* namespace: ``\Vendorname\MyExtension\...``
-* package name in :file:`composer.json`: `vendorname/my-extension` (the underscore is replaced by
+* namespace: :php:`VendorName\MyExtension\...`
+* package name in :file:`composer.json`: ``vendor-name/my-extension`` (the underscore is replaced by
   a dash)
 
 .. index:: Vendor name
@@ -161,18 +163,18 @@ Use common PHP naming conventions for vendor names in namespaces and check
 rules, but commonly used vendor names begin with a capital letter,
 followed by all lowercase.
 
-The vendor name (as well as the extkey) is spelled with all lowercase when
+The vendor name (as well as the *extkey*) is spelled with all lowercase when
 used in the package name in the file :file:`composer.json`
 
 For the following examples, we assume:
 
-* the vendor name is `Mycompany`
+* the vendor name is `MyCompany`
 * the extkey is `my_example`
 
 
 Examples:
-   * Namespace: ``\Mycompany\MyExample\`` ...
-   * package name (in :file:`composer.json`): `mycompany/my-example`
+   * Namespace: :php:`MyCompany\MyExample\...`
+   * package name (in :file:`composer.json`): `my-company/my-example`
 
 .. seealso::
 
