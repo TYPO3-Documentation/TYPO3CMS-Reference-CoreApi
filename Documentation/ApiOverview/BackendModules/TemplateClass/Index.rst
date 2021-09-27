@@ -23,7 +23,7 @@ The Backend Template View with Extbase
 Modern backend modules can be written using the Extbase/Fluid combination.
 
 The factory :php:`TYPO3\CMS\Backend\Template\ModuleTemplateFactory` can be used
-to retrieve the the :php:`\TYPO3\CMS\Backend\Template\ModuleTemplate`
+to retrieve the :php:`\TYPO3\CMS\Backend\Template\ModuleTemplate`
 class which is - more or less - the old backend module template,
 cleaned up and refreshed. This class performs a number of basic
 operations for backend modules, like loading base JS libraries,
@@ -50,7 +50,7 @@ controller:
    }
 
 
-After that, you can add titles,  menus, buttons etc using :php:`ModuleTemplate:
+After that you can add titles, menus and buttons using :php:`ModuleTemplate:
 
 .. code-block:: php
 
