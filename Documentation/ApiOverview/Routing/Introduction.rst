@@ -16,11 +16,11 @@ What is Routing?
 ================
 
 When TYPO3 serves a request, it maps the incoming URL to a specific page or action.
-For example it maps an URL like `https://example.com/news` to the News page. This process of
+For example it maps an URL like :samp:`https://example.com/news` to the News page. This process of
 determining the page and/or action to execute for a specific URL is called "Routing".
 
 Additionally, routing will take care of beautifying URL parameters, for example converting
-`https://example.com/profiles?user=magdalena` to `https://example.com/profiles/magdalena`.
+:samp:`https://example.com/profiles?user=magdalena` to :samp:`https://example.com/profiles/magdalena`.
 
 
 Key Terminology
