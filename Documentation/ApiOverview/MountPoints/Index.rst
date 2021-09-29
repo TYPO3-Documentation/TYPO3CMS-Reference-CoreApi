@@ -71,18 +71,18 @@ Let's assume the mount point page two is configured like this::
 The result will be:
 
 company
-   `https://example.com/company/`
+   :samp:`https://example.com/company/`
 
    This is just the normal page 3 showing its content.
 
 basic-mountpoint
-   `https://example.com/basic-mountpoint/`
+   :samp:`https://example.com/basic-mountpoint/`
 
    This is the mount point page 2 showing the content of page 3.
 
 about-us
-   |  `https://example.com/basic-mountpoint/about-us`
-   |  `https://example.com/company/about-us`
+   |  :samp:`https://example.com/basic-mountpoint/about-us`
+   |  :samp:`https://example.com/company/about-us`
 
    Both URLs will show the same content, namely that of page 4.
 
@@ -123,15 +123,15 @@ Configuration of mount point page 5::
 This will be the result:
 
 company
-   |  `https://example.com/company`
-   |  `https://company.example.com/cross-site-mount/`
+   |  :samp:`https://example.com/company`
+   |  :samp:`https://company.example.com/cross-site-mount/`
 
    Both pages are rendered from the same content. They may appear visually
    different though if the sites use different styles.
 
 company/about-us
-   |  `https://example.com/company/about-us`
-   |  `https://company.example.com/cross-site-mount/about-us`
+   |  :samp:`https://example.com/company/about-us`
+   |  :samp:`https://company.example.com/cross-site-mount/about-us`
 
    Same here: Both pages are rendered from the same content. They may appear
    visually different though if the sites use different styles.

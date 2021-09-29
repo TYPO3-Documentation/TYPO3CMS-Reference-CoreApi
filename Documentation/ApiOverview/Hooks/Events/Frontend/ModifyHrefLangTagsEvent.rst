@@ -93,7 +93,7 @@ setHrefLangs()
 
 addHrefLang()
    :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|` :aspect:`Arguments:` `$languageCode` The language of the hreflang tag you would like to add. For example: nl-NL - `$url` The URL of the translation. For example: https://example.com/nl
+   :sep:`|` :aspect:`Arguments:` `$languageCode` The language of the hreflang tag you would like to add. For example: nl-NL - `$url` The URL of the translation. For example: :samp:`https://example.com/nl`
    :sep:`|`
 
    Add a hreflang tag to the current list of hreflang tags.
