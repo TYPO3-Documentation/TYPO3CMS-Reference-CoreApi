@@ -29,14 +29,12 @@ and the :ref:`database backend <caching-backend-db>` by default.
 
 .. code-block:: php
 
-   if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] = [];
-   }
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] ??= [];
 
 .. tip::
 
-   The :code:`is_array()` check is done to enable administrators to overwrite configuration of caches
-   in :file:`LocalConfiguration.php`. During bootstrap, any :file:`ext_localconf.php` is loaded **after**
+   The null coalescing assignment operator (:code:`??=`) check is used to enable administrators to overwrite configuration of caches in
+   :file:`LocalConfiguration.php`. During bootstrap, any :file:`ext_localconf.php` is loaded **after**
    :file:`DefaultConfiguration.php` and :file:`AdditionalConfiguration.php` are loaded, so it is
    important to make sure that the administrator did not already set any configuration of the
    extensions cache.
@@ -47,19 +45,16 @@ should hint an integrator about specific caching needs or setups in this case.
 
 .. tip::
 
-   Extensions should not force specific settings, therefore the selection is again encapsulated in a
-   :code:`if (!isset())` check to allow administrators to overwrite those settings.
+   Extensions should not force specific settings, therefore the null coalescing
+   assignment operator (:code:`??=`) is used to allow administrators to overwrite those settings.
    It is recommended to set up a cache configuration with sane defaults,
    but administrators should always be able to overwrite them for whatever reason.
 
 .. code-block:: php
 
-   if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] = [];
-   }
-   if (!isset($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'])) {
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] = \TYPO3\CMS\Core\Cache\Backend\TransientMemoryBackend::class;
-   }
+   // use \TYPO3\CMS\Core\Cache\Backend\TransientMemoryBackend;
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] ??= [];
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] ??= TransientMemoryBackend::class;
 
 
 .. _caching-developer-example:
@@ -90,9 +85,9 @@ Both can be anything you like, just make sure they are unique and clearly hint a
 Here is some example code which retrieves the cache via dependency injection::
 
    namespace Acme\MyExt;
-   
+
    use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
-   
+
    class MyClass
    {
        /**
@@ -118,7 +113,7 @@ Here is some example code which retrieves the cache via dependency injection::
                // Save value in cache
                $this->cache->set($cacheIdentifier, $value, $tags, $lifetime);
            }
-           
+
            return $value;
        }
 
