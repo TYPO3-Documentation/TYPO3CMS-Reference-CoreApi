@@ -52,8 +52,9 @@ should hint an integrator about specific caching needs or setups in this case.
 
 .. code-block:: php
 
+   // use \TYPO3\CMS\Core\Cache\Backend\TransientMemoryBackend;
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] ??= [];
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] ??= \TYPO3\CMS\Core\Cache\Backend\TransientMemoryBackend::class;
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend'] ??= TransientMemoryBackend::class;
 
 
 .. _caching-developer-example:
