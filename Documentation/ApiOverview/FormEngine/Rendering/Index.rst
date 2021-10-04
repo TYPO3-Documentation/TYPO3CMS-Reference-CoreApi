@@ -231,7 +231,7 @@ function :php:` JavaScriptModuleInstruction::forRequireJS`.
        'TYPO3/CMS/Backend/FormEngine/Element/InputDateTimeElement'
    )->instance($fieldId);
 
-:php:`JavaScriptModuleInstruction` allows to the following
+:php:`JavaScriptModuleInstruction` allows the following
 aspects to be declared when loading RequireJS modules:
 
 *  :php:`$instruction = JavaScriptModuleInstruction::forRequireJS('TYPO3/CMS/Module')`
