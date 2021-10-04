@@ -217,13 +217,12 @@ Adding RequireJS modules
 ------------------------
 
 .. deprecated:: 11.5
-   Using callback functions is deprecated and shall be replaced by new 
-   JavaScriptModuleInstruction declarations. In FormEngine, loading RequireJS 
+   Using callback functions is deprecated and shall be replaced with new 
+   JavaScriptModuleInstruction declarations. In FormEngine, loading the RequireJS 
    module via arrays is deprecated and has to be migrated as well.
 
-JavaScript is added only via RequireJS modules, the registration allows an 
-init method to be called if the module is loaded by the browser. This can 
-be done using the function :php:` JavaScriptModuleInstruction::forRequireJS`.
+JavaScript is added via RequireJS modules using the 
+function :php:` JavaScriptModuleInstruction::forRequireJS`.
 
 .. code-block:: php
    :caption: Example in a FormEngine component
@@ -232,8 +231,8 @@ be done using the function :php:` JavaScriptModuleInstruction::forRequireJS`.
        'TYPO3/CMS/Backend/FormEngine/Element/InputDateTimeElement'
    )->instance($fieldId);
 
-:php:`JavaScriptModuleInstruction` allows to declare the following
-aspects when loading RequireJS modules:
+:php:`JavaScriptModuleInstruction` allows to the following
+aspects to be declared when loading RequireJS modules:
 
 *  :php:`$instruction = JavaScriptModuleInstruction::forRequireJS('TYPO3/CMS/Module')`
    creates corresponding loading instruction that can be enriched with following declarations
