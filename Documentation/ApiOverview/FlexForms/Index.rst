@@ -40,6 +40,10 @@ for the carousel content element.
    :class: with-shadow
 
 
+Another extensions that utilize FlexForms and can be used as example is:
+
+* `georgringer/news <https://github.com/georgringer/news>`__
+
 How it works
 ============
 
