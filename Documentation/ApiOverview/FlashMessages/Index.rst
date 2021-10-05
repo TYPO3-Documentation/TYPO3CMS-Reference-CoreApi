@@ -142,6 +142,12 @@ in the controller. Code from the "examples" extension::
 
    $this->addFlashMessage('This is a simple success message');
 
+.. warning::
+
+   You cannot call this function in the constructor of a Controller
+   or in an initialize Action as it needs some internal data 
+   structures to be initialized.
+
 
 The full API of this function is::
 
