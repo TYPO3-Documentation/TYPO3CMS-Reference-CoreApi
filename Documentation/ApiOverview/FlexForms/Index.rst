@@ -39,11 +39,6 @@ for the carousel content element.
 .. figure:: /Images/ManualScreenshots/FlexForms/FlexFormCarousel.png
    :class: with-shadow
 
-Some more extensions that utilize FlexForms are:
-
-* `blog <https://github.com/TYPO3GmbH/blog>`__: This has a very small and
-  basic FlexForm, so it might be a good starting point to look at.
-
 
 How it works
 ============
