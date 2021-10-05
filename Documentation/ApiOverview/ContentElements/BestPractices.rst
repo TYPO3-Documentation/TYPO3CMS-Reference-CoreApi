@@ -9,6 +9,9 @@ Best practices
 Following are some good practices for creating custom content element types and
 plugins and for customizing content elements for usage in the backend.
 
+Coding / structure
+==================
+
 * Use a sitepackage extension to maintain your site customization (such as
   backend layouts, custom content elements etc.)
 * How you structure your extensions depends a little on the use case and if
@@ -19,6 +22,10 @@ plugins and for customizing content elements for usage in the backend.
   to check for deprecations and breaking changes between TYPO3 versions.
 * Some naming conventions are described in the chapter :ref:`extension-naming`.
 * Read (or skim) the :ref:`cgl`.
+
+Backend usability
+=================
+
 * Make it easier for your editors by hiding the following by
   :ref:`configuration <cePluginsCustomize>`
 
