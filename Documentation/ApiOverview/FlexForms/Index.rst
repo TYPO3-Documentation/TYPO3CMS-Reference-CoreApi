@@ -425,7 +425,7 @@ If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign si
      }
    }
 
-In order to have all FlexForm fields available, you can add a custom DataProcessor.
+In order to have all FlexForm fields available, you can use the FlexFormProcessor.
 This example would make your FlexForm data available as Fluid variable :html:`{flexform}`:
 
 .. code-block:: typoscript
@@ -433,48 +433,14 @@ This example would make your FlexForm data available as Fluid variable :html:`{f
    my_content = FLUIDTEMPLATE
    my_content {
      dataProcessing {
-       10 = Your\Ext\DataProcessing\FlexFormProcessor
+       10 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
+       10.fieldName = my_flexform_field
+       10.as = myOutputVariable
      }
    }
 
-.. code-block:: php
-
-   namespace Your\Ext\DataProcessing;
-
-   use TYPO3\CMS\Core\Service\FlexFormService;
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-
-   class FlexFormProcessor implements DataProcessorInterface
-   {
-       /**
-        * @var FlexFormService
-        */
-       protected $flexFormService;
-
-       public function __construct(FlexFormService $flexFormService) {
-           $this->flexFormService = $flexFormService;
-       }
-
-       public function process(
-           ContentObjectRenderer $cObj,
-           array $contentObjectConfiguration,
-           array $processorConfiguration,
-           array $processedData
-       ): array {
-           $originalValue = $processedData['data']['pi_flexform'];
-           if (!is_string($originalValue)) {
-               return $processedData;
-           }
-
-           $flexformData = $this->flexFormService->convertFlexFormContentToArray($originalValue);
-           $processedData['flexform'] = $flexformData;
-           return $processedData;
-       }
-   }
-
 .. seealso::
-   :ref:`configure-dependency-injection-in-extensions`.
+   :ref:`FlexFormProcessor <t3tsref:FlexFormProcessor>`.
 
 
 Steps to Perform (Editor)
