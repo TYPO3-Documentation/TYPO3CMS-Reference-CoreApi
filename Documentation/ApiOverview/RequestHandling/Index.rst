@@ -442,7 +442,7 @@ as constructor dependencies:
         public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
         {
             if ($request->getRequestTarget() === '/example') {
-                $req = $this->requestFactory->createRequest('GET', 'https://api.external.app/endpoint.json')
+                $req = $this->requestFactory->createRequest('GET', 'https://api.external.app/endpoint.json');
                 // Perform HTTP request
                 $res = $this->client->sendRequest($req);
                 // Process data
