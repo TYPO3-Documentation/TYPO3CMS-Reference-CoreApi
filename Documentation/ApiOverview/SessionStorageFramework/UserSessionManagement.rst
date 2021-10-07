@@ -81,7 +81,7 @@ with user sessions. A couple of public methods are available:
 +---------------------------------------------------------------+-----------------------------------------------------------------------+
 | updateSession($session)                                       | Updates the session data + timestamp in the session backend.          |
 +---------------------------------------------------------------+-----------------------------------------------------------------------+
-| collectGarbage($garbageCollectionProbability)                  | Calls the session backends :php:`collectGarbage()` method.           |
+| collectGarbage($garbageCollectionProbability)                 | Calls the session backends :php:`collectGarbage()` method.            |
 +---------------------------------------------------------------+-----------------------------------------------------------------------+
 
 Public API of :php:`UserSession`
