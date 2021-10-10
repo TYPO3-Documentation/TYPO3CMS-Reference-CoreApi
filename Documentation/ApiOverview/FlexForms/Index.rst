@@ -425,7 +425,8 @@ If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign si
      }
    }
 
-In order to have all FlexForm fields available, you can use the FlexFormProcessor.
+In order to have all FlexForm fields available, you can use the FlexFormProcessor. See also
+:ref:`FlexFormProcessor in the TypoScript Reference<t3tsref:FlexFormProcessor>`.
 This example would make your FlexForm data available as Fluid variable :html:`{flexform}`:
 
 .. code-block:: typoscript
