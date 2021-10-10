@@ -27,7 +27,7 @@ Get in contact with the team in the TYPO3 slack channel *cig-crowdin-localizatio
 Integration
 ===========
 
-You need to handle the integration yourself as you got the permissions on GitHub.
+You need to handle the integration yourself.
 
 Go to the url of your project at Crowdin (e.g. `<https://crowdin.com/project/typo3-extension-ttaddress>`_) and switch to **Settings** & then switch to the tab **Integrations**. Click on the button **Setup integration**.
 
