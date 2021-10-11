@@ -6,9 +6,7 @@
 Creating a new distribution
 ===========================
 
-This chapter describes the main steps in creating a new
-distribution. It should not be considered as a full fledge
-tutorial.
+This chapter describes the main steps in creating a new distribution.
 
 
 .. _distribution_concept:
@@ -16,11 +14,11 @@ tutorial.
 Concept of distributions
 ========================
 
-Distributions are full TYPO3 CMS websites ready to be unpacked. They provide
-an easy quick start for using TYPO3 CMS. The most well known distribution is
-"The official Introduction Package". Distributions can most easily be installed
-in the backend Extension Manager in "Get preconfigured distribution", it lists
-all available distributions for the given Core version.
+The distributions are full TYPO3 CMS websites that only need to be unpacked.
+They offer a simple and quick introduction to the use of the TYPO3 CMS. The
+best known distribution is the `Introduction Package <https://extensions.typo3.org/extension/introduction/>`__.
+Distributions are easiest to install via the :ref:`Extension Manager <extension-manager>` (EM)
+under "Get preconfigured distribution".
 
 A distribution is just an extension enriched with some further data that is
 loaded or executed upon installing that extension. A distribution takes
@@ -49,7 +47,7 @@ is thus to create a new extension.
 Start by registering an :ref:`extension key <extension-key>`,
 which will be the unique identifier of your distribution.
 
-Next create the :ref:`Extension declaration file <extension-declaration>` as usual,
+Next create the :ref:`extension declaration file <extension-declaration>` as usual,
 except for the "category" property which must be set to
 **distribution**.
 
@@ -80,9 +78,9 @@ All the files inside that second folder will be copied to
 :file:`fileadmin/<extkey>` during installation, where "extkey" is
 the extension key of your distribution.
 
-A good strategy on files (as followed by ext:introduction) is to construct
-the distribution in a way that it can be unloaded after initial import
-and removed from the file system.
+A good strategy for files (as followed by the Introduction Package) is to construct
+the distribution so that it can be uninstalled and removed from the file system
+after the initial import.
 
 To achieve that, when creating content for your distribution, all your
 content related files (assets) should be located within :file:`fileadmin/<extkey>`
@@ -96,16 +94,15 @@ within :file:`fileadmin/<extkey>`, too. Only those need to be copied to
 :file:`Initialization/Files` - all other files referenced in database rows
 will be within your export dump.
 
-Note you should *not* end up with having all your site configuration
-(TypoScript files, logos, css and so on) within :file:`fileadmin`. This
-is considered bad practice. The main site setup should be an extension,
-keep in mind that :file:`fileadmin` is for editors. In case of the
-introduction distribution, the main site setup (templates, content elements, ...)
-is included in the extension bootstrap_package, and ext:introduction has
-a dependency to this. This way, ext:introduction only provides the
-database dump and the asset files, while ext:bootstrap_package is the real
-site setup. This ends up with only content related stuff being located in
-:file:`fileadmin`, delivered by ext:introduction.
+Note that you should *not* put your website configuration
+(TypoScript files, JavaScript, CSS, logos, etc.) in :file:`fileadmin/`,
+which is intended for editors only, but in a separate extension.
+In the case of the Introduction Package, the configuration is located in the
+`Bootstrap Package <https://extensions.typo3.org/extension/bootstrap_package/>`__
+extension, and the Introduction Package depends on it. In this way,
+the Introduction Package provides only the database dump and asset files which
+results in only content-related files being in :file:`fileadmin/`,
+which are provided by the Introduction Package.
 
 .. _distribution-kickstart-site:
 
@@ -126,9 +123,10 @@ to :file:`Initialisation/Site/<SITE_IDENTIFIER>/config.yaml`.
 Database Data
 -------------
 
-The database data is delivered as TYPO3 CMS export :file:`data.xml`.
-Generate this file by exporting your whole installation
-from the root of the page tree with the export module.
+The database data is delivered as TYPO3 CMS export file under :file:`Initialisation/data.xml`.
+
+Generate this file by exporting your whole TYPO3 instance
+from the root of the page tree using the :ref:`export module <t3impexp:export>`:
 
 .. rst-class:: bignums-xxl
 
@@ -139,34 +137,69 @@ from the root of the page tree with the export module.
 
 #. Export module: Configuration
 
-   Select the tables to be included in the export and click the
-   :guilabel:`Update` button. Make sure that the table tx_impexp_presets is
-   included, which contains the saved export configurations for repeated use
-   (see next step). Fine-tune the export configuration by evaluating the
+   Select the tables to be included in the export: It should include all tables
+   except :sql:`be_users` and :sql:`sys_log`.
+
+   Relations to all tables should be included, whereas static relations should
+   not. Static relations are only useful if the related records already exist
+   in the target TYPO3 instance. This is not the case with distributions
+   that initialize the target TYPO3 instance.
+
+   Fine-tune the export configuration by evaluating the
    list of records at the bottom of the page under "Inside pagetree":
-   This is a pre-calculation of the records to be included in the export.
+   This is a precalculation of the records to be included in the export.
 
    Do not forget to click :guilabel:`Update` before proceeding to the next tab.
 
+#. Export module: Advanced Options
+
+   Check :guilabel:`Save files in extra folder beside the export file` to save
+   files (e.g. images), referenced in database data, in a separate folder
+   instead of directly in the export file .
+
 #. Export module: File & Preset
 
-   To reuse your export configuration during the running
-   distribution development, you should now save it as a preset. Find a
-   descriptive title and click the :guilabel:`Save` button.
+   Insert meaningful metadata under *Meta data*.
+   The file name must be "data" and the file format must be set to "XML".
+
+   To reuse your export configuration during ongoing distribution development,
+   you should now save it as a preset. Choose a descriptive title and click
+   the :guilabel:`Save` button. A record will be created in the
+   :sql:`tx_impexp_presets` table.
 
    Currently, after saving the export configuration, you jump to the first tab,
    so navigate back to the :guilabel:`File & Preset` tab.
 
-   To finish the export, select the file format :guilabel:`XML` and click on
-   the :guilabel:`Download export` button.
+   To finish the export, click the :guilabel:`Save to filename` button. Copy
+   the export file from :file:`/fileadmin/user_upload/_temp_/importtexport/data.xml`
+   to the distribution folder under :file:`Initialization/data.xml`.
 
-.. figure:: /Images/ManualScreenshots/ExtensionArchitecture/DistributionDatabaseExport.png
-   :alt: Database export
-   :class: with-shadow
+   If referenced files were exported, copy the
+   :file:`fileadmin/user_upload/_temp_/importtexport/data.xml.files/` folder
+   containing the files with hashed filenames to the distribution folder
+   under :file:`initialization/data.xml.files/`.
 
-The file has to be named :file:`data.xml` (or :file:`data.t3d`, where the .t3d
-format is harder to maintain). The dump file must be located in the
-:file:`Initialisation` folder.
+.. note::
+
+   Any extensions that are not required by the distribution should be deactivated
+   before the export task is executed.
+
+.. note::
+
+   By default, any file that has an entry in the :sql:`sys_file` table will be
+   exported, including files in the :file:`fileadmin/user_upload/_temp/` path where
+   previous exports were stored that you do not want included in the export.
+
+   Therefore, delete any temporary files that you do not want to export from the
+   fileadmin. Use the :guilabel:`Filelist` module to delete these files.
+   If you delete them directly from the file system, the corresponding entries in
+   :sql:`sys_file` will not be deleted and an error will occur during export,
+   which must then be corrected directly by manually deleting the database entries.
+
+.. note::
+
+    A TYPO3 issue prevents loading :file:`data.xml` larger than
+    10MB. In this case the only option left is going with :file:`data.t3d`
 
 .. warning::
 
@@ -178,9 +211,9 @@ format is harder to maintain). The dump file must be located in the
 
 .. seealso::
 
-   The introduction distribution comes with a maintained export preset within its
+   The Introduction Package comes with a maintained export preset within its
    `database export <https://github.com/FriendsOfTYPO3/introduction/blob/master/Initialisation/data.xml>`_
-   that could be useful as kick start. Just import that preset into your
+   which can be useful as a kick start. Just import that preset into your
    installation and adapt to the needs of your distribution. The import works
    similar to the export.
 
@@ -189,22 +222,8 @@ format is harder to maintain). The dump file must be located in the
    * Export database data as :file:`data.xml`
    * Export only referenced FAL file relations into :file:`data.xml.files` directory,
      do not just export *all* files from fileadmin
-   * Do not export be_users (!)
-   * Do not export some other tables like sys_log and friends
-
-It is also possible to have referenced files (images / media) in an own folder
-called :file:`Initialisation/data.xml.files/` - a good export preset should
-prepare that.
-
-.. note::
-
-    Due to Core bugs, importing extracted files from standalone file folder
-    only works since Core version *8.7.10* and *9.1.0*. For older target
-    Core versions, files must not be extracted (tab Advanced options), but
-    directly included in :file:`data.xml`.
-
-    Another Core issue prevents loading :file:`data.xml` if it is bigger than
-    10MB. In this case the only option left is going with :file:`data.t3d`
+   * Do not export :sql:`be_users` (!)
+   * Do not export some other tables like :sql:`sys_log` and friends
 
 
 .. _distribution-kickstart-configuration:
@@ -232,13 +251,13 @@ To test a distribution locally without uploading to TER, just install
 a blank TYPO3 (last step in installer "Just get me to the Backend"),
 then go to Extension Manager, select "Get extensions" once to let the
 Extension Manager initialize the extension list (this is needed if your
-distribution has dependencies to other extensions, for instance ext:introduction
-depends on ext:bootstrap_package). Next, copy or move the distribution extension
+distribution has dependencies to other extensions, for instance the Introduction Package
+depends on the Bootstrap Package). Next, copy or move the distribution extension
 to :file:`typo3conf/ext`, it will then show up in Extension Manager default
 tab "Installed Extensions".
 
 Install the distribution extension from there. The Extension Manager will then resolve
-TER dependencies, loads the database dump and will handle the file operations.
+TER dependencies, load the database dump and handle the file operations.
 Under the hood, this does the same as later installing the distribution
 via "Get preconfigured distribution", when it has been uploaded or updated in
 TER, with the only difference that you can provide and test the distribution
@@ -253,17 +272,3 @@ locally *without* uploading to TER first.
    to work around that, or, even better, install a new blank TYPO3 to test again.
    Tip: Optimize creating the empty TYPO3 instance with a script, you probably
    end up testing the import a couple of times until you are satisfied with the result.
-
-
-.. _distribution-more-information:
-
-More Information
-================
-
-The `introduction extension <https://github.com/FriendsOfTYPO3/introduction>`_ is a
-good starting point to see how distributions are handled in practice. It also comes
-with an *impexp* preset to easily export database data with correct settings and
-dependencies.
-
-Some additional backgrounds can be retrieved from the
-`blueprint for this feature <http://wiki.typo3.org/Blueprints/DistributionManagement>`_.
