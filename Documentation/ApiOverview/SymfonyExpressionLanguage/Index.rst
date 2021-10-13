@@ -173,14 +173,14 @@ currently lacks implementation. That is the last step::
 
 The first argument :php:`$existingVariables` is an array of which each associative key corresponds to a registered variable.
 
-   *  request (TYPO3\CMS\Core\ExpressionLanguage\RequestWrapper)
-   *  applicationContext - string
-   *  typo3 . stdClass
-   *  tree - stdClass
-   *  frontend - stdClass
-   *  backend - stdClass
-   *  workspace - stdClass
-   *  page - array: page record
+*  request - :php:`TYPO3\CMS\Core\ExpressionLanguage\RequestWrapper`
+*  applicationContext - string
+*  typo3 - stdClass
+*  tree - stdClass
+*  frontend - stdClass
+*  backend - stdClass
+*  workspace - stdClass
+*  page - array: page record
 
 If you need an undefined number of variables, then you can write the same function in a variadic form::
 
