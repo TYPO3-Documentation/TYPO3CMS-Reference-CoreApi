@@ -29,7 +29,15 @@ Integration
 
 You need to handle the integration yourself.
 
-Go to the url of your project at Crowdin (e.g. `<https://crowdin.com/project/typo3-extension-ttaddress>`_) and switch to **Settings** & then switch to the tab **Integrations**. Click on the button **Setup integration**.
+.. hint::
+
+   The User Interface has changed slightly, this used to be under 
+   :guilabel:`Settings` > :guilabel:`Integrations` > :guilabel:`Setup integration`.
+
+#. Go to the url of your project at Crowdin (e.g. `<https://crowdin.com/project/typo3-extension-ttaddress>`_)
+#. Switch to the tab **Applications**
+#. Find the card which corresponds to your extension source, e.g. GitHub / GitLab / Bitbucket
+#. Click **Set Up integration** and then select "Set Up integration"
 
 .. figure:: /Images/ExternalImages/Crowdin/IntegrationSetup.png
    :alt: Start of Crowdin integration for an extension
@@ -37,7 +45,7 @@ Go to the url of your project at Crowdin (e.g. `<https://crowdin.com/project/typ
 
    Start of Crowdin integration for an extension
 
-A modal will open and will allow you to to select the proper repository.
+A modal will open, allowing you to select the correct repository.
 
 Select branches
 ---------------
