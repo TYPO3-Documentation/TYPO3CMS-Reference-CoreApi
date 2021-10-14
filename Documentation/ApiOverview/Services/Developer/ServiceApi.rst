@@ -258,7 +258,7 @@ Migration
 
 .. deprecated:: 11.3
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   deprecated. See :ref:`services-developer-service-api-migration`.
+   deprecated.
 
 Remove any usage of the class :php:`\TYPO3\CMS\Core\Service\AbstractService` in
 your extension. In case you currently
