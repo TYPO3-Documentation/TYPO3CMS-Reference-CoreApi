@@ -36,7 +36,7 @@ the settings for that domain.
 How to setup routing for the XML sitemap
 ========================================
 
-You can use the PageType decorator to map the page type to a fixed suffix (e.g. :samp:`sitemap.xml`).
+You can use the PageType decorator to map the page type to a fixed suffix. This allows you to expose the sitemap with a readable URL, e.g. :samp:`https://example.com/sitemap.xml`.
 
 .. code-block:: yaml
 
