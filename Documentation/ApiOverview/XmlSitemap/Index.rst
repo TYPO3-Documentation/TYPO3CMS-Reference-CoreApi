@@ -44,6 +44,7 @@ You can use the PageType decorator to map the page type to a fixed suffix. This 
      PageTypeSuffix:
        type: PageType
        map:
+         /: 0
          sitemap.xml: 1533906435
 
 .. index:: XmlSitemapDataProviders
