@@ -25,14 +25,26 @@ mandatory to have a site configuration for your rootpage(s).
 How to access your XML sitemap
 ==============================
 
-Until it is possible to have a default route with the new URL handling mechanism, you can access
-the sitemaps by going to :samp:`https://example.com/?type=1533906435`. You will first see the sitemap
-index. By default you will see one sitemap in the index. This is the sitemap for pages.
+You can access the sitemaps by going to :samp:`https://example.com/?type=1533906435`. You will
+first see the sitemap index. By default you will see one sitemap in the index. This is the 
+sitemap for pages.
 
 If you have multiple siteroots or multiple languages with different domains or language prefixes,
 you can just go to the domain that handles the siteroot / language. The sitemap will be based on
 the settings for that domain.
 
+How to setup routing for the XML sitemap
+========================================
+
+You can use the PageType decorator to map the page type to a fixed suffix (e.g. :samp:`sitemap.xml`).
+
+.. code-block:: yaml
+
+   routeEnhancers:
+     PageTypeSuffix:
+       type: PageType
+       map:
+         sitemap.xml: 1533906435
 
 .. index:: XmlSitemapDataProviders
 
