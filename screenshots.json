@@ -742,11 +742,16 @@
                         "action": "waitForText",
                         "text": "Root page\n"
                     },
+                    {"action": "wait", "timeout": 0.5},
+                    {"action": "click",	"link": ".t3-page-ce-dragitem:first-child .t3js-contextmenutrigger"},
+                    {"action": "waitForElement", "element": "#contentMenu0"},
+                    {"action": "drawBox", "selector": "//*[contains(text(), 'Hello World')]"},
                     {
-                        "action": "click",
-                        "link": "span[data-bs-toggle=\"tooltip\"]"
-                    },
-                    {"comment":  "{\"action\": \"waitForElement\", \"element\": \"#contentMenu0\"},\n                    {\"action\": \"drawBox\", \"selector\": \"//*[contains(text(), 'Hello World')]\"},\n                    {\n                        \"action\": \"makeScreenshotOfWindow\",\n                        \"fileName\": \"ContextMenuTtContent\",\n                        \"altText\": \"The context menu now contains an additional item \\\"Hello World\\\"\",\n                        \"captionText\": \"The context menu shown after clicking on the Content Element icon\"\n                    }"}
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ContextMenuTtContent",
+                        "altText": "The context menu now contains an additional item \"Hello World\"",
+                        "captionText": "The context menu shown after clicking on the Content Element icon"
+                    }
 
                 ],
                 "ContextualMenuCodeSnippets": [
