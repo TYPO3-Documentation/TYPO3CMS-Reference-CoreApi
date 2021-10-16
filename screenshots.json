@@ -14,8 +14,8 @@
                     {"action": "resizeWindow", "width": 1024,"height": 500},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/RequestHandling"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/RequestHandling"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Configuration')]"},
-                    {"action": "click", "link": "Configuration"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_config"},
+                    {"action": "click", "link": "#system_config"},
                     {"action": "switchToContentFrame"},
                     {
                         "action": "waitForText",
@@ -49,8 +49,9 @@
                     {"action": "resizeWindow", "width": 1024,"height": 780},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/AdminTools"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/AdminTools"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Settings')]"},
-                    {"action": "click", "link": "Settings"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#tools_toolssettings"},
+                    {"action": "click", "link": "#tools_toolssettings"},
                     {"action": "switchToContentFrame"},
                     {"action": "fillField", "field": "input#confirmationPassword", "value": "password"},
                     {"action": "click", "link": "Confirm"},
@@ -83,7 +84,7 @@
                     {"action": "closeModalDialog"},
                     {"action": "switchToMainFrame"},
                     {"action": "resizeWindow", "width": 1024,"height": 500},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Filelist')]"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#file_FilelistList"},
                     {"action": "click", "link": "Extensions"},
                     {"action": "switchToContentFrame"},
                     {"action": "waitForText", "text": "Installed Extensions" },
@@ -93,7 +94,7 @@
                         "captionText": "Interface of the Extension Manager showing all available extensions."
                     },
                     {"action": "switchToMainFrame"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Filelist')]"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#file_FilelistList"},
                     {"action": "click", "link": "Maintenance"},
                     {"action": "switchToContentFrame"},
                     {
@@ -127,6 +128,7 @@
                     },
                     {"action": "resizeWindow", "width": 1024,"height": 780},
                     {"action": "clearDrawings"},
+                    {"action": "scrollModuleBodyToTop"},
                     {
                         "action": "click",
                         "link": "Analyze database"
@@ -139,8 +141,8 @@
                     },
                     {"action": "closeModalDialog"},
                     {"action": "switchToMainFrame"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Upgrade')]"},
-                    {"action": "click", "link": "Upgrade"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#tools_toolsupgrade"},
+                    {"action": "click", "link": "#tools_toolsupgrade"},
                     {"action": "switchToContentFrame"},
                     {
                         "action": "waitForText",
@@ -158,7 +160,7 @@
                     },
                     {"action": "closeModalDialog"},
 
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Settings')]"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#tools_toolssettings"},
                     {"action": "click", "link": "Settings"},
                     {"action": "switchToContentFrame"},
                     {
@@ -230,7 +232,7 @@
                     {"action": "resizeWindow", "width": 1024,"height": 500},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Authentication"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Authentication"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Reports')]"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_reports"},
                     {"action": "click", "link": "Reports"},
                     {"action": "switchToContentFrame"},
                     {"action": "waitForText", "text": "Reports"},
@@ -282,7 +284,7 @@
                     {"action": "resizeWindow", "width": 1024,"height": 500},
                     {"action": "switchToMainFrame"},
                     {"action": "click", "link": "Minimize/maximize module menu"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Configuration')]"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_config"},
                     {"action": "click", "link": "Configuration"},
                     {"action": "switchToContentFrame"},
                     {"action": "waitForText", "text": "Configuration"},
@@ -315,8 +317,8 @@
                     {"action": "resizeWindow", "width": 1024,"height": 768},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/TypoScriptSyntax"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/TypoScriptSyntax"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Template')]"},
-                    {"action": "click", "link": "Template"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#web_ts"},
+                    {"action": "click", "link": "#web_ts"},
                     {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Conditions", "Simple"]},
                     {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
                     {"action": "switchToContentFrame"},
@@ -628,8 +630,8 @@
                     {"action": "resizeWindow", "width": 1024,"height": 300},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/PageTypes"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/PageTypes"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Page')]"},
-                    {"action": "click", "link": "Page"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#web_layout"},
+                    {"action": "click", "link": "#web_layout"},
                     {"action": "wait", "timeout": "1"},
                     {
                         "action": "drawBox",
@@ -646,8 +648,8 @@
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/AdminTools"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/AdminTools"},
                     {"action": "switchToMainFrame"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Upgrade')]"},
-                    {"action": "click", "link": "Upgrade"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#tools_toolsupgrade"},
+                    {"action": "click", "link": "#tools_toolsupgrade"},
                     {"action": "switchToContentFrame"},
                     {"action": "fillField", "field": "input#confirmationPassword", "value": "password"},
                     {"action": "click", "link": "Confirm"},
@@ -742,19 +744,10 @@
                     },
                     {
                         "action": "click",
-                        "link": ".t3-page-ce-dragitem:first-child .t3js-contextmenutrigger"
+                        "link": "span[data-bs-toggle=\"tooltip\"]"
                     },
-                    {
-                        "action": "wait",
-                        "timeout": 1
-                    },
-                    {"action": "drawBox", "selector": "//*[contains(text(), 'Hello World')]"},
-                    {
-                        "action": "makeScreenshotOfWindow",
-                        "fileName": "ContextMenuTtContent",
-                        "altText": "The context menu now contains an additional item \"Hello World\"",
-                        "captionText": "The context menu shown after clicking on the Content Element icon"
-                    }
+                    {"comment":  "{\"action\": \"waitForElement\", \"element\": \"#contentMenu0\"},\n                    {\"action\": \"drawBox\", \"selector\": \"//*[contains(text(), 'Hello World')]\"},\n                    {\n                        \"action\": \"makeScreenshotOfWindow\",\n                        \"fileName\": \"ContextMenuTtContent\",\n                        \"altText\": \"The context menu now contains an additional item \\\"Hello World\\\"\",\n                        \"captionText\": \"The context menu shown after clicking on the Content Element icon\"\n                    }"}
+
                 ],
                 "ContextualMenuCodeSnippets": [
                     {"include": "_default"},
@@ -927,26 +920,26 @@
                     {"action": "switchToContentFrame"},
                     {"action": "waitForText", "text": "Root page"},
                     {"action": "click", "link": "Page"},
-                    {"action": "wait", "timeout": 0.5},
+                    {"action": "waitForText", "text": "Clipboard #2"},
                     {"action": "click", "link": "Clipboard #2"},
                     {"action": "wait", "timeout": 0.5},
 
                     {
                         "action": "click",
-                        "link": "tr.t3js-entity:nth-child(2) td.col-clipboard label.btn-checkbox"
+                        "link": "tr.t3js-entity:nth-child(2) .t3js-multi-record-selection-check"
                     },
                     {
                         "action": "click",
-                        "link": "tr.t3js-entity:nth-child(3) td.col-clipboard label.btn-checkbox"
+                        "link": "tr.t3js-entity:nth-child(3) .t3js-multi-record-selection-check"
                     },
                     {
                         "action": "click",
-                        "link": "a[aria-label=\"Transfer the selection of records to clipboard\"]"
+                        "link": "Transfer to clipboard"
                     },
                     {"action": "waitForText", "text": "Remove item"},
                     {
                         "action": "makeScreenshotOfElement",
-                        "selector": "#clipboard_form",
+                        "selector": ".clipboard-panel",
                         "fileName": "ClipboardContent",
                         "captionText": "The clipboard as seen in the backend"
                     },
@@ -1037,7 +1030,6 @@
                         "action": "waitForText",
                         "text": "Debug"
                     },
-                    {"action": "click", "link": "Debug Cookies"},
                     {
                         "action": "makeScreenshotOfElement",
                         "fileName": "DebugOutput",
@@ -1055,7 +1047,8 @@
                         "targetFileName": "DebugCookies",
                         "members": ["debugCookies"],
                         "caption": "Extension examples, file Classes/Controller/ModuleController.php"
-                    }
+                    },
+                    {"action": "click", "link": "#typo3-debug-console button[title=\"Close\"]"}
                 ],
                 "FlashMessages": [
                     {"include": "_default"},
@@ -1073,8 +1066,8 @@
                         "path": "Images/AutomaticScreenshots/Examples/FlashMessages"
                     },
                     {"action": "switchToMainFrame"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Examples')]"},
-                    {"action": "click", "link": "Examples"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#tools_ExamplesExamples"},
+                    {"action": "click", "link": "#tools_ExamplesExamples"},
                     {"action": "switchToContentFrame"},
                     {
                         "action": "waitForText",
@@ -1088,12 +1081,12 @@
                     {
                         "action": "resizeWindow",
                         "width": 1024,
-                        "height": 300
+                        "height": 860
                     },
                     {"action": "scrollModuleBodyToBottom"},
                     {"action": "click", "link": "Count pages"},
                     {"action": "switchToMainFrame"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Examples')]"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#tools_ExamplesExamples"},
                     {"action": "waitForText", "text": "Record count"},
                     {
                         "action": "makeScreenshotOfElement",
@@ -1122,13 +1115,7 @@
                     {"action": "openPageTreePath", "path": ["Root page"]},
                     {"action": "switchToContentFrame"},
                     {"action": "waitForText", "text": "Page"},
-                    {"action": "click", "link": "Create new record"},
-                    {"action": "waitForText", "text": "make a choice"},
-                    {
-                        "action": "makeScreenshotOfElement",
-                        "fileName": "XclassNewElementWizard",
-                        "captionText": "A help section is added at the bottom of the new record wizard"
-                    },
+                    {"comment":  "{\"action\": \"click\", \"link\": \"Create new record\"},\n                    {\"action\": \"waitForText\", \"text\": \"make a choice\"},\n                    {\n                        \"action\": \"makeScreenshotOfElement\",\n                        \"fileName\": \"XclassNewElementWizard\",\n                        \"captionText\": \"A help section is added at the bottom of the new record wizard\"\n                    },"},
                     {"action": "switchToMainFrame"}
                 ],
                 "CustomContentElements": [
@@ -1149,10 +1136,20 @@
                     {"action": "switchToMainFrame"},
                     {"action": "scrollModuleMenuToTop"},
                     {"action": "click", "link": "Page"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 2000
+                    },
                     {"action": "openPageTreePath", "path": ["Root page", "Custom Content Element"]},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
                     {"action": "switchToContentFrame"},
                     {"action": "waitForText", "text": "Custom Content Element"},
-                    {"action": "click", "link": "Create new content element"},
+                    {"action": "click", "link": "Content"},
                     {"action": "waitForModalDialogInMainFrame"},
                     {"action": "drawBox", "selector": "//div[contains(@class, 'media-new-content-element-wizard') and contains(., 'Example of a custom content element')]"},
                     {
@@ -1171,6 +1168,9 @@
                         "table": "tt_content",
                         "uid": {"action": "getUidByField", "table": "tt_content", "field": "CType", "value": "examples_newcontentelement"}
                     },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link":  "button.t3js-topbar-button-modulemenu"},
+                    {"action": "switchToContentFrame"},
                     {"action": "wait", "timeout": 1},
                     {
                         "action": "makeScreenshotOfElement",
@@ -1186,6 +1186,9 @@
                         "fileName": "CType",
                         "captionText": "CType dropdown in tt_content"
                     },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link":  "button.t3js-topbar-button-modulemenu"},
+                    {"action": "switchToContentFrame"},
                     {"action": "reloadBackend"}
                 ],
                 "CustomContentElementsSnippets": [
@@ -1231,6 +1234,9 @@
                         "table": "sys_category",
                         "uid": {"action": "getUidByField", "table": "sys_category", "field": "title", "value": "Poodle"}
                     },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link":  "button.t3js-topbar-button-modulemenu"},
+                    {"action": "switchToContentFrame"},
                     {
                         "action": "makeScreenshotOfElement",
                         "selector": ".module-body",
@@ -1242,14 +1248,7 @@
                         "table": "pages",
                         "uid": 1
                     },
-                    {"action": "click", "link": "Extended"},
-                    {"action": "waitForText", "text": "Additional categories"},
-                    {
-                        "action": "makeScreenshotOfElement",
-                        "selector": ".module-body",
-                        "fileName": "AddingWithApi",
-                        "captionText": "The newly added field to define relations to categories"
-                    },
+                    {"comment":  "{\"action\": \"click\", \"link\": \"Extended\"},\n                    {\"action\": \"waitForText\", \"text\": \"Additional categories\"},\n                    {\n                        \"action\": \"makeScreenshotOfElement\",\n                        \"selector\": \".module-body\",\n                        \"fileName\": \"AddingWithApi\",\n                        \"captionText\": \"The newly added field to define relations to categories\"\n                    },\n                    {\"action\": \"switchToMainFrame\"},\n                    {\"action\": \"click\", \"link\":  \"button.t3js-topbar-button-modulemenu\"},\n                    {\"action\": \"switchToContentFrame\"},"},
                     {"action": "reloadBackend"}
                 ],
                 "ExtendingTca": [
@@ -1305,7 +1304,7 @@
                         "width": 1024,
                         "height": 640
                     },
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Configuration')]"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_config"},
                     {"action": "click", "link": "Configuration"},
                     {"action": "switchToContentFrame"},
                     {
@@ -1551,7 +1550,7 @@
                         "height": 500
                     },
                     {"action": "switchToMainFrame"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Configuration')]"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_config"},
                     {"action": "click", "link": "Configuration"},
                     {"action": "switchToContentFrame"},
                     {
@@ -1740,8 +1739,8 @@
                         "height": 700
                     },
                     {"action": "switchToMainFrame"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Access')]"},
-                    {"action": "click", "link": "Access"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_BeuserTxPermission"},
+                    {"action": "click", "link": "#system_BeuserTxPermission"},
 
                     {"action": "switchToContentFrame"},
                     {
@@ -1768,8 +1767,8 @@
                         "height": 800
                     },
                     {"action": "switchToMainFrame"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'List')]"},
-                    {"action": "click", "link": "List"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#web_list"},
+                    {"action": "click", "link": "#web_list"},
                     {"action": "openPageTreePath", "path": []},
 
                     {"action": "switchToContentFrame"},
@@ -1779,8 +1778,8 @@
                         "captionText": "Users and groups reside on the root page"
                     },
                     {"action": "switchToMainFrame"},
-                    {"action": "scrollModuleMenuTo", "toSelector": "//button[contains(., 'Backend Users')]"},
-                    {"action": "click", "link": "Backend Users"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_BeuserTxBeuser"},
+                    {"action": "click", "link": "#system_BeuserTxBeuser"},
                     {"action": "switchToContentFrame"},
                     {"action": "waitForText", "text": "Backend User Listing"},
                     {"action": "click", "link": "tr:nth-child(2) a[title=\"Compare\"]"},
