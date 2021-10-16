@@ -3,4 +3,4 @@
 .. figure:: /Images/AutomaticScreenshots/Fal/ArchitectureFoldersProcessedFolder.png
    :class: with-shadow
 
-   Special properties in the "Access capabilities" tab of a File storage
+   Editing a file storage to define a location for processed files
