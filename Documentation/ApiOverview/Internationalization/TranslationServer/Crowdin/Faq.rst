@@ -33,7 +33,8 @@ The existing and exported translations which are downloaded within the Install T
 My favorite extension is not available on Crowdin
 -------------------------------------------------
 If you miss an extension on Crowdin, contact the extension owner to create a project on Crowdin.
-It is a simple process and done within minutes.
+It is important that they follow the description on the page :ref:`Extension integration <crowdin-extension-integration>`.
+The setup is a simple process and done within minutes.
 
 .. _crowdin-faq-extension-language-missing:
 
