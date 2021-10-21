@@ -557,18 +557,18 @@ can be used to build the URL:
             type: PersistedAliasMapper
             tableName: 'tx_news_domain_model_news'
             routeFieldName: 'path_segment'
-            routeValuePrefix: '/'
 
 The PersistedAliasMapper looks up the table and field to map the given value to a URL.
 The property `tableName` points to the database table, the property `routeFieldName` is the field which will be
 used within the route path for example.
 
-The special `routeValuePrefix` is used for TCA type `slug` fields where the prefix `/` is within all fields of the
-field names, which should be removed in the case above.
-
 If a field is used for `routeFieldName` that is not prepared to be put into the route path, e.g. the news title field,
 you *must* ensured that this is unique and suitable for the use in an URL. On top, if there are special characters
 like spaces will not be converted automatically. Therefor, usage of a slug TCA field is recommended.
+
+.. important::
+   If a TCA :php:`slug` field is configured with :ref:`t3tca:prependslash`, then :yaml:`routeValuePrefix: /` must
+   be configured for the aspect. Otherwise URL matching will fail, leading to 404 errors.
 
 
 .. index:: Routing; PersistedPatternMapper
