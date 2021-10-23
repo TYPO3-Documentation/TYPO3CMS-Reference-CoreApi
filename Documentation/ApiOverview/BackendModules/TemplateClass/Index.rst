@@ -17,7 +17,7 @@ The Backend Template View with Extbase
    has been deprecated with v11.5. Use the
    :php:`TYPO3\CMS\Backend\Template\ModuleTemplateFactory` instead to
    retrieve a :php:`ModuleTemplate`. See
-   :doc:`t3core:Changelog/master/Deprecation-95164-ExtbackendBackendTemplateView`
+   :doc:`t3core:Changelog/11.4/Deprecation-95164-ExtbackendBackendTemplateView`
    for more information.
 
 Modern backend modules can be written using the Extbase/Fluid combination.
@@ -50,7 +50,7 @@ controller:
    }
 
 
-After that you can add titles, menus and buttons using :php:`ModuleTemplate:
+After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
 
 .. code-block:: php
 
@@ -78,13 +78,13 @@ For example, here is an extract of the "Index" action template of
 the "beuser" extension:
 
 .. code-block:: html
-   :caption:`typo3/sysext/beuser/Resources/Private/Templates/BackendUser/Index.html`
+   :caption: typo3/sysext/beuser/Resources/Private/Templates/BackendUser/Index.html
 
-	<html
-    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
-    xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
-    data-namespace-typo3-fluid="true">
+   <html
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+      xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+      data-namespace-typo3-fluid="true">
 
       <f:layout name="Default" />
 

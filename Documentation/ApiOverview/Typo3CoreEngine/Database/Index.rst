@@ -332,7 +332,6 @@ The structure of the :php:`$copyMappingArray_merged` property looks like this::
          <original-record-uid> => <record-copy-uid>,
       ],
    ];
-..
 
 The property contains the names of the manipulated tables as keys and a map of original record UIDs and UIDs of record copies as values.
 
@@ -343,7 +342,7 @@ The property contains the names of the manipulated tables as keys and a map of o
    $dataHandler->process-cmdmap()
 
    $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
-..
+
 
 Data Array
 ==========

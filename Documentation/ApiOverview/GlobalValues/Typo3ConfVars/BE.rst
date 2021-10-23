@@ -278,12 +278,12 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitInterval']
 $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitIpExcludeList']
 ================================================================
 
-.. confval:: loginRateLimit
+.. confval:: loginRateLimitIpExcludeList
 
    :type: string
    :Default: ''
 
-   IP-numbers (with *-wildcards) that are excluded from rate limiting.
+   IP-numbers (with :php:`*`-wildcards) that are excluded from rate limiting.
    Syntax similar to :ref:`[BE][IPmaskList]<typo3ConfVars_be_IPmaskList>`.
    An empty value disables the exclude list check.
 
