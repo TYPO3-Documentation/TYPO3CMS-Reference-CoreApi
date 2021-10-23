@@ -210,11 +210,6 @@ saved by the richtext editor:
    <div>{data.bodytext -> f:format.html()}</div>
 
 
-.. image:: Images/NewContentElementOutput.png
-   :class: with-border with-shadow
-   :alt: The example output
-
-
 .. _AddingCE-Extended-Example:
 
 Extended example: Extend tt_content and use data processing
@@ -237,8 +232,6 @@ the separator configurable.
 
 4. Optional: Extend tt_content
 ==============================
-
-.. todo::
 
 The new field *tx_examples_separator* is added to the TCA definition of the table *tt_content* in the file
 :file:`Configuration/TCA/Overrides/tt_content.php`::

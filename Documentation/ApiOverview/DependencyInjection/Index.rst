@@ -86,7 +86,7 @@ Symfony container.
 
 
 Arguments
-------
+---------
 
 In case you turned autowire off or need special arguments set, you can configure
 those as well.
