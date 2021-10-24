@@ -95,7 +95,7 @@ The session object created or retrieved by the :php:`UserSessionManager` provide
 | getIdentifier()     | String      | Returns the session id. This is the :php:`ses_id` respectively the           |
 |                     |             | :php:`AbstractUserAuthentication->id`.                                       |
 +---------------------+-------------+------------------------------------------------------------------------------+
-| getUserId()         | Int or NULL | Returns the user id the session belongs to. Can also reutrn `0` or NULL      |
+| getUserId()         | Int or NULL | Returns the user id the session belongs to. Can also return `0` or NULL      |
 |                     |             | Which indicates an anonymous session. This is the :php:`ses_userid`.         |
 +---------------------+-------------+------------------------------------------------------------------------------+
 | getLastUpdated()    | Int         | Returns the timestamp of the last session data update. This is the           |
