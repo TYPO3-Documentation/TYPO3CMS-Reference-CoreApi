@@ -199,7 +199,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm']
    :type: text
    :Default: 'H:i'
 
-   Format of Hours-Minutes - see PHP-function `date() <https://www.php.net/manual/de/function.date.php>`__
+   Format of Hours-Minutes - see PHP-function `date() <https://www.php.net/manual/en/function.date.php>`__
 
 .. index::
    TYPO3_CONF_VARS SYS; USdateFormat
