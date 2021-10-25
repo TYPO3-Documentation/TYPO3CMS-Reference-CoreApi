@@ -185,7 +185,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy']
    :type: text
    :Default: 'd-m-y'
 
-   Format of Day-Month-Year - see PHP-function `date() <https://www.php.net/manual/de/function.date.php>`__
+   Format of Day-Month-Year - see PHP-function `date() <https://www.php.net/manual/en/function.date.php>`__
 
 .. index::
    TYPO3_CONF_VARS SYS; hhmm
