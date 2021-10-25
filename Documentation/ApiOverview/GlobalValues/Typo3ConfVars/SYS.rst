@@ -185,7 +185,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy']
    :type: text
    :Default: 'd-m-y'
 
-   Format of Day-Month-Year - see PHP-function `date() <https//php.net/date>`__
+   Format of Day-Month-Year - see PHP-function `date() <https://www.php.net/manual/de/function.date.php>`__
 
 .. index::
    TYPO3_CONF_VARS SYS; hhmm
@@ -199,7 +199,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm']
    :type: text
    :Default: 'H:i'
 
-   Format of Hours-Minutes - see PHP-function `date() <https//php.net/date>`__
+   Format of Hours-Minutes - see PHP-function `date() <https://www.php.net/manual/de/function.date.php>`__
 
 .. index::
    TYPO3_CONF_VARS SYS; USdateFormat
@@ -346,10 +346,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['phpTimeZone']
 
    Timezone to force for all :php:`date()` and :php:`mktime()` functions.
    A list of supported values can be found at
-   `php.net <https//php.net/manual/en/timezones.php>`__.
+   `php.net <https://www.php.net/manual/en/timezones.php>`__.
 
    If blank, a valid fallback will be searched for by PHP (php.inis
-   `date.timezone <http//www.php.net/manual/en/datetime.configuration.php#ini.date.timezone>`__
+   `date.timezone <https://www.php.net/manual/en/datetime.configuration.php#ini.date.timezone>`__
    setting, server defaults, etc); and if no fallback is found, the value of
    "UTC" is used instead.
 
@@ -372,7 +372,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem']
    **IMPORTANT** This requires a UTF-8 compatible locale in order to work.
    Otherwise problems with filenames containing special characters will occur.
    See :ref:`[SYS][systemLocale]<typo3ConfVars_sys_UTF8filesystem>` and
-   `php function setlocale() <https//php.net/manual/en/function.setlocale.php>`__.
+   `php function setlocale() <https://www.php.net/manual/en/function.setlocale.php>`__.
 
 .. index::
    TYPO3_CONF_VARS SYS; systemLocale
@@ -389,7 +389,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemLocale']
    Locale used for certain system related functions, for example escaping shell
    commands. If problems with filenames containing special characters occur,
    the value of this option is probably wrong. See
-   `php function setlocale() <https//php.net/manual/en/function.setlocale.php>`__.
+   `php function setlocale() <https://www.php.net/manual/en/function.setlocale.php>`__.
 
 .. index::
    TYPO3_CONF_VARS SYS; reverseProxyIP
@@ -622,7 +622,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandlerErrors']
    :php:`E_USER_DEPRECATED` will always be handled, regardless of this setting.
    Default is 30466 =
    :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR)`
-   (see `PHP documentation <https//php.net/manual/en/errorfunc.constants.php>`__).
+   (see `PHP documentation <https://www.php.net/manual/en/errorfunc.constants.php>`__).
 
 .. index::
    TYPO3_CONF_VARS SYS; exceptionalErrors
@@ -639,7 +639,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['exceptionalErrors']
    The E_* constant that will be converted into an exception by the default
    ref:`[SYS][errorHandler]<typo3ConfVars_sys_errorHandler>`. Default is
    4096 = :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR | E_DEPRECATED | E_USER_DEPRECATED | E_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_WARNING)`
-   (see `PHP documentation <https//php.net/manual/en/errorfunc.constants.php>`__).
+   (see `PHP documentation <https://www.php.net/manual/en/errorfunc.constants.php>`__).
 
    E_USER_DEPRECATED is always excluded to avoid exceptions to be thrown for deprecation messages.
 
@@ -659,7 +659,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['belogErrorReporting']
    (extension belog). If set to "0" no PHP errors are logged to the
    :sql:`sys_log` table. Default is 30711 =
    :php:`E_ALL & ~(E_STRICT | E_NOTICE)`
-   (see `PHP documentation <https//php.net/manual/en/errorfunc.constants.php>`__).
+   (see `PHP documentation <https://www.php.net/manual/en/errorfunc.constants.php>`__).
 
 .. index::
    TYPO3_CONF_VARS SYS; generateApacheHtaccess
