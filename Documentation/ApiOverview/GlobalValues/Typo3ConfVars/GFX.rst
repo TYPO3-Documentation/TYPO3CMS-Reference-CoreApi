@@ -261,7 +261,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand']
    Specifies the command to strip the profile information, which can reduce
    thumbnail size up to 60KB. Command can differ in IM/GM, IM also know the
    -strip command. See
-   `imagemagick.org <http//www.imagemagick.org/Usage/thumbnails/#profiles>`__
+   `imagemagick.org <https://legacy.imagemagick.org/Usage/thumbnails/#profiles>`__
    for details
 
 .. index::
