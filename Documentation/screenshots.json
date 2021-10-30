@@ -5,7 +5,6 @@
             "screenshots": {
                 "_default": [
                     {"action": "resizeWindow", "width": 1024,"height": 768},
-                    {"action": "setScreenshotsDocumentationPath", "path": "Documentation"},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
                 ],
@@ -308,7 +307,6 @@
             "screenshots": {
                 "_default": [
                     {"action": "resizeWindow", "width": 1024,"height": 768},
-                    {"action": "setScreenshotsDocumentationPath", "path": "Documentation"},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
                 ],
@@ -1396,7 +1394,6 @@
             "screenshots": {
                 "_default": [
                     {"action": "resizeWindow", "width": 1024,"height": 768},
-                    {"action": "setScreenshotsDocumentationPath", "path": "Documentation"},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
                 ],
@@ -1830,7 +1827,6 @@
             "screenshots": {
                 "_default": [
                     {"action": "resizeWindow", "width": 1024,"height": 768},
-                    {"action": "setScreenshotsDocumentationPath", "path": "Documentation"},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
                 ],
