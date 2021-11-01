@@ -66,7 +66,7 @@ backend.
 That's all that is required for a new site.
 
 .. tip::
-   Just by having a site configuration you get page based routing out of the
+   Just by having a site configuration you get human-readable page URLs out of the
    box. Read more about how to configure the :ref:`routing <routing>`.
 
 Learn more about :ref:`adding languages <sitehandling-addingLanguages>`,
