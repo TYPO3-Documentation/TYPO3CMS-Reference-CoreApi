@@ -300,6 +300,21 @@
                         "fileName": "MfaConfigurationModule",
                         "captionText": "MFA providers in the configuration module"
                     }
+                ],
+                "SiteHandling": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/SiteHandling"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/SiteHandling"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#site_configuration"},
+                    {"action": "click", "link": "#site_configuration"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Site Configuration"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingCreateNewSite-1",
+                        "captionText": ""
+                    }
                 ]
             }
         },
