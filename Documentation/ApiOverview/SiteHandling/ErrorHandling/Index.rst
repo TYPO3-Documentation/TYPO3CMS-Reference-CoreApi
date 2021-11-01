@@ -33,11 +33,7 @@ serves all error pages.
    <error-handling>` since they occur on a much lower level.
    These are currently not covered by site error handling.
 
-.. figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingErrorHandling-1.png
-   :class: with-shadow
-   :alt: Error Handling
-
-   Add custom error handling.
+.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingErrorHandling-1.rst.txt
 
 
 .. index:: pair: Site handling; Error handling properties
