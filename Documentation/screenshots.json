@@ -303,9 +303,13 @@
                 ],
                 "SiteHandling": [
                     {"include": "_default"},
-                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "resizeWindow", "width": 1500,"height": 300},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/SiteHandling"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/SiteHandling"},
+                    {"action": "amOnPage", "page": "/typo3/record/edit?edit[pages][0]=new&id=0&table=&pointer=1&defVals[pages][title]=example.com&defVals[pages][is_siteroot]=1&defVals[pages][hidden]=0&token=x"},
+                    {"action": "click", "link": "Save"},
+                    {"action": "waitForText", "text": "Edit Page"},
+                    {"action": "reloadBackend"},
                     {"action": "scrollModuleMenuTo", "toSelector": "#site_configuration"},
                     {"action": "click", "link": "#site_configuration"},
                     {"action": "switchToContentFrame"},
@@ -313,8 +317,88 @@
                     {
                         "action": "makeScreenshotOfWindow",
                         "fileName": "SiteHandlingCreateNewSite-1",
+                        "captionText": "Autocreated site configuration"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": ".t3js-topbar-button-modulemenu"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "resizeWindow", "width": 1024,"height": 800},
+                    {"action": "click", "link": "Edit"},
+                    {"action": "waitForText", "text": "Edit Site Configuration"},
+                    {"action": "fillField", "field": "//input[contains(@data-formengine-input-name, '[identifier]')]", "value": "examplecom"},
+                    {"action": "fillField", "field": "//input[contains(@data-formengine-input-name, '[websiteTitle]')]", "value": "Example website"},
+                    {"action": "fillField", "field": "//input[contains(@data-formengine-input-name, '[base]')]", "value": "https://www.example.com"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingCreateNewSite-2",
+                        "captionText": "A new site creation form."
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 1024},
+                    {"action": "click", "link": ".tab-pane.active button.t3js-create-new-button"},
+                    {"action": "waitForText", "text": "site_base_variant"},
+                    {"action": "fillField", "field": "//input[contains(@placeholder, 'domain.local')]", "value": "example.site.ddev"},
+                    {"action": "fillField", "field": "//input[contains(@placeholder, 'applicationContext == \"Production\"')]", "value": "applicationContext == \"Development\""},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingBaseVariants-1",
+                        "captionText": "A configured base variant for development context."
+                    },
+                    {"action": "click", "link": "Languages"},
+                    {"action": "waitForText", "text": "Available Languages for this Site"},
+                    {"action": "click", "link": "English"},
+                    {"action": "waitForText", "text": "Visible in Frontend"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingCreateNewSite-3",
+                        "captionText": "Set default language settings"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 800},
+                    {"action": "click", "link": "Error Handling"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": ".tab-pane.active button.t3js-create-new-button"},
+                    {"action": "waitForText", "text": "HTTP Error Status Code"},
+                    {
+                        "action": "selectOption",
+                        "select": "//select[contains(@name, '[errorHandler]')]",
+                        "option": "Page"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 600},
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {"action": "click", "link": "OK"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "switchToContentFrame"},
+                    {"action": "click", "link": ".tab-pane.active .form-irre-header-button"},
+                    {"action": "waitForText", "text": "Show Content from Page"},
+                    {"action": "fillField", "field": "//input[contains(@data-formengine-input-name, '[errorContentSource]')]", "value": "1"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingErrorHandling-1",
+                        "captionText": "Add custom error handling."
+                    },
+                    {"action": "click", "link": "Save"},
+                    {"action": "wait", "timeout": 1},
+                    {"action": "click", "link": "Close"},
+                    {"action": "waitForText", "text": "Site Configuration"},
+                    {"action": "resizeWindow", "width": 1024,"height": 300},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingSiteModule",
+                        "captionText": "The :guilabel:`Sites` module in the TYPO3 backend."
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 800},
+                    {"action": "click", "link": "Delete site configuration"},
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {"action": "click", "link": "Delete"},
+                    {"action": "wait", "timeout": 0.5},
+                    {"action": "resizeWindow", "width": 1024,"height": 300},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingNoSite",
                         "captionText": ""
-                    }
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": ".t3js-topbar-button-modulemenu"}
                 ]
             }
         },

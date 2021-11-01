@@ -15,8 +15,8 @@ through the respective :file:`*.yml` file, there is no UI available yet.
 
 Variants consist of two parts:
 
-* a base to use for this variant
-* a condition that decides when this variant shall be active
+*  a base to use for this variant
+*  a condition that decides when this variant shall be active
 
 Conditions are based on Symfony expression language and allow flexible conditions. For example::
 
@@ -29,21 +29,20 @@ would define a base variant to use in Development context.
    Notice that environment variables can be used in the :yaml:`base` via ``%env(...)%``.
    :yaml:`condition` needs ``getenv(...)`` instead.
 
-.. figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingBaseVariants-1.png
-   :class: with-shadow
-   :alt: Add a base variant
-
-   A configured base variant for development context.
+.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingBaseVariants-1.rst.txt
 
 .. hint::
-    For those coming from earlier TYPO3 versions: With site handling, there is no need for `sys_domain` records anymore! :)
+   For those coming from earlier TYPO3 versions: With site handling, there is
+   no need for `sys_domain` records anymore!
 
 .. seealso::
-   Read :ref:`application-context` for more information on how to set the application context.
+   Read :ref:`application-context` for more information on how to set the
+   application context.
 
    Read :ref:`yaml-api` for more information on YAML parsing.
 
-The following variables and functions are available in addition to the default Symfony functionality:
+The following variables and functions are available in addition to the default
+Symfony functionality:
 
 Example
 =======
@@ -118,7 +117,7 @@ typo3.version
     The current TYPO3 version
 
 :aspect:`Example`
-    `9.5.0`
+    `11.5.0`
 
 
 typo3.branch
@@ -131,7 +130,7 @@ typo3.branch
     The current TYPO3 branch
 
 :aspect:`Example`
-    `9.5`
+    `11.5`
 
 
 typo3.devIpMask
@@ -192,7 +191,7 @@ compatVersion
     Match a TYPO3 version
 
 :aspect:`Example`
-    `compatVersion("9.5.0")`, `compatVersion("9.4")`
+    `compatVersion("11.5.0")`, `compatVersion("11.4")`
 
 
 like
