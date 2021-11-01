@@ -33,7 +33,7 @@ will be shown on the error page.
 
 If dynamic content is required on the error page, it is recommended
 to implement a :ref:`custom PHP based error
-handler<sitehandling-customErrorHandler>`.
+handler <sitehandling-customErrorHandler>`.
 
 Properties
 ==========

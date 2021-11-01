@@ -1,0 +1,9 @@
+.. ==========================================
+.. Automatically generated screenshot include
+.. ==========================================
+..
+
+.. figure:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-1.png
+   :class: with-shadow
+
+   Autocreated site configuration
