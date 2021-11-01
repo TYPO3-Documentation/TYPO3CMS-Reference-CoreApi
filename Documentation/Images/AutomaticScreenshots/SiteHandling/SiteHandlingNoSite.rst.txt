@@ -1,0 +1,7 @@
+.. ==========================================
+.. Automatically generated screenshot include
+.. ==========================================
+..
+
+.. figure:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingNoSite.png
+   :class: with-shadow
