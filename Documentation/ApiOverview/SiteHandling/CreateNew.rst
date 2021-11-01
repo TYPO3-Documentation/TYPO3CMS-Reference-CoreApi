@@ -51,7 +51,7 @@ If you need to use another domain in development, for example
 :ref:`Base variants <sitehandling-baseVariants>`.
 
 On the next tab :guilabel:`Languages` you are can configure the default
-language settings for your site. You can also enter additional language for
+language settings for your site. You can also add additional languages for
 multilanguage sites here.
 
 These settings determine the default behavior - setting direction and lang tags
