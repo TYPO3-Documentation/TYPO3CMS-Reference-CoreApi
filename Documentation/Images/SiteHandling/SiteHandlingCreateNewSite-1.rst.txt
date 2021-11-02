@@ -1,0 +1,6 @@
+.. This screenshot was backported
+
+.. figure:: /Images/SiteHandling/SiteHandlingCreateNewSite-1.png
+   :class: with-shadow
+
+   Autocreated site configuration

@@ -1,9 +1,0 @@
-.. ==========================================
-.. Automatically generated screenshot include
-.. ==========================================
-..
-
-.. figure:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingSiteModule.png
-   :class: with-shadow
-
-   The :guilabel:`Sites` module in the TYPO3 backend.

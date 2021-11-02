@@ -22,11 +22,7 @@ No more trouble with translated 404 error pages. With the new site handling gett
    Exceptions must be handled via :ref:`error-handling` since they occur on a much lower level.
    These are currently not covered by site error handling.
 
-.. figure:: ../../Images/SiteHandlingErrorHandling-1.png
-   :class: with-shadow
-   :alt: Error Handling
-
-   Add custom error handling.
+.. include:: /Images/SiteHandling/SiteHandlingErrorHandling-1.rst.txt
 
 
 Properties

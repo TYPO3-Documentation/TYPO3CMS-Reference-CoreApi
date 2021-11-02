@@ -29,7 +29,7 @@ would define a base variant to use in Development context.
    Notice that environment variables can be used in the :yaml:`base` via ``%env(...)%``.
    :yaml:`condition` needs ``getenv(...)`` instead.
 
-.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingBaseVariants-1.rst.txt
+.. include:: /Images/SiteHandling/SiteHandlingBaseVariants-1.rst.txt
 
 .. hint::
    For those coming from earlier TYPO3 versions: With site handling, there is

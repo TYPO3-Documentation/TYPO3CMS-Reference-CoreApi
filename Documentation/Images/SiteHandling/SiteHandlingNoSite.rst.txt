@@ -1,0 +1,4 @@
+.. This screenshot was backported
+
+.. figure:: /Images/SiteHandling/SiteHandlingNoSite.png
+   :class: with-shadow

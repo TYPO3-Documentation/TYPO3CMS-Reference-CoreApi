@@ -13,16 +13,16 @@ A new site configuration is automatically created for each
 To adjust the automatically created site configuration,
 go to module :guilabel:`Site Management > Sites`.
 
-.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-1.rst.txt
+.. include:: /Images/SiteHandling/SiteHandlingCreateNewSite-1.rst.txt
 
 You can edit it by clicking on the Edit icon. If for some reason no site
 configuration was created there will be a button to create one:
 
-.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingNoSite.rst.txt
+.. include:: /Images/SiteHandling/SiteHandlingNoSite.rst.txt
 
 The site configuration looks like this:
 
-.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-2.rst.txt
+.. include:: /Images/SiteHandling/SiteHandlingCreateNewSite-2.rst.txt
 
 It is recommended to change the following fields:
 
@@ -57,7 +57,7 @@ multilanguage sites here.
 These settings determine the default behavior - setting direction and lang tags
 in frontend as well as locale settings.
 
-.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-3.rst.txt
+.. include:: /Images/SiteHandling/SiteHandlingCreateNewSite-3.rst.txt
 
 Check and correct all other settings, as they will automatically
 be used for features like hreflang tags or displaying language flags in the

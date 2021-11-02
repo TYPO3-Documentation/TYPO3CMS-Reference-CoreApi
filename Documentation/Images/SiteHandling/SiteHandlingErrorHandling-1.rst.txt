@@ -1,0 +1,6 @@
+.. This screenshot was backported
+
+.. figure:: /Images/SiteHandling/SiteHandlingErrorHandling-1.png
+   :class: with-shadow
+
+   Add custom error handling.

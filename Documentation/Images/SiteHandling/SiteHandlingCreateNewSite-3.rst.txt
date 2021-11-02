@@ -1,0 +1,6 @@
+.. This screenshot was backported
+
+.. figure:: /Images/SiteHandling/SiteHandlingCreateNewSite-3.png
+   :class: with-shadow
+
+   Set default language settings

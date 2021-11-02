@@ -1,0 +1,6 @@
+.. This screenshot was backported
+
+.. figure:: /Images/SiteHandling/SiteHandlingBaseVariants-1.png
+   :class: with-shadow
+
+   A configured base variant for development context.

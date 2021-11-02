@@ -1,0 +1,6 @@
+.. This screenshot was backported
+
+.. figure:: /Images/SiteHandling/SiteHandlingCreateNewSite-2.png
+   :class: with-shadow
+
+   A new site creation form.

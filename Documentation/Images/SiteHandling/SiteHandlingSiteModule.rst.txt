@@ -1,0 +1,6 @@
+.. This screenshot was backported
+
+.. figure:: /Images/SiteHandling/SiteHandlingSiteModule.png
+   :class: with-shadow
+
+   The :guilabel:`Sites` module in the TYPO3 backend.
