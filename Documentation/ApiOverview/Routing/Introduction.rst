@@ -60,7 +60,7 @@ Slug
     Slugs should be separated by slashes, but this is not a strict requirement. 
     Therefore a slug of a record may contain slashes. 
     However the risk of conflicts is higher when using slashes
-	 within slugs. For example unrelated page hierarchies and records could have slugs forming the same URL path.
+	  within slugs. For example unrelated page hierarchies and records could have slugs forming the same URL path.
 
 
 Routing in TYPO3
