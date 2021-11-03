@@ -41,7 +41,7 @@ Slug
     the slug of a news record could be `2019-software-update`.
 
     Within TYPO3, a slug is always a part of the URL "path" - it does not contain scheme, host, HTTP verb, etc.
-    The URL "path" consists of one or more slugs which are strung together.
+    The URL "path" consists of one or more slugs which are concatenated into a single string.
 
     A slug is usually added to a TCA-based database table, containing rules for evaluation and definition.
 
