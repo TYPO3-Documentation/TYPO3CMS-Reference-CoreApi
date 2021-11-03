@@ -35,11 +35,17 @@ use the content for specific functionality. For example, if a svg logo of your e
 is placed at :file:`Resources/Public/Icons/Extension.svg`, the Extension Manager
 will show that image.
 
-Most of these files are not required. The exception is :file:`ext_emconf.php`:
-You can not have a TYPO3
-extension recognized by TYPO3 without this file.
+Most of these files are not required. The exception are :file:`ext_emconf.php`
+in legacy (non-Composer) installations and :file:`composer.json` in
+Composer-based installations.
 
-In general, do not introduce your own files in the root directory of
+.. note::
+   It is recommended to keep :file:`ext_emconf.php` and :file:`composer.json` in
+   any public extension that is published to TYPO3 Extension Repository (TER), and
+   to ensure optimal compatibility with Composer-based installations and legacy
+   mode.
+
+Do not introduce your own files in the root directory of
 extensions with the name prefix :file:`ext_`, because that is reserved.
 
 .. index:: File; EXT:{extkey}/composer.json
@@ -48,9 +54,21 @@ extensions with the name prefix :file:`ext_`, because that is reserved.
 :file:`composer.json`
 ---------------------
 
-*-- required*
+*-- required* in composer-based installations
 
 For more information, see :ref:`composer-json`.
+
+.. versionchanged:: 11.4
+   The ordering of installed extensions and their dependencies are loaded from
+   the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
+   composer-based installations.
+
+.. note::
+   Extension authors should ensure that the information in the :file:`composer.json`
+   file is in sync with the one in the extensions' :file:`ext_emconf.php` file.
+   This is especially important regarding constraints like `depends` , `conflicts`
+   and `suggests`. Use the equivalent settings in :file:`composer.json` `require`,
+   `conflict` and `suggest` to set dependencies and ensure a specific loading order.
 
 .. index:: File; EXT:{extkey}/ext_emconf.php
 .. _ext_emconf-php:
@@ -58,19 +76,17 @@ For more information, see :ref:`composer-json`.
 :file:`ext_emconf.php`
 ----------------------
 
-*-- required*
+*-- required* in legacy installations
 
-Definition of extension properties. This is the only mandatory file in the extension.
-It describes the extension.
+Definition of extension properties.
 
-Name, category, status etc. are used by the Extension Manager. The content of this file
-is described in more details in :ref:`extension-declaration`. Note
-that it is auto-written by the Extension Manager when extensions are imported from the repository.
+Name, category, status etc. are used by the Extension Manager in legacy
+installations. The content of this file is described in more details in
+:ref:`extension-declaration`.
 
-.. note::
-
-   If this file is *not* present, the Extension Manager will *not* find the
-   extension.
+For legacy non-Composer installation the :file:`ext_emconf.php` file is the
+source of truth for required dependencies and the loading order of active
+extensions.
 
 .. index::
    File; EXT:{extkey}/ext_localconf.php

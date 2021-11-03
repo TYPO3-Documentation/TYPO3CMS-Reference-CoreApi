@@ -6,20 +6,28 @@
 .. _extension-declaration:
 
 
-=================================
-Declaration File (ext_emconf.php)
-=================================
+=========================================
+Declaration file (:file:`ext_emconf.php`)
+=========================================
 
-*-- required*
+*-- required*  in legacy installations
 
-The :file:`ext_emconf.php` is the single most important file in an extension.
-Without it, the Extension Manager (EM) will not detect the extension, much less
-be able to install it. This file contains a declaration of what the extension
-is or does for the EM. The only thing included
+The :file:`ext_emconf.php` is used in legacy non-Composer installations to
+supply information about the extension to the :guilabel:`Extension Manager`. In
+these installations the ordering of installed extensions and their dependencies
+are loaded from this file as well.
+
+.. versionchanged:: 11.4
+   The ordering of installed extensions and their dependencies are loaded from
+   the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
+   composer-based installations.
+
+The only thing included
 is an associative array, :php:`$EM_CONF[extension key]`.
 The keys are described in the table below.
 
-This file is overwritten, when extensions are imported from the online repository. So don't write your custom code in this file - only change
+This file is overwritten, when extensions are imported from the online
+repository. So don't write your custom code in this file - only change
 values in the :php:`$EM_CONF` array if needed.
 
 
@@ -38,7 +46,7 @@ values in the :php:`$EM_CONF` array if needed.
        'version' => '1.0.0',
        'constraints' => [
            'depends' => [
-               'typo3' => '11.0.0-11.99.99',
+               'typo3' => '11.5.0-11.99.99',
            ],
            'conflicts' => [
            ],
@@ -143,14 +151,14 @@ $_EXTKEY is set globally and contains the extension key.
 
             'constraints' => [
                 'depends' => [
-                    'typo3' => '9.5.0-10.4.99',
-                    'php' => '7.2.0-7.4.99'
+                    'typo3' => '10.4.0-11.5.99',
+                    'php' => '7.4.0-8.0.99'
                 ],
                 'conflicts' => [
                     'templavoilaplus' => ''
                 ],
                 'suggests' => [
-                    'news' => '7.3.0-0.0.0'
+                    'news' => '9.0.0-0.0.0'
                 ],
             ]
 
@@ -169,15 +177,27 @@ $_EXTKEY is set globally and contains the extension key.
            Loading order especially matters when overriding TCA or SQL of another extension.
 
          The above example indicates that the extension depends on a
-         version of TYPO3 between 9.5 and 10.4 (as only bug and security fixes are
+         version of TYPO3 between 10.4 and 11.5 (as only bug and security fixes are
          integrated into TYPO3 when the last digit of the version changes, it is
          safe to assume it will be compatible with any upcoming version of the
          corresponding branch, thus ``.99``). Also the extension has been
-         tested and is known to work properly with PHP 7.2, 7.3 and 7.4. It
+         tested and is known to work properly with PHP 7.4. and 8.0 It
          will conflict with "templavoilaplus" (any version) and it is suggested
-         that it might be worth installing "news" (version at least 7.3.0).
+         that it might be worth installing "news" (version at least 9.0.0).
          Be aware that you should add *at least* the TYPO3 and PHP version constraints
          to this file to make sure everything is working properly.
+
+         For legacy non-Composer installation the :file:`ext_emconf.php` file
+         is the source of truth for required dependencies and the loading order
+         of active extensions.
+
+         .. note::
+            Extension authors should ensure that the information here is in sync
+            with the :file:`composer.json` file.
+            This is especially important regarding constraints like `depends`,
+            `conflicts` and `suggests`. Use the equivalent settings as in
+            :file:`composer.json` `require`, `conflict` and `suggest` to set
+            dependencies and ensure a specific loading order.
 
  - :Key:
          state
@@ -301,7 +321,7 @@ $_EXTKEY is set globally and contains the extension key.
          *ApplicationContext* is set to *Testing*.
 
 
-Deprecated Configuration
+Deprecated configuration
 ========================
 
 See older versions of this page.
