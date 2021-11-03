@@ -51,7 +51,7 @@ Slug
     * A slug is always lower-cased.
     * A slug is unicode-aware.
     * Slugs must be separated by one or more character like "/", "-", "_" and "&".
-      Normal characters should not be used as separators for better readability.
+      Regular characters like letters should not be used as separators for better readability.
 
 .. note::
 
