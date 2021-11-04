@@ -71,7 +71,7 @@ Here's the complete code, taken from file
    The second example :php:`tx_examples_special` only works when the
    :php:`renderType` has been registered implemented and then registered in
    the ext_localconf.php. Please refer to the the following chapter of the
-   TCA reference on how to implement it: `t3tca:columns-user`.
+   TCA reference on how to implement it: :ref:`t3tca:columns-user`.
 
 
 In this example the first method call adds fields using
