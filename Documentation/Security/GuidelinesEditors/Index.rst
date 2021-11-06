@@ -90,9 +90,7 @@ password to a secure one as soon as possible. You should be able to
 change your password in the *User settings* menu, reachable by clicking on your
 user name in the :ref:`top bar <backend-modules-structure>`:
 
-.. figure:: /Images/ManualScreenshots/Security/editor-change-password.png
-    :class: with-shadow
-    :alt: The "User Settings" menu, where you can change your password
+.. include:: /Images/AutomaticScreenshots/Security/ChangePassword.rst.txt
 
 
 Administrator privileges
@@ -124,9 +122,7 @@ user settings, you will receive an email from TYPO3 each time you (or
 notification is an additional security measure because you will know
 if someone else picked up your password and uses your account.
 
-.. figure:: /Images/ManualScreenshots/Security/editor-notify-on-login.png
-    :class: with-shadow
-    :alt: The screen "User Settings" with the "Notify" checkbox
+.. include:: /Images/AutomaticScreenshots/Security/NotifyOnLogin.rst.txt
 
 Assuming you have activated this feature and you got a notification
 email but you have not logged in and you suspect that someone misuses

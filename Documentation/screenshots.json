@@ -1486,6 +1486,53 @@
                         "captionText": "A typical FAL relation field"
                     },
                     {"action": "reloadBackend"}
+                ],
+
+                "UserSettings": [
+                    {"include": "_default"},
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/UserSettings"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/UserSettings"
+                    },
+                    {
+                        "action": "amOnPage",
+                        "page": "/typo3/module/user/setup"
+                    },
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "User Settings"},
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[contains(@class, 'form-group') and contains(., 'Mobile')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "UserSettingsExtending",
+                        "captionText": "Extending the :guilabel:`User Settings` configuration"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 480},
+                    {"action": "clearDrawings"},
+
+                    {"action": "switchToMainFrame"},
+                    {"action": "see", "text": "Configuration"},
+                    {"action": "click", "link": "Configuration"},
+
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Configuration"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "$GLOBALS['BE_USER']->uc (User Settings)"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "UserSettingsConfiguration",
+                        "captionText": "Viewing the :guilabel:`User Settings` configuration"
+                    }
                 ]
             }
         },
@@ -1918,6 +1965,56 @@
                         "action": "makeScreenshotOfElement",
                         "fileName": "SimulatedUser",
                         "captionText": "Backend with active simulate user"
+                    }
+                ],
+                "Security": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 960,"height": 768},
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Security"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Security"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "be_users",
+                        "uid": 1
+                    },
+                    {"action": "waitForText", "text": "Edit Backend user"},
+                    {"action": "click", "link": "Access"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "BeUserExpiryDate",
+                        "captionText": "Screenshot showing the screen to set an expiry date for a backend user"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {
+                        "action": "amOnPage",
+                        "page": "/typo3/module/user/setup"
+                    },
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "User Settings"},
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[contains(@class, 'form-group') and contains(., 'Notify me by email')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "NotifyOnLogin",
+                        "captionText": "The :guilabel:`User Settings` screen, with the :guilabel:`Notify me...` checkbox"
+                    },
+                    {"action": "clearDrawings"},
+                    {"action": "click", "link": "Account security"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "ChangePassword",
+                        "captionText": "The :guilabel:`User Settings` screen, where you can change your password"
                     }
                 ]
             }
