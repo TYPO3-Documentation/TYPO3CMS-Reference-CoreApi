@@ -80,7 +80,7 @@ For more information, see :ref:`composer-json`.
 
 Definition of extension properties.
 
-Name, category, status etc. are used by the Extension Manager in legacy
+Name, category, status etc. are used by the :guilabel:`Extensions` module in legacy
 installations. The content of this file is described in more details in
 :ref:`extension-declaration`.
 
