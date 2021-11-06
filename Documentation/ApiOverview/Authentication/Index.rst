@@ -44,7 +44,7 @@ view:
 .. note::
 
    For the :guilabel:`Reports` module to be visible, the system extension
-   reports has to be installed. You can install it via composer:
+   reports has to be installed. You can install it via Composer:
 
    .. code-block:: console
 

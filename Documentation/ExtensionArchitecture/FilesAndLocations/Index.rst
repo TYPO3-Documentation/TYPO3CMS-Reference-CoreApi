@@ -54,14 +54,14 @@ extensions with the name prefix :file:`ext_`, because that is reserved.
 :file:`composer.json`
 ---------------------
 
-*-- required* in composer-based installations
+*-- required* in Composer-based installations
 
 For more information, see :ref:`composer-json`.
 
 .. versionchanged:: 11.4
    The ordering of installed extensions and their dependencies are loaded from
    the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
-   composer-based installations.
+   Composer-based installations.
 
 .. note::
    Extension authors should ensure that the information in the :file:`composer.json`

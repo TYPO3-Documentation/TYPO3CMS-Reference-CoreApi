@@ -44,9 +44,9 @@ There are only two (possibly three) steps involved in using extensions with TYPO
 
 #. You must *load* it.
 
-   In non-composer mode an extension is loaded only if it is listed in the
+   In non-Composer mode an extension is loaded only if it is listed in the
    :file:`PackageStates.php` file. Extensions are loaded in the order they appear in this list.
-   In composer mode, all extensions in the :file:`composer.json` are considered as active.
+   In Composer mode, all extensions in the :file:`composer.json` are considered as active.
 
    An enabled extension is always global to the TYPO3 Installation - you cannot disable
    an extension from being loaded in a particular branch of the page tree. The EM takes
@@ -101,5 +101,5 @@ containing the data structure for each extension. These include the properties:
 
 
 The order of the registered extensions in this array corresponds to
-the order they were listed in :file:`PackageStates.php` in non-composer mode.
+the order they were listed in :file:`PackageStates.php` in non-Composer mode.
 

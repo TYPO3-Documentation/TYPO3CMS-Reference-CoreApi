@@ -20,7 +20,7 @@ are loaded from this file as well.
 .. versionchanged:: 11.4
    The ordering of installed extensions and their dependencies are loaded from
    the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
-   composer-based installations.
+   Composer-based installations.
 
 The only thing included
 is an associative array, :php:`$EM_CONF[extension key]`.
@@ -282,7 +282,7 @@ $_EXTKEY is set globally and contains the extension key.
    :Data type:
          array
    :Description:
-         To get better class loading support for websites in **non-composer mode**
+         To get better class loading support for websites in **non-Composer mode**
          the following information can be provided.
 
          **Extensions having one folder with classes or single files**

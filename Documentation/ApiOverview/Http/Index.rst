@@ -9,7 +9,7 @@
 HTTP request library / Guzzle / PSR-7
 =====================================
 
-Since TYPO3 CMS 8.1 the PHP library `Guzzle` has been added via composer dependency
+Since TYPO3 CMS 8.1 the PHP library `Guzzle` has been added via Composer dependency
 to work as a feature rich solution for creating HTTP requests based on the PSR-7 interfaces
 already used within TYPO3.
 

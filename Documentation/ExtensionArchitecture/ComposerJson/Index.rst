@@ -9,7 +9,7 @@
 composer.json
 =============
 
-*-- required* in composer-based installations
+*-- required* in Composer-based installations
 
 .. note::
 
@@ -79,7 +79,7 @@ Subsequently:
 .. versionchanged:: 11.4
    The ordering of installed extensions and their dependencies are loaded from
    the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
-   composer-based installations.
+   Composer-based installations.
 
 .. note::
    Extension authors should ensure that the information in the :file:`composer.json`
