@@ -212,7 +212,7 @@ suggest
 -------
 
 You should add other system extensions and third party extensions,
-if your extension depends on them in case they are loaded.
+if your extension has an optional dependency on them.
 
 In Composer-based installations the loading order of extensions and their
 dependencies is derived from :json:`require` and :json:`suggest`
