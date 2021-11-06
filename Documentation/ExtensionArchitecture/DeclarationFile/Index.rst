@@ -12,15 +12,16 @@ Declaration file (:file:`ext_emconf.php`)
 
 *-- required*  in legacy installations
 
-The :file:`ext_emconf.php` is used in legacy non-Composer installations to
-supply information about the extension to the :guilabel:`Extension Manager`. In
+The :file:`ext_emconf.php` is used in
+:ref:`legacy installations not based on Composer <t3start:legacyinstallation>` to
+supply information about the extension to the :guilabel:`Extensions` module. In
 these installations the ordering of installed extensions and their dependencies
 are loaded from this file as well.
 
 .. versionchanged:: 11.4
    The ordering of installed extensions and their dependencies are loaded from
    the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
-   Composer-based installations.
+   Composer installations.
 
 The only thing included
 is an associative array, :php:`$EM_CONF[extension key]`.
@@ -187,7 +188,7 @@ $_EXTKEY is set globally and contains the extension key.
          Be aware that you should add *at least* the TYPO3 and PHP version constraints
          to this file to make sure everything is working properly.
 
-         For legacy non-Composer installation the :file:`ext_emconf.php` file
+         For legacy installations the :file:`ext_emconf.php` file
          is the source of truth for required dependencies and the loading order
          of active extensions.
 
@@ -282,7 +283,7 @@ $_EXTKEY is set globally and contains the extension key.
    :Data type:
          array
    :Description:
-         To get better class loading support for websites in **non-Composer mode**
+         To get better class loading support for websites in legacy mode
          the following information can be provided.
 
          **Extensions having one folder with classes or single files**

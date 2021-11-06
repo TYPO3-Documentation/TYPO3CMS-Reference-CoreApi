@@ -36,14 +36,15 @@ is placed at :file:`Resources/Public/Icons/Extension.svg`, the Extension Manager
 will show that image.
 
 Most of these files are not required. The exception are :file:`ext_emconf.php`
-in legacy (non-Composer) installations and :file:`composer.json` in
-Composer-based installations.
+in :ref:`legacy installations not based on Composer <t3start:legacyinstallation>`
+and :file:`composer.json` in :ref:`Composer installations <t3start:install>`
+installations.
 
 .. note::
    It is recommended to keep :file:`ext_emconf.php` and :file:`composer.json` in
    any public extension that is published to TYPO3 Extension Repository (TER), and
-   to ensure optimal compatibility with Composer-based installations and legacy
-   mode.
+   to ensure optimal compatibility with Composer installations and legacy
+   installations.
 
 Do not introduce your own files in the root directory of
 extensions with the name prefix :file:`ext_`, because that is reserved.
@@ -54,14 +55,14 @@ extensions with the name prefix :file:`ext_`, because that is reserved.
 :file:`composer.json`
 ---------------------
 
-*-- required* in Composer-based installations
+*-- required* in Composer installations
 
 For more information, see :ref:`composer-json`.
 
 .. versionchanged:: 11.4
    The ordering of installed extensions and their dependencies are loaded from
    the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
-   Composer-based installations.
+   Composer installations.
 
 .. note::
    Extension authors should ensure that the information in the :file:`composer.json`
@@ -84,7 +85,7 @@ Name, category, status etc. are used by the :guilabel:`Extensions` module in leg
 installations. The content of this file is described in more details in
 :ref:`extension-declaration`.
 
-For legacy non-Composer installation the :file:`ext_emconf.php` file is the
+For legacy installations the :file:`ext_emconf.php` file is the
 source of truth for required dependencies and the loading order of active
 extensions.
 

@@ -86,8 +86,8 @@ page `FAQ <https://extensions.typo3.org/faq/>`__.
 **Advantages:**
 
 *  Extension can be installed in a
-   :ref:`non-Composer based <t3install:install-typo3-without-composer>`
-   TYPO3 instance using the :ref:`Extension Manager <extension-manager>`.
+   :ref:`legacy installation <t3install:install-typo3-without-composer>`
+   TYPO3 instance using the module :ref:`Extensions <extension-manager>`.
 *  All advantages of being listed in the TER, for example:
 
    *  Easy finding of your extension
