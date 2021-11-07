@@ -69,7 +69,8 @@ Apache and Microsoft IIS web servers
 
 .. hint::
 
-   TYPO3 provides a recommended :file:`.htacess` file. See :ref:`t3install:system-environment` .
+   TYPO3 provides a recommended :file:`.htacess` file.
+   See :ref:`t3start:system-environment` .
 
 To increase protection of TYPO3 instances, the Core Team however decided to
 install default web server configuration files since TYPO3 Core  version v9 under certain
