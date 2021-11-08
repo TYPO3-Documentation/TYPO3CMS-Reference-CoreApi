@@ -24,7 +24,7 @@ Default language
 
    .. note::
 
-      Language packs must be downloaded using the **ADMIN TOOLS > Languages**
+      Language packs must be downloaded using the :guilabel:`Admin Tools` > :guilabel:`Maintenance` > :guilabel:`Manage Language Packs`
       module. As long as the language packs are not available, the backend
       will still display in English.
 
