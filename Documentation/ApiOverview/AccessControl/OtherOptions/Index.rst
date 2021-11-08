@@ -17,31 +17,32 @@ Backend users
 =============
 
 Default language
-  This is the language in which the backend will be localized for the
-  user. The users can change the language themselves in the :ref:`User Settings <t3start:changing-backend-language>`
-  module.
+   This is the language in which the backend will be localized for the
+   user. The users can change the language themselves in the
+   :ref:`User Settings <t3start:backendlanguages>`
+   module.
 
-  .. note::
+   .. note::
 
-     Language packs must be downloaded using the **ADMIN TOOLS > Languages**
-     module. As long as the language packs are not available, the backend
-     will still display in English.
+      Language packs must be downloaded using the **ADMIN TOOLS > Languages**
+      module. As long as the language packs are not available, the backend
+      will still display in English.
 
 Fileoperation permissions
-  This is a complement to the File Mounts and defines exactly which operations
-  the user is allowed to perform on both files and folders.
+   This is a complement to the File Mounts and defines exactly which operations
+   the user is allowed to perform on both files and folders.
 
 Access options
-  A backend user can be disabled (first flag in the "General" tab). A disabled
-  user cannot log into the backend anymore. Furthermore, in the "Access" tab
-  a start and end time can be given, defining a time interval during which the
-  user will be allowed to log into the backend. Authentication before the start
-  time and after the end time will automatically fail.
+   A backend user can be disabled (first flag in the "General" tab). A disabled
+   user cannot log into the backend anymore. Furthermore, in the "Access" tab
+   a start and end time can be given, defining a time interval during which the
+   user will be allowed to log into the backend. Authentication before the start
+   time and after the end time will automatically fail.
 
 Lock to domain
-  This setting constrains the user to use a specific domain for logging
-  into the TYPO3 CMS backend. This is very useful in setups with multiple
-  sites.
+   This setting constrains the user to use a specific domain for logging
+   into the TYPO3 CMS backend. This is very useful in setups with multiple
+   sites.
 
 
 .. _access-other-options-groups:
