@@ -21,10 +21,7 @@ update language packs of TER and Core extensions from the official translation s
 The module is rather straight forward to use and should be pretty much self explanatory.
 Downloaded language packs are stored in :ref:`Environment-labels-path`.
 
-.. figure:: /Images/ManualScreenshots/Internationalization/InternationalizationManageLanguagePacks.png
-   :alt: The Languages module
-
-   The Languages module with some active languages and status of extensions language packs
+.. include:: /Images/AutomaticScreenshots/AdminTools/ManageLanguagePacks.rst.txt
 
 
 Language packs can also be fetched using the command line.
@@ -44,7 +41,7 @@ Using `Virtaal <http://translate.sourceforge.net/wiki/virtaal/index>`_,
 it is possible to translate XLIFF files locally.
 Virtaal is an open source, cross-platform application.
 
-.. figure:: /Images/ManualScreenshots/Internationalization/InternationalizationXliffWithVirtaal.png
+.. figure:: /Images/ExternalImages/System/InternationalizationXliffWithVirtaal.png
    :alt: Virtaal screenshot
 
    Translating with Virtaal, with suggestions from other software
@@ -171,10 +168,7 @@ would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
       </file>
    </xliff>
 
-.. figure:: /Images/ManualScreenshots/Internationalization/InternationalizationXliffCustomLanguage.png
-   :alt: User Settings screenshot
-
-   The new language appears in the user preferences
+.. include:: /Images/AutomaticScreenshots/Internationalization/CustomLanguage.png.rst.txt
 
 .. note::
 

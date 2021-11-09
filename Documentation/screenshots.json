@@ -139,6 +139,19 @@
                         "captionText": "Analyze the database structure"
                     },
                     {"action": "closeModalDialog"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "see", "text": "Manage languages"},
+                    {
+                        "action": "click",
+                        "link": "Manage languages"
+                    },
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ManageLanguagePacks",
+                        "captionText": "The Languages module with some active languages and status of extensions language packs"
+                    },
+                    {"action": "closeModalDialog"},
                     {"action": "switchToMainFrame"},
                     {"action": "scrollModuleMenuTo", "toSelector": "#tools_toolsupgrade"},
                     {"action": "click", "link": "#tools_toolsupgrade"},
@@ -399,6 +412,36 @@
                     },
                     {"action": "switchToMainFrame"},
                     {"action": "click", "link": ".t3js-topbar-button-modulemenu"}
+                ],
+                "Introduction": [
+                    {"include": "_default"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Introduction"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Introduction"},
+                    {"action": "see", "text": "Extensions"},
+                    {"action": "click", "link": "Extensions"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Installed Extensions"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ExtensionsMinimalList",
+                        "captionText": "Screenshot of the backend showing the :guilabel:`Extensions` module"
+                    }
+                ],
+                "Internationalization": [
+                    {"include": "_default"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Internationalization"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Internationalization"},
+                    {
+                        "action": "amOnPage",
+                        "page": "/typo3/module/user/setup"
+                    },
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "User Settings"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "CustomLanguage.png",
+                        "captionText": "The new language appears in the user preferences"
+                    }
                 ]
             }
         },
@@ -1487,7 +1530,38 @@
                     },
                     {"action": "reloadBackend"}
                 ],
+                "Services": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Services"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Services"
+                    },
 
+                    {"action": "see", "text": "Reports"},
+                    {"action": "click", "link": "Reports"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Reports"},
+
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Installed Services"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ServicesReport",
+                        "captionText": "The :guilabel:`Installed Services` report showing details about registered services"
+                    }
+                ],
                 "UserSettings": [
                     {"include": "_default"},
                     {
@@ -1714,6 +1788,16 @@
                         "action": "makeScreenshotOfWindow",
                         "fileName": "BackendModulesConfiguration",
                         "captionText": "Exploring the TBE_MODULES array using the Configuration module"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "$GLOBALS['TYPO3_CONF_VARS'] (Global Configuration)"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "GlobalValuesConfiguration",
+                        "captionText": "Viewing the :php:`$GLOBALS['TYPO3_CONF_VARS]` array using the :guilabel:`Admin Tools > Configuration` module"
                     }
                 ],
                 "RTE": [
@@ -1965,6 +2049,29 @@
                         "action": "makeScreenshotOfElement",
                         "fileName": "SimulatedUser",
                         "captionText": "Backend with active simulate user"
+                    }
+                ],
+                "FlexForms": [
+                    {"include": "_default"},
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/FlexForms"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/FlexForms"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "tt_content",
+                        "uid": 136
+                    },
+                    {"action": "click", "link": "Carousel Options"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "FlexFormCarousel",
+                        "captionText": "The carousel content element of EXT:bootstrap_package"
                     }
                 ],
                 "Security": [

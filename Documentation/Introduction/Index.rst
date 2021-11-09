@@ -70,18 +70,13 @@ To follow this document, it might help to have a totally trimmed down
 installation of TYPO3 CMS with *only* the Core and the required system
 extensions at hand.
 
-The installation process is covered in the :ref:`Installation and Upgrade
-Guide <t3install:start>`.
+The installation process is covered in the :ref:`Getting started
+Guide <t3install:t3start>`.
 You should perform the basic installation steps and not install any
 distribution. This will give you the "lightest" possible version of TYPO3 CMS.
 
-In your basic installation, go to the :guilabel:`ADMIN TOOLS > Extensions`
-module. You will see all the extensions that are loaded by default.
-Required extensions that are loaded by default have no
-"Activate/Deactivate" button.
+In your basic installation, go to the :guilabel:`Admin Tools > Extensions`
+module. You will see all extensions installed by Composer are activated by
+default.
 
-.. figure:: /Images/ManualScreenshots/Introduction/ExtensionsMinimalList.png
-   :alt: The Extension Manager with a bare bones installation
-   :class: with-border
-
-   Screenshot of the backend showing the Extensions module
+.. include:: /Images/AutomaticScreenshots/Introduction/ExtensionsMinimalList.rst.txt

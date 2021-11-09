@@ -36,9 +36,7 @@ uses Flexforms to configure rendering options,
 e.g. a transition interval and transition type (slide, fade)
 for the carousel content element.
 
-.. figure:: /Images/ManualScreenshots/FlexForms/FlexFormCarousel.png
-   :class: with-shadow
-
+.. include:: /Images/AutomaticScreenshots/FlexForms/FlexFormCarousel.rst.txt
 
 Another extensions that utilize FlexForms and can be used as example is:
 

@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AdminTools/ManageLanguagePacks.png
+   :class: with-shadow
+
+   The Languages module with some active languages and status of extensions language packs

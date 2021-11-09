@@ -32,12 +32,9 @@ Quality varies between 0-100.
 More considerations about priority and quality can be found in the
 :ref:`Developer's Guide <services-developer>`.
 
-The "Installed Services" report of the **SYSTEM > Reports** module
+The "Installed Services" report of the :guilabel:`System > Reports` module
 provides an overview of all installed services and their priority
 and quality. It also shows whether a given service is available
 or not.
 
-.. figure:: /Images/ManualScreenshots/Services/ServicesReport.png
-   :alt: The Installed Services report
-
-   The Installed Services report showing details about registered services
+.. include:: /Images/AutomaticScreenshots/Services/ServicesReport.rst.txt

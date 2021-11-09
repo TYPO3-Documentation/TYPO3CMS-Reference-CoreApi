@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/BackendModules/GlobalValuesConfiguration.png
+   :class: with-shadow
+
+   Viewing the :php:`$GLOBALS['TYPO3_CONF_VARS]` array using the :guilabel:`Admin Tools > Configuration` module
