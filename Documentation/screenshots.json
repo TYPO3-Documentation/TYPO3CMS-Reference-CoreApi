@@ -1561,7 +1561,7 @@
                         "fileName": "ServicesReport",
                         "captionText": "The :guilabel:`Installed Services` report showing details about registered services"
                     }
-                ]
+                ],
                 "UserSettings": [
                     {"include": "_default"},
                     {
