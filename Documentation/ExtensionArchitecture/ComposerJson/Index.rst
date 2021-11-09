@@ -28,7 +28,7 @@ Including a :file:`composer.json` is strongly recommended for a number of reason
 
 #. Working with Composer in general is strongly recommended for TYPO3.
 
-   If you are not using Composer for your projects yet, see :ref:`t3install:migrate-to-composer`
+   If you are not using Composer for your projects yet, see :ref:`t3install:migratetocomposer`
    in the "Installation & Upgrade Guide".
 
 .. _ext-composer-json-minimal:

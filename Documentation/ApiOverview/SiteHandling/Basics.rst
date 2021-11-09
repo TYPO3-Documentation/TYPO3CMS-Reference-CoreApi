@@ -27,11 +27,7 @@ due to missing configuration and can also serve as a starting point for all furt
 
 Most parts of the site configuration can be edited via the graphical interface in the backend module "Site".
 
-.. figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingSiteModule.png
-   :class: with-shadow
-   :alt: Site Module
-
-   The Site module in the TYPO3 backend.
+.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingSiteModule.rst.txt
 
 .. hint::
    While the editing mask for a site looks like a "normal" TYPO3 editing form, it is not. In contrast to

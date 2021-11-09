@@ -574,7 +574,7 @@ Documentation/Index.rst
    pair: Extensions; CSS
 
 Resources
-  Contains the subfolders :code:`Public/` and :code:`Private/`, which
+  Contains the sub folders :code:`Public/` and :code:`Private/`, which
   contain resources, possibly in further subfolders, e.g.
   :code:`Templates/`, :code:`Css/`, :code:`Language/`, :code:`Images/`
   or :code:`JavaScript/`. This is also the directory for non–TYPO3 files supplied with the
@@ -601,6 +601,16 @@ Resources/Private/Partials
 
 Resources/Private/Templates
   One template per action, stored in a folder named after each Controller.
+
+.. index:: Path; EXT:{extkey}/Resources/Public
+
+Resources/Public
+   Public assets of extensions (files that should be delivered by the web
+   server) must be located in Resources/Public folder of the extension.
+
+   .. deprecated:: 11.5
+      Having public assets in any but the folder Resources/Public has been
+      deprecated with version 11.5.
 
 .. index:: Path; EXT:{extkey}/Resources/Public/Css
 

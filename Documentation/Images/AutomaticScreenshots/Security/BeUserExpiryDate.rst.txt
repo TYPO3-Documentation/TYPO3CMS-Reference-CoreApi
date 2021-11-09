@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Security/BeUserExpiryDate.png
+   :class: with-shadow
+
+   Screenshot showing the screen to set an expiry date for a backend user

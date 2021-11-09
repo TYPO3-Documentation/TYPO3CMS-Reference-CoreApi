@@ -58,7 +58,7 @@ about the publishing process.
 **Advantages:**
 
 *  Extension can be installed in a
-   :ref:`Composer based <t3install:install-via-composer>`
+   :ref:`Composer based <t3start:install>`
    TYPO3 instance using `composer require`.
 *  All advantages of being listed in Packagist, for example
 
