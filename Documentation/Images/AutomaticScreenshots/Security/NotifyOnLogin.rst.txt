@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Security/NotifyOnLogin.png
+   :class: with-shadow
+
+   The :guilabel:`User Settings` screen, with the :guilabel:`Notify me...` checkbox

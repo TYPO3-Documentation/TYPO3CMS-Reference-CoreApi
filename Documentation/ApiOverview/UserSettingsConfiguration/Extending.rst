@@ -36,10 +36,7 @@ See label 'extending' in older versions of the TCA-Reference.
 
 And here is the new field in the User Tools > User Settings module:
 
-.. figure:: /Images/ManualScreenshots/UserSettingsConfiguration/UserSettingsExtending.png
-   :alt: Extending the User Settings configuration
-
-   The new field visible in the User Settings configuration
+.. include:: /Images/AutomaticScreenshots/UserSettings/UserSettingsExtending.rst.txt
 
 "On Click" / "On Confirmation" JavaScript Callbacks
 ===================================================

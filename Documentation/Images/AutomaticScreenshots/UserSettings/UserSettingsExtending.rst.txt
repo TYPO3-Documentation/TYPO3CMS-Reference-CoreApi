@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/UserSettings/UserSettingsExtending.png
+   :class: with-shadow
+
+   Extending the :guilabel:`User Settings` configuration
