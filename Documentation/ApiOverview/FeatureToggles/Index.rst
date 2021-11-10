@@ -26,6 +26,7 @@ Naming of feature toggles
 =========================
 
 Feature names should NEVER be named "enable" or have a negation, or contain versions or years.
+It is recommended to use `lowerCamelCase` notation for the feature names.
 
 Bad examples:
 
@@ -38,11 +39,11 @@ Bad examples:
 
 Good examples:
 
-- `ExtendedRichtextFormat`
-- `NativeYamlParser`
-- `InlinePageTranslations`
-- `TypoScriptParserIncludesAsXml`
-- `NativeDoctrineQueries`
+- `extendedRichtextFormat`
+- `nativeYamlParser`
+- `inlinePageTranslations`
+- `typoScriptParserIncludesAsXml`
+- `nativeDoctrineQueries`
 
 .. _feature-toggles-api:
 
@@ -83,7 +84,7 @@ Core feature toggles
 Some examples for feature toggles in the TYPO3 Core:
 
 - `redirects.hitCount`: Enables hit statistics in the redirects backend module
-- `TypoScript.strictSyntax`: If on, TypoScript is parsed in strict syntax modes.
+- `typoScript.strictSyntax`: If on, TypoScript is parsed in strict syntax modes.
   Enabling this feature means old condition syntax (which is deprecated) will
   trigger deprecation messages.
 
@@ -114,11 +115,11 @@ With the new function :typoscript:`feature()` the feature toggle can be checked.
 
 .. code-block:: typoscript
 
-   [feature("TypoScript.strictSyntax")]
-   # This condition matches if the feature toggle "TypoScript.strictSyntax" is true
+   [feature("unifiedPageTranslationHandling")]
+   # This condition matches if the feature toggle "unifiedPageTranslationHandling" is true
    [END]
 
-   [feature("TypoScript.strictSyntax") === false]
-   # This condition matches if the feature toggle "TypoScript.strictSyntax" is false
+   [feature("unifiedPageTranslationHandling") === false]
+   # This condition matches if the feature toggle "unifiedPageTranslationHandling" is false
    [END]
 
