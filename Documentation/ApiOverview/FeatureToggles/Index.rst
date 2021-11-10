@@ -114,11 +114,11 @@ With the new function :typoscript:`feature()` the feature toggle can be checked.
 
 .. code-block:: typoscript
 
-   [feature("TypoScript.strictSyntax")]
-   # This condition matches if the feature toggle "TypoScript.strictSyntax" is true
+   [feature("unifiedPageTranslationHandling")]
+   # This condition matches if the feature toggle "unifiedPageTranslationHandling" is true
    [END]
 
-   [feature("TypoScript.strictSyntax") === false]
-   # This condition matches if the feature toggle "TypoScript.strictSyntax" is false
+   [feature("unifiedPageTranslationHandling") === false]
+   # This condition matches if the feature toggle "unifiedPageTranslationHandling" is false
    [END]
 
