@@ -236,7 +236,7 @@ To tell the CI what to do, create a new workflow file in
          - name: Import files
            run: ddev import-files --src=./assets
 
-         - name: Install composer packages
+         - name: Install Composer packages
            run: ddev composer install
 
          - name: Allow public access of var folder

@@ -47,7 +47,7 @@ When creating a new site configuration, a folder in the file system is created l
 file called :file:`config.yaml`.
 
 .. note::
-    If you are using a non-composer based installation, the location is :file:`typo3conf/sites/`.
+    If you are using a non-Composer based installation, the location is :file:`typo3conf/sites/`.
     In the future this folder can (and should) be used for more files like Fluid templates, and Backend layouts.
 
 .. hint::

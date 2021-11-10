@@ -43,10 +43,10 @@ Extension files
 ---------------
 
 :ref:`composer.json <composer-json>`
-   Composer configuration
+   Composer configuration, required in Composer-based installations
 
 :ref:`ext_emconf.php <extension-declaration>`
-   (required) Extension declaration
+   Extension declaration, required in legacy installations
 
 :ref:`ext_tables.php <extension-configuration-files>`
    Various configuration. Is used only for backend or CLI requests or when a valid BE user is authenticated.
