@@ -25,7 +25,8 @@ Examples for features are:
 Naming of feature toggles
 =========================
 
-Feature names should NEVER be named "enable" or have a negation, or contain versions or years and should be :php:`loweCamelCase`d.
+Feature names should NEVER be named "enable" or have a negation, or contain versions or years.
+It is recommended to use `lowerCamelCase` notation for the feature names.
 
 Bad examples:
 
