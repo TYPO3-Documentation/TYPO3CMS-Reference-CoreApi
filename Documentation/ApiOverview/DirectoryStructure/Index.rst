@@ -13,7 +13,7 @@ main directories within the web server document root. You will find
 this structure to be almost always like that. Depending on the installation
 variant you choose however, this may be slightly different. For instance,
 it is possible to have all PHP files except the entry points :file:`index.php`
-within the composer managed :file:`vendor/` directory, outside of the document
+within the Composer-managed :file:`vendor/` directory, outside of the document
 root. This setup however did not fully settle yet, and is not documented
 here in detail. So, if you look at "casual" TYPO3 installations, you will
 almost always find the directory structure as outlined below.

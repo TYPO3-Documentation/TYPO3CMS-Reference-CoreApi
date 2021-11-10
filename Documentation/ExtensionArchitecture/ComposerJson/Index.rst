@@ -9,13 +9,14 @@
 composer.json
 =============
 
-*-- required*
+*-- required* in Composer-based installations
 
 .. note::
 
    While the file :file:`composer.json` is currently not strictly required
-   for an extension to function properly, it is considered
-   bad practice not to add one. That is why we classify it as "required".
+   for an extension to function properly in legacy non-Composer installations
+   it is recommended to keep it in any public extension that is published to
+   TYPO3 Extension Repository (TER).
 
 Including a :file:`composer.json` is strongly recommended for a number of reasons:
 
@@ -75,6 +76,18 @@ Subsequently:
   general Composer information
 * see :ref:`ext-composer-json-properties` below for TYPO3 specific hints
 
+.. versionchanged:: 11.4
+   The ordering of installed extensions and their dependencies are loaded from
+   the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
+   Composer-based installations.
+
+.. note::
+   Extension authors should ensure that the information in the :file:`composer.json`
+   file is in sync with the one in the extensions' :file:`ext_emconf.php` file.
+   This is especially important regarding constraints like `depends` , `conflicts`
+   and `suggests`. Use the equivalent settings in :file:`composer.json` `require`,
+   `conflict` and `suggest` to set dependencies and ensure a specific loading order.
+
 .. _ext-composer-json-extended:
 
 Extended composer.json
@@ -89,9 +102,9 @@ Extended composer.json
       "description": "An example extension",
       "license": "GPL-2.0-or-later",
       "require": {
-         "php" : "^7.2",
-         "typo3/cms-backend": "^9.5 || ^10.4 || ^11.0",
-         "typo3/cms-core": "^9.5 || ^10.4 || ^11.0"
+         "php" : "^7.4",
+         "typo3/cms-backend": "^10.4 || ^11.5",
+         "typo3/cms-core": "^10.4 || ^11.5"
       },
       "authors": {
          "name": "John Doe",
@@ -187,8 +200,22 @@ require
 (*required*)
 
 At the least, you will want to require `typo3/cms-core`.
-You can add other system extensions and third party extensions,
+You should add other system extensions and third party extensions,
 if your extension depends on them.
+
+In Composer-based installations the loading order of extensions and their
+dependencies is derived from :json:`require` and :json:`suggest`
+
+
+
+suggest
+-------
+
+You should add other system extensions and third party extensions,
+if your extension has an optional dependency on them.
+
+In Composer-based installations the loading order of extensions and their
+dependencies is derived from :json:`require` and :json:`suggest`
 
 
 autoload

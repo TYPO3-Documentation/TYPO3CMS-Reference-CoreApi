@@ -124,8 +124,8 @@ May be one of `Production`, `Testing`, or `Development` with optional sub-contex
 
 Example, test for production context::
 
-   // use \TYPO3\CMS\Core\Core\Environment; 
-   
+   // use \TYPO3\CMS\Core\Core\Environment;
+
    $applicationContext = Environment::getContext();
    if ($applicationContext->isProduction()) {
       // do something only when in production context
@@ -153,7 +153,7 @@ to allow to store **data** outside of the document root.
 All Composer-based installations benefit from this functionality, as data that was previously
 stored and hard-coded within :file:`typo3temp/var/` is now stored within the **project root** folder :file:`var/`.
 
-For non-composer installations (Classic Mode), it is possible to set the environment variable to a folder, usually one level
+For non-Composer installations (Classic Mode), it is possible to set the environment variable to a folder, usually one level
 upwards than the regular **webroot**. This increases security for any TYPO3 installation as files are not
 publicly accessible (for example via web browser) anymore.
 
