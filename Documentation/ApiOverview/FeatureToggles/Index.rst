@@ -38,11 +38,11 @@ Bad examples:
 
 Good examples:
 
-- `ExtendedRichtextFormat`
-- `NativeYamlParser`
-- `InlinePageTranslations`
-- `TypoScriptParserIncludesAsXml`
-- `NativeDoctrineQueries`
+- `extendedRichtextFormat`
+- `nativeYamlParser`
+- `inlinePageTranslations`
+- `typoScriptParserIncludesAsXml`
+- `nativeDoctrineQueries`
 
 .. _feature-toggles-api:
 
@@ -53,11 +53,11 @@ For extension authors, the API can be used for any custom feature provided by an
 
 To register a feature and set the default state, add the following to the :file:`ext_localconf.php`: of your extension::
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['MyFeatureName'] ??= true; // or false;
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] ??= true; // or false;
 
 To check if a feature is enabled use this code::
 
-   if (TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(TYPO3\CMS\Core\Configuration\Features::class)->isFeatureEnabled('MyFeatureName')) {
+   if (TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(TYPO3\CMS\Core\Configuration\Features::class)->isFeatureEnabled('myFeatureName')) {
       // do custom processing
    }
 
@@ -70,7 +70,7 @@ To check if a feature is enabled use this code::
 
    .. code-block:: php
 
-      $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['MyFeatureName'] = true;
+      $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true;
 
 The name can be any arbitrary string, but an extension author should prefix the feature with the
 extension name as the features are global switches which otherwise might lead to naming conflicts.
@@ -83,7 +83,7 @@ Core feature toggles
 Some examples for feature toggles in the TYPO3 Core:
 
 - `redirects.hitCount`: Enables hit statistics in the redirects backend module
-- `TypoScript.strictSyntax`: If on, TypoScript is parsed in strict syntax modes.
+- `typoScript.strictSyntax`: If on, TypoScript is parsed in strict syntax modes.
   Enabling this feature means old condition syntax (which is deprecated) will
   trigger deprecation messages.
 
