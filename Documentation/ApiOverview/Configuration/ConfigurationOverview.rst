@@ -43,7 +43,7 @@ Extension files
 ---------------
 
 :ref:`composer.json <composer-json>`
-   Composer configuration, required in composer-based installations
+   Composer configuration, required in Composer-based installations
 
 :ref:`ext_emconf.php <extension-declaration>`
    Extension declaration, required in legacy installations
