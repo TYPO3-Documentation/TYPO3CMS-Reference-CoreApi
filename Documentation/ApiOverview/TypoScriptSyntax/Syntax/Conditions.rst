@@ -269,7 +269,7 @@ Wildcards:
    While the other operator are inherent features of the Symphony expression
    language :typoscript:`like` is a function defined by TYPO3. Read more about
    it in :ref:`TypoScript Reference, Conditions,
-   function like <tsref:condition-function-like>`
+   function like <t3tsref:condition-function-like>`
 
 Regular expressions:
 
