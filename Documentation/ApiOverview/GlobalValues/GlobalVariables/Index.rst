@@ -199,8 +199,4 @@ Many of the global variables described above can be inspected using the
    It also lets you browse a number of other global arrays.
    Just be curious and investigate!
 
-.. figure:: /Images/ManualScreenshots/GlobalValues/ConfigurationModule.png
-   :alt: The Configuration module in **ADMIN TOOLS**
-
-   Viewing the :php:`$GLOBALS['TYPO3_CONF_VARS]` array using the **ADMIN TOOLS > Configuration** module
-
+.. include:: /Images/AutomaticScreenshots/BackendModules/GlobalValuesConfiguration.rst.txt
