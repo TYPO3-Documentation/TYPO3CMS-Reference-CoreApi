@@ -16,22 +16,4 @@ Event after `$GLOBALS['TCA']` is built to allow to further manipulate the TCA.
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-getTca()
-   :sep:`|` :aspect:`ReturnType:` array
-   :sep:`|`
-
-   |nbsp|
-
-
-setTca(array $tca)
-   :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|`
-
-   |nbsp|
-
-
+.. include:: /CodeSnippets/Events/Core/AfterTcaCompilationEvent.rst.txt

@@ -28,15 +28,4 @@ could look like this:
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-
-.. rst-class:: dl-parameters
-
-getMailer()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Mail\Mailer`
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/Core/AfterMailerInitializationEvent.rst.txt

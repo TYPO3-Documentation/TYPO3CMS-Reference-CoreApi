@@ -8,12 +8,7 @@ ModifyHrefLangTagsEvent
 
 .. versionadded:: 10.3
 
-Event:
-    :php:`TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent`
-
-Description:
-    Event to alter the hreflang tags just before they get rendered.
-
+Event to alter the hreflang tags just before they get rendered.
 
 The class :php:`TYPO3\CMS\Seo\HrefLang\HrefLangGenerator` has been
 refactored to be a listener (identifier 'typo3-seo/hreflangGenerator') to the
@@ -74,32 +69,4 @@ executed after or before the given identifiers.
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-getHrefLangs()
-   :sep:`|` :aspect:`ReturnType:` array
-   :sep:`|`
-
-   |nbsp|
-
-setHrefLangs()
-   :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|`
-
-   Set the hreflang tags.
-
-addHrefLang()
-   :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|` :aspect:`Arguments:` `$languageCode` The language of the hreflang tag you would like to add. For example: nl-NL - `$url` The URL of the translation. For example: :samp:`https://example.com/nl`
-   :sep:`|`
-
-   Add a hreflang tag to the current list of hreflang tags.
-
-getRequest()
-   :sep:`|` :aspect:`ReturnType:` `\Psr\Http\Message\ServerRequestInterface`
-   :sep:`|`
-
-   |nbsp|
+.. include:: /CodeSnippets/Events/Frontend/ModifyHrefLangTagsEvent.rst.txt

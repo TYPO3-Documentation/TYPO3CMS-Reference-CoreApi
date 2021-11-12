@@ -13,27 +13,4 @@ This allows to further analyze or modify the content of a file before it is writ
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-
-.. rst-class:: dl-parameters
-
-getFile()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\FileInterface`
-   :sep:`|`
-
-   |nbsp|
-
-getContent()
-   :sep:`|` :aspect:`ReturnType:` string
-   :sep:`|`
-
-   |nbsp|
-
-setContent(string $content)
-   :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/Core/Resource/BeforeFileContentsSetEvent.rst.txt

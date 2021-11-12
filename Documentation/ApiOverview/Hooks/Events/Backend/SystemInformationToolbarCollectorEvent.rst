@@ -12,13 +12,4 @@ with various information.
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-getToolbarItem()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem`
-   :sep:`|`
-
-   |nbsp|
+.. include:: /CodeSnippets/Events/Backend/SystemInformationToolbarCollectorEvent.rst.txt

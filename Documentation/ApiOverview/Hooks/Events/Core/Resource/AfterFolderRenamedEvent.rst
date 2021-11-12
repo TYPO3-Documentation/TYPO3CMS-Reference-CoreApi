@@ -16,17 +16,4 @@ records (for example in :sql:`sys_filemounts`) after renaming of folders.
 API
 ---
 
-.. rst-class:: dl-parameters
-
-getFolder()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
-   :sep:`|`
-
-   Returns the renamed folder object.
-
-getSourceFolder()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
-   :sep:`|`
-
-   Returns the original folder object.
-
+.. include:: /CodeSnippets/Events/Core/Resource/AfterFolderRenamedEvent.rst.txt
