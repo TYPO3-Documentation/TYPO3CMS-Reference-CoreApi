@@ -9,6 +9,7 @@
 
 .. php:class:: ProcessFileListActionsEvent
 
+   Event fired to modify icons rendered for the file listings
    
    .. php:method:: getResource()
    

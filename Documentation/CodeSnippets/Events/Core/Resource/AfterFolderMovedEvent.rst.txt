@@ -9,6 +9,9 @@
 
 .. php:class:: AfterFolderMovedEvent
 
+   This event is fired after a folder was moved within the Resource Storage / Driver.
+   
+   Custom references can be updated via listeners of this event.
    
    .. php:method:: getFolder()
    

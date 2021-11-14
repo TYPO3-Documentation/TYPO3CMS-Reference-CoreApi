@@ -9,6 +9,9 @@
 
 .. php:class:: BeforeFileDeletedEvent
 
+   This event is fired before a file is about to be deleted.
+   
+   Event listeners can clean up third-party references with this event.
    
    .. php:method:: getFile()
    

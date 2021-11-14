@@ -9,6 +9,9 @@
 
 .. php:class:: ModifyRecordListTableActionsEvent
 
+   An event to modify the multi record selection actions (e.g.
+   
+   "edit", "copy to clipboard") for a table in the RecordList.
    
    .. php:method:: setAction(string action, string actionName = '', string before = '', string after = '')
    

@@ -9,6 +9,9 @@
 
 .. php:class:: BeforeFolderCopiedEvent
 
+   This event is fired before a folder is about to be copied to the Resource Storage / Driver.
+   
+   Listeners could add deferred processing / queuing of large folders.
    
    .. php:method:: getFolder()
    

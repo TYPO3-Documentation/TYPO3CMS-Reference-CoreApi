@@ -9,6 +9,7 @@
 
 .. php:class:: AfterObjectThawedEvent
 
+   Allows to modify values when creating domain objects.
    
    .. php:method:: getObject()
    

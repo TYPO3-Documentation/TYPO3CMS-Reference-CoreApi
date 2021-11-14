@@ -9,6 +9,7 @@
 
 .. php:class:: EntityPersistedEvent
 
+   Event which is fired after an object was pushed to the storage backend
    
    .. php:method:: getObject()
    

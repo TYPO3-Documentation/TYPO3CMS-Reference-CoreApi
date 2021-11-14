@@ -9,6 +9,11 @@
 
 .. php:class:: SendRecoveryEmailEvent
 
+   Event that contains the email to be sent to the user when they request a new password.
+   
+   More
+   
+   Additional validation can happen here.
    
    .. php:method:: getUserInformation()
    

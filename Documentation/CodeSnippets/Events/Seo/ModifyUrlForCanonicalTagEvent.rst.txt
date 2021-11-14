@@ -9,6 +9,7 @@
 
 .. php:class:: ModifyUrlForCanonicalTagEvent
 
+   PSR-14 to alter (or empty) a canonical URL for the href="" attribute of a canonical URL.
    
    .. php:method:: getUrl()
    

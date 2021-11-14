@@ -9,6 +9,7 @@
 
 .. php:class:: BrokenLinkAnalysisEvent
 
+   Event that is fired to validate if a link is valid or not.
    
    .. php:method:: isPropagationStopped()
    

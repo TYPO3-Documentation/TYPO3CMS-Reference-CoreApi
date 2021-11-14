@@ -9,6 +9,9 @@
 
 .. php:class:: AfterFolderRenamedEvent
 
+   This event is fired after a folder was renamed.
+   
+   Examples: Add custom processing of folders or adjust permissions.
    
    .. php:method:: getFolder()
    

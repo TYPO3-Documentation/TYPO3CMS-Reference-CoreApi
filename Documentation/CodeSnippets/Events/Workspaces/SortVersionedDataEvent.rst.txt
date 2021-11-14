@@ -9,6 +9,7 @@
 
 .. php:class:: SortVersionedDataEvent
 
+   Used in the workspaces module after sorting all data for versions of a workspace.
    
    .. php:method:: getGridService()
    

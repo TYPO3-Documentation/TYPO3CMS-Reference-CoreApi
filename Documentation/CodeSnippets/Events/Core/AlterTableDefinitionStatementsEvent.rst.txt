@@ -9,6 +9,7 @@
 
 .. php:class:: AlterTableDefinitionStatementsEvent
 
+   Event to intercept the "CREATE TABLE" statement from all loaded extensions.
    
    .. php:method:: addSqlData(unknown data)
    

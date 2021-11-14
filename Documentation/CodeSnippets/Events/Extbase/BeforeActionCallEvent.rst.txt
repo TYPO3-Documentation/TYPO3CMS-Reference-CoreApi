@@ -9,6 +9,8 @@
 
 .. php:class:: BeforeActionCallEvent
 
+   Event that is triggered before any Extbase Action is called within the ActionController or one
+   of its subclasses.
    
    .. php:method:: getControllerClassName()
    

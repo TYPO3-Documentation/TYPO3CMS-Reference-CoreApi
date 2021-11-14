@@ -9,6 +9,10 @@
 
 .. php:class:: GeneratePublicUrlForResourceEvent
 
+   This event is fired before TYPO3 FAL's native URL generation for a Resource is instantiated.
+   
+   This allows for listeners to create custom links to certain files (e.g. restrictions) for creating
+   authorized deeplinks.
    
    .. php:method:: getResource()
    

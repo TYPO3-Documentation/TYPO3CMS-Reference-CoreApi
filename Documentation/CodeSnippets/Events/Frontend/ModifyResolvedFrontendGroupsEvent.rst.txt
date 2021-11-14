@@ -9,6 +9,8 @@
 
 .. php:class:: ModifyResolvedFrontendGroupsEvent
 
+   Event listener to allow to add custom Frontend Groups to a (frontend) request
+   regardless if a user is logged in or not.
    
    .. php:method:: getRequest()
    

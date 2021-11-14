@@ -9,6 +9,7 @@
 
 .. php:class:: BeforeStylesheetsRenderingEvent
 
+   This event is fired once before \TYPO3\CMS\Core\Page\AssetRenderer::render[Inline]Stylesheets renders the output.
    
    .. php:method:: getAssetCollector()
    

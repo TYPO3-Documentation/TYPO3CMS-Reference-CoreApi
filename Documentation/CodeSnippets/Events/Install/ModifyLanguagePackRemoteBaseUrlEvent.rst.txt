@@ -9,6 +9,7 @@
 
 .. php:class:: ModifyLanguagePackRemoteBaseUrlEvent
 
+   Event to modify the main URL of a language
    
    .. php:method:: getBaseUrl()
    

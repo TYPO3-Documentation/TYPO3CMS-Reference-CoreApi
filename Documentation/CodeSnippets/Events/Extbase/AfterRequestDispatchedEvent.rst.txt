@@ -9,6 +9,7 @@
 
 .. php:class:: AfterRequestDispatchedEvent
 
+   Event which is fired after the dispatcher has successfully dispatched a request to a controller/action.
    
    .. php:method:: getRequest()
    

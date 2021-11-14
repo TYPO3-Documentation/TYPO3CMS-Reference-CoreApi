@@ -9,6 +9,7 @@
 
 .. php:class:: BeforeFormEnginePageInitializedEvent
 
+   Event to listen to before the form engine has been initialized (= before all data will be persisted)
    
    .. php:method:: getController()
    

@@ -9,6 +9,7 @@
 
 .. php:class:: AfterGroupsResolvedEvent
 
+   Event fired after user groups have been resolved for a specific user
    
    .. php:method:: getSourceDatabaseTable()
    

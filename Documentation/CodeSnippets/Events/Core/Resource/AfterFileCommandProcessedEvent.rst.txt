@@ -9,6 +9,9 @@
 
 .. php:class:: AfterFileCommandProcessedEvent
 
+   Event that is triggered after a file command has been processed. Can be used
+   to perform additional tasks for specific commands. For example, trigger a
+   custom indexer after a file has been uploaded.
    
    .. php:method:: getCommand()
    

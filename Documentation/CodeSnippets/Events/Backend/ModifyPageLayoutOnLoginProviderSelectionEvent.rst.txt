@@ -9,6 +9,7 @@
 
 .. php:class:: ModifyPageLayoutOnLoginProviderSelectionEvent
 
+   Allows to modify variables for the view depending on a special login provider set in the controller.
    
    .. php:method:: getController()
    

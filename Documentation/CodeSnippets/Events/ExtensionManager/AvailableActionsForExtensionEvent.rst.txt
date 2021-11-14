@@ -9,6 +9,7 @@
 
 .. php:class:: AvailableActionsForExtensionEvent
 
+   Event that is triggered when rendering an additional action (currently within a Fluid ViewHelper).
    
    .. php:method:: getPackageKey()
    

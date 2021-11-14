@@ -9,6 +9,7 @@
 
 .. php:class:: ModifyLoginFormViewEvent
 
+   Allows to inject custom variables into the login form.
    
    .. php:method:: getView()
    

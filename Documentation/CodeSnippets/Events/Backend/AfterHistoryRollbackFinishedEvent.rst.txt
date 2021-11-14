@@ -9,6 +9,7 @@
 
 .. php:class:: AfterHistoryRollbackFinishedEvent
 
+   This event is fired after a history record rollback finished.
    
    .. php:method:: getRecordHistoryRollback()
    

@@ -9,6 +9,7 @@
 
 .. php:class:: ModifyLoadedPageTsConfigEvent
 
+   Extensions can modify pageTSConfig entries that can be overridden or added, based on the root line
    
    .. php:method:: getTsConfig()
    

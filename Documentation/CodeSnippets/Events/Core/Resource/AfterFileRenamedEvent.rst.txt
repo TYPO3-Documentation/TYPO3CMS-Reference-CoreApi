@@ -9,6 +9,8 @@
 
 .. php:class:: AfterFileRenamedEvent
 
+   This event is fired after a file was renamed in order to further process a file or filename
+   or update custom references to a file.
    
    .. php:method:: getFile()
    

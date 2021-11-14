@@ -9,6 +9,9 @@
 
 .. php:class:: ModifyRecordListRecordActionsEvent
 
+   An event to modify the displayed record actions (e.g.
+   
+   "edit", "copy", "delete") for a table in the RecordList.
    
    .. php:method:: setAction(string action, string actionName = '', string group = '', string before = '', string after = '')
    

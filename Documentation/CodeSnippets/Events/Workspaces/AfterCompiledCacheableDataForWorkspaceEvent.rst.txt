@@ -9,6 +9,7 @@
 
 .. php:class:: AfterCompiledCacheableDataForWorkspaceEvent
 
+   Used in the workspaces module to find all chacheable data of versions of a workspace.
    
    .. php:method:: getGridService()
    

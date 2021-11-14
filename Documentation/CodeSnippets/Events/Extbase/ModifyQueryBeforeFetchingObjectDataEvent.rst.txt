@@ -9,6 +9,7 @@
 
 .. php:class:: ModifyQueryBeforeFetchingObjectDataEvent
 
+   Event which is fired before the storage backend is asked for results from a given query.
    
    .. php:method:: getQuery()
    

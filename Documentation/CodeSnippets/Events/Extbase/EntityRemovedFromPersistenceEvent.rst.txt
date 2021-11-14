@@ -9,6 +9,7 @@
 
 .. php:class:: EntityRemovedFromPersistenceEvent
 
+   Event which is fired after an object/entity was sent to persistence layer to be removed.
    
    .. php:method:: getObject()
    

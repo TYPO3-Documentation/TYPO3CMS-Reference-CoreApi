@@ -9,6 +9,9 @@
 
 .. php:class:: AfterFileProcessingEvent
 
+   This event is fired after a file object has been processed.
+   
+   This allows to further customize a file object's processed file.
    
    .. php:method:: getProcessedFile()
    

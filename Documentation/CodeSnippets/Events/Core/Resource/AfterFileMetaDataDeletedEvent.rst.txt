@@ -9,6 +9,8 @@
 
 .. php:class:: AfterFileMetaDataDeletedEvent
 
+   This event is fired once all metadata of a file was removed, in order to manage custom metadata that was
+   added previously
    
    .. php:method:: getFileUid()
    

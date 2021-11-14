@@ -9,6 +9,7 @@
 
 .. php:class:: AddJavaScriptModulesEvent
 
+   Collects additional JavaScript modules to be loaded in SetupModuleController.
    
    .. php:method:: addModule(string moduleName)
    

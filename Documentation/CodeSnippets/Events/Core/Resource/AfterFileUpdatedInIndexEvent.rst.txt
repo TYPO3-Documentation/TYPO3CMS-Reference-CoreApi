@@ -9,6 +9,9 @@
 
 .. php:class:: AfterFileUpdatedInIndexEvent
 
+   This event is fired once an index was just updated inside the database (= indexed).
+   
+   Custom listeners can update further index values when a file was updated.
    
    .. php:method:: getFile()
    

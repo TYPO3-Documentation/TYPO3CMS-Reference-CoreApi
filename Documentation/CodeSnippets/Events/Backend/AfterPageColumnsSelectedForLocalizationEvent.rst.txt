@@ -9,6 +9,11 @@
 
 .. php:class:: AfterPageColumnsSelectedForLocalizationEvent
 
+   This event triggers after the LocalizationController (AJAX) has
+   selected page columns to be translated. Allows third parties to
+   add to or change the columns and content elements withing those
+   columns which will be available for localization through the
+   "translate" modal in the page module.
    
    .. php:method:: getColumns()
    

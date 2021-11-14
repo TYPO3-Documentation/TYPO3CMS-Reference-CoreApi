@@ -9,6 +9,8 @@
 
 .. php:class:: ModifyIconForResourcePropertiesEvent
 
+   This is an Event every time an icon for a resource (file or folder) is fetched, allowing
+   to modify the icon or overlay in an event listener.
    
    .. php:method:: getResource()
    

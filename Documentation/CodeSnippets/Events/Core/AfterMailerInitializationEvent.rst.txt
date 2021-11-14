@@ -9,6 +9,9 @@
 
 .. php:class:: AfterMailerInitializationEvent
 
+   This event is fired once a new Mailer is instantiated with specific transport settings.
+   
+   So it is possible to add custom mailing settings.
    
    .. php:method:: getMailer()
    

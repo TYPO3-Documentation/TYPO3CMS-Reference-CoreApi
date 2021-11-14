@@ -9,6 +9,7 @@
 
 .. php:class:: BeforeHistoryRollbackStartEvent
 
+   This event is fired before a history record rollback starts
    
    .. php:method:: getRecordHistoryRollback()
    

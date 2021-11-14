@@ -9,6 +9,8 @@
 
 .. php:class:: EntityAddedToPersistenceEvent
 
+   Event which is fired after an object/entity was sent to persistence layer to be added,
+   but before updating the reference index and current session.
    
    .. php:method:: getObject()
    

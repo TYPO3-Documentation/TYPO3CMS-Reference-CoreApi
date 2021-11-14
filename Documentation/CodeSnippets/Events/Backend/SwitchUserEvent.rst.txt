@@ -9,6 +9,7 @@
 
 .. php:class:: SwitchUserEvent
 
+   This event is triggered when a "SU" (switch user) action has been triggered
    
    .. php:method:: getSessionId()
    

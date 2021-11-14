@@ -9,6 +9,9 @@
 
 .. php:class:: BeforeFolderAddedEvent
 
+   This event is fired before a folder is about to be added to the Resource Storage / Driver.
+   
+   This allows to further specify folder names according to regulations for a specific project.
    
    .. php:method:: getParentFolder()
    

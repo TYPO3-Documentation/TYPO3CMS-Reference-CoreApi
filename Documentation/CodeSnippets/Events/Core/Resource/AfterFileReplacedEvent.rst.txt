@@ -9,6 +9,9 @@
 
 .. php:class:: AfterFileReplacedEvent
 
+   This event is fired after a file was replaced.
+   
+   Example: Further process a file or create variants, or index the contents of a file for AI analysis etc.
    
    .. php:method:: getFile()
    

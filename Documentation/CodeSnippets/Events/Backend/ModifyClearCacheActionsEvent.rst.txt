@@ -9,6 +9,7 @@
 
 .. php:class:: ModifyClearCacheActionsEvent
 
+   An event to modify the clear cache actions, shown in the TYPO3 Backend top toolbar
    
    .. php:method:: addCacheAction(array cacheAction)
    

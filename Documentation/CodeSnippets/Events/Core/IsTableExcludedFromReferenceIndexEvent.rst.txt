@@ -9,6 +9,10 @@
 
 .. php:class:: IsTableExcludedFromReferenceIndexEvent
 
+   Event to intercept if a certain table should be excluded from the Reference Index.
+   
+   There is no need to add tables without a definition in $GLOBALS['TCA'] since
+   ReferenceIndex only handles those.
    
    .. php:method:: getTable()
    

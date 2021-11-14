@@ -9,6 +9,7 @@
 
 .. php:class:: ModifyTreeDataEvent
 
+   Allows to modify tree data for any database tree
    
    .. php:method:: getTreeData()
    

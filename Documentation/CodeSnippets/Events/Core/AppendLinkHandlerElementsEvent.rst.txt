@@ -9,6 +9,7 @@
 
 .. php:class:: AppendLinkHandlerElementsEvent
 
+   Event fired so listeners can intercept add elements when checking links within the SoftRef parser
    
    .. php:method:: getLinkParts()
    
