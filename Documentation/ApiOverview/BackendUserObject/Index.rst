@@ -198,7 +198,7 @@ Get User Configuration Value
 ============================
 
 The internal :php:`->uc` array contains options which are managed by the
-User Tools > User Settings module (extension "setup"). These values are accessible in
+User Tools > :guilabel:`User Settings` module (extension "setup"). These values are accessible in
 the :php:`$GLOBALS['BE_USER']->uc` array. This will return the current state of
 "Notify me by email, when somebody logs in from my account" for the user::
 
