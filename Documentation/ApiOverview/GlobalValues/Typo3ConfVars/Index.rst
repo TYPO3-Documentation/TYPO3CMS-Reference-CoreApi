@@ -208,7 +208,7 @@ values programmatically if needed.
 
 :file:`typo3conf/AdditionalConfiguration.php` is a plain PHP file.
 There are no specific rules about what it may contain. However since
-the code it contains is included on **every** request to TYPO3 CMS
+the code is included on **every** request to TYPO3 CMS
 - whether frontend or backend - you should avoid inserting code
 which requires heavy duty processing.
 
