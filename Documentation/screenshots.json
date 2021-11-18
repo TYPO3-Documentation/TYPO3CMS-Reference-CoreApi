@@ -3,6 +3,7 @@
         "Core": {
             "screenshots": {
                 "_default": [
+                    {"comment":  "This screenshots.json runs on branch develop."},
                     {"action": "resizeWindow", "width": 1024,"height": 768},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
