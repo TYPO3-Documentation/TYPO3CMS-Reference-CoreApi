@@ -13,21 +13,4 @@ This allows to further specify folder names according to regulations for a speci
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-
-.. rst-class:: dl-parameters
-
-getParentFolder()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
-   :sep:`|`
-
-   |nbsp|
-
-getFolderName()
-   :sep:`|` :aspect:`ReturnType:` string
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/Core/Resource/BeforeFolderAddedEvent.rst.txt

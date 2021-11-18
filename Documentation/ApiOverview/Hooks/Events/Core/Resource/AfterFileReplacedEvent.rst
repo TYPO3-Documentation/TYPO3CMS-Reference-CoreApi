@@ -15,21 +15,4 @@ contents of a file for AI analysis etc.
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-
-.. rst-class:: dl-parameters
-
-getFile()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\FileInterface`
-   :sep:`|`
-
-   |nbsp|
-
-getLocalFilePath()
-   :sep:`|` :aspect:`ReturnType:` string
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/Core/Resource/AfterFileReplacedEvent.rst.txt

@@ -14,27 +14,4 @@ or specific rules when moving folders.
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-
-.. rst-class:: dl-parameters
-
-getFolder()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
-   :sep:`|`
-
-   |nbsp|
-
-getTargetParentFolder()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\Folder`
-   :sep:`|`
-
-   |nbsp|
-
-getTargetFolderName()
-   :sep:`|` :aspect:`ReturnType:` string
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/Core/Resource/BeforeFolderMovedEvent.rst.txt

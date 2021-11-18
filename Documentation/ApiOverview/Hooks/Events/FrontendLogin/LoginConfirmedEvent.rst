@@ -13,19 +13,4 @@ via the view and the controller.
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-getView()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Extbase\Mvc\View\ViewInterface`
-   :sep:`|`
-
-   |nbsp|
-
-getController()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\FrontendLogin\Controller\LoginController`
-   :sep:`|`
-
-   |nbsp|
+.. include:: /CodeSnippets/Events/FrontendLogin/LoginConfirmedEvent.rst.txt

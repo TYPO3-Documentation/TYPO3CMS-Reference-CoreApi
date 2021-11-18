@@ -40,14 +40,4 @@ Registration of the event in the :file:`Services.yaml`:
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-:php:`isCachingEnabled()`
-   :sep:`|` :aspect:`ReturnType:` `boolean`
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/Core/BootCompletedEvent.rst.txt

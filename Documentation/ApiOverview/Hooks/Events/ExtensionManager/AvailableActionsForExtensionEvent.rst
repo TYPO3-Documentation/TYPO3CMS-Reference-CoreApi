@@ -30,37 +30,4 @@ Event that is triggered when rendering an additional action (currently within a 
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-getPackageKey()
-   :sep:`|` :aspect:`ReturnType:` string
-   :sep:`|`
-
-   |nbsp|
-
-getPackageData()
-   :sep:`|` :aspect:`ReturnType:` string
-   :sep:`|`
-
-   |nbsp|
-
-getActions()
-   :sep:`|` :aspect:`ReturnType:` array
-   :sep:`|`
-
-   |nbsp|
-
-addAction()
-   :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|` :aspect:`Arguments:` `$actionKey`: Unique key for the action; `$content`: (HTML) content to display
-
-   Add an action to display.
-
-setActions()
-   :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|` :aspect:`Arguments:` `$ctions`: Array of actions (key = identifier, value = content)
-
-   |nbsp|
+.. include:: /CodeSnippets/Events/ExtensionManager/AvailableActionsForExtensionEvent.rst.txt
