@@ -1,12 +1,672 @@
 {
     "suites": {
-
         "Core": {
             "screenshots": {
                 "_default": [
+                    {"comment":  "This screenshots.json runs on branch develop."},
                     {"action": "resizeWindow", "width": 1024,"height": 768},
                     {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
                     {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
+                ],
+                "EventsRecordList": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/RecordList"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Recordlist\\Event\\ModifyRecordListHeaderColumnsEvent",
+                        "targetFileName": "ModifyRecordListHeaderColumnsEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Recordlist\\Event\\ModifyRecordListRecordActionsEvent",
+                        "targetFileName": "ModifyRecordListRecordActionsEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Recordlist\\Event\\ModifyRecordListTableActionsEvent",
+                        "targetFileName": "ModifyRecordListTableActionsEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Recordlist\\Event\\RenderAdditionalContentToRecordListEvent",
+                        "targetFileName": "RenderAdditionalContentToRecordListEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsBackend": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/Backend"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Backend\\Controller\\Event\\AfterFormEnginePageInitializedEvent",
+                        "targetFileName": "AfterFormEnginePageInitializedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Backend\\History\\Event\\AfterHistoryRollbackFinishedEvent",
+                        "targetFileName": "AfterHistoryRollbackFinishedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Backend\\Controller\\Event\\AfterPageColumnsSelectedForLocalizationEvent",
+                        "targetFileName": "AfterPageColumnsSelectedForLocalizationEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Backend\\Controller\\Event\\BeforeFormEnginePageInitializedEvent",
+                        "targetFileName": "BeforeFormEnginePageInitializedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Backend\\History\\Event\\BeforeHistoryRollbackStartEvent",
+                        "targetFileName": "BeforeHistoryRollbackStartEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Backend\\Backend\\Event\\ModifyClearCacheActionsEvent",
+                        "targetFileName": "ModifyClearCacheActionsEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Backend\\LoginProvider\\Event\\ModifyPageLayoutOnLoginProviderSelectionEvent",
+                        "targetFileName": "ModifyPageLayoutOnLoginProviderSelectionEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Backend\\Authentication\\Event\\SwitchUserEvent",
+                        "targetFileName": "SwitchUserEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Backend\\Backend\\Event\\SystemInformationToolbarCollectorEvent",
+                        "targetFileName": "SystemInformationToolbarCollectorEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsCore": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/Core"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Authentication\\Event\\AfterGroupsResolvedEvent",
+                        "targetFileName": "AfterGroupsResolvedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Configuration\\Event\\AfterTcaCompilationEvent",
+                        "targetFileName": "AfterTcaCompilationEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Configuration\\Event\\ModifyLoadedPageTsConfigEvent",
+                        "targetFileName": "ModifyLoadedPageTsConfigEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Core\\Event\\BootCompletedEvent",
+                        "targetFileName": "BootCompletedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Database\\Event\\AlterTableDefinitionStatementsEvent",
+                        "targetFileName": "AlterTableDefinitionStatementsEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\DataHandling\\Event\\AppendLinkHandlerElementsEvent",
+                        "targetFileName": "AppendLinkHandlerElementsEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\DataHandling\\Event\\IsTableExcludedFromReferenceIndexEvent",
+                        "targetFileName": "IsTableExcludedFromReferenceIndexEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Html\\Event\\BrokenLinkAnalysisEvent",
+                        "targetFileName": "BrokenLinkAnalysisEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Mail\\Event\\AfterMailerInitializationEvent",
+                        "targetFileName": "AfterMailerInitializationEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Package\\Event\\AfterPackageActivationEvent",
+                        "targetFileName": "AfterPackageActivationEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Package\\Event\\AfterPackageDeactivationEvent",
+                        "targetFileName": "AfterPackageDeactivationEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Package\\Event\\BeforePackageActivationEvent",
+                        "targetFileName": "BeforePackageActivationEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Package\\Event\\PackagesMayHaveChangedEvent",
+                        "targetFileName": "PackagesMayHaveChangedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Page\\Event\\BeforeJavaScriptsRenderingEvent",
+                        "targetFileName": "BeforeJavaScriptsRenderingEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Page\\Event\\BeforeStylesheetsRenderingEvent",
+                        "targetFileName": "BeforeStylesheetsRenderingEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Tree\\Event\\ModifyTreeDataEvent",
+                        "targetFileName": "ModifyTreeDataEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsCoreResource": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/Core/Resource"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileAddedEvent",
+                        "targetFileName": "AfterFileAddedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileAddedToIndexEvent",
+                        "targetFileName": "AfterFileAddedToIndexEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileCommandProcessedEvent",
+                        "targetFileName": "AfterFileCommandProcessedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileContentsSetEvent",
+                        "targetFileName": "AfterFileContentsSetEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileCopiedEvent",
+                        "targetFileName": "AfterFileCopiedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileCreatedEvent",
+                        "targetFileName": "AfterFileCreatedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileDeletedEvent",
+                        "targetFileName": "AfterFileDeletedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileMarkedAsMissingEvent",
+                        "targetFileName": "AfterFileMarkedAsMissingEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileMetaDataCreatedEvent",
+                        "targetFileName": "AfterFileMetaDataCreatedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileMetaDataDeletedEvent",
+                        "targetFileName": "AfterFileMetaDataDeletedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileMovedEvent",
+                        "targetFileName": "AfterFileMovedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileProcessingEvent",
+                        "targetFileName": "AfterFileProcessingEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileRemovedFromIndexEvent",
+                        "targetFileName": "AfterFileRemovedFromIndexEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileRenamedEvent",
+                        "targetFileName": "AfterFileRenamedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileReplacedEvent",
+                        "targetFileName": "AfterFileReplacedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFileUpdatedInIndexEvent",
+                        "targetFileName": "AfterFileUpdatedInIndexEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFolderAddedEvent",
+                        "targetFileName": "AfterFolderAddedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFolderCopiedEvent",
+                        "targetFileName": "AfterFolderCopiedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFolderDeletedEvent",
+                        "targetFileName": "AfterFolderDeletedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFolderMovedEvent",
+                        "targetFileName": "AfterFolderMovedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterFolderRenamedEvent",
+                        "targetFileName": "AfterFolderRenamedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\AfterResourceStorageInitializationEvent",
+                        "targetFileName": "AfterResourceStorageInitializationEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFileAddedEvent",
+                        "targetFileName": "BeforeFileAddedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFileContentsSetEvent",
+                        "targetFileName": "BeforeFileContentsSetEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFileCopiedEvent",
+                        "targetFileName": "BeforeFileCopiedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFileCreatedEvent",
+                        "targetFileName": "BeforeFileCreatedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFileDeletedEvent",
+                        "targetFileName": "BeforeFileDeletedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFileMovedEvent",
+                        "targetFileName": "BeforeFileMovedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFileProcessingEvent",
+                        "targetFileName": "BeforeFileProcessingEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFileRenamedEvent",
+                        "targetFileName": "BeforeFileRenamedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFileReplacedEvent",
+                        "targetFileName": "BeforeFileReplacedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFolderAddedEvent",
+                        "targetFileName": "BeforeFolderAddedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFolderCopiedEvent",
+                        "targetFileName": "BeforeFolderCopiedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFolderDeletedEvent",
+                        "targetFileName": "BeforeFolderDeletedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFolderMovedEvent",
+                        "targetFileName": "BeforeFolderMovedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeFolderRenamedEvent",
+                        "targetFileName": "BeforeFolderRenamedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\BeforeResourceStorageInitializationEvent",
+                        "targetFileName": "BeforeResourceStorageInitializationEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\EnrichFileMetaDataEvent",
+                        "targetFileName": "EnrichFileMetaDataEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\GeneratePublicUrlForResourceEvent",
+                        "targetFileName": "GeneratePublicUrlForResourceEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\ModifyFileDumpEvent",
+                        "targetFileName": "ModifyFileDumpEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Imaging\\Event\\ModifyIconForResourcePropertiesEvent",
+                        "targetFileName": "ModifyIconForResourcePropertiesEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Resource\\Event\\SanitizeFileNameEvent",
+                        "targetFileName": "SanitizeFileNameEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Core\\Tree\\Event\\ModifyTreeDataEvent",
+                        "targetFileName": "ModifyTreeDataEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsExtbase": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/Extbase"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extbase\\Event\\Mvc\\AfterRequestDispatchedEvent",
+                        "targetFileName": "AfterRequestDispatchedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extbase\\Event\\Mvc\\BeforeActionCallEvent",
+                        "targetFileName": "BeforeActionCallEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extbase\\Event\\Persistence\\AfterObjectThawedEvent",
+                        "targetFileName": "AfterObjectThawedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extbase\\Event\\Persistence\\EntityAddedToPersistenceEvent",
+                        "targetFileName": "EntityAddedToPersistenceEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extbase\\Event\\Persistence\\EntityPersistedEvent",
+                        "targetFileName": "EntityPersistedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extbase\\Event\\Persistence\\EntityRemovedFromPersistenceEvent",
+                        "targetFileName": "EntityRemovedFromPersistenceEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extbase\\Event\\Persistence\\EntityUpdatedInPersistenceEvent",
+                        "targetFileName": "EntityUpdatedInPersistenceEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extbase\\Event\\Persistence\\ModifyQueryBeforeFetchingObjectDataEvent",
+                        "targetFileName": "ModifyQueryBeforeFetchingObjectDataEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extbase\\Event\\Persistence\\ModifyResultAfterFetchingObjectDataEvent",
+                        "targetFileName": "ModifyResultAfterFetchingObjectDataEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsExtensionManager": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/ExtensionManager"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extensionmanager\\Event\\AfterExtensionDatabaseContentHasBeenImportedEvent",
+                        "targetFileName": "AfterExtensionDatabaseContentHasBeenImportedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extensionmanager\\Event\\AfterExtensionFilesHaveBeenImportedEvent",
+                        "targetFileName": "AfterExtensionFilesHaveBeenImportedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extensionmanager\\Event\\AfterExtensionStaticDatabaseContentHasBeenImportedEvent",
+                        "targetFileName": "AfterExtensionStaticDatabaseContentHasBeenImportedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Extensionmanager\\Event\\AvailableActionsForExtensionEvent",
+                        "targetFileName": "AvailableActionsForExtensionEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsFilelist": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/Filelist"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Filelist\\Event\\ProcessFileListActionsEvent",
+                        "targetFileName": "ProcessFileListActionsEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsFrontend": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/Frontend"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Frontend\\Event\\ModifyHrefLangTagsEvent",
+                        "targetFileName": "ModifyHrefLangTagsEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Frontend\\Authentication\\ModifyResolvedFrontendGroupsEvent",
+                        "targetFileName": "ModifyResolvedFrontendGroupsEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsFrontendLogin": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/FrontendLogin"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\FrontendLogin\\Event\\LoginConfirmedEvent",
+                        "targetFileName": "LoginConfirmedEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\FrontendLogin\\Event\\ModifyLoginFormViewEvent",
+                        "targetFileName": "ModifyLoginFormViewEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\FrontendLogin\\Event\\SendRecoveryEmailEvent",
+                        "targetFileName": "SendRecoveryEmailEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsImpexp": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/Impexp"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Impexp\\Event\\BeforeImportEvent",
+                        "targetFileName": "BeforeImportEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsInstall": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/Install"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Install\\Service\\Event\\ModifyLanguagePackRemoteBaseUrlEvent",
+                        "targetFileName": "ModifyLanguagePackRemoteBaseUrlEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsLinkvalidator": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/Linkvalidator"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Linkvalidator\\Event\\BeforeRecordIsAnalyzedEvent",
+                        "targetFileName": "BeforeRecordIsAnalyzedEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsSeo": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/Seo"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Seo\\Event\\ModifyUrlForCanonicalTagEvent",
+                        "targetFileName": "ModifyUrlForCanonicalTagEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsSetup": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/Setup"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Setup\\Event\\AddJavaScriptModulesEvent",
+                        "targetFileName": "AddJavaScriptModulesEvent",
+                        "withCode": false
+                    }
+                ],
+                "EventsWorkspaces": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Events/Workspaces"},
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Workspaces\\Event\\AfterCompiledCacheableDataForWorkspaceEvent",
+                        "targetFileName": "AfterCompiledCacheableDataForWorkspaceEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Workspaces\\Event\\AfterDataGeneratedForWorkspaceEvent",
+                        "targetFileName": "AfterDataGeneratedForWorkspaceEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Workspaces\\Event\\GetVersionedDataEvent",
+                        "targetFileName": "GetVersionedDataEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Workspaces\\Event\\SortVersionedDataEvent",
+                        "targetFileName": "SortVersionedDataEvent",
+                        "withCode": false
+                    }
                 ],
                 "RequestHandling": [
                     {"include": "_default"},

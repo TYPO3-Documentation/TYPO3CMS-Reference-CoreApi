@@ -44,32 +44,4 @@ The corresponding event listener class:
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-:php:`getResource()`
-   :sep:`|` :aspect:`ReturnType:` `\TYPO3\CMS\Core\Resource\ResourceInterface`
-   :sep:`|`
-
-   |nbsp|
-
-:php:`isFile()`
-   :sep:`|` :aspect:`ReturnType:` `boolean`
-   :sep:`|`
-
-   |nbsp|
-
-:php:`getActionItems()`
-   :sep:`|` :aspect:`ReturnType:` `void`
-   :sep:`|`
-
-   |nbsp|
-
-:php:`setActionItems(array $actionItems)`
-   :sep:`|` :aspect:`Arguments:` `array $actionItems`
-   :sep:`|` :aspect:`ReturnType:` `void`
-   :sep:`|`
-
-   |nbsp|
+.. include:: /CodeSnippets/Events/Filelist/ProcessFileListActionsEvent.rst.txt

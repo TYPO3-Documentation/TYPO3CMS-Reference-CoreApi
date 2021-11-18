@@ -21,33 +21,4 @@ Description:
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-getRequest()
-   :sep:`|` :aspect:`ReturnType:` \Psr\Http\Message\ServerRequestInterface
-   :sep:`|`
-
-   |nbsp|
-
-getUser()
-   :sep:`|` :aspect:`ReturnType:` FrontendUserAuthentication
-   :sep:`|`
-
-   |nbsp|
-
-getGroups()
-   :sep:`|` :aspect:`ReturnType:` array
-   :sep:`|`
-
-   |nbsp|
-
-setGroups()
-   :sep:`|` :aspect:`ReturnType:` array
-   :sep:`|` :aspect:`Arguments:` `groups` The groups to be set
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/Frontend/ModifyResolvedFrontendGroupsEvent.rst.txt
