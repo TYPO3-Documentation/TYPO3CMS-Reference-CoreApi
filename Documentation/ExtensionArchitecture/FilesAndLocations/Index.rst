@@ -438,7 +438,7 @@ A typical :file:`Configuration/Services.yaml` may look like this:
 
 .. seealso::
 
-   * TYPO3 does use the Symfony component, so official documentation can be found at
+   * TYPO3 uses the Symfony Dependecy Injection component, so official documentation can be found at
      https://symfony.com/doc/current/service_container.html
 
 .. _resources/public/icons/extension.svg:
