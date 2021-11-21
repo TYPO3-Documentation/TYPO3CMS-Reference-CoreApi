@@ -6,7 +6,7 @@
 RestrictionBuilder
 ==================
 
-Database tables in `TYPO3 CMS` that can be administrated in the backend come with
+Database tables in TYPO3 CMS that can be administrated in the backend come with
 :ref:`TCA <t3tca:start>` definitions that
 specify how single fields and rows of the table should be handled and displayed
 by the framework.
@@ -24,7 +24,7 @@ dealing with low-level query stuff must take care overlayed or deleted rows
 are not in the result set of a casual query.
 
 This is where this "automatic restriction" stuff kicks in: The construct is created
-on top of native Doctrine DBAL as `TYPO3 CMS` specific extension. It automatically
+on top of native Doctrine DBAL as TYPO3 CMS specific extension. It automatically
 adds `WHERE` expressions that suppress rows which are marked as deleted or exceeded
 their "active" life cycle. All that is based on the `TCA` configuration of the affected table.
 

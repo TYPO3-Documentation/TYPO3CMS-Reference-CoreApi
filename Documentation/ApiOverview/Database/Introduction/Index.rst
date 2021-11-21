@@ -53,7 +53,7 @@ doctrine without an extension developer taking care of that specifically.
 
 The API provided by the Core is basically a pretty small and lightweight facade
 in front of Doctrine DBAL that adds some convenient methods as well as some
-`TYPO3 CMS` specific sugar. The facade additionally provides methods to retrieve
+TYPO3 CMS specific sugar. The facade additionally provides methods to retrieve
 specific connection objects per configured database connection based on the table
 that is queried. This enables instance administrators to configure different database
 engines for different tables while this is transparent for extension developers.
