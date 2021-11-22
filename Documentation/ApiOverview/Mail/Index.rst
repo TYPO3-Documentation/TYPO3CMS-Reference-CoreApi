@@ -125,10 +125,10 @@ This shows how to generate and send a mail in TYPO3::
       ->setSubject('Your subject')
 
       // Set the From address with an associative array
-      ->setFrom(array('john@doe.com' => 'John Doe'))
+      ->setFrom(array('john.doe@example.org' => 'John Doe'))
 
       // Set the To addresses with an associative array
-      ->setTo(array('receiver@domain.org', 'other@domain.org' => 'A name'))
+      ->setTo(array('receiver@example.com', 'other@example.net' => 'A name'))
 
       // Give it a body
       ->setBody('Here is the message itself')
@@ -148,8 +148,8 @@ Or if you prefer, don't concatenate the calls::
 
    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Mail\\MailMessage');
    $mail->setSubject('Your subject');
-   $mail->setFrom(array('john@doe.com' => 'John Doe'));
-   $mail->setTo(array('receiver@domain.org', 'other@domain.org' => 'A name'));
+   $mail->setFrom(array('john.doe@example.org' => 'John Doe'));
+   $mail->setTo(array('receiver@example.com', 'other@example.net' => 'A name'));
    $mail->setBody('Here is the message itself');
    $mail->addPart('<q>Here is the message itself</q>', 'text/html');
    $mail->attach(Swift_Attachment::fromPath('my-document.pdf'));
@@ -204,7 +204,7 @@ How to set and use a default sender
 It is possible to define a default email sender ("From:") in the *Install
 Tool*::
 
-   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'john@doe.com';
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'john.doe@example.org';
    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromName'] = 'John Doe';
 
 This is how you can use these defaults::
