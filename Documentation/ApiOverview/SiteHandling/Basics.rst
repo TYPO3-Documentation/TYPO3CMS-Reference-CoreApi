@@ -162,7 +162,7 @@ HTTPS redirect either on the webserver level, via a .htaccess rewrite rule, or b
   + Site 1: /mysite/
   + Site 2: example.com
 
-  will be unspecific when detecting a URL like example.com/mysite/ and can lead to side-effects.
+  will be unspecific when detecting a URL like :samp:`example.com/mysite/` and can lead to side-effects.
 
   In this case, it is necessary by the Site Administrator to define unique Site base prefixes.
 
