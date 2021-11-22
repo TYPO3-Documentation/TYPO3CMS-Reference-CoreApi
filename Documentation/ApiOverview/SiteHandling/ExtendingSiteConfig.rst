@@ -22,7 +22,7 @@ makes sense to add them to the site configuration.
     the backend in frontend was no fun.
 
 Adding project configuration to site configuration is easy: The site entity will automatically provide the
-complete configuration via `getConfiguration()`, extending that means therefor "just add whatever you want to
+complete configuration via `getConfiguration()`, extending that means therefore "just add whatever you want to
 the yaml file". The GUI is built in a way that toplevel options unknown / not available in the form will be
 left alone and do not get overwritten when saving.
 
@@ -31,7 +31,7 @@ Example:
 .. code-block:: yaml
 
     rootPageId: 1
-    base: https://example.com
+    base: https://example.org
     myProject:
         recordStorage: 15
 

@@ -71,18 +71,18 @@ Let's assume the mount point page two is configured like this::
 The result will be:
 
 company
-   :samp:`https://example.com/company/`
+   :samp:`https://example.org/company/`
 
    This is just the normal page 3 showing its content.
 
 basic-mountpoint
-   :samp:`https://example.com/basic-mountpoint/`
+   :samp:`https://example.org/basic-mountpoint/`
 
    This is the mount point page 2 showing the content of page 3.
 
 about-us
-   |  :samp:`https://example.com/basic-mountpoint/about-us`
-   |  :samp:`https://example.com/company/about-us`
+   |  :samp:`https://example.org/basic-mountpoint/about-us`
+   |  :samp:`https://example.org/company/about-us`
 
    Both URLs will show the same content, namely that of page 4.
 
@@ -104,11 +104,11 @@ Situation::
    Page   Tree
    ====== ====================
 
-   1      Site 1: example.com
+   1      Site 1: example.org
    2      └── Company              <- mounted by page 5
    3          └── About us
 
-   4      Site 2: company.example.com
+   4      Site 2: company.example.org
    5      └── Cross site mount     <- mount point page that is mounting page 2
 
 
@@ -123,15 +123,15 @@ Configuration of mount point page 5::
 This will be the result:
 
 company
-   |  :samp:`https://example.com/company`
-   |  :samp:`https://company.example.com/cross-site-mount/`
+   |  :samp:`https://example.org/company`
+   |  :samp:`https://company.example.org/cross-site-mount/`
 
    Both pages are rendered from the same content. They may appear visually
    different though if the sites use different styles.
 
 company/about-us
-   |  :samp:`https://example.com/company/about-us`
-   |  :samp:`https://company.example.com/cross-site-mount/about-us`
+   |  :samp:`https://example.org/company/about-us`
+   |  :samp:`https://company.example.org/cross-site-mount/about-us`
 
    Same here: Both pages are rendered from the same content. They may appear
    visually different though if the sites use different styles.
@@ -156,11 +156,11 @@ Limitations
       Page   Tree
       ====== ====================
 
-      1      Site 1: example.com
+      1      Site 1: example.org
       2      └── More              <- mounted by page 5
       3          └── Imprint       <- page will never be reached via Site 2
 
-      4      Site 2: company.example.com
+      4      Site 2: company.example.org
       5      └── More              <- mount point page that is mounting page 2
       6      └── Imprint           <- slug manually configured to `more/imprint/`
 

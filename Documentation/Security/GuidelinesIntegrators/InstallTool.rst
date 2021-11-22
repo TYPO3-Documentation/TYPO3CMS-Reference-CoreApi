@@ -21,7 +21,7 @@ the Install Tool should be accessible. The second mechanism is a
 password protection, which is independent of all backend user
 passwords.
 
-The Install Tool can found as a stand alone application via ``https://<domain.tld>/typo3/install.php``.
+The Install Tool can found as a stand alone application via :samp:`https://<domain.tld>/typo3/install.php`.
 It also integrates with the backend, but is only available for logged in users with administrator privileges.
 
 The :file:`ENABLE_INSTALL_TOOL` file can be created by putting an empty

@@ -24,13 +24,13 @@ within the route path, or dynamically generated values.
 
 To give you an overview of what the distinction is, we take a regular page which is available at
 
-:samp:`https://www.example.com/path-to/my-page`
+:samp:`https://example.org/path-to/my-page`
 
 to access the Page with ID *13*.
 
 Enhancers are a way to extend this route with placeholders on top of this specific route to a page.
 
-:code:`https://www.example.com/path-to/my-page/products/{product-name}`
+:code:`https://example.org/path-to/my-page/products/{product-name}`
 
 The suffix `/products/{product-name}` to the base route of the page is added by an enhancer. The placeholder variable
 which is added by the curly braces can then be statically or dynamically resolved or built by an Aspect (more
@@ -111,7 +111,7 @@ The Simple Enhancer works with various route arguments to map them to an argumen
 
 `index.php?id=13&category=241&tag=Benni`
 results in
-:samp:`https://www.example.com/path-to/my-page/show-by-category/241/Benni`
+:samp:`https://example.org/path-to/my-page/show-by-category/241/Benni`
 
 The configuration looks like this:
 
@@ -169,7 +169,7 @@ we would need to set up multiple configurations of Plugin Enhancer for forgot an
 
 If a URL is generated with the given parameters to link to a page, the result will look like this:
 
-:samp:`https://www.example.com/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
+:samp:`https://example.org/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
 
 .. note::
     If the input given to generate the URL does not meet the requirements, the route enhancer does not offer the
@@ -205,11 +205,11 @@ The Extbase Plugin enhancer with the configuration below would now apply to the 
 
 And generate the following URLs
 
-* :samp:`https://www.example.com/path-to/my-page/list/`
-* :samp:`https://www.example.com/path-to/my-page/list/5`
-* :samp:`https://www.example.com/path-to/my-page/list/2018/8`
-* :samp:`https://www.example.com/path-to/my-page/detail/in-the-year-2525`
-* :samp:`https://www.example.com/path-to/my-page/tag/future`
+* :samp:`https://example.org/path-to/my-page/list/`
+* :samp:`https://example.org/path-to/my-page/list/5`
+* :samp:`https://example.org/path-to/my-page/list/2018/8`
+* :samp:`https://example.org/path-to/my-page/detail/in-the-year-2525`
+* :samp:`https://example.org/path-to/my-page/tag/future`
 
 .. code-block:: yaml
 

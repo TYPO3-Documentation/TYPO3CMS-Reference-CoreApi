@@ -145,7 +145,7 @@ given PSR-7 Response will then directly be returned.
 .. code-block:: php
 
    // Before
-   HttpUtility::redirect('https://example.com', HttpUtility::HTTP_STATUS_303);
+   HttpUtility::redirect('https://example.org', HttpUtility::HTTP_STATUS_303);
 
    // After
 
@@ -158,7 +158,7 @@ given PSR-7 Response will then directly be returned.
    // Create redirect response
    $response = $this->responseFactory
       ->createResponse(303)
-      ->withAddedHeader('location', 'https://example.com')
+      ->withAddedHeader('location', 'https://example.org')
 
    // Return Response directly
    return $reponse;

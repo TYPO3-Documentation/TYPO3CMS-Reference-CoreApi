@@ -26,7 +26,7 @@ How to access your XML sitemap
 ==============================
 
 Until it is possible to have a default route with the new URL handling mechanism, you can access
-the sitemaps by going to :samp:`https://example.com/?type=1533906435`. You will first see the sitemap
+the sitemaps by going to :samp:`https://example.org/?type=1533906435`. You will first see the sitemap
 index. By default you will see one sitemap in the index. This is the sitemap for pages.
 
 If you have multiple siteroots or multiple languages with different domains or language prefixes,
@@ -194,7 +194,7 @@ The :php:`getItems` method have to return an array with the items for the sitema
 .. code-block:: php
 
     $this->items[] = [
-        'loc' => 'https://www.example.com/page1.html',
+        'loc' => 'https://example.org/page1.html',
         'lastMod' => '1536003609'
     ];
 

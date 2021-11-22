@@ -110,7 +110,7 @@ Extended composer.json
          "name": "John Doe",
          "role": "Developer",
          "email": "john.doe@example.org",
-         "homepage": "www.johndoe.example.org"
+         "homepage": "johndoe.example.org"
       },
       "keywords": [
          "typo3",
