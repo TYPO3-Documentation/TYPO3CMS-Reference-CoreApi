@@ -139,7 +139,7 @@ the database and on the final website.
 
 
  - :RTE:
-         <a href="http://localhost/.../index.php?id=123">
+         <a href="https://example.org/.../index.php?id=123">
    :Database:
          <link 123>
    :Website:
@@ -150,7 +150,7 @@ the database and on the final website.
 
 
  - :RTE:
-         <img src="http://localhost/fileadmin/image.jpg">
+         <img src="https://example.org/fileadmin/image.jpg">
    :Database:
          <img src="fileadmin/image.jpg">
    :Website:
