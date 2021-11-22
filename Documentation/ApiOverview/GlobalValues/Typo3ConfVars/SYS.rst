@@ -446,7 +446,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefix']
    Optional prefix to be added to the internal URL (SCRIPT_NAME and
    REQUEST_URI).
 
-   Example: When proxying ext-example.org to int-example.org/prefix this has to
+   Example: When proxying :samp:`external.example.org` to :samp:`internal.example.org/prefix` this has to
    be set to :php:`prefix`
 
 .. index::
