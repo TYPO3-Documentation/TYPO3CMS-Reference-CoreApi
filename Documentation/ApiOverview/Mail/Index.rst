@@ -170,10 +170,10 @@ This shows how to generate and send a mail in TYPO3::
       ->setSubject('Your subject')
 
       // Set the From address with an associative array
-      ->setFrom(array('john@doe.com' => 'John Doe'))
+      ->setFrom(array('john.doe@example.org' => 'John Doe'))
 
       // Set the To addresses with an associative array
-      ->setTo(array('receiver@domain.org', 'other@domain.org' => 'A name'))
+      ->setTo(array('receiver@example.com', 'other@example.net' => 'A name'))
 
       // Give it a body
       ->setBody('Here is the message itself')
@@ -193,8 +193,8 @@ Or if you prefer, don't concatenate the calls::
 
    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
    $mail->setSubject('Your subject');
-   $mail->setFrom(array('john@doe.com' => 'John Doe'));
-   $mail->setTo(array('receiver@domain.org', 'other@domain.org' => 'A name'));
+   $mail->setFrom(array('john.doe@example.org' => 'John Doe'));
+   $mail->setTo(array('receiver@example.com', 'other@example.net' => 'A name'));
    $mail->setBody('Here is the message itself');
    $mail->addPart('<p>Here is the message itself</p>', 'text/html');
    $mail->attach(\Swift_Attachment::fromPath('my-document.pdf'));
@@ -249,7 +249,7 @@ How to Set and Use a Default Sender
 It is possible to define a default email sender ("From:") in the *Install
 Tool*::
 
-   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'john@doe.com';
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'john.doe@example.org';
    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromName'] = 'John Doe';
 
 This is how you can use these defaults::
@@ -264,9 +264,9 @@ This is how you can use these defaults::
 In case of problem  "Mails are not sent" in your extension, try to set a ReturnPath: start as before but add::
 
    // you will get a valid Email Adress from  'defaultMailFromAddress' or if not set from PHP settings or from system.
-   // if result is not a valid email, the final result will be  no-reply@example.com ..
+   // if result is not a valid email, the final result will be no-reply@example.org ..
    $returnPath = \TYPO3\CMS\Core\Utility\MailUtility::getSystemFromAddress();
-   if ( $returnPath != "no-reply@example.com") {
+   if ($returnPath != "no-reply@example.org") {
        $mail->setReturnPath($returnPath);
    }
    $mail->send();

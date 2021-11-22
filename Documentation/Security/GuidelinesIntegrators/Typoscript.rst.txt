@@ -212,8 +212,8 @@ comment or discussion forums, as well as user tracking, statistics, additional
 features, etc. which are hosted *somewhere*, can be compromised, too.
 
 If you include a `JavaScript` library that is hosted under
-:samp:`https://example.com/js/feedback.js` and the systems of operator of
-:samp:`example.com` are compromised, your site and your site visitors are under
+:samp:`https://example.org/js/feedback.js` and the systems of operator of
+:samp:`example.org` are compromised, your site and your site visitors are under
 risk, too.
 
 `JavaScript` running in the browser of your end-users is able to intercept any

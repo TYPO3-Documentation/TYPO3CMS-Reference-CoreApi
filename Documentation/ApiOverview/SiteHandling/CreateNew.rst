@@ -38,7 +38,7 @@ Then, enter a base for your site at (2).
 
 .. tip::
     Be as specific as you can for your sites without losing flexibility. So, if you have a choice
-    between using `https://www.example.org`, `www.example.org` or `/`, then choose `https://www.example.org`.
+    between using `https://example.org`, `example.org` or `/`, then choose `https://example.org`.
 
     This will make resolving pages more reliable as the chance for conflicts with other sites gets minimized.
 

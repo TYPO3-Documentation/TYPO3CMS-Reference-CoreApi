@@ -370,9 +370,9 @@ Have a look at the
 
 Strings::
 
-   [request.getNormalizedParams().getHttpHost() == 'www.example.org']
-      # Old syntax: [globalString = IENV:HTTP_HOST = www.example.org]
-      page.42.value = Http Host is www.example.org
+   [request.getNormalizedParams().getHttpHost() == 'example.org']
+      # Old syntax: [globalString = IENV:HTTP_HOST = example.org]
+      page.42.value = Http Host is example.org
    [END]
 
 Arrays::
