@@ -7,7 +7,7 @@ Base variants
 =============
 
 In site handling "base variants" represent different bases for a web site depending on a specified
-condition. For example a "live" base URL might be `https://example.org` but on local machine
+condition. For example a "live" base URL might be :samp:`https://example.org` but on local machine
 it's `https://example.local` as a domain - that's when variants are used.
 
 Base variants exist for languages, too. Currently these can only be defined
