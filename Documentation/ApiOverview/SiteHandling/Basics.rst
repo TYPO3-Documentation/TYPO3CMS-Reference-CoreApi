@@ -151,7 +151,7 @@ base
 ----
 
 The base is the base domain to run a site on. It either accepts a fully qualified URL or a relative segment "/" to react to any domain name.
-It is possible to set a site base prefix to just "/site1" and "/site2" or "example.com" instead of entering a full URI.
+It is possible to set a site base prefix to just :samp:`/site1`, :samp:`/site2` or even :samp:`example.com` instead of entering a full URI.
 
 This allows to have a Site base e.g. example.com to be detected with http and https protocols, although it is recommended to do a HTTP to
 HTTPS redirect either on the webserver level, via a .htaccess rewrite rule, or by adding a redirect in TYPO3.
