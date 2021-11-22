@@ -29,7 +29,7 @@ values in the :php:`$EM_CONF` array if needed.
        'description' => 'Extension description',
        'category' => 'plugin',
        'author' => 'John Doe',
-       'author_email' => 'john@example.org',
+       'author_email' => 'john.doe@example.org',
        'author_company' => 'some company',
        'state' => 'stable',
        'clearCacheOnLoad' => 0,

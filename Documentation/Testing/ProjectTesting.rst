@@ -54,7 +54,7 @@ more details mentioned in `README.md <https://github.com/benjaminkott/site-intro
     lolli@apoc /var/www/local/site-introduction $ ddev import-files --src=./assets
 
 This will start various containers: A database, a phpmyadmin instance, and a web server. If all
-goes well, the instance is reachable on `localhost <http://introduction.ddev.local>`_.
+goes well, the instance is reachable on :samp:`https://introduction.ddev.local`.
 
 
 Local acceptance testing
@@ -128,7 +128,7 @@ basic :file:`Tests/codeception.yml` file:
       colors: true
 
 This tells codeception there is a selenium instance at `ddev-introduction-chrome` with chrome,
-the website is reachable as `http://introduction.ddev.local`, it enables some codeception plugins
+the website is reachable as :samp:`https://introduction.ddev.local`, it enables some codeception plugins
 and specifies a couple of logging details. The `codeception documentation <https://codeception.com/>`_
 goes into details about these.
 
