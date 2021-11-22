@@ -40,7 +40,7 @@ It is recommended to change the following fields:
 
    .. tip::
       Be as specific as you can for your sites without losing flexibility.
-      So, if you have a choice between using `https://example.org`,
+      So, if you have a choice between using :samp:`https://example.org`,
       `example.org` or `/`, then choose `https://example.org`.
 
       This will make resolving pages more reliable as the chance for conflicts
