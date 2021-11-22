@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: 
+.. index::
    Password hashing
    Troubleshooting
    pair: Password; Troubleshooting
@@ -54,7 +54,7 @@ PHP 7.2 build without argon support.
 Disable argon2i support in the install tool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Call the standalone install tool at example.com/typo3/install.php and log in
+Call the standalone install tool at example.org/typo3/install.php and log in
 once. This should detect
 that argon2i is not available and will configure a different default
 hash mechanism. A backend login should be possible afterwards.

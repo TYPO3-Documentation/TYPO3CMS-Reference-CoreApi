@@ -25,8 +25,8 @@ mandatory to have a site configuration for your rootpage(s).
 How to access your XML sitemap
 ==============================
 
-You can access the sitemaps by going to :samp:`https://example.com/?type=1533906435`. You will
-first see the sitemap index. By default you will see one sitemap in the index. This is the 
+You can access the sitemaps by going to :samp:`https://example.org/?type=1533906435`. You will
+first see the sitemap index. By default you will see one sitemap in the index. This is the
 sitemap for pages.
 
 If you have multiple siteroots or multiple languages with different domains or language prefixes,
@@ -36,7 +36,7 @@ the settings for that domain.
 How to setup routing for the XML sitemap
 ========================================
 
-You can use the PageType decorator to map the page type to a fixed suffix. This allows you to expose the sitemap with a readable URL, e.g. :samp:`https://example.com/sitemap.xml`.
+You can use the PageType decorator to map the page type to a fixed suffix. This allows you to expose the sitemap with a readable URL, e.g. :samp:`https://example.org/sitemap.xml`.
 
 .. code-block:: yaml
 
@@ -207,7 +207,7 @@ The :php:`getItems` method have to return an array with the items for the sitema
 .. code-block:: php
 
     $this->items[] = [
-        'loc' => 'https://www.example.com/page1.html',
+        'loc' => 'https://example.org/page1.html',
         'lastMod' => '1536003609'
     ];
 

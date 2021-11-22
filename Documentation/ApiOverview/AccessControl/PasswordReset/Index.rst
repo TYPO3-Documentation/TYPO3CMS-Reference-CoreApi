@@ -56,7 +56,7 @@ The administrator can use the CLI command:
 
 .. code-block:: bash
 
-   ./typo3/sysext/core/bin/typo3 backend:resetpassword https://www.example.com/typo3/ editor@example.com
+   ./typo3/sysext/core/bin/typo3 backend:resetpassword https://example.org/typo3/ editor@example.org
 
 where usage is described like this:
 
