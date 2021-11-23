@@ -55,7 +55,7 @@ more details mentioned in `README.md <https://github.com/TYPO3-Documentation/sit
     lolli@apoc /var/www/local/site-introduction $ ddev composer install
 
 This will start various containers: A database, a phpmyadmin instance, and a web server. If all
-goes well, the instance is reachable on `localhost <https://introduction.ddev.site>`_.
+goes well, the instance is reachable on :samp:`https://introduction.ddev.site`.
 
 .. index:: Testing; Acceptance
 
@@ -130,7 +130,7 @@ basic :file:`Tests/codeception.yml` file:
       colors: true
 
 This tells codeception there is a selenium instance at `ddev-introduction-chrome` with chrome,
-the website is reachable as `https://introduction.ddev.site`, it enables some codeception plugins
+the website is reachable as :samp:`https://introduction.ddev.site`, it enables some codeception plugins
 and specifies a couple of logging details. The `codeception documentation <https://codeception.com/>`_
 goes into details about these.
 

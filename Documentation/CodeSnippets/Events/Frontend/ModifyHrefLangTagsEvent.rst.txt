@@ -24,8 +24,8 @@
    
       Set the hreflangs. This should be an array in format:
        [
-          'en-US' => 'https://example.com',
-          'nl-NL' => 'https://example.com/nl'
+          'en-US' => 'https://example.org',
+          'nl-NL' => 'https://example.org/nl'
        ]
       
       :param array $hrefLangs: the hrefLangs

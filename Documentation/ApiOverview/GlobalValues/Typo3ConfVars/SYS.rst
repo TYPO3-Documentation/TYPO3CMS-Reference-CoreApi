@@ -105,7 +105,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['cookieDomain']
    :Default: ''
 
    Restricts the domain name for FE and BE session cookies. When setting the
-   value to ".domain.com" (replace domain.com with your domain!), login
+   value to ".example.org" (replace example.org with your domain!), login
    sessions will be shared across subdomains. Alternatively, if you have more
    than one domain with sub-domains, you can set the value to a regular
    expression to match against the domain of the HTTP request.
@@ -140,18 +140,18 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern']
 
    Examples:
 
-   :php:`.*\.domain\.com` matches all hosts that end with
-   :file:`.domain.com` with all corresponding subdomains.
+   :php:`.*\.example\.org` matches all hosts that end with
+   :file:`.example.org` with all corresponding subdomains.
 
-   :php:`(.*\.domain|.*\.otherdomain)\.com` matches all hostnames with
-   subdomains from :file:`.domain.com` and :file:`.otherdomain.com`.
+   :php:`.*\.example\.(org|com)` matches all hostnames with
+   subdomains from :file:`.example.org` and :file:`.example.com`.
 
    Be aware that HTTP Host header may also contain a port. If your installation
 
    runs on a specific port, you need to explicitly allow this in your pattern,
 
-   for example :php:`www\.domain\.com:88` allows only :file:`www.domain.com:88`,
-   **not** :file:`www.domain.com`. To disable this check completely
+   for example :php:`example\.org:88` allows only :file:`example.org:88`,
+   **not** :file:`example.org`. To disable this check completely
 
    (not recommended because it is **insecure**) you can use :php:`.*` as pattern.
 
@@ -446,7 +446,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefix']
    Optional prefix to be added to the internal URL (SCRIPT_NAME and
    REQUEST_URI).
 
-   Example: When proxying ext-domain.com to int-server.com/prefix this has to
+   Example: When proxying external.example.org to internal.example.org/prefix this has to
    be set to :php:`prefix`
 
 .. index::

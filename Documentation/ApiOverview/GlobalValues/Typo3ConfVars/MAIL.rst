@@ -299,7 +299,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['dsn']
    :Default: ''
 
    *only with transport=dsn* The DSN configuration of the Symfony mailer
-   (for example `smtp://userpass@smtp.example.com:25`). Symfony provides different
+   (for example `smtp://userpass@smtp.example.org:25`). Symfony provides different
    mail transports like SMTP, sendmail or many 3rd party email providers like
    AWS SES, Gmail, MailChimp, Mailgun and more. You can find all supported
    providers in the
@@ -310,7 +310,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['dsn']
 
    Examples:
 
-   *  :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['dsn'] = "smtp://user:pass@smtp.example.com:25"`
+   *  :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['dsn'] = "smtp://user:pass@smtp.example.org:25"`
    *  :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['dsn'] = "sendmail://default"`
 
 .. index::

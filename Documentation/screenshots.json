@@ -1000,7 +1000,7 @@
                     {"action": "waitForText", "text": "Edit Site Configuration"},
                     {"action": "fillField", "field": "//input[contains(@data-formengine-input-name, '[identifier]')]", "value": "examplecom"},
                     {"action": "fillField", "field": "//input[contains(@data-formengine-input-name, '[websiteTitle]')]", "value": "Example website"},
-                    {"action": "fillField", "field": "//input[contains(@data-formengine-input-name, '[base]')]", "value": "https://www.example.com"},
+                    {"action": "fillField", "field": "//input[contains(@data-formengine-input-name, '[base]')]", "value": "https://example.com"},
                     {
                         "action": "makeScreenshotOfWindow",
                         "fileName": "SiteHandlingCreateNewSite-2",
@@ -1009,7 +1009,7 @@
                     {"action": "resizeWindow", "width": 1024,"height": 1024},
                     {"action": "click", "link": ".tab-pane.active button.t3js-create-new-button"},
                     {"action": "waitForText", "text": "site_base_variant"},
-                    {"action": "fillField", "field": "//input[contains(@placeholder, 'domain.local')]", "value": "example.site.ddev"},
+                    {"action": "fillField", "field": "//input[contains(@placeholder, 'domain.local')]", "value": "example.local"},
                     {"action": "fillField", "field": "//input[contains(@placeholder, 'applicationContext == \"Production\"')]", "value": "applicationContext == \"Development\""},
                     {
                         "action": "makeScreenshotOfWindow",

@@ -53,15 +53,15 @@ executed after or before the given identifiers.
 
          // Do anything you want with $hrefLangs
          $hrefLangs = [
-            'en-US' => 'https://example.com',
-            'nl-NL' => 'https://example.com/nl'
+            'en-US' => 'https://example.org',
+            'nl-NL' => 'https://example.org/nl'
          ];
 
          // Override all hrefLang tags
          $event->setHrefLangs($hrefLangs);
 
          // Or add a single hrefLang tag
-         $event->addHrefLang('de-DE', 'https://example.com/de');
+         $event->addHrefLang('de-DE', 'https://example.org/de');
        }
    }
 
