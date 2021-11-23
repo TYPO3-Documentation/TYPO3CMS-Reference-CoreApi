@@ -1009,7 +1009,7 @@
                     {"action": "resizeWindow", "width": 1024,"height": 1024},
                     {"action": "click", "link": ".tab-pane.active button.t3js-create-new-button"},
                     {"action": "waitForText", "text": "site_base_variant"},
-                    {"action": "fillField", "field": "//input[contains(@placeholder, 'domain.local')]", "value": "example.local"},
+                    {"action": "fillField", "field": "//input[contains(@placeholder, 'domain.local')]", "value": "example.localhost"},
                     {"action": "fillField", "field": "//input[contains(@placeholder, 'applicationContext == \"Production\"')]", "value": "applicationContext == \"Development\""},
                     {
                         "action": "makeScreenshotOfWindow",
