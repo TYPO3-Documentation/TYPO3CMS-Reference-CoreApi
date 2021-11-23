@@ -8,7 +8,7 @@ Base variants
 
 In site handling "base variants" represent different bases for a web site depending on a specified
 condition. For example a "live" base URL might be `https://example.org` but on local machine
-it's :samp:`https://example.local` as a domain - that's when variants are used.
+it's :samp:`https://example.localhost` as a domain - that's when variants are used.
 
 Base variants exist for languages, too. Currently these can only be defined
 through the respective :file:`*.yml` file, there is no UI available yet.
@@ -53,7 +53,7 @@ Example
     base: 'https://example.org/'
     baseVariants:
       -
-        base: 'https://example.local/'
+        base: 'https://example.localhost/'
         condition: 'applicationContext == "Development"'
       -
         base: 'https://staging.example.org/'
@@ -84,7 +84,7 @@ Example
         base: https://example.de/'
         baseVariants:
           -
-            base: 'https://de.example.local/'
+            base: 'https://de.example.localhost/'
             condition: 'applicationContext == "Development"'
           -
             base: 'https://staging.example.de/'
