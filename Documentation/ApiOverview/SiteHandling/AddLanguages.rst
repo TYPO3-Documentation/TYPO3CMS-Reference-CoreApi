@@ -139,7 +139,7 @@ baseVariants
 
       baseVariants:
         -
-          base: 'https://de.example.local/'
+          base: 'https://de.example.localhost/'
           condition: 'applicationContext == "Development"'
         -
           base: 'https://staging.example.de/'
