@@ -20,10 +20,10 @@ If you use the *category menu* or *tag list* plugins to filter news records, the
 
 **Result:**
 
-* Detail view: :samp:`https://www.example.com/news/detail/the-news-title`
-* Pagination: :samp:`https://www.example.com/news/page-2`
-* Category filter: :samp:`https://www.example.com/news/my-category`
-* Tag filter: :samp:`https://www.example.com/news/my-tag`
+* Detail view: :samp:`https://example.org/news/detail/the-news-title`
+* Pagination: :samp:`https://example.org/news/page-2`
+* Category filter: :samp:`https://example.org/news/my-category`
+* Tag filter: :samp:`https://example.org/news/my-tag`
 
 .. code-block:: yaml
    :linenos:
@@ -670,8 +670,8 @@ EXT: DpnGlossary
 
 **Result:**
 
-* List view: :samp:`https://www.example.com/[YOUR_PLUGINPAGE_SLUG]`
-* Detail view: :samp:`https://www.example.com/[YOUR_PLUGINPAGE_SLUG]/term/the-term-title`
+* List view: :samp:`https://example.org/[YOUR_PLUGINPAGE_SLUG]`
+* Detail view: :samp:`https://example.org/[YOUR_PLUGINPAGE_SLUG]/term/the-term-title`
 
 .. code-block:: yaml
    :linenos:
