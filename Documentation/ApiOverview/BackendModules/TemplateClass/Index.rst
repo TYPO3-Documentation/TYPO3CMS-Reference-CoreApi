@@ -43,7 +43,7 @@ controller:
        protected ModuleTemplateFactory $moduleTemplateFactory;
 
        public function __construct(
-           ModuleTemplateFactory $moduleTemplateFactory,
+           ModuleTemplateFactory $moduleTemplateFactory
        ) {
            $this->moduleTemplateFactory = $moduleTemplateFactory;
        }
