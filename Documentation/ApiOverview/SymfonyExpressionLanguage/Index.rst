@@ -163,7 +163,7 @@ currently lacks implementation. That is the last step::
            // Not implemented, we only use the evaluator
        }, function ($existingVariables, $endpoint, $uid) {
            return GeneralUtility::getUrl(
-               'https://example.com/endpoint/'
+               'https://example.org/endpoint/'
                . $endpoint
                .  '/'
                . $uid

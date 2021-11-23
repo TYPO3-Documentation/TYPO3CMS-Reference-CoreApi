@@ -22,7 +22,7 @@ create a new instance of :js:`AjaxRequest` per request and pass the url as the c
 
 .. code-block:: js
 
-   let request = new AjaxRequest('https://example.com/my-endpoint');
+   let request = new AjaxRequest('https://example.org/my-endpoint');
 
 The API offers a method :js:`withQueryString()` which allows to attach a query string to the URL. This comes in handy if
 the query string is programmatically generated. The method returns a clone of the :js:`AjaxRequest` object. It's possible

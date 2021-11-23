@@ -42,7 +42,7 @@ YAML configuration example:
    route: robots.txt
    type: staticText
    content: |
-     Sitemap: https://example.com/sitemap.xml
+     Sitemap: https://example.org/sitemap.xml
      User-agent: *
      Allow: /
      Disallow: /forbidden/

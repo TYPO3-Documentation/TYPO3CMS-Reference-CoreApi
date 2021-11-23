@@ -64,7 +64,7 @@ The following part explains the configuration file and options:
 .. code-block:: yaml
 
   rootPageId: 12
-  base: 'https://www.example.com/'
+  base: 'https://example.org/'
   websiteTitle: Example
   languages:
     -
@@ -94,7 +94,7 @@ The following part explains the configuration file and options:
       languageId: '2'
       title: Deutsch
       navigationTitle: ''
-      base: 'https://www.beispiel.de/'
+      base: 'https://example.net/'
       locale: de_DE.UTF-8
       iso-639-1: de
       hreflang: de-DE
@@ -123,7 +123,7 @@ The following part explains the configuration file and options:
     route: robots.txt
     type: staticText
     content: |
-        Sitemap: https://example.com/sitemap.xml
+        Sitemap: https://example.org/sitemap.xml
         User-agent: *
         Allow: /
         Disallow: /forbidden/
@@ -158,18 +158,18 @@ base
 ----
 
 The base is the base domain to run a site on. It either accepts a fully qualified URL or a relative segment "/" to react to any domain name.
-It is possible to set a site base prefix to just "/site1" and "/site2" or "www.mydomain.com" instead of entering a full URI.
+It is possible to set a site base prefix to just :samp:`/site1`, :samp:`/site2` or even :samp:`example.com` instead of entering a full URI.
 
-This allows to have a Site base e.g. www.mydomain.com to be detected with http and https protocols, although it is recommended to do a HTTP to
+This allows to have a Site base e.g. :samp:`example.com` to be detected with http and https protocols, although it is recommended to do a HTTP to
 HTTPS redirect either on the webserver level, via a .htaccess rewrite rule, or by adding a redirect in TYPO3.
 
 .. note::
   Please note that this flexibility will introduce side-effects when having multiple sites with mixed configuration settings as Site base:
 
   + Site 1: /mysite/
-  + Site 2: www.mydomain.com
+  + Site 2: example.com
 
-  will be unspecific when detecting a URL like www.mydomain.com/mysite/ and can lead to side-effects.
+  will be unspecific when detecting a URL like :samp:`example.com/mysite/` and can lead to side-effects.
 
   In this case, it is necessary by the Site Administrator to define unique Site base prefixes.
 
