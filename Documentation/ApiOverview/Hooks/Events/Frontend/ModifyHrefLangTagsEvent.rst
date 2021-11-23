@@ -60,15 +60,15 @@ executed after or before the given identifiers.
 
          // Do anything you want with $hrefLangs
          $hrefLangs = [
-            'en-US' => 'https://example.com',
-            'nl-NL' => 'https://example.com/nl'
+            'en-US' => 'https://example.org',
+            'nl-NL' => 'https://example.org/nl'
          ];
 
          // Override all hrefLang tags
          $event->setHrefLangs($hrefLangs);
 
          // Or add a single hrefLang tag
-         $event->addHrefLang('de-DE', 'https://example.com/de');
+         $event->addHrefLang('de-DE', 'https://example.org/de');
        }
    }
 
@@ -95,7 +95,7 @@ setHrefLangs()
 
 addHrefLang()
    :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|` :aspect:`Arguments:` `$languageCode` The language of the hreflang tag you would like to add. For example: nl-NL - `$url` The URL of the translation. For example: :samp:`https://example.com/nl`
+   :sep:`|` :aspect:`Arguments:` `$languageCode` The language of the hreflang tag you would like to add. For example: nl-NL - `$url` The URL of the translation. For example: :samp:`https://example.org/nl`
    :sep:`|`
 
    Add a hreflang tag to the current list of hreflang tags.
