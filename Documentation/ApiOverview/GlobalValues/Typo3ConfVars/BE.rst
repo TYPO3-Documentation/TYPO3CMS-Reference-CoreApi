@@ -734,7 +734,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode']
 .. confval:: explicitADmode
 
    :type: dropdown
-   :Default: 'explicitDeny'
+   :Default: 'explicitAllow'
    :allowedValues:
       explicitAllow:
          Administrators have to explicitly grant access for all editors and
