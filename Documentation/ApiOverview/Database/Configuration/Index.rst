@@ -51,7 +51,7 @@ Remarks:
 
 * The connect options are hand over to Doctrine DBAL without much manipulation from `TYPO3 CMS` side.
   Please refer to the
-  `doctrine connection docs <http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html>`__
+  `doctrine connection docs <https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html>`__
   for a full overview of settings.
 
 * If `charset` option is not specified it defaults to `utf8`.
