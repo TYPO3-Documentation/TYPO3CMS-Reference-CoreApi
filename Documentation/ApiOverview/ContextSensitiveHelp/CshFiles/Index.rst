@@ -180,7 +180,7 @@ seeAlso
 
   .. code-block:: text
 
-     pages:starttime , pages:endtime , tt\_content:header , Link to TYPO3.org \| http://typo3.org/
+     pages:starttime , pages:endtime , tt\_content:header , Link to TYPO3.org \| https://typo3.org/
 
 
 .. _csh-files-extend-label:

