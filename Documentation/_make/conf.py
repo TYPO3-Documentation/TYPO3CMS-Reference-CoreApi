@@ -188,7 +188,7 @@ html_theme_options['github_repository']    = ''  # 'TYPO3-Documentation/TYPO3CMS
 html_theme_options['github_revision_msg']  = ''  # '<a href="https://github.com/TYPO3-Documentation/t3SphinxThemeRtd' + '/commit/' +'a2e479886bfa7e866dbb5bfd6aad77355f567db0' + '" target="_blank">' + 'a2e47988' + '</a>'
 html_theme_options['github_sphinx_locale'] = ''  # ?
 html_theme_options['project_contact']      = ''  # 'mailto:documentation@typo3.org'
-html_theme_options['project_discussions']  = ''  # 'http://lists.typo3.org/cgi-bin/mailman/listinfo/typo3-project-documentation'
+html_theme_options['project_discussions']  = ''  # 'https://lists.typo3.org/cgi-bin/mailman/listinfo/typo3-project-documentation'
 html_theme_options['project_home']         = ''  # some url
 html_theme_options['project_issues']       = ''  # 'https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-Typoscript/issues'
 html_theme_options['project_repository']   = ''  # 'https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-Typoscript.git'
@@ -263,7 +263,7 @@ def updateModuleGlobals(GLOBALS, US):
         'papersize': LE.get('papersize') if 0 else 'a4paper',
         'pointsize': LE.get('pointsize') if 0 else '10pt',
         'preamble' : LE.get('preamble' ) if 0 else '\\usepackage{typo3}',
-        # for more see: http://sphinx-doc.org/config.html#confval-latex_elements
+        # for more see: https://www.sphinx-doc.org/en/master/#confval-latex_elements
     }
 
     MP = US.get('man_pages', {})

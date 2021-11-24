@@ -22,7 +22,7 @@ Steps:
 1. Prepare your machine
 
    Follow the installation steps of
-   http://mbless.de/blog/2015/01/26/sphinx-doc-installation-steps.html
+   https://www.mbless.de/blog/2015/01/26/sphinx-doc-installation-steps.html
 
 
 2. On the commandline::

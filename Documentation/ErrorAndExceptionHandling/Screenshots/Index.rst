@@ -48,4 +48,4 @@ of error and exception handling in TYPO3.
    :alt: PHP errors in the devlog
 
    PHP exceptions caught and displayed in Developer's Log
-   (requires an extension like `devlog <http://typo3.org/extensions/repository/view/devlog>`_)
+   (requires an extension like `devlog <https://extensions.typo3.org/extension/devlog>`_)

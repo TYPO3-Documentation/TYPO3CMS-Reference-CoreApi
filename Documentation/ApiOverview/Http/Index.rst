@@ -17,7 +17,7 @@ HTTP request library
 
 Since TYPO3 CMS 4.6, a library for easily making HTTP requests
 is available. It is actually a wrapper around the
-`HTTP_Request2 PEAR package <http://pear.php.net/manual/en/package.http.http-request2.php>`_,
+`HTTP_Request2 PEAR package <https://pear.php.net/manual/en/package.http.http-request2.php>`_,
 which is shipped with the Core.
 
 
@@ -32,7 +32,7 @@ The basic usage is as simple as it gets:
 
 	$request = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 		'TYPO3\\CMS\\Core\\Http\\HttpRequest',
-		'http://typo3.org/'
+		'https://typo3.org/'
 	);
 	$result = $request->send();
 	$content = $result->getBody();

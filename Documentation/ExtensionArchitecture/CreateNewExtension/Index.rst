@@ -28,7 +28,7 @@ scratch, there is tool which makes it easier to start. It is called
 TER.
 
 
-The `Extension Builder <http://typo3.org/extensions/repository/view/extension_builder>`_
+The `Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
 comes with its own BE module:
 
 .. figure:: ../../Images/ExtensionBuilder.png

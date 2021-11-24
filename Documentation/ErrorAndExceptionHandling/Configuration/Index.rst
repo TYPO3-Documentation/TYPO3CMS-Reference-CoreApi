@@ -204,17 +204,17 @@ found in :code:`$TYPO3_CONF_VARS[SYS]`:
            header.
 
          - syslog,<facility>[,<level>] = Uses the `PHP method "syslog"
-           <http://php.net/manual/en/function.syslog.php>`__
+           <https://www.php.net/manual/en/function.syslog.php>`__
            to send the log message. Depending on the operating system the message
            will get logged in different ways. On Linux (Debian, Ubuntu) the message
            will usually appear in /var/log/syslog if not configured otherwise.
            The <facility> option is not used currently.
 
          - error_log[,,<level>] = This setting will use the `PHP method "error_log"
-           <http://php.net/manual/en/function.error-log.php>`__ to log the message.
+           <https://www.php.net/manual/en/function.error-log.php>`__ to log the message.
            The message will get handled according to the settings of the variable
            `"error_log" in the php.ini file
-           <http://php.net/manual/en/errorfunc.configuration.php#ini.error-log>`__.
+           <https://www.php.net/manual/en/errorfunc.configuration.php#ini.error-log>`__.
            
          Using the method "file" is very reliable but could also pose a security
          risk if you write error logs into the webroot of your site. The option
