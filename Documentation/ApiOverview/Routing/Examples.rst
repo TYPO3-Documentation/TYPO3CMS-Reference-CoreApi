@@ -658,8 +658,8 @@ EXT: DpnGlossary
 
 **Result:**
 
-* List view: :samp:`https://example.org/[YOUR_PLUGINPAGE_SLUG]`
-* Detail view: :samp:`https://example.org/[YOUR_PLUGINPAGE_SLUG]/term/the-term-title`
+* List view: :samp:`https://example.org/<YOUR_PLUGINPAGE_SLUG>`
+* Detail view: :samp:`https://example.org/<YOUR_PLUGINPAGE_SLUG>/term/the-term-title`
 
 .. code-block:: yaml
    :linenos:

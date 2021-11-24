@@ -64,7 +64,7 @@ MemoryUsageProcessor
 The memory usage processor adds the amount of used memory to the log record
 (result from `memory_get_usage()`__).
 
-__ http://www.php.net/manual/en/function.memory-get-usage.php
+__ https://www.php.net/manual/en/function.memory-get-usage.php
 
 ================  =========  ===========================================================================   ============
 Option            Mandatory  Description                                                                   Default
@@ -73,7 +73,7 @@ realMemoryUsage   no         Use real__ size of memory allocated from system ins
 formatSize        no         Whether the size is formatted with GeneralUtility::formatSize()               :code:`TRUE`
 ================  =========  ===========================================================================   ============
 
-__ http://www.php.net/manual/en/function.memory-get-usage.php
+__ https://www.php.net/manual/en/function.memory-get-usage.php
 
 
 .. index:: Logging; MemoryPeakUsageProcessor
@@ -85,7 +85,7 @@ MemoryPeakUsageProcessor
 The memory peak usage processor adds the peak amount of used memory to the log record
 (result from `memory_get_peak_usage()`__).
 
-__ http://www.php.net/manual/en/function.memory-get-peak-usage.php
+__ https://www.php.net/manual/en/function.memory-get-peak-usage.php
 
 ================  ==========  ===========================================================================   ============
 Option            Mandatory   Description                                                                   Default
@@ -94,7 +94,7 @@ realMemoryUsage   no          Use real__ size of memory allocated from system in
 formatSize        no          Whether the size is formatted with GeneralUtility::formatSize()               :code:`TRUE`
 ================  ==========  ===========================================================================   ============
 
-__ http://www.php.net/manual/en/function.memory-get-peak-usage.php
+__ https://www.php.net/manual/en/function.memory-get-peak-usage.php
 
 
 .. index:: Logging; Processors

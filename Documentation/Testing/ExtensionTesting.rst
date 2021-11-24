@@ -374,7 +374,7 @@ On some versions of MacOS you might get the following error message when executi
     invalid mount config for type "volume": invalid mount path: '.' mount path must be absolute
     Removing network local_default
 
-To solve this issue follow the steps described `here <http://biercoff.com/fixing-readlink-illegal-option-f-error-on-a-mac/>`_ to install greadlink which supports the needed --f option.
+To solve this issue follow the steps described `here <https://biercoff.com/fixing-readlink-illegal-option-f-error-on-a-mac/>`_ to install greadlink which supports the needed --f option.
 
 Rather than changing the :file:`runTests.sh` to then use `greadlink` and thus risk breaking your automated testing via GitHub Actions consider symlinking your readlink executable to the newly installed greadlink with the following command as mentioned in the comments:
 

@@ -10,7 +10,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']
 ===================================
 
 HTTP configuration to tune how TYPO3 behaves on HTTP requests made by TYPO3.
-See `Guzzle documentation <http://docs.guzzlephp.org/en/latest/request-options.html>`__
+See `Guzzle documentation <https://docs.guzzlephp.org/en/latest/request-options.html>`__
 for more background information on those settings.
 
 .. index::
@@ -45,7 +45,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['strict']
    :php:`TRUE`
       Strict RFC compliant redirects mean that POST redirect requests are
       sent as POST requests. This is needed for compatibility with
-      `RFC 2616 <http://www.faqs.org/rfcs/rfc2616>`__)
+      `RFC 2616 <https://datatracker.ietf.org/doc/html/rfc2616/>`__)
    :php:`FALSE`
       redirect POST requests with GET requests,
       needed for compatibility with most browsers
@@ -131,7 +131,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['ssl_key']
    :Default: null
 
    Local certificate and an optional passphrase, see
-   `Guzzle option ssl-key <http://docs.guzzlephp.org/en/latest/request-options.html#ssl-key>`__
+   `Guzzle option ssl-key <https://docs.guzzlephp.org/en/latest/request-options.html#ssl-key>`__
 
 .. index::
    TYPO3_CONF_VARS HTTP; timeout
@@ -165,7 +165,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']
    :Default: true
 
    Describes the SSL certificate verification behavior of a request, see
-   `Guzzle option verify <http://docs.guzzlephp.org/en/latest/request-options.html#verify>`__
+   `Guzzle option verify <https://docs.guzzlephp.org/en/latest/request-options.html#verify>`__
 
 .. index::
    TYPO3_CONF_VARS HTTP; version
