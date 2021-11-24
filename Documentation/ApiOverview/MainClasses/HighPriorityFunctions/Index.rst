@@ -22,7 +22,7 @@ run under.
 
 Remember, this list only serves to point out important functions! The
 real documentation is found in the source scripts (and the
-`online API <http://typo3.org/documentation/api/>`_). The comments given are only a supplement to that.
+`online API <https://api.typo3.org/>`_). The comments given are only a supplement to that.
 
 
 .. _high-priority-functions-general-utility:

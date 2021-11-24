@@ -25,7 +25,7 @@ What is Ext.Direct?
    Ext Direct allows for seamless communication between the client-side
    of an Ext JS application and all popular server platforms."
 
-Source: http://www.sencha.com/products/extjs/extdirect
+Source: https://www.sencha.com/products/extjs/
 
 In effect it means that JavaScript functions can be mapped - in the case
 of TYPO3 - to PHP methods on the server. AJAX calls are made transparently

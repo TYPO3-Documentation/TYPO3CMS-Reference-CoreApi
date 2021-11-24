@@ -78,7 +78,7 @@ PhpErrorLogWriter
 
 Logs into the PHP error log using `error_log()`_
 
-.. _error_log(): http://www.php.net/manual/en/function.error-log.php
+.. _error_log(): https://www.php.net/manual/en/function.error-log.php
 
 .. _logging-writers-syslog:
 
@@ -95,7 +95,7 @@ facility  no         Syslog Facility_  ``USER``
                      to log into.
 ========  =========  ================  ========
 
-.. _Facility: http://en.wikipedia.org/wiki/Syslog#Facility_Levels
+.. _Facility: https://en.wikipedia.org/wiki/Syslog#Facility_Levels
 
 
 .. _logging-writers-custom:

@@ -268,7 +268,7 @@ In order to use :ref:`namespaces`, class files **must** be located in a
 Refer to the :ref:`Extbase and Fluid <t3extbasebook:start>` book for more information
 on extension structure. Also look at the "examples" extension.
 
-The `Extension Builder extension <http://typo3.org/extensions/repository/view/extension_builder>`_
+The `Extension Builder extension <https://extensions.typo3.org/extension/extension_builder>`_
 will create the right structure for you. It is described below:
 
 Classes/Controller

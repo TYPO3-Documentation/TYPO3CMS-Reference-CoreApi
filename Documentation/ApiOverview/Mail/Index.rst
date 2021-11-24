@@ -9,7 +9,7 @@ Mail API
 ========
 
 Since version 4.5 TYPO3 CMS provides a RFC compliant mailing solution,
-based on `SwiftMailer <http://swiftmailer.org/>`_.
+based on `SwiftMailer <https://swiftmailer.org/>`_.
 
 
 
@@ -228,10 +228,10 @@ available methods,
 
 .. seealso::
 
-   - `Swiftmailer: General <http://swiftmailer.org/docs/>`__
+   - `Swiftmailer: General <https://swiftmailer.org/docs/index.html>`__
 
    - `Swiftmailer: Content, attachments, basic headers
-     <http://swiftmailer.org/docs/messages>`__
+     <https://swiftmailer.org/docs/messages>`__
 
    - `Adding and manipulating complex or custom headers
-     <http://swiftmailer.org/docs/headers>`__
+     <https://swiftmailer.org/docs/headers>`__

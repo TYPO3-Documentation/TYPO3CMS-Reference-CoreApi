@@ -44,14 +44,14 @@ Advantages of this new documentation format are numerous:
 Although it is possible to write every single line of a Sphinx-based documentation from scratch, the TYPO3 community
 provides tools that help write and manage Sphinx projects:
 
-- The extension "Sphinx" (`Sphinx Python Documentation Generator and Viewer <http://typo3.org/extensions/repository/view/sphinx>`_)
+- The extension "Sphinx" (`Sphinx Python Documentation Generator and Viewer <https://extensions.typo3.org/extension/sphinx>`_)
   installs a local Sphinx environment to view, edit and compile documentation in the backend of your TYPO3 website.
   It can be installed from the TYPO3 Extension Repository (TER) like any other extension.
 - The Sphinx extension is able to convert existing OpenOffice manuals (manual.sxw) into Sphinx projects with just
   one click.
 - An `example manual <https://git.typo3.org/Documentation/TYPO3/Example/ExtensionManual.git>`_ is available in
   the TYPO3 Git repository.
-- The `Extension Builder <http://typo3.org/extensions/repository/view/extension_builder>`_
+- The `Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
   provides a skeleton documentation based on the above-mentioned Git repository.
 - A `good primer <https://docs.typo3.org/typo3cms/drafts/github/xperseguers/RstPrimer/>`_
   to get started using the reStructuredText markup.

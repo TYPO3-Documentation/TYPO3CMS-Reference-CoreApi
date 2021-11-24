@@ -11,8 +11,8 @@
 Introduction to XLIFF
 ---------------------
 
-The `XML Localisation Interchange File Format <http://en.wikipedia.org/wiki/XLIFF>`_
-(or XLIFF) is an `OASIS-blessed <http://www.oasis-open.org/committees/xliff>`_
+The `XML Localisation Interchange File Format <https://en.wikipedia.org/wiki/XLIFF>`_
+(or XLIFF) is an `OASIS-blessed <https://www.oasis-open.org/committees/xliff>`_
 standard format for translations.
 
 .. note::

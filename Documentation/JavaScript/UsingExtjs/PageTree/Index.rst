@@ -136,7 +136,7 @@ Adding custom actions
 
 Delivering custom menu items via an extension is a several step process.
 The code samples presented below come from extension
-`sm_clearcachecm <http://typo3.org/extensions/repository/view/sm_clearcachecm>`_
+`sm_clearcachecm <https://extensions.typo3.org/extension/sm_clearcachecm>`_
 by Steffen Müller. Thanks to him for allowing these samples to be shared.
 The extension adds an item in the "Page actions" and the "Branc actions" submenus
 to clear the cache of the page, respectively the branch.
