@@ -296,7 +296,7 @@ To add an additional hash algorithm, these steps are necessary:
 .. _Argon2i: https://en.wikipedia.org/wiki/Argon2
 .. _bcrypt: https://en.wikipedia.org/wiki/Bcrypt
 .. _PBKDF2: https://en.wikipedia.org/wiki/PBKDF2
-.. _phpass: http://www.openwall.com/phpass/
+.. _phpass: https://www.openwall.com/phpass/
 .. _blowfish: https://en.wikipedia.org/wiki/Blowfish_(cipher)
 .. _md5: https://en.wikipedia.org/wiki/MD5
 

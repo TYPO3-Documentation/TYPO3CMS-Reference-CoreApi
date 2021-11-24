@@ -37,7 +37,7 @@ this version only) may be classified as "reviewed".
 You can contact the TYPO3 Security Team at `security@typo3.org <mailto:security@typo3.org>`_ .
 
 Please find further details about the TYPO3 Security Team at
-`https://typo3.org/community/teams/security/ <https://typo3.org/community/teams/security/>`_ .
+https://typo3.org/community/teams/security/.
 
 
 
@@ -102,5 +102,4 @@ version with the TYPO3 Security Team.
 
 Further details about the handling of security incidents and time
 frames can be found in the official TYPO3 Extension Security Policy at
-`https://typo3.org/community/teams/security/extension-security-policy/
-<https://typo3.org/community/teams/security/extension-security-policy/>`_
+https://typo3.org/community/teams/security/extension-security-policy/.

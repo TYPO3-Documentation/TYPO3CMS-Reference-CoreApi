@@ -38,10 +38,10 @@ or function, that is not available on your system, TYPO3 will automatically dete
 not use this mechanism and respective locking strategy (e.g. if function sem_get() is not
 available, SemaphoreLockStrategy will not be used).
 
-* **FileLockStrategy**: uses the PHP function `flock() <http://php.net/manual/en/function.flock.php>`__
+* **FileLockStrategy**: uses the PHP function `flock() <https://www.php.net/manual/en/function.flock.php>`__
   and creates a file in `typo3temp/var/lock`
 * **SemaphoreLockStrategy**: uses the PHP function `sem_get()
-  <http://php.net/manual/en/function.sem-get.php>`__
+  <https://www.php.net/manual/en/function.sem-get.php>`__
 * **SimpleLockStrategy** is a simple method of file locking. It also uses the folder
   `typo3temp/var/lock`.
 
@@ -202,7 +202,7 @@ FileLockStrategy & NFS
 ----------------------
 
 There is a problem with PHP `flock()
-<http://php.net/manual/en/function.flock.php>`__ on NFS systems.
+<https://www.php.net/manual/en/function.flock.php>`__ on NFS systems.
 This problem may or may not affect you, if you use NFS. See this
 issue for more information
 

@@ -7,7 +7,7 @@
 Custom Translation Servers
 ==========================
 
-With the usage of XLIFF and the freely available `Pootle <http://pootle.translatehouse.org/>`__
+With the usage of XLIFF and the freely available `Pootle <https://pootle.translatehouse.org/>`__
 translation server, companies and individuals may easily set up a custom translation server
 for their extensions.
 
@@ -39,7 +39,7 @@ could look something like:
 
       public function postProcessMirrorUrl($extensionKey, &$mirrorUrl) {
          if ($extensionKey === self::$extKey) {
-            $mirrorUrl = 'http://mycompany.tld/typo3-packages/';
+            $mirrorUrl = 'https://example.org/typo3-packages/';
          }
       }
    }
@@ -52,7 +52,7 @@ On the custom translation server side, the structure needs to be:
 
 .. code-block:: text
 
-   https://mycompany.tld/typo3-packages/
+   https://example.org/typo3-packages/
    `-- <first-letter-of-extension-key>
       `-- <second-letter-of-extension-key>
          `-- <extension-key>-l10n
@@ -65,7 +65,7 @@ hence in our example:
 
 .. code-block:: text
 
-   https://mycompany.tld/typo3-packages/
+   https://example.org/typo3-packages/
    `-- m
       `-- y
          `-- myext-l10n

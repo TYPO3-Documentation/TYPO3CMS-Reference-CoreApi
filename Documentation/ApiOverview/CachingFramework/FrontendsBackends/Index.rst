@@ -300,7 +300,7 @@ InnoDB Issues
 -------------
 
 The database backend for MySQL uses InnoDB tables. Due to the nature of InnoDB, deleting records
-`does not reclaim <http://bugs.mysql.com/bug.php?id=1287>`_ the actual disk space. E.g. if the cache uses 10GB,
+`does not reclaim <https://bugs.mysql.com/bug.php?id=1287>`_ the actual disk space. E.g. if the cache uses 10GB,
 cleaning it will still keep 10GB allocated on the disk even though phpMyAdmin will show 0 as the cache table size.
 To reclaim the space, turn on the MySQL option file_per_table, drop the cache tables and re-create
 them using the Install Tool.
@@ -355,7 +355,7 @@ Options
 Memcached Backend
 =================
 
-`Memcached <http://memcached.org/>`_ is a simple, distributed key/value RAM database.
+`Memcached <https://memcached.org/>`_ is a simple, distributed key/value RAM database.
 To use this backend, at least one memcached daemon must be reachable,
 and the PECL module "memcache" must be loaded.
 There are two PHP memcached implementations: "memcache" and "memcached".
@@ -461,7 +461,7 @@ Options
 Redis Backend
 =============
 
-`Redis <http://redis.io/>`_ is a key-value storage/database.
+`Redis <https://redis.io/>`_ is a key-value storage/database.
 In contrast to memcached, it allows structured values.
 Data is stored in RAM but it allows persistence to disk
 and doesn't suffer from the design problems of the memcached backend implementation.
@@ -602,7 +602,7 @@ Options
 APC Backend
 ===========
 
-`APC <http://pecl.php.net/package/APC>`_ is mostly known as an opcode cache
+`APC <https://pecl.php.net/package/APC>`_ is mostly known as an opcode cache
 for PHP source files but can be used to store user data in shared memory as well.
 Its main advantage is that data can be shared between different PHP processes and requests.
 All calls directly access shared memory. This makes this backend lightning fast for
@@ -613,7 +613,7 @@ if APC is used as opcode cache anyway.
 The implementation is very similar to the memcached backend implementation
 and suffers from the same problems if APC runs out of memory.
 Garbage collection is currently not implemented.
-In its latest version, APC will fail to store data with a `PHP warning <http://pecl.php.net/bugs/bug.php?id=16966>`_
+In its latest version, APC will fail to store data with a `PHP warning <https://bugs.php.net/bug.php?id=16966>`_
 if it runs out of memory. This may change in the future.
 Even without using the cache backend, it is advisable to increase
 the memory cache size of APC to at least 64MB when working with TYPO3,
@@ -656,7 +656,7 @@ and has the same design constraints.
 Wincache Backend
 ================
 
-`Wincache <http://www.iis.net/downloads/microsoft/wincache-extension>`_ is a PHP opcode cache similar to APC, but
+`Wincache <https://www.iis.net/downloads/microsoft/wincache-extension>`_ is a PHP opcode cache similar to APC, but
 dedicated to the Windows OS platform. Similar to APC, the cache can also be used as in-memory key/value cache.
 
 The cache backend implementation is nearly identical to the implementation of :ref:`APC backend <caching-backend-apc>`

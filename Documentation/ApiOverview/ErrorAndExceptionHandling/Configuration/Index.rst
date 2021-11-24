@@ -191,7 +191,7 @@ Values in plain text can be changed in LocalConfiguration.php.
 .. seealso::
 
    `PHP predefined constants for errors and logging
-   <http://php.net/manual/en/errorfunc.constants.php>`__
+   <https://www.php.net/manual/en/errorfunc.constants.php>`__
 
 .. tip::
 

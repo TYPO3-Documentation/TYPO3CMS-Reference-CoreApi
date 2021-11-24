@@ -194,7 +194,7 @@ lockSSL
 """""""
 
 As described in :ref:`encrypted client/server communication
-<security-encrypted-client-server-connection>`, the use of `https://` scheme
+<security-encrypted-client-server-connection>`, the use of :samp:`https://` scheme
 for the backend and frontend of TYPO3 drastically improves the security.
 The `lockSSL` configuration controls if the backend can only be operated from a SSL-
 encrypted connection (HTTPS). Possible values are: `true`, `false` (boolean)

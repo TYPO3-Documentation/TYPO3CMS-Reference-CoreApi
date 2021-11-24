@@ -155,7 +155,7 @@ translated:
      'gsw_CH' => array('de_AT', 'de'),
   );
 
-In this case we define that "gsw_CH" (which is the `official code <http://www.localeplanet.com/icu/>`_ for
+In this case we define that "gsw_CH" (which is the `official code <https://www.localeplanet.com/icu/>`_ for
 "Schwiizertüütsch" - that is, "Swiss German") can fall back on "de_AT" (another custom translation) and then on "de".
 
 The translations have to be stored in the appropriate labels path sub folder
