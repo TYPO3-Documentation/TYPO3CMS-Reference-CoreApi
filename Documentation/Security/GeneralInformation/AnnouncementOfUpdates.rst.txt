@@ -8,9 +8,7 @@ being announced on the "TYPO3 Announce" mailing list. Every system
 administrator who hosts one or more TYPO3 instances, and every TYPO3
 integrator who is responsible for a TYPO3 project should subscribe to
 this mailing list, as it contains important information. You can
-subscribe at `http://lists.typo3.org/cgi-
-bin/mailman/listinfo/typo3-announce <http://lists.typo3.org/cgi-
-bin/mailman/listinfo/typo3-announce>`_
+subscribe at https://lists.typo3.org/cgi-bin/mailman/listinfo/typo3-announce.
 
 This is a read-only mailing list, which means that you cannot reply to
 a message or post your own messages. The announce list typically does

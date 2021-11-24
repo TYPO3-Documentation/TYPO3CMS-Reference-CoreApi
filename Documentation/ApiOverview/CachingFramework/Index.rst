@@ -151,7 +151,7 @@ and can implement its own specific storage strategy.
 
 The caching framework exists to help speeding up TYPO3 sites, especially heavily loaded ones.
 It is possible to move all caches to a dedicated cache server with specialized cache systems
-like the Redis key-value store (a so called `NoSQL database <http://en.wikipedia.org/wiki/NoSQL>`_).
+like the Redis key-value store (a so called `NoSQL database <https://en.wikipedia.org/wiki/NoSQL>`_).
 
 Major parts of the original caching framework were originally backported from TYPO3 Flow.
 

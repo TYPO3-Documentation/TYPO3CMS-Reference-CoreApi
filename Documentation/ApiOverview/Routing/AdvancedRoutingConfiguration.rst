@@ -28,9 +28,9 @@ to access the Page with ID *13*.
 
 Enhancers are a way to extend this route with placeholders on top of this specific route to a page.
 
-:code:`https://example.org/path-to/my-page/products/{product-name}`
+:samp:`https://example.org/path-to/my-page/products/<product-name>`
 
-The suffix `/products/{product-name}` to the base route of the page is added by an enhancer. The placeholder variable
+The suffix `/products/<product-name>` to the base route of the page is added by an enhancer. The placeholder variable
 which is added by the curly braces can then be statically or dynamically resolved or built by an Aspect (more
 commonly known as a Mapper).
 

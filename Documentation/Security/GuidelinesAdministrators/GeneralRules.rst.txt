@@ -10,7 +10,7 @@ General Rules
 =============
 
 #. Subscribe to the "TYPO3 Announce" mailing list at
-   `http://lists.typo3.org <http://lists.typo3.org/>`_ , so that you are
+   https://lists.typo3.org, so that you are
    informed about TYPO3 security bulletins and TYPO3 updates.
 
 #. React as soon as possible and update the relevant components of the
