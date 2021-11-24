@@ -21,12 +21,12 @@ a simplified wrapper to access Guzzle clients.
 
 All options available under :php:`$GLOBALS['TYPO3_CONF_VARS'][HTTP]` are automatically applied to the Guzzle
 clients when using the :php:`RequestFactory` class. The options are a subset to the available options
-on Guzzle (http://docs.guzzlephp.org/en/latest/request-options.html) but can further be extended.
+on Guzzle (https://docs.guzzlephp.org/en/latest/request-options.html) but can further be extended.
 
 Existing :php:`$GLOBALS['TYPO3_CONF_VARS'][HTTP]` options have been removed and/or migrated to the
 new Guzzle-compliant options.
 
-A full documentation for Guzzle can be found at http://docs.guzzlephp.org/en/latest/.
+A full documentation for Guzzle can be found at https://docs.guzzlephp.org/en/latest/.
 
 Although Guzzle can handle Promises/A+ and asynchronous requests, it currently acts as
 a drop-in replacement for the previous mixed options and implementations within
@@ -63,7 +63,7 @@ The `RequestFactory` class can be used like this:
          $additionalOptions = [
             // Additional headers for this specific request
             'headers' => ['Cache-Control' => 'no-cache'],
-            // Additional options, see http://docs.guzzlephp.org/en/latest/request-options.html
+            // Additional options, see https://docs.guzzlephp.org/en/latest/request-options.html
             'allow_redirects' => false,
             'cookies' => true,
          ];

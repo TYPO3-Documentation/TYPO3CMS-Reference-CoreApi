@@ -39,7 +39,7 @@ The class (listener) which receives the event
       public function postProcessMirrorUrl(ModifyLanguagePackRemoteBaseUrlEvent $event): void
       {
          if ($event->getPackageKey() === self::$extensionKey) {
-            $mirrorUrl = 'http://mycompany.tld/typo3-packages/';
+            $mirrorUrl = 'https://example.org/typo3-packages/';
             $event->setBaseUrl($mirrorUrl);
          }
       }
@@ -52,7 +52,7 @@ On the custom translation server side, the structure needs to be:
 
 .. code-block:: text
 
-   https://mycompany.tld/typo3-packages/
+   https://example.org/typo3-packages/
    `-- <first-letter-of-extension-key>
       `-- <second-letter-of-extension-key>
          `-- <extension-key>-l10n
@@ -65,7 +65,7 @@ hence in our example:
 
 .. code-block:: text
 
-   https://mycompany.tld/typo3-packages/
+   https://example.org/typo3-packages/
    `-- m
       `-- y
          `-- myext-l10n

@@ -48,8 +48,7 @@ In cases where users can't yet upgrade to a supported version, the TYPO3 GmbH is
 an Extended Long Term Support (ELTS) service for up to three years after the regular support has ended.
 Subscribers to the ELTS plans receive security and compatibility updates.
 
-Information about ELTS is available at `https://typo3.com/products/extended-support
-<https://typo3.com/products/extended-support>`_
+Information about ELTS is available at https://typo3.com/services/extended-support-elts
 
 LTS and Sprint Releases offer new features and often a modified
 database structure. Also the visual appearance and handling of the
@@ -102,9 +101,7 @@ being announced on the "TYPO3 Announce" mailing list. Every system
 administrator who hosts one or more TYPO3 instances, and every TYPO3
 integrator who is responsible for a TYPO3 project should subscribe to
 this mailing list, as it contains important information. You can
-subscribe at `http://lists.typo3.org/cgi-
-bin/mailman/listinfo/typo3-announce <http://lists.typo3.org/cgi-
-bin/mailman/listinfo/typo3-announce>`_
+subscribe at https://lists.typo3.org/cgi-bin/mailman/listinfo/typo3-announce.
 
 This is a read-only mailing list, which means that you cannot reply to
 a message or post your own messages. The announce list typically does
@@ -129,9 +126,7 @@ Security bulletins
 When security updates for TYPO3 or an extension become available, they
 will be announced on the "TYPO3 Announce" mailing list, as described
 above, but also published with much more specific details on the
-official TYPO3 Security Team website at
-`https://typo3.org/help/security-advisories/
-<https://typo3.org/help/security-advisories/>`_
+official TYPO3 Security Team website at https://typo3.org/help/security-advisories/.
 
 Security bulletins for the TYPO3 Core  are separated from security
 bulletins for TYPO3 extensions. Every bulletin has a unique advisory
@@ -234,6 +229,5 @@ a free and open industry standard for communicating the characteristics
 and impacts of vulnerabilities in Information Technology. It enables
 analysts to understand and properly communicate disclosed vulnerabilities
 and allows responsible personnel to prioritize risks. Further details
-about CVSS are available at `https://www.first.org/cvss/user-guide
-<https://www.first.org/cvss/user-guide>`_
+about CVSS are available at https://www.first.org/cvss/user-guide
 
