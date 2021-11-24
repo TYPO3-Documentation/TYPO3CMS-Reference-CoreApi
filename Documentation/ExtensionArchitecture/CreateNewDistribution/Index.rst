@@ -150,4 +150,4 @@ More information
 ----------------
 
 Some additional backgrounds can be retrieved from the
-`blueprint for this feature <http://wiki.typo3.org/Blueprints/DistributionManagement>`_.
+`blueprint for this feature <https://wiki.typo3.org/Blueprints/DistributionManagement>`_.

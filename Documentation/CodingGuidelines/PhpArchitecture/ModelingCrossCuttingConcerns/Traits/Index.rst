@@ -79,5 +79,4 @@ Bad examples
 Further reading
 """""""""""""""
 
-See http://rosstuck.com/how-i-use-traits/.
-
+See https://www.rosstuck.com/how-i-use-traits.

@@ -160,5 +160,5 @@ References
 ----------
 
 For more information about PHP namespaces in general, you may want to refer to the
-`PHP documentation <http://www.php.net/manual/en/language.namespaces.php>`_ and
-in particular the `Namespaces FAQ <http://www.php.net/manual/en/language.namespaces.faq.php>`_.
+`PHP documentation <https://www.php.net/manual/en/language.namespaces.php>`_ and
+in particular the `Namespaces FAQ <https://www.php.net/manual/en/language.namespaces.faq.php>`_.

@@ -20,7 +20,7 @@ Such applications can be:
   Definition) for the backend which can render a dynamic form based on
   the Data Structure;
 
-- `TemplaVoila! <http://typo3.org/extensions/repository/view/templavoila>`_ -
+- `TemplaVoila! <https://extensions.typo3.org/extension/templavoila>`_ -
   an extension which uses the Data Structure as backbone for mapping template HTML to data.
 
 This documentation of a data structure will document the general

@@ -25,5 +25,5 @@ other elements have their own chapter further on.
 In general the TYPO3 Active Contributors Team and all contributors aim
 to produce well-documented source code. As such the best way to look up a
 particular class or method is to use the online API browser at
-http://api.typo3.org/.
+https://api.typo3.org/.
 
