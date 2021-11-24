@@ -71,7 +71,7 @@ EditorConfig
 ~~~~~~~~~~~~
 
 One method to set up your IDE / editor to adhere to specific Coding Guidelines,
-is to use an .editorconfig file. Read `EditorConfig.org <http://EditorConfig.org>`__
+is to use an .editorconfig file. Read `EditorConfig.org <https://EditorConfig.org>`__
 to find out more about it. Various IDEs or Editors support editorconfig by default or with
 an additional plugin.
 
