@@ -7,7 +7,7 @@ Introduction
 ===============
 
 Database queries in TYPO3 are done with an API based on
-`doctrine-dbal <http://www.doctrine-project.org/projects/dbal.html>`__.
+`doctrine-dbal <https://www.doctrine-project.org/projects/dbal.html>`__.
 The API is provided by the system extension `core` which is always loaded and
 thus always available.
 
@@ -41,9 +41,9 @@ extensions.
 Understanding Doctrine-Dbal and Doctrine-Orm
 ============================================
 
-Doctrine is a two-fold project with `doctrine-dbal <http://www.doctrine-project.org/projects/dbal.html>`__
+Doctrine is a two-fold project with `doctrine-dbal <https://www.doctrine-project.org/projects/dbal.html>`__
 being the low-level database abstraction and query building interface to specific database engines, while
-`doctrine-orm <http://www.doctrine-project.org/projects/orm.html>`__
+`doctrine-orm <https://www.doctrine-project.org/projects/orm.html>`__
 is a high-level object relational mapping on top of `doctrine-dbal`.
 
 The TYPO3 CMS core - only - implements the dbal part. `doctrine-orm` is neither required nor

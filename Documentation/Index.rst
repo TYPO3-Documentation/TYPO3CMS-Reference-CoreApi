@@ -37,7 +37,7 @@ TYPO3 Core APIs
 
 :License:
       Open Publication License available from `www.opencontent.org/openpub/
-      <http://www.opencontent.org/openpub/>`_
+      <https://www.opencontent.org/openpub/>`_
 
 :Shortcut:
       `t3coreapi` is the usual alias for :ref:`h2document:cheat-sheet-intersphinx`.

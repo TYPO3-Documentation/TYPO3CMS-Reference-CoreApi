@@ -39,7 +39,7 @@ Advantages of this new documentation format are numerous:
 Although it is possible to write every single line of a Sphinx-based documentation from scratch, the TYPO3 community
 provides tools that help write and manage Sphinx projects:
 
-- The extension "Sphinx" (`Sphinx Python Documentation Generator and Viewer <http://typo3.org/extensions/repository/view/sphinx>`_)
+- The extension "Sphinx" (`Sphinx Python Documentation Generator and Viewer <https://extensions.typo3.org/extension/sphinx>`_)
   installs a local Sphinx environment to view, edit and compile documentation in the backend of your TYPO3 website.
   It can be installed from the TYPO3 Extension Repository (TER) like any other extension.
 - The Sphinx extension is able to convert existing OpenOffice manuals (manual.sxw) into Sphinx projects with just

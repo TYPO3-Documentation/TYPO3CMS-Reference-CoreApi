@@ -15,13 +15,13 @@ The TYPO3 translation server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The TYPO3 community manages an official translation server, running
-`Pootle <http://pootle.translatehouse.org>`__. Localization files
+`Pootle <https://pootle.translatehouse.org/>`__. Localization files
 in English are uploaded on that server and translations are packaged nightly.
 They are fecthed in the TYPO3 CMS backend, via the Extension Manager (or the
 new "Language" module since version 6.0).
 
 It is not the point of this manual to go into the details of the translation
-process. More information can be found in the `TYPO3 wiki <http://wiki.typo3.org/Translation>`_.
+process. More information can be found in the `TYPO3 wiki <https://wiki.typo3.org/Translation>`_.
 
 
 .. _xliff-translating-local:
@@ -136,7 +136,7 @@ translated::
      'gsw_CH' => array('de_AT', 'de'),
   );
 
-In this case we define that "gsw_CH" (which is the `official code <http://www.localeplanet.com/icu/>`_ for
+In this case we define that "gsw_CH" (which is the `official code <https://www.localeplanet.com/icu/>`_ for
 "Schwiizertüütsch" - that is, "Swiss German") can fall back on "de_AT" (another custom translation) and then on "de".
 
 The translations have to be stored in the appopriate folder, in this case
@@ -178,7 +178,7 @@ this would be in file :file:`typo3conf/l10n/gsw_CH/setup/mod/gsw_CH.locallang.xl
 Custom translation servers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-With the use of XLIFF and the freely available `Pootle <http://pootle.translatehouse.org/>`__
+With the use of XLIFF and the freely available `Pootle <https://pootle.translatehouse.org/>`__
 translation server, companies and individuals may easily set up a custom translation server
 for their extensions.
 
@@ -213,7 +213,7 @@ could look something like:
 
       public function postProcessMirrorUrl($extensionKey, &$mirrorUrl) {
          if ($extensionKey === self::$extKey) {
-            $mirrorUrl = 'http://mycompany.tld/typo3-packages/';
+            $mirrorUrl = 'https://example.org/typo3-packages/';
          }
       }
    }
@@ -226,7 +226,7 @@ On the custom translation server side, the structure needs to be:
 
 .. code-block:: text
 
-   https://mycompany.tld/typo3-packages/
+   https://example.org/typo3-packages/
    `-- <first-letter-of-extension-key>
       `-- <second-letter-of-extension-key>
          `-- <extension-key>-l10n
@@ -239,7 +239,7 @@ hence in our example:
 
 .. code-block:: text
 
-   https://mycompany.tld/typo3-packages/
+   https://example.org/typo3-packages/
    `-- m
       `-- y
          `-- myext-l10n
