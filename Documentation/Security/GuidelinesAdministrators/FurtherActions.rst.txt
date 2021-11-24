@@ -46,7 +46,7 @@ Login attempts to the TYPO3 backend, which are unsuccessful, result in
 a server response to the client with HTTP code 401 ("Unauthorized").
 Due to the fact that this incident is logged in the web server's
 error log file, it can be handled by external tools, such as
-`fail2ban <http://www.fail2ban.org>`_.
+`fail2ban <https://www.fail2ban.org>`_.
 
 
 Defending against Clickjacking
@@ -64,7 +64,7 @@ To protect the backend of TYPO3 against this attack vector, a HTTP
 header `X-Frame-Options` is sent, which prevents embedding backend pages
 in an iframe on domains different than the one used to access the
 backend. The `X-Frame-Options` header has been officially standardized as
-`RFC 7034 <http://tools.ietf.org/html/rfc7034>`_.
+`RFC 7034 <https://datatracker.ietf.org/doc/html/rfc7034>`_.
 
 System administrators should consider enabling this feature at the
 frontend of the TYPO3 website, too. A configuration of the Apache

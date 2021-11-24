@@ -39,8 +39,7 @@ ELTS is available for these TYPO3 versions:
 * v6 ELTS support until March 31, 2020
 * v7 ELTS support until November 30, 2021
 
-Information about ELTS is available at `https://typo3.com/products/extended-support
-<https://typo3.com/products/extended-support>`_
+Information about ELTS is available at https://typo3.com/services/extended-support-elts.
 
 LTS and Sprint Releases offer new features and often a modified
 database structure. Also the visual appearance and handling of the

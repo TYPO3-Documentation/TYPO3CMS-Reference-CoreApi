@@ -281,10 +281,10 @@ available methods,
 
 .. seealso::
 
-   - `Swiftmailer: General <http://swiftmailer.org/docs/index.html>`__
+   - `Swiftmailer: General <https://swiftmailer.org/docs/index.html>`__
 
    - `Swiftmailer: Content, attachments, basic headers
-     <http://swiftmailer.org/docs/messages>`__
+     <https://swiftmailer.org/docs/messages>`__
 
    - `Adding and manipulating complex or custom headers
-     <http://swiftmailer.org/docs/headers>`__
+     <https://swiftmailer.org/docs/headers>`__
