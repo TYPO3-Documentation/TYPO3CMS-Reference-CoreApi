@@ -118,7 +118,7 @@ After a short time you should see something like that
    :alt: Result
    :width: 600px
 
-When you click on Edit button then you will come back into the "Select branches" dialog box from above again.
+Clicking the Edit button will take you back to the `Select Branches` dialog from above.
 
 Happy translating!
 
