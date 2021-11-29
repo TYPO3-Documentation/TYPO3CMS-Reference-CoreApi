@@ -73,7 +73,7 @@ If you use the *category menu* or *tag list* plugins to filter news records, the
            tableName: tx_news_domain_model_tag
            routeFieldName: slug
 
-For more examples and background information see `News manual <https://docs.typo3.org/p/georgringer/news/master/en-us/AdministratorManual/BestPractice/Routing/Index.html>`__.
+For more examples and background information see `News manual <https://docs.typo3.org/p/georgringer/news/main/en-us/AdministratorManual/BestPractice/Routing/Index.html>`__.
 
 
 .. index:: Routing; EXT: Blog

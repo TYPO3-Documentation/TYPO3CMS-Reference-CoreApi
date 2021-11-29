@@ -18,7 +18,7 @@ Coding / structure
   they will be resused in several projects and / or made public. If you create one
   extension for every custom content element, you may want to think about
   whether they might be merged into one or more extensions.
-* Do not use deprecated functionality. Read the `Core Changelog <https://docs.typo3.org/c/typo3/cms-core/master/en-us/>`__
+* Do not use deprecated functionality. Read the `Core Changelog <https://docs.typo3.org/c/typo3/cms-core/main/en-us/>`__
   to check for deprecations and breaking changes between TYPO3 versions.
 * Some naming conventions are described in the chapter :ref:`extension-naming`.
 * Read (or skim) the :ref:`cgl`.

@@ -43,7 +43,7 @@ TYPO3 instance. And we want to make sure we do not break main parts if we fiddle
 Just like any other projects wants.
 
 The quick start for an own site based on this repository boils down to these commands, with
-more details mentioned in `README.md <https://github.com/TYPO3-Documentation/site-introduction/blob/master/README.md>`_:
+more details mentioned in `README.md <https://github.com/TYPO3-Documentation/site-introduction/blob/main/README.md>`_:
 
 .. code-block:: shell
 
@@ -157,7 +157,7 @@ Now we need a simple first test which is added as :file:`Tests/Acceptance/Fronte
 It just calls the homepage of our instance, clicks one of the links and verifies some text is
 shown. Straight, but enough to see if the basic instance does work.
 
-Ah, and we need a "Tester" in the `Support directory <https://github.com/TYPO3-Documentation/site-introduction/tree/master/Tests/Acceptance/Support>`_.
+Ah, and we need a "Tester" in the `Support directory <https://github.com/TYPO3-Documentation/site-introduction/tree/main/Tests/Acceptance/Support>`_.
 
 That's it. We can now execute the acceptance test suite by executing a command in the
 ddev PHP container:

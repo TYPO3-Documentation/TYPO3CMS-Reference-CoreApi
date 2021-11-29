@@ -318,8 +318,8 @@ Next we need to setup our tests. These are the two files we need: `Build/Scripts
 docker-compose.yml <https://github.com/lolli42/enetcache/blob/master/Build/testing-docker/docker-compose.yml>`_.
 
 These files are re-purposed from TYPO3's Core: `core Build/Scripts/runTests.sh
-<https://github.com/typo3/typo3/blob/master/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
-docker-compose.yml <https://github.com/typo3/typo3/tree/master/Build/testing-docker/local/docker-compose.yml>`_. You can
+<https://github.com/typo3/typo3/blob/main/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
+docker-compose.yml <https://github.com/typo3/typo3/tree/main/Build/testing-docker/local/docker-compose.yml>`_. You can
 copy and paste these files from extensions like enetcache or styleguide to your own extension, but you should then look
 through the files and adapt to your needs, for example.
 
@@ -463,7 +463,7 @@ extension is installed as a dependency by default. However, styleguide is just a
 to composer's `packagist.org <https://packagist.org/packages/typo3/cms-styleguide>`_ and can be loaded as
 dependency (or require-dev dependency) in any project.
 
-The styleguide extension follows the Core branching principle, too: At the time of this writing, its "master"
+The styleguide extension follows the Core branching principle, too: At the time of this writing, its `main`
 branch is dedicated to be compatible with upcoming Core version 11. There are branches compatible with older Core versions, too.
 
 In comparison to enetcache, styleguide comes with additional test suites: It has functional and
@@ -474,13 +474,13 @@ Basic setup
 -----------
 
 The setup is similar to what has been outlined in detail with enetcache above: We add properties to the
-`composer.json <https://github.com/TYPO3/styleguide/blob/master/composer.json>`_ file to make it a valid
+`composer.json <https://github.com/TYPO3/styleguide/blob/main/composer.json>`_ file to make it a valid
 root composer.json defining a project. The `require-dev` section is a bit longer as we also
 need `codeception <https://codeception.com/>`_ to run acceptance tests and specify a couple of additional
 Core extensions for a basic TYPO3 instance. We additionally add an `app-dir` directive in the extra section.
 
-Next, we have another iteration of `runTests.sh <https://github.com/TYPO3/styleguide/blob/master/Build/Scripts/runTests.sh>`_
-and `docker-compose.yml <https://github.com/TYPO3/styleguide/blob/master/Build/testing-docker/docker-compose.yml>`_ that are
+Next, we have another iteration of `runTests.sh <https://github.com/TYPO3/styleguide/blob/main/Build/Scripts/runTests.sh>`_
+and `docker-compose.yml <https://github.com/TYPO3/styleguide/blob/main/Build/testing-docker/docker-compose.yml>`_ that are
 longer than the versions of enetcache to handle the functional and acceptance tests setups, too.
 
 With this in place we can run unit tests:
@@ -505,7 +505,7 @@ to show all sorts of database relation and field possibilities supported within 
 code can generate a page tree and demo data for all of these scenarios. Codewise, this is a huge
 section of the extension and it uses quite some Core API to do its job. And yes, the generator breaks
 once in a while. A perfect scenario for a `functional test!
-<https://github.com/TYPO3/styleguide/blob/master/Tests/Functional/TcaDataGenerator/GeneratorTest.php>`_
+<https://github.com/TYPO3/styleguide/blob/main/Tests/Functional/TcaDataGenerator/GeneratorTest.php>`_
 (slightly stripped)::
 
     <?php
@@ -639,7 +639,7 @@ Not enough! The styleguide extension adds a module to the TYPO3 backend to the T
 Next to other things, this module adds buttons to create and delete the demo
 data that has been functional tested above already. To verify this works in the backend as well, styleguide
 comes with some straight acceptance tests in `Tests/Acceptance/Backend/ModuleCest
-<https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Backend/ModuleCest.php>`_::
+<https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend/ModuleCest.php>`_::
 
     <?php
     declare(strict_types = 1);
@@ -717,11 +717,11 @@ comes with some straight acceptance tests in `Tests/Acceptance/Backend/ModuleCes
 
 There are three tests: One verifies the backend module can be called, one creates demo data, the last
 one deletes demo data again. The codeception setup needs a bit more attention to setup, though. The entry point
-is the main `codeception.yml file <https://github.com/TYPO3/styleguide/blob/master/Tests/codeception.yml>`_
-extended by the `backend suite <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Backend.suite.yml>`_,
-a `backend tester <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/BackendTester.php>`_ and
+is the main `codeception.yml file <https://github.com/TYPO3/styleguide/blob/main/Tests/codeception.yml>`_
+extended by the `backend suite <https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend.suite.yml>`_,
+a `backend tester <https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Support/BackendTester.php>`_ and
 a `codeception bootstrap extension
-<https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/Extension/BackendStyleguideEnvironment.php>`_
+<https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Support/Extension/BackendStyleguideEnvironment.php>`_
 that instructs the basic `typo3/testing-framework` acceptance bootstrap to load the styleguide extension and
 have some database fixtures included to easily log in to the backend. Additionally, the :file:`runTests.sh` and
 :file:`docker-compose.yml` files take care of adding selenium-chrome and a web server to actually execute the tests:
@@ -773,7 +773,7 @@ of the failed run can be found in :file:`.Build/Web/typo3temp/var/tests/Acceptan
 Github Actions
 --------------
 
-Now we want all of this automatically checked using Github Actions. As before, we define the jobs in `.github/workflows/ci.yml <https://github.com/TYPO3/styleguide/blob/master/.github/workflows/ci.yml>`__:
+Now we want all of this automatically checked using Github Actions. As before, we define the jobs in `.github/workflows/ci.yml <https://github.com/TYPO3/styleguide/blob/main/.github/workflows/ci.yml>`__:
 
 .. code-block:: yaml
 

@@ -40,7 +40,7 @@ The above Fluid snippet contains:
 ViewHelpers:
    The XML elements that start with `f:` like `<f:if>` etc. are standard ViewHelpers.
    It is also possible to define custom ViewHelpers, for example
-   `<foo:bar foo="bar">`. A corresponding file `ViewHelpers/BarViewHelper.php` 
+   `<foo:bar foo="bar">`. A corresponding file `ViewHelpers/BarViewHelper.php`
    with the methods `initializeArguments` and `render` contains the HTML generation logic.
    ViewHelpers are Fluid components which make a function call to PHP from inside of a template.
    TYPO3 adds some more ViewHelpers for TYPO3 specific functionality. And, you can
@@ -273,8 +273,8 @@ Further information
 
 To get an introduction to the basics of Fluid:
 
-* `The Fluid Syntax <https://github.com/TYPO3/Fluid/blob/master/doc/FLUID_SYNTAX.md>`__
-* `ViewHelpers - what these classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/master/doc/FLUID_VIEWHELPERS.md>`__
+* `The Fluid Syntax <https://github.com/TYPO3/Fluid/blob/main/doc/FLUID_SYNTAX.md>`__
+* `ViewHelpers - what these classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/main/doc/FLUID_VIEWHELPERS.md>`__
 
 Depending on what you plan to do, you may want to follow one of these comprehensive
 tutorials:

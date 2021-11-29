@@ -114,7 +114,7 @@ based on the implementation of ext:rte_ckeditor.
    }
 
 - Next step is to implement the RichtTextElement class. You can look up the
-  code of `\\TYPO3\\CMS\\RteCKEditor\\Form\\Element\\RichTextElement <https://github.com/typo3/typo3/blob/master/typo3/sysext/rte_ckeditor/Classes/Form/Element/RichTextElement.php>`__, which
+  code of `\\TYPO3\\CMS\\RteCKEditor\\Form\\Element\\RichTextElement <https://github.com/typo3/typo3/blob/main/typo3/sysext/rte_ckeditor/Classes/Form/Element/RichTextElement.php>`__, which
   does the same for ckeditor. What basically happens in its render() function,
   is to apply any settings from the fields TCA config and then printing out all
   of the html markup and javascript necessary for booting up the ckeditor.
