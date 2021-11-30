@@ -117,7 +117,7 @@ FAQ
 Should I localize both 11.5 and main?
 ---------------------------------------
 
-Master is the leading version. Every string which exists in the previous version as well is automatically filled during the export and only needs to be localized if it is different in the previous version.
+The main branch is the leading version. Every string which exists in the previous version as well is automatically filled during the export and only needs to be localized if it is different in the previous version.
 
 
 Strings are translated, but when are they taken into account and available for download?
