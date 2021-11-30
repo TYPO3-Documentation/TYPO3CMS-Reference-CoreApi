@@ -263,7 +263,7 @@ attention. Working in these areas in turn improves the Core for everyone and all
 have not been possible before.
 
 In late 2018 another thing has been established: The
-`runTests.sh <https://github.com/typo3/typo3/blob/master/Build/Scripts/runTests.sh>`_
+`runTests.sh <https://github.com/typo3/typo3/blob/main/Build/Scripts/runTests.sh>`_
 script allows Core developers to easily execute tests within a container based environment that takes care
 of all the nasty system dependency problems. The test setup for some test suites is far from trivial: Acceptance
 tests need a web server, chrome and selenium, functional tests need different database systems

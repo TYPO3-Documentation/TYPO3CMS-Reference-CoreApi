@@ -31,7 +31,7 @@ You need to handle the integration yourself.
 
 .. hint::
 
-   The User Interface has changed slightly, this used to be under 
+   The User Interface has changed slightly, this used to be under
    :guilabel:`Settings` > :guilabel:`Integrations` > :guilabel:`Setup integration`.
 
 #. Go to the url of your project at Crowdin (e.g. `<https://crowdin.com/project/typo3-extension-ttaddress>`_)
@@ -62,7 +62,7 @@ Select the **main** branch you want to be translated.
 .. important::
 
    TYPO3 can currently handle one branch for an extension!
-   Typically you should select the master branch.
+   Typically you should select the `main` branch.
 
 
 Push translations

@@ -237,7 +237,7 @@ Generating output
 
 The :php:`ChattyInterface` can be implemented for wizards which should generate output.
 :php:`ChattyInterface` uses the Symfony interface
-`OutputInterface <https://github.com/symfony/symfony/blob/master/src/Symfony/Component/Console/Output/OutputInterface.php>`__.
+`OutputInterface <https://github.com/symfony/symfony/blob/main/src/Symfony/Component/Console/Output/OutputInterface.php>`__.
 
 Classes using this interface must implement the following method::
 

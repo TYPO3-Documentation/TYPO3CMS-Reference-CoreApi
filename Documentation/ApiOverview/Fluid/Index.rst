@@ -43,4 +43,4 @@ You can use Fluid in TYPO3 to do one of the following:
 
    Introduction
    Syntax
-   ViewHelper reference <https://docs.typo3.org/other/typo3/view-helper-reference/master/en-us/>
+   ViewHelper reference <https://docs.typo3.org/other/typo3/view-helper-reference/main/en-us/>

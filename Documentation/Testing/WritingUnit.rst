@@ -94,9 +94,9 @@ Unit test conventions
 =====================
 
 TYPO3 unit testing means using the `phpunit <https://phpunit.de/>`_ testing framework. TYPO3 comes with
-as basic `UnitTests.xml <https://github.com/TYPO3/testing-framework/blob/master/Resources/Core/Build/UnitTests.xml>`_
+as basic `UnitTests.xml <https://github.com/TYPO3/testing-framework/blob/main/Resources/Core/Build/UnitTests.xml>`_
 file that can be used by Core and extensions. This references a phpunit `bootstrap file
-<https://github.com/TYPO3/testing-framework/blob/master/Resources/Core/Build/UnitTestsBootstrap.php>`_ so
+<https://github.com/TYPO3/testing-framework/blob/main/Resources/Core/Build/UnitTestsBootstrap.php>`_ so
 phpunit does find our main classes. Apart from that, there are little conventions: Tests for some "system under test"
 class in the :file:`Classes/` folder should be located at the same position within the :file:`Test/Unit`
 folder having the additional suffix :file:`Test.php` to the system under test file name. The class of the
