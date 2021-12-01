@@ -22,6 +22,10 @@ be called to adjust the information.
 Environment PHP API
 ===================
 
+.. tip::
+   A comprehensive list of methods can be found in the
+   `Class Reference <https://api.typo3.org/master/class_t_y_p_o3_1_1_c_m_s_1_1_core_1_1_core_1_1_environment.html>`__.
+
 .. index::
    Environment; getProjectPath
    File; composer.json
