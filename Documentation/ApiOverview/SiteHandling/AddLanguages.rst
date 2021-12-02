@@ -158,7 +158,8 @@ locale
 
 :aspect:`Description`
     The locale to use for this language (Is set during frontend rendering for example)
-    See `locale identifiers <https://gist.github.com/jasef/337431c43c3addb2cbd5eb215b376179>`__
+    See `locale identifiers <https://gist.github.com/jasef/337431c43c3addb2cbd5eb215b376179>`__.
+    That locale needs to be installed on the server. In a Linux environment, you can see installed locales with `locale -a`.
 
 :aspect:`Example`
     `en_UK`
