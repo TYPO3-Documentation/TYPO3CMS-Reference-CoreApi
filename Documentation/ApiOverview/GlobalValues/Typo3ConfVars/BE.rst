@@ -804,19 +804,29 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['debug']
 
 
 .. index::
-   TYPO3_CONF_VARS BE; toolbarItems
+   TYPO3_CONF_VARS BE; toolbarItems (removed)
 .. _typo3ConfVars_be_toolbarItems:
 
 $GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']
 =================================================
 
-.. confval:: toolbarItems
+.. warning:: 
+   This configuration variable has been removed in TYPO3 version 12.0. Setting
+   it has no effect.
 
-   :type: array
-   :Default: []
+Starting with version 12.0 toolbar items implementing 
+:php:`\TYPO3\CMS\Backend\Toolbar\ToolbarItemInterface` are automatically
+registered by adding the tag :yaml:`backend.toolbar.item`, if :yaml:`autoconfigure`
+is enabled in :file:`Services.yaml`.
 
-   Registered toolbar items classes
+Migration
+---------
 
+Remove :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']` from your 
+:file:`ext_localconf.php` file. If :yaml:`autoconfigure` is not enabled in 
+your :file:`Configuration/Services.(yaml|php)`, add the tag 
+:yaml:`backend.toolbar.item` to your toolbar item class.
+   
 
 .. index::
    TYPO3_CONF_VARS BE; HTTP
