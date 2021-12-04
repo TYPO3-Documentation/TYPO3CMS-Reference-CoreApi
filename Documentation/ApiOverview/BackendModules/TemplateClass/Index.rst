@@ -12,13 +12,6 @@ The Backend Template View with Extbase
    If you don't want to do extensive data modelling templates can be written
    :ref:`without Extbase. <backend-modules-template-without-extbase>`
 
-.. deprecated:: 11.5
-   The general view class :php:`TYPO3\CMS\Backend\View\BackendTemplateView`
-   has been deprecated with v11.5. Use the
-   :php:`TYPO3\CMS\Backend\Template\ModuleTemplateFactory` instead to
-   retrieve a :php:`ModuleTemplate`. See
-   :doc:`t3core:Changelog/11.4/Deprecation-95164-ExtbackendBackendTemplateView`
-   for more information.
 
 Modern backend modules can be written using the Extbase/Fluid combination.
 

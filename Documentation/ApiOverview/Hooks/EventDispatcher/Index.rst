@@ -13,7 +13,7 @@ EventDispatcher (PSR-14 Events)
    :doc:`t3core:Changelog/10.0/Feature-88770-PSR-14BasedEventDispatcher`
 
 The EventDispatcher system was added to extend TYPO3's Core behaviour in TYPO3 10.0 via PHP code. In the past,
-this was done via Extbase's SignalSlot and TYPO3's custom hook system. The new EventDispatcher
+this was done via Extbase's SignalSlot and TYPO3's custom hook system. The EventDispatcher
 system is a fully capable replacement for new code in TYPO3, as well as a possibility to
 migrate away from previous TYPO3 solutions.
 
@@ -92,10 +92,10 @@ associated to Event objects by the fully qualified name of the event to be liste
 the :php:`ListenerProvider` to provide configuration mechanisms to represent this relationship.
 
 
-Advantages of the EventDispatcher over hooks and signals and slots
-==================================================================
+Advantages of the EventDispatcher over hooks
+============================================
 
-The main benefits of the EventDispatcher approach over Hooks and Extbase's SignalSlot dispatcher
+The main benefits of the EventDispatcher approach over hooks
 is an implementation which helps extension authors to better understand the possibilities
 by having a strongly typed system based on PHP. In addition, it serves as a bridge to also
 incorporate other events provided by frameworks that support PSR-14.
@@ -105,11 +105,11 @@ incorporate other events provided by frameworks that support PSR-14.
 Impact on TYPO3 Core development in the future
 ==============================================
 
-TYPO3's EventDispatcher serves as the basis to replace all Signal/Slots and hooks in the future,
-however for the time being, hooks and registered Slots work the same way as before, unless migrated
+TYPO3's EventDispatcher serves as the basis to replace all hooks in the future,
+however for the time being, hooks work the same way as before, unless migrated
 to an EventDispatcher-like code, whereas a PHP :php:`E_USER_DEPRECATED` error can be triggered.
 
-Some hooks / signal/slots might not be replaced 1:1 to EventDispatcher, but rather superseded with
+Some hooks might not be replaced 1:1 to EventDispatcher, but rather superseded with
 a more robust or future-proof API.
 
 
@@ -152,7 +152,7 @@ the optional :yaml:`before` and :yaml:`after` attributes allow for custom sortin
 If no attribute :yaml:`method` is given, the class is treated as Invokable, thus :php:`__invoke` method is called.
 
 .. versionchanged:: 11.3
-   The :yaml:`event` tag can be omitted if the listener implementation has a corresponding 
+   The :yaml:`event` tag can be omitted if the listener implementation has a corresponding
    event type in the method signature. In that case the event class it is automatically derived
    from the method signature of the listener implementation.
 

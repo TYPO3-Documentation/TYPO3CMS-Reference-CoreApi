@@ -6,9 +6,9 @@
 Introducing a new service type
 ==============================
 
-.. deprecated:: 11.3
+.. versionchanged:: 12.0
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   deprecated. See :ref:`services-developer-service-api-migration`.
+   removed. See :ref:`services-developer-service-api-migration`.
 
 Every service belongs to a given service type. A service type is
 represented by a key, just like an extension key. In the examples

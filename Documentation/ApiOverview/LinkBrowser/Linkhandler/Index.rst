@@ -132,7 +132,7 @@ This configuration shows a reduced page tree starting at page with uid 42::
 
 The PageTSconfig of the LinkHandler is being used in sysext `recordlist`
 in class :php:`\TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler`
-which does not contain Hooks or Slots.
+which does not contain Hooks.
 
 Enable page id field
 --------------------

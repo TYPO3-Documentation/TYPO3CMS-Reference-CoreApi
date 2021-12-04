@@ -1,13 +1,17 @@
 .. include:: /Includes.rst.txt
-.. index:: Events, Signals, Hooks
+.. index:: Events, Hooks
 .. _hooks:
 
-=========================
-Events, signals and hooks
-=========================
+================
+Events and hooks
+================
 
-Events, signals and hooks provide an easy way to extend the functionality of the TYPO3 Core and
+Events and hooks provide an easy way to extend the functionality of the TYPO3 Core and
 its extensions without blocking others to do the same.
+
+.. versionchanged:: 12.0
+   Signals and slots and all related classes have been removed from the
+   Core. Use :ref:`PSR-14 events <EventDispatcher>` instead.
 
 
 **Contents:**
@@ -19,6 +23,5 @@ its extensions without blocking others to do the same.
    Concept/Index
    EventDispatcher/Index
    Events/Index
-   SignalsSlots/Index
    Hooks/Index
    JavaScript/Index

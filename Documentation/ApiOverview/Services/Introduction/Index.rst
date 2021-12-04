@@ -6,9 +6,9 @@
 Introduction
 ============
 
-.. deprecated:: 11.3
+.. versionchanged:: 12.0
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   deprecated. See :ref:`services-developer-service-api-migration`.
+   removed. See :ref:`services-developer-service-api-migration`.
 
 This document describes the services functionality included in the
 TYPO3 Core.
@@ -86,11 +86,11 @@ is chosen automatically for you.
 Reasons for using the Services API
 ==================================
 
-.. deprecated:: 11.3
+.. versionchanged:: 12.0
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   deprecated. See :ref:`services-developer-service-api-migration`.
+   removed. See :ref:`services-developer-service-api-migration`.
 
-The :php:`AbstractService` has been deprecated and it is planed to also
+The :php:`AbstractService` has been removed and it is planed to also
 deprecate the other methods of the Service API in the future. The Service API
 should only be used for frontend and backend user :ref:`authentication
 <authentication>`.

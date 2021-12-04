@@ -6,10 +6,10 @@
 Extending the TYPO3 Core
 ========================
 
-Events, Hooks and Signals provide an easy way to extend the functionality of the TYPO3 Core and
+Events and Hooks provide an easy way to extend the functionality of the TYPO3 Core and
 its extensions without blocking others to do the same.
 
-:ref:`Events <EventDispatcherEvents>` are being emitted by the TYPO3 Core or an Extension via the
+:ref:`Events <EventDispatcherEvents>` are being emitted by the TYPO3 Core or an extension via the
 :ref:`EventDispatcher <EventDispatcher>`. The Event
 will be received by all implemented Event Listeners for the Event in question. Events are strongly
 typed. Events only allow changes to variables that are intended to be changed by the Event.
@@ -17,10 +17,9 @@ typed. Events only allow changes to variables that are intended to be changed by
 :ref:`Hooks <hooks-general>` are basically places in the source code where a user function will be called for processing
 if such has been configured.
 
-Signals roughly follow the observer pattern.
-:ref:`Signals and Slots <signals-slots>` decouple the sender (sending a signal) and the receiver(s)
-(called slots). The sender sends a signal - like "database updated" - and all
-receivers listening to that signal will be executed.
+.. versionchanged:: 12.0
+   Signals and slots and all related classes have been removed from the
+   Core. Use :ref:`PSR-14 events <EventDispatcher>` instead.
 
 
 .. _hooks-video:
@@ -36,18 +35,18 @@ Lina Wolf: Extending Extensions @ TYPO3 Developer Days 2019
 .. index:: Events; vs. XCLASS
 .. _hooks-xclass:
 
-Events, Signals and Hooks vs. XCLASS Extensions
-===============================================
+Events and Hooks vs. XCLASS Extensions
+======================================
 
-Events, Signals and Hooks are the recommended way of extending TYPO3 compared to
+Events and Hooks are the recommended way of extending TYPO3 compared to
 extending PHP classes with a child class (see :ref:`XCLASS extensions <xclasses>`). Because
-only one extension of a PHP class can exist at a time while hooks and signals
+only one extension of a PHP class can exist at a time while hooks and events
 may allow many different user-designed processor functions to be executed.
 With TYPO3 10 the EventDispatcher was introduced. It is a strongly typed method of
 extending TYPO3 and therefore recommended to use wherever available.
 
-However, Events have to be emitted, Hooks and Signals have to be implemented,
-in the TYPO3 Core  or an Extension before you can use them, while extending a
+However, Events have to be emitted and Hooks have to be implemented,
+in the TYPO3 Core or an extension before you can use them, while extending a
 PHP class via the XCLASS method allows you to extend any class you like.
 
 
@@ -58,7 +57,7 @@ PHP class via the XCLASS method allows you to extend any class you like.
 Proposing Events
 ================
 
-If you need to extend something which has no event, hook or signal yet, then you
+If you need to extend something which has no event or hook yet, then you
 should suggest emitting an event. Normally that is rather easily done by the
 author of the source you want to extend.
 

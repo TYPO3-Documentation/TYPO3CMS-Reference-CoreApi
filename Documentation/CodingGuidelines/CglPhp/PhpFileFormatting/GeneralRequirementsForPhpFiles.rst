@@ -18,7 +18,7 @@ in the :code:`frontend` system extension there is the file
 It is recommended to use only PHP classes and avoid non-class files.
 
 Files that contain PHP interfaces must have the file name end on
-"Interface", e.g. :file:`FileListEditIconHookInterface.php`.
+"Interface", e.g. :file:`EnforceableQueryRestrictionInterface.php`.
 
 One file can contain only one class or interface.
 
