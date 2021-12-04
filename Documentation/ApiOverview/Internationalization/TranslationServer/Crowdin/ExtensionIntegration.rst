@@ -118,6 +118,7 @@ After a short time you should see something like that
    :alt: Result
    :width: 600px
 
+Clicking the Edit button will take you back to the :guilabel:`Select Branches` dialog from above.
 
 Happy translating!
 
