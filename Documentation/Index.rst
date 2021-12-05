@@ -145,7 +145,7 @@ address the task at hand.
    ApiOverview/Icon/Index
    ApiOverview/Internationalization/Index
    ApiOverview/JavaScript/Index
-   ApiOverview/LinkBrowser/Index
+   ApiOverview/LinksAndReferences/Index
    ApiOverview/LockingApi/Index
    ApiOverview/Logging/Index
    ApiOverview/Mail/Index
@@ -162,7 +162,6 @@ address the task at hand.
    ApiOverview/Services/Index
    ApiOverview/SessionStorageFramework/Index
    ApiOverview/SiteHandling/Index
-   ApiOverview/SoftReferences/Index
    ApiOverview/CommandControllers/Index
    ApiOverview/SymfonyExpressionLanguage/Index
    ApiOverview/Categories/Index
