@@ -35,7 +35,7 @@ to use it within the code flow of the `QueryBuilder` context directly::
          $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('peter'))
       )
       ->execute()
-      ->fetchAll();
+      ->fetchAllAssociative();
 
 .. warning::
 
@@ -211,7 +211,7 @@ Examples::
       )
       ->from('tt_content')
       ->execute()
-      ->fetch();
+      ->fetchAssociative();
 
    // Distinct list of all existing endtime values from tt_content
    // SELECT `uid`, MAX(`endtime`) AS `maxendtime` FROM `tt_content` GROUP BY `endtime`

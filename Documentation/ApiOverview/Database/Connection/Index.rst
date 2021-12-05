@@ -265,7 +265,7 @@ quoted::
 Remarks:
 
 * In contrast to the other short-hand methods, :php:`->select()` returns a :ref:`Statement <database-statement>` object
-  ready to :php:`->fetch()` single rows or to :php:`->fetchAll()`
+  ready to :php:`->fetchAssociative()` single rows or to :php:`->fetchAllAssociative()`
 
 * The method accepts a series of further arguments to specify `GROUP BY`, `ORDER BY`, `LIMIT` and `OFFSET` query parts.
 
@@ -324,5 +324,5 @@ The method can be helpful in loops to save some precious code characters, too::
          ->from('whatever')
          ->where(...)
          ->execute()
-         ->fetchAll();
+         ->fetchAllAssociative();
    }
