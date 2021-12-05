@@ -816,6 +816,12 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']
    :Default: []
 
    Registered toolbar items classes
+   
+.. note::
+   This configuration variable will be removed with version 12.0. Extensions who want to 
+   support both LTS 11 and 12 can set this variable and depend on Services to load the 
+   toolbar in LTS 12.  Using this configuration variable is **not deprecated** in 
+   LTS 11.
 
 
 .. index::
