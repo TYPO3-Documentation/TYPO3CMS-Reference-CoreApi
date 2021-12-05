@@ -21,7 +21,7 @@ compatible with workspaces is described in the
 TCA reference (in the :ref:`description of the "ctrl" section <t3tca:ctrl>`
 and in the :ref:`description of the "versioningWS" property <t3tca:ctrl-reference-versioningws>`).
 
-You might want to turn the workspace off for certain tables. 
+You might want to turn the workspace off for certain tables.
 The only way to do so is with a :file:`Configuration/TCA/Overrides/example_table.php`::
 
    $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
@@ -110,18 +110,18 @@ live records and check for them in versionOL on input record.
 Frontend implementation guidelines
 ==================================
 
--  Any place where enableFields() are not used for selecting in the
-   frontend you must at least check that :code:`t3ver_state != 1` so
-   placeholders for new records are not displayed.
+Any place where enableFields() are not used for selecting in the
+frontend you must at least check that :code:`t3ver_state != 1` so
+placeholders for new records are not displayed.
 
--  If you need to detect preview mode for versioning and workspaces you
-   can use the Context object.
-   :code:`GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('workspace', 'id', 0);`
-   gives you the id of the workspace of the current backend user. Used
-   for preview of workspaces.
+If you need to detect preview mode for versioning and workspaces you
+can use the Context object.
+:code:`GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('workspace', 'id', 0);`
+gives you the id of the workspace of the current backend user. Used
+for preview of workspaces.
 
--  Use the following API function for support of version previews in the
-   frontend:
+Use the following API function for support of version previews in the
+frontend:
 
 
 .. rst-class:: dl-parameters
