@@ -82,12 +82,6 @@ is `oneToMany`.
 System categories API
 =====================
 
-.. deprecated:: 11.4
-   Starting with v 11.4 the API function
-   :php:`ExtensionManagementUtility::makeCategorizable()` and the class
-   :php:`CategoryRegistry` have been deprecated.
-   Use a TCA field of the type :ref:`category<t3tca:columns-category>` instead.
-
 .. _categories-collections:
 
 Category Collections

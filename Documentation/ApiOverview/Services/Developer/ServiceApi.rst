@@ -7,10 +7,10 @@
 Service API
 ===========
 
-.. deprecated:: 11.3
+.. versionchanged:: 12.0
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   deprecated. See :ref:`services-developer-service-api-migration`.
-   
+   removed. See :ref:`services-developer-service-api-migration`.
+
 All service classes should implement the methods mentioned below.
 
 Authentication services should inherit from
@@ -256,14 +256,14 @@ getOutputFile
 Migration
 =========
 
-.. deprecated:: 11.3
+.. versionchanged:: 12.0
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   deprecated.
+   removed.
 
 Remove any usage of the class :php:`\TYPO3\CMS\Core\Service\AbstractService` in
 your extension. In case you currently
 extend :php:`AbstractService` for use in an authentication service, which
-might be the most common scenario, you can extend the  
+might be the most common scenario, you can extend the
 :php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService`
 instead.
 

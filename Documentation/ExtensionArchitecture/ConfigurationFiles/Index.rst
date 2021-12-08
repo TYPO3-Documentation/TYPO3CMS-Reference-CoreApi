@@ -57,7 +57,7 @@ While you *can* put functions and classes into :file:`ext_localconf.php`, it is 
 practice because such classes and functions would *always* be loaded. It is
 better to have them included only as needed.
 
-Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes
+Registering :ref:`hooks <hooks-concept>`, :ref:`XCLASSes
 <xclasses>` or any simple array assignments to
 :php:`$GLOBALS['TYPO3_CONF_VARS']` options will not work for the following:
 
@@ -89,7 +89,7 @@ Should Be Used For
 
 These are the typical functions that extension authors should place within :file:`ext_localconf.php`
 
-* Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes <xclasses>`
+* Registering :ref:`hooks <hooks-concept>`, :ref:`XCLASSes <xclasses>`
   or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
 * Registering additional Request Handlers within the :ref:`Bootstrap <bootstrapping>`
 * Adding any :ref:`PageTSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>`

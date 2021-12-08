@@ -9,9 +9,9 @@ ModifyLoginFormViewEvent
 
 Allows to inject custom variables into the login form.
 
-.. deprecated:: 11.5
-   The interface :php:`\TYPO3\CMS\Extbase\Mvc\View\ViewInterface` has been deprecated
-   with v11.5 and will be removed with v12. This class's signature is set to change
+.. versionchanged:: 12.0
+   The interface :php:`\TYPO3\CMS\Extbase\Mvc\View\ViewInterface` has been
+   removed with v12. This class's signature changed
    to :php:`TYPO3Fluid\Fluid\View\ViewInterface` with the release v12.
 
 API

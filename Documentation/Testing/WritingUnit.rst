@@ -336,6 +336,8 @@ similar way::
 
     GeneralUtility::setSingletonInstance(EnvironmentService::class, $environmentServiceMock);
 
+.. todo: EnvironmentService has been removed with version 12.0, find another Example here
+
 If adding singletons, make sure to set the property :php:`protected $resetSingletonInstances = true;`,
 otherwise :php:`->tearDown()` will detect a dangling singleton and let's the unit test fail
 to avoid side effects on other tests.

@@ -6,9 +6,9 @@
 Implementing a service
 ======================
 
-.. deprecated:: 11.3
+.. versionchanged:: 12.0
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   deprecated. See :ref:`services-developer-service-api-migration`.
+   removed. See :ref:`services-developer-service-api-migration`.
 
 There are no tools to get you started coding a new service.
 However there is not much that needs to be done.
