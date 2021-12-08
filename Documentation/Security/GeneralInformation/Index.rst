@@ -141,43 +141,6 @@ issue (e.g. information disclosure, cross-site scripting, etc.). The
 bulletin does not contain an exploit or a description on how to
 (ab)use the security issue.
 
-The severity is an indication on how important the issue is:
-
-
-.. ### BEGIN~OF~SIMPLE~TABLE ###
-
-.. Note: The exact "styling" of the following table is important.
-   There may be no text in the column margin.
-
-============   ======================================================
-Severity       Meaning
-============   ======================================================
-**Critical**   This is a critical security issue and action should be
-               taken immediately (on the day of the release).
-**High**       This is an important security issue and action should
-               be taken as soon as possible.
-**Medium**     Your website may be affected by this issue and you
-               should consider taking action as soon as feasible.
-**Low**        There is a good chance that your site is not affected
-               by this issue or that it can be exploited only in
-               special circumstances. However, you should check
-               whether your site is at risk and consider necessary
-               action.
-============   ======================================================
-
-
-.. ###### END~OF~SIMPLE~TABLE ######
-
-
-For TYPO3 extensions, there are two types of security bulletins:
-
-- Individual Security Bulletin: bulletins issued for extensions that
-  have a high number of downloads and are used in many projects.
-
-- Collective Security Bulletins: updates for extensions with a relative
-  small number of downloads are published in a collective bulletin. Such
-  a bulletin may contain information about 10 or even more extensions.
-
 For some critical security issues the TYPO3 Security Team may decide
 to pre-announce a security bulletin on the "TYPO3 Announce" mailing
 list. This is to inform system administrators about the date and time
