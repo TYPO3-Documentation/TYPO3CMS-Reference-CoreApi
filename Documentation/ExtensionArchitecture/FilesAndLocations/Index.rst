@@ -605,8 +605,10 @@ Resources/Private/Templates
 .. index:: Path; EXT:{extkey}/Resources/Public
 
 Resources/Public
-   Public assets of extensions (files that should be delivered by the web
-   server) must be located in Resources/Public folder of the extension.
+   Public assets used in extensions (files that should be delivered by the web
+   server) must be located in the Resources/Public folder of the extension. This folder should
+   only be used for static assets. If you need to create assets
+   during runtime, they should be stored in :code:`typo3temp/`.
 
    .. deprecated:: 11.5
       Having public assets in any but the folder Resources/Public has been
