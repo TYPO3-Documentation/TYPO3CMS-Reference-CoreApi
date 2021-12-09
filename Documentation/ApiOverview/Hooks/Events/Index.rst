@@ -173,6 +173,13 @@ in the TYPO3 Core .
 
 .. toctree::
    :titlesonly:
+   :caption: redirects
+   :glob:
+
+   Redirects/*
+
+.. toctree::
+   :titlesonly:
    :caption: seo
    :glob:
 
