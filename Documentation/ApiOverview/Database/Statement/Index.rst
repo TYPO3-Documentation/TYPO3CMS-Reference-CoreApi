@@ -11,8 +11,20 @@ Statement
 A `Statement` object is returned by :php:`QueryBuilder->execute()` for :php:`->select()` and :php:`->count()`
 query types and by :php:`Connection->select()` and :php:`Connection->count()` calls.
 
-The object represents a query result set and comes with methods to :php:`->fetch()` single rows
-or to :php:`->fetchAll()` of them. Additionally, it can also be used to execute a single prepared
+.. todo: remove this note after requirement to doctrine/dbal 3, probably TYPO3 v12
+
+.. note::
+
+   The functions :php:`->fetch()`, :php:`->fetchAll()` and :php:`fetchColumn()` were
+   `deprecated in doctrine/dbal 2.13 <https://www.doctrine-project.org/2021/03/29/dbal-2.13.html>`__
+   and will be removed in DBAL3. It is recommended to use
+   :php:`->fetchAssociative()`, :php:`->fetchAllAssociative()` or
+   :php:`fetchOne()` respectively.
+
+
+The object represents a query result set and comes with methods to fetch single rows
+with :php:`->fetch()` or to fetch all rows with :php:`->fetchAllAssociative()`.
+Additionally, it can also be used to execute a single prepared
 statement with different values multiple times. This part is however not widely used within
 the TYPO3 Core yet, and thus not fully documented here.
 
@@ -35,8 +47,8 @@ the TYPO3 Core yet, and thus not fully documented here.
    `DBMS` compatibility.
 
 
-fetch()
-=======
+fetchAssociative()
+==================
 
 Fetch next row from a result statement. Usually used in while() loops. Typical example::
 
@@ -49,17 +61,17 @@ Fetch next row from a result statement. Usually used in while() loops. Typical e
       ->from('tt_content')
       ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)))
       ->execute();
-   while ($row = $statement->fetch()) {
+   while ($row = $statement->fetchAssociative()) {
       // Do something useful with that single $row
    }
 
 
-:php:`->fetch()` returns arrays with single field / values pairs until the end of the result set is reached
+:php:`->fetchAssociative()` returns arrays with single field / values pairs until the end of the result set is reached
 which then returns false and thus breaks the while loop.
 
 
-fetchAll()
-==========
+fetchAllAssociative()
+=====================
 
 Returns an array containing all of the result set rows by implementing the same while loop as above internally.
 Using that method saves some precious code characters but is more memory intensive if the result set is large
@@ -74,11 +86,11 @@ with lots of rows and lot of data since big arrays are carried around in `PHP`::
       ->from('tt_content')
       ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)))
       ->execute()
-      ->fetchAll();
+      ->fetchAllAssociative();
 
 
-fetchColumn()
-=============
+fetchOne()
+==========
 
 Returns a single column from the next row of a result set, other columns from that result row are discarded.
 This method is especially handy for :php:`QueryBuilder->count()` queries. The :php:`Connection->count()` implementation
@@ -93,14 +105,14 @@ does exactly that to return the number of rows directly::
       ->from('tt_content')
       ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)))
       ->execute()
-      ->fetchColumn(0);
+      ->fetchOne();
 
 
 rowCount()
 ==========
 
 Returns the number of rows affected by the last execution of this statement. Use that method
-instead of counting the number of records in a :php:`->fetch()` loop manually.
+instead of counting the number of records in a :php:`->fetchAssociative()` loop manually.
 
 .. warning::
 
@@ -130,11 +142,11 @@ and executes it twice with different arguments::
         ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createPositionalParameter(0, \PDO::PARAM_INT)))
         ->getSQL();
     $statement = $connection->executeQuery($sqlStatement, [ 24 ]);
-    $result1 = $statement->fetch();
+    $result1 = $statement->fetchAssociative();
     $statement->closeCursor(); // free the resources for this result
     $statement->bindValue(1, 25);
     $statement->execute();
-    $result2 = $statement->fetch();
+    $result2 = $statement->fetchAssociative();
     $statement->closeCursor(); // free the resources for this result
 
 

@@ -188,7 +188,7 @@ Result Set Iteration
 ====================
 
 The `exec_*` calls return a resource object that is typically iterated over using :php:`sql_fetch_assoc()`.
-This is typically changed to :php:`->fetch()` on the `Statement` object::
+This is typically changed to :php:`->fetchAssociative()` on the `Statement` object::
 
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(...);
@@ -198,7 +198,7 @@ This is typically changed to :php:`->fetch()` on the `Statement` object::
 
    // After:
    $statement = $queryBuilder->execute();
-   while ($row = $statement->fetch()) {
+   while ($row = $statement->fetchAssociative()) {
       // Do something
    }
 
