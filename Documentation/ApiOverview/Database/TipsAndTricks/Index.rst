@@ -33,6 +33,6 @@ Various Tips and Tricks
   query errors. Note this is not good habit and often indicates an architectural flaw of the application
   at a different layer.
 
-* :php:`count()` query types using the `QueryBuilder` typically call :php:`->fetchColumn(0)` to receive the count
+* :php:`count()` query types using the `QueryBuilder` typically call :php:`->fetchOne()` to receive the count
   value. The :php:`count()` method of `Connection` object does that automatically and returns the count value
   result directly.

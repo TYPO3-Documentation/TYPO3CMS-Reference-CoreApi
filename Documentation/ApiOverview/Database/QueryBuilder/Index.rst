@@ -117,8 +117,8 @@ A useful combination of :php:`->select()` and :php:`->addSelect()` can be::
       $queryBuilder->addSelect(...$additionalFields);
    }
 
-Calling :php:`->execute()` on a :php:`->select()` query returns a `Statement` object. To receive single rows a :php:`->fetch()`
-loop on that object is used, or :php:`->fetchAll()` to return a single array with all rows. A typical code flow
+Calling :php:`->execute()` on a :php:`->select()` query returns a `Statement` object. To receive single rows a :php:`->fetchAssociative()`
+loop on that object is used, or :php:`->fetchAllAssociative()` to return a single array with all rows. A typical code flow
 of a `SELECT` query looks like::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -131,7 +131,7 @@ of a `SELECT` query looks like::
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
       ->execute();
-   while ($row = $statement->fetch()) {
+   while ($row = $statement->fetchAssociative()) {
       // Do something with that single row
       debug($row);
    }
@@ -167,7 +167,7 @@ Create a `COUNT` query, a typical usage::
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
        )
       ->execute()
-      ->fetchColumn(0);
+      ->fetchOne();
 
 
 Remarks:
@@ -177,7 +177,7 @@ Remarks:
   defined in `TCA`.
 
 * Similar to :php:`->select()` query types, :php:`->execute()` with :php:`->count()` returns a `Statement` object. To
-  fetch the number of rows directly, use :php:`->fetchColumn(0)`.
+  fetch the number of rows directly, use :php:`->fetchOne()`.
 
 * First argument to :php:`->count()` is required, typically :php:`->count(*)` or :php:`->count('uid')` is used, the field
   name is automatically quoted.
@@ -574,7 +574,7 @@ argument::
       ->from('sys_language')
       ->orderBy('sorting')
       ->execute()
-      ->fetchAll();
+      ->fetchAllAssociative();
 
 
 Remarks:

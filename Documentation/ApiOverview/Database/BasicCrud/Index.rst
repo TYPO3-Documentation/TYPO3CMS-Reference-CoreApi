@@ -62,7 +62,7 @@ Straight fetch of a single row from `tt_content` table:
             'tt_content', // from
             [ 'uid' => (int)$uid ] // where
         )
-        ->fetch();
+        ->fetchAssociative();
 
 
 Result in $row:
@@ -124,7 +124,7 @@ Advanced query using the `QueryBuilder` and manipulating the default restriction
             )
         )
         ->execute()
-        ->fetchAll();
+        ->fetchAllAssociative();
 
 Result in $rows:
 

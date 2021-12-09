@@ -198,7 +198,7 @@ backend module::
       ->from('tt_content')
       ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pid, \PDO::PARAM_INT)))
       ->execute()
-      ->fetchAll();
+      ->fetchAllAssociative(();
 
 The `DeletedRestriction` should be kept in almost all cases. Usually, the only extension that dismiss
 that flag is the recycler module to list and resurrect deleted records. Any object implementing the
