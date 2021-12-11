@@ -43,12 +43,6 @@ been marked as belonging to this category.
 Adding categories to a table
 ----------------------------
 
-.. deprecated:: 11.4
-   Starting with v11.4 Defining category fields for tables with
-   :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultCategorizedTables']` or
-   by calling :php:`ExtensionManagementUtility::makeCategorizable()` is
-   deprecated.
-
 Categories can be added to a table by defining a TCA field of the TCA column
 type :ref:`category<t3tca:columns-category>`. While using this type, TYPO3
 takes care of generating the necessary TCA configuration and also adds

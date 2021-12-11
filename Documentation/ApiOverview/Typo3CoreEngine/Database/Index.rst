@@ -230,22 +230,6 @@ Command keywords and values
 
 
  - :Command:
-         inlineLocalizeSynchronize
-   :Type:
-         array
-   :Value:
-         Performs localization or synchronization of child records.
-         The command structure is like::
-
-             $cmd['tt_content'][13]['inlineLocalizeSynchronize'] = [ // 13 is a parent record uid
-               'field' => 'tx_myfieldname', // field we want to synchronize
-               'language' => 2, // uid of the target language
-               // either the key 'action' or 'ids' must be set
-               'action' => 'localize' // or 'synchronize'
-               'ids' =>  [1, 2, 3] // array of child-ids to be localized
-             ]
-
- - :Command:
          version
    :Type:
          array
