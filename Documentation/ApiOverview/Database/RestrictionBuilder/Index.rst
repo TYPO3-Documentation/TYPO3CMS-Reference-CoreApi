@@ -197,7 +197,7 @@ backend module::
       ->select('uid', 'bodytext')
       ->from('tt_content')
       ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pid, \PDO::PARAM_INT)))
-      ->execute()
+      ->executeQuery()
       ->fetchAllAssociative(();
 
 The `DeletedRestriction` should be kept in almost all cases. Usually, the only extension that dismiss
@@ -234,9 +234,11 @@ deliver and use an own set of restrictions for own query statements if needed.
 
 .. tip::
 
-   It can be very helpful to debug the final statements created by the `RestrictionBuilder` using
-   :php:`debug($queryBuilder->getSQL())` right before the final call to :php:`$queryBuilder->execute()`. Just
-   take care these calls **do not** :ref:`end up in production <database-query-builder-get-sql>` code.
+   It can be very helpful to debug the final statements created by the
+   `RestrictionBuilder` using :php:`debug($queryBuilder->getSQL())` right before
+   the final call to :php:`$queryBuilder->executeQuery()`. Just
+   take care these calls **do not**
+   :ref:`end up in production <database-query-builder-get-sql>` code.
 
 
 If you want to apply one or more restriction/s to only one table, that is possible as follows. Let's say,

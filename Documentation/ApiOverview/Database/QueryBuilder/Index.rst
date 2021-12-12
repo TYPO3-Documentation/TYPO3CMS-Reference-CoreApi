@@ -24,15 +24,17 @@ This documentation provides examples for the most commonly used queries.
 
 The `QueryBuilder` comes with a happy little list of small methods:
 
-* Set type of query: :php:`->select()`, :php:`->count()`, :php:`->update()`, :php:`->insert()` and :php:`delete()`
+*  Set type of query: :php:`->select()`, :php:`->count()`, :php:`->update()`,
+   :php:`->insert()` and :php:`delete()`
 
-* Prepare `WHERE` conditions
+*  Prepare `WHERE` conditions
 
-* Manipulate default `WHERE` restrictions added by TYPO3 for :php:`->select()`
+*  Manipulate default `WHERE` restrictions added by TYPO3 for :php:`->select()`
 
-* Add `LIMIT`, `GROUP BY` and other SQL stuff
+*  Add `LIMIT`, `GROUP BY` and other SQL stuff
 
-* :php:`->execute()` a query and retrieve a `Statement` (a query result) object
+*  :php:`executeQuery()` a query and retrieve a result, a
+   :php:`\Doctrine\DBAL\Result` object
 
 
 Most methods of the `QueryBuilder` return `$this` and can be chained::
@@ -117,21 +119,23 @@ A useful combination of :php:`->select()` and :php:`->addSelect()` can be::
       $queryBuilder->addSelect(...$additionalFields);
    }
 
-Calling :php:`->execute()` on a :php:`->select()` query returns a `Statement` object. To receive single rows a :php:`->fetchAssociative()`
-loop on that object is used, or :php:`->fetchAllAssociative()` to return a single array with all rows. A typical code flow
-of a `SELECT` query looks like::
+Calling the function :php:`executeQuery()` on a :php:`->select()` query returns
+a result object (type :php:`\Doctrine\DBAL\Result`). To receive single rows a
+:php:`->fetchAssociative()` loop on that object is used, or
+:php:`->fetchAllAssociative()` to return a single array with all rows.
+A typical code flow of a :sql:`SELECT` query looks like::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $statement = $queryBuilder
+   $result = $queryBuilder
       ->select('uid', 'header', 'bodytext')
       ->from('tt_content')
       ->where(
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
-      ->execute();
-   while ($row = $statement->fetchAssociative()) {
+      ->executeQuery();
+   while ($row = $result->fetchAssociative()) {
       // Do something with that single row
       debug($row);
    }
@@ -166,27 +170,32 @@ Create a `COUNT` query, a typical usage::
       ->where(
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
        )
-      ->execute()
+      ->executeQuery()
       ->fetchOne();
 
 
 Remarks:
 
-* Similar to the :php:`->select()` query type, :php:`->count()` automatically triggers `RestrictionBuilder` magic
-  that adds default `deleted`, `hidden`, `starttime` and `endtime` restrictions if that is
-  defined in `TCA`.
+*  Similar to the :php:`->select()` query type, :php:`->count()` automatically
+   triggers `RestrictionBuilder` magic that adds default `deleted`, `hidden`,
+   `starttime` and `endtime` restrictions if that is defined in `TCA`.
 
-* Similar to :php:`->select()` query types, :php:`->execute()` with :php:`->count()` returns a `Statement` object. To
-  fetch the number of rows directly, use :php:`->fetchOne()`.
+*  Similar to :php:`->select()` query types, :php:`->executeQuery()` with
+   :php:`->count()` returns a result object of type :php:`\Doctrine\DBAL\Result`.
+   To fetch the number of rows directly, use :php:`->fetchOne()`.
 
-* First argument to :php:`->count()` is required, typically :php:`->count(*)` or :php:`->count('uid')` is used, the field
-  name is automatically quoted.
+*  First argument to :php:`->count()` is required, typically :php:`->count(*)`
+   or :php:`->count('uid')` is used, the field
+   name is automatically quoted.
 
-* There is no support for `DISTINCT`, a :php:`->groupBy()` has to be used instead.
+*  There is no support for `DISTINCT`, a :php:`->groupBy()` has to be used
+   instead.
 
-* If combining :php:`->count()` with a :php:`->groupBy()`, the result may return multiple rows. The order of
-  those rows depends on the used `DBMS`. To ensure same order of result rows on multiple different databases,
-  a :php:`->groupBy()` should thus always be combined with a :php:`->orderBy()`.
+*  If combining :php:`->count()` with a :php:`->groupBy()`, the result may
+   return multiple rows. The order of
+   those rows depends on the used `DBMS`. To ensure same order of result rows
+   on multiple different databases,
+   a :php:`->groupBy()` should thus always be combined with a :php:`->orderBy()`.
 
 
 delete()
@@ -203,7 +212,7 @@ Create a `DELETE FROM` query. The method requires the table name to drop data fr
       ->where(
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
-      ->execute();
+      ->executeStatement();
 
 
 Remarks:
@@ -244,7 +253,7 @@ Create an `UPDATE` query. Typical usage::
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
       ->set('bodytext', 'peter')
-      ->execute();
+      ->executeStatement();
 
 
 :php:`->update()` requires the table to update as first argument and a table alias (e.g. 't') as optional second argument.
@@ -260,7 +269,7 @@ The table alias can then be used in :php:`->set()` and :php:`->where()` expressi
          $queryBuilder->expr()->eq('t.bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
       ->set('t.bodytext', 'peter')
-      ->execute();
+      ->executeStatement();
 
 :php:`->set()` requires a field name as first argument and automatically quotes it internally. The second mandatory
 argument is the value a field should be set to, **the value is automatically transformed to a named parameter
@@ -279,24 +288,24 @@ If a field should be set to the value of another field from the row, the quoting
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
       )
       ->set('bodytext', $queryBuilder->quoteIdentifier('header'), false)
-      ->execute();
+      ->executeStatement();
 
 Remarks:
 
-* For simple cases, it is often easier to use the :php:`->update()` method of the
-  `Connection` object.
+*  For simple cases, it is often easier to use the :php:`->update()` method of the
+   `Connection` object.
 
-* :php:`->set()` can be called multiple times if multiple fields should be updated.
+*  :php:`->set()` can be called multiple times if multiple fields should be updated.
 
-* :php:`->set()` requires a field name as first argument and automatically quotes it internally.
+*  :php:`->set()` requires a field name as first argument and automatically quotes it internally.
 
-* :php:`->set()` requires the value a field should be set to as second parameter.
+*  :php:`->set()` requires the value a field should be set to as second parameter.
 
-* :php:`->update()` ignores :php:`->join()` and :php:`->setMaxResults()`.
+*  :php:`->update()` ignores :php:`->join()` and :php:`->setMaxResults()`.
 
-* The API does not magically add `deleted = 0` or other restrictions as is currently done
-  for example on :ref:`select <database-query-builder-select-restrictions>`.
-  (See also :ref:`RestrictionBuilder <database-restriction-builder>`).
+*  The API does not magically add `deleted = 0` or other restrictions as is currently done
+   for example on :ref:`select <database-query-builder-select-restrictions>`.
+   (See also :ref:`RestrictionBuilder <database-restriction-builder>`).
 
 
 insert() and values()
@@ -313,22 +322,22 @@ Create an `INSERT` query. Typical usage::
          'bodytext' => 'klaus',
          'header' => 'peter',
       ])
-      ->execute();
+      ->executeStatement();
 
 
 Remarks:
 
-* It is often easier to use :php:`->insert()` or :php:`->bulkInsert()` of the `Connection` object.
+*  It is often easier to use :php:`->insert()` or :php:`->bulkInsert()` of the `Connection` object.
 
-* :php:`->values()` expects an array of key/value pairs. Both keys (field names / identifiers) and values are
-  automatically quoted. In rare cases, quoting of values can be turned off by setting the second argument
-  to :php:`false`. In those cases the quoting has to be done manually, typically by using :php:`->createNamedParameter()`
-  on the values, use with care ...
+*  :php:`->values()` expects an array of key/value pairs. Both keys (field names / identifiers) and values are
+   automatically quoted. In rare cases, quoting of values can be turned off by setting the second argument
+   to :php:`false`. In those cases the quoting has to be done manually, typically by using :php:`->createNamedParameter()`
+   on the values, use with care ...
 
-* :php:`->execute()` after :php:`->insert()` returns the number of inserted rows, which is typically `1`.
+*  :php:`->executeStatement()` after :php:`->insert()` returns the number of inserted rows, which is typically `1`.
 
-* `QueryBuilder` does not contain a method to insert multiple rows at once, use :php:`->bulkInsert()` of `Connection`
-  object instead to achieve that.
+*  `QueryBuilder` does not contain a method to insert multiple rows at once, use :php:`->bulkInsert()` of `Connection`
+   object instead to achieve that.
 
 
 from()
@@ -356,7 +365,8 @@ where(), andWhere() and orWhere()
 =================================
 
 The three methods are used to create `WHERE` restrictions for `SELECT`, `COUNT`, `UPDATE` and `DELETE` query types.
-Each argument is typically an `ExpressionBuilder` object that will be cast to a string on :php:`->execute()`::
+Each argument is typically an `ExpressionBuilder` object that will be cast to a string on :php:`->executeQuery()`
+or :php:`->executeStatement()`::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -370,7 +380,7 @@ Each argument is typically an `ExpressionBuilder` object that will be cast to a 
    //    AND (`pid` = 42)
    //    AND ... RestrictionBuilder TCA restrictions ...
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $statement = $queryBuilder
+   $result = $queryBuilder
       ->select('uid', 'header', 'bodytext')
       ->from('tt_content')
       ->where(
@@ -384,7 +394,7 @@ Each argument is typically an `ExpressionBuilder` object that will be cast to a 
       ->andWhere(
          $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
       )
-      ->execute();
+      ->executeQuery();
 
 Note the parenthesis of the above example: :php:`->andWhere()` encapsulates both :php:`->where()` and :php:`->orWhere()`
 with an additional restriction.
@@ -453,7 +463,7 @@ restriction as fourth argument::
    //          AND ((`p`.`endtime` = 0) OR (`overlay`.`endtime` > 1475591280))
    //     )
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
-   $statement = $queryBuilder
+   $result = $queryBuilder
       ->select('sys_language.uid', 'sys_language.title')
       ->from('sys_language')
       ->join(
@@ -465,32 +475,32 @@ restriction as fourth argument::
       ->where(
          $queryBuilder->expr()->eq('p.uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
       )
-      ->execute();
+      ->executeQuery();
 
 
 Notes to the above example:
 
-* The query operates on table `sys_language` as main table, this table name is given to :php:`getQueryBuilderForTable()`.
+*  The query operates on table `sys_language` as main table, this table name is given to :php:`getQueryBuilderForTable()`.
 
-* The query joins table `pages` as `INNER JOIN`, giving it the alias `p`.
+*  The query joins table `pages` as `INNER JOIN`, giving it the alias `p`.
 
-* The join condition is ```p`.`sys_language_uid` = `sys_language`.`uid```. It would have been identical to
-  swap the expression arguments of the fourth `->join()` argument
-  :php:`->eq('sys_language.uid', $queryBuilder->quoteIdentifier('p.sys_language_uid'))`.
+*  The join condition is ```p`.`sys_language_uid` = `sys_language`.`uid```. It would have been identical to
+   swap the expression arguments of the fourth `->join()` argument
+   :php:`->eq('sys_language.uid', $queryBuilder->quoteIdentifier('p.sys_language_uid'))`.
 
-* The second argument of the join expression instructs the `ExpressionBuilder` to quote the value as a field
-  identifier (a field name, here a table/field name combination). Using :php:`createNamedParameter()` would lead to
-  a quoting as value (`'` instead of ````` in `mysql`) and the query would fail.
+*  The second argument of the join expression instructs the `ExpressionBuilder` to quote the value as a field
+   identifier (a field name, here a table/field name combination). Using :php:`createNamedParameter()` would lead to
+   a quoting as value (`'` instead of ````` in `mysql`) and the query would fail.
 
-* The alias `p` - the third argument of the :php:`->join()` call - does not necessarily have to be set to a different
-  name than the table name itself here. Using `pages` as third argument and not specifying
-  a different name would do. Aliases are mostly useful if a join to the same table is needed:
-  ``SELECT `something` FROM `tt_content` JOIN `tt_content` `content2` ON ...``. Aliases additionally become handy
-  to increase readability of `->where()` expressions.
+*  The alias `p` - the third argument of the :php:`->join()` call - does not necessarily have to be set to a different
+   name than the table name itself here. Using `pages` as third argument and not specifying
+   a different name would do. Aliases are mostly useful if a join to the same table is needed:
+   ``SELECT `something` FROM `tt_content` JOIN `tt_content` `content2` ON ...``. Aliases additionally become handy
+   to increase readability of `->where()` expressions.
 
-* The `RestrictionBuilder` added additional `WHERE` conditions for both involved tables! Table `sys_language` obviously
-  only specifies a `'disabled' => 'hidden'` as `enableColumns` in its `TCA` `ctrl` section, while table
-  `pages` specifies `deleted`, `hidden`, `starttime` and `stoptime` fields.
+*  The `RestrictionBuilder` added additional `WHERE` conditions for both involved tables! Table `sys_language` obviously
+   only specifies a `'disabled' => 'hidden'` as `enableColumns` in its `TCA` `ctrl` section, while table
+   `pages` specifies `deleted`, `hidden`, `starttime` and `stoptime` fields.
 
 
 A more complex example with two joins. The first join points to the first table again using an alias to resolve
@@ -537,25 +547,25 @@ a language overlay scenario. The second join uses the alias name of the first jo
       )
       ->where(...$constraints)
       ->groupBy('tt_content_orig.sys_language_uid')
-      ->execute();
+      ->executeQuery();
 
 
 Further remarks:
 
-* :php:`->join()` and `innerJoin` are identical. They create an `INNER JOIN` query, this is identical to a `JOIN` query.
+*  :php:`->join()` and `innerJoin` are identical. They create an `INNER JOIN` query, this is identical to a `JOIN` query.
 
-* :php:`->leftJoin()` creates a `LEFT JOIN` query, this is identical to a `LEFT OUTER JOIN` query.
+*  :php:`->leftJoin()` creates a `LEFT JOIN` query, this is identical to a `LEFT OUTER JOIN` query.
 
-* :php:`->rightJoin()` creates a `RIGHT JOIN` query, this is identical to a `RIGHT OUTER JOIN` query.
+*  :php:`->rightJoin()` creates a `RIGHT JOIN` query, this is identical to a `RIGHT OUTER JOIN` query.
 
-* Calls on join() methods are only considered for :php:`->select()` and :php:`->count()` type queries. :php:`->delete()`, :php:`->insert()`
-  and :php:`update()` do not support joins, those query parts are ignored and do not end up in the final statement.
+*  Calls on join() methods are only considered for :php:`->select()` and :php:`->count()` type queries. :php:`->delete()`, :php:`->insert()`
+   and :php:`update()` do not support joins, those query parts are ignored and do not end up in the final statement.
 
-* The argument of :php:`->getQueryBuilderForTable()` should be the left most main table.
+*  The argument of :php:`->getQueryBuilderForTable()` should be the left most main table.
 
-* A join of two tables that are configured to different connections will throw an exception. This restricts which
-  tables can be configured to different database endpoints. It is possible to test the connection objects of involved
-  tables for equality and implement a fallback logic in `PHP` if they are different.
+*  A join of two tables that are configured to different connections will throw an exception. This restricts which
+   tables can be configured to different database endpoints. It is possible to test the connection objects of involved
+   tables for equality and implement a fallback logic in PHP if they are different.
 
 
 orderBy() and addOrderBy()
@@ -573,7 +583,7 @@ argument::
       ->select('*')
       ->from('sys_language')
       ->orderBy('sorting')
-      ->execute()
+      ->executeQuery()
       ->fetchAllAssociative();
 
 
@@ -633,7 +643,7 @@ called only once per statement::
       ->from('sys_language')
       ->setMaxResults(2)
       ->setFirstResult(4)
-      ->execute();
+      ->executeQuery();
 
 Remarks:
 
@@ -681,22 +691,22 @@ to verify the final statement is executed just as a developer expects it::
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
    $queryBuilder->select('*')->from('sys_language');
    debug($queryBuilder->getSQL());
-   $statement = $queryBuilder->execute();
+   $result = $queryBuilder->executeQuery();
 
 
 Remarks:
 
-* This is debugging code. Take proper actions to ensure those calls do not end up in production!
+*  This is debugging code. Take proper actions to ensure those calls do not end up in production!
 
-* The method is typically called directly before :php:`->execute()` to output the final statement.
+*  The method is typically called directly before :php:`->executeQuery()` to output the final statement.
 
-* Casting a QueryBuilder object to :php:`(string)` has the same effect as calling :php:`->getSQL()`, the explicit call
-  using the method should be preferred to simplify a search operation for this kind of debugging statements, though.
+*  Casting a QueryBuilder object to :php:`(string)` has the same effect as calling :php:`->getSQL()`, the explicit call
+   using the method should be preferred to simplify a search operation for this kind of debugging statements, though.
 
-* The method is a simple way to see which restrictions the `RestrictionBuilder` added.
+*  The method is a simple way to see which restrictions the `RestrictionBuilder` added.
 
-* Doctrine DBAL always creates prepared statements: Any value that is added via :php:`->createNamedParameter()` creates
-  a placeholder that is later substituted when the real query is fired via :php:`->execute()`. :php:`->getSQL()` does not show
+*  Doctrine DBAL always creates prepared statements: Any value that is added via :php:`->createNamedParameter()` creates
+  a placeholder that is later substituted when the real query is fired via :php:`->executeQuery()`. :php:`->getSQL()` does not show
   those values, instead the placeholder names are displayed, usually with a string like `:dcValue1`. There is no
   simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getParameters()` to see the
   array of parameters used to replace these placeholders within the query. In the frontend, the queries and parameters are shown
@@ -713,33 +723,69 @@ Method :php:`->getParameters()` returns the values for the prepared statement pl
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
    $queryBuilder->select('*')->from('sys_language');
    debug($queryBuilder->getParameters());
-   $statement = $queryBuilder->execute();
+   $statement = $queryBuilder->eexecuteQuery();
 
 
 Remarks:
 
-* This is debugging code. Take proper actions to ensure those calls do not end up in production!
+*  This is debugging code. Take proper actions to ensure those calls do not end
+   up in production!
 
-* The method is typically called directly before :php:`->execute()` to output the final values for the statement.
+*  The method is typically called directly before :php:`->executeQuery()` to
+   output the final values for the statement.
 
-* Doctrine DBAL always creates prepared statements: Any value that added via :php:`->createNamedParameter()` creates
-  a placeholder that is later substituted when the real query is fired via :php:`->execute()`. :php:`->getparameters()` does not show
-  the statement or those placeholders, instead the values are displayed, usually within an array using keys like `:dcValue1`. There is no simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getSQL()` to see the string with placeholders used as a prepared statement.
+*  Doctrine DBAL always creates prepared statements: Any value that added via
+   :php:`->createNamedParameter()` creates
+   a placeholder that is later substituted when the real query is fired via
+   :php:`->executeQuery()`. :php:`->getparameters()` does not show
+   the statement or those placeholders, instead the values are displayed, usually
+   within an array using keys like `:dcValue1`. There is no simple solution
+   to show the fully replaced query from within the framework, but you can go
+   for :php:`->getSQL()` to see the string with placeholders used as a prepared
+   statement.
 
 
-execute()
-=========
+execute(), executeQuery() and executeStatement()
+================================================
 
-Compile and fire the final query statement. This is usually the last call on a `QueryBuilder` object. The method
-has two possible return values: On success, it either returns a `Statement` object representing the result set of
-`->select()` and `->count()` queries, or it returns an integer representing the number of affected rows for
-`->insert()`, `->update()` and `->delete()` queries.
+.. versionchanged:: 12.0
+   The widely used function :php:`->execute()` has been split into the methods
+   :php:`executeQuery` and :php:`executeStatement()`.
 
-If the query fails for whatever reason (for instance if the database connection was lost or if the query contains a
-syntax error), a `\Doctrine\DBAL\DBALException` is thrown. It is most often bad habit to catch and suppress this
-exception since it indicates a runtime or a program error. Both should bubble up. See the
-:ref:`coding guidelines <cgl-working-with-exceptions>`
-for more information on proper exception handling.
+While :php:`->execute()` still works for backward possibility reasons you should
+prefer to use :php:`->executeQuery()` for select and count statements and
+:php:`->executeStatement()` for insert, update and delete queries.
+
+executeQuery()
+--------------
+
+Compiles and fires the final query statement. This is usually the last call on a
+`QueryBuilder` object. It can be called on select and count queries.
+
+On success, it returns a result object of type
+:php:`\Doctrine\DBAL\Result` representing the result set. The :php:`Result` can
+then be used by :php:`fetchAssociative()`, :php:`fetchAllAssociative()` and
+:php:`fetchOne()`. :php:`executeQuery()` returns a :php:`\Doctrine\DBAL\Result`
+and not a :php:`\Doctrine\DBAL\Statement` anymore.
+
+.. note::
+   It is not possible to rebind placeholder values on the result and execute
+   another query, as was sometimes done with the :php:`Statement` returned by
+   :php:`execute()`.
+
+If the query fails for whatever reason (for instance if the database connection
+was lost or if the query contains a syntax error), a
+:php:`\Doctrine\DBAL\DBALException` is thrown. It is most often bad habit to
+catch and suppress this exception since it indicates a runtime or a program
+error. Both should bubble up. See the
+:ref:`coding guidelines <cgl-working-with-exceptions>` for more information on
+proper exception handling.
+
+executeStatement()
+------------------
+
+Function :php:`executeStatement()` can be used on insert, update and delete
+statements. It returns the number of affected rows as an integer.
 
 
 expr()
@@ -758,7 +804,7 @@ expressions::
       ->where(
          $queryBuilder->expr()->gt('uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
       )
-      ->execute();
+      ->executeQuery();
 
 Remarks:
 
@@ -790,7 +836,7 @@ expressions to make the statement SQL injection safe::
       ->where(
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter($searchWord))
       )
-      ->execute();
+      ->executeQuery();
 
 The above example shows the importance of using :php:`->createNamedParameter()`: The search word ``kl'aus`` is "tainted"
 and would break the query if not channeled through :php:`->createNamedParameter()` which quotes the backtick and makes
@@ -846,7 +892,7 @@ Use integer, integer array::
             $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($language, \PDO::PARAM_INT)),
             $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter($pageIds, Connection::PARAM_INT_ARRAY))
         )
-        ->execute();
+        ->executeQuery();
 
 
 

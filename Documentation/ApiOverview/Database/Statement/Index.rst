@@ -1,45 +1,31 @@
 .. include:: /Includes.rst.txt
 .. index::
-   Database; Statement
+   Database; Result
    QueryBuilder
 .. _database-statement:
+.. _database-result:
 
-=========
-Statement
-=========
+======
+Result
+======
 
-A `Statement` object is returned by :php:`QueryBuilder->execute()` for :php:`->select()` and :php:`->count()`
+A :php:`Result` object of type :php:`\Doctrine\DBAL\Result` is returned by
+:php:`QueryBuilder->executeQuery()` for :php:`->select()` and :php:`->count()`
 query types and by :php:`Connection->select()` and :php:`Connection->count()` calls.
 
-.. todo: remove this note after requirement to doctrine/dbal 3, probably TYPO3 v12
-
-.. note::
-
-   The functions :php:`->fetch()`, :php:`->fetchAll()` and :php:`fetchColumn()` were
-   `deprecated in doctrine/dbal 2.13 <https://www.doctrine-project.org/2021/03/29/dbal-2.13.html>`__
-   and will be removed in DBAL3. It is recommended to use
-   :php:`->fetchAssociative()`, :php:`->fetchAllAssociative()` or
-   :php:`fetchOne()` respectively.
-
-
 The object represents a query result set and comes with methods to fetch single rows
-with :php:`->fetch()` or to fetch all rows with :php:`->fetchAllAssociative()`.
-Additionally, it can also be used to execute a single prepared
-statement with different values multiple times. This part is however not widely used within
-the TYPO3 Core yet, and thus not fully documented here.
+with :php:`->fetchAssociative()` or to fetch all rows as an array with
+:php:`->fetchAllAssociative()`.
 
-.. note::
-
-   The name "Statement" instead of "Result" can be puzzling at first glance: The class
-   represents a *prepared statement* that can be executed multiple times with different
-   values and then returns multiple different result sets. From this point of view
-   "Statement" fits much better than "Result".
+In opposite to the :php:`Statement` formerly returned by the :php:`->execute()`,
+it cannot also be used to execute a single prepared statement with different
+values multiple times.
 
 
 .. warning::
 
    The return type of single field values is NOT type safe! If selecting a value from a field that is
-   defined as `int`, the `Statement` result may very well return that as `PHP` :php:`string`. This is
+   defined as `int`, the `Statement` result may very well return that as PHP :php:`string`. This is
    true for other database column types like `FLOAT`, `DOUBLE` and others.
    This is an issue with the database drivers used below, it may happen that `MySQL` returns an integer
    value for an `int` field, while `MSSQL` returns a string.
@@ -50,7 +36,10 @@ the TYPO3 Core yet, and thus not fully documented here.
 fetchAssociative()
 ==================
 
-Fetch next row from a result statement. Usually used in while() loops. Typical example::
+Fetch next row from a result statement. Usually used in :php:`while()` loops.
+This is the recommended way of accessing the result in most use cases.
+
+Typical example::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -60,13 +49,14 @@ Fetch next row from a result statement. Usually used in while() loops. Typical e
       ->select('uid', 'bodytext')
       ->from('tt_content')
       ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)))
-      ->execute();
+      ->executeQuery();
    while ($row = $statement->fetchAssociative()) {
       // Do something useful with that single $row
    }
 
 
-:php:`->fetchAssociative()` returns arrays with single field / values pairs until the end of the result set is reached
+:php:`->fetchAssociative()` returns arrays with single field / values pairs
+until the end of the result set is reached
 which then returns false and thus breaks the while loop.
 
 
@@ -75,7 +65,7 @@ fetchAllAssociative()
 
 Returns an array containing all of the result set rows by implementing the same while loop as above internally.
 Using that method saves some precious code characters but is more memory intensive if the result set is large
-with lots of rows and lot of data since big arrays are carried around in `PHP`::
+with lots of rows and lot of data since big arrays are carried around in PHP::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -85,7 +75,7 @@ with lots of rows and lot of data since big arrays are carried around in `PHP`::
       ->select('uid', 'bodytext')
       ->from('tt_content')
       ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)))
-      ->execute()
+      ->executeQuery()
       ->fetchAllAssociative();
 
 
@@ -93,8 +83,10 @@ fetchOne()
 ==========
 
 Returns a single column from the next row of a result set, other columns from that result row are discarded.
-This method is especially handy for :php:`QueryBuilder->count()` queries. The :php:`Connection->count()` implementation
-does exactly that to return the number of rows directly::
+This method is especially handy for :php:`QueryBuilder->count()` queries.
+
+The :php:`Connection->count()` implementation does exactly that to return the
+number of rows directly::
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -104,9 +96,12 @@ does exactly that to return the number of rows directly::
       ->count('uid')
       ->from('tt_content')
       ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)))
-      ->execute()
+      ->executeQuery()
       ->fetchOne();
 
+
+.. todo: does this still exist? I think for select queries count should be used
+         and executeStatement() for insert, update and delete queries?
 
 rowCount()
 ==========
@@ -124,13 +119,20 @@ instead of counting the number of records in a :php:`->fetchAssociative()` loop 
 Re-use Prepared Statement()
 ===========================
 
-Doctrine usually prepares a statement first, and then executes it with given parameters. Implementing
-prepared statements depends on the given driver. A driver
-not properly implementing prepared statements fall back to a direct execution of given query.
+Doctrine usually prepares a statement first, and then executes it with
+given parameters. Implementing prepared statements depends on the given driver.
+A driver not properly implementing prepared statements fall back to a direct
+execution of given query.
 
-There is an API to make real use of prepared statements that becomes handy if the same query is executed
-with different arguments over and over again. The example below prepares a statement to the `pages` table
-and executes it twice with different arguments::
+There is an API to make real use of prepared statements that becomes handy if
+the same query is executed with different arguments over and over again. The
+example below prepares a statement to the `pages` table
+and executes it twice with different arguments
+
+.. todo: Update this code example when https://review.typo3.org/c/Packages/TYPO3.CMS/+/72610
+is merged.
+
+The following code example is probably outdated::
 
     // use TYPO3\CMS\Core\Utility\GeneralUtility;
     // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -145,7 +147,7 @@ and executes it twice with different arguments::
     $result1 = $statement->fetchAssociative();
     $statement->closeCursor(); // free the resources for this result
     $statement->bindValue(1, 25);
-    $statement->execute();
+    $statement->executeQuery();
     $result2 = $statement->fetchAssociative();
     $statement->closeCursor(); // free the resources for this result
 

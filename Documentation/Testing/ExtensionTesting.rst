@@ -557,8 +557,8 @@ once in a while. A perfect scenario for a `functional test!
             $queryBuilder->getRestrictions()->removeAll();
             $count = $queryBuilder->count('uid')
                 ->from('tx_styleguide_elements_basic')
-                ->execute()
-                ->fetchColumn(0);
+                ->executeQuery()
+                ->fetchOne();
             $this->assertEquals(0, $count);
 
             $generator = new Generator();
@@ -569,8 +569,8 @@ once in a while. A perfect scenario for a `functional test!
             $queryBuilder->getRestrictions()->removeAll();
             $count = $queryBuilder->count('uid')
                 ->from('tx_styleguide_elements_basic')
-                ->execute()
-                ->fetchColumn(0);
+                ->executeQuery()
+                ->fetchOne();
             $this->assertGreaterThan(0, $count);
         }
     }

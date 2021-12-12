@@ -142,8 +142,9 @@ $GLOBALS['TSFE']->sys\_page->versionOL($table, &$row, $unsetMovePointers=FALSE)
    when you do queries directly (not using API functions already using
    them)::
 
-      $result = $queryBuilder->execute();
-      foreach ($result as $row) {
+
+      $result = $queryBuilder->executeQuery();
+      while ($row = $result->fetchAssociative()) {
           $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
 
           if (is_array($row)) {
@@ -247,8 +248,8 @@ BackendUtility::workspaceOL()
                $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT)
             )
          )
-         ->execute();
-      $row = $result->fetch();
+         ->executeQuery();
+      $row = $result->fetchAssociative();
       BackendUtility::workspaceOL('pages', $row);
 
 BackendUtility::getRecordWSOL()

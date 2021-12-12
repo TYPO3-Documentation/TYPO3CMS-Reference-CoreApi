@@ -323,6 +323,6 @@ The method can be helpful in loops to save some precious code characters, too::
          ->select('something')
          ->from('whatever')
          ->where(...)
-         ->execute()
+         ->executeQuery()
          ->fetchAllAssociative();
    }
