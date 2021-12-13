@@ -36,7 +36,7 @@ values multiple times.
 fetchAssociative()
 ==================
 
-Fetch next row from a result statement. Usually used in :php:`while()` loops.
+Fetch next row from the result. Usually used in :php:`while()` loops.
 This is the recommended way of accessing the result in most use cases.
 
 Typical example::
@@ -45,19 +45,19 @@ Typical example::
    // use TYPO3\CMS\Core\Database\ConnectionPool;
    // Fetch all records from tt_content on page 42
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $statement = $queryBuilder
+   $result = $queryBuilder
       ->select('uid', 'bodytext')
       ->from('tt_content')
       ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)))
       ->executeQuery();
-   while ($row = $statement->fetchAssociative()) {
+   while ($row = $result->fetchAssociative()) {
       // Do something useful with that single $row
    }
 
 
-:php:`->fetchAssociative()` returns arrays with single field / values pairs
-until the end of the result set is reached
-which then returns false and thus breaks the while loop.
+:php:`->fetchAssociative()` returns an array reflecting one result row, 
+containing field, value pairs, at one call, retrieving the next row 
+with the next call. Returns false when no more rows can be found.
 
 
 fetchAllAssociative()
@@ -99,12 +99,11 @@ number of rows directly::
       ->executeQuery()
       ->fetchOne();
 
+rowCount()
+==========
 
 .. todo: does this still exist? I think for select queries count should be used
          and executeStatement() for insert, update and delete queries?
-
-rowCount()
-==========
 
 Returns the number of rows affected by the last execution of this statement. Use that method
 instead of counting the number of records in a :php:`->fetchAssociative()` loop manually.
