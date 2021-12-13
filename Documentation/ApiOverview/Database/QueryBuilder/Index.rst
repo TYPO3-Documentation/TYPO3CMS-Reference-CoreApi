@@ -749,10 +749,12 @@ execute(), executeQuery() and executeStatement()
 ================================================
 
 .. versionchanged:: 12.0
-   The widely used function :php:`->execute()` has been split into the methods
-   :php:`executeQuery` and :php:`executeStatement()`.
+   With the Introduction of Doctrine DBAL 3.2,
+   the widely used function :php:`->execute()` has been split into the methods
+   :php:`executeQuery` and :php:`executeStatement()`. :php:`executeQuery` returns 
+   a :php:`\Doctrine\DBAL\Result` instead of a :php:`\Doctrine\DBAL\Statement`.
 
-While :php:`->execute()` still works for backward possibility reasons you should
+While :php:`->execute()` still works for backward possibility reasons, you should
 prefer to use :php:`->executeQuery()` for select and count statements and
 :php:`->executeStatement()` for insert, update and delete queries.
 
