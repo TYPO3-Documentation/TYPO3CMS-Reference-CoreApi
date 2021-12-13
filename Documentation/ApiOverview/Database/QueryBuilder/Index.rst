@@ -723,7 +723,7 @@ Method :php:`->getParameters()` returns the values for the prepared statement pl
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
    $queryBuilder->select('*')->from('sys_language');
    debug($queryBuilder->getParameters());
-   $statement = $queryBuilder->eexecuteQuery();
+   $statement = $queryBuilder->executeQuery();
 
 
 Remarks:
