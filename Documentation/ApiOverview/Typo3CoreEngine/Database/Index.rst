@@ -339,7 +339,7 @@ The property contains the names of the manipulated tables as keys and a map of o
 
    $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
    $dataHandler->start([], $cmd);
-   $dataHandler->process-cmdmap()
+   $dataHandler->process_cmdmap()
 
    $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
 
