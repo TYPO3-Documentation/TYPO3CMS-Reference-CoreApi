@@ -25,10 +25,10 @@ Various Tips and Tricks
            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
         );
      debug($queryBuilder->getSql());
-     $statement = $queryBuilder->executeQuery();
+     $result = $queryBuilder->executeQuery();
 
 * In contrast to the old API based on :php:`$GLOBALS['TYPO3_DB']`, Doctrine DBAL will throw exceptions
-  if something goes wrong when calling :php:`executeQuery()`. The exception type is a :php:`\Doctrine\DBAL\DBALException`
+  if something goes wrong when calling :php:`executeQuery()`. The exception type is a :php:`\Doctrine\DBAL\Exception`
   which can be caught and transferred to a better error message if the application has to expect
   query errors. Note this is not good habit and often indicates an architectural flaw of the application
   at a different layer.
