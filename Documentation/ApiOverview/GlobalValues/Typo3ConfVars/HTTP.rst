@@ -111,7 +111,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy']
 
    Multiple proxies for different protocols can be added separately as an
    array as authentication and port; see
-   `Guzzle documentation<http//docs.guzzlephp.org/en/latest/request-options.html#proxy>`
+   `Guzzle documentation <https://docs.guzzlephp.org/en/latest/request-options.html#proxy>`
    for details.
 
    The configuration with an array must be made in the
