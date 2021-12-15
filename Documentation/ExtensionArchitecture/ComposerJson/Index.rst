@@ -61,6 +61,11 @@ Subsequently:
            "psr-4": {
                "Vendorname\\MyExtension\\": "Classes/"
            }
+       },
+       "extra": {
+          "typo3/cms": {
+             "extension-key": "my_extension"
+          }
        }
    }
 
@@ -110,6 +115,11 @@ Extended composer.json
            "psr-4": {
                "Vendorname\\MyExtension\\": "Classes/"
            }
+       },
+       "extra": {
+          "typo3/cms": {
+             "extension-key": "my_extension"
+          }
        },
        "require-dev": {
           "nimut/testing-framework": "^4.2 || ^5.1"
