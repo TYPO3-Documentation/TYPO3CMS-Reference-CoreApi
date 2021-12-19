@@ -142,11 +142,9 @@ $GLOBALS['TSFE']->sys\_page->versionOL($table, &$row, $unsetMovePointers=FALSE)
    when you do queries directly (not using API functions already using
    them)::
 
-
       $result = $queryBuilder->executeQuery();
       while ($row = $result->fetchAssociative()) {
           $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
-
           if (is_array($row)) {
               // ...
           }
@@ -236,13 +234,13 @@ Workspace-related API for backend modules
    :code:`->sys_page->versionOL()` does, but for the backend. Input record must
    have fields only from the table (no pseudo fields) and the record is
    passed by reference.
-   
+
    .. todo: Find a better example
-            If looped (while), resultset is retrieved and looped completly, as there is 
-            no "break" which could leave unretrieved results. So the single retrieve 
-            statement after the loop do not make any sense, as resultset is at the end, 
+            If looped (while), resultset is retrieved and looped completly, as there is
+            no "break" which could leave unretrieved results. So the single retrieve
+            statement after the loop do not make any sense, as resultset is at the end,
             and would return false instead of a row ....
-            Next point is, that queryBuilder createNamedParameter does not make any 
+            Next point is, that queryBuilder createNamedParameter does not make any
             sense either, as it not assigned anyware or used?
 
    **Example:** ::
@@ -268,7 +266,6 @@ Workspace-related API for backend modules
 
       // use \TYPO3\CMS\Backend\Utility\BackendUtility
       $row = BackendUtility::getRecordWSOL($table, $uid);
-
       // This is the same as:
       $row = BackendUtility::getRecord($table, $uid);
       BackendUtility::workspaceOL($table, $row);

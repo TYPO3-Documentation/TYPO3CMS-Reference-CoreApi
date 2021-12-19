@@ -555,7 +555,7 @@ once in a while. A perfect scenario for a `functional test!
             // Verify there is no tx_styleguide_elements_basic yet
             $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
             $queryBuilder->getRestrictions()->removeAll();
-            $count = (int) $queryBuilder->count('uid')
+            $count = (int)$queryBuilder->count('uid')
                 ->from('tx_styleguide_elements_basic')
                 ->executeQuery()
                 ->fetchOne();
@@ -567,7 +567,7 @@ once in a while. A perfect scenario for a `functional test!
             // Verify there is at least one tx_styleguide_elements_basic record now
             $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
             $queryBuilder->getRestrictions()->removeAll();
-            $count = (int) $queryBuilder->count('uid')
+            $count = (int)$queryBuilder->count('uid')
                 ->from('tx_styleguide_elements_basic')
                 ->executeQuery()
                 ->fetchOne();
