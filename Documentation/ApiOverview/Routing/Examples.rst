@@ -475,7 +475,7 @@ BlogStaticDatabaseMapper
                     }
                 }
 
-                return array_map('strval', array_column($queryBuilder->execute()->fetchAll(), $this->field));
+                return array_map('strval', array_column($queryBuilder->executeQuery()->fetchAllAssociative(), $this->field));
             }
         }
 

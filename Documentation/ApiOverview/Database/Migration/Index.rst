@@ -78,7 +78,7 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
       ->from('pages')
       ->where($queryBuilder->expr()->neq('TSconfig', $queryBuilder->createNamedParameter('')))
       ->groupBy('uid')
-      ->execute();
+      ->executeQuery();
 
 
 `BackendUtility::versioningPlaceholderClause('pages')` is typically substituted with the
@@ -109,7 +109,7 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
       ->from('pages')
       ->where($queryBuilder->expr()->neq('TSconfig', $queryBuilder->createNamedParameter('')))
       ->groupBy('uid')
-      ->execute();
+      ->executeQuery();
 
 
 :php:`BackendUtility::BEenableFields()` in combination with :php:`BackendUtility::deleteClause()` adds the same
@@ -132,7 +132,7 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
    $queryBuilder
       ->select('title', 'content', 'crdate')
       ->from('sys_news')
-      ->execute();
+      ->executeQuery();
 
 
 :php:`cObj->enableFields()` in frontend context is typically directly substituted with
@@ -197,8 +197,8 @@ This is typically changed to :php:`->fetchAssociative()` on the `Statement` obje
    }
 
    // After:
-   $statement = $queryBuilder->execute();
-   while ($row = $statement->fetchAssociative()) {
+   $result = $queryBuilder->executeQuery();
+   while ($row = $result->fetchAssociative()) {
       // Do something
    }
 
@@ -257,7 +257,7 @@ fullQuoteStr()
       ->where(
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('horst'))
       )
-      ->execute();
+      ->executeQuery();
 
 
 escapeStrForLike()

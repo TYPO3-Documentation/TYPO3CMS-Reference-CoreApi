@@ -555,10 +555,10 @@ once in a while. A perfect scenario for a `functional test!
             // Verify there is no tx_styleguide_elements_basic yet
             $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
             $queryBuilder->getRestrictions()->removeAll();
-            $count = $queryBuilder->count('uid')
+            $count = (int)$queryBuilder->count('uid')
                 ->from('tx_styleguide_elements_basic')
-                ->execute()
-                ->fetchColumn(0);
+                ->executeQuery()
+                ->fetchOne();
             $this->assertEquals(0, $count);
 
             $generator = new Generator();
@@ -567,10 +567,10 @@ once in a while. A perfect scenario for a `functional test!
             // Verify there is at least one tx_styleguide_elements_basic record now
             $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
             $queryBuilder->getRestrictions()->removeAll();
-            $count = $queryBuilder->count('uid')
+            $count = (int)$queryBuilder->count('uid')
                 ->from('tx_styleguide_elements_basic')
-                ->execute()
-                ->fetchColumn(0);
+                ->executeQuery()
+                ->fetchOne();
             $this->assertGreaterThan(0, $count);
         }
     }

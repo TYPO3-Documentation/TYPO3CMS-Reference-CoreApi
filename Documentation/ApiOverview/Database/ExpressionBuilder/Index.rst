@@ -34,7 +34,7 @@ to use it within the code flow of the `QueryBuilder` context directly::
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
          $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('peter'))
       )
-      ->execute()
+      ->executeQuery()
       ->fetchAllAssociative();
 
 .. warning::
@@ -210,7 +210,7 @@ Examples::
          $queryBuilder->expr()->avg('crdate', 'averagecreation')
       )
       ->from('tt_content')
-      ->execute()
+      ->executeQuery()
       ->fetchAssociative();
 
    // Distinct list of all existing endtime values from tt_content
@@ -222,7 +222,7 @@ Examples::
       )
       ->from('tt_content')
       ->groupBy('endtime')
-      ->execute();
+      ->executeQuery();
 
 
 Various Expressions

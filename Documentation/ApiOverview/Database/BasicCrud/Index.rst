@@ -123,7 +123,7 @@ Advanced query using the `QueryBuilder` and manipulating the default restriction
                 $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT))
             )
         )
-        ->execute()
+        ->executeQuery()
         ->fetchAllAssociative();
 
 Result in $rows:

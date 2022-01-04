@@ -77,7 +77,7 @@ and the second one to a string::
 
 
 `insert()` returns the number of affected rows. Guess what? That's the number `1` ... In case something
-goes wrong a `\Doctrine\DBAL\DBALException` is raised.
+goes wrong a :php:`\Doctrine\DBAL\Exception` is raised.
 
 .. note::
 
@@ -323,6 +323,6 @@ The method can be helpful in loops to save some precious code characters, too::
          ->select('something')
          ->from('whatever')
          ->where(...)
-         ->execute()
+         ->executeQuery()
          ->fetchAllAssociative();
    }
