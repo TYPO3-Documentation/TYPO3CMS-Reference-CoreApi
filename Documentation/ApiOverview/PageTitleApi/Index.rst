@@ -59,7 +59,7 @@ Usage example e.g. in an Extbase controller:
 .. code-block:: php
 
    $titleProvider = GeneralUtility::makeInstance(MyOwnPageTitleProvider::class);
-   $titleProvider->setTitle(‘Title from controller action’);
+   $titleProvider->setTitle('Title from controller action');
 
 
 .. index:: PageTitle; Priority
