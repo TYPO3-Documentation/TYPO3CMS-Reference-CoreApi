@@ -1,7 +1,15 @@
+.. include:: /Includes.rst.txt
+.. index:: Backend modules; API
+.. _backend-modules-api:
 
+=========================
+Backend module API (core)
+=========================
 
-Without Extbase:
-----------------
+This page covers registering backend modules without Extbase, using core
+functionality only.
+
+:file:`ext_tables.php`:
 
 .. code-block:: php
 
@@ -64,7 +72,7 @@ Parameters:
 .. index:: icon, iconIdentifier
 
 `'iconIdentifier'` versus `'icon'`
-----------------------------------
+==================================
 
 `'iconIdentifier'` is the better and more modern way to go. It should always be used
 for Core icons. Other icons however need to be registered first at the IconRegistry to
@@ -72,69 +80,4 @@ create identifiers. Note that `'icon'` still works. Within custom packages it is
 to use. Example::
 
    'icon' => 'EXT:extkey/Resources/Public/Icons/smile.svg',
-
-.. index:: Backend modules; Toplevel
-
-Registering a toplevel module
-=============================
-
-Toplevel modules like "Web" or "File" are registered with the same API. The following
-example uses Extbase to register the module, however, the process for non-extbase
-modules is the same.
-
-.. code-block:: php
-
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'MyExtension',
-        'mysection',
-        '',
-        '',
-        [],
-        [
-            'access' => '...',
-            'iconIdentifier' => '...',
-            'labels' => '...',
-        ]
-    );
-
-This adds a new toplevel module ``mysection``. This identifier can now
-be used to add submodules to this new toplevel module:
-
-.. code-block:: php
-
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'MyExtension',
-        'mymodule1',
-        'mysection',
-        '',
-        [],
-        [
-            'access' => '...',
-            'labels' => '...'
-        ]
-    );
-
-.. note::
-   The main module name should contain only lowercase characters. Do not use an underscore or dash.
-
-.. index:: $GLOBALS; TBE_MODULES
-.. _backend-modules-api-tbemodules:
-
-$TBE\_MODULES
-=============
-
-When modules are registered, they get added to a global array called
-:php:`$GLOBALS['TBE_MODULES']`. It contains the list of all registered
-modules, their configuration and the configuration of any existing
-navigation component (the components which may be loaded into the
-navigation frame).
-
-:php:`$GLOBALS['TBE_MODULES']` can be explored using the
-:guilabel:`System > Configuration` module.
-
-.. include:: /Images/AutomaticScreenshots/BackendModules/BackendModulesConfiguration.rst.txt
-
-The list of modules is parsed by the class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader`.
-
-
 
