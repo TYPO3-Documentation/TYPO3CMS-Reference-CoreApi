@@ -228,7 +228,6 @@ Command keywords and values
          The :php:`copyToLanguage` command should be used when localizing records in the "Free Mode".
          This command is used when localizing content elements using translation wizard's "Copy" strategy.
 
-
  - :Command:
          inlineLocalizeSynchronize
    :Type:

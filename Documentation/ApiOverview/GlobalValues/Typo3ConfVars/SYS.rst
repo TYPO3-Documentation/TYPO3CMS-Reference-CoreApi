@@ -483,20 +483,6 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefixSSL']
    :ref:`[SYS][reverseProxyPrefix]<typo3ConfVars_sys_reverseProxyPrefix>`.
 
 .. index::
-   TYPO3_CONF_VARS SYS; defaultCategorizedTables
-.. _typo3ConfVars_sys_defaultCategorizedTables:
-
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultCategorizedTables']
-==============================================================
-
-.. confval:: defaultCategorizedTables
-
-   :type: list
-   :Default: ''
-
-   List of comma separated tables that are categorizable by default.
-
-.. index::
    TYPO3_CONF_VARS SYS;
 .. _typo3ConfVars_sys_displayErrors:
 
