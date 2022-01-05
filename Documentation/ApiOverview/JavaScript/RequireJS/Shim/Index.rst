@@ -23,7 +23,7 @@ be defined in the :php:`PageRenderer`::
       [
          'paths' => [
             'jquery' => 'sysext/core/Resources/Public/JavaScript/Contrib/jquery/',
-            'plupload' => '../typo3conf/ext/your_extension/node_modules/plupload/js/plupload.full.min',
+            'plupload' => \TYPO3\CMS\Core\Utility\PathUtility::getPublicResourceWebPath('EXT:your_extension/node_modules/plupload/js/plupload.full.min'),
          ],
          'shim' => [
             'deps' => ['jquery'],
