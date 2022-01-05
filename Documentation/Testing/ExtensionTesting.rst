@@ -241,9 +241,6 @@ hook. This one is interesting. That class of the testing framework links the mai
 extension `.Build/Web/typo3conf/ext/enetcache` in our extension specific TYPO3 instance. It needs the
 two additional properties `web-dir` and `extension-key` to do that.
 
-The `ignore-as-root` entry allows our project to be recognized as an extension
-even though it is the root project (which is disabled by default in TYPO3 11.4 and up).
-
 Now, before we start playing around with this setup, we instruct `git` to ignore runtime
 on-the-fly files. The :file:`.gitignore` looks like this:
 
