@@ -265,5 +265,5 @@ navigation frame).
 
 The list of modules is parsed by the class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader`.
 
-.. index:: Backend modules; TypoScript
+
 

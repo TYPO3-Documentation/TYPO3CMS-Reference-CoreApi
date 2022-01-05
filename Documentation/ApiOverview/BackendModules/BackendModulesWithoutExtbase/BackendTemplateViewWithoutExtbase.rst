@@ -2,9 +2,12 @@
 
 .. _backend-modules-template-without-extbase:
 
-=========================================
-The Backend Template View without Extbase
-=========================================
+================================
+The Backend Template View (core)
+================================
+
+This page covers the backend template view, using only core functionality
+without Extbase.
 
 .. tip::
 
@@ -13,7 +16,7 @@ The Backend Template View without Extbase
    If you build a simple backend module it makes sense to work without Extbase.
 
 Basic controller
-----------------
+================
 
 When creating a controller without Extbase an instance of :php:`ModuleTemplate` is required
 to return the rendered template:
@@ -38,7 +41,7 @@ to return the rendered template:
    }
 
 Main entry point
-----------------
+================
 
 :php:`handleRequest()` method is the main entry point which triggers only the allowed actions.
 This makes it possible to include e.g. Javascript for all actions in the controller.
@@ -82,7 +85,7 @@ This makes it possible to include e.g. Javascript for all actions in the control
    }
 
 Actions
--------
+=======
 
 Now create an :php:`indexAction()` and assign variables to your view as you would normally do
 
@@ -100,7 +103,7 @@ Now create an :php:`indexAction()` and assign variables to your view as you woul
    }
 
 The DocHeader
--------------
+=============
 
 To add a DocHeader button use :php:`$this->moduleTeamplate->getDocHeaderComponent()->getButtonBar()`
 and :php:`makeLinkButton()` to create the button. Finally use :php:`addButton()` to add it.
@@ -118,7 +121,7 @@ and :php:`makeLinkButton()` to create the button. Finally use :php:`addButton()`
    }
 
 Template example
----------------------------
+================
 
 Default layout
 

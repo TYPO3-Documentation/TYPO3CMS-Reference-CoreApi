@@ -3,9 +3,9 @@
 
 .. _backend-modules-template:
 
-======================================
-The Backend Template View with Extbase
-======================================
+===============================
+Backend Template View (Extbase)
+===============================
 
 .. tip::
 
