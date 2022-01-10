@@ -439,9 +439,9 @@ PHP classes into the :file:`Classes/` folder and naming classes accordingly,
 the system will be able to autoload these without further action from the
 developer.
 
-Extension kickstarters like the `Extension Builder extension
-<https://extensions.typo3.org/extension/extension_builder>`_ will create
-the correct structure for you.
+Extension kickstarters like the
+`Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
+will create the correct structure for you.
 
 It is described below:
 
