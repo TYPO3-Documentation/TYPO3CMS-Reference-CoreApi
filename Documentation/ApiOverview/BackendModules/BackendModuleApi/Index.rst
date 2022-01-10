@@ -13,7 +13,7 @@ for the functionality.
 
 .. tip::
 
-   The :ref:`extension builder <extension-builder>` can be used to generate basic code
+   The :ref:`Extension Builder <extension-builder>` can be used to generate basic code
    for a new extension. You can also use this to create backend modules.
 
 .. index::
