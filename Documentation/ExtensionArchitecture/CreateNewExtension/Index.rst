@@ -18,30 +18,16 @@ Kickstarting the extension
 """"""""""""""""""""""""""
 
 Although it is possible to write every single line of an extension from
-scratch, there is tool which makes it easier to start. It is called
-"Extension builder" (key: "extension_builder") and can be installed from
-TER.
+scratch, there is a tool which makes it easier to start: The
+`Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_.
 
+The Extension Builder comes with its own BE module and helps you to create the
+scaffolding of your extension and to generate all necessary PHP files.
+Then you can enhance these files with your own code.
 
-The `Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
-comes with its own BE module:
+After the extension has been written to the folder :file:`typo3conf/ext`,
+you will be able to activate it locally and start using it.
 
-.. figure:: ../../Images/ExtensionBuilder.png
-   :alt: A view from the Extension Builder
-
-   The Domain Modeller screen of the Extension Builder. The comfort of building
-   your model with drag and drop.
-
-Note that this tool is not a complete editor. It helps you creating the scaffolding
-of your extension, generating the necessary files. It's then up to you to fill these
-with the relevant code.
-
-.. warning::
-   The Extension Builder has some possibility to
-   preserve code, but it should still be used with care.
-
-
-After the extension is written to your computer's disk you will be able to install
-it locally and start using it.
-
-Please refer to the Extension Builder's manual for more information.
+Please refer to the
+`Extension Builder's manual <https://docs.typo3.org/p/friendsoftypo3/extension-builder/8.10/en-us/>`__
+for more information.
