@@ -205,7 +205,7 @@ every request. Therefore, they should be optimized for speed.
    constants (e.g. :php:`if (TYPO3_MODE === 'BE')`) within these files as it limits the functionality
    to cache the whole systems' configuration. Any extension author should remove the checks if not
    explicitly necessary, and re-evaluate if these context-depending checks could go inside
-   the hooks / caller function directly., e.g. do not do::
+   the hooks / caller function directly., e.g. do not do:
 
 .. code-block:: diff
 

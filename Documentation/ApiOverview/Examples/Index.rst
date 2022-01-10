@@ -38,5 +38,4 @@ another whole lot of examples.
    ContextualMenu/Index
    ParsingHtml/Index
    EditLinks/Index
-   TablesInPageModule/Index
    CustomPermissions/Index
