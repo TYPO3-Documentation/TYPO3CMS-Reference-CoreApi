@@ -25,7 +25,7 @@ due to missing configuration and can also serve as a starting point for all furt
 
 Most parts of the site configuration can be edited via the graphical interface in the backend module "Site".
 
-.. figure:: ../../Images/SiteHandlingSiteModule.png
+.. figure:: ../../Images/SiteHandling/SiteHandlingSiteModule.png
    :class: with-shadow
    :alt: Site Module
 

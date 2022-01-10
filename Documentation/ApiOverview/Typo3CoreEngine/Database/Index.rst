@@ -328,7 +328,7 @@ Description of keywords in syntax:
    :Description:
          The UID of the record that is modified. If the record already exists,
          this is an integer.
-         
+
          If you're creating new records, use a random string prefixed with `NEW`, e.g. `NEW7342abc5e6d`.
          You can use static strings (`NEW1`, `NEW2`, ...) or generate them using :php:`StringUtility::getUniqueId('NEW')`.
 
@@ -485,7 +485,7 @@ By default the following cache tags are flushed:
 
 * The table name of the updated record, e.g. `pages` when updating a page or `tx_myextension_mytable` when updating a record of this table.
 * A combination of table name and record UID, e.g. `pages_10` when updating the page with UID 10 or `tx_myextension_mytable_20` when updating the record with UID 20 of this table.
-* A page UID prefixed with `pageID_` (`pageId_<page-uid>`), e.g. `pageId_10` when updating a page with UID 10 (additionally all related pages, see :ref:`t3tsconfig:clearcache-pagegrandparent` and :ref:`t3tsconfig:clearcache-pagesiblingchildren`) and `pageId_10` when updating a record if a record of any table placed on the page with UID 10 (`<table>.pid = 10`) is updated.
+* A page UID prefixed with `pageID_` (`pageId_<page-uid>`), e.g. `pageId_10` when updating a page with UID 10 (additionally all related pages, see :ref:`t3tsconfig:pagetcemain-clearcache-pagegrandparent` and :ref:`t3tsconfig:pagetcemain-clearcache-pagesiblingchildren`) and `pageId_10` when updating a record if a record of any table placed on the page with UID 10 (`<table>.pid = 10`) is updated.
 
 Notice that you can also use the :php:`TypoScriptFrontendController::addCacheTags()` method to register additional tags for the cache entry of the current page while it is rendered. This way you can implement an elaborate caching behavior which ensures that every record update in the TYPO3 backend (which is processed by the :php:`DataHandler`) automatically flushes the cache of all pages where that record is displayed.
 
