@@ -46,7 +46,7 @@ very likely break your installation.
 .. include:: /Images/AutomaticScreenshots/AdminTools/DatabaseAnalyzer.rst.txt
 
 More information about the process of upgrading TYPO3 CMS can be found in
-the :ref:`Installation and Upgrade Guide <t3install:upgrade>`.
+the :doc:`Upgrade Guide <t3install:Index>`.
 
 .. index::
    File; EXT:{extkey}/ext_tables.sql

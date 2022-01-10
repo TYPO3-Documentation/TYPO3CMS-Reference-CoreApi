@@ -51,7 +51,7 @@ is a member of, the more access is granted to him.
 This screenshot shows just an extract of the group editing form.
 It contains many more fields!
 
-See :ref:`access-control-options` for details.
+See :ref:`access-options` for details.
 
 .. index:: Admin user
 .. _access-users-groups-admin:

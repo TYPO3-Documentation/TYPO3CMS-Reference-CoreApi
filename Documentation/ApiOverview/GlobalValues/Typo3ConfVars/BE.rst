@@ -259,7 +259,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimit']
 $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitInterval']
 ===========================================================
 
-.. confval:: loginRateLimit
+.. confval:: loginRateLimitInterval
 
    :type: string, PHP relative format
    :Default: '15 minutes'
@@ -810,11 +810,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['debug']
 $GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']
 =================================================
 
-.. warning:: 
+.. warning::
    This configuration variable has been removed in TYPO3 version 12.0. Setting
    it has no effect.
 
-Starting with version 12.0 toolbar items implementing 
+Starting with version 12.0 toolbar items implementing
 :php:`\TYPO3\CMS\Backend\Toolbar\ToolbarItemInterface` are automatically
 registered by adding the tag :yaml:`backend.toolbar.item`, if :yaml:`autoconfigure`
 is enabled in :file:`Services.yaml`.
@@ -822,11 +822,11 @@ is enabled in :file:`Services.yaml`.
 Migration
 ---------
 
-Remove :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']` from your 
-:file:`ext_localconf.php` file. If :yaml:`autoconfigure` is not enabled in 
-your :file:`Configuration/Services.(yaml|php)`, add the tag 
+Remove :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']` from your
+:file:`ext_localconf.php` file. If :yaml:`autoconfigure` is not enabled in
+your :file:`Configuration/Services.(yaml|php)`, add the tag
 :yaml:`backend.toolbar.item` to your toolbar item class.
-   
+
 
 .. index::
    TYPO3_CONF_VARS BE; HTTP

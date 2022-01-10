@@ -55,8 +55,8 @@ Typical example::
    }
 
 
-:php:`->fetchAssociative()` returns an array reflecting one result row, 
-containing field, value pairs, at one call, retrieving the next row 
+:php:`->fetchAssociative()` returns an array reflecting one result row,
+containing field, value pairs, at one call, retrieving the next row
 with the next call. Returns false when no more rows can be found.
 
 
@@ -129,7 +129,7 @@ example below prepares a statement to the `pages` table
 and executes it twice with different arguments
 
 .. todo: Update this code example when https://review.typo3.org/c/Packages/TYPO3.CMS/+/72610
-is merged.
+         is merged.
 
 The following code example is probably outdated::
 
