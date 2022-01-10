@@ -9,6 +9,10 @@
 .. role:: sql(code)
 .. role:: typoscript(code)
 .. role:: yaml(code)
+.. role:: xml(code)
+.. role:: ts(code)
+.. role:: json(code)
+.. role:: apacheconf(code)
 
 .. role:: ts(typoscript)
    :class: typoscript

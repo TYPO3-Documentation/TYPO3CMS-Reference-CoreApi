@@ -146,7 +146,7 @@ the incredible power of TypoScript Templating is daily bread for Integrators.
 For an introduction, you may want to read one of the following tutorials:
 
 
-* :ref:`t3ts45:start` - Introduction to TypoScript Templating.
+* :doc:`t3ts45:Index` - Introduction to TypoScript Templating.
 * :ref:`t3sitepackage:start` - Start a Sitepackage Extension to create a theme
   for your site using TypoScript and Fluid.
 

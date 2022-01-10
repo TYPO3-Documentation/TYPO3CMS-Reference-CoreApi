@@ -325,7 +325,7 @@ Extbase has some of its own conventions.
 
 .. seealso::
 
-    * :ref:`Extbase CGL <t3extbasebook:extbase-cgl>`.
+    * :doc:`Extbase CGL <t3extbasebook:a-CodingGuidelines/Index>`.
 
 
 .. _extension-old-extensions:
@@ -354,5 +354,5 @@ Further Reading
    * :ref:`extension key <extension-key>`
    * :ref:`publish-extension`
    * :ref:`cgl`
-   * :ref:`Extbase CGL <t3extbasebook:extbase-cgl>`
+   * :doc:`Extbase CGL <t3extbasebook:a-CodingGuidelines/Index>`
    * :ref:`Xliff language file id naming conventions <xliff-id-naming>`

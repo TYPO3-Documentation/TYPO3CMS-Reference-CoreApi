@@ -97,7 +97,7 @@ Returns the path and filename to the current PHP script.
 getContext()
 ------------
 
-Returns the current :ref:`application-context`, usually defined via the `TYPO3_CONTEXT` environment variable.
+Returns the current :ref:`bootstrapping-context`, usually defined via the `TYPO3_CONTEXT` environment variable.
 May be one of `Production`, `Testing`, or `Development` with optional sub-contexts like `Production/Staging`.
 
 .. _Environment-configuring-paths:
