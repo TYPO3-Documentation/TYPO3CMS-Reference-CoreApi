@@ -69,7 +69,7 @@ Apache and Microsoft IIS web servers
 
 .. hint::
 
-   TYPO3 provides a recommended :file:`.htacess` file.
+   TYPO3 provides a recommended :file:`.htaccess` file.
    See :ref:`t3start:system-environment` .
 
 To increase protection of TYPO3 instances, the Core Team however decided to

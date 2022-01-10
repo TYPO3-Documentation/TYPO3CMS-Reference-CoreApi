@@ -706,11 +706,11 @@ Remarks:
 *  The method is a simple way to see which restrictions the `RestrictionBuilder` added.
 
 *  Doctrine DBAL always creates prepared statements: Any value that is added via :php:`->createNamedParameter()` creates
-  a placeholder that is later substituted when the real query is fired via :php:`->executeQuery()`. :php:`->getSQL()` does not show
-  those values, instead the placeholder names are displayed, usually with a string like `:dcValue1`. There is no
-  simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getParameters()` to see the
-  array of parameters used to replace these placeholders within the query. In the frontend, the queries and parameters are shown
-  in the admin panel.
+   a placeholder that is later substituted when the real query is fired via :php:`->executeQuery()`. :php:`->getSQL()` does not show
+   those values, instead the placeholder names are displayed, usually with a string like `:dcValue1`. There is no
+   simple solution to show the fully replaced query from within the framework, but you can go for :php:`->getParameters()` to see the
+   array of parameters used to replace these placeholders within the query. In the frontend, the queries and parameters are shown
+   in the admin panel.
 
 
 getParameters()

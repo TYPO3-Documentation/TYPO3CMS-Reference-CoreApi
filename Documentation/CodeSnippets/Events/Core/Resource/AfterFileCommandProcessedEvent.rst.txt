@@ -12,22 +12,21 @@
    Event that is triggered after a file command has been processed. Can be used
    to perform additional tasks for specific commands. For example, trigger a
    custom indexer after a file has been uploaded.
-   
+
    .. php:method:: getCommand()
-   
-      A single command, e.g.:
-      
-      'upload' => [
-          'target' => '1:/some/folder/'
-          'data' => '1'
-      ]
-      
+
+      A single command, e.g.::
+
+         'upload' => [
+             'target' => '1:/some/folder/'
+             'data' => '1'
+         ]
+
       :returntype: array
-      
+
    .. php:method:: getResult()
-   
-      
+
    .. php:method:: getConflictMode()
-   
+
       :returntype: string
       :returns: The current conflict mode

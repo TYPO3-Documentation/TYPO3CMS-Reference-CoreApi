@@ -80,7 +80,7 @@ Prerequisites
 
 To ensure Routing in TYPO3 is fully functional the following prerequisites need to be met:
 
-* web server needs to be configured with rewrites (see :ref:`t3install:system-requirements`)
+* web server needs to be configured with rewrites (see :ref:`t3start:system-requirements`)
 * site configuration needs to exist (see :ref:`sitehandling`)
 
 
