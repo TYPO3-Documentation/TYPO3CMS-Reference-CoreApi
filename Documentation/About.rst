@@ -118,8 +118,6 @@ documents. Go for completeness!
 \- kasper
 
 
-.. _next-steps:
-
 Further Documentation
 =====================
 
