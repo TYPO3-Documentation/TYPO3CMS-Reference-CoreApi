@@ -284,7 +284,7 @@ from the top level. This is normally done when TypoScript code from
 various records is combined.
 
 
-.. _typoscript-syntax-conditions:
+.. _typoscript-syntax-conditions-custom:
 
 Custom Conditions
 =================

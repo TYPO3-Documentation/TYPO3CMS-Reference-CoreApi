@@ -35,25 +35,13 @@ you will be directed to another manual or to a different section in this manual.
    ConfigurationSyntax
    ConfigurationMethods
    ../TypoScriptSyntax/Index
-   ../Yaml/Index
    ../GlobalValues/GlobalVariables/Index
-   ../GlobalValues/Typo3ConfVars/Index
    Site configuration ➜ <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/SiteHandling/Index.html#sitehandling>
    TypoScript Templates ➜ <https://docs.typo3.org/m/typo3/reference-typoscript/master/en-us/>
    ../Tsconfig/Index
    TCA ➜ <https://docs.typo3.org/m/typo3/reference-tca/master/en-us/Introduction/Index.html>
    Extension Configuration ➜ <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ExtensionArchitecture/ConfigurationOptions/Index.html>
-   ../FeatureToggles/Index
    FlexForms ➜ <https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/ApiOverview/FlexForms/Index.html>
-   ../UserSettingsConfiguration/Index
+   ../../UserSettingsConfiguration/Index
    Form configuration ➜ <https://docs.typo3.org/c/typo3/cms-form/master/en-us/I/Concepts/Configuration/Index.html#concepts-configuration>
    rte_ckeditor configuration ➜  <https://docs.typo3.org/c/typo3/cms-rte-ckeditor/master/en-us/Configuration/Index.html#configuration>
-
-
-
-
-
-
-
-
-
