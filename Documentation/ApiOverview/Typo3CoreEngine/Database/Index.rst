@@ -228,9 +228,9 @@ Command keywords and values
          The :php:`copyToLanguage` command should be used when localizing records in the "Free Mode".
          This command is used when localizing content elements using translation wizard's "Copy" strategy.
 
-   .. deprecated:: 11.5
-      Legacy syntax as comma separated value for IRRE localize synchronize
-      command in DataHandler was removed.
+         .. deprecated:: 11.5
+            Legacy syntax as comma separated value for IRRE localize synchronize
+            command in DataHandler was removed.
 
  - :Command:
          inlineLocalizeSynchronize

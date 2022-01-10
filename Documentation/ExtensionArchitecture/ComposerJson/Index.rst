@@ -198,7 +198,7 @@ You should add other system extensions and third party extensions,
 if your extension depends on them.
 
 In Composer-based installations the loading order of extensions and their
-dependencies is derived from :json:`require` and :json:`suggest`
+dependencies is derived from :js:`require` and :js:`suggest`
 
 
 
@@ -209,7 +209,7 @@ You should add other system extensions and third party extensions,
 if your extension has an optional dependency on them.
 
 In Composer-based installations the loading order of extensions and their
-dependencies is derived from :json:`require` and :json:`suggest`
+dependencies is derived from :js:`require` and :js:`suggest`
 
 
 autoload

@@ -177,7 +177,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitInterval']
 $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitIpExcludeList']
 ================================================================
 
-.. confval:: loginRateLimit
+.. confval:: loginRateLimitIpExcludeList
 
    :type: string
    :Default: ''

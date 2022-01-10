@@ -17,7 +17,7 @@ The Backend Template View with Extbase
    has been deprecated with v11.5. Use the
    :php:`TYPO3\CMS\Backend\Template\ModuleTemplateFactory` instead to
    retrieve a :php:`ModuleTemplate`. See
-   :doc:`t3core:Changelog/11.4/Deprecation-95164-ExtbackendBackendTemplateView`
+   :doc:`t3core:Changelog/11.5/Deprecation-95164-ExtbackendBackendTemplateView`
    for more information.
 
 Modern backend modules can be written using the Extbase/Fluid combination.
