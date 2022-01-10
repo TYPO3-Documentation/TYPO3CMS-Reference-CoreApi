@@ -12,7 +12,7 @@ User settings configuration
 
 The user settings module determines what user settings are available
 for backend users. The users can access the settings by clicking on their name in
-the :ref:`top bar <t3start:top-bar>` and then "User settings".
+the top bar and then "User settings".
 
 A number of settings such as backend language, password etc. are available
 by default. These settings may be extended via extensions as described in
