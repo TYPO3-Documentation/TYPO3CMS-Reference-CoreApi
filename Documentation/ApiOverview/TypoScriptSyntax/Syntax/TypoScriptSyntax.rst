@@ -460,7 +460,7 @@ section is ignored.
 .. warning::
    Imports within a block comment are still resolved. This is true for both imports 
    with the :typoscript:`@import` and :typoscript:`<INCLUDE_TYPOSCRIPT: source="...">`
-   syntax.
+   syntax. Always use single line comments to comment out imports.
 
 **Rules:**
 
