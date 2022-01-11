@@ -454,9 +454,13 @@ Comment blocks
 --------------
 
 When a line starts with :code:`/*` or :code:`*/` it defines the beginning or the
-end of a comment section respectively. Anything inside a comment
+end of a comment section respectively. Anything, excluding imports,  inside a comment
 section is ignored.
 
+.. warning::
+   Imports within a block comment are still resolved. This is true for both imports 
+   with the :typoscript:`@import` and :typoscript:`<INCLUDE_TYPOSCRIPT: source="...">`
+   syntax.
 
 **Rules:**
 
