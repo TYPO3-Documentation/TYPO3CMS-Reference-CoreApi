@@ -18,7 +18,7 @@ been introduced, which acts as a preprocessor before the actual parsing
    Includes of either syntax within multi-line comments are still executed due
    to a bug. Alway use single line comments if you need to comment out an import::
    
-   # @import 'EXT:myproject/Configuration/TypoScript/randomfile.typoscript'
+      # @import 'EXT:myproject/Configuration/TypoScript/randomfile.typoscript'
 
 Its main purpose is ease the use of TypoScript includes and making it easier
 for integrators and frontend developers to work with distributed TypoScript
