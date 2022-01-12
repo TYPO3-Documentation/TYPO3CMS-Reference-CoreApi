@@ -258,7 +258,7 @@ For TYPO3 versions 7.6 and above you should not use the version property.
 The version for the extension is set in the file :ref:`ext_emconf.php <ext_emconf-php>`.
 
 replace with ``typo3-ter`` vendorname
----------------------------------
+-------------------------------------
 
 .. code-block:: json
 
