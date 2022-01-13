@@ -271,8 +271,8 @@ replace with ``typo3-ter`` vendorname
    }
 
 This was used previously as long as the TER Composer Repository was 
-relevant. Since the TER Composer Repository is deprecated, this property 
-is not required.
+relevant. Since the TER Composer Repository is deprecated, the `typo3-ter/*` entry
+within `replace` is not required.
 
 replace with ``"ext_key": "self.version"``
 ------------------------------------------
