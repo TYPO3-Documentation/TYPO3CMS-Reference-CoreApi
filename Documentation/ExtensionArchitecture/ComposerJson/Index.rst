@@ -270,8 +270,8 @@ replace with ``typo3-ter`` vendorname
       }
    }
 
-This was used previously as long as the TER Composer repository was 
-relevant. Since the TER Composer repository is deprecated and not 
+This was used previously as long as the TER Composer Repository was 
+relevant. Since the TER Composer Repository is deprecated and not 
 all extensions need to be available in TER, this property is not 
 required.
 
