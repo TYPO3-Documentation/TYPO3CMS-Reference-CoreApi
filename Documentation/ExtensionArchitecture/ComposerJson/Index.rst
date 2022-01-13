@@ -272,7 +272,7 @@ replace with ``typo3-ter`` vendorname
 
 This was used previously as long as the TER Composer repository was 
 relevant. Since the TER Composer repository is deprecated and not 
-all extensions must be available in TER, this property is not 
+all extensions need to be available in TER, this property is not 
 required.
 
 replace with ``"ext_key": "self.version"``
