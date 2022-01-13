@@ -57,9 +57,6 @@ Subsequently:
       "require": {
          "typo3/cms-core": "^10.4 || ^11.0"
       },
-      "replace": {
-         "typo3-ter/my-extension": "self.version"
-      },
       "autoload": {
          "psr-4": {
             "Vendorname\\MyExtension\\": "Classes/"
@@ -122,9 +119,6 @@ Extended composer.json
       "funding": {
          "type": "other",
          "url:" : "myfundpage.org/vendorname"
-      },
-      "replace": {
-         "typo3-ter/my-extension": "self.version"
       },
       "autoload": {
          "psr-4": {
@@ -253,36 +247,6 @@ Example for extension key **bootstrap_package**:
       }
    }
 
-replace
--------
-
-(*usually not required*)
-
-`replace <https://getcomposer.org/doc/04-schema.md#replace>`__ in a
-:file:`composer.json` file specifies which other packages can be
-replaced by this package. This means that packages with different
-vendor name or package name will be treated as the same package by
-Composer.
-
-Example for extension key **bootstrap_package**:
-
-.. code-block:: json
-
-   {
-      "replace": {
-         "typo3-ter/bootstrap-package": "self.version"
-      }
-   }
-
-
-As all extensions available in the TER can be installed
-with `composer require typo3-ter/ext-key`, this makes sure that
-there will be no conflicts with packages installed or required
-via Packagist or from another source.
-
-Since the TER Composer repository is deprecated and not all extensions
-must be available in TER, this property is usually not required.
-
 Properties no longer used
 =========================
 
@@ -292,6 +256,23 @@ version
 Was used in earlier TYPO3 versions.
 For TYPO3 versions 7.6 and above you should not use the version property.
 The version for the extension is set in the file :ref:`ext_emconf.php <ext_emconf-php>`.
+`Composer primarily takes the version information from repository tags <https://getcomposer.org/doc/02-libraries.md#library-versioning>`__, 
+so the releases need to be tagged in the VCS repository with a version number.
+
+replace with ``typo3-ter`` vendorname
+-------------------------------------
+
+.. code-block:: json
+
+   {
+      "replace": {
+         "typo3-ter/bootstrap-package": "self.version"
+      }
+   }
+
+This was used previously as long as the TER Composer Repository was 
+relevant. Since the TER Composer Repository is deprecated, the `typo3-ter/*` entry
+within `replace` is not required.
 
 replace with ``"ext_key": "self.version"``
 ------------------------------------------
