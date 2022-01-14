@@ -35,7 +35,7 @@ You need to handle the integration yourself.
    :guilabel:`Settings` > :guilabel:`Integrations` > :guilabel:`Setup integration`.
 
 #. Go to the url of your project at Crowdin (e.g. `<https://crowdin.com/project/typo3-extension-ttaddress>`_)
-#. Switch to the tab **Applications**
+#. Switch to the tab **Integrations**
 #. Find the card which corresponds to your extension source, e.g. GitHub / GitLab / Bitbucket
 #. Click **Set Up integration** and then select "Set Up integration"
 
