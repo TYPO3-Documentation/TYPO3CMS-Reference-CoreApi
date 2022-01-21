@@ -24,6 +24,6 @@ This is what you should do:
 #. Configure a group for each role: attribute permissions needed to
    fulfill each role.
 
-#. Consider having a general group which all other groups includes - this
+#. Consider having a general group which all other groups include - this
    would basically configure a shared set of permissions for all users.
 
