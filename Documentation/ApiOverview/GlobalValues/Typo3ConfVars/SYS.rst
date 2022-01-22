@@ -202,21 +202,6 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm']
    Format of Hours-Minutes - see PHP-function `date() <https://www.php.net/manual/en/function.date.php>`__
 
 .. index::
-   TYPO3_CONF_VARS SYS; USdateFormat
-.. _typo3ConfVars_sys_USdateFormat:
-
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['USdateFormat']
-==================================================
-
-.. confval:: USdateFormat
-
-   :type: bool
-   :Default: false
-
-   If :php:`TRUE`, dates entered in the TCEforms of the backend will be
-   formatted :php:`mm-dd-yyyy`
-
-.. index::
    TYPO3_CONF_VARS SYS; loginCopyrightWarrantyProvider
 .. _typo3ConfVars_sys_loginCopyrightWarrantyProvider:
 
