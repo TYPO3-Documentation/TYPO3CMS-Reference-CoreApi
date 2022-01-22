@@ -63,6 +63,14 @@ $GLOBALS
    :Defined: :file:`typo3/sysext/core/ext_tables.php`
    :Frontend: (occasionally)
 
+   $GLOBALS['PAGES_TYPES'] defines the various types of pages (:sql:`doktype`)
+   the system can handle and what restrictions may apply to them.
+
+   Here you can define which tables are allowed on a certain page types
+   (:sql:`doktype`).
+
+   The default configuration applies if the page type is not defined otherwise.
+
 
 .. confval:: TCA
 
