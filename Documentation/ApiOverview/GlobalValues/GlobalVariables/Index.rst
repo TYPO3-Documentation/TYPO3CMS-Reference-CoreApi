@@ -9,16 +9,6 @@
 $GLOBALS
 ========
 
-.. note::
-
-   To make the table below a bit more compact, namespaces were left out. Here
-   are the fully qualified class names referred to below:
-
-   - "SystemEnvironmentBuilder" = :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder`
-   - "Bootstrap" = :php:`\TYPO3\CMS\Core\Core\Bootstrap`
-   - "PackageManager" = :php:`\TYPO3\CMS\Core\Package\PackageManager`
-
-
 .. confval:: TYPO3_CONF_VARS
 
    :Path: $GLOBALS
@@ -78,7 +68,7 @@ $GLOBALS
 
    :Path: $GLOBALS
    :type: array
-   :Defined: :php:`Bootstrap::loadExtensionTables()`
+   :Defined: :php:`\TYPO3\CMS\Core\Core\Bootstrap::loadExtensionTables()`
    :Frontend: Yes, partly
 
    See :ref:`TCA Reference<t3tca:start>`
@@ -120,7 +110,7 @@ $GLOBALS
 
    :Path: $GLOBALS
    :type: TYPO3\CMS\Core\Authentication\BackendUserAuthentication
-   :Defined: :php:`Bootstrap::initializeBackendUser()`
+   :Defined: :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
    :Frontend: (depends)
 
    Backend user object. See :ref:`be-user`.
