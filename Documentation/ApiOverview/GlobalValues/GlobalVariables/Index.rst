@@ -11,11 +11,6 @@ $GLOBALS
 
 .. note::
 
-   Variables in italics *may* be set in a script prior to
-   the bootstrap process so they are optional.
-
-.. note::
-
    To make the table below a bit more compact, namespaces were left out. Here
    are the fully qualified class names referred to below:
 
@@ -142,6 +137,9 @@ $GLOBALS
    included in "function menus" of real modules. See the Extension API
    for details.
 
+   This variable *may* be set in a script prior to
+   the bootstrap process so it is optional.
+
 .. confval:: TCA_DESCR
 
    :Path: $GLOBALS
@@ -151,6 +149,9 @@ $GLOBALS
 
    Can be set to contain file references to local lang files containing
    :php:`TCA_DESCR` labels. See section about :ref:`Context Sensitive Help <csh>`.
+
+   This variable *may* be set in a script prior to
+   the bootstrap process so it is optional.
 
 .. index:: $GLOBALS; Admin Tools
 .. _globals-exploring:
