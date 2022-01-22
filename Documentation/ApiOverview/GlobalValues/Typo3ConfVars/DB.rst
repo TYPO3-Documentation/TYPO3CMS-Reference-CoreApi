@@ -17,5 +17,6 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']
 
 .. confval:: additionalQueryRestrictions
 
+   :path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: array
    :Default: []
