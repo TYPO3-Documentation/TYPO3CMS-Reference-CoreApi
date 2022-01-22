@@ -23,6 +23,111 @@ $GLOBALS
    :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`.
 
 
+.. confval:: TCA
+
+   :Path: $GLOBALS
+   :type: array
+   :Defined: :php:`\TYPO3\CMS\Core\Core\Bootstrap::loadExtensionTables()`
+   :Frontend: Yes, partly
+
+   See :ref:`TCA Reference<t3tca:start>`
+
+
+.. confval:: TCA_DESCR
+
+   :Path: $GLOBALS
+   :type: array
+   :Defined: [:file:`tables.php` files]
+   :Frontend: No
+
+   Can be set to contain file references to local lang files containing
+   :php:`TCA_DESCR` labels. See section about :ref:`Context Sensitive Help <csh>`.
+
+   This variable *may* be set in a script prior to
+   the bootstrap process so it is optional.
+
+
+.. confval:: T3_SERVICES
+
+   :Path: $GLOBALS
+   :type: array
+   :Defined: :php:`SystemEnvironmentBuilder::initializeGlobalVariables()`
+   :Frontend: Yes
+
+   Global registration of :ref:`services <services-introduction>`.
+
+
+
+.. confval:: TBE_MODULES
+
+   :Path: $GLOBALS
+   :type: array
+   :Defined: :file:`typo3/sysext/core/ext_tables.php`
+   :Frontend: (occasionally)
+
+   The backend main/sub-module structure. See section elsewhere plus
+   source code of class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader` which also includes some
+   examples.
+
+
+.. confval:: TBE_MODULES_EXT
+
+   :Path: $GLOBALS
+   :type: array
+   :Defined: [In :file:`ext_tables.php` files of extensions]
+   :Frontend: (occasionally)
+
+   Used to store information about modules from extensions that should be
+   included in "function menus" of real modules. See the Extension API
+   for details.
+
+   This variable *may* be set in a script prior to
+   the bootstrap process so it is optional.
+
+
+.. confval:: TBE_STYLES
+
+   :Path: $GLOBALS
+   :type: array
+   :Defined: :file:`typo3/sysext/core/ext_tables.php`
+   :Frontend: (occasionally)
+
+   Contains information related to BE skinning.
+
+
+.. confval:: TYPO3_USER_SETTINGS
+
+   :Path: $GLOBALS
+   :type: array
+   :Defined: :file:`typo3/sysext/setup/ext_tables.php`
+
+   Defines the form in the :guilabel:`User Settings`.
+
+.. confval:: PAGES_TYPES
+
+   :Path: $GLOBALS
+   :type: array
+   :Defined: :file:`typo3/sysext/core/ext_tables.php`
+   :Frontend: (occasionally)
+
+   $GLOBALS['PAGES_TYPES'] defines the various types of pages (:sql:`doktype`)
+   the system can handle and what restrictions may apply to them.
+
+   Here you can define which tables are allowed on a certain page types
+   (:sql:`doktype`).
+
+   The default configuration applies if the page type is not defined otherwise.
+
+.. confval:: BE_USER
+
+   :Path: $GLOBALS
+   :type: TYPO3\CMS\Core\Authentication\BackendUserAuthentication
+   :Defined: :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
+   :Frontend: (depends)
+
+   Backend user object. See :ref:`be-user`.
+
+
 .. confval:: EXEC_TIME
 
    :Path: $GLOBALS
@@ -55,101 +160,6 @@ $GLOBALS
       Should not be used anymore, rather use the
       :ref:`DateTime Aspect <context_api_aspects_datetime>`.
 
-
-.. confval:: PAGES_TYPES
-
-   :Path: $GLOBALS
-   :type: array
-   :Defined: :file:`typo3/sysext/core/ext_tables.php`
-   :Frontend: (occasionally)
-
-   $GLOBALS['PAGES_TYPES'] defines the various types of pages (:sql:`doktype`)
-   the system can handle and what restrictions may apply to them.
-
-   Here you can define which tables are allowed on a certain page types
-   (:sql:`doktype`).
-
-   The default configuration applies if the page type is not defined otherwise.
-
-
-.. confval:: TCA
-
-   :Path: $GLOBALS
-   :type: array
-   :Defined: :php:`\TYPO3\CMS\Core\Core\Bootstrap::loadExtensionTables()`
-   :Frontend: Yes, partly
-
-   See :ref:`TCA Reference<t3tca:start>`
-
-
-.. confval:: TBE_MODULES
-
-   :Path: $GLOBALS
-   :type: array
-   :Defined: :file:`typo3/sysext/core/ext_tables.php`
-   :Frontend: (occasionally)
-
-   The backend main/sub-module structure. See section elsewhere plus
-   source code of class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader` which also includes some
-   examples.
-
-.. confval:: TBE_STYLES
-
-   :Path: $GLOBALS
-   :type: array
-   :Defined: :file:`typo3/sysext/core/ext_tables.php`
-   :Frontend: (occasionally)
-
-   Contains information related to BE skinning.
-
-
-.. confval:: T3_SERVICES
-
-   :Path: $GLOBALS
-   :type: array
-   :Defined: :php:`SystemEnvironmentBuilder::initializeGlobalVariables()`
-   :Frontend: Yes
-
-   Global registration of :ref:`services <services-introduction>`.
-
-
-
-.. confval:: BE_USER
-
-   :Path: $GLOBALS
-   :type: TYPO3\CMS\Core\Authentication\BackendUserAuthentication
-   :Defined: :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
-   :Frontend: (depends)
-
-   Backend user object. See :ref:`be-user`.
-
-
-.. confval:: TBE_MODULES_EXT
-
-   :Path: $GLOBALS
-   :type: array
-   :Defined: [In :file:`ext_tables.php` files of extensions]
-   :Frontend: (occasionally)
-
-   Used to store information about modules from extensions that should be
-   included in "function menus" of real modules. See the Extension API
-   for details.
-
-   This variable *may* be set in a script prior to
-   the bootstrap process so it is optional.
-
-.. confval:: TCA_DESCR
-
-   :Path: $GLOBALS
-   :type: array
-   :Defined: [:file:`tables.php` files]
-   :Frontend: No
-
-   Can be set to contain file references to local lang files containing
-   :php:`TCA_DESCR` labels. See section about :ref:`Context Sensitive Help <csh>`.
-
-   This variable *may* be set in a script prior to
-   the bootstrap process so it is optional.
 
 .. index:: $GLOBALS; Admin Tools
 .. _globals-exploring:
