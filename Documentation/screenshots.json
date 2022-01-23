@@ -92,6 +92,18 @@
                         "class": "TYPO3\\CMS\\Backend\\Backend\\Event\\SystemInformationToolbarCollectorEvent",
                         "targetFileName": "SystemInformationToolbarCollectorEvent",
                         "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Backend\\Search\\Event\\ModifyQueryForLiveSearchEvent",
+                        "targetFileName": "ModifyQueryForLiveSearchEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Backend\\Controller\\Event\\ModifyPageLayoutContentEvent",
+                        "targetFileName": "ModifyPageLayoutContentEvent",
+                        "withCode": false
                     }
                 ],
                 "EventsCore": [
@@ -559,6 +571,18 @@
                         "action": "createPhpClassDocs",
                         "class": "TYPO3\\CMS\\Frontend\\Event\\ModifyHrefLangTagsEvent",
                         "targetFileName": "ModifyHrefLangTagsEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Frontend\\Event\\ModifyPageLinkConfigurationEvent",
+                        "targetFileName": "ModifyPageLinkConfigurationEvent",
+                        "withCode": false
+                    },
+                    {
+                        "action": "createPhpClassDocs",
+                        "class": "TYPO3\\CMS\\Frontend\\Event\\FilterMenuItemsEvent",
+                        "targetFileName": "FilterMenuItemsEvent",
                         "withCode": false
                     },
                     {
