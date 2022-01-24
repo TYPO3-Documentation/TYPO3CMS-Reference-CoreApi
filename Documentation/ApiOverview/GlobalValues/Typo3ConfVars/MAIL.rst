@@ -18,6 +18,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['format']
 
 .. confval:: format
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: dropdown
    :Default: 'both'
    :allowedValues:
@@ -41,6 +42,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths']
 
 .. confval:: layoutRootPaths
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: array
    :Default:
       .. code-block:: php
@@ -62,6 +64,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['partialRootPaths']
 
 .. confval:: partialRootPaths
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: array
    :Default:
       .. code-block:: php
@@ -83,6 +86,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']
 
 .. confval:: templateRootPaths
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: array
    :Default:
       .. code-block:: php
@@ -104,6 +108,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['validators']
 
 .. confval:: validators
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: array
    :Default: :php:`[\Egulias\EmailValidator\Validation\RFCValidation::class]`
 
@@ -126,6 +131,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport']
 
 .. confval:: transport
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: 'sendmail'
 
@@ -167,6 +173,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server']
 
 .. confval:: transport_smtp_server
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: 'localhost:25'
 
@@ -182,6 +189,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt']
 
 .. confval:: transport_smtp_encrypt
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: bool
    :Default: false
 
@@ -200,6 +208,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username']
 
 .. confval:: transport_smtp_username
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -215,6 +224,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password']
 
 .. confval:: transport_smtp_password
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: password
    :Default: ''
 
@@ -230,6 +240,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command']
 
 .. confval:: transport_sendmail_command
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -244,6 +255,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_mbox_file']
 
 .. confval:: transport_mbox_file
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -260,6 +272,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_type']
 
 .. confval:: transport_spool_type
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -280,6 +293,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_filepath']
 
 .. confval:: transport_spool_filepath
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -295,6 +309,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['dsn']
 
 .. confval:: dsn
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -322,6 +337,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress']
 
 .. confval:: defaultMailFromAddress
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -338,6 +354,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromName']
 
 .. confval:: defaultMailFromName
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -353,6 +370,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailReplyToAddress']
 
 .. confval:: defaultMailReplyToAddress
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -369,6 +387,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailReplyToName']
 
 .. confval:: defaultMailReplyToName
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
