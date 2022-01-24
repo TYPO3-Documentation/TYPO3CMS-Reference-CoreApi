@@ -7,8 +7,6 @@ Global meta information about TYPO3
 ===================================
 
 
-..
-
 General information
 ===================
 
