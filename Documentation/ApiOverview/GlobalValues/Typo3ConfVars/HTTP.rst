@@ -22,7 +22,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']
 
 .. confval:: allow_redirects
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
 
    Mixed, set to false if you want to disallow redirects, or use it as an
@@ -38,7 +38,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['strict']
 
 .. confval:: allow_redirects strict
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: bool
    :Default: false
 
@@ -61,7 +61,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['max']
 
 .. confval:: allow_redirects max
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: int
    :Default: 5
 
@@ -76,7 +76,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['cert']
 
 .. confval:: cert
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
    :Default: null
 
@@ -93,7 +93,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['connect_timeout']
 
 .. confval:: connect_timeout
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: int
    :Default: 10
 
@@ -109,7 +109,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy']
 
 .. confval:: proxy
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
    :Default: null
 
@@ -133,7 +133,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['ssl_key']
 
 .. confval:: ssl_key
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
    :Default: null
 
@@ -149,7 +149,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['timeout']
 
 .. confval:: timeout
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: int
    :Default: 0
 
@@ -169,7 +169,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']
 
 .. confval:: verify
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
    :Default: true
 
@@ -185,7 +185,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['version']
 
 .. confval:: version
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: text
    :Default: '1.1'
 

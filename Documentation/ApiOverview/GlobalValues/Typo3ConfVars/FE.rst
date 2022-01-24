@@ -17,7 +17,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['addAllowedPaths']
 
 .. confval:: addAllowedPaths
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: list
    :Default: ''
 
@@ -42,7 +42,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['debug']
 
 .. confval:: debug
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: bool
    :Default: false
 
@@ -59,7 +59,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['compressionLevel']
 
 .. confval:: compressionLevel
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: int
    :Default: 0
 
@@ -78,7 +78,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['pageNotFoundOnCHashError']
 
 .. confval:: pageNotFoundOnCHashError
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: bool
    :Default: true
 
@@ -94,7 +94,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['pageUnavailable_force']
 
 .. confval:: pageUnavailable_force
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: bool
    :Default: false
 
@@ -111,7 +111,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['addRootLineFields']
 
 .. confval:: addRootLineFields
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: list
    :Default: ''
 
@@ -127,7 +127,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['checkFeUserPid']
 
 .. confval:: checkFeUserPid
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: bool
    :Default: true
 
@@ -149,7 +149,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimit']
 
 .. confval:: loginRateLimit
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: int
    :Default: 5
 
@@ -168,7 +168,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitInterval']
 
 .. confval:: loginRateLimitInterval
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: string, PHP relative format
    :Default: '15 minutes'
    :allowedValues: '1 minute', '5 minutes', '15 minutes', '30 minutes'
@@ -188,7 +188,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitIpExcludeList']
 
 .. confval:: loginRateLimitIpExcludeList
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: string
    :Default: ''
 
@@ -205,7 +205,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['lockIP']
 
 .. confval:: lockIP
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: int
    :Default: 0
    :allowedValues:
@@ -239,7 +239,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['lockIPv6']
 
 .. confval:: lockIPv6
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: int
    :Default: 0
    :allowedValues:
@@ -304,7 +304,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['lifetime']
 
 .. confval:: lifetime
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: int
    :Default: 0
 
@@ -324,7 +324,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['sessionTimeout']
 
 .. confval:: sessionTimeout
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: int
    :Default: 6000
 
@@ -340,7 +340,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['sessionDataLifetime']
 
 .. confval:: sessionDataLifetime
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: int
    :Default: 86400
 
@@ -357,7 +357,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['permalogin']
 
 .. confval:: permalogin
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: text
    :Default: 0
 
@@ -387,7 +387,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieDomain']
 
 .. confval:: cookieDomain
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: text
    :Default: ''
 
@@ -404,7 +404,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieName']
 
 .. confval:: cookieName
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: text
    :Default: 'fe_typo_user'
 
@@ -419,7 +419,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieSameSite']
 
 .. confval:: cookieSameSite
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: text
    :Default: 'lax'
    :allowedValues:
@@ -445,7 +445,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultUserTSconfig']
 
 .. confval:: defaultUserTSconfig
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: multiline
    :Default: ''
 
@@ -460,7 +460,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultTypoScript_constants']
 
 .. confval:: defaultTypoScript_constants
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: multiline
    :Default: ''
 
@@ -475,7 +475,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultTypoScript_setup']
 
 .. confval:: defaultTypoScript_setup
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: multiline
    :Default: ''
 
@@ -490,7 +490,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories']
 
 .. confval:: additionalAbsRefPrefixDirectories
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: text
    :Default: ''
 
@@ -507,7 +507,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['enable_mount_pids']
 
 .. confval:: enable_mount_pids
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: bool
    :Default: true
 
@@ -523,7 +523,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['hidePagesIfNotTranslatedByDefault']
 
 .. confval:: hidePagesIfNotTranslatedByDefault
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: bool
    :Default: false
 
@@ -542,7 +542,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']
 
 .. confval:: eID_include
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: array
    :Default: []
 
@@ -564,7 +564,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['disableNoCacheParameter']
 
 .. confval:: disableNoCacheParameter
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: bool
    :Default: false
 
@@ -584,7 +584,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters']
 
 .. confval:: additionalCanonicalizedUrlParameters
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: array
    :Default: []
 
@@ -607,7 +607,7 @@ ___________________________________________________________________________
 
 .. confval:: cachedParametersWhiteList:
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']
    :type: array
    :Default: []
 
@@ -625,7 +625,7 @@ ________________________________________________________________________________
 
 .. confval:: requireCacheHashPresenceParameters
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']
    :type: array
    :Default: []
 
@@ -642,7 +642,7 @@ ____________________________________________________________________
 
 .. confval:: excludedParameters
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']
    :type: array
    :Default: ['L', 'pk_campaign', 'pk_kwd', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid']
 
@@ -660,7 +660,7 @@ ___________________________________________________________________________
 
 .. confval:: excludedParametersIfEmpty
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']
    :type: array
    :Default: []
 
@@ -677,7 +677,7 @@ ___________________________________________________________________________
 
 .. confval:: excludeAllEmptyParameters
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']
    :type: bool
    :Default: false
 
@@ -693,7 +693,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['workspacePreviewLogoutTemplate']
 
 .. confval:: workspacePreviewLogoutTemplate
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: text
    :Default: ''
 
@@ -713,7 +713,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['versionNumberInFilename']
 
 .. confval:: versionNumberInFilename
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: dropdown
    :Default: 'querystring'
    :allowedValues:
@@ -746,7 +746,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates']
 
 .. confval:: contentRenderingTemplates
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: array
    :Default: []
 
@@ -769,7 +769,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']
 
 .. confval:: ContentObjects
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: array
    :Default: []
 
@@ -787,7 +787,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']
 
 .. confval:: typolinkBuilder
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: array
 
    Matches the LinkService implementations for generating URL, link text via typolink
@@ -822,7 +822,7 @@ _________________________________________________________________
 
 .. confval:: className
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']
    :type: text
    :Default: :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash::class`
    :allowedValues:
@@ -847,7 +847,7 @@ _______________________________________________________________
 
 .. confval:: options
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']
    :type: array
    :Default: []
 
@@ -863,7 +863,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['exposeRedirectInformation']
 
 .. confval:: exposeRedirectInformation
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['FE']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
    :type: bool
    :Default: false
 

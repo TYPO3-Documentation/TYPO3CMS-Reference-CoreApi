@@ -17,7 +17,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXT']['allowGlobalInstall']
 
 .. confval:: allowGlobalInstall
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['EXT']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['EXT']
    :type: bool
    :Default: false
 
@@ -33,7 +33,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXT']['allowLocalInstall']
 
 .. confval:: allowLocalInstall
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['EXT']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['EXT']
    :type: bool
    :Default: true
 
@@ -49,7 +49,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXT']['excludeForPackaging']
 
 .. confval:: excludeForPackaging:
 
-   :path: $GLOBALS['TYPO3_CONF_VARS']['EXT']
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['EXT']
    :type: list
    :Default: :php:`'(?:\\.(?!htaccess$).*|.*~|.*\\.swp|.*\\.bak|node_modules|bower_components)'`
 
