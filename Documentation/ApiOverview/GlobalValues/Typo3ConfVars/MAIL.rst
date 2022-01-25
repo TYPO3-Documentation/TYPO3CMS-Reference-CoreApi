@@ -177,8 +177,44 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server']
    :type: text
    :Default: 'localhost:25'
 
-   *only with transport=smtp* serverport of mailserver to connect to. port
+   *only with transport=smtp* server port of mail server to connect to. port
    defaults to "25".
+
+.. index::
+   TYPO3_CONF_VARS MAIL; transport_smtp_stream_options
+.. _typo3ConfVars_mail_transport_smtp_stream_options:
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_stream_options']
+====================================================================
+
+.. confval:: transport_smtp_stream_options
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
+   :type: bool
+   :Default: false
+
+   *only with transport=smtp* Sets additional stream options.
+
+   Configuration Example:
+
+   .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
+
+       return [
+           //....
+           'MAIL' => [
+               'transport' => 'smtp',
+               'transport_sendmail_command' => ' -t -i ',
+               'transport_smtp_server' => 'localhost:1025',
+               'transport_smtp_stream_options' => [
+                   'ssl' => [
+                       'verify_peer' => false,
+                       'verify_peer_name' => false,
+                   ]
+               ],
+           ],
+           //....
+       ];
 
 .. index::
    TYPO3_CONF_VARS MAIL; transport_smtp_encrypt
@@ -230,6 +266,63 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password']
 
    *only with transport=smtp* If your SMTP server requires authentication,
    enter your password here.
+
+.. index::
+   TYPO3_CONF_VARS MAIL; transport_smtp_restart_threshold
+.. _typo3ConfVars_mail_transport_smtp_restart_threshold:
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_restart_threshold']
+=======================================================================
+
+.. confval:: transport_smtp_restart_threshold
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
+   :type: text
+   :Default: ''
+
+   *only with transport=smtp* Sets the maximum number of messages to send
+   before re-starting the transport.
+
+.. index::
+   TYPO3_CONF_VARS MAIL; transport_smtp_restart_threshold_sleep
+.. _typo3ConfVars_mail_transport_smtp_restart_threshold_sleep:
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_restart_threshold_sleep']
+=============================================================================
+
+.. confval:: transport_smtp_restart_threshold_sleep
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
+   :type: text
+   :Default: ''
+
+   *only with transport=smtp* Sets the number of seconds to sleep
+   between stopping and re-starting the transport.
+
+.. index::
+   TYPO3_CONF_VARS MAIL; transport_smtp_ping_threshold
+.. _typo3ConfVars_mail_transport_smtp_ping_threshold:
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_ping_threshold']
+=======================================================================
+
+.. confval:: transport_smtp_restart_threshold_sleep
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
+   :type: text
+   :Default: ''
+
+   *only with transport=smtp* Sets the minimum number of seconds required
+   between two messages, before the server is pinged. If the transport
+   wants to send a message and the time since the last message exceeds
+   the specified threshold, the transport will ping the server first
+   (NOOP command) to check if the connection is still alive. Otherwise the
+   message will be sent without pinging the server first.
+
+   .. info::
+      Do not set the threshold too low, as the SMTP server may drop the
+      connection if there are too many non-mail commands
+      (like pinging the server with NOOP).
 
 .. index::
    TYPO3_CONF_VARS MAIL; transport_sendmail_command
