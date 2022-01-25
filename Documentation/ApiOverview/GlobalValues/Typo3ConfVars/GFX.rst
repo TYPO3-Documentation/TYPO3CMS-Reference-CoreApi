@@ -18,6 +18,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['thumbnails']
 
 .. confval:: thumbnails
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: bool
    :Default: true
 
@@ -32,6 +33,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['thumbnails_png']
 
 .. confval:: thumbnails_png
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: bool
    :Default: true
 
@@ -47,6 +49,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['gif_compress']
 
 .. confval:: gif_compress
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: bool
    :Default: true
 
@@ -64,6 +67,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 
 .. confval:: imagefile_ext
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: list
    :Default: 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg'
 
@@ -80,6 +84,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib']
 
 .. confval:: gdlib
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: bool
    :Default: true
 
@@ -94,6 +99,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib_png']
 
 .. confval:: gdlib_png
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: bool
    :Default: false
 
@@ -109,6 +115,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_enabled']
 
 .. confval:: processor_enabled
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: bool
    :Default: true
 
@@ -123,6 +130,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path']
 
 .. confval:: processor_path
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: text
    :Default: '/usr/bin/'
 
@@ -137,6 +145,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path_lzw']
 
 .. confval:: processor_path_lzw
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: text
    :Default: '/usr/bin/'
 
@@ -158,6 +167,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor']
 
 .. confval:: processor
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: dropdown
    :Default: 'ImageMagick'
    :allowedValues:
@@ -178,6 +188,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_effects']
 
 .. confval:: processor_effects
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: bool
    :Default: false
 
@@ -192,6 +203,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_allowUpscaling']
 
 .. confval:: processor_allowUpscaling
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: bool
    :Default: true
 
@@ -207,6 +219,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_allowFrameSelection']
 
 .. confval:: processor_allowFrameSelection
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: bool
    :Default: true
 
@@ -224,6 +237,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_allowTemporaryMasksAsPng']
 
 .. confval:: processor_allowTemporaryMasksAsPng
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: bool
    :Default: false
 
@@ -239,6 +253,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileByDefault']
 
 .. confval:: processor_stripColorProfileByDefault
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: bool
    :Default: true
 
@@ -255,6 +270,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand']
 
 .. confval:: processor_stripColorProfileCommand
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: text
    :Default: \+profile \'\*\'
 
@@ -273,6 +289,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_colorspace']
 
 .. confval:: processor_colorspace
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: text
    :Default: RGB
 
@@ -292,6 +309,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_interlace']
 
 .. confval:: processor_interlace
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: text
    :Default: 'None'
 
@@ -310,6 +328,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality']
 
 .. confval:: jpg_quality
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
    :type: int
    :Default: 85
 
