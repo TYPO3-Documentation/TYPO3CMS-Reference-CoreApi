@@ -180,6 +180,6 @@ Many of the global variables described above can be inspected using the module
    values.
 
    It also lets you browse a number of other global arrays as well as values
-   defined in other syntax like YAML.
+   defined in other syntaxes including YAML.
 
 .. include:: /Images/AutomaticScreenshots/BackendModules/GlobalValuesConfiguration.rst.txt
