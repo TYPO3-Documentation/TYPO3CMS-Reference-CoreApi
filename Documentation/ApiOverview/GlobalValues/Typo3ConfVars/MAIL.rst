@@ -20,6 +20,8 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['format']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: dropdown
+
+* [ ] [Important: #92020 - New API entry point available at https://get.typo3.org/api/](https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/11.5.x/Important-92020-NewAPIEntryPointAvailableAtHttpsgettypo3orgapi.html)
    :Default: 'both'
    :allowedValues:
       html
@@ -179,6 +181,51 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server']
 
    *only with transport=smtp* server port of mail server to connect to. port
    defaults to "25".
+
+.. index::
+   TYPO3_CONF_VARS MAIL; transport_smtp_domain
+.. _typo3ConfVars_mail_transport_smtp_domain:
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_domain']
+============================================================
+
+.. confval:: transport_smtp_domain
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
+   :type: text
+   :Default: ''
+
+   Some smtp-relay-server require to set the domain under which the sender is
+   sending an email. As default the EsmtpTransport from Symfony will use the
+   current domain/IP of the host or container. This will be sufficient for
+   the most servers but some servers require a valid domain is passed. If
+   this isn't done, sending emails via such servers will fail.
+
+   Setting a valid SMTP domain can be achieved by setting
+   :confval:`transport_smtp_domain` in the :file:`LocalConfiguration.php`.
+   This will set the given domain to the EsmtpTransport agent an send the
+   correct EHLO-command to the relay-server.
+
+   **Configuration Example for GSuite:**
+
+   .. code-block:: php
+      :caption:`typo3conf/LocalConfiguration.php`
+
+       return [
+           //....
+           'MAIL' => [
+               'defaultMailFromAddress' => 'webserver@example.org',
+               'defaultMailFromName' => 'SYSTEMMAIL',
+               'transport' => 'smtp',
+               'transport_sendmail_command' => ' -t -i ',
+               'transport_smtp_domain' => 'example.org',
+               'transport_smtp_encrypt' => '',
+               'transport_smtp_password' => '',
+               'transport_smtp_server' => 'smtp-relay.gmail.com:587',
+               'transport_smtp_username' => '',
+           ],
+           //....
+       ];
 
 .. index::
    TYPO3_CONF_VARS MAIL; transport_smtp_stream_options
