@@ -653,6 +653,20 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
 
    Contains the default user TSconfig.
 
+   Never set this configuration variable directly. Use the API method instead:
+
+   .. code-block:: php
+      :caption: my_sitepackage/ext_localconf.php
+
+      /**
+       * Adding the default User TSconfig
+       */
+      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig('
+         @import 'EXT:my_sitepackage/Configuration/TSconfig/User/default.tsconfig'
+      ');
+
+   Read more about
+   :ref:`Setting default User TSconfig <t3tsref:usersettingdefaultusertsconfig>`.
 
 .. index::
    TYPO3_CONF_VARS BE; defaultPageTSconfig
@@ -668,6 +682,19 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
 
    Contains the default page TSconfig.
 
+   Never set this configuration variable directly. Use the API method instead:
+
+   .. code-block:: php
+      :caption:`EXT:my_sitepackage/ext_localconf.php`
+
+      use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+      ExtensionManagementUtility::addPageTSConfig('
+         @import 'EXT:my_sitepackage/Configuration/TSconfig/Page/default.tsconfig'
+      ');
+
+   Read more about
+   :ref:`Setting the Page TSconfig globally <t3tsref:pagesettingdefaultpagetsconfig>`.
 
 .. index::
    TYPO3_CONF_VARS BE; defaultPermissions
