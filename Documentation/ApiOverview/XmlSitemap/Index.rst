@@ -15,6 +15,11 @@ When enabled, this new feature will create a sitemapindex with one or more sitem
 Out-of-the-box it will have one sitemap containing all the pages of the current site and
 language. Per site and per language you have the possibility to render a different sitemap.
 
+.. note::
+   The XML sitemap is provided by the optional system extension
+   EXT:seo. You can find information about how to install and use it in the
+   :ref:`EXT:seo manual <t3seo:start>`.
+
 Installation
 ============
 
