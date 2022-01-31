@@ -20,8 +20,6 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['format']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: dropdown
-
-* [ ] [Important: #92020 - New API entry point available at https://get.typo3.org/api/](https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/11.5.x/Important-92020-NewAPIEntryPointAvailableAtHttpsgettypo3orgapi.html)
    :Default: 'both'
    :allowedValues:
       html
