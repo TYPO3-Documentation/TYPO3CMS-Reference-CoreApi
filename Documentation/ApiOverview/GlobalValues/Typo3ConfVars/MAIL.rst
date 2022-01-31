@@ -181,6 +181,87 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server']
    defaults to "25".
 
 .. index::
+   TYPO3_CONF_VARS MAIL; transport_smtp_domain
+.. _typo3ConfVars_mail_transport_smtp_domain:
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_domain']
+============================================================
+
+.. confval:: transport_smtp_domain
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
+   :type: text
+   :Default: ''
+
+   Some smtp-relay-servers require the domain to be set from which the sender is
+   sending an email. By default, the EsmtpTransport from Symfony will use the
+   current domain/IP of the host or container. This will be sufficient for
+   most servers, but some servers require that a valid domain is passed. If
+   this isn't done, sending emails via such servers will fail.
+
+   Setting a valid SMTP domain can be achieved by setting
+   :confval:`transport_smtp_domain` in the :file:`LocalConfiguration.php`.
+   This will set the given domain to the EsmtpTransport agent and send the
+   correct EHLO-command to the relay-server.
+
+   **Configuration Example for GSuite:**
+
+   .. code-block:: php
+      :caption:`typo3conf/LocalConfiguration.php`
+
+       return [
+           //....
+           'MAIL' => [
+               'defaultMailFromAddress' => 'webserver@example.org',
+               'defaultMailFromName' => 'SYSTEMMAIL',
+               'transport' => 'smtp',
+               'transport_sendmail_command' => ' -t -i ',
+               'transport_smtp_domain' => 'example.org',
+               'transport_smtp_encrypt' => '',
+               'transport_smtp_password' => '',
+               'transport_smtp_server' => 'smtp-relay.gmail.com:587',
+               'transport_smtp_username' => '',
+           ],
+           //....
+       ];
+
+.. index::
+   TYPO3_CONF_VARS MAIL; transport_smtp_stream_options
+.. _typo3ConfVars_mail_transport_smtp_stream_options:
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_stream_options']
+====================================================================
+
+.. confval:: transport_smtp_stream_options
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
+   :type: bool
+   :Default: false
+
+   *only with transport=smtp* Sets additional stream options.
+
+   Configuration Example:
+
+   .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
+
+       return [
+           //....
+           'MAIL' => [
+               'transport' => 'smtp',
+               'transport_sendmail_command' => ' -t -i ',
+               'transport_smtp_server' => 'localhost:1025',
+               'transport_smtp_stream_options' => [
+                   'ssl' => [
+                       'verify_peer' => false,
+                       'verify_peer_name' => false,
+                   ]
+               ],
+           ],
+           //....
+       ];
+
+.. index::
    TYPO3_CONF_VARS MAIL; transport_smtp_encrypt
 .. _typo3ConfVars_mail_transport_smtp_encrypt:
 
