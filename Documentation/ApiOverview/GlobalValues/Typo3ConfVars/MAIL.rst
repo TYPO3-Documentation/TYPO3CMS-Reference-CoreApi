@@ -195,10 +195,10 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_domain']
    :type: text
    :Default: ''
 
-   Some smtp-relay-server require to set the domain under which the sender is
-   sending an email. As default the EsmtpTransport from Symfony will use the
+   Some smtp-relay-servers require the domain to be set from which the sender is
+   sending an email. By default, the EsmtpTransport from Symfony will use the
    current domain/IP of the host or container. This will be sufficient for
-   the most servers but some servers require a valid domain is passed. If
+   most servers, but some servers require that a valid domain is passed. If
    this isn't done, sending emails via such servers will fail.
 
    Setting a valid SMTP domain can be achieved by setting
