@@ -203,7 +203,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_domain']
 
    Setting a valid SMTP domain can be achieved by setting
    :confval:`transport_smtp_domain` in the :file:`LocalConfiguration.php`.
-   This will set the given domain to the EsmtpTransport agent an send the
+   This will set the given domain to the EsmtpTransport agent and send the
    correct EHLO-command to the relay-server.
 
    **Configuration Example for GSuite:**
