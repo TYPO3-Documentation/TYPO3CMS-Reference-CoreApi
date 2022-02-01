@@ -29,12 +29,12 @@ will be our ajax endpoint.
 
    namespace Vendor\MyExtension\Controller;
 
+   use Psr\Http\Message\ResponseInterface;
    use Psr\Http\Message\ServerRequestInterface;
-   use TYPO3\CMS\Core\Http\Response;
 
    class ExampleController
    {
-       public function doSomethingAction(ServerRequestInterface $request): Response
+       public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
        {
        }
    }
@@ -45,7 +45,7 @@ incoming number by 2. The incoming value will be passed as a query string argume
 
 .. code-block:: php
 
-   public function doSomethingAction(ServerRequestInterface $request): Response
+   public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
    {
        $input = $request->getQueryParams()['input'] ?? null;
        if ($input === null) {
@@ -100,7 +100,7 @@ $reasonPhrase
 
 .. code-block:: php
 
-   public function doSomethingAction(ServerRequestInterface $request): Response
+   public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
    {
        // our previous computation
 
