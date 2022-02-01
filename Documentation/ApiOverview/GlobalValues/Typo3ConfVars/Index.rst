@@ -186,6 +186,8 @@ The Install Tool provides various dedicated modules that change parts of
 
 .. index::
    ! File; typo3conf/AdditionalConfiguration.php
+   Configuration; AdditionalConfiguration
+   AdditionalConfiguration
 .. _typo3ConfVars-additionalConfiguration:
 
 File AdditionalConfiguration.php
