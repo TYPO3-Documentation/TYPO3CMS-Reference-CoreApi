@@ -218,9 +218,8 @@ which requires heavy duty processing.
    :caption: typo3conf/AdditionalConfiguration.php
 
    <?php
-   // use \TYPO3\CMS\Core\Core\Environment;
 
-   $applicationContext = Environment::getContext();
+   $applicationContext = \TYPO3\CMS\Core\Core\Environment::getContext();
    if ($applicationContext->isDevelopment()) {
        $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['host'] = 'mysql-be';
    }
