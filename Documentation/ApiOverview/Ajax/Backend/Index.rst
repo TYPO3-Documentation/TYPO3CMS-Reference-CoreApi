@@ -29,14 +29,23 @@ will be our ajax endpoint.
 
    namespace Vendor\MyExtension\Controller;
 
+   use Psr\Http\Message\ResponseFactoryInterface;
    use Psr\Http\Message\ResponseInterface;
    use Psr\Http\Message\ServerRequestInterface;
 
    class ExampleController
    {
-       public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
-       {
-       }
+      /** @var ResponseFactoryInterface */
+      private $responseFactory;
+
+      public function __construct(ResponseFactoryInterface $responseFactory)
+      {
+         $this->responseFactory = $responseFactory;
+      }
+
+      public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
+      {
+      }
    }
 
 
