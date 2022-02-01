@@ -155,6 +155,10 @@ most importantly section **Configure installation-wide options**:
 
 
 
+.. index::
+   ! File; typo3conf/AdditionalConfiguration.php
+   Configuration; AdditionalConfiguration
+   AdditionalConfiguration
 .. _typo3ConfVars-additionalConfiguration:
 
 File AdditionalConfiguration.php
