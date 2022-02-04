@@ -65,10 +65,7 @@ Dispatching an event
          
           use Psr\EventDispatcher\EventDispatcherInterface;
          
-          /**
-           * @var EventDispatcherInterface
-           */
-          private $eventDispatcher;
+          private EventDispatcherInterface $eventDispatcher;
           
           public function injectEventDispatcher(EventDispatcherInterface $eventDispatcher): void
           {
