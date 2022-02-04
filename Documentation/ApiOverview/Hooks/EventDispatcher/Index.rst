@@ -41,7 +41,7 @@ Dispatching an event
    An event class is basically a plain PHP object with getters for immutable
    properties and setters for mutable properties. It contains a constructor for all properties::
    
-      class DoingThisAndThatEvent {
+      final class DoingThisAndThatEvent {
          private string mutableProperty;
          private int inmutableProperty;
          
