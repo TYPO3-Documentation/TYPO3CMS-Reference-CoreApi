@@ -61,7 +61,7 @@ Dispatching an event
    
    If the EventDispatcher is not yet available, you need have it injected::
    
-      class MyClass {
+      final class MyClass {
          
           use Psr\EventDispatcher\EventDispatcherInterface;
          
