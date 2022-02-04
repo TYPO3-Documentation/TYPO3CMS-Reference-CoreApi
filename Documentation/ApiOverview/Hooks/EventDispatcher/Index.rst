@@ -45,7 +45,7 @@ Dispatching an event
          private string mutableProperty;
          private int immutableProperty;
          
-         public function __construct(string mutableProperty, int inmutableProperty) {
+         public function __construct(string mutableProperty, int immutableProperty) {
             // ...
          }
          
