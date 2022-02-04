@@ -56,7 +56,7 @@ Dispatching an event
       
 #. Inject the EventDispatcher
 
-   If you are in a Controller the EventDispatcher already got injected in the ActionController
+   If you are in a controller the `EventDispatcher` already got injected
    in this case you can ommit this step.
    
    If the EventDispatcher is not yet available, you need inject it::
