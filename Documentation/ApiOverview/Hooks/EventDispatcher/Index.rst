@@ -43,7 +43,7 @@ Dispatching an event
    
       final class DoingThisAndThatEvent {
          private string mutableProperty;
-         private int inmutableProperty;
+         private int immutableProperty;
          
          public function __construct(string mutableProperty, int inmutableProperty) {
             // ...
