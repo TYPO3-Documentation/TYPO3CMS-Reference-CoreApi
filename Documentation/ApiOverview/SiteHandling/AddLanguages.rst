@@ -27,7 +27,9 @@ This allows editors to start translating pages without them directly being live.
 
 Language fallbacks can be configured for every language but the default one. A language fallback means that if content
 is not available in the current language, content of the fallback language will be displayed. This may include multiple
-fallback levels - for example "Modern Chinese" might fall back to "Chinese (Traditional)" which may then fallback to "English". All languages can be configured separately, so you can have different fallback chains and behavior for each language.
+fallback levels - for example "Modern Chinese" might fall back to "Chinese (Traditional)" which may then fallback to 
+"English". All languages can be configured separately, so you can have different fallback chains and behavior for 
+each language.
 
 .. tip::
     Used to older TYPO3 versions? The following TypoScript settings will be set based on `config.yaml` - you don't need
@@ -160,6 +162,7 @@ locale
     The locale to use for this language (Is set during frontend rendering for example)
     See `locale identifiers <https://gist.github.com/jasef/337431c43c3addb2cbd5eb215b376179>`__.
     That locale needs to be installed on the server. In a Linux environment, you can see installed locales with `locale -a`.
+    You can set multiple fallback locales as a comma-separated list. TYPO3 will then iterate through the locales from left to right until it finds a locale, that is installed on     the server.
 
 :aspect:`Example`
     `en_UK`
