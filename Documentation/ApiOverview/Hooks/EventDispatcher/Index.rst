@@ -25,6 +25,68 @@ Benni Mack: "Don't get hooked, listen to events! PSR-14 within TYPO3 v10" @ TYPO
   Additional background on the implementation can be found at https://usetypo3.com/psr-14-events.html
 
 
+.. _EventDispatcherQuickStart:
+
+Quick start
+===========
+
+.. _EventDispatcherQuickStartDispatching:
+
+Dispatching an event
+--------------------
+
+#. Create an event class.
+
+   An event class is basically a plain PHP object with getters for immutable
+   properties and setters for mutable properties. It contains a constructor for all properties::
+
+      final class DoingThisAndThatEvent {
+         private string mutableProperty;
+         private int immutableProperty;
+
+         public function __construct(string mutableProperty, int immutableProperty) {
+            // ...
+         }
+
+         // Getter for both properties, setters only for $mutableProperty;
+      }
+
+   Read more about :ref:`implementing event classes <EventDispatcherEvents>`.
+
+#. Inject the EventDispatcher
+
+   If you are in a controller the `EventDispatcher` already got injected
+   and in this case you can omit this step.
+
+   If the EventDispatcher is not yet available, you need have it injected::
+
+      use Psr\EventDispatcher\EventDispatcherInterface;
+
+      final class MyClass {
+          private EventDispatcherInterface $eventDispatcher;
+
+          public function injectEventDispatcher(EventDispatcherInterface $eventDispatcher): void
+          {
+              $this->eventDispatcher = $eventDispatcher;
+          }
+      }
+
+#. Dispatch the event
+
+   Create an event object with the data that should be passed to the listeners. Use the data
+   of mutable properties however it suits your business logic::
+
+      public function doSomething() {
+          // ..
+          /** @var DoingThisAndThatEvent $event */
+          $event = $this->eventDispatcher->dispatch(
+              new DoingThisAndThatEvent("foo", "bar")
+          );
+          $someChangedValue = $event->getMutableProperty();
+          // ...
+      }
+
+.. index:: ! PSR-14
 .. _EventDispatcherDescription:
 
 Description of PSR-14 in the Context of TYPO3
