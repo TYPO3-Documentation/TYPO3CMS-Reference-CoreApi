@@ -61,10 +61,10 @@ Dispatching an event
    
    If the EventDispatcher is not yet available, you need have it injected::
    
+      use Psr\EventDispatcher\EventDispatcherInterface;
+      
       final class MyClass {
-         
-          use Psr\EventDispatcher\EventDispatcherInterface;
-         
+            
           private EventDispatcherInterface $eventDispatcher;
           
           public function injectEventDispatcher(EventDispatcherInterface $eventDispatcher): void
