@@ -78,13 +78,13 @@ Dispatching an event
    of mutable properties however it suits your business logic::
    
       public function doSomething() {
-         // ..
-         /** @var DoingThisAndThatEvent $event */
-         $event = $this->eventDispatcher->dispatch(
-            new DoingThisAndThatEvent("foo", "bar")
-         );
-         $someChangedValue = $event->getMutableProperty();
-         // ...
+          // ..
+          /** @var DoingThisAndThatEvent $event */
+          $event = $this->eventDispatcher->dispatch(
+              new DoingThisAndThatEvent("foo", "bar")
+          );
+          $someChangedValue = $event->getMutableProperty();
+          // ...
       }
 
 .. index:: ! PSR-14
