@@ -78,15 +78,15 @@ Dispatching an event
    Create an event object with the data that should be passed to the listeners. Use the data 
    of mutable properties however it suits your business logic::
    
-   public function doSomething() {
-      // ..
-      /** @var DoingThisAndThatEvent $event */
-      $event = $this->eventDispatcher->dispatch(
-         new DoingThisAndThatEvent("foo", "bar")
-      );
-      $someChangedValue = $event->getMutableProperty();
-      // ...
-   }
+      public function doSomething() {
+         // ..
+         /** @var DoingThisAndThatEvent $event */
+         $event = $this->eventDispatcher->dispatch(
+            new DoingThisAndThatEvent("foo", "bar")
+         );
+         $someChangedValue = $event->getMutableProperty();
+         // ...
+      }
 
 .. index:: ! PSR-14
 .. _EventDispatcherDescription:
