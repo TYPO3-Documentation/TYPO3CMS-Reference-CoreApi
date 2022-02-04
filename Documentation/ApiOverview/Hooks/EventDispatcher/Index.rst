@@ -64,7 +64,6 @@ Dispatching an event
       use Psr\EventDispatcher\EventDispatcherInterface;
       
       final class MyClass {
-            
           private EventDispatcherInterface $eventDispatcher;
           
           public function injectEventDispatcher(EventDispatcherInterface $eventDispatcher): void
