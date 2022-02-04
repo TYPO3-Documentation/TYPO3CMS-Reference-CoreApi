@@ -59,7 +59,7 @@ Dispatching an event
    If you are in a controller the `EventDispatcher` already got injected
    and in this case you can omit this step.
    
-   If the EventDispatcher is not yet available, you need inject it::
+   If the EventDispatcher is not yet available, you need have it injected::
    
       class MyClass {
          
