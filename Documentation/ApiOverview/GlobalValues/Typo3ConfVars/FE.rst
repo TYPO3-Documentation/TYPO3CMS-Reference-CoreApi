@@ -767,15 +767,22 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates']
 $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']
 ===================================================
 
-.. confval:: ContentObjects
+.. versionchanged:: 12.0
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']
-   :type: array
-   :Default: []
+   The global variable `$GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']` is
+   not interpreted anymore.
 
-   Array to register ContentObjects (cObjects) like :typoscript:`TEXT` or
-   :typoscript:`HMENU` within :file:`ext_localconf.php`,
-   see :file:`EXT:frontend/ext_localconf.php`
+TypoScript ContentObjects (cObjects) like :typoscript:`TEXT` or
+:typoscript:`HMENU` now get registered via the service configuration:
+
+.. code-block:: yaml
+   :caption: EXT:my_extension/Configuration/Services.yaml
+
+    MyCompany\MyPackage\ContentObject\CustomContentObject:
+        tags:
+            - name: frontend.contentobject
+              identifier: 'MY_OBJ'
+
 
 
 .. index::
