@@ -27,167 +27,90 @@ The reference could look like this:
 Root Level
 ==========
 
-.. ### BEGIN~OF~TABLE ###
+.. confval:: colors
 
-.. container:: table-row
+   :Scope: TypoScript
+   :type: COLORS
 
-   Property
-         colors
-
-   Data type
-         ->COLORS
-
-   Description
-         Defining colors for various elements.
+   Defining colors for various elements.
 
 
-.. container:: table-row
+.. confval:: adminInfo
 
-   Property
-         adminInfo
+   :Scope: TypoScript
+   :type: ADMINFO
 
-   Data type
-         ->ADMINFO
-
-   Description
-         Define administrator contact information for cc-emails
+   Define administrator contact information for cc-emails
 
 
-.. container:: table-row
+.. confval:: headerImage
 
-   Property
-         headerImage
+   :Scope: TypoScript
+   :type: file-reference
 
-   Data type
-         file-reference
-
-   Description
-         A reference to an image file relative to the website's path
-         (:php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`)
-
-
-.. ###### END~OF~TABLE ######
-
-[TLO]
-
+   A reference to an image file relative to the website's path
+   (:php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`)
 
 ->COLORS
 ========
 
-.. ### BEGIN~OF~TABLE ###
+.. confval:: backgroundColor
 
-.. container:: table-row
+   :Scope: TypoScript
+   :type: HTML-color
+   :Default: white
 
-   Property
-         backgroundColor
+   The background color of ...
 
-   Data type
-         HTML-color
+.. confval:: fontColor
 
-   Description
-         The background color of ...
+   :Scope: TypoScript
+   :type: HTML-color
+   :Default: black
 
-   Default
-         white
+   The font color of text in ...
 
+.. confval:: popUpColor
 
-.. container:: table-row
+   :Scope: TypoScript
+   :type: HTML-color
+   :Default: #333333
 
-   Property
-         fontColor
-
-   Data type
-         HTML-color
-
-   Description
-         The font color of text in ...
-
-   Default
-         black
-
-
-.. container:: table-row
-
-   Property
-         popUpColor
-
-   Data type
-         HTML-color
-
-   Description
-         The shadow color of the pop up ...
-
-   Default
-         #333333
-
-
-.. ###### END~OF~TABLE ######
-
-[colors]
-
+   The shadow color of the pop up ...
 
 ->ADMINFO
 =========
 
-.. ### BEGIN~OF~TABLE ###
+.. confval:: cc_email
 
-.. container:: table-row
+   :Scope: TypoScript
+   :type: string
 
-   Property
-         cc\_email
-
-   Data type
-         string
-
-   Description
-         The email address that ...
+   The email address that ...
 
 
-.. container:: table-row
+.. confval:: cc_name
 
-   Property
-         cc\_name
+   :Scope: TypoScript
+   :type: string
 
-   Data type
-         string
+   The name of ...
 
-   Description
-         The name of ...
+.. confval:: cc_return_adr
 
+   :Scope: TypoScript
+   :type: string
+   :Default: [servers]
 
-.. container:: table-row
+   The return address of ...
 
-   Property
-         cc\_return\_adr
+.. confval:: html_emails
 
-   Data type
-         string
+   :Scope: TypoScript
+   :type: string
+   :Default: false
 
-   Description
-         The return address of ...
-
-   Default
-         [servers]
-
-
-.. container:: table-row
-
-   Property
-         html\_emails
-
-   Data type
-         boolean
-
-   Description
-         If set, emails are sent in HTML.
-
-   Default
-         false
-
-
-.. ###### END~OF~TABLE ######
-
-[adminInfo]
+   If set, emails are sent in HTML.
 
 So these are the "objects" and "properties" you have chosen to offer
 to your users of the plug-in. This reference defines *what
