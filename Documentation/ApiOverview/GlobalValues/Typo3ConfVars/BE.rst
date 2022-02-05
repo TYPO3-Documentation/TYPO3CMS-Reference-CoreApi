@@ -686,23 +686,19 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
 
    .. versionadded:: 12.0
       TSconfig stored in a file :file:`EXT:my_sitepackage/Configuration/page.tsconfig`
-      will be automatically added to :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]`.
+      will be automatically loaded before the content of 
+      :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]`.
 
-   Page TSconfig stored in a files from all extensions called for example
-   :file:`EXT:my_sitepackage/Configuration/page.tsconfig` will automatically be
-   loaded into :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]`. This is done
-   during build-time and therefore more performant then the legacy way of
-   loading default Page Tsconfig during runtime:
-
-   .. code-block:: php
-      :caption:`EXT:my_sitepackage/ext_localconf.php`
-
-      use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-      ExtensionManagementUtility::addPageTSConfig('
-         @import 'EXT:my_sitepackage/Configuration/TSconfig/Page/default.tsconfig'
-      ');
-
+   Page TSconfig stored in files like
+   :file:`EXT:my_sitepackage/Configuration/page.tsconfig` are loaded before 
+   :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]`. 
+   This is done during build-time and therefore more performant then the legacy way of
+   loading default Page Tsconfig during runtime by setting 
+   :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]` or the API function 
+   :php:`ExtensionManagementUtility::addPageTSConfig`. It is therefore highly recommended
+   to migrate to using files like :file:`EXT:my_sitepackage/Configuration/page.tsconfig`
+   instead of setting this global variable.
+   
    Read more about
    :ref:`Setting the Page TSconfig globally <t3tsref:pagesettingdefaultpagetsconfig>`.
 
