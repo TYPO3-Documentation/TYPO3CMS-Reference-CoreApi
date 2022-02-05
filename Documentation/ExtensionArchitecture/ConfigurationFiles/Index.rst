@@ -208,7 +208,7 @@ Should Be Used For
 
 These are the typical functions that should be placed inside :file:`ext_tables.php`
 
-* Registering of :ref:`backend modules <backend-modules-api>` or Adding a new Main Module :ref: 'Example <extension-configuration-files-backend-module>'
+* Registering of :ref:`backend modules <backend-modules-api>` or Adding a new Main Module :ref:`Example <extension-configuration-files-backend-module>`
 * Adding :ref:`context-sensitive help <csh-implementation>` to fields (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`) :ref:`Example <extension-configuration-files-csh>`
 * Adding TCA descriptions (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`)
 * Adding table options via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages()` :ref:`Example <extension-configuration-files-allow-table-standard>`
