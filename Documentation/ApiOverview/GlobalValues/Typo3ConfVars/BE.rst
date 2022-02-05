@@ -653,7 +653,8 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
 
    Contains the default user TSconfig.
 
-   Never set this configuration variable directly. Use the API method instead:
+   This variable should not be changed directly but by the following API function. 
+   This makes your code less likely to change in the future.
 
    .. code-block:: php
       :caption: my_sitepackage/ext_localconf.php
@@ -682,7 +683,8 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
 
    Contains the default page TSconfig.
 
-   Never set this configuration variable directly. Use the API method instead:
+   This variable should not be changed directly but by the following API function. 
+   This makes your code less likely to change in the future.
 
    .. code-block:: php
       :caption:`EXT:my_sitepackage/ext_localconf.php`
