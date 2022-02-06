@@ -653,7 +653,9 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
 
    Contains the default user TSconfig.
 
-   Never set this configuration variable directly. Use the API method instead:
+
+   This variable should not be changed directly but by the following API function. 
+   This makes your code less likely to break in the future.
 
    .. code-block:: php
       :caption: my_sitepackage/ext_localconf.php
@@ -698,7 +700,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
    :php:`ExtensionManagementUtility::addPageTSConfig`. It is therefore highly recommended
    to migrate to using files like :file:`EXT:my_sitepackage/Configuration/page.tsconfig`
    instead of setting this global variable.
-   
+
    Read more about
    :ref:`Setting the Page TSconfig globally <t3tsref:pagesettingdefaultpagetsconfig>`.
 

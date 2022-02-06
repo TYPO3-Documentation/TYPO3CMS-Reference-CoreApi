@@ -186,6 +186,8 @@ The Install Tool provides various dedicated modules that change parts of
 
 .. index::
    ! File; typo3conf/AdditionalConfiguration.php
+   Configuration; AdditionalConfiguration
+   AdditionalConfiguration
 .. _typo3ConfVars-additionalConfiguration:
 
 File AdditionalConfiguration.php
@@ -212,11 +214,15 @@ the code is included on **every** request to TYPO3 CMS
 - whether frontend or backend - you should avoid inserting code
 which requires heavy duty processing.
 
+**Example: Changing the database hostname for development machines**
+
 .. code-block:: php
-   :caption: Changing the database hostname for development machines
+   :caption: typo3conf/AdditionalConfiguration.php
 
    <?php
-   if (getenv('TYPO3_CONTEXT') == 'Development') {
+
+   $applicationContext = \TYPO3\CMS\Core\Core\Environment::getContext();
+   if ($applicationContext->isDevelopment()) {
        $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['host'] = 'mysql-be';
    }
 
