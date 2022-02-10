@@ -58,7 +58,7 @@ Registering :ref:`hooks or signals <hooks-concept>`, :ref:`XCLASSes
 *  locales
 *  stream wrapper
 *  :ref:`error handler <error-handling-extending>`
-*  calling `\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin()`. 
+*  calling `\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin()`.
    They should go in `Configuration/TCA/Overrides/tt_content.php`
 
 This would not work because the extension files :file:`ext_localconf.php` are
