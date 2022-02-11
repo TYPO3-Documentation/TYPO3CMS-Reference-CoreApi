@@ -62,7 +62,7 @@ XmlSitemapDataProviders. The first one is the PagesXmlSitemapDataProvider.
 
 This will generate a sitemap of pages based on the siteroot that is detected. You can configure if you have additional conditions
 for the selection of pages. You also have the possibility to exclude certain doktypes.
-Additionally, you may exclude subtrees from the sitemap (e.g internal).
+Additionally, you may exclude page subtrees from the sitemap (e.g internal pages).
 
 .. code-block:: typoscript
 
