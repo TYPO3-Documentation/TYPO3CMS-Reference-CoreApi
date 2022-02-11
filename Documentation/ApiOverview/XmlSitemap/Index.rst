@@ -58,9 +58,11 @@ XmlSitemapDataProviders
 =======================
 
 The rendering of sitemaps is based on XmlSitemapDataProviders. The EXT:seo extension ships with two
-XmlSitemapDataProviders. The first one is the PagesXmlSitemapDataProvider. This will generate a sitemap
-of pages based on the siteroot that is detected. You can configure if you have additional conditions
+XmlSitemapDataProviders. The first one is the PagesXmlSitemapDataProvider. 
+
+This will generate a sitemap of pages based on the siteroot that is detected. You can configure if you have additional conditions
 for the selection of pages. You also have the possibility to exclude certain doktypes.
+Additionally, you may exclude subtrees from the sitemap (e.g internal).
 
 .. code-block:: typoscript
 
@@ -73,6 +75,7 @@ for the selection of pages. You also have the possibility to exclude certain dok
                excludedDoktypes = 137, 138
                additionalWhere = AND (no_index = 0 OR no_follow = 0)
                #rootPage = <optionally specify a different root page. (default: rootPageId from site configuration)>
+               excludePagesRecursive = <commaseparated list of pids>
              }
            }
          }
