@@ -1,7 +1,5 @@
 .. include:: /Includes.rst.txt
 
-.. http://wiki.typo3.org/Caching_framework
-
 .. _caching:
 
 =================
