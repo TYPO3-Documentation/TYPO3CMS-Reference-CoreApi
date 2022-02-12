@@ -5,8 +5,6 @@
 
 .. include:: ../Includes.txt
 
-.. http://wiki.typo3.org/Caching_framework
-
 .. _caching:
 
 Caching framework
