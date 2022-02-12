@@ -18,5 +18,6 @@ in English are uploaded on that server and translations are packaged nightly.
 They can be fetched in the TYPO3 CMS backend, via the Install Tool and on the command line.
 
 It is not the point of this manual to go into the details of the translation
-process. More information can be found in the `TYPO3 wiki <https://wiki.typo3.org/Translation>`_.
+process. More information can be found in the
+:ref:`Frontend Localization Guide <t3translate:start>`.
 
