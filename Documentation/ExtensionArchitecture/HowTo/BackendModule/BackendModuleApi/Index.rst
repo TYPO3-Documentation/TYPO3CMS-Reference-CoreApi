@@ -29,8 +29,6 @@ Extbase while the second uses a plain controller.
 .. code-block:: php
    :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
-    <?php
-
    use T3docs\Examples\Controller\ModuleController;
    use T3docs\Examples\Controller\AdminModuleController;
 
@@ -55,14 +53,14 @@ Extbase while the second uses a plain controller.
        'admin_examples' => [
            'parent' => 'system',
            'position' => ['top'],
-           'access' => 'admin',
+           'access' => 'user',
            'workspaces' => 'live',
            'path' => '/module/system/example',
            'labels' => 'LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf',
            'extensionName' => 'Examples',
-           'routes' => [
-               '_default' => [
-                   'target' => AdminModuleController::class . '::handleRequest',
+           'controllerActions' => [
+               AdminModuleController::class => [
+                   'index',
                ],
            ],
        ],
@@ -217,7 +215,7 @@ Default module configuration options (without Extbase)
 
        routes' => [
            '_default' => [
-               'target' => Controller::class . '::handleRequest',
+               'target' => MyController::class . '::handleRequest',
            ],
        ],
 
@@ -245,13 +243,22 @@ Extbase module configuration options
 
    Define the controller action pair. The array keys are the
    controller class names and the values are the actions, which
-   can either be defined as array or comma-separated list::
+   can either be defined as array or comma-separated list:
 
-      'controllerActions' => [
-          Controller::class => [
-              'aAction', 'anotherAction',
-          ],
-      ],
+
+.. code-block:: php
+   :caption: EXT:my_extension/Configuration/Backend/Modules.php
+
+   return [
+       'web_examples' => [
+           //...
+           'controllerActions' => [
+               ModuleController::class => [
+                   'flash','tree','clipboard','links','fileReference','fileReferenceCreate',
+               ],
+           ],
+       ],
+   ];
 
 The BeforeModuleCreationEvent
 =============================
@@ -263,121 +270,12 @@ register the module.
 ModuleProvider API
 ==================
 
-the :php:`ModuleProvider` API, allows extension authors to work with the
-registered modules.
-
-This API is the central point to retrieve modules, since it
-automatically performs necessary access checks and prepares specific structures,
-for example for the use in menus.
-
-ModuleProvider API methods
---------------------------
-
-+---------------------------+--------------------------------------+----------------------------------------------------------+
-| Method                    | Parameters                           | Description                                              |
-+===========================+======================================+==========================================================+
-| isModuleRegistered()      | :php:`$identifier`                   | Checks whether a module is registered for the given      |
-|                           |                                      | identifier. Does NOT perform any access check!           |
-+---------------------------+--------------------------------------+----------------------------------------------------------+
-| getModule()               | :php:`$identifier`                   | Returns a module for the given identifier. In case a     |
-|                           | :php:`$user`                         | user is given,also access checks are performed.          |
-|                           | :php:`$respectWorkspaceRestrictions` | Additionally, one can define whether workspace           |
-|                           |                                      | restrictions should be respected.                        |
-+---------------------------+--------------------------------------+----------------------------------------------------------+
-| getModules()              | :php:`$user`                         | Returns all modules either grouped by main modules       |
-|                           | :php:`$respectWorkspaceRestrictions` | or flat. In case a user is given, also access checks     |
-|                           | :php:`$grouped`                      | are performed. Additionally, one can define whether      |
-|                           |                                      | workspace restrictions should be respected.              |
-+---------------------------+--------------------------------------+----------------------------------------------------------+
-| getModuleForMenu()        | :php:`$identifier`                   | Returns the requested main module prepared for           |
-|                           | :php:`$user`                         | menu generation or similar structured output (nested),   |
-|                           | :php:`$respectWorkspaceRestrictions` | if it exists and the user has necessary permissions.     |
-|                           |                                      | Additionally, one can define whether workspace           |
-|                           |                                      | restrictions should be respected.                        |
-+---------------------------+--------------------------------------+----------------------------------------------------------+
-| getModulesForModuleMenu() | :php:`$user`                         | Returns all allowed modules for the current user,        |
-|                           | :php:`$respectWorkspaceRestrictions` | prepared for module menu generation or similar           |
-|                           |                                      | structured output (nested). Additionally, one can define |
-|                           |                                      | whether workspace restrictions should be respected.      |
-+---------------------------+--------------------------------------+----------------------------------------------------------+
-| accessGranted()           | :php:`$identifier`                   | Check access of a module for a given user. Additionally, |
-|                           |                                      | one can define whether workspace restrictions should     |
-|                           |                                      | be respected.                                            |
-+---------------------------+--------------------------------------+----------------------------------------------------------+
+the :ref:`ModuleProvider <backend-module-provider-api>` API, allows extension
+authors to work with the registered modules.
 
 ModuleInterface
 ===============
 
-Instead of a global array structure, the registered modules are stored as
-objects in a registry. The module objects do all implement the :php:`ModuleInterface`.
-This allows a well-defined OOP-based approach to work with registered models.
+The registered modules are stored as objects in a registry. The module objects
+do all implement the :php:`ModuleInterface`.
 
-The :php:`ModuleInterface` basically provides getters for the options,
-defined in the module registration and additionally provides methods for
-relation handling (main modules and sub modules).
-
-+---------------------------+--------------------------+-----------------------------------------------+
-| Method                    | Return type              | Description                                   |
-+===========================+==========================+===============================================+
-| getIdentifier()           | :php:`string`            | Returns the internal name of the module,      |
-|                           |                          | used for referencing in permissions etc.      |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getPath()                 | :php:`string`            | Returns the module main path                  |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getIconIdentifier()       | :php:`$string`           | Returns the module icon identifier            |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getTitle()                | :php:`string`            | Returns the module title (see:                |
-|                           |                          | `mlang_tabs_tab`).                            |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getDescription()          | :php:`string`            | Returns the module description (see:          |
-|                           |                          | `mlang_labels_tabdescr`).                     |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getShortDescription()     | :php:`string`            | Returns the module short description (see:    |
-|                           |                          | `mlang_labels_tablabel`).                     |
-+---------------------------+--------------------------+-----------------------------------------------+
-| isStandalone()            | :php:`bool`              | Returns, whether the module is standalone     |
-|                           |                          | (main module without sub modules).            |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getComponent()            | :php:`string`            | Returns the view component responsible for    |
-|                           |                          | rendering the module (iFrame or name of the   |
-|                           |                          | web component).                               |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getNavigationComponent()  | :php:`string`            | Returns the web component to be rendering the |
-|                           |                          | navigation area.                              |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getPosition()             | :php:`array`             | Returns the position of the module, such as   |
-|                           |                          | `top` or `bottom` or `after => anotherModule` |
-|                           |                          | or `before => anotherModule`.                 |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getAppearance()           | :php:`array`             | Returns a modules' appearance options, e.g.   |
-|                           |                          | used for module menu.                         |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getAccess()               | :php:`string`            | Returns defined access level, can be `user`,  |
-|                           |                          | `admin` or `systemMaintainer`.                |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getWorkspaceAccess()      | :php:`string`            | Returns defined workspace access, can be `*`  |
-|                           |                          | (all), `live` or `offline`.                   |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getParentIdentifier()     | :php:`string`            | In case this is a sub module, returns the     |
-|                           |                          | parent module identifier.                     |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getParentModule()         | :php:`?ModuleInterface`  | In case this is a sub module, returns the     |
-|                           |                          | parent module.                                |
-+---------------------------+--------------------------+-----------------------------------------------+
-| hasParentModule()         | :php:`bool`              | Returns whether the module has a parent       |
-|                           |                          | module defined (is a sub module).             |
-+---------------------------+--------------------------+-----------------------------------------------+
-| hasSubModule($identifier) | :php:`bool`              | Returns whether the module has a specific     |
-|                           |                          | sub module assigned.                          |
-+---------------------------+--------------------------+-----------------------------------------------+
-| hasSubModules()           | :php:`bool`              | Returns whether the module has a sub modules  |
-|                           |                          | assigned.                                     |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getSubModule($identifier) | :php:`?ModuleInterface`  | If set, returns the requested sub module.     |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getSubModules()           | :php:`ModuleInterface[]` | Returns all assigned sub modules.             |
-+---------------------------+--------------------------+-----------------------------------------------+
-| getDefaultRouteOptions()  | :php:`array`             | Returns options, to be added to the main      |
-|                           |                          | module route. Usually `module`, `moduleName`  |
-|                           |                          | and `access`.                                 |
-+---------------------------+--------------------------+-----------------------------------------------+

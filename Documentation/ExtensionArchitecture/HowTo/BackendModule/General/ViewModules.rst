@@ -7,14 +7,9 @@
 View registered modules
 =======================
 
-When modules are registered, they get added to a global array called
-:php:`$GLOBALS['TBE_MODULES']`. It contains the list of all registered
-modules, their configuration and the configuration of any existing
-navigation component (the components which may be loaded into the
-navigation frame).
-
-:php:`$GLOBALS['TBE_MODULES']` can be explored using the
-:guilabel:`System > Configuration` module.
+All registered modules are stored as objects in a registry. They can be viewed
+in the backend in the :guilabel:`System > Configuration > Backend Modules`
+module.
 
 .. include:: /Images/AutomaticScreenshots/BackendModules/BackendModulesConfiguration.rst.txt
 
