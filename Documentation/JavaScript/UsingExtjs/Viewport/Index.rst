@@ -202,4 +202,4 @@ by calling :code:`\TYPO3\CMS\Core\Utility\DebugUtility::debug()`::
 
 
 It seems possible to also manipulate the debug console with JavaScript, but working
-examples are missing for now (examples from the TYPO3 wiki don't work (anymore?)).
+examples are missing for now.
