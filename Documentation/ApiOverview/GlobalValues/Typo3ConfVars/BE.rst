@@ -694,7 +694,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
    Page TSconfig stored in files like
    :file:`EXT:my_sitepackage/Configuration/page.tsconfig` are loaded before 
    :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]`. 
-   This is done during build-time and therefore more performant then the legacy way of
+   This is done during build-time and therefore more performant than the legacy way of
    loading default Page Tsconfig during runtime by setting 
    :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]` or the API function 
    :php:`ExtensionManagementUtility::addPageTSConfig`. It is therefore highly recommended
