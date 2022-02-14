@@ -1,70 +1,151 @@
+.. include:: /Includes.rst.txt
+.. index:: Backend modules; API
+.. _backend-modules-api:
 
+===================
+Backend module API
+===================
 
-Without Extbase:
-----------------
+.. versionchanged:: 12.0
+   Registration of backend modules was changed with Version 12. If you are
+   using another version of TYPO3 please use the version switcher on the top
+   left of this document to go to the respective version.
+
+The configuration of backend modules is placed in the
+dedicated :file:`Configuration/Backend/Modules.php` configuration file.
+
+Those files are then read and processed when building the container. This
+means the state is fixed and cannot be changed at runtime.
+
+Example: register two backend modules
 
 .. code-block:: php
+   :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
-       'random',
-       'filerelatedmodule',
-       'top',
-       null,
-       [
-           'navigationComponentId' => 'TYPO3/CMS/Backend/Tree/FileStorageTreeContainer',
-           'routeTarget' => \MyVendor\MyExtension\Controller\FileRelatedController::class . '::indexAction',
-           'access' => 'user,group',
-           'name' => 'myext_file',
-           'icon' => 'EXT:myextension/Resources/Public/Icons/module-file-related.svg',
-           'labels' => 'LLL:EXT:myextension/Resources/Private/Language/Modules/file_related.xlf'
-       ]
-   );
+    return [
+        'web_module' => [
+            'parent' => 'web',
+            'position' => ['top'],
+            'access' => 'admin',
+            'workspaces' => 'live'
+            'path' => '/module/web/example',
+            'iconIdentifier' => 'module-example',
+            'navigationComponent' => 'TYPO3/CMS/Backend/PageTree/PageTreeElement',
+            'labels' => 'LLL:EXT:example/Resources/Private/Language/locallang_mod.xlf',
+            'routes' => [
+                '_default' => [
+                    'target' => MyExampleModuleController::class . '::handleRequest',
+                ],
+            ],
+        ],
+        'web_ExtkeyExample' => [
+            'parent' => 'web',
+            'position' => ['after' => 'web_info'],
+            'access' => 'admin',
+            'workspaces' => 'live'
+            'iconIdentifier' => 'module-example',
+            'path' => '/module/web/ExtkeyExample',
+            'labels' => 'LLL:EXT:beuser/Resources/Private/Language/locallang_mod.xlf',
+            'extensionName' => 'Extkey',
+            'controllerActions' => [
+                MyExtbaseExampleModuleController::class => [
+                    'list', 'detail'
+                ],
+            ],
+        ],
+    ];
 
-Parameters:
+.. note::
 
-#. **Main module** name, in which the new module will be placed,
-   for example 'web' or 'system'.
-#. **Submodule key**: This is an identifier for your new module.
-#. **Position** of the module: Here, the module should be placed at the ``top`` of the main
-   module, if possible. If several modules are declared at the same position, the last one wins.
-   The following positions are possible:
+    Each modules array key is used as the module identifier, which
+    will also be the route identifier. It's no longer necessary to
+    use the `mainModule_subModule` pattern, since a possible parent
+    will be defined with the `parent` option.
 
-   *  ``top``: the module is prepended to the top of the submodule list
-   *  ``bottom`` or empty string: the module is appended to the end of the submodule list
-   *  ``before:<submodulekey>``: the module is inserted before the submodule identified by ``<submodulekey>``
-   *  ``after:<submodulekey>``: the module is inserted after the submodule identified by ``<submodulekey>``
 
-#. **Path**: Was used prior to TYPO3 v8, use :php:`$moduleConfiguration[routeTarget]` now and set path to null.
-#. **Module configuration**: The following options are available:
+Module configuration options
+============================
 
-   *  ``access``: can contain several, separated by comma
++----------------------------------------------------------+------------------------------------------------------------------+
+| Option                                                   | Description                                                      |
++==========================================================+==================================================================+
+| parent (:php:`string`)                                   | If the module should be a submodule, the parent identifier, e.g. |
+|                                                          | `web` has to be set here.                                        |
++----------------------------------------------------------+------------------------------------------------------------------+
+| path (:php:`string`)                                     | Define the path to the default endpoint. The path can be         |
+|                                                          | anything, but will fallback to the known                         |
+|                                                          | `/module/<mainModue>/<subModule>` pattern, if not set.           |
++----------------------------------------------------------+------------------------------------------------------------------+
+| standalone (:php:`bool`)                                 | Whether the module is a standalone module (parent without        |
+|                                                          | sub modules).                                                    |
++----------------------------------------------------------+------------------------------------------------------------------+
+| access (:php:`string`)                                   | Can be `user` (editor permissions), `admin`, or                  |
+|                                                          | `systemMaintainer`.                                              |
++----------------------------------------------------------+------------------------------------------------------------------+
+| workspaces (:php:`string`)                               | Can be `*` (= always), `live` or `offline`                       |
++----------------------------------------------------------+------------------------------------------------------------------+
+| position (:php:`array`)                                  | The module position. Allowed values are `top` and `bottom` as    |
+|                                                          | well as the key value pairs `before => <identifier>` and         |
+|                                                          | `after => <identifier>`.                                         |
++----------------------------------------------------------+------------------------------------------------------------------+
+| appearance (:php:`array`)                                | Allows to define additional appearance options:                  |
+|                                                          |   - `renderInModuleMenu` (:php:`bool`)                           |
++----------------------------------------------------------+------------------------------------------------------------------+
+| iconIdentifier (:php:`string`)                           | The module icon identifier                                       |
++----------------------------------------------------------+------------------------------------------------------------------+
+| icon (:php:`string`)                                     | Path to a module icon (Deprecated: Use `iconIdentifier` instead) |
++----------------------------------------------------------+------------------------------------------------------------------+
+| labels (:php:`array` or :php:`string`)                   | An :php:`array` with the following keys:                         |
+|                                                          |                                                                  |
+|                                                          | - `title`                                                        |
+|                                                          | - `description`                                                  |
+|                                                          | - `shortDescription`                                             |
+|                                                          |                                                                  |
+|                                                          | The value can either be a static string or a locallang label     |
+|                                                          | reference.                                                       |
+|                                                          |                                                                  |
+|                                                          | It's also possible to define the path to a locallang file.       |
+|                                                          | The referenced file should contain the following label keys:     |
+|                                                          |                                                                  |
+|                                                          | - `mlang_tabs_tab` (Used as module title)                        |
+|                                                          | - `mlang_labels_tabdescr` (Used as module description)           |
+|                                                          | - `mlang_labels_tablabel` (Used as module short description)     |
++----------------------------------------------------------+------------------------------------------------------------------+
+| component (:php:`string`)                                | The view component, responsible for rendering the module.        |
+|                                                          | Defaults to `TYPO3/CMS/Backend/Module/Iframe`.                   |
++----------------------------------------------------------+------------------------------------------------------------------+
+| navigationComponent (:php:`string`)                      | The module navigation component, e.g.                            |
+|                                                          | `TYPO3/CMS/Backend/PageTree/PageTreeElement`.                    |
++----------------------------------------------------------+------------------------------------------------------------------+
+| navigationComponentId (:php:`string`)                    | The module navigation component (Deprecated: Use                 |
+|                                                          | `navigationComponent` instead).                                  |
++----------------------------------------------------------+------------------------------------------------------------------+
+| inheritNavigationComponentFromMainModule (:php:`bool`)   | Whether the module should use the parents navigation component.  |
+|                                                          | This option defaults to :php:`true` and can therefore be used to |
+|                                                          | stop the inheritance for sub modules.                            |
++----------------------------------------------------------+------------------------------------------------------------------+
 
-      *  ``systemMaintainer``: the module is accessible to system maintainers only.
-      *  ``admin``: the module is accessible to admins only
-      *  ``user``: the module can be made accessible per user
-      *  ``group``: the module can be made accessible per usergroup
+Module-dependent configuration options
+--------------------------------------
 
-   *  Module ``iconIdentifier`` or ``icon``
-   *  A language file containing ``labels`` like the module title and description,
-      for building the module menu and for the display of information in the
-      **About Modules** module (found in the main help menu in the top bar).
-      The `LLL:` prefix is mandatory here and is there for historical reasons.
-   *  Navigation component ``navigationComponentId`` - you can specify which
-      navigation component you want to use, for example
-      :php:`TYPO3/CMS/Backend/PageTree/PageTreeElement` for a page tree
-      or :php:`TYPO3/CMS/Backend/Tree/FileStorageTreeContainer`
-      for a folder tree. If you don't want to show a navigation component at
-      all you can either set this to an empty string or not declare it at all.
-      In case the main module (e.g. "web") has a navigationComponent defined
-      by default you'll have to also set
-      :php:`'inheritNavigationComponentFromMainModule' => false`.
-   *  A `routeTarget` indicating the controller/action-combination to be
-      called when accessing this module.
+Default:
 
-.. index:: icon, iconIdentifier
-
-`'iconIdentifier'` versus `'icon'`
-----------------------------------
++----------------------------+---------------------------------------------------------------------+
+| Option                     | Description                                                         |
++============================+=====================================================================+
+| routes (:php:`array`)      | Define the routes to this module. Each route requires a `path` and  |
+|                            | the `target`, except the mandatory `_default` route, which uses     |
+|                            | the `path` from the top-level configuration::                       |
+|                            |                                                                     |
+|                            |     routes' => [                                                    |
+|                            |         '_default' => [                                             |
+|                            |             'target' => Controller::class . '::handleRequest',      |
+|                            |         ],                                                          |
+|                            |     ],                                                              |
+|                            |                                                                     |
+|                            | Please note, using additional routes - next to `_default` is not    |
+|                            | yet implemented.                                                    |
++----------------------------+---------------------------------------------------------------------+
 
 `'iconIdentifier'` is the better and more modern way to go. It should always be used
 for Core icons. Other icons however need to be registered first at the IconRegistry to
@@ -73,69 +154,215 @@ to use. Example:
 
 .. code-block:: php
 
-   'icon' => 'EXT:extkey/Resources/Public/Icons/smile.svg',
++----------------------------------+---------------------------------------------------------------+
+| Option                           | Description                                                   |
++==================================+===============================================================+
+| extensionName (:php:`string`)    | The extension name, the module is registered for.             |
++----------------------------------+---------------------------------------------------------------+
+| controllerActions (:php:`array`) | Define the controller action pair. The array keys are the     |
+|                                  | controller class names and the values are the actions, which  |
+|                                  | can either be defined as array or comma-separated list::      |
+|                                  |                                                               |
+|                                  |     'controllerActions' => [                                  |
+|                                  |         Controller::class => [                                |
+|                                  |             'aAction', 'anotherAction',                       |
+|                                  |         ],                                                    |
+|                                  |     ],                                                        |
++----------------------------------+---------------------------------------------------------------+
 
-.. index:: Backend modules; Toplevel
-
-Registering a toplevel module
+The BeforeModuleCreationEvent
 =============================
 
-Toplevel modules like "Web" or "File" are registered with the same API. The following
-example uses Extbase to register the module, however, the process for non-extbase
-modules is the same.
+The new PSR-14 :php:`BeforeModuleCreationEvent` allows extension authors
+to manipulate the module configuration, before it is used to create and
+register the module.
+
+Registration of an event listener in the :file:`Services.yaml`:
+
+.. code-block:: yaml
+
+  MyVendor\MyPackage\Backend\ModifyModuleIcon:
+    tags:
+      - name: event.listener
+        identifier: 'my-package/backend/modify-module-icon'
+
+The corresponding event listener class:
 
 .. code-block:: php
     :caption: EXT:my_extension/ext_tables.php
 
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'MyExtension',
-        'mysection',
-        '',
-        '',
-        [],
-        [
-            'access' => '...',
-            'iconIdentifier' => '...',
-            'labels' => '...',
-        ]
-    );
+    use TYPO3\CMS\Backend\Module\BeforeModuleCreationEvent;
 
-This adds a new toplevel module ``mysection``. This identifier can now
-be used to add submodules to this new toplevel module:
+    class ModifyModuleIcon {
 
-.. code-block:: php
-    :caption: EXT:my_extension/ext_tables.php
+        public function __invoke(BeforeModuleCreationEvent $event): void
+        {
+            // Change module icon of page module
+            if ($event->getIdentifier() === 'web_layout') {
+                $event->setConfigurationValue('iconIdentifider', 'my-custom-icon-identifier');
+            }
+        }
+    }
 
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'MyExtension',
-        'mymodule1',
-        'mysection',
-        '',
-        [],
-        [
-            'access' => '...',
-            'labels' => '...'
-        ]
-    );
+BeforeModuleCreationEvent methods
+---------------------------------
 
-.. note::
-   The main module name should contain only lowercase characters. Do not use an underscore or dash.
++-------------------------+-----------------------+----------------------------------------------------+
+| Method                  | Parameters            | Description                                        |
++=========================+=======================+====================================================+
+| getIdentifier()         |                       | Returns the identifier of the module in question.  |
++-------------------------+-----------------------+----------------------------------------------------+
+| getConfiguration()      |                       | Get the module configuration, as defined in the    |
+|                         |                       | :php:`Configuration/Backend/Modules.php` file.     |
++-------------------------+-----------------------+----------------------------------------------------+
+| setConfiguration()      | :php:`$configuration` | Overrides the module configuration.                |
++-------------------------+-----------------------+----------------------------------------------------+
+| hasConfigurationValue() | :php:`$key`           | Checks whether the given key is set.               |
++-------------------------+-----------------------+----------------------------------------------------+
+| getConfigurationValue() | :php:`$key`           | Returns the value for the given :php:`key`, or     |
+|                         | :php:`$default`       | the :php:`$default`, if not set.                   |
++-------------------------+-----------------------+----------------------------------------------------+
+| setConfigurationValue() | :php:`$key`           | Updates the configuration :php:`$key` with the     |
+|                         | :php:`$value`         | given :php:`value`.                                |
++-------------------------+-----------------------+----------------------------------------------------+
 
-$TBE\_MODULES
-=============
+New ModuleProvider API
+=======================
 
-When modules are registered, they get added to a global array called
-:php:`$GLOBALS['TBE_MODULES']`. It contains the list of all registered
-modules, their configuration and the configuration of any existing
-navigation component (the components which may be loaded into the
-navigation frame).
+The other piece is the new :php:`ModuleProvider` API, which allows extension
+authors to work with the registered modules in a straightforward way.
 
-:php:`$GLOBALS['TBE_MODULES']` can be explored using the
-:guilabel:`System > Configuration` module.
+Previously there had been a couple of different classes and methods, which
+did mostly the same but in other ways. Also handling of those classes had
+been tough, especially the :php:`ModuleLoader` component.
 
-.. include:: /Images/AutomaticScreenshots/BackendModules/BackendModulesConfiguration.rst.txt
+See :doc:`changelog <../12.0/Breaking-96733-RemovedSupportForModuleHandlingBasedOnTBE_MODULES>`
+for all removed classes and methods.
 
-The list of modules is parsed by the class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader`.
+The new API is now the central point to retrieve modules, since it will
+automatically perform necessary access checks and prepare specific structures,
+e.g. for the use in menus.
 
+ModuleProvider API methods
+--------------------------
 
++---------------------------+--------------------------------------+----------------------------------------------------------+
+| Method                    | Parameters                           | Description                                              |
++===========================+======================================+==========================================================+
+| isModuleRegistered()      | :php:`$identifier`                   | Checks whether a module is registered for the given      |
+|                           |                                      | identifier. Does NOT perform any access check!           |
++---------------------------+--------------------------------------+----------------------------------------------------------+
+| getModule()               | :php:`$identifier`                   | Returns a module for the given identifier. In case a     |
+|                           | :php:`$user`                         | user is given,also access checks are performed.          |
+|                           | :php:`$respectWorkspaceRestrictions` | Additionally, one can define whether workspace           |
+|                           |                                      | restrictions should be respected.                        |
++---------------------------+--------------------------------------+----------------------------------------------------------+
+| getModules()              | :php:`$user`                         | Returns all modules either grouped by main modules       |
+|                           | :php:`$respectWorkspaceRestrictions` | or flat. In case a user is given, also access checks     |
+|                           | :php:`$grouped`                      | are performed. Additionally, one can define whether      |
+|                           |                                      | workspace restrictions should be respected.              |
++---------------------------+--------------------------------------+----------------------------------------------------------+
+| getModuleForMenu()        | :php:`$identifier`                   | Returns the requested main module prepared for           |
+|                           | :php:`$user`                         | menu generation or similar structured output (nested),   |
+|                           | :php:`$respectWorkspaceRestrictions` | if it exists and the user has necessary permissions.     |
+|                           |                                      | Additionally, one can define whether workspace           |
+|                           |                                      | restrictions should be respected.                        |
++---------------------------+--------------------------------------+----------------------------------------------------------+
+| getModulesForModuleMenu() | :php:`$user`                         | Returns all allowed modules for the current user,        |
+|                           | :php:`$respectWorkspaceRestrictions` | prepared for module menu generation or similar           |
+|                           |                                      | structured output (nested). Additionally, one can define |
+|                           |                                      | whether workspace restrictions should be respected.      |
++---------------------------+--------------------------------------+----------------------------------------------------------+
+| accessGranted()           | :php:`$identifier`                   | Check access of a module for a given user. Additionally, |
+|                           |                                      | one can define whether workspace restrictions should     |
+|                           |                                      | be respected.                                            |
++---------------------------+--------------------------------------+----------------------------------------------------------+
 
+ModuleInterface
+===============
+
+Instead of a global array structure, the registered modules are stored as
+objects in a registry. The module objects do all implement the :php:`ModuleInterface`.
+This allows a well-defined OOP-based approach to work with registered models.
+
+The :php:`ModuleInterface` basically provides getters for the options,
+defined in the module registration and additionally provides methods for
+relation handling (main modules and sub modules).
+
++---------------------------+--------------------------+-----------------------------------------------+
+| Method                    | Return type              | Description                                   |
++===========================+==========================+===============================================+
+| getIdentifier()           | :php:`string`            | Returns the internal name of the module,      |
+|                           |                          | used for referencing in permissions etc.      |
++---------------------------+--------------------------+-----------------------------------------------+
+| getPath()                 | :php:`string`            | Returns the module main path                  |
++---------------------------+--------------------------+-----------------------------------------------+
+| getIconIdentifier()       | :php:`$string`           | Returns the module icon identifier            |
++---------------------------+--------------------------+-----------------------------------------------+
+| getTitle()                | :php:`string`            | Returns the module title (see:                |
+|                           |                          | `mlang_tabs_tab`).                            |
++---------------------------+--------------------------+-----------------------------------------------+
+| getDescription()          | :php:`string`            | Returns the module description (see:          |
+|                           |                          | `mlang_labels_tabdescr`).                     |
++---------------------------+--------------------------+-----------------------------------------------+
+| getShortDescription()     | :php:`string`            | Returns the module short description (see:    |
+|                           |                          | `mlang_labels_tablabel`).                     |
++---------------------------+--------------------------+-----------------------------------------------+
+| isStandalone()            | :php:`bool`              | Returns, whether the module is standalone     |
+|                           |                          | (main module without sub modules).            |
++---------------------------+--------------------------+-----------------------------------------------+
+| getComponent()            | :php:`string`            | Returns the view component responsible for    |
+|                           |                          | rendering the module (iFrame or name of the   |
+|                           |                          | web component).                               |
++---------------------------+--------------------------+-----------------------------------------------+
+| getNavigationComponent()  | :php:`string`            | Returns the web component to be rendering the |
+|                           |                          | navigation area.                              |
++---------------------------+--------------------------+-----------------------------------------------+
+| getPosition()             | :php:`array`             | Returns the position of the module, such as   |
+|                           |                          | `top` or `bottom` or `after => anotherModule` |
+|                           |                          | or `before => anotherModule`.                 |
++---------------------------+--------------------------+-----------------------------------------------+
+| getAppearance()           | :php:`array`             | Returns a modules' appearance options, e.g.   |
+|                           |                          | used for module menu.                         |
++---------------------------+--------------------------+-----------------------------------------------+
+| getAccess()               | :php:`string`            | Returns defined access level, can be `user`,  |
+|                           |                          | `admin` or `systemMaintainer`.                |
++---------------------------+--------------------------+-----------------------------------------------+
+| getWorkspaceAccess()      | :php:`string`            | Returns defined workspace access, can be `*`  |
+|                           |                          | (all), `live` or `offline`.                   |
++---------------------------+--------------------------+-----------------------------------------------+
+| getParentIdentifier()     | :php:`string`            | In case this is a sub module, returns the     |
+|                           |                          | parent module identifier.                     |
++---------------------------+--------------------------+-----------------------------------------------+
+| getParentModule()         | :php:`?ModuleInterface`  | In case this is a sub module, returns the     |
+|                           |                          | parent module.                                |
++---------------------------+--------------------------+-----------------------------------------------+
+| hasParentModule()         | :php:`bool`              | Returns whether the module has a parent       |
+|                           |                          | module defined (is a sub module).             |
++---------------------------+--------------------------+-----------------------------------------------+
+| hasSubModule($identifier) | :php:`bool`              | Returns whether the module has a specific     |
+|                           |                          | sub module assigned.                          |
++---------------------------+--------------------------+-----------------------------------------------+
+| hasSubModules()           | :php:`bool`              | Returns whether the module has a sub modules  |
+|                           |                          | assigned.                                     |
++---------------------------+--------------------------+-----------------------------------------------+
+| getSubModule($identifier) | :php:`?ModuleInterface`  | If set, returns the requested sub module.     |
++---------------------------+--------------------------+-----------------------------------------------+
+| getSubModules()           | :php:`ModuleInterface[]` | Returns all assigned sub modules.             |
++---------------------------+--------------------------+-----------------------------------------------+
+| getDefaultRouteOptions()  | :php:`array`             | Returns options, to be added to the main      |
+|                           |                          | module route. Usually `module`, `moduleName`  |
+|                           |                          | and `access`.                                 |
++---------------------------+--------------------------+-----------------------------------------------+
+
+Impact
+======
+
+Registration of backend modules is now done in extensions'
+:file:`Configuration/Backend/Modules.php` file. This allows
+to have all modules registered at build-time.
+
+The new :php:`ModuleProvider` API takes care of permission handling
+and returns objects based on the :php:`ModuleInterface`. The rendering
+is now based on a well-defined OOP-based approach, which is used throughout
+all places in TYPO3 Backend now in a unified way.
