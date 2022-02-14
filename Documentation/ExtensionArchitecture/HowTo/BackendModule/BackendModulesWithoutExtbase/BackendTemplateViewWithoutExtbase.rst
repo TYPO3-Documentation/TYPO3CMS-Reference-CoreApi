@@ -3,10 +3,10 @@
 .. _backend-modules-template-without-extbase:
 
 ================================
-The Backend Template View (core)
+The Backend Template View (Core)
 ================================
 
-This page covers the backend template view, using only core functionality
+This page covers the backend template view, using only Core functionality
 without Extbase.
 
 .. tip::
@@ -23,22 +23,38 @@ to return the rendered template:
 
 .. code-block:: php
 
-   class ListController
+   use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
+   use TYPO3\CMS\Core\Imaging\IconFactory;
+
+   class AdminModuleController
    {
-       protected ModuleTemplate $moduleTemplate;
-
-       /**
-        * Constructor Method
-        *
-        * @var ModuleTemplate $moduleTemplate
-        */
-       public function __construct(ModuleTemplate $moduleTemplate = null)
-       {
-           $this->moduleTemplate = $moduleTemplate ?? GeneralUtility::makeInstance(ModuleTemplate::class);
+       public function __construct(
+           protected readonly ModuleTemplateFactory $moduleTemplateFactory,
+           protected readonly IconFactory $iconFactory,
+           // ...
+       ) {
        }
-
-      // ...
    }
+
+The controller needs to be registered in the :file:`Configuration/Services.yaml`
+with the tag `backend.controller` so that dependency injection works:
+
+.. code-block:: yaml
+   :caption: EXT:examples/Configuration/Services.yaml
+
+   services:
+      _defaults:
+         autowire: true
+         autoconfigure: true
+         public: false
+
+      T3docs\Examples\:
+         resource: '../Classes/*'
+         exclude: '../Classes/Domain/Model/*'
+
+      T3docs\Examples\Controller\AdminModuleController:
+         tags: ['backend.controller']
+
 
 Main entry point
 ================
@@ -47,59 +63,59 @@ Main entry point
 This makes it possible to include e.g. Javascript for all actions in the controller.
 
 .. code-block:: php
+   :caption: T3docs\Examples\Controller\AdminModuleController
 
    public function handleRequest(ServerRequestInterface $request): ResponseInterface
    {
-      $action = (string)($request->getQueryParams()['action'] ?? $request->getParsedBody()['action'] ?? 'index');
+       $languageService = $this->getLanguageService();
+       $languageService->includeLLFile('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf');
 
-      /**
-       * Define allowed actions
-       */
-      if (!in_array($action, ['index'], true)) {
-         return new HtmlResponse('Action not allowed', 400);
-      }
+       $this->menuConfig($request);
+       $moduleTemplate = $this->moduleTemplateFactory->create($request, 't3docs/examples');
+       $this->setUpDocHeader($moduleTemplate);
 
-      /**
-       * Configure template paths for your backend module
-       */
-      $this->view = GeneralUtility::makeInstance(StandaloneView::class);
-      $this->view->setTemplateRootPaths(['EXT:extension_key/Resources/Private/Templates/List']);
-      $this->view->setPartialRootPaths(['EXT:extension_key/Resources/Private/Partials/']);
-      $this->view->setLayoutRootPaths(['EXT:extension_key/Resources/Private/Layouts/']);
-      $this->view->setTemplate($action);
-
-      /**
-       * Call the passed in action
-       */
-      $result = $this->{$action . 'Action'}($request);
-
-      if ($result instanceof ResponseInterface) {
-         return $result;
-      }
-
-      /**
-       * Render template and return html content
-       */
-      $this->moduleTemplate->setContent($this->view->render());
-      return new HtmlResponse($this->moduleTemplate->renderContent());
+       $title = $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf:mlang_tabs_tab');
+       switch ($this->MOD_SETTINGS['function']) {
+           case 'debug':
+               $moduleTemplate->setTitle($title, $languageService->getLL('module.menu.debug'));
+               return $this->debugAction($moduleTemplate);
+           case 'password':
+               $moduleTemplate->setTitle($title, $languageService->getLL('module.menu.password'));
+               return $this->passwordAction($moduleTemplate);
+           default:
+               $moduleTemplate->setTitle($title, $languageService->getLL('module.menu.log'));
+               return $this->logAction($moduleTemplate);
+       }
    }
 
 Actions
 =======
 
-Now create an :php:`indexAction()` and assign variables to your view as you would normally do
+Now create an example :php:`indexAction()` and assign variables to your view
+as you would normally do.
 
 .. code-block:: php
+   :caption: T3docs\Examples\Controller\AdminModuleController
 
-   public function indexAction()
+   public function debugAction(
+       ModuleTemplate $view,
+       string $cmd = 'cookies'
+   ): ResponseInterface
    {
-     $this->setDocHeader('index');
+       $cmd = $_POST['tx_examples_admin_examples']['cmd'];
+       switch ($cmd) {
+           case 'cookies':
+               $this->debugCookies();
+               break;
+       }
 
-     $this->view->assignMultiple(
-         [
-             'some-variable' => 'some-value',
-         ]
-     );
+       $view->assignMultiple(
+           [
+               'cookies' => $_COOKIE,
+               'lastcommand' => $cmd,
+           ]
+       );
+       return $view->renderResponse('AdminModule/Debug');
    }
 
 The DocHeader
@@ -123,25 +139,20 @@ and :php:`makeLinkButton()` to create the button. Finally use :php:`addButton()`
 Template example
 ================
 
-Default layout
-
 .. code-block:: html
+   :caption: EXT:examples/Resources/Private/Templates/AdminModule/Debug.html
 
-   <html
-      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
-      xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
-      data-namespace-typo3-fluid="true">
+   <html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 
-      <f:render section="content" />
+   <f:layout name="Module" />
+
+   <f:section name="Content">
+      <h1><f:translate key="function_debug" extensionName="examples"/></h1>
+      <p><f:translate key="function_debug_intro" extensionName="examples"/></p>
+      <p><f:debug inline="1">{cookies}</f:debug></p>
+   </f:section>
    </html>
 
-Index template
 
-.. code-block:: html
-
-   <f:layout name="Default" />
-
-   <f:section name="content">
-       ...
-   </f:section>
+.. note:: Some Fluid tags do not work in non-Extbase context such as
+   :html:`<f:form>`.
