@@ -227,10 +227,10 @@ In the Fluid template the column positions can be accessed now via content mappi
 Reference implementations of backend layouts
 ============================================
 
-The extension `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__ ships several `Backend
-layouts <https://github.com/benjaminkott/bootstrap_package/tree/master/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts>`__
-as well as an example configuration of how to include frontend templates for backend layouts (see `setup.typoscript
-Line 95 ff <https://github.com/benjaminkott/bootstrap_package/blob/master/Configuration/TypoScript/setup.typoscript>`__)
+The extension `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__ ships several
+`Backend layouts <https://github.com/benjaminkott/bootstrap_package/tree/1b00a01e362d2460af92f754ee10e507edb70568/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts>`__
+as well as an example configuration of how to include frontend templates for backend layouts (see its
+`setup.typoscript <https://github.com/benjaminkott/bootstrap_package/blob/1b00a01e362d2460af92f754ee10e507edb70568/Configuration/TypoScript/setup.typoscript#L99-L113>`__)
 
 .. index:: pair: Backend layout; Extensions
 .. _be-layout-extensions:
