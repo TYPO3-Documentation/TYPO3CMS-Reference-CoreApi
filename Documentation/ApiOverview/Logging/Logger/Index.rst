@@ -321,7 +321,7 @@ Bad example:
 
 .. code-block:: php
 
-   // $this->logger->alert(
+   $this->logger->alert(
       'Password reset requested for email "' .
       $emailAddress . '" . but was requested too many times.');
 
