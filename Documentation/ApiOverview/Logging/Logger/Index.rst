@@ -247,6 +247,35 @@ overwrites possible class attributes:
      }
    }
 
+The same can be accomplished be the use of the :php:`LoggerAwareTrait` :
+
+.. code-block:: php
+
+   namespace Psr\Log;
+
+   /**
+    * Basic Implementation of LoggerAwareInterface.
+    */
+   trait LoggerAwareTrait
+   {
+       /**
+        * The logger instance.
+        *
+        * @var LoggerInterface|null
+        */
+       protected $logger;
+
+       /**
+        * Sets a logger.
+        *
+        * @param LoggerInterface $logger
+        */
+       public function setLogger(LoggerInterface $logger)
+       {
+           $this->logger = $logger;
+       }   
+   }
+
 
 Registration via class attribute for :php:`LoggerAwareInterface` services.
 
