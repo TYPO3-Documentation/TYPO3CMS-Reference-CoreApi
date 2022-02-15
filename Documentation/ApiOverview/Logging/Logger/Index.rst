@@ -31,6 +31,37 @@ Constructor injection can be used to automatically instantiate the logger:
    }
 
 
+It is also possible to use the :php:`LoggerAwareInterface`:
+
+.. code-block:: php
+
+   namespace Psr\Log;
+
+   /**
+    * Basic Implementation of LoggerAwareInterface.
+    */
+   trait LoggerAwareTrait
+   {
+       /**
+        * The logger instance.
+        *
+        * @var LoggerInterface|null
+        */
+       protected $logger;
+
+       /**
+        * Sets a logger.
+        *
+        * @param LoggerInterface $logger
+        */
+       public function setLogger(LoggerInterface $logger)
+       {
+           $this->logger = $logger;
+       }   
+   }
+
+
+
 .. index::
    Logging; logger->log
    Logging; LogLevels
@@ -247,36 +278,7 @@ overwrites possible class attributes:
      }
    }
 
-The same can be accomplished be the use of the :php:`LoggerAwareTrait` :
-
-.. code-block:: php
-
-   namespace Psr\Log;
-
-   /**
-    * Basic Implementation of LoggerAwareInterface.
-    */
-   trait LoggerAwareTrait
-   {
-       /**
-        * The logger instance.
-        *
-        * @var LoggerInterface|null
-        */
-       protected $logger;
-
-       /**
-        * Sets a logger.
-        *
-        * @param LoggerInterface $logger
-        */
-       public function setLogger(LoggerInterface $logger)
-       {
-           $this->logger = $logger;
-       }   
-   }
-
-
+The same can be accomplished be the use of the :php:`LoggerAwareTrait`.
 Registration via class attribute for :php:`LoggerAwareInterface` services.
 
 .. code-block:: php
