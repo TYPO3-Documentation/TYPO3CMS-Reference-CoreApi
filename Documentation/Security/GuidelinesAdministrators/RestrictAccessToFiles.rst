@@ -130,7 +130,7 @@ servers virtual host configuration. A typical example looks like this::
         }
 
         # TYPO3 - Block access to language files
-        location ~* locallang[^.]*\.(?:xml|xlf)$ {
+        location ~* locallang[^.]*\.xlf {
             deny all;
         }
 
