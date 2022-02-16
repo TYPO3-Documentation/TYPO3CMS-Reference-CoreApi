@@ -27,7 +27,7 @@ The short story is that it's enough to set the key :code:`enableRichtext` to tru
 
    'poem' => array(
        'exclude' => 0,
-       'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.poem',
+       'label' => 'LLL:EXT:examples/locallang_db.xlf:tx_examples_haiku.poem',
        'config' => array(
            'type' => 'text',
            'cols' => 40,
@@ -44,7 +44,7 @@ This works for FlexForms too:
    <poem>
        <TCEforms>
            <exclude>0</exclude>
-           <label>LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.poem</label>
+           <label>LLL:EXT:examples/locallang_db.xlf:tx_examples_haiku.poem</label>
            <config>
                <type>text</type>
                <cols>40<cols>

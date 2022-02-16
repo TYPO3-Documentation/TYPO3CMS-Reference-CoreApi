@@ -44,8 +44,8 @@ plugin is `registration`.
 
    .. code-block:: typoscript
 
-      title = LLL:EXT:example/Resources/Private/Language/locallang.xml:registration_title
-      description = LLL:EXT:example/Resources/Private/Language/locallang.xml:registration_description
+      title = LLL:EXT:example/Resources/Private/Language/locallang.xlf:registration_title
+      description = LLL:EXT:example/Resources/Private/Language/locallang.xlf:registration_description
 
 #. Include TSconfig
 
