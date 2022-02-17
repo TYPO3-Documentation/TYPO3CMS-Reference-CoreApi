@@ -772,7 +772,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']
    The global variable `$GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']` is
    not interpreted anymore.
 
-TypoScript ContentObjects (cObjects) like :typoscript:`TEXT` or
+TypoScript content objects (`cObject`) like :typoscript:`TEXT` or
 :typoscript:`HMENU` get registered via the service configuration:
 
 .. code-block:: yaml
