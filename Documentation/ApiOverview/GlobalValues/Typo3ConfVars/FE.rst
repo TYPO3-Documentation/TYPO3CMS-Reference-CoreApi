@@ -773,7 +773,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']
    not interpreted anymore.
 
 TypoScript content objects (`cObject`) like :typoscript:`TEXT` or
-:typoscript:`HMENU` get registered via the service configuration:
+:typoscript:`HMENU` are registered as services:
 
 .. code-block:: yaml
    :caption: EXT:my_extension/Configuration/Services.yaml
