@@ -778,10 +778,12 @@ TypoScript content objects (`cObject`) like :typoscript:`TEXT` or
 .. code-block:: yaml
    :caption: EXT:my_extension/Configuration/Services.yaml
 
-    MyCompany\MyPackage\ContentObject\CustomContentObject:
-        tags:
-            - name: frontend.contentobject
-              identifier: 'MY_OBJ'
+   services:
+     # ...
+     MyCompany\MyPackage\ContentObject\CustomContentObject:
+       tags:
+         - name: frontend.contentobject
+           identifier: 'MY_OBJ'
 
 
 .. index::
