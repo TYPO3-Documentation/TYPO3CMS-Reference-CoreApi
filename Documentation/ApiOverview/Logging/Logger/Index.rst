@@ -93,8 +93,7 @@ Warning
    :sep:`|`
 
    Use of deprecated APIs. Undesirable events that are not necessarily wrong.
-   Example: Use of deprecated APIs, poor use of an API, undesirable things
-   that are not necessarily wrong. 
+   Example: Use of a deprecated method.
 
 .. _label-error:
 .. rst-class:: dl-parameters
