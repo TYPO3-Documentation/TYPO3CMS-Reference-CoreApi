@@ -41,7 +41,7 @@ Constructor injection can be used to automatically instantiate the logger:
 .. _logging-logger-shortcuts:
 
 
-Log levels and Shorthand methods
+Log levels and shorthand methods
 ================================
 
 Log levels according to RFC 3164, starting from the lowest level.
