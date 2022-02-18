@@ -23,7 +23,3 @@
    .. php:method:: getRecord()
    
       :returntype: array
-      
-   .. php:method:: setRecord(array record)
-   
-      :param array $record: the record
