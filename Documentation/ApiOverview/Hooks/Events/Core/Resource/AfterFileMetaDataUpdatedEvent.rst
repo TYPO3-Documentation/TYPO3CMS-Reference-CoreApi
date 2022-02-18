@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
-.. index:: Events; AfterFileMetaDataCreatedEvent
-.. _AfterFileMetaDataCreatedEvent:
+.. index:: Events; AfterFileMetaDataUpdatedEvent
+.. _AfterFileMetaDataUpdatedEvent:
 
 
 =============================
