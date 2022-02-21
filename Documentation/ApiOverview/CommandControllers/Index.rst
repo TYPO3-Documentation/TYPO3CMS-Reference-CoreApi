@@ -138,6 +138,10 @@ command API. This is explained in depth on the following Symfony Documentation p
 
 Add an optional argument and an optional option to your command::
 
+
+    // use Symfony\Component\Console\Input\InputArgument;
+    // use Symfony\Component\Console\Input\InputOption;
+
     /**
      * Configure the command by defining the name, options and arguments
      */
@@ -168,6 +172,9 @@ which can be passed on the command line:
 
 This argument can be retrieved with :php:`$input->getArgument()`, the options with
 :php:`$input->getOption()`, for example::
+
+   // use Symfony\Component\Console\Input\InputInterface;
+   // use Symfony\Component\Console\Output\OutputInterface;
 
    protected function execute(InputInterface $input, OutputInterface $output)
    {
