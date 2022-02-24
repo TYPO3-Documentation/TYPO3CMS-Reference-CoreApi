@@ -136,6 +136,23 @@ sendmail
       $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command'] = '/usr/sbin/sendmail -bs';
 
 
+   .. attention::
+
+      Depending on the configuration of the server and the TYPO3 instance, it
+      may not be possible to send emails to BCC recipients. The configuration of
+      the :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command']`
+      value is crucial.
+
+      TYPO3 recommends the parameter :php:`-bs` (instead of :php:`-t -i`). The
+      parameter :php:`-bs` tells TYPO3 to use the SMTP standard and that way the
+      BCC recipients are properly set.
+      `Symfony <https://symfony.com/doc/6.0/mailer.html#using-built-in-transports>`__
+      refers to the problem of using the :php:`-t` parameter as well. Since
+      :issue:`65791` the :php:`transport_sendmail_command` is automatically set
+      from the PHP runtime configuration and saved. Thus, if you have problems
+      with sending emails to BCC recipients, check the above mentioned configuration.
+
+
 .. _mail-configuration-mbox:
 
 mbox
