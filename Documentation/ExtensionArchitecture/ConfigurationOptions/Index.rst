@@ -77,8 +77,10 @@ Option select can be used as follows:
 
 .. code-block:: typoscript
 
-   # cat=basic/enable/050; type=options[label1=value1,label2]; label=MyLabel
-   myVariable = 1
+   # cat=basic/enable/050; type=options[label1=value1,label2=value2,value3]; label=MyLabel
+   myVariable = value1
+
+"label1", "label2" and "label3" can be any text string. Any integer or string value can be used on the right side of the equation sign "=".
 
 Where user functions have to be written the following way:
 
