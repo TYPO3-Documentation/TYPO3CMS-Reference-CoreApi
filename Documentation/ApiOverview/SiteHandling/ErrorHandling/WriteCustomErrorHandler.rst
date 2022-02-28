@@ -72,7 +72,7 @@ The configuration in *config.yaml*:
       -
          errorCode: '404'
          errorHandler: PHP
-         errorPhpClassFQCN: My\ExtensionName\Error\ErrorHandling
+         errorPhpClassFQCN: My\ExtensionName\Error\ErrorHandler
 
 The ErrorHandler class:
 
@@ -85,9 +85,9 @@ The ErrorHandler class:
    use Psr\Http\Message\ResponseInterface;
    use Psr\Http\Message\ServerRequestInterface;
    use TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface;
-   use TYPO3\CMS\Core\Http\RedirectResponse;
+   use TYPO3\CMS\Core\Http\HtmlResponse;
 
-   class ErrorHandling implements PageErrorHandlerInterface
+   final class ErrorHandler implements PageErrorHandlerInterface
    {
        /**
         * @var int
@@ -118,7 +118,7 @@ The ErrorHandler class:
            string $message,
            array $reasons = []
        ): ResponseInterface {
-              return new RedirectResponse('/404-page', $this->statusCode);
+              return new HtmlResponse('<h1>Not found, sorry</h1>', $this->statusCode);
        }
 
    }
