@@ -117,8 +117,8 @@ system but fail on another one. Additionally, running functional tests could nev
 
 Next to tons of detail changes, two main steps happened in 2014.
 
-First, the unit test isolation has been finished. The initiative `standalone unit test
-<https://wiki.typo3.org/Blueprints/StandaloneUnitTests>`_ changed the unit test bootstrap to execute
+First, the unit test isolation has been finished. The initiative standalone unit test
+changed the unit test bootstrap to execute
 only a very basic part of the system. Instance specific configuration files like *LocalConfiguration.php*
 were no longer read, no database connection established, the global backend user and language objects were
 no longer set up and so on. In the end, not much more than the class auto loading is initialized. To reach
