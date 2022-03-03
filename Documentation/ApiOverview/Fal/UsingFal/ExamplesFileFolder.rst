@@ -46,9 +46,9 @@ or by filename from its folder:
 
 or directly by its filename from the folder:
 
-.. code-block:: php
+   .. code-block:: php
 
-   $file = $folder->getFile("filename.ext");
+      $file = $folder->getFile("filename.ext");
 
 
 The syntax of argument 1 for getFileObjectFromCombinedIdentifier is
