@@ -17,12 +17,14 @@ with file, folder and FileReference objects.
 Getting a file
 ==============
 
-A file can be retrieved using its uid::
+A file can be retrieved using its uid:
 
+.. code-block:: php
    $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $file = $resourceFactory->getFileObject(4);
 
-or its combined identifier::
+or its combined identifier:
+.. code-block:: php
 
    $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
    $file = $resourceFactory->getFileObjectFromCombinedIdentifier('1:/foo.txt');
@@ -38,7 +40,7 @@ or by filename from its folder::
    Starting with version 10.2 a file can be retrieved directly by its filename from the folder:
    .. code-block:: php
    
-   $file = $folder->getFile("filename.ext");
+      $file = $folder->getFile("filename.ext");
 
 .. todo:: remove note below in Version 12
 
