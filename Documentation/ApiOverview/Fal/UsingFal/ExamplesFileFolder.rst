@@ -35,8 +35,10 @@ or by filename from its folder::
    $file = $folder->getStorage()->getFileInFolder("example.ext", $folder);
 
 .. versionadded:: 10.2
-   Starting with version 10.2  a file can be retrieved directly by its filename from the folder::
+   Starting with version 10.2 a file can be retrieved directly by its filename from the folder:
 
+   .. code-block:: php
+   
       $file = $folder->getFile("filename.ext");
 
 .. todo:: remove note below in Version 12
