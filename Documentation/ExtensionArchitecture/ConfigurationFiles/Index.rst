@@ -32,8 +32,8 @@ directory names typically used in extensions.
 
    The content of the files :file:`ext_localconf.php` and
    :file:`ext_tables.php` **must not** be wrapped in a
-   local namespace by extension author. This will result in nested namespaces
-   and therefore cause PHP errors only solvable by clearing the caches via the
+   local namespace by extension authors. This would lead to nested namespaces
+   causing PHP errors only solvable by clearing the caches via the
    Install Tool.
 
 
