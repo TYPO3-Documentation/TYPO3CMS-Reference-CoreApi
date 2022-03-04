@@ -18,9 +18,8 @@ pattern, a class must implement the :php:`SingletonInterface`::
        …
    }
 
-This interface has no specific methods to implement, but if implemented
-only one instance of the class will be created through given request.
+This interface has no methods to implement.
 
 Be aware that singletons are often considered as "anti pattern" by
-code architects and should be used with care - use them only if there
-are very good reasons to do so.
+code architects and should be used with care. Use them only if there
+are very good reasons.
