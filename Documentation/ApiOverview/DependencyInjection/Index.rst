@@ -17,9 +17,9 @@ compliant Symfony component to standardize object initialization throughout the 
 
 The recommended way of injecting dependencies is to use constructor injection::
 
-   public function __construct(Dependency $dependency)
+   public function __construct(FooBar $fooBar)
    {
-       $this->dependency = $dependency;
+       $this->fooBar = $fooBar;
    }
 
 By default all API services shipped by the TYPO3 Core system extensions are available for dependency
