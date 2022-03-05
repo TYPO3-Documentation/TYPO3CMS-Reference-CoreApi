@@ -127,6 +127,9 @@ Examples
 
 Acquire and use an exclusive, blocking lock::
 
+   use TYPO3\CMS\Core\Locking\LockFactory;
+   // ...
+
    $lockFactory = GeneralUtility::makeInstance(LockFactory::class);
 
    // createLocker will return an instance of class which implements
@@ -146,6 +149,9 @@ Acquire and use an exclusive, blocking lock::
 
 
 Acquire and use an exclusive, non-blocking lock::
+
+   use TYPO3\CMS\Core\Locking\LockFactory;
+   // ...
 
    $lockFactory = GeneralUtility::makeInstance(LockFactory::class);
 
