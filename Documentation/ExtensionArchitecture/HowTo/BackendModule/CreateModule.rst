@@ -63,7 +63,7 @@ Main entry point
 This makes it possible to include e.g. Javascript for all actions in the controller.
 
 .. code-block:: php
-   :caption: T3docs\Examples\Controller\AdminModuleController
+   :caption: EXT:examples/Classes/Controller/AdminModuleController.php
 
    public function handleRequest(ServerRequestInterface $request): ResponseInterface
    {
@@ -95,7 +95,7 @@ Now create an example :php:`indexAction()` and assign variables to your view
 as you would normally do.
 
 .. code-block:: php
-   :caption: T3docs\Examples\Controller\AdminModuleController
+   :caption: EXT:examples/Classes/Controller/AdminModuleController.php
 
    public function debugAction(
        ModuleTemplate $view,
@@ -125,6 +125,7 @@ To add a DocHeader button use :php:`$this->moduleTeamplate->getDocHeaderComponen
 and :php:`makeLinkButton()` to create the button. Finally use :php:`addButton()` to add it.
 
 .. code-block:: php
+   :caption: EXT:examples/Classes/Controller/AdminModuleController.php
 
    private function setDocHeader(string $active) {
       $buttonBar = $this->moduleTemplate->getDocHeaderComponent()->getButtonBar();

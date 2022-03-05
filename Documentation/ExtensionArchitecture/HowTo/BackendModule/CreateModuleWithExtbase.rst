@@ -13,7 +13,7 @@ Create a backend module with Extbase
    :ref:`without Extbase. <backend-modules-template-without-extbase>`
 
 
-Modern backend modules can be written using the Extbase/Fluid combination.
+Backend modules can be written using the Extbase/Fluid combination.
 
 The factory :php:`TYPO3\CMS\Backend\Template\ModuleTemplateFactory` can be used
 to retrieve the :php:`\TYPO3\CMS\Backend\Template\ModuleTemplate`

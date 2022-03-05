@@ -115,9 +115,9 @@ backend. They are described in this chapter.
    :titlesonly:
 
    BackendGUI
+   ModuleConfiguration
+   CreateModule
    CreateModuleWithExtbase
    CreateModule
-   ModuleConfiguration
    ToplevelModules
    ModuleProviderAPI
-   /ApiOverview/Hooks/Events/Backend/BeforeModuleCreationEvent
