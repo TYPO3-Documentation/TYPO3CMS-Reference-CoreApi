@@ -139,8 +139,8 @@ Examples
 
 Acquire and use an exclusive, blocking lock::
 
-   use TYPO3\CMS\Core\Locking\LockFactory;
    use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
+   use TYPO3\CMS\Core\Locking\LockFactory;
    // ...
 
    $lockFactory = GeneralUtility::makeInstance(LockFactory::class);
@@ -163,8 +163,8 @@ Acquire and use an exclusive, blocking lock::
 
 Acquire and use an exclusive, non-blocking lock::
 
-   use TYPO3\CMS\Core\Locking\LockFactory;
    use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
+   use TYPO3\CMS\Core\Locking\LockFactory;
    // ...
 
    $lockFactory = GeneralUtility::makeInstance(LockFactory::class);
