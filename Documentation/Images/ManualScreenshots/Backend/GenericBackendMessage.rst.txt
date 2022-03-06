@@ -1,0 +1,6 @@
+.. Screenshot of TYPO3 12.0 cannot be automated yet
+
+.. figure:: /Images/ManualScreenshots/Backend/GenericBackendMessage.png
+   :class: with-shadow
+
+   A generic backend message in the about module
