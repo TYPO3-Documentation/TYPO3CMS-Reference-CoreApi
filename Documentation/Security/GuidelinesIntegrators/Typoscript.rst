@@ -41,7 +41,7 @@ The following code snippet gives an example:
      table = tt_content
      select {
        pidInList = 123
-       where = deleted=0 AND uid=###PAGEID###
+       where = deleted=0 AND pid=###PAGEID###
        markers {
            PAGEID.data = GP:pageid
        }
