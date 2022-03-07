@@ -21,7 +21,8 @@ They are fecthed in the TYPO3 CMS backend, via the Extension Manager (or the
 new "Language" module since version 6.0).
 
 It is not the point of this manual to go into the details of the translation
-process. More information can be found in the `TYPO3 wiki <https://wiki.typo3.org/Translation>`_.
+process. More information can be found in the
+:ref:`Frontend Localization Guide <t3translate:start>`.
 
 
 .. _xliff-translating-local:
