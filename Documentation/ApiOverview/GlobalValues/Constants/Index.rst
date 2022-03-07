@@ -191,7 +191,12 @@ TYPO3_URL_SECURITY                    'https://typo3.org/teams/security/'
 TYPO3_URL_DOWNLOAD                    'https://typo3.org/download/'
 TYPO3_URL_SYSTEMREQUIREMENTS          'https://typo3.org/typo3-cms/overview/requirements/'
 TYPO3_URL_DONATE                      'https://typo3.org/donate/online-donation/'
-TYPO3_URL_WIKI_OPCODECACHE            'https://wiki.typo3.org/Opcode_Cache'
+TYPO3_URL_WIKI_OPCODECACHE            ':samp:`https://wiki.typo3.org/Opcode_Cache`'
+
+                                      .. note::
+
+                                          The TYPO3 Wiki instance has been retired since 2021.
+
 ===================================== =======================================================
 
 

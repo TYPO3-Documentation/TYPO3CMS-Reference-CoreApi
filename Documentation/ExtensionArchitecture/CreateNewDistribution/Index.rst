@@ -142,12 +142,3 @@ Manager.
    previously imported your distribution and will skip any known files.
    Make sure to clean the table "sys_registry" if you want to work
    around that.
-
-
-.. _distribution-more-information:
-
-More information
-----------------
-
-Some additional backgrounds can be retrieved from the
-`blueprint for this feature <https://wiki.typo3.org/Blueprints/DistributionManagement>`_.
