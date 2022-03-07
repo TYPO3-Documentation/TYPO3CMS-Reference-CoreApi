@@ -242,6 +242,3 @@ The `introduction extension <https://github.com/FriendsOfTYPO3/introduction>`_ i
 good starting point to see how distributions are handled in practice. It also comes
 with an *impexp* preset to easily export database data with correct settings and
 dependencies.
-
-Some additional backgrounds can be retrieved from the
-`blueprint for this feature <https://wiki.typo3.org/Blueprints/DistributionManagement>`_.
