@@ -41,14 +41,14 @@ The following code snippet gives an example:
      table = tt_content
      select {
        pidInList = 123
-       where = deleted=0 AND uid=###PAGEID###
+       where = deleted=0 AND uid=###CONTENTID###
        markers {
-           PAGEID.data = GP:pageid
+           CONTENTID.data = GP:fooid
        }
      }
    }
 
-Argument passed by the `GET` / `POST` request `pageid` wrapped as markers are properly
+Argument passed by the `GET` / `POST` request `fooid` wrapped as markers are properly
 escaped and quoted to prevent SQL injection problems.
 
 See :ref:`TypoScript Reference <t3tsref:select-markers>` for more
