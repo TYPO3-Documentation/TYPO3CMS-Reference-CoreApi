@@ -132,3 +132,16 @@ for rendering. Check out the
 
 The HMENU object also has a :ref:`"categories" special type <t3tsref:hmenu-special-categories>`,
 to display a menu based on categorized pages.
+
+User permissions for system categories
+======================================
+
+In most aspects system categories are treated like any other record. They can
+be viewed or edited by editors if they are stored in a folder where the editor
+has access to and if the table :sql:`sys_category` is allowed in the field
+:guilabel:`Tables (listing)` and :guilabel:`Tables (modify)` in the tab
+:guilabel:`Access Lists` of the user group.
+
+Additionally it is possible to set :guilabel:`Mounts and Workspaces >
+Category Mounts` in the user group. If at least one category is set in the
+category mounts only the chosen categories are allowed to be attached to records.
