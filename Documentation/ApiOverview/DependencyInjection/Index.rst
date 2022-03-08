@@ -117,6 +117,9 @@ which is cached in php code (in TYPO3 Core  cache).
    An extension doesn't need to use autowiring, it is free to manually
    wire dependencies in the service configuration file.
 
+
+.. _dependency-injection-autoconfigure:
+
 Autoconfigure
 -------------
 
