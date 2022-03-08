@@ -79,8 +79,12 @@ Various configuration options exist to configure the `cHash` behavior via :php:`
 in the file :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
 
 :confval:`cachedParametersWhiteList`
-    Only the given parameters will be evaluated in the cHash calculation.
-    Example: tx_news_pi1[uid]
+    **Only** the given parameters will be evaluated in the cHash calculation. Example: tx_news_pi1[uid]
+    
+    .. attention::
+    
+       This option will lead to cache calculation being skipped for all parameters except the ones listed here.
+       Caching of pages will not be influenced by other parameters beyond the initial caching anymore.
  
 :confval:`requireCacheHashPresenceParameters`
    Configure Parameters that require a cHash. If no cHash is given but one of the parameters
