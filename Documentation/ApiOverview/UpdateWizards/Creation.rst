@@ -134,7 +134,7 @@ Method :php:`updateNecessary`
 
 Method :php:`getPrerequisites`
    Returns an array of class names of prerequisite classes. This way a wizard can
-   define these 2 dependencies before it can be run:
+   define dependencies before it can be run. Currently the following prerequisites exist:
    
    #. `DatabaseUpdatedPrerequisite`: 
       Ensures that the database table fields are up-to-date.
