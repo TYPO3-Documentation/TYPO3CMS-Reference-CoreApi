@@ -32,8 +32,8 @@ You can use Fluid in TYPO3 to do one of the following:
 
 .. note::
 
-   This page was created recently to serve as a start page for Fluid in TYPO3.
-   It contains an :ref:`fluid-introduction` as subpage and further pages will
+   This page was created in 2020 to serve as a start page for Fluid in TYPO3.
+   It contains a :ref:`fluid-introduction` as a subpage. Further pages will
    be added later.
 
 **Table of contents**
