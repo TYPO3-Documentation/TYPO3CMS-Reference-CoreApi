@@ -10,8 +10,8 @@ Fluid is TYPO3’s default rendering engine but can also be used in a standalone
 The Fluid source code is being developed as an independent project outside of the TYPO3 Core.
 
 Fluid is based on XML.
-You can use HTML markup in Fluid, but you can do much more with Fluid, such as use conditions,
-variables or custom ViewHelpers which are PHP components.
+You can use HTML markup in Fluid. Fluid view helpers offer you different controls, conditions
+and variables. Use your own custom view helpers `FooBarViewHelper` which are PHP components.
 
 Example Fluid snippet
 =====================
@@ -47,7 +47,7 @@ ViewHelpers:
    :ref:`write your own <t3extbasebook:developing-a-custom-viewhelper>`.
 
    ViewHelpers can do simple processing such as remove spaces with the
-   :ref:`t3viewhelper:typo3fluid-fluid-spaceless` Viewhelper or create a link
+   :ref:`t3viewhelper:typo3fluid-fluid-spaceless` view helper or create a link
    as is done in the TYPO3 Fluid Viewhelper :ref:`t3viewhelper:typo3-fluid-link-page`.
 
 Object Accessors:
@@ -56,7 +56,7 @@ Object Accessors:
    are called `Object Accessors`.
 
 Conditions:
-    The conditions are supplied here by the if / then / else ViewHelpers.
+    The conditions are supplied here by the if / then / else view helpers.
 
 
 .. index:: Fluid; Directory structure
@@ -274,9 +274,9 @@ Further information
 To get an introduction to the basics of Fluid:
 
 * `The Fluid Syntax <https://github.com/TYPO3/Fluid/blob/main/doc/FLUID_SYNTAX.md>`__
-* `ViewHelpers - what these classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/main/doc/FLUID_VIEWHELPERS.md>`__
+* `View Helpers - what view helper classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/main/doc/FLUID_VIEWHELPERS.md>`__
 
-Depending on what you plan to do, you may want to follow one of these comprehensive
+You may want to follow one of these comprehensive
 tutorials:
 
 * :ref:`t3sitepackage:start` which shows you how to create a theme for your site
