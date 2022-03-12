@@ -274,7 +274,7 @@ Further information
 To get an introduction to the basics of Fluid:
 
 * `The Fluid Syntax <https://github.com/TYPO3/Fluid/blob/main/doc/FLUID_SYNTAX.md>`__
-* `ViewHelpers - what ViewHelper classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/main/doc/FLUID_VIEWHELPERS.md>`__
+* `ViewHelpers - what these classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/main/doc/FLUID_VIEWHELPERS.md>`__
 
 You may want to follow one of these comprehensive
 tutorials:
