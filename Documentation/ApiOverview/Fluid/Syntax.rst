@@ -37,7 +37,7 @@ Assign an array in PHP:
 
 .. code-block:: php
 
-   $this->view->assign('data',array('Low', 'High'));
+   $this->view->assign('data', ['Low', 'High']);
 
 Use the dot ``.`` to access array keys::
 
@@ -47,7 +47,7 @@ This also works for object properties:
 
 .. code-block:: php
 
-   $this->view->assign('product',$myProduct);
+   $this->view->assign('product', $myProduct);
 
 Use it like this::
 
