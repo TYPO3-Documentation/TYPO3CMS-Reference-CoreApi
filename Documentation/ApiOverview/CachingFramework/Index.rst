@@ -78,22 +78,31 @@ This both adds an additional layer for validating slugs as well as reduces the p
 Various configuration options exist to configure the `cHash` behavior via :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']`
 in the file :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
 
-:confval:`cachedParametersWhiteList`
-    Only the given parameters will be evaluated in the cHash calculation.
-    Example: tx_news_pi1[uid]
+.. confval:: cachedParametersWhiteList
+
+   **Only** the given parameters will be evaluated in the cHash calculation. Example: tx_news_pi1[uid]
+    
+   .. attention::
+    
+      This option will lead to cache calculation being skipped for all parameters except the ones listed here.
+      Caching of pages will not be influenced by other parameters beyond the initial caching anymore.
  
-:confval:`requireCacheHashPresenceParameters`
+.. confval:: requireCacheHashPresenceParameters
+
    Configure Parameters that require a cHash. If no cHash is given but one of the parameters
    are set, then TYPO3 triggers the configured cHash Error behavior
    
-:confval:`excludedParameters`
+.. confval:: excludedParameters
+
    The given parameters will be ignored in the cHash calculation. Example: L,tx_search_pi1[query]
 
-:confval:`excludedParametersIfEmpty`
+.. confval:: excludedParametersIfEmpty
+
    Configure Parameters only being relevant for the cHash if there's an associated value available. 
    Set excludeAllEmptyParameters to true to skip all empty parameters.
    
-:confval:`excludeAllEmptyParameters`
+.. confval:: excludeAllEmptyParameters
+
    If true, all parameters which are relevant for cHash are only considered if they are non-empty.
    
 All properties can be configured with an array of values. Besides exact matches (*equals*) it is possible to apply partial matches at
