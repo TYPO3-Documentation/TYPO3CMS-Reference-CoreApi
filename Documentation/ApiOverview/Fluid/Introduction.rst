@@ -6,12 +6,18 @@
 Introduction to Fluid
 =====================
 
-Fluid is TYPO3’s default rendering engine but can also be used in a standalone PHP project.
-The Fluid source code is being developed as an independent project outside of the TYPO3 Core.
+Fluid is TYPO3’s default rendering engine but can also be used in standalone PHP projects.
+The `Fluid source code <https://github.com/TYPO3/Fluid>`__ is being developed as an 
+independent project outside of the TYPO3 Core.
 
-Fluid is based on XML.
-You can use HTML markup in Fluid. Fluid ViewHelpers offer you different controls, conditions
-and variables. Write your own custom ViewHelpers which are PHP components.
+Fluid is based on XML and you can use HTML markup in Fluid. 
+
+Fluid ViewHelpers can be used for various purposes. Some transform data, some include 
+Partials, some loop over data or even set variables. You can find a complete list of 
+them in the :ref:`ViewHelper Reference <t3viewhelper:start>`.
+
+You can :ref:`write your own custom ViewHelper <t3extbasebook:developing-a-custom-viewhelper>`,
+which is a PHP component.
 
 Example Fluid snippet
 =====================
