@@ -6,12 +6,18 @@
 Introduction to Fluid
 =====================
 
-Fluid is TYPO3’s default rendering engine but can also be used in a standalone PHP project.
-The Fluid source code is being developed as an independent project outside of the TYPO3 Core.
+Fluid is TYPO3’s default rendering engine but can also be used in standalone PHP projects.
+The `Fluid source code <https://github.com/TYPO3/Fluid>`__ is being developed as an 
+independent project outside of the TYPO3 Core.
 
-Fluid is based on XML.
-You can use HTML markup in Fluid, but you can do much more with Fluid, such as use conditions,
-variables or custom ViewHelpers which are PHP components.
+Fluid is based on XML and you can use HTML markup in Fluid. 
+
+Fluid ViewHelpers can be used for various purposes. Some transform data, some include 
+Partials, some loop over data or even set variables. You can find a complete list of 
+them in the :ref:`ViewHelper Reference <t3viewhelper:start>`.
+
+You can :ref:`write your own custom ViewHelper <t3extbasebook:developing-a-custom-viewhelper>`,
+which is a PHP component.
 
 Example Fluid snippet
 =====================
@@ -53,7 +59,7 @@ ViewHelpers:
    :ref:`write your own <t3extbasebook:developing-a-custom-viewhelper>`.
 
    ViewHelpers can do simple processing such as remove spaces with the
-   :ref:`t3viewhelper:typo3fluid-fluid-spaceless` Viewhelper or create a link
+   :ref:`t3viewhelper:typo3fluid-fluid-spaceless` ViewHelper or create a link
    as is done in the TYPO3 Fluid Viewhelper :ref:`t3viewhelper:typo3-fluid-link-page`.
 
 Object Accessors:
@@ -284,7 +290,7 @@ To get an introduction to the basics of Fluid:
 * `The Fluid Syntax <https://github.com/TYPO3/Fluid/blob/master/doc/FLUID_SYNTAX.md>`__
 * `ViewHelpers - what these classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/master/doc/FLUID_VIEWHELPERS.md>`__
 
-Depending on what you plan to do, you may want to follow one of these comprehensive
+You may want to follow one of these comprehensive
 tutorials:
 
 * :doc:`t3sitepackage:Index` which shows you how to create a theme for your site
