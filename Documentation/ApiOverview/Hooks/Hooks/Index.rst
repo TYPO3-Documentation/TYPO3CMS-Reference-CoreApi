@@ -189,26 +189,9 @@ particular extension. ::
 
 .. note::
 
-   :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']` is the recommended place where to
-   put hook configurations, which are processed inside of your extensions!
-
-This example shows hooks used in the "linkvalidator" system extension.
-The code looks inside the :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']` array
-for items listed under the "checkLinks" key of the "linkvalidator"
-extension itself. All found classes are stored in an array, to be instantiated
-and used at a later point. ::
-
-   /**
-    * Fill hookObjectsArr with different link types and possible XClasses.
-    */
-   public function __construct() {
-         // Hook to handle own checks
-      if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['linkvalidator']['checkLinks'])) {
-         foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['linkvalidator']['checkLinks'] as $key => $classRef) {
-            $this->hookObjectsArr[$key] = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance($classRef);
-         }
-      }
-   }
+   :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']` was the recommended place where to
+   put hook configurations inside third party extensions. It is not recommended anymore
+   to introduce news hooks. :ref:`Events <EventDispatcher>` should be used instead.
 
 
 .. index::
