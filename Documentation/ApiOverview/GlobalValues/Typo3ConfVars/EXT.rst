@@ -9,38 +9,6 @@ $GLOBALS['TYPO3_CONF_VARS']['EXT']
 ==================================
 
 .. index::
-   TYPO3_CONF_VARS SYS; allowGlobalInstall
-.. _typo3ConfVars_ext_allowGlobalInstall:
-
-$GLOBALS['TYPO3_CONF_VARS']['EXT']['allowGlobalInstall']
-========================================================
-
-.. confval:: allowGlobalInstall
-
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['EXT']
-   :type: bool
-   :Default: false
-
-   If set, global extensions in :file:`typo3/ext/` are allowed to be installed,
-   updated and deleted etc.
-
-.. index::
-   TYPO3_CONF_VARS SYS; allowLocalInstall
-.. _typo3ConfVars_ext_allowLocalInstall:
-
-$GLOBALS['TYPO3_CONF_VARS']['EXT']['allowLocalInstall']
-=======================================================
-
-.. confval:: allowLocalInstall
-
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['EXT']
-   :type: bool
-   :Default: true
-
-   If set, local extensions in :file:`typo3conf/ext/` are allowed to be
-   installed, updated and deleted etc.
-
-.. index::
    TYPO3_CONF_VARS SYS; excludeForPackaging
 .. _typo3ConfVars_ext_excludeForPackaging:
 
