@@ -45,12 +45,12 @@ You need to handle the integration yourself.
 
    Start of Crowdin integration for an extension
 
-A modal will open, allowing you to select the correct repository.
+A modal dialog window will open, allowing you to select the correct repository.
 
 Select branches
 ---------------
 
-Select the **main** branch you want to be translated.
+Select the **main** branch to be translated.
 
 
 .. figure:: /Images/ExternalImages/Crowdin/IntegrationBranches.png
@@ -68,7 +68,7 @@ Select the **main** branch you want to be translated.
 Push translations
 -----------------
 
-Click on the *Show advanced settings* link below to decide now how you want your translations to behave:
+Click on the *Show advanced settings* link below to decide how you want your translations to behave:
 
 .. figure:: /Images/ExternalImages/Crowdin/IntegrationPushTranslations.png
    :alt: Setting for translation pushes
@@ -87,7 +87,7 @@ Now click on the edit button next to the branch name to setup your branch config
    :alt: Branch configuration
    :width: 600px
 
-This will open a new modal and will ask for the **Configuration file name**. We propose the file name `.crowdin.yaml`
+This will open a new modal dialog window and will ask for the **Configuration file name**. We propose the file name `.crowdin.yaml`
 
 .. figure:: /Images/ExternalImages/Crowdin/IntegrationConfigurationFile.png
    :alt: Setting for translation pushes
@@ -101,14 +101,14 @@ Now you need to define where the language files are located.
    :alt: Location of translation files
    :width: 600px
 
-Typically the following setup will workout fine:
+The following setup will workout fine:
 
 - Source file path: `/Resources/Private/Language/`
 - Translated file path: `/%original_path%/%two_letters_code%.%original_file_name%`
 
-Please check in the right area of the model if all xlf files have been identified.
+Please check in the right area of the modal dialog window if all xlf files have been identified.
 
-Now press the green save button in upper left corner and then the save button in lower right corner.
+Now press the green save button on the upper middle border and then the save button in the lower right corner.
 
 Now press the last save button and you are done!
 
@@ -118,7 +118,7 @@ After a short time you should see something like that
    :alt: Result
    :width: 600px
 
-Clicking the Edit button will take you back to the :guilabel:`Select Branches` dialog from above.
+Clicking the Edit button or double click on the text "master" of your branch will take you back to the :guilabel:`Select Branches` dialog from above.
 
 Happy translating!
 
