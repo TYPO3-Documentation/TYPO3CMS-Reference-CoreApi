@@ -158,6 +158,13 @@ in the TYPO3 Core .
 
 .. toctree::
    :titlesonly:
+   :caption: info
+   :glob:
+
+   Info/*
+
+.. toctree::
+   :titlesonly:
    :caption: install
    :glob:
 
