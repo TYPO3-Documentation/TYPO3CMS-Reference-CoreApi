@@ -108,7 +108,7 @@ JavaScript.
 The solution
 ============
 
-The chapter :ref:`CKEditor (rte_ckeditor) <ext_rte_ckeditor:start>` includes examples
+The chapter :doc:`CKEditor (rte_ckeditor) <ext_rte_ckeditor:Index>` includes examples
 and common challenges for the frontend. You can use other editors with TYPO3
 and some points, like handling of data on the server, are independent of the
 distinct editor in the frontend. Therefore the chapter is advised even if you

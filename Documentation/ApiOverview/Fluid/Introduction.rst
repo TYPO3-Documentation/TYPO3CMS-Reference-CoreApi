@@ -7,14 +7,14 @@ Introduction to Fluid
 =====================
 
 Fluid is TYPO3’s default rendering engine but can also be used in standalone PHP projects.
-The `Fluid source code <https://github.com/TYPO3/Fluid>`__ is being developed as an 
+The `Fluid source code <https://github.com/TYPO3/Fluid>`__ is being developed as an
 independent project outside of the TYPO3 Core.
 
-Fluid is based on XML and you can use HTML markup in Fluid. 
+Fluid is based on XML and you can use HTML markup in Fluid.
 
-Fluid ViewHelpers can be used for various purposes. Some transform data, some include 
-Partials, some loop over data or even set variables. You can find a complete list of 
-them in the :ref:`ViewHelper Reference <t3viewhelper:start>`.
+Fluid ViewHelpers can be used for various purposes. Some transform data, some include
+Partials, some loop over data or even set variables. You can find a complete list of
+them in the :doc:`ViewHelper Reference <t3viewhelper:Index>`.
 
 You can :ref:`write your own custom ViewHelper <t3extbasebook:developing-a-custom-viewhelper>`,
 which is a PHP component.
@@ -147,7 +147,7 @@ Example: Using Fluid to create a theme
 ======================================
 
 This example was taken from the `example extension <https://github.com/TYPO3-Documentation/TYPO3CMS-Tutorial-SitePackage-Code/>`__
-for :ref:`t3sitepackage:start` and reduced to a very basic example.
+for :doc:`t3sitepackage:Index` and reduced to a very basic example.
 
 The Sitepackage Tutorial walks you through the creation of a sitepackage
 (theme) using Fluid. In our simplified example, the overall structure of
@@ -285,16 +285,16 @@ To get an introduction to the basics of Fluid:
 You may want to follow one of these comprehensive
 tutorials:
 
-* :ref:`t3sitepackage:start` which shows you how to create a theme for your site
+* :doc:`t3sitepackage:Index` which shows you how to create a theme for your site
   using Fluid.
 * :ref:`Create custom content elements <adding-your-own-content-elements>`
-* :ref:`t3extbasebook:start`
+* :doc:`t3extbasebook:Index`
 * Use Fluid to create emails using the :ref:`TYPO3 Mail API <mail-fluid-email>`
 
 Once you have successfully completed your fist steps, these references might come
 in handy:
 
 * `24 TIPS & TRICKS FOR FLUID <https://usetypo3.com/24-fluid-tips.html>`__
-* :ref:`Fluid Viewhelper Reference <t3viewhelper:start>`
+* :doc:`Fluid Viewhelper Reference <t3viewhelper:Index>`
 
 

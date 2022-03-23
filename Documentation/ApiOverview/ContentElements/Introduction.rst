@@ -53,7 +53,7 @@ Editing
 
 How to work with content elements and plugins?
 
-The :ref:`Editors Tutorial <t3editors:start>` describes how to work with
+The :doc:`Editors Tutorial <t3editors:Index>` describes how to work with
 :ref:`page content <t3editors:content-working>` and
 lists the :ref:`basic TYPO3 content elements <t3editors:content-types>`
 and how to work with them.

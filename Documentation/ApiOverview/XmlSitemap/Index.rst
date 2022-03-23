@@ -18,7 +18,7 @@ language. Per site and per language you have the possibility to render a differe
 .. note::
    The XML sitemap is provided by the optional system extension
    EXT:seo. You can find information about how to install and use it in the
-   :ref:`EXT:seo manual <ext_seo:start>`.
+   :doc:`EXT:seo manual <ext_seo:Index>`.
 
 Installation
 ============

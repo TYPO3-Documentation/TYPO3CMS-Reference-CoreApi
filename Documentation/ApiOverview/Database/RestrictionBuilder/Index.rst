@@ -7,7 +7,7 @@ RestrictionBuilder
 ==================
 
 Database tables in TYPO3 CMS that can be administrated in the backend come with
-:ref:`TCA <t3tca:start>` definitions that
+:doc:`TCA <t3tca:Index>` definitions that
 specify how single fields and rows of the table should be handled and displayed
 by the framework.
 
