@@ -58,7 +58,7 @@ XmlSitemapDataProviders
 =======================
 
 The rendering of sitemaps is based on XmlSitemapDataProviders. The EXT:seo extension ships with two
-XmlSitemapDataProviders. The first one is the PagesXmlSitemapDataProvider. 
+XmlSitemapDataProviders. The first one is the PagesXmlSitemapDataProvider.
 
 This will generate a sitemap of pages based on the siteroot that is detected. You can configure if you have additional conditions
 for the selection of pages. You also have the possibility to exclude certain doktypes.
@@ -168,8 +168,8 @@ not affect how important your pages are compared to pages of other websites. All
 0.5 by default.
 
 The settings can be defined in TypoScript by mapping the properties to fields of the record by using the options
-:ts:`changeFreqField` and :ts:`priorityField`. :ts:`changeFreqField` needs to point to a field containing
-string values (see :ts:`pages` TCA definition of field :ts:`sitemap_changefreq`), :ts:`priorityField` needs to point
+:typoscript:`changeFreqField` and :typoscript:`priorityField`. :typoscript:`changeFreqField` needs to point to a field containing
+string values (see :typoscript:`pages` TCA definition of field :typoscript:`sitemap_changefreq`), :typoscript:`priorityField` needs to point
 to a field with a decimal value between 0 and 1.
 
 .. note::
