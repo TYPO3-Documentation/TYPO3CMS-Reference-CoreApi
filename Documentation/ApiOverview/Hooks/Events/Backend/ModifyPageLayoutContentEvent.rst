@@ -52,7 +52,7 @@ The corresponding event listener class:
 API
 ===
 
-.. include:: /CodeSnippets/Events/Backend/ModifyQueryForLiveSearchEvent.rst.txt
+.. include:: /CodeSnippets/Events/Backend/ModifyPageLayoutContentEvent.rst.txt
 
 History / Migration
 ===================
