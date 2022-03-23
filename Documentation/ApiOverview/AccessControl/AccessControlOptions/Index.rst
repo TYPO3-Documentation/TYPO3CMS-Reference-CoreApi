@@ -69,7 +69,7 @@ Dashboard widgets
    .. note::
 
       This section is only available with activated
-      :ref:`dashboard <ext_dashboard:start>` system extension.
+      :doc:`dashboard <ext_dashboard:Index>` system extension.
 
 Tables for listing
    A list of all tables a user may be allowed to read in the backend.

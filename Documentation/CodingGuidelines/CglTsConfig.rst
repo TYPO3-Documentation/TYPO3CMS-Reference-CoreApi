@@ -39,4 +39,4 @@ More Information
 
 * See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to
   the coding guidelines.
-* :ref:`t3tsconfig:start`
+* :doc:`t3tsconfig:Index`

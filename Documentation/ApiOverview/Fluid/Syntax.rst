@@ -64,7 +64,7 @@ It is possible to access array or object values by a dynamic index::
 ViewHelper attributes
 =====================
 
-See the :ref:`Fluid Viewhelper Reference <t3viewhelper:start>` for a complete
+See the :doc:`Fluid Viewhelper Reference <t3viewhelper:Index>` for a complete
 list of all available ViewHelpers.
 
 Simple

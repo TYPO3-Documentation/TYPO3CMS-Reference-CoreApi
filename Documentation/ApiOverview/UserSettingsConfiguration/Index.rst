@@ -21,7 +21,7 @@ by default. These settings may be extended via extensions as described in
 The User Settings module has the most complex form in the TYPO3 backend
 not driven by TCA/TCEforms. Instead it uses its own PHP configuration
 array :php:`$GLOBALS['TYPO3_USER_SETTINGS']`. It is quite similar to
-:ref:`$GLOBALS['TCA'] <t3tca:start>`, but with less options.
+:doc:`$GLOBALS['TCA'] <t3tca:Index>`, but with less options.
 
 The actual values can be accessed via the array :php:`$GLOBALS['BE_USER']->uc`
 as described in :ref:`be-user-configuration`.

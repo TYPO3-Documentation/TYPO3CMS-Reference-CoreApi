@@ -22,7 +22,7 @@ rough categories:
 
 There are certain requirements for such managed tables:
 
-- The table must be configured in the :ref:`global TCA array <t3tca:start>`.
+- The table must be configured in the :doc:`global TCA array <t3tca:Index>`.
   This will tell TYPO3 CMS things like the table name,
   features you have configured, the fields of the table and how to
   render these in the backend, relations to other tables, etc.
