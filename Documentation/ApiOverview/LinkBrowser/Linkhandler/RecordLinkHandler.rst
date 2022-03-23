@@ -82,21 +82,21 @@ The minimal page TSconfig configuration is::
 
 The following optional configuration is available:
 
-:ts:`configuration.hidePageTree = 1`
+:typoscript:`configuration.hidePageTree = 1`
    Hide the page tree in the link browser
 
-:ts:`configuration.storagePid = 84`
+:typoscript:`configuration.storagePid = 84`
    The link browser starts with the given page
 
-:ts:`configuration.pageTreeMountPoints = 123,456`
+:typoscript:`configuration.pageTreeMountPoints = 123,456`
    Only records on these pages and their children will be displayed
 
 Furthermore the following options are available from the LinkBrowser Api:
 
-:ts:`configuration.scanAfter = page` or :ts:`configuration.scanBefore = page`
+:typoscript:`configuration.scanAfter = page` or :typoscript:`configuration.scanBefore = page`
    Define the order in which handlers are queried when determining the responsible tab for an existing link
 
-:ts:`configuration.displayBefore = page` or :ts:`configuration.displayAfter = page`
+:typoscript:`configuration.displayBefore = page` or :typoscript:`configuration.displayAfter = page`
    Define the order of how the various tabs are displayed in the link browser.
 
 

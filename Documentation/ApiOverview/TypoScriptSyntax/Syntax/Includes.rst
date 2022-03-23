@@ -29,7 +29,7 @@ files. The syntax is inspired by SASS imports and works as follows:
    # It's possible to omit the file ending, then "*.typoscript" is appended automatically
    @import 'EXT:myproject/Configuration/TypoScript/'
 
-The main benefits of :ts:`@import` compared to :ts:`<INCLUDE_TYPOSCRIPT>` are:
+The main benefits of :typoscript:`@import` compared to :typoscript:`<INCLUDE_TYPOSCRIPT>` are:
 
 - is less error-prone
 
@@ -43,13 +43,13 @@ The following rules apply:
 
 - Multiple files are imported in alphabetical order.
 
-- Recursion is allowed. Imported files can have :ts:`@import` statements.
+- Recursion is allowed. Imported files can have :typoscript:`@import` statements.
 
-- The :ts:`@import` statement does not take a condition clause as the old
-  :ts:`<INCLUDE_TYPOSCRIPT condition="">` statement did. That kind of condition
+- The :typoscript:`@import` statement does not take a condition clause as the old
+  :typoscript:`<INCLUDE_TYPOSCRIPT condition="">` statement did. That kind of condition
   should be considered a conceptual mistake. It should not be used.
 
-- Both the old syntax :ts:`<INCLUDE_TYPOSCRIPT>` and the new one :ts:`@import`
+- Both the old syntax :typoscript:`<INCLUDE_TYPOSCRIPT>` and the new one :typoscript:`@import`
   can be used at the same time.
 
 - Directory imports are not recursive, meaning that a directory import does
@@ -64,8 +64,8 @@ Under the hood, Symfony Finder is use to find the file and provides the
 
 *Outlook:*
 The syntax is designed to stay and there are absolutely no plans to
-extend the :ts:`@import` statement in the future. However, the
-:ts:`@...` syntax for annotations may be used to add more preparsing logic to
+extend the :typoscript:`@import` statement in the future. However, the
+:typoscript:`@...` syntax for annotations may be used to add more preparsing logic to
 TypoScript in future.
 
 

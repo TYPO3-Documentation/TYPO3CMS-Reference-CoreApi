@@ -242,7 +242,7 @@ For such classes an extension can override the global :yaml:`public: false` conf
         public: true
 
 With this configuration you can use dependency injection in :php:`\Vendor\MyExtension\UserFunction\ClassA`
-when it is created e.g. in the context of a :ts:`USER` TypoScript object which would not be possible if this
+when it is created e.g. in the context of a :typoscript:`USER` TypoScript object which would not be possible if this
 class was private.
 
 .. index:: Dependency injection; Errors
