@@ -1,8 +1,3 @@
-\|
-`Contributing <CONTRIBUTING.md>`__  \|
-`Help & Support <https://typo3.org/help>`__ \|
-`Settings <Documentation/Settings.cfg>`__ \|
-
 ===============
 TYPO3 explained
 ===============
