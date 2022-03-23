@@ -7,18 +7,6 @@
 TYPO3 Explained
 ===============
 
-.. rst-class:: horizbuttons-tip-m
-
-- :ref:`Configuration <configuration>`
-- :ref:`Doctrine-dbal <database>`
-- :ref:`DependencyInjection`
-- :ref:`FAL <fal>`
-- :ref:`Internationalization <internationalization>`
-- :ref:`PSR-15 middlewares <request-handling>`
-- :ref:`Routing <request-handling>`
-- :ref:`Security <security>`
-- :ref:`Sites <sitehandling>`
-
 :Version:
    |release|
 
@@ -50,14 +38,8 @@ management system TYPO3.
    Introduction/Index
 
 .. toctree::
-   :maxdepth: 2
-
-   ExtensionArchitecture/Index
-
-
-.. toctree::
    :caption: TYPO3 A-Z
-   :maxdepth: 2
+   :maxdepth: 1
 
    ApiOverview/Ajax/Index
    ApiOverview/Assets/Index
@@ -82,13 +64,14 @@ management system TYPO3.
    ApiOverview/Debugging/Index
    ApiOverview/DependencyInjection/Index
    ApiOverview/Deprecation/Index
-   ApiOverview/Fal/Index
    ApiOverview/DirectoryStructure/Index
    ApiOverview/Enumerations/Index
    ApiOverview/Environment/Index
    ApiOverview/ErrorAndExceptionHandling/Index
    ApiOverview/Hooks/Index
+   ExtensionArchitecture/Index
    ApiOverview/ExtensionScanner/Index
+   ApiOverview/Fal/Index
    ApiOverview/FlashMessages/Index
    ApiOverview/Fluid/Index
    ApiOverview/FormEngine/Index
@@ -133,6 +116,5 @@ management system TYPO3.
    :hidden:
 
    About
-   Quicklinks
    Sitemap
    genindex
