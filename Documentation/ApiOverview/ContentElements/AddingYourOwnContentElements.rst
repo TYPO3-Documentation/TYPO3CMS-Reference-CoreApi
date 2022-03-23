@@ -39,7 +39,7 @@ Prerequisites
 =============
 
 The following examples require the system extension
-:ref:`fluid_styled_content <fsc:start>`.
+:ref:`fluid_styled_content <ext_fsc:start>`.
 
 It can be installed via Composer with:
 
@@ -228,7 +228,7 @@ The :typoscript:`lib.contentElement` path is defined in file
 :file:`EXT:fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
 and uses a :ref:`t3tsref:cobj-fluidtemplate`.
 
-We reference :ref:`fluid_styled_contents <fsc:start>`
+We reference :ref:`fluid_styled_contents <ext_fsc:start>`
 :typoscript:`lib.contentElement` from our new content element and only change
 the Fluid template to be used.
 

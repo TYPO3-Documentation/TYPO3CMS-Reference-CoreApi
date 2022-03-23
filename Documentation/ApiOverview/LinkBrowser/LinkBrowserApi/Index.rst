@@ -9,7 +9,7 @@ LinkBrowser API
 
 .. versionadded:: 7.6
     The LinkBrowser in the TYPO3 backend was made configurable and included hooks,
-    see Change :doc:`t3core:Changelog/7.6/Feature-66369-AddedLinkBrowserAPIs`.
+    see Change :doc:`ext_core:Changelog/7.6/Feature-66369-AddedLinkBrowserAPIs`.
     This page has been updated to reflect the changes.
 
 

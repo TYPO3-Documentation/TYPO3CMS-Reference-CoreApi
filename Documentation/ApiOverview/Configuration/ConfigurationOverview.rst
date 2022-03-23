@@ -59,7 +59,7 @@ Extension files
 
 :file:`Configuration/Services.yaml`
    Can be used to configure :ref:`Console commands <symfony-console-commands>`,
-   :ref:`Dashboard widgets <t3dashboard:register-new-widget>`,
+   :ref:`Dashboard widgets <ext_dashboard:register-new-widget>`,
    :ref:`Event listeners <EventDispatcher>` and
    :ref:`Dependency injection <DependencyInjection>`.
 
@@ -88,8 +88,8 @@ These are the main languages TYPO3 uses for configuration:
 * :ref:`TypoScript constant syntax <t3tsref:typoscript-syntax-constant-editor>` is
   used for Extension Configuration and for defining constants for TypoScript.
 * :ref:`Yaml <yaml-syntax>` is the configuration language of choice for newer
-  TYPO3 system extensions like :ref:`rte_ckeditor <ckedit:start>`,
-  :ref:`form <form:start>` and the :ref:`sites module <sitehandling>`. It has
+  TYPO3 system extensions like :ref:`rte_ckeditor <ext_rte_ckeditor:start>`,
+  :ref:`form <ext_form:start>` and the :ref:`sites module <sitehandling>`. It has
   partly replaced TypoScript and TSconfig as configuration languages.
 * XML is used in :ref:`Flexforms <flexforms>`.
 * PHP is used for the :php:`$GLOBALS` array which includes TCA
@@ -258,10 +258,10 @@ Some system extensions use YAML for configuration:
 
 * :ref:`routing` is also defined in the file :file:`<project-root>/config/sites/<identifier>/config.yaml`.
 
-* :ref:`form <form:concepts-configuration>`: The Form engine is a system
+* :ref:`form <ext_form:concepts-configuration>`: The Form engine is a system
   extension which supplies Forms to use in the frontend
 
-* :ref:`rte_ckeditor <ckedit:configuration>`: RTE ckeditor is a system
+* :ref:`rte_ckeditor <ext_rte_ckeditor:configuration>`: RTE ckeditor is a system
   extension. It is used to enable rich text editing in the backend.
 
 * A file :file:`<extension>/Configuration/Services.yaml` can be used to configure

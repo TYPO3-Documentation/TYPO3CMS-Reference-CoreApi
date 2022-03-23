@@ -30,7 +30,7 @@ More information about the file ending:
 
 .. seealso::
 
-   Changelog: :doc:`t3core:Changelog/8.7.x/Feature-78161-IntroduceTypoScriptFileExtension`
+   Changelog: :doc:`ext_core:Changelog/8.7.x/Feature-78161-IntroduceTypoScriptFileExtension`
 
 Format
 ======
