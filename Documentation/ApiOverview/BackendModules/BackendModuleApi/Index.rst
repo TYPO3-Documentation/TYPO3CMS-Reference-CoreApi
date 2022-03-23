@@ -59,7 +59,7 @@ Parameters:
 #. The first argument contains the extension name (in UpperCamelCase)
    or the extension key (in lower_underscore). Since TYPO3 10.0,
    you should no longer prepend the vendor name here, see
-   :doc:`t3core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
+   :doc:`ext_core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
 #. **Main module** name, in which the new module will be placed,
    for example 'web' or 'system'.
 #. **Submodule key**: This is an identifier for your new module.
@@ -74,7 +74,7 @@ Parameters:
 
 #. Allowed **controller => action** combinations. Since TYPO3 10.0 you should
    use fully qualified class names here, see
-   :doc:`t3core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
+   :doc:`ext_core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
 #. **Module configuration**: The following options are available:
 
    *  ``access``: can contain several, separated by comma

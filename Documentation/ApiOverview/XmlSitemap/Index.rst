@@ -8,7 +8,7 @@ XML sitemap
 
 .. versionadded:: 9.4
 
-   XML Sitemap support was added to the Core with change :doc:`t3core:Changelog/9.4/Feature-84525-XMLSitemap`.
+   XML Sitemap support was added to the Core with change :doc:`ext_core:Changelog/9.4/Feature-84525-XMLSitemap`.
 
 It is possible to generate XML sitemaps for SEO purposes without using 3rd-party plugins.
 When enabled, this new feature will create a sitemapindex with one or more sitemaps in it.
@@ -18,7 +18,7 @@ language. Per site and per language you have the possibility to render a differe
 .. note::
    The XML sitemap is provided by the optional system extension
    EXT:seo. You can find information about how to install and use it in the
-   :ref:`EXT:seo manual <t3seo:start>`.
+   :ref:`EXT:seo manual <ext_seo:start>`.
 
 Installation
 ============
@@ -218,7 +218,7 @@ Path to sitemap xslFile
 .. versionadded:: 10.3
 
    It is now possible to configure the path to the sitemap xslFile.
-   See changelog :doc:`t3core:Changelog/10.3/Feature-88147-AddPossibilityToConfigureThePathToSitemapXslFile`
+   See changelog :doc:`ext_core:Changelog/10.3/Feature-88147-AddPossibilityToConfigureThePathToSitemapXslFile`
 
 The xsl file to create a layout for a XML sitemap can now be configured on three levels:
 
