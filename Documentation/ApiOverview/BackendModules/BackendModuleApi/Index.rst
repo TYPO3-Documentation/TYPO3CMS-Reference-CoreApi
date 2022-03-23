@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
 .. index:: Backend modules; API
-.. _backend-modules-api:
 
 ===================
 Backend module API
@@ -19,7 +18,6 @@ for the functionality.
 .. index::
    Backend modules; Registration
    File; EXT:{extkey}/ext_tables.php
-.. _backend-modules-api-registration:
 
 Adding new modules
 ==================
