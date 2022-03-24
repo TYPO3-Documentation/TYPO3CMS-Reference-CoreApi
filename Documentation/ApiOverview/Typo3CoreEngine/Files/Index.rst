@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -244,7 +244,7 @@ Configure file extensions via $GLOBALS['TYPO3\_CONF\_VARS']['BE']['fileExtension
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 File extensions can be configured via :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileExtensions']`.
-For legacy reasons you have to add the sub-key :php:`webspace` in 
+For legacy reasons you have to add the sub-key :php:`webspace` in
 TYPO3 8LTS.
 
 The control is done like this: if an extension matches 'allow' then

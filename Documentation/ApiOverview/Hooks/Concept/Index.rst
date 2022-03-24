@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -12,7 +12,7 @@ The concept of "hooks"
 
 Hooks are basically places in the source code where a user function
 will be called for processing if such has been configured. Hooks
-provide an easy way to extend the functionality of TYPO3 and its extensions without 
+provide an easy way to extend the functionality of TYPO3 and its extensions without
 blocking others to do the same.
 
 
@@ -22,7 +22,7 @@ Hooks vs. XCLASS extensions
 """""""""""""""""""""""""""
 
 Hooks are the recommended way of extending TYPO3 compared to extending
-PHP classes with a child class (see "XCLASS extensions"). Because only 
+PHP classes with a child class (see "XCLASS extensions"). Because only
 one extension of a PHP class can exist at a time while
 hooks may allow many different user-designed processor functions to
 be executed. However, hooks have to be implemented in the TYPO3 core

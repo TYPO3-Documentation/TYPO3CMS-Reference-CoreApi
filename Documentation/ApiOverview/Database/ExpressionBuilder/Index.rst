@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _database-expression-builder:
 
@@ -237,7 +237,7 @@ The call to :php:`$queryBuilder->expr()-trim()` can be one of the following:
   results in :code:`TRIM(TRAILING "x" FROM "tableName"."fieldName")`
 * :php:`trim('fieldName', AbstractPlatform::TRIM_BOTH, 'x')`
   results in :code:`TRIM(BOTH "x" FROM "tableName"."fieldName")`
-  
+
 LENGTH
 %%%%%%
 

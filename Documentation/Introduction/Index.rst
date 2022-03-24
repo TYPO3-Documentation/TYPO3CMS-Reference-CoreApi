@@ -7,7 +7,7 @@
 ..   extended to explain the basic concepts of TYPO3
 .. -------------------------------------------------
 
-.. include:: ../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 

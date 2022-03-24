@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _rte-plug:
@@ -11,7 +11,7 @@ Plugging a RTE
 
    `Issue #78 <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/78>`_
    states that this contents needs an update. It says:
-     
+
       The documentation of "Plugging a RTE" seems to be deprecated since TYPO3 CMS 7.4.
       RTE registration isn't made via :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['RTE_reg']` anymore.
       Instead the NodeFactory API is used.

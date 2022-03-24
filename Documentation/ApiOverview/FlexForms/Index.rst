@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _flexforms:
 
@@ -98,7 +98,7 @@ Steps to Perform (Extension Developer)
 
    .. code-block:: php
 
-       // plugin signature: <extension key without underscores>_<plugin name in lowercase> 
+       // plugin signature: <extension key without underscores>_<plugin name in lowercase>
        $pluginSignature = 'example_registration';
        $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
@@ -237,7 +237,7 @@ on database fields of current record or be defined by a user function.
     <config>
         <type>select</type>
         <!-- Hide field if value of neighbour field "settings.orderBy" on same sheet is not "title" -->
-    </config>    
+    </config>
     <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
 
 Again, the syntax and available fields and comparison operators is documented
@@ -318,7 +318,7 @@ How to Access Flexforms From TypoScript
             }
         }
     }
-    
+
 The key `flexform` is followed by the field which holds the Flexform data (`pi_flexform`) and the name of the property whose content should be retrieved (`settings.categories`).
 
 .. seealso::

@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _tsconfig:
@@ -56,7 +56,7 @@ it is recommended for extension developers to make use of the PHP classes:
 
 Usages for fetching all available PageTS in one large string (not parsed yet):
 
-.. code-block:: php 
+.. code-block:: php
 
     $loader = GeneralUtility::makeInstance(PageTsConfigLoader::class);
     $tsConfigString = $loader->load($rootLine);
