@@ -213,8 +213,8 @@ Running the Command From the Scheduler
 
    The :ref:`schedulable` option is available since v9.4.
 
-By default, it is possible to run the command from the :ref:`TYPO3 scheduler
-<ext_scheduler:start>` as well. To do this, select the task :guilabel:`Execute console commands`
+By default, it is possible to run the command from the :doc:`TYPO3 scheduler
+<ext_scheduler:Index>` as well. To do this, select the task :guilabel:`Execute console commands`
 followed by your command in the :guilabel:`Schedulable Command` field.
 
 .. note::

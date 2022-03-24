@@ -105,7 +105,7 @@ $GLOBALS
    :Defined:
          :php:`Bootstrap::loadExtensionTables()`
    :Description:
-         See :ref:`TCA Reference<t3tca:start>`
+         See :doc:`TCA Reference<t3tca:Index>`
    :FE:
          Yes, partly
 
