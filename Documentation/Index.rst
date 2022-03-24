@@ -7,12 +7,6 @@
 TYPO3 Explained
 ===============
 
-.. rst-class:: horizbuttons-tip-m
-
-- :ref:`Configuration <configuration>`
-- :ref:`Doctrine-dbal <database>`
-- :ref:`Internationalization <internationalization>`
-
 :Version:
    |release|
 
@@ -44,13 +38,8 @@ management system TYPO3.
    Introduction/Index
 
 .. toctree::
-   :maxdepth: 2
-
-   ExtensionArchitecture/Index
-
-.. toctree::
    :caption: TYPO3 A-Z
-   :maxdepth: 2
+   :maxdepth: 1
 
    ApiOverview/Autoloading/Index
    ApiOverview/BackendUserObject/Index
@@ -62,6 +51,7 @@ management system TYPO3.
    ApiOverview/GlobalValues/Constants/Index
    ApiOverview/ContentElements/Index
    ApiOverview/Database/Index
+   ExtensionArchitecture/Index
    ApiOverview/Hooks/Index
    ApiOverview/FlashMessages/Index
    ApiOverview/FormProtection/Index
@@ -92,6 +82,5 @@ management system TYPO3.
    :hidden:
 
    About
-   Quicklinks
    Sitemap
    genindex
