@@ -38,5 +38,4 @@ More information can be found in these chapters:
 .. seealso::
 
    * :ref:`typoscript-syntax-start`
-   * :ref:`yaml`
 

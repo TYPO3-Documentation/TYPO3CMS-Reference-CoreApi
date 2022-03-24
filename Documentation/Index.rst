@@ -49,8 +49,6 @@ management system TYPO3.
    CodingGuidelines/Index
    ApiOverview/Configuration/Index
    ApiOverview/GlobalValues/Constants/Index
-   ApiOverview/ContentElements/Index
-   ApiOverview/Database/Index
    ExtensionArchitecture/Index
    ApiOverview/Hooks/Index
    ApiOverview/FlashMessages/Index

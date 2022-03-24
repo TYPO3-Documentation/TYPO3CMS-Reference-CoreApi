@@ -38,8 +38,6 @@ Furthermore, we have:
 
 
 
-.. _next-steps:
-
 Further Documentation
 =====================
 

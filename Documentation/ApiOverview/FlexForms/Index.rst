@@ -120,7 +120,7 @@ Steps to Perform (Extension Developer)
    The settings can be read using one of the methods described below, e.g.
    :ref:`from an Extbase controller action <read-flexforms-extbase>`,
    :ref:`from a PHP function <read-flexforms-php>` (without using the
-   Extbase framework), from :ref:`TypoScript <read-flexforms-ts>` or
+   Extbase framework) or
    from within a :ref:`Fluid template <read-flexforms-fluid>`.
 
 
