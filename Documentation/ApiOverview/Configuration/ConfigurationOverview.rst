@@ -250,10 +250,10 @@ Some system extensions use YAML for configuration:
 
 * :ref:`routing` is also defined in the file :file:`<project-root>/config/sites/<identifier>/config.yaml`.
 
-* :ref:`form <form:concepts-configuration>`: The Form engine is a system
+* :ref:`form <ext_form:concepts-configuration>`: The Form engine is a system
   extension which supplies Forms to use in the frontend
 
-* :ref:`rte_ckeditor <ckedit:configuration>`: RTE ckeditor is a system
+* :ref:`rte_ckeditor <ext_rte_ckeditor:configuration>`: RTE ckeditor is a system
   extension. It is used to enable rich text editing in the backend.
 
 There is a :ref:`YamlFileLoader <yamlFileLoader>` which can be used to load YAML

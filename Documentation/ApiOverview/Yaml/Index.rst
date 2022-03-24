@@ -11,8 +11,8 @@ YAML API
 YAML is used in TYPO3 for various configurations; most notable are
 
 * :ref:`Site configuration <sitehandling>` in :file:`sites/<identifier>/config.yaml`
-* System extension :ref:`form <form:start>` configuration
-* System extension :ref:`rte_ckeditor  <ckedit:start>` configuration
+* System extension :ref:`form <ext_form:start>` configuration
+* System extension :ref:`rte_ckeditor  <ext_rte_ckeditor:start>` configuration
 
 
 

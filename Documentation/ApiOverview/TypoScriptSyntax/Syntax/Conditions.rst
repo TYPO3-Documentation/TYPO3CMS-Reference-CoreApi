@@ -331,7 +331,7 @@ Migration from the legacy condition syntax
 
    The old condition syntax was deprecated in TYPO3v9 and removed in TYPO3v10
    with the introduction of the Symfony Expression Language (SEL) in this change:
-   :doc:`t3core:Changelog/9.4/Feature-85829-ImplementSymfonyExpressionLanguageForTypoScriptConditions`
+   :doc:`ext_core:Changelog/9.4/Feature-85829-ImplementSymfonyExpressionLanguageForTypoScriptConditions`
 
 
 For information on how to migrate from the old pre-SEL style TypoScript conditions
