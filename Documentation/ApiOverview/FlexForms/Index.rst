@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _flexforms:
 
@@ -237,7 +237,7 @@ on database fields of current record or be defined by a user function.
     <config>
         <type>select</type>
         <!-- Hide field if value of neighbour field "settings.orderBy" on same sheet is not "title" -->
-    </config>    
+    </config>
     <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
 
 Again, the syntax and available fields and comparison operators is documented

@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _cgl-typo3-directory-structure:
@@ -76,7 +76,7 @@ directories:
          :code:`typo3temp/`
 
    Description
-         Directory for temporary files. It contains subdirectories (see below) 
+         Directory for temporary files. It contains subdirectories (see below)
          for temporary files of extensions and TYPO3 components.
 
 .. container:: table-row
@@ -85,7 +85,7 @@ directories:
          :code:`typo3temp/assets/`
 
    Description
-         Directory for temporary files that should be public available 
+         Directory for temporary files that should be public available
          (e.g. generated images).
 
 .. container:: table-row
@@ -94,7 +94,7 @@ directories:
          :code:`typo3temp/var/`
 
    Description
-         Directory for temporary files that contains private files (e.g. cached 
+         Directory for temporary files that contains private files (e.g. cached
          Fluid templates) and should not be publicly available.
 
 .. container:: table-row

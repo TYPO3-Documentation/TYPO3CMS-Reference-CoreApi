@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 Appendix A: Historical perspective on RTE transformations
 ---------------------------------------------------------

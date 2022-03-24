@@ -3,7 +3,7 @@
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. include:: ../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _page-types:
@@ -29,7 +29,7 @@ This is the default array as set in :file:`EXT:core/ext_tables.php`::
     ),
     ...
     //  Doktype 254 is a 'Folder' - a general purpose storage folder for whatever you like. In CMS context it's NOT a viewable page. Can contain any element.
-    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SYSFOLDER => array( 
+    (string) \TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_SYSFOLDER => array(
         'type' => 'sys',
         'allowedTables' => '*'
     ),
