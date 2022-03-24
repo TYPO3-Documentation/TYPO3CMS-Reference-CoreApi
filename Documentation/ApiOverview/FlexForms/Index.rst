@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _flexforms:
 
@@ -120,7 +120,7 @@ Steps to Perform (Extension Developer)
    The settings can be read using one of the methods described below, e.g.
    :ref:`from an Extbase controller action <read-flexforms-extbase>`,
    :ref:`from a PHP function <read-flexforms-php>` (without using the
-   Extbase framework), from :ref:`TypoScript <read-flexforms-ts>` or
+   Extbase framework) or
    from within a :ref:`Fluid template <read-flexforms-fluid>`.
 
 
@@ -237,7 +237,7 @@ on database fields of current record or be defined by a user function.
     <config>
         <type>select</type>
         <!-- Hide field if value of neighbour field "settings.orderBy" on same sheet is not "title" -->
-    </config>    
+    </config>
     <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
 
 Again, the syntax and available fields and comparison operators is documented

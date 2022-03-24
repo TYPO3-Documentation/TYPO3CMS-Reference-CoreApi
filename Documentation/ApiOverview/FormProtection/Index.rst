@@ -1,9 +1,4 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -136,7 +131,7 @@ Usage in the Frontend
 
 .. versionadded:: 7.6
 
-:doc:`t3core:Changelog/7.6/Feature-56633-FormProtectionAPIForFrontEndUsage` introduced a new
+:doc:`ext_core:Changelog/7.6/Feature-56633-FormProtectionAPIForFrontEndUsage` introduced a new
 class to allow usage of the FormProtection (CSRF protection) API in the frontend.
 
 Usage is the same as in backend context:

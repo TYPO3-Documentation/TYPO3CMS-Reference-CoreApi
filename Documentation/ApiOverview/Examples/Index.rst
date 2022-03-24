@@ -1,14 +1,15 @@
-.. include:: ../../Includes.txt
+:orphan:
+
+.. include:: /Includes.rst.txt
 
 
+.. todo:: merge examples into other chapters in TYPO3 API
 
 .. _examples:
 
 ================
 Various examples
 ================
-
-.. todo:: merge examples into other chapters in TYPO3 API
 
 For a list of TYPO3 features, see the
 

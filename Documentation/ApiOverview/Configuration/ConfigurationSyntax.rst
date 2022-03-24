@@ -1,5 +1,5 @@
 
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _configuration-syntax:
 
@@ -38,5 +38,4 @@ More information can be found in these chapters:
 .. seealso::
 
    * :ref:`typoscript-syntax-start`
-   * :ref:`yaml`
 

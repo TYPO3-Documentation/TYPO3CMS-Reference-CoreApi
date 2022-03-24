@@ -1,9 +1,4 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _locallang:
@@ -20,7 +15,7 @@ The content is always in utf-8.
 llXML files must be used from inside extension directories
 (system/global/local).
 
-See :ref:`Inside TYPO3 <t3inside:start>` for more details about these files
+See :doc:`Inside TYPO3 <t3inside:Index>` for more details about these files
 and the application of this format.
 
 llXML files from installed extensions can be translated locally by a backend tool

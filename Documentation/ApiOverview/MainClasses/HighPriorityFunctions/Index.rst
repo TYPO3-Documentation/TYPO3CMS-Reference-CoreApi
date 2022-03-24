@@ -1,9 +1,4 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -589,9 +584,9 @@ real documentation is found in the source scripts (and the
          Always use these functions if you need to get some arbitrary icon
          (:code:`getSpriteIcon()`), the correct icon for a record
          (:code:`getSpriteIconForRecord()`) or for a file (:code:`getSpriteIconForFile()`).
-         For records, there needs to be a proper definition in the :ref:`$TCA <t3tca:start>`.
+         For records, there needs to be a proper definition in the :doc:`$TCA <t3tca:Index>`.
 
-         More information about skinning is found in the :ref:`t3skinning:start`. ::
+         More information about skinning is found in the :doc:`t3skinning:Index`. ::
 
             	// Getting default icon for the "tt_content" table
             $icon = \TYPO3\CMS\Backend\Utility\IconUtility::getSpriteIconForRecord(

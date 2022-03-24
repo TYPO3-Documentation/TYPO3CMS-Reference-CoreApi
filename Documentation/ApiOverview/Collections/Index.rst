@@ -1,9 +1,4 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -16,7 +11,7 @@ System collections
 ------------------
 
 Since TYPO3 CMS 4.7 there exists a generic interface for managing
-collections of records. The :ref:`File Abstraction Layer <t3fal:start>` itself extends
+collections of records. The :doc:`File Abstraction Layer <t3fal:Index>` itself extends
 this mechanism for managing file collections.
 
 

@@ -1,9 +1,4 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -134,7 +129,7 @@ Global variables
    :Defined:
          Bootstrap::loadExtensionTables()
    :Description:
-         See :ref:`TCA Reference<t3tca:start>`
+         See :doc:`TCA Reference <t3tca:Index>`
    :FE:
          Yes, partly
 

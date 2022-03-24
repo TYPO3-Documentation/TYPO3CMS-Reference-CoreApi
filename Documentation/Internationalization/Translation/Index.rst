@@ -1,9 +1,4 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _xliff-translating:
@@ -27,7 +22,7 @@ new "Language" module since version 6.0).
 
 It is not the point of this manual to go into the details of the translation
 process. More information can be found in the
-:ref:`Frontend Localization Guide <t3translate:start>`.
+:doc:`Frontend Localization Guide <t3translate:Index>`.
 
 
 .. _xliff-translating-local:

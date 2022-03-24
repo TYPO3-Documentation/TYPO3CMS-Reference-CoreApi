@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _introduction:
 
@@ -42,7 +42,7 @@ A basic installation
 To follow this document, it might help to have a totally trimmed down installation
 of TYPO3 CMS with *only* the core and the required system extensions at hand.
 
-The installation process is covered in the :ref:`Installation and Upgrade Guide <t3install:start>`.
+The installation process is covered in the :doc:`Installation and Upgrade Guide <t3install:Index>`.
 You should perform the basic installation steps and not install any distribution.
 This will give you the "lightest" possible version of TYPO3 CMS.
 

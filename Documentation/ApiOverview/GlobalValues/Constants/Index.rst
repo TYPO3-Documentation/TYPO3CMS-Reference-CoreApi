@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _globals-constants:
 
@@ -244,7 +244,7 @@ Table 1: Traditional List
          want a shell executable PHP script to initialize a TYPO3 backend.
 
          For more details see :ref:`Initializing TYPO3 backend in a PHP
-         shell script <t3inside:initialize-cli-mode>` in :ref:`Inside TYPO3 <t3inside:start>`.
+         shell script <t3inside:initialize-cli-mode>` in :doc:`Inside TYPO3 <t3inside:Index>`.
    :FE:
          No
 

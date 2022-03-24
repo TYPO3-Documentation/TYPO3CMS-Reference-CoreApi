@@ -1,6 +1,6 @@
 :orphan:
 
-.. include:: Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -11,20 +11,20 @@ This manual covers many different APIs of the TYPO3 CMS Core, but some
 other manuals exist which cover more specific aspects. They are listed
 below:
 
-:ref:`t3tca:start`
+:doc:`t3tca:Index`
   Detailed description of the Table Control Array (TCA) which is used to
   fully describe database tables used in TYPO3.
 
-:ref:`t3skinning:start`
+:doc:`t3skinning:Index`
   All things related to skinning, CSS and icons, for the TYPO3 backend.
 
-:ref:`t3services:start`
+:doc:`t3services:Index`
   Services are libraries which can be loaded flexibly based on various
   conditions.
 
-:ref:`t3fal:start` (8.7)
+:doc:`t3fal:Index` (8.7)
   The complete reference for the File Abstraction Layer introduced in TYPO3 CMS 6.0.
 
-:ref:`t3inside:start`
+:doc:`t3inside:Index`
   The "sister" manual to this one. Describes the general principles underlying
   the TYPO3 CMS Core.

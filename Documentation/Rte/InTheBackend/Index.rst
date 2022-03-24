@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _rte-backend:
@@ -25,7 +25,7 @@ tables, etc.
    The rtehtmlarea RTE activated in the TYPO3 backend
 
 For full details about setting up a field to use a RTE, please refer to the
-:ref:`TCA Reference <t3tca:start>`.
+:doc:`TCA Reference <t3tca:Index>`.
 
 The short story is that it's enough to add the key :code:`defaultExtras`
 to the configuration of the column with the string :code:`richtext[]` as value:

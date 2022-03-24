@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _extension-options:
@@ -43,7 +43,7 @@ Once you saved the configuration in the ExtensionManager, it will be stored in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']`
 as a serialized array.
 
-To fetch the value of :ts:`temporaryDirectory` from the example above,
+To fetch the value of :typoscript:`temporaryDirectory` from the example above,
 you could simply use::
 
    $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['your_extension_key']);
