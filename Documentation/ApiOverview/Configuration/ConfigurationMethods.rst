@@ -49,7 +49,7 @@ This manual covers many different APIs of the TYPO3 CMS Core, but some
 other documents exist which cover more specific aspects.
 
 
-:ref:`TCA Reference <t3tca:start>`
+:doc:`TCA Reference <t3tca:Index>`
 ----------------------------------
 
 `TCA` is the backbone of database tables displayed in the backend, it configures
@@ -57,13 +57,13 @@ how data is stored if editing records in the backend, how fields are displayed,
 relations to other tables and much more. It is a huge array loaded in almost all
 access contexts.
 
-A detailed insight on `TCA` is documented in the :ref:`TCA Reference <t3tca:start>`.
+A detailed insight on `TCA` is documented in the :doc:`TCA Reference <t3tca:Index>`.
 Next to a small introduction, the document forms a complete reference of all
 different `TCA` options, with bells and whistles. The document is a must-read for
 Developers, partially for Integrators, and is often used as a reference book on a daily basis.
 
 
-:ref:`TypoScript Reference <t3tsref:start>`
+:doc:`TypoScript Reference <t3tsref:Index>`
 -------------------------------------------
 
 `TypoScript` - or more precisely `Frontend TypoScript` - is used in TYPO3 to steer
@@ -76,11 +76,11 @@ often used. Nowadays, TypoScript in real life projects is often not much more th
 set a series of options for plugins, to set some global config options, and to act as a simple
 pre processor between database data and Fluid templates.
 
-Still, the :ref:`TypoScript Reference <t3tsref:start>` reference document that goes deep into
+Still, the :doc:`TypoScript Reference <t3tsref:Index>` reference document that goes deep into
 the incredible power of Frontend TypoScript is daily bread for Integrators.
 
 
-:ref:`TSconfig Reference <t3tsconfig:start>`
+:doc:`TSconfig Reference <t3tsconfig:Index>`
 --------------------------------------------
 
 While `Frontend TypoScript` is used to steer the rendering of the frontend, `TSconfig` is used
