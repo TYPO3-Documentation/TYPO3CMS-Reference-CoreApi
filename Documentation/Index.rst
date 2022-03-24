@@ -59,17 +59,17 @@ management system TYPO3.
    ApiOverview/CropVariants/Index
    ApiOverview/Database/Index
    ApiOverview/Deprecation/Index
+   ApiOverview/Fal/Index
    ApiOverview/DirectoryStructure/Index
    ApiOverview/Enumerations/Index
    ApiOverview/Environment/Index
    ApiOverview/ErrorAndExceptionHandling/Index
-   ApiOverview/Hooks/Index
    ExtensionArchitecture/Index
    ApiOverview/ExtensionScanner/Index
-   ApiOverview/Fal/Index
    ApiOverview/FlashMessages/Index
    ApiOverview/FormEngine/Index
    ApiOverview/FormProtection/Index
+   ApiOverview/Hooks/Index
    ApiOverview/Http/Index
    ApiOverview/Icon/Index
    ApiOverview/Internationalization/Index
