@@ -51,7 +51,7 @@ away from this chapter.
 * :ref:`Logging configuration ➜ <logging-configuration>`
 * :ref:`Rich text configuration ➜ <ext_rte_ckeditor:configuration>` (rte_ckeditor)
 * :ref:`Site, language, routing configuration ➜ <sitehandling>`
-* :ref:`TCA Reference ➜ <t3tca:start>`
-* :ref:`TSconfig Reference ➜ <t3tsconfig:start>`
-* :ref:`TypoScript Templating Reference ➜ <t3tsref:start>`
+* :doc:`TCA Reference ➜ <t3tca:Index>`
+* :doc:`TSconfig Reference ➜ <t3tsconfig:Index>`
+* :doc:`TypoScript Templating Reference ➜ <t3tsref:Index>`
 

@@ -30,7 +30,7 @@ Prerequisites
 =============
 
 Some of the following steps (specifically the ones using ``lib.contentElement``) require the system
-extension :ref:`fluid_styled_content <ext_fsc:start>`. If you do not use **fluid_styled_content**, you
+extension :doc:`fluid_styled_content <ext_fsc:Index>`. If you do not use **fluid_styled_content**, you
 must create and initialize the ``lib.contentElement`` TypoScript object yourself.
 
 .. _AddingCE-use-an-extension:
@@ -257,7 +257,7 @@ The new field *tx_examples_separator* is added to the TCA definition of the tabl
    ];
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumn);
 
-You can read more about defining fields via TCA in the :ref:`t3tca:start`.
+You can read more about defining fields via TCA in the :doc:`t3tca:Index`.
 
 Now the new field can be used in your Fluid template just like any other
 tt_content field.

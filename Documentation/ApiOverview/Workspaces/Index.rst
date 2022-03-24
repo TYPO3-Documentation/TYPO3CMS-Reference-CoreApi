@@ -12,7 +12,7 @@ currently visible (live) version. Changes can be previewed and
 go through an approval process before publishing.
 
 The technical background and a practical user guide to this feature
-are provided in the :ref:`"workspaces" system extension manual <ext_workspaces:start>`.
+are provided in the :doc:`"workspaces" system extension manual <ext_workspaces:Index>`.
 
 All the information necessary for making any database table
 compatible with workspaces is described in the
