@@ -55,11 +55,11 @@ management system TYPO3.
    ApiOverview/Enumerations/Index
    ApiOverview/ErrorAndExceptionHandling/Index
    ExtensionArchitecture/Index
-   ApiOverview/Hooks/Index
    ApiOverview/FlashMessages/Index
    ApiOverview/FormEngine/Index
    ApiOverview/FormProtection/Index
    ApiOverview/Http/Index
+   ApiOverview/Hooks/Index
    ApiOverview/Icon/Index
    Internationalization/Index
    ApiOverview/JavaScript/Index

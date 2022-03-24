@@ -1,14 +1,9 @@
 .. include:: /Includes.rst.txt
 
-
-
-
-
-
 .. _syslog:
 
-Using the system log
---------------------
+System log
+----------
 
 .. note::
 
