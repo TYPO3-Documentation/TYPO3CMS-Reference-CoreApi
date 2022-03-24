@@ -45,12 +45,10 @@ management system TYPO3.
    ApiOverview/BackendUserObject/Index
    ApiOverview/Bootstrapping/Index
    CachingFramework/Index
-   ApiOverview/Categories/Index
    CodingGuidelines/Index
    ApiOverview/Configuration/Index
    ApiOverview/GlobalValues/Constants/Index
    ExtensionArchitecture/Index
-   ApiOverview/Hooks/Index
    ApiOverview/FlashMessages/Index
    ApiOverview/FormProtection/Index
    ApiOverview/Hooks/Index
@@ -63,6 +61,7 @@ management system TYPO3.
    ApiOverview/Namespaces/Index
    PageTypes/Index
    Rte/Index
+   ApiOverview/Categories/Index
    ApiOverview/Collections/Index
    ApiOverview/SystemLog/Index
    ApiOverview/SystemRegistry/Index
