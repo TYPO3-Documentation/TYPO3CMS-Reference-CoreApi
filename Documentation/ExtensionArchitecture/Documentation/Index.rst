@@ -12,7 +12,7 @@ documentation to your extension. Documentation will help users and administrator
 and use your extension.
 
 We will give you a short overview here, but for more information, please see the guide
-:ref:`Writing documentation <h2document:start>` and specifically:
+:doc:`Writing documentation <h2document:Index>` and specifically:
 
 * General information about TYPO3 documentation: :ref:`h2document:basic-principles`
 * Get started using reST: :ref:`h2document:Formatting-with-reST`
@@ -23,7 +23,7 @@ The documentation platform https://docs.typo3.org centralizes documentation for 
 different kinds of documentation:
 
 #. **(recommended)** A Sphinx project, stored within :file:`EXT:{extkey}/Documentation/`
-#. Other formats, such as a simple README file stored as :file:`EXT:{extkey}/README.rst`, see :ref:`h2document:supported-filenames-and-formats`
+#. Other formats, such as a simple README file stored as :file:`EXT:{extkey}/README.rst`, see :ref:`h2document:file-structure-general`
 
 
 .. _extension-documentation-sphinx:
@@ -56,7 +56,7 @@ provides tools that help to create a Sphinx documentation project:
 Other Formats
 =============
 
-Other formats besides the recommended format are possible as described in :ref:`h2document:supported-filenames-and-formats`.
+Other formats besides the recommended format are possible as described in :ref:`h2document:file-structure-general`.
 However, please consider using the recommended format (sphinx project in `Documentation` directory)
 as described here.
 
