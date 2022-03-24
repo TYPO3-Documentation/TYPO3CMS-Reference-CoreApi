@@ -138,7 +138,7 @@ proc
 
          The transformations are only initialized, if they are configured
          (:code:`rte_transform` must be set for the field in
-         :ref:`TCA <t3tca:start>`).
+         :doc:`TCA <t3tca:Index>`).
 
          The :code:`proc` object is processed in :code:`\TYPO3\CMS\Core\Html\RteHtmlParser` and is
          *independant* of the particular RTE used (like transformations generally are!).

@@ -6,7 +6,7 @@
 ['ctrl'] section
 ^^^^^^^^^^^^^^^^
 
-Just like with the :ref:`$TCA <t3tca:start>`, the [ctrl] section contains some general
+Just like with the :doc:`$TCA <t3tca:Index>`, the [ctrl] section contains some general
 options that affect the global rendering of the form.
 
 .. t3-field-list-table::

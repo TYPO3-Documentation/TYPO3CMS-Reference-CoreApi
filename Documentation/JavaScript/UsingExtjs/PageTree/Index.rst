@@ -23,7 +23,7 @@ global viewport as a :ref:`navigation component <viewport-navigation>`.
    it does provide a clean API for context-sensitive menu items.
 
 The options available to configure the page tree are described in the
-:ref:`TSconfig reference<t3tsconfig:start>`.
+:doc:`TSconfig reference <t3tsconfig:Index>`.
 
 Additionally a limit can be set to the number of pages preloaded by the tree.
 Loading more pages will make it more responsive, but also increases the number

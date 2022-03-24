@@ -37,7 +37,7 @@ to evaluate against. This means you cannot use TCEmain from the
 frontend scope. Thus writing to tables (such as a guestbook) will have
 to be done from the frontend *without* TCEmain.
 
-The features of the $TCA are described in the :ref:`TCA Reference<t3tca:start>`.
+The features of the $TCA are described in the :doc:`TCA Reference <t3tca:Index>`.
 
 
 .. _tce-files:
