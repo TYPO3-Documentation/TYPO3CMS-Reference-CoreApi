@@ -39,8 +39,8 @@ Furthermore, we have:
 
 Additionally, some system extensions use yaml for configuration:
 
-* :ref:`form <form:concepts-configuration>`
-* :ref:`rte_ckeditor <ckedit:configuration>`
+* :ref:`form <ext_form:concepts-configuration>`
+* :ref:`rte_ckeditor <ext_rte_ckeditor:configuration>`
 
 Further Documentation
 =====================
