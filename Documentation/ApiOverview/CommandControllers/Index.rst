@@ -16,10 +16,10 @@ TYPO3 uses Symfony commands API for writing CLI (command line interface) command
 These commands can also be run from the TYPO3 :ref:`scheduler <symfony-console-commands-scheduler>`.
 
 .. deprecated:: 10
-    :doc:`t3core:Changelog/10.3/Deprecation-89139-ConsoleCommandsConfigurationFormatCommandsPhp`
+    :doc:`ext_core:Changelog/10.3/Deprecation-89139-ConsoleCommandsConfigurationFormatCommandsPhp`
 
 .. versionadded:: 10
-    :doc:`t3core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands`
+    :doc:`ext_core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands`
 
 Creating a new Command in Extensions
 ====================================
@@ -267,7 +267,7 @@ Running the Command From the Scheduler
 ======================================
 
 By default, it is possible to run the command from the :ref:`TYPO3 scheduler
-<sched:start>` as well. To do this, select the task :guilabel:`Execute console commands`
+<ext_scheduler:start>` as well. To do this, select the task :guilabel:`Execute console commands`
 followed by your command in the :guilabel:`Schedulable Command` field.
 
 .. note::

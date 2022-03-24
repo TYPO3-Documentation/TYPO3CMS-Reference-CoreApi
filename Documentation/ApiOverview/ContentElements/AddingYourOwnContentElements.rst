@@ -30,7 +30,7 @@ Prerequisites
 =============
 
 Some of the following steps (specifically the ones using ``lib.contentElement``) require the system
-extension :ref:`fluid_styled_content <fsc:start>`. If you do not use **fluid_styled_content**, you
+extension :ref:`fluid_styled_content <ext_fsc:start>`. If you do not use **fluid_styled_content**, you
 must create and initialize the ``lib.contentElement`` TypoScript object yourself.
 
 .. _AddingCE-use-an-extension:

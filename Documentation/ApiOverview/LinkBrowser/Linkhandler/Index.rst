@@ -9,7 +9,7 @@ LinkHandler Api
 
 .. versionadded:: 8.6
     The LinkHandler Api has been included in the core with the change
-    :doc:`t3core:Changelog/8.6/Feature-79626-IntegrateRecordLinkHandler`.
+    :doc:`ext_core:Changelog/8.6/Feature-79626-IntegrateRecordLinkHandler`.
     Before, it had only been available as third party extension.
 
 The LinkHandler enables editors to link to single records i.e. a single news record.

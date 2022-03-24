@@ -302,5 +302,5 @@ Further Information
 
 * `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`__
 * `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
-* :doc:`t3core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
+* :doc:`ext_core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
   of the TYPO3 core.
