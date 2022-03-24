@@ -151,8 +151,8 @@ Configuration With TypoScript
 =============================
 
 Backend modules can, like frontend plugins, be configured via TypoScript. While the frontend plugins
-are configured with :ts:`plugin.tx_[pluginkey]`, for the configuration of the backend
-:ts:`module.tx_[pluginkey]` is used.
+are configured with :typoscript:`plugin.tx_[pluginkey]`, for the configuration of the backend
+:typoscript:`module.tx_[pluginkey]` is used.
 
 Example for configuring the paths of Fluid files:
 

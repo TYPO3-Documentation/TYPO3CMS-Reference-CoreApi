@@ -9,7 +9,7 @@ Mail API
 
 .. versionadded:: 10.0
    Symfony mailer and mime support was added with this change:
-   :doc:`t3core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
+   :doc:`ext_core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
 
 TYPO3 CMS provides a RFC-compliant mailing solution based on
 `symfony/mailer <https://symfony.com/doc/current/components/mailer.html>`__

@@ -35,7 +35,7 @@ throw an exception, if the second parameter :php:`$exitOnError` is true.
 .. note::
 
     The behaviour has changed in TYPO3 9: The
-    :doc:`second parameter $exitOnError <t3core:Changelog/9.5/Deprecation-86441-VariousMethodsAndPropertiesInsideBackendUserAuthentication>`
+    :doc:`second parameter $exitOnError <ext_core:Changelog/9.5/Deprecation-86441-VariousMethodsAndPropertiesInsideBackendUserAuthentication>`
     is now deprecated and
     will trigger a deprecation notice. In TYPO3 10 it will be removed entirely.
 

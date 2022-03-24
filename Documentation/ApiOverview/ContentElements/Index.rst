@@ -13,7 +13,7 @@ created, how existing content elements or plugins can be customized etc.
 
 **Table of Contents**
 
-:ref:`Some content elements <fsc:content-elements>` are supplied by the TYPO3
+:ref:`Some content elements <ext_fsc:content-elements>` are supplied by the TYPO3
 system extension **fluid_styled_content**.
 
 

@@ -155,7 +155,7 @@ Deactivating the Command in Scheduler
 -------------------------------------
 
 .. versionadded:: 9.4
-    :doc:`t3core:Changelog/9.4/Feature-85991-ExcludeSymfonyCommandsFromScheduler`
+    :doc:`ext_core:Changelog/9.4/Feature-85991-ExcludeSymfonyCommandsFromScheduler`
 
 By default, the command can be used in the scheduler too. You can deactivate
 this by setting `schedulable` to `false` in :file:`Configuration/Commands.php`::
@@ -213,8 +213,8 @@ Running the Command From the Scheduler
 
    The :ref:`schedulable` option is available since v9.4.
 
-By default, it is possible to run the command from the :ref:`TYPO3 scheduler
-<sched:start>` as well. To do this, select the task :guilabel:`Execute console commands`
+By default, it is possible to run the command from the :doc:`TYPO3 scheduler
+<ext_scheduler:Index>` as well. To do this, select the task :guilabel:`Execute console commands`
 followed by your command in the :guilabel:`Schedulable Command` field.
 
 .. note::
