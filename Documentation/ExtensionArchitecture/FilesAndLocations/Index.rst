@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _extension-files-locations:
@@ -259,7 +259,7 @@ extensions and recommended for all extensions anyway.
 In order to use :ref:`namespaces`, class files **must** be located in a
 :file:`Classes` folder.
 
-Refer to the :ref:`Extbase and Fluid <t3extbasebook:start>` book for more information
+Refer to the :doc:`Extbase and Fluid <t3extbasebook:Index>` book for more information
 on extension structure. Also look at the "examples" extension.
 
 The `Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_

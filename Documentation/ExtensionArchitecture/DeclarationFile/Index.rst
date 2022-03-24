@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _extension-declaration:
@@ -242,13 +242,13 @@ values in the :code:`$EM_CONF` array if needed.
    :Data type:
          array
    :Description:
-         To get better class loading support for websites in **non-composer mode+** 
+         To get better class loading support for websites in **non-composer mode+**
          the following information can be provided.
-         
+
          **Extensions having one folder with classes or single files**
-         
-         Considering you have an Extbase extension (or an extension where all classes 
-         and interfaces reside in a Classes folder) or single classes you can simply 
+
+         Considering you have an Extbase extension (or an extension where all classes
+         and interfaces reside in a Classes folder) or single classes you can simply
          add the following to your :file:`ext_emconf.php` file::
 
             'autoload' => [
@@ -257,28 +257,28 @@ values in the :code:`$EM_CONF` array if needed.
                   'a-class.php',
                ]
             ],
-            
+
          **Extensions using namespaces**
-         
-         If the extension has namespaced classes following the PSR-4 standard, then you 
+
+         If the extension has namespaced classes following the PSR-4 standard, then you
          can add the following to your :file:`ext_emconf.php` file::
-         
+
             'autoload' => [
                'psr-4' => [
                   'Vendor\\ExtName\\' => 'Classes'
                ]
             ],
-            
-          Important: The prefix **must** end with a backslash.          
+
+          Important: The prefix **must** end with a backslash.
 
  - :Key:
          autoload-dev
    :Data type:
          array
    :Description:
-         Same as the configuration "autoload" but it is only used if the 
+         Same as the configuration "autoload" but it is only used if the
          *ApplicationContext* is set to *Testing*.
-  
+
 
 Deprecated configuration
 """"""""""""""""""""""""
@@ -286,8 +286,8 @@ The following fields are deprecated and should not be used anymore:
 
 - dependencies
 - conflicts
-- suggests 
-- docPath 
+- suggests
+- docPath
 - CGLcompliance
 - CGLcompliance_note
 - private

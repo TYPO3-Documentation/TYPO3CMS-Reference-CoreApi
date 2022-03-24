@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _extension-configuration-files:
@@ -61,7 +61,7 @@ It is a good practice to use :code:`call_user_func` with an closure function.
 The following example contains the complete code::
 
     <?php
-    defined('TYPO3_MODE') or die(); 
+    defined('TYPO3_MODE') or die();
 
     call_user_func(function () {
         // Add your code here

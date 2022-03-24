@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _extension-naming:
@@ -81,7 +81,7 @@ The same plugin key is then used in the following:
 
 * second parameter in :php:`configurePlugin()` (Extbase): MUST match registered plugin key exactly
 * the :ref:`plugin signature <naming-conventions-plugin-signature>`
-* in TypoScript, e.g. :ts:`plugin.tx_myexample_myplugin`
+* in TypoScript, e.g. :typoscript:`plugin.tx_myexample_myplugin`
 * in TCA
 * etc.
 

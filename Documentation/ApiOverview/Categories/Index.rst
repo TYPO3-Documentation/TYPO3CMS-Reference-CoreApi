@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 
@@ -61,7 +61,7 @@ The default value is :code:`pages,tt_content,sys_file_metadata`.
 The second way is to call :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable()`.
 This method adds a new entry into the registry managed by
 :php:`\TYPO3\CMS\Core\Category\CategoryRegistry`.
-The registry will take care of adding the relevant :ref:`$TCA <t3tca:start>` definition to
+The registry will take care of adding the relevant :doc:`$TCA <t3tca:Index>` definition to
 create a field for making relations to the system categories.
 
 The call to :code:`makeCategorizable()` must be located in an extension's

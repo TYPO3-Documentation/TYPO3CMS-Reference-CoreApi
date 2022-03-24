@@ -1,4 +1,4 @@
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _rte-backend-introduction:
@@ -19,7 +19,7 @@ tables, etc.
    The rtehtmlarea RTE activated in the TYPO3 backend
 
 For full details about setting up a field to use a RTE, please refer to the
-:ref:`TCA Reference <t3tca:start>`.
+:doc:`TCA Reference <t3tca:Index>`.
 
 The short story is that it's enough to set the key :code:`enableRichtext` to true.
 

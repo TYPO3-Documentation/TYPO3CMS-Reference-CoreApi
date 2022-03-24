@@ -1,6 +1,6 @@
 :orphan:
 
-.. include:: ../../../Includes.txt
+.. include:: /Includes.rst.txt
 
 RTE transformations in Content Elements
 =======================================

@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _adding-your-own-content-elements:
 
@@ -22,7 +22,7 @@ Prerequisites
 =============
 
 Some of the following steps (specifically the ones using ``lib.contentElement``) require the system
-extension :ref:`fluid_styled_content <fsc:start>`. If you do not use **fluid_styled_content**, you
+extension :doc:`fluid_styled_content <ext_fsc:Index>`. If you do not use **fluid_styled_content**, you
 must create and initialize the ``lib.contentElement`` TypoScript object yourself.
 
 .. _AddingCE-use-an-extension:

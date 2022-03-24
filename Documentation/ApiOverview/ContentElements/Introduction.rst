@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _cePluginsIntroduction:
@@ -56,7 +56,7 @@ How to work with content elements and plugins?
 The "Getting Started Tutorial" describes how to work with :ref:`page content <t3start:page-content>`
 The "Tutorial for Editors" describes the :ref:`basic TYPO3 content elements <t3editors:content-types>`
 and how to work with them. Additional descriptions can be found the
-:ref:`fluid_styled_content <fsc:content-elements>` documentation.
+:ref:`fluid_styled_content <ext_fsc:content-elements>` documentation.
 
 .. _cePluginsCustomize:
 

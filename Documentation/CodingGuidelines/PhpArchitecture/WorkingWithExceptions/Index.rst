@@ -1,4 +1,4 @@
-.. include:: ../../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _cgl-working-with-exceptions:
@@ -108,7 +108,7 @@ So, rule:
    As soon as multiple different specific exceptions are thrown within
    some extension, there should be a generic base exception within the extension
    that is not thrown itself, and the specific exceptions that are thrown
-   then extend from this class. 
+   then extend from this class.
 
 Typically, only the specific exceptions are
 caught however. In general, the inheritance hierarchy shouldn’t be
@@ -124,7 +124,7 @@ exception is caught and transformed into a localized flash message or
 a notification. Typically, those additional pieces of information
 should be added as additional constructor arguments::
 
-   __construct($message = "", $code = 0, Exception $previous = null, 
+   __construct($message = "", $code = 0, Exception $previous = null,
                string $additionalArgument, int $anotherArgument)
 
 There should be getters for those additional data parts within the
@@ -188,7 +188,7 @@ Bad examples
     This is not a good idea
     and indicates something is wrong in the code that may throw this
     exception. A specific exception should be caught here only.
-    
+
   * Bad: Catching :php:`\RuntimeException`.
 
     This may hide more serious
