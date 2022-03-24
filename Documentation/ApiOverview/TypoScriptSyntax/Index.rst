@@ -17,9 +17,9 @@ for backend users.
 While the underlying TypoScript syntax is described in this chapter, both usages
 and their details are found in standalone manuals:
 
-- The :ref:`TypoScript Reference <t3tsref:start>` goes into details about `Frontend TypoScript`.
+- The :doc:`TypoScript Reference <t3tsref:Index>` goes into details about `Frontend TypoScript`.
 
-- The :ref:`TSconfig Reference <t3tsconfig:start>` goes into details about configuring the
+- The :doc:`TSconfig Reference <t3tsconfig:Index>` goes into details about configuring the
   TYPO3 backend for backend users.
 
 

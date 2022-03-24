@@ -106,7 +106,7 @@ To retrieve the configuration use the API provided by the :php:`\TYPO3\CMS\Core\
 
 This will return the whole configuration as an array.
 
-To directly fetch specific values like :ts:`myVariable` from the example above::
+To directly fetch specific values like :typoscript:`myVariable` from the example above::
 
    $temporaryDirectory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
       ->get('my_extension_key', 'myVariable');

@@ -234,7 +234,7 @@ For such classes an extension can override the global :yaml:`public: false` conf
         public: true
 
 With this configuration you can use dependency injection in :php:`\Vendor\MyExtension\UserFunction\ClassA`
-when it is created e.g. in the context of a :ts:`USER` TypoScript object which would not be possible if this
+when it is created e.g. in the context of a :typoscript:`USER` TypoScript object which would not be possible if this
 class was private.
 
 .. index:: Dependency injection; Errors
@@ -347,7 +347,7 @@ Further information
 
 * `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`_
 * `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
-* :doc:`t3core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
+* :doc:`ext_core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
   of the TYPO3 Core .
-* :doc:`t3core:Changelog/10.4/Deprecation-90803-DeprecationOfObjectManagergetInExtbaseContext`
+* :doc:`ext_core:Changelog/10.4/Deprecation-90803-DeprecationOfObjectManagergetInExtbaseContext`
 * `Dependency Injection in TYPO3 - Blog Article by Daniel Goerz <https://usetypo3.com/dependency-injection.html>`_

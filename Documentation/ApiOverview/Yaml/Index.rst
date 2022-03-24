@@ -13,8 +13,8 @@ YAML is used in TYPO3 for various configurations; most notable are
 * :ref:`Event listeners <EventDispatcher>` in :file:`Configuration/Services.yaml`
 * :ref:`Dependency injection <DependencyInjection>` information in :file:`Configuration/Services.yaml`
 * :ref:`Site configuration <sitehandling>` in :file:`sites/<identifier>/config.yaml`
-* System extension :ref:`form <form:start>` configuration
-* System extension :ref:`rte_ckeditor  <ckedit:start>` configuration
+* System extension :doc:`form <ext_form:Index>` configuration
+* System extension :doc:`rte_ckeditor <ext_rte_ckeditor:Index>` configuration
 
 
 .. index:: YamlFileLoader

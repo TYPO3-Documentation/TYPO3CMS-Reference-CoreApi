@@ -7,90 +7,30 @@
 TYPO3 Explained
 ===============
 
-.. rst-class:: horizbuttons-tip-m
-
-- :ref:`Configuration <configuration>`
-- :ref:`Doctrine-dbal <database>`
-- :ref:`DependencyInjection`
-- :ref:`FAL <fal>`
-- :ref:`Internationalization <internationalization>`
-- :ref:`PSR-15 middlewares <request-handling>`
-- :ref:`Routing <request-handling>`
-- :ref:`Security <security>`
-- :ref:`Sites <sitehandling>`
-
-
 :Version:
-      |release|
+   |release|
 
 :Language:
-      en
+   en
 
-:Description:
-      Main TYPO3 Core documentation
-
-:Keywords:
-      forEditors, forBeginners, forDevelopers, forAdmins, forAdvanced, security
-
-:Copyright:
-      Since 2000
-
-:Authors:
-      Core Team, Documentation Team & community (see :ref:`credits`)
-
-:Email:
-      documentation@typo3.org
+:Author:
+   TYPO3 contributors
 
 :License:
-      Open Publication License available from `www.opencontent.org/openpub/
-      <https://www.opencontent.org/openpub/>`_
+   This document is published under the
+   `Open Publication License <https://www.opencontent.org/openpub/>`__.
 
-:Shortcut:
-      `t3coreapi` is the usual alias for :ref:`h2document:cheat-sheet-intersphinx`.
+:Rendered:
+   |today|
 
-.. rst-class:: horizbuttons-tip-xxl
+----
 
-- :ref:`Sitemap`
+This official TYPO3 documentation is *the* main document about the enterprise content
+management system TYPO3.
 
+----
 
-The content of this document is related to TYPO3 CMS,
-a GNU/GPL CMS/Framework available from `www.typo3.org
-<https://typo3.org/>`_
-
-**Official Documentation**
-
-This document is included as part of the official TYPO3 documentation.
-
-If you find an error or something is missing, please create an `issue
-<https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/new>`__
-or make the change yourself. You can find out more about how to do this in
-:ref:`contribute`.
-
-**Core Manual**
-
-This document is a Core Manual. Core Manuals address the built in
-functionality of TYPO3 CMS and are designed to provide the reader with in-
-depth information. Each Core Manual addresses a particular process or
-function and how it is implemented within the TYPO3 source code. These
-may include information on available APIs, specific configuration
-options, etc.
-
-Core Manuals are written as reference manuals. The reader should rely
-on the Table of Contents to identify what particular section will best
-address the task at hand.
-
-**Table of Contents**
-
-..   Note for editors:
-..     temporarily removed from menu:
-..   Introduction/Index
-
-
-.. toctree::
-   :hidden:
-
-   Quicklinks
-   genindex
+**Table of Contents:**
 
 .. toctree::
    :maxdepth: 1
@@ -98,14 +38,8 @@ address the task at hand.
    Introduction/Index
 
 .. toctree::
-   :maxdepth: 2
-
-   ExtensionArchitecture/Index
-
-
-.. toctree::
    :caption: TYPO3 A-Z
-   :maxdepth: 2
+   :maxdepth: 1
 
    ApiOverview/Ajax/Index
    ApiOverview/Assets/Index
@@ -130,13 +64,14 @@ address the task at hand.
    ApiOverview/Debugging/Index
    ApiOverview/DependencyInjection/Index
    ApiOverview/Deprecation/Index
-   ApiOverview/Fal/Index
    ApiOverview/DirectoryStructure/Index
    ApiOverview/Enumerations/Index
    ApiOverview/Environment/Index
    ApiOverview/ErrorAndExceptionHandling/Index
    ApiOverview/Hooks/Index
+   ExtensionArchitecture/Index
    ApiOverview/ExtensionScanner/Index
+   ApiOverview/Fal/Index
    ApiOverview/FlashMessages/Index
    ApiOverview/Fluid/Index
    ApiOverview/FormEngine/Index
@@ -173,30 +108,13 @@ address the task at hand.
    ApiOverview/Workspaces/Index
    ApiOverview/Xclasses/Index
 
-.. toctree::
-   :maxdepth: 1
-
-   Sitemap
-   About
-
 .. todo:: ApiOverview/Examples/
 
+.. Meta Menu
 
-.. the following have been moved in the menu:
+.. toctree::
+   :hidden:
 
-.. to ApiOverview/ContentElements/Index
-..    - ApiOverview/FlexForms/Index
-..    - ApiOverview/BackendLayout/Index
-
-.. to ApiOverview/Configuration/Index
-..    - ApiOverview/Yaml/Index
-..    - ApiOverview/TypoScriptSyntax/Index
-..    - ApiOverview/Tsconfig/Index
-..    - ApiOverview/GlobalValues/Index
-..    - ApiOverview/FeatureToggles/Index
-..    - ApiOverview/UserSettingsConfiguration/Index
-
-.. to ApiOverview/Seo/Index
-..    - ApiOverview/MetaTagApi/Index
-..    - ApiOverview/XmlSitemap/Index
-..    - ApiOverview/PageTitleApi/Index
+   About
+   Sitemap
+   genindex

@@ -7,7 +7,7 @@ ModifyValidatorTaskEmailEvent
 =============================
 
 This event can be used to manipulate the
-:ref:`\TYPO3\CMS\Linkvalidator\Result\LinkAnalyzerResult <t3linkvalidator:linkvalidatorapi-LinkAnalyzerResult>`,
+:ref:`\TYPO3\CMS\Linkvalidator\Result\LinkAnalyzerResult <ext_linkvalidator:linkvalidatorapi-LinkAnalyzerResult>`,
 which contains all information from the linkvalidator API. Also the `FluidEmail`
 object can be adjusted there. This allows to pass additional information to
 the view by using :php:`$fluidEmail->assign()` or dynamically adding mail information

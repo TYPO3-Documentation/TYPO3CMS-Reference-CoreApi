@@ -63,13 +63,13 @@ Modules
       at user-level.
 
 Dashboard widgets
-   A :ref:`list of the available dashboard widgets <t3dashboard:permission-handling-of-widgets>`
+   A :ref:`list of the available dashboard widgets <ext_dashboard:permission-handling-of-widgets>`
    a user may be allowed to use on the dashboard.
 
    .. note::
 
       This section is only available with activated
-      :ref:`dashboard <t3dashboard:start>` system extension.
+      :doc:`dashboard <ext_dashboard:Index>` system extension.
 
 Tables for listing
    A list of all tables a user may be allowed to read in the backend.

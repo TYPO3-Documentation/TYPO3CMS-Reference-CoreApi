@@ -14,7 +14,7 @@ currently visible (live) version. Changes can be previewed and
 go through an approval process before publishing.
 
 The technical background and a practical user guide to this feature
-are provided in the :ref:`"workspaces" system extension manual <workspaces:start>`.
+are provided in the :doc:`"workspaces" system extension manual <ext_workspaces:Index>`.
 
 All the information necessary for making any database table
 compatible with workspaces is described in the
@@ -26,7 +26,7 @@ The only way to do so is with a :file:`Configuration/TCA/Overrides/example_table
 
    $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
 
-See :ref:`t3sitepackage:start` and :ref:`storing-changes-extension-overrides` .
+See :doc:`t3sitepackage:Index` and :ref:`storing-changes-extension-overrides` .
 
 .. note::
 

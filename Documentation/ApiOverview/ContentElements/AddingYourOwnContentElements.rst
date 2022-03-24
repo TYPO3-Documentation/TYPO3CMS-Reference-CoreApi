@@ -39,7 +39,7 @@ Prerequisites
 =============
 
 The following examples require the system extension
-:ref:`fluid_styled_content <fsc:start>`.
+:doc:`fluid_styled_content <ext_fsc:Index>`.
 
 It can be installed via Composer with:
 
@@ -228,7 +228,7 @@ The :typoscript:`lib.contentElement` path is defined in file
 :file:`EXT:fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
 and uses a :ref:`t3tsref:cobj-fluidtemplate`.
 
-We reference :ref:`fluid_styled_contents <fsc:start>`
+We reference :doc:`fluid_styled_contents <ext_fsc:Index>`
 :typoscript:`lib.contentElement` from our new content element and only change
 the Fluid template to be used.
 
@@ -359,7 +359,7 @@ The new field *tx_examples_separator* is added to the TCA definition of the tabl
    ];
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumn);
 
-You can read more about defining fields via TCA in the :ref:`t3tca:start`.
+You can read more about defining fields via TCA in the :doc:`t3tca:Index`.
 
 Now the new field can be used in your Fluid template just like any other
 tt_content field.

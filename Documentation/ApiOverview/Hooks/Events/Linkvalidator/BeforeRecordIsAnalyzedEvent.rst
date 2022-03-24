@@ -8,7 +8,7 @@ BeforeRecordIsAnalyzedEvent
 ===========================
 
 Event that is fired to modify results (= add results) or modify the record
-before the :ref:`LinkValidator <t3linkvalidator:start>` analyzes the record.
+before the :doc:`LinkValidator <ext_linkvalidator:Index>` analyzes the record.
 
 API
 ===

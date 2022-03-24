@@ -207,7 +207,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_domain']
    **Configuration Example for GSuite:**
 
    .. code-block:: php
-      :caption:`typo3conf/LocalConfiguration.php`
+      :caption: `typo3conf/LocalConfiguration.php`
 
        return [
            //....
@@ -351,7 +351,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_restart_threshold_sleep']
 $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_ping_threshold']
 =======================================================================
 
-.. confval:: transport_smtp_restart_threshold_sleep
+.. confval:: transport_smtp_ping_threshold
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
@@ -364,7 +364,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_ping_threshold']
    (NOOP command) to check if the connection is still alive. Otherwise the
    message will be sent without pinging the server first.
 
-   .. info::
+   .. note::
       Do not set the threshold too low, as the SMTP server may drop the
       connection if there are too many non-mail commands
       (like pinging the server with NOOP).

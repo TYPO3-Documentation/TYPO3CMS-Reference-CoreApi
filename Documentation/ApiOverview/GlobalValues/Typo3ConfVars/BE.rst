@@ -654,7 +654,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
    Contains the default user TSconfig.
 
 
-   This variable should not be changed directly but by the following API function. 
+   This variable should not be changed directly but by the following API function.
    This makes your code less likely to break in the future.
 
    .. code-block:: php
@@ -668,7 +668,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
       ');
 
    Read more about
-   :ref:`Setting default User TSconfig <t3tsref:usersettingdefaultusertsconfig>`.
+   :ref:`Setting default User TSconfig <t3tsconfig:usersettingdefaultusertsconfig>`.
 
 .. index::
    TYPO3_CONF_VARS BE; defaultPageTSconfig
@@ -688,21 +688,21 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
 
    .. versionadded:: 12.0
       TSconfig stored in a file :file:`EXT:my_sitepackage/Configuration/page.tsconfig`
-      will be automatically loaded before the content of 
+      will be automatically loaded before the content of
       :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]`.
 
    Page TSconfig stored in files like
-   :file:`EXT:my_sitepackage/Configuration/page.tsconfig` are loaded before 
-   :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]`. 
+   :file:`EXT:my_sitepackage/Configuration/page.tsconfig` are loaded before
+   :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]`.
    This is done during build-time and therefore more performant than the legacy way of
-   loading default Page Tsconfig during runtime by setting 
-   :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]` or the API function 
+   loading default Page Tsconfig during runtime by setting
+   :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]` or the API function
    :php:`ExtensionManagementUtility::addPageTSConfig`. It is therefore highly recommended
    to migrate to using files like :file:`EXT:my_sitepackage/Configuration/page.tsconfig`
    instead of setting this global variable.
 
    Read more about
-   :ref:`Setting the Page TSconfig globally <t3tsref:pagesettingdefaultpagetsconfig>`.
+   :ref:`Setting the Page TSconfig globally <t3tsconfig:pagesettingdefaultpagetsconfig>`.
 
 .. index::
    TYPO3_CONF_VARS BE; defaultPermissions
@@ -771,7 +771,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
    :Default: ''
 
    A perl-compatible and JavaScript-compatible regular expression (without
-   delimiters :perl:`/`) that - if it matches a filename - will deny the
+   delimiters `/`) that - if it matches a filename - will deny the
    file upload/rename or whatever.
 
    For security reasons, files with multiple extensions have to be denied on

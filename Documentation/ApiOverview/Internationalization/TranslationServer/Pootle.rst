@@ -18,5 +18,5 @@ They can be fetched in the TYPO3 CMS backend, via the Install Tool and on the co
 
 It is not the point of this manual to go into the details of the translation
 process. More information can be found in the
-:ref:`Frontend Localization Guide <t3translate:start>`.
+:doc:`Frontend Localization Guide <t3translate:Index>`.
 
