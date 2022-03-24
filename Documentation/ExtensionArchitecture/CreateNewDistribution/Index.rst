@@ -115,7 +115,7 @@ to :file:`Initialisation/Site/<SITE_IDENTIFIER>/config.yaml`.
 .. note::
 
     Existing site configuration folders with the same identifier will neither be overwritten nor changed.
-    See :doc:`t3core:Changelog/10.1/Feature-89010-IntroduceSiteConfigForDistributionPackages`
+    See :doc:`ext_core:Changelog/10.1/Feature-89010-IntroduceSiteConfigForDistributionPackages`
 
 
 .. _distribution-kickstart-database:
@@ -126,7 +126,7 @@ Database Data
 The database data is delivered as TYPO3 CMS export file under :file:`Initialisation/data.xml`.
 
 Generate this file by exporting your whole TYPO3 instance
-from the root of the page tree using the :ref:`export module <t3impexp:export>`:
+from the root of the page tree using the :ref:`export module <ext_impexp:export>`:
 
 .. rst-class:: bignums-xxl
 

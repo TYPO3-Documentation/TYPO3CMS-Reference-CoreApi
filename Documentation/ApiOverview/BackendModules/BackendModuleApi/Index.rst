@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
 .. index:: Backend modules; API
-.. _backend-modules-api:
 
 ===================
 Backend module API
@@ -19,7 +18,6 @@ for the functionality.
 .. index::
    Backend modules; Registration
    File; EXT:{extkey}/ext_tables.php
-.. _backend-modules-api-registration:
 
 Adding new modules
 ==================
@@ -59,7 +57,7 @@ Parameters:
 #. The first argument contains the extension name (in UpperCamelCase)
    or the extension key (in lower_underscore). Since TYPO3 10.0,
    you should no longer prepend the vendor name here, see
-   :doc:`t3core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
+   :doc:`ext_core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
 #. **Main module** name, in which the new module will be placed,
    for example 'web' or 'system'.
 #. **Submodule key**: This is an identifier for your new module.
@@ -74,7 +72,7 @@ Parameters:
 
 #. Allowed **controller => action** combinations. Since TYPO3 10.0 you should
    use fully qualified class names here, see
-   :doc:`t3core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
+   :doc:`ext_core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
 #. **Module configuration**: The following options are available:
 
    *  ``access``: can contain several, separated by comma
@@ -110,8 +108,8 @@ Configuration with TypoScript
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Backend modules can, like frontend plugins, be configured via TypoScript. While the frontend plugins
-are configured with :ts:`plugin.tx_[pluginkey]`, for the configuration of the backend
-:ts:`module.tx_[pluginkey]` is used.
+are configured with :typoscript:`plugin.tx_[pluginkey]`, for the configuration of the backend
+:typoscript:`module.tx_[pluginkey]` is used.
 
 Example for configuring the paths of Fluid files:
 

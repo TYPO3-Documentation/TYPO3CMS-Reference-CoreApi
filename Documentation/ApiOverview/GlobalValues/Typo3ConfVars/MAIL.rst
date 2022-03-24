@@ -207,7 +207,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_domain']
    **Configuration Example for GSuite:**
 
    .. code-block:: php
-      :caption:`typo3conf/LocalConfiguration.php`
+      :caption: `typo3conf/LocalConfiguration.php`
 
        return [
            //....

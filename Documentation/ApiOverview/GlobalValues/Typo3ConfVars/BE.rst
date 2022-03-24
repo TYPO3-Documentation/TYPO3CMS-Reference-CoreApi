@@ -653,7 +653,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
 
    Contains the default user TSconfig.
 
-   This variable should not be changed directly but by the following API function. 
+   This variable should not be changed directly but by the following API function.
    This makes your code less likely to change in the future.
 
    .. code-block:: php
@@ -667,7 +667,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
       ');
 
    Read more about
-   :ref:`Setting default User TSconfig <t3tsref:usersettingdefaultusertsconfig>`.
+   :ref:`Setting default User TSconfig <t3tsconfig:usersettingdefaultusertsconfig>`.
 
 .. index::
    TYPO3_CONF_VARS BE; defaultPageTSconfig
@@ -683,11 +683,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
 
    Contains the default page TSconfig.
 
-   This variable should not be changed directly but by the following API function. 
+   This variable should not be changed directly but by the following API function.
    This makes your code less likely to change in the future.
 
    .. code-block:: php
-      :caption:`EXT:my_sitepackage/ext_localconf.php`
+      :caption: `EXT:my_sitepackage/ext_localconf.php`
 
       use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
@@ -696,7 +696,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
       ');
 
    Read more about
-   :ref:`Setting the Page TSconfig globally <t3tsref:pagesettingdefaultpagetsconfig>`.
+   :ref:`Setting the Page TSconfig globally <t3tsconfig:pagesettingdefaultpagetsconfig>`.
 
 .. index::
    TYPO3_CONF_VARS BE; defaultPermissions
@@ -765,7 +765,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
    :Default: ''
 
    A perl-compatible and JavaScript-compatible regular expression (without
-   delimiters :perl:`/`) that - if it matches a filename - will deny the
+   delimiters `/`) that - if it matches a filename - will deny the
    file upload/rename or whatever.
 
    For security reasons, files with multiple extensions have to be denied on

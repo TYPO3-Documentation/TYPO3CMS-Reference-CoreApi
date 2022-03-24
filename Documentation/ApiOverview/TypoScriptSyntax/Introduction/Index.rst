@@ -29,7 +29,7 @@ So strictly speaking TypoScript has no function in itself, only when
 used in a certain context. Since the context is almost always to
 *configure* something you can often understand TypoScript as
 *parameters* (or function arguments) passed to a function which acts
-accordingly (e.g. :ts:`background_color = red`). And on the contrary you
+accordingly (e.g. :typoscript:`background_color = red`). And on the contrary you
 will probably never see TypoScript used to store information like a
 database of addresses - you would use XML or SQL for that.
 

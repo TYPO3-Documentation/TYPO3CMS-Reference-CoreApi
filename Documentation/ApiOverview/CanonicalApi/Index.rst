@@ -15,7 +15,7 @@ cHash.
 .. note::
    The canonical API is provided by the optional system extension
    EXT:seo. You can find information about how to install and use it in the
-   :ref:`EXT:seo manual <t3seo:start>`.
+   :doc:`EXT:seo manual <ext_seo:Index>`.
 
 Excluding arguments from the generation
 =======================================
