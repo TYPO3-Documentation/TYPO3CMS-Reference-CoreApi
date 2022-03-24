@@ -11,7 +11,7 @@ Extension Configuration (ext_conf_template.txt)
 *-- optional*
 
 In the :file:`ext_conf_template.txt` file, the configuration options
-for an extension can be defined and set with default values. 
+for an extension can be defined and set with default values.
 These configuration options are accessible via the TYPO3 backend and can be overwritten
 in :guilabel:`Admin Tools` -> :guilabel:`Settings` -> :guilabel:`Extension Configuration`.
 
@@ -99,7 +99,7 @@ To retrieve the configuration use the API provided by the :php:`\TYPO3\CMS\Core\
 
 This will return the whole configuration as an array.
 
-To directly fetch specific values like :ts:`temporaryDirectory` from the example above::
+To directly fetch specific values like :typoscript:`temporaryDirectory` from the example above::
 
    $temporaryDirectory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
       ->get('your_extension_key', 'temporaryDirectory');
