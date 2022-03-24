@@ -154,7 +154,7 @@ Example for extension key **bootstrap_package**:
             "extension-key": "bootstrap_package"
          }
       }
-   },
+   }
 
 replace
 -------
