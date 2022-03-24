@@ -64,6 +64,7 @@ management system TYPO3.
    ApiOverview/Debugging/Index
    ApiOverview/DependencyInjection/Index
    ApiOverview/Deprecation/Index
+   ApiOverview/Fal/Index
    ApiOverview/DirectoryStructure/Index
    ApiOverview/Enumerations/Index
    ApiOverview/Environment/Index
@@ -71,7 +72,6 @@ management system TYPO3.
    ApiOverview/Hooks/Index
    ExtensionArchitecture/Index
    ApiOverview/ExtensionScanner/Index
-   ApiOverview/Fal/Index
    ApiOverview/FlashMessages/Index
    ApiOverview/Fluid/Index
    ApiOverview/FormEngine/Index
