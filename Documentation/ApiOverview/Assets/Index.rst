@@ -82,27 +82,27 @@ Currently, CSS and JavaScript registered with the :php:`AssetCollector` will be 
 :php:`PageRenderer` counterparts. The order is:
 
 - :html:`<head>`
-- :ts:`page.includeJSLibs.forceOnTop`
-- :ts:`page.includeJSLibs`
-- :ts:`page.includeJS.forceOnTop`
-- :ts:`page.includeJS`
+- :typoscript:`page.includeJSLibs.forceOnTop`
+- :typoscript:`page.includeJSLibs`
+- :typoscript:`page.includeJS.forceOnTop`
+- :typoscript:`page.includeJS`
 - :php:`AssetCollector::addJavaScript()` with 'priority'
-- :ts:`page.jsInline`
+- :typoscript:`page.jsInline`
 - :php:`AssetCollector::addInlineJavaScript()` with 'priority'
 - :html:`</head>`
 
-- :ts:`page.includeJSFooterlibs.forceOnTop`
-- :ts:`page.includeJSFooterlibs`
-- :ts:`page.includeJSFooter.forceOnTop`
-- :ts:`page.includeJSFooter`
+- :typoscript:`page.includeJSFooterlibs.forceOnTop`
+- :typoscript:`page.includeJSFooterlibs`
+- :typoscript:`page.includeJSFooter.forceOnTop`
+- :typoscript:`page.includeJSFooter`
 - :php:`AssetCollector::addJavaScript()`
-- :ts:`page.jsFooterInline`
+- :typoscript:`page.jsFooterInline`
 - :php:`AssetCollector::addInlineJavaScript()`
 
 .. note::
 
    JavaScript registered with AssetCollector is not affected by
-   :ts:`config.moveJsFromHeaderToFooter`.
+   :typoscript:`config.moveJsFromHeaderToFooter`.
 
 Examples
 --------

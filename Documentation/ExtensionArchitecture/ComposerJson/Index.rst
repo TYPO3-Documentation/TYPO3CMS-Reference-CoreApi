@@ -85,7 +85,7 @@ Extended composer.json
       "license": "GPL-2.0-or-later",
       "require": {
          "php" : "^7.4",
-         "typo3/cms-backend": ^9.5 || ^10.4",
+         "typo3/cms-backend": "^9.5 || ^10.4",
          "typo3/cms-core": "^9.5 || ^10.4"
       },
       "authors": {
@@ -215,7 +215,7 @@ Example for extension key **bootstrap_package**:
             "extension-key": "bootstrap_package"
          }
       }
-   },
+   }
 
 Properties no longer used
 =========================
@@ -249,8 +249,10 @@ replace with ``"ext_key": "self.version"``
 
 .. code-block:: json
 
-   "replace": {
-      "ext_key": "self.version"
+   {
+      "replace": {
+         "ext_key": "self.version"
+      }
    }
 
 This was used previously, but is not compatible with latest Composer
