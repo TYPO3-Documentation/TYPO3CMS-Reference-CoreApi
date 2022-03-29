@@ -9,25 +9,25 @@ ModifyInfoModuleContentEvent
 
 .. versionadded:: 12.0
    This event has been introduced as a more powerful and flexible alternative
-   for the removed :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/web_info/class.tx_cms_webinfo.php']['drawFooterHook']`
-   hook.
+   to :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/web_info/class.tx_cms_webinfo.php']['drawFooterHook']`
+   which has now been removed.
 
-This event allows to modify the content above and below the
-actual info module content. The content added in the event is
+This event allows the content above and below the
+info module to be modified. The content added in the event is
 displayed in each submodule of :guilabel:`Web > Info`.
 
 The event also provides the :php:`getCurrentModule()` method, which
-returns the currently requested (sub)module. It is therefore possible to
+returns the current requested submodule. It is therefore possible to
 limit the added content to a subset of the available submodules.
 
-Next to the :php:`getRequest()` and the :php:`getModuleTemplate()`
-methods this event also features the usual getters and setters for the header
+Next to :php:`getRequest()` and the :php:`getModuleTemplate()`
+methods this event also features getters and setters for the header
 and footer content.
 
 Access control
 ==============
 
-The added content is by defualt always displayed. This event
+The added content is by default always displayed. This event
 provides the :php:`hasAccess()` method, returning whether the access checks
 in the module were passed by the user.
 
