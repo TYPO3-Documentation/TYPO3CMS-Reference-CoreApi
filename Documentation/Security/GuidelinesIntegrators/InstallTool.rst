@@ -65,7 +65,7 @@ The number of system maintainers should be as small as possible to mitigate the 
 The role can be provided in the Settings Section of the Install Tool -> Manage System Maintainers. It is also
 possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`LocalConfiguration.php`::
 
-    'SYS' => 'SystemMaintainers' => [1, 7, 36]
+    'SYS' => 'systemMaintainers' => [1, 7, 36]
 
 For additional security, the folders :file:`typo3/install` and :file:`typo3/sysext/install`
 can be deleted, or password protected on a server level (e.g. by a web
