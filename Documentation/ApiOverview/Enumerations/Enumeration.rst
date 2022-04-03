@@ -110,11 +110,9 @@ This logic can be implemented by a custom method::
    final class VersionState extends \TYPO3\CMS\Core\Type\Enumeration
    {
       const __default = self::DEFAULT_STATE;
-      const NEW_PLACEHOLDER_VERSION = -1;
       const DEFAULT_STATE = 0;
       const NEW_PLACEHOLDER = 1;
       const DELETE_PLACEHOLDER = 2;
-      const MOVE_POINTER = 4;
 
       /**
        * @return bool

@@ -57,8 +57,8 @@ Custom translations
 ===================
 
 The :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` allows to
-override both locallang-XML and XLIFF files. Actually this is not just about translations.
-Default language files can also be overridden. In the case of XLIFF files, the
+override XLIFF files. Actually this is not just about translations.
+Default language files can also be overridden. The
 syntax is as follows (to be placed in an extension's :file:`ext_localconf.php` file):
 
 .. code-block:: php
@@ -79,7 +79,7 @@ looks like this:
          <header/>
          <body>
             <trans-unit id="pages.title_formlabel" xml:space="preserve">
-               <source>Most important tile</source>
+               <source>Most important title</source>
                <target>Wichtigster Titel</target>
             </trans-unit>
          </body>
@@ -99,9 +99,8 @@ and the result can be easily seen in the backend:
 
    - Please note that you do not have to copy the full reference file, but only the labels you want to translate.
 
-   - The path to the file to override must be expressed as :file:`EXT:foo/bar/...`. For the
-     extension "xlf" or "xml" can be used interchangeably. The TYPO3 Core will try both anyway,
-     but using "xlf" is more correct and future-proof.
+   - The path to the file to override must be expressed as :file:`EXT:foo/bar/...`
+     and have the extension `xlf`.
 
 .. attention::
 

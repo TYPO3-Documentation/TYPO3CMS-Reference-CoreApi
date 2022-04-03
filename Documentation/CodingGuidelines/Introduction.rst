@@ -41,7 +41,7 @@ be easily replayed locally: If the test setup votes negative on a
 Core patch in the review system due to CGL violations, the patch
 can be easily fixed locally by calling :file:`./Build/Scripts/cglFixMyCommit.sh`
 and pushed another time. For details on Core contributions, have a look at the
-:ref:`TYPO3 Contribution Guide <t3contribute:start>`.
+:doc:`TYPO3 Contribution Guide <t3contribute:Index>`.
 
 
 .. _cgl-general-recommendations:

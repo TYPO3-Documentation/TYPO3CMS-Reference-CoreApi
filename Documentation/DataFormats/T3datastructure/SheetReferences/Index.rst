@@ -40,18 +40,18 @@ Main Data Structure:
    <T3DataStructure>
       <ROOT>
          <TCEforms>
-            <sheetTitle>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.sheet_general</sheetTitle>
+            <sheetTitle>LLL:EXT:felogin/locallang_db.xlf:tt_content.pi_flexform.sheet_general</sheetTitle>
          </TCEforms>
          <type>array</type>
          <el>
             <showForgotPassword>
                <TCEforms>
-                  <label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.show_forgot_password</label>
+                  <label>LLL:EXT:felogin/locallang_db.xlf:tt_content.pi_flexform.show_forgot_password</label>
                   <config>
                      <type>check</type>
                      <items type="array">
                         <numIndex index="1" type="array">
-                           <numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_core.xml:labels.enabled</numIndex>
+                           <numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.enabled</numIndex>
                            <numIndex index="1">1</numIndex>
                         </numIndex>
                      </items>
@@ -60,13 +60,13 @@ Main Data Structure:
             </showForgotPassword>
             <showPermaLogin>
                <TCEforms>
-                  <label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.show_permalogin</label>
+                  <label>LLL:EXT:felogin/locallang_db.xlf:tt_content.pi_flexform.show_permalogin</label>
                   <config>
                      <default>1</default>
                      <type>check</type>
                      <items type="array">
                         <numIndex index="1" type="array">
-                           <numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_core.xml:labels.enabled</numIndex>
+                           <numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.enabled</numIndex>
                            <numIndex index="1">1</numIndex>
                         </numIndex>
                      </items>

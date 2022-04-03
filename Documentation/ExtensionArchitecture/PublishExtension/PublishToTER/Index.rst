@@ -83,7 +83,7 @@ releasing an extension:
    which lets you register new extension keys and helps you maintain
    your extensions, update extension information and publish new extension
    versions. For complete instructions and examples, see the official
-   :doc:`Tailor documentation <t3tailor:Index>`.
+   :doc:`Tailor documentation <tailor:Index>`.
 
    Besides manual publishing, *Tailor* is the perfect complement for
    automatic publishing via CI / CD pipelines. On the application's homepage

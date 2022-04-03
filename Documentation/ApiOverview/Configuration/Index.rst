@@ -48,11 +48,11 @@ away from this chapter.
 * :ref:`Extension configuration ➜ <extension-configuration>`
 * :ref:`Extension configuration files ➜ <extension-files-locations>`
 * :ref:`Flexforms ➜ <flexforms>`
-* :ref:`Form Framework ➜ <form:concepts-configuration>` (form)
+* :ref:`Form Framework ➜ <ext_form:concepts-configuration>` (form)
 * :ref:`Logging configuration ➜ <logging-configuration>`
-* :ref:`Rich text configuration ➜ <ckedit:configuration>` (rte_ckeditor)
+* :ref:`Rich text configuration ➜ <ext_rte_ckeditor:configuration>` (rte_ckeditor)
 * :ref:`Site, language, routing configuration ➜ <sitehandling>`
-* :ref:`TCA Reference ➜ <t3tca:start>`
-* :ref:`TSconfig Reference ➜ <t3tsconfig:start>`
-* :ref:`TypoScript Templating Reference ➜ <t3tsref:start>`
+* :doc:`TCA Reference ➜ <t3tca:Index>`
+* :doc:`TSconfig Reference ➜ <t3tsconfig:Index>`
+* :doc:`TypoScript Templating Reference ➜ <t3tsref:Index>`
 

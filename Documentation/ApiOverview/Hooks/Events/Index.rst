@@ -58,6 +58,12 @@ in the TYPO3 Core .
 
    Core/DataHandling/*
 
+.. toctree::
+   :titlesonly:
+   :caption: core/Domain
+   :glob:
+
+   Core/Domain/*
 
 .. toctree::
    :titlesonly:
@@ -149,6 +155,13 @@ in the TYPO3 Core .
    :glob:
 
    Impexp/*
+
+.. toctree::
+   :titlesonly:
+   :caption: info
+   :glob:
+
+   Info/*
 
 .. toctree::
    :titlesonly:

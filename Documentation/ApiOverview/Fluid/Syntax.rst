@@ -37,7 +37,7 @@ Assign an array in PHP:
 
 .. code-block:: php
 
-   $this->view->assign('data',array('Low', 'High'));
+   $this->view->assign('data', ['Low', 'High']);
 
 Use the dot ``.`` to access array keys::
 
@@ -47,7 +47,7 @@ This also works for object properties:
 
 .. code-block:: php
 
-   $this->view->assign('product',$myProduct);
+   $this->view->assign('product', $myProduct);
 
 Use it like this::
 
@@ -64,7 +64,7 @@ It is possible to access array or object values by a dynamic index::
 ViewHelper attributes
 =====================
 
-See the :ref:`Fluid Viewhelper Reference <t3viewhelper:start>` for a complete
+See the :doc:`Fluid Viewhelper Reference <t3viewhelper:Index>` for a complete
 list of all available ViewHelpers.
 
 Simple

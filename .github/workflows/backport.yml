@@ -1,6 +1,6 @@
 name: Backport
 on:
-  pull_request:
+  pull_request_target:
     types:
       - closed
       - labeled
@@ -10,13 +10,7 @@ jobs:
     runs-on: ubuntu-18.04
     name: Backport
     steps:
-      - name: Generate token
-        id: generate_token
-        uses: tibdex/github-app-token@v1
-        with:
-          app_id: ${{ secrets.BACKPORT_APP_ID }}
-          private_key: ${{ secrets.BACKPORT_APP_SECRET }}
       - name: Backport
-        uses: tibdex/backport@v1
+        uses: m-kuhn/backport@v1.2.6
         with:
-          github_token: ${{ steps.generate_token.outputs.token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}

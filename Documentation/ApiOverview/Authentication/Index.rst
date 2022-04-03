@@ -133,11 +133,9 @@ processLoginDataBE, processLoginDataFE
   The method to implement is :php:`processLoginData()`.
   It receives as argument the login data and the password
   transmission strategy (which corresponds to the login security
-  level, as defined in
-  :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['loginSecurityLevel']`
-  or :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['loginSecurityLevel']`).
-  It is expected to return a boolean value, with :php:`true`
-  meaning that it successfully processed login data.
+  level, where only 'normal' can be used.
+  It returns the boolean value :php:`true`,
+  when the login data has been successfully processed .
 
   It may also return a numerical value equal to 200 or greater,
   which indicates that no further login data processing should

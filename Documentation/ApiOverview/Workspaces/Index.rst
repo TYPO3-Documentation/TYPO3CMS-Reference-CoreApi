@@ -14,7 +14,7 @@ currently visible (live) version. Changes can be previewed and
 go through an approval process before publishing.
 
 The technical background and a practical user guide to this feature
-are provided in the :ref:`"workspaces" system extension manual <workspaces:start>`.
+are provided in the :doc:`"workspaces" system extension manual <ext_workspaces:Index>`.
 
 All the information necessary for making any database table
 compatible with workspaces is described in the
@@ -26,7 +26,7 @@ The only way to do so is with a :file:`Configuration/TCA/Overrides/example_table
 
    $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
 
-See :ref:`t3sitepackage:start` and :ref:`storing-changes-extension-overrides` .
+See :doc:`t3sitepackage:Index` and :ref:`storing-changes-extension-overrides` .
 
 .. note::
 
@@ -142,10 +142,9 @@ $GLOBALS['TSFE']->sys\_page->versionOL($table, &$row, $unsetMovePointers=FALSE)
    when you do queries directly (not using API functions already using
    them)::
 
-      $result = $queryBuilder->execute();
-      foreach ($result as $row) {
+      $result = $queryBuilder->executeQuery();
+      while ($row = $result->fetchAssociative()) {
           $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
-
           if (is_array($row)) {
               // ...
           }
@@ -230,11 +229,19 @@ Workspace-related API for backend modules
 
 .. rst-class:: dl-parameters
 
-BackendUtility::workspaceOL()
+:php:`BackendUtility::workspaceOL()`
    Overlaying record with workspace version if any. Works like
    :code:`->sys_page->versionOL()` does, but for the backend. Input record must
    have fields only from the table (no pseudo fields) and the record is
    passed by reference.
+
+   .. todo: Find a better example
+            If looped (while), resultset is retrieved and looped completly, as there is
+            no "break" which could leave unretrieved results. So the single retrieve
+            statement after the loop do not make any sense, as resultset is at the end,
+            and would return false instead of a row ....
+            Next point is, that queryBuilder createNamedParameter does not make any
+            sense either, as it not assigned anyware or used?
 
    **Example:** ::
 
@@ -247,11 +254,11 @@ BackendUtility::workspaceOL()
                $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT)
             )
          )
-         ->execute();
-      $row = $result->fetch();
+         ->executeQuery();
+      $row = $result->fetchAssociative();
       BackendUtility::workspaceOL('pages', $row);
 
-BackendUtility::getRecordWSOL()
+:php:`BackendUtility::getRecordWSOL()`
    Gets record from table and overlays the record with workspace version
    if any.
 
@@ -259,27 +266,26 @@ BackendUtility::getRecordWSOL()
 
       // use \TYPO3\CMS\Backend\Utility\BackendUtility
       $row = BackendUtility::getRecordWSOL($table, $uid);
-
       // This is the same as:
       $row = BackendUtility::getRecord($table, $uid);
       BackendUtility::workspaceOL($table, $row);
 
-BackendUtility::isPidInVersionizedBranch()
+:php:`BackendUtility::isPidInVersionizedBranch()`
    Will fetch the rootline for the pid, then check if anywhere in the
    rootline there is a branch point. Returns either "branchpoint" (if
    branch) or "first" (if page) or false if nothing. Alternatively, it
    returns the value of :code:`t3ver_stage` for the branchpoint (if any).
 
 
-BackendUtility::getWorkspaceVersionOfRecord()
+:php:`BackendUtility::getWorkspaceVersionOfRecord()`
    Returns offline workspace version of a record, if found.
 
 
-BackendUtility::getLiveVersionOfRecord()
+:php:`BackendUtility::getLiveVersionOfRecord()`
    Returns live version of workspace version.
 
 
-BackendWorkspaceRestriction
+:php:`BackendWorkspaceRestriction`
    Adds a WHERE-clause to the QueryBuilder which will deselect placeholder
    records from other workspaces. This should be implemented almost everywhere
    records are selected in the backend based on other fields than uid and where
@@ -297,13 +303,13 @@ BackendWorkspaceRestriction
           ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
           ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
 
-FrontendWorkspaceRestriction
+:php:`FrontendWorkspaceRestriction`
    Restriction for filtering records for fronted workspaces preview::
 
       // use TYPO3\CMS\Core\Database\Query\Restriction\FrontendWorkspaceRestriction;
 
 
-WorkspaceRestriction
+:php:`WorkspaceRestriction`
    This `WorkspaceRestriction` has been added to overcome certain downsides of the `BackendWorkspaceRestriction`
    and `FrontendWorkspaceRestriction`. It limits a SQL query to only select records which are "online" (pid != -1)
    and in live or current workspace::
@@ -311,24 +317,24 @@ WorkspaceRestriction
       // use TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction
 
 
-$BE\_USER->workspaceCannotEditRecord()
+:php:`$BE_USER->workspaceCannotEditRecord()`
    Checking if editing of an existing record is allowed in current
    workspace if that is offline.
 
-$BE\_USER->workspaceCreateNewRecord()
+:php:`$BE_USER->workspaceCreateNewRecord()`
    Checks if new records can be created in a certain page (according to
    workspace restrictions).
 
-$BE\_USER->checkWorkspace()
+:php:`$BE_USER->checkWorkspace()`
    Checks how the users access is for a specific workspace.
 
-$BE\_USER->checkWorkspaceCurrent()
+:php:`$BE_USER->checkWorkspaceCurrent()`
    Like ->checkWorkspace() but returns status for the current workspace.
 
-$BE\_USER->setWorkspace()
+:php:`$BE_USER->setWorkspace()`
    Setting another workspace for backend user.
 
-$BE\_USER->setWorkspacePreview()
+:php:`$BE_USER->setWorkspacePreview()`
    Setting frontend preview state.
 
 

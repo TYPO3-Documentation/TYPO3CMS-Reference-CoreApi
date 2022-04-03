@@ -17,9 +17,10 @@ compliant Symfony component to standardize object initialization throughout the 
 
 The recommended way of injecting dependencies is to use constructor injection::
 
-   public function __construct(Dependency $dependency)
+   public function __construct(Foo $foo, Bar $bar)
    {
-       $this->dependency = $dependency;
+       $this->foo = $foo;
+       $this->bar = $bar;
    }
 
 By default all API services shipped by the TYPO3 Core system extensions are available for dependency
@@ -43,14 +44,6 @@ injection.
 
 When to use Dependency Injection in TYPO3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. deprecated:: 11.4
-
-   The class :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` has been deprecated
-   with TYPO3 11.4.  Classes should be updated to avoid both,
-   :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` and
-   :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` whenever possible
-   when requiring service dependencies.
 
 Class dependencies to services should be injected via constructor injection or
 setter methods. Where possible, Symfony dependency injection
@@ -115,6 +108,9 @@ which is cached in php code (in TYPO3 Core  cache).
 
    An extension doesn't need to use autowiring, it is free to manually
    wire dependencies in the service configuration file.
+
+
+.. _dependency-injection-autoconfigure:
 
 Autoconfigure
 -------------
@@ -238,7 +234,7 @@ For such classes an extension can override the global :yaml:`public: false` conf
         public: true
 
 With this configuration you can use dependency injection in :php:`\Vendor\MyExtension\UserFunction\ClassA`
-when it is created e.g. in the context of a :ts:`USER` TypoScript object which would not be possible if this
+when it is created e.g. in the context of a :typoscript:`USER` TypoScript object which would not be possible if this
 class was private.
 
 .. index:: Dependency injection; Errors
@@ -351,7 +347,7 @@ Further information
 
 * `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`_
 * `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
-* :doc:`t3core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
+* :doc:`ext_core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
   of the TYPO3 Core .
-* :doc:`t3core:Changelog/10.4/Deprecation-90803-DeprecationOfObjectManagergetInExtbaseContext`
+* :doc:`ext_core:Changelog/10.4/Deprecation-90803-DeprecationOfObjectManagergetInExtbaseContext`
 * `Dependency Injection in TYPO3 - Blog Article by Daniel Goerz <https://usetypo3.com/dependency-injection.html>`_

@@ -47,9 +47,9 @@ extkey
 
 ExtensionName
     The term ExtensionName means the extension key in UpperCamelCase.
-    
+
     Example: for an extkey `bootstrap_package` the ExtensionName would be `BootstrapPackage`.
-    
+
     The ExtensionName is used as first parameter in the Extbase methods
     :php:`ExtensionUtility::configurePlugin()` or :php:`ExtensionUtility::registerModule()`.
 
@@ -221,7 +221,7 @@ Examples for Extbase domain models and table names of an extension named `cool_s
    You may notice, that the names above use the singular form, e.g. `post` and
    not `posts`. This is recommended, but not always followed. If you do not follow this pattern,
    you may need :ref:`manual mapping <t3extbasebook:using-foreign-data-sources>`.
-   
+
 Database column name
 ====================
 
@@ -280,7 +280,7 @@ The same plugin key is then used in the following:
 
 * second parameter in :php:`configurePlugin()` (Extbase): MUST match registered plugin key exactly
 * the :ref:`plugin signature <naming-conventions-plugin-signature>`
-* in TypoScript, e.g. :ts:`plugin.tx_myexample_myplugin`
+* in TypoScript, e.g. :typoscript:`plugin.tx_myexample_myplugin`
 * in TCA
 * etc.
 

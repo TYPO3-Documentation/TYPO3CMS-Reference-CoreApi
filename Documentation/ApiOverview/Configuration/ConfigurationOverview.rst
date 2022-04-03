@@ -59,18 +59,18 @@ Extension files
 
 :file:`Configuration/Services.yaml`
    Can be used to configure :ref:`Console commands <symfony-console-commands>`,
-   :ref:`Dashboard widgets <t3dashboard:register-new-widget>`,
+   :ref:`Dashboard widgets <ext_dashboard:register-new-widget>`,
    :ref:`Event listeners <EventDispatcher>` and
    :ref:`Dependency injection <DependencyInjection>`.
 
 :file:`Configuration/TCA`
-   :ref:`TCA configuration <t3tca:start>`.
+   :doc:`TCA configuration <t3tca:Index>`.
 
 :file:`Configuration/TSconfig/`
-   :ref:`TSconfig configuration <t3tsconfig:start>`.
+   :doc:`TSconfig configuration <t3tsconfig:Index>`.
 
 :file:`Configuration/TypoScript/`
-   :ref:`TypoScript configuration <t3tsref:start>`.
+   :doc:`TypoScript configuration <t3tsref:Index>`.
 
 
 .. hint::
@@ -88,8 +88,8 @@ These are the main languages TYPO3 uses for configuration:
 * :ref:`TypoScript constant syntax <t3tsref:typoscript-syntax-constant-editor>` is
   used for Extension Configuration and for defining constants for TypoScript.
 * :ref:`Yaml <yaml-syntax>` is the configuration language of choice for newer
-  TYPO3 system extensions like :ref:`rte_ckeditor <ckedit:start>`,
-  :ref:`form <form:start>` and the :ref:`sites module <sitehandling>`. It has
+  TYPO3 system extensions like :doc:`rte_ckeditor <ext_rte_ckeditor:Index>`,
+  :doc:`form <ext_form:Index>` and the :ref:`sites module <sitehandling>`. It has
   partly replaced TypoScript and TSconfig as configuration languages.
 * XML is used in :ref:`Flexforms <flexforms>`.
 * PHP is used for the :php:`$GLOBALS` array which includes TCA
@@ -113,7 +113,7 @@ what they mean) are not.
 Configuration methods
 =====================
 
-:ref:`TSconfig <t3tsconfig:start>`
+:doc:`TSconfig <t3tsconfig:Index>`
 ----------------------------------
 
 While Frontend TypoScript is used to steer the rendering of the frontend, TSconfig is used
@@ -127,13 +127,13 @@ in :ref:`typoscript-syntax-start`. Other than that, TSconfig and Frontend TypoSc
 don't have much more in common - they consist of entirely different properties.
 
 A full reference of properties as well as an introduction to explain details configuration usage, API and
-load orders can be found in the :ref:`TSconfig Reference document <t3tsconfig:start>`. While Developers
+load orders can be found in the :doc:`TSconfig Reference document <t3tsconfig:Index>`. While Developers
 should have an eye on this document, it is mostly used as a reference for Integrators who make life as
 easy as possible for backend users.
 
 
 
-:ref:`TypoScript Templating <t3tsref:start>`
+:doc:`TypoScript Templating <t3tsref:Index>`
 --------------------------------------------
 
 TypoScript - or more precisely "TypoScript Templating" - is used in TYPO3 to steer
@@ -146,15 +146,15 @@ often used. Nowadays, TypoScript in real life projects is often not much more th
 set a series of options for plugins, to set some global config options, and to act as a simple
 pre processor between database data and Fluid templates.
 
-Still, the :ref:`TypoScript Reference <t3tsref:start>` manual that goes deep into
+Still, the :doc:`TypoScript Reference <t3tsref:Index>` manual that goes deep into
 the incredible power of TypoScript Templating is daily bread for Integrators.
 
 
 For an introduction, you may want to read one of the following tutorials:
 
 
-* :ref:`t3ts45:start` - Introduction to TypoScript Templating.
-* :ref:`t3sitepackage:start` - Start a Sitepackage Extension to create a theme
+* :doc:`t3ts45:Index` - Introduction to TypoScript Templating.
+* :doc:`t3sitepackage:Index` - Start a Sitepackage Extension to create a theme
   for your site using TypoScript and Fluid.
 
 .. note::
@@ -179,11 +179,11 @@ For an introduction, you may want to read one of the following tutorials:
 
 The :php:`$GLOBALS` PHP array consists of:
 
-:ref:`$GLOBALS['TCA'] <t3tca:start>`:
+:doc:`$GLOBALS['TCA'] <t3tca:Index>`:
    TCA is the backbone of database tables displayed in the backend, it configures
    how data is stored if editing records in the backend, how fields are displayed,
    relations to other tables and much more. It is a huge array loaded in almost all
-   access contexts. TCA is documented in the :ref:`TCA Reference <t3tca:start>`.
+   access contexts. TCA is documented in the :doc:`TCA Reference <t3tca:Index>`.
    Next to a small introduction, the document forms a complete reference of all
    different TCA options, with bells and whistles. The document is a must-read for
    Developers, partially for Integrators, and is often used as a reference book
@@ -258,10 +258,10 @@ Some system extensions use YAML for configuration:
 
 * :ref:`routing` is also defined in the file :file:`<project-root>/config/sites/<identifier>/config.yaml`.
 
-* :ref:`form <form:concepts-configuration>`: The Form engine is a system
+* :ref:`form <ext_form:concepts-configuration>`: The Form engine is a system
   extension which supplies Forms to use in the frontend
 
-* :ref:`rte_ckeditor <ckedit:configuration>`: RTE ckeditor is a system
+* :ref:`rte_ckeditor <ext_rte_ckeditor:configuration>`: RTE ckeditor is a system
   extension. It is used to enable rich text editing in the backend.
 
 * A file :file:`<extension>/Configuration/Services.yaml` can be used to configure

@@ -18,6 +18,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['format']
 
 .. confval:: format
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: dropdown
    :Default: 'both'
    :allowedValues:
@@ -41,6 +42,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths']
 
 .. confval:: layoutRootPaths
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: array
    :Default:
       .. code-block:: php
@@ -62,6 +64,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['partialRootPaths']
 
 .. confval:: partialRootPaths
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: array
    :Default:
       .. code-block:: php
@@ -83,6 +86,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']
 
 .. confval:: templateRootPaths
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: array
    :Default:
       .. code-block:: php
@@ -104,6 +108,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['validators']
 
 .. confval:: validators
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: array
    :Default: :php:`[\Egulias\EmailValidator\Validation\RFCValidation::class]`
 
@@ -126,6 +131,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport']
 
 .. confval:: transport
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: 'sendmail'
 
@@ -167,11 +173,93 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server']
 
 .. confval:: transport_smtp_server
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: 'localhost:25'
 
-   *only with transport=smtp* serverport of mailserver to connect to. port
+   *only with transport=smtp* server port of mail server to connect to. port
    defaults to "25".
+
+.. index::
+   TYPO3_CONF_VARS MAIL; transport_smtp_domain
+.. _typo3ConfVars_mail_transport_smtp_domain:
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_domain']
+============================================================
+
+.. confval:: transport_smtp_domain
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
+   :type: text
+   :Default: ''
+
+   Some smtp-relay-servers require the domain to be set from which the sender is
+   sending an email. By default, the EsmtpTransport from Symfony will use the
+   current domain/IP of the host or container. This will be sufficient for
+   most servers, but some servers require that a valid domain is passed. If
+   this isn't done, sending emails via such servers will fail.
+
+   Setting a valid SMTP domain can be achieved by setting
+   :confval:`transport_smtp_domain` in the :file:`LocalConfiguration.php`.
+   This will set the given domain to the EsmtpTransport agent and send the
+   correct EHLO-command to the relay-server.
+
+   **Configuration Example for GSuite:**
+
+   .. code-block:: php
+      :caption: `typo3conf/LocalConfiguration.php`
+
+       return [
+           //....
+           'MAIL' => [
+               'defaultMailFromAddress' => 'webserver@example.org',
+               'defaultMailFromName' => 'SYSTEMMAIL',
+               'transport' => 'smtp',
+               'transport_sendmail_command' => ' -t -i ',
+               'transport_smtp_domain' => 'example.org',
+               'transport_smtp_encrypt' => '',
+               'transport_smtp_password' => '',
+               'transport_smtp_server' => 'smtp-relay.gmail.com:587',
+               'transport_smtp_username' => '',
+           ],
+           //....
+       ];
+
+.. index::
+   TYPO3_CONF_VARS MAIL; transport_smtp_stream_options
+.. _typo3ConfVars_mail_transport_smtp_stream_options:
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_stream_options']
+====================================================================
+
+.. confval:: transport_smtp_stream_options
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
+   :type: bool
+   :Default: false
+
+   *only with transport=smtp* Sets additional stream options.
+
+   Configuration Example:
+
+   .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
+
+       return [
+           //....
+           'MAIL' => [
+               'transport' => 'smtp',
+               'transport_sendmail_command' => ' -t -i ',
+               'transport_smtp_server' => 'localhost:1025',
+               'transport_smtp_stream_options' => [
+                   'ssl' => [
+                       'verify_peer' => false,
+                       'verify_peer_name' => false,
+                   ]
+               ],
+           ],
+           //....
+       ];
 
 .. index::
    TYPO3_CONF_VARS MAIL; transport_smtp_encrypt
@@ -182,6 +270,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt']
 
 .. confval:: transport_smtp_encrypt
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: bool
    :Default: false
 
@@ -200,6 +289,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username']
 
 .. confval:: transport_smtp_username
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -215,11 +305,69 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password']
 
 .. confval:: transport_smtp_password
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: password
    :Default: ''
 
    *only with transport=smtp* If your SMTP server requires authentication,
    enter your password here.
+
+.. index::
+   TYPO3_CONF_VARS MAIL; transport_smtp_restart_threshold
+.. _typo3ConfVars_mail_transport_smtp_restart_threshold:
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_restart_threshold']
+=======================================================================
+
+.. confval:: transport_smtp_restart_threshold
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
+   :type: text
+   :Default: ''
+
+   *only with transport=smtp* Sets the maximum number of messages to send
+   before re-starting the transport.
+
+.. index::
+   TYPO3_CONF_VARS MAIL; transport_smtp_restart_threshold_sleep
+.. _typo3ConfVars_mail_transport_smtp_restart_threshold_sleep:
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_restart_threshold_sleep']
+=============================================================================
+
+.. confval:: transport_smtp_restart_threshold_sleep
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
+   :type: text
+   :Default: ''
+
+   *only with transport=smtp* Sets the number of seconds to sleep
+   between stopping and re-starting the transport.
+
+.. index::
+   TYPO3_CONF_VARS MAIL; transport_smtp_ping_threshold
+.. _typo3ConfVars_mail_transport_smtp_ping_threshold:
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_ping_threshold']
+=======================================================================
+
+.. confval:: transport_smtp_ping_threshold
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
+   :type: text
+   :Default: ''
+
+   *only with transport=smtp* Sets the minimum number of seconds required
+   between two messages, before the server is pinged. If the transport
+   wants to send a message and the time since the last message exceeds
+   the specified threshold, the transport will ping the server first
+   (NOOP command) to check if the connection is still alive. Otherwise the
+   message will be sent without pinging the server first.
+
+   .. note::
+      Do not set the threshold too low, as the SMTP server may drop the
+      connection if there are too many non-mail commands
+      (like pinging the server with NOOP).
 
 .. index::
    TYPO3_CONF_VARS MAIL; transport_sendmail_command
@@ -230,6 +378,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command']
 
 .. confval:: transport_sendmail_command
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -244,6 +393,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_mbox_file']
 
 .. confval:: transport_mbox_file
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -260,6 +410,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_type']
 
 .. confval:: transport_spool_type
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -280,6 +431,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_filepath']
 
 .. confval:: transport_spool_filepath
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -295,6 +447,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['dsn']
 
 .. confval:: dsn
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -322,6 +475,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress']
 
 .. confval:: defaultMailFromAddress
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -338,6 +492,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromName']
 
 .. confval:: defaultMailFromName
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -353,6 +508,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailReplyToAddress']
 
 .. confval:: defaultMailReplyToAddress
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 
@@ -369,6 +525,7 @@ $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailReplyToName']
 
 .. confval:: defaultMailReplyToName
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
    :type: text
    :Default: ''
 

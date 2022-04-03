@@ -20,7 +20,7 @@ about adding an RTE on frontend pages.
    The CKEditor integrated in the frontend
 
 The following list describes features and corresponding implementation
-effort ordered from simple to complex. 
+effort ordered from simple to complex.
 
 The optional features
 =====================
@@ -33,11 +33,11 @@ The optional features
    like `id` or `class` for example.
 
 *  Advanced text-formatting can be achieved with predefined blocks and
-   according style. Those blocks wrap selected content in html-elements 
+   according style. Those blocks wrap selected content in html-elements
    with CSS-classes that can be styled in a stylesheet. The formats have
    to be defined by names, short description and according styling.
    CKEditor offers a dropdown button for those block-styles.
-   
+
    Editing the Source could allow the user optionally to add special
    HTML-elements or attributes like `id`, `class` or more.
 
@@ -53,13 +53,13 @@ The optional features
 *  Links might be choosen out of the existing pages of the website, those
    links can be added as internal instead of external links but require
    a visual and functional option to select from existing pages.
-   
+
    *This option requires an AJAX-connection to interact with TYPO3.*
 
 *  For special websites like intranets it might be desired additionally
    to not only allow the upload of media but also to choose media out of
    those that exist already in a public directory on the server.
-   
+
    *This option requires an AJAX-connection to interact with TYPO3.*
 
 .. important::
@@ -72,7 +72,7 @@ The optional features
 
    It's advised to allow only required input and to disallow any further
    content and features.
-   
+
    The chapter :ref:`security-threats` informs about possible vulnerabilities
    and concerning forms especially the paragraph about
    :ref:`Cross Site Scripting (XSS) <security-xss>` is important.
@@ -108,7 +108,7 @@ JavaScript.
 The solution
 ============
 
-The chapter :ref:`CKEditor (rte_ckeditor) <ckedit:start>` includes examples
+The chapter :doc:`CKEditor (rte_ckeditor) <ext_rte_ckeditor:Index>` includes examples
 and common challenges for the frontend. You can use other editors with TYPO3
 and some points, like handling of data on the server, are independent of the
 distinct editor in the frontend. Therefore the chapter is advised even if you

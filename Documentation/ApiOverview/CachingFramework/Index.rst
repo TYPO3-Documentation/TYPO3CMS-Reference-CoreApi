@@ -1,7 +1,5 @@
 .. include:: /Includes.rst.txt
 
-.. http://wiki.typo3.org/Caching_framework
-
 .. _caching:
 
 =======
@@ -80,16 +78,33 @@ This both adds an additional layer for validating slugs as well as reduces the p
 Various configuration options exist to configure the `cHash` behavior via :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']`
 in the file :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
 
-================================== ====================================================================================================================================================================
-Option                             Description
-================================== ====================================================================================================================================================================
-cachedParametersWhiteList          Only the given parameters will be evaluated in the cHash calculation. Example: tx_news_pi1[uid]
-requireCacheHashPresenceParameters Configure Parameters that require a cHash. If no cHash is given but one of the parameters are set, then TYPO3 triggers the configured cHash Error behavior
-excludedParameters                 The given parameters will be ignored in the cHash calculation. Example: L,tx_search_pi1[query]
-excludedParametersIfEmpty          Configure Parameters only being relevant for the cHash if there's an associated value available. Set excludeAllEmptyParameters to true to skip all empty parameters.
-excludeAllEmptyParameters          If true, all parameters which are relevant for cHash are only considered if they are non-empty.
-================================== ====================================================================================================================================================================
+.. confval:: cachedParametersWhiteList
 
+   **Only** the given parameters will be evaluated in the cHash calculation. Example: tx_news_pi1[uid]
+    
+   .. attention::
+    
+      This option will lead to cache calculation being skipped for all parameters except the ones listed here.
+      Caching of pages will not be influenced by other parameters beyond the initial caching anymore.
+ 
+.. confval:: requireCacheHashPresenceParameters
+
+   Configure Parameters that require a cHash. If no cHash is given but one of the parameters
+   are set, then TYPO3 triggers the configured cHash Error behavior
+   
+.. confval:: excludedParameters
+
+   The given parameters will be ignored in the cHash calculation. Example: L,tx_search_pi1[query]
+
+.. confval:: excludedParametersIfEmpty
+
+   Configure Parameters only being relevant for the cHash if there's an associated value available. 
+   Set excludeAllEmptyParameters to true to skip all empty parameters.
+   
+.. confval:: excludeAllEmptyParameters
+
+   If true, all parameters which are relevant for cHash are only considered if they are non-empty.
+   
 All properties can be configured with an array of values. Besides exact matches (*equals*) it is possible to apply partial matches at
 the beginning of a parameter (*startsWith*) or inline occurrences (*contains*).
 
@@ -102,10 +117,11 @@ These indicators can be used for all previously existing sub-properties
 :php:`cachedParametersWhiteList`, :php:`excludedParameters`, :php:`excludedParametersIfEmpty`
 and :php:`requireCacheHashPresenceParameters`.
 
-Example (excerpt of `LocalConfiguration.php`)
----------------------------------------------
+Example (excerpt of `AdditionalConfiguration.php`)
+--------------------------------------------------
 
 .. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
 
    $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash'] = [
      'excludedParameters' => [
@@ -122,6 +138,7 @@ Example (excerpt of `LocalConfiguration.php`)
 For instance instead of having exclude items like
 
 .. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
 
    'excludedParameters' => [
       'tx_my[data][uid]',
@@ -135,6 +152,7 @@ partial matches allow to simplify the configuration and consider all items havin
 :php:`tx_my[data]` (or :php:`tx_my[data][` to be more specific) as prefix like
 
 .. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
 
    'excludedParameters' => [
       '^tx_my[data][',

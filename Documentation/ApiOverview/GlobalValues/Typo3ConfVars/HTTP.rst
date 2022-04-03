@@ -22,6 +22,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']
 
 .. confval:: allow_redirects
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
 
    Mixed, set to false if you want to disallow redirects, or use it as an
@@ -37,6 +38,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['strict']
 
 .. confval:: allow_redirects strict
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: bool
    :Default: false
 
@@ -59,6 +61,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['max']
 
 .. confval:: allow_redirects max
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: int
    :Default: 5
 
@@ -73,6 +76,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['cert']
 
 .. confval:: cert
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
    :Default: null
 
@@ -89,6 +93,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['connect_timeout']
 
 .. confval:: connect_timeout
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: int
    :Default: 10
 
@@ -104,6 +109,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy']
 
 .. confval:: proxy
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
    :Default: null
 
@@ -127,6 +133,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['ssl_key']
 
 .. confval:: ssl_key
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
    :Default: null
 
@@ -142,6 +149,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['timeout']
 
 .. confval:: timeout
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: int
    :Default: 0
 
@@ -161,6 +169,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']
 
 .. confval:: verify
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
    :Default: true
 
@@ -176,6 +185,7 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['version']
 
 .. confval:: version
 
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: text
    :Default: '1.1'
 

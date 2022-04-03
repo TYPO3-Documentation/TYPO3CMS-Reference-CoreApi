@@ -9,7 +9,7 @@ Pagination
 .. note::
 
    Pagination via Fluid widgets was removed, see
-   :doc:`t3core:Changelog/11.0/Breaking-92529-AllFluidWidgetFunctionalityRemoved`.
+   :doc:`ext_core:Changelog/11.0/Breaking-92529-AllFluidWidgetFunctionalityRemoved`.
    Use the API documented here to implement your own pagination.
 
 The TYPO3 Core provides an interface to implement the native pagination of lists like arrays or
@@ -47,6 +47,7 @@ Code-Example for the :php:`ArrayPaginator`:
    $paginator->getKeyOfLastPaginatedItem(); // returns 5
 
    // use TYPO3\CMS\Core\Pagination\SimplePagination;
+   
    $pagination = new SimplePagination($paginator);
    $pagination->getAllPageNumbers(); // returns [1, 2, 3]
    $pagination->getPreviousPageNumber(); // returns 2

@@ -283,20 +283,6 @@ in the TCA reference:
    * :ref:`t3tca:columns-properties-displaycond` in TCA Reference
 
 
-.. index:: Flexforms; switchableControllerActions
-.. _flexformSwitchableControllerActions:
-
-switchableControllerActions
----------------------------
-
-.. deprecated:: 10.3
-
-   It is no longer considered best practice to use
-   `switchableControllerActions` in a Flexform. The reasons
-   for the deprecation and possible alternatives are outlined
-   in the changelog :doc:`t3core:Changelog/10.3/Deprecation-89463-SwitchableControllerActions`.
-
-
 .. _flexformReload:
 
 Reload on change
@@ -374,7 +360,7 @@ How to access flexforms From TypoScript
 
 .. versionadded:: 8.4
    It is now possible to read Flexform properties from TypoScript,
-   see :doc:`t3core:Changelog/8.4/Feature-17309-AccessFlexformValueViaTS`.
+   see :doc:`ext_core:Changelog/8.4/Feature-17309-AccessFlexformValueViaTS`.
 
 
 .. code-block:: typoscript

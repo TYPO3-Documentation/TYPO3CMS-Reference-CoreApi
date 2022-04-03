@@ -9,13 +9,13 @@ Mail API
 .. versionadded:: 10.0
 
    Symfony mailer and mime support was added with this change:
-   :doc:`t3core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
+   :doc:`ext_core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
 
 .. versionadded:: 10.3
 
    TYPO3 now supports sending template-based emails for multi-part and HTML-based
    emails out-of-the-box. The email contents are built with the Fluid Templating Engine.
-   :doc:`t3core:Changelog/10.3/Feature-90266-Fluid-basedTemplatedEmails`
+   :doc:`ext_core:Changelog/10.3/Feature-90266-Fluid-basedTemplatedEmails`
 
 TYPO3 CMS provides a RFC-compliant mailing solution based on
 `symfony/mailer <https://symfony.com/doc/current/components/mailer.html>`__
@@ -98,7 +98,7 @@ smtp
 
    .. versionchanged:: 10.4
       The allowed values fo this settings has changed (from string to boolean),
-      see :doc:`t3core:Changelog/10.4.x/Important-91070-SMTPTransportOptionTransport_smtp_encryptChangedToBoolean`
+      see :doc:`ext_core:Changelog/10.4.x/Important-91070-SMTPTransportOptionTransport_smtp_encryptChangedToBoolean`
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username] = '<username>';`
    If your SMTP server requires authentication, the username.
@@ -134,6 +134,23 @@ sendmail
 
       $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'sendmail';
       $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command'] = '/usr/sbin/sendmail -bs';
+
+
+   .. attention::
+
+      Depending on the configuration of the server and the TYPO3 instance, it
+      may not be possible to send emails to BCC recipients. The configuration of
+      the :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command']`
+      value is crucial.
+
+      TYPO3 recommends the parameter :php:`-bs` (instead of :php:`-t -i`). The
+      parameter :php:`-bs` tells TYPO3 to use the SMTP standard and that way the
+      BCC recipients are properly set.
+      `Symfony <https://symfony.com/doc/6.0/mailer.html#using-built-in-transports>`__
+      refers to the problem of using the :php:`-t` parameter as well. Since
+      :issue:`65791` the :php:`transport_sendmail_command` is automatically set
+      from the PHP runtime configuration and saved. Thus, if you have problems
+      with sending emails to BCC recipients, check the above mentioned configuration.
 
 
 .. _mail-configuration-mbox:

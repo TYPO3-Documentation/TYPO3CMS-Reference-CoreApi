@@ -12,6 +12,11 @@ A brief explanation happens in :ref:`seo`.
 In general the system will generate the canonical using the same logic as for
 cHash.
 
+.. note::
+   The canonical API is provided by the optional system extension
+   EXT:seo. You can find information about how to install and use it in the
+   :doc:`EXT:seo manual <ext_seo:Index>`.
+
 Excluding arguments from the generation
 =======================================
 

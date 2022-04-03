@@ -35,7 +35,9 @@ or by filename from its folder::
    $file = $folder->getStorage()->getFileInFolder("example.ext", $folder);
 
 .. versionadded:: 10.2
-   Starting with version 10.2  a file can be retrieved directly by its filename from the folder::
+   Starting with version 10.2 a file can be retrieved directly by its filename from the folder:
+
+   .. code-block:: php
 
       $file = $folder->getFile("filename.ext");
 
@@ -275,7 +277,7 @@ to combine them in one request.
 
 The Parameter :php:`s` has following syntax: `width:height:minW:minH:maxW:maxH`. You
 can leave this parameter empty to load the file in its original size. Parameter :php:`width`
-and :php:`height` can feature the trailing :ts:`c` or :ts:`m` indicator, as known from TypoScript.
+and :php:`height` can feature the trailing :typoscript:`c` or :typoscript:`m` indicator, as known from TypoScript.
 
 The PHP class responsible for handling the file dumping is the :php:`FileDumpController`, which you
 may also use in your code.

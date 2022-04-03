@@ -44,29 +44,21 @@ Processing can also be overwritten by page TSconfig, see the
 Transformation filters
 ======================
 
-.. ### BEGIN~OF~TABLE ###
+.. confval:: css_transform
 
-.. container:: table-row
+   :Scope: RTE Transformation filter
 
-   Transformation filter
-         css\_transform
+   Transforms the HTML markup either for display in the rich-text editor or for
+   saving in the database. The name "css_transform" is historical; earlier
+   TYPO3 versions had a long since removed "ts_transform" mode, which basically
+   only saved a minimum amount of HTML in the database and produced a lot of
+   nowadays outdated markup like :code:`<font>` tag style rendering in the
+   frontend.
 
-   Description
-         Transforms the html markup either for display in the richtext editor or for saving in the db.
-         The name "css_transform" is historical; earlier TYPO3 versions had a long since removed
-         "ts_transform" mode, which basically only saved a minimum amount of HTML in the db and
-         produced a lot of nowadays outdated markup like :code:`<font>` tag style rendering in the
-         frontend.
+.. confval:: ts_links
 
+   :Scope: RTE Transformation filter
 
-.. container:: table-row
-
-   Transformation filter
-         ts\_links
-
-   Description
-         Processes anchor tags and resolves them via :code:`\TYPO3\CMS\Core\LinkHandling\LinkService`
-         before saving them to the db, while using the TYPO3-internal t3:// syntax.
-
-.. ###### END~OF~TABLE ######
-
+   Processes anchor tags and resolves them via
+   :php:`\TYPO3\CMS\Core\LinkHandling\LinkService` before saving them to
+   the database, while using the TYPO3-internal :html:`t3://` syntax.

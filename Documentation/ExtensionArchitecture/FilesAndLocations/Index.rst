@@ -403,8 +403,8 @@ Services can be configured in this file. TYPO3 uses it for:
 
 * :ref:`Dependency Injection <configure-dependency-injection-in-extensions>`
 * :ref:`Event Listeners <EventDispatcherRegistration>`
-* Command Controllers (see :doc:`Feature: #89139 - Add dependency injection support for console commands <t3core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands>`)
-* :ref:`Registering a widget with the dashboard <t3dashboard:register-new-widget>`
+* Command Controllers (see :doc:`Feature: #89139 - Add dependency injection support for console commands <ext_core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands>`)
+* :ref:`Registering a widget with the dashboard <ext_dashboard:register-new-widget>`
 
 A typical :file:`Configuration/Services.yaml` may look like this:
 
@@ -470,9 +470,9 @@ stick to this and the other Coding Guidelines, the system helps in various ways.
 PHP classes into the :file:`Classes/` folder and using appropriate namespaces for the classes,
 the system will be able to autoload these files.
 
-Extension kickstarters like the `Extension Builder extension
-<https://extensions.typo3.org/extension/extension_builder>`_ will create
-the correct structure for you.
+Extension kickstarters like the
+`Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
+will create the correct structure for you.
 
 It is described below:
 

@@ -16,10 +16,10 @@ TYPO3 uses Symfony commands API for writing CLI (command line interface) command
 These commands can also be run from the TYPO3 :ref:`scheduler <symfony-console-commands-scheduler>`.
 
 .. deprecated:: 10
-    :doc:`t3core:Changelog/10.3/Deprecation-89139-ConsoleCommandsConfigurationFormatCommandsPhp`
+    :doc:`ext_core:Changelog/10.3/Deprecation-89139-ConsoleCommandsConfigurationFormatCommandsPhp`
 
 .. versionadded:: 10
-    :doc:`t3core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands`
+    :doc:`ext_core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands`
 
 Creating a new Command in Extensions
 ====================================
@@ -138,6 +138,10 @@ command API. This is explained in depth on the following Symfony Documentation p
 
 Add an optional argument and an optional option to your command::
 
+
+    // use Symfony\Component\Console\Input\InputArgument;
+    // use Symfony\Component\Console\Input\InputOption;
+
     /**
      * Configure the command by defining the name, options and arguments
      */
@@ -168,6 +172,9 @@ which can be passed on the command line:
 
 This argument can be retrieved with :php:`$input->getArgument()`, the options with
 :php:`$input->getOption()`, for example::
+
+   // use Symfony\Component\Console\Input\InputInterface;
+   // use Symfony\Component\Console\Output\OutputInterface;
 
    protected function execute(InputInterface $input, OutputInterface $output)
    {
@@ -266,8 +273,8 @@ Show help for the command:
 Running the Command From the Scheduler
 ======================================
 
-By default, it is possible to run the command from the :ref:`TYPO3 scheduler
-<sched:start>` as well. To do this, select the task :guilabel:`Execute console commands`
+By default, it is possible to run the command from the :doc:`TYPO3 scheduler
+<ext_scheduler:Index>` as well. To do this, select the task :guilabel:`Execute console commands`
 followed by your command in the :guilabel:`Schedulable Command` field.
 
 .. note::

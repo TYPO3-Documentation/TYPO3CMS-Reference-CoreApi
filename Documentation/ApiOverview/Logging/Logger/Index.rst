@@ -34,11 +34,20 @@ Constructor injection can be used to automatically instantiate the logger:
 .. index::
    Logging; logger->log
    Logging; LogLevels
+   Logging; Shorthand methods
+   Logging; logger->debug
+   Logging; logger->info
+   Logging; logger->warning
+.. _logging-logger-shortcuts:
 
-Log level
-=========
+
+Log levels and shorthand methods
+================================
 
 Log levels according to RFC 3164, starting from the lowest level.
+For each of the severity levels mentioned above, a shorthand method exists in
+:code:`\TYPO3\CMS\Core\Log\Logger`, like
+
 
 .. _label-Debug:
 .. rst-class:: dl-parameters
@@ -46,6 +55,7 @@ Log levels according to RFC 3164, starting from the lowest level.
 Debug
    :sep:`|` debug information
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::DEBUG`
+   :sep:`|` :code:`$this->logger->debug($message, array $context = array());`
    :sep:`|`
 
    Detailed status information during the development of new PHP code.
@@ -56,6 +66,7 @@ Debug
 Informational
    :sep:`|` informational messages
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::INFO`
+   :sep:`|` :code:`$this->logger->info($message, array $context = array());`
    :sep:`|`
 
    User logs in, SQL logs.
@@ -66,9 +77,11 @@ Informational
 Notice
    :sep:`|` significant condition
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::NOTICE`
+   :sep:`|` :code:`$this->logger->notice($message, array $context = array());`
    :sep:`|`
 
-   Things you should have a look at, nothing to worry about though.
+   Things you should have a look at, nothing to worry about though. 
+   Example: User log ins, SQL logs.
 
 .. _label-warning:
 .. rst-class:: dl-parameters
@@ -76,9 +89,11 @@ Notice
 Warning
    :sep:`|` warning condition
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::WARNING`
+   :sep:`|` :code:`$this->logger->warning($message, array $context = array());`
    :sep:`|`
 
    Use of deprecated APIs. Undesirable events that are not necessarily wrong.
+   Example: Use of a deprecated method.
 
 .. _label-error:
 .. rst-class:: dl-parameters
@@ -86,6 +101,7 @@ Warning
 Error
    :sep:`|` error condition
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::ERROR`
+   :sep:`|` :code:`$this->logger->error($message, array $context = array());`
    :sep:`|`
 
    Runtime error. Some PHP coding error has happened. A white screen is shown.
@@ -96,6 +112,7 @@ Error
 Critical
    :sep:`|` critical condition
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::CRITICAL`
+   :sep:`|` :code:`$this->logger->critical($message, array $context = array());`
    :sep:`|`
 
    Unexpected exception.  An important file has not been found, data is corrupt or outdated.
@@ -106,6 +123,7 @@ Critical
 Alert
    :sep:`|` blocking condition
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::ALERT`
+   :sep:`|` :code:`$this->logger->alert($message, array $context = array());`
    :sep:`|`
 
    Action must be taken immediately. Entire website down, database unavailable.
@@ -116,6 +134,7 @@ Alert
 Emergency
    :sep:`|` nothing works
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::EMERGENCY`
+   :sep:`|` :code:`$this->logger->emergency($message, array $context = array());`
    :sep:`|`
 
    The system is unusable. You will likely not be able to reach the system.
@@ -174,23 +193,6 @@ The Logger then forwards the log records to all of its configured :ref:`Writers 
 which will then persist the log record.
 
 
-.. index::
-   Logging; Shorthand methods
-   Logging; logger->debug
-   Logging; logger->info
-   Logging; logger->warning
-.. _logging-logger-shortcuts:
-
-Shorthand methods
-=================
-
-For each of the severity levels mentioned above, a shorthand method exists in
-:code:`\TYPO3\CMS\Core\Log\Logger`, like
-
-- :code:`$this->logger->debug($message, array $data = array());`
-- :code:`$this->logger->info($message, array $data = array());`
-- :code:`$this->logger->notice($message, array $data = array());`
-- etc.
 
 Channels
 ========
