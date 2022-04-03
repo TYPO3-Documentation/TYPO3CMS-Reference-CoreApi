@@ -25,8 +25,11 @@ Along with that interface, an abstract paginator class :php:`\TYPO3\CMS\Core\Pag
 is available that implements the base pagination logic for any kind of :php:`Countable` set of
 items while it leaves the processing of items to the concrete paginator class.
 
-Two concrete paginators are available. One for :php:`array` and one for
-:php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface` objects.
+Two concrete paginators are available:
+
+*  For type :php:`array`: :php:`\TYPO3\CMS\Core\Pagination\ArrayPaginator`
+*  For type :php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface`:
+   :php:`\TYPO3\CMS\Extbase\Pagination\QueryResultPaginator`
 
 Code-Example for the :php:`ArrayPaginator`:
 
@@ -44,7 +47,8 @@ Code-Example for the :php:`ArrayPaginator`:
    $paginator->getKeyOfFirstPaginatedItem(); // returns 5
    $paginator->getKeyOfLastPaginatedItem(); // returns 5
 
-   // use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
+   // use TYPO3\CMS\Core\Pagination\SimplePagination;
+   
    $pagination = new SimplePagination($paginator);
    $pagination->getAllPageNumbers(); // returns [1, 2, 3]
    $pagination->getPreviousPageNumber(); // returns 2
