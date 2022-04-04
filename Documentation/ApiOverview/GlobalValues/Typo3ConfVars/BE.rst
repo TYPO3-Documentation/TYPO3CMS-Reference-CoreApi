@@ -798,28 +798,16 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['interfaces']
 
    (All options: "backend,frontend")
 
-.. index::
-   TYPO3_CONF_VARS BE; explicitADmode
 .. _typo3ConfVars_be_explicitADmode:
 
 $GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode']
 ===================================================
 
-.. confval:: explicitADmode
-
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
-   :type: dropdown
-   :Default: 'explicitAllow'
-   :allowedValues:
-      explicitAllow:
-         Administrators have to explicitly grant access for all editors and
-         groups
-      explicitDeny:
-         Editors have access to all content types by default, access has
-         to explicitly restricted
-
-   Sets the general allow/deny mode for Content Element Types (CTypes) when
-   granting or restricting access for backend users
+.. versionchanged:: 12.0
+   The handling of :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode']` has been changed as
+   if it is always set to :php:`explicitAllow`. Extensions should not assume this global array
+   key being set anymore since TYPO3 Core v12. Extensions that need to stay compatible with v11
+   and v12 should fall back: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode'] ?? 'explicitAllow'`.
 
 .. index::
    TYPO3_CONF_VARS BE; flexformForceCDATA
