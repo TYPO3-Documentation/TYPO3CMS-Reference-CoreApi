@@ -804,10 +804,10 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode']
 ===================================================
 
 .. versionchanged:: 12.0
-   The handling of :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode']` has been changed as
-   if it is always set to :php:`explicitAllow`. Extensions should not assume this global array
-   key being set anymore since TYPO3 Core v12. Extensions that need to stay compatible with v11
-   and v12 should fall back: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode'] ?? 'explicitAllow'`.
+   The handling of :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode']` has been changed and
+   is now set using :php:`explicitAllow`. Extensions should not assume this global array
+   key is set anymore as of TYPO3 Core v12. Extensions that need to stay compatible with v11
+   and v12 should instead use: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode'] ?? 'explicitAllow'`.
 
 .. index::
    TYPO3_CONF_VARS BE; flexformForceCDATA
