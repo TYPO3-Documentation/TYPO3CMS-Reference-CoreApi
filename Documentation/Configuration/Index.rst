@@ -27,15 +27,15 @@ these terms in this chapter.
 
    ConfigurationOverview
    Glossary
-   ../FeatureToggles/Index
-   ../GlobalValues/GlobalVariables/Index
-   ../GlobalValues/Typo3ConfVars/Index
-   ../GlobalValues/Typo3Information/Index
-   ../Tsconfig/Index
-   ../TypoScriptSyntax/Index
-   ../UserSettingsConfiguration/Index
-   ../Yaml/Index
-   ../YamlSyntax/Index
+   ConfigurationModule/Index
+   FeatureToggles
+   GlobalVariables
+   Typo3ConfVars/Index
+   Typo3Information
+   Tsconfig
+   TypoScriptSyntax/Index
+   UserSettingsConfiguration/Index
+   Yaml/Index
 
 **More ...**
 

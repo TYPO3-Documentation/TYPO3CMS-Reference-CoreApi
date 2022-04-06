@@ -53,7 +53,7 @@ management system TYPO3.
    ApiOverview/BroadcastChannels/Index
    ApiOverview/CachingFramework/Index
    CodingGuidelines/Index
-   ApiOverview/Configuration/Index
+   Configuration/Index
    ApiOverview/GlobalValues/Constants/Index
    ApiOverview/ContentElements/Index
    ApiOverview/Context/Index
