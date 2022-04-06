@@ -48,7 +48,7 @@ Example
 Registration of the Event in your extensions' :file:`Services.yaml`:
 
 .. code-block:: yaml
-   :caption: my_extension/Configuration/Services.yaml
+   :caption: EXT:my_extension/Configuration/Services.yaml
 
    MyVendor\MyExtension\Backend\ModifyLinkExplanationEventListener:
      tags:
@@ -58,7 +58,7 @@ Registration of the Event in your extensions' :file:`Services.yaml`:
 The corresponding event listener class:
 
 .. code-block:: php
-   :caption: my_extension/Classes/Backend/ModifyLinkExplanationEventListener.php
+   :caption: EXT:my_extension/Classes/Backend/ModifyLinkExplanationEventListener.php
 
    use TYPO3\CMS\Backend\Form\Event\ModifyLinkExplanationEvent;
    use TYPO3\CMS\Core\Imaging\Icon;
