@@ -150,7 +150,7 @@ The Install Tool provides various dedicated modules that change parts of
 :file:`LocalConfiguration.php`, those can be found in **ADMIN TOOLS > Settings**,
 most importantly section **Configure installation-wide options**:
 
-.. figure:: ../../../Images/InstallToolAllConfiguration.png
+.. figure:: /Images/InstallToolAllConfiguration.png
    :alt: Configure installation-wide options in Install Tool with an active search
 
 
