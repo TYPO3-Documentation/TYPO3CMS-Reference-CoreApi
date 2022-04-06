@@ -68,7 +68,7 @@ management system TYPO3.
    ApiOverview/Enumerations/Index
    ApiOverview/Environment/Index
    ApiOverview/ErrorAndExceptionHandling/Index
-   ApiOverview/Hooks/Index
+   Events/Index
    ExtensionArchitecture/Index
    ApiOverview/ExtensionScanner/Index
    ApiOverview/Fal/Index
