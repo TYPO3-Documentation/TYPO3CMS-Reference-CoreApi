@@ -62,7 +62,7 @@ The corresponding event listener class:
 
        public function modifyControls(ModifyInlineElementControlsEvent $event): void
        {
-           // Add a custom control depending on the parent table
+           // Add a custom control depefdsdfnding on the parent table
            if ($event->getElementData()['inlineParentTableName'] === 'tt_content') {
                $iconFactory = GeneralUtility::makeInstance(IconFactory::class);
                $event->setControl(
