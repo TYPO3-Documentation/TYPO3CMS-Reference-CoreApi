@@ -17,11 +17,16 @@ for backend users.
 While the underlying TypoScript syntax is described in this chapter, both usages
 and their details are found in standalone manuals:
 
-- The :doc:`TypoScript Reference <t3tsref:Index>` goes into details about `Frontend TypoScript`.
+-  The :doc:`TypoScript Reference <t3tsref:Index>` goes into details about the
+   usage of TypoScript in the frontend.
 
-- The :doc:`TSconfig Reference <t3tsconfig:Index>` goes into details about configuring the
-  TYPO3 backend for backend users.
+-  The :doc:`TSconfig Reference <t3tsconfig:Index>` goes into details about
+   configuring the TYPO3 backend for backend users.
 
+In addition, you can find a quick reference guide to TypoScript templates in
+:doc:`t3ts45:Index`.
+
+**Table of Contents:**
 
 .. toctree::
    :titlesonly:
