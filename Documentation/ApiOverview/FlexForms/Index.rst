@@ -142,6 +142,27 @@ Steps to perform (Extension developer)
            'accordion'
        );
 
+   Finally, according to "Configuration of the displayed order of fields in FormEngine and their tab alignment." the display 
+   of the FlexForm still needs to be added. As example the line from the accordion element at the Bootstrap Package.
+
+      'pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,'
+      
+
+       // Configure element type
+       $GLOBALS['TCA']['tt_content']['types']['accordion'] = array_replace_recursive(
+              $GLOBALS['TCA']['tt_content']['types']['accordion'],
+              [
+                     'showitem' => '
+                            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+                            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+                            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
+                            tx_bootstrappackage_accordion_item,
+                            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion.options,
+                            pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
+                            ...
+    ]
+);
+
 #. Access the settings in your extension:
 
    The settings can be read using one of the methods described below, e.g.
