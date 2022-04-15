@@ -131,16 +131,43 @@ Steps to perform (Extension developer)
    Also look on the page :ref:`extension-naming`.
 
    If you are using a content element instead of a plugin, the example
-   will look like this::
+   will look like this:
 
-       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-           // 'list_type' does not apply here
-           '*',
-           // Flexform configuration schema file
-           'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
-           // ctype
-           'accordion'
-       );
+   .. code-block:: php
+      :caption: Add in file EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
+
+      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+         // 'list_type' does not apply here
+         '*',
+         // Flexform configuration schema file
+         'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
+         // ctype
+         'accordion'
+      );
+
+   Finally, according to "Configuration of the displayed order of fields in FormEngine
+   and their tab alignment." the field containing the FlexForm still needs to be
+   added to the `showitem` directive.
+   The following example shows line from the accordion element of the Bootstrap Package.
+
+   .. code-block:: php
+      :caption: Add in file EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
+      :emphasize-lines: 11
+
+      // Configure element type
+      $GLOBALS['TCA']['tt_content']['types']['accordion'] = array_replace_recursive(
+         $GLOBALS['TCA']['tt_content']['types']['accordion'],
+         [
+            'showitem' => '
+               --div--;General,
+               --palette--;General;general,
+               --palette--;Headers;headers,
+               tx_bootstrappackage_accordion_item,
+               --div--;Options,
+               pi_flexform'
+         ]
+      );
+
 
 #. Access the settings in your extension:
 
