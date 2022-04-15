@@ -131,37 +131,43 @@ Steps to perform (Extension developer)
    Also look on the page :ref:`extension-naming`.
 
    If you are using a content element instead of a plugin, the example
-   will look like this::
+   will look like this:
 
-       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-           // 'list_type' does not apply here
-           '*',
-           // Flexform configuration schema file
-           'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
-           // ctype
-           'accordion'
-       );
+   .. code-block:: php
+      :caption: Add in file EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
 
-   Finally, according to "Configuration of the displayed order of fields in FormEngine and their tab alignment." the display 
-   of the FlexForm still needs to be added. As example the line from the accordion element at the Bootstrap Package.
+      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+         // 'list_type' does not apply here
+         '*',
+         // Flexform configuration schema file
+         'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
+         // ctype
+         'accordion'
+      );
 
-      'pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,'
-      
+   Finally, according to "Configuration of the displayed order of fields in FormEngine
+   and their tab alignment." the field containing the FlexForm still needs to be
+   added to the `showitem` directive.
+   The following example shows line from the accordion element of the Bootstrap Package.
 
-       // Configure element type
-       $GLOBALS['TCA']['tt_content']['types']['accordion'] = array_replace_recursive(
-              $GLOBALS['TCA']['tt_content']['types']['accordion'],
-              [
-                     'showitem' => '
-                            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-                            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
-                            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                            tx_bootstrappackage_accordion_item,
-                            --div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion.options,
-                            pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
-                            ...
-    ]
-);
+   .. code-block:: php
+      :caption: Add in file EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
+      :emphasize-lines: 11
+
+      // Configure element type
+      $GLOBALS['TCA']['tt_content']['types']['accordion'] = array_replace_recursive(
+         $GLOBALS['TCA']['tt_content']['types']['accordion'],
+         [
+            'showitem' => '
+               --div--;General,
+               --palette--;General;general,
+               --palette--;Headers;headers,
+               tx_bootstrappackage_accordion_item,
+               --div--;Options,
+               pi_flexform'
+         ]
+      );
+
 
 #. Access the settings in your extension:
 
