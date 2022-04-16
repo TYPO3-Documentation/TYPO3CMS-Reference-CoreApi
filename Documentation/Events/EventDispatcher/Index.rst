@@ -81,7 +81,7 @@ Dispatching an event
           // ..
           /** @var DoingThisAndThatEvent $event */
           $event = $this->eventDispatcher->dispatch(
-              new DoingThisAndThatEvent("foo", "bar")
+              new DoingThisAndThatEvent("foo", 2)
           );
           $someChangedValue = $event->getMutableProperty();
           // ...
