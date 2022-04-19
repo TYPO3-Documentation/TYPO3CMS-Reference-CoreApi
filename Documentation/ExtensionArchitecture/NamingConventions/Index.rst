@@ -276,9 +276,9 @@ By convention it should always be the extension name with all underscores remove
 followed by one underscore and then a lowercase, alphanumeric plugin key.
 Examples: :php:`"myextension_coolplugin"`, :php:`"examples_pi1"`.
 
-Extbase based plugin are registered via :php:`ExtensionUtility::registerPlugin()`.
+Extbase based plugins are registered via :php:`ExtensionUtility::registerPlugin()`.
 This method expects the extension key (UpperCamelCase or with underscores) as
-first parameter and a plugin name in UperCamelCase (for example :php:`"Pi1"` or
+the first parameter and a plugin name in UpperCamelCase (for example :php:`"Pi1"` or
 :php:`"CoolPlugin"`). The method then returns the new plugin signature.
 
 .. versionadded:: 12.0
@@ -288,7 +288,7 @@ first parameter and a plugin name in UperCamelCase (for example :php:`"Pi1"` or
 If you have to write the signature yourself in other contexts (TypoScript for
 example) you can build it yourself from the extension name and the plugin name:
 
-For this, all underscores in extension key are omitted and all characters lowercased.
+For this, all underscores in extension key are omitted and all characters set to lowercase.
 The extension key and plugin key are separated by an underscore (`_`).
 
 Example:
@@ -311,8 +311,8 @@ The plugin signature is used in:
    define which fields should be visible in the TYPO3 backend.
 
 
-Example register and configure an non-Extbase plugin:
------------------------------------------------------
+Example register and configure a non-Extbase plugin:
+----------------------------------------------------
 
 .. code-block:: php
    :caption: EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_htmlparser.php
