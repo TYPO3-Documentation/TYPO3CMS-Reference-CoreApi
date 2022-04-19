@@ -288,7 +288,7 @@ the first parameter and a plugin name in UpperCamelCase (for example :php:`"Pi1"
 If you have to write the signature yourself in other contexts (TypoScript for
 example) you can build it yourself from the extension name and the plugin name:
 
-For this, all underscores in extension key are omitted and all characters set to lowercase.
+For this, all underscores in the extension key are omitted and all characters set to lowercase.
 The extension key and plugin key are separated by an underscore (`_`).
 
 Example:
