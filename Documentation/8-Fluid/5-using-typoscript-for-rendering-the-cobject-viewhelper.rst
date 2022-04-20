@@ -11,16 +11,25 @@ The cObject ViewHelper is a very powerful ViewHelper. It connects
 Fluid with the options that TypoScript offers. The following line in the
 HTML template will be replaced with the referenced TypoScript object.
 
-``<f:cObject typoscriptObjectPath="lib.title"/>``
+.. code-block:: html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+
+   <f:cObject typoscriptObjectPath="lib.title"/>
 
 Now we only have to define ``lib.title`` in the TypoScript
-Setup::
+Setup:
+
+.. code-block:: typoscript
+   :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
    lib.title = TEXT
    lib.title.value = Extbase and Fluid
 
 »Extbase and Fluid« will be outputted in the template. Now we can output an
-image (e.g. headlines with unusual fonts) by changing the TypoScript to::
+image (e.g. headlines with unusual fonts) by changing the TypoScript to:
+
+.. code-block:: typoscript
+   :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
    lib.title = IMAGE
    lib.title {
@@ -51,26 +60,35 @@ count how many times it's been viewed in this example).
 
 In the Fluid template we add:
 
-``<f:cObject
-typoscriptObjectPath="lib.myCounter">{post.viewCount}</f:cObject>``
+.. code-block:: html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+
+   <f:cObject typoscriptObjectPath="lib.myCounter">{post.viewCount}</f:cObject>
 
 Alternatively, we can use a self-closing tag. The data is being passed
 with the help of the ``data`` attribute.
 
-``<f:cObject typoscriptObjectPath="lib.myCounter"
-data="{post.viewCount}" />``
+.. code-block:: html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+
+   <f:cObject typoscriptObjectPath="lib.myCounter" data="{post.viewCount}" />
 
 Also advisable for this example is the inline notation, because you can
 easily read it from left to right:
 
-``{post.viewCount -> f:cObject(typoscriptObjectPath:
-'lib.myCounter')}``
+.. code-block:: html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+
+   {post.viewCount -> f:cObject(typoscriptObjectPath: 'lib.myCounter')}
 
 Now we still have to evaluate the passed value in our TypoScript
 template. We can use the ``stdWrap`` attribute ``current``
 to achieve this. It works like a switch: If set to 1, the value, which we
 passed to the TypoScript object in the Fluid template will be used. In our
-example, it looks like this::
+example, it looks like this:
+
+.. code-block:: typoscript
+   :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
    lib.myCounter = TEXT
    lib.myCounter {
@@ -83,7 +101,10 @@ in bold.
 
 Now for example we can output the user counter as image instead of
 text without modifying the Fluid template. We simply have to use the
-following TypoScript::
+following TypoScript:
+
+.. code-block:: typoscript
+   :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
    lib.myCounter = IMAGE
    lib.myCounter {
@@ -100,12 +121,17 @@ because then you can select which value to use in the TypoScript, and the
 values can be concatenated. You can also pass whole objects to the
 ViewHelper in the template:
 
-``{post -> f:cObject(typoscriptObjectPath:
-'lib.myCounter')}``
+.. code-block:: html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+
+   {post -> f:cObject(typoscriptObjectPath: 'lib.myCounter')}
 
 Now, how do you access individual properties of the object in the
 TypoScript-Setup? You can use the property ``field`` of
-``stdWrap``::
+``stdWrap``:
+
+.. code-block:: typoscript
+   :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
    lib.myCounter = COA
    lib.myCounter {
@@ -128,13 +154,18 @@ when you want to emphasize that the value is very
 *amount of visits* is significant in our view
 counter:
 
-``{post -> f:cObject(typoscriptObjectPath: 'lib.myCounter',
-currentValueKey: 'viewCount')}``
+.. code-block:: html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+
+   {post -> f:cObject(typoscriptObjectPath: 'lib.myCounter', currentValueKey: 'viewCount')}
 
 In the TypoScript template you can now use both, ``current``
 and ``field``, and have therefor the maximum flexibility with the
 greatest readability. The following TypoScript snippet outputs the same
-information as the previous example::
+information as the previous example:
+
+.. code-block:: typoscript
+   :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
    lib.myCounter = COA
    lib.myCounter {
@@ -152,4 +183,3 @@ expressions in Fluid templates
 In the next chapter, we'll turn our attention to a function which most
 ViewHelper have. This function makes it possible to modify the HTML output
 of a ViewHelper by adding your own tag attributes.
-
