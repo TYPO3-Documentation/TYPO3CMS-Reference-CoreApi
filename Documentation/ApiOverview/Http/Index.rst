@@ -77,7 +77,9 @@ The `RequestFactory` class can be used like this:
          }
       }
 
-A POST request can be achieved with::
+A POST request can be achieved with:
+
+.. code-block:: php
 
    $additionalOptions = [
       'body' => 'Your raw post data',

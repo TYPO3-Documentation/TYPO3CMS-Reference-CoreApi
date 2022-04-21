@@ -103,7 +103,10 @@ getServiceOption
   in a proper way, you should not access
   :php:`$GLOBALS['TYPO3_CONF_VARS']['SVCONF']` directly, but use
   :php:`getServiceOption()` instead. In its simplest form, it will look
-  like this (inside your service's code)::
+  like this (inside your service's code):
+
+   .. code-block:: php
+      :caption: EXT:some_extension/Classes/Services/SomeService.php
 
      $ignoreBozo = $this->getServiceOption('ignoreBozo');
 

@@ -13,7 +13,9 @@ Configuration** module makes it possible to have an overview of the
 complete :php:`$GLOBALS['TCA']`, with all customizations taken into account.
 
 .. note:: The **Configuration** module is part of the lowlevel system extension. In Composer mode
-   you can install it with::
+   you can install it with:
+
+   .. code-block:: shell
 
       composer req typo3/cms-lowlevel
 

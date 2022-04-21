@@ -21,9 +21,13 @@ tree.
    You have to change :code:`example` in the argument of the anonymous function
    to your own extension key.
 
-The new page type is added to :php:`$GLOBALS['PAGES_TYPES']` in :file:`ext_tables.php`::
+The new page type is added to :php:`$GLOBALS['PAGES_TYPES']` in
+:file:`ext_tables.php`:
 
-   (function ($extKey='example') {
+.. code-block:: php
+   :caption: EXT:some_extension/ext_tables.php
+
+   (function ($extKey='some_extension') {
       $archiveDoktype = 116;
 
       // Add new page type:
@@ -34,9 +38,12 @@ The new page type is added to :php:`$GLOBALS['PAGES_TYPES']` in :file:`ext_table
 
    })();
 
-User TSconfig is added and an icon is registed in :file:`ext_localconf.php`::
+User TSconfig is added and an icon is registed in :file:`ext_localconf.php`:
 
-   (function ($extKey='example') {
+.. code-block:: php
+   :caption: EXT:some_extension/ext_localconf.php
+
+   (function ($extKey='some_extension') {
       $archiveDoktype = 116;
 
       // Provide icon for page tree, list view, ... :
@@ -67,7 +74,10 @@ User TSconfig is added and an icon is registed in :file:`ext_localconf.php`::
 
 Furthermore we need to modify the configuration of "pages" records. As one can modify the pages, we
 need to add the new doktype as select item and associate it with the configured icon. That's done in
-:file:`Configuration/TCA/Overrides/pages.php`::
+:file:`Configuration/TCA/Overrides/pages.php`:
+
+.. code-block:: php
+   :caption: EXT:Configuration/TCA/Overrides/pages.php
 
    (function ($extKey='example', $table='pages') {
       $archiveDoktype = 116;

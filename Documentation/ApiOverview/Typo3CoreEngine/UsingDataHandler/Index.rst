@@ -25,7 +25,11 @@ It is possible to use the DataHandler for scripts started from the command line 
 the scheduler as well. You can do this by creating a :ref:`Symfony Command <cli-mode-command-controllers>`.
 
 These scripts use the `_cli_` backend user. Before using the DataHandler in your :php:`execute()`
-function, you should make sure that this user is initialized like this::
+function, you should make sure that this user is initialized like this:
+
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    \TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication();
 
@@ -57,7 +61,9 @@ database.
 * Line 2: Register the :php:`$data` array inside the class and initialize the class internally.
 * Line 3: Submit data and have all records created/updated.
 
+
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
    :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
@@ -76,7 +82,9 @@ The most basic way of executing commands:
 * Line 2: Registers the :php:`$cmd` array inside the class and initialize the class internally.
 * Line 3: Execute the commands.
 
+
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
    :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
@@ -97,7 +105,9 @@ calling the :php:`start()` method (which will initialize internal state).
    Clearing a given cache is possible only for users that are
    "admin" or have :ref:`specific permissions <t3tsconfig:useroptions>` to do so.
 
+
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
    :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
@@ -116,7 +126,9 @@ Complex data submission
 
 Imagine the $data array something like this:
 
+
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
    :linenos:
 
    $data = array(
@@ -146,7 +158,9 @@ Apart from this a "signal" will be send that the page tree should
 be updated at the earliest occasion possible. Finally, the cache for
 all pages is cleared.
 
+
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
    :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
@@ -173,7 +187,9 @@ database. This may be useful in certain special cases. Normally you
 should not set this argument since you want TCE to use the global
 :php:`$GLOBALS['BE_USER']`.
 
+
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
    :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
@@ -192,7 +208,9 @@ The data handler has a property `errorLog` as an `array`.
 In this property, the data handler collects all errors.
 You can use these e.g to logging or another error handling.
 
+
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
    :linenos:
 
    if (!empty($dataHandler->errorLog)) {

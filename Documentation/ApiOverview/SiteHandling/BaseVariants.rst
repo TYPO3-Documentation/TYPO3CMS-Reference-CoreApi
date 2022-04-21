@@ -18,7 +18,10 @@ Variants consist of two parts:
 *  a base to use for this variant
 *  a condition that decides when this variant shall be active
 
-Conditions are based on Symfony expression language and allow flexible conditions. For example::
+Conditions are based on Symfony expression language and allow flexible
+conditions. For example:
+
+.. code-block:: none
 
     applicationContext == "Development"
 
@@ -48,58 +51,59 @@ Example
 =======
 
 .. code-block:: yaml
+   :caption: config/sites/somesite/config.yaml
 
-    rootPageId: 1
-    base: 'https://example.org/'
-    baseVariants:
-      -
-        base: 'https://example.localhost/'
-        condition: 'applicationContext == "Development"'
-      -
-        base: 'https://staging.example.org/'
-        condition: 'applicationContext == "Production/Sydney"'
-      -
-        base: 'https://testing.example.org/'
-        condition: 'applicationContext == "Testing/Paris"'
-      -
-        base: '%env("TYPO3_BASE")%'
-        condition: 'getenv("TYPO3_BASE")'
-    languages:
-      -
-        title: 'Global'
-        enabled: true
-        languageId: '0'
-        base: /
-        typo3Language: default
-        locale: en_UK.UTF-8
-        iso-639-1: en
-        navigationTitle: English
-        hreflang: gb-en
-        direction: ''
-        flag: gb
-      -
-        title: 'DE'
-        enabled: true
-        languageId: '1'
-        base: https://example.de/'
-        baseVariants:
-          -
-            base: 'https://de.example.localhost/'
-            condition: 'applicationContext == "Development"'
-          -
-            base: 'https://staging.example.de/'
-            condition: 'applicationContext == "Production/Sydney"'
-          -
-            base: 'https://testing.example.de/'
-            condition: 'applicationContext == "Testing/Paris"'
-        typo3Language: de
-        locale: de_DE.UTF-8
-        iso-639-1: de
-        navigationTitle: Deutsch
-        hreflang: de-de
-        direction: ''
-        fallbackType: strict
-        flag: de
+   rootPageId: 1
+   base: 'https://example.org/'
+   baseVariants:
+     -
+       base: 'https://example.localhost/'
+       condition: 'applicationContext == "Development"'
+     -
+       base: 'https://staging.example.org/'
+       condition: 'applicationContext == "Production/Sydney"'
+     -
+       base: 'https://testing.example.org/'
+       condition: 'applicationContext == "Testing/Paris"'
+     -
+       base: '%env("TYPO3_BASE")%'
+       condition: 'getenv("TYPO3_BASE")'
+   languages:
+     -
+       title: 'Global'
+       enabled: true
+       languageId: '0'
+       base: /
+       typo3Language: default
+       locale: en_UK.UTF-8
+       iso-639-1: en
+       navigationTitle: English
+       hreflang: gb-en
+       direction: ''
+       flag: gb
+     -
+       title: 'DE'
+       enabled: true
+       languageId: '1'
+       base: https://example.de/'
+       baseVariants:
+         -
+           base: 'https://de.example.localhost/'
+           condition: 'applicationContext == "Development"'
+         -
+           base: 'https://staging.example.de/'
+           condition: 'applicationContext == "Production/Sydney"'
+         -
+           base: 'https://testing.example.de/'
+           condition: 'applicationContext == "Testing/Paris"'
+       typo3Language: de
+       locale: de_DE.UTF-8
+       iso-639-1: de
+       navigationTitle: Deutsch
+       hreflang: de-de
+       direction: ''
+       fallbackType: strict
+       flag: de
 
 
 .. index:: Site handling; Base variant properties

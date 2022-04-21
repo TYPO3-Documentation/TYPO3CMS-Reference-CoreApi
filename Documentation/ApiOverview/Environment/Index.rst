@@ -126,7 +126,10 @@ getContext()
 Returns the current :ref:`application-context`, usually defined via the `TYPO3_CONTEXT` environment variable.
 May be one of `Production`, `Testing`, or `Development` with optional sub-contexts like `Production/Staging`.
 
-Example, test for production context::
+Example, test for production context:
+
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
 
    // use \TYPO3\CMS\Core\Core\Environment;
 

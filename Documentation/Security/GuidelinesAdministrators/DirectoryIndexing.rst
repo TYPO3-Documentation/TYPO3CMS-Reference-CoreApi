@@ -19,7 +19,10 @@ data that can be retrieved with a simple HTTP request.
 In this case only the list of extensions is revealed, but more
 sensitive data can be found easily. The Apache configuration allows
 you to enable or disable the indexing of directories by the `Options`
-directive as shown in the following example::
+directive as shown in the following example:
+
+.. code-block:: apacheconf
+   :caption: .htaccess
 
    <Directory /path/to/your/webroot/>
      Options Indexes FollowSymLinks
@@ -29,7 +32,10 @@ By removing the `Indexes` option, Apache does not show the list of
 files and directories. Please note that the `Options` directive can be
 used in several containers (e.g. `<VirtualHost>`, `<Directory>`,
 `<Location>`, etc.). The correct configuration could look like the
-following example::
+following example:
+
+.. code-block:: apacheconf
+   :caption: .htaccess
 
    <Directory /path/to/your/webroot/>
      Options FollowSymLinks

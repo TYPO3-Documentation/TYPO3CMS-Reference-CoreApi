@@ -22,15 +22,17 @@ method :php:`add` for the :php:`cacheActions` and
 Registration of the event in the :file:`Services.yaml`:
 
 .. code-block:: yaml
+   :caption: EXT:some_extension/Configuration/Services.yaml
 
-  MyVendor\MyPackage\Toolbar\MyEventListener:
-    tags:
-      - name: event.listener
-        identifier: 'my-package/toolbar/my-event-listener'
+   Vendor\SomeExtension\Toolbar\MyEventListener:
+     tags:
+       - name: event.listener
+         identifier: 'my-package/toolbar/my-event-listener'
 
 The corresponding event listener class:
 
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/EventListener/MyEventListener.php
 
     use TYPO3\CMS\Backend\Backend\Event\ModifyClearCacheActionsEvent;
 
@@ -43,7 +45,10 @@ The corresponding event listener class:
 
     }
 
-The cache action array element consists of the following keys and values::
+The cache action array element consists of the following keys and values:
+
+.. code-block:: php
+   :caption: Example cache action array
 
    [
        'id' => 'pages',

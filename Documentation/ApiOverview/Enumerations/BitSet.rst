@@ -17,7 +17,8 @@ specific :php:`BitSet` classes that extend the TYPO3 :php:`BitSet` class.
 
 The functionality is best described by an example:
 
-::
+.. code-block:: php
+   :caption: EXT:my_extension/Classes/Utility/SomeClass.php
 
    <?php
    declare(strict_types = 1);
@@ -37,7 +38,9 @@ The functionality is best described by an example:
 This is directly using the TYPO3 Core class. Implementing that via an extending class
 makes it clearer and easier to use:
 
-::
+
+.. code-block:: php
+   :caption: EXT:my_extension/Classes/Utility/Permissions.php
 
    <?php
    declare(strict_types = 1);
@@ -77,6 +80,9 @@ makes it clearer and easier to use:
            $this->set($permission);
        }
    }
+
+.. code-block:: php
+   :caption: EXT:my_extension/Classes/Utility/SomeClass.php
 
    $permissions = new Permissions(Permissions::PAGE_SHOW | Permissions::PAGE_NEW);
    $permissions->hasPermission(Permissions::PAGE_SHOW); // true

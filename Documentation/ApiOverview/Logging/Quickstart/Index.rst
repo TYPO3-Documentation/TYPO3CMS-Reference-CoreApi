@@ -21,11 +21,14 @@ Instantiate a logger for the current class
    :doc:`Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects`.
    You must implement the :php:`\Psr\Log\LoggerAwareInterface` interface with your class to have the Trait taking effect.
 
-Use LoggerAwareTrait in your class to automatically instantiate `$this->logger`::
+Use LoggerAwareTrait in your class to automatically instantiate `$this->logger`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    use Psr\Log\LoggerAwareTrait;
 
-   class Example implements \Psr\Log\LoggerAwareInterface
+   class SomeClass implements \Psr\Log\LoggerAwareInterface
    {
       use LoggerAwareTrait;
 
@@ -34,9 +37,15 @@ Use LoggerAwareTrait in your class to automatically instantiate `$this->logger`:
       }
    }
 
-Or instantiate the logger in the classic way with makeInstance::
+Or instantiate the logger in the classic way with makeInstance:
 
-   $this->logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Log\LogManager;
+
+   $this->logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
 
 .. _logging-quickstart-log:
 
@@ -49,13 +58,19 @@ Or instantiate the logger in the classic way with makeInstance::
 Log
 ===
 
-Log a simple message::
+Log a simple message:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $this->logger->info('Everything went fine.');
    $this->logger->warning('Something went awry, check your configuration!');
 
 
-Provide additional context information with the log message::
+Provide additional context information with the log message:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $this->logger->error('Passing {value} was unwise.', [
        'value' => $value,
@@ -66,8 +81,11 @@ Values in the message string that should vary based on the error (such as
 specifying what an invalid value was) should use placeholders, denoted by
 `{ }`.  Provide the value for that placeholder in the context array.
 
-:php:`$this->logger->warning()` etc. are only shorthands - you can also call :php:`$this->logger->log()` directly
-and pass the severity level::
+:php:`$this->logger->warning()` etc. are only shorthands - you can also call
+:php:`$this->logger->log()` directly and pass the severity level:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $this->logger->log(
       \TYPO3\CMS\Core\Log\LogLevel::CRITICAL,

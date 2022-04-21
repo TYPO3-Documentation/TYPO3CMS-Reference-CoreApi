@@ -15,15 +15,23 @@ Not all javascript libraries are compatible with RequireJS. In the rarest cases,
 adjust the library code to be AMD or UMD compatible. So you need to configure RequireJS to
 accept the library.
 
-In RequireJS you can use :js:`requirejs.config({})` to shim a library. In TYPO3 the RequireJS config will
-be defined in the :php:`PageRenderer`::
+In RequireJS you can use :js:`requirejs.config({})` to shim a library. In
+TYPO3 the RequireJS config will be defined in the :php:`PageRenderer`:
 
-   $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Utility\PathUtility;
+   use TYPO3\CMS\Core\Page\PageRenderer;
+
+   $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
    $pageRenderer->addRequireJsConfiguration(
       [
          'paths' => [
             'jquery' => 'sysext/core/Resources/Public/JavaScript/Contrib/jquery/',
-            'plupload' => \TYPO3\CMS\Core\Utility\PathUtility::getPublicResourceWebPath('EXT:your_extension/node_modules/plupload/js/plupload.full.min'),
+            'plupload' => PathUtility::getPublicResourceWebPath(
+               'EXT:some_extension/node_modules/plupload/js/plupload.full.min'),
          ],
          'shim' => [
             'deps' => ['jquery'],
@@ -46,4 +54,3 @@ After the shim and export of plupload it is usable in the dependency handling:
    ], function($, plupload) {
       'use strict';
    });
-

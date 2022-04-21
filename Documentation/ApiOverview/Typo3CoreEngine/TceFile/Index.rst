@@ -36,7 +36,9 @@ takes precedence. The variable names you can use are:
 
          This could typically be a GET var like
          :code:`&file[delete][0][data]=[absolute file path]` or a POST form field
-         like::
+         like:
+
+         .. code-block:: php
 
             "<input type="text" name="file[newfolder][0][data]" value=""/>
             <input type="hidden" name="file[newfolder][0][target]"

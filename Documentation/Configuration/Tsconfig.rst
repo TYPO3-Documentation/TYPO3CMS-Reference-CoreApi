@@ -64,12 +64,18 @@ it is recommended for extension developers to make use of the PHP classes:
 - :php:`TYPO3\CMS\Core\Configuration\Loader\PageTsConfigLoader`
 - :php:`TYPO3\CMS\Core\Configuration\Parser\PageTsConfigParser`
 
-Usage for fetching all available PageTS in one large string (not parsed yet)::
+Usage for fetching all available PageTS in one large string (not parsed yet):
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $loader = GeneralUtility::makeInstance(PageTsConfigLoader::class);
    $tsConfigString = $loader->load($rootLine);
 
-The string can then be put in proper TSconfig array syntax::
+The string can then be put in proper TSconfig array syntax:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $parser = GeneralUtility::makeInstance(
       PageTsConfigParser::class,

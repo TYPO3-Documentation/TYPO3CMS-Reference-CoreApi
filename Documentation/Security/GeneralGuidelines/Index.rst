@@ -190,7 +190,10 @@ installed.
 When a system administrator decides to create a copy of the directory of
 an existing insecure extension, before installing the new version, he/she
 often introduces the risk of leaving the (insecure) copy on the web
-server. For example::
+server. For example:
+
+.. code-block:: none
+   :caption: Remove old extensions, dont rename
 
     typo3conf/ext/insecure_extension.bak
     typo3conf/ext/insecure_extension.delete_me

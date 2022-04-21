@@ -52,7 +52,10 @@ which can be cached in four different cache entries:
 
 To differentiate all entries from each other, the identifier is built from the page ID
 where the plugin is located, combined with the information whether a user is logged in.
-These are concatenated and hashed. In PHP this could look like this::
+These are concatenated and hashed. In PHP this could look like this:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $identifier = sha1((string)$this->getPageUid() . (string)$this->isUserLoggedIn());
 

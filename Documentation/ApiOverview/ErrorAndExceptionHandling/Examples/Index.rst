@@ -23,9 +23,12 @@ Debugging and development setup
 Very verbose configuration which logs and displays all errors and
 exceptions.
 
-In :file:`LocalConfiguration.php`::
+In :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
 
-   'SYS' => array(
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
+
+    $changeSettings['SYS'] => array(
       'displayErrors' => '1',
       'devIPmask' => '*',
       'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
@@ -33,19 +36,26 @@ In :file:`LocalConfiguration.php`::
       'exceptionalErrors' => E_ALL ^ E_NOTICE ^ E_WARNING ^ E_USER_ERROR ^ E_USER_NOTICE ^ E_USER_WARNING,
       'debugExceptionHandler' => 'TYPO3\\CMS\\Core\\Error\\DebugExceptionHandler',
       'productionExceptionHandler' => 'TYPO3\\CMS\\Core\\Error\\DebugExceptionHandler',
-   ),
+   );
+
+   $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $changeSettings);
 
 You can also use the "Debug" preset in the Settings module "Configuration presets".
 
 
-In :file:`.htaccess`::
+In :file:`.htaccess`
+
+.. code-block:: apacheconf
+   :caption: .htaccess
 
    php_flag display_errors on
    php_flag log_errors on
    php_value error_log /path/to/php_error.log
 
 
-TypoScript::
+
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
    config.contentObjectExceptionHandler = 0
 
@@ -70,18 +80,26 @@ Example for a production configuration which displays only errors and
 exceptions if the devIPmask matches. Errors and exceptions are only
 logged if their level is at least 2 (=Warning).
 
-In :file:`LocalConfiguration.php`::
+In :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
 
-   'SYS' => array(
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
+
+    $changeSettings['SYS'] => array(
       'displayErrors' => '2',
       'devIPmask' => '[your.IP.address]',
       'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
       'belogErrorReporting' => '0',
-   ),
+   );
+
+   $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $changeSettings);
 
 You can also use the "Live" preset in the Settings module "Configuration presets".
 
-In :file:`.htaccess`::
+In :file:`.htaccess`:
+
+.. code-block:: apacheconf
+   :caption: .htaccess
 
    php_flag display_errors off
    php_flag log_errors on
@@ -98,19 +116,27 @@ Since the error and exception handling and also the logging need some
 performance, here's an example how to disable error and exception
 handling completely.
 
-In :file:`LocalConfiguration.php`::
+In :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
 
-   'SYS' => array(
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
+
+    $changeSettings['SYS'] => array(
       'displayErrors' => '0',
       'devIPmask' => '',
       'errorHandler' => '',
       'debugExceptionHandler' => '',
       'productionExceptionHandler' => '',
       'belogErrorReporting' => '0',
-   ),
+   );
+
+   $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $changeSettings);
 
 
-In :file:`.htaccess`::
+In :file:`.htaccess`:
+
+.. code-block:: apacheconf
+   :caption: .htaccess
 
    php_flag display_errors off
    php_flag log_errors off

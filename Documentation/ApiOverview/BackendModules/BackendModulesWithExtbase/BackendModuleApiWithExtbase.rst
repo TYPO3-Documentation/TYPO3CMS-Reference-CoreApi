@@ -29,6 +29,7 @@ using the following API:
 
 
 .. code-block:: php
+    :caption: EXT:my_extension/ext_tables.php
 
     // Module System > Backend Users
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(

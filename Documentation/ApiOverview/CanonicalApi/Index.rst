@@ -22,11 +22,17 @@ Excluding arguments from the generation
 
 TYPO3 will fallback to building a URL of current page and appending query strings.
 It is possible to exclude specific arguments from being appended.
-This is achieved by adding those arguments to a PHP variable::
+This is achieved by adding those arguments to a PHP variable:
+
+.. code-block:: php
+   :caption: EXT:site_package/ext_localconf.php
 
    $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters'][] = 'example_argument_name';
 
-It is possible to exclude nested arguments::
+It is possible to exclude nested arguments:
+
+.. code-block:: php
+   :caption: EXT:site_package/ext_localconf.php
 
    $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters'][] = 'example_argument_name[second_level]';
 

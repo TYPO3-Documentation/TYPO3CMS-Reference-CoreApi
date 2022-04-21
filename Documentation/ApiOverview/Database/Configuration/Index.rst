@@ -20,9 +20,12 @@ As with other central configuration options, the database endpoint and mapping c
 within :file:`typo3conf/LocalConfiguration.php` and ends up in :php:`$GLOBALS['TYPO3_CONF_VARS']` after
 the Core bootstrap. The specific sub-array is :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']`.
 
-A typical, basic example using only the `Default` connection with a single database endpoint::
+A typical, basic example using only the `Default` connection with a single
+database endpoint:
 
-   // LocalConfiguration.php
+.. code-block:: php
+   :caption: typo3conf/LocalConfiguration.php
+
    // [...]
    'DB' => [
       'Connections' => [
@@ -61,7 +64,11 @@ Remarks:
   around Doctrine DBAL.
 
 
-A slightly more complex example with two connections, mapping the `sys_log` table to a different endpoint::
+A slightly more complex example with two connections, mapping the `sys_log`
+table to a different endpoint:
+
+.. code-block:: php
+   :caption: typo3conf/LocalConfiguration.php
 
    // LocalConfiguration.php
    // [...]

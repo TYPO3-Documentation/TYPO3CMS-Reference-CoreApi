@@ -38,7 +38,8 @@ might break badly if not followed, by using MUST.
 
 To get a better understanding of YAML, you might want to compare YAML with PHP arrays:
 
-PHP::
+.. code-block:: php
+   :caption: An array in PHP
 
     $a = [
         'key1' => 'value',
@@ -56,16 +57,16 @@ PHP::
 YAML:
 
 .. code-block:: yaml
+   :caption: The same array in YAML
 
- # mapping (key / value pairs)
- a:
-   key1: 'value'
-   key2:
-     key2_1: 'value'
+   # mapping (key / value pairs)
+   a:
+     key1: 'value'
+     key2:
+       key2_1: 'value'
 
- # sequence (list)
- b:
-   - 'apples'
-   - 'oranges'
-   - 'bananas'
-
+   # sequence (list)
+   b:
+     - 'apples'
+     - 'oranges'
+     - 'bananas'

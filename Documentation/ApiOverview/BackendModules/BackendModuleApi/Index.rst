@@ -69,7 +69,9 @@ Parameters:
 `'iconIdentifier'` is the better and more modern way to go. It should always be used
 for Core icons. Other icons however need to be registered first at the IconRegistry to
 create identifiers. Note that `'icon'` still works. Within custom packages it is easier
-to use. Example::
+to use. Example:
+
+.. code-block:: php
 
    'icon' => 'EXT:extkey/Resources/Public/Icons/smile.svg',
 
@@ -83,6 +85,7 @@ example uses Extbase to register the module, however, the process for non-extbas
 modules is the same.
 
 .. code-block:: php
+    :caption: EXT:my_extension/ext_tables.php
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
         'MyExtension',
@@ -101,6 +104,7 @@ This adds a new toplevel module ``mysection``. This identifier can now
 be used to add submodules to this new toplevel module:
 
 .. code-block:: php
+    :caption: EXT:my_extension/ext_tables.php
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
         'MyExtension',

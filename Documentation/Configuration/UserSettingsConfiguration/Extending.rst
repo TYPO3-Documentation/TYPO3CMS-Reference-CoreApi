@@ -14,7 +14,10 @@ field is made visible by calling
 
 The configuration needs to be put into :file:`ext_tables.php`.
 
-Here is an example, taken from the "examples" extension::
+Here is an example, taken from the "examples" extension:
+
+.. code-block:: php
+   :caption: EXT:examples/ext_tables.php
 
    $GLOBALS['TYPO3_USER_SETTINGS']['columns']['tx_examples_mobile'] = array(
       'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile',
@@ -46,6 +49,7 @@ a custom button or special handling on confirmation, use :code:`clickData` or
 :code:`confirmData`:
 
 .. code-block:: php
+   :caption: EXT:examples/ext_tables.php
 
    $GLOBALS['TYPO3_USER_SETTINGS'] = [
        'columns' => [
