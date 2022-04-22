@@ -22,7 +22,10 @@ allowed on a certain page type.
    for all types, and for every type the entries simply overrides the
    entries in the "default" type!!
 
-This is the default array as set in :file:`EXT:core/ext_tables.php`::
+This is the default array as set in :file:`EXT:core/ext_tables.php`:
+
+.. code-block:: php
+   :caption: typo3/sysext/core/ext_tables.php
 
    $GLOBALS['PAGES_TYPES'] = [
       (string)\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_BE_USER_SECTION => [

@@ -22,9 +22,13 @@ Using hooks
 
 The two lines of code below are an example of how a hook is used for
 clear-cache post-processing. The objective of this could be to perform
-additional actions whenever the cache is cleared for a specific page::
+additional actions whenever the cache is cleared for a specific page:
 
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = \Vendor\Package\Hook\DataHandlerHook::class . '->postProcessClearCache';
+.. code-block:: php
+   :caption: EXT:site_package/ext_localconf.php
+
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] =
+      \Vendor\Package\Hook\DataHandlerHook::class . '->postProcessClearCache';
 
 This registers the class/method name to a hook inside of
 :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. The hook will call the user
@@ -116,7 +120,11 @@ Here are some examples:
 Using `\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
 ==============================================================
 
-Data submission to extensions::
+Data submission to extensions:
+
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // Hook for processing data submission to extensions
    foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']
@@ -131,13 +139,18 @@ Data submission to extensions::
 Using with `\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
 =======================================================================
 
-Constructor post-processing::
+Constructor post-processing:
 
-      // Call post-processing function for constructor:
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use \YPO3\CMS\Core\Utility\GeneralUtility;
+
+   // Call post-processing function for constructor:
    if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['tslib_fe-PostProc'])) {
       $_params = array('pObj' => &$this);
       foreach($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['tslib_fe-PostProc'] as $_funcRef) {
-         \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($_funcRef,$_params, $this);
+        GeneralUtility::callUserFunction($_funcRef,$_params, $this);
       }
    }
 
@@ -173,16 +186,19 @@ $GLOBALS['TYPO3\_CONF\_VARS']['EXTCONF']
 This will contain all kinds of configuration options for specific
 extensions including possible hooks in them! What options are
 available to you will depend on a search in the documentation for that
-particular extension. ::
+particular extension.
 
-   $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][ extension_key ][ sub_key ] = value
+.. code-block:: php
+   :caption: EXT:some_extension/ext_localconf.php
 
-- **extension\_key :** The unique extension key
+   $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['<extension_key>']['<sub_key>'] = '<value>';
 
-- **sub\_key :** Whatever the script defines. Typically it identifies
+- **<extension\_key> :** The unique extension key
+
+- **<sub\_key> :** Whatever the script defines. Typically it identifies
   the context of the hook
 
-- **value :** It is up to the extension what the values mean, if they
+- **<value> :** It is up to the extension what the values mean, if they
   are mere configuration options or hooks or whatever and how deep the
   arrays go. Read the source code where the options are implemented to
   see. Or the documentation of the extension, if available.
@@ -207,22 +223,25 @@ $GLOBALS['TYPO3\_CONF\_VARS']['SC\_OPTIONS']
 This array is created as an ad hoc space for creating hooks from any
 script. This will typically be used from the Core scripts of TYPO3
 which do not have a natural identifier like extensions have their
-extension keys. ::
+extension keys.
 
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS'][ main_key ][ sub_key ][ index ] = function_reference
+.. code-block:: php
+   :caption: typo3/sysext/some_extension/ext_localconf.php
 
-- **main\_key :** The relative path of a script (for output scripts it
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['<main_key>']['<sub_key>']['<index>'] = '<function_reference>';
+
+- **<main\_key> :** The relative path of a script (for output scripts it
   should be the "script ID" as found in a comment in the HTML header )
 
-- **sub\_key :** Whatever the script defines. Typically it identifies
+- **<sub\_key> :** Whatever the script defines. Typically it identifies
   the context of the hook.
 
-- **index :** Integer index typically. Can be unique string if you have
+- **<index> :** Integer index typically. Can be unique string if you have
   a reason to use that. Normally it has no greater significance since
   the value of the key is not used. The hooks normally traverse over the
   array and uses only the value (function reference)
 
-- **function\_reference :** A function reference using the syntax of
+- **<function\_reference> :** A function reference using the syntax of
   :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()` as a function
   or :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` as a class name
   depending on implementation of the hook.
@@ -248,12 +267,18 @@ function returns an object instance of that class. The method name to
 call is predefined by the hook, in this case
 :php:`sendFormmail_preProcessVariables()`. This method allows to pass any
 number of variables along instead of the limited :php:`$params` and :php:`$pObj`
-variables from :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`. ::
+variables from :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`.
 
-    // Hook for preprocessing of the content for formmails:
+
+.. code-block:: php
+   :caption: typo3/sysext/some_extension/ext_localconf.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility
+
+   // Hook for preprocessing of the content for formmails:
    if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['sendFormmail-PreProcClass'])) {
        foreach($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['sendFormmail-PreProcClass'] as $_classRef) {
-           $_procObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance($_classRef);
+           $_procObj = GeneralUtility::makeInstance($_classRef);
            $EMAIL_VARS = $_procObj->sendFormmail_preProcessVariables($EMAIL_VARS, $this);
        }
    }
@@ -263,7 +288,10 @@ RTE transformations. It is not a "hook" in the strict
 sense, but the same principles are used. In this case the "index" key
 is defined to be the transformation key name, not a random integer
 since we do not iterate over the array as usual.
-:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` is also used. ::
+:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` is also used.
+
+.. code-block:: php
+   :caption: typo3/sysext/some_extension/ext_localconf.php
 
     if ($className = $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation'][$cmd]) {
         $_procObj = GeneralUtility::makeInstance($className);
@@ -277,13 +305,18 @@ A classic hook also from :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontend
 along to the function via :php:`$_params`. In the user-defined function
 :php:`$_params['pObj']->content` is meant to be manipulated in some way. The
 return value is insignificant - everything works by the reference to
-the parent object. ::
+the parent object.
 
-       // Hook for post-processing of page content cached/non-cached:
+.. code-block:: php
+   :caption: typo3/sysext/some_extension/ext_localconf.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility
+
+   // Hook for post-processing of page content cached/non-cached:
    if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all'])) {
        $_params = array('pObj' => &$this);
        foreach($this->TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all'] as $_funcRef) {
-           \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($_funcRef, $_params, $this);
+           GeneralUtility::callUserFunction($_funcRef, $_params, $this);
        }
    }
 
@@ -301,16 +334,19 @@ $GLOBALS['TYPO3\_CONF\_VARS']['TBE\_MODULES\_EXT']
 Among these configuration options you might find entry points for
 hooks in the backend. This somehow overlaps the intention of
 :php:`SC_OPTIONS` above but this array is an older invention and slightly
-outdated. ::
+outdated.
 
-   $TBE_MODULES_EXT[ backend_module_key ][ sub_key ] = value
+.. code-block:: php
+   :caption: EXT:some_extension/ext_localconf.php
 
-- **backend\_module\_key :** The backend module key for which the
+   $TBE_MODULES_EXT['<backend_module_key>']['<sub_key'>] = '<value>';
+
+- **<backend\_module\_key> :** The backend module key for which the
   configuration is used.
 
-- **sub\_key :** Whatever the backend module defines.
+- **<sub\_key> :** Whatever the backend module defines.
 
-- **value :** Whatever the backend module defines.
+- **<value> :** Whatever the backend module defines.
 
 The following example shows :php:`TBE_MODULES_EXT` being used for adding
 items to the Context Sensitive Menus (Clickmenu) in the backend. The
@@ -319,16 +355,13 @@ class file to include. Later each class is instantiated and a fixed
 method inside is called to do processing on the array of menu items.
 This kind of hook is non-standard in the way it is made.
 
-.. warning::
-   The API for registering context-sensitive menus was changed completely
-   in TYPO3 4.5.
+.. code-block:: php
+   :caption: EXT:some_extension/ext_localconf.php
 
-::
-
-       // Setting internal array of classes for extending the clickmenu:
+   // Setting internal array of classes for extending the clickmenu:
    $this->extClassArray = $GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'];
 
-       // Traversing that array and setting files for inclusion:
+   // Traversing that array and setting files for inclusion:
    if (is_array($this->extClassArray)) {
        foreach($this->extClassArray as $extClassConf) {
            if ($extClassConf['path'])    $this->include_once[]=$extClassConf['path'];
@@ -338,14 +371,17 @@ This kind of hook is non-standard in the way it is made.
 The following code listings works in the same way. First, a list of
 class files to include is registered. Then in the second code listing
 the same array is traversed and each class is instantiated and a fixed
-function name is called for processing. ::
+function name is called for processing.
 
-       // Setting class files to include:
+.. code-block:: php
+   :caption: EXT:some_extension/ext_localconf.php
+
+   // Setting class files to include:
    if (is_array($TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses'])) {
        $this->include_once = array_merge($this->include_once,$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']);
    }
 
-       // PLUG-INS:
+   // PLUG-INS:
    if (is_array($TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses'])) {
        reset($TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']);
        while(list($class,$path)=each($TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses'])) {

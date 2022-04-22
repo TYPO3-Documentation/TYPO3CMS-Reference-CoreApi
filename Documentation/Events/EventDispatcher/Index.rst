@@ -39,7 +39,11 @@ Dispatching an event
 #. Create an event class.
 
    An event class is basically a plain PHP object with getters for immutable
-   properties and setters for mutable properties. It contains a constructor for all properties::
+   properties and setters for mutable properties. It contains a constructor
+   for all properties:
+
+   .. code-block:: php
+      :caption: EXT:some_extension/Classes/Events/DoingThisAndThatEvent.php
 
       final class DoingThisAndThatEvent {
          private string $mutableProperty;
@@ -59,11 +63,14 @@ Dispatching an event
    If you are in a controller the `EventDispatcher` already got injected
    and in this case you can omit this step.
 
-   If the EventDispatcher is not yet available, you need have it injected::
+   If the EventDispatcher is not yet available, you need have it injected:
+
+   .. code-block:: php
+      :caption: EXT:some_extension/Classes/SomeClass.php
 
       use Psr\EventDispatcher\EventDispatcherInterface;
 
-      final class MyClass {
+      final class SomeClass {
           private EventDispatcherInterface $eventDispatcher;
 
           public function injectEventDispatcher(EventDispatcherInterface $eventDispatcher): void
@@ -75,7 +82,10 @@ Dispatching an event
 #. Dispatch the event
 
    Create an event object with the data that should be passed to the listeners. Use the data
-   of mutable properties however it suits your business logic::
+   of mutable properties however it suits your business logic:
+
+   .. code-block:: php
+      :caption: EXT:some_extension/Classes/SomeClass.php
 
       public function doSomething() {
           // ..
@@ -194,9 +204,10 @@ If an extension author wants to provide a custom Event Listener, an according en
 :yaml:`event.listener` can be added to the :file:`Configuration/Services.yaml` file of that extension.
 
 .. code-block:: yaml
+   :caption: EXT:some_extension/Configuration/Services.yaml
 
    services:
-     MyCompany\MyPackage\EventListener\NullMailer:
+     Vendor\MyExtension\EventListener\NullMailer:
        tags:
          - name: event.listener
            identifier: 'myListener'
@@ -228,8 +239,9 @@ An example listener, which hooks into the Mailer API to modify Mailer settings t
 could look like this:
 
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/EventListener/NullMailer.php
 
-   namespace MyCompany\MyPackage\EventListener;
+   namespace Vendor\SomeExtension\EventListener;
    use TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent;
 
    class NullMailer

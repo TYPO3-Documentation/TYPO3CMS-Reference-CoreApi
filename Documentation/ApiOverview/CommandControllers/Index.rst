@@ -34,19 +34,23 @@ Creating a new Command in Extensions
    E.g. how to setup aliases via :file:`Services.yaml`,
    or how to use dependency injection in commands.
 
-   The following example will add a command named ``yourext:dothings``.
+   The following example will add a command named ``someextension:dothings``.
 
-   Register via DI in :file:`Configuration/Services.yaml` by adding the service definition for your class::
+   Register via DI in :file:`Configuration/Services.yaml` by adding the service
+   definition for your class:
 
-     services:
+   .. code-block:: yaml
+      :caption: EXT:some_extension/Configuration/Services.yaml
 
-       Vendor\Extension\Command\DoThingsCommand:
-         tags:
-           - name: 'console.command'
-             command: 'yourext:dothings'
-             description: 'An example description for a command'
-             # not required, defaults to false
-             hidden: false
+      services:
+
+        Vendor\SomeExtension\Command\DoThingsCommand:
+          tags:
+            - name: 'console.command'
+              command: 'someextension:dothings'
+              description: 'An example description for a command'
+              # not required, defaults to false
+              hidden: false
 
    .. note::
 
@@ -76,41 +80,47 @@ Creating a new Command in Extensions
 Command Class
 -------------
 
-Example taken from :php:`ListSysLogCommand` in the Core and simplified::
+A simplified command class:
 
-    use Symfony\Component\Console\Command\Command;
-    use Symfony\Component\Console\Input\InputArgument;
-    use Symfony\Component\Console\Input\InputInterface;
-    use Symfony\Component\Console\Output\OutputInterface;
-    use Symfony\Component\Console\Style\SymfonyStyle;
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Command/DoThingsCommand.php
 
-    class DoThingsCommand extends Command
-    {
-        /**
-         * Configure the command by defining the name, options and arguments
-         */
-        protected function configure()
-        {
-            $this->setHelp('Prints a list of recent sys_log entries.' . LF . 'If you want to get more detailed information, use the --verbose option.');
-        }
+   use Symfony\Component\Console\Command\Command;
+   use Symfony\Component\Console\Input\InputArgument;
+   use Symfony\Component\Console\Input\InputInterface;
+   use Symfony\Component\Console\Output\OutputInterface;
+   use Symfony\Component\Console\Style\SymfonyStyle;
 
-        /**
-         * Executes the command for showing sys_log entries
-         *
-         * @param InputInterface $input
-         * @param OutputInterface $output
-         * @return int error code
-         */
-        protected function execute(InputInterface $input, OutputInterface $output)
-        {
-            $io = new SymfonyStyle($input, $output);
-            $io->title($this->getDescription());
+   class DoThingsCommand extends Command
+   {
+       /**
+        * Configure the command by defining the name, options and arguments
+        */
+       protected function configure()
+       {
+           $this->setHelp(
+              'Prints a list of recent sys_log entries.' . LF .
+              'If you want to get more detailed information, use the --verbose option.'
+           );
+       }
 
-            // ...
-            $io->writeln('Write something');
-            return Command::SUCCESS;
-        }
-    }
+       /**
+        * Executes the command for showing sys_log entries
+        *
+        * @param InputInterface $input
+        * @param OutputInterface $output
+        * @return int error code
+        */
+       protected function execute(InputInterface $input, OutputInterface $output)
+       {
+           $io = new SymfonyStyle($input, $output);
+           $io->title($this->getDescription());
+
+           // ...
+           $io->writeln('Write something');
+           return Command::SUCCESS;
+       }
+   }
 
 Return value
 ------------
@@ -136,8 +146,10 @@ command API. This is explained in depth on the following Symfony Documentation p
    * `Symfony: Console Input (Arguments & Options) <https://symfony.com/doc/current/console/input.html>`__
 
 
-Add an optional argument and an optional option to your command::
+Add an optional argument and an optional option to your command:
 
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Command/DoThingsCommand.php
 
     // use Symfony\Component\Console\Input\InputArgument;
     // use Symfony\Component\Console\Input\InputOption;
@@ -167,11 +179,14 @@ which can be passed on the command line:
 
 .. code-block:: bash
 
-   vendor/bin/typo3 yourext:dothings [-b] [wizardName]
+   vendor/bin/typo3 someextension:dothings [-b] [wizardName]
 
 
 This argument can be retrieved with :php:`$input->getArgument()`, the options with
-:php:`$input->getOption()`, for example::
+:php:`$input->getOption()`, for example:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Command/DoThingsCommand.php
 
    // use Symfony\Component\Console\Input\InputInterface;
    // use Symfony\Component\Console\Output\OutputInterface;
@@ -200,7 +215,11 @@ Deactivating the Command in Scheduler
 -------------------------------------
 
 By default, the command can be used in the scheduler too.
-This can be disabled by setting ``schedulable`` to ``false`` in :file:`Configuration/Services.yaml`::
+This can be disabled by setting ``schedulable`` to ``false`` in
+:file:`Configuration/Services.yaml`:
+
+.. code-block:: yaml
+   :caption: EXT:some_extension/Configuration/Services.yaml
 
    services:
      _defaults:
@@ -208,13 +227,13 @@ This can be disabled by setting ``schedulable`` to ``false`` in :file:`Configura
        autoconfigure: true
        public: false
 
-     Vendor\Extension\:
+     Vendor\SomeExtension\:
        resource: '../Classes/*'
 
-     Vendor\Extension\Command\DoThingsCommand:
+     Vendor\SomeExtension\Command\DoThingsCommand:
        tags:
          - name: 'console.command'
-           command: 'yourext:dothings'
+           command: 'someextension:dothings'
            schedulable: false
 
 
@@ -225,22 +244,35 @@ A command can be hidden from the command list by setting :yaml:`hidden` to :yaml
 in the :file:`Services.yaml` file:
 
 .. code-block:: yaml
+   :caption: EXT:some_extension/Configuration/Services.yaml
 
     # Configuration/Services.yaml
     services:
-      My\Namespace\Command\ExampleCommand:
+      Vendor\SomeExtension\Command\ExampleCommand:
         tags:
           - name: 'console.command'
-            command: 'my:example'
+            command: 'someextension:example'
             description: 'An example command that demonstrates some stuff'
             hidden: true
 
 Initialize backend user
 -----------------------
 
-A backend user can be initialized with this call inside :php:`execute()` method::
+A backend user can be initialized with this call inside :php:`execute()` method:
 
-   Bootstrap::initializeBackendAuthentication();
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Command/DoThingsCommand.php
+   :emphasize-lines: 7
+
+   // use Symfony\Component\Console\Input\InputInterface;
+   // use Symfony\Component\Console\Output\OutputInterface;
+
+   protected function execute(InputInterface $input, OutputInterface $output)
+   {
+       // ..
+       Bootstrap::initializeBackendAuthentication();
+   }
 
 This is necessary when using :ref:`DataHandler  <datahandler-basics>`
 or other backend permission handling related tasks.
@@ -254,13 +286,13 @@ The above example can be run via command line:
 
 .. code-block:: bash
 
-   vendor/bin/typo3 yourext:dothings
+   vendor/bin/typo3 someextension:dothings
 
 Show help for the command:
 
 .. code-block:: bash
 
-   vendor/bin/typo3 yourext:dothings -h
+   vendor/bin/typo3 someextension:dothings -h
 
 .. tip::
 

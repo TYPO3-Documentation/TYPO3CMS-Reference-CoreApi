@@ -9,13 +9,18 @@ Calling a chain of services
 It is also possible to use services in a "chain". This means using all
 the available services of a type instead of just one.
 
-The method :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService()` accepts a third
+The method :php:`GeneralUtility::makeInstanceService()` accepts a third
 parameter to exclude a number of services, using an array of service keys.
 This way you can walk through all available services of a type by passing the
 already used service keys. Services will be called in order of decreasing
 priority and quality.
 
-The following example is an extract of the user authentication process::
+The following example is an extract of the user authentication process:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
 
    // Use 'auth' service to find the user
    // First found user will be used
@@ -49,7 +54,10 @@ The following example is an extract of the user authentication process::
 As you see the while loop is exited when a service gives a result.
 More sophisticated mechanisms can be imagined. In this next example –
 also taken from the authentication process – the loop is exited only
-when a certain value is returned by the method called::
+when a certain value is returned by the method called:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    foreach ($tempuserArr as $tempuser) {
       // Use 'auth' service to authenticate the user.

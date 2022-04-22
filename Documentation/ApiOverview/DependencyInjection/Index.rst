@@ -15,7 +15,10 @@ Dependency injection
 TYPO3 uses a dependency injection solution based on the corresponding `PSR-11 <https://www.php-fig.org/psr/psr-11/>`_
 compliant Symfony component to standardize object initialization throughout the Core as well as in extensions.
 
-The recommended way of injecting dependencies is to use constructor injection::
+The recommended way of injecting dependencies is to use constructor injection:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    public function __construct(Foo $foo, Bar $bar)
    {
@@ -64,17 +67,17 @@ dependency injection. This can be done in :file:`Configuration/Services.yaml`.
 Alternatively :file:`Configuration/Services.php` can be used.
 
 .. code-block:: yaml
+   :capition: EXT:some_extension/Configuration/Services.php
 
-    # Configuration/Services.yaml
-    services:
-      _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
+   services:
+     _defaults:
+       autowire: true
+       autoconfigure: true
+       public: false
 
-      Your\Namespace\:
-        resource: '../Classes/*'
-        exclude: '../Classes/Domain/Model/*'
+     Vendor\SomeExtension\:
+       resource: '../Classes/*'
+       exclude: '../Classes/Domain/Model/*'
 
 This is how a basic :file:`Services.yaml` of an extension looks like. The meaning of :yaml:`autowire`,
 :yaml:`autoconfigure` and :yaml:`public` will be explained below.
@@ -278,7 +281,10 @@ Supported ways of dependency injection
 Constructor injection
 ---------------------
 
-A class dependency can simply be specified as a constructor argument::
+A class dependency can simply be specified as a constructor argument:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    public function __construct(Dependency $dependency)
    {
@@ -293,8 +299,11 @@ Method injection
 ----------------
 
 As an alternative to constructor injection :php:`injectDependency()` methods can be used.
-Additionally a :php:`setDependency()` will also work if it has the annotation :php:`@required`::
+Additionally a :php:`setDependency()` will also work if it has the annotation
+:php:`@required`:
 
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    /**
     * @param MyDependency $myDependency
@@ -321,7 +330,10 @@ Interface injection
 -------------------
 
 It is possible to inject interfaces as well. If there is only one implementation for a certain
-interface the interface injection is simply resolved to this implementation::
+interface the interface injection is simply resolved to this implementation:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    public function __construct(DependencyInterface $dependency)
    {
@@ -338,9 +350,12 @@ Dependency injection in an XCLASSed class
 If an existing class (for example an Extbase controller) is extended using XCLASS and additional
 dependencies are injected using constructor injection, it must be ensured that a
 reference to the extended class is added in the :file:`Configuration/Services.yaml` file of the
-extending extension as shown in the example below::
+extending extension as shown in the example below:
 
-   TYPO3\CMS\Belog\Controller\BackendLogController: '@Namespace\Extension\Controller\ExtendedBackendLogController'
+.. code-block:: yaml
+   :caption: EXT:some_extension/Configuration/Services.yaml
+
+   TYPO3\CMS\Belog\Controller\BackendLogController: '@Vendor\SomeExtension\Controller\ExtendedBackendLogController'
 
 Further information
 ^^^^^^^^^^^^^^^^^^^

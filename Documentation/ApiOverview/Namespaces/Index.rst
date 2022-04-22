@@ -7,7 +7,10 @@ Namespaces
 
 Since version 6.0, TYPO3 CMS uses PHP namespaces for all classes in the Core.
 
-The general structure of namespaces is the following::
+The general structure of namespaces is the following:
+
+.. code-block:: none
+   :caption: General namespace schema
 
    \{VendorName}\{PackageName}\({CategoryName}\)*{ClassName}
 
@@ -37,9 +40,8 @@ Finally the *class name* is the same as the corresponding file name, without the
 Core example
 ------------
 
-The good old :php:`t3lib_div` class has been renamed to::
-
-   \TYPO3\CMS\Core\Utility\GeneralUtility
+The good old :php:`t3lib_div` class has been renamed to:
+:php:`\TYPO3\CMS\Core\Utility\GeneralUtility`
 
 This means that the class is now found in the `core` system extension, in folder
 :file:`Classes/Utility`, in a file named :file:`GeneralUtility.php`.
@@ -51,7 +53,15 @@ This means that the class is now found in the `core` system extension, in folder
 Usage in extensions
 -------------------
 
-Extension developers are free to use their own vendor name. *Important:* It may consist of *one* segment only. Vendor names must start with an uppercase character and are usually written in UpperCamelCase style. In order to avoid problems with different filesystems, only the characters a-z, A-Z, 0-9 and the dash sign "-" are allowed for package names – don't use special characters::
+Extension developers are free to use their own vendor name. *Important:* It
+may consist of *one* segment only. Vendor names must start with an
+uppercase character and are usually written in UpperCamelCase style.
+In order to avoid problems with different filesystems, only
+the characters a-z, A-Z, 0-9 and the dash sign "-" are allowed for package
+names – don't use special characters:
+
+.. code-block:: php
+   :caption: Examples for vendor names
 
    // correct vendor name for 'web company':
    \WebCompany
@@ -64,13 +74,21 @@ Extension developers are free to use their own vendor name. *Important:* It may 
    The vendor name `TYPO3\CMS` is reserved and may not be used by extensions!
 
 The package name corresponds to the extension key. Underscores in the extension
-key are removed in the namespace and replaced by upper camel-case. So extension key::
+key are removed in the namespace and replaced by upper camel-case. So extension key:
+
+.. code-block:: none
+   :caption: Do not do this
 
    weird-name_examples
 
-would become::
+would become:
+
+.. code-block:: none
+   :caption: Do not do this
 
    Weird-nameExamples
+
+.. TODO: Something is very wrong with this example...
 
 in the namespace.
 
@@ -78,15 +96,16 @@ As mentioned above, all classes **must** be located in the :file:`Classes` folde
 your extension. All sub-folders translate to a segment of the category name and the class
 name is the file name without the :file:`.php` extension.
 
-Looking at the "examples" extension, class::
+Looking at the "examples" extension, file
+:file:`examples/Classes/Controller/DefaultController.php`
 
-   examples/Classes/Controller/DefaultController.php
+corresponds to the class with :php:`\Documentation\Examples\Controller\DefaultController`
+as fully qualified name.
 
-corresponds to namespace::
+Inside the class, the namespace is declared as:
 
-   \Documentation\Examples\Controller\DefaultController
-
-Inside the class, the namespace is declared as::
+.. code-block:: php
+   :caption: EXT:examples/Classes/Controller/DefaultController.php
 
    <?php
    namespace Documentation\Examples\Controller;
@@ -101,17 +120,26 @@ Namespaces in Extbase
 When registering components in Extbase, the "UpperCamelCase" notation of the
 extension key is used.
 
-For a backend module::
+For a backend module:
 
-   \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+.. code-block:: php
+   :caption: EXT:my_extension/ext_tables.php
+
+   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
+   ExtensionUtility::registerModule(
        '<ExtensionName>',
        // ...
    );
 
+For a frontend module:
 
-For a frontend module::
+.. code-block:: php
+   :caption: EXT:my_extension/ext_tables.php
 
-   \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
+   ExtensionUtility::configurePlugin(
        '<ExtensionName>',
        // ...
    );
@@ -141,12 +169,10 @@ Creating Instances
 ------------------
 
 The following example shows how you can create instances by means of
-:php:`GeneralUtility::makeInstance()`::
+:php:`GeneralUtility::makeInstance()`:
 
-   $contentObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-      \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
-
-Or, use :php:`use` to make the code more readable::
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
    use TYPO3\CMS\Core\Utility\GeneralUtility;
    use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;

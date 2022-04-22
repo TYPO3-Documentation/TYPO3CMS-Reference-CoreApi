@@ -40,7 +40,10 @@ Disabling deprecation errors
 ============================
 
 Deprecation errors are automatically being ignored in production context. If you need to disable them in development
-context you can do so in the :file:`AdditionalConfiguration.php`::
+context you can do so in the :file:`AdditionalConfiguration.php`:
+
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
 
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['deprecations']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::NOTICE] = [];
 
@@ -71,7 +74,10 @@ Deprecate functions in extensions
 =================================
 
 Functions that will be removed in future versions of your extension should be marked as deprecated by both the
-doc-comment and a call to the PHP error method::
+doc-comment and a call to the PHP error method:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    /**
     * @param array $record

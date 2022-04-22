@@ -34,7 +34,9 @@ component name and the event name, e.g. `typo3:my_extension:my_event`.
 
 To send a message, the :js:`post()` method must be used.
 
-Example code::
+Example code:
+
+.. code-block:: js
 
    require(['TYPO3/CMS/Backend/BroadcastService'], function (BroadcastService) {
      const payload = {
@@ -59,7 +61,9 @@ name (e.g. `typo3:my_component:my_event`) sent to :js:`document`.
 
 The event itself contains a property called `detail` **excluding** the component name and event name.
 
-Example code::
+Example code:
+
+.. code-block:: js
 
    define([], function() {
       document.addEventListener('typo3:my_component:my_event', (e) => eventHandler(e.detail));
@@ -76,17 +80,23 @@ Hook into :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/backend.php']['
 Example code:
 
 .. code-block:: php
+   :caption: EXT:some_extension/ext_localconf.php
 
-   // ext_localconf.php
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/backend.php']['constructPostProcess'][]
        = \Vendor\MyExtension\Hooks\BackendControllerHook::class . '->registerClientSideEventHandler';
 
-   // Classes/Hooks/BackendControllerHook.php
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Hooks/BackendControllerHook.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Page\PageRenderer;
+
    class BackendControllerHook
    {
        public function registerClientSideEventHandler(): void
        {
-           $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+           $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
            $pageRenderer->loadRequireJsModule('TYPO3/CMS/MyExtension/EventHandler');
        }
     }

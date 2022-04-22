@@ -148,7 +148,10 @@ $_EXTKEY is set globally and contains the extension key.
          array
    :Description:
          List of requirements, suggestions or conflicts with other extensions
-         or TYPO3 or PHP version. Here's how a typical setup might look::
+         or TYPO3 or PHP version. Here's how a typical setup might look:
+
+         .. code-block:: php
+            :caption: EXT:some_extension/ext_emconf.php
 
             'constraints' => [
                 'depends' => [
@@ -290,7 +293,10 @@ $_EXTKEY is set globally and contains the extension key.
 
          Considering you have an Extbase extension (or an extension where all classes
          and interfaces reside in a :file:`Classes` folder) or single classes you can simply
-         add the following to your :file:`ext_emconf.php` file::
+         add the following to your :file:`ext_emconf.php` file:
+
+         .. code-block:: php
+            :caption: EXT:some_extension/ext_emconf.php
 
             'autoload' => [
                'classmap' => [
@@ -302,7 +308,10 @@ $_EXTKEY is set globally and contains the extension key.
          **Extensions using namespaces**
 
          If the extension has namespaced classes following the PSR-4 standard, then you
-         can add the following to your :file:`ext_emconf.php` file::
+         can add the following to your :file:`ext_emconf.php` file:
+
+         .. code-block:: php
+            :caption: EXT:some_extension/ext_emconf.php
 
             'autoload' => [
                'psr-4' => [

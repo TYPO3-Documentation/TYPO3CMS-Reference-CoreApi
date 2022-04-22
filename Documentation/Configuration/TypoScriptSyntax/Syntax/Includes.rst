@@ -16,7 +16,10 @@ been introduced, which acts as a preprocessor before the actual parsing
 
 .. warning::
    Includes of either syntax within multi-line comments are still executed due
-   to a bug. Alway use single line comments if you need to comment out an import::
+   to a bug. Always use single line comments if you need to comment out an import:
+
+   .. code-block:: typoscript
+      :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
       # @import 'EXT:myproject/Configuration/TypoScript/randomfile.typoscript'
 

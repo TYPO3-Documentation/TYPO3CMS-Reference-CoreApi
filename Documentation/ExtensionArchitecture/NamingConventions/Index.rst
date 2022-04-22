@@ -186,7 +186,9 @@ Database table name
 
 These rules apply to public extensions, but should be followed nevertheless.
 
-Database table names SHOULD follow this pattern::
+Database table names **should** follow this pattern:
+
+.. code-block:: none
 
    tx_<extension-prefix>_<table-name>
 
@@ -198,7 +200,9 @@ Examples for an extension named `cool_shop`:
     * :sql:`tx_coolshop_product`
     * :sql:`tx_coolshop_category`
 
-Extbase domain model tables SHOULD follow this pattern::
+Extbase domain model tables **should** follow this pattern:
+
+.. code-block:: none
 
    tx_<extension-prefix>_domain_model_<table-name>
 
@@ -225,7 +229,10 @@ Examples for Extbase domain models and table names of an extension named `cool_s
 Database column name
 ====================
 
-When extending a common table like :sql:`tt_content`, column names SHOULD follow this pattern::
+When extending a common table like :sql:`tt_content`, column names SHOULD
+follow this pattern:
+
+.. code-block:: none
 
    tx_<extension-prefix>_<column-name>
 
@@ -244,7 +251,10 @@ contain underscores and MUST start with a letter.
 Example:
    * `Coolshop`
 
-Example usage::
+Example usage:
+
+.. code-block:: php
+    :caption: EXT:my_extension/ext_tables.php
 
     // Module System > Backend Users
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(

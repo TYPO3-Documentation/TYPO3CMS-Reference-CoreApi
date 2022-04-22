@@ -32,9 +32,12 @@ Checking access to current backend module
 :php:`$MCONF` is module configuration and the key :php:`$MCONF['access']` determines
 the access scope for the module. This function call will check if the
 :php:`$GLOBALS['BE_USER']` is allowed to access the module and if not, the function
-will exit with an error message. ::
+will exit with an error message.
 
-      $GLOBALS['BE_USER']->modAccess($MCONF);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+
+   $GLOBALS['BE_USER']->modAccess($MCONF);
 
 
 .. _be-user-access-any:
@@ -43,9 +46,12 @@ Checking access to any backend module
 =====================================
 
 If you know the module key you can check if the module is included in
-the access list by this function call::
+the access list by this function call:
 
-      $GLOBALS['BE_USER']->check('modules', 'web_list');
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+
+   $GLOBALS['BE_USER']->check('modules', 'web_list');
 
 Here access to the module **WEB > List** is checked.
 
@@ -61,18 +67,27 @@ Access to tables and fields?
 The same function :php:`->check()` can actually check all the group-based permissions
 inside :php:`$GLOBALS['BE_USER']`. For instance:
 
-Checking modify access to the table "pages"::
+Checking modify access to the table "pages":
 
-      $GLOBALS['BE_USER']->check('tables_modify', 'pages');
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
 
-Checking read access to the table "tt\_content"::
+   $GLOBALS['BE_USER']->check('tables_modify', 'pages');
 
-      $GLOBALS['BE_USER']->check('tables_select', 'tt_content');
+Checking read access to the table "tt\_content":
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+
+   $GLOBALS['BE_USER']->check('tables_select', 'tt_content');
 
 Checking if a table/field pair is allowed explicitly through the
-"Allowed Excludefields"::
+"Allowed Excludefields":
 
-      $GLOBALS['BE_USER']->check('non_exclude_fields', $table . ':' . $field);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+
+   $GLOBALS['BE_USER']->check('non_exclude_fields', $table . ':' . $field);
 
 .. index:: Backend user; isAdmin
 .. _be-user-admin:
@@ -81,9 +96,12 @@ Is "admin"?
 ===========
 
 If you want to know if a user is an "admin" user (has complete
-access), just call this method::
+access), just call this method:
 
-      $GLOBALS['BE_USER']->isAdmin();
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+
+   $GLOBALS['BE_USER']->isAdmin();
 
 
 .. index::
@@ -95,9 +113,12 @@ Read access to a page?
 ======================
 
 This function call will return true if the user has read access to a
-page (represented by its database record, :php:`$pageRec`)::
+page (represented by its database record, :php:`$pageRec`):
 
-      $GLOBALS['BE_USER']->doesUserHaveAccess($pageRec, 1);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+
+   $GLOBALS['BE_USER']->doesUserHaveAccess($pageRec, 1);
 
 Changing the "1" for other values will check other permissions:
 
@@ -115,9 +136,12 @@ Is a page inside a DB mount?
 
 Access to a page should not be checked only based on page permissions
 but also if a page is found within a DB mount for ther user. This can
-be checked by this function call (:php:`$id` is the page uid)::
+be checked by this function call (:php:`$id` is the page uid):
 
-      $GLOBALS['BE_USER']->isInWebMount($id)
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+
+   $GLOBALS['BE_USER']->isInWebMount($id)
 
 
 .. index::
@@ -130,12 +154,18 @@ Selecting readable pages from database?
 If you wish to make a SQL statement which selects pages from the
 database and you want it to be only pages that the user has read
 access to, you can have a proper WHERE clause returned by this
-function call::
+function call:
 
-      $GLOBALS['BE_USER']->getPagePermsClause(1);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+
+   $GLOBALS['BE_USER']->getPagePermsClause(1);
 
 Again the number "1" represents the "read" permission; "2" is "edit"
-and "4" is "delete" permission. The result from the above query could be this string::
+and "4" is "delete" permission. The result from the above query could be this string:
+
+.. code-block:: none
+   :caption: Result of the above query
 
    ((pages.perms_everybody & 1 = 1)OR(pages.perms_userid = 2 AND pages.perms_user & 1 = 1)OR(pages.perms_groupid in (1) AND pages.perms_group & 1 = 1))
 
@@ -147,10 +177,13 @@ Saving module data
 ==================
 
 This stores the input variable :php:`$compareFlags` (an array!) with the key
-"tools\_beuser/index.php/compare" ::
+"tools\_beuser/index.php/compare"
 
-       $compareFlags = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('compareFlags');
-       $GLOBALS['BE_USER']->pushModuleData('tools_beuser/index.php/compare', $compareFlags);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+
+   $compareFlags = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('compareFlags');
+   $GLOBALS['BE_USER']->pushModuleData('tools_beuser/index.php/compare', $compareFlags);
 
 
 .. index:: Backend user; pushModuleData
@@ -160,9 +193,12 @@ Getting module data
 ===================
 
 This gets the module data with the key
-"tools\_beuser/index.php/compare" (lasting only for the session) ::
+"tools\_beuser/index.php/compare" (lasting only for the session) :
 
-       $compareFlags = $GLOBALS['BE_USER']->getModuleData('tools_beuser/index.php/compare', 'ses');
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+
+   $compareFlags = $GLOBALS['BE_USER']->getModuleData('tools_beuser/index.php/compare', 'ses');
 
 
 .. index::
@@ -174,7 +210,10 @@ Getting TSconfig
 ================
 
 This function can return a value from the "user TSconfig" structure of
-the user. In this case the value for "options.clipboardNumberPads"::
+the user. In this case the value for "options.clipboardNumberPads":
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
 
    $tsconfig = $GLOBALS['BE_USER']->getTSConfig();
    $clipboardNumberPads = $tsconfig['options.']['clipboardNumberPads'] ?? '';
@@ -187,9 +226,12 @@ Getting the Username
 ====================
 
 The full "be\_users" record of a authenticated user is available in
-:php:`$GLOBALS['BE_USER']`->user as an array. This will return the "username"::
+:php:`$GLOBALS['BE_USER']`->user as an array. This will return the "username":
 
-      $GLOBALS['BE_USER']->user['username']
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+
+   $GLOBALS['BE_USER']->user['username']
 
 
 .. _be-user-configuration:
@@ -200,6 +242,9 @@ Get User Configuration Value
 The internal :php:`->uc` array contains options which are managed by the
 User Tools > :guilabel:`User Settings` module (extension "setup"). These values are accessible in
 the :php:`$GLOBALS['BE_USER']->uc` array. This will return the current state of
-"Notify me by email, when somebody logs in from my account" for the user::
+"Notify me by email, when somebody logs in from my account" for the user:
 
-      $GLOBALS['BE_USER']->uc['emailMeAtLogin']
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+
+   $GLOBALS['BE_USER']->uc['emailMeAtLogin']

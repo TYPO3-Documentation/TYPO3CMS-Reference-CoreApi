@@ -82,9 +82,14 @@ Both can be anything you like, just make sure they are unique and clearly hint a
    Since TYPO3v10, you should prefer :ref:`dependency injection <DependencyInjection>`
    to retrieve cache frontends whenever possible and no longer use the :php:`CacheManager` directly.
 
-Here is some example code which retrieves the cache via dependency injection::
+Here is some example code which retrieves the cache via dependency injection:
 
-   namespace Acme\MyExt;
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/MyClass.php
+
+
+   namespace Vendor\SomeExtension;
 
    use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 
@@ -130,7 +135,7 @@ needs to be extended:
 .. code-block:: yaml
 
     services:
-      Acme\MyExt\MyClass:
+      Vendor\SomeExtension\MyClass:
         arguments:
           $cache: '@cache.my_cache'
 

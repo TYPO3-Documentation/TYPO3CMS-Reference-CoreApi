@@ -40,7 +40,10 @@ The YAML Loader class has two flags: :yaml:`PROCESS_PLACEHOLDERS` and :yaml:`PRO
 * :yaml:`PROCESS_IMPORTS` decides whether or not imports (`imports` key) will be resolved.
 
 Use the method :php:`YamlFileLoader::load()`
-to make use of the loader in your extensions::
+to make use of the loader in your extensions:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 

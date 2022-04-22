@@ -63,7 +63,10 @@ put each class into its own file. This also means that there can only be a singl
 You can also explicitly configure autoloading in the :ref:`extension-declaration`.
 
 The generated :file:`typo3conf/autoload_classmap.php` is a large array with a mapping of classnames
-to their location on the disk::
+to their location on the disk:
+
+.. code-block:: php
+   typo3conf/autoload_classmap.php
 
    <?php
 
@@ -106,7 +109,9 @@ back to the classmap autoloading like in non composer mode.
   the autoload information is updated. Typically you would check :file:`vendor/composer` to hold
   files like :file:`autoload_classmap.php` and :file:`autoload_psr4.php` etc.
 
-Example::
+Example:
+
+.. code-block:: none
 
    $ tree vendor/composer
    .

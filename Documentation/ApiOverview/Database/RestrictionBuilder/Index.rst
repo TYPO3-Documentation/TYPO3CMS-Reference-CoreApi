@@ -181,7 +181,10 @@ Often the default restrictions are sufficient. Nothing needs to be done in those
 
 However, many backend modules still want to show disabled records and remove the starttime and endtime
 restrictions to allow administration of those records for an editor. A typical setup from within a
-backend module::
+backend module:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -206,7 +209,10 @@ that flag is the recycler module to list and resurrect deleted records. Any obje
 
 An alternative to the recommended way of first removing all restrictions and then adding needed
 ones again (using :php:`->removeAll()`, then :php:`->add()`) is to kick specific restrictions with a call to
-:php:`->removeByType()`::
+:php:`->removeByType()`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -221,7 +227,10 @@ ones again (using :php:`->removeAll()`, then :php:`->add()`) is to kick specific
 
 
 In the frontend it is often needed to swap the `DefaultRestrictionContainer` with the
-`FrontendRestrictionContainer`::
+`FrontendRestrictionContainer`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer
    // Kick default restrictions and add list of default frontend restrictions
@@ -243,7 +252,10 @@ deliver and use an own set of restrictions for own query statements if needed.
 
 If you want to apply one or more restriction/s to only one table, that is possible as follows. Let's say,
 that you have content in table `tt_content` with a relation to categories. Now you would like to get all records with their categories, except those that are hidden. The hidden restriction in this case should only apply to
-the :sql:`tt_content` table, not to the :sql:`sys_category` or :sql:`sys_category_*_mm` table.::
+the :sql:`tt_content` table, not to the :sql:`sys_category` or :sql:`sys_category_*_mm` table.
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder->getRestrictions()
@@ -268,7 +280,9 @@ In this example the :php:`HiddenRestriction` is only applied to :sql:`tt` table 
 Furthermore it is possible to restrict the complete set of restrictions of a query builder to a
 given set of table aliases.
 
+
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(HiddenRestriction::class));

@@ -39,13 +39,16 @@ Depending on the context, there are two main ways to access them:
     The first method is preferred if possible as :php:`$GLOBALS['TYPO3_REQUEST']` was
     deprecated in 9.2 and will be removed in future versions.
 
-Methods::
+Methods:
 
-    // current site
-    $site = $request->getAttribute('site');
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
-    // current site language
-    $siteLanguage = $request->getAttribute('language');
+   // current site
+   $site = $request->getAttribute('site');
+
+   // current site language
+   $siteLanguage = $request->getAttribute('language');
 
 
 .. warning::
