@@ -79,11 +79,17 @@ Declaration
 The :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']` global array acts as a registry
 of overloaded (XCLASSed) classes.
 
-The syntax is as follows and is commonly located in an extension's :file:`ext_localconf.php` file::
+The syntax is as follows and is commonly located in an extension's
+:file:`ext_localconf.php` file:
 
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Backend\Controller\NewRecordController::class] = [
-          'className' => Documentation\Examples\Xclass\NewRecordController::class
-       ];
+.. code-block:: php
+   :caption: EXT:some_extension/ext_localconf.php
+
+   use TYPO3\CMS\Backend\Controller\NewRecordController;
+
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][NewRecordController::class] = [
+       'className' => Vendor\SomeExtension\Xclass\NewRecordController::class
+   ];
 
 
 In this example, we declare that the :code:`\TYPO3\CMS\Backend\Controller\NewRecordController` class
@@ -110,7 +116,10 @@ XCLASS breaking after a code update.
    and just call the latter with :code:`parent::`.
 
 The example below extends the new record wizard screen. It first calls the original
-method and then adds its own content::
+method and then adds its own content:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Xclass/NewRecordController.php
 
    class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController
    {

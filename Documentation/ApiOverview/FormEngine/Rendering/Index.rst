@@ -217,11 +217,11 @@ Adding RequireJS modules
 ------------------------
 
 .. deprecated:: 11.5
-   Using callback functions is deprecated and shall be replaced with new 
-   JavaScriptModuleInstruction declarations. In FormEngine, loading the RequireJS 
+   Using callback functions is deprecated and shall be replaced with new
+   JavaScriptModuleInstruction declarations. In FormEngine, loading the RequireJS
    module via arrays is deprecated and has to be migrated as well.
 
-JavaScript is added via RequireJS modules using the 
+JavaScript is added via RequireJS modules using the
 function :php:` JavaScriptModuleInstruction::forRequireJS`.
 
 .. code-block:: php
@@ -349,7 +349,10 @@ To illustrate the principals discussed in this chapter see the following
 example which registers a fieldControl (button) next to a field in the pages
 table to trigger a data import via ajax.
 
-Add a new renderType in :file:`ext_localconf.php`::
+Add a new renderType in :file:`ext_localconf.php`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/ext_localconf.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1485351217] = [
       'nodeName' => 'importDataControl',
@@ -357,7 +360,10 @@ Add a new renderType in :file:`ext_localconf.php`::
       'class' => \T3G\Something\FormEngine\FieldControl\ImportDataControl::class
    ];
 
-Register the control in :file:`TCA/Overrides/pages.php`::
+Register the control in :file:`Configuration/TCA/Overrides/pages.php`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Configuration/TCA/Overrides/pages.php
 
    'somefield' => [
       'label'   => $langFile . ':pages.somefield',
@@ -373,11 +379,14 @@ Register the control in :file:`TCA/Overrides/pages.php`::
    ],
 
 Add the php class for rendering the control in
-:file:`FormEngine/FieldControl/ImportDataControl.php`::
+:file:`Classes/FormEngine/FieldControl/ImportDataControl.php`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/FormEngine/FieldControl/ImportDataControl.php
 
    declare(strict_types=1);
 
-   namespace T3G\Something\FormEngine\FieldControl;
+   namespace Vendor\SomeExtension\FormEngine\FieldControl;
 
    use TYPO3\CMS\Backend\Form\AbstractNode;
 
@@ -402,6 +411,7 @@ Add the JavaScript for defining the behavior of the control in
 :file:`Resources/Public/JavaScript/ImportData.js`:
 
 .. code-block:: javascript
+   :caption: EXT:some_extension/Resources/Public/JavaScript/ImportData.js
 
    /**
    * Module: TYPO3/CMS/Something/ImportData
@@ -454,7 +464,10 @@ Add the JavaScript for defining the behavior of the control in
    });
 
 Add an ajax route for the request in
-:file:`Configuration/Backend/AjaxRoutes.php`::
+:file:`Configuration/Backend/AjaxRoutes.php`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Configuration/Backend/AjaxRoutes.php
 
    <?php
    return [
@@ -465,7 +478,10 @@ Add an ajax route for the request in
    ];
 
 Add the ajax controller class in
-:file:`Classes/Controller/Ajax/ImportDataController.php`::
+:file:`Classes/Controller/Ajax/ImportDataController.php`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/Ajax/ImportDataController.php
 
    declare(strict_types=1);
 

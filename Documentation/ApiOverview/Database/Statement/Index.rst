@@ -50,7 +50,13 @@ the TYPO3 Core yet, and thus not fully documented here.
 fetchAssociative()
 ==================
 
-Fetch next row from a result statement. Usually used in while() loops. Typical example::
+Fetch next row from the result. Usually used in :php:`while()` loops.
+This is the recommended way of accessing the result in most use cases.
+
+Typical example:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -75,7 +81,10 @@ fetchAllAssociative()
 
 Returns an array containing all of the result set rows by implementing the same while loop as above internally.
 Using that method saves some precious code characters but is more memory intensive if the result set is large
-with lots of rows and lot of data since big arrays are carried around in `PHP`::
+with lots of rows and lot of data since big arrays are carried around in PHP:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -93,8 +102,13 @@ fetchOne()
 ==========
 
 Returns a single column from the next row of a result set, other columns from that result row are discarded.
-This method is especially handy for :php:`QueryBuilder->count()` queries. The :php:`Connection->count()` implementation
-does exactly that to return the number of rows directly::
+This method is especially handy for :php:`QueryBuilder->count()` queries.
+
+The :php:`Connection->count()` implementation does exactly that to return the
+number of rows directly:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -128,9 +142,10 @@ Doctrine usually prepares a statement first, and then executes it with given par
 prepared statements depends on the given driver. A driver
 not properly implementing prepared statements fall back to a direct execution of given query.
 
-There is an API to make real use of prepared statements that becomes handy if the same query is executed
-with different arguments over and over again. The example below prepares a statement to the `pages` table
-and executes it twice with different arguments::
+The following code example is probably outdated:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
     // use TYPO3\CMS\Core\Utility\GeneralUtility;
     // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -152,7 +167,7 @@ and executes it twice with different arguments::
 
 Looking at a mysql debug log:
 
-.. code-block:: sql
+.. code-block:: none
 
     Prepare SELECT `uid` FROM `pages` WHERE `uid` = ?
     Execute SELECT `uid` FROM `pages` WHERE `uid` = '24'

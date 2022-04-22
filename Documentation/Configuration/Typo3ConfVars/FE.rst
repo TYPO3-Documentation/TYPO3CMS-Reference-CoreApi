@@ -612,9 +612,12 @@ ___________________________________________________________________________
    :Default: []
 
    Only the given parameters will be evaluated in the cHash calculation.
-   Example::
+   Example:
 
-      tx_news_pi1[uid]
+   .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
+
+      $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['cachedParametersWhiteList'][] = 'tx_news_pi1[uid]';
 
 .. index::
    TYPO3_CONF_VARS FE; cacheHash requireCacheHashPresenceParameters
@@ -647,9 +650,12 @@ ____________________________________________________________________
    :Default: ['L', 'pk_campaign', 'pk_kwd', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid']
 
    The given parameters will be ignored in the cHash calculation.
-   Example::
+   Example:
 
-      L,tx_search_pi1[query]
+   .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
+
+      $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters'] = ['L','tx_search_pi1[query]'];
 
 .. index::
    TYPO3_CONF_VARS FE; cacheHash excludedParametersIfEmpty
@@ -792,7 +798,8 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']
 
    Matches the LinkService implementations for generating URL, link text via typolink
 
-   Default::
+   .. code-block:: php
+      :caption: Default value of $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']
 
       [
             'page' => \TYPO3\CMS\Frontend\Typolink\PageLinkBuilder::class,

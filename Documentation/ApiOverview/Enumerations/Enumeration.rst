@@ -23,7 +23,10 @@ will be set to the default.
 
 .. index:: Enumerations; Example
 
-Example::
+Example:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Enumeration/LikeWildcard.php
 
    final class LikeWildcard extends \TYPO3\CMS\Core\Type\Enumeration
    {
@@ -57,7 +60,10 @@ value, whereas the "normal" :php:`__construct` will always try to create a new i
 That allows to deprecate enumeration values or do special value
 casts before finding a suitable value in the enumeration.
 
-Example::
+Example:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $likeWildcardLeft = LikeWildcard::cast(LikeWildcard::LEFT);
 
@@ -86,11 +92,16 @@ behavior should be.
    Always be prepared to handle exceptions when instantiating
    enumerations from user defined values!
 
-Example::
+Example:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Type\Exception\InvalidEnumerationValueException;
 
    try {
       $foo = LikeWildcard::cast($valueFromPageTs);
-   } catch (\TYPO3\CMS\Core\Type\Exception\InvalidEnumerationValueException $exception) {
+   } catch (InvalidEnumerationValueException $exception) {
       $foo = LikeWildcard::cast(LikeWildcard::NONE);
    }
 
@@ -105,7 +116,10 @@ have custom logic as well..
 
 For example, the :php:`TYPO3\CMS\Core\Versioning\VersionState` enumeration contains
 values of version states. Some of the values indicate that the state is a "placeholder".
-This logic can be implemented by a custom method::
+This logic can be implemented by a custom method:
+
+.. code-block:: php
+   :caption: typo3/sysext/core/Classes/Versioning/VersionState.php
 
    final class VersionState extends \TYPO3\CMS\Core\Type\Enumeration
    {
@@ -125,9 +139,14 @@ This logic can be implemented by a custom method::
       }
    }
 
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Versioning\VersionState;
+
    $myVersionState = VersionState::cast($versionStateValue);
    if ($myVersionState->indicatesPlaceholder()) {
       echo 'The state indicates that this is a placeholder';
    }
 
-..
+

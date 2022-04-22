@@ -222,15 +222,24 @@ Path to sitemap xslFile
 
 The xsl file to create a layout for a XML sitemap can now be configured on three levels:
 
-#. For all sitemaps::
+#. For all sitemaps:
+
+   .. code-block:: typoscript
+      :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
       plugin.tx_seo.config.xslFile = EXT:myext/Resources/Public/CSS/mySite.xsl
 
-#. For all sitemaps of a certain sitemapType::
+#. For all sitemaps of a certain sitemapType:
+
+   .. code-block:: typoscript
+      :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
       plugin.tx_seo.config.<sitemapType>.sitemaps.xslFile = EXT:myext/Resources/Public/CSS/mySite.xsl
 
-#. For a specific sitemap::
+#. For a specific sitemap:
+
+   .. code-block:: typoscript
+      :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
       plugin.tx_seo.config.<sitemapType>.sitemaps.<sitemap>.config.xslFile = EXT:myext/Resources/Public/CSS/mySite.xsl
 

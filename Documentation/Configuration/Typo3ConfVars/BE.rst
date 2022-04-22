@@ -739,7 +739,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
    :type: array
    :Default: []
 
-   Array with sets of custom permission options. Syntax is::
+   Array with sets of custom permission options. Syntax is:
+
+
+   .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
 
       'key' => array(
          'header' => 'header string, language split',

@@ -336,7 +336,10 @@ Defining the field in the TCA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The new field *tx_examples_separator* is added to the TCA definition of the table *tt_content* in the file
-:file:`Configuration/TCA/Overrides/tt_content.php`::
+:file:`Configuration/TCA/Overrides/tt_content.php`:
+
+.. code-block:: php
+   :caption: EXT:examples/Configuration/TCA/Overrides/tt_content.php
 
    $temporaryColumn = [
       'tx_examples_separator' => [
@@ -367,7 +370,10 @@ tt_content field.
 Another example shows the connection to a foreign table. This allows you to be
 more flexible with the possible values in the select box. The new field
 :sql:`tx_examples_main_category` is a connection to the TYPO3 system category
-table :sql:`sys_category`::
+table :sql:`sys_category`:
+
+.. code-block:: php
+   :caption: EXT:examples/Configuration/TCA/Overrides/tt_content.php
 
    'tx_examples_main_category' => [
         'exclude' => 0,
@@ -385,15 +391,27 @@ table :sql:`sys_category`::
         ],
    ],
 
+.. todo:: this example is not valid anymore as there is the field type "category"
+   now. Let us find another example.
+
 
 Defining the field in the TCE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-An individual modification of the newly added field *tx_examples_main_category* to the TCA definition of the table *tt_content* can be done in the TCE (TYPO3 Core Engine) TSConfig. In most cases it is necessary to set the page id of the general storage folder (available as a plugin select box to select a starting point page until TYPO3 6.2). Tnen the examples extension will only use the content records from the given page id. ::
+An individual modification of the newly added field *tx_examples_main_category* to the TCA definition of the table *tt_content* can be done in the TCE (TYPO3 Core Engine) TSConfig. In most cases it is necessary to set the page id of the general storage folder (available as a plugin select box to select a starting point page until TYPO3 6.2). Tnen the examples extension will only use the content records from the given page id. :
+
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/page.tsconfig
+
 
    TCEFORM.tt_content.tx_examples_main_category.PAGE_TSCONFIG_ID = 18
 
-If more than one page id is allowed, this configuration must be used instead (and the above TCA must be modified to use the marker ###PAGE_TSCONFIG_IDLIST### instead of ###PAGE_TSCONFIG_ID###)::
+If more than one page id is allowed, this configuration must be used instead
+(and the above TCA must be modified to use the marker ###PAGE_TSCONFIG_IDLIST###
+instead of ###PAGE_TSCONFIG_ID###):
+
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEFORM.tt_content.tx_examples_main_category.PAGE_TSCONFIG_IDLIST = 18, 19, 20
 

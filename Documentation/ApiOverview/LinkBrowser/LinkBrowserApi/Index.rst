@@ -36,7 +36,8 @@ Tab registration
 
 LinkBrowser tabs are registered in page TSconfig like this:
 
-.. code:: typoscript
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.<tabIdentifier> {
        handler = TYPO3\CMS\Recordlist\LinkHandler\FileLinkHandler
@@ -63,9 +64,16 @@ The 'url' handler should be treated as last resort as it will work with any link
 Handler implementation
 ----------------------
 
+.. todo: We also describe a custom Link Handler in Documentation/ApiOverview/LinkBrowser/Linkhandler/CustomLinkHandlers.rst
+   unify them?
+
 A LinkHandler has to implement the :php:`\TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface` interface,
 which defines all necessary methods for communication with the LinkBrowser.
-The function actually doing the output of the link is function :php:`formatCurrentUrl()`::
+The function actually doing the output of the link is function :php:`formatCurrentUrl()`:
+
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/LinkHandler/TelephoneLinkHandler.php
 
    class TelephoneLinkHandler implements LinkHandlerInterface
    {
@@ -80,7 +88,10 @@ The function actually doing the output of the link is function :php:`formatCurre
    }
 
 The function :php:`render()` renders the backend display inside the tab of the LinkBrowser.
-It can utilize a Fluid template::
+It can utilize a Fluid template:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/LinkHandler/TelephoneLinkHandler.php
 
    public function render(ServerRequestInterface $request): string
    {
@@ -97,6 +108,7 @@ which takes care of passing a link to the LinkBrowser.
 A minimal implementation of such a module looks like this:
 
 .. code-block:: javascript
+   :caption: EXT:some_extension/Resources/Public/JavaScript/LinkBrowser.js
 
    define(['jquery', 'TYPO3/CMS/Recordlist/LinkBrowser'], function($, LinkBrowser) {
        var myModule = {};
@@ -133,7 +145,11 @@ Hooks
 You may have the need to modify the list of available LinkHandlers based on some dynamic value.
 For this purpose you can register hooks.
 
-The registration of a LinkBrowser hook generally happens in your :file:`ext_tables.php` and looks like::
+The registration of a LinkBrowser hook generally happens in your
+:file:`ext_tables.php` and looks like:
+
+.. code-block:: php
+   :caption: EXT:site_package/ext_tables.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks'][1444048118] = [
        'handler' => \Vendor\Ext\MyClass::class,

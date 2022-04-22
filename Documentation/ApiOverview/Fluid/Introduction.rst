@@ -16,7 +16,10 @@ variables or custom ViewHelpers which are PHP components.
 Example Fluid snippet
 =====================
 
-This is how a simple Fluid snippet could look like::
+This is how a simple Fluid snippet could look like:
+
+.. code-block:: html
+   :caption: EXT:site_package/Resources/Private/Templates/SomeTemplate.html
 
    <h4>This is your headline</h4>
    <p>
@@ -30,7 +33,10 @@ This is how a simple Fluid snippet could look like::
     </f:if>
    </p>
 
-The resulting HTML may look like this::
+The resulting HTML may look like this:
+
+.. code-block:: html
+   :caption: Example frontend output
 
    <h4>This is your headline</h4>
    <p>This is the content of variable "somevariable"</p>
@@ -209,16 +215,17 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
       }
    }
 
-:file:`Resources/Private/Layouts/Page/Default.html`::
+
+.. code-block:: html
+   :caption: Resources/Private/Layouts/Page/Default.html
 
    <f:render section="Header" />
    <f:render section="Main" />
    <f:render section="Footer" />
 
 
-:file:`Resources/Private/Templates/Page/ThreeColumn.html`:
-
-.. code-block:: xml
+.. code-block:: html
+   :caption: Resources/Private/Templates/Page/ThreeColumn.html
    :linenos:
 
    <f:layout name="Default" />
@@ -257,7 +264,8 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
   generated elsewhere.
 
 
-:file:`Resources/Private/Partials/Page/Jumbotron.html`::
+.. code-block:: html
+   :caption: Resources/Private/Partials/Page/Jumbotron.html
 
    <div class="jumbotron">
       <div class="container">
@@ -290,5 +298,3 @@ in handy:
 
 * `24 TIPS & TRICKS FOR FLUID <https://usetypo3.com/24-fluid-tips.html>`__
 * :doc:`Fluid Viewhelper Reference <t3viewhelper:Index>`
-
-

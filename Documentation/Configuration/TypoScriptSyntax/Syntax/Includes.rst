@@ -14,6 +14,15 @@ Since TYPO3 version 9 a new syntax for importing external TypoScript files has
 been introduced, which acts as a preprocessor before the actual parsing
 (condition evaluation) takes place.
 
+.. warning::
+   Includes of either syntax within multi-line comments are still executed due
+   to a bug. Always use single line comments if you need to comment out an import:
+
+   .. code-block:: typoscript
+      :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
+
+      # @import 'EXT:myproject/Configuration/TypoScript/randomfile.typoscript'
+
 Its main purpose is ease the use of TypoScript includes and making it easier
 for integrators and frontend developers to work with distributed TypoScript
 files. The syntax is inspired by SASS imports and works as follows:

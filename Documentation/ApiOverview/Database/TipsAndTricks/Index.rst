@@ -16,7 +16,10 @@ Various Tips and Tricks
 
 * `SELECT DISTINCT aField` is not supported but can be substituted with a :php:`->groupBy('aField')`.
 
-* :php:`getSQL()` and :php:`execute()` can be used after each other during development to simplify debugging::
+* :php:`getSQL()` and :php:`execute()` can be used after each other during development to simplify debugging:
+
+  .. code-block:: php
+     :caption: EXT:some_extension/Classes/SomeClass.php
 
      $queryBuilder
         ->select('uid')

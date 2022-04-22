@@ -80,7 +80,10 @@ In most cases, these assignments should be placed in :file:`typo3conf/Additional
 
 Example:
 
-:ref:`Register an exception handler <error-handling-extending>` in :file:`typo3conf/AdditionalConfiguration.php`::
+:ref:`Register an exception handler <error-handling-extending>`:
+
+.. code-block:: php
+  :caption: typo3conf/AdditionalConfiguration.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\PostExceptionsOnTwitter::class;
 
@@ -110,7 +113,10 @@ Examples
 Put a file called :file:`ext_localconf.php` in the main directory of your
 Extension. It does not need to be registered anywhere but will be loaded
 automatically as soon as the extension is installed.
-The skeleton of the :file:`ext_localconf.php` looks like this::
+The skeleton of the :file:`ext_localconf.php` looks like this:
+
+.. code-block:: php
+   :caption: EXT:site_package/ext_localconf.php
 
    <?php
    // all use statements must come first
@@ -130,8 +136,13 @@ The skeleton of the :file:`ext_localconf.php` looks like this::
 Adding default PageTSconfig
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. todo: What about EXT:some_extension/Configuration/page.tsconfig? Starting with v12
+
 Default PageTSconfig can be added inside :file:`ext_localconf.php`, see
-:ref:`t3tsconfig:pagesettingdefaultpagetsconfig`::
+:ref:`t3tsconfig:pagesettingdefaultpagetsconfig`:
+
+.. code-block:: php
+   :caption: EXT:site_package/ext_localconf.php
 
    //use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
@@ -139,7 +150,10 @@ Default PageTSconfig can be added inside :file:`ext_localconf.php`, see
 
 PageTSconfig available via static files can be added inside
 :file:`Configuration/TCA/Overrides/pages.php`, see
-:ref:`t3tsconfig:pagesettingstaticpagetsconfigfiles`::
+:ref:`t3tsconfig:pagesettingstaticpagetsconfigfiles`:
+
+.. code-block:: php
+   :caption: EXT:site_package/Configuration/TCA/Overrides/pages.php
 
    ExtensionManagementUtility::registerPageTSConfigFile();
 
@@ -151,7 +165,10 @@ Adding default UserTSconfig
 
 As for default PageTSconfig, UserTSconfig can be added inside
 :file:`ext_localconf.php`, see:
-:ref:`t3tsconfig:usersettingdefaultusertsconfig`::
+:ref:`t3tsconfig:usersettingdefaultusertsconfig`:
+
+.. code-block:: php
+   :caption: EXT:site_package/ext_localconf.php
 
    //use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
@@ -219,7 +236,10 @@ These are the typical functions that should be placed inside :file:`ext_tables.p
 Examples
 --------
 Put the following in a file called :file:`ext_tables.php` in the main directory of your extension. The
-file does not need to be registered but will be loaded automatically::
+file does not need to be registered but will be loaded automatically:
+
+.. code-block:: php
+   :caption: EXT:site_package/ext_tables.php
 
    <?php
    // all use statements must come first
@@ -236,7 +256,10 @@ file does not need to be registered but will be loaded automatically::
 
 Registering a backend module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You can register a new backend module for your extension via :php:`ExtensionUtility::registerModule()`::
+You can register a new backend module for your extension via :php:`ExtensionUtility::registerModule()`:
+
+.. code-block:: php
+   :caption: EXT:my_extension/ext_tables.php
 
    // use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
@@ -264,7 +287,11 @@ Adding context-sensitive help to fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Add the following to your extensions ext_tables.php in order to add context-sensitive help for
-the corresponding field::
+the corresponding field:
+
+
+.. code-block:: php
+   :caption: EXT:site_package/ext_tables.php
 
    // use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
@@ -284,6 +311,7 @@ By default new records of tables may only be added to Sysfolders in TYPO3. If yo
 new records of your table to be added on Standard pages call:
 
 .. code-block:: php
+   :caption: EXT:site_package/ext_tables.php
 
    // use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
@@ -301,6 +329,7 @@ Scheduler tasks get registered in the ext_tables.php as well. Note that the Syse
 to be installed for this to work.
 
 .. code-block:: php
+   :caption: EXT:site_package/ext_tables.php
 
    // use TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionTask;
    // use TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionAdditionalFieldProvider;
@@ -322,7 +351,6 @@ Rules and best practices
 ========================
 
 The following apply for both :php:`ext_tables.php` and :php:`ext_localconf.php`.
-
 
 As a rule of thumb: Your :file:`ext_tables.php` and :file:`ext_localconf.php`
 files must be designed in a way
@@ -387,13 +415,14 @@ file with all configuration of other extensions.
    executed only indirectly within TYPO3 context. This is a security measure since this code in global
    scope should not be executed through the web server directly as entry point.
 
-.. code-block:: php
+   .. code-block:: php
+      :caption: EXT:site_package/ext_localconf.php
 
-   <?php
-   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-   // put this at top of every ext_tables.php and ext_localconf.php right after
-   // the use statements
-   defined('TYPO3') or die();
+      <?php
+      use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+      // put this at top of every ext_tables.php and ext_localconf.php right after
+      // the use statements
+      defined('TYPO3') or die();
 
 -  You **MUST** use the extension name (e.g. "tt_address") instead of :php:`$_EXTKEY`
    within the two configuration files as this variable is no longer loaded automatically.
@@ -405,7 +434,10 @@ file with all configuration of other extensions.
    locally defined variables and thus keep them out of the surrounding scope. This
    avoids unexpected side-effects with files of other extensions.
 
-The following example contains the complete code::
+The following example contains the complete code:
+
+.. code-block:: php
+   :caption: EXT:site_package/ext_localconf.php
 
     <?php
     use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;

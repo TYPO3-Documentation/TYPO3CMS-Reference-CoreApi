@@ -52,13 +52,23 @@ Using the API as extension author
 
 For extension authors, the API can be used for any custom feature provided by an extension.
 
-To register a feature and set the default state, add the following to the :file:`ext_localconf.php`: of your extension::
+To register a feature and set the default state, add the following to the
+:file:`ext_localconf.php`: of your extension:
+
+.. code-block:: php
+   :caption: EXT:some_extension/ext_localconf.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] ??= true; // or false;
 
-To check if a feature is enabled use this code::
+To check if a feature is enabled use this code:
 
-   if (TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(TYPO3\CMS\Core\Configuration\Features::class)->isFeatureEnabled('myFeatureName')) {
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Configuration\Features;
+
+   if (GeneralUtility::makeInstance(Features::class)->isFeatureEnabled('myFeatureName')) {
       // do custom processing
    }
 
@@ -70,6 +80,7 @@ To check if a feature is enabled use this code::
    or :file:`AdditionalConfiguration.php`: like
 
    .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
 
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true;
 
@@ -97,7 +108,10 @@ Features can be toggled in the *Settings* module via *Feature Toggles*:
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/FeatureToggles.rst.txt
 
-Internally, the changes are written to :file:`LocalConfiguration.php`::
+Internally, the changes are written to :file:`LocalConfiguration.php`:
+
+.. code-block:: php
+   :caption: typo3conf/LocalConfiguration.php
 
    'SYS' => [
       'features' => [
@@ -113,7 +127,9 @@ To check whether a feature is enabled in TypoScript was introduced in v9.5 in :i
 Support for feature toggle check in the symfony expression language DefaultFunctionProvider is provided.
 With the new function :typoscript:`feature()` the feature toggle can be checked.
 
+
 .. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
    [feature("unifiedPageTranslationHandling")]
    # This condition matches if the feature toggle "unifiedPageTranslationHandling" is true

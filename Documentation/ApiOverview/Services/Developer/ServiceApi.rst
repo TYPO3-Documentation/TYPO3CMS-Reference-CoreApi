@@ -10,7 +10,7 @@ Service API
 .. deprecated:: 11.3
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
    deprecated. See :ref:`services-developer-service-api-migration`.
-   
+
 All service classes should implement the methods mentioned below.
 
 Authentication services should inherit from
@@ -103,7 +103,10 @@ getServiceOption
   in a proper way, you should not access
   :php:`$GLOBALS['TYPO3_CONF_VARS']['SVCONF']` directly, but use
   :php:`getServiceOption()` instead. In its simplest form, it will look
-  like this (inside your service's code)::
+  like this (inside your service's code):
+
+  .. code-block:: php
+     :caption: EXT:some_extension/Classes/Services/SomeService.php
 
      $ignoreBozo = $this->getServiceOption('ignoreBozo');
 
@@ -263,7 +266,7 @@ Migration
 Remove any usage of the class :php:`\TYPO3\CMS\Core\Service\AbstractService` in
 your extension. In case you currently
 extend :php:`AbstractService` for use in an authentication service, which
-might be the most common scenario, you can extend the  
+might be the most common scenario, you can extend the
 :php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService`
 instead.
 

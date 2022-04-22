@@ -99,7 +99,9 @@ Administrators running the popular web server `NGINX <https://www.nginx.com/>`_ 
 take additional measures: NGINX does not support an approach like Apache or IIS to configure
 access by putting files into the web document directories - the TYPO3 install procedure can
 not install good default files and administrators must merge deny patterns into the web
-servers virtual host configuration. A typical example looks like this::
+servers virtual host configuration. A typical example looks like this:
+
+.. code-block:: nginx
 
     server {
 

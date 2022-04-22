@@ -87,7 +87,10 @@ Typical Cases for Exceptions That Should not be Caught
 Typical Exception Arguments
 ===========================
 
-The standard exception signature::
+The standard exception signature:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Exceptions/SomeException.php
 
    public function __construct($message = "", $code = 0, Exception $previous = null) { }
 
@@ -101,10 +104,13 @@ Throwing a meaningful message is important especially if top-level exceptions
 are thrown. A developer receiving this exception should get all useful
 data that can help to debug and mitigate the issue.
 
-Example::
+Example:
 
-   use Vendor\Package\File\FileNotAccessibleException;
-   use Vendor\Package\File\FileNotFoundException;
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Exceptions/SomeException.php
+
+   use Vendor\SomeExtension\File\FileNotAccessibleException;
+   use Vendor\SomeExtension\File\FileNotFoundException;
 
    // ...
 
@@ -131,7 +137,7 @@ Exception Inheritance
 =====================
 
 A typical exception hierarchy for specific exceptions in the Core
-looks like :php:`Vendor\MyExt\Exception extends TYPO3\CMS\Core\Exception`,
+looks like :php:`Vendor\SomeExtension\Exception extends TYPO3\CMS\Core\Exception`,
 where :php:`TYPO3\CMS\Core\Exception` is the base of all exceptions in TYPO3.
 
 Building on that you can have :php:`Vendor\MyExt\Exception\AFunctionality\ASpecificException extends
@@ -156,9 +162,12 @@ It can become handy to extend exceptions in order to transport further
 data to the code that catches the exception. This can be useful if an
 exception is caught and transformed into a localized flash message or
 a notification. Typically, those additional pieces of information
-should be added as additional constructor arguments::
+should be added as additional constructor arguments:
 
-   __construct($message = "", $code = 0, Exception $previous = null,
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Exceptions/SomeException.php
+
+   public function __construct($message = "", $code = 0, Exception $previous = null,
                string $additionalArgument, int $anotherArgument)
 
 There should be getters for those additional data parts within the

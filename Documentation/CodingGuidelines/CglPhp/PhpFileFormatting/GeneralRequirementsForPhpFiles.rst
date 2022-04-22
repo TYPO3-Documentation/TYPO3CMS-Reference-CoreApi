@@ -30,7 +30,10 @@ PHP Tags
 
 Each PHP file in TYPO3 must use the full (as opposed to short) opening
 PHP tag. There must be exactly one opening tag (no closing and opening
-tags in the middle of the file). Example::
+tags in the middle of the file). Example:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    <?php
    declare(strict_types = 1);
@@ -56,7 +59,10 @@ Very long lines of code should be avoided for questions of
 readability. A line length of about 130 characters (**including**
 spaces) is fine. Longer lines should be split into several lines whenever
 possible. Each line fragment starting from the second must - compared
-to the first one - be indented with four space characters more. Example::
+to the first one - be indented with four space characters more. Example:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
     BackendUtility::viewOnClick(
         (int)$this->pageInfo['uid'],

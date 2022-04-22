@@ -30,7 +30,9 @@ multidimensional array.
 Files Array
 ===========
 
-Syntax::
+Syntax:
+
+.. code-block:: none
 
    $file[ command ][ index ][ key ] = value
 

@@ -35,7 +35,10 @@ The `QueryBuilder` comes with a happy little list of small methods:
 * :php:`->execute()` a query and retrieve a `Statement` (a query result) object
 
 
-Most methods of the `QueryBuilder` return `$this` and can be chained::
+Most methods of the `QueryBuilder` return `$this` and can be chained:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -49,7 +52,10 @@ Instantiation
 =============
 
 To create an instance of the :php:`QueryBuilder`, call
-:php:`ConnectionPool::getQueryBuilderForTable()` and pass the table as an argument::
+:php:`ConnectionPool::getQueryBuilderForTable()` and pass the table as an argument:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -76,27 +82,37 @@ select() and addSelect()
 
 Create a `SELECT` query.
 
-Select all fields::
+Select all fields:
 
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // SELECT *
    $queryBuilder->select('*')
 
 
-:php:`->select()` and a number of other methods of the `QueryBuilder` are `variadic <https://en.wikipedia.org/wiki/Variadic_function>`__
-and can handle any number of arguments. For :php:`->select()`, every argument is interpreted as a single field name to select::
+:php:`->select()` and a number of other methods of the `QueryBuilder`
+are `variadic <https://en.wikipedia.org/wiki/Variadic_function>`__
+and can handle any number of arguments. For :php:`->select()`, every argument
+is interpreted as a single field name to select:
+
+.. code-block:: php
 
    // SELECT `uid`, `pid`, `aField`
    $queryBuilder->select('uid', 'pid', 'aField');
 
+Argument unpacking can be used if the list of fields is available as array already:
 
-Argument unpacking can be used if the list of fields is available as array already::
+.. code-block:: php
 
    $fields = ['uid', 'pid', 'aField', 'anotherField'];
    $queryBuilder->select(...$fields);
 
 
-:php:`->select()` supports `AS` and quotes identifiers automatically. This can become especially handy in join() operations::
+:php:`->select()` supports `AS` and quotes identifiers automatically.
+This can become especially handy in join() operations:
+
+.. code-block:: php
 
    // SELECT `tt_content`.`bodytext` AS `t1`.`text`
    $queryBuilder->select('tt_content.bodytext AS t1.text')
@@ -110,16 +126,21 @@ make much sense to call :php:`select()` twice in a code flow, or to call it *aft
 :php:`->where()` and :php:`->andWhere()` share the same behavior: :php:`->where()` replaces all formerly registered
 constraints, :php:`->andWhere()` appends additional constraints.
 
-A useful combination of :php:`->select()` and :php:`->addSelect()` can be::
+A useful combination of :php:`->select()` and :php:`->addSelect()` can be:
+
+.. code-block:: php
 
    $queryBuilder->select(...$defaultList);
    if ($needAdditionalFields) {
       $queryBuilder->addSelect(...$additionalFields);
    }
 
-Calling :php:`->execute()` on a :php:`->select()` query returns a `Statement` object. To receive single rows a :php:`->fetchAssociative()`
+alling :php:`->execute()` on a :php:`->select()` query returns a `Statement` object. To receive single rows a :php:`->fetchAssociative()`
 loop on that object is used, or :php:`->fetchAllAssociative()` to return a single array with all rows. A typical code flow
-of a `SELECT` query looks like::
+of a `SELECT` query looks like:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -151,7 +172,10 @@ Default Restrictions
 count()
 =======
 
-Create a `COUNT` query, a typical usage::
+Create a `COUNT` query, a typical usage:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -192,7 +216,11 @@ Remarks:
 delete()
 ========
 
-Create a `DELETE FROM` query. The method requires the table name to drop data from. Classic usage::
+Create a `DELETE FROM` query. The method requires the table name to drop
+data from. Classic usage:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -231,7 +259,10 @@ Remarks:
 update() and set()
 ==================
 
-Create an `UPDATE` query. Typical usage::
+Create an `UPDATE` query. Typical usage:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -247,8 +278,13 @@ Create an `UPDATE` query. Typical usage::
       ->execute();
 
 
-:php:`->update()` requires the table to update as first argument and a table alias (e.g. 't') as optional second argument.
-The table alias can then be used in :php:`->set()` and :php:`->where()` expressions::
+:php:`->update()` requires the table to update as first argument and a table
+alias (e.g. 't') as optional second argument.
+The table alias can then be used in :php:`->set()` and :php:`->where()`
+expressions:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -267,7 +303,10 @@ argument is the value a field should be set to, **the value is automatically tra
 of a prepared statement**. This way, :php:`->set()` key/value pairs are **automatically SQL injection safe by default**.
 
 If a field should be set to the value of another field from the row, the quoting needs to be turned off and
-:php:`->quoteIdentifier()` and :php:`false` have to be used::
+:php:`->quoteIdentifier()` and :php:`false` have to be used:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -302,7 +341,10 @@ Remarks:
 insert() and values()
 =====================
 
-Create an `INSERT` query. Typical usage::
+Create an `INSERT` query. Typical usage:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -337,7 +379,11 @@ from()
 :php:`->from()` is a must have call for :php:`->select()` and :php:`->count()` query types.
 :php:`->from()` needs a table name and an optional alias name. The method is typically called once per query build
 and the table name is typically the same as what was given to :php:`->getQueryBuilderForTable()`. If the query joins
-multiple tables, the argument should be the name of the first table within the :php:`->join()` chain::
+multiple tables, the argument should be the name of the first table within
+the :php:`->join()` chain:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // FROM `myTable`
    $queryBuilder->from('myTable');
@@ -356,7 +402,11 @@ where(), andWhere() and orWhere()
 =================================
 
 The three methods are used to create `WHERE` restrictions for `SELECT`, `COUNT`, `UPDATE` and `DELETE` query types.
-Each argument is typically an `ExpressionBuilder` object that will be cast to a string on :php:`->execute()`::
+Each argument is typically an `ExpressionBuilder` object that will be cast to a string on :php:`->execute()`:
+
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -389,7 +439,10 @@ Each argument is typically an `ExpressionBuilder` object that will be cast to a 
 Note the parenthesis of the above example: :php:`->andWhere()` encapsulates both :php:`->where()` and :php:`->orWhere()`
 with an additional restriction.
 
-Argument unpacking can become handy with these methods::
+Argument unpacking can become handy with these methods:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $whereExpressions = [
       $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
@@ -434,7 +487,10 @@ join(), innerJoin(), rightJoin() and leftJoin()
 Joining multiple tables in a :php:`->select()` or :php:`->count()` query is done with one of these methods. Multiple joins
 are supported by calling the methods more than once. All methods require four arguments: The name of the left side
 table (or its alias), the name of the right side table, an alias for the right side table name and the join
-restriction as fourth argument::
+restriction as fourth argument:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -494,7 +550,11 @@ Notes to the above example:
 
 
 A more complex example with two joins. The first join points to the first table again using an alias to resolve
-a language overlay scenario. The second join uses the alias name of the first join target as left side::
+a language overlay scenario. The second join uses the alias name of the first
+join target as left side:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -561,8 +621,12 @@ Further remarks:
 orderBy() and addOrderBy()
 ==========================
 
-Add `ORDER BY` to a :php:`->select()` statement. Both :php:`->orderBy()` and :php:`->addOrderBy()` require a field name as first
-argument::
+Add `ORDER BY` to a :php:`->select()` statement. Both :php:`->orderBy()` and
+:php:`->addOrderBy()` require a field name as first
+argument:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -600,7 +664,11 @@ Remarks:
 groupBy() and addGroupBy()
 ==========================
 
-Add `GROUP BY` to a :php:`->select()` statement. Each argument to the methods is a single identifier::
+Add `GROUP BY` to a :php:`->select()` statement. Each argument to the methods
+is a single identifier:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // GROUP BY `pages`.`sys_language_uid`, `sys_language`.`uid`
    ->groupBy('pages.sys_language_uid', 'sys_language.uid');
@@ -622,7 +690,10 @@ setMaxResults() and setFirstResult()
 ====================================
 
 Add `LIMIT` to restrict number of records and `OFFSET` for pagination query parts. Both methods should be
-called only once per statement::
+called only once per statement:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -649,7 +720,10 @@ add()
 =====
 
 Method :php:`->add()` appends to or replaces a single, generic query part. It can be used as a low level call
-if more specific calls don't give enough freedom to express parts of statments::
+if more specific calls don't give enough freedom to express parts of statements:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -674,7 +748,10 @@ getSQL()
 ========
 
 Method :php:`->getSQL()` returns the created query statement as string. It is incredibly useful during development
-to verify the final statement is executed just as a developer expects it::
+to verify the final statement is executed just as a developer expects it:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -706,7 +783,12 @@ Remarks:
 getParameters()
 ===============
 
-Method :php:`->getParameters()` returns the values for the prepared statement placeholders in an array. It is incredibly useful during development to verify the final statement is executed just as a developer expects it::
+Method :php:`->getParameters()` returns the values for the prepared statement
+placeholders in an array. It is incredibly useful during development to verify
+the final statement is executed just as a developer expects it:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -746,7 +828,10 @@ expr()
 ======
 
 Return an instance of the `ExpressionBuilder`. This object is used to create complex `WHERE` query parts and `JOIN`
-expressions::
+expressions:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -776,7 +861,10 @@ createNamedParameter()
 ======================
 
 Create a placeholder for a prepared statement field value. **Always** use that when dealing with user input in
-expressions to make the statement SQL injection safe::
+expressions to make the statement SQL injection safe:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -796,7 +884,10 @@ The above example shows the importance of using :php:`->createNamedParameter()`:
 and would break the query if not channeled through :php:`->createNamedParameter()` which quotes the backtick and makes
 the value SQL injection safe.
 
-Not convinced? Suppose the code would look like this::
+Not convinced? Suppose the code would look like this:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // NEVER EVER DO THIS!
    $_POST['searchword'] = "'foo' UNION SELECT username FROM be_users";
@@ -826,7 +917,10 @@ a list of backend user names!
 More examples
 -------------
 
-Use integer, integer array::
+Use integer, integer array:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
     // use TYPO3\CMS\Core\Utility\GeneralUtility;
     // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -870,7 +964,10 @@ Rules:
   This is a general rule: Sanitizing input must be as close as possible to the "sink" where a value is submitted
   to a lower part of the framework. This paradigm should be followed for other quote operations like :php:`htmlspecialchars()`
   or :php:`GeneralUtility::quoteJSvalue()`, too. Sanitizing should be directly obvious at the very place where it is
-  important::
+  important:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -903,7 +1000,10 @@ quoteIdentifier() and quoteIdentifiers()
 ========================================
 
 :php:`->quoteIdentifier()` must be used if not a value is handled, but a field name. The quoting is different in those
-cases and typically ends up with backticks ````` instead of ticks ``'``::
+cases and typically ends up with backticks ````` instead of ticks ``'``:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -919,7 +1019,11 @@ cases and typically ends up with backticks ````` instead of ticks ``'``::
       );
 
 
-The method quotes single field names or combinations of table names or table aliases with field names::
+The method quotes single field names or combinations of table names or table
+aliases with field names:
+
+.. code-block:: none
+   :caption: Some quote examples
 
    // Single field name: `bodytext`
    ->quoteIdentifier('bodytext');
@@ -951,7 +1055,10 @@ escapeLikeWildcards()
 =====================
 
 Helper method to quote `%` characters within a search string. This is helpful in :php:`->like()` and :php:`->notLike()`
-expressions::
+expressions:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;

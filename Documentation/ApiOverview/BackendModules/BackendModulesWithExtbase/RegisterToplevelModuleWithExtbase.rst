@@ -14,6 +14,7 @@ Toplevel modules like "Web" or "File" are registered with the same A
 :file:`ext_tables.php`:
 
 .. code-block:: php
+    :caption: EXT:my_extension/ext_tables.php
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
         'MyExtension',
@@ -32,6 +33,7 @@ This adds a new toplevel module ``mysection``. This identifier can now
 be used to add submodules to this new toplevel module:
 
 .. code-block:: php
+    :caption: EXT:my_extension/ext_tables.php
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
         'MyExtension',

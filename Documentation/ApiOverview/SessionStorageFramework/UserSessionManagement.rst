@@ -31,11 +31,16 @@ and persisting them. Effectively encapsulating all calls to the
 Public API of :php:`UserSessionManager`
 =======================================
 
-The :php:`UserSessionManager` can be retrieved using it's static factory
-method :php:`create()`::
+The :php:`UserSessionManager` can be retrieved using its static factory
+method :php:`create()`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+
+   use TYPO3\CMS\Core\Session\UserSessionManager
 
    $loginType = 'BE'; // or 'FE' for frontend
-   \TYPO3\CMS\Core\Session\UserSessionManager::create($loginType);
+   $userSessionManager = UserSessionManager::create($loginType);
 
 You can then use the :php:`UserSessionManager` to work
 with user sessions. A couple of public methods are available:

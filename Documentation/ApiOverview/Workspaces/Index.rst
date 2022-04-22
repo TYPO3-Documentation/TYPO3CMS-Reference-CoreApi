@@ -22,7 +22,10 @@ TCA reference (in the :ref:`description of the "ctrl" section <t3tca:ctrl>`
 and in the :ref:`description of the "versioningWS" property <t3tca:ctrl-reference-versioningws>`).
 
 You might want to turn the workspace off for certain tables.
-The only way to do so is with a :file:`Configuration/TCA/Overrides/example_table.php`::
+The only way to do so is with a :file:`Configuration/TCA/Overrides/example_table.php`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Configuration/TCA/Overrides/example_table.php
 
    $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
 
@@ -140,7 +143,10 @@ $GLOBALS['TSFE']->sys\_page->versionOL($table, &$row, $unsetMovePointers=FALSE)
 
    This is how simple it is to use this record in your frontend plugins
    when you do queries directly (not using API functions already using
-   them)::
+   them):
+
+   .. code-block:: php
+      :caption: EXT:some_extension/Classes/SomeClass.php
 
       $result = $queryBuilder->execute();
       foreach ($result as $row) {
@@ -176,9 +182,9 @@ These issues are not planned to be supported for preview:
    -  This problem can largely be avoided for  *versions of new records*
       because versions of a "New"-placeholder can mirror certain fields down
       onto the placeholder record. For the :code:`tt_content` table this is
-      configured as ::
+      configured as:
 
-         shadowColumnsForNewPlaceholders'=> 'sys_language_uid,l18n_parent,colPos,header'
+      :php:`shadowColumnsForNewPlaceholders'=> 'sys_language_uid,l18n_parent,colPos,header'`
 
       so that these fields used for column position, language and header title are also updated
       in the placeholder thus creating a correct preview in the frontend.
@@ -236,7 +242,18 @@ BackendUtility::workspaceOL()
    have fields only from the table (no pseudo fields) and the record is
    passed by reference.
 
-   **Example:** ::
+   .. todo: Find a better example
+            If looped (while), resultset is retrieved and looped completly, as there is
+            no "break" which could leave unretrieved results. So the single retrieve
+            statement after the loop do not make any sense, as resultset is at the end,
+            and would return false instead of a row ....
+            Next point is, that queryBuilder createNamedParameter does not make any
+            sense either, as it not assigned anyware or used?
+
+   **Example:**
+
+   .. code-block:: php
+      :caption: EXT:some_extension/Classes/SomeClass.php
 
       // use \TYPO3\CMS\Backend\Utility\BackendUtility
       $result = $queryBuilder
@@ -255,7 +272,10 @@ BackendUtility::getRecordWSOL()
    Gets record from table and overlays the record with workspace version
    if any.
 
-   **Example:** ::
+   **Example:**
+
+   .. code-block:: php
+      :caption: EXT:some_extension/Classes/SomeClass.php
 
       // use \TYPO3\CMS\Backend\Utility\BackendUtility
       $row = BackendUtility::getRecordWSOL($table, $uid);
@@ -285,7 +305,10 @@ BackendWorkspaceRestriction
    records are selected in the backend based on other fields than uid and where
    a :code:`DeletedRestriction` is used.
 
-   **Example:** ::
+   **Example:**
+
+   .. code-block:: php
+      :caption: EXT:some_extension/Classes/SomeClass.php
 
       // use TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction;
       // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
@@ -297,8 +320,10 @@ BackendWorkspaceRestriction
           ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
           ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
 
-FrontendWorkspaceRestriction
-   Restriction for filtering records for fronted workspaces preview::
+:php:`FrontendWorkspaceRestriction`
+   Restriction for filtering records for fronted workspaces preview:
+
+   .. code-block:: php
 
       // use TYPO3\CMS\Core\Database\Query\Restriction\FrontendWorkspaceRestriction;
 
@@ -306,7 +331,9 @@ FrontendWorkspaceRestriction
 WorkspaceRestriction
    This `WorkspaceRestriction` has been added to overcome certain downsides of the `BackendWorkspaceRestriction`
    and `FrontendWorkspaceRestriction`. It limits a SQL query to only select records which are "online" (pid != -1)
-   and in live or current workspace::
+   and in live or current workspace:
+
+   .. code-block:: php
 
       // use TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction
 
@@ -339,7 +366,10 @@ Backend module access
 
 You can restrict access to backend modules by using
 :code:`$MCONF['workspaces']` in the :file:`conf.php` files. The variable is a list of
-keywords defining where the module is available::
+keywords defining where the module is available:
+
+.. code-block:: php
+   :caption: conf.php
 
    $MCONF['workspaces'] = online,offline,custom
 

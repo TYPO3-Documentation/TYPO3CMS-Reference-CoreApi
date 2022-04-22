@@ -104,40 +104,47 @@ test file should extend the basic unit test abstract :php:`TYPO3\TestingFramewor
 tests should be named starting with the method that is tested plus some explaining suffix and should
 be annotated with :php:`@test`.
 
-Example for a system under test located at :file:`typo3/sysext/core/Utility/ArrayUtility.php` (stripped)::
+Example for a system under test located at :file:`typo3/sysext/core/Utility/ArrayUtility.php` (stripped):
 
-    <?php
-    namespace TYPO3\CMS\Core\Utility;
-    class ArrayUtility
-    {
+.. code-block:: php
+   :caption: typo3/sysext/core/Utility/ArrayUtility.php
 
-        ...
+   <?php
+   namespace TYPO3\CMS\Core\Utility;
+   class ArrayUtility
+   {
 
-        public static function filterByValueRecursive($needle = '', array $haystack = [])
-        {
-            // System under test code
-        }
-    }
+       //...
 
-The test file is located at :file:`typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php` (stripped)::
+       public static function filterByValueRecursive($needle = '', array $haystack = [])
+       {
+           // System under test code
+       }
+   }
 
-    <?php
-    namespace TYPO3\CMS\Core\Tests\Unit\Utility;
-    use TYPO3\CMS\Core\Utility\ArrayUtility;
-    use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
-    class ArrayUtilityTest extends UnitTestCase
-    {
+The test file is located at :file:`typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php` (stripped):
 
-        ...
+.. code-block:: php
+   :caption: typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php
 
-        /**
-         * @test
-         * @dataProvider filterByValueRecursive
-         */
-        public function filterByValueRecursiveCorrectlyFiltersArray($needle, $haystack, $expectedResult)
-        {
-            // Unit test code
-        }
+   <?php
+   namespace TYPO3\CMS\Core\Tests\Unit\Utility;
+   use TYPO3\CMS\Core\Utility\ArrayUtility;
+   use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
+   class ArrayUtilityTest extends UnitTestCase
+   {
+
+       //...
+
+       /**
+        * @test
+        * @dataProvider filterByValueRecursive
+        */
+       public function filterByValueRecursiveCorrectlyFiltersArray($needle, $haystack, $expectedResult)
+       {
+           // Unit test code
+       }
+   }
 
 This way it is easy to find unit tests for any given file. Note PhpStorm understands this structure and
 can jump from a file to the according test file by hitting `CTRL+Shift+T`.
@@ -218,70 +225,73 @@ A casual data provider
 This is one of the most common use cases in unit testing: Some to-test method ("system under test") takes
 some argument and a unit tests feeds it with a series of input arguments to verify output is as expected.
 Data providers are used quite often for this and we encourage developers to do so, too. An example test
-from :php:`ArrayUtilityTest`::
+from :php:`ArrayUtilityTest`:
 
-    /**
-     * Data provider for removeByPathRemovesCorrectPath
-     */
-    public function removeByPathRemovesCorrectPathDataProvider()
-    {
-        return [
-            'single value' => [
-                [
-                    'foo' => [
-                        'toRemove' => 42,
-                        'keep' => 23
-                    ],
-                ],
-                'foo/toRemove',
-                [
-                    'foo' => [
-                        'keep' => 23,
-                    ],
-                ],
-            ],
-            'whole array' => [
-                [
-                    'foo' => [
-                        'bar' => 42
-                    ],
-                ],
-                'foo',
-                [],
-            ],
-            'sub array' => [
-                [
-                    'foo' => [
-                        'keep' => 23,
-                        'toRemove' => [
-                            'foo' => 'bar',
-                        ],
-                    ],
-                ],
-                'foo/toRemove',
-                [
-                    'foo' => [
-                        'keep' => 23,
-                    ],
-                ],
-            ],
-        ];
-    }
+.. code-block:: php
+   :caption: typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php
 
-    /**
-     * @test
-     * @dataProvider removeByPathRemovesCorrectPathDataProvider
-     * @param array $array
-     * @param string $path
-     * @param array $expectedResult
-     */
-    public function removeByPathRemovesCorrectPath(array $array, $path, $expectedResult)
-    {
-        $this->assertEquals(
-            $expectedResult,
-            ArrayUtility::removeByPath($array, $path)
-        );
-    }
+   /**
+    * Data provider for removeByPathRemovesCorrectPath
+    */
+   public function removeByPathRemovesCorrectPathDataProvider()
+   {
+       return [
+           'single value' => [
+               [
+                   'foo' => [
+                       'toRemove' => 42,
+                       'keep' => 23
+                   ],
+               ],
+               'foo/toRemove',
+               [
+                   'foo' => [
+                       'keep' => 23,
+                   ],
+               ],
+           ],
+           'whole array' => [
+               [
+                   'foo' => [
+                       'bar' => 42
+                   ],
+               ],
+               'foo',
+               [],
+           ],
+           'sub array' => [
+               [
+                   'foo' => [
+                       'keep' => 23,
+                       'toRemove' => [
+                           'foo' => 'bar',
+                       ],
+                   ],
+               ],
+               'foo/toRemove',
+               [
+                   'foo' => [
+                       'keep' => 23,
+                   ],
+               ],
+           ],
+       ];
+   }
+
+   /**
+    * @test
+    * @dataProvider removeByPathRemovesCorrectPathDataProvider
+    * @param array $array
+    * @param string $path
+    * @param array $expectedResult
+    */
+   public function removeByPathRemovesCorrectPath(array $array, $path, $expectedResult)
+   {
+       $this->assertEquals(
+           $expectedResult,
+           ArrayUtility::removeByPath($array, $path)
+       );
+   }
 
 Some hints on this: Try to give the single data sets good names, here "single value", "whole array" and "sub array".
 This helps to find a broken data set in the code, it forces the test writer to think about what they are feeding
@@ -296,7 +306,10 @@ Mocking
 
 Unit tests should test one thing at a time, often one method only. If the system under test has dependencies
 like additional objects, they should be usually "mocked away". A simple example is this, taken from
-:php:`TYPO3\CMS\Backend\Tests\Unit\Controller\FormInlineAjaxControllerTest`::
+:php:`TYPO3\CMS\Backend\Tests\Unit\Controller\FormInlineAjaxControllerTest`:
+
+.. code-block:: php
+   :caption: typo3/sysext/backend/Tests/Unit/Controller/FormInlineAjaxControllerTest.php
 
     /**
      * @test
@@ -325,14 +338,27 @@ is quite handy. Prophecy is quite some fun to use, go ahead and play around with
 The above case is pretty straight since the mocked dependency is hand over as argument to
 the system under test. If the system under test however creates an instance of the to-mock
 dependency on its own - typically using :php:`GeneralUtility::makeInstance()`, the mock instance
-can be manually registered for makeInstance::
+can be manually registered for makeInstance:
 
-    GeneralUtility::addInstance(IconFactory::class, $iconFactoryProphecy->reveal());
+
+.. code-block:: php
+   :caption: EXT:my_extension/Tests/Unit/SomeTest.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Imaging\IconFactory;
+
+   GeneralUtility::addInstance(IconFactory::class, $iconFactoryProphecy->reveal());
 
 This works well for prototypes. :php:`addInstance()` adds objects to a LiFo, multiple instances
 of the same class can be stacked. The generic :php:`->tearDown()` later confirms the stack is
 empty to avoid side effects on other tests. Singleton instances can be registered in a
-similar way::
+similar way:
+
+.. code-block:: php
+   :caption: EXT:my_extension/Tests/Unit/SomeTest.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Extbase\Service\EnvironmentService;
 
     GeneralUtility::setSingletonInstance(EnvironmentService::class, $environmentServiceMock);
 
@@ -369,17 +395,22 @@ Exception handling
 Code should throw exceptions if something goes wrong. See :ref:`working with exceptions
 <cgl-working-with-exceptions>` for some general guides on proper exception handling.
 Exceptions are often very easy to unit test and testing them can be beneficial. Let's take
-a simple example, this is from :php:`TYPO3\CMS\Core\Cache\Tests\Unit\CacheManagerTest`
-and tests both the exception class and the exception code::
+a simple example, this is from :php:`TYPO3\CMS\Core\Tests\Unit\Cache\CacheManagerTest`
+and tests both the exception class and the exception code:
 
-    /**
-     * @test
-     */
-    public function flushCachesInGroupThrowsExceptionForNonExistingGroup()
-    {
-        $this->expectException(NoSuchCacheGroupException::class);
-        $this->expectExceptionCode(1390334120);
-        $subject = new CacheManager();
-        $subject->flushCachesInGroup('nonExistingGroup');
-    }
+.. code-block:: php
+   :caption: typo3/sysext/core/Tests/Unit/Cache/CacheManagerTest.php
 
+   use TYPO3\CMS\Core\Cache\CacheManager;
+   use TYPO3\CMS\Core\Cache\Exception\NoSuchCacheGroupException;
+
+   /**
+   * @test
+   */
+   public function flushCachesInGroupThrowsExceptionForNonExistingGroup()
+   {
+     $this->expectException(NoSuchCacheGroupException::class);
+     $this->expectExceptionCode(1390334120);
+     $subject = new CacheManager();
+     $subject->flushCachesInGroup('nonExistingGroup');
+   }
