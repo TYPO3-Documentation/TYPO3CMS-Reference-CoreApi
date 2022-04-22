@@ -22,7 +22,7 @@ Current LinkHandlers:
 *  UrlLinkHandler: for linking external urls
 *  FileLinkHandler: for linking files in the :ref:`fal`
 *  FolderLinkHandler: for linking to directories
-*  MailLinkHandler: for linking mail
+*  MailLinkHandler: for linking email
 *  TelephoneLinkHandler: for linking phone numbers
 
 .. note::
@@ -113,7 +113,7 @@ The following configuration hides the page tree and shows news records only from
            storagePid = 123
            hidePageTree = 1
        }
-       displayAfter = mail
+       displayAfter = email
    }
 
 It is possible to have another configuration using another storagePid which also contains news records.
