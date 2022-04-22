@@ -36,7 +36,7 @@ Tab registration
 
 LinkBrowser tabs are registered in page TSconfig like this:
 
-.. code:: typoscript
+.. code-block:: typoscript
    :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.<tabIdentifier> {

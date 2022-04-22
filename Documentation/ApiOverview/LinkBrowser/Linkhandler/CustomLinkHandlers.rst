@@ -144,7 +144,7 @@ own custom LinkHandlers:
 The LinkHandler then has to be registered via page TSCONFIG:
 
 
-.. code:: typoscript
+.. code-block:: typoscript
    :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler {

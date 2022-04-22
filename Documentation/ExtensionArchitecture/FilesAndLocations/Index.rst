@@ -431,8 +431,7 @@ stick to this and the other Coding Guidelines, the system helps in various ways.
 PHP classes into the :file:`Classes/` folder and using appropriate namespaces for the classes,
 the system will be able to autoload these files.
 
-Extension kickstarters like the
-`Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
+Extension kickstarters like the :t3ext:`extension_builder`
 will create the correct structure for you.
 
 It is described below:

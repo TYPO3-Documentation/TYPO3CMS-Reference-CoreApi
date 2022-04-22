@@ -170,4 +170,4 @@ cannot be used again.
 
 Note that this **requires a logged on user** whether in frontend or backend. CSRF protection
 is not supported for anonymous users. Without a logged on user the token will always be
-:code:`dummyToken`. See https://forge.typo3.org/issues/77403 for details.
+:code:`dummyToken`. See :forge:`77403` for details.

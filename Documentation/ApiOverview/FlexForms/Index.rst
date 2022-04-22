@@ -469,8 +469,8 @@ Credits
 =======
 
 Some of the examples were taken from the extensions
-`news <https://extensions.typo3.org/extension/news/>`__ (by Georg Ringer)
-and `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__
+:t3ext:`news/` (by Georg Ringer)
+and :t3ext:`bootstrap_package/`
 (by Benjamin Kott).
 
 Further enhancements by the TYPO3 community are welcome!

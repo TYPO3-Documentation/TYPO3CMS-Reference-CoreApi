@@ -80,7 +80,7 @@ Notice
    :sep:`|` :code:`$this->logger->notice($message, array $context = array());`
    :sep:`|`
 
-   Things you should have a look at, nothing to worry about though. 
+   Things you should have a look at, nothing to worry about though.
    Example: User log ins, SQL logs.
 
 .. _label-warning:
@@ -270,7 +270,7 @@ Examples
 ========
 
 Examples of the usage of the Logger can be found in the extension
-`examples <https://extensions.typo3.org/extension/examples/>`__. in file
+:t3ext:`examples/`. in file
 :file:`/Classes/Controller/ModuleController.php`
 
 

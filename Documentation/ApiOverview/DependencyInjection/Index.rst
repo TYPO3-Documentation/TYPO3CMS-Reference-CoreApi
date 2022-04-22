@@ -67,7 +67,7 @@ dependency injection. This can be done in :file:`Configuration/Services.yaml`.
 Alternatively :file:`Configuration/Services.php` can be used.
 
 .. code-block:: yaml
-   :capition: EXT:some_extension/Configuration/Services.php
+   :caption: EXT:some_extension/Configuration/Services.php
 
    services:
      _defaults:
