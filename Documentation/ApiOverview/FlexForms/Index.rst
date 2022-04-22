@@ -129,9 +129,7 @@ Steps to perform (Extension developer)
       what your plugin signature is.
 
    .. versionadded:: 12.0
-      The plugin signature is returned by the method
-      :php:`ExtensionUtility::registerPlugin()` when registering Extbase based
-      plugins.
+      The method :php:`ExtensionUtility::registerPlugin()` returns the plugin signature.
 
    Also look on the page :ref:`extension-naming`.
 
