@@ -204,10 +204,10 @@ Extbase domain model tables **should** follow this pattern:
 
 .. code-block:: none
 
-   tx_<extension-prefix>_domain_model_<table-name>
+   tx_<extension-prefix>_domain_model_<model-name>
 
 * `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
-* `<table-name>` should match the domain model name
+* `<model-name>` should match the domain model name
 
 Examples for Extbase domain models and table names of an extension named `cool_shop`:
 
