@@ -21,7 +21,7 @@ custom messages based on the status of the system:
 API
 ===
 
-.. include:: /CodeSnippets/Manual/Backend/ModifyGenericBackendMessagesEvent.rst.txt
+.. include:: /CodeSnippets/Events/Backend/ModifyGenericBackendMessagesEvent.rst.txt
 
 Example
 =======

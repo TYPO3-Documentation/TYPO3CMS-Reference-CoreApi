@@ -25,4 +25,3 @@
    .. php:method:: setPreviewUrl(string previewUrl)
    
       :param string $previewUrl: the previewUrl
-

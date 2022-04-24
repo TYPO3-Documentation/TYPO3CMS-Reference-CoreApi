@@ -20,7 +20,7 @@ logged in from a certain IP address.
 API
 ===
 
-.. include:: /CodeSnippets/Manual/Frontend/ShouldUseCachedPageDataIfAvailableEvent.rst.txt
+.. include:: /CodeSnippets/Events/Frontend/ShouldUseCachedPageDataIfAvailableEvent.rst.txt
 
 Example
 =======

@@ -5,6 +5,7 @@
 
    Event to allow listeners to modify the amount of seconds that a generated frontend page
    should be cached in the "pages" cache when initially generated.
+
    
    .. php:method:: setCacheLifetime(int cacheLifetime)
    
@@ -28,5 +29,4 @@
       
    .. php:method:: getContext()
    
-      :returntype: TYPO3\CMS\Core\Context\Context
-
+      :returntype: TYPO3\\CMS\\Core\\Context\\Context

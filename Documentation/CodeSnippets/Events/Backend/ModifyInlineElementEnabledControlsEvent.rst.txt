@@ -85,4 +85,3 @@
       Returns whether the current records is only virtually shown and not physically part of the parent record
       
       :returntype: bool
-
