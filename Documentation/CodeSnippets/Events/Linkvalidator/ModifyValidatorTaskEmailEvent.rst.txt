@@ -17,4 +17,3 @@
    .. php:method:: getModTSconfig()
    
       :returntype: array
-

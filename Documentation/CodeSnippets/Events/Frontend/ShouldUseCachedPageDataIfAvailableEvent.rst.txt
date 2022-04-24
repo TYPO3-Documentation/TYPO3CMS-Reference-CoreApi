@@ -6,14 +6,15 @@
    Event to allow listeners to disable the loading of cached page data when a page is requested.
    
    Does not have any effect if "no_cache" is activated, or if there is no cached version of a page.
+
    
    .. php:method:: getController()
    
-      :returntype: TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
+      :returntype: TYPO3\\CMS\\Frontend\\Controller\\TypoScriptFrontendController
       
    .. php:method:: getRequest()
    
-      :returntype: Psr\Http\Message\ServerRequestInterface
+      :returntype: Psr\\Http\\Message\\ServerRequestInterface
       
    .. php:method:: shouldUseCachedPageData()
    
@@ -22,4 +23,3 @@
    .. php:method:: setShouldUseCachedPageData(bool shouldUseCachedPageData)
    
       :param bool $shouldUseCachedPageData: the shouldUseCachedPageData
-
