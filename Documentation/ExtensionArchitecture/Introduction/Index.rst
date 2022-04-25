@@ -31,6 +31,11 @@ Types of extensions
 "*Extensions*" is a general term in TYPO3 which covers many kinds of
 additions to TYPO3.
 
+The extension type used to be specified in the file :file:`ext_emconf.php`, but
+this has become obsolete. It is no longer possible to specify the type of an
+extension. However, there are some types by convention which follow loose
+standards or recommendations. Some of these types by convention are:
+
 -  **Sitepackage** is a TYPO3 Extension that contains all relevant configuration
    for a Website, including the assets that make up the template (e.g.
    CSS, JavaScript, Fluid templating files, TypoScript etc.). The
