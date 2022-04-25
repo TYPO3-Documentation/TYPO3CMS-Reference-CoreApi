@@ -106,18 +106,15 @@ A simplified command class:
 
        /**
         * Executes the command for showing sys_log entries
-        *
-        * @param InputInterface $input
-        * @param OutputInterface $output
-        * @return int error code
         */
-       protected function execute(InputInterface $input, OutputInterface $output)
+       protected function execute(InputInterface $input, OutputInterface $output): int
        {
            $io = new SymfonyStyle($input, $output);
            $io->title($this->getDescription());
 
            // ...
            $io->writeln('Write something');
+
            return Command::SUCCESS;
        }
    }
