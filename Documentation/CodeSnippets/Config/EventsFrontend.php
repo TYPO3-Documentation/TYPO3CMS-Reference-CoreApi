@@ -38,4 +38,10 @@ return [
         "targetFileName"=> "Events/Frontend/ShouldUseCachedPageDataIfAvailableEvent.rst.txt",
         "withCode"=> false
     ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Frontend\Event\AfterLinkIsGeneratedEvent::class,
+        "targetFileName"=> "Events/Frontend/AfterLinkIsGeneratedEvent.rst.txt",
+        "withCode"=> false
+    ],
 ];
