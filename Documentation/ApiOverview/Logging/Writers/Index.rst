@@ -178,15 +178,14 @@ All log writers can be used in your own classes. You can initialize the loggers 
 
     namespace MyDomain\MyExtension\MyFolder;
 
-    use Psr\Log\LoggerAwareInterface;
-    use Psr\Log\LoggerAwareTrait;
+    use Psr\Log\LoggerInterface;
 
-    class MyClass implements LoggerAwareInterface {
-        use LoggerAwareTrait;
+    class MyClass implements {
+       private LoggerInterface $logger;
 
-        // The logger object is already available through the LoggerAwareTrait and instantiated by TYPO3:
-        // private $logger;
-
+       public function __construct(LoggerInterface $logger) {
+           $this->logger = $logger;
+       }
         ...
         $this->logger->info('My class is executed.');
         if ($error) {

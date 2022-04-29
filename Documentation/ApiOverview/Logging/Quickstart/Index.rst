@@ -9,43 +9,28 @@ Quickstart
 
 .. index::
    Logging; Instantiation
-   Logging; LoggerAwareTrait
+   Logging; LoggerInterface
 .. _logging-quicksart-instantiate-logger:
 
 Instantiate a logger for the current class
 ==========================================
 
-.. versionadded:: 9.0
-   You no longer need to use makeInstance to create an
-   instance of the logger yourself. You can use LoggerAwareTrait:
-   :doc:`Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects`.
-   You must implement the :php:`\Psr\Log\LoggerAwareInterface` interface with your class to have the Trait taking effect.
+.. versionadded:: 11.4
+   :doc:`Changelog/11.4/Feature-95044-SupportAutowiredLoggerInterfaceInjection`
 
-Use LoggerAwareTrait in your class to automatically instantiate `$this->logger`:
+Constructor injection can be used to automatically instantiate the logger:
 
 .. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
 
-   use Psr\Log\LoggerAwareTrait;
+   use Psr\Log\LoggerInterface;
 
-   class SomeClass implements \Psr\Log\LoggerAwareInterface
-   {
-      use LoggerAwareTrait;
+   class MyClass {
+       private LoggerInterface $logger;
 
-      protected function myFunction() {
-         $this->logger->info('entered function myFunction');
-      }
+       public function __construct(LoggerInterface $logger) {
+           $this->logger = $logger;
+       }
    }
-
-Or instantiate the logger in the classic way with makeInstance:
-
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
-
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Core\Log\LogManager;
-
-   $this->logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
 
 .. _logging-quickstart-log:
 
