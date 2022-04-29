@@ -13,7 +13,7 @@ variables needed for your content element or template, you can define a custom
 data processor by implementing the :php:`DataProcessorInterface`.
 
 You can find the example below in the TYPO3 Documentation Team extension
-`examples <https://extensions.typo3.org/extension/examples/>`__.
+:t3ext:`examples/`.
 
 
 .. index::

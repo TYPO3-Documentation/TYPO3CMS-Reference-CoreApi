@@ -22,14 +22,14 @@ Various Tips and Tricks
    .. code-block:: php
       :caption: EXT:some_extension/Classes/SomeClass.php
 
-     $queryBuilder
-        ->select('uid')
-        ->from('tt_content')
-        ->where(
-           $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
-        );
-     debug($queryBuilder->getSql());
-     $result = $queryBuilder->executeQuery();
+      $queryBuilder
+         ->select('uid')
+         ->from('tt_content')
+         ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+         );
+      debug($queryBuilder->getSql());
+      $result = $queryBuilder->executeQuery();
 
 * In contrast to the old API based on :php:`$GLOBALS['TYPO3_DB']`, Doctrine DBAL will throw exceptions
   if something goes wrong when calling :php:`executeQuery()`. The exception type is a :php:`\Doctrine\DBAL\Exception`

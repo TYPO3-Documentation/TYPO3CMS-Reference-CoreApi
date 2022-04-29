@@ -2,9 +2,9 @@
 .. index:: Events; ModifyCacheLifetimeForPageEvent
 .. _ModifyCacheLifetimeForPageEvent:
 
-====================
+===============================
 ModifyCacheLifetimeForPageEvent
-====================
+===============================
 
 .. versionadded:: 12.0
    This event serves as a successor for the

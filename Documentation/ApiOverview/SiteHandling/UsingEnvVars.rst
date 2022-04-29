@@ -34,4 +34,4 @@ When using environment variables in conditions, make sure to quote them correctl
 
 TYPO3 does not provide a loader for .env files - you have to take care of loading them yourself.
 Common options include setting environment configuration via server configuration or
-using `vlucas/phpdotenv <https://packagist.org/packages/vlucas/phpdotenv>`_.
+using :packagist:`vlucas/phpdotenv`.

@@ -66,7 +66,7 @@ The generated :file:`typo3conf/autoload_classmap.php` is a large array with a ma
 to their location on the disk:
 
 .. code-block:: php
-   typo3conf/autoload_classmap.php
+   :caption: typo3conf/autoload_classmap.php
 
    <?php
 

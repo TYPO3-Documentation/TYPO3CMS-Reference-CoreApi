@@ -218,4 +218,4 @@ Examples
 ========
 
 Working examples of the usage of different Log writers can be found in the extension
-`examples <https://extensions.typo3.org/extension/examples/>`__.
+:t3ext:`examples/`.

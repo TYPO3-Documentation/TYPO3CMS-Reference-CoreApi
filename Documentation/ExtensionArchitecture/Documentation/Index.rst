@@ -48,6 +48,6 @@ from scratch, the TYPO3 community provides tools to support you:
 
 -  A `Sample Manual <https://github.com/TYPO3-Documentation/TYPO3CMS-Example-ExtensionManual>`_
    is available to be immediately copied into your own extension.
--  The `Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
+-  The :t3ext:`extension_builder`
    optionally generates a documentation skeleton together with the extension
    skeleton.

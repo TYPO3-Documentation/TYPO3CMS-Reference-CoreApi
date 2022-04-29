@@ -140,6 +140,7 @@ which often causes an information disclosure.
 
 In order to deny access to all files with the file ending :file:`.typoscript`, the
 following Apache configuration could be used:
+
 .. code-block:: apacheconf
    :caption: .htaccess
 

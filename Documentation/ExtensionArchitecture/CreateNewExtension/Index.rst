@@ -23,8 +23,7 @@ Kickstarting the extension
 ==========================
 
 Although it is possible to write every single line of an extension from
-scratch, there is a tool which makes it easier to start: The
-`Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_.
+scratch, there is a tool which makes it easier to start: The :t3ext:`extension_builder`.
 
 The Extension Builder comes with its own BE module and helps you to create the
 scaffolding of your extension and to generate all necessary PHP files.

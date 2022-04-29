@@ -18,6 +18,7 @@ GENERAL
 
    General/BackendInterface
    General/ViewModules
+   BackendModuleApi/Index
 
 CREATING BACKEND MODULES WITH EXTBASE
 

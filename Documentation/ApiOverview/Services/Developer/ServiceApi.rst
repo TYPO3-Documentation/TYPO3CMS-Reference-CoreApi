@@ -108,7 +108,7 @@ getServiceOption
    .. code-block:: php
       :caption: EXT:some_extension/Classes/Services/SomeService.php
 
-     $ignoreBozo = $this->getServiceOption('ignoreBozo');
+      $ignoreBozo = $this->getServiceOption('ignoreBozo');
 
   This will retrieve the value of the "ignoreBozo" option for your
   specific service, if defined. If not, it will try to find a value in

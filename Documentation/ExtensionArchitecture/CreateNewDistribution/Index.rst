@@ -16,7 +16,7 @@ Concept of distributions
 
 The distributions are full TYPO3 CMS websites that only need to be unpacked.
 They offer a simple and quick introduction to the use of the TYPO3 CMS. The
-best known distribution is the `Introduction Package <https://extensions.typo3.org/extension/introduction/>`__.
+best known distribution is the :t3ext:`introduction/`.
 Distributions are easiest to install via the :ref:`Extension Manager <extension-manager>` (EM)
 under "Get preconfigured distribution".
 
@@ -98,7 +98,7 @@ Note that you should *not* put your website configuration
 (TypoScript files, JavaScript, CSS, logos, etc.) in :file:`fileadmin/`,
 which is intended for editors only, but in a separate extension.
 In the case of the Introduction Package, the configuration is located in the
-`Bootstrap Package <https://extensions.typo3.org/extension/bootstrap_package/>`__
+:t3ext:`bootstrap_package/`
 extension, and the Introduction Package depends on it. In this way,
 the Introduction Package provides only the database dump and asset files which
 results in only content-related files being in :file:`fileadmin/`,

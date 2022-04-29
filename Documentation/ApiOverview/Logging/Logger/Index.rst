@@ -265,7 +265,7 @@ Examples
 ========
 
 Examples of the usage of the Logger can be found in the extension
-`examples <https://extensions.typo3.org/extension/examples/>`__. in file
+:t3ext:`examples/`. in file
 :file:`/Classes/Controller/ModuleController.php`
 
 

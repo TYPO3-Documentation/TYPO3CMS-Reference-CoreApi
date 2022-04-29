@@ -56,8 +56,8 @@ Item providers registration
 
 .. versionchanged:: 12.0
    ContextMenu item providers, implementing :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface`
-   are now automatically registered. The registration via 
-   :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders']` 
+   are now automatically registered. The registration via
+   :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders']`
    is not evaluated anymore.
 
 Custom item providers must implement
@@ -102,7 +102,7 @@ or other modules defined in the JSON as
 
 Example of the JSON response:
 
-.. code:: javascript
+.. code-block:: javascript
 
     {
        "view":{
