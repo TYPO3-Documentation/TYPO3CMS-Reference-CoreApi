@@ -121,11 +121,10 @@ Add it to the new content element wizard
 
 Content elements in the :guilabel:`New Content Element Wizard` are easier
 to find for editors. It is therefore advised to add the new content element
-to this wizard (via Page TSconfig).
-
-:file:`Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig`:
+to this wizard (via page TSconfig).
 
 .. code-block:: typoscript
+   :caption: EXT:my_sitepackage/Configuration/page.tsconfig
 
    mod.wizards.newContentElement.wizardItems {
       // add the content element to the tab "common"
@@ -143,6 +142,13 @@ to this wizard (via Page TSconfig).
          show := addToList(examples_newcontentelement)
       }
    }
+   
+.. versionchanged:: 12.0 
+
+   Starting with TYPO3 version 12.0 file :file:`EXT:my_sitepackage/Configuration/page.tsconfig` 
+   is automatically included. For version 11.5 and below this file has to be included in the 
+   :file:`ext_localconf.php`. See :ref:`Setting global page TSconfig, compatible with TYPO3 
+   11 and 12 <t3tsconfig:global-page-tsconfig-compatible-with-typo3-11-and-12>`.
 
 .. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementWizard.rst.txt
 
