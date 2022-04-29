@@ -143,6 +143,15 @@ to this wizard (via Page TSconfig).
          show := addToList(examples_newcontentelement)
       }
    }
+   
+
+:file:`ext_tables.php`:
+
+.. code-block:: php
+
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+       '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:examples/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig">'
+   );
 
 .. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementWizard.rst.txt
 
