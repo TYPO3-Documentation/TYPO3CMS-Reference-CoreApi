@@ -35,7 +35,7 @@ use the content for specific functionality. For example, if a svg logo of your e
 is placed at :file:`Resources/Public/Icons/Extension.svg`, the Extension Manager
 will show that image.
 
-Most of these files are not required. The exception are :file:`ext_emconf.php`
+Most of these files are not required, except of :file:`ext_emconf.php`
 in :ref:`legacy installations not based on Composer <t3start:legacyinstallation>`
 and :file:`composer.json` in :ref:`Composer installations <t3start:install>`
 installations.
