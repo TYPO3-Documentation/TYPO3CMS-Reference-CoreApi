@@ -19,7 +19,7 @@ evaluation.
 API
 ===
 
-.. include:: /CodeSnippets/Manual/Core/RecordAccessGrantedEvent.rst.txt
+.. include:: /CodeSnippets/Events/Core/RecordAccessGrantedEvent.rst.txt
 
 
 Example

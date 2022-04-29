@@ -17,7 +17,7 @@ frontend call should be stored in the "pages" cache.
 API
 ===
 
-.. include:: /CodeSnippets/Manual/Frontend/ModifyCacheLifetimeForPageEvent.rst.txt
+.. include:: /CodeSnippets/Events/Frontend/ModifyCacheLifetimeForPageEvent.rst.txt
 
 Example
 =======

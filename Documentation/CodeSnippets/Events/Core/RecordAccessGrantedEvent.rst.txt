@@ -7,12 +7,9 @@
    
    Listeners are able to grant access or to modify the record itself to
    continue to use the native access check functionality with a modified dataset.
+
    
    .. php:method:: isPropagationStopped()
-   
-      :returntype: bool
-      
-   .. php:method:: accessGranted()
    
       :returntype: bool
       
@@ -34,5 +31,4 @@
       
    .. php:method:: getContext()
    
-      :returntype: TYPO3\CMS\Core\Context\Context
-
+      :returntype: TYPO3\\CMS\\Core\\Context\\Context

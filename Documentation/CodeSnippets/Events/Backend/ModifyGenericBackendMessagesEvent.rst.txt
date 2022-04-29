@@ -4,6 +4,7 @@
 .. php:class:: ModifyGenericBackendMessagesEvent
 
    Listeners to this event are able to add or change messages for the "Help > About" module.
+
    
    .. php:method:: getMessages()
    
@@ -16,4 +17,3 @@
    .. php:method:: setMessages(array messages)
    
       :param array $messages: the messages
-

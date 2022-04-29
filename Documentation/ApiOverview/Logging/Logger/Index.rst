@@ -7,7 +7,9 @@ Logger
 ======
 
 
-.. index:: Logging; LoggerAwareTrait
+.. index::
+   Logging; Instantiation
+   Logging; LoggerInterface
 .. _logging-logger-instantiation:
 
 Instantiation
@@ -29,6 +31,14 @@ Constructor injection can be used to automatically instantiate the logger:
            $this->logger = $logger;
        }
    }
+
+.. tip::
+
+   For examples of instantiation with :php:`LoggerAwareTrait or
+   php:`GeneralUtility::makeInstance(), switch to an older TYPO3 version for this
+   page. Instantiation with dependency injection is now the recommended
+   procedure. Also see the section on :ref:`channels <logging-channels>` for
+   information on grouping classes in channels.
 
 
 .. index::
@@ -192,7 +202,7 @@ They can modify the log records or add extra information.
 The Logger then forwards the log records to all of its configured :ref:`Writers <logging-writers>`,
 which will then persist the log record.
 
-
+.. _logging-channels:
 
 Channels
 ========
@@ -248,21 +258,6 @@ overwrites possible class attributes:
          // do your magic
      }
    }
-
-
-Registration via class attribute for :php:`LoggerAwareInterface` services.
-
-.. code-block:: php
-
-   use Psr\Log\LoggerAwareInterface;
-   use Psr\Log\LoggerAwareTrait;
-   use TYPO3\CMS\Core\Log\Channel;
-   #[Channel('security')]
-   class MyClass implements LoggerAwareInterface
-   {
-     use LoggerAwareTrait;
-   }
-
 
 .. _logging-logger-examples:
 
