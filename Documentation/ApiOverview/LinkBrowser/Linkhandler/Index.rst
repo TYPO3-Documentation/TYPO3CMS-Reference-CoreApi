@@ -22,7 +22,7 @@ Current LinkHandlers:
 *  UrlLinkHandler: for linking external urls
 *  FileLinkHandler: for linking files in the :ref:`fal`
 *  FolderLinkHandler: for linking to directories
-*  MailLinkHandler: for linking mail
+*  MailLinkHandler: for linking email addresses
 *  TelephoneLinkHandler: for linking phone numbers
 
 .. note::
@@ -120,7 +120,7 @@ from the defined storage page:
            storagePid = 123
            hidePageTree = 1
        }
-       displayAfter = mail
+       displayAfter = email
    }
 
 It is possible to have another configuration using another storagePid which
