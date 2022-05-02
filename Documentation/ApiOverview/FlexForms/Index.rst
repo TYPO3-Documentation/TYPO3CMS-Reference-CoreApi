@@ -128,6 +128,9 @@ Steps to perform (Extension developer)
       how to handle underscores and upper / lowercase, check there to see
       what your plugin signature is.
 
+   .. versionadded:: 12.0
+      The method :php:`ExtensionUtility::registerPlugin()` returns the plugin signature.
+
    Also look on the page :ref:`extension-naming`.
 
    If you are using a content element instead of a plugin, the example
