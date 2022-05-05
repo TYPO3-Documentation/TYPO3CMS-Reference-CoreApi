@@ -45,6 +45,7 @@ will be our ajax endpoint.
 
       public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
       {
+           // TODO: return ResponseInterface
       }
    }
 
@@ -62,6 +63,7 @@ incoming number by 2. The incoming value will be passed as a query string argume
        }
 
        $result = $input ** 2;
+       // TODO: return ResponseInterface
    }
 
 
