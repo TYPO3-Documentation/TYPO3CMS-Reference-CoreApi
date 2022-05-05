@@ -34,8 +34,8 @@ Constructor injection can be used to automatically instantiate the logger:
 
 .. tip::
 
-   For examples of instantiation with :php:`LoggerAwareTrait or
-   php:`GeneralUtility::makeInstance(), switch to an older TYPO3 version for this
+   For examples of instantiation with :php:`LoggerAwareTrait` or
+   :php:`GeneralUtility::makeInstance()`, switch to an older TYPO3 version for this
    page. Instantiation with dependency injection is now the recommended
    procedure. Also see the section on :ref:`channels <logging-channels>` for
    information on grouping classes in channels.
