@@ -21,7 +21,7 @@ use :ref:`Extbase <extbase>`.
 Legacy frontend plugins without Extbase, so called "pi-based plugins" are based
 on the :ref:`AbstractPlugin <abstractplugin>`. It is not recommended anymore
 to use the AbstractPlugin as base for new frontend plugins. The Core does not
-use it anymore and few third party extensions still use it.
+use it anymore and only few third party extensions still use it.
 
 .. toctree::
    :titlesonly:
