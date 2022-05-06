@@ -15,7 +15,7 @@ For pure output it is often sufficient to use a
 :ref:`DataProcessors <t3tsref:dataProcessing>`. See also
 :ref:`Creating a custom content element <adding-your-own-content-elements>`.
 
-For szenarios with user input and or complicated data operations consider to
+For scenarios with user input and or complicated data operations consider to
 use :ref:`Extbase <extbase>`.
 
 Legacy frontend plugins without Extbase, so called "pi-based plugins" are based
