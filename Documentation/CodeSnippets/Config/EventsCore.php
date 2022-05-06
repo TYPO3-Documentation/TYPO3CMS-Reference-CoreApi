@@ -103,5 +103,17 @@ return [
         "class"=> \TYPO3\CMS\Core\Domain\Access\RecordAccessGrantedEvent::class,
         "targetFileName"=> "Events/Core/RecordAccessGrantedEvent.rst.txt",
         "withCode"=> false
-    ]
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\Configuration\Event\SiteConfigurationBeforeWriteEvent::class,
+        "targetFileName"=> "Events/Core/SiteConfigurationBeforeWriteEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\Configuration\Event\SiteConfigurationLoadedEvent::class,
+        "targetFileName"=> "Events/Core/SiteConfigurationLoadedEvent.rst.txt",
+        "withCode"=> false
+    ],
 ];
