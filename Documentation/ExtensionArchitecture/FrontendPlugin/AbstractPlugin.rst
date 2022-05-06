@@ -23,6 +23,12 @@ on the :php:`AbstractPlugin` are also called "pi-based plugins".
 The :php:`AbstractPlugin` still contains hard-coded HTMl in many functions.
 These can not be used for non-HTML output like JSON or XML feeds.
 
+.. versionchanged:: 6.0
+   The AbstractPlugin class used to be named :php:`tslib_pibase` before 
+   TYPO3 6.0. Therefore the old names "pi_base" or "pi-based plugin" are 
+   still used by some people for historic reasons. "pi" is short for
+   plug-in.
+
 TypoScript
 ==========
 
