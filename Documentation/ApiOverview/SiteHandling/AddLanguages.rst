@@ -243,14 +243,14 @@ fallbackType
       default translation.
 
     ``fallback``
-      Fall back to other language, if the page does not exist in the requested language.
+      Fall back to other language, if the record does not exist in the requested language.
       Do overlays, and keep the ones that are not translated.
 
       Behaves like old :typoscript:`config.sys_language_overlay = 1`
       Keep the ones that are only available in default language.
 
     ``free``
-      Fall back to other language, if the page does not exist in the requested language.
+      Fall back to other language, if the record does not exist in the requested language.
       But always fetch only records of this specific (available) language.
 
       Behaves like old :typoscript:`config.sys_language_overlay = 0`
