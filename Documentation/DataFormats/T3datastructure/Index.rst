@@ -13,7 +13,7 @@ does not do much - it is only a back bone for higher level applications
 which can add their own configuration inside.
 
 The T3DataStructure could be used for different applications in theory, however it
-is commonly only used in the context of Flexforms.
+is commonly only used in the context of FlexForms.
 
 FlexForms are used in the contexts:
 
@@ -21,10 +21,10 @@ FlexForms are used in the contexts:
    The type allows users to build
    information hierarchies (in XML) according to the data structure. In
    this sense the Data Structure is like a DTD (Document Type
-   Definition) for the backend which can render a dynamic forms based on
+   Definition) for the backend which can render a dynamic form based on
    the Data Structure.
    
--  The configuration of plugins of many common extensions with flexforms like 
+-  The configuration of plugins of many common extensions with FlexForms like 
    `news <https://extensions.typo3.org/extension/news>`__. 
    
 -  FlexForms can be used for containers created by the extensions like
@@ -32,7 +32,7 @@ FlexForms are used in the contexts:
    `gridelements <https://extensions.typo3.org/extension/gridelements>`__
 
 -  `dce <https://extensions.typo3.org/extension/dce>`__ an extension to create 
-   flexform based content elements.
+   FlexForm based content elements.
 
 This documentation of a data structure will document the general
 aspects of the XML format and leave the details about FlexForms and
@@ -65,5 +65,3 @@ Some other facts about Data Structures (DS):
    Elements/Index
    SheetReferences/Index
    Parsing/Index
-
-
