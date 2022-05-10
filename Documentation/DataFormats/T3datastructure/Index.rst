@@ -31,8 +31,8 @@ FlexForms are used in the contexts:
    `container <https://extensions.typo3.org/extension/container>`__ or 
    `gridelements <https://extensions.typo3.org/extension/gridelements>`__
 
--  `dce <https://extensions.typo3.org/extension/dce>`__ an extension to create 
-   FlexForm based content elements.
+-  `dce <https://extensions.typo3.org/extension/dce>`__ an an extension to 
+   create content elements based on FlexForms.
 
 This documentation of a data structure will document the general
 aspects of the XML format and leave the details about FlexForms and
