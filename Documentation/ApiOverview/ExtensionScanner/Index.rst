@@ -112,7 +112,7 @@ Let's explain this by example. Suppose a static method was deprecated:
     }
 
 This method is registered in the matcher class
-:php:`TYPO3\CMS\Install\ExtensionScanner\Php\MethodCallStaticMatcher` like this:
+:php:`TYPO3\CMS\Install\ExtensionScanner\Php\Matcher\MethodCallStaticMatcher` like this:
 
 .. code-block:: php
 
