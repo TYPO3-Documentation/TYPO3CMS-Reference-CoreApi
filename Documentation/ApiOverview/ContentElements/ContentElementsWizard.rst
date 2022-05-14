@@ -63,24 +63,26 @@ plugin is `registration`.
 
 #. :ref:`Register your icon <icon-registration>` with the icon API
 
-   In :file:`ext_localconf.php`:
+   In :file:`Configuration/Icons.php`:
 
    .. code-block:: php
 
-      $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+      <?php
 
-      // use same identifier as used in TSconfig for icon
-      $iconRegistry->registerIcon(
+      return [
          // use same identifier as used in TSconfig for icon
-         'example-registration',
-         \TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
-         // font-awesome identifier ('external-link-square')
-         ['name' => 'external-link-square']
-      );
+         'example-registration' => [
+            'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
+            // font-awesome identifier ('external-link-square')
+            'name' => 'external-link-square',
+         ],
+      ];
 
 #. After clearing cache, create a new content element
 
-   You should now see the icon, title and description you just added!
+   After clearing the cache via :guilabel:`Admin Tools > Maintenance` or the
+   command :bash:`vendor/bin/typo3 cache:flush` you should now see the icon,
+   title and description you just added!
 
    .. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementWizard.rst.txt
 
