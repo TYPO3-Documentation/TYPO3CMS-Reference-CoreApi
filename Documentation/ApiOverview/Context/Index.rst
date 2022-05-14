@@ -26,8 +26,9 @@ It can be retrieved anywhere via :php:`GeneralUtility::makeInstance()`:
 
 .. code-block:: php
 
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Core\Context\Context;
-    // ...
+    
     $context = GeneralUtility::makeInstance(Context::class);
 
 This information is separated in so-called "Aspects", each being responsible for a certain area:
@@ -45,7 +46,7 @@ replaces for example :php:`$GLOBALS['SIM_EXEC_TIME']` and :php:`$GLOBALS['EXEC_T
 
 .. _context_api_aspects_datetime_properties:
 
-The DateTime Aspect accepts following properties:
+The DateTime Aspect, :php:`TYPO3\CMS\Core\Context\DateTimeAspect`, accepts following properties:
 
 =============  ============================================================  ======
 Property       Call                                                          Result
@@ -62,6 +63,9 @@ Example
 ~~~~~~~
 
 .. code-block:: php
+
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Context\Context;
 
     $context = GeneralUtility::makeInstance(Context::class);
 
@@ -82,7 +86,7 @@ to language Id, overlay and fallback logic, mostly within Frontend.
 
 .. _context_api_aspects_language_properties:
 
-The Language Aspect accepts following properties:
+The Language Aspect, :php:`TYPO3\CMS\Core\Context\LanguageAspect` accepts following properties:
 
 ======================  =========================================================================  ======
 Property                Call                                                                       Result
@@ -123,6 +127,9 @@ Example
 
 .. code-block:: php
 
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Context\Context;
+
     $context = GeneralUtility::makeInstance(Context::class);
 
     // Reading the current fallback chain instead $TSFE->sys_language_mode
@@ -157,7 +164,7 @@ The `TypoScriptAspect` can be used to manipulate/check whether TemplateRendering
 .. _context_api_aspects_typoscript_properties:
 
 
-The Preview Aspect contains the following properties:
+The TypoScript Aspect, `TYPO3\CMS\Core\Context\TypoScriptAspect` contains the following properties:
 
 =========================  ==============================================================================  ======
 Property                   Call                                                                            Result
@@ -177,7 +184,7 @@ In comparison to known behaviour until TYPO3 v9, :php:`UserAspect` replaces vari
 
 .. _context_api_aspects_user_properties:
 
-The User Aspect accepts following properties:
+The User Aspect, :php:`TYPO3\CMS\Core\Context\UserAspect`, accepts following properties:
 
 ==============  ======================================================================  ======
 Property        Call                                                                    Result
@@ -197,6 +204,9 @@ Example
 
 .. code-block:: php
 
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Context\Context;
+
     $context = GeneralUtility::makeInstance(Context::class);
 
     // Checking if a user is logged in
@@ -215,7 +225,7 @@ In comparison to known behaviour until TYPO3 v9, :php:`VisibilityAspect` replace
 
 .. _context_api_aspects_visibility_properties:
 
-The Visibility Aspect accepts following properties:
+The Visibility Aspect, :php:`TYPO3\CMS\Core\Context\VisibilityAspect`, accepts following properties:
 
 =========================  ==============================================================================  ======
 Property                   Call                                                                            Result
@@ -231,6 +241,9 @@ Example
 ~~~~~~~
 
 .. code-block:: php
+
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Context\Context;
 
     $context = GeneralUtility::makeInstance(Context::class);
 
@@ -250,7 +263,7 @@ In comparison to known behaviour until TYPO3 v9, :php:`WorkspaceAspect` replaces
 
 .. _context_api_aspects_workspace_properties:
 
-The Workspace Aspect accepts following properties:
+The Workspace Aspect, :php:`TYPO3\CMS\Core\Context\WorkspaceAspect`, accepts following properties:
 
 =============  =================================================================  ======
 Property       Call                                                               Result
@@ -266,6 +279,9 @@ Example
 ~~~~~~~
 
 .. code-block:: php
+
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Context\Context;
 
     $context = GeneralUtility::makeInstance(Context::class);
 
