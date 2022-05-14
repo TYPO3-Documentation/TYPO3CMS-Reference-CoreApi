@@ -146,7 +146,7 @@ The `PreviewAspect` may be used to indicate that the frontend is in preview mode
 .. _context_api_aspects_preview_properties:
 
 
-The Preview Aspect contains the following properties:
+The Preview Aspect, :php:`TYPO3\CMS\Frontend\Aspect\PreviewAspect`, contains the following properties:
 
 ==============  ========================================================================  ======
 Property        Call                                                                      Result
