@@ -139,81 +139,87 @@ corresponding to each group.
 
 The following caches exist in the TYPO3 CMS Core:
 
+
 -  `core`
 
-  -  Core cache for compiled php code. It should **not** be used by extensions.
-  -  Uses **PhpFrontend** with the **SimpleFileBackend** for maximum performance.
-  -  Stores core internal compiled PHP code like concatenated :file:`ext_tables.php` and :file:`ext_localconf.php`
-     files, autoloader and sprite configuration PHP files.
-  -  This cache is instantiated very early during bootstrap and **can not** be re configured
-     by instance specific :file:`LocalConfiguration.php` or similar.
-  -  Cache entries are located in directory :file:`typo3temp/var/cache/code/core` or :file:`var/cache/code/core` (for composer-based installations). The full directory and any file
-     in this directory can be safely removed and will be re-created upon next request. This is especially useful during
-     development
-  -  **group**: system
+   -  Core cache for compiled php code. It should **not** be used by extensions.
+   -  Uses **PhpFrontend** with the **SimpleFileBackend** for maximum performance.
+   -  Stores core internal compiled PHP code like concatenated :file:`ext_tables.php` 
+      and :file:`ext_localconf.php` files, autoloader and sprite configuration 
+      PHP files.
+   -  This cache is instantiated very early during bootstrap and **can not** be 
+      re configured by instance specific :file:`LocalConfiguration.php` or 
+      similar.
+   -  Cache entries are located in directory :file:`typo3temp/var/cache/code/core` 
+      or :file:`var/cache/code/core` (for composer-based installations). The 
+      full directory and any file in this directory can be safely removed and 
+      will be re-created upon next request. This is especially useful during
+      development
+   -  **group**: system
 
 -  `hash`
 
-  -  Stores several key-value based cache entries, mostly used during frontend rendering.
-  -  **groups**: all, pages
+   -  Stores several key-value based cache entries, mostly used during frontend 
+      rendering.
+   -  **groups**: all, pages
 
 -  `pages`
 
-  -  The frontend page cache. Stores full frontend pages.
-  -  Content is compressed by default to reduce database memory and storage overhead.
-  -  **groups**: all, pages
+   -  The frontend page cache. Stores full frontend pages.
+   -  Content is compressed by default to reduce database memory and storage overhead.
+   -  **groups**: all, pages
 
 -  `pagesection`
 
-  -  Used to store "parts of a page", for example used to store Typoscript snippets and
-     compiled frontend templates.
-  -  Content is compressed by default to reduce database memory and storage overhead.
-  -  **groups**: all, pages
+   -  Used to store "parts of a page", for example used to store Typoscript snippets and
+      compiled frontend templates.
+   -  Content is compressed by default to reduce database memory and storage overhead.
+   -  **groups**: all, pages
 
 -  `runtime`
 
-  -  Runtime cache to store data specific for current request.
-  -  Used by several core parts during rendering to re-use already calculated data.
-  -  Valid for one request only.
-  -  Can be re-used by extensions that have similar caching needs.
+   -  Runtime cache to store data specific for current request.
+   -  Used by several core parts during rendering to re-use already calculated data.
+   -  Valid for one request only.
+   -  Can be re-used by extensions that have similar caching needs.
 
 -  `rootline`
 
-  -  Cache for rootline calculations.
-  -  Quick and simple cache dedicated for core usage, Should **not** be re-used by extensions.
-  -  **groups**: all, pages
+   -  Cache for rootline calculations.
+   -  Quick and simple cache dedicated for core usage, Should **not** be re-used by extensions.
+   -  **groups**: all, pages
 
 -  `imagesizes`
 
-   -  Cache for imagesizes.
-   -  Should _only_ be cleared manually, if you know what you are doing.
-   -  **groups**: lowlevel
+    -  Cache for imagesizes.
+    -  Should _only_ be cleared manually, if you know what you are doing.
+    -  **groups**: lowlevel
 
 -  `assets`
 
-   -  Cache for assets.
-   -  Examples: Backend Icons, RTE or RequireJS Configuration
-   -  **groups**: system
+    -  Cache for assets.
+    -  Examples: Backend Icons, RTE or RequireJS Configuration
+    -  **groups**: system
 
 -  `l10n`
 
-  -  Cache for the localized labels.
-  -  **groups**: system
+   -  Cache for the localized labels.
+   -  **groups**: system
 
 -  `fluid_template`
 
-   -  Cache for fluid templates.
-   -  **groups**: system
+    -  Cache for fluid templates.
+    -  **groups**: system
 
 -  extbase
 
-  -  Contains detailed information about a class' member variables and methods.
-  -  **group**: system
+   -  Contains detailed information about a class' member variables and methods.
+   -  **group**: system
 
 -  dashboard_rss
 
-  -  Contains the contents of RSS-Feeds retrieved by RSS widgets on the dashboard.
-  -  This cache can be used by extension authors for their own RSS widgets.
+   -  Contains the contents of RSS-Feeds retrieved by RSS widgets on the dashboard.
+   -  This cache can be used by extension authors for their own RSS widgets.
 
 
 .. tip::
