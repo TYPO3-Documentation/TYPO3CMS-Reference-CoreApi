@@ -124,9 +124,47 @@ TCA configuration
    :caption: EXT:sr_feuser_register/Configuration/TCA/Overrides/tt_content.php
 
    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-   defined('TYPO3_MODE') or die();
+   defined('TYPO3') or die();
 
    $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['sr_feuser_register_pi1'] = 'layout,select_key';
    $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['sr_feuser_register_pi1'] = 'pi_flexform';
-   ExtensionManagementUtility::addPiFlexFormValue('sr_feuser_register_pi1', 'FILE:EXT:sr_feuser_register/Configuration/FlexForms/flexform_ds_pi1.xml');
-   ExtensionManagementUtility::addPlugin(array('LLL:EXT:sr_feuser_register/Resources/Private/Language/locallang_db.xlf:tt_content.list_type', 'sr_feuser_register_pi1'), 'list_type', 'sr_feuser_register');
+   
+   // Use this function if you want to register a FlexForm for the backend record
+   ExtensionManagementUtility::addPiFlexFormValue(
+       'sr_feuser_register_pi1', 
+       'FILE:EXT:sr_feuser_register/Configuration/FlexForms/flexform_ds_pi1.xml'
+   );
+   
+   ExtensionManagementUtility::addPlugin(
+       [
+           'LLL:EXT:sr_feuser_register/Resources/Private/Language/locallang_db.xlf:tt_content.list_type', 
+           'sr_feuser_register_pi1'
+       ],   
+       'list_type', 
+       'sr_feuser_register'
+    );
+    
+:php:`ExtensionManagementUtility::addPlugin` expects the following parameters:
+
+$itemArray
+   :php:`array`: Numerical array: 
+   
+   [0] 
+       :php:`string`: Plugin label, 
+      
+   [1] 
+       :php:`string`: Plugin identifier / plugin key, ideally prefixed with an extension-specific name (for example :php:`'events2_list'`), 
+      
+   [2] 
+      :php:`string`:  Path to plugin icon, 
+      
+   [3] 
+      an optional group idenitfier, falls back to :php:`'default`
+      
+$type
+   :php:`string`: Type (Default: :php:`'list_type'`) - basically a field from "tt_content" table
+   
+$extensionKey
+   :php:`string`: The extension key in snake_case, for example :php`'my_extension'`
+    
+
