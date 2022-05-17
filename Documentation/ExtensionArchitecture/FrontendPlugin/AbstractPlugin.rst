@@ -121,27 +121,27 @@ TCA configuration
 =================
 
 .. code-block:: php
-   :caption: EXT:sr_feuser_register/Configuration/TCA/Overrides/tt_content.php
+   :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
    defined('TYPO3') or die();
 
-   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['sr_feuser_register_pi1'] = 'layout,select_key';
-   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['sr_feuser_register_pi1'] = 'pi_flexform';
+   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['myextension_pi1'] = 'layout,select_key';
+   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['myextension_pi1'] = 'pi_flexform';
    
    // Use this function if you want to register a FlexForm for the backend record
    ExtensionManagementUtility::addPiFlexFormValue(
-       'sr_feuser_register_pi1', 
-       'FILE:EXT:sr_feuser_register/Configuration/FlexForms/flexform_ds_pi1.xml'
+       'myextension_pi1', 
+       'FILE:EXT:my_extension/Configuration/FlexForms/SomeFlexForm.xml'
    );
    
    ExtensionManagementUtility::addPlugin(
        [
-           'LLL:EXT:sr_feuser_register/Resources/Private/Language/locallang_db.xlf:tt_content.list_type', 
-           'sr_feuser_register_pi1'
+           'LLL:EXT:my_extension/Resources/Private/Language/locallang_db.xlf:tt_content.list_type', 
+           'myextension_pi1'
        ],   
        'list_type', 
-       'sr_feuser_register'
+       'my_extension'
     );
     
 :php:`ExtensionManagementUtility::addPlugin` expects the following parameters:
