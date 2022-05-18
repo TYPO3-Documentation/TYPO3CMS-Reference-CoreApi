@@ -252,3 +252,21 @@ are marked as :php:`@internal`, just like other non-API parts of TYPO3, but :php
 avoided whenever technically possible.
 
 
+.. index:: Event listener; Best practices
+.. _EventDebugging:
+
+Debugging event handling
+========================
+
+A complete list of all registered event listeners can be viewed in the the module 
+:guilabel:`System > Configuration > Event Listeners (PSR-14)`. The system extension
+`lowlevel` has to be installed for this module to be available.
+
+.. TODO: add screenshot
+
+To debug all events that are actually dispatched in a frontend request you can use 
+admin panel:
+
+Go to :guilabel:`Admin Panel > Debug > Events` and see all dispatched events.
+
+.. TODO: add screenshot
