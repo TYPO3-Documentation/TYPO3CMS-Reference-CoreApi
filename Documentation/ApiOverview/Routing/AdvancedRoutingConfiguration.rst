@@ -151,7 +151,7 @@ In this example we will map the raw parameters of an URL like this:
 
    https://example.org/path-to/my-page?id=13&tx_felogin_pi1[forgot]=1&tx_felogin_pi1[user]=82&tx_felogin_pi1[hash]=ABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 
-Into parameters such as these: 
+The result will be an URL like this:
 
 .. code-block:: none
 
