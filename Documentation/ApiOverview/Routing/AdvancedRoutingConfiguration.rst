@@ -120,10 +120,20 @@ that name (so you can access/use it as `category` in your custom code).
 Plugin Enhancer
 ^^^^^^^^^^^^^^^
 
-The Plugin Enhancer works with plugins on a page that are commonly known as `Pi-Based Plugins`, where previously
-the following GET/POST variables were used:
+The Plugin Enhancer works with plugins based on the class :ref:`AbstractPlugin <abstractplugin>`, 
+also known as "Pi-Based Plugins". 
 
-`index.php?id=13&tx_felogin_pi1[forgot]=1&&tx_felogin_pi1[user]=82&tx_felogin_pi1[hash]=ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
+In this example we will map the following parameters:
+
+.. code-block:: none
+
+   https://example.org/path-to/my-page?id=13&tx_felogin_pi1[forgot]=1&tx_felogin_pi1[user]=82&tx_felogin_pi1[hash]=ABCDEFGHIJKLMNOPQRSTUVWXYZ012345
+
+Into parameters such as these: 
+
+.. code-block:: none
+
+   https://example.org/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 
 The base for the plugin enhancer is to configure a so-called "namespace", in this case `tx_felogin_pi1` - the plugin's
 namespace.
