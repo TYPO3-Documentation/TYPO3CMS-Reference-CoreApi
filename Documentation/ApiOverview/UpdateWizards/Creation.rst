@@ -39,10 +39,10 @@ class has to implement :php:`TYPO3\CMS\Install\Updates\UpgradeWizardInterface` a
 methods:
 
 .. code-block:: php
-   :caption: EXT:some_extension/Classes/Updates/ExampleUpdateWizard.php
+   :caption: EXT:my_extension/Classes/Updates/ExampleUpdateWizard.php
 
    <?php
-   namespace Vendor\ExtName\Updates;
+   namespace Vendor\MyExtension\Updates;
 
    use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
@@ -145,6 +145,10 @@ Method :php:`getPrerequisites`
       The reference index needs to be up-to-date.
 
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/Updates/ExampleUpdateWizard.php
+   
+   use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
+   use TYPO3\CMS\Install\Updates\ReferenceIndexUpdatedPrerequisite;
 
    /**
     * @return string[]
@@ -168,7 +172,7 @@ Once the wizard is created, it needs to be registered. Registration is done in
 :file:`ext_localconf.php`:
 
 .. code-block:: php
-   :caption: EXT:some_extension/ext_localconf.php
+   :caption: EXT:my_extension/ext_localconf.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['extName_exampleUpdateWizard']
       = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
