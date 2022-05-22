@@ -57,7 +57,6 @@ management system TYPO3.
    ApiOverview/GlobalValues/Constants/Index
    ApiOverview/ContentElements/Index
    ApiOverview/Context/Index
-   ApiOverview/ContextSensitiveHelp/Index
    ApiOverview/CropVariants/Index
    ApiOverview/FileProcessing/Index
    ApiOverview/Database/Index
