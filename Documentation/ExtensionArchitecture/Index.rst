@@ -24,8 +24,7 @@ RESERVED FILES & HOW THEY DEFINE FUNCTIONALITY
    :titlesonly:
    :maxdepth: 1
 
-
-   FilesAndLocations/Index
+   FileStructure/Index
    NamingConventions/Index
    ExtendingTca/Index
 
