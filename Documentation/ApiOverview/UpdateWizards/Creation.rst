@@ -37,10 +37,13 @@ UpgradeWizardInterface
 
 Each upgrade wizard consists of a single PHP file containing a single PHP class. This
 class has to implement :php:`TYPO3\CMS\Install\Updates\UpgradeWizardInterface` and its
-methods::
+methods:
+
+.. code-block:: php
+   :caption: EXT:my_extension/Classes/Updates/ExampleUpdateWizard.php
 
    <?php
-   namespace Vendor\ExtName\Updates;
+   namespace Vendor\MyExtension\Updates;
 
    use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
@@ -138,6 +141,10 @@ Method :php:`getPrerequisites`
    define dependencies like "database up-to-date" or "reference index updated":
 
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/Updates/ExampleUpdateWizard.php
+
+   use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
+   use TYPO3\CMS\Install\Updates\ReferenceIndexUpdatedPrerequisite;
 
    /**
     * @return string[]
@@ -157,7 +164,10 @@ Registering wizards
 ===================
 
 Once the wizard is created, it needs to be registered. Registration is done in
-:file:`ext_localconf.php`::
+:file:`ext_localconf.php`:
+
+.. code-block:: php
+   :caption: EXT:my_extension/ext_localconf.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['extName_exampleUpdateWizard']
       = \Vendor\ExtName\Updates\ExampleUpdateWizard::class;
