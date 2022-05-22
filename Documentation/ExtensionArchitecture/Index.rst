@@ -26,11 +26,7 @@ RESERVED FILES & HOW THEY DEFINE FUNCTIONALITY
 
 
    FilesAndLocations/Index
-   ComposerJson/Index
-   DeclarationFile/Index
-   ConfigurationFiles/Index
    NamingConventions/Index
-   ConfigurationOptions/Index
    ExtendingTca/Index
 
 STEPS TOWARDS CREATING AN EXTENSION
@@ -47,7 +43,6 @@ STEPS TOWARDS CREATING AN EXTENSION
    Extbase/Index
    FrontendPlugin/Index
    PublishExtension/Index
-   Resources/Index
 
 ADVANCED
 
