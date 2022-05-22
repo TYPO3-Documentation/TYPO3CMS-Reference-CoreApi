@@ -21,6 +21,12 @@ return [
     ],
     [
         "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Workspaces\Event\ModifyVersionDifferencesEvent::class,
+        "targetFileName"=> "Events/Workspaces/ModifyVersionDifferencesEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
         "class"=> \TYPO3\CMS\Workspaces\Event\SortVersionedDataEvent::class,
         "targetFileName"=> "Events/Workspaces/SortVersionedDataEvent.rst.txt",
         "withCode"=> false
