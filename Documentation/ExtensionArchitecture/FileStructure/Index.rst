@@ -29,11 +29,6 @@ An extension consists of:
 Reserved file names
 ===================
 
-This lists files within an extension that have a specific meaning
-by convention. TYPO3 will scan for reserved file names and
-use the content for specific functionality. For example, if a svg logo of your extension
-is placed at :file:`Resources/Public/Icons/Extension.svg`, the Extension Manager
-will show that image.
 
 Most of these files are not required, except of :file:`ext_emconf.php`
 in :ref:`legacy installations not based on Composer <t3start:legacyinstallation>`
@@ -49,27 +44,6 @@ installations.
 Do not introduce your own files in the root directory of
 extensions with the name prefix :file:`ext_`, because that is reserved.
 
-.. index:: File; EXT:{extkey}/composer.json
-.. _files-composer-json:
-
-:file:`composer.json`
----------------------
-
-*-- required* in Composer installations
-
-For more information, see :ref:`composer-json`.
-
-.. versionchanged:: 11.4
-   The ordering of installed extensions and their dependencies are loaded from
-   the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
-   Composer installations.
-
-.. note::
-   Extension authors should ensure that the information in the :file:`composer.json`
-   file is in sync with the one in the extensions' :file:`ext_emconf.php` file.
-   This is especially important regarding constraints like `depends` , `conflicts`
-   and `suggests`. Use the equivalent settings in :file:`composer.json` `require`,
-   `conflict` and `suggest` to set dependencies and ensure a specific loading order.
 
 .. index:: File; EXT:{extkey}/ext_emconf.php
 .. _ext_emconf-php:
@@ -89,29 +63,6 @@ For legacy installations the :file:`ext_emconf.php` file is the
 source of truth for required dependencies and the loading order of active
 extensions.
 
-.. index::
-   File; EXT:{extkey}/ext_localconf.php
-   File; typo3conf/LocalConfiguration.php
-.. _ext_localconf-php:
-
-:file:`ext_localconf.php`
--------------------------
-
-*-- optional*
-
-Addition to :file:`LocalConfiguration.php`.
-It should contain additional configuration of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
-
-This file contains hook definitions and plugin configuration. It must
-not contain a PHP encoding declaration.
-
-All :file:`ext_localconf.php` files of loaded extensions are
-included right  *after* the files :file:`typo3conf/LocalConfiguration.php`
-and :file:`typo3conf/AdditionalConfiguration.php` during TYPO3
-:ref:`bootstrap <bootstrapping>`.
-
-Pay attention to the rules for the contents of these files.
-For more details, see the :ref:`section below <extension-configuration-files>`.
 
 .. index:: File; EXT:{extkey}/ext_tables.php
 .. _ext_tables-php:

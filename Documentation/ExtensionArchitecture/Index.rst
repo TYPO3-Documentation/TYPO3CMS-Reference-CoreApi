@@ -17,6 +17,7 @@ INTRODUCTION
    Introduction/Index
    ExtensionManagement/Index
    SystemAndLocalExtensions/Index
+   Conventions/Index
 
 RESERVED FILES & HOW THEY DEFINE FUNCTIONALITY
 
