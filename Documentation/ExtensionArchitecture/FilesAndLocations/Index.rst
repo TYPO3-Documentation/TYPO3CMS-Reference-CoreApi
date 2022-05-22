@@ -391,19 +391,6 @@ The file must return an array with routing details. See Core extensions
 like :php:`backend` for examples.
 
 
-.. index:: File; EXT:{extkey}/Configuration/Services.yaml
-
-:file:`Configuration/Services.yaml`
------------------------------------
-
-Services can be configured in this file. TYPO3 uses it for:
-
-* :ref:`Dependency Injection <configure-dependency-injection-in-extensions>`
-* :ref:`Event Listeners <EventDispatcherRegistration>`
-* Command Controllers (see :doc:`Feature: #89139 - Add dependency injection support for console commands <ext_core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands>`)
-* :ref:`Registering a widget with the dashboard <ext_dashboard:register-new-widget>`
-
-See :ref:`ServicesYaml` for details.
 
 :file:`Resources/Public/Icons/Extension.svg`
 --------------------------------------------
@@ -464,34 +451,6 @@ Classes/Domain/Repository
 Classes/ViewHelpers
   Helper classes used in (Fluid) views.
 
-.. index:: Path; EXT:{extkey}/Configuration
-
-Configuration
-  General configuration folder. Some of the sub directories in here have reserved names with special meanings.
-  All files in this directory and in the 2 sub directories :file:`TCA` and :file:`Backend` are automatically
-  included during the TYPO3 bootstrap.
-
-.. index:: Path; EXT:{extkey}/Configuration/Backend
-
-Configuration/Backend/
-  Contains backend routing configurations. See files description of :php:`Routes.php`
-  and :php:`AjaxRoutes.php` :ref:`above <extension-reserved-filenames>`.
-
-.. index:: Path; EXT:{extkey}/Configuration/TCA
-
-Configuration/TCA
-  One file per database table, using the name of the table for the file, plus
-  ".php". Only for new tables.
-
-.. index:: Path; EXT:{extkey}/Configuration/TCA/Overrides
-
-Configuration/TCA/Overrides
-  For extending existing tables.
-  General advice: One file per database table, using the name of the table for the file, plus ".php".
-  For more informations, see chapter :ref:`Extending the TCA Array <storing-changes-extension>`.
-
-.. index:: Path; EXT:{extkey}/Configuration/TsConfig/Page
-
 Configuration/TsConfig/Page
   page TSconfig, see chapter :ref:`'page TSconfig' in the TSconfig Reference
   <t3tsconfig:PageTSconfig>`. Files should have the file extension
@@ -504,12 +463,6 @@ Configuration/TsConfig/User
   <t3tsconfig:UserTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.
 
-.. index:: Path; EXT:{extkey}/Configuration/TypoScript
-
-Configuration/TypoScript
-  TypoScript static setup (:file:`setup.typoscript`) and constants
-  (:file:`constants.typoscript`). Use subfolders if you have several static
-  templates.
 
 .. index:: Path; EXT:{extkey}/Documentation
 
@@ -598,3 +551,10 @@ Tests/Unit
 
 Tests/Functional
   Contains functional tests and fixtures.
+
+
+.. toctree::
+   :titlesonly:
+   :glob:
+
+   */Index
