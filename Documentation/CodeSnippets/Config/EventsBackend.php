@@ -21,6 +21,12 @@ return [
     ],
     [
         "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Backend\Routing\Event\AfterPagePreviewUriGeneratedEvent::class,
+        "targetFileName"=> "Events/Backend/AfterPagePreviewUriGeneratedEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
         "class"=> \TYPO3\CMS\Backend\Controller\Event\BeforeFormEnginePageInitializedEvent::class,
         "targetFileName"=> "Events/Backend/BeforeFormEnginePageInitializedEvent.rst.txt",
         "withCode"=> false
@@ -29,6 +35,12 @@ return [
         "action"=> "createPhpClassDocs",
         "class"=> \TYPO3\CMS\Backend\History\Event\BeforeHistoryRollbackStartEvent::class,
         "targetFileName"=> "Events/Backend/BeforeHistoryRollbackStartEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Backend\Routing\Event\BeforePagePreviewUriGeneratedEvent::class,
+        "targetFileName"=> "Events/Backend/BeforePagePreviewUriGeneratedEvent.rst.txt",
         "withCode"=> false
     ],
     [
