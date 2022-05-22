@@ -7,54 +7,57 @@ Logger
 ======
 
 
-.. index:: Logging; LoggerAwareTrait
+.. index::
+   Logging; Instantiation
+   Logging; LoggerInterface
 .. _logging-logger-instantiation:
 
 Instantiation
 =============
 
-.. versionadded:: 9.0
-   You no longer need to call makeInstance to create an
-   instance of the logger. You can use the LoggerAwareTrait:
-   :doc:`Changelog/9.0/Feature-82441-InjectLoggerWhenCreatingObjects`
+.. versionadded:: 11.4
+   :doc:`Changelog/11.4/Feature-95044-SupportAutowiredLoggerInterfaceInjection`
 
-Use the :code:`LoggerAwareTrait` in your class to automatically instantiate :code:`$this->logger`:
+Constructor injection can be used to automatically instantiate the logger:
 
 .. code-block:: php
 
-   use Psr\Log\LoggerAwareInterface;
-   use Psr\Log\LoggerAwareTrait;
+   use Psr\Log\LoggerInterface;
 
-   class Example implements LoggerAwareInterface
-   {
-      use LoggerAwareTrait;
+   class MyClass {
+       private LoggerInterface $logger;
+
+       public function __construct(LoggerInterface $logger) {
+           $this->logger = $logger;
+       }
    }
 
+.. tip::
 
-Or, you can instantiate the Logger with :code:`makeInstance`.
-
-The :code:`LogManager` enables an auto-configured usage of loggers in your PHP code
-by reading the logging configuration and setting the minimum severity level of the Logger
-accordingly.
-
-.. code-block:: php
-
-   /** @var $logger \TYPO3\CMS\Core\Log\Logger */
-   $this->logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
-
-
-Using :code:`__CLASS__` as name for the logger is recommended to enable logging configuration
-based on the class hierarchy.
+   For examples of instantiation with :php:`LoggerAwareTrait` or
+   :php:`GeneralUtility::makeInstance()`, switch to an older TYPO3 version for this
+   page. Instantiation with dependency injection is now the recommended
+   procedure. Also see the section on :ref:`channels <logging-channels>` for
+   information on grouping classes in channels.
 
 
 .. index::
    Logging; logger->log
    Logging; LogLevels
+   Logging; Shorthand methods
+   Logging; logger->debug
+   Logging; logger->info
+   Logging; logger->warning
+.. _logging-logger-shortcuts:
 
-Log level
-=========
+
+Log levels and shorthand methods
+================================
 
 Log levels according to RFC 3164, starting from the lowest level.
+For each of the severity levels mentioned above, a shorthand method exists in
+:code:`\TYPO3\CMS\Core\Log\Logger`, like
+
 
 .. _label-Debug:
 .. rst-class:: dl-parameters
@@ -62,6 +65,7 @@ Log levels according to RFC 3164, starting from the lowest level.
 Debug
    :sep:`|` debug information
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::DEBUG`
+   :sep:`|` :code:`$this->logger->debug($message, array $context = array());`
    :sep:`|`
 
    Detailed status information during the development of new PHP code.
@@ -72,6 +76,7 @@ Debug
 Informational
    :sep:`|` informational messages
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::INFO`
+   :sep:`|` :code:`$this->logger->info($message, array $context = array());`
    :sep:`|`
 
    User logs in, SQL logs.
@@ -82,9 +87,11 @@ Informational
 Notice
    :sep:`|` significant condition
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::NOTICE`
+   :sep:`|` :code:`$this->logger->notice($message, array $context = array());`
    :sep:`|`
 
    Things you should have a look at, nothing to worry about though.
+   Example: User log ins, SQL logs.
 
 .. _label-warning:
 .. rst-class:: dl-parameters
@@ -92,9 +99,11 @@ Notice
 Warning
    :sep:`|` warning condition
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::WARNING`
+   :sep:`|` :code:`$this->logger->warning($message, array $context = array());`
    :sep:`|`
 
    Use of deprecated APIs. Undesirable events that are not necessarily wrong.
+   Example: Use of a deprecated method.
 
 .. _label-error:
 .. rst-class:: dl-parameters
@@ -102,6 +111,7 @@ Warning
 Error
    :sep:`|` error condition
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::ERROR`
+   :sep:`|` :code:`$this->logger->error($message, array $context = array());`
    :sep:`|`
 
    Runtime error. Some PHP coding error has happened. A white screen is shown.
@@ -112,6 +122,7 @@ Error
 Critical
    :sep:`|` critical condition
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::CRITICAL`
+   :sep:`|` :code:`$this->logger->critical($message, array $context = array());`
    :sep:`|`
 
    Unexpected exception.  An important file has not been found, data is corrupt or outdated.
@@ -122,6 +133,7 @@ Critical
 Alert
    :sep:`|` blocking condition
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::ALERT`
+   :sep:`|` :code:`$this->logger->alert($message, array $context = array());`
    :sep:`|`
 
    Action must be taken immediately. Entire website down, database unavailable.
@@ -132,6 +144,7 @@ Alert
 Emergency
    :sep:`|` nothing works
    :sep:`|` :code:`\TYPO3\CMS\Core\Log\LogLevel::EMERGENCY`
+   :sep:`|` :code:`$this->logger->emergency($message, array $context = array());`
    :sep:`|`
 
    The system is unusable. You will likely not be able to reach the system.
@@ -189,24 +202,62 @@ They can modify the log records or add extra information.
 The Logger then forwards the log records to all of its configured :ref:`Writers <logging-writers>`,
 which will then persist the log record.
 
+.. _logging-channels:
 
-.. index::
-   Logging; Shorthand methods
-   Logging; logger->debug
-   Logging; logger->info
-   Logging; logger->warning
-.. _logging-logger-shortcuts:
+Channels
+========
 
-Shorthand methods
-=================
+It is possible to group several classes into channels, regardless of the
+PHP namespace.
 
-For each of the severity levels mentioned above, a shorthand method exists in
-:code:`\TYPO3\CMS\Core\Log\Logger`, like
+Services are able to control the component name that an
+injected logger is created with.
+This allows to group logs of related classes and is basically
+a channel system as often used in monolog.
 
-- :code:`$this->logger->debug($message, array $data = array());`
-- :code:`$this->logger->info($message, array $data = array());`
-- :code:`$this->logger->notice($message, array $data = array());`
-- etc.
+The :php:`TYPO3\CMS\Core\Log\Channel` attribute is supported for constructor
+argument injection as a class and parameter specific attribute and for
+:php:`LoggerAwareInterface` dependency injection services as a class attribute.
+
+This feature is only available with PHP 8.
+The channel attribute will be gracefully ignored in PHP 7,
+and the classic component name will be used instead.
+
+Registration via class attribute for :php:`LoggerInterface` injection:
+
+.. code-block:: php
+
+   use Psr\Log\LoggerInterface;
+   use TYPO3\CMS\Core\Log\Channel;
+   #[Channel('security')]
+   class MyClass
+   {
+     private LoggerInterface $logger;
+     public function __construct(LoggerInterface $logger)
+     {
+         $this->logger = $logger;
+         // do your magic
+     }
+   }
+
+Registration via parameter attribute for :php:`LoggerInterface` injection,
+overwrites possible class attributes:
+
+.. code-block:: php
+
+   use Psr\Log\LoggerInterface;
+   use TYPO3\CMS\Core\Log\Channel;
+   class MyClass
+   {
+     private LoggerInterface $logger;
+     public function __construct(
+         #[Channel('security')]
+         LoggerInterface $logger
+     ) {
+         $this->logger = $logger;
+         // do your magic
+     }
+   }
 
 .. _logging-logger-examples:
 
@@ -214,7 +265,7 @@ Examples
 ========
 
 Examples of the usage of the Logger can be found in the extension
-`examples <https://extensions.typo3.org/extension/examples/>`__. in file
+:t3ext:`examples/`. in file
 :file:`/Classes/Controller/ModuleController.php`
 
 

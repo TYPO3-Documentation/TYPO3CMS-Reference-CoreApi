@@ -9,13 +9,14 @@
 composer.json
 =============
 
-*-- required*
+*-- required* in Composer-based installations
 
 .. note::
 
    While the file :file:`composer.json` is currently not strictly required
-   for an extension to function properly, it is considered
-   bad practice not to add one. That is why we classify it as "required".
+   for an extension to function properly in legacy non-Composer installations
+   it is recommended to keep it in any public extension that is published to
+   TYPO3 Extension Repository (TER).
 
 Including a :file:`composer.json` is strongly recommended for a number of reasons:
 
@@ -27,7 +28,7 @@ Including a :file:`composer.json` is strongly recommended for a number of reason
 
 #. Working with Composer in general is strongly recommended for TYPO3.
 
-   If you are not using Composer for your projects yet, see :ref:`t3install:migrate-to-composer`
+   If you are not using Composer for your projects yet, see :ref:`t3install:migratetocomposer`
    in the "Installation & Upgrade Guide".
 
 .. _ext-composer-json-minimal:
@@ -56,9 +57,6 @@ Subsequently:
       "require": {
          "typo3/cms-core": "^10.4 || ^11.0"
       },
-      "replace": {
-         "typo3-ter/my-extension": "self.version"
-      },
       "autoload": {
          "psr-4": {
             "Vendorname\\MyExtension\\": "Classes/"
@@ -75,6 +73,18 @@ Subsequently:
   general Composer information
 * see :ref:`ext-composer-json-properties` below for TYPO3 specific hints
 
+.. versionchanged:: 11.4
+   The ordering of installed extensions and their dependencies are loaded from
+   the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
+   Composer-based installations.
+
+.. note::
+   Extension authors should ensure that the information in the :file:`composer.json`
+   file is in sync with the one in the extensions' :file:`ext_emconf.php` file.
+   This is especially important regarding constraints like `depends` , `conflicts`
+   and `suggests`. Use the equivalent settings in :file:`composer.json` `require`,
+   `conflict` and `suggest` to set dependencies and ensure a specific loading order.
+
 .. _ext-composer-json-extended:
 
 Extended composer.json
@@ -89,15 +99,15 @@ Extended composer.json
       "description": "An example extension",
       "license": "GPL-2.0-or-later",
       "require": {
-         "php" : "^7.2",
-         "typo3/cms-backend": "^9.5 || ^10.4 || ^11.0",
-         "typo3/cms-core": "^9.5 || ^10.4 || ^11.0"
+         "php" : "^7.4",
+         "typo3/cms-backend": "^10.4 || ^11.5",
+         "typo3/cms-core": "^10.4 || ^11.5"
       },
       "authors": {
          "name": "John Doe",
          "role": "Developer",
          "email": "john.doe@example.org",
-         "homepage": "www.johndoe.example.org"
+         "homepage": "johndoe.example.org"
       },
       "keywords": [
          "typo3",
@@ -109,9 +119,6 @@ Extended composer.json
       "funding": {
          "type": "other",
          "url:" : "myfundpage.org/vendorname"
-      },
-      "replace": {
-         "typo3-ter/my-extension": "self.version"
       },
       "autoload": {
          "psr-4": {
@@ -187,8 +194,22 @@ require
 (*required*)
 
 At the least, you will want to require `typo3/cms-core`.
-You can add other system extensions and third party extensions,
+You should add other system extensions and third party extensions,
 if your extension depends on them.
+
+In Composer-based installations the loading order of extensions and their
+dependencies is derived from :js:`require` and :js:`suggest`
+
+
+
+suggest
+-------
+
+You should add other system extensions and third party extensions,
+if your extension has an optional dependency on them.
+
+In Composer-based installations the loading order of extensions and their
+dependencies is derived from :js:`require` and :js:`suggest`
 
 
 autoload
@@ -226,36 +247,6 @@ Example for extension key **bootstrap_package**:
       }
    }
 
-replace
--------
-
-(*usually not required*)
-
-`replace <https://getcomposer.org/doc/04-schema.md#replace>`__ in a
-:file:`composer.json` file specifies which other packages can be
-replaced by this package. This means that packages with different
-vendor name or package name will be treated as the same package by
-Composer.
-
-Example for extension key **bootstrap_package**:
-
-.. code-block:: json
-
-   {
-      "replace": {
-         "typo3-ter/bootstrap-package": "self.version"
-      }
-   }
-
-
-As all extensions available in the TER can be installed
-with `composer require typo3-ter/ext-key`, this makes sure that
-there will be no conflicts with packages installed or required
-via Packagist or from another source.
-
-Since the TER Composer repository is deprecated and not all extensions
-must be available in TER, this property is usually not required.
-
 Properties no longer used
 =========================
 
@@ -265,6 +256,23 @@ version
 Was used in earlier TYPO3 versions.
 For TYPO3 versions 7.6 and above you should not use the version property.
 The version for the extension is set in the file :ref:`ext_emconf.php <ext_emconf-php>`.
+`Composer primarily takes the version information from repository tags <https://getcomposer.org/doc/02-libraries.md#library-versioning>`__, 
+so the releases need to be tagged in the VCS repository with a version number.
+
+replace with ``typo3-ter`` vendorname
+-------------------------------------
+
+.. code-block:: json
+
+   {
+      "replace": {
+         "typo3-ter/bootstrap-package": "self.version"
+      }
+   }
+
+This was used previously as long as the TER Composer Repository was 
+relevant. Since the TER Composer Repository is deprecated, the `typo3-ter/*` entry
+within `replace` is not required.
 
 replace with ``"ext_key": "self.version"``
 ------------------------------------------

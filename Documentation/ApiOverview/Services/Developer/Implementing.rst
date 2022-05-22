@@ -6,16 +6,16 @@
 Implementing a service
 ======================
 
-.. deprecated:: 11.3
+.. versionchanged:: 12.0
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   deprecated. See :ref:`services-developer-service-api-migration`.
+   removed. See :ref:`services-developer-service-api-migration`.
 
 There are no tools to get you started coding a new service.
 However there is not much that needs to be done.
 
-A service should be packaged into an extension. This means that you
-will need at least a declaration file :file:`ext_emconf.php` and
-an extension's icon. The class file for your service should be
+A service should be packaged into an extension. The chapter
+:ref:`Files and locations <extension-files-locations>` explains the minimal
+requirements for an extension. The class file for your service should be
 located in the :file:`Classes/Service` directory.
 
 Finally the service registration is placed in the extension's

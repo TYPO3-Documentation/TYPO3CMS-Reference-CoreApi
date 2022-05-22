@@ -16,11 +16,11 @@ What is Routing?
 ================
 
 When TYPO3 serves a request, it maps the incoming URL to a specific page or action.
-For example it maps an URL like `https://example.com/news` to the News page. This process of
+For example it maps an URL like :samp:`https://example.org/news` to the News page. This process of
 determining the page and/or action to execute for a specific URL is called "Routing".
 
 Additionally, routing will take care of beautifying URL parameters, for example converting
-`https://example.com/profiles?user=magdalena` to `https://example.com/profiles/magdalena`.
+:samp:`https://example.org/profiles?user=magdalena` to :samp:`https://example.org/profiles/magdalena`.
 
 
 Key Terminology
@@ -36,10 +36,12 @@ Route
 .. index:: Routing; Slug
 
 Slug
-    Unique name for a ressource to use when creating URLs; for example the slug of the news detail page could be `/news/detail` and
+    Unique name for a resource to use when creating URLs; for example the slug of the news detail page
+    could be `/news/detail`, and
     the slug of a news record could be `2019-software-update`.
 
-    Within TYPO3, a slug is always part of the URL "path" - it does not contain scheme, host, HTTP verb, etc.
+    Within TYPO3, a slug is always a part of the URL "path" - it does not contain scheme, host, HTTP verb, etc.
+    The URL "path" consists of one or more slugs which are concatenated into a single string.
 
     A slug is usually added to a TCA-based database table, containing rules for evaluation and definition.
 
@@ -48,12 +50,17 @@ Slug
     * A slug only contains characters which are allowed within URLs. Spaces, commas and other special characters are converted to a fallback character.
     * A slug is always lower-cased.
     * A slug is unicode-aware.
+    * Slugs must be separated by one or more character like "/", "-", "_" and "&".
+      Regular characters like letters should not be used as separators for better readability.
 
 .. note::
 
-    Until TYPO3 v9 routing for TYPO3 was done by using extensions such as `realURL` or `coolURI`.
-    In contrast to concepts within RealURL of "URL segments", a slug is a segment of a URL, but it does not have
-    to be separated by slashes. Therefore, a slug can contain slashes.
+   Until TYPO3 v9 routing for TYPO3 was done by using extensions such as `realURL` or `coolURI`.
+   In contrast to concepts within RealURL of "URL segments", a slug is a segment of a URL.
+   Slugs should be separated by slashes, but this is not a strict requirement.
+   Therefore a slug of a record may contain slashes.
+   However the risk of conflicts is higher when using slashes
+   within slugs. For example unrelated page hierarchies and records could have slugs forming the same URL path.
 
 
 Routing in TYPO3
@@ -73,7 +80,7 @@ Prerequisites
 
 To ensure Routing in TYPO3 is fully functional the following prerequisites need to be met:
 
-* web server needs to be configured with rewrites (see :ref:`t3install:system-requirements`)
+* web server needs to be configured with rewrites (see :ref:`t3start:system-requirements`)
 * site configuration needs to exist (see :ref:`sitehandling`)
 
 

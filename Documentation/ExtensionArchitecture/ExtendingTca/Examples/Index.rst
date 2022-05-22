@@ -71,7 +71,7 @@ Here's the complete code, taken from file
    The second example :php:`tx_examples_special` only works when the
    :php:`renderType` has been registered implemented and then registered in
    the ext_localconf.php. Please refer to the the following chapter of the
-   TCA reference on how to implement it: `t3tca:columns-user`.
+   TCA reference on how to implement it: :ref:`t3tca:columns-user`.
 
 
 In this example the first method call adds fields using
@@ -93,7 +93,10 @@ calling :php:`ExtensionManagementUtility::addToAllTCAtypes()`. Parameters:
    see :ref:`types in TCA <t3tca:types>` for details.
 4. Optional: position (:php:`'before'` or :php:`'after'`) in relation to an existing field.
 
-So you could do this::
+So you could do this:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Configuration/TCA/Overrides/fe_users.php
 
 
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
@@ -112,6 +115,7 @@ These method calls do not create the corresponding fields in the database. The n
 fields must also be defined in the :file:`ext_tables.sql` file of the extension:
 
 .. code-block:: sql
+   :caption: EXT:some_extension/ext_tables.sql
 
 	CREATE TABLE fe_users (
 		tx_examples_options int(11) DEFAULT '0' NOT NULL,
@@ -148,6 +152,7 @@ element types. First of all, we add its SQL definition in
 :file:`ext_tables.sql`:
 
 .. code-block:: sql
+   :caption: EXT:some_extension/ext_tables.sql
 
 	CREATE TABLE tt_content (
 		tx_examples_noprint tinyint(4) DEFAULT '0' NOT NULL
@@ -156,6 +161,7 @@ element types. First of all, we add its SQL definition in
 Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrides/tt_content.php`:
 
 .. code-block:: php
+   :caption: EXT:some_extension/Configuration/TCA/Overrides/tt_content.php
 
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
       'tt_content',

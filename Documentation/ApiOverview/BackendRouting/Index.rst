@@ -92,7 +92,7 @@ Backend routes can enforce an HTTP Referer header's existence by adding a
 Values for :php:`referrer` are declared as comma-separated list:
 
 * `required` enforces existence of HTTP `Referer` header that has to match the
-  currently used backend URL (e.g. `https://example.org/typo3/`), the request
+  currently used backend URL (e.g. :samp:`https://example.org/typo3/`), the request
   will be denied otherwise.
 * `refresh-empty` triggers a HTML based refresh in case HTTP `Referer` header
   is not given or empty - this attempt uses an HTML refresh, since regular HTTP
@@ -106,21 +106,21 @@ to protect and keep information about the current session token internal.
 
 The request sequence in the TYPO3 Core looks like this:
 
-* HTTP request to `https://example.org/typo3/` having a valid user session
+* HTTP request to :samp:`https://example.org/typo3/` having a valid user session
 * internally **public** backend route `/login` is processed
 * internally redirects to **restricted** backend route `/main` since an
   existing and valid backend user session was found
-  + HTTP redirect to `https://example.org/typo3/main?token=...`
+  + HTTP redirect to :samp:`https://example.org/typo3/main?token=...`
   + exposing the token is mitigated with `referrer` route option mentioned above
 
 .. important::
 
    Please keep in mind these steps are part of a mitigation strategy, which requires
    to be aware of mentioned implications when implementing custom web applications.
-   
-   
+
+
 .. index:: Backend routing; Generating backend URLs
-   
+
 Generating backend URLs
 =======================
 
@@ -135,7 +135,7 @@ generates and applies the mentioned session token.
    // Using a route identifier
    $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
    $uri = $uriBuilder->buildUriFromRoute('web_layout', ['id' => $pageId]);
-   
+
    // Using a route path
    $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
    $uri = $uriBuilder->buildUriFromRoutePath(
@@ -155,8 +155,6 @@ More Information
 Please refer to the following external resources and look at how the TYPO3 source code
 handles backend routing in your TYPO3 version.
 
-* `Scripting-Base: "PSR-7 for backend modules" <https://scripting-base.de/blog/psr-7-for-backend-modules>`__
-* `Scripting-Base: "AJAX with PSR-7" <https://scripting-base.de/blog/ajax-with-psr-7.html>`__
 * `PSR-7 <https://www.php-fig.org/psr/psr-7/>`__
-* TYPO3 Core : `backend : AjaxRoutes.php <https://github.com/typo3/typo3/blob/9.5/typo3/sysext/backend/Configuration/Backend/AjaxRoutes.php>`__ (GitHub)
-* TYPO3 Core : `backend : Routes.php <https://github.com/typo3/typo3/blob/9.5/typo3/sysext/backend/Configuration/Backend/Routes.php>`__ (GitHub)
+* TYPO3 Core : `backend : AjaxRoutes.php <https://github.com/typo3/typo3/blob/main/typo3/sysext/backend/Configuration/Backend/AjaxRoutes.php>`__ (GitHub)
+* TYPO3 Core : `backend : Routes.php <https://github.com/typo3/typo3/blob/main/typo3/sysext/backend/Configuration/Backend/Routes.php>`__ (GitHub)

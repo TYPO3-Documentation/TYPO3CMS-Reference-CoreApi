@@ -6,9 +6,9 @@
 Introduction
 ============
 
-.. deprecated:: 11.3
+.. versionchanged:: 12.0
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   deprecated. See :ref:`services-developer-service-api-migration`.
+   removed. See :ref:`services-developer-service-api-migration`.
 
 This document describes the services functionality included in the
 TYPO3 Core.
@@ -44,15 +44,23 @@ for example. This can be achieved without having to change the original
 code of TYPO3 CMS or of an extension.
 
 Services are simply PHP classes packaged inside an extension.
-The usual way to instantiate a class in TYPO3 CMS is::
+The usual way to instantiate a class in TYPO3 CMS is:
 
-   $object = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-      \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+
+   $object = GeneralUtility::makeInstance(ContentObjectRenderer::class);
 
 
 Getting a service instance is achieved using a different API. The
 PHP class is not directly referenced. Instead a service is identified
-by its type, sub type and exclude service keys::
+by its type, sub type and exclude service keys:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -86,11 +94,11 @@ is chosen automatically for you.
 Reasons for using the Services API
 ==================================
 
-.. deprecated:: 11.3
+.. versionchanged:: 12.0
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   deprecated. See :ref:`services-developer-service-api-migration`.
+   removed. See :ref:`services-developer-service-api-migration`.
 
-The :php:`AbstractService` has been deprecated and it is planed to also
+The :php:`AbstractService` has been removed and it is planed to also
 deprecate the other methods of the Service API in the future. The Service API
 should only be used for frontend and backend user :ref:`authentication
 <authentication>`.

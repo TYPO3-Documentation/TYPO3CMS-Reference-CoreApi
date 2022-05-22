@@ -15,10 +15,10 @@ are based on the extension key.
     Some of the names, such as extension key or vendor name, will be spelled differently,
     depending on where they are used, for example:
 
-    * underscores (`_`) in the extension key are replaced by dashes (`-`), when used in the
-      package name in the file :file:`composer.json` (`cool_shop` -> `cool-shop`)
-    * underscores in the extension key are removed by converting the extension key
-      to UpperCamelCase in namespaces (`cool_shop` -> `CoolShop`)
+    * underscores (`_`) in the extension key should be replaced by dashes (`-`), when used in the
+      package name in the file :file:`composer.json` (e.g. `cool_shop` becomes `<vendor>/cool-shop`)
+    * underscores in the extension key should be removed by converting the extension key
+      to UpperCamelCase in namespaces (e.g. `cool_shop` becomes :php:`VendorName\CoolShop`)
 
 
 Abbreviations & Glossary
@@ -26,34 +26,35 @@ Abbreviations & Glossary
 
 UpperCamelCase
     `UpperCamelCase <https://en.wikipedia.org/wiki/Camel_case>`__ begins
-    with a capital letter and begins all subparts of a word with a
-    capital letter. The rest of the word is in lowercase with no spaces,
-    e.g. CoolShop.
+    with a capital letter and begins all following subparts of a word with a
+    capital letter. The rest of each word is in lowercase with no spaces,
+    e.g. `CoolShop`.
 
 lowerCamelCase
     `lowerCamelCase <https://en.wikipedia.org/wiki/Camel_case>`__ is
     the same as UpperCamelCase, but begins with a lowercase letter.
 
 TER
-    = `"TYPO3 extension repository" <https://extensions.typo3.org/>`__:
+    The `"TYPO3 Extension Repository" <https://extensions.typo3.org/>`__:
     A catalogue of extensions where you can find information about
     extensions and where you can search and filter by TYPO3 version
     etc. Once registered on https://my.typo3.org, you can login and register
     an extension key for your extension in https://extensions.typo3.org
-    > "My Extensions".
+    :guilabel:`My Extensions`.
 
 extkey
-    = extension key.
+    The extension key.
 
 ExtensionName
-    If the term ExtensionName is used, this means the extension key in
-    UpperCamelCase. Example: extkey="bootstrap_package", ExtensionName="BootstrapPackage".
-    The ExtensionName is used as first parameter
-    in Extbase :php:`ExtensionUtility::configurePlugin` or
-    :php:`ExtensionUtility::registerModule()`.
+    The term ExtensionName means the extension key in UpperCamelCase.
+
+    Example: for an extkey `bootstrap_package` the ExtensionName would be `BootstrapPackage`.
+
+    The ExtensionName is used as first parameter in the Extbase methods
+    :php:`ExtensionUtility::configurePlugin()` or :php:`ExtensionUtility::registerModule()`.
 
 modkey
-    = backend module key. There is a main module key and a submodule key.
+    The backend module key.
 
 Public extensions
    Public extensions are publicly available. They are usually registered in TER
@@ -82,8 +83,8 @@ do not follow the conventions.
    stripped off, sometimes not, sometimes a name in UpperCamelCase is created.
 
    The best practice you can follow is to  *avoid using underscores* in
-   your extensions keys at all! That will make the rules simpler. This is
-   highly encouraged.
+   your extensions keys altogether. That will make the rules simpler and is
+   highly recommended.
 
 
 
@@ -96,14 +97,14 @@ Extension key (extkey)
 The extension key (extkey) is used **as is** in:
 
 * directory name of extension in :file:`typo3conf/ext`
-  (or :file:`typo3/sysext` for sytem extensions)
+  (or :file:`typo3/sysext` for system extensions)
 
 Derived names are:
 
-* package name in :file:`composer.json` ``<vendorname>/<extkey>``. Underscores (`_`)
-  are replaced by dashes (`-`)
+* package name in :file:`composer.json` `<vendor-name>/<package-name>`.
+  Underscores (`_`) should be replaced by dashes (`-`)
 * namespaces: Underscores in the extension key are removed by converting the extension key
-  to UpperCamelCase in namespaces (`cool_shop` -> `CoolShop`).
+  to UpperCamelCase in namespaces (e.g. `cool_shop` becomes `VendorName\CoolShop`).
 
 
 .. important::
@@ -115,27 +116,28 @@ Derived names are:
    The *extkey* is valid if the TER accepts it. This also makes sure that the
    name follows the rules and is unique.
 
-   Do this early!
+   Do this early! An already reserved key can usually only be transferred if the
+   original author agrees to this.
 
 
 
-#. The extension key MUST be unique within your installation.
+#. The *extkey* MUST be unique within your installation.
 
 #. The *extkey* MUST be made up of lowercase alphanumeric characters
    and underscores only and MUST start with a letter.
 
 #. More, see :ref:`extension key <extension-key>`
 
-Examples for extkeys:
+Examples for *extkeys*:
    * `cool_shop`
    * `blog`
 
 Examples for names that are derived from the extkey:
 
-Here, extkey is `my_extension`:
+Here, the *extkey* is `my_extension`:
 
-* namespace: ``\Vendorname\MyExtension\...``
-* package name in :file:`composer.json`: `vendorname/my-extension` (the underscore is replaced by
+* namespace: :php:`VendorName\MyExtension\...`
+* package name in :file:`composer.json`: ``vendor-name/my-extension`` (the underscore is replaced by
   a dash)
 
 .. index:: Vendor name
@@ -161,18 +163,18 @@ Use common PHP naming conventions for vendor names in namespaces and check
 rules, but commonly used vendor names begin with a capital letter,
 followed by all lowercase.
 
-The vendor name (as well as the extkey) is spelled with all lowercase when
+The vendor name (as well as the *extkey*) is spelled with all lowercase when
 used in the package name in the file :file:`composer.json`
 
 For the following examples, we assume:
 
-* the vendor name is `Mycompany`
+* the vendor name is `MyCompany`
 * the extkey is `my_example`
 
 
 Examples:
-   * Namespace: ``\Mycompany\MyExample\`` ...
-   * package name (in :file:`composer.json`): `mycompany/my-example`
+   * Namespace: :php:`MyCompany\MyExample\...`
+   * package name (in :file:`composer.json`): `my-company/my-example`
 
 .. seealso::
 
@@ -184,7 +186,9 @@ Database table name
 
 These rules apply to public extensions, but should be followed nevertheless.
 
-Database table names SHOULD follow this pattern::
+Database table names **should** follow this pattern:
+
+.. code-block:: none
 
    tx_<extension-prefix>_<table-name>
 
@@ -196,12 +200,14 @@ Examples for an extension named `cool_shop`:
     * :sql:`tx_coolshop_product`
     * :sql:`tx_coolshop_category`
 
-Extbase domain model tables SHOULD follow this pattern::
+Extbase domain model tables **should** follow this pattern:
 
-   tx_<extension-prefix>_domain_model_<table-name>
+.. code-block:: none
+
+   tx_<extension-prefix>_domain_model_<model-name>
 
 * `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
-* `<table-name>` should match the domain model name
+* `<model-name>` should match the domain model name
 
 Examples for Extbase domain models and table names of an extension named `cool_shop`:
 
@@ -219,11 +225,14 @@ Examples for Extbase domain models and table names of an extension named `cool_s
    You may notice, that the names above use the singular form, e.g. `post` and
    not `posts`. This is recommended, but not always followed. If you do not follow this pattern,
    you may need :ref:`manual mapping <t3extbasebook:using-foreign-data-sources>`.
-   
+
 Database column name
 ====================
 
-When extending a common table like :sql:`tt_content`, column names SHOULD follow this pattern::
+When extending a common table like :sql:`tt_content`, column names SHOULD
+follow this pattern:
+
+.. code-block:: none
 
    tx_<extension-prefix>_<column-name>
 
@@ -242,7 +251,10 @@ contain underscores and MUST start with a letter.
 Example:
    * `Coolshop`
 
-Example usage::
+Example usage:
+
+.. code-block:: php
+    :caption: EXT:my_extension/ext_tables.php
 
     // Module System > Backend Users
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
@@ -263,68 +275,155 @@ Example usage::
 
    You can look at existing module signatures in :guilabel:`System > Configuration`.
 
-
-
-
-Plugin key
-==========
-
-The plugin key is registered in:
-
-* second parameter in :php:`registerPlugin()` (Extbase)
-* or in :php:`addPlugin()` (for non Extbase plugins)
-
-The same plugin key is then used in the following:
-
-* second parameter in :php:`configurePlugin()` (Extbase): MUST match registered plugin key exactly
-* the :ref:`plugin signature <naming-conventions-plugin-signature>`
-* in TypoScript, e.g. :ts:`plugin.tx_myexample_myplugin`
-* in TCA
-* etc.
-
-The plugin key can be freely chosen by the extension author, but you SHOULD follow these conventions:
-
-* do not use underscore
-* use UpperCamelCase, e.g. InventoryList
-* use alphanumeric characters
-
-For the plugin key, `Pi1`, `Pi2` etc. are often used, but it can be named differently.
-
-The plugin key used in :php:`registerPlugin()` and :php:`configurePlugin()` MUST match.
-
-
-
 .. _naming-conventions-plugin-signature:
 
 Plugin signature
 ================
 
-The plugin signature is automatically created by TYPO3 from the extension key and plugin
-key.
+The plugin signature of non-Extbase plugins, registered via
+:php:`ExtensionManagementUtility::addPlugin()` is an arbitrarily defined string.
+By convention it should always be the extension name with all underscores removed
+followed by one underscore and then a lowercase, alphanumeric plugin key.
+Examples: :php:`"myextension_coolplugin"`, :php:`"examples_pi1"`.
 
-For this, all underscores in extension key are omitted and all characters lowercased.
-The extkey and plugin key are separated by an underscore (`_`):
+Extbase based plugins are registered via :php:`ExtensionUtility::registerPlugin()`.
+This method expects the extension key (UpperCamelCase or with underscores) as
+the first parameter and a plugin name in UpperCamelCase (for example :php:`"Pi1"` or
+:php:`"CoolPlugin"`). The method then returns the new plugin signature.
 
-`extkey_pluginkey`
+.. versionadded:: 12.0
+   Starting with TYPO3 12.0 the method :php:`ExtensionUtility::registerPlugin()`
+   automatically returns the correct plugin signature.
+
+If you have to write the signature yourself in other contexts (TypoScript for
+example) you can build it yourself from the extension name and the plugin name:
+
+For this, all underscores in the extension key are omitted and all characters set to lowercase.
+The extension key and plugin key are separated by an underscore (`_`).
+
+Example:
+
+.. code-block:: php
+   :caption: Plugin name and Plugin key listed
+
+   $extensionName = 'my_extension';
+   $pluginName = 'MyCoolPlugin';
+   $pluginSignature == "myextension_mycoolplugin"
 
 The plugin signature is used in:
 
-* the database field `tt_content.list_type`
-* when defining a :ref:`FlexForm <flexforms>` to be used for the plugin in
+*  the database field `tt_content.list_type`
+*  when defining a :ref:`FlexForm <flexforms>` to be used for the plugin in
   :php:`addPiFlexFormValue()`
+*  in TypoScript, :typoscript:`plugin.tx_myexample_myplugin` to define settings
+   for the plugin etc.
+*  As :ref:`record type <t3tca:types>` in TCA. It can therefore be used to
+   define which fields should be visible in the TYPO3 backend.
 
 
-Examples:
-    Assume the following:
+Example register and configure a non-Extbase plugin:
+----------------------------------------------------
 
-    * extkey is `my_extension`
-    * plugin key is `InventoryList`
+.. code-block:: php
+   :caption: EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_htmlparser.php
 
-    The derived name for the "plugin signature" is:
+   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-    * `myextension_inventorylist` This is used in tt_content.list_type and as
-      first parameter of :php:`addPiFlexFormValue()`.
+   $pluginSignature = 'examples_pi1';
+   $pluginTitle = 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1';
+   $extensionKey = 'examples';
 
+   // Add the plugins to the list of plugins
+   ExtensionManagementUtility::addPlugin (
+       [ $pluginTitle, $pluginSignature,],'list_type', $extensionKey
+   );
+
+   // Disable the display of layout and select_key fields for the plugin
+   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature]
+       = 'layout,select_key,pages';
+
+   // Activate the display of the plug-in flexform field and set FlexForm definition
+   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi1'] = 'pi_flexform';
+   ExtensionManagementUtility::addPiFlexFormValue(
+       $pluginSignature, 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds1.xml'
+   );
+
+.. code-block:: typoscript
+   :caption: EXT:examples/Configuration/setup.typoscript
+
+   plugin.tx_examples_pi1 {
+      settings.pageId = 42
+   }
+
+Plugin key (Extbase only)
+=========================
+
+The plugin key is registered in:
+
+*  second parameter in :php:`ExtensionUtility::registerPlugin()`
+
+The same plugin key is then used in the following:
+
+*  second parameter in :php:`ExtensionUtility::configurePlugin()`
+
+The plugin key can be freely chosen by the extension author, but you **should**
+follow these conventions:
+
+*  do not use underscore
+*  use UpperCamelCase, e.g. InventoryList
+*  use alphanumeric characters
+
+For the plugin key, `Pi1`, `Pi2` etc. are often used, but it can be named differently.
+
+The plugin key used in :php:`registerPlugin()` and :php:`configurePlugin()`
+**must** match or the later method will fail.
+
+Example register and configure an Extbase plugin:
+-------------------------------------------------
+
+.. code-block:: php
+   :caption: EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_htmlparser.php
+
+   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
+   $extensionKey = 'Examples';
+   $pluginName = 'HtmlParser';
+   $pluginTitle = 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:htmlparser_plugin_title';
+
+   $pluginSignature = ExtensionUtility::registerPlugin($extensionKey, $pluginName,
+       $pluginTitle);
+
+   // $pluginSignature == "examples_htmlparser"
+
+   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature]
+       = 'layout,select_key,pages';
+   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature]
+       = 'pi_flexform';
+
+   ExtensionManagementUtility::addPiFlexFormValue(
+       $pluginSignature, 'FILE:EXT:examples/Configuration/Flexforms/HtmlParser.xml'
+   );
+
+.. code-block:: php
+   :caption: EXT:examples/ext_localconf.php
+
+   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
+   ExtensionUtility::configurePlugin(
+       'Examples',
+       'HtmlParser',
+       [
+           \T3docs\Examples\Controller\HtmlParserController::class => 'index',
+       ]
+   );
+
+.. code-block:: typoscript
+   :caption: EXT:examples/Configuration/setup.typoscript
+
+   plugin.tx_examples_htmlparser {
+      settings.pageId = 42
+   }
 
 Class name
 ==========

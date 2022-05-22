@@ -110,15 +110,18 @@ What does it look like?
 
 Below is an example of a frontend user with its stored password hash. Since TYPO3 can handle multiple
 different hash mechanisms in parallel, each hash is prefixed with a unique string that identifies the
-used hash algorithm. In this case it is `$argon2i` which denotes the Argon2i hash algorithm::
+used hash algorithm. In this case it is `$argon2i` which denotes the Argon2i hash algorithm:
 
-    MariaDB [cms]> SELECT uid,username,password FROM fe_users WHERE uid=2;
-    +-----+----------+---------------------------------------------------------------------------------------------------+
-    | uid | username | password                                                                                          |
-    +-----+----------+---------------------------------------------------------------------------------------------------+
-    |   2 | someuser | $argon2i$v=19$m=16384,t=16,p=2$WFdVRjdqVy9TbVJPajNqcA$vMDP/TBSR0MSA6yalyMpBmFRbCD8UR4bbHZma59yNjQ |
-    +-----+----------+---------------------------------------------------------------------------------------------------+
-    1 row in set (0.01 sec)
+.. code-block:: none
+   :caption: Data of a frontend user in the database
+
+   MariaDB [cms]> SELECT uid,username,password FROM fe_users WHERE uid=2;
+   +-----+----------+---------------------------------------------------------------------------------------------------+
+   | uid | username | password                                                                                          |
+   +-----+----------+---------------------------------------------------------------------------------------------------+
+   |   2 | someuser | $argon2i$v=19$m=16384,t=16,p=2$WFdVRjdqVy9TbVJPajNqcA$vMDP/TBSR0MSA6yalyMpBmFRbCD8UR4bbHZma59yNjQ |
+   +-----+----------+---------------------------------------------------------------------------------------------------+
+   1 row in set (0.01 sec)
 
 
 .. index:: Password hashing; Configuration
@@ -283,7 +286,10 @@ To create a new password hash from a given plain-text password, these are the st
 * Let the factory deliver an instance of the default hashing class with given context `FE` or `BE`
 * Create the user password hash
 
-Example implementation for TYPO3 frontend::
+Example implementation for TYPO3 frontend:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
    // Given plain text password
    $password = 'someHopefullyGoodAndLongPassword';
@@ -298,7 +304,10 @@ To check a plain-text password against a password hash, these are the steps to b
 * Let the factory deliver an instance of the according hashing class
 * Compare plain-text password with salted user password hash
 
-Example implementation for TYPO3 frontend::
+Example implementation for TYPO3 frontend:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
    // Given plain-text password
    $password = 'someHopefullyGoodAndLongPassword';
@@ -324,7 +333,7 @@ To add an additional hash algorithm, these steps are necessary:
 .. _Argon2: https://en.wikipedia.org/wiki/Argon2
 .. _bcrypt: https://en.wikipedia.org/wiki/Bcrypt
 .. _PBKDF2: https://en.wikipedia.org/wiki/PBKDF2
-.. _phpass: http://www.openwall.com/phpass/
+.. _phpass: https://www.openwall.com/phpass/
 .. _blowfish: https://en.wikipedia.org/wiki/Blowfish_(cipher)
 .. _md5: https://en.wikipedia.org/wiki/MD5
 

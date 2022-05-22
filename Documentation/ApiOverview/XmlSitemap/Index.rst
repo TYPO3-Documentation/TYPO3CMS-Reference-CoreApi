@@ -8,12 +8,17 @@ XML sitemap
 
 .. versionadded:: 9.4
 
-   XML Sitemap support was added to the Core with change :doc:`t3core:Changelog/9.4/Feature-84525-XMLSitemap`.
+   XML Sitemap support was added to the Core with change :doc:`ext_core:Changelog/9.4/Feature-84525-XMLSitemap`.
 
 It is possible to generate XML sitemaps for SEO purposes without using 3rd-party plugins.
 When enabled, this new feature will create a sitemapindex with one or more sitemaps in it.
 Out-of-the-box it will have one sitemap containing all the pages of the current site and
 language. Per site and per language you have the possibility to render a different sitemap.
+
+.. note::
+   The XML sitemap is provided by the optional system extension
+   EXT:seo. You can find information about how to install and use it in the
+   :doc:`EXT:seo manual <ext_seo:Index>`.
 
 Installation
 ============
@@ -25,14 +30,27 @@ mandatory to have a site configuration for your rootpage(s).
 How to access your XML sitemap
 ==============================
 
-Until it is possible to have a default route with the new URL handling mechanism, you can access
-the sitemaps by going to https://yourdomain.com/?type=1533906435. You will first see the sitemap
-index. By default you will see one sitemap in the index. This is the sitemap for pages.
+You can access the sitemaps by going to :samp:`https://example.org/?type=1533906435`. You will
+first see the sitemap index. By default you will see one sitemap in the index. This is the
+sitemap for pages.
 
 If you have multiple siteroots or multiple languages with different domains or language prefixes,
 you can just go to the domain that handles the siteroot / language. The sitemap will be based on
 the settings for that domain.
 
+How to setup routing for the XML sitemap
+========================================
+
+You can use the PageType decorator to map the page type to a fixed suffix. This allows you to expose the sitemap with a readable URL, e.g. :samp:`https://example.org/sitemap.xml`.
+
+.. code-block:: yaml
+
+   routeEnhancers:
+     PageTypeSuffix:
+       type: PageType
+       map:
+         /: 0
+         sitemap.xml: 1533906435
 
 .. index:: XmlSitemapDataProviders
 
@@ -40,9 +58,11 @@ XmlSitemapDataProviders
 =======================
 
 The rendering of sitemaps is based on XmlSitemapDataProviders. The EXT:seo extension ships with two
-XmlSitemapDataProviders. The first one is the PagesXmlSitemapDataProvider. This will generate a sitemap
-of pages based on the siteroot that is detected. You can configure if you have additional conditions
+XmlSitemapDataProviders. The first one is the PagesXmlSitemapDataProvider.
+
+This will generate a sitemap of pages based on the siteroot that is detected. You can configure if you have additional conditions
 for the selection of pages. You also have the possibility to exclude certain doktypes.
+Additionally, you may exclude page subtrees from the sitemap (e.g internal pages).
 
 .. code-block:: typoscript
 
@@ -55,6 +75,7 @@ for the selection of pages. You also have the possibility to exclude certain dok
                excludedDoktypes = 137, 138
                additionalWhere = AND (no_index = 0 OR no_follow = 0)
                #rootPage = <optionally specify a different root page. (default: rootPageId from site configuration)>
+               excludePagesRecursive = <commaseparated list of pids>
              }
            }
          }
@@ -147,8 +168,8 @@ not affect how important your pages are compared to pages of other websites. All
 0.5 by default.
 
 The settings can be defined in TypoScript by mapping the properties to fields of the record by using the options
-:ts:`changeFreqField` and :ts:`priorityField`. :ts:`changeFreqField` needs to point to a field containing
-string values (see :ts:`pages` TCA definition of field :ts:`sitemap_changefreq`), :ts:`priorityField` needs to point
+:typoscript:`changeFreqField` and :typoscript:`priorityField`. :typoscript:`changeFreqField` needs to point to a field containing
+string values (see :typoscript:`pages` TCA definition of field :typoscript:`sitemap_changefreq`), :typoscript:`priorityField` needs to point
 to a field with a decimal value between 0 and 1.
 
 .. note::
@@ -194,7 +215,7 @@ The :php:`getItems` method have to return an array with the items for the sitema
 .. code-block:: php
 
     $this->items[] = [
-        'loc' => 'https://www.yourdomain.com/page1.html',
+        'loc' => 'https://example.org/page1.html',
         'lastMod' => '1536003609'
     ];
 
@@ -210,19 +231,28 @@ Path to sitemap xslFile
 .. versionadded:: 10.3
 
    It is now possible to configure the path to the sitemap xslFile.
-   See changelog :doc:`t3core:Changelog/10.3/Feature-88147-AddPossibilityToConfigureThePathToSitemapXslFile`
+   See changelog :doc:`ext_core:Changelog/10.3/Feature-88147-AddPossibilityToConfigureThePathToSitemapXslFile`
 
 The xsl file to create a layout for a XML sitemap can now be configured on three levels:
 
-#. For all sitemaps::
+#. For all sitemaps:
+
+   .. code-block:: typoscript
+      :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
       plugin.tx_seo.config.xslFile = EXT:myext/Resources/Public/CSS/mySite.xsl
 
-#. For all sitemaps of a certain sitemapType::
+#. For all sitemaps of a certain sitemapType:
+
+   .. code-block:: typoscript
+      :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
       plugin.tx_seo.config.<sitemapType>.sitemaps.xslFile = EXT:myext/Resources/Public/CSS/mySite.xsl
 
-#. For a specific sitemap::
+#. For a specific sitemap:
+
+   .. code-block:: typoscript
+      :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
       plugin.tx_seo.config.<sitemapType>.sitemaps.<sitemap>.config.xslFile = EXT:myext/Resources/Public/CSS/mySite.xsl
 

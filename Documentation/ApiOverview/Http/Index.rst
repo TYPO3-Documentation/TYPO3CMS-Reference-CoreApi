@@ -9,7 +9,7 @@
 HTTP request library / Guzzle / PSR-7
 =====================================
 
-Since TYPO3 CMS 8.1 the PHP library `Guzzle` has been added via composer dependency
+Since TYPO3 CMS 8.1 the PHP library `Guzzle` has been added via Composer dependency
 to work as a feature rich solution for creating HTTP requests based on the PSR-7 interfaces
 already used within TYPO3.
 
@@ -21,12 +21,12 @@ a simplified wrapper to access Guzzle clients.
 
 All options available under :php:`$GLOBALS['TYPO3_CONF_VARS'][HTTP]` are automatically applied to the Guzzle
 clients when using the :php:`RequestFactory` class. The options are a subset to the available options
-on Guzzle (http://docs.guzzlephp.org/en/latest/request-options.html) but can further be extended.
+on Guzzle (https://docs.guzzlephp.org/en/latest/request-options.html) but can further be extended.
 
 Existing :php:`$GLOBALS['TYPO3_CONF_VARS'][HTTP]` options have been removed and/or migrated to the
 new Guzzle-compliant options.
 
-A full documentation for Guzzle can be found at http://docs.guzzlephp.org/en/latest/.
+A full documentation for Guzzle can be found at https://docs.guzzlephp.org/en/latest/.
 
 Although Guzzle can handle Promises/A+ and asynchronous requests, it currently acts as
 a drop-in replacement for the previous mixed options and implementations within
@@ -63,7 +63,7 @@ The `RequestFactory` class can be used like this:
          $additionalOptions = [
             // Additional headers for this specific request
             'headers' => ['Cache-Control' => 'no-cache'],
-            // Additional options, see http://docs.guzzlephp.org/en/latest/request-options.html
+            // Additional options, see https://docs.guzzlephp.org/en/latest/request-options.html
             'allow_redirects' => false,
             'cookies' => true,
          ];
@@ -77,7 +77,9 @@ The `RequestFactory` class can be used like this:
          }
       }
 
-A POST request can be achieved with::
+A POST request can be achieved with:
+
+.. code-block:: php
 
    $additionalOptions = [
       'body' => 'Your raw post data',
@@ -145,7 +147,7 @@ given PSR-7 Response will then directly be returned.
 .. code-block:: php
 
    // Before
-   HttpUtility::redirect('https://example.com', HttpUtility::HTTP_STATUS_303);
+   HttpUtility::redirect('https://example.org', HttpUtility::HTTP_STATUS_303);
 
    // After
 
@@ -158,7 +160,7 @@ given PSR-7 Response will then directly be returned.
    // Create redirect response
    $response = $this->responseFactory
       ->createResponse(303)
-      ->withAddedHeader('location', 'https://example.com')
+      ->withAddedHeader('location', 'https://example.org')
 
    // Return Response directly
    return $reponse;

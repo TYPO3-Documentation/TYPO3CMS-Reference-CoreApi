@@ -9,7 +9,7 @@
 Configuration
 =============
 
-Configuring the Doctrine DBAL for `TYPO3 CMS` is all about specifying the single database endpoints
+Configuring the Doctrine DBAL for TYPO3 CMS is all about specifying the single database endpoints
 and handing over connection credentials. The framework supports the parallel usage of multiple
 database connections, a specific connection is mapped depending on its table name. The table space
 can be seen as a transparent layer that determines which specific connection is chosen for a query
@@ -20,9 +20,12 @@ As with other central configuration options, the database endpoint and mapping c
 within :file:`typo3conf/LocalConfiguration.php` and ends up in :php:`$GLOBALS['TYPO3_CONF_VARS']` after
 the Core bootstrap. The specific sub-array is :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']`.
 
-A typical, basic example using only the `Default` connection with a single database endpoint::
+A typical, basic example using only the `Default` connection with a single
+database endpoint:
 
-   // LocalConfiguration.php
+.. code-block:: php
+   :caption: typo3conf/LocalConfiguration.php
+
    // [...]
    'DB' => [
       'Connections' => [
@@ -49,9 +52,9 @@ Remarks:
   connection even for `localhost`, the `IPv4` or `IPv6` address `127.0.0.1` and `::1/128` respectively
   must be used as `host` value.
 
-* The connect options are hand over to Doctrine DBAL without much manipulation from `TYPO3 CMS` side.
+* The connect options are hand over to Doctrine DBAL without much manipulation from TYPO3 CMS side.
   Please refer to the
-  `doctrine connection docs <http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html>`__
+  `doctrine connection docs <https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html>`__
   for a full overview of settings.
 
 * If `charset` option is not specified it defaults to `utf8`.
@@ -61,7 +64,11 @@ Remarks:
   around Doctrine DBAL.
 
 
-A slightly more complex example with two connections, mapping the `sys_log` table to a different endpoint::
+A slightly more complex example with two connections, mapping the `sys_log`
+table to a different endpoint:
+
+.. code-block:: php
+   :caption: typo3conf/LocalConfiguration.php
 
    // LocalConfiguration.php
    // [...]
@@ -112,6 +119,6 @@ Remarks:
     Connections to databases `postgres`, `maria` and `mysql` are actively tested.
     However, `mssql` is currently not actively tested.
 
-    Furthermore, the `TYPO3 CMS` installer supports only a single `mysql` or `mariadb` connection
+    Furthermore, the TYPO3 CMS installer supports only a single `mysql` or `mariadb` connection
     at the moment and the connection details can not be properly edited within the `All configuration`
     section of the Install Tool.

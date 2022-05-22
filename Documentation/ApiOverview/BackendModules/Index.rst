@@ -9,15 +9,36 @@ Backend modules
 TYPO3 CMS offers a number of ways to attach custom functionality to the
 backend. They are described in this chapter.
 
+GENERAL
 
 .. toctree::
    :maxdepth: 5
    :titlesonly:
    :glob:
 
-   Structure/Index
-   TemplateClass/Index
-   TemplateClass/BackendTemplateViewWithoutExtbase
+   General/BackendInterface
+   General/ViewModules
    BackendModuleApi/Index
+
+CREATING BACKEND MODULES WITH EXTBASE
+
+.. toctree::
+   :maxdepth: 5
+   :titlesonly:
+   :glob:
+
+   BackendModulesWithExtbase/BackendTemplateViewWithExtbase
+   BackendModulesWithExtbase/BackendModuleApiWithExtbase
+   BackendModulesWithExtbase/RegisterToplevelModuleWithExtbase
+
+CREATING BACKEND MODULES WITHOUT EXTBASE
+
+.. toctree::
+   :maxdepth: 5
+   :titlesonly:
+   :glob:
+
+   BackendModulesWithoutExtbase/BackendTemplateViewWithoutExtbase
+   BackendModulesWithoutExtbase/BackendModuleApiWithoutExtbase
 
 

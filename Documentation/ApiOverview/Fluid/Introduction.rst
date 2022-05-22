@@ -6,17 +6,26 @@
 Introduction to Fluid
 =====================
 
-Fluid is TYPO3’s default rendering engine but can also be used in a standalone PHP project.
-The Fluid source code is being developed as an independent project outside of the TYPO3 Core.
+Fluid is TYPO3’s default rendering engine but can also be used in standalone PHP projects.
+The `Fluid source code <https://github.com/TYPO3/Fluid>`__ is being developed as an
+independent project outside of the TYPO3 Core.
 
-Fluid is based on XML.
-You can use HTML markup in Fluid, but you can do much more with Fluid, such as use conditions,
-variables or custom ViewHelpers which are PHP components.
+Fluid is based on XML and you can use HTML markup in Fluid.
+
+Fluid ViewHelpers can be used for various purposes. Some transform data, some include
+Partials, some loop over data or even set variables. You can find a complete list of
+them in the :doc:`ViewHelper Reference <t3viewhelper:Index>`.
+
+You can :ref:`write your own custom ViewHelper <t3extbasebook:developing-a-custom-viewhelper>`,
+which is a PHP component.
 
 Example Fluid snippet
 =====================
 
-This is how a simple Fluid snippet could look like::
+This is how a simple Fluid snippet could look like:
+
+.. code-block:: html
+   :caption: EXT:site_package/Resources/Private/Templates/SomeTemplate.html
 
    <h4>This is your headline</h4>
    <p>
@@ -30,7 +39,10 @@ This is how a simple Fluid snippet could look like::
     </f:if>
    </p>
 
-The resulting HTML may look like this::
+The resulting HTML may look like this:
+
+.. code-block:: html
+   :caption: Example frontend output
 
    <h4>This is your headline</h4>
    <p>This is the content of variable "somevariable"</p>
@@ -40,14 +52,14 @@ The above Fluid snippet contains:
 ViewHelpers:
    The XML elements that start with `f:` like `<f:if>` etc. are standard ViewHelpers.
    It is also possible to define custom ViewHelpers, for example
-   `<foo:bar foo="bar">`. A corresponding file `ViewHelpers/BarViewHelper.php` 
+   `<foo:bar foo="bar">`. A corresponding file `ViewHelpers/BarViewHelper.php`
    with the methods `initializeArguments` and `render` contains the HTML generation logic.
    ViewHelpers are Fluid components which make a function call to PHP from inside of a template.
    TYPO3 adds some more ViewHelpers for TYPO3 specific functionality. And, you can
    :ref:`write your own <t3extbasebook:developing-a-custom-viewhelper>`.
 
    ViewHelpers can do simple processing such as remove spaces with the
-   :ref:`t3viewhelper:typo3fluid-fluid-spaceless` Viewhelper or create a link
+   :ref:`t3viewhelper:typo3fluid-fluid-spaceless` ViewHelper or create a link
    as is done in the TYPO3 Fluid Viewhelper :ref:`t3viewhelper:typo3-fluid-link-page`.
 
 Object Accessors:
@@ -141,7 +153,7 @@ Example: Using Fluid to create a theme
 ======================================
 
 This example was taken from the `example extension <https://github.com/TYPO3-Documentation/TYPO3CMS-Tutorial-SitePackage-Code/>`__
-for :ref:`t3sitepackage:start` and reduced to a very basic example.
+for :doc:`t3sitepackage:Index` and reduced to a very basic example.
 
 The Sitepackage Tutorial walks you through the creation of a sitepackage
 (theme) using Fluid. In our simplified example, the overall structure of
@@ -209,16 +221,17 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
       }
    }
 
-:file:`Resources/Private/Layouts/Page/Default.html`::
+
+.. code-block:: html
+   :caption: Resources/Private/Layouts/Page/Default.html
 
    <f:render section="Header" />
    <f:render section="Main" />
    <f:render section="Footer" />
 
 
-:file:`Resources/Private/Templates/Page/ThreeColumn.html`:
-
-.. code-block:: xml
+.. code-block:: html
+   :caption: Resources/Private/Templates/Page/ThreeColumn.html
    :linenos:
 
    <f:layout name="Default" />
@@ -257,7 +270,8 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
   generated elsewhere.
 
 
-:file:`Resources/Private/Partials/Page/Jumbotron.html`::
+.. code-block:: html
+   :caption: Resources/Private/Partials/Page/Jumbotron.html
 
    <div class="jumbotron">
       <div class="container">
@@ -273,22 +287,20 @@ Further information
 
 To get an introduction to the basics of Fluid:
 
-* `The Fluid Syntax <https://github.com/TYPO3/Fluid/blob/master/doc/FLUID_SYNTAX.md>`__
-* `ViewHelpers - what these classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/master/doc/FLUID_VIEWHELPERS.md>`__
+* `The Fluid Syntax <https://github.com/TYPO3/Fluid/blob/main/doc/FLUID_SYNTAX.md>`__
+* `ViewHelpers - what these classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/main/doc/FLUID_VIEWHELPERS.md>`__
 
-Depending on what you plan to do, you may want to follow one of these comprehensive
+You may want to follow one of these comprehensive
 tutorials:
 
-* :ref:`t3sitepackage:start` which shows you how to create a theme for your site
+* :doc:`t3sitepackage:Index` which shows you how to create a theme for your site
   using Fluid.
 * :ref:`Create custom content elements <adding-your-own-content-elements>`
-* :ref:`t3extbasebook:start`
+* :doc:`t3extbasebook:Index`
 * Use Fluid to create emails using the :ref:`TYPO3 Mail API <mail-fluid-email>`
 
 Once you have successfully completed your fist steps, these references might come
 in handy:
 
 * `24 TIPS & TRICKS FOR FLUID <https://usetypo3.com/24-fluid-tips.html>`__
-* :ref:`Fluid Viewhelper Reference <t3viewhelper:start>`
-
-
+* :doc:`Fluid Viewhelper Reference <t3viewhelper:Index>`

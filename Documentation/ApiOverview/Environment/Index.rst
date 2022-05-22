@@ -22,6 +22,10 @@ be called to adjust the information.
 Environment PHP API
 ===================
 
+.. tip::
+   A comprehensive list of methods can be found in the
+   `Class Reference <https://api.typo3.org/main/class_t_y_p_o3_1_1_c_m_s_1_1_core_1_1_core_1_1_environment.html>`__.
+
 .. index::
    Environment; getProjectPath
    File; composer.json
@@ -122,10 +126,13 @@ getContext()
 Returns the current :ref:`application-context`, usually defined via the `TYPO3_CONTEXT` environment variable.
 May be one of `Production`, `Testing`, or `Development` with optional sub-contexts like `Production/Staging`.
 
-Example, test for production context::
+Example, test for production context:
 
-   // use \TYPO3\CMS\Core\Core\Environment; 
-   
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
+
+   // use \TYPO3\CMS\Core\Core\Environment;
+
    $applicationContext = Environment::getContext();
    if ($applicationContext->isProduction()) {
       // do something only when in production context
@@ -153,7 +160,7 @@ to allow to store **data** outside of the document root.
 All Composer-based installations benefit from this functionality, as data that was previously
 stored and hard-coded within :file:`typo3temp/var/` is now stored within the **project root** folder :file:`var/`.
 
-For non-composer installations (Classic Mode), it is possible to set the environment variable to a folder, usually one level
+For non-Composer installations (Classic Mode), it is possible to set the environment variable to a folder, usually one level
 upwards than the regular **webroot**. This increases security for any TYPO3 installation as files are not
 publicly accessible (for example via web browser) anymore.
 

@@ -31,7 +31,7 @@ Format
 * Use spaces, not tabs
 * Indent with 2 spaces per indent level
 
-See `.editorconfig <https://github.com/typo3/typo3/blob/master/.editorconfig>`__ in core.
+See `.editorconfig <https://github.com/typo3/typo3/blob/main/.editorconfig>`__ in core.
 
 
 More Information
@@ -39,4 +39,4 @@ More Information
 
 * See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to
   the coding guidelines.
-* :ref:`t3tsconfig:start`
+* :doc:`t3tsconfig:Index`

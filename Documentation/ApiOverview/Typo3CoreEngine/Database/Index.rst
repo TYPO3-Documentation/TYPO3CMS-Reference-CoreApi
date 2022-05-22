@@ -46,9 +46,9 @@ Basic Usage
 
    use TYPO3\CMS\Core\Utility\GeneralUtility;
    use TYPO3\CMS\Core\DataHandling\DataHandler;
-   
+
    $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
-   
+
    $cmd = [];
    $data = [];
    $dataHandler->start($data, $cmd);
@@ -57,7 +57,9 @@ Basic Usage
 Commands array
 ==============
 
-Syntax::
+Syntax:
+
+.. code-block:: none
 
    $cmd[ tablename ][ uid ][ command ] = value
 
@@ -146,7 +148,9 @@ Command keywords and values
 
          - array: The array has to contain the integer value as in examples above and
            may contain field => value pairs for updates. The array is structured
-           like::
+           like:
+
+           .. code-block:: php
 
               [
                  'action' => 'paste', // 'paste' is used for both move and copy commands
@@ -228,14 +232,15 @@ Command keywords and values
          The :php:`copyToLanguage` command should be used when localizing records in the "Free Mode".
          This command is used when localizing content elements using translation wizard's "Copy" strategy.
 
-
  - :Command:
          inlineLocalizeSynchronize
    :Type:
          array
    :Value:
          Performs localization or synchronization of child records.
-         The command structure is like::
+         The command structure is like:
+
+         .. code-block:: php
 
              $cmd['tt_content'][13]['inlineLocalizeSynchronize'] = [ // 13 is a parent record uid
                'field' => 'tx_myfieldname', // field we want to synchronize
@@ -307,7 +312,9 @@ Command keywords and values
 Examples of commands:
 ---------------------
 
-::
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $cmd['tt_content'][54]['delete'] = 1;    // Deletes tt_content record with uid=54
    $cmd['tt_content'][1203]['copy'] = -303; // Copies tt_content uid=1203 to the position after tt_content uid=303 (new record will have the same pid as tt_content uid=1203)
@@ -317,12 +324,42 @@ Examples of commands:
 .. index:: DataHandler; Data array
 .. _tce-data:
 
-Data array
+Accessing the uid of copied records:
+------------------------------------
+
+The :php:`DataHandler` keeps track of records created by :code:`copy` operations in its :php:`$copyMappingArray_merged` property. This property is public and can be used to determine the UID of a record copy based on the UID of the copied record.
+
+.. caution::
+   The :php:`$copyMappingArray_merged` property should not be confused with the :php:`$copyMappingArray` property which contains only information about the last copy operation and is cleared between each operation.
+
+The structure of the :php:`$copyMappingArray_merged` property looks like this:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   $copyMappingArray_merged = [
+      <table> => [
+         <original-record-uid> => <record-copy-uid>,
+      ],
+   ];
+
+The property contains the names of the manipulated tables as keys and a map of original record UIDs and UIDs of record copies as values.
+
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
+   $dataHandler->start([], $cmd);
+   $dataHandler->process_cmdmap()
+
+   $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
+
+
+Data Array
 ==========
 
-Syntax::
-
-   $data[tablename][uid][fieldname] = value
+Syntax: :php:`$data['<tablename>'][<uid>]['<fieldname>'] = 'value'`
 
 Description of keywords in syntax:
 
@@ -350,7 +387,7 @@ Description of keywords in syntax:
    :Description:
          The UID of the record that is modified. If the record already exists,
          this is an integer.
-         
+
          If you're creating new records, use a random string prefixed with `NEW`, e.g. `NEW7342abc5e6d`.
          You can use static strings (`NEW1`, `NEW2`, ...) or generate them using :php:`StringUtility::getUniqueId('NEW')`.
 
@@ -389,7 +426,10 @@ Examples of data submission
 ---------------------------
 
 This creates a new page titled "The page title" as the first page
-inside page id 45::
+inside page id 45:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $data['pages']['NEW9823be87'] = [
       'title' => 'The page title',
@@ -398,7 +438,10 @@ inside page id 45::
    ];
 
 This creates a new page titled "The page title" right after page id 45
-in the tree::
+in the tree:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $data['pages']['NEW9823be87'] = [
       'title' => 'The page title',
@@ -407,7 +450,10 @@ in the tree::
    ];
 
 This creates two new pages right after each other, located right after
-the page id 45::
+the page id 45:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $data['pages']['NEW9823be87'] = [
       'title' => 'Page 1',
@@ -425,7 +471,10 @@ only when the order in the array is as above since the processing
 happens in that order!
 
 This creates a new content record with references to existing and
-one new system category::
+one new system category:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $data['sys_category']['NEW9823be87'] = [
        'title' => 'New category',
@@ -445,7 +494,10 @@ one new system category::
    To get real uid of the record you have just created use DataHandler's `substNEWwithIDs` property like: :php:`$uid = $dataHandler->substNEWwithIDs['NEW9823be87'];`
 
 This updates the page with uid=9834 to a new title, "New title for
-this page", and no\_cache checked::
+this page", and no\_cache checked:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $data['pages'][9834] = [
        'title' => 'New title for this page',
@@ -462,7 +514,10 @@ Clear cache
 
 TCE also has an API for clearing the cache tables of TYPO3:
 
-Syntax::
+Syntax
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $dataHandler->clear_cacheCmd($cacheCmd);
 
@@ -525,7 +580,11 @@ By default the following cache tags are flushed:
 
 Notice that you can also use the :php:`TypoScriptFrontendController::addCacheTags()` method to register additional tags for the cache entry of the current page while it is rendered. This way you can implement an elaborate caching behavior which ensures that every record update in the TYPO3 backend (which is processed by the :php:`DataHandler`) automatically flushes the cache of all pages where that record is displayed.
 
-Following the rules mentioned above you could register cache tags from within your Extbase plugin (e.g. controller or a custom viewhelper)::
+Following the rules mentioned above you could register cache tags from within
+your Extbase plugin (e.g. controller or a custom viewhelper):
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
    public function __construct(TypoScriptFrontendController $frontendController)
    {
@@ -546,9 +605,13 @@ Hook for Cache Post-processing
 
 You can configure cache post-processing with a user defined PHP
 function. Configuration of the hook can be done from
-:file:`ext_localconf.php`. An example might look like::
+:file:`ext_localconf.php`. An example might look like:
 
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] = \Vendor\Package\Hook\DataHandlerHook::class . '->postProcessClearCache';
+.. code-block:: php
+   :caption: EXT:some_extension/ext_localconf.php
+
+   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] =
+       \Vendor\SomeExtension\Hook\DataHandlerHook::class . '->postProcessClearCache';
 
 
 .. index:: DataHandler; Flags

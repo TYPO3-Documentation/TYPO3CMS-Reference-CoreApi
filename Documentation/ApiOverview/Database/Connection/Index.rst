@@ -11,7 +11,7 @@ An instance of class :php:`TYPO3\CMS\Core\Database\Connection` is retrieved from
 and handing over the table name a query should executed on.
 
 The class extends the basic Doctrine DBAL `Doctrine\DBAL\Connection` class and is mainly
-used internally within the `TYPO3 CMS` framework to establish, maintain and terminate
+used internally within the TYPO3 CMS framework to establish, maintain and terminate
 connections to single database endpoints. Those internal methods are not scope of this
 documentation since an extension developer usually doesn't have to deal with that.
 
@@ -33,7 +33,10 @@ automatically and the created queries are executed right away.
 insert()
 ========
 
-Creates and executes an `INSERT INTO` statement. A (slightly simplified) example from the `Registry` API::
+Creates and executes an `INSERT INTO` statement. A (slightly simplified) example from the `Registry` API:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -55,7 +58,10 @@ array of key/value pairs. All keys are quoted to field names and all values are 
 
 It is possible to add another array as third argument to specify how single values are quoted. This is useful
 if `date` or `numbers` or similar should be inserted. The example below quotes the first value to an integer
-and the second one to a string::
+and the second one to a string:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -77,7 +83,7 @@ and the second one to a string::
 
 
 `insert()` returns the number of affected rows. Guess what? That's the number `1` ... In case something
-goes wrong a `\Doctrine\DBAL\DBALException` is raised.
+goes wrong a :php:`\Doctrine\DBAL\Exception` is raised.
 
 .. note::
 
@@ -88,7 +94,10 @@ goes wrong a `\Doctrine\DBAL\DBALException` is raised.
 bulkInsert()
 ============
 
-`INSERT` multiple rows at once::
+`INSERT` multiple rows at once:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -127,7 +136,11 @@ if omitted, everything will be quoted to strings.
 update()
 ========
 
-Create and execute an `UPDATE` statement. The example from `FAL's` `ResourceStorage` sets a storage to offline::
+Create and execute an `UPDATE` statement. The example from `FAL's`
+`ResourceStorage` sets a storage to offline:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -157,7 +170,10 @@ delete()
 ========
 
 Execute a `DELETE` query using `equal` conditions in `WHERE`, example from `BackendUtility` to mark
-rows as no longer locked by a user::
+rows as no longer locked by a user:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -177,7 +193,7 @@ argument specifies the quoting of `WHERE` values. There is a pattern ;)
 
 .. note::
 
-    `TYPO3 CMS` uses a "soft delete" approach for many tables. Instead of directly deleting a rows in the database,
+    TYPO3 CMS uses a "soft delete" approach for many tables. Instead of directly deleting a rows in the database,
     a field - often called `deleted` - is set from 0 to 1. Executing a `DELETE` query circumvents this and really
     removes rows from a table. For most tables, it is better to use the :ref:`DataHandler <tce-database-basics>` API
     to handle deletes instead of executing such low level queries directly.
@@ -187,7 +203,10 @@ truncate()
 ==========
 
 Empty a table, removing all rows. Usually much quicker than a :php:`->delete()` of all rows. This typically
-resets "auto increment primary keys" to zero. Use with care::
+resets "auto increment primary keys" to zero. Use with care:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -201,7 +220,10 @@ count()
 =======
 
 A `COUNT` query. Again, this methods becomes handy if very simple `COUNT` statements are to be executed, the example
-returns tha number of active rows from table `tt_content` that have their `bodytext` field set to `klaus`::
+returns tha number of active rows from table `tt_content` that have their `bodytext` field set to `klaus`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -248,7 +270,10 @@ select()
 
 Creates and executes a simple `SELECT` query based on `equal` conditions. Its usage is limited, the
 :ref:`RestrictionBuilder <database-restriction-builder>` kicks in and key/value pairs are automatically
-quoted::
+quoted:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -265,7 +290,7 @@ quoted::
 Remarks:
 
 * In contrast to the other short-hand methods, :php:`->select()` returns a :ref:`Statement <database-statement>` object
-  ready to :php:`->fetch()` single rows or to :php:`->fetchAll()`
+  ready to :php:`->fetchAssociative()` single rows or to :php:`->fetchAllAssociative()`
 
 * The method accepts a series of further arguments to specify `GROUP BY`, `ORDER BY`, `LIMIT` and `OFFSET` query parts.
 
@@ -280,7 +305,11 @@ Remarks:
 lastInsertId()
 ==============
 
-Returns the `uid` of the last :php:`->insert()` statement. Useful if this id needs to be used afterwards directly::
+Returns the `uid` of the last :php:`->insert()` statement. Useful if this id
+needs to be used afterwards directly:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -313,7 +342,10 @@ it sometimes becomes handy to first fetch a `Connection` object for a specific t
 query, and to create a `QueryBuilder` for a more complex query from this connection object later. The methods
 usefulness is limited however and no good example within the Core can be found at the time of this writing.
 
-The method can be helpful in loops to save some precious code characters, too::
+The method can be helpful in loops to save some precious code characters, too:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -323,6 +355,6 @@ The method can be helpful in loops to save some precious code characters, too::
          ->select('something')
          ->from('whatever')
          ->where(...)
-         ->execute()
-         ->fetchAll();
+         ->executeQuery()
+         ->fetchAllAssociative();
    }

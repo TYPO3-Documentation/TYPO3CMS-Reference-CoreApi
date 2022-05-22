@@ -1,0 +1,2176 @@
+{
+    "suites": {
+        "Core": {
+            "screenshots": {
+                "_default": [
+                    {"comment":  "This screenshots.json runs on branch develop."},
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
+                ],
+                "RequestHandling": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/RequestHandling"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/RequestHandling"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_config"},
+                    {"action": "click", "link": "#system_config"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Configuration"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "HTTP Middlewares (PSR-15)"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "HTTP Middlewares (PSR-15)"
+                    },
+                    {
+                        "action": "click",
+                        "link": "li:nth-child(2) a"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "TYPO3\\CMS\\Core\\Middleware\\NormalizedParamsAttribute"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConfigurationMiddleware",
+                        "captionText": "TYPO3 configuration module listing configured middlewares."
+                    }
+                ],
+                "AdminTools": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 1024,"height": 780},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/AdminTools"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/AdminTools"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#tools_toolssettings"},
+                    {"action": "click", "link": "#tools_toolssettings"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "fillField", "field": "input#confirmationPassword", "value": "password"},
+                    {"action": "click", "link": "Confirm"},
+                    {
+                        "action": "waitForText",
+                        "text": "Configuration Presets"
+                    },
+                    {
+                        "action": "click",
+                        "link": "Choose Preset"
+                    },
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Configuration Presets"
+                    },
+                    {
+                        "action": "click",
+                        "link": "Password hashing settings"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "Argon2i"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "PasswordHashingSettings",
+                        "captionText": "Argon2i active for frontend and backend users"
+                    },
+                    {"action": "closeModalDialog"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#file_FilelistList"},
+                    {"action": "click", "link": "Extensions"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Installed Extensions" },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ExtensionManager",
+                        "captionText": "Interface of the Extension Manager showing all available extensions."
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#file_FilelistList"},
+                    {"action": "click", "link": "Maintenance"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Maintenance"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "EditorAdminPrivileges",
+                        "captionText": "Screenshot of a menu with the section \"Admin Tools\""
+                    },
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[@class='card card-size-fixed-small' and contains(., 'Analyze Database')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "AnalyzeDatabase",
+                        "captionText": "The Database analyzer is part of the maintenance area"
+                    },
+                    {"action": "clearDrawings"},
+                    {"action": "scrollModuleBodyTo", "toSelector": "//div[@class='card card-size-fixed-small' and contains(., 'Remove Temporary Assets')]"},
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[@class='card card-size-fixed-small' and contains(., 'Remove Temporary Assets')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "MaintenanceRemoveTemporaryAssets",
+                        "captionText": "Removing all processed files in the Maintenance Tool"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 780},
+                    {"action": "clearDrawings"},
+                    {"action": "scrollModuleBodyToTop"},
+                    {
+                        "action": "click",
+                        "link": "Analyze database"
+                    },
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "DatabaseAnalyzer",
+                        "captionText": "Analyze the database structure"
+                    },
+                    {"action": "closeModalDialog"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "see", "text": "Manage languages"},
+                    {
+                        "action": "click",
+                        "link": "Manage languages"
+                    },
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ManageLanguagePacks",
+                        "captionText": "The Languages module with some active languages and status of extensions language packs"
+                    },
+                    {"action": "closeModalDialog"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#tools_toolsupgrade"},
+                    {"action": "click", "link": "#tools_toolsupgrade"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Upgrade"
+                    },
+                    {
+                        "action": "click",
+                        "link": "Run Upgrade Wizard"
+                    },
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "DatabaseUpgradeWizard",
+                        "captionText": "The Upgrade Wizard indicating that the database needs updates"
+                    },
+                    {"action": "closeModalDialog"},
+
+                    {"action": "scrollModuleMenuTo", "toSelector": "#tools_toolssettings"},
+                    {"action": "click", "link": "Settings"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Settings"
+                    },
+                    {"action": "click", "link": "Configure Features"},
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Feature Toggles"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "FeatureToggles"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "closeModalDialog"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "scrollModuleBodyTo", "toSelector": "//div[@class='card card-size-fixed-small' and contains(., 'Configure Installation')]"},
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[@class='card card-size-fixed-small' and contains(., 'Configure Installation')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "AllConfiguration",
+                        "captionText": "Configure installation-wide options :guilabel:`Admin Tools > Settings`"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "click", "link": "Configure options"},
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "InstallationWideOptions",
+                        "captionText": "Configure installation-wide options with an active search"
+                    },
+                    {"action": "closeModalDialog"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "clearDrawings"},
+                    {"action": "scrollModuleBodyToTop"},
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[@class='card card-size-fixed-small' and contains(., 'Change Install Tool Password')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ChangeInstallToolPassword",
+                        "captionText": "Screen to change the Install Tool password"
+                    },
+                    {
+                        "action": "amOnPage",
+                        "page": "/typo3/install.php"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "The Install Tool is locked"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".col-md-6",
+                        "fileName": "EnableInstallTool",
+                        "captionText": "Screen to enable the Install Tool"
+                    },
+                    {"action": "reloadBackend"}
+                ],
+                "Authentication": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Authentication"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Authentication"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_reports"},
+                    {"action": "click", "link": "Reports"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Reports"},
+                    {"action": "click", "link": "Installed Services"},
+                    {
+                        "action": "waitForText",
+                        "text": "Service type: auth"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "InstalledAuthServices",
+                        "captionText": "All installed authentication services and their priority"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Minimize/maximize module menu"},
+                    {"action": "click", "link": "Klaus"},
+                    {"action": "waitForText", "text": "User Settings"},
+                    {"action": "click", "link": "User Settings"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "User Settings"},
+                    {"action": "click", "link": "Account security"},
+                    {"action": "waitForText", "text": "Multi-factor authentication"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "Klaus"},
+                    {"action": "waitForText", "text": "User Settings"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "MfaActivate",
+                        "captionText": "Manage your MFA providers in the User Settings module"
+                    },
+                    {"action": "click", "link": "Klaus"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "click", "link": "Setup multi-factor authentication"},
+                    {"action": "waitForText", "text": "Multi-factor Authentication Overview"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "MfaSelectProvider",
+                        "captionText": "Select a MFA provider screen"
+                    },
+                    {"action": "click", "link": "Setup Time-based one-time password"},
+                    {"action": "waitForText", "text": "Set up Time-based one-time password"},
+                    {"action": "resizeWindow", "width": 1024,"height": 780},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "MfaQrCode",
+                        "captionText": "MFA TOTP provider configuration screen"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "Minimize/maximize module menu"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_config"},
+                    {"action": "click", "link": "Configuration"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Configuration"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "MFA providers"
+                    },
+                    {"action": "waitForText", "text": "MFA providers"},
+                    {"action": "click", "link": "a.list-tree-control-closed"},
+                    {"action": "waitForText", "text": "isDefaultAllowed"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "MfaConfigurationModule",
+                        "captionText": "MFA providers in the configuration module"
+                    }
+                ],
+                "SiteHandling": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 1500,"height": 300},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/SiteHandling"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/SiteHandling"},
+                    {"action": "amOnPage", "page": "/typo3/record/edit?edit[pages][0]=new&id=0&table=&pointer=1&defVals[pages][title]=example.com&defVals[pages][is_siteroot]=1&defVals[pages][hidden]=0&token=x"},
+                    {"action": "click", "link": "Save"},
+                    {"action": "waitForText", "text": "Edit Page"},
+                    {"action": "reloadBackend"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#site_configuration"},
+                    {"action": "click", "link": "#site_configuration"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Site Configuration"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingCreateNewSite-1",
+                        "captionText": "Autocreated site configuration"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": ".t3js-topbar-button-modulemenu"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "resizeWindow", "width": 1024,"height": 800},
+                    {"action": "click", "link": "Edit"},
+                    {"action": "waitForText", "text": "Edit Site Configuration"},
+                    {"action": "fillField", "field": "//input[contains(@data-formengine-input-name, '[identifier]')]", "value": "examplecom"},
+                    {"action": "fillField", "field": "//input[contains(@data-formengine-input-name, '[websiteTitle]')]", "value": "Example website"},
+                    {"action": "fillField", "field": "//input[contains(@data-formengine-input-name, '[base]')]", "value": "https://example.com"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingCreateNewSite-2",
+                        "captionText": "A new site creation form."
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 1024},
+                    {"action": "click", "link": ".tab-pane.active button.t3js-create-new-button"},
+                    {"action": "waitForText", "text": "site_base_variant"},
+                    {"action": "fillField", "field": "//input[contains(@placeholder, 'domain.local')]", "value": "example.localhost"},
+                    {"action": "fillField", "field": "//input[contains(@placeholder, 'applicationContext == \"Production\"')]", "value": "applicationContext == \"Development\""},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingBaseVariants-1",
+                        "captionText": "A configured base variant for development context."
+                    },
+                    {"action": "click", "link": "Languages"},
+                    {"action": "waitForText", "text": "Available Languages for this Site"},
+                    {"action": "click", "link": "English"},
+                    {"action": "waitForText", "text": "Visible in Frontend"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingCreateNewSite-3",
+                        "captionText": "Set default language settings"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 800},
+                    {"action": "click", "link": "Error Handling"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": ".tab-pane.active button.t3js-create-new-button"},
+                    {"action": "waitForText", "text": "HTTP Error Status Code"},
+                    {
+                        "action": "selectOption",
+                        "select": "//select[contains(@name, '[errorHandler]')]",
+                        "option": "Page"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 600},
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {"action": "click", "link": "OK"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "switchToContentFrame"},
+                    {"action": "click", "link": ".tab-pane.active .form-irre-header-button"},
+                    {"action": "waitForText", "text": "Show Content from Page"},
+                    {"action": "fillField", "field": "//input[contains(@data-formengine-input-name, '[errorContentSource]')]", "value": "1"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingErrorHandling-1",
+                        "captionText": "Add custom error handling."
+                    },
+                    {"action": "click", "link": "Save"},
+                    {"action": "wait", "timeout": 1},
+                    {"action": "click", "link": "Close"},
+                    {"action": "waitForText", "text": "Site Configuration"},
+                    {"action": "resizeWindow", "width": 1024,"height": 300},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingSiteModule",
+                        "captionText": "The :guilabel:`Sites` module in the TYPO3 backend."
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 800},
+                    {"action": "click", "link": "Delete site configuration"},
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {"action": "click", "link": "Delete"},
+                    {"action": "wait", "timeout": 0.5},
+                    {"action": "resizeWindow", "width": 1024,"height": 300},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "SiteHandlingNoSite",
+                        "captionText": ""
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": ".t3js-topbar-button-modulemenu"}
+                ],
+                "Introduction": [
+                    {"include": "_default"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Introduction"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Introduction"},
+                    {"action": "see", "text": "Extensions"},
+                    {"action": "click", "link": "Extensions"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Installed Extensions"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ExtensionsMinimalList",
+                        "captionText": "Screenshot of the backend showing the :guilabel:`Extensions` module"
+                    }
+                ],
+                "Internationalization": [
+                    {"include": "_default"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Internationalization"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Internationalization"},
+                    {
+                        "action": "amOnPage",
+                        "page": "/typo3/module/user/setup"
+                    },
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "User Settings"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "CustomLanguage.png",
+                        "captionText": "The new language appears in the user preferences"
+                    }
+                ]
+            }
+        },
+        "Examples": {
+            "screenshots": {
+                "_default": [
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
+                ],
+                "TypoScriptSyntax": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/TypoScriptSyntax"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/TypoScriptSyntax"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#web_ts"},
+                    {"action": "click", "link": "#web_ts"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Conditions", "Simple"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Template tools"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "TypoScript Object Browser"
+                    },
+                    {"action": "waitForText", "text": "Conditions"},
+                    {
+                        "action": "selectOption",
+                        "select": "select[name=\"SET[ts_browser_type]\"]",
+                        "option": "Setup"
+                    },
+                    {"action": "waitForText", "text": "SETUP ROOT"},
+                    {"action": "click", "link": "//li[contains(., 'page')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "waitForText", "text": "TEXT"},
+                    {"action": "click", "link": "//li[contains(., 'page')]//li[contains(., '10')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": "Conditions"},
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConditionsSyntaxDisabled",
+                        "captionText": "The above example with the condition disabled"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 860},
+                    {"action": "click", "link": "//input[contains(@value, 'loginUser')]"},
+                    {"action": "click", "link": "Set conditions"},
+                    {"action": "waitForElement", "element": "input[value=\"Set conditions\"]"},
+                    {"action": "click", "link": "//li[contains(., 'page')]//li[contains(., '20')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": "Conditions"},
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConditionsSyntaxEnabled",
+                        "captionText": "The above example withthe condition enabled"
+                    },
+                    {"action": "click", "link": "//input[contains(@value, 'loginUser')]"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Conditions", "Else"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Template tools"},
+                    {"action": "click", "link": "Conditions"},
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConditionsElseDisabled",
+                        "captionText": "The above example with the condition disabled"
+                    },
+                    {"action": "click", "link": "//input[contains(@value, 'loginUser')]"},
+                    {"action": "click", "link": "Set conditions"},
+                    {"action": "waitForElement", "element": "input[value=\"Set conditions\"]"},
+                    {"action": "click", "link": "Conditions"},
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConditionsElseEnabled",
+                        "captionText": "The above example with the condition enabled"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Conditions", "Invalid"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Invalid"},
+                    {"action": "click", "link": "//li[contains(., 'someObject')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConditionsSyntaxError",
+                        "captionText": "Error after having used a condition where it is not allowed."
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Conditions", "Invalid"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Template Analyzer"
+                    },
+                    {"action": "waitForText", "text": "Invalid"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ConditionsSyntaxErrorGlobal",
+                        "captionText": "Error after having used a GLOBAL condition at thw wrong place."
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Syntax", "ObjectCopying"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "TypoScript Object Browser"
+                    },
+                    {"action": "waitForText", "text": "ObjectCopying"},
+
+                    {"action": "click", "link": "//li[contains(., 'myObject')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": "//li[contains(., 'myOtherObject')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".panel-default",
+                        "fileName": "SyntaxCopying1",
+                        "captionText": "An object and its copy"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Syntax", "ObjectCopying2"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "ObjectCopying2"},
+                    {"action": "click", "link": "//li[contains(., 'pageObj')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": "//li[contains(., 'pageObj')]//li[contains(., '10')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": "//li[contains(., 'pageObj')]//li[contains(., '20')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".panel-default",
+                        "fileName": "SyntaxCopying2",
+                        "captionText": "Another object and its copy"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Syntax", "ObjectReference"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "ObjectReference"},
+                    {"action": "wait", "timeout": 0.1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".panel-default",
+                        "fileName": "SyntaxReferencing",
+                        "captionText": "An object and a reference to it."
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "resizeWindow", "width": 1024,"height": 640},
+                    {"action": "openPageTreePath", "path": ["Root page", "TypoScript", "Syntax", "Introduction"]},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Introduction"},
+                    {"action": "click", "link": "//li[contains(., 'myObject')]//li[contains(., 'myProperty')]//a"},
+                    {"action": "wait", "timeout": 0.1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "SyntaxIntroduction",
+                        "captionText": "Example TypoScript code viewed in the TypoScript object browser"
+                    },
+                    {"action": "switchToMainFrame"}
+                ],
+                "TypoScriptSyntaxCodeSnippets": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/TypoScriptSyntax/Conditions"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples/Configuration/TypoScript/Conditions"},
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "AndConditions/setup.typoscript", "targetFileName": "AndConditions",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/AndConditions/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ArrayOperators/setup.typoscript", "targetFileName": "ArrayOperators",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/ArrayOperators/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Arrays/setup.typoscript", "targetFileName": "Arrays",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Arrays/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Else/setup.typoscript", "targetFileName": "Else",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Else/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Equality/setup.typoscript", "targetFileName": "Equality",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Equality/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Functions/setup.typoscript", "targetFileName": "Functions",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Functions/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Invalid/setup.typoscript", "targetFileName": "Invalid",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Invalid/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "InvalidGlobal/setup.typoscript", "targetFileName": "InvalidGlobal",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/InvalidGlobal/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Not/setup.typoscript", "targetFileName": "Not",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Not/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "OrConditions/setup.typoscript", "targetFileName": "OrConditions",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/OrConditions/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "RegularExpressions/setup.typoscript", "targetFileName": "RegularExpressions",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/RegularExpressions/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Simple/setup.typoscript", "targetFileName": "Simple",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Simple/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Strings/setup.typoscript", "targetFileName": "Strings",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Strings/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Syntax/setup.typoscript", "targetFileName": "Syntax",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Syntax/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Valid/setup.typoscript", "targetFileName": "Valid",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Valid/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Variables/setup.typoscript", "targetFileName": "Variables",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Variables/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Wildcards/setup.typoscript", "targetFileName": "Wildcards",
+                        "caption": "Extension examples, file Configuration/TypoScript/Conditions/Wildcards/setup.typoscript"
+                    },
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/TypoScriptSyntax/Syntax"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples/Configuration/TypoScript/Syntax"},
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "CodeBlock/setup.typoscript", "targetFileName": "CodeBlock",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/CodeBlock/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "CodeBlock2/setup.typoscript", "targetFileName": "CodeBlock2",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/CodeBlock2/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "CommentsBlock/setup.typoscript", "targetFileName": "CommentsBlock",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/CommentsBlock/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "CommentsSingleLine/setup.typoscript", "targetFileName": "CommentsSingleLine",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/CommentsSingleLine/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Conditions/setup.typoscript", "targetFileName": "Conditions",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/Conditions/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Escaping/setup.typoscript", "targetFileName": "Escaping",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/Escaping/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "General/setup.typoscript", "targetFileName": "General",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/General/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "Introduction/setup.typoscript", "targetFileName": "Introduction",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/Introduction/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "MultiLine/setup.typoscript", "targetFileName": "MultiLine",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/MultiLine/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ObjectCopying/setup.typoscript", "targetFileName": "ObjectCopying",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ObjectCopying/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ObjectCopying2/setup.typoscript", "targetFileName": "ObjectCopying2",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ObjectCopying2/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ObjectCopying3/setup.typoscript", "targetFileName": "ObjectCopying3",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ObjectCopying3/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ObjectCopying4/setup.typoscript", "targetFileName": "ObjectCopying4",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ObjectCopying4/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ObjectReference/setup.typoscript", "targetFileName": "ObjectReference",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ObjectReference/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ObjectUnsetting/setup.typoscript", "targetFileName": "ObjectUnsetting",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ObjectUnsetting/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ValueModification/setup.typoscript", "targetFileName": "ValueModification",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ValueModification/setup.typoscript"
+                    },
+                    {
+                        "action": "createCodeSnippet", "sourceFile": "ValueModification2/setup.typoscript", "targetFileName": "ValueModification2",
+                        "caption": "Extension examples, file Configuration/TypoScript/Syntax/ValueModification2/setup.typoscript"
+                    }
+                ],
+                "PageTypes": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 1024,"height": 300},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/PageTypes"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/PageTypes"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#web_layout"},
+                    {"action": "click", "link": "#web_layout"},
+                    {"action": "wait", "timeout": "1"},
+                    {
+                        "action": "drawBox",
+                        "selector": ".svg-toolbar__drag-node[title=\"Archive page\"]"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "NewPageType",
+                        "captionText": "The new page type visible in the TYPO3 backend"
+                    }
+                ],
+                "AdminTools": [
+                    {"include": "_default"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/AdminTools"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/AdminTools"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#tools_toolsupgrade"},
+                    {"action": "click", "link": "#tools_toolsupgrade"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "fillField", "field": "input#confirmationPassword", "value": "password"},
+                    {"action": "click", "link": "Confirm"},
+                    {
+                        "action": "waitForText",
+                        "text": "Upgrade"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 500},
+                    {"action": "scrollModuleBodyToBottom"},
+                    {
+                        "action": "waitForText",
+                        "text": "Scan Extension Files"
+                    },
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[contains(@class, 'card-size-fixed-small') and contains(., 'Scan Extension Files')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ExtensionScannerOpen",
+                        "captionText": "Open the extension scanner from the Admin Tools"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 650},
+                    {"action": "clearDrawings"},
+                    {
+                        "action": "click",
+                        "link": "Scan Extension Files"
+                    },
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {"action": "click", "link": "examples"},
+                    {
+                        "action": "waitForText",
+                        "text": "Rescan"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ExtensionScanner",
+                        "captionText": "The Extension Scanner"
+                    },
+                    {"action": "click", "link": ".panel-collapse.show a.t3js-extensionScanner-hit-file-panel-head"},
+                    {"action": "waitForElement", "element": ".panel-body .panel-body a.t3js-extensionScanner-hit-rest-panel-head"},
+                    {"action": "click", "link": ".panel-body .panel-body a.t3js-extensionScanner-hit-rest-panel-head"},
+                    {"action": "wait", "timeout": 1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ExtensionScannerReport",
+                        "captionText": "View extension scanner report"
+                    },
+                    {"action": "closeModalDialog"}
+                ],
+                "ContextualMenu": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1232,
+                        "height": 400
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/ContextualMenuExtended"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/ContextualMenuExtended"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Page"},
+                    {"action": "openPageTreePath", "path": ["Root page"]},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Root page\n"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "clickWithRightButton", "cssOrXPath": "//*[@id='typo3-pagetree-treeContainer']//*[text()='Root page']/.."},
+                    {"action": "waitForElement", "element": "#contentMenu0", "timeout": 1},
+                    {"action": "drawBox", "selector": "//*[@id='contentMenu0']//*[contains(text(), 'Hello World')]"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ContextMenuHelloWorld",
+                        "altText": "The context menu now contains an additional item \"Hello World\"",
+                        "captionText": "Context menu with custom item"
+                    },
+                    {"action": "reloadBackend"},
+                    {"action": "click", "link": "Page"},
+                    {"action": "openPageTreePath", "path": ["Root page"]},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Root page\n"
+                    },
+                    {"action": "wait", "timeout": 0.5},
+                    {"action": "click",	"link": ".t3-page-ce-dragitem:first-child .t3js-contextmenutrigger"},
+                    {"action": "waitForElement", "element": "#contentMenu0"},
+                    {"action": "drawBox", "selector": "//*[contains(text(), 'Hello World')]"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ContextMenuTtContent",
+                        "altText": "The context menu now contains an additional item \"Hello World\"",
+                        "captionText": "The context menu shown after clicking on the Content Element icon"
+                    }
+
+                ],
+                "ContextualMenuCodeSnippets": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Examples/ContextualMenuExtended"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples"},
+                    {
+                        "action": "createCodeSnippet",
+                        "sourceFile": "Classes/ContextMenu/HelloWorldItemProvider.php",
+                        "targetFileName": "HelloWorldItemProvider",
+                        "caption": "Extension examples, file Classes/ContextMenu/HelloWorldItemProvider.php"
+                    },
+                    {
+                        "action": "createCodeSnippet",
+                        "language": "javascript",
+                        "sourceFile": "Resources/Public/JavaScript/ContextMenuActions.js",
+                        "targetFileName": "ContextMenuActions",
+                        "caption": "Extension examples, file Resources/Public/JavaScript/ContextMenuActions.js"
+                    }
+                ],
+                "EditLinks": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 860
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/EditLinks"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/EditLinks"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Examples"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Flash messages"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Edit links"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "Edit links"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".t3js-module-body",
+                        "fileName": "EditLinksDisplay",
+                        "captionText": "The two links in the Examples module"
+                    },
+                    {"action": "click", "link": "Edit page 1"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".t3js-module-body",
+                        "fileName": "EditLinksEditFull",
+                        "captionText": "Page 1 ready for editing with the standard form"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Examples"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Flash messages"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Edit links"
+                    },
+                    {"action": "waitForText", "text": "Edit links"},
+                    {"action": "click", "link": "Edit title and doktype of pages 1 and 2"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".t3js-module-body",
+                        "fileName": "EditLinksEditRestricted",
+                        "captionText": "Editing of fields of two pages and one haiku at once"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Examples"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Flash messages"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Edit links"
+                    },
+                    {"action": "waitForText", "text": "Edit links"},
+                    {"action": "click", "link": "Create a new haiku for season spring with a predefined title"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".t3js-module-body",
+                        "fileName": "EditLinksNew",
+                        "captionText": "Form for creating a new haiku with pre-filled title and season and restricted columns"
+                    }
+                ],
+                "EditLinksCodeSnippets": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Examples/EditLinks"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples"},
+                    {
+                        "action": "createCodeSnippet",
+                        "sourceFile": "Resources/Private/Templates/Module/Links.html",
+                        "targetFileName": "EditLinksDisplay",
+                        "caption": "Extension examples, file Resources/Private/Templates/Module/Links.html"
+                    },
+                    {
+                        "action": "createPhpClassCodeSnippet",
+                        "class": "T3docs\\Examples\\Controller\\ModuleController",
+                        "targetFileName": "LinksAction",
+                        "members": ["linksAction"],
+                        "caption": "Extension examples, file Classes/Controller/ModuleController.php"
+                    }
+                ],
+                "CustomPermissions": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 860
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/CustomPermissions"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/CustomPermissions"
+                    },
+                    {
+                        "action": "goToField",
+                        "table": "be_groups",
+                        "uid": 1,
+                        "fields": "custom_options"
+                    },
+                    {"action": "click", "link": "Custom permissions"},
+                    {"action": "waitForText", "text": "Custom permission #1"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".form-section",
+                        "fileName": "CustomOptions",
+                        "captionText": "The custom permissions appear in the Access List tab of backend user groups"
+                    }
+                ],
+                "Clipboard": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 2048
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/Clipboard"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/Clipboard"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "List"},
+                    {"action": "openPageTreePath", "path": ["Root page"]},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-close"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Root page"},
+                    {"action": "click", "link": "Page"},
+                    {"action": "waitForText", "text": "Clipboard #2"},
+                    {"action": "click", "link": "Clipboard #2"},
+                    {"action": "wait", "timeout": 0.5},
+
+                    {
+                        "action": "click",
+                        "link": "tr.t3js-entity:nth-child(2) .t3js-multi-record-selection-check"
+                    },
+                    {
+                        "action": "click",
+                        "link": "tr.t3js-entity:nth-child(3) .t3js-multi-record-selection-check"
+                    },
+                    {
+                        "action": "click",
+                        "link": "Transfer to clipboard"
+                    },
+                    {"action": "waitForText", "text": "Remove item"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".clipboard-panel",
+                        "fileName": "ClipboardContent",
+                        "captionText": "The clipboard as seen in the backend"
+                    },
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 860
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "button.scaffold-content-navigation-switcher-open"},
+                    {"action": "click", "link": "Examples"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Flash messages"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Clipboard"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "Clipboard"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".t3js-module-body",
+                        "fileName": "ClipboardItems",
+                        "captionText": "Clipboard items"
+                    },
+                    {"action": "click", "link": "Show"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ClipboardDump",
+                        "captionText": "A dump of the clipboard in the debug window"
+                    },
+                    {"action": "switchToMainFrame"}
+                ],
+                "ClipboardCodeSnippets": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Examples/Clipboard"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples"},
+                    {
+                        "action": "createPhpClassCodeSnippet",
+                        "class": "T3docs\\Examples\\Controller\\ModuleController",
+                        "targetFileName": "GetCurrentClipboard",
+                        "members": ["getCurrentClipboard"],
+                        "caption": "Extension examples, file Classes/Controller/ModuleController.php"
+                    },
+                    {
+                        "action": "createPhpClassCodeSnippet",
+                        "class": "T3docs\\Examples\\Controller\\ModuleController",
+                        "targetFileName": "DebugClipboard",
+                        "members": ["debugClipboard"],
+                        "caption": "Extension examples, file Classes/Controller/ModuleController.php"
+                    }
+                ],
+                "Debugging": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 500
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/Debugging"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/Debugging"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Examples"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Flash messages"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Debug"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "Debug"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "DebugOutput",
+                        "captionText": "Typical TYPO3 debug output"
+                    },
+                    {"action": "switchToMainFrame"}
+                ],
+                "DebuggingCodeSnippets": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/Debugging"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples"},
+                    {
+                        "action": "createPhpClassCodeSnippet",
+                        "class": "T3docs\\Examples\\Controller\\ModuleController",
+                        "targetFileName": "DebugCookies",
+                        "members": ["debugCookies"],
+                        "caption": "Extension examples, file Classes/Controller/ModuleController.php"
+                    },
+                    {"action": "click", "link": "#typo3-debug-console button[title=\"Close\"]"}
+                ],
+                "FlashMessages": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 860
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/FlashMessages"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/FlashMessages"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#tools_ExamplesExamples"},
+                    {"action": "click", "link": "#tools_ExamplesExamples"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Flash messages"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "FlashMessagesAll",
+                        "captionText": "The \"EXT:examples\" backend module shows one of each type of flash message"
+                    },
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 860
+                    },
+                    {"action": "scrollModuleBodyToBottom"},
+                    {"action": "click", "link": "Count pages"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#tools_ExamplesExamples"},
+                    {"action": "waitForText", "text": "Record count"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "FlashMessagesExample",
+                        "captionText": "A typical (success) message shown at the top of a module"
+                    }
+                ],
+                "Xclasses": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Examples/Xclasses"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Examples/Xclasses"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "List"},
+                    {"action": "openPageTreePath", "path": ["Root page"]},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Page"},
+                    {"comment":  "{\"action\": \"click\", \"link\": \"Create new record\"},\n                    {\"action\": \"waitForText\", \"text\": \"make a choice\"},\n                    {\n                        \"action\": \"makeScreenshotOfElement\",\n                        \"fileName\": \"XclassNewElementWizard\",\n                        \"captionText\": \"A help section is added at the bottom of the new record wizard\"\n                    },"},
+                    {"action": "switchToMainFrame"}
+                ],
+                "CustomContentElements": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/CustomContentElements"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/CustomContentElements"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Page"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 2000
+                    },
+                    {"action": "openPageTreePath", "path": ["Root page", "Custom Content Element"]},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Custom Content Element"},
+                    {"action": "click", "link": "Content"},
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {"action": "drawBox", "selector": "//div[contains(@class, 'media-new-content-element-wizard') and contains(., 'Example of a custom content element')]"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "ContentElementWizard",
+                        "captionText": "Content element wizard with thCTypee new content element"
+                    },
+                    {"action": "closeModalDialog"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 640,
+                        "height": 640
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "tt_content",
+                        "uid": {"action": "getUidByField", "table": "tt_content", "field": "CType", "value": "examples_newcontentelement"}
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link":  "button.t3js-topbar-button-modulemenu"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "wait", "timeout": 1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "ContentElementFields",
+                        "captionText": "The backend form"
+                    },
+                    {
+                        "action": "makeScreenshotOfField",
+                        "table": "tt_content",
+                        "uid":  {"action": "getUidByField", "table": "tt_content", "field": "CType", "value": "examples_newcontentelement"},
+                        "fields": "CType",
+                        "fileName": "CType",
+                        "captionText": "CType dropdown in tt_content"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link":  "button.t3js-topbar-button-modulemenu"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "reloadBackend"}
+                ],
+                "CustomContentElementsSnippets": [
+                    {"include": "_default"},
+                    {"action": "setCodeSnippetsTargetPath", "path": "CodeSnippets/CustomContentElements"},
+                    {"action": "setCodeSnippetsSourcePath", "path": "typo3conf/ext/examples"},
+                    {
+                        "action": "createCodeSnippet",
+                        "sourceFile": "Resources/Private/Templates/ContentElements/DataProcCsv.html",
+                        "targetFileName": "DataProcCsv",
+                        "caption": "EXT:examples/Resources/Private/Templates/ContentElements/DataProcCsv.html"
+                    },
+                    {
+                        "action": "createCodeSnippet",
+                        "sourceFile": "Resources/Private/Templates/NewContentElement.html",
+                        "targetFileName": "CustomContentElement",
+                        "caption": "EXT:examples/Resources/Private/Templates/NewContentElement.html"
+                    }
+                ],
+                "Categories": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Categories"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Categories"
+                    },
+
+                    {
+                        "action": "resizeWindow",
+                        "width": 640,
+                        "height": 640
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "sys_category",
+                        "uid": {"action": "getUidByField", "table": "sys_category", "field": "title", "value": "Poodle"}
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link":  "button.t3js-topbar-button-modulemenu"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "Editing",
+                        "captionText": "A category with a parent defined"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "pages",
+                        "uid": 1
+                    },
+                    {"comment":  "{\"action\": \"click\", \"link\": \"Extended\"},\n                    {\"action\": \"waitForText\", \"text\": \"Additional categories\"},\n                    {\n                        \"action\": \"makeScreenshotOfElement\",\n                        \"selector\": \".module-body\",\n                        \"fileName\": \"AddingWithApi\",\n                        \"captionText\": \"The newly added field to define relations to categories\"\n                    },\n                    {\"action\": \"switchToMainFrame\"},\n                    {\"action\": \"click\", \"link\":  \"button.t3js-topbar-button-modulemenu\"},\n                    {\"action\": \"switchToContentFrame\"},"},
+                    {"action": "reloadBackend"}
+                ],
+                "ExtendingTca": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/ExtendingTca"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/ExtendingTca"
+                    },
+
+                    {
+                        "action": "resizeWindow",
+                        "width": 640,
+                        "height": 1024
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "fe_users",
+                        "uid": 1
+                    },
+                    {"action": "click", "link": "Extended"},
+                    {"action": "waitForText", "text": "Special field"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "ExtendingTcaFeUsers",
+                        "captionText": "The new fields added at the bottom of the \"Extended\" tab"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "tt_content",
+                        "uid": 1
+                    },
+                    {"action": "click", "link": "Access"},
+                    {"action": "waitForText", "text": "No print"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".typo3-TCEforms",
+                        "fileName": "ExtendingTcaTtContent",
+                        "captionText": "The new field added next to an existing one"
+                    },
+                    {"action": "reloadBackend"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_config"},
+                    {"action": "click", "link": "Configuration"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "$GLOBALS['TCA'] (Table configuration array)"
+                    },
+                    {"action": "waitForText", "text": "backend_layout"},
+                    {"action": "scrollModuleBodyTo", "toSelector": "//li[contains(., 'tx_examples_haiku')]"},
+                    {"action": "click", "link": "//a[contains(@href, 'tx_examples_haiku')]"},
+                    {"action": "wait", "timeout": 0.1},
+                    {"action": "click", "link": "//a[contains(@href, 'columns')]"},
+                    {"action": "wait", "timeout": 0.1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "VerifyingTca",
+                        "captionText": "Checking the existence of the new field via the Configuration module"
+                    }
+                ],
+                "Fal": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Fal"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Fal"
+                    },
+
+                    {
+                        "action": "resizeWindow",
+                        "width": 640,
+                        "height": 480
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "sys_file_storage",
+                        "uid": 1
+                    },
+                    {"action": "scrollModuleBodyToBottom"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".typo3-TCEforms",
+                        "fileName": "ArchitectureFoldersProcessedFolder",
+                        "captionText": "Editing a file storage to define a location for processed files"
+                    },
+                    {
+                        "action": "resizeWindow",
+                        "width": 640,
+                        "height": 1024
+                    },
+                    {"action": "scrollModuleBodyToTop"},
+                    {"action": "click", "link": "Access capabilities"},
+                    {"action": "waitForText", "text": "Capabilities"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".typo3-TCEforms",
+                        "fileName": "AdministrationFileStorageAccessTab",
+                        "captionText": "Special properties in the \"Access capabilities\" tab of a File storage"
+                    },
+                    {
+                        "action": "goToField",
+                        "table": "tt_content",
+                        "uid": {"action": "getUidByField", "table": "tt_content", "field": "header", "value": "The TYPO3 Documentation Team"},
+                        "fields": "image"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".typo3-TCEforms",
+                        "fileName": "FalRelationTca",
+                        "captionText": "A typical FAL relation field"
+                    },
+                    {"action": "reloadBackend"}
+                ],
+                "Services": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 640
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Services"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Services"
+                    },
+
+                    {"action": "see", "text": "Reports"},
+                    {"action": "click", "link": "Reports"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Reports"},
+
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "Installed Services"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "ServicesReport",
+                        "captionText": "The :guilabel:`Installed Services` report showing details about registered services"
+                    }
+                ],
+                "UserSettings": [
+                    {"include": "_default"},
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/UserSettings"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/UserSettings"
+                    },
+                    {
+                        "action": "amOnPage",
+                        "page": "/typo3/module/user/setup"
+                    },
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "User Settings"},
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[contains(@class, 'form-group') and contains(., 'Mobile')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "UserSettingsExtending",
+                        "captionText": "Extending the :guilabel:`User Settings` configuration"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 480},
+                    {"action": "clearDrawings"},
+
+                    {"action": "switchToMainFrame"},
+                    {"action": "see", "text": "Configuration"},
+                    {"action": "click", "link": "Configuration"},
+
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Configuration"},
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "$GLOBALS['BE_USER']->uc (User Settings)"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "UserSettingsConfiguration",
+                        "captionText": "Viewing the :guilabel:`User Settings` configuration"
+                    }
+                ]
+            }
+        },
+        "Introduction": {
+            "screenshots": {
+                "_default": [
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
+                ],
+                "BackendLayouts": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1232,
+                        "height": 600
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/BackendLayouts"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/BackendLayouts"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Info"},
+                    {"action": "openPageTreePath", "path": ["Congratulations"]},
+                    {"action": "click", "link": "Hide Navigation"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "wait",
+                        "timeout": 1
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select[name=\"SET[depth]\"]",
+                        "option": "2"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "Customize"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select[data-menu-identifier=\"pages\"]",
+                        "option": "3"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "Actual backend layout"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select[data-menu-identifier=\"depth\"]",
+                        "option": "2"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "PageTreeLayoutOverview",
+                        "captionText": "Overview of the backend layouts used"
+                    },
+                    {"action": "click", "link": "Edit default language page properties"},
+                    {
+                        "action": "waitForText",
+                        "text": "Edit Page"
+                    },
+                    {"action": "click", "link": "Appearance"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "PagePropertiesAppearance",
+                        "captionText": "Choose the backend layout in the page properties"
+                    }
+                ],
+                "BackendModules": [
+                    {"include": "_default"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1232,
+                        "height": 400
+                    },
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/BackendModules"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/BackendModules"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuToTop"},
+                    {"action": "click", "link": "Page"},
+                    {"action": "openPageTreePath", "path": ["Congratulations"]},
+                    {
+                        "action": "drawBadge",
+                        "selector": "typo3-backend-navigation-component-pagetree-toolbar",
+                        "label": "Page tree",
+                        "position": "bottom"
+                    },
+                    {
+                        "action": "drawBadge",
+                        "selector": "#dashboard",
+                        "label": "Module menu",
+                        "position": "bottom"
+                    },
+                    {
+                        "action": "drawBadge",
+                        "selector": ".toolbar",
+                        "label": "Top bar",
+                        "position": "left"
+                    },
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Congratulations"
+                    },
+                    {
+                        "action": "drawBadge",
+                        "selector": ".module-docheader-bar-navigation",
+                        "label": "Docheader",
+                        "position": "bottom"
+                    },
+                    {
+                        "action": "drawBadge",
+                        "selector": ".t3js-title-inlineedit",
+                        "label": "Content area",
+                        "position": "bottom"
+                    },
+                    {
+                        "action": "drawBox",
+                        "selector": ".t3-page-ce-dragitem:first-child .t3js-contextmenutrigger"
+                    },
+                    {
+                        "action": "drawBadge",
+                        "selector": ".t3-page-ce-dragitem:first-child .t3js-contextmenutrigger",
+                        "label": "Context Menu",
+                        "position": "bottom"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "BackendModulesAreas",
+                        "captionText": "An overview of the visual structure of the backend"
+                    },
+                    {"action": "clearDrawings"},
+                    {
+                        "action": "click",
+                        "link": ".t3-page-ce-dragitem:first-child .t3js-contextmenutrigger"
+                    },
+                    {
+                        "action": "wait",
+                        "timeout": 1
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "BackendModulesContextualMenu",
+                        "captionText": "A typical contextual menu appears when clicking on a record icon"
+                    },
+                    {"action": "clearDrawings"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1024,
+                        "height": 500
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_config"},
+                    {"action": "click", "link": "Configuration"},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Configuration"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "$GLOBALS['TBE_MODULES'] (BE Modules)"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "BackendModulesConfiguration",
+                        "captionText": "Exploring the TBE_MODULES array using the Configuration module"
+                    },
+                    {
+                        "action": "selectOption",
+                        "select": "select.t3-js-jumpMenuBox",
+                        "option": "$GLOBALS['TYPO3_CONF_VARS'] (Global Configuration)"
+                    },
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "GlobalValuesConfiguration",
+                        "captionText": "Viewing the :php:`$GLOBALS['TYPO3_CONF_VARS]` array using the :guilabel:`Admin Tools > Configuration` module"
+                    }
+                ],
+                "RTE": [
+                    {"include": "_default"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Rte"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Rte"},
+                    {
+                        "action": "goToField",
+                        "table": "tt_content",
+                        "uid": {
+                            "action": "getUidByField",
+                            "table": "tt_content",
+                            "field": "header",
+                            "value": "TYPO3's Built-in Rich Text Editor"
+                        },
+                        "fields": "bodytext"
+                    },
+                    {"action": "wait", "timeout": 1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "captionText": "The rtehtmlarea RTE activated in the TYPO3 backend",
+                        "fileName": "RteBackend"
+                    }
+                ],
+                "AccessControl": [
+                    {"include": "_default"},
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/AccessControl"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/AccessControl"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "be_groups",
+                        "uid": 1
+                    },
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "BackendGroup",
+                        "captionText": "Part of the editing form for group \"Simple editors\" of the Introduction Package"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "DbMounts",
+                        "captionText": "The DB mounts for group \"Editors\""
+                    },
+                    {
+                        "action": "click",
+                        "link": "Mounts and Workspaces"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "DB Mounts"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "DbMounts",
+                        "captionText": "The DB mounts for group \"Editors\""
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "be_users",
+                        "uid": 1
+                    },
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "BackendUserAdmin",
+                        "captionText": "In Web > List view, the different icon for admin users"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "be_users",
+                        "uid": 2
+                    },
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "BackendUser",
+                        "captionText": "Part of the editing form for user \"simple\\_editor\" of the Introduction Package"
+                    },
+                    {
+                        "action": "click",
+                        "link": "Mounts and Workspaces"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "DB Mounts"
+                    },
+                    {
+                        "action": "drawBox",
+                        "selector": "//fieldset[contains(., 'Mount from groups')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "MountFromGroups",
+                        "captionText": "By default DB and File Mounts from groups are set for member users"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "sys_file_storage",
+                        "uid": 1
+                    },
+                    {"action": "wait", "timeout": 1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "FileStorage"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 1024},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".typo3-TCEforms",
+                        "fileName": "LocalStoragePath",
+                        "captionText": "The paths options for a storage based on the local file system driver"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {
+                        "action": "amOnPage",
+                        "page": "/typo3/record/edit?token=x&edit[sys_filemounts][0]=new"
+                    },
+                    {"action": "fillField", "field": "input[data-formengine-input-name*=\"title\"]", "value": "Another filemount"},
+                    {
+                        "action": "selectOption",
+                        "select": "select[name*=\"base\"]",
+                        "option": "1"
+                    },
+                    {"action": "waitForModalDialogInMainFrame"},
+                    {"action": "clickButtonInModalDialog", "buttonLink": "OK"},
+                    {
+                        "action": "selectOption",
+                        "select": "select[name*=\"path\"]",
+                        "option": "/user_upload/"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "CreateFilemount",
+                        "captionText": "A file mount pointing to the \"user_upload\" directory"
+                    },
+                    {"action": "click", "link": "Save"},
+                    {
+                        "action": "waitForText",
+                        "text": "Edit Filemount"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 1024},
+                    {
+                        "action": "goToRecord",
+                        "table": "be_users",
+                        "uid": 2
+                    },
+                    {
+                        "action": "click",
+                        "link": "Mounts and Workspaces"
+                    },
+                    {
+                        "action": "waitForText",
+                        "text": "DB Mounts"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "AssignFilemount",
+                        "captionText": "The file mount is assigned to the \"Editors\" group"
+                    },
+                    {"action": "reloadBackend"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1424,
+                        "height": 700
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_BeuserTxPermission"},
+                    {"action": "click", "link": "#system_BeuserTxPermission"},
+
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Permissions",
+                        "timeout": 5
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "openPageTreePath", "path": ["Congratulations", "Content Examples"]},
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "waitForText",
+                        "text": "Form elements",
+                        "timeout": 5
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "AccessModule",
+                        "captionText": "The Access module and its overview of page rights and owners"
+                    },
+                    {
+                        "action": "resizeWindow",
+                        "width": 1200,
+                        "height": 800
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#web_list"},
+                    {"action": "click", "link": "#web_list"},
+                    {"action": "openPageTreePath", "path": []},
+
+                    {"action": "switchToContentFrame"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "BackendUserList",
+                        "captionText": "Users and groups reside on the root page"
+                    },
+                    {"action": "switchToMainFrame"},
+                    {"action": "scrollModuleMenuTo", "toSelector": "#system_BeuserTxBeuser"},
+                    {"action": "click", "link": "#system_BeuserTxBeuser"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "Backend User Listing"},
+                    {"action": "click", "link": "tr:nth-child(2) a[title=\"Compare\"]"},
+                    {"action": "wait", "timeout": 0.5},
+                    {"action": "click", "link": "tr:nth-child(3) a[title=\"Compare\"]"},
+                    {"action": "wait", "timeout": 0.5},
+                    {"action": "click", "link": "Compare user list"},
+                    {"action": "waitForText", "text": "Compare backend users"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "CompareUsers",
+                        "captionText": "Comparing users in the Backers users module"
+                    },
+                    {"action": "click", "link": "Go back"},
+                    {"action": "waitForText", "text": "Backend User Listing"},
+                    {"action": "click", "link": "Clear compare list"},
+                    {"action": "drawBox", "selector": "button[title=\"Switch to user\"]"},
+                    {"action": "wait", "timeout": 0.5},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "SimulateUserButton",
+                        "captionText": "The button to simulate another user"
+                    },
+                    {"action": "click", "link": "button[title=\"Switch to user\"]"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "waitForText", "text": "SU"},
+                    {"action": "click", "link": "SU"},
+                    {
+                        "action": "resizeWindow",
+                        "width": 1200,
+                        "height": 400
+                    },
+                    {"action": "wait", "timeout": 1},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "fileName": "SimulatedUser",
+                        "captionText": "Backend with active simulate user"
+                    }
+                ],
+                "FlexForms": [
+                    {"include": "_default"},
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/FlexForms"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/FlexForms"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "tt_content",
+                        "uid": 136
+                    },
+                    {"action": "click", "link": "Carousel Options"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "FlexFormCarousel",
+                        "captionText": "The carousel content element of EXT:bootstrap_package"
+                    }
+                ],
+                "Security": [
+                    {"include": "_default"},
+                    {"action": "resizeWindow", "width": 960,"height": 768},
+                    {
+                        "action": "setScreenshotsImagePath",
+                        "path": "Images/AutomaticScreenshots/Security"
+                    },
+                    {
+                        "action": "setScreenshotsRstPath",
+                        "path": "Images/AutomaticScreenshots/Security"
+                    },
+                    {
+                        "action": "goToRecord",
+                        "table": "be_users",
+                        "uid": 1
+                    },
+                    {"action": "waitForText", "text": "Edit Backend user"},
+                    {"action": "click", "link": "Access"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "BeUserExpiryDate",
+                        "captionText": "Screenshot showing the screen to set an expiry date for a backend user"
+                    },
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {
+                        "action": "amOnPage",
+                        "page": "/typo3/module/user/setup"
+                    },
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "User Settings"},
+                    {
+                        "action": "drawBox",
+                        "selector": "//div[contains(@class, 'form-group') and contains(., 'Notify me by email')]"
+                    },
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "NotifyOnLogin",
+                        "captionText": "The :guilabel:`User Settings` screen, with the :guilabel:`Notify me...` checkbox"
+                    },
+                    {"action": "clearDrawings"},
+                    {"action": "click", "link": "Account security"},
+                    {
+                        "action": "makeScreenshotOfElement",
+                        "selector": ".module-body",
+                        "fileName": "ChangePassword",
+                        "captionText": "The :guilabel:`User Settings` screen, where you can change your password"
+                    }
+                ]
+            }
+        },
+        "Styleguide": {
+            "screenshots": {
+                "_default": [
+                    {"action": "resizeWindow", "width": 1024,"height": 768},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots"}
+                ],
+                "RTE": [
+                    {"include": "_default"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Rte"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Rte"},
+                    {
+                        "action": "makeScreenshotOfField",
+                        "table": "tx_styleguide_elements_rte",
+                        "uid": {
+                            "action": "getUidByField",
+                            "table": "tx_styleguide_elements_rte",
+                            "field": "sys_language_uid",
+                            "value": 0
+                        },
+                        "fields": "rte_1",
+                        "altText": "A RTE in the TYPO3 BE",
+                        "captionText": "The rtehtmlarea RTE activated in the TYPO3 backend",
+                        "fileName": "RteInTable"
+                    }
+                ],
+                "Icon": [
+                    {"include": "_default"},
+                    {"action": "setScreenshotsImagePath","path": "Images/AutomaticScreenshots/Icon"},
+                    {"action": "setScreenshotsRstPath","path": "Images/AutomaticScreenshots/Icon"},
+                    {"action": "reloadBackend"},
+                    {"action": "switchToMainFrame"},
+                    {"action": "click", "link": "#typo3-cms-backend-backend-toolbaritems-helptoolbaritem a"},
+                    {"action": "waitForText", "text": "TYPO3 Manual"},
+                    {"action": "click", "link": "Styleguide"},
+                    {"action": "switchToContentFrame"},
+                    {"action": "waitForText", "text": "TYPO3 CMS Backend Styleguide"},
+                    {"action": "click", "link": "Icons"},
+                    {"action": "waitForText", "text": "IconProvider"},
+                    {
+                        "action": "makeScreenshotOfWindow",
+                        "fileName": "IconProviders"
+                    }
+                ]
+            }
+        }
+    }
+}

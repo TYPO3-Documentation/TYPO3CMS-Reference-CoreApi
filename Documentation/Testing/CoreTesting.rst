@@ -11,11 +11,11 @@ Introduction
 
 This chapter is about executing TYPO3 Core tests locally and is intended to give you a better understanding of testing within TYPO3's Core. A full Core git checkout comes with everything needed
 to run tests in TYPO3 as of version 9. We don't use older versions in this chapter
-since Core development is most likely bound to the Core master branch - back porting patches to older
+since Core development is most likely bound to the Core `main` branch - back porting patches to older
 branches are usually handled by Core maintainers and often don't affect other Core contributors.
 
 Note, the main script
-`Build/Scripts/runTests.sh <https://github.com/typo3/typo3/blob/master/Build/Scripts/runTests.sh>`_
+`Build/Scripts/runTests.sh <https://github.com/typo3/typo3/blob/main/Build/Scripts/runTests.sh>`_
 is relatively new. It works best when executed on a Linux based host but can be run under macOS and
 Windows with some performance drawbacks on macOS.
 
@@ -84,14 +84,14 @@ again.
 
 A Core developer doing this for the first time may notice `docker-compose` pulling several container images
 before continuing. These are the dependent images needed to execute certain jobs. For instance the
-container `typo3gmbh/php72 <https://hub.docker.com/r/typo3gmbh/php72/>`_ may be fetched. Its definition
+container `typo3gmbh/php74 <https://hub.docker.com/r/typo3gmbh/php72/>`_ may be fetched. Its definition
 can be found at `TYPO3 GmbH GitHub <https://github.com/TYPO3GmbH/infra-bamboo-remote-agent>`_.
 These are the exact same containers Bamboo based testing is executed in. In Bamboo, the combination of
 :file:`Build/bamboo/src/main/java/core/PreMergeSpec.java` and :file:`Build/testing-docker/bamboo/docker-compose.yml`
 specifies what Bamboo executes for patches pushed to the review system. On local testing, this is the
 combination of :file:`Build/Scripts/runTests.sh`, :file:`Build/testing-docker/local/.env` (created by
 runTests.sh) and
-`Build/testing-docker/local/docker-compose.yml <https://github.com/typo3/typo3/blob/master/Build/testing-docker/local/docker-compose.yml>`_.
+`Build/testing-docker/local/docker-compose.yml <https://github.com/typo3/typo3/blob/main/Build/testing-docker/local/docker-compose.yml>`_.
 
 Whats impressive is that :file:`runTests.sh` can do everything locally that Bamboo executes as `pre-merge
 <https://bamboo.typo3.com/browse/CORE-GTC>`_ tests at the same time. It's just that the combinations of tests
@@ -109,29 +109,40 @@ Let's pick a :file:`runTests.sh` example and have a closer look:
 .. code-block:: shell
 
     lolli@apoc /var/www/local/cms/Web $ Build/Scripts/runTests.sh -s functional typo3/sysext/core/Tests/Functional/Authentication/
+    Using driver: mysqli
     Creating network "local_default" with the default driver
-    Creating local_redis4_1       ... done
-    Creating local_mariadb10_1    ... done
+    Creating local_mariadb_1      ... done
     Creating local_memcached1-5_1 ... done
+    Creating local_redis4_1       ... done
+    Creating local_prepare_functional_mariadb_run ... done
     Waiting for database start...
     Database is up
-    PHP 7.2.11-3+ubuntu18.04.1+deb.sury.org+1 (cli) (built: Oct 25 2018 06:44:08) ( NTS )
-    PHPUnit 7.1.5 by Sebastian Bergmann and contributors.
+    Creating local_functional_mariadb_run ... done
+    PHP 8.0.14 (cli) (built: Dec 18 2021 02:58:33) ( NTS )
+    PHPUnit 9.5.10 by Sebastian Bergmann and contributors.
 
-    .                                                                   1 / 1 (100%)
+    ........................................................          56 / 56 (100%)
 
-    Time: 184 ms, Memory: 16.00MB
+    Time: 00:24.864, Memory: 101.00 MB
 
-    OK (1 test, 1 assertion)
-    Stopping local_mariadb10_1    ... done
+    OK (56 tests, 162 assertions)
     Stopping local_redis4_1       ... done
+    Stopping local_mariadb_1      ... done
     Stopping local_memcached1-5_1 ... done
-    Removing local_functional_mariadb10_run_1         ... done
-    Removing local_prepare_functional_mariadb10_run_1 ... done
-    Removing local_mariadb10_1                        ... done
-    Removing local_redis4_1                           ... done
-    Removing local_memcached1-5_1                     ... done
+    Removing local_functional_mariadb_run_d03a24bcf25c         ... done
+    Removing local_prepare_functional_mariadb_run_4648d92e8e32 ... done
+    Removing local_redis4_1                                    ... done
+    Removing local_mariadb_1                                   ... done
+    Removing local_memcached1-5_1                              ... done
     Removing network local_default
+
+    ###########################################################################
+    Result of functional
+    PHP: 8.0
+    DBMS: mariadb  version 10.3  driver mysqli
+    SUCCESS
+    ###########################################################################    
+    
     lolli@apoc /var/www/local/cms/Web $ echo $?
     0
     lolli@apoc /var/www/local/cms/Web $
@@ -140,7 +151,7 @@ Let's pick a :file:`runTests.sh` example and have a closer look:
 The command asks :file:`runTests.sh` to execute the "functional" test suite `-s functional` and to not execute all
 available tests but only those within `typo3/sysext/core/Tests/Functional/Authentication/`. The script first
 starts the containers it needs: Redis, memcached and a MariaDB. All in one network. It then waits until
-the MariaDB container opens its database port, then starts a PHP 7.2 container and calls phpunit to execute
+the MariaDB container opens its database port, then starts a PHP 8.0 container and calls phpunit to execute
 the tests. phpunit executes only one test in this case, that one is green. The containers and networks are then
 removed again. Note the exit code of :file:`runTests.sh` (`echo $?`) is identical to the exit code of the phpunit
 call: If phpunit reports green, :file:`runTests.sh` returns 0, and if phpunit is red, the exit code would be non zero.
@@ -168,14 +179,14 @@ tests, but there is more:
 
 .. code-block:: shell
 
-    # Execute the unit test suite with PHP 7.3
-    Build/Scripts/runTests.sh -s unit -p 7.3
+    # Execute the unit test suite with PHP 7.4
+    Build/Scripts/runTests.sh -s unit -p 7.4
 
     # Execute some backend acceptance tests
     Build/Scripts/runTests.sh -s acceptance typo3/sysext/core/Tests/Acceptance/Backend/Topbar/
 
-    # Execute some functional tests with PHP 7.3 and postgres DBMS
-    Build/Scripts/runTests.sh -s functional -p 7.3 -d postgres typo3/sysext/core/Tests/Functional/Package/
+    # Execute some functional tests with PHP 8.0 and postgres DBMS
+    Build/Scripts/runTests.sh -s functional -p 8.0 -d postgres typo3/sysext/core/Tests/Functional/Package/
 
     # Execute the cgl fixer
     Build/Scripts/runTests.sh -s cglGit
@@ -230,7 +241,7 @@ stops at this line and opens the debug window.
 
 .. code-block:: shell
 
-    Build/Scripts/runTests.sh -x -s functional -p 7.3 -d postgres typo3/sysext/core/Tests/Functional/Package/RuntimeActivatedPackagesTest.php
+    Build/Scripts/runTests.sh -x -s functional -p 7.4 -d postgres typo3/sysext/core/Tests/Functional/Package/RuntimeActivatedPackagesTest.php
 
 The important flag here is `-x`! This is available for unit and functional testing. It enables xdebug
 in the PHP container and sends all debug information to port 9000 of the host system. If a local PhpStorm

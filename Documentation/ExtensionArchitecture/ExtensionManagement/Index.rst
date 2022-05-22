@@ -18,7 +18,9 @@ The interface is really easy to use. You just click the +/- icon to
 the left of an extension in order to install it and follow the
 instructions.
 
+
 .. index:: Extensions; Installation
+.. _extension-package-manager:
 .. _extension-install:
 
 Installing extensions
@@ -42,8 +44,11 @@ There are only two (possibly three) steps involved in using extensions with TYPO
 
 #. You must *load* it.
 
-   An extension is loaded only if it is listed in the :file:`PackageStates.php` file.
-   Extensions are loaded in the order they appear in this list.
+   In :ref:`legacy installations not based on Composer <t3start:legacyinstallation>`
+   an extension is loaded only if it is listed in the
+   :file:`PackageStates.php` file. Extensions are loaded in the order they appear in this list.
+   In :ref:`Composer installations <t3start:install>`, all extensions in the
+   :file:`composer.json` are considered as active.
 
    An enabled extension is always global to the TYPO3 Installation - you cannot disable
    an extension from being loaded in a particular branch of the page tree. The EM takes
@@ -98,55 +103,5 @@ containing the data structure for each extension. These include the properties:
 
 
 The order of the registered extensions in this array corresponds to
-the order they were listed in :file:`PackageStates.php`.
+the order they were listed in :file:`PackageStates.php` in legacy installations.
 
-.. index::
-   Extensions; Package Manager
-   PackageStates.php
-.. _extension-package-manager:
-
-Package manager
-^^^^^^^^^^^^^^^
-
-On a low level, the list of loaded extensions is written to the file
-:file:`typo3conf/PackageStates.php`. PHP class :code:`\TYPO3\CMS\Core\Package\PackageManager`
-manages this file as part of the "Package management", it is part of the
-Core extension, but mostly used by the Extension Manager as the low level work horse.
-
-The :file:`typo3conf/PackageStates.php` file contains a list of all active packages, example::
-
-    <?php
-    # PackageStates.php
-
-    # This file is maintained by TYPO3's package management. Although you can edit it
-    # manually, you should rather use the Extension Manager for maintaining packages.
-    # This file will be regenerated automatically if it doesn't exist. Deleting this file
-    # should, however, never become necessary if you use the package commands.
-
-    return [
-        'packages' => [
-            'core' => [
-                'packagePath' => 'typo3/sysext/core/',
-            ],
-            'extbase' => [
-                'packagePath' => 'typo3/sysext/extbase/',
-            ],
-            'fluid' => [
-                'packagePath' => 'typo3/sysext/fluid/',
-            ],
-            'install' => [
-                'packagePath' => 'typo3/sysext/install/',
-            ],
-            'frontend' => [
-                'packagePath' => 'typo3/sysext/frontend/',
-            ],
-            // ...
-        ],
-        'version' => 5,
-    ];
-
-.. warning::
-
-   You should not edit this file manually, unless you know exactly what you are doing. It is
-   rather easy to get this wrong, for instance the order of the list is important and should
-   be handled with care.

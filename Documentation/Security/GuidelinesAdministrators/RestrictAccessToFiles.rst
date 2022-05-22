@@ -31,34 +31,34 @@ Administrators should *test and verify* file access to these files are actually 
 The following list provides some files as an example that should not be retrievable
 directly by using HTTP requests:
 
-* `https://my.domain/.git/index`
-* `https://my.domain/INSTALL.md`
-* `https://my.domain/INSTALL.txt`
-* `https://my.domain/ChangeLog`
-* `https://my.domain/composer.json`
-* `https://my.domain/composer.lock`
-* `https://my.domain/vendor/autoload.php`
-* `https://my.domain/typo3_src/Build/package.json`
-* `https://my.domain/typo3_src/bin/typo3`
-* `https://my.domain/typo3_src/INSTALL.md`
-* `https://my.domain/typo3_src/INSTALL.txt`
-* `https://my.domain/typo3_src/ChangeLog`
-* `https://my.domain/typo3_src/vendor/autoload.php`
-* `https://my.domain/typo3conf/LocalConfiguration.php`
-* `https://my.domain/typo3conf/AdditionalConfiguration.php`
-* `https://my.domain/typo3temp/var/log/`
-* `https://my.domain/typo3temp/var/session/`
-* `https://my.domain/typo3temp/var/tests/`
-* `https://my.domain/typo3/sysext/core/composer.json`
-* `https://my.domain/typo3/sysext/core/ext_tables.sql`
-* `https://my.domain/typo3/sysext/core/Configuration/Services.yaml`
-* `https://my.domain/typo3/sysext/extbase/ext_typoscript_setup.txt`
-* `https://my.domain/typo3/sysext/extbase/ext_typoscript_setup.typoscript`
-* `https://my.domain/typo3/sysext/felogin/Configuration/FlexForms/Login.xml`
-* `https://my.domain/typo3/sysext/backend/Resources/Private/Language/locallang.xlf`
-* `https://my.domain/typo3/sysext/backend/Tests/Unit/Utility/Fixtures/clear.gif`
-* `https://my.domain/typo3/sysext/belog/Configuration/TypoScript/setup.txt`
-* `https://my.domain/typo3/sysext/belog/Configuration/TypoScript/setup.typoscript`
+* :samp:`https://example.org/.git/index`
+* :samp:`https://example.org/INSTALL.md`
+* :samp:`https://example.org/INSTALL.txt`
+* :samp:`https://example.org/ChangeLog`
+* :samp:`https://example.org/composer.json`
+* :samp:`https://example.org/composer.lock`
+* :samp:`https://example.org/vendor/autoload.php`
+* :samp:`https://example.org/typo3_src/Build/package.json`
+* :samp:`https://example.org/typo3_src/bin/typo3`
+* :samp:`https://example.org/typo3_src/INSTALL.md`
+* :samp:`https://example.org/typo3_src/INSTALL.txt`
+* :samp:`https://example.org/typo3_src/ChangeLog`
+* :samp:`https://example.org/typo3_src/vendor/autoload.php`
+* :samp:`https://example.org/typo3conf/LocalConfiguration.php`
+* :samp:`https://example.org/typo3conf/AdditionalConfiguration.php`
+* :samp:`https://example.org/typo3temp/var/log/`
+* :samp:`https://example.org/typo3temp/var/session/`
+* :samp:`https://example.org/typo3temp/var/tests/`
+* :samp:`https://example.org/typo3/sysext/core/composer.json`
+* :samp:`https://example.org/typo3/sysext/core/ext_tables.sql`
+* :samp:`https://example.org/typo3/sysext/core/Configuration/Services.yaml`
+* :samp:`https://example.org/typo3/sysext/extbase/ext_typoscript_setup.txt`
+* :samp:`https://example.org/typo3/sysext/extbase/ext_typoscript_setup.typoscript`
+* :samp:`https://example.org/typo3/sysext/felogin/Configuration/FlexForms/Login.xml`
+* :samp:`https://example.org/typo3/sysext/backend/Resources/Private/Language/locallang.xlf`
+* :samp:`https://example.org/typo3/sysext/backend/Tests/Unit/Utility/Fixtures/clear.gif`
+* :samp:`https://example.org/typo3/sysext/belog/Configuration/TypoScript/setup.txt`
+* :samp:`https://example.org/typo3/sysext/belog/Configuration/TypoScript/setup.typoscript`
 
 The list above is probably not complete. However, if general deny rules are in place links
 provided above should not be accessible anymore and result in a HTTP `403` error response.
@@ -69,7 +69,8 @@ Apache and Microsoft IIS web servers
 
 .. hint::
 
-   TYPO3 provides a recommended :file:`.htacess` file. See :ref:`t3install:system-environment` .
+   TYPO3 provides a recommended :file:`.htaccess` file.
+   See :ref:`t3start:system-environment` .
 
 To increase protection of TYPO3 instances, the Core Team however decided to
 install default web server configuration files since TYPO3 Core  version v9 under certain
@@ -85,9 +86,9 @@ and common package files like :file:`composer.json`.
 This "black list" approach needs maintenance: The Core Team tries to keep the template files
 :file:`.htaccess` and :file:`web.config` updated. If running Apache or IIS, administrators
 should compare their specific version with the reference files found at `root-htaccess
-<https://github.com/typo3/typo3/blob/master/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess>`_
+<https://github.com/typo3/typo3/blob/main/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess>`_
 and `root-web-config
-<https://github.com/typo3/typo3/blob/master/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-web-config>`_
+<https://github.com/typo3/typo3/blob/main/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-web-config>`_
 and adapt or update local versions if needed.
 
 
@@ -98,7 +99,9 @@ Administrators running the popular web server `NGINX <https://www.nginx.com/>`_ 
 take additional measures: NGINX does not support an approach like Apache or IIS to configure
 access by putting files into the web document directories - the TYPO3 install procedure can
 not install good default files and administrators must merge deny patterns into the web
-servers virtual host configuration. A typical example looks like this::
+servers virtual host configuration. A typical example looks like this:
+
+.. code-block:: nginx
 
     server {
 
@@ -129,7 +132,7 @@ servers virtual host configuration. A typical example looks like this::
         }
 
         # TYPO3 - Block access to language files
-        location ~* locallang[^.]*\.(?:xml|xlf)$ {
+        location ~* locallang[^.]*\.xlf {
             deny all;
         }
 

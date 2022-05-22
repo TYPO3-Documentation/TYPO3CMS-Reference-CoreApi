@@ -20,7 +20,7 @@ Getting started
 If you want to participate, it only takes a few easy steps to get started:
 
 1. Create an account at Crowdin: `<https://accounts.crowdin.com/register>`__
-2. Either find a TYPO3-project or go straight to TYPO3 Core (`<https://crowdin.com/project/typo3-cms>`__). There is also a list of extensions available for translation at the `TYPO3 Crowdin Bridge <https://localize.typo3.org/fileadmin/ter/status.html>`__
+2. Either find a TYPO3-project or go straight to TYPO3 Core (`<https://crowdin.com/project/typo3-cms>`__). There is also a list of extensions available for translation at the `TYPO3 Crowdin Bridge <https://localize.typo3.org/xliff/status.html>`__
 3. Join the project
 4. Select your preferred language
 5. Start translation
@@ -114,10 +114,10 @@ FAQ
 ===
 
 
-Should I localize both 10.4 and master?
+Should I localize both 11.5 and main?
 ---------------------------------------
 
-Master is the leading version. Every string which exists in the previous version as well is automatically filled during the export and only needs to be localized if it is different in the previous version.
+The main branch is the leading version. Every string which exists in the previous version as well is automatically filled during the export and only needs to be localized if it is different in the previous version.
 
 
 Strings are translated, but when are they taken into account and available for download?

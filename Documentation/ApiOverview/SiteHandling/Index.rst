@@ -23,6 +23,7 @@ through the features of the module and goes into API and programming details.
    UsingEnvVars
    UseSiteInTypoScript
    UseSiteInConditions
+   UseSiteInTCA
    SiteSettings
    CliTools
    AccessingSiteConfiguration

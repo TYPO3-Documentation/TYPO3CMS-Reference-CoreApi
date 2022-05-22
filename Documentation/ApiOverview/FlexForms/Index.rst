@@ -36,14 +36,11 @@ uses Flexforms to configure rendering options,
 e.g. a transition interval and transition type (slide, fade)
 for the carousel content element.
 
-.. figure:: /Images/ManualScreenshots/FlexForms/FlexFormCarousel.png
-   :class: with-shadow
+.. include:: /Images/AutomaticScreenshots/FlexForms/FlexFormCarousel.rst.txt
 
-Some more extensions that utilize FlexForms are:
+Another extensions that utilize FlexForms and can be used as example is:
 
-* `blog <https://github.com/TYPO3GmbH/blog>`__: This has a very small and
-  basic FlexForm, so it might be a good starting point to look at.
-
+* `georgringer/news <https://github.com/georgringer/news>`__
 
 How it works
 ============
@@ -131,19 +128,49 @@ Steps to perform (Extension developer)
       how to handle underscores and upper / lowercase, check there to see
       what your plugin signature is.
 
+   .. versionadded:: 12.0
+      The method :php:`ExtensionUtility::registerPlugin()` returns the plugin signature.
+
    Also look on the page :ref:`extension-naming`.
 
    If you are using a content element instead of a plugin, the example
-   will look like this::
+   will look like this:
 
-       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-           // 'list_type' does not apply here
-           '*',
-           // Flexform configuration schema file
-           'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
-           // ctype
-           'accordion'
-       );
+   .. code-block:: php
+      :caption: Add in file EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
+
+      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+         // 'list_type' does not apply here
+         '*',
+         // Flexform configuration schema file
+         'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
+         // ctype
+         'accordion'
+      );
+
+   Finally, according to "Configuration of the displayed order of fields in FormEngine
+   and their tab alignment." the field containing the FlexForm still needs to be
+   added to the `showitem` directive.
+   The following example shows line from the accordion element of the Bootstrap Package.
+
+   .. code-block:: php
+      :caption: Add in file EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
+      :emphasize-lines: 11
+
+      // Configure element type
+      $GLOBALS['TCA']['tt_content']['types']['accordion'] = array_replace_recursive(
+         $GLOBALS['TCA']['tt_content']['types']['accordion'],
+         [
+            'showitem' => '
+               --div--;General,
+               --palette--;General;general,
+               --palette--;Headers;headers,
+               tx_bootstrappackage_accordion_item,
+               --div--;Options,
+               pi_flexform'
+         ]
+      );
+
 
 #. Access the settings in your extension:
 
@@ -286,20 +313,6 @@ in the TCA reference:
    * :ref:`t3tca:columns-properties-displaycond` in TCA Reference
 
 
-.. index:: Flexforms; switchableControllerActions
-.. _flexformSwitchableControllerActions:
-
-switchableControllerActions
----------------------------
-
-.. deprecated:: 10.3
-
-   It is no longer considered best practice to use
-   `switchableControllerActions` in a Flexform. The reasons
-   for the deprecation and possible alternatives are outlined
-   in the changelog :doc:`t3core:Changelog/10.3/Deprecation-89463-SwitchableControllerActions`.
-
-
 .. _flexformReload:
 
 Reload on change
@@ -377,7 +390,7 @@ How to access flexforms From TypoScript
 
 .. versionadded:: 8.4
    It is now possible to read Flexform properties from TypoScript,
-   see :doc:`t3core:Changelog/8.4/Feature-17309-AccessFlexformValueViaTS`.
+   see :doc:`ext_core:Changelog/8.4/Feature-17309-AccessFlexformValueViaTS`.
 
 
 .. code-block:: typoscript
@@ -426,7 +439,8 @@ If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign si
      }
    }
 
-In order to have all FlexForm fields available, you can add a custom DataProcessor.
+In order to have all FlexForm fields available, you can use the FlexFormProcessor. See also
+:ref:`FlexFormProcessor in the TypoScript Reference<t3tsref:FlexFormProcessor>`.
 This example would make your FlexForm data available as Fluid variable :html:`{flexform}`:
 
 .. code-block:: typoscript
@@ -434,48 +448,14 @@ This example would make your FlexForm data available as Fluid variable :html:`{f
    my_content = FLUIDTEMPLATE
    my_content {
      dataProcessing {
-       10 = Your\Ext\DataProcessing\FlexFormProcessor
+       10 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
+       10.fieldName = my_flexform_field
+       10.as = myOutputVariable
      }
    }
 
-.. code-block:: php
-
-   namespace Your\Ext\DataProcessing;
-
-   use TYPO3\CMS\Core\Service\FlexFormService;
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-
-   class FlexFormProcessor implements DataProcessorInterface
-   {
-       /**
-        * @var FlexFormService
-        */
-       protected $flexFormService;
-
-       public function __construct(FlexFormService $flexFormService) {
-           $this->flexFormService = $flexFormService;
-       }
-
-       public function process(
-           ContentObjectRenderer $cObj,
-           array $contentObjectConfiguration,
-           array $processorConfiguration,
-           array $processedData
-       ): array {
-           $originalValue = $processedData['data']['pi_flexform'];
-           if (!is_string($originalValue)) {
-               return $processedData;
-           }
-
-           $flexformData = $this->flexFormService->convertFlexFormContentToArray($originalValue);
-           $processedData['flexform'] = $flexformData;
-           return $processedData;
-       }
-   }
-
 .. seealso::
-   :ref:`configure-dependency-injection-in-extensions`.
+   :ref:`FlexFormProcessor <t3tsref:FlexFormProcessor>`.
 
 
 Steps to Perform (Editor)
@@ -492,8 +472,8 @@ Credits
 =======
 
 Some of the examples were taken from the extensions
-`news <https://extensions.typo3.org/extension/news/>`__ (by Georg Ringer)
-and `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__
+:t3ext:`news/` (by Georg Ringer)
+and :t3ext:`bootstrap_package/`
 (by Benjamin Kott).
 
 Further enhancements by the TYPO3 community are welcome!

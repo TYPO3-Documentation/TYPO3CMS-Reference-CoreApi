@@ -70,7 +70,10 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 Middlewares
 ===========
 
-Each middleware has to implement the PSR-15 :php:`MiddlewareInterface`::
+Each middleware has to implement the PSR-15 :php:`MiddlewareInterface`:
+
+.. code-block:: php
+   :caption: vendor/psr/http-server-middleware/src/MiddlewareInterface.php
 
    namespace Psr\Http\Server;
 
@@ -127,7 +130,8 @@ This middleware will check whether TYPO3 is in maintenance mode and will return
 an unavailable response in that case. Otherwise the next middleware will be
 called, and its response is returned instead.
 
-::
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Middleware/SomeMiddleware.php
 
    public function process(
        ServerRequestInterface $request,
@@ -157,7 +161,9 @@ resolved site and language could be attached to the request.
 In order to do so, a new request is built with additional attributes, before
 calling the next request handler with the enhanced request.
 
-::
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Middleware/SomeMiddleware.php
 
    public function process(
        ServerRequestInterface $request,
@@ -190,7 +196,8 @@ Order of processing middlewares when enriching response is opposite
 to when middlewares are modifying the request.
 
 
-::
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Middleware/SomeMiddleware.php
 
    public function process(
        ServerRequestInterface $request,
@@ -220,12 +227,15 @@ middlewares, it's also possible to remove existing middlewares from
 the configuration.
 
 The configuration is provided within
-:file:`Configuration/RequestMiddlewares.php` of an extension::
+:file:`Configuration/RequestMiddlewares.php` of an extension:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
 
    return [
        'frontend' => [
            'middleware-identifier' => [
-               'target' => \Vendor\ExtName\Middleware\ConcreteClass::class,
+               'target' => \Vendor\SomeExtension\Middleware\ConcreteClass::class,
                'before' => [
                    'another-middleware-identifier',
                ],
@@ -236,7 +246,7 @@ The configuration is provided within
        ],
        'backend' => [
            'middleware-identifier' => [
-               'target' => \Vendor\ExtName\Middleware\AnotherConcreteClass::class,
+               'target' => \Vendor\SomeExtension\Middleware\AnotherConcreteClass::class,
                'before' => [
                    'another-middleware-identifier',
                ],
@@ -297,7 +307,10 @@ Override ordering of middlewares
 ================================
 
 To change the ordering of middlewares shipped by the Core an extension can override the registration in
-:file:`Configuration/RequestMiddlewares.php`::
+:file:`Configuration/RequestMiddlewares.php`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
 
    return [
        'frontend' => [
@@ -314,7 +327,10 @@ To change the ordering of middlewares shipped by the Core an extension can overr
 
 However, this could lead to circular ordering depending on the ordering constraints of other
 middlewares. Alternatively an existing middleware can be disabled and reregistered again with a new
-identifier. This will circumvent the risk of circularity::
+identifier. This will circumvent the risk of circularity:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
 
    return [
        'frontend' => [
@@ -322,7 +338,7 @@ identifier. This will circumvent the risk of circularity::
                'disabled' => true
            ],
            'overwrite-middleware-identifier' => [
-               'target' => \Vendor\Extension\Middleware\MyMiddleware::class,
+               'target' => \Vendor\SomeExtension\Middleware\MyMiddleware::class,
                'after' => [
                    'another-middleware-identifier',
                ],
@@ -357,36 +373,38 @@ A middleware that needs to send a JSON response when a certain condition is met,
 PSR-17_ response factory interface (the concrete TYPO3 implementation is injected as a constructor
 dependency) to create a new PSR-7_ response object:
 
+
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/Middleware/StatusCheckMiddleware.php
 
-    use Psr\Http\Message\ResponseFactoryInterface;
-    use Psr\Http\Message\ResponseInterface;
-    use Psr\Http\Message\ServerRequestInterface;
-    use Psr\Http\Server\MiddlewareInterface;
-    use Psr\Http\Server\RequestHandlerInterface;
+   use Psr\Http\Message\ResponseFactoryInterface;
+   use Psr\Http\Message\ResponseInterface;
+   use Psr\Http\Message\ServerRequestInterface;
+   use Psr\Http\Server\MiddlewareInterface;
+   use Psr\Http\Server\RequestHandlerInterface;
 
-    class StatusCheckMiddleware implements MiddlewareInterface
-    {
-        /** @var ResponseFactoryInterface */
-        private $responseFactory;
+   class StatusCheckMiddleware implements MiddlewareInterface
+   {
+       /** @var ResponseFactoryInterface */
+       private $responseFactory;
 
-        public function __construct(ResponseFactoryInterface $responseFactory)
-        {
-            $this->responseFactory = $responseFactory;
-        }
+       public function __construct(ResponseFactoryInterface $responseFactory)
+       {
+           $this->responseFactory = $responseFactory;
+       }
 
-        public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
-        {
-            if ($request->getRequestTarget() === '/check') {
-                $data = ['status' => 'ok'];
-                $response = $this->responseFactory->createResponse()
-                    ->withHeader('Content-Type', 'application/json; charset=utf-8');
-                $response->getBody()->write(json_encode($data));
-                return $response;
-            }
-            return $handler->handle($request);
-        }
-    }
+       public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
+       {
+           if ($request->getRequestTarget() === '/check') {
+               $data = ['status' => 'ok'];
+               $response = $this->responseFactory->createResponse()
+                   ->withHeader('Content-Type', 'application/json; charset=utf-8');
+               $response->getBody()->write(json_encode($data));
+               return $response;
+           }
+           return $handler->handle($request);
+       }
+   }
 
 
 .. index:: Request handling; Execution
@@ -433,6 +451,7 @@ response to be returned to the user. All of these interface implementations are 
 as constructor dependencies:
 
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/Middleware/ExampleMiddleware.php
 
     use Psr\Http\Client\ClientInterface;
     use Psr\Http\Message\RequestFactoryInterface;
@@ -466,12 +485,12 @@ as constructor dependencies:
         public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
         {
             if ($request->getRequestTarget() === '/example') {
-                $req = $this->requestFactory->createRequest('GET', 'https://api.external.app/endpoint.json')
+                $req = $this->requestFactory->createRequest('GET', 'https://api.external.app/endpoint.json');
                 // Perform HTTP request
                 $res = $this->client->sendRequest($req);
                 // Process data
                 $data = [
-                    'content' => json_decode((string)$res->getBody());
+                    'content' => json_decode((string)$res->getBody())
                 ];
                 $response = $this->responseFactory->createResponse()
                     ->withHeader('Content-Type', 'application/json; charset=utf-8');

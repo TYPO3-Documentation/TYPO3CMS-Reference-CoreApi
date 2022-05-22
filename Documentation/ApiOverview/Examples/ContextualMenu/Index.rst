@@ -54,19 +54,27 @@ item providers by asking each whether it can provide items
 Item providers registration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Custom item providers can be registered in global array:
+.. versionchanged:: 12.0
+   ContextMenu item providers, implementing :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface`
+   are now automatically registered. The registration via
+   :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders']`
+   is not evaluated anymore.
 
-
-.. code-block:: php
-
-   $GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders'][1486418735] = \TYPO3\CMS\Impexp\ContextMenu\ItemProvider::class;
-
-
-They must implement
+Custom item providers must implement
 :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface` and can
 extend :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\AbstractProvider`.
 
-There are two item providers which are always available (without registration):
+They are then automatically registered by adding the :yaml:`backend.contextmenu.itemprovider`
+tag, if :yaml:`autoconfigure` is enabled in :file:`Services.yaml`. The class
+:php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ItemProvidersRegistry` then
+automatically receives those services and registers them.
+
+If :yaml:`autoconfigure` is
+not enabled in your :file:`Configuration/Services.(yaml|php)` file,
+manually configure your item providers with the
+:yaml:`backend.contextmenu.itemprovider` tag.
+
+There are two item providers which are always available:
 
 -  :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\PageProvider`
 -  :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\RecordProvider`
@@ -94,7 +102,7 @@ or other modules defined in the JSON as
 
 Example of the JSON response:
 
-.. code:: javascript
+.. code-block:: javascript
 
     {
        "view":{
@@ -259,28 +267,10 @@ Follow these steps to add a custom menu item for pages records. You will add a
 .. include:: /Images/AutomaticScreenshots/Examples/ContextualMenuExtended/ContextMenuHelloWorld.rst.txt
 
 
-Step 1: Item Provider Registration
-----------------------------------
-
-First you need to add an item provider registration to the
-:file:`ext_localconf.php` of your extension.
-
-
-.. code-block:: php
-
-   <?php
-   defined('TYPO3') or die();
-
-    // You should use current timestamp (not this very value) or leave it empty
-    $GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders'][1488274371] =
-        \Vendor\ExtensionKey\ContextMenu\HelloWorldItemProvider::class;
-
-
-
-Step 2: Implementation of the item provider class
+Step 1: Implementation of the item provider class
 -------------------------------------------------
 
-Second step is to implement your own item provider class. Provider must implement
+Implement your own item provider class. Provider must implement
 :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface` and
 can extend :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\AbstractProvider`
 or any other provider from EXT:backend.
@@ -292,10 +282,10 @@ This file can be found in :file:`EXT:examples/Classes/ContextMenu/HelloWorldItem
 .. include:: /CodeSnippets/Examples/ContextualMenuExtended/HelloWorldItemProvider.rst.txt
 
 
-Step 3: JavaScript actions
+Step 2: JavaScript actions
 --------------------------
 
-Third step is to provide a JavaScript file (RequireJS module) which will be
+Provide a JavaScript file (RequireJS module) which will be
 called after clicking on the context menu item.
 
 This file can be found in :file:`EXT:examples/Resources/Public/JavaScript/ContextMenuActions.js`

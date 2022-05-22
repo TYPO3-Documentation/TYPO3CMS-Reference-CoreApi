@@ -3,7 +3,6 @@
 .. code-block:: typoscript
    :caption: Extension examples, file Configuration/TypoScript/Conditions/Strings/setup.typoscript
 
-   [request.getNormalizedParams().getHttpHost() == 'www.example.org']
-      page.42.value = Http Host is www.example.org
+   [request.getNormalizedParams().getHttpHost() == 'example.org']
+      page.42.value = Http Host is example.org
    [END]
-   

@@ -32,14 +32,14 @@ as is done for example in the *table* content element with the field `bodytext`.
 In these cases Fluid does not have to deal with these manipulations or transformation.
 
 You can find the example below in the TYPO3 Documentation Team extension
-`examples <https://extensions.typo3.org/extension/examples/>`__.
+:t3ext:`examples/`.
 
 
 Prerequisites
 =============
 
 The following examples require the system extension
-:ref:`fluid_styled_content <fsc:start>`.
+:doc:`fluid_styled_content <ext_fsc:Index>`.
 
 It can be installed via Composer with:
 
@@ -84,8 +84,11 @@ The following call needs to be added to the file
       'tt_content',
       'CType',
        [
+           // title
            'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentelement_title',
+           // plugin signature: extkey_identifier
            'examples_newcontentelement',
+           // icon identifier
            'content-text',
        ],
        'textmedia',
@@ -118,9 +121,10 @@ Add it to the new content element wizard
 
 Content elements in the :guilabel:`New Content Element Wizard` are easier
 to find for editors. It is therefore advised to add the new content element
-to this wizard.
+to this wizard (via page TSconfig).
 
 .. code-block:: typoscript
+   :caption: EXT:my_sitepackage/Configuration/page.tsconfig
 
    mod.wizards.newContentElement.wizardItems {
       // add the content element to the tab "common"
@@ -138,6 +142,13 @@ to this wizard.
          show := addToList(examples_newcontentelement)
       }
    }
+   
+.. versionchanged:: 12.0 
+
+   Starting with TYPO3 version 12.0 file :file:`EXT:my_sitepackage/Configuration/page.tsconfig` 
+   is automatically included. For version 11.5 and below this file has to be included in the 
+   :file:`ext_localconf.php`. See :ref:`Setting global page TSconfig, compatible with TYPO3 
+   11 and 12 <t3tsconfig:global-page-tsconfig-compatible-with-typo3-11-and-12>`.
 
 .. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementWizard.rst.txt
 
@@ -223,7 +234,7 @@ The :typoscript:`lib.contentElement` path is defined in file
 :file:`EXT:fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
 and uses a :ref:`t3tsref:cobj-fluidtemplate`.
 
-We reference :ref:`fluid_styled_contents <fsc:start>`
+We reference :doc:`fluid_styled_contents <ext_fsc:Index>`
 :typoscript:`lib.contentElement` from our new content element and only change
 the Fluid template to be used.
 
@@ -278,7 +289,7 @@ Extended example: Extend tt_content and use data processing
 ===========================================================
 
 You can find the complete example in the  TYPO3 Documentation Team extension
-`examples <https://extensions.typo3.org/extension/examples/>`__. The steps for
+:t3ext:`examples/`. The steps for
 creating a simple new content element as above need to be repeated. We use the
 key *examples_newcontentcsv* in this example.
 
@@ -331,7 +342,10 @@ Defining the field in the TCA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The new field *tx_examples_separator* is added to the TCA definition of the table *tt_content* in the file
-:file:`Configuration/TCA/Overrides/tt_content.php`::
+:file:`Configuration/TCA/Overrides/tt_content.php`:
+
+.. code-block:: php
+   :caption: EXT:examples/Configuration/TCA/Overrides/tt_content.php
 
    $temporaryColumn = [
       'tx_examples_separator' => [
@@ -354,7 +368,7 @@ The new field *tx_examples_separator* is added to the TCA definition of the tabl
    ];
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumn);
 
-You can read more about defining fields via TCA in the :ref:`t3tca:start`.
+You can read more about defining fields via TCA in the :doc:`t3tca:Index`.
 
 Now the new field can be used in your Fluid template just like any other
 tt_content field.
@@ -362,7 +376,10 @@ tt_content field.
 Another example shows the connection to a foreign table. This allows you to be
 more flexible with the possible values in the select box. The new field
 :sql:`tx_examples_main_category` is a connection to the TYPO3 system category
-table :sql:`sys_category`::
+table :sql:`sys_category`:
+
+.. code-block:: php
+   :caption: EXT:examples/Configuration/TCA/Overrides/tt_content.php
 
    'tx_examples_main_category' => [
         'exclude' => 0,
@@ -380,15 +397,31 @@ table :sql:`sys_category`::
         ],
    ],
 
+.. todo:: this example is not valid anymore as there is the field type "category"
+   now. Let us find another example.
+
 
 Defining the field in the TCE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-An individual modification of the newly added field *tx_examples_main_category* to the TCA definition of the table *tt_content* can be done in the TCE (TYPO3 Core Engine) TSConfig. In most cases it is necessary to set the page id of the general storage folder (available as a plugin select box to select a starting point page until TYPO3 6.2). Tnen the examples extension will only use the content records from the given page id. ::
+An individual modification of the newly added field *tx_examples_main_category*
+to the TCA definition of the table *tt_content* can be done in the TCE
+(TYPO3 Core Engine) TSConfig. In most cases it is necessary to set the page
+id of the general storage folder (available as a plugin select box to select a
+starting point page until TYPO3 6.2). Then the examples extension will only use
+the content records from the given page id.
+
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEFORM.tt_content.tx_examples_main_category.PAGE_TSCONFIG_ID = 18
 
-If more than one page id is allowed, this configuration must be used instead (and the above TCA must be modified to use the marker ###PAGE_TSCONFIG_IDLIST### instead of ###PAGE_TSCONFIG_ID###)::
+If more than one page id is allowed, this configuration must be used instead
+(and the above TCA must be modified to use the marker ###PAGE_TSCONFIG_IDLIST###
+instead of ###PAGE_TSCONFIG_ID###):
+
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEFORM.tt_content.tx_examples_main_category.PAGE_TSCONFIG_IDLIST = 18, 19, 20
 

@@ -18,7 +18,7 @@ user needs
 Read more about the concepts of MFA here https://en.wikipedia.org/wiki/Multi-factor_authentication
 
 
-.. figure:: /Images/ManualScreenshots/Authentication/MfaEnterCode.png
+.. figure:: /Images/ManualScreenshots/Frontend/Authentication/MfaEnterCode.png
    :alt: TYPO3 Login Screen for entering MFA code (TOTP)
    :class: with-border with-shadow
 
@@ -165,7 +165,7 @@ Enforcing MFA for users
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 It seems reasonable to require MFA for specific users or user groups. This can
-be achieved with :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['requireMFA']` which
+be achieved with :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['requireMfa']` which
 allows 4 options:
 
 * `0`: Do not require multi-factor authentication (default)

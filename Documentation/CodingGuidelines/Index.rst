@@ -13,7 +13,7 @@ extensions or Core parts.
 .. tip::
 
    You can find an
-   `.editorconfig <https://github.com/typo3/typo3/blob/master/.editorconfig>`__
+   `.editorconfig <https://github.com/typo3/typo3/blob/main/.editorconfig>`__
    file in the TYPO3 Core  repository.
    `Some editors and IDEs <https://editorconfig.org/>`__ can use this
    file and the rules defined within.

@@ -18,7 +18,7 @@ actual labels. This task is performed by method
 :php:`\TYPO3\CMS\Core\Localization\LanguageService::loadSingleTableDescription()`.
 
 The content of the :php:`$TCA_DESCR` array can be reviewed in the
-**SYSTEM > Configuration** module:
+:guilabel:`System` > :guilabel:`Configuration` module:
 
 .. figure:: /Images/ManualScreenshots/ContextSensitiveHelp/ContextSensitiveHelpTcaDescr.png
    :alt: Content of the $TCA\_DESCR array
@@ -49,7 +49,7 @@ can use the following syntax:
 
 	_MOD_[main module]_[module name]
 
-For the **WEB > Info** module, the key is:
+For the :guilabel:`Web` > :guilabel:`Info` module, the key is:
 
 .. code-block:: text
 

@@ -52,7 +52,10 @@ accordingly.
 Simple usage example
 ====================
 
-Consider this setup::
+Consider this setup:
+
+.. code-block:: none
+   :caption: example page tree
 
    page   tree
    ====== ====================
@@ -61,7 +64,10 @@ Consider this setup::
    3      └── Company              <- mounted by page 2
    4          └── About us
 
-Let's assume the mount point page two is configured like this::
+Let's assume the mount point page two is configured like this:
+
+.. code-block:: none
+   :caption: Data in the mount point
 
    Title         :  Basic Mount Point
    URL segment   :  basic-mountpoint
@@ -71,18 +77,18 @@ Let's assume the mount point page two is configured like this::
 The result will be:
 
 company
-   `https://example.com/company/`
+   :samp:`https://example.org/company/`
 
    This is just the normal page 3 showing its content.
 
 basic-mountpoint
-   `https://example.com/basic-mountpoint/`
+   :samp:`https://example.org/basic-mountpoint/`
 
    This is the mount point page 2 showing the content of page 3.
 
 about-us
-   |  `https://example.com/basic-mountpoint/about-us`
-   |  `https://example.com/company/about-us`
+   |  :samp:`https://example.org/basic-mountpoint/about-us`
+   |  :samp:`https://example.org/company/about-us`
 
    Both URLs will show the same content, namely that of page 4.
 
@@ -99,20 +105,26 @@ from a completely different site or pagetree within TYPO3.
 Creating links for multi-site mount points works the same way as in a
 same site setup.
 
-Situation::
+Situation:
+
+.. code-block:: none
+   :caption: example page tree
 
    Page   Tree
    ====== ====================
 
-   1      Site 1: example.com
+   1      Site 1: example.org
    2      └── Company              <- mounted by page 5
    3          └── About us
 
-   4      Site 2: company.example.com
+   4      Site 2: company.example.org
    5      └── Cross site mount     <- mount point page that is mounting page 2
 
 
-Configuration of mount point page 5::
+Configuration of mount point page 5:
+
+.. code-block:: none
+   :caption: Data in the mount point
 
    Title         :  Cross site mount
    URL segment   :  cross-site-mount
@@ -123,15 +135,15 @@ Configuration of mount point page 5::
 This will be the result:
 
 company
-   |  `https://example.com/company`
-   |  `https://company.example.com/cross-site-mount/`
+   |  :samp:`https://example.org/company`
+   |  :samp:`https://company.example.org/cross-site-mount/`
 
    Both pages are rendered from the same content. They may appear visually
    different though if the sites use different styles.
 
 company/about-us
-   |  `https://example.com/company/about-us`
-   |  `https://company.example.com/cross-site-mount/about-us`
+   |  :samp:`https://example.org/company/about-us`
+   |  :samp:`https://company.example.org/cross-site-mount/about-us`
 
    Same here: Both pages are rendered from the same content. They may appear
    visually different though if the sites use different styles.
@@ -151,16 +163,19 @@ Limitations
    If a Mount Point Page has the slug "/more", mounting a page with "/imprint" subpage,
    but the Mount Point Page has a regular sibling page with "/more/imprint" a collision cannot
    be detected. In contrast, the non-mounted page would always work, and a subpage of a
-   Mounted Page would never be reached.::
+   Mounted Page would never be reached.:
+
+   .. code-block:: none
+      :caption: example page tree
 
       Page   Tree
       ====== ====================
 
-      1      Site 1: example.com
+      1      Site 1: example.org
       2      └── More              <- mounted by page 5
       3          └── Imprint       <- page will never be reached via Site 2
 
-      4      Site 2: company.example.com
+      4      Site 2: company.example.org
       5      └── More              <- mount point page that is mounting page 2
       6      └── Imprint           <- slug manually configured to `more/imprint/`
 

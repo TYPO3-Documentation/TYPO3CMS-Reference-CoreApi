@@ -135,7 +135,7 @@ Usage in the frontend
 
 .. versionadded:: 7.6
 
-:doc:`t3core:Changelog/7.6/Feature-56633-FormProtectionAPIForFrontEndUsage` introduced a new
+:doc:`ext_core:Changelog/7.6/Feature-56633-FormProtectionAPIForFrontEndUsage` introduced a new
 class to allow usage of the FormProtection (CSRF protection) API in the frontend.
 
 Usage is the same as in backend context:
@@ -170,4 +170,4 @@ cannot be used again.
 
 Note that this **requires a logged on user** whether in frontend or backend. CSRF protection
 is not supported for anonymous users. Without a logged on user the token will always be
-:code:`dummyToken`. See https://forge.typo3.org/issues/77403 for details.
+:code:`dummyToken`. See :forge:`77403` for details.

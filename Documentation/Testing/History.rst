@@ -117,8 +117,8 @@ system but fail on another one. Additionally, running functional tests could nev
 
 Next to tons of detail changes, two main steps happened in 2014.
 
-First, the unit test isolation has been finished. The initiative `standalone unit test
-<https://wiki.typo3.org/Blueprints/StandaloneUnitTests>`_ changed the unit test bootstrap to execute
+First, the unit test isolation has been finished. The initiative "standalone unit test"
+changed the unit test bootstrap to execute
 only a very basic part of the system. Instance specific configuration files like *LocalConfiguration.php*
 were no longer read, no database connection established, the global backend user and language objects were
 no longer set up and so on. In the end, not much more than the class auto loading is initialized. To reach
@@ -263,7 +263,7 @@ attention. Working in these areas in turn improves the Core for everyone and all
 have not been possible before.
 
 In late 2018 another thing has been established: The
-`runTests.sh <https://github.com/typo3/typo3/blob/master/Build/Scripts/runTests.sh>`_
+`runTests.sh <https://github.com/typo3/typo3/blob/main/Build/Scripts/runTests.sh>`_
 script allows Core developers to easily execute tests within a container based environment that takes care
 of all the nasty system dependency problems. The test setup for some test suites is far from trivial: Acceptance
 tests need a web server, chrome and selenium, functional tests need different database systems

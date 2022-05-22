@@ -137,7 +137,7 @@ version 8.x.x), a minor update (e.g. from version 8.4.x to version
 8.7.11 to 8.7.12).
 
 In most cases, a maintenance/bugfix/security update is a no-brainer,
-see :ref:`TYPO3 Installation and Upgrade Guide <t3install:start>`
+see :doc:`TYPO3 Installation and Upgrade Guide <t3install:Index>`
 for further details.
 
 When you extract the archive file of new TYPO3 sources into the
@@ -190,7 +190,10 @@ installed.
 When a system administrator decides to create a copy of the directory of
 an existing insecure extension, before installing the new version, he/she
 often introduces the risk of leaving the (insecure) copy on the web
-server. For example::
+server. For example:
+
+.. code-block:: none
+   :caption: Remove old extensions, dont rename
 
     typo3conf/ext/insecure_extension.bak
     typo3conf/ext/insecure_extension.delete_me

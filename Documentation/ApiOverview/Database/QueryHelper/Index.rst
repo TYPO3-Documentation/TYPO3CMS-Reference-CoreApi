@@ -38,7 +38,10 @@ parseOrderBy()
 
 Some parts of the Core framework allow string definitions like `ORDER BY sorting` for instance
 in `TCA` and `TypoScript`. The method rips those strings apart and prepares them to be fed
-to :php:`QueryBuilder->orderBy()`::
+to :php:`QueryBuilder->orderBy()`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // 'ORDER BY aField ASC,anotherField, aThirdField DESC'
    // ->
@@ -54,7 +57,10 @@ parseGroupBy()
 ==============
 
 Parses `GROUP BY` strings ready to be added via :php:`QueryBuilder->groupBy()`,
-similar to :php:`->parseOrderBy()`::
+similar to :php:`->parseOrderBy()`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // 'GROUP BY be_groups.title, anotherField'
    // ->
@@ -68,7 +74,10 @@ parseTableList()
 
 Parse a table list, possibly prefixed with FROM, and explode it into and array of arrays where
 each item consists of a tableName and an optional alias name,
-ready to be put into :php:`QueryBuilder->from()`::
+ready to be put into :php:`QueryBuilder->from()`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // 'FROM aTable a,anotherTable, aThirdTable AS c',
    // ->
@@ -83,7 +92,10 @@ ready to be put into :php:`QueryBuilder->from()`::
 parseJoin()
 ===========
 
-Split a JOIN SQL fragment into table name, alias and join conditions::
+Split a JOIN SQL fragment into table name, alias and join conditions:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // 'aTable AS `anAlias` ON anAlias.uid = anotherTable.uid_foreign'
    // ->
@@ -110,7 +122,10 @@ Removes the prefixes `AND` / `OR` from an input string.
 Those prefixes are added in Doctrine DBAL via :php:`QueryBuilder->where()`, :php:`QueryBuilder->orWhere()`,
 :php:`ExpressionBuilder->andX()` and friends. Some parts of the `TYPO3` framework however carry SQL fragments
 prefixed with `AND` or `OR` around and it's not always possible to easily get rid of those. The method
-helps by killing those prefixes before they are handed over to the `doctrine` API::
+helps by killing those prefixes before they are handed over to the `doctrine` API:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // 'AND 1=1'
    // ->
@@ -137,7 +152,10 @@ quoteDatabaseIdentifiers()
 This helper method is used especially in `TCA` and `TypoScript` at places where SQL fragments are specified to
 correctly quote table and field names for the specific database platform. It for example
 substitutes :php:`{#aIdentifier}` to ```aIdentifier``` if using MySQL or to `"aIdentifier"`
-if using PostgreSQL. Let's suppose a simple `TCA` columns select field like this::
+if using PostgreSQL. Let's suppose a simple `TCA` columns select field like this:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
     'aSelectFieldWithForeignTableWhere' => [
         'label' => 'some label',
@@ -150,7 +168,9 @@ if using PostgreSQL. Let's suppose a simple `TCA` columns select field like this
     ],
 
 Method :php:`quoteDatabaseIdentifiers()` is called for :php:`foreign_table_where`, and if using
-MySQL, this fragment will be substituted to::
+MySQL, this fragment will be substituted to:
+
+.. code-block:: none
 
     AND `tx_some_foreign_table_name`.`pid` = 42
 

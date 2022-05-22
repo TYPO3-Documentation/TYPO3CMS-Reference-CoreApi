@@ -52,7 +52,10 @@ which can be cached in four different cache entries:
 
 To differentiate all entries from each other, the identifier is built from the page ID
 where the plugin is located, combined with the information whether a user is logged in.
-These are concatenated and hashed. In PHP this could look like this::
+These are concatenated and hashed. In PHP this could look like this:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $identifier = sha1((string)$this->getPageUid() . (string)$this->isUserLoggedIn());
 
@@ -102,8 +105,6 @@ an arbitrary number of tags can be assigned to an entry and one specific tag
 can be assigned to multiple cache entries. All tags a cache entry has are given to
 the cache when the entry is stored ("set").
 
-Also see :ref:`clear cache in DataHandler using cache tags <caching-architecture-tags>`.
-
 
 .. _caching-architecture-core:
 
@@ -147,7 +148,7 @@ The following caches exist in the TYPO3 CMS Core:
     files, autoloader and sprite configuration PHP files.
   - This cache is instantiated very early during bootstrap and **can not** be re configured
     by instance specific :file:`LocalConfiguration.php` or similar.
-  - Cache entries are located in directory :file:`typo3temp/var/cache/code/core` or :file:`var/cache/code/core` (for composer-based installations). The full directory and any file
+  - Cache entries are located in directory :file:`typo3temp/var/cache/code/core` or :file:`var/cache/code/core` (for Composer installations). The full directory and any file
     in this directory can be safely removed and will be re-created upon next request. This is especially useful during
     development
   - **group**: system
@@ -185,15 +186,15 @@ The following caches exist in the TYPO3 CMS Core:
 
 - `imagesizes`
 
-   - Cache for imagesizes.
-   - Should _only_ be cleared manually, if you know what you are doing.
-   - **groups**: lowlevel
+  - Cache for imagesizes.
+  - Should _only_ be cleared manually, if you know what you are doing.
+  - **groups**: lowlevel
 
 - `assets`
 
-   - Cache for assets.
-   - Examples: Backend Icons, RTE or RequireJS Configuration
-   - **groups**: system
+  - Cache for assets.
+  - Examples: Backend Icons, RTE or RequireJS Configuration
+  - **groups**: system
 
 - `l10n`
 
@@ -202,8 +203,8 @@ The following caches exist in the TYPO3 CMS Core:
 
 - `fluid_template`
 
-   - Cache for Fluid templates.
-   - **groups**: system
+  - Cache for Fluid templates.
+  - **groups**: system
 
 - Extbase
 
@@ -222,7 +223,7 @@ The following caches exist in the TYPO3 CMS Core:
    bootstrap process are introduced (usually when working on the TYPO3 Core ),
    cache clearings requests themselves might throw fatal errors.
    The solution here is to manually remove the cache files from
-   :file:`typo3temp/var/cache/code/` or :file:`var/cache/code/` (for composer-based installation).
+   :file:`typo3temp/var/cache/code/` or :file:`var/cache/code/` (for Composer installations).
 
 
 .. _caching-architecture-task:

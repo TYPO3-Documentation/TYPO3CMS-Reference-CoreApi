@@ -2,62 +2,73 @@
 .. index:: Site handling; Create new
 .. _sitehandling-create-new:
 
-===================
-Creating a new site
-===================
+=================================
+Creating a new site configuration
+=================================
 
-A new site can be created for every page record that either **is on rootLevel (pid = 0)**
-or **has `is_siteroot` flag set**. So at least one page is needed in the page tree.
+A new site configuration is automatically created for each
+**new page on the rootlevel (pid = 0)** and each
+**page with the `is_siteroot` flag set**.
 
-To create a new site configuration, go to the `Site` module at `Site Management`.
+To adjust the automatically created site configuration,
+go to module :guilabel:`Site Management > Sites`.
 
-.. figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingCreateNewSite-1.png
-   :class: with-shadow
-   :alt: Create a new site
+.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-1.rst.txt
 
-   The Site module without any configured sites in the TYPO3 backend.
+You can edit it by clicking on the Edit icon. If for some reason no site
+configuration was created there will be a button to create one:
 
-After pressing the "big blue button" an edit form is displayed:
+.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingNoSite.rst.txt
 
-.. figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingCreateNewSite-2.png
-   :class: with-shadow
-   :alt: Create a new site
+The site configuration looks like this:
 
-   A new site creation form.
+.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-2.rst.txt
 
+It is recommended to change the following fields:
 
-First, enter an identifier at (1).
+*  The :guilabel:`Site Identifier`
 
-.. hint::
+   .. hint::
 
-    The site identifier is the name of the folder within `<project-root>/config/sites/` that will hold your
-    configuration file(s). When choosing an identifier make sure to stick to ASCII but you may also
-    use `-`, `_` and `.` for convenience. Examples: `main-site` and `langing-page`.
+      The site identifier is the name of the folder within
+      :file:`<project-root>/config/sites/` that will hold your
+      configuration file(s). When choosing an identifier make sure to stick
+      to ASCII but you may also use `-`, `_` and `.` for convenience.
+      Examples: `main-site` and `landing-page`.
 
-Then, enter a base for your site at (2).
+*  The :guilabel:`Entry Point`
 
-.. tip::
-    Be as specific as you can for your sites without losing flexibility. So, if you have a choice
-    between using `https://www.example.org`, `www.example.org` or `/`, then choose `https://www.example.org`.
+   .. tip::
+      Be as specific as you can for your sites without losing flexibility.
+      So, if you have a choice between using :samp:`https://example.org`,
+      :samp:`example.org` or :samp:`/`, then choose :samp:`https://example.org`.
 
-    This will make resolving pages more reliable as the chance for conflicts with other sites gets minimized.
+      This will make resolving pages more reliable as the chance for conflicts
+      with other sites gets minimized.
 
-On the next tab ("Languages") you are required to configure the default language settings for your site.
-These will determine the default behavior - setting direction and lang tags in frontend as well as locale settings.
+If you need to use another domain in development, for example
+`https://example.ddev.site` it is recommended to use
+:ref:`Base variants <sitehandling-baseVariants>`.
 
-.. figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingCreateNewSite-3.png
-   :class: with-shadow
-   :alt: Set default language settings
+On the next tab :guilabel:`Languages` you are can configure the default
+language settings for your site. You can also add additional languages for
+multilanguage sites here.
 
-   Set default language settings
+These settings determine the default behavior - setting direction and lang tags
+in frontend as well as locale settings.
 
-All you are required to set here is just the title (1) of the default language and the used locale (which should
-be available on the server)(2) - but you should also check and correct all other settings, as they will automatically
-be used for features like hreflang tags or displaying language flags in the backend.
+.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-3.rst.txt
+
+Check and correct all other settings, as they will automatically
+be used for features like hreflang tags or displaying language flags in the
+backend.
 
 That's all that is required for a new site.
 
 .. tip::
-    Did you know that just by having a site configuration you get page based routing out of the box? Neat, isn't it?
+   Just by having a site configuration you get human-readable page URLs out of the
+   box. Read more about how to configure the :ref:`routing <routing>`.
 
-Learn more about configuring languages, error handling and routing in the corresponding chapters.
+Learn more about :ref:`adding languages <sitehandling-addingLanguages>`,
+:ref:`error handling <sitehandling-errorHandling>` and :ref:`routing <routing>`
+in the corresponding chapters.

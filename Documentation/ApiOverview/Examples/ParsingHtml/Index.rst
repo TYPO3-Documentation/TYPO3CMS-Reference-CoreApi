@@ -18,7 +18,10 @@ Extracting Blocks From an HTML Document
 =======================================
 
 The first example shows how to extract parts of a document.
-Consider the following code::
+Consider the following code:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $testHTML = '
       <DIV>
@@ -75,7 +78,10 @@ all tags were found).
 Extracting Single Tags
 ======================
 
-It is also possible to split by non-block tags, for example "img" and "br"::
+It is also possible to split by non-block tags, for example "img" and "br":
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $result = $parseObj->splitTags('img,br', $testHTML);
 
@@ -101,7 +107,10 @@ with the :code:`HTMLcleaner()` method. The cleanup configuration
 is quite extensive. Please refer to the phpDoc comments of the
 :code:`HTMLcleaner()` method for more details.
 
-Here is a sample usage::
+Here is a sample usage:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $tagCfg = array(
       'b' => array(

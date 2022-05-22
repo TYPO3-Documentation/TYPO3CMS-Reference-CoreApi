@@ -54,12 +54,19 @@ Loading classes without Composer mode
 
 This means, you did not install TYPO3 via a `require` statement inside your :file:`composer.json`. It's a
 regular old-school install where the TYPO3 source and the symlinks (:file:`typo3/index.php`) are setup
-manually. In this case, every time you install an extension, the autoloader scans the whole extension
-directory for classes. No matter if they follow any convention at all. There is just one rule.
-Put each class into its own file. The generated classmap is a huge array with a mapping of
-classnames to their location on the disk.
+manually.
 
-Example::
+In this case, every time you install an extension, the autoloader scans the whole extension
+directory for classes. No matter if they follow any convention at all. There is just one rule:
+put each class into its own file. This also means that there can only be a single class per file.
+
+You can also explicitly configure autoloading in the :ref:`extension-declaration`.
+
+The generated :file:`typo3conf/autoload_classmap.php` is a large array with a mapping of classnames
+to their location on the disk:
+
+.. code-block:: php
+   :caption: typo3conf/autoload_classmap.php
 
    <?php
 
@@ -102,7 +109,9 @@ back to the classmap autoloading like in non composer mode.
   the autoload information is updated. Typically you would check :file:`vendor/composer` to hold
   files like :file:`autoload_classmap.php` and :file:`autoload_psr4.php` etc.
 
-Example::
+Example:
+
+.. code-block:: none
 
    $ tree vendor/composer
    .

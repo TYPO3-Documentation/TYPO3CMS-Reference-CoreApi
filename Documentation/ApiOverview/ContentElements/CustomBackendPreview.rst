@@ -28,22 +28,25 @@ the following API methods:
 
     /**
      * Dedicated method for rendering preview header HTML for
-     * the page module only. Receives $item which is an instance of
-     * GridColumnItem which has a getter method to return the record.
-     *
-     * @param GridColumnItem
-     * @return string
-     */
-    public function renderPageModulePreviewHeader(GridColumnItem $item);
-
-    /**
-     * Dedicated method for rendering preview body HTML for
-     * the page module only.
+     * the page module only. Receives the the GridColumnItem
+     * that contains the record for which a preview header
+     * should be rendered and returned.
      *
      * @param GridColumnItem $item
      * @return string
      */
-    public function renderPageModulePreviewContent(GridColumnItem $item);
+    public function renderPageModulePreviewHeader(GridColumnItem $item): string;
+
+    /**
+     * Dedicated method for rendering preview body HTML for
+     * the page module only. Receives the the GridColumnItem
+     * that contains the record for which a preview should be
+     * rendered and returned.
+     *
+     * @param GridColumnItem $item
+     * @return string
+     */
+    public function renderPageModulePreviewContent(GridColumnItem $item): string;
 
     /**
      * Render a footer for the record to display in page module below
@@ -55,14 +58,17 @@ the following API methods:
     public function renderPageModulePreviewFooter(GridColumnItem $item): string;
 
     /**
-     * Dedicated method for wrapping a preview header and body HTML.
+     * Dedicated method for wrapping a preview header and body
+     * HTML. Receives $item, an instance of GridColumnItem holding
+     * among other things the record, which can be used to determine
+     * appropriate wrapping.
      *
      * @param string $previewHeader
      * @param string $previewContent
      * @param GridColumnItem $item
      * @return string
      */
-    public function wrapPageModulePreview($previewHeader, $previewContent, GridColumnItem $item);
+    public function wrapPageModulePreview(string $previewHeader, string $previewContent, GridColumnItem $item): string;
 
 .. note::
 

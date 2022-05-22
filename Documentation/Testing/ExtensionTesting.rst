@@ -146,7 +146,10 @@ author and a license. We are stating that "I need at least 9.5.0 of cms-core" an
 "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
 The extension already contains some unit tests that extend `typo3/testing-framework`'s base
-unit test class in directory :file:`Tests/Unit/Hooks` (stripped)::
+unit test class in directory :file:`Tests/Unit/Hooks` (stripped):
+
+.. code-block:: php
+   :caption: E
 
     <?php
     namespace Lolli\Enetcache\Tests\Unit\Hooks;
@@ -168,7 +171,7 @@ Preparing composer.json
 -----------------------
 
 Now let's add our properties to put these tests into action. First, we add a series of properties to :file:`composer.json`
-to add root composer.json details, turning the extension into a project at the same time:
+to add root :file:`composer.json` details, turning the extension into a project at the same time:
 
 .. code-block:: json
     :emphasize-lines: 18-24, 30-34, 39-43, 50-51
@@ -222,13 +225,13 @@ to add root composer.json details, turning the extension into a project at the s
         },
         "typo3/cms": {
           "cms-package-dir": "{$vendor-dir}/typo3/cms",
-          "web-dir": ".Build/Web",
-          "extension-key": "enetcache"
+          "extension-key": "enetcache",
+          "web-dir": ".Build/Web"
         }
       }
     }
 
-Note all added properties are only used within our root composer.json files, they are ignored if the
+Note all added properties are only used within our root :file:`composer.json` files, they are ignored if the
 extension is loaded as a dependency in our project. Note: We specify `.Build` as
 build directory. This is where our TYPO3 instance will be set up. We add `typo3/testing-framework`
 in a v9 compatible version as `require-dev` dependency. We add a `autoload-dev` to tell composer
@@ -238,12 +241,15 @@ extension `.Build/Web/typo3conf/ext/enetcache` in our extension specific TYPO3 i
 two additional properties `web-dir` and `extension-key` to do that.
 
 Now, before we start playing around with this setup, we instruct `git` to ignore runtime
-on-the-fly files. The :file:`.gitignore` looks like this::
+on-the-fly files. The :file:`.gitignore` looks like this:
 
-    .Build/
-    .idea/
-    Build/testing-docker/.env
-    composer.lock
+.. code-block:: none
+   :caption: .gitignore
+
+   .Build/
+   .idea/
+   Build/testing-docker/.env
+   composer.lock
 
 We ignore the entire `.Build` directory, these are on-the-fly files that do not belong to the extension
 functionality. We also ignore the `.idea` directory - this is a directory where PhpStorm stores its settings.
@@ -315,8 +321,8 @@ Next we need to setup our tests. These are the two files we need: `Build/Scripts
 docker-compose.yml <https://github.com/lolli42/enetcache/blob/master/Build/testing-docker/docker-compose.yml>`_.
 
 These files are re-purposed from TYPO3's Core: `core Build/Scripts/runTests.sh
-<https://github.com/typo3/typo3/blob/master/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
-docker-compose.yml <https://github.com/typo3/typo3/tree/master/Build/testing-docker/local/docker-compose.yml>`_. You can
+<https://github.com/typo3/typo3/blob/main/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
+docker-compose.yml <https://github.com/typo3/typo3/tree/main/Build/testing-docker/local/docker-compose.yml>`_. You can
 copy and paste these files from extensions like enetcache or styleguide to your own extension, but you should then look
 through the files and adapt to your needs, for example.
 
@@ -370,7 +376,7 @@ On some versions of MacOS you might get the following error message when executi
     invalid mount config for type "volume": invalid mount path: '.' mount path must be absolute
     Removing network local_default
 
-To solve this issue follow the steps described `here <http://biercoff.com/fixing-readlink-illegal-option-f-error-on-a-mac/>`_ to install greadlink which supports the needed --f option.
+To solve this issue follow the steps described `here <https://biercoff.com/fixing-readlink-illegal-option-f-error-on-a-mac/>`_ to install greadlink which supports the needed --f option.
 
 Rather than changing the :file:`runTests.sh` to then use `greadlink` and thus risk breaking your automated testing via GitHub Actions consider symlinking your readlink executable to the newly installed greadlink with the following command as mentioned in the comments:
 
@@ -460,7 +466,7 @@ extension is installed as a dependency by default. However, styleguide is just a
 to composer's `packagist.org <https://packagist.org/packages/typo3/cms-styleguide>`_ and can be loaded as
 dependency (or require-dev dependency) in any project.
 
-The styleguide extension follows the Core branching principle, too: At the time of this writing, its "master"
+The styleguide extension follows the Core branching principle, too: At the time of this writing, its `main`
 branch is dedicated to be compatible with upcoming Core version 11. There are branches compatible with older Core versions, too.
 
 In comparison to enetcache, styleguide comes with additional test suites: It has functional and
@@ -471,13 +477,13 @@ Basic setup
 -----------
 
 The setup is similar to what has been outlined in detail with enetcache above: We add properties to the
-`composer.json <https://github.com/TYPO3/styleguide/blob/master/composer.json>`_ file to make it a valid
+`composer.json <https://github.com/TYPO3/styleguide/blob/main/composer.json>`_ file to make it a valid
 root composer.json defining a project. The `require-dev` section is a bit longer as we also
 need `codeception <https://codeception.com/>`_ to run acceptance tests and specify a couple of additional
 Core extensions for a basic TYPO3 instance. We additionally add an `app-dir` directive in the extra section.
 
-Next, we have another iteration of `runTests.sh <https://github.com/TYPO3/styleguide/blob/master/Build/Scripts/runTests.sh>`_
-and `docker-compose.yml <https://github.com/TYPO3/styleguide/blob/master/Build/testing-docker/docker-compose.yml>`_ that are
+Next, we have another iteration of `runTests.sh <https://github.com/TYPO3/styleguide/blob/main/Build/Scripts/runTests.sh>`_
+and `docker-compose.yml <https://github.com/TYPO3/styleguide/blob/main/Build/testing-docker/docker-compose.yml>`_ that are
 longer than the versions of enetcache to handle the functional and acceptance tests setups, too.
 
 With this in place we can run unit tests:
@@ -502,75 +508,78 @@ to show all sorts of database relation and field possibilities supported within 
 code can generate a page tree and demo data for all of these scenarios. Codewise, this is a huge
 section of the extension and it uses quite some Core API to do its job. And yes, the generator breaks
 once in a while. A perfect scenario for a `functional test!
-<https://github.com/TYPO3/styleguide/blob/master/Tests/Functional/TcaDataGenerator/GeneratorTest.php>`_
-(slightly stripped)::
+<https://github.com/TYPO3/styleguide/blob/main/Tests/Functional/TcaDataGenerator/GeneratorTest.php>`_
+(slightly stripped):
 
-    <?php
-    namespace TYPO3\CMS\Styleguide\Tests\Functional\TcaDataGenerator;
+.. code-block:: php
+   :caption: https://github.com/TYPO3/styleguide/blob/main/Tests/Functional/TcaDataGenerator/GeneratorTest.php
 
-    use TYPO3\CMS\Core\Core\Bootstrap;
-    use TYPO3\CMS\Styleguide\TcaDataGenerator\Generator;
-    use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
+   <?php
+   namespace TYPO3\CMS\Styleguide\Tests\Functional\TcaDataGenerator;
 
-    /**
-     * Test case
-     */
-    class GeneratorTest extends FunctionalTestCase
-    {
-        /**
-         * @var array Have styleguide loaded
-         */
-        protected $testExtensionsToLoad = [
-            'typo3conf/ext/styleguide',
-        ];
+   use TYPO3\CMS\Core\Core\Bootstrap;
+   use TYPO3\CMS\Styleguide\TcaDataGenerator\Generator;
+   use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
-        /**
-         * Just a dummy to show that at least one test is actually executed on mssql
-         *
-         * @test
-         */
-        public function dummy()
-        {
-            $this->assertTrue(true);
-        }
+   /**
+    * Test case
+    */
+   class GeneratorTest extends FunctionalTestCase
+   {
+       /**
+        * @var array Have styleguide loaded
+        */
+       protected $testExtensionsToLoad = [
+           'typo3conf/ext/styleguide',
+       ];
 
-        /**
-         * @test
-         * @group not-mssql
-         * @todo Generator does not work using mssql DMBS yet ... fix this
-         */
-        public function generatorCreatesBasicRecord()
-        {
-            // styleguide generator uses DataHandler for some parts. DataHandler needs an
-            // initialized BE user with admin right and the live workspace.
-            Bootstrap::initializeBackendUser();
-            $GLOBALS['BE_USER']->user['admin'] = 1;
-            $GLOBALS['BE_USER']->user['uid'] = 1;
-            $GLOBALS['BE_USER']->workspace = 0;
-            Bootstrap::initializeLanguageObject();
+       /**
+        * Just a dummy to show that at least one test is actually executed on mssql
+        *
+        * @test
+        */
+       public function dummy()
+       {
+           $this->assertTrue(true);
+       }
 
-            // Verify there is no tx_styleguide_elements_basic yet
-            $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
-            $queryBuilder->getRestrictions()->removeAll();
-            $count = $queryBuilder->count('uid')
-                ->from('tx_styleguide_elements_basic')
-                ->execute()
-                ->fetchColumn(0);
-            $this->assertEquals(0, $count);
+       /**
+        * @test
+        * @group not-mssql
+        * @todo Generator does not work using mssql DMBS yet ... fix this
+        */
+       public function generatorCreatesBasicRecord()
+       {
+           // styleguide generator uses DataHandler for some parts. DataHandler needs an
+           // initialized BE user with admin right and the live workspace.
+           Bootstrap::initializeBackendUser();
+           $GLOBALS['BE_USER']->user['admin'] = 1;
+           $GLOBALS['BE_USER']->user['uid'] = 1;
+           $GLOBALS['BE_USER']->workspace = 0;
+           Bootstrap::initializeLanguageObject();
 
-            $generator = new Generator();
-            $generator->create();
+           // Verify there is no tx_styleguide_elements_basic yet
+           $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
+           $queryBuilder->getRestrictions()->removeAll();
+           $count = (int)$queryBuilder->count('uid')
+               ->from('tx_styleguide_elements_basic')
+               ->executeQuery()
+               ->fetchOne();
+           $this->assertEquals(0, $count);
 
-            // Verify there is at least one tx_styleguide_elements_basic record now
-            $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
-            $queryBuilder->getRestrictions()->removeAll();
-            $count = $queryBuilder->count('uid')
-                ->from('tx_styleguide_elements_basic')
-                ->execute()
-                ->fetchColumn(0);
-            $this->assertGreaterThan(0, $count);
-        }
-    }
+           $generator = new Generator();
+           $generator->create();
+
+           // Verify there is at least one tx_styleguide_elements_basic record now
+           $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
+           $queryBuilder->getRestrictions()->removeAll();
+           $count = (int)$queryBuilder->count('uid')
+               ->from('tx_styleguide_elements_basic')
+               ->executeQuery()
+               ->fetchOne();
+           $this->assertGreaterThan(0, $count);
+       }
+   }
 
 Ah, shame on us! The data generator does not work well if executed using MSSQL as our DBMS. It is thus marked as
 `@group not-mssql` at the moment. We need to fix that at some point. The rest is rather straight forward:
@@ -636,7 +645,10 @@ Not enough! The styleguide extension adds a module to the TYPO3 backend to the T
 Next to other things, this module adds buttons to create and delete the demo
 data that has been functional tested above already. To verify this works in the backend as well, styleguide
 comes with some straight acceptance tests in `Tests/Acceptance/Backend/ModuleCest
-<https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Backend/ModuleCest.php>`_::
+<https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend/ModuleCest.php>`_:
+
+.. code-block:: php
+   :caption: https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend/ModuleCest.php
 
     <?php
     declare(strict_types = 1);
@@ -714,11 +726,11 @@ comes with some straight acceptance tests in `Tests/Acceptance/Backend/ModuleCes
 
 There are three tests: One verifies the backend module can be called, one creates demo data, the last
 one deletes demo data again. The codeception setup needs a bit more attention to setup, though. The entry point
-is the main `codeception.yml file <https://github.com/TYPO3/styleguide/blob/master/Tests/codeception.yml>`_
-extended by the `backend suite <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Backend.suite.yml>`_,
-a `backend tester <https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/BackendTester.php>`_ and
+is the main `codeception.yml file <https://github.com/TYPO3/styleguide/blob/main/Tests/codeception.yml>`_
+extended by the `backend suite <https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend.suite.yml>`_,
+a `backend tester <https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Support/BackendTester.php>`_ and
 a `codeception bootstrap extension
-<https://github.com/TYPO3/styleguide/blob/master/Tests/Acceptance/Support/Extension/BackendStyleguideEnvironment.php>`_
+<https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Support/Extension/BackendStyleguideEnvironment.php>`_
 that instructs the basic `typo3/testing-framework` acceptance bootstrap to load the styleguide extension and
 have some database fixtures included to easily log in to the backend. Additionally, the :file:`runTests.sh` and
 :file:`docker-compose.yml` files take care of adding selenium-chrome and a web server to actually execute the tests:
@@ -770,7 +782,7 @@ of the failed run can be found in :file:`.Build/Web/typo3temp/var/tests/Acceptan
 Github Actions
 --------------
 
-Now we want all of this automatically checked using Github Actions. As before, we define the jobs in `.github/workflows/ci.yml <https://github.com/TYPO3/styleguide/blob/master/.github/workflows/ci.yml>`__:
+Now we want all of this automatically checked using Github Actions. As before, we define the jobs in `.github/workflows/ci.yml <https://github.com/TYPO3/styleguide/blob/main/.github/workflows/ci.yml>`__:
 
 .. code-block:: yaml
 

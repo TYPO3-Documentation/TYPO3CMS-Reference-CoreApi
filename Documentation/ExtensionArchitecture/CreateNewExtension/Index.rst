@@ -23,36 +23,15 @@ Kickstarting the extension
 ==========================
 
 Although it is possible to write every single line of an extension from
-scratch, there is a tool which makes it easier to start. It is called
-"Extension builder" (key: "extension_builder") and can be installed from
-TER.
+scratch, there is a tool which makes it easier to start: The :t3ext:`extension_builder`.
 
-.. hint::
+The Extension Builder comes with its own BE module and helps you to create the
+scaffolding of your extension and to generate all necessary PHP files.
+Then you can enhance these files with your own code.
 
-   The extension builder in TER is usually not up to date. If you can't
-   find a version supporting the latest TYPO3 version in TER, you can
-   take a look into the
-   `official github repository <https://github.com/FriendsOfTYPO3/extension_builder>`__.
+After the extension has been written to the folder :file:`typo3conf/ext`,
+you will be able to activate it locally and start using it.
 
-The `Extension Builder <https://extensions.typo3.org/extension/extension_builder>`_
-comes with its own BE module:
-
-.. figure:: /Images/ManualScreenshots/ExtensionArchitecture/ExtensionBuilder.png
-   :alt: A view from the Extension Builder
-
-   The Domain Modeller screen of the Extension Builder. The comfort of building
-   your model with drag and drop.
-
-Note that this tool is not a complete editor. It helps you to create the scaffolding
-of your extension and to generate all necessary PHP files. Then you can enhance these files
-with your own code.
-
-.. warning::
-   The Extension Builder has the feature to
-   preserve code, but it should still be used with care.
-
-
-After the extension has been written to the folder :file:`typo3conf/ext`, you will be able to activate
-it locally and start using it.
-
-Please refer to the `Extension Builder's manual <https://docs.typo3.org/typo3cms/extensions/extension_builder/>`__ for more information.
+Please refer to the
+`Extension Builder's manual <https://docs.typo3.org/p/friendsoftypo3/extension-builder/main/en-us/>`__
+for more information.

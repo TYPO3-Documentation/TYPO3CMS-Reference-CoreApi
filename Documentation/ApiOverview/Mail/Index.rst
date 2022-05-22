@@ -9,13 +9,13 @@ Mail API
 .. versionadded:: 10.0
 
    Symfony mailer and mime support was added with this change:
-   :doc:`t3core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
+   :doc:`ext_core:Changelog/10.0/Feature-88643-NewMailAPIBasedOnSymfonymailerAndSymfonymime`
 
 .. versionadded:: 10.3
 
    TYPO3 now supports sending template-based emails for multi-part and HTML-based
    emails out-of-the-box. The email contents are built with the Fluid Templating Engine.
-   :doc:`t3core:Changelog/10.3/Feature-90266-Fluid-basedTemplatedEmails`
+   :doc:`ext_core:Changelog/10.3/Feature-90266-Fluid-basedTemplatedEmails`
 
 TYPO3 CMS provides a RFC-compliant mailing solution based on
 `symfony/mailer <https://symfony.com/doc/current/components/mailer.html>`__
@@ -65,7 +65,11 @@ All Fluid-based template paths can be configured via
 
 where TYPO3 reserves all array keys below 100 for internal purposes.
 
-If you want to provide custom templates or layouts, set this in your LocalConfiguration.php / AdditionalConfiguration.php file::
+If you want to provide custom templates or layouts, set this in your
+LocalConfiguration.php / AdditionalConfiguration.php file:
+
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
 
     $GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths'][700] = 'EXT:my_site_extension/Resources/Private/Templates/Email';
     $GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths'][700] = 'EXT:my_site_extension/Resources/Private/Layouts';
@@ -98,7 +102,7 @@ smtp
 
    .. versionchanged:: 10.4
       The allowed values fo this settings has changed (from string to boolean),
-      see :doc:`t3core:Changelog/10.4.x/Important-91070-SMTPTransportOptionTransport_smtp_encryptChangedToBoolean`
+      see :doc:`ext_core:Changelog/10.4.x/Important-91070-SMTPTransportOptionTransport_smtp_encryptChangedToBoolean`
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username] = '<username>';`
    If your SMTP server requires authentication, the username.
@@ -106,14 +110,17 @@ smtp
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password] = '<password>';`
    If your SMTP server requires authentication, the password.
 
-Example::
+Example:
 
-  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'smtp';
-  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = 'localhost';
-  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = true;
-  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username'] = 'johndoe';
-  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password'] = 'cooLSecret';
-  $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'bounces@example.org';  // fetches all 'returning' emails
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
+
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'smtp';
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = 'localhost';
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = true;
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username'] = 'johndoe';
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password'] = 'cooLSecret';
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'bounces@example.org';  // fetches all 'returning' emails
 
 
 
@@ -130,10 +137,30 @@ sendmail
    The command to call to send a mail locally. The default works on most modern
    UNIX based mail servers (sendmail, postfix, exim).
 
-   Example::
+   Example:
+
+   .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
 
       $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'sendmail';
       $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command'] = '/usr/sbin/sendmail -bs';
+
+
+   .. attention::
+
+      Depending on the configuration of the server and the TYPO3 instance, it
+      may not be possible to send emails to BCC recipients. The configuration of
+      the :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command']`
+      value is crucial.
+
+      TYPO3 recommends the parameter :php:`-bs` (instead of :php:`-t -i`). The
+      parameter :php:`-bs` tells TYPO3 to use the SMTP standard and that way the
+      BCC recipients are properly set.
+      `Symfony <https://symfony.com/doc/6.0/mailer.html#using-built-in-transports>`__
+      refers to the problem of using the :php:`-t` parameter as well. Since
+      :issue:`65791` the :php:`transport_sendmail_command` is automatically set
+      from the PHP runtime configuration and saved. Thus, if you have problems
+      with sending emails to BCC recipients, check the above mentioned configuration.
 
 
 .. _mail-configuration-mbox:
@@ -183,7 +210,10 @@ interface :php:`\Egulias\EmailValidator\Validation\EmailValidation`.
 
 If multiple validators are provided, each validator must return :php:`true`.
 
-Example::
+Example:
+
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
 
    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['validators'] = [
       \Egulias\EmailValidator\Validation\RFCValidation::class,
@@ -229,7 +259,7 @@ accessible to the world (outside of the webroot).
 
 Additional notes about the mailspool path:
 
-*  If the path is absolute, the path must either start with the root path of 
+*  If the path is absolute, the path must either start with the root path of
    the TYPO3 project or the public web folder path
 *  If the path is relative, the public web path is prepended to the path
 *  Must not contain symlinks (important for environments with auto deployment)
@@ -316,7 +346,10 @@ In Fluid, you can now use the defined language key ("language"):
 Send email with `MailMessage`
 -----------------------------
 
-:php:`MailMessage` can be used to generate and send a mail without using Fluid::
+:php:`MailMessage` can be used to generate and send a mail without using Fluid:
+
+.. code-block:: php
+   :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
 
    // Create the message
    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
@@ -326,12 +359,12 @@ Send email with `MailMessage`
 
       // Defining the "From" email address and name as an object
       // (email clients will display the name)
-      ->from(new \Symfony\Component\Mime\Address('john@doe.com', 'John Doe'))
+      ->from(new \Symfony\Component\Mime\Address('john.doe@example.org', 'John Doe'))
 
       // Set the "To" addresses
       ->to(
-         new \Symfony\Component\Mime\Address('receiver@example.org', 'Max Mustermann'),
-         new \Symfony\Component\Mime\Address('other@domain.org')
+         new \Symfony\Component\Mime\Address('receiver@example.com', 'Max Mustermann'),
+         new \Symfony\Component\Mime\Address('other@example.net')
       )
 
       // Give the message a subject
@@ -352,13 +385,20 @@ Send email with `MailMessage`
 
 
 
-Or if you prefer, don't concatenate the calls::
+Or if you prefer, don't concatenate the calls:
 
-   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
-   $mail->from(new \Symfony\Component\Mime\Address('john@doe.com', 'John Doe'));
+.. code-block:: php
+   :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
+
+   use Symfony\Component\Mime\Address;
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Mail\MailMessage;
+
+   $mail = GeneralUtility::makeInstance(MailMessage::class);
+   $mail->from(new Address('john.doe@example.org', 'John Doe'));
    $mail->to(
-      new \Symfony\Component\Mime\Address('receiver@example.org', 'Max Mustermann'),
-      new \Symfony\Component\Mime\Address('other@domain.org')
+      new Address('receiver@example.com', 'Max Mustermann'),
+      new Address('other@example.net')
    );
    $mail->subject('Your subject');
    $mail->text('Here is the message itself');
@@ -383,7 +423,10 @@ Or if you prefer, don't concatenate the calls::
 How to add attachments
 ======================
 
-Attach files that exist in your file system::
+Attach files that exist in your file system:
+
+.. code-block:: php
+   :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
 
    // Attach file to message
    $mail->attachFromPath('/path/to/documents/privacy.pdf');
@@ -402,7 +445,10 @@ Attach files that exist in your file system::
 How to add inline media
 =======================
 
-Add some inline media like images in a mail::
+Add some inline media like images in a mail:
+
+.. code-block:: php
+   :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
 
    // Get the image contents from a PHP resource
    $mail->embed(fopen('/path/to/images/logo.png', 'r'), 'logo');
@@ -414,7 +460,6 @@ Add some inline media like images in a mail::
    $mail->html('<img src="cid:logo"> ... <img src="cid:footer-signature"> ...');
 
 
-
 .. index::
    Mail; Default sender
    TYPO3_CONF_VARS; MAIL defaultMailFromAddress
@@ -424,16 +469,25 @@ How to set and use a default sender
 ===================================
 
 It is possible to define a default email sender ("From:") in the *Install
-Tool*::
+Tool*:
 
-   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'john@doe.com';
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
+
+   $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'john.doe@example.org';
    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromName'] = 'John Doe';
 
-This is how you can use these defaults::
+This is how you can use these defaults:
 
-   $from = \TYPO3\CMS\Core\Utility\MailUtility::getSystemFrom();
+.. code-block:: php
+   :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
 
-   $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Utility\MailUtility;
+   use TYPO3\CMS\Core\Mail\MailMessage;
+
+   $from = MailUtility::getSystemFrom();
+   $mail = GeneralUtility::makeInstance(MailMessage::class);
 
    // As getSystemFrom() returns an array we need to use the setFrom method
    $mail->setFrom($from);
@@ -441,12 +495,17 @@ This is how you can use these defaults::
    $mail->send();
 
 In case of the problem "Mails are not sent" in your extension, try to set a
-``ReturnPath:``. Start as before but add::
+``ReturnPath:``. Start as before but add:
+
+.. code-block:: php
+   :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
+
+   use TYPO3\CMS\Core\Utility\MailUtility;
 
    // you will get a valid Email Adress from  'defaultMailFromAddress' or if not set from PHP settings or from system.
-   // if result is not a valid email, the final result will be no-reply@example.com..
-   $returnPath = \TYPO3\CMS\Core\Utility\MailUtility::getSystemFromAddress();
-   if ($returnPath != "no-reply@example.com") {
+   // if result is not a valid email, the final result will be no-reply@example.org..
+   $returnPath = MailUtility::getSystemFromAddress();
+   if ($returnPath != "no-reply@example.org") {
        $mail->setReturnPath($returnPath);
    }
    $mail->send();

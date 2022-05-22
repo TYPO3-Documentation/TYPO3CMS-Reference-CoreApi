@@ -23,7 +23,11 @@ However please note that all these extensions extend the :php:`AbstractLinkHandl
 which is marked as :php:`@internal` and subject to change without further notice.
 
 You should therefore implement the :php:`interface LinkHandlerInterface` in your
-own custom LinkHandlers::
+own custom LinkHandlers:
+
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/LinkHandler/GitHubLinkHandler.php
 
    <?php
    namespace T3docs\Examples\LinkHandler;
@@ -139,7 +143,9 @@ own custom LinkHandlers::
 
 The LinkHandler then has to be registered via page TSCONFIG:
 
+
 .. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler {
       github {

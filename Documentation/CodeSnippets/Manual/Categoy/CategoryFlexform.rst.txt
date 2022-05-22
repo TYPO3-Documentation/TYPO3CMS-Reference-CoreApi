@@ -1,0 +1,21 @@
+.. Manually adjusted
+
+.. code-block:: xml
+
+    <T3DataStructure>
+        <ROOT>
+            <TCEforms>
+                <sheetTitle>aTitle</sheetTitle>
+            </TCEforms>
+            <type>array</type>
+            <el>
+                <categories>
+                    <TCEforms>
+                        <config>
+                            <type>category</type>
+                        </config>
+                    </TCEforms>
+                </categories>
+            </el>
+        </ROOT>
+    </T3DataStructure>

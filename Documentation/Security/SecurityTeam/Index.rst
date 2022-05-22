@@ -7,11 +7,11 @@ The TYPO3 Security Team
 =======================
 
 You can find details about the TYPO3 Security Team at
-`https://typo3.org/community/teams/security/ <https://typo3.org/community/teams/security/>`_ .
+https://typo3.org/community/teams/security/.
 
 You can contact the TYPO3 Security Team at `security@typo3.org <mailto:security@typo3.org>`_ .
 
-TYPO3 Core security updates, extension security updates, and unmaintained insecure extensions are announced in formal `TYPO3 Security Bulletins <https://typo3.org/help/security-advisories>`_. 
+TYPO3 Core security updates, extension security updates, and unmaintained insecure extensions are announced in formal `TYPO3 Security Bulletins <https://typo3.org/help/security-advisories>`_.
 
 
 .. index:: Security; Reporting
@@ -39,7 +39,7 @@ reminder a few days after your initial submission.
 Extension review
 ================
 
-The Security Team does not review extensions. 
+The Security Team does not review extensions.
 You can engage the TYPO3 GmbH to conduct an independent security audit on your
 extension or site as a part of their `Project Review service <https://typo3.com/services/project-reviews>`_
 

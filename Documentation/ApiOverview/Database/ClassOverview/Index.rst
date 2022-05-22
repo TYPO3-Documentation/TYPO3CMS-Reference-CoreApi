@@ -43,6 +43,6 @@ Restriction ...
 
 Statement
    :php:`Doctrine\DBAL\Driver\Statement`: :ref:`Result object <database-statement>` retrieved if a `SELECT`
-   or `COUNT` query has been executed. Single rows are returned as array by calling `->fetch()` until
+   or `COUNT` query has been executed. Single rows are returned as array by calling `->fetchAssociative()` until
    the method returns `false`.
 

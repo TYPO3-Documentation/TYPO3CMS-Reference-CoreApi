@@ -24,15 +24,15 @@ within the route path, or dynamically generated values.
 
 To give you an overview of what the distinction is, we take a regular page which is available at
 
-`https://www.example.com/path-to/my-page`
+:samp:`https://example.org/path-to/my-page`
 
 to access the Page with ID *13*.
 
 Enhancers are a way to extend this route with placeholders on top of this specific route to a page.
 
-`https://www.example.com/path-to/my-page/products/{product-name}`
+:samp:`https://example.org/path-to/my-page/products/<product-name>`
 
-The suffix `/products/{product-name}` to the base route of the page is added by an enhancer. The placeholder variable
+The suffix `/products/<product-name>` to the base route of the page is added by an enhancer. The placeholder variable
 which is added by the curly braces can then be statically or dynamically resolved or built by an Aspect (more
 commonly known as a Mapper).
 
@@ -69,11 +69,38 @@ Custom enhancers can be registered by adding an entry to an extensions :file:`ex
 
 Within a configuration, an enhancer always evaluates the following properties:
 
-* `type` - the short name of the enhancer as registered within :php:`$GLOBALS['TYPO3_CONF_VARS']`. This is mandatory.
-* `limitToPages` - an array of page IDs where this enhancer should be called. This is optional. This property (array)
-  only triggers an enhancer for specific pages. In case of special plugin pages it is
-  recommended to only enhance those pages with the plugin, to speed up performance for building page routes of all other pages.
+`type`
+   The short name of the enhancer as registered within :php:`$GLOBALS['TYPO3_CONF_VARS']`. This is mandatory.
 
+`limitToPages`
+   An array of page IDs where this enhancer should be called. This is optional. This property (array)
+   only triggers an enhancer for specific pages. In case of special plugin pages it is
+   recommended to only enhance those pages with the plugin, to speed up performance for building page routes of all other pages.
+
+All enhancers allow to configure at least one route with the following
+configuration:
+
+`defaults`
+   Defines which URL parameters are optional.
+   If the parameters are omitted on generation, they can receive a default value, and do not need a placeholder
+   - it is possible to add them at the very end of the `routePath`.
+
+`requirements`
+   Exactly specifies what kind of parameter should be added to that route as regular expression.
+   This way, it is configurable to only allow integer values for e.g. pagination.
+
+   Make sure you define your requirements as strict as possible.
+   This is necessary to not loose performance and allow TYPO3 to match the expected route.
+
+`_arguments`
+   Defines what Route Parameters should be available to the system. In this example,
+   the placeholder is called `category_id` but the URL generation receives the argument `category`,
+   so this is mapped to that name (so you can access/use it as `category` in your custom code).
+
+TYPO3 will add the parameter ``cHash`` to URLs when necessary, see :ref:`chash`.
+The ``cHash`` can be removed by converting dynamic arguments into static arguments.
+All captured arguments are dynamic by default. They can be converted to static arguments by defining the possible expected values for these arguments.
+This is done by adding Aspects for those arguments to provide a static list of expected values, see :ref:`routing-advanced-routing-configuration-aspects`.
 
 .. index:: Routing; Simple Enhancer
 
@@ -84,7 +111,7 @@ The Simple Enhancer works with various route arguments to map them to an argumen
 
 `index.php?id=13&category=241&tag=Benni`
 results in
-`https://www.example.com/path-to/my-page/show-by-category/241/Benni`
+:samp:`https://example.org/path-to/my-page/show-by-category/241/Benni`
 
 The configuration looks like this:
 
@@ -110,31 +137,25 @@ The configuration option `routePath` defines the static keyword and the availabl
     For people coming from RealURL usage in previous versions: The `routePath` can be loosely compared to some as
     "postVarSets".
 
-The `defaults` section defines which URL parameters are optional. If the parameters are omitted on generation, they
-can receive a default value, and do not need a placeholder - it is possible to add them at the very end of the
-`routePath`.
-
-The `requirements` section exactly specifies what kind of parameter should be added to that route as regular expression.
-This way, it is configurable to only allow integer values for e.g. pagination. If the requirements are too loose, a
-URL signature parameter ("cHash") is added to the end of the URL which cannot be removed.
-
-.. hint::
-    Make sure you define your requirements as strict as possible.
-
-The `_arguments` section defines what Route Parameters should be available to the system. In this example, the
-placeholder is called `category_id` but the URL generation receives the argument `category`, so this is mapped to
-that name (so you can access/use it as `category` in your custom code).
-
-
 .. index:: Routing; Plugin Enhancer
 
 Plugin Enhancer
 ^^^^^^^^^^^^^^^
 
-The Plugin Enhancer works with plugins on a page that are commonly known as `Pi-Based Plugins`, where previously
-the following GET/POST variables were used:
+The Plugin Enhancer works with plugins based on the class :ref:`AbstractPlugin <abstractplugin>`, 
+also known as "Pi-Based Plugins". 
 
-`index.php?id=13&tx_felogin_pi1[forgot]=1&&tx_felogin_pi1[user]=82&tx_felogin_pi1[hash]=ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
+In this example we will map the raw parameters of an URL like this:
+
+.. code-block:: none
+
+   https://example.org/path-to/my-page?id=13&tx_felogin_pi1[forgot]=1&tx_felogin_pi1[user]=82&tx_felogin_pi1[hash]=ABCDEFGHIJKLMNOPQRSTUVWXYZ012345
+
+The result will be an URL like this:
+
+.. code-block:: none
+
+   https://example.org/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 
 The base for the plugin enhancer is to configure a so-called "namespace", in this case `tx_felogin_pi1` - the plugin's
 namespace.
@@ -158,7 +179,7 @@ we would need to set up multiple configurations of Plugin Enhancer for forgot an
 
 If a URL is generated with the given parameters to link to a page, the result will look like this:
 
-`https://www.example.com/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
+:samp:`https://example.org/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
 
 .. note::
     If the input given to generate the URL does not meet the requirements, the route enhancer does not offer the
@@ -194,11 +215,11 @@ The Extbase Plugin enhancer with the configuration below would now apply to the 
 
 And generate the following URLs
 
-* `https://www.example.com/path-to/my-page/list/`
-* `https://www.example.com/path-to/my-page/list/5`
-* `https://www.example.com/path-to/my-page/list/2018/8`
-* `https://www.example.com/path-to/my-page/detail/in-the-year-2525`
-* `https://www.example.com/path-to/my-page/tag/future`
+* :samp:`https://example.org/path-to/my-page/list/`
+* :samp:`https://example.org/path-to/my-page/list/5`
+* :samp:`https://example.org/path-to/my-page/list/2018/8`
+* :samp:`https://example.org/path-to/my-page/detail/in-the-year-2525`
+* :samp:`https://example.org/path-to/my-page/tag/future`
 
 .. code-block:: yaml
 
@@ -234,8 +255,6 @@ And generate the following URLs
        defaultController: 'News::list'
        defaults:
          page: '0'
-       requirements:
-         page: '\d+'
        aspects:
          news_title:
            type: PersistedAliasMapper
@@ -318,7 +337,7 @@ Now configure the Enhancer in your site's :file:`config.yaml` file like this:
             '.json': 26
 
 
-The :yaml:`map` allows to add a filename or a file ending and map this to a :ts:`page.typeNum` value.
+The :yaml:`map` allows to add a filename or a file ending and map this to a :typoscript:`page.typeNum` value.
 
 It is also possible to set :yaml:`default` to e.g. ".html" to add a ".html" suffix to all default pages.
 
@@ -343,6 +362,7 @@ The :yaml:`index` property is used when generating links on root-level page, thu
     within the middle of a human readable URL segment.
 
 .. index:: Routing; Aspects
+.. _routing-advanced-routing-configuration-aspects:
 
 Aspects
 =======
@@ -511,8 +531,6 @@ and to explicitly define a range for a value, which is recommended for all kinds
        defaultController: 'News::list'
        defaults:
          page: '0'
-       requirements:
-         page: '\d+'
        aspects:
          page:
            type: StaticRangeMapper
@@ -522,7 +540,7 @@ and to explicitly define a range for a value, which is recommended for all kinds
 This limits down the pagination to max. 100 pages, if a user calls the news list with page 101, then the route enhancer
 does not match and would not apply the placeholder.
 
-A range larger than 1000 is not allowed. 
+A range larger than 1000 is not allowed.
 
 
 .. index:: Routing; PersistedAliasMapper

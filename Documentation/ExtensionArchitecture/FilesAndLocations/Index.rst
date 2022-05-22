@@ -35,11 +35,18 @@ use the content for specific functionality. For example, if a svg logo of your e
 is placed at :file:`Resources/Public/Icons/Extension.svg`, the Extension Manager
 will show that image.
 
-Most of these files are not required. The exception is :file:`ext_emconf.php`:
-You can not have a TYPO3
-extension recognized by TYPO3 without this file.
+Most of these files are not required, except of :file:`ext_emconf.php`
+in :ref:`legacy installations not based on Composer <t3start:legacyinstallation>`
+and :file:`composer.json` in :ref:`Composer installations <t3start:install>`
+installations.
 
-In general, do not introduce your own files in the root directory of
+.. note::
+   It is recommended to keep :file:`ext_emconf.php` and :file:`composer.json` in
+   any public extension that is published to TYPO3 Extension Repository (TER), and
+   to ensure optimal compatibility with Composer installations and legacy
+   installations.
+
+Do not introduce your own files in the root directory of
 extensions with the name prefix :file:`ext_`, because that is reserved.
 
 .. index:: File; EXT:{extkey}/composer.json
@@ -48,9 +55,21 @@ extensions with the name prefix :file:`ext_`, because that is reserved.
 :file:`composer.json`
 ---------------------
 
-*-- required*
+*-- required* in Composer installations
 
 For more information, see :ref:`composer-json`.
+
+.. versionchanged:: 11.4
+   The ordering of installed extensions and their dependencies are loaded from
+   the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
+   Composer installations.
+
+.. note::
+   Extension authors should ensure that the information in the :file:`composer.json`
+   file is in sync with the one in the extensions' :file:`ext_emconf.php` file.
+   This is especially important regarding constraints like `depends` , `conflicts`
+   and `suggests`. Use the equivalent settings in :file:`composer.json` `require`,
+   `conflict` and `suggest` to set dependencies and ensure a specific loading order.
 
 .. index:: File; EXT:{extkey}/ext_emconf.php
 .. _ext_emconf-php:
@@ -58,19 +77,17 @@ For more information, see :ref:`composer-json`.
 :file:`ext_emconf.php`
 ----------------------
 
-*-- required*
+*-- required* in legacy installations
 
-Definition of extension properties. This is the only mandatory file in the extension.
-It describes the extension.
+Definition of extension properties.
 
-Name, category, status etc. are used by the Extension Manager. The content of this file
-is described in more details in :ref:`extension-declaration`. Note
-that it is auto-written by the Extension Manager when extensions are imported from the repository.
+Name, category, status etc. are used by the :guilabel:`Extensions` module in legacy
+installations. The content of this file is described in more details in
+:ref:`extension-declaration`.
 
-.. note::
-
-   If this file is *not* present, the Extension Manager will *not* find the
-   extension.
+For legacy installations the :file:`ext_emconf.php` file is the
+source of truth for required dependencies and the loading order of active
+extensions.
 
 .. index::
    File; EXT:{extkey}/ext_localconf.php
@@ -374,58 +391,19 @@ The file must return an array with routing details. See Core extensions
 like :php:`backend` for examples.
 
 
-.. _ServicesYaml:
 .. index:: File; EXT:{extkey}/Configuration/Services.yaml
 
 :file:`Configuration/Services.yaml`
 -----------------------------------
 
-.. versionadded:: 10
-
 Services can be configured in this file. TYPO3 uses it for:
 
 * :ref:`Dependency Injection <configure-dependency-injection-in-extensions>`
 * :ref:`Event Listeners <EventDispatcherRegistration>`
-* Command Controllers (see :doc:`Feature: #89139 - Add dependency injection support for console commands <t3core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands>`)
-* :ref:`Registering a widget with the dashboard <t3dashboard:register-new-widget>`
+* Command Controllers (see :doc:`Feature: #89139 - Add dependency injection support for console commands <ext_core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands>`)
+* :ref:`Registering a widget with the dashboard <ext_dashboard:register-new-widget>`
 
-A typical :file:`Configuration/Services.yaml` may look like this:
-
-.. code-block:: yaml
-   :caption: Simplified Services.yaml from sysext: `core`
-
-   # Configuration/Services.yaml
-   services:
-      # general settings
-      _defaults:
-         autowire: true
-         autoconfigure: true
-         public: false
-
-      TYPO3\CMS\Core\:
-         resource: '../Classes/*'
-
-      # dependency injection (override public setting)
-      TYPO3\CMS\Core\Mail\Mailer:
-         public: true
-
-      TYPO3\CMS\Core\Command\SendEmailCommand:
-         tags:
-           - name: 'console.command'
-             command: 'mailer:spool:send'
-           - name: 'console.command'
-             command: 'swiftmailer:spool:send'
-             alias: true
-             schedulable: false
-
-
-.. seealso::
-
-   * TYPO3 does use the Symfony component, so official documentation can be found at
-     https://symfony.com/doc/current/service_container.html
-
-.. _resources/public/icons/extension.svg:
-.. index:: File; EXT:{extkey}/Resources/Public/Icons/Extension.svg
+See :ref:`ServicesYaml` for details.
 
 :file:`Resources/Public/Icons/Extension.svg`
 --------------------------------------------
@@ -453,9 +431,8 @@ stick to this and the other Coding Guidelines, the system helps in various ways.
 PHP classes into the :file:`Classes/` folder and using appropriate namespaces for the classes,
 the system will be able to autoload these files.
 
-Extension kickstarters like the `Extension Builder extension
-<https://extensions.typo3.org/extension/extension_builder>`_ will create
-the correct structure for you.
+Extension kickstarters like the :t3ext:`extension_builder`
+will create the correct structure for you.
 
 It is described below:
 
@@ -513,16 +490,16 @@ Configuration/TCA/Overrides
   General advice: One file per database table, using the name of the table for the file, plus ".php".
   For more informations, see chapter :ref:`Extending the TCA Array <storing-changes-extension>`.
 
-.. index:: Path; EXT:{extkey}/Configuration/TSconfig/Page
+.. index:: Path; EXT:{extkey}/Configuration/TsConfig/Page
 
-Configuration/TSconfig/Page
+Configuration/TsConfig/Page
   page TSconfig, see chapter :ref:`'page TSconfig' in the TSconfig Reference
   <t3tsconfig:PageTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.
 
-.. index:: Path; EXT:{extkey}/Configuration/TSconfig/User
+.. index:: Path; EXT:{extkey}/Configuration/TsConfig/User
 
-Configuration/TSconfig/User
+Configuration/TsConfig/User
   User TSconfig, see chapter :ref:`'user TSconfig' in the TSconfig Reference
   <t3tsconfig:UserTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.
@@ -557,7 +534,7 @@ Documentation/Index.rst
    pair: Extensions; CSS
 
 Resources
-  Contains the subfolders :code:`Public/` and :code:`Private/`, which
+  Contains the sub folders :code:`Public/` and :code:`Private/`, which
   contain resources, possibly in further subfolders, e.g.
   :code:`Templates/`, :code:`Css/`, :code:`Language/`, :code:`Images/`
   or :code:`JavaScript/`. This is also the directory for non–TYPO3 files supplied with the
@@ -584,6 +561,18 @@ Resources/Private/Partials
 
 Resources/Private/Templates
   One template per action, stored in a folder named after each Controller.
+
+.. index:: Path; EXT:{extkey}/Resources/Public
+
+Resources/Public
+   Public assets used in extensions (files that should be delivered by the web
+   server) must be located in the Resources/Public folder of the extension. This folder should
+   only be used for static assets. If you need to create assets
+   during runtime, they should be stored in :code:`typo3temp/`.
+
+   .. deprecated:: 11.5
+      Having public assets in any but the folder Resources/Public has been
+      deprecated with version 11.5.
 
 .. index:: Path; EXT:{extkey}/Resources/Public/Css
 

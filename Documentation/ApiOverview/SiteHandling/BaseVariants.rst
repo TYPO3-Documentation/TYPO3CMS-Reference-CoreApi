@@ -7,18 +7,21 @@ Base variants
 =============
 
 In site handling "base variants" represent different bases for a web site depending on a specified
-condition. For example a "live" base URL might be `https://example.org` but on local machine
-it's `https://example.test` as a domain - that's when variants are used.
+condition. For example a "live" base URL might be :samp:`https://example.org` but on local machine
+it's :samp:`https://example.localhost` as a domain - that's when variants are used.
 
 Base variants exist for languages, too. Currently these can only be defined
 through the respective :file:`*.yml` file, there is no UI available yet.
 
 Variants consist of two parts:
 
-* a base to use for this variant
-* a condition that decides when this variant shall be active
+*  a base to use for this variant
+*  a condition that decides when this variant shall be active
 
-Conditions are based on Symfony expression language and allow flexible conditions. For example::
+Conditions are based on Symfony expression language and allow flexible
+conditions. For example:
+
+.. code-block:: none
 
     applicationContext == "Development"
 
@@ -29,78 +32,78 @@ would define a base variant to use in Development context.
    Notice that environment variables can be used in the :yaml:`base` via ``%env(...)%``.
    :yaml:`condition` needs ``getenv(...)`` instead.
 
-.. figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingBaseVariants-1.png
-   :class: with-shadow
-   :alt: Add a base variant
-
-   A configured base variant for development context.
+.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingBaseVariants-1.rst.txt
 
 .. hint::
-    For those coming from earlier TYPO3 versions: With site handling, there is no need for `sys_domain` records anymore! :)
+   For those coming from earlier TYPO3 versions: With site handling, there is
+   no need for `sys_domain` records anymore!
 
 .. seealso::
-   Read :ref:`application-context` for more information on how to set the application context.
+   Read :ref:`application-context` for more information on how to set the
+   application context.
 
    Read :ref:`yaml-api` for more information on YAML parsing.
 
-The following variables and functions are available in addition to the default Symfony functionality:
+The following variables and functions are available in addition to the default
+Symfony functionality:
 
 Example
 =======
 
 .. code-block:: yaml
+   :caption: config/sites/somesite/config.yaml
 
-    rootPageId: 1
-    base: 'https://www.example.com/'
-    baseVariants:
-      -
-        base: 'https://example.local/'
-        condition: 'applicationContext == "Development"'
-      -
-        base: 'https://staging.example.com/'
-        condition: 'applicationContext == "Production/Sydney"'
-      -
-        base: 'https://testing.example.com/'
-        condition: 'applicationContext == "Testing/Paris"'
-      -
-        base: '%env("TYPO3_BASE")%'
-        condition: 'getenv("TYPO3_BASE")'
-    languages:
-      -
-        title: 'Global'
-        enabled: true
-        languageId: '0'
-        base: /
-        typo3Language: default
-        locale: en_UK.UTF-8
-        iso-639-1: en
-        navigationTitle: English
-        hreflang: gb-en
-        direction: ''
-        flag: gb
-      -
-        title: 'DE'
-        enabled: true
-        languageId: '1'
-        base: https://example.de/'
-        baseVariants:
-          -
-            base: 'https://de.example.local/'
-            condition: 'applicationContext == "Development"'
-          -
-            base: 'https://staging.example.de/'
-            condition: 'applicationContext == "Production/Sydney"'
-          -
-            base: 'https://testing.example.de/'
-            condition: 'applicationContext == "Testing/Paris"'
-        typo3Language: de
-        locale: de_DE.UTF-8
-        iso-639-1: de
-        navigationTitle: Deutsch
-        hreflang: de-de
-        direction: ''
-        fallbackType: strict
-        flag: de
+   rootPageId: 1
+   base: 'https://example.org/'
+   baseVariants:
+     -
+       base: 'https://example.localhost/'
+       condition: 'applicationContext == "Development"'
+     -
+       base: 'https://staging.example.org/'
+       condition: 'applicationContext == "Production/Sydney"'
+     -
+       base: 'https://testing.example.org/'
+       condition: 'applicationContext == "Testing/Paris"'
+     -
+       base: '%env("TYPO3_BASE")%'
+       condition: 'getenv("TYPO3_BASE")'
+   languages:
+     -
+       title: 'Global'
+       enabled: true
+       languageId: '0'
+       base: /
+       typo3Language: default
+       locale: en_UK.UTF-8
+       iso-639-1: en
+       navigationTitle: English
+       hreflang: gb-en
+       direction: ''
+       flag: gb
+     -
+       title: 'DE'
+       enabled: true
+       languageId: '1'
+       base: https://example.de/'
+       baseVariants:
+         -
+           base: 'https://de.example.localhost/'
+           condition: 'applicationContext == "Development"'
+         -
+           base: 'https://staging.example.de/'
+           condition: 'applicationContext == "Production/Sydney"'
+         -
+           base: 'https://testing.example.de/'
+           condition: 'applicationContext == "Testing/Paris"'
+       typo3Language: de
+       locale: de_DE.UTF-8
+       iso-639-1: de
+       navigationTitle: Deutsch
+       hreflang: de-de
+       direction: ''
+       fallbackType: strict
+       flag: de
 
 
 .. index:: Site handling; Base variant properties
@@ -118,7 +121,7 @@ typo3.version
     The current TYPO3 version
 
 :aspect:`Example`
-    `9.5.0`
+    `11.5.0`
 
 
 typo3.branch
@@ -131,7 +134,7 @@ typo3.branch
     The current TYPO3 branch
 
 :aspect:`Example`
-    `9.5`
+    `11.5`
 
 
 typo3.devIpMask
@@ -192,7 +195,7 @@ compatVersion
     Match a TYPO3 version
 
 :aspect:`Example`
-    `compatVersion("9.5.0")`, `compatVersion("9.4")`
+    `compatVersion("11.5.0")`, `compatVersion("11.4")`
 
 
 like

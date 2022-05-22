@@ -48,8 +48,7 @@ In cases where users can't yet upgrade to a supported version, the TYPO3 GmbH is
 an Extended Long Term Support (ELTS) service for up to three years after the regular support has ended.
 Subscribers to the ELTS plans receive security and compatibility updates.
 
-Information about ELTS is available at `https://typo3.com/products/extended-support
-<https://typo3.com/products/extended-support>`_
+Information about ELTS is available at https://typo3.com/services/extended-support-elts
 
 LTS and Sprint Releases offer new features and often a modified
 database structure. Also the visual appearance and handling of the
@@ -102,9 +101,7 @@ being announced on the "TYPO3 Announce" mailing list. Every system
 administrator who hosts one or more TYPO3 instances, and every TYPO3
 integrator who is responsible for a TYPO3 project should subscribe to
 this mailing list, as it contains important information. You can
-subscribe at `http://lists.typo3.org/cgi-
-bin/mailman/listinfo/typo3-announce <http://lists.typo3.org/cgi-
-bin/mailman/listinfo/typo3-announce>`_
+subscribe at https://lists.typo3.org/cgi-bin/mailman/listinfo/typo3-announce.
 
 This is a read-only mailing list, which means that you cannot reply to
 a message or post your own messages. The announce list typically does
@@ -129,9 +126,7 @@ Security bulletins
 When security updates for TYPO3 or an extension become available, they
 will be announced on the "TYPO3 Announce" mailing list, as described
 above, but also published with much more specific details on the
-official TYPO3 Security Team website at
-`https://typo3.org/help/security-advisories/
-<https://typo3.org/help/security-advisories/>`_
+official TYPO3 Security Team website at https://typo3.org/help/security-advisories/.
 
 Security bulletins for the TYPO3 Core  are separated from security
 bulletins for TYPO3 extensions. Every bulletin has a unique advisory
@@ -145,43 +140,6 @@ versions of the extension that are affected and the type of security
 issue (e.g. information disclosure, cross-site scripting, etc.). The
 bulletin does not contain an exploit or a description on how to
 (ab)use the security issue.
-
-The severity is an indication on how important the issue is:
-
-
-.. ### BEGIN~OF~SIMPLE~TABLE ###
-
-.. Note: The exact "styling" of the following table is important.
-   There may be no text in the column margin.
-
-============   ======================================================
-Severity       Meaning
-============   ======================================================
-**Critical**   This is a critical security issue and action should be
-               taken immediately (on the day of the release).
-**High**       This is an important security issue and action should
-               be taken as soon as possible.
-**Medium**     Your website may be affected by this issue and you
-               should consider taking action as soon as feasible.
-**Low**        There is a good chance that your site is not affected
-               by this issue or that it can be exploited only in
-               special circumstances. However, you should check
-               whether your site is at risk and consider necessary
-               action.
-============   ======================================================
-
-
-.. ###### END~OF~SIMPLE~TABLE ######
-
-
-For TYPO3 extensions, there are two types of security bulletins:
-
-- Individual Security Bulletin: bulletins issued for extensions that
-  have a high number of downloads and are used in many projects.
-
-- Collective Security Bulletins: updates for extensions with a relative
-  small number of downloads are published in a collective bulletin. Such
-  a bulletin may contain information about 10 or even more extensions.
 
 For some critical security issues the TYPO3 Security Team may decide
 to pre-announce a security bulletin on the "TYPO3 Announce" mailing
@@ -234,6 +192,5 @@ a free and open industry standard for communicating the characteristics
 and impacts of vulnerabilities in Information Technology. It enables
 analysts to understand and properly communicate disclosed vulnerabilities
 and allows responsible personnel to prioritize risks. Further details
-about CVSS are available at `https://www.first.org/cvss/user-guide
-<https://www.first.org/cvss/user-guide>`_
+about CVSS are available at https://www.first.org/cvss/user-guide
 

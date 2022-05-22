@@ -33,7 +33,8 @@ The existing and exported translations which are downloaded within the Install T
 My favorite extension is not available on Crowdin
 -------------------------------------------------
 If you miss an extension on Crowdin, contact the extension owner to create a project on Crowdin.
-It is a simple process and done within minutes.
+It is important that they follow the description on the page :ref:`Extension integration <crowdin-extension-integration>`.
+The setup is a simple process and done within minutes.
 
 .. _crowdin-faq-extension-language-missing:
 
@@ -82,10 +83,10 @@ If translations exist on Pootle there is no need to retranslate everything on Cr
 #. **Fetch translations**
    Download the translations you need. You will need to download them directly from the TER with the following URL pattern:
 
-   `https://extensions.typo3.org/fileadmin/ter/{e}/{x}/{extension_key}-l10n/{extension_key}-l10n-{lang}.zip`
+   :samp:`https://extensions.typo3.org/fileadmin/ter/<e>/<x>/<extension_key>-l10n/<extension_key>-l10n-<lang>.zip`
 
-   Here `{extension_key}` is the full extension key, `{e}` the 1st and `{x}` the 2nd letter of that extension key.
-   Finally `{lang}` is the 2-lettered language identifier, e.g. `de`.
+   Here `<extension_key>` is the full extension key, `<e>` the 1st and `<x>` the 2nd letter of that extension key.
+   Finally `<lang>` is the 2-lettered language identifier, e.g. `de`.
 
    For example to download the German translations of the extension *powermail*:
    `wget 'https://extensions.typo3.org/fileadmin/ter/p/o/powermail-l10n/powermail-l10n-de.zip'`

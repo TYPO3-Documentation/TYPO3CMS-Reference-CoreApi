@@ -5,7 +5,6 @@
    Cross-site scripting; Content security policy
    see: CSP; Content security policy
    CSP
-.. highlight:: apacheconf
 .. _security-content-security-policy:
 
 =======================
@@ -30,27 +29,31 @@ these directories - basically all public available base directories of
 file storages (`sys_file_storage`).
 
 The following example sends a corresponding CSP_ header for any file
-accessed via https://example.org/fileadmin/...::
+accessed via :samp:`https://example.org/fileadmin/...`:
+
+.. code-block:: apacheconf
 
    # placed in fileadmin/.htaccess on Apache 2.x webserver
    <IfModule mod_headers.c>
      Header set Content-Security-Policy "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';"
    </IfModule>
 
-For nginx webservers, the following configuration example can be used to send 
-a CSP_ header for any file accessed via https://example.org/fileadmin/...::
+For nginx webservers, the following configuration example can be used to send
+a CSP_ header for any file accessed via :samp:`https://example.org/fileadmin/...`:
 
-  map $request_uri $csp_header {
-      ~^/fileadmin/      "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';";
-  }
-  
-  server {
+.. code-block:: nginx
+
+   map $request_uri $csp_header {
+      ~^/fileadmin/ "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';";
+   }
+
+   server {
         # Add strict CSP header depending on mapping (fileadmin only)
         add_header Content-Security-Policy $csp_header;
         # ... other add_header declarations can follow here
-  }
+   }
 
-The nginx example configuration uses a map, since top level `add_header` 
+The nginx example configuration uses a map, since top level `add_header`
 declarations will be overwritten if `add_header` is used in sublevels
 (e.g. `location`) declarations.
 

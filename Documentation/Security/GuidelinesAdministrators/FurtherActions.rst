@@ -48,19 +48,22 @@ Events in TYPO3 Log Files
 =========================
 
 Login attempts to the TYPO3 backend, which are unsuccessful, are logged
-using the TYPO3 logging API. It is possible to create a dedicated 
+using the TYPO3 logging API. It is possible to create a dedicated
 logfile for messages from TYPO3 authentication classes which can be
-handled by external tools, such as `fail2ban <http://www.fail2ban.org>`_.
+handled by external tools, such as `fail2ban <https://www.fail2ban.org>`_.
 
-Example logging configuration::
+Example logging configuration:
 
-  $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['Core']['Authentication']['writerConfiguration'] = [
-      \TYPO3\CMS\Core\Log\LogLevel::INFO => [
-          \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
-              'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_auth.log',
-          ]
-      ]
-  ];
+.. code-block:: php
+  :caption: typo3conf/AdditionalConfiguration.php
+
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['Core']['Authentication']['writerConfiguration'] = [
+       \TYPO3\CMS\Core\Log\LogLevel::INFO => [
+           \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+               'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_auth.log',
+           ]
+       ]
+   ];
 
 .. index::
    pair: Security guidelines; Clickjacking
@@ -83,11 +86,14 @@ To protect the backend of TYPO3 against this attack vector, a HTTP
 header `X-Frame-Options` is sent, which prevents embedding backend pages
 in an iframe on domains different than the one used to access the
 backend. The `X-Frame-Options` header has been officially standardized as
-`RFC 7034 <http://tools.ietf.org/html/rfc7034>`_.
+`RFC 7034 <https://datatracker.ietf.org/doc/html/rfc7034>`_.
 
 System administrators should consider enabling this feature at the
 frontend of the TYPO3 website, too. A configuration of the Apache
-web server would typically look like the following::
+web server would typically look like the following:
+
+.. code-block:: apacheconf
+   :caption: .htaccess
 
    <IfModule mod_headers.c>
      Header always append X-Frame-Options SAMEORIGIN

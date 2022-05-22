@@ -77,8 +77,10 @@ Option select can be used as follows:
 
 .. code-block:: typoscript
 
-   # cat=basic/enable/050; type=options[label1=value1,label2]; label=MyLabel
-   myVariable = 1
+   # cat=basic/enable/050; type=options[label1=value1,label2=value2,value3]; label=MyLabel
+   myVariable = value1
+
+"label1", "label2" and "label3" can be any text string. Any integer or string value can be used on the right side of the equation sign "=".
 
 Where user functions have to be written the following way:
 
@@ -97,16 +99,26 @@ Accessing saved options
 When saved in the Settings module, the configuration will be kept in the :file:`LocalConfiguration.php`
 file and is available as array :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['my_extension_key']`.
 
-To retrieve the configuration use the API provided by the :php:`\TYPO3\CMS\Core\Configuration\ExtensionConfiguration` class::
+To retrieve the configuration use the API provided by the
+:php:`\TYPO3\CMS\Core\Configuration\ExtensionConfiguration` class:
 
-   $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+
+   $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class)
       ->get('my_extension_key');
 
 This will return the whole configuration as an array.
 
-To directly fetch specific values like :ts:`myVariable` from the example above::
+To directly fetch specific values like :typoscript:`myVariable` from the example above:
 
-   $temporaryDirectory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   $temporaryDirectory = GeneralUtility::makeInstance(ExtensionConfiguration::class)
       ->get('my_extension_key', 'myVariable');
 
 
@@ -118,6 +130,7 @@ Nested structure
 You can also define nested options using the TypoScript notation:
 
 .. code-block:: typoscript
+   :caption: EXT:some_extension/ext_conf_template.txt
 
    directories {
       # cat=basic/enable; type=string; label=Path to the temporary directory
@@ -126,7 +139,10 @@ You can also define nested options using the TypoScript notation:
       cache =
    }
 
-This will result in a multidimensional array::
+This will result in a multidimensional array:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $extensionConfiguration['directories']['tmp']
    $extensionConfiguration['directories']['cache']

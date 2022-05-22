@@ -32,15 +32,20 @@ or function, that is not available on your system, TYPO3 will automatically dete
 not use this mechanism and respective locking strategy (e.g. if function :php:`sem_get()` is not
 available, :php:`SemaphoreLockStrategy` will not be used).
 
-* **FileLockStrategy**: uses the PHP function `flock() <http://php.net/manual/en/function.flock.php>`__
+* **FileLockStrategy**: uses the PHP function `flock() <https://www.php.net/manual/en/function.flock.php>`__
   and creates a file in `typo3temp/var/lock`
-  The directory can be overwritten by configuration::
+  The directory can be overwritten by configuration:
 
-     // The directory specified here must exist und must be a subdirectory of `Environment::getProjectPath()`
-     $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][\TYPO3\CMS\Core\Locking\FileLockStrategy::class]['lockFileDir'] = 'mylockdir';
+   .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
+
+      use TYPO3\CMS\Core\Locking\FileLockStrategy;
+
+      // The directory specified here must exist und must be a subdirectory of `Environment::getProjectPath()`
+      $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][FileLockStrategy::class]['lockFileDir'] = 'mylockdir';
 
 * **SemaphoreLockStrategy**: uses the PHP function `sem_get()
-  <http://php.net/manual/en/function.sem-get.php>`__
+  <https://www.php.net/manual/en/function.sem-get.php>`__
 * **SimpleLockStrategy** is a simple method of file locking. It also uses the folder
   `typo3temp/var/lock`.
 
@@ -71,7 +76,7 @@ Capabilities
 ------------
 
 These are the current capabilities, that can be used (see `LockingStrategyInterface
-<https://github.com/typo3/typo3/blob/master/typo3/sysext/core/Classes/Locking/LockingStrategyInterface.php>`__):
+<https://github.com/typo3/typo3/blob/main/typo3/sysext/core/Classes/Locking/LockingStrategyInterface.php>`__):
 
 In general, the concept of locking, using shared or exclusive + blocking or non-blocking
 locks is not TYPO3-specific. You can find more resources under :ref:`locking-api-more-info`.
@@ -103,7 +108,9 @@ LOCK_CAPABILITY_NOBLOCK
    a lock without blocking. The function :php:`acquire()` can pass the non-blocking requirement
    by adding `LOCK_CAPABILITY_NOBLOCK` to the first argument $mode.
 
-You can use bitwise `OR` to combine them::
+You can use bitwise `OR` to combine them:
+
+.. code-block:: php
 
    $capabilities = LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE
        | LockingStrategyInterface::LOCK_CAPABILITY_SHARED
@@ -130,14 +137,26 @@ Currently, these are the priorities of the locking strategies supplied by the Co
 * SemaphoreLockStrategy: 25
 
 To change the locking strategy priority, the priority can be overwritten by configuration,
-for example in additional configuration::
+for example in additional configuration:
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][\TYPO3\CMS\Core\Locking\FileLockStrategy::class]['priority'] = 10;
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
+
+   use TYPO3\CMS\Core\Locking\FileLockStrategy;
+
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][FileLockStrategy::class]['priority'] = 10;
 
 Examples
 --------
 
-Acquire and use an exclusive, blocking lock::
+Acquire and use an exclusive, blocking lock:
+
+.. code-block:: php
+   :caption: EXT:site_package/Classes/Domain/Repository/SomeRepository.php
+
+   use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
+   use TYPO3\CMS\Core\Locking\LockFactory;
+   // ...
 
    $lockFactory = GeneralUtility::makeInstance(LockFactory::class);
 
@@ -157,7 +176,14 @@ Acquire and use an exclusive, blocking lock::
    }
 
 
-Acquire and use an exclusive, non-blocking lock::
+Acquire and use an exclusive, non-blocking lock:
+
+.. code-block:: php
+   :caption: EXT:site_package/Classes/Domain/Repository/SomeRepository.php
+
+   use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
+   use TYPO3\CMS\Core\Locking\LockFactory;
+   // ...
 
    $lockFactory = GeneralUtility::makeInstance(LockFactory::class);
 
@@ -193,14 +219,16 @@ Extend locking in Extensions
 An extension can extend the locking functionality by adding a new locking
 strategy. This can be done by writing a new class which implements the
 `LockingStrategyInterface
-<https://github.com/typo3/typo3/blob/master/typo3/sysext/core/Classes/Locking/LockingStrategyInterface.php>`__.
+<https://github.com/typo3/typo3/blob/main/typo3/sysext/core/Classes/Locking/LockingStrategyInterface.php>`__.
 
 Each locking strategy has a set of capabilities (getCapabilities()), and a
 priority (getPriority()), so give your strategy a priority higher than 75
 if it should override the current top choice :php:`FileLockStrategy` by default.
 
 If you want to release your file locking strategy extension, make sure to make the priority configurable,
-as is done in the TYPO3 Core ::
+as is done in the TYPO3 Core:
+
+.. code-block:: php
 
    public static function getPriority()
    {
@@ -209,7 +237,7 @@ as is done in the TYPO3 Core ::
    }
 
 See `FileLockStrategy
-<https://github.com/typo3/typo3/blob/master/typo3/sysext/core/Classes/Locking/FileLockStrategy.php>`__
+<https://github.com/typo3/typo3/blob/main/typo3/sysext/core/Classes/Locking/FileLockStrategy.php>`__
 for an example.
 
 
@@ -226,11 +254,11 @@ FileLockStrategy & NFS
 ----------------------
 
 There is a problem with PHP `flock()
-<http://php.net/manual/en/function.flock.php>`__ on NFS systems.
+<https://www.php.net/manual/en/function.flock.php>`__ on NFS systems.
 This problem may or may not affect you, if you use NFS. See this
 issue for more information
 
-* `Forge Issue: FileLockStrategy fails on NFS folders <https://forge.typo3.org/issues/72074>`__
+* :forge:`Forge Issue: FileLockStrategy fails on NFS folders <72074>`
 
 or check if PHP flock works on your filesystem.
 

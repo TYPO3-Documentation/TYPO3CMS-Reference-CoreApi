@@ -22,10 +22,10 @@ If you use the *category menu* or *tag list* plugins to filter news records, the
 
 **Result:**
 
-* Detail view: ``https://www.example.com/news/detail/the-news-title``
-* Pagination: ``https://www.example.com/news/page-2``
-* Category filter: ``https://www.example.com/news/my-category``
-* Tag filter: ``https://www.example.com/news/my-tag``
+* Detail view: :samp:`https://example.org/news/detail/the-news-title`
+* Pagination: :samp:`https://example.org/news/page-2`
+* Category filter: :samp:`https://example.org/news/my-category`
+* Tag filter: :samp:`https://example.org/news/my-tag`
 
 .. code-block:: yaml
    :linenos:
@@ -73,7 +73,7 @@ If you use the *category menu* or *tag list* plugins to filter news records, the
            tableName: tx_news_domain_model_tag
            routeFieldName: slug
 
-For more examples and background information see `News manual <https://docs.typo3.org/p/georgringer/news/master/en-us/AdministratorManual/BestPractice/Routing/Index.html>`__.
+For more examples and background information see `News manual <https://docs.typo3.org/p/georgringer/news/main/en-us/AdministratorManual/BestPractice/Routing/Index.html>`__.
 
 
 .. index:: Routing; EXT: Blog
@@ -120,10 +120,6 @@ Archive
            month: month
            page: '@widget_0/currentPage'
        defaultController: 'Post::listPostsByDate'
-       requirements:
-         year: '[0-9]{1..4}'
-         month: '[a-z]+'
-         page: '\d+'
        aspects:
          year:
            type: BlogStaticDatabaseMapper
@@ -207,9 +203,6 @@ Posts by Author
              author_title: author
              page: '@widget_0/currentPage'
        defaultController: 'Post::listPostsByAuthor'
-       requirements:
-         author_title: '^[a-z0-9].*$'
-         page: '\d+'
        aspects:
          author_title:
            type: PersistedAliasMapper
@@ -244,9 +237,6 @@ Category pages
              category_title: category
              page: '@widget_0/currentPage'
        defaultController: 'Post::listPostsByCategory'
-       requirements:
-         category_title: '^[a-z0-9].*$'
-         page: '\d+'
        aspects:
          category_title:
            type: PersistedAliasMapper
@@ -292,8 +282,6 @@ Blog Posts
            _arguments:
              page: '@widget_0/currentPage'
         defaultController: 'Post::listRecentPosts'
-        requirements:
-          page: '\d+'
         aspects:
           page:
             type: StaticRangeMapper
@@ -324,9 +312,6 @@ Posts by Tag
              tag_title: tag
              page: '@widget_0/currentPage'
         defaultController: 'Post::listPostsByTag'
-        requirements:
-          tag_title: '^[a-z0-9].*$'
-          page: '\d+'
         aspects:
           tag_title:
             type: PersistedAliasMapper
@@ -490,7 +475,7 @@ BlogStaticDatabaseMapper
                     }
                 }
 
-                return array_map('strval', array_column($queryBuilder->execute()->fetchAll(), $this->field));
+                return array_map('strval', array_column($queryBuilder->executeQuery()->fetchAllAssociative(), $this->field));
             }
         }
 
@@ -598,8 +583,6 @@ Taken from an anonymous live project:
            _arguments:
              searchForm: searchForm
        defaultController: 'Events::showByUid'
-       requirements:
-         uid: '[a-zA-Z0-9-_]+'
        aspects:
          uid:
            routeValuePrefix: ''
@@ -646,8 +629,6 @@ Taken from an anonymous live project:
            _arguments:
              searchForm: searchForm
        defaultController: 'Team::show'
-       requirements:
-         team: '[a-zA-Z0-9-_]+'
        aspects:
          team:
            routeValuePrefix: ''
@@ -677,8 +658,8 @@ EXT: DpnGlossary
 
 **Result:**
 
-* List view: ``https://www.example.com/[YOUR_PLUGINPAGE_SLUG]``
-* Detail view: ``https://www.example.com/[YOUR_PLUGINPAGE_SLUG]/term/the-term-title``
+* List view: :samp:`https://example.org/<YOUR_PLUGINPAGE_SLUG>`
+* Detail view: :samp:`https://example.org/<YOUR_PLUGINPAGE_SLUG>/term/the-term-title`
 
 .. code-block:: yaml
    :linenos:

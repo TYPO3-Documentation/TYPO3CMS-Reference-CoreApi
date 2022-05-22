@@ -13,22 +13,31 @@ Identifiers
 All identifiers must use camelCase and start with a lowercase letter.
 Underscore characters are not allowed. Hungarian notation is not
 encouraged. Abbreviations should be avoided. Examples of good
-identifiers::
+identifiers:
+
+
+.. code-block:: php
 
    $goodName
    $anotherGoodName
 
-Examples of bad identifiers::
+Examples of bad identifiers:
+
+.. code-block:: php
 
    $BAD_name
    $unreasonablyLongNamesAreBadToo
    $noAbbrAlwd
 
-The lower camel case rule also applies to acronyms. Thus::
+The lower camel case rule also applies to acronyms. Thus:
+
+.. code-block:: php
 
    $someNiceHtmlCode
 
-is correct, whereas ::
+is correct, whereas :
+
+.. code-block:: php
 
    $someNiceHTMLCode
 
@@ -44,23 +53,31 @@ clear from the context where they are used.
 
 The same rules apply to functions and class methods. In contrast to
 class names, function and method names should not only use nouns, but
-also verbs. Examples::
+also verbs. Examples:
+
+.. code-block:: php
 
    protected function getFeedbackForm()
    public function processSubmission()
 
-Class constants should be clear about what they define. Correct::
+Class constants should be clear about what they define. Correct:
+
+.. code-block:: php
 
    const USERLEVEL_MEMBER = 1;
 
-Incorrect::
+Incorrect:
+
+.. code-block:: php
 
    const UL_MEMBER = 1;
 
 Variables on the global scope may use uppercase and underscore
 characters.
 
-Examples::
+Examples:
+
+.. code-block:: php
 
    $GLOBALS['TYPO3_CONF_VARS']
 
@@ -71,7 +88,9 @@ Comments
 Comments in the code are highly welcome and recommended. Inline
 comments must precede the commented line and be indented with
 the same number of spaces as the commented line.
-Example::
+Example:
+
+.. code-block:: php
 
    protected function processSubmission()
    {
@@ -87,17 +106,20 @@ Comments must start with ":php:`//`". Starting comments with
 
 Class constants and variable comments should follow PHP doc style and
 precede the variable. The variable type must be specified for
-non–trivial types and is optional for trivial types. Example::
+non–trivial types and is optional for trivial types. Example:
 
-      /** Number of images submitted by user */
-      protected $numberOfImages;
 
-      /**
-       * Local instance of the ContentObjectRenderer class
-       *
-       * @var ContentObjectRenderer
-       */
-      protected $localCobj;
+.. code-block:: php
+
+   /** Number of images submitted by user */
+   protected $numberOfImages;
+
+   /**
+    * Local instance of the ContentObjectRenderer class
+    *
+    * @var ContentObjectRenderer
+    */
+   protected $localCobj;
 
 Single line comments are allowed when there is no type declaration for
 the class variable or constant.
@@ -131,7 +153,10 @@ brace is on a new line with the same indentation as the line with class
 or function name. The opening brace is always followed by a new line.
 
 The closing curly brace must start on a new line and be indented to
-the same level as the construct with the opening brace. Example::
+the same level as the construct with the opening brace. Example:
+
+
+.. code-block:: php
 
    protected function getForm()
    {
@@ -142,7 +167,10 @@ the same level as the construct with the opening brace. Example::
        }
    }
 
-The following is not allowed::
+The following is not allowed:
+
+
+.. code-block:: php
 
    protected function getForm() {
        if ($this->extendedForm) { // generate extended form here
@@ -158,7 +186,10 @@ Conditions
 Conditions consist of :php:`if`, :php:`elseif` and :php:`else`
 keywords. TYPO3 code must not use the :php:`else if` construct.
 
-The following is the correct layout for conditions::
+The following is the correct layout for conditions:
+
+
+.. code-block:: php
 
    if ($this->processSubmission) {
        // Process submission here
@@ -168,7 +199,10 @@ The following is the correct layout for conditions::
        // Something else here
    }
 
-Here is an example of the incorrect layout::
+Here is an example of the incorrect layout:
+
+
+.. code-block:: php
 
    if ($this->processSubmission) {
        // Process submission here
@@ -178,7 +212,10 @@ Here is an example of the incorrect layout::
    } else // Something else here
 
 It is recommended to create conditions so that the shortest block of
-code goes first. For example::
+code goes first. For example:
+
+
+.. code-block:: php
 
    if (!$this->processSubmission) {
        // Generate error message, 2 lines
@@ -190,7 +227,9 @@ If the condition is long, it must be split into several lines.
 The logical operators must be put in front of the
 next condition and be indented to the same level as the first condition.
 The closing round and opening curly bracket after the last condition
-should be on a new line, indented to the same level as the :php:`if`::
+should be on a new line, indented to the same level as the :php:`if`:
+
+.. code-block:: php
 
    if ($this->getSomeCondition($this->getSomeVariable())
        && $this->getAnotherCondition()
@@ -199,11 +238,15 @@ should be on a new line, indented to the same level as the :php:`if`::
    }
 
 The ternary conditional operator :php:`? :` must be used only, if it
-has exactly two outcomes. Example::
+has exactly two outcomes. Example:
+
+.. code-block:: php
 
    $result = ($useComma ? ',' : '.');
 
-Wrong usage of the ternary conditional operator::
+Wrong usage of the ternary conditional operator:
+
+.. code-block:: php
 
    $result = ($useComma ? ',' : $useDot ? '.' : ';');
 
@@ -224,7 +267,9 @@ If one :php:`case` block has to pass control into another :php:`case`
 block without having a :php:`break`, there must be a comment about it
 in the code.
 
-Examples::
+Examples:
+
+.. code-block:: php
 
    switch ($useType) {
        case 'extended':
@@ -254,21 +299,27 @@ The following loops can be used:
 The use of :php:`each` is not allowed in loops.
 
 :php:`for` loops must contain only variables inside (no function
-calls). The following is correct::
+calls). The following is correct:
+
+.. code-block:: php
 
    $size = count($dataArray);
    for ($element = 0; $element < $size; $element++) {
        // Process element here
    }
 
-The following is not allowed::
+The following is not allowed:
+
+.. code-block:: php
 
    for ($element = 0; $element < count($dataArray); $element++) {
        // Process element here
    }
 
 :php:`do` and :php:`while` loops must use extra brackets, if an
-assignment happens in the loop::
+assignment happens in the loop:
+
+.. code-block:: php
 
    while (($fields = $this->getFields())) {
        // Do something
@@ -276,7 +327,9 @@ assignment happens in the loop::
 
 There's a special case for :php:`foreach` loops when the value is not
 used inside the loop. In this case the dummy variable :php:`$_`
-(underscore) is used::
+(underscore) is used:
+
+.. code-block:: php
 
    foreach ($GLOBALS['TCA'] as $table => $_) {
        // Do something with $table
@@ -354,7 +407,9 @@ Arrays
 ======
 
 Array declarations use the short array syntax :php:`[]`, instead of the
-":php:`array`" keyword. Thus::
+":php:`array`" keyword. Thus:
+
+.. code-block:: php
 
    $a = [];
 
@@ -363,7 +418,9 @@ lines are indented with four more spaces than the start of the
 declaration. The closing square bracket is on the same indentation level as
 the variable. Every line containing an array item ends with a comma.
 This may be omitted if there are no further elements, at the
-developer's choice. Example::
+developer's choice. Example:
+
+.. code-block:: php
 
    $thisIsAnArray = [
        'foo' => 'bar',
@@ -373,7 +430,9 @@ developer's choice. Example::
    ];
 
 Nested arrays follow the same pattern. This formatting applies even to
-very small and simple array declarations, e.g. ::
+very small and simple array declarations, e.g. :
+
+.. code-block:: php
 
    $a = [
        0 => 'b',
@@ -395,7 +454,9 @@ Class variables must use access specifiers instead of the :php:`var`
 keyword.
 
 Type hinting must be used when the function expects an :php:`array` or
-an :php:`instance` of a certain class. Example::
+an :php:`instance` of a certain class. Example:
+
+.. code-block:: php
 
       protected function executeAction(MyAction &$action, array $extraParameters)
       {
@@ -403,7 +464,10 @@ an :php:`instance` of a certain class. Example::
       }
 
 Static functions must use the :php:`static` keyword. This keyword must
-be after the visibility declaration in the function definition::
+be after the visibility declaration in the function definition:
+
+
+.. code-block:: php
 
       public static function executeAction(MyAction &$action, array $extraParameters)
       {
@@ -411,7 +475,10 @@ be after the visibility declaration in the function definition::
       }
 
 The :php:`abstract` keyword also must be after the visibility declaration in the
-function declaration::
+function declaration:
+
+
+.. code-block:: php
 
       protected abstract function render();
 
@@ -434,7 +501,10 @@ strict data types.
 i.e.: Every function parameter should be type-hinted. If a function returns a value, a return type-hint must be used.
 All data types must be documented in the phpDoc block of the function.
 
-If a function is declared to return a value, all code paths must *always* return a value. The following is *not allowed*::
+If a function is declared to return a value, all code paths must *always* return a value. The following is *not allowed*:
+
+
+.. code-block:: php
 
    /**
     * @param bool $enabled
@@ -447,7 +517,10 @@ If a function is declared to return a value, all code paths must *always* return
        }
    }
 
-The following is the correct behavior::
+The following is the correct behavior:
+
+
+.. code-block:: php
 
    /**
     * @param bool $enabled
@@ -464,7 +537,10 @@ The following is the correct behavior::
 
 In general there should be a single :php:`return` statement in the
 function (see the preceding example). However a function can return
-during parameter validation (guards) before it starts its main logic. Example::
+during parameter validation (guards) before it starts its main logic. Example:
+
+
+.. code-block:: php
 
    /**
     * @param bool $enabled

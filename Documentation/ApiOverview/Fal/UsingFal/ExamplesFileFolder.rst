@@ -17,34 +17,39 @@ with file, folder and FileReference objects.
 Getting a file
 ==============
 
-A file can be retrieved using its uid::
+A file can be retrieved using its uid:
 
-   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Resource\ResourceFactory;
+
+   $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
    $file = $resourceFactory->getFileObject(4);
 
-or its combined identifier::
+or its combined identifier:
 
-   $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class);
+.. code-block:: php
+
+   $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
    $file = $resourceFactory->getFileObjectFromCombinedIdentifier('1:/foo.txt');
 
-or by filename from its folder::
+or by filename from its folder:
 
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
+.. code-block:: php
+
+   $storageRepository = GeneralUtility::makeInstance(StorageRepository::class);
    $defaultStorage = $storageRepository->getDefaultStorage();
    $folder = $defaultStorage->getFolder('/some/path/in/storage/');
    $file = $folder->getStorage()->getFileInFolder("example.ext", $folder);
 
-.. versionadded:: 10.2
-   Starting with version 10.2  a file can be retrieved directly by its filename from the folder::
+or directly by its filename from the folder:
 
-      $file = $folder->getFile("filename.ext");
+.. code-block:: php
 
-.. todo:: remove note below in Version 12
+   $file = $folder->getFile("filename.ext");
 
-.. note::
-   The :php:`FolderInterface` does not contain the definition for
-   :php:`getFile()` in v11, this will be added in TYPO3 v12  to prevent
-   breaking changes.
 
 The syntax of argument 1 for getFileObjectFromCombinedIdentifier is
 
@@ -73,12 +78,16 @@ Copying a file
 ==============
 
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Resource\StorageRepository;
 
    $storageUid = 17;
    $someFileIdentifier = 'templates/images/banner.jpg';
    $someFolderIdentifier = 'website/images/';
 
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
+   $storageRepository = GeneralUtility::makeInstance(StorageRepository::class);
    $storage = $storageRepository->getStorageObject($storageUid);
 
    // $file returns a TYPO3\CMS\Core\Resource\File object
@@ -97,6 +106,7 @@ Deleting a file
 ===============
 
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $file->delete();
 
@@ -107,9 +117,15 @@ Adding a file
 =============
 
 This example adds a new file in the root folder of the default
-storage::
+storage:
 
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Resource\StorageRepository;
+
+   $storageRepository = GeneralUtility::makeInstance(StorageRepository::class);
    $storage = $storageRepository->getDefaultStorage();
    $newFile = $storage->addFile(
          '/tmp/temporary_file_name.ext',
@@ -124,7 +140,10 @@ differently, as explained in :ref:`fal-concepts-storages-drivers`.
 So, for this example, the resulting file path would typically be
 :file:`<document-root>/fileadmin/final_file_name.ext`
 
-To store the file in a sub folder use :php:`$storage->getFolder()`::
+To store the file in a sub folder use :php:`$storage->getFolder()`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $newFile = $storage->addFile(
          '/tmp/temporary_file_name.ext',
@@ -155,49 +174,60 @@ processes (:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`).
 Assuming you have the "uid" of both the File and whatever other item
 you want to create a relation to, the following code will create
 the "sys\_file\_reference" entry and the relation to the other item
-(in this case a "tt\_content" record)::
+(in this case a "tt\_content" record):
 
-     $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
-     $fileObject = $resourceFactory->getFileObject((int)$file);
-     $contentElement = BackendUtility::getRecord(
-             'tt_content',
-             (int)$element
-     );
-     // Assemble DataHandler data
-     $newId = 'NEW1234';
-     $data = [];
-     $data['sys_file_reference'][$newId] = [
-             'table_local' => 'sys_file',
-             'uid_local' => $fileObject->getUid(),
-             'tablenames' => 'tt_content',
-             'uid_foreign' => $contentElement['uid'],
-             'fieldname' => 'assets',
-             'pid' => $contentElement['pid']
-     ];
-     $data['tt_content'][$contentElement['uid']] = [
-             'assets' => $newId
-     ];
-     // Get an instance of the DataHandler and process the data
-     /** @var DataHandler $dataHandler */
-     $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
-     $dataHandler->start($data, []);
-     $dataHandler->process_datamap();
-     // Error or success reporting
-     if (count($dataHandler->errorLog) === 0) {
-         // Handle success
-     } else {
-         // Handle errors
-     }
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Resource\ResourceFactory;
+   use TYPO3\CMS\Backend\Utility\BackendUtility;
+   use TYPO3\CMS\Core\DataHandling\DataHandler;
+
+   $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
+   $fileObject = $resourceFactory->getFileObject((int)$file);
+   $contentElement = BackendUtility::getRecord(
+           'tt_content',
+           (int)$element
+   );
+   // Assemble DataHandler data
+   $newId = 'NEW1234';
+   $data = [];
+   $data['sys_file_reference'][$newId] = [
+           'table_local' => 'sys_file',
+           'uid_local' => $fileObject->getUid(),
+           'tablenames' => 'tt_content',
+           'uid_foreign' => $contentElement['uid'],
+           'fieldname' => 'assets',
+           'pid' => $contentElement['pid']
+   ];
+   $data['tt_content'][$contentElement['uid']] = [
+           'assets' => $newId
+   ];
+   // Get an instance of the DataHandler and process the data
+   /** @var DataHandler $dataHandler */
+   $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+   $dataHandler->start($data, []);
+   $dataHandler->process_datamap();
+   // Error or success reporting
+   if (count($dataHandler->errorLog) === 0) {
+       // Handle success
+   } else {
+       // Handle errors
+   }
 
 
 The above example comes from the "examples" extension
-(reference: https://github.com/TYPO3-Documentation/t3docs-examples/blob/master/Classes/Controller/ModuleController.php).
+(reference: https://github.com/TYPO3-Documentation/t3docs-examples/blob/main/Classes/Controller/ModuleController.php).
 
 Here, the :php:`'fieldname'` :php:`'assets'` is used instead of
 :php:`image`. Content elements of ctype 'textmedia' use the field 'assets'.
 
 For another table than "tt\_content", you need to define
-the "pid" explicitly when creating the relation::
+the "pid" explicitly when creating the relation:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $data['tt_address'][$address['uid']] = [
        'pid' => $address['pid'],
@@ -229,9 +259,15 @@ Getting Referenced files
 
 This snippet shows how to retrieve FAL items that have been attached
 to some other element, in this case the "media" field of the "pages"
-table::
+table:
 
-   $fileRepository = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Resource\FileRepository;
+
+   $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
    $fileObjects = $fileRepository->findByRelation('pages', 'media', $uid);
 
 
@@ -246,9 +282,15 @@ Listing files in a folder
 
 These would be the shortest steps to get the list of files in a given
 folder: get the storage, get a folder object for some path in that
-storage (path relative to storage root), finally retrieve the files::
+storage (path relative to storage root), finally retrieve the files:
 
-   $storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\StorageRepository::class);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Resource\StorageRepository;
+
+   $storageRepository = GeneralUtility::makeInstance(StorageRepository::class);
    $defaultStorage = $storageRepository->getDefaultStorage();
    $folder = $defaultStorage->getFolder('/some/path/in/storage/');
    $files = $defaultStorage->getFilesInFolder($folder);
@@ -275,13 +317,16 @@ to combine them in one request.
 
 The Parameter :php:`s` has following syntax: `width:height:minW:minH:maxW:maxH`. You
 can leave this parameter empty to load the file in its original size. Parameter :php:`width`
-and :php:`height` can feature the trailing :ts:`c` or :ts:`m` indicator, as known from TypoScript.
+and :php:`height` can feature the trailing :typoscript:`c` or :typoscript:`m` indicator, as known from TypoScript.
 
 The PHP class responsible for handling the file dumping is the :php:`FileDumpController`, which you
 may also use in your code.
 
 See the following example on how to create a URI using the :php:`FileDumpController` for
-a :sql:`sys_file` record with a fixed image size::
+a :sql:`sys_file` record with a fixed image size:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'f'];
    $queryParameterArray['f'] = $resourceObject->getUid();
@@ -292,7 +337,10 @@ a :sql:`sys_file` record with a fixed image size::
 
 
 In this example crop variant :php:`default` and an image size of 320:280 will be
-applied to a sys_file_reference record::
+applied to a sys_file_reference record:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'r'];
    $queryParameterArray['f'] = $resourceObject->getUid();
@@ -304,7 +352,10 @@ applied to a sys_file_reference record::
 
 
 This example shows how to create a URI to load an image of
-`sys_file_processedfile`::
+`sys_file_processedfile`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'p'];
    $queryParameterArray['p'] = $resourceObject->getUid();

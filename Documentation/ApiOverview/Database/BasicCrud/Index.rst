@@ -62,7 +62,7 @@ Straight fetch of a single row from `tt_content` table:
             'tt_content', // from
             [ 'uid' => (int)$uid ] // where
         )
-        ->fetch();
+        ->fetchAssociative();
 
 
 Result in $row:
@@ -123,8 +123,8 @@ Advanced query using the `QueryBuilder` and manipulating the default restriction
                 $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT))
             )
         )
-        ->execute()
-        ->fetchAll();
+        ->executeQuery()
+        ->fetchAllAssociative();
 
 Result in $rows:
 

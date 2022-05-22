@@ -12,16 +12,27 @@ A brief explanation happens in :ref:`seo`.
 In general the system will generate the canonical using the same logic as for
 cHash.
 
+.. note::
+   The canonical API is provided by the optional system extension
+   EXT:seo. You can find information about how to install and use it in the
+   :doc:`EXT:seo manual <ext_seo:Index>`.
+
 Excluding arguments from the generation
 =======================================
 
 TYPO3 will fallback to building a URL of current page and appending query strings.
 It is possible to exclude specific arguments from being appended.
-This is achieved by adding those arguments to a PHP variable::
+This is achieved by adding those arguments to a PHP variable:
+
+.. code-block:: php
+   :caption: EXT:site_package/ext_localconf.php
 
    $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters'][] = 'example_argument_name';
 
-It is possible to exclude nested arguments::
+It is possible to exclude nested arguments:
+
+.. code-block:: php
+   :caption: EXT:site_package/ext_localconf.php
 
    $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters'][] = 'example_argument_name[second_level]';
 

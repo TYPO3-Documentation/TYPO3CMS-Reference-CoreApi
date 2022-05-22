@@ -9,7 +9,7 @@ Pagination
 .. note::
 
    Pagination via Fluid widgets was removed, see
-   :doc:`t3core:Changelog/11.0/Breaking-92529-AllFluidWidgetFunctionalityRemoved`.
+   :doc:`ext_core:Changelog/11.0/Breaking-92529-AllFluidWidgetFunctionalityRemoved`.
    Use the API documented here to implement your own pagination.
 
 The TYPO3 Core provides an interface to implement the native pagination of lists like arrays or
@@ -24,8 +24,11 @@ Along with that interface, an abstract paginator class :php:`\TYPO3\CMS\Core\Pag
 is available that implements the base pagination logic for any kind of :php:`Countable` set of
 items while it leaves the processing of items to the concrete paginator class.
 
-Two concrete paginators are available. One for :php:`array` and one for
-:php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface` objects.
+Two concrete paginators are available:
+
+*  For type :php:`array`: :php:`\TYPO3\CMS\Core\Pagination\ArrayPaginator`
+*  For type :php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface`:
+   :php:`\TYPO3\CMS\Extbase\Pagination\QueryResultPaginator`
 
 Code-Example for the :php:`ArrayPaginator`:
 
@@ -42,8 +45,9 @@ Code-Example for the :php:`ArrayPaginator`:
    $paginator->getCurrentPageNumber(); // returns 3, basically just returns the input value
    $paginator->getKeyOfFirstPaginatedItem(); // returns 5
    $paginator->getKeyOfLastPaginatedItem(); // returns 5
+
+   // use TYPO3\CMS\Core\Pagination\SimplePagination;
    
-   // use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
    $pagination = new SimplePagination($paginator);
    $pagination->getAllPageNumbers(); // returns [1, 2, 3]
    $pagination->getPreviousPageNumber(); // returns 2

@@ -41,7 +41,7 @@ be easily replayed locally: If the test setup votes negative on a
 Core patch in the review system due to CGL violations, the patch
 can be easily fixed locally by calling :file:`./Build/Scripts/cglFixMyCommit.sh`
 and pushed another time. For details on Core contributions, have a look at the
-:ref:`TYPO3 Contribution Guide <t3contribute:start>`.
+:doc:`TYPO3 Contribution Guide <t3contribute:Index>`.
 
 
 .. _cgl-general-recommendations:
@@ -71,11 +71,11 @@ EditorConfig
 ~~~~~~~~~~~~
 
 One method to set up your IDE / editor to adhere to specific Coding Guidelines,
-is to use an .editorconfig file. Read `EditorConfig.org <http://EditorConfig.org>`__
+is to use an .editorconfig file. Read `EditorConfig.org <https://EditorConfig.org>`__
 to find out more about it. Various IDEs or Editors support editorconfig by default or with
 an additional plugin.
 
 For example, for PhpStorm there is an `EditorConfig plugin <https://plugins.jetbrains.com/plugin/7294-editorconfig>`__.
 
-An `.editorconfig <https://github.com/typo3/typo3/blob/master/.editorconfig>`__
+An `.editorconfig <https://github.com/typo3/typo3/blob/main/.editorconfig>`__
 file is included in the TYPO3 source code.

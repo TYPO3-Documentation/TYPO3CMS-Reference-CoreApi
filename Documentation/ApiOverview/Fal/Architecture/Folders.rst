@@ -28,7 +28,4 @@ or thumbnails from the backend. The name of this folder is not
 hard-coded. It can be defined as a property of the storage.
 It may even point to a different storage.
 
-.. figure:: /Images/ManualScreenshots/Fal/ArchitectureFoldersProcessedFolder.png
-   :alt: Defining a location for processed files
-
-   Editing a file storage to define a location for processed files
+.. include:: /Images/AutomaticScreenshots/Fal/AdministrationFileStorageAccessTab.rst.txt

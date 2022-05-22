@@ -37,19 +37,26 @@ Assign an array in PHP:
 
 .. code-block:: php
 
-   $this->view->assign('data',array('Low', 'High'));
+   $this->view->assign('data', ['Low', 'High']);
 
-Use the dot ``.`` to access array keys::
+Use the dot ``.`` to access array keys:
+
+.. code-block:: html
+   :caption: EXT:site_package/Resources/Private/Templates/SomeTemplate.html
 
    <p>{data.0}, {data.1}</p>
 
 This also works for object properties:
 
 .. code-block:: php
+   :caption: EXT:site_package/Classes/Controller/SomeController.php
 
-   $this->view->assign('product',$myProduct);
+   $this->view->assign('product', $myProduct);
 
-Use it like this::
+Use it like this:
+
+.. code-block:: html
+   :caption: EXT:site_package/Resources/Private/Templates/SomeTemplate.html
 
    <p>{product.name}: {product.price}</p>
 
@@ -57,20 +64,26 @@ Use it like this::
 Accessing dynamic keys/properties
 ---------------------------------
 
-It is possible to access array or object values by a dynamic index::
+It is possible to access array or object values by a dynamic index:
+
+.. code-block:: html
+   :caption: EXT:site_package/Resources/Private/Templates/SomeTemplate.html
 
    myArray.{myIndex}
 
 ViewHelper attributes
 =====================
 
-See the :ref:`Fluid Viewhelper Reference <t3viewhelper:start>` for a complete
+See the :doc:`Fluid Viewhelper Reference <t3viewhelper:Index>` for a complete
 list of all available ViewHelpers.
 
 Simple
 ------
 
 Variables can be inserted into ViewHelper attributes by putting them in
-curly braces::
+curly braces:
+
+.. code-block:: html
+   :caption: EXT:site_package/Resources/Private/Templates/SomeTemplate.html
 
    Now it is: <f:format.date format="{format}">{date}</f:format.date>

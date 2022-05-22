@@ -131,7 +131,7 @@ PhpErrorLogWriter
 
 Logs into the PHP error log using `error_log()`_
 
-.. _error_log(): http://www.php.net/manual/en/function.error-log.php
+.. _error_log(): https://www.php.net/manual/en/function.error-log.php
 
 .. _logging-writers-syslog:
 
@@ -148,7 +148,7 @@ facility  no         Syslog Facility_  ``USER``
                      to log into.
 ========  =========  ================  ========
 
-.. _Facility: http://en.wikipedia.org/wiki/Syslog#Facility_Levels
+.. _Facility: https://en.wikipedia.org/wiki/Syslog#Facility_Levels
 
 
 .. _logging-writers-custom:
@@ -178,15 +178,14 @@ All log writers can be used in your own classes. You can initialize the loggers 
 
     namespace MyDomain\MyExtension\MyFolder;
 
-    use Psr\Log\LoggerAwareInterface;
-    use Psr\Log\LoggerAwareTrait;
+    use Psr\Log\LoggerInterface;
 
-    class MyClass implements LoggerAwareInterface {
-        use LoggerAwareTrait;
+    class MyClass implements {
+       private LoggerInterface $logger;
 
-        // The logger object is already available through the LoggerAwareTrait and instantiated by TYPO3:
-        // private $logger;
-
+       public function __construct(LoggerInterface $logger) {
+           $this->logger = $logger;
+       }
         ...
         $this->logger->info('My class is executed.');
         if ($error) {
@@ -219,4 +218,4 @@ Examples
 ========
 
 Working examples of the usage of different Log writers can be found in the extension
-`examples <https://extensions.typo3.org/extension/examples/>`__.
+:t3ext:`examples/`.

@@ -30,9 +30,7 @@ the cache system falls back to the default backend and default frontend settings
 
 .. code-block:: php
 
-   if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'])) {
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] = [];
-   }
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache'] ??= [];
 
 Extensions like **Extbase** define default caches this way, giving administrators full freedom for specific and
 possibly quicker setups (eg. a memory driven cache for the Extbase reflection cache).

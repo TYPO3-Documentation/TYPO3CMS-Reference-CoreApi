@@ -17,12 +17,18 @@ the actual Doctrine DBAL `ExpressionBuilder`.
 The `ExpressionBuilder` is used within the context of the :ref:`QueryBuilder <database-query-builder>`
 to ensure queries are being build based on the requirements of the database platform in use.
 
-An instance of the `ExpressionBuilder` is retrieved from the `QueryBuilder` object::
+An instance of the `ExpressionBuilder` is retrieved from the `QueryBuilder` object:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $expressionBuilder = $queryBuilder->expr();
 
 It is good practice to not assign an instance of the `ExpressionBuilder` to a variable but
-to use it within the code flow of the `QueryBuilder` context directly::
+to use it within the code flow of the `QueryBuilder` context directly:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -34,8 +40,8 @@ to use it within the code flow of the `QueryBuilder` context directly::
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
          $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('peter'))
       )
-      ->execute()
-      ->fetchAll();
+      ->executeQuery()
+      ->fetchAllAssociative();
 
 .. warning::
 
@@ -56,7 +62,10 @@ Combine multiple single expressions with `AND` or `OR`. Nesting is possible, bot
 take any number of argument which are all combined. It usually doesn't make much sense to hand over
 zero or only one argument, though.
 
-Example to find tt_content records::
+Example to find tt_content records:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -108,6 +117,8 @@ A set of methods to create various comparison expressions or SQL functions:
 
 * :php:`->inSet($fieldName, $value)` "FIND_IN_SET('42', `aField`)" Find a value in a comma separated list of values
 
+* :php:`->notInSet($fieldName, $value)` "NOT FIND_IN_SET('42', `aField`)" Find a value not in a comma separated list of values
+
 * :php:`->bitAnd($fieldName, $value)` A bitwise AND operation `&`
 
 
@@ -125,8 +136,10 @@ Remarks and warnings:
   suppress the special meaning of `%` characters from `$value`.
 
 
-Examples::
+Examples:
 
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // `bodytext` = 'foo' - string comparison
    ->eq('bodytext', $queryBuilder->createNamedParameter('foo'))
@@ -154,6 +167,9 @@ Examples::
       'bodytext',
       $queryBuilder->createNamedParameter('%' . $queryBuilder->escapeLikeWildcards('klaus') . '%')
    )
+
+   // usergroup does not contain 42
+   ->notInSet('usergroup', $queryBuilder->createNamedParameter('42'))
 
    // use TYPO3\CMS\Core\Database\Connection;
    // `uid` IN (42, 0, 44) - properly sanitized, mind the intExplode and PARAM_INT_ARRAY
@@ -193,7 +209,10 @@ the field name (or table name / alias with field name), second argument an optio
 * :php:`->count($fieldName, $alias = NULL)` "COUNT()" calculation
 
 
-Examples::
+Examples:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -205,8 +224,8 @@ Examples::
          $queryBuilder->expr()->avg('crdate', 'averagecreation')
       )
       ->from('tt_content')
-      ->execute()
-      ->fetch();
+      ->executeQuery()
+      ->fetchAssociative();
 
    // Distinct list of all existing endtime values from tt_content
    // SELECT `uid`, MAX(`endtime`) AS `maxendtime` FROM `tt_content` GROUP BY `endtime`
@@ -217,27 +236,30 @@ Examples::
       )
       ->from('tt_content')
       ->groupBy('endtime')
-      ->execute();
+      ->executeQuery();
 
 
 Various Expressions
 ===================
 
 TRIM
-%%%%
+----
 
 Using the TRIM expression makes sure fields get trimmed on database level.
-See the examples below to get a better idea of what can be done::
+See the examples below to get a better idea of what can be done:
 
-    // use TYPO3\CMS\Core\Utility\GeneralUtility;
-    // use TYPO3\CMS\Core\Database\ConnectionPool;
-    // use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-    $queryBuilder->expr()->comparison(
-        $queryBuilder->expr()->trim($fieldName),
-        ExpressionBuilder::EQ,
-        $queryBuilder->createNamedParameter('', \PDO::PARAM_STR)
-    );
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+   $queryBuilder->expr()->comparison(
+       $queryBuilder->expr()->trim($fieldName),
+       ExpressionBuilder::EQ,
+       $queryBuilder->createNamedParameter('', \PDO::PARAM_STR)
+   );
 
 The call to :php:`$queryBuilder->expr()-trim()` can be one of the following:
 
@@ -251,17 +273,20 @@ The call to :php:`$queryBuilder->expr()-trim()` can be one of the following:
   results in :code:`TRIM(BOTH "x" FROM "tableName"."fieldName")`
 
 LENGTH
-%%%%%%
+------
 
 The LENGTH string function can be used to return the length of a string in bytes, method
-signature is fieldName with optional alias :php:`->length(string $fieldName, string $alias = null)`::
+signature is fieldName with optional alias :php:`->length(string $fieldName, string $alias = null)`:
 
-    // use TYPO3\CMS\Core\Utility\GeneralUtility;
-    // use TYPO3\CMS\Core\Database\ConnectionPool;
-    // use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-    $queryBuilder->expr()->comparison(
-        $queryBuilder->expr()->length($fieldName),
-        ExpressionBuilder::GT,
-        $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)
-    );
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   // use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+   $queryBuilder->expr()->comparison(
+       $queryBuilder->expr()->length($fieldName),
+       ExpressionBuilder::GT,
+       $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)
+   );

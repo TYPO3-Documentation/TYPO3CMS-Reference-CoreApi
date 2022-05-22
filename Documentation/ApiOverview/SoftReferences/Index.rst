@@ -9,7 +9,7 @@ Soft references
 **Soft References** are references to database elements, files, email addresses,
 URLs etc. which are found inside of text fields.
 
-For example, `tt_content.bodytext` can contain soft references to pages, 
+For example, `tt_content.bodytext` can contain soft references to pages,
 content elements and files. The page reference looks like this:
 
 .. code-block:: html
@@ -222,7 +222,7 @@ The content could look like this:
 .. code-block:: html
 
    <p><a href="t3://page?uid=96">Congratulations</a></p>
-   <p>To read more about <a href="http://example.org/some-cool-feature">this cool feature</a></p>
+   <p>To read more about <a href="https://example.org/some-cool-feature">this cool feature</a></p>
    <p>Contact: email@example.org</p>
 
 The parsers will return an instance of
@@ -268,11 +268,11 @@ Property :php:`$elements`
             ]
         ],
         [
-            'matchString' => '<a href="http://example.org/some-cool-feature">',
+            'matchString' => '<a href="https://example.org/some-cool-feature">',
             'subst' => [
                 'type' => 'string',
                 'tokenID' => '78910',
-                'tokenValue' => 'http://example.org/some-cool-feature',
+                'tokenValue' => 'https://example.org/some-cool-feature',
             ]
         ],
         [
@@ -312,7 +312,7 @@ This property is an array of arrays, each with these keys:
 User-defined soft reference parsers
 ===================================
 
-Soft Reference Parsers can also be user-defined. It is easy to set them up by 
+Soft Reference Parsers can also be user-defined. It is easy to set them up by
 registering them in your Services.(yaml|php) file. This will load them
 via dependency injection:
 

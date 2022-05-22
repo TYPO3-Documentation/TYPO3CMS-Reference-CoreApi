@@ -44,7 +44,7 @@ view:
 .. note::
 
    For the :guilabel:`Reports` module to be visible, the system extension
-   reports has to be installed. You can install it via composer:
+   reports has to be installed. You can install it via Composer:
 
    .. code-block:: console
 
@@ -133,11 +133,9 @@ processLoginDataBE, processLoginDataFE
   The method to implement is :php:`processLoginData()`.
   It receives as argument the login data and the password
   transmission strategy (which corresponds to the login security
-  level, as defined in
-  :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['loginSecurityLevel']`
-  or :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['loginSecurityLevel']`).
-  It is expected to return a boolean value, with :php:`true`
-  meaning that it successfully processed login data.
+  level, where only 'normal' can be used.
+  It returns the boolean value :php:`true`,
+  when the login data has been successfully processed .
 
   It may also return a numerical value equal to 200 or greater,
   which indicates that no further login data processing should
@@ -296,7 +294,10 @@ influence when services are called.
 It is possible to force TYPO3 CMS to go through the
 authentication process for **every** request no matter any
 existing session. By setting the following local configuration
-either for the FE or the BE::
+either for the FE or the BE:
+
+.. code-block:: php
+  :caption: typo3conf/AdditionalConfiguration.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysFetchUser'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysAuthUser'] = true;
@@ -314,7 +315,10 @@ may not be necessary depending on what your service does exactly.
 
 A more fine-grained approach allows for triggering the
 authentication process only when a valid session does not
-yet exist. The settings are::
+yet exist. The settings are:
+
+.. code-block:: php
+  :caption: typo3conf/AdditionalConfiguration.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_fetchUserIfNoSession'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_fetchUserIfNoSession'] = true;
@@ -327,7 +331,10 @@ yet exist. The settings are::
    need to repeat the process upon each request.
 
 The authentication process can also be forced to go through
-all services for the "getUser\*" subtype by setting::
+all services for the "getUser\*" subtype by setting:
+
+.. code-block:: php
+  :caption: typo3conf/AdditionalConfiguration.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_fetchAllUsers'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_fetchAllUsers'] = true;

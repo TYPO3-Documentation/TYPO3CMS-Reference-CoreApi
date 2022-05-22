@@ -43,7 +43,7 @@ TYPO3 instance. And we want to make sure we do not break main parts if we fiddle
 Just like any other projects wants.
 
 The quick start for an own site based on this repository boils down to these commands, with
-more details mentioned in `README.md <https://github.com/TYPO3-Documentation/site-introduction/blob/master/README.md>`_:
+more details mentioned in `README.md <https://github.com/TYPO3-Documentation/site-introduction/blob/main/README.md>`_:
 
 .. code-block:: shell
 
@@ -55,7 +55,7 @@ more details mentioned in `README.md <https://github.com/TYPO3-Documentation/sit
     lolli@apoc /var/www/local/site-introduction $ ddev composer install
 
 This will start various containers: A database, a phpmyadmin instance, and a web server. If all
-goes well, the instance is reachable on `localhost <https://introduction.ddev.site>`_.
+goes well, the instance is reachable on :samp:`https://introduction.ddev.site`.
 
 .. index:: Testing; Acceptance
 
@@ -130,11 +130,14 @@ basic :file:`Tests/codeception.yml` file:
       colors: true
 
 This tells codeception there is a selenium instance at `ddev-introduction-chrome` with chrome,
-the website is reachable as `https://introduction.ddev.site`, it enables some codeception plugins
+the website is reachable as :samp:`https://introduction.ddev.site`, it enables some codeception plugins
 and specifies a couple of logging details. The `codeception documentation <https://codeception.com/>`_
 goes into details about these.
 
-Now we need a simple first test which is added as :file:`Tests/Acceptance/Frontend/FrontendPagesCest.php`::
+Now we need a simple first test which is added as :file:`Tests/Acceptance/Frontend/FrontendPagesCest.php`:
+
+.. code-block:: php
+   :caption: EXT:site_introduction/Tests/Acceptance/Frontend/FrontendPagesCest.php
 
     <?php
     declare(strict_types = 1);
@@ -157,7 +160,7 @@ Now we need a simple first test which is added as :file:`Tests/Acceptance/Fronte
 It just calls the homepage of our instance, clicks one of the links and verifies some text is
 shown. Straight, but enough to see if the basic instance does work.
 
-Ah, and we need a "Tester" in the `Support directory <https://github.com/TYPO3-Documentation/site-introduction/tree/master/Tests/Acceptance/Support>`_.
+Ah, and we need a "Tester" in the `Support directory <https://github.com/TYPO3-Documentation/site-introduction/tree/main/Tests/Acceptance/Support>`_.
 
 That's it. We can now execute the acceptance test suite by executing a command in the
 ddev PHP container:
@@ -236,7 +239,7 @@ To tell the CI what to do, create a new workflow file in
          - name: Import files
            run: ddev import-files --src=./assets
 
-         - name: Install composer packages
+         - name: Install Composer packages
            run: ddev composer install
 
          - name: Allow public access of var folder

@@ -13,7 +13,7 @@ variables needed for your content element or template, you can define a custom
 data processor by implementing the :php:`DataProcessorInterface`.
 
 You can find the example below in the TYPO3 Documentation Team extension
-`examples <https://extensions.typo3.org/extension/examples/>`__.
+:t3ext:`examples/`.
 
 
 .. index::
@@ -69,7 +69,7 @@ The custom data processor needs to implement :php:`DataProcessorInterface`.
 The main function :php:`process` gets called with the following parameters:
 
 :php:`ContentObjectRenderer $cObj`
-   Receives the data of the current TypoScript context, in this case the 
+   Receives the data of the current TypoScript context, in this case the
    data of the calling content element.
 
 :php:`array $contentObjectConfiguration`
@@ -83,11 +83,14 @@ The main function :php:`process` gets called with the following parameters:
 
 
 :php:`array $processedData`
-   On calling, contains the processed data of all previously called data 
+   On calling, contains the processed data of all previously called data
    processors on this content element. Your custom data processor also stores
    the variables to be send to Fluid here.
 
-This is an example implementation of a custom data processor::
+This is an example implementation of a custom data processor:
+
+.. code-block:: php
+   :caption: EXT:examples/Classes/DataProcessing/CustomCategoryProcessor.php
 
    namespace T3docs\Examples\DataProcessing;
 

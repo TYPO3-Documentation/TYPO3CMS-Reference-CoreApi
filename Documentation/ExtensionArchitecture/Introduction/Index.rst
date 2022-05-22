@@ -25,8 +25,33 @@ backwards compatibility. The Extension API provides a powerful
 framework for easily adding, removing, installing and developing such
 extensions to TYPO3.
 
+Types of extensions
+-------------------
+
 "*Extensions*" is a general term in TYPO3 which covers many kinds of
-additions to TYPO3. The main types are:
+additions to TYPO3.
+
+The extension type used to be specified in the file :file:`ext_emconf.php`, but
+this has become obsolete. It is no longer possible to specify the type of an
+extension. However, there are some types by convention which follow loose
+standards or recommendations. Some of these types by convention are:
+
+-  **Sitepackage** is a TYPO3 Extension that contains all relevant configuration
+   for a Website, including the assets that make up the template (e.g.
+   CSS, JavaScript, Fluid templating files, TypoScript etc.). The
+   :ref:`Sitepackage Tutorial <t3sitepackage:introduction>` covers this in depth.
+
+-  **Distributions** are fully packaged TYPO3 CMS web installations,
+   complete with files, templates, extensions, etc. Distributions are
+   covered :ref:`in their own chapter <distribution>`.
+
+Extension components
+--------------------
+
+An extension can consist of one or more of these components. They are not
+mutually exclusive: An extension can supply one or more plugins and also
+one or more modules. Additionally, an extension can provide functionality
+beyond the listed components.
 
 - **Plugins** which play a role on the website itself, e.g. a discussion
   board, guestbook, shop, etc. Therefore plugins are content elements, that can
@@ -39,9 +64,10 @@ additions to TYPO3. The main types are:
   itself to the function menu of existing modules. A module is an
   extension in the backend.
 
-- **Distributions** are fully packaged TYPO3 CMS web installations,
-  complete with files, templates, extensions, etc. Distributions are
-  covered :ref:`in their own chapter <distribution>`.
+-  **Symfony console commands** provide functionality which can be executed on
+   the command line (cli). These commands are implemented by classes inheriting
+   the Symfony :php:`\Symfony\Component\Console\Command\Command\Command` class.
+   More information is available in :ref:`symfony-console-commands`.
 
 .. _extensions-and-core:
 

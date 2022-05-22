@@ -21,10 +21,7 @@ update language packs of TER and Core extensions from the official translation s
 The module is rather straight forward to use and should be pretty much self explanatory.
 Downloaded language packs are stored in :ref:`Environment-labels-path`.
 
-.. figure:: /Images/ManualScreenshots/Internationalization/InternationalizationManageLanguagePacks.png
-   :alt: The Languages module
-
-   The Languages module with some active languages and status of extensions language packs
+.. include:: /Images/AutomaticScreenshots/AdminTools/ManageLanguagePacks.rst.txt
 
 
 Language packs can also be fetched using the command line.
@@ -44,7 +41,7 @@ Using `Virtaal <http://translate.sourceforge.net/wiki/virtaal/index>`_,
 it is possible to translate XLIFF files locally.
 Virtaal is an open source, cross-platform application.
 
-.. figure:: /Images/ManualScreenshots/Internationalization/InternationalizationXliffWithVirtaal.png
+.. figure:: /Images/ExternalImages/System/InternationalizationXliffWithVirtaal.png
    :alt: Virtaal screenshot
 
    Translating with Virtaal, with suggestions from other software
@@ -60,8 +57,8 @@ Custom translations
 ===================
 
 The :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` allows to
-override both locallang-XML and XLIFF files. Actually this is not just about translations.
-Default language files can also be overridden. In the case of XLIFF files, the
+override XLIFF files. Actually this is not just about translations.
+Default language files can also be overridden. The
 syntax is as follows (to be placed in an extension's :file:`ext_localconf.php` file):
 
 .. code-block:: php
@@ -82,7 +79,7 @@ looks like this:
          <header/>
          <body>
             <trans-unit id="pages.title_formlabel" xml:space="preserve">
-               <source>Most important tile</source>
+               <source>Most important title</source>
                <target>Wichtigster Titel</target>
             </trans-unit>
          </body>
@@ -102,9 +99,8 @@ and the result can be easily seen in the backend:
 
    - Please note that you do not have to copy the full reference file, but only the labels you want to translate.
 
-   - The path to the file to override must be expressed as :file:`EXT:foo/bar/...`. For the
-     extension "xlf" or "xml" can be used interchangeably. The TYPO3 Core will try both anyway,
-     but using "xlf" is more correct and future-proof.
+   - The path to the file to override must be expressed as :file:`EXT:foo/bar/...`
+     and have the extension `xlf`.
 
 .. attention::
 
@@ -146,7 +142,7 @@ translated:
      'gsw_CH' => array('de_AT', 'de'),
   );
 
-In this case we define that "gsw_CH" (which is the `official code <http://www.localeplanet.com/icu/>`_ for
+In this case we define that "gsw_CH" (which is the `official code <https://www.localeplanet.com/icu/>`_ for
 "Schwiizertüütsch" - that is, "Swiss German") can fall back on "de_AT" (another custom translation) and then on "de".
 
 The translations have to be stored in the appropriate labels path sub folder
@@ -171,10 +167,7 @@ would be in file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
       </file>
    </xliff>
 
-.. figure:: /Images/ManualScreenshots/Internationalization/InternationalizationXliffCustomLanguage.png
-   :alt: User Settings screenshot
-
-   The new language appears in the user preferences
+.. include:: /Images/AutomaticScreenshots/Internationalization/CustomLanguage.png.rst.txt
 
 .. note::
 

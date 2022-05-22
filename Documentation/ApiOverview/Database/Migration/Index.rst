@@ -21,7 +21,11 @@ Compare Raw Queries
 The main goal during migration is usually to fire a logically identical query. One recommended
 and simple approach to verify this is to note down and compare the queries at the lowest possible
 layer. In :php:`$GLOBALS['TYPO3_DB']`, the final query statement is usually retrieved by removing the
-`exec_` part from the method name, in `doctrine` method :php:`QueryBuilder->getSQL()` can be used::
+`exec_` part from the method name, in `doctrine` method :php:`QueryBuilder->getSQL()` can be used:
+
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // Initial code:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'index_fulltext', 'phash=' . (int)$phash);
@@ -54,7 +58,10 @@ enableFields() and deleteClause()
 :php:`BackendUtility::deleteClause()` adds `deleted=0` if `['ctrl']['deleted']` is specified in the
 table's `TCA`. The method call *should* be removed during migration. If there is no other restriction
 method involved in the old call like `enableFields()`, the migrated code typically removes all
-doctrine default restrictions and just adds the `DeletedRestriction` again::
+doctrine default restrictions and just adds the `DeletedRestriction` again:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
@@ -78,11 +85,14 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
       ->from('pages')
       ->where($queryBuilder->expr()->neq('TSconfig', $queryBuilder->createNamedParameter('')))
       ->groupBy('uid')
-      ->execute();
+      ->executeQuery();
 
 
 `BackendUtility::versioningPlaceholderClause('pages')` is typically substituted with the
-`BackendWorkspaceRestriction`. Example very similar to the above one::
+`BackendWorkspaceRestriction`. Example very similar to the above one:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
@@ -109,11 +119,14 @@ doctrine default restrictions and just adds the `DeletedRestriction` again::
       ->from('pages')
       ->where($queryBuilder->expr()->neq('TSconfig', $queryBuilder->createNamedParameter('')))
       ->groupBy('uid')
-      ->execute();
+      ->executeQuery();
 
 
 :php:`BackendUtility::BEenableFields()` in combination with :php:`BackendUtility::deleteClause()` adds the same
-calls as the `DefaultRestrictionContainer`. No further configuration needed::
+calls as the `DefaultRestrictionContainer`. No further configuration needed:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // Before:
    $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
@@ -132,11 +145,14 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed::
    $queryBuilder
       ->select('title', 'content', 'crdate')
       ->from('sys_news')
-      ->execute();
+      ->executeQuery();
 
 
 :php:`cObj->enableFields()` in frontend context is typically directly substituted with
-`FrontendRestrictionContainer`::
+`FrontendRestrictionContainer`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // Before:
    $GLOBALS['TYPO3_DB']->exec_SELECTquery(
@@ -163,7 +179,10 @@ From ->exec_UDATEquery() to ->update()
 ======================================
 
 Most often, the easiest way to migrate a `$GLOBALS['TYPO3_DB']->exec_UDATEquery()` is to use
-:php:`$connection->update()`::
+:php:`$connection->update()`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
     // Before:
     $database->exec_UPDATEquery(
@@ -188,7 +207,10 @@ Result Set Iteration
 ====================
 
 The `exec_*` calls return a resource object that is typically iterated over using :php:`sql_fetch_assoc()`.
-This is typically changed to :php:`->fetch()` on the `Statement` object::
+This is typically changed to :php:`->fetchAssociative()` on the `Statement` object:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(...);
@@ -197,8 +219,8 @@ This is typically changed to :php:`->fetch()` on the `Statement` object::
    }
 
    // After:
-   $statement = $queryBuilder->execute();
-   while ($row = $statement->fetch()) {
+   $result = $queryBuilder->executeQuery();
+   while ($row = $result->fetchAssociative()) {
       // Do something
    }
 
@@ -208,7 +230,10 @@ sql_insert_id()
 
 It is sometimes needed to fetch the new `uid` of a just added record to further work with that row.
 In `TYPO3_DB` this was done with a call to :php:`->sql_insert_id()` after a :php:`->exec_INSERTquery()` call
-on the same resource. :php:`->lastInsertId()` can be used instead::
+on the same resource. :php:`->lastInsertId()` can be used instead:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // Before:
    $GLOBALS['TYPO3_DB']->exec_INSERTquery(
@@ -238,7 +263,11 @@ on the same resource. :php:`->lastInsertId()` can be used instead::
 fullQuoteStr()
 ==============
 
-:php:`->fullQuoteStr()` is rather straight changed to a :php:`->createNamedParameter()`, typical case::
+:php:`->fullQuoteStr()` is rather straight changed to a
+:php:`->createNamedParameter()`, typical case:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // Before:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
@@ -257,7 +286,7 @@ fullQuoteStr()
       ->where(
          $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('horst'))
       )
-      ->execute();
+      ->executeQuery();
 
 
 escapeStrForLike()
@@ -284,7 +313,10 @@ names are quoted differently on different platforms and extension developers sho
 quoting for specific target platforms, but let the Core quote the field according to the currently used
 platform. This leads to a new syntax in various places, for instance in `TCA` property
 :ref:`foreign_table_where <t3tca:columns-select-properties-foreign-table-where>`. In general it applies to all
-places where SQL fragments are specified::
+places where SQL fragments are specified:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
     // Before:
     'foreign_table_where' => 'AND tx_some_foreign_table_name.pid = 42',

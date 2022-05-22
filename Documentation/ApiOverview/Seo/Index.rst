@@ -9,7 +9,14 @@
 Search engine optimization (SEO)
 ================================
 
-TYPO3 contains various SEO related functionality out of the box. The following provides an introduction in those features.
+TYPO3 contains various SEO related functionality out of the box.
+
+.. note::
+   Most of these features are provided by the optional system extension
+   EXT:seo. You can find information about how to install and use it in the
+   :doc:`EXT:seo manual <ext_seo:Index>`.
+
+The following provides an introduction in those features.
 
 Site title
     The site title is basically a variable that describes the current web site. It is used
@@ -19,7 +26,7 @@ Site title
     The site title can be configured in the sites module and is translatable.
 
 Hreflang Tags
-    "hreflang" tags are added automatically for multilanguage websites based on the one-tree principle.
+    "hreflang" tags are added automatically for multi-language websites based on the one-tree principle.
 
     The href is relative as long as the domain is the same. If the domain differs the href becomes absolute.
     The x-default href is the first supported language. The value of "hreflang" is the one set in the sites module
@@ -30,7 +37,7 @@ Hreflang Tags
 Canonical Tags
     TYPO3 provides built-in support for the :html:`<link rel="canonical" href="">` tag.
 
-    If the Core extension "seo" is installed, it will automatically add the canonical link to the page.
+    If the Core extension EXT:seo is installed, it will automatically add the canonical link to the page.
 
     The canonical link is basically the same absolute link as the link to the current hreflang and is meant
     to indicate where the original source of the content is. It is a tool to prevent duplicate content

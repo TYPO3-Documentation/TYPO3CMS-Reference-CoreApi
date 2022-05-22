@@ -46,7 +46,10 @@ Copyright Notice
 TYPO3 is released under the terms of GNU General Public License
 version 2 or any later version. The copyright notice with a reference
 to the license text must be included at the top of every TYPO3 PHP class
-file. user files must have this copyright notice as well. Example::
+file. User files must have this copyright notice as well. Example:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    <?php
    declare(strict_types = 1);
@@ -64,7 +67,7 @@ file. user files must have this copyright notice as well. Example::
     * The TYPO3 project - inspiring people to share!
     */
 
-    namespace TYPO3\CMS\XXX;
+    namespace Vendor\SomeExtension\SomeFolder;
 
 The wording must not be changed/updated/extended, under any circumstances.
 
@@ -72,10 +75,14 @@ The wording must not be changed/updated/extended, under any circumstances.
 Namespace Imports
 =================
 
-Necessary PHP Classes should be imported like explained in PSR-2::
+Necessary PHP Classes should be imported like explained in PSR-2:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    use TYPO3\CMS\Core\Utility\GeneralUtility;
    use TYPO3\CMS\Core\Utility\HttpUtility;
+   use TYPO3\CMS\Core\Cache\Backend\BackendInterface;
 
 Put one blank line before and after import statements.
 Also put one import statement per line.
@@ -84,7 +91,10 @@ Class Information Block
 =======================
 
 The class information block provides basic information about the class
-in the file. It should include a description of the class. Example::
+in the file. It should include a description of the class. Example:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    /**
     * This class provides XYZ plugin implementation.
@@ -100,13 +110,14 @@ formatted as described in chapter "PHP syntax formatting".
 The class name is expected to follow some conventions. It must be
 identical to the file name and must be written in upper camel case.
 
-Taking again the example of file
-:file:`typo3/sysext/core/Classes/Cache/Backend/AbstractBackend.php`, the PHP class
-declaration will look like::
+The PHP class declaration looks like the following:
 
-   class AbstractBackend implements \TYPO3\CMS\Core\Cache\Backend\BackendInterface
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   class SomeClass extends AbstractBackend implements BackendInterface
    {
-           …
+       // ...
    }
 
 
@@ -115,9 +126,12 @@ Optional Module Execution Code
 
 Module execution code instantiates the class and runs its method(s).
 Typically this code can be found in :code:`eID` scripts and old Backend
-modules. Here is how it may look like::
+modules. Here is how it may look like:
 
-   $controller = GeneralUtility::makeInstance(\Vendor\MyNamespace\MyExtension\Controller\AjaxController::class);
-   $controller->main();
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   $someClass = GeneralUtility::makeInstance(SomeClass::class);
+   $someClass->main();
 
 This code must appear **after** the PHP class.

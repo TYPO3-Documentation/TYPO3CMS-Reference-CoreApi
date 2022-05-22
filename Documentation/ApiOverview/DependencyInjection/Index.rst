@@ -15,15 +15,27 @@ Dependency injection
 TYPO3 uses a dependency injection solution based on the corresponding `PSR-11 <https://www.php-fig.org/psr/psr-11/>`_
 compliant Symfony component to standardize object initialization throughout the Core as well as in extensions.
 
-The recommended way of injecting dependencies is to use constructor injection::
+The recommended way of injecting dependencies is to use constructor injection:
 
-   public function __construct(Dependency $dependency)
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   public function __construct(Foo $foo, Bar $bar)
    {
-       $this->dependency = $dependency;
+       $this->foo = $foo;
+       $this->bar = $bar;
    }
 
-By default all classes shipped by the TYPO3 Core  system extensions are available for dependency
+By default all API services shipped by the TYPO3 Core system extensions are available for dependency
 injection.
+
+.. note::
+
+   The following document aims at explaining dependency injection as used in TYPO3.
+   For those new to the concepts and principles behind dependency injection, please
+   read more general introductions on the topic first - for example at
+   `PHP The Right Way <https://phptherightway.com/#dependency_injection>`_ and
+   at `Fabien Potenciers blog <http://fabien.potencier.org/what-is-dependency-injection.html>`_.
 
 .. contents::
    :depth: 3
@@ -32,6 +44,19 @@ injection.
    pair: Dependency injection; Extensions
    pair: Dependency injection; Services
    File; EXT:{extkey}/Configuration/Services.yaml
+
+When to use Dependency Injection in TYPO3
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Class dependencies to services should be injected via constructor injection or
+setter methods. Where possible, Symfony dependency injection
+should be used for all cases where DI is required.
+
+Non-service "data objects" like Extbase model instances or DTOs should
+be instantiated via :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` if
+they are non-final and support XCLASSing. For final classes without dependencies
+the `new` keyword can be used.
+
 .. _configure-dependency-injection-in-extensions:
 
 Configure dependency injection in Extensions
@@ -42,17 +67,17 @@ dependency injection. This can be done in :file:`Configuration/Services.yaml`.
 Alternatively :file:`Configuration/Services.php` can be used.
 
 .. code-block:: yaml
+   :caption: EXT:some_extension/Configuration/Services.php
 
-    # Configuration/Services.yaml
-    services:
-      _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
+   services:
+     _defaults:
+       autowire: true
+       autoconfigure: true
+       public: false
 
-      Your\Namespace\:
-        resource: '../Classes/*'
-        exclude: '../Classes/Domain/Model/*'
+     Vendor\SomeExtension\:
+       resource: '../Classes/*'
+       exclude: '../Classes/Domain/Model/*'
 
 This is how a basic :file:`Services.yaml` of an extension looks like. The meaning of :yaml:`autowire`,
 :yaml:`autoconfigure` and :yaml:`public` will be explained below.
@@ -67,10 +92,10 @@ This is how a basic :file:`Services.yaml` of an extension looks like. The meanin
 .. note::
 
    The path exclusion :yaml:`exclude: '../Classes/Domain/Model/*'` excludes
-   your Models from the DI Container, which means you can not inject them or inject
+   your models from the DI container, which means you cannot inject them or inject
    dependencies into them.
-   Models are not Services and should therefore not require dependency injection.
-   Also, these Objects are created by the extbase persistence layer which does not support the DI container.
+   Models are not services and should therefore not require dependency injection.
+   Also, these objects are created by the Extbase persistence layer which does not support the DI container.
 
 .. _autowire:
 
@@ -87,6 +112,9 @@ which is cached in php code (in TYPO3 Core  cache).
    An extension doesn't need to use autowiring, it is free to manually
    wire dependencies in the service configuration file.
 
+
+.. _dependency-injection-autoconfigure:
+
 Autoconfigure
 -------------
 
@@ -96,6 +124,7 @@ For example autoconfiguration ensures that classes which implement
 :php:`\TYPO3\CMS\Core\SingletonInterface` will be publicly available from the
 Symfony container.
 
+.. _DependencyInjectionArguments:
 
 Arguments
 ---------
@@ -140,7 +169,7 @@ call your queries without further instantiation. Be aware to clone your object o
 resetting the query parts to prevent side effects in case of multiple usages.
 
 This method of injecting Objects does also work with e.g. extension configurations
-or typoscript settings.
+or TypoScript settings.
 
 
 Public
@@ -148,19 +177,20 @@ Public
 
 :yaml:`public: false` is a performance optimization and is therefore suggested to be
 set in extensions. This settings controls which services are available
-through :php:`\Psr\Container\ContainerInterface->get()`. However some classes, that need to
-be public, will be marked public automatically due to :yaml:`autoconfigure: true`.
-These classes include Singletons, because they need to be shared with code that uses
-:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` and Extbase controllers.
+through the dependency injection container which is used internally by
+:php:`GeneralUtility::makeInstance()`.
+
+However some classes that need to be public will be marked public automatically
+due to :yaml:`autoconfigure: true`.
+
+These classes include singletons, because they need to be shared with code that uses
+:php:`GeneralUtility::makeInstance()` and Extbase controllers.
 
 .. index:: Dependency injection; Public
 .. _knowing-what-to-make-public:
 
 Knowing what to make public
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
-marked public by default. Additionally some classes cannot be private as well.
-As the Symfony documentation puts it:
 
 .. this indent is intentional to create a blockquote!
 
@@ -168,19 +198,27 @@ As the Symfony documentation puts it:
 
     -- `Official documentation <https://symfony.com/doc/current/service_container/alias_private.html>`_ for public and private services.
 
-Direct access includes instantiation via :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`.
-This means every class that should make use of dependency injection and is not instantiated via injection
-itself but by e.g. :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` have to be marked
-as public. Some examples for this are:
+Direct access includes instantiation via :php:`GeneralUtility::makeInstance()` with constructor arguments.
 
-* User Functions
-* Non-Extbase Controllers
-* Classes registered in Hooks
+This means every class that needs dependency injection and is retrieved directly, e.g.
+using :php:`GeneralUtility::makeInstance()` must be marked as public.
+
+Any other class which needs dependency injection and is retrieved by dependency injection
+itself can be private.
+
+Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
+automatically marked as public because they are retrieved using :php:`GeneralUtility::makeInstance()`.
+
+More examples for classes which must be marked as public:
+
+* User functions
+* Non-Extbase controllers
+* Classes registered in hooks
 * Authentication services
-* DataProcessors
+* Fluid data processors
 
 For such classes an extension can override the global :yaml:`public: false` configuration in the
-:file:`Configuration/Services.yaml` for each class.
+:file:`Configuration/Services.yaml` for each affected class.
 
 .. code-block:: yaml
 
@@ -199,7 +237,7 @@ For such classes an extension can override the global :yaml:`public: false` conf
         public: true
 
 With this configuration you can use dependency injection in :php:`\Vendor\MyExtension\UserFunction\ClassA`
-when it is created in the context of a :ts:`USER` TypoScript object which would not be possible if this
+when it is created e.g. in the context of a :typoscript:`USER` TypoScript object which would not be possible if this
 class was private.
 
 .. index:: Dependency injection; Errors
@@ -237,25 +275,16 @@ An :php:`Error` is raised on missing dependency injection for
 Supported ways of dependency injection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. deprecated:: 11.4
-   The class :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` has been deprecated
-   with TYPO3 11.4.  Classes should be updated to avoid both, 
-   :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` and
-   :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` whenever possible.
-
-Class dependencies should be injected via constructor injection or
-setter methods. Where possible, Symfony  
-:ref:`dependency injection<dependency-injection>` should be used for all cases 
-where DI is required.
-
-
 .. index:: Dependency injection; Constructor injection
 .. _constructor-injection:
 
 Constructor injection
 ---------------------
 
-A class dependency can simply be specified as a constructor argument::
+A class dependency can simply be specified as a constructor argument:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    public function __construct(Dependency $dependency)
    {
@@ -269,9 +298,12 @@ A class dependency can simply be specified as a constructor argument::
 Method injection
 ----------------
 
-As an alternative to constructor injection :php:`injectDependency()` Methods can be used.
-Additionally a :php:`setDependency()` will also work if it has the annotation :php:`@required`::
+As an alternative to constructor injection :php:`injectDependency()` methods can be used.
+Additionally a :php:`setDependency()` will also work if it has the annotation
+:php:`@required`:
 
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    /**
     * @param MyDependency $myDependency
@@ -298,7 +330,10 @@ Interface injection
 -------------------
 
 It is possible to inject interfaces as well. If there is only one implementation for a certain
-interface the interface injection is simply resolved to this implementation::
+interface the interface injection is simply resolved to this implementation:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    public function __construct(DependencyInterface $dependency)
    {
@@ -309,20 +344,25 @@ When multiple implementation of the same interface exist, an extension needs to 
 implementation should be injected when the interface is type hinted. Find out more about how this
 is achieved in the official `Symfony documentation <https://symfony.com/doc/current/service_container/autowiring.html#working-with-interfaces>`_.
 
-Dependency injection in a XCLASSed class
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Dependency injection in an XCLASSed class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If an existing class (for example an Extbase controller) is extended using XCLASS and additional
-dependencies are injected using constructor injection, it must be ensured to add a
-reference to the extended class in the :file:`Configuration/Services.yaml` file of the
-extending extension as shown in the example below::
+dependencies are injected using constructor injection, it must be ensured that a
+reference to the extended class is added in the :file:`Configuration/Services.yaml` file of the
+extending extension as shown in the example below:
 
-   TYPO3\CMS\Belog\Controller\BackendLogController: '@Namespace\Extension\Controller\ExtendedBackendLogController'
+.. code-block:: yaml
+   :caption: EXT:some_extension/Configuration/Services.yaml
+
+   TYPO3\CMS\Belog\Controller\BackendLogController: '@Vendor\SomeExtension\Controller\ExtendedBackendLogController'
 
 Further information
 ^^^^^^^^^^^^^^^^^^^
 
-* `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`__
+* `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`_
 * `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
-* :doc:`t3core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
+* :doc:`ext_core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
   of the TYPO3 Core .
+* :doc:`ext_core:Changelog/10.4/Deprecation-90803-DeprecationOfObjectManagergetInExtbaseContext`
+* `Dependency Injection in TYPO3 - Blog Article by Daniel Goerz <https://usetypo3.com/dependency-injection.html>`_

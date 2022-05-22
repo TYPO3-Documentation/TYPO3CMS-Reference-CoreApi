@@ -7,17 +7,25 @@ Page-based error handler
 ========================
 
 The page error handler displays the content of a page in case of a certain
-HTTP status. The content of this page is fetched via curl, cached and displayed
-in place of the missing page.
+HTTP status. The content of this page is generated via a TYPO3-internal
+sub-request.
 
 The page-based error handler is defined in
 `\TYPO3\CMS\Core\Error\PageErrorHandler\PageContentErrorHandler
-<https://github.com/typo3/typo3/blob/master/typo3/sysext/core/Classes/Error/PageErrorHandler/PageContentErrorHandler.php>`__.
+<https://github.com/typo3/typo3/blob/main/typo3/sysext/core/Classes/Error/PageErrorHandler/PageContentErrorHandler.php>`__.
+
+FeatureFlag: `subrequestPageErrors`
+-----------------------------------
+
+The internal sub-request is the default behavior. This behavior can be disabled
+in favor of a curl-based approach by using the feature flag `subrequestPageErrors`
+in the :guilabel:`Settings` module.
 
 In order to prevent possible denial-of-service attacks when the page-based error
-handler is used, the content of the error page is cached in the TYPO3
-page cache. Any dynamic content on the error page (for example content created
-by TypoScript or uncached plugins) will therefore also be cached.
+handler is used with the curl-based approach, the content of the error page is
+cached in the TYPO3 page cache. Any dynamic content on the error page (for
+example content created by TypoScript or uncached plugins) will therefore also be
+cached.
 
 If the error page contains dynamic content, TYPO3 administrators must
 ensure that no sensitive data (for example username of logged in frontend user)
@@ -25,7 +33,7 @@ will be shown on the error page.
 
 If dynamic content is required on the error page, it is recommended
 to implement a :ref:`custom PHP based error
-handler<sitehandling-customErrorHandler>`.
+handler <sitehandling-customErrorHandler>`.
 
 Properties
 ==========
@@ -53,12 +61,8 @@ Examples
 Internal error page
 -------------------
 
-Show the internal page with uid 145 on errors with HTML status 404. The content
-of this page will be fetched via curl and stored in the TYPO3 page cache.
-If the TYPO3 page contains dynamic data make sure no sensitive data is
-revealed.
-
-Pages behind a basic-auth password therefore don't work.
+Show the internal page with uid 145 on errors with HTML status 404.
+The content of this page will be fetched via internal sub-request.
 
 .. code-block:: yaml
 
