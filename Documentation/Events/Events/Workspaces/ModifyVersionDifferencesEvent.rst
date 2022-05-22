@@ -42,10 +42,10 @@ Registration of the Event in your extensions' :file:`Services.yaml`:
 .. code-block:: yaml
    :caption: EXT:my_extension/Configuration/Services.yaml
 
-   MyVendor\MyPackage\Workspaces\MyEventListener:
+   MyVendor\MyExtension\Workspaces\MyEventListener:
      tags:
        - name: event.listener
-         identifier: 'my-package/workspaces/modify-version-differences'
+         identifier: 'my-extension/workspaces/modify-version-differences'
 
 The corresponding event listener class:
 
