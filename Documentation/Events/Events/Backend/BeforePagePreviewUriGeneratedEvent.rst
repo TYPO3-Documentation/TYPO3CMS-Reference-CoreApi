@@ -8,6 +8,9 @@ BeforePagePreviewUriGeneratedEvent
 ==================================
 
 .. versionadded:: 12.0
+   This PSR-14 event replaces the
+   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_befunc.php']['viewOnClickClass']`
+   preProcess hook.
 
 The :php:`\TYPO3\CMS\Backend\Routing\Event\BeforePagePreviewUriGeneratedEvent`
 is executed in :php:`\TYPO3\CMS\Backend\Routing->buildUri()`, before the preview
@@ -37,7 +40,7 @@ Registration of the Event in your extensions' :file:`Services.yaml`:
    MyVendor\MyExtension\Backend\MyEventListener:
      tags:
        - name: event.listener
-         identifier: 'my-package/backend/modify-parameters'
+         identifier: 'my-extension/backend/modify-parameters'
          method: 'modifyParameters'
 
 The corresponding event listener class:
