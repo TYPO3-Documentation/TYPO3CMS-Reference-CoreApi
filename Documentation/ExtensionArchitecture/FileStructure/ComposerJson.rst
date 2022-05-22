@@ -4,6 +4,7 @@
    Extension development; composer.json
 
 .. _composer-json:
+.. _files-composer-json:
 
 =============
 composer.json
@@ -256,7 +257,7 @@ version
 Was used in earlier TYPO3 versions.
 For TYPO3 versions 7.6 and above you should not use the version property.
 The version for the extension is set in the file :ref:`ext_emconf.php <ext_emconf-php>`.
-`Composer primarily takes the version information from repository tags <https://getcomposer.org/doc/02-libraries.md#library-versioning>`__, 
+`Composer primarily takes the version information from repository tags <https://getcomposer.org/doc/02-libraries.md#library-versioning>`__,
 so the releases need to be tagged in the VCS repository with a version number.
 
 replace with ``typo3-ter`` vendorname
@@ -270,7 +271,7 @@ replace with ``typo3-ter`` vendorname
       }
    }
 
-This was used previously as long as the TER Composer Repository was 
+This was used previously as long as the TER Composer Repository was
 relevant. Since the TER Composer Repository is deprecated, the `typo3-ter/*` entry
 within `replace` is not required.
 
