@@ -391,19 +391,6 @@ The file must return an array with routing details. See Core extensions
 like :php:`backend` for examples.
 
 
-
-:file:`Resources/Public/Icons/Extension.svg`
---------------------------------------------
-
-Alternatives: :file:`Resources/Public/Icons/Extension.png`, :file:`Resources/Public/Icons/Extension.gif`
-
-SVG, PNG or 18x16 GIF extension icon
-
-If it exists, this icon is displayed in the Extension Manager.
-Preferred is using a SVG file, because the extension icon will look nicer
-as a vector graphic (SVG) rather than a bitmap (PNG or GIF).
-
-
 .. _extension-reserved-folders:
 
 Reserved Folders
@@ -481,19 +468,6 @@ Documentation/Index.rst
 
   .. _"Extension Template" on docs.typo3.org: https://docs.typo3.org/typo3cms/ExtensionManualExample/
 
-.. index::
-   Path; EXT:{extkey}/Resources
-   pair: Extensions; JavaScript
-   pair: Extensions; CSS
-
-Resources
-  Contains the sub folders :code:`Public/` and :code:`Private/`, which
-  contain resources, possibly in further subfolders, e.g.
-  :code:`Templates/`, :code:`Css/`, :code:`Language/`, :code:`Images/`
-  or :code:`JavaScript/`. This is also the directory for non–TYPO3 files supplied with the
-  extension. TYPO3 is licensed under GPL version 2 or any later version.
-  Any non–TYPO3 code must be compatible with GPL version 2 or any later
-  version.
 
 .. index:: Path; EXT:{extkey}/Resources/Private/Language
 
@@ -515,32 +489,6 @@ Resources/Private/Partials
 Resources/Private/Templates
   One template per action, stored in a folder named after each Controller.
 
-.. index:: Path; EXT:{extkey}/Resources/Public
-
-Resources/Public
-   Public assets used in extensions (files that should be delivered by the web
-   server) must be located in the Resources/Public folder of the extension. This folder should
-   only be used for static assets. If you need to create assets
-   during runtime, they should be stored in :code:`typo3temp/`.
-
-   .. deprecated:: 11.5
-      Having public assets in any but the folder Resources/Public has been
-      deprecated with version 11.5.
-
-.. index:: Path; EXT:{extkey}/Resources/Public/Css
-
-Resources/Public/Css
-  Any CSS file used by the extension.
-
-.. index:: Path; EXT:{extkey}/Resources/Public/Images
-
-Resources/Public/Images
-  Any images used by the extension.
-
-.. index:: Path; EXT:{extkey}/Resources/Public/JavaScript
-
-Resources/Public/JavaScript
-  Any JS file used by the extension.
 
 .. index:: Path; EXT:{extkey}/Tests/Unit
 
