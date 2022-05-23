@@ -35,7 +35,6 @@ settings. This array allows the following configurations:
                'type' => 'select',
                'itemsProcFunc' => 'TYPO3\\CMS\\Setup\\Controller\\SetupModuleController->renderStartModuleSelect',
                'label' => 'LLL:EXT:setup/mod/locallang.xlf:startModule',
-               'csh' => 'startModule'
             ),
 
          Allowed values: button, check, password, select, text, user
@@ -57,14 +56,6 @@ settings. This array allows the following configurations:
    :Description:
          Text of the button for type=button fields.
          Should be a pointer to a localized label using the :code:`LLL:` syntax.
-
-
- - :Key:
-         csh
-   :Data type:
-         string
-   :Description:
-         CSH key for the input field
 
 
  - :Key:

@@ -38,8 +38,8 @@ files:
   an image). Configuration like this does not belong in language
   labels, but in TypoScript.
 
-* Localized strings are not supposed to contain HTML tags, except for
-  CSH. They should be avoided whenever possible.
+* Localized strings are not supposed to contain HTML tags. They should
+  be avoided whenever possible.
 
 * Punctuation marks must be included in the localized string –
   including trailing marks – as different punctuation marks (e.g. "?"
