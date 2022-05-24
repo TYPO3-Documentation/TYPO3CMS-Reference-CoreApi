@@ -1,37 +1,39 @@
 .. include:: /Includes.rst.txt
 .. index:: !Dependency injection
 .. _DependencyInjection:
-.. _dependency-injection:
+.. _Dependency-Injection:
 
 ====================
 Dependency injection
 ====================
 
 .. versionadded:: 10.0
+
    :doc:`Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
 
+.. rst-class:: compact-list
 .. contents:: This page
-   :depth: 3
    :local:
+
 
 Introduction
 ============
 
 The title of this chapter is "dependency injection" (DI), but the scope is a bit
-broader: In general, this chapter is about TYPO3 object lifecycle management,
-how to obtain objects, with one sub-part of it being dependency injection.
+broader: In general, this chapter is about *TYPO3 object lifecycle management* and
+*how to obtain objects*, with one sub-part of it being dependency injection.
 
-The underlying interfaces are based on the PHP-FIG standard
-`PSR-11 ContainerInterface <https://www.php-fig.org/psr/psr-11/>`_, and the
+The underlying interfaces are based on the PHP-FIG (PHP Framework Interop Group) standard
+`PSR-11 Container interface <https://www.php-fig.org/psr/psr-11/>`_, and the
 implementation is based on `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
 and `Symfony dependency injection <https://symfony.com/doc/current/components/dependency_injection.html>`_ components,
 plus some TYPO3 specific sugar.
 
-This chapter not only talks about symfony DI and its configuration via :file:`Services.yaml`,
+This chapter not only talks about Symfony DI and its configuration via :file:`Services.yaml`,
 but also a bit about Services in general, about :php:`GeneralUtility::makeInstance()` and the
 :php:`SingletonInterface`. And since the TYPO3 core already had an object lifecycle management
-solution with the extbase :php:`ObjectManager` before symfony services have been implemented, we'll
-also talk about how to transition away from it towards the core-wide symfony solution.
+solution with the extbase :php:`ObjectManager` before Symfony services were implemented, we'll
+also talk about how to transition away from it towards the core-wide Symfony solution.
 
 
 Background and history
@@ -41,39 +43,39 @@ Obtaining object instances in TYPO3 has always been pretty straight: Just call
 :php:`GeneralUtility::makeInstance(\Vendor\Extension\Some\Class::class)` and hand over
 mandatory and optional :php:`__construct()` arguments as additional arguments.
 
-There are two additional quirks to that:
+There are two quirks to that:
 
 * First, a class instantiated through makeInstance() can implement :php:`SingletonInterface`.
   This empty interface definition tells makeInstance() to instantiate the object exactly once
   for this request, and if another makeInstance() call asks for it, *the same object instance*
   is returned - otherwise makeInstance() always creates a new object instance and returns it.
 
-* Second, makeInstance() allows :ref:`"XCLASS'ing" <xclasses>`. This is a (rather dirty
-  way to substitute a (usually core) class with an own implementation. XCLASS'ing in general is
+* Second, makeInstance() allows :ref:`"XCLASSing" <xclasses>`. This is a - rather dirty -
+  way to substitute a class with a custom implementation. XCLASS'ing in general is
   brittle and seen as a last resort hack if no better solution is available. In connection
-  with symfony containers, XCLASS'ing services should be avoided in general and service
-  overrides should be used instead. Core is still working on this, though. In contrast, XCLASS'ing
+  with Symfony containers, XCLASSing services should be avoided in general and service
+  overrides should be used instead. Core is still working on this, though. In contrast, XCLASSing
   is still useful for data objects, and there is no good other solution on the horizon.
 
 Using :php:`makeInstance()` worked very well for a long time. It however lacked a feature
-that has been added to the PHP world after makeInstance() has been invented: Dependency injection.
+that has been added to the PHP world after makeInstance() had been invented: Dependency injection.
 There are lots of articles about dependency injection on the net, so we won't go too deep
-here, and just want to give the main idea: The general issue appears when classes follow the
+here but rather present the main idea: The general issue appears when classes follow the
 `separation of concerns <https://en.wikipedia.org/wiki/Separation_of_concerns>`_
-principle: One of the standard examples is logging. Let's say a class responsibility is the
+principle: One of the standard examples is logging. Let's say a class's responsibility is the
 creation of users - it checks everything and finally writes a row to database. Now, since
 this is an important operation, the class wants to log an information like "I just created user 'foo'".
 And this is where dependency injection enters the game: Logging is a huge topic, there are
-various error levels, the information can be written to various destinations and so on. The
-little class does not want to deal with all those details, but just tell the framework: "Please
-give me some logger I can use and take care of all details, I don't want to know them". This
-separation is the heart of "single responsibility" and "separation of concerns".
+various levels of error, information can be written to various destinations and so on. The
+little class does not want to deal with all those details, but just wants to tell the framework: "Please
+give me some logger I can use and that takes care of all details, I don't want to know about details". This
+separation is the heart of *single responsibility* and *separation of concerns*.
 
 Dependency injection does two things for us here: First, it allows separating concerns, and second,
 it hands the task of finding an appropriate implementation of a dependency over to the framework,
 so the framework decides - based on configuration - which specific instance is given to the
-consumer. Note in our example, the log instance itself may have dependencies again - the process
-of object creation and preparation may be recursive!
+consumer. Note in our example, the logging instance itself may have dependencies again - the process
+of object creation and preparation may be further nested.
 
 In more abstract software engineering terms: `Dependency injection <https://en.wikipedia.org/wiki/Dependency_injection>`_
 is a pattern used to delegate the task of resolving class dependencies away from a consumer
@@ -83,78 +85,85 @@ Back to history: After :php:`makeInstance()` has been around for quite a while a
 implementation of dependency injection, extbase appeared in 2009. Extbase brought a first container
 and dependency injection solution, it's main interface being the extbase :php:`ObjectManager`.
 The extbase object manager has been widely used for a long time, but suffered from some
-issues younger approaches didn't face. One of the main drawbacks of extbase object manager
-was the fact that it's based on runtime reflection: Whenever an object had to be instantiated,
-the object manager scanned the class for needed injections and prepared dependencies to be
-injected. This process was quite slow and has been mitigated by various caches that also
-came with a cost. In the end, these issues have been the main reasons the object manager
-has never been established as a main core concept, but only lived in extbase scope.
+issues younger approaches don't face. One of the main drawbacks of extbase object manager
+is the fact that it's based on runtime reflection: Whenever an object is to be instantiated,
+the object manager scans the class for needed injections and prepares dependencies to be
+injected. This process is quite slow though mitigated by various caches. And these also
+come with costs. In the end, these issues have been the main reason the object manager
+was never established as a main core concept but only lived in extbase scope.
 
-The object lifecycle and dependency injection solution based on symfony DI has been
+The object lifecycle and dependency injection solution based on Symfony DI has been
 implemented with TYPO3 core v10 and is a general core concept: Next to the native
 dependency injection, it is also wired into :php:`makeInstance()` as a long living
-backwards compatible solution, but it fully substitutes the extbase object manager. In
-contrast to the extbase solution, symfony based object management is *not* bound to
-expensive runtime calculations, but is an instance wide build-time solution: When
-the TYPO3 bootstraps, all object creation details of all classes are read from
-a single cache file once up front, the actual creation does not need any expensive
-calculation.
+backwards compatibility solution, and it fully substitutes the extbase object manager. In
+contrast to the extbase solution, Symfony based object management does *not* have the
+overhead of
+expensive runtime calculations. Instead it is an instance wide build-time solution: When
+TYPO3 bootstraps, all object creation details of all classes are read from
+a single cache file just once, and afterwards no expensive calculation is required
+for actual creation.
 
-While symfony based DI has been implemented in TYPO3 v10 and the use of extbase
-ObjectManager has been marked as discouraged, all left over core usages of the
-ObjectManager have been dropped with TYPO3 v11, it is actively deprecated in v11
-and logs a deprecation level log entry. With TYPO3 v12, the extbase ObjectManager
-has been dropped. The symfony DI integration into TYPO3 does not stop here, there
-are still various places where core itself does things in a non optimal way. This
-will be further streamlined over time. For instance the final fate of makeInstance()
-and the SingletonInterface have not been fully decided yet, and there are various
-further tasks to solve with younger TYPO3 versions to sharpen the core provided
-object lifecycle management.
+Symfony based DI was implemented in TYPO3 v10 and usage of the extbase
+ObjectManager was discouraged. With TYPO3 v11 the core doesn't use the
+ObjectManager any more. It is actively deprecated in v11 and thus leads to
+'deprecation' level log entries.
+
+With TYPO3 v12 the extbase ObjectManager is actually gone. Making use of
+Symfony DI integration still continues. There
+are still various places in the core to be improved. Further streamlining will
+be done over time. For instance, the final fate of makeInstance()
+and the SingletonInterface has not fully been decided on yet. Various
+tasks remain to be solved in younger TYPO3 developments to further improve the
+*object lifecycle management* provided by the core.
 
 
 Build-time caches
 =================
 
-To get a basic understanding of the core's lifecycle management, it's helpful to
-get a rough insight on the main construct. As already mentioned, object lifecycle
-management is a build-time based thing. It is done very early during TYPO3
-bootstrap and only once. On subsequent requests a cache file is loaded: All calculated
+To get a basic understanding of the core's lifecycle management it is helpful to
+get a rough insight on the main construct. As already mentioned, *object lifecycle
+management* is conceptualized as steps to take place at *build-time*.
+It is done very early and only once during the TYPO3
+bootstrap process. All calculated
 information is written to a special cache that can not be reconfigured and is available
-early: Extensions can not mess with the construct if they follow the general core API's.
+early. On subsequent requests the cache file is loaded.
+Extensions can not mess with the construct if they adhere to the core API.
 
-Next to the container being created early, the state it contains is independent and
-not different in frontend, backend and CLI scope. The same container instance may
-even be used for multiple requests, which becomes more and more important with the
-core being able to execute sub requests nowadays. The only exception to this is the
-install tool: It uses a more basic container that "can't fail". But that difference
-isn't important for extension developers since they can't hook into the install tool
-at these places anyways.
+Besides being created early, the state of the container is independent and
+exactly the same in *frontend*, *backend* and *CLI scope*. The same container instance may
+even be used for multiple requests. This is becoming more and more important nowadays with the
+core being able to execute sub requests. The only exception to this is the
+*install tool*: It uses a more basic container that "cannot fail". This difference
+is not important for extension developers however since they can't hook into the install tool
+at those places anyways.
 
-The symfony container implementation is usually configured to actively scan all
-extension classes for needed injections. The casual configuration of just a couple
-of lines within :file:`Services.yaml` should be done within all extensions that
-contain PHP classes and is the basic setup we'll outline in detail below.
+The Symfony container implementation is usually configured to actively scan the
+extension classes for needed injections. All it takes are just a couple
+of lines within file :file:`Services.yaml`. This should be done within all extensions that
+contain PHP classes and it is the fundamental setup we will outline in the following.
 
-For developers, it is important to understand that dealing with symfony DI is
-an early core bootstrap thing. The system will fail upon misconfiguration, so
+For developers, it is important to understand that dealing with Symfony DI is
+an *early core bootstrap* thing. The system will fail upon misconfiguration, so
 frontend and backend may be unreachable.
+
+.. attention:: Cache needs to be cleared manually!
 
 The container cache entry (at the time of this writing) *is not* deleted when a
 backend admin user clicks "Clear all cache" in the backend top toolbar. The only
 way to force a DI recalculation is using the "Admin tools" -> "Maintenance" -> "Flush Caches"
-button of the backend embedded install tool, or the standalone install tool. This
+button of the backend embedded install tool or the standalone install tool itself. This
 means: Whenever core or an extension fiddles with DI (or more general "Container") configuration,
-this cache has to be manually dropped for a running instance by clicking this button.
-The backend extension manager does that automatically when loading or unloading extensions,
-though. Another way to quickly drop this cache during development is by removing
+this cache has to be manually emptied for a running instance by clicking this button.
+The backend extension manager however *does* empty the cache automatically when loading or unloading extensions.
+Another way to quickly drop this cache during development is to remove all
 :file:`var/cache/code/di/*` files, which reside in :file:`typo3temp/` in non-composer based
-instances, or elsewhere in composer based instances (see :ref:`Environment`). TYPO3 will
-then recalculate the cache upon next instance call, no matter if it's a frontend, a backend
-or a CLI call.
+instances or elsewhere in composer based instances (see :ref:`Environment`). TYPO3 will
+then recalculate the cache upon the next instance call, no matter if it's a frontend, a backend
+or a CLI request.
 
 The main takeaway is: When a developer fiddles with container configuration,
 the cache needs to be manually cleared. And if some configuration issue slipped in,
-which made the container / DI calculation fail, the system does *not* heal itself and
+which made the container or DI calculation fail, the system does *not* heal itself and
 needs both a fix of the configuration plus probably a cache removal. The standalone install
 tool however should *always* work, even if the backend breaks down, so the "Flush caches"
 button is always reachable. Note that *if* the container calculation fails, the
@@ -183,41 +192,46 @@ In general, we're still somehow using them in the right direction ;)
   created already once, the same instance is returned. Codewise, this is sometimes done by
   implementing a static :php:`getInstance()` method that parks the instance in a property.
   In TYPO3, this can also be achieved by implementing the :php:`SingletonInterface`,
-  :php:`makeInstance()` then stores the object internally. Within containers, this can be done
+  where :php:`makeInstance()` then stores the object internally. Within containers, this can be done
   by declaring the object :yaml:`shared: true`, which is usually the default. We'll come back to
-  details later. Singletons must not have state - they must act the same way any time
+  details later. Singletons *must not* have state - they must act the same way each time
   they're used, no matter where, how often or when they've been used before.
 
 * **Service**: This is another "not by the book" definition. We use the understanding
-  "What is a service?" from symfony: In symfony, everything that is instantiated through
+  "What is a service?" from Symfony: In Symfony, everything that is instantiated through
   the service container (both directly via :php:`$container->get()` and indirectly via DI)
   *is a service*. These are many things - for instance controllers are services, as well as
-  (non static) utilities, repositories and obvious classes like mailers and similar. It
-  does not matter much if those services are stateless or not (controllers are for instance
-  usually *not* stateless) - this is just a configuration detail from this point of view.
-  Note the TYPO3 core does not strictly follow this at all places yet, but strives
+  - non static - utilities, repositories and obvious classes like mailers and similar. It
+  does not matter much if those services are stateless or not. Controllers, for instance,
+  are usually *not* stateless. ((this is just a configuration detail from this point of view.))
+  Note the TYPO3 core does not strictly follow this in all casesyet, but strives
   to get this more clean over time.
 
 * **Data object**: Data objects are the opposite of services. They are *not* available
-  through service containers (:php:`$container->has()` returns false and they can not be
-  injected). They are instantiated either with :php:`new()` or :php:`GeneralUtility::makeInstance()`.
-  Models are the default example of data objects. *Data objects* are *not* service container aware
-  and do not support DI. Note the TYPO3 core does not strictly follow this at all places
-  up until now, but strives to get this more clean over time.
+  through service containers. Predicate :php:`$container->has()` returns false and they can not be
+  injected. They are instantiated either with :php:`new()` or :php:`GeneralUtility::makeInstance()`.
+  Models are a typical example of data objects.
+
+  *Note:* *Data objects* are *not* "service container aware"
+  and do not support DI. Although the TYPO3 core does not strictly follow this rule in all cases
+  until now the ambition is to get this done over time.
 
 
 .. _supported-ways-of-dependency-injection:
+.. _Using-DI:
 
 Using DI
 ========
 
-Now that we have a general understanding of what is a service and what is a data
-object, let's go a bit deeper into usages of services. We'll do most of that by
-example, since it's much easier to understand than some abstract documentation.
-Let's simply say that whenever your class has a service dependency to another class,
-one of the solutions below should be used.
+Now that we have a general understanding of what a service and what a data
+object is, let's turn to usages of services. We will mostly use examples for
+this.
 
-.. _constructor-injection:
+*The general rule is:* Whenever your class has a service dependency to another class,
+one of the following solutions should be used.
+
+
+.. _Constructor-injection:
 
 Constructor injection
 ---------------------
@@ -243,13 +257,14 @@ dependency by the framework looks like this:
       }
    }
 
-This is straight and easy DI: The controller class is configured to be autowired
-as symfony DI service container entry (more on that below), symfony container finds a
+((This is straight and easy DI: The controller class is configured to be autowired
+as Symfony DI service container entry (more on that below), Symfony container finds a
 dependency to :php:`UserRepository` when scanning :php:`__construct()` and then knows that
 :php:`UserController` needs an instance of the repository service when the controller
-service is instantiated.
+service is instantiated.)) ← ToDo: Improve understandability
 
-.. _method-injection:
+
+.. _Method-injection:
 
 Method injection
 ----------------
@@ -272,10 +287,10 @@ A second way to get services injected is by using :php:`inject*()` methods:
       }
    }
 
-This ends up with the exact same situation as above: The controller instance has
+This ends up with the exactly the same result as above: The controller instance has
 an object of type :php:`UserRepository` in class property :php:`$userRepository`.
 This inject* way came from extbase and TYPO3 core implemented it in addition to
-the default symfony constructor injection. Why did we do that, you may ask? Both
+the default Symfony constructor injection. Why did we do that, you may ask? Both
 strategies have subtle differences: First, when using inject* methods, the type
 hinted class property needs to be nullable, otherwise PHP >= 7.4 throws a warning
 since the instance is not set during :php:`__construct()`. But that's just a
@@ -320,7 +335,7 @@ of the abstract into extending classes. If later the abstract is changed and
 another dependency is added to the constructor, this would break consuming
 classes since they did not know that.
 
-Differently put: When core classes "pollute" :php:`__construct()` with dependencies,
+*Differently put:* When core classes "pollute" :php:`__construct()` with dependencies,
 the core can not add dependencies without being breaking. This is the reason why
 for example the extbase :php:`AbstractController` uses inject* methods for its
 dependencies: Extending classes can then use constructor injection, do not need
@@ -342,6 +357,7 @@ As a last note on method injection, there is another way to do it: It is possibl
 to use a :php:`setFooDependency()` method if it has the annotation :php:`@required`.
 This second way of method injection however is not used within the TYPO3
 framework, should be avoided in general, and is just mentioned here for completeness.
+
 
 .. _interface-injection:
 
