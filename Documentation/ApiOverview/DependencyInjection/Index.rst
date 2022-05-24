@@ -537,7 +537,6 @@ This enables you to inject concrete objects like the QueryBuilder or Database Co
 Now you can access the QueryBuilder instance within ClassA. With this you can
 call your queries without further instantiation. Be aware to clone your object or
 resetting the query parts to prevent side effects in case of multiple usages.
-
 This method of injecting objects does also work, for example, with extension
 configurations and with TypoScript settings.
 
@@ -549,40 +548,38 @@ Public
 set in extensions. This settings controls which services are available
 through the dependency injection container which is used internally by
 :php:`GeneralUtility::makeInstance()`.
-
 However some classes that need to be public will be marked public automatically
 due to :yaml:`autoconfigure: true`.
-
 These classes include singletons, because they need to be shared with code that uses
 :php:`GeneralUtility::makeInstance()` and Extbase controllers.
 
+
 .. index:: Dependency injection; Public
 .. _knowing-what-to-make-public:
+.. _What-to-make-public:
 
-Knowing what to make public
----------------------------
+What to make public
+-------------------
 
 Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
 marked public by default. Additionally some classes cannot be private as well.
-As the Symfony documentation puts it:
+As the Symfony documentation `Public and private services
+<https://symfony.com/doc/current/service_container/alias_private.html>`__ puts
+it:
 
-.. this indent is intentional to create a blockquote!
+   Simply said: A service can be marked as private if you do not want to access
+   it directly from your code.
 
-    "Simply said: A service can be marked as private if you do not want to access it directly from your code."
-
-    -- `Official documentation <https://symfony.com/doc/current/service_container/alias_private.html>`_ for public and private services.
+   -- `Symfony documentation <https://symfony.com/doc/current/service_container/alias_private.html>`__
 
 Direct access includes instantiation via :php:`GeneralUtility::makeInstance()` with constructor arguments.
 
 This means every class that needs dependency injection and is retrieved directly, e.g.
 using :php:`GeneralUtility::makeInstance()` must be marked as public.
-
 Any other class which needs dependency injection and is retrieved by dependency injection
 itself can be private.
-
 Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
 automatically marked as public because they are retrieved using :php:`GeneralUtility::makeInstance()`.
-
 More examples for classes which must be marked as public:
 
 * User functions
