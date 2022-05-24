@@ -1,5 +1,10 @@
 .. include:: /Includes.rst.txt
-.. index:: !Dependency injection
+.. index::
+   !Dependency injection
+   pair: Dependency injection; Extensions
+   pair: Dependency injection; Services
+   File; EXT:{extkey}/Configuration/Services.yaml
+
 .. _DependencyInjection:
 .. _Dependency-Injection:
 
@@ -14,6 +19,7 @@ Dependency injection
 .. rst-class:: compact-list
 .. contents:: This page
    :local:
+
 
 Abstract
 ========
@@ -255,6 +261,18 @@ this.
 
 *The general rule is:* Whenever your class has a service dependency to another class,
 one of the following solutions should be used.
+
+
+When to use Dependency Injection in TYPO3
+-----------------------------------------
+
+Class dependencies to services should be injected via constructor injection or
+setter methods. Where possible, Symfony dependency injection should be used for
+all cases where DI is required.
+Non-service "data objects" like Extbase model instances or DTOs should
+be instantiated via :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
+if they are non-final and support XCLASSing. For final classes without
+dependencies the `new` keyword can be used.
 
 
 .. _Constructor-injection:
