@@ -442,13 +442,18 @@ to instantiate services. This is useful for factory-like services.
 [WIP] Configuration
 ===================
 
-
-Configure dependency injection in Extensions
+Configure dependency injection in extensions
 --------------------------------------------
 
 Extensions have to configure their classes to make use of the
 dependency injection. This can be done in :file:`Configuration/Services.yaml`.
 Alternatively :file:`Configuration/Services.php` can be used.
+A basic :file:`Services.yaml` file of an extension looks like the following.
+
+*Note:*
+Whenever service configuration or class dependencies change, the Core cache needs
+to be flushed in the Install Tool to rebuild the compiled Symfony container.
+Flushing all caches from the cache clear menu does not flush the compiled Symfony container.
 
 .. code-block:: yaml
    :caption: EXT:some_extension/Configuration/Services.php
@@ -463,50 +468,31 @@ Alternatively :file:`Configuration/Services.php` can be used.
        resource: '../Classes/*'
        exclude: '../Classes/Domain/Model/*'
 
-This is how a basic :file:`Services.yaml` of an extension looks like. The meaning of :yaml:`autowire`,
-:yaml:`autoconfigure` and :yaml:`public` will be explained below.
-
-
-.. note::
-
-   Whenever service configuration or class dependencies change, the Core cache needs
-   to be flushed in the Install Tool to rebuild the compiled Symfony container.
-   Flushing all caches from the cache clear menu does not flush the compiled Symfony container.
-
-.. note::
-
-   The path exclusion :yaml:`exclude: '../Classes/Domain/Model/*'` excludes
-   your models from the DI container, which means you cannot inject them or inject
-   dependencies into them.
-   Models are not services and should therefore not require dependency injection.
-   Also, these objects are created by the Extbase persistence layer which does not support the DI container.
-
-.. _autowire:
-
-Autowire
---------
-
-:yaml:`autowire: true` instructs the dependency injection component
-to calculate the required dependencies from type declarations. This works for constructor
-and inject methods. The calculation yields to a service initialization recipe
-which is cached in php code (in TYPO3 Core  cache).
-
-.. note::
-
+autowire
+   :yaml:`autowire: true` instructs the dependency injection component
+   to calculate the required dependencies from type declarations. This works for constructor
+   and inject methods. The calculation yields to a service initialization recipe
+   which is cached in php code in the TYPO3 Core cache.
+   **Attention:**
    An extension doesn't need to use autowiring, it is free to manually
    wire dependencies in the service configuration file.
 
 
-.. _dependency-injection-autoconfigure:
+autoconfigure
+   It is suggested to enable :yaml:`autoconfigure: true` as this will automatically
+   add Symfony service tags based on implemented interfaces or base classes.
+   For example autoconfiguration ensures that classes which implement
+   :php:`\TYPO3\CMS\Core\SingletonInterface` will be publicly available from the
+   Symfony container.
 
-Autoconfigure
--------------
 
-It is suggested to enable :yaml:`autoconfigure: true` as this will automatically
-add Symfony service tags based on implemented interfaces or base classes.
-For example autoconfiguration ensures that classes which implement
-:php:`\TYPO3\CMS\Core\SingletonInterface` will be publicly available from the
-Symfony container.
+Model exclusion
+   The path exclusion :yaml:`exclude: '../Classes/Domain/Model/*'` excludes
+   your models from the DI container, which means that you cannot inject them nor inject
+   dependencies into them.
+   Models are not services and should therefore not require dependency injection.
+   Also, these objects are created by the Extbase persistence layer which does not support the DI container.
+
 
 .. _DependencyInjectionArguments:
 
@@ -552,8 +538,8 @@ Now you can access the QueryBuilder instance within ClassA. With this you can
 call your queries without further instantiation. Be aware to clone your object or
 resetting the query parts to prevent side effects in case of multiple usages.
 
-This method of injecting Objects does also work with e.g. extension configurations
-or TypoScript settings.
+This method of injecting objects does also work, for example, with extension
+configurations and with TypoScript settings.
 
 
 Public
