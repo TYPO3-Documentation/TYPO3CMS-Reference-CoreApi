@@ -654,12 +654,23 @@ extending extension as shown in the example below:
 
    TYPO3\CMS\Belog\Controller\BackendLogController: '@Vendor\SomeExtension\Controller\ExtendedBackendLogController'
 
+
 Further information
 -------------------
 
-* `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`_
-* `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
-* :doc:`ext_core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
-  of the TYPO3 Core .
-* :doc:`ext_core:Changelog/10.4/Deprecation-90803-DeprecationOfObjectManagergetInExtbaseContext`
-* `Dependency Injection in TYPO3 - Blog Article by Daniel Goerz <https://usetypo3.com/dependency-injection.html>`_
+*  `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`_
+
+*  `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
+
+*  :doc:`ext_core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
+   of the TYPO3 Core .
+
+*  :doc:`ext_core:Changelog/10.4/Deprecation-90803-DeprecationOfObjectManagergetInExtbaseContext`
+
+*  `Dependency Injection in TYPO3 - Blog Article by Daniel Goerz <https://usetypo3.com/dependency-injection.html>`_
+
+*  `Dependency Injection <https://phptherightway.com/#dependency_injection>`__ in "PHP The Right Way"
+
+*  `What is dependency injection?
+   <http://fabien.potencier.org/what-is-dependency-injection.html>`__
+   by Fabien Potencier
