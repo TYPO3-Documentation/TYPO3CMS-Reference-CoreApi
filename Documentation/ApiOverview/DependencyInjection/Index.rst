@@ -15,6 +15,28 @@ Dependency injection
 .. contents:: This page
    :local:
 
+Abstract
+========
+
+This chapter explains "Dependency Injection (DI)" *as used in TYPO3.* Readers
+interested in the general concepts and principles may want to look at, for
+example, `Dependency Injection
+<https://phptherightway.com/#dependency_injection>`__ in "PHP The Right Way" or
+`What is dependency injection?
+<http://fabien.potencier.org/what-is-dependency-injection.html>`__ by Fabien
+Potencier. Whenever a class has a *se
+rvice dependency* to another class the
+technique of *dependency injection* should be used to satisfy that need. TYPO3
+uses a Symfony component for dependency injection. The component is `PSR-11
+<https://www.php-fig.org/psr/psr-11/>`_ compliant, and it is used throughout
+Core and extensions to standardize object initialization. By default all API
+services shipped with the TYPO3 Core system extensions offer dependency
+injection. The recommended usage is :ref:`constructor injection
+<Constructor-injection>`. Available as well are :ref:`method injection
+<Method-injection>` and :ref:`interface injection <Interface-injection>`.
+To activate the Symfony component for dependency injection a few lines of
+:ref:`configuration <Configuration>` are necessary.
+
 
 Introduction
 ============
@@ -146,7 +168,11 @@ For developers, it is important to understand that dealing with Symfony DI is
 an *early core bootstrap* thing. The system will fail upon misconfiguration, so
 frontend and backend may be unreachable.
 
-.. attention:: Cache needs to be cleared manually!
+.. attention::
+
+   Errors in the DI cache may block frontend and backend!
+
+   The DI cache does not heal by itself but needs to be cleared manually!
 
 The container cache entry (at the time of this writing) *is not* deleted when a
 backend admin user clicks "Clear all cache" in the backend top toolbar. The only
@@ -411,6 +437,7 @@ to instantiate services. This is useful for factory-like services.
 
 
 .. _configure-dependency-injection-in-extensions:
+.. _Configuration:
 
 [WIP] Configuration
 ===================
