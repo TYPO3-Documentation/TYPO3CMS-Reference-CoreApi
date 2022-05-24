@@ -210,36 +210,40 @@ define them to align. Some of them are not precisely used in our world, for
 instance some Java devs may stumble upon "our" understanding of a prototype.
 In general, we're still somehow using them in the right direction ;)
 
-* **Prototype**: The broad understanding of a *prototype* within the TYPO3 community is
-  that it's simply an object that is created a-new every time. Basically the direct
-  opposite of a *singleton*. In fact, the prototype pattern describes a base object that
-  is created once, so :php:`__construct()` is called to set it up, after that it is
-  cloned each time one wants to have a new instance of it. The community isn't well aware
-  of that, and the core provides no "correct" prototype API, so the word *prototype* is
-  often misused for an object that is always created a-new when the framework is
-  asked to create one.
+Prototype
+   The broad understanding of a *prototype* within the TYPO3 community is
+   that it's simply an object that is created a-new every time. Basically the direct
+   opposite of a *singleton*. In fact, the prototype pattern describes a base object that
+   is created once, so :php:`__construct()` is called to set it up, after that it is
+   cloned each time one wants to have a new instance of it. The community isn't well aware
+   of that, and the core provides no "correct" prototype API, so the word *prototype* is
+   often misused for an object that is always created a-new when the framework is
+   asked to create one.
 
-* **Singleton**: That's pretty clear. A *singleton* is an object that is instantiated
-  exactly once within one process. If an instance is requested and the object has been
-  created already once, the same instance is returned. Codewise, this is sometimes done by
-  implementing a static :php:`getInstance()` method that parks the instance in a property.
-  In TYPO3, this can also be achieved by implementing the :php:`SingletonInterface`,
-  where :php:`makeInstance()` then stores the object internally. Within containers, this can be done
-  by declaring the object :yaml:`shared: true`, which is usually the default. We'll come back to
-  details later. Singletons *must not* have state - they must act the same way each time
-  they're used, no matter where, how often or when they've been used before.
+Singleton
+   That's pretty clear. A *singleton* is an object that is instantiated
+   exactly once within one process. If an instance is requested and the object has been
+   created already once, the same instance is returned. Codewise, this is sometimes done by
+   implementing a static :php:`getInstance()` method that parks the instance in a property.
+   In TYPO3, this can also be achieved by implementing the :php:`SingletonInterface`,
+   where :php:`makeInstance()` then stores the object internally. Within containers, this can be done
+   by declaring the object :yaml:`shared: true`, which is usually the default. We'll come back to
+   details later. Singletons *must not* have state - they must act the same way each time
+   they're used, no matter where, how often or when they've been used before.
 
-* **Service**: This is another "not by the book" definition. We use the understanding
-  "What is a service?" from Symfony: In Symfony, everything that is instantiated through
-  the service container (both directly via :php:`$container->get()` and indirectly via DI)
-  *is a service*. These are many things - for instance controllers are services, as well as
-  - non static - utilities, repositories and obvious classes like mailers and similar. It
-  does not matter much if those services are stateless or not. Controllers, for instance,
-  are usually *not* stateless. ((this is just a configuration detail from this point of view.))
-  Note the TYPO3 core does not strictly follow this in all casesyet, but strives
-  to get this more clean over time.
+Service
+   This is another "not by the book" definition. We use the understanding
+   "What is a service?" from Symfony: In Symfony, everything that is instantiated through
+   the service container (both directly via :php:`$container->get()` and indirectly via DI)
+   *is a service*. These are many things - for instance controllers are services, as well as
+   - non static - utilities, repositories and obvious classes like mailers and similar. It
+   does not matter much if those services are stateless or not. Controllers, for instance,
+   are usually *not* stateless. ((this is just a configuration detail from this point of view.))
+   Note the TYPO3 core does not strictly follow this in all casesyet, but strives
+   to get this more clean over time.
 
-* **Data object**: Data objects are the opposite of services. They are *not* available
+Data object
+  Data objects are the opposite of services. They are *not* available
   through service containers. Predicate :php:`$container->has()` returns false and they can not be
   injected. They are instantiated either with :php:`new()` or :php:`GeneralUtility::makeInstance()`.
   Models are a typical example of data objects.
