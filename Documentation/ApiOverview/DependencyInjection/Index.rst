@@ -574,8 +574,8 @@ it:
 
 Direct access includes instantiation via :php:`GeneralUtility::makeInstance()` with constructor arguments.
 
-This means every class that needs dependency injection and is retrieved directly, e.g.
-using :php:`GeneralUtility::makeInstance()` must be marked as public.
+This means every class that needs dependency injection and is retrieved directly, like when
+using :php:`GeneralUtility::makeInstance()`, *must* be marked as public.
 Any other class which needs dependency injection and is retrieved by dependency injection
 itself can be private.
 Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
@@ -608,7 +608,7 @@ For such classes an extension can override the global :yaml:`public: false` conf
         public: true
 
 With this configuration you can use dependency injection in :php:`\Vendor\MyExtension\UserFunction\ClassA`
-when it is created e.g. in the context of a :typoscript:`USER` TypoScript object which would not be possible if this
+when it is created, for example in the context of a :typoscript:`USER` TypoScript object which would not be possible if this
 class was private.
 
 .. index:: Dependency injection; Errors
@@ -657,6 +657,8 @@ extending extension as shown in the example below:
 
 Further information
 -------------------
+
+.. rst-class:: compact-list
 
 *  `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`_
 
