@@ -122,7 +122,7 @@ come with costs. In the end, these issues have been the main reason the object m
 was never established as a main core concept but only lived in Extbase scope.
 
 The object lifecycle and dependency injection solution based on Symfony DI has been
-implemented with TYPO3 core v10 and is a general core concept: Next to the native
+added in TYPO3v10 and is a general core concept: Next to the native
 dependency injection, it is also wired into :php:`makeInstance()` as a long living
 backwards compatibility solution, and it fully substitutes the Extbase object manager. In
 contrast to the Extbase solution, Symfony based object management does *not* have the
@@ -237,7 +237,8 @@ Service
    "What is a service?" from Symfony: In Symfony, everything that is instantiated through
    the service container (both directly via :php:`$container->get()` and indirectly via DI)
    *is a service*. These are many things - for instance controllers are services, as well as
-   - non static - utilities, repositories and obvious classes like mailers and similar. It
+   - non static - utilities, repositories and obvious classes like mailers and similar. To emphasize:
+   Not only classes named with a :php:`*Service` suffix are services but basically anything. It
    does not matter much if those services are stateless or not. Controllers, for instance,
    are usually *not* stateless. ((this is just a configuration detail from this point of view.))
    Note the TYPO3 core does not strictly follow this in all cases yet, but strives
