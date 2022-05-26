@@ -27,9 +27,7 @@ and it should help Core developers to add Core patches which use the scanner.
 
 This module has been featured on the TYPO3 youtube channel:
 
-.. only:: html
-
-   .. youtube:: UdIYDZgBrQU
+.. youtube:: UdIYDZgBrQU
 
 
 .. index:: Admin tool; Scan extension files

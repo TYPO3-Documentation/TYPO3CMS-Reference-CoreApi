@@ -6,8 +6,6 @@
 Frequently Asked Questions (FAQ)
 ================================
 
-.. only:: html
-
 .. contents::
         :local:
         :depth: 2
