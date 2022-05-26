@@ -32,9 +32,9 @@ or function, that is not available on your system, TYPO3 will automatically dete
 not use this mechanism and respective locking strategy (e.g. if function :php:`sem_get()` is not
 available, :php:`SemaphoreLockStrategy` will not be used).
 
-* **FileLockStrategy**: uses the PHP function `flock() <https://www.php.net/manual/en/function.flock.php>`__
-  and creates a file in `typo3temp/var/lock`
-  The directory can be overwritten by configuration:
+*  **FileLockStrategy**: uses the PHP function `flock() <https://www.php.net/manual/en/function.flock.php>`__
+   and creates a file in `typo3temp/var/lock`
+   The directory can be overwritten by configuration:
 
    .. code-block:: php
       :caption: typo3conf/AdditionalConfiguration.php
@@ -44,10 +44,10 @@ available, :php:`SemaphoreLockStrategy` will not be used).
       // The directory specified here must exist und must be a subdirectory of `Environment::getProjectPath()`
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][FileLockStrategy::class]['lockFileDir'] = 'mylockdir';
 
-* **SemaphoreLockStrategy**: uses the PHP function `sem_get()
-  <https://www.php.net/manual/en/function.sem-get.php>`__
-* **SimpleLockStrategy** is a simple method of file locking. It also uses the folder
-  `typo3temp/var/lock`.
+*  **SemaphoreLockStrategy**: uses the PHP function `sem_get()
+   <https://www.php.net/manual/en/function.sem-get.php>`__
+*  **SimpleLockStrategy** is a simple method of file locking. It also uses the folder
+   `typo3temp/var/lock`.
 
 Extensions can add a locking strategy by providing a class which
 implements the LockingStrategyInterface.
