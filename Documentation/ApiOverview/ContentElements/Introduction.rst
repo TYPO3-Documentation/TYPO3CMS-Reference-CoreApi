@@ -35,18 +35,45 @@ Content elements are arranged on a page, depending on their
 What are plugins?
 =================
 
-**Plugins** are a specific type of content elements. Typical characteristics of
+**Plugins** are a specific type of content elements. Plugins use the CType='list'.
+Each plugin has its own plugin type, which is used in the database field
+tt_content.list_type. The list_type could be understood as subtype of CType.
+
+Typical characteristics of
 plugins are:
 
-* Used if more complex functionality is required
+* Plugins often use additional database tables which contain records which are
+  dynamically displayed via the plugin - often in a list view, a single view,
+  optionally with pagination and search functionality. An extension may provide
+  several plugins, each with a dedicated function, such as the list view.
+* Plugins are ofen used if more complex functionality is required (than in non-
+  plugin content elements)
 * Plugins can be created using the Extbase framework or as pibase (AbstractPlugin)
   plugin.
 * ``tt_content.CType`` = ``list`` and ``tt_content.list_type`` contains the
   :ref:`plugin signature <naming-conventions-plugin-signature>`.
 
 A typical extension with plugins is the 'news' extension which comes with plugins
-to display news records in lists or as a single view. The news records are stored
-in a custom database table and can be edited in the backend (in the list module).
+to display news records in lists or as a single view with only one news record.
+The news records are stored in a custom database table (tx_news_domain_model_news)
+and can be edited in the backend.
+
+Examples
+========
+
+.. code-block:: none
+
+   CType='textmedia'
+   list_type=''
+
+Content element type "Text & Media" shipped with the TYPO3 core
+
+.. code-block:: none
+
+   CType='list'
+   list_type='indexedsearch_pi2'
+
+Indexed search plugin type, provided by the TYPO3 core.
 
 Editing
 =======
