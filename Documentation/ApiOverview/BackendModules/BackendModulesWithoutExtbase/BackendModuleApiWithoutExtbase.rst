@@ -20,7 +20,7 @@ functionality only.
        null,
        [
            'navigationComponentId' => 'TYPO3/CMS/Backend/Tree/FileStorageTreeContainer',
-           'routeTarget' => \MyVendor\MyExtension\Controller\FileRelatedController::class . '::indexAction',
+           'routeTarget' => \MyVendor\MyExtension\Controller\FileRelatedController::class . '::handleRequest',
            'access' => 'user,group',
            'name' => 'myext_file',
            'icon' => 'EXT:myextension/Resources/Public/Icons/module-file-related.svg',
