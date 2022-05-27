@@ -4,12 +4,12 @@
    pair: Create; Content elements
 .. _adding-your-own-content-elements:
 
-=================================
-Creating a custom content element
-=================================
+====================================
+Create a custom content element type
+====================================
 
 This page explains how to create your own custom content element types. These
-are comparable to the predefined content elements supplied by TYPO3. The latter
+are comparable to the predefined content element types supplied by TYPO3. The latter
 can be found in the system extension `fluid_styled_content`.
 
 A content element can be based on fields already available in the `tt_content`
@@ -54,7 +54,7 @@ It can be installed via Composer with:
 Use an extension
 ================
 
-We recommend to create your own extension for adding content elements.
+We recommend to create your own extension for new custom content element types.
 The following example uses the extension key `examples`.
 
 Here you can find information on how to
@@ -65,8 +65,8 @@ Here you can find information on how to
 .. _RegisterCE:
 .. _AddingCE-TCA-Overrides-tt_content:
 
-Register the content element
-============================
+Register the content element type
+=================================
 
 First we need to define the key of the new content element type. We use
 `examples_newcontentelement` throughout the simple example.
@@ -142,12 +142,12 @@ to this wizard (via page TSconfig).
          show := addToList(examples_newcontentelement)
       }
    }
-   
-.. versionchanged:: 12.0 
 
-   Starting with TYPO3 version 12.0 file :file:`EXT:my_sitepackage/Configuration/page.tsconfig` 
-   is automatically included. For version 11.5 and below this file has to be included in the 
-   :file:`ext_localconf.php`. See :ref:`Setting global page TSconfig, compatible with TYPO3 
+.. versionchanged:: 12.0
+
+   Starting with TYPO3 version 12.0 file :file:`EXT:my_sitepackage/Configuration/page.tsconfig`
+   is automatically included. For version 11.5 and below this file has to be included in the
+   :file:`ext_localconf.php`. See :ref:`Setting global page TSconfig, compatible with TYPO3
    11 and 12 <t3tsconfig:global-page-tsconfig-compatible-with-typo3-11-and-12>`.
 
 .. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementWizard.rst.txt
