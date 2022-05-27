@@ -31,6 +31,11 @@ Content elements are arranged on a page, depending on their
 * column (field: ``tt_content.colPos``)
 * etc.
 
+.. note::
+
+   Sometimes, the term "content element" is used to mean a content element type
+   which is not a plugin. On this page and in this chapter, "content element"
+   means any content element type including plugins.
 
 What are plugins?
 =================
@@ -108,13 +113,12 @@ displayed in the backend. There are a number of ways to do this:
 * page TSconfig can be used to :ref:`configure <content-element-wizard>` what is displayed in the "Content Element
   Wizard".
 
-Creating new content elements
-=============================
+Creating custom content element types
+=====================================
 
-The following chapters handle how to create your own content element types and plugins.
-Specifically, check out:
+The following chapters handle how to create custom content element types:
 
 * :ref:`adding-your-own-content-elements`
 * :ref:`t3extbasebook:configuring-the-plugin` in the "Extbase / Fluid book"
 * How to make your plugins or content elements configurable by editors with
-  :ref:`flexforms`
+   :ref:`flexforms`
