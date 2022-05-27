@@ -88,8 +88,8 @@ displayed in the backend. There are a number of ways to do this:
 * page TSconfig can be used to :ref:`configure <content-element-wizard>` what is displayed in the "Content Element
   Wizard".
 
-Creating custom content element type or plugins
-===============================================
+Creating custom content element types or plugins
+================================================
 
 The following chapters handle how to create custom content element types and
 plugins:
