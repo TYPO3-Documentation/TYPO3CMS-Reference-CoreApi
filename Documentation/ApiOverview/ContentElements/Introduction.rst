@@ -7,6 +7,10 @@
 Introduction
 ============
 
+.. term clarification:
+.. 1. "content elements" is used as general term, including plugins
+.. 2. use "content element types" when talking about the type
+
 What are content elements?
 ==========================
 
@@ -83,8 +87,6 @@ Indexed search plugin type, provided by the TYPO3 core.
 Editing
 =======
 
-How to work with content elements and plugins?
-
 The :doc:`Editors Tutorial <t3editors:Index>` describes how to work with
 :ref:`page content <t3editors:content-working>` and
 lists the :ref:`basic TYPO3 content elements <t3editors:content-types>`
@@ -113,12 +115,17 @@ displayed in the backend. There are a number of ways to do this:
 * page TSconfig can be used to :ref:`configure <content-element-wizard>` what is displayed in the "Content Element
   Wizard".
 
-Creating custom content element types
-=====================================
+Creating custom content element type or plugins
+===============================================
 
-The following chapters handle how to create custom content element types:
+The following chapters handle how to create custom content element types and
+plugins:
 
 * :ref:`adding-your-own-content-elements`
 * :ref:`t3extbasebook:configuring-the-plugin` in the "Extbase / Fluid book"
-* How to make your plugins or content elements configurable by editors with
-   :ref:`flexforms`
+
+
+How to make your plugins or content elements configurable by editors with
+
+*  :ref:`flexforms`
+
