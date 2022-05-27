@@ -197,8 +197,8 @@ Database table names **should** follow this pattern:
 
 Examples for an extension named `cool_shop`:
 
-    * :sql:`tx_coolshop_product`
-    * :sql:`tx_coolshop_category`
+*  :sql:`tx_coolshop_product`
+*  :sql:`tx_coolshop_category`
 
 Extbase domain model tables **should** follow this pattern:
 
