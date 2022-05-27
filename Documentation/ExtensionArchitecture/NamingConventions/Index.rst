@@ -197,8 +197,8 @@ Database table names **should** follow this pattern:
 
 Examples for an extension named `cool_shop`:
 
-    * :sql:`tx_coolshop_product`
-    * :sql:`tx_coolshop_category`
+*  :sql:`tx_coolshop_product`
+*  :sql:`tx_coolshop_category`
 
 Extbase domain model tables **should** follow this pattern:
 
@@ -314,7 +314,7 @@ The plugin signature is used in:
 
 *  the database field `tt_content.list_type`
 *  when defining a :ref:`FlexForm <flexforms>` to be used for the plugin in
-  :php:`addPiFlexFormValue()`
+   :php:`addPiFlexFormValue()`
 *  in TypoScript, :typoscript:`plugin.tx_myexample_myplugin` to define settings
    for the plugin etc.
 *  As :ref:`record type <t3tca:types>` in TCA. It can therefore be used to
