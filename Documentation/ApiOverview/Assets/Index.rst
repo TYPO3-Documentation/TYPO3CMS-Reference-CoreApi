@@ -92,11 +92,17 @@ The API
 - :php:`\TYPO3\CMS\Core\Page\AssetCollector::getStyleSheets(?bool $priority = null): array`
 - :php:`\TYPO3\CMS\Core\Page\AssetCollector::getInlineStyleSheets(?bool $priority = null): array`
 - :php:`\TYPO3\CMS\Core\Page\AssetCollector::getMedia(): array`
+- :php:`\TYPO3\CMS\Core\Page\AssetCollector::hasJavaScript(string $identifier): bool`
+- :php:`\TYPO3\CMS\Core\Page\AssetCollector::hasInlineJavaScript(string $identifier): bool`
+- :php:`\TYPO3\CMS\Core\Page\AssetCollector::hasStyleSheet(string $identifier): bool`
+- :php:`\TYPO3\CMS\Core\Page\AssetCollector::hasInlineStyleSheet(string $identifier): bool`
+- :php:`\TYPO3\CMS\Core\Page\AssetCollector::hasMedia(string $identifier): bool`
 
 .. note::
 
    If the same asset is registered multiple times using different attributes or options, both sets are merged. If the
    same attributes or options are given with different values, those registered last will overwrite the existing ones.
+   With the `has` methods it can be checked if an asset exists before generating it again, hence avoiding redundancy.
 
 .. index:: pair: Assets; Viewhelpers
 
@@ -143,23 +149,36 @@ Add a JavaScript file to the collector with script attribute :code:`data-foo="ba
 
 .. code-block:: php
 
-    GeneralUtility::makeInstance(AssetCollector::class)
-       ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['data-foo' => 'bar']);
+   //use TYPO3\CMS\Core\Page\AssetCollector;
+   //use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+   GeneralUtility::makeInstance(AssetCollector::class)
+      ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['data-foo' => 'bar']);
 
 Add a JavaScript file to the collector with script attribute :html:`data-foo="bar"` and priority which means rendering before other script tags:
 
 .. code-block:: php
 
-    GeneralUtility::makeInstance(AssetCollector::class)
-       ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['data-foo' => 'bar'], ['priority' => true]);
+   GeneralUtility::makeInstance(AssetCollector::class)
+      ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['data-foo' => 'bar'], ['priority' => true]);
 
 Add a JavaScript file to the collector with :html:`type="module"` (by default, no type= is output for JavaScript):
 
 .. code-block:: php
 
-    GeneralUtility::makeInstance(AssetCollector::class)
-       ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['type' => 'module']);
+   GeneralUtility::makeInstance(AssetCollector::class)
+      ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['type' => 'module']);
 
+Check if a JavaScript file with the given identifier exists:
+
+.. code-block:: php
+
+   $assetCollector = GeneralUtility::makeInstance(AssetCollector::class);
+   if ($assetCollector->hasJavaScript($identifier)) {
+       // result: true - JavaScript with identifier $identifier exists
+   } else {
+       // result: false - JavaScript with identifier $identifier does not exist
+   }
 
 .. index::
    pair: Assets; Events
