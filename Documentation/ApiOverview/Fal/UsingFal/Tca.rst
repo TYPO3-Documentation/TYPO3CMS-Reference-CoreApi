@@ -53,7 +53,7 @@ Which ones should appear for the editor to use, can be configures using TCA
 appearance settings:
 
 .. code-block:: php
-   :caption: EXT:some_extension/Configuration/TCA/overrides/pages.php
+   :caption: EXT:some_extension/Configuration/TCA/Overrides/pages.php
 
    $GLOBALS['TCA']['pages']['columns']['media']['config']['appearance'] = [
       'fileUploadAllowed' => false,

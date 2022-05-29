@@ -229,33 +229,7 @@ the configuration.
 The configuration is provided within
 :file:`Configuration/RequestMiddlewares.php` of an extension:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
-
-   return [
-       'frontend' => [
-           'middleware-identifier' => [
-               'target' => \Vendor\SomeExtension\Middleware\ConcreteClass::class,
-               'before' => [
-                   'another-middleware-identifier',
-               ],
-               'after' => [
-                   'yet-another-middleware-identifier',
-               ],
-           ],
-       ],
-       'backend' => [
-           'middleware-identifier' => [
-               'target' => \Vendor\SomeExtension\Middleware\AnotherConcreteClass::class,
-               'before' => [
-                   'another-middleware-identifier',
-               ],
-               'after' => [
-                   'yet-another-middleware-identifier',
-               ],
-           ],
-       ],
-   ];
+.. include:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.rst.txt
 
 TYPO3 has multiple stacks where one middleware might only be necessary in one
 of them. Therefore the configuration defines the context on its first level to define the

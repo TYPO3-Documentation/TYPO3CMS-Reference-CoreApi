@@ -46,7 +46,6 @@ management system TYPO3.
    ApiOverview/Authentication/Index
    ApiOverview/Autoloading/Index
    ApiOverview/AccessControl/Index
-   ApiOverview/BackendModules/Index
    ApiOverview/BackendRouting/Index
    ApiOverview/BackendUserObject/Index
    ApiOverview/Bootstrapping/Index
