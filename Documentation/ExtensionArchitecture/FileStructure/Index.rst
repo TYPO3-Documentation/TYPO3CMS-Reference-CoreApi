@@ -3,9 +3,16 @@
 .. _extension-files-locations:
 .. _extension-reserved-folders-legacy:
 
-===================
-Files and locations
-===================
+==============
+File structure
+==============
+
+Lists reserved file and directory names within and extension. Also
+lists file names that are used in a certain way by convention.
+
+This chapter should also help you to find your way around in
+extensions and sitepackages that where automatically generated or
+that you downloaded as an example.
 
 .. _extension-files:
 

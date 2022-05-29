@@ -6,7 +6,7 @@
 .. _extension-Best-practises:
 
 ==============================
-Conventions and best practises
+Best practises and conventions
 ==============================
 
 .. toctree::
