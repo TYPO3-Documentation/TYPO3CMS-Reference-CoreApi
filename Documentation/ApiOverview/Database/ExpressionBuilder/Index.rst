@@ -53,9 +53,15 @@ to use it within the code flow of the `QueryBuilder` context directly:
 Junctions
 =========
 
-* :php:`->andX()` conjunction
+.. versionchanged:: 11.5.10
+   The methods :php:`andX()` and :php:`orX()` are deprecated and replaced
+   by :php:`and()` and :php:`or()` to match with `doctrine/dbal`, which
+   `deprecated <https://github.com/doctrine/dbal/commit/84328cd947706210caebcaea3ca0394b3ebc4673>`_
+   these methods.
 
-* :php:`->orX()` disjunction
+* :php:`->and()` conjunction
+
+* :php:`->or()` disjunction
 
 
 Combine multiple single expressions with `AND` or `OR`. Nesting is possible, both methods are variadic and
@@ -79,7 +85,7 @@ Example to find tt_content records:
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder->where(
       $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('list')),
-      $queryBuilder->expr()->orX(
+      $queryBuilder->expr()->or(
          $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter('example_pi1')),
          $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter('example_pi2'))
       )

@@ -120,7 +120,7 @@ stripLogicalOperatorPrefix()
 Removes the prefixes `AND` / `OR` from an input string.
 
 Those prefixes are added in Doctrine DBAL via :php:`QueryBuilder->where()`, :php:`QueryBuilder->orWhere()`,
-:php:`ExpressionBuilder->andX()` and friends. Some parts of the `TYPO3` framework however carry SQL fragments
+:php:`ExpressionBuilder->and()` and friends. Some parts of the `TYPO3` framework however carry SQL fragments
 prefixed with `AND` or `OR` around and it's not always possible to easily get rid of those. The method
 helps by killing those prefixes before they are handed over to the `doctrine` API:
 
