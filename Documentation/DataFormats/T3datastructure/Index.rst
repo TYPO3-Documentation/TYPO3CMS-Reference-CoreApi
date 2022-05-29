@@ -9,19 +9,30 @@ T3DataStructure
 
 TYPO3 offers an XML format, T3DataStructure, which defines a
 hierarchical data structure. In itself the data structure definition
-doesn't do much - it is only a back bone for higher level applications
+does not do much - it is only a back bone for higher level applications
 which can add their own configuration inside.
 
-Such applications can be:
+The T3DataStructure could be used for different applications in theory, however it
+is commonly only used in the context of FlexForms.
 
-- :ref:`FlexForms <t3tca:columns-flex>` - a TCEform type which will allow users to build
-  information hierarchies (in XML) according to the Data Structure. In
-  this sense the Data Structure is like a DTD (Document Type
-  Definition) for the backend which can render a dynamic form based on
-  the Data Structure;
+FlexForms are used in the contexts:
 
-- :t3ext:`templavoila` -
-  an extension which uses the Data Structure as backbone for mapping template HTML to data.
+-  TCA form type :ref:`FlexForms <t3tca:columns-flex>`:
+   The type allows users to build
+   information hierarchies (in XML) according to the data structure. In
+   this sense the Data Structure is like a DTD (Document Type
+   Definition) for the backend which can render a dynamic form based on
+   the Data Structure.
+   
+-  The configuration of plugins of many common extensions with FlexForms like 
+   `news <https://extensions.typo3.org/extension/news>`__. 
+   
+-  FlexForms can be used for containers created by the extensions like
+   `container <https://extensions.typo3.org/extension/container>`__ or 
+   `gridelements <https://extensions.typo3.org/extension/gridelements>`__
+
+-  `dce <https://extensions.typo3.org/extension/dce>`__ an an extension to 
+   create content elements based on FlexForms.
 
 This documentation of a data structure will document the general
 aspects of the XML format and leave the details about FlexForms and
@@ -54,5 +65,3 @@ Some other facts about Data Structures (DS):
    Elements/Index
    SheetReferences/Index
    Parsing/Index
-
-
