@@ -1,0 +1,16 @@
+.. code-block:: yaml
+   :caption: EXT:my_extension/Configuration/Services.yaml
+
+   services:
+      _defaults:
+         autowire: true
+         autoconfigure: true
+         public: false
+
+      T3docs\Examples\:
+         resource: '../Classes/*'
+         exclude: '../Classes/Domain/Model/*'
+
+      T3docs\Examples\LinkValidator\LinkType\ExampleLinkType:
+         tags:
+            -  name: linkvalidator.linktype

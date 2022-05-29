@@ -13,4 +13,6 @@ Best practises and conventions
    :titlesonly:
    :glob:
 
-   *
+   ExtensionKey
+   NamingConventions
+   ConfigurationFiles

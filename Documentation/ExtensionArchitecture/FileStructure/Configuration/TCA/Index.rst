@@ -22,6 +22,9 @@ One file per database table, using the name of the table for the file, plus
 
 .. index:: Path; EXT:{extkey}/Configuration/TCA/Overrides
 
+
+.. _extension-configuration-tca-overrides:
+
 :file:`Overrides`
 ================================
 
