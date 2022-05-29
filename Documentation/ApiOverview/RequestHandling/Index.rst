@@ -36,10 +36,11 @@ TYPO3 implementation
 
 TYPO3 has implemented the PSR-15 approach in the following way:
 
-.. figure:: /Images/Plantuml/RequestHandling/FlowOfMiddlewareExecution.svg
+.. uml:: /Images/Plantuml/RequestHandling/flow-of-middleware-execution.plantuml
    :align: center
+   :caption: Figure 1-1: Application flow
+   :width: 1000
 
-   Figure 1-1: Application flow
 
 .. rst-class:: bignums
 
@@ -51,9 +52,14 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 
 #. TYPO3 will call the first middleware with request and the next middleware.
 
-#. Each middleware is processed, see :ref:`request-handling-middlewares`.
+#. Each middleware can modify the request if needed, see :ref:`request-handling-middlewares`.
 
-#. In the end each middleware has to return a PSR-7 response.
+#. Final Request is passed to the last RequestHandler (`\TYPO3\CMS\Frontend\Http\RequestHandler`
+   or `\TYPO3\CMS\Backend\Http\RequestHandler`) which generates PSR-7 response and passes
+   it back to the last middleware.
+
+#. Each middleware gets back a PSR-7 response from middleware later in the stack and passes it up the stack to the previous middleware.
+   Each middleware can modify the response before passing it back.
 
 #. This response is passed back to the execution flow.
 
@@ -184,6 +190,12 @@ with this information to the response.
 In order to do so, the next request handler is called. It will return the generated
 response, which can be enriched before it gets returned.
 
+If you want to modify the response coming from certain middleware,
+your middleware has to be configured to be `before` it.
+Order of processing middlewares when enriching response is opposite
+to when middlewares are modifying the request.
+
+
 .. code-block:: php
    :caption: EXT:some_extension/Classes/Middleware/SomeMiddleware.php
 
@@ -275,6 +287,18 @@ disabled
    PHP boolean
 
    Allows to disable specific middlewares.
+
+The `before` and `after` configuration is used to sort middlewares in form of a stack.
+You can check the calculated order in the configuration module in TYPO3 Backend.
+
+Middleware which is configured `before` another middleware (higher in the stack) wraps execution of following middlewares.
+Code written before `$handler->handle($request);` in the `process` method can modify
+the request before it's passed to the next middlewares. Code written after `$handler->handle($request);`
+can modify the response provided by next middlewares.
+
+Middleware which is configured `after` another (e.g. `MiddlewareB` from the diagram above),
+will see changes to the request made by previous middleware (`MiddlewareA`),
+but will not see changes made to the response from `MiddlewareA`.
 
 
 .. index:: Request handling; Ordering
