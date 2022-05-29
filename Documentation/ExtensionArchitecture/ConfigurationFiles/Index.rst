@@ -226,7 +226,6 @@ Should Be Used For
 These are the typical functions that should be placed inside :file:`ext_tables.php`
 
 * Registering of :ref:`backend modules <backend-modules-api>` or Adding a new Main Module :ref:`Example <extension-configuration-files-backend-module>`
-* Adding TCA descriptions (via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr()`)
 * Adding table options via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages()` :ref:`Example <extension-configuration-files-allow-table-standard>`
 * Registering a scheduler tasks `Scheduler Task <https://docs.typo3.org/c/typo3/cms-scheduler/main/en-us/DevelopersGuide/CreatingTasks/Index.html>`__ :ref:`Example <extension-configuration-files-scheduler>`
 * Assignments to the global configuration arrays :php:`$GLOBALS['TBE_STYLES']` and :php:`$GLOBALS['PAGES_TYPES']`
