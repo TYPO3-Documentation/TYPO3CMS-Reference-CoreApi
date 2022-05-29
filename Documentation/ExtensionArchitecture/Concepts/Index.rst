@@ -16,4 +16,7 @@ development.
    :titlesonly:
    :glob:
 
-   *
+   Introduction
+   SystemAndLocalExtensions
+   Extbase
+   FurtherReading

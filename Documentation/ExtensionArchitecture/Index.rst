@@ -73,8 +73,8 @@ Extension Development
             :ref:`ext_tables.php <ext-tables-php>`)
 
 .. toctree::
+   :hidden:
    :titlesonly:
-   :maxdepth: 1
 
    Concepts/Index
    FileStructure/Index
