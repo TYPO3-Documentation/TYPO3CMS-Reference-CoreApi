@@ -33,20 +33,6 @@ $GLOBALS
    See :doc:`TCA Reference<t3tca:Index>`
 
 
-.. confval:: TCA_DESCR
-
-   :Path: $GLOBALS
-   :type: array
-   :Defined: [:file:`tables.php` files]
-   :Frontend: No
-
-   Can be set to contain file references to local lang files containing
-   :php:`TCA_DESCR` labels. See section about :ref:`Context Sensitive Help <csh>`.
-
-   This variable *may* be set in a script prior to
-   the bootstrap process so it is optional.
-
-
 .. confval:: T3_SERVICES
 
    :Path: $GLOBALS
