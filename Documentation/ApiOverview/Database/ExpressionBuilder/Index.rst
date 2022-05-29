@@ -53,7 +53,7 @@ to use it within the code flow of the `QueryBuilder` context directly:
 Junctions
 =========
 
-.. versionadded:: 11.5.10
+.. versionchanged:: 11.5.10
    The methods :php:`andX()` and :php:`orX()` are deprecated and replaced
    by :php:`and()` and :php:`or()` to match with `doctrine/dbal`, which
    `deprecated <https://github.com/doctrine/dbal/commit/84328cd947706210caebcaea3ca0394b3ebc4673>`_
