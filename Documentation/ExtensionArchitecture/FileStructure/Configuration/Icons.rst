@@ -4,9 +4,9 @@
    Path; EXT:{extkey}/Configuration/RequestMiddlewares.php
 .. _extension-configuration-Icons-php:
 
-=========
-Icons.php
-=========
+================================
+:file:`Icons.php`
+================================
 
 In this file custom Icons can be registered in the :php:`IconRegistry`.
 

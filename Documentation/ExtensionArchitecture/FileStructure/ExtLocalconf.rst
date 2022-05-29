@@ -3,9 +3,9 @@
    File; EXT:{extkey}/ext_localconf.php
 .. _ext-localconf-php:
 
-=================
-ext_localconf.php
-=================
+=======================================
+:file:`ext_localconf.php`
+=======================================
 
 *-- optional*
 

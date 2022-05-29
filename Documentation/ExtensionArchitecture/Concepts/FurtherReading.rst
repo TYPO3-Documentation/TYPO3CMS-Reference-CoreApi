@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
 
 
-.. _extension-resources:
+.. _extension-further-reading:
 
-Other resources
+Further reading
 ^^^^^^^^^^^^^^^
 
 Beyond the general overview given in this chapter, other sections

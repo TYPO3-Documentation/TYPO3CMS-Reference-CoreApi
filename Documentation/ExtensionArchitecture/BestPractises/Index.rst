@@ -13,5 +13,4 @@ Best practises and conventions
    :titlesonly:
    :glob:
 
-   */Index
    *

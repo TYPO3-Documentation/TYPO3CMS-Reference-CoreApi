@@ -5,9 +5,9 @@
    Path; EXT:{extkey}/Resources/Public
 .. _extension-Resources-Public:
 
-======
-Public
-======
+================================
+:file:`Public`
+================================
 
 Public assets
 =============
@@ -15,7 +15,7 @@ Public assets
 Public assets used in extensions (files that should be delivered by the web
 server) must be located in the :file:`Resources/Public` folder of the extension.
 
-.. info::
+.. note::
    This folder should only be used for static assets.
 
    If you need to create assets during runtime, they should be stored in

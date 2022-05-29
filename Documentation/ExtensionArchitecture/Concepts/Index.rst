@@ -16,5 +16,4 @@ development.
    :titlesonly:
    :glob:
 
-   */Index
    *

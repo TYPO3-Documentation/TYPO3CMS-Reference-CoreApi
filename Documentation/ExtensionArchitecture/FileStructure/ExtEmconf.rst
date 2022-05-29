@@ -4,11 +4,12 @@
    ! File; EXT:{extkey}/ext_emconf.php
    File; Declaration File
 .. _extension-declaration:
+.. _ext_emconf-php:
 
 
-=========================================
-Declaration file (:file:`ext_emconf.php`)
-=========================================
+=======================================
+:file:`ext_emconf.php`
+=======================================
 
 *-- required*  in legacy installations
 

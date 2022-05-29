@@ -4,9 +4,9 @@
    Path; EXT:{extkey}/Configuration/Services.yaml
 .. _extension-configuration-services-yaml:
 
-=============
-Services.yaml
-=============
+================================
+:file:`Services.yaml`
+================================
 
 Services can be configured in this file. TYPO3 uses it for:
 
@@ -16,6 +16,5 @@ Services can be configured in this file. TYPO3 uses it for:
    support for console commands <ext_core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands>`)
 *  :ref:`Registering a widget with the dashboard <ext_dashboard:register-new-widget>`
 
-See :ref:`ServicesYaml` for details.
 
 .. include:: /CodeSnippets/Manual/Extension/Configuration/ServicesYaml.rst.txt

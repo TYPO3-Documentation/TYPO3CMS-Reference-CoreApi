@@ -6,7 +6,7 @@
 .. _extension-configuration:
 
 ===============================================
-Extension configuration (ext_conf_template.txt)
+:file:`ext_conf_template.txt`
 ===============================================
 
 *-- optional*

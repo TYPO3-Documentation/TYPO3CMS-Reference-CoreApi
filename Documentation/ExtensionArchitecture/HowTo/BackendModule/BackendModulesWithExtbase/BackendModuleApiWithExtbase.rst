@@ -24,7 +24,7 @@ for the functionality.
 Adding new modules
 ==================
 
-Modules added by extensions are registered in the file :ref:`ext_tables.php <ext-tables.php>`
+Modules added by extensions are registered in the file :ref:`ext_tables.php <ext-tables-php>`
 using the following API:
 
 

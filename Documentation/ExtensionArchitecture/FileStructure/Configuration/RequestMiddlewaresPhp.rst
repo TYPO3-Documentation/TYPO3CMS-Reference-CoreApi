@@ -5,11 +5,15 @@
 .. _extension-configuration-RequestMiddlewares-php:
 
 
-======================
-RequestMiddlewares.php
-======================
+================================
+:file:`RequestMiddlewares.php`
+================================
 
-In this file custom middlewares for request handling can be configured.
+Full path to this file is: :file:`Configuration/RequestMiddlewares.php`.
+
+Configuration of user-defined middlewares for frontend and backend. Extensions
+that add middlewares or disable existing middlewares configure them in this
+file. The file must return an array with the configuration.
 
 See :ref:`Configuring middlewares <request-handling-configuring-middlewares>`
 for details.

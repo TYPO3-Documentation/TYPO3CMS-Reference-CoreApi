@@ -4,14 +4,13 @@
    Resources; Language
    Resources; XLF
    Resources; locallang
-.. _extension-Resources-Private:
+.. _extension-Resources-Private-Language:
 
-========
-Language
-========
+================================
+:file:`Language`
+================================
 
-Language resources
-==================
+Contains Language resources.
 
 In the folder :file:`EXT:my_extension/Resources/Private/Languages/` language files
 in format :file:`.xlf` or :file:`.xml` are stored.

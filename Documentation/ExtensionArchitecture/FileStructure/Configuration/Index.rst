@@ -2,11 +2,12 @@
 .. index::
    Extension development; File name conventions
    Path; EXT:{extkey}/Configuration
-.. _extension-files-locations:
+.. _extension-files-configuration:
+.. _extension-configuration-files:
 
-=============
-Configuration
-=============
+======================
+:file:`Configuration`
+======================
 
 The folder :file:`EXT:my_extension/Configuration/` may contain
 configuration of different types.

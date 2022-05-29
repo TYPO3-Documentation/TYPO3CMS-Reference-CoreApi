@@ -4,9 +4,9 @@
    Path; EXT:{extkey}/Configuration/page.tsconfig
 .. _extension-configuration-page_tsconfig:
 
-=============
-page.tsconfig
-=============
+================================
+:file:`page.tsconfig`
+================================
 
 .. versionadded:: 12.0
    Starting with TYPO3 version 12.0 page TSconfig from

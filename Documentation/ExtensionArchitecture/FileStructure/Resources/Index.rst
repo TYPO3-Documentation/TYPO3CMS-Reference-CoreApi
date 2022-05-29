@@ -5,9 +5,9 @@
 .. _extension-files-Resources:
 .. _extension-Resources:
 
-=========
-Resources
-=========
+================================
+:file:`Resources`
+================================
 
 Contains the sub folders :file:`Public/` and :file:`Private/`, which
 contain resources, possibly in further subfolders.

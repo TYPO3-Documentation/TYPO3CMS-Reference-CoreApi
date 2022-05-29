@@ -6,9 +6,9 @@
 .. _composer-json:
 .. _files-composer-json:
 
-=============
-composer.json
-=============
+=======================================
+:file:`composer.json`
+=======================================
 
 *-- required* in Composer-based installations
 
