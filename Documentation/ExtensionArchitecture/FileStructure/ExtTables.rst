@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 .. index:: ! File; EXT:{extkey}/ext_tables.php
-.. _ext-tables.php:
+.. _ext-tables-php:
 
 ==============
 ext_tables.php

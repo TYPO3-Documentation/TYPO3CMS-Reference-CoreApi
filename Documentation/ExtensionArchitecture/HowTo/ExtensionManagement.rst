@@ -5,6 +5,8 @@
 Extension management
 ====================
 
+.. todo: Mention composer here
+
 Extensions are managed from the Extension Manager inside TYPO3 by
 "admin" users. The module is located at **ADMIN TOOLS > Extensions**
 and offers a menu with options to see loaded extensions (those that
