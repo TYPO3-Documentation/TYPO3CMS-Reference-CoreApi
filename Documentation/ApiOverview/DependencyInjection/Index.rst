@@ -16,6 +16,19 @@ Dependency injection
 
    :doc:`Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
 
+.. note::
+
+   .. deprecated:: 11.4
+
+      :doc:`Changelog/11.4/Deprecation-94619-ExtbaseObjectManager`
+
+      The class :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` has been deprecated
+      with TYPO3 11.4. Classes should be updated to avoid both,
+      :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` and
+      :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` whenever
+      possible for resolving service dependencies.
+
+
 .. rst-class:: compact-list
 .. contents:: This page
    :local:
