@@ -239,8 +239,10 @@ follow this pattern:
 * `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
 * `<column-name>` should clearly describe the purpose of the column
 
-Backend module key
-==================
+.. BackendModuleKey::
+
+Backend module key (modkey)
+===========================
 
 The **main module key** SHOULD contain only lowercase characters. Do not use an
 underscore or dash.
@@ -267,13 +269,29 @@ Example usage:
         // ...
     );
 
+Backend module signature
+========================
+
+The backend module signature is a derived identifier which is constructed by
+TYPO3 when the module is registered.
+
+The signature is usually constructed by using the :ref:`main module key and submodule
+key <BackendModuleKey>`, separated by an underscore.
+Conversions, such as underscore to UpperCamelCase or conversions to lowercase
+may be applied in this process.
+
+Examples (from TYPO3 core extennsions):
+
+*  web_info
+*  web_FormFormbuilder
+*  site_redirects
+
 .. tip::
 
-   Registered modules are added to :php:`$GLOBALS['TBE_MODULES']`. TYPO3 may derive
-   the full module signature from the extkey and modkey. Conversions, such as underscore to
-   UpperCamelCase may be applied in this process.
+   Registered modules are added to :php:`$GLOBALS['TBE_MODULES']`.
 
-   You can look at existing module signatures in :guilabel:`System > Configuration`.
+   You can look at existing module signatures in
+   :guilabel:`System > Configuration > Backend Modules`.
 
 .. _naming-conventions-plugin-signature:
 
