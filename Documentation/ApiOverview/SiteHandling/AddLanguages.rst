@@ -12,6 +12,11 @@ To add new languages to the system, follow :ref:`t3editors:languages`, afterward
 
 For an explanation of each of the properties, see below.
 
+.. note::
+    Before you can add languages to your site configuration, you need to create records for each language you want to have in your TYPO3
+    installation, regardless if it should be available for a specific site.
+    To do so, go to the root page (id=0) and create a new record of type "Website Language" there.
+
 When the backend shows the list of available languages - for instance in the page module language selector,
 when editing records and in the list module - the list of languages is now restricted to those defined by
 the site module. If there are for instance five language records in the system, but a site configures only
