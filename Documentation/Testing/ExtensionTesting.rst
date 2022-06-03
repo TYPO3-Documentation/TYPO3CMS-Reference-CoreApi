@@ -432,9 +432,6 @@ In order to tell the CI what to do, create a new workflow file in `.github/workf
          - name: Functional tests with mariadb
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -s functional
 
-         - name: Functional tests with mssql
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mssql -s functional
-
          - name: Functional tests with postgres
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
 
@@ -823,9 +820,6 @@ Now we want all of this automatically checked using Github Actions. As before, w
          - name: Functional Tests with mariadb
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -s functional
 
-         - name: Functional Tests with mssql
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mssql -s functional
-
          - name: Functional Tests with postgres
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
 
@@ -836,5 +830,5 @@ Now we want all of this automatically checked using Github Actions. As before, w
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s acceptance
 
 This is similar to the enetcache example, but does some more: The functional tests are executed
-with four different DBMS (MariaDB, MSSQL, Postgres, sqlite), and the acceptance tests are executed, too.
+with three different DBMS (MariaDB, Postgres, sqlite), and the acceptance tests are executed, too.
 This setup takes some time to complete on Github Actions. But, `it's green <https://github.com/TYPO3/styleguide/actions>`_!
