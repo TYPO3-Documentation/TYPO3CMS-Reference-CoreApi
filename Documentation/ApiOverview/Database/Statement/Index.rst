@@ -28,7 +28,7 @@ values multiple times.
    defined as `int`, the `Statement` result may very well return that as PHP :php:`string`. This is
    true for other database column types like `FLOAT`, `DOUBLE` and others.
    This is an issue with the database drivers used below, it may happen that `MySQL` returns an integer
-   value for an `int` field, while `MSSQL` returns a string.
+   value for an `int` field, while others may return a string.
    In general, the application must take care of an according type cast on their own to reach maximum
    `DBMS` compatibility.
 

@@ -116,8 +116,7 @@ Remarks:
 
 .. attention::
 
-    Connections to databases `postgres`, `maria` and `mysql` are actively tested.
-    However, `mssql` is currently not actively tested.
+    Connections to databases `postgres`, `mariadb` and `mysql` are actively tested.
 
     Furthermore, the TYPO3 CMS installer supports only a single `mysql` or `mariadb` connection
     at the moment and the connection details can not be properly edited within the `All configuration`
