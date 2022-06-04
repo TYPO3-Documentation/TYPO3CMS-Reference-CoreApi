@@ -26,16 +26,17 @@ It can be retrieved anywhere via :php:`GeneralUtility::makeInstance()`:
 
 .. code-block:: php
 
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Core\Context\Context;
-    // ...
+    
     $context = GeneralUtility::makeInstance(Context::class);
 
 This information is separated in so-called "Aspects", each being responsible for a certain area:
 
 .. _context_api_aspects_datetime:
 
-DateTime Aspect
----------------
+Date time aspect
+----------------
 
 Contains time, date and timezone information for the current request.
 
@@ -45,7 +46,7 @@ replaces for example :php:`$GLOBALS['SIM_EXEC_TIME']` and :php:`$GLOBALS['EXEC_T
 
 .. _context_api_aspects_datetime_properties:
 
-The DateTime Aspect accepts following properties:
+The date time aspect, :php:`TYPO3\CMS\Core\Context\DateTimeAspect`, accepts following properties:
 
 =============  ============================================================  ======
 Property       Call                                                          Result
@@ -63,6 +64,9 @@ Example
 
 .. code-block:: php
 
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Context\Context;
+
     $context = GeneralUtility::makeInstance(Context::class);
 
     // Reading the current data instead of $GLOBALS['EXEC_TIME']
@@ -71,7 +75,7 @@ Example
 
 .. _context_api_aspects_language:
 
-Language Aspect
+Language aspect
 ---------------
 
 Contains information about language settings for the current request, including fallback and overlay logic.
@@ -82,7 +86,7 @@ to language Id, overlay and fallback logic, mostly within Frontend.
 
 .. _context_api_aspects_language_properties:
 
-The Language Aspect accepts following properties:
+The language aspect, :php:`TYPO3\CMS\Core\Context\LanguageAspect` accepts following properties:
 
 ======================  =========================================================================  ======
 Property                Call                                                                       Result
@@ -123,6 +127,9 @@ Example
 
 .. code-block:: php
 
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Context\Context;
+
     $context = GeneralUtility::makeInstance(Context::class);
 
     // Reading the current fallback chain instead $TSFE->sys_language_mode
@@ -130,16 +137,16 @@ Example
 
 .. _context_api_aspects_preview:
 
-Preview Aspect
+Preview aspect
 --------------
 
-The `PreviewAspect` may be used to indicate that the frontend is in preview mode
+The preview aspect may be used to indicate that the frontend is in preview mode
 (for example in case a workspace is previewed or hidden pages or records should be shown).
 
 .. _context_api_aspects_preview_properties:
 
 
-The Preview Aspect contains the following properties:
+The preview aspect, :php:`TYPO3\CMS\Frontend\Aspect\PreviewAspect`, contains the following properties:
 
 ==============  ========================================================================  ======
 Property        Call                                                                      Result
@@ -149,15 +156,15 @@ Property        Call                                                            
 
 .. _context_api_aspects_typoscript:
 
-TypoScript Aspect
+TypoScript aspect
 -----------------
 
-The `TypoScriptAspect` can be used to manipulate/check whether TemplateRendering is forced.
+The :php:`TypoScriptAspect` can be used to manipulate/check whether TemplateRendering is forced.
 
 .. _context_api_aspects_typoscript_properties:
 
 
-The Preview Aspect contains the following properties:
+The TypoScript aspect, `TYPO3\CMS\Core\Context\TypoScriptAspect` contains the following properties:
 
 =========================  ==============================================================================  ======
 Property                   Call                                                                            Result
@@ -167,7 +174,7 @@ Property                   Call                                                 
 
 .. _context_api_aspects_user:
 
-User Aspect
+User aspect
 -----------
 
 Contains information about authenticated users in the current request. Can be used for frontend and backend users.
@@ -177,7 +184,7 @@ In comparison to known behaviour until TYPO3 v9, :php:`UserAspect` replaces vari
 
 .. _context_api_aspects_user_properties:
 
-The User Aspect accepts following properties:
+The user aspect, :php:`TYPO3\CMS\Core\Context\UserAspect`, accepts following properties:
 
 ==============  ======================================================================  ======
 Property        Call                                                                    Result
@@ -197,6 +204,9 @@ Example
 
 .. code-block:: php
 
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Context\Context;
+
     $context = GeneralUtility::makeInstance(Context::class);
 
     // Checking if a user is logged in
@@ -205,17 +215,18 @@ Example
 
 .. _context_api_aspects_visibility:
 
-Visibility Aspect
+Visibility aspect
 -----------------
 
 The aspect contains whether to show hidden pages, records (content) or even deleted records.
 
-In comparison to known behaviour until TYPO3 v9, :php:`VisibilityAspect` replaces for example :php:`$GLOBALS['TSFE']->showHiddenPages` and :php:`$GLOBALS['TSFE']->showHiddenRecords`.
+In comparison to known behaviour until TYPO3 v9, :php:`VisibilityAspect` replaces for example 
+:php:`$GLOBALS['TSFE']->showHiddenPages` and :php:`$GLOBALS['TSFE']->showHiddenRecords`.
 
 
 .. _context_api_aspects_visibility_properties:
 
-The Visibility Aspect accepts following properties:
+The visibility aspect, :php:`TYPO3\CMS\Core\Context\VisibilityAspect`, accepts following properties:
 
 =========================  ==============================================================================  ======
 Property                   Call                                                                            Result
@@ -232,6 +243,9 @@ Example
 
 .. code-block:: php
 
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Context\Context;
+
     $context = GeneralUtility::makeInstance(Context::class);
 
     // Checking if hidden pages should be displayed
@@ -240,17 +254,18 @@ Example
 
 .. _context_api_aspects_workspace:
 
-Workspace Aspect
+Workspace aspect
 ----------------
 
 The aspect contains information about the currently accessed workspace
 
-In comparison to known behaviour until TYPO3 v9, :php:`WorkspaceAspect` replaces e.g. :php:`$GLOBALS['BE_USER']->workspace`.
+In comparison to known behaviour until TYPO3 v9, :php:`WorkspaceAspect` replaces e.g. 
+:php:`$GLOBALS['BE_USER']->workspace`.
 
 
 .. _context_api_aspects_workspace_properties:
 
-The Workspace Aspect accepts following properties:
+The workspace aspect, :php:`TYPO3\CMS\Core\Context\WorkspaceAspect`, accepts following properties:
 
 =============  =================================================================  ======
 Property       Call                                                               Result
@@ -266,6 +281,9 @@ Example
 ~~~~~~~
 
 .. code-block:: php
+
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Context\Context;
 
     $context = GeneralUtility::makeInstance(Context::class);
 
