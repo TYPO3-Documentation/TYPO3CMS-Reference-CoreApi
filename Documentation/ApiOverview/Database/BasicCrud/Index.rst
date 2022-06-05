@@ -44,6 +44,8 @@ A straight insert to a table:
 
 .. index:: Database; SELECT
 
+.. _database-select:
+
 SELECT a Single Row
 ===================
 
