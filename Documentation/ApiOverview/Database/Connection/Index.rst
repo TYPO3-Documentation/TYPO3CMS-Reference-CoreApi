@@ -264,6 +264,7 @@ Remarks:
   are a better choice: Next to :php:`->select()`, the :php:`->count()` query is often the least useful method of the
   `Connection` object.
 
+.. _database-connection-select:
 
 select()
 ========
