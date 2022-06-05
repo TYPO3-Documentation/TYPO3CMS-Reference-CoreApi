@@ -1,0 +1,6 @@
+.. automatic Screenshots of TYPO3 12 are not yet possible
+
+.. figure:: /Images/ManualScreenshots/Backend/BackendModulesConfiguration.png
+   :class: with-shadow
+
+   Exploring registered Backend Modules in the :guilabel:`Configuration` module

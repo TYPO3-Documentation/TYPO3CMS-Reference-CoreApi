@@ -1,16 +1,5 @@
-.. include:: /Includes.rst.txt
+:orphan:
 
-.. index:: $GLOBALS; TBE_MODULES
-.. _backend-modules-api-tbemodules:
-
-=======================
-View registered modules
-=======================
-
-All registered modules are stored as objects in a registry. They can be viewed
-in the backend in the :guilabel:`System > Configuration > Backend Modules`
-module.
-
-.. include:: /Images/AutomaticScreenshots/BackendModules/BackendModulesConfiguration.rst.txt
-
-The list of modules is parsed by the class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader`.
+.. versionchanged:: 12.0
+   In TYPO3 version 12 and above the registration of Extbase and non-Extbase
+   backend modules was unified. See :ref:`backend-modules-api`.
