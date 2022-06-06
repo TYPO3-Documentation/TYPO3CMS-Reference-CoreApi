@@ -220,16 +220,22 @@ Examples for Extbase domain models and table names of an extension named `cool_s
 | :php:`Vendor\CoolShop\Domain\Model\Billing\Address` | :sql:`tx_coolshop_domain_model_billing_address` |
 +-----------------------------------------------------+-------------------------------------------------+
 
-MM tables (for multiple-multiple relations between tables) follow these rules.
+.. tip::
+   You may notice, that the names above use the singular form, e.g. `post` and
+   not `posts`. This is recommended, but not always followed. If you do not follow this pattern,
+   you may need :ref:`manual mapping <t3extbasebook:using-foreign-data-sources>`.
 
-Extbase tables SHOULD follow this pattern:
+
+**MM** tables (for multiple-multiple relations between tables) follow these rules.
+
+Extbase:
 
 .. code-block:: none
 
    # rule for Extbase
    tx_<extension-prefix>_domain_model_<model-name-1>_<model-name-2>_mm
    # example: EXT:news with relation between news and tag
-   tx_news_domain_model_news_tag_mm
+   tx_blogexample_domain_model_post_comment_mm
 
 Non-Extbase tables usually use a similar rule, without the "domain_model" part:
 
@@ -237,15 +243,11 @@ Non-Extbase tables usually use a similar rule, without the "domain_model" part:
 
    # recommendation for non-Extbase third party extensions
    tx_<extension-prefix>_<model-1>_<model-2>_mm
+   # Example
+   tx_myextension_address_category_mm
 
    # example for TYPO3 core:
    sys_category_record_mm
-
-.. tip::
-
-   You may notice, that the names above use the singular form, e.g. `post` and
-   not `posts`. This is recommended, but not always followed. If you do not follow this pattern,
-   you may need :ref:`manual mapping <t3extbasebook:using-foreign-data-sources>`.
 
 Database column name
 ====================
