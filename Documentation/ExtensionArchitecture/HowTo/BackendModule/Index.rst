@@ -118,6 +118,6 @@ backend. They are described in this chapter.
    ModuleConfiguration
    CreateModule
    CreateModuleWithExtbase
-   CreateModule
+   ModuleTypoScript
    ToplevelModules
    ModuleProviderAPI
