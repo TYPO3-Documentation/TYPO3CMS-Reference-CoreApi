@@ -44,4 +44,22 @@ return [
         "targetFileName"=> "Events/Frontend/AfterLinkIsGeneratedEvent.rst.txt",
         "withCode"=> false
     ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Frontend\Event\BeforePageIsResolvedEvent::class,
+        "targetFileName"=> "Events/Frontend/BeforePageIsResolvedEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Frontend\Event\AfterPageAndLanguageIsResolvedEvent::class,
+        "targetFileName"=> "Events/Frontend/AfterPageAndLanguageIsResolvedEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Frontend\Event\AfterPageWithRootLineIsResolvedEvent::class,
+        "targetFileName"=> "Events/Frontend/AfterPageWithRootLineIsResolvedEvent.rst.txt",
+        "withCode"=> false
+    ],
 ];
