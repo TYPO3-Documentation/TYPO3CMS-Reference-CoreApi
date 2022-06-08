@@ -15,7 +15,7 @@ AfterPageAndLanguageIsResolvedEvent
 The event fires in the frontend process after a given page has been resolved
 including its language.
 
-This event is intended, for example, to modify TYPO3's language resolution logic
+This event modifies TYPO3's language resolution logic
 through custom additions. It also allows sending a custom response via event
 listeners (e.g. a custom 403 response).
 
