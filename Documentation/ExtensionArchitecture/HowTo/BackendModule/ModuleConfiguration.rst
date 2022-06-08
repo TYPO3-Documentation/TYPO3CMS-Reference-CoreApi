@@ -211,6 +211,27 @@ Module configuration options
    This option defaults to :php:`true` and can therefore be used to
    stop the inheritance for sub modules.
 
+
+.. confval:: moduleData
+
+   :Scope: Backend module configuration
+   :type: array
+
+   All properties of the :ref:`module data object <backend-Module-data-object>`
+   that may be overridden by :php:`GET` / :php:`POST` parameters of the request
+   get their default value defined here.
+
+   **Example**
+
+
+   .. code-block:: php
+      :caption: EXT:my_extension/Configuration/Backend/Modules.php
+
+      'moduleData' => [
+          'allowedProperty' => '',
+          'anotherAllowedProperty' => true,
+      ],
+
 Default module configuration options (without Extbase)
 ------------------------------------------------------
 
@@ -221,13 +242,16 @@ Default module configuration options (without Extbase)
 
    Define the routes to this module. Each route requires a `path` and
    the `target`, except the mandatory `_default` route, which uses
-   the `path` from the top-level configuration::
+   the `path` from the top-level configuration:
 
-       routes' => [
-           '_default' => [
-               'target' => MyController::class . '::handleRequest',
-           ],
-       ],
+   .. code-block:: php
+      :caption: EXT:my_extension/Configuration/Backend/Modules.php
+
+      routes' => [
+          '_default' => [
+              'target' => MyController::class . '::handleRequest',
+          ],
+      ],
 
    .. note::
       Using additional routes - next to `_default` is not yet implemented.

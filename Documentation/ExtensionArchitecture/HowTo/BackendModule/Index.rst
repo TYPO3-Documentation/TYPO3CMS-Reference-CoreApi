@@ -119,5 +119,7 @@ backend. They are described in this chapter.
    CreateModule
    CreateModuleWithExtbase
    ModuleTypoScript
+   ModuleDataObject
    ToplevelModules
+   ThirdlevelModules
    ModuleProviderAPI
