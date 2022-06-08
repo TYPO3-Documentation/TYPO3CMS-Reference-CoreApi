@@ -6,8 +6,8 @@
    A PSR-14 event fired in the frontend process after a given page has been resolved including
    its language.
    
-   This event is intended to e.g. modify TYPO3's language resolving logic by custom additions.
-   This event also allows to send a custom Response via Event Listeners (e.g. a custom 403 response)
+   This event is intended to modify TYPO3's language resolving logic by using custom additions.
+   This event also allows for a custom Response to be sent via Event Listeners (e.g. a custom 403 response)
 
    
    .. php:method:: getController()
