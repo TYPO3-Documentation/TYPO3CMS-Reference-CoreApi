@@ -299,7 +299,7 @@ make sure the paths are setup as described in :ref:`mail-configuration-fluid`:
 
    use Symfony\Component\Mime\Address;
    use TYPO3\CMS\Core\Mail\FluidEmail;
-   use TYPO3\CMS\Core\Mail\Mailer;
+   use TYPO3\CMS\Core\Mail\MailerInterface;
 
    $email = GeneralUtility::makeInstance(FluidEmail::class);
    $email
@@ -309,7 +309,7 @@ make sure the paths are setup as described in :ref:`mail-configuration-fluid`:
        ->format('both') // send HTML and plaintext mail
        ->setTemplate('TipsAndTricks')
        ->assign('mySecretIngredient', 'Tomato and TypoScript');
-   GeneralUtility::makeInstance(Mailer::class)->send($email);
+   GeneralUtility::makeInstance(MailerInterface::class)->send($email);
 
 
 A file :file:`TipsAndTricks.html` must exist in one of the paths
