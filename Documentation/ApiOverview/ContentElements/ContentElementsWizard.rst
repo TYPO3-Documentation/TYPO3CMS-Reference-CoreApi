@@ -6,10 +6,8 @@
 Add content elements to the Content Element Wizard
 ==================================================
 
-The content elements wizard is opened when a new content element is
-created.
-
-The content element wizard can be fully configured using TSConfig.
+The content element wizard opens when a new content element is
+created. It can be fully configured using :doc:`TSConfig <t3tsconfig:Index>`.
 
 Our extension key is `example` and the name of the content element or
 plugin is `registration`.
@@ -18,9 +16,8 @@ plugin is `registration`.
 
 #. Create page TSconfig
 
-   :file:`Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig`:
-
    .. code-block:: typoscript
+      :caption: EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig
 
       mod.wizards {
           newContentElement.wizardItems {
@@ -40,7 +37,8 @@ plugin is `registration`.
           }
       }
 
-   You may want to replace title and description, using language files for translation, for example:
+   You may want to replace :typoscript:`title` and :typoscript:`description`,
+   using language files for translation, for example:
 
    .. code-block:: typoscript
 
@@ -49,23 +47,19 @@ plugin is `registration`.
 
 #. Include TSconfig
 
-   :file:`ext_localconf.php`:
-
    .. code-block:: typoscript
+      :caption: EXT:example/Configuration/page.tsconfig
 
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-            '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig">'
-        );
+      @import 'EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig'
 
    This always includes the above page TSconfig. It is better practice to make this configurable by
-   :ref:`registering the file as static page TSconfig <t3tsconfig:pagesettingstaticpagetsconfigfiles>`:
+   :ref:`registering the file as static page TSconfig <t3tsconfig:pagesettingstaticpagetsconfigfiles>`.
 
 
-#. :ref:`Register your icon <icon-registration>` with the icon API
-
-   In :file:`Configuration/Icons.php`:
+#. :ref:`Register your icon <icon-registration>`
 
    .. code-block:: php
+      :caption: EXT:example/Configuration/Icons.php
 
       <?php
 
@@ -101,14 +95,15 @@ You can add it to one of the other existing tabs or create a new one.
 
 .. tip::
 
-   Look in the :guilabel:`Info` module > :guilabel:`page TSconfig` for existing
-   configuration of ``mod.wizards.newContentElement.wizardItems``.
+   Look into the module :guilabel:`Info > Page TSconfig` for existing
+   configurations of :typoscript:`mod.wizards.newContentElement.wizardItems`.
 
 
 If you add it to any of the other tabs (other than plugins), you must add
-the name to ``show`` as well:
+the name to :typoscript:`show` as well:
 
 .. code-block:: typoscript
+   :caption: EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig
 
    mod.wizards.newContentElement.wizardItems.common {
        elements {
@@ -125,8 +120,9 @@ the name to ``show`` as well:
        show := addToList(example_registration)
    }
 
-* When you look at existing page TSconfig in the :guilabel:`Info` module, you may
-  notice that ``show`` has been set to include all for the "plugins" tab:
+When you look at existing page TSconfig in the :guilabel:`Info` module, you may
+notice that :typoscript:`show` has been set to include all for the
+:guilabel:`Plugins` tab:
 
 .. code-block:: typoscript
 
@@ -136,15 +132,22 @@ the name to ``show`` as well:
 Create a new tab
 ================
 
-See `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
-for example of creating a new tab "interactive" and adding
+See the `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
+for an example of creating a new tab :guilabel:`Interactive` and adding
 elements to it:
 
 .. code-block:: typoscript
+   :caption: EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/Categories.tsconfig
 
     mod.wizards.newContentElement.wizardItems {
         interactive.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.interactive
-        interactive.elements {
+    }
+
+.. code-block:: typoscript
+   :caption: EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/Element/Accordion.tsconfig
+
+    mod.wizards.newContentElement.wizardItems.interactive {
+        elements {
             accordion {
                 iconIdentifier = content-bootstrappackage-accordion
                 title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion
@@ -154,4 +157,5 @@ elements to it:
                 }
             }
         }
+        show := addToList(accordion)
     }
