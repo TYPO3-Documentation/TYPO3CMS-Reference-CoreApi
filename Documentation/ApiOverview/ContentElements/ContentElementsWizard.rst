@@ -37,8 +37,8 @@ plugin is `registration`.
           }
       }
 
-   You may want to replace :typoscript:`title` and :typoscript:`description`,
-   using language files for translation, for example:
+   You may want to replace :typoscript:`title` and :typoscript:`description`
+   from above, using language files for translation, for example:
 
    .. code-block:: typoscript
 
@@ -55,6 +55,10 @@ plugin is `registration`.
    This always includes the above page TSconfig. It is better practice to make this configurable by
    :ref:`registering the file as static page TSconfig <t3tsconfig:pagesettingstaticpagetsconfigfiles>`.
 
+   .. note::
+      The usage of :file:`Configuration/page.tsconfig` is only valid in TYPO3
+      v12+. If you want to stay compatible with TYPO3 v11 and v12 have a look
+      into :ref:`setting-page-tsconfig`.
 
 #. :ref:`Register your icon <icon-registration>`
 
