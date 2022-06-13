@@ -464,6 +464,8 @@ to instantiate services. This is useful for factory-like services where the exac
 [WIP] Configuration
 ===================
 
+.. _dependency-injection-autoconfigure:
+
 Configure dependency injection in extensions
 --------------------------------------------
 
@@ -498,7 +500,6 @@ autowire
    **Attention:**
    An extension doesn't need to use autowiring, it is free to manually
    wire dependencies in the service configuration file.
-
 
 autoconfigure
    It is suggested to enable :yaml:`autoconfigure: true` as this will automatically
