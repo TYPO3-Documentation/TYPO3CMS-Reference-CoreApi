@@ -34,8 +34,8 @@ given user password to *argon2i* if the install tool has not been
 executed once.
 
 This typically happens if a system has just been upgraded and a
-backend login is performed before the install tool has executed silent
-upgarde wizards.
+backend login has been performed before the install tool has silently executed 
+upgrade wizards.
 
 
 Solutions
@@ -44,11 +44,11 @@ Solutions
 Recommended: Fix the server side
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It is highly recommended to run PHP 7.2 with argon2i support.
+It is highly recommended to run PHP 7.2 or above with argon2i support.
 Install a PHP build that supports this or make the project hoster support
-PHP 7.2 or above with argon2i. Usually, the argon library is just not installed
+PHP with argon2i. Usually, the argon2i library is just not installed
 and PHP is compiled without argon2i support. There is little reason to have a
-PHP 7.2 build without argon support.
+PHP build without argon support.
 
 
 Disable argon2i support in the install tool
