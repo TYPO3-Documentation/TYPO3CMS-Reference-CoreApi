@@ -44,35 +44,35 @@ Solutions
 Recommended: Fix the server side
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It is highly recommended to run PHP 7.2 or above with argon2i support.
+It is highly recommended to run PHP 7.2 or above with argon2 support.
 Install a PHP build that supports this or make the project hoster support
-PHP with argon2i. Usually, the argon2i library is just not installed
-and PHP is compiled without argon2i support. There is little reason to have a
+PHP with argon2. Usually, the argon2 library is just not installed
+and PHP is compiled without argon2 support. There is little reason to have a
 PHP build without argon support.
 
 
-Disable argon2i support in the install tool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Disable argon2 support in the install tool
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Call the standalone install tool at :samp:`example.org/typo3/install.php` and log in
 once. This should detect
-that argon2i is not available and will configure a different default
+that argon2 is not available and will configure a different default
 hash mechanism. A backend login should be possible afterwards.
 
 If that won't do, you can change the hash mechanism in :guilabel:`Admin Tools >
 Settings > Configuration Presets > Password hashing presets`. This
 might be necessary if, for example, you moved your system to a different
-server where argon2i isn't available. Create a new user that uses the
+server where argon2 isn't available. Create a new user that uses the
 working algorithm.
 
 
 .. index:: File; typo3conf/LocalConfiguration.php
 
-Manually disable argon2i in the LocalConfiguration.php
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Manually disable argon2 in the LocalConfiguration.php
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This may be nessesary if access to the install tool is not possible.
-This can happen when the first installation was done on a system with argon2i
+This can happen when the first installation was done on a system with argon2
 and the installation was then copied to a target system that doesn't support
 this encryption type.
 
