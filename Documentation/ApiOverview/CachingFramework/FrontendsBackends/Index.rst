@@ -329,7 +329,7 @@ Options
       Gzip compression level (if the :code:`compression` option is set to :code:`true`).
       The default compression level is usually sufficient.
 
-      * `-1`: Default gzip compression (recommended)
+      *  `-1`: Default gzip compression (recommended)
       * `0`: No compression
       * `9`: Maximum compression (costs a lot of CPU)
    :Mandatory:
