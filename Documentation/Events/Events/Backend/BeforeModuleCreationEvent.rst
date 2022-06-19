@@ -23,6 +23,7 @@ Registration of an event listener in the :file:`Services.yaml`:
 The corresponding event listener class:
 
 .. code-block:: php
+   :caption: EXT:my_extension/Classes/Backend/ModifyModuleIcon.php
 
     use TYPO3\CMS\Backend\Module\BeforeModuleCreationEvent;
 
