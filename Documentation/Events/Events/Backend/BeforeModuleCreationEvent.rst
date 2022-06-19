@@ -15,7 +15,7 @@ Registration of an event listener in the :file:`Services.yaml`:
 .. code-block:: yaml
    :caption: EXT:my_extension/Configuration/Services.yaml
 
-  MyVendor\MyPackage\Backend\ModifyModuleIcon:
+  MyVendor\MyExtension\Backend\ModifyModuleIcon:
     tags:
       - name: event.listener
         identifier: 'my-package/backend/modify-module-icon'
