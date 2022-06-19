@@ -27,7 +27,7 @@ The corresponding event listener class:
 
     use TYPO3\CMS\Backend\Module\BeforeModuleCreationEvent;
 
-    class ModifyModuleIcon {
+    final class ModifyModuleIcon {
 
         public function __invoke(BeforeModuleCreationEvent $event): void
         {
