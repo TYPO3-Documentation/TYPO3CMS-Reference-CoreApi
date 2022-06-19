@@ -9,8 +9,8 @@ Backend module configuration
 ============================
 
 .. versionchanged:: 12.0
-   Registration of backend modules was changed with Version 12. If you are
-   using another version of TYPO3 please use the version switcher on the top
+   Registration of backend modules was changed with version 12. If you are
+   using an older version of TYPO3 please use the version switcher on the top
    left of this document to go to the respective version.
 
 The configuration of backend modules is placed in the
@@ -78,7 +78,7 @@ Module configuration options
    :type: string
 
    If the module should be a submodule, the parent identifier, for example `web`
-   has to be set here. You can find a
+   has to be set here. Have a look into the
    :ref:`list of available toplevel modules. <backend-modules-toplevel-module>`
 
    Extensions can add additional parent modules by defining
@@ -88,10 +88,10 @@ Module configuration options
 
    :Scope: Backend module configuration
    :type: string
-   :Default: `/module/<mainModue>/<subModule>`
+   :Default: `/module/<mainModule>/<subModule>`
 
    Define the path to the default endpoint. The path can be anything, but
-   will fallback to the known  `/module/<mainModue>/<subModule>` pattern,
+   will fallback to the known  `/module/<mainModule>/<subModule>` pattern,
    if not set.
 
 .. confval:: access
@@ -186,10 +186,10 @@ Module configuration options
    The module navigation component. The following are provided by the Core:
 
    `TYPO3/CMS/Backend/PageTree/PageTreeElement`
-      The page tree as used in the Web module.
+      The page tree as used in the :guilabel:`Web` module.
 
    `TYPO3/CMS/Backend/Tree/FileStorageTreeContainer`
-      The file tree as used in the Filelist module.
+      The file tree as used in the :guilabel:`Filelist` module.
 
 
 .. confval:: navigationComponentId
@@ -209,7 +209,7 @@ Module configuration options
 
    Whether the module should use the parents navigation component.
    This option defaults to :php:`true` and can therefore be used to
-   stop the inheritance for sub modules.
+   stop the inheritance for submodules.
 
 
 .. confval:: moduleData
@@ -254,7 +254,7 @@ Default module configuration options (without Extbase)
       ],
 
    .. note::
-      Using additional routes - next to `_default` is not yet implemented.
+      Using additional routes - next to `_default` - is not yet implemented.
 
 
 .. _backend-modules-api-extbase:
@@ -267,7 +267,7 @@ Extbase module configuration options
    :Scope: Backend module configuration
    :type: string
 
-   The extension name in UpperCamelCase, the module is registered for. If the
+   The extension name in UpperCamelCase for which the module is registered. If the
    extension key is `my_example_extension` the extension name would be
    `MyExampleExtension`.
 

@@ -28,7 +28,7 @@ a backend controller - is called. This means, the route target can
 read the final module data.
 
 The *allowed* properties are defined with their default value in the
-module registration:
+:ref:`module registration <backend-modules-configuration>`:
 
 .. code-block:: php
    :caption: EXT:my_extension/Configuration/Backend/Modules.php
@@ -39,7 +39,7 @@ module registration:
    ],
 
 .. code-block:: php
-   :caption: Classes/Controller/MyController.php
+   :caption: EXT:my_extension/Classes/Controller/MyController.php
 
    $MOD_SETTINGS = $request->getAttribute('moduleData');
 
@@ -82,10 +82,10 @@ using :php:`$backendUser->pushModuleData('my_module', $this->moduleData->toArray
    which properties can be overwritten in a request (with :php:`GET` / :php:`POST`).
 
 To restrict the values of module data properties, the given :php:`ModuleData`
-object can be cleaned for example in a controller:
+object can be cleaned, for example, in a controller:
 
 .. code-block:: php
-   :caption: Classes/Controller/MyController.php
+   :caption: EXT:my_extension/Classes/Controller/MyController.php
 
    $allowedValues = ['foo', 'bar'];
    $this->moduleData->clean('property', $allowedValues);

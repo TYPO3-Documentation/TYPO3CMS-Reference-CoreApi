@@ -11,9 +11,9 @@ without Extbase.
 
 .. tip::
 
-   If you want to do extensive data modeling you may want to
+   If you want to do extensive data modeling, you may want to
    use :ref:`Extbase templating <backend-modules-template>`.
-   If you build a simple backend module it makes sense to work without Extbase.
+   If you are building  a simple backend module, it makes sense to work without Extbase.
 
 Basic controller
 ================
@@ -59,7 +59,7 @@ with the tag `backend.controller` so that dependency injection works:
 Main entry point
 ================
 
-:php:`handleRequest()` method is the main entry point which triggers only the allowed actions.
+The :php:`handleRequest()` method is the main entry point which triggers only the allowed actions.
 This makes it possible to include e.g. Javascript for all actions in the controller.
 
 .. code-block:: php
@@ -121,7 +121,7 @@ as you would normally do.
 The DocHeader
 =============
 
-To add a DocHeader button use :php:`$this->moduleTeamplate->getDocHeaderComponent()->getButtonBar()`
+To add a DocHeader button use :php:`$this->moduleTemplate->getDocHeaderComponent()->getButtonBar()`
 and :php:`makeLinkButton()` to create the button. Finally use :php:`addButton()` to add it.
 
 .. code-block:: php

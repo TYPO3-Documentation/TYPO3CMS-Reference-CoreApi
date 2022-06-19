@@ -65,7 +65,7 @@ backend. They are described in this chapter.
          .. container:: card-body
 
             Explains how to create a module with Extbase and Fluid. This is
-            the preferred method if extensive data modelling is involved.
+            the preferred method if extensive data modeling is involved.
 
    .. container:: col-md-6 pl-0 pr-3 py-3 m-0
 
@@ -78,7 +78,7 @@ backend. They are described in this chapter.
          .. container:: card-body
 
             Explains how to create a module without Extbase. Fluid can still be
-            used however there are some limitations. This is the preferred way
+            used, however there are some limitations. This is the preferred way
             if no extensive data modelling is needed.
 
    .. container:: col-md-6 pl-0 pr-3 py-3 m-0
@@ -106,7 +106,7 @@ backend. They are described in this chapter.
          .. container:: card-body
 
             The PSR-14 :ref:`BeforeModuleCreationEvent` allows extension authors
-            to manipulate the module configuration, before it is used to create and
+            to manipulate the module configuration before it is used to create and
             register the module.
 
 

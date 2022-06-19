@@ -22,16 +22,16 @@ The following toplevel modules are provided by the Core:
 
 `tools`: Admin Tools
    By convention modules in this toplevel section should only be
-   available for admins with system-maintainer rights. Therefore the
+   available for admins with system maintainer rights. Therefore the
    configuration array of a module displayed here should always have the
    following key-value pair: :php:`'access' => 'systemMaintainer'`.
 
-   In this toplevel section modules that deal with installing, updating the Core
-   and extensions. System-wide settings are also found here.
+   In this toplevel section modules that deal with installing and updating the Core
+   and extensions are available. System-wide settings are also found here.
 
 `system`: System
-   By convention modules in this toplevel section should only be
-   available for admins. Therefore the configuration array of a module
+   By convention, modules in this toplevel section should only be
+   accessible by admins. Therefore the configuration array of a module
    displayed here should always have the following key-value pair:
    :php:`'access' => 'admin'`.
 
@@ -41,7 +41,7 @@ The following toplevel modules are provided by the Core:
 Register a custom toplevel module
 ==================================
 
-Toplevel modules like "Web" or "File" are registered in the
+Toplevel modules like :guilabel:`Web` or :guilabel:`File` are registered in the
 :file:`Configuration/Backend/Modules.php`. All toplevel modules provided by
 the Core are registered in EXT:core so you can look at
 :file:`typo3/sysext/core/Configuration/Backend/Modules.php` for reference.

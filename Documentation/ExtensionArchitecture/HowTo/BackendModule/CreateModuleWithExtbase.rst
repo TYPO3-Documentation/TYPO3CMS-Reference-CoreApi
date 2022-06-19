@@ -9,7 +9,7 @@ Create a backend module with Extbase
 
 .. tip::
 
-   If you don't want to do extensive data modelling templates can be written
+   If you don't want to do extensive data modeling templates can be written
    :ref:`without Extbase. <backend-modules-template-without-extbase>`
 
 
