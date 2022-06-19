@@ -151,10 +151,6 @@ Add an optional argument and an optional option to your command:
     // use Symfony\Component\Console\Input\InputArgument;
     // use Symfony\Component\Console\Input\InputOption;
 
-
-    // use Symfony\Component\Console\Input\InputArgument;
-    // use Symfony\Component\Console\Input\InputOption;
-
     /**
      * Configure the command by defining the name, options and arguments
      */
@@ -188,9 +184,6 @@ This argument can be retrieved with :php:`$input->getArgument()`, the options wi
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/Command/DoThingsCommand.php
-
-   // use Symfony\Component\Console\Input\InputInterface;
-   // use Symfony\Component\Console\Output\OutputInterface;
 
    // use Symfony\Component\Console\Input\InputInterface;
    // use Symfony\Component\Console\Output\OutputInterface;
