@@ -6,7 +6,7 @@
 BeforeModuleCreationEvent
 =========================
 
-The PSR-14 :ref:`BeforeModuleCreationEvent` allows extension authors
+The PSR-14 event :ref:`BeforeModuleCreationEvent` allows extension authors
 to manipulate the module configuration, before it is used to create and
 register the module.
 
