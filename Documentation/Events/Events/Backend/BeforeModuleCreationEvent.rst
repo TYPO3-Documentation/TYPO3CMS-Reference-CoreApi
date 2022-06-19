@@ -18,7 +18,7 @@ Registration of an event listener in the :file:`Services.yaml`:
   MyVendor\MyExtension\Backend\ModifyModuleIcon:
     tags:
       - name: event.listener
-        identifier: 'my-package/backend/modify-module-icon'
+        identifier: 'my-extension/backend/modify-module-icon'
 
 The corresponding event listener class:
 
