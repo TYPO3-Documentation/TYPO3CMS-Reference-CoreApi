@@ -1,5 +1,8 @@
 <?php
 
+    // https://github.com/TYPO3-Documentation/t3docs-codesnippets
+    // ddev exec vendor/bin/typo3  restructured_api_tools:php_domain public/fileadmin/TYPO3CMS-Reference-CoreApi/Documentation/CodeSnippets/
+
     return array_merge(
         include('Config/EventsBackend.php'),
         include('Config/EventsCore.php'),
