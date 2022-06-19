@@ -158,10 +158,6 @@ Acquire and use an exclusive, blocking lock:
    use TYPO3\CMS\Core\Locking\LockFactory;
    // ...
 
-   use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
-   use TYPO3\CMS\Core\Locking\LockFactory;
-   // ...
-
    $lockFactory = GeneralUtility::makeInstance(LockFactory::class);
 
    // createLocker will return an instance of class which implements
@@ -184,10 +180,6 @@ Acquire and use an exclusive, non-blocking lock:
 
 .. code-block:: php
    :caption: EXT:site_package/Classes/Domain/Repository/SomeRepository.php
-
-   use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
-   use TYPO3\CMS\Core\Locking\LockFactory;
-   // ...
 
    use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
    use TYPO3\CMS\Core\Locking\LockFactory;
