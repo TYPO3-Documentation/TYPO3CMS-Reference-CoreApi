@@ -15,7 +15,7 @@ This sections highlights the different ways to translate and manage XLIFF files.
 Fetching translations
 =====================
 
-The interface of the Install Tool in :guilabel:`ADMIN TOOLS > Maintenance > Manage language packs`
+The interface of the Install Tool in :guilabel:`Admin Tools > Maintenance > Manage language packs`
 allows to manage the list of available languages to your users and can fetch and
 update language packs of TER and Core extensions from the official translation server.
 The module is rather straight forward to use and should be pretty much self explanatory.
