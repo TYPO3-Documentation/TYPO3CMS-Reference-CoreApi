@@ -7,7 +7,7 @@
 Backend Users Module
 ====================
 
-The :guilabel:`SYSTEM > Backend users` module offers a convenient way
+The :guilabel:`System > Backend users` module offers a convenient way
 of working with backend users and groups. It provides a list of both
 users and groups. The users list can be searched and filtered.
 

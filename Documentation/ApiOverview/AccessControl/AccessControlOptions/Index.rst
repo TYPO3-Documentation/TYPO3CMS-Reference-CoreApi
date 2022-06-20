@@ -117,8 +117,8 @@ Mounts
 ======
 
 TYPO3 CMS natively supports two kinds of hierarchical tree structures:
-the page tree (typically visible in the **WEB** module) and the folder
-tree (typically visible in the **FILE** module). Each tree is
+the page tree (typically visible in the :guilabel:`Web` module) and the folder
+tree (typically visible in the :guilabel:`File` module). Each tree is
 generated based on the *mount points* configured for the current user. So a
 page tree is drawn from the *DB Mounts* which are one or more page ids
 telling the core from which "start page" to draw the tree(s). Likewise

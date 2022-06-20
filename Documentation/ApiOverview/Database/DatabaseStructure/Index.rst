@@ -38,7 +38,7 @@ There are certain requirements for such managed tables:
 
     - A "title" field holding the records title as seen in the backend.
 
-    - A "description" field holding a description displayed in **WEB > List** view.
+    - A "description" field holding a description displayed in :guilabel:`Web > List` view.
 
     - A "crdate" field holding the creation time of the record.
 
@@ -115,5 +115,5 @@ reason.
 
 There is no way such tables can be managed via the TYPO3 CMS
 backend unless a specific module provides a form of access to it.
-For example, the **SYSTEM > Log** module provides an interface
-to browse records from the "sys\_log" table.
+For example, the :guilabel:`System > Log` module provides an interface
+to browse records from the :sql:`sys_log` table.

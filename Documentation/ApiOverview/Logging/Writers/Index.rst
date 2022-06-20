@@ -40,7 +40,7 @@ logTable  no         Database table  :code:`sys_log`
 
 .. warning::
 
-   The **ADMIN TOOLS > Log** module is not adapted to the records written by the
+   The :guilabel:`Admin Tools > Log` module is not adapted to the records written by the
    :code:`DatabaseWriter` into the :code:`sys_log` table. If you write such records
    there, you will not be able to see them using that module.
 

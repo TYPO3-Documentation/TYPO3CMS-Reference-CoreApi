@@ -45,7 +45,7 @@ Files
 =====
 
 TCE also has a part for handling files. The file operations are
-normally performed in the **FILE > Filelist** module where you can manage a
+normally performed in the :guilabel:`File > Filelist` module where you can manage a
 directory on the server by copying, moving, deleting and editing files
 and directories. The file operations are managed by two core classes,
 :php:`\TYPO3\CMS\Core\Utility\File\BasicFileUtility` and
