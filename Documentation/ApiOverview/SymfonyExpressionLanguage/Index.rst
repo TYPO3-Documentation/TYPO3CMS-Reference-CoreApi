@@ -33,6 +33,9 @@ parts that can be added to the language, which are variables and functions.
 
 The following sections explain how to add variables and functions.
 
+.. hint::
+   The :ref:`System > Configuration <ext_lowlevel:module-configuration>` module
+   provides a list of all registered Symfony Expression Language providers.
 
 .. index:: pair: Symfony expression language; Custom provider
 .. _sel-ts-registering-new-provider-within-extension:
