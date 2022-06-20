@@ -174,7 +174,7 @@ Parameters:
    *  Module ``iconIdentifier`` or ``icon``
    *  A language file containing ``labels`` like the module title and description,
       for building the module menu and for the display of information in the
-      **About Modules** module (found in the main help menu in the top bar).
+      :guilabel:`Help > About Modules` module (found in the main help menu in the top bar).
       The `LLL:` prefix is mandatory here and is there for historical reasons.
    *  Navigation component ``navigationComponentId`` - you can specify which
       navigation component you want to use, for example

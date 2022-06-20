@@ -176,7 +176,7 @@ those values of :file:`DefaultConfigurationDescription.yaml`.
 
 The Install Tool provides various dedicated modules that change parts of
 :file:`LocalConfiguration.php`, those can be found in
-:guilabel:`ADMIN TOOLS > Settings`, most importantly section
+:guilabel:`Admin Tools > Settings`, most importantly section
 :guilabel:`Configure installation-wide options`:
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/AllConfiguration.rst.txt

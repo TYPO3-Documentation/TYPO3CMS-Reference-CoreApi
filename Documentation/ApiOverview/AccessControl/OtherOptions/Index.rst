@@ -60,7 +60,7 @@ Lock to domain
 
 Hide in lists
   This flag will prevent the group from appearing in various
-  listings in TYPO3 CMS. This includes modules like **SYSTEM > Access**.
+  listings in TYPO3 CMS. This includes modules like :guilabel:`System > Access`.
 
 Inherit settings from groups (Sub Groups)
   Assigns sub-groups to this group. Sub-groups are

@@ -28,7 +28,7 @@ Global files
 :file:`<webroot>/typo3conf/LocalConfiguration.php`:
    Contains the persisted :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>` array.
    Settings configured in the backend by system maintainers in
-   :guilabel:`ADMIN TOOLS > Settings > Configure Installation-Wide Options`
+   :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`
    are written to this file.
 
 :file:`<webroot>/typo3conf/AdditionalConfiguration.php`:
@@ -192,7 +192,7 @@ The :php:`$GLOBALS` PHP array consists of:
 
 :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`:
    is used for system wide configuration. Most of the settings can be
-   modified in the backend :guilabel:`ADMIN TOOLS > Settings > Global Configuration`
+   modified in the backend :guilabel:`Admin Tools > Settings > Global Configuration`
    and will be persisted to the file file:`typo3conf/LocalConfiguration.php`.
    The settings can be overridden by using :file:`typo3conf/AdditionalConfiguration.php`.
 
@@ -200,7 +200,7 @@ The :php:`$GLOBALS` PHP array consists of:
    is a subset of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
    It is stored in :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']`.
    It is used for configuration specific to one extension and can
-   be modified in the backend :guilabel:`ADMIN TOOLS > Settings > Extension
+   be modified in the backend :guilabel:`Admin Tools > Settings > Extension
    Configuration`. Do not set the values directly, use the
    :ref:`API <extension-options-api>`.
 
@@ -209,7 +209,7 @@ The :php:`$GLOBALS` PHP array consists of:
    TYPO3 on or off. The values are written to
    :php:`GLOBALS['TYPO3_CONF_VARS']['SYS']['features']`.
    The feature toggles can be switched on or off in the backend
-   :guilabel:`ADMIN TOOLS > Settings > Feature Toggles` with **Admin**
+   :guilabel:`Admin Tools > Settings > Feature Toggles` with **Admin**
    privileges. The :ref:`API <feature-toggles-api>` should be used
    to register and read feature toggles.
 
@@ -221,12 +221,12 @@ This is not a complete list of the entire :php:`$GLOBALS` array.
 .. hint::
 
    You can find more and view the configuration in the TYPO3 backend
-   :guilabel:`SYSTEM > Configuration` (read only) or by viewing the
+   :guilabel:`System > Configuration` (read only) or by viewing the
    :php:`$GLOBALS` array in a debugger. The backend module is available with
    activated `lowlevel` system extension.
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']`, Extension configuration and feature toggles
-can be changed in the backend in :guilabel:`ADMIN TOOLS > Settings` by
+can be changed in the backend in :guilabel:`Admin Tools > Settings` by
 system maintainers. TCA cannot be modified in the backend.
 
 Configuration of the :ref:`Logging Framework <logging-configuration>` and

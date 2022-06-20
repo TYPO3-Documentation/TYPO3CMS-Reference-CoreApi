@@ -8,7 +8,7 @@ Extension management
 .. todo: Mention composer here
 
 Extensions are managed from the Extension Manager inside TYPO3 by
-"admin" users. The module is located at **ADMIN TOOLS > Extensions**
+"admin" users. The module is located at :guilabel:`Admin Tools > Extensions`
 and offers a menu with options to see loaded extensions (those that
 are installed or activated), available extensions on the server and
 the possibility to import extensions from online resources, typically
@@ -61,7 +61,8 @@ There are only two (possibly three) steps involved in using extensions with TYPO
 
 #. You *might* be able to configure it.
 
-   Certain extensions may allow you to configure some settings. **ADMIN TOOLS > Settings > Extension configuration**
+   Certain extensions may allow you to configure some settings.
+   :guilabel:`Admin Tools > Settings > Extension configuration`
    provides an interface to configure extensions that provide configuration settings. Any
    settings - if present - configured for an extension are available as
    an array in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][extensionKey]` and
