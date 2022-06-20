@@ -65,9 +65,16 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['compressionLevel']
 
    Determines output compression of FE output. Makes output smaller but
    slows down the page generation depending on the compression level. Requires
-   zlib in your PHP installation. Range 1-9, where 1 is least compression and
-   9 is greatest compression. true as value will set the compression based on
-   the PHP default settings (usually 5). Suggested and most optimal value is 5.
+
+   *  zlib in your PHP installation and
+   *  special rewrite rules for :file:`.css.gz` and :file:`.js.gz`
+      (before version 12.0 the extension was :file:`.css.gzip` and :file:`.js.gzip`)
+
+   Please see :file:`EXT:install/Resources/Private/FolderStructureTemplateFiles/root-htaccess`
+   for an example. Range `1`-`9`, where `1` is least
+   compression and `9` is greatest compression. :php:`true` as value will set the
+   compression based on the PHP default settings (usually `5` ). Suggested and
+   most optimal value is `5`.
 
 .. index::
    TYPO3_CONF_VARS FE; pageNotFoundOnCHashError

@@ -53,7 +53,7 @@ the access list by this function call:
 
    $GLOBALS['BE_USER']->check('modules', 'web_list');
 
-Here access to the module **WEB > List** is checked.
+Here access to the module :guilabel:`Web > List` is checked.
 
 
 .. index::
