@@ -38,7 +38,7 @@ to return the rendered template:
        }
    }
 
-The controller needs to be registered in the :file:`Configuration/Services.yaml`
+The controller needs to be registered in :file:`Configuration/Services.yaml`
 with the tag `backend.controller` so that dependency injection works:
 
 .. code-block:: yaml
