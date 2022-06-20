@@ -116,4 +116,16 @@ return [
         "targetFileName"=> "Events/Core/SiteConfigurationLoadedEvent.rst.txt",
         "withCode"=> false
     ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\Mail\Event\AfterMailerSentMessageEvent::class,
+        "targetFileName"=> "Events/Core/AfterMailerSentMessageEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\Mail\Event\BeforeMailerSentMessageEvent::class,
+        "targetFileName"=> "Events/Core/BeforeMailerSentMessageEvent.rst.txt",
+        "withCode"=> false
+    ],
 ];
