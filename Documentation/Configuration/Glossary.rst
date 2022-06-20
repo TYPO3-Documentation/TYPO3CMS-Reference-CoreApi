@@ -23,7 +23,7 @@ configuration:
 
 settings:
    Are options that can be modified in the backend, mostly in
-   :guilabel:`ADMIN TOOLS > Settings`
+   :guilabel:`Admin Tools > Settings`
 
 
 

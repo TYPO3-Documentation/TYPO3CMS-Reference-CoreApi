@@ -165,7 +165,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_mode']
       1:
          Send a notification-email every time a backend user logs in
       2:
-         Send a notification-email every time an ADMIN backend user logs in
+         Send a notification-email every time an **admin** backend user logs in
 
    Send emails to :php:`warning_email_addr`  upon backend-login
 

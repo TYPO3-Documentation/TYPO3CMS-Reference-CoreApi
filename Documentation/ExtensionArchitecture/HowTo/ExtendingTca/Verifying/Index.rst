@@ -8,11 +8,11 @@
 Verifying the TCA
 =================
 You may find it necessary – at some point – to verify the full
-structure of the :php:`$GLOBALS['TCA']` in your TYPO3 installation. The **SYSTEM >
-Configuration** module makes it possible to have an overview of the
+structure of the :php:`$GLOBALS['TCA']` in your TYPO3 installation.
+The :guilabel:`System > Configuration` module makes it possible to have an overview of the
 complete :php:`$GLOBALS['TCA']`, with all customizations taken into account.
 
-.. note:: The **Configuration** module is part of the lowlevel system extension. In Composer mode
+.. note:: The :guilabel:`Configuration` module is part of the lowlevel system extension. In Composer mode
    you can install it with:
 
    .. code-block:: shell
