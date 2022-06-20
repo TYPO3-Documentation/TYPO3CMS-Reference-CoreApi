@@ -16,8 +16,10 @@ Backend module configuration
 The configuration of backend modules is placed in the
 dedicated :file:`Configuration/Backend/Modules.php` configuration file.
 
-Those files are then read and processed when building the container. This
-means the state is fixed and cannot be changed at runtime.
+.. note::
+   The :file:`Configuration/Backend/Modules.php` configuration  files are
+   read and processed when building the container. This
+   means the state is fixed and cannot be changed at runtime.
 
 Example: register two backend modules
 =====================================
@@ -81,8 +83,8 @@ Module configuration options
    has to be set here. Have a look into the
    :ref:`list of available toplevel modules. <backend-modules-toplevel-module>`
 
-   Extensions can add additional parent modules by defining
-   :confval:`standalone` modules.
+   Extensions can add additional parent modules, see
+   :ref:`backend-modules-toplevel-module`.
 
 .. confval:: path
 

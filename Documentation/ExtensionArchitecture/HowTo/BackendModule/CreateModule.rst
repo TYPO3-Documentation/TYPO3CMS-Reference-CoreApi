@@ -22,7 +22,9 @@ When creating a controller without Extbase an instance of :php:`ModuleTemplate` 
 to return the rendered template:
 
 .. code-block:: php
+   :caption: EXT:examples/Classes/Controller/AdminModuleController.php
 
+   // the module template will be initialized in handleRequest()
    use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
    use TYPO3\CMS\Core\Imaging\IconFactory;
 
@@ -67,11 +69,12 @@ This makes it possible to include e.g. Javascript for all actions in the control
 
    public function handleRequest(ServerRequestInterface $request): ResponseInterface
    {
-       $languageService = $this->getLanguageService();
+       $languageService = $GLOBALS['LANG'];
        $languageService->includeLLFile('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf');
 
        $this->menuConfig($request);
        $moduleTemplate = $this->moduleTemplateFactory->create($request, 't3docs/examples');
+       // setUpDocHeader() is documented below
        $this->setUpDocHeader($moduleTemplate);
 
        $title = $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf:mlang_tabs_tab');

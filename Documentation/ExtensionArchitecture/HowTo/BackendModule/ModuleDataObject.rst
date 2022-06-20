@@ -9,16 +9,17 @@ Module data object
 
 .. versionadded:: 12.0
 
-The :php:`TYPO3\CMS\Backend\Module\ModuleData` object is available as
-attribute of the PSR-7 Request - in case a TYPO3 backend module is requested -
-and contains the stored module data, which might have been overwritten
-through the current request (with :php:`GET` / :php:`POST`).
 
 The :php:`TYPO3\CMS\Backend\Module\ModuleData` object contains the user
 specific module settings, for example whether the clipboard is shown,
 for the requested module. Those settings
 are fetched from the user's session. A PSR-15 middleware automatically
 creates the object from the stored user data and attaches it to the PSR-7 Request.
+
+The :php:`TYPO3\CMS\Backend\Module\ModuleData` object is available as
+attribute of the PSR-7 Request - in case a TYPO3 backend module is requested -
+and contains the stored module data, which might have been overwritten
+through the current request (with :php:`GET` / :php:`POST`).
 
 Through the module registration one can define, which properties can
 be overwritten via :php:`GET` / :php:`POST` and their default value.
