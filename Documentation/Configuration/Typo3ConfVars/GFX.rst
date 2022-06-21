@@ -137,28 +137,6 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path']
    Path to the IM tools convert, combine, identify.
 
 .. index::
-   TYPO3_CONF_VARS GFX; processor_path_lzw
-.. _typo3ConfVars_gfx_processor_path_lzw:
-
-$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path_lzw']
-========================================================
-
-.. confval:: processor_path_lzw
-
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']
-   :type: text
-   :Default: '/usr/bin/'
-
-   Path to the IM tool convert with LZW enabled! See gif_compress.
-   If your version 4.2.9 of ImageMagick is compiled with LZW you may leave
-   this field blank AND disable the flag gif_compress.
-
-   .. tip::
-      You can call LZW convert with a prefix like myver_convert by setting
-      this path with it, eg. :php:`'/usr/bin/myver_'` instead of just
-      :php:`'/usr/bin/'`.
-
-.. index::
    TYPO3_CONF_VARS GFX; processor
 .. _typo3ConfVars_gfx_processor:
 
