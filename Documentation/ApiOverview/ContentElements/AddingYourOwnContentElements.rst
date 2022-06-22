@@ -124,7 +124,7 @@ to find for editors. It is therefore advised to add the new content element
 to this wizard (via page TSconfig).
 
 .. code-block:: typoscript
-   :caption: EXT:my_sitepackage/Configuration/page.tsconfig
+   :caption: EXT:examples/Configuration/page.tsconfig
 
    mod.wizards.newContentElement.wizardItems {
       // add the content element to the tab "common"
@@ -145,7 +145,7 @@ to this wizard (via page TSconfig).
 
 .. versionchanged:: 12.0
 
-   Starting with TYPO3 version 12.0 file :file:`EXT:my_sitepackage/Configuration/page.tsconfig`
+   Starting with TYPO3 version 12.0 file :file:`EXT:examples/Configuration/page.tsconfig`
    is automatically included. For version 11.5 and below this file has to be included in the
    :file:`ext_localconf.php`. See :ref:`Setting global page TSconfig, compatible with TYPO3
    11 and 12 <t3tsconfig:global-page-tsconfig-compatible-with-typo3-11-and-12>`.
