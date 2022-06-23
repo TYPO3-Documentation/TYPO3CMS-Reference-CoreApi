@@ -115,5 +115,11 @@ return [
         "class"=> \TYPO3\CMS\Backend\Controller\Event\ModifyGenericBackendMessagesEvent::class,
         "targetFileName"=> "Events/Backend/ModifyGenericBackendMessagesEvent.rst.txt",
         "withCode"=> false
-    ]
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> TYPO3\CMS\Backend\Module\BeforeModuleCreationEvent::class,
+        "targetFileName"=> "Events/Backend/BeforeModuleCreationEvent.rst.txt",
+        "withCode"=> false
+    ],
 ];

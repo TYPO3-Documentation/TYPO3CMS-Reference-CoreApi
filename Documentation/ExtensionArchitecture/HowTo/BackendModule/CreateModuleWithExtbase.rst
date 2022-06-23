@@ -1,19 +1,19 @@
 .. include:: /Includes.rst.txt
 
-
+.. _backend-modules-extbase:
 .. _backend-modules-template:
 
-===============================
-Backend Template View (Extbase)
-===============================
+====================================
+Create a backend module with Extbase
+====================================
 
 .. tip::
 
-   If you don't want to do extensive data modelling templates can be written
+   If you don't want to do extensive data modeling templates can be written
    :ref:`without Extbase. <backend-modules-template-without-extbase>`
 
 
-Modern backend modules can be written using the Extbase/Fluid combination.
+Backend modules can be written using the Extbase/Fluid combination.
 
 The factory :php:`TYPO3\CMS\Backend\Template\ModuleTemplateFactory` can be used
 to retrieve the :php:`\TYPO3\CMS\Backend\Template\ModuleTemplate`

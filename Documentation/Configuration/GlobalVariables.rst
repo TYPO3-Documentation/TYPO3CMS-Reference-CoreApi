@@ -9,6 +9,11 @@
 $GLOBALS
 ========
 
+.. versionchanged:: 12.0
+   The global variable :php:`$GLOBALS['TBE_MODULES']` was removed. Setting it
+   has no effect anymore. Use the
+   :ref:`ModuleProvider <backend-modules-api>` instead.
+
 .. confval:: TYPO3_CONF_VARS
 
    :Path: $GLOBALS
@@ -41,20 +46,6 @@ $GLOBALS
    :Frontend: Yes
 
    Global registration of :ref:`services <services-introduction>`.
-
-
-
-.. confval:: TBE_MODULES
-
-   :Path: $GLOBALS
-   :type: array
-   :Defined: :file:`typo3/sysext/core/ext_tables.php`
-   :Frontend: (occasionally)
-
-   The backend main/sub-module structure. See section elsewhere plus
-   source code of class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader` which also includes some
-   examples.
-
 
 .. confval:: TBE_MODULES_EXT
 

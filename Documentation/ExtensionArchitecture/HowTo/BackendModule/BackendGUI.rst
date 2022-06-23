@@ -1,12 +1,13 @@
 .. include:: /Includes.rst.txt
-.. index:: ! Backend interface
+.. index:: ! Backend GUI
+.. _backend-gui:
 .. _backend-modules-structure:
 
-=================
-Backend interface
-=================
+===========
+Backend GUI
+===========
 
-The backend interface is essentially driven by the "backend"
+The backend user interface is essentially driven by the "backend"
 system extension and extended by many other system extensions.
 
 It is divided into the following main areas:

@@ -41,3 +41,12 @@ file, which you can use as example:
 `typo3/sysext/backend/Configuration/Backend/Routes.php <https://github.com/typo3/typo3/blob/main/typo3/sysext/backend/Configuration/Backend/Routes.php>`__
 
 Read more about :ref:`Backend routing <backend-routing>`.
+
+:file:`Modules.php`
+====================
+
+Complete path: :file:`EXT:my_extension/Configuration/Backend/Modules.php`.
+
+This file is used for the
+:ref:`Backend module configuration <backend-modules-configuration>`. See that
+chapter for details.

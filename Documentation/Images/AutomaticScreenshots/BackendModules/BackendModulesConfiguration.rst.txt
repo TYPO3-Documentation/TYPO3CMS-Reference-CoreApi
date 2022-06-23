@@ -1,6 +1,0 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
-
-.. figure:: /Images/AutomaticScreenshots/BackendModules/BackendModulesConfiguration.png
-   :class: with-shadow
-
-   Exploring the TBE_MODULES array using the Configuration module
