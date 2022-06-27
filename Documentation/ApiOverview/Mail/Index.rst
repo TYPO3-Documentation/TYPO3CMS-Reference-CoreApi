@@ -265,15 +265,16 @@ Additional notes about the mailspool path:
 *  Must not contain symlinks (important for environments with auto deployment)
 *  Must not contain ``//``, ``..`` or ``\``
 
-Sending Spooled Mails
---------------------
-To send the Spooled Mails you need to start the CLI Command once or install it as a Timed Cronjob.
+Sending spooled mails
+---------------------
 
-.. code-block:: php
+To send the spooled mails you need to run the following CLI command:
 
-   vendor/bin/typo3cms mailer:spool:send
+.. code-block:: bash
+
+   vendor/bin/typo3 mailer:spool:send
    
-Alternatively launch them over a Scheduble Command Task.
+This command can be set up to be run periodically using the TYPO3 Scheduler.
 
 .. index::
    Mail; How to create mails
