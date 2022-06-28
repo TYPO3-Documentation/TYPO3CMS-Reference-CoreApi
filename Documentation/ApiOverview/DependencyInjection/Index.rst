@@ -80,7 +80,7 @@ Background and history
 ======================
 
 Obtaining object instances in TYPO3 has always been pretty straight: Just call
-:php:`GeneralUtility::makeInstance(\Vendor\Extension\Some\Class::class)` and hand over
+:php:`GeneralUtility::makeInstance(\Vendor\MyExtension\Some\Class::class)` and hand over
 mandatory and optional :php:`__construct()` arguments as additional arguments.
 
 There are two quirks to that:
@@ -305,10 +305,11 @@ controller service. A typical constructor dependency injection to resolve the
 dependency by the framework looks like this:
 
 .. code-block:: php
+   :caption: EXT:my_extension/Controller/UserController.php
 
-   namespace MyVendor\MyExtension\Controller;
+   namespace Vendor\MyExtension\Controller;
 
-   use MyVendor\MyExtension\Repository\UserRepository;
+   use Vendor\MyExtension\Repository\UserRepository;
 
    final class UserController
    {
@@ -333,10 +334,11 @@ Method injection
 A second way to get services injected is by using :php:`inject*()` methods:
 
 .. code-block:: php
+   :caption: EXT:my_extension/Controller/UserController.php
 
-   namespace MyVendor\MyExtension\Controller;
+   namespace Vendor\MyExtension\Controller;
 
-   use MyVendor\MyExtension\Repository\UserRepository;
+   use Vendor\MyExtension\Repository\UserRepository;
 
    final class UserController
    {
@@ -358,11 +360,12 @@ since the instance is not set during :php:`__construct()`. But that's just an
 implementation detail. More important is an abstraction scenario. Consider this case:
 
 .. code-block:: php
+   :caption: EXT:my_extension/Controller/UserController.php
 
-   namespace MyVendor\MyExtension\Controller;
+   namespace Vendor\MyExtension\Controller;
 
-   use MyVendor\MyExtension\Repository\UserRepository;
-   use MyVendor\MyExtension\Logger\Logger;
+   use Vendor\MyExtension\Repository\UserRepository;
+   use Vendor\MyExtension\Logger\Logger;
 
    abstract class AbstractController
    {
@@ -429,10 +432,11 @@ Apart from constructor injection and :php:`inject*()` method injection, there is
 useful dependency injection scenario. Look at this example:
 
 .. code-block:: php
+   :caption: EXT:my_extension/Controller/UserController.php
 
-   namespace MyVendor\MyExtension\Controller;
+   namespace Vendor\MyExtension\Controller;
 
-   use MyVendor\MyExtension\Logger\LoggerInterface;
+   use Vendor\MyExtension\Logger\LoggerInterface;
 
    final class UserController extends AbstractController
    {
@@ -499,7 +503,7 @@ Flushing all caches from the cache clear menu does not flush the compiled Symfon
        autoconfigure: true
        public: false
 
-     Vendor\SomeExtension\:
+     Vendor\MyExtension\:
        resource: '../Classes/*'
        exclude: '../Classes/Domain/Model/*'
 
@@ -662,7 +666,7 @@ class has to be configured as :yaml:`public: true`.
 
    (1/1) ArgumentCountError
 
-   Too few arguments to function Vendor\ExtName\Namespace\Class::__construct(),
+   Too few arguments to function Vendor\MyExtension\Namespace\Class::__construct(),
    0 passed in typo3/sysext/core/Classes/Utility/GeneralUtility.php on line 3461 and exactly 1 expected
 
 An :php:`Error` is raised on missing dependency injection for
