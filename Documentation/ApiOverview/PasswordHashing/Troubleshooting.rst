@@ -34,8 +34,8 @@ given user password to *argon2i* if the install tool has not been
 executed once.
 
 This typically happens if a system has just been upgraded and a
-backend login has been performed before the install tool has silently executed 
-upgrade wizards.
+backend login has been performed before the install tool has executed 
+the silent configuration upgrade.
 
 
 Solutions
