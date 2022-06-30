@@ -49,7 +49,7 @@ Alternatives: :file:`Resources/Public/Icons/Extension.png`,
 These file names are reserved for th extension icon, which will be displayed
 in the extension manager.
 
-It must be in format SVG (preferred), PNG or GIF and should have at least 18x16
+It must be in format SVG (preferred), PNG or GIF and should have at least 16x16
 pixels.
 
 Common subfolders
