@@ -27,7 +27,8 @@ Constructor injection can be used to automatically instantiate the logger:
    class MyClass {
        private LoggerInterface $logger;
 
-       public function __construct(LoggerInterface $logger) {
+       public function __construct(LoggerInterface $logger)
+       {
            $this->logger = $logger;
        }
    }
