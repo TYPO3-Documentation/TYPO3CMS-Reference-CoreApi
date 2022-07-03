@@ -13,20 +13,4 @@ Event which is fired before the storage backend is asked for results from a give
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-getQuery()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Extbase\Persistence\QueryInterface`
-   :sep:`|`
-
-   |nbsp|
-
-setQuery()
-   :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/Extbase/ModifyQueryBeforeFetchingObjectDataEvent.rst.txt

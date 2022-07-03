@@ -76,32 +76,4 @@ executed after or before the given identifiers.
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-getHrefLangs()
-   :sep:`|` :aspect:`ReturnType:` array
-   :sep:`|`
-
-   |nbsp|
-
-setHrefLangs()
-   :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|`
-
-   Set the hreflang tags.
-
-addHrefLang()
-   :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|` :aspect:`Arguments:` `$languageCode` The language of the hreflang tag you would like to add. For example: nl-NL - `$url` The URL of the translation. For example: :samp:`https://example.org/nl`
-   :sep:`|`
-
-   Add a hreflang tag to the current list of hreflang tags.
-
-getRequest()
-   :sep:`|` :aspect:`ReturnType:` `\Psr\Http\Message\ServerRequestInterface`
-   :sep:`|`
-
-   |nbsp|
+.. include:: /CodeSnippets/Events/Frontend/ModifyHrefLangTagsEvent.rst.txt

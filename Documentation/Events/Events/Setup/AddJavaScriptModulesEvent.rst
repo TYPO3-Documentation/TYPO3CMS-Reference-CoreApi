@@ -58,19 +58,4 @@ A listener using mentioned PSR-14 event could look like the following.
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-addModule(string $moduleName)
-   :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|` :aspect:`Arguments:` :php:`$moduleName`: The JavaScript module name
-
-   Add a module to be loaded with RequireJS (e.g. :code:`TYPO3/CMS/MyExtension/CustomUserSettingsModule`)
-
-getModules()
-   :sep:`|` :aspect:`ReturnType:` array
-   :sep:`|`
-
-   |nbsp|
+.. include:: /CodeSnippets/Events/Setup/AddJavaScriptModulesEvent.rst.txt

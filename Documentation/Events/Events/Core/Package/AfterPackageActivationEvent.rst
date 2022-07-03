@@ -16,27 +16,4 @@ Event that is triggered after a package has been activated.
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-
-.. rst-class:: dl-parameters
-
-getPackageKey()
-   :sep:`|` :aspect:`ReturnType:` string
-   :sep:`|`
-
-   |nbsp|
-
-getType()
-   :sep:`|` :aspect:`ReturnType:` string
-   :sep:`|`
-
-   |nbsp|
-
-getEmitter()
-   :sep:`|` :aspect:`ReturnType:` object
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/Core/AfterPackageActivationEvent.rst.txt
