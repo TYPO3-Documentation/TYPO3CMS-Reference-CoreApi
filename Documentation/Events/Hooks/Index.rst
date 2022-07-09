@@ -307,6 +307,14 @@ along to the function via :php:`$_params`. In the user-defined function
 return value is insignificant - everything works by the reference to
 the parent object.
 
+.. attention::
+   The hook mentioned in this example has been removed with TYPO3 version
+   12.0. The general description on how to call hooks is still valid for the
+   few remaining hooks in the TYPO3 Core.
+
+   If you need to post process the content, use the event
+   :ref:`AfterCacheableContentIsGeneratedEvent` starting with TYPO3 12.
+
 .. code-block:: php
    :caption: typo3/sysext/some_extension/ext_localconf.php
 
