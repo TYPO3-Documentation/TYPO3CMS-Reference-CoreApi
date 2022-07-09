@@ -21,7 +21,7 @@ to modify the set of handlers that will be used.
 
 .. seealso::
    *  :ref:`modifyLinkHandlers`
-   *  :ref:`ModifyLinkHandlersEvent`
+   *  :ref:`ModifyAllowedItemsEvent`
 
 Example
 =======
