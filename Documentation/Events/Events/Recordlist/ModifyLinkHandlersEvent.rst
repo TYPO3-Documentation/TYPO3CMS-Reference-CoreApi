@@ -10,13 +10,18 @@ ModifyLinkHandlersEvent
 .. versionadded:: 12.0
    This event has been introduced together with
    :ref:`ModifyAllowedItemsEvent` to
-   serve as a direct replacement for following removed hooks:
+   serve as a direct replacement for following removed hook:
 
-   *  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks']['modifyLinkHandlers']
-   *  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks']['modifyAllowedItems']
+   *  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks']
+
+   It replaces the method :php:`modifyLinkHandlers()` in this hook.
 
 This event is triggered before link handlers are executed, allowing listeners
 to modify the set of handlers that will be used.
+
+.. seealso::
+   *  :ref:`modifyLinkHandlers`
+   *  :ref:`ModifyLinkHandlersEvent`
 
 Example
 =======

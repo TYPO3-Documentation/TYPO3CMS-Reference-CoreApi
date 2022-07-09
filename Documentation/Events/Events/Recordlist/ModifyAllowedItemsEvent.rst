@@ -10,12 +10,18 @@ ModifyAllowedItemsEvent
 .. versionadded:: 12.0
    This event has been introduced together with
    :ref:`ModifyLinkHandlersEvent` to
-   serve as a direct replacement for following removed hooks:
+   serve as a direct replacement for following removed hook:
 
-   *  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks']['modifyLinkHandlers']
-   *  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks']['modifyAllowedItems']
+   *  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks']
 
-This event allows extensions to add or remove from the list of allowed link types.
+   It replaces the method :php:`modifyAllowedItems()` in this hook.
+
+This event allows extension developers to dynamically modify the the
+registered LinkHandlers.
+
+.. seealso::
+   *  :ref:`modifyLinkHandlers`
+   *  :ref:`ModifyLinkHandlersEvent`
 
 Example
 =======
