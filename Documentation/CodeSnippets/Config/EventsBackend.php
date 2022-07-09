@@ -122,4 +122,10 @@ return [
         "targetFileName"=> "Events/Backend/BeforeModuleCreationEvent.rst.txt",
         "withCode"=> false
     ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent::class,
+        "targetFileName"=> "Events/Backend/AfterBackendPageRenderEvent.rst.txt",
+        "withCode"=> false
+    ],
 ];

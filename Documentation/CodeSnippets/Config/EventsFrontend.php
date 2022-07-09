@@ -62,4 +62,17 @@ return [
         "targetFileName"=> "Events/Frontend/AfterPageWithRootLineIsResolvedEvent.rst.txt",
         "withCode"=> false
     ],
+    // TYPO3 12.0
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Frontend\Event\AfterCacheableContentIsGeneratedEvent::class,
+        "targetFileName"=> "Events/Frontend/AfterCacheableContentIsGeneratedEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Frontend\Event\AfterCachedPageIsPersistedEvent::class,
+        "targetFileName"=> "Events/Frontend/AfterCachedPageIsPersistedEvent.rst.txt",
+        "withCode"=> false
+    ],
 ];
