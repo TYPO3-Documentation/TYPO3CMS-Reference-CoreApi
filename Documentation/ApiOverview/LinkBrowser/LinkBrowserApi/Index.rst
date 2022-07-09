@@ -139,6 +139,8 @@ sysext.
 
 .. index:: pair: LinkBrowser; Hooks
 
+.. _modifyLinkHandlers:
+
 Hooks
 -----
 
