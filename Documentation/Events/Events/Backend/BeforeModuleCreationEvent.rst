@@ -15,28 +15,28 @@ Registration of an event listener in the :file:`Services.yaml`:
 .. code-block:: yaml
    :caption: EXT:my_extension/Configuration/Services.yaml
 
-  MyVendor\MyExtension\Backend\ModifyModuleIcon:
-    tags:
-      - name: event.listener
-        identifier: 'my-extension/backend/modify-module-icon'
+   MyVendor\MyExtension\Backend\ModifyModuleIcon:
+     tags:
+       - name: event.listener
+         identifier: 'my-extension/backend/modify-module-icon'
 
 The corresponding event listener class:
 
 .. code-block:: php
    :caption: EXT:my_extension/Classes/Backend/ModifyModuleIcon.php
 
-    use TYPO3\CMS\Backend\Module\BeforeModuleCreationEvent;
+   use TYPO3\CMS\Backend\Module\BeforeModuleCreationEvent;
 
-    final class ModifyModuleIcon {
+   final class ModifyModuleIcon {
 
-        public function __invoke(BeforeModuleCreationEvent $event): void
-        {
-            // Change module icon of page module
-            if ($event->getIdentifier() === 'web_layout') {
-                $event->setConfigurationValue('iconIdentifider', 'my-custom-icon-identifier');
-            }
-        }
-    }
+       public function __invoke(BeforeModuleCreationEvent $event): void
+       {
+           // Change module icon of page module
+           if ($event->getIdentifier() === 'web_layout') {
+               $event->setConfigurationValue('iconIdentifider', 'my-custom-icon-identifier');
+           }
+       }
+   }
 
 API
 ===

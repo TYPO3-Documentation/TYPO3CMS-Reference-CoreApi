@@ -19,6 +19,7 @@ ModifyAllowedItemsEvent
 This  allows extensions to add or remove from the list of allowed link types.
 
 .. seealso::
+
    *  :ref:`modifyLinkHandlers`
    *  :ref:`ModifyLinkHandlersEvent`
 
