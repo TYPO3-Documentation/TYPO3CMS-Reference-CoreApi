@@ -16,8 +16,7 @@ ModifyAllowedItemsEvent
 
    It replaces the method :php:`modifyAllowedItems()` in this hook.
 
-This event allows extension developers to dynamically modify the the
-registered LinkHandlers.
+This  allows extensions to add or remove from the list of allowed link types.
 
 .. seealso::
    *  :ref:`modifyLinkHandlers`
