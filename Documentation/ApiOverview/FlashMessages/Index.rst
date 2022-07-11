@@ -94,7 +94,7 @@ rendering the next request:
    :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
    use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Core\Messaging\FlashMessageServic;
+   use TYPO3\CMS\Core\Messaging\FlashMessageService;
 
    $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
    $messageQueue = $flashMessageService->getMessageQueueByIdentifier();
