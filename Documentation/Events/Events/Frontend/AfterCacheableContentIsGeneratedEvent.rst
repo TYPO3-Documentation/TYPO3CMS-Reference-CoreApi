@@ -21,8 +21,8 @@ to decide if a page should be stored in cache.
 
 It is executed right after all cacheable content is generated.
 It can also be used to manipulate the content before it is stored in
-TYPO3's page cache. In the Core the event is used in
-in EXT:indexed_search to index cacheable content.
+TYPO3's page cache. In the Core, the event is used in
+:doc:`EXT:indexed_search <ext_indexed_search:Index>` to index cacheable content.
 
 The :php:`AfterCacheableContentIsGeneratedEvent` contains the
 information if a generated page is able to store in cache via the
