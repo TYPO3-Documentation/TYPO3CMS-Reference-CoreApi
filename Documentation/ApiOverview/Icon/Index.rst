@@ -139,7 +139,6 @@ size
    -  :js:`small`: fixed to 16px
    -  :js:`medium`: fixed to 32px (default)
    -  :js:`large`: fixed to 64px
-   `, `default`, `large` and `overlay`.
 
 overlayIdentifier
    :sep:`|` :aspect:`Condition:` optional
