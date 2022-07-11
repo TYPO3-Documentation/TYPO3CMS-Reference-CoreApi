@@ -74,7 +74,16 @@ You can use the :php:`IconFactory` to request an icon:
    );
    $this->view->assign('icon', $icon);
 
+.. versionchanged:: 12.0
 
+   The TYPO3 Icon Api previously defaulted to :php:`Icon::SIZE_DEFAULT` and was
+   adapted to now use :php:`Icon::SIZE_MEDIUM` instead. :php:`Icon::SIZE_MEDIUM`
+   is displayed at a fixed size of 32x32 px while :php:`Icon::SIZE_DEFAULT`
+   now scales with the text.
+   
+   In cases where the size :php:`Icon::SIZE_DEFAULT` was explicitly set this 
+   might result in changed behaviour. Switch to :php:`Icon::SIZE_MEDIUM` then.
+   
 .. index::
    Fluid; Core icon
    pair: Icon API; Fluid
@@ -120,9 +129,16 @@ identifier
 size
    :sep:`|` :aspect:`Condition:` required
    :sep:`|` :aspect:`Type:` string
+   :sep:`|` :aspect:`Default:` medium
    :sep:`|`
 
-   Desired size of the icon. All values of the :js:`Icons.sizes` enum are allowed, these are: `small`, `default`, `large` and `overlay`.
+   Desired size of the icon. All values of the :js:`Icons.sizes` enum are allowed, 
+   these are: 
+   
+   -  :js:`default`:  1em, to scale with font size
+   -  :js:`small`: fixed to 16px
+   -  :js:`medium`: fixed to 32px (default)
+   -  :js:`large`: fixed to 64px
 
 overlayIdentifier
    :sep:`|` :aspect:`Condition:` optional
