@@ -15,20 +15,4 @@ Event which is fired after the dispatcher has successfully dispatched a request 
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-getRequest()
-   :sep:`|` :aspect:`ReturnType:` \Psr\Http\Message\ServerRequestInterface
-   :sep:`|`
-
-   |nbsp|
-
-getResponse()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Extbase\Mvc\ResponseInterface`
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/Extbase/AfterRequestDispatchedEvent.rst.txt

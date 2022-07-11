@@ -15,20 +15,4 @@ Additional validation can happen here.
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-.. rst-class:: dl-parameters
-
-getUserInformation()
-   :sep:`|` :aspect:`ReturnType:` array
-   :sep:`|`
-
-   |nbsp|
-
-getEmail()
-   :sep:`|` :aspect:`ReturnType:` :php:`\Symfony\Component\Mime\Email`
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/FrontendLogin/SendRecoveryEmailEvent.rst.txt

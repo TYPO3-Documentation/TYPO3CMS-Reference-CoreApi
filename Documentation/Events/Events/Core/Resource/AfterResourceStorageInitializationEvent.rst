@@ -14,21 +14,4 @@ Custom handlers can be initialized at this moment for any kind of resource as we
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-
-.. rst-class:: dl-parameters
-
-getStorage()
-   :sep:`|` :aspect:`ReturnType:` :php:`\TYPO3\CMS\Core\Resource\ResourceStorage`
-   :sep:`|`
-
-   |nbsp|
-
-setStorage(ResourceStorage $storage)
-   :sep:`|` :aspect:`ReturnType:` void
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/Core/Resource/AfterResourceStorageInitializationEvent.rst.txt

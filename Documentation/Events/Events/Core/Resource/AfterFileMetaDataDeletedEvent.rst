@@ -14,15 +14,4 @@ added previously.
 API
 ---
 
-.. |nbsp| unicode:: 0xA0
-   :trim:
-
-
-.. rst-class:: dl-parameters
-
-getFileUid()
-   :sep:`|` :aspect:`ReturnType:` int
-   :sep:`|`
-
-   |nbsp|
-
+.. include:: /CodeSnippets/Events/Core/Resource/AfterFileMetaDataDeletedEvent.rst.txt
