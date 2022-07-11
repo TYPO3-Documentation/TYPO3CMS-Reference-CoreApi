@@ -152,6 +152,6 @@ Supporting both TYPO3 12 and 11 to modify the available LinkHandlers
 If you want to be compatible to both TYPO3 12 and 11 you can keep your
 implementation of the hooks
 :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks']` as
-described in :ref:`t3coreapi11:modifyLinkHandlers`. And implements the
+described in :ref:`t3coreapi11:modifyLinkHandlers` and implement the
 event listeners at the same time. Remove the hook implementation upon dropping
 TYPO3 11 support.
