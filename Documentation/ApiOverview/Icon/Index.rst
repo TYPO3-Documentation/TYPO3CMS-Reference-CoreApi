@@ -79,7 +79,7 @@ You can use the :php:`IconFactory` to request an icon:
    The TYPO3 Icon Api previously defaulted to :php:`Icon::SIZE_DEFAULT` and was
    adapted to now use :php:`Icon::SIZE_MEDIUM` instead. :php:`Icon::SIZE_MEDIUM`
    is displayed at a fixed size of 32x32 px while :php:`Icon::SIZE_DEFAULT`
-   Now scales with the text.
+   now scales with the text.
    
    In cases where the size :php:`Icon::SIZE_DEFAULT` was explicitly set this 
    might result in changed behaviour. Switch to :php:`Icon::SIZE_MEDIUM` then.
