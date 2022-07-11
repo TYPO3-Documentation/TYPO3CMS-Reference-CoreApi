@@ -138,7 +138,7 @@ sysext.
 Events to modify the available LinkHandlers
 --------------------------------------------
 
-You may have the need to modify the list of available LinkHandlers based on
+You may have to modify the list of available LinkHandlers based on
 some dynamic value.
 
 Starting with TYPO3 version 12.0 you can use the following PSR-14 events:
