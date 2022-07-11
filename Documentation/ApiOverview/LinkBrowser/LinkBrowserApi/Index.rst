@@ -149,7 +149,7 @@ Starting with TYPO3 version 12.0 you can use the following PSR-14 events:
 Supporting both TYPO3 12 and 11 to modify the available LinkHandlers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you want to be compatible to both TYPO3 12 and 11 you can keep your
+If you want to be compatible to both TYPO3 12 and 11, you can keep your
 implementation of the hooks
 :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks']` as
 described in :ref:`t3coreapi11:modifyLinkHandlers` and implement the
