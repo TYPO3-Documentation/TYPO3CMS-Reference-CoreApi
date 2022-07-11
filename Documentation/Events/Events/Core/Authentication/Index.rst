@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 .. index:: pair: Events; Core Authentication
-.. _eventlist-core:
+.. _eventlist-core-authentification:
 
 
 ==========================

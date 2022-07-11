@@ -24,5 +24,18 @@ return [
         "class" => TYPO3\CMS\Recordlist\Event\RenderAdditionalContentToRecordListEvent::class,
         "targetFileName" => "Events/RecordList/RenderAdditionalContentToRecordListEvent.rst.txt",
         "withCode" => false
-    ]
+    ],
+    // TYPO3 12.0
+    [
+        "action" => "createPhpClassDocs",
+        "class" => TYPO3\CMS\Recordlist\Event\ModifyLinkHandlersEvent::class,
+        "targetFileName" => "Events/RecordList/ModifyLinkHandlersEvent.rst.txt",
+        "withCode" => false
+    ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => TYPO3\CMS\Recordlist\Event\ModifyAllowedItemsEvent::class,
+        "targetFileName" => "Events/RecordList/ModifyAllowedItemsEvent.rst.txt",
+        "withCode" => false
+    ],
 ];

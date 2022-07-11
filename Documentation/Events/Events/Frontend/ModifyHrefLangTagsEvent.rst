@@ -21,9 +21,8 @@ Example
 
 An example implementation could look like this:
 
-:file:`EXT:my_extension/Configuration/Services.yaml`
-
 .. code-block:: yaml
+   :caption: EXT:my_extension/Configuration/Services.yaml
 
    services:
      Vendor\MyExtension\HrefLang\EventListener\OwnHrefLang:
@@ -33,12 +32,12 @@ An example implementation could look like this:
            after: 'typo3-seo/hreflangGenerator'
            event: TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent
 
+
 With :yaml:`after` and :yaml:`before`, you can make sure your own listener is
 executed after or before the given identifiers.
 
-:file:`EXT:my_extension/Classes/HrefLang/EventListener/OwnHrefLang.php`
-
 .. code-block:: php
+   :caption: EXT:my_extension/Classes/HrefLang/EventListener/OwnHrefLang.php
 
    namespace Vendor\MyExtension\HrefLang\EventListener;
 

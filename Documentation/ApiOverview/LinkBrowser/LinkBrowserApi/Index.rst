@@ -7,12 +7,6 @@
 LinkBrowser API
 ===============
 
-.. versionadded:: 7.6
-    The LinkBrowser in the TYPO3 backend was made configurable and included hooks,
-    see Change :doc:`ext_core:Changelog/7.6/Feature-66369-AddedLinkBrowserAPIs`.
-    This page has been updated to reflect the changes.
-
-
 .. _linkbrowser-api-description:
 
 Description
@@ -137,32 +131,27 @@ which is the point where the link is handed over to the LinkBrowser for further 
 As an example for a working LinkHandler implementations you can have a look at the LinkHandlers being defined in the
 sysext.
 
-.. index:: pair: LinkBrowser; Hooks
+.. index:: pair: LinkBrowser; Events
 
-Hooks
------
+.. _modifyLinkHandlers:
 
-You may have the need to modify the list of available LinkHandlers based on some dynamic value.
-For this purpose you can register hooks.
+Events to modify the available LinkHandlers
+--------------------------------------------
 
-The registration of a LinkBrowser hook generally happens in your
-:file:`ext_tables.php` and looks like:
+You may have to modify the list of available LinkHandlers based on
+some dynamic value.
 
-.. code-block:: php
-   :caption: EXT:site_package/ext_tables.php
+Starting with TYPO3 version 12.0 you can use the following PSR-14 events:
 
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks'][1444048118] = [
-       'handler' => \Vendor\Ext\MyClass::class,
-       'before' => [], // optional
-       'after' => [] // optional
-   ];
+*  :ref:`ModifyAllowedItemsEvent`
+*  :ref:`ModifyLinkHandlersEvent`
 
-The `before` and `after` elements allow to control the execution order of all registered hooks.
+Supporting both TYPO3 12 and 11 to modify the available LinkHandlers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Currently the following list of hooks is implemented:
-
-modifyLinkHandlers(linkHandlers, currentLinkParts)
-   May modify the list of available LinkHandlers and has to return the final list.
-
-modifyAllowedItems(allowedTabs, currentLinkParts)
-   May modify the list of available tabs and has to return the final list.
+If you want to be compatible to both TYPO3 12 and 11, you can keep your
+implementation of the hooks
+:php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks']` as
+described in :ref:`t3coreapi11:modifyLinkHandlers` and implement the
+event listeners at the same time. Remove the hook implementation upon dropping
+TYPO3 11 support.
