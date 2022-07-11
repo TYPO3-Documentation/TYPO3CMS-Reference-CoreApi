@@ -80,7 +80,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename']
 
 .. index::
    TYPO3_CONF_VARS SYS; defaultScheme
-.. _typo3ConfVars_defaultScheme:
+.. _typo3ConfVars_sys_defaultScheme:
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultScheme']
 ===================================================
