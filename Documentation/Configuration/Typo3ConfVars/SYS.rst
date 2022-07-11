@@ -79,6 +79,27 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename']
    Name of the base-site.
 
 .. index::
+   TYPO3_CONF_VARS SYS; defaultScheme
+.. _typo3ConfVars_defaultScheme:
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultScheme']
+===================================================
+
+.. versionadded:: 12.0
+   The setting :php:`defaultScheme` was added in TYPO3 12 to make it possible to
+   configure the default URI scheme when links are created by the Core.
+   Previously, :php:`'http'` was always used.
+
+.. confval:: defaultScheme
+
+   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
+   :type: text
+   :Default: 'http'
+
+   Set the default URI scheme. This is used within links if no scheme is given.
+   One can set this to :php:`'https'` if this should be used by default.
+
+.. index::
    TYPO3_CONF_VARS SYS; encryptionKey
 .. _typo3ConfVars_sys_encryptionKey:
 
