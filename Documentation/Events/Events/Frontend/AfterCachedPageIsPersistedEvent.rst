@@ -2,18 +2,15 @@
 .. index:: Events; AfterCachedPageIsPersistedEvent
 .. _AfterCachedPageIsPersistedEvent:
 
-================================
+===============================
 AfterCachedPageIsPersistedEvent
-================================
+===============================
 
 .. versionadded:: 12.0
 
    This event together with :ref:`AfterCacheableContentIsGeneratedEvent` has
-   been introduced to serve as a direct replacement for the removed hooks:
+   been introduced to serve as a direct replacement for the removed hook:
 
-   * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-cached']`
-   * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all']`
-   * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['usePageCache']`
    * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['insertPageIncache']`
 
 The :php:`AfterCachedPageIsPersistedEvent` is commonly used to
@@ -41,7 +38,7 @@ The corresponding event listener class:
 
    use TYPO3\CMS\Frontend\Event\AfterCachedPageIsPersistedEvent;
 
-   class MyEventListener {
+   final class MyEventListener {
 
        public function __invoke(AfterCachedPageIsPersistedEvent $event): void
        {

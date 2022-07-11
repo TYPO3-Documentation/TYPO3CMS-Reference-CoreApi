@@ -2,9 +2,9 @@
 .. index:: Events; AfterCacheableContentIsGeneratedEvent
 .. _AfterCacheableContentIsGeneratedEvent:
 
-======================================
+=====================================
 AfterCacheableContentIsGeneratedEvent
-======================================
+=====================================
 
 .. versionadded:: 12.0
 
@@ -14,7 +14,6 @@ AfterCacheableContentIsGeneratedEvent
    * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-cached']`
    * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all']`
    * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['usePageCache']`
-   * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['insertPageIncache']`
 
 The event :php:`AfterCacheableContentIsGeneratedEvent` can be used
 to decide if a page should be stored in cache.
@@ -52,7 +51,7 @@ The corresponding event listener class:
 
    use TYPO3\CMS\Frontend\Event\AfterCacheableContentIsGeneratedEvent;
 
-   class MyEventListener {
+   final class MyEventListener {
 
        public function __invoke(AfterCacheableContentIsGeneratedEvent $event): void
        {
