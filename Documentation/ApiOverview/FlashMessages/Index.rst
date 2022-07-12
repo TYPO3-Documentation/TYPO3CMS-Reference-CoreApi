@@ -120,7 +120,6 @@ messages from the queue as inline flash messages. Here's how such a message look
 
 .. include:: /Images/AutomaticScreenshots/Examples/FlashMessages/FlashMessagesExample.rst.txt
 
-<<<<<<< HEAD
 This shows flash messages with 2 types of rendering mechanisms:
 
 *  several flash messages are displayed **inline**
