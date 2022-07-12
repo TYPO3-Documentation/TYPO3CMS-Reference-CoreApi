@@ -118,7 +118,7 @@ There are 3 ways to import ViewHelper namespaces in TYPO3. In all three examples
 `blog` is the namespace available within the Fluid template and
 `MyVendor\BlogExample\ViewHelpers` is the PHP namespace to import into Fluid.
 
-1. Use an html element with xmlns
+1. Use an :html:`<html>` tag with xmlns
 
    .. code-block:: html
       :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
