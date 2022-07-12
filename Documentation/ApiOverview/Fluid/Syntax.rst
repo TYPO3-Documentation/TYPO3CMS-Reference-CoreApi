@@ -71,14 +71,101 @@ It is possible to access array or object values by a dynamic index:
 
    myArray.{myIndex}
 
-ViewHelper attributes
-=====================
+.. _fluid-syntax-viewhelpers:
+
+ViewHelpers
+===========
+
+ViewHelpers are special tags in the template which provide more complex
+functionality such as loops or generating links.
+
+The functionality of the ViewHelper is implemented in PHP, every ViewHelper has
+its own PHP class.
 
 See the :doc:`Fluid Viewhelper Reference <t3viewhelper:Index>` for a complete
 list of all available ViewHelpers.
 
+Within Fluid, the ViewHelper is used as a special HTML element with a namespace
+prefix, for example the namespace prefix "f" is used for ViewHelpers from the
+Fluid namespace:
+
+.. code-block:: html
+   :caption: Fluid example with for ViewHelper
+
+   <f:for each="{results}" as="result">
+      <li>{result.title}</li>
+   </f:for>
+
+The "f" namespace is already defined, but can be explicitly specified to
+improve IDE autocompletion.
+
+Fluid example with custom ViewHelper "custom" in namespace "my":
+
+.. code-block:: html
+   :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+
+   <blog:custom argument1="something"/>
+
+Here, we are using a custom ViewHelper within the namespace my. The namespace
+must be registered explicitly, see the next section.
+
+.. _fluid-syntax-viewhelpers-import-namespaces:
+
+Import ViewHelper namespaces
+----------------------------
+
+There are 3 ways to import ViewHelper namespaces in TYPO3. In all three examples
+`blog` is the namespace available within the Fluid template and
+`MyVendor\BlogExample\ViewHelpers` is the PHP namespace to import into Fluid.
+
+1. Use an html element with xmlns
+
+   .. code-block:: html
+      :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+
+      <html
+       xmlns:blog="http://typo3.org/ns/Myvendr/MyExtension/ViewHelpers"
+       data-namespace-typo3-fluid="true">
+
+      </html>
+
+   If the attribute :html:`data-namespace-typo3-fluid="true"` is specified on the
+   :html:`html` element, the HTML element itself won’t be rendered. This is useful
+   for various IDEs and HTML auto-completion.
+
+2. Local namespace import via curly braces {}-syntax
+
+   .. code-block:: html
+      :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+
+      {namespace blog=MyVendor\BlogExample\ViewHelpers}
+
+   Each of the rows will result in a blank line. Multiple import statements can go
+   into a single or multiple lines.
+
+3. Global namespace import
+
+   Fluid allows for registering namespaces. This is already done for
+   `typo3/cms-fluid` and `typo3fluid/fluid` ViewHelpers. Therefore they are always
+   available via the `f` namespace.
+
+   Custom ViewHelpers, e.g. for a site package, can be registered the same way.
+   Namespaces are registered within
+   :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']`, for example:
+
+   .. code-block:: php
+      :caption: EXT:blog_example/ext_localconf.php
+
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['blog'] = [
+           'MyVendor\BlogExample\ViewHelpers',
+       ];
+
+
+Viewhelper attributes
+---------------------
+
 Simple
-------
+~~~~~~
 
 Variables can be inserted into ViewHelper attributes by putting them in
 curly braces:
