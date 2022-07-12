@@ -124,6 +124,7 @@ Use the php:`FlashMessageQueue::NOTIFICATION_QUEUE` to submit a flash message
 as top-right notifications, instead of inline:
 
 .. code-block:: php
+   :caption: my_extension/Classes/Controller/MyController.php
 
     $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
     $notificationQueue = $flashMessageService->getMessageQueueByIdentifier(FlashMessageQueue::NOTIFICATION_QUEUE);
