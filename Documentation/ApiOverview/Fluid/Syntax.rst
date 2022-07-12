@@ -99,7 +99,7 @@ Fluid namespace:
 The "f" namespace is already defined, but can be explicitly specified to
 improve IDE autocompletion.
 
-Fluid example with custom ViewHelper "custom" in namespace "my":
+Fluid example with custom ViewHelper "custom" in namespace "blog":
 
 .. code-block:: html
    :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
