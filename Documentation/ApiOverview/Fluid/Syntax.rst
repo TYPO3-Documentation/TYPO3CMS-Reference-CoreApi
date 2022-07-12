@@ -149,7 +149,7 @@ There are 3 ways to import ViewHelper namespaces in TYPO3. In all three examples
    `typo3/cms-fluid` and `typo3fluid/fluid` ViewHelpers. Therefore they are always
    available via the `f` namespace.
 
-   Custom ViewHelpers, e.g. for a site package, can be registered the same way.
+   Custom ViewHelpers, for example for a site package, can be registered the same way.
    Namespaces are registered within
    :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']`, for example:
 
