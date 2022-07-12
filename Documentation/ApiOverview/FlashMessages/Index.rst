@@ -37,6 +37,9 @@ The different severity levels are described below:
 Flash messages API
 ==================
 
+Instantiate FlashMessage
+------------------------
+
 Creating a flash message is achieved by simply instantiating an object
 of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`
 
@@ -84,6 +87,15 @@ The severity is defined by using class constants provided by
 
 *  :php:`FlashMessage::ERROR` for errors
 
+The fourth parameter passed to the constructor is a flag that
+indicates whether the message should be stored in the session or not (the
+default is not). Storage in the session should be used if you need the
+message to be still present after a redirection.
+
+Add FlashMessage to queue
+-------------------------
+
+>>>>>>> 57ed2c9f (Add additional headers to FlashMessage page)
 In backend modules you can then make that message appear on top of the
 module after a page refresh or the rendering of the next page request
 or render it on your own where ever you want.
@@ -108,6 +120,7 @@ messages from the queue as inline flash messages. Here's how such a message look
 
 .. include:: /Images/AutomaticScreenshots/Examples/FlashMessages/FlashMessagesExample.rst.txt
 
+<<<<<<< HEAD
 This shows flash messages with 2 types of rendering mechanisms:
 
 *  several flash messages are displayed **inline**
@@ -141,7 +154,6 @@ as top-right notifications, instead of inline:
 The recommend way to show flash messages is to use the Fluid Viewhelper :html:`<f:flashMessages />`.
 This Viewhelper works in any context because it use the :php:`FlashMessageRendererResolver` class
 to find the correct renderer for the current context.
-
 
 .. _flash-messages-renderer:
 
