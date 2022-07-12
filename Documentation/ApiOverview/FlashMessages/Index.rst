@@ -37,7 +37,7 @@ The different severity levels are described below:
 Flash messages API
 ==================
 
-Instantiate FlashMessage
+Instantiate a flash message
 ------------------------
 
 Creating a flash message is achieved by simply instantiating an object
