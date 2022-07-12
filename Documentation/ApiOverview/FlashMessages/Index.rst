@@ -47,6 +47,7 @@ of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`
    use TYPO3\CMS\Core\Utility\GeneralUtility;
    use TYPO3\CMS\Core\Messaging\FlashMessage;
 
+   // FlashMessage($message, $title, $severity = self::OK, $storeInSession)
    $message = GeneralUtility::makeInstance(FlashMessage::class,
       'My message text',
       'Message Header',
@@ -54,11 +55,17 @@ of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`
       true
    );
 
-*  Line 5: The text of the message
-*  Line 6: [optional] the header
-*  Line 7: [optional] the severity defaults to FlashMessage::OK
-*  Line 8: [optional] whether the message should be stored in the session or
-   only in the \TYPO3\CMS\Core\Messaging\FlashMessageQueue object (default is false)
+:php:`$message:`
+   The text of the message
+:php:`$title:`
+   [optional] the header
+:php:`$severity:`
+   [optional] the severity (default: :php:`FlashMessage::OK`)
+:php:`$storeInSession:`
+   [optional] :php:`true`: store in the session or :php:`false`: store
+   only in the :php:`\TYPO3\CMS\Core\Messaging\FlashMessageQueue` object. Storage
+   in the session should be used if you need the message to be still present after
+   a redirection (default: :php:`false`).
 
 
 Flash messages severities
@@ -76,11 +83,6 @@ The severity is defined by using class constants provided by
 *  :php:`FlashMessage::WARNING` for warnings
 
 *  :php:`FlashMessage::ERROR` for errors
-
-The fourth parameter passed to the constructor is a flag that
-indicates whether the message should be stored in the session or not (the
-default is not). Storage in the session should be used if you need the
-message to be still present after a redirection.
 
 In backend modules you can then make that message appear on top of the
 module after a page refresh or the rendering of the next page request
