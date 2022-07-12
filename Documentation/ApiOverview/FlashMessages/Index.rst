@@ -38,7 +38,7 @@ Flash messages API
 ==================
 
 Instantiate a flash message
-------------------------
+---------------------------
 
 Creating a flash message is achieved by simply instantiating an object
 of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`
@@ -93,7 +93,7 @@ default is not). Storage in the session should be used if you need the
 message to be still present after a redirection.
 
 Add a flash message to the queue
--------------------------
+--------------------------------
 
 >>>>>>> 57ed2c9f (Add additional headers to FlashMessage page)
 In backend modules you can then make that message appear on top of the
