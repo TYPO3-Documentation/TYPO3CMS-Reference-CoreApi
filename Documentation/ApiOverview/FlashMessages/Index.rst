@@ -152,7 +152,7 @@ as top-right notifications, instead of inline:
     $notificationQueue->enqueue($flashMessage);
 
 The recommended way to show flash messages is to use the Fluid ViewHelper :html:`<f:flashMessages />`.
-This Viewhelper works in any context because it use the :php:`FlashMessageRendererResolver` class
+This ViewHelper works in any context because it use the :php:`FlashMessageRendererResolver` class
 to find the correct renderer for the current context.
 
 .. _flash-messages-renderer:
