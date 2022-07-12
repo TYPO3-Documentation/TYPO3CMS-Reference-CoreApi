@@ -92,7 +92,7 @@ indicates whether the message should be stored in the session or not (the
 default is not). Storage in the session should be used if you need the
 message to be still present after a redirection.
 
-Add FlashMessage to queue
+Add a flash message to the queue
 -------------------------
 
 >>>>>>> 57ed2c9f (Add additional headers to FlashMessage page)
