@@ -87,3 +87,50 @@ curly braces:
    :caption: EXT:site_package/Resources/Private/Templates/SomeTemplate.html
 
    Now it is: <f:format.date format="{format}">{date}</f:format.date>
+
+Fluid inline notation
+=====================
+
+.. tip::
+
+   There is an online converter from tag-based syntax to inline syntax:
+   `Fluid Converter <https://fluid-to-inline-converter.com/>`__
+
+An alternative to the tag based notation used above is inline notation. For
+example, compare the 2 identical Fluid constructs:
+
+.. code-block:: html
+   :caption: EXT:my_extensions/Resources/Private/Templates/Something.html
+
+   <!-- tag based notation -->
+   <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_misc.xlf:bookmark_inactive"/>
+
+   <!-- inline notation -->
+   {f:translate(key: 'LLL:EXT:core/Resources/Private/Language/locallang_misc.xlf:bookmark_inactive')}
+
+Tag based notation and inline notation can be freely mixed within one Fluid
+template.
+
+Inline notation is often a better choice if HTML tags are nested, for example:
+
+.. code-block:: html
+   :caption: EXT:my_extensions/Resources/Private/Templates/Something.html
+
+   <!-- tag based notation -->
+   <span title="<f:translate key='LLL:EXT:core/Resources/Private/Language/locallang_misc.xlf:bookmark_inactive'/>">
+
+   <-- inline notation -->
+   <span title="{f:translate(key: 'LLL:EXT:core/Resources/Private/Language/locallang_misc.xlf:bookmark_inactive')}">
+
+More complex example with chaining:
+
+.. code-block:: html
+   :caption: EXT:my_extensions/Resources/Private/Templates/Something.html
+
+   <!-- tag based notation -->
+   <f:format.padding padLength="40"><f:format.date format="Y-m-d">{post.date}</f:format.date></f:format.padding>
+
+   <!-- inline notation -->
+   {post.date -> f:format.date(format: 'Y-m-d') -> f:format.padding(padLength: 40)}
+
+
