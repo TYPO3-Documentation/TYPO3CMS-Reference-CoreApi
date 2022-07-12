@@ -95,7 +95,6 @@ message to be still present after a redirection.
 Add a flash message to the queue
 --------------------------------
 
->>>>>>> 57ed2c9f (Add additional headers to FlashMessage page)
 In backend modules you can then make that message appear on top of the
 module after a page refresh or the rendering of the next page request
 or render it on your own where ever you want.
