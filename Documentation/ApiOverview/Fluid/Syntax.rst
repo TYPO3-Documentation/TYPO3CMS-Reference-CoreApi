@@ -145,7 +145,7 @@ There are 3 ways to import ViewHelper namespaces in TYPO3. In all three examples
 
 3. Global namespace import
 
-   Fluid allows for registering namespaces. This is already done for
+   Fluid allows to register global namespaces. This is already done for
    `typo3/cms-fluid` and `typo3fluid/fluid` ViewHelpers. Therefore they are always
    available via the `f` namespace.
 
