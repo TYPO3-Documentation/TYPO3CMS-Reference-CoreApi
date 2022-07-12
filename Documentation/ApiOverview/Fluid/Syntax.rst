@@ -106,7 +106,7 @@ Fluid example with custom ViewHelper "custom" in namespace "blog":
 
    <blog:custom argument1="something"/>
 
-Here, we are using a custom ViewHelper within the namespace my. The namespace
+Here, we are using a custom ViewHelper within the namespace "blog". The namespace
 must be registered explicitly, see the next section.
 
 .. _fluid-syntax-viewhelpers-import-namespaces:
