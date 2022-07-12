@@ -88,6 +88,8 @@ curly braces:
 
    Now it is: <f:format.date format="{format}">{date}</f:format.date>
 
+.. _fluid-inline-notation:
+
 Fluid inline notation
 =====================
 
