@@ -1,10 +1,10 @@
 .. include:: /Includes.rst.txt
 
 .. index:: Extbase; Caching
-.. _extbase_caching_of_actions_and_records:
+.. _extbase_caching:
 
 ==============================
-Caching of actions and records
+Caching
 ==============================
 
 Furthermore, Extbase is clearing the TYPO3 cache automatically for update processes. This is called

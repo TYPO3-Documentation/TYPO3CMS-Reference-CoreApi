@@ -1,20 +1,24 @@
+.. include:: /Includes.rst.txt
 
-
-.. index:: Plugins; TypoScript configuration
+.. index:: Extbase; TypoScript configuration
 .. _typoscript_configuration:
 
+========================
 TypoScript configuration
 ========================
 
-Each Extbase extension has some settings which can be modified using TypoScript. Many of these
-settings affect aspects of the internal Configuration of Extbase and Fluid. There is also a block
-``settings`` in which you can set Extension specific settings that can be accessed in the
-controllers and Templates of your extensions.
+Each Extbase extension has some settings which can be modified using TypoScript.
+Many of these settings affect aspects of the internal configuration of Extbase
+and Fluid. There is also a block :typoscript:`settings` in which you can
+set extension specific settings that can be accessed in the controllers and
+templates of your extension.
 
-.. tip::
+All TypoScript settings are made in the following TypoScript blocks:
 
-    These options are always available. Integrators can use them to configure the behavior, even
-    if not intended or provided by the extension's author.
+.. code-block:: typoscript
+   :caption: EXT:blog_example/
+
+
 
 **plugin.tx_[lowercasedextensionname]**
 

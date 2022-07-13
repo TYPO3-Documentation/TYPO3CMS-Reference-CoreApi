@@ -1,4 +1,4 @@
-
+.. include:: /Includes.rst.txt
 
 .. index:: Extbase; Class hierarchy
 .. _class_hierarchy:

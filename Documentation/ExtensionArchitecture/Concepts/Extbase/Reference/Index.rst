@@ -13,3 +13,10 @@ Extbase reference
    :titlesonly:
 
    FrontendPlugins
+   TypoScriptConfiguration
+   ClassHierarchy
+   DomainModel
+   Repository
+   Validation
+   Caching
+   Localization

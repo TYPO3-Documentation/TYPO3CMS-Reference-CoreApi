@@ -1,10 +1,12 @@
+.. include:: /Includes.rst.txt
 
-.. index:: Extbase; Application domain
+.. index:: Extbase; Domain
 
-Application domain of the extension
+===================================
+Domain and model
 ===================================
 
-The domain of the extension is always located below :file:`Classes/Domain`. This folder is structured
+The Application domain of the extension is always located below :file:`Classes/Domain`. This folder is structured
 as follows:
 
 :file:`Model/`

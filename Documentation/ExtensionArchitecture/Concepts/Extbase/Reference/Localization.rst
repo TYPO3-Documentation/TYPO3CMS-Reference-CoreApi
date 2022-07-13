@@ -1,6 +1,8 @@
+.. include:: /Includes.rst.txt
 
-.. index:: Localization
+.. index:: Extbase; Localization
 
+============
 Localization
 ============
 

@@ -1,7 +1,8 @@
+.. include:: /Includes.rst.txt
 
+.. index:: Extbase, Validation
 
-.. index:: Validation
-
+==========
 Validation
 ==========
 

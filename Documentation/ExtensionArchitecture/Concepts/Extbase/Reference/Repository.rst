@@ -1,7 +1,8 @@
+.. include:: /Includes.rst.txt
 
+.. index:: Extbase; Repository
 
-.. index:: Repositories; API
-
+=====================
 Public Repository API
 =====================
 
