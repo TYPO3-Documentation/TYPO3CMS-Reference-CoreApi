@@ -178,8 +178,4 @@ information as the previous example:
 
 The cObject ViewHelper is a powerful option to use the
 best advantages of both worlds by making it possible to embed TypoScript
-expressions in Fluid templates
-
-In the next chapter, we'll turn our attention to a function which most
-ViewHelper have. This function makes it possible to modify the HTML output
-of a ViewHelper by adding your own tag attributes.
+expressions in Fluid templates.
