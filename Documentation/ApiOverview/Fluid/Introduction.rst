@@ -61,10 +61,10 @@ ViewHelpers:
    :ref:`t3viewhelper:typo3fluid-fluid-spaceless` ViewHelper or create a link
    as is done in the TYPO3 Fluid Viewhelper :ref:`t3viewhelper:typo3-fluid-link-page`.
 
-Object Accessors:
-   Fluid can access variables that have been defined. Just use braces
-   and the name of the variable: `{somevariable}`. In Fluid, these placeholders
-   are called `Object Accessors`.
+Expressions, variables:
+   Fluid uses placeholders to fill content in specified areas in the template
+   where the result is rendered when the template is evaluated. Content within
+   braces (e.g. :html:`{somevariable}`) can contain variables or expresssions.
 
 Conditions:
     The conditions are supplied here by the if / then / else ViewHelpers.
