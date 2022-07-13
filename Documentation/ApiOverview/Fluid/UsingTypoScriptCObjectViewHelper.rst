@@ -16,7 +16,7 @@ TypoScript object.
 
    <f:cObject typoscriptObjectPath="lib.title"/>
 
-Now we only have to define ``lib.title`` in the TypoScript
+Now we only have to define :typoscript:`lib.title` in the TypoScript
 Setup:
 
 .. code-block:: typoscript
@@ -44,13 +44,13 @@ image (e.g. headlines with unusual fonts) by changing the TypoScript to:
 
    TypoScript is a flexible configuration language, which can control
    the rendering of a page in much detail. It consists of TypoScript objects
-   (also known as ``Content`` object or ``cObject``) and
+   (also known as :typoscript:`Content` object or :typoscript:`cObject`) and
    their configuration options.
 
-   The simplest ``Content`` object is ``TEXT``
-   which outputs unmodified text. The TypoScript object ``IMAGE``
+   The simplest :typoscript:`Content` object is :typoscript:`TEXT`
+   which outputs unmodified text. The TypoScript object :typoscript:`IMAGE`
    can be used to generate images, and database entries can be outputted
-   with ``CONTENT``.
+   with :typoscript:`CONTENT`.
 
 So far, it's not a "real world" example because no data is
 being passed from Fluid to the TypoScript. We'll demonstrate how to pass
@@ -66,7 +66,7 @@ In the Fluid template we add:
    <f:cObject typoscriptObjectPath="lib.myCounter">{post.viewCount}</f:cObject>
 
 Alternatively, we can use a self-closing tag. The data is being passed
-with the help of the ``data`` attribute.
+with the help of the :html:`data` attribute.
 
 .. code-block:: html
    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
@@ -82,7 +82,7 @@ easily read it from left to right:
    {post.viewCount -> f:cObject(typoscriptObjectPath: 'lib.myCounter')}
 
 Now we still have to evaluate the passed value in our TypoScript
-template. We can use the ``stdWrap`` attribute ``current``
+template. We can use the :typoscript:`stdWrap` attribute :typoscript:`current`
 to achieve this. It works like a switch: If set to 1, the value, which we
 passed to the TypoScript object in the Fluid template will be used. In our
 example, it looks like this:
@@ -127,8 +127,8 @@ ViewHelper in the template:
    {post -> f:cObject(typoscriptObjectPath: 'lib.myCounter')}
 
 Now, how do you access individual properties of the object in the
-TypoScript-Setup? You can use the property ``field`` of
-``stdWrap``:
+TypoScript-Setup? You can use the property :typoscript:`field` of
+:typoscript:`stdWrap`:
 
 .. code-block:: typoscript
    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
@@ -145,10 +145,10 @@ TypoScript-Setup? You can use the property ``field`` of
 Now we always output the title of the blog, followed by the amount of
 page visits in parenthesis in the example above.
 
-You can also combine the ``field`` based approach with
-``current``: If you set the property ``currentValueKey``
-in the ``cObject`` ViewHelper, this value will be available in
-the TypoScript template with ``current``. That is especially useful
+You can also combine the :typoscript:`field` based approach with
+:typoscript:`current`: If you set the property :html:`currentValueKey`
+in the cObject ViewHelper, this value will be available in
+the TypoScript template with :typoscript:`current`. That is especially useful
 when you want to emphasize that the value is very
 *important* for the TypoScript template. For example, the
 *amount of visits* is significant in our view
@@ -159,8 +159,8 @@ counter:
 
    {post -> f:cObject(typoscriptObjectPath: 'lib.myCounter', currentValueKey: 'viewCount')}
 
-In the TypoScript template you can now use both, ``current``
-and ``field``, and have therefor the maximum flexibility with the
+In the TypoScript template you can now use both, :typoscript:`current`
+and :typoscript:`field`, and have therefor the maximum flexibility with the
 greatest readability. The following TypoScript snippet outputs the same
 information as the previous example:
 
@@ -176,7 +176,7 @@ information as the previous example:
       wrap = (<strong>|</strong>)
    }
 
-The ``cObject`` ViewHelper is a powerful option to use the
+The cObject ViewHelper is a powerful option to use the
 best advantages of both worlds by making it possible to embed TypoScript
 expressions in Fluid templates
 
