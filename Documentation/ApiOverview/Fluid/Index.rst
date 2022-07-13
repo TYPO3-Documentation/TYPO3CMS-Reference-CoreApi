@@ -30,12 +30,6 @@ You can use Fluid in TYPO3 to do one of the following:
 * Use Fluid to create emails using the :ref:`TYPO3 Mail API <mail-fluid-email>`.
 * Use Fluid in :ref:`backend modules <backend-modules-template>`.
 
-.. note::
-
-   This page was created in 2020 to serve as a start page for Fluid in TYPO3.
-   It contains a :ref:`fluid-introduction` as a subpage. Further pages will
-   be added later.
-
 **Table of contents**
 
 .. toctree::
