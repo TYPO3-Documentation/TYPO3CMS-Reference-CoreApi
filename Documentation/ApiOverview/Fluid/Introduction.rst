@@ -64,7 +64,7 @@ ViewHelpers:
 Expressions, variables:
    Fluid uses placeholders to fill content in specified areas in the template
    where the result is rendered when the template is evaluated. Content within
-   braces (e.g. :html:`{somevariable}`) can contain variables or expresssions.
+   braces (for example :html:`{somevariable}`) can contain variables or expressions.
 
 Conditions:
     The conditions are supplied here by the if / then / else ViewHelpers.
