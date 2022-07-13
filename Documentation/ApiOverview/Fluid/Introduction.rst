@@ -16,7 +16,7 @@ Fluid ViewHelpers can be used for various purposes. Some transform data, some in
 Partials, some loop over data or even set variables. You can find a complete list of
 them in the :doc:`ViewHelper Reference <t3viewhelper:Index>`.
 
-You can :ref:`write your own custom ViewHelper <t3extbasebook:developing-a-custom-viewhelper>`,
+You can :ref:`write your own custom ViewHelper <fluid-custom-viewhelper>`,
 which is a PHP component.
 
 Example Fluid snippet
@@ -56,7 +56,7 @@ ViewHelpers:
    with the methods `initializeArguments` and `render` contains the HTML generation logic.
    ViewHelpers are Fluid components which make a function call to PHP from inside of a template.
    TYPO3 adds some more ViewHelpers for TYPO3 specific functionality. And, you can
-   :ref:`write your own <t3extbasebook:developing-a-custom-viewhelper>`.
+   :ref:`write your own <fluid-custom-viewhelper>`.
 
    ViewHelpers can do simple processing such as remove spaces with the
    :ref:`t3viewhelper:typo3fluid-fluid-spaceless` ViewHelper or create a link
