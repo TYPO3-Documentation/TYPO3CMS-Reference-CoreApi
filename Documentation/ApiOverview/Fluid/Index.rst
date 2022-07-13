@@ -37,5 +37,6 @@ You can use Fluid in TYPO3 to do one of the following:
 
    Introduction
    Syntax
+   UsingTypoScriptCObjectViewHelper
    DevelopCustomViewhelper
    ViewHelper reference <https://docs.typo3.org/other/typo3/view-helper-reference/main/en-us/>
