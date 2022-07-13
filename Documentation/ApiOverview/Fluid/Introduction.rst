@@ -55,8 +55,7 @@ ViewHelpers:
    `<foo:bar foo="bar">`. A corresponding file `ViewHelpers/BarViewHelper.php`
    with the methods `initializeArguments` and `render` contains the HTML generation logic.
    ViewHelpers are Fluid components which make a function call to PHP from inside of a template.
-   TYPO3 adds some more ViewHelpers for TYPO3 specific functionality. And, you can
-   :ref:`write your own <fluid-custom-viewhelper>`.
+   TYPO3 adds some more ViewHelpers for TYPO3 specific functionality.
 
    ViewHelpers can do simple processing such as remove spaces with the
    :ref:`t3viewhelper:typo3fluid-fluid-spaceless` ViewHelper or create a link
