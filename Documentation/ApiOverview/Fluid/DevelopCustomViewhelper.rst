@@ -14,7 +14,7 @@ A "Gravatar" ViewHelper is created, which uses an email address as parameter
 and shows the picture from gravatar.com if it exists.
 
 The official documentation of Fluid for writing custom ViewHelpers can be found
-within the Fluid documentation: :ref:`fluid:creating-viewhelpers`.
+within Fluid documentation at :ref:`fluid:creating-viewhelpers`.
 
 .. contents:: Contents of this page
    :local:
