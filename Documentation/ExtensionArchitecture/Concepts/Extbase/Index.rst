@@ -17,3 +17,10 @@ Extbase is included in the TYPO3 Core as system extension :php:`extbase`.
 You can find an extended tutorial in the tutorial :doc:`t3extbasebook:Index`.
 
 .. TODO: Most of Extbase is still not documented.
+
+
+.. toctree::
+   :hidden:
+   :titlesonly:
+
+   Reference/Index

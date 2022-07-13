@@ -1,0 +1,15 @@
+.. include:: /Includes.rst.txt
+
+.. index:: Extbase; Reference
+.. _extbase_reference:
+
+=================
+Extbase reference
+=================
+
+
+.. toctree::
+   :hidden:
+   :titlesonly:
+
+   FrontendPlugins
