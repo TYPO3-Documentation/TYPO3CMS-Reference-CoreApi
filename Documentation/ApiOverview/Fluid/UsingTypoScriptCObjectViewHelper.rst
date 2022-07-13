@@ -3,13 +3,13 @@
    TypoScript ViewHelper
    Fluid; f:cObject
 
-======================================================
-Using TypoScript for rendering: The cObject ViewHelper
-======================================================
+==================
+cObject ViewHelper
+==================
 
-The cObject ViewHelper is a very powerful ViewHelper. It connects
-Fluid with the options that TypoScript offers. The following line in the
-HTML template will be replaced with the referenced TypoScript object.
+The cObject ViewHelper combines Fluid with TypoScript.
+The following line in the HTML template will be replaced with the referenced
+TypoScript object.
 
 .. code-block:: html
    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
