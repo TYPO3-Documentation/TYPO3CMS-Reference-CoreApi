@@ -42,7 +42,7 @@ Use the following steps to add the plugin as content element:
    #. Extension key :php:`'blog_example'` or name :php:`BlogExample`.
    #. A unique identifier for your plugin in UpperCamelCase: :php:`'PostSingle'`
    #. An array of allowed combinations of controllers and actions stored in an array
-   #. (Optional) adn array of controller name and  action names which should not be cached
+   #. (Optional) an array of controller name and  action names which should not be cached
 
    :php:`TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin()` generates
    The necessary TypoScript to display the plugin in the frontend.
