@@ -218,7 +218,7 @@ If an extension author wants to provide a custom Event Listener, an according en
 
 The tag name :yaml:`event.listener` identifies that a listener should be registered.
 
-The custom PHP class :php:`MyCompany\MyPackage\EventListener\NullMailer` serves as the listener
+The custom PHP class :php:`Vendor\MyExtension\EventListener\NullMailer` serves as the listener
 whose :php:`handleEvent` method is called once the :yaml:`event` is dispatched.
 The :yaml:`identifier` is a common name so orderings can be built upon the identifier,
 the optional :yaml:`before` and :yaml:`after` attributes allow for custom sorting against the
@@ -301,13 +301,13 @@ avoided whenever technically possible.
 Debugging event handling
 ========================
 
-A complete list of all registered event listeners can be viewed in the the module 
+A complete list of all registered event listeners can be viewed in the the module
 :guilabel:`System > Configuration > Event Listeners (PSR-14)`. The system extension
 `lowlevel` has to be installed for this module to be available.
 
 .. TODO: add screenshot
 
-To debug all events that are actually dispatched in a frontend request you can use 
+To debug all events that are actually dispatched in a frontend request you can use
 admin panel:
 
 Go to :guilabel:`Admin Panel > Debug > Events` and see all dispatched events.
