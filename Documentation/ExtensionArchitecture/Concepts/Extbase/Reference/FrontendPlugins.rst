@@ -6,135 +6,128 @@
 Registration of frontend plugins
 ================================
 
-In classical TYPO3 extensions, the frontend functionality is divided into
-several frontend plugins. Normally each has a separate codebase.
-In contrast, there is only one codebase in Extbase (a series of controllers and
-actions). Nevertheless, it is possible to group controllers and actions
-to make it possible to have multiple frontend plugins.
+When you want to use Extbase controllers in the frontend you need to define a
+so called frontend plugin. Extbase allows to define multiple frontend plugins
+for different use cases within one extension.
 
-.. todo: This is real hard to understand for newbies. Why not just say that in TYPO3 there
-are plugin content elements which can be placed on pages and that extbase allows
-to define multiple plugins in one extension?
+A frontend plugin can be defined as
+:ref:`content element <extbase_frontend_plugin_content_element>` or as pure
+:ref:`TypoScript frontend plugin <extbase_frontend_plugin_typoscript>`.
 
-.. sidebar:: Why two files?
+Content element plugins can be added by editors to pages in the :guilabel:`Page`
+module while TypoScript frontend plugin can only be added via TypoScript or
+Fluid in a predefined position of the page. All content element plugins can
+also be used like as TypoScript plugin.
 
-    You may wonder why you need to edit both, file :file:`ext_localconf.php` and file
-    :file:`Configuration/TCA/Overrides/tt_content.php`, to configure a plugin. The reason lies in the architecture of TYPO3:
-    file :file:`ext_localconf.php` is evaluated in the frontend and file :file:`Configuration/TCA/Overrides/tt_content.php` in
-    the backend. Therefore, in file :file:`Configuration/TCA/Overrides/tt_content.php` we add the entry to the plugin list (for
-    the backend). In addition, the list of controller / action combinations is required at runtime
-    in the frontend - and therefore this must be defined in the file :file:`ext_localconf.php`.
+.. _extbase_frontend_plugin_content_element:
 
-    For further information, check out :ref:`Extension configuration files
-    <t3coreapi:extension-configuration-files>`.
+Frontend plugin as content element
+==================================
 
-For the definition of a plugin, the files :file:`ext_localconf.php` and :file:`Configuration/TCA/Overrides/tt_content.php`
-have to be adjusted.
+.. figure:: /Images/ManualScreenshots/Extbase/NewPlugin.png
+   :class: with-shadow
 
-In :file:`ext_localconf.php` resides the definition of permitted controller action
-Combinations. Also here you have to define which actions should not be cached.
-In :file:`Configuration/TCA/Overrides/tt_content.php` there is only the configuration of the plugin selector for the
-backend. Let's have a look at the following two files:
+   The plugins in the :guilabel:`New Content Element` wizard
 
-.. todo: We could mention that registering plugins in the backend is optional and that a plugin content
-element is just some internal wrapper code that triggers a TypoScript USER object rendering.
+Use the following steps to add the plugin as content element:
 
-.. code-block:: php
-   :caption: EXT:my_extension/ext_localconf.php
+.. rst-class:: bignums
 
-    $pluginName = 'ExamplePlugin';
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'my_extension',
-        $pluginName,
-        $controllerActionCombinations,
-        $uncachedActions
-    );
+#. :php:`configurePlugin()`: Make the plugin available in the frontend
 
-The allowed combinations of the controller and actions are determined in
-addition to the extension key and the plugin's unique name (lines 3 and 4).
-`$controllerActionCombinations` is an associative array. This array's keys
-are the allowed controller classes, and the values are a comma-separated list of
-allowed actions per controller. The first action of the first controller is the
-default action.
+   .. include:: /CodeSnippets/Extbase/FrontendPlugins/ConfigurePlugin.rst.txt
 
-Additionally, you need to specify which actions should not be cached. To do this,
-the fourth parameter also is a list of controller action Combinations in the
-same format as above, containing all the non-cached-actions.
+   Use the following parameters:
 
-.. todo: Instead of explaining an arbitrary configuration format, why not just provide
-an example here? Who wouldn't expect example code here but parse the text?
-Maybe refer to the example further down or rip that apart and show the relevant
-configuration right here?
+   #. Extension key :php:`'blog_example'` or name :php:`BlogExample`.
+   #. A unique identifier for your plugin in UpperCamelCase: :php:`'PostSingle'`
+   #. An array of allowed combinations of controllers and actions stored in an array
+   #. (Optional) adn array of controller name and  action names which should not be cached
 
-:file:`Configuration/TCA/Overrides/tt_content.php`:
+   :php:`TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin()` generates
+   The necessary TypoScript to display the plugin in the frontend.
 
-.. code-block:: php
-   :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
+   In the above example the actions :php:`show` in the :php:`PostController` and
+   :php:`create` in the :php:`CommentController` are allowed. The later action
+   should not be cached. This action can show different output depending on
+   whether a comment was just added, there was an error in the input etc.
+   Therefore the output of the action :php:`create` of the :php:`CommentController`
+   should not be cached.
 
-   \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-       'my_extension',
-       'ExamplePlugin',
-       'Title used in Backend'
-   );
+   The action :php:`delete` of the :php:`CommentController` is not listed. This
+   action is therefore not allowed in this plugin.
 
-The first two arguments must be completely identical to the definition in
-:file:`ext_localconf.php`.
+   The TypoScript of the plugin will be available at
+   :typoscript:`tt_content.list.20.blogexample_postsingle`. Additionally
+   the lists of allowed and non-cacheable actions have been added to the
+   according global variables.
 
-Below there is a complete configuration example for the registration of a
-frontend plugin within the files :file:`ext_localconf.php` and :file:`Configuration/TCA/Overrides/tt_content.php`.
+#. :php:`registerPlugin()`: Add to :sql:`list_type` :sql:`tt_content`.
 
-*Example B-1: Configuration of an extension in the file ext_localconf.php*
+   Make the plugin available in the field
+   :guilabel:`Plugin > Selected Plugin`, :sql:`list_type` of the table
+   :sql:`tt_content`.
 
-.. code-block:: php
-   :caption: EXT:my_extension/ext_localconf.php
+   .. figure:: /Images/ManualScreenshots/Extbase/ListType.png
+      :class: with-shadow
 
-   \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-       'my_extension',
-       'Blog',
-       [
-           \Vendor\ExampleExtension\Controller\BlogController::class => 'index,show,new,create,delete,deleteAll,edit,update,populate',
-           \Vendor\ExampleExtension\Controller\PostController::class => 'index,show,new,create,delete,edit,update',
-           \Vendor\ExampleExtension\Controller\CommentController::class => 'create',
-       ],
-       [
-           \Vendor\ExampleExtension\Controller\BlogController::class => 'delete,deleteAll,edit,update,populate',
-           \Vendor\ExampleExtension\Controller\PostController::class => 'show,delete,edit,update',
-           \Vendor\ExampleExtension\Controller\CommentController::class => 'create',
-       ]
-   );
+      The new plugin in the content record at :guilabel:`Plugin > Selected Plugin`
 
-*Example B-2: Configuration of an extension in the file Configuration/TCA/Overrides/tt_content.php*
+   .. include:: /CodeSnippets/Extbase/FrontendPlugins/ConfigurePlugin.rst.txt
 
-.. code-block:: php
-   :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
+   Use the following parameters:
 
-   \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-       'my_extension',
-       'Blog',
-       'A Blog Example',
-       'EXT:blog/Resources/Public/Icons/Extension.svg'
-   );
+   #. Extension key :php:`'blog_example'` or name :php:`BlogExample`.
+   #. A unique identifier for your plugin in UpperCamelCase: :php:`'PostSingle'`,
+      must be the same as used in :php:`configurePlugin()` or the plugin will
+      not render.
+   #. Plugin title in the backend: Can be a string or a localized string starting
+      with :php:`LLL:`.
+   #. (Optional) the :ref:`icon identifier <icon>` or file path prepended with "EXT:"
 
-The plugin name is ``Blog``. The name must be the same
-in :file:`ext_localconf.php` and
-:file:`Configuration/TCA/Overrides/tt_content.php`. The default called method is
-:php:`indexAction()` of controller class
-:php:`Vendor\ExampleExtension\Controller\BlogController` since it's the first
-element defined in the array and the first action in the list.
+#. (Optional) Add to the :guilabel:`New Content Element` wizard
 
-All actions which change data must not be cacheable. Above, this is for example
-the :php:`deleteAction()` action in the
-:php:`Vendor\ExampleExtension\Controller\BlogController` controller. In the
-backend, you can see "*A Blog Example*" in the list of plugins (see Figure B-1).
+   Add the following page TSconfig to add the new plugin to the wizard:
 
-.. todo: "All actions which change data" is quite non-explanatory here. What data?
-It's important to understand that cacheable plugins are executed once and
-that its content is then stored in the page cache, resulting in no code
-execution at all. This also affects dynamically changing meta tags and such
-via plugins. It's not just about domain data.
+   .. include:: /CodeSnippets/Extbase/FrontendPlugins/NewContentElementWizard.rst.txt
 
-.. figure::  /Images/ManualScreenshots/b-ExtbaseReference/figure-b-1.png
-    :align: center
+   6.    The plugin signature: The extension name in lowercase without
+         underscores, followed by one underscore, followed by the plugin identifier
+         in lowercase without underscores.
+   7.    Should be the same icon like used in :php:`registerPlugin()` for consistency
+   8.    Should be the same title like used in :php:`registerPlugin()` for consistency
+   9.    Additional description:  Can be a string or a localized string starting
+         with :php:`LLL:`.
+   12.   The plugin signature as :typoscript:`list_type`
+   16.   Add the plugin signature as to the list of allowed content elements
 
-    Figure B-1: In the selection field for frontend plugins, the name which was defined in the
-    file :file:`Configuration/TCA/Overrides/tt_content.php` will be displayed
+   In TYPO3 11 you still need to include the page TSconfig file, in TYPO3 12
+   it is automatically globally included.
+
+   See :ref:`t3tsconfig:pagesettingdefaultpagetsconfig`.
+
+.. _extbase_frontend_plugin_typoscript:
+
+Frontend plugin as pure TypoScript
+==================================
+
+.. rst-class:: bignums
+
+#. :php:`configurePlugin()`: Make the plugin available in the frontend
+
+   Configure the plugin just like described in
+   :ref:`extbase_frontend_plugin_content_element`. This will create the
+   basic TypoScript and the lists of allowed controller-action combinations.
+
+   In this example we define a plugin displaying a list of posts as RSS-feed:
+
+   .. include:: /CodeSnippets/Extbase/FrontendPlugins/ConfigureRssPlugin.rst.txt
+
+#. Display the plugin via Typoscript
+
+   The TypoScript :ref:`USER <t3tsref:cobj-user>` object saved at
+   :typoscript:`tt_content.list.20.blogexample_postlistrss` can now be used
+   to display the frontend plugin. In this example we create a special page type
+   for the RSS feed and display the plugin via typoscript there:
+
+

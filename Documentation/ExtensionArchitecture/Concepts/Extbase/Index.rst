@@ -20,7 +20,6 @@ You can find an extended tutorial in the tutorial :doc:`t3extbasebook:Index`.
 
 
 .. toctree::
-   :hidden:
    :titlesonly:
 
    Reference/Index

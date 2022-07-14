@@ -25,7 +25,7 @@ provides validators for common data types, but you can also write your own valid
 Validator implements the :php:`\TYPO3\CMS\Extbase\Validation\Validator\ValidatorInterface`
 that defines the following methods:
 
-.. include:: /CodeSnippets/PhpDomain/ValidatorInterface.rst.txt
+.. include:: /CodeSnippets/Extbase/Api/ValidatorInterface.rst.txt
 
 In most use cases extending the abstract class
 :php:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator` is sufficient

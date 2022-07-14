@@ -13,15 +13,6 @@ inserted, changed, or deleted, then the cache of the corresponding page in which
 located is cleared.  Additionally the setting
 of TSConfig :ref:`TCEMAIN.clearCacheCmd <t3tsconfig:pagetcemain-clearcachecmd>` is evaluated for this page.
 
-Figure B-2 is an example that is explained below:
-
-.. figure::  /Images/ManualScreenshots/b-ExtbaseReference/figure-b-2.png
-    :align: center
-
-    Figure B-2: For the sysfolder in which the data was stored, the setting
-    :ref:`TCEMAIN.clearCacheCmd <t3tsconfig:pagetcemain-clearcachecmd>` defines that the cache of
-    the page *Blog* should be emptied.
-
 The frontend plugin is on the page *Blog* with the *11*. As a storage folder for all the Blogs and
 Posts the SysFolder *BLOGS* is configured. If an entry is changed, the cache of the SysFolder
 *BLOGS* is emptied and also the TSConfig configuration

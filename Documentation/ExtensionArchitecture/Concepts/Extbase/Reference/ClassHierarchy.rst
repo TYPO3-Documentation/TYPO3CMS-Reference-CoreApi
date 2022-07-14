@@ -14,11 +14,11 @@ have special requirements that can not be realized with the `ActionController`,
 you should have a look at the controllers below.
 
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ControllerInterface`
-    The basic interface that must be implemented by all controllers.
+   The basic interface that must be implemented by all controllers.
 
 .. todo: This interface is useless because implementing it does not guarantee a controller
-is dispatchable. It's been wishful thinking from the beginning on. The interface will
-be removed.
+   is dispatchable. It's been wishful thinking from the beginning on. The interface will
+   be removed.
 
 :php:`TYPO3\CMS\Extbase\Mvc\Controller\ActionController`
     The most widely used controller in Extbase with the basic functionality of the ControllerInterface.
@@ -59,7 +59,7 @@ you see the most important properties of the action controller:
     The view used of type :php:`\TYPO3\CMS\Extbase\Mvc\View\ViewInterface`.
 
 .. todo: We need to keep an eye on these. They are more or less internal and
-will be removed at some point.
+   will be removed at some point.
 
 .. _class_hierarchy-most_important_api_methods_of_action_controller:
 
@@ -100,7 +100,7 @@ Most important API methods of action controller
     however, it is sufficient to overwrite resolveViewObjectName().
 
 .. todo: This MUST NOT be overridden. Users can add a custom \TYPO3\CMS\Extbase\Mvc\View\ViewResolverInterface
-implementation if needed.
+   implementation if needed.
 
 `resolveViewObjectName()`
     Resolves the name of the view object, if no suitable Fluid template could be

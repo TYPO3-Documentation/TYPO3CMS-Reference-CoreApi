@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 
 .. index:: Extbase; TypoScript configuration
-.. _typoscript_configuration:
+.. _extbase_typoscript_configuration:
 
 ========================
 TypoScript configuration
@@ -18,9 +18,7 @@ All TypoScript settings are made in the following TypoScript blocks:
 .. code-block:: typoscript
    :caption: EXT:blog_example/
 
-
-
-**plugin.tx_[lowercasedextensionname]**
+   plugin.tx_[lowercasedextensionname]
 
 The TypoScript configuration of the extension is always located below this
 TypoScript path. The "lowercase extension name" is the extension key with no
@@ -28,11 +26,11 @@ underscore (_), as for example in ``blogexample``. The configuration is divided 
 the following sections:
 
 
-.. _typoscript_configuration-features:
-.. _features-skipDefaultArguments:
-.. _features-ignoreAllEnableFieldsInBe:
-.. _features-requireCHashArgumentForActionArguments:
-.. _features-consistentTranslationHandling:
+.. _extbase_typoscript_configuration-features:
+.. _extbase_features-skipDefaultArguments:
+.. _extbase_features-ignoreAllEnableFieldsInBe:
+.. _extbase_features-requireCHashArgumentForActionArguments:
+.. _extbase_features-consistentTranslationHandling:
 
 Features
 --------
@@ -55,8 +53,8 @@ Activate features for Extbase or a specific plugin.
 
 .. todo: This can be removed now.
 
-.. _typoscript_configuration-persistence:
-.. _persistence-enableAutomaticCacheClearing:
+.. _extbase_typoscript_configuration-persistence:
+.. _extbase_persistence-enableAutomaticCacheClearing:
 
 Persistence
 -----------
@@ -73,7 +71,7 @@ Settings, relevant to the persistence layer of Extbase.
     ":ref:`Procedure to fetch objects <procedure_to_fetch_objects>`" in Chapter 6).
 
 
-.. _typoscript_configuration-settings:
+.. _extbase_typoscript_configuration-settings:
 
 Settings
 --------
@@ -90,7 +88,7 @@ template with `{settings}`.
     Just make sure you prefix them with a unique vendor to prevent collisions with further updates
     of the extensions.
 
-.. _typoscript_configuration-view:
+.. _extbase_typoscript_configuration-view:
 
 View
 ----
@@ -174,14 +172,14 @@ no template file is found, it will proceed with `0`.
    The fallback path consists of the extension key and a fixed directory path.
 
 .. todo: We should mention that there is no typoscript created during runtime. Fluid is
-Checking the given configuration and falls back to specific paths which should
-be mentioned here. `EXT:extension/Resources/Private/{Templates/Partials/Layouts}`
+   Checking the given configuration and falls back to specific paths which should
+   be mentioned here. `EXT:extension/Resources/Private/{Templates/Partials/Layouts}`
 
 More information on root paths can be found in the TypoScript reference:
 :ref:`t3tsref:cobj-fluidtemplate-properties-templaterootpaths`
 
 
-.. _typoscript_configuration-mvc:
+.. _extbase_typoscript_configuration-mvc:
 
 MVC
 ---
@@ -197,9 +195,9 @@ These are useful MVC settings about error handling:
     but this will raise a "page not found" error.
 
 .. todo: It's important to mention that this settings takes precedence. If enabled, setting
-mvc.callDefaultActionIfActionCantBeResolved is without any effect.
+   mvc.callDefaultActionIfActionCantBeResolved is without any effect.
 
-.. _typoscript_configuration-local_lang:
+.. _extbase_typoscript_configuration-local_lang:
 
 _LOCAL_LANG
 -----------
@@ -210,7 +208,7 @@ More>>` then the standard translation for the key `read_more` is overwritten by 
 string *More>>*.
 
 
-.. _format:
+.. _extbase_format:
 
 Format
 ------
@@ -221,11 +219,11 @@ format, if nothing is requested, can be set via TypoScript. This can be combined
 with conditions.
 
 .. todo: That's no desired behavior any more. It's been a myth from the beginning
-that by simply changing a format param, the action con automagically
-deliver the content in different types. This MUST be a clear decision
-of the user. This format param needs to be deprecated and removed.
-Users need to manually route different output formats to specific
-controller actions.
+   that by simply changing a format param, the action con automagically
+   deliver the content in different types. This MUST be a clear decision
+   of the user. This format param needs to be deprecated and removed.
+   Users need to manually route different output formats to specific
+   controller actions.
 
 `format`
    Defines the default format for the plugin.

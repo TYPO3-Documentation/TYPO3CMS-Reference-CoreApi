@@ -9,7 +9,6 @@ Extbase reference
 
 
 .. toctree::
-   :hidden:
    :titlesonly:
 
    FrontendPlugins
