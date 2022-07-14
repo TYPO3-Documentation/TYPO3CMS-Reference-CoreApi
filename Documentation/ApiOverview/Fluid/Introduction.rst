@@ -72,6 +72,8 @@ Conditions:
 
 .. index:: Fluid; Directory structure
 
+.. _fluid-directory-structure:
+
 Directory structure
 ===================
 
@@ -114,12 +116,15 @@ In Fluid, the location of these paths is defined with
 
 TYPO3 provides the possibility to set the paths using TypoScript.
 
+.. _fluid-templates:
 
 :file:`Templates`
 -----------------
 
 The template contains the main Fluid template. When using a layout (this is optional),
 you must define the sections that are referenced by the layout.
+
+.. _fluid-layouts:
 
 :file:`Layouts`
 ---------------
@@ -138,6 +143,8 @@ Templates can be used with or without a Layout.
 * *Without a Layout* anything that's not inside a section is rendered. You
   can still use sections of course, but you then must use f:render in the
   template file itself, outside of a section, to render a section.
+
+.. _fluid-partials:
 
 :file:`Partials`
 ----------------
