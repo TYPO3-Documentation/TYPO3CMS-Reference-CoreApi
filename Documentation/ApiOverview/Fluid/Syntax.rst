@@ -222,6 +222,61 @@ More complex example with chaining:
    <!-- inline notation -->
    {post.date -> f:format.date(format: 'Y-m-d') -> f:format.padding(padLength: 40)}
 
+.. _fluid-syntax-boolean-conditions:
+
+Boolean conditions
+==================
+
+Boolean conditions are expressions that evaluate to true or false.
+
+Boolean conditions can be used as ViewHelper arguments, whenever the datatype
+:html:`boolean`is given, e.g. in the :ref:`t3viewhelper:if <typo3fluid-fluid-if>
+ViewHelper :html:`condition` argument.
+
+1. The expression can be a variable which is evaluated as follows:
+
+   *  number: evaluates to :php:`true`, if > 0.
+   *  array: evaluates to :php:`true` if it contains at least one element
+
+2. The expression can be a statement consisting of: term1 operator term2, for
+   example :html:`{variable} > 3`
+
+   *  The ooperator can be one of :html:`>`, :html:`>=`, :html:`<`, :html:`<=`,
+      :html:`==`, :html:`!=` or :html:`%`,
+
+3. The previous expressions can be combined with :html:`||` (or) or :html:`&&`
+   (and).
+
+
+Examples:
+
+.. code-block:: html
+
+   <f:if condition="{myObject}">
+     ...
+   </f:if>
+
+   <f:if condition="{myNumber} > 3 || {otherNumber} || {somethingelse}">
+      <f:then>
+         ...
+      </f:then>
+      <f:else>
+         ...
+      </f:else>
+   </f:if>
+
+   <my:custom showLabel"{myString} == 'something'">
+     ...
+   </my:custom>
+
+
+Example using the inline notation:
+
+.. code-block:: html
+
+   <div class="{f:if(condition: blog.posts, then: 'blogPostsAvailable', else: 'noPosts')}">
+      ...
+   </div>
 
 .. _fluid-comments:
 
