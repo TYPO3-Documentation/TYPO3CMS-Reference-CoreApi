@@ -73,7 +73,7 @@ Use the following steps to add the plugin as content element:
 
       The new plugin in the content record at :guilabel:`Plugin > Selected Plugin`
 
-   .. include:: /CodeSnippets/Extbase/FrontendPlugins/ConfigurePlugin.rst.txt
+   .. include:: /CodeSnippets/Extbase/FrontendPlugins/RegisterPlugin.rst.txt
 
    Use the following parameters:
 
