@@ -130,4 +130,6 @@ Frontend plugin as pure TypoScript
    to display the frontend plugin. In this example we create a special page type
    for the RSS feed and display the plugin via typoscript there:
 
+   .. include:: /CodeSnippets/Extbase/FrontendPlugins/TypoScriptPluginRss.rst.txt
+
 

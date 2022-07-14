@@ -63,7 +63,7 @@ Settings, relevant to the persistence layer of Extbase.
 
 `persistence.enableAutomaticCacheClearing`
     Enables the automatic cache clearing when changing data sets (see also the
-    section ":ref:`caching_of_actions_and_records`" above in this chapter).
+    section :ref:`extbase_caching_of_actions_and_records`).
     Default is `true`.
 
 `persistence.storagePid`

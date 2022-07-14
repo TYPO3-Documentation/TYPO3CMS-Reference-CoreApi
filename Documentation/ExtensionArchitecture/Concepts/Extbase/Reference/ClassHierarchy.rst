@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 
 .. index:: Extbase; Class hierarchy
-.. _class_hierarchy:
+.. _extbase_class_hierarchy:
 
 Class hierarchy
 ===============
@@ -31,7 +31,7 @@ you should have a look at the controllers below.
 .. todo: CommandControllers are already removed. Remove this section.
 
 .. index:: Extbase; ActionController API
-.. _class_hierarchy-action_controller_api:
+.. _extbase_class_hierarchy-action_controller_api:
 
 ActionController API
 --------------------
@@ -53,7 +53,8 @@ you see the most important properties of the action controller:
     Request object of type :php:`\TYPO3\CMS\Extbase\Mvc\RequestInterface`.
 
 `$settings`
-    Domain-specific extension settings from TypoScript (as array), see :ref:`typoscript_configuration-settings`.
+   Domain-specific extension settings from TypoScript (as array),
+   see :ref:`t3coreapi:extbase_typoscript_configuration-settings`.
 
 `$view`
     The view used of type :php:`\TYPO3\CMS\Extbase\Mvc\View\ViewInterface`.
@@ -61,7 +62,7 @@ you see the most important properties of the action controller:
 .. todo: We need to keep an eye on these. They are more or less internal and
    will be removed at some point.
 
-.. _class_hierarchy-most_important_api_methods_of_action_controller:
+.. _extbase_class_hierarchy-most_important_api_methods_of_action_controller:
 
 Most important API methods of action controller
 -----------------------------------------------
@@ -113,7 +114,7 @@ Most important API methods of action controller
 
 .. todo: This will be deprecated soon
 
-.. _class_hierarchy-actions:
+.. _extbase_class_hierarchy-actions:
 
 Actions
 -------
@@ -173,7 +174,7 @@ then automatically `$this->view->render()` is called, and thus the view is rende
 
 .. todo: We need to adjust this example to reflect the PSR-7 response changes.
 
-.. _class_hierarchy-define_initialization_code:
+.. _extbase_class_hierarchy-define_initialization_code:
 
 Define initialization code
 --------------------------
@@ -186,7 +187,7 @@ the registration of arguments, but before calling the appropriate action method 
 generic `initializeAction()`, if it exists, a method named *initialize[ActionName]()* is called.
 Here you can perform action specific initializations (e.g. `initializeShowAction()`).
 
-.. _class_hierarchy-catching_validation_errors_with_error_action:
+.. _extbase_class_hierarchy-catching_validation_errors_with_error_action:
 
 Catching validation errors with errorAction
 -------------------------------------------
@@ -198,7 +199,7 @@ was sent with it.
 
 
 .. index:: Extbase; Annotations
-.. _available-annotations:
+.. _extbase_available-annotations:
 
 Available annotations
 ^^^^^^^^^^^^^^^^^^^^^
