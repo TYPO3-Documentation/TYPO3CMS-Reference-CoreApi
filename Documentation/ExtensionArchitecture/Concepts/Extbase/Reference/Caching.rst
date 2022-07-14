@@ -13,7 +13,7 @@ inserted, changed, or deleted, then the cache of the corresponding page in which
 located is cleared.  Additionally the setting
 of TSConfig :ref:`TCEMAIN.clearCacheCmd <t3tsconfig:pagetcemain-clearcachecmd>` is evaluated for this page.
 
-The frontend plugin is on the page *Blog* with the *11*. As a storage folder for all the Blogs and
+The frontend plugin is on the page *Blog* with *uid=11*. As a storage folder for all the Blogs and
 Posts the SysFolder *BLOGS* is configured. If an entry is changed, the cache of the SysFolder
 *BLOGS* is emptied and also the TSConfig configuration
 :ref:`TCEMAIN.clearCacheCmd <t3tsconfig:pagetcemain-clearcachecmd>` for the SysFolder is evaluated.
