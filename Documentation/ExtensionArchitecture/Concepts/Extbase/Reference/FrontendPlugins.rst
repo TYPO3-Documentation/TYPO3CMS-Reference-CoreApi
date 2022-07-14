@@ -91,15 +91,15 @@ Use the following steps to add the plugin as content element:
 
    .. include:: /CodeSnippets/Extbase/FrontendPlugins/NewContentElementWizard.rst.txt
 
-   6.    The plugin signature: The extension name in lowercase without
-         underscores, followed by one underscore, followed by the plugin identifier
-         in lowercase without underscores.
-   7.    Should be the same icon like used in :php:`registerPlugin()` for consistency
-   8.    Should be the same title like used in :php:`registerPlugin()` for consistency
-   9.    Additional description:  Can be a string or a localized string starting
-         with :php:`LLL:`.
-   12.   The plugin signature as :typoscript:`list_type`
-   16.   Add the plugin signature as to the list of allowed content elements
+   *  Line 6: The plugin signature: The extension name in lowercase without
+      underscores, followed by one underscore, followed by the plugin identifier
+      in lowercase without underscores.
+   *  Line 7: Should be the same icon like used in :php:`registerPlugin()` for consistency
+   *  Line 8: Should be the same title like used in :php:`registerPlugin()` for consistency
+   *  Line 9: Additional description:  Can be a string or a localized string starting
+      with :php:`LLL:`.
+   *  Line 12: The plugin signature as :typoscript:`list_type`
+   *  Line 16: Add the plugin signature as to the list of allowed content elements
 
    In TYPO3 11 you still need to include the page TSconfig file, in TYPO3 12
    it is automatically globally included.
