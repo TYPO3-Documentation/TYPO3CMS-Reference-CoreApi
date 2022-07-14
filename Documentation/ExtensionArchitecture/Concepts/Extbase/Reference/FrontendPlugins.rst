@@ -17,7 +17,7 @@ A frontend plugin can be defined as
 Content element plugins can be added by editors to pages in the :guilabel:`Page`
 module while TypoScript frontend plugin can only be added via TypoScript or
 Fluid in a predefined position of the page. All content element plugins can
-also be used like as TypoScript plugin.
+also be used as TypoScript plugin.
 
 .. _extbase_frontend_plugin_content_element:
 
