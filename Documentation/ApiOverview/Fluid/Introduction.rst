@@ -278,28 +278,3 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
          <p> some text </p>
       </div>
    </div>
-
-
-
-Further information
-===================
-
-To get an introduction to the basics of Fluid:
-
-* `The Fluid Syntax <https://github.com/TYPO3/Fluid/blob/main/doc/FLUID_SYNTAX.md>`__
-* `ViewHelpers - what these classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/main/doc/FLUID_VIEWHELPERS.md>`__
-
-You may want to follow one of these comprehensive
-tutorials:
-
-* :doc:`t3sitepackage:Index` which shows you how to create a theme for your site
-  using Fluid.
-* :ref:`Create custom content elements <adding-your-own-content-elements>`
-* :doc:`t3extbasebook:Index`
-* Use Fluid to create emails using the :ref:`TYPO3 Mail API <mail-fluid-email>`
-
-Once you have successfully completed your fist steps, these references might come
-in handy:
-
-* `24 TIPS & TRICKS FOR FLUID <https://usetypo3.com/24-fluid-tips.html>`__
-* :doc:`Fluid Viewhelper Reference <t3viewhelper:Index>`
