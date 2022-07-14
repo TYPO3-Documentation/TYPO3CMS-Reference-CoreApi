@@ -46,13 +46,6 @@ Activate features for Extbase or a specific plugin.
     Ignore the enable fields in backend.
     Default is `false`.
 
-`features.consistentTranslationOverlayHandling`
-    Use the same translation handling in Extbase as in TypoScript. Used via `config.tx_extbase.features.consistentTranslationOverlayHandling`.
-    The feature switch will be removed in TYPO3 v10, and the behavior will become the only way translations are handled.
-
-
-.. todo: This can be removed now.
-
 .. _extbase_typoscript_configuration-persistence:
 .. _extbase_persistence-enableAutomaticCacheClearing:
 
