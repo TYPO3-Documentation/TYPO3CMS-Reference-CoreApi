@@ -174,9 +174,35 @@ The template should include the sections which are to be rendered.
 
 *optional*
 
-Partials are a Fluid component. Partials can be used as reusable components from within
-a template.
+Some parts within different templates might be the same. To not repeat this part
+in multiple templates, Fluid offers so-called partials. Partials are small pieces
+of Fluid template within a separate file that can be included in multiple templates.
 
+Partials are stored, by convention, within :file:`Resources/Private/Partials/`.
+
+Example partial:
+
+.. code-block:: html
+   :caption:  EXT:my_extension/Resources/Private/Partials/Tags.html
+
+   <b>Tags</b>:
+   <ul>
+      <f:for each="{tags}" as="tag">
+         <li>{tag}</li>
+      </f:for>
+   </ul>
+
+Example template using the partial:
+
+.. code-block:: html
+   :caption:  EXT:my_extension/Resources/Private/Templates/Show.html
+
+   <f:render partial: "Tags" arguments="{tags: post.tags}" />
+
+The variable :html:`post.tags` is passed to the partial as variable :html:`tags`.
+
+If ViewHelpers from a different namespace are used in the partial, the namespace
+import can be done in the template or the partial.
 
 Example: Using Fluid to create a theme
 ======================================
