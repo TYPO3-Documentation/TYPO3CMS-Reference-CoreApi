@@ -1,0 +1,18 @@
+.. manual excerpt of EXT:blog_example/Configuration/TCA/Overrides/tt_content.php
+.. TODO: create this code-snippet automatically
+
+.. code-block:: php
+   :caption: EXT:blog_example/Configuration/TCA/Overrides/tt_content.php
+
+   <?php
+   declare(strict_types=1);
+
+   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
+   defined('TYPO3') or die();
+
+   ExtensionUtility::registerPlugin(
+       'blog_example',
+       'PostSingle',
+       'Single Post (BlogExample)'
+   );

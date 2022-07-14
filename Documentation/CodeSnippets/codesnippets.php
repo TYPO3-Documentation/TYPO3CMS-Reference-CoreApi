@@ -4,6 +4,8 @@
     // ddev exec vendor/bin/typo3  restructured_api_tools:php_domain public/fileadmin/TYPO3CMS-Reference-CoreApi/Documentation/CodeSnippets/
 
     return array_merge(
+        include('Config/Extbase.php'),
+        /*
         include('Config/EventsBackend.php'),
         include('Config/EventsCore.php'),
         include('Config/EventsCoreResource.php'),
@@ -21,4 +23,5 @@
         include('Config/EventsSeo.php'),
         include('Config/EventsSetup.php'),
         include('Config/EventsWorkspaces.php'),
+        */
     );
