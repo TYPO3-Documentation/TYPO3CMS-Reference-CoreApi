@@ -7,7 +7,7 @@
 Caching
 ==============================
 
-Furthermore, Extbase is clearing the TYPO3 cache automatically for update processes. This is called
+Extbase clears the TYPO3 cache automatically for update processes. This is called
 *Automatic cache clearing*. This functionality is activated by default. If a domain object is
 inserted, changed, or deleted, then the cache of the corresponding page in which the object is
 located is cleared.  Additionally the setting
