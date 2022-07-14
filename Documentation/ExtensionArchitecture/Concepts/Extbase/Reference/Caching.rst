@@ -19,7 +19,7 @@ Posts the SysFolder *BLOGS* is configured. If an entry is changed, the cache of 
 :ref:`TCEMAIN.clearCacheCmd <t3tsconfig:pagetcemain-clearcachecmd>` for the SysFolder is evaluated.
 This contains a comma-separated list of Page IDs, for which the cache should be emptied. In this
 case, when updating a record in the SysFolder *BLOGS* (e.g., Blogs, Posts, Comments), the cache of
-the page *Blog*, with ID 11, is cleared automatically, so the changes are immediately visible.
+the page *Blog*, with uid=11, is cleared automatically, so the changes are immediately visible.
 
 Even if the user enters incorrect data in a form (and this form will be
 displayed again), the cache of the current page is deleted to force a new
