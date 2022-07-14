@@ -227,7 +227,7 @@ the optional :yaml:`before` and :yaml:`after` attributes allow for custom sortin
 If no attribute :yaml:`method` is given, the class is treated as invokable, thus its :php:`__invoke` method will be called:
 
 .. code-block:: yaml
-   :caption: EXT:some_extension/Configuration/Services.yaml
+   :caption: EXT:my_extension/Configuration/Services.yaml
 
    services:
      Vendor\MyExtension\EventListener\NullMailer:
