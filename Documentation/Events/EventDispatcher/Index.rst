@@ -210,6 +210,7 @@ If an extension author wants to provide a custom Event Listener, an according en
      Vendor\MyExtension\EventListener\NullMailer:
        tags:
          - name: event.listener
+           method: handleEvent
            identifier: 'myListener'
            before: 'redirects, anotherIdentifier'
            event: TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent
@@ -217,11 +218,24 @@ If an extension author wants to provide a custom Event Listener, an according en
 
 The tag name :yaml:`event.listener` identifies that a listener should be registered.
 
-The custom PHP class :php:`MyCompany\MyPackage\EventListener\NullMailer` serves as the listener,
-whereas the :yaml:`identifier` is a common name so orderings can be built upon the identifier,
-the optional :yaml:`before` and :yaml:`after` attributes allow for custom sorting against :yaml:`identifier`.
+The custom PHP class :php:`Vendor\MyExtension\EventListener\NullMailer` serves as the listener
+whose :php:`handleEvent` method is called once the :yaml:`event` is dispatched.
+The :yaml:`identifier` is a common name so orderings can be built upon the identifier,
+the optional :yaml:`before` and :yaml:`after` attributes allow for custom sorting against the
+:yaml:`identifier` of other listeners.
 
-If no attribute :yaml:`method` is given, the class is treated as Invokable, thus :php:`__invoke` method is called.
+If no attribute :yaml:`method` is given, the class is treated as invokable, thus its :php:`__invoke` method will be called:
+
+.. code-block:: yaml
+   :caption: EXT:my_extension/Configuration/Services.yaml
+
+   services:
+     Vendor\MyExtension\EventListener\NullMailer:
+       tags:
+         - name: event.listener
+           identifier: 'myListener'
+           before: 'redirects, anotherIdentifier'
+           event: TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent
 
 .. versionchanged:: 11.3
    The :yaml:`event` tag can be omitted if the listener implementation has a corresponding
@@ -287,13 +301,13 @@ avoided whenever technically possible.
 Debugging event handling
 ========================
 
-A complete list of all registered event listeners can be viewed in the the module 
+A complete list of all registered event listeners can be viewed in the the module
 :guilabel:`System > Configuration > Event Listeners (PSR-14)`. The system extension
 `lowlevel` has to be installed for this module to be available.
 
 .. TODO: add screenshot
 
-To debug all events that are actually dispatched in a frontend request you can use 
+To debug all events that are actually dispatched in a frontend request you can use
 admin panel:
 
 Go to :guilabel:`Admin Panel > Debug > Events` and see all dispatched events.
