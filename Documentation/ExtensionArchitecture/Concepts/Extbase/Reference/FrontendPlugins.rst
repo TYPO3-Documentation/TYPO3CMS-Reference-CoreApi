@@ -17,7 +17,7 @@ A frontend plugin can be defined as
 Content element plugins can be added by editors to pages in the :guilabel:`Page`
 module while TypoScript frontend plugin can only be added via TypoScript or
 Fluid in a predefined position of the page. All content element plugins can
-also be used like as TypoScript plugin.
+also be used as TypoScript plugin.
 
 .. _extbase_frontend_plugin_content_element:
 
@@ -42,10 +42,10 @@ Use the following steps to add the plugin as content element:
    #. Extension key :php:`'blog_example'` or name :php:`BlogExample`.
    #. A unique identifier for your plugin in UpperCamelCase: :php:`'PostSingle'`
    #. An array of allowed combinations of controllers and actions stored in an array
-   #. (Optional) adn array of controller name and  action names which should not be cached
+   #. (Optional) an array of controller name and  action names which should not be cached
 
    :php:`TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin()` generates
-   The necessary TypoScript to display the plugin in the frontend.
+   the necessary TypoScript to display the plugin in the frontend.
 
    In the above example the actions :php:`show` in the :php:`PostController` and
    :php:`create` in the :php:`CommentController` are allowed. The later action
