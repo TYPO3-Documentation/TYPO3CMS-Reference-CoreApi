@@ -7,13 +7,13 @@ Introduction to Fluid
 =====================
 
 Fluid is TYPO3’s default rendering engine but can also be used in standalone PHP projects.
-The `Fluid source code <https://github.com/TYPO3/Fluid>`__ is being developed as an 
+The `Fluid source code <https://github.com/TYPO3/Fluid>`__ is being developed as an
 independent project outside of the TYPO3 Core.
 
-Fluid is based on XML and you can use HTML markup in Fluid. 
+Fluid is based on XML and you can use HTML markup in Fluid.
 
-Fluid ViewHelpers can be used for various purposes. Some transform data, some include 
-Partials, some loop over data or even set variables. You can find a complete list of 
+Fluid ViewHelpers can be used for various purposes. Some transform data, some include
+Partials, some loop over data or even set variables. You can find a complete list of
 them in the :ref:`ViewHelper Reference <t3viewhelper:start>`.
 
 You can :ref:`write your own custom ViewHelper <fluid-custom-viewhelper>`,
@@ -308,28 +308,3 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
          <p> some text </p>
       </div>
    </div>
-
-
-
-Further information
-===================
-
-To get an introduction to the basics of Fluid:
-
-* `The Fluid Syntax <https://github.com/TYPO3/Fluid/blob/master/doc/FLUID_SYNTAX.md>`__
-* `ViewHelpers - what these classes do in the Fluid language <https://github.com/TYPO3/Fluid/blob/master/doc/FLUID_VIEWHELPERS.md>`__
-
-You may want to follow one of these comprehensive
-tutorials:
-
-* :doc:`t3sitepackage:Index` which shows you how to create a theme for your site
-  using Fluid.
-* :ref:`Create custom content elements <adding-your-own-content-elements>`
-* :doc:`t3extbasebook:Index`
-* Use Fluid to create emails using the :ref:`TYPO3 Mail API <mail-fluid-email>`
-
-Once you have successfully completed your fist steps, these references might come
-in handy:
-
-* `24 TIPS & TRICKS FOR FLUID <https://usetypo3.com/24-fluid-tips.html>`__
-* :doc:`Fluid Viewhelper Reference <t3viewhelper:Index>`
