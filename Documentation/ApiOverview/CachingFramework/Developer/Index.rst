@@ -69,12 +69,12 @@ service configuration <configure-dependency-injection-in-extensions>`:
 .. code-block:: yaml
 
     services:
-      cache.my_cache:
+      cache.myext_mycache:
         class: TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
         factory: ['@TYPO3\CMS\Core\Cache\CacheManager', 'getCache']
         arguments: ['myext_mycache']
 
-The name of the service for the injection configuration is :`cache.mycache`, the name of the cache is `myext_mycache`.
+The name of the service for the injection configuration is :`cache.myext_mycache`, the name of the cache is `myext_mycache`.
 Both can be anything you like, just make sure they are unique and clearly hint at the purpose of your cache.
 
 .. note::
@@ -137,7 +137,7 @@ needs to be extended:
     services:
       Vendor\SomeExtension\MyClass:
         arguments:
-          $cache: '@cache.my_cache'
+          $cache: '@cache.myext_mycache'
 
 Here `@cache.my_cache` refers to the cache service we defined above. This setup allows you
 to freely inject the very same cache into any class.
