@@ -139,5 +139,5 @@ needs to be extended:
         arguments:
           $cache: '@cache.myext_mycache'
 
-Here `@cache.my_cache` refers to the cache service we defined above. This setup allows you
+Here `@cache.myext_mycache` refers to the cache service we defined above. This setup allows you
 to freely inject the very same cache into any class.
