@@ -230,8 +230,8 @@ Boolean conditions
 Boolean conditions are expressions that evaluate to true or false.
 
 Boolean conditions can be used as ViewHelper arguments, whenever the datatype
-:html:`boolean`is given, e.g. in the :ref:`t3viewhelper:if <typo3fluid-fluid-if>
-ViewHelper :html:`condition` argument.
+:html:`boolean` is given, e.g. in the
+:ref:`if ViewHelper <t3viewhelper:typo3fluid-fluid-if>` :html:`condition` argument.
 
 1. The expression can be a variable which is evaluated as follows:
 
