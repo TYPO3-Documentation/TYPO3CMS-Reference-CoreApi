@@ -240,7 +240,7 @@ Module configuration options
    :type: array
 
    List of identifiers that are aliases to this module. Those are added as route
-   aliases, which allows to use them for building links, e.g. with the
+   aliases, which allows to use them for building links, for example with the
    :php:`UriBuilder`. Additionally, the aliases can also be used for references
    in other modules, e.g. to specify a modules' :php:`parent`.
 
