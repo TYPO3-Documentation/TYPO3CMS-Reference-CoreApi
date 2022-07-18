@@ -22,4 +22,5 @@
         include('Config/EventsSeo.php'),
         include('Config/EventsSetup.php'),
         include('Config/EventsWorkspaces.php'),
+        include('Config/ManualBackend.php'),
     );
