@@ -225,7 +225,6 @@ Module configuration options
 
    **Example**
 
-
    .. code-block:: php
       :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
@@ -233,6 +232,46 @@ Module configuration options
           'allowedProperty' => '',
           'anotherAllowedProperty' => true,
       ],
+
+
+.. confval:: aliases
+
+   :Scope: Backend module configuration
+   :type: array
+
+   List of identifiers that are aliases to this module. Those are added as route
+   aliases, which allows to use them for building links, for example with the
+   :php:`UriBuilder`. Additionally, the aliases can also be used for references
+   in other modules, for example to specify a modules' :php:`parent`.
+
+   **Examples**
+
+   Example for a new module identifier:
+
+   .. code-block:: php
+      :caption: EXT:my_extension/Configuration/Backend/Modules.php
+
+      return [
+          'workspaces_admin' => [
+              'parent' => 'web',
+              // ...
+              // choose the previous name or an alternative name
+              'aliases' => ['web_WorkspacesWorkspaces'],
+          ],
+      ];
+
+   Example for a route alias identifier:
+
+   .. code-block:: php
+      :caption: EXT:my_extension/Configuration/Backend/Modules.php
+
+      return [
+          'file_editcontent' => [
+              'path' => '/file/editcontent',
+              'aliases' => ['file_edit'],
+          ],
+      ];
+
 
 Default module configuration options (without Extbase)
 ------------------------------------------------------
@@ -309,5 +348,5 @@ module.
 
 .. include:: /Images/ManualScreenshots/Backend/BackendModulesConfiguration.rst.txt
 
-The :ref:`ModuleProvider <backend-module-provider-api>` API, allows extension
+The :ref:`ModuleProvider <backend-module-provider-api>` API allows extension
 authors to work with the registered modules.
