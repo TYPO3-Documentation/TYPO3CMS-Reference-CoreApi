@@ -22,24 +22,27 @@ you to enable or disable the indexing of directories by the `Options`
 directive as shown in the following example:
 
 .. code-block:: apacheconf
-   :caption: .htaccess
+   :caption: myhost.conf (Apache configuration)
 
-   <Directory /path/to/your/webroot/>
-     Options Indexes FollowSymLinks
-   </Directory>
+   # bad example: here, Indexes is allowed!
+   Options Indexes FollowSymLinks
 
 By removing the `Indexes` option, Apache does not show the list of
 files and directories. Please note that the `Options` directive can be
-used in several containers (e.g. `<VirtualHost>`, `<Directory>`,
-`<Location>`, etc.). The correct configuration could look like the
+used in several containers (for example `<VirtualHost>`, `<Directory>`,
+in the Apache configuration) or in the file :file:`.htaccess`.
+Refer to `Context <https://httpd.apache.org/docs/2.4/mod/directive-dict.html#Context>`__
+for the `Options <https://httpd.apache.org/docs/2.4/mod/core.html#options>`__
+directive for more information.
+
+The correct configuration could look like the
 following example:
 
 .. code-block:: apacheconf
-   :caption: .htaccess
+   :caption: myhost.conf (Apache configuration)
 
-   <Directory /path/to/your/webroot/>
-     Options FollowSymLinks
-   </Directory>
+   # good example: here, Indexes is not allowed!
+   Options FollowSymLinks
 
 If your specific website requires directory indexing at other places
 outside TYPO3, you should consider to deactivate this option in
