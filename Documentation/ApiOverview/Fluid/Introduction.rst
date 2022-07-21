@@ -121,8 +121,7 @@ TYPO3 provides the possibility to set the paths using TypoScript.
 :file:`Templates`
 -----------------
 
-The template contains the main Fluid template. When using a layout (this is optional),
-you must define the sections that are referenced by the layout.
+The template contains the main Fluid template.
 
 .. _fluid-layouts:
 
@@ -138,11 +137,43 @@ sites menu, footer, and any other items that are reused throughout your website.
 Templates can be used with or without a Layout.
 
 * *With a Layout* anything that's not inside a section is ignored. When a
-  Layout is used,   the Layout determines which sections will be rendered
-  from the template through the use of   :xml:`<f:render>` in the Layout file.
+  Layout is used, the Layout determines which sections will be rendered
+  from the template through the use of :xml:`<f:render>` in the Layout file.
 * *Without a Layout* anything that's not inside a section is rendered. You
   can still use sections of course, but you then must use f:render in the
   template file itself, outside of a section, to render a section.
+
+For example, the layout may like this
+
+.. code-block:: html
+   :caption: EXT:my_extension/Resources/Private/Layouts/Default.html
+
+   <div class="header">
+      <f:render section="Header" />
+   </div>
+   <div class="main">
+      <f:render section="Main" />
+   </div>
+
+The layout defines which sections are rendered and in which order. It can
+contain additional arbitrary Fluid / HTML. How you name the sections and which
+sections you use is up to you.
+
+The template should include the sections which are to be rendered.
+
+.. code-block:: html
+   :caption:  EXT:my_extension/Resources/Private/Layouts/Default.html
+
+   <f:layout name="Default" />
+
+   <f:section name="Header">
+      <!-- add header here ! -->
+   </f:section>
+
+   <f:section name="Main">
+      <!-- add main content here ! -->
+   </f:section>
+
 
 .. _fluid-partials:
 
