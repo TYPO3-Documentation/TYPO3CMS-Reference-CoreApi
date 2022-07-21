@@ -167,7 +167,7 @@ Example template using the partial:
 .. code-block:: html
    :caption:  EXT:my_extension/Resources/Private/Templates/Show.html
 
-   <f:render partial: "Tags" arguments="{tags: post.tags}" />
+   <f:render partial="Tags" arguments="{tags: post.tags}" />
 
 The variable :html:`post.tags` is passed to the partial as variable :html:`tags`.
 
