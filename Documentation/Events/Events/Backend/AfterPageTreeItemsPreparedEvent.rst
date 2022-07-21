@@ -13,7 +13,7 @@ AfterPageTreeItemsPreparedEvent
    *  :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Workspaces\Service\WorkspaceService']['hasPageRecordVersions']`
    *  :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Workspaces\Service\WorkspaceService']['fetchPagesWithVersionsInTable']`
 
-The event allows to modify prepared page tree items.
+This event allows prepared page tree items to be modified.
 
 It is dispatched in the :php:`TYPO3\CMS\Backend\Controller\Page\TreeController`
 class after the page tree items have been resolved and prepared. The event
