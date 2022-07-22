@@ -6,6 +6,12 @@
 Directory indexing
 ==================
 
+.. note::
+
+   The following information applies to the **Apache webserver**. For
+   other Webservers, check if directory indexing is active on
+   your website and disable it whenever possible.
+
 Depending on the operating system and distribution, the default
 configuration of Apache allows the indexing of directories. This
 enables search engines to index your file structure and possibly
@@ -17,7 +23,15 @@ data that can be retrieved with a simple HTTP request.
     :alt: Screenshot of an example directory index
 
 In this case only the list of extensions is revealed, but more
-sensitive data can be found easily. The Apache configuration allows
+sensitive data can be found easily.
+
+.. note::
+
+   In TYPO3, the default :file:`.htaccess` already contains the
+   directive to disable directory indexing. Also, this is only
+   necessary if the module autoindex (mod_autoindex) is active.
+
+The Apache configuration allows
 you to enable or disable the indexing of directories by the `Options`
 directive as shown in the following example:
 
