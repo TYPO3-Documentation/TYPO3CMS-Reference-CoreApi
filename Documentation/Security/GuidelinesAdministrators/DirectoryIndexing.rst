@@ -76,11 +76,11 @@ directive for more information.
 Nginx
 =====
 
-For Nginx, directory listing is handled by the :nginx:`ngx_http_index_module`.
+For Nginx, directory listing is handled by the `ngx_http_index_module`.
 Directory listing is disabled by default.
 
 You can explicitly disable directory listing by using the parameter
-:nginx:`autoindex`.
+`autoindex`.
 
 .. code-block:: nginx
    :caption: /etc/nginx/sites-available/myhost.com
