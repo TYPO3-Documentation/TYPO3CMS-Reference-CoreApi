@@ -8,6 +8,8 @@
 Assets (CSS, JavaScript, Media)
 ===============================
 
+.. versionadded:: 10.3
+
 The TYPO3 component responsible for rendering the HTML and adding assets to a TYPO3
 frontend or backend page is called :php:`PageRenderer`.
 
@@ -20,10 +22,6 @@ For configuration options via TypoScript (usually used for the main theme files)
 see the :ref:`TypoScript Reference <t3tsref:setup-page-includecss-array>`. In extensions,
 both directly using the :php:`PageRenderer` as well as using the more convenient
 :php:`AssetCollector` is possible.
-
-.. note::
-
-   The :php:`AssetCollector` is available since TYPO3 10.3.
 
 .. index::
    AssetCollector
@@ -77,26 +75,7 @@ The :php:`AssetCollector` also collects information about "imagesOnPage", which 
 The API
 -------
 
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::addJavaScript(string $identifier, string $source, array $attributes, array $options = []): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::addInlineJavaScript(string $identifier, string $source, array $attributes, array $options = []): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::addStyleSheet(string $identifier, string $source, array $attributes, array $options = []): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::addInlineStyleSheet(string $identifier, string $source, array $attributes, array $options = []): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::addMedia(string $fileName, array $additionalInformation): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::removeJavaScript(string $identifier): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::removeInlineJavaScript(string $identifier): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::removeStyleSheet(string $identifier): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::removeInlineStyleSheet(string $identifier): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::removeMedia(string $identifier): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::getJavaScripts(?bool $priority = null): array`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::getInlineJavaScripts(?bool $priority = null): array`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::getStyleSheets(?bool $priority = null): array`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::getInlineStyleSheets(?bool $priority = null): array`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::getMedia(): array`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::hasJavaScript(string $identifier): bool`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::hasInlineJavaScript(string $identifier): bool`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::hasStyleSheet(string $identifier): bool`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::hasInlineStyleSheet(string $identifier): bool`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::hasMedia(string $identifier): bool`
+.. include:: /CodeSnippets/Manual/Core/AssetCollector.rst.txt
 
 .. note::
 
@@ -106,10 +85,10 @@ The API
 
 .. index:: pair: Assets; Viewhelpers
 
-Viewhelper
+ViewHelper
 ----------
 
-There are also two Viewhelpers, the :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the :ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>` Viewhelper which use the :php:`AssetCollector` API.
+There are also two ViewHelpers, the :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the :ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>` Viewhelper which use the :php:`AssetCollector` API.
 
 .. index:: pair: Assets; Rendering order
 
