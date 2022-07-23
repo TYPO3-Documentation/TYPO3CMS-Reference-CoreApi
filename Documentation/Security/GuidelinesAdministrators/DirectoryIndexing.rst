@@ -102,7 +102,7 @@ It is possible to disable directory listing in case it was enabled because of a
 regression or configuration changes.
 
 For IIS7 and above, it is possible to disable directory listing from the
-:guilable:`Directory Browsing` settings using the IIS manager console.
+:guilabel:`Directory Browsing` settings using the IIS manager console.
 
 Alternatively, the following command can be used:
 
