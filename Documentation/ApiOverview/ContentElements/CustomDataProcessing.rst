@@ -101,12 +101,12 @@ This is an example implementation of a custom data processor:
 
    class CustomCategoryProcessor implements DataProcessorInterface
    {
-      public function process : array (
+      public function process(
          ContentObjectRenderer $cObj,
          array $contentObjectConfiguration,
          array $processorConfiguration,
          array $processedData
-      ) {
+      ) : array {
          if (isset($processorConfiguration['if.']) && !$cObj->checkIf($processorConfiguration['if.'])) {
             // leave $processedData unchanged in case there were previous other processors
             return $processedData;
