@@ -1,4 +1,4 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
+.. Manually created for now until the screenshot tool for TYPO3 v12 is available.
 
 .. figure:: /Images/AutomaticScreenshots/AccessControl/CreateFilemount.png
    :class: with-shadow

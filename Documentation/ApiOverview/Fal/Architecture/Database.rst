@@ -175,14 +175,12 @@ configuration
 sys\_filemounts
 ===============
 
+.. versionchanged:: 12.0
+
 File mounts are not specifically part of the FAL (they existed long
 before), but their definition is based on storages. Each file mount is
-related to a specific storage. The most important fields are:
+related to a specific storage. The most important field is:
 
-base
-  Id of the storage the File Mount is related to.
-
-path
-  Folder which will actually be mounted (absolute path, considering
-  that :file:`/` is the root of the selected storage).
-
+identifier
+   The identifier in the format `base:path`, where `base` is the storage id and
+   `path` the path to the folder, for example `1:/user_upload`.
