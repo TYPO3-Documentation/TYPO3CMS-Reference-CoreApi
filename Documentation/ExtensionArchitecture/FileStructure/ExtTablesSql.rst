@@ -76,9 +76,6 @@ definition:
 :php:`['ctrl']['crdate'] = 'fieldName'`
   Often set to :php:`crdate` or :php:`createdon`
 
-:php:`['ctrl']['cruser_id'] = 'fieldName'`
-  Often set to :php:`cruser` or :php:`createdby`
-
 :php:`['ctrl']['delete'] = 'fieldName'`
   Often set to :php:`deleted`
 
