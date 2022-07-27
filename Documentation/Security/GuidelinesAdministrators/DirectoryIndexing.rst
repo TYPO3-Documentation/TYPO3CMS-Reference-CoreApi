@@ -6,36 +6,35 @@
 Disable directory indexing
 ==========================
 
-Depending on the operating system and distribution, the default
-configuration of Apache allows the indexing of directories. This
-enables search engines to index your file structure and possibly
-reveals sensitive data. The screenshot below shows an example of such
+Depending on the operating system and distribution, Apache’s default configuration may have directory indexing enabled by default.
+
+This allows search engines to index the file structure of your site and potentially 
+reveal sensitive data. The screenshot below shows an example of the kind
 data that can be retrieved with a simple HTTP request.
 
 .. figure:: /Images/ManualScreenshots/Security/DirectoryIndexing.png
     :class: with-shadow
     :alt: Screenshot of an example directory index
 
-In this case only the list of extensions is revealed, but more
-sensitive data can be found easily.
+In this example only the list of extensions are revealed, but more
+sensitive data can also be exposed.
 
-An appropriate counter measure is to disable directory indexes.
+It is strongly recommended that you disable directory indexes.
 
-If your specific website requires directory indexing at other places
-outside TYPO3, you should consider to deactivate this option in
-general but explicitly allow indexing for the required directories
-only.
+If your website requires directory indexing in other places
+outside of your TYPO3 installation, you should consider deactivating the option globally
+and only enable indexing on a case-by-case basis.
 
 
 .. contents::
    :depth: 1
    :local:
 
-Apache webserver
-================
+Apache web server
+===============
 
 By removing the `Indexes` from `Options` (or not setting it in the first place),
-Apache web server does not show the list of files and directories.
+Apache does not show the list of files and directories.
 
 In TYPO3, the default :file:`.htaccess` already contains the
 directive to disable directory indexing. Check if the following is
@@ -76,8 +75,8 @@ directive for more information.
 Nginx
 =====
 
-For Nginx, directory listing is handled by the `ngx_http_index_module`.
-Directory listing is disabled by default.
+For Nginx, directory listing is handled by the `ngx_http_index_module` and
+directory listing is disabled by default.
 
 You can explicitly disable directory listing by using the parameter
 `autoindex`.
@@ -96,10 +95,10 @@ You can explicitly disable directory listing by using the parameter
 IIS
 ===
 
-For IIS web server, directory listing is disabled by default.
+For IIS web servers, directory listing is also disabled by default.
 
-It is possible to disable directory listing in case it was enabled because of a
-regression or configuration changes.
+It is possible to disable directory listing in the event it was enabled because of a
+regression or a configuration change.
 
 For IIS7 and above, it is possible to disable directory listing from the
 :guilabel:`Directory Browsing` settings using the IIS manager console.
