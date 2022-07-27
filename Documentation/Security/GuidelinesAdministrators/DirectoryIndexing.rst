@@ -21,7 +21,7 @@ sensitive data can also be exposed.
 
 It is strongly recommended that you disable directory indexes.
 
-If your website requires directory indexing in other places
+If your web server requires directory indexing in other places
 outside of your TYPO3 installation, you should consider deactivating the option globally
 and only enable indexing on a case-by-case basis.
 
