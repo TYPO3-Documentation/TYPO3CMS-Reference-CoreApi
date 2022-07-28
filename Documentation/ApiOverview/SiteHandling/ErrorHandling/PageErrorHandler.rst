@@ -17,10 +17,6 @@ The page-based error handler is defined in
 FeatureFlag: `subrequestPageErrors`
 -----------------------------------
 
-The internal sub-request is the default behavior. This behavior can be disabled
-in favor of a curl-based approach by using the feature flag `subrequestPageErrors`
-in the :guilabel:`Settings` module.
-
 In order to prevent possible denial-of-service attacks when the page-based error
 handler is used with the curl-based approach, the content of the error page is
 cached in the TYPO3 page cache. Any dynamic content on the error page (for
@@ -34,6 +30,9 @@ will be shown on the error page.
 If dynamic content is required on the error page, it is recommended
 to implement a :ref:`custom PHP based error
 handler <sitehandling-customErrorHandler>`.
+
+The internal sub-request is disabled by default.
+
 
 Properties
 ==========
