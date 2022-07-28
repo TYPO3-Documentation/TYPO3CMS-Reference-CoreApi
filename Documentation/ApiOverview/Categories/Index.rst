@@ -6,17 +6,19 @@
 System categories
 =================
 
-TYPO3 CMS provides a generic categorization system.
+TYPO3 provides a generic categorization system.
 Categories can be created in the backend like any other type of record.
 
-A TCA field of the column type :ref:`category<t3tca:columns-category>`
+A TCA field of the column type :ref:`category<t3tca:columns-category>` is
+available.
 
 Pages, content elements and files contain category fields by default.
 
 .. versionchanged:: 11.4
-   Starting with v11.4 the formerly used php function
-   :php:`ExtensionManagementUtility::makeCategorizable()` is deprecated.
-   Use a TCA field of the type :ref:`category<t3tca:columns-category>` instead.
+   Starting with v11.4 the formerly used PHP function
+   :php:`ExtensionManagementUtility::makeCategorizable()` is deprecated and
+   removed with v12.0. Use a TCA field of the type
+   :ref:`category<t3tca:columns-category>` instead.
 
 
 .. _categories-using:
@@ -31,12 +33,12 @@ Managing Categories
 -------------------
 
 System categories are defined just like any other record. Each category
-can have a parent, making for a tree-like structure.
+can have a parent, making a tree-like structure.
 
 .. include:: /Images/AutomaticScreenshots/Categories/Editing.rst.txt
 
-The "items" tab shows all related records, for example all records that have
-been marked as belonging to this category.
+The :guilabel:`Items` tab shows all related records, for example all records
+that have been marked as belonging to this category.
 
 .. _categories-activating:
 
@@ -68,7 +70,7 @@ Using categories in FlexForms
 =============================
 
 It is possible to create relations to categories also in
-:ref:`Flexforms <t3tca:columns-flex>`.
+:ref:`FlexForms <t3tca:columns-flex>`.
 
 Due to some limitations in FlexForm, the property
 :ref:`relationship<t3tca:columns-category-properties-relationship>`
@@ -95,13 +97,13 @@ Category Collections
 
 The :php:`\TYPO3\CMS\Core\Category\Collection\CategoryCollection`
 class provides the API for retrieving records related
-to a given category. Since TYPO3 CMS 6.2, it is extended by class
+to a given category. It is extended by class
 :php:`\TYPO3\CMS\Frontend\Category\Collection\CategoryCollection`
 which does the same job but in the frontend, i.e.
 respecting all enable fields and performing version
 and language overlays.
 
-The main method is :code:`load()` which will return a
+The main method is :php:`load()` which will return a
 traversable list of items related to the given category.
 Here is an example usage, taken from the RECORDS content object:
 
@@ -109,7 +111,7 @@ Here is an example usage, taken from the RECORDS content object:
 
    $collection = \TYPO3\CMS\Frontend\Category\Collection\CategoryCollection::load(
       $aCategory,
-      TRUE,
+      true,
       $table,
       $relationField
    );
@@ -119,16 +121,16 @@ Here is an example usage, taken from the RECORDS content object:
          $tableRecords[$item['uid']] = $item;
          // Keep track of all categories a given item belongs to
          if (!isset($categoriesPerRecord[$item['uid']])) {
-            $categoriesPerRecord[$item['uid']] = array();
+            $categoriesPerRecord[$item['uid']] = [];
          }
          $categoriesPerRecord[$item['uid']][] = $aCategory;
       }
    }
 
-As all collection classes in the TYPO3 CMS Core implement the
-Iterator interface, it is also possible to use expected methods like
-:code:`next()`, :code:`rewind()`, etc. Note that methods such as
-:code:`add()` will only add items to the collection temporarily.
+As all collection classes in the TYPO3 Core implement the
+:php:`Iterator` interface, it is also possible to use expected methods like
+:php:`next()`, :php:`rewind()`, etc. Note that methods such as
+:php:`add()` will only add items to the collection temporarily.
 The relations are not persisted in the database.
 
 
@@ -142,18 +144,19 @@ categorized records loaded into a RECORDS content object
 for rendering. Check out the
 :ref:`categories property <t3tsref:cobj-records-properties-categories>`.
 
-The HMENU object also has a :ref:`"categories" special type <t3tsref:hmenu-special-categories>`,
+The HMENU object also has a :ref:`"categories" special type <t3tsref:hmenu-special-categories>`
 to display a menu based on categorized pages.
 
 User permissions for system categories
 ======================================
 
-In most aspects system categories are treated like any other record. They can
+In most aspects, system categories are treated like any other record. They can
 be viewed or edited by editors if they are stored in a folder where the editor
 has access to and if the table :sql:`sys_category` is allowed in the field
 :guilabel:`Tables (listing)` and :guilabel:`Tables (modify)` in the tab
 :guilabel:`Access Lists` of the user group.
 
 Additionally it is possible to set :guilabel:`Mounts and Workspaces >
-Category Mounts` in the user group. If at least one category is set in the
-category mounts only the chosen categories are allowed to be attached to records.
+Category Mounts` in the :ref:`user group <t3start:category-permissions>`. If at
+least one category is set in the category mounts only the chosen categories are
+allowed to be attached to records.
