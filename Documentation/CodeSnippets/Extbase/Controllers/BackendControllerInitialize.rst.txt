@@ -4,14 +4,8 @@
 .. code-block:: php
    :caption: EXT:blog_example/Classes/Controller/BackendController.php
 
-   /**
-    * The backend controller for the BlogExample extension
-    */
    class BackendController extends ActionController
    {
-       /**
-        * Function will be called before every other action
-        */
        protected function initializeAction()
        {
            $this->pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);

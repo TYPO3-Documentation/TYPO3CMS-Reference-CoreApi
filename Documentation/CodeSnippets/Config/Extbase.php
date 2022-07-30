@@ -20,7 +20,8 @@ return [
             'newAction'
         ],
         'withComment' => true,
-        'targetFileName' => 'Extbase/FrontendPlugins/BlogControllerNew.rst.txt'
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Controllers/BlogControllerNew.rst.txt'
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
@@ -29,7 +30,8 @@ return [
             'updateAction'
         ],
         'withComment' => true,
-        'targetFileName' => 'Extbase/FrontendPlugins/BlogControllerUpdate.rst.txt'
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Controllers/BlogControllerUpdate.rst.txt'
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
@@ -37,6 +39,66 @@ return [
         'members' => [
             'initializeAction'
         ],
-        'targetFileName' => 'Extbase/FrontendPlugins/BackendControllerInitialize.rst.txt'
+        'targetFileName' => 'Extbase/Controllers/BackendControllerInitialize.rst.txt'
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Post::class,
+        'members' => [
+            'comments'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Annotation/Multiple.rst.txt'
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Post::class,
+        'members' => [
+            'relatedPosts'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Annotation/Lazy.rst.txt'
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Blog::class,
+        'members' => [
+            'description'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Annotation/Validate.rst.txt'
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BlogController::class,
+        'members' => [
+            'newAction'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Annotation/IgnoreValidation.rst.txt'
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Blog::class,
+        'members' => [
+            'posts'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Annotation/Cascade.rst.txt'
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Person::class,
+        'members' => [
+            'fullname'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Annotation/Transient.rst.txt'
     ],
 ];

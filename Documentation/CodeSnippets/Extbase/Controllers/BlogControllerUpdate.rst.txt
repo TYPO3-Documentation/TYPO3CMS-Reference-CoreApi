@@ -8,9 +8,6 @@
    use FriendsOfTYPO3\BlogExample\Exception\NoBlogAdminAccessException;
    use Psr\Http\Message\ResponseInterface;
    
-   /**
-    * The blog controller for the BlogExample extension
-    */
    class BlogController extends AbstractController
    {
        /**

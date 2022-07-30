@@ -2,6 +2,8 @@
 
 .. index:: Extbase, Validation
 
+.. _extbase_validation:
+
 ==========
 Validation
 ==========
@@ -103,3 +105,44 @@ cases. Further information for the usage of the annotation :php:`@TYPO3\CMS\Extb
 
 .. todo: "If the arguments of an action can not be validated,...". This is misleading. It should
 say, "If the arguments of an action are invalid,..."
+
+
+
+
+.. code-block:: php
+   :caption: EXT:blog_example/Classes/Controller/BlogController.php
+
+   /**
+    * Existing TYPO3 validator.
+    *
+    * @Extbase\Validate("EmailAddress")
+    */
+   protected $email = '';
+
+   /**
+    * Existing TYPO3 validator with options.
+    *
+    * @Extbase\Validate("StringLength", options={"minimum": 1, "maximum": 80})
+    */
+   protected $title = '';
+
+   /**
+    * Custom validator identified by FQCN.
+    *
+    * @Extbase\Validate("\Vendor\ExtensionName\Validation\Validator\CustomValidator")
+    */
+   protected $bar;
+
+   /**
+    * Custom Validator identified by dot syntax, with additional parameters.
+    *
+    * @Extbase\Validate("Vendor.ExtensionName:CustomValidator", param="barParam")
+    */
+   public function barAction(string $barParam)
+   {
+       return '';
+   }
+
+The above list provides all possible references to a validator. Available
+validators shipped with Extbase can be found within
+:file:`EXT:extbase/Classes/Validation/Validator/`.

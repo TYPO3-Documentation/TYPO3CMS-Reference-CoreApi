@@ -1,131 +1,108 @@
 
 .. index:: Extbase; Annotations
-.. _extbase_available-annotations:
+.. _extbase-annotations:
 
-Available annotations
-^^^^^^^^^^^^^^^^^^^^^
+===========
+Annotations
+===========
 
-All available annotations for Extbase are placed within the namespace :php:`TYPO3\CMS\Extbase\Annotation`.
-They can be imported into the current namespace, e.g.:
+All available annotations for Extbase are placed within the namespace
+:php:`TYPO3\CMS\Extbase\Annotation`.
 
-.. code-block:: php
-   :caption: EXT:blog_example/Classes/Controller/BlogController.php
+Example in the blog example for the annotation :php:`Lazy`:
 
+.. include:: /CodeSnippets/Extbase/Annotation/Lazy.rst.txt
 
-   use TYPO3\CMS\Extbase\Annotation\ORM\Transient;
+Annotations provided by Extbase
+===============================
 
-   /**
-    * @Transient
-    * @var Foo
-    */
-   public $property;
+The following annotations are provided Extbase:
 
-It is completely valid and will be parsed. It is considered to be best practice to
-use the following instead, in order to make the source of annotation more
-transparent:
+.. _extbase-annotation-validate:
 
-.. code-block:: php
-   :caption: EXT:blog_example/Classes/Controller/BlogController.php
+Validate
+--------
 
-   use TYPO3\CMS\Extbase\Annotation as Extbase;
+:php:`@TYPO3\CMS\Extbase\Annotation\Validate`: Allows to configure validators
+for properties and method arguments. See :ref:`extbase_validation` for details.
 
-   /**
-    * @Extbase\Transient
-    * @var Foo
-    */
-   public $property;
+Can be used in the context of a model.
 
-The following annotations are available out of the box within Extbase:
+**Example:**
 
-:php:`@TYPO3\CMS\Extbase\Annotation\Validate`
-   Allows to configure validators for properties and method arguments:
+.. include:: /CodeSnippets/Extbase/Annotation/Validate.rst.txt
 
+.. _extbase-annotation-ignore-validation:
 
-   .. code-block:: php
-      :caption: EXT:blog_example/Classes/Controller/BlogController.php
+IgnoreValidation
+----------------
 
-      /**
-       * Existing TYPO3 validator.
-       *
-       * @Extbase\Validate("EmailAddress")
-       */
-      protected $email = '';
+:php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation()`: Allows to ignore
+Extbase default validation for a given argument.
 
-      /**
-       * Existing TYPO3 validator with options.
-       *
-       * @Extbase\Validate("StringLength", options={"minimum": 1, "maximum": 80})
-       */
-      protected $title = '';
+Used in context of a controller.
 
-      /**
-       * Custom validator identified by FQCN.
-       *
-       * @Extbase\Validate("\Vendor\ExtensionName\Validation\Validator\CustomValidator")
-       */
-      protected $bar;
+**Example:**
 
-      /**
-       * Custom Validator identified by dot syntax, with additional parameters.
-       *
-       * @Extbase\Validate("Vendor.ExtensionName:CustomValidator", param="barParam")
-       */
-      public function barAction(string $barParam)
-      {
-          return '';
-      }
+.. include:: /CodeSnippets/Extbase/Annotation/IgnoreValidation.rst.txt
 
-   The above list provides all possible references to a validator. Available
-   validators shipped with Extbase can be found within
-   :file:`EXT:extbase/Classes/Validation/Validator/`.
+.. _extbase-annotation-orm:
 
-:php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation()`
-   Allows to ignore Extbase default validation for a given argument, in context
-   of an controller.
+ORM (object relational model) annotations
+------------------------------------------
 
-   .. code-block:: php
-      :caption: EXT:blog_example/Classes/Controller/BlogController.php
+The following annotations can only be used on models:
 
+.. _extbase-annotation-cascade:
 
-      /**
-       * @Extbase\IgnoreValidation("param")
-       */
-      public function method($param)
-      {
-      }
+Cascade
+~~~~~~~
 
-:php:`@TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")`
-   Allows to remove child entities during deletion of aggregate root.
+:php:`@TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")`: Allows to remove
+child entities during deletion of aggregate root.
 
+Extbase only supports the option "remove".
 
-   .. code-block:: php
-      :caption: EXT:blog_example/Classes/Controller/BlogController.php
+**Example:**
 
-      /**
-       * @Extbase\ORM\Cascade("remove")
-       */
-      public $property;
+.. include:: /CodeSnippets/Extbase/Annotation/Cascade.rst.txt
 
-:php:`@TYPO3\CMS\Extbase\Annotation\ORM\Transient`
-   Marks property as transient (not persisted).
+.. _extbase-annotation-transient:
 
+Transient
+~~~~~~~~~~
 
-   .. code-block:: php
-      :caption: EXT:blog_example/Classes/Controller/BlogController.php
+:php:`@TYPO3\CMS\Extbase\Annotation\ORM\Transient`: Marks property as transient
+(not persisted).
 
-      /**
-       * @Extbase\ORM\Transient
-       */
-      public $property;
+**Example:**
 
-:php:`@TYPO3\CMS\Extbase\Annotation\ORM\Lazy`
-   Marks property to be lazily loaded on first access.
+.. include:: /CodeSnippets/Extbase/Annotation/Transient.rst.txt
 
+.. _extbase-annotation-lazy:
 
-   .. code-block:: php
-      :caption: EXT:blog_example/Classes/Controller/BlogController.php
+Lazy
+~~~~
 
-      /**
-       * @Extbase\ORM\Lazy
-       */
-      public $property;
+:php:`@TYPO3\CMS\Extbase\Annotation\ORM\Lazy`: Marks property to be lazily
+loaded on first access.
+
+.. note::
+   Lazy loading can greatly improve the performance of your actions.
+
+**Example:**
+
+.. include:: /CodeSnippets/Extbase/Annotation/Lazy.rst.txt
+
+.. _extbase-annotation-combine:
+
+Combining annotations
+=====================
+
+Annotations can be combined. For example Lazy loading and removal on cascade
+are frequently combined:
+
+.. include:: /CodeSnippets/Extbase/Annotation/Multiple.rst.txt
+
+Several validations can also be combined. See :ref:`extbase_validation`
+for details.
