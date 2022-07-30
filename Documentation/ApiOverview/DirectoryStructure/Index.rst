@@ -27,6 +27,17 @@ the paths within PHP code.
   - :Directory,20: Directory
     :Description,80: Description
 
+  - :Directory: :file:`_assets/`
+    :Description:
+      This directory includes symlinks to resources of extensions, as consequence
+      of this and further structure changes the folder :file:`typo3conf/ext/` is
+      not created or used anymore.
+      
+      This directory :file:`_assets/` and the related changes depend on the
+      system-extension `typo3/cms-composer-installers` in version 4+.
+      Previous versions used the classical directory structure with :file:`typo3conf/ext/`
+      for extensions.
+
   - :Directory: :file:`fileadmin/`
     :Description:
       This is a directory in which editors store files. Typically images,
@@ -56,7 +67,6 @@ the paths within PHP code.
       each system extension the PHP files are located in the folder
       :file:`Classes/`. See :ref:`extension files locations <extension-files-locations>`
       for more information on how single extensions are structured.
-
 
   - :Directory: :ref:`Environment-config-path` either :file:`typo3conf/` or :file:`config/`
     :Description:
