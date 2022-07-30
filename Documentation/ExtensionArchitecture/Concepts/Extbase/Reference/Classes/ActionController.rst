@@ -12,96 +12,91 @@ Most Extbase controllers are based on the
 possible to base a controller directly on the
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ControllerInterface`, however there are
 rarely use cases for that. Implementing the :php:`ControllerInterface` does not
-guarantee a controller to be dispatchable.
-
-.. index:: Extbase; ActionController API
-.. _extbase_class_hierarchy-action_controller_api:
-.. _extbase_class_hierarchy-most_important_api_methods_of_action_controller:
-
-ActionController API
-====================
+guarantee a controller to be dispatchable. It is not recommended to base
+your controller directly on the :php:`ControllerInterface`.
 
 .. _extbase_class_hierarchy-actions:
 
 Actions
 =======
 
-All public and protected methods that end in *action* (for example `indexAction` or `showAction`),
+Most public and protected methods that end in "Action" (for example
+:php:`indexAction()` or :php:`showAction()`),
 are automatically registered as actions of the controller.
 
-Many of these actions have parameters. These appear as annotations in the Doc-Comment-Block
-of the specified method, as shown in Example B-3:
+.. versionchanged:: 11.0
+   To comply with PSR standards, controller actions **should** return an
+   instance of the :php:`Psr\Http\Message\ResponseInterface`. This becomes
+   mandatory with TYPO3 12.0.
 
-*Example B-3: Actions with parameters*
+Many of these actions have parameters. You should use strong types for the
+parameters as this is necessary for the validation.
 
-
-.. code-block:: php
-   :caption: EXT:blog_example/Classes/Controller/BlogController.php
-
-   <?php
-   declare(strict_types = 1);
-
-   namespace Ex\BlogExample\Controller;
-
-   use TYPO3\CMS\Extbase\Annotation as Extbase;
-   use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-   use Ex\BlogExample\Domain\Model\Blog
-
-   class BlogController extends ActionController
-   {
-       /**
-        * Displays a form for creating a new blog, optionally pre-filled with partial information.
-        *
-        * @param Blog $newBlog A fresh blog object which should be taken
-        *        as a basis for the form if it is set.
-        *
-        * @return ResponseInterface
-        *
-        * @Extbase\IgnoreValidation("newBlog")
-        */
-       public function newAction(Blog $newBlog = NULL) : ResponseInterface
-       {
-           $this->view->assign('newBlog', $newBlog);
-           return $this->htmlResponse();
-       }
-   }
-
-.. note::
-   Not only simple data types such as String, Integer, or Float can be validated,
-   but also complex object types (see also the section
-   ":ref:`validating-domain-objects`" in Chapter 9).
+.. include:: CodeSnippets/Extbase/FrontendPlugins/BlogControllerNew.rst.txt
 
 The validation of domain object can be explicitly disabled by the annotation
 :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation`. This might be necessary
 in actions that show forms or create domain objects.
 
-Default values can, as usual in PHP, just be indicated in the method signature. In the above case,
-the default value of the parameter `$newBlog` is set to NULL. If an action returns `NULL` or nothing,
-then automatically `$this->view->render()` is called, and thus the view is rendered.
+Default values can, as usual in PHP, just be indicated in the method signature.
+In the above case, the default value of the parameter :php:`$newBlog` is set to
+:php:`NULL`.
 
-.. todo: We need to adjust this example to reflect the PSR-7 response changes.
+If the action should render the view you can return :php:`$this->htmlResponse()`
+as a shortcut for taking care of creating the response yourself.
 
+In order to redirect to another action, return :php:`$this->redirect('another')`:
+
+.. include:: CodeSnippets/Extbase/Controllers/BlogControllerUpdate.rst.txt
+
+If an exception is thrown while an action is executed you will receive the
+"Oops an error occurred" screen on a production system or a stack trace on a
+development system with activated debugging.
+
+.. note::
+   The methods
+   :php:`initializeAction()`, :php:`initializeDoSomethingAction()` and
+   :php:`errorAction()` have special meanings in initialization and error handling
+   and are no Extbase actions.
 
 .. _extbase_class_hierarchy-define_initialization_code:
 
 Define initialization code
---------------------------
+===========================
 
-Sometimes it is necessary to execute code before calling an action. For example, if complex
-arguments must be registered, or required classes must be instantiated.
+Sometimes it is necessary to execute code before calling an action. For example,
+if complex arguments must be registered, or required classes must be instantiated.
 
-There is a generic initialization method called `initializeAction()`, which is called after
-the registration of arguments, but before calling the appropriate action method itself. After the
-generic `initializeAction()`, if it exists, a method named *initialize[ActionName]()* is called.
-Here you can perform action specific initializations (e.g. `initializeShowAction()`).
+There is a generic initialization method called :php:`initializeAction()`, which
+is called after the registration of arguments, but before calling the
+appropriate action method itself. After the generic `initializeAction()`, if
+it exists, a method named *initialize[ActionName]()*, for example
+:php:`initializeShowAction` is called.
+
+In this method you can perform action specific initializations.
+
+In the backend controller of the blog example the method
+:php:`initializeAction()` is used to discover the page that is currently
+activated in the page tree and save it in a variable:
+
+.. include:: CodeSnippets/Extbase/Controllers/BackendControllerInitialize.rst.txt
 
 .. _extbase_class_hierarchy-catching_validation_errors_with_error_action:
 
 Catching validation errors with errorAction
--------------------------------------------
+============================================
 
-If an argument validation error has occurred, the method `errorAction()` is called. There,
-in `$this->argumentsMappingResults`, you have a list of occurred warnings and errors of the argument
-mappings available. This default `errorAction` refers back to the referrer if the referrer
-was sent with it.
+If an argument validation error has occurred, the method :php:`errorAction()`
+is called.
 
+The default implementation sets a flash message, error response with HTTP
+status 400 and forwards back to the originating action.
+
+This is suitable for most actions dealing with form input.
+
+If you need a to handle errors differently this method can be overridden.
+
+.. hint::
+   If a domain object should not be validated, for example in the middle of an
+   editing process, the validation of that object can be disabled by the
+   annotation :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation`.
