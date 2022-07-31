@@ -14,7 +14,6 @@ in EXT:info.
 
 .. toctree::
    :titlesonly:
-   :caption: backend
    :glob:
 
    *
