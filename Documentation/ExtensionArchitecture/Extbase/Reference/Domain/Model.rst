@@ -1,27 +1,9 @@
 .. include:: /Includes.rst.txt
 
-.. index:: Extbase; Domain
+.. index:: Extbase; Model
 
 ===================================
-Domain and model
-===================================
-
-The Application domain of the extension is always located below
-:file:`Classes/Domain`. This folder is structured as follows:
-
-:file:`Model/`
-    Contains the domain models themselves.
-
-:file:`Repository/`
-    It contains the repositories to access the domain models.
-
-:file:`Validator/`
-    Contains specific validators for the domain models.
-
-
-.. index:: Extbase; Domain models
-
-Domain model
+Model
 ===================================
 
 All classes of the domain model must inherit from one of the following classes:
@@ -62,24 +44,4 @@ or attribute (for example a color) but carries no concept of identity.
 
 .. index:: Extbase; Repositories
 
-Repositories
-===================================
-
-All repositories inherit from :php:`\TYPO3\CMS\Extbase\Persistence\Repository`.
-
-A repository is always responsible for precisely one type of domain object.
-
-The naming of the repositories is important:
-If the domain object is, for example, *Blog* (with full name
-:php:`FriendsOfTYPO3\BlogExample\Domain\Model\Blog`),
-then the corresponding repository is named *BlogRepository* (with the full name
-`FriendsOfTYPO3\BlogExample\Domain\Repository\BlogRepository`).
-
-The :php:`\TYPO3\CMS\Extbase\Persistence\Repository` already offers a large
-number of usefull functions. Therefore in simple classes extending the
-class :php:`Repository` and leaving the class empty otherwise is sufficient.
-
-The :php:`BlogRepository` sets some default orderings and is otherwise empty:
-
-.. include:: /CodeSnippets/Extbase/Domain/BlogRepository.rst.txt
 

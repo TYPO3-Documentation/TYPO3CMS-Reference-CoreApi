@@ -32,7 +32,7 @@ are automatically registered as actions of the controller.
 Many of these actions have parameters. You should use strong types for the
 parameters as this is necessary for the validation.
 
-.. include:: CodeSnippets/Extbase/FrontendPlugins/BlogControllerNew.rst.txt
+.. include:: /CodeSnippets/Extbase/FrontendPlugins/BlogControllerNew.rst.txt
 
 The validation of domain object can be explicitly disabled by the annotation
 :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation`. This might be necessary
@@ -47,7 +47,7 @@ as a shortcut for taking care of creating the response yourself.
 
 In order to redirect to another action, return :php:`$this->redirect('another')`:
 
-.. include:: CodeSnippets/Extbase/Controllers/BlogControllerUpdate.rst.txt
+.. include:: /CodeSnippets/Extbase/Controllers/BlogControllerUpdate.rst.txt
 
 If an exception is thrown while an action is executed you will receive the
 "Oops an error occurred" screen on a production system or a stack trace on a
@@ -79,7 +79,7 @@ In the backend controller of the blog example the method
 :php:`initializeAction()` is used to discover the page that is currently
 activated in the page tree and save it in a variable:
 
-.. include:: CodeSnippets/Extbase/Controllers/BackendControllerInitialize.rst.txt
+.. include:: /CodeSnippets/Extbase/Controllers/BackendControllerInitialize.rst.txt
 
 .. _extbase_class_hierarchy-catching_validation_errors_with_error_action:
 
