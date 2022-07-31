@@ -128,4 +128,10 @@ return [
         "targetFileName"=> "Events/Core/BeforeMailerSentMessageEvent.rst.txt",
         "withCode"=> false
     ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\TypoScript\AST\Event\EvaluateModifierFunctionEvent::class,
+        "targetFileName"=> "Events/Core/EvaluateModifierFunctionEvent.rst.txt",
+        "withCode"=> false
+    ],
 ];
