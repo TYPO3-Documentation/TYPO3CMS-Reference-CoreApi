@@ -14,7 +14,6 @@ in the TYPO3 Core .
 
 .. toctree::
    :titlesonly:
-   :caption: backend
    :glob:
 
    */Index

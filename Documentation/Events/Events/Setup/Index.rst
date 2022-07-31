@@ -14,7 +14,6 @@ in EXT:setup.
 
 .. toctree::
    :titlesonly:
-   :caption: backend
    :glob:
 
    *
