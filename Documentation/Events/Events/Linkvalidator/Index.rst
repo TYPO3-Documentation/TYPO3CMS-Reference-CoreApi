@@ -14,7 +14,6 @@ in EXT:linkvalidator .
 
 .. toctree::
    :titlesonly:
-   :caption: backend
    :glob:
 
    *

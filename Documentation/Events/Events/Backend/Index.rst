@@ -13,7 +13,6 @@ in EXT:backend.
 
 .. toctree::
    :titlesonly:
-   :caption: backend
    :glob:
 
    *

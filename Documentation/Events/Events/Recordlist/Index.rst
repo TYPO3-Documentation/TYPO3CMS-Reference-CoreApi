@@ -14,7 +14,6 @@ in EXT:recordlist.
 
 .. toctree::
    :titlesonly:
-   :caption: backend
    :glob:
 
    *
