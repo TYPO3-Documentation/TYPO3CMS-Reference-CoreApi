@@ -47,7 +47,7 @@ the paths within PHP code.
         in TYPO3 Version 11. Therefore the version has to be explicitely set (decreased)
         if the classical directory structure shall be used:
         ```
-        "typo3/cms-composer-installers": "^2.0 || ^3.0",
+        "typo3/cms-composer-installers": "^3.1",
         ```
 
   - :Directory: :file:`fileadmin/`
