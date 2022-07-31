@@ -68,7 +68,7 @@ You can edit these options in the
 How to publish an extension
 ===========================
 
-Now we come to the process of publishing in TER. You have three options for
+Now we come to the process of publishing in TER. You have two options for
 releasing an extension:
 
 #. Via the web form:
@@ -92,7 +92,7 @@ releasing an extension:
 
    GitHub: https://github.com/tomasnorre/typo3-upload-ter
 
-#. Via the SOAP interface (deprecated):
+#. Via the SOAP interface (shut down on July 30, 2022):
 
    Use the PHP CLI application
    `TYPO3 Repository Client <https://github.com/NamelessCoder/typo3-repository-client>`__
