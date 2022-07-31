@@ -104,7 +104,7 @@ cases. Further information for the usage of the annotation :php:`@TYPO3\CMS\Extb
 ":ref:`case_study-edit_an_existing_object`" in Chapter 9.
 
 .. todo: "If the arguments of an action can not be validated,...". This is misleading. It should
-say, "If the arguments of an action are invalid,..."
+   say, "If the arguments of an action are invalid,..."
 
 
 

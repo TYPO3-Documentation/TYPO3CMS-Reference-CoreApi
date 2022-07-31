@@ -63,4 +63,8 @@ that will persist the object.
 .. include:: /CodeSnippets/Extbase/Validator/ObjectValidator.rst.txt
 
 If the error is related to a specific property of the domain object, the
-function :php:`addErrorForProperty()` should be used instead of
+function :php:`addErrorForProperty()` should be used instead of :php:`addError()`.
+
+The validator is used as annotation in the action methods of the contorller:
+
+.. include:: /CodeSnippets/Extbase/Validator/ObjectValidatorUsage.rst.txt

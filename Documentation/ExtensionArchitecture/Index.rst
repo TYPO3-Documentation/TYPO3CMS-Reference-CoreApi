@@ -79,4 +79,5 @@ Extension Development
    Concepts/Index
    FileStructure/Index
    HowTo/Index
+   Extbase/Index
    BestPractises/Index
