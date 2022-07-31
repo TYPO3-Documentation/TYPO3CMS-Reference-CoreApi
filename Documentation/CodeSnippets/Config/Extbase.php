@@ -175,6 +175,51 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/SpecialQuerySettings.rst.txt'
+        'targetFileName' => 'Extbase/Domain/SpecialQuerySettings.rst.txt',
+    ],
+
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BlogController::class,
+        'members' => [
+            'newAction'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/View/HtmlResponse.rst.txt',
+        'emphasizeLines' => [18],
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BlogController::class,
+        'members' => [
+            'helloWorldAction'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/View/HtmlResponseCustom.rst.txt',
+        'emphasizeLines' => [10],
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BlogController::class,
+        'members' => [
+            'showBlogAjaxAction'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/View/JsonResponseCustom.rst.txt',
+        'emphasizeLines' => [9],
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'members' => [
+            'displayRssListAction'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/View/CustomResponse.rst.txt',
+        'emphasizeLines' => [17,18,19],
     ],
 ];
