@@ -1,14 +1,14 @@
 .. include:: /Includes.rst.txt
 .. index:: pair: Events; Core Authentication
-.. _eventlist-core:
+.. _eventlist-core-authentication:
 
 
-==========================
-Events in EXT:core
-==========================
+==============
+Authentication
+==============
 
 The following list contains :ref:`PSR-14 events <EventDispatcher>`
-in the TYPO3 Core .
+in EXT:core, namespace Authentication.
 
 **Contents:**
 
