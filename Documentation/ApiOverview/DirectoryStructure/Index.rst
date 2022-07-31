@@ -43,7 +43,12 @@ the paths within PHP code.
         directory structure with :file:`typo3conf/ext/` for extensions.
         
         The composer-plugin `typo3/cms-composer-installers` in version 4+ was created
-        for TYPO3 Version 12 and backported for **optional usage** in TYPO3 Version 11.
+        for TYPO3 Version 12 and backported for default but **optional usage**
+        in TYPO3 Version 11. Therefore the version has to be explicitely set (decreased)
+        if the classical directory structure shall be used:
+        ```
+        "typo3/cms-composer-installers": "^2.0 || ^3.0",
+        ```
 
   - :Directory: :file:`fileadmin/`
     :Description:
