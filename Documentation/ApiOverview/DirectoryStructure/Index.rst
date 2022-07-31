@@ -38,12 +38,12 @@ the paths within PHP code.
       
       .. note::
         This directory :file:`_assets/` and the related changes depend on the
-        system-extension `composer_installers` in version 4+.
-        Previous versions of `composer_installers` used the classical directory
-        structure with :file:`typo3conf/ext/` for extensions.
+        composer-plugin `typo3/cms-composer-installers` in version 4+.
+        Previous versions of `typo3/cms-composer-installers` used the classical
+        directory structure with :file:`typo3conf/ext/` for extensions.
         
-        The system-extension `composer_installers` in version 4+ was created for
-        TYPO3 Version 12 and backported for **optional usage** in TYPO3 Version 11.
+        The composer-plugin `typo3/cms-composer-installers` in version 4+ was created
+        for TYPO3 Version 12 and backported for **optional usage** in TYPO3 Version 11.
 
   - :Directory: :file:`fileadmin/`
     :Description:
