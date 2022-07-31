@@ -14,7 +14,6 @@ in EXT:extbase.
 
 .. toctree::
    :titlesonly:
-   :caption: backend
    :glob:
 
    */Index

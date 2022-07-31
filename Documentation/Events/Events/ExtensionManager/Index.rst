@@ -14,7 +14,6 @@ in EXT:extension_manager.
 
 .. toctree::
    :titlesonly:
-   :caption: backend
    :glob:
 
    *
