@@ -222,4 +222,41 @@ return [
         'targetFileName' => 'Extbase/View/CustomResponse.rst.txt',
         'emphasizeLines' => [17,18,19],
     ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Validator\TitleValidator::class,
+        'members' => [
+            'isValid'
+        ],
+        'targetFileName' => 'Extbase/Validator/PropertyValidator.rst.txt',
+        'emphasizeLines' => [8],
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Blog::class,
+        'members' => [
+            'title'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Validator/PropertyValidatorUsage.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Validator\BlogValidator::class,
+        'members' => [
+            'isValid'
+        ],
+        'targetFileName' => 'Extbase/Validator/ObjectValidator.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BlogController::class,
+        'members' => [
+            'updateAction'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Validator/ObjectValidatorUsage.rst.txt',
+    ],
 ];
