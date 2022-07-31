@@ -46,9 +46,10 @@ the paths within PHP code.
         for TYPO3 Version 12 and backported for default but **optional usage**
         in TYPO3 Version 11. Therefore the version has to be explicitely set (decreased)
         if the classical directory structure shall be used:
-        ```
-        "typo3/cms-composer-installers": "^3.1",
-        ```
+        
+        .. code-block:: json
+
+           "typo3/cms-composer-installers": "^3.1",
 
   - :Directory: :file:`fileadmin/`
     :Description:
