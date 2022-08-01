@@ -259,4 +259,16 @@ return [
         'withClassComment' => false,
         'targetFileName' => 'Extbase/Validator/ObjectValidatorUsage.rst.txt',
     ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Person::class,
+        'members' => [
+            'email',
+            'firstname',
+            'lastname'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Validator/ValidatorWithArgumentUsage.rst.txt',
+    ],
 ];

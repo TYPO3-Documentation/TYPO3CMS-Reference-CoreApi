@@ -7,23 +7,13 @@
 View
 ================
 
-.. sidebar:: Fully qualified class names
-
-   See the fully qualified names of the classes mentioned in the text on
-   this page:
-
-   *  :php:`Psr\Http\Message\ResponseInterface`
-   *  :php:`TYPO3\CMS\Extbase\Mvc\Controller\ActionController`
-   *  :php:`TYPO3Fluid\Fluid\View\ViewInterface`
-   *  :php:`TYPO3\CMS\Extbase\Mvc\View\JsonView`
-   *  :php:`Psr\Http\Message\ResponseFactoryInterface`
-
 The result of an action or a chain of actions is usually a view where output,
 most often as HTML is displayed to the user.
 
 The action, located in the controller returns a :php:`ResponseInterface`
+(:php:`Psr\Http\Message\ResponseInterface`)
 which contains the result of the view. The view, property :php:`$view` of type
-:php:`ViewInterface`.
+:php:`ViewInterface` (:php:`TYPO3Fluid\Fluid\View\ViewInterface`).
 
 In the most common case it is sufficient to just set some variables on the
 :php:`$view` and return :php:`$this->htmlResponse()`:
@@ -76,7 +66,7 @@ is used to directly output a json string:
 .. include:: /CodeSnippets/Extbase/View/JsonResponseCustom.rst.txt
 
 It is also possible to use the JSON response together with a special view class
-the :php:`JsonView`.
+the :php:`JsonView` (:php:`TYPO3\CMS\Extbase\Mvc\View\JsonView`).
 
 Response in a different format
 -------------------------------

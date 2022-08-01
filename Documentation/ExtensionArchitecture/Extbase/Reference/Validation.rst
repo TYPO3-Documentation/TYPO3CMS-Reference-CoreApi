@@ -8,141 +8,117 @@
 Validation
 ==========
 
-You can write your own validators for domain models. These must be located in
-the folder :file:`Domain/Validator/`, they must be named exactly as the corresponding
-domain model, but with the suffix Validator and implement the interface
-:php:`\TYPO3\CMS\Extbase\Validation\Validator\ValidatorInterface`. For more details, see the
-following section.
+.. seealso::
+   *  :ref:`extbase_domain_validator` on how to write a custom validator.
 
+Extbase provides a number of validators for standard use cases such as
+e-mail addresses, string length, not empty etc.
 
-.. todo: This is no longer true. The concept of automatically called domain validators is removed.
+.. version-changed:: 10.0
+   Before TYPO3 10 Validators where automatically applied by naming conventions.
+   This feature was removed without replacement.
 
-Validation API
---------------
+All validators need to be explicitly applied by the annotation
+:ref:`extbase-annotation-validate` to either a
+controller action or a property / setter in a model.
 
-.. todo: Add new API must-haves, empty values and configure options, etc.
+It is also possible to write custom validators for properties or complete
+models. See chapter :ref:`Custom validators <extbase_domain_validator>` for
+more information.
 
-Extbase provides a generic validation system that is used in many places in Extbase. Extbase
-provides validators for common data types, but you can also write your own validators. Each
-Validator implements the :php:`\TYPO3\CMS\Extbase\Validation\Validator\ValidatorInterface`
-that defines the following methods:
+Why is validation needed?
+=========================
 
-.. include:: /CodeSnippets/Extbase/Api/ValidatorInterface.rst.txt
+People often assume that domain objects are consistent and adhere to
+some rules at all times.
 
-In most use cases extending the abstract class
-:php:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator` is sufficient
-however.
+Unfortunately, this is not achieved automatically. So it is important to
+define such rules explicitly.
 
-You can call Validators in your own code with the method `createValidator($validatorName,
-$validatorOptions)` in :php:`\TYPO3\CMS\Extbase\Validation\ValidatorResolver`. Though in
-general, this is not necessary. Validators are often used in conjunction with domain objects and
-controller actions.
+In the blog example for the model :php:`Person` the following rules can
+be defined
 
+*  First name and last name should each have no more then 80 chars.
+*  A last name should have at least 2 chars.
+*  The parameter :php:`email` has to contain a  valid email address.
+
+These rules are called *invariants*, because they must be
+valid during the entire lifetime of the object.
+
+At the beginning of your project, it is important to consider which
+invariants your domain objects will consist of.
+
+When does validation take place?
+================================
+
+Domain objects in Extbase are validated only at one point in time:
+When they are used as parameter in a controller action.
+
+When a user sends a request, Extbase first determines which action
+within the controller is responsible for this request.
+
+Extbase then maps the arguments so that they fit types as defined in the
+actions method signature.
+
+If there are validators defined for the action these are applied before
+the actual action method is called.
+
+When the validation fails the method
+:ref:`errorAction() <extbase_class_hierarchy-catching_validation_errors_with_error_action>`
+of the current controller is called.
 
 Validation of model properties
-------------------------------
+===============================
 
-You can define simple validation rules in the domain model by annotation. For
-this, you use the annotation `@TYPO3\CMS\Extbase\Annotation\Validate` with the properties of the object. A brief
-example:
+You can define simple validation rules in the domain model by the annotation
+:ref:`extbase-annotation-validate`.
 
-*Example B-4: validation in the domain object*
+**Example:**
 
-.. code-block:: php
-   :caption: EXT:blog_example/Classes/Domain/Model/Blog.php
+.. include:: /CodeSnippets/Extbase/Annotation/Validate.rst.txt
 
-    namespace Ex\BlogExample\Domain\Model;
-
-    /**
-     * A single blog that has multiple posts and can be read by users.
-     */
-    class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
-    {
-        /**
-         * The blog's title.
-         *
-         * @var string
-         * @TYPO3\CMS\Extbase\Annotation\Validate("Text")
-         * @TYPO3\CMS\Extbase\Annotation\Validate("StringLength", options={"minimum": 1, "maximum": 80})
-         */
-        protected $title;
-
-        // the class continues here
-    }
-
-In this code section, the validators for the `$title` attribute of the Blog object is defined. `$title`
-must be a text (i.e., no HTML is allowed), and also the length of the string is checked with the
-`StringLength`-Validator (it must be between 1 and 80 characters). Commas can separate several validators
-for a property.Parameters of the validators are set in parentheses. You can omit the
-quotes for validator options if they are superfluous, as in the example above. If complex validation
-rules are necessary (for example, multiple fields to be checked for equality), you must implement
-your own validator.
-
+In this code section the validator :php:`StringLength` provided by Extbase
+in class :php:`TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator`
+is applied with one argument.
 
 Validation of controller arguments
-----------------------------------
+===================================
 
 The following rules validate each controller argument:
 
-* If the argument has a simple type (string, integer, etc.), this type is checked.
-  .. todo: Not any more!
+*  If the argument is a domain object, the annotations
+   `@TYPO3\CMS\Extbase\Annotation\Validate` in the domain object are taken into
+   account.
 
-* If the argument is a domain object, the annotations `@TYPO3\CMS\Extbase\Annotation\Validate` in the domain object is taken into
-  account, and - if set - the appropriate validator in the folder :file:`Domain/Validator` for the
-  existing domain object is run.
-  .. todo: Not any more!
+*  If there is set an annotation
+   :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation` for the argument,
+   no validation is done.
 
-* If there is set an annotation :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation` for the argument,
-  no validation is done.
-* Additional validation rules can be specified via further `@TYPO3\CMS\Extbase\Annotation\Validate` annotations in the methods
-  PHPDoc block.
-  .. todo: ALL validators need to be specified with this annotation!
+*  Validators added in the annotation of the action are applied.
 
-If an action's arguments can not be validated, then the `errorAction` is executed, which will
-usually jump back to the last screen. Validation mustn't be performed in certain
-cases. Further information for the usage of the annotation :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation` see
-":ref:`case_study-edit_an_existing_object`" in Chapter 9.
+If the arguments of an action are invalid, the
+:ref:`errorAction <extbase_class_hierarchy-catching_validation_errors_with_error_action>`
+is executed. By default a HTTP response with status 400 is returned. If possible
+the user is forwarded to the previous action. This behaviour can be overridden
+in the controller.
 
-.. todo: "If the arguments of an action can not be validated,...". This is misleading. It should
-   say, "If the arguments of an action are invalid,..."
+Annotations with arguments
+===========================
 
+Annotations can be called with zero, one or more arguments. See the following
+examples:
 
+.. include:: /CodeSnippets/Extbase/Validator/ValidatorWithArgumentUsage.rst.txt
 
-
-.. code-block:: php
-   :caption: EXT:blog_example/Classes/Controller/BlogController.php
-
-   /**
-    * Existing TYPO3 validator.
-    *
-    * @Extbase\Validate("EmailAddress")
-    */
-   protected $email = '';
-
-   /**
-    * Existing TYPO3 validator with options.
-    *
-    * @Extbase\Validate("StringLength", options={"minimum": 1, "maximum": 80})
-    */
-   protected $title = '';
-
-   /**
-    * Custom validator identified by FQCN.
-    *
-    * @Extbase\Validate("\Vendor\ExtensionName\Validation\Validator\CustomValidator")
-    */
-   protected $bar;
-
-   /**
-    * Custom Validator identified by dot syntax, with additional parameters.
-    *
-    * @Extbase\Validate("Vendor.ExtensionName:CustomValidator", param="barParam")
-    */
-   public function barAction(string $barParam)
-   {
-       return '';
-   }
-
-The above list provides all possible references to a validator. Available
-validators shipped with Extbase can be found within
+Available validators shipped with Extbase can be found within
 :file:`EXT:extbase/Classes/Validation/Validator/`.
+
+
+Manually call a validator
+==========================
+
+It is possible to call a validator in your own code with the method
+:php:`\TYPO3\CMS\Extbase\Validation\ValidatorResolver::createValidator()`.
+
+However please note that the class :php:`ValidatorResolver` is marked as
+:php:`@internal` and it is therefore not advisable to use it.

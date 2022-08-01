@@ -2,16 +2,11 @@
 
 .. index:: Extbase; Validator
 
+.. _extbase_domain_validator:
+
 ===================================
 Validator
 ===================================
-
-.. sidebar:: Fully qualified class names
-
-   See the fully qualified names of the classes mentioned in the text on
-   this page:
-
-   *  :php:`TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`
 
 .. seealso::
    *  :ref:`extbase_validation` for general validation in Extbase.
@@ -19,7 +14,8 @@ Validator
 Custom validators are located in the directory :file:`Classes/Domain/Validator`
 and therefore in the namespace :php:`Vendor\MyExtension\Domain\Validator`.
 
-All validators extend the :php:`AbstractValidator`.
+All validators extend the :php:`AbstractValidator`
+(:php:`TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`).
 
 .. note::
    In the package :php:`\TYPO3\CMS\Extbase\Validation\Validator\*` Extbase
@@ -65,6 +61,6 @@ that will persist the object.
 If the error is related to a specific property of the domain object, the
 function :php:`addErrorForProperty()` should be used instead of :php:`addError()`.
 
-The validator is used as annotation in the action methods of the contorller:
+The validator is used as annotation in the action methods of the controller:
 
 .. include:: /CodeSnippets/Extbase/Validator/ObjectValidatorUsage.rst.txt
