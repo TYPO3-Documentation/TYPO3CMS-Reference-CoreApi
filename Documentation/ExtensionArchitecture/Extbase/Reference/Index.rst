@@ -11,11 +11,12 @@ Extbase reference
 .. toctree::
    :titlesonly:
 
+   Domain/Index
+   Controller/Index
+   View/Index
    FrontendPlugins
    TypoScriptConfiguration
-   ClassHierarchy
-   DomainModel
-   Repository
+   Annotations
    Validation
    Caching
    Localization

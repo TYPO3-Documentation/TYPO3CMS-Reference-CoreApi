@@ -1,0 +1,14 @@
+.. manual excerpt of EXT:blog_example/Configuration/TypoScript/setup.typoscript
+.. TODO: create this code-snippet automatically
+
+.. code-block:: typoscript
+   :caption: EXT:blog_example/Configuration/TypoScript/setup.typoscript
+
+   plugin.tx_blogexample {
+     view {
+       templateRootPaths.10 = {$plugin.tx_blogexample.view.templateRootPath}
+       partialRootPaths.10 = {$plugin.tx_blogexample.view.partialRootPath}
+       layoutRootPaths.10 = {$plugin.tx_blogexample.view.layoutRootPath}
+       defaultPid = auto
+     }
+   }
