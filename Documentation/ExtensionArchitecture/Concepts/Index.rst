@@ -18,5 +18,4 @@ development.
 
    Introduction
    SystemAndLocalExtensions
-   Extbase/Index
    FurtherReading
