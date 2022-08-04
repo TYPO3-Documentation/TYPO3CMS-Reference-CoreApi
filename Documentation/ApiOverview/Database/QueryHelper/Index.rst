@@ -13,11 +13,7 @@ Most helper methods are required to deal with legacy data where the format of
 the input is not strict enough to reliably use the SQL parts in queries directly.
 
 The whole class is marked as `@internal`, **should not be used by extension
-authors** and may - if things go wrong - change at will. The class will hopefully
-vanish mid-term. However, there may be situations when the class methods can become
-handy if extension authors :ref:`migrate <database-migration>` their own extensions away
-from `TYPO3_DB` to Doctrine DBAL. In practice, the Core will *most likely* add proper
-deprecations to single methods if they are target of removal later.
+authors** and may - if things go wrong - change at will.
 
 Extension developers may keep this class in mind for migration, but **must not** use
 methods for new code created from scratch. Apart from that, as can be seen below, using
