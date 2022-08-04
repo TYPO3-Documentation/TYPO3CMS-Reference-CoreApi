@@ -24,5 +24,4 @@ Database (Doctrine DBAL)
    RestrictionBuilder/Index
    Statement/Index
    QueryHelper/Index
-   Migration/Index
    TipsAndTricks/Index
