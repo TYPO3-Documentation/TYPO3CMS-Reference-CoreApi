@@ -105,7 +105,7 @@ Now create an :php:`indexAction()` and assign variables to your view as you woul
 The DocHeader
 =============
 
-To add a DocHeader button use :php:`$this->moduleTeamplate->getDocHeaderComponent()->getButtonBar()`
+To add a DocHeader button use :php:`$this->moduleTemplate->getDocHeaderComponent()->getButtonBar()`
 and :php:`makeLinkButton()` to create the button. Finally use :php:`addButton()` to add it.
 
 .. code-block:: php
