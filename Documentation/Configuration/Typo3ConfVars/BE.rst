@@ -729,9 +729,9 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
          'everybody' => '',
       ];
 
-   If you only deviate from the default permissions, for example for everybody,
-   you only need to define them:
-
+   If you want to deviate from the default permissions, for example by changing the everybody key,
+   you only need to modify the key you wish to change:
+   
    .. code-block:: php
       :caption: typo3conf/AdditionalConfiguration.php
 
