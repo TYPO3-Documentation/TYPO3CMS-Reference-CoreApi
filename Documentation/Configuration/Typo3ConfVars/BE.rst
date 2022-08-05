@@ -711,6 +711,34 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
    :type: array
    :Default: []
 
+   This option defines the default page permissions (`show`, `edit`, `delete`,
+   `new`, `editcontent`). The following order applies:
+
+   -  :php:`defaultPermissions` from :php:`TYPO3\CMS\Core\DataHandling\PagePermissionAssembler`
+   -  :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']` (the option described here)
+   -  Page TSconfig via :ref:`TCEMAIN.permissions <t3tsconfig:pagetcemain-permissions-user-group>`
+
+   Example (which reflects the default permissions):
+
+   .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
+
+      $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions'] = [
+         'user' => 'show,edit,delete,new,editcontent',
+         'group' => 'show,edit,new,editcontent',
+         'everybody' => '',
+      ];
+
+   If you want to deviate from the default permissions, for example by changing the everybody key,
+   you only need to modify the key you wish to change:
+   
+   .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
+
+      $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions'] = [
+         'everybody' => 'show',
+      ];
+
 
 .. index::
    TYPO3_CONF_VARS BE; defaultUC
