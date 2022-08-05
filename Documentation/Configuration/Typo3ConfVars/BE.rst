@@ -723,7 +723,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
    `new`, `editcontent`). The following order applies:
 
    -  :php:`defaultPermissions` from :php:`TYPO3\CMS\Core\DataHandling\PagePermissionAssembler`
-   -  This option
+   -  :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']` (the option described here)
    -  Page TSconfig va :ref:`TCEMAIN.permissions <t3tsconfig:pagetcemain-permissions-user-group>`
 
    Example (which reflect the default permissions):
