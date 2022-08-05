@@ -718,7 +718,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
    -  :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']` (the option described here)
    -  Page TSconfig via :ref:`TCEMAIN.permissions <t3tsconfig:pagetcemain-permissions-user-group>`
 
-   Example (which reflect the default permissions):
+   Example (which reflects the default permissions):
 
    .. code-block:: php
       :caption: typo3conf/AdditionalConfiguration.php
