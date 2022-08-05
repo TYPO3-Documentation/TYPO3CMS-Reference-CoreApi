@@ -48,7 +48,7 @@ be helpful.
 Create own database queries
 ===========================
 
-Queries in the query langauge of Extbase are automatically escaped.
+Queries in the query language of Extbase are automatically escaped.
 
 However manually created SQL queries are subject to be attacked by
 :ref:`SQL injection <security-sql-injection>`.
