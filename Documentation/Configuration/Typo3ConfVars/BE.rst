@@ -753,13 +753,34 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
 .. _typo3ConfVars_be_defaultUC:
 
 $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']
-========================================================
+==============================================
 
 .. confval:: defaultUC
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: array
    :Default: []
+
+   Defines the default user settings. The following order applies:
+
+   -  :php:`uc_default` in :php:`TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
+   -  :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']` (the option described here)
+   -  User TSconfig via :ref:`setup <t3tsconfig:usersetup>`
+
+   Example (which reflects the default user settings):
+
+   .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
+
+      $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC'] = [
+         'emailMeAtLogin' => 0,
+         'titleLen' => 50,
+         'edit_RTE' => '1',
+         'edit_docModuleUpload' => '1',
+      ];
+
+   Have a look into :ref:`setup <t3tsconfig:usersetup>` of User TSconfig for
+   a list of all available options.
 
 
 .. index::
