@@ -6,61 +6,52 @@
 Guidelines for extension development
 =====================================
 
-If you are not familiar with basic security best practices, we recommend that you
-take some time to look up basic principles. Insecure extensions can seriously
-compromise the integrity of the database, lead to leaking of private
-information and other problems, which may be just annoying or have serious
-consequences.
+Insecure extensions can compromise the integrity of your TYPO3 installations database 
+and can potentially lead to sensitive information being exposed.
 
-.. tip::
+In this section, we cover some relevant security best practices that are implemented by Extbase.
 
-   You will find some hints for secure programming with PHP in the PHP handbook:
-   http://php.net/security
+.. index:: Security; User Input
+.. _never-trust-user-input:
 
+Never trust user input
+======================
 
-In this section, we cover some relevant security aspects.
-Specifically, we will show you some concepts implemented by Extbase
-that increase the security of an extension.
-
-.. tip::
-
-   Basic principle #1: Never trust user input.
-
-All input data your extension gets from the user can be potentially malicious.
-That applies to all data being transmitted via `GET` and `POST`. You can never trust
-that the data really came from your form as it could have been manipulated.
+All input data your extension receives from the user can be potentially malicious.
+That applies to all data being transmitted via `GET` and `POST` requests. You can never trust
+where the data came from as your form could have been manipulated.
 Cookies should be classified as potentially malicious as well because they may
-have been manipulated.
+have also been manipulated.
 
 Always check if the format of the data corresponds
 with the format you expected. For example, for a
 field that contains an email address, you should check that a valid email
 address was entered and not any other text.
-In the backend forms use correct TCA types like :ref:`'type' => 'email' <t3tca:columns-email>`
+
+If the backend forms use the correct TCA types like :ref:`'type' => 'email' <t3tca:columns-email>`
 or parameters like :ref:`eval <t3tca:columns-input-properties-eval>`. In
 Extbase the :ref:`validating framework <t3coreapi:extbase_validation>` can
 be helpful.
 
+.. index:: Security; Database Queries
+.. _create-your-own-database-queries:
 
-.. index:: Security; Database Querries
-.. _create-own-database-queries:
-
-Create own database queries
-===========================
+Create your own database queries
+================================
 
 Queries in the query language of Extbase are automatically escaped.
 
 However manually created SQL queries are subject to be attacked by
 :ref:`SQL injection <security-sql-injection>`.
 
-All SQL queries should be made in dedicated classes called repositories. This
+All SQL queries should be made in a dedicated classe called a repository. This
 applies to Extbase queries, Doctrine DBAL :ref:`QueryBuilder
 <database-query-builder>` queries and pure SQL queries.
 
 .. attention::
    **Always** escape any user input with
    :ref:`createNamedParameter() <database-query-builder-create-named-parameter>`
-   in queries created by with the QueryBuilder.
+   in queries created by the QueryBuilder.
 
 
 .. index:: Security; Trusted properties
@@ -72,22 +63,22 @@ Trusted properties (Extbase Only)
 .. danger::
 
    Be aware that request hashes (HMAC) do not protect against **Identity** field manipulation.
-   An attacker can modify the identity field value and then can update the value of
-   another record, even if he does not usually have access to it. You have to
+   An attacker can modify the identity field value and can thrn update the value of
+   another record, even if they do not usually have access to it. You have to
    implement your own validation for the Identity field value (verify ownership
    of the record, add another hidden field that validates the identity field
-   value, etc..).
+   value).
 
 In Extbase there is transparent argument mapping applied: All properties that
 are to be sent are changed transparently on the object. Certainly, this
 implies a safety risk, that we will explain with an example: Assume we
 have a form to edit a `user` object. This object has the
 properties `username, email, password` and
-`description`. We want to provide the user a form to change all
+`description`. We want to provide the user with a form to change all
 properties except the username (because the username should not be
 changed in our system).
 
-The form basically looks like this:
+The form looks like this:
 
 .. code-block:: html
    :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
@@ -98,7 +89,7 @@ The form basically looks like this:
       <f:form.textbox property="description" />
    </f:form>
 
-If the form is sent, the argument mapping for the user object gets
+If the form is sent, the argument mapping for the user object recieves
 this array:
 
 .. code-block:: none
@@ -114,10 +105,10 @@ this array:
 Because the :php:`__identity` property and further properties
 are set, the argument mapper gets the object from the persistence layer,
 makes a copy and then applies the changed properties to the object. After
-this normally we call the method :php:`update($user)` for the
+this we call the :php:`update($user)` method for the
 corresponding repository to make the changes persistent.
 
-What happened if an attacker manipulates the form data and transfers
+What happens if an attacker manipulates the form data and transfers
 an additional field :php:`username` to the server? In this case the
 argument mapping would also change the :php:`$username` property of
 the cloned object - although we did not want this property to
@@ -134,7 +125,7 @@ field contains a serialized array of trusted properties and
 a hash of that array. On the server-side, the hash is also compared
 to ensure the data has not been tampered with on the client-side.
 
-So, only the form fields generated by Fluid with the
+Only the form fields generated by Fluid with the
 appropriate ViewHelpers are transferred to the server. If an attacker
 tries to add a field on the client-side, this is
 detected by the property mapper, and an exception will be thrown.
@@ -154,14 +145,14 @@ Prevent cross-site scripting
 ============================
 
 Fluid contains some integrated techniques to secure web applications
-by default. One of the important parts of this is the automatic
+by default. One of the more important features is automatic
 prevention against cross site scripting, a common
 attack against web applications. In this section, we give you a problem
 description and show how you can avoid
 :ref:`cross-site scripting (XSS) <security-xss>`.
 
-Assume you have programmed a forum. An "evil" user will get access
-to the admin account. For this, he posted the following harmful looking message
+Assume you have programmed a forum. An malicious user will get access
+to the admin account. To do this, they posted the following message
 in the forum to try to embed JavaScript code:
 
 .. code-block:: html
@@ -170,16 +161,16 @@ in the forum to try to embed JavaScript code:
    <script type="text/javascript">alert("XSS");</script>
 
 When the forum post gets displayed, if the forum's programmer
-has made no additional preventions, a JavaScript popup "XSS" will be
+has not made any additional security precautions, a JavaScript popup "XSS" will be
 displayed. The
-attacker now knows that every JavaScript he writes in a post is executed
-when displaying the post - the forum is vulnerable for cross-site
+attacker now knows that any JavaScript he writes in a post is executed
+when displaying the post - the forum is vulnerable to cross-site
 scripting. Now the attacker can replace the code with a more complex
 JavaScript program that, for example, can read the cookies of the visitors
 of the forum and send them to a certain URL.
 
-If an administrator retrieves this prepared forum post, his session
-ID (that is stored in a cookie) is transferred to the attacker. In the worst case,
+If an administrator retrieves this prepared forum post, their session
+ID (that is stored in a cookie) is transferred to the attacker. In a worst case scenario,
 the attacker gets administrator privileges
 (:ref:`Cross-site request forgery (XSRF) <security-xsrf>`).
 
@@ -191,9 +182,8 @@ to the browser:
 content of the script tag is no longer executed as JavaScript but only
 displayed.
 
-But there is a problem with this: If you miss just once the encoding
-of the data, an XSS vulnerability exists in the
-system.
+But there is a problem with this: If we forget or fail to encode input 
+data just once, an XSS vulnerability will exist in the system.
 
 In Fluid, the output of every object accessor that occurs in a
 template is automatically processed by :php:`htmlspecialchars()`. But
@@ -201,7 +191,7 @@ Fluid uses :php:`htmlspecialchars()` only for templates with the
 extension *.html*. If you use other output formats, it is disabled, and you
 have to make sure to convert the special characters correctly.
 
-Content that is output via the ViewHelper :html:`<f:format.raw>` is also not
+Content that is output via the ViewHelper :html:`<f:format.raw>` is not
 sanitized. See
 :ref:`ViewHelper Reference, format.raw <t3viewhelper:typo3fluid-fluid-format-raw>`.
 
@@ -230,3 +220,5 @@ htmlspecialchars(), the content of `{variable2}` is not
 changed. The ViewHelper must retrieve the unchanged data because we can not
 foresee what should be done with it. For this reason, ViewHelpers
 that output parameters directly have to handle special characters correctly.
+
+
