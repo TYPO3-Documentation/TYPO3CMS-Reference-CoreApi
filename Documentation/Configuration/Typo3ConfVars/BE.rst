@@ -766,8 +766,8 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']
    TYPO3_CONF_VARS BE; customPermOptions
 .. _typo3ConfVars_be_customPermOptions:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
-========================================================
+$GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']
+======================================================
 
 .. confval:: customPermOptions
 
