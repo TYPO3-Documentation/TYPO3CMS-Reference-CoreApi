@@ -19,6 +19,7 @@ TYPO3 site in order to ensure it is and stays secure and stable.
    TypesOfThreats/Index
    GeneralGuidelines/Index
    GuidelinesAdministrators/Index
+   GuidelinesExtensionDevelopment/Index
    GuidelinesIntegrators/Index
    GuidelinesEditors/Index
    Backups/Index
