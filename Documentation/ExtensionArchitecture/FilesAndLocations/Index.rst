@@ -445,12 +445,12 @@ Configuration/TCA/Overrides
   General advice: One file per database table, using the name of the table for the file, plus ".php".
   For more informations, see chapter :ref:`Extending the TCA Array <storing-changes-extension>`.
 
-Configuration/TSconfig/Page
+Configuration/TsConfig/Page
   Page TSconfig, see chapter :ref:`'Page TSconfig' in the TSconfig Reference
   <t3tsconfig:PageTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.
 
-Configuration/TSconfig/User
+Configuration/TsConfig/User
   User TSconfig, see chapter :ref:`'User TSconfig' in the TSconfig Reference
   <t3tsconfig:UserTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.
