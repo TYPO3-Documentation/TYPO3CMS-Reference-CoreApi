@@ -84,6 +84,9 @@ A simplified command class:
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/Command/DoThingsCommand.php
+   <?php
+
+   declare(strict_types=1);
 
    use Symfony\Component\Console\Command\Command;
    use Symfony\Component\Console\Input\InputArgument;
