@@ -666,7 +666,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
        * Adding the default User TSconfig
        */
       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig('
-         @import 'EXT:my_sitepackage/Configuration/TSconfig/User/default.tsconfig'
+         @import 'EXT:my_sitepackage/Configuration/TsConfig/User/default.tsconfig'
       ');
 
    Read more about
@@ -739,7 +739,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
 
    If you want to deviate from the default permissions, for example by changing the everybody key,
    you only need to modify the key you wish to change:
-   
+
    .. code-block:: php
       :caption: typo3conf/AdditionalConfiguration.php
 
