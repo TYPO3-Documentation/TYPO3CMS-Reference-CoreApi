@@ -731,7 +731,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
 
    If you want to deviate from the default permissions, for example by changing the everybody key,
    you only need to modify the key you wish to change:
-   
+
    .. code-block:: php
       :caption: typo3conf/AdditionalConfiguration.php
 
@@ -758,8 +758,8 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']
    TYPO3_CONF_VARS BE; customPermOptions
 .. _typo3ConfVars_be_customPermOptions:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
-========================================================
+$GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']
+======================================================
 
 .. confval:: customPermOptions
 
