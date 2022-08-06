@@ -9,20 +9,6 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']
 =================================
 
 .. index::
-   TYPO3_CONF_VARS BE; fluidPageModule
-.. _typo3ConfVars_be_fluidPageModule:
-
-$GLOBALS['TYPO3_CONF_VARS']['BE']['fluidPageModule']
-====================================================
-
-.. confval:: fluidPageModule
-
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
-   :type: bool
-   :Default: true
-
-
-.. index::
    TYPO3_CONF_VARS BE; languageDebug
 .. _typo3ConfVars_be_languageDebug:
 
@@ -739,7 +725,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
 
    If you want to deviate from the default permissions, for example by changing the everybody key,
    you only need to modify the key you wish to change:
-   
+
    .. code-block:: php
       :caption: typo3conf/AdditionalConfiguration.php
 
