@@ -37,11 +37,16 @@ The file needs to return a flat PHP configuration array with the following keys:
 IconProvider
 ------------
 
-The TYPO3 Core ships three icon providers which can be used:
+The TYPO3 Core ships two icon providers which can be used:
 
 * :php:`BitmapIconProvider` – For all kinds of bitmap icons (GIF, PNG, JPEG, etc.)
 * :php:`SvgIconProvider` – For SVG icons
-* :php:`FontawesomeIconProvider` – For all icons which can be found in the fontawesome.io icon font
+
+.. versionchanged:: 12.0
+   The :php:`FontawesomeIconProvider` was available since version 11.5 und
+   removed from Core in 12.0. You can use the polyfill extension from
+   `friendsoftypo3/fontawesome-provider <https://github.com/friendsoftypo3/fontawesome-provider>`__
+   which is also compatible with TYPO3 v11.
 
 In case you need a custom icon provider, you can add your own by writing a
 class which implements the :php:`IconProviderInterface`.
@@ -80,10 +85,10 @@ You can use the :php:`IconFactory` to request an icon:
    adapted to now use :php:`Icon::SIZE_MEDIUM` instead. :php:`Icon::SIZE_MEDIUM`
    is displayed at a fixed size of 32x32 px while :php:`Icon::SIZE_DEFAULT`
    now scales with the text.
-   
-   In cases where the size :php:`Icon::SIZE_DEFAULT` was explicitly set this 
+
+   In cases where the size :php:`Icon::SIZE_DEFAULT` was explicitly set this
    might result in changed behaviour. Switch to :php:`Icon::SIZE_MEDIUM` then.
-   
+
 .. index::
    Fluid; Core icon
    pair: Icon API; Fluid
@@ -132,9 +137,9 @@ size
    :sep:`|` :aspect:`Default:` medium
    :sep:`|`
 
-   Desired size of the icon. All values of the :js:`Icons.sizes` enum are allowed, 
-   these are: 
-   
+   Desired size of the icon. All values of the :js:`Icons.sizes` enum are allowed,
+   these are:
+
    -  :js:`default`:  1em, to scale with font size
    -  :js:`small`: fixed to 16px
    -  :js:`medium`: fixed to 32px (default)

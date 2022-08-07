@@ -70,9 +70,8 @@ plugin is `registration`.
       return [
          // use same identifier as used in TSconfig for icon
          'example-registration' => [
-            'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
-            // font-awesome identifier ('external-link-square')
-            'name' => 'external-link-square',
+            'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+            'source' => 'EXT:example/Resources/Public/Icons/example-registration.svg',
          ],
       ];
 
