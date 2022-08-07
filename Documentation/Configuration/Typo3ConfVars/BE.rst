@@ -955,6 +955,10 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['HTTP']
             ]
          ]
 
+   Set HTTP headers to be sent with each backend request. Other keys than
+   :php:`['Response']['Headers']` are ignored.
+
+
 .. index::
    TYPO3_CONF_VARS BE; passwordHashing className
 .. _typo3ConfVars_be_passwordHashing_className:
