@@ -9,20 +9,6 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']
 =================================
 
 .. index::
-   TYPO3_CONF_VARS BE; fluidPageModule
-.. _typo3ConfVars_be_fluidPageModule:
-
-$GLOBALS['TYPO3_CONF_VARS']['BE']['fluidPageModule']
-====================================================
-
-.. confval:: fluidPageModule
-
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
-   :type: bool
-   :Default: true
-
-
-.. index::
    TYPO3_CONF_VARS BE; languageDebug
 .. _typo3ConfVars_be_languageDebug:
 
