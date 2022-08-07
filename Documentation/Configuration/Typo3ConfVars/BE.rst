@@ -757,7 +757,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']
          'edit_docModuleUpload' => '1',
       ];
 
-   Have a look into :ref:`setup <t3tsconfig:usersetup>` of User TSconfig for
+   Visit the :ref:`setup <t3tsconfig:usersetup>` chapter of the User TSconfig guide for
    a list of all available options.
 
 
