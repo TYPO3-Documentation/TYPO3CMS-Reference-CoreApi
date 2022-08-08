@@ -10,7 +10,7 @@ Localization with Crowdin
 
 .. tip::
 
-   Crowdin is used since TYPO3 10 by default.
+   Crowdin is used since TYPO3 v10 by default.
 
 What is Crowdin?
 ================

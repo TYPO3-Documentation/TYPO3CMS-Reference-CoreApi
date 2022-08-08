@@ -38,7 +38,7 @@ This was the first time "green bar feeling" came up: All tests green.
 2012
 ====
 
-This was after TYPO3 4.5 times - a version that carried us for a long time. Several TYPO3 Core
+This was after TYPO3 v4.5 times - a version that carried us for a long time. Several TYPO3 Core
 contributors meanwhile added some hundreds of unit tests in various Core extensions. There was an
 issue, though: Not too many persons developing the TYPO3 Core cared about unit tests and executed
 them before providing or merging patches. As a result, tests were frequently failing and only a
@@ -131,7 +131,7 @@ on another. And if that happens, the root cause is often a detail down below in 
 perfectly aligned during test bootstrap - for instance a missing locale or some detail php.ini setting.
 
 Second, the test execution was changed to use a composer based setup instead of cloning things on
-its own. This was at TYPO3 6.2 times when composer was first introduced in TYPO3 world - testing was
+its own. This was at TYPO3 v6.2 times when composer was first introduced in TYPO3 world - testing was
 one of the first usages. In this process we were able to ditch the TYPO3 specific extension based
 flavor of phpunit and switched to the native version instead. This turned out to be a wise decision
 since TYPO3 Core  testing now no longer relied on development of a third party TER extension but could

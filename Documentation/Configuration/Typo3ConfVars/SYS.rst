@@ -86,7 +86,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultScheme']
 ===================================================
 
 .. versionadded:: 12.0
-   The setting :php:`defaultScheme` was added in TYPO3 12 to make it possible to
+   The setting :php:`defaultScheme` was added in TYPO3 v12 to make it possible to
    configure the default URI scheme when links are created by the Core.
    Previously, :php:`'http'` was always used.
 

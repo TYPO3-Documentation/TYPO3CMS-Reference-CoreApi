@@ -24,8 +24,8 @@ The :php:`AbstractPlugin` still contains hard-coded HTMl in many functions.
 These can not be used for non-HTML output like JSON or XML feeds.
 
 .. versionchanged:: 6.0
-   The AbstractPlugin class used to be named :php:`tslib_pibase` before 
-   TYPO3 6.0. Therefore the old names "pi_base" or "pi-based plugin" are 
+   The AbstractPlugin class used to be named :php:`tslib_pibase` before
+   TYPO3 v6.0. Therefore the old names "pi_base" or "pi-based plugin" are
    still used by some people for historic reasons. "pi" is short for
    plug-in.
 
@@ -128,43 +128,43 @@ TCA configuration
 
    $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['myextension_pi1'] = 'layout,select_key';
    $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['myextension_pi1'] = 'pi_flexform';
-   
+
    // Use this function if you want to register a FlexForm for the backend record
    ExtensionManagementUtility::addPiFlexFormValue(
-       'myextension_pi1', 
+       'myextension_pi1',
        'FILE:EXT:my_extension/Configuration/FlexForms/SomeFlexForm.xml'
    );
-   
+
    ExtensionManagementUtility::addPlugin(
        [
-           'LLL:EXT:my_extension/Resources/Private/Language/locallang_db.xlf:tt_content.list_type', 
+           'LLL:EXT:my_extension/Resources/Private/Language/locallang_db.xlf:tt_content.list_type',
            'myextension_pi1'
-       ],   
-       'list_type', 
+       ],
+       'list_type',
        'my_extension'
     );
-    
+
 :php:`ExtensionManagementUtility::addPlugin` expects the following parameters:
 
 $itemArray
-   :php:`array`: Numerical array: 
-   
-   [0] 
-       :php:`string`: Plugin label, 
-      
-   [1] 
-       :php:`string`: Plugin identifier / plugin key, ideally prefixed with an extension-specific name (for example :php:`'events2_list'`), 
-      
-   [2] 
-      :php:`string`:  Path to plugin icon, 
-      
-   [3] 
+   :php:`array`: Numerical array:
+
+   [0]
+       :php:`string`: Plugin label,
+
+   [1]
+       :php:`string`: Plugin identifier / plugin key, ideally prefixed with an extension-specific name (for example :php:`'events2_list'`),
+
+   [2]
+      :php:`string`:  Path to plugin icon,
+
+   [3]
       an optional group idenitfier, falls back to :php:`'default`
-      
+
 $type
    :php:`string`: Type (Default: :php:`'list_type'`) - basically a field from "tt_content" table
-   
+
 $extensionKey
    :php:`string`: The extension key in snake_case, for example :php`'my_extension'`
-    
+
 

@@ -9,7 +9,7 @@
 Form protection tool
 ====================
 
-Since TYPO3 4.5, the TYPO3 Core provides a generic way of protecting
+Since TYPO3 v4.5, the TYPO3 Core provides a generic way of protecting
 forms against cross-site request forgery (CSRF).
 
 
