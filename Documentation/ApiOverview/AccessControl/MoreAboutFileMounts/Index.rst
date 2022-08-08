@@ -45,7 +45,7 @@ Create a new filemount
 ======================
 
 .. versionadded:: 11.3
-   Starting with TYPO3 11.3 it is possible to create a new filemount via
+   Starting with TYPO3 v11.3 it is possible to create a new filemount via
    the context menu of the folder.
 
 To create a new filemount go to the module :guilabel:`File > Filelist` and create the

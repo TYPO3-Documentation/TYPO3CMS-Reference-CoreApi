@@ -253,7 +253,7 @@ The caching framework architecture is based on the following classes:
 
 .. note::
 
-   The `\TYPO3\CMS\Core\Cache\CacheManager` was used before TYPO3 10.1 to
+   The `\TYPO3\CMS\Core\Cache\CacheManager` was used before TYPO3 v10.1 to
    retrieve an object implementing `FrontendInterface`. It is now recommended
    to :ref:`use dependency injection <caching-developer-example>` to retrieve
    this object and no longer use the `CacheManager` directly.
