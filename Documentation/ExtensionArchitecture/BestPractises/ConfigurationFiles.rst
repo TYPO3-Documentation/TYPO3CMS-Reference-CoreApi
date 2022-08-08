@@ -63,7 +63,7 @@ file with all configuration of other extensions.
       -namespace {
       -}
 
--  You **CAN** use :php:`use` statements starting with TYPO3 11.4:
+-  You **CAN** use :php:`use` statements starting with TYPO3 v11.4:
 
    .. code-block:: diff
 

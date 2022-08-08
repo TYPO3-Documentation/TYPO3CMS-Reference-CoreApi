@@ -313,7 +313,7 @@ the parent object.
    few remaining hooks in the TYPO3 Core.
 
    If you need to post process the content, use the event
-   :ref:`AfterCacheableContentIsGeneratedEvent` starting with TYPO3 12.
+   :ref:`AfterCacheableContentIsGeneratedEvent` starting with TYPO3 v12.
 
 .. code-block:: php
    :caption: typo3/sysext/some_extension/ext_localconf.php

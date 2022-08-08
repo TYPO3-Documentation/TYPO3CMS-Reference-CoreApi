@@ -109,7 +109,7 @@ return [
         "targetFileName" => "Events/Backend/ModifyImageManipulationPreviewUrlEvent.rst.txt",
         "withCode" => false
     ],
-    // TYPO3 12.0
+    // TYPO3 v12.0
     [
         "action" => "createPhpClassDocs",
         "class" => \TYPO3\CMS\Backend\Controller\Event\ModifyGenericBackendMessagesEvent::class,

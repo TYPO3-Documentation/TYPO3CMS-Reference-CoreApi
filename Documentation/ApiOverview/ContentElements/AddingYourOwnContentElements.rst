@@ -408,7 +408,7 @@ An individual modification of the newly added field *tx_examples_main_category*
 to the TCA definition of the table *tt_content* can be done in the TCE
 (TYPO3 Core Engine) TSConfig. In most cases it is necessary to set the page
 id of the general storage folder (available as a plugin select box to select a
-starting point page until TYPO3 6.2). Then the examples extension will only use
+starting point page until TYPO3 v6.2). Then the examples extension will only use
 the content records from the given page id.
 
 .. code-block:: typoscript

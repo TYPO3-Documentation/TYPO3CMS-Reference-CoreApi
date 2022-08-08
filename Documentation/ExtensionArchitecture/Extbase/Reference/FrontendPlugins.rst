@@ -101,7 +101,7 @@ Use the following steps to add the plugin as content element:
    *  Line 12: The plugin signature as :typoscript:`list_type`
    *  Line 16: Add the plugin signature as to the list of allowed content elements
 
-   In TYPO3 11 you still need to include the page TSconfig file, in TYPO3 12
+   In TYPO3 v11 you still need to include the page TSconfig file, in TYPO3 v12
    it is automatically globally included.
 
    See :ref:`t3tsconfig:pagesettingdefaultpagetsconfig`.

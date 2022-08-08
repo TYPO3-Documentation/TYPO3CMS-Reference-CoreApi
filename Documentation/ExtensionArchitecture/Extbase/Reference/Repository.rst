@@ -98,7 +98,7 @@ generating a single condition are available:
 `$query->greaterThanOrEqual($propertyName, $operand);`
     Checks if the value of the property `$propertyName` is greater than or equal to the operand.
 
-Since 1.1 (TYPO3 4.3), `$propertyName` is not necessarily only a simple property-name but also can be a "property path".
+Since 1.1 (TYPO3 v4.3), `$propertyName` is not necessarily only a simple property-name but also can be a "property path".
     Example: `$query->equals('categories.title', 'tools')` searches for objects having a category titled
     "tools" assigned. If necessary, you can combine multiple conditions with boolean operations.
 

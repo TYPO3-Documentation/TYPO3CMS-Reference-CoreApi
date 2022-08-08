@@ -23,7 +23,7 @@ To register icons for your own extension, create a file called
 
 .. note::
 
-   In versions below TYPO3 11.4 the configuration was done in the :file:`ext_localconf.php`,
+   In versions below TYPO3 v11.4 the configuration was done in the :file:`ext_localconf.php`,
    please use the version selector to look-up the syntax in the corresponding
    documentation version.
 
@@ -80,10 +80,10 @@ You can use the :php:`IconFactory` to request an icon:
    adapted to now use :php:`Icon::SIZE_MEDIUM` instead. :php:`Icon::SIZE_MEDIUM`
    is displayed at a fixed size of 32x32 px while :php:`Icon::SIZE_DEFAULT`
    now scales with the text.
-   
-   In cases where the size :php:`Icon::SIZE_DEFAULT` was explicitly set this 
+
+   In cases where the size :php:`Icon::SIZE_DEFAULT` was explicitly set this
    might result in changed behaviour. Switch to :php:`Icon::SIZE_MEDIUM` then.
-   
+
 .. index::
    Fluid; Core icon
    pair: Icon API; Fluid
@@ -132,9 +132,9 @@ size
    :sep:`|` :aspect:`Default:` medium
    :sep:`|`
 
-   Desired size of the icon. All values of the :js:`Icons.sizes` enum are allowed, 
-   these are: 
-   
+   Desired size of the icon. All values of the :js:`Icons.sizes` enum are allowed,
+   these are:
+
    -  :js:`default`:  1em, to scale with font size
    -  :js:`small`: fixed to 16px
    -  :js:`medium`: fixed to 32px (default)
@@ -164,7 +164,7 @@ markupIdentifier
 The method :js:`getIcon()` returns a jQuery Promise object, as internally an AJAX request is done.
 
 .. note::
-   Since TYPO3 9, the icons are cached in the localStorage of the client to reduce the workload off the server.
+   Since TYPO3 v9, the icons are cached in the localStorage of the client to reduce the workload off the server.
 
 
 Here's an example code how a usage of the JavaScript Icon API may look like:

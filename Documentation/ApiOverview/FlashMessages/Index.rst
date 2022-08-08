@@ -146,7 +146,7 @@ This shows flash messages with 2 types of rendering mechanisms:
 
 .. versionadded:: 12.0
 
-   :php:`FlashMessageQueue::NOTIFICATION_QUEUE` has been added in TYPO3 12 to
+   :php:`FlashMessageQueue::NOTIFICATION_QUEUE` has been added in TYPO3 v12 to
    provide a simple mechanism to add flash messages (from PHP code) to be
    displayed as notifications on the top-right edge of the backend. Previously,
    this had to be implemented in JavaScript (e.g. :js:`Notification.success()`),
@@ -345,7 +345,7 @@ Example:
 Actions
 -------
 
-Since TYPO3 10.1 the notification API may bind actions to a notification that execute certain tasks when invoked. Each
+Since TYPO3 v10.1 the notification API may bind actions to a notification that execute certain tasks when invoked. Each
 action item is an object containing the fields :js:`label` and :js:`action`:
 
 .. rst-class:: dl-parameters

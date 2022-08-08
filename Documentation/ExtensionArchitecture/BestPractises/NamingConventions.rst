@@ -333,7 +333,7 @@ the first parameter and a plugin name in UpperCamelCase (for example :php:`"Pi1"
 :php:`"CoolPlugin"`). The method then returns the new plugin signature.
 
 .. versionadded:: 12.0
-   Starting with TYPO3 12.0 the method :php:`ExtensionUtility::registerPlugin()`
+   Starting with TYPO3 v12.0 the method :php:`ExtensionUtility::registerPlugin()`
    automatically returns the correct plugin signature.
 
 If you have to write the signature yourself in other contexts (TypoScript for

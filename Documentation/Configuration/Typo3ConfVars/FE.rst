@@ -783,7 +783,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']
 .. versionchanged:: 12.0
 
    The global variable `$GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']` has
-   no effect anymore in TYPO3 12.0 and above. It can be defined to achieve
+   no effect anymore in TYPO3 v12.0 and above. It can be defined to achieve
    backward compatibility with TYPO3 version 11 and below.
 
 TypoScript content objects (`cObject`) like :typoscript:`TEXT` or

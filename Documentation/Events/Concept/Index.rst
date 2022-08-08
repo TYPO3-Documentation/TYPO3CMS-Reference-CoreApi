@@ -42,7 +42,7 @@ Events and Hooks are the recommended way of extending TYPO3 compared to
 extending PHP classes with a child class (see :ref:`XCLASS extensions <xclasses>`). Because
 only one extension of a PHP class can exist at a time while hooks and events
 may allow many different user-designed processor functions to be executed.
-With TYPO3 10 the EventDispatcher was introduced. It is a strongly typed method of
+With TYPO3 v10 the EventDispatcher was introduced. It is a strongly typed method of
 extending TYPO3 and therefore recommended to use wherever available.
 
 However, Events have to be emitted and Hooks have to be implemented,

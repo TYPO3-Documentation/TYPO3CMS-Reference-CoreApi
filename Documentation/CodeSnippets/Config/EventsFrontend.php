@@ -25,7 +25,7 @@ return [
         "targetFileName"=> "Events/Frontend/ModifyResolvedFrontendGroupsEvent.rst.txt",
         "withCode"=> false
     ],
-    // TYPO3 12.0
+    // TYPO3 v12.0
     [
         "action"=> "createPhpClassDocs",
         "class"=> \TYPO3\CMS\Frontend\Event\ModifyCacheLifetimeForPageEvent::class,
@@ -62,7 +62,7 @@ return [
         "targetFileName"=> "Events/Frontend/AfterPageWithRootLineIsResolvedEvent.rst.txt",
         "withCode"=> false
     ],
-    // TYPO3 12.0
+    // TYPO3 v12.0
     [
         "action"=> "createPhpClassDocs",
         "class"=> \TYPO3\CMS\Frontend\Event\AfterCacheableContentIsGeneratedEvent::class,
