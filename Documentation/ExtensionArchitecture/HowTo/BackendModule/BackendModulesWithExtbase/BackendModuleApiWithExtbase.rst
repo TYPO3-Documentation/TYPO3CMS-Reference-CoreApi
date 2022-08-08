@@ -56,7 +56,7 @@ main module ``system``.
 Parameters:
 
 #. The first argument contains the extension name (in UpperCamelCase)
-   or the extension key (in lower_underscore). Since TYPO3 10.0,
+   or the extension key (in lower_underscore). Since TYPO3 v10.0,
    you should no longer prepend the vendor name here, see
    :doc:`ext_core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
 #. **Main module** name, in which the new module will be placed,
@@ -71,7 +71,7 @@ Parameters:
    * ``before:<submodulekey>``: the module is inserted before the submodule identified by ``<submodulekey>``
    * ``after:<submodulekey>``: the module is inserted after the submodule identified by ``<submodulekey>``
 
-#. Allowed **controller => action** combinations. Since TYPO3 10.0 you should
+#. Allowed **controller => action** combinations. Since TYPO3 v10.0 you should
    use fully qualified class names here, see
    :doc:`ext_core:Changelog/10.0/Deprecation-87550-UseControllerClassesWhenRegisteringPluginsmodules`.
 #. **Module configuration**: The following options are available:

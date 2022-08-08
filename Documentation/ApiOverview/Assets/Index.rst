@@ -23,7 +23,7 @@ both directly using the :php:`PageRenderer` as well as using the more convenient
 
 .. note::
 
-   The :php:`AssetCollector` is available since TYPO3 10.3.
+   The :php:`AssetCollector` is available since TYPO3 v10.3.
 
 .. index::
    AssetCollector

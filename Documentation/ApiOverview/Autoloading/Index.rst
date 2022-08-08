@@ -38,11 +38,11 @@ effectively dropping especially the direct ability to :ref:`XCLASS <xclasses>`:
 
 .. _autoloading_since_typo3_7:
 
-Autoloading classes since TYPO3 7.x
-===================================
+Autoloading classes since TYPO3 v7.x
+====================================
 
-TYPO3 6.2 was still delivered with a couple of different autoloaders, that all had different
-approaches and rules to find a class. Since TYPO3 7.0, there is only a single autoloader left,
+TYPO3 v6.2 was still delivered with a couple of different autoloaders, that all had different
+approaches and rules to find a class. Since TYPO3 v7.0, there is only a single autoloader left,
 the one of Composer. No matter if you run TYPO3 in Composer mode or not (Classic Mode), TYPO3
 uses the Composer autoloader to resolve all class file locations.
 

@@ -45,7 +45,7 @@ for more information.
 Installing the newly created extension
 =======================================
 
-Starting with TYPO3 11 it is no longer possible to install extensions in TYPO3
+Starting with TYPO3 v11 it is no longer possible to install extensions in TYPO3
 without using Composer in Composer-based installations.
 
 However during development it is likely that you will want to test your extension locally
@@ -77,7 +77,7 @@ After that you can install your extension via Composer:
    composer req vendor/my-extension:"@dev"
 
 .. hint::
-   Starting with TYPO3 11.5 all extensions installed via Composer are
+   Starting with TYPO3 v11.5 all extensions installed via Composer are
    automatically activated when they are installed. If you use an older version of TYPO3 you will have to
    activate the extension in :guilabel:`Admin Tools > Extension Manager`.
 

@@ -262,7 +262,7 @@ follow this pattern:
 * `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
 * `<column-name>` should clearly describe the purpose of the column
 
-.. BackendModuleKey::
+.. _BackendModuleKey:
 
 Backend module key (modkey)
 ===========================
