@@ -332,7 +332,7 @@ Options
       *  `-1`: Default gzip compression (recommended)
       *  `0`: No compression
       *  `9`: Maximum compression (costs a lot of CPU)
-      
+
    :Mandatory:
       No
    :Type:
@@ -475,6 +475,14 @@ The garbage collection task should be run every once in a while to find and dele
 The implementation is based on the PHP `phpredis <https://github.com/nicolasff/phpredis>`_ module,
 which must be available on the system.
 
+.. warning::
+
+   Please check the section on
+   :ref:`configuration <cacheBackendRedisServerConfiguration>` and monitor
+   memory usage (and eviction, if enabled). In general, you will run into
+   problems, if not enough memory for the cache entries is reserved in the Redis
+   server (`maxmemory`).
+
 .. note::
 
    It is important to monitor the redis server and tune its settings
@@ -587,6 +595,59 @@ Options
    :Default:
       -1
 
+.. _cacheBackendRedisServerConfiguration:
+
+Redis server configuration
+--------------------------
+
+This section is about the configuration on the Redis server, not the client.
+
+For the flushing by cache tags to work, it is important that the integrity of
+the cache entries and cache tags is maintained. This may not be the case, if an
+eviction policy  (`maxmemory-policy`) is used. For example, for a page id=81712,
+the following entries may exist in Redis:
+
+#. "tagIdents:pageId_81712" (tag->identifier relation)
+#. "identTags:81712_7e9c8309692aa221b08e6d5f6ec09fb6" (identifier->tags relation)
+#. "identData:81712_7e9c8309692aa221b08e6d5f6ec09fb6" (identifier->data)
+
+If entries are evicted (due to memory shortage), there is no mechanism in
+place which ensures that all entries which are related, will be evicted. This may
+result in the situation that the cache entry still exists, but the tag entry
+(which reflects the relation "cache tag => cache identifier" and is used for
+:php:`RedisBackend::flushByTag()` has been removed). If this occurs, the cache
+can no longer be flushed if content is changed on the page or an explicit
+flushing of the page cache for this page is requested. Once this is the case,
+cache flushing (for this page) is only possible via other means (such as full
+cache flush).
+
+Because of this, the following recommendations apply:
+
+#. It is recommended to allocate enough memory (`maxmemory`) for the cache
+#. It is recommended to monitor `evicted_keys` in case an eviction policy is
+   used. The entry `evicted_keys` should always be 0.
+#. It is recommended to monitor `used_memory` if eviction policy
+   `noeviction` is used. The `used_memory` should always be less then `maxmemory`.
+
+.. tip::
+
+   The information about `evicted_keys` etc. can be obtained via `redis-cli` and
+   the `info` command. Further information of the results of info is in the
+   `documentation <https://redis.io/commands/info/>`__.
+
+The `maxmemory-policy <https://redis.io/docs/manual/eviction/#eviction-policies>`__
+options have the following drawbacks:
+
+noeviction
+   Once memory is full, no new entries will be saved to cache.
+
+!noeviction (e.g. allkey-lru)
+   Once memory is full and entries are evicted, the previously mentioned
+   cache tag inconsistency may occur.
+
+.. seealso::
+
+   *  `Redis configuration <https://redis.io/docs/manual/config/>`__
 
 .. _caching-backend-wincache:
 
