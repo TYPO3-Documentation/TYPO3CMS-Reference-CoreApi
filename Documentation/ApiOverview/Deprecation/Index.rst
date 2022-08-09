@@ -11,7 +11,7 @@ Deprecation
    For information how to handle deprecations in the TYPO3 Core,
    see the Contribution Guide: :ref:`t3contribute:deprecations`.
 
-Since TYPO3 4.3, calls to deprecated functions are logged to track usage of
+Since TYPO3 v4.3, calls to deprecated functions are logged to track usage of
 deprecated/outdated methods in the TYPO3 Core. Developers have to make sure to adjust their code to avoid
 using this old functionality since deprecated methods will be removed in future TYPO3 releases.
 
@@ -21,7 +21,7 @@ using this old functionality since deprecated methods will be removed in future 
 Introduction
 ============
 
-Deprecations since TYPO3 9 use the PHP method :php:`trigger_error('a message', E_USER_DEPRECATED)` and run
+Deprecations since TYPO3 v9 use the PHP method :php:`trigger_error('a message', E_USER_DEPRECATED)` and run
 through the logging and exception stack of the TYPO3 Core . There are several methods that help extension developers in
 dispatching deprecation errors. In development context deprecations are turned into exceptions by default
 and ignored in production context.

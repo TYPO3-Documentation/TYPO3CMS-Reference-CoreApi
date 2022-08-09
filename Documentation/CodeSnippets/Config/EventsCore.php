@@ -97,7 +97,7 @@ return [
         "targetFileName"=> "Events/Core/ModifyTreeDataEvent.rst.txt",
         "withCode"=> false
     ],
-    // TYPO3 12.0
+    // TYPO3 v12.0
     [
         "action"=> "createPhpClassDocs",
         "class"=> \TYPO3\CMS\Core\Domain\Access\RecordAccessGrantedEvent::class,

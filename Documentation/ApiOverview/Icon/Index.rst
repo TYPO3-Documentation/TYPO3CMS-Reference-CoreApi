@@ -23,7 +23,7 @@ To register icons for your own extension, create a file called
 
 .. note::
 
-   In versions below TYPO3 11.4 the configuration was done in the :file:`ext_localconf.php`,
+   In versions below TYPO3 v11.4 the configuration was done in the :file:`ext_localconf.php`,
    please use the version selector to look-up the syntax in the corresponding
    documentation version.
 
@@ -169,7 +169,7 @@ markupIdentifier
 The method :js:`getIcon()` returns a jQuery Promise object, as internally an AJAX request is done.
 
 .. note::
-   Since TYPO3 9, the icons are cached in the localStorage of the client to reduce the workload off the server.
+   Since TYPO3 v9, the icons are cached in the localStorage of the client to reduce the workload off the server.
 
 
 Here's an example code how a usage of the JavaScript Icon API may look like:

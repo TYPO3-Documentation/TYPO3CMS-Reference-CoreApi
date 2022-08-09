@@ -27,7 +27,7 @@ are automatically registered as actions of the controller.
 .. versionchanged:: 11.0
    To comply with PSR standards, controller actions **should** return an
    instance of the :php:`Psr\Http\Message\ResponseInterface`. This becomes
-   mandatory with TYPO3 12.0.
+   mandatory with TYPO3 v12.0.
 
 Many of these actions have parameters. You should use strong types for the
 parameters as this is necessary for the validation.

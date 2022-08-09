@@ -440,8 +440,8 @@ and will be ignored.
 
 .. include:: /CodeSnippets/TypoScriptSyntax/Syntax/CommentsSingleLine.rst.txt
 
-Up to TYPO3 7.6, a line starting with only one single slash,
-:code:`/`, has also been considered a comment. Since TYPO3 8, this
+Up to TYPO3 v7.6, a line starting with only one single slash,
+:code:`/`, has also been considered a comment. Since TYPO3 v8, this
 style however is deprecated and should not be used.
 
 
@@ -458,7 +458,7 @@ end of a comment section respectively. Anything, excluding imports,  inside a co
 section is ignored.
 
 .. warning::
-   Imports within a block comment are still resolved. This is true for both imports 
+   Imports within a block comment are still resolved. This is true for both imports
    with the :typoscript:`@import` and :typoscript:`<INCLUDE_TYPOSCRIPT: source="...">`
    syntax. Always use single line comments to comment out imports.
 

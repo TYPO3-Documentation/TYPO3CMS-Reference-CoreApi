@@ -129,7 +129,7 @@ HttpUtility::redirect
 ---------------------
 
 .. deprecated:: 11.3
-   With TYPO3 11.3 this method has been deprecated. Create a direct response
+   With TYPO3 v11.3 this method has been deprecated. Create a direct response
    using the :ref:`ResponseFactory <request-handling>` instead.
 
 .. _http_utility_response_migration:
@@ -179,7 +179,7 @@ HttpUtility::setResponseCode
 ----------------------------
 
 .. deprecated:: 11.3
-   With TYPO3 11.3 this method has been deprecated. Create a direct response
+   With TYPO3 v11.3 this method has been deprecated. Create a direct response
    using the :ref:`ResponseFactory <request-handling>` instead. See also
    :ref:`Migration <http_utility_response_migration>`.
 
@@ -187,7 +187,7 @@ HttpUtility::setResponseCodeAndExit
 -----------------------------------
 
 .. deprecated:: 11.3
-   With TYPO3 11.3 this method has been deprecated. Create a direct response
+   With TYPO3 v11.3 this method has been deprecated. Create a direct response
    using the :ref:`ResponseFactory <request-handling>` instead. See also
    :ref:`Migration <http_utility_response_migration>`.
 

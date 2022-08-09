@@ -410,7 +410,7 @@ User Settings" module; that actually allows them to save to a live record
 Moving in workspaces
 ====================
 
-TYPO3 4.2 and beyond supports moving for "Element" type versions in
+TYPO3 v4.2 and beyond supports moving for "Element" type versions in
 workspaces. A new version of the
 source record is made and has :code:`t3ver_state = 4` (move-to pointer).
 This version is necessary in order for the versioning system to

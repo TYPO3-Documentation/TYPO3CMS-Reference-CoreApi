@@ -10,7 +10,7 @@ Context-sensitive menus
 
 .. tip::
 
-   Since TYPO3 8.6 a new way of configuring and rendering context menu has
+   Since TYPO3 v8.6 a new way of configuring and rendering context menu has
    been introduced.
    Both page tree context menu and list view context menu are generated and
    configured in the same way.
