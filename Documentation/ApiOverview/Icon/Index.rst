@@ -37,18 +37,18 @@ The file needs to return a flat PHP configuration array with the following keys:
 IconProvider
 ------------
 
-The TYPO3 Core ships two icon providers which can be used:
+The TYPO3 Core ships two icon providers which can be used straight away:
 
 * :php:`BitmapIconProvider` – For all kinds of bitmap icons (GIF, PNG, JPEG, etc.)
 * :php:`SvgIconProvider` – For SVG icons
 
 .. versionchanged:: 12.0
-   The :php:`FontawesomeIconProvider` was available since version 11.5 und
-   removed from Core in 12.0. You can use the polyfill extension from
+   The :php:`FontawesomeIconProvider` has been available since version 11.5 and
+   was removed from the Core in 12.0. You can use the polyfill extension from
    `friendsoftypo3/fontawesome-provider <https://github.com/friendsoftypo3/fontawesome-provider>`__
    which is also compatible with TYPO3 v11.
 
-In case you need a custom icon provider, you can add your own by writing a
+If require need a custom icon provider, you can add your own by writing a
 class which implements the :php:`IconProviderInterface`.
 
 .. _icon-usage:
@@ -87,7 +87,7 @@ You can use the :php:`IconFactory` to request an icon:
    now scales with the text.
 
    In cases where the size :php:`Icon::SIZE_DEFAULT` was explicitly set this
-   might result in changed behaviour. Switch to :php:`Icon::SIZE_MEDIUM` then.
+   might result in changed behavior. Switch to :php:`Icon::SIZE_MEDIUM` then.
 
 .. index::
    Fluid; Core icon
@@ -195,13 +195,13 @@ The TYPO3 Core comes with a number of icons that may be used in your extensions.
 To search for available icons, you can use one of these possibilities:
 
 
-Install styleguide extension
-----------------------------
+Install the styleguide extension
+--------------------------------
 
 Install the extension *styleguide* as described in the Readme in the `installation
 <https://github.com/TYPO3/styleguide#installation>`__ section.
 
-Once, installed, you can view available icons by selecting help (?) on the top in the
+Once installed, you can view available icons by selecting help (?) on the top in the
 TYPO3 backend, then *Styleguide* and then *Icons*, *All Icons*.
 
 There, browse through existing icons. Use the name under the icon (for example
