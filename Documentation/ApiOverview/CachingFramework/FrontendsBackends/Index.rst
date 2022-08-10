@@ -472,7 +472,7 @@ but one redis instance can handle multiple caches without performance loss when 
 
 .. important::
 
-   The scheduler garbage collection task should be run every once in a while to
+   The scheduler garbage collection task should be run regularly to
    find and delete old cache tags entries. These do not expire on their own and
    would remain in memory indefinitely - unless cache is flushed.
 
@@ -483,7 +483,7 @@ which must be available on the system.
 
    Please check the section on
    :ref:`configuration <cacheBackendRedisServerConfiguration>` and monitor
-   memory usage (and eviction, if enabled). In general, you will run into
+   memory usage (and eviction, if enabled). Otherwise, you may run into
    problems, if not enough memory for the cache entries is reserved in the Redis
    server (`maxmemory`).
 
@@ -607,19 +607,21 @@ Redis server configuration
 This section is about the configuration on the Redis server, not the client.
 
 For the flushing by cache tags to work, it is important that the integrity of
-the cache entries and cache tags is maintained. This may not be the case, if an
-eviction policy  (`maxmemory-policy`) is used. For example, for a page id=81712,
-the following entries may exist in Redis:
+the cache entries and cache tags is maintained. This may not be the case,
+depending on which eviction policy (`maxmemory-policy`) is used. For example,
+for a page id=81712, the following entries may exist in the Redis page cache:
 
 #. "tagIdents:pageId_81712" (tag->identifier relation)
 #. "identTags:81712_7e9c8309692aa221b08e6d5f6ec09fb6" (identifier->tags relation)
 #. "identData:81712_7e9c8309692aa221b08e6d5f6ec09fb6" (identifier->data)
 
 If entries are evicted (due to memory shortage), there is no mechanism in
-place which ensures that all entries which are related, will be evicted. This may
-result in the situation that the cache entry still exists, but the tag entry
-(which reflects the relation "cache tag => cache identifier" and is used for
-:php:`RedisBackend::flushByTag()` has been removed). If this occurs, the cache
+place which ensures that all entries which are related, will be evicted. If
+`maxmemory-policy allkeys-lru` is used, for example, this may
+result in the situation that the cache entry (identData) still exists, but the
+tag entry (tagIdents) does not. The tag entry reflects the relation
+"cache tag => cache identifier" and is used for
+:php:`RedisBackend::flushByTag()`). If this entry is gone, the cache
 can no longer be flushed if content is changed on the page or an explicit
 flushing of the page cache for this page is requested. Once this is the case,
 cache flushing (for this page) is only possible via other means (such as full
@@ -627,30 +629,42 @@ cache flush).
 
 Because of this, the following recommendations apply:
 
-#. It is recommended to allocate enough memory (`maxmemory`) for the cache
-#. It is recommended to monitor `evicted_keys` in case an eviction policy is
-   used. The entry `evicted_keys` should always be 0.
-#. It is recommended to monitor `used_memory` if eviction policy
-   `noeviction` is used. The `used_memory` should always be less then `maxmemory`.
+#. Allocate enough memory (`maxmemory`) for the cache.
+#. Use the `maxmemory-policy` `volatile-ttl`. This will ensure
+   that no tagIdents entries are removed. (These have no expiration date).
+#. Regularly run the TYPO3 scheduler garbage collection task for the Redis cache
+   backend.
+#. Monitor `evicted_keys` in case an eviction policy is used.
+#. Monitor `used_memory` if eviction policy `noeviction` is used. The
+   `used_memory` should always be less then `maxmemory`.
 
 .. tip::
 
    The information about `evicted_keys` etc. can be obtained via `redis-cli` and
-   the `info` command. Further information of the results of info is in the
-   `documentation <https://redis.io/commands/info/>`__.
+   the `info` command or via php-redis. Further information of the results of
+   info is in the `documentation <https://redis.io/commands/info/>`__.
 
 The `maxmemory-policy <https://redis.io/docs/manual/eviction/#eviction-policies>`__
 options have the following drawbacks:
 
-noeviction
-   Once memory is full, no new entries will be saved to cache.
+volatile-ttl
+   (recommended) Will flush only entries with an expiration date. Should be ok
+   with TYPO3.
 
-!noeviction (e.g. allkey-lru)
-   Once memory is full and entries are evicted, the previously mentioned
-   cache tag inconsistency may occur.
+noeviction
+   (Not recommended) Once memory is full, no new entries will be saved to cache.
+   Only use if you can ensure that there is always enough memory.
+
+allkeys-lru, allkeys-lfu, allkeys-random
+   (Not recommended) This may result in tagIdents being removed, but not the
+   related identData entry, which makes it impossible to flush the cache
+   entries by tag (which is necessary for TYPO3 cache flushing on changes to
+   work and the flush page cache to work for specific pages).
+
 
 .. seealso::
 
+   *  `Redis eviction policies <https://redis.io/docs/manual/eviction/>`__
    *  `Redis configuration <https://redis.io/docs/manual/config/>`__
 
 .. _caching-backend-wincache:
