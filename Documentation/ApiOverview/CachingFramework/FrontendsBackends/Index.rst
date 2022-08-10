@@ -470,7 +470,11 @@ at least if there is enough memory available to hold the complete set in memory.
 At the moment only one redis server can be used at a time per cache,
 but one redis instance can handle multiple caches without performance loss when flushing a single cache.
 
-The garbage collection task should be run every once in a while to find and delete old tags.
+.. important::
+
+   The scheduler garbage collection task should be run every once in a while to
+   find and delete old cache tags entries. These do not expire on their own and
+   would remain in memory indefinitely - unless cache is flushed.
 
 The implementation is based on the PHP `phpredis <https://github.com/nicolasff/phpredis>`_ module,
 which must be available on the system.
